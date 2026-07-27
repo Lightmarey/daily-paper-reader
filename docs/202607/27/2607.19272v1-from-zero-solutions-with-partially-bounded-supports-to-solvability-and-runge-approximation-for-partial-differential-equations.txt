@@ -1,0 +1,4884 @@
+Title: From zero solutions with partially bounded supports to solvability and Runge approximation for partial differential equations
+
+URL Source: https://arxiv.org/pdf/2607.19272v1
+
+Published Time: Wed, 22 Jul 2026 01:17:06 GMT
+
+Number of Pages: 50
+
+Markdown Content:
+FROM ZERO SOLUTIONS WITH PARTIALLY BOUNDED SUPPORTS TO SOLVABILITY AND RUNGE APPROXIMATION FOR PARTIAL DIFFERENTIAL EQUATIONS 
+
+TOMASZ CIAŚ 1 AND THOMAS KALMES 2
+
+Abstract. The existence of non-trivial solutions of homogeneous partial dif-ferential equations with prescribed support properties plays a fundamental role in the theory of linear partial differential operators. In this article, we establish the existence of smooth zero solutions with partially bounded supports for a broad class of constant coefficient partial differential operators. As applications, we obtain new geometric results concerning solvability and approximation for partial differential equations. In particular, we derive geometric characterizations of P -convexity for supports for a large class of non-elliptic operators, thereby extending classical geometric ideas of H¨ ormander. By a theorem of Malgrange, P -convexity for supports is equivalent to the surjectivity of the differential operator on spaces of smooth functions and, more generally, on local subspaces of distributions of finite order. As a further consequence, we prove that the kernel of every surjective semi-elliptic operator satisfies condition (Ω) implying parameter dependence results. We also investigate Runge-type approximation phenomena. We obtain geo-metric characterizations of Runge pairs for smooth functions, distributions, and spaces of smooth Whitney jets. Finally, we develop a general framework for Runge approximation for square systems of constant coefficient partial dif-ferential equations. As applications, we recover by alternative methods known Runge approximation results for Beltrami fields and for the three-dimensional unsteady Stokes system, and we complement them by corresponding approxi-mation theorems in spaces of smooth Whitney jets. In particular, this yields approximation up to the boundary for solutions on suitable domains with H¨ older continuous boundary. Keywords: constant coefficient partial differential operators; smooth zero solu-tions with partially bounded supports; P -convexity for supports; semi-elliptic operators; condition (Ω); Runge approximation; Lax-Malgrange theorem; Whit-ney jets; Beltrami fields; unsteady Stokes system MSC 2020: 35A01, 35A35, 35E20, 46A63 
+
+1. Introduction 
+
+The existence of non-trivial smooth solutions of homogeneous partial differen-tial equations (i.e. smooth zero solutions) with prescribed support properties has long played a fundamental role in the theory of linear partial differential operators. Solutions of this type are used to establish necessary conditions for surjectivity of partial differential operators on so-called local subspaces (in the sense of H¨ ormander [25, Chapter 10]) of the space of finite-order distributions, such as spaces of smooth 
+
+> 1
+
+Faculty of Mathematics and Computer Science, Adam Mickiewicz University, Poz-nań, ul. Uniwersytetu Poznańskiego 4, 61-614 Poznań, Poland 
+
+> 2
+
+Faculty of Mathematics, Chemnitz University of Technology, 09107 Chemnitz, Germany 
+
+E-mail addresses : tomasz.cias@amu.edu.pl, thomas.kalmes@math.tu-chemnitz.de . 
+
+> 1arXiv:2607.19272v1 [math.AP] 21 Jul 2026 2T. CIAŚ AND T. KALMES
+
+functions and local Sobolev spaces. By the seminal work of Malgrange [30], a con-stant coefficient linear partial differential operator P (D) is surjective on such spaces over an open subset X of Rd precisely when X is P -convex for supports (see also [25, Section 10.6]). Despite the classical nature of this characterization, a geometric description of this condition for given (classes of) partial differential operators is notoriously difficult. Convex open sets are P -convex for supports [30] (whenever 
+
+P̸ ≡ 0), every open set is P -convex for supports whenever P is elliptic, and there is a complete geometric characterization of P -convexity for supports in the two dimensional case due to H¨ ormander [25, Theorem 10.8.3]. In arbitrary dimensions, however, the problem of geometrically characterizing open subsets of Rd which are 
+
+P -convex for supports is far from being solved. For second order operators with principal part equal to the wave operator, there is a characterization [25, Theorem 10.8.6], essentially due to Persson [39] (see also [40, 47, 46] for general operators of real principal type). Moreover, Nakane [37] gave a geometric characterization of 
+
+P -convexity for supports for polynomials which act along a subspace of Rd and are elliptic there (see also [25, Theorem 10.8.5]; the special case of first order operators was studied in [57]). Besides their role in the study of P-convexity for supports, smooth zero solu-tions with partially bounded supports also play an important role in Runge-type approximation theorems, i.e. approximability of solutions of homogeneous partial differential equations on a small set by solutions of the same equation on a larger set. Starting from Runge’s classical theorem on rational approximation and its far-reaching generalization by Lax and Malgrange to elliptic differential operators, Runge approximation results have become a classical topic in the theory of partial differential equations [3, 4]. In recent years, this subject has experienced renewed interest. For variable coefficients parabolic operators of second order, such approx-imation results have been studied by Enciso, Garc´ ıa-Ferrero, Peralta-Salas [13] and have been complemented by Enciso, Peralta-Salas [17] as well as Shlapunov, Vilkov [45]. For several classes of non-elliptic constant coefficient partial differential opera-tors, Runge approximation theorems are due to the second author [29] as well as to Debrouwere and the second author [10]. Beyond scalar equations, Runge approxi-mation for systems has attracted considerable recent interest, not least because of its striking applications in fluid dynamics. Notable examples include the work of Higaki and Sueur on the three-dimensional unsteady Stokes system [22] and the influential contributions of Enciso and Peralta-Salas on the three-dimensional Eu-ler equations [15, 16] and, jointly with Luc´ a, on the Navier–Stokes equations [14]. These developments suggest that approximation results for systems can serve as a useful tool in the study of fluid equations and related PDE models. While the above mentioned results deal with Runge theorems for solutions of homogeneous partial differential equations on open subsets of Rd, approximation results for solutions on closed subsets of Rd, in the context of smooth Whitney jets, have very recently been studied in [5]. For non-elliptic differential operators, the existence of zero solutions with partially bounded supports naturally leads to geometric conditions for Runge-type approximation phenomena. The central aim of this article is twofold. Our first objective is to establish the existence of such solutions for a large class of constant coefficient partial differential operators. This is done in Section 2. Our second objective is to systematically apply the existence results as described above. More precisely, building on these existence results and earlier work of the authors, Section 3 provides a geometric character-ization of P -convexity for supports for certain partial differential operators. In particular, the class of operators covered by our results contains all semi-elliptic operators. ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 3
+
+While Section 3 focuses on solvability, the existence of zero solutions with par-tially bounded supports also has important consequences for approximation theory. In Section 4 we use our existence results, again in combination with earlier work of the authors, to derive geometric criteria for Runge-type approximation phenomena, not only in the classical setting of smooth functions and distributions, but also in the setting of smooth Whitney jets. The final Section 5 of the paper is devoted to systems of partial differential equations. We develop a general framework for Runge pairs for square systems of constant coefficient linear partial differential equations. This framework is for-mulated for smooth functions, distributions, and spaces of smooth Whitney jets. As consequences of this general framework, we give alternative proofs of the above mentioned Runge approximation results (on compact subsets for zero solutions on open supersets) by Enciso and Peralta-Salas [16] and by Higaki and Sueur [22], respectively. In addition, our approach yields corresponding Runge-type results in spaces of smooth Whitney jets which establish approximation theorems up to the boundary for smooth functions on domains with H¨ older continuous boundary. The geometric characterization of P -convexity for supports obtained in Section 3 also has further consequences of a more functional analytic nature. We prove that the kernel of every surjective semi-elliptic operator satisfies condition (Ω) of Vogt and Wagner. By the celebrated splitting theorem of Vogt and Wagner, this im-plies surjectivity of semi-elliptic operators acting on spaces of vector-valued smooth functions [53], thereby giving a positive answer to the parameter dependence prob-lem for solutions of semi-elliptic equations, including distributional and tempered distributional parameter dependence (see e.g. [1] and references therein). In two appendices, we discuss some results on polynomials and on spherical harmonics expansion in the Fr´ echet space of smooth functions, respectively, which are used to establish our results. Throughout the paper, we freely use standard notions and results from the the-ory of distributions, partial differential operators, and locally convex spaces. For background material, we refer to [24, 25, 50] and [26, 35], respectively. 2. Smooth zero solutions with partially bounded support 
+
+In this section, we prove one of the main results of this paper, Theorem 9 be-low. It states the existence of non-trivial smooth functions with partially bounded supports which belong to the kernel of certain partial differential operators. Let P ∈ C[ξ1, . . . , ξ d] be a non-constant polynomial of degree m, i.e. P (ξ) = ∑ 
+
+> |α|≤ m
+
+cαξα with cα̸ = 0 for some α with |α| = m. Here and in what follows, for a multi-index α ∈ Nd 
+
+> 0
+
+we denote its length by |α|(= ∑dj=1 αj ). Although we also denote the euclidean norm of a vector x in Rd by |x|, this should not cause any confusion, since the meaning will be apparent from the context. As usual, for P ∈ C[ξ1, . . . , ξ d] of degree m we denote its principal part by Pm, i.e. Pm(ξ) = ∑ 
+
+> |α|=m
+
+cαξα. The partial differential operator with constant coefficients P (D) cor-responding to P is defined by the expression ∑ 
+
+> |α|≤ m
+
+cαDα = ∑ 
+
+> |α|≤ m
+
+cα(−i)|α|∂α.Additionally, for X ⊂ Rd open, we define 
+
+EP (X) = {f ∈ E (X) : P (D)f = 0 in X},
+
+where we use Schwartz’ notation [44] and denote by E (X) the space of complex valued, smooth functions equipped with its natural Fr´ echet space topology. The main ingredient in the proof of Theorem 9 is a result on the Cauchy problem, Theorem 3 below, which is of independent interest. In order to formulate and prove it, we will work with suitable (inhomogeneous) Gevrey classes whose definition we recall for the reader’s convenience. 4 T. CIAŚ AND T. KALMES 
+
+Definition 1. Let s = ( s1, . . . , s n) ∈ [1 , ∞)n. Let K ⊂ Rn be a compact set such that int K = K and let C > 0. We write Gs,C (K) for the Banach space consisting of those ϕ ∈ C∞(K) such that 
+
+∥ϕ∥Gs,C (K) := sup 
+
+> α∈Nn
+> 0
+
+sup 
+
+> x∈K
+
+|Dαϕ(x)|
+
+C|α| ∏nj=1 (αj !) sj < ∞,
+
+where 
+
+C∞(K) := {f ∈ E (int K) : ∂αf admits a continuous extension to K for all α ∈ Nd
+
+> 0
+
+}.
+
+For X ⊂ Rn open we define the Gevrey space of class s in X as 
+
+Gs(X) := lim 
+
+←− 
+
+> K⊂Xcompact, int K=K
+
+lim 
+
+−→
+
+> C→∞
+
+Gs,C (K)which we equip with its natural locally convex topology. In case of s ∈ (1 , ∞)n, let us also set Gsc(X) := Gs(X) ∩ D(X). Obviously, for s, t ∈ [1 , ∞)n with sj ≤ tj we have Gs(X) ⊂ Gt(X) continuously. For s = ( σ, . . . , σ ), σ ∈ [1 , ∞), the space Gs(X) is denoted by Gσ (X) and called the (homogeneous) Gevrey space of class σ. We have Gmax j sj (X) ⊂ Gs(X) continu-ously. Apparently, for σ = 1 the Gevrey class Gσ (X) is the space of real analytic functions A (X) on X. By the elementary inequalities α! ≤ | α|! ≤ n|α|α!, α ∈ Nn 
+
+> 0
+
+,it holds 
+
+Gσ (X) := lim 
+
+←− 
+
+> K⊂Xcompact, int K=K
+
+lim 
+
+−→
+
+> C→∞
+
+˜Gσ,C (K),
+
+where by ˜Gσ,C (K) we denote the Banach space consisting of ϕ ∈ C∞(K) with 
+
+∥ϕ∥ ˜Gσ,C (K) := sup 
+
+> α∈Nn
+> 0
+
+sup 
+
+> x∈K
+
+|Dαϕ(x)|
+
+C|α|(|α|!) σ < ∞.
+
+We refer to [42] for any further properties of Gevrey classes we may use. The proof of our first result is an adaptation of the proof of [29, Theorem 5]. For s = 1, it is, of course, a special case of the Cauchy-Kovalevskaya Theorem (see also [25, Theorem 12.7.5]). 
+
+Theorem 2. Let m ∈ N and let P ∈ C[ξ1, . . . , ξ d] be a polynomial of the form 
+
+P (ξ′, ξ d) = ξmd + ∑m−1 
+
+> k=0
+
+Qk(ξ′)ξkd , where Qk ∈ C[ξ1, . . . , ξ d−1] with deg( Qk) ≤
+
+m − 1 − k, k = 0 , . . . , m − 1. Moreover, let Y ⊂ Rd−1 be open and let s ∈
+
+[1 , ∞)d−1 be such that max k sk < mm−1 . For every h0, . . . , h m−1 ∈ Gs(Y ) there is u ∈ G(s1,...,s d−1,1) (Y × R) such that the following properties hold: 
+
+(i) u ∈ EP (Y × R),
+
+(ii) ∂jdu(x′, 0) = hj (x′) for all x′ ∈ Y , 0 ≤ j ≤ m − 1,
+
+(iii) supp u ⊂ (∪m−1 
+
+> j=0
+
+supp hj
+
+) × R.Especially, for every x′ ∈ Y the function u(x′, ·) is real analytic on R, and u(·, x d) ∈
+
+Gs(Y ) for every xd ∈ R. Consequently , whenever σ > 1, for all ϵ > 0 there is 
+
+u ∈ G(σ,...,σ, 1) (Rd−1 × R) satisfying P (D)u = 0 such that supp u = Bd−1(0 , ϵ ) × R
+
+and u is real analytic on Bd−1(0 , ϵ ) × R, where for n ∈ N we denote the euclidean ball in Rn of radius ρ centered at the origin by Bn(0 , ρ ).Proof. For l ∈ N0, we define recursively 
+
+Cl : E (Y ) → E (Y ), f 7 →
+
+
+
+0, l ∈ { 0, . . . , m − 2},f, l = m − 1,
+
+− ∑m−1 
+
+> k=0
+
+Qk(D)Ck+l−m(f ), l ≥ m. ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 5
+
+Additionally, for n ∈ N we define the linear and continuous mappings 
+
+Ln : E (Y ) → E (Y × R), L n(h)( x′, x d) := 
+
+> n
+
+∑
+
+> l=0
+
+Cl(h)( x′) (i x d)l
+
+l! .
+
+Obviously, supp Ln(h) ⊂ supp h × R.Let us assume, for the moment, that h0, . . . , h m−1 ∈ E (Y ) are such that for all 0 ≤ j ≤ m − 1 the sequence ( Ln(hj )) n converges in E (Y × R), L(hj ) := lim n→∞ Ln(hj ). Then 
+
+u := 
+
+> m−1
+
+∑
+
+> j=0
+> m−1−j
+
+∑
+
+> k=0
+
+Qj+k+1 (D)Dkd L(hj )belongs to EP (Y × R) and satisfies Djdu(·, 0) = hj (·), 0 ≤ s ≤ m − 1 (cf. [29, Section 4]). Therefore, we shall prove that ( Ln(hj )) n converges in E (Y × R). To do so, we use the fact that, by [29, Remark 1], 
+
+Ln(h)( x′, x d) = 
+
+> n
+
+∑
+
+> l=m−1
+
+∑ 
+
+> β∈Nm
+> 0,σ(β)= l−m+1
+
+(−1) |β|
+
+( |β|
+
+β1, . . . , β m
+
+) m∏
+
+> k=1
+
+Qβk
+
+> m−k
+
+(D)h(x′) (ix d)l
+
+l! ,
+
+where σ(β) = ∑mj=1 jβ j .By hypothesis, for 0 ≤ k ≤ m − 1 it holds 
+
+Qk(ξ′) = ∑ 
+
+> γ∈Nd−10,|γ|≤ m−1−k
+
+qk,γ ξ′γ
+
+for suitable qk,γ ∈ C. We fix q ≥ 1 such that ∑  
+
+> γ∈Nd−10,|γ|≤ m−1−k
+
+|qk,γ | ≤ q for every 0 ≤ k ≤ m − 1. Fix h0, . . . , h m−1 ∈ Gs(Y ). Moreover, let K be an arbitrary compact subset of 
+
+Y such that K = int( K) and let C > 1 be such that 
+
+∀ 0 ≤ j ≤ m − 1 : ∥hj ∥Gs,C (K) < ∞.
+
+Additionally, let R ≥ 1. For α = ( α′, α d) ∈ Nd−10 × N0 it follows for n ≥ αd + m,
+
+r ∈ N and each ( x′, x d) ∈ K × [−R, R ], 0 ≤ j ≤ m − 1, 
+
+|DαLn+r (hj )( x′, x d) − DαLn(hj )( x′, x d)|≤
+
+> max {n+r+1 ,α d}− 1
+
+∑
+
+> l=max {n+1 ,α d}
+
+∑ 
+
+> β∈Nm
+> 0,σ(β)= l−m+1
+
+( |β|
+
+β1, . . . , β m
+
+) ∣∣∣∣∣
+
+> m
+
+∏
+
+> k=1
+
+Qβk
+
+> m−k
+
+(D)Dα′
+
+hj (x′)
+
+∣∣∣∣∣ ×× Rl−αd
+
+l!
+
+( lαd
+
+)
+
+αd!
+
+≤
+
+> max {n+r+1 ,α d}− 1
+
+∑
+
+> l=max {n+1 ,α d}
+
+∑ 
+
+> β∈Nm
+> 0,σ(β)= l−m+1
+
+( |β|
+
+β1, . . . , β m
+
+) ∣∣∣∣∣
+
+> m
+
+∏
+
+> k=1
+
+Qβk
+
+> m−k
+
+(D)Dα′
+
+hj (x′)
+
+∣∣∣∣∣ ×× (2 R)l
+
+l! αd!(1) Because deg 
+
+( m∏
+
+> k=1
+
+Qβk
+
+> m−k
+
+)
+
+=
+
+> m
+
+∑
+
+> k=1
+
+βk deg( Qm−k) ≤
+
+> m
+
+∑
+
+> k=1
+
+βk(k − 1) = 
+
+> m
+
+∑
+
+> k=1
+
+βkk k − 1
+
+k
+
+≤ σ(β) m − 1
+
+m ,6 T. CIAŚ AND T. KALMES 
+
+it holds for x′ ∈ K and β ∈ Nm
+
+0 , due to Stirling’s formula, 
+
+∣∣∣∣∣
+
+m∏
+
+k=1 
+
+Qβk
+
+m−k(D)Dα′
+
+hj (x′)
+
+∣∣∣∣∣ ≤ q|β| max 
+
+γ∈Nd−10 ,
+
+|γ|≤ m−1 
+
+> m
+
+σ(β)
+
+max 
+
+x′∈K
+
+∣∣∣Dγ+α′
+
+hj (x′)
+
+∣∣∣
+
+≤ ∥hj ∥Gs,C (K)qσ(β) max 
+
+γ∈Nd−10 ,
+
+|γ|≤ m−1 
+
+> m
+
+σ(β)
+
+C|γ|+|α′|
+
+d−1∏
+
+k=1 
+
+(( γk + α′
+
+k)!) sk
+
+≤ ∥hj ∥Gs,C (K)qσ(β)(2 max k sk C) m−1 
+
+> m
+
+σ(β)(2 max k sk C)|α′|
+
+d−1∏
+
+k=1 
+
+(α′
+
+k!) sk ××2 m−1 
+
+> m
+
+σ(β) max k sk max 
+
+γ∈Nd−10 ,
+
+|γ|≤ m−1 
+
+> m
+
+σ(β)
+
+d−1∏
+
+k=1 
+
+(γk!) sk
+
+≤ ∥hj ∥Gs,C (K)qσ(β)(2 max k sk C) m−1 
+
+> m
+
+σ(β)(2 max k sk C)|α′|
+
+d−1∏
+
+k=1 
+
+(α′
+
+k!) sk ××2 m−1 
+
+> m
+
+σ(β) max k sk 3s1+··· +sd−1 max 
+
+γ∈Nd−10 ,
+
+|γ|≤ m−1 
+
+> m
+
+σ(β)
+
+d−1∏
+
+k=1 
+
+γsk γk
+
+k
+
+≤ ∥hj ∥Gs,C (K)qσ(β)(2 max k sk C) m−1 
+
+> m
+
+σ(β)(2 max k sk C)|α′|
+
+d−1∏
+
+k=1 
+
+(α′
+
+k!) sk ××2 m−1 
+
+> m
+
+σ(β) max k sk 3s1+··· +sd−1
+
+( m − 1
+
+m σ(β)
+
+) m−1 
+
+> m
+
+σ(β) max k sk
+
+.
+
+Combining the previous inequality with inequality (1), we obtain 
+
+|DαLn+r (hj )( x′, x d) − DαLn(hj )( x′, x d)|≤ ∥hj ∥Gs,C (K)3s1+··· +sd−1 (2 max k sk C)|α′|
+
+d−1∏
+
+k=1 
+
+(α′
+
+k!) sk · αd! ××
+
+∞∑
+
+l=n+1 
+
+(2 R)l
+
+l!
+
+∑
+
+β∈Nm 
+
+> 0
+
+,σ(β)= l−m+1 
+
+( |β|
+
+β1, . . . , β m
+
+)
+
+(4 max k sk C) m−1 
+
+> m
+
+σ(β)
+
+×qσ(β)
+
+( m − 1
+
+m σ(β)
+
+) m−1 
+
+> m
+
+σ(β) max k sk
+
+≤ ∥hj ∥Gs,C (K)3s1+··· +sd−1 (2 max k sk C)|α′|
+
+d−1∏
+
+k=1 
+
+(α′
+
+k!) sk · αd! ××
+
+∞∑
+
+l=n+1 
+
+(2 R)l
+
+l!
+
+∑
+
+β∈Nm 
+
+> 0
+
+,σ(β)= l−m+1 
+
+( |β|
+
+β1, . . . , β m
+
+)
+
+(4 max k sk C) m−1 
+
+> m
+
+l
+
+×ql
+
+( m − 1
+
+m l
+
+)l m−1 
+
+> m
+
+max k sk
+
+≤ ∥hj ∥Gs,C (K)3s1+··· +sd−1 (2 max k sk C)|α′|
+
+d−1∏
+
+k=1 
+
+(α′
+
+k!) sk · αd! ×ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 7
+
+×
+
+> ∞
+
+∑
+
+> l=n+1
+
+(2 R 4max k sk Cq )l ll m−1  
+
+> mmax ksk
+
+l! ×× ∑ 
+
+> β∈Nm
+> 0,
+> |β|=l−m+1
+
+( |β|
+
+β1, . . . , β m
+
+)
+
+≤ ∥hj ∥Gs,C (K)3s1+··· +sd−1
+
+(2max ks k C)|α′| d−1∏
+
+> k=1
+
+(α′
+
+> k
+
+!) sk · αd! ××
+
+> ∞
+
+∑
+
+> l=n+1
+
+(2 mR 4max k sk Cq )l ll m−1  
+
+> mmax ksk
+
+(l/e )l
+
+= ∥hj ∥Gs,C (K)3s1+··· +sd−1 (2 max k sk C)|α|
+
+> d−1
+
+∏
+
+> k=1
+
+(α′
+
+> k
+
+)sk · αd! ××
+
+> ∞
+
+∑
+
+> l=n+1
+
+( 2mR 4max k sk Cq e
+
+)l
+
+ll( m−1   
+
+> mmax ksk−1)
+
+(2) where we have used the Multinomial Theorem as well as Stirling’s formula, again. By hypothesis, m−1 
+
+> m
+
+max k sk − 1 < 0 so that by (2) 
+
+∥Ln+r (hj )( ·, x d) − Ln(hj )( ·, x d)∥G(s1,...,s d−1,1) ,2max k sk C (K×[−R,R ]) 
+
+≤ ∥hj ∥Gs,C (K)3s1+··· +sd−1
+
+> ∞
+
+∑
+
+> l=n+1
+
+( 2mR 4max k sk Cq e
+
+)l
+
+ll( m−1    
+
+> mmax ksk−1)
+
+→n→∞ 0.
+
+Thus, for each j = 1 , . . . , m − 1 the sequences ( Ln(hj ))) n∈N are Cauchy sequences in G(s1,...,s d−1,1) ,2max k sk C (K × [−R, R ]) and therefore convergent. Herefrom it follows easily that ( Ln(hj ))) n∈N converges in G(s1,...,s d−1,1) (Y × R). In particular, 
+
+L(hj )( x′, x d) = 
+
+> ∞
+
+∑
+
+> l=m−1
+
+∑ 
+
+> β∈Nm
+> 0,σ(β)= l−m+1
+
+(−1) |β|
+
+( |β|
+
+β1, . . . , β m
+
+) m∏
+
+> k=1
+
+Qβk
+
+> m−k
+
+(D)hj (x′) (ix d)l
+
+l! ,
+
+converges in E (Y × R) so that 
+
+u := 
+
+> m−1
+
+∑
+
+> j=0
+> m−1−j
+
+∑
+
+> k=0
+
+Qj+k+1 (D)Dkd L(hj )has all the claimed properties. Finally, for σ > 1 and ϵ > 0 let h0 ∈ Gσ (Rd−1) be such that supp h0 = Bd−1(0 , ϵ ), h0 > 0 in Bd−1(0 , ϵ ),
+
+and h0 is real analytic in Bd−1(0 , ϵ ). Then, the above solution u for h0 and h1 =
+
+. . . = hm−1 = 0 belongs to Gσ (Rd−1 × R), and supp u ⊂ Bd−1(0 , ϵ ) × R.
+
+Moreover, applying the first part of the theorem to the open set Y = Bd−1(0 , ϵ ), 
+
+s = (1 , . . . , 1) ∈ [1 , ∞)d−1 and analytic functions h0|Bd−1(0 ,ϵ ), h1 = . . . = hm−1 = 0, we conclude that u|Bd−1(0 ,ϵ )×R ∈ G1(Bd−1(0 , ϵ ) × R), i.e. u is real analytic in 
+
+Bd−1(0 , ϵ )×R. Because u(x′, 0) = h0(x′) > 0, the identity principle for real analytic functions entails 
+
+Bd−1(0 , ϵ ) × R ⊂ supp u
+
+which completes the proof of the theorem. □8 T. CIAŚ AND T. KALMES 
+
+Remark 3. The proof of Theorem 2 can be adapted to give an analogous result for ultradifferentiable classes of Roumieu type E {M }(Y ) instead of Gevrey classes, as long as the defining weight sequence M = ( Mp)p∈N satisfies lim  
+
+> p→∞
+
+Mp/(p!) m/m −1 = 0 .
+
+For certain other asymptotic behavior of the weight sequence M , see, e.g., [8, Sec-tiona 4]. For a function f : Rd → C and a point x ∈ Rd, we denote as usual τxf (y) := 
+
+f (y − x) and ˇf (y) := f (−y). 
+
+Lemma 4. Let f, g ∈ E (Rd) with supp f ⊂ ∏dk=1 Ik and supp g ⊂ ∏dk=1 Jk for some open (not necessarily bounded) intervals Ik, J k ⊂ R. Let us assume that, for all 1 ≤ k ≤ d, Ik or Jk is bounded. Then, the following assertions hold. 
+
+(i) The convolution f ∗ g is well-defined. 
+
+(ii) f ∗ g ∈ E (Rd) and Dα(f ∗ g) = ( Dαf ) ∗ g = f ∗ (Dαg) for all α ∈ Nd
+
+> 0
+
+.Proof. In order to prove (i), let us note that supp ( f · τx ˇg) = supp f ∩ supp τx ˇg ⊂
+
+> d
+
+∏
+
+> k=1
+
+Ik ∩
+
+( d∏
+
+> k=1
+
+Jk + x
+
+)
+
+=
+
+> d
+
+∏
+
+> k=1
+
+[Ik ∩ (Jk + xk)] .
+
+By hypothesis imposed on the intervals Ik, J k, the set supp ( f · τx ˇg) is compact. Therefore, the convolution f ∗ g,(f ∗ g)( x) := 
+
+∫
+
+> Rd
+
+f (y)g(x − y)d y =
+
+∫
+
+supp (f ·τx ˇg)
+
+(f · τx ˇg)( y)d y, 
+
+is well-defined. Statement (ii) can be proved in a similar way as [43, Theorem 6.30(b)]. □
+
+A first version of the existence result of non-trivial smooth functions with par-tially bounded supports for kernel of a certain class of partial differential operators is the next one. This is an extension of Cohoon’s result [6, Theorem 1], where the case l = d − 1 is treated. For this special case, the form of the principal part of P is also necessary for the existence of a non-trivial zero solution with such a partially bounded support (see also Remark 12). 
+
+Theorem 5. Let m ∈ N, 1 ≤ l ≤ d − 1, and let P ∈ C[ξ1, . . . , ξ d] be a polynomial of degree m with principal part Pm of the form 
+
+Pm(ξ) = ξmd +
+
+> d−1
+
+∑
+
+> j=l+1
+
+pj (ξ)ξj
+
+for some polynomials pj ∈ C[ξ1, . . . , ξ d]. Then, for every 0 < δ < ϵ there is v ∈
+
+EP (Rd) such that 
+
+(i) Bl(0 , δ ) × Rd−l ⊂ supp v ⊂ Bl(0 , ϵ ) × Rd−l,
+
+(ii) v is real analytic on Bl(0 , δ ) × Rd−l.As before, for n ∈ N we denote the euclidean ball in Rn of radius ρ > 0 centered at the origin by Bn(0 , ρ ).ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 9
+
+Proof. Let P (ξ) = Pm(ξ) + ∑ 
+
+> |α|<m
+
+cαξα. Set ϵ1 = ϵ−δ 
+
+> 2
+
+and ϵ2 = ϵ+δ 
+
+> 2
+
+. Next, let us fix a nonnegative function λ ∈ E (Rd−1) such that λ depends only on the first l
+
+coordinates, supp λ = Bl(0 , ϵ 2) × Rd−l−1,
+
+and such that λ is even symmetric, and λ is real analytic on Bl(0 , ϵ 2) × Rd−l−1.Let 1 < s < mm−1 and let us fix a nonzero and nonnegative function ϕ ∈ Gs(Rd−1)with supp ϕ = Bd−1(0 , ϵ 1) and ϕ > 0 in Bd−1(0 , ϵ 1). By Theorem 2 applied for 
+
+h0 = ϕ, h 1 = . . . , h m−1 = 0, there is a solution u ∈ E (Rd) of the partial differential equation Dmd + ∑
+
+> |α|<m
+
+cαDα
+
+ u = 0 such that (see also the proof of the last part of Theorem 2) supp u = supp ϕ × R = Bd−1(0 , ϵ 1) × R ⊂ [−ϵ1, ϵ 1]d−1 × R,u(x′, 0) = ϕ(x′) for all x′ ∈ Rd−1, and u(x′, ·) is real analytic on R. In particular, it can be extended to a function u : Rd−1 × C → C in such a way that u(x′, ·) is an entire function. By a standard application of Lebesgue’s Dominated Convergence Theorem to differentiability of parameter intergrals, the function 
+
+f : C → C, f (z) := 
+
+∫
+
+> [−ϵ1,ϵ 1]d−1
+
+u(x′, z )λ(x′)d x′,
+
+is entire and since 
+
+f (0) = 
+
+∫
+
+> [−ϵ1,ϵ 1]d−1
+
+u(x′, 0) λ(x′)d x′ =
+
+∫
+
+> [−ϵ1,ϵ 1]d−1
+
+ϕ(x′)λ(x′)d x′ > 0,f is nonzero. Let μ ∈ E (R) be a nonzero, nonnegative function such that supp μ ⊂ [−ϵ2, ϵ 2]and μ is real analytic on ( −ϵ2, ϵ 2). We set g : R → C, g(t) := f (−t)μ(t). Then 
+
+g ∈ E (R), supp g ⊂ [−ϵ2, ϵ 2] and g is real analytic on ( −ϵ2, ϵ 2). With these, let us also define 
+
+ψ : Rd−1 × R → R, ψ (x′, x d) := λ(x′)g(xd).
+
+Since λ depends only on the first l coordinates, Dj ψ = 0 for l + 1 ≤ j ≤ d − 1, supp ψ ⊂ Bl(0 , ϵ 2) × Rd−l−1 × [−ϵ2, ϵ 2]and ψ is real analytic on 
+
+Bl(0 , ϵ 2) × Rd−l−1 × (−ϵ2, ϵ 2) .
+
+Finally, we set v := u ∗ ψ. By Lemma 4, v is well-defined and v ∈ E (Rd). Moreover, supp v ⊂ supp u + supp ψ
+
+⊂ Bd−1(0 , ϵ 1) × R + Bl(0 , ϵ 2) × Rd−l−1 × [−ϵ2, ϵ 2]
+
+⊂ Bl(0 , ϵ ) × Rd−l,
+
+and 
+
+v(0) = 
+
+∫
+
+> Rd
+
+u(y)ψ(−y)d y
+
+=
+
+∫
+
+> [−ϵ2,ϵ 2]
+
+(∫
+
+> [−ϵ1,ϵ 1]d−1
+
+u(y′, y d)λ(y′)d y′
+
+)
+
+g(−yd)d yd10 T. CIAŚ AND T. KALMES 
+
+=
+
+∫
+
+> [−ϵ2,ϵ 2]
+
+f (yd)g(−yd)d yd =
+
+∫
+
+> [−ϵ2,ϵ 2]
+
+f (yd)f (yd)μ(yd)d yd
+
+=
+
+∫
+
+> [−ϵ2,ϵ 2]
+
+|f (yd)|2μ(yd)d yd > 0as well as 
+
+P (D)v =
+
+Dmd +
+
+> d−1
+
+∑
+
+> j=l+1
+
+pj (D)Dj + ∑
+
+> |α|<m
+
+cαDα
+
+ v
+
+=
+
+Dmd + ∑
+
+> |α|<m
+
+cαDα
+
+ v +
+
+> d−1
+
+∑
+
+> j=l+1
+
+pj (D)Dj v
+
+=
+
+Dmd + ∑
+
+> |α|<m
+
+cαDα
+
+ u
+
+ ∗ ψ + u ∗
+
+> d−1
+
+∑
+
+> j=l+1
+
+pj (D)Dj ψ = 0 .
+
+It remains to show that v is real analytic on Bl(0 , δ ) × Rd−l which by v(0) > 0and the identity principle for real analytic functions will also entail 
+
+Bl(0 , δ ) × Rd−l ⊂ supp v. 
+
+Let K be a compact subset of Bl(0 , δ ) × Rd−l. Denoting by πd : Rd → R the projection onto the d-th axis, let R > 0 be such that πd(K) ⊂ (−R, R ). Because supp u = Bd−1(0 , ϵ 1) × R
+
+and supp ψ(x − · ) ⊂ x − Bl(0 , ϵ 2) × Rd−l−1 × [−ϵ2, ϵ 2] ,
+
+for x ∈ K and α, β ∈ Nd 
+
+> 0
+
+it holds supp ∂αu ∩ supp ∂β ψ(x − · ) ⊂ Bd−1(0 , ϵ 2) × [−R − ϵ2, R + ϵ2]
+
+⊂ [−ϵ1, ϵ 1]d−1 × [−R − ϵ2, R + ϵ2].
+
+Hence, for x ∈ K and α ∈ Nd
+
+> 0
+
+,
+
+|∂αv(x)| =
+
+∣∣∣(
+
+∂(0 ,..., 0,α d)u ∗ ∂(α1,...,α d−1,0) ψ
+
+)
+
+(x)
+
+∣∣∣
+
+≤
+
+∫
+
+> [−ϵ1,ϵ 1]d−1×[−R−ϵ2,R +ϵ2]
+
+|∂(0 ,..., 0,α d)u(y)| · 
+
+∣∣∣∂(α1,...,α d−1,0) ψ(x − y)
+
+∣∣∣ dy
+
+≤ (2 ϵ1)d−12( R + ϵ2) max 
+
+> y∈[−ϵ1,ϵ 1]d−1×[−R−ϵ2,R +ϵ2]
+
+∣∣∣∂(0 ,..., 0,α d)u(y)
+
+∣∣∣ ×× max 
+
+> y∈[−ϵ1,ϵ 1]d−1×[−R−ϵ2,R +ϵ2]
+
+∣∣∣∂(α1,...,α d−1,0) ψ(x − y)
+
+∣∣∣ .(3) By the Cauchy integral formula, for each y = ( y′, y d) ∈ Bd−1(0 , ϵ 1)×[−R−ϵ2, R +ϵ2]we have 
+
+∣∣∣∂(0 ,..., 0,α d)u(y)
+
+∣∣∣ = 12π αd!
+
+∣∣∣∣∣∫
+
+> |ξ|=R+ϵ
+
+u(y′, ξ )(ξ − yd)αd+1 dξ
+
+∣∣∣∣∣
+
+≤
+
+(
+
+max 
+
+{ 1
+
+ϵ1
+
+, 1
+
+}) αd+1 
+
+(R + ϵ)(4) 
+
+× max 
+
+{
+
+|u(y′, ξ )| : y′ ∈ [−ϵ1, ϵ 1]d−1 , |ξ| = R + ϵ
+
+}
+
+αd!.
+
+Because for x ∈ K and y ∈ Bd−1(0 , ϵ 1) × [−R − ϵ2, R + ϵ2] it holds 
+
+x − y ∈ Bl(0 , δ + ϵ1) × Rd−lZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 11 
+
+and since λ is real analytic in Bl(0 , ϵ 2) × Rd−l−1, there is C3 > 0 such that for every 
+
+x = ( x′, x d) ∈ K and y = ( y′, y d) ∈ Bd−1(0 , ϵ 1) × [−R − ϵ2, R + ϵ2] we have 
+
+|∂α′
+
+λ(x′ − y′)| ≤ C|α′| 
+
+> 3
+
+α′!for each α′ ∈ Nd−10 . Consequently, max 
+
+> x∈K,y ∈Bd−1(0 ,ϵ 1)×[−R−ϵ2,R +ϵ2]
+
+∣∣∣∂(α1,...,α d−1,0) ψ(x − y)
+
+∣∣∣
+
+= max 
+
+> x∈K,y ∈Bd−1(0 ,ϵ 1)×[−R−ϵ2,R +ϵ2]
+
+∣∣∣∂(α1,...,α d−1)λ(x′ − y′)
+
+∣∣∣ |g(xd − yd)|≤ Cα1+··· αd−1 
+
+> 3
+
+α1! · · · αd−1! max  
+
+> t∈[−ϵ2,ϵ 2]
+
+|g(t)| .(5) Combining (3), (4), and (5), we obtain M, C > 0 such that for every x ∈ K and 
+
+α ∈ Nd
+
+> 0
+
+|∂αv(x)| ≤ C|α|α!M
+
+which finally shows that v is real analytic on Bl(0 , δ ) × Rd−l. □
+
+Of course, the above theorem can be applied to polynomials P (resp. to par-tial differential operators P (D)) which, after an orthogonal change of variables, are of the form mentioned in the previous result. In order to characterize these polynomials, we introduce the following notions. 
+
+Definition 6. Let P ∈ C[ξ1, . . . , ξ d] be a polynomial of degree m with principal part Pm.(i) As usual, the characteristic cone of P is defined as Char( P ) := {ξ ∈ Rd : Pm(ξ) = 0 }.
+
+Clearly, Char( P ) = {0} if and only if P is elliptic, while Char( P ) = Rd
+
+precisely when P = 0. We point out a slight abuse of the usual notation, as for a differential operator with smooth coefficients of order m in an open set X of Rd, P (x, D ) = ∑ 
+
+> |α|≤ m
+
+cα(x)Dα, Char( P ) usually denotes its characteristic set 
+
+{(x, ξ ) ∈ X × (Rd\{ 0}) : Pm(x, ξ ) = 0 },
+
+where Pm(x, ξ ) = ∑ 
+
+> |α|=m
+
+cα(x)ξα (cf. [24, Theorem 8.3.1]). We say that the characteristic cone of the complex coefficient polynomial 
+
+P is linear if Char( P ) is a linear subspace of Rd.(ii) Let Z be a linear subspace of Rd different from Rd and let w ∈ Rd \
+
+Z. We say that the polynomial P (and the differential operator P (D)) is w-degenerate on Z if Pm(w)̸ = 0 and Pm together with the directional derivatives ∂kwPm, 1 ≤ k ≤ m − 1, vanish on Z. P is called degenerate on Z
+
+if it is w-degenerate for some w ∈ Rd \ Z. Finally, P is called orthogonally degenerate on Z if it is w-degenerate for some w ∈ Z⊥ \ { 0}.We postpone the proof of the following lemma to Appendix 1. 
+
+Lemma 7. Let P ∈ C[ξ1, . . . , ξ d] be a polynomial of degree m ≥ 1 with principal part Pm. Moreover, let Z be a subspace of Rd of dimension 1 ≤ l ≤ d − 1 and let 
+
+w ∈ Rd\Z. Then the following statements are equivalent: 
+
+(i) P is w-degenerate on Z;
+
+(ii) there is a linear isomorphism A : Rd → Rd, c ∈ C\{ 0}, and polynomials 
+
+pl+1 , . . . , p d−1 ∈ C[ξ1, . . . , ξ d] such that A−1w = ed,
+
+A−1(Z) = {ξ ∈ Rd : ξl+1 = . . . = ξd = 0 },12 T. CIAŚ AND T. KALMES 
+
+and the principal part (P ◦ A)m of P ◦ A is given by 
+
+(P ◦ A)m(ξ) = cξ md +
+
+> d−1
+
+∑
+
+> j=l+1
+
+pj (ξ)ξj .
+
+Additionally, for w ∈ Z⊥ \ { 0}, the above equivalence is true with an orthogonal linear map A.
+
+Remark 8. Let X ⊂ Rd be open or closed. Then, as follows from the chain rule, for every P ∈ C[ξ1, . . . , ξ d] and each linear isomorphism A : Rd → Rd, the mapping ΦA : E (X) → E (AT (X)) , f 7 → f ◦ (AT )−1
+
+is a linear topological isomorphism for which the identity ΦA (P (D)f ) = ( P ◦ A)( D) (Φ A(f )) , f ∈ E (X),
+
+holds. In particular, f ∈ EP (X) if and only Φ A(f ) ∈ EP ◦A(AT (X)). Here, for a closed set X, E (X) denotes the space of smooth Whitney jets and P (D) : E (X) →
+
+E (X) is a partial differential operator, as explained in the introduction of Section 4). We have now everything at hand to prove the main theorem of this section which in particular proves the existence of non-trivial v ∈ EP (Rd) for which its support is bounded in the directions of a non-trivial subspace Z, i.e. there is C > 0 with 
+
+|⟨ x, z ⟩| ≤ C for every x ∈ supp v and z ∈ Z, |z| = 1. 
+
+Theorem 9. Let P ∈ C[ξ1, . . . , ξ d] be orthogonally degenerate on a linear subspace 
+
+Z̸ = {0} of Rd. Then, for every 0 < δ < ϵ there is v ∈ EP (Rd) such that 
+
+(i) Z⊥ + B(0 , δ ) ⊂ supp v ⊂ Z⊥ + B(0 , ϵ ),
+
+(ii) v is real analytic on Z⊥ + B(0 , δ ).Proof. We take w ∈ W := Z⊥ \ { 0} such that P is w-degenerate on Z. By Lemma 7, there is an orthogonal map A : Rd → Rd, c ∈ C\{ 0}, and polynomials 
+
+pl+1 , . . . , p d−1 ∈ C[ξ1, . . . , ξ d] such that A−1w = ed,
+
+A−1(Z) = {ξ ∈ Rd : ξl+1 = . . . = ξd = 0 } = Rl × { 0}d−l,
+
+and the principal part ( P ◦ A)m of P ◦ A is given by (P ◦ A)m(ξ) = cξ md +
+
+> d−1
+
+∑
+
+> j=l+1
+
+pj (ξ)ξj .
+
+Hence, dividing P ◦ A by c, we may assume without loss of generality that, (P ◦ A)m(ξ) = ξmd +
+
+> d−1
+
+∑
+
+> j=l+1
+
+pj (ξ)ξj .
+
+Let us fix 0 < δ < ϵ . By Theorem 5 applied to the polynomial P ◦ A, there is 
+
+v0 ∈ EP ◦A(Rd) such that 
+
+Bl(0 , δ ) × Rd−l ⊂ supp v0 ⊂ Bl(0 , ϵ ) × Rd−l
+
+and v0 is real analytic on Bl(0 , δ ) × Rd−l. Let ΦA : E (Rd) → E (Rd), ΦAf := f ◦ (AT )−1.
+
+Then Φ −1 
+
+> A
+
+f = Φ AT f := f ◦ A−1 = f ◦ AT because A is orthogonal. We define 
+
+v ∈ E (Rd) by 
+
+v := v0 ◦ AT
+
+so that supp v = A (supp v0). By Remark 8, 
+
+P (D)v = P (D)(Φ AT v0) = Φ AT (P ◦ A)( D)v0) = 0 .ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 13 
+
+Moreover, since A is orthogonal, A(B(0 , ρ )) = B(0 , ρ ) and 
+
+AT (
+
+W + B(0 , ρ )
+
+)
+
+= AT (
+
+W + A(B(0 , ρ )) 
+
+)
+
+= A−1(W ) + B(0 , ρ )= {0}l × Rd−l + B(0 , ρ )= Bl(0 , ρ ) × Rd−l
+
+for all ρ > 0. Consequently, 
+
+W + B(0 , δ ) = A
+
+(
+
+Bl(0 , δ ) × Rd−l)
+
+= supp v
+
+⊂ A
+
+(
+
+Bl(0 , ϵ ) × Rd−l)
+
+= W + B(0 , ϵ ).
+
+Moreover, v is real analytic on W + B(0 , δ ) as a composition of two real analytic functions, which completes the proof. □
+
+For elliptic P we have Char( P ) = {0} so that Char( P )⊥ + B(0 , δ ) = Rd etc.. Additionally, for ζ ∈ Cd with P (ζ) = 0, the real analytic function 
+
+Rd → C, x 7 → exp 
+
+i
+
+> d
+
+∑
+
+> j=1
+
+xj ζj
+
+
+
+belongs to EP (Rd). Hence, for elliptic P , the following corollary is trivially true. For other polynomials which are orthogonally degenerate on their linear characteristic cone, it is an immediate consequence of Theorem 9 applied to Z = Char( P ). 
+
+Corollary 10. Assume that a polynomial P ∈ C[ξ1, . . . , ξ d] is orthogonally degener-ate on its linear characteristic cone. Then, for every 0 < δ < ϵ there is v ∈ EP (Rd)
+
+such that 
+
+(i) Char( P )⊥ + B(0 , δ ) ⊂ supp v ⊂ Char( P )⊥ + B(0 , ϵ ),
+
+(ii) v is real analytic on Char( P )⊥ + B(0 , δ ).
+
+We close this section with some examples of polynomials which are orthogonally degenerate on non-trivial subspaces. 
+
+Example 11. (i) Let P (ξ) = ∑dj=1 aj ξj +a0 be a polynomial of degree one, aj ∈ C,0 ≤ j ≤ d. Then, with a = ( a1, . . . , a d) ∈ Cd,Char( P ) = span {Re( a), Im( a)}⊥,
+
+and P is orthogonally degenerate on its linear characteristic cone Char( P ). Note that P is elliptic if and only if d = 2 and Re( a), Im( a) are linearly independent over 
+
+R.(ii) Recall that a polynomial P ∈ C[ξ1, . . . , ξ d] of degree m ≥ 1 is called semi-elliptic if there is n ∈ Nd such that P can be written as 
+
+P (ξ) = ∑
+
+> |α:n|≤ 1
+
+cαξα
+
+and 
+
+P 0(ξ) := ∑
+
+> |α:n|=1
+
+cαξα̸ = 0 for all ξ ∈ Rd\{ 0}. Here, for α ∈ Nd 
+
+> 0
+
+and n ∈ Nd we write |α : n| := ∑dj=1  
+
+> αj
+> nj
+
+.If P is semi-elliptic, the above multi-index n is unique. More precisely, nj =deg ξj P , j = 1 , . . . , d , where deg ξj P denotes the degree of P with respect to ξj ;see [50, Lemma 7.14]. Furthermore, deg P = max {deg ξj P : 1 ≤ j ≤ d} by [20, Proposition 2]. It is well-known that semi-elliptic polynomials are hypoelliptic; see [25, Theorem 11.1.11] and [50, Theorem 7.7]. Note that when nj = m for every 14 T. CIAŚ AND T. KALMES 
+
+j, the semi-elliptic operators are just the elliptic operators of order m. If n1 = 1 and nj = 2 for j > 1, we find that the heat operator is semi-elliptic. Moreover, the 
+
+k-parabolic operators of Petrowsky are semi-elliptic; see [50, Definition 7.11]. For a semi-elliptic polynomial P of degree m with principal Pm, its characteristic cone Char( P ) is a subspace of Rd. More precisely, (6) Char( P ) = {ξ ∈ Rd : ξj = 0 for all j with nj = m},
+
+see [20, Proposition 2 (ii)]. Additionally, by the proof of [20, Proposition 2 (ii)], 
+
+Pm(ξ) = ∑
+
+> |α|=m
+
+cαξα = ∑   
+
+> j:nj=m
+
+cme j ξmj ,
+
+where ej denotes the jth standard basis vector of Rd, i.e. ej = ( δj,k )1≤k≤d (Kron-ecker’s δ). Hence, for every j with nj = m, P is ej -degenerate on Char( P ). In particular, P is orthogonally degenerate on its linear characteristic cone. (iii) We consider second order partial differential operators whose principal part is given by the wave operator. As is usual, instead of x = ( x1, . . . , x d) ∈ Rd we write (x0, x 1, . . . , x d) ∈ Rd+1 and we denote x0 by t and ( x1, . . . , x d) by x. Moreover, we abbreviate ∆ x = ∑dj=1 ∂2
+
+> ∂x 2
+> j
+
+as well as ∂2 
+
+> t
+
+= ∂2 
+
+> ∂t 2
+
+(= ∂2
+
+> ∂x 20
+
+). Let P ∈ C[ξ0, ξ 1, . . . , ξ d]be of degree 2 such that the principal part of P (D) is 
+
+P2(D) = ∆ x − ∂2
+
+> t
+
+and Char( P ) = 
+
+ξ = ( ξ0, . . . , ξ d) ∈ Rd+1 : ξ20 =
+
+> d
+
+∑
+
+> j=1
+
+ξ2
+
+> j
+
+ .
+
+In case d ≥ 2, P is orthogonally w-degenerate on the one dimensional subspace span {ξ} for all ξ ∈ Char( P )\{ 0} and all non-zero w = (0 , w 1, . . . , w d) ∈ Rd+1 
+
+orthogonal to ξ.Indeed, let ξ ∈ Char( P )\{ 0} and w ∈ Rd+1 \{ 0} be orthogonal to ξ with w0 = 0. Then, 0̸ = −
+
+> d
+
+∑
+
+> j=1
+
+w2 
+
+> j
+
+= P2(w)and since ∇P2(x) = 2( x0, −x1, . . . , −xd), for λ ∈ R we have 
+
+∇wP2(λξ ) = ⟨w, ∇P2(λξ )⟩ = −2λ
+
+> d
+
+∑
+
+> j=0
+
+wj ξj = 0 .
+
+We point out that the hypothesis d ≥ 2 is needed to ensure the existence of a non-zero w = (0 , w 1, . . . , w d) ∈ Rd+1 orthogonal to ξ ∈ Char( P )\{ 0}. Given such 
+
+ξ, there is 1 ≤ k ≤ d with ξk̸ = 0. If k < d , the vector w defined by 
+
+wj := 
+
+
+
+−ζk+1 , for j = kζk, for j = k + 1 0, otherwise ,
+
+is as desired. If k = d, we define w as 
+
+wj := 
+
+
+
+−ζd, for j = d − 1
+
+ζd−1, for j = d
+
+0, otherwise .ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 15 
+
+As a consequence of Theorem 9, we obtain that, whenever d ≥ 2, for each 0 < δ < ϵ 
+
+and every ξ ∈ Char( P )\{ 0}, there is vξ ∈ EP (Rd+1 ) such that vξ is real analytic in span {ξ}⊥ + B(0 , δ ) and span {ξ}⊥ + B(0 , δ ) ⊂ supp vξ ⊂ span {ξ}⊥ + B(0 , ϵ ).
+
+We point out that the orthogonal complements above are precisely the characteristic hyperplanes for P which contain the origin. For d = 1, the existence of such zero solutions for P2(D) can be easily proved via the factorization of P2(D) into first-order operators. 
+
+Remark 12. By Holmgren’s Uniqueness Theorem (cf. [24, Theorem 8.6.5]), when-ever the support of u ∈ EP (Rd) is contained in some half space {x ∈ Rd : ⟨x, N ⟩ ≤ 
+
+C} with non-characteristic boundary, then u ≡ 0. Hence, the directions into which the support of a non-trivial u ∈ EP (Rd) is bounded (in the sense explained before Theorem 9), have to be characteristic ones. Now assume that u ∈ EP (Rd)\{ 0}
+
+satisfies supp u ⊂
+
+> l
+
+⋂
+
+> j=1
+
+{x ∈ Rd : |⟨ x, N j ⟩| ≤ C},
+
+for some C > 0 and some linearly independent N1, . . . , N l ∈ Char( P ). Then, for every λj ∈ R, we also have supp u ⊂
+
+x ∈ Rd :
+
+∣∣∣∣∣∣〈
+
+x, 
+
+> l
+
+∑
+
+> j=1
+
+λj Nj
+
+〉∣∣∣∣∣∣ ≤
+
+> l
+
+∑
+
+> j=1
+
+|λj |C
+
+ .
+
+Since u̸ = 0, by the above observation, ∑lj=1 λj Nj ∈ Char( P ). Therefore, whenever there are linearly independent, characteristic directions N1, . . . , N l and a non-trivial 
+
+u ∈ EP (Rd) with bounded support in each of these characteristic directions, then Char( P ) contains the linear span of N1, . . . , N l. Thus, the seemingly strong hy-pothesis in Theorem 9 that Char( P ) contains a linear subspace, is necessary for the existence of non-trivial zero solutions with partially bounded supports in several different directions. Finally, we state explicitly, that a zero solution with partially bounded support in several distinct directions does not exist for the wave operator (compare Example 11 (iii)). 3. A characterization of P -convexity for supports for partial differential operators which are orthogonally degenerate on their linear characteristic cone 
+
+By the seminal work of Malgrange [30], for a polynomial P ∈ C[ξ1, . . . , ξ d] and for an open set X ⊂ Rd the constant coefficient differential operator P (D) is surjective on E (X) if and only if X is P -convex for supports, that is, if and only if for every compactly supported distribution in X, μ ∈ E ′(X), the distances between Xc
+
+and supp μ on the one hand and between Xc and supp ˇP (D)μ on the other hand coincide, where ˇP (ξ) = P (−ξ). More general than surjectivity of P (D) on E (X), Malgrange proved that P -convexity of supports of X characterizes surjectivity of 
+
+P (D) on local subspaces of the space of distributions of finite order over X, like e.g. local Sobolev spaces (see e.g. [25, Section 10.6]). Despite the classical nature of Malgrange’s results, there are only very few differ-ential operators P (D) for which a satisfactory geometric evaluation of P -convexity for supports is available. Convex open sets are P -convex for supports, whenever 
+
+P̸ ≡ 0, and every open set is P -convex for supports whenever P is elliptic. While there is a complete geometric characterization of P -convexity for supports in the 16 T. CIAŚ AND T. KALMES 
+
+two dimensional case due to H¨ ormander [25, Theorem 10.8.3], in arbitrary dimen-sions, however, the problem of characterizing open subsets of Rd which are P -convex for supports is far from being solved. Geometric characterizations of P -convexity for supports are only available for operators with principal part equal to the wave operator [39] (see also [25, Theorem 10.8.6]), for general operators of real principal type under additional regularity conditions on the boundary of X (see [40, 46, 47]), as well as for first order operators [57], and, more generally, for the special case of polynomials P acting along a subspace and being elliptic there (see [37] and [25, Theorem 10.8.5]). A general necessary condition due to H¨ ormander for an open subset X ⊂ Rd to be P -convex for supports is that the boundary distance of X satisfies the minimum principle in every characteristic hyperplane (cf. [25, Theorem 10.8.1]). Recall that a real-valued function f on X ⊂ Rd is said to satisfy the minimum principle in a closed subset F of Rd if for every compact set K ⊂ F ∩ X it holds min  
+
+> x∈K
+
+f (x) = min   
+
+> x∈∂FK
+
+f (x),
+
+where ∂F K denotes the boundary of K in F . We set the boundary distance dX of 
+
+X to be the mapping 
+
+dX : X → R, x 7 → dist ( x, X c),
+
+where the distance is taken with respect to the Euclidean norm |x| in Rd.
+
+Remark 13. Let A : Rd → Rd be a linear isomorphism. Then, by Remark 8, it follows easily that an open subset X of Rd is P -convex for supports if and only if 
+
+AT (X) is P ◦ A-convex for supports. Moreover, in case A is orthogonal, dX satisfies the minimum principle in a closed subset F of Rd if and only if dAT (X) satisfies the minimum principle in AT (F ). For polynomials which are orthogonally degenerate on a linear subspace Z, the next theorem gives a necessary condition for P -convexity for supports in terms of 
+
+dX . If, additionally, P is orthogonally degenerate on its linear characteristic cone, this necessary condition is also sufficient for the P -convexity for supports, as has been proved in [28, Theorem 1]. 
+
+Theorem 14. Let P ∈ C[ξ1, . . . , ξ d] be orthogonally degenerate on a linear subspace 
+
+Z of Rd. If X is an open subset of Rd which is P -convex for supports, then dX
+
+satisfies the minimum principle in each affine subspace parallel to Z⊥.Proof. We set W := Z⊥. For Z = {0} we have x+W = Rd, x ∈ Rd, and dX trivially satisfies the minimum principle in x + W . For Z̸ = {0}, we set l := dim W ⊥. Then, 
+
+l ∈ { 1, . . . , d − 1}. After a suitable orthogonal change of variables, by Lemma 7 and Remark 13, we can assume without loss of generality that 
+
+Z = {x ∈ Rd : xl+1 = . . . = xd = 0 } and W = {x ∈ Rd : x1 = . . . = xl = 0 }.
+
+We assume that there are x0 ∈ X such dX does not satisfy the minimum principle in x0 + W . Then, there is a compact subset K of ( x0 + W ) ∩ X with 
+
+ϵ := min  
+
+> x∈K
+
+dX (x) < min   
+
+> x∈∂x0+WK
+
+dX (x).
+
+Let us choose y0 ∈ K and ξ ∈ ∂X so that ϵ = |y0 − ξ|. Let y ∈ W be such that 
+
+y0 = x0 + y. By Theorem 9 applied to ˇP instead of P , for every t > 0 there is 
+
+vt ∈ E ˇP (Rd) with 
+
+W + B
+
+(
+
+0, t
+
+1 + t ϵ
+
+)
+
+⊂ supp vt ⊂ W + B(0 , tϵ ).ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 17 
+
+Then, ut(x) := vt(x − y0), x ∈ Rd, t > 0, satisfies ut ∈ E ˇP (Rd) and, because 
+
+y0 + W = x0 + y + W = x0 + W ,
+
+(x0 + W ) + B
+
+(
+
+0, t
+
+1 + t ϵ
+
+)
+
+⊂ supp ut ⊂ (x0 + W ) + B(0 , tϵ ).
+
+Now, let πd−l : Rd → Rd−l, (x1, . . . , x d) 7 → (xl+1 , . . . , x d). Then, the restriction of 
+
+πd−l to x0 + W is bijective. For t > 0, let ˜ψt ∈ D(Rd−l) be such that supp ˜ψt ⊂ πd−l (K + B(0 , tϵ )) and ˜ψt = 1 in a neighborhood of πd−l(K). We define ψt := ˜ψt ◦ πd−l and observe that ψt = 1 on K,supp ψt ⊂ Rl × (πd−l(K) + [ −tϵ, tϵ ]d−l)
+
+as well as supp Dβ ψt ⊂ Rl × (πd−l (∂x0+W K) + [ −tϵ, tϵ ]d−l) , β ∈ Nd
+
+> 0
+
+\{ 0}.
+
+We define φt := ψtut so that φt ∈ D(Rd), t > 0, and φt ∈ D(X) for t ∈ (0 , 1). Additionally, y0 ∈ supp φt, t > 0, so that dist (supp φt, X c) ≤ dX (y0) = ϵ, t ∈ (0 , 1) .
+
+On the other hand, because ut ∈ E ˇP (Rd) and ˇP (D)φt = ψt ˇP (D)ut + ∑ 
+
+> β∈Nd
+> 0\{ 0}
+
+1
+
+β!
+
+(Dβ ψt
+
+) (∂β ˇP )( D)ut,
+
+it holds supp ˇP (D)φt ⊂ supp ut ∩ (Rl × (πd−l (∂x0+W K) + [ −tϵ, tϵ ]d−l)) 
+
+⊂
+
+((x0 + W ) + B(0 , tϵ )
+
+)
+
+∩ (Rl × (πd−l (∂x0+W K) + [ −tϵ, tϵ ]d−l)) 
+
+⊂
+
+> l
+
+∏
+
+> j=1
+
+[x0 
+
+> j
+
+− tϵ, x 0 
+
+> j
+
++ tϵ ] × (πd−l (∂x0+W K) + [ −tϵ, tϵ ]d−l)
+
+= ∂x0+W K + [ −tϵ, tϵ ]d.
+
+Thus, for sufficiently small t, dist (supp ˇP (D)φt, X c) comes arbitrarily close to dist ( ∂x0+W K, X c) = min x∈∂0 
+
+> x+W
+
+dX (x). In particular, for sufficiently small t ∈
+
+(0 , 1) we have φt ∈ D(X) and dist (supp ˇP (D)φt, X c) > ϵ ≥ dist (supp φt, X c)which gives the desired contradiction to the P -convexity for supports of X (cf. [25, Theorem 10.6.3]). □
+
+Our next objective is to give some geometric conditions for X which are equiv-alent to dX satisfying the minimum principle in every affine subspace parallel to a subspace W . The following definition is inspired by [57]. 
+
+Definition 15. Let W̸ = {0} be a linear subspace of Rd and let X be an open subset of Rd. We say that a point x0 ∈ ∂X is a critical point of X with respect to W
+
+if there exists a sequence ( xn)n∈N in X converging to x0 and bounded, connected neighborhoods Un of xn in ( xn + W ) ∩ X such that ( xj + W ) ∩ (xk + W ) = ∅ for 
+
+j̸ = k and the set ⋃
+
+> n∈N
+
+∂xn+W Un
+
+is a compact subset of X, where ∂x+W C denotes the boundary of the set C ⊂ x+W
+
+in x + W .18 T. CIAŚ AND T. KALMES 
+
+The next notion generalizes [34, Definition 3.9] where the special case of W =span {N }⊥ for N ∈ Rd\{ 0} is considered. 
+
+Definition 16. Let W be a non-trivial linear subspace of Rd and let X be an open subset of Rd. We say that x0 ∈ ∂X is a point of inner support with respect to W if there is N ∈ Rd \ W and a compact neighborhood U of x0 in x0 + ( W ⊕ span {N })such that 
+
+U ∩ { x0 + w + tN : w ∈ W, t < 0} ⊂ X and 
+
+∂x0+( W ⊕span {N })U ∩ { x0 + w + tN : w ∈ W, t ≤ 0} ⊂ X. 
+
+Proposition 17. For a non-trivial linear subspace W of Rd and an open subset X
+
+of Rd the following properties are equivalent. 
+
+(i) dX satisfies the minimum principle in every affine subspace parallel to W .
+
+(ii) X does not admit a critical point with respect to W .
+
+(iii) X does not admit a point of inner support with respect to W .Proof. (i) ⇒(ii): Suppose that X admits a critical point with respect to W . Then there is a sequence ( xn)n∈N in X converging to x0 and bounded open neighborhoods 
+
+Un of xn in ( xn + W ) ∩ X such that 
+
+C := ⋃
+
+> n∈N
+
+∂xn+W Un
+
+is a compact subset of X. Let ϵ := dist ( C, X c) and let us choose n ∈ N so that 
+
+|xn − x0| < ϵ . Then for the compact set K := U n we have min  
+
+> x∈K
+
+dX (x) ≤ | xn − x0| < ϵ = dist ( C, X c) < min   
+
+> x∈∂xn +WK
+
+dX (x),
+
+which means that dX does not satisfy the minimum principle in xn + W .(ii) ⇒(iii): Let us assume that x0 ∈ ∂X is a point of inner support with respect to W . Then there are N ∈ Rd \ W and a compact neighborhood U of x0 in 
+
+x0 + ( W ⊕ span {N }) such that 
+
+U ∩ { x0 + w + tN : w ∈ W, t < 0} ⊂ X, ∂U ∩ { x0 + w + tN : w ∈ W, t ≤ 0} ⊂ X. 
+
+It follows easily that x0 is a critical point of X with respect to W , since the condi-tions in Definition 15 are satisfied by a suitable sequence ( xn)n∈N in U ∩ { x0 + w +
+
+tN : w ∈ W, t < 0} and the connected components Un of U ∩ (xn + W ) containing 
+
+xn, n ∈ N.(iii) ⇒(i): We argue again by contradiction. Assume that dX does not satisfy the minimum principle in every affine subspace parallel to W . Let x ∈ Rd and K
+
+be a compact subset of ( x + W ) ∩ X with (7) ϵ1 := min  
+
+> y∈K
+
+dX (y) < min   
+
+> y∈∂x+WK
+
+dX (y) =: ϵ2.
+
+Choose y0 ∈ K, x 0 ∈ ∂X with ϵ1 = |x0 −y0|. Then, y0 is in the interior, with respect to x + W , of K, int x+W (K). Let V be the connected component of int x+W (K)which contains y0. Since x + W is path connected, the same holds for V . Replacing 
+
+K by V if necessary, we may assume without loss of generality that 
+
+K = int x+W (K), int x+W (K) is path connected. Note that this will at most increase ϵ2 in (7). Because y0 ∈ x + W , we have 
+
+x + W = y0 + ( x − y0) + W = y0 + W. ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 19 
+
+Additionally, it is an easy exercise to show that 
+
+x0 − y0 = ( x0 − x) + ( x − y0) ∈ W ⊥.
+
+Setting N := x0 − y0, since 
+
+W × span {N } → W ⊕ span {N }, (w, sN ) 7 → w + sN 
+
+is a homeomorphism and because −y0 + K ⊂ W ,
+
+U := K + {sN : s ∈ [0 , 2] } = ( x0 − y0) + K + {tN : t ∈ [−1, 1] }
+
+is a compact neighborhood of x0 in x0 + ( W ⊕ span {N }). Using −y0 + K ⊂ W and 
+
+∂x0+( W ⊕span( {N })U
+
+= x0 + ∂W ⊕span( {N }) (−y0 + K + {tN : t ∈ [−1, 1] })= x0 + (( ∂W (−y0 + K) + {tN : t ∈ [−1, 1] }) ∪ (−y0 + K + {σN : σ ∈ {− 1, 1}} )) it follows 
+
+∂x0+( W ⊕span {N })U ∩ { x0 + w + tN : w ∈ W, t ≤ 0}
+
+= x0 + (( ∂W (−y0 + K) + {tN : t ∈ [−1, 0) }) ∪ (−y0 + K + {σN : σ ∈ {− 1}} )) = (( x0 − y0) + ∂y0+W K + {tN : t ∈ [−1, 0) }) ∪ K
+
+= (∂x+W K + {tN : t ∈ [0 , 1) }) ∪ K. 
+
+Thus, by (7) and ϵ1 = |x0 − y0| = |N |, we conclude 
+
+∂x0+( W ⊕span {N })U ∩ { x0 + w + tN : w ∈ W, t ≤ 0} ⊂ X. 
+
+Since 
+
+U ∩ { x0 + w + tN : w ∈ W, t < 0} = (x0 − y0) + K + {tN : t ∈ [−1, 0) }
+
+= K + {tN : t ∈ [0 , 1) } ⊂ X, x0 is a point of inner support with respect to W . □
+
+We also recall the following definition from [57, Introduction]. 
+
+Definition 18. Let W be a non-zero linear subspace of Rd, X be an open subset of Rd and let K be a compact subset of X. The W -hull of K in X, denoted by ̂ K(W, X ), is the set K ∪ ⋃ 
+
+> x∈Rd
+
+Cx, where Cx denotes the sum of all bounded connected components of ( Rd \ K) ∩ (x + W ) contained in X.
+
+Remark 19. For sets W, X, K as above, the set ̂ K(W, X ) is contained in the convex hull of the compact set K so it is a bounded subset of X.Our next result is a reformulation of [57, Theorem 2]. 
+
+Theorem 20. Let P ∈ C[ξ1, . . . , ξ d] be such that Char( P ) is contained in a non-trivial subspace of Rd, and let X be an open subset of Rd. If X does not admit a critical point with respect to Char( P )⊥, then ̂ K(Char( P )⊥, X ) is compact for each compact subset K of X. Consequently, X is P -convex for supports. Proof. Let us assume that X has no critical point with respect to the subspace 
+
+W := Char( P )⊥. Let K be a compact subset of X. We will show the set ̂ K(W, X )is compact. The statement trivially holds in the case when ̂ K(W, X ) = K. Let us assume that K ⊊̂ K(W, X ) and suppose that ̂ K(W, X ) is not compact. By [57, Lemma 3], there is a sequence ( yn)n∈N in Rd and bounded connected components Cn of (Rd \ K) ∩ (yn + W ) such that Cn ⊂ X and the distance from Cn to ∂X tends to zero as n → ∞ . Hence, there is x0 ∈ ∂X and a sequence ( xn)n∈N converging to 
+
+x0 such that xn ∈ Cn for n ∈ N. Since arbitrarily chosen sequence ( x′
+
+> n
+
+)n∈N with 
+
+x′ 
+
+> n
+
+∈ B(xn, 1/n ) ∩ Cn converges to x0, without loss of generality, we may assume 20 T. CIAŚ AND T. KALMES 
+
+that xn ∈ Cn for n ∈ N. Moreover, there is a subsequence ( xnj )j∈N such that (xnj + W ) ∩ (xnk + W ) = ∅ for j̸ = k. Indeed, otherwise ( xn)n∈N has a subsequence contained in some set Cx (see Definition 18) which has to converge to x0. Since (K ∩ (x + W )) ∪ Cx is a compact subset of X, x0 ∈ Cx ⊂ X, a contradiction. Hence, without loss of generality, we may also assume that ( xj + W ) ∩ (xk + W ) = ∅ for 
+
+j̸ = k. Moreover, ∂xn+W Cn ⊂ K for all n ∈ N, so ⋃ 
+
+> n∈N
+
+∂xn+W Cn is a compact subset of K ⊂ X. Hence, x0 is a critical point of X with respect to W , which contradicts our assumption. This shows that ̂ K(W, X ) is a compact subset of X,and [57, Theorem 3] implies that X is P -convex for supports. □
+
+We now summarize the geometric properties characterizing P -convexity for sup-ports for a polynomial P which is orthogonally degenerate on its linear characteristic cone. By Example 11, this characterization is in particular applicable to arbitrary semi-elliptic operators as well as to first order operators. For the latter operators, see also [57, Theorem 4]. 
+
+Corollary 21. Let P ∈ C[ξ1, . . . , ξ d] be orthogonally degenerate on its linear char-acteristic cone Char( P ) and let X be an open subset of Rd. Then, the following assertions are equivalent. 
+
+(i) X is P -convex for supports. 
+
+(ii) dX satisfies the minimum principle in any affine subspace parallel to Char( P )⊥.
+
+(iii) For every compact subset K of X and each 
+
+x ∈ { y ∈ X : dX (y) < dist( K, X c)}
+
+there is a continuous, piecewise differentiable curve γ : [0 , ∞) → X\K such that γ(0) = x, γ′(t) ∈ Char( P )⊥ for every t where γ is differentiable, and 
+
+lim inf t→∞ dist( γ(t), ∂ ∞X) = 0 , where ∂∞X denotes the boundary of X in the one-point compactification Rd ∪ {∞} of Rd.If additionally Char( P )̸ = {0}, which is equivalent to P being non-elliptic, the above conditions are also equivalent to the following ones. 
+
+(iv) X does not admit a critical point with respect to Char( P )⊥.
+
+(v) X does not admit a point of inner support with respect to Char( P )⊥.
+
+(vi) ̂ K(Char( P )⊥, X ) is compact for each compact subset K of X.Proof. By Theorem 14, (i) implies (ii). Conversely, that (ii) implies (i) is [28, Theorem 1]. The equivalence of (ii) and (iii) is [28, Lemma 4]. For non-elliptic operators, by Proposition 17, (ii), (iv) and (v) are equivalent. Finally, by Theorem 20, (iv) implies (vi), and by [57, Theorem 3], (vi) implies (i). □
+
+In the remainder of this section, we briefly consider surjectivity of partial differ-ential operators on spaces of vector-valued smooth functions. Let E be a locally convex space and let X ⊂ Rd be P -convex for supports. We are interested in the question whether P (D) remains surjective on E (X; E), the space of E-valued smooth functions on X. If E is a space of functions or distributions, this question is equivalent to the problem of parameter dependence of solutions of differential equations which has a long and rich history, see [1, 2, 11, 32, 33, 49, 48]. By a result of Grothendieck [21], this question has a positive answer whenever E is a Fr´ echet space. However, if E is a (DF)-space this is no longer true in general, as was shown by Vogt [53]. By the splitting theory for Fr´ echet spaces [54], for E = s′,where s is the space of rapidly decreasing sequences, the answer to the surjectivity question is affirmative if and only if EP (X), the kernel of P (D) in E (X), satisfies condition (Ω) (cf. [53]). We assume that the reader is familiar with the conditions (Ω) and (DN) for Fr´ echet spaces, and we refer to [35] for more information on these conditions. Moreover, if EP (X) satisfies (Ω), then surjectivity of P (D) on E (X)ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 21 
+
+implies surjectivity on E (X; E) for every E isomorphic to a product of Montel (DF)-spaces whose strong dual spaces satisfy (DN). In view of these results, it is natural to study when the space EP (X) satisfies condition (Ω). A result of Vogt [53] states that for elliptic operators P (D), the space EP (X) satisfies condition (Ω) for every open set X; recall that arbitrary open sets X are P -convex for supports for each elliptic P (cf. [25, Corollary 10.8.2]). Additionally, Petzsche [41] showed that for convex open sets X the space EP (X) satisfies (Ω) for every hypoelliptic operator P (D); recall that convex open sets are P -convex for every P (cf. [25, The-orem 10.6.2]). On the negative side, in [27] the second author constructed for d ≥ 3a concrete hypoelliptic polynomial P and a P -convex open set X for which EP (X)does not have (Ω). For a recent account on this topic, we refer the reader to [9] (and references therein), where it is also proved, among others, that EP (X) satisfies (Ω) whenever d = 2 and X is P -convex for supports. The next theorem generalizes the above mention result of Vogt for elliptic op-erators as well as [28, Theorem 18] which covers the special case of semi-elliptic operators for which its linear characteristic cone is one dimensional. 
+
+Theorem 22. Let X ⊂ Rd be P -convex for supports for a semi-elliptic polynomial 
+
+P . Then EP (X) satisfies condition (Ω) .Proof. As is well known, if T : E → E is a surjective continuous linear operator on a Fr´ echet space E and F is a Fr´ echet space, then 
+
+T ⊗ id : E ˆ⊗π F → E ˆ⊗π F
+
+is surjective again. By nuclearity of E (X) it holds E (X) ˆ ⊗π E (R) ∼= E (X × R), the isomorphism being given by the linearization and extension of the bilinear map 
+
+E (X) × E (R) → E (X × R), (f, g ) 7 → (( x, t ) 7 → f (x)g(t)) (cf. [26, Section 21.6]). As is easily seen, via this isomorphism, P (D)⊗id is conjugate to the so-called augmented differential operator P +(D) on E (X × R), where the polynomial P + ∈ C[ξ1, . . . , ξ d, ξ d+1 ] is given by 
+
+P +(ξ1, . . . , ξ d, ξ d+1 ) := P (ξ1, . . . , ξ d).
+
+Hence, X × R is P +-convex for supports. Additionally, by Corollary 21, dX satisfies the minimum principle in every affine subspace parallel to Char( P )⊥. Combining this with [25, Corollary 10.7.10], [28, Theorem 15], and the P +-convexity for supports of X × R, P +(D) is surjective on 
+
+D′(X × R), too. Since semi-elliptic polynomials are hypoelliptic (cf. [25, Theorem 11.1.11]), com-bining [52, Theorem 52.1] with [1, Propositions 8.3 and 5.3 (b)] finally yields that 
+
+EP (X) satisfies condition (Ω). □
+
+4. P -Runge pairs for operators which are orthogonally degenerate on their linear characteristic cone 
+
+As a second application of Theorem 9, in this section, we study P -Runge pairs for smooth Whitney jets on closed sets as well as for smooth functions and distributions on open sets. For the reader’s convenience, we first recall some notions. For a compact subset K of Rd we denote by E (K) the space of smooth Whitney jets on K, that is, families f = ( f (α))α∈Nd 
+
+> 0
+
+of continuous (real or complex valued) functions f (α) on K for which, with the formal Taylor polynomials of arbitrary order nT nx f (y) = ∑
+
+> |α|≤ n
+
+f (α)(x)
+
+α! (y − x)α,22 T. CIAŚ AND T. KALMES 
+
+the quantities 
+
+qK,n,t (f ) := sup 
+
+{ |f (α)(y) − ∂αT nx f (y)||x − y|n−| α| : |α| ≤ n, x, y ∈ K, 0 < |x − y| < t 
+
+}
+
+satisfy lim t→0 qK,n,t (f ) = 0 for all n ∈ N0. (Apparently, smooth Whitney jets are not usual functions, despite the fact that they are sometimes called Whitney functions in the literature.) E (K) equipped with the sequence of seminorms ( ∥ · ∥n,K )n∈N0 defined by 
+
+∀ f ∈ E (K) : ∥f ∥n,K := sup 
+
+{
+
+|f (α)(x)| : x ∈ K, |α| ≤ n
+
+}
+
++ sup {qK,n,t (f ) : t > 0}
+
+is a Fr´ echet space. For a closed subset F of Rd with compact exhaustion ( Kl)l∈N
+
+and 
+
+ρll+1 : E (Kl+1 ) → E (Kl), f = ( f (α))α∈N0 7 → f|Kl := ( f (α) 
+
+> |Kl
+
+)α∈Nd
+
+> 0
+
+E (F ) is defined as the locally convex projective limit of ( E (Kl)) l∈N, i.e. 
+
+E (F ) := proj ←l E (Kl) = 
+
+{
+
+(fl)l∈N ∈ ∏
+
+> l∈N
+
+E (Kl) : ρll+1 (fl+1 ) = fl, l ∈ N
+
+}
+
+equipped with the subspace topology of the topological product ∏ 
+
+> l∈N
+
+E (Kl). Then 
+
+E (F ) is independent of the particular choice of ( Kl)l∈N and E (F ) is a Fr´ echet space. Taylor’s Theorem implies that for g ∈ E (Rd) it holds ( ∂αg|F )α∈Nd 
+
+> 0
+
+(or, more precisely, 
+
+((∂αg|Kl
+
+)
+
+> α∈Nd
+> 0
+
+)
+
+> l∈N
+
+) belongs to E (F ). By a result of Whitney [56] (see also [31]) every f ∈ E (F ) has such an extension g. Therefore, by the Closed Graph Theorem, the restriction map 
+
+ρF : E (Rd) → E (F ), g 7 → (∂αg|F )α∈Nd
+
+> 0
+
+is continuous. It is well known that the sequence of seminorms ( ∥ · ∥ n)n∈N on E (F )defined as 
+
+∀ f ∈ E (F ) : || f || n := inf 
+
+{
+
+|g|n : g ∈ E (Rd) and ∂αg|F = f (α), α ∈ Nd
+
+> 0
+
+}
+
+also defines the Fr´ echet space topology on E (F ). With 
+
+Dj : E (F ) → E (F ), (f (α))α∈Nd 
+
+> 0
+
+7 → − i(f (α+ej ))α∈Nd 
+
+> 0
+
+, 1 ≤ j ≤ d, 
+
+it holds Dj (ρF (f )) = ρF (Dj f ), f ∈ E (Rd). More generally, for P ∈ C[ξ1, . . . , ξ d]the linear partial differential operator P (D) on E (F ) is defined analogously, which is then a continuous linear operator on E (F ). Its kernel, equipped with the subspace topology is denoted by EP (F ) and thus a Fr´ echet space. 
+
+Definition 23. For closed subsets F1 ⊂ F2 of Rd we define the (continuous) re-striction map 
+
+r : E (F2) → E (F1), f 7 →
+
+(
+
+f (α)
+
+> |F1
+
+)
+
+> α∈Nd
+> 0
+
+.
+
+It holds r (EP (F2)) ⊂ EP (F1) and F1, F 2 is called a P -Runge pair for smooth Whit-ney jets if r (EP (F2)) is dense in EP (F1). For an open subset X of Rd we equip EP (X) with the subspace topology of the Fr´ echet space E (X) so that EP (X) is a Fr´ echet space. Moreover, we equip D′(X)with the strong dual topology, i.e. with the locally convex topology induced by uniform convergence on bounded subsets of D(X). Then P (D) is continuous on 
+
+D′(X) so that its kernel D′ 
+
+> P
+
+(X) := {u ∈ D′(X) : P (D)u = 0 } is a closed subspace which we endow with the subspace topology. ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 23 
+
+Definition 24. For open subsets X1 ⊂ X2 of Rd and the restriction maps 
+
+rE : E (X2) → E (X1), f 7 → f|X1
+
+and 
+
+rD′ : D′(X2) → D′(X1), u 7 → u|X1
+
+it holds rE (EP (X2)) ⊂ E (X1) and rD′ (D′ 
+
+> P
+
+(X2)) ⊂ D′(X1), respectively. X1, X 2 is called a P -Runge pair , respectively, a P -Runge pair for distributions , if rE (EP (X2)) is dense in E (X1), respectively, rD′ (D′ 
+
+> P
+
+(X2)) is dense in D′(X1). 
+
+Remark 25. Let A : Rd → Rd be a linear isomorphism. Then, by Remark 8, it follows easily for a pair of open subsets X1 ⊂ X2 of Rd, respectively, for a pair of closed subsets F1 ⊂ F2 of Rd that they are a P -Runge pair for a constant coeffi-cient partial differential operator P (D) if and only if AT (X1), A T (X2), respectively 
+
+AT (F1), A T (F2), are ( P ◦ A)-Runge pairs. Using Theorem 9 instead of [29, Theorem 5], the proof of the next result uses similar reasoning as the proof of [5, Theorem 19]. We include it here for the reader’s convenience. 
+
+Theorem 26. Let P ∈ C[ξ1, . . . , ξ d] be orthogonally degenerate on a subspace Z̸ =
+
+{0} of Rd. Moreover, let F1 ⊂ F2 be closed subsets of Rd. If F1, F 2 is a P -Runge pair for smooth Whitney jets then there are no x ∈ Rd and ϵ > 0 for which F2
+
+contains a bounded connected component of (Rd \ F1) ∩ (B(x, ϵ ) + Z⊥).Proof. Because F1, F 2 is a P -Runge pair, by [5, Theorem 5] (8) ∀ μ ∈ E ′(Rd) : 
+
+(
+
+supp μ ⊂ F2, supp ˇP (D)μ ⊂ F1 ⇒ supp μ ⊂ F1
+
+)
+
+.
+
+As in the proof of Theorem 14, we abbreviate W := Z⊥ and we set l := dim Z so that l ∈ { 1, . . . , d − 1}. After a suitable orthogonal change of variables, by Remarks 8 and 25, we can assume without loss of generality that 
+
+Z = {x ∈ Rd : xl+1 = . . . = xd = 0 } and W = {x ∈ Rd : x1 = . . . = xl = 0 }.
+
+In order to prove the claim, we argue by contradiction. Thus, we assume that there are x0 ∈ Rd and ϵ > 0 such that F2 contains a bounded connected component ˜C of (Rd \ F1) ∩ (B(x0, ϵ ) + W ). Then, there is y ∈ ˜C and δ > 0 such that the connected component C of ( Rd\F1) ∩ (B(y, δ ) + W ) which contains y satisfies C ⊂ ˜C. In particular, C is contained in F2. By Theorem 9 there is v ∈ E ˇP (Rd) such that 
+
+W + B(0 , δ/ 2) ⊂ supp v ⊂ W + B(0 , δ )and v is real analytic in W + B(0 , δ/ 2). Then, u(x) := v(x − y), x ∈ Rd, satisfies 
+
+W + B(y, δ/ 2) ⊂ supp u ⊂ W + B(y, δ )and u ∈ E ˇP (Rd) is real analytic in W + B(y, δ/ 2). We define w ∈ D′(Rd) by 
+
+w(φ) := 
+
+∫
+
+> C
+
+u(x)φ(x)d x
+
+for all φ ∈ D(Rd). Since F2 is closed, we have supp w ⊂ C ⊂ F2, so that w ∈ E ′(Rd)and 
+
+∅̸ = C ∩
+
+(
+
+W + B(y, δ/ 2) 
+
+)
+
+⊂ supp w
+
+which implies supp w̸ ⊂ F1.Next, we show supp ˇP (D)w ⊂ F1 which by (8) will give the desired contradiction. Let φ ∈ D(C) be arbitrary. Then, taking into account 
+
+W + B(y, δ ) = Bl(( y1, . . . , y l), δ ) × Rd−l,24 T. CIAŚ AND T. KALMES 
+
+integrating by parts yields 
+
+( ˇP (D)w
+
+)
+
+(φ) = w (P (D)φ) = 
+
+∫
+
+> C
+
+u(x)P (D)φ(x)d x
+
+=
+
+∫ 
+
+> W+B(y,δ )
+
+ˇP (D)u(x)φ(x)d x = 0 ,
+
+so that ˇP (D)w vanishes on the open set C. Additionally, for 
+
+a ∈ ∂C \F1 ⊂ C ∩ (∂B (y, δ ) + W )there is ρ > 0 with B(a, ρ ) ⊂ Rd\F1. Because u vanishes outside 
+
+Bl(( y1, . . . , y l), δ ) × Rd−l = B(y, δ ) + W, 
+
+for φ ∈ D(B(a, ρ )) it holds 
+
+( ˇP (D)w
+
+)
+
+(φ) =
+
+∫
+
+> C
+
+u(x)P (D)φ(x)d x =
+
+∫
+
+> C∩B(a,δ )
+
+u(x)P (D)φ(x)d x
+
+=
+
+∫
+
+> B(a,δ )
+
+u(x)P (D)φ(x)d x =
+
+( ˇP (D)u
+
+)
+
+(φ) = 0 ,
+
+i.e. ˇP (D)w vanishes on B(a, ρ ). Since a ∈ ∂C \F1 is arbitrary, ˇP (D)w vanishes on 
+
+(Rd\C) ∪ C ∪ (∂C \F1) = Rd\ (∂C ∩ F1)so that supp ˇP (D)w ⊂ ∂C ∩ F1 ⊂ F1.In summary, w ∈ E ′(Rd) satisfies supp w ⊂ F2, supp w̸ ⊂ F1, and supp ˇP (D)w ⊂
+
+F1 which contradicts (8). □
+
+Under suitable additional hypotheses, the necessary condition from Theorem 26 for P -Runge pairs for smooth Whitney jets is also sufficient. 
+
+Proposition 27. Let P (D) be a hypoelliptic partial differential operator on R2
+
+which is orthogonally degenerate on its linear characteristic cone Char( P )̸ = {0}.Moreover, let F1 be a closed subset of R2 such that for all ϵ > 0 and x ∈ R2 the set 
+
+F1 ∩(B(x, ϵ )+Char( P )⊥) has at most countably many connected components. Then 
+
+F1, R2 is a P -Runge pair for smooth Whitney jets if and only if for all x ∈ R2 and 
+
+ϵ > 0 the set (Rd \ F1) ∩ (B(x, ϵ ) + Char( P )⊥) does not have a bounded connected component. Moreover, assume that for all ϵ > 0, x ∈ R2, y ∈ B(x, ϵ ) and all bounded connected components B of (Rd \ F1) ∩ (B(x, ϵ ) + Char( P )⊥) the set B ∩ (y +Char( P )⊥) has finitely many connected components and let F2 be a closed subset of 
+
+R2 containing F1. Then F1, F 2 is a P -Runge pair if and only if for all x ∈ R2 and 
+
+ϵ > 0 the set F2 does not contain a bounded connected component of (Rd \ F1) ∩
+
+(B(x, ϵ ) + Char( P )⊥).Proof. For arbitrary closed set F2 ⊂ R2, the necessity follows from Theorem 26. We shall prove sufficiency. Clearly, Char( P ) = span {v} for some v ∈ R2\{ 0}
+
+and without loss of generality we may assume that Char( P ) = span {e1} = R × { 0}.Then Char( P )⊥ = {0} × R. Moreover, the first and second assumption imposed on 
+
+F1 mean, respectively, that: (∗) for all open bounded intervals I the set F1 ∩ (I × R) has at most countably many connected components; (∗∗ ) for all open bounded intervals I, t ∈ I and all bounded connected com-ponents B of ( R2 \ F1) ∩ (I × R) the set B ∩ ({t} × R) has finitely many connected components. ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 25 
+
+It remains to prove that if for all open bounded intervals I the set F2 does not contain a bounded connected component of ( R2 \ F1) ∩ (I × R), then F1, F 2 is a 
+
+P -Runge pair. In view of [5, (iii) ⇒(i) in Theorem 16], it is enough to show that for all y ∈ R2
+
+and ϵ > 0 with B(y, ϵ ) ⊂ R2 \ F1, there is x ∈ R2 with B(y, ϵ ) ∩ { (x1, t ) : t ∈ R}̸ = ∅
+
+such that the connected component of ( R2 \ F1) ∩ { (x1, t ) : t ∈ R} which contains 
+
+B(y, ϵ ) ∩ { (x1, t ) : t ∈ R} is unbounded or it is not contained in F2. We proceed by contraposition. Let us suppose that the last statement is not true, i.e. we assume that there are y ∈ R2 and ϵ > 0 with B(y, ϵ ) ⊂ R2 \ F1 such that for all x ∈ R2 with 
+
+B(y, ϵ ) ∩ { (x1, t ) : t ∈ R}̸ = ∅ the connected component of ( R2 \ F1) ∩ { (x1, t ) : t ∈
+
+R} which contains B(y, ϵ ) ∩ { (x1, t ) : t ∈ R} is bounded and is contained in F2;this condition will be referred to as ( ∗ ∗ ∗ ). Our aim is to show that there is an open interval I for which the set F2 contains a bounded connected component of (R2 \ F1) ∩ (I × R). Let us assume that F1 satisfies ( ∗). By ( ∗∗∗ ), there are bounded, open non-empty intervals I′
+
+> 0
+
+, J 1 ⊂ R with I′ 
+
+> 0
+
+× J1 ⊂ R2 \ F1, and functions 
+
+f : I′ 
+
+> 0
+
+→ (−∞ , inf J1], g : I′ 
+
+> 0
+
+→ [sup J1, ∞)whose graphs are contained in F1 and such that 
+
+{(ξ, η ) ∈ R2 : ξ ∈ I′ 
+
+> 0
+
+and f (ξ) < η < g (ξ)} ⊂ F2.
+
+Since F1 ∩ (I′ 
+
+> 0
+
+× R) has at most countably many components, there are s0 < t 0
+
+from the interval I′ 
+
+> 0
+
+such that the points ( s0, f (s0)) and ( t0, f (t0)) belong to the same component C0 of F1 ∩ (I′ 
+
+> 0
+
+× R). The same argument applied to the interval 
+
+I0 := ( s0, t 0) and the function g|I0 leads to the conclusion that there are s1 < t 1
+
+from I0 such that the points ( s1, g (s1)) and ( t1, g (t1)) belong to the same component 
+
+C1 of F1 ∩ (I0 × R). In consequence, the connected component B1 of the set (R2 \ F1) ∩ (I1 × R) containing I1 × J1 is bounded. Indeed, otherwise there is a continuous curve 
+
+γ = ( γ1, γ 2) : [0 , ∞) → (R2 \ F1) ∩ (I1 × R)such that γ(0) ∈ I1 × J1 and sup t≥0 |γ(t)| = ∞. Then inf t≥0 γ2(t) = −∞ or sup t≥0 γ2(t) = ∞ which contradicts the connectedness of C0 or C1, respectively. This shows sufficiency in the case F2 = R2.Now, let us also assume that F1 satisfies condition ( ∗∗ ). For an open interval 
+
+I ⊂ I1, let BI be the (bounded) connected component of ( R2 \ F1) ∩ (I × R)containing I × J1. We also define 
+
+UI := {(ξ1, ξ 2) ∈ BI : ξ2 > g (ξ1)},LI := {(ξ1, ξ 2) ∈ BI : ξ2 < f (ξ1)}.
+
+We claim that there is an open interval I ⊂ I1 such that the sets UI and LI both have empty interior. For such an interval I the set 
+
+BI \ (UI ∪ LI ) = {(ξ1, ξ 2) ∈ BI : f (ξ1) ≤ ξ2 ≤ g(ξ1)} ⊂ F2
+
+is dense in BI , and consequently BI ⊂ F2, which is our final goal. Suppose that the above claim is not true. Then for all open intervals I ⊂ I1,the set UI or LI has a non-empty interior. We will recursively construct sequences (I′
+
+> k
+
+)k≥2, ( Ik)k≥2, ( Jk)k≥2 of non-empty, open intervals and connected components 
+
+Ck of F1 ∩ (I′ 
+
+> k
+
+× R) such that for each k ≥ 2: (1) Ik ⊂ I′ 
+
+> k
+
+⊂ Ik−1 ⊂ . . . ⊂ I2 ⊂ I′ 
+
+> 2
+
+⊂ I1;(2) the intervals J1, . . . J k are pairwise disjoint; (3) either Ik × Jk ⊂ UIk or Ik × Jk ⊂ LIk ;26 T. CIAŚ AND T. KALMES 
+
+(4) if Ik × Jk ⊂ LIk then the set Ck contains the points (inf Ik, f (inf Ik)) and (sup Ik, f (sup Ik)), and if Ik × Jk ⊂ UIk then the set Ck contains the points (inf Ik, g (inf Ik)) and (sup Ik, g (sup Ik)); (5) the connected components X(k)1 , X (k)2 , . . . X (k) 
+
+> k
+
+of the set ( R2 \F1)∩(Ik ×R)containing Ik × J1, I k × J2, . . . , I k × Jk, respectively, are pairwise disjoint. We start with the case k = 2. By assumption, one of the set UI1 or LI1 has a non-empty interior. Without loss of generality, we may assume that LI1 contains an open rectangle I′ 
+
+> 2
+
+× J2, where I′ 
+
+> 2
+
+⊂ I1. Since F1 ∩ (I′ 
+
+> 2
+
+× R) has at most countable many components, there are s2 < t 2 from the interval I′ 
+
+> 2
+
+such that the points (s2, f (s2)) and ( t2, f (t2)) belong to the same component C2 of F1 ∩ (I′ 
+
+> 2
+
+× R). We set I2 := ( s2, t 2). Then the connected components X(2) 1 , X (2) 2 of ( R2 \ F1) ∩ (I2 × R)containing I2 × J1, I 2 × J2, respectively, are disjoint. Otherwise, one could find a continuous curve 
+
+γ : [0 , 1] → (R2 \ F1) ∩ (I2 × R)such that γ(0) ∈ I2 × J1 and γ(1) ∈ I2 × J2 destroying the connectedness of C2.Note that this also implies that J1 and J2 are disjoint. Let us assume that we have already constructed open intervals 
+
+I′
+
+> 2
+
+, . . . , I ′
+
+> k
+
+, I2, . . . , I k, J2, . . . , J k
+
+and connected components C2, . . . , C k of 
+
+F1 ∩ (I′ 
+
+> 2
+
+× R), . . . , F 1 ∩ (I′ 
+
+> k
+
+× R),
+
+respectively, that satisfy the properties (1)–(5) above. Then at least one of the set 
+
+UIk or LIk has a non-empty interior. Without loss of generality, we may assume that LIk contains an open rectangle I′ 
+
+> k+1
+
+× Jk+1 , where , where I′ 
+
+> k+1
+
+⊂ Ik. Since 
+
+F1 ∩(I′ 
+
+> k+1
+
+×R) has at most countably many components, there are sk+1 < t k+1 from the interval I′ 
+
+> k+1
+
+such that the points ( sk+1 , f (sk+1 )) and ( tk+1 , f (tk+1 )) belong to the same component Ck+1 of F1 ∩ (I′ 
+
+> k+1
+
+× R). We set Ik+1 := ( sk+1 , t k+1 ). Then the connected components X(k+1) 1 , . . . , X (k+1)  
+
+> k
+
+of ( R2 \ F1) ∩ (Ik+1 × R) containing 
+
+Ik+1 × J1, . . . , I k+1 × Jk do not intersect the connected component X(k+1)  
+
+> k+1
+
+of ( R2 \
+
+F1) ∩ (Ik+1 × R) containing Ik+1 × Jk+1 . Otherwise, one finds a continuous curve 
+
+γ : [0 , 1] → (R2 \ F1) ∩ (Ik+1 × R)such that γ(0) ∈ Ik+1 × Jm and γ(1) ∈ Ik+1 × Jk+1 for some m = 1 , . . . , k which contradicts the connectedness of the set Ck+1 . This also shows the disjointness of 
+
+Jj and Jk+1 , j = 1 , . . . , k . Since J1, . . . , J k are pairwise disjoint, (2) holds for k + 1, which, by the above, implies that (5) holds also for k + 1. From property (1) and Cantor’s intersection theorem it follows that 
+
+⋂
+
+> k≥1
+
+Ik ⊃ ⋂
+
+> k≥1
+
+Ik+1 ̸ = ∅.
+
+Let us fix t ∈ ⋂ 
+
+> k≥1
+
+Ik and let M ∈ N be the number of connected components of 
+
+B1 ∩ ({t} × R). Notice that the sets (IM +1 × J1) ∩ ({t} × R), . . . , (IM +1 × JM +1 ) ∩ ({t} × R)are not empty and, by property (5), belong to different connected components 
+
+X(M +1) 1 , . . . , X (M +1)   
+
+> M+1
+
+of ( R2 \ F1) ∩ (IM +1 × R). Next, by property (3), 
+
+Ik × Jk ⊂ LIk ∪ UIk ⊂ BIk ⊂ BI1 = B1
+
+for all k ≥ 2 and clearly I1 × J1 ⊂ B1, whence 
+
+IM +1 × Jk ⊂ B1ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 27 
+
+for all k ≥ 1. Therefore, the sets X(M +1) 1 , . . . , X (M +1)   
+
+> M+1
+
+are contained in B1, so these sets are also connected components of B1 ∩ (IM +1 × R). Let X be the class of all connected components of B1 ∩ (IM +1 × R) with a non-empty intersection with the line {t} × R and let Xt be the class of all connected components of B1 ∩ ({t} × R). We consider the map Φ : X → X t that assigns to each set X ∈ X the unique set 
+
+Y ∈ X t such that Y ⊂ X. We have |X | > M = |X t| so, by the pigeonhole principle, there are X1̸ = X2 from the class X such that Y := Φ( X1) = Φ( X2). But then 
+
+Y ⊂ X1, Y ⊂ X2, and consequently X1 ∩ X2 contains a non-empty set Y , which contradicts X1 ∩ X2 = ∅. This final contradiction completes the proof. □
+
+Proposition 27 can be applied to the class of subanalytic subsets of R2; see [12, Definition 3.1]. 
+
+Corollary 28. Let P (D) be a hypoelliptic partial differential operator on R2 which is orthogonally degenerate on its linear characteristic cone Char( P )̸ = {0}. More-over, let F1 ⊂ F2 be closed subsets of R2, where F1 is a subanalytic set. Then F1, F 2
+
+is a P -Runge pair for smooth Whitney jets if and only if for all x ∈ R2 and ϵ > 0
+
+the set F2 does not contain a bounded connected component of (Rd \ F1) ∩ (B(x, ϵ ) + Char( P )⊥).Proof. We shall use basic properties of subanalytic sets; see [12, Remark after Definition 3.1, Gabrielov’s Complement Theorem 3.10 and Theorem 3.14]. Without loss of generality, we may assume that Char( P ) = span {e1} = R×{ 0}. If F1 ⊂ R2 is subanalytic, then so are the sets of the form F1∩(( a, b )×R) and ( R2\F1)∩(( a, b )×R), where a < b ; here, we use the fact that the intersection of subanalytic sets as well as the complement of a subanalytic set are subanalytic. Next, the collection of connected components of F1 ∩ (( a, b ) × R) is locally finite, so F1 ∩ (( a, b ) × R) has at most countable many components. Moreover, every connected component of a subanalytic set is subanalytic. Therefore, each bounded connected component B
+
+of ( R2 \ F1) ∩ (( a, b ) × R) is a relatively compact subanalytic set, and consequently the sets of the form B ∩ ({t} × R) have only finitely many components (here we use [12, Theorem 3.14]). Hence, by Proposition 27, F1, F 2 is a P -Runge pair. □
+
+For specific non-hypoelliptic operators, the conclusion of Theorem 26 can be strengthened, as is shown in the following example. 
+
+Example 29. (i) Consider the non-hypoelliptic operator P (D) = ∂d, with the corresponding polynomial P ∈ C[ξ1, . . . , ξ d], P (ξ1, . . . , ξ d) = iξ d. We will show that closed sets F1, F 2 ⊂ Rd form a P -Runge pair for smooth Whitney jets if and only if for all x ∈ Rd the set F2 does not contain a bounded connected component of (Rd \ F1) ∩ (x + Char( P )⊥). For necessity, let us assume that there is x ∈ Rd such that F2 contains a bounded connected component C of (Rd \ F1) ∩ (x + Char( P )⊥) = ( Rd \ F1) ∩ { (x′, t ) : t ∈ R},
+
+where x′ = ( x1, . . . , x d−1). Then πd(C) = ( a, b ) for some a < b with πd : Rd → R
+
+defined by πd(x) := xd. Let u ∈ E ′(Rd), 
+
+u := δx′ ⊗ 1[a,b ],
+
+where δx′ ∈ E ′(Rd−1) is the Dirac delta distribution at the point x′ and 1[a,b ] ∈
+
+E ′(R) is the characteristic function of the interval [ a, b ] (see [24, Section 5.1] and [38, Section 1.5] for definition and basic properties of tensor products of distributions). Because 
+
+∂du = δx′ ⊗ ∂d1[a,b ],
+
+supp P (−D)u = supp ∂du = supp δx′ × supp ∂d1[a,b ] = {(x′, a ), (x′, b )} ⊂ F1,28 T. CIAŚ AND T. KALMES 
+
+and supp u = supp δx′ × supp 1[a,b ] = {x′} × [a, b ] = C ⊂ F2,
+
+by [5, Theorem 5], F1, F 2 is not a P -Runge pair. Sufficiency follows from [5, Theo-rem 16]. (ii) Let F1 = {(0 , 0) } ∪ { (0 , 1) }, F2 = R2 and P (ξ1, ξ 2) = iξ 2. Clearly, the pair 
+
+F1, F 2 satisfies the condition: for all x ∈ R2 and ϵ > 0 the set (R2 \ F1) ∩ (B(x, ϵ ) + Char( P )⊥) = ( R2 \ F1) ∩ (x1 − ϵ, x 1 + ϵ) × R
+
+does not admit a bounded connected component. But C := {0}× (0 , 1) is a bounded connected component of the set ( R2 \ F1) ∩ { 0} × R and, proceeding as in (i), we conclude that F1, F 2 is not a P -Runge pair. Having in mind [5, Theorem 16, implication (iv) ⇒(i)], the previous Proposition 27, and Example 29, we state the following conjecture. 
+
+Conjecture 30. Let P (D) be a hypoelliptic partial differential operator on Rd
+
+which is orthogonally degenerate on its linear characteristic cone Char( P )̸ = {0}.Moreover, let F1 ⊂ F2 be closed subsets of Rd. F1, F 2 is a P -Runge pair for smooth Whitney jets if and only if all x ∈ Rd and ϵ > 0 the set F2 does not contain a bounded connected component of (Rd \ F1) ∩ (B(x, ϵ ) + Char( P )⊥).
+
+In the remainder of this section, for non-elliptic P which are orthogonally degen-erate on their linear characteristic cone, we study P -Runge pairs of open subsets of Rd. In order to do this, we need the following lemma. 
+
+Lemma 31. Let P ∈ C[ξ1, . . . , ξ d] be orthogonally degenerate on a linear subspace 
+
+Z̸ = {0} of Rd. Moreover, let X1, X 2 be open subsets of Rd with X1 ⊂ X2. Consider the following assertions. 
+
+(i) For every φ ∈ D(X2) with supp ˇP (D)φ ⊂ X1 it holds supp φ ⊂ X1.
+
+(ii) There is no x ∈ Rd such that X2 contains a bounded connected component of (Rd\X1
+
+) ∩ (x + Z⊥).Then (i) implies (ii) . Additionally, if X1 is P -convex for supports and P is orthog-onally degenerate on its linear characteristic cone, then (ii) also implies (i) .Proof. We abbreviate again W := Z⊥ and l := dim( Z) ∈ { 1, . . . , d − 1}. To show that (i) implies (ii), after the usual orthogonal change of variables, we can assume without loss of generality that 
+
+W = {x ∈ Rd : x1 = . . . = xl = 0 }
+
+and we argue by contradiction. Thus, we assume that there is x0 ∈ Rd such that (Rd\X1
+
+) ∩ (x0 + W ) has a bounded, hence compact, connected component C which is contained in X2. Fix y ∈ C. Then x0 + W = y + W . By compactness of C and 
+
+y + W = {(y1, . . . , y l)} × Rd−l
+
+there are open and bounded subsets V ⊂ U ⊂ Rd−l such that 
+
+C ⊂ {(y1, . . . , y l)} × V ⊂ { (y1, . . . , y l)} × V ⊂ { (y1, . . . , y l)} × U(9) 
+
+⊂ {(y1, . . . , y l)} × U ⊂ (X1 ∪ C) ∩ ({(y1, . . . , y l)} × Rd−l) .
+
+Because {(y1, . . . , y l)} × U \V is a compact subset of X1 ∩ (y + W ) there is ϵ > 0with (a) Bl(( y1, . . . , y l), ϵ ) × (U \V ) ⊂ X1,(b) Bl(( y1, . . . , y l), ϵ ) × U ⊂ X2,ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 29 
+
+where, as in Theorem 5, for v ∈ Rl, δ > 0, we denote by Bl(v, δ ) the euclidean ball in Rl of radius δ about v. An application of Theorem 9 to ˇP gives the existence of 
+
+u ∈ E ˇP (Rd) such that (10) Bl(( y1, . . . , y l), ϵ/ 2) × Rd−l ⊂ supp u ⊂ Bl(( y1, . . . , y l), ϵ ) × Rd−l
+
+Fix ψ ∈ D(U ) such that ψ = 1 in a neighborhood of V . Then 
+
+φ : Rd → C, x 7 → u(x)ψ(xl+1 , . . . , x d)belongs to D
+
+(
+
+Bl(( y1, . . . , y l), ϵ ) × U
+
+)
+
+, in particular supp φ ⊂ X2. By 
+
+B(y, ϵ/ 2) + W = Bl(( y1 . . . , y l), ϵ/ 2) × Rd−l,
+
+(9) and (10), it holds C ⊂ supp φ and by (b), as in the proof of Theorem 14, we have supp ˇP (D)φ ⊂ supp u ∩ (Rl × (U \V ))
+
+⊂ (Bl(( y1, . . . , y l), ϵ ) × U ) ∩ (Rl × (U \V ))
+
+= Bl(( y1, . . . , y l), ϵ ) × (U \V ) ⊂ X1.
+
+Because C ⊂ supp φ ∩ (Rd\X1), but φ ∈ D(X2) satisfies supp ˇP (D)φ ⊂ X1, we derive the desired contradiction to (i). Hence, (i) implies (ii) Under the additional hypothesis that X1 is P -convex for supports, the proof that (ii) implies (i) is done exactly as in [29, Proof of Theorem 1, (iii) implies (i) and (ii)], where the special case dim( Z) = 1 is studied and where one has to apply Corollary 21 instead of [29, Theorem 7]. □
+
+Example 32. Keeping the notation from Example 11 (iii), let P ∈ C[ξ0, ξ 1, . . . , x d]be a polynomial corresponding to a partial differential operator P (D) whose prin-cipal part is the d-dimensional wave operator, d ≥ 1. (i) By Example 11 (iii) and Theorem 26, if closed subsets F1, F 2 of Rd+1 form a P -Runge pair for smooth Whitney jets, then for all characteristic hyperplanes H
+
+for P and all ϵ > 0 the set F2 does not contain a bounded connected component of (Rd+1 \ F1) ∩ (H + B(0 , ϵ )). (ii) By Example 11 (iii), Lemma 31 and [29, Theorem 6], if open P -convex for supports sets X1, X 2 ⊂ Rd+1 form a P -Runge pair then for all characteristic hyperplanes H for P the set X2 does not contain a bounded connected component of ( Rd+1 \ X1) ∩ H.Our final theorem in this section characterizes the open sets which are P -Runge pairs for differential operators which are orthogonally degenerate on their linear characteristic cone under the additional hypothesis, that both sets are P -convex for supports. It should be noted that for an elliptic differential operator all open sets are P -convex for supports. Hence the next theorem may be considered as an analogue to the celebrated Lax-Malgrange Theorem for non-elliptic differential operators which are orthogonally degenerate on their linear characteristic cone. 
+
+Theorem 33. Let P ∈ C[ξ1, . . . , ξ d] be orthogonally degenerate on its linear char-acteristic cone Char( P )̸ = {0}. Moreover, let X1, X 2 be open subsets of Rd which are P -convex for supports, such that X1 ⊂ X2. Then, the following are equivalent. 
+
+(i) X1, X 2 is a P -Runge pair. 
+
+(ii) X1, X 2 is a P -Runge pair for distributions. 
+
+(iii) There is no x ∈ Rd such that X2 contains a bounded connected component of (Rd\X1
+
+) ∩ (x + Char( P )⊥).Proof. The theorem follows immediately by combining Lemma 31 with [29, Theo-rem 6]. □30 T. CIAŚ AND T. KALMES 
+
+5. Square systems of constant coefficient partial differential equations 
+
+In this section, we shall combine the results from the previous sections with those from [29, 5] to establish Runge type approximation results for square systems of constant coefficient, linear partial differential equations. In order to do so, we first recall some general notation and facts (see [23, Section 3.8]). For N ∈ N we equip 
+
+E (X)N , D′(X)N , and E (F )N with the product topology, where X ⊂ Rd is open and 
+
+F ⊂ Rd is closed, and we interpret elements from these spaces as column vectors. For Pjk ∈ C[ξ1, . . . , ξ d], 1 ≤ j, k ≤ N , the N × N matrix of constant coefficients partial differential operators P (D) = ( Pjk (D)) 1≤j,k ≤N defines a continuous linear operator on each of the spaces E (X)N , D′(X)N , and E (F )N in an obvious way. Denoting for ξ ∈ Cd by P ad (ξ) = ( P ad jk (ξ)) 1≤j,k ≤N the adjoint matrix of the matrix P (ξ) = ( Pjk (ξ)) 1≤j,k ≤N consisting of the cofactors of ( Pkj (ξ)) 1≤j,k ≤N , and by det P (ξ) the determinant of P (ξ), it holds P ad jk , det P ∈ C[ξ1, . . . , ξ d] and (11) P (ξ)P ad (ξ) = P ad (ξ)P (ξ) = det P (ξ)IN ,
+
+where by IN = ( δjk )1≤j,k ≤N .
+
+Proposition 34. Let E ∈ { E (X), D′(X), E (F )}. Then, the following are equiva-lent. 
+
+(i) det P (D) is surjective on E.
+
+(ii) P (D) and P ad (D) are both surjective on EN .Proof. The assertion follows immediately from equation (11) which implies (12) P (D)P ad (D)u = P ad (D)P (D)u = det P (D)IN u
+
+for each u ∈ EN . □
+
+Remark 35. Assume that det P̸ ≡ 0. Then, combining the previous proposition with [19, Introduction to Chapter 6], we obtain the surjectivity of both P (D) and 
+
+P ad (D) on E (F )N .
+
+Definition 36. For E ∈ { E (X), D′(X), E (F )} we set 
+
+EP = {u ∈ EN : P (D)u = 0 }
+
+which we also denote by EP (X), D′ 
+
+> P
+
+(X), and EP (F ), respectively, and which we equip with the respective subspace topology induced by EN . Analogously to the case of a single partial differential operator, a pair of open subsets X1 ⊂ X2 of Rd,respectively, a pair of closed subset F1 ⊂ F2 of Rd is called a P -Runge pair (for distributions, or smooth Whitney jets) , respectively, if the restriction mapping 
+
+EP (X2) → EP (X1), u 7 → u|X1 , D′ 
+
+> P
+
+(X2) → D′ 
+
+> P
+
+(X1), u 7 → u|X1 ,
+
+or 
+
+EP (F2) → EP (F1), u 7 → u|F1
+
+has dense range, respectively. 
+
+Proposition 37. Let E ∈ { E (X), D′(X), E (F )}. Then 
+
+P ad (D) : EN 
+
+> det P
+
+→ EP
+
+is a correctly defined, linear and continuous mapping. Additionally, if P ad (D) is surjective on EN , the same holds for 
+
+P ad (D) : EN 
+
+> det P
+
+→ EP .ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 31 
+
+Proof. For u ∈ EN 
+
+> det P
+
+it follows from (12) that P ad (D)u belongs to EP . Hence, 
+
+P ad (D) : EN 
+
+> det P
+
+→ EP
+
+is a correctly defined, obviously linear and continuous mapping. Now, we assume that P ad (D) is surjective on EN . Let v be in EP and let u ∈ EN
+
+be such that P ad (D)u = v. It follows from v ∈ EP and (12) that 0 = P (D)v = P (D)P ad (D)u = det P (D)IN u
+
+so that u ∈ EN 
+
+> det P
+
+which proves the surjectivity of P ad (D) : EN 
+
+> det P
+
+→ EP . □
+
+Remark 38. (i) With the notation from Proposition 37, if Ej , j = 1 , . . . , N ,are dense subsets of Edet P then P ad (D) ( E1 × · · · × EN ) is dense in EP whenever 
+
+P ad (D) is surjective on EN .Thus, for convex open subsets X of Rd and P such that det P̸ ≡ 0, the linear span of the set 
+
+{P ad (D)u : u = ( u1, . . . , u N ), u j exponential solution for det P (D), j = 1 , . . . , N }
+
+is dense in both EP (X) and D′ 
+
+> P
+
+(X) by [30, Chapitre Premiere, §2, Th´ eor` eme 2], Proposition 37, and [25, Theorem 10.6.2, Corollary 10.6.8, Theorem 10.7.2, Corol-lary 10.7.10]. In particular, EP (X) is a dense subspace of D′ 
+
+> P
+
+(X) for convex open subsets X of Rd.Recall that for Q ∈ C[ξ1, . . . , ξ d] an exponential solution u for Q(D) is a smooth function on Rd satisfying Q(D)u = 0 in Rd and which is of the form 
+
+u(x) = f (x) exp( i⟨x, ζ ⟩),
+
+where f is a polynomial and ζ ∈ Cd (see [24, Definition 7.3.5]). It is easily verified that necessarily Q(ζ) = 0 and that the degree of f is bounded by m − 1 if ζ is a root of Q of multiplicity m. Indeed, this follows from the identity 
+
+Q(D) ( f (x) exp ( i⟨ζ, x ⟩)) = ∑
+
+> α∈Nd
+> 0
+
+Dαf (x) Q(α)(D) (exp( i⟨ζ, x ⟩)) 
+
+α!= (exp( i⟨ζ, x ⟩)) ∑
+
+> α∈Nd
+> 0
+
+Dαf (x) Q(α)(ζ)
+
+α! ,
+
+where as usual Q(α)(ξ) = ∂αQ(ξ), combined with the linear independence of the non-vanishing partial derivatives of Q.Similarly, for convex open subsets X of Rd and P such that det P̸ ≡ 0 and such that every irreducible factor of det P vanishes at the origin, the linear span of the set (13) {P ad (D)u : u = ( u1, . . . , u N ), u j ∈ Edet P (X), u j polynomial, j = 1 , . . . , N }
+
+is dense in both EP (X) and D′ 
+
+> P
+
+(X) by [30, Chapitre Premiere, §2, Th´ eor` eme 2’]. (ii) Assume that det P is hypoelliptic. Then, by (12) it follows immediately that D′ 
+
+> P
+
+(X) = EP (X) as vector spaces for every open subset X of Rd. Let F be a fundamental solution for det P (D) and E := ( P ad j,k (D)F )j,k . Then, E ∈ D′(Rd)N ×N
+
+is a two-sided fundamental matrix for P (D) (see e.g. [38, Section 2.1]). Since 
+
+F|Rd\{ 0} ∈ E (Rd\{ 0}) it holds E|Rd\{ 0} ∈ E (Rd\{ 0})N ×N . By the same reasoning as in [24, Proof of Theorem 4.4.2] one concludes that the bijection 
+
+i : D′ 
+
+> P
+
+(X) → EP (X), f 7 → f
+
+is continuous. Trivially, i−1 is continuous, too, so that D′ 
+
+> P
+
+(X) = EP (X) as locally convex spaces. Similarly, D′  
+
+> Pad
+
+(X) = EP ad (X) as locally convex spaces. 32 T. CIAŚ AND T. KALMES 
+
+Theorem 39. Let X1 ⊂ X2 be open subsets of Rd, F1 ⊂ F2 be closed subsets of 
+
+Rd.
+
+(i) Assume that P ad (D) is surjective on E (X1)N and that X1, X 2 is a det P -Runge pair. Then, the set of restrictions to X1 of elements from the set 
+
+P ad (D) (Edet P (X2)N ) is dense in EP (X1). In particular, X1, X 2 is a P -Runge pair. 
+
+(ii) Assume that P ad (D) is surjective on D′(X1)N and that X1, X 2 is a det P -Runge pair for distributions. Then, the set of restrictions to X1 of elements from the set P ad (D) (D′ 
+
+> det P
+
+(X2)N ) is dense in D′ 
+
+> P
+
+(X1). In particular, 
+
+X1, X 2 is a P -Runge pair for distributions. 
+
+(iii) Assume that det P̸ ≡ 0 and that F1, F 2 is a det P -Runge pair for smooth Whitney jets. Then, the set of restrictions to X1 of P ad (D) (Edet P (F2)N )
+
+is dense in EP (F1). In particular, F1, F 2 is a P -Runge pair for smooth Whitney jets. Proof. (i) Fix v ∈ EP (X1) and let V be a neighborhood of v in EP (X1). By Proposition 37 there is u = ( u1, . . . , u N ) ∈ Edet P (X1)N with P ad (D)u = v. For 
+
+j = 1 , . . . , N , let Uj be neighborhoods of uj in Edet P (X1) such that 
+
+P ad (D) ( U1 × · · · × UN ) ⊂ V. 
+
+Since X1, X 2 is a det P -Runge pair, for j = 1 , . . . , N there are wj ∈ Edet P (X2)with wj|X1 ∈ Uj . Then, with w = ( w1, . . . , w N )T , by Proposition 37, P ad (D)w ∈
+
+EP (X2). Because we also we have 
+
+(P ad (D)w)
+
+> |X1
+
+= P ad (D)( w|X1 ) ∈ V, 
+
+assertion (i) follow. The proofs of (ii) and (iii) are so similar to the proof of (i) that they are left to the reader. We only point out that the proof of (iii) uses Remark 35. □
+
+As an immediate consequence of the previous theorem and Remark 38 we obtain the following result. 
+
+Corollary 40. Let X1 be an open subset of Rd and F1 be a closed subset of Rd.
+
+(a) Let G be the linear span of the set 
+
+{P ad (D)u : u = ( u1, . . . , u N ), u j exponential solution for det P (D), j = 1 , . . . , N }.
+
+(a-i) Assume that P ad (D) is surjective on E (X1)N and that X1, Rd is a 
+
+det P -Runge pair. Then, G is dense in EP (X1) and in D′ 
+
+> P
+
+(X1).
+
+(a-ii) Assume that det P̸ ≡ 0 and that F1, Rd is a det P -Runge pair for smooth Whitney jets. Then, G is dense in EP (F1).
+
+(b) Let 
+
+P = {u = ( u1, . . . , u N ) ∈ EP (Rd) : uj polynomial }.
+
+Assume that every irreducible factor of det P vanishes at the origin. 
+
+(b-i) Assume that P ad (D) is surjective on E (X1)N and that X1, Rd is a 
+
+det P -Runge pair. Then, P is dense in EP (X1) and in D′ 
+
+> P
+
+(X1).
+
+(b-ii) Assume that det P̸ ≡ 0 and that F1, Rd is a det P -Runge pair for smooth Whitney jets. Then, P is dense in EP (F1).
+
+Remark 41. Let X ⊂ Rd be open. As usual, we write 
+
+C∞(X) = {f ∈ E (X) : ∂αf has a continuous extension to X for all α ∈ Nd
+
+> 0
+
+}
+
+and we equip C∞(X) with the family of seminorms {∥ · ∥ l,K : K ⊂ X compact , l ∈
+
+N0} defined by 
+
+∀ f ∈ C∞(X) : ∥f ∥l,K = max {| ∂αf (x)| : x ∈ K, |α| ≤ l},ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 33 
+
+turning C∞(X) into a Fr´ echet space. Consequently, 
+
+C∞ 
+
+> P
+
+(X) := {f = ( f1, . . . , f N )T ∈ C∞(X)N : P (D)f = 0 in X}
+
+is a closed subspace of C∞(X)N , hence a Fr´ echet space. We point out that the topology of C∞(X)N , and thus also the topology of C∞ 
+
+> P
+
+(X), is the topology of uniform convergence of partial derivatives of arbitrary order on compact subsets of 
+
+X. In particular, for bounded X, the topology is the one of uniform convergence of partial derivatives of arbitrary order on X.Under the additional hypothesis that X is path connected and satisfies the strong regularity condition, see below, E (X)N and C∞(X)N , respectively EP (X) and 
+
+C∞ 
+
+> P
+
+(X), are isomorphic as Fr´ echet spaces, the isomorphism being given by (f (α))α∈Nd 
+
+> 0
+
+7 → f (0) .
+
+This is a straightforward modification of [5, Corollary 11] where the case N = 1 is considered. Recall that a path connected closed set F ⊂ Rd satisfies the strong regularity condition if F = int F and if for all x0 ∈ C there are ϵ > 0, M > 0, and 
+
+θ ∈ (0 , 1] such that any two points x, y ∈ F ∩ B(x0, ϵ ) can be joint by a rectifiable arc γ ⊂ F with length |γ| such that (1) γ meets the boundary of F at most finitely many times, (2) |γ| ≤ M |x − y|θ .It can be shown that X satisfies the strong regularity condition whenever X has a H¨ older continuous boundary, [5, Appendix]. We recall some abstract criterion that is a direct consequence of [51, Proposition 13.1 and Corollary 3 on p. 54]. 
+
+Proposition 42. Let E1, E 2 be Fr´ echet spaces and let T1 : E1 → E1, T2 : E2 → E2
+
+and r : E2 → E1 be continuous linear maps. Assume moreover that T2 is surjective and r ◦ T2 = T1 ◦ r. Then the following assertions are equivalent: 
+
+(i) T1 is surjective and r(ker T2) is dense in ker T1;
+
+(ii) r has dense range and for all y ∈ E′ 
+
+> 2
+
+it holds y ∈ im tr whenever tT2(y) ∈ im tr.
+
+As a consequence of the previous criterion, we have the following result which is proved similarly as [5, Corollary 9]. We include its proof for the reader’s conve-nience. 
+
+Proposition 43. Let F1 ⊂ F2 be closed subsets of Rd which are a P -Runge pair for smooth Whitney jets for some P with det P̸ ≡ 0. Then, F2 does not contain a bounded connected component of Rd\F1.Proof. It is well-known fact, that for a closed subset F of Rd, the dual space of E (F )coincides with the subspace E ′(F ) of the space of compactly supported distributions on Rd, E ′(Rd), which have their support contained in F (see e.g. [5, Proposition 4]). Moreover, let us note that the transpose tP (D) of P (D) : E (F )N → E (F )N is the operator 
+
+> t
+
+P (D) : E ′(F )N → E ′(F )N , tP (D) = ( Pkj (−D)) 1≤j,k ≤N = ˇP T (D).
+
+Since det P T = det P̸ ≡ 0, there is ζ ∈ Cd with det P T (−ζ) = 0. We set h0(x) = exp 
+
+(
+
+i ∑dj=1 ζj xi
+
+)
+
+, x ∈ Rd, as well as 
+
+h := 
+
+( ˇP T )ad 
+
+(D)( h0, . . . , h 0)T ∈ E (Rd)N
+
+so that ˇP T (D)h = det ˇP T (D)h = 0. Assume that G is a bounded (open) connected component of Rd\F1 which is contained in F2. Then, it is straight forward to prove 34 T. CIAŚ AND T. KALMES 
+
+that 
+
+g : Rd → C, x 7 →
+
+{
+
+h(x), if x ∈ G, 
+
+0, otherwise satisfies g ∈ E ′(F2)N and supp ˇP T (D)g ⊂ ∂G ⊂ F1,
+
+i.e. ˇP T (D)g ∈ E (F1)N . But, since F1, F 2 is a P -Runge pair for smooth Whitney jets, Proposition 42 applied to Ej = E (Fj )N , T1 = T2 = P (D), and r the restriction mapping from E (F2)N to E (F1)N , gives that every u ∈ E ′(F2)N with ˇP T (D)u ∈
+
+E ′(F1)N satisfies u ∈ E ′(F1)N which gives the desired contradiction. □
+
+Recall that a square matrix P = ( Pjk )1≤j,k ≤N of polynomials (and the corre-sponding square matrix of partial differential operators) is elliptic if the polynomial det P is elliptic. The following theorem is the analogue for the setting of smooth Whitney jets of [30, “Cas d’un syst´ eme pour lequel p = q”, p. 337] which considers 
+
+P -Runge pairs for elliptic square systems. 
+
+Theorem 44. Let F1 ⊂ F2 be closed subsets of Rd and let P (D) be an elliptic square matrix of partial differential operators. Then, the following conditions are equivalent. 
+
+(i) F1, F 2 is a P -Runge pair for smooth Whitney jets. 
+
+(ii) No bounded connected component of Rd \ F1 is contained in F2.Proof. By [5, Theorem 12] and Theorem 39, condition (ii) implies (i). Conversely, (i) implies (ii) by Proposition 43. □
+
+5.1. The (λ − curl) -system. In this subsection, we have d = N = 3. Recall that a 
+
+Beltrami field on a open subset X of R3 is a vector field u which is an eigenfunction to a non-zero eigenvalue of the curl operator, i.e. which satisfies curl u = λu 
+
+for λ ∈ C\{ 0}. For such λ we consider the ( λ − curl)-system, i.e. the system given by the matrix (14) Pλ(D) = 
+
+
+
+λ ∂3 −∂2
+
+−∂3 λ ∂1
+
+∂2 −∂1 λ
+
+ ,
+
+where ∂j = ∂∂x j , j = 1 , 2, 3. A straightforward calculation gives 
+
+P ad λ (D) = 
+
+
+
+λ2 + ∂21 ∂1∂2 − λ∂ 3 ∂1∂3 + λ∂ 2
+
+∂1∂2 + λ∂ 3 λ2 + ∂22 ∂2∂3 − λ∂ 1
+
+∂1∂3 − λ∂ 2 ∂2∂3 + λ∂ 1 λ2 + ∂23
+
+
+
+and (15) det Pλ(D) = λ(λ2 + ∆) .
+
+Since det Pλ is (hypo)elliptic, by Remark 38 (ii), for every open subset X of R3
+
+we have D′ 
+
+> Pλ
+
+(X) = EPλ (X) and D′ 
+
+> Pad λ
+
+(X) = EP ad λ
+
+(X) as locally convex spaces. In particular, the set of all Beltrami fields on X equals ⋃ 
+
+> λ∈C\{ 0}
+
+EPλ (X). Therefore, by the classical Lax-Malgrange Theorem for elliptic square systems (cf. [30, “Cas d’un syst´ eme pour lequel p = q”, p. 337]), open subset X1 ⊂ X2
+
+of R3 are a Pλ-Runge pair (for distributions) if and only if X2 does not contain a bounded connected component of R3\X1. The following version of this result for smooth Whitney jets is an immediate consequence of Theorem 44. ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 35 
+
+Theorem 45. Let F1 ⊂ F2 be closed subsets of R3. Moreover, for λ ∈ C\{ 0}, let 
+
+Pλ(D) be as in (14) . Then, F1, F 2 is a Pλ-Runge pair for smooth Whitney jets if and only if F2 does not contain a bounded connected component of R3\F1.
+
+Remark 46. It is well known that every solution u of the Helmholtz equation with (complex) wave number λ2, i.e. every u satisfying ∆ u + λ2u = 0 in Rd, d ≥ 2, can be written as (16) u(x) = 
+
+> ∞
+
+∑
+
+> k=0
+> dk
+
+∑
+
+> m=1
+
+ck,m |x|(2 −d)/2Jk+( d−2) /2(λ|x|)Yk,m (x/ |x|),
+
+where the series converges in E (Rd) and where ck,m ∈ C, Jμ denotes the Bessel function of the first kind of order μ and where {Yk,m : 1 ≤ m ≤ dk} is an orthonor-mal basis of the finite dimensional vector space of spherical harmonics of degree k,i.e. the subspace of (restrictions to Sd−1 of) homogeneous harmonic polynomials of degree k in L2(Sd−1) (see [18, the discussion preceding Theorem 2.2.66] or [7, Section V.5.5 and §VII.2]; see also Remark 61 below.) Since the summands in the series (16) satisfy the Helmholtz equation with wave number λ2, it follows that the linear span E0 of the set of functions 
+
+{| x|(2 −d)/2Jk+( d−2) /2(λ|x|)Yk,m (x/ |x|) : k ∈ N0, m = 1 , . . . , d k},
+
+for d = 3, is dense in Edet Pλ (R3). Using the well-known recursion relation for Bessel functions 
+
+J′
+
+> μ
+
+(z) = 12 (Jμ−1(z) − Jμ+1 (z)) , z ∈ C, μ ∈ R,
+
+a straightforward induction on the order of differentiation shows (see Proposition 49 below which we include for the reader’s convenience) that for each α ∈ Nd 
+
+> 0
+
+there are functions {gα,j,l : − | α| ≤ j ≤ | α|, 0 ≤ l ≤ min {1, |α|}} ⊂ E (Rd\{ 0}) such that 
+
+∀ x ∈ Rd\{ 0} : ∂αx
+
+(
+
+|x|(2 −d)/2J(k−1) /2(λ|x|)Yk,m (x/ |x|)
+
+)
+
+=
+
+> |α|
+
+∑
+
+> j=−| α|
+> min {1,|α|}
+
+∑
+
+> l=0
+
+|x|−| α|− l+(2 −d)/2J(k−1) /2−j (λ|x|)gα,j,l 
+
+( x
+
+|x|
+
+)
+
+= |x|−| α|+(1 −d)/2
+
+> |α|
+
+∑
+
+> j=−| α|
+> min {1,|α|}
+
+∑
+
+> l=0
+
+|x|−l|x|1/2J(k−1) /2−j (λ|x|)gα,j,l 
+
+( x
+
+|x|
+
+)
+
+.
+
+For real λ̸ = 0 it follows from sup 
+
+> r> 0
+
+r1/2|Jn+1 /2(r)| < ∞
+
+(see [55, §7.21]) that the right hand side of the above equation is bounded by 
+
+|x|−| α|+(1 −d)/2Cα for a suitable constant Cα > 0. In particular, for d = 3 and real 
+
+λ̸ = 0, for every function f from the dense subspace P ad λ (D)( E30 ) of EPλ(D)(R3), the following decay property at infinity holds for the components of f = ( f1, f 2, f 3)(17) ∀α ∈ N30 ∃Cα > 0∀x ∈ R3 : |∂αfj (x)| ≤ Cα|x|−| α|− 1, j = 1 , 2, 3.
+
+Combining Remark 38 (i) with the classical Lax-Malgrange Theorem for elliptic square systems (cf. [30, “Cas d’un syst´ eme pour lequel p = q”, p. 337]) and with Theorem 45 (for F2 = R3), respectively, implies the next theorem. Part (i) is due to Enciso and Peralta-Salas [16, Theorem 8.3]. 
+
+Theorem 47. Let λ ∈ R\{ 0} and let Pλ(D) be as in (14) . Moreover, let X1 ⊂ R3
+
+be open and F1 ⊂ R3 be closed. 36 T. CIAŚ AND T. KALMES 
+
+(i) The subspace of functions of EPλ(D)(R3) whose components satisfy the decay property (17) is dense in EPλ(D)(X1) if and only if R3\X1 does not have a bounded connected component. 
+
+(ii) The subspace of functions of EPλ(D)(R3) whose components satisfy the decay property (17) is dense in EPλ(D)(F1) if and only if R3\F1 does not have a bounded connected component. 
+
+Remark 48. We point out that for a path connected, open set X in R3 with H¨ older continuous boundary, Theorem 47 (ii) above combined with Remark 41 yields that the subspace of functions of EPλ(D)(R3) whose components satisfy the decay property (17) is dense in C∞
+
+> Pλ(D)
+
+(X). 
+
+Proposition 49. Let μ ∈ R, λ ∈ C, and g ∈ E (Rd\{ 0}). For the smooth function 
+
+f : Rd\{ 0} → C, x 7 → | x|(2 −d)/2Jμ(λ|x|)g
+
+( x
+
+|x|
+
+)
+
+the following holds. For every α ∈ Nd 
+
+> 0
+
+there are {gα,j,l : − | α| ≤ j ≤ | α|, 0 ≤ l ≤
+
+min {1, |α|}} ⊂ E (Rd\{ 0}) such that 
+
+∀x ∈ Rd\{ 0} : ∂αf (x) = 
+
+> |α|
+
+∑
+
+> j=−| α|
+> min {1,|α|}
+
+∑
+
+> l=0
+
+|x|−| α|− l|x|(2 −d)/2Jμ−j (λ|x|)gα,j,l 
+
+( x
+
+|x|
+
+)
+
+.
+
+Proof. Let us denote 
+
+r : Rd\{ 0} → R, x 7 → | x|
+
+and 
+
+ω : Rd\{ 0} → Rd, x 7 → x
+
+|x| .
+
+Then, for 1 ≤ i, k ≤ d it holds 
+
+∂ir(x) = xi
+
+r(x) and ∂iωk = 1
+
+r(x) (δi,k − ωi(x)ωk(x)) .
+
+We prove the claim by induction on |α|.For |α| = 0 there is nothing to prove. Assume that the claim holds for each 
+
+α ∈ Nd 
+
+> 0
+
+with |α| ≤ k. Let α ∈ Nd 
+
+> 0
+
+with |α| = k and let 1 ≤ i ≤ d. By hypothesis, there are {gα,j,l : − | α| ≤ j ≤ | α|, 0 ≤ l ≤ min {1, |α|}} ⊂ E (Rd\{ 0}) such that (18) 
+
+∀x ∈ Rd\{ 0} : ∂αf (x) = 
+
+> |α|
+
+∑
+
+> j=−| α|
+> min {1,|α|}
+
+∑
+
+> l=0
+
+|x|−| α|− l+(2 −d)/2Jμ−j (λ|x|)gα,j,l 
+
+( x
+
+|x|
+
+)
+
+.
+
+Using the recursion relation for Bessel functions 
+
+J′ 
+
+> ν
+
+(z) = 12 (Jν−1(z) − Jν+1 (z)) , z ∈ C, ν ∈ R,
+
+we calculate 
+
+∂i
+
+(
+
+|x|−| α|− l+(2 −d)/2Jμ−j (λ|x|)gα,j,l 
+
+( x
+
+|x|
+
+)) 
+
+= ((2 − d)/2 − | α| − l)|x|−| α+ei|− l+(2 −d)/2 ∂ir(x)Jμ−j (λ|x|)gα,j,l 
+
+( x
+
+|x|
+
+)
+
++|x|−| α|− l+(2 −d)/2 λ
+
+2 (Jμ−j−1(λ|x|) − Jμ−j+1 (λ|x|)) ∂ir(x)gα,j,l 
+
+( x
+
+|x|
+
+)
+
++|x|−| α|− l+(2 −d)/2 Jμ−j (λ|x|)
+
+> d
+
+∑
+
+> n=1
+
+∂ngα,j,l 
+
+( x
+
+|x|
+
+)
+
+∂iωn(x)ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 37 
+
+= ((2 − d)/2 − | α| − l)|x|−| α+ei|− l+(2 −d)/2 Jμ−j (λ|x|) xi
+
+|x| gα,j,l 
+
+( x
+
+|x|
+
+)
+
++|x|−| α|− l+(2 −d)/2 λ
+
+2 (Jμ−j−1(λ|x|) − Jμ−j+1 (λ|x|)) ∂ir(x)gα,j,l 
+
+( x
+
+|x|
+
+)
+
++|x|−| α+ei|− l+(2 −d)/2 Jμ−j (λ|x|)
+
+> d
+
+∑
+
+> n=1
+
+∂ngα,j,l 
+
+( x
+
+|x|
+
+) ( 
+
+δi,n − xi
+
+|x|
+
+xn
+
+|x|
+
+)
+
+.
+
+Now, in case l = 0, it holds 
+
+|x|−| α|− l+(2 −d)/2 = |x|−| α|+(2 −d)/2 = |x|−| α+ei|− 1+(2 −d)/2
+
+while in case l = 1, we have 
+
+|x|−| α|− l+(2 −d)/2 = |x|−| α|− 1+(2 −d)/2 = |x|−| α+ei|+(2 −d)/2.
+
+Thus, the ∂i derivative of each summand in the right hand side of (18) can be written as 
+
+∑
+
+> s∈{− 1,0,1}
+> min {1,|α|}
+
+∑
+
+> l=0
+
+|x|−| α+ei|− l+(2 −d)/2Jμ−j−s ˜gα+ei,j +s,l 
+
+( x
+
+|x|
+
+)
+
+which finishes the induction step. □
+
+5.2. The 3D unsteady Stokes system. In this subsection let d = N = 4. In-stead of x = ( x1, x 2, x 3, x 4) ∈ R4 we write ( x0, x 1, x 2, x 3) ∈ R4, we denote x0 by t
+
+and ( x1, x 2, x 3) by x. Moreover, we abbreviate ∆ x = ∂2
+
+> ∂x 21
+
++ ∂2
+
+> ∂x 22
+
++ ∂2
+
+> ∂x 23
+
+, ∂j = ∂∂x j ,
+
+j = 1 , 2, 3, ∇x = ( ∂1, ∂ 2, ∂ 3)T , as well as ∂t = ∂∂t (= ∂∂x 0 ). We consider the 3D unsteady Stokes system, i.e. the system (∂t − ∆x) uj + ∂j u4 = 0, j = 1 , 2, 3,
+
+> 3
+
+∑
+
+> k=1
+
+∂kuk = 0,
+
+which, with the usual notation u = ( u1, u 2, u 3)T and p = u4, reads (19) 
+
+{
+
+(∂t − ∆x) u + ∇xp = 0 ,
+
+∇x · u = 0 .
+
+Thus, we have (20) P (D) = 
+
+
+
+∂t − ∆x 0 0 ∂1
+
+0 ∂t − ∆x 0 ∂2
+
+0 0 ∂t − ∆x ∂3
+
+∂1 ∂2 ∂3 0
+
+
+
+which implies 
+
+P ad (D) = ( ∂t − ∆x)
+
+
+
+−(∂22 + ∂23 ) ∂1∂2 ∂1∂3 (∆ x − ∂t)∂1
+
+∂2∂1 −(∂21 + ∂23 ) ∂2∂3 (∆ x − ∂t)∂2
+
+∂3∂1 ∂3∂2 −(∂21 + ∂22 ) (∆ x − ∂t)∂3
+
+(∆ x − ∂t)∂1 (∆ x − ∂t)∂2 (∆ x − ∂t)∂3 (∂t − ∆x)2
+
+
+
+and (21) det P (D) = −(∂t − ∆x)2∆x.
+
+Proposition 50. Let X ⊂ R4 be open and let det P (D) be as in (21) . Then, the following are equivalent. 
+
+(i) det P (D) is surjective on E (X).38 T. CIAŚ AND T. KALMES 
+
+(ii) det P (D) is surjective on D′(X).
+
+(iii) For every t ∈ R, the boundary distance dX satisfies the minimum principle in the hyperplane {t} × R3.Proof. Clearly, det P (D) is surjective on E (X) or on D′(X), respectively, precisely when this is true for both ∂t − ∆x and ∆ x. Because ∂t − ∆x is hypoelliptic ([25, Theorem 11.1.11]), ∂t − ∆x is surjective on D′(X) if and only if it is surjective on 
+
+E (X) ([25, Corollary 10.7.10 and Theorem 11.1.1]). By Corollary 21, ∂t − ∆x is surjective on E (X) if and only if (iii) holds. Moreover, by [28, Theorem 9], ∆ x is surjective on E (X) if and only if it is surjective on D′(X) which holds precisely when (iii) is true. This proves the proposition. □
+
+Remark 51. For det P (D) as in (21), it follows from Proposition 50 (with [28, Lemma 4]) that det P (D) is surjective on E (I × Ω) and D′ (I × Ω) for every open sets Ω ⊂ R3, I ⊂ R.
+
+Theorem 52. Let det P (D) be as in (21) .
+
+(a) Let X1 ⊂ X2 be open subsets of R4. Moreover, assume that for every t ∈ R
+
+the boundary distance dX2 satisfies the minimum principle in the hyperplane 
+
+{t} × R3. Then, the following are equivalent. 
+
+(a-i) For every t ∈ R, the boundary distance dX1 satisfies the minimum principle in the hyperplane {t} × R3 and X1, X 2 is a det P -Runge pair. 
+
+(a-ii) For every t ∈ R, the boundary distance dX1 satisfies the minimum principle in the hyperplane {t} × R3 and X1, X 2 is a det P -Runge pair for distributions. 
+
+(a-iii) There is no t ∈ R such that X2 contains a bounded connected compo-nent of ({t} × R3) ∩ (R4\X1
+
+).
+
+(b) Let F1 ⊂ F2 be closed subsets of R4. Consider the following conditions. 
+
+(b-i) There is no t ∈ R for which F2 contains a bounded connected compo-nent of ({t} × R3) ∩ (R4\F1
+
+).
+
+(b-ii) F1, F 2 is a det P -Runge pair for smooth Whitney jets. 
+
+(b-iii) There are no t ∈ R, ϵ > 0 such that F2 contains a bounded connected component of ([t − ϵ, t + ϵ] × R3) ∩ (R4\F1
+
+).Then (b-i) implies (b-ii) and (b-ii) implies (b-iii) .
+
+(c) Let F1 ⊂ R4 be closed with C1-boundary such that the normal space of every 
+
+ξ ∈ ∂F 1 is not spanned by (1 , 0, 0, 0) T . Then, the following are equivalent. 
+
+(c-i) F1, R4 is a det P -Runge pair for smooth Whitney jets. 
+
+(c-ii) There is not t ∈ R such that ({t} × R3) ∩ (R4\F1
+
+) has a bounded connected component. Proof. We first prove part (a). By Proposition 50, det P (D) is surjective on E (X2). The equivalence of (a-i) and (a-ii) follows from Proposition 50 applied to X1 com-bined with [29, Theorem 6]. We point out that the t variable plays the role of the 
+
+x1 variable in [29]. Moreover, by [29, Theorem Theorem 1], (a-ii) implies (a-iii). Finally, assume that (a-iii) holds. It follows from [10, Lemma 3.2] that dX1 satisfies the minimum principle in {t} × R3 for each t ∈ R so that det P (D) is surjective on 
+
+E (X1) by Proposition 50. Another application of [29, Theorem 1] yields (a-i). By [5, Theorem 16], (b-i) implies (b-ii). That (b-ii) implies (b-iii) is an immediate consequence of [5, Corollary 8] and Theorem 26 applied to the factor ∂t − ∆x of det P (D). Part (c) is a direct consequence of [5, Theorem B] where the role of the variable 
+
+x1 there is played by the t variable in the current context. □
+
+Combining the previous theorem with Theorem 39 one can easily derive Runge approximation results for the 3D unsteady Stokes system (19). We only state a ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 39 
+
+global Runge result explicitly. Part (a) of the following theorem should be com-pared with a recent result due to Higaki and Sueur [22], where it was proved that approximation of smooth local solutions in the L∞-norm on a compact subset is possible by global solutions whose velocity field grows at most exponentially at spatial infinity while its pressure component grows polynomially. 
+
+Corollary 53. Let P (D) be as in (20) and let X1 ⊂ R4 be open, F1 ⊂ R4 be closed. Moreover, let 
+
+P = {u = ( u1, u 2, u 3, u 4)T ∈ EP (R4) : uj polynomial , 1 ≤ j ≤ 4} .
+
+(a) Assume that there is no t ∈ R such that ({t} × R3) ∩ (R4\X1) has a compact connected component. Then, the restriction mapping 
+
+P → EP (X1), u 7 → u|X1
+
+has dense range. 
+
+(b) Assume that there is no t ∈ R such that ({t} × R3) ∩ (R4\F1) has a bounded connected component. Then, the restriction mapping 
+
+P → EP (F1), u 7 → (∂αu|F1
+
+)
+
+> α∈N40
+
+has dense range. Proof. Let us prove (a). By Theorem 52 (a), X1, R4 is a det P -Runge pair, and by Proposition 50 det P (D) is surjective on E (X1). The latter implies the surjectivity of P ad (D) on E (X1)4 so that the claim follows from Corollary 40 (b-i). (b) follows from Theorem 52 (b) and Corollary 40 (b-ii). □
+
+Remark 54. Again, we point out that for a path connected, open set X in R4
+
+with H¨ older continuous boundary, Corollary 53 (b) above combined with Remark 41 yields that the subspace P of EP (R4) is dense in C∞ 
+
+> P
+
+(X). 
+
+Appendix 1. Characterization of some class of polynomials 
+
+In this section we denote by ( p1, . . . , p k) the ideal in C[ξ1, . . . , ξ d] generated by polynomials p1, . . . , p k. The following lemma is a standard consequence of basic algebraic geometry; we include a proof for completeness. 
+
+Lemma 55. Let P ∈ C[ξ1, . . . , ξ d] and let 1 ≤ l ≤ d − 1. Then P vanishes on the set 
+
+{ξ ∈ Rd : ξl+1 = . . . = ξd = 0 },
+
+if and only if P ∈ (ξl+1 , . . . , ξ d).Proof. Suppose that P vanishes on {ξ ∈ Rd : ξl+1 = . . . = ξd = 0 }. Define the polynomial Q ∈ C[ξ1, . . . , ξ l] by 
+
+Q(ξ1, . . . , ξ l) := P (ξ1, . . . , ξ l, 0, . . . , 0) .
+
+Then Q vanishes on Rl, hence Q ≡ 0. It follows that P vanishes on 
+
+{ξ ∈ Cd : ξl+1 = . . . = ξd = 0 }.
+
+For a subset A ⊂ C[ξ1, . . . , ξ d], let 
+
+Z(A) := {ξ ∈ Cd : P (ξ) = 0 for all P ∈ A}.
+
+Then, by Hilbert’s Nullstellensatz, any polynomial P vanishing on 
+
+Z(( ξl+1 , . . . , ξ d)) = {ξ ∈ Cd : ξl+1 = . . . = ξd = 0 }
+
+belongs to the radical √(ξl+1 , . . . , ξ d), i.e. P r ∈ (ξl+1 , . . . , ξ d) for some r ∈ N.Moreover, 
+
+C[ξ1, . . . , ξ d]/(ξl+1 , . . . , ξ d) ∼= C[ξ1, . . . , ξ l]40 T. CIAŚ AND T. KALMES 
+
+is an integral domain, hence the ideal ( ξl+1 , . . . , ξ d) is prime, and therefore radical. Thus P ∈ (ξl+1 , . . . , ξ d). Conversely, if P ∈ (ξl+1 , . . . , ξ d), then 
+
+P (ξ) = 
+
+> d
+
+∑
+
+> j=l+1
+
+ξj Qj (ξ)for some Qj ∈ C[ξ1, . . . , ξ d], so P (ξ) = 0 whenever ξl+1 = . . . = ξd = 0. □
+
+Remark 56. It is an easily verifiable fact that for every m-homogeneous polynomial 
+
+Q(ξ) = ∑ 
+
+> |α|=m
+
+qαξα the following assertions are equivalent for 1 ≤ j ≤ d
+
+(i-a) Q(ej ) = 0, (i-b) qme j = 0, (i-c) there is no c̸ = 0 such that cξ mj appears in the Taylor expansion of Q.We can now prove Lemma 7 from Section 2. For the reader’s convenience, we repeat the lemma here again. 
+
+Lemma 7. Let P ∈ C[ξ1, . . . , ξ d] be a non-constant polynomial of degree m with principal part Pm. Moreover, let Z be a subspace of Rd of dimension l ≥ 1 and let 
+
+w ∈ Rd\Z. Then the following statements are equivalent. 
+
+(i) Pm(w)̸ = 0 and Pm together with the directional derivatives DkwPm, 1 ≤
+
+k ≤ m − 1, vanish on Z.
+
+(ii) There is a linear isomorphism A : Rd → Rd, c ∈ C\{ 0}, and polynomials 
+
+pl+1 , . . . , p d−1 ∈ C[ξ1, . . . , ξ d] such that A−1w = ed,
+
+A−1(Z) = {ξ ∈ Rd : ξl+1 = . . . = ξd = 0 },
+
+and the principal part (P ◦ A)m of P ◦ A is given by 
+
+(P ◦ A)m(ξ) = cξ md +
+
+> d−1
+
+∑
+
+> j=l+1
+
+pj (ξ1, . . . , ξ d)ξj .
+
+Additionally, for w ∈ Z⊥ \ { 0}, the above equivalence is true with an orthogonal linear map A.Proof. (i) ⇒(ii): let a1, . . . , a l be an orthonormal basis of Z. Moreover, let w ∈ Rd
+
+be a unit vector with Pm(w)̸ = 0 and let W be a subspace complementary to Z in 
+
+Rd which contains w. Let b1, . . . , b d−l be an orthonormal basis of W with bd−l = w.If w is orthogonal to Z, we can choose W as the orthogonal complement of Z. We define the linear isomorphism A : Rd → Rd via 
+
+Ae j =
+
+{
+
+aj , for 1 ≤ j ≤ l, bj−l, for l + 1 ≤ j ≤ d, 
+
+where ej = ( δj,n )(1 ≤n≤d) (Kronecker’s δ) denotes the j-th standard basis vector of 
+
+Rd. If W is the orthogonal complement of Z, A is orthogonal. Then P ◦ A is a polynomial of degree m with the principal part ( P ◦ A)m = Pm ◦ A such that (P ◦ A)m(ej ) = ( Pm ◦ A)( ej ) = 
+
+{
+
+Pm(aj ) = 0 , for 1 ≤ j ≤ l, Pm(w)̸ = 0 , for j = d. 
+
+Hence, by Remark 56, (22) (P ◦ A)m(ξ) = cξ md +
+
+> m−1
+
+∑
+
+> j=0
+
+qj (ξ1, . . . , ξ d−1)ξjd,ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 41 
+
+where c ∈ C \ { 0} and each qj (ξ1, . . . , ξ d−1) ∈ C[ξ1, . . . , ξ d−1] is of degree m − j or zero polynomials. Additionally, Pm vanishes on 
+
+Z = span {a1, . . . , a l} = span {Ae 1, . . . , Ae l} = A (span {e1, . . . , e l})so that ( P ◦ A)m = Pm ◦ A vanishes on span {e1, . . . , e l} = {ξ ∈ Rd : ξl+1 = . . . = ξd = 0 }.
+
+Moreover, by hypothesis, DkwPm vanishes on Z for all 1 ≤ k ≤ m − 1 and the chain rule gives (23) Dkd (Pm ◦ A) = ( DkwPm) ◦ A, 
+
+so Dkd (Pm ◦ A) vanishes on span {e1, . . . , e l} for all 1 ≤ k ≤ m − 1, as well. Conse-quently, according to Lemma 55, Dkd (Pm ◦ A) belongs to the ideal ( ξl+1 , . . . , ξ d) for 0 ≤ k ≤ m − 1. We now claim that qj ∈ (ξl+1 , . . . , ξ d) for all 0 ≤ j ≤ m − 1. This will be shown by induction on j. By (22), (24) Dkd (P ◦ A)m(ξ) = c m!(m − k)! ξm−kd +
+
+> m−1
+
+∑
+
+> j=k
+
+j!(j − k)! qj (ξ1, . . . , ξ d−1)ξj−kd .
+
+In particular, 
+
+Dm−1 
+
+> d
+
+(Pm ◦ A)( ξ) = cm !ξd + ( m − 1)! qm−1(ξ1, . . . , ξ d−1).
+
+But the polynomial Dm−1 
+
+> d
+
+(Pm ◦ A) and the monomial cm !ξd belong to the ideal (ξl+1 , . . . , ξ d), so does the polynomial qm−1. Assume that qk ∈ (ξl+1 , . . . , ξ d−1) for all k ≤ j ≤ m − 1. By (24), (k − 1)! qk−1(ξ1, . . . , ξ d−1) = Dk−1 
+
+> d
+
+(Pm ◦ A)( ξ) − c m!(m − k + 1)! ξm−k+1 
+
+> d
+
+−
+
+> m−1
+
+∑
+
+> j=k
+
+j!(j − k + 1)! qj (ξ1, . . . , ξ d−1)ξj−k+1  
+
+> d
+
+.
+
+Consequently, by the inductive assumption and the fact that Dk−1 
+
+> d
+
+(Pm ◦ A) and the monomial ξm−k+1  
+
+> d
+
+belong to the ideal ( ξl+1 , . . . , ξ d), we have qk−1 ∈ (ξl+1 , . . . , ξ d), and our claim is proved. In fact, since qj does not depend on ξd, we concluded that qj ∈ (ξl+1 , . . . , ξ d−1)for 0 ≤ j ≤ m − 1. Hence (Pm ◦ A)( ξ) − cξ md =
+
+> m−1
+
+∑
+
+> j=0
+
+qj (ξ1, . . . , ξ d−1)ξjd ∈ (ξl+1 , . . . , ξ d−1),
+
+which completes the proof of implication (i) ⇒(ii). (ii) ⇒(i): Since 
+
+Dkd (Pm ◦ A)( ξ) = c m!(m − k)! ξm−kd +
+
+> d−1
+
+∑
+
+> j=l+1
+
+(Dkd pj )( ξ)ξj ,
+
+the polynomial Dkd (Pm ◦ A) vanishes on span {e1, . . . , e l}, for all 0 ≤ k ≤ m − 1. Hence, identity gives (23), (DkwPm)( Z) = [ Dkd (Pm ◦ A)]( A−1(Z)) = [ Dkd (Pm ◦ A)](span {e1, . . . , e l}) = {0}
+
+for all 0 ≤ k ≤ m − 1. Clearly Pm(w) = ( Pm ◦ A)( ed) = c̸ = 0, which completes the proof. □42 T. CIAŚ AND T. KALMES 
+
+Appendix 2. Spherical harmonics expansion in E
+
+The purpose of this appendix is to prove Theorem 60 below. We think that this theorem is known. However, as we were unable to find a reference, we include its proof for the reader’s convenience. As usual, let Pk be the vector space of homogeneous polynomials of degree k on Rd, and let 
+
+Hk = {P ∈ P k : ∆ P = 0 },Hk = {P|Sd−1 : P ∈ H k},
+
+i.e. Hk is the space of spherical harmonics of degree k. By definition, for Y ∈ Hk
+
+the function 
+
+Rd\{ 0} → C, x 7 → | x|kY
+
+( x
+
+|x|
+
+)
+
+can be extended (in a unique way) to a smooth function on Rd which belongs to 
+
+Hk. As is well known (see [18, Corollary 2.55]) dim Hk = dim Hk = (2 k + d − 2) (k + d − 3)! 
+
+k!( d − 2)! =: dk
+
+and for k̸ = l the (closed) subspaces Hk and Hl of L2(Sd−1) = L2(Sd−1, σ ) are orthogonal, where σ is the surface measure on Sd−1 (see [18, Theorem 2.53]). For 
+
+k ∈ N0 we fix an arbitrary orthonormal basis {Yk,m : m = 1 , . . . , d k} of Hk.Additionally, in order to simplify the notation, whenever this is convenient, for a function f : Sd−1 → C we set 
+
+f ∗ : Rd\{ 0} → C, x 7 → f
+
+( x
+
+|x|
+
+)
+
+,
+
+i.e. we extend f as a positively homogeneous function of degree 0 to Rd\{ 0}.For r ∈ (0 , ∞] let Br = {x ∈ Rd : |x| < r }. Note that B∞ = Rd. Additionally, let U ⊂ Rq be open. We denote the elements from U by y and the elements from 
+
+Rd by x. For v ∈ E (U × Br ), we define (25) vk,m : U × (0 , r ) → C, (y, ρ ) 7 →
+
+∫
+
+> Sd−1
+
+v(y, ρω )Yk,m (ω)dσ (ω),
+
+where k ∈ N0, m ∈ { 1, . . . , d k}, and we sometimes write ak,m (v) instead of vk,m .Then, vk,m ∈ E (U × (0 , r )), for β ∈ Nq 
+
+> 0
+
+we have ∂βy ak,m (v) = ak,m (∂βy v), and for every ( y, ρ ) ∈ U × (0 , r ) it holds (cf. [18, Theorem (2.53)]) 
+
+v(y, ρ ·) = 
+
+> ∞
+
+∑
+
+> k=0
+> dk
+
+∑
+
+> m=1
+
+vk,m (y, ρ )Yk,m in L2(Sd−1)and therefore 
+
+> ∞
+
+∑
+
+> k=0
+> dk
+
+∑
+
+> m=1
+
+|vk,m (y, ρ )|2 =
+
+∫
+
+> Sd−1
+
+|v(y, ρω )|2dσ (ω).
+
+For K ⊂ U compact and r0 ∈ (0 , r ) the latter implies 
+
+∫
+
+> K×Br0
+
+|v(y, x )|2d(y, x ) =
+
+∫
+
+> K
+
+∫ r0
+
+> 0
+
+ρd−1
+
+∫
+
+> Sd−1
+
+|v(y, ρω )|2dσ (ω)dρdy 
+
+=
+
+∫
+
+> K
+
+∫ r0
+
+> 0
+
+ρd−1
+
+> ∞
+
+∑
+
+> k=0
+> dk
+
+∑
+
+> m=1
+
+|vk,m (y, ρ )|2dρdy ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 43 
+
+so that ( y, ρ ) 7 → ρd−1 ∑∞
+
+> k=0
+
+∑dk 
+
+> m=1
+
+|vk,m (y, ρ )|2 belongs to L1(K × (0 , r 0)). By the Dominated Convergence Theorem, we conclude lim  
+
+> N→∞
+
+∫
+
+> K×Br0
+
+∣∣∣∣∣v(y, x ) −
+
+> N
+
+∑
+
+> k=0
+> dk
+
+∑
+
+> m=1
+
+vk,m (y, |x|)Y ∗
+
+> k,m
+
+(x)
+
+∣∣∣∣∣
+
+> 2
+
+d(y, x )= lim  
+
+> N→∞
+
+∫
+
+> K
+
+∫ r0
+
+> 0
+
+ρd−1
+
+∫
+
+> Sd−1
+
+∣∣∣∣∣v(y, ρω ) −
+
+> N
+
+∑
+
+> k=0
+> dk
+
+∑
+
+> m=1
+
+vk,m (y, ρ )Yk,m (ω)
+
+∣∣∣∣∣
+
+> 2
+
+dσ (ω)dρdy 
+
+= lim  
+
+> N→∞
+
+∫
+
+> K
+
+∫ r0
+
+> 0
+
+ρd−1
+
+> ∞
+
+∑ 
+
+> k=N+1
+> dk
+
+∑
+
+> m=1
+
+|vk,m (y, ρ )|2dρdy 
+
+=
+
+∫
+
+> K
+
+∫ r0
+
+> 0
+
+ρd−1 lim  
+
+> N→∞ ∞
+
+∑ 
+
+> k=N+1
+> dk
+
+∑
+
+> m=1
+
+|vk,m (y, ρ )|2dρdy = 0 .
+
+Thus, (26) v =
+
+> ∞
+
+∑
+
+> k=0
+> dk
+
+∑
+
+> m=1
+
+vk,m Y ∗ 
+
+> k,m
+
+in L2(K × Br0 ).
+
+We point out that a more appropriate notation is (y, x ) 7 → vk,m ⊗ Yk,m (y, |x|, x )instead of vk,m Y ∗
+
+> k,m
+
+but we want to avoid exurberant notation, so we stick to a notation that is close to the one used in the literature. Our first objective is to prove the following lemma. 
+
+Lemma 57. Let r ∈ (0 , ∞] and let v ∈ E (U × Br ). Then, with the notation introduced above, for every k ∈ N0, m ∈ 1, . . . , d k there are ˜vk,m ∈ E (U × (−r, r )) 
+
+such that the following conditions hold. 
+
+(i) For every (y, ρ ) ∈ U × (0 , r ) we have vk,m (y, ρ ) = ˜ vk,m (y, ρ ).
+
+(ii) The functions 
+
+U × (Br \{ 0}) → C, (y, x ) 7 → ˜vk,m (y, |x|)|x|−k
+
+extend to smooth functions on U × Br .
+
+(iii) The functions 
+
+U × (Br \{ 0}) → C, (y, x ) 7 → ˜vk,m (y, |x|)Y ∗
+
+> k,m
+
+(x)
+
+extend to smooth functions on U × Br .
+
+By the above lemma, the functions 
+
+U × Br \{ 0} → C, (y, x ) 7 → vk,m (y, |x|)Y ∗
+
+> k,m
+
+(x)extend to smooth functions on U × Br ; we denote these extensions again by 
+
+vk,m Y ∗
+
+> k,m
+
+.In the proof Lemma 57 we will apply the following elementary result. We include its proof for the reader’s convenience. 
+
+Proposition 58. Let f ∈ E (U × [0 , r )) and let m ∈ N. Then, the function 
+
+h : U × Br → C, (y, x ) 7 → f (y, |x|)|x|2m
+
+is (2 m − 1) -times continuously differentiable. 44 T. CIAŚ AND T. KALMES 
+
+Proof. Clearly, h ∈ C∞(U × Br \{ 0}). By induction on k = |α|, α ∈ N0, one shows that for every α ∈ Nd 
+
+> 0
+
+there are Qα, 1, . . . , Q α, |α| ∈ C[x1, . . . x d] homogeneous of degree |α| such that for every 
+
+ϕ ∈ C∞([0 , r )) 
+
+∂αx (ϕ(|x|)) = 
+
+> |α|
+
+∑
+
+> j=0
+
+ϕ(j)(|x|) Qα,j (x)
+
+|x||α| , x ∈ Br \{ 0}.
+
+Therefore, for α ∈ Nd 
+
+> 0
+
+there is Cα > 0 independent of ϕ such that 
+
+|∂αx (ϕ(|x|)) | ≤ Cα
+
+> |α|
+
+∑
+
+> j=0
+
+∣∣∣ϕ(j)(|x|)
+
+∣∣∣ , x ∈ Br \{ 0}.
+
+Additionally, since |x|2m is a homogeneous polynomial of degree 2 m, for α ∈ Nd
+
+> 0
+
+with |α| ≤ 2m, ∂αx
+
+(|x|2m) is a homogeneous polynomial of degree 2 m − | α|. In particular, for every such α ∈ Nd 
+
+> 0
+
+there is Dα > 0 with 
+
+∀ x ∈ Rd : ∂αx
+
+(|x|2m) ≤ Dα|x|2m−| α|.
+
+By the above, we conclude for γ ∈ Nq 
+
+> 0
+
+and α ∈ Nd
+
+> 0
+
+, |α| ≤ 2m − 1 that for every (y, x ) ∈ U × Br \{ 0}
+
+∣∣∂γy ∂αx h(y, x )∣∣ ≤ ∑
+
+> β≤α
+
+(αβ
+
+)
+
+Cα−β Dβ
+
+> |α|−| β|
+
+∑
+
+> j=0
+
+∣∣∂γy ∂jρf (y, |x|)∣∣ |x|2m−| β|,(27) where by ρ we denote the last variable from [0 , r ) of f . In particular, by defining 
+
+∂γy ∂αx h(y, 0) = 0, we obtain a continuous extension of ∂γy ∂αx h from U × Br \{ 0} to 
+
+U × Br . Moreover, whenever |α| ≤ 2m − 2 it follows from (27) that ∂γy ∂αx h is continuously differentiable with respect to x. This proves the claim. □
+
+Proof of Lemma 57. By Taylor’s formula, for N ∈ N we have 
+
+v(y, x ) = 
+
+> N
+
+∑
+
+> l=0
+
+∑ 
+
+> α∈Nd
+> 0,|α|=l
+
+1
+
+α! ∂αx v(y, 0) xα + RN (v)( y, x )for the smooth function (28) RN (v)( y, x ) = ∑ 
+
+> |α|=N+1
+
+N + 1 
+
+α!
+
+∫ 10
+
+(1 − t)N ∂αx v(y, tx )dt x α.
+
+By [18, Proof of Proposition 2.49 and Corollary 2.50], there are smooth functions 
+
+Pl−2j on U × Rd, l = 1 , . . . , N , j = 0 , . . . , ⌊l/ 2⌋, such that Pl−2j (y, ·) is a harmonic homogeneous polynomial of degree l − 2j on Rd such that 
+
+∑ 
+
+> α∈Nd
+> 0,|α|=l
+
+1
+
+α! ∂αx v(y, 0) xα =
+
+> ⌊l/ 2⌋
+
+∑
+
+> j=0
+
+|x|2j Pl−2j (y, x ).
+
+By the choice of the Yl,m , for ( y, x ) ∈ U × (Br \{ 0}) it holds 
+
+Pl−2j (y, x ) = 
+
+> dl−2j
+
+∑
+
+> m=1
+
+cl−2j,m (y)|x|l−2j Yl−2j,m 
+
+( x
+
+|x|
+
+)
+
+,
+
+where 
+
+cl−2j,m (y) = 
+
+∫
+
+> Sd−1
+
+Pl−2j,m (y, ω )Yl−2j,m (ω)dσ (ω)ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 45 
+
+is easily seen to be a smooth function on U . Hence, for ( y, x ) ∈ U × (Br \{ 0}) we obtain 
+
+v(y, x ) = 
+
+> N
+
+∑
+
+> l=0
+> ⌊l/ 2⌋
+
+∑
+
+> j=0
+> dl−2j
+
+∑
+
+> m=1
+
+cl−2j,m (y)|x|lYl−2j,m 
+
+( x
+
+|x|
+
+)
+
++ RN (v)( y, x ).
+
+Relabeling k = l − 2j ⇔ k + 2 j = l, from k + 2 j ∈ { 0, . . . , N } it follows j ∈{0, . . . , ⌊(N − k)/2⌋} , so that for ( y, x ) ∈ U × (Br \{ 0}) we have 
+
+v(y, x ) =
+
+> N
+
+∑
+
+> l=0
+> ⌊l/ 2⌋
+
+∑
+
+> j=0
+> dl−2j
+
+∑
+
+> m=1
+
+cl−2j,m (y)|x|lYl−2j,m 
+
+( x
+
+|x|
+
+)
+
++ RN (v)( y, x )=
+
+> N
+
+∑ 
+
+> k=0
+> ⌊(N−k)/2⌋
+
+∑
+
+> j=0
+> dk
+
+∑
+
+> m=1
+
+ck,m (y)|x|k+2 j Yk,m 
+
+( x
+
+|x|
+
+)
+
++ RN (v)( y, x )=
+
+> N
+
+∑
+
+> k=0
+> dk
+
+∑
+
+> m=1
+
+ 
+
+> ⌊(N−k)/2⌋
+
+∑
+
+> j=0
+
+ck,m (y)|x|2j
+
+ |x|kYk,m 
+
+( x
+
+|x|
+
+)
+
++ RN (v)( y, x )=
+
+> N
+
+∑
+
+> k=0
+> dk
+
+∑
+
+> m=1
+
+bN,k,m (y, |x|)|x|kYk,m 
+
+( x
+
+|x|
+
+)
+
++ RN (v)( y, x ),(29) where we set for N ∈ N0, k ∈ { 0, . . . , N }, m ∈ { 1, . . . , d k}
+
+(30) bN,k,m : U × R → C, (y, r ) 7 → 
+
+> ⌊(N−k)/2⌋
+
+∑
+
+> j=0
+
+ck,m (y)r2j
+
+which is a smooth function. By the properties of spherical harmonics, the functions (31) vN : U × (Rd\{ 0}) → C, (y, x ) 7 →
+
+> N
+
+∑
+
+> k=0
+> dk
+
+∑
+
+> m=1
+
+bN,k,m (y, |x|)|x|kYk,m 
+
+( x
+
+|x|
+
+)
+
+extend (in a unique way) to a smooth function on U × Rd which we denote again by vN .Additionally, by the discussion preceding Lemma 57 applied to RN (v) instead of 
+
+v, for every compact subset K of Y and each r0 ∈ (0 , r ) it holds (32) RN (v)( y, x ) = 
+
+> ∞
+
+∑
+
+> k=0
+> dk
+
+∑
+
+> m=1
+
+rN,k,m (y, |x|)Yk,m 
+
+( x
+
+|x|
+
+)
+
+in L2(K × Br0 )where 
+
+rN,k,m : U × (−r, r ) → C, (y, ρ ) 7 →
+
+∫
+
+> Sd−1
+
+RN (v)( y, ρω )Yk,m (ω)dσ (ω)= ∑ 
+
+> |α|=N+1
+
+N + 1 
+
+α!
+
+∫
+
+> Sd−1
+
+∫ 10
+
+(1 − t)N ∂αx v(y, tρω )dt ω αYk,m (ω)dσ (ω)ρN +1 
+
+(33) due to (28). Trivially, by (25), (29), (32), and (33), for N ≥ k and each ( y, ρ ) ∈ Y × (0 , r ) it holds 
+
+vk,m (y, ρ ) = bN,k,m (y, ρ )ρk + rN,k,m (y, ρ )= (bN,k,m (y, ρ ) + rN,k,m (y, ρ )ρ−k) ρk.(34) 46 T. CIAŚ AND T. KALMES 
+
+Since ck,m ∈ E (U ), the function 
+
+U × Br → C, (y, x ) 7 → bN,k,m (y, x ) =  
+
+> ⌊(N−k)/2⌋
+
+∑
+
+> j=0
+
+ck,m (y)|x|2j
+
+is smooth. Because the function |x|kYk,m (x/ |x|) extends to a harmonic polynomial, in order to complete the proof, it suffices to show that, given l, for sufficiently large 
+
+NU × Br × C, (y, x ) 7 → rN,k,m (y, |x|)|x|−k
+
+is a Cl-function. Because in (34) we can choose N as large as we like, this will prove the existence of functions ˜ vk,m ∈ E (U × Br ) with the desired properties. For ( y, x ) ∈ U × Br and N > k we have 
+
+rN,k,m (y, |x|)|x|−k = ∑ 
+
+> |α|=N+1
+
+N + 1 
+
+α!
+
+∫
+
+> Sd−1
+
+∫ 10
+
+(1 − t)N ∂αx v(y, t |x|ω)dt ××ωαYk,m (ω)dσ (ω)|x|N +1 −k.
+
+It follows from Proposition 58 that for N = 2 l + k − 1 the above function is a 
+
+Cl-function. As already explained, by (34) this entails the existence of ˜ vk,m ∈
+
+E (U × (−r, r )) with the desired properties. □
+
+Proposition 59. Let r ∈ (0 , ∞] and let v ∈ E (U × Br ). Then, for k ∈ N0 and 
+
+m ∈ { 1, . . . , d k} it holds 
+
+∀ (y, x ) ∈ U × Br : ∆ x
+
+(ak,m (v)( y, |x|)Y ∗
+
+> k,m
+
+(x)) = ak,m (∆ xv) ( y, |x|)Y ∗
+
+> k,m
+
+(x),
+
+where ∆x = ∑dj=1 ∂2
+
+> ∂x 2
+> j
+
+denotes the Laplacian in the x-variables. Proof. For ( y, x ) ∈ U × Br \{ 0}, by [18, Lemma 2.63 - note that there is typo] it holds ∆x
+
+(ak,m (y, |x|)Y ∗
+
+> k,m
+
+(x))
+
+=
+
+(
+
+∂2 
+
+> ρ
+
+ak,m (y, ρ ) + d − 1
+
+ρ ∂ρak,m (y, ρ ) − k(k + d − 2) 
+
+ρ2 ak,m (y, ρ )
+
+)∣ ∣∣∣ρ=|x|
+
+Y ∗
+
+> k,m
+
+(x).
+
+Moreover, denoting the Laplace-Beltrami operator on Sd−1 by ∆ Sd−1 , it is well know that ∆ Sd−1 Yk,m = −k(k + d − 2) Yk,m (see [36, Equation ( §15.2)]). Then, 
+
+∂2 
+
+> ρ
+
+ak,m (y, ρ ) + d − 1
+
+ρ ∂ρak,m (y, ρ ) − k(k + d − 2) 
+
+ρ2 ak,m (y, ρ )=
+
+∫
+
+> Sd−1
+
+(
+
+∂2 
+
+> ρ
+
+v(y, ρω ) + d − 1
+
+ρ ∂ρv(y, ρω ) − k(k + d − 2) 
+
+ρ2 v(y, ρω )
+
+)
+
+Yk,m (ω)dσ (ω)=
+
+∫
+
+> Sd−1
+
+(
+
+∂2 
+
+> ρ
+
+v(y, ρω ) + d − 1
+
+ρ ∂ρv(y, ρω )
+
+)
+
+Yk,m (ω)dσ (ω)+
+
+∫
+
+> Sd−1
+
+1
+
+ρ2 v(y, ρω )∆ Sd−1 Yk,m (ω)dσ (ω)=
+
+∫
+
+> Sd−1
+
+(
+
+∂2 
+
+> ρ
+
+v(y, ρω ) + d − 1
+
+ρ ∂ρv(y, ρω ) + 1
+
+ρ2 ∆Sd−1 v(y, ρω )
+
+)
+
+Yk,m (ω)dσ (ω)=
+
+∫
+
+> Sd−1
+
+∆xv(y, ρω )Yk,m (ω)dσ (ω)= ak,m (∆ xv)( y, ρ ),
+
+where we have used an immediate consequence of [36, §14, Lemma 1] and the well-known expression for the Laplace operator in spherical coordinates ([36, Equation ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 47 
+
+(§14.17)]). Combining these two equalities shows that the claimed equality holds on the dense subset U × Br \{ 0} of U × Br and therefore, everywhere in U × Br . □
+
+Theorem 60. Let r ∈ (0 , ∞], Br = {x ∈ Rd : |x| < r } and let U ⊂ Rq be open. Then, for every v ∈ E (U × Br ) we have 
+
+v =
+
+> ∞
+
+∑
+
+> k=0
+> dk
+
+∑
+
+> m=1
+
+vk,m Y ∗ 
+
+> k,m
+
+in E (U × Br ).
+
+Proof. By Proposition 57, for each v ∈ E (U × Br ) and every N ∈ N, the function 
+
+> N
+
+∑
+
+> k=0
+> dk
+
+∑
+
+> m=1
+
+vk,m Y ∗ 
+
+> k,m
+
+: U × Br → C, (y, x ) 7 →
+
+> N
+
+∑
+
+> k=0
+> dk
+
+∑
+
+> m=1
+
+vk,m (y, |x|)Y ∗
+
+> k,m
+
+(x)is smooth. Let K be a compact subset of U and let r0 ∈ (0 , r ). We fix ψ ∈ D(U ) with 
+
+ψ = 1 in a neighborhood of K. Moreover, let r1 ∈ (r0, r ) and we fix ψ ∈ D(R) with supp φ ⊂ [−r21 , r 21 ] and φ = 1 in a neighborhood of [0 , r 20 ]. For v ∈ E (U × Br ) the function 
+
+vψ,φ : Rq × Rd → C, (y, x ) 7 → ψ(y)φ(|x|2)v(y, x )is smooth and compactly supported, and v = vψ,φ on K × Br0 . For k ∈ N0,
+
+m = 1 , . . . , d k we have 
+
+∀ (y, x ) ∈ U × Br : ak,m (vψ,φ ) ( y, x ) = ψ(y)φ(|x|2)ak,m (v)( y, x ),
+
+in particular 
+
+∀ (y, x ) ∈ K × Br0 : ak,m (vψ,φ ) ( y, x ) = ak,m (v)( y, x ).
+
+Additionally, it holds (35) vψ,φ −
+
+> N
+
+∑
+
+> k=0
+> dk
+
+∑
+
+> m=1
+
+ak,m (vψ,φ )Y ∗ 
+
+> k,m
+
+=
+
+(
+
+v −
+
+> N
+
+∑
+
+> k=0
+> dk
+
+∑
+
+> m=1
+
+ak,m (v)Y ∗
+
+> k,m
+
+)
+
+> ψ,φ
+
+.
+
+Abbreviating the support of ψ by ˜K, ˜K × Br1 is a compact subset of U × Br , so that by (26) and Proposition 59 we conclude for every Mx, M y ∈ N0
+
+(36) lim  
+
+> N→∞
+
+(1 − ∆y )My (1 − ∆x)Mx
+
+(
+
+vψ,φ −
+
+> N
+
+∑
+
+> k=0
+> dk
+
+∑
+
+> m=1
+
+ak,m (vψ,φ )Y ∗
+
+> k,m
+
+)
+
+= 0 in L2( ˜K × Br1 ). For arbitrary f ∈ E (U ×Br ), α ∈ Nd
+
+> 0
+
+, β ∈ Nq
+
+> 0
+
+, and ( y, x ) ∈ K×Br0 , by the Fourier inversion formula, the Cauchy-Schwarz inequality, and Plancherel’s Theorem we obtain 
+
+|∂βy ∂αx f (y, x )| = |∂βy ∂αx (fψ,φ (y, x )) |
+
+= (2 π)d+q
+
+∣∣∣∣∫ 
+
+> Rq×Rd
+
+ei⟨(y,x ),(η,ξ )⟩F (∂βy ∂αx (fψ,φ )) (η, ξ )d(η, ξ )
+
+∣∣∣∣
+
+≤ (2 π)d+q
+
+(∫  
+
+> Rq×Rd
+
+|η|2|β|
+
+(1 + |η|2)My
+
+|ξ|2|α|
+
+(1 + |ξ|2)Mx d(η, ξ )
+
+)1/2
+
+××
+
+(∫  
+
+> Rq×Rd
+
+∣∣(1 + |η|2)My (1 + |ξ|2)Mx F (fψ,φ )( η, ξ )∣∣2 d(η, ξ )
+
+)1/2
+
+= (2 π)d+q
+
+(∫  
+
+> Rq×Rd
+
+|η|2|β|
+
+(1 + |η|2)My
+
+|ξ|2|α|
+
+(1 + |ξ|2)Mx d(η, ξ )
+
+)1/2
+
+×× ∥∥(1 − ∆y )My (1 − ∆x)Mx fψ,φ 
+
+∥∥L2(Rq ×Rd)48 T. CIAŚ AND T. KALMES 
+
+= (2 π)d+q
+
+(∫  
+
+> Rq×Rd
+
+|η|2|β|
+
+(1 + |η|2)My
+
+|ξ|2|α|
+
+(1 + |ξ|2)Mx d(η, ξ )
+
+)1/2
+
+×× ∥∥(1 − ∆y )My (1 − ∆x)Mx fψ,φ 
+
+∥∥L2( ˜K×Br1 ) .
+
+Since the integral is finite whenever Mx > |α| + d/ 2 and My > |β| + q/ 2, by the previous inequality, for l ∈ N0 there is Cl such that for every f ∈ E (U × Br )
+
+∥f ∥l,K ×Br0
+
+= max  
+
+> (y,x )∈K×Br0,|α|+|β|≤ l
+
+|∂βy ∂αx f (y, x )|≤ Cl
+
+∥∥∥(1 − ∆y )l+1+ q/ 2(1 − ∆x)l+1+ d/ 2fψ,φ 
+
+∥∥∥L2( ˜K×Br1 )
+
+.
+
+Applying this inequality to f = ( v − ∑Nk=0 
+
+∑dk 
+
+> m=1
+
+ak,m (v)Y ∗
+
+> k,m
+
+) the theorem follows from (35), (36) and the arbitrariness of K, r 0 and l. □
+
+Remark 61. Let u ∈ D′(Rd) satisfy ∆ u + λ2u = 0 in Rd, λ ∈ C\{ 0}. Due to the hypoellipticity of ∆ + λ2, u ∈ E (Rd) and it follows from Theorem 60 that 0 =
+
+> ∞
+
+∑
+
+> k=0
+> dk
+
+∑
+
+> m=1
+
+(∆ + λ2) (uk,m Y ∗
+
+> k,m
+
+)
+
+=
+
+> ∞
+
+∑
+
+> k=0
+> dk
+
+∑
+
+> m=1
+
+( ddρ 2 uk,m + d − 1
+
+ρddρ uk,m +
+
+(
+
+λ2 − k(k + d − 2) 
+
+ρ2
+
+)
+
+uk,m 
+
+)
+
+Y ∗
+
+> k,m
+
+in E (Rd). In particular, by the orthonormality of the Yk.m ’s in L2(Sd−1) and Lemma 57 (i), for every k, m , the smooth function uk,m solves the ordinary differ-ential equation 
+
+f ′′ (ρ) + d − 1
+
+ρ f ′(ρ) + 
+
+(
+
+λ2 − k(k + d − 2) 
+
+ρ2
+
+)
+
+f (ρ) = 0 in [0 , ∞)which is essentially a Bessel equation. As in [18, p. 106] it follows that 
+
+uk,m (ρ) = ck,m ρ(2 −d)/2Jk+( d−2) /2(λρ ),
+
+where ck,m ∈ C and where Jα is the Bessel function of the first kind of order α.
+
+Acknowledgements 
+
+The research on Runge pairs for systems of partial differential equations pre-sented in Section 5 was initiated during a visit of the second author to the Instituto de Ciencias Matem´ aticas - ICMAT, Madrid, Spain. The second author would like to thank Daniel Peralta-Salas for the invitation and ICMAT for its warm hospitality. 
+
+References 
+
+[1] J. Bonet and P. Domański. Parameter dependence of solutions of differential equations on spaces of distributions and the splitting of short exact sequences. J. Funct. Anal. , 230(2):329– 381, 2006. [2] J. Bonet and P. Domański. The splitting of exact sequences of PLS-spaces and smooth de-pendence of solutions of linear partial differential equations. Adv. Math. , 217(2):561–585, 2008. [3] F. E. Browder. Functional analysis and partial differential equations ii. Mathematische An-nalen , 145:81–226, 1961/62. [4] F. E. Browder. Approximation by solutions of partial differential equations. American Journal of Mathematics , 84:134–160, 1962. [5] T. Ciaś and T. Kalmes. Runge type approximation results for spaces of smooth Whitney jets. 
+
+Annali di Matematica Pura ed Applicata , 2026. [6] D. K. Cohoon. A characterization of the linear partial differential operators P (D) which admit a nontrivial C∞ solution with support in an open prism with bounded cross section. 
+
+Journal of Differential Equations , 8:195–201, 1970. ZERO SOLUTIONS, SOLVABILITY, AND RUNGE APPROXIMATION 49 
+
+[7] R. Courant and D. Hilbert. Methods of mathematical physics. Vol. I . Interscience Publishers, Inc., New York, 1953. [8] A. Debrouwere and T. Kalmes. Boundary values of zero solutions of hypoelliptic differential operators in ultradistribution spaces. Math. Ann. , 386(1-2):779–819, 2023. [9] A. Debrouwere and T. Kalmes. Linear topological invariants for kernels of convolution and differential operators. J. Funct. Anal. , 284(10):Paper No. 109886, 20, 2023. [10] A. Debrouwere and T. Kalmes. Quantitative Runge type approximation theorems for zero solutions of certain partial differential operators. Adv. Math. , 478:Paper No. 110413, 31, 2025. [11] P. Domański. Real analytic parameter dependence of solutions of differential equations. Rev. Mat. Iberoam. , 26(1):175–238, 2010. [12] P. D. Milman E. Bierstone. Semianalytic and subanalytic sets. Inst. Hautes ´Etudes Sci. Publ. Math. , (67):5–42, 1988. [13] A. Enciso, M. A. Garc´ ıa-Ferrero, and D. Peralta-Salas. Approximation theorems for parabolic equations and movement of local hot spots. Duke Mathematical Journal , 168:897–939, 2019. [14] A. Enciso, R. Luc´ a, and D. Peralta-Salas. Vortex reconnection in the three dimensional Navier-Stokes equations. Advances in Mathematics , 309:452–486, 2017. [15] A. Enciso and D. Peralta-Salas. Knots and links in the steady solutions of the Euler equation. 
+
+Annals of Mathematics , 175:345–367, 2012. [16] A. Enciso and D. Peralta-Salas. Existence of knotted vortex tubes in steady Euler flows. Acta Mathematica , 214:61–134, 2015. [17] A. Enciso and D. Peralta-Salas. Approximation theorems for the Schr¨ odinger equation and quantum vortex reconnection. Communications in Mathematical Physics , 387:1111–1149, 2021. [18] G. B. Folland. Introduction to partial differential equations . Princeton University Press, Princeton, NJ, second edition, 1995. [19] L. Frerick. Extension operators for spaces of infinitely differentiable Whitney functions . Ha-bilitation thesis, Bergische Universit¨ at Wuppertal, 2001. [20] L. Frerick and T. Kalmes. Some results on surjectivity of augmented semi-elliptic differential operators. Math. Ann. , 347(1):81–94, 2010. [21] A. Grothendieck. Produits tensoriels topologiques et espaces nucl´ eaires. Mem. Amer. Math. Soc. , 16:Chapter 1: 196 pp.; Chapter 2: 140, 1955. [22] M. Higaki and F. Sueur. A Runge-type approximation theorem for the 3D unsteady Stokes system. Comm. Math. Phys. , 406(8):Paper No. 180, 27, 2025. [23] L. H¨ ormander. Linear Partial Differential Operators , volume 116 of Grundlehren der math-ematischen Wissenschaften . Springer-Verlag, Berlin, 4 edition, 1976. [24] L. H¨ ormander. The analysis of linear partial differential operators I. Distribution theory and Fourier analysis . Classics in Mathematics. Springer-Verlag, Berlin, 2003. Reprint of the second (1990) edition. [25] L. H¨ ormander. The analysis of linear partial differential operators II. Differential operators with constant coefficients . Classics in Mathematics. Springer-Verlag, Berlin, 2005. Reprint of the 1983 original. [26] H. Jarchow. Locally convex spaces . Mathematische Leitf¨ aden. [Mathematical Textbooks]. B. G. Teubner, Stuttgart, 1981. [27] T. Kalmes. The augmented operator of a surjective partial differential operator with constant coefficients need not be surjective. Bull. Lond. Math. Soc. , 44(3):610–614, 2012. [28] T. Kalmes. Surjectivity of differential operators and linear topological invariants for spaces of zero solutions. Rev. Mat. Complut. , 32(1):37–55, 2019. [29] T. Kalmes. An approximation theorem of Runge type for kernels of certain non-elliptic partial differential operators. Bulletin des Sciences Math´ ematiques , 170:Paper No. 103012, 26 pp., 2021. [30] B. Malgrange. Existence et approximation des solutions des ´ equations aux d´ eriv´ ees partielles et des ´ equations de convolution. Annales de l’Institut Fourier (Grenoble) , 6:71–355, 1955/56. [31] B. Malgrange. Ideals of differentiable functions , volume 3 of Tata Institute of Fundamental Research Studies in Mathematics . Oxford University Press, London, 1967. [32] F. Mantlik. Linear equations depending differentiably on a parameter. Integral Equations Operator Theory , 13(2):231–250, 1990. [33] F. Mantlik. Partial differential operators depending analytically on a parameter. Ann. Inst. Fourier (Grenoble) , 41(3):577–599, 1991. [34] R. Meise, B. A. Taylor, and D. Vogt. Characterization of the linear partial differential op-erators with constant coefficients that admit a continuous linear right inverse. Annales de l’Institut Fourier (Grenoble) , 40(3):619–655, 1990. [35] R. Meise and D. Vogt. Introduction to Functional Analysis . Oxford University Press, New York, 1997. 50 T. CIAŚ AND T. KALMES 
+
+[36] C. M¨ uller. Analysis of spherical symmetries in Euclidean spaces , volume 129 of Applied Mathematical Sciences . Springer-Verlag, New York, 1998. [37] S. Nakane. P -convexity with respect to differential operators which act on linear subspaces. 
+
+Proc. Japan Acad. Ser. A Math. Sci. , 55(9):343–347, 1979. [38] N. Ortner and P. Wagner. Fundamental solutions of linear partial differential operators .Springer, Cham, 2015. Theory and practice. [39] J. Persson. The wave operator and P -convexity. Boll. Un. Mat. Ital. B (5) , 18(2):591–604, 1981. [40] J. Persson. The geometry of P -convex sets. Boll. Un. Mat. Ital. B (7) , 7(3):549–573, 1993. [41] H.-J. Petzsche. Some results of Mittag-Leffler-type for vector valued functions and spaces of class A. In Functional analysis: surveys and recent results, II (Proc. Second Conf. Functional Anal., Univ. Paderborn, Paderborn, 1979) , volume 68 of Notas Mat. , pages 183–204. North-Holland, Amsterdam-New York, 1980. [42] L. Rodino. Linear partial differential operators in Gevrey spaces . World Scientific Publishing Co., Inc., River Edge, NJ, 1993. [43] W. Rudin. Functional Analysis . International Series in Pure and Applied Mathematics. McGraw-Hill, New York, 2 edition, 1991. [44] L. Schwartz. Th´ eorie des distributions , volume IX-X of Publications de l’Institut de Math´ ematique de l’Universit´ e de Strasbourg . Hermann, Paris, 1966. Nouvelle ´edition, enti´ erement corrig´ ee, refondue et augment´ ee. [45] A. A. Shlapunov and P. Yu. Vilkov. On runge type theorems for solutions to strongly uni-formly parabolic operators. Siberian Electronic Mathematical Reports , 21:383–404, 2024. [46] K. Tintarev. On the geometry of P -convex sets for operators of real principal type. Israel J. Math. , 64(2):195–206, 1988. [47] K. Tintarev. Characterization of P -convexity for supports in terms of tangent curves. J. Math. Anal. Appl. , 164(2):590–596, 1992. [48] F. Tr` eves. Fundamental solutions of linear partial differential equations with constant coeffi-cients depending on parameters. Amer. J. Math. , 84:561–577, 1962. [49] F. Tr` eves. Un th´ eor` eme sur les ´ equations aux d´ eriv´ ees partielles ` a coefficients constants d´ ependant de param` etres. Bull. Soc. Math. France , 90:473–486, 1962. [50] F. Tr` eves. Linear partial differential equations with constant coefficients; existence, approx-imation, and regularity of solutions , volume 62 of Die Grundlehren der mathematischen Wissenschaften . Springer-Verlag, Berlin–Heidelberg–New York, 1966. [51] F. Tr` eves. Locally convex spaces and linear partial differential equations , volume 146 of Die Grundlehren der mathematischen Wissenschaften . Springer-Verlag, New York, 1967. [52] F. Tr` eves. Topological vector spaces, distributions and kernels . Academic Press, New York-London, 1967. [53] D. Vogt. On the solvability of P (D)f = g for vector valued functions. RIMS Kokyoroku ,508:182–200, 1983. [54] D. Vogt. On the functors Ext 1(E, F ) for Fr´ echet spaces. Studia Math. , 85(2):163–197, 1987. [55] G. N. Watson. A Treatise on the Theory of Bessel Functions . Cambridge University Press, Cambridge; The Macmillan Company, New York, 1944. [56] H. Whitney. Analytic extensions of differentiable functions defined on closed sets. Transac-tions of the American Mathematical Society , 36:63–89, 1934. [57] E. C. Zachmanoglou. An application of Holmgren’s theorem and convexity with respect to differential operators with flat characteristic cones. Trans. Amer. Math. Soc. , 140:109–115, 1969.

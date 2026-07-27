@@ -1,0 +1,1323 @@
+Title: The Liouville equation on Riemannian surfaces: the role of volume growth in classification and rigidity results
+
+URL Source: https://arxiv.org/pdf/2607.19838v1
+
+Published Time: Thu, 23 Jul 2026 00:32:07 GMT
+
+Number of Pages: 15
+
+Markdown Content:
+THE LIOUVILLE EQUATION ON RIEMANNIAN SURFACES: THE ROLE OF VOLUME GROWTH IN CLASSIFICATION AND RIGIDITY RESULTS          
+
+> GIULIO CIRAOLO , ALBERTO FARINA , AND MICHELE GATTI
+> Abstract. We study the Liouville equation −∆u=euon a complete, connected, non-compact, boundaryless Riemannian surface (M, g )with non-negative Ricci cur-vature. Assuming only some asymptotic lower bound on the solution, we establish classification results for both the solutions and the ambient manifold, discussing also their optimality. Our results reveal a close connection between the volume growth of the manifold and the classification of both the solutions and the underlying manifold.
+
+1. Introduction 
+
+In a two-dimensional Riemannian manifold (M, g ), we consider the Liouville equa-tion 
+
+−∆u = eu in M. (1.1) This equation arises naturally in geometric analysis in the context of conformal changes of metrics on two-dimensional manifolds. More specifically, it describes the transfor-mation of a metric with vanishing Gaussian curvature into one with positive constant Gaussian curvature. Moreover, the study of (1.1) is also motivated by several physical applications – see, for instance, [1, 2] and reference therein for more details. In the Euclidean case, Liouville [18] proved that any solution to (1.1) can be repre-sented in terms of a meromorphic function. More than a century later, Chen & Li [9] classified the entire solutions of (1.1) in R2 under the finite-mass assumption 
+
+ˆ
+
+> R2
+
+eu dx < +∞. (1.2) In particular, they proved that every entire solution enjoying (1.2) is radially symmetric with respect to some point and is given by one of the bubbles 
+
+U [z, λ ]( x) := log 8λ2
+
+> (
+
+1 + λ2 |x − z|2)2 . (1.3) Here, λ > 0 is the scaling parameter and z ∈ R2 is the center of the bubble. In [9], the finite-mass assumption (1.2) is used to derive the optimal asymptotic behavior of solutions at infinity, which in turn enables the application of the moving planes method to obtain the classification result. It is also worth mentioning that the classification result in [9] was subsequently recovered by Chou & Wan [12] and Hang & Wang [15] using complex analysis techniques. Moreover, Chanillo & Kiessling [8] provided an alternative proof based on a combination of a Pohozaev-type identity and the isoperimetric inequality. See also the survey [2] for an overview on this topic.     
+
+> Date : July 23, 2026. 2020 Mathematics Subject Classification. Primary 35J91, 58J05, 53C24; Secondary 35R01, 53C21.
+> Key words and phrases. Liouville equation, classification results, rigidity for manifolds.
+> 1arXiv:2607.19838v1 [math.AP] 22 Jul 2026 2GIULIO CIRAOLO, ALBERTO FARINA, AND MICHELE GATTI
+
+More recently, still within the Euclidean framework, Eremenko, Gui, Li, & Xu [13] used methods from complex analysis to completely classify the entire solutions of (1.1) that are bounded from above. In the Riemannian setting, Catino & Monticelli [4] considered complete non-compact surfaces with non-negative Gaussian curvature, assuming both the finiteness of the mass, namely ˆ
+
+> M
+
+eu dV g < +∞, (1.4) and the lower bound 
+
+u(x) ≥ − 4 log r(x) − 2γ log log r(x) as r(x) → +∞, (1.5) for some γ ∈ [0 , 1) , where r denotes the geodesic distance from a reference point in the manifold. Under these assumptions, they proved that (M, g ) is isometric to the Euclidean plane endowed with its standard metric and, consequently, that the solution must be a bubble of the form (1.3). This result was later improved by Cai & Lai [3], who replaced (1.5) with 
+
+u(x) ≥ − 4 log r(x) + o(log r(x)) as r(x) → +∞,
+
+while still assuming the finite-mass condition (1.4). In [6], Ciraolo, Farina & Polvara established the first classification result without assuming the finite-mass condition. Exploiting a P -function approach , they studied the Liouville equation (1.1) on two-dimensional, complete non-compact Riemannian manifolds with non-negative Ricci curvature, assuming only the lower bound 
+
+u(x) ≥ − 4 log r(x) − log F (r(x)) as r(x) → +∞, (1.6) where F is a function satisfying 
+
+ˆ +∞
+
+> c
+
+dt tF (t) = + ∞ for some c ≥ 1.
+
+Finally, by exploiting the P -function approach and the analysis in [6], Ou [19] obtained the classification result under the lower bound 
+
+u(x) ≥ − 4 log r(x) − 4α log F (r(x)) as r(x) → +∞, (1.7) for some α ≥ 0.In the present manuscript, we further develop the approach introduced in [6] to optimally improve upon the main results of [6, 19] concerning (1.1), as we describe in the following subsection. Our approach will establish a clear connection between the volume growth of the manifold M , the classification of solutions to (1.1), and the rigidity on the ambient manifold M .1.1. Main results. In order to present our results clearly, we first fix some notation. Let (M, g ) be a two-dimensional complete smooth Riemannian manifold with Ric ≥ 0,and fix an origin o ∈ M . We denote by BR := BR(o) the geodesic ball centered at o with radius R > 0 and by V (R) := Vg(BR) its volume. Moreover, we denote by r(x) := dist( x, o) the geodesic distance from o. For R > 0, we also set 
+
+q(R) := R2
+
+V (R), (1.8) THE LIOUVILLE EQUATION ON RIEMANNIAN SURFACES 3
+
+which is non-decreasing by the Bishop-Gromov volume comparison theorem. In addi-tion, we have 
+
+V (2 R)
+
+V (R) ≤ 4 and V (R) ≤ πR 2. (1.9) With this notation in place, the main result of this manuscript reads as follows. 
+
+Theorem 1.1. Let (M, g ) be a complete, connected, non-compact, boundaryless Rie-mannian manifold of dimension n = 2 with Ric ≥ 0. Let u ∈ C2(M ) be a solution to (1.1) and assume that there exist β ∈ (0 , 1) and F : [0 , +∞) → (0 , +∞) non-decreasing and such that ˆ +∞
+
+> c
+
+dt tF (t) = + ∞ for some c ≥ 1. (1.10) 
+
+Moreover, suppose that 
+
+u(x) ≥ − 4 log r(x) − qβ (r(x)) F β (r(x)) for r(x) ≥ c. (1.11) 
+
+Then, (M, g ) is isometric to (R2, g R2 ) and u is a bubble of the form (1.3) .
+
+The novelty of Theorem 1.1 is twofold. First, in contrast to the asymptotic lower bounds (1.6)–(1.7) used in [6, 19], respectively, our result allows for a power-like behav-ior of the remainder term in (1.11). Second, the lower bound (1.11) explicitly involves the volume ratio q, defined in (1.8). Consequently, Theorem 1.1 establishes a clear connection between the volume growth of the manifold and the classification of both solutions to (1.1) and the ambient manifold itself. We also establish the optimality of Theorem 1.1 on every two-dimensional smooth model manifolds. More specifically, we prove that β = 1 is not allowed in Theorem 1.1. 
+
+Corollary 1.1.1. For every two-dimensional smooth model manifold (M, g ) satisfy-ing Ric ≥ 0 and Ric ̸ ≡ 0, where g = dr 2 + ψ2(r) dθ 2 and ψ ∈ C∞([0 , +∞)) , there exist γ > 0, depending only on ψ, and a smooth radial solution to (1.1) such that 
+
+u(r) ≥ − 4 log r − γq (r) log r as r → +∞.
+
+As a consequence, β = 1 is not allowed in Theorem 1.1. 
+
+From Theorem 1.1, we deduce some consequences presented in the following results. 
+
+Corollary 1.1.2. Let (M, g ) be a complete, connected, non-compact, boundaryless Riemannian manifold of dimension n = 2 with Ric ≥ 0. Let u ∈ C2(M ) be a solution to (1.1) and assume that there exist β ∈ (0 , 1) and F : [0 , +∞) → (0 , +∞) non-decreasing satisfying (1.10) . Moreover, suppose that 
+
+u(x) ≥ − 4 log r(x) − F β (r(x)) for r(x) ≥ c. (1.12) 
+
+Then, (M, g ) is isometric to (R2, g R2 ) and u is a bubble of the form (1.3) .
+
+We note that Corollary 1.1.2 significantly improves upon Theorem 1.2 in [6] and Theorem 1.1 in [19]. In fact, the assumption in [19] is precisely (1.7) for some α ≥ 0
+
+and F as in Corollary 1.1.2. The condition (1.7) is more restrictive than (1.12), since, for every α ≥ 0 and β ∈ (0 , 1) , the function t 7 → 4α log F (t) has slower growth than t 7 → F β (t). Moreover, Corollary 1.1.2 is optimal in the sense that β = 1 is not allowed. In this case, for F (t) = ε log t with ε > 0, condition (1.12) would read as 
+
+u(x) ≥ − (4 + ε) log r(x) for r(x) ≥ c. 4 GIULIO CIRAOLO, ALBERTO FARINA, AND MICHELE GATTI 
+
+On the other hand, by Theorem 2 in [3], we know that for every γ > 4 there exists a non-flat (M, g ), conformal to (R2, g R2 ), supporting a solution of (1.1) with finite mass, in the sense of (1.4), such that u(x) ∼ − γ log r(x), as r(x) → +∞.
+
+Corollary 1.1.3. Let (M, g ) be a complete, connected, non-compact, boundaryless Riemannian manifold of dimension n = 2 with Ric ≥ 0. Let u ∈ C2(M ) be a solution to (1.1) and assume that there exist β ∈ (0 , 1) and F : [0 , +∞) → (0 , +∞) non-decreasing satisfying (1.10) . Moreover, suppose that 
+
+u(x) ≥ − rβ (x)F β (r(x)) for r(x) ≥ c. (1.13) 
+
+Then, it follows that 
+
+lim sup 
+
+> R→+∞
+
+V (R)
+
+R1+ εF ε(R) = + ∞ for every ε ∈ [0 , 1 − β). (1.14) 
+
+As a consequence, (M, g ) is conformal to (R2, g R2 ).
+
+We point out that Corollary 1.1.3 significantly improves upon Theorem 1.3 in [6] and Theorem 1.2 in [19]. Moreover, also in this case, Corollary 1.1.3 is optimal in the sense that the case β = 1 cannot occur, as follows from the examples in Section 6. Finally, we mention that the quasilinear case of the n-Liouville equation with n ≥ 3
+
+has also been studied in the literature, both in the Euclidean and Riemannian settings – see, for instance, [5, 7, 14] and the references therein. In this paper, however, we focus exclusively on the classical Liouville equation (1.1). 1.2. Structure of the paper. In Section 2, we recall some preliminary facts that will be used in the proofs of the results in Section 3. Section 4 contains a brief intermezzo on concave functions and smooth model manifolds, followed by an analysis of radial solutions on these manifolds in Section 5. Finally, in Section 6 we provide some examples showing the optimality of Corollary 1.1.3. 2. A few preliminary facts 
+
+Following [6], we introduce the auxiliary function v := e− u 
+
+> 2
+
+, which solves 
+
+∆v = P in M, (2.1) where the P -function is given by 
+
+P := 1
+
+v
+
+> (
+
+|∇ v|2 + 12
+
+> )
+
+. (2.2) The following result has been established in [6, 19]. 
+
+Lemma 2.1. Let (M, g ) be a Riemannian manifold of dimension n = 2 with Ric ≥ 0.Let v ∈ C2(M ) be a solution to (2.1) and let P be defined by (2.2) . Then, we have 
+
+∆P ≥ 0 and ∆ log P ≥ 0.
+
+Remark 2.1. We point out that, by standard elliptic regularity theory, any classical solution u ∈ C2(M ) to (1.1) is in fact of class C3,α  
+
+> loc
+
+(M ). Since v = e− u 
+
+> 2
+
+, we consequently also have v ∈ C3(M ). In particular, this allows us to apply the results in [6, 19], which were originally stated for functions u, v ∈ C3(M ).We now prove a Liouville-type result à la Karp, which is crucial in the following. THE LIOUVILLE EQUATION ON RIEMANNIAN SURFACES 5
+
+Lemma 2.2. Let (M, g ) be a complete, non-compact Riemannian manifold of di-mension n ≥ 2 and let F : [0 , +∞) → (0 , +∞) be a non-decreasing function satisfy-ing (1.10) . Suppose that U ∈ C2(M ) satisfies ∆U ≥ 0 in M and 
+
+ˆ
+
+> BR
+
+U θ 
+
+> +
+
+dV g ≤ R2F (R) as R → +∞ (2.3) 
+
+for some θ > 1. Then, U+ is constant in M .Proof. For every ε > 0 and t ∈ R, let 
+
+φε(t) := 4
+
+> √
+
+t4+ + ε4 − ε. 
+
+Then, φε ∈ C2(R) is non-decreasing and convex. Define Uε := φε(U ) and observe that 
+
+0 ≤ Uε ≤ U+ and Uε → U+ in M as ε → 0. (2.4) Moreover, a direct computation reveals that 
+
+∆Uε = φ′
+
+> ε
+
+(U ) ∆ U + φ′′  
+
+> ε
+
+(U ) |∇ U |2 ≥ 0 in M
+
+and, in light of (2.3)–(2.4), we also have 
+
+ˆ
+
+> BR
+
+U θε dV g ≤
+
+ˆ
+
+> BR
+
+U θ 
+
+> +
+
+dV g ≤ R2F (R) as R → +∞.
+
+As a consequence, Theorem 2.2 in [17] implies that Uε is constant in M , that is Uε = cε
+
+for some cε ≥ 0. Finally, letting ε → 0, from (2.4) we infer the desired conclusion. □
+
+3. Proof of the main results 
+
+We start by proving the main result of this manuscript. 
+
+Proof of Theorem 1.1. We aim to prove that P is constant in M , the conclusion then follows as in the proof of Theorem 1.2 in [6]. We start by observing that, since v = e− u 
+
+> 2
+
+, assumption (1.11) implies that 
+
+v(x) ≤ r2(x)eqβ (r(x)) F β (r(x)) for r(x) ≥ c. (3.1) We first aim to convert (3.1) into an integral estimate for P . To this end, for any R > 0, we consider a standard cut-off function η, namely, a function η ∈ C0,1 
+
+> c
+
+(M )
+
+satisfying 
+
+0 ≤ η ≤ 1 in M, η = 1 in BR, η = 0 in M \ B2R and |∇ η| ≤ 1
+
+R in B2R \ BR. (3.2) We test (2.1) with ψ = η2 and integrate by parts, obtaining 
+
+ˆ
+
+> M
+
+v−1 |∇ v|2η2 dV g + 12
+
+ˆ
+
+> M
+
+v−1η2 dV g =
+
+ˆ
+
+> M
+
+P η 2 dV g = −2
+
+ˆ
+
+> M
+
+⟨∇ v, ∇η⟩ η dV g,
+
+where we exploited (2.2). Applying Young’s inequality yields 
+
+ˆ
+
+> M
+
+v−1 |∇ v|2η2 dV g + 12
+
+ˆ
+
+> M
+
+v−1η2 dV g ≤ 12
+
+ˆ
+
+> M
+
+v−1 |∇ v|2η2 dV g + 2 
+
+ˆ
+
+> M
+
+v |∇ η|2 dV g,
+
+which, using the properties of η in (3.2), implies 
+
+ˆ
+
+> BR
+
+P dV g ≤
+
+ˆ
+
+> M
+
+P η 2 dV g ≤ 4
+
+ˆ
+
+> M
+
+v |∇ η|2 dV g ≤ 4
+
+R2
+
+ˆ
+
+> B2R\BR
+
+v dV g.6 GIULIO CIRAOLO, ALBERTO FARINA, AND MICHELE GATTI 
+
+Combining the latter with (3.1) entails that 
+
+ˆ
+
+> BR
+
+P dV g ≤ 16 Vg(B2R) eqβ (2 R)F β (2 R) for R ≥ c, 
+
+hence 
+
+−
+
+ˆ
+
+> BR
+
+P dV g := 1
+
+Vg(BR)
+
+ˆ
+
+> BR
+
+P dV g ≤ 16 Vg(B2R)
+
+Vg(BR) eq(2 R)β F (2 R)β
+
+≤ 43eq(2 R)β F (2 R)β
+
+, (3.3) where in the latter we used the first inequality in (1.9). We now shall apply Lemma 2.2 to log P . To this end, we start by observing that, for every θ > 1, cθ ≥ eθ−1 > 1, and t > 0, the function φθ(t) := log θ(t + cθ) is increasing and concave, therefore, Jensen’s inequality gives that 
+
+−
+
+ˆ
+
+> BR
+
+φθ(P ) dV g ≤ φθ
+
+(
+
+−
+
+ˆ
+
+> BR
+
+P dV g
+
+)
+
+for every R > 0,
+
+which reads as 
+
+−
+
+ˆ
+
+> BR
+
+log θ(P + cθ) dV g ≤ log θ
+
+(
+
+−
+
+ˆ
+
+> BR
+
+P dV g + cθ
+
+)
+
+for every R > 0. (3.4) Hence, combining (3.3)–(3.4), it follows that 
+
+−
+
+ˆ
+
+> BR
+
+(log P )θ 
+
+> +
+
+dV g ≤ − 
+
+ˆ
+
+> BR
+
+log θ(P + cθ) dV g ≤ log θ(
+
+43eqβ (2 R)F β (2 R) + cθ
+
+)
+
+for R ≥ c
+
+and since q and F are positive, we obtain 
+
+−
+
+ˆ
+
+> BR
+
+(log P )θ 
+
+> +
+
+dV g ≤ log θ(
+
+2 max {64 , c θ} eqβ (2 R)F β (2 R))
+
+≤ 2θ−1[
+
+log θ(2 max {64 , c θ}) + qβθ (2 R)F βθ (2 R)]
+
+for R ≥ c. 
+
+Finally, recalling that β ∈ (0 , 1) and choosing θ = 1 
+
+> β
+
+> 1, we infer that 
+
+−
+
+ˆ
+
+> BR
+
+(log P )θ 
+
+> +
+
+dV g ≤ 2θ−1[cθ + q(2 R)F (2 R)] for R ≥ c, (3.5) where cθ := log θ(2 max {64 , c θ}) > 1.Recalling the definition of q in (1.8) and (1.9), from (3.5) we deduce 
+
+ˆ
+
+> BR
+
+(log P )θ 
+
+> +
+
+dV g ≤ 2θ−1
+
+[
+
+cθ + 4R2
+
+V (2 R)F (2 R)
+
+]
+
+V (R) ≤ 2θ−1[
+
+cθ V (R) + 4 R2F (2 R)]
+
+≤ 2θ−1[πcθ + 4 F (2 R)] R2 ≤ 2θ+1 cθ [1 + F (2 R)] R2 for R ≥ c. 
+
+Since F is non-decreasing, for R ≥ c we have F (2 R) ≥ F (c), which, combined with the latter estimate, entails 
+
+ˆ
+
+> BR
+
+(log P )θ 
+
+> +
+
+dV g ≤ cc,θ R2F (2 R) for R ≥ c, (3.6) for some cc,θ > 0 depending only on θ and F (c).We now set U := log P and G(R) := cc,θ F (2 R). Since F is non-decreasing and satis-fies (1.10) by assumption, it follows that G is also non-decreasing and satisfies (1.10), possibly for a larger value of c. Moreover, by Lemma 2.1, we also have ∆U ≥ 0 in M .Since (3.6) can be rewritten as ˆ
+
+> BR
+
+U θ 
+
+> +
+
+dV g ≤ R2G(R),THE LIOUVILLE EQUATION ON RIEMANNIAN SURFACES 7
+
+we are in a position to apply Lemma 2.2 and infer that U+ is constant in M . This is equivalent to (log P )+ = κ ≥ 0 in M . If κ > 0, we immediately conclude that P = eκ
+
+in M ; otherwise we have 0 < P ≤ 1 in M . In this case, the volume growth (1.9), together with Corollary 1 in [10], implies that M is parabolic. Since P is bounded and subharmonic by Lemma 2.1, it must be constant in this case as well. □
+
+We now present the proofs of the last two corollaries. 
+
+Proof of Corollary 1.1.2. By the Bishop-Gromov volume comparison theorem, the func-tion q defined in (1.8) satisfies 
+
+lim  
+
+> R→+∞
+
+q(R) ∈ [
+
+π−1, +∞]
+
+,
+
+hence there exists R0 > 0 such that q(R) ≥ 12π for all R ≥ R0. As a consequence, from (1.12) we obtain 
+
+u(x) ≥ − 4 log r(x) − 1(2 π)β [2 πF (r(x))] β
+
+≥ − 4 log r(x) − qβ (r(x)) Gβ (r(x)) for r(x) ≥ max {c, R 0},
+
+where G(R) := 2 πF (R). Thanks to the assumptions on F , the function G satisfies the hypotheses of Theorem 1.1, and thus we conclude the desired result. □
+
+Proof of Corollary 1.1.3. By contradiction, suppose that (1.14) does not hold true for some ε ∈ [0 , 1 − β), then 
+
+V (R) ≤ cεR1+ εF ε(R) for every R ≥ Rε, (3.7) for some Rε > 0 and cε > 0. Recalling (1.8), it follows that 
+
+c 11−ε 
+
+> ε
+
+F ε 
+
+> 1−ε
+
+(R) q 11−ε (R) ≥ R for every R ≥ Rε.
+
+Hence, from (1.13), we obtain 
+
+u(x) ≥ − c β 
+
+> 1−ε
+> ε
+
+F εβ  
+
+> 1−ε
+
+(r(x)) q β 
+
+> 1−ε
+
+(r(x)) F β (r(x)) 
+
+≥ − 4 log r(x) − qβ′
+
+(r(x)) Gβ′
+
+(r(x)) for r(x) ≥ max {c, R ε},
+
+where G(R) := cεF (R) and β′ := β 
+
+> 1−ε
+
+∈ (0 , 1) . As above, by Theorem 1.1, we conclude that (M, g ) is isometric to (R2, g R2 ). Consequently, it follows that 
+
+V (R) = cR2 (3.8) for some c > 0. If ε = 0 , this immediately contradicts (3.7). Hence, we may assume ε > 
+
+0. Combining (3.7)–(3.8), we obtain 
+
+F (R) ≥ cR 1  
+
+> ε−1
+
+for every R ≥ Rε,
+
+for a possibly different c > 0. As ε ∈ (0 , 1) , this contradicts (1.10). Finally, since M is two-dimensional with Ric ≥ 0 it follows that Kg ≥ 0. Therefore, the classical results of Cohn–Vossen [11] and Huber [16] imply that M is either confor-mal to the Euclidean plane endowed with the standard metric, or is isometric to the flat cylinder R × S1 or, in the non-orientable case, to the flat open Möbius strip. Since the latter two alternatives have linear volume growth, which is ruled out by (1.14) with ε = 0 , the conclusion follows. □8 GIULIO CIRAOLO, ALBERTO FARINA, AND MICHELE GATTI 
+
+4. Intermezzo on concave functions 
+
+Before proceeding with our analysis, we recall a lemma concerning concave functions. 
+
+Lemma 4.1. Let τ > 0 and let f ∈ C1([ τ, +∞)) be a concave function such that f > 0
+
+in [τ, +∞). Then, it follows that 
+
+f ′ ≥ 0 in [τ, +∞)
+
+and precisely one of the following two alternatives holds: 
+
+(i) we have f ′ > 0 in [τ, +∞);
+
+(ii ) there exists t0 ≥ τ such that f ′(t) > 0 for t ∈ (τ, t 0) and f (t) = f (t0) for t ∈
+
+[t0, +∞).Proof. By contradiction, suppose that f ′(t∗) < 0 for some t∗ ≥ t. Since f is positive and concave, it follows that 
+
+0 < f (t) ≤ f (t∗) + f ′(t∗) ( t − t∗) for every t ≥ t∗. (4.1) Since the right-hand side of (4.1) vanishes for some t ∈ [t∗, +∞), this is impossible. Therefore, f ′ ≥ 0 in [τ, +∞).Now suppose that there exists t1 ≥ τ such that f ′(t1) = 0 . By concavity, we have 
+
+0 ≤ f ′(t) ≤ f ′(t1) = 0 for all t ≥ t1,
+
+thus, we set 
+
+t0 := inf {t ≥ τ | f (s) = f (t1) for every s ≥ t} ∈ [τ, t 1]. (4.2) By definition, f (t) = f (t0) for t ∈ [t0, +∞). Moreover, f ′(t) > 0 for every t ∈ (τ, t 0).Otherwise, as above, we would have f (s) = f (t) for all s ≥ t. Since t < t 0 ≤ t1, this yields f (s) = f (t1) for all s ≥ t, contradicting the definition of t0 in (4.2). □
+
+We now construct two-dimensional smooth model manifolds with Ric ≥ 0 that is not identically zero and investigate the behavior of q in this setting in the next two results. 
+
+Proposition 4.1. Let τ > 0 and k ∈ { 2, 3, . . . } ∪ {∞} . Let f ∈ Ck([ τ, +∞)) be such that 
+
+f > 0, f ′′ ≤ 0 in [τ, +∞) and f ′(τ ) < 1. (4.3) 
+
+Then, it follows that: (1) there exist ψ : [0 , +∞) → [0 , +∞), ψ ∈ Ck([0 , +∞)) , t0 > max {
+
+τ, 21−f ′(τ )
+
+> }
+
+, and 
+
+f0 ∈ (0 , t 0 + 1) such that 
+
+ψ(t) = t for t ∈ [0 , t 0] and ψ(t) = f (t) + f0 for t ∈ [t0 + 1 , +∞), (4.4) 
+
+0 ≤ ψ′(t) ≤ 1 and ψ′′ (t) ≤ 0 for t ∈ (0 , +∞) with ψ′′ ̸ ≡ 0. (4.5) 
+
+If, in addition, f ′ > 0 in [τ, +∞), then also ψ′ > 0 in [0 , +∞);(2) if ψ ∈ C∞([0 , +∞)) is constructed as in point (1), the two-dimensional smooth model manifold (M, g ), where g = dr 2 + ψ2(r) dθ 2, satisfies Ric ≥ 0, Ric ̸ ≡ 0, and 
+
+V (R) = 2 π
+
+ˆ R
+
+> 0
+
+ψ(s) ds for every R > 0, (4.6) 
+
+V (R) = 2 π
+
+> [
+
+f1 + f0R +
+
+ˆ Rt0+1 
+
+f (s) ds 
+
+> ]
+
+for every R ≥ t0 + 1 ,
+
+with f1 ∈ R satisfying |f1| ≤ t20 
+
+> 2
+
++ t0 + 1 .THE LIOUVILLE EQUATION ON RIEMANNIAN SURFACES 9
+
+Proof. We address point (1). We start by observing that Lemma 4.1 and (4.3) yield 
+
+f ′(t) ≥ 0 for all t ≥ τ. (4.7) By concavity of f , we have f (t) ≤ f (τ ) + f ′(τ ) ( t − τ ) for every t ≥ τ . Taking into account (4.7), we have τ f ′(τ ) ≥ 0, which implies 
+
+f (t)
+
+t ≤ f (τ )
+
+t + f ′(τ ) for every t ≥ τ. 
+
+Since f ′(τ ) ∈ [0 , 1) by (4.3) and (4.7), there exists t0 > max {
+
+τ, 21−f ′(τ )
+
+> }
+
+such that 
+
+f (t) ≤ 1 + f ′(τ )2 t for every t ≥ t0. (4.8) Now let φ ∈ C∞([0 , +∞)) satisfy 0 ≤ φ ≤ 1, φ′ ≥ 0 in [0 , +∞), φ = 0 in [0 , t 0],and φ = 1 in [t0 + 1 , +∞). Set 
+
+σ(t) := 1 − φ(t) (1 − f ′(t)) for t ∈ [0 , +∞),
+
+which is well defined since t0 > τ and σ ∈ Ck−1([0 , +∞)) . Moreover, σ = 1 in [0 , t 0]
+
+and σ = f ′ ≥ 0 in [t0 + 1 , +∞) by (4.7). We also observe that, since f is concave, we have 0 ≤ f ′(t) ≤ f ′(τ ) < 1 for all t ≥ τ by (4.3) and (4.7), therefore 
+
+1 − f ′(t) > 0 for all t ≥ τ. (4.9) From this, (4.3), the definition of φ, and the fact that t0 > τ , we deduce that 
+
+σ ≥ 0 and σ′ ≤ 0 in [0 , +∞).
+
+We then define 
+
+ψ(t) := 
+
+ˆ t
+
+> 0
+
+σ(s) ds, 
+
+which satisfies all the required properties. Indeed, ψ ∈ Ck([0 , +∞)) with ψ′(t) = 
+
+σ(t) ∈ [0 , 1] and ψ′′ (t) = σ′(t) ≤ 0 for t > 0. From this, we see that ψ′(0) = σ(0) = 1 ,and ψ′′ (0) = σ′(0) = 0 . Moreover, by definition of σ and φ, we have ψ(t) = t
+
+for t ∈ [0 , t 0] while, for t > t 0 + 1 ,
+
+ψ(t) = t0 +
+
+ˆ t0+1 
+
+> t0
+
+1 − φ(s) (1 − f ′(s)) ds +
+
+ˆ tt0+1 
+
+f ′(s) ds 
+
+= t0 + 1 −
+
+ˆ t0+1 
+
+> t0
+
+φ(s) (1 − f ′(s)) ds + f (t) − f (t0 + 1) = f (t) − I + t0 + 1 − f (t0 + 1) ,
+
+(4.10) where 
+
+I := 
+
+ˆ t0+1 
+
+> t0
+
+φ(s) (1 − f ′(s)) ds ∈ [0 , 1] .
+
+Indeed, recalling (4.9), we have 0 ≤ φ (1 − f ′) ≤ φ ≤ 1 in (t0, t 0 + 1) . Hence, we set 
+
+f0 := −I + t0 + 1 − f (t0 + 1) < t 0 + 1 .
+
+On the other hand, taking advantage of (4.3) and (4.8), we obtain 
+
+f0 ≥ − 1+ t0 +1 − 1 + f ′(τ )2 (t0 + 1) = −1+ 1 − f ′(τ )2 (t0 + 1) > −1+ 1 − f ′(τ )2 t0 > 0,
+
+where we used the fact that t0 > 21−f ′(τ ) for the last inequality. We now prove that ψ′′ ̸ ≡ 0. Suppose, by contradiction that ψ′′ = σ′ ≡ 0, then σ =
+
+σ(0) = 1 . As a result ψ(t) = t and, from (4.10), also f (t) = t−f0 for all t ≥ t0 +1 . This 10 GIULIO CIRAOLO, ALBERTO FARINA, AND MICHELE GATTI 
+
+implies f ′(t) = 1 for all t ≥ t0 + 1 and, since f is concave, that f ′(τ ) ≥ f ′(t0 + 1) = 1 ,which contradicts (4.3). Finally, assume in addition that f ′ > 0. Then, σ = f ′ > 0 in [t0 + 1 , +∞). Since σ
+
+is non-increasing, this implies that σ > 0 in [0 , +∞) which, in turn, yields ψ′ > 0
+
+in [0 , +∞). This completes the proof of point (1). We now address point (2). We notice that the Gaussian curvature is given by 
+
+Kg = −ψ′′ (r)
+
+ψ(r) . (4.11) Since M is two-dimensional, this and (4.5) yield Ric ≥ 0 with Ric ̸ ≡ 0.Since ψ is non-negative, the volume form is dV g = ψ(r) dr ∧ dθ , which gives (4.6). Moreover, for R ≥ t0 + 1 , using (4.4) we have 
+
+V (R) = 2 π
+
+> [
+
+ˆ t0
+
+> 0
+
+s ds +
+
+ˆ t0+1 
+
+> t0
+
+ψ(s) ds +
+
+ˆ Rt0+1 
+
+f (s) + f0 ds 
+
+> ]
+
+= 2 π 
+
+> [
+
+t20
+
+2 +
+
+ˆ t0+1 
+
+> t0
+
+ψ(s) ds + f0 (R − (t0 + 1)) + 
+
+ˆ Rt0+1 
+
+f (s) ds 
+
+> ]
+
+= 2 π
+
+> [
+
+f1 + f0R +
+
+ˆ Rt0+1 
+
+f (s) ds 
+
+> ]
+
+,
+
+where f1 := t20 
+
+> 2
+
++ ´ t0+1  
+
+> t0
+
+ψ(s) ds − f0 (t0 + 1) . By (4.4)–(4.5) and since f0 ∈ (0 , t 0 + 1) ,
+
+t0 = ψ(t0) ≤
+
+ˆ t0+1 
+
+> t0
+
+ψ(s) ds ≤ ψ(t0 + 1) ≤ t0 + 1 ,
+
+hence, we have f1 ≤ t20 
+
+> 2
+
++ t0 + 1 and also 
+
+f1 ≥ t20
+
+2 + t0 − (t0 + 1) 2 = − 
+
+> (
+
+t20
+
+2 + t0 + 1 
+
+> )
+
+.
+
+□
+
+Lemma 4.2. The following assertions hold true. (1) Let ψ ∈ C0((0 , +∞)) be such that ψ > 0 in (0 , +∞) and let t0 > 0. Then, we have 
+
+t2
+
+´ t 
+
+> 0
+
+ψ(s) ds ≤
+
+> (
+
+1 + t0
+
+t − t0 
+
+> )2
+
+ˆ tt0
+
+ds ψ(s) for every t > t 0.
+
+(2) Let ψ ∈ C0([0 , +∞)) ∩ C1((0 , +∞)) be a concave function such that ψ > 0 in 
+
+(0 , +∞) and let t0 > 0. Then, it follows that 
+
+ˆ tt0
+
+ds ψ(s) ≤ t2
+
+´ t 
+
+> 0
+
+ψ(s) ds (log t − log t0) for every t > t 0.
+
+(3) Let (M, g ) be a two-dimensional smooth model manifold 1, with g = dr 2 +ψ2(r) dθ 2,and let t0 > 0. Then, it follows that 
+
+q(t) ≤ 12π
+
+> (
+
+1 + t0
+
+t − t0 
+
+> )2
+
+ˆ tt0
+
+ds ψ(s) for every t > t 0 
+
+> 1See the beginning of Section 5 for the definition and properties of such a Riemannian manifold. THE LIOUVILLE EQUATION ON RIEMANNIAN SURFACES 11
+
+and ˆ tt0
+
+ds ψ(s) ≤ 2πq (t) (log t − log t0) for every t > t 0,
+
+where q is defined in (1.8) .Proof. For point (1), let t > t 0 > 0. An application of Hölder inequality yields 
+
+(t − t0)2 =
+
+> 
+
+ˆ tt0
+
+> √
+
+ψ(s) 1
+
+> √
+
+ψ(s) ds 
+
+> 
+> 2
+
+≤
+
+ˆ tt0
+
+ψ(s) ds 
+
+ˆ tt0
+
+ds ψ(s),
+
+from which 
+
+t2
+
+´ t 
+
+> 0
+
+ψ(s) ds ≤ t2
+
+´ tt0 ψ(s) ds = t2
+
+(t − t0)2
+
+(t − t0)2
+
+´ tt0 ψ(s) ds ≤
+
+> (
+
+1 + t0
+
+t − t0 
+
+> )2
+
+ˆ tt0
+
+ds ψ(s).
+
+This establishes point (1) of the lemma. We then consider point (2). We first observe that, since ψ is concave with ψ(0) ≥ 0
+
+the map t 7 → ψ(t)
+
+t in non-increasing in (0 , +∞) (4.12) and, for every t > t 0 > 0, Jensen’s inequality gives 
+
+1
+
+t − t0
+
+ˆ tt0
+
+ψ(s) ds ≤ ψ 
+
+> (
+
+1
+
+t − t0
+
+ˆ tt0
+
+s ds 
+
+> )
+
+= ψ 
+
+> (
+
+t + t0
+
+2
+
+> )
+
+≤ ψ(t),
+
+where we used that fact that ψ is non-decreasing by Lemma 4.1 applied with any τ > 0.Hence, the latter estimate implies 
+
+ˆ tt0
+
+ψ(s) ds ≤ (t − t0) ψ(t). (4.13) Let t > t 0 > 0. Using (4.12), we obtain 
+
+ˆ tt0
+
+ds ψ(s) =
+
+ˆ tt0
+
+sψ(s)1
+
+s ds ≤ tψ(t)
+
+ˆ tt0
+
+ds s = tψ(t) (log t − log t0),
+
+which, coupled with (4.13), entails 
+
+ˆ tt0
+
+ds ψ(s) ≤ t (log t − log t0) ( t − t0)
+
+´ tt0 ψ(s) ds = t2
+
+´ t 
+
+> 0
+
+ψ(s) ds 
+
+´ t 
+
+> 0
+
+ψ(s) ds 
+
+´ tt0 ψ(s) ds  
+
+> (
+
+t − t0
+
+t
+
+> )
+
+(log t − log t0).
+
+(4.14) We now estimate the integrals on the right-hand side of (4.14). To this end, since ψ
+
+is non-decreasing, we observe that ψ(s) ≤ ψ(t0) for 0 < s < t 0 and ψ(s) ≥ ψ(t0)
+
+for s > t 0, hence ´ t0 
+
+> 0
+
+ψ(s) ds ≤ t0ψ(t0) and ´ tt0 ψ(s) ds ≥ (t − t0) ψ(t0). As a result, we have ´ t 
+
+> 0
+
+ψ(s) ds 
+
+´ tt0 ψ(s) ds = 1 + 
+
+´ t0 
+
+> 0
+
+ψ(s) ds 
+
+´ tt0 ψ(s) ds ≤ 1 + t0
+
+t − t0
+
+= tt − t0
+
+.
+
+Combining the latter with (4.14) yields the desired conclusion. Finally, point (3) follows from Proposition 4.1, the definition of q in (1.8), and points (1)–(2) of the lemma. □12 GIULIO CIRAOLO, ALBERTO FARINA, AND MICHELE GATTI 
+
+Remark 4.1. We observe that the logarithmic dependence in point (2) of Lemma 4.2 is optimal, as one can verify by taking ψ(t) = at + f0, with a ∈ (0 , 1) and f0 > 0.Moreover, a two-dimensional smooth model manifold corresponding to such a ψ exists by Proposition 4.1, as follows by choosing f (t) = at .5. Radial solutions on two dimensional smooth model manifolds 
+
+Let (M, g ) be a two-dimensional smooth model manifold, namely a Riemannian man-ifold possessing a pole o ∈ M and whose metric, in polar coordinates (r, θ ) around o,has the expression 
+
+g = dr 2 + ψ2(r) dθ 2 on M \ { o},
+
+where dθ 2 denotes the usual metric on S1 and the function ψ ∈ C∞([0 , +∞)) satisfies, for any non-negative integer j ∈ N,
+
+ψ(2 j)(0) = 0 , ψ′(0) = 1 , and ψ′(r) > 0 for all r > 0. (5.1) Then, u = u(r) is a smooth radial solution of (1.1) on the model manifold M if and only if it satisfies the initial value problem 
+
+> 
+
+− u′′ (r) − ψ′(r)
+
+ψ(r) u′(r) = eu(r) for r > 0,u(0) = α ∈ R,u′(0) = 0 .
+
+(5.2) If ψ′ > 0 in (0 , +∞), then Proposition 2.1 in [1] guarantees the existence of a smooth radial solution to (1.1) on (M, g ) for every α ∈ R. Moreover, the maps r 7 → u′(r)
+
+and r 7 → eu(r) are bounded on [0 , +∞) with u′(r) < 0 for r > 0.We observe that Proposition 2.1 in [1] remains valid under the weaker assump-tion ψ′ ≥ 0 in (0 , +∞). Indeed, the existence of a local solution to (5.2) in [0 , ¯r], for some ¯r > 0, follows from the condition ψ′(0) = 1 , which is required for the metric g
+
+to be well defined at the origin. The remainder of the proof in [1] then carries over under the assumption ψ′ ≥ 0 in (0 , +∞).In the subsequent result, we consider the case in which ψ has at most linear growth at infinity with ψ′ ≥ 0, and study the properties of radial solutions to (1.1). 
+
+Proposition 5.1. Let (M, g ) be a two-dimensional smooth model manifold, where g =
+
+dr 2 +ψ2(r) dθ 2, and ψ′(r) ≥ 0 for all r > 0. Assume, in addition, that there exist c0 > 0
+
+and r0 > 0 such that 
+
+ψ(r) ≤ c0r for every r ≥ r0. (5.3) 
+
+Then, it follows that: (1) setting I∞ := ´ +∞ 
+
+> 0
+
+ψ(s)eu(s) ds , we have I∞ < +∞ and 
+
+ψ(r)u′(r) → − I∞ ∈ (−∞ , 0) as r → +∞, (5.4) 
+
+eu ∈ L1(M ) with 
+
+ˆ
+
+> M
+
+eu dV g = 2 πI ∞; (5.5) 
+
+(2) for every ¯r > 0, we have 
+
+u(r) ∼ − I∞
+
+ˆ r
+
+> ¯r
+
+ds ψ(s) as r → +∞.THE LIOUVILLE EQUATION ON RIEMANNIAN SURFACES 13 
+
+Proof. For point (1), we argue by contradiction. Suppose that I∞ = + ∞. Then, there exists r1 > r 0 + 1 such that 
+
+ˆ r
+
+> 0
+
+ψ(s)eu(s) ds ≥ 10 c0 for every r ≥ r1. (5.6) We first observe that the equation in (5.2) can be rewritten as 
+
+(ψ(r)u′(r)) ′ = −ψ(r)eu(r) for r > 0,
+
+therefore, integrating over [0 , r ] and using the fact that ψ(0) = 0 , we obtain 
+
+ψ(r)u′(r) = −
+
+ˆ r
+
+> 0
+
+ψ(s)eu(s) ds for every r > 0. (5.7) Combining (5.6)–(5.7) we deduce 
+
+ψ(r)u′(r) ≤ − 10 c0 for every r ≥ r1,
+
+and (5.3) finally entails 
+
+u′(r) ≤ − 10 
+
+r for every r ≥ r1.
+
+Integrating this inequality and exponentiating the resulting estimate, we obtain 
+
+eu(r) ≤ cr−10 for every r ≥ r1,
+
+where c > 0 depends on r1 > 0. As a consequence, combining this estimate with (5.3), we get 
+
+ψ(r)eu(r) ≤ cc0r−9 for every r ≥ r1.
+
+This immediately leads to a contradiction of the fact that I∞ = + ∞.Hence, we conclude that I∞ < +∞. Moreover, (5.7) immediately yields (5.4). To prove (5.5), we simply observe that 
+
+ˆ
+
+> M
+
+eu dV g = 2 π
+
+ˆ +∞
+
+> 0
+
+ψ(s)eu(s) ds = 2 πI ∞.
+
+This completes the proof of point (1). Finally, point (2) follows from (5.4), together with fact that, by (5.3), we have 
+
+ˆ +∞
+
+> ¯r
+
+ds ψ(s) = + ∞.
+
+□
+
+Remark 5.1. For the smooth model manifolds constructed in Proposition 4.1, thanks to (4.4)–(4.5), we have ψ(t) ≤ t and ψ′ ≥ 0. Thus, Proposition 5.1 applies in this case. We conclude this section with the proof of Corollary 1.1.1. 
+
+Proof of Corollary 1.1.1. Since Ric ≥ 0, Ric ̸ ≡ 0, and M is two-dimensional, we de-duce from (4.11) that ψ′′ ≤ 0 in (0 , +∞) with ψ′′ ̸ ≡ 0. Therefore, from the properties of ψ in (5.1) and Lemma 4.1, we have 
+
+ψ′(t) ≥ 0 and ψ(t) ≤ t for t ∈ (0 , +∞).
+
+Hence, the assumptions of Proposition 5.1 are satisfied. Thus, from point (2) of Propo-sition 5.1 with ¯r = 1 , we have 
+
+u(r) ∼ − I∞
+
+ˆ r
+
+> 1
+
+ds ψ(s) as r → +∞.14 GIULIO CIRAOLO, ALBERTO FARINA, AND MICHELE GATTI 
+
+From this, exploiting point (2) of Lemma 4.2 with t0 = 1 , it follows that 
+
+u(r) ≥ − γq (r) log r for every r ≥ r0,
+
+for some γ > 0 and r0 ≥ 1. As a consequence, we have 
+
+u(r) ≥ − 4 log r − γq (r) log r for every r ≥ r0,
+
+which implies that β = 1 in Theorem 1.1 is not allowed. □
+
+6. Optimality of Corollary 1.1.3 
+
+In this brief section, we illustrate the optimality of Corollary 1.1.3 by presenting some explicit examples. We begin with the case ε = 0 in Corollary 1.1.3. 
+
+Example 6.1. Consider the function 
+
+u(t) = −2 log 
+
+> (
+
+cosh  
+
+> (
+
+√22 |t|
+
+> ))
+
+.
+
+Then, u is a solution to 
+
+−u′′ = eu in R
+
+which satisfies u(|t|) ∼ − √2 |t|, as |t| → +∞.Therefore, u : R × S1 → R provides a solution to (1.1) on the flat cylinder R × S1
+
+such that u(x) ∼ − √2r(x), as r(x) → +∞, which has also finite mass on the flat cylinder. This shows that β = 1 is not allowed in Corollary 1.1.3. We now address the general case. 
+
+Example 6.2. For f (r) = rε and ε ∈ [0 , 1) , let us consider the smooth function ψ
+
+and the model manifold (M, g ) provided by Proposition 4.1. Then point (2) of Propo-sition 5.1 yields 
+
+u(r) ∼ − I∞
+
+ˆ rt0+1 
+
+ds ψ(s) ∼ − γ1r1−ε as r → +∞, (6.1) for some γ1 > 0. From point (2) of Proposition 4.1, we deduce that 
+
+V (r) ∼ γ2r1+ ε as r → +∞, (6.2) whence γ2q(r) ∼ r1−ε as r → +∞, with γ2 > 0. Combining this estimate with (6.1), we infer that 
+
+u(r) ∼ − γ1γ2 q(r) as r → +∞.
+
+Thus, we set F (r) := γ1γ2 and deduce, using also (6.2), that 
+
+V (r)
+
+r1+ εF ε(r) ∼ γ2r1+ ε
+
+r1+ ε (γ1γ2)ε = γ1−ε
+
+> 2
+
+γε
+
+> 1
+
+∈ (0 , +∞) as r → +∞.
+
+This shows that the case β = 1 cannot be admitted in Corollary 1.1.3. 
+
+Acknowledgments 
+
+G.C. and M.G. are members of the “Gruppo Nazionale per l’Analisi Matematica, la Probabilità e le loro Applicazioni” (GNAMPA) of the “Istituto Nazionale di Alta Matematica” (INdAM, Italy). G.C. and M.G. have been partially supported by the “INdAM - GNAMPA Project”, CUP E53C25002010001. THE LIOUVILLE EQUATION ON RIEMANNIAN SURFACES 15 
+
+References 
+
+[1] E. Berchio, A. Ferrero, D. Ganguly, P. Roychowdhury, Classification of radial solutions to −∆g u = eu on Riemannian models , J. Differential Equations 361 (2023), 417–448. [2] X. Cai, M. Lai, A survey of classification results for solutions to the Liouville equation , J. Math. Study 57 (2024), no. 3, 398–424. [3] X. Cai, M. Lai, Liouville equations on complete surfaces with nonnegative Gauss curvature ,Pacific J. Math. 332 (2024), no. 1, 23–37. [4] G. Catino, D. D. Monticelli, Semilinear elliptic equations on manifolds with nonnegative Ricci curvature , J. Eur. Math. Soc. (JEMS) 28 (2026), no. 1, 359–392. [5] G. Catino, D. D. Monticelli, A. Roncoroni, Quasilinear Liouville equation on manifolds with nonnegative Ricci curvature , preprint, arXiv:2606.14513, 2026. [6] G. Ciraolo, A. Farina, C. C. Polvara, Classification results, rigidity theorems and semilinear PDEs on Riemannian manifolds: a P -function approach , J. Eur. Math. Soc. (JEMS) (2025), Published online first. [7] G. Ciraolo, P. Esposito, X. Li, On the classification of solutions to a class of N -Liouville equa-tions in RN , preprint, arXiv:2604.10050, 2026. [8] S. Chanillo, M. K.-H. Kiessling, Conformally invariant systems of nonlinear PDE of Liouville type , Geom. Funct. Anal. 5 (1995), no. 6, 924–947. [9] W. Chen, C. Li, Classification of solutions of some nonlinear elliptic equations , Duke Math. J. 
+
+63 (1991), no. 3, 615–622. [10] S. Y. Cheng, S. T. Yau, Differential equations on Riemannian manifolds and their geometric applications , Comm. Pure Appl. Math. 28 (1975), no. 3, 333–354. [11] S. Cohn-Vossen, Kürzeste Wege und Totalkrümmung auf Flächen , Compos. Math. 2 (1935), 69–133. [12] K. S. Chou, T. Y.-H. Wan, Asymptotic radial symmetry for solutions of ∆u + eu = 0 in a punctured disc , Pacific J. Math. 163 (1994), no. 2, 269–276. [13] A. Eremenko, C. Gui, Q. Li, L. Xu, Rigidity results on Liouville equation , Comm. Anal. Geom. 
+
+33 (2025), no. 1, 163–184. [14] P. Esposito, A classification result for the quasi-linear Liouville equation , Ann. Inst. H. Poincaré C Anal. Non Linéaire 35 (2018), no. 3, 781–801. [15] F. Hang, X. Wang, A new approach to some nonlinear geometric equations in dimension two ,Calc. Var. Partial Differential Equations 26 (2006), no. 1, 119–135. [16] A. Huber, On subharmonic functions and differential geometry in the large , Comment. Math. Helv. 32 (1957), no. 1, 13–72. [17] L. Karp, Subharmonic functions on real and complex manifolds , Math. Z. 179 (1982), no. 4, 535–554. [18] J. Liouville, Sur l’équation aux différences partielles d2 log λdudv ± λ 
+
+> 2a2
+
+= 0 , J. Math. Pures Appl. (1) 
+
+18 (1853), 71–72. [19] Q. Ou, Classification results of Liouville equations and rigidity of Riemannian surfaces , Adv. Nonlinear Stud. 26 (2026) no. 2, 670–676. 
+
+Giulio Ciraolo. Dipartimento di Matematica ‘Federigo Enriques’, Università degli Studi di Milano, Via Cesare Saldini 50, 20133, Milan, Italy 
+
+Email address : giulio.ciraolo@unimi.it 
+
+Alberto Farina. LAMFA, CNRS UMR 7352, Université de Picardie Jules Verne, Rue Saint Leu 33, 80039, Amiens, France 
+
+Email address : alberto.farina@u-picardie.fr 
+
+Michele Gatti. Dipartimento di Matematica ‘Federigo Enriques’, Università degli Studi di Milano, Via Cesare Saldini 50, 20133, Milan, Italy 
+
+Email address : michele.gatti1@unimi.it

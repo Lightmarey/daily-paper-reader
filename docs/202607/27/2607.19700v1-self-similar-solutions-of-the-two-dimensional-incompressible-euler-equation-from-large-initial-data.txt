@@ -1,0 +1,2705 @@
+Title: Self-Similar Solutions of the Two-Dimensional Incompressible Euler Equation from Large Initial Data
+
+URL Source: https://arxiv.org/pdf/2607.19700v1
+
+Published Time: Thu, 23 Jul 2026 00:21:17 GMT
+
+Number of Pages: 31
+
+Markdown Content:
+# Self-Similar Solutions of the Two-Dimensional Incompressible Euler Equation from Large Initial Data 
+
+Hyungjun Choi July 23, 2026 
+
+Abstract 
+
+Let 13 < a < 1 and let u0 be a C1, divergence-free, ( −a)-homogeneous vector field on R2 \ { 0}.We construct a forward-in-time self-similar solution of the two-dimensional incompressible Euler equations, 
+
+u(t, x ) = t− a 
+
+> 1+ a
+
+U
+
+ xt 11+ a
+
+
+
+,
+
+with initial datum u0. No smallness or sign assumption is imposed on the initial datum. The construction is a vanishing-dissipation limit of the hypodissipative self-similar profiles. The key is a vorticity profile estimate, uniform in the dissipation parameter, in the critical Lorentz space 
+
+L 21+ a ,∞(R2). The resulting Euler solution u has locally finite energy and ∇u ∈ L∞ 
+
+> t
+
+L 21+ a ,∞ 
+
+> x
+
+. Indeed, the velocity is continuous in L2loc , and the vorticity converges weak-* in L 21+ a ,∞ at the initial time. 
+
+# 1 Introduction 
+
+We study the initial-value problem for the two-dimensional incompressible Euler equations 
+
+∂tu + u · ∇ u + ∇p = 0 , div u = 0 in R2 × (0 , ∞). (1.1) Upon introducing the scalar vorticity ω = curl u = ∂1u2 − ∂2u1, taking the curl of (1.1) gives 
+
+∂tω + u · ∇ ω = 0 , u = K ∗ ω, K(x) = 12πx⊥
+
+|x|2 . (1.2) The absence of vortex stretching is the fundamental distinction between the two- and three-dimensional equations. Global-in-time existence of classical two-dimensional solutions was estab-lished in the foundational works of Wolibner and H¨ older [42, 23]. In modern continuation theory, the Beale–Kato–Majda criterion [2] states that a smooth Euler solution can lose regularity only if 
+
+Z T
+
+> 0
+
+∥ω(t)∥L∞ dt = ∞.
+
+Since (1.2) transports vorticity, ∥ω(t)∥L∞ is conserved for smooth two-dimensional solutions, and the local classical solution therefore extends globally. We refer to [33] for a systematic account of the classical theory. 1arXiv:2607.19700v1 [math.AP] 22 Jul 2026 The low-regularity existence and uniqueness theory is due to Yudovich. For initial vorticity 
+
+ω0 ∈ L1 ∩ L∞(R2), he constructed a unique global weak solution [43]. Yudovich later enlarged the uniqueness class to certain mildly unbounded vorticities [44]; related borderline Besov-space results were obtained by Vishik [41]. Thus, bounded vorticity is not an absolute endpoint, and uniqueness is conjectured to persist for broader classes of unbounded vorticity. Weak-solution existence extends substantially below the Yudovich class. DiPerna and Majda developed concentration-cancellation methods for regularized two-dimensional Euler flows [16, 17]. Their framework yields global weak solutions under broad compactness hypotheses, including the regime ω0 ∈ L1 ∩ Lp(R2) with p > 1. At the measure level, Delort proved global existence for vorticity data that are bounded Radon measures of distinguished sign and whose associated ve-locities have locally finite kinetic energy [15]; see also Schochet’s weak-vorticity formulation and concentration-cancellation treatment [37]. Consequently, global weak existence is available for many rough data classes, whereas uniqueness outside the Yudovich regime is one of the central unresolved themes of two-dimensional ideal flow. Without such vorticity structure, distributional solutions have been shown to be nonunique: compactly supported wild solutions were constructed by Scheffer [36] and Shnirelman [39]. Convex integration, introduced by De Lellis and Sz´ ekelyhidi, subsequently placed this flexibility in a sys-tematic framework [14]. Applications of convex integration to the two-dimensional Euler equations can be found in [21] and [4]. In particular, the latter construction, due to Bru` e, Colombo, and Kumar, provided vorticity bounded in L∞ 
+
+> t
+
+Lpx for some p > 1. The present paper concerns a scale-invariant part of the theory. The Euler equations admit a one-parameter family of space-time scalings. For every fixed a ∈ (0 , 1), they are invariant under 
+
+u(t, x ) 7 −→ uλ(t, x ) ≜ λau(λx, λ 1+ at), p(t, x ) 7 −→ pλ(t, x ) ≜ λ2ap(λx, λ 1+ at).
+
+We call a solution self-similar when it is unchanged by this transformation for every λ > 0. Such a flow is completely determined by the single profile ( U, P ) = ( u, p )|t=1 and necessarily has the form 
+
+u(t, x ) = t− a 
+
+> 1+ a
+
+U
+
+ xt 11+ a
+
+
+
+, p(t, x ) = t− 2a 
+
+> 1+ a
+
+P
+
+ xt 11+ a
+
+
+
+.
+
+As t ↓ 0, a fixed spatial point x̸ = 0 probes the far field of the profile, since x/t 1/(1+ a) → ∞ . The initial condition is therefore encoded as a boundary condition at spatial infinity for ( U, P ). Scale invariance requires the initial velocity to be ( −a)-homogeneous: 
+
+u0(x) = |x|−au0
+
+ x
+
+|x|
+
+
+
+, div u0 = 0 .
+
+Thus the self-similar problem asks whether a prescribed angular profile u0 can be connected to a globally defined profile U that solves the stationary equation in similarity variables. Self-similar solutions have long served as a meeting point between existence theory, singularity formation, and nonuniqueness. For the three-dimensional Navier–Stokes equations, the scaling parameter a = 1 is determined by the parabolic scaling. Jia and ˇSver´ ak constructed forward self-similar solutions for arbitrarily large ( −1)-homogeneous data [30]. The corresponding large-data problem for the two-dimensional Navier–Stokes equations is rather different. Although finite-energy solutions are much better behaved in two dimensions, a nonzero 2(−1)-homogeneous velocity has infinite local energy near the origin. Albritton, Guillod, Ko-robkov, and Ren recently constructed forward self-similar solutions from arbitrary smooth ( −1)-homogeneous data [1]; an independent construction was given by Gui, Liu, and Xie [25]. Hou and Song subsequently treated the hypodissipative equations with fractional diffusion [27]. For the two-dimensional Euler equations, self-similar solutions may be singular and can dis-play spiral geometry. Elling constructed algebraic spiral solutions with high-frequency rotational symmetry [19, 20]. Shao, Wei, and Zhang further developed Elling’s method for low-frequency sym-metry [38], while Choi constructed such spirals without imposing rotational symmetry [9]. See also [24] for the construction of algebraic spiral solutions for the generalized SQG. Moreover, Choi and Coiculescu recently constructed and classified homogeneous steady states which are automatically self-similar [10]. With the exception of such special homogeneous configurations, the known exis-tence theories for spiral solutions are organized around radial power-law vortices: the admissible angular dependence is perturbative or symmetry-dominated. Forward self-similar solutions are likewise closely tied to potential nonuniqueness. Jia and ˇSver´ ak proposed that a bifurcation of self-similar Navier–Stokes solutions could produce multiple Leray–Hopf weak solutions with the same initial datum [31]. Guillod and ˇSver´ ak provided numerical evidence for such a bifurcation [26]. More recently, Hou, Wang, and Yang announced a computer-assisted proof [28], while Ionescu, Jia, and Palasek proposed another scenario with additional symmetry [29]. The aforementioned works [1, 27] on two-dimensional self-similar Navier–Stokes equations also provide numerical evidence of nonuniqueness. We also note that Coiculescu and Palasek proved nonuniqueness at critical regularity using a novel multiscale construction [11]. For the two-dimensional Euler equations, Bressan and Shen reported numerically that distinct self-similar profiles can arise from different truncations of the same initial datum [3]. The existence of a large self-similar profile supplies a base state on which instability and bifurcation scenarios can be investigated. On the other hand, backward self-similar solutions are natural candidates for finite-time blowup, which is another reason self-similarity is central in fluid mechanics. For the three-dimensional Navier–Stokes equations, nontrivial exactly self-similar blowup solutions satisfying natural integra-bility or local-energy conditions were excluded by Neˇ cas, R˚ uˇ ziˇ cka, and ˇSver´ ak [34], and by Tsai [40]. For the three-dimensional Euler equations, Elgindi proved finite-time self-similar singularity formation for C1,α velocities [18]. A related C1,α blowup result with boundary was obtained by Chen and Hou [6]. Motivated by the numerical work of Luo and Hou [32], Chen and Hou gave a computer-assisted proof of finite-time blowup for smooth data with boundary [7, 8]. For recent advances in the numerical discovery of profiles, see [5] and the references therein. In addition, Con-stantin, Ignatova, and Vicol ruled out a range of scaling parameters for a potential finite-energy self-similar blowup [12]. Our main theorem provides self-similar profiles for the two-dimensional Euler equations for every 
+
+C1, ( −a)-homogeneous divergence-free datum when 13 < a < 1, with no smallness or sign assump-tion. The emphasis is threefold. First, in contrast with the previously known spiral constructions, the angular data need not be close to a radial vortex or satisfy a radial dominance condition. Second, the resulting flow is a global-in-time weak solution of the unforced two-dimensional Eu-ler equations without finite total-vorticity control. The critical control is instead ω ∈ L∞ 
+
+> t
+
+L  
+
+> 21+ a,∞
+> x
+
+.Third, the construction supplies arbitrarily large self-similar Euler profiles and thus gives mathe-matical support to the nonuniqueness program. It does not by itself prove nonuniqueness, but it furnishes the class of large base solutions needed for a future instability or bifurcation analysis. 31.1 Statement of the result 
+
+Definition 1.1. Let u0 ∈ L2loc (R2) be divergence-free. A vector field u is a weak solution of the two-dimensional Euler equations with initial datum u0 if 
+
+u ∈ L2loc (R2 × [0 , ∞)) , div u = 0 ,
+
+and, for every divergence-free φ ∈ C∞ 
+
+> c
+
+(R2 × [0 , ∞); R2), 
+
+Z ∞
+
+> 0
+
+Z
+
+> R2
+
+(u · ∂tφ + ( u ⊗ u) : ∇φ) dx dt +
+
+Z
+
+> R2
+
+u0(x) · φ(x, 0) dx = 0 .
+
+Theorem 1.2. Let 13 < a < 1, and suppose that u0 ∈ C1(S1; R2) is such that 
+
+u0(x) = |x|−au0
+
+ x
+
+|x|
+
+
+
+, div u0 = 0 .
+
+Write 
+
+ω0 ≜ curl u0 = |x|−1−aω0
+
+ x
+
+|x|
+
+
+
+, pc ≜ 21 + a , qc ≜ 2
+
+a .
+
+Then there exist a divergence-free profile U and a pressure P with the following properties. (a) The pair (U, P ) solves 
+
+− 11 + a
+
+ aU + y · ∇ U  + U · ∇ U + ∇P = 0 , div U = 0 , (1.3) 
+
+in distributions on R2. Moreover, 
+
+U ∈ Lqc,∞(R2), ∇U ∈ Lpc,∞(R2), P ∈ L 1 
+
+> a,∞
+
+(R2).
+
+(b) Define the self-similar velocity, pressure, and vorticity by 
+
+u(t, x ) = t− a 
+
+> 1+ a
+
+U
+
+ xt 11+ a
+
+
+
+, p(t, x ) = t− 2a 
+
+> 1+ a
+
+P
+
+ xt 11+ a
+
+
+
+, ω(t, x ) = t−1Ω
+
+ xt 11+ a
+
+
+
+(1.4) 
+
+for t > 0. Here, Ω = curl U . Then u is a weak solution of 
+
+∂tu + u · ∇ u + ∇p = 0 , div u = 0 ,
+
+in the weak sense of Theorem 1.1. Furthermore, 
+
+u ∈ C [0 , ∞); L2loc (R2), u(0) = u0,
+
+and 
+
+ω ∈ L∞ (0 , ∞); Lpc,∞(R2), ω(t) ∗
+
+−−⇀ ω 0 in Lpc,∞(R2)
+
+as t ↓ 0. In particular, for every 1 < r < p c,
+
+ω(t) ⇀ ω 0 weakly in Lr
+
+> loc
+
+(R2).
+
+Here the weak-Lr quasi-norm is defined by 
+
+∥f ∥Lr, ∞ ≜ sup 
+
+> λ> 0
+
+λ |{ x : |f (x)| > λ }| 1 
+
+> r
+
+, r ∈ [1 , ∞).
+
+4The construction applies to every C1 divergence-free angular datum u0 and requires neither a smallness condition nor a sign condition. 
+
+Remark 1.3 (The endpoint a = 1) . At a = 1, one has pc = 1. The favorable factor pc − 1 in the vorticity truncation identity vanishes, the weak-L1 estimate no longer gives local W 1,r compactness with r > 1, and concentration measures are not excluded. Thus the present argument is genuinely subcritical with respect to this endpoint. 
+
+Remark 1.4 (Vorticity equation) . For 12 ≤ a < 1, the velocity formulation of Euler in Theorem 1.2 remains valid. However, 1
+
+pc
+
++ 1
+
+qc
+
+≥ 1,
+
+so the estimates do not imply U Ω ∈ L1loc . In the range 13 < a < 12 , the vorticity equation holds in the sense of distributions. 
+
+Corollary 1.5. Let 13 < a < 12 , and let U, Ω and u, ω be the profiles and self-similar fields, respectively, supplied by Theorem 1.2. Then 
+
+U Ω ∈ L1loc (R2),
+
+and the profile vorticity satisfies 
+
+U − y
+
+1 + a
+
+
+
+· ∇ Ω = Ω (1.5) 
+
+in distributions. Equivalently, the physical vorticity 
+
+ω(t, x ) = t−1Ω
+
+ xt 11+ a
+
+
+
+satisfies 
+
+∂tω + u · ∇ ω = 0 
+
+in distributions on R2 × (0 , ∞).
+
+1.2 Strategy of proof 
+
+Substitution of the self-similar ansatz (1.4) into the Euler equation (1.1) gives the self-similar Euler profile equation 
+
+− 11 + a
+
+ aU + y · ∇ U  + U · ∇ U + ∇P = 0 , div U = 0 .
+
+Our purpose is to obtain a weak solution of (1.3) as the inviscid limit of profiles solving 
+
+ϵΛ1+ aUϵ − 11 + a
+
+ aU ϵ + y · ∇ Uϵ
+
+ + Uϵ · ∇ Uϵ + ∇Pϵ = 0 , div Uϵ = 0 . (1.6) Here, Λ = ( −∆) 12 . The existence and regularity theory for each fixed ϵ > 0 follows from the recent work of Hou and Song [27]. Their estimates are not uniform as ϵ ↓ 0, since the reduction of (1.6) to unit dissipation enlarges the initial datum by the factor ϵ−1. The central point of this paper is that the vorticity equation nevertheless admits an estimate that is uniform in ϵ.5We define the critical vorticity and velocity exponents, respectively, by 
+
+pc ≜ 21 + a , qc ≜ 2
+
+a . (1.7) Then 1 < p c < 2 < q c < ∞, 1
+
+qc
+
+= 1
+
+pc
+
+− 12 .
+
+Writing Ω ϵ = curl Uϵ, the profile vorticity equation is 
+
+ϵΛ1+ aΩϵ +
+
+
+
+Uϵ − y
+
+1 + a
+
+
+
+· ∇ Ωϵ − Ωϵ = 0 . (1.8) The pseudo-velocity eUϵ = Uϵ − y 
+
+> 1+ a
+
+satisfies div eUϵ = − 21 + a = −pc.
+
+Testing (1.8) against the derivative of ( |Ωϵ|− k)+ leads to a differential inequality for its distribution function. The coefficient pc above is precisely the one needed to obtain a scale-invariant Lpc,∞
+
+estimate. 
+
+Remark 1.6 . The restriction a > 13 is used only to invoke the smoothness and far-field derivative estimates in Theorem 2.1. 
+
+# 2 The hypodissipative profiles 
+
+We first state the existence of a hypodissipative profile. A similar theorem was proved in [27], while we provide an independent proof of the following result. 
+
+Theorem 2.1. Let 0 < a < 1 and let v0 be a locally Lipschitz, (−a)-homogeneous, divergence-free vector field on R2 \ { 0}. There exists a self-similar weak solution 
+
+v(t, x ) = t− a 
+
+> 1+ a
+
+W (t− 11+ a x)
+
+of 
+
+∂tv + v · ∇ v + ∇q + Λ 1+ av = 0 ,
+
+with initial data v0, whose profile W satisfies 
+
+W − e−Λ1+ a
+
+v0 ∈ H 1+ a 
+
+> 2
+
+(R2).
+
+If a > 13 , every such profile is smooth and satisfies 
+
+|W (z)| + ⟨z⟩ |∇ W (z)| ≤ C⟨z⟩−a, (2.1) 
+
+
+
+W − e−Λ1+ a
+
+v0
+
+
+
+(z) ≤ C⟨z⟩−1−2a log(2 + |z|), (2.2) 
+
+∇
+
+
+
+W − e−Λ1+ a
+
+v0
+
+
+
+(z) ≤ C⟨z⟩−1−2a. (2.3) 
+
+The constants may depend on v0.Remark 2.2 (Comparison with Hou–Song proof) . Hou and Song prove a similar existence theorem by an expanding-domain and vanishing-viscosity argument; see [27, Theorem 1.1]. Our proof instead uses a divergence-free far-field cutoff and a Galerkin scheme, and obtains the decay directly from Oseen-kernel estimates without weighted energy spaces. It also gives the log-free first-derivative estimate (2.3) for locally Lipschitz velocity data. Under the stronger assumption that the angular datum is C1,β for some β > 0, their theorem also removes the logarithm in (2.2). 62.1 Proof of Theorem 2.1 
+
+The projected profile equation is 
+
+LW + P div( W ⊗ W ) = 0 , (2.4) where P is the Leray projection and 
+
+L ≜ Λ1+ a − a
+
+1 + a − 11 + a z · ∇ .
+
+We write 
+
+V0 ≜ e−Λ1+ a
+
+v0, U ≜ W − V0.
+
+2.1.1 Oseen kernel bounds 
+
+The homogeneity of v0 and the fractional heat-kernel bounds give 
+
+|V0(z)| ≤ C⟨z⟩−a, |∇ kV0(z)| ≤ Ck⟨z⟩−a−1 (k ≥ 1) . (2.5) Here is a short proof. Put s = 1 + a, and let pt be the kernel of e−tΛs
+
+. The standard fractional heat-kernel bounds give 
+
+|∇ j pt(x)| ≤ Cj t(t1/s + |x|)−2−s−j , ∥∇ j pt∥L1 ≤ Cj t−j/s .
+
+Choose a radial χ ∈ C∞ 
+
+> c
+
+({1/4 < |x| < 4}) equal to one near S1, and write v0 = f + g with f = χv 0.Since f ∈ W 1,∞ 
+
+> c
+
+and g is separated from S1, for 0 < t ≤ 1 and θ ∈ S1 we have 
+
+|pt ∗ f (θ)| ≤ C, |∇ k(pt ∗ f )( θ)| ≤ ∥∇ k−1pt∥L1 ∥∇ f ∥L∞ ≤ Ckt−(k−1) /s (k ≥ 1) ,
+
+whereas the pointwise kernel bound and |g(y)| ≤ C|y|−a yield 
+
+|∇ k(pt ∗ g)( θ)| ≤ Ckt
+
+Z 
+
+> supp g
+
+|θ − y|−2−s−k|y|−a dy ≤ Ck.
+
+Consequently, |e−tΛs
+
+v0(θ)| ≤ C and |∇ ke−tΛs
+
+v0(θ)| ≤ Ckt−(k−1) /s for k ≥ 1. By homogeneity, 
+
+V0(Rx ) = R−a(e−R−sΛs
+
+v0)( x),
+
+so, for R ≥ 1 and θ ∈ S1,
+
+|V0(Rθ )| ≤ CR −a, |∇ kV0(Rθ )| ≤ CkR−a−kRk−1 = CkR−a−1.
+
+On bounded sets all derivatives of V0 = p1 ∗ v0 are bounded, which proves (2.5). We also note that differentiating 
+
+e−tΛ1+ a
+
+v0(x) = t− a 
+
+> 1+ a
+
+V0(x/t 11+ a )at t = 1 shows that LV0 = 0. 
+
+Lemma 2.3. Let Ot be the kernel of e−tΛ1+ a
+
+P and set Kt = ∇O t, with tensor indices suppressed. Then 
+
+|Kt(z)| ≤ C(t 11+ a + |z|)−3, ∥Kt∥L1 ≤ Ct − 11+ a ,
+
+Z
+
+> R2
+
+Kt(z) dz = 0 . (2.6) 
+
+Moreover, for every R ≥ t 11+ a ,
+
+Z
+
+> |z|≤ R
+
+|z| | Kt(z)| dz ≤ C
+
+
+
+1 + log Rt 11+ a
+
+
+
+, Kt1{| z|>R } L2 ≤ CR −2. (2.7) 7Proof. At t = 1, the Fourier multiplier of K1 is 
+
+m(ξ) = 2 πiξe −| ξ|1+ a
+
+
+
+I − ξ ⊗ ξ
+
+|ξ|2
+
+
+
+.
+
+Choose a radial cutoff χ equal to one on B1 and supported in B2, and set φ(ξ) = χ(ξ) − χ(2 ξ). The multiplier (1 − χ)m is smooth and rapidly decreasing, so its inverse Fourier transform is Schwartz. Moreover, 
+
+χm = X
+
+> j≤0
+
+mj , mj (ξ) = φ(2 −j ξ)m(ξ).
+
+Since m has order one at the origin, for every multi-index β, ∥∂βξ mj ∥L1 ≤ Cβ 2(3 −| β|)j . Rescaling and integrating by parts therefore give 
+
+F−1mj (z) ≤ C23j (1 + 2 j |z|)−4.
+
+Hence 
+
+|K1(z)| = F−1(χm ) ≤ X
+
+> j≤0
+
+F−1mj (z) ≤ C(1 + |z|)−3.
+
+The scaling identity 
+
+Kt(z) = t− 31+ a K1
+
+
+
+z/t 11+ a
+
+
+
+yields the pointwise and L1 estimates in (2.6); the cancellation follows from bKt(0) = 0. Integrating the pointwise bound in polar coordinates, we obtain 
+
+Z
+
+> |z|≤ R
+
+|z| | Kt(z)| dz ≤ C
+
+Z R
+
+> 0
+
+ρ2
+
+(t 11+ a + ρ)3 dρ ≤ C
+
+
+
+1 + log Rt 11+ a
+
+
+
+.
+
+For R ≥ t 11+ a , the same bound gives 
+
+Kt1{| z|>R } 
+
+> 2
+> L2
+
+≤ C
+
+Z ∞
+
+> R
+
+ρ−6ρ dρ ≤ CR −4.
+
+These are the two estimates in (2.7). 
+
+2.1.2 Existence of solution 
+
+We first prove existence for every 0 < a < 1. Since V0 is smooth and divergence-free on R2, there is a smooth stream function ψ0, normalized by ψ0(0) = 0, such that V0 = ∇⊥ψ0. By (2.5), 
+
+|ψ0(z)| ≤ C⟨z⟩1−a.
+
+Choose a radial cutoff χR that vanishes on BR and equals one outside B2R, and define 
+
+V1 ≜ ∇⊥(χRψ0), V2 ≜ V1 − V0.
+
+Then V1 is divergence-free, V2 ∈ C∞ 
+
+> c
+
+(R2), and 
+
+∥∇ V1∥L∞ ≤ CR −1−a. (2.8) 8On the transition annulus, this follows by applying the product rule twice to χRψ0; outside it, the claim follows from (2.5). Seek W = V1 + Z. Since LV0 = 0 and V2 ∈ C∞ 
+
+> c
+
+(R2), 
+
+F ≜ −L V1 − P div( V1 ⊗ V1) = −L V2 − P div( V1 ⊗ V1) ∈ L2(R2).
+
+Here, Λ 1+ aV2 = O(|z|−3−a) and V1 · ∇ V1 = O(|z|−1−2a) at infinity. The equation for Z is 
+
+LZ + P div( Z ⊗ Z + V1 ⊗ Z + Z ⊗ V1) = F. (2.9) Choose a countable divergence-free family {ϕj }j≥1 ⊂ C∞ 
+
+> c
+
+(R2; R2) whose span is dense in the divergence-free subspace of H 1+ a 
+
+> 2
+
+and has the following local approximation property: for every divergence-free ϕ ∈ C∞ 
+
+> c
+
+(R2; R2), there are {ψm} ⊂ span {ϕj : j ≥ 1}, supported in a fixed compact set depending on ϕ, such that ψm → ϕ in C∞. Such a family is obtained by choosing, for every positive rational r, a countable C∞-dense subset of the scalar functions in C∞ 
+
+> c
+
+(R2) supported in Br, applying ∇⊥ to its elements, and enumerating the union over r; indeed, every compactly supported divergence-free test field has a compactly supported smooth stream function. Let PN be the L2-projection of (2.9) onto XN = span {ϕ1, . . . , ϕ N }. For ZN ∈ XN , integration by parts gives 
+
+⟨L ZN , Z N ⟩ = ∥Λ 1+ a 
+
+> 2
+
+ZN ∥2 
+
+> L2
+
++ 1 − a
+
+1 + a ∥ZN ∥2 
+
+> L2
+
+. (2.10) Moreover, 
+
+Z
+
+> R2
+
+ (ZN · ∇ )ZN + ( V1 · ∇ )ZN
+
+ · ZN = 0 ,
+
+Z
+
+> R2
+
+(ZN · ∇ V1) · ZN ≤ ∥∇ V1∥L∞ ∥ZN ∥2 
+
+> L2
+
+.
+
+Choose R in (2.8) so large that ∥∇ V1∥L∞ < (1 − a)/(2(1 + a)). The scalar product of the Galerkin map with ZN is then positive on a sphere whose radius is independent of N . Brouwer’s lemma supplies a solution in that sphere and yields sup 
+
+> N
+
+∥ZN ∥H 1+ a 
+
+> 2
+
+< ∞.
+
+To summarize, we constructed a sequence ZN ∈ C∞ 
+
+> c
+
+(BRN ) with RN → ∞ , uniformly bounded in 
+
+H 1+ a 
+
+> 2
+
+, and each ZN is a solution of 
+
+PN LZN + PN P div( ZN ⊗ ZN + V1 ⊗ ZN + ZN ⊗ V1) = PN F. 
+
+After passing to a subsequence, ZN ⇀ Z in H 1+ a 
+
+> 2
+
+. Since a > 0, Rellich compactness gives ZN → Z
+
+strongly in L4loc . For each fixed j, the Galerkin identity may therefore be passed to the limit with test function ϕj : the strong local convergence handles every quadratic term, and the drift is handled by moving its derivative onto ϕj . The identity consequently holds on the span of the ϕj . Given an arbitrary divergence-free test function ϕ ∈ C∞ 
+
+> c
+
+, use the fixed-support C∞ approximation above. Hence, (2.9) holds in distributions. Recovering the pressure from the complementary Helmholtz projection gives a weak solution of the profile equation, and 
+
+W − V0 = V2 + Z ∈ H 1+ a 
+
+> 2
+
+(R2).
+
+For completeness, set v(t, x ) = t− a 
+
+> 1+ a
+
+W (x/t 11+ a ). Then 
+
+v(t, x ) = e−tΛ1+ a
+
+v0(x) + t− a 
+
+> 1+ a
+
+U(x/t 11+ a ).
+
+9First, t− a 
+
+> 1+ a
+
+U( · /t 11+ a ) L2 = t 1−a 
+
+> 1+ a
+
+∥U∥L2 −→ 0 as t ↓ 0. Next, we justify the L2loc convergence of the fractional heat semigroup. Given a compact set K, choose χ ∈ C∞ 
+
+> c
+
+equal to one near K ∪ { 0}.Then χv 0 ∈ L2, so e−tΛ1+ a
+
+(χv 0) → χv 0 in L2. On the other hand, the fractional heat-kernel tail, the separation of K from supp(1 − χ), and boundedness of v0 in supp(1 − χ) give sup 
+
+> x∈K
+
+e−tΛ1+ a
+
+((1 − χ)v0)( x) ≤ CK t (0 < t ≤ 1) .
+
+Thus e−tΛ1+ a
+
+v0 → v0 in L2(K), and consequently v(t) → v0 in L2loc . These estimates also give 
+
+v ∈ L2loc ([0 , ∞) × R2) and hence v ⊗ v ∈ L1loc . Testing the induced physical equation on [ δ, T ] and letting δ ↓ 0 now gives the weak formulation with initial datum v0.
+
+2.1.3 Regularity above the threshold 
+
+Now let a > 13 and let W be any weak profile for which U = W − V0 ∈ H 1+ a 
+
+> 2
+
+. Define 
+
+v(t, x ) = t− a 
+
+> 1+ a
+
+W (x/t 11+ a ), vL(t) = e−tΛ1+ a
+
+v0, u = v − vL.
+
+For every s ≥ 0, scaling gives 
+
+∥u(t)∥L2 = t 1−a 
+
+> 1+ a
+
+∥U∥L2 , ∥Λsu(t)∥L2 = t 1−a−s 
+
+> 1+ a
+
+∥ΛsU∥L2 . (2.11) Thus U ∈ Hs implies u ∈ L∞(I; Hs) on every compact interval I ⋐ (0 , ∞). The perturbation equation is 
+
+∂tu + Λ 1+ au = N (u) + M(u) + FL, (2.12) where 
+
+N (u) = −P div( u ⊗ u), M(u) = −P div( vL ⊗ u + u ⊗ vL), FL = −P div( vL ⊗ vL).
+
+Whenever U ∈ Hs, strong continuity of dilations gives u ∈ C(I; Hs) on every compact interval 
+
+I ⋐ (0 , ∞). Therefore the Duhamel formula for the distributional equation (2.12) yields, for 0 < t 0 < t ,
+
+u(t) = e−(t−t0)Λ 1+ a
+
+u(t0) + 
+
+Z tt0
+
+e−(t−τ )Λ 1+ a  N (u) + M(u) + FL
+
+(τ ) dτ. (2.13) This identity holds first in distributions and, by the estimates below, in the indicated Sobolev spaces; it will be used here only on time intervals bounded away from zero. By (2.5), scaling, and the two-dimensional Sobolev product law, for every compact I ⋐ (0 , ∞), sup 
+
+> t∈I
+
+∥FL(t)∥Hm = CI,m < ∞ (m ≥ 0) ,
+
+∥M (u)( t)∥Hs−1 ≤ CI,s ∥u(t)∥Hs , (s > 0, t ∈ I)
+
+∥N (u)( t)∥H2s−2−ε ≤ Cs,ε ∥u(t)∥2 
+
+> Hs
+
+(0 < s ≤ 1, ε > 0) .
+
+(2.14) Here FL ∈ Hm because vL · ∇ vL and all its derivatives decay at least as ⟨x⟩−1−2a. The last estimate follows from Hs · Hs ⊂ H2s−1−ε in two dimensions. For θ ≥ 0 and 0 < t ≤ 1, we use the standard smoothing estimate 
+
+e−tΛ1+ a
+
+f Hr+θ ≤ Cθt− θ 
+
+> 1+ a
+
+∥f ∥Hr . (2.15) 10 Fix 0 < ε < min 
+
+
+
+a, 3a − 14
+
+
+
+, s0 = 1 + a
+
+2 ,
+
+and suppose that u ∈ L∞(I; Hs) for s0 ≤ s ≤ 1. On a compact subinterval I′ ⊂ I, whose left endpoint is strictly larger than that of I, we get 
+
+s+ ≜ 2s + a − 1 − 2ε, ∥u∥L∞(I′;Hs+ ) ≤ CI,I ′,s,ε 
+
+
+
+1 + ∥u∥L∞(I;Hs)
+
+2
+
+, (2.16) from the Duhamel formula, (2.14), and (2.15). Indeed, the derivative gaps for N (u) and M(u) are, respectively, 
+
+s+ − (2 s − 2 − ε) = 1 + a − ε, s+ − (s − 1) = s + a − 2ε, 
+
+so the only singular time integrals from the Duhamel bound are 
+
+Z 10
+
+ρ−1+ ε 
+
+> 1+ a
+
+dρ < ∞,
+
+Z 10
+
+ρ− s+a−2ε 
+
+> 1+ a
+
+dρ < ∞.
+
+Starting at s0 = (1 + a)/2, iterate (2.16) on nested intervals containing t = 1. As long as sn ≤ 1, 
+
+sn+1 = 2 sn + a − 1 − 2ε, sn = 1 − a + 2 ε + 2 n
+
+ 3a − 12 − 2ε
+
+
+
+. (2.17) The coefficient in parentheses is positive precisely by our choice of ε. Thus sn > 1 after finitely many steps. On each step, we upgrade u ∈ L∞([1 −2−n−1, 1]; Hsn ) to u ∈ L∞([1 −2−n−2, 1]; Hsn+1 ). Once u ∈ L∞Hs for s > 1, the algebra property of Hs(R2) gives 
+
+∥N (u)∥Hs−1 + ∥M (u)∥Hs−1 ≤ CI,s 
+
+
+
+∥u∥Hs + ∥u∥2
+
+> Hs
+
+
+
+.
+
+The same Duhamel estimate, now with derivative gap 1 + a − ε, yields on a shorter interval 
+
+u ∈ L∞Hs =⇒ u ∈ L∞Hs+a−ε. (2.18) Its time kernel is ρ−1+ ε/ (1+ a), hence integrable. Since a − ε > 0, finitely many iterations reach any prescribed Sobolev exponent, and all the nested intervals contain t = 1. As u(1) = U, we conclude that 
+
+U ∈ Hm(R2) for every m ≥ 0. (2.19) For each k, choosing m > k + 2 and using Sobolev embedding shows that ∇kU is bounded and uniformly continuous. Since it also belongs to L2, it tends to zero at infinity. This argument applies to every H 1+ a 
+
+> 2
+
+profile, independently of its construction. 
+
+2.1.4 Pointwise decay 
+
+For a 2-tensor field G, define the Duhamel operator T ,(T G)( x) ≜ −
+
+Z 10
+
+τ − 2a 
+
+> 1+ a
+
+K1−τ ∗
+
+
+
+G
+
+ ·
+
+τ 11+ a
+
+ 
+
+(x) dτ. (2.20) 11 Apply the variation-of-constants formula for the equation of v on [ δ, 1]: 
+
+W = v(1) = e−(1 −δ)Λ 1+ a
+
+v(δ) −
+
+Z 1
+
+> δ
+
+K1−τ ∗  v(τ ) ⊗ v(τ ) dτ 
+
+= e−(1 −δ)Λ 1+ a
+
+v(δ) −
+
+Z 1
+
+> δ
+
+τ − 2a 
+
+> 1+ a
+
+K1−τ ∗
+
+
+
+(W ⊗ W )
+
+ ·
+
+τ 11+ a
+
+ 
+
+dτ. 
+
+The decomposition established at the end of the existence argument gives e−(1 −δ)Λ 1+ a
+
+v(δ) → V0 in distributions as δ ↓ 0. Hence U = T (W ⊗ W ). Write 
+
+G0 ≜ V0 ⊗ V0, Grem ≜ V0 ⊗ U + U ⊗ V0 + U ⊗ U.
+
+Thus U = T G0 + T Grem . We estimate these two terms separately. 
+
+The pure-background term. Fix x with r = |x| ≥ 4 and set 
+
+Hτ (y) ≜ τ − 2a 
+
+> 1+ a
+
+G0
+
+ yτ 11+ a
+
+
+
+.
+
+The bounds for V0 in (2.5) imply 
+
+|Hτ (y)| ≤ C
+
+
+
+τ 21+ a + |y|2−a
+
+, |∇ Hτ (y)| ≤ C
+
+
+
+τ 21+ a + |y|2− 1+2 a
+
+> 2
+
+. (2.21) Since R K1−τ = 0, 
+
+K1−τ ∗ Hτ (x) = 
+
+Z
+
+> R2
+
+K1−τ (z) Hτ (x − z) − Hτ (x) dz. 
+
+On |z| < r/ 2, the mean value theorem and (2.7) give 
+
+Z
+
+> |z|<r/ 2
+
+|K1−τ (z)| | Hτ (x − z) − Hτ (x)| dz ≤ Cr −1−2a 1 + log r
+
+(1 − τ ) 11+ a
+
+!
+
+. (2.22) For |z| ≥ r/ 2, the term containing Hτ (x) is bounded by Cr −2ar−1. For the other term, put y = x−z
+
+and use (2.21) to obtain 
+
+Z
+
+> |z|≥ r/ 2
+
+|K1−τ (z)Hτ (x − z)| dz ≤ Cr −3
+
+Z
+
+> |y|≤ 2r
+
+
+
+τ 21+ a + |y|2−a
+
+dy + C
+
+Z
+
+> |y|>2r
+
+|y|−3−2a dy 
+
+≤ Cr −1−2a.
+
+Integrating (2.22) in τ and using R 10 |log(1 − τ )| dτ < ∞ proves 
+
+|T G0(x)| ≤ C⟨x⟩−1−2a log(2 + |x|). (2.23) 
+
+A uniform decay bound . Set 
+
+M (R) ≜ sup 
+
+> |x|≥ R
+
+|U(x)| .
+
+The smoothness established in (2.19) implies M (R) → 0 as R → ∞ . In the region |x − y| < r/ 2, one has |y| ≥ r/ 2 and hence 
+
+Grem (y/τ 11+ a ) ≤ C
+
+
+
+τ a 
+
+> 1+ a
+
+r−aM (r/ 2) + M (r/ 2) 2
+
+.
+
+12 The L1 bound for K1−τ then produces the time integrals 
+
+Z 10
+
+τ − a 
+
+> 1+ a
+
+(1 − τ )− 11+ a dτ, 
+
+Z 10
+
+τ − 2a 
+
+> 1+ a
+
+(1 − τ )− 11+ a dτ. 
+
+On the complementary region |x − y| ≥ r/ 2, use V0U ∈ L2, U ∈ L2, the L2 tail in (2.7), and the pointwise bound in (2.6). The mixed and quadratic terms are bounded, respectively, by 
+
+Cr −2 ∥V0U∥L2
+
+Z 10
+
+τ 1−2a 
+
+> 1+ a
+
+dτ, Cr −3 ∥U∥2
+
+> L2
+
+Z 10
+
+τ 2−2a 
+
+> 1+ a
+
+dτ. 
+
+All four time integrals are finite for 0 < a < 1. Combining these estimates with (2.23) gives, for all sufficiently large r,
+
+M (r) ≤ C  r−a + r−aM (r/ 2) + M (r/ 2) 2 .
+
+Since r−aM (r/ 2) ≤ 12 r−2a + 12 M (r/ 2) 2 and r−2a ≤ r−a, there is a constant A > 0 such that 
+
+M (R) ≤ A(R−a + M (R/ 2) 2) (2.24) for every sufficiently large R. Set B = max {2A, R a 
+
+> 0
+
+M (R0)}. Choose R0 > 0 sufficiently large so that ABR −a 
+
+> 0
+
+≤ 2−a−1 and set Rn = 2 nR0. If M (Rn−1) ≤ BR −an−1, then (2.24) gives 
+
+M (Rn) ≤ AR −an + AB 2R−2an−1 ≤ BR −an .
+
+The estimate holds at n = 0, so induction and monotonicity of M yield 
+
+|U(x)| ≤ C⟨x⟩−a. (2.25) 
+
+Bootstrap for U. We use the following consequence of the Oseen bounds: if 
+
+|h(x)| ≤ Ch⟨x⟩−d, 2a ≤ d ≤ 1 + 2 a, (2.26) then 
+
+|T h(x)| ≤ CC h⟨x⟩−d. (2.27) To verify this, let r = |x| ≥ 4 and split the whole plane y ∈ R2 into 
+
+E1 = {| x − y| < r/ 2}, E2 = {| y| < r/ 2}, E3 = ( E1 ∪ E2)c.
+
+On E1, (2.6) gives 
+
+Cr −d
+
+Z 10
+
+τ d−2a 
+
+> 1+ a
+
+(1 − τ )− 11+ a dτ. 
+
+On E2, the pointwise kernel bound contributes Cr −3, while 
+
+Z
+
+> |y|<r/ 2
+
+ yτ 11+ a
+
+−d
+
+dy ≤ C
+
+
+
+τ d 
+
+> 1+ a
+
+r2−d, d < 2,τ 21+ a
+
+
+
+1 + log rτ 11+ a
+
+
+
+, d = 2 ,τ 21+ a , d > 2.
+
+After multiplication by τ −2a/ (1+ a) and integration in time, these three cases give Cr −1−d, Cr −3 log r,and Cr −3, respectively. Finally, on E3 both |y| and |x − y| are at least r/ 2, so 
+
+Z
+
+> E3
+
+|x − y|−3 |y|−d dy ≤ Cr −1−d,
+
+13 and the remaining time factor is τ (d−2a)/(1+ a). All time integrals are finite, and the spatial bounds are at most Cr −d because d ≤ 1 + 2 a < 3. This proves (2.27); bounded x follows directly from the 
+
+L1 kernel estimate. Suppose now that |U(x)| ≤ C⟨x⟩−d for some d ≥ a. Then, |Grem (x)| ≤ C⟨x⟩−d+ where d+ =min {1 + 2 a, a + d}. Hence (2.23) and (2.27) show |U(x)| ≤ C⟨x⟩−d+ whenever d+ < 1 + 2 a. Starting from d = a in (2.25), the exponent update d 7 → d+ reaches 1 + 2 a after finitely many iterations. When d+ = 1 + 2 a, the logarithm remains from the background estimate (2.23), and we obtain 
+
+|U(x)| ≤ C⟨x⟩−1−2a log(2 + |x|). (2.28) 
+
+Bootstrap for ∇U. Differentiate (2.20) and integrate by parts once in the convolution variable. The boundary term vanishes by (2.5) and (2.28). Define (Sh)( x) ≜ −
+
+Z 10
+
+τ − 1+2 a 
+
+> 1+ a
+
+K1−τ ∗
+
+
+
+h
+
+ ·
+
+τ 11+ a
+
+ 
+
+(x) dτ. (2.29) Then ∇U = S ∇(W ⊗ W ). The three-region argument above also gives 
+
+|h(x)| ≤ Ch⟨x⟩−d, a < d ≤ 1 + 2 a =⇒ |S h(x)| ≤ CC h⟨x⟩−d (|x| ≥ 4) . (2.30) Indeed, on E1 the time factor is now 
+
+τ d−1−2a 
+
+> 1+ a
+
+(1 − τ )− 11+ a ,
+
+which is integrable exactly when d > a ; on E3 the same power of τ occurs without the factor involving 1 − τ . On E2, the case d < 2 has the same condition, whereas the cases d ≥ 2 contain 
+
+τ (1 −2a)/(1+ a), whose exponent is greater than −1. This proves (2.30); in our application the bounded region is controlled by (2.19). It remains to initiate and iterate this estimate. The local interpolation inequality, (2.19), and (2.25) give 
+
+|∇ U(x)| ≤ C
+
+
+
+∥U∥L∞(B1(x)) + ∥U∥1/2 
+
+> L∞(B1(x))
+
+D2U 1/2
+
+> L∞
+
+
+
+≤ C⟨x⟩−a/ 2.
+
+If |∇ U(x)| ≤ C⟨x⟩−d for some d > 0, then (2.5) and (2.28) imply 
+
+|∇ (W ⊗ W )( x)| ≤ C⟨x⟩−d+ , d+ = min {1 + 2 a, a + d} > a. 
+
+Applying (2.30) updates the exponent by the map d 7 −→ min {1 + 2 a, a + d}. Starting from d = a/ 2, finitely many steps give 
+
+|∇ U(x)| ≤ C⟨x⟩−1−2a. (2.31) Finally, W = V0 + U, so (2.5), (2.28), and (2.31) imply 
+
+|W (x)| + ⟨x⟩ |∇ W (x)| ≤ C⟨x⟩−a.
+
+This completes the proof of Theorem 2.1. 14 2.2 Approximate sequence of profiles 
+
+Suppose now that v0 ∈ C1(S1), and set ω0 = curl v0. For s = r−(1+ a), the homogeneities of v0 and 
+
+ω0, together with the scaling of the fractional heat semigroup, give 
+
+rae−Λ1+ a
+
+v0(rθ ) = e−sΛ1+ a
+
+v0(θ), r1+ a curl 
+
+
+
+e−Λ1+ a
+
+v0
+
+
+
+(rθ ) = e−sΛ1+ a
+
+ω0(θ).
+
+Since the fractional heat kernel is an approximate identity, the expressions above converge uni-formly in θ to v0(θ) and ω0(θ), respectively. Since (2.2) and (2.3) make the corresponding rescaled remainder tend uniformly to zero, we obtain lim  
+
+> r→∞
+
+raW (rθ ) = v0(θ), lim  
+
+> r→∞
+
+r1+ a curl W (rθ ) = ω0(θ) (2.32) uniformly in θ, where curl v0(r, θ ) = r−1−aω0(θ).
+
+Proposition 2.4. For every ϵ ∈ (0 , 1] , there is a smooth solution (Uϵ, P ϵ) of 
+
+ϵΛ1+ aUϵ − 11 + a
+
+ aU ϵ + y · ∇ Uϵ
+
+ + Uϵ · ∇ Uϵ + ∇Pϵ = 0 , div Uϵ = 0 ,
+
+such that 
+
+lim  
+
+> r→∞
+
+raUϵ(rθ ) = u0(θ), lim  
+
+> r→∞
+
+r1+ aΩϵ(rθ ) = ω0(θ) (2.33) 
+
+uniformly in θ, where 
+
+Ωϵ = curl Uϵ, curl u0(r, θ ) = r−1−aω0(θ).
+
+Proof. Set ℓϵ = ϵ 11+ a . Apply Theorem 2.1 with parameter a and initial datum 
+
+v0,ϵ ≜ ϵ−1u0.
+
+Since a > 13 , the resulting profile Wϵ is smooth. If Qϵ denotes its pressure, define 
+
+Uϵ(y) ≜ ℓϵWϵ
+
+ yℓϵ
+
+
+
+, Pϵ(y) ≜ ℓ2 
+
+> ϵ
+
+Qϵ
+
+ yℓϵ
+
+
+
+.
+
+Because ℓ1+ aϵ = ϵ, every term in the unit-dissipation profile equation transforms into the corre-sponding term of (1.6). For example, 
+
+ϵΛ1+ aUϵ(y) = ℓϵ(Λ 1+ aWϵ)
+
+ yℓϵ
+
+
+
+,
+
+whereas 
+
+Uϵ · ∇ Uϵ(y) = ℓϵ(Wϵ · ∇ Wϵ)
+
+ yℓϵ
+
+
+
+.
+
+Finally, the homogeneity of u0 gives 
+
+ℓϵv0,ϵ 
+
+ yℓϵ
+
+
+
+= ℓ1+ aϵ
+
+ϵ u0(y) = u0(y).
+
+Thus the rescaled profile has the prescribed leading far field. Equation (2.33) follows from (2.32). 15 3 The critical vorticity estimate 
+
+This section contains the main estimate. All constants obtained here are independent of ϵ.
+
+Lemma 3.1. The vorticity Ωϵ = curl Uϵ satisfies 
+
+ϵΛ1+ aΩϵ + eUϵ · ∇ Ωϵ − Ωϵ = 0 , eUϵ ≜ Uϵ − y
+
+1 + a , (3.1) 
+
+and 
+
+div eUϵ = − 21 + a = −pc. (3.2) 
+
+Proof. For a divergence-free vector field in two dimensions, curl( U · ∇ U ) = U · ∇ (curl U ), curl( y · ∇ U ) = y · ∇ (curl U ) + curl U. 
+
+Taking the curl of (1.6) therefore gives 
+
+ϵΛ1+ aΩϵ − 11 + a
+
+ (a + 1)Ω ϵ + y · ∇ Ωϵ
+
+ + Uϵ · ∇ Ωϵ = 0 .
+
+This is (3.1), and (3.2) follows from div Uϵ = 0. For k > 0, define 
+
+Fϵ(k) ≜
+
+Z
+
+> R2
+
+(|Ωϵ(y)| − k)+ dy, mϵ(k) ≜ |{ y : |Ωϵ(y)| > k }| . (3.3) The far-field decay in (2.33) implies that the superlevel set appearing in (3.3) is bounded and that 
+
+Fϵ(k) < ∞ for every k > 0. Moreover, 
+
+F ′ 
+
+> ϵ
+
+(k) = −mϵ(k) (3.4) for almost every k > 0. 
+
+Lemma 3.2 (Truncation identity) . For almost every k > 0,
+
+ϵD ϵ(k) + ( pc − 1) Fϵ(k) − k m ϵ(k) = 0 , (3.5) 
+
+where 
+
+Dϵ(k) ≜
+
+Z
+
+> R2
+
+sgn(Ω ϵ)1{| Ωϵ|>k }Λ1+ aΩϵ dy ≥ 0.
+
+Consequently, ddk 
+
+ kpc−1Fϵ(k) ≤ 0 (3.6) 
+
+for almost every k > 0.Proof. Fix k > 0 such that |{| Ωϵ| = k}| = 0, which holds for almost every k. Replace ηk(z) = (|z| − k)+ by smooth convex approximations ηk,δ whose derivatives are uniformly bounded and which vanish in a fixed neighborhood of the origin for all sufficiently small δ. Since Ω ϵ(y) → 016 as |y| → ∞ , the functions ηk,δ (Ω ϵ) are smooth and supported in a common bounded set. The C´ ordoba–C´ ordoba inequality [13] gives Λ1+ aηk,δ (Ω ϵ) ≤ η′
+
+> k,δ
+
+(Ω ϵ)Λ 1+ aΩϵ.
+
+Since ηk,δ (Ω ϵ) ∈ C∞ 
+
+> c
+
+(R2), 
+
+Z
+
+> R2
+
+η′
+
+> k,δ
+
+(Ω ϵ)Λ 1+ aΩϵ dy ≥
+
+Z
+
+> R2
+
+Λ1+ aηk,δ (Ω ϵ) dy = 0 .
+
+The relevant integrands are supported in a common bounded set, while Ω ϵ, eUϵ, and their required derivatives are smooth there. Dominated convergence therefore allows δ ↓ 0 and yields Dϵ(k) ≥ 0. The same argument justifies passage to the limit after multiplying (3.1) by η′
+
+> k,δ
+
+(Ω ϵ) and integrating. Because ηk,δ (Ω ϵ) is compactly supported, integration by parts followed by this limit gives 
+
+Z
+
+> R2
+
+eUϵ · ∇ Ωϵ η′
+
+> k
+
+(Ω ϵ) dy = −
+
+Z
+
+> R2
+
+(div eUϵ)ηk(Ω ϵ) dy = pcFϵ(k).
+
+Moreover, Z
+
+> R2
+
+Ωϵη′
+
+> k
+
+(Ω ϵ) dy =
+
+Z
+
+> {| Ωϵ|>k }
+
+|Ωϵ| dy = Fϵ(k) + k m ϵ(k).
+
+This proves (3.5). Since Dϵ(k) ≥ 0, (pc − 1) Fϵ(k) ≤ k m ϵ(k) = −kF ′ 
+
+> ϵ
+
+(k).
+
+Multiplication by kpc−2 gives (3.6). We next compute the endpoint value that controls the monotonicity formula. 
+
+Lemma 3.3 (Far-field distribution) . For every fixed ϵ > 0,
+
+lim  
+
+> k↓0
+
+kpc−1Fϵ(k) = 12( pc − 1) 
+
+Z
+
+> S1
+
+|ω0(θ)|pc dθ. (3.7) 
+
+Proof. We first perform the calculation for the homogeneous vorticity profile Ω0(r, θ ) = r−1−aω0(θ).
+
+For each θ, the positive part is supported where r < (|ω0(θ)| /k ) 11+ a . Direct integration gives 
+
+Z ∞
+
+> 0
+
+(r−1−a |ω0(θ)| − k)+ r dr = 12( pc − 1) k1−pc |ω0(θ)|pc .
+
+Hence Z
+
+> R2
+
+(|Ω0| − k)+ dy = k1−pc
+
+2( pc − 1) 
+
+Z
+
+> S1
+
+|ω0|pc dθ. (3.8) It remains to use the asymptotics (2.33). Fix δ > 0. There exists Rϵ,δ such that sup 
+
+> θ∈S1
+> r≥Rϵ,δ
+
+r1+ a |Ωϵ(r, θ )| − | ω0(θ)| ≤ δ. 
+
+17 On this exterior region, the integrand defining Fϵ(k) is squeezed between the −(1+ a)-homogeneous integrands with angular amplitudes ( |ω0| − δ)+ and |ω0| + δ. The contribution of the fixed ball 
+
+BRϵ,δ is bounded independently of k, because Ω ϵ is smooth there. After multiplication by kpc−1,this interior contribution vanishes as k ↓ 0. Using (3.8) gives 12( pc − 1) 
+
+Z
+
+> S1
+
+(|ω0| − δ)pc 
+
+> +
+
+dθ ≤ lim inf  
+
+> k↓0
+
+kpc−1Fϵ(k) ≤ lim sup 
+
+> k↓0
+
+kpc−1Fϵ(k) ≤ 12( pc − 1) 
+
+Z
+
+> S1
+
+(|ω0| + δ)pc dθ. 
+
+Letting δ ↓ 0 proves (3.7). 
+
+Proposition 3.4 (Uniform critical vorticity bound) . There exists C = C(a) such that, for every 
+
+ϵ ∈ (0 , 1] ,
+
+∥Ωϵ∥Lpc, ∞(R2) ≤ C(a) ∥ω0∥Lpc (S1) . (3.9) 
+
+Proof. By Theorems 3.2 and 3.3, 
+
+Fϵ(k) ≤ 12( pc − 1) ∥ω0∥pc  
+
+> Lpc (S1)
+
+k1−pc . (3.10) On the other hand, 
+
+Fϵ
+
+ k
+
+2
+
+
+
+≥ k
+
+2 |{| Ωϵ| > k }| = k
+
+2 mϵ(k).
+
+Applying (3.10) with k/ 2 gives 
+
+mϵ(k) ≤ 2pc−1
+
+pc − 1 ∥ω0∥pc  
+
+> Lpc (S1)
+
+k−pc .
+
+This is precisely (3.9), up to a constant depending only on pc, hence only on a.
+
+# 4 Velocity and pressure estimates 
+
+Let 
+
+K(x) = 12πx⊥
+
+|x|2
+
+be the two-dimensional Biot–Savart kernel. The Lorentz-space version of the Hardy–Littlewood– Sobolev inequality and the boundedness of Calder´ on–Zygmund operators on Lorentz spaces imply 
+
+∥K ∗ f ∥Lqc, ∞ ≤ C ∥f ∥Lpc, ∞ , (4.1) 
+
+∥∇ (K ∗ f )∥Lpc, ∞ ≤ C ∥f ∥Lpc, ∞ . (4.2) Here 1 < p c < 2 and qc = 2 pc/(2 −pc). A self-contained proof of (4.1)–(4.2) is given in Theorem A.4; see also [35, 22]. 
+
+Lemma 4.1. For every ϵ ∈ (0 , 1] ,
+
+Uϵ = K ∗ Ωϵ. (4.3) 18 Proof. The decay supplied by Theorem 2.4 shows that Uϵ ∈ Lqc,∞(R2) for each fixed ϵ. Estimate (4.1) shows that K ∗ Ωϵ ∈ Lqc,∞. The difference 
+
+Hϵ ≜ Uϵ − K ∗ Ωϵ
+
+has zero divergence and zero curl in R2, and hence each of its components is an entire harmonic function. Since Hϵ ∈ Lqc,∞(R2) and qc < ∞, the mean-value property gives, for every x ∈ R2,
+
+|Hϵ(x)| ≤ CR2
+
+Z
+
+> BR(x)
+
+|Hϵ(y)| dy ≤ CR − 2 
+
+> qc
+
+∥Hϵ∥Lqc, ∞ .
+
+The last inequality is the finite-measure embedding Theorem A.1(iii), with exponent 1 < q c < ∞.Letting R → ∞ gives Hϵ(x) = 0. 
+
+Proposition 4.2. The profiles satisfy the uniform estimates 
+
+∥Uϵ∥Lqc, ∞(R2) + ∥∇ Uϵ∥Lpc, ∞(R2) ≤ C(a, u 0). (4.4) 
+
+After normalizing the pressure by the formula 
+
+Pϵ =
+
+> 2
+
+X
+
+> i,j =1
+
+RiRj (Uϵ,i Uϵ,j ), (4.5) 
+
+one also has 
+
+∥Pϵ∥L 1 
+
+> a ,∞(R2)
+
+≤ C(a, u 0). (4.6) 
+
+Proof. The first assertion follows from Theorems 3.4 and 4.1 and (4.1)–(4.2). Since qc 
+
+> 2
+
+= 1 
+
+> a
+
+> 1, the weak-product estimate in Theorem A.1(ii) and the Calder´ on–Zygmund estimate in Theorem A.4 give 
+
+∥Pϵ∥L 1 
+
+> a ,∞
+
+≤ C ∥Uϵ ⊗ Uϵ∥L 1 
+
+> a ,∞
+
+≤ C ∥Uϵ∥2 
+
+> Lqc, ∞
+
+.
+
+# 5 Compactness and passage to Euler 
+
+Proposition 5.1. There exist a sequence ϵn ↓ 0 and vector fields U, Ω such that 
+
+Uϵn −→ U strongly in L2loc (R2), (5.1) Ωϵn
+
+> ∗
+
+−−⇀ Ω in Lpc,∞(R2), (5.2) Ω = curl U. (5.3) 
+
+The limit satisfies 
+
+U ∈ Lqc,∞(R2), ∇U ∈ Lpc,∞(R2). (5.4) 
+
+Proof. Fix r with 1 < r < p c. (5.5) On every ball BR, the bounds (4.4) give sup 
+
+> ϵ∈(0 ,1]
+
+∥Uϵ∥W 1,r (BR) < ∞.
+
+19 Indeed, the passage from weak Lqc and weak Lpc to Lr(BR) follows from Theorem A.1(iii), since 
+
+r < p c < q c. In dimension two, 
+
+W 1,r (BR) ⋐ L2(BR)whenever r > 1, since 2 < 2r 
+
+> 2−r
+
+. A diagonal extraction proves (5.1). Since 1 < p c < ∞, Theo-rem A.1(iv) identifies Lpc,∞ with the dual of Lp′
+
+> c,1
+
+. The density statement in the same proposition makes this predual separable, so Banach–Alaoglu gives a weak-star convergent subsequence and hence (5.2). Passing to the distributional curl gives (5.3). Further extracting a subsequence gives weak-* convergence of Uϵn in Lqc,∞ and ∇Uϵn in Lpc,∞, which ensures (5.4). 
+
+Proposition 5.2. The limit profile U satisfies 
+
+Z
+
+> R2
+
+ 11 + a U ·  (2 − a)φ + y · ∇ φ − (U ⊗ U ) : ∇φ
+
+
+
+dy = 0 (5.6) 
+
+for every divergence-free φ ∈ C∞ 
+
+> c
+
+(R2; R2). In other words, U solves 
+
+− 11 + a
+
+ aU + y · ∇ U  + U · ∇ U + ∇P = 0 , div U = 0 , (5.7) 
+
+in distributions for a pressure P ∈ L 1 
+
+> a,∞
+
+(R2).Proof. Test (1.6) against a compactly supported, divergence-free φ. Integration by parts gives 0 = ϵ
+
+Z
+
+> R2
+
+Uϵ · Λ1+ aφ dy + 11 + a
+
+Z
+
+> R2
+
+Uϵ ·  (2 − a)φ + y · ∇ φ dy −
+
+Z
+
+> R2
+
+(Uϵ ⊗ Uϵ) : ∇φ dy. (5.8) Here the coefficient 2 − a follows from 
+
+−
+
+Z
+
+(y · ∇ Uϵ) · φ =
+
+Z
+
+Uϵ · (2 φ + y · ∇ φ).
+
+Since 1 < q c < ∞, the Lorentz–H¨ older inequality in Theorem A.1(i), Theorem A.2, and (4.4) imply 
+
+ϵ
+
+Z
+
+> R2
+
+Uϵ · Λ1+ aφ dy ≤ Cϵ ∥Uϵ∥Lqc, ∞ Λ1+ aφ Lq′ 
+
+> c,1
+
+−→ 0.
+
+Since (5.1) implies 
+
+Uϵn ⊗ Uϵn −→ U ⊗ U strongly in L1loc ,
+
+we may pass to the limit in (5.8) and obtain (5.6). Finally, take a subsequential distributional (weak-*) limit of Pϵ. The uniform pressure bound gives P ∈ L 1 
+
+> a,∞
+
+, and it is straightforward to verify (5.7) in distributions. We now prove the vorticity formulation in the range 13 < a < 12 .
+
+Proof of Theorem 1.5. Recall that Ω ∈ Lpc,∞ 
+
+> loc
+
+, U ∈ Lqc,∞ 
+
+> loc
+
+.
+
+By Theorem A.1(ii), U Ω ∈ Lr∗,∞ 
+
+> loc
+
+, where 1
+
+r∗
+
+= 1
+
+pc
+
++ 1
+
+qc
+
+.
+
+20 The finite-measure embedding in Theorem A.1(iii) then gives U Ω ∈ L1loc provided 1
+
+pc
+
++ 1
+
+qc
+
+< 1.
+
+Using (1.7), this condition is 1+ a 
+
+> 2
+
++ a 
+
+> 2
+
+< 1, which is equivalent to a < 12 .We identify the equation by passing directly to the viscous vorticity equation. Fix ψ ∈ C∞ 
+
+> c
+
+(R2). Its weak form is 0 = ϵ
+
+Z
+
+> R2
+
+ΩϵΛ1+ aψ dy −
+
+Z
+
+> R2
+
+ΩϵUϵ · ∇ ψ dy + 11 + a
+
+Z
+
+> R2
+
+Ωϵy · ∇ ψ dy + ( pc − 1) 
+
+Z
+
+> R2
+
+Ωϵψ dy. (5.9) Indeed, this follows by integrating eUϵ · ∇ Ωϵ by parts and using div eUϵ = −pc.Choose r ∈ (1 , p c) sufficiently close to pc. By local Sobolev compactness, 
+
+Uϵn → U strongly in Lρ
+
+> loc
+
+for every 
+
+ρ < 2r
+
+2 − r .
+
+Letting r ↑ pc, the upper endpoint tends to qc. Since p′ 
+
+> c
+
+< q c precisely when a < 12 , we may choose 
+
+ρ > p ′
+
+> c
+
+. On a bounded set, Theorem A.1(iii) gives the continuous embedding Lρ ,→ Lp′
+
+> c,1
+
+. Hence the convergence is strong in Lp′
+
+> c,1
+
+, while Ω ϵn
+
+> ∗
+
+−−⇀ Ω in Lpc,∞. Therefore Ωϵn Uϵn −→ ΩU
+
+in distributions. The dissipative term vanishes by Theorem A.1(i), Theorem A.2, and the uniform weak-Lpc
+
+bound: 
+
+ϵn
+
+Z
+
+Ωϵn Λ1+ aψ ≤ Cϵ n ∥Ωϵn ∥Lpc, ∞ Λ1+ aψ Lp′ 
+
+> c,1
+
+−→ 0.
+
+Passing to the limit in (5.9) gives 
+
+Z
+
+> R2
+
+Ω
+
+
+
+U − y
+
+1 + a
+
+
+
+· ∇ ψ dy = ( pc − 1) 
+
+Z
+
+> R2
+
+Ωψ dy. (5.10) Since div 
+
+
+
+U − y
+
+1 + a
+
+
+
+= −pc,
+
+(5.10) is exactly the distributional formulation of (1.5). The equivalence with the physical transport equation follows from the self-similar change of variables. 
+
+# 6 The initial trace 
+
+For every ϵ ∈ (0 , 1], define the physical variables 
+
+uϵ(t, x ) ≜ t− a 
+
+> 1+ a
+
+Uϵ
+
+ xt 11+ a
+
+
+
+, pϵ(t, x ) ≜ t− 2a 
+
+> 1+ a
+
+Pϵ
+
+ xt 11+ a
+
+
+
+.
+
+21 Then 
+
+∂tuϵ + uϵ · ∇ uϵ + ∇pϵ + ϵΛ1+ auϵ = 0 , div uϵ = 0 , (6.1) with initial datum u0. Criticality of the exponents gives sup 
+
+> t> 0
+
+
+
+∥uϵ(t)∥Lqc, ∞ + ∥∇ uϵ(t)∥Lpc, ∞ + ∥pϵ(t)∥L 1
+
+> a ,∞
+
+
+
+= ∥Uϵ∥Lqc, ∞ + ∥∇ Uϵ∥Lpc, ∞ + ∥Pϵ∥L 1 
+
+> a ,∞
+
+≤ C(a, u 0).
+
+(6.2) 
+
+Lemma 6.1. For every ψ ∈ C∞ 
+
+> c
+
+(R2; R2),
+
+|⟨ uϵ(t) − u0, ψ ⟩| ≤ C(a, u 0, ψ )t, t > 0, ϵ ∈ (0 , 1] . (6.3) 
+
+Proof. The fixed-ϵ solution supplied by Theorem 2.1 has initial datum u0. Testing (6.1) against the time-independent field ψ gives 
+
+⟨uϵ(t) − u0, ψ ⟩ =
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+(uϵ ⊗ uϵ) : ∇ψ dx dτ 
+
++
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+pϵ div ψ dx dτ 
+
+− ϵ
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+uϵ · Λ1+ aψ dx dτ. 
+
+Because qc 
+
+> 2
+
+= 1 
+
+> a
+
+, the weak-product estimate and the Lorentz–H¨ older inequality in Theorem A.1(i)– (ii), together with Theorem A.2 and (6.2), yield 
+
+Z
+
+> R2
+
+(uϵ ⊗ uϵ) : ∇ψ dx ≤ C ∥uϵ∥2 
+
+> Lqc, ∞
+
+∥∇ ψ∥L 11−a ,1 .
+
+The pressure term is bounded by the same Lorentz–H¨ older inequality: 
+
+Z
+
+> R2
+
+pϵ div ψ dx ≤ ∥ pϵ∥L 1 
+
+> a ,∞
+
+∥div ψ∥L 11−a ,1 .
+
+Similarly, qc ∈ (1 , ∞) and Λ 1+ aψ ∈ Lq′ 
+
+> c,1
+
+by Theorem A.2, so 
+
+Z
+
+> R2
+
+uϵ · Λ1+ aψ dx ≤ ∥ uϵ∥Lqc, ∞ Λ1+ aψ Lq′ 
+
+> c,1
+
+.
+
+All three right-hand sides are uniform in time and ϵ, which proves (6.3). 
+
+Proposition 6.2. Let 
+
+u(t, x ) ≜ t− a 
+
+> 1+ a
+
+U
+
+ xt 11+ a
+
+
+
+, ω(t, x ) ≜ curl u(t, x ) = t−1Ω
+
+ xt 11+ a
+
+
+
+.
+
+Then, u ∈ C [0 , ∞); L2loc (R2) and ω ∈ L∞ (0 , ∞); Lpc,∞(R2). In particular, 
+
+u(t) → u0 in D′(R2) and strongly in L2loc (R2) as t ↓ 0,
+
+and 
+
+ω(t) ∗
+
+−−⇀ ω 0 in Lpc,∞(R2) as t ↓ 0.
+
+Consequently, for every 1 < r < p c,
+
+ω(t) ⇀ ω 0 weakly in Lr
+
+> loc
+
+(R2) as t ↓ 0.
+
+22 Proof. For each fixed t > 0, (5.1) and the self-similar change of variables imply 
+
+uϵn (t) −→ u(t) strongly in L2loc (R2) as n → ∞ .
+
+Passing to the limit in (6.3) gives 
+
+|⟨ u(t) − u0, ψ ⟩| ≤ C(a, u 0, ψ )t
+
+for every compactly supported ψ. This proves convergence in distributions. It remains to upgrade the convergence. Choose r as in (5.5). The norms in 
+
+u(t, x ) = t− a 
+
+> 1+ a
+
+U (x/t 11+ a ), ∇u(t, x ) = t−1∇U (x/t 11+ a )are scaling invariant in Lqc,∞ and Lpc,∞, respectively. Hence, for every R > 0, sup 
+
+> 0<t ≤1
+
+∥u(t)∥W 1,r (BR) ≤ C(R, a, u 0).
+
+The set {u(t) : 0 < t ≤ 1} is therefore precompact in L2(BR). Every sequence tj ↓ 0 has a subsequence converging strongly in L2(BR); its distributional limit must be u0. Thus every such subsequence converges to u0, and a standard contradiction argument shows that the full family converges strongly. Since R is arbitrary, the asserted strong initial trace follows. At each t0 > 0, continuity of t 7 → u(t) in L2loc follows directly from the strong continuity of dilations and scalar multiplication on L2loc . Combined with the continuity at t = 0 proved above, this gives u ∈ C [0 , ∞); L2loc (R2).The critical vorticity norm is invariant under the self-similar scaling: 
+
+∥ω(t)∥Lpc, ∞ = ∥Ω∥Lpc, ∞ , 2(1 + a)pc
+
+= 1 .
+
+Thus ω has the asserted uniform bound. Since u(t) → u0 strongly in L2loc ,
+
+ω(t) = curl u(t) −→ ω0 = curl u0 in D′(R2) as t ↓ 0.
+
+The uniform Lpc,∞ bound, the duality in Theorem A.1(iv), and the density of C∞ 
+
+> c
+
+(R2) in Lp′
+
+> c,1
+
+(R2)upgrade this convergence to 
+
+ω(t) ∗
+
+−−⇀ ω 0 in Lpc,∞(R2) as t ↓ 0.
+
+On every bounded set, Theorem A.1(iii) gives Lpc,∞ ,→ Lr for 1 < r < p c. Distributional conver-gence and weak compactness in Lr therefore give the final assertion. 
+
+Proof of Theorem 1.2. Theorem 5.2 proves part (a). The associated self-similar field solves the Euler equations on every time interval bounded away from zero. The scale-invariant Lorentz bounds imply that u and u ⊗ u are locally integrable up to t = 0. Theorem 6.2 supplies the initial trace. Integrating the equation against a divergence-free spacetime test function and sending the lower time boundary to zero gives the weak formulation in Theorem 1.1. The remaining continuity, vorticity bounds, and vorticity convergence statements follow from Theorem 6.2. 23 A Lorentz spaces and the Biot–Savart estimates 
+
+This appendix records the Lorentz-space facts used in the paper and proves the two estimates (4.1)–(4.2). All functions below are defined on R2 equipped with the Lebesgue measure, unless a different measure space is explicitly indicated. 
+
+A.1 Rearrangements and Lorentz–H¨ older inequalities 
+
+For a measurable function f , let 
+
+μf (λ) ≜ |{ x : |f (x)| > λ }| , λ > 0,
+
+and let 
+
+f ∗(t) ≜ inf {λ > 0 : μf (λ) ≤ t}, t > 0,
+
+be its decreasing rearrangement. For 1 ≤ p < ∞ and 1 ≤ s < ∞, set 
+
+∥f ∥Lp,s ≜
+
+Z ∞
+
+> 0
+
+ t1/p f ∗(t)s dt t
+
+1/s 
+
+, (A.1) and set 
+
+∥f ∥Lp, ∞ ≜ sup 
+
+> t> 0
+
+t1/p f ∗(t) = sup 
+
+> λ> 0
+
+λμ f (λ)1/p .
+
+Equivalent choices of Lorentz norms change only the constants below. 
+
+Proposition A.1 (Basic Lorentz estimates) . The following statements hold. (i) If 1 < p < ∞, f ∈ Lp, ∞, and g ∈ Lp′,1, then 
+
+Z
+
+> R2
+
+|f (x)g(x)| dx ≤ ∥ f ∥Lp, ∞ ∥g∥Lp′,1 . (A.2) 
+
+(ii) If 1 < p 1, p 2 < ∞ and 1 ≤ r < ∞ satisfy 
+
+1
+
+r = 1
+
+p1
+
++ 1
+
+p2
+
+,
+
+then 
+
+∥f g ∥Lr, ∞ ≤ C(p1, p 2) ∥f ∥Lp1,∞ ∥g∥Lp2,∞ . (A.3) 
+
+(iii) If E has finite measure and 1 ≤ r < p < ∞, then 
+
+∥f ∥Lr (E) ≤ C(p, r ) |E| 1   
+
+> r−1
+> p
+
+∥f ∥Lp, ∞ . (A.4) 
+
+If 1 ≤ s < ρ ≤ ∞ , then 
+
+∥h∥Ls, 1(E) ≤ C(s, ρ ) |E| 1   
+
+> s−1
+> ρ
+
+∥h∥Lρ(E) . (A.5) 
+
+(iv) For 1 < p < ∞, the space Lp, ∞ is the dual of Lp′,1, with equivalent norms, under the integral pairing. Moreover, C∞ 
+
+> c
+
+(R2) is dense in Lp′,1.
+
+24 Proof. We first prove the rearrangement inequality 
+
+Z
+
+> R2
+
+|f g | ≤ 
+
+Z ∞
+
+> 0
+
+f ∗(t)g∗(t) dt. (A.6) Indeed, the layer-cake formula and Tonelli’s theorem give 
+
+Z
+
+> R2
+
+|f g | =
+
+Z ∞
+
+> 0
+
+Z ∞
+
+> 0
+
+|{| f | > λ } ∩ {| g| > η }| dλ dη. 
+
+The measure of the intersection is at most min {μf (λ), μ g(η)}. Applying the layer-cake formula once more on (0 , ∞) gives (A.6). Since 
+
+f ∗(t) ≤ t−1/p ∥f ∥Lp, ∞ ,
+
+we obtain Z
+
+> R2
+
+|f g | ≤ ∥ f ∥Lp, ∞
+
+Z ∞
+
+> 0
+
+t−1/p g∗(t) dt = ∥f ∥Lp, ∞ ∥g∥Lp′,1 ,
+
+because 1 /p ′ − 1 = −1/p . This proves (i). For (ii), let F = ∥f ∥Lp1,∞ and G = ∥g∥Lp2,∞ . For every α, λ > 0, 
+
+{| f g | > λ } ⊂ {| f | > α } ∪ {| g| > λ/α }.
+
+Consequently, 
+
+μf g (λ) ≤ F p1 α−p1 + Gp2 αp2 λ−p2 .
+
+If F = 0 or G = 0, the conclusion is immediate. Otherwise, choosing 
+
+α = F p1 
+
+> p1+p2
+
+G− p2 
+
+> p1+p2
+
+λ p2
+
+> p1+p2
+
+shows that 
+
+μf g (λ) ≤ 2
+
+ F G λ
+
+r
+
+, r = p1p2
+
+p1 + p2
+
+,
+
+which proves (A.3). To prove the first estimate in (iii), write M = ∥f ∥Lp, ∞ and use 
+
+|{ x ∈ E : |f (x)| > λ }| ≤ min {| E| , M pλ−p}.
+
+The layer-cake representation of the Lr norm, split at λ0 = M |E|−1/p , gives 
+
+Z
+
+> E
+
+|f |r ≤ C(p, r )M r |E|1−r/p .
+
+For the second estimate, extend h by zero outside E. Then h∗(t) = 0 for t > |E|, and Chebyshev’s inequality gives h∗(t) ≤ t−1/ρ ∥h∥Lρ(E). Thus 
+
+∥h∥Ls, 1 ≤ ∥ h∥Lρ(E)
+
+Z |E|
+
+> 0
+
+t 1   
+
+> s−1
+> ρ
+
+dt t ,
+
+which is (A.5). 25 Part (i) shows that every f ∈ Lp, ∞ defines a bounded functional on Lp′,1. Conversely, let ℓ
+
+be a bounded functional on Lp′,1. Its restriction to bounded functions supported on sets of finite measure is represented by integration against a measurable function f . Testing with sgn( f )1E gives 
+
+Z
+
+> E
+
+|f | ≤ C ∥ℓ∥ | E|1/p ′
+
+.
+
+Taking the supremum over sets E of measure t yields 
+
+f ∗∗ (t) ≜ 1
+
+t
+
+Z t
+
+> 0
+
+f ∗(s) ds ≤ C ∥ℓ∥ t−1/p ,
+
+and therefore f ∈ Lp, ∞. This proves the duality assertion. Finally, truncating a function in value and in space, followed by approximation by simple functions and then by smooth functions, proves density in Lp′,1; the convergence follows directly from (A.1), since its second Lorentz index is finite. 
+
+Lemma A.2 (Test functions) . If 1 < r < ∞, 0 < σ < 2, and ϕ ∈ C∞ 
+
+> c
+
+(R2), then 
+
+Λσϕ ∈ L1(R2) ∩ L∞(R2) ⊂ Lr, 1(R2).
+
+Proof. For the fractional derivative, use the singular-integral formula Λσϕ(x) = cσ
+
+Z
+
+> R2
+
+ϕ(x) − ϕ(y) − 1{| x−y|≤ 1}∇ϕ(x) · (x − y)
+
+|x − y|2+ σ dy. 
+
+Taylor’s theorem controls the numerator by C |x − y|2 near y = x, so the integral is locally bounded because σ < 2. Away from a fixed ball containing supp ϕ, one has 
+
+|Λσϕ(x)| ≤ Cϕ(1 + |x|)−2−σ.
+
+Thus Λ σϕ is bounded and integrable. 
+
+A.2 The estimates for the Biot–Savart law 
+
+Let 
+
+Mf (x) ≜ sup 
+
+> R> 0
+
+1
+
+|BR|
+
+Z
+
+> BR(x)
+
+|f (y)| dy 
+
+be the Hardy–Littlewood maximal function. We shall use the standard weak (1 , 1) estimate 
+
+|{M f > λ }| ≤ Cλ ∥f ∥L1 . (A.7) For completeness, this follows by choosing, for each point of the superlevel set, a ball on which the average exceeds λ, applying the Vitali covering lemma to select disjoint balls, and observing that the fivefold dilates cover the superlevel set. 
+
+Lemma A.3. If 1 < p < ∞, then 
+
+∥M f ∥Lp, ∞ ≤ Cp ∥f ∥Lp, ∞ .
+
+26 Proof. Fix λ > 0 and decompose f = f1 + f2, f 1 = f 1{| f |>λ/ 2}. Since Mf2 ≤ λ/ 2, the weak (1 , 1) estimate gives 
+
+|{M f > λ }| ≤ Cλ −1 ∥f1∥L1 .
+
+If M = ∥f ∥Lp, ∞ , then the layer-cake formula yields 
+
+∥f1∥L1 ≤ CpM pλ1−p.
+
+Therefore |{M f > λ }| ≤ CpM pλ−p.
+
+Proposition A.4 (Biot–Savart estimates in Lorentz spaces) . Let 
+
+K(x) = 12πx⊥
+
+|x|2 .
+
+If 1 < p < 2 and q = 2 p/ (2 − p), then 
+
+∥K ∗ f ∥Lq, ∞ ≤ Cp ∥f ∥Lp, ∞ . (A.8) 
+
+If 1 < p < ∞, then 
+
+∥∇ (K ∗ f )∥Lp, ∞ ≤ Cp ∥f ∥Lp, ∞ . (A.9) 
+
+The first estimate applied with p = pc gives (4.1) , while the second applied with p = pc gives (4.2) .The second estimate also justifies the Riesz-transform bound used for the pressure, with p = 1 /a .Proof. We first prove (A.8). Since |K(x)| ≤ C |x|−1, it suffices to estimate 
+
+I1f (x) ≜
+
+Z
+
+> R2
+
+|f (x − z)||z| dz. 
+
+Fix R > 0. Decomposition into dyadic annuli gives 
+
+Z
+
+> |z|≤ R
+
+|f (x − z)||z| dz ≤
+
+> ∞
+
+X
+
+> j=0
+
+2j+1 
+
+R
+
+Z 
+
+> |z|≤ 2−jR
+
+|f (x − z)| dz ≤ CR Mf (x).
+
+For the far field, put hR(z) = |z|−1 1{| z|>R }. Since p′ > 2, 
+
+h∗
+
+> R
+
+(t) ≤ C min {R−1, t −1/2}
+
+and hence 
+
+∥hR∥Lp′,1 ≤ CR −1
+
+Z R2
+
+> 0
+
+t1/p ′ dt t + C
+
+Z ∞
+
+> R2
+
+t1/p ′−1/2 dt t ≤ CpR1−2/p .
+
+The Lorentz–H¨ older inequality (A.2) therefore gives 
+
+Z
+
+> |z|>R
+
+|f (x − z)||z| dz ≤ Cp ∥f ∥Lp, ∞ R1−2/p .
+
+Writing M = ∥f ∥Lp, ∞ and optimizing in R yields 
+
+I1f (x) ≤ CpM 1−p/q  Mf (x)p/q . (A.10) 27 Indeed, when Mf (x) > 0, choose R = ( M/ Mf (x)) p/ 2; the remaining cases follow by a limit. By Theorem A.3, 
+
+|{ I1f > λ }| ≤ Cp
+
+ Mλ
+
+q
+
+,
+
+which proves (A.8). We next prove (A.9). Each component of ∇K ∗ f is a sum of second-order Riesz transform plus a constant multiple of f . Its Fourier multiplier is bounded, so the operator is bounded on L2. Its principal-value kernel K satisfies 
+
+|K (x)| ≤ C |x|−2 , |∇K (x)| ≤ C |x|−3 ,
+
+Z
+
+> S1
+
+K(θ) dθ = 0 .
+
+We recall the Calder´ on–Zygmund argument in the form needed here. For h ∈ L1 ∩ L2, perform the Calder´ on–Zygmund decomposition at height λ:
+
+h = g + X
+
+> j
+
+bj ,
+
+where 
+
+∥g∥L∞ ≤ Cλ, ∥g∥L1 ≤ ∥ h∥L1 ,
+
+Z
+
+bj = 0 , X
+
+> j
+
+∥bj ∥L1 ≤ C ∥h∥L1 ,
+
+and the bj are supported on disjoint cubes Qj satisfying 
+
+X
+
+> j
+
+|Qj | ≤ Cλ −1 ∥h∥L1 .
+
+The L2 bound gives 
+
+|{| T g | > λ/ 2}| ≤ Cλ −2 ∥g∥2 
+
+> L2
+
+≤ Cλ −1 ∥h∥L1 .
+
+Outside a fixed dilation Q∗ 
+
+> j
+
+of Qj , cancellation and the gradient bound on the kernel give 
+
+Z
+
+> R2\Q∗
+> j
+
+|T b j (x)| dx ≤ C ∥bj ∥L1 .
+
+Summing in j, using Chebyshev’s inequality, and adding the measure of S 
+
+> j
+
+Q∗ 
+
+> j
+
+proves the weak (1 , 1) estimate 
+
+|{| T h | > λ }| ≤ Cλ −1 ∥h∥L1 . (A.11) These two endpoint estimates imply strong Ls boundedness without any Lorentz-space input. If 1 < s < 2, decompose h = h1{| h|>λ } + h1{| h|≤ λ}, apply (A.11) to the first term and the L2
+
+estimate to the second. This gives 
+
+|{| T h | > 2λ}| ≤ Cλ −1
+
+Z
+
+> {| h|>λ }
+
+|h| + Cλ −2
+
+Z
+
+> {| h|≤ λ}
+
+|h|2 .
+
+Using this inequality in the distribution formula 
+
+∥T h ∥sLs = s
+
+Z ∞
+
+> 0
+
+λs−1 |{| T h | > λ }| dλ, 
+
+28 Tonelli’s theorem gives 
+
+∥T h ∥sLs ≤ Cs ∥h∥sLs .
+
+Boundedness for 2 < s < ∞ follows by applying the result to the adjoint and using duality. Finally, let f ∈ Lp, ∞ and choose 1 < r < p < s < ∞. For A > 0, write 
+
+f = f >A + f ≤A.
+
+The distribution-function bound for f gives 
+
+f >A rLr ≤ Cp,r M pAr−p, f ≤A sLs ≤ Cp,s M pAs−p, M = ∥f ∥Lp, ∞ .
+
+Strong Lr and Ls boundedness and Chebyshev’s inequality imply 
+
+|{| T f | > λ }| ≤ CM p  λ−rAr−p + λ−sAs−p .
+
+Choosing A = λ gives 
+
+|{| T f | > λ }| ≤ CpM pλ−p,
+
+which proves (A.9). 
+
+# References 
+
+[1] D. Albritton, J. Guillod, M. Korobkov, and X. Ren, Forward self-similar solutions to the 2D Navier–Stokes equations, preprint, arXiv:2601.03161 (2026). [2] J. T. Beale, T. Kato, and A. Majda, Remarks on the breakdown of smooth solutions for the 3-D Euler equations, Comm. Math. Phys. 94 (1984), 61–66. [3] A. Bressan and W. Shen, A posteriori error estimates for self-similar solutions to the Euler equations, Discrete Contin. Dyn. Syst. 41 (2021), 113–130. [4] E. Bru` e, M. Colombo, and A. Kumar, Flexibility of two-dimensional Euler flows with integrable vorticity, Duke Math. J. 175 (2026), 1593–1647. [5] T. Buckmaster, B. Georgiev, J. G´ omez-Serrano, R. Jiang, C.-Y. Lai, et al. Discovery of unstable singularities, preprint, arXiv:2509.14185 (2025). [6] J. Chen and T. Y. Hou, Finite time blowup of 2D Boussinesq and 3D Euler equations with 
+
+C1,α velocity and boundary, Comm. Math. Phys. 383 (2021), 1559–1667. [7] J. Chen and T. Y. Hou, Stable nearly self-similar blowup of the 2D Boussinesq and 3D Euler equations with smooth data I: Analysis, preprint, arXiv:2210.07191 (2023). [8] J. Chen and T. Y. Hou, Stable nearly self-similar blowup of the 2D Boussinesq and 3D Euler equations with smooth data II: Rigorous numerics, Multiscale Model. Simul. 23 (2025), 25–130. [9] H. Choi, Asymmetric self-similar spiral solutions of 2-D incompressible Euler equations, preprint, arXiv:2507.05059 (2025). [10] H. Choi and M. P. Coiculescu, Multi-sink solutions to the self-similar Euler equations, preprint, arXiv:2602.15152 (2026). 29 [11] M. P. Coiculescu and S. Palasek, Non-uniqueness of smooth solutions of the Navier–Stokes equations from critical data, Invent. Math. 244 (2026), 165–219. [12] P. Constantin, M. Ignatova, and V. Vicol, On putative self-similarity for incompressible 3D Euler, preprint, arXiv:2602.17570 (2026). [13] A. C´ ordoba and D. C´ ordoba, A maximum principle applied to quasi-geostrophic equations, 
+
+Comm. Math. Phys. 249 (2004), 511–528. [14] C. De Lellis and L. Sz´ ekelyhidi, Jr., The Euler equations as a differential inclusion, Ann. of Math. 170 (2009), 1417–1436. [15] J.-M. Delort, Existence de nappes de tourbillon en dimension deux, J. Amer. Math. Soc. 4
+
+(1991), 553–586. [16] R. J. DiPerna and A. J. Majda, Concentrations in regularizations for 2-D incompressible flow, 
+
+Comm. Pure Appl. Math. 40 (1987), 301–345. [17] R. J. DiPerna and A. J. Majda, Reduced Hausdorff dimension and concentration-cancellation for two-dimensional incompressible flow, J. Amer. Math. Soc. 1 (1988), 59–95. [18] T. M. Elgindi, Finite-time singularity formation for C1,α solutions to the incompressible Euler equations on R3, Ann. of Math. 194 (2021), 647–727. [19] V. Elling, Algebraic spiral solutions of 2D incompressible Euler, J. Differential Equations 255 
+
+(2013), 3749–3787. [20] V. Elling, Self-similar 2D Euler solutions with mixed-sign vorticity, Comm. Math. Phys. 348 
+
+(2016), 27–68. [21] V. Giri and R.-O. Radu, The Onsager conjecture in 2D: a Newton-Nash iteration, Invent. Math. 238 (2024), 691–768. [22] L. Grafakos, Classical Fourier Analysis , third edition, Graduate Texts in Mathematics 249, Springer, New York, 2014. [23] E. H¨ older, ¨Uber die unbeschr¨ ankte Fortsetzbarkeit einer stetigen ebenen Bewegung in einer unbegrenzten inkompressiblen Fl¨ ussigkeit, Math. Z. 37 (1933), 727–738. [24] C. Garc´ ıa and J. G´ omez-Serrano, Self-similar spirals for the generalized surface quasi-geostrophic equations, J. Eur. Math. Soc. 28 (2026), 4239–4320. [25] C. Gui, H. Liu, and C. Xie, On the existence of forward self-similar solutions to the two-dimensional Navier–Stokes equations, preprint, arXiv:2601.03833 (2026). [26] J. Guillod and V. ˇSver´ ak, Numerical investigations of non-uniqueness for the Navier–Stokes initial value problem in borderline spaces, J. Math. Fluid Mech. 25 (2023), Paper No. 46. [27] T. Y. Hou and P. Song, Forward self-similar solutions to the 2D hypodissipative Navier–Stokes equations, preprint, arXiv:2603.12497 (2026). [28] T. Y. Hou, Y. Wang, and C. Yang, Nonuniqueness of Leray–Hopf solutions to the unforced incompressible 3D Navier–Stokes equation, preprint, arXiv:2509.25116v2 (2025). 30 [29] A. D. Ionescu, H. Jia, and S. Palasek, On the non-uniqueness of solutions of the axi-symmetric swirl-free Navier–Stokes equations, I, preprint, arXiv:2606.07501 (2026). [30] H. Jia and V. ˇSver´ ak, Local-in-space estimates near initial time for weak solutions of the Navier–Stokes equations and forward self-similar solutions, Invent. Math. 196 (2014), 233– 265. [31] H. Jia and V. ˇSver´ ak, Are the incompressible 3D Navier–Stokes equations locally ill-posed in the natural energy space?, J. Funct. Anal. 268 (2015), 3734–3766. [32] G. Luo and T. Y. Hou, Potentially singular solutions of the 3D incompressible Euler equations, 
+
+Proc. Natl. Acad. Sci. USA 111 (2014), 12968–12973. [33] A. J. Majda and A. L. Bertozzi, Vorticity and Incompressible Flow , Cambridge Texts in Applied Mathematics, Cambridge University Press, Cambridge, 2002. [34] J. Neˇ cas, M. R˚ uˇ ziˇ cka, and V. ˇSver´ ak, On Leray’s self-similar solutions of the Navier–Stokes equations, Acta Math. 176 (1996), 283–294. [35] R. O’Neil, Convolution operators and L(p, q ) spaces, Duke Math. J. 30 (1963), 129–142. [36] V. Scheffer, An inviscid flow with compact support in space-time, J. Geom. Anal. 3 (1993), 343–401. [37] S. Schochet, The weak vorticity formulation of the 2-D Euler equations and concentration-cancellation, Comm. Partial Differential Equations 20 (1995), 1077–1104. [38] F. Shao, D. Wei, and Z. Zhang, Self-similar algebraic spiral solution of 2-D incompressible Euler equations, Ann. PDE 11 (2025), Paper No. 13. [39] A. Shnirelman, On the nonuniqueness of weak solution of the Euler equation, Comm. Pure Appl. Math. 50 (1997), 1261–1286. [40] T.-P. Tsai, On Leray’s self-similar solutions of the Navier–Stokes equations satisfying local energy estimates, Arch. Ration. Mech. Anal. 143 (1998), 29–51. [41] M. Vishik, Incompressible flows of an ideal fluid with vorticity in borderline spaces of Besov type, Ann. Sci. ´Ecole Norm. Sup. 32 (1999), 769–812. [42] W. Wolibner, Un th´ eor` eme sur l’existence du mouvement plan d’un fluide parfait, homog` ene, incompressible, pendant un temps infiniment long, Math. Z. 37 (1933), 698–726. [43] V. I. Yudovich, Non-stationary flows of an ideal incompressible fluid, USSR Comput. Math. Math. Phys. 3 (1963), 1407–1456. [44] V. I. Yudovich, Uniqueness theorem for the basic nonstationary problem in the dynamics of an ideal incompressible fluid, Math. Res. Lett. 2 (1995), 27–38.  
+
+> Hyungjun Choi
+> Princeton University
+> Email Address :hyungjun.choi@princeton.edu
+
+31

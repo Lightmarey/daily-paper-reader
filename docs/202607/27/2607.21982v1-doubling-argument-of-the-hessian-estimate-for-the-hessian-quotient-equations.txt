@@ -1,0 +1,4940 @@
+Title: Doubling Argument of the Hessian Estimate for the Hessian Quotient Equations
+
+URL Source: https://arxiv.org/pdf/2607.21982v1
+
+Published Time: Mon, 27 Jul 2026 00:24:15 GMT
+
+Number of Pages: 39
+
+Markdown Content:
+# Doubling Argument of the Hessian Estimate for the Hessian Quotient Equations 
+
+## Cheuk Yan Fung June 2026 
+
+Abstract 
+
+In this paper, we establish a doubling argument to obtain Hes-sian estimates for convex solutions to the Hessian quotient equation  
+
+> σn
+> σk
+
+(D2u) = f (x, u, Du ) for k = n − 1 and k = n − 2 under the con-dition that 1 /f is concave in the Du variable. In particular, our approach is pointwise and does not make use of the Legendre trans-form or integral-based local maximum principles. We provide a coun-terexample demonstrating that interior estimates can fail if no struc-tural assumption is imposed on f in the Du variable. Finally, we extend our doubling argument to general Hessian quotient equations  
+
+> σl
+> σk
+
+(D2u) = f (x, u, Du ) for k ∈ { l − 1, l − 2}, under a similar structural condition imposed on f in the Du variable, alongside an additional structural concavity assumption on the operator introduced in [11]. 
+
+# 1 Introduction 
+
+Bombieri–De Giorgi–Miranda [1] established an a priori gradient estimate for graphical minimal hypersurfaces, which was later simplified by Trudinger [17]. The key ingredients were the Jacobi inequality ∆ a ≥ |∇ a|2 and the Michael-Simon mean value inequality. Korevaar [9] subsequently established a pointwise argument for this gradient estimate without relying on the Michael-Simon inequality. The Hessian estimate for the special Lagrangian equation can be viewed as a particular case of the gradient estimate for minimal surface systems, when the minimal surface is represented as a gradient graph. Chen-Warren-Yuan [3], Wang-Yuan [18], and Zhou [19] established integral proofs for the Hessian estimates of the special Lagrangian equation, relying on the 1arXiv:2607.21982v1 [math.AP] 24 Jul 2026 Michael-Simon mean value inequality [12] and the Jacobi inequality. Re-cently, Shankar [14] and Fung [6] established pointwise arguments to obtain Hessian estimates for the special Lagrangian equation in the settings con-sidered by Chen-Warren-Yuan [3], Wang-Yuan [18], and Zhou [19]. This approach is entirely pointwise and bypasses the Michael-Simon mean value inequality required in prior proofs. Several works have constructed doubling inequalities to establish Hessian estimates and interior regularity results. For the σ2 equation in dimension 
+
+n = 3, Qiu [13] derived the Hessian estimate. A major breakthrough in dimension n = 4 was achieved by Shankar-Yuan [15], who established the Hessian estimate for σ2 = 1. Subsequently, Fan [4] established the Hessian estimate with a variable right hand side σ2 = f (x, u, Du ) when n = 4 by constructing a generalized Savin theorem [5]. Furthermore, Shankar-Yuan [16] proved the interior regularity of strictly convex solutions to the Monge-Amp` ere equation. As mentioned previously, Shankar [14] and Fung [6] con-structed doubling arguments for the special Lagrangian equation in various settings. Recently, Lu [10] established interior estimates for σn 
+
+> σk
+
+(D2u) = f (x, u ) for 
+
+k ∈ { n − 1, n − 2} with k ≥ 1. He also constructed explicit counterexam-ples demonstrating that such interior Hessian estimates fail when k ≤ n − 3. Beyond the top quotient case, Lu and Tsai [11] recently established the Hes-sian estimate for convex solutions to the general Hessian quotient equation  
+
+> σl
+> σk
+
+(D2u) = f (x, u ) for k = l − 1 or l − 2 with k ≥ 1 under a natural concavity assumption on the operator σl 
+
+> σk
+
+(D2u). 
+
+Assumption 1.1 ([11] Assumption 1.1) . Let n ≥ 2, 1 ≤ k < l ≤ n with 
+
+k = l − 1 or l − 2, and let F = σl 
+
+> σk
+
+. Suppose λ1 ≥ · · · ≥ λn > 0. Then for any ξ ∈ Rn, there exist constants K0 ≥ 1 and K1 ≥ 1 depending only on n,
+
+l, and F , such that whenever λ1 ≥ K0, we have 
+
+− X
+
+> i,j
+
+F ii,jj ξiξj + X 
+
+> λi̸=λ1
+
+2F ii ξ2
+
+> i
+
+λ1 − λi
+
++ K1
+
+F
+
+X
+
+> i
+
+F ii ξi
+
+!2
+
+≥ (1 + c(n, l )) F 11 ξ21
+
+λ1
+
+,
+
+where c(n, l ) is a positive constant depending only on n and l.
+
+Lu [10] and Lu-Tsai [11] constructed Jacobi inequalities in the viscosity sense. Then they applied the Legendre transform to the solution, transform-ing the operator into a uniformly elliptic one, which allows the use of integral tools such as the local maximum principle. They then utilized integral tech-niques to establish the estimates. A natural question is whether the pointwise, doubling approach is appli-cable to this case. A key ingredient for the doubling argument, the Jacobi 2inequality, is available in this setting. In this paper, we answer this ques-tion affirmatively. By adapting the pointwise doubling method, we establish Hessian estimates for the Hessian quotient equation without relying on the Legendre transform or integral estimates. Specifically, for the top quotient case, we consider the equation of the form (1.1) F (D2u) = σn
+
+σk
+
+(D2u) = f (x, u, Du )for k = n − 1, n − 2, under the structural condition that 1 
+
+> f
+
+is concave with respect to the gradient variable Du .We follow the same outline as Shankar-Yuan [15]. We first establish the Jacobi inequality in the classical sense. Next, we establish a doubling inequality. Finally, we apply the generalized Savin theorem established by Fan [4] to conclude the proof. The main contributions of this paper are the classical Jacobi inequality and the doubling inequality for the Hessian quotient equation. We modify the arguments of Lu [10] to establish the Jacobi inequality in the classical sense, which is necessary for the maximum principle argument in Section 4. Establishing this inequality in the classical setting introduces additional third order terms that naturally vanish in the viscosity setting. To absorb these terms when they have negative coefficients, we must proceed case by case based on the multiplicity m, which in turn requires the maximal eigenvalue λ to be sufficiently large. We establish the doubling inequality for the Hessian quotient equation using the test function constructed by Shankar [14]. By evaluating this test function at its maximum point, we obtain a maximum principle inequality (4.14). For the subcase k = n − 1, we make use of the fact that the trace of the linearized operator, P 
+
+> i
+
+F ii , is uniformly bounded from above to obtain the desired estimate. However, in the subcase k = n − 2, the trace is no longer bounded from above. To overcome this, we bound the right hand side of the inequality from below by a multiple of |x − y|2 P 
+
+> i
+
+F ii . By dividing the entire inequality by the trace and applying a lower bound on the trace, we obtain the doubling inequality. 
+
+Theorem 1.2. Let n ≥ 2, k ∈ { n−1, n −2} with k ≥ 1, and let f (x, u, Du ) be a positive C1,1 function such that 1/f is concave in the Du variable. Suppose 
+
+u ∈ C4(B2(0)) is a convex solution of (1.1) on B2(0) . Then we have 
+
+(1.2) |D2u(0) | ≤ C
+
+
+
+n, k, ∥u∥C0,1(B2(0)) , 1
+
+f L∞
+
+, ∥f ∥C1,1
+
+
+
+.
+
+We remark that Guan-Qiu [7] (under the assumption σ3(D2u) ≥ − A) and Fan [5] established the interior Hessian estimate for σ2(D2u) = f (x, u, Du )3without imposing structural conditions on f with respect to the gradient variable Du . This is due to the properties of the σ2 operator. Specifically, by applying the Newton-Maclaurin inequalities, we have P 
+
+> i
+
+σii  
+
+> 2
+
+u2 
+
+> ii
+
+= σ1σ2 −
+
+3σ3 ≥ C(n)σ1σ2 ≥ Cσ 1. This term can be used to absorb the negative λ
+
+terms. In our case, taking σn/σ n−1 as an example, we have F ii u2 
+
+> ii
+
+= F 2,which is not helpful for absorbing negative λ terms. If we do not impose the condition that f is concave in Du and instead only use the bounds on the first and second partial derivatives of f in (3.19), it would generate negative 
+
+λ terms that cannot be absorbed. We demonstrate that imposing structural conditions on f with respect to the gradient variable Du is necessary by constructing the following explicit counterexample. We first consider the simplest case, σn/σ n−1(D2u) = f (Du ). We consider the dual function w(y) obtained via the Legendre transform of 
+
+u(x). To ensure that the second derivatives of u blow up at the origin, we require the Hessian of w to degenerate at the origin. Under the Legendre transform, the equation simplifies to ∆ w(y) = 1 /f (y), where y = Du . We construct a specific dual function w whose Laplacian is strictly convex in 
+
+y so that it does not satisfy the assumption of Theorem 1.2. We verify that this function w forms a valid counterexample and explicitly solve for 
+
+u(x). Finally, we demonstrate that this exact construction also serves as a valid counterexample for the general quotient σl/σ k(D2u) = f (Du ) for 
+
+k ∈ { l − 1, l − 2}.
+
+Remark 1.3. Let n ≥ 2, 1 ≤ k < l ≤ n with k ∈ { l − 1, l − 2}. Then there exists a sequence of smooth, convex functions uε ∈ C∞(B1(0)) and positive smooth functions fε(Du ) such that 
+
+(1.3) σl
+
+σk
+
+(D2uε) = fε(Du ε) in B1(0) ,
+
+with the following properties as ε → 0.(i) The sequence uε is uniformly bounded in C0,1(B1(0)) .(ii) The functions fε are uniformly bounded in C1,1 with respect to Du , and there exist uniform constants such that 0 < inf ε,Du fε(Du ) ≤ fε ≤ C.(iii) The second derivatives blow up at the origin |D2uε(0) | → ∞ .
+
+We also establish a doubling argument for strictly convex solutions to the general Hessian quotient equation (1.4) F (D2u) = σl
+
+σk
+
+(D2u) = f (x, u, Du ),
+
+4where k = l − 1 or l − 2, under Assumption 1.1 established by Lu and Tsai [11] and a structural inequality imposed on f in the Du variable. We face additional difficulties in deriving the Jacobi inequality compared to the top quotient case. The coefficients of certain third order terms are complicated, and we introduce auxiliary quantities to simplify them. Fur-thermore, the coefficients of certain third order terms depend on potentially unbounded eigenvalues λm+1 , . . . , λ l−1. We cannot take λ → ∞ at the begin-ning because the choice of λ might depend on these unbounded terms. We overcome this by factoring out those eigenvalues. For the doubling inequality in the general quotient case, we rely on the estimates established by Lu and Tsai [11]. Specifically, we utilize the property that the trace P 
+
+> i
+
+F ii ≤ C for the subcase k = l − 1, and that the quantity 
+
+F ii (1 + uii )2 is bounded from both above and below by a constant multiple of 
+
+λl−1 for the subcase k = l −2. By combining these bounds with the approach developed for the top quotient, we derive the desired doubling inequality. 
+
+Theorem 1.4. Let n ≥ 2, 1 ≤ k < l ≤ n with k ∈ { l − 1, l − 2}, and let f (x, u, Du ) be a positive C1,1 function satisfying the structural inequality P 
+
+> i,j
+
+fpipj ξiξj ≥ K1 
+
+> f
+
+(P 
+
+> i
+
+fpi ξi)2 for all ξ ∈ Rn. Suppose Assumption 1.1 holds and u ∈ C4(B2(0)) is a strictly convex solution to (1.4) on B2(0) . Then we have 
+
+(1.5) |D2u(0) | ≤ C
+
+
+
+n, l, ∥u∥C0,1(B2(0)) , 1
+
+f L∞
+
+, ∥f ∥C1,1
+
+
+
+.
+
+The structure of the paper is as follows. In Section 2, we collect some established properties of the Hessian quotient operators, establish several additional preliminary results, and restate the generalized Savin small per-turbation theorem. In Section 3, we prove the classical Jacobi inequalities. In Section 4, we prove the doubling inequalities. In Section 5, we complete the proof of the Hessian estimates (Theorem 1.2 and Theorem 1.4). Finally, in Section 6, we construct a counterexample (Remark 1.3). 
+
+# 2 Preliminaries 
+
+In this section, we restate several established properties of the Hessian quo-tient operators and prove several additional properties. We also restate the generalized Savin small perturbation theorem. Throughout the article, let 
+
+λ1 ≥ λ2 ≥ · · · ≥ λn > 0 be the eigenvalues of D2u.We first restate the formulas for the first and second derivatives of the operator F with respect to the matrix entries. 5Lemma 2.1 ([11] Lemma 2.2) . Let n ≥ 2, 1 ≤ k < l ≤ n, and F = σl 
+
+> σk
+
+(D2u).Suppose that u is a C2 strictly convex function and D2u is diagonalized at 
+
+x0. Then at x0, we have 
+
+F pq =
+
+σpq l
+
+σk
+
+− σlσpq k
+
+σ2
+
+> k
+
+
+
+δpq ,F pq,rs =
+
+
+
+−2σpp l σpp k
+
+> σ2
+> k
+
++ 2 σl(σpp k )2
+
+> σ3
+> k
+
+, p = q = r = s,  
+
+> σpp,qq l
+> σk
+
+− σpp l σqq k +σqq l σpp k
+
+> σ2
+> k
+
+− σlσpp,qq k
+
+> σ2
+> k
+
++ 2 σlσpp k σqq k
+
+> σ3
+> k
+
+, p = q, r = s, p ̸ = r, 
+
+−σpp,qq l 
+
+> σk
+
++ σlσpp,qq k
+
+> σ2
+> k
+
+, p = s, q = r, p ̸ = q, 
+
+0, otherwise .
+
+In particular, for all p̸ = q, we have −F pq,qp > 0 and 
+
+−F pq,qp = F pp − F qq 
+
+λq − λp
+
+, λp̸ = λq,
+
+where λp and λq are the eigenvalues of D2u.
+
+For completeness, we provide the proof that −F pq,qp ≥ 0 on the positive cone. The proof for the case l = n is given in [10] Lemma 2.2. 
+
+Proof. For p̸ = q,
+
+−F pq,qp = 1
+
+σ2
+
+> k
+
+(σpp,qq l σk − σlσpp,qq k ).
+
+Let Tm = σm(λ|λp, λ q). We can expand σl and σk as 
+
+σm = λpλqTm−2 + ( λp + λq)Tm−1 + Tm.
+
+−F pq,qp σ2 
+
+> k
+
+= Tl−2
+
+ λpλqTk−2 + ( λp + λq)Tk−1 + Tk
+
+
+
+−  λpλqTl−2 + ( λp + λq)Tl−1 + Tl
+
+Tk−2
+
+= ( λp + λq) [ Tl−2Tk−1 − Tl−1Tk−2] + [ Tl−2Tk − TlTk−2] > 0,
+
+where we use Newton’s inequality and λp, λ q > 0 in the last inequality. We restate the explicit formulas for the first derivatives of the operator 
+
+F (D2u) = σn 
+
+> σk
+
+, where k ∈ { n − 1, n − 2} with k ≥ 1. They are taken from the proofs of Lemma 3.1 and Lemma 3.2 in [10]. 6Lemma 2.2 ([10]) . Let n ≥ 2 and F (λ) = σn 
+
+> σn−1
+
+(λ) for λ ∈ Rn with λ1 ≥· · · ≥ λn > 0. We may rewrite F (λ) as 
+
+F (λ) = 1
+
+P
+
+> i
+> 1
+> λi
+
+.
+
+Taking derivatives with respect to λi, we have 
+
+F ii = 1
+
+P
+
+> k
+> 1
+> λk
+
+2
+
+1
+
+λ2
+
+> i
+
+= F 2
+
+λ2
+
+> i
+
+.
+
+Lemma 2.3 ([10]) . Let n ≥ 2 and F (λ) = σn 
+
+> σn−2
+
+(λ) for λ ∈ Rn with λ1 ≥· · · ≥ λn > 0. We may rewrite F (λ) as 
+
+F (λ) = λ1λ2 . . . λ n
+
+P 
+
+> i<j
+
+λ1 . . . ˆλi . . . ˆλj . . . λ n
+
+= 1
+
+P
+
+> i<j
+> 1
+> λiλj
+
+.
+
+Taking derivatives with respect to λa, we have 
+
+F aa = 1
+
+P
+
+> i<j
+> 1
+> λiλj
+
+2
+
+1
+
+λ2
+
+> a
+
+X
+
+> b̸=a
+
+1
+
+λb
+
+= F 2 1
+
+λ2
+
+> a
+
+X
+
+> b̸=a
+
+1
+
+λb
+
+.
+
+We state a formula relating −F ab,ba and F aa  
+
+> λa
+
+that will be used in the proof of the Jacobi inequalities. 
+
+Lemma 2.4. Let n ≥ 2 and F (D2u) = σn 
+
+> σk
+
+(D2u) for k ∈ { n − 1, n − 2} with 
+
+k ≥ 1. Let the eigenvalues be λ1 ≥ · · · ≥ λn > 0 at x0. Suppose there exist distinct indices a̸ = b such that λa = λb = λ at x0. Then −F ab,ba evaluated at x0 satisfies the following. (a) For k = n − 1,
+
+−F ab,ba = 2F aa 
+
+λ .
+
+(b) For k = n − 2,
+
+−F ab,ba = 2F aa 
+
+λ − F 2
+
+λ4 .
+
+Proof. By Lemma 2.1, we have (2.1) −F ab,ba = σaa,bb n
+
+σk
+
+− σnσaa,bb k
+
+σ2
+
+> k
+
+= Fλaλb
+
+− F σaa,bb k
+
+σk
+
+.
+
+7(a) For k = n − 1, we have 
+
+σaa,bb n−1 = σn−3(λ|λa, λ b) = σn−2(λ|λa, λ b) X
+
+> i̸=a,b
+
+1
+
+λi
+
+= σn
+
+λaλb
+
+X
+
+> i̸=a,b
+
+1
+
+λi
+
+= σn
+
+λaλb
+
+ 1
+
+F − 1
+
+λa
+
+− 1
+
+λb
+
+
+
+,
+
+where we use 1 
+
+> F
+
+= P 
+
+> i
+> 1
+> λi
+
+in the last equality. Substituting this into (2.1) and evaluating it at λa = λb = λ gives 
+
+−F ab,ba = Fλaλb
+
+− F 2
+
+λaλb
+
+ 1
+
+F − 1
+
+λa
+
+− 1
+
+λb
+
+
+
+= F 2(λa + λb)
+
+λ2
+
+> a
+
+λ2
+
+> b
+
+= 2F 2
+
+λ3 = 2F aa 
+
+λ .
+
+(b) For k = n − 2, 
+
+σaa,bb n−2 = σn−4(λ|λa, λ b) = σn−2(λ|λa, λ b) X
+
+> c<d c,d ̸=a,b
+
+1
+
+λcλd
+
+= σn
+
+λaλb
+
+X
+
+> c<d c,d ̸=a,b
+
+1
+
+λcλd
+
+= σn
+
+λaλb
+
+1
+
+F − 1
+
+λaλb
+
+−
+
+ 1
+
+λa
+
++ 1
+
+λb
+
+ X
+
+> c̸=a,b
+
+1
+
+λc
+
+!
+
+,
+
+where we use 1 
+
+> F
+
+= P 
+
+> i<j
+> 1
+> λiλj
+
+in the last equality. Substituting this into (2.1) and evaluating it at λa = λb = λ gives 
+
+−F ab,ba = Fλaλb
+
+− F 2
+
+λaλb
+
+"
+
+1
+
+F − 1
+
+λaλb
+
+−
+
+ 1
+
+λa
+
++ 1
+
+λb
+
+ X
+
+> c̸=a,b
+
+1
+
+λc
+
+#
+
+= F 2
+
+λ2
+
+> a
+
+λ2
+
+> b
+
++ F 2(λa + λb)
+
+λ2
+
+> a
+
+λ2
+
+> b
+
+X
+
+> c̸=a,b
+
+1
+
+λc
+
+= F 2
+
+λ4 + 2F 2
+
+λ3
+
+X
+
+> c̸=a,b
+
+1
+
+λc
+
+.
+
+By Lemma 2.3, (2.2) F aa = F 2
+
+λ3 + F 2
+
+λ2
+
+X
+
+> c̸=a,b
+
+1
+
+λc
+
+.
+
+We have the desired equality. 8The following equality will be used in the Jacobi inequality for the general 
+
+l, k case. 
+
+Lemma 2.5. Let n ≥ 2, 1 ≤ k < l ≤ n, and let F (D2u) = σl 
+
+> σk
+
+(D2u). Let the eigenvalues be λ1 ≥ · · · ≥ λn > 0 at x0. Suppose there exist distinct indices 
+
+a̸ = b such that λa = λb = λ at x0. Then −F ab,ba evaluated at x0 satisfies the following equality. 
+
+(2.3) F aa = λb(−F ab,ba ) + Gab ,
+
+where Gab is defined by 
+
+(2.4) Gab := σl−1(λ|λa, λ b)
+
+σk
+
+− F σk−1(λ|λa, λ b)
+
+σk
+
+.
+
+Proof. By Lemma 2.1, we have 
+
+−F ab,ba = σl−2(λ|λa, λ b)
+
+σk
+
+− F σk−2(λ|λa, λ b)
+
+σk
+
+.
+
+The first derivative with respect to λa is (2.5) F aa = σl−1(λ|λa)
+
+σk
+
+− F σk−1(λ|λa)
+
+σk
+
+.
+
+Using the identity σj (λ|λa) = λbσj−1(λ|λa, λ b) + σj (λ|λa, λ b), we have 
+
+F aa = λb
+
+σl−2(λ|λa, λ b)
+
+σk
+
+− F σk−2(λ|λa, λ b)
+
+σk
+
+
+
++
+
+σl−1(λ|λa, λ b)
+
+σk
+
+− F σk−1(λ|λa, λ b)
+
+σk
+
+
+
+.
+
+The first bracketed term is exactly −F ab,ba , and the second bracketed term is our definition of Gab . This completes the proof. We establish a lower bound for the trace of the linearized operator F ii .
+
+Lemma 2.6. Let n ≥ 3, l ≤ n, and k = l − 2 with k ≥ 1. Suppose 
+
+λ1 ≥ · · · ≥ λn > 0 and F (λ) = σl 
+
+> σk
+
+(λ) = f > 0. Then the trace of the linearized operator is bounded from below. 
+
+(2.6) X
+
+> i
+
+F ii ≥ C(n, l )pf , 
+
+where C(n, l ) = 2( n−l+2) 
+
+> l−1
+
+q(l−1)( n−l+1)  
+
+> l(n−l+2)
+
+.
+
+9Proof. By Lemma 2.1, we have 
+
+F ii = σii l
+
+σk
+
+− σlσii k
+
+σ2
+
+> k
+
+.
+
+Summing over i and using the identity P 
+
+> i∂σ k
+> ∂λ i
+
+= ( n − k + 1) σk−1, we have 
+
+X
+
+> i
+
+F ii =
+
+P 
+
+> i
+
+σii l
+
+σk
+
+− σl
+
+P 
+
+> i
+
+σii k
+
+σ2
+
+> k
+
+= (n − l + 1) σl−1
+
+σk
+
+− σl(n − k + 1) σk−1
+
+σ2
+
+> k
+
+= (n − l + 1) σl−1
+
+σk
+
+− (n − k + 1) 
+
+σk
+
+σk−1F. 
+
+For k = l − 2 and F = f , this becomes 
+
+X
+
+> i
+
+F ii = (n − l + 1) σl−1
+
+σl−2
+
+− (n − l + 3) 
+
+σl−2
+
+σl−3f. 
+
+By Newton’s inequality, 
+
+σl−2
+
+  nl−2
+
+!2
+
+≥ σl−1
+
+  nl−1
+
+ σl−3
+
+  nl−3
+
+.
+
+This simplifies to 
+
+σl−3
+
+σl−2
+
+≤ (l − 2)( n − l + 2) (l − 1)( n − l + 3) 
+
+σl−2
+
+σl−1
+
+.
+
+Substituting this into the trace equation yields 
+
+X
+
+> i
+
+F ii ≥ (n − l + 1) σl−1
+
+σl−2
+
+− f (l − 2)( n − l + 2) 
+
+l − 1
+
+σl−2
+
+σl−1
+
+.
+
+Now, we minimize the function g(x) := c1x − c2fx , where c1 = n − l + 1, 
+
+c2 = (l−2)( n−l+2)  
+
+> l−1
+
+, and x = σl−1 
+
+> σl−2
+
+. For a fixed f , we view g as a function of x. Since g′(x) = c1 + c2fx2 > 0, the function g(x) is strictly increasing. It therefore suffices to evaluate g at the minimum possible value of x. By Newton’s inequality, 
+
+f = σl
+
+σl−2
+
+≤ (l − 1)( n − l + 1) 
+
+l(n − l + 2) 
+
+σl−1
+
+σl−2
+
+2
+
+= (l − 1)( n − l + 1) 
+
+l(n − l + 2) x2.
+
+10 Thus, x ≥
+
+q l(n−l+2) (l−1)( n−l+1) 
+
+√f := xmin . Hence, evaluating the trace lower bound at this minimum value xmin gives the desired lower bound. Let K =q l(n−l+2) (l−1)( n−l+1) . Substituting the values of c1, c2, and K, we have 
+
+c1K − c2
+
+K = 1
+
+K (c1K2 − c2)= 1
+
+K
+
+
+
+(n − l + 1) l(n − l + 2) (l − 1)( n − l + 1) − (l − 2)( n − l + 2) 
+
+l − 1
+
+
+
+= 1
+
+K
+
+l(n − l + 2) − (l − 2)( n − l + 2) 
+
+l − 1
+
+
+
+= 1
+
+K
+
+2( n − l + 2) 
+
+l − 1 .
+
+Since l ≥ 3 and n ≥ l, this coefficient is positive. Therefore, 
+
+X
+
+> i
+
+F ii ≥ 2( n − l + 2) 
+
+l − 1
+
+s
+
+(l − 1)( n − l + 1) 
+
+l(n − l + 2) 
+
+pf . 
+
+We establish the following inequality, which will be used in the proof of the doubling inequality. 
+
+Lemma 2.7. Let n ≥ 3. Suppose λ = ( λ1, . . . , λ n) satisfies λ1 ≥ · · · ≥ λn >
+
+0 and F (λ) = σn 
+
+> σn−2
+
+(λ) = f > 0. Then the trace of the linearized operator satisfies X
+
+> i
+
+F ii < f X
+
+> j
+
+1
+
+λj
+
+.
+
+Proof. Using the trace formula derived from the quotient rule, we have 
+
+X
+
+> i
+
+F ii = σn−1
+
+σn−2
+
+− 3f σn−3
+
+σn−2
+
+.
+
+Using the relation σn = f σ n−2 in the first term yields 
+
+X
+
+> i
+
+F ii = f σn−1
+
+σn
+
+− 3f σn−3
+
+σn−2
+
+< f σn−1
+
+σn
+
+= f X
+
+> j
+
+1
+
+λj
+
+.
+
+We restate some upper and lower bounds for the eigenvalues of the solu-tions of Hessian quotient equations. 11 Lemma 2.8 ([10] Lemma 2.3 and Lemma 2.4) . Let n ≥ 2 and k ∈ { n −
+
+1, n − 2} with k ≥ 1. Let u ∈ C4(B2(0)) be a convex solution of (1.1) with 
+
+F (D2u) = f (x, u, Du ) > 0. Then the eigenvalues of D2u satisfy 
+
+f ≤ λn ≤ C(n)f if k = n − 1,
+
+and 
+
+λn−1 ≥
+
+s
+
+fC(n) > 0, λn ≤ pC(n)f if k = n − 2.
+
+Remark 2.9. In particular, all eigenvalues are positive. For the case k =
+
+n − 1, this is a direct consequence. For the case k = n − 2, suppose it were true that λn = 0 , then σn−2 > 0 and σn = 0 . This is impossible because 
+
+F (D2u) = f > 0.
+
+Lemma 2.10 ([11] Lemma 2.3) . Let n ≥ 2, 1 < l ≤ n, and let F = σl 
+
+> σl−1
+
+.Suppose λ1 ≥ · · · ≥ λn > 0. Then we have 
+
+1
+
+c(n, l )F ≤ λl ≤ c(n, l )
+
+F ,
+
+where c(n, l ) is a positive constant depending only on n and l.
+
+Lemma 2.11 ([11] Lemma 2.4) . Let n ≥ 3, 2 < l ≤ n, and let F = σl 
+
+> σl−2
+
+.Suppose λ1 ≥ · · · ≥ λn > 0. Then we have 
+
+1
+
+c(n, l )F ≤ λl−1λl ≤ c(n, l )
+
+F ,λl−1 ≥ 1
+
+c(n, l )√F ,λl ≤ c(n, l )
+
+√F ,
+
+where c(n, l ) is a positive constant depending only on n and l.
+
+We restate the concavity inequalities. 
+
+Lemma 2.12 ([8], [10] Lemma 3.1) . Let n ≥ 2 and let F (λ) = σn 
+
+> σn−1
+
+(λ) with 
+
+λ1 ≥ · · · ≥ λn > 0. Then for any ξ ∈ Rn, we have 
+
+− X
+
+> i,j
+
+F ii,jj ξiξj − F 11 ξ21
+
+λ1
+
+≥ − 2
+
+F
+
+X
+
+> i
+
+F ii ξi
+
+!2
+
++ F 11 ξ21
+
+λ1
+
+.
+
+12 Lemma 2.13 ([8], [10] Lemma 3.2) . Let n ≥ 3 and let F (λ) = σn 
+
+> σn−2
+
+(λ) with 
+
+λ1 ≥ · · · ≥ λn > 0. Then for any ξ ∈ Rn, we have 
+
+− X
+
+> i,j
+
+F ii,jj ξiξj − F 11 ξ21
+
+λ1
+
+≥ − 2
+
+F
+
+X
+
+> i
+
+F ii ξi
+
+!2
+
++ 12( n − 1) 
+
+F 11 ξ21
+
+λ1
+
+.
+
+We restate the following generalization of Savin small perturbation theo-rem for equations F (M, p, z, x ) depending on D2u, Du , u, and x.
+
+Theorem 2.14 (Generalization of Savin small perturbation theorem, [4] Theorem 1.6) . Consider the fully nonlinear equation of the general form 
+
+F (D2u, Du, u, x ) = f (x) on B1,
+
+where F : Sn × Rn × R × B1 → R is a function defined for (M, p, z, x )
+
+satisfying the following hypotheses. H1) F (·, p, z, x ) is elliptic, i.e., F (M +N, p, z, x ) ≥ F (M, p, z, x ) for M, N ∈Sn and N ≥ 0.H2) F (·, p, z, x ) is uniformly elliptic in a ρ-neighborhood of the origin in 
+
+Sn. That is, there exist constants Λ > λ > 0 such that for any 
+
+∥M ∥, ∥N ∥, |p|, |z| ≤ ρ with N ≥ 0,
+
+Λ∥N ∥ ≥ F (M + N, p, z, x ) − F (M, p, z, x ) ≥ λ∥N ∥.
+
+H3) 0 is a solution, i.e., F (0 , 0, 0, x ) ≡ 0. Moreover, F satisfies the follow-ing structure condition. For any ∥M ∥, |p|, |q|, |z|, |s| ≤ ρ and x ∈ B1,there holds 
+
+|F (M, p, z, x ) − F (M, q, s, x )| ≤ b0|p − q| + c0|z − s|.
+
+H4) F ∈ C1 and its derivative DM F is uniformly continuous in the ρ-neighborhood of {(0 , 0, 0, x ) : x ∈ B1} with a modulus of continuity 
+
+ωF .Let u ∈ C(B1) be a viscosity solution to the equation. For any α ∈ (0 , 1) ,there exist constants δ, C > 0, depending only on n, α, ρ, λ, Λ, b 0, c 0, and ωF ,such that if 
+
+|F (M, p, z, x ) − F (M, p, z, x ′)| ≤ δ|x − x′|α
+
+for all ∥M ∥, |p|, |z| ≤ ρ, x, x ′ ∈ B1, and 
+
+∥u∥L∞(B1) ≤ δ, ∥f ∥C0,α (B1) ≤ δ, 
+
+then u ∈ C2,α (B1/2) with 
+
+∥u∥C2,α (B1/2) ≤ C. 
+
+13 3 Jacobi Inequality 
+
+In this section, we establish the Jacobi inequalities for our equations in the classical sense. Our proof follows the original arguments in Lemma 4.1 of [10] and Lemma 2.5 of [11] with a few modifications. The original arguments established the Jacobi inequalities for b1 := ln λ1 in the viscosity sense. At points where the largest eigenvalue of D2u has multiplicity m, their proof utilizes Lemma 5 in Brendle, Choi, and Daskalopoulos [2], which guarantees that the third order terms uabi vanish for distinct indices a̸ = b ≤ m.In our proof, assuming the maximum eigenvalue of D2u has multiplicity m
+
+at x0, the function bm := 1
+
+> m
+
+Pma=1 ln λa is locally smooth near x0. We derive this inequality in the classical sense for all 1 ≤ m ≤ n because it is required for the doubling inequality later in the proof. However, this classical approach encounters two obstacles. First, the terms uabi do not naturally vanish for indices a̸ = b ≤ m. The terms involving u2 
+
+> abi
+
+with negative coefficients must be carefully absorbed. While the top quotient cases ( n, n − 1) and ( n, n − 2) admit simpler arguments, the specific case of ( n, k ) = (3 , 1) and the general quotient σl 
+
+> σk
+
+require a more delicate treatment. We must proceed case by case based on the multiplicity m, which in turn requires the maximal eigenvalue 
+
+λ to be sufficiently large. In particular, for the general l case, the coefficient of u2 
+
+> abi
+
+is highly com-plicated. Precisely, the coefficient of u2
+
+> abi
+
+/λ 2, where λ is the maximum eigen-value, is given by (3.22). To simplify the computation, we introduce the auxiliary quantities Gab (defined in (2.4)) and Tj (defined in (3.23)). After simplification, we obtain the lower bound (3.26). However, we cannot simply take the limit as λ → ∞ in (3.26). In ad-dition to the maximal eigenvalue λ and the bounded eigenvalues λl, . . . , λ n,there exist potentially unbounded eigenvalues λm+1 , . . . , λ l−1. A direct limit argument fails because the choice of λ might depend on these terms. We overcome this difficulty by factoring out λm+1 , . . . , λ l−1 to obtain (3.27) and (3.28). This allows us to take the limit λ → ∞ .Second, differentiating the equation twice generates additional second order and third order terms involving the derivatives of f . As explained in the introduction, to eliminate the second order terms, we impose the structural condition that 1 /f is concave with respect to Du . The third order terms will be handled during the proof of the doubling inequality later. For the general quotient σl 
+
+> σk
+
+, we impose a similar structural condition on f .Before proceeding with the computations, we clarify our derivative nota-tion for the function f (x, u, Du ). We use ddx a f to denote the total derivative with respect to xa. We denote the partial derivatives of f (x, z, p ) by ∂f ∂x a ,14 ∂f ∂z (or fz ), and ∂f ∂p i (or fpi ), corresponding to the x, u, and Du variables respectively. Additionally, we use the following index conventions for convenience. In-dices a, b, c usually represent indices 1 , . . . , m , where m is the multiplicity of the largest eigenvalue of D2u at x0. When any of a, b , or c appears together in a term, it implies that they are mutually distinct. Indices α, β usually represent indices m + 1 , . . . , n , and when they are being used together, it implies that α̸ = β. Other indices like i, j, k are used in the standard way to represent all indices 1 , . . . , n .
+
+Proposition 3.1. Let n ≥ 2, k ∈ { n − 1, n − 2} with k ≥ 1, and f > 0 be a 
+
+C1,1 function such that 1/f is concave in the gradient variable Du . Suppose 
+
+u ∈ C4(B2(0)) is a convex solution to (1.1) . At any fixed point x0 ∈ B2(0) 
+
+where D2u is diagonalized with its eigenvalues ordered as 
+
+λ1 = · · · = λm > λ m+1 ≥ · · · ≥ λn > 0,
+
+the function bm := 1
+
+> m
+
+Pma=1 ln λa is locally smooth near x0. Furthermore, there exists a constant K0 ≥ 1, depending only on n, k, ∥u∥C0,1(B2(0)) , ∥1/f ∥L∞ , and 
+
+∥f ∥C1,1 , such that if λ1 ≥ K0, bm satisfies the Jacobi inequality 
+
+X
+
+> i
+
+F ii (bm)ii ≥ M (n, k ) X
+
+> i
+
+F ii (( bm)i)2 + X
+
+> i
+
+fpi (bm)i − C
+
+at x0 in the classical sense. Here, M (n, n −1) = 1 , M (n, n −2) = 12( n−1) , and 
+
+C is a constant depending only on n, k, ∥u∥C0,1(B2(0)) , ∥1/f ∥L∞ , and ∥f ∥C1,1 .Equivalently, under the same assumptions, am := exp( M (n, k )bm) satis-fies 
+
+(3.1) X
+
+> i
+
+F ii (am)ii ≥ 2 X
+
+> i
+
+F ii (am)2
+
+> i
+
+am
+
+− Ca m + X
+
+> i
+
+fpi (am)i
+
+at x0 in the classical sense. 
+
+Remark 3.2. When (n, k )̸ = (3 , 1) , the constant K0 can be chosen as 1.Proof. Throughout the proof, C denotes a positive constant that may change from line to line, depending only on n, k, ∥u∥C0,1(B2(0)) , ∥1/f ∥L∞ , and ∥f ∥C1,1 .Note that bm is symmetric in λ1, . . . , λ m, and λm > λ m+1 . Hence, the function is smooth near x0.We assume D2u is diagonalized at the point x0. We will perform all computations below at x0. Now, assume λ ≥ K0 ≥ 1, where K0 is a constant depending on n, k, ∥u∥C0,1(B2(0)) , ∥1/f ∥L∞ , and ∥f ∥C1,1 , which will be chosen 15 later. We employ the approximation argument used in Lemma 2.3 of [18]. We first assume that the first m eigenvalues are distinct. We will compute P 
+
+> i
+
+F ii (( bm)i)2 and P 
+
+> i
+
+F ii (bm)ii by differentiating the characteristic equation det( D2u − λj I) = 0 at x0. The derivatives of the eigenvalues are given by 
+
+∂eλj = ujje ,∂ee λj = ujjee + X 
+
+> k̸=j
+
+2( ujke )2
+
+λj − λk
+
+.
+
+Now, computing the first derivative squared term contracted with F ii , we have 
+
+X
+
+> i
+
+F ii (( bm)i)2 = X
+
+> i
+
+F ii 1
+
+m
+
+> m
+
+X
+
+> a=1
+
+(λa)i
+
+λa
+
+!2
+
+= X
+
+> i
+
+F ii 1
+
+m
+
+> m
+
+X
+
+> a=1
+
+uaai 
+
+λa
+
+!2
+
+.
+
+Next, we compute the second derivative term traced with F ii to obtain 
+
+X
+
+> i
+
+F ii (bm)ii = X
+
+> i
+
+F ii 1
+
+m
+
+> m
+
+X
+
+> a=1
+
+(λa)ii 
+
+λa
+
+− (( λa)i)2
+
+λ2
+
+> a
+
+!
+
+= 1
+
+m
+
+X
+
+> im
+
+X
+
+> a=1
+
+F ii uaaii 
+
+λa
+
++ X 
+
+> k̸=a
+
+2u2
+
+> aki
+
+λa(λa − λk) − u2
+
+> aai
+
+λ2
+
+> a
+
+!
+
+.
+
+(3.2) Now, we expand the second term to obtain 
+
+> m
+
+X
+
+> a=1
+
+X 
+
+> k̸=a
+
+2u2
+
+> aki
+
+λa(λa − λk) =
+
+> m
+
+X
+
+> a=1
+
+X
+
+> α>m
+
+2u2
+
+> aαi
+
+λa(λa − λα) +
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+2u2
+
+> abi
+
+λa(λa − λb).
+
+Furthermore, 
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+2u2
+
+> abi
+
+λa(λa − λb) = X
+
+> 1≤a<b ≤m
+
+2u2
+
+> abi
+
+λa(λa − λb) + X
+
+> 1≤a<b ≤m
+
+2u2
+
+> abi
+
+λb(λb − λa)= − X
+
+> 1≤a<b ≤m
+
+2u2
+
+> abi
+
+λaλb
+
+= −
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+u2
+
+> abi
+
+λaλb
+
+.
+
+(3.2) becomes 
+
+X
+
+> i
+
+mF ii (bm)ii =
+
+X
+
+> i
+
+F ii 
+
+
+
+> m
+
+X
+
+> a=1
+
+"
+
+uaaii 
+
+λa
+
++ X
+
+> α>m
+
+2u2
+
+> aαi
+
+λa(λa − λα) − u2
+
+> aai
+
+λ2
+
+> a
+
+#
+
+−
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+u2
+
+> abi
+
+λaλb
+
+ .
+
+(3.3) 16 Now, as in the proof of [18] Lemma 2.3, since bm is C2 near D2u(x0) as a function of the matrix, we may approximate D2u(x0) by matrices with distinct eigenvalues and take the limit (i.e., all λa, λ b → λ if a, b ≤ m). We have 
+
+X
+
+> i
+
+mF ii (bm)ii =
+
+X
+
+> i
+
+F ii 
+
+
+
+> m
+
+X
+
+> a=1
+
+"
+
+uaaii 
+
+λ + X
+
+> α>m
+
+2u2
+
+> aαi
+
+λ(λ − λα) − u2
+
+> aai
+
+λ2
+
+#
+
+−
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+u2
+
+> abi
+
+λ2
+
+ .
+
+(3.4) Differentiating the equation F (D2u) = f (x, u, Du ) twice yields 
+
+X
+
+> i
+
+F ii uiiaa + X
+
+> p,q,r,s
+
+F pq,rs upqa ursa = d2
+
+dx 2
+
+> a
+
+f (x, u, Du ) for a = 1 , . . . , m. 
+
+Observe that 
+
+X
+
+> p,q,r,s
+
+F pq,rs upqa ursa = X
+
+> p,q
+
+F pp,qq uppa uqqa + X
+
+> p̸=q
+
+F pq,qp u2
+
+> pqa
+
+.
+
+(3.4) becomes 
+
+X
+
+> i
+
+mF ii (bm)ii =
+
+> m
+
+X
+
+> a=1
+
+X
+
+> p,q
+
+−F pp,qq uppa uqqa 
+
+λ −
+
+> m
+
+X
+
+> a=1
+
+X
+
+> p̸=q
+
+F pq,qp u2
+
+> pqa
+
+λ
+
++ X
+
+> i
+
+F ii 
+
+
+
+> m
+
+X
+
+> a=1
+
+X
+
+> α>m
+
+2u2
+
+> aαi
+
+λ(λ − λα) −
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+u2
+
+> abi
+
+λ2 −
+
+> m
+
+X
+
+> a=1
+
+u2
+
+> aai
+
+λ2
+
+
+
++
+
+> m
+
+X
+
+> a=1
+
+1
+
+λd2
+
+dx 2
+
+> a
+
+f (x, u, Du ).
+
+(3.5) Now, we estimate the terms in (3.5). For the first term, we make use of the concavity inequalities in Lemma 2.12 and Lemma 2.13 to obtain 
+
+−
+
+> m
+
+X
+
+> a=1
+
+X
+
+> p,q
+
+F pp,qq uppa uqqa 
+
+λ ≥
+
+> m
+
+X
+
+> a=1
+
+−2
+
+F λ 
+
+X
+
+> i
+
+F ii uiia 
+
+!2
+
++
+
+> m
+
+X
+
+> a=1
+
+(M (n, k ) + 1) F aa u2
+
+> aaa
+
+λ2
+
+=
+
+> m
+
+X
+
+> a=1
+
+−2
+
+F λ 
+
+ df dx a
+
+2
+
++
+
+> m
+
+X
+
+> a=1
+
+(M (n, k ) + 1) F aa u2
+
+> aaa
+
+λ2 .
+
+(3.6) 17 Let I1a and I1b denote the first and second terms on the right hand side respectively. Note that λa = λ1 for 1 ≤ a ≤ m and F aa = F 11 so we can apply the lemmas to all 1 ≤ a ≤ m. This can be seen by rewriting the original proof or considering permutations of indices. For the second term, using the fact that −F pq,qp > 0 by Lemma 2.1, we drop the terms where both indices p and q are greater than m to obtain 
+
+−
+
+> m
+
+X
+
+> a=1
+
+X
+
+> p̸=q
+
+F pq,qp u2
+
+> pqa
+
+λ ≥ − 2
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+F ab,ba u2
+
+> aab
+
+λ + 2 
+
+> m
+
+X
+
+> a=1
+
+X
+
+> α>m
+
+F αα − F aa 
+
+λ − λα
+
+u2
+
+> aaα
+
+λ
+
++ 2 
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+X
+
+> α>m
+
+F αα − F bb 
+
+λ − λα
+
+u2
+
+> abα
+
+λ −
+
+> m
+
+X
+
+> a,b,c =1
+> a̸=b,a ̸=c,b ̸=c
+
+F bc,cb u2
+
+> abc
+
+λ .
+
+Let I2a, I2b, I2c, and I2d denote the first, second, third, and fourth terms on the right hand side respectively. Note that the coefficient of I2d is 1 instead of 2. For the third term, we drop all terms for i > m to obtain (3.7) 
+
+X
+
+> i
+
+F ii mX
+
+> a=1
+
+X
+
+> α>m
+
+2u2
+
+> aαi
+
+λ(λ − λα) ≥
+
+> m
+
+X
+
+> a=1
+
+F aa X
+
+> α>m
+
+2u2
+
+> aaα
+
+λ(λ − λα) +
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+X
+
+> α>m
+
+2F bb u2
+
+> abα
+
+λ(λ − λα).
+
+Let I3a and I3b denote the first and second terms on the right hand side respectively. For the fourth term, we expand and group to obtain 
+
+− X
+
+> i
+
+F ii mX
+
+> a,b =1
+> a̸=b
+
+u2
+
+> abi
+
+λ2
+
+= −
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+F aa u2 
+
+> aab
+
++ F bb u2
+
+> abb
+
+λ2 −
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+X
+
+> α>m
+
+F αα u2
+
+> abα
+
+λ2 −
+
+> m
+
+X
+
+> a,b,c =1
+> a̸=b,a ̸=c,b ̸=c
+
+F aa u2
+
+> abc
+
+λ2
+
+= −
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+F aa 2u2
+
+> aab
+
+λ2 −
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+X
+
+> α>m
+
+F αα u2
+
+> abα
+
+λ2 −
+
+> m
+
+X
+
+> a,b,c =1
+> a̸=b,a ̸=c,b ̸=c
+
+F aa u2
+
+> abc
+
+λ2 .
+
+Let I4a,I4b, and I4c denote the first, second, and third terms on the last line respectively. For the fifth term, we similarly expand to obtain 
+
+−
+
+> m
+
+X
+
+> a=1
+
+X
+
+> i
+
+F ii u2
+
+> aai
+
+λ2 = −
+
+> m
+
+X
+
+> a=1
+
+F aa u2
+
+> aaa
+
+λ2 −
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+F bb u2
+
+> aab
+
+λ2 −
+
+> m
+
+X
+
+> a=1
+
+X
+
+> α>m
+
+F αα u2
+
+> aaα
+
+λ2 .
+
+18 Let I5a, I5b, and I5c denote the first, second, and third terms on the right hand side respectively. Now, we group the terms by the indices of the third derivatives. First, we group the terms involving u2
+
+> aaa
+
+. Combining the corresponding terms in I1b and I5a, we have 
+
+> m
+
+X
+
+> a=1
+
+(M (n, k ) + 1) F aa u2
+
+> aaa
+
+λ2 −
+
+> m
+
+X
+
+> a=1
+
+F aa u2
+
+> aaa
+
+λ2
+
+=
+
+> m
+
+X
+
+> a=1
+
+M (n, k )F aa u2
+
+> aaa
+
+λ2 .
+
+(3.8) Now, we group the terms involving u2 
+
+> aab
+
+or u2
+
+> abb
+
+. Combining I2a, I4a, and 
+
+I5b, we have 
+
+−2
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+F ab,ba u2
+
+> aab
+
+λ − 3
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+F bb u2
+
+> aab
+
+λ2 .(3.9) Now, we claim that under our assumption λ ≥ K0, where K0 ≥ 1 de-pends only on n, k, ∥u∥C0,1(B2(0)) , ∥1/f ∥L∞ , and ∥f ∥C1,1 , the term (3.9) has the following lower bound (3.10) M (n, k )
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+F bb u2
+
+> aab
+
+λ2 .
+
+Case k = n − 1. By Lemma 2.4(a), −F ab,ba = 2F aa  
+
+> λ
+
+. (3.9) becomes 
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+F bb u2
+
+> aab
+
+λ2
+
+Case k = n − 2. By Lemma 2.4(b), −F ab,ba = 2F aa  
+
+> λ
+
+− F 2 
+
+> λ4
+
+. (3.9) becomes 
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+F aa 
+
+λ − 2F 2
+
+λ4
+
+ u2
+
+> aab
+
+λ =
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+F 2
+
+λ3
+
+X
+
+> i̸=a
+
+1
+
+λi
+
+− 2F 2
+
+λ4
+
+!
+
+u2
+
+> aab
+
+λ(3.11) Subcase n = 3 and m = 1. The term does not exist. Subcase n = 3 and m = 2. By Lemma 2.8, λ3 ≤ pC(3) f ≤ C√sup f =: 
+
+c0. Suppose that λ ≥ 2c0, then 
+
+F 2
+
+λ3
+
+X
+
+> i̸=a
+
+1
+
+λi
+
+−2F 2
+
+λ4 = F 2
+
+λ3
+
+1
+
+λ3
+
+−F 2
+
+λ4 ≥ F 2
+
+λ3
+
+12λ3
+
+≥ F 2
+
+λ3
+
+X
+
+> i̸=a
+
+14λi
+
+= F aa 
+
+4λ ≥ M (3 , 1) F aa 
+
+λ .
+
+19 We have the desired lower bound. Subcase n = 3 and m = 3. Indeed, we do not need the Jacobi inequality. From the equation, it is immediate that λ = √3f ≤ √3 sup f .Subcase n ≥ 4. 
+
+F 2
+
+λ3
+
+X
+
+> i̸=a
+
+1
+
+λi
+
+−2F 2
+
+λ4 ≥ F 2
+
+λ3
+
+1
+
+λn
+
+≥ F 2
+
+λ3
+
+1
+
+n − 1
+
+X
+
+> i̸=a
+
+1
+
+λi
+
+= 1(n − 1) λF aa ≥ M (n, n −2) F aa 
+
+λ .
+
+We have the desired lower bound. Hence, (3.9) is bounded from below by (3.10) if λ ≥ K0.Next, we group the terms involving u2
+
+> abc
+
+. By combining I2d and I4c, we arrive at the expression 
+
+−
+
+> m
+
+X
+
+> a,b,c =1
+> a̸=b,a ̸=c,b ̸=c
+
+F bc,cb u2
+
+> abc
+
+λ −
+
+> m
+
+X
+
+> a,b,c =1
+> a̸=b,a ̸=c,b ̸=c
+
+F aa u2
+
+> abc
+
+λ2 .(3.12) Now, we claim that the expression in (3.12) is non-negative. Case k = n − 1. By Lemma 2.4(a), −F ab,ba = 2F aa  
+
+> λ
+
+. (3.12) becomes 
+
+> m
+
+X
+
+> a,b,c =1
+> a̸=b,a ̸=c,b ̸=c
+
+F aa u2
+
+> abc
+
+λ2 ≥ 0.
+
+Case k = n − 2. By Lemma 2.4(b), −F ab,ba = 2F aa  
+
+> λ
+
+− F 2 
+
+> λ4
+
+. (3.12) becomes 
+
+> m
+
+X
+
+> a,b,c =1
+> a̸=b,a ̸=c,b ̸=c
+
+F aa 
+
+λ2 − F 2
+
+λ5
+
+
+
+u2
+
+> abc
+
+=
+
+> m
+
+X
+
+> a,b,c =1
+> a̸=b,a ̸=c,b ̸=c
+
+F 2
+
+λ4
+
+X
+
+> i̸=a
+
+1
+
+λi
+
+− F 2
+
+λ5
+
+!
+
+u2 
+
+> abc
+
+≥ 0,
+
+where we use Lemma 2.3 in the first equality. Next, we group the terms involving u2
+
+> abα
+
+. Combining I2c, I3b, and I4b, we 20 have 2
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+X
+
+> α>m
+
+F αα − F bb 
+
+λ − λα
+
+u2
+
+> abα
+
+λ +
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+X
+
+> α>m
+
+2F bb u2
+
+> abα
+
+λ(λ − λα) −
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+X
+
+> α>m
+
+F αα u2
+
+> abα
+
+λ2
+
+=
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+X
+
+> α>m
+
+2F αα 
+
+λ − λα
+
+u2
+
+> abα
+
+λ −
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+X
+
+> α>m
+
+F αα u2
+
+> abα
+
+λ2
+
+≥
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+X
+
+> α>m
+
+F αα u2
+
+> abα
+
+λ2 ≥ 0.
+
+(3.13) Finally, we group the terms involving u2
+
+> aaα
+
+. Combining I2b, I3a, and I5c,we have 2
+
+> m
+
+X
+
+> a=1
+
+X
+
+> α>m
+
+F αα − F aa 
+
+λ − λα
+
+u2
+
+> aaα
+
+λ +
+
+> m
+
+X
+
+> a=1
+
+F aa X
+
+> α>m
+
+2u2
+
+> aaα
+
+λ(λ − λα) −
+
+> m
+
+X
+
+> a=1
+
+X
+
+> α>m
+
+F αα u2
+
+> aaα
+
+λ2
+
+= 2 
+
+> m
+
+X
+
+> a=1
+
+X
+
+> α>m
+
+F αα 
+
+λ − λα
+
+u2
+
+> aaα
+
+λ −
+
+> m
+
+X
+
+> a=1
+
+X
+
+> α>m
+
+F αα u2
+
+> aaα
+
+λ2
+
+≥
+
+> m
+
+X
+
+> a=1
+
+X
+
+> α>m
+
+F αα u2
+
+> aaα
+
+λ2 .
+
+(3.14) Since we showed that the terms in (3.12) and (3.13) are non-negative, they can be dropped. Substituting the lower bounds (3.8), (3.10) and (3.14) back into (3.5), we obtain 
+
+X
+
+> i
+
+mF ii (bm)ii ≥ M (n, k )
+
+> m
+
+X
+
+> a=1
+
+X
+
+> i
+
+F ii u2
+
+> aai
+
+λ2 +
+
+> m
+
+X
+
+> a=1
+
+1
+
+λd2
+
+dx 2
+
+> a
+
+f (x, u, Du )
+
+−
+
+> m
+
+X
+
+> a=1
+
+2
+
+F λ 
+
+ df dx a
+
+2
+
+.
+
+(3.15) By the Cauchy-Schwarz inequality, 
+
+X
+
+> i
+
+F ii mX
+
+> a=1
+
+u2
+
+> aai
+
+λ2 =
+
+> m
+
+X
+
+> a=1
+
+X
+
+> i
+
+F ii (ln λa)2
+
+> i
+
+≥ 1
+
+m
+
+X
+
+> i
+
+F ii 
+
+> m
+
+X
+
+> a=1
+
+ln λa
+
+!2
+
+> i
+
+= m X
+
+> i
+
+F ii (bm)2 
+
+> i
+
+.
+
+(3.16) 21 Applying the chain rule to f (x, u, Du ), the total derivatives with respect to xa are given by (3.17) df dx a
+
+= ∂f ∂x a
+
++ ∂f ∂z ua + X
+
+> i
+
+∂f ∂p i
+
+uia ,
+
+and 
+
+d2fdx 2
+
+> a
+
+= ∂2f∂x 2
+
+> a
+
++ ∂2f∂z 2 u2 
+
+> a
+
++ 2 ∂2f∂x a∂z ua
+
++ 2 X
+
+> i
+
+∂2f∂x a∂p i
+
+uai + 2 X
+
+> i
+
+∂2f∂z∂p i
+
+uai ua + ∂f ∂z uaa 
+
++ X
+
+> i,j
+
+∂2f∂p i∂p j
+
+uia uja + X
+
+> i
+
+∂f ∂p i
+
+uiaa .
+
+(3.18) Substituting the total derivatives (3.17) and (3.18) into (3.15) and applying the Cauchy-Schwarz bound (3.16), we obtain 
+
+X
+
+> i
+
+mF ii (bm)ii ≥ M (n, k )m X
+
+> i
+
+F ii (bm)2 
+
+> i
+
++
+
+> m
+
+X
+
+> a=1
+
+∂2f∂p 2
+
+> a
+
+uaa +
+
+> m
+
+X
+
+> a=1
+
+X
+
+> i
+
+∂f ∂p i
+
+(ln λa)i
+
+−
+
+> m
+
+X
+
+> a=1
+
+2
+
+F
+
+ ∂f ∂p a
+
+2
+
+uaa − C − Cλ .
+
+(3.19) Using the assumptions that λ ≥ K0 ≥ 1 and that 1 
+
+> f
+
+is concave in Du , and dividing both sides by m, we have 
+
+X
+
+> i
+
+F ii (bm)ii ≥ M (n, k ) X
+
+> i
+
+F ii (bm)2 
+
+> i
+
++ X
+
+> i
+
+∂f ∂p i
+
+(bm)i − C. 
+
+The following proposition is a modification of [11] Lemma 2.5. 
+
+Proposition 3.3. Let n ≥ 2, 1 ≤ k < l ≤ n with k ∈ { l − 1, l − 2}, and 
+
+f > 0 be a C1,1 function satisfying the structural inequality P 
+
+> i,j
+
+fpipj ξiξj ≥ 
+
+> K1
+> f
+
+(P 
+
+> i
+
+fpi ξi)2 for all ξ ∈ Rn. Suppose Assumption 1.1 holds, u ∈ C4(B2(0)) 
+
+is a strictly convex solution to (1.4) , and at a fixed point x0 ∈ B2(0) , D2u is diagonalized with its eigenvalues ordered as 
+
+λ = λ1 = · · · = λm > λ m+1 ≥ · · · ≥ λn ≥ 022 Then, the function bm := 1
+
+> m
+
+Pma=1 ln λa is locally smooth near x0. Further-more, there exists a constant K0 ≥ 1, depending only on n, l, k, ∥u∥C0,1(B2(0)) ,
+
+∥1/f ∥L∞ , and ∥f ∥C1,1 , such that if λ ≥ K0, bm satisfies the Jacobi inequality 
+
+X
+
+> i
+
+F ii (bm)ii ≥ ˜c(n, l ) X
+
+> i
+
+F ii (( bm)i)2 + X
+
+> i
+
+fpi (bm)i − C
+
+at x0 in the classical sense. Here, ˜c(n, l ) := min( 12 , c (n, l )) , where c(n, l ) is the constant from Assumption 1.1, and C is a constant depending only on 
+
+n, l, ∥u∥C0,1(B2(0)) , ∥1/f ∥L∞ , and ∥f ∥C1,1 .Equivalently, under the same assumptions, the function am := exp(˜ c(n, l )bm)
+
+satisfies the Jacobi inequality 
+
+(3.20) X
+
+> i
+
+F ii (am)ii ≥ 2 X
+
+> i
+
+F ii (am)2
+
+> i
+
+am
+
+− Ca m + X
+
+> i
+
+fpi (am)i
+
+at x0 in the classical sense. Proof. Throughout the proof, C and K0 denote positive constants that may change from line to line, depending only on n, l, ∥u∥C0,1(B2(0)) , ∥1/f ∥L∞ , and 
+
+∥f ∥C1,1 . Now, we assume λ ≥ K0 ≥ 1, where K0 is a constant depending on n, l, ∥u∥C0,1(B2(0)) , ∥1/f ∥L∞ , and ∥f ∥C1,1 to be chosen later. The proof is highly similar to the proof of Proposition 3.1, except for the following three modifications. First, in (3.6), instead of using the concavity inequalities Lemma 2.12 and Lemma 2.13, we use Assumption 1.1 to obtain 
+
+−
+
+> m
+
+X
+
+> a=1
+
+X
+
+> p,q
+
+F pp,qq uppa uqqa 
+
+λ ≥ − 
+
+> m
+
+X
+
+> a=1
+
+K1
+
+F λ 
+
+ df dx a
+
+2
+
++
+
+> m
+
+X
+
+> a=1
+
+(c(n, l ) + 1) F aa u2
+
+> aaa
+
+λ2
+
+−
+
+> m
+
+X
+
+> a=1
+
+X
+
+> α>m
+
+2F αα u2
+
+> aαα
+
+λ(λ − λα).
+
+Note that λa = λ1 for 1 ≤ a ≤ m and F aa = F 11 , so we can apply Assumption 1.1 to all 1 ≤ a ≤ m. This can be seen by considering permutations of indices. Note that there will be an extra term − Pma=1 
+
+P  
+
+> α>m
+> 2Fαα u2
+> aαα
+> λ(λ−λα)
+
+, which can be absorbed by the i > m term in (3.7) that we dropped in the proof of Proposition 3.1. Second, as in Proposition 3.1, we need to show that the terms involving 
+
+u2 
+
+> aab
+
+or u2 
+
+> abb
+
+have the following lower bound 
+
+−2
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+F ab,ba u2
+
+> aab
+
+λ − 3
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+F bb u2
+
+> aab
+
+λ2 ≥ 12
+
+> m
+
+X
+
+> a,b =1
+> a̸=b
+
+F bb u2
+
+> aab
+
+λ2 ,(3.21) 23 where c(n, l ) is the constant from Assumption 1.1. Note that the constant was M (n, k ) instead of 12 in the proof of Proposition 3.1. We first notice that by Lemma 2.10 and Lemma 2.11, λl ≤ C. Hence, we may assume m ≤ l − 1else λ is trivially bounded. We may also assume m > 1, else the sums on both sides of (3.21) are equal to 0. Now, we fix a, b . Subtracting the right hand side of (3.21) from the left, it suffices to show that the resulting coefficient of u2 
+
+> aab
+> λ2
+
+is non-negative. This coefficient is given by (3.22) −2λF ab,ba − 72F bb = 2( F bb − Gab ) − 72F bb = −32F bb − 2Gab ,
+
+where we use Lemma 2.5 in the first equality and Gab is defined in (2.4). For simplicity, we use the following notation in the proof. (3.23) Tj := σj (λ1, λ 2, · · · , bλa, · · · bλb, · · · λn)As mentioned before, C ≥ λl ≥ λl+1 ≥ · · · ≥ λn. Note that λm+1 , · · · , λ l−1
+
+may not be bounded. We will have to keep track of them. Applying the equality σj (λ) = λiσj−1(λ|λi) + σj (λ|λi) to (2.4) and (2.5), we have 
+
+−Gab σ2 
+
+> k
+
+= λ2(Tl−2Tk−1 − Tk−2Tl−1) + TlTk−1 − Tl−1Tk,
+
+(3.24) 
+
+F aa σ2 
+
+> k
+
+= λ2(Tl−2Tk−1 − Tk−2Tl−1) + λ(TkTl−2 − TlTk−2) + Tl−1Tk − TlTk−1.
+
+(3.25) (3.22) becomes (−32F bb − 2Gab )σ2 
+
+> k
+
+= 12λ2(Tl−2Tk−1 − Tk−2Tl−1) − 32λ(TkTl−2 − TlTk−2)
+
+− 72(Tl−1Tk − TlTk−1)
+
+≥ Cλ 2Tl−2Tk−1 − 32λT kTl−2 − 72Tl−1Tk,
+
+(3.26) where we use Newton-Maclaurin inequalities on the first term and we dropped the positive terms in the second and third terms in the third inequality. Now, we split into the case k = l − 1 and the case k = l − 2. Case k = l − 1. We drop all the terms except the largest term. 
+
+Tl−2Tk−1 ≥ λ2m−4λ2 
+
+> m+1
+
+. . . λ 2
+
+> l−1
+
+λ2
+
+> l
+
+≥ Cλ 2m−4λ2 
+
+> m+1
+
+. . . λ 2
+
+> l−1
+
+,
+
+24 where we use λl ≥ C. For the negative terms, they are bounded below by a negative multiple of the largest term. 
+
+−TkTl−2 ≥ − Cλ 2m−4λ2 
+
+> m+1
+
+. . . λ 2 
+
+> l
+
+λl+1 ≥ − Cλ 2m−4λ2 
+
+> m+1
+
+. . . λ 2
+
+> l−1
+
+,
+
+where we use λl+1 ≤ λl ≤ C. Similarly, 
+
+−Tl−1Tk ≥ − Cλ 2m−4λ2 
+
+> m+1
+
+. . . λ 2
+
+> l−1
+
+.
+
+(3.26) becomes (3.27) (−32F bb − 2Gab )σ2 
+
+> l−1
+
+≥ Cλ 2 
+
+> m+1
+
+. . . λ 2
+
+> l−1
+
+(λ2m−2 − Cλ 2m−3 − Cλ 2m−4) > 0.
+
+if λ > K 0.Case k = l − 2. We drop all the terms except the largest term. 
+
+Tl−2Tk−1 ≥ λ2m−4λ2 
+
+> m+1
+
+. . . λ 2
+
+> l−1
+
+λl.
+
+For the negative terms, they are bounded below by a negative multiple of the largest term 
+
+−TkTl−2 ≥ − Cλ 2m−4λ2 
+
+> m+1
+
+. . . λ 2 
+
+> l
+
+≥ − Cλ 2m−4λ2 
+
+> m+1
+
+. . . λ 2
+
+> l−1
+
+λl,
+
+where we use λl ≤ C. Similarly, 
+
+−Tl−1Tk ≥ − Cλ 2m−4λ2 
+
+> m+1
+
+. . . λ 2
+
+> l−1
+
+λl.
+
+(3.26) becomes (3.28) (−32F bb − 2Gab )σ2 
+
+> k
+
+≥ Cλ 2 
+
+> m+1
+
+. . . λ 2
+
+> l−1
+
+λl(λ2m−2 − Cλ 2m−3 − Cλ 2m−4) > 0,
+
+if λ > K 0.Third, as before, the terms involving u2 
+
+> abc
+
+are given by (3.12). We need to show 
+
+−F bc,cb λ − F aa ≥ 0.
+
+Using Lemma 2.5 and the definition of Gab in (2.4), we have 
+
+−F bc,cb λ − F aa = F bb − Gbc − F aa = −Gbc = −Gab ≥ 0,
+
+where in the last inequality we use the fact that −Gab ≥ 34 F bb ≥ 0 established in (3.27) and (3.28). 25 Finally, instead of (3.19), we have the following inequality 
+
+X
+
+> i
+
+mF ii (bm)ii ≥ min( 12, c (n, l )) m X
+
+> i
+
+F ii (bm)2 
+
+> i
+
++
+
+> m
+
+X
+
+> a=1
+
+∂2f∂p 2
+
+> a
+
+uaa 
+
++
+
+> m
+
+X
+
+> a=1
+
+X
+
+> i
+
+∂f ∂p i
+
+(ln λa)i −
+
+> m
+
+X
+
+> a=1
+
+K1
+
+F
+
+ ∂f ∂p a
+
+2
+
+uaa − C − Cλ ,
+
+where c(n, l ) is the constant from Assumption 1.1. Using the assumed struc-tural inequality P 
+
+> i,j
+
+fpipj ξiξj ≥ K1 
+
+> f
+
+(P 
+
+> i
+
+fpi ξi)2 for any ξ ∈ Rn, the assumption 
+
+λ ≥ 1, and dividing both sides by m, we have the desired inequality. 
+
+# 4 Doubling Inequality 
+
+In this section, we establish the doubling inequalities. We first derive the maximum principle inequality (4.14) using the test function constructed by Shankar [14]. As noted by Shankar, this construction is motivated by Kore-vaar exponential cutoff [9] and Guan-Qiu [7] type radial derivative ( x − y) ·
+
+Du − u. To deal with the third order term P 
+
+> i
+
+fpi (am)i, we use the fact that the first derivative of the test function is zero at the maximum point. A cru-cial observation is that this term later generates the term h P
+
+> i
+
+(xi − yi)uii fpi ,which cancels with an identical term arising from the expansion of P 
+
+> i
+
+F ii φii 
+
+upon applying the identity P 
+
+> i
+
+F ii uiij = fxj .To obtain the final doubling inequality from (4.14), we proceed by cases. The subcases k = n − 1 and k = l − 1 are relatively straightforward. For 
+
+k = n − 1, we simply utilize the bound P 
+
+> i
+
+F ii ≤ C, while for k = l − 1, we apply the estimates established by Lu and Tsai [11] to show P 
+
+> i
+
+F ii ≤ C.Then the estimates follow from a standard computation. The subcases k = n − 2 and k = l − 2 are more involved because P 
+
+> i
+
+F ii 
+
+may not be bounded. Instead, our strategy is to show that, for each i,the coefficient of ( xi − yi)2 has a lower bound C P 
+
+> k
+
+F kk . To prove this for 
+
+k = n − 2, we analyze two further subcases by comparing 1 
+
+> λi
+
+with P 
+
+> j
+> 1
+> λj
+
+.For k = l − 2, we make use of the fact, established by Lu and Tsai [11], that F ii (1 + uii )2 is bounded above and below by a constant multiple of 
+
+λl−1. Finally, we use the fact that the trace P 
+
+> i
+
+F ii is bounded from below and divide both sides of the maximum principle inequality by the trace to conclude the proof. 
+
+Proposition 4.1 (Doubling inequality) . Let n ≥ 2 and k ∈ { n − 1, n − 2}
+
+with k ≥ 1. Suppose u ∈ C4(B2(0)) is a convex solution to (1.1) on B2(0) .
+
+26 Then, for any point y ∈ B1(0) , there exists a sufficiently small constant 
+
+R(n, ∥u∥C0,1(B1(0)) ) > 0 such that for any R > r > 0, we have 
+
+sup 
+
+> BR(y)
+
+λ1(D2u) ≤ C r, n, k, ∥u∥C0,1(B2(0)) , 1
+
+f L∞
+
+, ∥f ∥C1,1 , sup  
+
+> Br(y)
+
+λ1(D2u)
+
+!
+
+.
+
+(4.1) 
+
+Proof. In the proof, C denotes a constant that might change from line to line, depending on r, n, k, ∥u∥C0,1(B2(0)) , 1 
+
+> fL∞
+
+, and ∥f ∥C1,1 .We consider the cutoff function introduced in Proposition 4.1 of [14]. (4.2) η(x) = 
+
+
+
+e1−φ(x) 
+
+> h
+
+− 1
+
+
+
+> +
+
+,
+
+where φ(x) = ( x − y) · Du (x) − u(x) + u(y) + t|x−y|2 
+
+> 2
+
+. Here, t is a positive constant to be chosen depending on n and ∥u∥C0,1(B1(0)) , and h is a positive constant to be chosen depending on r, n, k, ∥u∥C0,1(B2(0)) , 1 
+
+> fL∞
+
+, and ∥f ∥C1,1 .Observe that 1 − φ(x) ≤ C∥u∥C0,1(B1(0)) − t 
+
+> 2
+
+|x − y|2. There exists a sufficiently large constant t ≥ C(n, ∥u∥C0,1(B1(0)) ) such that 1 − φ(x) < 0 for any |x − y| ≥ 12 . We assume t ≥ 1. Furthermore, as x → y, φ(x) → 0. Hence, there exists a sufficiently small constant R = C(n, t, ∥u∥C0,1(B1(0)) ) = C(n, ∥u∥C0,1(B1(0)) ) such that if |x−y| <R, then η(x) > 0. Moreover, inf x∈BR(y) η(x) ≥ C and sup x∈BR(y) η(x) ≤ C.Now, we fix R > 0 and let r ≤ R.Consider the maximum point x0 of a1(x)η(x) in B12
+
+(y) \ Br(y). There are three cases. Case 1. The maximum point occurs in the interior and 
+
+λ1(x0) ≤ K0, where K0 is the constant in Lemma 3.1. Case 2. The maximum point occurs in the interior and λ1(x0) > K 0. Case 3. The maximum point occurs on the boundary. We will show that if h is sufficiently small, then case 2 is not possible. Case 1 and case 3 each lead to the desired doubling inequality. Case 1. λ1(x0) ≤ K0. The Jacobi inequality in Proposition 3.1 does not apply in this case. However, |D2u(x0)| is already bounded. Note that we have an upper bound and a lower bound for η. We obtain the desired bound. sup 
+
+> BR(y)
+
+a1(x) ≤ sup  
+
+> BR(y)\Br(y)
+
+a1(x) + sup  
+
+> Br(y)
+
+a1(x)
+
+≤ C sup  
+
+> BR(y)\Br(y)
+
+η(x)a1(x) + sup  
+
+> Br(y)
+
+a1(x)
+
+≤ C sup  
+
+> BR(y)\Br(y)
+
+η(x)K0 + sup  
+
+> Br(y)
+
+a1(x)
+
+≤ C + sup  
+
+> Br(y)
+
+a1(x),
+
+(4.3) 27 Notice that the constant C depends on the constant h, but h will be fixed in case 2 and the choice of h depends only on r, n, k, ∥u∥C0,1(B2(0)) , 1 
+
+> fL∞
+
+, and 
+
+∥f ∥C1,1 .Case 2. λ1(x0) ≥ K0. The Jacobi inequality holds. Suppose the mul-tiplicity of the largest eigenvalue of D2u at x0 is m. We first claim that 
+
+η(x0) > 0. If η(x0) = 0, then a1(x0)η(x0) = 0, which is impossible because 
+
+η(x) > 0 for |x − y| ≤ R and we always have a1(x) > 0. Note that a1(x) may not be smooth near x0, but we have 
+
+am(x0)η(x0) = a1(x0)η(x0) ≥ a1(x)η(x) ≥ am(x)η(x)in a neighborhood of x0, with equality at x0. Hence, the function am(x)η(x)attains its local maximum at x0. By Proposition 3.1, am is smooth near x0.Also, η is smooth near x0 since η(x0) > 0. From now on, unless otherwise specified, all computations are evaluated at x0, and we assume D2u(x0) is diagonalized. Since ∇(amη) = 0 at the maximum point, we have (4.4) ηi = − ηam
+
+(am)i.
+
+Contracting F ii with ( amη)ii yields 0 ≥ X
+
+> i
+
+F ii (amη)ii 
+
+= X
+
+> i
+
+ F ii (am)ii η + 2 F ii (am)iηi + F ii amηii 
+
+
+
+= X
+
+> i
+
+
+
+F ii (am)ii η − 2F ii ηam
+
+(am)2 
+
+> i
+
++ F ii amηii 
+
+
+
+= X
+
+> i
+
+F ii 
+
+
+
+(am)ii − 2(am)2
+
+> i
+
+am
+
+
+
+η + X
+
+> i
+
+F ii amηii 
+
+≥ X
+
+> i
+
+fpi (am)iη − Ca mη + X
+
+> i
+
+F ii amηii 
+
+= − X
+
+> i
+
+fpi amηi − Ca mη + X
+
+> i
+
+F ii amηii ,
+
+where we substitute (4.4) in the second equality, use the Jacobi inequality in Proposition 3.1 in the penultimate step, and use (4.4) again in the last step. Because am > 0, we have (4.5) 0 ≥ − X
+
+> i
+
+fpi ηi − C(η + 1) + X
+
+> i
+
+F ii ηii .
+
+28 By the definition of η, we have (4.6) ηi = −(η + 1) φi
+
+h ,
+
+and (4.7) ηii = −(η + 1) φii 
+
+h + ( η + 1) (φi)2
+
+h2 .
+
+Substituting (4.6) and (4.7) into (4.5) and multiplying both sides by h2 
+
+> η+1
+
+,we have (4.8) Ch 2 + h(X
+
+> i
+
+F ii φii ) ≥ X
+
+> i
+
+F ii φ2 
+
+> i
+
++ h X
+
+> i
+
+fpi φi.
+
+Differentiating φ(x), we obtain 
+
+φi = ui + X
+
+> j
+
+(xj − yj )uij − ui + t(xi − yi) = X
+
+> j
+
+(xj − yj )uij + t(xi − yi).
+
+Because D2u is diagonalized at x0, this simplifies to (4.9) φi = ( xi − yi)( uii + t).
+
+Hence, we have (4.10) φ2 
+
+> i
+
+= ( xi − yi)2(uii + t)2.
+
+The second derivative is 
+
+φii = uii + X
+
+> j
+
+(xj − yj )uiij + t. 
+
+Contracting with F ii and employing the identity (4.11) X
+
+> i
+
+F ii uiij = ddx j
+
+f (x, u, Du ) = fxj + fz uj + X
+
+> k
+
+fpk ukj ,
+
+we obtain 
+
+X
+
+> i
+
+F ii φii ≤ (n − k)f + t X
+
+> i
+
+F ii + X
+
+> i
+
+fpi uii (xi − yi) + C
+
+≤ t X
+
+> i
+
+F ii + X
+
+> i
+
+fpi uii (xi − yi) + C. 
+
+(4.12) 29 Substituting (4.10) and (4.12) into the maximum principle inequality (4.8) and assuming h ≤ 1, we have 
+
+h t X
+
+> i
+
+F ii + X
+
+> i
+
+fpi uii (xi − yi) + C
+
+!
+
+≥ X
+
+> i
+
+F ii (xi − yi)2(uii + t)2 + h X
+
+> i
+
+(xi − yi)uii fpi − Ch. 
+
+(4.13) The terms involving fpi are identical, so they can be canceled. 
+
+h t X
+
+> i
+
+F ii + C
+
+!
+
+≥ X
+
+> i
+
+F ii (xi − yi)2(uii + t)2.(4.14) We will now demonstrate that if h is chosen to be sufficiently small de-pending on r, n, k, ∥u∥C0,1(B2(0)) , 1 
+
+> fL∞
+
+, and ∥f ∥C1,1 , then |x0 − y| < r , con-tradicting the fact that x0 ∈ B12
+
+(y) \ Br(y). We divide the proof into two subcases depending on k.Subcase k = n − 1. By Lemma 2.2, we have F ii = F 2
+
+> λ2
+> i
+
+= f 2
+
+> λ2
+> i
+
+and P 
+
+> ifλi
+
+=
+
+P 
+
+> iFλi
+
+= 1. The maximum principle inequality (4.14) becomes 
+
+h C + t X
+
+> i
+
+f 2
+
+λ2
+
+> i
+
+!
+
+≥ f 2 X
+
+> i
+
+(xi − yi)2
+
+λ2
+
+> i
+
+(λi + t)2.
+
+Because P 
+
+> if2
+> λ2
+> i
+
+<
+
+P
+
+> ifλi
+
+2
+
+= 1, the left hand side is bounded by h(C + t). On the right hand side, since t > 0 and λi > 0, we have 
+
+f 2 X
+
+> i
+
+(xi − yi)2
+
+
+
+1 + tλi
+
+2
+
+≥ f 2 X
+
+> i
+
+(xi − yi)2 = f 2|x − y|2.
+
+Therefore, f 2|x − y|2 ≤ h(C + t). By choosing h sufficiently small depend-ing on r, n, k, ∥u∥C0,1(B2(0)) , 1 
+
+> fL∞
+
+, we force |x − y| < r , which implies the maximum cannot occur in the interior of B12
+
+(y) \ Br(y). A contradiction arises. Subcase k = n − 2. By Lemma 2.3, the gradient term expands as 
+
+X
+
+> i
+
+F ii (xi − yi)2(uii + t)2 = F 2 X
+
+> i
+
+(xi − yi)2
+
+λ2
+
+> i
+
+X 
+
+> j̸=i
+
+1
+
+λj
+
+!
+
+(λi + t)2
+
+= F 2 X
+
+> i
+
+(xi − yi)2 X 
+
+> j̸=i
+
+1
+
+λj
+
+! 
+
+1 + tλi
+
+2
+
+.
+
+30 The maximum principle inequality (4.14) thus becomes (4.15) h C + t X
+
+> k
+
+F kk 
+
+!
+
+≥ F 2 X
+
+> i
+
+(xi − yi)2 X 
+
+> j̸=i
+
+1
+
+λj
+
+! 
+
+1 + tλi
+
+2
+
+.
+
+Claim. For each i,
+
+P 
+
+> j̸=i
+> 1
+> λj
+
+  
+
+1 + tλi
+
+2
+
+≥ C  P  
+
+> k
+
+F kk .Subcase 1. 1 
+
+> λi
+
+≤ 12
+
+P 
+
+> j
+> 1
+> λj
+
+. In this case, we have 
+
+X 
+
+> k̸=i
+
+1
+
+λk
+
+= X
+
+> k
+
+1
+
+λk
+
+!
+
+− 1
+
+λi
+
+≥ 12
+
+X
+
+> k
+
+1
+
+λk
+
+.
+
+Thus, since t, λ i > 0, 
+
+X 
+
+> j̸=i
+
+1
+
+λj
+
+! 
+
+1 + tλi
+
+2
+
+≥ 12
+
+X
+
+> k
+
+1
+
+λk
+
+≥ C X
+
+> k
+
+F kk ,
+
+where we use Lemma 2.7 in the last inequality. Subcase 2. 1 
+
+> λi
+
+> 12
+
+P 
+
+> j
+> 1
+> λj
+
+. We have (4.16) X 
+
+> k̸=i
+
+1
+
+λiλk
+
+≥ 12
+
+X 
+
+> k̸=i
+
+1
+
+λk
+
+X
+
+> j
+
+1
+
+λj
+
+≥ 12F ,
+
+where we use the assumption 1 
+
+> λi
+
+> 12
+
+P 
+
+> j
+> 1
+> λj
+
+in the first inequality and the equality P  
+
+> j<k
+> 1
+> λjλk
+
+= 1 /F in the second inequality. Thus, 
+
+X 
+
+> k̸=i
+
+1
+
+λk
+
+! 
+
+1 + tλi
+
+2
+
+≥ X 
+
+> k̸=i
+
+1
+
+λk
+
+!
+
+t2
+
+λ2
+
+> i
+
+= t2
+
+λi
+
+X 
+
+> k̸=i
+
+1
+
+λkλi
+
+≥ t2
+
+2F λ i
+
+≥ t2
+
+4F
+
+X
+
+> j
+
+1
+
+λj
+
+≥ C X
+
+> j
+
+1
+
+λj
+
+≥ C X
+
+> j
+
+F jj ,
+
+where we use (4.16) and the condition 1 
+
+> λi
+
+> 12
+
+P 
+
+> j
+> 1
+> λj
+
+and Lemma 2.7. Substituting this lower bound into the maximum principle inequality (4.15) and dividing both sides by P 
+
+> j
+
+F jj , we have 
+
+h C
+
+P 
+
+> j
+
+F jj + t
+
+!
+
+≥ C X
+
+> i
+
+(xi − yi)2
+
+!
+
+.
+
+31 Using the lower bound for the trace P 
+
+> j
+
+F jj by Lemma 2.6, we obtain 
+
+|x − y|2 ≤ Ch. 
+
+By choosing h sufficiently small depending on r, n, k, t, ∥u∥C0,1(B1(0)) , ∥ 1 
+
+> f
+
+∥L∞
+
+and ∥f ∥C1,1 , we obtain |x − y|2 ≤ r2, ensuring that case 2 cannot happen. Case 3. x0 lies on the boundary of B12
+
+(y)\Br(y). Since η(x) = 0 on 
+
+∂B 1/2(y) and η(x)a1(x) > 0 if |x − y| ≤ R, we have x0 ∈ ∂B r(y). Hence, sup 
+
+> BR(y)
+
+a1(x) ≤ sup  
+
+> BR(y)\Br(y)
+
+a1(x) + sup  
+
+> Br(y)
+
+a1(x)
+
+≤ C sup  
+
+> BR(y)\Br(y)
+
+η(x)a1(x) + sup  
+
+> Br(y)
+
+a1(x)
+
+≤ C sup  
+
+> Br(y)
+
+η(x)a1(x) + sup  
+
+> Br(y)
+
+a1(x)
+
+≤ C sup  
+
+> Br(y)
+
+a1(x) + sup  
+
+> Br(y)
+
+a1(x)
+
+≤ C sup  
+
+> Br(y)
+
+a1(x).
+
+(4.17) Hence, either (4.3) or (4.17) holds. We can obtain the desired doubling inequality by rewriting the inequality in terms of λ1 and simplifying it. Now, we establish the doubling inequality for general l.
+
+Proposition 4.2 (Doubling inequality) . Let n ≥ 2, 1 ≤ k < l ≤ n with 
+
+k ∈ { l − 1, l − 2}. Suppose Assumption 1.1 holds and u ∈ C4(B2(0)) is a strictly convex solution to (1.4) on B2(0) . Then, for any point y ∈ B1(0) ,there exists a sufficiently small constant R(n, l, ∥u∥C0,1(B1(0)) ) > 0 such that for any R > r > 0, we have 
+
+sup 
+
+> BR(y)
+
+λ1(D2u) ≤ C r, n, l, ∥u∥C0,1(B2(0)) , 1
+
+f L∞
+
+, ∥f ∥C1,1 , sup  
+
+> Br(y)
+
+λ1(D2u)
+
+!
+
+.
+
+(4.18) 
+
+Proof. The proof is highly similar to that of Proposition 4.1. It suffices to show that case 2 cannot happen. The constant n − k in (4.12) becomes l − k,but it does not affect the inequality. We begin with (4.14). For the case of general l and k = l − 1, by equation (3.7) in [11], we have 1/C ≤ F ii (1 + uii )2 ≤ C. 
+
+A simple computation yields 1/C ≤ F ii (t + uii )2 ≤ C. 
+
+32 In particular, we have 
+
+X
+
+> i
+
+F ii ≤ X
+
+> i
+
+F ii (t + uii )2 ≤ C. 
+
+Hence, (4.14) becomes 
+
+Ch ≥ C|x − y|2.
+
+Choosing h sufficiently small, we show that the maximum point cannot be an interior point. For the case of general l and k = l − 2, by equation (3.10) in [11], we have 
+
+λl−1
+
+C ≤ F ii (1 + uii )2 ≤ Cλ l−1.
+
+A simple computation yields 
+
+λl−1
+
+C ≤ F ii (t + uii )2 ≤ Cλ l−1.
+
+In particular, we have 
+
+C X
+
+> j
+
+F jj ≤ X
+
+> j
+
+F jj (t + ujj )2 ≤ Cλ l−1 ≤ CF ii (t + uii )2.
+
+Substituting this lower bound for each i into the right hand side of the maximum principle inequality (4.14), dividing both sides by P 
+
+> j
+
+F jj , and using the lower bound of f yields 
+
+h C
+
+P 
+
+> j
+
+F jj + t
+
+!
+
+≥ C X
+
+> i
+
+(xi − yi)2
+
+!
+
+.
+
+As in the case k = n − 2, we use the lower bound for the trace P 
+
+> j
+
+F jj by Lemma 2.6. By choosing h sufficiently small, we show that the maximum point cannot be an interior point. 
+
+# 5 Proof of the Main Theorems 
+
+We follow the framework of Shankar-Yuan [16], and we adapt the arguments from Section 6 of Fan [5]. 
+
+Proof of Theorem 1.2. We prove by contradiction. Let uk and fk be se-quences of functions that satisfy the assumptions of Theorem 1.2 with 
+
+∥uk∥C0,1(B2(0)) + ∥fk∥C1,1 ≤ A, inf fk ≥ f0 > 0, and |D2uk(0) | → ∞ . Choose 33 a subsequence of uk that converges uniformly in B1(0) to a continuous func-tion u ∈ C0(B1(0)), and choose a subsequence of fk that converges to f in 
+
+C1,α (B1(0)) for any 0 < α < 1, for some f ∈ C1,1(B1(0)). Step 1. Partial regularity of the limit. Recall that we assume the func-tions uk to be convex. Hence, their uniform limit u is convex as well. By the classical Alexandrov theorem, we choose a point y ∈ BR/ 2(0), where 
+
+R = R(n, ∥u∥C0,1(B1(0)) ) is given by Proposition 4.1, such that u is twice differentiable at y. We may choose a quadratic polynomial Q such that sup  
+
+> x∈Br(y)
+
+|u(x) − Q(x)| ≤ σ(r) = o(r2).
+
+Step 2. Flattening the error and Savin’s stability. We adapt the argu-ments from Section 6 Step 2 of Fan [5] to rescale the equation and apply the small perturbation theorem. As part of this step, we also use a standard cutoff trick to extend our locally elliptic operator to be globally elliptic. To apply the small perturbation theorem, we consider the rescaled func-tions ˜vk(x) := 1
+
+r2 (uk(y + rx ) − Q(y + rx )) , x ∈ B1(0) .
+
+Define ˜fk(x, z, p ) := fk(rx + y, r 2z + Q(rx + y), rp + DQ (rx + y)) ,
+
+and the operator 
+
+G(M, p, z, x ) := σn
+
+σk
+
+(D2Q + M ) − σn
+
+σk
+
+(D2Q) − ˜fk(x, z, p ) + ˜fk(x, 0, 0) .
+
+By definition, G(0 , 0, 0, x ) ≡ 0, and a direct calculation shows that the func-tions ˜ vk satisfy the equation (5.1) G(D2 ˜vk, D ˜vk, ˜vk, x ) = ˜fk(x, 0, 0) − σn
+
+σk
+
+(D2Q) in B1(0) .
+
+By Lemma 2.8, σk(D2uk) ≥ C > 0. Hence, σk(D2Q) ≥ C. Thus, the opera-tor G(M, p, z, x ), initially defined for symmetric matrices M in a sufficiently small δ-neighborhood of the origin, satisfies the requirements ( H2) , (H3) and ( H4) of Fan’s theorem. It is uniformly elliptic, continuously differen-tiable, Lipschitz continuous in p and z (since f, f k ∈ C1,1), and satisfies 
+
+G(0 , 0, 0, x ) ≡ 0. To ensure global ellipticity, we consider the following operator. 
+
+H(M ) := σn
+
+σk
+
+(D2Q + M ) − σn
+
+σk
+
+(D2Q).
+
+34 We apply a standard smooth cutoff outside this δ-neighborhood to extend H
+
+over the entire space of symmetric matrices. Specifically, we define ˜H(M ) := ηδ(M )H(M ) + (1 − ηδ(M )) F ij (D2Q)Mij ,
+
+where ηδ(M ) := η
+
+|M |
+
+> δ
+
+
+
+, and η : R → [0 , 1] is a smooth cutoff function such that η(t) = 1 for t ≤ 12 , η(t) = 0 for t ≥ 1, and its derivative is bounded. In particular, H(M ) = ˜H(M ) when ∥M ∥ ≤ δ/ 2 and ˜H is elliptic. We then consider the operator ˜G(M, p, z, x ) := ˜H(M ) − ˜fk(x, z, p ) + ˜fk(x, 0, 0) .
+
+Note that G(M, p, z, x ) = ˜G(M, p, z, x ) when ∥M ∥ ≤ δ/ 2 and ˜G is elliptic. The operator ˜G satisfies all the hypotheses (H1)-(H4) required by the gen-eralized Savin small perturbation theorem (Theorem 2.14). Furthermore, by the convergence of fk → f in C1,α and the continuity of f , the right hand side term ˜fk(x, 0, 0) − σn 
+
+> σk
+
+(D2Q) can be made arbitrarily small in C0,α (B1(0)) by choosing r small and k large. Thus, we can choose a sufficiently small r = r(σ) and a sufficiently large 
+
+k such that both ∥˜vk∥L∞(B1(0)) and the right hand side error satisfy the small-ness conditions δ of Theorem 2.14. Applying Theorem 2.14 to ˜ vk and rescal-ing back to uk, we obtain a uniform bound. (5.2) ∥uk∥C2,α (Br/ 2(y)) ≤ C(n, A, f 0, Q, σ ).
+
+Step 3. Doubling to propagate the partial regularity. By Proposition 4.1, the choice of r = r(σ), and (5.2), we have sup 
+
+> B3R/ 4(y)
+
+|D2uk| ≤ C r, n, A, f 0, sup 
+
+> Br/ 2(y)
+
+|D2uk|
+
+!
+
+≤ C(r, n, A, f 0, C (n, A, f 0, Q, σ )) 
+
+≤ C(n, A, f 0, Q, σ ).
+
+Since y ∈ BR/ 2(0), it follows that 0 ∈ B3R/ 4(y), and therefore we have 
+
+|D2uk(0) | ≤ C(n, A, f 0, Q, σ ).
+
+This uniformly bounds the Hessians at the origin, contradicting our assump-tion that |D2uk(0) | → ∞ .
+
+Proof of Theorem 1.4. The proof is nearly identical to the above, except that we use the doubling inequality given by Proposition 4.2 and apply Lemma 2.10 and Lemma 2.11 to justify that G (defined in (5.1)) is well defined near the origin. 35 6 Counterexample 
+
+Proof of Remark 1.3. We first prove the case for l = n and k = n − 1. Consider the sequence of functions 
+
+wε(y) = εy 21 + y41 +
+
+> n
+
+X
+
+> i=2
+
+12y2 
+
+> i
+
+, for ε > 0.
+
+These functions are smooth and strictly convex, with their Hessians given by 
+
+D2wε = diag(12 y21 + 2 ε, 1, . . . , 1) ,
+
+and their Laplacians given by ∆wε = 12 y21 + 2 ε + n − 1.
+
+Define the right hand side functions fε(p) for p ∈ Rn as 
+
+fε(p) = 112 p21 + 2 ε + n − 1.
+
+For each ε, let uε(x) be the Legendre transform of the convex function wε(y). We have 
+
+x = Dw ε(y)
+
+uε(x) = X
+
+> i
+
+xiyi − wε(y)
+
+y = Du ε(x)
+
+D2uε(x) = ( D2wε(y)) −1.
+
+By the relation x = Dw ε(y), we have x1 = 2 εy 1 + 4 y31 and xi = yi for 
+
+i = 2 , . . . , n . We may solve for y1 in terms of x1 using Cardano’s formula (6.1) y1(x1) = 3
+
+s
+
+x1
+
+8 +
+
+r x21
+
+64 + ε3
+
+216 + 3
+
+s
+
+x1
+
+8 −
+
+r x21
+
+64 + ε3
+
+216 .
+
+Now, we express uε(x) in terms of x.
+
+uε(x) = x1y1(x1) − εy 21 (x1) − y41 (x1) + 12
+
+> n
+
+X
+
+> i=2
+
+x2
+
+> i
+
+= εy 21 (x1) + 3 y41 (x1) + 12
+
+> n
+
+X
+
+> i=2
+
+x2 
+
+> i
+
+,
+
+(6.2) 36 where we use the relation x1 = 2 εy 1 + 4 y31 in the last equality. It is clear that 
+
+uε is well defined and smooth on B1(0). Observing that Du ε(x) = y, we have 
+
+σn
+
+σn−1
+
+(D2uε(x)) = 1∆wε(y) = fε(Du ε(x)) on B1(0) .
+
+Now, we verify properties (i)-(iii). For property (i), (6.2) and (6.1), together with the fact that Du ε(x) = y, yield a uniform C0,1 bound for uε on B1(0). For property (ii), the functions fε are clearly uniformly bounded in C1,1 with respect to the Du variable. Furthermore, assuming ε ≤ 1, the functions fε
+
+satisfy the following uniform lower bound 
+
+fε ≥ 112(sup |Du ε|)2 + n + 1 > 0.
+
+For property (iii), since Dw ε(0) = 0, we have 
+
+D2uε(0) = ( D2wε(0)) −1 = diag 
+
+ 12ε, 1, . . . , 1
+
+
+
+.
+
+As ε → 0, the largest eigenvalue λ1 = 12ε → ∞ .Now, we generalize this construction to the other pairs of l and k stated in the remark. We use the same definitions of uε(x) and wε(y), but modify the definitions of fε(Du ε(x)). Using the well known identity 
+
+σl(λ) = σn(λ)σn−l
+
+ 1
+
+λ
+
+
+
+,
+
+we have σl
+
+σk
+
+(D2uε(x)) = σn−l
+
+σn−k
+
+(D2wε(y)) .
+
+A direct computation yields 
+
+σm(D2wε(y)) = (2 ε + 12 y21 )
+
+ n − 1
+
+m − 1
+
+
+
++
+
+n − 1
+
+m
+
+
+
+.
+
+The quotient equation can be written as 
+
+σn−l
+
+σn−k
+
+(D2wε(y)) = (2 ε + 12 y21 )  n−1
+
+> n−l−1
+
+ +  n−1
+
+> n−l
+
+
+
+(2 ε + 12 y21 )  n−1
+
+> n−k−1
+
+ +  n−1
+
+> n−k
+
+ =: fε(Du ε(x)) .
+
+By our choice of l and k, we have  n−1
+
+> n−k
+
+ > 0. Therefore, the denominators of the functions fε are uniformly bounded away from 0. Hence, the functions fε
+
+37 do not blow up and have a uniform C1,1 bound in the Du variable. Moreover, for ε ≤ 1, the functions fε admit a uniform lower bound 
+
+fε(p) ≥
+
+ n−1
+
+> n−l
+
+
+
+(2 + 12 M 2)  n−1
+
+> n−k−1
+
+ +  n−1
+
+> n−k
+
+.
+
+Hence, property (ii) is satisfied. Since the construction of uε remains entirely unchanged, properties (i) and (iii) hold exactly as before. 
+
+Remark 6.1. The proof fails for k = 0 , as  n−1
+
+> n
+
+ = 0 would cause the C1,1
+
+norm of fε to blow up as ε → 0.
+
+# Acknowledgements 
+
+The author would like to thank Yi Wang for her valuable guidance and supervision. 
+
+# References 
+
+[1] Enrico Bombieri, Ennio De Giorgi, and Mario Miranda. Una maggio-razione a priori relative alle ipersuperfici minimali nonparametriche. Archivio per la Matematica Pura e Applicata (Arch. Ration. Mech. Anal.) 32 (1969), pp. 255–260. [2] Simon Brendle, Kyeongsu Choi, and Panagiota Daskalopoulos. Asymp-totic behavior of flows by powers of the Gaussian curvature. Acta Math-ematica 219.1 (2017), pp. 1–16. [3] Jingyi Chen, Micah Warren, and Yu Yuan. A priori estimate for convex solutions to special Lagrangian equations and its application. Commu-nications on Pure and Applied Mathematics 62.4 (2009), pp. 583–595. [4] Zhenyu Fan. A generalization of Savin’s small perturbation theorem for fully nonlinear elliptic equations and applications. Calculus of Vari-ations and Partial Differential Equations 65 (2026), p. 182. [5] Zhenyu Fan. Hessian estimates for the sigma-2 equation with variable right-hand side terms in dimension 4. Advances in Mathematics 494 (2026), p. 110953. [6] Cheuk Yan Fung. Doubling Argument of the Hessian Estimate for the Special Lagrangian Equation on General Phases with Constraints. preprint (2025). 38 [7] Pengfei Guan and Guohuan Qiu. Interior C2 regularity of convex solu-tions to prescribing scalar curvature equations. Calculus of Variations and Partial Differential Equations 58.3 (2019), p. 91. [8] Pengfei. Guan and Marcin Sroka. “Private note”. [9] Nico J. Korevaar. A priori interior gradient bounds for solutions to elliptic Weingarten equations. Annales de l’Institut Henri Poincar´ e C, Analyse non lin´ eaire 4.5 (1987), pp. 405–421. [10] Siyuan Lu. Interior C2 estimate for Hessian quotient equation in general dimension. Ann. PDE 11.2 (2025), p. 17. [11] Siyuan Lu and Yi-Lin Tsai. A note on interior C2 estimate for gen-eral Hessian quotient equation. Communications on Pure and Applied Analysis 33.0 (2026), pp. 88–100. [12] Joseph H. Michael and Leon M. Simon. Sobolev and mean-value in-equalities on generalized submanifolds of Rn. Communications on Pure and Applied Mathematics 26.3 (1973), pp. 361–379. [13] Guohuan Qiu. Interior Hessian Estimates for σ2 Equations in Dimen-sion Three. Frontiers of Mathematics 19.4 (2024), pp. 577–598. [14] Ravi Shankar. Hessian estimates for the special Lagrangian equation by doubling. Analysis & PDE 19.2 (2026), pp. 339–352. [15] Ravi Shankar and Yu Yuan. Hessian estimates for the sigma-2 equation in dimension four. Annals of Mathematics 201.2 (2025), pp. 489–513. [16] Ravi Shankar and Yu Yuan. Regularity for the Monge–Amp` ere equa-tion by doubling. Mathematische Zeitschrift 307.2 (2024), Paper No. 34, 7 pp. [17] Neil S. Trudinger. A new proof of the interior gradient bound for the minimal surface equation in n dimensions. Proceedings of the National Academy of Sciences of the United States of America 69.4 (1972), pp. 821–823. [18] Dake Wang and Yu Yuan. Hessian estimates for special Lagrangian equations with critical and supercritical phases in general dimensions. American Journal of Mathematics 136.2 (2014), pp. 481–499. [19] Xingchen Zhou. Hessian estimates to special Lagrangian equation on general phases with constraints. Calculus of Variations and Partial Dif-ferential Equations 61.1 (2021), p. 4. 39

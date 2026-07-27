@@ -1,0 +1,4904 @@
+Title: Global bifurcation for steady viscous roll waves on an incline
+
+URL Source: https://arxiv.org/pdf/2607.21142v1
+
+Published Time: Fri, 24 Jul 2026 00:56:27 GMT
+
+Number of Pages: 46
+
+Markdown Content:
+GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 
+
+DANIEL ABRAHAM AND MILES H. WHEELER 
+
+Abstract. We construct a branch of travelling periodic ‘roll wave’ solutions to the free-boundary incom-pressible Navier–Stokes equations on an inclined plane in two dimensions. These solutions bifurcate from a parallel shear flow, under natural assumptions on the related Orr–Sommerfeld equation. Using techniques from analytic global bifurcation theory, we extend the local branch to a global curve of solutions. A key step of the proof is reformulating the problem, including the unknown free boundary, as an elliptic system in the sense of Agmon–Douglis–Nirenberg. Finally, we verify the hypotheses on the Orr–Sommerfeld equation for two regimes: small wavenumber and low Reynolds number. 
+
+Contents 
+
+1. Introduction 11.1. The inclined travelling viscous surface wave problem 21.2. Orr–Sommerfeld equation 41.3. Statement of main result 41.4. Results in special parameter regimes 61.5. Review of previous work 71.6. Outline of the paper 82. Preliminaries 82.1. Stream function reformulation 82.2. Reformulation in conformal variables 92.3. Functional framework 10 2.4. Abstract multi-parameter bifurcation theory 11 3. Elliptic theory 12 3.1. Schauder estimate 12 3.2. Fredholm index of linearisation around the Nusselt solution 17 4. Linear theory around Nusselt shear flow 20 4.1. Reduction to Orr–Sommerfeld 20 4.2. Transversality via formal adjoint of Orr–Sommerfeld 23 5. Uniform estimates 25 5.1. Estimate for the conformal map 25 5.2. A priori estimate 25 6. Proof of main results 29 6.1. General existence theory 29 6.2. Small wavenumber regime 32 6.3. Low Reynolds number regime 37 Acknowledgements 38 Appendix A. Proofs of abstract bifurcation results 38 Appendix B. Elliptic systems theory 41 References 42 1. Introduction 
+
+The progression of surface waves down an incline is an intriguing physical phenomenon, with nontrivial profiles preserved by a delicate balancing between the dissipative force due to viscosity and the gravitational force acting down the slope. Periodic disturbances of this form can be called roll waves . While roll waves are  
+
+> 1arXiv:2607.21142v1 [math.AP] 23 Jul 2026 2DANIEL ABRAHAM AND MILES H. WHEELER
+
+often turbulent [Jef25, Dre49, BM04], there are everyday occurrences with laminar profiles, such as heavy rainfall on window panes or flow down street gutters. This travelling laminar viscous flow is modelled by the free-boundary Navier–Stokes equations, which are governed at a linear level by the ‘Orr–Sommerfeld’ equation [Orr07a, Orr07b, Som09], with long-wave stability results for inclined flow by Benjamin [Ben57] and Yih [Yih63]. Until recently, due to the challenges in nonlinear analysis of the Navier–Stokes equations, research in steady free-surface flow has largely advanced by using model equations with shallow-water approximations or by studying the inviscid model, known as the travelling ‘water wave’ problem. The literature for steady water waves is very well established, with global constructions of solutions under a variety of scenarios; see for instance the survey [Haz+22]. Rigorous work on the full steady free-boundary Navier–Stokes problem, on the other hand, has only appeared in the last few years [LT23, ST21, ST23, ST24, KT23, KT24, ST25a, BN26], beginning with the construction by Leoni and Tice [LT23] of small-amplitude waves under generic external bulk and stress forcing. This literature however leaves open the global existence of solutions, and only [ST25a] constructs solutions with gravity as the sole external force, finding travelling bore wave solutions in a shallow water regime. In this paper, we give the first ‘large-amplitude’ construction for the full steady free-boundary Navier– Stokes problem, finding a global curve of solutions bifurcating from shear flow. These solutions are two-dimensional, laminar, periodic roll waves which are subject only to gravity as an external force and may have overturning profiles. Our hypotheses depend solely on the associated Orr–Sommerfeld system. Furthermore, we verify these hypotheses in parameter regimes where the wavenumber or the Reynolds number are small, consistent with the earlier formal work by Benjamin and Yih. Our proof involves an analytic global bifurcation argument. Reformulating the problem as a system for the stream function, pressure and a conformal map which flattens the domain, we show this system is elliptic in the sense of Agmon–Douglis–Nirenberg [ADN64]. Because the problem does not possess a reflection symmetry as is common in water wave scenarios, we use a local bifurcation argument due to Hale [Hal78] rather than the more standard result by Crandall–Rabinowitz [CR71]. The global continuation of this local curve of solutions uses theory developed by Dancer, Buffoni and Toland [Dan73a, BT03]. 1.1. The inclined travelling viscous surface wave problem. Let us define our problem more precisely. We consider a viscous incompressible fluid in a two-dimensional inclined domain Ω, with a flat lower bed 
+
+B at an angle 0 < θ ≤ π/ 2 to the horizontal and a free upper surface S. Here S is not required to be the graph of a function, allowing for overhanging waves. In fact, we will see Ω as the image of a rectangular strip 
+
+R × (0 , 1) under a conformal map 
+
+f : R × (0 , 1) → Ω, (1.1) satisfying the Cauchy–Riemann equations and mapping the upper and lower boundaries of the strip to S and 
+
+B respectively. This conformal map is detailed in Section 2 below. Our interest is in travelling wave solutions, i.e. solutions whose velocity field is stationary with respect to time in a reference frame moving at a constant speed γ > 0 down the incline. We will work in Cartesian coordinates ( X, Y ) for physical space, with X parallel to the inclined plane and Y perpendicular to it. The origin of the Y -axis is set so that the bed B is given by the line Y = 0. See Figure 1.1 for an illustration. We consider such a fluid travelling with a constant density ρ > 0 and viscosity μ > 0, subject to a uniform vertical gravitational field ρg (cos θ, − sin θ), where g > 0 is the magnitude of gravitational acceleration. This gravitational force is the only bulk force acting on the fluid. Let V : Ω → R2 denote the velocity of the fluid in the travelling frame, and let P : Ω → R denote its gauge pressure, i.e. the fluid pressure minus the constant atmospheric pressure. The flow in the bulk is governed by the steady incompressible Navier–Stokes equations, 
+
+ρ(V · ∇ )V − μ∆V + ∇P = ρg (cos θe X − sin θe Y ) in Ω , (1.2a) 
+
+∇ · V = 0 in Ω , (1.2b) which represent momentum balance and conservation of mass for the fluid. The only surface force considered is surface tension σH , where σ ≥ 0 is the coefficient of surface tension and H is the mean curvature of S. Let ν ∈ R2 denote the outward unit normal to the surface S and 
+
+DV ∈ R2×2sym denote twice the symmetrized gradient of V ,
+
+DV := DV + ( DV )T .GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 3ρg (cos θ, − sin θ)ΩSBνθeXeYγ
+
+Figure 1. A sample portion of the fluid domain. The equations on S are then given by a kinematic boundary condition, representing no penetration across the surface, 
+
+V · ν = 0 on S, (1.2c) and a dynamic boundary condition, which represents the force balance on the surface, [( P + σH )I − μDV ] ν = 0 on S. (1.2d) We assume a standard no-slip condition on B, i.e. that the fluid velocity vanishes at the lower boundary in the lab frame. In our travelling reference frame, this condition is 
+
+V = −γe X on B. (1.2e) This flow has relative mass flux m ∈ R, defined by 
+
+m := ρ
+
+Z
+
+> Ω∩{ X=X0}
+
+V · eX dY, (1.3) which is a constant independent of X0 ∈ R, by conservation of mass (1.2b) and the no-penetration boundary conditions (1.2c) and (1.2e). The problem for inclined travelling viscous surface waves is then to find V , P
+
+and Ω satisfying the system of equations (1.2) above. For any wavespeed γ > 0, density ρ > 0, viscosity μ > 0, gravitational constant g > 0, mass flux m ∈ R
+
+and incline angle 0 < θ ≤ π/ 2, the problem (1.2) admits a unique shear solution V = V0eX , P = P0 at a certain height h,
+
+V0(Y ) := −γ + ρg sin θ
+
+2μ
+
+ 2hY − Y 2 , P0(Y ) := ρg cos θ(2 h − Y ), Ω0 = R × (0 , h ). (1.4) This shear profile is referred to in the literature as the Nusselt solution [Nus16]. Note that the height h is uniquely determined by computing (1.3) for the Nusselt profile, 
+
+m = ρ
+
+
+
+−γh + ρgh 2 sin θ
+
+3μ
+
+
+
+. (1.5) To non-dimensionalise (1.2), we use the unique Nusselt solution (1.4) of the same mass flux to identify characteristic scales for our flow. The Nusselt height h defined by (1.5) will serve as a characteristic length scale for our problem, and we use as characteristic velocity scale the surface velocity V of this Nusselt flow in the lab frame, namely 
+
+V := V0(h) + γ = ρgh 2 sin θ
+
+2μ .
+
+We define a Reynolds number R ≥ 0 by 
+
+R := ρh V
+
+μ ,4 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+and fix units for mass, length and velocity, so that ρ = 1, h = 1 and V = 1. In these units, the mass flux of the fluid m = 23 − γ and (1.2) becomes 
+
+
+
+R(V · ∇ )V − ∆V + ∇P = 2 eX − 2 cot θe Y in Ω ,
+
+∇ · V = 0 in Ω ,V · ν = 0 on S, 
+
+[( P + σH )I − DV ]ν = 0 on S, V = −γe X on B, 
+
+(1.6) while the Nusselt shear solution (1.4) to (1.6) becomes 
+
+V0(Y ) = −γ + 2 Y − Y 2, P0(Y ) = 2 cot θ(1 − Y ), Ω0 = R × (0 , 1) . (1.7) 1.2. Orr–Sommerfeld equation. Linearising (1.6) about (1.7) and separating variables for periodic dis-turbances leads to the celebrated Orr–Sommerfeld equation [Orr07a, Orr07b, Som09], 
+
+ d2
+
+dY 2 − k2
+
+2
+
+ˆφ − ikRV 0
+
+ d2
+
+dY 2 − k2
+
+
+
+ˆφ + ikRV ′′  
+
+> 0
+
+ˆφ = 0 for Y ∈ [0 , 1] , (1.8a) with boundary conditions for our free-surface flow given by ˆφ′′ +
+
+
+
+k2 + 2
+
+V0
+
+
+
+ˆφ = 0 at Y = 1 , (1.8b) ˆφ′′′ −  3k2 + ikRV 0
+
+ ˆφ′ + ik V0
+
+ 2 cot θ + σk 2 ˆφ = 0 at Y = 1 , (1.8c) ˆφ = 0 at Y = 0 , (1.8d) ˆφ′ = 0 at Y = 0 . (1.8e) Here k ≥ 0 is the wavenumber of the disturbance and the function ˆ φ : [0 , 1] → C is related to the perturbative stream function for the flow. For our velocity profile V0, (1.8a) is a variable coefficient ODE which is analyti-cally intractable for general parameter values, with no exact solution in terms of standard functions. Instead, the Orr–Sommerfeld equation is usually studied via numerical methods [Ors71] or asymptotic expansions in parameter regimes [Ben57, Yih63]; see for example [CD02, SH01] for a review of the theory. Let us express (1.8) as Los ˆφ = 0, where the operator Los : Xos → Yos and spaces Xos , Yos will be carefully defined in Section 4 below. We write Los = Los (k, R, θ, γ ), making the dependence on the parameters k, R,
+
+θ and γ explicit. Throughout our analysis we will fix σ ≥ 0. 1.3. Statement of main result. Our first result constructs roll wave solutions to (1.6) close to the Nusselt solution (1.7) by techniques from local bifurcation theory. The assumptions for this result are stated solely in terms of the Orr–Sommerfeld operator Los introduced above. A more detailed version of this result is given in Theorem 6.1 below. Here, we fix once and for all a H¨ older exponent α ∈ (0 , 1). 
+
+Theorem 1.1 (Local bifurcation) . Fix k > 0 and R ≥ 0, and suppose that for some θ∗ ∈ (0 , π/ 2] , γ∗ ∈
+
+(0 , ∞) \ { 2}, the following hold. 
+
+(I) (Orr–Sommerfeld kernel) There exists ˆφ∗ ∈ Xos such that 
+
+ker Los (k, R, θ ∗, γ ∗) = span { ˆφ∗}, (1.9) ker Los (nk, R, θ ∗, γ ∗) = {0} for n = 2 , 3, . . . (1.10) (II) (Orr–Sommerfeld transversality) For all nonzero ( ˙θ, ˙γ) ∈ R2, we have 
+
+ ∂θ Los (k, R, θ ∗, γ ∗) ˙θ ˆφ∗ +  ∂γ Los (k, R, θ ∗, γ ∗) ˙ γ ˆφ∗ /∈ ran Los (k, R, θ ∗, γ ∗).
+
+Then there is a local nontrivial analytic curve of solutions to (1.6) ,
+
+Cloc := {(V (s), P (s), Ω( s), θ (s), γ (s)) : 0 ≤ | s| < ϵ } ,
+
+bifurcating from the Nusselt solution (1.7) with θ = θ∗ and γ = γ∗ at s = 0 . The solutions are periodic in X,with H¨ older regularity V ∈ C3,α (Ω) and P ∈ C2,α (Ω) with Ω ∈ C4,α .GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 5
+
+Remark 1.2 . The solutions in Theorem 1.1 have explicit asymptotic expansions for small s. Roughly speaking, the physical wavenumber is approximated by k up to order s, and the free surface S is given by S =
+
+{(X, Y(X, s )) : X ∈ R}, where 
+
+Y(X; s) = 1 + s cos kX + O(s2), (1.11) while the velocity and pressure have expansions 
+
+V (X, Y ; s) = V0(Y )
+
+10
+
+
+
++ s Re 
+
+  ˆφ′∗(Y )
+
+−iK ˆφ∗(Y )
+
+
+
+eikX 
+
+
+
++ O(s2),P (X, Y ; s) = P0(Y ) + s Re ˆq∗(Y )eikX + O(s2),
+
+(1.12) where ˆ q∗ is a function determined by ˆ φ∗. See the discussion after Theorem 6.1 for more detail. 
+
+Remark 1.3 . The hypotheses of Theorem 1.1 avoid the ‘zero frequency’ k = 0 degeneracy at γ = 2, i.e. when the travelling wavespeed is twice the Nusselt surface velocity in the lab frame. This degenerancy is discussed in more detail in the proof of Lemma 4.2 and is, roughly speaking, the source of the local bifurcation for small k in Theorem 1.5 below. The hypotheses (I)–(II) are natural assumptions on the Orr–Sommerfeld operator at the bifurcation point. The kernel hypothesis (I) corresponds to the linearised PDE operator having a one-dimensional kernel, and the transversality hypothesis (II) is a non-degeneracy condition. However, these hypotheses are difficult to assess in general, due to the challenges in rigorously analysing the spectrum of the Orr–Sommerfeld equation (see, for instance [DR81]). Note that our curve has two parameters. For simplicity, we choose the angle θ and wavespeed γ as bifurcation parameters, however analogues of Theorem 1.1 hold with any pair of parameters from the list 
+
+k, R, θ, γ, σ .Our second result extends the local curve found in Theorem 1.1. Recall from (1.1) the conformal map f
+
+from the rectangular strip to Ω, and denote by T := R × { 1} the upper boundary of the strip. This result is written in more detail in Theorem 6.2. 
+
+Theorem 1.4 (Global continuation) . In the setting of Theorem 1.1, the local curve Cloc can be extended to a global curve C of periodic solutions, parameterised by s ∈ R. Along this curve, one of the following alternatives occur: 
+
+(a) (Blow-up) If σ = 0 , then as |s| → ∞ ,
+
+sup  
+
+> z1,z 2∈T
+> z1̸=z2
+
+|z1 − z2||f (z1) − f (z2)| + sup 
+
+> T
+
+|Df | + sup 
+
+> T
+
+|D2f | + sup 
+
+> Ω
+
+|V (s)| + sup 
+
+> S
+
+|DV (s)| + 1inf S |V (s)| + |cot θ(s)| −→ ∞ ,
+
+and if σ > 0, then as |s| → ∞ ,
+
+sup  
+
+> z1,z 2∈T
+> z1̸=z2
+
+|z1 − z2||f (z1) − f (z2)| + sup 
+
+> T
+
+|Df | + sup 
+
+> T
+
+|D2f | + sup 
+
+> Ω
+
+|V (s)| + sup 
+
+> S
+
+|DV (s)| + |cot θ(s)| −→ ∞ .
+
+(b) (Closed loop) At some point the solution curve C returns back to the Nusselt profile (1.7) with angle 
+
+θ∗ and wavespeed γ∗.
+
+Divergence of the first term in alternative (a) represents loss of injectivity of the conformal map or C1
+
+blow-up of its inverse on T . Loss of injectivity could correspond to the wave profile self-intersecting, while blow-up of the inverse of the conformal map in C1 could be due to the formation of inward-pointing corners or the surface touching the bed. Blow-up of the gradient of the conformal map on T would be consistent with the formation of outward-pointing corners, while blow-up of the Hessian of f would be consistent with surface points of large curvature. Divergence of the fourth term would imply large velocity in the moving frame. Blow-up of the gradient of the velocity on the surface would be consistent with blow-up of the stress tensor or vorticity. In the case of zero surface tension, vanishing of the (travelling) velocity on the surface corresponds to approaching a stagnation point on the surface, consistent with a surface singularity. However, the presence of surface tension removes this term in the alternative, consistent with the smoothing effect of surface tension. The term in θ represents possible vanishing of the angle of inclination, which could correspond to full stagnation, i.e. V ≡ γe 1.6 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+Regarding the possibility of a closed loop, alternative (b), in global bifurcation results for water wave problems, maximum principle arguments and reflection symmetry can often be used to rule out such a loop. However, (1.6) does not possess a reflection symmetry, and it is not clear that the problem admits a scalar elliptic maximum principle. Indeed, it seems plausible that a loop could occur for some values of k, R , and 
+
+σ.1.4. Results in special parameter regimes. As mentioned above, the hypotheses (I)–(II) in Theorem 1.1 are difficult to verify in general. However, in two asymptotic parameter regimes, we can find angles and wavespeeds that satisfy these hypotheses. The first such regime is when the conformal wavenumber k (and consequently the physical wavenumber 
+
+K, at least locally along the bifurcation branch) is small, corresponding to long waves or thin films. 
+
+Theorem 1.5 (Bifurcation at small wavenumber) . Fix R ≥ 0. Then, there exist ε > 0 and real analytic functions ˜θ : ( −ε, ε ) → R and ˜γ : ( −ε, ε ) → R with the following properties. 
+
+(a) Up to order k2, ˜θ and ˜γ are given by 
+
+cot ˜θ(k) = 45 R + O(k2), ˜γ(k) = 2 + O(k2), (1.13) 
+
+with Orr–Sommerfeld kernel spanned by ˜φ(y; k), where 
+
+˜φ(y; k) = y2
+
+2 + ikR 
+
+ y5
+
+60 − y4
+
+12 + 2y3
+
+15 
+
+
+
++ O(k2). (1.14) (b) For k ∈ (0 , ε ) outside a countable set, θ∗ = ˜θ(k) and γ∗ = ˜ γ(k) satisfy the hypotheses of Theorem 1.1. Thus, each such (θ∗, γ ∗) corresponds to a bifurcation point for a global curve of solutions to (1.6) 
+
+described in Theorem 1.4. 
+
+We prove this result by finding a curve of parameters  ˜θ, ˜γ along which the Orr–Sommerfeld operator 
+
+Los satisfies the first part (1.9) of the kernel assumption (I) via an auxiliary bifurcation argument at k = 0. This corresponds to a ‘neutral stability’ curve found in [Ben57], with values ˜ γ(0) = 2 and cot ˜θ(0) = 45 R at its branch point. The technical requirement that the wavenumber lies outside a countable set is to avoid potential resonances in the kernel of the linearised operator, that is, to ensure (1.10) in (I). Verifying the transversality condition uses the rigorous asymptotic expansions (1.13) and (1.14) for ˜θ(k), ˜ γ(k) and ˜ φ(k), as well as for the kernel of a formal adjoint operator L ∗
+
+> os
+
+.We are also able to verify the hypotheses of Theorem 1.1 for the case of low Reynolds number, i.e. highly viscous flow. 
+
+Theorem 1.6 (Bifurcation at low Reynolds number) . Set σ = 0 , and fix k > 0. Then, there exists ε > 0
+
+and analytic functions ˜θ : ( −ε, ε ) → R and ˜γ : ( −ε, ε ) → R with the following properties. 
+
+(a) ˜θ(0) = π
+
+2 and ˜γ(0) = 1 + 1
+
+k2 + cosh 2 k .
+
+(b) For any R ∈ [0 , ε ), the conclusion of Theorem 1.1 holds with θ∗ = ˜θ(R) and γ∗ = ˜ γ(R). Thus, each of these (θ∗, γ ∗) corresponds to a bifurcation point for a global curve of solutions to (1.6) described in Theorem 1.4. 
+
+We prove this result by perturbation of the R = 0 limit, which is referred to as ‘Stokes flow’. At zero Reynolds number and without surface tension, the Orr–Sommerfeld kernel assumption (I) holds at a vertical incline, as observed in [Yih63]. The transversality condition (II) is verified by explicit computation. Since the vanishing Reynolds number limit is non-singular, by a soft argument Hale’s local bifurcation result can be perturbed with an additional parameter, and we obtain bifurcations at low Reynolds numbers. Note that since surface tension is not permitted in Theorem 1.6, the corresponding global bifurcation statement includes the possibility of stagnation in the blow-up alternative (a) of Theorem 1.4. However, if one selected σ as one of the bifurcation parameters and could verify the transversality condition for the new choice of parameters, one would obtain a similar result with nonzero surface tension along the curve. A final remark on these results is that despite the curve of solutions bifurcating with fixed k and R, along the global curve, the amplitude of solutions could grow large enough to no longer lie in a thin-film regime for the curve in Theorem 1.5 or a highly viscous regime in Theorem 1.6. GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 7
+
+1.5. Review of previous work. The mathematical study of surface waves has a long history, originating with the development of theory for inviscid, irrotational potential flow in the 18th and 19th century (see, for instance [Cra04, Dar03]) with later incorporation of viscosity and free-boundary constraints. Given the breadth of the literature on surface waves, we restrict our discussion below to roll waves and the rigorous theory for travelling incompressible inviscid and viscous waves. Although our work focuses on laminar roll waves, there is an older literature for roll waves in turbulent open channels [Cor07, Cor34], historically motivated by engineering applications in hydraulics. There is a vast array of experimental, theoretical and numerical results for turbulent roll waves; see [Jef25, Tho40, Dre49, Bro69, Bro70, NM84, Kra92, BM04, Bar+17] and the references therein. Models studied include the Saint-Venant equations with Ch´ ezy drag, viscous Saint-Venant equations and more recent models such as [RG12, Ric24]. We emphasize that while the term ‘roll wave’ has historically been used (for example in [Dre49]) to refer to this turbulent case, more recently it has broadened to encompass any periodic open channel flow down an incline, including in mud flow [LM94, NM94, BL04], granular flow [FP03] and laminar flow [JH86]. Laminar roll waves were first experimentally observed by Kapitza and Kapitza [KK49] for vertical flow, and these waves are sometimes referred to eponymously as ‘Kapitza’ waves. Seminal theoretical contributions came from the work of Benjamin [Ben57] and Yih [Yih63]. Benjamin derived a critical Reynolds number for wave instability for the linearised Navier–Stokes system by computing formal asymptotic expansions for the eigenvalue problem for Orr–Sommerfeld in a long wave regime. Yih added an analysis at low Reynolds number, finding a neutral stability curve at zero Reynolds number without surface tension. For a more complete review of hydrodynamic stability theory, we refer the reader to textbooks such as [DR81, CM09, SH01]. Due to the challenges in analysing the Navier–Stokes equations and the related Orr–Sommerfeld system, subsequent work focussed on deriving and analysing nonlinear model equations: see [Mei66, Ben66, Shk67, Gje70, Nak75, TK78, ANP85, JH86, RM98, RM00] and the discussion of these in textbooks for falling liquid films [CD02, Kal+12]. On the other hand, there is a largely separate literature on rigorous surface wave theory. The viscous time-dependent problem first received rigorous treatment by Beale who established a well-posedness result for the initial value problem [Bea81, Bea84], with subsequent extensions and decay results reviewed in, for example [Zad04, SS07] and the introduction of [LT23]. Of closest relevance to our work is the literature for inclined periodic flow, with local and global existence results [Ter85, Nin+92, Ter92, NTW93] and stability results [Sun97, NTY04, Pad13, Tic18]. The steady inviscid case, known as the travelling ‘water wave’ problem, has been comprehensively studied and is reviewed in [Tol96, Gro04, Str10, Haz+22]. Here we mention a few aspects which are motivating for our work. The use of conformal maps is a classical technique in this community, used for instance to reformulate the irrotational Stokes wave problem into an integral equation by Nekrasov [Nek21] and Levi-Civita [Lev25], and later to the remarkable ‘Babenko’ equation [Bab87, Tol02]. More recently it has enabled constructions for the rotational problem of waves which are allowed to overturn, by Constantin, Strauss and Varvaruca [CSV16]; see also [HW22, HW23, WW24, D´ av+26]. Global bifurcation techniques were first employed for water waves by Keady and Norbury [KN78], who improved Krasovskii’s result [Kra61] by applying Rabinowitz’s topological global bifurcation theory [Rab71] to the irrotational Stokes wave problem. Dancer strengthened Rabinowitz’s global result in the special case of analytic operators [Dan73a, Dan73b], and this was refined by Buffoni and Toland [BT03], producing a powerful tool which is now standard for water waves problems. Haziot and Wheeler [HW23] were the first to employ theory for local elliptic systems rather than scalar boundary-value problems (see also [Doa+26]). In contrast, rigorous work on the viscous travelling wave problem is much more recent, starting from the result of Leoni and Tice [LT23] who constructed travelling viscous waves under small external forcing. This has been generalised to multilayer [ST21], compressible [ST23] and stationary [ST24] flow by Stevenson and Tice, with inclination and periodicity [KT23] and Navier slip conditions at the bed [KT24] incorporated by Koganemaru and Tice. Banihashemi and Nguyen [BN26] constructed solutions to the Stokes and Navier– Stokes system close to a special class of large waves produced by surface stress and proved asymptotic stability for the dynamic Stokes problem. Most recently, Choi and Tice [CT26] obtained solutions for a generalised Navier–Stokes–Fourier system. These works mentioned above employ perturbative arguments based on the implicit function theorem or for [ST23] a Nash–Moser inverse function theorem, avoiding potential bifurcation points. The solutions are produced by generic bulk, stress or heat forcing. As mentioned already, Stevenson 8 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+and Tice have also constructed shallow-water bore wave solutions to the inclined free-boundary Navier–Stokes equations [ST25a], alongside related work for viscous shallow water models [ST26, Ste25, ST25b]. We also mention the recent results for Darcy flow in a porous medium [NT24, Ngu26, BN24, NS26] of which [Ngu26, NS26] produce large-amplitude solutions. Our result is the first global construction for the travelling free-boundary Navier–Stokes equations and also the first rigorous construction of roll wave solutions to this Navier–Stokes system. We draw heavily from techniques used in the inviscid water wave literature, in particular conformal mappings, analytic global bifurcation and theory for elliptic systems. However, the substantial challenges of the viscous case appear in many aspects of our analysis. The linearised problem is not reducible to a scalar elliptic boundary value problem, truly requiring elliptic systems theory rather than scalar elliptic theory. Related to this is the lack of a maximum principle, which as mentioned in the discussion of Thorem 1.4 above would simplify the bifurcation alternatives. Since there is not a reflection symmetry, the linearised operator has Fredholm index 
+
+−1 around the Nusselt solution, motivating our use of Hale’s result [Hal78] for local bifurcation rather than the more classical result by Crandall–Rabinowitz [CR71]. Additionally, the linearised operator does not have an explicit kernel and dispersion relation, so we require the general hypotheses (I)–(II) in Theorem 1.1, but our results in the regimes of small wavenumber and low Reynolds number are consistent with the neutral stability curves found in [Ben57, Yih63]. 1.6. Outline of the paper. In Section 2 we reformulate the problem in terms of the stream function and in a rectangular domain by a conformally mapping. We then define the function spaces we will work in and recall some abstract bifurcation results. Section 3 establishes that the linearisation of the reformulated system is elliptic in the sense of [ADN64] and has Fredholm index −1 when linearised at the Nusselt solution. In Section 4, we reduce the kernel and transversality hypotheses of the bifurcation results from Section 2 to analogous conditions on the Orr–Sommerfeld operator. Some a priori uniform estimates are proved for solutions to the nonlinear problem in Section 5. We bring these results together to prove Theorems 1.1 and 1.4 in Section 6. Finally, we conduct perturbative analyses to verify the hypotheses on the kernel and transversality condition for the Orr–Sommerfeld operator in the low wavenumber regime and in the low Reynolds number regime. In Appendix A, we provide proofs for some of the abstract bifurcation theory for completeness, and we briefly recall relevant theory for elliptic systems in Appendix B for the reader’s convenience. 2. Preliminaries 
+
+This section details our reformulation of (1.6), replacing the velocity with the stream function and using the conformal map f mentioned in the introduction to rewrite the problem on a flattened rectangular domain. We also introduce some functional notation for the problem, and state convenient versions of the bifurcation results from Hale [Hal78] and Buffoni–Toland [BT03] that we will use in Section 6. 2.1. Stream function reformulation. The incompressibility condition (1.2b) implies the existence of a scalar potential, known as the stream function Ψ of the flow, such that ΨX = −V2, ΨY = V1, (2.1) where non-numerical subscripts denote partial derivatives, i.e. Ψ X = ∂X Ψ and so on. Reformulating (1.6) with the velocity V replaced by the stream function Ψ reduces the number of unknowns for the problem by one and incorporates (1.2b) into the system automatically, reducing the number of interior equations by one. Level sets of the stream function are tangent to the velocity field, and are called streamlines . The kinematic boundary condition (1.2c) is therefore equivalent to the free surface being a level set of the stream function. Similarly, from the first component of (1.2e), Ψ is constant on B as well, and we normalise so that Ψ = 0 on B. Then the value of the stream function on S is equal to the (relative) mass flux m, which in our non-dimensional units is given by 23 − γ, so (1.2c) can be replaced by Ψ = 23 − γ on S. 
+
+Note that the other component of (1.2e) becomes Ψ Y = −γ on B.GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 9
+
+Denoting by DΨ ∈ R2×2sym the symmetrised gradient for the velocity DV in terms of the stream function, 
+
+DΨ := 
+
+ 2Ψ XY ΨY Y − ΨXX 
+
+ΨY Y − ΨXX −2Ψ XY 
+
+
+
+,
+
+the system (1.6) becomes 
+
+
+
+−∆Ψ Y + R∇Ψ · ∇ ⊥ΨY + PX = 2 in Ω ,
+
+∆Ψ X + R∇⊥Ψ · ∇ ΨX + PY = −2 cot θ in Ω ,
+
+Ψ = 23 − γ on S, 
+
+[( P + σH )I − D Ψ] ν = 0 on S, 
+
+Ψ = 0 on B, 
+
+ΨY = −γ on B. 
+
+(2.2) The stream function Ψ 0 corresponding to the Nusselt solution (1.7) is given by Ψ0(Y ; γ) := −γY + Y 2 − 13 Y 3. (2.3) 2.2. Reformulation in conformal variables. As mentioned in the introduction, we write the fluid domain as the image of a rectangular strip under a conformal map f . Since we are restricting to periodic solutions, we work with a periodic rectangular domain R of unit height and wavenumber k > 0, 
+
+R := Tk × (0 , 1) , where Tk := R 2πk Z, (2.4) denoting the upper boundary of R by T := Tk × { 1} and the lower boundary by B := Tk × { 0}. We now introduce f : R → Ω, identifying Ω = f (R), S = f (T ), B = f (B). (2.5) Denote by ξ and η the components of f , i.e. for every ( X, Y ) ∈ Ω, there exists ( x, y ) ∈ R such that (X, Y ) = ( ξ(x, y ), η (x, y )) = f (x, y ).
+
+For this change of coordinates to be well-behaved, that is, for the domain Ω to be well-defined with S not self-intersecting or intersecting the bed B, we require the following conditions on f . First, we suppose that 
+
+ξ and η are continuous in R, continuously differentiable in R and satisfy the Cauchy–Riemann equations, 
+
+ξx = ηy , ξy = −ηx in R. (2.6) Let f also be injective on T ,inf  
+
+> x1,x 2∈Tk
+> x1̸=x2
+
+|f (x1, 1) − f (x2, 1) ||x1 − x2| > 0, (2.7) and finally suppose η is strictly positive on T ,
+
+η(x, 1) > 0 for all x ∈ Tk. (2.8) Then the following lemma confirms that Ω is well-defined as the image of R under f .
+
+Lemma 2.1. Let f = ( ξ, η ) ∈ C1(Ω) ∩ C(Ω) satisfy (2.6) –(2.8) . Then f is bijective R → Ω.Proof. The claim follows from the Darboux–Picard theorem; see for instance, [Bur21, Theorem 9.16]. The only hypothesis to check is injectivity on the boundary of R. Clearly f is injective on B, mapping to B,and (2.7) implies injectivity on T . Finally, (2.8) ensures that f (T ) does not touch f (B), so the images of the components of ∂R are pairwise disjoint. □
+
+Conversely, given periodic and smooth Ω, there exist a wavenumber k and a conformal map f from R to Ω which admits an extension as a homeomorphism between R and Ω, with the same H¨ older regularity as Ω. For more details see for instance, [WW24, Lemma 2.1]. We now write (2.2) as a problem for ψ, p and η on R, where ψ and p are the stream function and pressure as functions of the conformal variables, 
+
+ψ(x, y ) := Ψ( f (x, y )) , p(x, y ) := P (f (x, y )) . (2.9) 10 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+Denote by ˜∂i the transformations of the respective derivatives ∂i in R, i.e. if G(X, Y ) = g(x, y ), then ˜∂X g = ∂X G, ˜∂Y g = ∂Y G, or explicitly, ˜∂X := 1
+
+|∇ η|2 (ηy ∂x − ηx∂y ) , ˜∂Y := 1
+
+|∇ η|2 (ηx∂x + ηy ∂y ) .
+
+Let us also define ˜∇ := ( ˜∂X , ˜∂Y ) and write the symmetrised velocity gradient in conformal variables as 
+
+DΨ( X, Y ) =: ˜Dψ(x, y ). The unit normal vector ν and mean curvature H of the surface S become 
+
+ν(η) := 1
+
+|∇ η|2
+
+−ηx
+
+ηy
+
+
+
+and H(η) := ηy ηxx − ηxηxy 
+
+|∇ η|3 .
+
+We also add a new interior equation ∆ η = 0 in R, recovering ξ up to an additive constant as the harmonic conjugate of η using (2.6). With this notation, (2.2) becomes the problem 
+
+− ˜∂Y
+
+ |∇ η|−2∆ψ + R ˜∂Y ψ ˜∂XY ψ − R ˜∂X ψ ˜∂Y Y ψ + ˜∂X p = 2 in R, (2.10a) ˜∂X
+
+ |∇ η|−2∆ψ − R ˜∂Y ψ ˜∂XX ψ + R ˜∂X ψ ˜∂XY ψ + ˜∂Y p = −2 cot θ in R, (2.10b) ∆η = 0 in R, (2.10c) 
+
+ψ = 23 − γ on T , (2.10d) 
+
+  p + σH (η)I − ˜Dψ (−ηx, η y )T = 0 on T , (2.10e) 
+
+ψ = 0 on B, (2.10f) ˜∂Y ψ = −γ on B, (2.10g) 
+
+η = 0 on B, (2.10h) in the rectangular domain R, where (2.10a) and (2.10b) have been simplified using (2.10c). 2.3. Functional framework. We will work in the Banach spaces 
+
+X := (ψ, p, η ) ∈ C4,α (R) × C2,α (R) × C4,α (R) : ∆ η = 0 , ψ |B = η|B = 0 , η x(0 , 1) = 0 ,
+
+Y := C1,α (R) × C1,α (R) × C4,α (T ) ×  C2,α (T )2 × C3,α (B) . (2.11) The inclusion of the homogeneous linear equations ∆ η = 0 and ψ|B = η|B = 0 in X is for convenience, and the constraint ηx(0 , 1) = 0 is introduced to eliminate the translation symmetry of solutions. For small amplitudes, it corresponds to shifting the wave peak or trough to x = 0. Define an open set U ⊂ X × R2 by 
+
+U =
+
+(ψ, p, η, θ, γ ) ∈ X × (0 , π ) × (0 , ∞) : inf  
+
+> z1,z 2∈T
+> z1̸=z2
+
+|f (z1) − f (z2)||z1 − z2| > 0, inf  
+
+> T
+
+η > 0, inf  
+
+> T
+
+|∇ ψ| + σ > 0
+
+ .
+
+(2.12) The first two conditions are (2.7) and (2.8), where f = ( ξ, η ) with ξ being recovered by (2.6). By Lemma 2.1, these conditions ensure f is bijective. The additional condition inf T |∇ ψ| + σ > 0 is necessary for ellipticity to hold, but has a physical meaning in that |∇ ψ| vanishing on T would represent a stagnation point on the surface. Now we define a function F : U → Y such that the tuple ( u, θ, γ ) ∈ U ⊂ X × R2 solving (2.10) is equivalent to F (u, θ, γ ) = 0, namely 
+
+F (ψ, p, η ; θ, γ ) = 
+
+
+
+− ˜∂Y
+
+ |∇ η|−2∆ψ − R ˜∇⊥ψ · ˜∇ ˜∂Y ψ + ˜∂X p − 2˜∂X
+
+ |∇ η|−2∆ψ + R ˜∇⊥ψ · ˜∇ ˜∂X ψ + ˜∂Y p + 2 cot θψ − 23 + γ
+
+> T
+
+  p + σH (η)I − ˜Dψ (−ηx, η y )T
+
+> T
+
+ ˜∂Y ψ + γ
+
+> B
+
+
+
+. (2.13) It is standard to check that F is real analytic, since it is the composition of rational functions and bounded linear maps, that is, derivatives and traces. We denote the Nusselt shear solution by 
+
+u0(θ, γ ) := (Ψ 0(y; γ), P 0(y; θ), y ), (2.14) GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 11 
+
+where Ψ 0 is defined in (2.3) and P0 is defined in (1.7). Note that for any θ ∈ (0 , π ) and γ > 0, ( u0(θ, γ ), θ, γ ) ∈
+
+U , as the conformal map f0 for the Nusselt profile is the identity f0(x, y ) = ( x, y ), and so the left-hand sides of (2.7) and (2.8) are both 1. We denote by L (θ, γ ) := Fu(u0(θ, γ ), θ, γ ) : X → Y the linearised operator around the Nusselt solution. This is found by straightforward calculation to be 
+
+L (θ, γ )
+
+
+
+˙ψ
+
+˙p
+
+˙η
+
+ =
+
+
+
+−∆ ˙ψy + ˙ px + R Ψ′
+
+> 0
+
+( ˙ψxy − Ψ′ 
+
+> 0
+
+˙ηxy 
+
+ − Ψ′′  
+
+> 0
+
+˙ψx) − P ′ 
+
+> 0
+
+˙ηx − 6 ˙ ηy − 2Ψ ′′  
+
+> 0
+
+˙ηxx 
+
+∆ ˙ψx + ˙ py − RΨ′
+
+> 0
+
+( ˙ψxx − Ψ′ 
+
+> 0
+
+˙ηxx ) − P ′ 
+
+> 0
+
+˙ηy − Ψ′′′  
+
+> 0
+
+˙ηx − 2Ψ ′′  
+
+> 0
+
+˙ηxy 
+
+˙ψ|T  ˙ψxx − ˙ψyy 
+
+ − Ψ′ 
+
+> 0
+
+( ˙ ηxx − ˙ηyy ) |T
+
+2 ˙ψxy + ˙ p − 2Ψ ′ 
+
+> 0
+
+˙ηxy + σ ˙ηxx |T
+
+˙ψy − Ψ′ 
+
+> 0
+
+˙ηy |B
+
+
+
+. (2.15) It will be convenient here and in Section 4 in the reduction to the Orr–Sommerfeld operator Los to compose 
+
+L with an invertible change of basis map, Q(θ, γ ) : X → X ,
+
+Q(y; θ, γ ) := 
+
+1 0 Ψ′
+
+> 0
+
+(y)0 1 P ′
+
+> 0
+
+(y)0 0 1
+
+ . (2.16) This change of variables is motivated by the operation of the chain rule in linearising F , and is sometimes referred to as the T-isomorphism ; see [EEV12, Var20, WW24]. The composition L Q is then explicitly 
+
+L Q
+
+
+
+φqζ
+
+ =
+
+
+
+(−∆∂y + RΨ′
+
+> 0
+
+∂xy − RΨ′′  
+
+> 0
+
+∂x) φ + qx
+
+(∆ ∂x − RΨ′
+
+> 0
+
+∂xx ) φ + qy
+
+φ + Ψ ′
+
+> 0
+
+ζ T
+
+(∂xx − ∂yy ) φ − Ψ′′′  
+
+> 0
+
+ζ T
+
+2φxy + q + ( P ′ 
+
+> 0
+
++ σ∂ xx ) ζ T
+
+φy |B
+
+
+
+. (2.17) The advantage of this operator over L in (2.15) is that ζ only appears in the components evaluated on the top boundary T .2.4. Abstract multi-parameter bifurcation theory. This last preliminary subsection recalls some ab-stract theory which will be used to prove our bifurcation results Theorems 1.1 and 1.4. Firstly, we recall a result by Hale [Hal78] which generalises the Crandall–Rabinowitz theorem [CR71] to linearised operators having a one-dimensional kernel and range with codimension n ∈ N. This result reduces to Crandall and Rabinowitz’s when n = 1; we will apply it with n = 2. We state an analytic version (see also [L´ op89, Theorem 1.1]) in convenient notation. 
+
+Theorem 2.2 ([Hal78]) . Let F : U → Y be an analytic mapping, where U ⊂ X × Rn is open, n ∈ N and 
+
+X and Y are Banach spaces. Suppose the following hold: 
+
+(i) F (0 , λ ) = 0 for all λ;
+
+(ii) For some λ0 ∈ Rn, the operator Fu(0 , λ 0) is Fredholm and there exists some ξ0 ∈ X such that 
+
+ker Fu(0 , λ 0) = span {ξ0} and codim ran Fu(0 , λ 0) = n;
+
+(iii) For all nonzero μ ∈ Rn,
+
+Duλ F (0 , λ 0)[ ξ0, μ ] /∈ ran Fu(0 , λ 0).
+
+Then there exist ε > 0 and a nontrivial curve of solutions, 
+
+Cloc := {(U (s), Λ( s)) : s ∈ (−ε, ε )} ⊂ F −1(0) ,
+
+parameterised by analytic functions U : ( −ε, ε ) → U and Λ : ( −ε, ε ) → Rn satisfying U (0) = 0 , U ′(0) = ξ0
+
+and Λ(0) = λ0. Furthermore, there exists an open neighbourhood N ⊂ U such that (0 , λ 0) ∈ N and 
+
+Cloc = {(u, λ ) ∈ N : F (u, λ ) = 0 , u ̸ = 0 }. (2.18) Here we have written the transversality-type condition (iii) in a form most analogous to the transversality condition of [CR71]. This hypothesis is equivalent to the third condition in the definition of a ‘simple eigenvalue’ in [Hal78]. Indeed, (iii) implies that there are n linearly independent vectors Fuλ i (0 , λ 0)ξ0 in the complement of the range of Fu(0 , λ 0) in Y , which by (ii) has dimension n, implying Hale’s third condition. 12 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+We note that it would also be possible to use Kielh¨ ofer’s multiparameter result [Kie12, Theorem I.19.6], by considering our operator Fu(u0, θ, γ ) without the phase constraint as an index zero operator with a two-dimensional kernel and range of codimension two. Lastly, we state a multiparameter adaptation of Buffoni and Toland’s analytic global bifurcation re-sult [BT03, Theorem 9.1.1]. Following [HW23], we require only that the linearised operator is semi-Fredholm 
+
+with closed range and finite-dimensional kernel (this is equivalent to the condition of local properness). The additional alternative of loss of compactness replaces the hypothesis that all bounded closed subsets of solutions in U are compact (see also [CWW18]). We sketch a proof in Appendix A. 
+
+Theorem 2.3 ([BT03]) . In the setting of Theorem 2.2, suppose that in addition, for all (u, λ ) ∈ U , the operator Fu(u, λ ) is semi-Fredholm with closed range and finite-dimensional kernel. Then there exists a curve C which extends Cloc , parameterised as 
+
+C = {(U (s), Λ( s)) : s ∈ R} ⊂ F −1(0) ,
+
+where (U, Λ) : R → X × Rn is continuous. Near each point along C , we can reparameterise C so that 
+
+s 7 → (U (s), Λ( s)) is real analytic. Furthermore, one of the following alternatives holds. 
+
+(a) Along each directed branch as s → ±∞ , either 
+
+(i) (Blow-up) The quantity 
+
+N (s) := ∥U (s)∥X + |Λ( s)| + 1dist (( U (s), Λ( s)) , ∂ U ) −→ ∞ ; or (2.19) (ii) (Loss of compactness) There exists a sequence sn → ±∞ such that sup n N (sn) < ∞ but {U (sn)}
+
+has no subsequences converging in U .
+
+(b) (Closed loop) There exists some T > 0 such that (U (s + T ), Λ( s + T )) = ( U (s), Λ( s)) for all s ∈ R.
+
+3. Elliptic theory 
+
+In this section, we prove that the operator for the linearisation around a general solution can be extended to an elliptic operator in the sense of Agmon–Douglis–Nirenberg [ADN64], with a corresponding Schauder estimate. Consequently, the operator is semi-Fredholm with closed range and finite-dimensional kernel, as required by Theorem 2.3. A homotopy argument then allows us to compute the Fredholm index of the operator linearised around the Nusselt solution to be −1, as required by Theorem 2.2. 3.1. Schauder estimate. Our objective in this subsection is to prove a global Schauder estimate for the operator Fu(u, θ, γ ) linearised around any ( u, θ, γ ) ∈ U , for U defined in (2.12). As an immediate corollary, 
+
+Fu(u, θ, γ ) is therefore locally proper , that is, the intersection of the pre-image of any compact set with any closed and bounded set in U is compact. Equivalently, Fu(u, θ, γ ) is semi-Fredholm with closed range and finite-dimensional kernel. To this end, we study a natural extension of Fu(u, θ, γ ), which we write in the form ( A, B1, B0), where operators A, B1 and B0 are operators on the interior, top boundary component, and lower boundary com-ponent respectively. We verify that on each portion of the boundary, the corresponding operator ( A, Bi)satisfies the “Shapiro–Lopatinsky” condition, also known as the “covering” or “complementing” condition. This is an algebraic condition on the Fourier coefficients of the symbol of the operator, and implies local Schauder estimates near each boundary. Together with interior Schauder estimates from interior ellipticity, this yields a global Schauder estimate for ( A, B1, B0) and thus for Fu(u, θ, γ ). In Appendix B, we provide a terse review of the relevant theory for elliptic systems. See also [WRL95, Chapters 9 and 10] and [Vol11, Chapter 2] for a more detailed introduction. 
+
+Proposition 3.1. Let k > 0, R ≥ 0, and (u, θ, γ ) = ( ψ, p, η, θ, γ ) ∈ U . Suppose δ > 0 is such that 
+
+inf  
+
+> T
+
+|∇ η| > δ, sup 
+
+> T
+
+|∇ η| < 1
+
+δ , inf  
+
+> T
+
+|ψy | + σ > δ. (3.1) 
+
+Then the operator Fu(u, θ, γ ) : X → Y enjoys the following a priori estimate: 
+
+∥ ˙u∥X ≤ C ∥Fu(u, θ, γ ) ˙ u∥Y + ∥ ˙u∥L1(R)×L1(R)×L1(R)
+
+, (3.2) 
+
+where C > 0 depends only on δ and ∥u∥X .GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 13 
+
+Proof. First note that (3.1) implies lower and upper bounds for |∇ η| over R in terms only of δ,inf 
+
+> R
+
+|∇ η| > C (δ), sup 
+
+> R
+
+|∇ η| < C (δ−1), (3.3) by standard maximum principle arguments. We compute the linearisation of F around ( u, θ, γ ) ∈ U , making use of the homogeneous conditions ∆η = 0 and ψ|B = η|B = 0 in the definition (2.11) of X ,
+
+F1u(u, θ, γ )( ˙ψ, ˙p, ˙η) = −|∇ η|−4∇η · ∇ ∆ ˙ψ + D1 ˙ψ + |∇ η|−2∇η · ∇ ⊥ ˙p + D2 ˙η, 
+
+F2u(u, θ, γ )( ˙ψ, ˙p, ˙η) = |∇ η|−4∇η · ∇ ⊥∆ ˙ψ + D3 ˙ψ + |∇ η|−2∇η · ∇ ˙p + D4 ˙η, 
+
+F3u(u, θ, γ )( ˙ψ, ˙p, ˙η) = ˙ψ|T ,
+
+F4u(u, θ, γ )( ˙ψ, ˙p, ˙η) = 1
+
+|∇ η|2 ηy ( ˙ψxx − ˙ψyy ) − 2ηx ˙ψxy + D5 ˙ψ − ηx ˙p + ση x
+
+|∇ η|3 (ηx ˙ηxy − ηy ˙ηxx )+ 2ψy
+
+|∇ η|4
+
+ (η2 
+
+> x
+
+− η2 
+
+> y
+
+) ˙ ηxx + 2 ηxηy ˙ηxy 
+
+ + D6 ˙η|T ,
+
+F5u(u, θ, γ )( ˙ψ, ˙p, ˙η) = 1
+
+|∇ η|2 ηx( ˙ψxx − ˙ψyy ) + 2 ηy ˙ψxy + D7 ˙ψ + ηy ˙p + ση y
+
+|∇ η|3 (ηy ˙ηxx − ηx ˙ηxy )+ 2ψy
+
+|∇ η|4
+
+ (η2 
+
+> x
+
+− η2 
+
+> y
+
+) ˙ ηxy − 2ηxηy ˙ηxx 
+
+ + D8 ˙η|T ,
+
+F6u(u, θ, γ )( ˙ψ, ˙p, ˙η) = ηy ˙ψy + ψy ˙ηy |B.
+
+(3.4) Here the operators D1, . . . , D 4 are second-order differential operators with C1,α (R) coefficients and D5, . . . , D 8
+
+are first-order differential operators with C2,α (T ) coefficients, all of whose norms are controlled by (inf R|∇ η|)−1
+
+and ∥u∥X , and their exact form will not be required for our calculations. Let us define a natural extension of the general linearised operator Fu(u, θ, γ ) : X −→ Y ,(A, B1, B0) : C4,α (R) × C2,α (R) × C4,α (R) −→ C1,α (R) × C1,α (R) × C2,α (R) ×
+
+C4,α (T ) × C2,α (T ) × C2,α (T ) ×
+
+C4,α (B) × C3,α (B) × C4,α (B)(3.5) by 
+
+A := 
+
+−|∇ η|−4∇η · ∇ ∆ + D1 |∇ η|−2∇η · ∇ ⊥ D2
+
+|∇ η|−4∇η · ∇ ⊥∆ + D3 |∇ η|−2∇η · ∇ D4
+
+0 0 ∆
+
+ ,
+
+B1 := 
+
+
+
+1 0 0
+
+ηy (∂xx − ∂yy ) − 2ηx∂xy 
+
+|∇ η|2 −ηx
+
+ση x
+
+|∇ η|3 (ηx∂xy − ηy ∂xx ) + 2ψy
+
+|∇ η|4
+
+ (η2 
+
+> x
+
+− η2 
+
+> y
+
+)∂xx + 2 ηxηy ∂xy 
+
+
+
+ηx(∂xx − ∂yy ) + 2 ηy ∂xy 
+
+|∇ η|2 ηy
+
+ση y
+
+|∇ η|3 (ηy ∂xx − ηx∂xy ) + 2ψy
+
+|∇ η|4
+
+ (η2 
+
+> x
+
+− η2 
+
+> y
+
+)∂xy − 2ηxηy ∂xx 
+
+
+
++
+
+
+
+0 0 0
+
+D5 0 D6
+
+D7 0 D8
+
+ ,
+
+and 
+
+B0 := 
+
+
+
+1 0 01
+
+ηy
+
+∂y 0 ψy ∂y
+
+0 0 1
+
+ .
+
+The choices of the integer orders of the spaces in (3.5) will be motivated below (see (3.7) and (3.10)). This defines a natural extension of Fu(u, θ, γ ) in the sense that, for ( ˙ψ, ˙p, ˙η) ∈ ˜X and ( f1, f 2, h 1, h 2, h 3, h 4) ∈ Y ,if 
+
+Fu(u, θ, γ )( ˙ψ, ˙p, ˙η)T = ( f1, f 2, h 1, h 2, h 3, h 4)T ,14 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+then (A, B1, B0)( ˙ψ, ˙p, ˙η)T = ( f1, f 2, 0, h 1, h 2, h 3, 0, h 4, 0) T .
+
+Therefore, it suffices to establish a Schauder estimate on R for the extended operator ( A, B1, B0). We do this by following the standard recipe from [ADN64] for elliptic systems. The first step is to formally replace ∂x, ∂ y with ik, il for some Fourier variables k, l ∈ R, to obtain matrix polynomials A (k, l ), B1(k, l ) and B0(k, l ) corresponding to A, B1 and B0. Suppressing dependence on ( x, y )for readability, these are given by 
+
+A (k, l ) = 
+
+
+
+i|∇ η|−4  k2 + l2 (ηxk + ηy l) + ˜D1 i|∇ η|−2 (−ηxl + ηy k) ˜D2
+
+i|∇ η|−4  k2 + l2 (ηxl − ηy k) + ˜D3 i|∇ η|−2 (ηxk + ηy l) ˜D4
+
+0 0 −(k2 + l2)
+
+ ,
+
+B1(k, l ) = 
+
+
+
+1 0 0 2ηxkl − ηy k2 + ηy l2
+
+|∇ η|2 + −ηx
+
+ηxkσ (−ηxl + ηy k)
+
+|∇ η|3 + 2kψ y
+
+ −η2
+
+> x
+
+k − 2ηxηy l + η2 
+
+> y
+
+k
+
+|∇ η|4
+
+ −ηxk2 + ηxl2 − 2ηy kl 
+
+|∇ η|2 ηy
+
+ηy kσ (ηxl − ηy k)
+
+|∇ η|3 + 2kψ y
+
+ −η2
+
+> x
+
+l + 2 ηxηy k + η2 
+
+> y
+
+l
+
+|∇ η|4
+
+
+
++
+
+
+
+0 0 0˜D9 0 ˜D10 
+
+˜D11 0 D12 
+
+ ,
+
+and 
+
+B0(k, l ) = 
+
+
+
+1 0 0
+
+il ηy
+
+0 iψ y l
+
+0 0 1
+
+ ,
+
+where ˜Di(k, l ) are polynomials in k, l of lower degree. We verify that A is properly elliptic on R in the sense of Douglis–Nirenberg. Consider A evaluated at an interior point ( x, y ) ∈ R . As polynomials in k, l , the entries of A have degree (αij ) = 
+
+ 3 1 33 1 3
+
+−∞ −∞ 2
+
+ , (3.6) and we select Douglis–Nirenberg numbers (defined in (B.2)) for ( αij ), choosing ( t1, t 2, t 3) = (3 , 1, 3) and (s1, s 2, s 3) = (0 , 0, −1), so that the matrix (si + tj ) = 
+
+
+
+3 1 33 1 32 0 2
+
+ (3.7) has entries greater than or equal to the respective entries of (3.6). Thus, A is a differential operator of the form 
+
+Aij (x, ∂ ) = X
+
+> |ρ|≤ si+tj
+
+aij,ρ (x)∂ρ : C1+ tj ,α (R) → C1−si,α (R),
+
+with coefficients aij,ρ ∈ C1−si,α (R) whose norms are controlled uniformly from above by (inf R|∇ η|)−1 and 
+
+∥u∥X .From this set of Douglis–Nirenberg numbers we obtain a principal part πA of A , that is, the terms that are of order si + tj ,
+
+πA (k, l ) = 
+
+
+
+i|∇ η|−4  k2 + l2 (ηxk + ηy l) i|∇ η|−2 (−ηxl + ηy k) 0
+
+i|∇ η|−4  k2 + l2 (ηxl − ηy k) i|∇ η|−2 (ηxk + ηy l) 00 0 −(k2 + l2)
+
+ . (3.8) The determinant of this principal part gives the characteristic polynomial for A ,det πA (k, l ) = |∇ η|−4(k2 + l2)3. (3.9) GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 15 
+
+Given ( k, l ) ∈ R2 such that k2 + l2 = 1, (3.9) is bounded below in R by a constant depending only on sup R|∇ η| and bounded above by a constant depending on inf R|∇ η|. Thus, by (3.3), A is uniformly elliptic in R with an ellipticity constant depending only on δ. This ellipticity is also proper, since for fixed k ≥ 0, det πA (k, l ) has the same number of roots in the upper half-plane {Im l > 0} as in the lower half-plane. Define ρ+(l) := ( l − ik )3, the factor of det πA (k, l ) which contains all the roots inside the positive upper half-plane. We next verify the Shapiro–Lopatinsky condition at each component of the boundary of R. Here, we fix 
+
+k > 0 and view Bi and A as functions of l. At each boundary component, this condition is equivalent to the matrix polynomial πBi(l) adj( πA )( l) being full rank modulo ρ+(l), where adj M = det M (M )−1 denotes the adjugate of a matrix M .Considering the top boundary operator at a point ( x, 1) ∈ T , the matrix of orders of coefficients of B1 is given by (βij ) = 
+
+
+
+0 −∞ −∞ 
+
+2 −∞ 22 0 2
+
+ .
+
+Defining mi = max j (βij − tj ), we have ( m1, m 2, m 3) = ( −3, −1, −1), and similarly to (3.7), the matrix (mi + tj ) = 
+
+
+
+0 −2 02 0 22 0 2
+
+ (3.10) determines the principal part of B1,
+
+πB1(l) = 
+
+ 2ηxkl − ηy k2 + ηy l2
+
+|∇ η|2 −ηx
+
+ηxkσ (−ηxl + ηy k)
+
+|∇ η|3 + 2kψ y
+
+ −η2
+
+> x
+
+k − 2ηxηy l + η2 
+
+> y
+
+k
+
+|∇ η|4
+
+ −ηxk2 + ηxl2 − 2ηy kl 
+
+|∇ η|2 ηy
+
+ηy kσ (ηxl − ηy k)
+
+|∇ η|3 + 2kψ y
+
+ −η2
+
+> x
+
+l + 2 ηxηy k + η2 
+
+> y
+
+l
+
+|∇ η|4
+
+ .
+
+Here, we are seeing B1 as an operator (B1)kj (( x, 1) , ∂ ) = X 
+
+> |σ|≤ mk+tj
+
+bkj,σ (x, 1) ∂σ : C1+ tj ,α (T ) → C1−mk ,α (T ),
+
+with coefficients bkj,σ ∈ C1−mk ,α (T ) whose norms are controlled uniformly from above by (inf T |∇ η|)−1 and 
+
+∥u∥X .It is convenient to multiply πB1 by an invertible matrix which is independent of l, defining a new matrix ˜B1 by ˜B1 =
+
+
+
+1 0 00 ηy ηx
+
+0 −ηx ηy
+
+ πB1 =
+
+
+
+1 0 0
+
+ l2 − k2 0 2kψ y
+
+|∇ η|2 (ηy k − ηxl)
+
+−2kl |∇ η|2 2kψ y
+
+|∇ η|2 (ηxk + ηy l) + σk 
+
+|∇ η| (ηxl − ηy k)
+
+ . (3.11) We compute the adjugate of πA at ( x, 1) ∈ T ,adj( πA )( l) = 
+
+
+
+− i  k2 + l2 (ηxk + ηy l)
+
+|∇ η|2
+
+i  k2 + l2 (−ηxl + ηy k)
+
+|∇ η|2 0
+
+− i  k2 + l22 (−ηxl + ηy k)
+
+|∇ η|4 − i  k2 + l22 (ηxk + ηy l)
+
+|∇ η|4 00 0 −
+
+ k2 + l22
+
+|∇ η|4
+
+
+
+,16 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+so that 
+
+M1(l) := ˜B1 adj( πA )( l) = i
+
+|∇ η|2
+
+ k2 + l2 ×
+
+
+
+− (ηxk + ηy l) ηy k − ηxl 0
+
+ k2 − l2 (ηxk + ηy l)  k2 − l2 (ηxl − ηy k) 2ikψ y
+
+ k2 + l2 (ηy k − ηxl)
+
+|∇ η|4
+
+ηxl(3 k2 + l2) − ηy k(k2 − l2) ηxk(l2 − k2) − ηy l(3 k2 + l2) ik  k2 + l2  2ψy (ηxk + ηy l)
+
+|∇ η|4 − σ(ηy k − ηxl)
+
+|∇ η|3
+
+ .
+
+Now the rows of M1(l) are linearly independent modulo ρ+(l) = ( l − ik )3 if and only if the block matrix  M1(ik ) M ′
+
+> 1
+
+(ik ) M ′′  
+
+> 1
+
+(ik ) has full rank. To see this, consider the Taylor expansion of M1(l) around the point l = ik ,
+
+M1(l) = 
+
+> 3
+
+X
+
+> j=0
+
+1
+
+j! M (j)1 (ik )( l − ik )j .
+
+We then can write the remainder modulo ( l − ik )3 of M1 as 
+
+M1(l) ≡
+
+> 2
+
+X
+
+> j=0
+
+1
+
+j! M (j)1 (ik )( l − ik )j mod ( l − ik )3.
+
+Consequently, the rows of M1(l) are linearly dependent modulo ρ+(l) if and only if each of the 3 × 3 minor determinants of  M1(ik ) M ′
+
+> 1
+
+(ik ) M ′′  
+
+> 1
+
+(ik ) vanish. In fact, we need only consider 
+
+M ′′  
+
+> 1
+
+(ik ) = 
+
+
+
+− 2ik (ηx + 3 iη y )
+
+|∇ η|2
+
+2k (3 ηx + iη y )
+
+|∇ η|2 04ik 3 (3 ηx + 5 iη y )
+
+|∇ η|2 − 4k3 (5 ηx + 3 iη y )
+
+|∇ η|2 − 16 ik 4ψy (ηx + iη y )
+
+|∇ η|6
+
+− 4k3 (ηx + 3 iη y )
+
+|∇ η|2 − 4ik 3 (3 ηx + iη y )
+
+|∇ η|2
+
+8ik 4 (ηx + iη y ) ( σ|∇ η| − 2iψ y )
+
+|∇ η|3
+
+
+
+,
+
+which has 
+
+|det M ′′  
+
+> 1
+
+(ik )|2 = 65536 k16 |∇ η|−14  σ2|∇ η|2 + 4 |ψy |2 . (3.12) The infimum of the right-hand side of (3.12) over T is bounded away from zero uniformly by a constant dependent on sup T |∇ η| and inf T |ψy | + σ. Therefore, by (3.1) the Shapiro–Lopatinsky condition holds for (A, B1) uniformly on T with a constant depending on δ, and by Theorem B.1, we have a Schauder estimate up to the boundary at the top. The computation on the lower boundary B is similar but less complicated than on T . We consider a point (x, 0) ∈ B and again fix k > 0, but since ey is inward-pointing at the bed, we evaluate all polynomials in l at 
+
+−l instead. We pick Douglis–Nirenberg numbers ( m1, m 2, m 3) = ( −3, −2, −3) for B0, and find principal part 
+
+πB0(−l) = 
+
+
+
+1 0 0
+
+−il ηy
+
+0 −iψ y l
+
+0 0 1
+
+ , (3.13) seeing B0 as an operator (B0)kj (( x, 1) , ∂ ) = X 
+
+> |σ|≤ mk+tj
+
+bkj,σ (x, 1) ∂σ : C1+ tj ,α (T ) → C1−mk ,α (T ),
+
+with coefficients bkj,σ ∈ C1−mk ,α (T ) whose norms are controlled uniformly from above by (inf B|∇ η|)−1 and 
+
+∥u∥X .GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 17 
+
+We then calculate the matrix 
+
+M0(l) := πB0(−l) adj( πA )( −l) = 
+
+
+
+il  k2 + l2
+
+ηy
+
+ik  k2 + l2
+
+ηy
+
+0
+
+l2  k2 + l2
+
+η2
+
+> y
+
+kl  k2 + l2
+
+η2
+
+> y
+
+− ilψ y
+
+ k2 + l22
+
+η4
+
+> y
+
+0 0 −
+
+ k2 + l22
+
+η4
+
+> y
+
+
+
+,
+
+and consider M ′′  
+
+> 0
+
+(ik ), 
+
+M ′′  
+
+> 0
+
+(ik ) = 
+
+
+
+− 6kηy
+
+2ik ηy
+
+0
+
+− 10 k2
+
+η2
+
+> y
+
+6ik 2
+
+η2
+
+> y
+
+− 8k3ψy
+
+η4
+
+> y
+
+0 0 8k2
+
+η4
+
+> y
+
+
+
+,
+
+which has 
+
+|det M ′′  
+
+> 0
+
+(ik )| = 128 k5|ηy |−7,
+
+again bounded away from zero by a constant depending only on sup B|∇ η|. Thus again by (3.3), ( A, B0)satisfies the Shapiro–Lopatinsky condition uniformly on the bed with dependence only on δ and Theorem B.1 gives a Schauder estimate on the bed. Therefore, we have local a priori Schauder estimates up to the boundary for each corresponding operator (A, Bi), as well as interior estimates from the ellipticity of A. The constants in these estimates depend on the norms of the coefficients, the ellipticity constant and the Shapiro–Lopatinsky constants, which are all controlled by δ using (3.1) and (3.3). Gluing these estimates together in the usual way, we obtain the global Schauder estimate (3.2). □
+
+3.2. Fredholm index of linearisation around the Nusselt solution. We can furthermore find the index of the linearisation L = Fu(u0(θ, γ ), θ, γ ) (see (2.15)) around the Nusselt solution u0(θ, γ ) defined in (2.14) by homotoping to a simpler operator, using the continuity of the index under continuous deformation. Note that we only need to compute the index for the linearisation around the Nusselt solution, as the Fredholm property of the linearised operator preserves its index along the bifurcation curve as it is continued globally; see Theorem 2.3. 
+
+Proposition 3.2. The operator L : X → Y defined in (2.15) has Fredholm index −1.Proof. It is enough to show that L := L Q given by (2.17) has index −1, since Q : X → X is invertible. Extending L as in (3.5), we define ˜A =
+
+
+
+−∆∂y + RΨ′
+
+> 0
+
+∂xy − RΨ′′  
+
+> 0
+
+∂x ∂x 0∆∂x − RΨ′
+
+> 0
+
+∂xx ∂y 00 0 ∆
+
+ ,
+
+˜B1 =
+
+
+
+1 0 Ψ′
+
+> 0
+
+∂xx − ∂yy 0 −Ψ′′′ 
+
+> 0
+
+2∂xy 1 −2 cot θ + σ∂ xx 
+
+ , ˜B0 =
+
+
+
+1 0 0
+
+∂y 0 00 0 1
+
+ .
+
+Now, we extend the domain of L to ˜X =
+
+n
+
+( ˙ψ, ˙p, ˙η) ∈ C4,α (R) × C2,α (R) × C4,α (R) : ∆η = 0 , ψ |B = η|B = 0 
+
+o
+
+⊃ X ,
+
+so that given ( φ, q, ζ ) ∈ ˜X and ( f1, f 2, h 1, h 2, h 3, h 4) ∈ Y , the problem 
+
+L(φ, q, ζ )T = ( f1, f 2, h 1, h 2, h 3, h 4)T
+
+is equivalent to   ˜A, ˜B1, ˜B0
+
+(φ, q, ζ )T = ( f1, f 2, 0, h 1, h 2, h 3, 0, h 4, 0) T .
+
+Consequently, the extended operator L : ˜X → Y has the same index as   ˜A, ˜B1, ˜B0
+
+ : ˜X → ˜Y , where ˜Y = {(f1, f 2, 0, h 1, h 2, h 3, 0, h 4, 0) : (f1, f 2, h 1, h 2, h 3, h 4) ∈ Y }.18 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+Using that ∆ ζ = 0 to simplify ˜B1, these operators ˜A, ˜B1, and ˜B0 have matrix polynomials with Douglis– Nirenberg principal parts given by 
+
+π ˜A (k, l ) = 
+
+ il (k2 + l2) ik 0
+
+−ik (k2 + l2) il 00 0 −(k2 + l2)
+
+ ,π ˜B1(l) = 
+
+ 1 0 Ψ′
+
+> 0
+
+l2 − k2 0 0
+
+−2kl 1 −σk 2
+
+ , π ˜B0(l) = 
+
+
+
+1 0 0
+
+il 0 00 0 1
+
+ ,
+
+using the same Douglis–Nirenberg numbers as A , B1 and B0 in Proposition 3.1. We now consider a contin-uous family of operators ( A(t), B1(t), B0(t)) parameterised by t ∈ [0 , 1], with matrix polynomials 
+
+A (l; t) = 
+
+
+
+−il (k2 + l2) + kR (t − 1)(Ψ ′
+
+> 0
+
+l + iΨ′′  
+
+> 0
+
+) ik 0
+
+ik (k2 + l2) + RΨ′
+
+> 0
+
+k2(1 − t) il 00 0 −(k2 + l2)
+
+ ,
+
+B1(l; t) = 
+
+
+
+1 0 Ψ′
+
+> 0
+
+(1 − t)
+
+l2 − (1 − 2t)k2 0 Ψ′′′  
+
+> 0
+
+(t − 1) 
+
+−2kl (1 − t) 1 − t 2 cot θ(t − 1) − (σ + t)( t + k2)
+
+ , B0(l; t) = 
+
+
+
+1 0 0
+
+il 0 00 0 1
+
+ .
+
+Here, ( A(0) , B1(0) , B0(0)) =   ˜A, ˜B1, ˜B0
+
+, while at t = 1, ˜A(1) = 
+
+
+
+−∆∂y ∂x 0∆∂x ∂y 00 0 ∆
+
+ ,
+
+˜B1(1) = 
+
+
+
+1 0 0∆ 0 00 0 (1 + σ)(1 − ∂xx )
+
+ , ˜B0(1) = 
+
+
+
+1 0 0
+
+∂y 0 00 0 1
+
+ .
+
+We have constructed this family of operators ( A(t), B1(t), B0(t)) so that the index of ( A(1) , B1(1) , B0(1)) will be easy to calculate below. Now we verify for all t ∈ [0 , 1], the operators ( A(t), Bi(t)) on each boundary satisfy the Shapiro–Lopatinsky condition. Setting Mi(l; t) = ( πBi(l; t)) πA (l; t), we have 
+
+M1(l; t) = 
+
+
+
+−il  k2 + l2 ik  k2 + l2 Ψ′
+
+> 0
+
+ k2 + l22 (t − 1) 
+
+−il  k2 + l2   k2(2 t − 1) + l2 ik  k2 + l2   k2(2 t − 1) + l2 0
+
+ik  k2 − l2   k2 + l2 (t − 1) il  k2 + l2   3k2 + l2 (t − 1) k2(σ + t)  k2 + l22
+
+ ,
+
+and 
+
+M0(l; t) = 
+
+
+
+−il  k2 + l2 ik  k2 + l2 0
+
+l2  k2 + l2 −kl  k2 + l2 00 0 −  k2 + l22
+
+ .
+
+From these we compute 
+
+ M ′
+
+> 1
+
+(ik ; t) M ′′  
+
+> 1
+
+(ik ; t) =
+
+
+
+2ik 2 −2k2 0 6k 2ik −8Ψ ′ 
+
+> 0
+
+(t − 1) 4ik 4 (t − 1) −4k4 (t − 1) 0 4k3 (3 t − 5) 4ik 3 (t − 3) 0
+
+−4k4 (t − 1) −4ik 4 (t − 1) 0 12 ik 3 (t − 1) −4k3 (t − 1) −8k4(σ + t)
+
+ ,
+
+and 
+
+ M ′
+
+> 0
+
+(ik ; t) M ′′  
+
+> 0
+
+(ik ; t) =
+
+
+
+2ik 2 −2k2 0 6k 2ik 0
+
+−2ik 3 2k3 0 −10 k2 −6ik 2 00 0 0 0 0 8k2
+
+
+
+We find nonzero 3 × 3 minors of M1 and M0, for instance det 
+
+
+
+−2k2 2ik 8Ψ ′
+
+> 0
+
+k2(1 − t)4k4(1 − t) 4ik 3 (t − 3) 04ik 4(1 − t) 4k3(1 − t) −8k4(σ + t)
+
+ = −128 k9 2Ψ ′
+
+> 0
+
+(1)( t − 1) 2 + i(σ + t),GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 19 
+
+and det 
+
+
+
+−2k2 2ik 02k3 −6ik 2 00 0 8k2
+
+ = 64 ik 6,
+
+which establish the Shapiro–Lopatinsky condition on each boundary for all t ∈ [0 , 1]. Then, as in the proof of Proposition 3.1, we combine the Schauder estimates and obtain that ( A, B1, B0) ( t)is a semi-Fredholm operator for t ∈ [0 , 1]. Now, since the index of semi-Fredholm operators is preserved under continuous deformation (see for example [Kat66, Chapter IV Theorem 5.22]), the index of ( A, B1, B0) ( t) is constant along t ∈ [0 , 1]. Thus, ind 
+
+
+
+L : ˜X → Y
+
+
+
+= ind 
+
+  ˜A(1) , ˜B1(1) , ˜B0(1)  : ˜X → ˜Y
+
+
+
+, (3.14) and so we evaluate the solvability of the following system for   ˙ψ, ˙p, ˙η ∈ ˜X ⊂ C4,α (R) × C2,α (R) × C4,α (R)and ( f1, f 2, g 1, g 2, g 3, g 4) ∈ Y : 
+
+−∆ ˙ψy + ˙ px = f1 in R,
+
+∆ ˙ψx + ˙ py = f2 in R,
+
+∆ ˙ η = 0 in R,
+
+˙ψ = g1 on T ,
+
+−∆ ˙ψ = g2 on T ,
+
+(1 − ∂xx ) ˙ η = g3
+
+1 + σ on T ,
+
+˙ψ = 0 on B,
+
+˙ψy = g4 on B,
+
+˙η = 0 on B.
+
+(3.15) Taking the curl of the first two equations of (3.15), we obtain a biharmonic boundary value problem for ˙ψ,
+
+
+
+∆2 ˙ψ = ∂xf2 − ∂y f1, in R,
+
+˙ψ = g1, on T ,
+
+∆ ˙ψ = −g2, on T ,
+
+˙ψ = 0 , on B,
+
+˙ψy = g4, on B,
+
+(3.16) a first-order system for ˙ p, (
+
+˙px = f1 + ∆ ˙ψy ,
+
+˙py = f2 − ∆ ˙ψx, in R, (3.17) and a harmonic boundary problem for ˙ η,
+
+
+
+∆ ˙ η = 0 , in R,
+
+(1 − ∂xx ) ˙ η = g3
+
+1 + σ , on T ,
+
+˙η = 0 , on B.
+
+(3.18) It is easy to check that (3.15) is equivalent to (3.16)–(3.18). Now it is a straighforward exercise to check that (3.16) has a unique solution, by standard Lax–Milgram and elliptic regularity arguments. Given (3.16), the problem (3.17) for ˙ p has a solution which is uniquely determined up to a constant, provided the solvability condition 
+
+Z
+
+> Tk
+
+f1 + ∆ ˙ψy dx = 0 ,
+
+arising from periodicity, holds. Finally, the harmonic problem (3.18) for ˙ η with mixed boundary conditions is also uniquely solvable by classical results, since the operator (1 − ∂xx ) : C4,α (T ) → C2,α (T ) is invertible. In total, the operator   ˜A(1) , ˜B1(1) , ˜B0(1)  corresponding to (3.15) has a one-dimensional kernel and range of codimension 1, and so it has index zero. By (3.14), the index of L : ˜X → Y is also zero. Finally, since X is a codimension 1 subspace of ˜X , the index of L : X → Y is −1. □20 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+4. Linear theory around Nusselt shear flow 
+
+In this section, we show how the Orr–Sommerfeld operator Los defined in Section 1.2 relates naturally to the linearised operator L = Fu
+
+ u0(θ, γ ), θ, γ  defined in (2.15). This allows us to reduce the kernel and transversality hypotheses in Theorem 2.2 to conditions on the Orr–Sommerfeld operator alone, by completely soft arguments. Then in Section 4.2, we provide a convenient test for the Orr–Sommerfeld transversality condition, by introducing an explicit formal adjoint for Los with respect to a suitable bilinear map and establishing a Fredholm alternative. 4.1. Reduction to Orr–Sommerfeld. As briefly mentioned in Section 1.2, we define the Orr–Sommerfeld operator Los (k, R, θ, γ ) : Xos → Yos by the left-hand side of the system (1.8), that is, 
+
+Los (k, R, θ, γ ) ˆ φ := 
+
+
+
+ˆφ(4) −  2k2 + ikR Ψ′
+
+> 0
+
+ ˆφ′′ +  ikR Ψ′′′  
+
+> 0
+
++ k4 + ik 3RΨ′
+
+> 0
+
+ ˆφ ˆφ′′ +  k2 + 2(Ψ ′
+
+> 0
+
+)−1 ˆφ
+
+> y=1
+
+ ˆφ′′′ −  3k2 + ikR Ψ′
+
+> 0
+
+ ˆφ′ + ik (Ψ ′
+
+> 0
+
+)−1  2 cot θ + σk 2 ˆφ
+
+> y=1
+
+ , (4.1) between spaces Xos and Yos defined as follows, 
+
+Xos :=  ˆφ ∈ C4,α ([0 , 1]; C) : ˆ φ(0) = ˆ φ′(0) = 0 , Im ˆ φ(1) = 0 , (4.2) 
+
+Yos := Cα([0 , 1]; C) × C2. (4.3) We view these as Banach spaces over R with the expected real norms. The first two conditions ˆφ(0) = ˆφ′(0) = 0 in the definition of Xos arise from the no-slip condition at the bed, while the condition Im ˆ φ(1) = 0 comes from the phase constraint ηx(0 , 1) = 0 in the definition of X .Given u ∈ X and f ∈ Y , denote by ˆ u and ˆf their first Fourier coefficients with respect to x, i.e. ˆu(y) := k
+
+2π
+
+Z
+
+> Tk
+
+u(˜ x, y )e−ik ˜xd˜x, 
+
+and similarly for ˆf . Let us denote by PX and PY the projections onto the first Fourier modes of X and Y
+
+respectively, i.e. for all u ∈ X , f ∈ Y ,
+
+PX u = Re ˆu(y)eikx , PY f = Re  ˆf e ikx .
+
+Observe that PY L = L PX .We define a map E (k, R, θ, γ ) : Xos → P X X as follows. Given ˆ φ ∈ Xos , let ˆζ be the unique solution in 
+
+C4,α ([0 , 1]) of the ODE boundary value problem 
+
+
+
+ˆζ′′ (y) = k2 ˆζ(y),
+
+ˆζ(1) = − 1Ψ′
+
+> 0
+
+(1) ˆφ(1) ,
+
+ˆζ(0) = 0 ,
+
+(4.4) and ˆ q ∈ C2,α ([0 , 1]) the unique solution of the first-order ODE initial value problem 
+
+
+
+ˆq′ = k2 (ik − RΨ′
+
+> 0
+
+) ˆ φ − ik ˆφ′′ ,
+
+ˆq(1) = −2ik ˆφ′(1) − 1Ψ′
+
+> 0
+
+(1) (−P ′ 
+
+> 0
+
++ σk 2) ˆ φ(1) . (4.5) Then set 
+
+E ˆφ := Re 
+
+n  ˆφ, ˆq, ˆζT eikx o
+
+. (4.6) This map is motivated by considering the Fourier transform of L Q(φ, q, ζ )T for ( φ, q, ζ ) ∈ X , setting its second, third, fifth and sixth components equal to zero, and solving for ˆ q and ˆζ in terms of ˆ φ. Note that E is a bounded linear operator with trivial kernel. The following lemma expresses Los as a composition involving 
+
+L and E .
+
+Lemma 4.1. There is a decomposition PY Y = Y1 ×Y2, with projections Π1 and Π2 onto Y1 and Y2, and an invertible linear operator T : Y2 → Yos , such that the operators Los , L , Q and E defined by (4.1) , (2.15) , (2.16) ,and (4.4) –(4.6) respectively satisfy 
+
+Los = T Π2L QE , Xos 
+
+> E
+
+−→ P X X L Q
+
+−−−→ P Y Y Π2
+
+−−→ Y2
+
+> T
+
+−→ Yos . (4.7) GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 21 
+
+Furthermore, 
+
+ran E = ker Π 1L Q ∩ P X X . (4.8) 
+
+Proof. Recall the operator L := L Q given by (2.17). Note that, given ( φ, q, ζ ) ∈ X , (4.4) consists of the Fourier transforms in x of ∆ ζ = 0, the third component of L(φ, q, ζ )T = 0 and ζ|B = 0, and (4.5) is composed of the Fourier transforms of the second and fifth components of L(φ, q, ζ )T = 0. Therefore, for any ˆ φ ∈ Xos ,by the definition (4.4)–(4.6) of E ,
+
+LE ˆφ =
+
+
+
+Re   k2 + ikR Ψ′
+
+> 0
+
+ ˆφ′ − ˆφ′′′ − ikR Ψ′′  
+
+> 0
+
+ˆφ + ik ˆqeikx 
+
+00Re  −  ˆφ′′ (1) + k2 ˆφ(1) + Ψ ′′′  
+
+> 0
+
+ˆζ(1) eikx 
+
+00
+
+
+
+.
+
+Then we decompose PY Y = Y1 × Y2, with projections Π 1 and Π 2 onto Y1 and Y2 respectively, defined by Π1a = ( a2, a 3, a 5, a 6), Π2a = ( a1, a 4), for all a = ( a1, . . . , a 6) ∈ P Y Y ,
+
+with 
+
+Y1 = Π 1PY Y = C1,α (R) × C4,α (T ) × C2,α (T ) × C3,α (B) ,
+
+Y2 = Π 2PY Y = C1,α (R) × C2,α (T ).
+
+Define T : Y2 → Yos by 
+
+T
+
+a1
+
+a4
+
+
+
+=
+
+
+
+−∂y ˆa1
+
+−ˆa4
+
+−ˆa1(1) 
+
+ for all 
+
+a1
+
+a4
+
+
+
+∈ Y2. (4.9) Then T is invertible, with 
+
+T −1
+
+
+
+fh1
+
+h2
+
+ = Re 
+
+( R 1 
+
+> y
+
+f dy − h2
+
+−h1
+
+!
+
+eikx 
+
+)
+
+,
+
+and direct computation verifies that Los is given by the composition (4.7). To show (4.8), one inclusion ran E ⊂ ker Π 1PY L follows directly, since for any ˆ φ ∈ Xos ,Π1PY LE ˆφ = Π 1LE ˆφ = (0 , 0, 0, 0) .
+
+For the other inclusion, let ( φ, q, ζ ) ∈ P X X and suppose that Π 1PY L(φ, q, ζ ) = 0. Then ( φ, q, ζ ) is equal to its first mode, (φ, q, ζ )T = Re 
+
+n  ˆφ, ˆq, ˆζT eikx o
+
+,
+
+and ˆ φ, ˆ q, and ˆζ satisfy (−ik + RΨ′
+
+> 0
+
+(y)) ˆ φ(y) + ik ˆφ′′ (y) + ˆ q′(y) = 0 ,
+
+ˆφ(1) + Ψ ′
+
+> 0
+
+(1) ˆζ(1) = 0 ,
+
+−2ik ˆφ′(1) − ˆq(1) + (2 cot θ + σk 2)ˆζ(1) = 0 ,
+
+ˆφ′(0) = 0 .
+
+This implies that ˆζ and ˆ q are given by (4.4) and (4.5), ˆ φ ∈ Xos , and ( φ, q, ζ ) = E ˆφ, completing the proof. □
+
+The following consequence of this lemma reduces the kernel hypothesis (ii) of Theorem 2.2 to the Orr– Sommerfeld kernel condition (I) in Theorem 1.1. 
+
+Lemma 4.2. Let k, γ > 0, R ≥ 0, θ ∈ (0 , π ), and suppose that there exists ˆφ ∈ Xos such that 
+
+ker Los (k, R, θ, γ ) = span { ˆφ}. (4.10) 
+
+Then, there is an element ξ0 := QE ˆφ ∈ X such that 
+
+span {ξ0} ⊂ ker L (θ, γ ).
+
+Furthermore, if in addition γ̸ = 2 and the kernel of Los (nk, R, θ, γ ) is trivial for all n ∈ N \ { 1}, then this inclusion is an equality, i.e. the kernel of L (θ, γ ) is one-dimensional. 22 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+Proof. If ˆ φ ∈ ker Los (k, R, θ, γ ), then by Lemma 4.1, Π 2LE ˆφ = T −1Los ˆφ = 0, and by construction, Π 1LE ˆφ =0. Thus, we have an element ξ0 ∈ X which is in the kernel of the linearised operator, namely 
+
+ξ0 := QE ˆφ ∈ ker L (θ, γ ).
+
+Conversely, let ( ψ, p, η ) ∈ ker L (θ, γ ), and let ( φ, q, ζ ) = Q−1(ψ, p, η ). Let n ∈ N ∪ { 0} and consider the Fourier coefficient ( ˆ φn, ˆqn, ˆζn) for the nth mode of ( φ, q, ζ ). This satisfies 
+
+ (nk )2 + inkR Ψ′
+
+> 0
+
+ ˆφ′ 
+
+> n
+
+− ˆφ′′′  
+
+> n
+
+− inkR Ψ′′  
+
+> 0
+
+ˆφn + ink ˆqn = 0 ,
+
+(nk )2 (−ink + RΨ′
+
+> 0
+
+) ˆ φn + ink ˆφ′′  
+
+> n
+
++ ˆ q′ 
+
+> n
+
+= 0 ,
+
+(nk )2 ˆζn − ˆζ′′  
+
+> n
+
+= 0 ,y ∈ [0 , 1] ,
+
+ ˆφn + Ψ ′ 
+
+> 0
+
+ˆζn
+
+ 
+
+> y=1
+
+= 0 ,
+
+ ˆφ′′  
+
+> n
+
++ ( nk )2 ˆφn + Ψ ′′′  
+
+> 0
+
+ˆζn
+
+ 
+
+> y=1
+
+= 0 ,
+
+ − 2ink ˆφ′ 
+
+> n
+
+− ˆqn + ( −P ′ 
+
+> 0
+
++ σ(nk )2)ˆζn
+
+ 
+
+> y=1
+
+= 0 ,
+
+Re ink ˆζn(1) = 0 ,
+
+ˆφn(0) = ˆ φ′
+
+> n
+
+(0) = ˆζn(0) = 0 .
+
+Precisely by the construction of E , a short calculation yields that this nth Fourier mode is given by Re 
+
+n  ˆφn, ˆqn, ˆζn
+
+T einkx o
+
+= E (nk, R, θ, γ ) ˆ φn,
+
+with ˆ φn ∈ ker Los (nk, R, θ, γ ). Considering first n = 0, the kernel of Los (0 , R, θ, γ ) consists of all ˆ φ0 ∈ Xos 
+
+satisfying ˆφ(4) 0 ≡ 0, ˆφ′′′  
+
+> 0
+
+(1) = 0 , ˆφ′′  
+
+> 0
+
+(1) + 21 − γ ˆφ0(1) = 0 .
+
+Up to scaling, the unique solution in Xos to the first two conditions is ˆ φ0 = y2, solving the third equation only if γ = 2. So, under the hypothesis γ̸ = 2, the kernel of Los (0 , R, θ, γ ) is trivial. Combining this with (4.10) and the assumed triviality of the kernel for n = 2 , 3, . . . , we have ker Los (nk, R, θ, γ ) = 
+
+(
+
+{0} n ∈ { 0} ∪ N \ { 1},
+
+span { ˆφ} n = 1 .
+
+Therefore, all Fourier modes except the first mode vanish, and we have ( ψ, p, η ) ∈ span {ξ0}. □
+
+Another soft argument using Lemma 4.1 reduces the transversality hypothesis (iii) of Theorem 2.2 to the Orr–Sommerfeld transversality condition (II) in Theorem 1.1. 
+
+Lemma 4.3. In the setting of Lemma 4.2, suppose also that there exists some nonzero ( ˙θ, ˙γ) ∈ R2 and 
+
+w ∈ X such that 
+
+(Dθ L (θ, γ ) ˙θ)ξ0 + ( Dγ L (θ, γ ) ˙ γ)ξ0 = L w. (4.11) 
+
+Then there exists a nonzero ˆψ ∈ Xos such that 
+
+ ∂θ Los (k, R, θ, γ ) ˙θ ˆφ +  ∂γ Los (k, R, θ, γ ) ˙ γ ˆφ = Los (k, R, θ, γ ) ˆψ. (4.12) 
+
+Proof. Within this proof we will suppress the arguments of operators such as L (θ, γ ), and will use the notation λ = ( θ, γ ). Differentiating the composition formula (4.7) using that T defined in (4.9) is parameter-independent gives (DλLos ˙λ) ˆ φ = T Π2(Dλ(L QE ) ˙λ) ˆ φ. (4.13) To compute the right-hand side of (4.13), we differentiate L QE and use ξ0 = QE ˆφ and (4.11) in the following calculation, (Dλ(L QE ) ˙λ) ˆ φ = ( DλL ˙λ)ξ0 + L (DλQ ˙λ)E ˆφ + L Q(DλE ˙λ) ˆ φ
+
+= L w + ( DλQ ˙λ)E ˆφ + Q(DλE ˙λ) ˆ φ.
+
+Recalling L = L Q, by the invertibility of Q there is then some ˜ φ ∈ X such that (Dλ(LE ) ˙λ) ˆ φ = L ˜φ. (4.14) Using only that PY L = LPX and PX E = E , we find 
+
+PY Dλ(LE ) = Dλ(LE ),GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 23 
+
+so applying PY to (4.14) gives (Dλ(LE ) ˙λ) ˆ φ = LPX ˜φ. (4.15) Now by (4.14) and the identity Π 1LE ≡ 0 from (4.8) in Lemma 4.1, Π1LPX ˜φ = Π 1(Dλ(LE ) ˙λ)PX ˆφ = ( Dλ(Π 1LE ) ˙λ)PX ˆφ = 0 ,
+
+so the other inclusion in (4.8) implies the existence of some ˆψ ∈ Xos such that PX ˜φ = E ˆψ. Thus, (4.15) implies (Dλ(LE ) ˙λ) ˆ φ = LE ˆψ. 
+
+Inserting this in (4.13) and using the decomposition of Los , we have (DλLos ˙λ) ˆ φ = T Π2LE ˆψ = Los ˆψ. □
+
+4.2. Transversality via formal adjoint of Orr–Sommerfeld. We can further reduce the Orr–Sommerfeld transversality hypothesis (II) to the non-singularity of a certain matrix. This matrix involves elements of the kernel of a formal adjoint of Los as well as derivatives of Los with respect to the parameters θ, γ .We will introduce the formal adjoint over an extended space ˜Xos ⊃ Xos which does not include the phase constraint Im ˆ φ(1) = 0, that is ˜Xos :=  ˆφ ∈ C4,α ([0 , 1]; C) : ˆ φ(0) = ˆ φ′(0) = 0 ,
+
+so that ˜Xos is a vector space over C. Observe that Los : ˜Xos → Yos is complex linear. Then we define a bilinear map ⟨ · , · ⟩ os : ˜Xos × Yos → R by 
+
+φ∗, (f, h 1, h 2)T 
+
+> os
+
+:= Re 
+
+Z 10
+
+φ∗(y)f (y)dy + ( φ∗)′(1) h1 − φ∗(1) h2
+
+
+
+, (4.16) for all φ∗ ∈ ˜Xos and ( f, h 1, h 2) ∈ Yos , with z denoting the complex conjugate of z ∈ C.The following lemma establishes that the formal ‘adjoint’ operator L ∗ 
+
+> os
+
+: ˜Xos → Yos of Los with respect to ⟨· , ·⟩ os is given by 
+
+L ∗
+
+> os
+
+(k, R, θ, γ )φ∗ := 
+
+
+
+(φ∗)(4) −  2k2 − ikR Ψ′
+
+> 0
+
+ (φ∗)′′ + 2 ikR Ψ′′  
+
+> 0
+
+(φ∗)′ +  k4 − ik 3RΨ′
+
+> 0
+
+ φ∗
+
+(φ∗)′′ + k2φ∗
+
+> y=1
+
+(φ∗)′′′ −  2(Ψ ′
+
+> 0
+
+)−1 + 3 k2 − ikR Ψ′
+
+> 0
+
+ (φ∗)′ − ik (Ψ ′
+
+> 0
+
+)−1  2 cot θ + σk 2 φ∗
+
+> y=1
+
+ ,
+
+(4.17) and standard functional analysis results then yield a Fredholm alternative for Los and L ∗
+
+> os
+
+.
+
+Lemma 4.4. Let L ∗ 
+
+> os
+
+: ˜Xos → Yos be given by (4.17) and ⟨· , ·⟩ os : ˜Xos × Yos → R be given by (4.16) . Then 
+
+L ∗ 
+
+> os
+
+is formally ‘adjoint’ to Los viewed as a map ˜Xos → Yos in the sense that 
+
+⟨φ2, Los φ1⟩os = ⟨φ1, L ∗
+
+> os
+
+φ2⟩os for all φ1, φ 2 ∈ ˜Xos . (4.18) 
+
+Furthermore, for every g ∈ Yos , g is in the range of Los if and only if ⟨φ2, g ⟩os = 0 for all φ2 ∈ ker L ∗
+
+> os
+
+.Proof. Let ( f, h 1, h 2) ∈ ran Los , i.e. there is a φ1 ∈ ˜Xos such that 
+
+Los (k, R, θ, γ )φ1 = ( f, h 1, h 2)T .24 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+Then we compute, first integrating by parts, and then taking complex conjugates, 
+
+⟨φ2, Los φ1⟩os = Re 
+
+Z 10
+
+φ2f dy + ( φ∗)′(1) h1 − φ∗(1) h2
+
+
+
+= Re 
+
+( Z 10
+
+φ2
+
+h
+
+φ(4) 1 −  2k2 + ikR Ψ′
+
+> 0
+
+ φ′′  
+
+> 1
+
++  ikR Ψ′′′  
+
+> 0
+
++ k4 + ik 3RΨ′
+
+> 0
+
+ φ1
+
+i
+
+dy 
+
++ ( φ2)′(1) 
+
+
+
+k2 + 2Ψ′
+
+> 0
+
+
+
+φ1(1) + φ′′  
+
+> 1
+
+(1) 
+
+
+
+− φ2(1) 
+
+
+
+φ′′′  
+
+> 1
+
+(1) −  3k2 + ikR Ψ′
+
+> 0
+
+ φ′
+
+> 1
+
+(1) + ik 
+
+Ψ′
+
+> 0
+
+ 2 cot θ + σk 2 φ1(1) 
+
+ )
+
+= Re 
+
+( Z 10
+
+φ1
+
+(φ2)(4) − (2 k2 − ikR Ψ′
+
+> 0
+
+) φ′′  
+
+> 2
+
++ 2 ikR Ψ′′  
+
+> 0
+
+φ′ 
+
+> 2
+
++ ( k4 − ik 3RΨ′
+
+> 0
+
+) φ2
+
+dy 
+
++ φ′
+
+> 1
+
+(1)[ φ′′  
+
+> 2
+
+(1) + k2φ2(1)] 
+
+− φ1(1)[ φ′′′  
+
+> 2
+
+(1) − (2(Ψ ′
+
+> 0
+
+)−1 + 3 k2 − ikR Ψ′
+
+> 0
+
+) φ′
+
+> 2
+
+(1) − ik (Ψ ′
+
+> 0
+
+)−1 (2 cot θ + σk 2) φ2(1)] 
+
+)
+
+= ⟨φ1, L ∗
+
+> os
+
+φ2⟩os ,
+
+establishing (4.18). Now each of Los and L ∗ 
+
+> os
+
+is a Fredholm operator ˜Xos → Yos , due to being a linear ODE operator with smooth coefficients and a nonzero constant leading-order coefficient. Furthermore, each has Fredholm index zero, since the ODE is fourth order with two independent boundary conditions in addition to the two implicit homogeneous conditions in the definition of ˜Xos .For the second claim of the lemma, by Theorem 5.G in [Zei95] it suffices to show that ⟨φ, (f, h 1, h 2)T ⟩os 
+
+vanishing for all ( f, h 1, h 2)T ∈ Yos would imply φ = 0, and conversely that if ⟨φ, (f, h 1, h 2)T ⟩os = 0 for all 
+
+φ ∈ Xos then ( f, h 1, h 2) = 0. Suppose first that ⟨φ, (f, h 1, h 2)T ⟩os = 0 for all ( f, h 1, h 2)T ∈ Yos . Then picking (φ, 0, 0) T ∈ Yos , we have R 10 |φ|2dy = 0, so φ ≡ 0. Conversely, suppose ⟨φ, (f, h 1, h 2)T ⟩os = 0 for all φ ∈ ˜Xos .We have 
+
+φ, (f, h 1, h 2)T 
+
+> os
+
+=
+
+Z 10
+
+(Re φ Re f + Im φ Im f ) dy + [Re φ′(1) Re h1 + Im φ′(1) Im h1]
+
+− [Re φ(1) Re h2 + Im φ(1) Im h2] . (4.19) Taking φ ∈ C∞ 
+
+> c
+
+([0 , 1]; R) compactly supported in [0 , 1], the fundamental lemma of the calculus of variations implies that Re f = 0 and Im f = 0 using φ and iφ respectively, so we obtain f ≡ 0. Considering instead 
+
+φ ∈ ˜Xos satisfying φ(1) = 0 and φ′(1) ̸ = 0, such as φ = y2(y − 1), we obtain h1 = 0, by using φ and 
+
+iφ to show that Im h1 = 0 and Re h1 = 0. Similarly, taking φ ∈ ˜Xos such that φ′(1) = 0 but φ(1) ̸ = 0, e.g. φ = 2 y3 − 3y2, we find that h2 = 0, and the proof is complete. □
+
+An immediate corollary of this Fredholm alternative is an equivalent condition for the hypothesis (II) of Theorem 1.1: 
+
+Corollary 4.5. Suppose that there exists ˆφ ∈ Xos such that ker Los (k, R, θ, γ ) = span { ˆφ}, viewing Los 
+
+as a map Xos → Yos . Then there exists a nonzero ˆφ∗ ∈ Xos such that L ∗
+
+> os
+
+(k, R, θ, γ ) ˆ φ∗ = 0 , and the condition (4.12) implies 
+
+det 
+
+ ⟨ ˆφ∗, ∂ θ Los (k, R, θ, γ ) ˆ φ⟩os ⟨ ˆφ∗, ∂ γ Los (k, R, θ, γ ) ˆ φ⟩os 
+
+⟨i ˆφ∗, ∂ θ Los (k, R, θ, γ ) ˆ φ⟩os ⟨i ˆφ∗, ∂ γ Los (k, R, θ, γ ) ˆ φ⟩os 
+
+
+
+= 0 . (4.20) 
+
+Proof. The Fredholm alternative of Lemma 4.4 implies that the kernel of L ∗ 
+
+> os
+
+: ˜Xos → Yos is two-dimensional. By the definition of Xos ⊂ ˜Xos and the complex linearity of L ∗
+
+> os
+
+, there is an element ˆ φ∗ ∈ Xos such that ker L ∗ 
+
+> os
+
+= span { ˆφ∗, i ˆφ∗}. Then again by this Fredholm alternative, (4.12) implies (4.20). □GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 25 
+
+5. Uniform estimates 
+
+This section establishes some useful a priori estimates with uniform control in terms of the constant δ > 0in the inequalities inf  
+
+> z1,z 2∈T
+> z1̸=z2
+
+|f (z1) − f (z2)||z1 − z2| > δ, sup 
+
+> T
+
+|∇ η| < 1
+
+δ , inf  
+
+> T
+
+|ψy | + σ > δ. (5.1) This set of inequalities is a strengthened version of (3.1). The main tools are linear Schauder estimates of the type shown in (3.2) of Proposition 3.1. 5.1. Estimate for the conformal map. We open this section with a basic uniform estimate for the con-formal map f :
+
+Lemma 5.1. Let f = ( ξ, η ) satisfy (2.8) and suppose there exists δ > 0 such that the first inequality in (5.1) 
+
+holds. Then, there exists C > 0 dependent only on δ such that f satisfies 
+
+inf  
+
+> z1,z 2∈R
+> z1̸=z2
+
+|f (z1) − f (z2)||z1 − z2| > C (δ), and inf  
+
+> T
+
+η > δ. (5.2) 
+
+In particular, dist(( u, θ, γ ), ∂ U ) > C (δ).Proof. The first inequality of (5.2) holds by Lemma 2.1. To show that inf T η > δ , let ( X0, Y 0) be the point of minimum height of the surface S, i.e. Y0 = inf T η. Then, let the points ( x0, 0) ∈ B and ( x1, 1) ∈ T map to (X0, 0) ∈ B and ( X0, Y 0) ∈ S respectively, i.e. f (x0, 0) = ( X0, 0) and f (x1, 1) = ( X0, Y 0). Since f is injective on R by Lemma 2.1, (x1 − x0, 1) = f −1(X0, Y 0) − f −1(X0, 0) ,
+
+and so we obtain 1 ≤ | f −1(X0, Y 0) − f −1(X0, 0) | ≤ sup 
+
+> Ω
+
+|D(f −1)| · | Y0|.
+
+From this, using (5.1), inf  
+
+> T
+
+η ≥ 1sup Ω|D(f −1)| = inf  
+
+> R
+
+|Df | = inf  
+
+> R
+
+|∇ η| = inf  
+
+> T
+
+|∇ η| > δ. □
+
+5.2. A priori estimate. This subsection is devoted to establishing the following a priori estimate on an arbitrary solution u in U .
+
+Proposition 5.2. Let δ > 0 and suppose (u, θ, γ ) ∈ F −1(0) , where u = ( ψ, p, η ) satisfies (5.1) . Then, 
+
+u ∈ C5,α (R) × C3,α (R) × C5,α (R), and 
+
+∥ψ∥C5,α (R) + ∥p∥C3,α (R) + ∥η∥C5,α (R) ≤ C
+
+
+
+δ, |cot θ|, sup 
+
+> T
+
+|D2η|, sup 
+
+> R
+
+|∇ ψ|, sup 
+
+> T
+
+|D2ψ|
+
+
+
+. (5.3) Note that by Lemma 5.1, (5.1) guarantees inf R|∇ η| > C (δ). To prove Proposition 5.2, we begin with an a priori estimate which comes from the ellipticity of Fu(u, θ, γ ). 
+
+Lemma 5.3. In the setting of Proposition 5.2, u ∈ C5,α (R) × C3,α (R) × C5,α (R) and 
+
+∥ψ∥C5,α (R) + ∥p∥C3,α (R) + ∥η∥C5,α (R) ≤ C
+
+
+
+δ, |cot θ|, sup 
+
+> T
+
+|D2η|, sup 
+
+> R
+
+|∇ ψ|, sup 
+
+> T
+
+|D2ψ|, ∥p∥L2(R)
+
+
+
+. (5.4) 
+
+Proof. Here, ( ψ, p, η ) ∈ U satisfies (2.10), where ˜∂Y (|∇ η|−2∆ψ) and ˜∂X (|∇ η|−2∆ψ) in (2.10a) and (2.10b) are given by ˜∂Y
+
+ |∇ η|−2∆ψ = 1
+
+|∇ η|4 ∇η · ∇ ∆ψ − 2∆ ψ
+
+|∇ η|6
+
+(η2 
+
+> x
+
+− η2 
+
+> y
+
+)ηxx + 2 ηxηy ηxy 
+
+,
+
+˜∂X
+
+ |∇ η|−2∆ψ = 1
+
+|∇ η|4 ∇η · ∇ ⊥∆ψ + 2∆ ψ
+
+|∇ η|6
+
+2ηxηy ηxx + ( η2 
+
+> x
+
+− η2 
+
+> y
+
+)ηxy 
+
+.
+
+Considering (2.10e), we have ˜Dψ =
+
+ 2 ˜∂XY ψ ˜∂Y Y ψ − ˜∂XX ψ
+
+˜∂Y Y ψ − ˜∂XX ψ −2 ˜∂XY ψ
+
+
+
+,26 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+where, by straighforward computation, ˜∂Y Y ψ − ˜∂XX ψ = 1
+
+|∇ η|4
+
+(η2 
+
+> y
+
+− η2
+
+> x
+
+)ψyy + 4 ηxηy ψxy 
+
+ + 2ψy
+
+|∇ η|6
+
+(η2 
+
+> x
+
+− 3η2 
+
+> y
+
+)ηxηxy + ( η2 
+
+> y
+
+− 3η2
+
+> x
+
+)ηy ηxx 
+
+,
+
+˜∂XY ψ = 1
+
+|∇ η|4
+
+(η2 
+
+> y
+
+− η2
+
+> x
+
+)ψxy − ηxηy ψyy 
+
+ + 2ψy
+
+|∇ η|6
+
+(η2 
+
+> x
+
+− 3η2 
+
+> y
+
+)ηxηxx − (η2 
+
+> y
+
+− 3η2
+
+> x
+
+)ηy ηxy 
+
+,
+
+so (2.10e) on T simplifies to 
+
+−ψyy + 2ψy
+
+|∇ η|2
+
+ ηxηxy − ηy ηxx 
+
+ = 0 , (5.5) 2ψxy + |∇ η|2p + σ
+
+|∇ η|
+
+ ηy ηxx − ηxηxy 
+
+ − 2ψy
+
+|∇ η|2
+
+ ηy ηxy + ηxηxx 
+
+ = 0 . (5.6) Thus, (2.10) is equivalent to 
+
+
+
+− 1
+
+|∇ η|4 ∇η · ∇ ∆ψ + ˜∂X p = 2 − 2
+
+|∇ η|6
+
+(η2 
+
+> x
+
+− η2 
+
+> y
+
+)ηxx + 2 ηxηy ηxy 
+
+∆ψ + R ˜∇⊥ψ · ˜∇ ˜∂Y ψ in R,
+
+1
+
+|∇ η|4 ∇η · ∇ ⊥∆ψ + ˜∂Y p = −2 cot θ − 2
+
+|∇ η|6
+
+2ηxηy ηxx + ( η2 
+
+> x
+
+− η2 
+
+> y
+
+)ηxy 
+
+∆ψ − R ˜∇⊥ψ · ˜∇ ˜∂X ψ in R,
+
+∆η = 0 in R,ψ = 23 − γ on T ,
+
+−ψyy + 2ψy
+
+|∇ η|2
+
+ ηxηxy − ηy ηxx 
+
+ = 0 on T ,
+
+2ψxy + |∇ η|2p + σ
+
+|∇ η|
+
+ ηy ηxx − ηxηxy 
+
+ − 2ψy
+
+|∇ η|2
+
+ ηy ηxy + ηxηxx 
+
+ = 0 on T ,ψ = 0 on B,ψy + γη y = 0 on B,η = 0 on B.
+
+(5.7) The left-hand side of (5.7) has precisely the same principal parts (3.8), (3.11) and (3.13) as the linearisa-tion (3.4) around u = ( ψ, p, η ) applied to ˙ u = u. Therefore, by (5.1), (5.1) and Proposition 3.1, this system admits the Schauder estimate (3.2), which reads 
+
+∥u∥X ≤ C · (|cot θ| + | 23 − γ| + ∥u∥L1(R)×L1(R)×L1(R)), (5.8) where C depends on δ, ∥∇ η∥C1,α (R), ∥D2η∥C1,α (R), ∥∇ ψ∥C1,α (R), ∥∇ ψ∥C2,α (T ) and |γ|.Note that from the fourth equation in (5.7), 
+
+|γ| ≤ C sup 
+
+> T
+
+|ψ| ≤ C sup 
+
+> R
+
+|∇ ψ|. (5.9) Since η vanishes on B, for any k ∈ N ∪ { 0} and β ∈ (0 , 1) elliptic Schauder estimates yield that 
+
+∥η∥Ck,β (R) ≤ ∥ η∥Ck,β (T ).
+
+Therefore, (5.8) becomes 
+
+∥ψ∥C4,α (R) + ∥p∥C2,α (R) + ∥η∥C4,α (R) ≤ C(δ, |cot θ|, ∥ψ∥C2,α (R), ∥ψ∥C3,α (T ), ∥η∥C3,α (T ), ∥p∥L1(R)). (5.10) By Theorem B.1, we can generalise (5.10) to obtain that for any integer l ≥ 0, u ∈ C3+ l,α (R) × C1+ l,α (R) ×
+
+C3+ l,α (R) with 
+
+∥ψ∥C3+ l,α (R) + ∥p∥C1+ l,α (R) + ∥η∥C3+ l,α (R) ≤ C(δ, |cot θ|, ∥ψ∥C1+ l,α (R), ∥ψ∥C2+ l,α (T ), ∥η∥C2+ l,α (T ), ∥p∥L1(R)).
+
+(5.11) In particular, bootstrapping (5.11) from l = 0 to l = 2 yields u ∈ C5,α (R) × C3,α (R) × C5,α (R) and 
+
+∥ψ∥C5,α (R) + ∥p∥C3,α (R) + ∥η∥C5,α (R) ≤ C(δ, |cot θ|, ∥ψ∥C1,α (R), ∥ψ∥C2,α (T ), ∥η∥C2,α (T ), ∥p∥L1(R)). (5.12) Now to estimate the right-hand side, Theorem B.2 gives the following Sobolev estimate for the system (5.7) for r > 2(1 − α)−1,
+
+∥ψ∥W 3,r (R) + ∥p∥W 1,r (R) + ∥η∥W 3,r (R) ≤ C(δ, |cot θ|, ∥η∥C2(R), ∥ψ∥C1(R), sup 
+
+> T
+
+|D2ψ|, ∥p∥Lr (R)). (5.13) GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 27 
+
+Applying the maximum principle to the harmonic function η and using the boundary condition η|B = 0, it is straightforward to check that 
+
+∥η∥C2(R) ≤ C(δ, sup 
+
+> T
+
+|D2η|).
+
+It is similarly easy to check by integrating from the bed that ∥ψ∥C1(R) ≤ sup R|∇ ψ|. Interpolating using Ehrling’s lemma, we can replace ∥p∥Lr (R) by ∥p∥L2(R) in (5.13), obtaining 
+
+∥ψ∥W 3,r (R) + ∥p∥W 1,r (R) + ∥η∥W 3,r (R) ≤ C
+
+
+
+δ, |cot θ|, sup 
+
+> T
+
+|D2η|, sup 
+
+> R
+
+|∇ ψ|, sup 
+
+> T
+
+|D2ψ|, ∥p∥L2(R)
+
+
+
+. (5.14) The result now follows by combining (5.12) and (5.14) and a Sobolev embedding. □
+
+The remainder of the results in this subsection handle the pressure term in (5.4). We start with an energy estimate for the velocity in the physical domain Ω. 
+
+Lemma 5.4. In the setting of Proposition 5.2, V : Ω → R2 defined by (2.1) and (2.9) satisfies 
+
+∥V ∥H1(Ω) ≤ ∥ V ∥L2(Ω) + sup 
+
+> S
+
+|H|1/2∥V ∥L2(S) + C(|γ|, |Ω|). (5.15) 
+
+Proof. Using (2.1), (2.5) and (2.9) there exist Ω ∈ C4,α , V ∈ C3,α (Ω) and P ∈ C2,α (Ω) satisfying (1.6). For the following computation, it is more convenient to use the lab velocity U = V + γe X instead of the travelling velocity V . The system solved by ( U, P ) in Ω is 
+
+R(( U − γe X ) · ∇ )U − ∆U + ∇P = 2 eX − 2 cot θe Y in Ω , (5.16a) 
+
+∇ · U = 0 in Ω , (5.16b) 
+
+U · ν = γe X · ν on S, (5.16c) [( P + σH )I − DU ]ν = 0 on S, (5.16d) 
+
+U = 0 on B. (5.16e) We integrate (5.16a) against U over a fundamental period of Ω, 
+
+Z
+
+> Ω
+
+U · R (U − γe X ) · ∇ U − ∆U + ∇P  dA =
+
+Z
+
+> Ω
+
+2U1 + 2 cot θU 2 dA. (5.17) Here, dA = dXdY is an area element for Ω. Writing V = U − γe X for convenience, the first term on the left-hand side of (5.17) is 
+
+Z
+
+> Ω
+
+U ·  V · ∇ U dA = 12
+
+Z
+
+> Ω
+
+ V · ∇ |U |2 dA = − 12
+
+Z
+
+> Ω
+
+|U |2∇ · V dA +
+
+Z
+
+> ∂Ω
+
+|U |2V · ν ds, 
+
+which vanishes due to (5.16b), (5.16c) and (5.16e). Using the vector identities ∆ U = ∇ · DU − ∇ (∇ · U ), 
+
+|DU |2 = 2 DU : DU and (5.16b), the second and third terms of (5.17) are given by 
+
+Z
+
+> Ω
+
+U · (∇P − ∆U ) dA =
+
+Z
+
+> Ω
+
+U · (∇P − ∇ · DU ) dA = 12
+
+Z
+
+> Ω
+
+|DU |2 dA +
+
+Z
+
+> S
+
+U · (( P − DU )ν) ds. (5.18) To compute the final integral in (5.18) over S, we apply (5.16d), (5.16c) and the Frenet–Serret formula 
+
+Hν = dτ /ds , where τ is the unit tangent to S and s is the arc-length parameter for S,
+
+U · (( P − DU )ν) = σHU · ν = σγe X · ν = eX · dτ ds .
+
+This term therefore vanishes when integrated over S by periodicity, 
+
+Z
+
+> S
+
+eX · dτ ds ds =
+
+Z
+
+> S
+
+dds (eX · τ ) ds = 0 ,
+
+so (5.18) reduces to Z
+
+> Ω
+
+U · (∇P − ∆U ) dA = 12
+
+Z
+
+> Ω
+
+|DU |2 dA. (5.19) Meanwhile, the first term on the right-hand side of (5.17) is 
+
+Z
+
+> Ω
+
+U1 dA =
+
+Z
+
+> Ω
+
+V1 dA + γ|Ω| = 2πK
+
+ 23 − γ
+
+
+
++ γ|Ω| = 4π
+
+3K + γ
+
+
+
+|Ω| − 2πK
+
+
+
+, (5.20) 28 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+where K is the horizontal wavenumber of the wave profile of S. For the final term in (5.17), we let Ψ be defined by (2.1) and compute 
+
+Z
+
+> Ω
+
+U2 dA = −
+
+Z
+
+> Ω
+
+ΨX dA = −
+
+Z
+
+> Ω
+
+∇ · (Ψ eX ) dA =
+
+Z
+
+> ∂Ω
+
+Ψ( eX · ν) ds =
+
+ 23 − γ
+
+ Z
+
+> S
+
+eX · ν ds, 
+
+which vanishes since Z
+
+> S
+
+eX · ν ds =
+
+Z
+
+> Ω
+
+∇ · eX dA = 0 .
+
+Thus, (5.19) and (5.20) give the only nonzero terms in (5.17), and we have an L2 energy identity for V ,12 ∥DV ∥2 
+
+> L2(Ω)
+
+= 12
+
+Z
+
+> Ω
+
+|DU |2 dA = 8π
+
+3K + 2 γ
+
+
+
+|Ω| − 2πK
+
+
+
+.
+
+Since V is divergence-free with no-penetration boundary conditions on S and B, it is easy to check that 12
+
+Z
+
+> Ω
+
+|DV |2 dA =
+
+Z
+
+> Ω
+
+|DV |2 dA +
+
+Z
+
+> S
+
+H|V |2 ds. 
+
+Consequently, we have an L2 estimate for the gradient of V ,
+
+∥DV ∥2 
+
+> L2(Ω)
+
+≤ ∥ DV ∥2 
+
+> L2(Ω)
+
++ sup 
+
+> S
+
+|H|∥ V ∥2 
+
+> L2(∂Ω)
+
+≤ 16 π
+
+3K + 4 γ
+
+
+
+|Ω| − 2πK
+
+
+
++ sup 
+
+> S
+
+|H|∥ V ∥2
+
+> L2(S)
+
+,
+
+which implies (5.15). □
+
+This H1 estimate on V yields an H2 estimate for ψ in R by the following corollary. 
+
+Corollary 5.5. In the setting of Proposition 5.2, 
+
+∥ψ∥H2(R) ≤ C
+
+
+
+δ, sup 
+
+> T
+
+|D2η|, sup 
+
+> R
+
+|∇ ψ|
+
+
+
+.
+
+Proof. By (2.1) and (2.9), suppressing dependence on ( x, y ) we have 
+
+ψx = ηxV1(ξ, η ) − ηy V2(ξ, η ), and ψy = ηy V1(ξ, η ) − ηxV2(ξ, η ).
+
+Expressing second-order derivatives of ψ similarly, we obtain 
+
+∥D2ψ∥L2(R) ≤ C(δ, ∥η∥C2(R))∥V ∥H1(Ω) , (5.21) where δ bounds the Jacobian in the change of variables. Now, Lemma 5.4 implies 
+
+∥V ∥H1(Ω) ≤ C
+
+
+
+δ, |γ|, sup 
+
+> T
+
+|D2η|, ∥∇ ψ∥L2(R)
+
+
+
+,
+
+after using that |Ω| ≤ C(δ) and sup 
+
+> S
+
+|H| ≤ C(δ) sup 
+
+> T
+
+|D2η|.
+
+Therefore, (5.21) becomes 
+
+∥D2ψ∥L2(R) ≤ C
+
+
+
+δ, |γ|, sup 
+
+> T
+
+|D2η|, ∥∇ ψ∥L2(R)
+
+
+
+.
+
+Together with the Poincar´ e inequality ∥ψ∥H2(R) ≤ C∥∇ ψ∥L2(R) + ∥D2ψ∥L2(R), this implies 
+
+∥ψ∥H2(R) ≤ C(δ, |γ|, sup 
+
+> T
+
+|D2η|, ∥∇ ψ∥L2(R)).
+
+Finally, we can remove the dependence on γ by (5.9) to obtain the result. □
+
+With this estimate, we can finally control ∥p∥L2(R) and establish Proposition 5.2. 
+
+Proof of Proposition 5.2. It suffices to show that p satisfies 
+
+∥p∥L2(R) ≤ C
+
+
+
+δ, sup 
+
+> T
+
+|D2η|, sup 
+
+> T
+
+|D2ψ|, ∥ψ∥H2(R)
+
+
+
+, (5.22) as Corollary 5.5 then implies 
+
+∥p∥L2(R) ≤ C
+
+
+
+δ, sup 
+
+> T
+
+|D2η|, sup 
+
+> R
+
+|∇ ψ|, sup 
+
+> T
+
+|D2ψ|
+
+
+
+,
+
+which gives the result (5.3). GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 29 
+
+From (2.10a), (2.10b) and the component (5.6) of (2.10e), q := p + 2 η cot θ ∈ C2,α (R) solves 
+
+
+
+∆q = f, in R,q = g, on T, qy = ∂xh, on B,
+
+(5.23) with data f, g, h given by 
+
+f := 2 R|∇ η|2( ˜∂XY ψ)2 − ˜∂XX ψ ˜∂Y Y ψ,g := − 2
+
+|∇ η|2 ψxy − σ
+
+|∇ η|2
+
+ ηy ηxx − ηxηxy 
+
+ + 2ψy
+
+|∇ η|4
+
+ ηy ηxy + ηxηxx 
+
+ + 2 η cot θ, h := − 1
+
+η2
+
+> y
+
+ψyy .
+
+This Poisson problem (5.23) admits a basic elliptic estimate for q,
+
+∥q∥L2(R) ≤ C ∥f ∥H−2(R) + ∥g∥H−1/2(T ) + ∥h∥H−1/2(B)
+
+. (5.24) Here, 
+
+∥f ∥H−2(R) ≤ ∥ f ∥L1(R) ≤ C |∇ η|2( ˜∂XY ψ)2 − ˜∂XX ψ ˜∂Y Y ψ 
+
+> L1(R)
+
+≤ C
+
+
+
+|γ|, sup 
+
+> T
+
+|D2η|, ∥ψ∥2
+
+> H2(R)
+
+
+
+,
+
+and the boundary terms are controlled by 
+
+∥g∥H−1/2(T ) ≤ C
+
+
+
+δ, |cot θ|, sup 
+
+> T
+
+|D2η|, sup 
+
+> T
+
+|D2ψ|
+
+
+
+,
+
+∥h∥H−1/2(B) ≤ C
+
+
+
+δ, sup 
+
+> T
+
+|D2ψ|
+
+
+
+.
+
+Therefore, (5.24) gives 
+
+∥q∥L2(R) ≤ C
+
+
+
+|γ|, sup 
+
+> T
+
+|D2η|, ∥ψ∥2
+
+> H2(R)
+
+
+
++ C
+
+
+
+δ, |cot θ|, sup 
+
+> T
+
+|D2η|, sup 
+
+> T
+
+|D2ψ|
+
+
+
++ C
+
+
+
+δ, sup 
+
+> T
+
+|D2ψ|
+
+
+
+,
+
+from which we obtain (5.22). □
+
+6. Proof of main results 
+
+6.1. General existence theory. We are now ready to prove a more detailed version of Theorem 1.1. Recall again the definition of F : U → Y in (2.13) between spaces defined in (2.11). 
+
+Theorem 6.1 (Local bifurcation) . Fix k > 0 and R ≥ 0, and suppose that for some θ∗ ∈ (0 , π/ 2] , γ∗ ∈
+
+(0 , ∞) \ { 2}, hypotheses (I) and (II) of Theorem 1.1 hold. Then there exist ε > 0 and a curve 
+
+Cloc := {(U (s), Θ( s), Γ( s)) : |s| < ε } ⊂ F −1(0) ,
+
+with the following properties: 
+
+(a) The functions U : ( −ε, ε ) → U , Θ : ( −ε, ε ) → (0 , π ) and Γ : ( −ε, ε ) → (0 , ∞) are real-analytic, with asymptotic expansions in s,
+
+U (s) = u0(θ∗, γ ∗) + sξ 0 + O(s2), (6.1) (Θ( s), Γ( s)) = ( θ∗, γ ∗) + O(s2), (6.2) 
+
+where ξ0 = QE ˆφ∗ for Q defined in (2.16) and E defined in (4.6) ;
+
+(b) There exists an open set N ⊂ U such that 
+
+Cloc = {(u, θ, γ ) ∈ N : F (u, θ, γ ) = 0 , u ̸ = u0(θ, γ )}.
+
+Proof. We run the argument of Theorem 2.2 with two parameters, i.e. n = 2, for the function G : V → Y
+
+defined by 
+
+G(w, λ ) := F (u0(λ) + w, λ ). (6.3) Here λ := ( θ, γ ) ∈ (0 , π ) × R, u0(λ) is the Nusselt shear solution defined in (2.14), and V is obtained from 
+
+U in the obvious way. Clearly for all λ ∈ (0 , π ) × (0 , ∞), 
+
+G(0 , λ ) = F (u0(λ), λ ) = 0 , (6.4) 30 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+satisfying the first hypothesis (i) of Theorem 2.2. Proposition 3.2 implies that 
+
+Gw(0 , λ ) = Fu(u0(λ), λ ) = L (λ)is a Fredholm operator with index −1 for any λ ∈ (0 , π ) × (0 , ∞). Letting λ0 := ( θ∗, γ ∗), by Lemma 4.2, assumption (I) implies that ker Gw(0 , λ 0) = ker L (λ0) = span {ξ0},
+
+so hypothesis (ii) of Theorem 2.2 also holds. By Lemma 4.3, assumption (II) implies that (Dθ L (λ0) ˙θ)ξ0 + ( Dγ L (λ0) ˙ γ)ξ0 /∈ ran L (λ0)for any nonzero ( ˙θ, ˙γ) ∈ R2. Now Dθ L (λ0) = Dwθ G(0 , λ 0) and Dγ L (λ0) = Dwγ G(0 , λ 0), so the final hypothesis (iii) of Theorem 2.2 holds, namely that for any nonzero μ ∈ R2,
+
+Dwλ G(0 , λ 0)[ ξ0, μ ] /∈ ran Gw(0 , λ 0). (6.5) Therefore, Theorem 2.2 implies the existence of analytic functions W : ( −ε, ε ) → U , Θ : ( −ε, ε ) → (0 , π )and Γ : ( −ε, ε ) → (0 , ∞), satisfying W (0) = 0, W ′(0) = ξ0 and (Θ(0) , Γ(0)) = λ0 such that 
+
+G(W (s), Θ( s), Γ( s)) = 0 . (6.6) Setting 
+
+U (s) := u0(Θ( s), Γ( s)) + W (s), (6.7) we have F (U (s), Θ( s), Γ( s)) = G(W (s), Θ( s), Γ( s)) = 0 for all s ∈ (−ε, ε ). To establish the expansions (6.1) and (6.2), we show that Θ ′(0) = Γ ′(0) = 0 and U ′(0) = W ′(0). Differen-tiating (6.6) twice with respect to s at s = 0 and using (6.4), we obtain 
+
+Gww (0 , λ 0)[ ˙ w, ˙w] + 2 Gwλ (0 , λ 0)[ ˙ w, ˙λ] + Gw(0 , λ 0)[ ¨ w] = 0 , (6.8) where ˙w := W ′(0) = ξ0, ˙λ := (Θ ′(0) , Γ′(0)) and ¨ w := U ′′ (0). Now we utilise the translational symmetry of the problem. Denoting by τ w the translation of w in the x direction by π/ (2 k), (6.6) implies that 
+
+G(τ W (s), Θ( s), Γ( s)) = 0 .
+
+By differentiating this equation twice as above, we obtain 
+
+Gww (0 , λ 0)[ τ ˙w, τ ˙w] + 2 Gwλ (0 , λ 0)[ τ ˙w, ˙λ] + Gw(0 , λ 0)[ τ ¨w] = 0 .
+
+Using τ ˙w = − ˙w, this becomes 
+
+Gww (0 , λ 0)[ ˙ w, ˙w] − 2Gwλ (0 , λ 0)[ ˙ w, ˙λ] + Gw(0 , λ 0)[ τ ¨w] = 0 . (6.9) Subtracting (6.9) from (6.8) yields 4Gwλ (0 , λ 0)[ ˙ w, ˙λ] + Gw(0 , λ 0)[ ¨ w − τ ¨w] = 0 .
+
+The transversality condition (6.5) then implies ˙λ = (Θ ′(0) , Γ′(0)) = 0, verifying (6.2). Differentiating (6.7) at s = 0 and using (Θ ′(0) , Γ′(0)) = 0 we find that U ′(0) = W ′(0) = ξ0 which confirms (6.1). This completes the first claim (a). The uniqueness claim (b) follows from the corresponding uniqueness statement (2.18) in Theorem 2.2. □
+
+Theorem 6.1 implies Theorem 1.1, with the physical velocity V (s), pressure P (s) and domain Ω( s) recov-ered by (2.1), (2.9) and (2.5). To demonstrate the expansions in Remark 1.2, we compute the components of (6.1) to find expansions for ψ(s), p(s) and η(s) along the curve. By the definiton of Q and E ,
+
+ξ0 = QE ˆφ = Re 
+
+( 
+
+ˆφ∗ + Ψ ′ 
+
+> 0
+
+ˆζ∗
+
+ˆq∗ + P ′ 
+
+> 0
+
+ˆζ∗
+
+ˆζ∗
+
+ eikx 
+
+)
+
+.
+
+Now, ˆζ∗(1) ∈ R by the definition of X , which implies ˆζ∗(y) ∈ R for all y ∈ [0 , 1], so 
+
+ψ(x, y ; s) = Ψ 0(y) + sΨ′
+
+> 0
+
+(y)ˆζ∗(y) cos kx + s Re  ˆφ∗(y)eikx + O(s2),p(x, y ; s) = P0(y) + sP ′
+
+> 0
+
+(y)ˆζ∗(y) cos kx + s Re ˆq∗(y)eikx + O(s2),η(x, y ; s) = y + sˆζ∗(y) cos kx + O(s2).GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 31 
+
+Thinking of the explicit polynomial functions Ψ 0 and P0 as defined on all of R, we can write these expansions as 
+
+ψ(x, y ; s) = Ψ 0(η(x, y ; s)) + s Re  ˆφ∗(y)eikx + O(s2),p(x, y ; s) = P0(η(x, y ; s)) + s Re ˆq∗(y)eikx + O(s2).
+
+Writing Y = η(x, y ; s) = y + O(s) and X = x + O(s), and scaling so that ˆζ∗(1) = 1, we obtain (1.11) and (1.12). We now state and prove the main global existence result, which is a more precise version of Theorem 1.4. 
+
+Theorem 6.2 (Global bifurcation) . Let Cloc be the local curve of solutions furnished by Theorem 6.1. Then 
+
+Cloc is contained in a continuous curve of solutions, 
+
+C := {(U (s), Θ( s), Γ( s)) : s ∈ R} ⊂ U .
+
+Near any point along C , we can re-parameterise C so that (U (·), Θ( ·), Γ( ·)) is real analytic. In addition, one of the following alternatives occur: 
+
+(a) (Blow-up) Defining 
+
+N (ψ, p, η, θ ) := sup  
+
+> z1,z 2∈T
+> z1̸=z2
+
+|z1 − z2||f (z1) − f (z2)| + sup 
+
+> T
+
+(|∇ η| + |D2η| + |D2ψ|) + sup 
+
+> R
+
+|∇ ψ| + 1inf T |∇ ψ| + σ + |cot θ|,
+
+then as s → ∞ and s → −∞ ,
+
+N (U (s), Θ( s)) −→ ∞ .
+
+(b) (Closed loop) For some T > 0 we have (U (T ), Θ( T ), Γ( T )) = ( u0(θ∗, γ ∗), θ ∗, γ ∗), and (possibly after re-parameterisation) 
+
+(U (s + T ), Θ( s + T ), Γ( s + T )) = ( U (s), Θ( s), Γ( s)) ,
+
+for all s > 0.Proof. By Proposition 3.1, Fu(u, θ, γ ) is a semi-Fredholm operator with closed range and finite-dimensional kernel, for any ( u, θ, γ ) ∈ U , so by Theorem 2.3 we have a global continuation of the curve as claimed, with the alternatives (a)(i), (a)(ii) and (b) listed in that theorem. In the rest of the proof, we rule out the loss of compactness alternative (a)(ii) and improve the blow-up alternative (a)(i). We eliminate (a)(ii) by the following argument. Without loss of generality, suppose we have a sequence 
+
+sn → ∞ with sup n N (sn) ≤ M , for N (s) defined as in (2.19), for some M > 0. Using Proposition 5.2, 
+
+U (sn) ∈ C5,α (R) × C3,α (R) × C5,α (R), and 
+
+∥U (sn)∥C5,α (R)×C3,α (R)×C5,α (R) ≤ C(N (sn)) ≤ C(M ).
+
+Then by Arzel´ a–Ascoli, we extract a convergent subsequence (U (sn), Θ( sn), Γ( sn)) → (U, Θ, Γ) ∈ C2,α (R) × C2,α (R) × C2,α (R) × R2
+
+and U ∈ X since X is closed in C4,α (R) × C2,α (R) × C4,α (R). Since inf  
+
+> n
+
+dist (( U (sn), λ ), ∂ U ) > M −1,
+
+we have ( U, Θ, Γ) ∈ U . Thus, alternative (a)(ii) does not occur. It remains to reduce (a)(i) of Theorem 2.3 to (a). Suppose ( u, λ ) = ( ψ, p, η, θ, γ ) ∈ U and that there exists M > 0 such that N (u, θ ) ≤ M . Then ( u, λ ) satisfies (5.1) with δ = M −1, so by Lemma 5.1, dist (( u, λ ), ∂ U ) > C (M −1), while Proposition 5.2 implies ∥u∥X ≤ C(M ). Noting that by (5.9), |γ| ≤ C(M ), we have 
+
+∥u∥X + |λ| + 1dist (( u, λ ), ∂ U ) ≤ C(M ).
+
+Thus, (a)(i) of Theorem 2.3 implies N (U (s), Θ( s)) −→ ∞ , and we are done. □
+
+The blow-up alternative (a) in Theorem 6.2 is equivalent to the blow-up alternative (a) of Theorem 1.4 by (2.5) and (2.6) in the definition of f and the relation of V to ψ and η through (2.1) and (2.9) 32 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+6.2. Small wavenumber regime. The aim of this subsection is to prove Theorem 1.5 by verifying the hypotheses (I)–(II) of Theorem 1.1. We establish rigorous asymptotic expansions in k for the kernel of the Orr–Sommerfeld operator and its adjoint, using analyticity to rule out higher-mode resonances in the kernel of Los for all but countably many k in some neighbourhood of the origin. This confirms the kernel hypothesis (I). The transversality condition (II) is verified using the expansions. Fix a Reynolds number R ≥ 0. Direct calculation yields that at γ = 2, for any θ ∈ (0 , π ), the Orr– Sommerfeld operator Los (0 , R, θ, 2) has a one-dimensional kernel spanned by ˆ φ0 := y2/2. In the following result, we find a curve of angles and wavespeeds, parameterised by the wavenumber k, along which the Orr–Sommerfeld operator has a nontrivial kernel. This curve bifurcates from wavespeed γ0 = 2 and angle 
+
+θ0 ∈ (0 , π/ 2) defined by cot θ0 = 45 R, (6.10) consistent with the critical Reynolds number for linear stability reported in [Ben57, Yih63, CD02]. 
+
+Lemma 6.3. Let γ0 = 2 and θ0 be given by (6.10) . Then there exist ε > 0 and analytic functions ˜θ : ( −ε, ε ) →
+
+(0 , π ), ˜γ : ( −ε, ε ) → R, and ˜φ : ( −ε, ε ) → Xos with the following properties: 
+
+(a) For k ∈ (−ε, ε ),
+
+ker Los (k, R, ˜θ(k), ˜γ(k)) = span { ˜φ(k)};(b) The functions have the following expansions: 
+
+cot ˜θ(k) = 45 R + k2
+
+
+
+− σ
+
+2 − 7743 2800 R + 16 1126125 R3
+
+
+
++ O(k3), (6.11) ˜γ(k) = 2 − 2k2 + O(k3), (6.12) ˜φ(y; k) = y2
+
+2 − 160 ikRy 2(1 − y)(2 − y)2 + O(k2). (6.13) 
+
+Proof. The Orr–Sommerfeld operator Los (k, R, θ, γ ) is Fredholm for all k, with a one-dimensional kernel at k = 0, so by continuity, the dimension of its kernel is at most one for sufficiently small k. To find a one-dimensional subspace in the kernel of Los , we will bifurcate from the line of k = 0 solutions by a Crandall–Rabinowitz argument for an auxiliary function G, which adds a normalisation condition. More precisely, we define the map G : (0 , π ) × R2 × Xos → Yos × R by 
+
+G(θ, k, γ, ˆφ) := 
+
+Los (k, R, θ, γ ) ˆ φg( ˆ φ) − 1
+
+
+
+, (6.14) where 
+
+g( ˆ φ) := 
+
+> 3
+
+X
+
+> j=0
+
+| ˆφ(j)(0) |2. (6.15) Clearly there is a correspondence between the zero set of G and the kernel of Los .We verify the hypotheses of the Crandall–Rabinowitz theorem, i.e. Theorem 2.2 with n = 1. At zero k,we have a point ( θ, 0, γ 0, ˆφ0) in the zero set of G for any θ ∈ (0 , π ), with γ0 = 2 , ˆφ0 = 12 y2. Now we consider the Fr´ echet derivative of G with respect to ( k, γ, φ ). Given ( f, c 1, c 2) ∈ Yos and c3 ∈ R, suppose 
+
+D(k,γ, ˆφ)G [( θ, 0, γ 0, ˆφ0)] 
+
+
+
+˙k
+
+˙γ
+
+˙ϕ
+
+ =
+
+
+
+˙ϕ(4) − 2i ˙kR (y − 1) ˙ϕ′′ (1) − 2 ˙ϕ(1) + ˙ γ
+
+˙ϕ′′′ (1) + i ˙k(R − cot θ)2 Re ˙ϕ′′ (0) .
+
+ =
+
+
+
+fc1
+
+c2
+
+c3
+
+ . (6.16) The ODE has general solution in the space Xos given by ˙ϕ(y) = a2y2 + a3y3 + 112 i ˙kR 
+
+ 15 y5 − y4
+
+
+
++ I4f (y),
+
+where a2, a 3 ∈ C and If (y) denotes the indefinite integral 
+
+If (y) := 
+
+Z y
+
+> 0
+
+f (y1)dy 1,GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 33 
+
+so that (6.16) is equivalent to following system for a2, a 3 and ˙k, ˙γ ∈ R,4a3 − 8i ˙kR 
+
+15 + ˙ γ = c1 + 2 I4f (1) − I2f (1) ,
+
+6a3 − i ˙k cot θ = c2 − I4f (1) ,
+
+4 Re a2 = c3 − 2I2f (0) ,
+
+Im {a2 + a3} − ˙kR 
+
+15 = − Im I4f (1) .
+
+(6.17) By eliminating a2, Re a3 and ˙ γ, the solvability of (6.17) is equivalent to a real-valued matrix problem, 
+
+4 − 8R
+
+> 15
+
+6 − cot θ
+
+  Im a3
+
+˙k
+
+
+
+=
+
+˜c1
+
+˜c2
+
+
+
+, (6.18) for some ˜ c1, ˜c2 ∈ R. This matrix has determinant 45 (4 R − 5 cot θ), and precisely at θ0 given by (6.10), the Fr´ echet derivative has a one-dimensional kernel spanned by ˙k = 1 , ˙γ = 0 , ˙ϕ = − 160 iRy 2(1 − y)(2 − y)2. (6.19) The final condition (iii) of Theorem 2.2 is equivalent to the statement 
+
+∂θ D(k,γ, ˆφ)G (θ0, 0, γ 0, ˆφ0)
+
+
+
+˙k
+
+˙γ
+
+˙ϕ
+
+ /∈ ran D(k,γ, ˆφ)G (θ0, 0, γ 0, ˆφ0)with this choice of ˙k, ˙ γ, ˙ϕ. We calculate 
+
+∂θ D(k,γ, ˆφ)G (θ0, 0, γ 0, ˆφ0)
+
+
+
+˙k
+
+˙γ
+
+˙ϕ
+
+ =
+
+
+
+1 + 16 25 R2
+
+
+
+00
+
+i
+
+0
+
+ .
+
+Substituting ( f, c 1, c 2, c 3) = (0 , 0, i, 0) in (6.17) yields 4 Im a3 − 8 ˙kR 
+
+15 = 0 , 6 Im a3 − 4 ˙kR 
+
+5 = 1 ,
+
+a contradiction. Therefore, the hypothesis (iii) holds and Theorem 2.2 yields an ε1 > 0 and a nontrivial curve in the zero set of G, n ˜θ(s), ˜k(s), ˜γ(s), ˜φ(s)
+
+
+
+: |s| < ε 1
+
+o
+
+.
+
+Now ˜k(0) = 0 and ˜k′(0) = 1, so there exists ε > 0, an interval I ⊂ (−ε1, ε 1) and an analytic inverse function ˜k−1 : ( −ε, ε ) → I . Thus, abusing notation, we may parametrise the curve by k ∈ (−ε, ε ), 
+
+G
+
+˜θ(k), k, ˜γ(k), ˜φ(k)
+
+
+
+= 0 .
+
+The first order terms in the expansions in (b) are given by (6.19). Since the construction uses the implicit function theorem, higher order terms in cot ˜θ(k), ˜ γ(k) and ˜ φ(k) can be obtained in the usual way. Note that obtaining O(k2) terms in the expansions for cot ˜θ and ˜ γ requires expanding equations to O(k3). We omit the details. For later use, we record that again by Theorem 2.2 there exists an open set N ⊂ (0 , π ) × R2 × Xos , such that ( θ0, 0, γ 0, ˆφ0) ∈ N , and for some ε2 > 0, 
+
+{(θ, k, γ, ˆφ) ∈ N : G(θ, k, γ, ˆφ) = 0 , k ̸ = 0 } =
+
+n ˜θ(k), k, ˜γ(k), ˜φ(k)
+
+
+
+: 0 < |k| < ε 2
+
+o
+
+. (6.20) 
+
+□
+
+This result verifies the first part (1.9) of (I). We establish the second part (1.10), a non-resonance condition, for sufficiently small wavenumbers apart from some countable set. 
+
+Lemma 6.4. In the setting of Lemma 6.3, for k ∈ (0 , ε ) outside some countable set, 
+
+ker Los (nk, R, ˜θ(k), ˜γ(k)) = {0} for every n ∈ N \ { 1}. (6.21) 34 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+Proof. Fix n ∈ N \ { 1}. At each k ∈ (−ε, ε ), the first component of the Orr–Sommerfeld operator, 
+
+Los ,1(nk, R, ˜θ(k), ˜γ(k)) ˆ φ =
+
+ d2
+
+dy 2 − (nk )2
+
+2
+
+ˆφ − inkR Ψ′
+
+> 0
+
+ d2
+
+dy 2 − (nk )2
+
+
+
+ˆφ + inkR Ψ′′′  
+
+> 0
+
+ˆφ, 
+
+is a linear fourth order ODE operator with polynomial coefficients and nonzero constant leading order coef-ficient. Therefore, its kernel in ˜Xos is spanned (in C) by the solutions ˆ φ1, ˆφ2 with initial conditions: ˆφ1(0; k) = ˆ φ′
+
+> 1
+
+(0; k) = ˆ φ′′  
+
+> 1
+
+(0; k) = 0 , ˆφ′′′  
+
+> 1
+
+(0; k) = 1; ˆφ2(0; k) = ˆ φ′
+
+> 2
+
+(0; k) = ˆ φ′′′  
+
+> 2
+
+(0; k) = 0 , ˆφ′′  
+
+> 2
+
+(0; k) = 1 .
+
+Moreover, k 7 → ˆφ(j) 
+
+> i
+
+(1; k) are analytic with respect to k.Now for ˆ φ = a ˆφ1 +b ˆφ2 to be in the kernel of Los (nk, R, ˜θ(k), ˜γ(k)), it must satisfy the boundary conditions at y = 1: 
+
+Los ,2(nk, R, ˜θ(k), ˜γ(k)) ˆ φ(k) = 0 ,
+
+Los ,3(nk, R, ˜θ(k), ˜γ(k)) ˆ φ(k) = 0 .
+
+This leads us to define a function Γ n : ( −ε, ε ) → R by Γn(k) = det 
+
+Los ,2
+
+
+
+nk, R, ˜θ(k), ˜γ(k)
+
+
+
+ˆφ1(k) Los ,2
+
+
+
+nk, R, ˜θ(k), ˜γ(k)
+
+
+
+ˆφ2(k)
+
+Los ,3
+
+
+
+nk, R, ˜θ(k), ˜γ(k)
+
+
+
+ˆφ1(k) Los ,3
+
+
+
+nk, R, ˜θ(k), ˜γ(k)
+
+
+
+ˆφ2(k)
+
+ .
+
+Arguing as in (6.18), this function vanishes if and only if there is some ˆ φ in the kernel of Los (nk, R, ˜θ(k), ˜γ(k)). Clearly Γ n(0) = 0, and Lemma 6.3 implies Γ 1(k) = 0 for all k ∈ (−ε, ε ). We show that for n̸ = 1, Γ n is not identically zero. Supposing for contradiction that Γ n ≡ 0, then for every k ∈ (−ε, ε ) there would exist u(k) ∈ Xos analytic in k such that Los (nk, ˜θ(k), ˜γ(k)) u(k) = 0, with 
+
+u(0) = ˆ φ0 and g(u(k)) = 1. Therefore, the curve ( nk, ˜θ(k), ˜γ(k), u (k)) is in the zero set of G defined in (6.14), and passes through (0 , θ 0, γ 0, ˆφ0). By the uniqueness statement (6.20) in the proof of Lemma 6.3, the curve must coincide with ( k, ˜θ(nk ), ˜γ(nk ), ˜φ(nk )) for k sufficiently small. Now by (6.11), ˜θ(nk )̸ = ˜θ(k) (or similarly ˜γ(nk )̸ = ˜ γ(k)), a contradiction. Having shown that Γ n is an analytic function that is not identically zero, it can have only finitely many roots in ( −ε, ε ), after shrinking ε. Therefore, the countable union 
+
+[
+
+> n∈Z\{− 1,1}
+
+Γ−1 
+
+> n
+
+(0) ,
+
+which is the set of all k ∈ (−ε, ε ) with resonances, is also countable. Consequently, (6.21) holds for k ∈ (−ε, ε )except for a countable number of points. □
+
+In order to verify the transversality hypothesis (II), we analyse the kernel of the formal adjoint L ∗ 
+
+> os
+
+defined in (4.17), and conduct an identical argument to that in Lemma 6.3 to obtain an analytic curve in the kernel of L ∗ 
+
+> os
+
+for small wavenumbers. 
+
+Lemma 6.5. In the setting of Lemma 6.3, there exists an analytic function ˜φ∗ : ( −ε, ε ) → Xos such that for all k ∈ (−ε, ε ),
+
+ker L ∗
+
+> os
+
+(k, R, ˜θ(k), ˜γ(k)) = span { ˜φ∗(k)}.
+
+Moreover, we have the asymptotic expansion 
+
+˜φ∗(y; k) = y2
+
+2 − y3
+
+6 − 1840 ikRy 2(1 − y)(2 − y)2(1 − 3(1 − y)2) + O(k2). (6.22) 
+
+Proof. We know that at each k, by the Fredholm alternative in Lemma 4.4, there is a ˆ φ∗ ∈ Xos such that 
+
+L ∗ 
+
+> os
+
+has a two-dimensional kernel span { ˆφ∗, i ˆφ∗} ⊂ ˜Xos . However, we need to show that this ˆ φ∗ depends analytically on k. To this end, we prove an analogue to Lemma 6.3 for the kernel of L ∗
+
+> os
+
+.Similarly to the proof of Lemma 6.3, we define a map H : (0 , π ) × R × R × Xos → Yos × R by 
+
+H(θ, k, γ, ˆφ) := 
+
+L ∗
+
+> os
+
+(k, R, θ, γ ) ˆ φg( ˆ φ) − 2
+
+
+
+,GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 35 
+
+for g as defined in (6.15). Here the normalisation constant 2 is chosen merely for convenience, to avoid square roots in (6.22). There is a one-to-one correspondence between the zero set of H and the kernel of L ∗ 
+
+> os
+
+in Xos .At k = 0, we have a point ( θ, 0, γ 0, ˆφ0) in the zero set of H, for any θ ∈ (0 , π ), with γ0 = 2 and ˆφ∗ 
+
+> 0
+
+:= 16 (3 y2 − y3).
+
+We will run again run Theorem 2.2 with n = 1 to find solutions of H = 0 in a neighbourhood of each such point ( θ0, 0, γ 0, ˆφ∗
+
+> 0
+
+). Suppose for ( f, c 1, c 2) ∈ Yos and c3 ∈ R,
+
+∂(k,γ, ˆφ)H [( θ, 0, γ 0, ˆφ∗
+
+> 0
+
+)] 
+
+
+
+˙k
+
+˙γ
+
+˙ϕ
+
+ =
+
+
+
+˙ϕ(4) − i ˙kR (2 − 8y + 9 y2 − 3y3)˙ϕ′′ (1) ˙ϕ′′′ (1) + 2 ˙ϕ′(1) + 130 i ˙kR − ˙γ
+
+2 Re { ˙ϕ′′ (0) − ˙ϕ′′′ (0) }
+
+ =
+
+
+
+fc1
+
+c2
+
+c3
+
+ .
+
+The ODE has general solution in the space ˜Xos given by ˙ϕ(y) = a2y2 + a3y3 − i ˙kR 
+
+ y7
+
+280 − y6
+
+40 + y5
+
+15 − y4
+
+12 
+
+
+
++ I4f (y),
+
+with a2, a 3 ∈ C and ˙k, ˙γ ∈ R satisfying 2a2 + 6 a3 + 415 i ˙kR = c1 − I2f (1) ,
+
+4a2 + 12 a3 + 815 i ˙kR − ˙γ = c2 + If (1) − 2I2f (1) ,
+
+4 Re a2 − 12 Re a3 = c3 + Re If (0) − Re I2f (0) ,
+
+Im a2 + Im a3 + 4105 i ˙kR = −If (1) .
+
+(6.23) After solving for Re a2, Re a3 and ˙ γ, the system is equivalent to the real-valued matrix problem 
+
+
+
+2 6 4R
+
+> 15
+
+4 12 8R
+
+> 15
+
+1 1 4R
+
+> 105
+
+
+
+Im a2
+
+Im a3
+
+˙k
+
+ =
+
+
+
+˜c1
+
+˜c2
+
+˜c3
+
+ ,
+
+for some ˜ c1, ˜c2, ˜c3 ∈ R, which is clearly degenerate. The Fr´ echet derivative has one-dimensional kernel spanned by ˙k = 1 , ˙γ = 0 , ˙ϕ = − 1840 kRy 2(1 − y)(2 − y)2(1 − 3(1 − y)2). (6.24) The transversality condition (iii) of Theorem 2.2 is equivalent to the statement 
+
+∂θ D(k,γ, ˆφ)H (θ0, 0, γ 0, ˆφ0)
+
+
+
+˙k
+
+˙γ
+
+˙ϕ
+
+ /∈ ran D(k,γ, ˆφ)H (θ0, 0, γ 0, ˆφ0)with this choice of ˙k, ˙ γ, ˙ϕ. Now 
+
+∂θ D(k,γ, ˆφ)H (θ0, 0, γ 0, ˆφ0)
+
+
+
+˙k
+
+˙γ
+
+˙ϕ
+
+ = 23
+
+
+
+1 + 16 25 R2
+
+
+
+00
+
+i
+
+0
+
+ .
+
+Substituting ( f, c 1, c 2, c 3) = (0 , 0, i, 0) in (6.23) yields γ = −i, a contradiction. Therefore, by Theorem 2.2, there exists ε > 0 and a nontrivial curve in the zero set of H,
+
+n ˜θ(k), k, ˜γ(k), ˜φ∗(k)
+
+
+
+: |k| < ε 
+
+o
+
+,
+
+where we have parameterised the curve by k as in Lemma 6.3. The expansion (6.22) is given by (6.24). Furthermore, there exists a neighbourhood N ⊂ (0 , π ) × R2 × Xos of ( θ0, 0, γ 0, ˆφ∗
+
+> 0
+
+) and ε1 > 0 such that 
+
+n
+
+(θ, k, γ, ˆφ) ∈ N : H(θ, k, γ, ˆφ) = 0 , k ̸ = 0 
+
+o
+
+=
+
+n ˜θ(k), k, ˜γ(k), ˜φ∗(k) : 0 < |k| < ε 1
+
+o
+
+. □36 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+Gathering these results, we prove Theorem 1.5. The only hypothesis remaining is the Orr–Sommerfeld transversality condition (II), which we verify using the asymptotic expansions (6.11), (6.12), (6.13) and (6.22). 
+
+Proof of Theorem 1.5. Lemmas 6.3 and 6.4 establish (I) in Theorem 1.1. To verify (II), we use Corollary 4.5, and so we compute 
+
+∂γ Los 
+
+ k, R, ˜θ(k), ˜γ(k) ˜φ(y; k) = 
+
+
+
+ikR   ˜φ′′ (y; k) − k2 ˜φ(y; k)
+
+2 (1 − ˜γ(k)) −2 ˜φ(1; k)
+
+ik 
+
+h
+
+R ˜φ′(1; k) − (1 − ˜γ(k)) −2 (2 cot ˜θ(k) + σk 2) ˜ φ(1; k)
+
+i ,
+
+which gives 
+
+D
+
+˜φ∗(k), ∂ γ Los 
+
+ k, R, ˜θ(k), ˜γ(k) ˜φ(k)
+
+E
+
+> os
+
+= Re 
+
+
+
+ikR 
+
+Z 10
+
+˜φ∗   ˜φ′′ − k2 ˜φ dy + 2( ˜ φ∗)′(1) ˜ φ(1) (1 − ˜γ(k)) −2
+
+− ikφ ∗(1) 
+
+h
+
+R ˜φ′(1) − 2 (1 − ˜γ(k)) −2 cot ˜θ(k) ˜ φ(1) 
+
+i 
+
+. (6.25) Now from (6.12), we have (1 − ˜γ(k)) −2 = 1 + 4 k2 + O(k4),
+
+and by (6.13), ˜ φ(1; k) = 12 + O(k). Note also that by (6.22), ˜ φ∗(1; k) = 13 + O(k) and ( ˜ φ∗)′(1; k) = 12 + O(k). Using these facts, we can simplify (6.25), 
+
+˜φ∗(k), ∂ γ Los 
+
+ k, R, ˜θ(k), ˜γ(k) ˜φ(k) os = Re 
+
+n
+
+2( ˜ φ∗)′(1; k) ˜ φ(1; k) (1 − ˜γ(k)) −2 + O(k)
+
+o
+
+= 12 + O(k),
+
+and clearly 
+
+i ˜φ∗(k), ∂ γ Los 
+
+ k, R, ˜θ(k), ˜γ(k) ˜φ(k) os = Re 
+
+n
+
+2i  12 + O(k)  12 + O(k) + O(k)
+
+o
+
+= O(k).
+
+Also, 
+
+∂θ Los 
+
+ k, R, ˜θ(k), ˜γ(k) ˜φ(y; k) = 
+
+
+
+00
+
+− 2ik 
+
+(1 − ˜γ(k)) sin 2 ˜θ(k) ˜φ(1; k)
+
+ ,
+
+where this third component can be expanded in k,2ik 
+
+(˜ γ(k) − 1) sin 2 ˜θ(k) ˜φ(1; k) = 2 ik  1 + 2 k2
+
+1 + 16 R2
+
+25 + O(k2)
+
+  12 + O(k) = ik 
+
+
+
+1 + 16 R2
+
+25 
+
+
+
++ O(k2).
+
+Thus, 
+
+˜φ∗(k), ∂ θ Los 
+
+ k, R, ˜θ(k), ˜γ(k) ˜φ(k) os = O(k2),
+
+and 
+
+i ˜φ∗(k), ∂ θ Los 
+
+ k, R, ˜θ(k), ˜γ(k) ˜φ(k) os = Re 
+
+
+
+− ik [iφ ∗(1; k)] 
+
+
+
+1 + 16 R2
+
+25 
+
+
+
++ O(k2)
+
+
+
+= − 13 k
+
+
+
+1 + 16 R2
+
+25 
+
+
+
++ O(k2).
+
+Therefore, we obtain that det 
+
+⟨ ˜φ∗, ∂ γ Los ˜φ⟩os ⟨i ˜φ∗, ∂ γ Los ˜φ⟩os 
+
+⟨ ˜φ∗, ∂ θ Los ˜φ⟩os ⟨i ˜φ∗, ∂ θ Los ˜φ⟩os 
+
+
+
+= det 
+
+
+
+12 + O(k2) O(k)
+
+O(k2) − k
+
+3
+
+
+
+1 + 16 25 R2
+
+
+
++ O(k2)
+
+
+
+= − 16 k
+
+
+
+1 + 16 25 R2
+
+
+
++ O(k2),
+
+which is nonzero for small k, so by Corollary 4.5, hypothesis (II) holds. □GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 37 
+
+6.3. Low Reynolds number regime. We now consider the low Reynolds number regime, fixing an arbi-trary wavenumber k > 0. Firstly in the vanishing Reynolds number limit, known as the ‘Stokes problem’, we can satisfy the hypotheses of Theorem 1.1. 
+
+Lemma 6.6. Let R = 0 and σ = 0 . Then, defining 
+
+θ0 = π
+
+2 , γ0 = 1 + 1
+
+k2 + cosh 2 k , (6.26) 
+
+the parameters θ∗ = θ0 and γ∗ = γ0 satisfy (I) and (II) of Theorem 1.1, with ker Los (k, 0, θ ∗, γ ∗) = span { ˆφ0},where 
+
+ˆφ0(y) = ( y − 1) cosh k sinh ky + ky cosh( k(1 − y)) . (6.27) 
+
+Proof. To analyse the kernel of the Stokes operator, let ˆ φ ∈ Xos be such that 
+
+ d2
+
+dy 2 − k2
+
+2
+
+ˆφ = 0 (6.28a) ˆφ′′ (1) + 
+
+ 21 − γ + k2
+
+
+
+ˆφ(1) = 0 (6.28b) ˆφ′′′ (1) − 3k2 ˆφ′(1) + ik 
+
+1 − γ α ˆφ(1) = 0 . (6.28c) where α := 2 cot θ + σk 2. Here, we do not enforce σ = 0 yet; this will be required at a later step in the proof. Solutions to (6.28a) in Xos are of the form ˆφ(y) = A(sinh( ky ) − ky cosh( ky )) + By sinh( ky ),
+
+where A, B ∈ C, and using (6.28b) and (6.28c), we obtain a complex-valued matrix problem for A and B,
+
+
+
+−2k3 cosh k − 2( k cosh k − sinh k)1 − γ 2k(k sinh k + cosh k) + 2 sinh k
+
+1 − γ
+
+2k3(k sinh k − cosh k) − iαk (k cosh k − sinh k)1 − γ −2k3 cosh k + iαk sinh k
+
+1 − γ ,
+
+AB
+
+
+
+=
+
+00
+
+
+
+.
+
+The kernel of Los (k, 0, θ, γ ) is nontrivial if and only if the determinant of this matrix vanishes, 4
+
+ 11 − γ + k2 + cosh 2 k
+
+
+
++ i (2 k − sinh 2 k)(2 cot θ + σk 2)1 − γ = 0 ,
+
+which demands σ = 0, θ = θ0 and γ = γ0(k) defined in (6.26), with kernel spanned by ˆ φ0 given by (6.27). This implies (1.9), and the nonresonance condition (1.10) follows from the monotonicity of γ0(k) for k positive, so (I) holds at θ∗ = θ0 and γ∗ = γ0(k). To verify transversality (II), we will use Corollary 4.5. We first compute the kernel of the formally adjoint operator L ∗ 
+
+> os
+
+: Xos → Yos defined in (4.17), at R = σ = 0, θ = θ0, γ = γ0(k). Explicitly, this operator is 
+
+L ∗
+
+> os
+
+(k, 0, θ 0, γ 0(k)) ˆ φ∗ := 
+
+ d2
+
+dy 2 − k2
+
+2
+
+ˆφ∗
+
+( ˆ φ∗)′′ (1) + k2 ˆφ∗(1) ( ˆ φ∗)′′′ (1) +  2 cosh 2(k) − k2 ( ˆ φ∗)′(1) 
+
+ ,
+
+and has kernel spanned by ˆφ∗
+
+> 0
+
+(y) = (cosh k + k sinh k)(sinh( ky ) − ky cosh( ky )) + k2y cosh k sinh( ky ).
+
+We then compute derivatives of the Orr–Sommerfeld operator which appear in (4.20), using that ˆ φ0(1) = k,
+
+∂γ Los 
+
+
+
+k, 0, θ 0, γ 0(k)
+
+
+
+ˆφ0 =
+
+
+
+02(1 − γ0(k)) 2 ˆφ0(1) 0
+
+ =
+
+
+
+02k(k2 + cosh 2 k)2
+
+0
+
+ ,∂θ Los 
+
+
+
+k, 0, θ 0, γ 0(k)
+
+
+
+ˆφ0 =
+
+
+
+00
+
+− 2ik 
+
+1 − γ0(k) ˆφ0(1) 
+
+ =
+
+
+
+002ik 2(k2 + cosh 2 k)
+
+ .38 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+Using that ˆ φ∗
+
+> 0
+
+(1) = (sinh(2 k) − 2k)/2 and ( ˆ φ∗
+
+> 0
+
+)′(1) = k3, we then obtain 
+
+ˆφ∗
+
+> 0
+
+, ∂ γ Los 
+
+ k, 0, θ 0, γ 0(k) ˆφ0 os = Re 
+
+n
+
+2k(k2 + cosh 2 k)2( ˆ φ∗
+
+> 0
+
+)′(1) 
+
+o
+
+= 2 k4(k2 + cosh 2 k)2,
+
+i ˆφ∗
+
+> 0
+
+, ∂ γ Los 
+
+ k, 0, θ 0, γ 0(k) ˆφ0 os = 0 ,
+
+i ˆφ∗
+
+> 0
+
+, ∂ θ Los 
+
+ k, 0, θ 0, γ 0(k) ˆφ0 os = Re 
+
+n
+
+−2ik 2(k2 + cosh 2 k)i ˆφ∗
+
+> 0
+
+(1) 
+
+o
+
+= k2(k2 + cosh 2 k)(2 k − sinh(2 k)) ,
+
+ˆφ∗
+
+> 0
+
+, ∂ θ Los 
+
+ k, 0, θ 0, γ 0(k) ˆφ0 os = 0 .
+
+Thus, dropping parameter dependences, det 
+
+⟨ ˆφ∗
+
+> 0
+
+, ∂ γ Los ˆφ0⟩os ⟨i ˆφ∗
+
+> 0
+
+, ∂ γ Los ˆφ0⟩os 
+
+⟨ ˆφ∗
+
+> 0
+
+, ∂ θ Los ˆφ0⟩os ⟨i ˆφ∗
+
+> 0
+
+, ∂ θ Los ˆφ0⟩os 
+
+
+
+= 2 k6(k2 + cosh 2 k)3(2 k − sinh(2 k)) ,
+
+which does not vanish for k > 0, establishing (II). □
+
+Since the limit R = 0 is non-degenerate for the nonlinear operator F , we can easily obtain a similar result for sufficiently small R with ˜θ, ˜ γ appropriate functions of R. This follows from a soft argument Lemma A.2, which shows that the hypotheses of Theorem 2.2 are robust under certain perturbations. In particular, no asymptotic expansions are required. 
+
+Proof of Theorem 1.6. Examining the proof of Theorem 6.1, we extend the function G : V → Y defined in (6.3) to ˜G : V × R → Y . Given R ∈ R, ˜G(0 , λ, R ) = 0 for all λ ∈ (0 , π ) × (0 , ∞), i.e. hypothesis (i) of Theorem 2.2 holds. Lemma 6.6 verifies that the hypotheses (I) and (II) of Theorem 1.1 hold at parameters (θ0, γ 0) given in (6.26) at R = 0, i.e. ˜G( · , · ; 0) satisfies hypotheses (ii) and (iii) of Theorem 2.2. Therefore, by Lemma A.2, there exist ε > 0 and analytic functions ˜θ : ( −ε, ε ) → R, ˜ γ : ( −ε, ε ) → R, and ˜ξ : ( −ε, ε ) → U satisfying ˜θ(0) = θ0, ˜γ(0) = γ0, ˜ξ(0) = QE ˆφ0,
+
+for θ0 and γ0 defined in (6.26) and ˆ φ0 defined in (6.27). Furthermore, given R ∈ [0 , ε ), ˜Gw(0 , ˜θ(R), ˜γ(R), R )has a one-dimensional kernel spanned by ˜ξ(R) and range of codimension 2, and for any nonzero μ ∈ R2,
+
+Dwλ ˜G(0 , ˜θ(R), ˜γ(R), R )[ ˜ξ(R), μ ] /∈ ran ˜Gw(0 , ˜θ(R), ˜γ(R), R ).
+
+Thus, the result of Theorem 6.1 holds at this R ∈ [0 , ε ), completing the proof. □
+
+Acknowledgements 
+
+The authors would like to thank Noah Stevenson for suggesting the argument in Lemma 6.4 and Jeyabal Sivaloganathan for helping us with a step in Lemma 5.4. Daniel Abraham was supported fully by a PhD stu-dentship, “Additional Funding Programme for Mathematical Sciences”, awarded by the Heilbronn Institute for Mathematical Research, grant number EP/V521917/1. 
+
+Appendix A. Proofs of abstract bifurcation results 
+
+Here we discuss the minor adaptations of the proof of [BT03, Theorem 9.1.1] required to prove Theorem 2.3. The key distinction is the auxiliary lemma below which is an analogue of Proposition 8.3.4 in [BT03]. First we introduce the notation for the Lyapunov–Schmidt reduction for the problem 
+
+F (u, λ ) = 0 , (A.1) for an analytic map F : X × Rn → Y between Banach spaces X and Y satisfying the assumptions of Theorem 2.2. Let X1 = span {u0} and Y1 = ran Fu(0 , λ 0), and let X0 and Y0 be complements of X1 and 
+
+Y1 in X and Y respectively, so that 
+
+X = X0 ⊕ X1, Y = Y0 ⊕ Y1.
+
+Note that Y0 ∼= Rn. Define F0 := Π Y0 F , F1 := Π Y1 F as the projections of the image of F onto Y0 and 
+
+Y1 respectively. Then, (A.1) is equivalent to some x0 ∈ X0, x1 ∈ X1 and λ ∈ Rn satisfying 
+
+(
+
+F0(x0, x 1, λ ) = 0 ,
+
+F1(x0, x 1, λ ) = 0 . (A.2) GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 39 
+
+Now by construction, Dx0 F1(0 , 0, λ 0) : X0 → Y1 is invertible, so by the implicit function theorem, for every (x1, λ ) ∈ U1 in a neighbourhood U1 ⊂ X1 × Rn of (0 , λ 0) there is a unique ϕ = ϕ(x1, λ ) ∈ X0 such that 
+
+F1(ϕ(x1, λ ), x 1, λ ) = 0 . (A.3) Define ψ : U1 → X and f : X1 × Rn → Y0 by 
+
+ψ(x1, λ ) := ϕ(x1, λ ) + x1, f (x1, λ ) := F0(ψ(x1, λ ), λ ). (A.4) Then in U1, (A.2) is equivalent to f (x1, λ ) = 0. 
+
+Lemma A.1. In the setting of Theorem 2.2 and with the notation above, D(x,λ 1,...,λ n−1)F : X × Rn−1 → Y
+
+has Fredholm index zero, and we have 
+
+(a) For (x1, λ ) in a neighbourhood U0 of (0 , λ 0),
+
+dim ker D(u,λ 1,...,λ n−1)F (ψ(x1, λ ), λ ) = dim ker D(u,λ 1,...,λ n−1)f (x1, λ ).
+
+(b) For 0 < |s| < ε , D(x,λ 1,...,λ n−1)F (U (s), Λ( s)) is invertible if and only if Λ′
+
+> n
+
+(s)̸ = 0 .Proof. Let w ∈ X0, v ∈ X1 and μ ∈ Rn−1. Now ( w + v, μ ) ∈ ker D(u,λ 1,...,λ n−1)F (ψ(x1, λ ), λ ) iff and only if ΠY0 Fu(ψ(x1, λ ), λ )( w + v) + Π Y0 F(λ1,...,λ n−1)(ψ(x1, λ ), λ )μ = 0 , (A.5a) ΠY1 Fu(ψ(x1, λ ), λ )( w + v) + Π Y1 F(λ1,...,λ n−1)(ψ(x1, λ ), λ )μ = 0 . (A.5b) Now, differentiating (A.3) and using (A.4), 0 = D(x1,λ )ΠY1 Fu(ψ(x1, λ ), λ )[ v, μ ]= Π Y1 Fu(ψ(x1, λ ), λ )  ϕx1 (x1, λ )v + v + ϕ(λ1,...,λ n−1)(x1, λ )μ + Π Y1 F(λ1,...,λ n−1)(ψ(x1, λ ), λ )μ. 
+
+Therefore, (A.5b) implies ΠY1 Fu(ψ(x1, λ ), λ )  w − ϕx1 (x1, λ )v − ϕ(λ1,...,λ n−1)(x1, λ )μ = 0 ,
+
+noting that 
+
+w − ϕx1 (x1, λ )v − ϕ(λ1,...,λ n−1)(x1, λ )μ ∈ X0.
+
+Now since Π Y1 Fu(0 , λ 0) = Dx0 F1(0 , 0, λ 0) : X0 → Y1 is invertible, Π Y1 Fu(ψ(x1, λ ), λ )|X0 is also invertible 
+
+X0 → Y1 for ( ψ(x1, λ ), λ ) ∈ U0 ⊂ U1 where U0 a sufficiently small neighbourhood of (0 , λ 0). This implies that 
+
+w = ϕx1 (x1, λ )v + ϕ(λ1,...,λ n−1)(x1, λ )μ. (A.6) Also, (A.6) implies (A.5b) holds for any v ∈ X1, μ ∈ Rn−1. Thus, (A.5) is equivalent to ΠY0 Fu(ψ(x1, λ ), λ )( ϕx1 (x1, λ )v + v + ϕ(λ1,...,λ n−1)(x1, λ )μ) + Π Y0 F(λ1,...,λ n−1)(ψ(x1, λ ), λ ) = 0 ,
+
+which in turn is equivalent to 
+
+fx1 (x1, λ )v + f(λ1,...,λ n−1)(x1, λ )μ = 0 .
+
+This establishes (a). Now by dimension counting, D(x1,λ 1,...,λ n−1)f has Fredholm index zero. For a point ( U (s), Λ( s)) ∈ Cloc 
+
+with s ∈ (−ε, ε ), one can check that U (s) = ψ(su 0, Λ( s)), so F (U (s), Λ( s)) = 0 is equivalent to 
+
+f (su 0, Λ( s)) = 0 .
+
+By differentiation with respect to s, we observe that 0 = fx1 (su 0, Λ( s)) u0 + fλ(su 0, Λ( s))Λ ′(s). (A.7) By the hypothesis (iii) in Theorem 2.2, for s ∈ (−ε, ε ) with ε > 0 sufficiently small, 
+
+fλ(su 0, Λ( s)) : Rn → Y0
+
+is invertible. In particular, the derivatives fλi (su 0, Λ( s)) are linearly independent and span Y0.Now suppose Λ ′
+
+> n
+
+(s) = 0. Then (A.7) implies 
+
+ u0, Λ′
+
+> 1
+
+(s), . . . Λ′
+
+> n−1
+
+(s) ∈ ker D(x1,λ 1,...,λ n−1)f (su 0, Λ( s)) .40 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+If on the other hand, Λ ′
+
+> n
+
+(s)̸ = 0, suppose that v = cu 0 ∈ X1 and μ ∈ Rn−1 are such that ( v, μ ) ∈
+
+ker D(x1,λ 1,...,λ n−1)f (su 0, Λ( s)). Then, by (A.7), 
+
+> n−1
+
+X
+
+> i=1
+
+fλi (su 0, Λ( s))( cΛ′
+
+> i
+
+(s) − μi) + fλn (su 0, Λ( s)) cΛ′
+
+> n
+
+(s) = 0 ,
+
+and since the fλi (su 0, Λ( s)) are linearly independent in Y0, we must have cΛ′
+
+> n
+
+(s) = 0. But then Λ ′
+
+> n
+
+(s)̸ = 0 implies c = 0, which in turn implies 
+
+f(λ1,...,λ n−1)(su 0, Λ( s)) μ = 0 ,
+
+and so by the linear independence of these vectors, μ = 0. Thus, D(x,λ 1,...,λ n)F (U (s), Λ( s)) has trivial kernel and is therefore invertible, establishing (b). □
+
+Proof of Theorem 2.3. The proof is almost identical to that of [BT03, Theorem 9.1.1], except for extending the space X = X × Rn−1 and redefining the set of non-singular solutions of F (u, λ ) = 0 to be 
+
+R = (u, λ ) ∈ S : ker ∂(u,λ 1,...,λ n−1)F (u, λ ) = {0} .
+
+Now Λ ′ 
+
+> n
+
+is nonzero on ( −ε, 0) ∪ (0 , ε ) for ε > 0 sufficiently small, so by Lemma A.1, we can pick ε > 0 such that (U (s), Λ( s)) : s ∈ (0 , ε ) ⊂ R. From then, the proof is the same as in [BT03]. □
+
+The following result shows that the hypotheses of Theorem 2.2 are robust under perturbation with respect to an additional parameter. 
+
+Lemma A.2. Let F : U × R → Y be analytic, with U ⊂ X × Rn open, n ∈ N and X and Y Banach spaces. Suppose the following hold: 
+
+(i) For all μ, F ( · , · ; μ) satisfies hypothesis (i) of Theorem 2.2; 
+
+(ii) F ( · , · ; 0) satisfies hypothesis (ii) and (iii) of Theorem 2.2. Then there exist ε > 0 and analytic functions ˜λ : ( −ε, ε ) → Rn, ˜ξ : ( −ε, ε ) → U such that ˜λ(0) = λ0,
+
+˜ξ(0) = ξ0, and for |μ| < ε ,
+
+(a) The kernel of Fu(0 , ˜λ(μ); μ) is spanned by ˜ξ(μ), and the range of Fu(0 , ˜λ(μ); μ) has codimension n.
+
+(b) For any nonzero ˙λ ∈ Rn,
+
+Duλ F (0 , ˜λ(μ); μ)[ ˜ξ(μ), ˙λ] /∈ ran Fu(0 , ˜λ(μ); μ).
+
+Proof. There exists some l ∈ X ∗, where X ∗ is the dual space of X , such that lξ 0 = 1. Define H : X ×
+
+Rn × R → Y × R by 
+
+H (ξ, λ, μ ) := 
+
+Fu(0 , λ ; μ)ξlξ − 1
+
+
+
+.
+
+Then H(ξ,λ )(ξ0, λ 0, 0) : X × Rn → Y × R is a Fredholm operator of zero index. Consider ( ˙ξ, ˙λ) ∈ X × Rn
+
+in its kernel, i.e. suppose 
+
+H(ξ,λ )(ξ0, λ 0, 0) 
+
+ ˙ξ
+
+˙λ
+
+
+
+=
+
+Fu(0 , λ 0; 0) ˙ξ + Duλ F (0 , λ 0; 0)[ ξ0, ˙λ]
+
+l ˙ξ
+
+
+
+=
+
+00
+
+
+
+.
+
+By (ii), ˙λ = 0, and so ˙ξ = cξ 0 for some c ∈ R. But 0 = l ˙ξ = clξ 0 = c, so H(ξ,λ )(ξ0, λ 0, 0) has trivial kernel and is therefore invertible. By the implicit function theorem, then, we obtain functions λ(μ) and ξ(μ) for 
+
+|μ| < ε such that ξ(μ) ∈ ker Fu(0 , λ (μ); μ), and by continuity, dim ker Fu(0 , λ (μ); μ) ≤ 1 for μ sufficiently small, so ξ(μ) spans ker Fu(0 , λ (μ); μ). Since its Fredholm index is 1 − n, the codimension of the range is n,so (a) holds. Finally, the transversality condition (ii) is an open condition, so (b) holds. □GLOBAL BIFURCATION FOR STEADY VISCOUS ROLL WAVES ON AN INCLINE 41 
+
+Appendix B. Elliptic systems theory 
+
+Below, we briefly review some results for elliptic systems of Agmon–Douglis–Nirenberg type [ADN64]; for more details see [WRL95, Vol11]. Let Ω ⊂ Rn be a bounded domain whose regularity will be specified later, and consider the linear differential system 
+
+A(x, ∂ )u(x) = f (x), Aij (x, ∂ ) = X
+
+> |ρ|≤ αij
+
+aij,ρ (x)∂ρ (B.1) for x ∈ Ω, with continuous coefficients aij,ρ whose precise regularity will be specified later. Let αij denote the order of Aij , setting αij = −∞ if Aij ≡ 0. We introduce some further notation to define proper ellipticity. Define the total order m for the operator 
+
+A by 
+
+m := max 
+
+> q∈Sp
+> p
+
+X
+
+> j=1
+
+αjq (j).
+
+Fix x ∈ Ω, and let A (x, ξ ) = [ Aij ]p×p represent the Fourier transform of A, formally replacing derivatives ∂i
+
+with iξ i. Denoting by πq projection onto homogeneous polynomials of order q, we define the characteristic polynomial of A (x, ˙) as 
+
+χ(ξ) := πm det ( A (x, ξ )) ,
+
+i.e. the sum of the terms in the determinant of A of order m.For any matrix ( αij )p×p with elements in Z ∪ {−∞} , there exist so-called Douglis–Nirenberg numbers 
+
+s1, . . . , s p, t 1, . . . , t p, which are integers satisfying 
+
+> p
+
+X
+
+> i=1
+
+si + ti = m, si + tj ⩾ αij for all i, j ∈ { 1, . . . , p }. (B.2) Note that these integers are not unique: for any constant integer c, if si, t j are Douglis–Nirenberg numbers, then so are si + c, t j − c. We therefore without loss of generality assume si ≤ 0 and tj ≥ 0. Then we define the associated principal part πA of A by 
+
+πA (x, ξ ) :=  πsi+tj Aij (x, ξ )
+
+> p×p
+
+,
+
+i.e. the matrix whose coefficients are each the sum of the terms of order si + tj in Aij .Now we say that A is elliptic in the sense of Douglis–Nirenberg at x ∈ Ω if 
+
+χ(ξ)̸ = 0 for all ξ ∈ Rn \ { 0},
+
+and this ellipticity is uniform on Ω if there exists Λ > 0 such that for all x ∈ Ω and ξ ∈ Rn with |ξ| = 1, 1Λ ≤ | χ(ξ)| ≤ Λ. (B.3) Let A be uniformly elliptic and consider z ∈ ∂Ω, with outward-pointing unit normal en without loss of generality. We call A proper at z ∈ ∂Ω if for all nonzero ξ′ ∈ Rn−1, the polynomial 
+
+χ (( ξ′, λ )) = det ( πA (z, (ξ′, λ ))) has as many roots r in the upper half-plane {Im λ > 0} as in the lower half-plane. For such an operator, we may factorise the polynomial det ( πA (z, (ξ′, λ ))) = ρ+(λ)ρ−(λ),
+
+such that ρ+ contains all the roots of det πA (λ) inside the positive upper half-plane {Im λ > 0}. We say that A is properly elliptic on Ω if it is uniformly elliptic on Ω and is proper on ∂Ω. Given such a properly elliptic operator A, suppose the following boundary conditions hold for all z ∈ Γ, where Γ ⊂ ∂Ω is a portion of the boundary: 
+
+B(z, ∂ )u(z) = g(z), Bkj (z, ∂ ) = X
+
+> |σ|≤ βkj
+
+bkj,σ (z)∂σ , (B.4) for some g : Γ → Rr . Here, the coefficients bkj,ρ are again continuous with regularity yet to be specified, and 
+
+βkj denotes the order of Bkj . For our purposes it suffices to consider the special case where Γ is a hyperplane with outward-pointing normal vector en.42 DANIEL ABRAHAM AND MILES H. WHEELER 
+
+Let 
+
+mk := max  
+
+> j
+
+(βkj − tj ), k = 1 , . . . , r, 
+
+so that βkj ≤ mk + tj .Fixing z ∈ Γ, denote by B(z, ξ ) = [ Bkj ]r×p the Fourier transform of B(z, ∂ ). Then, the principal part of 
+
+B is 
+
+πB(z, ξ ) :=  πmk +tj Bkj (z, ξ )
+
+> r×p
+
+.
+
+Finally denote by adj M = det M (M )−1 the adjugate of a matrix M . We say that ( A, B) satisfies the Shapiro– Lopatinsky condition at z ∈ Γ if, for all ξ′ ∈ Rn−1 with |ξ′| = 1, the rows of the matrix πB adj( πA )( z, (ξ′, λ )) are linearly independent modulo ρ+(λ). This is equivalent to a related larger matrix with entries in C having full rank, which can be quantified by looking at minor determinants. We say that the Shapiro–Lopatinsky condition holds on Γ uniformly if the sum of the absolute values of all such minor determinants is bounded below by some constant λ > 0, independent of z ∈ Γ and ξ′. Note that this condition is also referred to as the ‘covering’ or ‘complementing’ condition. With these definitions, we state the following a priori estimates for elliptic boundary value problems satisfying the Shapiro–Lopatinsky condition, firstly for problems in H¨ older spaces and then for problems in Sobolev spaces. 
+
+Theorem B.1 ([ADN64], Theorem 9.3) . Let (A, B) be an operator system satisfying (B.1) in U ⊂ Ω
+
+and (B.4) on ∂U ∩ ∂Ω ⊂ Γ, and fix α ∈ (0 , 1) and an integer l ≥ l0 := max(0 , m k). Suppose Ω is of class Cl+max( −si,t j ,−mk ),α and that fi, a ij,ρ ∈ Cl−si,α (Ω) and gk, b kj,σ ∈ Cl−mk ,α (Γ) , with 
+
+∥aij,ρ ∥Cl−si,α (Ω) ≤ K, ∥bkj,ρ ∥Cl−mk ,α (Ω) ≤ K
+
+for some constant K > 0. Suppose further that A is properly elliptic on Ω, satisfying (B.3) with ellipticity constant Λ > 0, and that (A, B) satisfies the Shapiro–Lopatinsky condition uniformly on Γ with constant 
+
+λ > 0. Let U ⊂ Ω be such that ∂U ∩ ∂Ω ⊂ Γ. If uj ∈ Cl0+tj ,α (U ), then uj ∈ Cl+tj ,α (U ) and 
+
+∥uj ∥Cl+tj ,α (U ) ≤ C
+
+
+
+> p
+
+X
+
+> i=1
+
+∥fi∥Cl−si,α (Ω) +
+
+> r
+
+X
+
+> k=1
+
+∥gk∥Cl−mk ,α (Γ) +
+
+> p
+
+X
+
+> j=1
+
+∥uj ∥C0(Ω) 
+
+ ,
+
+for some constant C depending on n, p, K, Λ, λ, l, α, U, Ω.
+
+Theorem B.2 ([ADN64], Theorem 10.6) . Let (A, B) be an operator system satisfying (B.1) in U ⊂ Ω
+
+and (B.4) on ∂U ∩ ∂Ω ⊂ Γ, and fix q ≥ 1 and an integer l ≥ l1 := max(0 , m k + 1) . Suppose the domain Ω
+
+is of class Cl+max( −si,t j ,−mk ) and aij,ρ ∈ Cl−si (Ω) and bkj,σ ∈ Cl−mk (Γ) , with 
+
+∥aij,ρ ∥Cl−si (Ω) ≤ K, ∥bkj,ρ ∥Cl−mk (Ω) ≤ K
+
+for some K > 0. Suppose that A is properly elliptic on Ω, satisfying (B.3) with ellipticity constant Λ > 0,and that (A, B) satisfies the Shapiro–Lopatinsky condition uniformly on Γ with constant λ > 0. Then, 
+
+∥uj ∥W l+tj ,q (U ) ≤ C
+
+
+
+> p
+
+X
+
+> i=1
+
+∥fi∥W l−si,q (Ω) +
+
+> r
+
+X
+
+> k=1
+
+∥gk∥W l−mk −1/q,q (Γ) +
+
+> p
+
+X
+
+> j=1
+
+∥uj ∥L1(Ω) 
+
+ ,
+
+for some constant C depending on n, p, K, Λ, λ, l, q, U, Ω and the modulus of continuity in the leading coeffi-cients of Aij .Remark B.3 . The ‘remainder’ terms ∥uj ∥C0(Ω) in Theorem B.1 may be replaced with ∥uj ∥L1(Ω) or a higher 
+
+Lq norm, using Theorem B.2. 
+
+References 
+
+[ADN64] S. Agmon, A. Douglis, and L. Nirenberg. “Estimates near the boundary for solutions of elliptic partial differential equations satisfying general boundary conditions. II”. Comm. Pure Appl. Math. 17 (1964), 35–92. [ANP85] S. V. Alekseenko, V. E. Nakoryakov, and B. G. Pokusaev. “Wave formation on vertical falling liquid films”. Int. J. Multiphase Flow 11 (1985), 607–627. REFERENCES 43 
+
+[Bab87] K. I. Babenko. “Some remarks on the theory of surface waves of finite amplitude”. Dokl. Akad. Nauk SSSR 294.5 (1987), 1033–1037. [BL04] N. J. Balmforth and J. J. Liu. “Roll waves in mud”. J. Fluid Mech. 519 (2004), 33–54. [BM04] N. J. Balmforth and S. Mandre. “Dynamics of roll waves”. J. Fluid Mech. 514 (2004), 1–33. [BN26] S. A. Banihashemi and H. Q. Nguyen. “On large periodic traveling wave solutions to the free boundary Stokes and Navier-Stokes equations”. 2026. arXiv: 2601.14085 .[Bar+17] B. Barker et al. “Stability of viscous St. Venant roll waves: from onset to infinite Froude number limit”. J. Nonlinear Sci. 27.1 (2017), 285–342. [Bea84] J. T. Beale. “Large-time regularity of viscous surface waves”. Arch. Rational Mech. Anal. 84.4 (1984), 307–352. [Bea81] J. T. Beale. “The initial value problem for the Navier-Stokes equations with a free surface”. 
+
+Comm. Pure Appl. Math. 34.3 (1981), 359–392. [Ben57] T. B. Benjamin. “Wave formation in laminar flow down an inclined plane”. J. Fluid Mech. 2(1957), 554–574. [Ben66] D. J. Benney. “Long waves on liquid films”. J. Math. and Phys. 45 (1966), 150–155. [Bro69] R. R. Brock. “Development of roll-wave trains in open channels”. J. Hydraul. Div. 95.4 (1969), 1401–1427. [Bro70] R. R. Brock. “Periodic permanent roll waves”. J. Hydraul. Div. 96.12 (1970), 2565–2580. [BN24] J. Brownfield and H. Q. Nguyen. “Slowly traveling gravity waves for Darcy flow: existence and stability of large waves”. Comm. Math. Phys. 405.10 (2024), Paper No. 222, 25. [BT03] B. Buffoni and J. Toland. Analytic theory of global bifurcation . Princeton Series in Applied Math-ematics. An introduction. 2003. [Bur21] R. B. Burckel. Classical analysis in the complex plane . Cornerstones. With a foreword by Steven G. Krantz, Includes revised and expanded text from [0555733 ]. 2021. [CD02] H.-C. Chang and E. A. Demekhin. Complex wave dynamics on thin films . Vol. 14. Studies in Interface Science. 2002. [CWW18] R. M. Chen, S. Walsh, and M. H. Wheeler. “Existence and qualitative theory for stratified solitary water waves”. Ann. Inst. H. Poincar´ e C Anal. Non Lin´ eaire 35.2 (2018), 517–576. [CT26] J. H. Choi and I. Tice. “Traveling wave solutions to a general incompressible Navier-Stokes-Fourier system with free boundary”. 2026. arXiv: 2603.21434 .[CSV16] A. Constantin, W. Strauss, and E. V˘ arv˘ aruc˘ a. “Global bifurcation of steady gravity water waves with critical layers”. Acta Math. 217.2 (2016), 195–262. [Cor34] V. Cornish. Ocean waves and kindred geophysical phenomena . 1934. [Cor07] V. Cornish. “Progressive waves in rivers”. Geog. J. 29.1 (1907), 23–31. [Cra04] A. D. D. Craik. “The origins of water wave theory”. Annual review of fluid mechanics. Vol. 36 .Vol. 36. Annu. Rev. Fluid Mech. 2004, 1–28. [CR71] M. G. Crandall and P. H. Rabinowitz. “Bifurcation from simple eigenvalues”. J. Functional Analysis 8 (1971), 321–340. [CM09] R. V. Craster and O. K. Matar. “Dynamics and stability of thin liquid films”. Rev. Mod. Phys. 
+
+81 (3 2009), 1131–1198. [Dan73a] E. N. Dancer. “Bifurcation theory for analytic operators”. Proc. London Math. Soc. (3) 26 (1973), 359–384. [Dan73b] E. N. Dancer. “Global solution branches for positive mappings”. Arch. Ration. Mech. Anal. 52 (1973), 181–192. [Dar03] O. Darrigol. “The spirited horse, the engineer, and the mathematician: water waves in nineteenth-century hydrodynamics”. Arch. Hist. Exact Sci. 58.1 (2003), 21–95. [D´ av+26] J. D´ avila et al. “Overhanging solitary water waves”. Invent. Math. 244.2 (2026), 643–767. [Doa+26] A. Doak et al. “Large-amplitude periodic solutions to the steady Euler equations with piecewise constant vorticity”. Stud. Appl. Math. 156.1 (2026), Paper No. e70163, 47. [DR81] P. G. Drazin and W. H. Reid. Hydrodynamic stability . Cambridge Monographs on Mechanics and Applied Mathematics. 1981. [Dre49] R. F. Dressler. “Mathematical solution of the problem of roll-waves in inclined open channels”. 
+
+Comm. Pure Appl. Math. 2 (1949), 149–194. 44 REFERENCES 
+
+[EEV12] M. Ehrnstr¨ om, J. Escher, and G. Villari. “Steady water waves with multiple critical layers: interior dynamics”. J. Math. Fluid Mech. 14.3 (2012), 407–419. [FP03] Y. Forterre and O. Pouliquen. “Long-surface-wave instability in dense granular flows”. J. Fluid Mech. 486 (2003), 21–50. [Gje70] B. Gjevik. “Occurrence of finite-amplitude surface waves on falling liquid films”. Phys. Fluids 13 (1970), 1918–1925. [Gro04] M. D. Groves. “Steady water waves”. J. Nonlinear Math. Phys. 11.4 (2004), 435–460. [Hal78] J. K. Hale. “Bifurcation from simple eigenvalues for several parameter families”. Nonlinear Anal. 
+
+2.4 (1978), 491–497. [HW23] S. V. Haziot and M. H. Wheeler. “Large-amplitude steady solitary water waves with constant vorticity”. Arch. Ration. Mech. Anal. 247.2 (2023), Paper No. 27, 49. [Haz+22] S. V. Haziot et al. “Traveling water waves—the ebb and flow of two centuries”. Quart. Appl. Math. 80.2 (2022), 317–401. [HW22] V. M. Hur and M. H. Wheeler. “Overhanging and touching waves in constant vorticity flows”. 
+
+J. Differential Equations 338 (2022), 572–590. [Jef25] H. Jeffreys. “The flow of water in an inclined channel of rectangular section.” Phil. Mag. (6) 49 (1925), 793–807. [JH86] P. Y. Julien and D. M. Hartley. “Formation of roll waves in laminar sheet flow”. J. Hydraul. Res. 
+
+24.1 (1986), 5–17. [Kal+12] S. Kalliadasis et al. Falling liquid films . Vol. 176. Applied Mathematical Sciences. 2012. [KK49] P. L. Kapitza and S. P. Kapitza. “Wave flow of thin viscous liquid films”. Zh. Eksp. Teor. Fiz. 
+
+19 (1949), 105–120. [Kat66] T. Kato. Perturbation theory for linear operators . Vol. Band 132. Die Grundlehren der mathe-matischen Wissenschaften. 1966. [KN78] G. Keady and J. Norbury. “On the existence theory for irrotational water waves”. Math. Proc. Cambridge Philos. Soc. 83.1 (1978), 137–157. [Kie12] H. Kielh¨ ofer. Bifurcation theory . Second. Vol. 156. Applied Mathematical Sciences. An introduc-tion with applications to partial differential equations. 2012. [KT24] J. Koganemaru and I. Tice. “Traveling wave solutions to the free boundary incompressible Navier-Stokes equations with Navier boundary conditions”. J. Differential Equations 411 (2024), 381– 437. [KT23] J. Koganemaru and I. Tice. “Traveling wave solutions to the inclined or periodic free boundary incompressible Navier-Stokes equations”. J. Funct. Anal. 285.7 (2023), Paper No. 110057, 75. [Kra92] C. Kranenburg. “On the evolution of roll waves”. J. Fluid Mech. 245 (1992), 249–261. [Kra61] J. P. Krasovski˘ ı. “On the theory of steady-state waves of finite amplitude”. ˇZ. Vyˇ cisl. Mat i Mat. Fiz. 1 (1961), 836–855. [LT23] G. Leoni and I. Tice. “Traveling wave solutions to the free boundary incompressible Navier-Stokes equations”. Comm. Pure Appl. Math. 76.10 (2023), 2474–2576. [Lev25] T. Levi-Civita. “D´ etermination rigoureuse des ondes permanentes d’ampleur finie”. Math. Ann. 
+
+93.1 (1925), 264–314. [LM94] K.-F. Liu and C. C. Mei. “Roll waves on a layer of a muddy fluid flowing down a gentle slope — A Bingham model”. Phys. Fluids 6.8 (1994), 2577–2590. [L´ op89] J. L´ opez-G´ omez. “Multiparameter local bifurcation based on the linear part”. J. Math. Anal. Appl. 138.2 (1989), 358–370. [Mei66] C. C. Mei. “Nonlinear gravity waves in a thin sheet of viscous fluid”. J. Math. and Phys. 45 (1966), 266–288. [Nak75] C. Nakaya. “Long waves on a thin fluid layer flowing down an inclined plane”. Phys. Fluids 18.11 (1975), 1407–1412. [NM84] D. J. Needham and J. H. Merkin. “On roll waves down an open inclined channel”. Proc. R. Soc. Lond., Ser. A 394 (1984), 259–278. [Nek21] A. I. Nekrasov. “On steady waves”. Izv. Ivanovo-Voznesensk. Politekhn. Inst. 3 (1921), 52–65. [NM94] C.-O. Ng and C. C. Mei. “Roll waves on a shallow layer of mud modelled as a power-law fluid”. 
+
+J. Fluid Mech. 263 (1994), 151–183. REFERENCES 45 
+
+[NS26] H. Q. Nguyen and N. Stevenson. “On large periodic traveling surface waves in porous media”. 2026. arXiv: 2601.11800 .[Ngu26] H. Q. Nguyen. “Large travelling capillary-gravity waves for Darcy flow”. Nonlinearity 39.3 (2026), Paper No. 035008, 22. [NT24] H. Q. Nguyen and I. Tice. “Traveling wave solutions to the one-phase Muskat problem: existence and stability”. Arch. Ration. Mech. Anal. 248.1 (2024), Paper No. 5, 58. [Nin+92] H. Ninomiya et al. “Surface waves of viscous fluid down an inclined plane”. Developments in partial differential equations and applications to mathematical physics (Ferrara, 1991) . 1992, 105–114. [NTW93] T. Nishida, Y. Teramoto, and H. A. Win. “Navier-Stokes flow down an inclined plane: downward periodic motion”. J. Math. Kyoto Univ. 33.3 (1993), 787–801. [NTY04] T. Nishida, Y. Teramoto, and H. Yoshihara. “Global in time behavior of viscous surface waves: horizontally periodic motion”. J. Math. Kyoto Univ. 44.2 (2004), 271–323. [Nus16] W. Nusselt. “Die Oberfl¨ achenkondensation des Wasserdampfes”. VDI-Z. 60 (1916), 541. [Orr07a] W. M. Orr. “The stability or instability of the steady motions of a perfect liquid and of a viscous liquid. part I: a perfect liquid”. Proc. Roy. Irish Acad. Sect. A . Vol. 27. 1907, 9–68. [Orr07b] W. M. Orr. “The stability or instability of the steady motions of a perfect liquid and of a viscous liquid. part II: a viscous liquid”. Proc. Roy. Irish Acad. Sect. A . Vol. 27. 1907, 69–138. [Ors71] S. A. Orszag. “Accurate solution of the Orr-Sommerfeld stability equation”. J. Fluid Mech. 50 (1971), 689–703. [Pad13] M. Padula. “On stability of a capillary liquid down an inclined plane”. Discrete Contin. Dyn. Syst. Ser. S 6.5 (2013), 1343–1353. [Rab71] P. H. Rabinowitz. “Some global results for nonlinear eigenvalue problems”. J. Functional Analysis 
+
+7 (1971), 487–513. [Ric24] G. L. Richard. “Roll waves in a predictive model for open-channel flows in the smooth turbulent case”. J. Fluid Mech. 983 (2024), Paper No. A31, 32. [RG12] G. L. Richard and S. L. Gavrilyuk. “A new model of roll waves: comparison with Brock’s exper-iments”. J. Fluid Mech. 698 (2012), 374–405. [RM00] C. Ruyer-Quil and P. Manneville. “Improved modeling of flows down inclined planes”. Eur. Phys. J. B 15 (2000), 357–369. [RM98] C. Ruyer-Quil and P. Manneville. “Modeling film flows down inclined planes”. Eur. Phys. J. B 
+
+6 (1998), 277–292. [SH01] P. J. Schmid and D. S. Henningson. Stability and transition in shear flows . Vol. 142. Applied Mathematical Sciences. 2001. [SS07] Y. Shibata and S. Shimizu. “Free boundary problems for a viscous incompressible fluid”. RIMS Kˆ okyˆ uroku Bessatsu B1 (2007), 356–358. [Shk67] V. Y. Shkadov. “Wave flow regimes of a thin layer of viscous fluid subject to gravity”. Fluid Dyn. 
+
+2 (1967), 29–34. [Som09] A. Sommerfeld. “Ein Beitrag zur hydrodynamischen Erkl¨ arung der turbulenten Fl¨ ussigkeitsbewegungen.” 1909. [ST25a] N. Stevenson and I. Tice. “Gravity driven traveling bore wave solutions to the free boundary incompressible Navier-Stokes equations”. 2025. arXiv: 2505.24562 .[ST25b] N. Stevenson and I. Tice. “Stationary wave solutions to two dimensional viscous shallow water equations: theory of small and large solutions”. 2025. arXiv: 2502.11899 .[ST23] N. Stevenson and I. Tice. “Well-posedness of the traveling wave problem for the free boundary compressible Navier-Stokes equations”. 2023. arXiv: 2301.00773 .[Ste25] N. Stevenson. “Periodic gravity-capillary roll wave solutions to the inclined viscous shallow water equations in two dimensions”. SIAM J. Math. Anal. 57.2 (2025), 1342–1369. [ST26] N. Stevenson and I. Tice. “The traveling wave problem for the shallow water equations: well-posedness and the limits of vanishing viscosity and surface tension”. Comm. Math. Phys. 407.5 (2026), Paper No. 101, 79. [ST21] N. Stevenson and I. Tice. “Traveling wave solutions to the multilayer free boundary incompress-ible Navier-Stokes equations”. SIAM J. Math. Anal. 53.6 (2021), 6370–6423. 46 REFERENCES 
+
+[ST24] N. Stevenson and I. Tice. “Well-posedness of the stationary and slowly traveling wave problems for the free boundary incompressible Navier-Stokes equations”. J. Funct. Anal. 287.11 (2024), Paper No. 110617, 85. [Str10] W. A. Strauss. “Steady water waves”. Bull. Amer. Math. Soc. (N.S.) 47.4 (2010), 671–694. [Sun97] S. M. Sun. “On stability of liquid flow down an inclined plane”. Quart. Appl. Math. 55.2 (1997), 375–397. [Ter92] Y. Teramoto. “On the Navier-Stokes flow down an inclined plane”. J. Math. Kyoto Univ. 32.3 (1992), 593–619. [Ter85] Y. Teramoto. “The initial value problem for viscous incompressible flow down an inclined plane”. 
+
+Hiroshima Math. J. 15.3 (1985), 619–643. [Tho40] H. A. Thomas. “Propagation of waves in steep prismatic conduits”. Proc. Hydraul. Conf. 1940. [Tic18] I. Tice. “Asymptotic stability of shear-flow solutions to incompressible viscous free boundary problems with and without surface tension”. Z. Angew. Math. Phys. 69.2 (2018), Paper No. 28, 39. [Tol02] J. F. Toland. “On a pseudo-differential equation for Stokes waves”. Arch. Ration. Mech. Anal. 
+
+162.2 (2002), 179–189. [Tol96] J. F. Toland. “Stokes waves”. Topol. Methods Nonlinear Anal. 7.1 (1996), 1–48. [TK78] J. Topper and T. Kawahara. “Approximate equations for long nonlinear waves on a viscous fluid”. J. Phys. Soc. Japan 44.2 (1978), 663–666. [Var20] K. Varholm. “Global bifurcation of waves with multiple critical layers”. SIAM J. Math. Anal. 
+
+52.5 (2020), 5066–5089. [Vol11] V. Volpert. Elliptic partial differential equations. Volume 1: Fredholm theory of elliptic problems in unbounded domains . Vol. 101. Monographs in Mathematics. 2011. [WW24] E. Wahl´ en and J. Weber. “Large-amplitude steady gravity water waves with general vorticity and critical layers”. Duke Math. J. 173.11 (2024), 2197–2258. [WRL95] J. T. Wloka, B. Rowley, and B. Lawruk. Boundary value problems for elliptic systems . 1995. [Yih63] C.-S. Yih. “Stability of liquid flow down an inclined plane”. Phys. Fluids 6 (1963), 321–334. [Zad04] E. Zadrzy´ nska. “Free boundary problems for nonstationary Navier-Stokes equations”. Disserta-tiones Math. (Rozprawy Mat.) 424 (2004), 1–135. [Zei95] E. Zeidler. Applied functional analysis . Vol. 109. Applied Mathematical Sciences. Main principles and their applications. 1995.

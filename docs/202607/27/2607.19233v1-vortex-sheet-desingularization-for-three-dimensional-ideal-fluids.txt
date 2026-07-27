@@ -1,0 +1,7803 @@
+Title: Vortex-sheet desingularization for three-dimensional ideal fluids
+
+URL Source: https://arxiv.org/pdf/2607.19233v1
+
+Published Time: Wed, 22 Jul 2026 01:13:56 GMT
+
+Number of Pages: 49
+
+Markdown Content:
+VORTEX-SHEET DESINGULARIZATION FOR THREE-DIMENSIONAL IDEAL FLUIDS 
+
+ALBERTO ENCISO, ANTONIO J. FERN ´ANDEZ, AND DAVID MEYER 
+
+Abstract. We prove a desingularization theorem for analytic vortex sheets of the 3D incompressible Euler equations. Starting from an analytic solution of the corresponding Birkhoff-Rott system, we construct, for every sufficiently small thickness parameter ε > 0, an exact Euler vorticity supported on a tubular neighborhood of width O(ε) around the sheet, and defined on a time interval that does not shrink to 0 as ε → 0. We show that, as ε → 0, these vorticities converge, in the sense of distributions, to the prescribed vortex sheet. In particular, we conclude that analytic 3D vortex sheet motions arise as limits of exact Euler flows with lifespan bounded from below independently of ε. The proof hinges on the study of vorticities defined in terms of a time-dependent foliation by almost parallel surfaces and of divergence-free vector fields tangent to these surfaces. 
+
+1. Introduction 
+
+We consider the desingularization of vortex sheets for the 3D incompressible Euler equations. In vorticity form, these equations read as 
+
+∂tω + ( u · ∇ )ω = ( ω · ∇ )u , ω = curl u , div u = 0 , (1.1) so the velocity u is recovered from the vorticity ω via the Biot–Savart law. These equations are supplemented with some initial condition ω(·, 0) = ω0, where the initial vorticity ω0 is a divergence-free vector field. A vortex sheet is, formally, a weak solution to the Euler equations whose vorticity is supported on a time-dependent surface Γ( t); as a consequence of this, the velocity has a jump discontinuity across the interface Γ( t). The study of vortex sheets is classical in fluid mechanics, both from the analytical and the numerical point of view. In particular, the Kelvin–Helmholtz instability has been known for over a century [ 17 , 18 ]; see also [ 20 , 24 ]. However, a rigorous connection between vortex sheets and three-dimensional Euler flows remains open. The aim of this paper is to establish such a link. For simplicity, we will present the main ideas in the simplest setting, in which the system is 1-periodic in the first two variables, and the moving surface is a graph. This corresponds to studying the Euler equations on M := T2 × R, where T := R/Z. The same approach works, with minor modifications, for general vortex sheets (say, with Γ(0) being any closed embedded surface in R3); details are given in Section 7.We write points in M as x = ( x′, x 3) with x′ ∈ T2 and x3 ∈ R. Given T > 0, a vortex sheet is described by a height function h : T2 × [0 , T ] → R and a vector field density ̟ : T2 × [0 , T ] → R3.The singular vorticity ωsing corresponding to a vortex sheet then has the form 
+
+ωsing (x, t ) := ̟ (x′, t ) δ(x3 − h(x′, t )) . (1.2) The associated velocity field using is recovered using the Biot–Savart operator on M, which reads as BS[ w]( x, t ) := 1
+
+4π
+
+∑
+
+> k∈Z2×{ 0}
+
+ˆ   
+
+> [−1
+> 2,1
+> 2 ]2×R
+
+w(y, t ) × x − y + k
+
+|x − y + k|3 dy . (1.3)  
+
+> 1arXiv:2607.19233v1 [math.AP] 21 Jul 2026 2A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER
+
+Note that this formula, which is well defined without a principal value when w has zero mean, coincides with the usual Biot–Savart integral when w is regarded as a vector field on R3 that is periodic in two directions. The incompressibility of using imposes geometric constraints on the sheet strength: if ωsing is given by ( 1.2 ), then ̟ is a tangent vector field on Γ( t) = {(s, h (s, t )) } satisfying div s̟ ′(s, t ) = 0. Recall that the normal part of the velocity is continuous across the surface Γ( t) = 
+
+{(x′, h (x′, t )) }, while the tangential component exhibits a jump. It is well known, at least at a formal level, that smooth three-dimensional vortex sheets are governed by the Birkhoff–Rott system, 
+
+{∂th(s, t ) + ˜ u′(s, t ) · ∇ sh(s, t ) = ˜ u3(s, t ),∂t̟ (s, t ) + ∂s1 (˜ u1̟ )( s, t ) + ∂s2 (˜ u2̟ )( s, t ) = ( ̟ ′(s, t ) · ∇ s)˜ u(s, t ). (1.4) Here ˜u(s, t ) = 1
+
+4π PV ∑
+
+> k∈Z2×{ 0}
+
+ˆ   
+
+> [−1
+> 2,1
+> 2 ]2
+
+̟ (s − ς, t ) × γ0(s, t ) − γ0(s − ς, t ) + k
+
+|γ0(s, t ) − γ0(s − ς, t ) + k|3 dς , 
+
+is the averaged velocity trace at the sheet point γ0(s, t ) := ( s, h (s, t )), given by ˜ u = ( u+ + u−)/2on Γ( t) with u± being the one-sided traces of using on the interface 1. The first equation is the kinematic condition for the graph, while the second describes the tangential sheet-density evolution in terms of tangential derivatives of ˜ u. In spite of the emergence of the aforementioned Kelvin– Helmholtz instabilities, the Birkhoff–Rott equation is locally well posed for analytic data ( ̟ 0, h 0) by the classical theorem of Sulem, Sulem, Bardos, and Frisch [ 25 ]. This is however no longer the case if one moves to Sobolev spaces, as already proven by Caflisch and Orellana [ 4]. Regarding the desingularization of vortex sheets, that is, the approximation of Birkhoff–Rott solutions by smooth Euler flows with concentrated vorticities, the contrast between two and three dimensions is sharp. In two dimensions, beginning with the approximation by vortex patches carried out by Benedetto and Pulvirenti [ 2], one now has a substantial theory, including the approximation of graph-type sheets by exponentially concentrated smooth vorticities proven by Caflisch, Lombardo and Sammartino [ 3], and our recent smooth compactly supported regularization [ 10 ]. By contrast, no desingularization theorem for unsteady three-dimensional Euler vortex sheets has been available up to now. Indeed, Caflisch, Lombardo and Sammartino explicitly note [ 3, p. 2138] that their construction does not extend to 3D Euler, and that establishing such a result would require overcoming the vanishing lifespan of the corresponding smooth approximations. The main difficulty is structural. This is because desingularization arguments for concentrated vorticity—both for vortex sheets and vortex filaments or points—typically rely on the existence of globally well-posed dynamics for the fluid evolution. This is of course compatible with the 2D Euler equations, and actually underlies a number of significant recent gluing constructions carried out in this context [ 7,8]. However, for 3D Euler there is no comparable global well-posedness theory. Therefore, any viable approach must start off directly with the singular vortex sheet dynamics. This is the approach developed here. Our theorem starts from an analytic solution ( h,̟ ) to the Birkhoff–Rott system ( 1.4 ) on some time interval and constructs, for each sufficiently small ε > 0, an exact Euler vorticity supported on a tubular neighborhood of thickness O(ε) around the surface Γ( t). The existence time is independent of ε, and the smooth vorticity ωε(·, t ) converges to ωsing (·, t ) as ε → 0, in the distributional sense. Since the width of the layer is O(ε), the corresponding Euler solutions have large norms for small ε
+
+after the natural Euler scaling. Thus, the result may also be viewed as a long-lifespan construction for a class of large solutions (of a very particular layered structure). Outside the classes of stationary   
+
+> 1The last term is well defined since ̟is purely tangential. VORTEX-SHEET DESINGULARIZATION 3
+
+solutions, and symmetric flows without swirl 2, there are very few known examples of long-lifespan 3D Euler flows [ 6, 11 , 15 , 16 , 19 , 23 ]. The key ingredient of the proof is the precise way in which layers appear in the construction. Specifically, the desingularized vorticity ωε(x, t ) is built from a family of nearby graphs 
+
+x3 = νε,l (x′, t ) ,
+
+with sheet densities ̟ ε,l : T2 × [0 , T ] → R3, labeled by l ∈ [−1, 1]. The spacing between neighboring leaves is encoded by the derivative ∂lνε,l , which will remain under control in our construction. The corresponding (nonsingular) Euler vorticity ωε can be written as 
+
+ωε(x, t ) = 
+
+ˆ 1
+
+> −1
+
+̟ ε,l (x′, t ) δ(x3 − νε,l (x′, t )) dl . (1.5) For the solutions constructed below, the leaves remain at mutual distance comparable to ε, so ωε is supported on an O(ε)-neighborhood of the limiting sheet. The point is that ωε is an exact solution of the 3D Euler equations. We can now informally state the main result. A more precise statement can be found in Theo-rem 2.3 below. 
+
+Theorem 1.1. Let (h,̟ ) be an analytic solution of the three-dimensional Birkhoff–Rott system (1.4 )
+
+on some time interval. Then, there exists an ε0 > 0 such that, for every 0 < ε 6 ε0, one can find 
+
+νε,l : T2 × [0 , T ) → R ,̟ ε,l : T2 × [0 , T ) → R3 , with l ∈ [−1, 1] ,
+
+defined on an ε-independent time interval [0 , T ), such that the vorticity 
+
+ωε(x, t ) = 
+
+ˆ 1
+
+> −1
+
+̟ ε,l (x′, t ) δ(x3 − νε,l (x′, t )) dl ∈ C∞(M × [0 , T ), R3) ,
+
+is an exact solution to the 3D Euler equations on M × [0 , T ). Moreover, 
+
+supp ωε(·, t ) ⊂ {x ∈ M : |x3 − h(x′, t )| . ε} ,
+
+and 
+
+ωε(·, t ) ⇀ ω sing (·, t ) , as ε → 0 ,
+
+for all t ∈ [0 , T ). Here, ωsing is given by (1.2 ).
+
+The paper, which is devoted to proving the more precise version of this result given in Theorem 2.3 ,is organized as follows. Section 2 introduces the graph formulation, the layered ansatz, and the precise desingularization theorem (Theorem 2.3 ). Section 3 reduces the problem to a system for the leaf variables. In other words, we derive the effective system of evolution equations. In Section 4 we prove the local well-posedness of the effective system, with a lifespan which is independent of ε, and then complete the proof of Theorem 2.3 . The kernel estimates required for the local well-posedness are postponed to Sections 5 and 6. Finally, Section 7 explains how the same argument extends to normal graphs over an arbitrary analytic closed surface in R3. 
+
+> 2Note that for axisymmetric and helical flows without swirl global well-posedness is known under mild assumptions. See for instance [ 5] and the references therein. We also refer to [ 14 ] and the references therein for some recent results. 4A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER
+
+2. Geometric setup and main result 
+
+For ρ > 0, we set T2 
+
+> ρ
+
+:= T2 × Bρ(0) and denote by H(T2
+
+> ρ
+
+) the space of holomorphic functions f on the strip {z = s + iβ ∈ C2 : s, β ∈ R2, |β| 6 ρ} ,
+
+which satisfy the periodicity condition 
+
+f (z1, z 2) = f (z1 + 1 , z 2) = f (z1, z 2 + 1) ,
+
+for all z = ( z1, z 2) in the strip. Further, we denote by 
+
+Xρ := {f ∈ H (T2
+
+> ρ
+
+) : f (T2) ⊂ R} ,
+
+the space of periodic holomorphic functions f on the strip that arise as complexifications of real-valued analytic functions on T2. We regard Xρ as a Banach space, equipped with the norm 
+
+‖f ‖ρ := sup 
+
+> |β|6ρ
+
+‖f (· + iβ )‖C 1  
+
+> 2(T2)
+
+. (2.1) We will also need to keep track of families of functions fl ∈ X ρ that depend on a real parameter 
+
+l ∈ [−1, 1]. In this case, we will say that the family fl is in the space CrXρ, for some reals r, ρ > 0, if l 7 → fl(·) is of class C⌊r⌋(( −1, 1) , Xρ) and the norm 
+
+‖fl‖Cr Xρ := 
+
+> ⌊r⌋
+
+∑
+
+> j=0
+
+sup 
+
+> |l|61
+
+‖∂jl fl‖ρ + sup 
+
+> l,l ′∈[−1,1]
+
+‖∂⌊r⌋ 
+
+> l
+
+(fl − fl′ )‖ρ
+
+|l − l′|r−⌊ r⌋
+
+is finite. We consider an initial vorticity for 
+
+
+
+∂tω + ( u · ∇ )ω = ( ω · ∇ )u in M × (0 , T ) ,u := BS[ w] in M × [0 , T ) ,ω(·, 0) = ω0 in M ,
+
+(2.2) which is given as an infinite superposition of almost parallel vortex sheets. To make this precise, we start by considering a family of functions ν0 
+
+> ε,l
+
+∈ X ρ0 , for some fixed ρ0 > 0, depending on a small parameter ε > 0 and of class Cr for some 1 6 r 6 ∞ with respect to the parameter l ∈ (−1, 1). We assume that the derivative of ν0 
+
+> ε,l
+
+with respect to the parameter l is small and reasonably close to a constant, in that the functions 
+
+θ0
+
+> ε,l
+
+(z) := ∂lν0
+
+> ε,l
+
+(z)
+
+ε − 1 (2.3) belong to Xρ0 and are bounded as sup 
+
+> |l|61
+
+∥∥θ0
+
+> ε,l
+
+∥∥Xρ0
+
+< 1
+
+3 . (2.4) Note that this bound does not mean that the functions ν0 
+
+> ε,l
+
+themselves are of order ε; instead, they should be understood as small perturbations of functions that do not depend on l. For technical reasons, we also assume that the imaginary parts of these functions are small, in that sup 
+
+> |l|61
+
+sup 
+
+> |β|6ρ0
+
+{∥∥Im ν0
+
+> ε,l
+
+(· + iβ )∥∥C1(T2) + ∥∥Im θ0
+
+> ε,l
+
+(· + iβ )∥∥C0(T2 )
+
+}
+
+6 B , (2.5) for some suitably small constant B. Since ν0
+
+> ε,l
+
+(· + iβ ) and θ0
+
+> ε,l
+
+(· + iβ ) are real-valued for β = 0, this can always be achieved by taking a small enough ρ0.VORTEX-SHEET DESINGULARIZATION 5
+
+We then define a family of surfaces in T2 
+
+> ρ0
+
+× R as the image of the maps 
+
+γ0
+
+> ε,l
+
+(s) := (s, ν 0
+
+> ε,l
+
+(s)) , (2.6) with small ε > 0 and l ∈ [−1, 1]. Note that condition ( 2.4 ) ensures that the surface γ0
+
+> ε,l
+
+(T2) ⊂ R3, of dimension 2, does not intersect γ0 
+
+> ε,l ′
+
+(T2) for any l 6 = l′.As a consequence of this, if the map l 7 → γ0 
+
+> ε,l
+
+is of class Cr(( −1, 1) , X 3 
+
+> ρ0
+
+) for some 1 6 r 6 ∞, ( 2.4 )also guarantees that (l, s ) 7 → γ0
+
+> ε,l
+
+(s)defines a Cr-diffeomorphism Γ 0 
+
+> ε
+
+from ( −1, 1) × T2 onto the set 
+
+T 0 
+
+> ε
+
+:= ⋃
+
+> l∈(−1,1)
+
+γ0
+
+> ε,l
+
+(T2) ,
+
+which is a thin tubular neighborhood (of width at most Cε ) around the surface γ0
+
+> ε, 0
+
+(T2) in M. Note that this surface is given by the graph of the analytic real-valued function ν0
+
+> ε, 0
+
+|T2 .We next introduce a parametrized family of holomorphic vector fields ˜ω0 
+
+> ε,l
+
+∈ X 3 
+
+> ρ0
+
+. Together with the above diffeomorphism Γ 0 
+
+> ε
+
+, we will use these vector fields to define an initial vorticity ω0 
+
+> ε
+
+: M → R3,supported on T 0 
+
+> ε
+
+, by means of the formula 
+
+ω0 
+
+> ε
+
+(x) = 
+
+{˜ω0
+
+> ε,l
+
+(s) if x = γ0
+
+> ε,l
+
+(s) ∈ T 0 
+
+> ε
+
+,
+
+0 if x 6 ∈ T 0 
+
+> ε
+
+. (2.7) We impose the following conditions on this family of holomorphic vector fields: (i) Support: ˜ω0 
+
+> ε,l
+
+≡ 0 for all |l| > 1/2. (ii) Regularity: The map l 7 → ˜ω0 
+
+> ε,l
+
+is of class Cr(( −1, 1) , X 3 
+
+> ρ0
+
+) for some real r > 1, which we will assume is not an integer. (iii) Tangency: For all s ∈ T2 and all l ∈ (−1, 1), the vector ˜ω0
+
+> ε,l
+
+(s) is tangent to the surface 
+
+γ0
+
+> ε,l
+
+(T2) ⊂ M at the point γ0
+
+> ε,l
+
+(s). (iv) Divergence-free: With ω0 
+
+> ε
+
+defined as above, div ω0 
+
+> ε
+
+= 0 in M.(v) Zero mean: ´ 
+
+> M
+
+ω0 
+
+> ε
+
+dx = 0. For later purposes, we also set the “vorticity density” ̟ 0 
+
+> ε,l
+
+:= ε(1 + θ0
+
+> ε,l
+
+)˜ω 0 
+
+> ε,l
+
+.
+
+See also figure 1 below for a sketch. 
+
+Figure 1. A sketch of the two-dimensional cross-section of the arrangement of some of the quantities 6 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+Remark 2.1. It is easy to construct functions ˜ω0 
+
+> ε,l
+
+with these properties. The only point that is perhaps unclear is that (iii) and (iv) do not clash. To see that this is the case, parametrize a vector field with the tangency condition (iii) as 
+
+˜ω0
+
+> ε,l
+
+(s) = a1
+
+> ε,l
+
+(s) ∂s1 γ0
+
+> ε,l
+
+(s) + a2
+
+> ε,l
+
+(s) ∂s2 γ0
+
+> ε,l
+
+(s) ,
+
+with arbitrary functions ajε,l ∈ X ρ0 whose dependence on l is of class Cr, and which vanish for 
+
+|l| > 1/2. In T 0 
+
+> ε
+
+, the fact that div ω0 
+
+> ε
+
+= 0 ⇐⇒ 1
+
+J 0
+
+> ε,l
+
+∂s1 (J 0 
+
+> ε,l
+
+a1
+
+> ε,l
+
+) + 1
+
+J 0
+
+> ε,l
+
+∂s2 (J 0 
+
+> ε,l
+
+a2
+
+> ε,l
+
+) = 0 for all ( l, s ) ∈ (−1, 1) × T2 ,
+
+where J 0 
+
+> ε,l
+
+:= ∂lγ0
+
+> ε,l
+
+(s) · ∂s1 γ0
+
+> ε,l
+
+(s) × ∂s2 γ0
+
+> ε,l
+
+(s) is the Jacobian, provides the only constraint for the coefficients, other than the soft integral condition (v) . A useful concrete example to keep in mind is 
+
+ν0
+
+> ε,l
+
+(z) := ν0(z) + εl , ˜ω0
+
+> ε,l
+
+(z) = η(l) ˜ω0(z) ,
+
+where the vorticity is supported in a small tubular neighborhood of the graph of ν0|T2 , where ˜ω0 is the complexification of an analytic tangent vector field tangent to this surface and divergence-free with respect to the induced metric, and where η is a cutoff function. 
+
+Remark 2.2. The above representation of ω0 
+
+> ε
+
+is not unique. For instance, one can rescale l to get a different family of functions γ0
+
+> ε,l
+
+, ˜ω0 
+
+> ε,l
+
+defining the same ω0 
+
+> ε
+
+.Under the conditions (i) –(v) , the initial vorticity ( 2.7 ) is of class Cr(M), with r > 1 a non-integer. It is therefore well-known that, for any ε > 0, there exist some maximal time of existence Tε ∈ (0 , ∞]and a unique local strong solution ωε to the Euler equation ( 2.2 ) in M×(0 , T ε) with initial vorticity ω0 
+
+> ε
+
+.Furthermore, ωε ∈ Cw([0 , T ε), C rc (M)), where the subscript “w” denotes weak-∗ continuity. We will denote by 
+
+uε := BS[ ωε]the corresponding fluid velocity field, which is of class L∞([0 , T ε), C r+1 (M)) ∩ W 1,∞([0 , T ε), C r(M)). It is also standard that, by a classical formula due to Cauchy (see e.g. [ 20 , Formula 2.116]), the unique solution to ( 2.2 ) is given by 
+
+ωε(x, t ) := D Xt(X−1 
+
+> t
+
+(x)) ω0 
+
+> ε
+
+(X−1 
+
+> t
+
+(x)) , (2.8) where Xt denotes the particle-trajectory map at time t, namely the homeomorphism defined by the value at time t of the unique solution to the ODE 
+
+∂
+
+∂t Xt(x) = uε(Xt(x), t ) , X0(x) = x . (2.9) Equivalently, the vorticity at time t is the push-forward of ω0 
+
+> ε
+
+by Xt, that is, 
+
+ωε(·, t ) = Xt#ω0 
+
+> ε
+
+.
+
+Therefore, the support of ωε(·, t ) is contained in the set 
+
+Tε(t) := Xt(T 0 
+
+> ε
+
+) . (2.10) Let us now focus on the structure of the solution ωε at small but positive times. For this, let us respectively denote by Π′ : M → T2 , Π : M → R
+
+the projectors mapping M = T2 × R to its factors. It follows from the regularity of the solution ωε
+
+that for all small enough t > 0, there exists a diffeomorphism σt of T2 such that Π′[Xt(γ0
+
+> ε,l
+
+(σt(s)))] = s , for all s ∈ T2 . (2.11) VORTEX-SHEET DESINGULARIZATION 7
+
+Note that σ0 is the identity. Using this map, we reparametrize the transported surfaces as 
+
+γε,l (s, t ) := Xt(γ0
+
+> ε,l
+
+(σt(s))) , (2.12) and stress that, for small t, the surface γε,l (T2 × { t}) is a graph over T2. In fact, 
+
+γε,l (s, t ) = ( s, ν ε,l (s, t )) ,
+
+with 
+
+νε,l (s, t ) := Π[ Xt(γ0
+
+> ε,l
+
+(σt(s)))] . (2.13) Observe that, by the continuity of the flow map, the intersection γε,l (T2 × { t}) ∩ γε,l ′ (T2 × { t}) is empty if l 6 = l′, so the map (l, s ) 7 → γε,l (s, t ) (2.14) is a Cr-diffeomorphism ( −1, 1) × T2 → T ε(t). This property holds, in fact, as long as sup 
+
+> (l,s )∈(−1,1) ×T2
+
+|θε,l (s, t )| < 1 ,
+
+where 
+
+θε,l (s, t ) := ∂lνε,l (s, t )
+
+ε − 1 . (2.15) We can use this function to write 
+
+νε,l (s, t ) − νε,ℓ (s, t ) := ε
+
+ˆ lℓ
+
+(1 + θε,μ (s, t )) dμ . (2.16) Since the support of ωε(·, t ) is contained in Tε(t), for small enough t, there exists a unique family of functions ˜ωε,l (·, t ) : T2 → R3, which are of class Cr, such that 
+
+ωε(x, t ) = 
+
+{˜ωε,l (s, t ) if x = γε,l (s, t ) ∈ T ε(t) ,
+
+0 if x 6 ∈ T ε(t) . (2.17) The vorticity should be interpreted as the compactly supported time-dependent distribution that acts on Φ ∈ C0(M, R3) as 
+
+〈ωε(·, t ), Φ〉 := 
+
+ˆ
+
+> T2
+
+ˆ 1
+
+> −1
+
+˜ωε,l (s, t ) · Φ( γε,l (s, t )) Jε,l (s, t ) d l ds , 
+
+where Jε,l is the Jacobian given by 
+
+Jε,l := ∂lγε,l · (∂s1 γε,l × ∂s2 γε,l ) = ∂lνε,l = ε(1 + θε,l ) . (2.18) For later purposes, we also set the “vorticity density” ̟ 
+
+> ε,l
+
+:= Jε,l ˜ωε,l = ε(1 + θε,l )˜ωε,l .
+
+Having this notation and this geometric setting at hand, we can now give a more precise version of our main result: 
+
+Theorem 2.3. Let ρ0 > 0 be a real number and r > 1 a non-integer. For ε ∈ (0 , 1) , consider families of functions (ν0
+
+> ε,l
+
+)ε ⊂ CrXρ0 and (˜ω0
+
+> ε,l
+
+)ε ⊂ CrX 3 
+
+> ρ0
+
+satisfying the bounds (2.3 )-(2.4 ), the structural conditions (i) -(v) , and such that 
+
+C0 := sup 
+
+> 0<ε< 1
+
+sup 
+
+> |l|61
+
+(
+
+‖ν0
+
+> ε,l
+
+‖Xρ0 + ‖∇ ν0
+
+> ε,l
+
+‖X 2
+
+> ρ0
+
++ ‖̟ 0
+
+> ε,l
+
+‖X 3
+
+> ρ0
+
+)
+
+< ∞ .
+
+Then, there exist ε0 ∈ (0 , 1) such that, for every ε ∈ (0 , ε 0], there exist a constant B0 > 0 and a time 
+
+T > 0, depending on C0 but not on ε, such that, if the bound (2.5 ) holds for some B < B 0, one has: 8 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+(i) The strong solution ωε to the Euler equations (2.2 ) with initial datum (2.7 ) exists up to time T and ωε ∈ Cw([0 , T ), C rc (M)) . Furthermore, it is of the form (2.17 ) for all t ∈ [0 , T ),with ˜ωε,l (s, t ) tangent to the surface defined by (2.12 ).
+
+(ii) For all t ∈ [0 , T ), the support of ωε(·, t ) is contained in the tubular neighborhood Tε(t) given in (2.10 ), of width less than C1ε, for some C1 > 0.
+
+(iii) If the initial data converges as 
+
+ν0 
+
+> ε, 0
+
+→ h0 in Xρ0 , and 
+
+ˆ 1
+
+> −1
+
+̟ 
+
+> 0
+> ε,l
+
+dl →̟ 0 in X 3 
+
+> ρ0
+
+, as ε → 0+ ,
+
+then the solution converges to the vortex sheet in the following sense: let (h,̟ ) be the unique analytic solution to (1.4 ) with initial data (h0,̟ 0). Then, it follows that, as ε → 0+,
+
+(a) νε,l → h in L∞([0 , T ], C k (T2)) for all l ∈ (−1, 1) and all k ∈ N ,
+
+(b) 
+
+ˆ 1
+
+> −1
+
+̟ ε,l dl →̟ in L∞([0 , T ], C k (T2)) for all k ∈ N .
+
+In particular, ωε(·, t ) converges distributionally to ωsing (·, t ) given in (1.2 ).Furthermore, if (˜ω0
+
+> ε,l
+
+)ε ⊂ CrX 3 
+
+> ρ0
+
+and (ν0
+
+> ε,l
+
+)ε ⊂ CrXρ0 for all r > 1, then ωε ∈ C∞([0 , T ) × M).
+
+2.1. Sketch of the proof. In one phrase, our approach to establishing the existence part of Theorem 
+
+2.3 is to rephrase ( 2.2 ) as an evolution system for the leaf variables νε,l , θε,l and ˜ωε,l (see ( 2.13 ), ( 2.15 )and ( 2.17 )), and then to show existence, uniqueness and boundedness of solutions to this system, with a lifespan independent of ε.First, in Lemma 3.2 , we derive an effective system of equations for νε,l , θ ε,l and ˜ωε,l . Once we have this system, ( 3.4 )–( 3.6 ), in Lemma 3.4 , we show that if we have a solution to ( 3.4 )–( 3.6 ), not necessarily coming from a solution to ( 2.2 ), then we can construct a solution to ( 2.2 ) from such data. Moreover, this solution will keep the desired structure, see ( 2.17 ). Taking this connection into account, the proof of Theorem 2.3 (i) and (ii) is reduced to establishing an existence result for ( 3.4 )–( 3.6 ) with a lifespan independent of ε. Section 4 is mainly devoted to the proof of such a result. The proof relies on an abstract Cauchy-Kovaleskaya type theorem, namely Nishida’s Theorem (cf. Theorem 4.1 ). The key step to show that we can apply Theorem 4.1 to ( 3.4 )–( 3.6 ) is to prove uniform bounds on the velocity uε, restricted to the surfaces γε,l , and taken as a function of s in the analytic function spaces Xρ. The tangential nature of the initial vorticity and the fact that this structure is propagated under the evolution (cf. Lemma 3.1 ) are essential here; otherwise the l-derivative of uε (which is of order ε−1 and diverges to the jump of the velocity in the limit) would contribute to the vortex stretching, and would destroy the uniform time of existence. The other crucial observation is that we can use the prescribed structure of the vorticity as a superposition of vortex sheets to decompose the velocity into the contributions of the individual sheets. Therefore, we only need to show the boundedness of a variant of the usual Birkhoff–Rott operator (see Proposition 4.2 ) which describes the velocity that a vortex sheet induces on an almost parallel nearby sheet. In order to streamline the presentation, we will postpone many technical details to Sections 5 and 6.Once we have the local well-posedness for ( 3.4 )–( 3.6 ) with a lifespan which is independent of 
+
+ε, we conclude Section 4 by proving the distributional convergence of the constructed solutions to the solution of the Birkhoff–Rott equation. Roughly speaking, the argument here is that the solution must converge to a weak solution whose vorticity is a measure concentrated on a curve by compactness, which must also be analytic by our a priori bounds and lower semicontinuity. The uniqueness of analytic solutions to the Birkhoff-Rott equation then ensures that the limit is the solution to Birkhoff-Rott. VORTEX-SHEET DESINGULARIZATION 9
+
+3. Back and forth from 3D Euler to an effective system for vortex sheets 
+
+This section is devoted to showing the connection between ( 2.2 ) and the effective system for the leaf variables mentioned in Subsection 2.1 .It will be absolutely crucial for us that the tangency property (iii) in Section 2 is propagated under the evolution. More precisely, we have: 
+
+Lemma 3.1. Suppose that the (strong) solution ωε to (2.2 ) with initial datum ω0 
+
+> ε
+
+as in (2.7 ) exists up to some positive time T⋆, and that the map (2.14 ) remains a diffeomorphism for all t ∈ [0 , T ⋆].Then, for all (l, s, t ) ∈ (−1, 1) × T2 × [0 , T ⋆), the vector ˜ωε,l (s, t ) ∈ R3 is tangential to the surface 
+
+γε,l (T2, t ) ⊂ M at the point γε,l (s, t ).Proof. With some abuse of notation, let Tγε,l (s,t ) be the tangent space to the surface γε,l (T2, t ) at the point γε,l (s, t ). We first note that the preimage of some point x = γε,l (s, t ) under the flow map Xt is precisely 
+
+X−1 
+
+> t
+
+(x) = γ0
+
+> ε,l
+
+(σt(s)) . (3.1) By ( 2.12 ), we can write 
+
+Tγε,l (s,t ) = D Xt(γ0
+
+> ε,l
+
+(σt(s))) Tγ0   
+
+> ε,l (σt(s))
+
+.
+
+Now, we know that ˜ω0
+
+> ε,l
+
+(σt(s)) ∈ Tγ0 
+
+> ε,l (σt(s))
+
+by the condition (iii) and hence also that DXt(γ0
+
+> ε,l
+
+(σt(s))) ˜ω0
+
+> ε,l
+
+(σt(s)) ∈ Tγε,l (s,t ) .
+
+However, ( 3.1 ) and ( 2.8 ) yield DXt(γ0
+
+> ε,l
+
+(σt(s))) ˜ω0
+
+> ε,l
+
+(σt(s)) = ˜ωε,l (s, t ) ,
+
+establishing the lemma. 
+
+Having this property at hand, we now derive the desired effective system. In addition to the notation introduced in Section 2, we will use the notation 
+
+˜uε,l (s, t ) := uε(γε,l (s, t ), t ) , (3.2) and denote by 
+
+˜u′
+
+> ε,l
+
+(s, t ) := Π ′(˜uε,l (s, t )) = (u1
+
+> ε
+
+(γε,l (s, t ), t ), u 2 
+
+> ε
+
+(γε,l (s, t ), t ))T ,
+
+the projection on the horizontal plane. Here and in what follows, superscripts are used to denote the components of a vector field. We will further write ∇s to denote the gradient in the s-variable, and write ˜u′ 
+
+> ε
+
+· ∇ s with the obvious meaning. We use the same convention for the divergence and the Jacobian matrix in the s-variable. We will also need an orthonormal basis of tangent vectors to the surface γε,l (T2, t ), such as 
+
+τ1 := ˇτ1,ε,l 
+
+|ˇτ1,ε,l | , and τ2 := ˇτ2,ε,l |ˇτ1,ε,l |2 − ˇτ1,ε,l (ˇ τ1,ε,l · ˇτ2,ε,l )
+
+|ˇτ2,ε,l |ˇτ1,ε,l |2 − ˇτ1,ε,l (ˇ τ1,ε,l · ˇτ2,ε,l )| ,
+
+with ˇτ1,ε,l (s, t ) := ∂s1 γε,l (s, t ) = (1 , 0, ∂ s1 νε,l (s, t )) T , ˇτ2,ε,l (s, t ) := ∂s2 γε,l (s, t ) = (0 , 1, ∂ s2 νε,l (s, t )) T .
+
+Lemma 3.2. Assume that the unique strong solution ωε to (2.2 ) with initial datum ω0 
+
+> ε
+
+as in (2.7 )
+
+exists up to some time T⋆ > 0, has the structure (2.11 )-(2.17 ) and that it holds that 
+
+sup 
+
+> |l|61
+
+‖θε,l ‖L∞(T2 ×[0 ,T ⋆]) < 1 . (3.3) 10 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+Then, for t ∈ (0 , T ⋆), it holds that 
+
+∂tνε,l + ( ˜u′ 
+
+> ε,l
+
+· ∇ s)νε,l = ˜u3 
+
+> ε,l
+
+, (3.4) 
+
+∂tθε,l + ∇s · (˜u′
+
+> ε,l
+
+(1 + θε,l )) = 0 , (3.5) 
+
+and the vorticity evolves according to 
+
+∂t ˜ωε,l + ˜u1 
+
+> ε,l
+
+∂s1 ˜ωε,l + ˜u2 
+
+> ε,l
+
+∂s2 ˜ωε,l = Aε ˜ωε,l . (3.6) 
+
+Here, 
+
+Aε ˜ωε,l := ( ˜ωε,l · τ1)Dτ1 ˜uε,l + ( ˜ωε,l · τ2)Dτ2 ˜uε,l ,
+
+where 
+
+Dτ1 ˜uε,l := 1
+
+|∂s1 γε,l | ∂s1 ˜uε,l , Dτ2 ˜uε,l := 1
+
+|∂s2 γε,l − (∂s2 γε,l · τ1)τ1|
+
+(
+
+∂s2 ˜uε,l − ∂s2 γε,l · τ1
+
+|∂s1 γε,l | ∂s1 ˜uε,l 
+
+)
+
+,
+
+are the directional derivatives of ˜uε,l along τj .
+
+Remark 3.3. In terms of the “vorticity density” ̟ 
+
+> ε,l
+
+:= ε(1 + θε,l )˜ωε,l , (3.7) an elementary calculation shows that ( 3.6 ) is equivalent to 
+
+∂t̟ ε,l + ∂s1 (˜u1
+
+> ε,l
+
+̟ ε,l ) + ∂s2 (˜u2
+
+> ε,l
+
+̟ ε,l ) = Aε̟ ε,l , (3.8) provided that the factor 1 + θε,l does not vanish. Likewise, let us stress that, in terms of qε,l := 1 + θε,l , ( 3.5 ) is equivalent to 
+
+∂tqε,l + ∇s · (˜u′ 
+
+> ε,l
+
+qε,l ) = 0 .
+
+We also remark that it follows from the fact that ˇ τ1,ε,l and ˇ τ2,ε,l are not parallel that none of the denominators is 0. 
+
+Proof. Let us derive the equations one by one. 
+
+First equation. We can differentiate the identity ( 2.12 ) with respect to t to get (0 , 0, ∂ tνε,l (s, t )) T = ∂tγε,l (s, t ) = ∂tXt[γ0
+
+> ε,l
+
+(σt(s))] + D Xt[γ0
+
+> ε,l
+
+(σt(s))] D γ0
+
+> ε,l
+
+(σt(s)) ∂tσt(s)= ˜uε,l (s, t ) + D Xt[γ0
+
+> ε,l
+
+(σt(s))] D γ0
+
+> ε,l
+
+(σt(s)) ∂tσt(s) . (3.9) Here we have used the flow equation ( 2.9 ). Likewise, we can differentiate the identity ( 2.12 ) with respect to s, obtaining 
+
+[ Id 
+
+∇sνε,l (s, t )
+
+]
+
+= D sγε,l (s, t ) = D Xt[γ0
+
+> ε,l
+
+(σt(s))] D γ0
+
+> ε,l
+
+(σt(s)) D sσt(s) , (3.10) where Id is the 2 × 2 identity matrix. Then, denoting the components of the flow map by Xt =(X′
+
+> t
+
+, X 3 
+
+> t
+
+), and using the first two rows in ( 3.9 )–( 3.10 ), we obtain that Dsσt = [DX′
+
+> t
+
+[γ0
+
+> ε,l
+
+(σt(s))]D γ0
+
+> ε,l
+
+(σt(s)) ]−1 ,∂tσt = − [DX′
+
+> t
+
+[γ0
+
+> ε,l
+
+(σt(s))]D γ0
+
+> ε,l
+
+(σt(s)) ]−1 ˜u′ 
+
+> ε,l
+
+= −Dsσt ˜u′ 
+
+> ε,l
+
+.
+
+The time derivative of νε,l is therefore 
+
+∂tνε,l (s, t ) = ˜u3
+
+> ε,l
+
+(s, t ) − ∇ X3 
+
+> t
+
+[γ0
+
+> ε,l
+
+(σt(s))]D γ0
+
+> ε,l
+
+(σt(s))D sσt(s)˜u′
+
+> ε,l
+
+(s, t )= ˜u3
+
+> ε,l
+
+(s, t ) − ∇ sνε,l (s, t )˜u′
+
+> ε,l
+
+(s, t ) ,
+
+which is ( 3.4 ). To pass to the last identity, we have used the last row in ( 3.10 ). VORTEX-SHEET DESINGULARIZATION 11 
+
+Second equation. Let us denote by a, b indices that range over {1, 2}, and by i, j indices ranging over {1, 2, 3}. Also, to simplify the notation, we will use here the Einstein summation convention. First, subtracting ( 3.5 ) for two different values of l (l 6 = l′), we get 
+
+∂t(νε,l − νε,l ′ ) + ˜uaε,l ∂sa νε,l − ˜uaε,l ′ ∂sa νε,l ′ − ˜u3 
+
+> ε,l
+
++ ˜u3 
+
+> ε,l ′
+
+= 0 .
+
+Now, note that 
+
+∂sa
+
+ˆ νε,l 
+
+> νε,l ′
+
+uaε (s, r, t ) d r = uaε (s, ν ε,l , t )∂sa νε,l − uaε (s, ν ε,l ′ , t )∂sa νε,l ′ +
+
+ˆ νε,l 
+
+> νε,l ′
+
+∂sa uaε (s, r, t ) d r
+
+= uaε (s, ν ε,l , t )∂sa νε,l − uaε (s, ν ε,l ′ , t )∂sa νε,l ′ −
+
+ˆ νε,l 
+
+> νε,l ′
+
+∂ru3
+
+> ε
+
+(s, r, t ) d r
+
+= uaε (s, ν ε,l , t )∂sa νε,l − uaε (s, ν ε,l ′ , t )∂sa νε,l ′ − ˜u3 
+
+> ε,l
+
++ ˜u3 
+
+> ε,l ′
+
+,
+
+where we have used that uε is divergence-free to pass to the second line. Also, by the definition of θε,l 
+
+and ( 3.3 ), one can change variables in the integral to arrive at 
+
+ˆ νε,l 
+
+> νε,l ′
+
+uaε (s, r, t ) d r = ε
+
+ˆ ll′
+
+uaε (s, ν ε,λ , t ) (1 + θε,λ ) d λ, 
+
+which results in 
+
+∂t
+
+(νε,l − νε,l ′
+
+ε
+
+)
+
++ ∂sa
+
+ˆ ll′
+
+uaε (s, ν ε,λ , t ) (1 + θε,λ ) d λ = 0 .
+
+Dividing by l − l′ and sending l′ → l, we get ( 3.5 ). 
+
+Third equation. It follows from Euler’s equation ( 2.2 ) that the time derivative of the vector field (x, t ) 7 → ωε(Xt(x), t ) is given by 
+
+∂t[ωε(Xt(x), t )] = ∂tωε(Xt(x), t ) + ( uε · ∇ )ωε(Xt(x), t ) = ( ωε · ∇ )uε(Xt(x), t ) .
+
+Also, combining ( 2.17 ) and ( 2.11 ), we get that 
+
+∂t[ωε(Xt(γ0
+
+> ε,l
+
+(s)) , t )] = ∂t[˜ωε,l (σ−1 
+
+> t
+
+(s), t )] = ∂t ˜ωε,l (σ−1 
+
+> t
+
+(s), t ) + D s ˜ωε,l (σ−1 
+
+> t
+
+(s), t )˜u′
+
+> ε,l
+
+(σ−1 
+
+> t
+
+(s), t )Hence, it follows that 
+
+∂t ˜ωε,l (s, t ) + D s ˜ωε,l (s, t )˜u′
+
+> ε,l
+
+(s, t ) = D uε(γε,l (s, t ), t )˜ωε,l (s, t ) . (3.11) Taking into account Lemma 3.1 , we can replace D uε by its tangential projection. This is precisely the role of the matrix Aε in the statement. In other words, 
+
+Aε ˜ωε,l (s, t ) := pr[D uε]( γε,l (s, t ), t )˜ωε,l (s, t ) .
+
+Plugging this definition into ( 3.11 ) we get ( 3.6 ), as desired. 
+
+As explained in Subsection 2.1 , once we have the effective system ( 3.4 )–( 3.6 ), we need to show that we can “come back” to ( 2.2 ). In the next lemma we show that, if we have a solution to ( 3.4 )–( 3.6 )in (0 , T ⋆), not necessarily coming from a solution to ( 2.2 ), then we can construct a solution to ( 2.2 ), as long as the data remains sufficiently regular and sup |l|61 ‖θε,l (·, t )‖L∞(T2 ) < 1, for all t ∈ (0 , T ⋆). 
+
+Lemma 3.4. Let r > 1 be a non-integer, and let (˜uε,l (·, t ), ν ε,l (·, t ), θ ε,l (·, t ), ˜ωε,l (·, t )) be Cr functions, continuously differentiable in t, uniformly bounded in l, and satisfying (3.4 )–(3.6 ) on some time interval (0 , T ⋆). Assume that: 
+
+(i) The initial data (ν0
+
+> ε,l
+
+, θ 0
+
+> ε,l
+
+, ˜ω0
+
+> ε,l
+
+) is of the form discussed in Section 2,
+
+(ii) sup |l|61 ‖˜ωε,l ‖L∞(T2 ×(0 ,T ⋆)) < ∞,
+
+(iii) sup |l|61 ‖θε,l ‖L∞(T2 ×(0 ,T ⋆)) < 1,12 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+and let 
+
+ωε(x, t ) := 
+
+{˜ωε,l (s, t ) if x = γε,l (s, t ) for some (l, s ) ,
+
+0 otherwise . (3.12) 
+
+If its associated velocity field uε := BS[ ωε] satisfies 
+
+uε(s, ν ε,l (s, t ), t ) = ˜uε,l (s, t ) , for all ( s, l, t ) ∈ T2 × (−1, 1) × (0 , T ⋆) , (3.13) 
+
+then ωε ∈ Cw([0 , T ⋆), C rc (M)) is a divergence-free vector field solving (2.2 ).Proof. First, observe that, for any test vector field Φ ∈ C(M, R3), 
+
+〈ωε(·, t ), Φ〉 =
+
+ˆ
+
+> T2
+
+ˆ 1
+
+> −1
+
+˜ωε,l (s, t ) · Φ( γε,l (s, t )) Jε,l (s, t ) d l ds
+
+=
+
+ˆ
+
+> T2
+
+ˆ 1
+
+> −1
+
+̟ ε,l (s, t ) · Φ( γε,l (s, t )) d l ds , for all t ∈ [0 , T ⋆) ,
+
+(3.14) where Jε,l is the Jacobian given in ( 2.18 ), and ̟ ε,l was defined in ( 3.7 ). Hence, we have that 
+
+ωε ∈ C1([0 , T ⋆), D′(M, R3)). Moreover, it is straightforward to check that ωε defines a time-dependent vector field on M which is bounded and has compact support, and that ˜ωε,l (s, t ) ⊂ R3 is tangential to the surface γε,l (T2, t ) ⊂ M at the points γε,l (s, t ) = ( s, ν ε,l (s, t )). Next, assume that uε := BS[ ωε] satisfies ( 3.13 ). Then, on the one hand, it follows that 
+
+〈∂tωε(·, t ), Φ〉 =
+
+ˆ
+
+> T2
+
+ˆ 1
+
+> −1
+
+∂t̟ ε,l (s, t ) · Φ( γε,l (s, t )) d l ds
+
++
+
+ˆ
+
+> T2
+
+ˆ 1
+
+> −1
+
+̟ ε,l (s, t ) · ∂3Φ( γε,l (s, t )) ∂tνε,l (s, t ) d l ds , for all t ∈ (0 , T ⋆) and all Φ ∈ C1(M, R3) .
+
+Using the tangentiality property of ˜ωε,l , ( 3.4 ) and ( 3.8 ), and integrating by parts, we get 
+
+〈∂tωε(·, t ), Φ〉 =
+
+ˆ
+
+> T2
+
+ˆ 1
+
+> −1
+
+̟ ε,l (s, t )D uε(γε,l (s, t ))Φ( γε,l (s, t )) d l ds
+
++
+
+ˆ
+
+> T2
+
+ˆ 1
+
+> −1
+
+̟ ε,l (s, t ) · DΦ( γε,l (s, t )) ˜uε,l (s, t ) d l ds , for all t ∈ (0 , T ⋆) and all Φ ∈ C1(M, R3) .
+
+On the other hand, note that 
+
+〈div( ωε(·, t )uε(·, t )) , Φ〉 = −〈 ωε(·, t ), [DΦ uε]( ·, t )〉
+
+= −
+
+ˆ
+
+> T2
+
+ˆ 1
+
+> −1
+
+̟ ε,l (s, t ) · DΦ( γε,l (s, t )) uε(γε,l (s, t ), t ) d l ds , 
+
+and that 
+
+〈Duε(·, t )ωε(·, t ), Φ〉 = 〈ωε(·, t ), Duε(·, t )Φ 〉
+
+=
+
+ˆ
+
+> T2
+
+ˆ 1
+
+> −1
+
+̟ ε,l (s, t ) · Duε(γε,l (s, t ), t )Φ( γε,l (s, t )) d l ds , 
+
+for all t ∈ (0 , T ⋆) and all Φ ∈ C1(M, R3). Combining these identities, we conclude that 
+
+〈∂tωε(·, t ) + ( uε · ∇ )ωε(·, t ) − (ωε · ∇ )uε(·, t ), Φ〉 = 0 , for all t ∈ (0 , T ⋆) and all Φ ∈ C1(M, R3) .
+
+Now, using the identity above and the fact that ω0 given by ( 2.7 ) and uε(·, t ) are divergence-free vector fields, the incompressibility of ωε(·, t ) for all t ∈ (0 , T ⋆) immediately follows. Indeed, combining these facts, one can check that fε := div ωε is a distributional solution to 
+
+∂tfε + uε · ∇ fε = 0 in M × (0 , T ⋆) , fε(·, 0) = 0 in M .VORTEX-SHEET DESINGULARIZATION 13 
+
+Furthermore, since ˜ωε,l (s, t ) is tangential to the surface γε,l (T2, t ) at the points γε,l (s, t ) = ( s, ν ε,l (s, t )), and ˜ωε,l (·, t ) is Cr, for some non-integer r > 1, by assumption, this (distributional) divergence is a compactly supported bounded function on M. Also, by standard elliptic regularity, we know that 
+
+uε(·, t ) is log-Lipschitz. Hence, it follows from [ 9, Theorem II.2] that div ωε(·, t ) = 0 for all t ∈ (0 , T ⋆) .
+
+At this point, we conclude that ωε ∈ C1([0 , T ⋆), L ∞(M)) is a compactly supported distributional solution to ( 2.2 ). Finally, since ω0 
+
+> ε
+
+∈ Crc (M), using for instance the weak-strong uniqueness result given in [ 1,Corollary 7.18], the result follows from standard elliptic regularity. 
+
+4. Local existence for the effective system and proof of Theorem 2.3 
+
+This section is mainly devoted to showing that the effective system we have derived in Lemma 
+
+3.2 is locally well-posed, with a lifespan which is independent of ε. Note that, having Lemma 3.4 
+
+at hand, this essentially concludes the proof of Theorem 2.3 (i) and (ii). The proof of this local well-posedness relies on an abstract Cauchy-Kovalevskaya theorem, namely Nishida’s theorem. We conclude the section showing the convergence to the vortex sheet. 
+
+Theorem 4.1 (Nishida [ 21 ]) . Let {Yρ}ρ∈[0 ,∞) be a scale of Banach spaces, and let BRρ := {w ∈ Yρ :
+
+‖w‖Yρ < R } denote the ball in Yρ of radius R. Assume that, for any 0 6 ρ′ < ρ , Yρ is a linear subspace of Yρ′ and ‖w‖Yρ′ 6 ‖w‖Yρ for all w ∈ Yρ. Consider the initial value problem 
+
+w′(t) = F (w(t), t ) , w(0) = w0 , (4.1) 
+
+and assume the following conditions on F and w0, for some fixed positive numbers R, δ, ρ 0:(i) For every 0 < ρ ′ < ρ < ρ 0, the map F : BRρ × (−δ, δ ) → Yρ′ , (w, t ) 7 → F (w, t ), is continuous. (ii) For any 0 < ρ ′ < ρ < ρ 0 and all w1, w 2 ∈ BRρ , and for any t ∈ (−δ, δ ), F satisfies 
+
+‖F (w1, t ) − F (w2, t )‖Yρ′ 6 C
+
+ρ − ρ′ ‖w1 − w2‖Yρ ,
+
+where C > 0 is a fixed constant independent of t, w 1, w 2, ρ or ρ′.(iii) w0 ∈ BR0 
+
+> ρ0
+
+for some 0 < R 0 < R and F (w0, ·) : ( −δ, δ ) → Yρ, t 7 → F (w0, t ), is a continuous function for every 0 < ρ < ρ 0. Moreover, it satisfies, with a fixed constant K > 0,
+
+sup 
+
+> |t|<δ
+
+‖F (w0, t )‖Yρ 6 K
+
+ρ0 − ρ .
+
+Under these hypotheses, there is a positive constant δ0 (depending only on R0, R, C and K) such that there exists a unique function w(t) which, for every 0 6 ρ < ρ 0, is a continuously differentiable function of t ∈ (−(ρ0 −ρ)δ0, (ρ0 −ρ)δ0) with values in BRρ that satisfies the initial value problem (4.1 ).
+
+We aim to show that this theorem is applicable to the effective system ( 3.4 )–( 3.6 ). To that end, we first set 
+
+νε[l, s ]( t) := νε,l (s, t ) , θε[l, s ]( t) := θε,l (s, t ) , and ̟ ε[l, s ]( t) := ̟ ε,l (s, t ) := ε(1 + θε,l )˜ωε,l (s, t ) ,
+
+and define 
+
+w[l, s ]( t) = (w1[l, s ]( t), w 2[l, s ]( t), w 3[l, s ]( t), w 4[l, s ]( t), w 5−7[l, s ]( t))
+
+:= (νε[l, s ]( t), ∂ s1 νε[l, s ]( t), ∂ s2 νε[l, s ]( t), 1 + θε[l, s ]( t),̟ ε[l, s ]( t)) . (4.2) Here, and throughout the paper, we use the shortened notation w5−7 = ( w5, w 6, w 7). 14 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+In order to use Theorem 4.1 to solve the effective system, we use the following scale of Banach spaces for k ∈ N and ρ > 0: 
+
+Ykρ := 
+
+{
+
+f : [ −1, 1] × T2 
+
+> ρ
+
+→ Ck
+
+∣∣∣∣ l 7 → fj (l, ·) ∈ L∞([ −1, 1] , Xρ ) & sup 
+
+> |l|61
+
+‖fj (l, ·)‖ρ < ∞ , 1 6 j 6 k
+
+}
+
+,
+
+endowed with the norm 
+
+‖f ‖Ykρ := 
+
+> k
+
+∑
+
+> j=1
+
+sup 
+
+> |l|61
+
+‖fj (l, ·)‖ρ .
+
+We understand L∞([ −1, 1] , Xρ) as the space of functions which are measurable with respect to the joint variable in [ −1, 1] × T2 
+
+> ρ
+
+and for which sup |l|61 ‖f (l, ·)‖Xρ < ∞. Note that this is different from the Bochner space due to the lack of separability. However, this kind of measurability is enough to ensure that all the integrals in the paper exist. Of course, the variables ( w1, . . . , w 7) in ( 4.2 ) are not independent, and we cannot expect the effective system to behave well for arbitrary data in Y7 
+
+> ρ
+
+. We introduce the set of admissible data 
+
+Zρ := 
+
+{
+
+w ∈ Y 7
+
+> ρ
+
+∣∣∣∣ ∇sw1[l, ·] = ( w2[l, ·], w 3[l, ·]) and w1[l, ·] − w1[ℓ, ·] = ε
+
+ˆ lℓ
+
+w4[μ, ·] d μ, ∀ l, ℓ 
+
+}
+
+.
+
+Note that for every ρ > 0, Zρ is a Banach subspace of Y7 
+
+> ρ
+
+endowed with the same norm as Y7 
+
+> ρ
+
+. We will also use the semi-norm 
+
+‖w‖ZIm  
+
+> ρ
+
+:= 
+
+> 4
+
+∑
+
+> j=2
+
+sup 
+
+> |l|61
+
+sup 
+
+> |β|6ρ
+
+‖Im wj (l, · + iβ )‖L∞(T2) . (4.3) At this point, our first goal is to reformulate the effective system ( 3.4 )–( 3.6 ) as an initial value problem of the form ( 4.1 ) in the scale of Banach spaces Zρ. To that end, using the notation introduced in Section 3, we decompose the velocity ˜uε,l (s, t ) (see ( 3.2 )) into the contributions of the individual sheets in ( 2.17 ). First, note that 
+
+˜uε,l (s, t ) = BS[ ωε]( γε,l (s, t ), t ) = 1
+
+4π
+
+∑
+
+> k∈Z2×{ 0}
+
+ˆ    
+
+> [−1
+> 2,1
+> 2]2×R
+
+ωε(y, t ) × γε,l (s, t ) − y + k
+
+|γε,l (s, t ) − y + k|3 dy
+
+= 1
+
+4π
+
+∑
+
+> k∈Z2×{ 0}
+
+ˆ 1
+
+> −1
+
+ˆ    
+
+> [−1
+> 2,1
+> 2]2
+
+̟ ε,ℓ (s − ς, t ) × γε,l (s, t ) − γε,ℓ (s − ς, t ) + k
+
+|γε,l (s, t ) − γε,ℓ (s − ς, t ) + k|3 dς dℓ
+
+= 1
+
+4π
+
+ˆ 1
+
+> −1
+
+ˆ    
+
+> [−1
+> 2,1
+> 2]2
+
+̟ ε,ℓ (s − ς, t ) × γε,l (s, t ) − γε,ℓ (s − ς, t )
+
+|γε,l (s, t ) − γε,ℓ (s − ς, t )|3 dς dℓ
+
++ ∑
+
+> k∈(Z2×{ 0})\{ 0}
+
+ˆ 1
+
+> −1
+
+ˆ    
+
+> [−1
+> 2,1
+> 2]2
+
+̟ ε,ℓ (s − ς, t ) × γε,l (s, t ) − γε,ℓ (s − ς, t ) + k
+
+|γε,l (s, t ) − γε,ℓ (s − ς, t ) + k|3 dς dℓ . 
+
+Also, let us denote by φ a smooth, non-negative, radially symmetric cutoff function such that 
+
+φ ≡ 1 in B 1
+
+> 8
+
+(0) , and φ ≡ 0 in [ − 1 
+
+> 2
+
+, 1 
+
+> 2
+
+]2 \ B 1
+
+> 4
+
+(0) . (4.4) VORTEX-SHEET DESINGULARIZATION 15 
+
+Then, we have that 
+
+˜uε,l (s, t ) = 1
+
+4π
+
+ˆ 1
+
+> −1
+
+ˆ    
+
+> [−1
+> 2,1
+> 2]2
+
+φ(ς)̟ ε,ℓ (s − ς, t ) × γε,l (s, t ) − γε,ℓ (s − ς, t )
+
+|γε,l (s, t ) − γε,ℓ (s − ς, t )|3 dς dℓ
+
++ 1
+
+4π
+
+ˆ 1
+
+> −1
+
+ˆ    
+
+> [−1
+> 2,1
+> 2]2
+
+(1 − φ(ς)) ̟ ε,ℓ (s − ς, t ) × γε,l (s, t ) − γε,ℓ (s − ς, t )
+
+|γε,l (s, t ) − γε,ℓ (s − ς, t )|3 dς dℓ
+
++ ∑
+
+> k∈(Z2×{ 0})\{ 0}
+
+ˆ 1
+
+> −1
+
+ˆ    
+
+> [−1
+> 2,1
+> 2]2
+
+̟ ε,ℓ (s − ς, t ) × γε,l (s, t ) − γε,ℓ (s − ς, t ) + k
+
+|γε,l (s, t ) − γε,ℓ (s − ς, t ) + k|3 dς dℓ . 
+
+Also, we set 
+
+Kcε [ν, g,̟ ]( s) := 1
+
+4π
+
+ˆ    
+
+> [−1
+> 2,1
+> 2]2
+
+φ(ς)̟ (s − ς) × Ξε[ν, g ]( s, ς )
+
+|Ξε[ν, g ]( s, ς )|3 dς , (4.5) where Ξε[ν, g ]( s, ς ) := ς + [ ν(s) − εg (s)] e3 − ν(s − ς)e3 , for s ∈ T2 and ς ∈
+
+[
+
+− 1
+
+2 , 1
+
+2
+
+]2
+
+,
+
+and 
+
+Kfε [v, w ]( l, s ) := 1
+
+4π
+
+ˆ 1
+
+> −1
+
+ˆ    
+
+> −[1
+> 2,1
+> 2]2
+
+(1 − φ(ς))w(s − ς, ℓ ) × ς + v(s, l )e3 − v(s − ς, ℓ )e3
+
+|ς + v(s, l )e3 − v(s − ς, ℓ )e3|3 dς dℓ
+
++ 1
+
+8π
+
+∑
+
+> k∈Z2\{ 0}
+
+ˆ    
+
+> [−1
+> 2,1
+> 2]2
+
+w(s − ς, ℓ ) ×
+
+( ς − k + v(s, l )e3 − v(s − ς, ℓ )e3
+
+|ς − k + v(s, l )e3 − v(s − ς, ℓ )e3|3
+
++ ς + k + v(s, l )e3 − v(s − ς, ℓ )e3
+
+|ς + k + v(s, l )e3 − v(s − ς, ℓ )e3|3
+
+)
+
+dς dℓ . 
+
+(4.6) Having this notation at hand, we can finally decompose ˜uε,l (s, t ) as 
+
+˜uε,l (s, t ) = 
+
+ˆ 1
+
+> −1
+
+Kcε
+
+[
+
+νε,ℓ ,
+
+ˆ ℓl
+
+(1 + θε,μ ) d μ,̟ ε,ℓ 
+
+]
+
+(s, t ) d ℓ + Kfε [νε,̟ ε]( s, l ) . (4.7) Now, extending the action of these operators to functions that depend on z ∈ T2 
+
+> ρ
+
+in the obvious way, we set 
+
+Uε(w)( l, z ) := 
+
+ˆ 1
+
+> −1
+
+Kcε
+
+[
+
+w1[ℓ, ·],
+
+ˆ ℓl
+
+w4[μ, ·] d μ, w 5−7[ℓ, ·]
+
+]
+
+(z) d ℓ + Kfε [w1, w 5−7]( l, z ) . (4.8) Note that we will use superscripts to denote the components of this velocity. In addition, we denote by U ′ 
+
+> ε
+
+= Π( Uε) its projection to the horizontal plane. We then consider the initial value problem 
+
+w′(t) = F (w(t)) , w(0) = w0 , (4.9) where 
+
+F1(w) := U 3 
+
+> ε
+
+(w) − U 1 
+
+> ε
+
+(w)w2 − U 2 
+
+> ε
+
+(w)w3 ,F2(w) := ∂s1
+
+(U 3 
+
+> ε
+
+(w) − U 1 
+
+> ε
+
+(w)w2 − U 2 
+
+> ε
+
+(w)w3
+
+) ,F3(w) := ∂s2
+
+(U 3 
+
+> ε
+
+(w) − U 1 
+
+> ε
+
+(w)w2 − U 2 
+
+> ε
+
+(w)w3
+
+) ,F4(w) := −∇ s ·
+
+(
+
+U ′
+
+> ε
+
+(w)w4
+
+)
+
+,F5−7(w) := −∂s1
+
+(
+
+U 1 
+
+> ε
+
+(w)w5−7
+
+)
+
+− ∂s2
+
+(
+
+U 2 
+
+> ε
+
+(w)w5−7
+
+)
+
++ Aε(w)w5−7 .
+
+(4.10) and 
+
+w0[l, s ] = ( ν0
+
+> ε,l
+
+(s), ∂ s1 ν0
+
+> ε,l
+
+(s), ∂ s2 ν0
+
+> ε,l
+
+(s), 1 + θ0
+
+> ε,l
+
+(s),̟ 0
+
+> ε,l
+
+(s)) .16 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+Here, as in Lemma 3.2 ,
+
+Aε(w)w5−7 = ( w5−7 · τ1)Dτ1 Uε + ( w5−7 · τ2)Dτ2 Uε , (4.11) with ˆτ1 := (1 , 0, w 2)T , τ1 := ˆτ1
+
+|ˆτ1| , ˆτ2 = (0 , 1, w 3)T , and τ2 := ˆτ2|ˆτ1|2 − ˆτ1(ˆ τ1 · ˆτ2)
+
+|ˆτ2|ˆτ1|2 − ˆτ1(ˆ τ1 · ˆτ2)| . (4.12) and 
+
+Dτ1 Uε := 1
+
+| ˆτ1| ∂s1 Uε , Dτ2 Uε := 1
+
+|ˆτ2 − (ˆ τ2 · τ1)τ1|
+
+(
+
+∂s2 Uε − ˆτ2 · τ1
+
+|ˆτ1| ∂s1 Uε
+
+)
+
+.
+
+We should first stress that ( 4.9 ) is essentially a reformulation of the effective system we derived in Lemma 3.2 , now in terms of the new unknown w. Likewise, note that, if w ∈ Z ρ and F (w) ∈ Y 7 
+
+> ρ′
+
+for some 0 < ρ ′ < ρ , then F (w) ∈ Z ρ′ . Indeed, this is trivial for the coupling between w1 and w2, w 3,and for the coupling between w1 and w4, it follows from the derivation of ( 3.5 ). Having this functional setting at hand, in the next results, whose proofs are postponed to Section 
+
+5, we prove the required estimates to verify that ( 4.9 ) fits the framework of Theorem 4.1 .
+
+Proposition 4.2. For every 0 6 ρ 6 ρ0, if w1, w 2 ∈ Z ρ satisfy 
+
+C1 := max 
+
+{
+
+1, ∥∥w1∥∥Y7
+
+> ρ
+
+, ∥∥w2∥∥Y7
+
+> ρ
+
+}
+
+< ∞ , (4.13) 
+
+as well as 
+
+max 
+
+{∥∥w1∥∥ZIm 
+
+> ρ
+
+, ∥∥w2∥∥ZIm 
+
+> ρ
+
+}
+
+6 1
+
+300 C41
+
+, (4.14) 
+
+and 
+
+sup 
+
+> |l|61
+
+sup 
+
+> |β|6ρ
+
+max 
+
+{∥∥Re w14[l, · + iβ ] − 1∥∥L∞(T2 ) , ∥∥Re w24[l, · + iβ ] − 1∥∥L∞(T2)
+
+}
+
+6 2
+
+3 , (4.15) 
+
+then 
+
+sup 
+
+> l, ℓ ∈[−1,1]
+
+∥∥∥∥Kcε
+
+[
+
+wi
+
+> 1
+
+[ℓ, ·],
+
+ˆ ℓl
+
+wi
+
+> 4
+
+[μ, ·] d μ, w i
+
+> 5−7
+
+[ℓ, ·]
+
+]
+
+(·)
+
+∥∥∥∥X 3
+
+> ρ
+
+. 1 , for i ∈ { 1, 2} , (4.16) 
+
+and 
+
+sup 
+
+> l, ℓ ∈[−1,1]
+
+∥∥∥∥Kcε
+
+[
+
+w11[ℓ, ·],
+
+ˆ ℓl
+
+w14[μ, ·] d μ, w 15−7[ℓ, ·]
+
+]
+
+(·)
+
+− Kcε
+
+[
+
+w21[ℓ, ·],
+
+ˆ ℓl
+
+w24[μ, ·] d μ, w 25−7[ℓ, ·]
+
+]
+
+(·)
+
+∥∥∥∥X 3
+
+> ρ
+
+. ∥∥w1 − w2∥∥Y7
+
+> ρ
+
+,
+
+(4.17) 
+
+with implicit constants that depend only on C1 but not on ρ or ε.
+
+Proposition 4.3. For every 0 6 ρ 6 ρ0, if w1, w 2 ∈ Z ρ satisfy (4.13 ) and 
+
+sup 
+
+> |l|61
+
+sup 
+
+> |β|6ρ
+
+max 
+
+{∥∥Im w11[l, · + iβ ]∥∥L∞(T2) , ∥∥Im w21[l, · + iβ ]∥∥L∞(T2 )
+
+}
+
+6 1
+
+8 , (4.18) 
+
+then ∥∥Kfε
+
+[wi
+
+> 1
+
+, w i
+
+> 5−7
+
+]∥ ∥Y3
+
+> ρ
+
+. 1 , for i ∈ { 1, 2} , (4.19) 
+
+and ∥∥Kfε
+
+[w11, w 15−7
+
+] − Kfε
+
+[w21, w 25−7
+
+]∥ ∥Y3
+
+> ρ
+
+. ∥∥w1 − w2∥∥Y7
+
+> ρ
+
+, (4.20) 
+
+with implicit constants that depend only on C1 given in (4.13 ) but not on ρ or ε.VORTEX-SHEET DESINGULARIZATION 17 
+
+By the next result, F fulfills the assumptions in Theorem 4.1 if the smallness assumptions in the two previous propositions hold. The proof of this result can be found in Section 6.
+
+Proposition 4.4. Assume that, for some 0 < ρ 6 ρ0, w1, w 2 ∈ Z ρ satisfy (4.13 )-(4.15 ) and (4.18 ).Then, it follows that 
+
+∥∥F (wi)∥∥Y7
+
+> ρ′
+
+. 1
+
+ρ − ρ′ , for i ∈ { 1, 2} ,
+
+and ∥∥F (w1) − F (w2)∥∥Y7
+
+> ρ′
+
+. 1
+
+ρ − ρ′
+
+∥∥w1 − w2∥∥Y7
+
+> ρ
+
+,
+
+uniformly in 0 6 ρ′ < ρ 6 ρ0. Furthermore, it holds that 
+
+∥∥Uε(wi)∥∥L∞(T2) . 1 , for i ∈ { 1, 2} . (4.21) 
+
+Here, F is as in (4.10 ), and the implicit constants depend on C1 given in (4.13 ) but not on ρ, ρ ′ or ε.
+
+4.1. Proof of Theorem 2.3 . We now have all the ingredients to prove Theorem 2.3 .Having Proposition 4.4 at hand, the proof of the existence part of Theorem 2.3 is straightforward. 
+
+Proof of Theorem 2.3 (i) and (ii). We set 
+
+v := w − w0 , (4.22) and consider the initial value problem 
+
+∂tv = F (v + w0) =: G(v) , v(0) = 0 . (4.23) Moreover, we observe that for all R 6 1, if v ∈ BRρ , then, with C0 as defined in Theorem 2.3 
+
+‖w‖Y7 
+
+> ρ
+
+= ‖v + w0‖Y7 
+
+> ρ
+
+< R + ‖w0‖Y7 
+
+> ρ
+
+< 4( C0 + 1) .
+
+Hence, we choose and fix C1 = 4( C0 + 1) in ( 4.13 ). Having this choice of C1 at hand, one can easily check that ( 4.14 ), ( 4.15 ) and ( 4.18 ) hold provided that v1, v 2 ∈ BRρ for some 
+
+R 6 1
+
+600 C41
+
+,
+
+and that, in ( 2.5 ), we choose 
+
+B 6 1
+
+600 C41
+
+.
+
+Since v(0) = 0, taking into account Proposition 4.4 , we infer that Theorem 4.1 can be applied to ( 4.23 ). Undoing the change of unknown in ( 4.22 ), we get the existence result for ( 4.9 ) we were looking for, with a lifespan depending only on C0 > 0, and not on ε. At this point, using Lemma 
+
+3.4 , we get the existence part of Theorem 2.3 , namely Theorem 2.3 (i). Concerning Theorem 2.3 (ii), it also follows from the construction. Indeed, it follows from ( 3.12 )and the fact that 
+
+‖γε, 1 − γε, −1‖L∞(T2 ) 6 ε
+
+∥∥∥∥
+
+ˆ 1
+
+> −1
+
+(1 + θε,μ ) d μ
+
+∥∥∥∥L∞(T2)
+
+. ε . 
+
+Note that in the last inequality we are using ( 4.15 ). 
+
+Finally, we prove the distributional convergence of the constructed solutions to the solution to the Birkhoff-Rott equation. 18 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+Proof of Theorem 2.3 (iii). Let δ > 0 be fixed but arbitrary. Combining Lemma A.2 with the Arzel` a-Ascoli theorem, we get that, up to a subsequence, there exists h ∈ X ρ′ such that 
+
+νε, 0 → h in L∞([0 , T − δ], Xρ′ ) , as ε → 0+ ,
+
+where 0 < ρ ′ < ρ 0 depends on δ. Arguing similarly, we get ̟ ∈ X 3 
+
+> ρ′
+
+such that, up to a subsequence, 
+
+ˆ 1
+
+> −1
+
+̟ ε,l dl →̟ in L∞([0 , T − δ], Xρ′ ) , as ε → 0+ .
+
+Note as well that, for all l ∈ [−1, 1] we have that, up to a subsequence, 
+
+νε,l → h in L∞([0 , T − δ], Xρ′ ) , as ε → 0+ .
+
+This immediately follows from the following chain of inequalities: 
+
+‖νε,l (·, t ) − νε, 0(·, t )‖Xρ′ 6 ε
+
+∥∥∥∥
+
+ˆ l
+
+> 0
+
+(1 + θε,μ (·, t )) d μ
+
+∥∥∥∥Xρ′
+
+. ε , for all t ∈ [0 , T − δ] .
+
+At this point, taking T > 0 slightly smaller, we get convergence up to a subsequence on the full interval and conclude that Theorem 2.3 (iii) (a) and (b) hold up to a subsequence, once we have shown that ̟ , h are indeed the solution to the Birkhoff-Rott equations. Setting γ0(s, t ) = ( s, h (s, t )), and 
+
+〈ω(·, t ), Φ〉 := 
+
+ˆ
+
+> T2
+
+̟ (s, t ) · Φ( γ0(s, t )) d s , 
+
+one can check (see ( 3.14 )) that ω(·, t ) is a weak-∗ limit of ωε(·, t ) in the space of bounded R3-valued Radon measures. Moreover, it is a weak solution to 3D Euler supported on γ0(·, t ). Indeed, this can be seen as follows: since ( ωε(·, t )) ε is bounded in L1(M), and the Biot-Savart operator maps 
+
+L1(M) compactly to L1
+
+> loc
+
+(M), we get that ( uε(·, t )) ε converges strongly in L1
+
+> loc
+
+(M). Moreover, uε(·, t )is uniformly bounded on supp ωε(·, t ) by ( 4.21 ). In M \ supp ωε(·, t ), we have that uε(·, t ) is div-and curl-free (therefore in particular harmonic), and decaying at ∞. Hence, it follows from the maximum principle that each component of uε(·, t ) attains its maximum modulus on supp ωε(·, t ). Then, we have that ( uε(·, t )) ε is bounded in L∞(M). At this point, by interpolation, we can pass to the limit in the weak formulation of 3D Euler and get that ω(·, t ) is a weak solution to 3D Euler supported on γ0(·, t ). By the uniqueness of vortex sheets in analytic spaces [ 25 ], we then conclude that ω = ωsing , and the result follows. Note that the convergences along the whole sequences, instead of subsequences, follow from the uniqueness of the limit. 
+
+5. Kernel estimates 
+
+This section is devoted to the proofs of the Propositions 4.2 and 4.3 . We split the proof into several parts, but first, we introduce some notation. For z = ( z1, z 2, z 3) ∈ C3, we denote its modulus by 
+
+|z| := √|z1|2 + |z2|2 + |z3|2 ∈ [0 , ∞) .
+
+Also, when Re {z21 + z22 + z23 } > 0 (as will be the case throughout the paper), we use the main branch of the square root on C\(−∞ , 0) to define 
+
+|z|C := 
+
+√
+
+z21 + z22 + z23 ∈ C , (5.1) and denote the corresponding quadratic form by 
+
+〈z, z ′〉C := z1z′ 
+
+> 1
+
++ z2z′ 
+
+> 2
+
++ z3z′ 
+
+> 3
+
+∈ C . (5.2) VORTEX-SHEET DESINGULARIZATION 19 
+
+Let us stress that ( 5.1 ) is not a norm. Moreover, a direct calculation shows that 
+
+|| z|C| 6 |z| . (5.3) For further reference, we also note that, whenever min {Re |z|C, Re |z′|C} > 0, we can estimate 
+
+|| z|C − | z′|C| =
+
+∣∣|z|2 
+
+> C
+
+− | z′|2
+
+> C
+
+∣∣
+
+|| z|C + |z′|C| = |〈 z − z′, z + z′〉C |
+
+|| z|C + |z′|C| . |z − z′| |z| + |z′|
+
+min(Re |z|C, Re |z′|C) , (5.4) and 
+
+|| z|3 
+
+> C
+
+− | z′|3
+
+> C
+
+| =
+
+∣∣〈z − z′, z + z′〉C(|z|2 
+
+> C
+
++ |z|C|z′|C + |z′|2
+
+> C
+
+)∣∣
+
+|| z|C + |z′|C| . |z − z′| |z|3 + |z′|3
+
+min(Re |z|C, Re |z′|C) . (5.5) Having this notation at hand, in the next subsection, we prove several technical lemmas which will be key to prove Propositions 4.2 and 4.3 .5.1. Preliminary lemmas. We first provide a technical result whose proof is direct calculus. 
+
+Lemma 5.1. 
+
+a) Let p, q, r, t ∈ C3 \ { 0} be such that min {Re |p|C, Re |q|C, Re |r|C, Re |t|C} > 0, then 
+
+∣∣∣∣
+
+p
+
+|p|3
+
+> C
+
+− q
+
+|q|3
+
+> C
+
+− r
+
+|r|3
+
+> C
+
++ t
+
+|t|3
+
+> C
+
+− p − q − r + t
+
+|p|3
+
+> C
+
+− 3p〈p, q − p + r − t〉C
+
+|p|5
+
+> C
+
+∣∣∣∣
+
+. max {| p|, |q|, |r|, |t|} 7
+
+min {Re |p|C, Re |q|C, Re |r|C, Re |t|C}11 
+
+(|p − q| + |r − t|)( |p − r| + |q − t|) .
+
+(5.6) 
+
+b) Also, let p′, q ′, r ′, t ′ ∈ C3 \ { 0} be such that min {Re |p′|C, Re |q′|C, Re |r′|C, Re |t′|C} > 0, then 
+
+∣∣∣∣∣( p
+
+|p|3
+
+> C
+
+− q
+
+|q|3
+
+> C
+
+− r
+
+|r|3
+
+> C
+
++ t
+
+|t|3
+
+> C
+
+− p − q − r + t
+
+|p|3
+
+> C
+
+− 3p〈p, q − p + r − t〉C
+
+|p|5
+
+> C
+
+)
+
+−
+
+( p′
+
+|p′|3
+
+> C
+
+− q′
+
+|q′|3
+
+> C
+
+− r′
+
+|r′|3
+
+> C
+
++ t′
+
+|t′|3
+
+> C
+
+− p′ − q′ − r′ + t′
+
+|p′|3
+
+> C
+
+− 3p′〈p′, q ′ − p′ + r′ − t′〉C
+
+|p′|5
+
+> C
+
+)∣∣∣∣∣
+
+. max {| p|, |q|, |r|, |t|, |p′ |, |q′|, |r′|, |t′|} 13 
+
+min {Re |p|C, Re |q|C, Re |r|C, Re |t|C, Re |p′|C, Re |q′|C, Re |r′|C, Re |t′|C}17 
+
+·
+
+((|p − p′ − q + q′| + |r − r′ − t + t′|)( |p − r| + |q − t|)
+
++ (|p − q| + |r − t|)( |p − p′ − r + r′| + |q − q′ − t + t′|))
+
++ max {| p|, |q|, |r|, |t|, |p′ |, |q′|, |r′|, |t′|} 12 
+
+min {Re |p|C, Re |q|C, Re |r|C, Re |t|C, Re |p′|C, Re |q′|C, Re |r′|C, Re |t′|C}17 
+
+· (|p − p′| + |q − q′| + |r − r′| + |t − t′|)( |p − q| + |r − t|)( |p − r| + |q − t|) .
+
+(5.7) 
+
+Proof. a) First of all, note that 
+
+p
+
+|p|3
+
+> C
+
+− q
+
+|q|3
+
+> C
+
+− r
+
+|r|3
+
+> C
+
++ t
+
+|t|3
+
+> C
+
+= p − q
+
+|p|3
+
+> C
+
+− r − t
+
+|r|3
+
+> C
+
++ q |q|3 
+
+> C
+
+− | p|3
+
+> C
+
+|p|3
+
+> C
+
+|q|3
+
+> C
+
+− t |t|3 
+
+> C
+
+− | r|3
+
+> C
+
+|r|3
+
+> C
+
+|t|3
+
+> C
+
+= p − q − r + t
+
+|p|3
+
+> C
+
+− (r − t) |p|3 
+
+> C
+
+− | r|3
+
+> C
+
+|p|3
+
+> C
+
+|r|3
+
+> C
+
++ q |q|3 
+
+> C
+
+− | p|3
+
+> C
+
+|p|3
+
+> C
+
+|q|3
+
+> C
+
+− t |t|3 
+
+> C
+
+− | r|3
+
+> C
+
+|t|3
+
+> C
+
+|r|3
+
+> C
+
+.
+
+(5.8) Using ( 5.5 ), the second term on the right-hand side can be estimated by the right-hand side in ( 5.6 ). 20 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+Likewise, we can further rewrite the last term as 
+
+t |t|3 
+
+> C
+
+− | r|3
+
+> C
+
+|t|3
+
+> C
+
+|r|3
+
+> C
+
+= q |t|3 
+
+> C
+
+− | r|3
+
+> C
+
+|p|3
+
+> C
+
+|q|3
+
+> C
+
++ ( t − q) |t|3 
+
+> C
+
+− | r|3
+
+> C
+
+|t|3
+
+> C
+
+|r|3
+
+> C
+
++ q(|t|3 
+
+> C
+
+− | r|3
+
+> C
+
+)
+
+( 1
+
+|r|3
+
+> C
+
+|t|3
+
+> C
+
+− 1
+
+|p|3
+
+> C
+
+|q|3
+
+> C
+
+)
+
+,
+
+and stress that, again using ( 5.5 ), the last two terms on the right-hand side can be estimated by the right-hand side in ( 5.6 ). Next, observe that 
+
+q |q|3 
+
+> C
+
+− | p|3
+
+> C
+
+|p|3
+
+> C
+
+|q|3
+
+> C
+
+− q |t|3 
+
+> C
+
+− | r|3
+
+> C
+
+|p|3
+
+> C
+
+|q|3
+
+> C
+
+= −q |p|3 
+
+> C
+
+− | q|3 
+
+> C
+
+− | r|3 
+
+> C
+
++ |t|3
+
+> C
+
+|p|3
+
+> C
+
+|q|3
+
+> C
+
+= −p |p|3 
+
+> C
+
+− | q|3 
+
+> C
+
+− | r|3 
+
+> C
+
++ |t|3
+
+> C
+
+|p|6
+
+> C
+
++ ( p − q) |p|3 
+
+> C
+
+− | q|3 
+
+> C
+
+− | r|3 
+
+> C
+
++ |t|3
+
+> C
+
+|p|3
+
+> C
+
+|q|3
+
+> C
+
+− p |p|3 
+
+> C
+
+− | q|3 
+
+> C
+
+− | r|3 
+
+> C
+
++ |t|3
+
+> C
+
+|p|3
+
+> C
+
+( 1
+
+|q|3
+
+> C
+
+− 1
+
+|p|3
+
+> C
+
+)
+
+.
+
+Arguing exactly as we did before, we can estimate the last two terms by the right-hand side in ( 5.6 ). We then focus on the first term on the right-hand side. We rewrite the numerator as 
+
+|p|3 
+
+> C
+
+− | q|3 
+
+> C
+
+− | r|3 
+
+> C
+
++ |t|3 
+
+> C
+
+= 〈p − q, p + q〉C(|p|2 
+
+> C
+
++ |p|C|q|C + |q|2
+
+> C
+
+)
+
+|p|C + |q|C
+
+− 〈r − t, r + t〉C(|r|2 
+
+> C
+
++ |r|C|t|C + |t|2
+
+> C
+
+)
+
+|r|C + |t|C
+
+= 〈p − q − r + t, p + q〉C(|p|2 
+
+> C
+
++ |p|C|q|C + |q|2
+
+> C
+
+)
+
+|p|C + |q|C
+
+− 〈r − t, r + t〉C
+
+((|r|2 
+
+> C
+
++ |r|C|t|C + |t|2
+
+> C
+
+) − (|p|2 
+
+> C
+
++ |p|C|q|C + |q|2
+
+> C
+
+))
+
+|r|C + |t|C
+
+− 〈 r − t, r + t〉C(|p|2 
+
+> C
+
++ |p|C|q|C + |q|2
+
+> C
+
+)
+
+( 1
+
+|r|C + |t|C
+
+− 1
+
+|p|C + |q|C
+
+)
+
+− 〈r − t, r + t − p − q〉C(|p|2 
+
+> C
+
++ |p|C|q|C + |q|2
+
+> C
+
+)
+
+|p|C + |q|C
+
+.
+
+(5.9) The resulting terms from all summands here except the first can be estimated against the right-hand side in ( 5.6 ) using ( 5.4 ). Finally, concerning the first one, observe that 
+
+〈p − q − r + t, p + q〉C(|p|2 
+
+> C
+
++ |p|C|q|C + |q|2
+
+> C
+
+)
+
+|p|C + |q|C
+
+= 2 |p|C〈p − q − r + t, p 〉C + 2|q|2
+
+> C
+
+〈p − q − r + t, p 〉C
+
+|p|C + |q|C
+
++ 〈p − q − r + t, q − p〉C(|p|2 
+
+> C
+
++ |p|C|q|C + |q|2
+
+> C
+
+)
+
+|p|C + |q|C
+
+= 3 |p|C〈p − q − r + t, p 〉C + 〈p − q − r + t, p 〉C(|q|2 
+
+> C
+
+− | p|2
+
+> C
+
+)
+
+|p|C + |q|C
+
++ 〈p − q − r + t, p 〉C|q|C(|q|C − | p|C)
+
+|p|C + |q|C
+
++ 〈p − q − r + t, q − p〉C(|p|2 
+
+> C
+
++ |p|C|q|C + |q|2
+
+> C
+
+)
+
+|p|C + |q|C
+
+.
+
+The corresponding terms from the last three summands can be estimated by the right-hand side in (5.6 ) using again ( 5.4 ). At this point, a) follows by combining all these estimates. VORTEX-SHEET DESINGULARIZATION 21 
+
+b) This can be shown by splitting the double differences as earlier and showing that all the error terms contain a difference between the original variables and the variables with a ′. For instance, the difference of the error terms in ( 5.8 ) can be split as (r − t) |p|3 
+
+> C
+
+− | r|3
+
+> C
+
+|p|3
+
+> C
+
+|r|3
+
+> C
+
+− (r′ − t′) |p′|3 
+
+> C
+
+− | r′|3
+
+> C
+
+|p′|3
+
+> C
+
+|r′|3
+
+> C
+
+= ( r − r′ − t + t′) |p|3 
+
+> C
+
+− | r|3
+
+> C
+
+|p|3
+
+> C
+
+|r|3
+
+> C
+
++ ( r′ − t′) |p|3 
+
+> C
+
+− | r|3 
+
+> C
+
+− | p′|3 
+
+> C
+
++ |r′|3
+
+> C
+
+|p|3
+
+> C
+
+|r|3
+
+> C
+
++ ( r′ − t′) |p′|3 
+
+> C
+
+− | r′|3
+
+> C
+
+(|p|3 
+
+> C
+
+− | p′|3
+
+> C
+
+)|r|3 
+
+> C
+
++ |p′|3
+
+> C
+
+(|r|3 
+
+> C
+
+− | r′|3
+
+> C
+
+)
+
+|p|3
+
+> C
+
+|r|3
+
+> C
+
+|p′|3
+
+> C
+
+|q′|3
+
+> C
+
+.
+
+The first and the last term can easily be estimated against the right-hand side of ( 5.7 ) by using ( 5.3 )and ( 5.5 ). The numerator of the middle term can be rewritten in the same manner as in ( 5.9 ), which yields the desired estimate. We omit the details for the remaining terms. 
+
+Next, using classical Fourier multiplier theorems, we estimate some singular integrals in C 1 
+
+> 2
+
+(T2, C). We deal with a general Calder´ on-Zygmund kernel depending on a complex matrix M and a complex parameter b. Note that φ in the statement is the cutoff function defined in ( 4.4 ). 
+
+Lemma 5.2. Let 
+
+M := 
+
+ 1 00 1
+
+a1 a2
+
+ ∈ C3×2 ,
+
+with a1, a 2 ∈ C, and b ∈ C. Assume that, for some real number A0 > 1,
+
+| Im a1| + | Im a2| 6 1
+
+100 , 0 6 | Im b| 6 1
+
+100 A0
+
+| Re b| , and |a1| + |a2| 6 A0 , (5.10) 
+
+and consider convolution kernels f : T2 → C defined for x ∈ [− 1 
+
+> 2
+
+, 1 
+
+> 2
+
+]2 by 
+
+f (x) := xm1 
+
+> 1
+
+xm2 
+
+> 2
+
+δr
+
+|M x + δbe 3|r+m1+m2+2 
+
+> C
+
+φ(x) 1c6|x|6 1
+
+> 2
+
+,
+
+with δ ∈ (0 , 1) , c ∈ [0 , 1/2] , and r, m 1, m 2 ∈ N ∪ { 0}. Also, assume that r 6 = 0 or that m1 + m2 is odd. Then, it follows that 
+
+‖f ∗ g‖C 1   
+
+> 2(T2)
+
+. |b|−r ‖g‖C 1  
+
+> 2(T2)
+
+, for all g ∈ C 1 
+
+> 2
+
+(T2) . (5.11) 
+
+Moreover, for k1, k 2, k 3 ∈ N ∪ { 0}, the derivatives of f with respect to the parameters a1, a 2 and b
+
+satisfy that ∥∥∥(D k1 
+
+> a1
+
+Dk2 
+
+> a2
+
+Dk3 
+
+> b
+
+f ) ∗ g
+
+∥∥∥C 1  
+
+> 2(T2)
+
+. |b|−r−k3 ‖g‖C 1  
+
+> 2(T2)
+
+, for all g ∈ C 1 
+
+> 2
+
+(T2) . (5.12) 
+
+The implicit constants here depend only on k1, k 2, r, m 1, m 2 and A0, but not on δ.Proof. We start by proving a basic lower bound on the denominator. First, note that Re |M x + δbe 3|2 
+
+> C
+
+= x21 + x22 + ( δ Re b + Re a1x1 + Re a2x2)2 − (δ Im b + Im a1x1 + Im a2x2)2
+
+> |x|2 + ( δ Re b + Re a1x1 + Re a2x2)2 − 3( δ2| Im b|2 + | Im a1|2x21 + | Im a2|2x22) .
+
+Also, combining Cauchy’s product inequality with the last assumption in ( 5.10 ), we see that 
+
+|x|2 + ( δ Re b + Re a1x1 + Re a2x2)2 > |x|2
+
+2 + 1
+
+1 + 2 A20
+
+δ2(Re b)2 .22 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+By the first two assumptions in ( 5.10 ), we then get that Re |M x + δbe 3|2 
+
+> C
+
+> |x|2
+
+4 + 1
+
+4A20
+
+δ2(Re b)2 > 1
+
+4A20
+
+(|x|2 + δ2(Re b)2) . (5.13) This implies in particular that 
+
+|| M x + δbe 3|C| & |x| + δ|b| .
+
+We now deal separately with the cases r > 0 and r = 0, the first being simpler. 
+
+Case 1: r > 0. Note that ( 5.13 ) implies 
+
+|f (x)| . δr |x|m1 +m2
+
+|x|r+m1+m2+2 + ( δ|b|)r+m1 +m2+2 , for all x ∈ [− 1 
+
+> 2
+
+, 1 
+
+> 2
+
+]2 and all r > 0 . (5.14) Hence, since we are dealing with the case where r > 0, we get, using polar coordinates to estimate the integral, that 
+
+ˆ 
+
+> B1
+> 2
+> (0)
+
+|f (x)| dx . δr
+
+ˆ 
+
+> B1
+> 2
+> (0)
+
+|x|m1+m2
+
+|x|r+m1+m2+2 + ( δ|b|)r+m1 +m2+2 dx
+
+. 1
+
+δ|b|r+1 
+
+ˆ 1
+
+> 2
+> 0
+
+( s
+
+> δ|b|
+
+)m1+m2+1 
+
+1 + ( s
+
+> δ|b|
+
+)r+m1+m2+2 ds 6 1
+
+|b|r
+
+ˆ ∞
+
+> 0
+
+ρm1+m2+1 
+
+1 + ρr+m1+m2+2 dρ . |b|−r .
+
+In particular, the convolution f ∗ g is always well-defined for g ∈ L∞(T2, C). Moreover, by Young’s convolution inequality, it follows that 
+
+‖g ∗ f ‖L∞(T2 ) . |b|−r ‖g‖L∞(T2 ) ,
+
+‖g ∗ f (·) − g ∗ f (· + y)‖L∞(T2) . |b|−r ‖g(·) − g(· + y)‖L∞(T2) . |b|−r|y| 1 
+
+> 2
+
+‖g‖C 1   
+
+> 2(T2)
+
+,
+
+which shows ( 5.11 ) in the case where r > 0. 
+
+Case 2: r = 0 . In this case, the convolution needs to be estimated as a singular integral. Using that singular integrals are bounded on H¨ older spaces (see for instance [ 13 , Corollary 6.7.2 and Remark 6.5.2] and [ 12 , Theorem 4.4.1]), it suffices to show that sup  
+
+> 0<R 61
+> 2
+
+1
+
+R
+
+ˆ
+
+> BR(0)
+
+|f (x)|| x| dx . 1 , (5.15) sup  
+
+> y6=0
+
+ˆ
+
+> |x|>2|y|
+
+|f (x − y) − f (x)| dx . 1 , (5.16) sup  
+
+> 0<R 1<R 261
+> 2
+
+∣∣∣∣∣
+
+ˆ
+
+> R16|x|6R2
+
+f (x) d x
+
+∣∣∣∣∣ . 1 . (5.17) Arguing as in the case where r > 0, ( 5.15 ) immediately follows from ( 5.14 ). Hence, we focus on (5.16 ) and ( 5.17 ). We first deal with ( 5.16 ). Here, we consider separately the cases |y| > c and |y| 6 c. Note that in the first case ˆ
+
+> |x|>2|y|
+
+|f (x − y) − f (x)| dx =
+
+ˆ
+
+> |x|>2|y|
+
+∣∣∣∣
+
+ˆ 0
+
+> −1
+
+∇f (x + τ y ) · y dτ
+
+∣∣∣∣ dx . 
+
+Thus, using that 
+
+|x + τ y | > |x| − | y| > |y| , for all x, y ∈ B 1
+
+> 2
+
+(0) with |x| > 2|y| ,VORTEX-SHEET DESINGULARIZATION 23 
+
+we get that ˆ
+
+> |x|>2|y|
+
+|f (x − y) − f (x)| dx 6
+
+ˆ
+
+> |ξ|>|y|
+
+|y||∇ f (ξ)| dξ . 
+
+Also, combining ( 5.10 ) and ( 5.13 ), we get that 
+
+|∇ f (ξ)| . |ξ|m1+m2−1
+
+|ξ|m1 +m2+2 + ( δ|b|)m1 +m2+2 + |ξ|m1 +m2
+
+|ξ|m1+m2+2 + ( δ|b|)m1 +m2+2 + |ξ|m1+m2
+
+|ξ|m1+m2+3 + ( δ|b|)m1 +m2+3 ,
+
+and so that ˆ
+
+> |x|>2|y|
+
+|f (x − y) − f (x)| dx . |y|
+
+ˆ  
+
+> B1
+> 2
+> (0) \B|y|(0)
+
+1
+
+|ξ|3 dξ . 1 .
+
+This immediately gives ( 5.16 ) in the case where |y| > c.In the case where |y| 6 c, we need to analyze separately the cases where |x| > 2c and |x| 6 2c.Note that here we are implicitly assuming that c > 0. If |x| 6 2c, then |x − y| 6 3c and hence, using (5.14 ), we can estimate 
+
+ˆ
+
+> 2c>|x|>2|y|
+
+|f (x − y) − f (x)| dx 6 2
+
+ˆ
+
+> |x|∈ [c, 3c]
+
+|f (x)| dx .
+
+ˆ  
+
+> B3c(0) \Bc(0)
+
+1
+
+|x|2 dx . log(3 c) − log( c) . 1 ,
+
+showing ( 5.16 ). On the other hand, if |x| > 2c, we have that 
+
+|x + τ y | > |x| − | y| > c , 
+
+and we can argue exactly as we did when |y| > c and again obtain ( 5.16 ). We finally deal with ( 5.17 ). Let 0 < R 1 < R 2 6 1/2. We consider three different cases separately. 
+
+Case 2.1: R2 6 10 δ|b|. In this case, using once again ( 5.14 ), we immediately get that 
+
+∣∣∣∣∣
+
+ˆ
+
+> R16|x|6R2
+
+f (x) d x
+
+∣∣∣∣∣ 6
+
+ˆ 
+
+> B10 δ|b|(0)
+
+|f (x)|dx .
+
+ˆ 10 0
+
+ρm1+m2+1 
+
+1 + ρm1+m2+2 dρ . 1 .
+
+Case 2.2: R1 > 10 δ|b|. Since m1 + m2 is odd, it follows that 
+
+∣∣∣∣∣
+
+ˆ
+
+> R16|x|6R2
+
+f (x) d x
+
+∣∣∣∣∣ = 1
+
+2
+
+∣∣∣∣∣
+
+ˆ  
+
+> BR2(0) \BR1(0)
+
+(f (x) + f (−x)) d x
+
+∣∣∣∣∣
+
+6
+
+ˆ
+
+> R16|x|6R2
+
+|x1|m1 |x2|m2
+
+∣∣∣∣∣
+
+1
+
+|M x + δbe 3|m1+m2+2 
+
+> C
+
+− 1
+
+| − M x + δbe 3|m1 +m2+2 
+
+> C
+
+∣∣∣∣∣ dx . 
+
+Moreover, using ( 5.10 ), ( 5.13 ), and the polarization identity 
+
+|| M x + δbe 3|2 
+
+> C
+
+− | − M x + δbe 3|2
+
+> C
+
+| = 4 |〈 M x, δbe 3〉C| ,
+
+we get that 
+
+∣∣∣∣∣
+
+1
+
+|M x + δbe 3|m1 +m2+2 
+
+> C
+
+− 1
+
+| − M x + δbe 3|m1+m2+2 
+
+> C
+
+∣∣∣∣∣ . |〈 M x, δbe 3〉C|
+
+|x|m1+m2+4 + ( δ|b|)m1 +m2+4 
+
+. |x|δ|b|
+
+|x|m1 +m2+4 + ( δ|b|)m1 +m2+4 , for |x| ∈ [R1, R 2] .
+
+Thus, we infer that ∣∣∣∣∣
+
+ˆ
+
+> R16|x|6R2
+
+f (x) d x
+
+∣∣∣∣∣ . 1
+
+δ|b|
+
+ˆ 1
+
+> 2
+> 10 δ|b|
+
+( s
+
+> δ|b|
+
+)m1+m2+2 
+
+1 + ( s
+
+> δ|b|
+
+)m1+m2+4 ds . 1 .24 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+Case 2.3: R1 < 10 δ|b| < R 2. Note that, in this case 
+
+∣∣∣∣∣
+
+ˆ
+
+> R16|x|6R2
+
+f (x) d x
+
+∣∣∣∣∣ 6
+
+∣∣∣∣∣
+
+ˆ
+
+> R16|x|610 δ|b|
+
+f (x) d x
+
+∣∣∣∣∣ +
+
+∣∣∣∣∣
+
+ˆ
+
+> 10 δ|b|6|x|6R2
+
+f (x) d x
+
+∣∣∣∣∣ .
+
+Hence, combining the previous cases, we get that 
+
+∣∣∣∣∣
+
+ˆ
+
+> R16|x|6R2
+
+f (x) d x
+
+∣∣∣∣∣ . 1 .
+
+We have now proved ( 5.15 )–( 5.17 ). Hence, by [ 13 , Corollary 6.7.2 and Remark 6.5.2] and [ 12 ,Theorem 4.4.1], we conclude that ( 5.11 ) holds. Concerning ( 5.12 ), we simply note that the derivatives of f with respect to a1, a2, and b are a linear combination of terms with the same structure as f , the only difference being that each derivative with respect to b introduces a factor δ. Each additional δ can be absorbed in the estimates by picking an additional factor |b|, with the same argument as above. This is the content of the estimate ( 5.12 ). 
+
+5.2. Proof of ( 4.16 ). Having Lemmas 5.1 and 5.2 at hand, we can now prove the first conclusion in Proposition 4.2 , namely ( 4.16 ). We start by introducing some more notation. Throughout this whole section, let |β| 6 ρ. First of all, we set 
+
+dεl,ℓ (s + iβ, ς + iβ ) = s + iβ − (ς + iβ ) + w1[ℓ, s + iβ ]e3 − w1[ℓ, ς + iβ ]e3
+
+− ε
+
+(ˆ ℓl
+
+w4[μ, s + iβ ] d μ
+
+)
+
+e3 =̥ (s + iβ ) −̥ (ς + iβ ) + εζ (s + iβ ) ,
+
+with ̥
+
+(a + ib ) := a + ib + w1[ℓ, a + ib ] e3 , (5.18) and 
+
+ζ(a + ib ) := −
+
+( ˆ ℓl
+
+w4[μ, a + ib ] d μ
+
+)
+
+e3 . (5.19) Then, we have that 
+
+Kcε
+
+[
+
+w1[ℓ, ·],
+
+ˆ ℓl
+
+w4[μ, ·] d μ, w 5−7[ℓ, ·]
+
+]
+
+(s + iβ )= 1
+
+4π
+
+ˆ
+
+> T2
+
+w5−7[ℓ, ς + iβ ] × dεl,ℓ (s + iβ, ς + iβ )
+
+∣∣dεl,ℓ (s + iβ, ς + iβ )∣∣3
+
+> C
+
+φ(s − ς) d ς , 
+
+(5.20) where φ is the periodic extension to T2 of the cutoff function introduced in ( 4.4 ). Before going further, let us point out that both ̥ and ζ depend on w, l and ℓ, but we do not reflect this in the notation. Moreover, taking into account the notation introduced in Section 4, one should notice that ̥ |T2 = γε,ℓ .Let us also stress that through the rest of this section, we consider 0 6 ρ < ρ 0 and w ∈ Y 7
+
+> ρ
+
+satisfying the following: 
+
+∂sj w1[l, ·] = w1+ j [l, ·] , for all |l| 6 1 and j ∈ { 1, 2} , (5.21) 
+
+w1[l, ·] − w1[ℓ, ·] = ε
+
+ˆ lℓ
+
+w4[μ, ·] d μ , for all l, ℓ ∈ [−1, 1] . (5.22) VORTEX-SHEET DESINGULARIZATION 25 
+
+Moreover, we assume in all the proofs that l 6 = ℓ (which is not restrictive as {l − ℓ} is a zero set). At this point, taking into account ( 5.21 ) and ( 5.22 ), one can easily check that sup 
+
+> |β|6ρ
+
+{
+
+‖̥ (· + iβ )‖C 3  
+
+> 2(T2)
+
++ 1
+
+|l − ℓ| ‖ζ(· + iβ )‖C 1  
+
+> 2(T2)
+
++ ε ‖ζ(· + iβ )‖C 3 
+
+> 2(T2)
+
+}
+
+. 1 + 
+
+> 4
+
+∑
+
+> j=1
+
+sup 
+
+> |l|61
+
+‖wj [l, ·]‖ρ .
+
+(5.23) Finally, we set ˜d(v, s + iβ ) := D s̥ (s + iβ ) · v + εζ (s + iβ ) ,
+
+and split the kernel in ( 5.20 ) as 
+
+dεl,ℓ (s + iβ, ς + iβ )
+
+∣∣dεl,ℓ (s + iβ, ς + iβ )∣∣3
+
+> C
+
+φ(s − ς) = J1(s − ς, s + iβ ) + J2(s + iβ, ς + iβ ) , (5.24) with 
+
+J1(s − ς, s + iβ ) := ˜d(s − ς, s + iβ )
+
+∣∣ ˜d(s − ς, s + iβ )∣∣3
+
+> C
+
+φ(s − ς) ,J2(s + iβ, ς + iβ ) := 
+
+( dεl,ℓ (s + iβ, ς + iβ )
+
+∣∣dεl,ℓ (s + iβ, ς + iβ )∣∣3
+
+> C
+
+− ˜d(s − ς, s + iβ )
+
+∣∣ ˜d(s − ς, s + iβ )∣∣3
+
+> C
+
+)
+
+φ(s − ς) .
+
+Having ( 5.24 ) at hand, we analyze the part corresponding to each kernel Jj separately. Before doing so, we prove some elementary estimates that we will need. 
+
+Lemma 5.3. Let 
+
+(a1, a 2) = a(s + iβ ) := ∇sw1[ℓ, s + iβ ] ∈ C2 and be 3 = b(s + iβ )e3 := |l − ℓ|−1ζ(s + iβ ) ∈ C3.
+
+If (4.14 ) and (4.15 ) hold, then a1, a 2 and b fulfill (5.10 ) with A0 = C1 given in (4.13 ), and it holds that |b| ≈ 1 uniformly in the other parameters. 
+
+Remark 5.4. Here and in the rest of this subsection, by abuse of notation, we say that w ∈ Y 7
+
+> ρ
+
+satisfies ( 4.14 ) and ( 4.15 ) if they both hold with w = w1 = w2 ∈ Y 7 
+
+> ρ
+
+.
+
+Proof. First of all, note that 
+
+|a1| + |a2| = |w2[ℓ, s + iβ ]| + |w3[ℓ, s + iβ ]| 6 C1 .
+
+Similarly, using ( 4.14 ) and the fact that C1 > 1, it is immediate to check that 
+
+| Im a1| + | Im a2| 6 ‖w‖ZIm  
+
+> ρ
+
+6 1
+
+300 C1
+
+6 1
+
+300 .
+
+Next, observe that 
+
+| Re b| >
+
+(
+
+1 − sup 
+
+> |l|61
+
+sup 
+
+> |β|6ρ
+
+‖Re w4[l, · + iβ ] − 1‖L∞(T2 )
+
+)
+
+, (5.25) and that 
+
+| Im b| 6 sup 
+
+> |β|6ρ
+
+‖Im w4[l, · + iβ ]‖L∞(T2) .
+
+Combining these inequalities, it is straightforward to check that, if the following inequality holds for all l ∈ [−1, 1], 100 A0 sup 
+
+> |β|6ρ
+
+‖Im w4[l, · + iβ ]‖L∞(T2) + sup 
+
+> |β|6ρ
+
+‖Re w4[l, · + iβ ] − 1‖L∞(T2 ) 6 1 , (5.26) 26 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+then 0 6 | Im b| 6 1
+
+100 A0
+
+| Re b| . (5.27) Taking into account that ( 5.26 ) with A0 = C1 is an immediate consequence of ( 4.14 ), the previous inequalities hold. Finally, note that the bounds on b follow from ( 4.14 ), ( 5.25 ) and ( 5.27 ). 
+
+Lemma 5.5. Let C1 be as in Proposition 4.2 . If w ∈ Y 7 
+
+> ρ
+
+satisfies (4.14 ), (4.15 ), (5.21 ) and (5.22 ),it follows that 
+
+a) |dεl,ℓ (s + iβ, ς + iβ )| + | ˜d(s − ς, s + iβ )| . |s − ς| + ε|l − ℓ| , (5.28) b) |dεl,ℓ (s + iβ, ς + iβ ) − ˜d(s − ς, s + iβ )| . |s − ς| 3 
+
+> 2
+
+, (5.29) c) min 
+
+{
+
+Re |dεl,ℓ (s + iβ, ς + iβ )|2 
+
+> C
+
+, Re | ˜d(s − ς, s + iβ )|2
+
+> C
+
+}
+
+& |s − ς|2 + ε2|l − ℓ|2 , (5.30) 
+
+with implicit constants that depend only on C1 but not on ρ or ε.Proof. First, let us recall that 
+
+dεl,ℓ (s + iβ, ς + iβ ) = ̥ (s + iβ ) −̥ (ς + iβ ) + εζ (s + iβ ) ,
+
+and that ˜d(s − ς, s + iβ ) = D s̥ (s + iβ )( s − ς) + εζ (s + iβ ) .
+
+We prove each estimate separately. Since the upper bounds in a) are a straightforward consequence of ( 5.23 ), we focus on b) and c). Using again ( 5.23 ), and the mean value theorem, we get that 
+
+|dεl,ℓ (s + iβ, ς + iβ ) − ˜d(s − ς, s + iβ )|
+
+= |̥ (s + iβ ) −̥ (ς + iβ ) − Ds̥ (s + iβ )( s − ς)| . |s − ς| 3 
+
+> 2
+
+‖̥ (· + iβ )‖C 3  
+
+> 2(T2)
+
+. |s − ς| 3 
+
+> 2
+
+.
+
+Finally, we prove the lower bounds in c). For M and b as in Lemma 5.3 , it follows that 
+
+| ˜d(s − ς, ς + iβ )|2 
+
+> C
+
+= |M (s − ς) + ε|l − ℓ|be 3|2 
+
+> C
+
+.
+
+On the one hand, using ( 5.13 ), we get that Re | ˜d(s − ς, ς + iβ )|2 
+
+> C
+
+& |s − ς|2 + ε2|l − ℓ|2 .
+
+On the other hand, arguing as in ( 5.13 ), we infer that Re |dεl,ℓ (s + iβ, ς )|2 
+
+> C
+
+= |s − ς|2 + Re ((εζ (s + iβ ) + w1[ℓ, s + iβ ] − w1[ℓ, ς + iβ ]) 2)
+
+> |s − ς|2 + ( ε Re ζ(s + iβ ) + Re w1[ℓ, s + iβ ] − Re w1[ℓ, ς + iβ ]) 2
+
+− 3 (ε2| Im ζ(s + iβ )|2 + | Im w1[ℓ, s + iβ ] − Im w1[ℓ, ς + iβ ]|2)
+
+& |s − ς|2(1 − 2 ‖Im ∇w1[ℓ, · + iβ ]‖2
+
+> L∞(T2)
+
+) + ε2(| Re ζ(s + iβ )|2 − 2| Im ζ(s + iβ )|) .
+
+At this point, using Lemma 5.3 , the result immediately follows from ( 5.10 ). 
+
+Having this lemma at hand, and before going any further, let us point out that the fact that Kcε
+
+is holomorphic for l 6 = ℓ is a straightforward consequence of the lower bound in c). More precisely, we have the following: 
+
+Lemma 5.6. Let C1 be as in Proposition 4.2 . If w ∈ Y 7 
+
+> ρ
+
+satisfies (4.14 ), (4.15 ), (5.21 ) and (5.22 ),then for all ε ∈ (0 , 1) and l 6 = ℓ, it holds that 
+
+Kcε
+
+[
+
+w1[ℓ, ·],
+
+ˆ ℓl
+
+w4[μ, ·] d μ, w 5−7[ℓ, ·]
+
+]
+
+∈ X 3 
+
+> ρ
+
+.VORTEX-SHEET DESINGULARIZATION 27 
+
+Proof. First of all, let us recall that 
+
+Kcε
+
+[
+
+w1[ℓ, ·],
+
+ˆ ℓl
+
+w4[μ, ·] d μ, w 5−7[ℓ, ·]
+
+]
+
+= 1
+
+4π
+
+ˆ
+
+> T2
+
+w5−7[ℓ, s + iβ + ς] × φ(s − ς)̥ (s + iβ ) −̥ (s + iβ + ς) + εζ (s + iβ )
+
+|̥ (s + iβ ) −̥ (s + iβ + ς) + εζ (s + iβ )|3
+
+> C
+
+dς
+
+Moreover, by Lemma 5.5 c) we know that Re |̥ (s + iβ ) −̥ (s + iβ + ς) + εζ (s + iβ )|2 
+
+> C
+
+& ς2 + ε2|l − ℓ|2 ,
+
+which implies that the denominator is always nonzero when l 6 = ℓ, and implies the result, since the integrand is in X 3 
+
+> ρ
+
+. 
+
+We can now deal with the part corresponding to J1. We treat it as a convolution operator on T2
+
+with an extra dependence on s + iβ ∈ T2
+
+> ρ
+
+.
+
+Lemma 5.7. Let C1 be as in Proposition 4.2 . If w ∈ Y 7 
+
+> ρ
+
+satisfies (4.14 ), (4.15 ), (5.21 ) and (5.22 ),then 
+
+sup 
+
+> l,ℓ ∈[−1,1]
+
+{
+
+sup 
+
+> |β|6ρ
+
+∥∥∥∥
+
+ˆ
+
+> T2
+
+J1(· − ς, · + iβ ) × w5−7[ℓ, ς + iβ ] d ς
+
+∥∥∥∥C 1 
+
+> 2(T2)
+
+}
+
+. 1 ,
+
+with an implicit constant that depends only on C1, but not on ρ or ε.Proof. For a1, a 2 and b as in Lemma 5.3 , and the corresponding M as in Lemma 5.2 observe that 
+
+J1(x, s + iβ ) = M x 
+
+|M x + ε|l − ℓ|be 3|3
+
+> C
+
++ ε|l − ℓ|be 3
+
+|M x + ε|l − ℓ|be 3|3
+
+> C
+
+.
+
+We further split the numerator of the first summand into the contributions of x1 and x2 to see with Lemmas 5.2 , 5.3 and δ = ε|l − ℓ| that 
+
+∥∥∥∥
+
+ˆ
+
+> T2
+
+J1(· − ς, · + iβ ) × w5−7[ℓ, ς + iβ ] d ς
+
+∥∥∥∥L∞(T2 )
+
+. ‖w5−7[ℓ, · + iβ ]‖C 1  
+
+> 2(T2)
+
+, for β ∈ Bρ(0) . (5.31) Now, observe that for all s1, s 2 ∈ T2 we have 
+
+∣∣∣∣
+
+ˆ
+
+> T2
+
+(J1(s1 − ς, s 1 + iβ ) × w5−7[ℓ, ς + iβ ] − J1(s2 − ς, s 2 + iβ ) × w5−7[ℓ, ς + iβ ]) dς
+
+∣∣∣∣
+
+6
+
+∣∣∣∣
+
+ˆ
+
+> T2
+
+J1(s1 − ς, s 1 + iβ ) × w5−7[ℓ, ς + iβ ] d ς −
+
+ˆ
+
+> T2
+
+J1(s2 − ς, s 1 + iβ ) × w5−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣
+
++
+
+∣∣∣∣
+
+ˆ
+
+> T2
+
+(J1(s2 − ς, s 1 + iβ ) − J1(s2 − ς, s 2 + iβ )) × w5−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣ =: I 1 + I 2 .
+
+Arguing as in the proof of ( 5.31 ), using again Lemma 5.2 , we get that I1 . |s1 − s2| 1 
+
+> 2
+
+‖w5−7[ℓ, · + iβ ]‖C 1   
+
+> 2(T2)
+
+, for β ∈ Bρ(0) . (5.32) Next, we deal with I 2. For s1, s 2 ∈ T2 and a and b as in Lemma 5.3 , we use the notation 
+
+ajk := ak(sj + iβ ) and bj := b(sj + iβ ) with j, k ∈ { 1, 2}, and observe that by ( 5.12 ), the convolution with J1 is Lipschitz in these coefficients (with respect to the L(C 1 
+
+> 2
+
+, C 1 
+
+> 2
+
+)-topology). Hence, by Lemma 
+
+5.2 , it follows that I2 .
+
+(
+
+|a11 − a21| + |a12 − a22| + max 
+
+> t∈[0 ,1]
+
+|b1 − b2|
+
+|b(s1t + (1 − t)s2 + iβ )|
+
+)
+
+‖w5−7[ℓ, · + iβ ]‖C 1  
+
+> 2(T2)
+
+, for β ∈ Bρ(0) .28 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+Also, observe that, by ( 5.23 ), 
+
+|a1 − a2| = |Ds̥ (s1 + iβ ) − Ds̥ (s2 + iβ )| . |s1 − s2| 1 
+
+> 2
+
+, (5.33) and 
+
+|b1 − b2| = |ζ(s1 + iβ ) − ζ(s2 + iβ )| . |s1 − s2| 1 
+
+> 2
+
+.
+
+Finally, taking into account ( 5.3 ) and the definition of b, we infer that 
+
+|b(s1t + (1 − t)s2 + iβ )| & 1 , (5.34) uniformly in t ∈ [0 , 1]. Combining these estimates, we conclude that I2 . |s1 − s2| 1 
+
+> 2
+
+‖w5−7[ℓ, · + iβ ]‖C 1   
+
+> 2(T2)
+
+, for β ∈ Bρ(0) . (5.35) The result follows from ( 5.31 ), ( 5.32 ) and ( 5.35 ). 
+
+Next, we deal with the part corresponding to J2.
+
+Lemma 5.8. Let C1 be as in Proposition 4.2 . If w ∈ Y 7 
+
+> ρ
+
+satisfies (4.14 ), (4.15 ), (5.21 ) and (5.22 ),then 
+
+sup 
+
+> l,ℓ ∈[−1,1]
+
+{
+
+sup 
+
+> |β|6ρ
+
+∥∥∥∥
+
+ˆ
+
+> T2
+
+J2(· − ς, · + iβ ) × w5−7[ℓ, ς + iβ ] d ς
+
+∥∥∥∥C 1  
+
+> 2(T2)
+
+}
+
+. 1 ,
+
+with an implicit constant that depends only on C1 but not on ρ or ε.Proof. First of all, observe that 
+
+|J2(s + iβ, ς + iβ )| =
+
+∣∣∣∣∣
+
+dεl,ℓ (s + iβ, ς + iβ )
+
+|dεl,ℓ (s + iβ, ς + iβ )|3
+
+> C
+
+− ˜d(s − ς, s + iβ )
+
+| ˜d(s − ς, s + iβ )|3
+
+> C
+
+∣∣∣∣∣ φ(s − ς)
+
+6
+
+∣∣∣∣∣
+
+dεl,ℓ (s + iβ, ς + iβ ) − ˜d(s − ς, s + iβ )
+
+|dεl,ℓ (s + iβ, ς + iβ )|3
+
+> C
+
+∣∣∣∣∣ φ(s − ς)+
+
+∣∣∣∣∣
+
+˜d(s − ς, s + iβ )(| ˜d(s − ς, s + iβ )|3 
+
+> C
+
+− | dεl,ℓ (s + iβ, ς + iβ )|3
+
+> C
+
+)
+
+|dεl,ℓ (s + iβ, ς + iβ )|3
+
+> C
+
+| ˜d(s − ς, s + iβ )|3
+
+> C
+
+∣∣∣∣∣ φ(s − ς) .
+
+Using the estimate ( 5.5 ) and the bounds from Lemma 5.5 , we then get that 
+
+|J2(s + iβ, ς + iβ )| . |s − ς|− 3 
+
+> 2
+
+1|s−ς|6 1
+
+> 4
+
+, for β ∈ Bρ(0) , (5.36) and so that 
+
+∥∥∥∥
+
+ˆ
+
+> T2
+
+J2(· − ς, · + iβ ) × w5−7[ℓ, ς + iβ ] d ς
+
+∥∥∥∥L∞(T2 )
+
+. ‖w5−7[ℓ, · + iβ ]‖L∞(T2)
+
+ˆ 
+
+> |s−ς|61
+> 2
+
+dς
+
+|s − ς| 3
+
+> 2
+
+. ‖w5−7[ℓ, · + iβ ]‖L∞(T2) , for β ∈ Bρ(0) .
+
+(5.37) Next, we bound the corresponding H¨ older seminorm. For arbitrary s1, s 2 ∈ T2, we use that 
+
+∣∣∣∣
+
+ˆ
+
+> T2
+
+(J2(s1 + iβ, ς + iβ ) − J2(s2 + iβ, ς + iβ )) × w5−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣
+
+6
+
+ˆ
+
+> |ς−s1|63|s1−s2|
+
+(|J2(s1 + iβ, ς + iβ )| + |J2(s2 + iβ, ς + iβ )|) |w5−7[ℓ, ς + iβ ]| dς
+
++
+
+∣∣∣∣∣
+
+ˆ
+
+> |ς−s1|>3|s1−s2|
+
+(J2(s1 + iβ, ς + iβ ) − J2(s2 + iβ, ς + iβ )) × w5−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣∣ =: I 1 + I 2 .VORTEX-SHEET DESINGULARIZATION 29 
+
+On the one hand, using ( 5.36 ) and arguing as in ( 5.37 ), we get that I1 . |s1 − s2| 1 
+
+> 2
+
+‖w5−7[ℓ, · + iβ ]‖L∞(T2) , for β ∈ Bρ(0) . (5.38) On the other hand, to estimate I 2, we will consider separately the cases where |s1 − s2| > 1 
+
+> 32
+
+and where |s1 − s2| 6 1 
+
+> 32
+
+.
+
+Case 1: |s1 − s2| > 1 
+
+> 32
+
+. Arguing as in ( 5.37 ), one can easily get that I2 . |s1 − s2| 1 
+
+> 2
+
+‖w5−7[ℓ, · + iβ ]‖L∞(T2) , for β ∈ Bρ(0) . (5.39) 
+
+Case 2: |s1 − s2| 6 1 
+
+> 32
+
+. First of all, we set 
+
+p = p(ς, s 1 + iβ ) := ˜d(s1 − ς, s 1 + iβ ) ,q = q(ς, s 1 + iβ ) := dεl,ℓ (s1 + iβ, ς + iβ ) ,r = r(ς, s 2 + iβ ) := ˜d(s2 − ς, s 2 + iβ ) ,t = t(ς, s 2 + iβ ) := dεl,ℓ (s2 + iβ, ς + iβ ) ,
+
+and split the kernel in I 2 as 
+
+J2(s2 + iβ, ς + iβ ) − J2(s1 + iβ, ς + iβ ) = 
+
+( p
+
+|p|3
+
+> C
+
+− q
+
+|q|3
+
+> C
+
+− r
+
+|r|3
+
+> C
+
++ t
+
+|t|3
+
+> C
+
+)
+
+φ(s1 − ς)+
+
+( r
+
+|r|3
+
+> C
+
+− t
+
+|t|3
+
+> C
+
+) (φ(s1 − ς) − φ(s2 − ς)) .
+
+Then, by the mean value theorem, 
+
+∣∣∣∣
+
+r
+
+|r|3
+
+> C
+
+− t
+
+|t|3
+
+> C
+
+∣∣∣∣∣∣φ(s1 − ς) − φ(s2 − ς)∣∣ 6
+
+∣∣∣∣
+
+r
+
+|r|3
+
+> C
+
+− t
+
+|t|3
+
+> C
+
+∣∣∣∣(ˆ 10
+
+|∇ φ(λ(s1 − s2) + s2 − ς)| dλ
+
+)
+
+|s1 − s2| .
+
+Moreover, observe that 
+
+∇φ(λ(s1 − s2) + s2 − ς) 6 = 0 =⇒ |s1 − ς| > 1
+
+16 =⇒ |s2 − ς| > 1
+
+32 . (5.40) Hence, by ( 5.30 ), it follows that 
+
+∣∣∣∣
+
+r
+
+|r|3
+
+> C
+
+− t
+
+|t|3
+
+> C
+
+∣∣∣∣∣∣φ(s1 − ς) − φ(s2 − ς)∣∣ . |s1 − s2| , for β ∈ Bρ(0) ,
+
+and so that 
+
+∣∣∣∣∣
+
+ˆ
+
+> |ς−s1|>3|s1−s2|
+
+( r
+
+|r|3
+
+> C
+
+− t
+
+|t|3
+
+> C
+
+) (φ(s1 − ς) − φ(s2 − ς)) × w5−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣∣
+
+. |s1 − s2| ‖ w5−7[ℓ, · + iβ ]‖L∞(T)2 . |s1 − s2| 1 
+
+> 2
+
+‖w5−7[ℓ, · + iβ ]‖L∞(T2) , for β ∈ Bρ(0) .
+
+To estimate the remaining part, we rely on Lemma 5.1 . First, observe that 
+
+p − q − r + t
+
+|p|3
+
+> C
+
+= −̥ (s1 + iβ ) −̥ (s2 + iβ ) − Ds̥ (s2 + iβ )( s1 − s2)
+
+|p|3
+
+> C
+
++ 1
+
+|p|3
+
+> C
+
+(Ds̥ (s1 + iβ ) − Ds̥ (s2 + iβ ))(s1 − ς) .
+
+(5.41) Now, on the one hand, combining ( 5.23 ) with ( 5.30 ), we get that 
+
+∣∣∣∣̥
+
+(s1 + iβ ) −̥ (s2 + iβ ) − Ds̥ (s2 + iβ )( s1 − s2)
+
+|p|3
+
+> C
+
+∣∣∣∣ . |s1 − s2| 3
+
+> 2
+
+|s1 − ς|3 , for β ∈ Bρ(0) , (5.42) 30 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+and so that 
+
+∣∣∣∣∣
+
+ˆ
+
+> |ς−s1|>3|s1−s2|
+
+̥
+
+(s1 + iβ ) −̥ (s2 + iβ ) − Ds̥ (s2 + iβ )( s1 − s2)
+
+|p|3
+
+> C
+
+φ(s1 − ς) × w5−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣∣
+
+. ‖w5−7[ℓ, · + iβ ]‖L∞ (T2) |s1 − s2| 3
+
+> 2
+
+ˆ
+
+> |ς−s1|>3|s1−s2|
+
+1
+
+|s1 − ς|3 dς (5.43) 
+
+. |s1 − s2| 1 
+
+> 2
+
+‖w5−7[ℓ, · + iβ ]‖L∞(T2) , for β ∈ Bρ(0) .
+
+On the other hand, using Lemma 5.2 with c = 3 |s1 − s2|, r = 0, m1 = 1 and m2 = 0 (resp. m1 = 0 and m2 = 1), Lemma 5.3 , and ( 5.33 ), we get that 
+
+∣∣∣∣∣
+
+ˆ
+
+> |ς−s1|>3|s1−s2|
+
+(Ds̥ (s1 + iβ ) − Ds̥ (s2 + iβ ))(s1 − ς)
+
+|p|3
+
+> C
+
+φ(s1 − ς) × w5−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣∣
+
+=
+
+∣∣∣∣
+
+ˆ
+
+> T2
+
+(s1 − ς)
+
+|p|3
+
+> C
+
+φ(s1 − ς)1|s1−ς|>3|s1−s2|
+
+(Ds̥ (s1 + iβ ) − Ds̥ (s2 + iβ )) × w5−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣
+
+. |s1 − s2| 1 
+
+> 2
+
+‖w5−7[ℓ, · + iβ ]‖C 1  
+
+> 2(T2)
+
+, for β ∈ Bρ(0) . (5.44) Hence, we have that 
+
+∣∣∣∣∣
+
+ˆ
+
+> |ς−s1|>3|s1−s2|
+
+p − q − r + t
+
+|p|3
+
+> C
+
+φ(s1 − ς) × w5−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣∣
+
+. |s1 − s2| 1 
+
+> 2
+
+‖w5−7[ℓ, · + iβ ]‖C 1  
+
+> 2(T2)
+
+, for β ∈ Bρ(0) .
+
+(5.45) Next, observe that 3p〈p, p − q + r − t〉C
+
+|p|5
+
+> C
+
+= 3p〈p, ̥ (s1 + iβ ) −̥ (s2 + iβ ) − Ds̥ (s2 + iβ )( s1 − s2)〉C
+
+|p|5
+
+> C
+
++ 3p〈p, (D s̥ (s1 + iβ ) − Ds̥ (s2 + iβ ))( s1 − ς)〉C
+
+|p|5
+
+> C
+
+.
+
+(5.46) Moreover, using ( 5.3 ), one can easily check that 
+
+∣∣∣∣
+
+3p〈p, ̥ (s1 + iβ ) −̥ (s2 + iβ ) − Ds̥ (s2 + iβ )( s1 − s2)〉C
+
+|p|5
+
+> C
+
+∣∣∣∣
+
+.
+
+∣∣∣∣̥
+
+(s1 + iβ ) −̥ (s2 + iβ ) − Ds̥ (s2 + iβ )( s1 − s2)
+
+|p|3
+
+> C
+
+∣∣∣∣ , for β ∈ Bρ(0) .
+
+Hence, using ( 5.42 ) and ( 5.43 ), we get that 
+
+∣∣∣∣∣
+
+ˆ
+
+> |ς−s1|>3|s1−s2|
+
+( 3p〈p, ̥ (s1 + iβ ) −̥ (s2 + iβ ) − Ds̥ (s2 + iβ )( s1 − s2)〉C
+
+|p|5
+
+> C
+
+φ(s1 − ς)
+
+× w5−7[ℓ, ς + iβ ]
+
+)
+
+dς
+
+∣∣∣∣∣ . |s1 − s2| 1 
+
+> 2
+
+‖w5−7[ℓ, · + iβ ]‖L∞(T2) , for β ∈ Bρ(0) .
+
+(5.47) VORTEX-SHEET DESINGULARIZATION 31 
+
+Now, expanding the scalar product in the other fraction in ( 5.46 ) into the different components, one can check that Lemma 5.2 is applicable to it and see that 
+
+∣∣∣∣∣
+
+ˆ
+
+> |ς−s1|>3|s1−s2|
+
+3p〈p, (D s̥ (s1 + iβ ) − Ds̥ (s2 + iβ ))( s1 − ς)〉C
+
+|p|5
+
+> C
+
+φ(s1 − ς) × w5−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣∣
+
+. ∣∣Ds̥ (s1 + iβ ) − Ds̥ (s2 + iβ )∣∣ ‖w5−7[ℓ, · + iβ ]‖C 1  
+
+> 2(T2)
+
+. |s1 − s2| 1 
+
+> 2
+
+‖w5[ℓ, · + iβ ]‖C 1  
+
+> 2(T2)
+
+, for β ∈ Bρ(0) .
+
+(5.48) Note that in the last inequality we are again using ( 5.23 ). Finally, we estimate the integrals with kernels corresponding to the right-hand side in Lemma 5.1 .First, observe that, by ( 5.29 ), whenever |s1 − ς| > 3|s1 − s2|, it follows that 
+
+|r − t| + |p − q| . |s1 − ς| 3 
+
+> 2
+
+, for β ∈ Bρ(0) . (5.49) Likewise, using ( 5.23 ), we get that 
+
+|p − r| . ∣∣Ds̥ (s1 + iβ )( s1 − ς) − Ds̥ (s2 + iβ )( s2 − ς)∣∣ + ε ∣∣ζ(s1 + iβ ) − ζ(s2 + iβ )∣∣
+
+. |s1 − ς|| s1 − s2| 1 
+
+> 2
+
++ |s1 − s2| , for β ∈ Bρ(0) , (5.50) and that, for β ∈ Bρ(0), 
+
+|q − t| . ∣∣̥ (s1 + iβ ) −̥ (s2 + iβ )∣∣ + ε ∣∣ζ(s1 + iβ ) − ζ(s2 + iβ )∣∣ . |s1 − s2|. (5.51) We also note, thanks to ( 5.30 ) and the elementary estimate Re √z > √Re z, which holds for all 
+
+z ∈ C with Re z > 0, that min(Re |p|C, Re |q|C, Re |r|C, Re |t|C) & |s1 − ς| + ε|l − ℓ| & |s1 − ς|. (5.52) Hence, using the shortened notation K( p, q, r, t ) := max {| p|, |q|, |r|, |t|} 7
+
+min {|| p|C|, || q|C|, || r|C|, || t|C|} 11 
+
+(|p − q| + |r − t|)( |p − r| + |q − t|) , (5.53) we infer from ( 5.28 ), ( 5.30 ), ( 5.49 ), ( 5.50 ) and ( 5.51 ) that 
+
+∣∣∣∣∣
+
+ˆ
+
+> |s1−ς|>3|s1−s2|
+
+K( p, q, r, t ) φ(s1 − ς) |w5−7[ℓ, ς + iβ ]| dς
+
+∣∣∣∣∣
+
+. ‖w5−7[ℓ, · + iβ ]‖L∞(T2 )
+
+ˆ
+
+> |s1−ς|>3|s1−s2|
+
+|s1 − ς|− 5
+
+> 2
+
+(|s1 − ς|| s1 − s2| 1 
+
+> 2
+
++ |s1 − s2|) dς
+
+. |s1 − s2| 1 
+
+> 2
+
+‖w5−7[ℓ, · + iβ ]‖L∞(T2) , for β ∈ Bρ(0) .
+
+(5.54) Combining ( 5.45 ), ( 5.47 ), ( 5.48 ), ( 5.54 ) and Lemma 5.1 , we get that I2 . |s1 − s2| 1 
+
+> 2
+
+‖w5−7[ℓ, · + iβ ]‖C 1   
+
+> 2(T2)
+
+, for β ∈ Bρ(0) . (5.55) The result follows from ( 5.37 ), ( 5.38 ), ( 5.39 ) and ( 5.55 ). 
+
+Having the previous lemmas at hand, we can now conclude. 
+
+Proof of (4.16 ). Having at hand Lemma 5.6 , and the decomposition in ( 5.24 ), ( 4.16 ) immediately follows from Lemmas 5.7 and 5.8 . 32 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+5.3. Proof of ( 4.17 ). We again only need to consider l 6 = ℓ, as the rest is a zero set. Since the proof is similar to the one of ( 4.16 ), we will skip some details. First of all, taking into account ( 5.20 ), we see that 
+
+Kcε
+
+[
+
+w11[ℓ, ·],
+
+ˆ ℓl
+
+w14[μ, ·] d μ, w 15−7[ℓ, ·]
+
+]
+
+(s + iβ )
+
+− Kcε
+
+[
+
+w21[ℓ, ·],
+
+ˆ ℓl
+
+w24[μ, ·] d μ, w 25−7[ℓ, ·]
+
+]
+
+(s + iβ )= Kcε
+
+[
+
+w11[ℓ, ·],
+
+ˆ ℓl
+
+w14[μ, ·] d μ, w 15−7[ℓ, ·] − w25−7[ℓ, ·]
+
+]
+
+(s + iβ )+ Kcε
+
+[
+
+w11[ℓ, ·],
+
+ˆ ℓl
+
+w14[μ, ·] d μ, w 25−7[ℓ, ·]
+
+]
+
+(s + iβ )
+
+− Kcε
+
+[
+
+w21[ℓ, ·],
+
+ˆ ℓl
+
+w24[μ, ·] d μ, w 25−7[ℓ, ·]
+
+]
+
+(s + iβ ) .
+
+(5.56) The first term on the right-hand side can be directly estimated using the proof of ( 4.16 ). Indeed, we have the following: 
+
+Lemma 5.9. Let C1 be as in Proposition 4.2 . If w1, w 2 ∈ Y 7 
+
+> ρ
+
+satisfy (4.14 ), (4.15 ), (5.21 ) and (5.22 ),then 
+
+sup 
+
+> l,ℓ ∈[−1,1]
+
+∥∥∥∥Kcε
+
+[
+
+w11[ℓ, ·],
+
+ˆ ℓl
+
+w14[μ, ·] d μ, w 15−7[ℓ, ·] − w25−7[ℓ, ·]
+
+]∥ ∥∥∥X 3
+
+> ρ
+
+. ∥∥w15−7 − w25−7
+
+∥∥Y3
+
+> ρ
+
+,
+
+with an implicit constant that depends only on C1 but not on ρ or ε.
+
+We now focus on the other two terms and analyze them together. First, we prove the following: 
+
+Lemma 5.10. Let C1 be as in Proposition 4.2 . If w1, w 2 ∈ Y 7 
+
+> ρ
+
+satisfy (4.14 ), (4.15 ), (5.21 ) and 
+
+(5.22 ), then 
+
+sup 
+
+> l,ℓ ∈[−1,1]
+
+{
+
+sup 
+
+> |β|6ρ
+
+∥∥∥∥Kcε
+
+[
+
+w11[ℓ, · + iβ ],
+
+ˆ ℓl
+
+w14[μ, · + iβ ] d μ, w 25−7[ℓ, · + iβ ]
+
+]
+
+− Kcε
+
+[
+
+w21[ℓ, · + iβ ],
+
+ˆ ℓl
+
+w24[μ, · + iβ ] d μ, w 25−7[ℓ, · + iβ ]
+
+] ∥ ∥∥∥L∞(T2)
+
+}
+
+. ‖w1 − w2‖Y7 
+
+> ρ
+
+,
+
+with an implicit constant that depends only on C1 but not on ρ or ε.Proof. Taking into account ( 5.24 ), we analyze the part corresponding to each kernel Jj separately. With a slight abuse of notation, we write 
+
+J1(s − ς, s + iβ ; w) := ˜d(s − ς, s + iβ ; w)
+
+∣∣ ˜d(s − ς, s + iβ ; w)∣∣3
+
+> C
+
+φ(s − ς) ,J2(s + iβ, ς + iβ ; w) := 
+
+( dεl,ℓ (s + iβ, ς + iβ ; w)
+
+∣∣dεl,ℓ (s + iβ, ς + iβ ; w)∣∣3
+
+> C
+
+− ˜d(s − ς, s + iβ ; w)
+
+∣∣ ˜d(s − ς, s + iβ ; w)∣∣3
+
+> C
+
+)
+
+φ(s − ς) ,
+
+(5.57) to emphasize the dependence on w1 and w2. Also, throughout the proof, we assume that |β| 6 ρ 6 ρ0.We first analyze the part corresponding to J1. To that end, we set 
+
+aj = aj (s + iβ ) := ∇swj
+
+> 1
+
+[ℓ, s + iβ ] and bj e3 = bj (s + iβ )e3 = |l − ℓ|−1ζ(s + iβ ; wj ) .VORTEX-SHEET DESINGULARIZATION 33 
+
+Recall that by Lemmas 5.2 and 5.3 , the convolution kernel J1 is Lipschitz in these coefficients with respect to the L(C 1 
+
+> 2
+
+, C 1 
+
+> 2
+
+)-topology. Hence, similarly as above in ( 5.33 )-( 5.35 ), it follows from Lemmas 
+
+5.2 and 5.3 that sup 
+
+> l,ℓ ∈[−1,1]
+
+∥∥∥∥
+
+ˆ
+
+> T2
+
+(J1(· − ς, · + iβ, w 1) − J1(· − ς, · + iβ, w 2)) × w25−7[ℓ, ς + iβ ] d ς
+
+∥∥∥∥L∞(T2)
+
+.
+
+(
+
+|a1 − a2| + max 
+
+> t∈[0 ,1]
+
+|b1 − b2|
+
+|tb 1 + (1 − t)b2|
+
+)
+
+‖w5−7[ℓ, · + iβ ]‖C 1  
+
+> 2(T2)
+
+.
+
+Now observe that, by the definitions ( 5.18 ) and ( 5.19 ) of ̥ and ζ, it holds that, 
+
+|a1 − a2| = |Ds̥ (s + iβ, w 1) − Ds̥ (s + iβ, w 2)| . ∥∥w1 − w2∥∥Y7
+
+> ρ
+
+, (5.58) and 
+
+|b1 − b2| = |l − ℓ|−1|ζ(s + iβ, w 1) − ζ(s + iβ, w 2)| . ∥∥w1 − w2∥∥Y7
+
+> ρ
+
+.
+
+Finally, taking into account ( 5.3 ) and the definition of b, we infer that 
+
+|tb 1 + (1 − t)b2| & 1 , (5.59) uniformly in t ∈ [0 , 1]. Combining these estimates, we conclude that sup 
+
+> l,ℓ ∈[−1,1]
+
+∥∥∥∥
+
+ˆ
+
+> T2
+
+(J1(· − ς, · + iβ, w 1) − J1(· − ς, · + iβ, w 2)) × w25−7[ℓ, ς + iβ ] d ς
+
+∥∥∥∥L∞(T2 )
+
+. ∥∥w1 − w2∥∥Y7
+
+> ρ
+
+.
+
+(5.60) Next, to analyze the part corresponding to J2, we rely on Lemma 5.1 a). First of all, we set 
+
+p = p(ς, s + iβ ; w1) := ˜d(s − ς, s + iβ ; w1) ,q = q(ς, s + iβ ; w1) := dεl,ℓ (s + iβ, ς + iβ ; w1) ,r = r(ς, s + iβ ; w2) := ˜d(s − ς, s + iβ ; w2) ,t = t(ς, s + iβ ; w2) := dεl,ℓ (s + iβ, ς + iβ ; w2) ,
+
+and observe that 
+
+J2(s − ς, ς + iβ ; w1) − J2(s − ς, ς + iβ ; w2) = −
+
+( p
+
+|p|3
+
+> C
+
+− q
+
+|q|3
+
+> C
+
+− r
+
+|r|3
+
+> C
+
++ t
+
+|t|3
+
+> C
+
+)
+
+φ(s − ς) .
+
+Having this expression at hand, we argue as in the proof of Lemma 5.8 . First, observe that 
+
+|p − q − r + t| . |s − ς| 3 
+
+> 2
+
+‖w1 − w2‖Y7 
+
+> ρ
+
+.
+
+Then, by ( 5.30 ) (see also the proof of ( 5.43 )), we get that 
+
+∣∣∣∣
+
+ˆ
+
+> T2
+
+φ(s − ς) p − q − r + t
+
+|p|3
+
+> C
+
+× w25−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣ . ‖w1 − w2‖Y7 
+
+> ρ
+
+. (5.61) Likewise, we have that 
+
+∣∣∣∣
+
+3p〈p, p − q + r − t〉C
+
+|p|5
+
+> C
+
+∣∣∣∣ . ‖w1 − w2‖Y7
+
+> ρ
+
+|s − ς| 3
+
+> 2
+
+, (5.62) and so that ∣∣∣∣
+
+ˆ
+
+> T2
+
+3p〈p, p − q + r − t〉C
+
+|p|5
+
+> C
+
+φ(s − ς) × w25−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣ . ‖w1 − w2‖Y7 
+
+> ρ
+
+. (5.63) 34 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+On the other hand, by ( 5.29 ), it follows that 
+
+|p − q| + |r − t| . |s − ς| 3 
+
+> 2
+
+,
+
+and, using ( 5.23 ) together with the linearity of these expressions in w1, w 2, we get that 
+
+|q − t| + |p − r| . (|s − ς| + ε|l − ℓ|)‖w1 − w2‖Y7 
+
+> ρ
+
+.
+
+Using then the shortened notation introduced in ( 5.53 ), we conclude that sup 
+
+> l,ℓ ∈[−1,1]
+
+∥∥∥∥
+
+ˆ
+
+> T2
+
+K( p, q, r, t ) φ(· − ς)|w5−7[ℓ, ς + iβ ]| dς
+
+∥∥∥∥L∞(T2 )
+
+. ‖w1 − w2‖Y7 
+
+> ρ
+
+. (5.64) Combining ( 5.61 ), ( 5.63 ) and ( 5.64 ) with Lemma 5.1 , we then obtain that sup 
+
+> l,ℓ ∈[−1,1]
+
+∥∥∥∥
+
+ˆ
+
+> T2
+
+(J2(· − ς, · + iβ ; w1) − J2(· − ς, · + iβ ; w2)) × w25−7[ℓ, ς + iβ ] d ς
+
+∥∥∥∥L∞ (T2)
+
+. ‖w1 − w2‖Y7 
+
+> ρ
+
+.
+
+(5.65) The result follows combining ( 5.60 ) and ( 5.65 ). 
+
+We now turn towards the boundedness of the corresponding H¨ older seminorm. Using the notation introduced in ( 5.57 ), we first prove the following: 
+
+Lemma 5.11. Let C1 be as in Proposition 4.2 . If w1, w 2 ∈ Y 7 
+
+> ρ
+
+satisfy (4.14 ), (4.15 ), (5.21 ) and 
+
+(5.22 ), then 
+
+sup 
+
+> l,ℓ ∈[−1,1]
+
+{
+
+sup 
+
+> |β|6ρ
+
+[ ˆ
+
+> T2
+
+(J1(· − ς, · + iβ ; w1) − J1(· − ς, · + iβ ; w2)) × w25−7[ℓ, ς + iβ ] d ς
+
+]  
+
+> C1
+> 2(T2)
+
+}
+
+. ‖w1 − w2‖Y7 
+
+> ρ
+
+,
+
+with an implicit constant that depends only on C1 but not on ρ or ε.
+
+The proof of this result relies on the following elementary lemma, which is an immediate conse-quence of the fundamental theorem of calculus. 
+
+Lemma 5.12. Let B ⊂ Rn be a closed convex set and let g : B → X be C2 for some (real) Banach space X. Then for y1, y 2, y 3, y 4 ∈ B it holds that 
+
+|g(y1) − g(y2) − g(y3) + g(y4)|X . ‖g‖W 2,∞ (B,X )
+
+(
+
+|y1 − y2 − y3 + y4|
+
++ (|y1 − y2| + |y3 − y4|)( |y1 − y3| + |y2 − y4|))
+
+.
+
+Proof of Lemma 5.11 . We start by pointing out that there is no loss of generality in considering 
+
+s1, s 2 ∈ T2 with |s1 − s2| 6 1 
+
+> 10
+
+. The case where |s1 − s2| > 1 
+
+> 10
+
+immediately follows from Lemma 5.10 .Also, we introduce the shortened notation 
+
+ahj := a(sj + iβ ; wh) = ∇swh 
+
+> 1
+
+[ℓ, s j + iβ ] , bhj e3 := b(sj + iβ ; wh)e3 = |l − ℓ|−1ζ(sj + iβ ; wh) ,
+
+for j, h ∈ { 1, 2}, and recall that the convolution kernel J1 is C2 (w.r.t. L(C 1 
+
+> 2
+
+, C 1 
+
+> 2
+
+)) in these parameters by the Lemmas 5.2 and 5.3 . Moreover, let us stress that, considering separately the cases where l < ℓ 
+
+and where l > ℓ , one can easily check the convexity of the set B defined by ( 5.10 ). VORTEX-SHEET DESINGULARIZATION 35 
+
+If we now consider the linear map associated with the convolution with J1 as a function of a and 
+
+b to L(C 1 
+
+> 2
+
+, C 1 
+
+> 2
+
+), then we can apply Lemma 5.12 twice and obtain that 
+
+∣∣∣∣
+
+ˆ
+
+> T2
+
+(
+
+J1(s1 − ς, s 1 + iβ ; w1) − J1(s1 − ς, s 1 + iβ ; w2)
+
+− J1(s2 − ς, s 2 + iβ ; w1) + J1(s2 − ς, s 2 + iβ ; w2)
+
+)
+
+× w25−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣
+
+.
+
+(
+
+|a11 − a21 − a12 + a22| + ( |a11 − a21| + |a12 − a22|)( |a11 − a12| + |a21 − a22|)+ |b11 − b21 − b12 + b22| + ( |b11 − b21| + |b12 − b22|)( |b11 − b12| + |b21 − b22|)+ |s1 − s2| 1
+
+> 2
+
+)
+
+‖w5−7[ℓ, · + iβ ]‖C 1  
+
+> 2(T2)
+
+.
+
+(5.66) Let us point out that here we are implicitly using that a lower bound similar to ( 5.59 ) holds uniformly in the set B defined by ( 5.10 ). Next, using ( 5.23 ) and the fact that the a’s and b’s are affine in w, we get that 
+
+|a11 − a21 − a12 + a22| + |b11 − b21 − b12 + b22| . |s1 − s2| 1
+
+> 2
+
+∥∥w1 − w2∥∥Y7
+
+> ρ
+
+,
+
+|a11 − a21| + |a12 − a22| + |b11 − b21| + |b12 − b22| . ∥∥w1 − w2∥∥Y7
+
+> ρ
+
+,
+
+|a11 − a12| + |a21 − a22| + |b11 − b12| + |b21 − b22| . |s1 − s2| 1 
+
+> 2
+
+.
+
+The result follows combining ( 5.66 ) with these estimates. 
+
+Lemma 5.13. Let C1 be as in Proposition 4.2 . If w1, w 2 ∈ Y 7 
+
+> ρ
+
+satisfy (4.14 ), (4.15 ), (5.21 ) and 
+
+(5.22 ), then 
+
+sup 
+
+> l,ℓ ∈[−1,1]
+
+{
+
+sup 
+
+> |β|6ρ
+
+[ ˆ
+
+> T2
+
+(J2(· − ς, · + iβ ; w1) − J2(· − ς, · + iβ ; w2)) × w25−7[ℓ, ς + iβ ] d ς
+
+]  
+
+> C1
+> 2(T2)
+
+}
+
+. ‖w1 − w2‖Y7 
+
+> ρ
+
+,
+
+with an implicit constant that depends only on C1 but not on ρ or ε.Proof. We start by pointing out that there is no loss of generality in considering s1, s 2 ∈ T2 with 
+
+|s1 − s2| 6 1 
+
+> 32
+
+. The case where |s1 − s2| > 1 
+
+> 32
+
+follows from Lemma 5.10 . Now, observe that 
+
+∣∣∣∣
+
+ˆ
+
+> T2
+
+(
+
+J2(s1 − ς, s 1 + iβ ; w1) − J2(s1 − ς, s 1 + iβ ; w2)
+
+− J2(s2 − ς, s 2 + iβ ; w1) + J2(s2 − ς, s 2 + iβ ; w2)
+
+)
+
+× w25−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣
+
+6
+
+∣∣∣∣
+
+ˆ
+
+> |ς−s1|63|s1−s2|
+
+(J2(s1 − ς, s 1 + iβ ; w1) − J2(s1 − ς, s 1 + iβ ; w2)) × w25−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣
+
++
+
+∣∣∣∣
+
+ˆ
+
+> |ς−s2|64|s1−s2|
+
+(J2(s2 − ς, s 2 + iβ ; w1) − J2(s2 − ς, s 2 + iβ ; w2)) × w25−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣
+
++
+
+∣∣∣∣
+
+ˆ
+
+> |ς−s1|>3|s1−s2|
+
+(
+
+J2(s1 − ς, s 1 + iβ ; w1) − J2(s1 − ς, s 1 + iβ ; w2)
+
+− J2(s2 − ς, s 2 + iβ ; w1) + J2(s2 − ς, s 2 + iβ ; w2)
+
+)
+
+× w25−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣ .
+
+(5.67) 36 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+The first two terms can be handled as we did in Lemma 5.10 to prove ( 5.65 ), the main difference being the domain where we are integrating. This difference is precisely what makes appear the extra factor |s1 − s2| 1 
+
+> 2
+
+, and allows us to prove that 
+
+∣∣∣∣
+
+ˆ
+
+> |ς−s1|63|s1−s2|
+
+(J2(s1 − ς, s 1 + iβ ; w1) − J2(s1 − ς, s 1 + iβ ; w2)) × w25−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣
+
++
+
+∣∣∣∣
+
+ˆ
+
+> |ς−s2|64|s1−s2|
+
+(J2(s2 − ς, s 2 + iβ ; w1) − J2(s2 − ς, s 2 + iβ ; w2)) × w25−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣
+
+. |s1 − s2| 1 
+
+> 2
+
+‖w1 − w2‖Y7 
+
+> ρ
+
+, for β ∈ Bρ(0) .
+
+(5.68) Having this estimate at hand, it only remains to deal with the last term on the right-hand side of (5.67 ). To that end, we first split the kernel there as 
+
+J2(s1 − ς, s 1 + iβ ; w1) − J2(s1 − ς, s 1 + iβ ; w2) − J2(s2 − ς, s 2 + iβ ; w1) + J2(s2 − ς, s 2 + iβ ; w2)=
+
+( dεl,ℓ (s1 + iβ, ς + iβ ; w1)
+
+∣∣dεl,ℓ (s1 + iβ, ς + iβ ; w1)∣∣3
+
+> C
+
+− ˜d(s1 − ς, s 1 + iβ ; w1)
+
+∣∣ ˜d(s1 − ς, s 1 + iβ ; w1)∣∣3
+
+> C
+
+− dεl,ℓ (s1 + iβ, ς + iβ ; w2)
+
+∣∣dεl,ℓ (s1 + iβ, ς + iβ ; w2)∣∣3
+
+> C
+
++ ˜d(s1 − ς, s 1 + iβ ; w2)
+
+∣∣ ˜d(s1 − ς, s 1 + iβ ; w2)∣∣3
+
+> C
+
+− dεl,ℓ (s2 + iβ, ς + iβ ; w1)
+
+∣∣dεl,ℓ (s2 + iβ, ς + iβ ; w1)∣∣3
+
+> C
+
++ ˜d(s2 − ς, s 2 + iβ ; w1)
+
+∣∣ ˜d(s2 − ς, s 2 + iβ ; w1)∣∣3
+
+> C
+
++ dεl,ℓ (s2 + iβ, ς + iβ ; w2)
+
+∣∣dεl,ℓ (s2 + iβ, ς + iβ ; w2)∣∣3
+
+> C
+
+− ˜d(s2 − ς, s 2 + iβ ; w2)
+
+∣∣ ˜d(s2 − ς, s 2 + iβ ; w2)∣∣3
+
+> C
+
+)
+
+φ(s1 − ς)+
+
+( dεl,ℓ (s2 + iβ, ς + iβ ; w1)
+
+∣∣dεl,ℓ (s2 + iβ, ς + iβ ; w1)∣∣3
+
+> C
+
+− ˜d(s2 − ς, s 2 + iβ ; w1)
+
+∣∣ ˜d(s2 − ς, s 2 + iβ ; w1)∣∣3
+
+> C
+
+− dεl,ℓ (s2 + iβ, ς + iβ ; w2)
+
+∣∣dεl,ℓ (s2 + iβ, ς + iβ ; w2)∣∣3
+
+> C
+
++ ˜d(s2 − ς, s 2 + iβ ; w2)
+
+∣∣ ˜d(s2 − ς, s 2 + iβ ; w2)∣∣3
+
+> C
+
+)(φ(s1 − ς) − φ(s2 − ς)) .
+
+The part corresponding to the second parenthesis can be analyzed using Lemma 5.1 a). We set 
+
+p = p(ς, s 2 + iβ ; w1) := ˜d(s2 − ς, s 2 + iβ ; w1) ,q = q(ς, s 2 + iβ ; w1) := dεl,ℓ (s2 + iβ, ς + iβ ; w1) ,r = r(ς, s 2 + iβ ; w2) := ˜d(s2 − ς, s 2 + iβ ; w2) ,t = t(ς, s 2 + iβ ; w2) := dεl,ℓ (s2 + iβ, ς + iβ ; w2) ,
+
+(5.69) and point out that 
+
+∣∣∣∣∣
+
+dεl,ℓ (s2 + iβ, ς + iβ ; w1)
+
+∣∣dεl,ℓ (s2 + iβ, ς + iβ ; w1)∣∣3
+
+> C
+
+− ˜d(s2 − ς, s 2 + iβ ; w1)
+
+∣∣ ˜d(s2 − ς, s 2 + iβ ; w1)∣∣3
+
+> C
+
+− dεl,ℓ (s2 + iβ, ς + iβ ; w2)
+
+∣∣dεl,ℓ (s2 + iβ, ς + iβ ; w2)∣∣3
+
+> C
+
++ ˜d(s2 − ς, s 2 + iβ ; w2)
+
+∣∣ ˜d(s2 − ς, s 2 + iβ ; w2)∣∣3
+
+> C
+
+∣∣∣∣∣∣∣φ(s1 − ς) − φ(s2 − ς)∣∣
+
+=
+
+∣∣∣∣
+
+p
+
+|p|3
+
+> C
+
+− q
+
+|q|3
+
+> C
+
+− r
+
+|r|3
+
+> C
+
++ t
+
+|t|3
+
+> C
+
+∣∣∣∣∣∣φ(s1 − ς) − φ(s2 − ς)∣∣
+
+6
+
+∣∣∣∣
+
+p
+
+|p|3
+
+> C
+
+− q
+
+|q|3
+
+> C
+
+− r
+
+|r|3
+
+> C
+
++ t
+
+|t|3
+
+> C
+
+∣∣∣∣(ˆ 10
+
+|∇ φ(λ(s1 − s2) + s2 − ς)| dλ
+
+)
+
+|s1 − s2| .VORTEX-SHEET DESINGULARIZATION 37 
+
+Taking into account ( 5.40 ), one can argue as in the proof of ( 5.65 ) and conclude that 
+
+∣∣∣∣∣
+
+ˆ
+
+> |ς−s1|>3|s1−s2|
+
+( p
+
+|p|3
+
+> C
+
+− q
+
+|q|3
+
+> C
+
+− r
+
+|r|3
+
+> C
+
++ t
+
+|t|3
+
+> C
+
+) (φ(s1 − ς) − φ(s2 − ς)) × w25−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣∣
+
+. |s1 − s2| 1
+
+> 2
+
+∥∥w1 − w2∥∥Y7
+
+> ρ
+
+, for β ∈ Bρ(0) .
+
+(5.70) To analyze the remaining term, we set 
+
+p := ˜d(s1 − ς, s 1 + iβ ; w1) , p′ := ˜d(s1 − ς, s 1 + iβ ; w2) ,q := dεl,ℓ (s1 + iβ, ς + iβ ; w1) , q′ := dεl,ℓ (s1 + iβ, ς + iβ ; w2) ,r := ˜d(s2 − ς, s 2 + iβ ; w1) , r′ := ˜d(s2 − ς, s 2 + iβ ; w2) ,t := dεl,ℓ (s2 + iβ, ς + iβ ; w1) , t′ := dεl,ℓ (s2 + iβ, ς + iβ ; w2) .
+
+(5.71) The corresponding kernel can then be written as 
+
+−
+
+( p
+
+|p|3
+
+> C
+
+− q
+
+|q|3
+
+> C
+
+− r
+
+|r|3
+
+> C
+
++ t
+
+|t|3
+
+> C
+
+− p′
+
+|p′|3
+
+> C
+
++ q′
+
+|q′|3
+
+> C
+
++ r′
+
+|r′|3
+
+> C
+
+− t′
+
+|t′|3
+
+> C
+
+)
+
+φ(s1 − ς) , (5.72) to which we can apply Lemma 5.1 b). Arguing similarly as for ( 5.64 ), one directly obtains from ( 5.23 ) and ( 5.30 ) that the convolution with the kernel corresponding to the right-hand side in ( 5.7 ) can be bounded (up to a constant) by 
+
+|s1 − s2| 1
+
+> 2
+
+∥∥w1 − w2∥∥Y7
+
+> ρ
+
+.
+
+It thus remains to treat the parts corresponding to the differences 
+
+p − q − r + t
+
+|p|3
+
+> C
+
+− p′ − q′ − r′ + t′
+
+|p′|3
+
+> C
+
+and 3p〈p, q − p + r − t〉C
+
+|p|5
+
+> C
+
+− 3p′〈p′, q ′ − p′ + r′ − t′〉C
+
+|p′|5
+
+> C
+
+.
+
+We show in detail how to deal with the first difference, the other one being similar. To that end, we divide the difference as 
+
+p − q − r + t
+
+|p|3
+
+> C
+
+− p′ − q′ − r′ + t′
+
+|p′|3
+
+> C
+
+= p − q − r + t − (p′ − q′ − r′ + t′)
+
+|p|3
+
+> C
+
++ ( p′ − q′ − r′ + t′)
+
+( 1
+
+|p|3
+
+> C
+
+− 1
+
+|p′|3
+
+> C
+
+)
+
+The convolution corresponding to the first term on the right-hand side can be treated exactly as in (5.41 )-( 5.45 ) above. The difference w1 − w2 appears because all the terms are affine in w1 and w2.In short, we get that 
+
+∣∣∣∣∣
+
+ˆ
+
+> |ς−s1|>3|s1−s2|
+
+p − q − r + t − (p′ − q′ − r′ + t′)
+
+|p|3
+
+> C
+
+φ(s1 − ς) × w25−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣∣
+
+. |s1 − s2| 1
+
+> 2
+
+∥∥w1 − w2∥∥Y7
+
+> ρ
+
+.
+
+Next, similarly to ( 5.41 ), we expand 
+
+p′ − q′ − r′ + t′ = − (̥ (s1 + iβ, w 2) −̥ (s2 + iβ, w 2) − Ds̥ (s2 + iβ, w 2)( s1 − s2))
+
++ (Ds̥ (s1 + iβ, w 2) − Ds̥ (s2 + iβ, w 2))(s1 − ς) . (5.73) 38 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+Then, observe that by ( 5.5 ), ( 5.23 ), ( 5.28 ) and ( 5.30 ), it follows that 
+
+K1(s1, s 2, β ) := 
+
+∣∣∣∣
+
+1
+
+|p|3
+
+> C
+
+− 1
+
+|p′|3
+
+> C
+
+∣∣∣∣∣∣̥ (s1 + iβ, w 2) −̥ (s2 + iβ, w 2) − Ds̥ (s2 + iβ, w 2)( s1 − s2)∣∣
+
+. || p|3 
+
+> C
+
+− | p′|3
+
+> C
+
+|
+
+|| p|3
+
+> C
+
+||| p′|3
+
+> C
+
+| |s1 − s2| 3 
+
+> 2
+
+. 1
+
+(|s1 − ς| + ε|l − ℓ|)3 |s1 − s2| 3
+
+> 2
+
+∥∥w1 − w2∥∥Y7
+
+> ρ
+
+,
+
+which in turn implies that 
+
+ˆ
+
+> |ς−s1|>3|s1−s2|
+
+K1(s1, s 2, β )|w25−7[ℓ, ς + iβ ]| dς
+
+. ∥∥w25−7[ℓ, · + iβ ]∥∥L∞(T2 ) |s1 − s2| 3
+
+> 2
+
+∥∥w1 − w2∥∥Y7
+
+> ρ
+
+ˆ
+
+> |ς−s1|>3|s1−s2|
+
+dς
+
+|ς − s1|3
+
+. |s1 − s2| 1
+
+> 2
+
+∥∥w1 − w2∥∥Y7
+
+> ρ
+
+.
+
+Concerning the other summand in ( 5.73 ), we appeal again to the differentiability statement in Lemma 5.2 and, arguing as in ( 5.44 )-( 5.45 ), conclude that 
+
+∣∣∣∣
+
+ˆ
+
+> |ς−s1|>3|s1−s2|
+
+(
+
+Ds̥ (s1 + iβ, w 2)
+
+− Ds̥ (s2 + iβ, w 2)
+
+)
+
+(s1 − ς)
+
+( 1
+
+|p|3
+
+> C
+
+− 1
+
+|p′|3
+
+> C
+
+)
+
+φ(s1 − ς) × w25−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣
+
+. |s1 − s2| 1
+
+> 2
+
+∥∥w1 − w2∥∥Y7
+
+> ρ
+
+.
+
+Combining these estimates, we conclude that 
+
+∣∣∣∣∣
+
+ˆ
+
+> |ς−s1|>3|s1−s2|
+
+( p − q − r + t
+
+|p|3
+
+> C
+
+− p′ − q′ − r′ + t′
+
+|p′|3
+
+> C
+
+)
+
+φ(s1 − ς) × w25−7[ℓ, ς + iβ ] d ς
+
+∣∣∣∣∣
+
+. |s1 − s2| 1
+
+> 2
+
+∥∥w1 − w2∥∥Y7
+
+> ρ
+
+,
+
+as desired. 
+
+Having the previous lemmas at hand, we can now conclude. 
+
+Proof of (4.17 ). Taking into account ( 5.56 ) and ( 5.57 ), the result immediately follows from the Lem-mas 5.10 , 5.11 , and 5.13 . 
+
+5.4. Proof of Proposition 4.3 . This subsection is devoted to dealing with the far away part of the kernel. More precisely, we prove Proposition 4.3 . We deal only with the infinite sum. The corresponding estimate for the first summand is easier and can be handled similarly. We first deal with the proof of ( 4.19 ). 
+
+Proof of (4.19 ). For every k ∈ Z2 \ { 0}, we show that the Y3 
+
+> ρ
+
+–norm of the corresponding summand is bounded by |k|−3. This will allow us to conclude the proof by summing up. To simplify the notation, we set 
+
+W (z, ς, k ) := z − (z − ς − k) + w1[ℓ, z ]e3 − w1[l, z − ς]e3 = ς + k + w1[ℓ, z ]e3 − w1[ℓ, z − ς]e3 ,VORTEX-SHEET DESINGULARIZATION 39 
+
+and stress that, for every k ∈ Z2 \ { 0}, we want to bound the Y3 
+
+> ρ
+
+–norm of 
+
+ˆ 1
+
+> −1
+
+ˆ   
+
+> [−1
+> 2,1
+> 2 ]2
+
+( W (s + iβ, ς, k )
+
+|W (s + iβ, ς, k )|3
+
+> C
+
++ W (s + iβ, ς, −k)
+
+|W (s + iβ, ς, −k)|3
+
+> C
+
+)
+
+× w5−7[ℓ, s + iβ − ς] d ς dℓ , (5.74) by |k|−3. Before going any further, note that we can rewrite the corresponding kernel as 
+
+KW (s + iβ, ς, k ) : = W (s + iβ, ς, k )
+
+|W (s + iβ, ς, k )|3
+
+> C
+
++ W (s + iβ, ς, −k)
+
+|W (s + iβ, ς, −k)|3
+
+> C
+
+= 2( ς + ( w1[ℓ, s + iβ ] − w1[ℓ, s + iβ − ς])) e3
+
+|W (s + iβ, ς, k )|3
+
+> C
+
++ W (s + iβ, ς, −k)( |W (s + iβ, ς, k )|3 
+
+> C
+
+− | W (s + iβ, ς, −k)|3
+
+> C
+
+)
+
+|W (s + iβ, ς, k )|3
+
+> C
+
+|W (s + iβ, ς, −k)|3
+
+> C
+
+.
+
+Having this decomposition at hand, it is not difficult to estimate the L∞–norm of ( 5.74 ). Indeed, arguing as in the proof of Lemma 5.5 , using now ( 4.18 ), we get that Re |W (s + iβ, ς, k )|2 
+
+> C
+
+& |k|2 , for k ∈ Z2 \ { 0} and β ∈ Bρ(0) .
+
+This in particular implies that 
+
+|| W (s + iβ, ς, k )|C | & |k| , for k ∈ Z2 \ { 0} and β ∈ Bρ(0) . (5.75) Likewise, it follows that 2|ς + ( w1[ℓ, s + iβ ] − w1[ℓ, s + iβ − ς]) e3| . 1 + ‖w1[ℓ, · + iβ ]‖L∞(T2 ) . (5.76) Finally, using these estimates and arguing as in the proof of ( 5.5 ), we get that 
+
+|| W (s + iβ, ς, k )|3 
+
+> C
+
+− | W (s + iβ, ς, −k)|3
+
+> C
+
+| . 1 + |k|3
+
+|k| for k ∈ Z2 \ { 0} and β ∈ Bρ(0) .
+
+Thus, we infer that 
+
+|KW (s + iβ, ς, k )| . 1
+
+|k|3 , for k ∈ Z2 \ { 0} and β ∈ Bρ(0) ,
+
+which immediately allows to estimate the L∞–norm of ( 5.74 ) as 
+
+∥∥∥∥∥
+
+ˆ   
+
+> [−1
+> 2,1
+> 2 ]2
+
+KW (s + iβ, ς, k ) × w5−7[ℓ, s + iβ − ς] d ς
+
+∥∥∥∥∥L∞(T2)
+
+. 1
+
+|k|3 , for k ∈ Z2 \ { 0} and β ∈ Bρ(0) .
+
+Next, we deal with the C 1 
+
+> 2
+
+–seminorm of ( 5.74 ). We consider arbitrary s1, s 2 ∈ T2 and split the difference of the integrals as 
+
+ˆ 1
+
+> −1
+
+ˆ   
+
+> [−1
+> 2,1
+> 2 ]2
+
+KW (s1 + iβ, ς, k ) × w5−7[ℓ, s 1 + iβ − ς] d ς dℓ
+
+−
+
+ˆ 1
+
+> −1
+
+ˆ   
+
+> [−1
+> 2,1
+> 2 ]2
+
+KW (s2 + iβ, ς, k ) × w5−7[ℓ, s 2 + iβ − ς] d ς dℓ
+
+=
+
+ˆ 1
+
+> −1
+
+ˆ   
+
+> [−1
+> 2,1
+> 2 ]2
+
+KW (s1 + iβ, ς, k ) × (w5−7[ℓ, s 1 + iβ − ς] − w5−7[ℓ, s 2 + iβ − ς]) dς dℓ
+
++
+
+ˆ 1
+
+> −1
+
+ˆ   
+
+> [−1
+> 2,1
+> 2 ]2
+
+(
+
+KW (s1 + iβ, ς, k ) − KW (s2 + iβ, ς, k )
+
+)
+
+× w5−7[ℓ, s 2 + iβ − ς] d ς dℓ =: I 1 + I 2 .40 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+We can handle I 1 exactly as we did with the L∞–norm of ( 5.74 ), and obtain that I1 . 1
+
+|k|3 |s1 − s2| 1 
+
+> 2
+
+sup 
+
+> |ℓ|61
+
+‖w5−7[ℓ, · + iβ ]‖C 1   
+
+> 2(T2)
+
+, for k ∈ Z2 \ { 0} and β ∈ Bρ(0) .
+
+Finally, to deal with I 2, we will use Lemma 5.1 with 
+
+p = W (s1 + iβ, ς, k ) ,q = −W (s1 + iβ, ς, −k) ,r = W (s2 + iβ, ς, k ) ,t = −W (s2 + iβ, ς, −k) .
+
+Note that, arguing as we did to estimate the L∞–norm of ( 5.74 ), we get that 
+
+|p − q| + |r − t| . 1 + ‖w1[ℓ, · + iβ ]‖L∞ (T2 ) ,
+
+|p − r| + |q − t| . |s1 − s2| 1 
+
+> 2
+
+‖w1[ℓ, · + iβ ]‖C 1  
+
+> 2(T2)
+
+.
+
+Then, using ( 5.75 ), it is straightforward to check that 
+
+∣∣∣∣
+
+p − q − r + t
+
+|p|3
+
+> C
+
+∣∣∣∣ +
+
+∣∣∣∣
+
+3p〈p, p − q − r + t〉C
+
+|p|5
+
+> C
+
+∣∣∣∣ . 1
+
+|k|3 |s1 − s2| 1 
+
+> 2
+
+‖w1[ℓ, · + iβ ]‖C 1  
+
+> 2(T2)
+
+,
+
+for k ∈ Z2 \ { 0} and β ∈ Bρ(0). Similarly, it follows that max {| p|, |q|, |r|, |t|} 7
+
+min {Re |p|C, Re |q|C, Re |r|C, Re |t|C}11 
+
+(|p − q| + |r − t|)( |p − r| + |q − t|)
+
+. 1
+
+|k|4 |s1 − s2| 1 
+
+> 2
+
+‖w1[ℓ, · + iβ ]‖C 1 
+
+> 2(T2)
+
+(
+
+1 + ‖w1[ℓ, · + iβ ]‖L∞ (T2)
+
+)
+
+,
+
+for k ∈ Z2 \ { 0} and β ∈ Bρ(0). Hence, using Lemma 5.1 , we conclude that I2 . 1
+
+|k|3 |s1 − s2| 1 
+
+> 2
+
+sup 
+
+> |ℓ|61
+
+‖w5−7[ℓ, · + iβ ]‖C 1   
+
+> 2(T2)
+
+, for k ∈ Z2 \ { 0} and β ∈ Bρ(0) .
+
+This concludes the proof. 
+
+We now turn to the proof of ( 4.20 ). Since the proof is similar to the one of ( 4.19 ), we skip some details. 
+
+Proof of (4.20 ). For every k ∈ Z2 \ { 0}, we show that the Y3 
+
+> ρ
+
+–norm of the corresponding summand is bounded by |k|−3 ∥∥w1 − w2∥∥Y7
+
+> ρ
+
+. This will then allow us to conclude the proof by summing up, as in the proof of ( 4.19 ). To emphasize the dependence in w, for i ∈ { 1, 2}, we set 
+
+W (z, ς, k ; wi) := z − (z − ς − k) + wi
+
+> 1
+
+[ℓ, z ]e3 − wi
+
+> 1
+
+[l, z − ς]e3 = ς + k + wi
+
+> 1
+
+[ℓ, z ]e3 − wi
+
+> 1
+
+[ℓ, z − ς]e3 .VORTEX-SHEET DESINGULARIZATION 41 
+
+We start estimating the L∞-norm. We may split each summand as 
+
+ˆ 1
+
+> −1
+
+ˆ   
+
+> [−1
+> 2,1
+> 2 ]2
+
+( W (s + iβ, ς, k ; w1)
+
+|W (s + iβ, ς, k ; w1)|3
+
+> C
+
++ W (s + iβ, ς, −k; w1)
+
+|W (s + iβ, ς, −k; w1)|3
+
+> C
+
+)
+
+× w15−7[ℓ, s + iβ − ς]
+
+−
+
+( W (s + iβ, ς, k ; w2)
+
+|W (s + iβ, ς, k ; w2)|3
+
+> C
+
++ W (s + iβ, ς, −k; w2)
+
+|W (s + iβ, ς, −k; w2)|3
+
+> C
+
+)
+
+× w25−7[ℓ, s + iβ − ς] d ς dℓ , 
+
+=
+
+ˆ 1
+
+> −1
+
+ˆ   
+
+> [−1
+> 2,1
+> 2 ]2
+
+( W (s + iβ, ς, k ; w1)
+
+|W (s + iβ, ς, k ; w1)|3
+
+> C
+
++ W (s + iβ, ς, −k; w1)
+
+|W (s + iβ, ς, −k; w1)|3
+
+> C
+
+(5.77) 
+
+− W (s + iβ, ς, k ; w2)
+
+|W (s + iβ, ς, k ; w2)|3
+
+> C
+
+− W (s + iβ, ς, −k; w2)
+
+|W (s + iβ, ς, −k; w2)|3
+
+> C
+
+)
+
+× w15−7[ℓ, s + iβ − ς] d ς dℓ
+
++
+
+ˆ 1
+
+> −1
+
+ˆ   
+
+> [−1
+> 2,1
+> 2 ]2
+
+( W (s + iβ, ς, k ; w2)
+
+|W (s + iβ, ς, k ; w2)|3
+
+> C
+
++ W (s + iβ, ς, −k; w2)
+
+|W (s + iβ, ς, −k; w2)|3
+
+> C
+
+)
+
+×
+
+(
+
+w15−7[ℓ, s + iβ − ς]
+
+− w25−7[ℓ, s + iβ − ς]
+
+)
+
+dς dℓ . 
+
+The second integral can be treated exactly as we did to estimate the L∞-norm of ( 5.74 ). Hence, we only discuss first one. To bound the first integral, we shall again use Lemma 5.1 a). We now set 
+
+p = W (s, ς, k ; w1) , q = −W (s, ς, −k; w1) , r = W (s, ς, k ; w2) , t = −W (s, ς, −k; w2) .
+
+Similarly as in ( 5.75 )-( 5.76 ), we note that min (Re |p|C, Re |q|C, Re |r|C, Re |t|C) & |k| & |p| + |q| + |r| + |t| . (5.78) Also, we further note that 
+
+|p − q| + |r − t| . 1 + ∥∥w11[ℓ, · + iβ ]∥∥L∞(T2 ) + ∥∥w21[ℓ, · + iβ ]∥∥L∞(T2) , (5.79) 
+
+|p − r| + |q − t| + |p − r − q + t| . ∥∥w11[ℓ, · + iβ ] − w21[ℓ, · + iβ ]∥∥L∞(T2 ) . ∥∥w1 − w2∥∥Y7
+
+> ρ
+
+, (5.80) as one can directly from the definitions of p, q, r and t. Applying Lemma 5.1 a), we then get that 
+
+∣∣∣∣
+
+W (s + iβ, ς, k ; w1)
+
+|W (s + iβ, ς, k ; w1)|3
+
+> C
+
++ W (s + iβ, ς, −k; w1)
+
+|W (s + iβ, ς, −k; w1)|3
+
+> C
+
+− W (s + iβ, ς, k ; w2)
+
+|W (s + iβ, ς, k ; w2)|3
+
+> C
+
+− W (s + iβ, ς, −k; w2)
+
+|W (s + iβ, ς, −k; w2)|3
+
+> C
+
+∣∣∣∣ . 1
+
+|k|3
+
+∥∥w1 − w2∥∥Y7
+
+> ρ
+
+,
+
+for k ∈ Z2 \ { 0} and β ∈ Bρ(0), yielding the desired bound. We move on to the bound of the H¨ older seminorm. We take s, s ′ ∈ T2. In order to bound the H¨ older seminorm, one can again split the integral in question as in ( 5.77 ) and in ( 5.56 ). Every term except the double difference of W can be handled as above and can be bounded by |k|−3 ∥∥w1 − w2∥∥Y7
+
+> ρ
+
+,as desired. Hence, we shall only consider the double difference. Aiming towards using Lemma 5.1 b), we set 
+
+p = W (s, ς, k ; w1) , q = −W (s, ς, −k; w1) , r = W (s, ς, k ; w2) , t = −W (s, ς, −k; w2) ,p′ = W (s′, ς, k ; w1) , q′ = −W (s′, ς, −k; w1) , r′ = W (s′, ς, k ; w2) , t′ = −W (s′, ς, −k; w2) .
+
+Both of these sets of variables fulfill ( 5.78 )-( 5.80 ), with s′ appropriately replacing s.We then have the following additional estimates for the relevant differences in Lemma 5.1 b): 
+
+|p − p′| + |q − q′| + |r − r′| + |t − t′|
+
+. |s − s′| 1
+
+> 2
+
+(∥∥w11[ℓ, · + iβ ]∥∥C 1  
+
+> 2(T2)
+
++ ∥∥w21[ℓ, · + iβ ]∥∥C 1 
+
+> 2(T2)
+
+)
+
+. |s − s′| 1 
+
+> 2
+
+, (5.81) 42 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+and |p − p′ − r + r′| + |q − q′ − t + t′|
+
+. |s − s′| 1
+
+> 2
+
+∥∥w11[ℓ, · + iβ ] − w21[ℓ, · + iβ ]∥∥C 1   
+
+> 2(T2)
+
+. |s − s′| 1
+
+> 2
+
+∥∥w1 − w2∥∥Y7
+
+> ρ
+
+. (5.82) We may further estimate 
+
+∣∣∣∣
+
+p − q − r + t
+
+|p|3
+
+> C
+
+− p′ − q′ − r′ + t′
+
+|p′|3
+
+> C
+
+∣∣∣∣
+
+6 1
+
+|| p|3
+
+> C
+
+|
+
+(|p − p′ − r + r′| + |q − q′ − t + t′|) + |p′ − q′ − r′ + t′| || p|3 
+
+> C
+
+− | p′|3
+
+> C
+
+|
+
+|| p|3
+
+> C
+
+||| p′|3
+
+> C
+
+|
+
+. 1
+
+|k|3 |s − s′| 1
+
+> 2
+
+∥∥w1 − w2∥∥Y7
+
+> ρ
+
++ ∥∥w1 − w2∥∥Y7
+
+> ρ
+
+|p − p′|| k|−4
+
+. 1
+
+|k|3 |s − s′| 1
+
+> 2
+
+∥∥w1 − w2∥∥Y7
+
+> ρ
+
+,
+
+where we have estimated the first summand in the second line with ( 5.82 ) and ( 5.78 ) and used ( 5.5 ), (5.80 ) and ( 5.81 ) to estimate the second one. Similarly, one can estimate 
+
+∣∣∣∣
+
+p〈p, p − q − r + t〉C
+
+|p|5
+
+> C
+
+− p′〈p′, p ′ − q′ − r′ + t′〉
+
+|p′|5
+
+> C
+
+∣∣∣∣ . 1
+
+|k|3 |s − s′| 1
+
+> 2
+
+∥∥w1 − w2∥∥Y7
+
+> ρ
+
+.
+
+Combining all these estimates with Lemma 5.1 b), we conclude that 
+
+∣∣∣∣
+
+p
+
+|p|3
+
+> C
+
+− q
+
+|q|3
+
+> C
+
+− r
+
+|r|3
+
+> C
+
++ t
+
+|t|3
+
+> C
+
+− p′
+
+|p′|3
+
+> C
+
+− q′
+
+|q′|3
+
+> C
+
+− r′
+
+|r′|3
+
+> C
+
++ t′
+
+|t′|3
+
+> C
+
+∣∣∣∣ . 1
+
+|k|3 |s − s′| 1
+
+> 2
+
+∥∥w1 − w2∥∥Y7
+
+> ρ
+
+.
+
+This immediately allows us to bound the corresponding H¨ older-seminorm as desired. Thus, we can conclude the proof by summing up. 
+
+6. Proof of Proposition 4.4 
+
+First of all, taking into account ( 4.8 ) and Propositions 4.2 and 4.3 , we immediately deduce that 
+
+∥∥Uε(wi)∥∥Y3
+
+> ρ
+
+. ∥∥wi∥∥Y7
+
+> ρ
+
+, for i ∈ { 1, 2} , (6.1) 
+
+∥∥Uε(w1) − Uε(w2)∥∥Y3
+
+> ρ
+
+. ∥∥w1 − w2∥∥Y7
+
+> ρ
+
+. (6.2) Combining these estimates with Lemma A.1 , for j ∈ { 1, . . . , 4} and i ∈ { 1, 2}, one can check that 
+
+‖Fj (wi)‖Yρ′ . 1
+
+ρ − ρ′ , (6.3) and that 
+
+‖Fj (w1) − Fj (w2)‖Yρ′ . 1
+
+ρ − ρ′ ‖w1 − w2‖Y7 
+
+> ρ
+
+, (6.4) uniformly in 0 < ρ ′ < ρ 6 ρ0.However, when dealing with F5−7, the term Aε(w)w5−7, requires extra care. Let us start with some preliminary lemmas. The first is direct calculus, and can be proved by arguing as in Lemma 
+
+5.1 .
+
+Lemma 6.1. Let a, b, c, d ∈ C3 be such that min(Re |a|C, Re |b|C, Re |c|C, Re |d|C) > 0, then 
+
+|| a|C − | b|C − | c|C + |d|C| . (|a| + |b| + |c| + |d|)2
+
+min(Re |a|C, Re |b|C, Re |c|C, Re |d|C)3
+
+(
+
+|a − b − c + d|(|a| + |b| + |c| + |d|)+ ( |a − c| + |b − d|)|c − d|
+
+)
+
+.VORTEX-SHEET DESINGULARIZATION 43 
+
+Next, for τi, ˆτi with i ∈ { 1, 2} as in ( 4.12 ), we introduce the notation 
+
+τi(w) and ˆτi(w) ,
+
+to emphasize the dependence on w. Having this notation at hand, we prove the following key lemma. 
+
+Lemma 6.2. Assume that (4.13 ) and (4.14 ) hold, then it follows that 
+
+‖τ1‖Y3 
+
+> ρ
+
++ ‖τ2‖Y3 
+
+> ρ
+
++ ‖ˆτ1‖Y3 
+
+> ρ
+
++ ‖ˆτ2‖Y3 
+
+> ρ
+
++
+
+∥∥∥∥
+
+1
+
+|ˆτ1|C
+
+∥∥∥∥Yρ
+
++
+
+∥∥∥∥
+
+〈ˆτ2, τ 1〉C
+
+|ˆτ1|C
+
+∥∥∥∥Yρ
+
++
+
+∥∥∥∥
+
+1
+
+|ˆτ2 − 〈 ˆτ2, τ 1〉τ1|C
+
+∥∥∥∥Yρ
+
+. 1 , (6.5) 
+
+and that 
+
+∥∥τ1(w1) − τ1(w2)∥∥Y3
+
+> ρ
+
++ ∥∥τ2(w1) − τ2(w2)∥∥Y3
+
+> ρ
+
++
+
+∥∥∥∥
+
+1
+
+|τ1(w1)|C
+
+− 1
+
+|τ1(w2)|C
+
+∥∥∥∥Yρ
+
++ ∥∥ˆτ1(w1) − ˆτ1(w2)∥∥Y3
+
+> ρ
+
++ ∥∥ˆτ2(w1) − ˆτ2(w2)∥∥Y3
+
+> ρ
+
++
+
+∥∥∥∥
+
+1
+
+|ˆτ2(w1) − 〈 ˆτ2(w1), τ 1(w1)〉Cτ1(w1)|C
+
+− 1
+
+|ˆτ2(w2) − 〈 ˆτ2(w2), τ 1(w2)〉Cτ1(w2)|C
+
+∥∥∥∥Yρ
+
++
+
+∥∥∥∥
+
+〈ˆτ2(w1), τ 1(w1)〉C
+
+|ˆτ1(w1)|C
+
+− 〈ˆτ2(w2), τ 1(w2)〉C
+
+|ˆτ1(w2)|C
+
+∥∥∥∥Yρ
+
+. ∥∥w1 − w2∥∥Y7
+
+> ρ
+
+.
+
+(6.6) 
+
+Proof. We shall first show that min 
+
+(
+
+1
+
+|| ˆτ1|C| , 1
+
+∣∣|ˆτ2|ˆτ1|2 
+
+> C
+
+− ˆτ1〈ˆτ1, ˆτ2〉C|C
+
+∣∣)
+
+& 1. (6.7) For the first term, using ( 4.14 ) and that C1 > 1, we can directly estimate Re |ˆτ1|2 
+
+> C
+
+= 1 + (Re w2)2 − (Im w2)2 > 1
+
+2 , (6.8) which yields the desired lower bound thanks to the elementary estimate |z| > √Re z2.Concerning the second, note that 
+
+|ˆτ2|ˆτ1|2 
+
+> C
+
+− ˆτ1〈ˆτ1, ˆτ2〉C|2 
+
+> C
+
+= 1 + 3( w2w3)2 + w42 + 2 w22 + w23 ,
+
+and that ( 4.13 ) and ( 4.14 ) imply that 
+
+|(Re wj )(Im wi)| 6 C1
+
+300 C41
+
+6 1
+
+300 C31
+
+, for all i, j ∈ { 1, 2} .
+
+Hence, using that C1 > 1, it is immediate to check that Re ∣∣ˆτ2|ˆτ1|2 
+
+> C
+
+− ˆτ1〈ˆτ1, ˆτ2〉C
+
+∣∣2 
+
+> C
+
+> 1
+
+2 ,
+
+which in turn implies ( 6.7 ). Note that ( 6.7 ) immediately implies ( 6.5 ), since these functions are holomorphic away from 0, as long as the denominators are bounded. Similarly, we can estimate the difference of these quantities with respect to different w’s as 
+
+∥∥τ1(w1) − τ1(w2)∥∥Y3
+
+> ρ
+
++ ∥∥τ2(w1) − τ2(w2)∥∥Y3
+
+> ρ
+
+. ∥∥w1 − w2∥∥Y7
+
+> ρ
+
+.
+
+directly by the definition. For the difference of the quantities involving a complexified modulus, we can estimate 
+
+∥∥∥∥
+
+1
+
+|τ1(w1)|C
+
+− 1
+
+|τ1(w2)|C
+
+∥∥∥∥Yρ
+
+=
+
+∥∥∥∥
+
+|τ1(w2)|C − | τ1(w1)|C
+
+|τ1(w1)|C|τ1(w2)|C
+
+∥∥∥∥Yρ
+
+. ∥∥|τ1(w2)|C − | τ1(w1)|C
+
+∥∥Yρ ,44 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+where we have again used the lower bound ( 6.7 ). Then, to estimate the right-hand side, we rely on Lemma 6.1 . Expanding the definitions and using Lemma 6.1 , as well as ( 6.8 ), we get that 
+
+∥∥|τ1(w2)|C − | τ1(w1)|C
+
+∥∥Yρ
+
+6 sup  
+
+> |β|6ρ, (s1,s 2)∈T4, l ∈[−1,1]
+
+{
+
+|s1 − s2|− 1
+
+> 2
+
+∣∣∣|τ1(w1)[ l, s 1 + iβ ]|C − | τ1(w1)[ l, s 2 + iβ ]|C
+
+− | τ1(w2)[ l, s 1 + iβ ]|C + |τ1(w2)[ l, s 2 + iβ ]|C
+
+∣∣∣
+
++ ∣∣|τ1(w1)[ l, s 1 + iβ ]|C − | τ1(w2)[ l, s 1 + iβ ]|C
+
+∣∣}
+
+. sup  
+
+> |β|6ρ, (s1,s 2)∈T4, l ∈[−1,1]
+
+{
+
+|s1 − s2|− 1
+
+> 2
+
+(∣ ∣∣τ1(w1)[ l, s 1 + iβ ] − τ1(w1)[ l, s 2 + iβ ] − τ1(w2)[ l, s 1 + iβ ]+ τ1(w2)[ l, s 2 + iβ ]
+
+∣∣∣ +
+
+(∣∣τ1(w1)[ l, s 1 + iβ ] − τ1(w2)[ l, s 1 + iβ ]∣∣
+
++ ∣∣τ1(w1)[ l, s 2 + iβ ] − τ1(w2)[ l, s 2 + iβ ]∣∣) ∣∣τ1(w2)[ l, s 1 + iβ ] − τ1(w2)[ l, s 1 + iβ ]∣∣ )
+
++ ∣∣τ1(w1)[ l, s 1 + iβ ] − τ1(w2)[ l, s 1 + iβ ]∣∣}
+
+. ∥∥w1 − w2∥∥Y7
+
+> ρ
+
+.
+
+Note that here we have also used ( 5.4 ), and the fact that τ1 is an affine function in w. Combining the two previous estimates, we immediately get that 
+
+∥∥∥∥
+
+1
+
+|τ1(w1)|C
+
+− 1
+
+|τ1(w2)|C
+
+∥∥∥∥Yρ
+
+. ∥∥w1 − w2∥∥Y7
+
+> ρ
+
+.
+
+The other bounds in ( 6.6 ) can be shown in a similar manner. We skip the details. 
+
+Having this lemma at hand, we can now deal with Aε(w)w5−7. Indeed, taking into account ( 4.11 ), we see that, for i ∈ { 1, 2},
+
+∥∥Aε(wi)wi
+
+> 5−7
+
+∥∥Y3
+
+> ρ′
+
+. 1
+
+ρ − ρ′ ‖Uε‖Y3
+
+> ρ
+
+∥∥wi∥∥Y7
+
+> ρ′
+
+(∥∥τ1(wi)∥∥Y3
+
+> ρ′
+
+∥∥∥∥
+
+1
+
+|ˆτ1(wi)|C
+
+∥∥∥∥Yρ′
+
++ ∥∥τ2(wi)∥∥Y3
+
+> ρ′
+
+∥∥∥∥
+
+1
+
+|ˆτ2(wi) − 〈 ˆτ2(wi), τ 1(wi)〉Cτ1(wi)|C
+
+∥∥∥∥Yρ′
+
+(
+
+1 + 
+
+∥∥∥∥
+
+〈ˆτ2(wi), τ 1(wi)〉C
+
+|ˆτ1(wi)|C
+
+∥∥∥∥Yρ′
+
+)) 
+
+. 1
+
+ρ − ρ′ ,
+
+uniformly in 0 6 ρ′ < ρ 6 ρ0. Note that here we have used Lemma A.1 , ( 6.1 ) and ( 6.5 ). Similarly, using Lemma A.1 , ( 6.2 ), ( 6.6 ), and the discrete product rule, we can estimate 
+
+∥∥Aε(w1)w1 − Aε(w2)w2∥∥Y3
+
+> ρ′
+
+. 1
+
+ρ − ρ′
+
+∥∥w1 − w2∥∥Y7
+
+> ρ
+
+.
+
+uniformly in 0 6 ρ′ < ρ 6 ρ0. At this point, for j ∈ { 5, 6, 7} and i ∈ { 1, 2}, one can easily get that 
+
+‖Fj (wi)‖Yρ′ . 1
+
+ρ − ρ′ , (6.9) VORTEX-SHEET DESINGULARIZATION 45 
+
+and that 
+
+‖Fj (w1) − Fj (w2)‖Yρ′ . 1
+
+ρ − ρ′ ‖w1 − w2‖Y7 
+
+> ρ
+
+, (6.10) uniformly in 0 6 ρ′ < ρ 6 ρ0.
+
+Proof of Proposition 4.4 . The result immediately follows from ( 6.3 ), ( 6.4 ), ( 6.9 ) and ( 6.10 ). 
+
+7. The case of general closed vortex sheets 
+
+We explain how the proof extends to vortex sheets that are normal graphs over a fixed analytic closed surface in R3. The flat-graph analysis uses the ambient geometry only through four objects: the graph parametrization, the Biot–Savart kernel, the transport law for the sheet strength, and the jump formula. All four admit exact intrinsic analogues on a closed analytic surface. The only genuinely new feature is topological: on a surface of genus greater than zero, the tangential sheet strength is not globally a perp-gradient, and one must work with a divergence-free tangent vector density instead. 7.1. Geometric setting. Let M be a closed, oriented, real-analytic two-manifold. We fix a real-analytic embedding ̂ x : M → R3, and endow M with the metric induced by the Euclidean metric on R3 via the embedding ̂ x.We denote the corresponding Levi–Civita connection by ∇M , and by n : M → R3 its unit normal. Likewise, let S := −∇ M n be the Weingarten map. Then, we set 
+
+Pr(y) := I − rS(y) , Jr (y) := det Pr (y) .
+
+For small enough r0 > 0, the tubular map x : M × (−r0, r 0) → R3 defined by 
+
+x(y, r ) := ̂ x(y) + r n(y)is a diffeomorphism onto its image. Moreover, it satisfies D y x(y, r )[ v] = D ̂x(y)[ Pr (y)v], so Jr(y) is the Jacobian of y 7 → x(y, r ) relative to the reference area form dA M .For h : M → (−r0, r 0), the normal graph and its parametrizing map are Γh := {x(y, h (y)) : y ∈ M } , xh(y) := x(y, h (y)) .
+
+For a tangent vector field b on M , its pushforward by xh is the map M → R3 given by 
+
+Phb(y) := D xh(y)[ b(y)] .
+
+Hence, the vector Phb(y) ∈ R3 is tangent to Γ h at the point xh(y). The corresponding vector-valued measure on Γ h is ( Phb/G h) dS Γh , where dS Γh is the surface measure on Γ h. Here Gh(·, t ) is the area density with respect to the measure dA M , defined as 
+
+dS Γh(t)(xh(·,t )(y)) = Gh(y, t ) dA M (y) .
+
+Therefore, the aforementioned vector-valued measure is characterized by 
+
+ˆ
+
+> Γh
+
+Phb(x−1 
+
+> h
+
+(x)) 
+
+Gh(x−1 
+
+> h
+
+(x)) · Φ( x) dS Γh (x) = 
+
+ˆ
+
+> M
+
+Phb(y) · Φ( xh(y)) dA M (y) , (7.1) for every Φ ∈ C∞ 
+
+> c
+
+(R3; R3). 46 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+7.2. Layered vorticities. For a fixed ε > 0 and for each label l ∈ (−1, 1), let hε,l : M → (−r0, r 0)be a collection of smooth functions, and let bε,l be a divergence-free tangent vector field on M (i.e., div M bε,l = 0). Setting 
+
+xε,l (y, t ) := x(y, h ε,l (y, t )) , and Γε,l (t) := xε,l (M, t ) ,
+
+we will consider layered vorticities , that is, distributions of the form 
+
+〈ωε(·, t ), Φ〉 := 
+
+ˆ 1
+
+> −1
+
+ˆ
+
+> M
+
+Phε,l (y,t )bε,l (y, t ) · Φ(xε,l (y, t )) dA M (y) d l, (7.2) which represent the superposition ωε = ´ 1
+
+> −1
+
+(G−1 
+
+> hε,l
+
+Phε,l bε,l ) dS Γε,l dl.A first observation is that this defines a divergence-free field on R3:
+
+Lemma 7.1. For every t ∈ [0 , T ], div ωε(·, t ) = 0 in D′(R3).Proof. For ϕ ∈ C∞ 
+
+> c
+
+(R3), the chain rule gives Phε,l bε,l · ∇ ϕ(xε,l ) = bε,l · ∇ M (ϕ ◦ xε,l ). Hence 
+
+〈div ωε, ϕ 〉 = −〈 ωε, ∇ϕ〉 = −
+
+ˆ 1
+
+> −1
+
+ˆ
+
+> M
+
+bε,l · ∇ M (ϕ ◦ xε,l ) dA M dl . 
+
+Since M is closed, integrating by parts and using div M bε,l = 0, gives 〈div ωε, ϕ 〉 = 0. 
+
+It is convenient to define the weighted thickness as 
+
+qε,l := Jhε,l ε−1∂lhε,l . (7.3) This equals the Jacobian of the volume-filling map Fε(y, l, t ) := x(y, h ε,l (y, t )) (det D (y,l )Fε = ε q ε,l ). Provided that qε,l > c0 > 0, the layers are strictly ordered and one can verify that 
+
+ωε
+
+(x(y, h ε,l (y, t )) , t ) = Phε,l (y,t )bε,l (y, t )
+
+ε q ε,l (y, t ) .
+
+7.3. Main statement. Formal computations suggest that the limiting vortex sheet (Γ h, b ) should be governed by the Birkhoff–Rott system . For a function h and a divergence-free tangent vector field b on M , one should have that 
+
+{ ∂th + V [h, b ] · ∇ M h = W [h, b ] ,∂tb + LV [h,b ]b = 0 . (7.4) Here, L denotes the Lie derivative, W [h, b ] := BR[ h, b ] · n and V [h, B ] ∈ Ty M is defined by the equation Dxh(y) V [h, b ]( y) = Π T Γh BR[ h, b ]( y) ,
+
+where Π T Γh denotes the tangential projector, and where BR[ h, b ]( y) := P .V. 1
+
+4π
+
+ˆ
+
+> M
+
+Ph(z)b(z) × (xh(y) − xh(z))
+
+∣∣xh(y) − xh(z)∣∣3 dA M (z) . (7.5) To obtain an analog of Theorem 2.3 for general closed surfaces in R3, we then consider layered initial data ( h0
+
+> ε,l
+
+, q 0
+
+> ε,l
+
+, b 0
+
+> ε,l
+
+)|l|<1 as above with the following properties. To state them, given ρ > 0, let Aρ(M )be the Banach space of analytic functions on M with the norm ‖f ‖ρ := ∑
+
+> m>0
+
+(ρm/m !) ‖∇ mf ‖L∞(M ),and let Aρ(T M ) be its counterpart for vector fields on M . For some fixed ρ0 > 0, we impose the following conditions on the initial data: (i) Support: b0 
+
+> ε,l
+
+≡ 0 for |l| > 1 
+
+> 2
+
+.VORTEX-SHEET DESINGULARIZATION 47 
+
+(ii) Regularity: Each datum belongs to Aρ0 (M ) (resp. Aρ0 (T M )), the maps in l are Cr(( −1, 1)) for some non-integer r > 1, ∂lh0 
+
+> ε,l
+
+= ε J −1
+
+> h0
+> ε,l
+
+q0
+
+> ε,l
+
+, and div M b0 
+
+> ε,l
+
+= 0. (iii) Divergence-free: With ω0 
+
+> ε
+
+defined as in ( 7.2 ), div ω0 
+
+> ε
+
+= 0 in R3.(iv) Positivity: q0
+
+> ε,l
+
+(y) > c0 > 0 for all |l| < 1 and all y ∈ M .(v) Normalization: There is some b0 ∈ Aρ0 (T M ) such that ´ 1 
+
+> −1
+
+b0 
+
+> ε,l
+
+dl → b0 in Aρ0 (T M ) as ε → 0. We are ready to state the result on the desingularization of a general vortex sheet in R3:
+
+Theorem 7.2. Let ρ0 > 0 be a real number and r > 1 a non-integer. For ε ∈ (0 , 1) small enough, consider the initial layer data (h0
+
+> ε,l
+
+, q 0
+
+> ε,l
+
+, b 0
+
+> ε,l
+
+)|l|61 satisfying the above hypotheses (i)–(v), and such that 
+
+C0 := sup 
+
+> ε∈(0 ,1)
+
+sup 
+
+> |l|61
+
+(‖h0
+
+> ε,l
+
+‖ρ0 + ‖∇ M h0
+
+> ε,l
+
+‖ρ0 + ‖q0
+
+> ε,l
+
+‖ρ0 + ‖b0
+
+> ε,l
+
+‖ρ0
+
+) < ∞ .
+
+Then, for any ρ ∈ (0 , ρ 0), there exist ε0 ∈ (0 , 1) , a constant C > 0 and a time T > 0 such that, for every ε ∈ (0 , ε 0], there is a unique family 
+
+(hε,l , q ε,l , b ε,l )|l|<1 ∈ C1([0 , T ), A ρ(M )2 × Aρ(T M )),
+
+which coincide with (h0
+
+> ε,l
+
+, q 0
+
+> ε,l
+
+, b 0
+
+> ε,l
+
+)|l|<1 at time 0, such that: (i) Evolution: On [0 , T ) the triple satisfies the system 
+
+∂thε,ℓ + Vε,ℓ · ∇ M hε,ℓ = Wε,ℓ , ∂tqε,ℓ + div M(qε,ℓ Vε,ℓ ) = 0 , ∂tbε,ℓ + LVε,ℓ bε,ℓ = 0 , (7.6) 
+
+with div M bε,ℓ = 0 , ∂ℓhε,ℓ = ε J −1 
+
+> ρε,ℓ
+
+qε,ℓ , and with Vε,ℓ , Wε,ℓ being the tangential and normal components of the total velocity Uε,ℓ := ´ 1 
+
+> −1
+
+Kl,ℓ ε [hε,l , b ε,l ] d l, where 
+
+Kl,ℓ ε [hε,l , b ε,l ]( y, t ) := 1
+
+4π
+
+ˆ
+
+> M
+
+Phε,l (z,t )bε,l (z, t ) × (x(y, h ε,ℓ (y, t )) − x(z, h ε,l (z, t )) )
+
+∣∣x(y, h ε,ℓ (y, t )) − x(z, h ε,l (z, t )) ∣∣3 dA M (z) .
+
+(ii) Birkhoff–Rott: There is a unique solution (h, b ) ∈ Aρ(M ) × Aρ(T M ) to the system (7.4 ) on 
+
+[0 , T ), with initial data (0 , b 0).(iii) Euler solution: The vorticity ωε defined by (7.2 ) is a weak solution of the 3D incompressible Euler equations on R3 × [0 , T ], with supp ωε(·, t ) contained in a tubular neighborhood of Γh(·,t )
+
+of width Cε . If in addition the maps l 7 → ρ0
+
+> ε,l
+
+, q 0
+
+> ε,l
+
+, B 0 
+
+> ε,l
+
+are Cr for all r > 1, then ωε(·, t ) ∈
+
+C∞([0 , T ] × R3, R3).(iv) Distributional convergence: If the initial data converges as 
+
+h0 
+
+> ε, 0
+
+→ 0 in Aρ0 (M ) , and 
+
+ˆ 1
+
+> −1
+
+b0 
+
+> ε,l
+
+dl → b0 in Aρ0 (T M ) , as ε → 0+ ,
+
+then the solution converges to the vortex sheet in the following sense: let (h, b ) be the unique analytic solution to (7.4 ) with initial data (0 , b 0). Then, it follows that, as ε → 0+,
+
+◦ hε,l → h in L∞([0 , T ], C k (M )) for all l ∈ (−1, 1) and all k ∈ N ,
+
+◦
+
+ˆ 1
+
+> −1
+
+bε,l dl → b in L∞([0 , T ], C k (M )) for all k ∈ N .48 A. ENCISO, A. J. FERN ´ANDEZ, AND D. MEYER 
+
+7.4. Comments on the proof. The proof of Theorem 7.2 follows the same strategy as in the flat case. We just indicate the three main points where the geometry enters. 
+
+Evolution system. The kinematic equation ( 7.6 )1 is derived by differentiating x(y, h ε,ℓ (y, t )) in time and projecting onto n. The thickness equation ( 7.6 )2 follows from incompressibility and the identity div u = J−1 
+
+> r
+
+div M (Jr U ) + J−1 
+
+> r
+
+∂r(Jr U n) in tubular coordinates; the weighted variable qε,l is chosen precisely to remove curvature source terms. Equation ( 7.6 )3 is Lie transport of a tangent density, which preserves div M bε,ℓ = 0 automatically. 
+
+Singular-kernel estimates. In a local analytic chart near the diagonal, the geometric chord satisfies 
+
+x(y, h ε,ℓ (y, t )) − x(z, h ε,l (z, t )) = D xhε,l (y)( y − z) + (hε,ℓ (y) − hε,l (y))n(y) + O(|y − z|2).
+
+The principal part is the flat tangent-plane chord, and all operator estimates from the periodic case carry over with D ̂x, n, Gh, Ph as analytic multiplicative coefficients. 
+
+Analytic function spaces. The periodic strip analytic norms are replaced by embedding M into a complex manifold and using suitable tubular neighborhoods of M instead of the strips. These satisfy the same algebra and Cauchy estimates, and since all geometric factors (particularly, the embedding ̂
+
+x and the normal n are analytic in h and ∇h (for ‖h‖L∞ (M ) < r 0), the nonlinear vector field defined by the system ( 7.6 ) has exactly the same one-derivative loss as in the flat case. Nishida’s theorem therefore applies without modification. 
+
+Acknowledgements 
+
+This work has received funding from the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation programme through the grant agreement 862342 (A.E. and D.M.). A.E. is also partially supported by the grant PID2022-136795NB-I00 of the Spanish Science Agency and the ICMAT–Severo Ochoa grant CEX2019-000904-S. A.J.F. is partially sup-ported by the grants PID2023-149451NA-I00 of MCIN/AEI/10.13039/501100011033/FEDER, UE; and RYC2024-049142-I, MICINN (Spain). 
+
+Appendix A. Cauchy’s integral formula 
+
+Lemma A.1. Let ρ′ ∈ (0 , ρ ). Then, for any f ∈ X ρ, it follows that ‖∇ f ‖X 2 
+
+> ρ′
+
+. 1 
+
+> ρ−ρ′
+
+‖f ‖ρ .
+
+Proof. Let f ∈ X ρ be fixed but arbitrary. The components of ∇f (· + x) − ∇ f (·) are harmonic for every x ∈ T2. Moreover, for all z ∈ T2 
+
+> ρ′
+
+, the polydisk BC 
+
+> 1
+> 2(ρ−ρ′)
+
+(z1) × BC 
+
+> 1
+> 2(ρ−ρ′)
+
+(z2) lies in T2
+
+> ρ
+
+. Applying then Cauchy’s integral formula in polydisks [ 22 , Chapter I, Theorem 1.3], we get that 
+
+|∇ f (z + x) − ∇ f (z)| .
+
+ˆ
+
+> BC
+> 1
+> 2 (ρ−ρ′)(z1)×BC
+> 1
+> 2 (ρ−ρ′)(z2)
+
+( |f (ξ + x) − f (ξ)|
+
+|z1 − ξ1|2|z2 − ξ2| + |f (ξ + x) − f (ξ)|
+
+|z1 − ξ1|| z2 − ξ2|2
+
+)
+
+dξ1 dξ2
+
+. 1
+
+ρ − ρ′ ‖f (· + x) − f (·)‖L∞(T2  
+
+> ρ)
+
+6 1
+
+ρ − ρ′ ‖f ‖Xρ .
+
+Since the same argument can be used for the L∞-term in the definition of the norm ‖ · ‖ 2 
+
+> Xρ′
+
+, the result immediately follows. 
+
+Lemma A.2. Let ρ′ ∈ (0 , ρ ). Then, the embedding Xρ֒ → X ρ′ is compact. Proof. By Cauchy’s integral formula, namely Lemma A.1 , it follows that ‖u‖C1(T2  
+
+> ρ′)
+
+. ‖u‖ρ . Hence, by the compactness of the embedding C1(T2 
+
+> ρ′
+
+)֒ → C 1 
+
+> 2
+
+(T2 
+
+> ρ′
+
+), any bounded sequence must have a convergent subsequence. The limit of this subsequence must satisfy the Cauchy–Riemann equations distributionally. It is therefore holomorphic, and it belongs to Xρ′ . VORTEX-SHEET DESINGULARIZATION 49 
+
+References 
+
+1. H. Bahouri, J.-Y. Chemin, R. Danchin, Fourier Analysis and Nonlinear Partial Differential Equations , Springer, Berlin, 2011. 2. D. Benedetto, M. Pulvirenti, From vortex layers to vortex sheets, SIAM J. Appl. Math. 52 (1992) 1041–1056. 3. R. E. Caflisch, M. C. Lombardo, M. Sammartino, Vortex layers of small thickness, Comm. Pure Appl. Math. 73 (2020) 2104–2179. 4. R. E. Caflisch, O. F. Orellana, Singular solutions and ill-posedness for the evolution of vortex sheets, SIAM J. Math. Anal. 20 (1989) 293–307. 5. R. Danchin, Axisymmetric incompressible flows with bounded vorticity, Russ. Math. Surv. 62 (3) (2007) 475–496. 6. R. Danchin, Remarks on the lifespan of the solutions to some models of incompressible fluid mechanics. Proc. Am. Math. Soc. 141 (2012) 1979–1993. 7. J. D´ avila, M. del Pino, M. Musso, J. Wei, Gluing methods for vortex dynamics in Euler flows, Arch. Ration. Mech. Anal. 235 (2020) 1467–1530. 8. J. D´ avila, M. del Pino, M. Musso, S. Parmeshwar, Global in time vortex configurations for the 2D Euler equations, to appear in J. Eur. Math. Soc. 9. R. J. DiPerna, P.-L. Lions, Ordinary differential equations, transport theory and Sobolev spaces, Invent. Math. 98 (1989) 511–547. 10. A. Enciso, A. J. Fern´ andez, D. Meyer, Desingularization of vortex sheets for the 2D Euler equations, 
+
+arXiv:2505.18655 .11. A. Enciso, D. Peralta-Salas, F. Torres de Lizaur, Quasi-periodic solutions to the incompressible Euler equations in dimensions two and higher, J. Differential Equations 354 (2023) 170–182. 12. L. Grafakos, Classical Fourier Analysis , Springer, New York, 2014. 13. L. Grafakos, Modern Fourier Analysis , Springer, New York, 2014. 14. D. Guo, L. Zhao, Global well-posedness of weak solutions to the incompressible Euler equations with helical sym-metry in R3, J. Differential Equations 416 (2025) 806–868. 15. Y. Guo, C. Huang, B. Pausader, K. Widmayer, On the stabilizing effect of rotation in the 3d Euler equations, Commun. Pure Appl. Math. 76 (2023) 3553–3641. 16. Y. Guo, B. Pausader, K. Widmayer, Global axisymmetric Euler flows with rotation, Invent. Math. 231 (2023) 169–262. 17. H. Helmholtz, ¨Uber discontinuierliche Fl¨ ussigkeits-Bewegungen, Monatsberichte der K¨ oniglichen Preussische Akademie der Wissenschaften zu Berlin 23 (1868) 215–228. 18. L. Kelvin, Hydrokinetic solutions and observations, Phil. Mag. 42 (1871) 362–377. 19. Z. Li, T. Zhou, On the lifespan of axisymmetric incompressible Euler equations with a small initial swirl. Z. Angew. Math. Phys. 75 (2024) paper no. 219. 20. A. J. Majda, A. L. Bertozzi, Vorticity and incompressible flow , Cambridge university press, Cambridge, 2002. 21. T. Nishida, A note on a theorem of Nirenberg, J. Differential Geom. 12 (1977) 629–633. 22. R. M. Range, Holomorphic Functions and Integral Representations in Several Complex Variables , Springer, 1986. 23. X. Ren, G. Tian, Global solutions to the Euler-Coriolis system, arXiv:2405.18390 .24. P. G. Saffman, Vortex dynamics, Cambridge university press, New York, 1995. 25. C. Sulem, P.-L. Sulem, C. Bardos, U. Frisch, Finite time analyticity for the two- and three-dimensional Kelvin-Helmholtz instability, Comm. Math. Phys. 80 (1981) 485–516. 
+
+Alberto Enciso 
+
+Instituto de Ciencias Matem´ aticas, Consejo Superior de Investigaciones Cient´ ıficas, 28049 Madrid, Spain 
+
+Email address : aenciso@icmat.es 
+
+Antonio J. Fern´ andez 
+
+Departamento de Matem´ aticas, Universidad Aut´ onoma de Madrid, 28049 Madrid, Spain 
+
+Email address : antonioj.fernandez@uam.es 
+
+David Meyer 
+
+Max Planck Institute for Mathematics in the Sciences, Inselstrasse 22-26, 04103 Leipzig, Germany 
+
+Email address : david.meyer@mis.mpg.de

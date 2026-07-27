@@ -1,0 +1,8176 @@
+Title: Sharp Gradient Stability for the Sobolev Trace Inequality
+
+URL Source: https://arxiv.org/pdf/2607.17588v1
+
+Published Time: Tue, 21 Jul 2026 01:30:45 GMT
+
+Number of Pages: 60
+
+Markdown Content:
+SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY       
+
+> XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU
+> Abstract. Let n≥3 and 1 < p < n .We prove a quantitative stability estimate for the critical Sobolev trace inequality on the upper half-space. More precisely, the Sobolev trace deficit controls the max {2, p }-th power of the gradient distance to the manifold of trace bubbles. A central part of the proof is the spectral nondegeneracy of the trace bubbles: the first two eigenspaces of the linearized weighted Steklov problem are exactly the amplitude, dilation, and tangential translation modes.
+
+1. Introduction 
+
+Sharp functional inequalities identify the optimal constant and the extremal functions for which equality occurs. A quantitative stability theorem asks for more: if a function nearly attains the sharp constant, must it be close, in a natural distance, to the manifold of extremals? Such estimates play an important role in the calculus of variations, geometric analysis, nonlinear elliptic equations, and the study of critical evolution problems. They have motivated growing interest in quantitative stability for functional and geometric inequalities and for critical points of the associated variational problems; see, for instance, [3, 7, 18, 19, 16, 31, 21, 39, 8, 15, 13]. Following this line of research, we investigate quantitative stability for extremals of the Sobolev trace inequality on the upper half-space. Our result extends the whole-space theorem of [19] to the trace setting and the 
+
+p = 2 trace theorem of [21] to the full range 1 < p < n .1.1. The whole-space model and history of quantitative stability. One model example is the sharp Sobolev inequality on Rn. The question of quantitative stability for the Sobolev inequality was first raised by Brezis and Lieb [6]. We first introduce some useful definitions. Given n ≥ 3 and 1 < p < n , denote by ˙W 1,p (Rn) the closure of C∞ 
+
+> c
+
+(Rn) with respect to the norm 
+
+∥u∥ ˙W 1,p (Rn) := 
+
+Z 
+
+> Rn
+
+|Du |p dx 
+
+1/p 
+
+.
+
+The Sobolev inequality guarantees the existence of a positive constant S = S(n, p ) such that 
+
+∥Du ∥Lp(Rn) ≥ S∥u∥Lp∗ (Rn),
+
+where 
+
+p∗ := np n − p .
+
+We call the largest constant S satisfying this property the optimal Sobolev constant .Let M be the ( n + 2)-dimensional manifold of all functions of the form 
+
+va,b,x 0 (x) := a
+
+
+
+1 + b|x − x0| pp−1
+
+ n−pp
+
+, a ∈ R \ { 0}, b > 0, x0 ∈ Rn.
+
+It was shown in [2, 36, 9] that M is precisely the set of extremals for the Sobolev inequality and that every v ∈ M is a weak solution of 
+
+−∆pv = Sp∥v∥p−p∗ 
+
+> Lp∗(Rn)
+
+|v|p∗−2v, (1.1)  
+
+> 1arXiv:2607.17588v1 [math.AP] 20 Jul 2026 2XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU
+
+where ∆ pv = div( |Dv |p−2Dv ). In particular, 
+
+∥Dv ∥Lp(Rn) = S∥v∥Lp∗ (Rn) ∀v ∈ M .
+
+In the case p = 2, write 2 ∗ := 2 n/ (n − 2). Brezis and Lieb [6] raised the problem of strengthening the Sobolev inequality by adding a remainder term involving an appropriate distance between u and M, together with a suitable decay rate. Later, Bianchi and Egnell [3] settled this problem and proved that there exists c = c(n) > 0 such that 
+
+δ(u) := ∥Du ∥L2(Rn)
+
+∥u∥L2∗ (Rn)
+
+− S ≥ c inf 
+
+> v∈M
+
+∥Du − Dv ∥L2(Rn)
+
+∥Du ∥L2(Rn)
+
+!2
+
+∀u ∈ ˙W 1,2(Rn) \ { 0}, (1.2) which is optimal both in terms of the strength of the distance from M, and in terms of the exponent 2 appearing on the right-hand side. However, Bianchi–Egnell’s method relies heavily on the Hilbert-space structure avail-able at p = 2 and does not extend directly to p̸ = 2. Later, the authors of [7] used symmetrization and optimal transport to prove a stability estimate for every p ∈ (1 , n ), with distance given by inf 
+
+> v∈M
+
+∥u − v∥Lp∗ (Rn)
+
+∥u∥Lp∗ (Rn)
+
+!α
+
+∀u ∈ ˙W 1,p (Rn) \ { 0}, (1.3) together with the explicit decay exponent 
+
+α = αCFMP := 
+
+
+
+p∗
+
+
+
+3 + 4 p − 3p + 1 
+
+n
+
+ 2
+
+.
+
+Although this exponent was not sharp, this was the first stability result valid for the full range of p. Building on these techniques, Figalli, Maggi, and Pratelli [17] established a sharp stability result in the special case p = 1. For p̸ = 2, the absence of a Hilbert-space structure left open the question of whether the 
+
+p-Sobolev deficit could control distance to M at the gradient level, the strongest natural distance one may hope to control by δ(u), as in the Bianchi–Egnell theorem. Gradient stability estimates were established first for p ≥ 2 by Figalli and Neumayer [18] and then for the full range 1 < p < n by Neumayer [31]. Indeed, they proved the existence of a constant c = c(n, p ) > 0 such that 
+
+δ(u) ≥ c inf 
+
+> v∈M
+
+ ∥D(u − v)∥Lp(Rn)
+
+∥Du ∥Lp(Rn)
+
+α
+
+∀u ∈ ˙W 1,p (Rn) \ { 0}. (1.4) However, the stability exponent α in the preceding gradient estimates for p̸ = 2 was far from optimal. The sharp gradient power max {2, p } was finally obtained by Figalli and Zhang [19]. Indeed, they carefully analyzed the Taylor remainders 
+
+|X + Y |p − | X|p − p|X|p−2X · Y
+
+and 
+
+|a + b|p∗
+
+− | a|p∗
+
+− p∗|a|p∗−2ab, 
+
+and improved the expansion of ∥Dv +εDφ ∥pLp(Rn). Combining these delicate estimates with a disturbed spectral gap estimate, Figalli and Zhang proved that there exists a constant 
+
+c = c(n, p ) > 0 such that (1.4) holds with α = max {2, p }.There is a related stability theory for critical points of the functionals associated with Sobolev-type inequalities. When p = 2, instead of controlling the distance to the extremal manifold by the deficit, one controls the distance to one or several bubbles by the residual in the Euler–Lagrange equation, that is 
+
+R(u) := −∆u − | u|2∗−2u ˙H−1(Rn). (1.5) SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 3
+
+Struwe’s global compactness theorem [35] gives, along a Palais–Smale sequence, 
+
+uk = u∞ +
+
+> N
+
+X
+
+> j=1
+
+U [λj,k , z j,k ] + o ˙H1 (1) , R(uk) −→ 0, (1.6) with asymptotically separated bubble parameters. Quantitative one-bubble and multi-bubble results, together with their dimension-dependent sharp forms, were developed in [8, 15, 13]. Although the present paper concerns deficit stability rather than a residual estimate, the two theories share two indispensable ingredients: classification of the bubbles and the spectral gap estimate. Their compactness mechanisms are rooted in the Brezis– Lieb lemma, concentration–compactness, and profile decompositions; see [5, 20, 34, 38, 33] and the references therein. 1.2. The trace problem and previous results. On Rn 
+
+> +
+
+= Rn−1 × (0 , ∞), the critical trace inequality is 
+
+ST(n, p )
+
+Z
+
+> ∂Rn
+> +
+
+|u|p∗ dy 
+
+!1/p ∗
+
+≤
+
+Z
+
+> Rn
+> +
+
+|∇ u|p dx 
+
+!1/p 
+
+. (1.7) Here 
+
+p∗ := (n − 1) pn − p ,
+
+and u ∈ ˙W 1,p (Rn
+
+> +
+
+), the completion of C∞ 
+
+> c
+
+(Rn
+
+> +
+
+) with respect to the seminorm ∥∇ u∥Lp(Rn
+
+> +)
+
+.The equality cases are 
+
+MT = aU λ,ξ : a̸ = 0 , λ > 0, ξ ∈ Rn−1 , Uλ,ξ (y, t ) = λ2/p 
+
+|y − ξ|2 + ( t + λ)2
+
+! n−p
+
+> 2( p−1)
+
+.
+
+(1.8) We denote by M+T the positive component of MT, obtained by restricting the amplitude parameter to a > 0. They solve 
+
+(∆pUλ,ξ = 0 in Rn
+
+> +
+
+,
+
+−|∇ Uλ,ξ |p−2∂tUλ,ξ = Sp
+
+> T
+
+∥Uλ,ξ ∥p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+U p∗−1 
+
+> λ,ξ
+
+on ∂Rn
+
+> +
+
+. (1.9) The study of the optimal constant in (1.7) and of positive solutions of (1.9) goes back to Escobar’s seminal paper [14]. Using a mass-transportation method, Nazaret [30] obtained the sharp constant for every p ∈ (1 , n ) and showed that the functions in (1.8) are extremals. The full characterization of equality cases used here is recorded in [29]. For p = 2, the moving-spheres method was used in [22, 32, 28] to show that every positive solution of (1.9) has the form (1.8). For general 1 < p < n , positive finite-energy solutions of (1.9) were classified in [40]. As for stability of the Sobolev trace inequality, Ho [21] adapted the method of [3] to the trace setting. Writing 2∗ := 2( n − 1) 
+
+n − 2 ,
+
+Ho’s result is equivalently expressed, after a change of constant, in the following normalized form for functions with nonzero trace: 
+
+δT(u) := ∥∇ u∥L2(Rn
+
+> +)
+
+∥u∥L2∗ (∂Rn
+
+> +)
+
+− ST(n, 2) ≥ c(n) inf  
+
+> V∈M T
+
+ ∥∇ (u − V )∥2
+
+∥∇ u∥2
+
+2
+
+. (1.10) More recently, Zhang, Zhou, and Zou [39] proved Bianchi–Egnell-type stability for frac-tional trace inequalities. A key ingredient is the reduction principle in [39, Theorem 3.3], which reduces the stability of the fractional trace inequality to a stability estimate for the 4 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+fractional Sobolev inequality. For the classical trace inequality with p̸ = 2, however, the sharp gradient estimate remained open. The purpose of this paper is to establish the sharp gradient stability estimate for the classical Sobolev trace inequality throughout the full range 1 < p < n . For u ∈ ˙W 1,p (Rn
+
+> +
+
+)with nonzero trace, define the Sobolev trace deficit and the normalized gradient distance from the trace-bubble manifold by 
+
+δT(u) := ∥∇ u∥Lp(Rn
+
+> +)
+
+∥u∥Lp∗ (∂Rn
+
+> +)
+
+− ST(n, p )and 
+
+dT(u, MT) := inf 
+
+> v∈M T
+
+∥∇ (u − v)∥Lp(Rn
+
+> +)
+
+∥∇ u∥Lp(Rn
+
+> +)
+
+.
+
+We prove the following sharp gradient stability estimate for the Sobolev trace inequality. 
+
+Theorem 1.1. Let n ≥ 3 and 1 < p < n . There exists a constant c = c(n, p ) > 0 such that every u ∈ ˙W 1,p (Rn
+
+> +
+
+) with nonzero trace satisfies 
+
+δT(u) ≥ c d T(u, MT)max {2,p }. (1.11) 
+
+Moreover, the exponent max {2, p } is optimal. 
+
+Remark 1.2. The stability exponent α = max {2, p } is sharp, as in [19] .Fix v = U1,0 ∈ M T and consider first ui := v(Aix), where Ai ∈ Rn×n denotes the diagonal matrix 
+
+Ai = diag 
+
+
+
+1, . . . , 1, 1 + 1
+
+i
+
+
+
+.
+
+It is not difficult to check that δT(ui) behaves as i−2, while the right-hand side of (1.11) 
+
+behaves as i−α, hence (1.11) cannot hold with α < 2.On the other hand, fix φ ∈ C∞ 
+
+> c
+
+(B1) such that ∥Dφ ∥Lp(Rn 
+
+> +)
+
+> 0, and consider eui := 
+
+v + φ(xi + · ), where xi ∈ ∂Rn 
+
+> +
+
+is a sequence of points escaping to infinity. One can check that 
+
+∥Deui∥pLp(Rn 
+
+> +)
+
+= ∥Dv ∥pLp(Rn 
+
+> +)
+
++ ∥Dφ ∥pLp(Rn 
+
+> +)
+
++ ri, 1
+
+and 
+
+∥eui∥p∗  
+
+> Lp∗(∂Rn
+> +)
+
+= ∥v∥p∗  
+
+> Lp∗(∂Rn
+> +)
+
++ ∥φ∥p∗  
+
+> Lp∗(∂Rn
+> +)
+
++ ri, 2,
+
+with 
+
+|ri, 1| + |ri, 2| ≤ C v(xi) + |Dv (xi)| ≤ Cv (xi) −→ 0 as i → ∞ .
+
+Hence, choosing a sequence ϵi → 0 such that v(xi) ≪ ϵi ≪ 1, the functions bui := v +
+
+ϵiφ(xi + · ) satisfy 
+
+∥Dbui∥pLp(Rn 
+
+> +)
+
+= ∥Dv ∥pLp(Rn 
+
+> +)
+
++ ϵpi ∥Dφ ∥pLp(Rn 
+
+> +)
+
++ o(ϵpi )
+
+and 
+
+∥bui∥p∗  
+
+> Lp∗(∂Rn
+> +)
+
+= ∥v∥p∗  
+
+> Lp∗(∂Rn
+> +)
+
++ ϵp∗ 
+
+> i
+
+∥φ∥p∗  
+
+> Lp∗(∂Rn
+> +)
+
++ o(ϵp∗ 
+
+> i
+
+).
+
+Thanks to these facts, one easily deduces that δT(bui) behaves as ϵpi , while the right-hand side of (1.11) behaves as ϵαi . Thus (1.11) cannot hold with α < p .
+
+Thus the optimal power agrees with the whole-space exponent. The boundary geometry and the lack of radial symmetry, however, create new compactness and spectral difficulties that prevent a direct adaptation of the Sobolev argument. Section 2 begins by collecting the notation used in the proof. SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 5
+
+1.3. Main difficulties and new ideas. Let v ∈ M +T and write 
+
+u = v + h, 
+
+Z
+
+> ∂Rn
+> +
+
+vp∗−2hZ dy = 0 for every Z ∈ TvMT. (1.12) For X, Y ∈ Rn and a ≥ 0, b ∈ R, introduce the exact remainders 
+
+Gp(X, Y ) := |X + Y |p − | X|p − p|X|p−2X · Y, (1.13) 
+
+Bq(a, b ) := |a + b|q − aq − qa q−1b. (1.14) The remainder changes scale: 
+
+Gp(X, Y ) ≍p
+
+((|X| + |Y |)p−2|Y |2 ≍ min {| Y |p, |X|p−2|Y |2}, 1 < p < 2,
+
+|X|p−2|Y |2 + |Y |p, p ≥ 2. (1.15) The boundary remainder has two different forms: 
+
+Bq(a, b ) ≤
+
+ q(q − 1) 2 + κ
+
+ (a + Cκ|b|)q
+
+a2 + b2 b2, 1 < q ≤ 2, (1.16) 
+
+Bq(a, b ) ≤
+
+ q(q − 1) 2 + κ
+
+
+
+aq−2b2 + Cκ|b|q, q > 2. (1.17) After the normalization ∥u∥Lp∗ (∂Rn 
+
+> +)
+
+= 1, v = aU and U := U1,0, the Euler–Lagrange equation cancels the first-order terms and gives the lower bound when δT(u) ≪ 1: 
+
+Cδ T(u) ≥
+
+Z
+
+> Rn
+> +
+
+|∇ u|p dx − Sp 
+
+> T
+
+≥ p
+
+2 Gv[h] − pp∗
+
+Λv
+
+Z
+
+> ∂Rn
+> +
+
+Bp∗ (v, h ) dy, (1.18) where 
+
+Gv[h] := 2
+
+p
+
+Z
+
+> Rn
+> +
+
+Gp(∇v, ∇h) dx, Λv := Sp
+
+> T
+
+∥v∥p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+. (1.19) Thus the problem reduces to comparing the two nonlinear remainders in (1.18). Write h = εφ with ∥∇ φ∥Lp(Rn 
+
+> +)
+
+= 1. The formal limit of 1 
+
+> ε2
+
+Gv(εφ ) is R
+
+> Rn
+> +
+
+Av∇φ · ∇ φ dx ,where 
+
+Av = |∇ v|p−2
+
+
+
+I + ( p − 2) ∇v
+
+|∇ v| ⊗ ∇v
+
+|∇ v|
+
+
+
+. (1.20) Also, the formal limit of 1
+
+> ε2
+
+R
+
+> ∂Rn
+> +
+
+Bp∗ (v, εφ ) dy is p∗(p∗ − 1) /2 R
+
+> ∂Rn
+> +
+
+vp∗−2φ2 dy .The main idea behind the proof consists of two steps. (1) Prove the linear spectral gap estimate: for every ϕ ∈ ˙W 1,2(Rn
+
+> +
+
+; |∇ U |p−2) satisfying 
+
+ϕ ⊥ TU MT, one has 
+
+Z
+
+> Rn
+> +
+
+AU ∇ϕ · ∇ ϕ dx 
+
+≥ (p∗ − 1) Sp 
+
+> T
+
++ 2 λT
+
+ ∥U ∥ p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2|ϕ|2 dy. (1.21) Here ϕ ⊥ TU MT means 
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2ϕZ dy = 0 for every Z ∈ TU MT.
+
+(2) Use compactness to show that there exists eλT > 0 such that for ε sufficiently small, 
+
+Gv[εφ ] ≥
+
+ 2
+
+p∗
+
++ eλT
+
+
+
+Λv
+
+Z
+
+> ∂Rn
+> +
+
+Bp∗ (v, εφ ) dy ∀ φ ⊥ TvMT with ∥∇ φ∥Lp(Rn 
+
+> +)
+
+= 1 .
+
+(1.22) 
+
+The first difficulty: compactness. For p = 2, the Dirichlet energy is quadratic and its second variation defines a fixed Hilbert structure. For p̸ = 2, a formal Taylor expansion 6 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+around a bubble U instead produces a weight |∇ U |p−2, while the boundary term produces 
+
+U p∗−2. These weights are singular or degenerate at infinity, depending on the range of 
+
+p, and the underlying half-space and its boundary are both non-compact. Moreover, a purely quadratic expansion is not uniform, especially when p < 2, since the weighted norm ˙W 1,2(Rn
+
+> +
+
+; |∇ U |p−2) cannot be controlled by the available ˙W 1,p norm. When p∗ ≤ 2, the boundary remainder has the analogous obstruction. Consequently the proof necessarily separates 1 < p ≤ 2nn + 1 (p∗ ≤ 2) , 2nn + 1 < p < 2 ( p∗ > 2) , 2 ≤ p < n. (1.23) Analogous challenges in the whole-space model were overcome in [19] through delicate estimates of the remainders Gp and Bp∗ . We adopt their argument to prove Step (2), once Step (1) has been established. 
+
+The second difficulty: spectral gap estimate. The spectral gap estimate (1.21) is related to the following degenerate weighted Steklov-type eigenvalue problem: 
+
+Z
+
+> Rn
+> +
+
+Av∇ϕ · ∇ ψ dx = μ
+
+Z
+
+> ∂Rn
+> +
+
+vp∗−2ϕψ dy. (1.24) Both weights may degenerate or become singular, and the domain and boundary are non-compact. We first adopt the method in [19] to prove the compact embedding ˙W 1,2 Rn
+
+> +
+
+; |∇ U |p−2 ,→ L2 ∂Rn
+
+> +
+
+; U p∗−2dy  , (1.25) which implies the spectrum is discrete: μ0 < μ 1 ≤ μ2 ≤ · · · ; see Theorem 2.4 and Corollary 2.5. A variational argument identifies the first eigenvalue as μ0 = ( p − 1)Λ U , with eigenspace 
+
+E0 = span {U }, and the second eigenvalue as μ1 = ( p∗ − 1)Λ U ; see Theorem 3.2. Therefore, to prove (1.21), we only need to classify the second eigenspace: 
+
+E1 = span {Z0, Z 1, . . . , Z n−1}. (1.26) Here Z0 is the dilation mode and Z1, . . . , Z n−1 are the tangential translation modes. In previously studied settings, the identification of the second eigenspace often relies on radial symmetry of both the domain and the weight. Radial symmetry reduces the eigen-value equation to ordinary differential equations by separation of variables, after which Sturm–Liouville theory can be used to classify the second eigenspace; see, for example, [18]. In our setting, the weight is not radially symmetric, even after the domain is transformed to a ball as in [21]. Consequently, separation of variables in full spherical coordinates does not directly classify the second eigenspace of (1.24), and a different argument is required. We divide the proof of (1.26) into four steps. First, following [21], we transform the half-space Rn 
+
+> +
+
+onto the ball Ω B := B   12 en, 12
+
+. Write 
+
+y = rσ, r = |y|, σ = ( p1 − τ 2 θ, τ ), θ ∈ Sn−2, τ := σn,
+
+and define 
+
+E[ϕ, ψ ] := 
+
+Z
+
+> ΩB
+
+r−γ
+
+
+
+(p − 1) ϕrψr + 1
+
+r2 ∇S ϕ · ∇ S ψ
+
+
+
+dy, (1.27) 
+
+B[ϕ, ψ ] := 
+
+Z
+
+> ∂ΩB
+
+r−γ ϕψ dS, (1.28) where ∇S is the spherical gradient on Sn−1 and γ = (n−1)( p−2)  
+
+> p−1
+
+. Then the eigenvalue problem (1.24) is equivalent to 
+
+E[ϕ, ψ ] = λB[ϕ, ψ ] (1.29) SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 7
+
+for every ψ ∈ W 1,2(Ω B ; r−γ ). To make the change of spectral parameter explicit, set 
+
+αc := n − pp − 1 , C0 := ( p − 1) αp−1c , λ := μ − C0
+
+αp−2c
+
+.
+
+Thus the original first eigenvalue μ0 = C0 becomes λ0 = 0, with eigenfunction ϕ0 = 1, while 
+
+μ1 = ( p∗ − 1) αp−1c = C0 + pα p−2c
+
+becomes the second eigenvalue λ1 = p of (1.29). That is 
+
+E[ϕ, ϕ ] ≥ pB[ϕ, ϕ ] whenever B[ϕ, 1] = 0 . (1.30) To characterize the second eigenspace E1, we need to prove that equality in (1.30) holds precisely on span 
+
+
+
+y1, . . . , y n−1, y n − 1
+
+p
+
+
+
+.
+
+Second, let Zk,j : 1 ≤ j ≤ dim Hn−1
+
+> k
+
+be an orthonormal basis of spherical harmonics of degree k on Sn−2 with respect to the normalized surface measure dσ/ |Sn−2|. For ϕ ∈ W 1,2(Ω B ; r−γ ), we can write 
+
+ϕ(r, τ, θ ) = 
+
+> ∞
+
+X 
+
+> k=0 dim Hn−1
+> k
+
+X
+
+> j=1
+
+uk,j (r, τ )Zk,j (θ) (1.31) Thus the energy of ϕ decomposes into different sectors: 
+
+E[ϕ, ϕ ] = |Sn−2| X
+
+> k,j
+
+Ek[uk,j , u k,j ], B[ϕ, ϕ ] = |Sn−2| X
+
+> k,j
+
+Bk[uk,j , u k,j ].
+
+In Subsection 3.2.4, we prove that every second eigenfunction ϕ satisfies 
+
+u1,j (r, τ ) = cj rp1 − τ 2, uk,j ≡ 0 for k ≥ 2.
+
+Consequently, 
+
+ϕ − u0 ∈ span {y1, . . . , y n−1}.
+
+It remains to classify u0; see Theorem 3.10. Third, we use a Pohozaev-type identity (Lemma 3.13) to reduce the classification of u0
+
+to a sharp one-dimensional inequality; see Proposition 3.15. Finally, in Subsection 3.2.5, we use singular Sturm–Liouville theory to analyze the spectrum of the linearized operator L associated with the one-dimensional inequality. We prove that L has exactly one negative eigenvalue and no zero eigenvalue. This identifies the equality cases in the sharp one-dimensional inequality and completes the classification of u0.1.4. Outline of the proof. In Section 2, we introduce the notation and formulate the linearized weighted Steklov problem. We then define the weighted energy space at the stan-dard bubble, prove the weighted trace inequality and compactness of the trace embedding, establish discreteness of the Steklov spectrum, and reduce the spectral gap estimate to the spectral nondegeneracy theorem (Theorem 2.2). In Section 3, we prove Theorem 2.2 following the strategy described in the discussion of the second difficulty. A normalized conformal transformation first reduces the Steklov problem on Rn 
+
+> +
+
+to a weighted equation on a ball. We then decompose a second eigen-function ϕ into spherical-harmonic sectors and analyze the sectors of degree k ≥ 1. The 
+
+k = 0 sector is handled by the Pohozaev and Sturm–Liouville arguments described above. Combining the sector estimates yields a strictly positive spectral gap on the orthogonal complement of the tangent space. 8 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+In Section 4, motivated by [19, Section 3], we work directly with the exact Taylor re-mainders rather than replacing them prematurely by purely quadratic bounds. Combining compactness of normalized perturbations with the linear spectral gap, we prove a uniform nonlinear spectral gap near every trace bubble. In Section 5, we complete the proof of Theorem 1.1. Lions’ concentration–compactness principle [26] first reduces the global theorem to the local regime. As in [19, Lemma 4.1], a modulation argument then supplies the required tangent orthogonality. We write u =
+
+v +εφ , expand δT(v +εφ ), and apply the nonlinear spectral gap in each of the three ranges of p.
+
+Acknowledgments. The first and third authors were supported by the National Natural Science Foundation of China [grant number: 2025YFA1017601]. 2. The weighted trace space and compactness 
+
+2.1. Basic setting and the weighted trace space. We first introduce some notation as in [19]. 
+
+Definition 2.1 (Weighted homogeneous Sobolev spaces) . Let Ω ⊂ Rn be open. Given 
+
+q ≥ 1 and a nonnegative locally integrable weight g0 : Ω → [0 , ∞), let Lq(Ω; g0) be the space of measurable functions ϕ : Ω → R such that 
+
+∥ϕ∥Lq (Ω; g0) := 
+
+Z 
+
+> Ω
+
+|ϕ|qg0(x) dx 
+
+1/q 
+
+< ∞.
+
+For a nonnegative locally integrable weight g1 on Ω, define ˙W 1,q (Ω; g1) as the completion of C∞ 
+
+> c
+
+(Ω) with respect to the homogeneous norm 
+
+∥ϕ∥ ˙W 1,q (Ω; g1) := 
+
+Z 
+
+> Ω
+
+|Dϕ |qg1(x) dx 
+
+1/q 
+
+.
+
+When g1 ≡ 1, we abbreviate ˙W 1,q (Ω; 1) as ˙W 1,q (Ω). Let n ≥ 3, 1 < p < n , and write points of the upper half-space as 
+
+x = ( y, t ) ∈ Rn 
+
+> +
+
+:= Rn−1 × (0 , ∞).
+
+Its boundary is identified with 
+
+∂Rn 
+
+> +
+
+= Rn−1 × { 0} ≃ Rn−1.
+
+We use the two critical exponents 
+
+p∗ := np n − p , p∗ := (n − 1) pn − p . (2.1) Thus p∗ is the interior Sobolev exponent and p∗ is the critical trace exponent. Notice that 
+
+p∗ ≤ 2 ⇐⇒ p ≤ 2nn + 1 . (2.2) In the notation of Definition 2.1, ˙W 1,p (Rn
+
+> +
+
+) is equipped with the homogeneous norm 
+
+∥u∥ ˙W 1,p (Rn 
+
+> +)
+
+:= ∥∇ u∥Lp(Rn
+
+> +)
+
+.
+
+Every element of ˙W 1,p (Rn
+
+> +
+
+) has a representative in Lp∗
+
+(Rn
+
+> +
+
+), and its trace belongs to 
+
+Lp∗ (∂Rn
+
+> +
+
+). From now on, whenever a function appears in a boundary integral or boundary norm, the same letter denotes its trace; for instance, u on ∂Rn 
+
+> +
+
+means u|∂Rn 
+
+> +
+
+.The sharp Sobolev trace inequality is 
+
+∥∇ u∥Lp(Rn 
+
+> +)
+
+≥ ST(n, p ) ∥u∥Lp∗ (∂Rn 
+
+> +)
+
+∀u ∈ ˙W 1,p (Rn
+
+> +
+
+), (2.3) SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 9
+
+where 
+
+ST(n, p ) := inf    
+
+> u∈˙W1,p (Rn
+> +)
+> u|∂Rn
+> +̸≡0
+
+∥∇ u∥Lp(Rn
+
+> +)
+
+∥u∥Lp∗ (∂Rn
+
+> +)
+
+. (2.4) The quotient in (2.4) is invariant under multiplication by a nonzero constant, tangential translations, and the critical dilation 
+
+uλ,ξ (y, t ) := λ− n−pp u
+
+ y − ξλ , tλ
+
+
+
+, λ > 0, ξ ∈ Rn−1. (2.5) Set 
+
+U (y, t ) :=  |y|2 + ( t + 1) 2− n−p 
+
+> 2( p−1)
+
+. (2.6) For λ > 0 and ξ ∈ Rn−1, define 
+
+Uλ,ξ (y, t ) := λ− n−pp U
+
+ y − ξλ , tλ
+
+
+
+(2.7) = λ2/p 
+
+|y − ξ|2 + ( t + λ)2
+
+! n−p
+
+> 2( p−1)
+
+.
+
+The full extremal manifold is 
+
+MT := Va,λ,ξ := aU λ,ξ : a ∈ R \ { 0}, λ > 0, ξ ∈ Rn−1 . (2.8) We denote its positive component by 
+
+M+T := {Va,λ,ξ ∈ M T : a > 0} . (2.9) The manifold MT is an ( n + 1)-dimensional smooth manifold. By the classification of equality cases for the sharp Sobolev trace inequality, MT is precisely the family of nonzero extremals of (2.3); see [14, 30, 29, 40]. In particular, 
+
+∥∇ v∥Lp(Rn 
+
+> +)
+
+= ST ∥v∥Lp∗ (∂Rn 
+
+> +)
+
+∀v ∈ M T. (2.10) For the standard positive bubble U = U1,0, introduce the symmetry modes 
+
+Za := U, Z0 := ∂∂λ Uλ, 0
+
+> λ=1
+
+, Zj := ∂∂ξ j
+
+U1,ξ 
+
+> ξ=0
+
+, 1 ≤ j ≤ n − 1. (2.11) Hence 
+
+TU MT = span {Za, Z 0, Z 1, . . . , Z n−1}. (2.12) More generally, 
+
+TVa,λ,ξ MT = span ∂aVa,λ,ξ , ∂ λVa,λ,ξ , ∂ ξ1 Va,λ,ξ , . . . , ∂ ξn−1 Va,λ,ξ . (2.13) There is no normal translation mode, since translation in the t-direction does not preserve the fixed half-space and its boundary. Let v ∈ M T. Differentiating the quotient in (2.4) gives the weak Euler–Lagrange equation Z
+
+> Rn
+> +
+
+|∇ v|p−2∇v · ∇ φ dx = Sp
+
+> T
+
+∥v∥ p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+Z
+
+> ∂Rn
+> +
+
+|v|p∗−2v φ dy (2.14) for every φ ∈ ˙W 1,p (Rn
+
+> +
+
+). Equivalently, v satisfies 
+
+( div  |∇ v|p−2∇v = 0 in Rn
+
+> +
+
+,
+
+|∇ v|p−2∇v · ν = Sp
+
+> T
+
+∥v∥ p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+|v|p∗−2v on ∂Rn
+
+> +
+
+, (2.15) where ν = −en is the outward unit normal to Rn
+
+> +
+
+. For a positive bubble, the boundary condition becomes 
+
+−|∇ v|p−2∂tv = Sp
+
+> T
+
+∥v∥ p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+vp∗−1 on ∂Rn
+
+> +
+
+. (2.16) 10 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+It is convenient to introduce the linearized coefficient matrix 
+
+Av := |∇ v|p−2
+
+
+
+I + ( p − 2) ∇v
+
+|∇ v| ⊗ ∇v
+
+|∇ v|
+
+
+
+. (2.17) The associated generalized trace eigenvalue problem is 
+
+Z
+
+> Rn
+> +
+
+Av∇ϕ · ∇ ψ dx = μ
+
+Z
+
+> ∂Rn
+> +
+
+|v|p∗−2ϕ ψ dy (2.18) for all admissible test functions ψ.
+
+Theorem 2.2 (Spectral nondegeneracy) . Let v = Va,λ,ξ ∈ M T be positive. Then 
+
+TvMT = E0 ⊕ E1,
+
+where 
+
+E0 := span {v}
+
+is the first eigenspace, with eigenvalue 
+
+μ0 = ( p − 1) Sp
+
+> T
+
+∥v∥p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+,
+
+and 
+
+E1 := span ∂λVa,λ,ξ , ∂ ξ1 Va,λ,ξ , . . . , ∂ ξn−1 Va,λ,ξ 
+
+is the second eigenspace, with eigenvalue 
+
+μ1 = ( p∗ − 1) Sp
+
+> T
+
+∥v∥p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+.
+
+The proof of Theorem 2.2 is given in Section 3. 2.2. Compact embedding. Throughout this paper, U = U1,0 denotes the standard positive trace bubble defined in (2.6). Since 
+
+U (y, t ) =  |y|2 + ( t + 1) 2− n−p 
+
+> 2( p−1)
+
+,
+
+a direct computation gives 
+
+|∇ U (y, t )| = n − pp − 1
+
+ |y|2 + ( t + 1) 2− n−12( p−1) . (2.19) Consequently, 
+
+|∇ U (y, t )|p−2 = cn,p 
+
+ |y|2 + ( t + 1) 2− (n−1)( p−2) 2( p−1) , (2.20) whereas 
+
+U (y, 0) p∗−2 = (1 + |y|2)− n(p−2)+ p 
+
+> 2( p−1)
+
+. (2.21) In particular, both weights are smooth and strictly positive on every bounded subset of 
+
+Rn
+
+> +
+
+. The only loss of compactness that must be excluded occurs at infinity. We define ˙W 1,2(Rn
+
+> +
+
+; |∇ U |p−2) as the completion of C∞ 
+
+> c
+
+(Rn
+
+> +
+
+) with respect to the norm 
+
+∥ϕ∥ ˙W 1,2(Rn  
+
+> +;|∇ U|p−2)
+
+:= 
+
+Z
+
+> Rn
+> +
+
+|∇ U |p−2|∇ ϕ|2 dx 
+
+!1/2
+
+. (2.22) Since the eigenvalues of 
+
+I + ( p − 2) ∇U
+
+|∇ U | ⊗ ∇U
+
+|∇ U |
+
+are 1 and p − 1, one has min {1, p − 1}
+
+Z
+
+> Rn
+> +
+
+|∇ U |p−2|∇ ϕ|2 dx ≤
+
+Z
+
+> Rn
+> +
+
+AU ∇ϕ · ∇ ϕ dx 
+
+≤ max {1, p − 1}
+
+Z
+
+> Rn
+> +
+
+|∇ U |p−2|∇ ϕ|2 dx. (2.23) SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 11 
+
+Thus the scalar weighted norm and the full linearized quadratic form are equivalent. For R > 1, introduce ΩR := {(y, t ) ∈ Rn 
+
+> +
+
+: |(y, t + 1) | > R }, (2.24) ΓR := {y ∈ Rn−1 : (1 + |y|2)1/2 > R }. (2.25) The following estimate is the main ingredient in the compact embedding theorem. 
+
+Lemma 2.3 (Weighted trace inequality) . There exists C = C(n, p ) > 0 such that, for every R ≥ 2 and every ϕ ∈ C∞ 
+
+> c
+
+(Rn
+
+> +
+
+),
+
+Z
+
+> Γ2R
+
+U p∗−2 |ϕ|2 dy ≤ CR
+
+Z
+
+> ΩR
+
+|∇ U |p−2 |∇ ϕ|2 dx. (2.26) 
+
+There exists C = C(n, p ) > 0 such that 
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2|ϕ|2 dy ≤ C
+
+Z
+
+> Rn
+> +
+
+|∇ U |p−2|∇ ϕ|2 dx (2.27) 
+
+for every ϕ ∈ C∞ 
+
+> c
+
+(Rn
+
+> +
+
+).Proof. (1): We give a dyadic proof. For k ≥ 0, set 
+
+A+ 
+
+> k
+
+:= 
+
+n
+
+(y, t ) ∈ Rn 
+
+> +
+
+: 2 kR < |(y, t + 1) | < 2k+1 R
+
+o
+
+,
+
+Γk := 
+
+n
+
+y ∈ Rn−1 : 2 kR < (1 + |y|2)1/2 < 2k+1 R
+
+o
+
+.
+
+On A+ 
+
+> k
+
+and Γ k, respectively, 
+
+|∇ U |p−2(x) ≃ (2 kR)− (n−1)( p−2)  
+
+> p−1
+
+, (2.28) 
+
+U p∗−2(y) ≃ (2 kR)− n(p−2)+ pp−1 , (2.29) with constants depending only on n and p.Rescaling the standard trace–Poincar´ e inequality on a fixed half-annulus yields 
+
+Z
+
+> Γk
+
+|ϕ − (ϕ)A+
+
+> k
+
+|2 dy ≤ C(2 kR)
+
+Z
+
+> A+
+> k
+
+|∇ ϕ|2 dx, (2.30) where ( ϕ)A+
+
+> k
+
+denotes the average of ϕ on A+ 
+
+> k
+
+.Combining (2.28), (2.29), and (2.30), we obtain 
+
+Z
+
+> Γk
+
+U p∗−2|ϕ − (ϕ)A+
+
+> k
+
+|2 dy ≤ C
+
+2kR
+
+Z
+
+> A+
+> k
+
+|∇ U |p−2|∇ ϕ|2 dx. (2.31) It remains to estimate the averages. Since ϕ ∈ C∞ 
+
+> c
+
+(Rn
+
+> +
+
+), the averages vanish for all sufficiently large k. A telescoping argument gives 
+
+|(ϕ)A+
+
+> k
+
+| ≤ 
+
+> ∞
+
+X
+
+> j=k
+
+|(ϕ)A+
+
+> j
+
+− (ϕ)A+
+
+> j+1
+
+|. (2.32) We now prove the estimate for the difference of the two averages. Put eA+ 
+
+> j
+
+:= A+ 
+
+> j
+
+∪A+ 
+
+> j+1
+
+and 
+
+rj := 2 j R. Since |A+ 
+
+> j
+
+| ≃ | A+
+
+> j+1
+
+| ≃ | eA+ 
+
+> j
+
+| ≃ rnj , the triangle inequality and Cauchy–Schwarz give 
+
+|(ϕ)A+
+
+> j
+
+− (ϕ)A+
+
+> j+1
+
+| ≤ Cr −n/ 2 
+
+> j
+
+∥ϕ − (ϕ) eA+
+
+> j
+
+∥L2( eA+ 
+
+> j)
+
+.
+
+Applying the Poincar´ e inequality on eA+ 
+
+> j
+
+and using the scaling of the annulus, 
+
+∥ϕ − (ϕ) eA+
+
+> j
+
+∥L2( eA+  
+
+> j)
+
+≤ Cr j ∥∇ ϕ∥L2( eA+ 
+
+> j)
+
+.12 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+Therefore, by (2.28) 
+
+|(ϕ)A+
+
+> j
+
+− (ϕ)A+
+
+> j+1
+
+| ≤ C(2 j R)− n−p 
+
+> 2( p−1)
+
+∥∇ ϕ∥L2( eA+ 
+
+> j
+
+,|∇ U |p−2). (2.33) Using (2.29), (2.32) and (2.33), by Minkowski’s inequality 
+
+∥(ϕ)A+
+
+> k
+
+∥L2(Γ k ,U p∗− 2) ≤
+
+∞X
+
+j=k
+
+∥(ϕ)A+
+
+> j
+
+− (ϕ)A+
+
+> j+1
+
+∥L2(Γ k ,U p∗− 2)
+
+≤ C
+
+√2kR
+
+∞X
+
+j=k
+
+2− n−p 
+
+> 2( p−1)
+
+(j−k)∥∇ ϕ∥L2( eA+ 
+
+> j
+
+,|∇ U |p−2)
+
+≤ C
+
+√2kR ∥∇ ϕ∥L2(Ω R,|∇ U |p−2). (2.34) Combining (2.31) and (2.34), summing over k ≥ 1, and using the bounded overlap of the enlarged annuli eA+
+
+k , we find 
+
+∞X
+
+k=1 
+
+Z
+
+Γk
+
+U p∗−2|ϕ|2 dy ≤ CR
+
+Z
+
+ΩR
+
+|∇ U |p−2|∇ ϕ|2 dx. 
+
+Since Γ2R =
+
+∞[
+
+k=1 
+
+Γk,
+
+this proves (2.26). 
+
+(2). Fix R = 2 and argue as in part (1). We obtain 
+
+Z
+
+∂Rn
+
+> +
+
+∩B2R(−en)
+
+U p∗−2|ϕ − (ϕ)|2 dy ≤ C
+
+Z
+
+B2R(−en)∩Rn
+
+> +
+
+|∇ U |p−2|∇ ϕ|2 dx, (2.35) where ( ϕ) denotes the average of ϕ on B2R(−en) ∩ Rn
+
++. Also, we have 
+
+|(ϕ)| ≤ | (ϕ) − (ϕ)A+1
+
+| +
+
+∞X
+
+j=1 
+
+|(ϕ)A+
+
+> j
+
+− (ϕ)A+
+
+> j+1
+
+|,
+
+|(ϕ)A+
+
+> j
+
+− (ϕ)A+
+
+> j+1
+
+| ≤ C(2 j )− n−p 
+
+> 2( p−1)
+
+∥∇ ϕ∥L2( eA+ 
+
+> j
+
+,|∇ U |p−2),
+
+and 
+
+|(ϕ) − (ϕ)A+1
+
+| ≤ C∥∇ ϕ∥L2(B4R(−en)∩Rn
+
+> +
+
+,|∇ U |p−2).
+
+Hence, by Minkowski’s inequality 
+
+∥(ϕ)∥L2(∂Rn
+
+> +
+
+∩B2R(−en),U p∗− 2)
+
+≤∥ (ϕ) − (ϕ)A+1
+
+∥L2(∂Rn
+
+> +
+
+∩B4R(−en),U p∗− 2) +
+
+∞X
+
+j=1 
+
+∥(ϕ)A+
+
+> j
+
+− (ϕ)A+
+
+> j+1
+
+∥L2(∂Rn
+
+> +
+
+∩B4R(−en),U p∗− 2)
+
+≤C
+
+∥∇ ϕ∥L2(B4R(−en)∩Rn
+
+> +
+
+,|∇ U |p−2) +
+
+∞X
+
+j=1 
+
+2− n−p 
+
+> 2( p−1)
+
+(j−1) ∥∇ ϕ∥L2( eA+ 
+
+> j
+
+,|∇ U |p−2)
+
+
+
+≤C∥∇ ϕ∥L2(Rn
+
+> +
+
+,|∇ U |p−2). (2.36) Combining (2.35), (2.36) and (2.26), we obtain (2.27). 
+
+□SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 13 
+
+Theorem 2.4 (Compact weighted trace embedding) . The embedding 
+
+˙W 1,2(Rn
+
+> +
+
+; |∇ U |p−2) ,→ L2(∂Rn
+
+> +
+
+, U p∗−2 dy ) (2.37) 
+
+is compact. Equivalently, if 
+
+sup 
+
+> k
+
+Z
+
+> Rn
+> +
+
+|∇ U |p−2|∇ ϕk|2 dx < ∞,
+
+then, after passing to a subsequence, there exists ϕ ∈ ˙W 1,2(Rn
+
+> +
+
+; |∇ U |p−2) such that 
+
+ϕk −→ ϕ strongly in L2(∂Rn
+
+> +
+
+, U p∗−2 dy ). (2.38) 
+
+Proof. Let ( ϕk) be bounded in ˙W 1,2(Rn
+
+> +
+
+; |∇ U |p−2). By weak compactness in this Hilbert space, after passing to a subsequence, 
+
+ϕk ⇀ ϕ weakly in ˙W 1,2(Rn
+
+> +
+
+; |∇ U |p−2).
+
+Replacing ϕk by ϕk − ϕ, it is enough to assume 
+
+ϕk ⇀ 0 in ˙W 1,2(Rn
+
+> +
+
+; |∇ U |p−2)and prove strong convergence of the traces. Fix R > 2. Since |∇ U |p−2 is bounded above and below by positive constants on 
+
+B2R(−en) ∩ Rn
+
+> +
+
+,
+
+the gradients ( ∇ϕk) are bounded in the usual L2-space there. Moreover, (2.27) bounds (ϕk) in L2(∂Rn 
+
+> +
+
+∩ B2R(−en)), because the boundary weight is bounded below by a positive constant on this set. The Poincar´ e inequality with a boundary term gives 
+
+∥ϕk∥L2(B2R(−en)∩Rn 
+
+> +)
+
+≤ CR
+
+
+
+∥∇ ϕk∥L2(B2R(−en)∩Rn 
+
+> +)
+
++ ∥ϕk∥L2(∂Rn
+
+> +∩B2R(−en))
+
+
+
+.
+
+Thus ( ϕk) is bounded in the usual W 1,2-space on every bounded half-ball. The compact trace theorem now implies 
+
+ϕk −→ 0 strongly in L2 ∂Rn 
+
+> +
+
+∩ B2R(−en). (2.39) Since U p∗−2 is bounded on this compact boundary region, 
+
+Z
+
+> ∂Rn
+> +∩B2R(−en)
+
+U p∗−2|ϕk|2 dy −→ 0. (2.40) On the other hand, Lemma 2.3 gives sup 
+
+> k
+
+Z
+
+> Γ2R
+
+U p∗−2|ϕk|2 dy ≤ CR sup 
+
+> k
+
+∥ϕk∥2˙W 1,2(Rn 
+
+> +;|∇ U|p−2)
+
+. (2.41) Therefore, lim sup 
+
+> k→∞
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2|ϕk|2 dy ≤ CR sup 
+
+> k
+
+∥ϕk∥2˙W 1,2(Rn 
+
+> +;|∇ U|p−2)
+
+. (2.42) Letting R → ∞ proves Z
+
+> ∂Rn
+> +
+
+U p∗−2|ϕk|2 dy −→ 0.
+
+This is precisely the desired compactness. □14 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+2.3. Spectral gap estimate. Consider the Rayleigh quotient 
+
+Z
+
+> Rn
+> +
+
+AU ∇ϕ · ∇ ϕ dx 
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2|ϕ|2 dy , ϕ ∈
+
+n
+
+ψ ∈ ˙W 1,2(Rn
+
+> +
+
+; |∇ U |p−2) : ψ|∂Rn
+
+> +
+
+̸ ≡ 0
+
+o
+
+. (2.43) The Rayleigh quotient is associated with the following weak eigenvalue problem. Let 
+
+ϕ ∈ ˙W 1,2(Rn
+
+> +
+
+; |∇ U |p−2) be a weak solution of 
+
+(Lϕ := − div ( AU ∇ϕ) = 0 in Rn
+
+> +
+
+,
+
+ AU ∇ϕ · ν = μU p∗−2ϕ on ∂Rn
+
+> +
+
+. (2.44) 
+
+Corollary 2.5 (Discreteness of the weighted trace spectrum) . The generalized eigenvalue problem 
+
+Z
+
+> Rn
+> +
+
+AU ∇ϕ · ∇ ψ dx = μ
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2ϕ ψ dy for every ψ ∈ ˙W 1,2(Rn
+
+> +
+
+; |∇ U |p−2) (2.45) 
+
+has a discrete sequence of positive eigenvalues 
+
+0 < μ 0 ≤ μ1 ≤ · · · ≤ μk ≤ · · · , μk −→ +∞, (2.46) 
+
+counted with multiplicity. The traces of the corresponding eigenfunctions form an or-thonormal basis of L2(∂Rn
+
+> +
+
+, U p∗−2).Proof. The energy equivalence (2.23) shows that the bilinear form corresponding to L
+
+(ϕ, ψ ) ˙W 1,2(Rn  
+
+> +;|∇ U|p−2)
+
+:= 
+
+Z
+
+> Rn
+> +
+
+AU ∇ϕ · ∇ ψ dx 
+
+is coercive and defines an equivalent Hilbert norm on ˙W 1,2(Rn
+
+> +
+
+; |∇ U |p−2). Lemma 2.3 implies that the weighted boundary pairing (ϕ, ψ )L2(∂Rn  
+
+> +,U p∗− 2)
+
+:= 
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2ϕ ψ dy 
+
+is continuous on ˙W 1,2(Rn
+
+> +
+
+; |∇ U |p−2). Therefore, by the Riesz representation theorem, for every f ∈ L2(∂Rn
+
+> +
+
+, U p∗−2), there exists a unique solution ϕ ∈ ˙W 1,2(Rn
+
+> +
+
+; |∇ U |p−2) of (ϕ, ψ ) ˙W 1,2(Rn  
+
+> +;|∇ U|p−2)
+
+= ( f, ψ )L2(∂Rn 
+
+> +,U p∗− 2)
+
+.
+
+Let us write ϕ = L−1f . By Theorem 2.4, the operator L−1 : L2(∂Rn
+
+> +
+
+, U p∗−2) →
+
+˙W 1,2(Rn
+
+> +
+
+; |∇ U |p−2) ⋐ L2(∂Rn
+
+> +
+
+, U p∗−2) is compact, positive, and self-adjoint. Its nonzero eigenvalues are the reciprocals of the generalized eigenvalues in (2.45). The spectral the-orem for compact self-adjoint operators then gives the asserted discreteness and the basis statement; see, for example, [4, 24]. □
+
+Corollary 2.6 (Spectral gap estimate) . By Theorem 2.2, there exists λT = λT(n, p ) > 0
+
+such that every ϕ ∈ ˙W 1,2(Rn
+
+> +
+
+; |∇ U |p−2) satisfying 
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2ϕ Z dy = 0 ∀Z ∈ TU MT (2.47) 
+
+obeys Z
+
+> Rn
+> +
+
+AU ∇ϕ · ∇ ϕ dx 
+
+≥ (p∗ − 1) Sp 
+
+> T
+
++ 2 λT
+
+ ∥U ∥ p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2|ϕ|2 dy. (2.48) SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 15 
+
+By scaling, tangential translation, and multiplication, the corresponding estimate holds at every positive v ∈ M T.Proof. By Corollary 2.5, the spectrum is discrete. Theorem 2.2 identifies the second eigenvalue as (p∗ − 1) Sp
+
+> T
+
+∥U ∥ p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+and identifies the first two eigenspaces. The next eigenvalue is therefore strictly larger. Denoting half of the spectral separation, after factoring out ∥U ∥p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+, by λT > 0 gives (2.48). The invariances of the quotient and of the bubble family yield the uniform form for general v ∈ M T. □
+
+3. Proof of spectral nondegeneracy 
+
+This section proves Theorem 2.2. We retain the local notation introduced below to streamline the explicit calculation. The identifications are Ω = Rn
+
+> +
+
+, S = ST, M = M+T ,
+
+where M+T denotes the positive component of MT. Thus the constant S has exactly the same gradient-side normalization as ST. At the end of the section, we translate the classification back into the notation of Section 2. 3.1. Reduction to the weighted Steklov problem. For the explicit spectral calcula-tion, we use the following local notation. Let n ≥ 3 and p ∈ (1 , n ), and denote by B(x, r )the ball centered at x with radius r. Set Ω = Rn 
+
+> +
+
+:= {(x, t ) : x ∈ Rn−1, t > 0}, p∗ := p(n − 1) 
+
+n − p .
+
+Let {ei}ni=1 be the standard basis of Rn, and denote the Euclidean metric on Ω by 
+
+ge = dx 2 + dt 2.
+
+In this notation, the sharp Sobolev trace inequality reads 
+
+S∥u∥Lp∗ (∂Ω) ≤ ∥ Du ∥Lp(Ω) (3.1) for all u ∈ ˙W 1,p (Ω), with the homogeneous space understood as in Definition 2.1, under the norm 
+
+∥u∥ ˙W 1,p (Ω) := ∥Du ∥Lp(Ω) .
+
+For a > 0, λ > 0, and x0 ∈ Rn−1, set 
+
+va,λ,x 0 (x, t ) := aλ n−pp(p−1) 
+
+ |x − x0|2 + ( t + λ)2− n−p
+
+> 2( p−1)
+
+and 
+
+M := {va,λ,x 0 : a > 0, λ > 0, x 0 ∈ Rn−1} ⊂ ˙W 1,p (Ω) .
+
+It is known that M is the set of positive functions for which equality holds in the Sobolev trace inequality above. In addition, 
+
+
+
+∆pva,λ,x 0 = 0 in Ω ,
+
+|Dv a,λ,x 0 |p−2 ∂v a,λ,x 0
+
+∂t = −Sp∥va,λ,x 0 ∥p−p∗ 
+
+> Lp∗(∂Ω)
+
+|va,λ,x 0 |p∗−2va,λ,x 0 on ∂Ω.
+
+(3.2) Define 
+
+v := va, 1,0, U := v1,1,0.
+
+It follows from (3.2) that Sp∥U ∥p−p∗  
+
+> Lp∗(∂Ω)
+
+= ( n−pp−1 )p−1. A direct differentiation of the bubble parameters gives 
+
+TvM = span {v, ∂ λ|λ=1 va,λ, 0, ∂ 1v, . . . , ∂ n−1v} ⊂ ˙W 1,2(Ω; |Dv |p−2) ∩ ˙W 1,p (Ω) .16 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+Recall the desired spectral gap estimate: there exists λ = λ(n, p ) > 0 such that, for every 
+
+ϕ ∈ ˙W 1,2(Ω; |Dv |p−2) ∩ (TvM)⊥,
+
+one has Z
+
+> Ω
+
+|Dv |p−2|Dϕ |2 + ( p − 2) |Dv |p−4(Dv · Dϕ )2 dxdt 
+
+≥  (p∗ − 1) Sp + 2 λ∥v∥p−p∗ 
+
+> Lp∗(∂Ω)
+
+Z
+
+> ∂Ω
+
+vp∗−2ϕ2 dx. (3.3) 
+
+Remark 3.1. Theorem 2.4 gives the compact embedding 
+
+˙W 1,2(Ω; |Dv |p−2) ,→ L2(∂Ω; vp∗−2).
+
+We say that ϕ ∈ ˙W 1,p (Ω) or ϕ ∈ ˙W 1,2(Ω; |Dv |p−2) is perpendicular to TvM if 
+
+Z
+
+> ∂Ω
+
+ϕ ξ v p∗−2dx = 0 for any ξ ∈ TvM.
+
+It remains to solve the eigenvalue problem 
+
+(div  |DU |p−2Dϕ + ( p − 2) |DU |p−4(DU · Dϕ )DU  = 0 in Ω ,
+
+ |DU |p−2Dϕ + ( p − 2) |DU |p−4(DU · Dϕ )DU  · ν = μU p∗−2ϕ on ∂Ω. (3.4) Indeed, it suffices to consider the first two eigenspaces. 
+
+Theorem 3.2 (Identification of the first two eigenvalues) . The first eigenpair is 
+
+μ0 = ( p − 1) 
+
+ n − pp − 1
+
+p−1
+
+, ϕ0 = U. 
+
+The second eigenvalue is 
+
+μ1 = ( p∗ − 1) 
+
+ n − pp − 1
+
+p−1
+
+,
+
+and its eigenspace contains 
+
+span {∂λ|λ=1 v1,λ, 0, ∂ 1U, . . . , ∂ n−1U }.
+
+Proof. The positive function ϕ0 := U satisfies (3.4) with 
+
+μ0 = ( p − 1) 
+
+ n − pp − 1
+
+p−1
+
+.
+
+We identify its variational position directly. Denote by QU [·, ·] and BU [·, ·] the bulk and boundary bilinear forms in (3.4), respectively. Since U is a minimizer of the Sobolev trace inequality (3.1), its second variation gives 0 ≤ d2
+
+dϵ 2 ϵ=0 
+
+Z
+
+> Rn
+> +
+
+|D(U + ϵφ )|p dxdt − Sp
+
+ Z 
+
+> Rn−1
+
+|U + ϵφ |p∗ dx 
+
+ pp∗
+
+!
+
+=p
+
+Z
+
+> Ω
+
+|DU |p−2|Dφ |2 + ( p − 2) |DU |p−4(DU · Dφ )2 dx dt 
+
+−Spp(p∗ − 1) ∥U ∥p−p∗ 
+
+> Lp∗(∂Ω)
+
+Z
+
+> ∂Ω
+
+U p∗−2φ2dx − Spp(p − p∗)∥U ∥p−2p∗ 
+
+> Lp∗(∂Ω)
+
+ Z 
+
+> ∂Ω
+
+U p∗−1φdx 
+
+2
+
+.
+
+(3.5) If φ ⊥ ϕ0 in L2(∂Ω; U p∗−2), the final term vanishes and hence 
+
+Z
+
+> Ω
+
+|DU |p−2|Dφ |2 +( p−2) |DU |p−4(DU ·Dφ )2 dxdt ≥ Sp(p∗ −1) ∥U ∥p−p∗ 
+
+> Lp∗(∂Ω)
+
+Z
+
+> ∂Ω
+
+U p∗−2φ2dx, 
+
+(3.6) SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 17 
+
+Using 
+
+Sp∥U ∥p−p∗  
+
+> Lp∗(∂Ω)
+
+=
+
+ n − pp − 1
+
+p−1
+
+,
+
+define 
+
+μ1 := ( p∗ − 1) 
+
+ n − pp − 1
+
+p−1
+
+.
+
+Since p∗ > p , one has μ1 > μ 0. For arbitrary ϕ, write ϕ = cU + ψ with BU [ψ, U ] = 0. The eigenvalue equation for U and (3.6) give 
+
+QU [ϕ, ϕ ] = c2μ0BU [U, U ] + QU [ψ, ψ ] ≥ μ0BU [ϕ, ϕ ],
+
+with equality only when ψ = 0. Thus ( μ0, U ) is the first eigenpair and its eigenspace is one-dimensional. The functions in span {∂λ|λ=1 v1,λ, 0, ∂ 1U, . . . , ∂ n−1U }
+
+attain equality in (3.6). The min–max principle therefore identifies μ1 as the second eigenvalue, and the displayed span is contained in its eigenspace; see [4, Theorem 5.15]. 
+
+□
+
+Consider the conformal map 
+
+f : B
+
+ 12 en, 12
+
+
+
+→ Rn
+
+> +
+
+, y = ( y′, y n) 7 → | y|−2(y′, y n) − en,
+
+and its inverse 
+
+F = f −1 : Rn 
+
+> +
+
+→ B
+
+ 12 en, 12
+
+
+
+, (x, t ) 7 →  |x|2 + ( t + 1) 2−1(x, t + 1) .
+
+Let dy 2 denote the Euclidean metric on B( 12 en, 12 ), and define 
+
+W (y) := U (f (y)) = |y| n−pp−1 .
+
+A direct calculation gives 
+
+F ∗(dy 2) =  |x|2 + ( t + 1) 2−2(dx 2 + dt 2) = U 4( p−1)  
+
+> n−p
+
+ge.
+
+Introduce the conformal exponent 
+
+βc := − 2( p − 2) 
+
+n − p ,
+
+and the conformal metric 
+
+g0 := W 2βc dy 2 on B
+
+ 12 en, 12
+
+
+
+.
+
+We have 
+
+g := F ∗g0 = U 2βc+ 4( p−1)  
+
+> n−p
+
+ge.
+
+Define 
+
+X(ϕ) := |∇ gU |p−2∇gϕ + ( p − 2) |∇ gU |p−4(∇gU · ∇ gϕ)∇gU, 
+
+where ∇g is the Riemannian gradient on (Ω , g ) and · denotes the inner product induced by g. Then 
+
+X(ϕφ ) = X(ϕ)φ + ϕX (φ).18 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+With this choice of βc, one obtains 
+
+Z
+
+> Ω
+
+|DU |p−2|Dϕ |2 + ( p − 2) |DU |p−4(DU · Dϕ )2 dxdt 
+
+=
+
+Z
+
+> Ω
+
+X(ϕ) · ∇ gϕ U −βc(n−p)−2( p−1) dV g
+
+=
+
+Z
+
+> Ω
+
+X(U −1ϕ) · ∇ g(U −1ϕ) + ϕ2 div( X(U −1)) U −1 dV g
+
+−
+
+Z
+
+> ∂Ω
+
+ϕ2U −1g(X(U −1), ν ) dσ g. (3.7) A direct calculation gives div( X(U −1)) = 0 , U g (X(U −1), ν ) = −(p − 1) 
+
+ n − pp − 1
+
+p−1
+
+U (n−1)( p−2)  
+
+> n−p
+
+.
+
+Set 
+
+φ := U −1ϕ. 
+
+Then Z
+
+> Ω
+
+|DU |p−2|Dϕ |2 + ( p − 2) |DU |p−4(DU · Dϕ )2 dxdt 
+
+=
+
+Z
+
+> Ω
+
+|∇ gU |p−2|∇ gφ|2 + ( p − 2) |∇ gU |p−4(∇gU · ∇ gφ)2 dV g
+
++ ( p − 1) 
+
+ n − pp − 1
+
+p−1 Z
+
+> ∂Ω
+
+U (n−1)( p−2)  
+
+> n−p
+
+φ2 dσ g. (3.8) On the other hand, Z
+
+> ∂Ω
+
+U p∗−2ϕ2 dx =
+
+Z
+
+> ∂Ω
+
+U (n−1)( p−2)  
+
+> n−p
+
+φ2 dσ g. (3.9) Denote ΩB := B
+
+ 12 en, 12
+
+
+
+, eφ := φ ◦ f. 
+
+Since g = F ∗g0, we have 
+
+Z
+
+> Ω
+
+|DU |p−2|Dϕ |2 + ( p − 2) |DU |p−4(DU · Dϕ )2 dxdt 
+
+=
+
+Z
+
+> ΩB
+
+|∇ g0 W |p−2|∇ g0 eφ|2 + ( p − 2) |∇ g0 W |p−4(∇g0 W · ∇ g0 eφ)2 dV g0
+
++ ( p − 1) 
+
+ n − pp − 1
+
+p−1 Z
+
+> ∂ΩB
+
+W (n−1)( p−2)  
+
+> n−p
+
+eφ2 dσ g0 , (3.10) and Z
+
+> ∂Ω
+
+U p∗−2ϕ2 dx =
+
+Z
+
+> ∂ΩB
+
+W (n−1)( p−2)  
+
+> n−p
+
+eφ2 dσ g0 . (3.11) For notational simplicity, we relabel eφ as φ from this point onward. Therefore, the eigen-value problem (3.4) is equivalent to the following eigenvalue problem on the ball: 
+
+
+
+div  |∇ g0 W |p−2∇g0 φ + ( p − 2) |∇ g0 W |p−4(∇g0 W · ∇ g0 φ)∇g0 W  = 0 in Ω B ,g0
+
+ |∇ g0 W |p−2∇g0 φ + ( p − 2) |∇ g0 W |p−4(∇g0 W · ∇ g0 φ)∇g0 W, ν 
+
++( p − 1) 
+
+ n−pp−1
+
+p−1
+
+W (n−1)( p−2)  
+
+> n−p
+
+φ = eμW (n−1)( p−2)  
+
+> n−p
+
+φ on ∂ΩB .
+
+(3.12) Here 
+
+g0 = W 2βc dy 2, W (y) = |y| n−pp−1 , βc = − 2( p − 2) 
+
+n − p .SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 19 
+
+Equivalently, in Euclidean notation, (3.12) becomes 
+
+
+
+div 
+
+h
+
+W −2( p−2)  |DW |p−2Dφ + ( p − 2) |DW |p−4(DW · Dφ )DW i
+
+= 0 in Ω B ,W −2( p−2)  |DW |p−2Dφ + ( p − 2) |DW |p−4(DW · Dφ )DW  · ν
+
++( p − 1) 
+
+ n−pp−1
+
+p−1
+
+W − (n−1)( p−2)  
+
+> n−p
+
+φ = eμW − (n−1)( p−2)  
+
+> n−p
+
+φ on ∂ΩB .
+
+(3.13) 3.2. Analysis of the transformed eigenvalue problem. 
+
+3.2.1. Notation. Let Pnk denote the space of real homogeneous polynomials of degree k on 
+
+Rn, and define the space of spherical harmonics of degree k by 
+
+Hnk := {P |Sn−1 : ∆ P = 0 , P ∈ P nk }.
+
+It is known that [12] dim Pnk =
+
+k + n − 1
+
+k
+
+
+
+, dim Hnk = dim Pnk − dim Pnk−2.
+
+Let 1 < p < n, ΩB = B
+
+ 12 en, 12
+
+
+
+⊂ Rn, W (y) = |y|α, α := n − pp − 1 .
+
+We write 
+
+r := |y|, σ := y
+
+|y| ∈ Sn−1, τ := σn.
+
+The boundary of Ω B satisfies 
+
+∂ΩB =
+
+
+
+y : y − 12 en = 12
+
+
+
+⇐⇒ | y|2 = yn.
+
+Therefore, on ∂ΩB ,
+
+r = τ. 
+
+The Euclidean outward unit normal to ∂ΩB is 
+
+ν = 2 y − en.
+
+Set 
+
+Aφ := W −2( p−2)  |DW |p−2Dφ + ( p − 2) |DW |p−4(DW · Dφ )DW .
+
+Then (3.13) can be rewritten as follows: φ ∈ W 1,2(Ω B ; r−γ ) is a weak solution of 
+
+(Lφ := div Aφ = 0 in Ω B ,
+
+Aφ · ν + C0W −mφ = eμW −mφ on ∂ΩB , (3.14) where 
+
+C0 := ( p − 1) αp−1, m := (n − 1)( p − 2) 
+
+n − p .
+
+Since 
+
+W −m = r−γ , γ := αm = (n − 1)( p − 2) 
+
+p − 1 ,
+
+this is the problem analyzed below. 
+
+Remark 3.3. After the transformation, the first eigenpair is 
+
+eμ0 = μ0 = ( p − 1) 
+
+ n − pp − 1
+
+p−1
+
+, φ0 = 1 ,
+
+and the second eigenvalue is 
+
+eμ1 = μ1 = ( p∗ − 1) 
+
+ n − pp − 1
+
+p−1
+
+.20 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+Moreover, 
+
+span 
+
+
+
+y1, . . . , y n−1, y n − 1
+
+p
+
+
+
+is contained in the second eigenspace. In addition, (3.6) becomes: if φ ⊥ φ0 in L2(∂ΩB ; r−γ ), then we have 
+
+Z
+
+> ΩB
+
+ |Dφ |2 + ( p − 2)( Dr · Dφ )2r−γ dy ≥ ˜μ1 − C0
+
+αp−2
+
+Z
+
+> ∂ΩB
+
+r−γ φ2dσ, (3.15) 
+
+where dσ is the area form of ∂ΩB , and the functions in 
+
+span 
+
+
+
+y1, . . . , y n−1, y n − 1
+
+p
+
+
+
+attain equality in (3.15) .
+
+3.2.2. Transformed normalized problem and variational characterization. Recall that 1 < p < n, α := n − pp − 1 , γ := (n − 1)( p − 2) 
+
+p − 1 ,β := n − 32 , C0 := ( p − 1) αp−1.
+
+From now on, we set ΩB := B
+
+ 12 en, 12
+
+
+
+⊂ Rn.
+
+Use polar variables centered at the origin: 
+
+y = rσ, r = |y|, σ ∈ Sn−1, τ := σn.
+
+Next write 
+
+σ =
+
+p 1 − τ 2 ξ, τ 
+
+
+
+, ξ ∈ Sn−2.
+
+First consider the interior equation of (3.14). Since 
+
+DW = αr α−1σ, |DW | = αr α−1,
+
+and 
+
+Dφ = φrσ + 1
+
+r ∇S φ, 
+
+we get 
+
+Aφ = αp−2r−γ
+
+
+
+(p − 1) φrσ + 1
+
+r ∇S φ
+
+
+
+.
+
+Therefore, the interior equation is equivalent to div 
+
+
+
+r−γ
+
+
+
+(p − 1) φrσ + 1
+
+r ∇S φ
+
+ 
+
+= 0 .
+
+Using the polar-coordinate divergence formula gives (p − 1) φrr + n − 1
+
+r φr + 1
+
+r2 ∆S φ = 0 .
+
+On ∂ΩB , we have r = τ , ν = 2 rσ − en, and hence 
+
+σ · ν = 2 r − τ = τ. 
+
+Moreover, 
+
+ν − (ν · σ)σ = τ σ − en = −∇ S τ. 
+
+Therefore 
+
+(p − 1) φrσ + 1
+
+r ∇S φ
+
+
+
+· ν = ( p − 1) rφ r − 1
+
+r ∇S τ · ∇ S φ. SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 21 
+
+After cancellation of the common factor r−γ , the boundary condition in (3.14) becomes 
+
+αp−2
+
+
+
+(p − 1) rφ r − 1
+
+r ∇S τ · ∇ S φ
+
+
+
++ C0φ = ˜ μφ on r = τ. 
+
+Note that the boundary of Ω B is 
+
+∂ΩB = {y : |y|2 = yn} = {r = τ },
+
+and the interior is described by 
+
+D := {(r, τ ) : 0 < τ < 1, 0 < r < τ }.
+
+After subtracting the first eigenvalue contribution, the transformed Steklov parameter is 
+
+λ := eμ − C0
+
+αp−2 .
+
+The normalized transformed problem (3.14) can be rewritten as follows. For 
+
+ϕ ∈ W 1,2(Ω B ; r−γ ),
+
+it is 
+
+div 
+
+
+
+r−γ
+
+
+
+(p − 1) ϕrσ + 1
+
+r ∇S ϕ
+
+ 
+
+= 0 , in Ω B ,
+
+(p − 1) rϕ r − 1
+
+r ∇S τ · ∇ S ϕ = λϕ, on r = τ. 
+
+(3.16) The first normalized eigenvalue is 0, with eigenfunction 1. The target second normalized eigenvalue is 
+
+λ1 = p. 
+
+In the original transformed parameter this corresponds to 
+
+eμ1 = C0 + pα p−2 = nα p−2 = ( p∗ − 1) αp−1, p∗ := p(n − 1) 
+
+n − p .
+
+For ϕ, ψ ∈ W 1,2(Ω B ; r−γ ), define 
+
+E[ϕ, ψ ] := 
+
+Z
+
+> ΩB
+
+r−γ
+
+
+
+(p − 1) ϕrψr + 1
+
+r2 ∇S ϕ · ∇ S ψ
+
+
+
+dy, (3.17) and 
+
+B[ϕ, ψ ] := 
+
+Z
+
+> ∂ΩB
+
+r−γ ϕψ dS. (3.18) Then (3.16) is equivalent to 
+
+E[ϕ, ψ ] = λB[ϕ, ψ ] (3.19) for every ψ ∈ W 1,2(Ω B ; r−γ ). 
+
+Remark 3.4. The desired spectral characterization at the transformed level is 
+
+E[ϕ, ϕ ] ≥ pB[ϕ, ϕ ] whenever B[ϕ, 1] = 0 . (3.20) 
+
+The equality case should be 
+
+span 
+
+
+
+y1, . . . , y n−1, y n − 1
+
+p
+
+
+
+.
+
+We consider a sector decomposition as in [16, Section 5]. Write 
+
+σ = ( p1 − τ 2 θ, τ ), θ ∈ Sn−2.
+
+Then 
+
+|∇ S ϕ|2 = (1 − τ 2)ϕ2 
+
+> τ
+
++ 11 − τ 2 |∇ θϕ|2.
+
+Let Zk,j : 1 ≤ j ≤ dim Hn−1 
+
+> k22 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU
+
+be an orthonormal basis of spherical harmonics of degree k on Sn−2 with respect to the normalized surface measure dσ/ |Sn−2|, so that 
+
+−∆Sn−2 Zk,j = κkZk,j , κk := k(k + n − 3) .
+
+For ϕ ∈ W 1,2(Ω B ; r−γ ), we can write 
+
+ϕ(r, τ, θ ) = 
+
+> ∞
+
+X 
+
+> k=0 dim Hn−1
+> k
+
+X
+
+> j=1
+
+uk,j (r, τ )Zk,j (θ), (3.21) where the expansion is understood in the angular L2(Sn−2)-sense for a.e. ( r, τ ) ∈ D , and 
+
+uk,j (r, τ ) = ⟨ϕ(r, τ, ·), Z k,j ⟩Sn−2 = 1
+
+|Sn−2|
+
+Z
+
+> Sn−2
+
+ϕ(r, τ, θ )Zk,j (θ) dσ (θ).
+
+Therefore, we have uk,j (y) := uk,j (r, τ ) ∈ W 1,2(Ω B ; r−γ ). Let 
+
+w(τ ) := (1 − τ 2) n−32 .
+
+Since 
+
+n − 2 − γ = α, 
+
+the boundary form in the k-sector is 
+
+Bk[u, v ] := 
+
+Z 10
+
+τ αw(τ )u(τ, τ )v(τ, τ ) dτ. (3.22) The k-sector energy is 
+
+Ek[u, v ] := 
+
+Z 10
+
+Z τ
+
+> 0
+
+rα+1 w(τ )
+
+
+
+(p − 1) urvr + 1 − τ 2
+
+r2 uτ vτ
+
++ κk
+
+r2(1 − τ 2) uv 
+
+
+
+dr dτ. 
+
+(3.23) Thus 
+
+E[ϕ, ϕ ] = |Sn−2| X
+
+> k,j
+
+Ek[uk,j , u k,j ], B[ϕ, ϕ ] = |Sn−2| X
+
+> k,j
+
+Bk[uk,j , u k,j ].
+
+Remark 3.5. For ϕ ∈ W 1,2(Ω B ; r−γ ), we have uk,j (τ, τ ) ∈ L2([0 , 1]; τ α(1 − τ 2)β ) and 
+
+uk,j (r, τ ) ∈ W 1,2(D; Ek) := {u ∈ W 1,2 
+
+> loc
+
+(D) : Ek[u, u ] < ∞} .
+
+For k ≥ 1 and u ∈ W 1,2(D; Ek), we have u ∈ L2(D; rα−1(1 − τ 2)β−1), ur ∈ L2(D; rα+1 (1 −
+
+τ 2)β ), and uτ ∈ L2(D; rα−1(1 −τ 2)β+1 ). In addition, W 1,2(D; Ek) = W 1,2(D; E1) for k ≥ 1,because κ1 = n − 2 > 0.
+
+Let 
+
+Aax := {y = ( y′, y n) ∈ ΩB : y′ = 0 }.
+
+Here and below, C∞ 
+
+> c
+
+(Ω B \Aax ) denotes the restrictions to Ω B of functions that are smooth in a neighborhood of Ω B and whose supports have positive distance from Aax .
+
+Claim 3.6. The space 
+
+C∞ 
+
+> c
+
+(Ω B \ Aax ) ∩ W 1,2(D; E1)
+
+is dense in W 1,2(D; E1) with respect to the norm 
+
+∥v∥2 
+
+> E1
+
+:= E1[v, v ].SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 23 
+
+Proof of the claim. Let v ∈ W 1,2(D; E1). Choose χε, ψ ε ∈ C∞([0 , 1]) such that 
+
+χε = 0 on (0 , ε ), χε = 1 on (2 ε, 1] , |χ′
+
+> ε
+
+| ≤ C/ε, ψε = 1 on [0 , 1 − 2ε], ψε = 0 on [1 − ε, 1] , |ψ′
+
+> ε
+
+| ≤ C/ε. 
+
+Set vε = χε(r)ψε(τ )v. The derivative terms created by the cutoffs are controlled by the angular-potential term in E1:
+
+Z
+
+> {ε<r< 2ε}
+
+rα+1 (1 − τ 2)β |χ′
+
+> ε
+
+|2v2 dr dτ ≤ C
+
+Z
+
+> {r< 2ε}
+
+rα−1(1 − τ 2)β−1v2 dr dτ, 
+
+Z
+
+> {1−2ε<τ < 1−ε}
+
+rα−1(1 − τ 2)β+1 |ψ′
+
+> ε
+
+|2v2 dr dτ ≤ C
+
+Z
+
+> {τ > 1−2ε}
+
+rα−1(1 − τ 2)β−1v2 dr dτ. 
+
+Both right-hand sides tend to zero by absolute continuity of the integral. The remaining energy terms converge by dominated convergence. Hence vε → v in the ∥ · ∥ E1 -norm. After this cutoff, the support stays away from the singular sets r = 0 and τ = 1; on such truncated Lipschitz subdomains all weights are smooth and bounded above and below. Standard H1-mollification therefore gives approximants in C∞ 
+
+> c
+
+(Ω B \Aax )∩W 1,2(D; E1). □
+
+Claim 3.7. If u ∈ W 1,2(D; E1), then the boundary trace u(τ, τ ) belongs to 
+
+L2([0 , 1]; τ α(1 − τ 2)β ).
+
+Moreover, there exists C = C(n, p ) > 0 such that 
+
+Z 10
+
+|u(τ, τ )|2τ α(1 − τ 2)β dτ ≤ CE1[u, u ].
+
+Proof. By Claim 3.6, we only need to consider u ∈ C∞ 
+
+> c
+
+(Ω B \ Aax ) ∩ W 1,2(D; E1). First, we use a one-dimensional trace inequality. For every T ∈ (0 , 1) and every f ∈ W 1,2( T 
+
+> 2
+
+, T ), 
+
+T α|f (T )|2 ≤ Cα
+
+Z T
+
+> T
+> 2
+
+ rα+1 |f ′(r)|2 + rα−1|f (r)|2 dr. (3.24) Indeed, after the scaling r = T s , this follows from the usual H1-trace inequality on (1 /2, 1). Apply (3.24) with T = τ and f (r) = u(r, τ ). Multiplying by w(τ ) = (1 − τ 2)β and integrating in τ , we obtain 
+
+Z 10
+
+|u(τ, τ )|2τ αw(τ ) dτ ≤ C
+
+Z 10
+
+Z τ
+
+> 0
+
+rα+1 w(τ )|ur|2 dr dτ 
+
++ C
+
+Z 10
+
+Z τ
+
+> 0
+
+rα−1w(τ )|u|2 dr dτ. 
+
+Since 0 < 1 − τ 2 ≤ 1, the right-hand side is controlled by E1[u, u ]. This proves the estimate and hence the claim. □
+
+In the k-sector, the strong equation is (p − 1) urr + n − 1
+
+r ur + 1
+
+r2
+
+
+
+(1 − τ 2)uτ τ − (n − 1) τ u τ − κk
+
+1 − τ 2 u
+
+
+
+= 0 , (3.25) and the boundary condition on r = τ is (p − 1) τ u r − 1 − τ 2
+
+τ uτ = λu. (3.26) 3.2.3. Explicit eigenfunctions at λ = p.24 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+The axisymmetric mode. Let 
+
+h0(r, τ ) := rτ − 1
+
+p .
+
+Since rτ = yn, this is 
+
+h0 = yn − 1
+
+p .
+
+It solves the interior equation in the k = 0 sector. On r = τ ,
+
+h0(τ, τ ) = τ 2 − 1
+
+p .
+
+Also (h0)r = τ, (h0)τ = r. 
+
+Therefore (p − 1) τ (h0)r − 1 − τ 2
+
+τ (h0)τ = ( p − 1) τ 2 − (1 − τ 2)= pτ 2 − 1= p
+
+
+
+τ 2 − 1
+
+p
+
+
+
+= ph 0(τ, τ ).
+
+Hence h0 is a k = 0 eigenfunction with eigenvalue p.It is also B0-orthogonal to constants. Indeed, 
+
+B0[h0, 1] = 
+
+Z 10
+
+
+
+τ 2 − 1
+
+p
+
+
+
+τ α(1 − τ 2) n−32 dτ. 
+
+The beta-function identity gives 
+
+R 10 τ α+2 (1 − τ 2) n−32 dτ 
+
+R 10 τ α(1 − τ 2) n−32 dτ = α + 1 
+
+α + n = 1
+
+p ,
+
+so B0[h0, 1] = 0. The transverse modes. For 1 ≤ i ≤ n − 1, 
+
+yi = rp1 − τ 2 θi.
+
+Thus the common k = 1 amplitude is 
+
+h1(r, τ ) := rp1 − τ 2.
+
+Here κ1 = n − 2. The functions h1Z1,j solve the interior equation. On r = τ ,
+
+h1(τ, τ ) = τ p1 − τ 2.
+
+Also (h1)r = p1 − τ 2, (h1)τ = − rτ 
+
+√1 − τ 2 .
+
+Therefore (p − 1) τ (h1)r − 1 − τ 2
+
+τ (h1)τ = ( p − 1) τ p1 − τ 2 + τ p1 − τ 2
+
+= pτ p1 − τ 2
+
+= ph 1(τ, τ ).
+
+Thus each yi, 1 ≤ i ≤ n − 1, is a transformed eigenfunction with eigenvalue p.SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 25 
+
+3.2.4. The sectors for k ≥ 1.
+
+Lemma 3.8 (Ground-state identity in the transverse sector) . For every 
+
+u = u(r, τ ) ∈ W 1,2(D; E1)
+
+in the k = 1 sector, write u = h1η. Then 
+
+E1[u, u ] − pB1[u, u ] = 
+
+Z 10
+
+Z τ
+
+> 0
+
+rα+1 w(τ )h21
+
+
+
+(p − 1) η2 
+
+> r
+
++ 1 − τ 2
+
+r2 η2
+
+> τ
+
+
+
+dr dτ. (3.27) 
+
+Consequently, 
+
+E1[u, u ] ≥ pB1[u, u ],
+
+with equality if and only if u is a constant multiple of h1.Proof. We first prove the identity for 
+
+u(y) := u(r, τ ) ∈ C∞ 
+
+> c
+
+(Ω B \ Aax ).
+
+Since h1(r, τ ) = r√1 − τ 2 is positive in D, set η := u/h 1. Notice first that 
+
+h1ηr = ur − ur , h1ητ = uτ + τ
+
+1 − τ 2 u. (3.28) Since κ1 = n − 2 > 0, the definition of E1 and (3.28) imply 
+
+Z
+
+> D
+
+rα+3 (1 − τ 2)β+1 |ηr|2 dr dτ ≤ CE1[u, u ], (3.29) 
+
+Z
+
+> D
+
+rα+1 (1 − τ 2)β+2 |ητ |2 dr dτ ≤ CE1[u, u ]. (3.30) The function h1 satisfies E1[h1, ζ ] = pB1[h1, ζ ] for every ζ ∈ W 1,2(D; E1). Note that the support of η stays away from both r = 0 and τ = 1. Consequently 
+
+h1η2 ∈ W 1,2(D; E1), so it is an admissible test function in the equation for h1. Expanding 
+
+E1[h1η, h 1η] and testing with h1η2 gives 
+
+E1[u, u ] − pB1[u, u ]=
+
+Z 10
+
+Z τ
+
+> 0
+
+rα+1 (1 − τ 2)β h21
+
+
+
+(p − 1) |ηr|2 + 1 − τ 2
+
+r2 |ητ |2
+
+
+
+dr dτ. (3.31) We next consider general u ∈ W 1,2(D; E1). Claim 3.6 gives uε ∈ C∞ 
+
+> c
+
+(Ω B \Aax ) satisfying 
+
+uε −→ u in W 1,2(D; E1).
+
+By Claim 3.7, the boundary traces converge in L2([0 , 1]; τ α(1 − τ 2)β ). It remains to treat the right-hand side of (3.31). Denote ηε := uε/h 1. Since ηε −η = ( uε −u)/h 1, the estimates (3.29) and (3.30), applied to uε − u, give 
+
+Z
+
+> D
+
+rα+3 (1 − τ 2)β+1 |(ηε − η)r|2 dr dτ ≤ CE1[uε − u, u ε − u] −→ 0,
+
+and Z
+
+> D
+
+rα+1 (1 − τ 2)β+2 |(ηε − η)τ |2 dr dτ ≤ CE1[uε − u, u ε − u] −→ 0.
+
+Letting ε ↓ 0 in (3.31) with u = uε proves (3.27) for every u ∈ W 1,2(D; E1). The right-hand side vanishes exactly when η is constant in the connected domain D,which proves the equality statement. □
+
+Lemma 3.9 (No equality at p for k ≥ 2) . For every k ≥ 2 and every u(r, τ ) ∈ W 1,2(D; Ek)
+
+in the k-sector, 
+
+Ek[u, u ] ≥ pBk[u, u ].
+
+Moreover, if u̸ ≡ 0, then equality cannot hold. Hence no nonzero k ≥ 2 sector component can belong to the eigenspace λ = p.26 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+Proof. For k ≥ 2, 
+
+κk = k(k + n − 3) > n − 2 = κ1.
+
+For the same amplitude u, the boundary form is independent of k, while 
+
+Ek[u, u ] = E1[u, u ] + ( κk − κ1)
+
+Z 10
+
+Z τ
+
+> 0
+
+rα+1 w(τ ) u2
+
+r2(1 − τ 2) dr dτ. 
+
+By Lemma 3.8, 
+
+E1[u, u ] ≥ pB1[u, u ] = pBk[u, u ].
+
+Therefore Ek[u, u ] ≥ pBk[u, u ]. If equality held and u̸ ≡ 0, then the positive angular-potential remainder would have to vanish: 
+
+Z 10
+
+Z τ
+
+> 0
+
+rα+1 w(τ ) u2
+
+r2(1 − τ 2) dr dτ = 0 ,
+
+which forces u ≡ 0, a contradiction. □
+
+3.2.5. The axisymmetric sector k = 0 . The sector decomposition reduces the only delicate part to the following sharp two-variable inequality, which is related to a two-variable eigenproblem. 
+
+Theorem 3.10. For every axisymmetric u(y) := u(r, τ ) ∈ W 1,2(Ω B ; r−γ ) in the k = 0 
+
+sector satisfying 
+
+B0[u, 1] = 
+
+Z 10
+
+u(τ, τ )τ α(1 − τ 2) n−32 dτ = 0 , (3.32) 
+
+one has Z 10
+
+Z τ
+
+> 0
+
+rα+1 (1 − τ 2) n−32
+
+
+
+(p − 1) u2 
+
+> r
+
++ 1 − τ 2
+
+r2 u2
+
+> τ
+
+
+
+dr dτ 
+
+≥ p
+
+Z 10
+
+τ α(1 − τ 2) n−32 u(τ, τ )2 dτ. 
+
+(3.33) 
+
+Equality holds if and only if 
+
+u = c
+
+
+
+rτ − 1
+
+p
+
+
+
+.
+
+Remark 3.11. Note that ˜μ1−C0 
+
+> αp−2
+
+= p. It follows from Remark 3.3 and (3.15) that if 
+
+u ⊥ 1 in L2(∂ΩB ; r−γ ),
+
+then Z
+
+> ΩB
+
+ |Du |2 + ( p − 2)( Dr · Du )2r−γ dy ≥ p
+
+Z
+
+> ∂ΩB
+
+r−γ u2dσ, (3.34) 
+
+where dσ is the area form of ∂ΩB . Taking u = u(r, τ ) under the condition (3.32) , we obtain (3.33) . Therefore, we only need to characterize the equality case. 
+
+Recall that 1 < p < n, α := n − pp − 1 , β = n − 32 ,
+
+and 
+
+D := {(r, τ ) : 0 < r < τ < 1}.
+
+Recall that for an axisymmetric function u = u(r, τ )
+
+E0[u, v ] := 
+
+Z 10
+
+Z τ
+
+> 0
+
+rα+1 (1 − τ 2)β
+
+
+
+(p − 1) urvr + 1 − τ 2
+
+r2 uτ vτ
+
+
+
+dr dτ 
+
+and 
+
+B0[u, v ] := 
+
+Z 10
+
+u(τ, τ )v(τ, τ )τ α(1 − τ 2)β dτ. SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 27 
+
+The k = 0 sector eigenvalue problem is the weak problem 
+
+E0[u, ζ ] = λB0[u, ζ ] for every axisymmetric ζ(y) := ζ(r, τ ) ∈ W 1,2(Ω B ; r−γ ). (3.35) Equivalently, in strong form, (p − 1) urr + n − 1
+
+r ur + 1
+
+r2
+
+ (1 − τ 2)uτ τ − (n − 1) τ u τ
+
+ = 0 (3.36) in D, with boundary condition on r = τ ,(p − 1) τ u r − 1 − τ 2
+
+τ uτ = λu. (3.37) Note that if u attains equality in (3.33), then u satisfies (3.32) and (3.35) with λ =
+
+p. Since u(y) = u(r, τ ) ∈ W 1,2(Ω B ; r−γ ), we have ur ∈ L2(D; rα+1 (1 − τ 2)β ), uτ ∈
+
+L2(D; rα−1(1 − τ 2)β+1 ), and the boundary trace b(τ ) := u(τ, τ ) ∈ L2([0 , 1]; τ α(1 − τ 2)β ). Moreover, elliptic regularity yields u ∈ C∞
+
+> loc
+
+(Ω B \{ 0}); see [1, 27]. The proof of the Pohozaev-type identity also requires the following regularity lemma. 
+
+Lemma 3.12 (Regularity of the dilation derivative) . Let u(y) = u(r, τ ) ∈ W 1,2(Ω B ; r−γ )
+
+be an axisymmetric weak solution of (3.35) . Then 
+
+ru r ∈ W 1,2(Ω B ; r−γ ).
+
+Proof. Write 
+
+X := y · ∇ = r∂ r.
+
+We prove Xu ∈ W 1,2(Ω B ; r−γ ). Since r ≤ 1 in Ω B ,
+
+|Xu | ≤ r|∇ u| ≤ |∇ u|.
+
+The sector energy E0[u, u ] controls R 
+
+> ΩB
+
+r−γ |∇ u|2 dy , and hence 
+
+Z
+
+> ΩB
+
+r−γ |Xu |2 dy < ∞.
+
+It remains to prove ∇Xu ∈ L2(Ω B ; r−γ ). Since u is smooth on Ω B \ { 0}, only the singular point 0 has to be considered. Let 
+
+Aρ := Ω B ∩ { ρ < r < 2ρ}, eAρ := Ω B ∩ { ρ/ 2 < r < 4ρ}, 0 < ρ < ρ 0 := 18 .
+
+In Cartesian variables, the equation associated with (3.35) has the divergence form 
+
+
+
+div  r−γ  I + ( p − 2) er ⊗ er
+
+∇u = 0 , in Ω B ,
+
+ r−γ  I + ( p − 2) er ⊗ er
+
+∇u · ν = λr −γ u. on ∂ΩB ,
+
+On each annulus eAρ, after the rescaling y = ρz , the coefficient matrix becomes, up to the harmless scalar factor ρ−γ ,
+
+|z|−γ  I + ( p − 2) ez ⊗ ez
+
+.
+
+Then, ˜ u(z) := u(ρz ) satisfies 
+
+
+
+div  |z|−γ  I + ( p − 2) ez ⊗ ez
+
+∇˜u = 0 , in 1 
+
+> ρ
+
+ΩB ,
+
+ |z|−γ  I + ( p − 2) ez ⊗ ez
+
+∇˜u · ν = λρ |z|−γ ˜u. on 1 
+
+> ρ
+
+(∂ΩB ),
+
+The coefficient matrix is smooth and uniformly elliptic on the fixed annulus {1/2 < |z| <
+
+4}, and the rescaled boundary 1 
+
+> ρ
+
+(∂ΩB ∩ ∂ eAρ) has uniformly bounded C2-norm. The rescaled Robin coefficient λρ is uniformly bounded. Therefore the standard interior and 28 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+boundary W 2,2 estimates for uniformly elliptic equations with conormal boundary condi-tions [27, Chapter 2, Section 4] give a constant C, independent of ρ, such that 
+
+Z
+
+> Aρ
+
+r−γ r2|D2u|2 dy ≤ C
+
+Z
+
+> eAρ
+
+r−γ |∇ u|2 dy +
+
+Z  
+
+> ∂ΩB∩eAρ
+
+r−γ u2 dS 
+
+!
+
+. (3.38) Here the boundary term is finite because u is an eigenfunction: 
+
+E0[u, u ] = λB0[u, u ] < ∞.
+
+Summing (3.38) over the dyadic annuli ρ = 2 −j ρ0, and using finite overlap, yields 
+
+Z 
+
+> ΩB∩{ r<ρ 0}
+
+r−γ r2|D2u|2 dy < ∞.
+
+Since u ∈ C∞
+
+> loc
+
+(Ω B \{ 0}), we obtain 
+
+Z
+
+> ΩB
+
+r−γ r2|D2u|2 dy < ∞.
+
+Finally, note that ∇(Xu ) = ∇u + D2u y , so we have 
+
+|∇ (Xu )|2 ≤ 2|∇ u|2 + 2 r2|D2u|2.
+
+The two terms on the right-hand side are integrable with weight r−γ . Therefore 
+
+Z
+
+> ΩB
+
+r−γ |∇ (Xu )|2 dy < ∞.
+
+Together with Xu ∈ L2(Ω B ; r−γ ), this proves Lemma 3.12. □
+
+We now prove the following Pohozaev-type identity, which reduces the two-variable eigenproblem to the equality case of a one-dimensional inequality. 
+
+Lemma 3.13 (Pohozaev-type identity) . Suppose that an axisymmetric function 
+
+u(y) := u(r, τ ) ∈ W 1,2(Ω B ; r−γ )
+
+satisfies the eigenproblem (3.35) with eigenvalue λ = p, and set 
+
+b(τ ) := u(τ, τ ), M (τ ) := 1 + ( p − 2) τ 2.
+
+Then we have Z 10
+
+b(τ )τ α(1 − τ 2) n−32 dτ = 0 ,
+
+and Z 10
+
+b′(τ )2 (p − 1) τ 2(1 − τ 2)
+
+M (τ ) τ α(1 − τ 2)β dτ = p
+
+Z 10
+
+b(τ )2N (τ )τ α(1 − τ 2)β dτ, (3.39) 
+
+where 
+
+N (τ ) = − 1
+
+M (τ ) + 2( n − 1) τ 2
+
+M (τ ) + 2( p − 1) τ 2
+
+M (τ )2 .
+
+Proof. By testing the weak equation with the first eigenfunction u0 ≡ 1, we obtain 
+
+Z 10
+
+b(τ )τ α(1 − τ 2) n−32 dτ = 0 .
+
+The Pohozaev-type identity (3.39) is obtained by testing the eigenvalue equation with the dilation derivative 
+
+ζ = ru r.
+
+By Lemma 3.12, this is an admissible test function. We write the computation for the test function ru r.SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 29 
+
+Remark 3.14. Note that Lemma 3.12 implies f (τ ) := τ u r(τ, τ ) ∈ L2([0 , 1]; τ α(1 − τ 2)β ).Then by boundary condition (3.37) , we have U (τ ) := ur(τ, τ ) ∈ L2([0 , 1]; τ α+2 (1 − τ 2)β ),
+
+V (τ ) := uτ (τ, τ ) ∈ L2([0 , 1]; τ α−2(1 − τ 2)β+2 ) and b′ = U + V ∈ L2([0 , 1]; τ α+2 (1 − τ 2)β+2 ).
+
+From (3.35), 
+
+E0[u, ru r] = λ
+
+Z 10
+
+b(τ ) τ u r(τ, τ )τ α(1 − τ 2)β dτ. (3.40) We compute the left-hand side. First, (ru r)r = ur + ru rr , (ru r)τ = ru rτ .
+
+Hence 
+
+E0[u, ru r] = 
+
+Z 10
+
+Z τ
+
+> 0
+
+rα+1 (1 − τ 2)β
+
+
+
+(p − 1) ur(ur + ru rr ) + 1 − τ 2
+
+r2 uτ (ru rτ )
+
+
+
+dr dτ. 
+
+We first justify the integration by parts at r = 0. By Lemma 3.12 and Fubini’s theorem, for a.e. τ ∈ (0 , 1) the functions 
+
+r 7 −→ rα+2 ur(r, τ )2, r 7 −→ rαuτ (r, τ )2
+
+belong to W 1,1(0 , τ ). Moreover, finite energy gives 
+
+Z τ
+
+> 0
+
+rα+2 ur(r, τ )2
+
+r dr < ∞,
+
+Z τ
+
+> 0
+
+rαuτ (r, τ )2
+
+r dr < ∞.
+
+Therefore, each of the two W 1,1-functions has a limit at r = 0, and that limit must be zero. Thus there is no boundary contribution at r = 0. Integrating by parts in the r
+
+variable gives 
+
+Z 10
+
+w(τ )
+
+Z τ
+
+> 0
+
+rα+1 ur(ur + ru rr ) dr dτ 
+
+=
+
+Z 10
+
+w(τ )
+
+Z τ
+
+> 0
+
+rα+1 u2 
+
+> r
+
+dr dτ + 12
+
+Z 10
+
+w(τ )
+
+Z τ
+
+> 0
+
+rα+2 ∂r(u2 
+
+> r
+
+) dr dτ 
+
+= 12
+
+Z 10
+
+τ α+2 (1 − τ 2)β ur(τ, τ )2 dτ − α
+
+2
+
+Z 10
+
+w(τ )
+
+Z τ
+
+> 0
+
+rα+1 u2 
+
+> r
+
+dr dτ, 
+
+and Z 10
+
+(1 − τ 2)β+1 
+
+Z τ
+
+> 0
+
+rα−1uτ (ru rτ ) dr dτ = 12
+
+Z 10
+
+(1 − τ 2)β+1 
+
+Z τ
+
+> 0
+
+rα∂r(u2 
+
+> τ
+
+) dr dτ 
+
+= 12
+
+Z 10
+
+τ α(1 − τ 2)β+1 uτ (τ, τ )2 dτ − α
+
+2
+
+Z 10
+
+(1 − τ 2)β+1 
+
+Z τ
+
+> 0
+
+rα−1u2 
+
+> τ
+
+dr dτ. 
+
+Therefore 
+
+E0[u, ru r] = 12
+
+Z 10
+
+(p − 1) τ 2ur(τ, τ )2 + (1 − τ 2)uτ (τ, τ )2 τ α(1 − τ 2)β dτ 
+
+− α
+
+2 E0[u, u ].
+
+(3.41) Taking ζ = u in (3.35) gives 
+
+E0[u, u ] = λB0[u, u ] = λ
+
+Z 10
+
+b(τ )2τ α(1 − τ 2)β dτ. 
+
+Combining this with (3.40) and (3.41), we obtain 
+
+Z 10
+
+ 12
+
+(p − 1) τ 2U (τ )2 + (1 − τ 2)V (τ )2 − λτ b (τ )U (τ )
+
+
+
+τ α(1 − τ 2)β dτ 
+
+= αλ 
+
+2
+
+Z 10
+
+b(τ )2τ α(1 − τ 2)β dτ, 
+
+(3.42) 30 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+where 
+
+U (τ ) := ur(τ, τ ), V (τ ) := uτ (τ, τ ).
+
+It remains to express U and V in terms of the boundary trace b. Since 
+
+b′(τ ) = ur(τ, τ ) + uτ (τ, τ ) = U (τ ) + V (τ ),
+
+and the Steklov condition (3.37) gives (p − 1) τ U (τ ) − 1 − τ 2
+
+τ V (τ ) = λb (τ ),
+
+we solve the resulting linear system to get 
+
+U (τ ) = λτ b (τ ) + (1 − τ 2)b′(τ )
+
+M (τ ) , V (τ ) = (p − 1) τ 2b′(τ ) − λτ b (τ )
+
+M (τ ) . (3.43) Substituting (3.43) into the integrand in (3.42) yields the elementary identity 12
+
+(p − 1) τ 2U 2 + (1 − τ 2)V 2 − λτ bU 
+
+= (p − 1) τ 2(1 − τ 2)b′2 − 2λτ (1 − τ 2)bb ′ − λ2τ 2b2
+
+2M (τ ) .
+
+Together with (3.42), this proves 
+
+Z 10
+
+(p − 1) τ 2(1 − τ 2)b′(τ )2 − 2λτ (1 − τ 2)b(τ )b′(τ ) − λ2τ 2b(τ )2
+
+M (τ ) τ α(1 − τ 2)β dτ 
+
+= αλ 
+
+Z 10
+
+b(τ )2τ α(1 − τ 2)β dτ. 
+
+(3.44) Integrating by parts gives 
+
+Z 10
+
+−2τ (1 − τ 2)b(τ )b′(τ )
+
+M (τ ) τ α(1 − τ 2)β dτ =
+
+Z 10
+
+b(τ )2
+
+ τ α+1 (1 − τ 2)β+1 
+
+M (τ )
+
+′
+
+dτ 
+
+=
+
+Z 10
+
+b(τ )2
+
+ (α + 1)(1 − τ 2) − 2( β + 1) τ 2
+
+M (τ ) − 2( p − 2) τ 2(1 − τ 2)
+
+M (τ )2
+
+
+
+τ α(1 − τ 2)β dτ, (3.45) Indeed, to justify the absence of endpoint terms in this integration by parts, set 
+
+G(τ ) := b(τ )2τ α+1 (1 − τ 2)β+1 
+
+M (τ ) .
+
+The weighted estimates for b and b′ in Remark 3.14, together with Cauchy–Schwarz, imply that G ∈ W 1,1(0 , 1). Thus G has finite limits at both endpoints, and then the weighted integrability of b forces both endpoint limits of G to be zero. Hence the integration by parts produces no term at either τ = 0 or τ = 1. Substituting (3.45) into (3.44), we obtain 
+
+Z 10
+
+b′(τ )2 (p − 1) τ α+2 (1 − τ 2)β+1 
+
+M (τ ) dτ = λ
+
+Z 10
+
+b(τ )2N (τ )τ α(1 − τ 2)β dτ, (3.46) where 
+
+N (τ ) = − 1
+
+M (τ ) + 2( n − 1) τ 2
+
+M (τ ) + 2( p − 1) τ 2
+
+M (τ )2 .
+
+□
+
+Set 
+
+P (t) := (p − 1) tα+2 (1 − t2)β+1 
+
+1 + ( p − 2) t2 > 0 in (0 , 1) ,ρ(t) := tα(1 − t2)β > 0 in (0 , 1) .SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 31 
+
+Define the weighted Sobolev space 
+
+V := 
+
+
+
+f ∈ W 1,2loc (0 , 1) : 
+
+Z 10
+
+ρ(t)|f (t)|2 dt +
+
+Z 10
+
+P (t)|f ′(t)|2 dt < ∞
+
+
+
+.
+
+For f ∈ V , define the quadratic form 
+
+Q[f ] := 
+
+Z 10
+
+P (t)f ′(t)2 dt − p
+
+Z 10
+
+N (t)ρ(t)f (t)2 dt. (3.47) Indeed, Lemma 3.13 reduces Theorem 3.10 to the following sharp one-dimensional in-equality. 
+
+Proposition 3.15. If f ∈ V satisfies 
+
+Z 10
+
+f (t)ρ(t) dt = 0 , (3.48) 
+
+then 
+
+Q[f ] ≥ 0. (3.49) 
+
+Moreover, 
+
+Q[f ] = 0 ⇐⇒ f (t) = C
+
+
+
+t2 − 1
+
+p
+
+
+
+(3.50) 
+
+for some constant C ∈ R.
+
+Now we consider the variation of (3.47) and obtain a one-dimensional eigenproblem. Suppose that 
+
+f ∈ V
+
+is an eigenfunction with eigenvalue δ, that is, 
+
+
+
+1
+
+ρ
+
+(P f ′)′ − Qf  + δf = 0 , in (0 , 1) ,
+
+lim  
+
+> t↓0
+
+P (t)f ′(t) = 0 , lim  
+
+> t↑1
+
+P (t)f ′(t) = 0 (3.51) where 
+
+Q(t) := −pN (t)ρ(t) in (0 , 1) .
+
+Denote by L the formal differential expression 
+
+Lf := − 1
+
+ρ
+
+(P f ′)′ − Qf  .
+
+More precisely, let 
+
+H := L2([0 , 1]; ρ), ⟨f, g ⟩H := 
+
+Z 10
+
+f gρ dt. 
+
+With the norm 
+
+∥f ∥2 
+
+> V
+
+:= ∥f ∥2 
+
+> H
+
++
+
+Z 10
+
+P (t)|f ′(t)|2 dt, 
+
+the space V is complete. Hence, V and H are Hilbert spaces. The symmetric quadratic form defined on V
+
+Q[f, g ] := 
+
+Z 10
+
+P (t)f ′(t)g′(t) dt − p
+
+Z 10
+
+N (t)ρ(t)f (t)g(t) dt 
+
+is lower semibounded on H. Indeed, for some constant C > 0, 
+
+Q[f ] ≥
+
+Z 10
+
+P (t)|f ′(t)|2 dt − C∥f ∥2 
+
+> H
+
+,32 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+since M ≥ min {1, p − 1} > 0 and N is bounded on [0 , 1]. Therefore, Q is a closed lower semibounded form; see Kato [24, Theorem 1.11 in Chapter VI]. By the first representation theorem, Q defines a self-adjoint lower-semibounded operator, still denoted by L, through 
+
+Q[f, g ] = ⟨L f, g ⟩H f ∈ Dom( L) ⊂ V, g ∈ V, 
+
+see Kato [24, Theorem 2.1 in Chapter VI]. It is straightforward to verify that if u ∈
+
+Dom( L), then for any cut-off function η ∈ C2 
+
+> c
+
+([0 , 1]), we have ηu ∈ Dom( L) and 
+
+L(ηu ) = ηL(u) − 2P η ′
+
+ρ u′ − (P η ′)′
+
+ρ u. (3.52) 
+
+Lemma 3.16 (Essential spectrum lower bound) . Let L be the self-adjoint operator asso-ciated with the form Q on H = L2([0 , 1]; ρ). Then 
+
+σess (L) ⊂ [Λ ∗, ∞), Λ∗ := p + (n − 1) 2
+
+4( p − 1) .
+
+Consequently, the spectrum of L in (−∞ , Λ∗) consists only of isolated eigenvalues of finite multiplicity, and these eigenvalues can accumulate only at Λ∗.Proof. We use the IMS/Weyl-sequence argument as in [11, Chapter 3] to get a lower bound on the bottom of the essential spectrum. The point is that the full embedding V , → H is not compact at t = 0; nevertheless the loss of compactness occurs only above the threshold Λ∗.
+
+Step 1: local compactness away from t = 0 . Fix ε > 0. On [ ε, 1/2], the weights 
+
+ρ and P are bounded above and below by positive constants, so Rellich’s theorem gives compactness into L2.Near t = 1, set 
+
+y = p1 − t2, F (y) = f (t) = f (p1 − y2).
+
+Since 1 − t2 = y2 and dt = −(y/t ) dy , as y ↓ 0 one has 
+
+ρ(t) dt ≃ y2β+1 dy = yn−2 dy. 
+
+Moreover, 
+
+f ′(t) = Fy(y) dy dt = −Fy(y) ty ,
+
+and therefore 
+
+P (t)|f ′(t)|2 dt ≃ y2β+2 |Fy(y)|2
+
+y2 y dy = yn−2|Fy(y)|2 dy. 
+
+Thus near t = 1 the space W 1,2([ 12 , 1] , ρ, P ) is equivalent to 
+
+W 1,2 [0 ,
+
+√32 ], y n−2, y n−2
+
+!
+
+,
+
+which corresponds to the radial H1(Bn−1√3/2) space. This radial H1 space compactly embeds into L2(Bn−1√3/2). Hence bounded subsets of V are precompact in H away from t = 0. 
+
+Step 2: the tail estimate at t = 0 . Let 
+
+c := α + 1 2 = n − 12( p − 1) .
+
+Put 
+
+t = e−s, F (s) := e−cs f (e−s),
+
+so f (e−s) = ecs F (s). Let f ∈ V vanish almost everywhere on ( ε, 1), and set S = − log ε.Then Z ε
+
+> 0
+
+|f (t)|2ρ(t) dt =
+
+Z ∞
+
+> S
+
+|F (s)|2w(s) ds, w(s) := (1 − e−2s)β .SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 33 
+
+Also 
+
+f ′(e−s) = −e(c+1) s F ′(s) + cF (s),
+
+and hence Z ε
+
+> 0
+
+P (t)|f ′(t)|2 dt =
+
+Z ∞
+
+> S
+
+a(s)|F ′(s) + cF (s)|2 ds, 
+
+where 
+
+a(s) := (p − 1)(1 − e−2s)β+1 
+
+1 + ( p − 2) e−2s .
+
+Finally, 
+
+−p
+
+Z ε
+
+> 0
+
+N (t)ρ(t)|f (t)|2 dt =
+
+Z ∞
+
+> S
+
+V0(s)|F (s)|2w(s) ds, V0(s) := −pN (e−s).
+
+We now justify the Sobolev regularity and endpoint behavior needed below. For S suffi-ciently large, a and w are bounded above and below by positive constants on [ S, ∞). The preceding identities and f ∈ V therefore give 
+
+F ∈ L2(S, ∞), F ′ + cF ∈ L2(S, ∞),
+
+so F ∈ W 1,2(S, ∞). Moreover, the weights defining V are bounded above and below by positive constants locally in (0 , 1). Thus f ∈ H1
+
+> loc
+
+(0 , 1) ⊂ Cαloc (0 , 1), and the fact that 
+
+f = 0 on ( ε, 1) implies f (ε) = 0. Hence F (S) = 0. Finally, the continuous representative of a function in W 1,2(S, ∞) tends to zero at infinity; indeed, for any t ≥ 0
+
+|F (s + t)|2 − | F (s)|2 ≤ 2∥F ∥L2(s, ∞)∥F ′∥L2(s, ∞) −→ 0 as s → ∞ .
+
+Consequently, lim s→∞ F 2(s) = 0 and 
+
+Z ∞
+
+> S
+
+2cF ′F ds = 0 .
+
+Since a(s) → p − 1, V0(s) → p as s → +∞, and 0 < w (s) ≤ 1, for every 0 < η < p − 1 we may choose S sufficiently large so that, on [ S, ∞), 
+
+a(s) ≥ p − 1 − η
+
+1 + c2 , V0(s) ≥ p − η
+
+1 + c2 .
+
+Therefore 
+
+Q[f ] ≥
+
+
+
+p − 1 − η
+
+1 + c2
+
+ Z ∞
+
+> S
+
+|F ′ + cF |2 ds +
+
+
+
+p − η
+
+1 + c2
+
+ Z ∞
+
+> S
+
+|F |2w(s) ds. 
+
+For the function F obtained above, 
+
+Z ∞
+
+> S
+
+|F ′ + cF |2 ds =
+
+Z ∞
+
+> S
+
+|F ′|2 ds + c2
+
+Z ∞
+
+> S
+
+|F |2 ds ≥ c2
+
+Z ∞
+
+> S
+
+|F |2w(s) ds, 
+
+where the cross term vanishes by the endpoint behavior just proved and the inequality follows from w ≤ 1. Consequently, for every 0 < η < p − 1 there exists ε > 0 such that 
+
+f = 0 a.e. on ( ε, 1) =⇒ Q[f ] ≥ (Λ ∗ − η)∥f ∥2 
+
+> H
+
+,
+
+where Λ∗ = p + ( p − 1) c2 = p + (n − 1) 2
+
+4( p − 1) .
+
+Step 3: IMS localization and essential spectrum estimate. Choose χ0, χ 1 ∈
+
+C2([0 , 1]) such that 
+
+χ20 + χ21 = 1 , χ0 = 1 on (0 , ε/ 2) , χ0 = 0 on ( ε, 1) .
+
+Then χ1 is supported away from t = 0. Direct expansion of the derivative term gives 
+
+Q[f ] = Q[χ0f ] + Q[χ1f ] − Rε[f ],34 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+where 
+
+Rε[f ] := 
+
+Z 10
+
+P (t) (χ′
+
+> 0
+
+)2 + ( χ′
+
+> 1
+
+)2|f (t)|2 dt. 
+
+The coefficient in Rε is supported in [ ε/ 2, ε ], a compact interval away from the singular endpoint. Assume, to the contrary, that λ < Λ∗ belongs to σess (L). Choose 0 < η < min 
+
+
+
+p − 1, Λ∗ − λ
+
+4
+
+
+
+.
+
+By Weyl’s criterion [4, Theorem 5.13], there are fj ∈ Dom( L) such that 
+
+∥fj ∥H = 1 , fj ⇀ 0 in H, (L − λ)fj → 0 in H. 
+
+Then 
+
+Q[fj ] = ⟨L fj , f j ⟩H = λ + o(1) .
+
+In particular, Q[fj ] is bounded, and the lower semiboundedness estimate for Q gives a uniform bound for R 10 P |f ′ 
+
+> j
+
+|2.By local compactness away from t = 0 and weak convergence to zero, 
+
+χ1fj → 0 strongly in H. 
+
+Thus Rε[fj ] → 0. Since N is bounded, 
+
+Q[χ1fj ] ≥ − C∥χ1fj ∥2 
+
+> H
+
+= o(1) .
+
+Since χ0fj ∈ V and χ0fj = 0 on ( ε, 1), the tail estimate applies to χ0fj . Together with the IMS identity, this gives 
+
+Q[fj ] ≥ (Λ ∗ − η)∥χ0fj ∥2 
+
+> H
+
++ o(1) .
+
+Moreover, 
+
+∥χ0fj ∥2 
+
+> H
+
++ ∥χ1fj ∥2 
+
+> H
+
+= 1 ,
+
+and hence ∥χ0fj ∥H → 1. Therefore 
+
+λ = lim  
+
+> j→∞
+
+Q[fj ] ≥ Λ∗ − η, 
+
+which contradicts the choice of η. Thus 
+
+σess (L) ⊂ [Λ ∗, ∞).
+
+The final assertion follows from the Min-Max principle for lower semibounded self-adjoint operators; see [4, Theorem 5.15]. □
+
+Lemma 3.17 (Sturm–Liouville Theory) . The following properties hold for the isolated eigenvalues of the singular Sturm–Liouville problem (3.51) below the threshold Λ∗:
+
+(1) If f1 and f2 are two eigenfunctions corresponding to the same eigenvalue δ < Λ∗,then 
+
+f1 = cf 2.
+
+In other words, each eigenspace of L below Λ∗ is one-dimensional. 
+
+(2) If the eigenvalues of L in (−∞ , Λ∗) are ordered increasingly as 
+
+δ1 < δ 2 < δ 3 < · · · < Λ∗,
+
+and ei is an eigenfunction associated with δi, then ei has exactly i−1 interior zeros in (0 , 1) .SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 35 
+
+Proof of Lemma 3.17. The argument follows the proof of Lemma 6.4 in Figalli–Neumayer [18], with the endpoint at infinity replaced by the singular endpoint t = 0. We first record the regularity and endpoint facts needed below. Let f ∈ V be an eigenfunction. In the weak sense it satisfies (P f ′)′ = ( Q − δρ )f. 
+
+If I ⋐ (0 , 1), then P, ρ, Q are smooth on I and P ≥ cI > 0. The standard elliptic regularity theory implies f ∈ C∞
+
+> loc
+
+(0 , 1). 
+
+Claim 3.18. For any two functions f, g ∈ Dom( L),
+
+lim  
+
+> t↓0
+
+P (t)( f (t)g′(t) − g(t)f ′(t)) = 0 , lim  
+
+> t↑1
+
+P (t)( f (t)g′(t) − g(t)f ′(t)) = 0 . (3.53) 
+
+Proof of Claim 3.18. For functions u, v ∈ Dom( L), set [u, v ]( t) := P (t)( u(t)v′(t) − v(t)u′(t)) .
+
+Green’s identity on ( a, b ) ⋐ (0 , 1) gives [u, v ]( b) − [u, v ]( a) = 
+
+Z ba
+
+ (Lu)v − u(Lv)ρ dt. (3.54) The right-hand side has finite one-sided limits as a ↓ 0 and b ↑ 1 whenever u, v ∈ Dom( L), by Cauchy’s inequality in L2([0 , 1]; ρ). Thus the endpoint limits of [ u, v ]( t) exist. Now let f, g ∈ Dom( L) and choose χ0 ∈ C∞([0 , 1]) such that χ0 = 1 near 0 and χ0 = 0 near 1. Since L is self-adjoint, applying (3.54) to f and χ0g yields 0 = ⟨L f, χ 0g⟩H − ⟨ f, L(χ0g)⟩H = [ f, χ 0g](1) − [f, χ 0g](0) .
+
+The bracket at 1 is zero because χ0 vanishes near 1, while [ f, χ 0g](0) = [ f, g ](0) because 
+
+χ0 = 1 and χ′ 
+
+> 0
+
+= 0 near 0. Hence [ f, g ](0) = 0. Repeating the same argument with a cutoff χ1 equal to 1 near 1 and equal to 0 near 0 gives [ f, g ](1) = 0. This proves (3.53); see also [41, Chapters 6 and 10] for the general Friedrichs endpoint theory. □
+
+We will use the following fact: If two solutions of (3.51) have the same Cauchy data at some point t0 ∈ (0 , 1), then they coincide on (0 , 1). Indeed, on every compact subinterval of (0 , 1), the equation is a nondegenerate second-order linear ODE with smooth coefficients. 
+
+Proof of (1) . Let f1 and f2 be two eigenfunctions associated with the same eigenvalue 
+
+δ, and set 
+
+W (t) := f1(t)f ′
+
+> 2
+
+(t) − f2(t)f ′
+
+> 1
+
+(t).
+
+A direct computation using (P f ′ 
+
+> i
+
+)′ = ( Q − δρ )fi, i = 1 , 2,
+
+gives (P W )′ = 0 in (0 , 1) .
+
+Thus P W is constant. Applying Claim 3.18 to f1 and f2 gives lim t↓0 P (t)W (t) = 0. Hence 
+
+P (t)W (t) = 0 for every t ∈ (0 , 1). Since P (t) > 0 in (0 , 1), we have W ≡ 0. Fixing any 
+
+t0 ∈ (0 , 1), there are constants c1, c 2, not both zero, such that 
+
+c1f1(t0) + c2f2(t0) = 0 , c1f ′
+
+> 1
+
+(t0) + c2f ′
+
+> 2
+
+(t0) = 0 .
+
+The linear combination c1f1 + c2f2 therefore has zero Cauchy data at t0, so uniqueness gives c1f1 + c2f2 ≡ 0. Thus the eigenspace is one-dimensional. 
+
+Proof of (2) . Let f1 and f2 be eigenfunctions corresponding to δ1 < δ 2. For the same Wronskian W = f1f ′ 
+
+> 2
+
+− f2f ′
+
+> 1
+
+, we now have (P W )′ = ( δ1 − δ2)ρf 1f2. (3.55) We claim that between two consecutive zeros of f1 there is a zero of f2. Suppose, to the contrary, that f1 has consecutive zeros a < b and that f2 has no zero in ( a, b ). Changing 36 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+signs if necessary, assume that f1 > 0 and f2 ≥ 0 on ( a, b ). Integrating (3.55) from a to b
+
+gives 0 > (δ1 − δ2)
+
+Z ba
+
+ρf 1f2 dt = P (b)W (b) − P (a)W (a).
+
+Since f1(a) = f1(b) = 0, f ′
+
+> 1
+
+(a) > 0, and f ′
+
+> 1
+
+(b) < 0, the right-hand side equals 
+
+−P (b)f ′
+
+> 1
+
+(b)f2(b) + P (a)f ′
+
+> 1
+
+(a)f2(a) ≥ 0,
+
+a contradiction. The same argument also gives zeros before the first zero and after the last zero of f1.If a is the first zero of f1 and f2 has no zero in (0 , a ), choose signs so that f1, f 2 ≥ 0 on (0 , a ). Since P W → 0 at 0, integrating from 0 to a gives 0 > (δ1 − δ2)
+
+Z a
+
+> 0
+
+ρf 1f2 dt = P (a)W (a) = −P (a)f ′
+
+> 1
+
+(a)f2(a) ≥ 0,
+
+again a contradiction. If b is the last zero of f1 and f2 has no zero in ( b, 1), choose signs so that f1, f 2 ≥ 0 on ( b, 1). Using P W → 0 at 1, 0 > (δ1 − δ2)
+
+Z 1
+
+> b
+
+ρf 1f2 dt = −P (b)W (b) = P (b)f ′
+
+> 1
+
+(b)f2(b) ≥ 0,
+
+where f ′
+
+> 1
+
+(b) > 0 after the final sign choice. This is impossible. Therefore an eigenfunction with the larger eigenvalue has at least one zero in each interval before, between, and after the zeros of an eigenfunction with the smaller eigenvalue. The first isolated eigenfunction below the essential spectrum has a fixed sign in the interior. Indeed, by the variational characterization for isolated eigenvalues below the essential spectrum (see [4, Theorem 5.15]) and simplicity, the first eigenfunction does not change sign in the interior. A second isolated eigenfunction, if present, is orthogonal to the positive first eigenfunction in L2((0 , 1); ρ). It must therefore change sign and hence has at least one interior zero. This supplies the base case for the comparison argument above, which then shows inductively that the i-th eigenfunction below Λ ∗ has at least i−1 interior zeros. On the other hand, the variational characterization for isolated eigenvalues below the essential spectrum implies the Courant nodal-domain theorem below the essential spectrum; that is, the i-th eigenfunction has at most i − 1 interior zeros; see [37, 10]. Therefore, the proof is complete. 
+
+□
+
+Lemma 3.19 (Moser-index lemma) . The operator L, associated with the form Q whose domain is V, has exactly one negative eigenvalue and has no zero eigenvalue. Proof. The proof uses two explicit eigenfunctions and the Sturm–Liouville Lemma 3.17. 
+
+Step 1: the first eigenfunction. 
+
+Set 
+
+L1f = −(P f ′)′ − pN ρf, a(τ ) := τ pp−1 .
+
+We claim that 
+
+L1a = − np p − 1 ρa. (3.56) Indeed, for a pure power f (τ ) = τ m, one computes 1
+
+ρτ m (P f ′)′ = m(p − 1) 
+
+ (α + m + 1)(1 − τ 2) − (n − 1) τ 2
+
+M (τ ) − 2( p − 2) τ 2(1 − τ 2)
+
+M (τ )2
+
+
+
+. (3.57) Taking m = p/ (p − 1), using α = ( n − p)/(p − 1), and inserting the definition of N , the identity 
+
+− 1
+
+ρa (P a ′)′ − pN = − np p − 1SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 37 
+
+follows by direct simplification. This proves (3.56). Moreover a(τ ) > 0 for 0 < τ < 1. Since a has no interior zero, Sturm–Liouville Lemma 3.17 implies that a is the first eigenfunction of (3.51). Thus the first eigenvalue is 
+
+δ1 = − np p − 1 < 0.
+
+Step 2: the second eigenfunction. Define ∆ := pn2 + p2 − 2p, m∗ := ∆ − np − 1 ,c∗ := p2 − 2p − n − (p − 1)∆ 
+
+n + 1 ,
+
+and 
+
+g(τ ) := τ m∗ (1 + c∗τ 2).
+
+We claim that 
+
+L1g = δ2ρg, (3.58) where 
+
+δ2 := (n + 1)(∆ − n) + pp − 1 . (3.59) We first verify the differential equation. Let 
+
+x := τ 2, f (τ ) := τ m(1 + cx ).
+
+Then 
+
+f ′(τ ) = τ m−1 [m + c(m + 2) x] .
+
+A direct computation gives 1
+
+ρτ m (P f ′)′ = ( p − 1) 
+
+(
+
+[( α + m + 1)(1 − x) − (n − 1) x] [ m + c(m + 2) x]
+
+M
+
++ 2c(m + 2) x(1 − x)
+
+M − 2( p − 2) x(1 − x) [ m + c(m + 2) x]
+
+M 2
+
+)
+
+, (3.60) where now M = 1+( p−2) x. Therefore L1f = δρf is equivalent to the polynomial identity 
+
+C0 + C1x + C2x2 + C3x3 ≡ 0, (3.61) after multiplying by M 2, where 
+
+C0 = −(p − 1) m2 − (n − 1) m − δ + p, C1 = −cm 2p + cm 2 − cmn − 4cmp + 5 cm − cδ − 2cn − 3cp + 6 c
+
+− m2p2 + 4 m2p − 3m2 + 2 mn + 2 mp 2 − 6mp + 2 m − 2δp + 4 δ − 2np − p2 + 2 p, C2 = −cm 2p2 + 4 cm 2p − 3cm 2 + 2 cmn − 2cmp 2 + 10 cmp − 10 cm − 2cδp + 4 cδ 
+
+− 2cnp + 4 cn − cp 2 + 6 cp − 8c + m2p2 − 3m2p + 2 m2 + mnp 2 − 2mnp 
+
+− 3mp 2 + 8 mp − 4m − δp 2 + 4 δp − 4δ − 2np 2 + 4 np + 2 p2 − 4p, C3 = c(p − 2)  (p − 1) m2 + ( np + p − 2) m − (p − 2) δ .
+
+Now insert 
+
+m = m∗, c = c∗, δ = δ2.
+
+Equivalently, use the identities (p − 1) 2m2 
+
+> ∗
+
++ 2 n(p − 1) m∗ − p(p − 2) = 0 , (3.62) 
+
+δ2 = p − (p − 1) m2 
+
+> ∗
+
+− (n − 1) m∗, (3.63) 38 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+and 
+
+c∗ = p2 − 2p − n − (p − 1)( n + ( p − 1) m∗)
+
+n + 1 . (3.64) The coefficient C0 vanishes by (3.63); the coefficient C3 vanishes by (3.62) and (3.63); and substituting (3.62)–(3.64) into C1 and C2 gives zero as well. Hence (3.61) holds, proving (3.58). Next we check the sign of δ2. Since 
+
+δ2 > 0 ⇐⇒ ∆ > n − pn + 1 ,
+
+it is enough to square both sides. We obtain ∆2 −
+
+
+
+n − pn + 1 
+
+2
+
+= n2 + p2 − 2p −
+
+
+
+n2 − 2np n + 1 + p2
+
+(n + 1) 2
+
+
+
+= p (pn (n + 2) − 2( n + 1)) (n + 1) 2 > 0,
+
+because p > 1 and n ≥ 3. Thus δ2 > 0. Finally, g has exactly one zero in (0 , 1). Indeed, 
+
+c∗ + 1 = (p − 1)( p − 1 − ∆) 
+
+n + 1 .
+
+But ∆2 − (p − 1) 2 = n2 − 1 > 0,
+
+so ∆ > p − 1, and hence c∗ + 1 < 0. Therefore c∗ < −1, and 1 + c∗τ 2
+
+has exactly one zero in (0 , 1), namely τ∗ = ( −1/c ∗)1/2. Since τ m∗ > 0 on (0 , 1), the function g has exactly one interior zero. 
+
+Step 3: admissibility at the singular endpoints. Near τ = 0, we have g(τ ) ∼ τ m∗ .The form-domain condition reduces to 
+
+α + 2 m∗ > −1.
+
+But 
+
+α + 2 m∗ + 1 = 2∆ − n − 1
+
+p − 1 > 0.
+
+The last inequality follows from ∆2 − (n + 1) 2
+
+4 = 3n2 − 2n − 1 + 4 p(p − 2) 4 > 0for n ≥ 3 and p > 1. Thus g ∈ L2((0 , 1); ρ) and R 10 g′(τ )2τ α+2 (1 − τ 2)β+1 dτ < ∞, since near τ = 0 
+
+g′(τ )2τ α+2 (1 − τ 2)β+1 = O  τ α+2 m∗  .
+
+Near τ = 1, the weight τ α+2 (1 − τ 2)β+1 contains the factor (1 − τ 2)β+1 , with β =(n − 3) /2 ≥ 0. Hence the natural boundary term also vanishes at τ = 1. The same endpoint checks are simpler for a(τ ) = τ p/ (p−1) . Therefore both explicit functions belong to the natural operator form domain V .
+
+Step 4: Sturm oscillation and the index conclusion. The eigenvalue of a is negative, hence it lies below Λ ∗. Since a has no interior zero, Lemma 3.17 identifies it as the first isolated eigenfunction below Λ ∗, with eigenvalue 
+
+δ1 = − np p − 1 < 0.SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 39 
+
+We next check that the explicit eigenvalue δ2 in (3.59) is also below Λ ∗. Multiplying the inequality δ2 < Λ∗ by p − 1 and using ∆ 2 = n2 + p2 − 2p, it is equivalent to (n + 1)∆ < ∆2 + (n + 1) 2
+
+4 ,
+
+namely 0 <
+
+
+
+∆ − n + 1 2
+
+2
+
+.
+
+The strict inequality holds because ∆2 − (n + 1) 2
+
+4 = 3n2 − 2n − 1 + 4 p2 − 8p
+
+4 > 0for n ≥ 3 and 1 < p < n . Hence g is a discrete eigenfunction below the essential spectrum threshold. The function g has exactly one interior zero. By Lemma 3.17, it is therefore the sec-ond eigenfunction below Λ ∗. Its eigenvalue is the positive number δ2 given in (3.59). Consequently 
+
+δ1 < 0 < δ 2 < Λ∗, σess (L) ⊂ [Λ ∗, ∞).
+
+Thus the operator has exactly one negative eigenvalue and no zero eigenvalue. □
+
+We now prove Proposition 3.15. 
+
+Proof of Proposition 3.15. As in Subsection 3.2.3, we know that h0(r, τ ) := rτ − 1 
+
+> p
+
+satisfies 
+
+Z 10
+
+h0(τ, τ )ρ(τ ) dτ = 0 .
+
+Denote b0(τ ) := h0(τ, τ ) = τ 2 − 1 
+
+> p
+
+. Recall that L1f = −(P f ′)′ − pN ρf .
+
+Claim 3.20. L1b0 = −ρ.Proof of Claim 3.20. Since 
+
+b′
+
+> 0
+
+(t) = 2 t, P (t)
+
+ρ(t) = (p − 1) t2(1 − t2)
+
+M (t) ,
+
+we compute (P b ′
+
+> 0
+
+)′
+
+ρ =
+
+ Pρ b′
+
+> 0
+
+′
+
++ ρ′
+
+ρPρ b′
+
+> 0
+
+= 2( p − 1) 
+
+ (α + 3) t2 − (α + n + 2) t4
+
+M (t) − 2( p − 2) t4(1 − t2)
+
+M (t)2
+
+
+
+.
+
+Here we used ρ′
+
+ρ = αt − 2βt 
+
+1 − t2 , 2β = n − 3.
+
+Therefore (P b ′
+
+> 0
+
+)′
+
+ρ + pN b 0 − 1 = 2( p − 1) 
+
+ (α + 3) t2 − (α + n + 2) t4
+
+M − 2( p − 2) t4(1 − t2)
+
+M 2
+
+
+
++ p
+
+
+
+t2 − 1
+
+p
+
+  
+
+− 1
+
+M + 2( n − 1) t2
+
+M + 2( p − 1) t2
+
+M 2
+
+
+
+− 1.
+
+Substituting α = ( n − p)/(p − 1) and putting everything over the common denominator 
+
+M 2 shows that the numerator is identically zero. Hence (P b ′
+
+> 0
+
+)′
+
+ρ + pN b 0 = 1 ,
+
+which is exactly Claim 3.20. □40 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+By Lemma 3.19, L has exactly one negative eigenvalue δ1 < 0, whose normalized eigen-function is e1 = Ct p/ (p−1) , and 0 /∈ σ(L). Set 
+
+H+ := {e1}⊥ ⊂ H. 
+
+Since e1 is an eigenfunction of the self-adjoint operator L, the space H+ reduces L. By Lemmas 3.16 and 3.19, the restriction of L to H+, denoted by L+, is self-adjoint and strictly positive on H+, and L−1+ is bounded. Therefore by the spectral theorem, the fractional powers 
+
+L1/2+ , L−1/2+
+
+are well-defined, and L−1/2+ is bounded. Write the orthogonal decompositions 
+
+f = xe 1 + y, 1 = ae 1 + h+, y, h + ∈ H+.
+
+Here a = ⟨1, e 1⟩H̸ = 0, since e1 > 0 in (0 , 1). The constraint ⟨f, 1⟩H = 0 gives 
+
+ax + ⟨y, h +⟩H = 0 .
+
+Since Lb0 = −1, we have L−11 = −b0. Together with ⟨b0, 1⟩H = 0, this gives 0 = ⟨1, L−11⟩H = a2
+
+δ1
+
++ ⟨h+, L−1+ h+⟩H .
+
+Thus 
+
+⟨h+, L−1+ h+⟩H = − a2
+
+δ1
+
+. (3.65) By Cauchy’s inequality in the L+-energy inner product, 
+
+|⟨ y, h +⟩H |2 = |⟨L 1/2+ y, L−1/2+ h+⟩H |2 ≤ Q [y] ⟨h+, L−1+ h+⟩H .
+
+Using the constraint and (3.65), we obtain 
+
+a2x2 ≤ − a2
+
+δ1
+
+Q[y].
+
+Since δ1 < 0, this implies 
+
+Q[f ] = δ1x2 + Q[y] ≥ 0.
+
+Equality holds exactly when equality holds in the Cauchy inequality above. Hence 
+
+y = CL−1+ h+, and the constraint then gives 
+
+f = C′L−11 = −C′b0.
+
+Thus equality holds only for multiples of b0. Conversely, by Lemma 3.13, b0 attains equality in (3.49). This proves the equality statement. □
+
+We now combine Lemma 3.13 and Proposition 3.15 to prove Theorem 3.10. 
+
+Proof of Theorem 3.10. By Remark 3.11, we only need to characterize the equality case. Recall that h0(r, τ ) = rτ − 1 
+
+> p
+
+and b0(τ ) = h0(τ, τ ) = τ 2 − 1 
+
+> p
+
+.As observed before Lemma 3.13, if u attains equality in (3.33), then u satisfies (3.32) and (3.35) with λ = p.Therefore, using Lemma 3.13 and Proposition 3.15, there exists a constant C such that 
+
+u(τ, τ ) = Cb 0(τ ), that is, u = Ch 0 on ∂ΩB = {r = τ }. Hence w := u − Ch 0 solves the same eigenvalue equation with λ = p and has zero boundary trace. Testing with w gives 
+
+E0[w, w ] = pB0[w, w ] = 0 .
+
+Thus w is constant, and its zero trace forces w ≡ 0. Therefore 
+
+u(r, τ ) = C
+
+
+
+rτ − 1
+
+p
+
+
+
+.SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 41 
+
+This is the desired equality characterization. 
+
+□
+
+3.2.6. Sectorial classification. 
+
+Theorem 3.21 (Sectorial classification) . If ϕ ∈ W 1,2(Ω B ; r−γ ) satisfies B[ϕ, 1] = 0 , then 
+
+E[ϕ, ϕ ] ≥ pB[ϕ, ϕ ],
+
+with equality if and only if 
+
+ϕ ∈ span 
+
+
+
+y1, . . . , y n−1, y n − 1
+
+p
+
+
+
+.
+
+Proof. Decompose as (3.21) 
+
+ϕ(r, τ, θ ) = 
+
+> ∞
+
+X 
+
+> k=0 dim Hn−1
+> k
+
+X
+
+> j=1
+
+uk,j (r, τ )Zk,j (θ).
+
+The forms E and B are diagonal in this decomposition. Hence 
+
+E[ϕ, ϕ ] = |Sn−2| X
+
+> k,j
+
+Ek[uk,j , u k,j ], B[ϕ, ϕ ] = |Sn−2| X
+
+> k,j
+
+Bk[uk,j , u k,j ].
+
+If B[ϕ, 1] = 0, then the k = 0 component satisfies 
+
+B0[u0,1, 1] = 0 ,
+
+while all k ≥ 1 components are automatically orthogonal to constants by angular orthog-onality. For the k = 0 component, Theorem 3.10 gives 
+
+E0[u0,1, u 0,1] ≥ pB0[u0,1, u 0,1],
+
+with equality only for 
+
+u0,1 = c
+
+
+
+rτ − 1
+
+p
+
+
+
+.
+
+For each k = 1 component, Lemma 3.8 gives 
+
+E1[u1,j , u 1,j ] ≥ pB1[u1,j , u 1,j ],
+
+with equality only for 
+
+u1,j = cj rp1 − τ 2.
+
+For every k ≥ 2, Lemma 3.9 gives 
+
+Ek[uk,j , u k,j ] ≥ pBk[uk,j , u k,j ],
+
+and equality is impossible unless uk,j ≡ 0. Summing over all sectors proves 
+
+E[ϕ, ϕ ] ≥ pB[ϕ, ϕ ].
+
+The equality case forces all k ≥ 2 components to vanish, each k = 1 component to be a multiple of r√1 − τ 2Z1,j , and the k = 0 component to be a multiple of rτ − 1/p . Since the degree-one harmonics on Sn−2 are spanned by θ1, . . . , θ n−1, this equality space is exactly span 
+
+
+
+y1, . . . , y n−1, y n − 1
+
+p
+
+
+
+.
+
+The explicit computations above show that all these functions are genuine eigenfunctions with eigenvalue p. Thus the min–max principle gives λ1 = p, and the equality classification gives the full second eigenspace. □42 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+We now return to the original half-space variables. Let 
+
+F (x, t ) = (x, t + 1) 
+
+|x|2 + ( t + 1) 2 , D := |x|2 + ( t + 1) 2,
+
+and 
+
+U (x, t ) = D−α/ 2.
+
+The original eigenfunction corresponding to a transformed eigenfunction ϕ is 
+
+φ(x, t ) = U (x, t )ϕ(F (x, t )) .
+
+For 1 ≤ i ≤ n − 1, 
+
+U y i ◦ F = U xi
+
+D = − 1
+
+α ∂iU. 
+
+Also, 
+
+U
+
+
+
+yn − 1
+
+p
+
+
+
+◦ F = U
+
+ t + 1 
+
+D − 1
+
+p
+
+
+
+.
+
+Since 
+
+v1,λ, 0(x, t ) = λα/p  |x|2 + ( t + λ)2−α/ 2 ,
+
+one has 
+
+∂λv1,λ, 0|λ=1 = αU 
+
+ 1
+
+p − t + 1 
+
+D
+
+
+
+.
+
+Therefore 
+
+U
+
+
+
+yn − 1
+
+p
+
+
+
+◦ F = − 1
+
+α ∂λv1,λ, 0|λ=1 .
+
+Consequently, the transformed classification is equivalent to 
+
+E1 = span ∂1U, . . . , ∂ n−1U, ∂ λv1,λ, 0|λ=1 
+
+= span {Z0, Z 1, · · · , Z n−1} .
+
+Together with Theorem 3.2, we finish the proof of Theorem 2.2. 4. Nonlinear spectral gap near the trace-bubble manifold 
+
+In this section we use the linear spectral gap estimate from Corollary 2.6 to prove a disturbed nonlinear spectral gap estimate that will appear in the Taylor expansion of 
+
+δ(v + εφ ). This is the main statement needed in the proof of Theorem 1.1. We first work at the standard positive bubble U = U1,0. The corresponding statements at an arbitrary positive v ∈ M T follow from the invariances of the trace quotient. 4.1. The exact nonlinear gradient remainder. For X, Y ∈ Rn, define 
+
+Gp(X, Y ) := |X + Y |p − | X|p − p|X|p−2X · Y. (4.1) By the fundamental theorem of calculus, 
+
+Gp(X, Y ) = p
+
+Z 10
+
+(1 − s)
+
+h
+
+|X + sY |p−2|Y |2
+
++ ( p − 2) |X + sY |p−4 (X + sY ) · Y 2i
+
+ds. (4.2) For h ∈ ˙W 1,p (Rn
+
+> +
+
+), set 
+
+GU [h] := 2
+
+p
+
+Z
+
+> Rn
+> +
+
+Gp(∇U, ∇h) dx. (4.3) For a positive bubble v ∈ M T we use the analogous notation 
+
+Gv[h] := 2
+
+p
+
+Z
+
+> Rn
+> +
+
+Gp(∇v, ∇h) dx. (4.4) SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 43 
+
+Equivalently, 
+
+GU [h] = 2 
+
+Z 10
+
+(1 − s)
+
+Z
+
+> Rn
+> +
+
+h
+
+|∇ U + s∇h|p−2|∇ h|2
+
++ ( p − 2) |∇ U + s∇h|p−4 (∇U + s∇h) · ∇ h2i
+
+dx ds. (4.5) For every fixed smooth compactly supported h,lim 
+
+> ε→0
+
+GU [εh ]
+
+ε2 =
+
+Z
+
+> Rn
+> +
+
+AU ∇h · ∇ h dx. (4.6) The following pointwise estimates can be proved as in [19, Section 2], and will be used repeatedly. 
+
+Lemma 4.1 (Estimate of the gradient remainder) . There exist constants cp, C p > 0,depending only on p, such that 
+
+cp(|X| + |Y |)p−2|Y |2 ≤ Gp(X, Y ) ≤ Cp(|X| + |Y |)p−2|Y |2. (4.7) 
+
+If 1 < p < 2, then 
+
+Gp(X, Y ) ≃p min |Y |p, |X|p−2|Y |2 . (4.8) 
+
+If p ≥ 2, then 
+
+Gp(X, Y ) ≥ cp
+
+ |X|p−2|Y |2 + |Y |p . (4.9) 
+
+Proof. They follow from (4.2) by separating the regions |Y | ≤ | X|/2 and |Y | > |X|/2. In the first region, |X + sY | ≃ | X|, while in the second region the homogeneity of Gp gives a lower bound proportional to |Y |p. □
+
+The boundary counterpart of the preceding gradient estimates is the following scalar lemma. 
+
+Lemma 4.2 (Boundary Taylor remainder) . For a > 0, b ∈ R, and q > 1, set 
+
+Bq(a, b ) := |a + b|q − aq − qa q−1b. (4.10) 
+
+If 1 < q ≤ 2, then, for every κ > 0, there exists Cκ = C(q, κ ) ≥ 1 such that 
+
+Bq(a, b ) ≤
+
+ q(q − 1) 2 + κ
+
+ (a + Cκ|b|)q
+
+a2 + b2 b2. (4.11) 
+
+If q > 2, then, for every κ > 0, there exists Cκ = C(q, κ ) > 0 such that 
+
+Bq(a, b ) ≤
+
+ q(q − 1) 2 + κ
+
+
+
+aq−2b2 + Cκ|b|q. (4.12) 
+
+Proof. These are precisely the scalar estimates of [19, Lemma 2.4], with the Sobolev ex-ponent there replaced by q. □
+
+We next extend the weighted notion of orthogonality as in [19, Remark 3.7]. If v ∈ M +T
+
+and Z ∈ TvMT, then |Z| ≤ Cvv on ∂Rn
+
+> +
+
+, and hence 
+
+vp∗−2Z ∈ Lp′∗ (∂Rn
+
+> +
+
+).
+
+Therefore, for every ψ ∈ Lp∗ (∂Rn
+
+> +
+
+), we define ψ ⊥ TvMT by the duality conditions 
+
+Z
+
+> ∂Rn
+> +
+
+vp∗−2ψZ dy = 0 ∀Z ∈ TvMT. (4.13) The pairing is well defined by H¨ older’s inequality. When ψ ∈ L2(∂Rn
+
+> +
+
+, v p∗−2 dy ), this agrees with the usual weighted Hilbert-space orthogonality. In particular, the trace inequality gives this notion of orthogonality for every h ∈ ˙W 1,p (Rn
+
+> +
+
+), even when h /∈
+
+L2(∂Rn
+
+> +
+
+, v p∗−2 dy ). 44 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+At the standard bubble U , condition (4.13) becomes 
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2h Z dy = 0 ∀Z ∈ TU MT. (4.14) In view of (2.12), this is equivalent to 
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2h U dy = 0 ,
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2h Z j dy = 0 , 0 ≤ j ≤ n − 1. (4.15) 4.2. A compactness lemma for normalized perturbations. We adopt the idea in [19, Lemma 3.4] to prove the following compactness lemma, which will be used in the contradiction argument of Proposition 4.5. 
+
+Lemma 4.3 (Compactness of normalized perturbations) . Assume 1 < p < 2. Let hk ∈
+
+˙W 1,p (Rn
+
+> +
+
+) satisfy 
+
+∥∇ hk∥Lp(Rn 
+
+> +)
+
+−→ 0 (4.16) 
+
+and Z
+
+> ∂Rn
+> +
+
+U p∗−2hk Z dy = 0 ∀Z ∈ TU MT. (4.17) 
+
+Define 
+
+ε2 
+
+> k
+
+:= 
+
+Z
+
+> Rn
+> +
+
+ |∇ U | + |∇ hk|p−2|∇ hk|2 dx (4.18) 
+
+and assume εk > 0. Set 
+
+ϕk := hk
+
+εk
+
+.
+
+Then we have εk → 0 and, after passing to a subsequence, there exists ϕ ∈ ˙W 1,p (Rn
+
+> +
+
+) ∩
+
+L2(∂Rn
+
+> +
+
+, U p∗−2 dy ) such that 
+
+ϕk ⇀ ϕ weakly in ˙W 1,p (Rn
+
+> +
+
+), (4.19) 
+
+and, after taking a further subsequence, ϕk → ϕ almost everywhere in Rn 
+
+> +
+
+and on ∂Rn
+
+> +
+
+.Moreover, Z
+
+> ∂Rn
+> +
+
+U p∗−2ϕ Z dy = 0 ∀Z ∈ TU MT. (4.20) 
+
+If p∗ > 2, then 
+
+ϕk −→ ϕ strongly in L2(∂Rn
+
+> +
+
+, U p∗−2 dy ). (4.21) 
+
+If p∗ ≤ 2, then, for every fixed C0 ≥ 1,
+
+lim 
+
+> k→∞
+
+1
+
+ε2
+
+> k
+
+Z
+
+> ∂Rn
+> +
+
+(U + C0|hk|)p∗
+
+U 2 + |hk|2 |hk|2 dy =
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2|ϕ|2 dy. (4.22) 
+
+Proof. For the energy estimates and the nonlinear boundary convergence, we may replace 
+
+hk by |hk|, since |∇| hk|| = |∇ hk| almost everywhere and all the relevant boundary inte-grands depend only on |hk|. Thus we may assume hk ≥ 0, and hence ϕk ≥ 0, in those parts of the proof. The passage to the orthogonality condition is carried out for the original signed sequence. By the definition of εk,
+
+Z
+
+> Rn
+> +
+
+ |∇ U | + εk|∇ ϕk|p−2|∇ ϕk|2 dx = 1 . (4.23) First, εk → 0. Indeed, since p < 2, 
+
+ε2 
+
+> k
+
+≤
+
+Z
+
+> Rn
+> +
+
+|∇ hk|p dx −→ 0.SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 45 
+
+We next prove that ( ϕk) is bounded in ˙W 1,p (Rn
+
+> +
+
+). H¨ older’s inequality and (4.23) give 
+
+Z
+
+> Rn
+> +
+
+|∇ ϕk|p dx ≤
+
+Z
+
+> Rn
+> +
+
+ |∇ U | + εk|∇ ϕk|p−2|∇ ϕk|2 dx 
+
+!p/ 2
+
+×
+
+Z
+
+> Rn
+> +
+
+ |∇ U | + εk|∇ ϕk|p dx 
+
+!1−p/ 2
+
+≤ C 1 + εpk
+
+Z
+
+> Rn
+> +
+
+|∇ ϕk|p dx 
+
+!1−p/ 2
+
+. (4.24) Since 1 − p/ 2 < 1 and εk ≤ 1 for large k, an elementary absorption argument yields sup 
+
+> k
+
+∥∇ ϕk∥Lp(Rn 
+
+> +)
+
+< ∞. (4.25) Reflexivity gives (4.19) after passing to a subsequence. The trace operator is continuous into Lp∗ (∂Rn
+
+> +
+
+), and the local Rellich theorem and local compact trace embedding give, after a further subsequence, almost-everywhere convergence in Rn 
+
+> +
+
+and on ∂Rn
+
+> +
+
+.For every Z ∈ TU MT, the explicit tangent modes satisfy |Z| ≤ CU on ∂Rn
+
+> +
+
+. Hence 
+
+U p∗−2Z ∈ Lp′∗ (∂Rn
+
+> +
+
+). Dividing (4.17) by εk and passing to the weak trace limit gives (4.20). If p∗ > 2, then the local compact trace convergence and H¨ older’s inequality on the tails imply strong convergence in the weighted L2-space. Indeed, for R > 1, 
+
+Z
+
+> {ρ>R }∩ ∂Rn
+> +
+
+U p∗−2|ϕk − ϕ|2 dy ≤
+
+Z
+
+> {ρ>R }∩ ∂Rn
+> +
+
+U p∗ dy 
+
+!(p∗−2) /p ∗
+
+∥ϕk − ϕ∥2 
+
+> Lp∗(∂Rn
+> +)
+
+,
+
+where ρ(x) := |x + en|. The first factor tends to zero as R → ∞ , uniformly in k, while on 
+
+{ρ ≤ R} ∩ ∂Rn 
+
+> +
+
+the convergence is strong in L2. This proves (4.21). It remains to prove the nonlinear boundary convergence when p∗ ≤ 2. Set 
+
+α := n − pp − 1 , β := α(2 − p∗) ≥ 0, ρ(x) := |x + en|.
+
+Then 
+
+U ≍ ρ−α, |∇ U | ≍ ρ−α−1, U p∗−2 ≍ ρβ ,
+
+and the identities 
+
+α(p∗ − p) = p, β + p − 1 − α(2 − p) = −1 (4.26) will be used below. We shall use the following Hardy–trace type estimate: for any ξ ∈ ˙W 1,p (Rn
+
+> +
+
+, ρ β+p−1), 
+
+Z
+
+> Rn
+> +
+
+ρβ−1|ξ|p dx +
+
+Z
+
+> ∂Rn
+> +
+
+ρβ |ξ|p dy ≤ C
+
+Z
+
+> Rn
+> +
+
+ρβ+p−1|∇ ξ|p dx. (4.27) To prove it, first apply integration by parts to X(x) := ρβ−1(x + en). Since div X =(n + β − 1) ρβ−1, H¨ older’s inequality gives the interior Hardy estimate. Then integrate 
+
+−∂t(ρβ |ξ|p) in the vertical direction and use the interior estimate once more to obtain the boundary term. 
+
+Step 1: small amplitudes. We first prove the convergence under the additional assumptions 0 ≤ εkϕk ≤ ζU in Rn
+
+> +
+
+, sup 
+
+> k
+
+Z
+
+> Rn
+> +
+
+ |∇ U | + εk|∇ ϕk|p−2|∇ ϕk|2 dx < ∞, (4.28) 46 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+where ζ > 0 will be chosen sufficiently small. Since 0 ≤ εkϕk/U ≤ ζ,
+
+"
+
+1 + εkϕk
+
+U
+
+(p−2) /p 
+
+ϕ2/p k
+
+#p
+
+≍ ϕ2
+
+> k
+
+. (4.29) A direct differentiation gives 
+
+∇
+
+"
+
+1 + εkϕk
+
+U
+
+(p−2) /p 
+
+ϕ2/p k
+
+# p
+
+≤ Cϕ 2
+
+> k
+
+ εk|∇ ϕk|
+
+U + εkϕk
+
+U
+
+|∇ U |
+
+U
+
+p
+
++ Cϕ 2−pk |∇ ϕk|p. (4.30) Using |∇ U |/U ≍ ρ−1, we get 
+
+ρβ+p−1 ∇
+
+"
+
+1 + εkϕk
+
+U
+
+(p−2) /p 
+
+ϕ2/p k
+
+# p
+
+≤ Cζ pρβ−1ϕ2 
+
+> k
+
++ Cρ β+p−1ϕ2−pk |∇ ϕk|p. (4.31) 
+
+Claim 4.4. For every δ > 0, choosing ζ = ζ(δ) > 0 sufficiently small gives 
+
+ρβ+p−1ϕ2−pk |∇ ϕk|p ≤ δρ β−1ϕ2
+
+> k
+
++ Cδρ−1 |∇ U | + εk|∇ ϕk|p−2|∇ ϕk|2. (4.32) 
+
+Proof. On {εk|∇ ϕk| < |∇ U |} , we have 
+
+|∇ U | + εk|∇ ϕk| ≍ |∇ U |.
+
+Moreover, |∇ U | ≍ ρ−α−1 and (4.26) imply 
+
+ρβ+p−1ϕ2−pk |∇ ϕk|p
+
+≤ C ρβ−1ϕ2
+
+> k
+
+1−p/ 2 ρ−1|∇ U |p−2|∇ ϕk|2p/ 2.
+
+Indeed, equality of the powers of ρ is precisely equivalent to β + p = α(2 − p), which is the second identity in (4.26). Young’s inequality therefore gives 
+
+ρβ+p−1ϕ2−pk |∇ ϕk|p ≤ δρ β−1ϕ2
+
+> k
+
++ Cδρ−1 |∇ U | + εk|∇ ϕk|p−2|∇ ϕk|2.
+
+On {εk|∇ ϕk| ≥ |∇ U |} , we instead have 
+
+ |∇ U | + εk|∇ ϕk|p−2|∇ ϕk|2 ≍ εp−2 
+
+> k
+
+|∇ ϕk|p.
+
+Since εkϕk ≤ ζU , it follows that 
+
+ρβ+p−1ϕ2−pk |∇ ϕk|p
+
+≤ Cζ 2−pρβ+p−1U 2−pεp−2 
+
+> k
+
+|∇ ϕk|p
+
+≤ Cζ 2−pρ−1 |∇ U | + εk|∇ ϕk|p−2|∇ ϕk|2,
+
+where the last inequality follows from U ≍ ρ−α and β + p = α(2 − p). Combining the two regions proves (4.32). □
+
+Combining (4.31) and (4.32), and choosing δ and then ζ sufficiently small, we obtain 
+
+ρβ+p−1 ∇
+
+"
+
+1 + εkϕk
+
+U
+
+(p−2) /p 
+
+ϕ2/p k
+
+# p
+
+≤ cabs ρβ−1ϕ2 
+
+> k
+
++ Cρ −1 |∇ U | + εk|∇ ϕk|p−2|∇ ϕk|2,
+
+(4.33) where cabs > 0 is chosen small enough to be absorbed below. Applying (4.27) to 
+
+
+
+1 + εkϕk
+
+U
+
+(p−2) /p 
+
+ϕ2/p k ,SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 47 
+
+and using (4.29) and (4.33), yields 
+
+Z
+
+> Rn
+> +
+
+ρβ−1ϕ2 
+
+> k
+
+dx +
+
+Z
+
+> ∂Rn
+> +
+
+ρβ ϕ2 
+
+> k
+
+dy ≤ C
+
+Z
+
+> Rn
+> +
+
+ |∇ U | + εk|∇ ϕk|p−2|∇ ϕk|2 dx ≤ C. (4.34) We next prove the uniform tail bound lim  
+
+> R→∞
+
+sup 
+
+> k
+
+"Z
+
+> {ρ>R }∩ Rn
+> +
+
+ρβ−1ϕ2 
+
+> k
+
+dx +
+
+Z
+
+> {ρ>R }∩ ∂Rn
+> +
+
+ρβ ϕ2 
+
+> k
+
+dy 
+
+#
+
+= 0 . (4.35) For R > e , choose a logarithmic cutoff ηR such that 0 ≤ ηR ≤ 1, ηR = 0 on {ρ ≤ R}, ηR = 1 on {ρ ≥ R2},
+
+and 
+
+|∇ ηR| ≤ Cρ log R 1{R<ρ<R 2}.
+
+Apply (4.27), first with an additional outer compact cutoff and then by approximation, to 
+
+ηR
+
+
+
+1 + εkϕk
+
+U
+
+(p−2) /p 
+
+ϕ2/p k .
+
+By (4.29), the left-hand side controls 
+
+Z
+
+> {ρ>R 2}∩ Rn
+> +
+
+ρβ−1ϕ2 
+
+> k
+
+dx +
+
+Z
+
+> {ρ>R 2}∩ ∂Rn
+> +
+
+ρβ ϕ2 
+
+> k
+
+dy. 
+
+Using (4.33), the product rule, and choosing c∗ small enough to absorb the resulting interior term, we obtain 
+
+Z
+
+> {ρ>R 2}∩ Rn
+> +
+
+ρβ−1ϕ2 
+
+> k
+
+dx +
+
+Z
+
+> {ρ>R 2}∩ ∂Rn
+> +
+
+ρβ ϕ2 
+
+> k
+
+dy 
+
+≤ C
+
+Z
+
+> {ρ>R }∩ Rn
+> +
+
+ρ−1 |∇ U | + εk|∇ ϕk|p−2|∇ ϕk|2 dx 
+
++ C
+
+(log R)p
+
+Z
+
+> {R<ρ<R 2}∩ Rn
+> +
+
+ρβ−1ϕ2 
+
+> k
+
+dx. 
+
+The first term is at most C/R by (4.28), while the second is at most C/ (log R)p by (4.34). Therefore sup 
+
+> k
+
+"Z
+
+> {ρ>R 2}∩ Rn
+> +
+
+ρβ−1ϕ2 
+
+> k
+
+dx +
+
+Z
+
+> {ρ>R 2}∩ ∂Rn
+> +
+
+ρβ ϕ2 
+
+> k
+
+dy 
+
+#
+
+≤ CR + C
+
+(log R)p ,
+
+which proves (4.35). On bounded boundary sets, ((1 + εkϕk/U )(p−2) /p ϕ2/p k ) is bounded in W 1,p , so its traces are bounded in Lp∗ . Since p∗/p > 1 and (4.29) holds, the sequence ( ϕ2
+
+> k
+
+) is locally uniformly integrable on ∂Rn
+
+> +
+
+. Together with εk → 0 and the almost-everywhere convergence, this gives local L1-convergence of (U + C0εkϕk)p∗
+
+U 2 + ε2
+
+> k
+
+ϕ2
+
+> k
+
+ϕ2 
+
+> k
+
+to U p∗−2ϕ2.
+
+Combining this local convergence with (4.35), we conclude that lim 
+
+> k→∞
+
+Z
+
+> ∂Rn
+> +
+
+(U + C0εkϕk)p∗
+
+U 2 + ε2
+
+> k
+
+ϕ2
+
+> k
+
+ϕ2 
+
+> k
+
+dy =
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2ϕ2 dy. (4.36) 
+
+Step 2: removal of the truncation. Let ζ > 0 be fixed as in Step 1 and define 
+
+ϕk, 1 := min 
+
+
+
+ϕk, ζU εk
+
+
+
+, ϕk, 2 := ϕk − ϕk, 1.48 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+For t ≥ 0, set 
+
+Ft(z) := ( t + |z|)p−2|z|2.
+
+We use the standard convexity splitting from Figalli–Zhang: 
+
+Z
+
+> Rn
+> +
+
+ |∇ U | + εk|∇ ϕk, 1|p−2|∇ ϕk, 1|2 dx 
+
++
+
+Z
+
+> Rn
+> +
+
+ |∇ U | + εk|∇ ϕk, 2|p−2|∇ ϕk, 2|2 dx 
+
+≤ C
+
+Z
+
+> Rn
+> +
+
+ |∇ U | + εk|∇ ϕk|p−2|∇ ϕk|2 dx ≤ C. 
+
+(4.37) Indeed, Ft is convex for every t ≥ 0, and testing the p-harmonic equation for U with (εkϕk − ζU )+ gives Z   
+
+> {εkϕk>ζU }
+
+DF |∇ U |(ζ∇U ) · ∇ (εkϕk − ζU ) dx ≥ 0.
+
+The corresponding convexity inequality, integrated over {εkϕk > ζU }, then yields 
+
+cε2
+
+> k
+
+Z   
+
+> {εkϕk>ζU }
+
+|∇ U |p dx ≤
+
+Z   
+
+> {εkϕk>ζU }
+
+ |∇ U | + εk|∇ ϕk|p−2|∇ ϕk|2 dx ≤ C, (4.38) and the doubling estimate for Ft gives (4.37). We now prove that the large-amplitude part is negligible: 
+
+Z
+
+> Rn
+> +
+
+|∇ ϕk, 2|p dx ≤ Cε 2−pk . (4.39) Split 
+
+Ek := {εk|∇ ϕk, 2| ≥ |∇ U |} , Fk := {εk|∇ ϕk, 2| < |∇ U |} .
+
+On Fk, H¨ older’s inequality, (4.38), and (4.37) give 
+
+Z
+
+> Fk
+
+|∇ ϕk, 2|p dx ≤ C
+
+Z 
+
+> Fk
+
+|∇ U |p−2|∇ ϕk, 2|2 dx 
+
+p/ 2 Z   
+
+> {εkϕk>ζU }
+
+|∇ U |p dx 
+
+!1−p/ 2
+
+≤ Cε 2−pk .
+
+On Ek,
+
+|∇ U | + εk|∇ ϕk, 2| ≍ εk|∇ ϕk, 2|,
+
+and hence 
+
+Z
+
+> Ek
+
+|∇ ϕk, 2|p dx ≤ Cε 2−pk
+
+Z
+
+> Ek
+
+ |∇ U | + εk|∇ ϕk, 2|p−2|∇ ϕk, 2|2 dx ≤ Cε 2−pk .
+
+This proves (4.39). The Sobolev trace inequality therefore yields 
+
+εp∗−2
+
+> k
+
+Z
+
+> ∂Rn
+> +
+
+|ϕk, 2|p∗ dy ≤ Cε p∗−2
+
+> k
+
+Z
+
+> Rn
+> +
+
+|∇ ϕk, 2|p dx 
+
+!p∗/p 
+
+≤ Cε 2( p∗−p)/p k −→ 0. (4.40) In particular, ϕk, 2 → 0 strongly in ˙W 1,p (Rn
+
+> +
+
+) and in Lp∗ (∂Rn
+
+> +
+
+), so ϕk, 1 ⇀ ϕ in ˙W 1,p and 
+
+ϕk, 1 → ϕ almost everywhere on ∂Rn
+
+> +
+
+. Since εkϕk, 1 ≤ ζU and the first integral on the left-hand side of (4.37) is bounded, Step 1 gives lim 
+
+> k→∞
+
+Z
+
+> ∂Rn
+> +
+
+(U + C0εkϕk, 1)p∗
+
+U 2 + ε2
+
+> k
+
+ϕ2
+
+> k, 1
+
+ϕ2 
+
+> k, 1
+
+dy =
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2|ϕ|2 dy. (4.41) SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 49 
+
+It remains only to compare ϕk with ϕk, 1. On Ak := {εkϕk > ζU } ∩ ∂Rn
+
+> +
+
+, one has 
+
+ϕk, 1 = ζU/ε k. A one-dimensional differentiation in the variable s gives 
+
+(U + C0εkϕk)p∗
+
+U 2 + ε2
+
+> k
+
+ϕ2
+
+> k
+
+ϕ2 
+
+> k
+
+− (U + C0εkϕk, 1)p∗
+
+U 2 + ε2
+
+> k
+
+ϕ2
+
+> k, 1
+
+ϕ2
+
+> k, 1
+
+≤ Cε p∗−2
+
+> k
+
+
+
+ϕp∗−1 
+
+> k, 1
+
+ϕk, 2 + ϕp∗
+
+> k, 2
+
+
+
+.
+
+On the boundary set Ak, we have 
+
+εp∗−2
+
+> k
+
+Z
+
+> Ak
+
+ϕp∗ 
+
+> k, 1
+
+dy ≤ C
+
+Z
+
+> Ak
+
+(U + C0εkϕk, 1)p∗
+
+U 2 + ε2
+
+> k
+
+ϕ2
+
+> k, 1
+
+ϕ2 
+
+> k, 1
+
+dy ≤ C. 
+
+Since ϕk, 2 = 0 outside Ak, H¨ older’s inequality and (4.40) imply 
+
+εp∗−2
+
+> k
+
+Z
+
+> Ak
+
+ϕp∗−1 
+
+> k, 1
+
+ϕk, 2 dy −→ 0, εp∗−2
+
+> k
+
+Z
+
+> ∂Rn
+> +
+
+ϕp∗ 
+
+> k, 2
+
+dy −→ 0.
+
+Combining this with (4.41), and using hk = εkϕk, gives lim 
+
+> k→∞
+
+1
+
+ε2
+
+> k
+
+Z
+
+> ∂Rn
+> +
+
+(U + C0|hk|)p∗
+
+U 2 + |hk|2 |hk|2 dy =
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2|ϕ|2 dy. 
+
+This is (4.22). □
+
+4.3. Disturbed spectral gap. As in [19, Proposition 3.8], we combine the blow-up state-ment and the spectral gap estimate to prove the following disturbed spectral gap. 
+
+Proposition 4.5 (Disturbed spectral gap) . Let λT > 0 be the constant from Corollary 2.6. If 1 < p < 2 and p∗ ≤ 2, then, for every fixed C0 ≥ 1, there exists δ0 = δ0(n, p, C 0) > 0
+
+such that every h ∈ ˙W 1,p (Rn
+
+> +
+
+) satisfying 
+
+∥∇ h∥Lp(Rn 
+
+> +)
+
+≤ δ0, (4.42) 
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2h Z dy = 0 ∀Z ∈ TU MT (4.43) 
+
+obeys 
+
+GU [h] ≥ (p∗ − 1) Sp 
+
+> T
+
++ λT
+
+ ∥U ∥ p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+Z
+
+> ∂Rn
+> +
+
+(U + C0|h|)p∗
+
+U 2 + |h|2 |h|2 dy. (4.44) 
+
+If p∗ > 2, then there exists δ1 = δ1(n, p ) > 0 such that every h ∈ ˙W 1,p (Rn
+
+> +
+
+) satisfying 
+
+∥∇ h∥Lp(Rn 
+
+> +)
+
+≤ δ1, (4.45) 
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2h Z dy = 0 ∀Z ∈ TU MT (4.46) 
+
+obeys 
+
+GU [h] ≥ (p∗ − 1) Sp 
+
+> T
+
++ λT
+
+ ∥U ∥ p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2|h|2 dy. (4.47) 
+
+Proof. We prove the two cases separately, but the compactness argument is the same. 
+
+(1). Assume first that 1 < p < 2 and p∗ ≤ 2.
+
+Assume for contradiction that the first assertion is false. Then there exists a sequence 
+
+hk satisfying 
+
+∥∇ hk∥Lp(Rn 
+
+> +)
+
+−→ 050 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+and the orthogonality conditions (4.43), but such that 
+
+GU [hk] < (p∗ − 1) Sp 
+
+> T
+
++ λT
+
+ ∥U ∥ p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+Z
+
+> ∂Rn
+> +
+
+(U + C0|hk|)p∗
+
+U 2 + |hk|2 |hk|2 dy. (4.48) Define 
+
+ε2 
+
+> k
+
+:= 
+
+Z
+
+> Rn
+> +
+
+ |∇ U | + |∇ hk|p−2|∇ hk|2 dx, ϕk := hk
+
+εk
+
+.
+
+Lemma 4.1 shows that 
+
+GU [hk] ≃ ε2
+
+> k
+
+.
+
+Lemma 4.3 yields εk → 0 and, after passing to a subsequence, 
+
+ϕk ⇀ ϕ in ˙W 1,p (Rn
+
+> +
+
+),
+
+with 
+
+ϕ ⊥ TU MT.
+
+By lower semicontinuity of the nonlinear gradient remainder, lim inf 
+
+> k→∞
+
+GU [hk]
+
+ε2
+
+> k
+
+≥
+
+Z
+
+> Rn
+> +
+
+AU ∇ϕ · ∇ ϕ dx. (4.49) Indeed, writing hk = εkϕk, define 
+
+fk(x, Y ) := 2
+
+pε 2
+
+> k
+
+Gp(∇U (x), ε kY ).
+
+By (4.3), 
+
+GU [hk]
+
+ε2
+
+> k
+
+=
+
+Z
+
+> Rn
+> +
+
+fk(x, ∇ϕk) dx. 
+
+For every x, the map Y 7 → fk(x, Y ) is nonnegative and convex, because Y 7 → |∇ U (x) + 
+
+εkY |p is convex and the remaining term is affine in Y . Fix R > 0 and set B+ 
+
+> R
+
+:= BR ∩ Rn
+
+> +
+
+.Since ∇U is smooth and bounded away from zero on B+ 
+
+> R
+
+, Taylor’s formula gives, for every 
+
+R, M < ∞,sup     
+
+> x∈B+
+> R
+> ε1/4
+> k|Y|≤ M|∇ U(x)|
+
+|fk(x, Y ) − A U (x)Y · Y | −→ 0.
+
+For fixed M > 0, set 
+
+Ek := {ε1/4 
+
+> k
+
+|∇ ϕk| ≤ M |∇ U |} .
+
+Then lim inf 
+
+> k→∞
+
+Z
+
+> B+
+> R
+
+fk(x, ∇ϕk) dx ≥ lim inf 
+
+> k→∞
+
+Z
+
+> B+
+> R
+
+fk(x, χ Ek ∇ϕk) dx 
+
+= lim inf 
+
+> k→∞
+
+Z 
+
+> B+
+> R∩Ek
+
+AU (x)∇ϕk · ∇ ϕk dx. (4.50) Since 
+
+|B+ 
+
+> R
+
+\ Ek| ≤ C
+
+Z 
+
+> B+
+> R\Ek
+
+|∇ U |p dx ≤ Cε p/ 4
+
+> k
+
+Z 
+
+> B+
+> R\Ek
+
+|∇ ϕk|p dx ≤ Cε p/ 4 
+
+> k
+
+,
+
+we have |B+ 
+
+> R
+
+\ Ek| → 0 and χEk ∇ϕk ⇀ ∇ϕ weakly in Lp(B+ 
+
+> R
+
+). The lower semicontinuity theorem for convex integral functionals [23, Theorem 3], applied on B+ 
+
+> R
+
+, therefore yields lim inf 
+
+> k→∞
+
+Z
+
+> B+
+> R
+
+fk(x, ∇ϕk) dx ≥
+
+Z
+
+> B+
+> R
+
+AU ∇ϕ · ∇ ϕ dx. SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 51 
+
+Since fk ≥ 0, for every R > 0lim inf 
+
+> k→∞
+
+GU [hk]
+
+ε2
+
+> k
+
+≥
+
+Z
+
+> B+
+> R
+
+AU ∇ϕ · ∇ ϕ dx. 
+
+Finally, the integrand on the right is nonnegative and B+ 
+
+> R
+
+↑ Rn
+
+> +
+
+. Letting R → ∞ and applying the monotone convergence theorem proves (4.49). Since the left-hand side is bounded along the contradiction sequence, the right-hand side is finite. The equivalence (2.23) then implies ϕ ∈ ˙W 1,2(Rn
+
+> +
+
+; |∇ U |p−2). On the other hand, (4.22) in Lemma 4.3 gives lim sup 
+
+> k→∞
+
+1
+
+ε2
+
+> k
+
+Z
+
+> ∂Rn
+> +
+
+(U + C0|hk|)p∗
+
+U 2 + |hk|2 |hk|2 dy ≤
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2|ϕ|2 dy. (4.51) Hence (4.48) implies 
+
+Z
+
+> Rn
+> +
+
+AU ∇ϕ · ∇ ϕ dx ≤ (p∗ − 1) Sp 
+
+> T
+
++ λT
+
+ ∥U ∥ p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2|ϕ|2 dy. (4.52) The limit ϕ is nontrivial. Indeed, Lemma 4.1 gives GU [hk] ≥ cε 2
+
+> k
+
+; if ϕ = 0, then (4.51) and (4.48) would force lim sup k GU [hk]/ε 2 
+
+> k
+
+≤ 0, a contradiction. Therefore (4.52) contradicts the linear spectral gap (2.48). 
+
+(2). Assume now that p∗ > 2.
+
+If the second assertion is false, there exists hk → 0 in ˙W 1,p (Rn
+
+> +
+
+), satisfying the orthog-onality conditions, such that 
+
+GU [hk] < (p∗ − 1) Sp 
+
+> T
+
++ λT
+
+ ∥U ∥ p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2|hk|2 dy. (4.53) Normalize hk by the nonlinear energy scale εk as in (4.18), and set ϕk := hk/ε k.If 1 < p < 2, Lemma 4.3 gives, after passing to a subsequence, 
+
+ϕk ⇀ ϕ in ˙W 1,p (Rn
+
+> +
+
+)and 
+
+ϕk → ϕ in L2(∂Rn
+
+> +
+
+, U p∗−2dy ).
+
+If p ≥ 2, we have 
+
+ε2 
+
+> k
+
+≤ C
+
+Z
+
+> Rn
+> +
+
+ |∇ U |p−2|∇ hk|2 + |∇ hk|p dx 
+
+≤ C∥∇ U ∥p−2
+
+> Lp(Rn
+> +)
+
+∥∇ hk∥2 
+
+> Lp(Rn
+> +)
+
++ C∥∇ hk∥pLp(Rn 
+
+> +)
+
+−→ 0.
+
+Moreover, by the definition of εk,
+
+Z
+
+> Rn
+> +
+
+|∇ U |p−2|∇ ϕk|2 dx ≤ 1.
+
+Therefore, after passing to a subsequence, 
+
+ϕk ⇀ ϕ in ˙W 1,2(Rn
+
+> +
+
+; |∇ U |p−2), ϕk → ϕ in L2(∂Rn
+
+> +
+
+, U p∗−2dy )by Theorem 2.4. The limit remains orthogonal to TU MT.When 1 < p < 2, the gradient lower bound is precisely (4.49). We now establish the same bound when p ≥ 2. Define 
+
+fk(x, Y ) := 2
+
+pε 2
+
+> k
+
+Gp(∇U (x), ε kY ).
+
+Fix R > 0, write B+ 
+
+> R
+
+:= BR ∩ Rn
+
+> +
+
+, and set 
+
+Ek,R := {x ∈ B+ 
+
+> R
+
+: ε1/4 
+
+> k
+
+|∇ ϕk(x)| ≤ |∇ U (x)|} .52 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+Since |∇ U | is bounded above and away from zero on B+ 
+
+> R
+
+, the local L2-norms of ∇ϕk are uniformly bounded. Consequently, 
+
+|B+ 
+
+> R
+
+\ Ek,R | ≤ CRε1/2
+
+> k
+
+Z
+
+> B+
+> R
+
+|∇ ϕk|2 dx −→ 0.
+
+It follows that 
+
+χEk,R ∇ϕk ⇀ ∇ϕ in L2(B+ 
+
+> R
+
+).
+
+Moreover, Taylor’s formula, uniformly on B+ 
+
+> R
+
+, gives sup    
+
+> x∈B+
+> R
+> ε1/4
+> k|Y|≤|∇ U(x)|
+
+|fk(x, Y ) − A U (x)Y · Y | −→ 0.
+
+Since fk ≥ 0 and fk(x, 0) = 0, weak lower semicontinuity of the quadratic integral on B+
+
+> R
+
+yields lim inf 
+
+> k→∞
+
+GU [hk]
+
+ε2
+
+> k
+
+≥ lim inf 
+
+> k→∞
+
+Z
+
+> Ek,R
+
+fk(x, ∇ϕk) dx 
+
+= lim inf 
+
+> k→∞
+
+Z
+
+> Ek,R
+
+AU ∇ϕk · ∇ ϕk dx 
+
+≥
+
+Z
+
+> B+
+> R
+
+AU ∇ϕ · ∇ ϕ dx. 
+
+Letting R → ∞ proves the desired bound. Thus, in both ranges of p,lim inf 
+
+> k→∞
+
+GU [hk]
+
+ε2
+
+> k
+
+≥
+
+Z
+
+> Rn
+> +
+
+AU ∇ϕ · ∇ ϕ dx. (4.54) Dividing (4.53) by ε2
+
+> k
+
+, using (4.54) and the strong weighted trace convergence, gives 
+
+Z
+
+> Rn
+> +
+
+AU ∇ϕ · ∇ ϕ dx ≤ (p∗ − 1) Sp 
+
+> T
+
++ λT
+
+ ∥U ∥ p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+Z
+
+> ∂Rn
+> +
+
+U p∗−2|ϕ|2 dy. (4.55) The limit ϕ is nontrivial. If ϕ = 0, then the strong convergence in L2(∂Rn
+
+> +
+
+, U p∗−2dy )makes the right-hand side of (4.53), after division by ε2
+
+> k
+
+, tend to zero, while GU [hk] ≥ cε 2
+
+> k
+
+.This is impossible. Hence the last displayed inequality contradicts Corollary 2.6. □
+
+Corollary 4.6 (Uniform nonlinear spectral gap) . The preceding estimates hold uniformly for v ∈ M +T with 
+
+12 ≤ ∥ v∥Lp∗ (∂Rn 
+
+> +)
+
+≤ 32 .
+
+More precisely, after decreasing the smallness threshold if necessary, the estimate (4.44) 
+
+holds with U replaced by v when p∗ ≤ 2, and the estimate (4.47) holds with U replaced by 
+
+v when p∗ > 2. In both cases, the coefficient is 
+
+[( p∗ − 1) Sp 
+
+> T
+
++ λT]∥v∥p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+.
+
+For later use, we write 
+
+λT(v) := λT∥v∥p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+. (4.56) 
+
+Proof. Translate and critically dilate v to U , and then multiply by its boundary Lp∗ -scale. The quotient, the tangent orthogonality, and the nonlinear forms transform homogeneously under these operations. Since the boundary norm of v is restricted to a compact interval, the smallness thresholds and constants remain uniform. □SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 53 
+
+5. Proof of Theorem 1.1 
+
+We begin with concentration–compactness. The following statement is a consequence of Lions’ limit-case principle for Sobolev and trace inequalities [25, 26]; see, in particular, [26, Theorem 2.3]. 
+
+Theorem 5.1 (Lions’ concentration–compactness theorem) . Let (uk) ⊂ ˙W 1,p (Rn
+
+> +
+
+) satisfy 
+
+∥uk∥Lp∗ (∂Rn 
+
+> +)
+
+= 1 (5.1) 
+
+and 
+
+∥∇ uk∥pLp(Rn 
+
+> +)
+
+−→ Sp
+
+> T
+
+. (5.2) 
+
+Then there exist bubbles vk ∈ M T such that 
+
+∥∇ (uk − vk)∥Lp(Rn 
+
+> +)
+
+−→ 0. (5.3) 
+
+Remark 5.2 (Qualitative stability) . For every ε > 0, there exists δ = δ(n, p, ε ) > 0 such that, if u ∈ ˙W 1,p (Rn
+
+> +
+
+), u̸ ≡ 0 on ∂Rn
+
+> +
+
+, and 
+
+δT(u) ≤ δ, (5.4) 
+
+then 
+
+dT(u, MT) ≤ ε. (5.5) 
+
+Equivalently, 
+
+δT(uk) −→ 0 =⇒ dT(uk, MT) −→ 0. (5.6) 
+
+Indeed, normalize ∥uk∥Lp∗ (∂Rn 
+
+> +)
+
+= 1 . Then δT(uk) → 0 implies 
+
+∥∇ uk∥pLp(Rn 
+
+> +)
+
+−→ Sp
+
+> T
+
+.
+
+Theorem 5.1 now gives convergence to MT.
+
+As in [19, Lemma 4.1], we first establish the modulation result that supplies the exact tangent orthogonality needed in the proof of the main theorem. For v ∈ M +T , define 
+
+Fu(v) := 1
+
+p∗
+
+Z
+
+> ∂Rn
+> +
+
+vp∗ dy − 1
+
+p∗ − 1
+
+Z
+
+> ∂Rn
+> +
+
+vp∗−1u dy. (5.7) 
+
+Proposition 5.3 (Orthogonal modulation near a bubble) . Assume that 
+
+∥u∥Lp∗ (∂Rn 
+
+> +)
+
+= 1 , ∥∇ (u − bv)∥Lp(Rn 
+
+> +)
+
+≤ bη, 
+
+for some bv ∈ M +T satisfying 
+
+34 ≤ ∥ bv∥Lp∗ (∂Rn 
+
+> +)
+
+≤ 43 .
+
+There exist η′ = η′(n, p ) > 0 and a modulus of continuity ω : R+ → R+, with ω(t) → 0 as 
+
+t → 0, such that, if bη ≤ η′, then there exists v ∈ M +T for which 
+
+Z
+
+> ∂Rn
+> +
+
+vp∗−2(u − v)Z dy = 0 ∀Z ∈ TvMT, (5.8) 
+
+and 
+
+∥∇ (u − v)∥Lp(Rn 
+
+> +)
+
+≤ ω(bη). (5.9) 
+
+Proof. We minimize Fu over M+T . First suppose that u = bv. For w ∈ M +T , H¨ older’s inequality gives 
+
+Fbv(w) ≥ 1
+
+p∗
+
+∥w∥p∗  
+
+> Lp∗(∂Rn
+> +)
+
+− ∥bv∥Lp∗ (∂Rn
+
+> +)
+
+p∗ − 1 ∥w∥p∗−1 
+
+> Lp∗(∂Rn
+> +)
+
+≥ − ∥bv∥p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+p∗(p∗ − 1) = Fbv(bv). (5.10) 54 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+The scalar function 
+
+s 7 −→ sp∗
+
+p∗
+
+− ∥bv∥Lp∗ (∂Rn
+
+> +)
+
+p∗ − 1 sp∗−1
+
+is uniquely minimized at s = ∥bv∥Lp∗ (∂Rn
+
+> +)
+
+. Equality in H¨ older’s inequality then shows that equality in (5.10) holds only for w = bv. Thus bv is the unique minimizer of Fbv on M+T .We next exclude loss of compactness of the minimizing parameters. Write w = Vb,λ,ξ ∈M+T . By H¨ older’s inequality, 
+
+Z
+
+> ∂Rn
+> +
+
+wp∗−1u dy ≤ ∥ w∥p∗−1 
+
+> Lp∗(∂Rn
+> +)
+
+∥u∥Lp∗ (∂Rn
+
+> +)
+
+.
+
+Since the boundary norm is proportional to b, it follows that Fu(w) → 0 when b → 0, whereas Fu(w) → +∞ when b → +∞. If b stays in a compact subset of (0 , ∞), while λ →
+
+0, λ → +∞, or the center escapes to infinity, then wp∗−1 ⇀ 0 in Lp′∗ (∂Rn
+
+> +
+
+). Consequently, lim inf Fu(w) = lim inf 1
+
+p∗
+
+∥w∥p∗  
+
+> Lp∗(∂Rn
+> +)
+
+≥ 0in all these noncompact parameter regimes. On the other hand, Fbv(bv) = −∥ bv∥p∗ 
+
+> Lp∗
+
+/[p∗(p∗ − 1)], which is bounded away from zero uniformly for 3 /4 ≤ ∥ bv∥Lp∗ ≤ 4/3. The trace inequality shows that Fu(bv) < 0 uniformly when ∥∇ (u − bv)∥Lp is sufficiently small. Thus a minimizing sequence cannot enter any of the preceding noncompact regimes, and the minimum is attained. The uniqueness proved above, followed by a contradiction argument, shows that every minimizer converges to bv in ˙W 1,p as ∥∇ (u − bv)∥Lp → 0, uniformly under the stated bounds on ∥bv∥Lp∗ . Consequently, for bη ≤ η′, the minimum is attained at some v ∈ M +T and 
+
+∥∇ (u − v)∥Lp(Rn 
+
+> +)
+
+≤ ω(bη)for a modulus ω depending only on n, p .Finally, for Z ∈ TvMT, choose a smooth curve vτ ⊂ M +T with v0 = v and ˙ v0 = Z. The minimality of v and differentiation of (5.7) yield 0 = ddτ τ =0 
+
+Fu(vτ )=
+
+Z
+
+> ∂Rn
+> +
+
+vp∗−1Z dy −
+
+Z
+
+> ∂Rn
+> +
+
+vp∗−2Zu dy 
+
+= −
+
+Z
+
+> ∂Rn
+> +
+
+vp∗−2(u − v)Z dy. 
+
+This proves (5.8) and completes the proof. □
+
+Claim 5.4 (Global-to-local reduction) . Suppose that there exist constants 
+
+ε0 > 0, c0 > 0,
+
+such that every u ∈ ˙W 1,p (Rn
+
+> +
+
+) with u|∂Rn
+
+> +
+
+̸ ≡ 0 and satisfying 
+
+dT(u, MT) ≤ ε0 (5.11) 
+
+obeys 
+
+δT(u) ≥ c0dT(u, MT)max {2,p }. (5.12) 
+
+Then there exists c = c(n, p, c 0, ε 0) > 0 such that 
+
+δT(u) ≥ cd T(u, MT)max {2,p } (5.13) 
+
+for every u ∈ ˙W 1,p (Rn
+
+> +
+
+) with u|∂Rn
+
+> +
+
+̸ ≡ 0.SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 55 
+
+Proof. By the triangle inequality, choosing v ∈ M T with 
+
+∥∇ v∥Lp(Rn 
+
+> +)
+
+≤ 2∥∇ u∥Lp(Rn
+
+> +)
+
+gives a universal upper bound 
+
+dT(u, MT) ≤ C(n, p ). (5.14) By Remark 5.2, there exists δ0 > 0 such that 
+
+δT(u) < δ 0 =⇒ dT(u, MT) < ε 0.
+
+In this case, (5.12) applies. If δT(u) ≥ δ0, then (5.14) yields 
+
+δT(u) ≥ δ0
+
+C(n, p )max {2,p } dT(u, MT)max {2,p }.
+
+Taking the smaller of the two constants proves the claim. □
+
+Proof of Theorem 1.1. By homogeneity, we may normalize 
+
+∥u∥Lp∗ (∂Rn 
+
+> +)
+
+= 1 . (5.15) By Claim 5.4, it is enough to work when δT(u) is sufficiently small. Fix bη > 0, to be chosen below. Remark 5.2 provides bv ∈ M T such that 
+
+∥∇ (u − bv)∥Lp(Rn 
+
+> +)
+
+≤ bη. 
+
+If bv < 0, we replace both u and bv by their negatives; this leaves the deficit and the distance unchanged. Thus we may assume bv ∈ M +T . The sharp trace inequality and the reverse triangle inequality give, after decreasing bη,34 ≤ ∥ bv∥Lp∗ (∂Rn 
+
+> +)
+
+≤ 43 .
+
+Up to a tangential translation and a critical dilation, we may write bv = Va, 1,0. Proposi-tion 5.3 then gives v ∈ M +T such that, with h := u − v,
+
+Z
+
+> ∂Rn
+> +
+
+vp∗−2hZ dy = 0 ∀Z ∈ TvMT, (5.16) and 
+
+∥∇ h∥Lp(Rn 
+
+> +)
+
+≤ ω(bη).
+
+If h = 0, the conclusion is immediate. Otherwise, set 
+
+ε := ∥∇ h∥Lp(Rn
+
+> +)
+
+, φ := hε , ∥∇ φ∥Lp(Rn 
+
+> +)
+
+= 1 .
+
+A further decrease of bη, together with the trace inequality and (5.15), gives 12 ≤ ∥ v∥Lp∗ (∂Rn 
+
+> +)
+
+≤ 32 . (5.17) Hence the uniform nonlinear spectral gap applies to v.Since 
+
+δT(u) = ∥∇ u∥Lp(Rn 
+
+> +)
+
+− ST
+
+under the normalization (5.15), for δT(u) small, 
+
+c δ T(u) ≤
+
+Z
+
+> Rn
+> +
+
+|∇ u|p dx − Sp 
+
+> T
+
+≤ C δ T(u). (5.18) Thus, in the local regime, it is enough to prove 
+
+Z
+
+> Rn
+> +
+
+|∇ u|p dx − Sp 
+
+> T
+
+≥ c d T(u, MT)max {2,p }. (5.19) 56 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+Since v is an extremal, 
+
+Z
+
+> Rn
+> +
+
+|∇ v|p dx = Sp
+
+> T
+
+∥v∥pLp∗ (∂Rn
+
+> +)
+
+. (5.20) The bulk expansion gives 
+
+Z
+
+> Rn
+> +
+
+|∇ u|p dx =
+
+Z
+
+> Rn
+> +
+
+|∇ v|p dx + p
+
+Z
+
+> Rn
+> +
+
+|∇ v|p−2∇v · ∇ h dx 
+
++ p
+
+2 Gv[h], (5.21) where Gv[h] is defined in (4.4). Since p/p ∗ < 1, the map 
+
+s 7 −→ sp/p ∗
+
+is concave. Hence, with s = R
+
+> ∂Rn
+> +
+
+vp∗ dy ,1 − ∥ v∥pLp∗ (∂Rn 
+
+> +)
+
+≤ pp∗
+
+∥v∥p−p∗  
+
+> Lp∗(∂Rn
+> +)
+
+1 −
+
+Z
+
+> ∂Rn
+> +
+
+vp∗ dy 
+
+!
+
+. (5.22) Using Z
+
+> ∂Rn
+> +
+
+|u|p∗ dy = 1 ,
+
+we have 1 −
+
+Z
+
+> ∂Rn
+> +
+
+vp∗ dy = p∗
+
+Z
+
+> ∂Rn
+> +
+
+vp∗−1h dy +
+
+Z
+
+> ∂Rn
+> +
+
+Bp∗ (v, h ) dy, (5.23) Combining (5.20), (5.21), and (5.22), we obtain 
+
+Z
+
+> Rn
+> +
+
+|∇ u|p dx − Sp 
+
+> T
+
+≥ p
+
+Z
+
+> Rn
+> +
+
+|∇ v|p−2∇v · ∇ h dx + p
+
+2 Gv[h]
+
+− pp∗
+
+Sp
+
+> T
+
+∥v∥p−p∗  
+
+> Lp∗(∂Rn
+> +)
+
+p∗
+
+Z
+
+> ∂Rn
+> +
+
+vp∗−1h dy +
+
+Z
+
+> ∂Rn
+> +
+
+Bp∗ (v, h ) dy 
+
+!
+
+.
+
+(5.24) The Euler–Lagrange equation for v gives 
+
+Z
+
+> Rn
+> +
+
+|∇ v|p−2∇v · ∇ h dx = Sp
+
+> T
+
+∥v∥p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+Z
+
+> ∂Rn
+> +
+
+vp∗−1h dy. (5.25) Therefore the first-order terms in (5.24) cancel exactly, and 
+
+Z
+
+> Rn
+> +
+
+|∇ u|p dx − Sp 
+
+> T
+
+≥ p
+
+2 Gv[h] − pp∗
+
+Sp
+
+> T
+
+∥v∥p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+Z
+
+> ∂Rn
+> +
+
+Bp∗ (v, h ) dy. (5.26) It remains to bound the right-hand side of (5.26) from below. 
+
+Case 1: p∗ ≤ 2.
+
+Fix κ > 0. The scalar inequality (4.11) gives 
+
+Z
+
+> ∂Rn
+> +
+
+Bp∗ (v, h ) dy ≤
+
+ p∗(p∗ − 1) 2 + κ
+
+ Z 
+
+> ∂Rn
+> +
+
+(v + Cκ|h|)p∗
+
+v2 + |h|2 |h|2 dy. (5.27) SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 57 
+
+Substituting (5.27) into (5.26), we obtain 
+
+Z
+
+> Rn
+> +
+
+|∇ u|p dx − Sp 
+
+> T
+
+≥ p
+
+2 Gv[h]
+
+− p
+
+2
+
+
+
+(p∗ − 1) Sp
+
+> T
+
+∥v∥p−p∗  
+
+> Lp∗(∂Rn
+> +)
+
++ 2κp∗
+
+Sp
+
+> T
+
+∥v∥p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+
+
+×
+
+Z
+
+> ∂Rn
+> +
+
+(v + Cκ|h|)p∗
+
+v2 + |h|2 |h|2 dy. (5.28) By Corollary 4.6, for sufficiently small ε,
+
+Gv[h] ≥
+
+
+
+(p∗ − 1) Sp
+
+> T
+
+∥v∥p−p∗  
+
+> Lp∗(∂Rn
+> +)
+
++ λT(v)
+
+ Z
+
+> ∂Rn
+> +
+
+(v + Cκ|h|)p∗
+
+v2 + |h|2 |h|2 dy. (5.29) Choose κ > 0, depending only on n, p , sufficiently small that, for every v satisfying (5.17), 2κp∗
+
+Sp
+
+> T
+
+∥v∥p−p∗  
+
+> Lp∗(∂Rn
+> +)
+
+≤ λT(v)4 . (5.30) Using the uniform bounds on ∥v∥Lp∗ (∂Rn
+
+> +)
+
+, the last two displays imply 
+
+Z
+
+> Rn
+> +
+
+|∇ u|p dx − Sp 
+
+> T
+
+≥ c Gv[h]. (5.31) It remains to convert the mixed gradient remainder into a quadratic power of ε.
+
+Claim 5.5. Let 1 < p < 2, let v ∈ M +T satisfy (5.17) , and let 
+
+h = εφ, ∥∇ φ∥Lp(Rn 
+
+> +)
+
+= 1 .
+
+Then, for 0 < ε ≤ 1, Z
+
+> Rn
+> +
+
+min |∇ h|p, |∇ v|p−2|∇ h|2 dx ≥ c(n, p )ε2. (5.32) 
+
+Proof. Define 
+
+E := {ε|∇ φ| ≥ |∇ v|} , (5.33) 
+
+F := {ε|∇ φ| < |∇ v|} . (5.34) Then the integral in (5.32) is 
+
+εp
+
+Z
+
+> E
+
+|∇ φ|p dx + ε2
+
+Z
+
+> F
+
+|∇ v|p−2|∇ φ|2 dx. (5.35) If Z
+
+> E
+
+|∇ φ|p dx ≥ 12 ,
+
+then (5.35) is bounded below by 12 εp ≥ 12 ε2, since p < 2 and ε ≤ 1. Otherwise, 
+
+Z
+
+> F
+
+|∇ φ|p dx ≥ 12 .
+
+By H¨ older’s inequality, 
+
+Z
+
+> F
+
+|∇ φ|p dx =
+
+Z
+
+> F
+
+
+
+|∇ v| p−22 |∇ φ|
+
+p
+
+|∇ v| p(2 −p)2 dx 
+
+≤
+
+Z 
+
+> F
+
+|∇ v|p−2|∇ φ|2 dx 
+
+p/ 2 Z 
+
+> F
+
+|∇ v|p dx 
+
+(2 −p)/2
+
+. (5.36) Since v ∈ M T and its trace norm is uniformly bounded above and below, 
+
+∥∇ v∥Lp(Rn 
+
+> +)
+
+= ST∥v∥Lp∗ (∂Rn 
+
+> +)
+
+≃n,p 1.58 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+It follows that Z
+
+> F
+
+|∇ v|p−2|∇ φ|2 dx ≥ c(n, p ).
+
+This proves (5.32). □
+
+Combining (5.31), Lemma 4.1, and (5.32), we conclude that 
+
+Z
+
+> Rn
+> +
+
+|∇ u|p dx − Sp 
+
+> T
+
+≥ cε 2 if 1 < p ≤ 2nn + 1 . (5.37) 
+
+Case 2: p∗ > 2 and p < 2.
+
+It follows from (4.12) that, for every κ > 0, 
+
+Z
+
+> ∂Rn
+> +
+
+Bp∗ (v, h ) dy ≤
+
+ p∗(p∗ − 1) 2 + κ
+
+ Z 
+
+> ∂Rn
+> +
+
+vp∗−2|h|2 dy 
+
++ Cκ
+
+Z
+
+> ∂Rn
+> +
+
+|h|p∗ dy. (5.38) Using this in (5.26), we find 
+
+Z
+
+> Rn
+> +
+
+|∇ u|p dx − Sp 
+
+> T
+
+≥ p
+
+2 Gv[h] − C∥h∥p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+− p
+
+2
+
+
+
+(p∗ − 1) Sp
+
+> T
+
+∥v∥p−p∗  
+
+> Lp∗(∂Rn
+> +)
+
++ 2κp∗
+
+Sp
+
+> T
+
+∥v∥p−p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+ Z 
+
+> ∂Rn
+> +
+
+vp∗−2|h|2 dy. (5.39) By Corollary 4.6, after choosing κ sufficiently small, 
+
+Z
+
+> Rn
+> +
+
+|∇ u|p dx − Sp 
+
+> T
+
+≥ cGv[h] − C∥h∥p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+. (5.40) Since p < 2, Lemma 4.1 and Claim 5.5 imply 
+
+Gv[h] ≥ cε 2. (5.41) The sharp trace inequality gives 
+
+∥h∥p∗  
+
+> Lp∗(∂Rn
+> +)
+
+≤ S−p∗ 
+
+> T
+
+∥∇ h∥p∗ 
+
+> Lp(Rn
+> +)
+
+= S−p∗ 
+
+> T
+
+εp∗ . (5.42) Because p∗ > 2, 
+
+εp∗ = o(ε2) as ε → 0.
+
+Thus, for sufficiently small ε, Z
+
+> Rn
+> +
+
+|∇ u|p dx − Sp 
+
+> T
+
+≥ cε 2. (5.43) 
+
+Case 3: p ≥ 2.
+
+As in the preceding case, (4.12) and Corollary 4.6 imply 
+
+Z
+
+> Rn
+> +
+
+|∇ u|p dx − Sp 
+
+> T
+
+≥ cGv[h] − C∥h∥p∗ 
+
+> Lp∗(∂Rn
+> +)
+
+. (5.44) For p ≥ 2, Lemma 4.1 yields 
+
+Gv[h] ≥ c
+
+Z
+
+> Rn
+> +
+
+ |∇ v|p−2|∇ h|2 + |∇ h|p dx 
+
+≥ c∥∇ h∥pLp(Rn 
+
+> +)
+
+= cε p. (5.45) Moreover, by the Sobolev trace inequality, 
+
+∥h∥p∗  
+
+> Lp∗(∂Rn
+> +)
+
+≤ Cε p∗ . (5.46) SHARP GRADIENT STABILITY FOR THE SOBOLEV TRACE INEQUALITY 59 
+
+Since p∗ > p ,
+
+εp∗ = o(εp) as ε → 0.
+
+Consequently, Z
+
+> Rn
+> +
+
+|∇ u|p dx − Sp 
+
+> T
+
+≥ cε p. (5.47) Combining (5.37), (5.43), and (5.47), we have proved 
+
+Z
+
+> Rn
+> +
+
+|∇ u|p dx − Sp 
+
+> T
+
+≥ cε max {2,p }, (5.48) when ε is sufficiently small. By the definition of the distance and the normalization (5.15), 
+
+dT(u, MT) ≤ ε
+
+∥∇ u∥Lp(Rn
+
+> +)
+
+≤ εST
+
+.
+
+Together with (5.18), this proves the local stability estimate. Claim 5.4 then yields 
+
+δT(u) ≥ c(n, p )dT(u, MT)max {2,p } (5.49) for every u ∈ ˙W 1,p (Rn
+
+> +
+
+) with u|∂Rn
+
+> +
+
+̸ ≡ 0, as required. □
+
+References 
+
+[1] S. Agmon, A. Douglis, and L. Nirenberg, Estimates near the boundary for solutions of elliptic partial differential equations satisfying general boundary conditions. I , Comm. Pure Appl. Math. 12 (1959), no. 4, 623–727. doi:10.1002/cpa.3160120405. [2] T. Aubin, Probl` emes isop´ erim´ etriques et espaces de Sobolev , J. Differential Geom. 11 (1976), no. 4, 573–598. doi:10.4310/jdg/1214433725. [3] G. Bianchi and H. Egnell, A note on the Sobolev inequality , J. Funct. Anal. 100 (1991), no. 1, 18–24. doi:10.1016/0022-1236(91)90046-E. [4] D. Borthwick, Spectral Theory: Basic Concepts and Applications , Graduate Texts in Mathematics, vol. 284, Springer, Cham, 2020. doi:10.1007/978-3-030-38002-1. [5] H. Brezis and E. H. Lieb, A relation between pointwise convergence of functions and convergence of functionals , Proc. Amer. Math. Soc. 88 (1983), no. 3, 486–490. doi:10.1090/S0002-9939-1983-0699419-3. [6] H. Brezis and E. H. Lieb, Sobolev inequalities with remainder terms , J. Funct. Anal. 62 (1985), no. 1, 73–86. [7] A. Cianchi, N. Fusco, F. Maggi, and A. Pratelli, The sharp Sobolev inequality in quantitative form , J. Eur. Math. Soc. 11 (2009), no. 5, 1105–1139. doi:10.4171/JEMS/181. [8] G. Ciraolo, A. Figalli, and F. Maggi, A quantitative analysis of metrics on Rn with almost constant positive scalar curvature, with applications to fast diffusion flows , Int. Math. Res. Not. IMRN (2018), no. 21, 6780–6797. [9] D. Cordero-Erausquin, B. Nazaret, and C. Villani, A mass-transportation approach to sharp Sobolev and Gagliardo–Nirenberg inequalities , Adv. Math. 182 (2004), no. 2, 307–332. doi:10.1016/S0001-8708(03)00080-X. [10] R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. I , Wiley Classics Library, John Wiley & Sons, New York, 1989. [11] H. L. Cycon, R. G. Froese, W. Kirsch, and B. Simon, Schr¨ odinger Operators: With Application to Quantum Mechanics and Global Geometry , Texts and Monographs in Physics, Springer, Berlin, 1987. [12] F. Dai and Y. Xu, Approximation Theory and Harmonic Analysis on Spheres and Balls , Springer Monographs in Mathematics, Springer, 2013. [13] B. Deng, L. Sun, and J.-C. Wei, Sharp quantitative estimates of Struwe’s decomposition , Duke Math. J. 174 (2025), no. 1, 159–228. [14] J. F. Escobar, Sharp constant in a Sobolev trace inequality , Indiana Univ. Math. J. 37 (1988), no. 3, 687–698. JSTOR 24895334. [15] A. Figalli and F. Glaudo, On the sharp stability of critical points of the Sobolev inequality , Arch. Ration. Mech. Anal. 237 (2020), no. 1, 201–258. doi:10.1007/s00205-020-01506-6. [16] S. Fan, G.-D. Li, and J. Zhang, Sharp quantitative stability for the affine p-Sobolev inequality, Part I: the case 2 ≤ p < n , preprint, arXiv:2606.09555, 2026. doi:10.48550/arXiv.2606.09555. [17] A. Figalli, F. Maggi, and A. Pratelli, Sharp stability theorems for the anisotropic Sobolev and log-Sobolev inequalities on functions of bounded variation , Adv. Math. 242 (2013), 80–101. 60 XI-NAN MA, YITIAN ZHANG, AND YANG ZHOU 
+
+[18] A. Figalli and R. Neumayer, Gradient stability for the Sobolev inequality: the case p ≥ 2, J. Eur. Math. Soc. 21 (2019), no. 2, 319–354. doi:10.4171/JEMS/837. [19] A. Figalli and Y. R.-Y. Zhang, Sharp gradient stability for the Sobolev inequality , Duke Math. J. 171 
+
+(2022), no. 12, 2407–2459. doi:10.1215/00127094-2022-0051. [20] P. G´ erard, Description du d´ efaut de compacit´ e de l’injection de Sobolev , ESAIM Control Optim. Calc. Var. 3 (1998), 213–233. doi:10.1051/cocv:1998107. [21] P. T. Ho, A note on the Sobolev trace inequality , Proc. Amer. Math. Soc. 150 (2022), no. 3, 1257–1267. [22] B. Hu and H. M. Yin, The profile near blowup time for solution of the heat equation with a nonlinear boundary condition , Trans. Amer. Math. Soc. 346 (1994), no. 1, 117–135. doi:10.1090/S0002-9947-1994-1270664-3. [23] A. D. Ioffe, On lower semicontinuity of integral functionals. I , SIAM J. Control Optim. 15 (1977), no. 4, 521–538. doi:10.1137/0315035. [24] T. Kato, Perturbation Theory for Linear Operators , Classics in Mathematics, Springer, Berlin, 1995. [25] P.-L. Lions, The concentration-compactness principle in the calculus of variations. The limit case. Part 1 , Rev. Mat. Iberoam. 1 (1985), no. 1, 145–201. doi:10.4171/RMI/6. [26] P.-L. Lions, The concentration-compactness principle in the calculus of variations. The limit case. Part 2 , Rev. Mat. Iberoam. 1 (1985), no. 2, 45–121. doi:10.4171/RMI/12. [27] J.-L. Lions and E. Magenes, Non-Homogeneous Boundary Value Problems and Applications, Vol. I ,Grundlehren der mathematischen Wissenschaften, vol. 181, Springer-Verlag, Berlin, 1972. [28] Y. Y. Li and L. Zhang, Liouville-type theorems and Harnack-type inequalities for semilinear elliptic equations , J. Anal. Math. 90 (2003), 27–87. doi:10.1007/BF02786551. [29] F. Maggi and R. Neumayer, A bridge between Sobolev and Escobar inequalities and beyond , J. Funct. Anal. 273 (2017), no. 6, 2070–2106. [30] B. Nazaret, Best constant in Sobolev trace inequalities on the half-space , Nonlinear Anal. 65 (2006), no. 10, 1977–1985. doi:10.1016/j.na.2005.05.069. [31] R. Neumayer, A note on strong-form stability for the Sobolev inequality , Calc. Var. Partial Differential Equations 59 (2020), no. 1, Paper No. 25. [32] B. Ou, Positive harmonic functions on the upper half space satisfying a nonlinear boundary condition ,Differential Integral Equations 9 (1996), no. 5, 1157–1164. [33] G. Palatucci and A. Pisante, Improved Sobolev embeddings, profile decomposition, and concentration-compactness for fractional Sobolev spaces , Calc. Var. Partial Differential Equations 50 (2014), no. 3–4, 799–829. doi:10.1007/s00526-013-0656-y. [34] S. Solimini, A note on compactness-type properties with respect to Lorentz norms of bounded sub-sets of a Sobolev space , Ann. Inst. H. Poincar´ e Anal. Non Lin´ eaire 12 (1995), no. 3, 319–337. doi:10.1016/S0294-1449(16)30181-0. [35] M. Struwe, A global compactness result for elliptic boundary value problems involving limiting nonlin-earities , Math. Z. 187 (1984), 511–517. [36] G. Talenti, Best constant in Sobolev inequality , Ann. Mat. Pura Appl. (4) 110 (1976), 353–372. doi:10.1007/BF02418013. [37] G. Teschl, Mathematical Methods in Quantum Mechanics: With Applications to Schr¨ odinger Opera-tors , 2nd ed., Graduate Studies in Mathematics, vol. 157, American Mathematical Society, Providence, RI, 2014. doi:10.1090/gsm/157. [38] K. Tintarev and K.-H. Fieseler, Concentration Compactness: Functional-Analytic Grounds and Ap-plications , Imperial College Press, London, 2007. doi:10.1142/p128. [39] Y. Zhang, Y. Zhou, and W. Zou, Sharp quantitative stability for the fractional Sobolev trace inequality ,Math. Z. 310 (2025), article no. 90. doi:10.1007/s00209-025-03788-6. [40] Y. Zhou, Classification theorem for positive critical points of the Sobolev trace inequality , arXiv preprint arXiv:2402.17602 (2024). [41] A. Zettl, Sturm–Liouville Theory , Mathematical Surveys and Monographs, vol. 121, American Math-ematical Society, Providence, RI, 2005. 
+
+Department of Mathematics, University of Science and Technology of China, Hefei, 230026, Anhui Province, China. 
+
+Email address : xinan@ustc.edu.cn 
+
+Southwest Airport Economic Development Zone, Shuangliu District, Chengdu, 610225, Sichuan Province, China. 
+
+Email address : zyitian@cuit.edu.cn 
+
+School of Mathematical Sciences, University of Science and Technology of China, Hefei, 230026, Anhui Province, China. 
+
+Email address : zy19700816@mail.ustc.edu.cn

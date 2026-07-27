@@ -41,17 +41,17 @@
 <section class="dpr-home-dashboard-card dpr-home-report-card">
   <div class="dpr-home-dashboard-header">
     <div>
-      <span class="dpr-home-dashboard-kicker">2026-06-28 ~ 2026-07-27</span>
+      <span class="dpr-home-dashboard-kicker">2026-07-27</span>
       <h3 class="dpr-home-dashboard-title">今日汇总</h3>
     </div>
-    <strong class="dpr-home-dashboard-count">共 27 篇</strong>
+    <strong class="dpr-home-dashboard-count">共 17 篇</strong>
   </div>
   <dl class="dpr-home-dashboard-stats">
     <div class="dpr-home-dashboard-stat"><dt>累计更新</dt><dd>1 次</dd></div>
-    <div class="dpr-home-dashboard-stat"><dt>精读</dt><dd>0</dd></div>
-    <div class="dpr-home-dashboard-stat"><dt>速读</dt><dd>27</dd></div>
+    <div class="dpr-home-dashboard-stat"><dt>精读</dt><dd>6</dd></div>
+    <div class="dpr-home-dashboard-stat"><dt>速读</dt><dd>11</dd></div>
   </dl>
-  <p class="dpr-home-dashboard-body">最近更新：2026-07-27 18:25:54 UTC<br>状态：成功</p>
+  <p class="dpr-home-dashboard-body">最近更新：2026-07-27 21:43:08 UTC<br>状态：成功</p>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-brief-card">
   <div class="dpr-home-dashboard-header">
@@ -62,9 +62,9 @@
     <strong class="dpr-home-dashboard-count">AI</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<p>今日速读27篇论文，其中三篇获满分推荐，重点关注流体力学和几何分析方向。</p>
-<p>最值得看的两大方向：2D Navier-Stokes方程的Wasserstein正则性，以及3、4维Yamabe方程边界奇异解结构。</p>
-<p>建议普通读者从《A lecture on Navier-Stokes equations》入门，获得系统性理解。</p>
+<p>今日17篇论文聚焦流体力学与几何分析，精读6篇、速读11篇。</p>
+<p>最值得精读的是9.0分的《Global bifurcation for steady viscous roll waves on an incline》——揭示粘性滚波稳态分岔的数学机制，以及8.0分的《Anisotropic minimal surface equation with Dirichlet boundary condition》——各向异性极小平面的边界行为。</p>
+<p>普通读者可先关注这两篇的核心结论，再速读《A posteriori error estimates for parabolic PDEs on evolving surfaces》等数值分析方法，以拓展应用理解。</p>
   </div>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-deep-card">
@@ -73,12 +73,12 @@
       <span class="dpr-home-dashboard-kicker">今日累计</span>
       <h3 class="dpr-home-dashboard-title">精读推荐</h3>
     </div>
-    <strong class="dpr-home-dashboard-count">0 篇</strong>
+    <strong class="dpr-home-dashboard-count">6 篇</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<p class="dpr-home-dashboard-empty">今日暂无推荐。</p>
+<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Global bifurcation for steady viscous roll waves on an incline">Global bifurcation for steady viscous roll waves on an incline</span></li><li><span class="dpr-home-dashboard-paper-title" title="Anisotropic minimal surface equation with Dirichlet boundary condition">Anisotropic minimal surface equation with Dirichlet boundary condition</span></li><li><span class="dpr-home-dashboard-paper-title" title="Incompressible Navier-Stokes limit of non-bilinear kinetic equations and application to the BGK, nonlinear Fokker-Planck and Boltzmann-Fermi-Dirac equations">Incompressible Navier-Stokes limit of non-bilinear kinetic equations and application to the BGK, nonlinear Fokker-Planck and Boltzmann-Fermi-Dirac equations</span></li></ul>
   </div>
-
+  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>6</strong></span></div>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-skim-card">
   <div class="dpr-home-dashboard-header">
@@ -86,12 +86,12 @@
       <span class="dpr-home-dashboard-kicker">今日累计</span>
       <h3 class="dpr-home-dashboard-title">速读推荐</h3>
     </div>
-    <strong class="dpr-home-dashboard-count">27 篇</strong>
+    <strong class="dpr-home-dashboard-count">11 篇</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Wasserstein regularity of vorticity solutions to the 2D Navier-Stokes equations">Wasserstein regularity of vorticity solutions to the 2D Navier-Stokes equations</span></li><li><span class="dpr-home-dashboard-paper-title" title="Isolated Singularities of Solutions to the Yamabe Equation with boundary in Dimension 3 and 4">Isolated Singularities of Solutions to the Yamabe Equation with boundary in Dimension 3 and 4</span></li><li><span class="dpr-home-dashboard-paper-title" title="A lecture on Navier-Stokes equations">A lecture on Navier-Stokes equations</span></li></ul>
+<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="A posteriori error estimates for parabolic PDEs on evolving surfaces">A posteriori error estimates for parabolic PDEs on evolving surfaces</span></li><li><span class="dpr-home-dashboard-paper-title" title="Sharp Gradient Stability for the Sobolev Trace Inequality">Sharp Gradient Stability for the Sobolev Trace Inequality</span></li><li><span class="dpr-home-dashboard-paper-title" title="Serrin problems with vertical boundary behavior">Serrin problems with vertical boundary behavior</span></li></ul>
   </div>
-  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>27</strong></span></div>
+  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>11</strong></span></div>
 </section>
 </div>
 

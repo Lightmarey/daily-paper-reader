@@ -1,0 +1,3823 @@
+Title: Anisotropic minimal surface equation with Dirichlet boundary condition
+
+URL Source: https://arxiv.org/pdf/2607.17853v1
+
+Published Time: Tue, 21 Jul 2026 01:48:57 GMT
+
+Number of Pages: 37
+
+Markdown Content:
+ANISOTROPIC MINIMAL SURFACE EQUATION WITH DIRICHLET BOUNDARY CONDITION 
+
+LU CHEN, JIALI LAN, AND HAOLIN LIU 
+
+Abstract. This paper investigates the Dirichlet problem for the anisotropic minimal sur-face equation in a bounded domain. Under the natural assumption of non-negative boundary anisotropic mean curvature, we establish the unique solvability of the Dirichlet problem for continuous boundary data. To achieve this, an essential a priori gradient estimate is estab-lished, which also allows us to prove a weak version of Bernstein’s theorem for entire solutions with linear growth. Moreover, using the direct method in the calculus of variations, we prove the existence and local Lipschitz regularity of generalized minimizers in BV (Ω) with L1(∂Ω) boundary data. We also find that this variational formulation naturally yields a Neumann boundary condition, geometrically explaining why the Neumann problem requires no boundary curvature constraints. 
+
+1. Introduction and Main Results 
+
+In this paper, we consider the graph of a function u(x) defined on some open set Ω ⊂ Rn,which is usually referred to as a non-parametric surface. The non-parametric anisotropic area is given by (1.1) AF (u, Ω) = 
+
+Z
+
+> Ω
+
+F (Du, −1) dx, 
+
+where F : Rn+1 → R+ is a convex, homogeneous function of degree one (see Section 2). The density F geometrically represents a Minkowski norm on Rn+1 and physically models the direction-dependent surface tension of an interface. In materials science, this functional arises naturally to describe the surface free energy of crystalline solids, where different crystallographic planes exhibit distinct packing densities and atomic bonds, leading to the celebrated Wulff construction for equilibrium crystal shapes. The anisotropic Bernstein problem asks whether critical points of AF defined on all of Rn
+
+are necessarily hyperplanes. In the case of the area functional F (x) = |x|, it is known through spectacular work of Bernstein, Fleming [19], De Giorgi [16], Almgren [3], Simons [37], and Bombieri-De Giorgi-Giusti [7] that the answer is positive if and only if n ≤ 7. For general uniformly elliptic integrands, it is known that the answer is positive in dimension n = 2 by work of Jenkins [26] and in dimension n = 3 by work of Simon [39]. Recently, Mooney and 
+
+Key words and phrases. Anisotropic minimal surface equation; Dirichlet boundary condition; anisotropic mean curvature. The first author was partly supported by the National Natural Science Foundation of China (No. 12271027) and Hebei Natural Science Foundation (No. A2025105003).  
+
+> 1arXiv:2607.17853v1 [math.AP] 20 Jul 2026 2LU CHEN, JIALI LAN, AND HAOLIN LIU
+
+Yang [33] constructed nontrivial entire anisotropic minimal graphs for n = 4, showing that such non-parametric examples can exhibit genuinely nonlinear behavior in low dimensions. The corresponding Euler-Lagrange equation of the non-parametric anisotropic minimal sur-face AF is called the anisotropic minimal surface equation: div ( Dξ′ F (Du, −1)) = 0 ,
+
+namely, (1.2) Fξiξj (Du, −1) uij = 0 ,
+
+where we used the Einstein summation convention for i, j = 1 . . . , n . A natural question is that of the existence of solutions of the Dirichlet problem, namely of solutions of the anisotropic minimal surface equation (1.2) taking prescribed values on the boundary ∂Ω. For the isotropic case F (ξ) = |ξ|, equation (1.2) reduces to the classical minimal surface equation (1.3) div Du 
+
+p1 + |Du |2
+
+!
+
+= 0 .
+
+The solvability of its Dirichlet problem has a celebrated history. For n = 2, results of Bernstein [6], Haar [25], Rad´ o [34], Finn [20], and Finn-Osserman [22] show that the Dirichlet problem is well-posed for arbitrary continuous boundary data if and only if Ω is convex. Finally in 1968, Jenkins-Serrin [27] proved that the Dirichlet problem in n-dimensional is always solvable if the mean curvature of ∂Ω is nowhere negative, using the interior gradient estimates. The interior gradient estimate for the minimal surface equation was obtained by Finn [17] for n = 2 and by Bombieri-De Giorgi-Miranda [8] for higher dimensions. For the general mean curvature equation, we refer to Ladyzhenskaya-Uraltseva [29], Trudinger [40] and Simon [38]. All their methods were used by test function argument and a resulting Sobolev inequality. A more detailed history could be found in Gilbarg and Trudinger [24]. The purpose of this paper is to prove the existence of solutions to the Dirichlet problem for anisotropic minimal surface equation (1.2). Since Ω is a bounded domain in Rn, in order to explain the anisotropic mean curvature of ∂Ω, we set ˆF (p) = F (p, 0). Wang-Xia calculated the anisotropic mean curvature of a level set of u. More precisely, they proved that 
+
+H ˆF (St) = ˆFξiξj (Du )uij ,
+
+where St = {x ∈ Ω : u(x) = t}. In particular, the anisotropic mean curvature of ∂Ω is 
+
+HF (∂Ω) = Fξiξj (Dd, 0) dij ,
+
+where d(x) denotes the distance from x to ∂Ω. Thus the assumption 
+
+Fξiξj (Dd, 0) dij ≤ 0is exactly the nonnegativity of the anisotropic mean curvature of ∂Ω, where we choose the outward normal as positive. ANISOTROPIC MINIMAL SURFACE EQUATION WITH DIRICHLET BOUNDARY CONDITION 3
+
+This observation enables us to prove that the anisotropic Dirichlet problem is solvable if the anisotropic mean curvature of ∂Ω is non-negative. Throughout, we assume that F : Rn+1 →
+
+[0 , +∞) be a convex function of class C4(Rn+1 \ { 0}), which is positive and homogeneous of degree 1 with Hess( F 2) is positive definite in Rn+1 \ { 0} (see Section 2 for more details). We can now state the theorem as follows. 
+
+Theorem 1.1. Let φ be a C2 function in Rn and let Ω ⊂ Rn be a bounded open set with 
+
+C2-boundary of non-negative anisotropic mean curvature: 
+
+(1.4) Fξiξj (∇d, 0) dij ≤ 0, for 1 ≤ i, j ≤ n, 
+
+where we employ the Einstein summation convention, denote Fξi (ξ) = ∂F ∂ξ i and ui = ∂u ∂x i . Then, the following Dirichlet problem for the anisotropic minimal surface equation: 
+
+(1.5) 
+
+(
+
+Fξiξj (Du, −1) uij = 0 in Ω,u = φ on ∂Ω.
+
+is uniquely solvable in C0,1(Ω) ∩ C2(Ω) .
+
+The theorem above is stated under the assumption that φ is of class C2. However, by proving an a priori estimate for the gradient, it actually suffices for φ to be continuous on ∂Ω. The estimate is obtained via Moser iteration, following the approach in [38]. 
+
+Theorem 1.2. Let Ω be a bounded domain in Rn with C2-boundary ∂Ω of non-negative anisotropic mean curvature, and let φ be a continuous function on ∂Ω. Then, the Dirichlet problem for the anisotropic minimal surface equation (1.5) has a unique solution u belongs to 
+
+C2(Ω) ∩ C0(Ω) .
+
+Remark 1.3. To prove Theorem 1.2, we require an a priori gradient estimate. Let ν = (Du, −1) 
+
+√1+ |Du |2
+
+be the unit normal to the graph of u. For the classical minimal surface equation, by choosing suitable test functions one obtains an L∞-L1 estimate. Then the L1-integral is controlled using the identity 
+
+δiδiw = |δw |2 + c2,
+
+which follows from a direct computation for the standard tangential operators δi = Di − νiνhDh
+
+and w = − log νn+1 .In the anisotropic setting, we introduce the anisotropic tangential operator δFi = F (ν)Di −
+
+νiFξj (ν)Dj . Such a pointwise estimate cannot be obtained by simple direct calculations due to the complicated nonlinear coupling of the metric F , which forces us to adopt deeper anisotropic geometric and variational structures, specifically the spectral properties of the anisotropic Jacobi operator. Since suitable test functions are difficult to find in the anisotropic case, we first derive a local L∞-L1 estimate via Moser’s iteration following the strategy of [38]. We then control the 
+
+L1-norm using the the anisotropic Jacobi equation established in [9] for the vertical translation Jacobi field νn+1 :
+
+div  Fξiξj (ν)( ∇νn+1 )j
+
+ + |SF |2νn+1 = 0 ,4 LU CHEN, JIALI LAN, AND HAOLIN LIU 
+
+where SF is the F -anisotropic shape operator on the graph of u. This provides a crucial divergence-type equality for w:
+
+div  Fξiξj (ν)wj
+
+ = Fξiξj (ν)wiwj + |SF |2,
+
+which together with the ellipticity of F , yields the necessary integral control for the gradient estimate. 
+
+The restriction on the anisotropic mean curvature of ∂Ω can also be avoided by a suitable generalization of the Dirichlet problem. More precisely, we introduce the boundary condition in the functional under consideration as a penalization, and we look for a minimum of 
+
+EF (v, Ω) = 
+
+Z
+
+> Ω
+
+F (Dv, −1) dx +
+
+Z
+
+> ∂Ω
+
+F (ν, 0) |v − φ|dHn−1.
+
+A solution of the Dirichlet problem (1.5) also minimizes EF . The new functional always has a minimum in BV (Ω), independently of the anisotropic mean curvature of the boundary. More-over, we can prove the following regularity theorem. 
+
+Theorem 1.4. Let Ω be a bounded domain in Rn with C1-boundary ∂Ω, and let φ ∈ L1(∂Ω) .Then AF (u, Ω) admits a minimizer u ∈ BV (Ω) . Moreover, u is locally Lipschitz-continuous in 
+
+Ω.
+
+Remark 1.5. We remark on an interesting geometric dichotomy between the Dirichlet and Neumann problems for the anisotropic minimal surface equation. It is worth noting that the Euler-Lagrange equation of EF naturally yields a Neumann boundary condition: 
+
+(
+
+div( Dξ′ F (Du, −1)) = 0 in Ω,
+
+⟨Dξ′ F (Du, −1) , ν ⟩ = F (ν, 0) on ∂Ω.
+
+This observation explicitly illustrates why the Neumann problem does not demand the rigid curvature constraints inherent to the Dirichlet problem. 
+
+Recently, Cui-Yip [10] considered anisotropic graphical mean curvature flow with Dirichlet boundary datum in arbitrary dimensions (see their Section 4 for details). Their approach yields boundary gradient estimates under a weighted mean-convexity condition involving the constants 
+
+γ1, γ 2, which depend on quantitative assumptions measuring the deviation of the anisotropic integrand F from the isotropic integrand and on the tangential C2-size of the Dirichlet boundary datum. More specifically, their assumptions require F to be close to the isotropic function and the Dirichlet boundary datum not to change too quickly along ∂Ω. They further discussed the associated elliptic translator problem and the long-time behavior of the flow. In the present paper we focus on the stationary zero-speed case, namely the Dirichlet problem for the anisotropic minimal surface equation. Our result recovers and refines the correspond-ing zero-speed Dirichlet case, the main difference lies in the boundary hypothesis. Instead of imposing a weighted curvature condition, we assume the natural anisotropic mean-convexity of the vertical cylinder ∂Ω × R is non-negative in the sense of Wang-Xia [41]. This assumption depends only on F and on the geometry of ∂Ω, and not on the prescribed boundary values. ANISOTROPIC MINIMAL SURFACE EQUATION WITH DIRICHLET BOUNDARY CONDITION 5
+
+Hence, in the common zero-speed Dirichlet setting, our result provides a more intrinsic geomet-ric solvability criterion and removes the smallness requirements on the boundary data and on the deviation of F from the isotropic case. Our comparison with [10] is only in the overlapping stationary elliptic regime; their parabolic estimates, translator problem, and long-time analysis are beyond the scope of the present paper. This paper is organized as follows. In Section 2, we recall the definition of the anisotropic perimeter and derive several useful properties of the anisotropic area AF . In Section 3, we establish an anisotropic weak maximum principle and prove Theorem 1.1 by constructing suit-able barrier functions. In Section 4, we establish a priori gradient estimates, complete the proof of Theorem 1.2 and present a weaker version of Bernstein’s theorem for entire solutions with linear growth. Finally in Section 5, we employ the direct method to obtain the existence of anisotropic non-parametric minimal surfaces with prescribed boundary data, as stated in Theorem 1.4. 2. Anisotropic perimeter 
+
+Throughout this paper, let F : Rn+1 → [0 , +∞) be a nonnegative convex function of class 
+
+C4(Rn+1 \ { 0}), which is even and positively homogeneous of degree 1, so that 
+
+F (tξ ) = |t|F (ξ) for any t ∈ R, ξ ∈ Rn+1 .
+
+A typical example is F (ξ) = ( P 
+
+> i
+
+|ξi|q)1/q for q ∈ (1 , +∞). Note that there are positive constants 
+
+α and β such that (2.1) α|ξ| ≤ F (ξ) ≤ β|ξ| for any ξ ∈ Rn+1 .
+
+We can assume without loss of generality that the convex closed set 
+
+K = {x ∈ Rn+1 : F (x) ≤ 1}
+
+has measure |K| equal to the measure wn+1 of the unit ball in Rn+1 . Sometimes, we say that 
+
+H is the dual gauge of K. The dual metric of F is 
+
+F o(x) = sup 
+
+> ξ∈K
+
+⟨ξ, x ⟩ .
+
+It is easy to verify that F o(x) : Rn+1 → [0 , +∞) is also a convex, positively homogeneous function of degree one. In fact, F o and F are polar to each other in the sense that: 
+
+F o(x) = sup  
+
+> ξ̸=0
+
+⟨x, ξ ⟩
+
+F (ξ) F (ξ) = sup 
+
+> x̸=0
+
+⟨x, ξ ⟩
+
+F o(x).
+
+For example it follows: 
+
+| ⟨ x, ξ ⟩ | ≤ F (x)F o(ξ).
+
+It is clear that F o is the gauge function of the set 
+
+Ko = {x ∈ Rn+1 : F o(x) ≤ 1}.
+
+We say that Ko and K are polar to each other, and we denote the measure of Ko by κn+1 . For further details, we refer to the literature [4, 28, 35]. 6 LU CHEN, JIALI LAN, AND HAOLIN LIU 
+
+Let G ⊂ Rn+1 be an open set. The total variation of a function u ∈ BV (G) with respect to a gauge function F is given by 
+
+Z
+
+> G
+
+|Du |F dx = sup 
+
+Z 
+
+> G
+
+udiv σdx : σ ∈ C10 (G, Rn+1 ), F o(σ) ≤ 1
+
+
+
+.
+
+This yields the ”generalized” definition of perimeter of a set E with respect to F :
+
+PF (E, G ) = 
+
+Z
+
+> G
+
+|Dχ E |F dx = sup 
+
+Z 
+
+> E
+
+div σdx : σ ∈ C10 (G, Rn+1 ), F o(σ) ≤ 1
+
+
+
+.
+
+The following co-area formula 
+
+Z
+
+> G
+
+|Du |F dx =
+
+Z +∞
+
+> 0
+
+PF ({u > s }, G )ds, ∀u ∈ BV (G),
+
+and the inequality 
+
+PF (E, G ) = 
+
+Z
+
+> G∩∂∗E
+
+F (ν)dHn
+
+hold, where ∂∗E is the reduced boundary of E and ν is the outer normal to E (see [1]). Let Ω be a bounded open set in Rn, we extend the anisotropic area functional to functions 
+
+u ∈ BV (Ω): (2.2) AF (u, Ω) = sup 
+
+Z 
+
+> Ω
+
+(gn+1 + udiv g′)dx : g = ( g′, g n+1 ) ∈ C10 (Ω , Rn+1 ), F o(g) ≤ 1.
+
+
+
+In particular, if u ∈ C1(Ω), this coincides with the classical expression R 
+
+> Ω
+
+F (Du, −1) dx .Therefore, we can prove that AF (u, Ω) is lower semi-continuous with respect to weak L1-convergence. 
+
+Lemma 2.1. (Semicontinuity) Let Ω ⊂ Rn be an open set and let {uj } be a sequence of functions in BV (Ω) which converge to u in L1
+
+> loc
+
+(Ω) . Then 
+
+(2.3) AF (u, Ω) ≤ lim inf  
+
+> j→∞
+
+AF (uj , Ω) ,
+
+where AF is the anisotropic minimal surface functional defined as in (1.1) .Proof. Let g = ( g′, g n+1 ) ∈ C10 (Ω , Rn+1 ) be such that F o(g) ≤ 1, then 
+
+Z
+
+> Ω
+
+(gn+1 + udiv g′)dx = lim 
+
+> j→∞
+
+Z
+
+> Ω
+
+(gn+1 + uj div g′)dx ≤ lim inf  
+
+> j→∞
+
+AF (u, Ω) .
+
+Taking the supremum over all such g, (2.3) follows. □
+
+Now, we recall some properties of the 1-homogeneous function F (see [41]). If we restrict F
+
+to Sn, then from the assumptions on the function F , we see that F is positive and convex on 
+
+Sn and the restriction of 
+
+Fξξ (ξ) = ( Fξiξj (ξ)) n+1  
+
+> i,j =1 ANISOTROPIC MINIMAL SURFACE EQUATION WITH DIRICHLET BOUNDARY CONDITION 7
+
+to ξ⊥ := {V ∈ Rn+1 : ⟨V, ξ ⟩ = 0 } is a positive definite endomorphism ξ⊥ → ξ⊥ for all ξ ∈ Sn,that is, there exists a positive constant 0 < λ ≤ Λ, such that for any ξ ∈ Sn, V ∈ ξ⊥, we have 
+
+λ|V |2 ≤ Fξiξj (ξ)ViVj ≤ Λ|V |2.
+
+Moreover, we introduce the following lemma. 
+
+Lemma 2.2. ( [41]) The following two statements about F are equivalent: 
+
+(1) Hess( F 2) is positive definite in Rn+1 \ { 0};
+
+(2) The restriction of 
+
+Fξξ (ξ) = ( Fξiξj (ξ)) n+1 
+
+> i,j =1
+
+on ξ⊥ is a positive definite endomorphism ξ⊥ → ξ⊥ for all ξ ∈ Sn.
+
+3. Proof of Theorem 1.1 
+
+Let Ω ⊂ Rn be a bounded domain, we will always suppose that the boundary of Ω, ∂Ω is at least Lipschitz-continuous. The boundary datum φ is supposed to be Lipchitz-continuous, in general φ ∈ C2 is sufficient. In this section, we shall prove Theorem 1.1 by constructing suitable barrier functions under the anisotropic mean curvature condition (1.4), we also remark that the Dirichlet problem (1.5) may not have a solution without (1.4). The work space is C0,1(Ω), which is of Lipschitz-continuous function in Ω, i.e., continuous functions with finite Lipschitz constant [u]Ω = sup 
+
+|u(x) − u(y)||x − y| ; x, y ∈ Ω, x ̸ = y
+
+
+
+.
+
+Definition 3.1. For k > 0, we set 
+
+Lk(Ω) = {u ∈ C0,1(Ω) : [ u]Ω ≤ k}.
+
+If φ ∈ C0,1(∂Ω) , we define 
+
+Lk(Ω , φ ) = {u ∈ Lk(Ω) : u = φ on ∂Ω}, and L(Ω , φ ) = {u ∈ C0,1(Ω) : u = φ on ∂Ω}.
+
+We first prove an existence result for the Dirichlet problem of the anisotropic minimal surface equation (2.1) in Lk(Ω , φ ). 
+
+Proposition 3.2. Let φ be a Lipschitz-continuous function on ∂Ω and assume that Lk(Ω , φ )
+
+is non-empty. Then, the anisotropic minimal surface functional AF (u, Ω) achieves its unique minimum in Lk(Ω , φ ).Proof. Let {uk} be a minimizing sequence in Lk(Ω , φ ). From Ascoli-Arzela theorem, there exists a subsequence still denote by {uk}, converging uniformly to a function u ∈ Lk(Ω , φ ). Then, the semicontinuity of AF (see Lemma 2.1) implies that u attains the minimum of AF in 
+
+Lk(Ω , φ ). 8 LU CHEN, JIALI LAN, AND HAOLIN LIU 
+
+For uniqueness, the map p 7 → F (p, −1) is strictly convex. Therefore, for any t ∈ (0 , 1), 
+
+AF (tu + (1 − t)v) = 
+
+Z
+
+> Ω
+
+F (tDu + (1 − t)Dv, −1) 
+
+≤t
+
+Z
+
+> Ω
+
+F (Du, −1) dx + (1 − t)
+
+Z
+
+> Ω
+
+F (Dv, −1) dx 
+
+=tAF (u) + (1 − t)AF (v),
+
+and the inequality is strict whenever Du ̸ = Dv on a set of positive measure. If u and v are both minimizers, the convexity inequality must be an equality, which implies that Du = Dv 
+
+almost everywhere. Since u − v has zero trace and Ω is connected, we deduce that u = v. □
+
+Now, we can prove the existence of a minimum for AF in L(Ω , φ ). 
+
+Proposition 3.3. Let u be the minimum for AF in Lk(Ω , φ ). If [u]Ω < k , then u minimizes 
+
+AF in L(Ω , φ ).Proof. For t ∈ (0 , 1) and v ∈ L(Ω , φ ), let 
+
+vt = u + t(v − u).
+
+Then, vt = φ on ∂Ω and [ vt]Ω ≤ k for t small enough. Since u minimizes AF in Lk(Ω , φ ), we have 
+
+AF (u, Ω) ≤ A F (vt, Ω) .
+
+Moreover, the convexity of AF yields that 
+
+AF (u, Ω) ≤ A F (vt, Ω) ≤ (1 − t)AF (u, Ω) + tAF (v, Ω) ,
+
+and hence, AF (u, Ω) ≤ A F (v, Ω) for any v ∈ L(Ω , φ ). 
+
+□
+
+Clearly, to prove the existence of the minimum in L(Ω , φ ), it is sufficient to get estimates for the Lipschitz constant of the minimizer u of AF in Lk(Ω , φ ). The main tool we apply is the anisotropic weak maximum principle. To state it, we introduce the definition of supersolution and subsolution. 
+
+Definition 3.4. We say that a function u ∈ Lk(Ω) is a supersolution (resp. subsolution) for 
+
+AF in Lk(Ω) if for any v ∈ Lk(Ω , u ) with v ≥ u (resp. v ≤ u), we have AF (v, Ω) ≥ A F (u, Ω) .
+
+In particular, a minimizer of the anisotropic AF is both a super and a subsolution. 
+
+Remark 3.5. If u ∈ C2(Ω) and div Dξ′ F (Du, −1) = Fξiξj (Du, −1) uij ≤ 0, then, for every admissible v ≥ u with the same trace, convexity gives 
+
+AF (v, Ω) − A F (u, Ω) ≥
+
+Z
+
+> Ω
+
+Dξ′ F (Du, −1) · D(v − u)dx = −
+
+Z
+
+> Ω
+
+div Dξ′ F (Du, −1)( v − u)dx ≥ 0.
+
+Thus u is a variational supersolution. Conversely, if u is a variational supersolution and 
+
+[u]Ω < k , then for any η ∈ C∞ 
+
+> c
+
+(Ω) , differentiating AF (u + tη, Ω) at t = 0 yields 
+
+Z
+
+> Ω
+
+Dξ′ F (Du, −1) · Dη dx ≥ 0.ANISOTROPIC MINIMAL SURFACE EQUATION WITH DIRICHLET BOUNDARY CONDITION 9
+
+Hence div Dξ′ F (Du, −1) ≤ 0 in the weak sense. The corresponding statement holds for subso-lutions. 
+
+Lemma 3.6. (anisotropic weak maximum principle) Let u and u be a supersolution and a subsolution for AF in Lk(Ω) , respectively. If u ≥ u on ∂Ω, then u ≥ u in Ω.Proof. Assume by contradiction that Σ := {x ∈ Ω : u < u }
+
+is not empty, and let w = max {u, u }.Then we have v ∈ Lk(Ω , u ) and v ≥ u, thus AF (v, Ω) ≥ A F (u, Ω). Since v = u in Σ and 
+
+v = u in Ω \ Σ, equivalently, we have 
+
+AF (u, Σ) ≥ A F (u, Σ) .
+
+On the other hand, if we take v = min {u, u }, by a similar way, we show that 
+
+AF (u, Σ) ≥ A F (u, Σ) .
+
+Therefore, we have 
+
+AF (u, Σ) = AF (u, Σ) .
+
+Since u < u in K and u = u on ∂K , it follows that Du ̸ = Du in a set of positive measure. The strict convexity of AF yields that 
+
+AF
+
+u + u
+
+2 , Σ
+
+
+
+< 12AF (u, Σ) + 12AF (u, Σ) = AF (u, Σ) .
+
+However, this is impossible because u is a supersolution in Lk(Σ) and thus 
+
+AF
+
+u + u
+
+2 , Σ
+
+
+
+≥ A F (u, Σ) .
+
+□
+
+The following result follows from the anisotropic weak maximum principle immediately. 
+
+Corollary 3.7. Let u and u be a supersolution and a subsolution for AF in Lk(Ω) , respectively. Then 
+
+sup 
+
+> x∈Ω
+
+(u(x) − u(x)) ≤ sup 
+
+> y∈∂Ω
+
+(u(y) − u(y)) .
+
+Proof. It is easy to verify that u + α is also a supersolution for any α ∈ R, and 
+
+u(x) ≤ u(x) + sup 
+
+> y∈∂Ω
+
+(u(y) − u(y)) .
+
+Then, the result follows from Lemma 3.6 by taking α = sup y∈∂Ω(u(y) − u(y)). □
+
+In particular, if u and v minimize the anisotropic area AF in Lk(Ω), then corollary 3.7 holds for both u − v and v − u, and therefore (3.1) sup 
+
+> Ω
+
+|u − v| ≤ sup 
+
+> ∂Ω
+
+|u − v|.10 LU CHEN, JIALI LAN, AND HAOLIN LIU 
+
+Lemma 3.8. (Reduction to boundary estimates) Let u minimize the anisotropic area in Lk(Ω) ,then 
+
+(3.2) [u]Ω ≤ sup 
+
+|u(x) − u(y)||x − y| : x ∈ Ω, y ∈ ∂Ω
+
+
+
+.
+
+Proof. For any x1, x 2 ∈ Ω and x1̸ = x2, let t = x2 − x1. Then, the function 
+
+ut(x) = u(x + t)minimizes the anisotropic area AF in Lk(Ω t), where Ωt = {x ∈ Rn : x + t ∈ Ω}.
+
+Clearly, x1 ∈ Ω ∩ Ωt and thus the set Ω ∩ Ωt is non-empty. Since u and ut minimize AF in 
+
+Lk(Ω ∩ Ωt), it follows from (3.1) that there exists some y ∈ ∂(Ω ∩ ∂Ωt) such that 
+
+|u(x1) − u(x2)| = |u(x1) − ut(x1)| ≤ | u(y) − ut(y)| = |u(y) − u(y + t)|.
+
+Notice that at least one of y, y + t belongs to ∂Ω, therefore we have 
+
+|u(x1) − u(x2)||x1 − x2| ≤ sup 
+
+|u(x) − u(y)||x − y| : x ∈ Ω, y ∈ ∂Ω
+
+
+
+,
+
+and (3.2) holds immediately. □
+
+Combining with proposition 3.3 and lemma 3.8, we conclude that to prove the existence of a minimum for the anisotropic area AF in Lk(Ω), we only need to estimate |u(x) − u(y)| for 
+
+x ∈ Ω and y ∈ ∂Ω. For any x ∈ Ω and t > 0, we set Σt = {x ∈ Ω : d(x) < t } and Γt = {x ∈ Ω : d(x) = t},
+
+where d(x) denotes the distance of x to ∂Ω. Now, we introduce the definition of barrier functions, which plays an important role in the proof of Theorem 1.1. 
+
+Definition 3.9. Let φ be a Lipschitz-continuous function on ∂Ω. We say that a Lipschitz-continuous function v defined in some Σt0 is an upper barrier, if it satisfies 
+
+(3.3) v = φ on ∂Ω; v ≥ sup 
+
+> ∂Ω
+
+φ on Γt0 ;(3.4) v is a supersolution in Σt0 .
+
+Similarly, we say that a Lipschitz-continuous function v defined in some Σt0 is a lower barrier, if it satisfies 
+
+(3.5) v = φ on ∂Ω; v ≤ inf  
+
+> ∂Ω
+
+φ on Γt0 ;(3.6) v is a subsolution in Σt0 .
+
+Now, we prove Theorem 1.1. ANISOTROPIC MINIMAL SURFACE EQUATION WITH DIRICHLET BOUNDARY CONDITION 11 
+
+Proof of Theorem 1.1. We first claim that the anisotropic area AF attains its minimum in 
+
+L(Ω , φ ) if there exist upper and lower barriers v± relative to ϕ.Let L = [ v±]Σt0 and let Q < k . Assume that u give the minimum for AF in LK (Ω), then u
+
+minimizes AF in LK (Σ t0 ). From the anisotropic weak maximum principle (see Lemma 3.6), we obtain that for any x ∈ Ω, (3.7) inf  
+
+> ∂Ω
+
+φ ≤ u(x) ≤ sup 
+
+> ∂Ω
+
+φ. 
+
+In particular, v−(x) ≤ u(x) ≤ v+(x) on Γ t0 . Using again Lemma 3.6, we have 
+
+v−(x) ≤ u(x) ≤ v+(x) in Σ t0 .
+
+Since u = v± on ∂Ω, we get (3.8) |u(x) − u(y)| ≤ L|x − y| for any x ∈ Σt0 , y ∈ ∂Ω.
+
+On the other hand, for x ∈ Ω \ Σt0 , it follows form (3.7) that 
+
+|u(x) − u(y)| ≤ max 
+
+
+
+sup 
+
+> ∂Ω
+
+φ − u(y), u (y) − inf  
+
+> ∂Ω
+
+φ
+
+
+
+≤ Lt 0 ≤ L|x − y|,
+
+and therefore (3.8) holds for any x ∈ Ω. Applying Lemma 3.8, we have [ u]Ω ≤ L < k , and the claim follows from proposition 3.3 immediately. Now, it remains to establish the existence for the barrier functions. We shall discuss only the case of upper barriers and consider 
+
+v(x) = φ(x) + ψ(d(x)) ,
+
+where φ ∈ C2(Rn) and ψ is a C2-function in [0 , d 0] satisfying 
+
+ψ(0) = 0 , ψ ′(t) ≥ 1, ψ ′′ (t) < 0and 
+
+ψ(d0) ≥ M = 2 sup 
+
+> Ω
+
+|φ|,
+
+where d0 will be determined later. In this way, condition (3.3) is satisfied in Γ d0 , we only need to show that the C2 function v
+
+is a supersolution in Σ d0 . From the homogeneity of F , we deduce that 
+
+Fξiξj (Dv, −1) vij =Fξiξj (Dv, −1)( φij + ψ′′ didj + ψ′dij )= 1
+
+p1 + |Dv |2 [ψ′′ Fξiξj (ν)didj + ψ′Fξiξj (ν)dij + Fξiξj (ν)φij ],
+
+(3.9) where ν = (Dv, −1) 
+
+√1+ |Dv |2 . Since (Hess F )( ν) is semi-positive definite and φ ∈ C2(Ω), we deduce that there exists some constant c1(n) > 0 such that (3.10) |Fξiξj (ν)φij | ≤ c1(n)Fξiξi (ν).
+
+Moreover, if we set D ˆd = ( Dd, 0), it follows from the property of the function F that 
+
+Fξiξj (ν)didj = Fξiξj (ν) ˆdi ˆdj > 0.12 LU CHEN, JIALI LAN, AND HAOLIN LIU 
+
+Therefore, there exists c2(n) small such that (3.11) c2(n)Fξiξi (ν) ≤ (1 + |Dv |2)Fξiξj (ν)dj dj
+
+for |Dv | large enough. Notice that, the anisotropic mean curvature condition (3.1) implies that for ψ′ large enough, we have 
+
+Fξiξj (ν)dij =p1 + |Dφ + ψ′Dd |2Fξiξj (Dφ + ψ′Dd, −1) =
+
+s
+
+1(ψ′)2 + Dφ ψ′ + Dd 
+
+> 2
+
+Fξiξj
+
+Dφ ψ′ + Dd, − 1
+
+ψ′
+
+
+
+< o ψ′ (1) ,
+
+(3.12) where oψ′ (1) → 0 as ψ′ → ∞ .In conclusion, if we take ψ(d) = ε log(1 + Kd ) for K ≥ d−10 eR/ε with R large, then from (3.10)-(3.12), we obtain 
+
+ψ′′ Fξiξj (ν)didj + ψ′Fξiξj (ν)dij + Fξiξj φij 
+
+≤ψ′′ Fξiξj (ν)didj + c1c−12
+
+ 1 + |Dφ + ψ′Dd |2 Fξiξj (ν)didj
+
+=ψ′′ Fξiξj (ν)didj
+
+1 − εc 1c−12 (ψ′)−2(1 + |Dφ + ψ′Dd |2)
+
+≤ψ′′ Fξiξj (ν)didj (1 − 4εc 1c−12 ) < 0for ε = (8 c1c−12 )−1, which indicates that Fξiξj (Dv, −1) vij < 0. Therefore, the function v is indeed an upper barrier. By a completely symmetric argument, the existence of a lower barrier function follows, and we omit it here. Then, the proof is completed. □
+
+As an end of this section, we will show that the condition that the anisotropic mean curvature of ∂Ω is nowhere negative is necessary for general solvability of the Dirichlet problem (1.5). We suppose that Ω is a connected open set, whose boundary is the union of four disjoint sets: 
+
+∂Ω = Γ + ∪ Γ− ∩ Γ0 ∩ N, 
+
+where Γ +, Γ−, Γ0 are open, (i.e. there exist disjoint open sets A+, A − and A0 such that Γ + =
+
+∂Ω ∩ A+, etc.) and Hn−1(N ) = 0. For t > 0, we define Ωt = {x ∈ Ω : dist( x, ∂ Ω) > t }.
+
+Lemma 3.10. Let Ω be as above, and let u and v be two functions of class C2(Ω) ∩ C0(Ω ∪ Γ0)
+
+such that 
+
+(1) div( Dξ′ F (Dv, −1)) ≤ div( Dξ′ F (Du, −1)) in Ω;
+
+(2) u ≤ v on Γ0;
+
+(3) for any open set V ⊃ (Γ 0 ∩ Γ−),
+
+lim 
+
+> t→0+
+
+Z
+
+> ∂Ωt\V
+
+(F (ν, 0) − ⟨ ν, D ξ′ F (Dv, −1) ⟩) dHn−1 = 0; ANISOTROPIC MINIMAL SURFACE EQUATION WITH DIRICHLET BOUNDARY CONDITION 13 
+
+(4) for any open set U ⊃ (Γ 0 ∩ Γ+),
+
+lim 
+
+> t→0+
+
+Z
+
+> ∂Ωt\U
+
+(F (ν, 0) − ⟨ ν, D ξ′ F (Dv, −1) ⟩) dHn−1 = 0 .
+
+Then, 
+
+(i) if Γ0̸ = ∅, then u ≤ v in Ω;
+
+(ii ) if Γ0 = ∅, then u = v + const .Proof. For any non-negative function ϕ, we have 
+
+Z
+
+> Ωt
+
+⟨Dξ′ F (Dv, −1) − Dξ′ F (Du, −1) , Dϕ ⟩ dx 
+
+= −
+
+Z
+
+> Ωt
+
+ϕ[div( Dξ′ F (Dv, −1)) − div( Dξ′ F (Du, −1))] dx 
+
++
+
+Z
+
+> ∂Ωt
+
+ϕ ⟨Dξ′ F (Dv, −1) − Dξ′ F (Du, −1) , ν ⟩ dHn−1
+
+≥
+
+Z
+
+> ∂Ωt
+
+ϕ ⟨Dξ′ F (Dv, −1) − Dξ′ F (Du, −1) , ν ⟩ dHn−1.
+
+(3.13) In particular, if we take ϕ = ϕk = max {0, min {u − v, k }} , then we have 
+
+⟨Dξ′ F (Dv, −1) − Dξ′ F (Du, −1) , Dϕ k⟩
+
+=
+
+(
+
+⟨Dξ′ F (Dv, −1) − Dξ′ F (Du, −1) , D (u − v)⟩ , if 0 < u − v < k ;0 otherwise .
+
+Therefore, ⟨Dξ′ F (Dv, −1) − Dξ′ F (Du, −1) , Dϕ k⟩ ≤ 0 in Ω, and by (3.13), we have 0 ≥
+
+Z
+
+> Ωt
+
+⟨Dξ′ F (Dv, −1) − Dξ′ F (Du, −1) , Dϕ k⟩ dx 
+
+≥
+
+Z
+
+> ∂Ωt
+
+ϕk ⟨Dξ′ F (Dv, −1) − Dξ′ F (Du, −1) , ν ⟩ dHn−1.
+
+(3.14) In the case of Γ 0̸ = ∅ and u < v on Γ 0, let 
+
+A = {x ∈ Ω : u(x) < v (x)}.
+
+Then, we have ϕk = 0 in A and the negativity of the integral in (3.14) implies that 
+
+Z
+
+> ∂Ωt
+
+ϕk ⟨Dξ′ F (Dv, −1) − Dξ′ F (Du, −1) , ν ⟩ dHn−1
+
+≥
+
+Z
+
+> ∂Ωt\(A∪A−)
+
+ϕk [⟨Dξ′ F (Dv, −1) , ν ⟩ − ⟨ Dξ′ F (Du, −1) , ν ⟩] dHn−1
+
++
+
+Z
+
+> ∂Ωt\(A∪A+)
+
+ϕk [− ⟨ Dξ′ F (Du, −1) , ν ⟩ + ⟨Dξ′ F (Dv, −1) , ν ⟩] dHn−1,
+
+(3.15) 14 LU CHEN, JIALI LAN, AND HAOLIN LIU 
+
+where A+ and A− are open sets s.t. Γ± = ∂Ω ∩ A±. To estimate (3.15), we recall some properties for F . Since F is strictly convex in Rn+1 , for any vector X, Y ∈ Rn+1 , it holds: 
+
+F (X) ≥ F (Y ) + ⟨DF (Y ), X − Y ⟩ = ⟨DF (Y ), X ⟩ .
+
+If we take eν = ( ν, 0) ⊂ Rn+1 , then 
+
+⟨Dξ′ F (Du, −1) , ν ⟩ = ⟨DF (Du, −1) , eν⟩ ≤ F (eν) = F (ν, 0) .
+
+Similarly, if we consider −eν, we deduce that (3.16) −F (−ν, 0) ≤ ⟨ Dξ′ F (Du, −1) , ν ⟩ ≤ F (ν, 0) .
+
+Combining with (3.15) and (3.16), we conclude that 
+
+Z
+
+> ∂Ωt
+
+ϕk ⟨Dξ′ F (Dv, −1) − Dξ′ F (Du, −1) , ν ⟩ dHn−1
+
+≥
+
+Z
+
+> ∂Ωt\(A∪A−)
+
+ϕk[⟨Dξ′ F (Dv, −1) , ν ⟩ − F (ν, 0)] dHn−1
+
+−
+
+Z
+
+> ∂Ωt\(A∪A+)
+
+ϕk[⟨Dξ′ F (Du, −1) , ν ⟩ + F (−ν, 0)] dHn−1.
+
+Passing to the limit as t → 0+, from (3), (4) and (3.14), we obtain 
+
+Z
+
+> Ωt
+
+⟨Dξ′ F (Dv, −1) − Dξ′ F (Du, −1) , Dϕ k⟩ dx = 0 .
+
+Letting k → ∞ , we obtain 
+
+Z
+
+> Ωt
+
+⟨Dξ′ F (Dv, −1) − Dξ′ F (Du, −1) , Dϕ ⟩ dx = 0 ,
+
+where ϕ = max {0, u − v}.The strictly convexity of F implies that Dϕ = 0 in Ω. Since ϕ = 0 on Γ 0, we have ϕ = 0 and thus u ≤ v in Ω. If we only have the weak inequality u ≤ v on Γ 0, we can replace v by v + ε and the conclusion (i) holds by letting ε → 0+.Finally, in the case of Γ 0 = ∅, we set α = v(x0) − u(x0) for some x0 ∈ Ω, and replacing 
+
+u + α instead of u. By a similar argument with A = ∅, we conclude that ϕ = 0 and therefore 
+
+v = u + α. □
+
+Now, we can show that if the anisotropic mean curvature of ∂Ω is negative at some point 
+
+x0 ∈ ∂Ω, then there will exist smooth functions φ such that the anisotropic area AF has no minimum in L(Ω , φ ). 
+
+Remark 3.11. Let now x0 ∈ ∂Ω and taking δ(x) = dist (x, B R(x0)) = |x−x0|− R in Ω\BR(x0)
+
+and v = α1 + ψ(δ) with some constant α1. we get 
+
+Fξiξj (Dv, −1) vij = ψ′′ Fξiξj (ψ′Dδ, −1) δiδj + ψ′Fξiξj (ψ′Dδ, −1) δij .ANISOTROPIC MINIMAL SURFACE EQUATION WITH DIRICHLET BOUNDARY CONDITION 15 
+
+Taking ψ(δ) = −β1δ1/2 and using the homogeneity of F , we get 
+
+ψ′′ Fξiξj (ψ′Dδ, −1) δiδj =β1
+
+4 δ− 32 Fξiξj
+
+
+
+−β1
+
+2 δ− 12 Dδ, −1
+
+
+
+δiδj
+
+=β1
+
+4 δ− 32 −β1
+
+2 δ− 12
+
+> −1
+
+Fξiξj
+
+
+
+Dδ, 2δ1/2
+
+β1
+
+
+
+δiδj
+
+= 2
+
+β21
+
+Fξn+1 ξn+1 
+
+
+
+Dδ, 2δ1/2
+
+β1
+
+
+
+≤ 2C1
+
+β21
+
+,
+
+where C1 is a constant independent of β1. Moreover, due to the ellipticity of F ,
+
+ψ′Fξiξj (ψ′Dδ, −1) δij = − β1
+
+2 δ− 12 Fξiξj
+
+
+
+−β1
+
+2 δ− 12 Dδ, −1
+
+
+
+δij 
+
+= − β1
+
+2 δ− 12 −β1
+
+2 δ− 12
+
+> −1
+
+Fξiξj
+
+
+
+Dδ, 2δ1/2
+
+β1
+
+
+
+δij 
+
+= − 1
+
+R + δ Fξiξj
+
+
+
+Dδ, 2δ1/2
+
+β1
+
+
+
+(Iij − δiδj )
+
+≤ − c0
+
+R + δ ≤ − c0
+
+R + diam(Ω) ,
+
+where I is the identity matrix. Therefore, we conclude that 
+
+Fξiξj (Dv, −1) vij ≤ 0 in Ω \ BR(x0)
+
+by choosing β21 ≥ 2C1(R+diam(Ω))  
+
+> c0
+
+.Let now u be the minimum of the anisotropic area AF in C0,1(Ω) . If we choose α1 =sup ∂Ω\BR(x0) u + β1(diam(Ω)) 1/2, then we have u ≤ v on ∂Ω \ BR(x0). Since Dξ′ F (Dv, −1) = 
+
+Dξ′ F (Dδ, 2δ1/2/β 1) and Dδ = x−x0 
+
+> R
+
+is the unit normal vector on ∂B R(x0), we deduce that 
+
+lim  
+
+> δ→0
+
+⟨Dξ′ F (Dv, −1) , ν ⟩ = ⟨Dξ′ F (Dδ, 0) , Dδ ⟩ = F (Dδ, 0) = F (ν, 0) on ∂B R(x0).
+
+Therefore, we can apply Lemma 3.10 with Γ = ∅ in Ω \ BR(x0) to conclude that 
+
+sup 
+
+> Ω\BR(x0)
+
+u ≤ v ≤ sup 
+
+> ∂Ω\BR(x0)
+
+u + β1diam(Ω) 1/2.
+
+In particular, 
+
+(3.17) sup 
+
+> Ω∩∂B R(x0)
+
+u ≤ v ≤ sup 
+
+> ∂Ω\BR(x0)
+
+φ + β1diam(Ω) 1/2.
+
+Suppose now the anisotropic mean curvature of ∂Ω at x0 is negative, and let R be small such that 
+
+Fξiξj (Dd, 0) dij ≥ ε0 > 0 in Ω ∩ BR(x0),
+
+where d(x) is the distance from x to ∂Ω. Similarly, we take v = α2 − β2d1/2 and deduce that 
+
+Fξiξj (Dv, −1) vij = 2
+
+β22
+
+Fξn+1 ξn+1 
+
+
+
+Dd, 2d1/2
+
+β2
+
+
+
+− Fξiξj
+
+
+
+Dd, 2d1/2
+
+β2
+
+
+
+dij ≤ 2C1
+
+β22
+
+− ε0
+
+2 ≤ 016 LU CHEN, JIALI LAN, AND HAOLIN LIU 
+
+for β22 ≥ 4C1 
+
+> ε0
+
+.If we take α2 = sup Ω∩∂B R(x0) u + β2diam(Ω) 1/2, using again the Lemma 3.10 in Ω ∩ BR(x0),we have 
+
+sup 
+
+> Ω∩BR(x0)
+
+u ≤ v ≤ sup 
+
+> ∂B R(x0)∩Ω
+
+u + β2diam(Ω) 1/2.
+
+In particular, 
+
+(3.18) sup 
+
+> ∂Ω∩BR(x0)
+
+φ ≤ sup 
+
+> ∂B R(x0)∩Ω
+
+u + β2diam(Ω) 1/2.
+
+Combining with (3.17) and (3.18) , we conclude that 
+
+(3.19) sup 
+
+> ∂Ω∩BR(x0)
+
+φ ≤ sup 
+
+> ∂Ω\BR(x0)
+
+φ + ( β1 + β2)diam(Ω) 1/2.
+
+Therefore, if we take a smooth function φ such that (3.19) is not satisfied, then the Dirichlet problem for the anisotropic area AF with boundary datum φ cannot have a solution. For example, choose η ∈ C∞(∂Ω) such that 0 ≤ η ≤ 1, η ≡ 1 on ∂Ω ∩ BR/ 2(x0), and η ≡ 0
+
+on ∂Ω \ BR(x0). Setting 
+
+φ = M η, 
+
+we see that (3.19) fails for M sufficiently large. Hence the Dirichlet problem with this smooth boundary trace cannot have a solution. 
+
+4. Proof of Theorem 1.2 
+
+In this section, our main purpose is to establish a priori estimate for the gradient of u in terms of the supremum of u. As a consequence, we will prove Theorem 1.2. We first introduce some notations. Let BR denotes the unit ball in Rn+1 with radius R; by 
+
+BR a similar ball in Rn. Let u be a solution of (1.2) in BR, we shall denote its graph by S and let the normal vector to S at the point ( x, u (x)) be ν = (Du, −1) 
+
+√1+ |Du |2 . We also set (4.1) v = p1 + |Du |2, νi = ui/v for i = 1 , · · · , n. 
+
+and (4.2) gij = δij − νiνj .
+
+For any X ∈ Rn, we have gij XiXj = |X|2 − ⟨ X, ν ⟩2, where ν = Du/ p1 + |Du |2 is the first n
+
+components of ν. Let eX = ( X, 0) and Y = eX −⟨ eX, ν ⟩ν denotes the projection onto the tangent space ν⊥. The ellipticity of F indicates that there exists some constants λ and Λ such that 
+
+λ|Y |2 ≤ Fξk ξl (ν)YiYj ≤ Λ|Y |2, for 1 ≤ k, l ≤ n + 1 .
+
+Notice that 
+
+|Y |2 = | eX|2 − ⟨ eX, ν ⟩2 = |X|2 − ⟨ X, ν ⟩2 = gij Xj XjANISOTROPIC MINIMAL SURFACE EQUATION WITH DIRICHLET BOUNDARY CONDITION 17 
+
+and 
+
+Fξk ξl (ν)YkYl =Fξk ξl (ν)
+
+ eXk − ⟨ eX, ν ⟩νk
+
+  eXl − ⟨ eX, ν ⟩νl
+
+
+
+=Fξk ξl (ν) eXk eXl − ⟨ eX, ν ⟩ (Fξk ξl (ν)νk + Fξk ξl (ν)νl) + ⟨ eX, ν ⟩2Fξk ξl (ν)νkνl
+
+=Fξiξj (ν)XiXj , for 1 ≤ i, j ≤ n, 
+
+where we used the homogeneity of F in the last equality. Therefore, for any X ∈ Rn, we have (4.3) λg ij XiXj ≤ Fξiξj (ν)XiXj ≤ Λgij XiXj with 1 ≤ i, j ≤ n. 
+
+In the case of non-parametric hypersurfaces in Rn+1 of the form xn+1 = u(x), where u(x) is a 
+
+C2 function defined on some bounded domain Ω ⊂ Rn, a general Sobolev inequality established in [32] implies that (4.4) 
+
+Z 
+
+> Ω
+
+f nn−1 vdx 
+
+n−1
+
+> n
+
+≤ c(n)
+
+Z
+
+> Ω
+
+p gij fifj + f |H|
+
+
+
+vdx, 
+
+where v, gij are defined by (4.1) and (4.2), respectively. In fact, the quantity H = 1 
+
+> n
+
+v−1gij uij 
+
+is the mean curvature of the hypersurface xn+1 = u(x). Denote 
+
+N =
+
+(
+
+a fixed number in (2 , 4) if n = 2 
+
+n if n ≥ 3.
+
+Lemma 4.1. Suppose that u is a solution of 
+
+(4.5) div ( Dξ′ F (Du, −1)) = 0 
+
+in Bρ(x0) and set w = log p1 + |Du |2. Then 
+
+(4.6) sup 
+
+> Sρ/ 2(x0)
+
+w(x) ≤ c1ρ−n
+
+Z
+
+> Sρ(x0)
+
+wdμ g,
+
+where Sρ(x0) = S ∩ Bρ(x0).Proof. Replacing f by f 2N (n−1)   
+
+> n(N−2)
+
+in (4.4), we obtain 
+
+Z 
+
+> Ω
+
+f 2NN −2 dμ g
+
+n−1
+
+> n
+
+≤ C(n)
+
+Z
+
+> Ω
+
+2N (n − 1) 
+
+n(N − 2) f 2N (n−1)   
+
+> n(N−2) −1
+
+pgij fifj + f 2N (n−1)   
+
+> n(N−2)
+
+|H|
+
+
+
+dμ g
+
+≤ C(n)
+
+Z 
+
+> Ω
+
+
+
+f 2N (n−1)   
+
+> n(N−2) −1
+
+pgij fifj
+
+2
+
+dμ g
+
+1/2
+
+×
+
+Z 
+
+> Ω
+
+
+
+f 2N (n−1)   
+
+> n(N−2)
+
+|H|
+
+2
+
+μg
+
+1/2
+
+≤ C(n)
+
+Z 
+
+> Ω
+
+f 4N (n−1)   
+
+> n(N−2) −2
+
+dμ g
+
+1/2
+
+×
+
+Z 
+
+> Ω
+
+ gij fifj + f 2H2 dμ g
+
+1/2
+
+.
+
+When n > 2, we notice that 4N (n−1)   
+
+> n(N−2)
+
+− 2 = 2nn−2 with n = N , and the above inequality becomes 
+
+Z 
+
+> Ω
+
+f 2nn−2 dμ g
+
+n−2
+
+> n
+
+≤ C(n)
+
+Z
+
+> Ω
+
+ gij fifj + f 2H2 dμ g.18 LU CHEN, JIALI LAN, AND HAOLIN LIU 
+
+When n = 2, we have the relation 
+
+N − 24 = θ
+
+2 + (N − 2)(1 − θ)2N
+
+with θ = (N −2) 2 
+
+> 4
+
+. Then, by the interpolation inequality, we obtain 
+
+Z
+
+> Ω
+
+f 4N (n−1)   
+
+> n(N−2) −2
+
+dμ g =
+
+Z
+
+> Ω
+
+f 4  
+
+> N−2
+
+dμ g ≤
+
+Z 
+
+> Ω
+
+f 2dμ g
+
+N −22 Z 
+
+> Ω
+
+f 2NN −2 dμ g
+
+4−N
+
+> 2
+
+,
+
+which implies that 
+
+Z 
+
+> Ω
+
+f 2NN −2 dμ g
+
+N −2
+
+> N
+
+≤ C(n)
+
+Z 
+
+> Ω
+
+f 2 dμ g
+
+1− 2 
+
+> N
+
+Z 
+
+> Ω
+
+ gij fifj + f 2H2 dμ g
+
+ 2
+
+> N
+
+.
+
+Summarizing the two cases above, we have (4.7) 
+
+Z 
+
+> Ω
+
+f 2NN −2 dμ g
+
+N −2
+
+> N
+
+≤ C(n)
+
+Z 
+
+> Ω
+
+f 2dμ g
+
+1− nN Z 
+
+> Ω
+
+ gij fifj + f 2H2 dμ g
+
+ nN
+
+Recall that u satisfies the anisotropic minimal surface equation div ( Dξ′ F (Du, −1)) = 0 .
+
+Multiplying the equation by η ∈ C0(Ω) and integrating by parts yields 
+
+Z
+
+> Ω
+
+Fξi (Du, −1) ηidx = 0 ,
+
+where ηi = ∂η/∂x i. Taking η ∈ C20 (Ω) and replacing η with ηl, then integrating by parts, we obtain Z
+
+> Ω
+
+Fξiξj (Du, −1) ujl ηidx = 0 .
+
+Finally, replace η in the above identity by νlη, where νl denotes the l-th component of the unit normal ν. This gives 0 = 
+
+Z
+
+> Ω
+
+Fξiξj (Du, −1) ujl (νlηi + v−1glk uki η)dx 
+
+=
+
+Z
+
+> Ω
+
+v−1Fξiξj (Du, −1) glk ujl uki η + Fξiξj (Du, −1) vj ηi
+
+ dx, 
+
+(4.8) where v = p1 + |Du |2 and i, j, k, l = 1 · · · n.Set w = log v. Without loss of generality, we may assume w ≥ 1, otherwise, replace w by 
+
+w + 1. Equivalently, we can rewrite (4.8) as 
+
+Z
+
+> Ω
+
+[v−2Fξiξj (ν)glk ujl uki η + Fξiξj (ν)wj ηi]dx = 0 .
+
+Again, replacing η in the above equality by wqη2v, we get 
+
+Z
+
+> Ω
+
+v−2Fξiξj (ν)glk ujl uki wqη2v + Fξiξj wj
+
+ qw q−1viη2 + 2 ηw qvη i + wqη2vi
+
+ dx = 0 , ANISOTROPIC MINIMAL SURFACE EQUATION WITH DIRICHLET BOUNDARY CONDITION 19 
+
+which implies that Z
+
+> Ω
+
+ v−2Fξiξj (ν)glk ujl uki + qw −1Fξiξj (ν)wiwj
+
+ wqη2dμ g
+
++
+
+Z
+
+> Ω
+
+Fξiξj (ν)wiwj wqη2dμ g = −2
+
+Z
+
+> Ω
+
+Fξj ξj (ν)wj ηiwqηdμ g.
+
+(4.9) Since qw −1Fξiξj (ν)wiwj ≥ 0, from the Cauchy-Schwartz inequality, we obtain 
+
+Z
+
+> Ω
+
+v−2Fξiξj (ν)glk ujl uki + Fξiξj (ν)wiwj
+
+ wqη2dμ g
+
+≤
+
+Z
+
+> Ω
+
+ Fξiξj (ν)wiwj wqη21/2  4Fξiξj (ν)ηiηj wq1/2 dμ g
+
+≤12
+
+Z
+
+> Ω
+
+Fξiξj (ν)wiwj wqη2dμ g + 2Λ 
+
+Z
+
+> Ω
+
+wq|Dη |2dμ g,
+
+where we used the Young inequality and the fact that Fξiξj (ν)ηiηj ≤ Λ|Dη |2 in the last inequal-ity. By rearranging terms, we obtain (4.10) 
+
+Z
+
+> Ω
+
+ v−2Fξiξj (ν)glk ujl uki + Fξiξj (ν)wiwj
+
+ wqη2dμ g ≤ cΛ
+
+Z
+
+> Ω
+
+wq|Dη |2dμ g.
+
+Now, we apply (4.7) with f 2 = ηN q −N +2 wq. By a direct calculation, we deduce that 
+
+fifj =
+
+N q − N
+
+2 + 1 
+
+2
+
+ηN q −N wqηiηj + q2
+
+4 ηN q −N +2 wq−2wiwj
+
++ q
+
+N q − N
+
+2 + 1 
+
+
+
+ηN q −N +1 wq−1wiηi
+
+and 
+
+f 2H2 = ηN q −N +2 wqn−2v−2gij glk uil ujk ≤ λ−1ηN q −N +2 wqv−2Fξiξj (ν)glk ujl uik ,
+
+where we used (4.3) that gij XiXj ≤ λ−1Fξiξj (ν)XiXj in the last inequality. Therefore, we have 
+
+Z 
+
+> Ω
+
+ ηN q −N +2 wq NN −2 dμ g
+
+N −2
+
+> N
+
+≤C(n)
+
+Z 
+
+> Ω
+
+ηN q −N +2 wqdμ g
+
+1− nN Z 
+
+> Ω
+
+q2ηN q −N wqgij ηiηj dμ g
+
++
+
+Z
+
+> Ω
+
+q2ηN q −N +2 wq−2gij wiwj dμ g + λ−1
+
+Z
+
+> Ω
+
+ηN q −N +2 wqv−2Fξiξj (ν)glk ujl uik dμ g
+
+ nN
+
+≤C(n)
+
+Z 
+
+> Ω
+
+ηN q −N +2 wqdμ g
+
+1− nN 
+
+q2Λλ−1
+
+Z
+
+> Ω
+
+ηN q −N wq|Dη |2dμ g
+
++q2λ−1
+
+Z
+
+> Ω
+
+ηN q −N +2 wq  Fξiξj (ν)wiwj + v−2Fξiξj (ν)glk ujl uik 
+
+ dμ g
+
+ nN20 LU CHEN, JIALI LAN, AND HAOLIN LIU 
+
+≤C(n)
+
+Z 
+
+> Ω
+
+ηN q −N +2 wqdμ g
+
+1− nN 
+
+q2Λλ−1
+
+Z
+
+> Ω
+
+ηN q −N wq|Dη |2dμ g
+
++cq 2Λλ−1(N q − N + 2) 2
+
+Z
+
+> Ω
+
+ηN q −N wq|Dη |2dμ g
+
+ nN
+
+≤C(n, λ, Λ) 
+
+Z 
+
+> Ω
+
+ηN q −N +2 wqdμ g
+
+1− nN 
+
+q4
+
+Z
+
+> Ω
+
+ηN q −N wq|Dη |2dμ g
+
+ nN
+
+,
+
+where we used (4.10) by replacing η2 with ηN q −N +2 in the third inequality. Let η be a cut-off function satisfying 0 ≤ η ≤ 1 in Ω, η = 0 on Ω \ Bρ(x0), η = 1 on Bρ/ 2(x0)and |Dη | ≤ c/ρ on Ω. Therefore, we obtain (4.11) 
+
+"Z
+
+> Bρ(x0)
+
+ ηN q −N +2 wq NN −2 dμ g
+
+#N −2
+
+> N
+
+≤ Cq 4ρ− 2nN
+
+Z
+
+> Bρ(x0)
+
+ηN q −N wqdμ g,
+
+where C is a constant depends only on N, λ, Λ. Multiplying both sides of the above inequality by ρ−n/κ with κ = N/ (N − 2) and letting 
+
+Iq = ρ−n
+
+Z
+
+> Sρ(x0)
+
+ηN q −N wqdμ g = ρ−n
+
+Z
+
+> Sρ(x0)
+
+η−N (ηN w)qdμ g with q ≥ 1,
+
+we obtain from (4.11) that (4.12) I1/κ qκ ≤ Cq 4Iq.
+
+Setting q = κγ , then (4.12) yields (Iκγ+1 )1/κ γ+1 
+
+≤ C1/κ γ
+
+κ4γκ −γ
+
+(Iκγ )1/κ γ
+
+with γ = γ0, γ 0 + 1 , · · · .
+
+Integrating this inequality and note that P 
+
+> γ
+
+κ−γ , P 
+
+> γ
+
+γκ −γ < ∞, we then have (4.13) lim  
+
+> γ→∞
+
+(Iκγ )1/κ γ
+
+≤ CP κ−γ
+
+κ4 P γκ −γ
+
+(Iκγ0 )1/κ 0 ≤ C (Iκγ0 )1/κ 0 .
+
+On the other hand, (4.14) lim  
+
+> γ→∞
+
+(Iκγ )1/κ = sup {ηN w} ≥ sup 
+
+> Bρ/ 2
+
+w. 
+
+Take m ∈ N such that κm−1 < q 0 < κ m, then there exist some θ ∈ (0 , 1) such that 1
+
+q0
+
+= (1 − θ) + θκm .
+
+The interpolation inequality gives that (4.15) (Iq0 )1/q 0 ≤ (I1)1−θ (Iκm )θ/κ m ≤ (I1)1−θ (CI 1)θ = CθI1,
+
+where C is a constant depends only on N, λ, Λ, m . Combining with (4.13)-(4.15), we conclude that (4.6) holds. □ANISOTROPIC MINIMAL SURFACE EQUATION WITH DIRICHLET BOUNDARY CONDITION 21 
+
+Lemma 4.2. Let u be a solution of the anisotropic minimal surface equation (4.5) in B3ρ with 
+
+u(0) = 0 . Then 
+
+(4.16) ρ−n
+
+Z
+
+> Sρ
+
+wdμ g ≤ c2 1 + ρ−1 sup 
+
+> B3ρ
+
+u
+
+!
+
+,
+
+where Sρ = S ∩ Bρ.Proof. Let ζ ∈ C∞ 
+
+> 0
+
+(B2ρ), 0 ≤ ζ ≤ 1, ζ = 1 in Bρ and |Dζ | ≤ 2ρ−1. We consider the operator 
+
+δFn+1 = F (ν)Dn+1 − νn+1 Fξi (ν)Di where νn+1 = −v−1 is the ( n + 1)-th component of the unit normal ν and i = 1 , · · · , n . Define 
+
+uρ =
+
+
+
+2ρ if u ≥ ρu + ρ if |u| < ρ 
+
+0 if u < −ρ, 
+
+then we have 
+
+δFn+1 uρ =
+
+(
+
+0 if |u| > ρ F (ν) − Fξn+1 (Du, −1) νn+1 if |u| < ρ, 
+
+where we used the relation that Fξi (ν)ui = F (Du, −1) + Fξn+1 (Du, −1). Since uρζw ∈ C∞ 
+
+> 0
+
+(B2ρ), the divergence theorem implies that 
+
+Z
+
+> B2ρ
+
+δFn+1 (uρζw )dμ g = −
+
+Z
+
+> B2ρ
+
+νn+1 Fξi (ν)Di(uρζw )dμ g
+
+=
+
+Z
+
+> B2ρ
+
+Fξi (ν)Di(uρζw )dx = −
+
+Z
+
+> B2ρ
+
+div( Dξ′ F (Du, −1))( uρζw )dx = 0 .
+
+Therefore, 
+
+Z
+
+> B2ρ∩{| u|<ρ }
+
+ F (ν) − Fξn+1 (ν)νn+1 
+
+ ζwdμ g +
+
+Z
+
+> B2ρ
+
+uρ[w(δFn+1 ζ) + ζ(δFn+1 w)] dμ g = 0 ,
+
+where {| u| < ρ } := {x ∈ B3ρ : |u(x)| < ρ }. Taking into account that α < F (ν) < β and 
+
+−wν n+1 = we w ≤ e−1, we obtain 
+
+α
+
+Z
+
+> B2ρ∩{| u|<ρ }
+
+ζwdμ g ≤e−1
+
+Z
+
+> B2ρ∩{| u|<ρ }
+
+ζF ξn+1 (ν)dμ g + 2 ρ
+
+Z
+
+> B2ρ∩{ u> −ρ}
+
+w|δFn+1 ζ|dμ g
+
++ 2 ρ
+
+Z
+
+> B2ρ∩{ u> −ρ}
+
+ζ|δFn+1 w|dμ g,
+
+(4.17) where we used the fact that |uρ| ≤ 2ρ.The first integral on the right-hand side can be easily estimated from |DξF (ν)| ≤ c that (4.18) 
+
+Z
+
+> B2ρ∩{| u|<ρ }
+
+ζF ξn+1 (ν)dμ g ≤ cμ g(B2ρ ∩ {| u| < ρ }).22 LU CHEN, JIALI LAN, AND HAOLIN LIU 
+
+Now, let τ (t) be a smooth function with support in the interval [ −2ρ, sup B2ρ u + ρ] with 0 ≤ τ ≤ 1, τ ≡ 1 in [ −ρ, sup Bρ u] and τ ′ ≤ 2/ρ . Let ψ(z) = ζ(x)τ (zn+1 ) and notice that η is independent of zn+1 , we have 
+
+|δFn+1 ζ| = |νn+1 Fξi (ν)ζi| ≤ c|νn+1 || Dζ | ≤ 2c|νn+1 |ρ−1.
+
+Then, we obtain (4.19) 2ρ
+
+Z
+
+> B2ρ∩{ u> −ρ}
+
+w|δFn+1 ζ|dμ g ≤ 4c
+
+Z
+
+> B2ρ∩{ u> −ρ}
+
+w|νn+1 |dμ g ≤ 4ce −1μg(B2ρ ∩ spt ψ)and (4.20) 
+
+Z
+
+> B2ρ∩{ u> −ρ}
+
+ζ|δFn+1 w|dμ g ≤
+
+Z
+
+> B2ρ
+
+ψ|δFn+1 w|dμ g ≤ [μg (B2ρ ∩ spt ψ)] 1/2
+
+Z
+
+> B2ρ
+
+ψ2|δFn+1 w|2dμ g
+
+!1/2
+
+.
+
+From the homogeneity of F , we find that (F (ν)en+1 − νn+1 DξF (ν)) · ν = F (ν)νn+1 − νn+1 F (ν) = 0 ,
+
+then, we have 
+
+δFn+1 w = ∇w · (F (ν)en+1 − νn+1 DξF (ν)) = ( ∇w)T · (F (ν)en+1 − νn+1 DξF (ν)) ,
+
+where ( ∇w)T = ∇w − (∇w, ν )ν and ν is the normal vector of the graph of u . Therefore, 
+
+|δFn+1 w|2 ≤ | F (ν)en+1 − νn+1 DξF (ν)|2 (∇w)T 2 ≤ c0 (∇w)T 2 ,
+
+where c0 := sup ξ∈Sn |F (ξ)en+1 − ξn+1 DξF (ξ)|2 < ∞. Moreover, the ellipticity of F gives that 
+
+(∇w)T 2 ≤ λ−1Fξiξj (ν)wiwj ,
+
+where we used the Einstein summation convention for i, j = 1 , . . . , n . Using above inequalities, we obtain that (4.21) 
+
+Z
+
+> B2ρ
+
+ψ2|δFn+1 w|2dμ g ≤ c0λ−1
+
+Z
+
+> B2ρ
+
+ψ2Fξiξj (ν)wiwj dμ g.
+
+We notice that the ( n + 1)-th component νn+1 satisfies the following Jacobi equation div  Fξiξj (ν)( ∇νn+1 )j
+
+ + |SF |2νn+1 = 0 ,
+
+where SF is the F -anisotropic shape operator on S. Since ∇νn+1 = −νn+1 ∇w, we have div  Fξiξj (ν)( ∇S νn+1 )j
+
+ = − div  νn+1 Fξiξj (ν)wj
+
+
+
+= − νn+1 div  Fξiξj (ν)wj
+
+ − Fξiξj (ν)( ∇νn+1 )iwj
+
+= − νn+1 div  Fξiξj (ν)wj
+
+ + νn+1 Fξiξj (ν)wiwj ,
+
+which implies that 0 = −νn+1 div  Fξiξj (ν)wj
+
+ + νn+1 Fξiξj (ν)wiwj + |SF |2νn+1 .ANISOTROPIC MINIMAL SURFACE EQUATION WITH DIRICHLET BOUNDARY CONDITION 23 
+
+Dividing both sides by νn+1 yields that div  Fξiξj (ν)wj
+
+ =Fξiξj (ν)wiwj + |SF |2
+
+≥Fξiξj (ν)wiwj .
+
+(4.22) Combining with (4.21) and (4.22), we conclude that 
+
+Z
+
+> B2ρ
+
+ψ2Fξiξj (ν)wiwj dμ g ≤
+
+Z
+
+> B2ρ
+
+ψ2 div S
+
+ Fξiξj (ν)wj
+
+ dμ g
+
+= − 2
+
+Z
+
+> B2ρ
+
+ψF ξiξj (ν)ψiwj dμ g
+
+≤12
+
+Z
+
+> B2ρ
+
+ψ2Fξiξj (ν)wiwj dμ g + 2 
+
+Z
+
+> B2ρ
+
+Fξiξj (ν)ψiψj dμ g,
+
+which implies that 
+
+Z
+
+> B2ρ
+
+ψ2Fξiξj (ν)wiwj dμ g ≤ 4
+
+Z
+
+> B2ρ
+
+Fξiξj (ν)ψiψj dμ g.
+
+Using the property of F in (4.3), we get (4.23) 
+
+Z
+
+> B2ρ
+
+ψ2Fξiξj (ν)wiwj dμ g ≤ 4Λ 
+
+Z
+
+> B2ρ
+
+|∇ ψ|2dμ g.
+
+Therefore, from (4.21) and (4.23), we deduce that (4.24) 
+
+Z
+
+> B2ρ
+
+ψ2|δFn+1 w|2dμ g ≤ c0λ−1Λ
+
+Z
+
+> B2ρ
+
+|∇ ψ|2dμ g ≤ c0ρ−2μg (B2ρ ∩ spt ψ) .
+
+In conclusion, we have from (4.18)-(4.24) that (4.25) 
+
+Z
+
+> Bρ
+
+wdμ g ≤
+
+Z
+
+> B2ρ∩{| zn+1 |<ρ }
+
+ζwdμ g ≤ c3μg (B2ρ ∩ spt ψ) .
+
+It remains to estimate μg (B2ρ ∩ spt ψ). Let γ(x) be a function with support in B3ρ with 0 ≤ γ ≤ 1, γ ≡ 1 in B2ρ and |Dγ | ≤ 2ρ−1. We have 
+
+Z
+
+> B2ρ
+
+δFn+1 [γ max {u + 2 ρ, 0}]dμ g = 0 ,
+
+and then 
+
+Z
+
+> B2ρ∩{ zn+1 >−2ρ}
+
+γ  F (ν) − νn+1 Fξn+1 (ν) dμ g +
+
+Z
+
+> B2ρ
+
+max {u + 2 ρ, 0}δFn+1 γ = 0 .24 LU CHEN, JIALI LAN, AND HAOLIN LIU 
+
+Arguing as above, we find that since spt ψ ⊂ B2ρ × (−2ρ, ∞), 
+
+μg (B2ρ ∩ spt ψ) ≤α−1
+
+Z
+
+> B2ρ
+
+|νn+1 || Fξn+1 (ν)|dμ g + sup 
+
+> B3ρ
+
+u
+
+Z
+
+> B3ρ
+
+|νn+1 || Fξi (ν)Diγ|dμ g
+
+=α−1
+
+Z
+
+> B2ρ
+
+|Fξn+1 (ν)|dx + sup 
+
+> B3ρ
+
+u
+
+Z
+
+> B3ρ
+
+|Fξi (ν)Diγ|dx 
+
+≤c4ρn 1 + ρ−1 sup 
+
+> B3ρ
+
+u
+
+!
+
+,
+
+where c4 is a constant independent of ρ and the conclusion follows from (4.25). □
+
+Combining with lemma 4.1 and lemma 4.2, and recalling that w = log p1 + |Du |2, we have the following. 
+
+Proposition 4.3. (A priori estimate of the gradient) Let u be a solution of the anisotropic minimal surface equation in B3ρ. Then 
+
+(4.26) sup 
+
+> Sρ/ 2(x0)
+
+|Du | ≤ exp 
+
+
+
+c5
+
+
+
+1 + sup B3ρ(x0) u − u(x0)
+
+ρ
+
+ 
+
+.
+
+In particular, |Du (x0)| is bounded by the right-hand side of (4.26) .
+
+Lemma 4.4. ( [23]) Let u ∈ W 1,2 
+
+> loc
+
+(Ω) be a solution of 
+
+Z
+
+(aij (x)Dj u − fi)Diφdx = 0 for any φ ∈ C∞ 
+
+> 0
+
+(Ω) 
+
+with conditions 
+
+aij ξiξj ≥ β|ξ|2, β > 0.
+
+Suppose that the coefficients aij and the functions fi are of class Cm,α (Ω) . Then u ∈ Cm+1 ,α (Ω) .proof of Theorem 1.2. Let {φj } be a sequence of functions in C2(Rn), converging uniformly to 
+
+φ on ∂Ω. By Theorem 1.1 we know that there exist some uj ∈ C0,1(Ω) minimizes the anisotropic area AF in L(Ω , φ j ). From (3.1), we have sup 
+
+> Ω
+
+|uj − uk| ≤ sup 
+
+> ∂Ω
+
+|φj − φk|,
+
+and therefore, uj converge uniformly to some u in Ω. Now, let K ⊂ Ω be a compact set. Since 
+
+uj satisfy the anisotropic minimal surface equation (4.5), from proposition 4.3, we deduce that sup 
+
+> K
+
+|Du j | ≤ L, 
+
+where L is a constant depends on K but not on j.Let w = ∂u j /∂x s (s = 1 , · · · , n ), then it satisfies the equation 
+
+∂∂x i
+
+
+
+aik (x) ∂w ∂x k
+
+
+
+= 0 ,ANISOTROPIC MINIMAL SURFACE EQUATION WITH DIRICHLET BOUNDARY CONDITION 25 
+
+where aik = Fξiξk (Du j , −1). For any ζ ∈ Rn denote by ζ = ( ζ1, · · · , ζ n)̸ = 0, we set eζ =(ζ1, · · · , ζ n, 0), then by the ellipticity of F , we have 
+
+> n
+
+X
+
+> i,j =1
+
+Fξiξj (Du j , −1) ζiζj =
+
+> n+1
+
+X
+
+> i,j =1
+
+Feζi eζj (Du j , −1) eζi eζj
+
+= 1
+
+p1 + |Du j |2
+
+> n+1
+
+X
+
+> i,j =1
+
+Feζi eζj
+
+(Du j , −1) 
+
+p1 + |Du j |2
+
+!eζi eζj
+
+≥c6|eζ|2 = c6|ζ|2,
+
+where c6 is a positive constant depend on L and λ. Therefore, the theory of uniformly elliptic equations (see lemma 4.4) gives a bound for the derivatives of any order: sup 
+
+> K
+
+|Dmuj | ≤ L(K, m ).
+
+In particular, we may conclude that u ∈ C2(Ω) ∩ C0(Ω) and that uj → u in C2
+
+> loc
+
+(Ω) so that u
+
+is a solution of the anisotropic Dirichlet problem (1.5). 
+
+□
+
+As a consequence of the priori estimate for the gradient (proposition 4.3), we have a weaker forms of Bernstein’s theorem. We will use the following Harnack’s inequality. 
+
+Lemma 4.5. ( [23]) Let u ∈ W 1,2 
+
+> loc
+
+(Ω) be a positive weak solution of 
+
+∂i (aij (x)Dj u) = 0 in BR
+
+with conditions 
+
+aij ξiξj ≥ β|ξ|2, β > 0.
+
+Then for any θ < 1, there exists a constant c depending on θ but not on u, such that 
+
+sup 
+
+> BθR
+
+u ≤ c(α) inf 
+
+> BθR
+
+u. 
+
+Proposition 4.6. Let u be a solution of the anisotropic minimal surface equation (4.5) in Rn.Suppose that for any x ∈ Rn,
+
+(4.27) u(x) ≤ C(1 + |x|),
+
+for some constant C. Then u is an affine function. Proof. Let x0 ∈ Rn, we have sup 
+
+> Bρ(x0)
+
+u ≤ C(1 + ρ + |x0|).
+
+Therefore, from (4.26), sup 
+
+> Sρ/ 2(x0)
+
+|Du | ≤ exp c5(1 + C) + c5ρ−1(|u(x0)| + C(1 + |x0|)) .
+
+Letting ρ → ∞ , we obtain sup 
+
+> Rn
+
+|Du | ≤ exp {c5(1 + C)} := c6.26 LU CHEN, JIALI LAN, AND HAOLIN LIU 
+
+Similarly, if we set w = ∂u j /∂x s (s = 1 , · · · , n ), then it satisfies the following uniformly elliptic equation (4.28) ∂∂x i
+
+
+
+aik (x) ∂w ∂x k
+
+
+
+= 0 ,
+
+where aik = Fξiξk (Du j , −1). Since w is bounded, the non-negative function z = w − inf w
+
+satisfies the same equation (4.26). Therefore, the Harnack’s inequality implies that sup 
+
+> Bρ
+
+z ≤ c inf 
+
+> Bρ
+
+z
+
+for any ρ > 0 with c independent of ρ. Letting ρ → ∞ , we obtain sup Rn z = 0 and thus 
+
+w = const , which indicates that u is an affine function. □
+
+5. Direct Methods 
+
+In this section, we use direct methods in the calculus of variations to minimize the anisotropic area 
+
+AF (u, Ω) = 
+
+Z
+
+> Ω
+
+F (Du, −1) dx 
+
+which is the anisotropic total variation of u in BV (Ω) defined by (2.2), with prescribed values 
+
+φ(x) on ∂Ω. For simplicity, throughout this section we shall omit the trace operator and simply write u for Tr u on ∂Ω. 
+
+Lemma 5.1. Let C+ 
+
+> R
+
+= BR × (0 , R ) with BR ⊂ Rn−1 is a ball centered at origin with radius 
+
+R. Let φ be a function in L1(BR) with compact support. Then, for any ε > 0, there exists a function v ∈ W 1,1(C+ 
+
+> R
+
+) with trace φ on BR such that 
+
+(5.1) 
+
+Z
+
+> C+
+> R
+
+|v|dx ≤ ε
+
+Z
+
+> BR
+
+|φ|dHn−1
+
+and 
+
+(5.2) 
+
+Z
+
+> C+
+> R
+
+F (Dv, 0) dx ≤ (1 + ε)
+
+Z
+
+> BR
+
+F (en, 0) |φ|dHn−1,
+
+where en = (0 , · · · , 1) .Proof. Let {φk} be a sequence of C∞-functions in BR and φk → φ in L1(BR). Assume that 
+
+φ0 = 0, (5.3) 
+
+Z
+
+> BR
+
+|φk(x)|dz ≤ 2
+
+Z
+
+> BR
+
+|φ(z)|dz 
+
+and (5.4) 
+
+> ∞
+
+X
+
+> k=0
+
+Z
+
+> BR
+
+|φk(z) − φk+1 (z)|dz ≤
+
+
+
+1 + ε
+
+2
+
+ Z
+
+> BR
+
+|φ(z)|dz. ANISOTROPIC MINIMAL SURFACE EQUATION WITH DIRICHLET BOUNDARY CONDITION 27 
+
+Let {tk} be a decreasing sequence, converging to 0. We set 
+
+v(x) = v(z, t ) = 
+
+( t−tk+1   
+
+> tk−tk+1
+
+φk(z) + tk −ttk −tk+1 φk+1 (z) if tk+1 ≤ t ≤ tk,
+
+0 if t > t 0.
+
+Therefore, we have 
+
+Z
+
+> C+
+> R
+
+F (Dv, 0) dx =
+
+> ∞
+
+X
+
+> k=0
+
+Z tk
+
+> tk+1
+
+dt 
+
+Z
+
+> BR
+
+F (Dv, 0) dz 
+
+≤
+
+> ∞
+
+X
+
+> k=0
+
+(tk − tk+1 )
+
+Z
+
+> BR
+
+
+
+F (Dφ k, 0, 0) + F (Dφ k+1 , 0, 0) + |φk − φk+1 |
+
+tk − tk+1 
+
+F (en, 0) 
+
+
+
+dz 
+
+≤
+
+> ∞
+
+X
+
+> k=0
+
+Z
+
+> BR
+
+F (en, 0) |φk − φk+1 |dz +
+
+> ∞
+
+X
+
+> k=0
+
+(tk − tk+1 )
+
+Z
+
+> BR
+
+[F (Dφ k, 0, 0) + F (Dφ k+1 , 0, 0)] dz. 
+
+If we choose {tk} such that 4 t0 < ε and 
+
+tk − tk+1 ≤ ε R 
+
+> BR
+
+F (en, 0) |φ|dz 
+
+R 
+
+> BR
+
+[F (Dφ k, 0, 0) + F (Dφ k+1 , 0, 0)] dz + 1 2−k−2,
+
+then from (5.3), (5.4), we obtain 
+
+Z
+
+> C+
+> R
+
+F (Dv, 0) ≤
+
+
+
+1 + ε
+
+2
+
+ Z
+
+> BR
+
+F (en, 0) |φ|dz + ε
+
+> ∞
+
+X
+
+> k=0
+
+2−k−2
+
+Z
+
+> BR
+
+F (en, 0) |φ|dz 
+
+= (1 + ε)
+
+Z
+
+> BR
+
+F (en, 0) |φ|dz 
+
+and Z
+
+> C+
+> R
+
+|v|dx ≤
+
+> ∞
+
+X
+
+> k=0
+
+Z 
+
+> BR
+
+|φk|dz +
+
+Z
+
+> BR
+
+|φk+1 |dz 
+
+
+
+(tk − tk−1)
+
+≤4
+
+Z
+
+> BR
+
+|φ|dz 
+
+> ∞
+
+X
+
+> k=0
+
+(tk − tk+1 ) = 4 t0
+
+Z
+
+> BR
+
+|φ|dz < ε 
+
+Z
+
+> BR
+
+|φ|dz. 
+
+Then, we complete the proof. 
+
+□
+
+A standard argument based on a partition of unity proves the following: 
+
+Proposition 5.2. Let Ω be a bounded open set with C1 boundary ∂Ω and let φ ∈ L1(∂Ω) .Then, for any ε > 0, there exists a function v ∈ W 1,1(Ω) having trace φ on ∂Ω such that 
+
+(5.5) 
+
+Z
+
+> Ω
+
+|v|dx ≤ ε
+
+Z
+
+> ∂Ω
+
+|φ|dHn−1,
+
+(5.6) 
+
+Z
+
+> Ω
+
+F (Dv, 0) dx ≤ (1 + ε)
+
+Z
+
+> ∂Ω
+
+F (ν, 0) |φ|dHn−1,28 LU CHEN, JIALI LAN, AND HAOLIN LIU 
+
+where ν is the normal vector of ∂Ω.
+
+Proposition 5.3. Let Ω be a bounded open set with C1 boundary ∂Ω, and let φ ∈ L1(∂Ω) . We have 
+
+inf {A F (u, Ω) : u ∈ BV (Ω) , u = φ on ∂Ω}
+
+= inf 
+
+
+
+AF (u, Ω) + 
+
+Z
+
+> ∂Ω
+
+F (ν, 0) |u − φ|dHn−1 : u ∈ BV (Ω) 
+
+
+
+.
+
+(5.7) 
+
+Proof. Obviously, the left-hand side of (5.7) is greater than its right-hand side. It therefore suffices to prove the reverse inequality. Let u ∈ BV (Ω) and let ε > 0. It follows from proposition 5.2 that there exists a function 
+
+w ∈ W 1,1(Ω) with w = φ − u on ∂Ω and 
+
+Z
+
+> Ω
+
+F (Dw, 0) dx ≤ (1 + ε)
+
+Z
+
+> ∂Ω
+
+F (ν, 0) |u − φ|dHn−1.
+
+The function v = u + w belongs to BV (Ω) with v = φ on ∂Ω. Moreover, 
+
+Z
+
+> Ω
+
+F (Dv, −1) dx ≤
+
+Z
+
+> Ω
+
+[F (Du, −1) + F (Dw, 0)] dx 
+
+≤
+
+Z
+
+> Ω
+
+F (Du, −1) dx + (1 + ε)
+
+Z
+
+> ∂Ω
+
+F (ν, 0) |u − φ|dHn−1.
+
+Letting ε → 0, (5.7) follows at once. □
+
+Remark 5.4. The above result suggests the following weaker form of the Dirichlet problem for anisotropic non-parametric minimal surfaces: Given a function φ in L1(∂Ω) , find a function 
+
+u ∈ BV (Ω) minimizing the functional 
+
+(5.8) EF (v, Ω) = 
+
+Z
+
+> Ω
+
+F (Dv, −1) dx +
+
+Z
+
+> ∂Ω
+
+F (ν, 0) |v − φ|dHn−1
+
+among all functions v ∈ BV (Ω) .If B is a ball containing Ω, we can use proposition 5.2 to extend φ to a W 1,1 function in 
+
+B \ Ω still denote by φ. If we set for v ∈ BV (Ω) ,
+
+vφ =
+
+(
+
+v(x) for x ∈ Ω
+
+φ(x) for x ∈ B \ Ω,
+
+where B denotes a ball containing Ω in Rn. Then the function vφ ∈ BV (B) and 
+
+Z
+
+> B
+
+F (Dv φ, −1) dx =
+
+Z
+
+> Ω
+
+F (Dv, −1) dx +
+
+Z
+
+> B\ Ω
+
+F (Dφ, −1) dx +
+
+Z
+
+> ∂Ω
+
+F (ν, 0) |v − φ|dHn−1
+
+=EF (v, Ω) + 
+
+Z
+
+> B\ Ω
+
+F (Dφ, −1) dx. 
+
+We have therefore an equivalent formulation of the anisotropic Dirichlet problem: Given a function φ ∈ W 1,1(B\ Ω) , find a function u ∈ BV (Ω) , coinciding with φ in B\ Ω and minimizing the anisotropic area AF (v, B) among all function v ∈ BV (Ω) with v = φ in B \ Ω.ANISOTROPIC MINIMAL SURFACE EQUATION WITH DIRICHLET BOUNDARY CONDITION 29 
+
+Since the set of functions uniformly bounded in BV -norm are relatively compact in L1(Ω) and the anisotropic area AF is semi-continuous, we have: 
+
+Proposition 5.5. Let Ω be a bounded open set with Lipschitz-continuous boundary ∂Ω, and let 
+
+φ be a function in L1(∂Ω) . Then the functional EF (u, Ω) attains its minimum in BV (Ω) .
+
+We shall prove that any function u minimizing EF is regular in the following. 
+
+Lemma 5.6. Let u ∈ BV (Ω) and let 
+
+U = {(x, t ) ∈ Ω × R : t < u (x)}
+
+be the subgraph of u. Then 
+
+(5.9) 
+
+Z
+
+> Ω
+
+F (Du, −1) dx =
+
+Z
+
+> Ω×R
+
+|Dχ U |F dxdt. 
+
+Proof. Suppose that u is bounded and u ≥ 1. Let g1(x), . . . , g n+1 (x) be functions with compact support in Ω with F o(g) ≤ 1 in Ω. Let σ(t) support in [0 , sup Ω u + 1] such that |σ| ≤ 1 and 
+
+σ ≡ 1 in [1 , sup Ω u]. Set γ(x, t ) = g(x)σ(t) with g = ( g1, . . . , g n+1 ), we have F o(γ(x, t )) = 
+
+|σ(t)|F o(g(x)) ≤ 1 in Ω × R. Therefore, 
+
+Z
+
+> Ω×R
+
+|Dχ U |F dxdt ≥
+
+Z
+
+> U
+
+div γdxdt =
+
+Z
+
+> Un+1
+
+X
+
+> i=1
+
+Diγidxdt 
+
+=
+
+Z
+
+> Ω
+
+dx 
+
+Z u(x)0
+
+"
+
+gn+1 (x)σ′(t) + σ(t)
+
+> n
+
+X
+
+> i=1
+
+Digi(x)
+
+#
+
+dt. 
+
+Since Z u(x)0
+
+σ′(t)dt = σ(u(x)) − σ(0) = 1 and Z u(x)0
+
+σ(t)dt =
+
+Z u(x)1
+
+σ(t)dt +
+
+Z 10
+
+σ(t)dt = u(x) + c
+
+with c = −1 + R 10 σ(t)dt > 0, we have 
+
+Z
+
+> Ω×R
+
+|Dχ U |F dxdt ≥
+
+Z
+
+> Ω
+
+gn+1 dx +
+
+Z
+
+> Ω
+
+div g(u(x) + c)dx =
+
+Z
+
+> Ω
+
+[gn+1 + u div g]dx, 
+
+which implies that Z
+
+> Ω×R
+
+|Dχ U |F dxdt ≥
+
+Z
+
+> Ω
+
+F (Du, −1) dx. 
+
+On the other hand, let uj ∈ C∞(Ω), uj → u in L1(Ω) and R 
+
+> Ω
+
+F (Du j , −1) dx → R 
+
+> Ω
+
+F (Du, −1) dx .We have Uj → U in L1
+
+> loc
+
+(Ω × R) and thus 
+
+Z
+
+> Ω×R
+
+|Dχ U |F dxdt ≤ lim inf 
+
+> j→∞
+
+Z
+
+> Ω×R
+
+|Dχ Uj |F dxdt = lim  
+
+> j→∞
+
+F (Du j , −1) dx =
+
+Z
+
+> Ω
+
+F (Du, −1) dx. 
+
+Therefore, (5.9) holds for any bounded u ∈ BV (Ω). 30 LU CHEN, JIALI LAN, AND HAOLIN LIU 
+
+Finally, if u is unbounded, writing 
+
+uT (x) = 
+
+
+
+T if u ≥ Tu(x) if |u| < T 
+
+−T if u ≤ − T
+
+and letting T → ∞ , we get the desired result. □
+
+Now, we show that given a set V , we can decrease its anisotropic perimeter by replacing it with a suitable subgraph. 
+
+Lemma 5.7. Let V ⊂ Ω × R := Q be a measurable set, and let 
+
+Ω × (−∞ , −T ) ⊂ V ⊂ Ω × (−∞ , T )
+
+for some T > 0. For x ∈ Ω, let 
+
+w(x) = lim 
+
+> k→∞
+
+Z k
+
+> −k
+
+χV (x, t )dt − k
+
+
+
+.
+
+Then, 
+
+(5.10) 
+
+Z
+
+> Ω
+
+F (Dw, −1) dx ≤
+
+Z
+
+> Ω×R
+
+|Dχ V |F dxdt. 
+
+Proof. Clearly, 
+
+∂V ∩ Q ⊂ Ω × (−T, T ).
+
+Setting 
+
+wk =
+
+Z k
+
+> −k
+
+χV (x, t )dt − k, 
+
+and notice that wk = wl for k, l ≥ T , we have that w(x) is a bounded measurable function and 
+
+−T ≤ w(x) ≤ T .Let g(x) = ( g1(x), . . . , g n+1 (x)) ∈ C10 (Ω , Rn+1 ) with F o(g) ≤ 1, and let η(t) be a smooth function such that 0 ≤ η ≤ 1 and 
+
+η(t) = 
+
+(
+
+0 if |t| ≥ T + 1 1 if |t| ≤ T. 
+
+We have Z ∞−∞ 
+
+η′(t)χV (x, t )dt =
+
+Z −T 
+
+> −T−1
+
+η′(t)dt = η(−T ) − η(−T − 1) = 1 and Z ∞−∞ 
+
+η(t)χV (x, t )dt =
+
+Z T
+
+> −T
+
+χV (x, t )dt +
+
+Z −T 
+
+> −T−1
+
+η(t)dt = w + α, 
+
+where α = T + R −T  
+
+> −T−1
+
+ηdt ≥ 0. ANISOTROPIC MINIMAL SURFACE EQUATION WITH DIRICHLET BOUNDARY CONDITION 31 
+
+Therefore, 
+
+Z
+
+> Q
+
+|Dχ V |F dxdt ≥
+
+Z
+
+> Q
+
+χV (x, t )
+
+> n+1
+
+X
+
+> i=1
+
+∂∂x i
+
+(η(t)gi(x)) dxdt 
+
+=
+
+Z
+
+> Ω
+
+gn+1 + ( w + α)
+
+> n
+
+X
+
+> i=1
+
+∂g i
+
+∂x i
+
+dx =
+
+Z
+
+> Ω
+
+(gn+1 + w div g)dx. 
+
+Taking the supremum over g, we then get the conclusion. 
+
+□
+
+In fact, the restriction that ∂V ∩ Q is bounded can be removed. 
+
+Lemma 5.8. Let V ⊂ Q be a measurable set with finite perimeter in Q, and assume that for almost every x ∈ Ω, we have 
+
+(5.11) lim  
+
+> t→+∞
+
+χV (x, t ) = 0 and lim  
+
+> t→−∞
+
+χV (x, t ) = 1 .
+
+Then, the function 
+
+w(x) = lim 
+
+> k→∞
+
+Z k
+
+> −k
+
+χV (x, t )dt − k
+
+
+
+belongs to L1(Ω) and Z
+
+> Ω
+
+F (Dw, −1) dx ≤
+
+Z
+
+> Q
+
+|Dχ V |F dxdt. 
+
+Proof. It follows from (5.11) that the sequence wk converges to w almost everywhere in Ω. Moreover, Z
+
+> Ω
+
+|w|dx = |(V \ Q−) ∪ (Q− \ V )|,
+
+where Q− = {(x, t ) ∈ Q, t < 0}. Since |wk| ≤ | w|, we have wk → w in L1(Ω). Now, let 
+
+Vk = V ∪ (Ω × (−∞ , −k)) \ (Ω × (k, +∞)) ,
+
+then Ω × (−∞ , −k) ⊂ Vk ⊂ Ω × (−∞ , k ) and from lemma 5.7, we get 
+
+Z
+
+> Ω
+
+F (Dw k, −1) dx ≤
+
+Z
+
+> Ω×R
+
+|Dχ Vk |F dxdt ≤
+
+Z
+
+> Ω×R
+
+|Dχ V |F dxdt 
+
++ F (0 ′, 1) 
+
+Z 
+
+> Ω×{ k}
+
+χV dxdt +
+
+Z
+
+> Ω×{− k}
+
+(1 − χV )dxdt 
+
+
+
+.
+
+Then, the conclusion follows from (5.11) and the semi-continuity of the anisotropic area. 
+
+□
+
+Lemma 5.9. Let u ∈ BV loc (Ω) be a local minimum of the anisotropic area functional AF .Then, the set 
+
+U = {(x, t ) ∈ Ω × R : t < u (x)}
+
+minimizes locally the perimeter in Q = Ω × R.32 LU CHEN, JIALI LAN, AND HAOLIN LIU 
+
+Proof. Let A ⊂⊂ Ω and let V be a measurable set that has locally finite perimeter in Q,coinciding with U outside some compact set K ⊂ A × R. It is obvious that U and therefore V
+
+satisfies the assumption in lemma 5.8. The function w coincides with u outside A and it follows from lemma 5.6 and lemma 5.8 that 
+
+Z
+
+> A×R
+
+|Dχ U |F dxdt =
+
+Z
+
+> A
+
+F (Du, −1) dx ≤
+
+Z
+
+> A
+
+F (Dw, −1) dx ≤
+
+Z
+
+> A×R
+
+|Dχ V |F dxdt. 
+
+□
+
+Lemma 5.10. Let u ∈ BV loc (Ω) minimize the anisotropic area functional AF , then u is locally bounded in Ω.Proof. Assume by contradiction that there exists a compact set K ⊂ Ω such that sup K u = ∞.Let R = 12 dist( K, ∂ Ω). For any M ∈ N, there exists a point x ∈ K such that u(x) > 2M R .It follows that zi = ( x, 2iR ) for ( i = 0 , 1, . . . , M ) belong to U . We denote by BR the ball in 
+
+Rn+1 centered at zi with radius R. From lemma 5.9, we have 
+
+Z
+
+> Q
+
+|Dχ U |F dxdt ≤
+
+Z
+
+> Q
+
+|Dχ U \B R |F dxdt, 
+
+and then we get Z
+
+> BR
+
+|Dχ U |F dx ≤
+
+Z
+
+> ∂BR
+
+F (ν)χU dHn,
+
+where we used the fact that R 
+
+> Q
+
+|Dχ U \B R |F dxdt = R 
+
+> Q\B R
+
+|Dχ U |F dxdt + R 
+
+> ∂BR
+
+F (ν)χU dHn and 
+
+R 
+
+> Q
+
+|Dχ U |F dxdt = R 
+
+> Q\∂BR
+
+|Dχ U |F dxdt + R 
+
+> BR
+
+|Dχ U |F dxdt .On the other hand, 
+
+Z
+
+> Q
+
+|Dχ U ∩B R |F dxdt =
+
+Z
+
+> BR
+
+|Dχ U |F dxdt +
+
+Z
+
+> ∂BR
+
+F (ν)χU dHn ≤ 2
+
+Z
+
+> ∂BR
+
+F (ν)χU dHn ≤ 2β
+
+Z
+
+> ∂BR
+
+χU dHn,
+
+where we used the fact that α|ξ| ≤ F (ξ) ≤ β|ξ| in the last inequality, namely, we obtain 
+
+Z
+
+> Q
+
+|Dχ U ∩B R |F dxdt ≤ 2β ddR |U ∩ B R|.
+
+From the anisotropic isoperimetric inequality established in [4], we have 
+
+Z
+
+> Q
+
+|Dχ U ∩B R |F dxdt ≥ [( n + 1) κn+1 ]1/(n+1) |U ∩ B R|1−1/(n+1) ,
+
+where κn+1 is the measure of the unit Wulff ball with respect to F o. Therefore, we obtain 
+
+ddR |U ∩ B R| ≥ [( n + 1) κn+1 ]1/(n+1) 
+
+2β |U ∩ B R|1−1/(n+1) ,
+
+and integrating: 
+
+|U ∩ B R| ≥ 
+
+[( n + 1) κn+1 ]1/(n+1) r
+
+2β(n + 1) 
+
+n+1 
+
+:= c(n)Rn+1 .ANISOTROPIC MINIMAL SURFACE EQUATION WITH DIRICHLET BOUNDARY CONDITION 33 
+
+However, Z
+
+> KR
+
+|u|dx ≥
+
+> M
+
+X
+
+> i=1
+
+|U ∩ B R| ≥ c(n)M R n+1 ,
+
+where KR = {x ∈ Ω : dist( x, K ) < R }. The arbitrariness of M implies that R 
+
+> KR
+
+|u|dx = + ∞,which is a contradiction with u ∈ BV loc (Ω). To exclude inf K u = −∞ , we apply the same density argument to the complement Q \ U .Since F is even, Q \ U is also locally minimizing the anisotropic perimeter. This gives a local lower bound for u. Hence u is locally bounded. □
+
+A second consequence of lemma 5.9 is that the boundary of U , i.e. ∂U is a regular hyper-surface outside a closed set Σ with Hn−2(Σ) = 0 (see [5]). Now, we show that the function u is regular in the set 
+
+Reg := Ω \ proj Σ .
+
+To prove this, it is sufficient to show that νn+1 < 0 on ∂U \ Σ. Suppose on the contrary that 
+
+νn+1 (x0) = 0 for some x0 ∈ ∂U \ Σ. By the implicit function theorem, we can represent ∂U as the graph of a smooth function in a neighborhood of x0:
+
+x1 = v(x2, . . . , x n+1 ) with ∂v ∂x n+1 
+
+(x0) = 0 and ∂v ∂x n+1 
+
+≤ 0.
+
+Then, the function v is of course a solution of the anisotropic minimal surface equation 
+
+> n+1
+
+X
+
+> i=2
+
+∂∂x i
+
+(Fξi (1 , −Dv )) = 0 .
+
+As in lemma 4.4, w = ∂v ∂x n+1 ≤ 0 is a solution of the uniformly elliptic equation 
+
+> n+1
+
+X
+
+> i=2
+
+∂∂x i
+
+
+
+Fξiξj (1 , −Dv ) ∂w ∂x j
+
+
+
+= 0 .
+
+Therefore, we can apply the following strong maximum principle: 
+
+Lemma 5.11. (Strong maximum principle): Let v and v be a supersolution and a subsolution of 
+
+div A(x, Du ) = 0 in Ω
+
+with 
+
+σ|ζ|2 ≤
+
+> n
+
+X
+
+> i,j =1
+
+∂A i
+
+∂p j
+
+ζiζj ≤ γ|ζ|2 for any ζ ∈ Rn.
+
+If v ≥ v on ∂Ω and v(x0) = v(x0) for some x0 ∈ Ω, then v = v.
+
+Then, we conclude that ∂v ∂x n+1 = 0 and thus νn+1 vanishes identically in a neighborhood N
+
+of x0. Let Γ = proj N , we have Hn−1(Γ) > 0. Moreover, if y ∈ Γ, the vertical straight line through y contains a point y0 ∈ ∂U \ Σ with νn+1 = 0. If this line does not meet Σ, it follows 34 LU CHEN, JIALI LAN, AND HAOLIN LIU 
+
+from the above discussion that it lies entirely on ∂U . However, since u is locally bounded, we must have Γ ⊂ proj Σ. Then, Hn−1(Σ) > 0, a contradiction. 
+
+Lemma 5.12. Let u ∈ BV loc (Ω) minimize the anisotropic area AF in Ω, then u ∈ W 1,1 
+
+> loc
+
+(Ω) .Proof. Denote S = proj Σ, we know that u is regular in Ω \ S and Hn−2(S) = 0. In particular, 
+
+|S| = 0. If A ⊂⊂ Ω is an open set, we have 
+
+Z
+
+> A
+
+F (Du, −1) dx =
+
+Z
+
+> A\S
+
+F (Du, −1) dx +
+
+Z
+
+> S∩A
+
+F (Du, 0) .
+
+On the other hand, the authors in [4] showed that PF (U, A × R) = R  
+
+> ∂∗U∩(A×R)
+
+F (νU )dHn, and thus Z
+
+> A
+
+F (Du, −1) dx =
+
+Z
+
+> A\S
+
+F (Du, −1) dx. 
+
+Therefore, we get 
+
+α
+
+Z
+
+> S∩A
+
+|Du | ≤ 
+
+Z
+
+> S∩A
+
+F (Du, 0) = 0 ,
+
+so that R 
+
+> S∩A
+
+|Du | = 0 and u ∈ W 1,1 
+
+> loc
+
+(Ω). □
+
+Since the anisotropic area functional AF is strictly convex in W 1,1(Ω), we have: 
+
+Proposition 5.13. Let Ω be connected and let φ ∈ L1(∂Ω) . If u and v are two minimizer of the functional Z
+
+> Ω
+
+F (Du, −1) dx +
+
+Z
+
+> ∂Ω
+
+F (ν, 0) |u − φ|dHn−1,
+
+then v = u + const .Proof. From the strict convexity, we deduce that Du = Dv and thus u = v + const . □
+
+Furthermore, we can prove the regularity theorem. 
+
+Proposition 5.14. Let u ∈ BV loc (Ω) minimize locally the anisotropic functional AF , then u is Lipschitz-continuous in Ω.Proof. Let BR be a ball in Ω, then for any w ∈ BV (BR), it follows from proposition 5.3 that 
+
+Z
+
+> BR
+
+F (Du, −1) dx ≤
+
+Z
+
+> BR
+
+F (Dw, −1) dx +
+
+Z
+
+> ∂B R
+
+F (ν, 0) |w − u|dHn−1.
+
+Since the singular set S satisfies Hn−2(S) = 0, there exists a sequence of open sets {Sj } such that 
+
+Sj+1 ⊂⊂ Sj , ∩j∈NSj = S
+
+and 
+
+Hn−1(Sj ∩ ∂B R) → 0.
+
+Let φj be a smooth function on ∂B R such that 
+
+φj = u in ∂B R \ Sj and sup 
+
+> ∂B R
+
+|φj | ≤ 2 sup 
+
+> ∂B R
+
+|u|.ANISOTROPIC MINIMAL SURFACE EQUATION WITH DIRICHLET BOUNDARY CONDITION 35 
+
+From theorem 1.1, we can assume that uj be the unique solution of the anisotropic Dirichlet problem with boundary datum φj on ∂B R. Moreover, the function uj are smooth in B and sup 
+
+> BR
+
+|uj | ≤ 2 sup 
+
+> ∂B R
+
+|u|.
+
+Therefore, for any w ∈ BV (BR), we have (5.12) 
+
+Z
+
+> BR
+
+F (Du j , −1) dx ≤
+
+Z
+
+> BR
+
+F (Dw, −1) dx +
+
+Z
+
+> ∂B R
+
+F (ν, 0) |w − φj |dHn−1.
+
+From the priori estimate of the gradient (see proposition 4.3), we deduce that |Du j | are equibounded in every compact set K ⊂ BR. By the Ascoli-Arzela theorem, there exists a subsequence (still denote by uj ) that will converge uniformly on compact subsets of BR to a Lipschitz-continuous function v. Taking w = 0 in (5.12), we have 
+
+Z
+
+> BR
+
+F (Du j , −1) dx ≤ F (0 ′, 1) |B| + Λ 
+
+Z
+
+> ∂B R
+
+|φj |dHn−1 ≤ c, 
+
+and thus v ∈ W 1,1(BR). Now, we show that v has trace u on ∂B R. Let y ∈ ∂B R be a regular point for u. Then, for j
+
+large enough, y ∈ ∂B R \ Sj and for all k > j , φk = u in a neighborhood of y in ∂B R. Therefore, we can construct two functions φ+ and φ− of class C2 on ∂B R, such that (1) φ± = u in a neighborhood of y in ∂B R,(2) φ− ≤ φk ≤ φ+ in ∂B R for any k > j .Let u± be the solutions of the anisotropic Dirichlet problem with boundary datum φ± respec-tively. From the anisotropic weak maximum principle ( see lemma 3.6), we get 
+
+u− ≤ uk ≤ u+ for any k > j, 
+
+and then we obtain 
+
+u− ≤ v ≤ u+.
+
+Therefore, we conclude that v = u at every regular point y ∈ ∂B R and due to Hn−1(S) = 0, we get v = u on ∂B R.Passing to the limit in (5.12), we have (5.13) 
+
+Z
+
+> BR
+
+F (Dv, −1) dx ≤
+
+Z
+
+> BR
+
+F (Dw, −1) dx +
+
+Z
+
+> ∂B R
+
+F (ν, 0) |w − u|dHn−1.
+
+Since v = u on ∂B R, the function v also minimizes the functional on the right-hand side of (5.13). From proposition 5.13, v = u + const and since v = u on ∂B R, we finally get v = u.Therefore, we conclude that u is Lipschitz-continuous in Ω. 
+
+□
+
+References       
+
+> [1] M. Amar and G. Bellettini, A notion of total variation depending on a metric with discontinuous coefficients ,Ann. inst. Hmri Poincure’. Anal. Nonlin´ eaire, 11 (1994), 91-133. [2] F.J. Almgren, The theory of varifolds-a variational calculus in the large for the k-dimensional area inte-grand , Mimeographed notes, Princeton, 1965. 36 LU CHEN, JIALI LAN, AND HAOLIN LIU
+
+[3] F. J. Almgren, Some interior regularity theorems for minimal surfaces and an extension of Bernstein’s theorem , Ann. of Math. 84 (1966), 277-292. [4] A. Alvino, V. Ferone, G. Trombetti, Convex symmetrization and applications , Ann. Inst. Henri Poincar´ e, 
+
+14 (2) (1997), 275-293. [5] F. J. Almgren Jr., R. Schoen, L. Simon, Regularity and singularity estimates on hypersurfaces minimizing parametric elliptic integrands . Acta math. 139 (1977), 217-265. [6] S. Bernstein, Sur les surfaces definies au moyen de leur courbure moyenne ou totale , Ann. Sci. Ecole Norm. Sup. 27 (1910), 233-256. [7] E. Bombieri, E. De Giorgi, E. Giusti, Minimal cones and the Bernstein problem , Inv. Math. 7 (1969), 243-268. [8] E. Bombieri, E. De Giorgi, M. Miranda, Una maggiorazione a priori relativa alle ipersuperfici minimal non parametriche , Arch. Rational Mech. Anal., 32 (1969), 255-267. [9] O. Chodosh, C. Li, Stable anisotropic minimal hypersurfaces in R4, Forum Math. Pi 11 (2023), 1-22. [10] C. Cui, N. Yip, Two dimensional anisotropic mean curvature flow with contact angle condition ,arXiv:2510.22136v1, (2025). [11] J. Douglas, Solutions of the problem of Plateau , Trans. Amer. Math. Soc. 33 (1931), 263-321. [12] E. De Giorgi, Su una teo ria generale della misura (r − 1) -dimensionale in uno spazio ad r dimensioni ,Ann. Mat. Pura Appl. 36 (4) (1954), 191-213. [13] E. De Giorgi, Nuovi teoremi relativi aile misure (r − 1) -dimensionali inn uno spazio ad r dimensioni ,Ricerche Mat. 4 (1955), 95-113. [14] E. De Giorgi, Complementi alia teoria della misura (n − 1) -dimensionale in uno spazio n-dimensionale ,Sem. Mat. Scuola Norm. Sup. Pisa, 1960-61. Editrice Tecnico Scientifica, Pisa, 1961. [15] E. De Giorgi, Frontiere orientate di misura minima. Sem. Mat. Scuola Norm , Sup. Pisa, 1960-61. Editrice Tecnico Scientifica, Pisa, 1961. [16] E. De Giorgi, Una estensione del teorema di Bernstein , Ann. Scuola Norm. Sup. Pisa 19 (1965), 79-85. [17] R. Finn, On equations of minimal surface type , Ann. Math., 60 (1954), 397-416. [18] H. Federer, W. H. Fleming, Normal and integral currents , The Annals of Mathematics 72 (3) (1960), 458-520 [19] W. Fleming, On the oriented Plateau problem , Rend. Circolo Mat. Palermo 9 (1962), 69-89. [20] R. Finn, Remarks relevant to minimal surfaces and to surfaces of constant mean curvature , J. d’Anal. Math. 14 (1965), 139-160. [21] H. Federer, Geometric Measure Theory , Springer-Verlag, Berlin Heidelberg New York, (1969). [22] R. Finn, R. Osserman, On the Gauss curvature of non-parametric minimal surfaces , J. d’Anal. Math. 12 (1) (1964), 351-364. [23] E. Giusti, M. Miranda, Equazioni ellittiche del secondo ordine , Quaderni U.M.I. 6 Pitagora, Bologna 1978. [24] D. Gilbarg, N. Trudinger, Elliptic partial differential equations of second order , Berlin: Springer, 2001. [25] A. Haar, ¨Uber das Plateausche Problem , Math. Ann. 97 (1927), 124-258. [26] H. Jenkins, On 2-dimensional variational problems in parametric form , Arch. Ration. Mech. Anal. 
+
+8 (1961), 181-206. [27] H. Jenkins, J. Serrin, The Dirichlet problem for the minimal surface equation in higher dimension , J. Reine Ang. Math. 229 (1968), 170-187. [28] S. R. LAY, Convex Sets und their applications , J. Wiley and Sons, New York, (1982). [29] O. A. Ladyzhenskaya, N. Uraltseva, Local estimates for gradients of non-uniformly elliptic and parabolic equations , Commun. Pure Appl. Math., 23 (1970), 677-703. [30] M. Miranda, Superfici cartesiane generalizzate ed insiemi di perimetro finito sui prodotti cartesiani , Ann. Sc. Norm. Sup. Pisa. 18 (1964) 515-542. [31] M. Miranda, Un teorema di esistenza e unicit` a per il problema dell’area minima in n variabili , Ann. Sc. Norm. Sup. Pisa. 19 (1965) 233-249. ANISOTROPIC MINIMAL SURFACE EQUATION WITH DIRICHLET BOUNDARY CONDITION 37 
+
+[32] J. Michael, L. Simon, Sobolev and Mean Value inequalities on generalized submanifolds of Rn, Comm. Pure Appl. Math. 26 (1973). [33] C. Mooney, Y. Yang, The anisotropic Bernstein problem , Invent. Math. 1 (2023) 1-22. [34] T. Rad´ o, On the problem of the least area and the problem of Plateau , Math. Z. 32 (1930), 763-796. [35] R. T. Rockafellar, Convex Analysis , Princeton University Press, Princeton, 1970. [36] G. Stampacchia, On some regular multiple integral problem in the calculus of variations , Comm. Pure Appl. Math. 16 (1963) 383-421. [37] L. Simon, Minimal varieties in riemannian manifolds , Ann. of Math. 88 (2) (1968) 262-105. [38] L. Simon, Interior gradient bounds for non-uniformly elliptic equations , Indiana Univ. Math. J., 25 (1976), 821-855. [39] L. Simon, On some existence of Bernstein’s theorem , Math. Z. 154 (1977) 265-273. [40] N. Trudinger, Gradient estimates and mean curvature , Math. Z., 131 (1973), 165-175. [41] G. Wang, C. Xia, A Characterization of the Wulff Shape by an Overdetermined Anisotropic PDE , Arch. Ration. Mech. Anal. 199 (1) (2011), 99-115 . (Lu Chen) Key Laboratory of Algebraic Lie Theory and Analysis of Ministry of Education, School of Mathematics and Statistics, Beijing Institute of Technology, Beijing 100081, PR China; Tangshan Research Institute, Beijing Institute of Technology, Tangshan 063000, PR China 
+
+Email address : chenlu5818804@163.com 
+
+(Jiali Lan) Key Laboratory of Algebraic Lie Theory and Analysis of Ministry of Education, School of Mathematics and Statistics, Beijing Institute of Technology, Beijing 100081, PR China 
+
+Email address : 17636268505@163.com 
+
+(Haolin Liu) Key Laboratory of Algebraic Lie Theory and Analysis of Ministry of Education, School of Mathematics and Statistics, Beijing Institute of Technology, Beijing 100081, PR China 
+
+Email address : haolinliu2023@126.com

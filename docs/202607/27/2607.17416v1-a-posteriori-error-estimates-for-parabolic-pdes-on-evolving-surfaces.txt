@@ -1,0 +1,2714 @@
+Title: A posteriori error estimates for parabolic PDEs on evolving surfaces
+
+URL Source: https://arxiv.org/pdf/2607.17416v1
+
+Published Time: Tue, 21 Jul 2026 01:33:31 GMT
+
+Number of Pages: 33
+
+Markdown Content:
+# A posteriori error estimates for parabolic PDEs on evolving surfaces 
+
+Michael Lantelme Institute of Mathematics Paderborn University Warburger Str. 100 33098 Paderborn, Germany 
+
+lantelme@math.uni-paderborn.de 
+
+July 21, 2026 
+
+Abstract 
+
+We derive residual-based a posteriori error estimates for parabolic surface PDEs on closed evolving surfaces. The main contribution is to prove efficiency and reliability for the proposed error indicator, which bounds the error quantities globally from above and globally in space and locally in time from below. We extend methods from [26] to allow for non-trivial coarsening on evolving surfaces. Multiple numerical experiments are given, which illustrate the asymptotic behaviour of the error and effectiveness of the refinement and coarsening. 
+
+Keywords: evolving surface PDEs; evolving surface FEM; a posteriori error analysis; residual-based error analysis; residual; space–time adaptivity. 
+
+# 1 Introduction 
+
+This paper covers residual-based a posteriori error estimates for parabolic partial differential equations (PDEs) on closed evolving surfaces. In particular efficiency and reliability between the errors and estimators. This includes that we show that the derived error indicators bound the error globally in space and time from above, up to oscillation. And globally in space and locally in time from below, up to oscillation, high-order geometric, mesh-transfer, and movement related indicators. Most of the analysis is done for a model problem, the heat equation on evolving surfaces, however the results are easily extendible to general parabolic surface PDEs. The discrete approximation is done via evolving linear surface finite element method (ESFEM) in space, where the vertices move along the exact flow, and backwards Euler discretization in time. We provide a minimal working example for a space– time adaptive algorithm for which a set of numerical tests is done to accompany the main results. Additionally we expect the tools, in particular related to coarsening, to generalize to settings with evolving computational domains whose nodes do not coincide with the continuous geometry. The a posteriori analysis of parabolic PDEs on evolving surfaces poses substantial new challenges compared to the stationary case, due to the interplay between temporal evolution, surface transport, and changing geometry. Based on the insights gained from the stationary setting in [26], we develop new techniques and analytical tools to control the additional terms arising from the surface flow and geometry changes. The a posteriori error analysis is done, similar to, e.g. [38, 31, 26], by splitting the residual into different subresiduals. Namely this includes the typical spatial, temporal and oscillation residuals (standard for parabolic PDEs in euclidean domains [38, 31]), the geometric residual (standard for elliptic surface PDEs [8, 6]), and the novel movement residual, the velocity induced temporal residual and some high-order geometric terms resulting from the velocity discretization. As for the stationary setting it is essential to note that the error-analysis is complicated due to working with the non-conform ESFEM discretization, which effects both the approximation, and the velocity induced by the flow. The evolution of the domain results in the need to compare functions on different domains due to the flow but also due to adaptivity. Similar to [26, Section 3.2], but complicated by the evolution 1arXiv:2607.17416v1 [math.NA] 19 Jul 2026 of the domain, we introduce a refinement interpolation to define the full-discrete formulation on a singular mesh. The refinement interpolant allows us to define two time interpolations of the discrete numerical solution. One of which is continous and can not be unlifted to the discrete surface easily, but is essential for the error analysis. The other is discontinous at the discrete time-levels, but easy to unlift and essential to derive computable indicators. The indicators which demand novel techniques are: The movement residual which handles the domain difference resulting from the flow, which was split such that we can measure how the quantities of the full discrete weak formulation behave under domain changes. The coarsening residual requires careful mesh generation and its bounds are split into a coarsening and explicit mesh-transfer part. To define a typical coarsening indicator it is essential to establish a construction which avoids node mismatches under the flow due to time-dependent non-linear lifting combined with arbitrary flow of the surface. This results in the need of a careful construction of the refinement interpolation. Additionally, the interpolation results for the common interpolation operator for surfaces introduced in [26, Section 3.3] are generalized. There are various applications for time dependent surface PDEs in multiple fields, including sur-factant transport on moving interfaces [2], biological growth and tumour modelling [21, 24], phase separation on deforming surfaces [16, 18], pattern formation on evolving surfaces [36], and geometric flows, e.g. mean curvature flow [23, 29, 25]. Evolving surface PDEs were first introduced by Dziuk and Elliott in [10], based on the surface finite element method introduced by Dziuk [9]. A good overview about the ESFEM can be found in [13, 17]. We refer to [5] for a general survey on different finite element methods for surfaces. Adaptive methods for elliptic PDEs on stationary surfaces were first analysed in [8], the results were later extended [6] to derive efficient and reliable L2 and pointwise indicators. The split into geometric and consistency contributions were key to determine efficient bounds. An algorithm which explicitly handles the resolution of the geometry to guarantee convergence of the method and shape-regularity of the meshes, which in comparison to the euclidean case does not follow immediately, was later developed in [4]. A posteriori error analysis for parabolic surface PDEs was first developed in [26] for stationary PDEs, where they extended and combined the theories for elliptic surface PDEs and parabolic PDEs on euclidean domains, in particular based on the frameworks of [37, 38, 7, 31]. We note that the present framework yields suboptimal L∞(L2)-bounds. To improve this, tech-niques based on strong stability estimates [20], or elliptic reconstruction [34, 32] appear promising, and our results may provide a useful basis for such an analysis. To our knowledge, a posteriori error analysis and adaptivity was not yet studied for parabolic problems on evolving surfaces in the literature. The paper is organized as follows: In Section 2, we introduce the heat equation on evolving surfaces. Section 3 recalls the ESFEM framework, derives the semi-discrete formulation, and introduces the full-discrete implicit Euler scheme based on a refinement interpolant. This construction yields two distinct time interpolants of the discrete solution. Additionally we develop a smallest common refinement for evolving surface meshes. The main results and the explicit error indicators are stated in Section 4. Section 5 contains their proofs, including: equivalence between the residual and error, a residual decomposition into different subresiduals related to different effects of the PDE-error, and finally reliability bounds, together with efficiency estimates for selected contributions. Finally in Section 6 we propose a space–time adaptive algorithm and numerical experiments. 
+
+# 2 PDEs and Differential Operators on Surfaces 
+
+2.1 Preliminaries and Notations 
+
+We follow the setup and notational convention introduced in [13]. Let us consider a closed two-dimensional sufficiently smooth (atleast C3) evolving hypersurface Γ( t) . We assume that for each 
+
+t ∈ [0 , T ], the surface Γ( t) is described as the zero-level-set of a signed distance function d(·, t ) : Uϵ(t) ⊂
+
+R3 → R, where Uϵ(t) is a tubular region around Γ( t) with width ϵ(t) > 0. A scalar function u(x, t )(x ∈ Γ( t), 0 ≤ t ≤ T ) has the tangential gradient 
+
+∇Γ( t)u := ∇u − (n · ∇ u)n = ( I − n ⊗ n) ∇u =: P ∇u. 
+
+2Where n = n( ·, t ) is the outer normal vector field to Γ( t), u denotes the extension of u onto Uϵ(t) and 
+
+P is the tangential projection. The Laplace–Beltrami operator is given by ∆ Γ( t)u = ∇Γ( t) · ∇ Γ( t)u.We define the space–time manifold QT := S  
+
+> t∈[0 ,T ]
+
+Γ( t) × { t}. For sufficiently small ϵ(t) > 0, every 
+
+x ∈ U ϵ(t) admits a unique closest point projection y(x, t ) ∈ Γ( t), see [8]. From now on assume the projection exists for all times with a t-independent ϵ, similar to [13, Section 5], and is given by 
+
+x = y(x, t ) + d(x, t )n( y(x, t ), t ). (2.1) The evolution of the surface is assumed to be governed by the flow map G(·, t ) : Γ 0 → Γ( t) with regularity G ∈ C1([0 , T ]; C3(Γ 0)), where Γ 0 = Γ(0) and such that the flow map G is a diffeomorphism from Γ 0 to Γ (t) for t ∈ [0 , T ]. With a slight abuse of notation, for t, s ∈ [0 , T ] we define the flow of points x ∈ Γ( t) from time t to s by writing G(·, t, s ) : Γ (t) → Γ (s) defined by G(x, t, s ) := 
+
+G(( G(·, t )) −1(x), s ). The associated surface velocity v(·, t ) is defined by 
+
+∂∂t G(·, t ) = v(G(·, t ), t ) ∀t ∈ (0 , T ] and G(·, 0) = Id. (2.2) On evolving surfaces the notion of time derivatives is extended by the material derivative to account for the mass transport 
+
+∂•f = ∂f ∂t + v · ∇ f. 
+
+We state two commonly used results required for the analysis and discretization via the surface finite elements method. The surface variant of Greens formula [13, Theorem 2.14] reads 
+
+Z
+
+> Γ
+
+∇Γf · ∇ Γg = −
+
+Z
+
+> Γ
+
+f · ∆Γ g, (2.3) given f ∈ H1(Γ ) and g ∈ H2(Γ). Additionally, the Leibniz formula on an evolving surface Γ( t), for sufficiently smooth f , reads ddt
+
+Z
+
+> Γ( t)
+
+f =
+
+Z
+
+> Γ( t)
+
+∂•f + f ∇Γ( t) · v. (2.4) 
+
+2.2 Heat equation on evolving closed surfaces 
+
+The strong formulation of the surface heat equation with an inhomogeneity f ∈ L2(QT ) and initial condition u0 ∈ L2(Γ 0) reads 
+
+∂•u + u∇Γ · v − ∆Γu = f on Γ( t) t ∈ (0 , T ],u(·, 0) = u0 on Γ 0. (2.5) Utilising Greens formula (2.3) we derive the weak formulation. We abbreviate R 
+
+> Γ( t)
+
+f g =: ( f, g )L2(Γ( t)) .The weak formulation reads: find u ∈ H1(QT ) with u(·, 0) = u0 such that it satisfies (∂•u, ϕ )L2(Γ( t)) + ( ∇Γu, ∇Γϕ)L2(Γ( t)) + ( u, ϕ ∇Γ · v)L2(Γ( t)) = ( f, ϕ )L2(Γ( t)) , (2.6) for almost all t ∈ (0 , T ), and ϕ(·, t ) ∈ H1(Γ( t)). 
+
+# 3 Dicretization 
+
+We employ the ESFEM method to derive the semidiscrete formulation. To be able to compare discrete solutions to the exact solution of (2.5) the lift is introduced. Using the implicit Euler method in time we derive a full discrete version of the problem in a suitable form for a posteriori error analysis, which gives rise to the refinement interpolation operator. Utilising the set of full discrete solutions we introduce two affine interpolations, one of which is continous, the other easy to lift. Afterwards bilinear forms are defined and we state results for the later error analysis. Finally we introduce the smallest common refinement, which is necessary to define coarsening-type error indicators. 33.1 Semidiscrete ESFEM 
+
+Approximate the evolving surface Γ( t) by an evolving discrete surface Γ h(t) such that its vertices 
+
+{Xj (t)}Nj=1 , lie on Γ (t) hence Γ nh (t) interpolates Γ( t). The surface Γ h(t) is assumed to be an admissible triangulation for all times (see [13]), which is smooth in time and given as a finite union of triangles 
+
+Th(t). The interpolative property requires that the vertices Xj move along the flow Xj (t) = G(Xj (0) , t )for all j = 1 , . . . , N .The evolving finite element space is given by 
+
+Sh(t) = {Wh ∈ C0(Γ h(t)) | Wh|T affine linear ∀T ∈ T h(t)}.
+
+The nodal basis functions {Φj (t)} span the finite element space, i.e. Sh = span {{ Φj (·, t )}Nj=1 } for all 
+
+t ∈ [0 , T ]. Thus we can write for arbitrary Wh(·, t ) ∈ Sh(t) with nodal values Wj (t) := Wh(Xj (t), t )
+
+Wh(·, t ) = 
+
+> N
+
+X
+
+> j=1
+
+Wj (t)Φ j (·, t ).
+
+This allows us to define a discrete material velocity Vh on Γ h(t) as the interpolation of v, and the elementwise discrete material derivative ∂•
+
+> h
+
+Wh by 
+
+Vh(·, t ) := 
+
+> N
+
+X
+
+> j=1
+
+dXj (t)dt Φj (·, t ), ∂•
+
+> h
+
+Wh|T (t) := 
+
+ ∂W h(·, t )
+
+∂t + Vh(·, t ) · ∇ Γh(t)Wh(·, t )
+
+ 
+
+> T(t)
+
+.
+
+Note that the flow (2.2) imposes dXj (t)dt = v(Xj (t), t ).By construction the nodal basis functions fulfil the transport property ∂•
+
+> h
+
+Φj = 0 on Γ h(t) [10, Proposition 5.4]. Thus ∂•
+
+> h
+
+Wh(·, t ) = PNj=1 dWj 
+
+> dt
+
+Φj (·, t ). We formulate the semidiscrete problem: Given Fh, an appropriate approximation of f on the discrete surface, find Uh(·, t ) ∈ Sh(t) with (∂•
+
+> h
+
+Uh, Φh)L2(Γ h(t)) + ( ∇Γh(t)Uh,∇Γh(t)Φh)L2(Γ h(t)) 
+
++( Uh, Φh∇Γh(t) · Vh)L2(Γ h(t)) = ( Fh, Φh)L2(Γ h(t)) ∀Φh ∈ Sh(t). (3.1) Note that this is different from the formulation of [10, Definition 5.6]. This is for good reason as we want to avoid working with ddt (Uh, Φh)L2(Γ h(t)) when discretizing in time, which results in differences of functions at two distinct discrete timesteps, and additionally due to adaptivity, to distinct mesh-connectivities. It is in general non-trivial to determine typical consistency error indicators (see first term of (4.5b)) if the discrete quantities are defined at distinct times. 
+
+Lift. The later error analysis requires us to represent both continuous and discrete quantities on a shared domain, the lift operator allows us in particular to represent discrete quantities on the exact surface Γ (t). We employ the closest point projection (2.1), which requires Γ h(t) ⊂ U ϵ(t) and 
+
+C2-regularity of Γ( t), to uniquely lift points and functions between Γh(t) and Γ (t). For x ∈ Γh(t) its lift is the unique solution of (2.1), denoted as xℓ(t) ∈ Γ (t). Note that the lift introduces a bijective map from Γh(t) to Γ (t) for all t.Consequently, the lift of a function Wh : Γh(t) → R onto Γ is given by W ℓ(t) 
+
+> h
+
+(xℓ(t)) := Wh(x). As the lift is bijective we define the unlift w−ℓ(t) : Γh(t) → R such that ( w−ℓ(t))ℓ(t) = w : Γ (t) → R holds. The lift of functions enables us to also lift discrete functions Φ h ∈ Sh(t) resulting in Φ ℓ(t) 
+
+> h
+
+∈
+
+Sℓ(t) 
+
+> h
+
+(t) := span {(Φ ℓ(t) 
+
+> j
+
+)Nj=1 }, note that the elements of the lifted discrete mesh are curved triangles, whose union exactly resembles Γ( t). For readability, we often suppress the lift notation. Throughout the paper, quantities denoted by capital letters are understood to be defined on Γh(t), whereas the corresponding lower-case quantities are understood to be defined on Γ (t). In particular, the same letter in upper- and lower-case implicitly indicates that the two quantities are related by a (un)lift. For example, we write X := xℓ(t) for vertices and W := wℓ(t) for functions. 4The standard norm equivalence under lifts [9, Lemma 3] holds for all fixed times and for any 
+
+w ∈ H1(Γ( t)), 1
+
+c ∥W ∥L2(Γh(t)) ≤ ∥ w∥L2(Γ (t)) ≤ c∥W ∥L2(Γh(t)) ,
+
+1
+
+c |W |H1(Γh(t)) ≤ | w|H1(Γ (t)) ≤ c|W |H1(Γh(t)) ,
+
+(3.2) where we used the typical seminorm notational convention |w|H1(Γ (t)) := ∥∇ Γ w∥L2(Γ (t)) .
+
+3.2 Full discretization and time interpolation 
+
+Assume that the temporal domain is split into K timesteps 0 = t0 < t 1 < · · · < t K = T which build intervals ( tn−1, t n] of length τ n, such that PKj=1 τ j = tn ≤ T . This temporal dependence will always be reflected by the superscript n. Corresponding to each timestep we write Γ nh := Γ h(tn) for the discrete admissible triangulations, the respective finite element spaces Snh := span {Φn 
+
+> 1
+
+, . . . , ΦnN n } with basis functions Φ nj := Φ j (·, t n), and the possible timestep dependent degrees of freedom N n. The temporal superscript is also used for the lift ℓn
+
+: Γ nh → Γ (tn). Due to the movement of the surface it is immediately clear that Γ n−1
+
+> h
+
+̸ = Γ nh in general. However, composed with the flow map applied to the vertices of the discrete meshes, it is possible to construct methods with mesh alignment under movement. On the other hand in an adaptive setting, due to refinement and coarsening, the discrete surfaces change non-trivially in each timestep. Thus even flowing discrete meshes along the exact flow will not guarantee that consecutive meshes will align. This is the main concern when dealing with time discretization. We employ backwards difference method to derive the full discretization of (3.1). To be able to compare W n−1 
+
+> h
+
+∈ Sn−1 
+
+> h
+
+and W nh ∈ Snh we introduce a refinement interpolation operator In 
+
+> ref
+
+: Sn−1 
+
+> h
+
+→
+
+Snh , in a similar fashion as in [26]. More details on the construction for evolving surfaces is given within the construction of the common triangulation in Section 3.4. Utilising the refinement interpolant we state the full discrete method: Given U 0 
+
+> h
+
+∈ S0
+
+> h
+
+, determine 
+
+U nh ∈ Snh for n = 1 , . . . , K such that 
+
+U nh − I n
+
+> ref
+
+U n−1
+
+> h
+
+τ n , Φnh
+
+!  
+
+> L2(Γnh)
+
++ ( ∇Γnh U nh ,∇Γnh Φnh)L2(Γ nh )
+
++( U nh , Φnh∇Γnh · V nh )L2(Γ nh ) = ( F nh , Φnh)L2(Γ nh ) ∀Φnh ∈ Snh . (3.3) The discrete sequence of solutions ( U nh )Kn=1 has to be extended temporally to be comparable to the exact solution u. Following [11], we trivially extend any finite element function W nh ∈ Snh constantly along the vertex-flow, which we denote by an underscore: 
+
+W nh (·, s ) := 
+
+> N
+
+X
+
+> j=1
+
+(W nh )j Φnj (·, s ).
+
+With the nodal basis functions {Φnj (·, s )} of the semidiscrete formulation. The extension W nh of the discrete W nh thus is a constant push-forward (or pull-back) along the discrete evolving mesh Γ nh (t)(based on the node set at time level n). We denote Snh (t) as the FEM space of Γ nh (t) based on the node set G(Xnj , t n, t ). Thus W nh ∈ Snh (t). Note that we can also extend functions on Γ along the exact flow given by G.Using this extension we introduce two linear affine interpolations, as in [26, Section 3.2], one of which is continous and defined on Γ, the other discrete and easy to lift: The continous in time lifted discrete solution: 
+
+uh,τ (x, t ) := t − tn−1
+
+τ n
+
+ U nh
+
+ℓn(t)(x, t ) + tn − tτ n
+
+ U n−1
+
+> h
+
+ℓn−1(t)(x, t ), t ∈ [tn−1, t n], x ∈ Γ (t), (3.4) for n = 1 , . . . , K . And the piecewise defined discrete function, with an additional time variable for later analysis: 
+
+Uh,τ (x, t, s ) := t − tn−1
+
+τ n U nh (x, s ) + tn − tτ n In
+
+> ref
+
+U n−1 
+
+> h
+
+(x, s ), s, t ∈ (tn−1, t n], x ∈ Γ nh (s), (3.5) 5for n = 1 , . . . , K and Uh,τ (x, 0, 0) = U 0 
+
+> h
+
+(x). The discrete object can easily be lifted as Uh,τ (x, t, s )ℓn(s) =: 
+
+uh,τ (x, t, s ) following the usual convention. For Uh,τ we introduced a second time variable as it will simplify the main ideas in the upcoming analysis. Note that the additional variable of (3.5) can be seen as the extension of Uh,τ evaluated at some time t and shifted onto Γ nh (s). We will omit the final argument if s = t.Observe that, by the transport property of the basis functions, the discrete material derivative of 
+
+Uh,τ (x, t ), simplifies for t ∈ (tn−1, t n], pointwise on Γ nh (t) to 
+
+∂•
+
+> h
+
+Uh,τ (x, t ) = U nh (x, t ) − I n
+
+> ref
+
+U n−1 
+
+> h
+
+(x, t )
+
+τ n .
+
+This matches the discrete weak formulation (3.3) for t = tn.Following [11], for t ∈ (tn−1, t n] and a point X(t) ∈ Γ nh (t) moving along the discrete velocity 
+
+Vh, we define the induced discrete material velocity on Γ (t) by vh(Xℓn(t)(t), t ) := ddt Xℓn(t)(t). Its corresponding material derivative reads element-wise for all w ∈ H1(Γ (t)) 
+
+∂•
+
+> h
+
+w := ∂tw + vh · ∇ Γ (t)w. 
+
+Note that the definition of vh depends on the node set of Γ nh . On each time interval this is fixed. Although uh,τ is not differentiable in time, in an interval-wise setting we have ∂•
+
+> h
+
+uh,τ = 0 as in [11, Section 2.2]. We highlight that ∂•uh,τ does, in general, not simplify like this. In contrast to our convention, but following the original notation [11, Eq. 2.12], the induced discrete velocity is not equivalent to the lifted interpolated discrete velocity, i.e. vh̸ = V ℓh .
+
+3.3 Definition and bounds of bilinear forms 
+
+To compactly state the a posteriori error analysis we introduce a set of bilinear forms from [13, 30]. For functions W, Φ ∈ H1(Γh(t)), their respective lifts to Γ (t) are w = W ℓ(t), ϕ = Φ ℓ(t), and the continuous velocity v and interpolated discrete velocity Vh we define the bilinear forms: 
+
+mt(w, ϕ ) = 
+
+Z
+
+> Γ( t)
+
+wϕ, mth(W, Φ) = 
+
+Z
+
+> Γh(t)
+
+W Φ,at(w, ϕ ) = 
+
+Z
+
+> Γ( t)
+
+∇Γ( t)w · ∇ Γ( t)ϕ, ath(W, Φ) = 
+
+Z
+
+> Γh(t)
+
+∇Γh(t)W · ∇ Γh(t)Φ,gt(v; w, ϕ ) = 
+
+Z
+
+> Γ( t)
+
+(∇Γ( t) · v(t)) wϕ, gth(Vh; W, Φ) = 
+
+Z
+
+> Γh(t)
+
+(∇Γh(t) · Vh(t)) W Φ,bt(v; w, ϕ ) = 
+
+Z
+
+> Γ( t)
+
+B(v(t)) ∇Γ( t)w · ∇ Γ( t)ϕ, bth(Vh; W, Φ) = 
+
+Z
+
+> Γh(t)
+
+Bh(Vh(t)) ∇Γh(t)W · ∇ Γh(t)Φ,
+
+the components i, j = 1 , 2, 3 of the tensors are given by: 
+
+B(v(t)) |ij := δij (∇Γ( t) · v(t)) −  (∇Γ( t))ivj (t) + ( ∇Γ( t))j vi(t),
+
+Bh(Vh(t)) |ij := δij (∇Γh(t) · Vh(t)) −  (∇Γh(t))i(Vh(t)) j + ( ∇Γh(t))j (Vh(t)) i
+
+.
+
+In the above definitions the velocities are separated by a semicolon, in order to clearly indicate the main variables of the bilinear forms. Further the superscript labels the evaluation point of all functions and the integral domain, unless it is specified otherwise. Based on the Leibniz formula (2.4), the derivatives of bilinear forms are given as. ddt mt(w, ϕ ) = mt(∂•w, ϕ ) + mt(w, ∂ •ϕ) + gt(v; w, ϕ ),
+
+ddt at(w, ϕ ) = at(∂•w, ϕ ) + at(w, ∂ •ϕ) + bt(v; w, ϕ ).
+
+(3.6) Similar formulas hold for discrete forms. Additionally the material derivative, can in accordance to swapping v with vh, be exchanged by the discrete material derivative ∂•
+
+> h
+
+.6The following geometric bounds in 1 between continous and discrete bilinear forms are based on the results of [13, Lemma 5.5], for the first two inequalities, and of [33, Lemma 7.5] for the last two. We modified the statement via norm equivalence arguments (3.2) to fit our framework. Inserting the lifted discrete objects in the bilinear forms, we bound the difference of the continuous and discrete forms in the following sense: 
+
+Proposition 1. Let W, Φ ∈ H1(Γh(t)) , their respective lifts to Γ (t) are w = W ℓ(t), ϕ = Φ ℓ(t), and the discrete velocities are vh on Γ (t) and Vh on Γh(t) described in Section 3, then the following geometric bounds hold for a generic constant c > 0 which is independent of h and t but depends on Γ (t).
+
+|mt(w, ϕ ) − mth(W, Φ) | ≤ ch 2∥W ∥L2(Γ h(t)) ∥Φ∥L2(Γ h(t)) ,
+
+|at(w, ϕ ) − ath(W, Φ) | ≤ ch 2|W |H1(Γ h(t)) |Φ|H1(Γ h(t)) ,
+
+|gt(vh; w, ϕ ) − gth(Vh; W, Φ) | ≤ ch 2∥W ∥L2(Γ h(t)) ∥Φ∥L2(Γ h(t)) ,
+
+|bt(vh; w, ϕ ) − bth(Vh; W, Φ) | ≤ ch 2|W |H1(Γ h(t)) |Φ|H1(Γ h(t)) .
+
+From now on, if the bilinear forms are evaluated at a discrete timestep we abbreviate mtn
+
+=: mn.
+
+3.4 Smallest common refinement 
+
+Finally to state the main result of this paper we introduce the notion of smallest common refinements based on the ideas of [31] in the Euclidean case and extend the results for stationary surfaces of [26, Section 3.3]. Given a discrete mesh, which, by our assumptions of using the exact flow, will always be an interpolation of the surface Γ (t) for all times t ∈ [0 , T ], we extend the mesh to Γ nh(t) by keeping the connectivity and moving the nodes X ∈ Γnh along the flow (2.2) as described in Section 3.2. Utilising the flow map, to push discrete node sets to a single reference domain, allows us to formulate the basis for a common refinement for some fixed time t ∈ (tn−1, t n] as in the non-evolving case. We define the smallest common refinement of subsequent meshes Γ n−1 
+
+> h
+
+(t) and Γ nh(t) as Γn−1⊕nh (t) := Γ n−1 
+
+> h
+
+(t) ⊕ Γnh(t). Additionally, we define the common finite element space Sn−1⊕nh (t). Finally, we introduce the interpolation operators In−1⊕nk : Skh (t) → Sn−1⊕nh (t) for both k = n − 1 and k = n, respectively. This interpolation is constructed based on the nodal values of the parent meshes: – For nodes belonging to both Γ n−1 
+
+> h
+
+(t) and Γ n−1⊕nh (t), and for nodes belonging to both Γ nh(t) and Γn−1⊕nh (t), respectively, the nodal values are kept. – For nodes which are missing in either Γ n−1 
+
+> h
+
+(t), or which are missing in Γ nh(t), respectively, the nodal value is assigned by the Lagrangian interpolation. In comparison to the stationary surface case [26] the movement introduces further difficulties, which adds further complexity to the vertex and element matching. This can be seen by the mismatch of the lifted nodes and the ones we flow in time to generate the common triangulation, see Figure 1 where the nodes marked by cross (” x”) do not align with the flown nodes coming from Γ n−1 
+
+> h
+
+. Assuming that the refinement and coarsening process is handled carefully, it is possible to reduce the problem, such that the vertices align under the flow, to the stationary case. Then the ⊕ operator matches precisely with the one introduced in [26, Section 3.3] with the main idea to keep matching elements/vertices and always taking the most refined elements if one of the meshes is locally more refined. Note that in general the common refinement is not necessarily a refinement of the underlying meshes, due to the nonlinear lifting process required for keeping the interpolation property of the mesh for all times. For the evolving case, where lifts are taken at two discrete time-levels, this is even more complex as the vertex correspondences are in general not related by a set of consecutive lifts. 
+
+Guaranteeing node alignment for consecutive meshes The main issue with the construction is that vertices are constructed linearly but are getting misaligned by the non-commuting and non-linear discrete lifts ℓn−1 and ℓn and flow map G. In particular if ones compares the bottom right triangulation in Figure 1, with the non-matching vertices (where the grey circle and the black cross 7(” x”) are slightly apart). The black cross results from push-forward to time tn and the respective lift 
+
+ℓn, whereas the grey vertex results from lift at time tn−1 via ℓn−1 and then push-forward to tn. The construction, which guarantees node alignment for consecutive meshes is depicted in Figure 1. n − 1        
+
+> t
+> n
+> Γn−1
+> hcoarse(Γ n−1
+> h)
+> Γn−1
+> h(t)
+> coarse(Γ n−1
+> h)( tn)Γnh
+> Γnh(t)
+> coarse
+> G(tn−1, t )
+> G(tn−1, t n)
+> refinement lift
+> G(tn, t )
+> flow corresponding nodes by G
+
+Figure 1: Construction of triangulations to guarantee node alignment for consecutive meshes. Each row corresponds to the time tn−1, t and tn from top to bottom. The meshes in the middle row, i.e. 
+
+Γ n−1 
+
+> h
+
+(t) and Γ nh (t) are the basis for the common triangulation. We can control the vertex movement in a semi-local (explained in Remark 2) fashion by assuming the following mesh generation steps: 
+
+• There is an initial coarse admissible triangulation Γ init  
+
+> h
+
+whose nodes are never coarsened. This means that all vertices Xi of Γ init  
+
+> h
+
+are also present as vertices G(Xi, 0, t n) in Γ nh for all discrete timesteps. 
+
+• Provided we determined a solution un−1 
+
+> h
+
+based on (3.3) with its corresponding mesh Γ n−1 
+
+> h
+
+(top left of Figure 1), we apply a coarsening step based on newest-vertex-bisection (NVB), resulting in coarse( Γ n−1 
+
+> h
+
+) (top right of Figure 1). The mesh is transported by the flow G to time tn to initialize the first guess of a mesh Γ nh (bottom Left of Figure 1) to solve the subsequent step, i.e. vertices are moved along the flow and connectivity is unchanged. 
+
+• The refinement process updates Γ nh until the provided solution is accepted in the adaptive routine. All refinements are based on NVB and to handle vertex mismatch the process is divided in two cases: 1. A refined node is constructed by applying the refinement, creating intermediate nodes (see bottom middle of Figure 1) which in general do not interpolate the surface Γ (tn) and then lifted based on ℓn to regain the admissibility of the mesh (nodes marked by crosses in bottom right of Figure 1). Note that the intermediate nodes are the evaluation points used to define the refinement interpolant In
+
+> ref
+
+.2. But if a refined node corresponds to a vertex which was just coarsened in the initializa-tion step the construction is different. Instead of constructing a new vertex we update coarse( Γ n−1 
+
+> h
+
+) by reappending the corresponding vertex and connectivity. Efficiently we refine by storing the new connectivity and then update the coordinates for just coarsened nodes by flowing the corresponding vertices at time tn−1 with the flow G to time tn (see long dashed arrow from top left to bottom right of Figure 1). These assumptions suffice to construct the smallest common refinement as it guarantees that corre-sponding nodes always align under the flow. Note however that we only avoid the mismatch under the flow for two subsequent meshes but for any set of discrete meshes this property fails in general. 8Further note that the NVB guarantees that the refinement hierarchy is unique, which implies that the connectivity and how elements are bisected is always identical. 
+
+Remark 1. The initial coarse triangulation is enforced as a technical tool to guarantee that the closest point projection is bijective for all times. Further we always work with NVB, which is the typical choice for adaptive finite elements on surfaces (see, e.g. [8, 26]), but general successive bisections, red-refinement and other strategies fulfilling Conditions 3,4 and 6 of [3] are valid candidates for refinement strategies on surfaces as discussed in [4]. 
+
+Remark 2. We have seen that the construction of the common mesh is affected by the movement of the mesh, in particular that two subsequent meshes introduce two distinct lifts, which is used in every subsequent refinement making identification of nodes non-trivial. We discuss two further options and argue why the current construction is chosen. 1. Instead of dealing with different lifts it would also be possible to base all refinement on a singular base mesh (say at time t = 0 ) and then flow the points along the exact flow. However this is in general not desirable as geometric features could be better resolved if we work with the mesh at the current timestep instead. Further, constantly flowing points from the initial surface can be costly, in particular if the flow of vertices is approximated by a time-stepping scheme. 2. It is theoretically possible to allow the mismatch and base all refinements on their respective current discrete timestep. This requires the analysis of the resulting perturbations. If we focus on a singular vertex which was constructed as a lift at time tn−1, then coarsened and later re-refined at time tn with corresponding lift, and flow both meshes to time t, we observe a mismatch. However for sufficiently small timesteps and the assumption that G ∈ C2, the coordinate mismatch can be shown to be O(h2) where h is the local element size. If one carefully extends the analysis of [26] the new resulting error would be an error between two identical finite element functions but where a subset of nodes are perturbed by O(h2). The resulting error is a geometric error and one can show that it has the same orders as the other geometric indicators but as the functions are still compared on Γ (t) an arbitrary point a ∈ Γ (t) unlifts to possibly different elements in the two distinct perturbed triangulations. This situation is similar to Figure 2, however without guarantee that the unlift is inside a parent element. This requires us to introduce patch-wise estimates which makes the coarsening indicator complex to evaluate. Our restrictions allow us to avoid node mismatches but without enforcing that refinement is done on a singular mesh. Further the refinement and coarsening process is purely local and only requires information at the current timestep, but as required for the analysis the initial macro-triangulation is always kept which could lead to suboptimal node positioning. We refer to Section 6.2 for further discussion. 
+
+# 4 Main results 
+
+To derive reliable and efficient error indicators (up to oscillation, coarsening, mesh-transfer, high-order geometric contributions and flow consistency errors) we employ residual-based error analysis. The resulting indicators allow for space–time adaptivity (see Section 6) for our model problem of a parabolic PDE on an evolving surface (2.5). Note that the following results are expected to be extendible to more general parabolic PDEs on evolving surfaces. We start by formulating the main results, including the equivalence of error and residual, and the upper and lower bounds to the error by given error indicators. As is typical for residual-based error analysis [38, 31, 26], we excluded the data oscillation term in the a posteriori error analysis. We highlight that the efficiency results are restricted to the spatial and temporal residuals, which entail the key local information to resolve the PDE. It is usual to exclude terms arising from the coarsening and geometric residuals in the efficiency analysis, as they do not dominate the errors, see the discussion in [26, Section 4]. However, there are additional consistency terms for which we only show reliability, namely the velocity-induced temporal indicator and the movement indicator, both resulting due to the flow of the surface. We will see that these terms ensure that the functions are transported sufficiently well 9in time, in particular preserving the correct mass transport in areas of high velocity divergence. The resulting indicators will yield an additional tool to control the time-step size, in fact it would even be possible to have local time-stepping control based on these indicators, however we will not follow this approach and assume adaptive global time-stepping. In our proposed algorithm, see Section 6, the velocity-induced indicator and the movement indicator will be used to determine a first guess for a sufficiently small step-size to ensure good mass transport, which is then possibly further refined in the adaptive interplay of spatial and temporal refinements by the residual components directly related to the PDE. Also algorithmically we assess whether the mesh-transfer between timesteps dominates the error, in the numerical examples of Section 6, this was not the case. To formulate the main results we state the following bound and definitions: By c we will always denote a generic positive constant, that is independent of h, τ n, and n, but may change its value between steps. Note that the standard regularity assumption of the flow map (2.2) [12, 13], implies for the following bounds on the velocity 
+
+∥∇ Γ( t) · v(t)∥L∞(Γ( t)) + ∥B (v(t)) ∥L∞(Γ( t)) ≤ κ ∀t ∈ (0 , T ], (4.1) with a time independent κ ∈ R. Restricted to t ∈ (tn−1, t n], we define the possibly smaller interval-wise 
+
+κn, in the same manner. Additionally we define the κ-dependent a global constant by Cκ = exp( κT )and an interval-wise constant by Cnκ := exp( κnτ n). Note that these bounds extend, possibly with an additional scalar constant, to the discrete interpolated velocity Vh (see [12, Remark 3.3]) and discrete velocity vh by interpolation estimates (see [14, Lemma 5.6]) for sufficiently small h ≤ h0.For t ∈ (0 , T ] and w ∈ H1(Γ( t)) the residual is defined by: 
+
+⟨R (uh,τ ), w ⟩ = mt(∂•uh,τ , w ) + at(uh,τ , w ) + gt(v; uh,τ , w ) − mt(f, w ). (4.2) The key proposition is the equivalence of error and residual. To formulate the proposition we define the natural norm for parabolic PDEs on evolving surfaces with s, t ∈ [0 , T ]: 
+
+∥w∥2 
+
+> X(s,t )
+
+:= ∥w∥2  
+
+> L∞(s,t ;L2(Γ(·)))
+
++ ∥w∥2  
+
+> L2(s,t ;H1(Γ(·)))
+
++ ∥∂•w∥2 
+
+> L2(s,t ;H−1(Γ(·)))
+
+. (4.3) The notation is understood in the sense of [1], with the choice V (t) = H1(Γ( t)), H(t) = L2(Γ( t)), and 
+
+V ∗(t) = H−1(Γ( t)) in their notation. Thus we can state the equivalence result. 
+
+Proposition 2. Assume the velocity satisfies (4.1) , then the residual R(uh,τ ) from (4.2) and the error, between the exact solution of (2.6) and the discrete solution (3.4) , in the graph norm (4.3) obey for all w ∈ L2(0 , T ; H1(Γ (·))) 
+
+∥u − uh,τ ∥X(0 ,T ) ≤ cC κ
+
+
+
+∥u0 − (u0
+
+> h
+
+)∥2  
+
+> L2(Γ0)
+
++ ∥R (uh,τ )∥2  
+
+> L2(0 ,T ;H−1(Γ(·)))
+
+1/2
+
+, (4.4a) 
+
+Z T
+
+> 0
+
+⟨R (uh,τ ), w ⟩dt ≤ (1 + κ)∥u − uh,τ ∥X(0 ,T )∥w∥L2(0 ,T ;H1(Γ (·))) . (4.4b) 
+
+The constants c > 0 is independent of h, τ n, and n, but depends exponentially on the final time T .
+
+10 4.1 Indicators 
+
+We define a set of error indicators and the oscillation for time interval t ∈ (tn−1, t n]: 
+
+ηn =
+
+
+
+τ n
+
+(ηnh )2 + ( ηnτ )2 + ( ζnτ )2 + ( ζn
+
+> move
+
+)2 + ( ηn 
+
+> c
+
+)2 + ( ηn
+
+> trans
+
+)2 + ( Gnh )2 + ( Gnv )2 12
+
+, (4.5a) where the individual indicators are defined by (ηnh )2 : = X
+
+> S∈S nh
+
+hS J∇T U nh · nS K 2
+
+> L2(S)
+
++ X  
+
+> T∈T nh
+
+h2
+
+> T
+
+1
+
+τ n (U nh − I n
+
+> ref
+
+U n−1 
+
+> h
+
+) + ( ∇T · V nh )U nh − F nh 
+
+> 2
+> L2(T)
+
+, (4.5b) (ηnτ )2 : = X  
+
+> T∈T nh
+
+|U nh − I n
+
+> ref
+
+U n−1 
+
+> h
+
+|2 
+
+> H1(T)
+
+, (4.5c) (ζnτ )2 : = X  
+
+> T∈T nh
+
+∥(∇T · V nh )( U nh − I n
+
+> ref
+
+U n−1 
+
+> h
+
+)∥2 
+
+> L2(T)
+
+, (4.5d) (ζn
+
+> move
+
+)2 : = X  
+
+> T∈T nh
+
+(κn)2(τ n)2 1
+
+τ n (U nh − I n
+
+> ref
+
+U n−1 
+
+> h
+
+) + ( ∇T · V nh )U nh − F nh  
+
+> 2
+> L2(T)
+
++ |U nh |2 
+
+> H1(T)
+
+!
+
+, (4.5e) (ηn 
+
+> c
+
+)2 : = X  
+
+> T∈T n−1⊕nh, coarse
+
+
+
+(κn)2 + 1(τ n)2
+
+
+
+In−1⊕nn In
+
+> ref
+
+U n−1 
+
+> h
+
+− I n−1⊕nn−1 U n−1 
+
+> h
+> 2
+> L2(T)
+
++ In−1⊕nn In
+
+> ref
+
+U n−1 
+
+> h
+
+− I n−1⊕nn−1 U n−1  
+
+> h
+> 2
+> H1(T)
+
+(4.5f) (ηn
+
+> trans
+
+)2 : = X  
+
+> T∈T n−1
+> h, ref
+
+  h2
+
+> T
+
+τ n
+
+2 + h4 
+
+> T
+
+(κn)2 + h2
+
+> T
+
+
+
+|U n−1 
+
+> h
+
+|2 
+
+> H1(T)
+
++ X  
+
+> T∈T nh, coarse
+
+  h2
+
+> T
+
+τ n
+
+2 + h4 
+
+> T
+
+(κn)2 + h2
+
+> T
+
+
+
+|I n
+
+> ref
+
+U n−1 
+
+> h
+
+|2 
+
+> H1(T)
+
+, (4.5g) (Gnh )2 : = X  
+
+> T∈T nh
+
+h4 
+
+> T
+
+|U nh |2 
+
+> H1(T)
+
+, (4.5h) (Gnv )2 : = X  
+
+> T∈T nh
+
+h4
+
+> T
+
+ ∥U nh ∥2  
+
+> L2(T)
+
++ ∥I n
+
+> ref
+
+U n−1 
+
+> h
+
+∥2 
+
+> L2(T)
+
+, (4.5i) osc n : = f − (F nh )ℓn(t) +  (∇Γ · vh) − (∇Γ nh · V nh )ℓn(t)uh,τ . (4.5j) Where the set of all edges at time tn is denoted by Snh , the jump across an edge S ∈ S nh is given by 
+
+JwK|S := w|T1 − w|T2 , where T1 and T2 are the two triangles from T nh sharing the edge S. Further on a discrete element T the tangential gradient is denoted by ∇T , the outward edge-normal n S of S is defined with respect to T1, and the diameter of an element is labelled hT .We define the set of coarsened elements T nh, coarse as the set of elements of Γ nh , which do not coincide with any element in the common triangulation Γ n−1⊕nh (tn). Conversely, we can define T n−1⊕nh, coarse by swapping roles of Γ nh and Γ n−1⊕nh (tn). Analogously, the set of refined elements T nh, ref is the set of elements of Γ n−1 
+
+> h
+
+(tn), which do not coincide with any element in the common triangulation Γ n−1⊕nh (tn). These indicators define the global in space and local in time indicator ηn. We refer to the usual ηnh ,
+
+ηnτ , and ηn 
+
+> c
+
+as spatial, temporal and coarsening indicator respectively. The indicators ζnτ , ζn 
+
+> move
+
+and Gnv
+
+are the velocity induced temporal, movement and velocity induced higher-order geometric indicator required due to movement of the surface. We refer to the first two as consistency errors of the flow and the last one is often just referred to as the geometric error, as it behaves just as the other high-order contribution Gnh , which arises in standard a posteriori error analysis for elliptic and parabolic surface PDEs, see, e.g. [8, 4, 6] and [26] respectively. The mesh-transfer indicator ηn
+
+> trans
+
+, was present in [26], within the coarsening indicator but now separated. This separation is done to handle the mesh-transfer contribution explicitly algorithmically (see Section 6 for further details). Finally, the 11 oscillation osc n includes the typical right-hand side control and additionally a corresponding velocity oscillation control. 
+
+Remark 3. In comparison to the analysis on stationary surfaces in [26] there are additional non-negligible contributions, in particular ζnτ and ζn
+
+> move
+
+. But if we assume that v = 0 and thus both vh = 0 
+
+and κn = 0 for all n, all indicators almost directly collapse to their stationary variant, see, f.ex. the spatial indicator (4.5b) . The only contribution which does not readily collapses is the higher order Gnv
+
+which however, trivially vanishes by analysing the corresponding residual (5.3) .
+
+Remark 4. Note that κn is not directly computable, or at least not without considerable computational effort. Therefore, instead of working with κn itself in the numerical experiments of Section 6, we assume that the velocity oscillation is resolved well enough such that ∥∇ Γ nh · V nh ∥L∞ + ∥B nh ∥L∞ provides a reliable approximation of κn in (4.1) on each time subinterval. This corresponds to a standard oscillation-type argument: the involved velocity-dependent quantities are assumed to vary only mildly within each timestep and are therefore well approximated by their values at the discrete time levels. 
+
+4.2 Main result: reliability and efficiency 
+
+We relate the error indicators (4.5) to the errors, showing the reliability for the full indicator and efficiency for the consistency parts of the PDE. 
+
+Theorem 3. Let h ≤ h0 and τ ≤ τ0, with sufficiently small h0 > 0 and τ0 > 0, the residual-based error estimator ηn of (4.5) , and the error between the solution u of (2.6) and the numerical approximation 
+
+uh,τ (3.4) , obtained via (3.3) , satisfies the following estimates for 0 < t n = τ 1 + · · · + τ n ≤ T :(a) A global upper bound in space and time (reliability up to oscillation): 
+
+∥u − uh,τ ∥X(0 ,t n) ≤ c⋆Cκ
+
+
+
+> n
+
+X
+
+> j=1
+
+(ηj )2 + ∥ osc j ∥2   
+
+> L2(tj−1,t j;H−1(Γ(·)))
+
++ ∥u0 − (u0
+
+> h
+
+)ℓ∥2 
+
+> L2(Γ0)
+
+
+
+> 12
+
+.
+
+(4.6a) 
+
+(b) A lower bound which is global in space and local in time (efficiency up to oscillation, geometric, coarsening and mesh-transfer defects, and the velocity scaled temporal indicator): 
+
+ηn ≤ c⋆Cnκ
+
+
+
+∥u − uh,τ ∥X(tn−1,t n) + ∥ osc n ∥L2(tn−1,t n;H−1(Γ (·))) + ( τ n) 12
+
+ Gnh + Gnv + ηn 
+
+> c
+
++ ηn 
+
+> trans
+
++ ζnτ + ζn
+
+> move
+
+
+
+.
+
+(4.6b) 
+
+The constants c⋆ > 0 and c⋆ > 0 are independent of h, tn, and τ n, but depend on the shape-regularity constant ϱn of Γ nh , and on Γ . The constant c⋆ additionally depends on the shape-regularity constants 
+
+ϱj of the prior meshes Γ jh . The constants Cκ, C nκ are given in (4.1) .
+
+Theorem 3 will be proved in the subsequent section. 
+
+Remark 5. In an adaptive setting the assumption h ≤ h0 might seem counter-intuitive, as it restricts coarsening. It is, however, inevitable to ensure that the closest point projection (2.1) is unique. It is further required by all geometric approximations, see, e.g. [13]. The constant h0 solely depends on the curvature of Γ (t), and it enforces that throughout the adaptivity one cannot coarsen beyond some suitable triangulation, where the lift is bijective. 
+
+Remark 6. The above theorem does not include efficiency for the high-order geometric terms, coars-ening, mesh-transfer and velocity-induced indicators. As stated in [6, Section 4.2] the geometric term arising from the stiffness term (5.3) is not the main concern when dealing with convergence and op-timality of an adaptive algorithm. As [4, Lemma 5.8 & Chapter 6.1] suggests they can be handled utilising an additional adaptive routine to guarantee that the geometric errors are bounded by the spatial indicator, which infers that the lower bound (4.6b) holds up to oscillation. The coarsening indicator and the second term of the mesh-transfer indicator, both introduced by the coarsening resid-ual, can be made arbitrarily small by coarsening less. Note that the first term of the mesh-transfer 
+
+12 indicator (4.5g) only contributes for elements being refined between timesteps, which is, similar to coarsening, but more involved, algorithmically controllable (see the Algorithm described in Section 6). The velocity-induced terms, in particular ζτ and ζmove , yield non-neglectable contributions to the error. We can however control these quantities by matching the temporal stepsize (based on the indicators) to the velocity divergence. The contributions are directly related to the correct mass transport and we argue that sufficient control of these indicators allows us to recover the efficiency for the consistency error of the PDE. 
+
+# 5 Proof of the main result 
+
+The proof consists of two parts: first showing the equivalence of error and residual in Section 5.1, and then bounding the residual in terms of the indicators in the subsequent sections. The residual bounds are simplified by splitting the residual (see Section 5.2) into different components, related to different error sources of the discretization. In particular, the typical spatial and temporal residual, closely related to the PDE error of the discretization on the discrete domain; the geometric residual collecting errors arsing due to the polyhedral approximation of the surface, the novel flow-induced indicators arising due to the movement of the surface, and the coarsening and mesh-transfer indicators arising due to exchange between the two time-interpolations of Section 3.2 required for computability. After stating the norm equivalence under surface evolution in Section 5.3, which will be used to move functions from continuous to discrete timesteps and vice versa, some residual bounds, in particular for spatial and geometric residuals are easily extendible from the stationary analysis (see Sections 5.3.1& 5.3.2). Afterwards we focus on the novelties emerging by the surface evolution, namely the movement residual in Section 5.3.3, which requires a substantially different approach to show reliability, and the analysis of the coarsening residual in Section 5.3.4, which requires a careful setup with tools introduced in Section 3.4. The final Section 5.3.5 on temporal indicators combines the prior bounds to finish the proof. We highlight that for all upcoming results, we tagged bounds by the labels ( a) or ( b) indicating that these results are explicitly used to show (4.6a) and (4.6b) respectively. As our main result, many results hold for a mesh size h ≤ h0, which is always understood with a sufficiently small h0 > 0, see Remark 5. Additionally we assume that τ ≤ τ0 with a sufficiently small 
+
+τ0 which allows us absorb higher-order contributions which are asymptotically neglectable.                                                                                                
+
+> Description Notation Defined in
+> Evolving surface Γ( t)Section 2.1 Discrete surface at timestep tnΓnhSection 3.2 Lift of point/function X=xℓ,Wh=wℓhSection 3.1 Space–time manifold QT:= S
+> t∈[0 ,T ]Γ( t)× { t}Section 2.1 Two-time flow map G(x, t, s ) : Γ( t)→Γ( s)Section 2.1 Surface velocity on Γ( t)v(x, t )(2.2) Discrete material velocity on Γ h(t)Vh(X, t )Section 3.1 Induced discrete velocity on Γ( t)vh(x, t )Section 3.2 Velocity bound and related constants κ,κn,Cκ=eκT ,Cnκ=eκnτn
+> (4.1) and below Fully discrete solution Unh(x)(3.3) Constant-in-flow extension Wnh(x, t )Section 3.2 Continous time interpolation uh,τ (x, t )(3.4) Discrete time interpolation purely on
+> Γnh(s)
+> Uh,τ (x, t, s )(3.5) Refinement interpolation operator In
+> ref :Sn−1
+> h→SnhSection 3.2 Continuous bilinear forms at time tmt(w, ϕ ), a t(w, ϕ ), g t(v;w, ϕ ), b t(v;w, ϕ )Section 3.3 Discrete bilinear forms at time tmth(W, Φ) , a th(W, Φ) , g th(Vh;W, Φ) , b t(Vh;W, Φ) Section 3.3 Smallest common refinement Γn−1⊕nh(t) = Γ n−1
+> h(t)⊕Γnh(t)Section 3.4 Interpolation to common mesh In−1⊕nk:Skh(t)→Sn−1⊕nh(t)Section 3.4
+
+13 5.1 Equivalence of error and residual 
+
+We start with the proof of Proposition 2. As discussed in [26] we have to analyse the residual with respect to the continuous in time uh,τ to be able to employ standard arguments when showing the equivalence of residual and error. 
+
+Proof. Denote the error by e(t) := u(t) − uh,τ (t). For notational convenience, we drop the explicit surface dependence on Γ( t) and Γ(0) in the norms. (a) We utilise energy estimates to show the upper bound. Test the residual equation (4.2) of 
+
+R(e) with w = e further note that R(u) = 0. We rearrange the residual-based on (3.6) using 
+
+mt(∂•e, e ) = 12ddt mt(e, e ) − 12 gt(v; e, e ), standard estimates, an absorption of the H1-seminorm, and bounding the velocity-divergence by κ (see (4.1)) then gives ddt ∥e∥2 
+
+> L2
+
++ |e|2 
+
+> H1
+
+≤ ∥R (uh,τ )∥2 
+
+> H−1
+
++ (1 + κ)∥e∥2 
+
+> L2
+
+.
+
+Now we integrate over the time interval (0 , t )
+
+∥e(t)∥2 
+
+> L2
+
++
+
+Z t
+
+> 0
+
+|e|2 
+
+> H1
+
+≤ ∥R (uh,τ )∥2 
+
+> L2(0 ,t ;H−1)
+
++ ∥e(0) ∥2 
+
+> L2
+
++ (1 + κ)
+
+Z t
+
+> 0
+
+∥e∥2 
+
+> L2
+
+. (5.1) Applying Gronwall inequality, yields the L∞(L2)-bound 
+
+∥e∥2 
+
+> L∞(0 ,t ;L2)
+
+≤ exp( t(1 + κ))( ∥R (uh,τ )∥2 
+
+> L2(0 ,t ;H−1)
+
++ ∥e(0) ∥2 
+
+> L2
+
+).
+
+We can immediately follow ∥e∥2 
+
+> L2(0 ,t ;L2)
+
+≤ T ∥e∥2 
+
+> L∞(0 ,t ;L2)
+
+and thus from (5.1) that |e|2 
+
+> L2(0 ,t ;H1)
+
+is also bound by the residual and initial error. Together we obtain the bound for the full H1-norm. Finally, we bound the material derivative of the error, from (4.2) we can bound 
+
+∥∂•e∥H−1 ≤ ∥R (uh,τ )∥H−1 + |e|H1 + κ∥e∥L2 .
+
+Now time integration and the prior results for the L2(0 , t ; H1)-norm yields the upper bound. (b) Again starting from ⟨R (e), w ⟩ we employ duality and Cauchy–Schwarz inequalities and inte-grate over time to obtain 
+
+Z T
+
+> 0
+
+⟨R (uh,τ (s)) , w (s)⟩ ds =
+
+Z T
+
+> 0
+
+⟨R (e(s)) , w (s)⟩ ds ≤  ∥∂•e∥L2(0 ,T ;H−1) + (1 + κ)∥e∥L2(0 ,T ;H1)
+
+∥w∥L2(0 ,T ;H1).
+
+The right-hand side of the inequality is controlled by the graph norm (4.3) thus finishing the proof. 
+
+5.2 Decompositions 
+
+Now that we established equivalence statements for error and residual we are able to focus on bounding the residual. We continue by following the typical parabolic residual-based analysis, see, e.g. [38], by splitting the residual in spatial and temporal contributions. Many decomposition steps are on par with [26, Section 5.2] where we step by step exchange continous to discrete quantities. The continuity of uh,τ was required for Proposition 2 but it is difficult to employ standard argu-ments when we deal with a function which contains two different lifts. On the other hand uh,τ (x, t ) can be written with a singular lift of the fully discrete solution (3.5), and exchanging the two interpolations naturally introduces a coarsening type residual: 
+
+⟨R (uh,τ (x, t )) , w ⟩ = ⟨R (uh,τ (x, t ) − uh,τ (x, t )) , w ⟩ + ⟨R (uh,τ (x, t )) , w ⟩
+
+= ⟨R c, w ⟩ + ⟨R (uh,τ (x, t )) , w ⟩. (5.2) We deal with the coarsening later and focus on the other term first. We start by analysing the residual (4.2) evaluated at uh,τ (x, t ) and insert the full discretization (3.3) with an appropriate test function W n. For later analysis this test function has to be defined very 14 carefully. First assume that for some t ∈ (tn−1, t n] we extended a general w ∈ H1(Γ( t)) to a function 
+
+w defined on the space–time slab 
+
+Qtn−1,t n := [
+
+> s∈(tn−1,t n]
+
+Γ (s) × { s},
+
+such that ∂•
+
+> h
+
+w = 0, i.e. extending constantly along the flow induced by vh similar to the extension of finite element functions in Section 3.2. Notice that the extension and lift do not commute. Forcing this property for the discrete flow instead of the continuous flow simplifies later bounds. The extension allows us to choose ( w(tn)) −ℓn
+
+=: W n ∈ H1(Γ nh), which we use as a general test function to the full discrete problem (3.3). 
+
+5.2.1 Residual decomposition 
+
+We start by decomposing the residual: first we add the full discrete equation but tested with a general function in H1(Γ nh ), and afterwards analyse the differences of each discrete form to its continous variant. Note that if the arguments of the bilinear forms are evaluated at the same time (i.e. not flown from another time), we suppress the additional time dependencies. This results for w ∈ H1(Γ (t) in 
+
+⟨R (uh,τ (x, t )) , w ⟩ = mnh(∂•
+
+> h
+
+Uh,τ − Fh, W ) + gnh (Vh; Uh, W ) + anh(Uh, W ) (Rh)+ mt(∂•uh,τ , w ) − mnh(∂•
+
+> h
+
+Uh,τ , W ) (I)+ gt(v; uh,τ , w ) − gnh (Vh; Uh, W ) (II )+ at(uh,τ , w ) − anh(Uh, W ) (III )
+
+− mt(f, w ) + mnh(Fh, W ), (IV )where W n = ( w(tn)) −ℓn
+
+. This immediately gives the spatial residual Rh tested with W n. Due to the time dependency and the difference in arguments, e.g. v vs. Vh, we insert zeros and collect the resulting terms as follows 
+
+I ± mt(∂•
+
+> h
+
+uh,τ , w ) = mt(( ∂• − ∂•
+
+> h
+
+)uh,τ , w )
+
+| {z }
+
+> I.v
+
++ mt(∂•
+
+> h
+
+uh,τ , w ) − mnh(∂•
+
+> h
+
+Uh,τ , W )
+
+| {z }
+
+> I.a
+
+,II ± gt(vh; uh,τ , w ) = gt(v − vh; uh,τ , w )
+
+| {z }
+
+> II.v
+
++ gt(vh; uh,τ , w ) − gnh (Vh; Uh, W )
+
+| {z }
+
+> II.a
+
+.
+
+Next we extract the oscillation-type terms which result from discretizing the general function f and the velocity v thus 
+
+II.a ± mt(( ∇Γ nh · V nh )ℓn(t)uh,τ , w ) = mt (∇Γ · vh) − (∇Γ nh · V nh )ℓn(t)uh,τ , w 
+
+| {z }
+
+> II. osc
+
++ mt(( ∇Γ nh · V nh )ℓn(t)uh,τ , w ) − gnh (Vh; Uh, W )
+
+| {z }
+
+> II.b
+
+,IV ± mt(( F nh )ℓn(t), w ) = mt(f − (F nh )ℓn(t), w )
+
+| {z }
+
+> IV. osc
+
++ mt(( F nh )ℓn(t), w ) − mnh(Fh, W )
+
+| {z }
+
+> IV.a
+
+.
+
+The next step is to move from the continuous domain at time t to the discrete time domain at tn, to establish this we introduce additional bilinear forms. Note that we often immediately obtain geometric 15 error terms: 
+
+I.a ± mn(∂•
+
+> h
+
+uh,τ , w ) = mt(∂•
+
+> h
+
+uh,τ , w ) − mn(∂•
+
+> h
+
+uh,τ , w )
+
+| {z }
+
+> I. move
+
++ mn(∂•
+
+> h
+
+uh,τ , w ) − mnh(∂•
+
+> h
+
+Uh,τ , W )
+
+| {z }
+
+> I. geo
+
+,II.b ± mn(( ∇Γ nh · V nh )ℓn
+
+uh,τ (·, t, t n), w ) = mt(( ∇Γ nh · V nh )ℓn(t)uh,τ (·, t n), w ) − mn(( ∇Γ nh · V nh )ℓn
+
+uh,τ (·, t, t n), w )
+
+| {z }
+
+> II. move
+
++ mn(( ∇Γ nh · V nh )ℓn
+
+uh,τ (·, ·, t n), w ) − gnh (Vh; Uh, W )
+
+| {z }
+
+> II.c
+
+,III ± an(uh,τ (·, t, t n), w ) = at(uh,τ (·, t n), w ) − an(uh,τ (·, t, t n), w )
+
+| {z }
+
+> III. move
+
++ an(uh,τ (·, t, t n), w ) − anh(Uh, W )
+
+| {z }
+
+> III.c
+
+,IV.a ± mn(fh, w ) = mt(( F nh )ℓn(t), w ) − mn(fh, w )
+
+| {z }
+
+> IV. move
+
++ mn(fh, w ) − mnh(Fh, W )
+
+| {z }
+
+> IV. geo
+
+.
+
+Finally we have to resolve the time dependency in II.c and III.c which naturally introduces temporal-type errors 
+
+II.c ± mn(( ∇Γ nh · V nh )ℓn
+
+uh, w ) = mn(( ∇Γ nh · V nh )ℓn
+
+(uh,τ (·, t, t n) − uh), w )
+
+| {z }
+
+> R⋆τ
+
++ mn(( ∇Γ nh · V nh )ℓn
+
+uh, w ) − gnh (Vh; Uh, W )
+
+| {z }
+
+> II. geo
+
+III.c ± an(uh, w ) = an(uh,τ (·, t, t n) − uh, w )
+
+| {z }
+
+> Rτ
+
++ an(uh, w ) − anh(Uh, W )
+
+| {z }
+
+> III. geo
+
+.
+
+Before stating the residuals, we simplify the terms I.v and II.v by using ∂•w−∂•
+
+> h
+
+w = ( v −vh)·∇ Γw
+
+which holds for w ∈ H1(Γ (t)) by [13, Lemma 4.1] and partial integration 
+
+I.v + II.v = mt(( v − vh) · ∇ Γ (t)uh,τ + [ ∇Γ (t) · (v − vh)] uh,τ , w )= mt(∇Γ (t) · [( v − vh)uh,τ ], w ) = −mt(( v − vh)uh,τ , ∇Γ (t)w)
+
+| {z }
+
+> Rv
+
+,
+
+Using all of the above reformulations, we gather the residuals 
+
+⟨R h, w ⟩ = mnh(∂•
+
+> h
+
+Uh,τ , W ) + gnh (Vh; Uh, W ) + anh(Uh, W ),
+
+⟨R τ , w ⟩ = an(uh,τ (x, t, t n) − uh, w ),
+
+⟨R ⋆τ , w ⟩ = mn(( ∇Γ nh · V nh )ℓn
+
+(uh,τ (x, t, t n) − uh), w ),
+
+⟨R geo , w ⟩ = mn(∂•
+
+> h
+
+uh,τ − fh, w ) − mnh(∂•
+
+> h
+
+Uh,τ − Fh, W )+ mn(( ∇Γ nh · V nh )ℓn
+
+, u h, w ) − gnh (Vh; Uh, W ) + an(uh, w ) − anh(Uh, W ),
+
+⟨R move , w ⟩ = mt(∂•
+
+> h
+
+uh,τ , w ) − mn(∂•
+
+> h
+
+uh,τ , w ) + mt(( F nh )ℓn(t), w ) − mn(fh, w )+ mt(( ∇Γ nh · V nh )ℓn(t)uh,τ , w ) − mn(( ∇Γ nh · V nh )ℓn
+
+uh,τ (x, t, t n), w )+ at(uh,τ , w ) − an(uh,τ (x, t, t n), w ),
+
+⟨R v, w ⟩ = mt(−(v − vh)uh,τ , ∇Γ (t)w).
+
+(5.3) Combined with the coarsening residual Rc from (5.2) and the oscillation ⟨osc n, w ⟩ from (4.5j), the above residuals sum up to the exact residual (4.2). For stationary surfaces, these residuals coincide with the residuals in [26, Section 5.2] or vanish due to v ≡ 0, except that the temporal residual is not unlifted to the discrete domain as this is not necessary for the upcoming proofs. 
+
+5.3 Relating the residual and indicators 
+
+Due to the residual decomposition many terms, like the spatial indicator, are closely related to terms of the analysis in [38, 26], or to the geometric residual to [26, Section 5.4]. We highlight the main difficulties which arise for the evolving surface case. 16 Before bounding each residual separately, we introduce an additional tool to compare L2- and 
+
+H1-norms for discrete and general times t ∈ (tn−1, t ]. 
+
+Proposition 4 (Norm equivalence under movement [11, Lemma 3.6]) . Given f defined on the space– time slab Qa,b with ∂•
+
+> h
+
+f = 0 , then, for s, t ∈ (a, b ),
+
+1
+
+c(κ) ∥f (s)∥2  
+
+> L2(Γ(s))
+
+≤ ∥ f (t)∥2  
+
+> L2(Γ(t))
+
+≤ c(κ)∥f (s)∥2 
+
+> L2(Γ(s))
+
+,
+
+1
+
+c(κ) |f (s)|2  
+
+> H1(Γ(s))
+
+≤ | f (t)|2  
+
+> H1(Γ(t))
+
+≤ c(κ)|f (s)|2 
+
+> H1(Γ(s))
+
+.
+
+The constant depends exponentially on κ|s − t|.
+
+5.3.1 Spatial residuals 
+
+First, let us highlight that the spatial and the geometric residuals are fully time independent, thus the stationary analysis is almost directly viable, except that we additionally have to control the evolution of the surface, in particular the different evaluation times of the test function w of the dual norm and the respective pushed-forward W n in the spatial residual. 
+
+Proposition 5. For 0 < t n ≤ T the spatial indicator ηnh (4.5b) is uniformly equivalent to the dual norm of the spatial residual Rh in (4.2) , i.e., for t ∈ (tn−1, t n],
+
+∥R h(t)∥H−1(Γ (t)) ≤ cC nκ ηnh , (5.4a) 
+
+cCnκ
+
+ηnh ≤ ∥R h(t)∥H−1(Γ (t)) . (5.4b) 
+
+The constant c > 0 is independent of h and τ n, but depends on the shape-regularity constant ϱn of Γ nh
+
+and the norm-equivalence constant (3.2) associated with Γ (t).Proof. The proof follows [26, Proposition 5.6] which extended the results of [38, Section 5] to surfaces. The key ideas are to introduce the Scott–Zhang interpolation [6, Section 3] of the function W n, and use standard estimates. The lower bound is shown using typical bubble functions arguments [37]. The exponential dependence on κ arises due to the resulting |W n|H1(Γ nh ) in the upper bounds which has to be related back to ∥w(t)∥H1(Γ (t)) via Proposition 4 to obtain the dual norm. 
+
+5.3.2 Geometric residuals 
+
+For some of the indicators, including the geometric residual, we will not be able to incorporate them in the efficiency analysis. However, we will see that these terms are usually of higher order. 
+
+Proposition 6. For 0 < t n ≤ T the geometric residuals Rgeo , and Rv are bounded from above by the geometric indicators Gnh (4.5h) with additional higher order contributions of (4.5b) , and by Gnv (4.5i) 
+
+respectively. 
+
+∥R geo ∥2  
+
+> L2(tn−1,t n;H−1(Γ(·)))
+
+≤ c(Cnκ )2τ n  (Gnh )2 + h2(ηnh )2, (5.5a) 
+
+∥R v∥2  
+
+> L2(tn−1,t n;H−1(Γ(·)))
+
+≤ c(Cnκ )2τ n (Gnv )2. (5.6a) 
+
+The constant c > 0 is independent of h and τ n, but depends on Qtn−1,t n .Proof. The spatial geometric residual Rgeo is directly bound using the bounds between geometric and continous bilinear forms, see Proposition 1, and via the Cauchy–Schwarz inequality, where the mass terms m and weighted mass terms g are combined. Yielding 
+
+⟨R geo (t), w ⟩ ≤ ch 2
+
+∥∂•
+
+> h
+
+Uh,τ − F nh + ( ∇Γ nh · V nh )U nh ∥L2(Γ nh ) + |U nh |H1(Γ nh )
+
+
+
+∥W n∥H1(Γ nh )
+
+≤ c(hη nh + Gnh )∥W n∥H1(Γ nh ).
+
+17 Note that we estimated elementwise, to obtain the relation to the indicators. Integration in time combined with Proposition 4 to shift the evaluations of the test function to t, gives the desired bound. By integrating the time-dependent quantity of the time-shift, we obtain 
+
+Z tn
+
+> tn−1
+
+exp( κn|tn − s|) d s ≤ τ n exp( κnτ n) = τ nCnκ .
+
+The geometric velocity residuals are bound similarly in a direct fashion: 
+
+⟨R v(t), w ⟩ ≤ ∥ v − vh∥L∞(Γ (t)) ∥uh,τ ∥L2(Γ (t)) |w|H1(Γ (t)) ≤ ch 2∥uh,τ ∥L2(Γ (t)) |w|H1(Γ (t)) 
+
+≤ ch 2∥Uh,τ ∥L2(Γ nh (t)) ∥w∥H1(Γ (t)) ≤ cC nκ Gnv ∥w∥H1(Γ (t)) .
+
+By [33, Lemma 7.2] we bound the difference v − vh, the approximation uh,τ is directly bound by triangle inequality combined with Proposition 4 and time integration. 
+
+5.3.3 Movement residual 
+
+The movement yields a novel residual which requires a different approach then the usual indicators as we have to compare quantities on two states of the surface. By construction the arguments in the bilinear forms are fixed along the flow such that the movement residual only measures the perturbation resulting from the transport of these quantities. 
+
+Proposition 7. For 0 < t n ≤ T the movement residual Rmove is bounded from above by the movement indicator ζn 
+
+> move
+
+(4.5e) and the temporal indicators ηnτ (4.5c) , ζnτ (4.5d) .
+
+∥R move ∥2  
+
+> L2(tn−1,t n;H−1(Γ(t)))
+
+≤ c(Cnκ )2τ n (ζn
+
+> move
+
+)2 + ( κnτ n)2(ηnτ + ζnτ )2. (5.7a) 
+
+The constant c > 0 is independent of h and τ n, but depends on Qtn−1,t n via (3.2) .
+
+Note that for non-moving domains all contributions of the moving residual would collapse to 0. 
+
+Proof. We restate the movement residual from (5.3) with explicit time dependencies 
+
+⟨R move , w ⟩ =mt(∂•
+
+> h
+
+uh,τ (x, t, t ), w ) − mn(∂•
+
+> h
+
+uh,τ (x, t, t n), w ) + mt(( F nh )ℓn(t), w ) − mn(( F nh )ℓn
+
+, w )+ mt(( ∇Γ nh · V nh )ℓn(t)uh,τ (x, t, t ), w ) − mn(( ∇Γ nh · V nh )ℓn
+
+uh,τ (x, t, t n), w )+ at(uh,τ (x, t, t ), w ) − an(uh,τ (x, t, t n), w ).
+
+Observe that all arguments are the same functions but once represented at time t and once at time n
+
+thus we rewrite the terms using the fundamental theorem of calculus: 
+
+Z ttn
+
+dds
+
+h
+
+ms(∂•
+
+> h
+
+uh,τ (x, t, s ), w ) − ms(( F nh )ℓn(s), w ) + ms(( ∇Γ nh · V nh )ℓn(s), u h,τ (x, t, s ), w ) + as(uh,τ (x, t, s ), w )
+
+i
+
+ds. 
+
+Next we insert ±(U nh )ℓn(s) into the bilinear forms containing the t-dependent uh,τ (x, t, s ), which is done to step by step construct an indicator closely related to the spatial indicator. We collect these terms and handle them separately. Note that ∂•
+
+> h
+
+uh,τ (x, t, s ) is independent of t ∈ (tn−1, t n] interval-wise: 
+
+A := dds
+
+h
+
+ms(∂•
+
+> h
+
+uh,τ (x, t, s ) − (F nh )ℓn(s) + ( ∇Γ nh · V nh )ℓn(s)(U nh )ℓn(s), w ) + as(( U nh )ℓn(s), w )
+
+i
+
+,B := dds
+
+h
+
+ms(∇Γ nh · V nh )ℓn(s) uh,τ (x, t, s ) − (U nh )ℓn(s), w ) + as(uh,τ (x, t, s ) − (U nh )ℓn(s), w )
+
+i
+
+.
+
+We differentiate these terms, where it is crucial to note that the material derivative of all arguments vanish by the construction of our extensions. Thus the only contributions resulting from A are the ones arising due to the evolving surface Leibniz rule (2.4): 
+
+A = gs(vh; ∂•
+
+> h
+
+uh,τ (x, t, s ) − (F nh )ℓn(s) + ( ∇Γ nh · V nh )ℓn(s)(U nh )ℓn(s), w ) + bs(vh; ( U nh )ℓn(s), w ).
+
+18 Now we can directly estimate the terms, using Proposition 4 and norm equivalence of the lift (3.2) to arrive at 
+
+A ≤ cC nκ κn 1
+
+τ n (U nh − I n
+
+> ref
+
+U n−1 
+
+> h
+
+) + ( ∇Γ n · V nh )U nh − F nh L2(Γ nh ) + |U nh |H1(Γ nh )
+
+
+
+∥w∥H1(Γ( t)) .
+
+Time integration yields the bound: 
+
+Z ttn
+
+A ≤ cC nκ κnτ n 1
+
+τ n (U nh − I n
+
+> ref
+
+U n−1 
+
+> h
+
+) + ( ∇Γ n · V nh )U nh − F nh L2(Γ nh ) + |U nh |H1(Γ nh )
+
+
+
+∥w∥H1(Γ( t)) 
+
+≤ Cnκ ζn
+
+> move
+
+∥w∥H1(Γ( t)) .
+
+For the second term we write, using the definitions of the time interpolation uh,τ (x, t, s ) from (3.5), 
+
+uh,τ (x, t, s ) − (U nh )ℓn(s) =
+
+ t − tn−1
+
+τ n − 1
+
+
+
+(U nh − I n
+
+> ref
+
+U n−1 
+
+> h
+
+)ℓ(s) := z(·, t, s ).
+
+Again with respect to differentiation in s the material derivative vanishes ∂•
+
+> h
+
+|sz = 0 thus similar to the prior result we have 
+
+B = gs(vh; ( ∇Γ nh · V nh )ℓn(s)z, w ) + bs(vh; z, w ).
+
+We integrate, flipping the integration bounds and bounding via norm equivalence of the lift (3.2) and under movement (4), and using the velocity bound (4.1), 
+
+Z ttn
+
+B ds = −
+
+ t − tn−1
+
+τ n − 1
+
+ Z tn
+
+> t
+
+gs(vh; ( ∇Γ nh · V nh )ℓn(t)(U nh − I n
+
+> ref
+
+U n−1 
+
+> h
+
+)ℓ(s), w )+ bs(vh; ( U nh − I n
+
+> ref
+
+U n−1 
+
+> h
+
+)ℓ(s), w ) d s
+
+≤
+
+
+
+1 − t − tn−1
+
+τ n
+
+
+
+cκ n
+
+Z tn
+
+> t
+
+∥(∇Γ nh · V nh )( U nh − I n
+
+> ref
+
+U n−1 
+
+> h
+
+)∥L2(Γ nh (s)) ∥w∥L2(Γ( s)) 
+
++ |U nh − I n
+
+> ref
+
+U n−1 
+
+> h
+
+|H1(Γ nh (s)) |w|H1(Γ( s)) ds
+
+≤ cC nκ κnτ n
+
+∥(∇Γ nh · V nh )( U nh − I n
+
+> ref
+
+U n−1 
+
+> h
+
+)∥L2(Γ nh ) + |U nh − I n
+
+> ref
+
+U n−1 
+
+> h
+
+|H1(Γ nh )
+
+
+
+∥w∥H1(Γ( t)) 
+
+≤ cC nκ κnτ n(ηnτ + ζnτ )∥w∥H1(Γ( t)) .
+
+Taking the L2-norm of both terms in time yields the result. 
+
+5.3.4 Coarsening on moving domains 
+
+The coarsening on surfaces is non-trivial but tools to tackle these terms were introduced in [26, Lemma 5.5]. We extend these results to moving surfaces and show the following upper bound: 
+
+Proposition 8. For 0 < t n ≤ T and a surface Γ (t) ∈ C2 where Γ nh is an admissible triangulation for h ≤ h0, which is obtained using NVB refinement and based on the constructions described in Section 3.4. Then, there is an h- and n-uniform constant c > 0, depending only on Γ (t), such that the coarsening residual from (5.2) is bounded by the coarsening indicator (4.5f) and mesh-transfer indicator (4.5g) as 
+
+∥R c(t)∥H−1(Γ (t)) ≤ cC nκ (ηn 
+
+> c
+
++ ηn
+
+> trans
+
+). (5.8a) 
+
+Proof. First recall that the coarsening residual, from (5.2) explicitly reads: 
+
+⟨R c, w ⟩ = mt(∂•(uh,τ − uh,τ ), w ) + at(uh,τ − uh,τ , w ) + gt(v; uh,τ − uh,τ , w ).
+
+We simplify the difference, by the two definitions of the time interpolations (3.4) and (3.5), to 
+
+uh,τ (x, t ) − uh,τ (x, t ) = tn − tτ n
+
+ (U n−1 
+
+> h
+
+)ℓn−1(t) − (In
+
+> ref
+
+U n−1 
+
+> h
+
+)ℓn(t),∂•
+
+> h
+
+(uh,τ (x, t ) − uh,τ (x, t )) = 1
+
+τ n
+
+ (In
+
+> ref
+
+U n−1 
+
+> h
+
+)ℓn(t) − (U n−1 
+
+> h
+
+)ℓn−1(t).
+
+19 As for the initial decomposition (see Section 5.2) we try to swap to the discrete material derivative ∂•
+
+> h
+
+in the first term and the discrete velocity vh for the last. Resulting in 
+
+⟨R c, w ⟩ = mt(∂•
+
+> h
+
+(uh,τ − uh,τ ), w ) + gt(vh; uh,τ − uh,τ , w )+ mt(( ∂• − ∂•
+
+> h
+
+)( uh,τ − uh,τ ), w ) + gt(v − vh; uh,τ − uh,τ , w ) + at(uh,τ − uh,τ , w ).
+
+To apply the theory of [26, Lemma 5.5] we directly estimate everything and apply standard bounds between discrete and continuous quantities, this gives 
+
+|⟨R c, w ⟩| ≤ c
+
+ (τ n)−1 + κn + h2 (In
+
+> ref
+
+U n−1 
+
+> h
+
+)ℓn(t) − (U n−1 
+
+> h
+
+)ℓn−1(t)
+
+> L2(Γ( t))
+
++ (1 + h2) (U n−1 
+
+> h
+
+)ℓn−1(t) − (In
+
+> ref
+
+U n−1 
+
+> h
+
+)ℓn(t)
+
+> H1(Γ( t))
+
+
+
+∥w∥H1(Γ( t)) .
+
+It is important to observe that the difference between U n−1 
+
+> h
+
+and In
+
+> ref
+
+U n−1 
+
+> h
+
+is only non-zero for elements which are coarsened directly before, or refined during, solving the discrete problem (3.3) at time tn. Thus only elements which change between timesteps are relevant, we will collect these elements in the set of refined T n−1 
+
+> h, ref
+
+triangles (based on Γ n−1 
+
+> h
+
+) and coarsened T nh, coarse triangles (based on Γ nh ). For the upcoming analysis we show all results on the whole domain, but the indicator is represented and only computed on the elements which contribute. We focus on the L2-error first, we insert zeros based on representing both U n−1 
+
+> h
+
+and In
+
+> ref
+
+U n−1 
+
+> h
+
+on the lifted common mesh: 
+
+∥(In
+
+> ref
+
+U n−1 
+
+> h
+
+)ℓn(t) − (U n−1 
+
+> h
+
+)ℓn−1(t)∥ ≤ ∥ (In−1⊕nn In
+
+> ref
+
+U n−1 
+
+> h
+
+)ℓn−1⊕n(t) − (In−1⊕nn−1 U n−1 
+
+> h
+
+)ℓn−1⊕n(t)∥
+
++ ∥(In−1⊕nn In
+
+> ref
+
+U n−1 
+
+> h
+
+)ℓn−1⊕n(t) − (In
+
+> ref
+
+U n−1 
+
+> h
+
+)ℓn(t)∥
+
++ ∥(In−1⊕nn−1 U n−1 
+
+> h
+
+)ℓn−1⊕n(t) − (U n−1 
+
+> h
+
+)ℓn−1(t)∥.
+
+We arrive at a typical coarsening term and two interpolation-type errors. The first term is unlifted to the discrete domain via norm equivalence, and further bound by time independent quantities via Proposition 4: 
+
+∥(In−1⊕nn In
+
+> ref
+
+U n−1 
+
+> h
+
+)ℓn−1⊕n(t)−(In−1⊕nn−1 U n−1 
+
+> h
+
+)ℓn−1⊕n(t)∥L2(Γ (t)) ≤ c∥I n−1⊕nn In
+
+> ref
+
+U n−1 
+
+> h
+
+− I n−1⊕nn−1 U n−1 
+
+> h
+
+∥L2(Γ n−1⊕nh (t)) 
+
+≤ cC nκ ∥I n−1⊕nn In
+
+> ref
+
+U n−1 
+
+> h
+
+− I n−1⊕nn−1 U n−1 
+
+> h
+
+∥L2(Γ n−1⊕nh (tn)) .
+
+The two interpolation errors can be viewed as mesh-transfer errors, which are introduced by the non-linear lifting operator. Where the first of the two, related to In
+
+> ref
+
+U n−1 
+
+> h
+
+, measures the mesh transfer error resulting from coarsening, whereas the second, related to U n−1 
+
+> h
+
+, measures the mesh transfer error resulting from refining. In fact, following the upcoming argument it is clear that the mesh transfers do not contribute to the error if the parent mesh (i.e. Γ n−1 
+
+> h
+
+(t) and Γ nh (t)) align with the common mesh 
+
+Γ n−1⊕nh (t). In general, to analyse the mesh-transfer errors we require refinement methods which have a hier-archical structure like newest-vertex bisection. If we fix t then we can follow similar arguments as in [26, Lemma 5.5]. The strategies still apply, however the nodal positions in general need an additional analysis step as the node correspondence does not correspond to a singular lift anymore, but a com-positions of the flow and lifts at possibly different discrete timesteps. We show the interpolation error pointwise in time, based on a θ argument similar to the one in [28]. For the last interpolation error this yields 
+
+∥(In−1⊕nn−1 U n−1 
+
+> h
+
+)ℓn−1⊕n(t) − (U n−1 
+
+> h
+
+)ℓn−1(t)∥L2(Γ (t)) ≤ ch 2|U n−1 
+
+> h
+
+|H1(Γ n−1  
+
+> h(t))
+
+≤ cC nκ h2|U n−1 
+
+> h
+
+|H1(Γ n−1 
+
+> h)
+
+.
+
+(5.9) The final inequality was again based on Proposition 4. The key idea for the first inequality is to explicitly describe the elementwise affine transformation between the meshes Γ n−1 
+
+> h
+
+(t) and Γ n−1⊕nh (t). For the non-evolving case the transformation was based on a refined but not lifted version of Γ n−1 
+
+> h
+
+(t)20 (i.e. tracking all refinement as the midpoint of an edge based on newest-vertex bisection) and then lifting refined nodes to the exact surface which resulted in Γ n−1⊕nh (t), atleast for a single refinement-level. By construction the evaluation of the nodes for the refined but not lifted version of Γ n−1 
+
+> h
+
+(t) and Γn−1⊕nh (t) are equivalent. Thus the difference in the interpolation error could be represented as the difference of two identical finite element functions but with nodes perturbed under an elementwise affine transformation. In our setting if we lift the midpoints of the refined but not lifted mesh Γ n−1 
+
+> h
+
+(t)at any time other than tn they will in general not match up with the corresponding node in Γ n−1⊕nh (t)(see Figure 1) as this was possibly constructed by lifting at time tn and then pull-back to time t under the exact flow. However, the elementwise affine transformation can also be constructed such that the refined but not lifted node is mapped linearly to the corresponding node in Γ n−1⊕nh (t). Then again the nodal values always match up and we are able to rewrite the interpolation difference using the fundamental theorem of calculus. We define the affine mapping based on the θ-dependent nodal values 
+
+xθj (t) := x0 
+
+> j
+
+(t) + θ(x1 
+
+> j
+
+(t) − x0 
+
+> j
+
+(t)), where x0 
+
+> j
+
+(t) are the refined but not yet lifted vertices of Γ n−1 
+
+> h
+
+(t), and 
+
+x1 
+
+> j
+
+(t) are the vertices of Γ n−1⊕nh (t). Based on these nodal values and mesh connectivity of the common triangulation we define the θ-dependent domain as Γ θh(t). In comparison to the stationary case we lost the property, for single level refinements, that x1 
+
+> j
+
+= ( x0 
+
+> j
+
+)ℓ(t).It is further important to note that due to the misaligned movement of the node against the unlift of the point a onto the two different discrete meshes, a node can be unlifted into two different elements (in any child of a parent element of Γ n−1 
+
+> h
+
+(t)), as illustrated in Figure 2, which showcases the need for patchwise estimators discussed in Remark 2 if the construction is not carefully done. 
+
+Figure 2: Illustration of a two-dimensional θ-dependent triangulation Γ θh(t), where the refined but not lifted node C0 is mapped onto C1. The lifted node ( C0)ℓ(t) shows the possible mismatch. Further the unlift of a general point a ∈ Γ (t) is given based on the normal va of Γ( t) which shows for different θ
+
+that the point unlifts to the element AC θ for large θ but to the element CθB for small θ.We describe the function wθh ∈ Sh(Γ θh(t)) as in the stationary case [26, Lemma 5.5] but with the nodes as discussed above. Thus the linear transformation is purely defined by the change in node positions and all nodal values are fixed. If we identify w0 
+
+> h
+
+:= U n−1 
+
+> h
+
+and then following our argument 
+
+w1 
+
+> h
+
+:= In−1⊕nn−1 U n−1 
+
+> h
+
+we can rewrite (In−1⊕nn−1 U n−1 
+
+> h
+
+)ℓn−1⊕n
+
+− (U n−1 
+
+> h
+
+)ℓn−1(t) = ( w1
+
+> h
+
+)ℓ1
+
+− (w0
+
+> h
+
+)ℓ0
+
+=
+
+Z 10
+
+ddθ (wθh)ℓθ
+
+dθ. (5.10) Similar to [26, Lemma 5.5], one can explicitly differentiate and bound each contribution separately, ddθ (wθh)ℓθ
+
+= ( ∇Γθh
+
+wθh)ℓθ
+
+· ∂θxθ(a) + ( ∂θwθh)( xθ(a)) Some bounds follow immediately but for others additional analysis is required. In particular ∂θxθ(a), where xθ ∈ Γ θh is the unlift of some point a onto the intermediate triangulation Γ θh . Other than 21 the possible element change in the common triangulation the θ-dependent movement of the point xθ
+
+can be described as determining the intersection of two lines, both moving linearly in terms of θ and with identical asymptotic velocities. Note that the nodal velocities are determined by the definition of the affine transformation of the vertices. For completeness we argue that our construction fulfils 
+
+x1 
+
+> j
+
+(t) − x0 
+
+> j
+
+(t) = O(h2) verifying the velocity order. For illustration we base the following argument for a 2D element, however the same holds for the surface setting. Many of the following quantities are also presented in Figure 2. Given two nodes A, B ∈ Γ0 
+
+> h
+
+of an element marked by NVB, with the resulting refined but not lifted node C0 := A+B 
+
+> 2
+
+. Assume that this node is later required for refinement at time tn. Then following the construction in Section 3.4 we first determine the midpoint at time tn which is given by M := An+Bn 
+
+> 2
+
+,where An := G(A, t, t n) and Bn := G(B, t, t n) (marked by a cross in Figure 1 after refinement). Next we lift it to Γ (tn) resulting in M ℓn
+
+which yield the vertices at time Γ nh . Then to arrive with the nodal position of the common triangulation we pull it back to time t resulting in C1 := G(M ℓn
+
+, t n, t ). To compare C1 − C0 we introduce the following extension of the flow map onto the tubular region 
+
+Uϵ(t) ⊃ Γ (t). By the assumptions on Uϵ(t) and the regularity of Γ (t) in Section 2 we can define the extended flow map for any x ∈ U ϵ(t) by ˜G(x, t, s ) := G(xℓ(t), t, s ) via the closest point projection (2.1). The regularity of ˜G is governed by the regularity of G(·, t, s ) ∈ C3 in the spatial variable and the closest point projection, which is spatially C2 by our assumption on Γ (t) ∈ C3. Thus ˜G(·, t, s ) ∈ C2(Uϵ(t)). Using the extension we can identify G(M ℓn
+
+, t n, t ) = ˜G(M, t n, t ), which we expand by Taylor ex-pansion in the first argument around the points An and Bn
+
+C1 = ˜G( An + Bn
+
+2 , t n, t ) = 12
+
+  ˜G(An, t n, t ) + Dx ˜G(An, t n, t )( An − M ) + 12 D2 
+
+> x
+
+˜G(ξA, t n, t )( An − M )2
+
++ 12
+
+  ˜G(Bn, t n, t ) + Dx ˜G(Bn, t n, t )( Bn − M ) + 12 D2 
+
+> x
+
+˜G(ξB , t n, t )( Bn − M )2.
+
+Where ξA, ξ B ∈ [An, B n] are points on the line segment between An and Bn. Due to our construction we simplify by An − M = An−Bn 
+
+> 2
+
+= −(Bn − M ), use the bound An − Bn = O(h), the identity ˜G(x, t n, t ) = G(x, t n, t ) for x ∈ Γ (t), and the regularity of ˜GC1 = G(An, t n, t ) + G(Bn, t n, t )2 + ch (Dx ˜G(An, t n, t ) − Dx ˜G(Bn, t n, t )) + O(h2).
+
+with a constant c > 0. But G is a diffeomorphism, thus G(An, t n, t ) = A and G(Bn, t n, t ) = B. If we additionally apply the mean-value-theorem on Dx ˜G, which is applicable as the linear path An to 
+
+Bn is contained in Uϵ(t) by the assumption on h0 (see Remark 5), we can rearrange and simplify the inequality to 
+
+C1 − C0 ≤ ch (An − Bn) + O(h2) ≤ ch 2.
+
+which concludes that the difference of the intermediate node positions is quadratic and thus its corre-sponding θ-velocity, i.e. ∂θ((1 − θ)C0 + θC 1) = O(h2). Following similar computations as in [26] this implies elementwise ∂θxθ(a) = O(h2 
+
+> T
+
+) with hT being the local element size of the coarser triangulation (i.e. Γ n−1 
+
+> h
+
+(t) or Γ nh (t) for the second interpolation error respectively). Now combining the bounds for ∂θxθ(a) and bounds for the affine transformation [26, Eq. (5.12)] we can apply Minkowski’s integral inequality and estimate the derivative terms of (5.10). This yields the first inequality of (5.9) which is then represented on a computable mesh via norm-equivalence arguments. Summation over all elements gives the bound by ηn
+
+> trans
+
+The second interpolation-type bound for In
+
+> ref
+
+un−1 
+
+> h
+
+follows in the same manner, however only those elements, where vertices where coarsened contribute to this error. Again we represent the error for 
+
+In
+
+> ref
+
+un−1 
+
+> h
+
+with the same arguments as in (5.9) on Γ nh. Summation over all elements gives the bound by the second sum of ηn
+
+> trans
+
+.The H1-seminorm estimate, follow the same structure as the L2-error, and thus can be shown just as described in [26, Lemma 5.5]. The non-trivial element correspondence leads to the same-order bounds. 22 5.3.5 Temporal residuals 
+
+The reliability of the temporal residuals to their respective indicators can be shown with standard tools, however the efficiency proof is only shown up to oscillation, coarsening, mesh-transfer, high-order terms and the velocity-induced indicators. 
+
+Proposition 9. For 0 < t n ≤ T the temporal residuals Rτ and R⋆τ of (5.3) are bounded from above by ηnτ and respectively ζnτ given in (4.5c) , (4.5d) 
+
+∥R τ ∥2  
+
+> L2(tn−1,t n;H−1(Γ(·)))
+
+≤ c1(Cnκ )2 τ n (ηnτ )2. (5.11a) 
+
+∥R ⋆τ ∥2  
+
+> L2(tn−1,t n;H−1(Γ(·)))
+
+≤ c1Cnκ τ n (ζnτ )2. (5.12a) 
+
+Additionally, with τ ≤ τ0, where τ0 > 0 is sufficiently small, we have the local lower bound between temporal indicator ηnτ (4.5c) and the error u − uh,τ ,
+
+(τ n)1/2ηnτ ≤ c2Cnκ
+
+
+
+∥u − uh,τ ∥X(tn−1,t n) + ∥ osc n ∥L2(tn−1,t n;H−1(Γ (·))) 
+
++ ( τ n)1/2(ζnτ + Gnh + Gnv + ζn 
+
+> move
+
++ ηn 
+
+> c
+
++ ηn
+
+> trans
+
+)
+
+
+
+.
+
+(5.13b) 
+
+The constants c1, c 2 > 0 are independent of h and τ n, but depend on Qtn−1,t n , additionally c2 depends on the shape-regularity constant ϱn of Γ nh .Proof. We start with the upper bounds. First recall that, as in [38, Eq. 6.3] we can rewrite the difference 
+
+uh,τ (·, t, t n) − unh =
+
+ t − tn−1
+
+τ n − 1
+
+
+
+(unh − I n
+
+> ref
+
+un−1 
+
+> h
+
+).
+
+Thus we can directly bound using Cauchy–Schwarz inequality and lift equivalence (3.2): 
+
+|⟨R τ , w ⟩| ≤ c|U nh − I n
+
+> ref
+
+U n−1 
+
+> h
+
+|H1(Γ nh )|w|H1(Γ nh (t)) ,
+
+|⟨R ⋆τ , w ⟩| ≤ c∥(∇Γnh · V nh )( U nh − I n
+
+> ref
+
+U n−1 
+
+> h
+
+)∥L2(Γ nh )∥w∥L2(Γ nh (t)) .
+
+Determining the dual norm of the temporal residuals and then using norm equivalence under movement and time integration directly yields the indicators, i.e. (5.11a) and (5.12a) with the κ-dependency as in Lemma 4. The lower bound is again based on choosing the correct test function [38, Section 7]. By choosing 
+
+w = uh,τ (·, t, t ) − unh we immediately have 
+
+Z tn
+
+> tn−1
+
+⟨R τ , w ⟩ dt =
+
+Z tn
+
+> tn−1
+
+|w(tn)|2  
+
+> H1(Γ nh)
+
+dt ≥ c(ηnτ )2
+
+Z tn
+
+> tn−1
+
+ t − tn−1
+
+τ n − 1
+
+2
+
+dt = c τ n
+
+3 (ηnτ )2
+
+where we used the upper bound for the norm equivalence under lift (3.2). Now the lower bound is derived by first noting that the temporal residual Rτ is invariant under constant shifts, that is ⟨R τ , w ⟩ = ⟨R τ , w + c⟩ for an arbitrary constant c ∈ R. Thus we subtract the mean of w, labelled ˆw := R 
+
+> Γ
+
+(t)w ∈ R which allows us to use Poincar´ es inequality in the following argument: 
+
+τ n
+
+3 (ηnτ )2 ≤
+
+Z tn
+
+> tn−1
+
+⟨R τ , w − ˆw⟩ dt
+
+=
+
+Z tn
+
+> tn−1
+
+⟨R − R h − R geo − R ⋆τ − R move − R v − osc n −R c, w − ˆw⟩ dt
+
+≤ cC nκ (1 + C2 
+
+> P
+
+)1/2 τ n
+
+3
+
+1/2
+
+ηnτ
+
+ ∥u − uh,τ ∥X(tn−1,t n) + ∥ osc ∥L2(tn−1,t n;H−1(Γ (·))) 
+
++ ( τ n)1/2(ηnh + ηn 
+
+> c
+
++ ηn 
+
+> trans
+
++ Gnh + Gnv + ζnτ + ζn
+
+> move
+
+)
+
+23 Which is based on the same ideas as in [26, Section 5.7] and employs the residual decomposition, a duality argument, and the derived dual norms of the prior chapters. Note that we used h ≤ h0 and 
+
+τ ≤ τ0 to remove additional high-order terms, in particular geometric h-powers and the τ 2 scaled terms of the movement indicator, in the arguments. As for the non-moving case, in the same style as [26, Proposition 5.7], utilising the bound to the temporal indicator it is possible to bound the spatial indicator in terms of all other indicators but the temporal ηnτ , resulting in the bound (τ n)1/2ηnh ≤ cC nκ
+
+ ∥u − uh,τ ∥X(tn−1,t n) + ∥ osc n ∥L2(tn−1,t n;H−1(Γ )) (5.14b) + ( τ n)1/2(ζnτ + ηn 
+
+> c
+
++ ηn 
+
+> trans
+
++ Gnh + Gnv + ζn
+
+> move
+
+).
+
+Note that the constant c > 0 is independent of h but depends on the constant from the norm equiv-alence. This shows that the spatial indicator is efficient up to the oscillation, high-order geometric terms, coarsening, mesh-transfer, and the indicators related to the movement of the surface ζn 
+
+> move
+
+and 
+
+ζnτ .But then immediately the same follows for the temporal indicator. 
+
+Remark 7. We note that the additional control of the velocity scaled temporal indicator yields an explicit tool to ensure that the mass transport at elements of strong local changes in the velocity only introduces small errors. The efficiency, however, seems to be challenging as we can not test with a similar argument as the velocity divergence ∇Γ nh ·V nh is constant elementwise but discontinuous globally. It would be natural to try showing efficiency via bubble functions, however the scaling is off between efficiency and reliability. Additionally the uncontrollable sign of the argument is difficult to manage. 
+
+5.4 Proof of Theorem 3 
+
+The proof of the upper (reliability) bound (4.6a) begins with the estimate (4.4a), which provides an upper bound of the error in terms of the residual. We continue by splitting the full residual via our decomposition (5.3) and combining the upper bounds of each term, i.e. the bound to the spatial residual (5.4a), the bound to the geometric residuals (5.5a) & (5.6a), the bound of the movement residual (5.7a), the bound of the coarsening residual (5.8a) and finally the bound of the temporal residuals (5.11a) & (5.12a). Note that the oscillation (4.5j) is split by triangle inequality but not further bound. The proof of the lower (efficiency) bound (4.6b) begins with the estimate (4.4b), which provides a lower bound for the error in terms of the residual. We continue by combining the results for the spatial indicator (5.4b) & (5.14b) and for the temporal residual (5.13b), whilst reusing the upper bounds for the other indicators. This finishes the proof of Theorem 3. 
+
+# 6 Numerical experiments 
+
+We investigate the derived error indicators (4.5a) and behaviour of a simple adaptive routine. The numerical experiments illustrate and complement the theoretical result. The implementation is based on the fully vectorized loop-free assembly ℓFEM package [27], which provides efficient computation of bulk and surface assembly. In particular it computes the mass, stiffness and velocity-scaled mass matrices in almost linear time-complexity. All experiments use NVB for both refinement and coarsen-ing (we modified the implementations of [22]), the bulk criterion [15] for marking, and initial meshes are generated using DistMesh [35]. We state a general structure for an adaptive algorithm, however note that no algorithmic results (like convergence) are given. The numerical experiments show the theoretically expected behaviour shown in Theorem 3. 
+
+Algorithmic structure, We briefly outline a conceptual adaptive space–time algorithm illustrat-ing how the proposed indicators can be employed. Since the focus of this work is the a posteriori analysis rather than implementation aspects, we omit several algorithmic details and only describe the control logic. The algorithm aims to ensure good convergence properties in terms of a tolerance TOL which bounds all indicators and thus relates to the residual and error by Theorem 3. 24 • Initialization: Determine the base mesh Γ 0 
+
+> h
+
+(such that the closest point projection (2.1) exists for all times) and an initial mesh (such that the initial error is non-dominant) 
+
+• For each timestep 1. Coarsen prior mesh as long as ηc ≤ TOL 2. While ζτ + ζmove > θ ζ TOL reduce time-step size 3. Solve–Estimate–Mark–Refine until ηh + ηg ≤ TOL 4. Check temporal error ητ ≤ θτ TOL and recheck ζτ + ζmove < θ ζ TOL (a) If true, check mesh-transfer errors from coarsening and refinement ηtrans ≤ θtrans TOL i. If true, store solution and possibly increase time-step size for next step ii. If false, check what part of the transfer error dominates. If its the coarsening part, reduce coarsened elements, if it is the refinement part, return to previous step and solve on a finer mesh, which is used to restart at (1). (b) If false, reduce time-step size and return to (2) It is common in adaptive algorithms to allocate the total error budget unevenly among different indicators, by scaling individual tolerances. For simplicity we do not define a total tolerance and, mostly for illustrative purposes scale some of the indicators by positive parameters θτ , θ ζ , θ trans to control the temporal, transport and mesh-transfer indicators, respectively. In general, one can frame step (2) as a predictive transport control. Step (4) ensures that for a accepted temporal stepsize, based on ητ , not only the temporal estimator for the consistency of the PDE, but also the transport error, is small for the refined mesh. Additionally in Step (4) we check whether the mesh-transfer spoils the solution. If it does, depending on whether the coarsening transfer or the refinement transfer dominates, we would either reduce the number of coarsened elements in the current timestep, or respectively, refine additional elements in the previous timestep. The spatial refinement loop is based on the ideas of [15] combined with lifting just as described in [26, Section 7]. We fixed some parameters for all upcoming proofs, namely if not specified otherwise θτ = 1, we always ensure that θζ = 0 .75 θτ , i.e. at most three-quaters of the temporal error budget, and we track if ηtrans has a strong effect on the solution via θtrans = 5. Further the coarsening is implemented such that at most one refinement level can be coarsened within a single timestep. This could lead to slower coarsening, however strongly simplifies node track-ing and the numerical experiments demonstrate that it is sufficient in practice. Also the increase and decrease of time-step size is fixed to always double or halve respectively. Although the theoretical algorithm includes a correction mechanism based on the mesh-transfer indicator, it was not imple-mented in the numerical experiments. Instead, we monitor ηtrans throughout all experiments, to check whether corrections would have been necessary. Except for the experiment in Section 6.2, the transfer indicator remained non-dominant. Finally we localized some of the indicators (4.5a). In particular, rather than working with the spatially global κn in the movement indicator (4.5e), and coarsening indicator(4.5f), we computed the divergence ∇Γ · V nh and the tensor Bnh elementwise, thereby obtaining a separate factor for each triangle. This refinement is consistent with the theory, but was omitted from the proof of Theorem 3 for the sake of readability. 
+
+6.1 Convergence: Bouncing Ellipsoid 
+
+First analyse the convergence with the help of a manufactured solution of the PDE (2.5) on a bouncing ellipsoid (similar to [13, Eq. 5.47]) given by the implicit level-set function 
+
+d(x, y, z, t ) = x2
+
+1 + 0 .9 sin(2 πt ) + y2 + z2 − 1.
+
+The surface starts initially as a sphere and periodically grows/shrinks along the x-axis. Given the exact solution u = xy exp( t), we determined the right-hand side f based on (2.5). In Figure 3 we 25 10 −1 10 0
+
+10 −2
+
+10 −1
+
+Tolerance 
+
+∥eh∥L∞(L2)
+
+∥eh∥L2(H1)
+
+O(T OL )
+
+0 0.2 0.4 0.6 0.8 1
+
+10 2.5
+
+10 3
+
+10 3.5
+
+t
+
+> degrees of freedom
+
+Figure 3: (left) L∞(L2)- and L2(H1)-errors for a set of tolerances. (right) Number of nodes over time for an exponentially decaying solution (TOL = 1). observe the convergence rate of TOL with respect to the L∞(L2)- and L2(H1)-error. The L2(H1)-errors were computed with a sufficiently high quadrature rule. As expected the left graph of Figure 3 shows, by construction of the algorithm, that the errors behave asymptotically linear with respect to the tolerance. Additionally, we investigate the coarsening behaviour. We observe for a specific solution with TOL = 1, the right-hand side graph of Figure 3, exhibits an exponential node decay, structurally following the exponential decay in the solution u itself. We further observe that the exponential decay in degrees of freedom is affected by the surface evolution. During the initial expansion of the surface, the decay is slower since additional vertices are required to maintain good control of the error. Whereas after t = 0 .5, as the surface shrinks, and the decay rate increases accordingly. For comparability we computed the L2-errors at the discrete timesteps for a non-adaptive uniform setting, with τ = 0 .1 and an initial mesh with approximately 2000 almost uniformly distributed vertices, and the proposed adaptive routine with TOL = 0 .7. In Figure 4 the L2-errors over time corresponding to the right axis, are marked with triangles and the degrees of freedom (dof) over time corresponding to the left axis, are marked with circles. In black the adaptive results are shown, and in grey the non-adaptive results. The markers are set only for discrete timesteps at which the adaptive or uniform routine determined a discrete solution. Note that similar to Figure 3 (right) the exponential decay in dofs is visible for the adaptive version. Initially, the adaptive routine demands more dof than the uniform discretisation; however, after 
+
+t = 0 .6, the number of dof is reduced below that of the uniform mesh. Although, the adaptive routine exhibits a larger pointwise L2-error for t > 1, its overall L∞(L2)-error is smaller than the uniform approach, shown by the dashed lines in Figure 4. This behaviour is consistent with the theory, as Theorem 3 guarantees control of the L∞(L2)-error rather than the pointwise L2-error. In particular, once the error is sufficiently small during the initial phase, adaptivity allows us to strongly reduce the dof while retaining good control of the L∞(L2)-error. Note that this not only applies to spatial refinements but also the temporal time-step size, which is initially slightly smaller than the uniform approach, but later substantially larger without an error increase with respect to the error notion of Theorem 3. Note that similar behaviour is observed for the L2(H1)-norm. 
+
+6.2 Dumbell with purely normal motion 
+
+We analyse the experiment by Elliott and Styles [19, Section 2] which shows that due to the evolution of the surface nodes will start gathering along a strip. We highlight that for adaptive approaches, the coarsening allows us to limit the gathering by the choice of the initial baseline/coarsest mesh. We define the moving domain by the level-set function 
+
+d(x, y, z, t ) = x2 + y2 + a(t)2 G
+
+ z2
+
+L(t)2
+
+
+
+− a(t)2,
+
+26 0 0.2 0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2       
+
+> t
+> 02000 4000 6000
+> degrees of freedom
+> 00.02 0.04 0.06
+> L2 error
+> keadaptive
+> hkL1(L2)
+> keuniform
+> hkL1(L2)Adaptive dof Non-adaptive dof Adaptive L2error Non-adaptive L2error
+
+Figure 4: Double axis plot, with comparison of L2-error (right y-axis) and degrees of freedom (left 
+
+y-axis) over time for a uniform and adaptive solution of the bouncing ellipsoid with manufactured solution. The markers in general indicate for which discrete timesteps the uniform (in grey) and adaptive (in black) approximation, where computed. Additionally the type of marker indicates that the corresponding y-axis is the L2-error for triangles ▲ and respectively the degrees of freedom for circles ◦. The dashed lines indicate the global L∞(L2)-error for the adaptive (in black) and uniform (in grey) approximation. where 
+
+G(s) = 80 s
+
+
+
+s − 32
+
+
+
+, a(t) = 0 .1 + 0 .05 sin(2 πt ), L(t) = 1 + 0 .2 sin(4 πt ).
+
+Now assuming that we have a purely normal motion as in [19, Equation 2.1], the nodes of the dumbell move in a peculiar way. One observed [19, Figure 1] that such an example can lead to strongly non-uniform meshes. Adaptive strategies allow to weaken this effect. We solve the PDE (2.5) with u0 = 0 and f = 1, i.e. adaptivity is driven by the geometry induced heat flow. For the non-adaptive setting we observe on the right side of Figure 5 strong gathering as in [19, Figure 1]. On the other hand adaptivity allows us to start with a very coarse base mesh, which allows to reduce the gathering effect by coarsening. It should be noted however that this effect is limited, as the base mesh has to be fine enough to resolve the geometry sufficiently well. But the coarsening yields a tool to limit the number of gathered nodes, by the number of initial nodes (as we can expect, that the error indicators, for elements in these dense areas, are small and marked for coarsening). On the right side of Figure 5 the surface was initialized uniformly (based on DistMesh [35]) with 3024 vertices. On the left side of Figure 5 the base mesh was given by 694 nodes, due to adaptivity the adaptive solver with TOL = 2 yields meshes with different number of nodes. At most 3908 nodes were needed to resolve the problem with the provided tolerance. We can observe that the gathering effect is strongly reduced by comparing the non-adaptive and adaptive solutions at each timestep, however it is not fully avoidable. We want to remark however smaller tolerances would hide the gathering of the initial mesh even further and the effect can be expected to be neglectable asymptotically. For better illustration of the mesh the final line in Figure 5, i.e. the surface at time 
+
+t = 1, is viewed from a slightly rotated position. We note that for the dumbell experiment, the mesh-transfer indicator ηtrans exceeded its allocated budget, by at most a factor of 2, in regions where the rapid evolution of the surface induced strong heat flow (in particular around t = 0 .75), which resulted in many refinements. According to the adaptive strategy outlined in the algorithm in the beginning of Section 6, this would trigger additional refinements of the previous timestep to reduce the transfer error. Since the present experiment is primarily intended to illustrate the improvement in mesh quality, and the budget is only moderately exceeded, we omit the mesh-correction step in this experiment. 
+
+6.3 Reliability and Efficiency 
+
+The next experiment heuristically analysis the reliability and efficiency of the estimator derived in (4.5a). We determine the error indicator and the exact error for the non-adaptive approximation of 27 -1.5 -1 -0.5 0 0.5 1 1.5 
+
+z
+
+-1 -0.5 00.5 1
+
+> x
+
+mesh at, t = 0 :00 
+
+-1.5 -1 -0.5 0 0.5 1 1.5 
+
+z
+
+-1 -0.5 00.5 1
+
+> x
+
+mesh at, t = 0 :00 
+
+-1.5 -1 -0.5 0 0.5 1 1.5 
+
+z
+
+-1 -0.5 00.5 1
+
+> x
+
+mesh at, t = 0 :50 
+
+-1.5 -1 -0.5 0 0.5 1 1.5 
+
+z
+
+-1 -0.5 00.5 1
+
+> x
+
+mesh at, t = 0 :50 
+
+-1.5 -1 -0.5 0 0.5 1 1.5 
+
+z
+
+-1 -0.5 00.5 1
+
+> x
+
+mesh at, t = 0 :80 
+
+-1.5 -1 -0.5 0 0.5 1 1.5 
+
+z
+
+-1 -0.5 00.5 1
+
+> x
+
+mesh at, t = 0 :80 
+
+10.5 -1 0-0.5 
+
+> x
+
+-1 
+
+mesh at, t = 1 :00 
+
+1
+
+z 0 0
+
+y
+
+1 -1 0-0.5 0.5 -1 1
+
+> x
+
+mesh at, t = 1 :00 
+
+-1 1
+
+z 0 0
+
+y
+
+1 -1 Figure 5: Dumbell experiment with (left) and without (right) adaptivity 28 Section 6.1, i.e. the bouncing ellipsoid with manufactured solution. Given a set of time-step sizes and initial meshes we observe the reliability and efficiency of the indicators in Figure 6. As expected the estimator is only optimal with respect to the L2(H1)-error. Note that the mesh-width h of Figure 6 is the maximal triangle diameter at time t = 0 of the almost-uniform mesh generated using [35]. 10 −1 10 0
+
+> 10 −3
+> 10 −2
+> 10 −1
+> 10 0
+> 10 1
+> 10 2
+> 10 3
+> h
+
+Estimator and L∞(L2) error for different τ                 
+
+> L∞(L2) error ( τ= 1) estimator η(τ= 1)
+> L∞(L2) error ( τ= 0 .1) estimator η(τ= 0 .1)
+> L∞(L2) error ( τ= 0 .01) estimator η(τ= 0 .01)
+> O(h)O(h2)10 −110 0
+> 10 −2
+> 10 −1
+> 10 0
+> 10 1
+> 10 2
+> h
+
+Estimator and L∞(L2) error for different τ               
+
+> L2(H1) error ( τ= 1) estimator η(τ= 1)
+> L2(H1) error ( τ= 0 .1) estimator η(τ= 0 .1)
+> L2(H1) error ( τ= 0 .01) estimator η(τ= 0 .01)
+> O(h)
+
+Figure 6: Efficiency and reliability analysis for the bouncing ellipsoid problem with u = xy exp( t). 
+
+6.4 Moving Peak: Coarsening and refinement 
+
+We illustrate the coarsening and refinement on evolving surfaces by analysing a moving peak on a bouncing ellipsoid, following the non-evolving example of [26]. Based on the exact solution 
+
+u(x, y, z, t ) = 
+
+
+
+1 − exp   − 200( t − 0.5) 2
+
+exp 
+
+
+
+− 25  (z − cos( πt/T )) 2 + ( y − sin( πt/T )) 2 + x2
+
+, (6.1) which resembles a moving heat source travelling along the yz -plane, while vanishing briefly at t = 0 .5. Again we computed the corresponding right-hand side based on (2.5). The parameter T = 2 is used to control that the peak moves a quarter revolution for t ∈ [0 , 1]. For both upcoming plots we chose TOL = 1. For improved visualization of the adaptive meshes, we additionally scaled the temporal tolerances by θτ = 0 .3 (i.e. in step (4) of the schematic algorithm of Section 6). The movement of the surface, the refining, and the coarsening can be seen in Figure 7. It should be noted that the gradient of the peak is smaller when the surface expands, thus requiring fewer nodes, whereas the gradient increases when the surface shrinks, resulting in stronger refinement. Around the midpoint 
+
+t = 0 .5, where the peak temporarily disappears, the mesh is strongly coarsened. However, due to the dependence of information on two consecutive time-levels in the indicator, the comparatively large timesteps taking in this phase (see Figure 8), and the restriction to single-level coarsening in our implementation, there is still a set of refined elements. The dof over time, marked by black triangles ▲ in Figure 8 show a strong decrease in the dofs around the midpoint. However it is slightly delayed, mainly due to the restriction to single-level coarsening. Allowing for multiple-level coarsening is expected to further enhance this effect. We also computed the local in time H1-error for an adaptive and a uniform discretization with roughly 2000 dofs and τ = 0 .05. The results are given over time in Figure 8. We observe that adaptivity is highly beneficial for this example and the H1-error is controlled and kept nearly constant, while managing, domain change, strong source-term change and geometric errors. 29 -1 -0.5 00.5 1                         
+
+> t= 0
+> -1 -1 -0.5 00.5 -1.5 1.5 1-0.5 00.5 1-1 -0.5 00.5
+> t= 0 :33
+> 1-1 0-0.5 -1.5 -1 1.5 10.5 -0.5 00.5 1-1 -0.5 00.5 1
+> t= 0 :49
+> -1 1.5 -1.5 0.5 1-1 -0.5 0-0.5 00.5 1-1 -0.5 00.5
+> t= 0 :545
+> 1-1 -1 -0.5 00.5 11.5 -1.5 -0.5 00.5 1-1 -0.5 00.5
+> t= 0 :67
+> 1-1 00.5 -0.5 -1 -1.5 1.5 1-0.5 00.5 1-1 -0.5 00.5
+> t= 1
+> -1 11.5 -1.5 -1 -0.5 00.5 1-0.5 00.5 1
+
+Figure 7: Adaptively obtained meshes at different timesteps for the moving peak experiment (TOL = 1). 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+
+t
+
+200 400 600 800 1000 1200 1400 1600 1800 2000 
+
+> degrees of freedom
+
+00.1 0.2 0.3 0.4 0.5 0.6 0.7 
+
+> H1 error
+
+Adaptive dof Non-adaptive dof Adaptive H1 error Non-adaptive H1 error 
+
+Figure 8: Double axis plot, with comparison of H1-error (right y-axis) and degrees of freedom (left 
+
+y-axis) over time for a uniform and adaptive solution (TOL = 1) of the moving peak example (6.1) on the bouncing ellipsoid. The markers in general indicate which discrete timesteps the uniform (in grey) and adaptive (in black) approximation, where computed. Additionally the type of marker indicates that the corresponding y-axis is the L2-error for triangles ▲ and respectively the degrees of freedom for circles ◦.30 References 
+
+[1] A. Alphonse, C. M. Elliott, and B. Stinner. An abstract framework for parabolic PDEs on evolving spaces. Port. Math., 72(1):1–46, 2015. ISSN 0032-5155,1662-2758. doi: 10.4171/PM/1955. URL 
+
+https://doi.org/10.4171/PM/1955 .[2] J. W. Barrett, H. Garcke, and R. N¨ urnberg. On the stable numerical approximation of two-phase flow with insoluble surfactant. ESAIM Math. Model. Numer. Anal., 49(2):421–458, 2015. ISSN 2822-7840,2804-7214. doi: 10.4208/cicp.190313.010813a. URL https://doi.org/10.4208/ cicp.190313.010813a .[3] A. Bonito and R. H. Nochetto. Quasi-optimal convergence rate of an adaptive discontinuous Galerkin method. SIAM J. Numer. Anal., 48(2):734–771, 2010. ISSN 0036-1429,1095-7170. doi: 10.1137/08072838X. URL https://doi.org/10.1137/08072838X .[4] A. Bonito, J. M. Casc´ on, P. Morin, and R. H. Nochetto. AFEM for geometric PDE: the Laplace-Beltrami operator. In Analysis and numerics of partial differential equations, volume 4 of Springer INdAM Ser., pages 257–306. Springer, Milan, 2013. doi: 10.1007/978-88-470-2592-9 \ 15. [5] A. Bonito, A. Demlow, and R. H. Nochetto. Finite element methods for the Laplace-Beltrami operator. In Geometric partial differential equations. Part I, volume 21 of Handb. Numer. Anal., pages 1–103. Elsevier, Amsterdam, 2020. ISBN 978-0-444-64003-1. doi: 10.1007/s. [6] F. Camacho and A. Demlow. L2 and pointwise a posteriori error estimates for FEM for elliptic PDEs on surfaces. IMA J. Numer. Anal., 35(3):1199–1227, 07 2014. ISSN 0272-4979. [7] Z. Chen and J. Feng. An adaptive finite element algorithm with reliable and efficient error control for linear parabolic problems. Math. Comp., 73(247):1167–1193, 2004. ISSN 00255718, 10886842. URL http://www.jstor.org/stable/4099892 .[8] A. Demlow and G. Dziuk. An adaptive finite element method for the Laplace–Beltrami operator on implicitly defined surfaces. SIAM J. Numer. Anal., 45(1):421–442, 2007. [9] G. Dziuk. Finite Elements for the Beltrami operator on arbitrary surfaces, pages 142–155. Springer Berlin Heidelberg, Berlin, Heidelberg, 1988. ISBN 978-3-540-46024-4. [10] G. Dziuk and C. M. Elliott. Finite elements on evolving surfaces. Ima Journal of Numerical Analysis, 27:262–292, 2007. URL https://api.semanticscholar.org/CorpusID:17416501 .[11] G. Dziuk and C. M. Elliott. A fully discrete evolving surface finite element method. SIAM Journal on Numerical Analysis, 50(5):2677–2694, 2012. doi: 10.1137/110828642. URL https: //doi.org/10.1137/110828642 .[12] G. Dziuk and C. M. Elliott. A fully discrete evolving surface finite element method. SIAM J. Numer. Anal., 50(5):2677–2694, 2012. ISSN 0036-1429,1095-7170. doi: 10.1137/110828642. URL 
+
+https://doi.org/10.1137/110828642 .[13] G. Dziuk and C. M. Elliott. Finite element methods for surface PDEs. Acta Numerica, 22:289 – 396, 2013. [14] G. Dziuk and C. M. Elliott. L2-estimates for the evolving surface finite element method. Math. Comp., 82(281):1–24, 2013. ISSN 0025-5718,1088-6842. doi: 10.1090/S0025-5718-2012-02601-9. URL https://doi.org/10.1090/S0025-5718-2012-02601-9 .[15] W. D¨ orfler. A convergent adaptive algorithm for Poisson’s equation. SIAM J. Numer. Anal., 33 (3):1106–1124, 1996. [16] C. M. Elliott and T. Ranner. Evolving surface finite element method for the Cahn-Hilliard equation. Numer. Math., 129(3):483–534, 2015. doi: 10.1007/s00211-014-0644-y. 31 [17] C. M. Elliott and T. Ranner. A unified theory for continuous-in-time evolving finite element space approximations to partial differential equations in evolving domains. IMA Journal of Numerical Analysis, 41(3):1696–1845, 11 2020. ISSN 0272-4979. doi: 10.1093/imanum/draa062. URL 
+
+https://doi.org/10.1093/imanum/draa062 .[18] C. M. Elliott and T. Sales. A fully discrete evolving surface finite element method for the Cahn-Hilliard equation with a regular potential. Numer. Math., 157(2):663–715, 2025. ISSN 0029-599X,0945-3245. doi: 10.1007/s00211-025-01457-8. URL https://doi.org/10.1007/ s00211-025-01457-8 .[19] C. M. Elliott and V. Styles. An ALE ESFEM for solving PDEs on evolving surfaces. Milan J. Math., 80(2):469–501, 2012. ISSN 1424-9286,1424-9294. doi: 10.1007/s00032-012-0195-6. URL 
+
+https://doi.org/10.1007/s00032-012-0195-6 .[20] K. Eriksson and C. Johnson. Adaptive finite element methods for parabolic problems. II. Optimal error estimates in L∞L2 and L∞L∞. SIAM J. Numer. Anal., 32(3):706–740, 1995. doi: 10.1137/ 0732033. [21] J. Eyles, J. R. King, and V. Styles. A tractable mathematical model for tissue growth. Interfaces Free Bound., 21(4):463–493, 2019. ISSN 1463-9963,1463-9971. doi: 10.4171/ifb/428. [22] S. Funken, D. Praetorius, and P. Wissgott. Efficient implementation of adaptive P1-FEM in Matlab. Comput. Methods Appl. Math., 11(4):460–490, 2011. [23] G. Huisken. The volume preserving mean curvature flow. Journal f¨ ur die reine und angewandte Mathematik (Crelles Journal), 1987:35 – 48, 1987. [24] J. King and C. Venkataraman. Free boundary problems for Stokes flow, with applications to the growth of biological tissues. Interfaces and Free Boundaries, 2021. [25] B. Kov´ acs. Numerical surgery for mean curvature flow of surfaces. SIAM J. Sci. Comput., 46(2): A645–A669, 2024. doi: 10.1137/22M1531919. [26] B. Kov´ acs and M. Lantelme. A posteriori error estimates for parabolic partial differential equations on stationary surfaces. SIAM Journal on Numerical Analysis, 2026. URL https: //arxiv.org/abs/2407.02101 . To appear. [27] B. Kov´ acs and M. Lantelme. ℓFEM: A fast and loop-free MATLAB implementation of isoparamet-ric bulk and surface finite elements, 2026. URL https://go.upb.de/ellFEM . arXiv:2605.14035. [28] B. Kov´ acs, B. Li, C. Lubich, and C. A. Power Guerra. Convergence of finite elements on an evolving surface driven by diffusion on the surface. Numer. Math., 137(3):643–689, Nov 2017. ISSN 0945-3245. doi: 10.1007/s00211-017-0888-4. [29] B. Kov´ acs, B. Li, and C. Lubich. A convergent evolving finite element algorithm for mean curvature flow of closed surfaces. Numer. Math., 143(4):797–853, 2019. [30] B. Kov´ acs. High-order evolving surface finite element method for parabolic problems on evolving surfaces. IMA Journal of Numerical Analysis, 38, 06 2016. doi: 10.1093/imanum/drx013. [31] C. Kreuzer, C. A. M¨ oller, A. Schmidt, and K. G. Siebert. Design and convergence analysis for an adaptive discretization of the heat equation. IMA J. Numer. Anal., 32(4):1375–1403, 01 2012. ISSN 0272-4979. [32] O. Lakkis and C. Makridakis. Elliptic reconstruction and a posteriori error estimates for fully discrete linear parabolic problems. Math. Comp., 75(256):1627–1658, 2006. ISSN 0025-5718,1088-6842. doi: 10.1090/S0025-5718-06-01858-8. 32 [33] C. Lubich and D. Mansour. Variational discretization of wave equations on evolving sur-faces. Math. Comp., 84(292):513–542, 2015. ISSN 0025-5718,1088-6842. doi: 10.1090/ S0025-5718-2014-02882-2. URL https://doi.org/10.1090/S0025-5718-2014-02882-2 .[34] C. Makridakis and R. H. Nochetto. Elliptic reconstruction and a posteriori error estimates for parabolic problems. SIAM J. Numer. Anal., 41(4):1585–1594, 2003. ISSN 0036-1429,1095-7170. doi: 10.1137/S0036142902406314. URL https://doi.org/10.1137/S0036142902406314 .[35] P.-O. Persson and G. Strang. A simple mesh generator in Matlab. SIAM Rev., 46(2):329–345, 2004. ISSN 1095-7200,0036-1445. doi: 10.1137/S0036144503429121. URL https://doi.org/10. 1137/S0036144503429121 .[36] C. Venkataraman, T. Sekimura, E. A. Gaffney, P. K. Maini, and A. Madzvamuse. Modeling parr-mark pattern formation during the early development of amago trout. Physical Review E—Statistical, Nonlinear, and Soft Matter Physics, 84(4):041923, 2011. [37] R. Verf¨ uhrt. A review of a posteriori error estimation and adaptive mesh-refinement techniques. Wiley-Teubner series, advances in numerical mathematics. 1996. ISBN 9780471967958, 9783519026051, 0471967955, 3519026058. [38] R. Verf¨ urth. A posteriori error estimate for finite element discretizations of the heat equation. Calcolo, 40:195–212, 12 2003. 33
