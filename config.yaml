@@ -25,3 +25,54 @@ subscriptions:
     stage: A
     diff_threshold_pct: 15
   keyword_recall_mode: or
+  intent_profiles:
+    - tag: geom-pde
+      description: 几何偏微分方程，包括NS方程、Yamabe方程、几何分析
+      enabled: true
+      paper_sources:
+        - arxiv
+      keywords:
+        - keyword: Navier-Stokes equations
+          keyword_cn: 纳维-斯托克斯方程
+          query: Navier-Stokes equations geometric analysis
+        - keyword: Yamabe equation
+          keyword_cn: 雅马贝方程
+          query: Yamabe equation geometric PDE
+        - keyword: geometric analysis
+          keyword_cn: 几何分析
+          query: geometric analysis partial differential equations
+        - keyword: geometric PDE
+          keyword_cn: 几何偏微分方程
+          query: geometric partial differential equations
+      intent_queries:
+        - query: existence of Navier Stokes equations
+          query_cn: 纳维 斯托克斯方程解的存在性
+          enabled: true
+          source: manual
+          note: ''
+        - query: Yamabe equation existence and regularity
+          query_cn: 雅马贝方程的存在性和正则性
+          enabled: true
+          source: manual
+          note: ''
+        - query: recent advances in geometric partial differential equations
+          query_cn: 几何偏微分方程的最新进展
+          enabled: true
+          source: manual
+          note: ''
+      updated_at: '2026-07-27T17:53:22.928Z'
+source_backends:
+  arxiv:
+    papers_table: arxiv_papers
+    use_vector_rpc: true
+    vector_rpc: match_arxiv_papers
+    vector_rpc_exact: match_arxiv_papers_exact
+    use_bm25_rpc: true
+    bm25_rpc: match_arxiv_papers_bm25
+    sync_table: arxiv_sync_status
+    sync_success_value: success
+    schema: public
+    kind: supabase
+    enabled: true
+    url: https://lyucdwgefyfbmaiopjbk.supabase.co
+    anon_key: sb_publishable_lX-oi64Uxyd7SIVv3_w2Uw_MTOojeKq
