@@ -1,0 +1,1703 @@
+Title: Wasserstein regularity of vorticity solutions to the 2D Navier-Stokes equations
+
+URL Source: https://arxiv.org/pdf/2606.30284v2
+
+Published Time: Wed, 01 Jul 2026 01:17:18 GMT
+
+Number of Pages: 20
+
+Markdown Content:
+# Wasserstein regularity of vorticity solutions to the 2D Navier–Stokes equations 
+
+## Viorel Barbu ∗
+
+Abstract 
+
+We prove herein the absolute continuity and the H¨ older-continuity in the Wasserstein metric Wp, 1 ≤ p < 2, of solutions u to 2 D Navier– Stokes vorticity equations ut − ν∆u + div( K(u)u) = 0 on (0 , ∞) × R2
+
+with L1-initial data in the Wasserstein space Wp(R2). Herein, K is the 2D Biot–Savart operator. In this way, the vorticity flow t → u(t)can be identified with an absolutely continuous curve in the Wasser-stein space Wp(R2). One obtains also a time variation formula for the Boltzmann–Gibbs entropy of the vorticity flow. These results ex-tend to the finite Radon measure initial data and are of interest to describing the dynamic of 2D vortices and its connection with optimal transport theory. 
+
+MSC: 60H15, 47H05, 47J05. 
+
+Keywords: Navier–Stokes equation, vorticity, distributional solu-tion, Wasserstein space, optimal transport. 
+
+# 1 Introduction 
+
+Consider here the 2-D incompressible Navier–Stokes equation 
+
+yt − ν∆y + ( y · ∇ )y = ∇p in (0 , ∞) × R2,
+
+∇ · y = 0 in (0 , ∞) × R2,y(0 , x ) = y0(x), x ∈ R2.
+
+(1.1) 
+
+> ∗
+
+Octav Mayer Institute of Mathematics of Romanian Academy, Ia¸ si, Romania. Email: vbarbu41@gmail.com 
+
+1
+
+> arXiv:2606.30284v2 [math.AP] 30 Jun 2026
+
+Let u = u(t, x ) denote the vorticity of the velocity field y = {y1, y 2},
+
+u(t, x ) = curl y(t, x ) = D1y2(t, x ) − D2y1(t, x ), (t, x ) ∈ (0 , ∞) × R2,
+
+where Dj = ∂∂x j , j = 1 , 2, and the symbol ∇, div refer to spatial derivatives. Equation (1.1) can then be rewritten as the vorticity equation 
+
+ut − ν∆u + div( yu ) = 0 in (0 , ∞) × R2,u(0 , x ) = u0(x) = curl y0(x), x ∈ R2, (1.2) while the velocity field y(t, x ) can be recovered from the vorticity u via the Biot–Savart formula 
+
+y(t, x ) = ( ∇⊥E ∗ u(t))( x), ∀(t, x ) ∈ (0 , ∞) × R2, (1.3) where E is the fundamental solution of the Laplace operator, i.e., 
+
+E(x) = 12π log |x|, x ∈ R2,
+
+and ∗ is the convolution product on R2. The operator 
+
+∇⊥E(x) = (−x2, x 1)2π|x|2 , x = ( x1, x 2) ∈ R2 \ { 0}
+
+is the Biot–Savart kernel. We set 
+
+K(z) = ∇⊥E ∗ z, z ∈ Lm(R2), m ∈ (1 , 2) (1.4) and note (see, e.g., [9], Lemma 2.2) that 
+
+|K(z)|Lq (R2) ≤ C|z|Lm(R2), ∀z ∈ Lm(Rd), (1.5) where m ∈ (1 , 2) and 1 
+
+> q
+
+= 1 
+
+> m
+
+− 12 .
+
+Then, we may write (1.2) as 
+
+ut − ν∆u + div( uK (u)) = 0 in (0 , ∞) × R2,u(0 , x ) = u0(x), x ∈ R2. (1.6) This is a special case of a so called generalized mean-field Fokker–Planck equation with locally integrable singular kernel K (see [2], [3]). 2There is an extensive literature on the well-posedness of the vorticity equation (1.6) with initial data u0 a Radon measure and, implicitly, on the Navier–Stokes equation (1.1) in the spaces Lp((0 , ∞) × R2) (see, e.g., [8], [9], [11]). It should be mentioned also that (see [4]) there is a probabilistic interpretation of equation (1.6) in terms of the McKean–Vlasov stochastic differential equation 
+
+dX (t) = K(u(t, ·))( X(t)) dt + √2ν dW (t), t ≥ 0,X(0) = X0, (1.7) defined on a probability space (Ω , F, P) with the normal filtration ( Ft)t≥0
+
+and 2-D ( Ft)-Brownian motion W (t), where 
+
+u(t, x )dx = P ◦ X(t)−1(dx ); t > 0, u 0(dx ) = P ◦ X−10 (dx ). (1.8) More precisely, if u is a distributional solution to (1.6), then there is a unique strong solution to the stochastic differential equation (1.7) such that (1.8) holds (see [4], Theorem 4.5). If the initial data u0 is the space M(R2) of finite Radon measures on R2
+
+(in particular, if u0 ∈ L1(R2)), then there is a mild solution u to the vorticity equation (1.6) which is w∗ − M (R2) continuous on [0 , ∞), smooth for t > 0and for all r ≥ 1 the function t → ∥ u(t)∥Lr (R2) is singular of order t1  
+
+> r−1
+
+in origin. Moreover, the mild solution u is unique if the atomic part of u0 is zero ([8], [9]) (in particular, if u0 ∈ L1(R2)). Herein, we make precise the regularity of u = u(t) on [0 , ∞) by showing that, if u0 is a probability density or, more generally, a probability measure in the Wasserstein space Wp(R2)with 1 ≤ p < 2, then u(t) ∈ Wp = Wp(R2), ∀t > 0, and the function t → u(t)is absolutely continuous and H¨ older– 
+
+
+
+1 − 1
+
+> p
+
+
+
+continuous in the Wasserstein metric Wp. This result – which by our knowledge is new in literature – was obtained by interpreting the vorticity equation (1.6) as a continuity equation of the form ut + div( vu ) = 0, with the Lpu vector field v = −ν∇(log u) + 
+
+K(u). It should mention, however, that for the 2D Euler equation such a result in W2 follows directly by Youdovich’s work [14] on the existence and uniqueness for L∞-initial data. As it is well known, the Wasserstein topology is weaker than that given by the total variation distance, but it is, however, more appropriate to represent various PDE as gradient flows and it is closely related to the optimal transport theory ([12], [13]). One should emphasize, however, that the notions of absolute continuity and H¨ older continuity for 3a function u : [0 , T ] → Wp(Rd) is neither identical nor comparable with the corresponding concepts for Lq(Rd)-valued function on [0 , T ]. The Wasserstein distances were already successfully used in fluid dynamics as a weak measure for vortex concentration to describe the dynamics of vorticity flow with the initial state concentrated around a finite number of distinct points in R2 ([7]). 
+
+Notations. Lp(Rd), 1 ≤ p ≤ ∞ (denoted Lp) is the space of all Lebesgue measurable and p-integrable functions on Rd, with the standard norm | · | p.(·, ·)2 denotes the inner product in L2. By Lp 
+
+> loc
+
+we denote the correspon-ding local space. For any open set O ⊂ Rd let W k,p (O), k ≥ 1, denote the standard Sobolev space on O and by W k,p  
+
+> loc
+
+(O) the corresponding local space. We set W 1,2(O) = H1(O), W 2,2(O) = H2(O), H10 (O) = {u ∈ H1(O),u = 0 on ∂O} , where ∂O is the boundary of O. By H−1 = H−1(Rd) we denote the dual space of H1(Rd). C∞ 
+
+> 0
+
+(O) is the space of infinitely differen-tiable real-valued functions with compact support in O and D′(O) is the dual of C∞ 
+
+> 0
+
+(O), that is, the space of Schwartz distributions on O. By Cb(R), we denote the space of continuous and bounded functions on Rd. We shall denote by M(Rd) the space of all finite Radon measures on Rd with the total variation norm denoted by ∥ · ∥ 1. Given a Banach space X and 0 ≤ t0 < T ≤∞, we denote by C([ t0, T ]; X ) the space of all continuous X -valued functions on [ t0, T ]. For 1 ≤ p ≤ ∞ , we shall denote by Lp(t0, T ; X ) the space of X -valued, Lp-Bochner integrable functions on ( t0, T ). If X1, X 2 are two Banach spaces, we shall denote by L(X1, X 2) the space of linear continuous operators from X1 to X2. By P(Rd) we denote the set of all probability measures on 
+
+Rd and Pa(Rd) is the set of all probability densities on Rd, that is, 
+
+Pa(Rd) = 
+
+
+
+ρ ∈ L1(Rd); ρ ≥ 0, a.e. in Rd;
+
+Z
+
+> Rd
+
+ρ(x)dx = 1 
+
+
+
+. (1.9) The Wasserstein space of order p on Rd, d ≥ 1, denoted Wp(Rd) is the set 
+
+Pp(Rd) = 
+
+
+
+μ ∈ P (Rd); 
+
+Z
+
+> Rd
+
+|x|pμ(dx ) < ∞
+
+
+
+(1.10) equipped with the distance 
+
+Wp(μ, ν ) = 
+
+
+
+inf 
+
+> λ∈Π( μ,ν )
+
+Z
+
+> Rd
+
+|x − y|pdλ (x, y )
+
+ 1
+
+> p
+
+= inf 
+
+n
+
+E (|X − Y |p) 1 
+
+> p
+
+; LX = μ, LY = ν
+
+o
+
+.
+
+(1.11) 4Herein, Π( μ, ν ) is the set of all probability measures λ on Rd × Rd with first marginal μ and second marginal ν, that is, λ(B×Rd)= μ(B), λ(Rd×B)= ν(B)for each Borelian set B ⊂ Rd; E stands for expectation and X, Y are random variables with the laws LX and LY , respectively. For p = 1, the Wasser-stein distance W1 is derived from the optimal transport problem (the Monge– Kantorovich problem ) and became very popular in the last decades for its applications in statistical mechanics, stochastic analysis and theory of gra-dient flows. (See [12], [13].) It should be mentioned that the convergence of a sequence {μn} ⊂ Wp(Rd) is the usual weak ∗-convergence in M(Rd) plus the convergence of p-order moments R  
+
+> Rd
+
+|x|pμn(dx ) which implies the tightness of {μn}. The distance Wp(μ, ν ) can be interpreted also as a weak measure of concentration of measure μ with respect to a given measure ν, a concept with deep implications in fluid dynamics. Given a function (curve) u : [ t0, T ] → Wp(Rd), one defines the speed 
+
+(or metric derivative ) of u at t as (see [12]) 
+
+|u′|(t) = lim 
+
+> ε→0
+
+1
+
+|ε| Wp(u(t + ε), u (t)) , t ∈ [t0, T ], (1.12) provided this limit exists. The function u : [ t0, T ] → Wp(Rd) is said to be absolutely continuous if there is g ∈ L1(t0, T ) such that Wp(u(t), u (s)) ≤ R ts g(τ )dτ , for all t0 ≤ s < t ≤ T . We shall denote by AC ([ t0, T ]; Wp) the space of absolute continuous functions u : [ t0, T ] → Wp(Rd). The function u is said to be H¨ older −q
+
+continuous on [ t0, T ] if Wp(u(t), u (s)) ≤ C|t − s|q, for all t0 < s ≤ t ≤ T . We also note that, if u ∈ AC ([ t0, T ]; Wp(Rd)), then |u′| ∈ L1(t0, T ) (see [1], p. 24). Taking into account that Wp(u(t), u (t + h)) represents the minimal cost for moving the measure u(t)dx to u(t + h)dx , the above concepts of continuity for the function t → u(t) in the space Wp(Rd) should be interpreted in this meaning, that is, of optimal transport processes. Given a probability density ρ ∈ P a(Rd), its Boltzmann–Gibbs entropy ,also called continuous entropy of ρ, is defined as 
+
+S(ρ) = −
+
+Z
+
+> Rd
+
+ρ(x) log ρ(x)dx. (1.13) In the following, we shall mainly use definition (1.11) in the special case where d = 2 and μ and ν are probability densities on R2, that is μ = ρ1dx ,
+
+ν = ρ2dx , where ρ1, ρ 2 ∈ P a(R2). 52 Mild solutions to the vorticity equation (1.6) 
+
+We shall briefly recall herein the basic existence results for mild solutions of equation (1.6) with main reference [9] (see, also, [5], [8], [11] for later improvements). A function u ∈ Lr1
+
+> loc
+
+(0 , ∞; Lr2 ), r 1, r 2 ≥ 1, is called a mild solution to 
+
+(1.6) if it is a solution to the integral equation 
+
+u(t) = eνt ∆u0 − div 
+
+Z t
+
+> 0
+
+eν(t−s)∆ (K(u(s)) u(s)) dx, t > 0, (2.1) where et∆ is the heat semigroup in R2, which is well defined on all Lp,1 ≤ p ≤ ∞ . (If u0 ∈ M (R2), then ∥et∆u0∥Lp ≤ Ct −1+ 1 
+
+> p
+
+∥u0∥1, ∀t > 0, for all p > 1.)
+
+Proposition 2.1. ([9]) Assume that u0 ∈ M (R2). Then, equation (1.6) has a mild solution u : [0 , ∞) → M (R2) which is t-continuous on [0 , ∞) in the 
+
+w∗-topology of M(R2) and satisfies 
+
+(i) u ∈ C([0 , ∞); Lq) for 1 ≤ q < ∞,
+
+|u(t)|r ≤ Crt−1+ 1 
+
+> r
+
+∥u0∥1, ∀t > 0, r ∈ [0 , ∞). (2.2) 
+
+The solution u is unique in this class of functions if ∥(u0)pp ∥1 is sufficiently small. Moreover, the solution u is smooth for t > 0,
+
+|Dkt Djxu(t, x )|r ≤ Cr t1     
+
+> r−k−j
+> 2−1
+> p
+
+∥u0∥1, ∀(t, x ) ∈ (0 , ∞) × R2, (2.3) 
+
+for all r ∈ [1 , ∞] and k, j = 0 , 1, ..., and 
+
+Z
+
+> R2
+
+u(t, x )dx =
+
+Z
+
+> R2
+
+u0(dx ), ∀t > 0. (2.4) Here, ( u0)pp is the atomic part of the measure u0 ∈ M (R2). In particular, for u0 ∈ L1 there is a unique solution u to (1.6) which satisfies 
+
+u ∈ C(0 , ∞; Lq), ∀q ≥ 1, (2.5) 
+
+|u(t)|r ≤ Cr t1  
+
+> r−1
+
+|u0|1, ∀t ≥ 0, r ≥ 1. (2.6) (In [8], it was proved for any initial data u0 ∈ M (R2) and T > 0 the unique-ness in the class u ∈ C((0 , T ); L1 ∩ L∞) ∩ L∞(0 , T ; L1) with the property that 
+
+u(t) → u0 weak ∗ in M(R2) as t → 0.) 6Moreover, by (2.4) we see that if u0 ∈ P a, then 
+
+u(t) ∈ P a(R2), t ≥ 0, (2.7) and this extends to all u0 ∈ P (R2). For u0 ∈ M (R2), the solution u to (1.6) expressed as (see Theorem 4.3 in [9]) 
+
+u(t, x ) = 
+
+Z
+
+> R2
+
+Γ( t, x ; 0 , y )( u0)( dy ), (t, x ) ∈ (0 , ∞) × R2, (2.8) where the function Γ ≡ Γv(t, x ; s, ξ ) is the fundamental solution to the linear parabolic operator 
+
+Lv(u) = ut − ν∆u + ( u · ∇ )v, (t, x ) ∈ (0 , ∞) × R2.
+
+We have Γv ≥ 0; 
+
+Z
+
+> R2
+
+Γv(t, x ; s, ξ )dξ = 1 , 0 ≤ s ≤ t < ∞, x ∈ R2,
+
+lim 
+
+> t↓s
+
+Z
+
+> R2
+
+Γv(t, x ; s, ξ )f (ξ)dξ = f (x), ∀f ∈ Cb(R2).
+
+(2.9) 
+
+C1(t − s)−1 exp( −C2|x − y|2(t − s)−1) ≤ Γ( t, x ; s, y )
+
+≤ C3(t − s)−1 exp( −C4|x − y|2(t − s)−1), t ≥ s ≥ 0, (2.10) where Cj , j = 1 , 2, 3, 4, depends of ∥u0∥1.It should be mentioned that the estimates (2.2)–(2.3), as well as the conservation of the vorticity formula (2.4), follow directly by (2.8)–(2.10). Everywhere in the following, by solution to the vorticity equation (1.6) we mean a function u : [0 , ∞) × R2 → R, which has the properties mentioned in Proposition 2.1, that is, t-continuous in the w∗–topology of M(R2) and which satisfies (2.2)–(2.4) ((2.5)–(2.6), respectively, if u0 ∈ L1). 
+
+# 3 The main result 
+
+Given u0 ∈ P a(Rd), we set 
+
+I(u0) = 
+
+Z
+
+> R2
+
+u0(x) log( u0(x)) dx = −S(u0), (3.1) 7where S(u0) is the Boltzmann–Gibbs entropy (1.13). We note that the func-tion I : L1 → ] − ∞ , +∞] is convex and ̸ ≡ +∞. Moreover, by Lemma A1 in Appendix, we have for α ∈  p+2 2 , 1,
+
+I(u0) ≥ − Cα(Mp(u0) + 1) α, ∀u0 ∈ P p(R2) ∩ P a(R2), (3.2) where 
+
+Mp(u0) = 
+
+Z
+
+> R2
+
+u0(x)|x|pdx. (3.3) 
+
+Theorem 3.1. Let u0 ∈ P a(R2) be such that 
+
+u0 ∈ P p(R2), |I(u0)| < ∞, (3.4) 
+
+where 1 ≤ p < 2. Let u be the solution to the vorticity equation (1.6) . Then, 
+
+u(t) ∈ Wp(R2), ∀t ≥ 0, (3.5) 
+
+u ∈ AC ([0 , T ]; Wp(R2)) , ∀T > 0, (3.6) 
+
+and u = u(t) is H¨ older − 1 
+
+> p′
+
+continuous in Wp metric. Moreover, we have, for 
+
+α ∈  p−22 , 1,
+
+Z T
+
+> 0
+
+(|u′|(t)) pdt ≤ CT
+
+
+
+(|I(u0)|)p 
+
+> 2
+
++ ( Mp(u0) + 1) αp  
+
+> 2
+
++ |u0|p+1 1
+
+
+
+, ∀T > 0, (3.7) 
+
+Wp(u(t), u (s)) ≤ (t − s) 1
+
+> p′
+
+Z ts
+
+(|u′|(τ )) pdτ 
+
+ 1
+
+> p
+
+, 0 ≤ s ≤ t < ∞, (3.8) 
+
+ddt I(u(t)) + ν
+
+Z
+
+> R2
+
+|∇ u(t, x )|2
+
+u(t, x ) dx ≤ 0, a.e. t > 0, (3.9) 
+
+ddt S(u(t)) ≥ 4π exp( −S(u(t))) , a.e t > 0. (3.10) Here, |u′|(t) is the speed (metric derivative) of the curve u : [0 , ∞) → Wp(R2)(see (1.12)), 
+
+|u′|(t) = lim 
+
+> ε→0
+
+Wp(u(t), u (t + ε)) 
+
+|ε| , t ≥ 0, (3.11) and 1 
+
+> p′
+
+= 1 − 1 
+
+> p
+
+.Theorem 3.1 extends to solutions to (1.6) with probabilistic measures initial data u0. Namely, we have 8Theorem 3.2. Let u0 ∈ P p(R2), 1 ≤ p < 2, and let u be a solution to the vorticity equation (1.6) . Then, for all 0 < δ < T < ∞,
+
+u ∈ AC ([ δ, T ]; Wp(R2)) (3.12) 
+
+and u = u(t) is H¨ older − 1 
+
+> p′
+
+continuous on [δ, T ] in the Wasserstein metric 
+
+Wp. Moreover, (3.8) –(3.10) hold on every interval [δ, T ].
+
+Theorem 3.2 follows by Theorem 3.1 by the smoothing effect of the vortic-ity flow t → u(t) mentioned in Proposition 2.1, part (2.3), but the complete proof will be given in Section 4. A typical example herein is u0 = aδ x0 , the Dirac measure with mass a and the support {x0} ∈ R2, which generates a unique solution u to (1.6), the so called Lamb–Oseen vortex (see [8]). Theorem 3.1, as well as Theorem 3.2, identify the vorticity flow u = u(t)to the Navier–Stokes equation (1.1) as an absolutely continuous and H¨ older– continuous curve in the Wasserstein space Wp(R2), where p ∈ [1 , 2). In particular, it follows that the vorticity flow t → u(t) is smooth in origin in the Wp–topology, which is stronger than the w∗–topology. As already emphasized, the Wasserstein distances are closely related to optimal transport, processes and it is also suitable to describing instanta-neous interactions at large spatial distance in Rd. In particular, it is suitable to represent the dynamics which have an infinite speed of propagation, as is the case with the vorticity equation. A nice illustration in this direction is the work [7] on the evolution and persistence of concentrated vortices in 2D Navier–Stokes flows. In this case, the Wasserstein distance is used to modelling the concentration of the vorticity field that evolves from an initial finite number of point mass vortices. From this perspective, the weak regu-larity given by Theorem 3.1 describes the smooth evolution of the vorticity flow u(t) measured on large spatial distances. Moreover, compared with the 
+
+M2(R2)–regularity, Theorem 3.1 implies in addition that the flow t → u(t) is absolutely continuous in the metric Wp if u0 ∈ P ∗(R2). It is easily seen that this remains true for u0 = u10 + NP
+
+> j=1
+
+aj δx0 
+
+> j
+
+, where u10 ∈ P p(R2) ∩ L1, aj ∈ R,and δx0 
+
+> j
+
+are Dirac masses located at x0 
+
+> j
+
+∈ R2. Indeed, we have by inequality (4.2) below, 
+
+Wp(u(t), u (0)) = Wp(u(t), δ xj ) = 
+
+Z 
+
+> R2
+
+|x − x0 
+
+> j
+
+|pu(t, x )dx 
+
+ 1
+
+> p
+
+≤ Cp
+
+
+
+1 + t12
+
+
+
+,
+
+∀t > 0,
+
+and, therefore, u ∈ AC ([0 , T ]; Wp(R2)) , ∀T > 0. 9Inequality (3.10) obtained in the proof of Theorem 3.1 as a byproduct of analysis on the continuity equation equivalent with (1.6), gives the time variation of Boltzmann–Gibbs entropy (entropy production) for the vorticity flow corresponding to the 2D Navier–Stokes equation. 
+
+Remark 3.3. In Theorem 3.1 and Theorem 3.2 the case p = 2, which cor-responds to the 2 −Wasserstein distance W2 and is important for the repre-sentation of equation (1.6) as a gradient flow (see [1], [9]), remains open. 
+
+# 4 Proof of Theorem 3.1 
+
+We shall prove Theorem 3.1 following several steps The first one is 
+
+Claim 1. u(t) ∈ P p(R2), ∀t ≥ 0.
+
+Proof. By (2.8)–(2.10) we have 
+
+Z
+
+> R2
+
+u(t, x )|x|pdx =
+
+Z
+
+> R2×R2
+
+Γ( t, x, 0, y )|x|pu0(y)dydx 
+
+≤ Ct −1
+
+Z
+
+> R2
+
+|x|p exp( −C|x − y|2t−1)u0(y)dydx 
+
+≤ Ct −1
+
+Z
+
+> R2
+
+u0(y)dy 
+
+Z
+
+> R2
+
+(|y|p + |x − y|p) exp( −C|x − y|2t−1)dx 
+
+≤ Ct −1
+
+Z
+
+> R2
+
+|y|pu0(y)dy 
+
+Z
+
+> R2
+
+exp( −D|x − y|2t−1)dx 
+
++Ct −1
+
+Z
+
+> R2
+
+u0(y)dy 
+
+Z
+
+> R2
+
+|x − y|p exp( −C|x − y|2t−1)dx. 
+
+(4.1) (We have denoted by the same symbol C several positive constants indepen-dent of u0.) Taking into account that u0 ∈ P p(R2) ∩ P a(R2), we get 
+
+Z
+
+> R2
+
+u(t, x )|x|pdx ≤ C
+
+Z
+
+> R2
+
+u0(y)|y|pdy 
+
+Z
+
+> R2
+
+|z|2 exp( −C|z|2)dx 
+
++Ct p
+
+> 2
+
+Z
+
+> R2
+
+|z|2 exp( −C|z|2)dz ≤ C(Mp(u0) + tp 
+
+> 2
+
+), ∀t ≥ 0,
+
+(4.2) as claimed. 10 Claim 2. We have 
+
+I(u(t)) + ν
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+|∇ u(s, x )|2
+
+u(s, x ) dxds ≤ I(u0), ∀t ≥ 0. (4.3) 
+
+Proof. Let φn(x) = η
+
+|x|2
+
+> n
+
+
+
+, x ∈ R2, where 
+
+η ∈ C2([0 , ∞)) , η (r) = 1 ∀r ∈ [0 , 1] , η (r) = 0 ∀r ≥ 2, 0 ≤ η(r) ≤ 1. (4.4) Taking into account that by (2.3) u is smooth on (0 , ∞) × R2, by (1.6) we have, for all ε > 0, 
+
+Z
+
+> R2
+
+ut(t, x ) log( u(t, x ) + ε)φn(x)dx +
+
+Z
+
+> R2
+
+∇u(t, x )·∇ (φn(x) log( u(t, x ) + ε)) dx 
+
+=
+
+Z
+
+> R2
+
+(K(u(t, x )) ·∇ u(t, x )) φn(x) log( u(t, x ) + ε)dx, ∀t > 0,
+
+because div K(u(t, x )) = 0 on (0 , ∞) × R2. This yields 
+
+ddt 
+
+Z
+
+> R2
+
+h(u(t, x ) + ε)φn(x)dx +
+
+Z
+
+> R2
+
+|∇ u(t, x )|2
+
+u(t, x ) + ε φn(x)dx 
+
++
+
+Z
+
+> R2
+
+∇h(u(t, x ) + ε)·∇ φn(x)dx 
+
+=
+
+Z
+
+> R2
+
+(K(u(t, x )) ·∇ h(u(t, x ) + ε)) φn(x)dx, 
+
+= −
+
+Z
+
+> R2
+
+h(u(t, x ) + ε)) K(u(t, x )) ·∇ φn(x)dx, a.e. ∀t > 0,
+
+(4.5) where h is the function 
+
+h(r) = r(log r − 1) , ∀r > 0.
+
+We have 
+
+|∇ φn(x)| ≤ 2|η′|∞
+
+√n , ∇φn(x) = 0 , ∀x ∈ Σn,
+
+|∆φn(x)| ≤ 4
+
+n(|η”|∞ + |η′|∞), ∀x ∈ Σn,
+
+(4.6) where Σ n = {x; 0 ≤ | x| ≤ √n} ∪ { x; |x| > 2√n}.
+
+11 We set 
+
+Hε 
+
+> 1
+
+(t) = −
+
+Z
+
+> R2
+
+∇h(u(t, x ) + ε)·∇ φn(x)dx (4.7) =
+
+Z
+
+> R2
+
+h(u(t, x ) + ε)∆ φn(x)dx, t > 0,Hε 
+
+> 2
+
+(t) = −h(u(t, x ) + ε)K(u(t, x )) ·∇ φn(x)dx, t > 0. (4.8) By (4.5) we have 
+
+ddt 
+
+Z
+
+> R2
+
+h(u(t, x ) + ε)φn(x)dx +
+
+Z
+
+> R2
+
+|∇ u(t, x )|2
+
+u(t, x ) + ε φn(x)dx = Hε 
+
+> 1
+
+(t) + Hε 
+
+> 2
+
+(t),
+
+∀t > 0.
+
+(4.9) Taking into account that, for some 0 < α < 1 and C > 0, 
+
+|h(r)| ≤ C  rαI[0 <r ≤1] (r) + rα+1 I[r≥1] (r) , ∀r ≥ 0,
+
+and that by (2.2) 
+
+|u(t)|1+ α ≤ Ct −α|u0|1, ∀t > 0,
+
+it follows by the Lebesgue convergence theorem that lim  
+
+> ε→0
+
+Hε 
+
+> 1
+
+(t) = −
+
+Z
+
+> R2
+
+u(t, x ) log u(t, x )∆ φn(x)dx, ∀t > 0. (4.10) Similarly, taking into account that by (1.5) 
+
+|K(u(t)) |q ≤ C|u(t)|r ≤ Ct 1 
+
+> r−1
+
+|u0|1,
+
+for all r ∈ (1 , 2) and 1 
+
+> q
+
+= 1 
+
+> r
+
+− 12 , it follows that lim  
+
+> ε→0
+
+Hε 
+
+> 2
+
+(t) = −
+
+Z
+
+> R2
+
+u(t, x ) log( u(t, x ))( K(u(t, x )·∇ φn(x))) dx, ∀t > 0. (4.11) By (4.9), we have 
+
+Z
+
+> R2
+
+h(u(t, x ) + ε)φn(x)dx + ν
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+|∇ u(s, x )|2
+
+u(s, x ) + ε φn(x)dxds 
+
++
+
+Z
+
+> R2
+
+h(u0(x) + ε)φn(x)dx +
+
+Z t
+
+> 0
+
+(Hε 
+
+> 1
+
+(s) + Hε 
+
+> 2
+
+(s)) dx, ∀t ≥ 0.
+
+(4.12) 12 We note that, for 0 < α < 1, we have 
+
+z log z ≥ − Cαzα, ∀z ≥ 0,
+
+and this yields 
+
+h(u(t, x ) + ε) + Cα(u(t, x ) + ε)α ≥ 0, a.e. ( t, x ) ∈ (0 , ∞) × R2.
+
+Then, by Fatou’s lemma we have lim inf 
+
+> ε→0
+
+Z 
+
+> R2
+
+h(u(t, x ) + ε)φn(x)dx + Cα
+
+Z
+
+> R2
+
+(u(t, x ) + ε)αφn(x)dx 
+
+
+
+≥
+
+Z
+
+> R2
+
+h(u(t, x )) φn(x)dx + Cα
+
+Z
+
+> R2
+
+(u(t, x )) αφn(x)dx, ∀t > 0.
+
+(4.13) On the other hand, since 0 ≤ (u(t, x ) + ε)αφn(x) ≤ (( u(t, x )) α + 1) φn(x), ∀(t, x ) ∈ (0 , ∞) × R2,
+
+and (u(t)) αφn ∈ L1, ∀t > 0,
+
+we have lim 
+
+> ε→0
+
+Z
+
+> R2
+
+(u(t, x ) + ε)αφn(x)dx =
+
+Z
+
+> R2
+
+(u(t, x )) αφn(s)dx, ∀t > 0,
+
+and so, (4.13) yields lim inf 
+
+> ε→0
+
+Z
+
+> R2
+
+h(u(t, x ) + ε)φn(x)dx ≥
+
+Z
+
+> R2
+
+h(t, x )) φn(x)dx. 
+
+Then, letting ε → 0 in (4.12), we get 
+
+Z
+
+> R2
+
+u(t, x ) log( u(t, x )) φn(x)dx + ν
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+|∇ u(s, x )|2
+
+u(s, x ) φn(x)dxds 
+
+≤
+
+Z
+
+> R2
+
+h(u0(x)) φn(x)dx −
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+u(s, x ) log( u(s, x ))(∆ φn(x)+K(u(s, x )) ·∇ φn(x)) dxds, ∀t ≥ 0.
+
+(4.14) 13 Now, if we let n → ∞ in (4.14), we get by (4.6) 
+
+Z
+
+> R2
+
+u(t, x ) log( u(t, x )) dx + ν
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+|∇ u(s, x )|2
+
+u(s, x ) dxds 
+
+≤
+
+Z
+
+> R2
+
+u0 log( u0)dx = I(u0) < ∞, ∀t ≥ 0,
+
+(4.15) because, by (3.2), we have 
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+|u(s, x ) log( u(s, x ))∆ φn(x)|dx 
+
+≤
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+(( u(s, x ) log u(t, x )) + + ( u(t, x ) log( u(t, x ))) −)|∆φn(x)|dx 
+
+≤ C
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+(( u(s, x )) α + ( u(s, x )) α+1 )|∆φn(x)|dx, 
+
+(4.16) for α ∈ (0 , 1). By (4.6), we have 
+
+Z
+
+> R2
+
+(u(s, x )) α|∆φn(x)|dx ≤
+
+Z 
+
+> Σn
+
+u(s, x )dx 
+
+α Z 
+
+> Σn
+
+|∆φn(x)|1−αdx 
+
+ 11−α
+
+≤ C
+
+Z 
+
+> Σcn
+
+u(s, x )dx 
+
+1
+
+,
+
+where Σ cn = {x; √n ≤ | x| ≤ 2√n}. Since u ∈ L1((0 , T ) × R2), ∀T > 0, we infer that lim 
+
+> n→∞
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+(u(s, x )) α|∆φn(x)|dxds = 0 . (4.17) We also have by (4.8) and (2.2), 
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+(u(s, x )) α+1 |∆φn(x)|dxds ≤ Cn
+
+Z t
+
+> 0
+
+|u(s)|α+1 
+
+> α+1
+
+ds ≤ Cn t1−α|u0|α+1 1 . (4.18) Then, by (4.16)–(4.18) we see that lim 
+
+> n→∞
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+|u(s, x ) log u(s, x )| | ∆φn(x)|dx = 0 . (4.19) Similarly, by (1.5) and (2.2) we have 14 Z t
+
+> 0
+
+Z
+
+> R2
+
+|u(s, x ) log( u(s, x )) | | K(u(s, x )) ·∇ φn(x)|dxds 
+
+≤ Cn
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+(|u(s, x )|α + |u(s, x )|α+1 )|K(u(s, x )) |dx 
+
+≤ Cn
+
+Z t
+
+> 0
+
+(|K(u(s)) |q1 |u(s)|ααq ′ 
+
+> 1
+
++ |K(u(s, x )) |q2 |u(s)|α+1 (α+1) q′
+
+> 2
+
+)ds 
+
+≤ Cn
+
+Z t
+
+> 0
+
+
+
+s 1    
+
+> m1−1
+> q1−α
+
++ s 1   
+
+> m2−1
+> q2−α−1
+
+
+
+ds ≤ Cn ta,
+
+(4.20) where 1 
+
+> qi
+
+= 1 
+
+> mi
+
+− 12 , mi ∈ (1 , 2) , 1
+
+> q′
+> i
+
+= 1 − 1 
+
+> qi
+
+, i = 1 , 2, and α ∈ (0 , 1). Then, for α and mi suitably chosen, a > 0, and so for n → ∞ the left side parts of (4.16) and (4.20) go to zero and, therefore, (4.15) (equivalently (4.3)) follows as claimed. Taking into account that by (3.2) and (4.2) 
+
+I(u(t)) ≥ − Cα(Mp(u(t) + 1)) α ≥ − C1
+
+> α
+
+(Mp(u0) + 1 + tp 
+
+> 2
+
+)α, ∀t ≥ 0, (4.21) for α ∈  p+2 2 , 1, it follows by (4.15) 
+
+ν
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+|∇ u(s, x )|2
+
+u(s, x ) dx ≤ t(|I(u0)| + C1
+
+> α
+
+(Mp(u0) + 1 + tp 
+
+> 2
+
+)α), ∀t ≥ 0, (4.22) for α ∈  p+2 2 , 1.Now, coming back to (4.9) we see by (4.10)–(4.11), that lim 
+
+> ε→0
+
+ ddt 
+
+Z
+
+> R2
+
+h(u(t, x ) + ε)φn(x)dx + ν
+
+Z
+
+> R2
+
+|∇ u(t, x )|2
+
+u(t, x ) + ε φn(x)dx 
+
+
+
+= −
+
+Z
+
+> R2
+
+u(t, x ) log( u(t, x ))(∆ φn(x) + H(u(t, x )) ·∇ φn(x)) dx, ∀t > 0.
+
+Since, by (4.22), by virtue of the Lebesgue convergence theorem, lim 
+
+> ε→0
+
+Z
+
+> R2
+
+|∇ u(t, x )|2
+
+u(t, x ) + ε φn(x)dx =
+
+Z
+
+> R2
+
+|∇ u(t, x )|2
+
+u(t, x ) φn(x)dx, a.e. t > 0,
+
+we get lim 
+
+> ε→0
+
+ ddt 
+
+Z
+
+> R2
+
+h(u(t, x ) + ε)φn(x)dx 
+
+
+
++ ν
+
+Z
+
+> R2
+
+|∇ u(t, x )|2
+
+u(t, x ) φn(x)dx 
+
+= −
+
+Z
+
+> R2
+
+(u(t, x ) log( u(t, x ))(∆ φn(x) + H(u(t, x )) ·∇ φn(x))) dx, a.e. t > 0,
+
+15 which yields 
+
+ddt 
+
+Z
+
+> R2
+
+u(t, x ) log( u(t, x )) φn(x)dx + ν
+
+Z
+
+> R2
+
+|∇ u(t, x )|2
+
+u(t, x ) φn(x)dx 
+
+= −
+
+Z
+
+> R2
+
+u(t, x ) log( u(t, x ))(∆ φn(x) + H(u(t, x )) ·∇ φn(x)) dx, a.e. t > 0.
+
+Hence, by (4.15) it follows that lim 
+
+> u→∞
+
+ddt 
+
+Z
+
+> R2
+
+u(t, x ) log u(t, x )φn(x)dx = ddt I(u(t)) in D′(0 , ∞),
+
+and so, for n → ∞ we infer that the function t → I(u(t)) is absolutely continuous on [0 , ∞) and (3.9) holds, that is, 
+
+ddt I(u(t)) + ν
+
+Z
+
+> R2
+
+|∇ u(t, x )|2
+
+u(t, x ) dx = 0 , a.e. t > 0.
+
+Claim 3. We have 
+
+ν
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+|∇ u(s, x )|p
+
+(u(s, x )) p−1 dxds ≤ tp   
+
+> 2+22−p
+
+ν 2−p
+
+> 2
+
+
+
+|I(u0)|+C1
+
+> α
+
+(Mp(u0)+ p 
+
+> 2
+
+)α
+
+p
+
+> 2
+
+. (4.23) 
+
+Proof. By H¨ older’s inequality, we have 
+
+ν
+
+Z t
+
+> 0
+
+Z 
+
+> R2
+
+|∇ u(s, x )|p
+
+(u(s, x )) p−1 dx 
+
+
+
+ds ≤ ν
+
+Z t
+
+> 0
+
+Z 
+
+> R2
+
+|∇ u(s, x )|2
+
+u(s, x ) dx 
+
+p
+
+> 2
+
+Z 
+
+> R2
+
+u(s, x )dx 
+
+2−p
+
+> 2
+
+ds = ν t 22−p
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+|∇ u(s, x )|2
+
+u(s, x ) dxds 
+
+p
+
+> 2
+
+,
+
+and so, by (4.22) we get (4.23). 
+
+Claim 4. We have, for all p ∈ [1 , 2) ,
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+|K(u(s, x )) |pu(s, x )dxds ≤ Cp t1− p 
+
+> 2
+
+|u0|p+1 1 , ∀t ≥ 0. (4.24) 
+
+Proof. We have, for all r > 1, 
+
+Z
+
+> R2
+
+|K(u(s, x )) |pu(s, x )dx ≤ | K(u(s, x )) |ppr ′ |u(s)|r, ∀s > 0, (4.25) 16 where 1 
+
+> r′
+
+= 1 − 1 
+
+> r
+
+. By (1.5) we have, for all p ∈ [1 , 2) ,
+
+|K(u(s)) |ppr ′ ≤ C|u(s)|pm, ∀s ≥ 0, (4.26) where 1 
+
+> m
+
+= 1 
+
+> pr ′
+
++ 12 = 1
+
+> p
+
+ 1 − 1
+
+> r
+
+ + 12 , m ∈ (1 , 2) .
+
+Then, by (2.2) and (4.25)–(4.26) we get 
+
+Z
+
+> R2
+
+|K(u(s, x )) |pu(s, x )dx ≤ C s − p 
+
+> 2
+
+|u0|p+1 1 , ∀s > 0,
+
+and so (4.24) follows. 
+
+Proof of Theorem 3.1 . (continued) We shall write the vorticity equation (1.6) as the continuity equation 
+
+ut + div( vu ) = 0 in (0 , ∞) × R2,u(0 , x ) = u0(x), x ∈ R2, (4.27) where v = v(t, x ) is the velocity vector field 
+
+v(t, x ) = −ν ∇u(t, x )
+
+u(t, x ) + K(u(t, x )) , (t, x ) ∈ (0 , ∞) × R2.
+
+By (4.24)–(4.25) we know that 
+
+Z T
+
+> 0
+
+Z
+
+> R2
+
+|v(t, x )|pu(t, x )dx ≤ CT (|I(u0)|p 
+
+> 2
+
++( Mp(u0)+1) αp  
+
+> 2
+
++|u0|p+1 1 ),
+
+∀T > 0.
+
+(4.28) Then, by Theorem 1.1.2 in [1] (see, also, Theorem 4.6 in [12]) it follows that, for all T > 0, the function u : [0 , T ] → Wp(R2) is absolutely continuous and the metric derivative |u′|(t) is given by 
+
+|u′|(t) = 
+
+Z 
+
+> Rd
+
+|v(t, x )|pu(t, x )dx 
+
+ 1
+
+> p
+
+, a.e. t ∈ (0 , T ).
+
+Then, by (4.28), it follows (3.7), as claimed. As regards (3.8), which implies the H¨ older continuity in Wp(R2) of u = u(t), it follows by definition (3.11) of the metric derivative |u′|.17 Next, (3.10) follows by (3.9) and the classic logarithmic Sobolev inequality (see, e.g., [6]) exp 
+
+Z 
+
+> R2
+
+z(x) log z(x)dx 
+
+
+
+≤ (4 πe )−1
+
+Z
+
+> R2
+
+|∇ z(x)|2
+
+z(x) dx, 
+
+for all z ∈ H1(R2) ∩ P a(R2). 
+
+Proof of Theorem 3.2 .
+
+As mentioned earlier, Theorem 3.2 is a direct consequence of smoothing effect of the vorticity flow t → u(t) on initial data u0 ∈ M (R2). Namely, let 
+
+u0 ∈ P p(R2) and let u be the corresponding solution to (1.6). Let δ > 0 be ar-bitrarily small, but fixed. As seen in Proposition 2.1, u = u(t, x ) is smooth on (0 , ∞)×R2 and, in particular, it follows that u(δ) ∈ P a(R2). Moreover, by the integral representation formula (2.8) it follows as in the proof of Claim 1 (see (4.1)–(4.2)) that u(t) ∈ P p(R2) for all t ≥ 0 and, therefore, u(δ) ∈ P p(R2). Furthermore, by (2.2) it follows that u(δ) ∈ Lα+1 for all α ∈ [0 , ∞) and this implies (see Remark 5.1 in Appendix) that |I(u(δ)) | < ∞. Then, applying Theorem 3.1 with the initial data u(δ) on the interval ( δ, ∞), we get the desired result. 
+
+# 5 Appendix 
+
+Lemma A.1. Let I : L1 → ] − ∞ , +∞] be the function (3.1) . Then, for each 
+
+α ∈  p+2 2 , 1 there is Cα > 0 such that 
+
+I(u0) ≥ − Cα(Mp(u0) + 1) α, ∀u0 ∈ D(I) = Pa(R2) ∩ P p(R2). (5.1) Proof. The argument is similar to that used in [10] for p = 2, and so it will be sketched only. Namely, we note first that, for α ∈ (0 , 1), (z log z)− ≤ C1 
+
+> α
+
+zα, ∀z ≥ 0,
+
+where C1 
+
+> α
+
+is independent of z. This yields, for u0 ∈ D(I),
+
+Z
+
+> R2
+
+(u0(x) log u0(x)) −dx ≤ C1
+
+> α
+
+Z
+
+> R2
+
+uα 
+
+> 0
+
+(x)dx 
+
+≤ C1
+
+> α
+
+Z 
+
+> R2
+
+u0(x)(1 + |x|p)dx 
+
+α Z 
+
+> R2
+
+(1 + |x|p)− α 
+
+> 1−α
+
+dx 
+
+1−α
+
+≤ C1
+
+> α
+
+(Mp(u0) + 1) α
+
+Z ∞
+
+> 0
+
+r dr 
+
+(1 + rp) α
+
+> 1−α
+
+1−α
+
+≤ C1 
+
+> α
+
+C2
+
+> α
+
+(Mp(u0) + 1) α,
+
+(5.2) 18 where 0 < C 2 
+
+> α
+
+< ∞ for α ∈
+
+ 22+ p , 1
+
+
+
+.Then, taking into account that 
+
+I(u0) = 
+
+Z
+
+> R2
+
+(( u0 log u0)+ − (u log u0)−)dx, 
+
+(5.1) holds. 
+
+Remark 5.1. In particular, it follows by (5.2) that 
+
+|I(u0)| =
+
+Z
+
+> R2
+
+(( u0 log u0)+ + ( u0 log u0)−)dx < ∞
+
+if u0 ∈ P p(R2) ∩ La+1 for some a > 0.
+
+# References 
+
+[1] Ambrosio, L., Gigli, N., Savar´ e, G., Gradient Flows in Metric Spaces and in the Space of Probability Measures , Lectures in Mathematics, ETH Z¨ urich, Birkh¨ auser, 2008. [2] Barbu, V., Nonlinear Fokker–Planck equations with singular integral drifts and McKean–Vlasov SDES, J.Evol. Equ. , vol. 26, 70 (2026). [3] Barbu, V., R¨ ockner, M., Nonlinear Fokker-Planck Flows and Their Pro-babilistic Counterparts , Lecture Notes in Mathematics, 2353, Springer, 2024. [4] Barbu, V., R¨ ockner, M., Zhang, D., Uniqueness of distributional solu-tions to the 2D vorticity Navier–Stokes equations and their associated Markov processes, J. European Math. Soc. , 2025. [5] Ben-Artzi, M., Global solutions of two dimensional Navier–Stokes and Euler equations, Arch. Rat. Mech. Anal. , 128 (1994), 329-358. [6] Brigati, G., Dolbeault, J., Simonov, N., Logarithmic Sobolev Inequali-ties: A Review on Stability and Instability Results, La Matematica , vol. 5, 5 (2026). https://doi.org/10.1007/s44007-025-00180-y [7] Ceci, S., Seis, Ch., On the dynamics of vortices in viscous 2D flows, 
+
+Math. Annalen , 388 (2024), 1937-1967. 19 [8] Gallagher, I., Gallay, T., Uniqueness for the two dimensional Navier– Stokes equations with a measure as initial vorticity, Math. Annalen , 332 (2025), 287-327. [9] Giga, Y., Miyakawa, T., Osada, H., Two dimensional Navier–Stokes flows with measures as initial velocity, Archives Rat. Mech. Anal. , 104 (1988), 223-250. [10] Jordan, R., Kinderlehrer, P., Otto, F., The variational formulation of the Fokker–Planck equation, SIAM J. Math. Anal. , 29 (1) (1998), 1-17. [11] Kato, T., The Navier–Stokes equations for an incompressible fluid in 
+
+R2, with a measure as the initial velocity, Different. Integral Eqns. , 7 (1994), 949-966. [12] Santambrogio, F., {Euclidean metric, metric, and Wasserstein } gra-dient flows: an overview, Bull. Math. Sci. , 7 (2017), 87-154. https://doi.org/10.1007/s13373-017-0101-1 [13] Villani, C., Optimal Transport. Old and New , Springer, 2009. [14] Youdovich, V.I., Uniqueness theorem for the basic nonstationary pro-blem in the dynamics of an ideal incompressible fluid, Math. Research Lett. , 2 (1995), 27-38. 20

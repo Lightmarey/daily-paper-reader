@@ -1,0 +1,2658 @@
+Title: Global solutions to the Navier–Stokes equations with large vertical velocities in Ḃ_∞,σ^-1(ℝ^3)
+
+URL Source: https://arxiv.org/pdf/2607.04918v1
+
+Published Time: Tue, 07 Jul 2026 03:09:25 GMT
+
+Number of Pages: 17
+
+Markdown Content:
+GLOBAL SOLUTIONS TO THE NAVIER–STOKES EQUATIONS WITH LARGE VERTICAL VELOCITIES IN ˙B−1
+
+> ∞,σ
+
+(R3)
+
+MIKIHIRO FUJII 
+
+Abstract. In this paper, we consider the Cauchy problem for the 3D incompress-ible Navier–Stokes equations and prove the existence of unique global solutions in the framework that the horizontal component of the velocity field is small in some critical Besov spaces including the classical Fujita–Kato class, while the vertical component is large in the wide class ˙B−1 
+
+> ∞,σ
+
+(R3) (1 ⩽ σ < ∞) where the Navier– Stokes equations are known to be ill-posed in. 
+
+1. Introduction 
+
+Let us consider the incompressible Navier–Stokes equations on the three dimen-sional whole space: 
+
+
+
+∂tu − ∆u + ( u · ∇ )u + ∇P = 0 , t > 0, x ∈ R3,
+
+div u = 0 , t ⩾ 0, x ∈ R3,u(0 , x ) = a(x), x ∈ R3,
+
+(1.1) where u = ( u1(t, x ), u 2(t, x ), u 3(t, x )) : [0 , ∞) × R3 → R3 and P = P (t, x ) : (0 , ∞) ×
+
+R3 → R3 are the unknown velocity and pressure of the fluid, respectively, whereas 
+
+a = ( a1(x), a 2(x), a 3(x)) : R3 → R3 denotes the given initial velocity satisfying the compatibility condition div a = 0 . It is well-known that (1.1) has the invariant scaling; if u and p are solutions to (1.1), then uλ(t, x ) := λu (λ2t, λx ) and P λ(t, x ) := 
+
+λ2P (λ2t, λx ) also solve (1.1) for all λ. A Banach space X ⊂ S ′(R3) is said to be a scaling critical space if uλ(0 , ·) X = ∥u(0 , ·)∥X for all λ. It was Fujita and Kato [7] who initiated the constructing unique local solutions for large data and global solutions for small data in the critical Sobolev space ˙H 12 (R3). Since this pioneering work, it has been widely known as the Fujita–Kato principle that finding unique solutions in scaling critical spaces is important. Kato proved improved the functional framework of [10] to a wider critical space L3(R3). Leter, [3, 14] refined results of [10] and proved the global well-posedness of (1.1) for small data in the scaling critical Besov spaces ˙B3/p −1 
+
+> p,q
+
+(R3) for all 1 ⩽ p < ∞ and 1 ⩽ q ⩽ ∞. More precisely, there exists a positive constant δ = δ(p, q ) such that for any a ∈ ˙B3/p −1 
+
+> p,q
+
+(R3)
+
+with div a = 0 , (1.1) possesses a unique global solution 
+
+u ∈ eC
+
+
+
+[0 , ∞); ˙B 3  
+
+> p−1
+> p,q
+
+(R3)
+
+
+
+∩ fL1
+
+
+
+0, ∞; ˙B 3  
+
+> p+1
+> p,q
+
+(R3)
+
+
+
+(1.2) and it holds 
+
+∥u∥Ep,q (0 ,∞) ⩽ C∥u0∥ ˙B 
+
+> 3
+> p−1
+> p,q
+
+,
+
+2020 Mathematics Subject Classification. 35Q35,76D05. 
+
+Key words and phrases. Navier–Stokes equations; well-posedness; critical Besov spaces.  
+
+> 1
+> arXiv:2607.04918v1 [math.AP] 6 Jul 2026 2M. FUJII
+
+where we have defined 
+
+∥u∥Ep,q (T1,T 2) := ∥u∥gL∞(T1,T 2; ˙B  
+
+> 3
+> p−1
+> p,q )
+
++ ∥u∥fL1(T1,T 2; ˙B  
+
+> 3
+> p+1
+> p,q )
+
+, 0 ⩽ T1 < T 2 ⩽ ∞,
+
+and the Ep,q (T1, T 2) denote the set of all solenoidal distributions with the correspond-ing norm finite. Here, the function spaces in (1.2) are so-called the Chemin–Lerner spaces to be defined in Section A. Here, the above result does not contain the end point case p = ∞, while Koch and Tataru [11] proved the global well-posedness for small data in BM O −1(R3), which is the largest critical space ensuring the well-posedness of (1.1) ever known. However, it was proven by [2, 16, 17] that (1.1) is ill-posed in all end point critical Besov spaces ˙B−1
+
+> ∞,q
+
+(R3) for all 1 ⩽ q ⩽ ∞.In this paper, we revisit the well-posedness in the scaling critical Besov spaces framework and show the global well-posedness for initial data whose the third ex-ponent is arbitrary large and lies in the end point ill-posed Besov space ˙B−1
+
+> ∞,σ
+
+(R3),provided that the first and second components of the initial data is sufficiently small in ˙B3/p −1 
+
+> p,q
+
+(R3) with 3/2 < p < 3. Let us state our main theorem precisely. 
+
+Theorem 1.1. Let p, q, r, θ, and σ satisfy 
+
+32 < p < 3, 1 ⩽ σ ⩽ ∞, 1 ⩽ q ⩽ 2σ, 
+
+2 < r < ∞, 0 < θ < rr − 1
+
+
+
+1 − 32p
+
+
+
+.
+
+Then, there exist positive constants η = η(p, q, r, θ, σ ) and C = C(p, q, r, θ, σ ) such that for any solenoidal initial data a satisfying ah = ( a1, a 2) ∈ ˙B3/p −1 
+
+> p,q
+
+(R3)2, a3 ∈
+
+˙B−1
+
+> ∞,σ
+
+(R3), and 
+
+∥ah∥ ˙B 
+
+> 3
+> p−1
+> p,q
+
+exp 
+
+
+
+C∥a3∥ rθ
+
+> ˙B−1
+> ∞,σ
+
+
+
+⩽ η, (1.3) 
+
+there exists a unique solution u = ( uh, u 3) in the class 
+
+uh = ( u1, u 2) ∈ eC
+
+
+
+[0 , ∞); ˙B 3  
+
+> p−1
+> p,q
+
+(R3)
+
+2
+
+∩ fL1
+
+
+
+0, ∞; ˙B 3  
+
+> p+1
+> p,q
+
+(R3)
+
+2
+
+,u3 ∈ eC
+
+
+
+[0 , ∞); ˙B−1
+
+> ∞,σ
+
+(R3)
+
+
+
+∩ fL1
+
+
+
+0, ∞; ˙B1
+
+> ∞,σ
+
+(R3)
+
+
+
+with the estimates 
+
+∥uh∥Ep,q (0 ,∞) ⩽ Cη, ∥u3∥E∞,σ (0 ,∞) ⩽ C∥a3∥ ˙B−1 
+
+> ∞,σ
+
++ Cη 2.
+
+Remark 1.2. Let us mention some remarks on our result. (1) Chemin, Gallagher, and Paicu [4] constructed a unique global solution to (1.1) for initial data whose all components may be large in the weakest class 
+
+˙B−1
+
+> ∞,∞
+
+(R3). However, their initial data should be based on a small solenoidal vector field in some Gevrey class based on a L2-Besov space. In comparison with this, our theorem do not need Gevrey condition, however we could not reach σ = ∞ and horizontal component need to be small. (2) It was shown by Iwabuchi and Nakamura [9] that (1.1) is globally well-posed under the condition 
+
+∥a∥ ˙B−1 
+
+> ∞,∞
+
+⩽ Cp
+
+log 
+
+
+
+e + ∥a∥ ˙B 
+
+> 3
+> p−1
+> p, ∞
+
+, 3 < p < ∞.THE 3D NAVIER–STOKES EQUATIONS WITH LARGE ROUGH VERTICAL VELOCITIES 3
+
+This result implies that the global well-posedness holds for large data in 
+
+˙B 3  
+
+> p−1
+> p, ∞
+
+(R3) but small in ˙B−1
+
+> ∞,∞
+
+(R3). Compared with this, our advantage is that we need not assume the third component of the initial velocity is in the critical Besov spaces of finite integrability exponent and smallness in the end point class. (3) Since our proof is based on the Banach fixed point argument, we may readily see from our proof that the solution map a 7 → u from ˙B3/p −1 
+
+> p,q
+
+(R2)2 × ˙B−1
+
+> ∞,σ
+
+(R)
+
+to Ep,q (0 , T )2 × E∞,σ (0 , T ) is Lipschitz continuous, whereas [2, 16, 17] proved the discontinuity of the solution map ˙B−1
+
+> ∞,σ
+
+(R)3 → E∞,σ (0 , T )3.(4) Let us give an example of solenoidal initial data whose horizontal components belongs to ˙B3/p −1 
+
+> p,q
+
+(R2)2 with all finite p, q , whereas the third component lies in ˙B−1
+
+> ∞,σ
+
+(R3) \ ˙B3/p −1 
+
+> p,q
+
+(R3). For A, δ > 0, (k1, k 2) ∈ R2 \ { 0}, and a solenoidal vector ψ ∈ S (R3)3 with 0 /∈ supp bψ, we set 
+
+a(x) := 
+
+ 00
+
+A cos( k1x1 + k2x2)
+
+ + δψ. 
+
+Then, we readily see that div a = 0 . Moreover, since the jth Littlewood– Paley dyadic block ∆j = φj ∗ a is given by 
+
+∆j a(x) = 
+
+ 00
+
+Acφj (k1, k 2, 0) cos( k1x1 + k2x2)
+
+ + δ∆j ψ, 
+
+it holds 
+
+∥ah∥ ˙B3/p −1 
+
+> p,q
+
+⩽ δ∥ψh∥ ˙B3/p −1
+
+> p,q
+
+and 
+
+c A
+
+pk21 + k22
+
+− δ∥ψ3∥ ˙B−1 
+
+> ∞,σ
+
+⩽ ∥a3∥ ˙B−1 
+
+> ∞,σ
+
+⩽ C A
+
+pk21 + k22
+
++ δ∥ψ3∥ ˙B−1 
+
+> ∞,σ
+
+.
+
+As cos( k1x1 + k2x2) /∈ Lp(R3) unless p = ∞, we see that a3 ∈ ˙B−1
+
+> ∞,σ
+
+(R3) \
+
+˙B3/p −1 
+
+> p,q
+
+(R3). Note that the Navier–Stokes flow from this initial data could not be constructed by known results. On the other hand, the ill-posedness result in ˙B−1
+
+> ∞,σ
+
+(R3) by [2, 16, 17] con-sidered the initial data given by 
+
+aQ,r (x) = Q
+
+√r
+
+> r
+
+X
+
+> k=1
+
+ 0cos( hkx1)cos( hkx1 − x2)
+
+ , hk = 2 k(k−1) /2γk−1η. 
+
+Comparing this with our example, we see that the second component of 
+
+aQ,r (x) plays the essential role for the ill-posed phenomenon. We explain the idea of the proof of Theorem 1.1. We first mention why we may choose the third component of the initial velocity from the ill-posed class ˙B−1
+
+> ∞,σ
+
+(R3),although it was shown that the bilinear estimates 
+
+Z t
+
+> 0
+
+e(t−τ )∆ P(u(τ ) · ∇ )v(τ )dτ E∞,σ (0 ,T )
+
+⩽ C∥u∥E∞,σ (0 ,T )∥v∥E∞,σ (0 ,T )4 M. FUJII 
+
+fails for all 1 ⩽ σ ⩽ ∞; See [2, 16, 17]. Using the relation ∂x3 u3 = − div h uh =
+
+−∇ h · uh via the divergence free condition to rewrite the first equation of (1.1) as 
+
+∂tuh − ∆uh + ( uh · ∇ h)uh + u3∂x3 uh + ∇hP = 0 , (1.4) 
+
+∂tu3 − ∆u3 + ( uh · ∇ h)u3 − u3∇h · uh + ∂x3 P = 0 , (1.5) we may regard the equation for u3 is linear, which enables us to show the estimates of the following type: 
+
+Z t
+
+> 0
+
+e(t−τ )∆ (u3∇h · uh)( τ )dτ E∞,σ (0 ,T )
+
+⩽ C∥uh∥Ep,q (0 ,T )∥v3∥E∞,σ (0 ,T ) (1.6) with 3/2 < p < 3; see Section 2 below for more detail. Since (1.4)-(1.5) has no nonlinear terms that is the second order with respect to u3 and thus the method on (1.6) may close the all nonlinear estimates for u3. We also remark that the nonlinear term u3∇h · uh in (1.5) cannot be written in the divergence form 1, which is the worst term in the view point of the regularity and requires the assumption p < 3. For the relaxed smallness condition (1.3) is inspired by the seminal works [13, 18, 19], where they initially proposed the rewritten system (1.4)-(1.5) for the anisotropic Navier– Stokes equations 2, and proved the global well-posedness for initial data satisfying 3
+
+∥ah∥B0,1/2 exp  C∥a3∥4
+
+> B0,1/2
+
+ ≪ 1. Their method was based on the energy estimates in some space-time Chemin–Lerner type spaces with some integrable weight function in time. However, to our best effort applying their method to our aim, it works well only for the case of p = 2 and r = 4 and the functional framework for u3 should be same as for uh. To obtain Theorem 1.1, we first prepare para-product estimates in Besov spaces; see Lemmas 2.2, 2.3, and 2.4 below. Then, we use not the time-weighted energy argument but the method of the decomposition of the time interval, which was proposed in the stability argument for large flow in the author’s previous works [6]; see Lemma 2.1. This method enables us to extend the life span of the local solutions under some relaxed smallness condition (1.3) since some space-time norm of u3 will be sufficiently small in the each decomposed time interval. This paper is organized as follows. In Section 2, we prepare several useful tools in our analysis. In Section 3, we present the proof of our main result. Finally, in Appendix A, we summarize the definitions and basic properties of functions spaces that are used in this paper. Throughout this paper, we denote by C the constant, which may differ in each line. In particular, C = C(a1, ..., a n) means that C depends only on a1, ..., a n. For any integrability exponent 1 ⩽ p ⩽ ∞, we denote by p′ the Hölder conjugate of p.For two Banach spaces X and Y with X ∩ Y̸ = ∅, we write ∥ · ∥ X∩Y := ∥ · ∥ X + ∥ · ∥ Y .For f = ( f1, ..., f n) ∈ Xn, we set ∥f ∥X := ∥f1∥X + ... + ∥fn∥X .2. Key lemmas 
+
+In this section, we establish several lemmas that are used in the proof of our main results.            
+
+> 1The other nonlinear terms are able to be written in the divergence form. Therefore the estimates for them actually hold for p < ∞.
+> 2(1.1) with the viscosity replaced by horizontal Laplacian ∆hu= ( ∂2
+> x1+∂2
+> x2)u.
+> 3The function space B0,12(R3)is a kind of critical anisotropic Besov spaces introduced by [12].
+
+THE 3D NAVIER–STOKES EQUATIONS WITH LARGE ROUGH VERTICAL VELOCITIES 5
+
+Time decomposition lemma. To begin with, we introduce the time decomposi-tion lemma that plays a key role in constructing global solution with large vertical velocity. 
+
+Lemma 2.1. Let 1 ⩽ p ⩽ ∞, 1 ⩽ σ ⩽ r < ∞, s ∈ R, and 0 < T ⩽ ∞. For any 
+
+f ∈ fLr(0 , T ; ˙Bsp,σ (R3)) and ε > 0, we define an integer 
+
+N := 
+
+$∥f ∥r   
+
+> fLr(0 ,T ; ˙Bsp,σ )
+
+εr
+
+%
+
+,
+
+where ⌊·⌋ denotes the floor function. Then, there exists a sequence of time 0 = T0 <T1 < · · · < T N < T N +1 = T such that 
+
+∥f ∥fLr (Tn,T n+1 ; ˙Bsp,σ ) ⩽ ε, n = 0 , . . . , N. 
+
+Proof. It suffices to consider the case of N ⩾ 1. Note that for τ ⩾ 0, the function 
+
+[τ, ∞) ∋ t 7 → ∥ f ∥fLr (τ,t ; ˙Bsp,σ ) is continuous due to σ, r < ∞. Let us define 
+
+Tn := 
+
+
+
+0, n = 0 ,
+
+sup 
+
+n
+
+τ > T n−1 ; ∥f ∥fLr (Tn−1,τ ; ˙Bsp,σ ) ⩽ ε
+
+o
+
+, n = 1 , . . . , N, T, n = N + 1 .
+
+Then, we see that 
+
+∥f ∥fLr (Tn,T n+1 ; ˙Bsp,σ ) = ε, n = 0 , . . . , N − 1.
+
+It follows from the Minkowski inequality that 
+
+∥f ∥fLr (0 ,T ; ˙Bsp,σ ) =
+
+(X
+
+> j∈Z
+
+
+
+2sj ∥∆j f ∥Lr (0 ,T ;Lp)
+
+σ
+
+) 1
+
+> σ
+
+=
+
+X
+
+> j∈Z
+
+( NX
+
+> n=0
+
+
+
+2sj ∥∆j f ∥Lr (Tn,T n+1 ;Lp)
+
+r
+
+)σr
+
+
+
+> 1
+> σ
+
+⩾
+
+
+
+> N
+
+X
+
+> n=0
+
+(X
+
+> j∈Z
+
+
+
+2sj ∥∆j f ∥Lr (Tn,T n+1 ;Lp)
+
+σ
+
+) rσ
+
+
+
+> 1
+> r
+
+=
+
+> N
+
+X
+
+> n=0
+
+∥f ∥r  
+
+> fLr(Tn,T n+1 ; ˙Bsp,σ )
+
+!1
+
+> r
+
+=
+
+
+
+N ε r + ∥f ∥r    
+
+> fLr(TN,T ; ˙Bsp,σ )
+
+1
+
+> r
+
+,
+
+which implies 
+
+∥f ∥r    
+
+> fLr(0 ,T ; ˙Bsp,σ )
+
+⩾ N ε r + ∥f ∥r   
+
+> fLr(TN,∞; ˙Bsp,σ )
+
+.
+
+Combining this with the fact (N + 1) εr ⩾ ∥f ∥r    
+
+> fLr(0 ,T ; ˙Bsp,σ )
+
+due to the definition of N ,we obtain ∥f ∥r     
+
+> fLr(TN,T ; ˙Bsp,σ )
+
+⩽ εr. This completes the proof. □6 M. FUJII 
+
+Nonlinear estimates. Next, we establish several nonlinear estiamtes. 
+
+Lemma 2.2. Let p, q, σ, and r satisfy 
+
+1 < p < 3, 1 ⩽ q, σ ⩽ ∞, 2 < r < ∞.
+
+Then, there exists a positive constant C such that 
+
+Z t
+
+0
+
+e(t−τ )∆ (uh(τ ) · ∇ h)vh(τ )dτ Ep,q (0 ,T )
+
+⩽ C∥uh∥fLr (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp,q
+
+)
+
+∥vh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p,q
+
+)
+
+,
+
+Z t
+
+0
+
+e(t−τ )∆ (uh(τ ) · ∇ hv3(τ )) dτ E∞,σ (0 ,T )
+
+⩽ C∥uh∥fLr (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp,q
+
+)
+
+∥v3∥gLr′ (0 ,T ; ˙B−1+ 2 
+
+> r′∞,σ
+
+)
+
+,
+
+Z t
+
+0
+
+e(t−τ )∆ (u3(τ )∇h · vh(τ )) dτ E∞,σ (0 ,T )
+
+⩽ C∥u3∥fLr (0 ,T ; ˙B−1+ 2 
+
+> r
+> ∞,σ
+
+)∥vh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p,q
+
+)
+
+for all T > 0 and u = ( uh, u 3) ∈ Ep,q (0 , T )2 × E∞,σ (0 , T ).Proof. It follows from Lemma A.1 and Corollary A.3 that 
+
+Z t
+
+0
+
+e(t−τ )∆ (uh(τ ) · ∇ h)vh(τ )dτ Ep,q (0 ,T )
+
+⩽ C∥(uh · ∇ h)vh∥fL1(0 ,T ; ˙B  
+
+> 3
+> p−1
+> p,q
+
+)
+
+⩽ C∥uh∥fLr (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp,q
+
+)
+
+∥vh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p,q
+
+)
+
+.
+
+For the second estimate, we decompose the Duhamel integral by the para-product decomposition. 
+
+Z t
+
+0
+
+e(t−τ )∆ (uh(τ ) · ∇ hv3(τ )) dτ = I1[u, v ]( t) + I2[u, v ]( t) + I3[u, v ]( t),
+
+where we have set 
+
+I1[u, v ]( t) := 
+
+2X
+
+m=1 
+
+Z t
+
+0
+
+e(t−τ )∆ Tum(τ )∂xm v3(τ )dτ, I2[u, v ]( t) := 
+
+2X
+
+m=1 
+
+Z t
+
+0
+
+e(t−τ )∆ R(um(τ ), ∂ xm v3(τ )) dτ, I3[u, v ]( t) := 
+
+2X
+
+m=1 
+
+Z t
+
+0
+
+e(t−τ )∆ T∂xm v3(τ )um(τ )dτ. 
+
+It follows from Lemmas A.1 and A.2 that 
+
+∥I1[u, v ]∥E∞,σ (0 ,T ) ⩽ C
+
+2X
+
+m=1 
+
+∥Tum ∂xm v3∥fL1(0 ,T ; ˙B−1 
+
+> ∞,σ
+
+)
+
+⩽ C
+
+2X
+
+m=1 
+
+∥um∥fLr (0 ,T ; ˙B−1+ 2 
+
+> r
+> ∞,∞
+
+)∥∂xm v3∥gLr′ (0 ,T ; ˙B−2+ 2 
+
+> r′∞,σ
+
+)THE 3D NAVIER–STOKES EQUATIONS WITH LARGE ROUGH VERTICAL VELOCITIES 7
+
+⩽ C∥uh∥fLr (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp,q
+
+)
+
+∥v3∥gLr′ (0 ,T ; ˙B−1+ 2 
+
+> r′∞,σ
+
+)
+
+.
+
+Similarly, we have 
+
+∥I3[u, v ]∥E∞,σ (0 ,T ) ⩽ C∥uh∥fLr (0 ,T ; ˙B−1+ 2 
+
+> r
+> ∞,∞
+
+)∥v3∥gLr′ (0 ,T ; ˙B−1+ 2 
+
+> r′∞,σ
+
+)
+
+.
+
+For the estimate of I2, we see by Lemmas A.1 and A.2 that 
+
+∥I2[u, v ]∥E∞,σ (0 ,T ) ⩽ C∥I2[u, v ]∥Ep,σ (0 ,T )
+
+⩽ C
+
+2X
+
+m=1 
+
+∥R(um, ∂ xm v3)∥fL1(0 ,T ; ˙B  
+
+> 3
+> p−1
+> p,σ
+
+)
+
+⩽ C
+
+2X
+
+m=1 
+
+∥R(um, ∂ xm v3)∥fL1(0 ,T ; ˙B  
+
+> 3
+> p−1
+> p,σ
+
+)
+
+⩽ C
+
+2X
+
+m=1 
+
+∥um∥fLr (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp, ∞
+
+)
+
+∥∂xm v3∥gLr′ (0 ,T ; ˙B−2+ 2 
+
+> r′∞,σ
+
+)
+
+⩽ C∥uh∥fLr (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp,q
+
+)
+
+∥v3∥gLr′ (0 ,T ; ˙B−1+ 2 
+
+> r′∞,σ
+
+)
+
+.
+
+The third one is obtained similarly as above. Thus, we complete the proof. □
+
+Lemma 2.3. Let p, q, r, ρ, and σ satisfy 
+
+32 < p < 3, 1 ⩽ q, σ ⩽ ∞, 1 ⩽ ρ < 2p
+
+3 , 2 < r < ∞.
+
+Then, there exists a positive constant C such that 
+
+Z t
+
+0
+
+e(t−τ )∆ (u3(τ )∂x3 vh(τ )) dτ Ep,q (0 ,T )
+
+⩽ C∥u3∥fLρ(0 ,T ; ˙B−1+ 2 
+
+> ρ
+> ∞,σ
+
+)
+
+∥vh∥gLρ′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> ρ′
+> p,q
+
+)
+
++ C∥u3∥fLr (0 ,T ; ˙B−1+ 2 
+
+> r
+> ∞,σ
+
+)∥vh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p,q
+
+)
+
+for all T > 0 and u = ( uh, u 3) ∈ Ep,q (0 , T )2 × E∞,σ (0 , T ).Proof. It follows from Lemma A.1 that 
+
+Z t
+
+0
+
+e(t−τ )∆ (u3(τ )∂x3 uh(τ )) dτ Ep,q (0 ,T )
+
+⩽ C∥u3∂x3 uh∥fL1(0 ,T ; ˙B  
+
+> 3
+> p−1
+> p,q
+
+)
+
+.
+
+Here, we decompose the product in the above right-hand side as 
+
+u3∂x3 vh = T∂x3 vh u3 + R(u3, ∂ x3 vh) + Tu3 ∂x3 vh.
+
+For the first term, we see that by Lemma A.2 that 
+
+T∂x3 vh u3 fL1(0 ,T ; ˙B  
+
+> 3
+> p−1
+> p,q
+
+)
+
+⩽ C∥∂x3 vh∥gLρ′ (0 ,T ; ˙B  
+
+> 3
+> p−2+ 2
+> ρ′
+> p,q
+
+)
+
+∥u3∥fLρ(0 ,T ; ˙B−1+ 2 
+
+> ρ
+> ∞,∞
+
+)
+
+⩽ C∥vh∥gLρ′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> ρ′
+> p,q
+
+)
+
+∥u3∥fLρ(0 ,T ; ˙B−1+ 2 
+
+> ρ
+> ∞,∞
+
+)
+
+,
+
+where we have used 
+
+3
+
+p − 2 + 2
+
+ρ′ = 3
+
+p − 2
+
+ρ < 0.8 M. FUJII 
+
+For the other terms, Lemma A.2 yields 
+
+∥R(u3, ∂ x3 vh)∥fL1(0 ,T ; ˙B  
+
+> 3
+> p−1
+> p,q
+
+)
+
++ ∥Tu3 ∂x3 vh∥fL1(0 ,T ; ˙B  
+
+> 3
+> p−1
+> p,q
+
+)
+
+⩽ C∥u3∥fLr (0 ,T ; ˙B−1+ 2 
+
+> r
+> ∞,∞
+
+)∥∂x3 vh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−2+ 2
+> r′
+> p,q
+
+)
+
+⩽ C∥u3∥fLr (0 ,T ; ˙B−1+ 2 
+
+> r
+> ∞,∞
+
+)∥vh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p,q
+
+)
+
+,
+
+Thus, we complete the proof. □
+
+Next, we consider the pressure P [u, v ] defined by 
+
+P [u, v ] = 
+
+3X
+
+ℓ,m =1 
+
+∂xℓ ∂xm (−∆) −1(uℓvm).
+
+Let us decompose P [u, v ] as 
+
+P [u, v ] = 
+
+3X
+
+ℓ,m =1 
+
+∂xℓ ∂xm (−∆) −1(uℓvm)=
+
+2X
+
+ℓ,m =1 
+
+∂xℓ ∂xm (−∆) −1(uℓvm)+
+
+2X
+
+m=1 
+
+∂x3 ∂xm (−∆) −1(u3vm) + 
+
+2X
+
+m=1 
+
+∂x3 ∂xm (−∆) −1(v3um)+ ∂2
+
+x3 (−∆) −1(u3v3)=
+
+2X
+
+ℓ,m =1 
+
+∂xℓ ∂xm (−∆) −1(uℓvm)+ ∂x3 (−∆) −1(vh · ∇ hu3) + ∂x3 (−∆) −1(uh · ∇ hv3)=: P1[u, v ] + P2[u, v ].
+
+In the following lemma, we provide estimates of P1[u, v ] and P2[u, v ].
+
+Lemma 2.4. Let p, q, r, and σ satisfy 
+
+32 < p < 3, 1 ⩽ σ ⩽ ∞, 1 ⩽ q ⩽ 2σ, 1 ⩽ ρ < 2p
+
+3 , 2 < r < ∞.
+
+Then, there exists a positive constant C such that 
+
+Z t
+
+0
+
+e(t−τ )∆ ∇hP1[u, v ]( τ )dτ Ep,q (0 ,T )
+
+⩽ C∥uh∥fLr (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp,q
+
+)
+
+∥vh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p,q
+
+)
+
++ C∥uh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p,q
+
+)
+
+∥vh∥fLr (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp,q
+
+)
+
+,
+
+Z t
+
+0
+
+e(t−τ )∆ ∂x3 P1[u, v ]( τ )dτ E∞,σ (0 ,T )
+
+⩽ C∥uh∥fLr (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp,q
+
+)
+
+∥vh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p,q
+
+)
+
++ C∥uh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p,q
+
+)
+
+∥vh∥fLr (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp,q
+
+)
+
+,THE 3D NAVIER–STOKES EQUATIONS WITH LARGE ROUGH VERTICAL VELOCITIES 9
+
+and Z t
+
+0
+
+e(t−τ )∆ ∇hP2[u, v ]( τ )dτ Ep,q (0 ,T )
+
+⩽ C∥v3∥fLr (0 ,T ; ˙B−1+ 2 
+
+> r
+> ∞,σ
+
+)∥uh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p,q
+
+)
+
++ C∥uh∥fLr (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp,q
+
+)
+
+∥vh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p,q
+
+)
+
++ C∥uh∥gLρ′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> ρ′
+> p,q
+
+)
+
+∥v3∥fLρ(0 ,T ; ˙B−1+ 2 
+
+> ρ
+> ∞,σ
+
+)
+
+,
+
+Z t
+
+0
+
+e(t−τ )∆ ∂x3 P2[u, v ]( τ )dτ E∞,σ (0 ,T )
+
+⩽ C∥v3∥fLr (0 ,T ; ˙B−1+ 2 
+
+> r
+> ∞,σ
+
+)∥uh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp, ∞
+
+)
+
++ C∥uh∥gLρ′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> ρ′
+> p,q
+
+)
+
+∥v3∥fLρ(0 ,T ; ˙B−1+ 2 
+
+> ρ
+> ∞,σ
+
+)
+
+,
+
+for all T > 0 and u = ( uh, u 3) ∈ Ep,q (0 , T )2 × E∞,σ (0 , T ).Proof. First, we consider the estimate of P1[u, v ]. By Lemmas A.1 and A.2, there holds Z t
+
+0
+
+e(t−τ )∆ ∇hP1[u, v ]( τ )dτ Ep,q (0 ,T )
+
+⩽ C
+
+2X
+
+ℓ,m =1 
+
+∥uℓvm∥fL1(0 ,T ; ˙B 
+
+> 3
+> pp,q
+
+)
+
+⩽ C∥uh∥fLr (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp,q
+
+)
+
+∥vh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p,q
+
+)
+
++ C∥uh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p,q
+
+)
+
+∥vh∥fLr (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp,q
+
+)
+
+and Z t
+
+0
+
+e(t−τ )∆ ∂x3 P1[u, v ]( τ )dτ E∞,σ (0 ,T )
+
+⩽ C
+
+2X
+
+ℓ,m =1 
+
+∥uℓum∥fL1(0 ,T ; ˙B 
+
+> 3
+> pp,σ
+
+)
+
+⩽ C∥uh∥fLr (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp, 2σ
+
+)
+
+∥vh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p, 2σ
+
+)
+
++ C∥uh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p, 2σ
+
+)
+
+∥vh∥fLr (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp, 2σ
+
+)
+
+⩽ C∥uh∥fLr (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp,q
+
+)
+
+∥vh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p,q
+
+)
+
++ C∥uh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p,q
+
+)
+
+∥vh∥fLr (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp,q
+
+)
+
+,
+
+which provides the first estimate. For the estimate of P2[u, v ], we may decompose it as 
+
+P2[u, v ] = 
+
+2X
+
+m=1 
+
+∂x3 (−∆) −1R(um, ∂ xm u3) + 
+
+2X
+
+m=1 
+
+∂x3 (−∆) −1T∂xm v3 um10 M. FUJII 
+
++
+
+2X
+
+m=1 
+
+∂x3 (−∆) −1Tum ∂xm v3 (2.1) 
+
+=
+
+2X
+
+m=1 
+
+∂x3 (−∆) −1R(um, ∂ xm v3) + 
+
+2X
+
+m=1 
+
+∂x3 (−∆) −1T∂xm v3 um
+
++
+
+2X
+
+m=1 
+
+(−∆) −1Tum ∂xm (−∇ h · vh) + 
+
+2X
+
+m=1 
+
+(−∆) −1T∂x3 um ∂xm v3. (2.2) Thus, we have by (2.2) that 
+
+Z t
+
+0
+
+e(t−τ )∆ ∇hP2[u, v ]( τ )dτ Ep,q (0 ,T )
+
+⩽ C
+
+2X
+
+m=1 
+
+
+
+∥R(um, ∂ xm v3)∥fL1(0 ,T ; ˙B  
+
+> 3
+> p−1
+> p,q
+
+)
+
++ T∂xm v3 um fL1(0 ,T ; ˙B  
+
+> 3
+> p−1
+> p,q
+
+)
+
+
+
++ C
+
+2X
+
+m=1 
+
+∥Tum ∂xm (−∇ h · vh)∥fL1(0 ,T ; ˙B  
+
+> 3
+> p−2
+> p,q
+
+)
+
++ C
+
+2X
+
+m=1 
+
+T∂x3 um ∂xm v3 fL1(0 ,T ; ˙B  
+
+> 3
+> p−2
+> p,q
+
+)
+
+⩽ C∥∇ hv3∥fLr (0 ,T ; ˙B−2+ 2 
+
+> r
+> ∞,∞
+
+)∥uh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p,q
+
+)
+
++ C∥uh∥fLr (0 ,T ; ˙B−1+ 2 
+
+> r
+> ∞,∞
+
+) ∇2hvh gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−3+ 2
+> r′
+> p,q
+
+)
+
++ C∥∂x3 uh∥gLρ′ (0 ,T ; ˙B  
+
+> 3
+> p−2+ 2
+> ρ′
+> p,q
+
+)
+
+∥∇ hv3∥fLρ(0 ,T ; ˙B−2+ 2 
+
+> ρ
+> ∞,∞
+
+)
+
+⩽ C∥v3∥fLr (0 ,T ; ˙B−1+ 2 
+
+> r
+> ∞,σ
+
+)∥uh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p,q
+
+)
+
++ C∥uh∥fLr (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp,q
+
+)
+
+∥vh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p,q
+
+)
+
++ C∥uh∥gLρ′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> ρ′
+> p,q
+
+)
+
+∥v3∥fLρ(0 ,T ; ˙B−1+ 2 
+
+> ρ
+> ∞,σ
+
+)
+
+,
+
+and also see by (2.1) that 
+
+Z t
+
+0
+
+e(t−τ )∆ ∂x3 P2[u, v ]( τ )dτ E∞,σ (0 ,T )
+
+⩽ C
+
+2X
+
+m=1 
+
+∥R(um, ∂ xm v3)∥fL1(0 ,T ; ˙B  
+
+> 3
+> p−1
+> p,σ
+
+)
+
++ C
+
+2X
+
+m=1 
+
+T∂xm v3 um fL1(0 ,T ; ˙B−1 
+
+> ∞,σ
+
+) + C
+
+2X
+
+m=1 
+
+∥Tum ∂xm v3∥fL1(0 ,T ; ˙B−1 
+
+> ∞,σ
+
+)
+
+⩽ C∥∇ hu3∥fLr (0 ,T ; ˙B−2+ 2 
+
+> r
+> ∞,σ
+
+)∥uh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> r′
+> p, ∞
+
+)
+
++ C∥∇ hu3∥fLr (0 ,T ; ˙B−2+ 2 
+
+> r
+> ∞,σ
+
+)∥uh∥gLr′ (0 ,T ; ˙B−1+ 2 
+
+> r′∞,∞
+
+)
+
++ C∥uh∥gLρ′ (0 ,T ; ˙B−1+ 2 
+
+> ρ′∞,∞
+
+)
+
+∥∇ hu3∥fLρ(0 ,T ; ˙B−2+ 2 
+
+> ρ
+> ∞,σ
+
+)
+
+⩽ C∥v3∥fLr (0 ,T ; ˙B−1+ 2 
+
+> r
+> ∞,σ
+
+)∥uh∥gLr′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> rp, ∞
+
+)THE 3D NAVIER–STOKES EQUATIONS WITH LARGE ROUGH VERTICAL VELOCITIES 11 
+
++ C∥uh∥gLρ′ (0 ,T ; ˙B  
+
+> 3
+> p−1+ 2
+> ρ′
+> p,q )
+
+∥v3∥fLρ(0 ,T ; ˙B−1+ 2 
+
+> ρ
+> ∞,σ )
+
+,
+
+which completes the proof. □
+
+3. Proof of Theorem 1.1 
+
+In this section, we present the proof of Theorem 1.1. To begin with, we mention the notion of the solutions. Applying the Duhamel principle to (1.4)-(1.5) and the standard formula for the pressure of homogeneous incompressible flow, we may rewrite (1.1) as 
+
+uh(t) = et∆ah −
+
+Z t
+
+> 0
+
+e(t−τ )∆ [( uh · ∇ h)uh + u3∂x3 uh + ∇hP ] ( τ )dτ, u3(t) = et∆a3 −
+
+Z t
+
+> 0
+
+e(t−τ )∆ [uh · ∇ hu3 − u3∇h · uh + ∂x3 P ] ( τ )dτ, P = P [u, u ] = 
+
+> 3
+
+X
+
+> ℓ,m =1
+
+∂xℓ ∂xm (−∆) −1(uℓum)
+
+with div u = 0 .
+
+Lemma 3.1. Let 3/2 < p < 3, 1 ⩽ σ < ∞, 1 ⩽ q ⩽ 2σ. Let a = ( ah, a 3) ∈
+
+˙B 3  
+
+> p−1
+> p,q
+
+(R3)2 × ˙B−1
+
+> ∞,σ
+
+(R3) be a given solenoidal vector field. Then, there exists a time 
+
+T0 = T0(p, q, σ, a ) such that the system possesses a unique local solution 
+
+uh ∈ eC
+
+
+
+[0 , T 0); ˙B 3  
+
+> p−1
+> p,q
+
+(R3)
+
+2
+
+∩ fL1
+
+
+
+0, T 0; ˙B 3  
+
+> p+1
+> p,q
+
+(R3)
+
+2
+
+,u3 ∈ eC
+
+
+
+[0 , T 0); ˙B−1
+
+> ∞,σ
+
+(R3)
+
+
+
+∩ fL1
+
+
+
+0, T 0; ˙B1
+
+> ∞,σ
+
+(R3)
+
+
+
+.
+
+Lemma 3.1 may be proved by the standard contraction mapping argument via the nonlinear estimates given by Lemmas 2.2, 2.3, and 2.4. Thus, we omit the precise proof. Next, we consider the a priori estimate of the solution u constructed in the above lemma. 
+
+Lemma 3.2. Let p, q, r, θ, and σ satisfy the assumption of Theorem 1.1. Then, there exists a positive constant C0 = C0(p, q, r, θ, σ ) such that 
+
+∥uh∥Ep,q (0 ,T ) ⩽ C0∥ah∥ ˙B 
+
+> 3
+> p−1
+> p,q
+
++ C0∥uh∥2  
+
+> Ep,q (0 ,T )
+
++ C0∥uh∥Ep,q (0 ,T )∥u3∥1−θE∞,σ (0 ,T )∥u3∥θ   
+
+> fLr(0 ,T ; ˙B−1+ 2
+> r
+> ∞,σ )
+
+∥u3∥E∞,σ (0 ,T ) ⩽ C0∥a3∥ ˙B−1 
+
+> ∞,σ
+
++ C0∥uh∥2   
+
+> Ep,q (0 ,T )
+
++ C0∥uh∥Ep,q (0 ,T )∥u3∥E∞,σ (0 ,T )
+
+for all 0 < T ⩽ Tmax , where Tmax denotes the maximal existence time. Proof. Let us choose ρ so that 
+
+1
+
+ρ = 1 − θ
+
+1 + θr .
+
+Then, we see that 1 < ρ < 2p/ 3. Then, it follows from Lemmas 2.2, 2.3, and 2.4 that Z t
+
+> 0
+
+e(t−τ )∆ (uh(τ ) · ∇ h)uh(τ )dτ Ep,q (0 ,T )
+
+⩽ C∥uh∥2  
+
+> Ep,q (0 ,T )
+
+,12 M. FUJII 
+
+Z t
+
+0
+
+e(t−τ )∆ (u3(τ )∂x3 vh(τ )) dτ Ep,q (0 ,T )
+
+⩽ C∥uh∥Ep,q (0 ,T )∥u3∥E∞,σ (0 ,T ),
+
+Z t
+
+0
+
+e(t−τ )∆ ∇hP (τ )dτ Ep,q (0 ,T )
+
+⩽ C∥uh∥2
+
+Ep,q (0 ,T )
+
++ C∥u3∥fLρ(0 ,T ; ˙B−1+ 2 
+
+> ρ
+> ∞,σ
+
+)
+
+∥uh∥Ep,q (0 ,T )
+
++ C∥u3∥fLr (0 ,T ; ˙B−1+ 2 
+
+> r
+> ∞,σ
+
+)∥uh∥Ep,q (0 ,T ),
+
+Z t
+
+0
+
+e(t−τ )∆ (uh(τ ) · ∇ hu3(τ )) dτ E∞,σ (0 ,T )
+
+⩽ C∥uh∥Ep,q (0 ,T )∥u3∥E∞,σ (0 ,T ),
+
+Z t
+
+0
+
+e(t−τ )∆ (u3(τ )∇h · uh(τ )) dτ E∞,σ (0 ,T )
+
+⩽ C∥uh∥Ep,q (0 ,T )∥u3∥E∞,σ (0 ,T ),
+
+Z t
+
+0
+
+e(t−τ )∆ ∂x3 P (τ )dτ E∞,σ (0 ,T )
+
+⩽ C∥uh∥2
+
+Ep,q (0 ,T ) + C∥u3∥E∞,σ (0 ,T )∥uh∥Ep,q (0 ,T ).
+
+Therefore, we have 
+
+∥uh∥Ep,q (0 ,T ) ⩽ C∥ah∥ ˙B 
+
+> 3
+> p−1
+> p,q
+
++ C∥uh∥2
+
+Ep,q (0 ,T )
+
++ C∥u3∥fLρ(0 ,T ; ˙B−1+ 2 
+
+> ρ
+> ∞,σ
+
+)
+
+∥uh∥Ep,q (0 ,T )
+
++ C∥u3∥fLr (0 ,T ; ˙B−1+ 2 
+
+> r
+> ∞,σ
+
+)∥uh∥Ep,q (0 ,T ),
+
+∥u3∥E∞,σ (0 ,T ) ⩽ C∥a3∥ ˙B−1 
+
+> ∞,σ
+
++ C∥uh∥2
+
+Ep,q (0 ,T ) + C∥uh∥Ep,q (0 ,T )∥u3∥E∞,σ (0 ,T ).
+
+Combining them with 
+
+∥u3∥fLρ(0 ,T ; ˙B−1+ 2 
+
+> ρ
+> ∞,σ
+
+)
+
+⩽ ∥u3∥1−θ
+
+fL1(0 ,T ; ˙B1 
+
+> ∞,σ
+
+)∥u3∥θ
+
+fLr (0 ,T ; ˙B−1+ 2 
+
+> r
+> ∞,σ
+
+)
+
+⩽ ∥u3∥1−θE∞,σ (0 ,T )∥u3∥θ
+
+fLr (0 ,T ; ˙B−1+ 2 
+
+> r
+> ∞,σ
+
+),
+
+∥u3∥fLr (0 ,T ; ˙B−1+ 2 
+
+> r
+> ∞,σ
+
+) ⩽ ∥u3∥1−θE∞,σ (0 ,T )∥u3∥θ
+
+fLr (0 ,T ; ˙B−1+ 2 
+
+> r
+> ∞,σ
+
+),
+
+we complete the proof. □
+
+Proof of Theorem 1.1. Let p, q, r, θ, and σ satisfy the assumption of Theorem 1.1. We assume that 
+
+∥ah∥ ˙B 
+
+> 3
+> p−1
+> p,q
+
+exp 2C0(log(2 C0))(4 C0) rθ
+
+43C0∥a3∥ ˙B−1 
+
+> ∞,σ
+
++ 112 C0
+
+ rθ
+
+!
+
+⩽ 164 C40
+
+,
+
+where C0 is the positive constant appearing in Lemma 3.2. Let u be the local solution to the system on the time interval [0 , T max ), where Tmax denotes the maximal existence time. Let 
+
+T ∗ := sup 
+
+
+
+T ∈ (0 , T max ) ; ∥uh∥Ep,q (0 ,T ) ⩽ 14C0
+
+
+
+and suppose by contradiction that 
+
+T ∗ < ∞.THE 3D NAVIER–STOKES EQUATIONS WITH LARGE ROUGH VERTICAL VELOCITIES 13 
+
+Note that it holds 
+
+∥u3∥E∞,σ (0 ,T ∗) ⩽ C0∥a3∥ ˙B−1 
+
+> ∞,σ
+
++ 116 C0
+
++ 14∥u3∥E∞,σ (0 ,T ∗),
+
+and thus we have 
+
+∥u3∥E∞,σ (0 ,T ∗) ⩽ 43C0∥a3∥ ˙B−1 
+
+> ∞,σ
+
++ 112 C0
+
+.
+
+Let 
+
+N := 
+
+
+
+(4 C0) rθ ∥u3∥ rθ −rE∞,σ (0 ,T ∗)∥u3∥r
+
+fLr (0 ,T ∗; ˙B−1+ 2 
+
+> r
+> ∞,σ
+
+)
+
+
+
+.
+
+Then, by Lemma 2.1, there exists a sequence 
+
+0 = T0 < T 1 < · · · < T N < T N +1 = T ∗
+
+of time such that 
+
+∥u3∥θ
+
+fLr (Tn,T n+1 ; ˙B−1+ 2 
+
+> r
+> ∞,σ
+
+) ⩽ 14C0∥u3∥1−θE∞,σ (0 ,T ∗)
+
+for n = 0 , 1, . . . , N . Applying Lemma 3.2 on [Tn, T n+1 ], we arrive at 
+
+∥uh∥Ep,q (Tn,T n+1 ) ⩽ C0∥uh(Tn)∥ ˙B 
+
+> 3
+> p−1
+> p,q
+
++ 14∥uh∥Ep,q (Tn,T n+1 ) + 14∥uh∥Ep,q (Tn,T n+1 ),
+
+which yields 
+
+∥uh∥Ep,q (Tn,T n+1 ) ⩽ 2C0∥uh(Tn)∥ ˙B 
+
+> 3
+> p−1
+> p,q
+
+.
+
+Therefore, we see that 
+
+∥uh∥Ep,q (Tn,T n+1 ) ⩽ 2C0∥uh(Tn)∥ ˙B 
+
+> 3
+> p−1
+> p,q
+
+⩽ 2C0∥uh∥Ep,q (Tn−1,T n)
+
+⩽ · · · 
+
+⩽ (2 C0)n+1 ∥ah∥ ˙B 
+
+> 3
+> p−1
+> p,q
+
+, n = 1 , . . . , N 
+
+and then 
+
+∥uh∥Ep,q (0 ,T ∗) ⩽
+
+NX
+
+n=0 
+
+∥uh∥Ep,q (Tn,T n+1 )
+
+⩽
+
+NX
+
+n=0 
+
+(2 C0)n+1 ∥ah∥ ˙B 
+
+> 3
+> p−1
+> p,q
+
+⩽ (2 C0)N +2 ∥ah∥ ˙B 
+
+> 3
+> p−1
+> p,q
+
+= (2 C0)2∥ah∥ ˙B 
+
+> 3
+> p−1
+> p,q
+
+exp ((log(2 C0)) N )
+
+⩽ (2 C0)2∥ah∥ ˙B 
+
+> 3
+> p−1
+> p,q
+
+exp 
+
+
+
+(log(2 C0)) 
+
+j
+
+(4 C0) rθ ∥u3∥ rθ
+
+E∞,σ (0 ,T ∗)
+
+k 
+
+⩽ (2 C0)3∥ah∥ ˙B 
+
+> 3
+> p−1
+> p,q
+
+exp 2C0(log(2 C0))(4 C0) rθ
+
+43C0∥a3∥ ˙B−1 
+
+> ∞,σ
+
++ 112 C0
+
+ rθ
+
+!
+
+⩽ 18C0
+
+,14 M. FUJII 
+
+which contradicts the definition of T ∗ and we have Tmax = T ∗ = ∞. This completes the proof. □
+
+Data availability. 
+
+Data sharing not applicable to this article as no datasets were generated or analysed during the current study. 
+
+Conflict of interest. 
+
+The author has declared no conflicts of interest. 
+
+Acknowledgements. 
+
+The author was supported by JSPS KAKENHI, Grant Number Navier–Stokes equa-tions; well-posedness; critical Besov spaces. 
+
+Appendix A. Besov and Chemin–Lerner spaces 
+
+Let S (Rn) be the set of all Schwartz functions on Rn, and we denote by S ′(Rn)
+
+the set of all tempered distributions on Rn. Let φ0 ∈ S (Rn) satisfy 
+
+supp cφ0 ⊂ ξ ∈ Rn ; 2 −1 ⩽ |ξ| ⩽ 2 , 0 ⩽ cφ0(ξ) ⩽ 1,
+
+and X
+
+> j∈Z
+
+cφj (ξ) = 1 for all ξ ∈ Rn \ { 0},
+
+where we have set φj (x) := 2 nj φ0(2 j x). Using them, we define the dyadic frequency localized operators by 
+
+∆j f := F −1
+
+hcφj (ξ) bf
+
+i
+
+, f ∈ S ′(Rn), j ∈ Z.
+
+For 1 ⩽ p, σ ⩽ ∞ and s ∈ R, the Besov space ˙Bsp,σ (Rn) is defined as 
+
+˙Bsp,σ (Rn) := 
+
+n
+
+f ∈ S ′(Rn)/P(Rn) ; ∥f ∥ ˙Bsp,σ (Rn) < ∞
+
+o
+
+,
+
+∥f ∥ ˙Bsp,σ (Rn) := 
+
+n
+
+2sj ∥∆j f ∥Lp(Rn)
+
+o  
+
+> j∈Zℓσ(Z)
+
+,
+
+where P(Rn) is the set of all polynomials on Rn. It is well-known that if s < n/p 
+
+or (s, σ ) = ( n/p, 1) , then it holds 
+
+˙Bsp,σ (Rn) ∼
+
+(
+
+f ∈ S ′(Rn) ; ∥f ∥ ˙Bsp,σ (Rn) < ∞, f = X
+
+> j∈Z
+
+∆j f in S ′(Rn)
+
+)
+
+.
+
+For 1 ⩽ p, r, σ ⩽ ∞, s ∈ R, and an interval I ⊂ R, we define the Chemin–Lerner space fLr(I; ˙Bsp,σ (Rn)) by 
+
+fLr(I; ˙Bsp,σ (Rn)) := 
+
+n
+
+F : I → S ′(Rn)/P(Rn) ; ∥F ∥fLr (I; ˙Bsp,σ (Rn)) < ∞
+
+o
+
+,
+
+∥F ∥fLr (I; ˙Bsp,σ (Rn)) := 
+
+n
+
+2sj ∥∆j F ∥Lr (I;Lp(Rn)) 
+
+o  
+
+> j∈Zℓσ(Z)
+
+.
+
+We also use the following notation 
+
+eC(I; ˙Bsp,σ (Rn)) := C(I; ˙Bsp,σ (Rn)) ∩ fL∞(I; ˙Bsp,σ (Rn)) .
+
+The Chemin–Lerner spaces were first introduced by [5] and continue to be frequently used for the analysis of compressible viscous fluids in critical Besov spaces. The THE 3D NAVIER–STOKES EQUATIONS WITH LARGE ROUGH VERTICAL VELOCITIES 15 
+
+Chemin–Lerner spaces possess similar embedding properties as that for usual Besov spaces: 
+
+fLr(I; ˙Bsp,σ 1 (Rn)) ,→ fLr(I; ˙Bsp,σ 2 (Rn)) for 1 ⩽ σ1 ⩽ σ2 ⩽ ∞,
+
+fLr(I; ˙Bs+ np1 
+
+> p1,σ
+
+(Rn)) ,→ fLr(I; ˙Bs+ np2 
+
+> p2,σ
+
+(Rn)) for 1 ⩽ p1 ⩽ p2 ⩽ ∞.It also holds by the Hausdorff–Young inequality that 
+
+fLr(I; ˙Bsp,σ (Rn)) ,→ Lr(I; ˙Bsp,σ (Rn)) for 1 ⩽ σ ⩽ r ⩽ ∞,Lr(I; ˙Bsp,σ (Rn)) ,→ fLr(I; ˙Bsp,σ (Rn)) for 1 ⩽ r ⩽ σ ⩽ ∞.
+
+See [1] for more precise information of the Chemin–Lerner spaces. One advantage of using the Chemin–Lerner spaces is that there holds the following maximal regularity estimates for the heat kernel et∆.
+
+Lemma A.1. Let 1 ⩽ p, q ⩽ ∞, 1 ⩽ ρ ⩽ r ⩽ ∞, and s ∈ R. Then, there exists a positive constant C such that 
+
+et∆a fLr (0 ,T ; ˙Bsp,q ) ⩽ C∥a∥ ˙Bsp,q ,
+
+Z t
+
+> 0
+
+e(t−τ )∆ f (τ )dτ fLr (0 ,T ; ˙Bs+ 2 
+
+> rp,q )
+
+⩽ C∥f ∥fLρ(0 ,T ; ˙Bs−2+ 2 
+
+> ρp,q )
+
+for all 0 < T ⩽ ∞, a ∈ ˙Bsp,q (R3) and fLρ(0 , T ; ˙Bs−2+ 2 
+
+> ρ
+> p,q
+
+(R3)) .
+
+To control the nonlinear terms in Chemin–Lerner spaces, we use we the para-product decomposition of the product f g for two functions f and g:
+
+f g = Tf g + R(f, g ) + Tgf, 
+
+where we have set 
+
+Tf g := X
+
+> k∈Z
+
+X
+
+> ℓ⩽k−3
+
+∆ℓf
+
+!
+
+∆kg, R(f, g ) := X
+
+> k∈Z
+
+X
+
+> |k−ℓ|⩽2
+
+∆kf ∆ℓg. 
+
+The the para-product estimates used in this paper are in order: 
+
+Lemma A.2. Let 1 ⩽ p1, p 2, q, q 1, q 2, r, r 1, r 2 ⩽ ∞ satisfy 
+
+1
+
+q ⩽ 1
+
+q1
+
++ 1
+
+q2
+
+, 1
+
+r = 1
+
+r1
+
++ 1
+
+r2
+
+.
+
+Then, the following statements hold true. (1) For any s1, s 2 ∈ R satisfying 
+
+s1 < 3
+
+p1
+
+and < above may be replaced by ⩽ for the case of q1 = 1 , there exists a positive constant C = C(p1, p 2, q, q 1, q 2, s 1, s 2) such that 
+
+∥Tf g∥fLr (I; ˙Bs1+s2− 3 
+
+> p1
+> p2,q )
+
+⩽ C∥f ∥gLr1 (I; ˙Bs1 
+
+> p1,q 1)
+
+∥g∥gLr2 (I; ˙Bs2 
+
+> p2,q 2)
+
+for all intervals I ⊂ R, f ∈ fLr1 (I; ˙Bs1
+
+> p,q
+
+(R3)) , and g ∈ fLr1 (I; ˙Bs2
+
+> p,q
+
+(R3)) .16 M. FUJII 
+
+(2) For any s1, s 2 ∈ R satisfying 
+
+s1 + s2 > max 
+
+
+
+0, 3
+
+ 1
+
+p1
+
++ 1
+
+p2
+
+− 1
+
+ 
+
+and > above may be replaced by ⩾ for the case of q = ∞ and 1/q 1 +1 /q 2 = 1 ,there exists a positive constant C = C(p1, p 2, q, q 1, q 2, s 1, s 2) such that 
+
+∥R(f, g )∥fLr (I; ˙Bs1+s2− 3 
+
+> p1
+> p2,q )
+
+⩽ C∥f ∥gLr1 (I; ˙Bs1 
+
+> p1,q 1)
+
+∥g∥gLr2 (I; ˙Bs2 
+
+> p2,q 2)
+
+for all intervals I ⊂ R, f ∈ fLr1 (I; ˙Bs1
+
+> p,q
+
+(R3)) , and g ∈ fLr1 (I; ˙Bs2
+
+> p,q
+
+(R3)) .(3) For any s1, s 2 ∈ R satisfying 
+
+s2 < min 
+
+ 3
+
+p1
+
+, 3
+
+p2
+
+
+
+and < above may be replaced by ⩽ for the case of q2 = 1 , there exists a positive constant C = C(p1, p 2, q, q 1, q 2, s 1, s 2) such that 
+
+∥Tgf ∥fLr (I; ˙Bs1+s2− 3 
+
+> p1
+> p2,q )
+
+⩽ C∥f ∥gLr1 (I; ˙Bs1 
+
+> p1,q 1)
+
+∥g∥gLr2 (I; ˙Bs2 
+
+> p2,q 2)
+
+for all intervals I ⊂ R, f ∈ fLr1 (I; ˙Bs1
+
+> p,q
+
+(R3)) , and g ∈ fLr1 (I; ˙Bs2
+
+> p,q
+
+(R3)) .
+
+Lemma A.2 may be proven by the para product argument in [1, 15]; thus we omit the proof. From this, we may immediately obtain the following corollary. 
+
+Corollary A.3. Let 1 ⩽ p1, p 2, q, q 1, q 2, r, r 1, r 2 ⩽ ∞ satisfy 
+
+1
+
+q ⩽ 1
+
+q1
+
++ 1
+
+q2
+
+, 1
+
+r = 1
+
+r1
+
++ 1
+
+r2
+
+.
+
+Let s1, s 2 ∈ R satisfy 
+
+s1 < 3
+
+p1
+
+, s2 < min 
+
+ 3
+
+p1
+
+, 3
+
+p2
+
+
+
+, s1 + s2 > max 
+
+
+
+0, 3
+
+ 1
+
+p1
+
++ 1
+
+p2
+
+− 1
+
+ 
+
+Then, there exists a positive constant C = C(p1, p 2, q, q 1, q 2, s 1, s 2) such that 
+
+∥f g ∥fLr (I; ˙Bs1+s2− 3 
+
+> p1
+> p2,q )
+
+⩽ C∥f ∥gLr1 (I; ˙Bs1 
+
+> p1,q 1)
+
+∥g∥gLr2 (I; ˙Bs2 
+
+> p2,q 2)
+
+for all intervals I ⊂ R, f ∈ fLr1 (I; ˙Bs1
+
+> p,q
+
+(R3)) , and g ∈ fLr1 (I; ˙Bs2
+
+> p,q
+
+(R3)) .
+
+References 
+
+[1] H. Bahouri, J.-Y. Chemin, and R. Danchin, Fourier analysis and nonlinear partial differen-tial equations , Grundlehren der mathematischen Wissenschaften [Fundamental Principles of Mathematical Sciences], vol. 343, Springer, Heidelberg, 2011. [2] J. Bourgain and N. Pavlović, Ill-posedness of the Navier-Stokes equations in a critical space in 3D , J. Funct. Anal. 255 (2008), 2233–2247. [3] M. Cannone and F. Planchon, Self-similar solutions for Navier-Stokes equations in R3,Comm. Partial Differential Equations 21 (1996), 179–193. [4] J.-Y. Chemin, I. Gallagher, and M. Paicu, Global regularity for some classes of large solutions to the Navier-Stokes equations , Ann. of Math. (2) 173 (2011), 983–1012. [5] J.-Y. Chemin and N. Lerner, Flot de champs de vecteurs non lipschitziens et équations de Navier–Stokes , J. Differential Equations 121 (1995), 314–328 (French). [6] M. Fujii, Global large solutions to the 3D stratified Boussinesq equations with horizontal dissipation in the critical spaces , hal-04894010, version 1. [7] H. Fujita and T. Kato, On the Navier-Stokes initial value problem. I , Arch. Rational Mech. Anal. 16 (1964), 269–315. THE 3D NAVIER–STOKES EQUATIONS WITH LARGE ROUGH VERTICAL VELOCITIES 17 
+
+[8] Y. Giga and T. Miyakawa, Solutions in Lr of the Navier-Stokes initial value problem , Arch. Rational Mech. Anal. 89 (1985), 267–281. [9] T. Iwabuchi and M. Nakamura, Small solutions for nonlinear heat equations, the Navier-Stokes equation, and the Keller-Segel system in Besov and Triebel-Lizorkin spaces , Adv. Differential Equations 18 (2013), 687–736. [10] T. Kato, Strong Lp-solutions of the Navier-Stokes equation in Rm, with applications to weak solutions , Math. Z. 187 (1984), 471–480. [11] H. Koch and D. Tataru, Well-posedness for the Navier-Stokes equations , Adv. Math. 157 
+
+(2001), 22–35. [12] M. Paicu, Équation anisotrope de Navier–Stokes dans des espaces critiques , Rev. Mat. Iber. 
+
+21 (2005), 179–235. [13] M. Paicu and P. Zhang, Global solutions to the 3-D incompressible anisotropic Navier–Stokes system in the critical spaces , Comm. Math. Phys. 307 (2011), 713–759. [14] F. Planchon, Asymptotic behavior of global solutions to the Navier-Stokes equations in R3,Rev. Mat. Iberoamericana 14 (1998), 71–93. [15] Y. Sawano, Theory of Besov spaces , Developments in Mathematics, vol. 56, Springer, Singa-pore, 2018. [16] B. Wang, Ill-posedness for the Navier-Stokes equations in critical Besov spaces ˙B−1 
+
+> ∞,q
+
+, Adv. Math. 268 (2015), 350–372. [17] T. Yoneda, Ill-posedness of the 3D-Navier-Stokes equations in a generalized Besov space near 
+
+BMO −1, J. Funct. Anal. 258 (2010), 3376–3387. [18] T. Zhang, Global wellposed problem for the 3-D incompressible anisotropic Navier–Stokes equations in an anisotropic space , Comm. Math. Phys. 287 (2009), 211–224. [19] , Erratum to: Global wellposed problem for the 3-D incompressible anisotropic Navier– Stokes equations in an anisotropic space , Comm. Math. Phys. 295 (2010), 877–884. (M. Fujii) Graduate School of Science, Nagoya City University, Nagoya, 467-8501, Japan 
+
+Email address , M. Fujii: fujii.mikihiro@nsc.nagoya-cu.ac.jp

@@ -1,0 +1,2851 @@
+Title: An L^p-theory for global weak solutions to the Navier-Stokes equations in exterior domains
+
+URL Source: https://arxiv.org/pdf/2607.21282v1
+
+Published Time: Fri, 24 Jul 2026 01:08:21 GMT
+
+Number of Pages: 36
+
+Markdown Content:
+## An Lp-theory for global weak solutions to the Navier-Stokes equations in exterior domains 
+
+Filippo Palma ∗
+
+July 24, 2026 
+
+Abstract 
+
+In this paper, we consider the Navier-Stokes initial boundary value problem in exterior domains with initial data in the Lebesgue space Lp, p ∈ (2 , 3), and show the existence of a global weak solution. For the quoted solution, we also furnish a structure theorem. In particular, we see that the weak solution becomes regular after a certain instant of time and it is also regular a. e. in time. Although a general Lp-theory for local strong/mild solutions is well-established in the literature, a corresponding theory for global weak solutions in exterior domains seems to be new. Of course, our results hold in the particular cases of the Cauchy problem and the initial boundary value problem in a half-space. 
+
+# 1 Introduction 
+
+Let Ω ⊆ R3 denote an exterior domain, whose boundary for simplicity is supposed to be sufficiently smooth, the whole space, or a half-space. We consider the Navier-Stokes initial boundary value problem (initial value problem if Ω = R3): 
+
+
+
+ut − ∆u + u · ∇ u + ∇πu = 0 , in (0 , T ) × Ω ,
+
+∇ · u = 0 , in (0 , T ) × Ω ,u(t, x ) = 0 , in (0 , T ) × ∂Ω ,
+
+(u(0 , x ), φ ) = ( u0(x), φ ) , for all φ ∈ C0(Ω) .
+
+(1) The initial condition (1) 4 is considered in a weak formulation since we are going to investigate weak solutions corresponding to initial data that do not need to be necessarily weakly divergence-free. This kind of initial condition was already employed in [27] in the context of the Stokes problem. 
+
+> ∗
+
+Dipartimento di Matematica e Fisica, Universit` a degli Studi della Campania “L. Vanvitelli”, via Vivaldi 43, 81100 Caserta, Italy. filippo.palma@unicampania.it The research activity is performed under the auspices of GNFM-INdAM. 
+
+1arXiv:2607.21282v1 [math.AP] 23 Jul 2026 2However, in the case of a weakly divergence-free initial datum, the problem can be reformulated in the usual way. The aim of this work is to show the existence and investigate the regularity of weak solutions to problem (1) corresponding to initial data in Lp(Ω), p ∈ (2 , 3). In the particular case of the Cauchy problem, a first study in this direction was carried out by Calder´ on in [6]. Employing a decomposition of the initial datum as the sum of a “small” L3 part and a “big” L2 part, he reduced the Cauchy problem for the Navier-Stokes equations to two nonlinear problems investigated by different techniques. However, he obtained a solution satisfying a very weak formulation of the Navier-Stokes problem and no results related to the partial regularity of the quoted solution are furnished. Our goal is, on the one hand, to fill this gap, by obtaining a local integrability condition for the first-order spatial derivatives as long as proving a structure theorem for our weak solution. On the other hand, we employ more flexible and immediate arguments that allow to get our results in more general domains, such as exterior domains and the half-space. In a different context, a decomposition argument was employed by Maremonti [28, 30] and Maremonti and Shimizu [36, 37]. However, in these last works, the decomposition employed is related to the equations of the fluid motion that are reduced to the study of different subproblems, among which only one has a nonlinear character. The initial datum is not decomposed and is considered as the initial datum for a suitable Stokes problem. Since the pioneering work of Leray [25], it is well-known that for all data in L2 there exists at least one global weak solution to problem (1). Moreover, the weak solution enjoys a partial regularity property known as Th´ eor` eme de Structure . Leray dealt with the Cauchy problem and his results were extended to the more general case of the initial boundary value problem by several authors. Leray’s choice of the initial datum is performed in order to get a solution having finite energy for all times. If we do not require an initial datum that belongs to some subspace of L2(Ω), the finiteness of the kinetic energy of the fluid cannot be guaranteed. However, the study of the Navier-Stokes IBVP for initial data that do not have finite energy led to many interesting results. One of the first contributions in this direction is the well-known paper of Fabes, Jones and Rivi` ere [10]. In their work, the authors prove the existence and uniqueness of a local solution to the integral formulation of the Navier-Stokes Cauchy problem for any initial datum in Lq(R3), 
+
+q > 3. Moreover, the quoted solution satisfies a very weak formulation of the Navier-Stokes Cauchy problem. Later, the result was extended to more general domains by Fabes, Lewis and Rivi` ere [11]. As in the previous work, the main idea of the proof consists in considering the integral formulation of the Navier-Stokes problem and employing the theory of hydrodynamic potentials. Another relevant tool that leads to a local mild solution to the Navier-Stokes problem for 
+
+Lq initial data is the analyticity of the Stokes semigroup on Lq Lebesgue spaces [16, 17]. The approach proposed by Giga in [16] works as well in more general domains and is extendable to other evolution problems, while the solution obtained by Miyakawa and Giga in [17] enjoys further regularity properties compared to that obtained by Fabes, Lewis and Rivi` ere and is called a strong solution .3However, in all the previously quoted works, if q > 3 the solution can be guaranteed only locally in time for general initial data in Lq.In the special case of an initial datum belonging to the scaling invariant space L3(R3), and satisfying a suitable smallness condition, Kato [20] showed the existence of a unique strong solution that is global in time, see also [16, 19, 29] for some extensions of Kato’s result to more general domains. A first result on the existence of global weak solutions to the Navier-Stokes initial boundary value problem corresponding to an initial datum in the scaling invariant Lorentz space L3,∞(Ω) was obtained by Maremonti in [30]. The result holds for data of arbitrary size and a structure theorem for the weak solution is also furnished. A result for data in L3(R3) was obtained by Seregin and Sverak in [40], but no partial regularity was proved for the weak solution. In the quoted papers, a decomposition argument is also employed, but the decomposition does not involve the initial datum, which is assumed as the initial datum for a suitable Stokes problem. For initial data that do not have necessarily a finite-energy and do not belong to scaling-invariant spaces, a result for local regular solutions is due to Heywood [18]. In particular, he assumes an initial datum having a square-summable gradient. Under the same condition on the initial datum, Maremonti obtained a global weak solution, as long as a special structure theorem [28]. However, the aforementioned structure theorem does not allow to deduce a time interval of regularity of the kind ( θ, ∞), θ ≥ 0. This fact does not allow for the investigation of the long-time behavior of the quoted weak solution, as uniqueness cannot be guaranteed even for large times. This aspect deserves accurate further investigation. In the context of the 3D initial boundary value problem for nondecaying initial data, a global weak solution was obtained by Maremonti and Shimizu in [37], where the initial datum is considered in L∞(Ω) ∩ cW 1,q (Ω), q > 3. In the special case of the Cauchy problem, many results for weak solutions corresponding to rough initial data were obtained in the last years. We mention, among others, the work by Lemari´ e-Rieusset on the so called “Local-Energy Solutions” [24] and the work by Kwon and Tsai on global weak solutions for data with “slowly-decaying” oscillations [22]. For further interesting results we also refer to [2, 3, 4, 5]. We briefly introduce the notation employed throughout the paper. We set 
+
+C0(Ω) := {φ ∈ C∞ 
+
+> 0
+
+(Ω) : ∇ · φ = 0 } .
+
+By the symbol μ we refer to the Lebesgue measure on R3. We denote by Lp(Ω), W m,p (Ω) and 
+
+cW m,p (Ω), m ∈ N, p ∈ R+, respectively, the Lebesgue, Sobolev and homogeneous Sobolev spaces. We define the spaces Jp(Ω) and Jm,p (Ω) as the closures of C0(Ω) with respect to the metrics 
+
+|| · || p and || · || m,p , respectively. It is known that, for all p ∈ (1 , ∞), the following decomposition holds: 
+
+Lp(Ω) = Jp(Ω) ⊕ Gp(Ω) ,
+
+where Gp(Ω) denotes the subspace of Lp(Ω) of functions of the kind f = ∇h, h ∈ W 1,p loc (Ω) with 4
+
+∇h ∈ Lp(Ω). Moreover, we are able to define a continuous operator 
+
+Pp : Lp(Ω) → Jp(Ω) ,
+
+known as Helmholtz projection. We also recall that there exists c = c(p) > 0 such that for all 
+
+H ∈ Lp(Ω), H = U ⊕ ∇ K, with U ∈ Jp(Ω), we have 
+
+|| U || p + ||∇ K|| p ≤ c(p)|| H|| p . (2) For more details see [14, 41]. By the symbol Lp,q (Ω), p, q ∈ [1 , ∞], we refer to the Lorentz spaces and we denote by || · || pq 
+
+the corresponding norms. Given −∞ ≤ a < b ≤ +∞, we denote by C(a, b ; X) and Lp(a, b ; X), X
+
+Banach space, the Bochner spaces. We will usually employ the concise notation ( u, ϕ ) to denote the integral Z
+
+> Ω
+
+u · ϕ dx . 
+
+We refer to the trace space of W m,p (Ω) with the notation W m− 1 
+
+> p,p
+
+(∂Ω) If p = 2, we might employ the alternative notation Hm− 12 (∂Ω). For a complete overview on function spaces we refer the reader to [1], while for the spaces of the hydrodynamics we quote [14]. Employing the notation in [14], we denote by BR a ball centered in the origin with radius R,and we set Ω R = Ω ∩ BR and Ω R = Ω \ BR.In the following, by c we mean a generic constant, whose value may vary from time to time and is inessential for our purposes. We give the following notion of global weak solution to problem (1). We denote by 
+
+γ : W 1,2(Ω) → H 12 (∂Ω) the Gagliardo trace operator. 
+
+Definition 1. Let u0 ∈ Lp(Ω) , p ∈ (2 , 3] . A field u : (0 , ∞) × Ω → R3 is said a weak solution to problem (1) if, for all T > 0,
+
+a) u ∈ L2,∞(0 , T ; W 1,2 
+
+> loc
+
+(Ω)) ∩ L4(0 , T ; L3(Ω)) ;
+
+b) Z T
+
+> 0
+
+(u, ϕ t) − (∇u, ∇ϕ) + ( u · ∇ ϕ, u ) dτ + ( u0, ϕ (0)) = 0 ,
+
+for all ϕ ∈ C∞ 
+
+> 0
+
+([0 , T ) × Ω) , with ∇ · ϕ = 0 for all t ∈ [0 , T ) ; 
+
+c) (u(t), ∇ψ) = 0 , for all ψ ∈ C∞ 
+
+> 0
+
+(Ω) and t ∈ (0 , T );
+
+d) γ(u(t)) = 0 in H 12 (∂Ω) for a. a. t ∈ (0 , T ) and lim 
+
+> t→0
+
+(u(t), φ ) = ( u0, φ ), for all φ ∈ C0(Ω) .
+
+We also give the notion of a regular solution. 5
+
+Definition 2. Let u0 ∈ L3(Ω) and u be a weak solution to problem (1) in the sense of Definition 1. 
+
+u is said a regular solution on (0 , T ) × Ω if 
+
+η > 0 , u ∈ C([0 , T ); J3(Ω)) ∩ L∞(η, T ; J1,3(Ω) ∩ W 2,3(Ω)) , u t ∈ L∞(η, T ; L3(Ω)) ,
+
+and there exists a field πu : (0 , T ) × Ω → R such that 
+
+η > 0 , ∇πu ∈ L∞(η, T ; L3(Ω)) . 
+
+> Remark
+
+1. i. Actually, if the initial datum u0 is not weakly divergence-free, the continuity in t = 0 stated in Definition 2 has to be meant in the following way: lim  
+
+> t→0
+
+|| u(t) − P3u0|| 3 = 0 ; 
+
+ii. The notions of weak and regular solution are analogous to those given in the context of the L3,∞-theory for global weak solutions due to Maremonti [30]. Actually, the surprising aspect of our results is that a global weak solution corresponding to an Lp initial datum, p ∈ (2 , 3) behaves, a. e. in time and after a certain instant of time, as an L3 regular solution. Moreover, we are able to show the existence of a global weak solution having the same regularity properties of a weak solution corresponding to an L3 initial datum. Our aim is to show that for all data in Lp(Ω), p ∈ (2 , 3) there exists a global weak solution to problem (1) in the sense of Definition 1. Moreover, for the quoted weak solution, we prove partial regularity in the spirit of Leray’s Th´ eor` eme de Structure .In order to reach our goal, we partially follow an idea employed by Calder´ on in [6]. We employ a decomposition of the initial datum as the sum u0 = v0 + w0, with v0 ∈ L3(Ω) ∩ Lp(Ω) and 
+
+w0 ∈ L2(Ω) ∩ Lp(Ω), which is possible by virtue of Lemma 1. Hence, the difference between our decomposition and the one proposed by Calder´ on consists in the fact that we do not require a weak divergence-free condition, which is anyway always possible, to be preserved under the decomposition. Our decomposition seems to be more immediate and it holds in general domains. In the special case of the Cauchy problem, Calder´ on proved the existence of a solution to the integral formulation of the Navier-Stokes problem satisfying a very weak formulation of problem (1), [6]. In our case, we get a local integrability property for the first order spatial derivatives, an existence result in more general domains, and last but not least, a structure theorem for our weak solution. We construct our weak solution u as the sum u = v + w, where v is a global regular solution to 
+
+
+
+vt − ∆v + v · ∇ v + ∇πv = 0 , in (0 , T ) × Ω ,
+
+∇ · v = 0 , in (0 , T ) × Ω ,v(t, x ) = 0 , in (0 , T ) × ∂Ω ,
+
+(v(0 , x ), φ ) = ( v0(x), φ ) , for all φ ∈ C0(Ω) ,
+
+(3) 6while w is a global weak solution to 
+
+
+
+wt − ∆w + w · ∇ w + w · ∇ v + v · ∇ w + ∇πw = 0 , in (0 , T ) × Ω ,
+
+∇ · w = 0 , in (0 , T ) × Ω ,w(t, x ) = 0 , in (0 , T ) × ∂Ω ,
+
+(w(0 , x ), φ ) = ( w0, φ ) , for all φ ∈ C0(Ω) .
+
+(4) The well-posedness results for problems (3)-(4) are established, respectively, in section 3 and sec-tion 4. Our main result is the following. 
+
+Theorem 1. Let p ∈ (2 , 3) and u0 ∈ Lp(Ω) . Then there exists a weak solution u := v + w to problem (1) in the sense of Definition 1, where (v, π v) is a regular solution to problem (3) and 
+
+w is a weak solution to problem (4) . Moreover, there exist a sequence of open intervals of time 
+
+{(θl, T l)}l∈N and θ ≥ 0 such that 
+
+μ
+
+
+
+(0 , ∞) \   ∪ 
+
+> l∈N
+
+(θl, T l) ∪ [θ, ∞)
+
+= 0 
+
+and u is regular, in the sense of Definition 2, on [θ, ∞) as long as on (θl, T l), for all l ∈ N.
+
+Since we are able to furnish a weak solution to problem (1), which is smooth for t ≥ θ, then, in accord with the results by Kato [20, Thereom 4] and the semigroup properties of the Stokes operator, we can establish the following result on the asymptotic properties in time for our weak solution u.
+
+Corollary 1. Let u be the solution stated in Theorem 1. Then 
+
+|| u(t)|| q ≤ c|| u(θ)|| pt− 32 ( 1    
+
+> p−1
+> q)
+
+, for t > θ , for all q ∈ [p, ∞] ,
+
+(||∇ u(t)|| q ≤ c|| u(θ)|| pt− 32 ( 1     
+
+> p−1
+> q)−12
+
+, for t > θ, for all q ∈ [p, ∞), if Ω = R3 or Ω = R3+ ,
+
+||∇ u(t)|| q ≤ c|| u(θ)|| pt− 32 ( 1     
+
+> p−1
+> q)−12
+
+, for t > θ, for all q ∈ [p, 3] , if Ω is an exterior domain . 
+
+> Remark
+
+2. Concerning Theorem 1, we want to stress that we are able to furnish an upper bound to the starting instant of time θ for the global regularity of our weak solution (see the proof of Theorem 6). An explicit upper bound for the starting instant of regularity is also known for the Leray weak solution. However, this bound was not given in the context of the weak solution corresponding to an initial datum in L3,∞(Ω), see [30]. We claim that our arguments allow us to get a similar explicit bound even in the L3 or L3,∞ theory for global weak solutions. This aspect will be discussed in a forthcoming note. A future step consists in the investigation of global weak solutions for initial data in weighted Lebesgue spaces. For these special classes of initial data, “small” perturbations of steady-state solutions in the whole space were investigated in [15]. Local regular solutions to problem (1), as 7long as global solutions for small data, were provided in [35] in the case of the Cauchy problem, while the linear problem in the half-space is discussed in [9]. Last but not least, we are going to investigate the case of arbitrary initial data in Lq(Ω), q > 3, aiming to prove, by different techniques, the existence of some special global weak solutions. 
+
+# 2 Preliminary results 
+
+We reproduce a result due to Calder´ on in [6] in the case Ω = R3. Anyway, we realize a decompo-sition of functions in general Lebesgue spaces without requiring a divergence-free condition to be preserved. 
+
+Lemma 1. Let p, q, r ∈ [1 , ∞) be such that r < p < q . For all ρ > 0 and for all f ∈ Lp(Ω) there exist f1 ∈ Lq(Ω) and f2 ∈ Lr(Ω) such that f = f1 + f2 and 
+
+|| f1|| q ≤ ρ1− pq || f ||  
+
+> pq
+> p
+
+,
+
+|| f2|| r ≤ ρ1− pr || f || pr 
+
+> p
+
+.
+
+(5) 
+
+Proof. Let ρ > 0. We write f = f1 + f2 with 
+
+f1(x) = 
+
+(f (x) , if |f (x)| ≤ ρ , 
+
+0 , else .
+
+Since q − p > 0, it is clear that 
+
+|| f1|| qq =
+
+Z
+
+> Ω
+
+|f1(x)|q−p|f1(x)|p dx ≤ ρq−p|| f || pp .
+
+Therefore, (5) 1 holds. Analogously, since r − p < 0 and |f2(x)| ≥ ρ > 0 for all x ∈ Ω, we have 
+
+|| f2|| rr =
+
+Z
+
+> Ω
+
+|f2(x)|r−p|f2(x)|p dx ≤ ρr−p|| f || pp ,
+
+and (5) 2 is also proved. 
+
+Lemma 2. Let y(t) ∈ C1(t0, ∞) such that y(t) ≥ 0 and assume that 
+
+
+
+˙y(t) ≤ a(t)y(t) + K1y2(t) + K2y3(t) ,y(t0) = y0 ,E = R ∞ 
+
+> t0
+
+y(t) dt < ∞ ,
+
+for some K1, K 2 ≥ 0. Assume further that there exists K3 ≥ 0 such that a(t) ≤ K3 for all t ≥ t0,and that for some δ > 0
+
+E < δ
+
+2K(1 + δ)2 , with K := max {Ki, i = 1 , . . . , 3} .8
+
+Then 
+
+y(t0) ≤ δ
+
+2 =⇒ y(t) ≤ δ , for all t ≥ t0 .
+
+Moreover, if Z ∞
+
+> t0
+
+a(t) dt < ∞ ,
+
+there exists c > 0 independent of y such that 
+
+y(t) ≤ c(t − t0)−1 , for all t > t 0 .
+
+Proof. The lemma is proved in [26] 
+
+Lemma 3. Assume that D ⊆ Rn is an exterior domain with compact boundary, having the cone property. Let m ∈ N0, p ∈ [1 , ∞], and q ∈ [1 , ∞). Let g ∈ cW m,p (D) ∩ Lq(D). Then, for 
+
+k ∈ { 0, 1, . . . , m − 1}, there exists c > 0 independent of g such that the following inequality holds: 
+
+|| Dkg∥r ≤ c|| Dmg|| ap|| g|| 1−aq , (6) 
+
+where 1
+
+r = kn + a
+
+ 1
+
+p − mn
+
+
+
++ (1 − a) 1
+
+q ,
+
+with a ∈  km , 1 either if p = 1 or if p > 1 and m − k − np /∈ N ∪ { 0}, while a ∈  km , 1 if p > 1 and 
+
+m − k − np ∈ N ∪ { 0}.
+
+Proof. See [8]. 
+
+Lemma 4. Let g ∈ J1,2(Ω) ∩ W 2,2(Ω) . Then there exists a constant c, independent of g, such that 
+
+|| g|| ∞ ≤ c|| P2∆g|| 12 
+
+> 2
+
+||∇ g|| 12 
+
+> 2
+
+.
+
+Proof. See [31]. Let us consider the Stokes initial boundary value problem: 
+
+
+
+Vt − ∆V + ∇πV = f , in (0 , T ) × Ω,
+
+∇ · V = 0 , in (0 , T ) × Ω ,V (t, x ) = 0 , in (0 , T ) × ∂Ω ,V (0 , x ) = V0(x) , in Ω .
+
+(7) 
+
+Lemma 5. Let Ω be an exterior domain with a C2 boundary ∂Ω, f = 0 and V0 ∈ Jq(Ω) , for some 
+
+q ∈ (1 , ∞). Then, there exists a unique solution (V, π V ) to problem (7) such that, for all T > 0,
+
+η > 0 , V ∈ C([0 , T ); Jq(Ω)) ∩ Lq(η, T ; J1,q (Ω) ∩ W 2,q (Ω)) ,
+
+∇πV , V t ∈ Lq(η, T ; Lq(Ω)) .9
+
+Moreover, 
+
+|| V (t)|| r ≤ c|| V0|| qt−μ , μ = 32
+
+  1 
+
+> q
+
+− 1
+
+> r
+
+ , t > 0 , r ∈ [q, ∞]; 
+
+||∇ V (t)|| r ≤ c|| V0|| qt−μ1 , μ1 =
+
+ 
+
+> 12
+
++ μ , if t ∈ (0 , 1) , r ∈ [q, ∞) , 
+
+> 12
+
++ μ , if t > 0 and r ∈ [q, 3] , 
+
+> 32q
+
+, if t ≥ 1 and r > 3 ; 
+
+|| Vt(t)|| r ≤ c|| V0|| qt−μ2 , μ2 = 1 + μ , t > 0 , r ∈ [q, ∞] ; (8) 
+
+where the constant c is independent of V0.
+
+Proof. The Lemma is proved in [27] by following analogous arguments to those employed in [38]. 
+
+Remark 3. In the case Ω = R3 or Ω = R3+ the statement is clearly true and estimate (8) 2 holds with μ1 = 12 + μ. In the case of the Cauchy problem, this is an immediate consequence of the commutation between the Helmholtz projection and the Laplace operator, in the half-space case the result can be found in [42]. However, in the case of Ω exterior domain estimate (8) 2 is sharp, as proved in [38]. 
+
+Lemma 6. Let f = 0 and V0 ∈ J2(Ω) . Let (V, π V ) be the solution to problem (7) ensured by Lemma 5. For all λ ∈ (0 , 12 ] and all R0 > 0, setting β = 1−2λ 
+
+> 3
+
+, the pressure field πV satisfies 
+
+|| πV (t)|| L2(Ω R0 ) ≤ c(T )|| V0|| 2[t−1+ β 
+
+> 2
+
++ t−1+ β 
+
+> 2
+
+] , for all t ∈ (0 , T ) .
+
+Proof. The proof is provided in [7]. 
+
+Corollary 2. Under the same assumptions of Lemma 6, for all r > 3 the pressure field πV satisfies 
+
+|| πV (t)|| Lr (Ω R0 ) ≤ c(T )|| V0|| 2[t−1+ β 
+
+> 2
+
++ t−1+ β 
+
+> 2
+
+] , for all t ∈ (0 , T ) .
+
+Proof. The result is a consequence of Lemma 6, as shown in [7]. We briefly recall the key points here. We consider a smooth cut-off function φR0 , hence φR0 (x) = 0 if |x| ≤ R0 
+
+> 2
+
+and φR0 (x) = 1 if |x| ≥ R0. We set ζR0 (x) := 1 − φR0 (x). Extending by zero the pressure field πV to the whole space, we consider, for all t > 0, the Poisson equation ∆( ζR0 πV ) = 2 ∇ζR0 · ∇ πV + ∆ ζR0 πV , for all x ∈ R3 .
+
+Denoting by E the fundamental solution of the Laplace equation, we have 
+
+ζR0 (x)πV (x) = −
+
+Z
+
+> R3
+
+E(x − y)∆ ζR0 (y)πV (y) dy − 2
+
+Z
+
+> R3
+
+∇E (x − y)∇ζR0 (y)πV (y) dy . 
+
+Since, for all i ∈ N, supp( ∇iζR0 ) ⊂ { x : R0 
+
+> 2
+
+< |x| < R 0}, the result follows from Lemma 6. 10 
+
+Lemma 7. Let V0 = 0 and f ∈ Lq((0 , T ) × Ω) , for some q ∈ [2 , ∞). Then there exists a unique solution (V, π V ) to problem (7) such that 
+
+V ∈ C([0 , T ); Jq(Ω)) ∩ Lq(0 , T ; J1,q (Ω)) ,
+
+Z T
+
+> 0
+
+|| Vt(τ )|| qq + || D2V (τ )|| qq + ||∇ πV (τ )|| qq
+
+ dτ ≤ c(T )
+
+Z T
+
+> 0
+
+|| f (τ )|| qq dτ , 
+
+where, for all ε > 0, c(T ) := C(1 + T 1+ εq − 32q ).
+
+Proof. See [38]. 
+
+Lemma 8. Assume that for some q ∈ (1 , 3) ∇f ∈ Lq(Ω) . Then there exists a constant f0 and there exists c > 0 independent of f such that 
+
+|| f − f0|| 3q
+
+> 3−q
+
+≤ c||∇ f || q .
+
+Proof. The lemma is proved in [14]. 
+
+Lemma 9. There exists ξ0 > 0 such that each v0 ∈ J3(Ω) with || v0|| 3 < ξ 0 corresponds to a unique solution (v, π v) to problem (3) on (0 , ∞) such that, for all T > η > 0,
+
+v ∈ C([0 , T ); J3(Ω)) ∩ L∞(η, T ; J1,3(Ω) ∩ W 2,3(Ω)) ,vt, ∇πv ∈ L∞(η, T ; L3(Ω)) ,t 32 ( 13 − 1 
+
+> q)
+
+v ∈ C([0 , T ); Lq(Ω)) , for all 3 ≤ q ≤ ∞ ,t 12 ∇v ∈ C([0 , T ); L3(Ω)) ,t 32 ( 13 − 1   
+
+> q)+ 12
+
+∇v ∈ C([0 , 1); Lq(Ω)) , for all 3 < q < ∞ , if Ω is an exterior domain ,t 32 ( 13 − 1   
+
+> q)+ 12
+
+∇v ∈ C([0 , T ); Lq(Ω)) , for all 3 < q < ∞ , if Ω = R3 or R3+ .
+
+(9) 
+
+In particular, for suitable constants h1, h2 independent of v0, and a constant C = C(v0) we have 
+
+|| v(t)|| q ≤ h1|| v0|| 3 
+
+> 1+(1 −h2|| v0|| 3)12
+
+t− 32 ( 13 − 1  
+
+> q)
+
+, for all q ∈ [3 , ∞], and t > 0 ,
+
+lim  
+
+> t→∞
+
+|| v(t)|| 3 = 0 ,
+
+|| vt(t)|| 3 ≤ C h1|| v0|| 3 
+
+> 1+(1 −h2|| v0|| 3)12
+
+t−1 , for all t > 0 .
+
+(10) 
+
+Moreover, if v0 ∈ J3(Ω) ∩ Lr(Ω) , with r ∈ ( 32 , 3) , then 
+
+|| v(t)|| q ≤ c|| v0|| rt− 32 ( 1    
+
+> r−1
+> q)
+
+, for all t > 0 and q ∈ [r, ∞] ,
+
+||∇ v(t)|| q ≤
+
+(c|| v0|| rt− 32 ( 1     
+
+> r−1
+> q)−12
+
+, for all t > 0 and q ∈ [r, ∞) , if Ω = R3 or Ω = R3+,c|| v0|| rt− 32 ( 1     
+
+> r−1
+> q)−12
+
+, for all t > 0 and q ∈ [r, 3] , if Ω is an exterior domain .
+
+(11) 11 
+
+Proof. The existence and uniqueness of a global regular solution, as long as properties (9) 3,4,6 and (11), are furnished by Kato in [20] in the context of the Cauchy problem. For the existence and regularity of solutions in the case of a bounded domain or Ω = R3 see also [16], for the exterior problem see [19, 29]. The asymptotic properties (10) are proved by Maremonti in [29]. Then we only need to prove the validity of properties (9) 4,5 and (11) 1,2 in the case of the initial boundary value problem. However, the arguments employed in [20, Section 3] still work in the case of a domain Ω with a sufficiently smooth boundary. In fact, the proof furnished in the quoted reference requires both a smallness condition on the initial datum and the validity of the semigroup properties (8) 1,2 for the Stokes operator. As in our assumptions on the domain Ω estimates (8) 1,2 are satisfied, we get (9) 4,5 and (11) 2 as done in [20]. In order to get (11) 1, it is sufficient to employ a duality argument on the approximating sequence of the solution, as done in [29]. For further details we refer the reader to the appendix. Concerning the half-space case, the result is proved by Kozono in [21]. 
+
+Remark 4. Actually, in the case of the Cauchy problem and the half-space problem, properties (11) hold for all r ∈ (1 , 3). This is due to the fact that μ1 = 12 + μ, for all t > 0 and r ∈ [q, ∞), in (8) 2. However, in the case of the exterior problem, properties (8) 1,2 are sharp, as proved in [38]. The different semigroup properties in the case of the exterior problem do not allow one to get (11) for r ∈ (1 , 32 ). However, in order to reach our purposes, the requirement r ∈ ( 32 , 3) is not restrictive, as the initial datum we are considering for the Navier-Stokes problem belongs to Lp(Ω), p ∈ (2 , 3). As an immediate consequence of Lemma 9, we get the following 
+
+Corollary 3. Let (v, π v) the solution to problem (3) obtained in Lemma 9. Then 
+
+||∇ v(t)|| 3 ≤ ct − 12 || v0|| 3 , for all t > 0 .
+
+Moreover, if v0 ∈ J3(Ω) ∩ Lr(Ω) , for some r ∈ ( 32 , 3) , then 
+
+||∇ v(t)|| 3 ≤ ct − 32r || v0|| r , for all t > 0 .
+
+Lemma 10. Let w ∈ L∞(0 , T ; J2(Ω)) ∩ L2(0 , T ; J1,2(Ω)) with a bound C independent of T . Let 
+
+q ∈ [ 65 , 10 7 ) and v be the solution to problem (3) given in Lemma 9. Then, the following estimates hold: Z T
+
+> 0
+
+|| w · ∇ w∥ 5454
+
+dτ ≤ cC 52 ,
+
+Z T
+
+> 0
+
+|| v · ∇ w|| qq dτ ≤ cC q|| v0|| q
+
+> 3
+
+T 10 −7q 
+
+> 4
+
+,
+
+Z T
+
+> 0
+
+|| w · ∇ v|| qq dτ ≤ cC q|| v0|| q 
+
+> 3
+
+max {T 10 −7q 
+
+> 4
+
+, 1} .
+
+(12) 
+
+Proof. Property (12) 1 was already proved by Ladyzhenskaya in [23]. However, we propose a short proof here. Employing Lemma 3, we deduce that || w∥ 10 3
+
+≤ c||∇ w|| 35 
+
+> 2
+
+|| w|| 25 
+
+> 2
+
+. By virtue of H¨ older’s inequality, we find that 
+
+Z T
+
+> 0
+
+|| w · ∇ w|| 5454
+
+dτ ≤
+
+ Z T
+
+> 0
+
+|| w|| 10 310 3
+
+dτ 
+
+ 38  Z T
+
+> 0
+
+∥∇ w|| 22 dτ 
+
+ 58
+
+≤ cC 52 .12 Analogously, by virtue of (13) 3, we get 
+
+Z T
+
+> 0
+
+|| v · ∇ w|| qq dτ ≤
+
+ Z T
+
+> 0
+
+|| v|| 
+
+> 2q
+> 2−q
+> 2q
+> 2−q
+
+dτ 
+
+ 2−q 
+
+> 2
+
+ Z T
+
+> 0
+
+∥∇ w|| 22 dτ 
+
+ q
+
+> 2
+
+≤ cC q|| v0|| q
+
+> 3
+
+T 10 −7q 
+
+> 4
+
+,
+
+and, employing also (13) 4,5,6, we obtain 
+
+Z T
+
+> 0
+
+|| w · ∇ v|| qq dτ ≤
+
+Z T
+
+> 0
+
+|| w|| q
+
+> 2
+
+||∇ v|| q2q
+
+> 2−q
+
+dτ ≤ cC q|| v0|| q 
+
+> 3
+
+max {1, T 10 −7q 
+
+> 4
+
+} .
+
+The lemma is completely proved. 
+
+# 3 An auxiliary Navier-Stokes problem 
+
+In this section, we develop an analytic study of problem (3). 
+
+Theorem 2. There exists ξ0 > 0 such that for all v0 ∈ L3(Ω) with || P3v0|| 3 < ξ 0, there exists a unique solution (v, π v) to problem (3) on (0 , ∞) such that, for all T > η > 0,
+
+v ∈ C([0 , T ); J3(Ω)) ∩ L∞(η, T ; J1,3(Ω) ∩ W 2,3(Ω)) ,vt, ∇πv ∈ L∞(η, T ; L3(Ω)) ,t 32 ( 13 − 1 
+
+> q)
+
+v ∈ C([0 , T ); Lq(Ω)) , for all 3 ≤ q ≤ ∞ ,t 12 ∇v ∈ C([0 , T ); L3(Ω)) ,t 32 ( 13 − 1   
+
+> q)+ 12
+
+∇v ∈ C([0 , 1); Lq(Ω)) , for all 3 < q < ∞ , if Ω is an exterior domain ,t 32 ( 13 − 1   
+
+> q)+ 12
+
+∇v ∈ C([0 , T ); Lq(Ω)) , for all 3 < q < ∞ , if Ω = R3 or R3+ .
+
+(13) 
+
+In particular, for suitable constants h1, h2 independent of v0, and a constant C = C(v0) we have 
+
+|| v(t)|| q ≤ h1|| P3v0|| 3 
+
+> 1+(1 −h2|| P3v0|| 3)12
+
+t− 32 ( 13 − 1  
+
+> q)
+
+, for all q ∈ [3 , ∞], and t > 0 ,
+
+lim  
+
+> t→∞
+
+|| v(t)|| 3 = 0 ,
+
+|| vt(t)|| 3 ≤ C h1|| P3v0|| 3 
+
+> 1+(1 −h2|| P3v0|| 3)12
+
+t−1 , for all t > 0 .
+
+(14) 
+
+Moreover, if v0 ∈ L3(Ω) ∩ Lr(Ω) , with r ∈ ( 32 , 3) , then 
+
+|| v(t)|| q ≤ c|| v0|| rt− 32 ( 1    
+
+> r−1
+> q)
+
+, for all t > 0 and q ∈ [r, ∞] ,
+
+||∇ v(t)|| q ≤
+
+(c|| v0|| rt− 32 ( 1     
+
+> r−1
+> q)−12
+
+, for all t > 0 and q ∈ [r, ∞) , if Ω = R3 or Ω = R3+,c|| v0|| rt− 32 ( 1     
+
+> r−1
+> q)−12
+
+, for all t > 0 and q ∈ [r, 3] , if Ω is an exterior domain .
+
+(15) 13 
+
+Proof. We consider the unique global solution ( v, π v) to the related problem 
+
+
+
+vt − ∆v + v · ∇ v + ∇πv = 0 , in (0 , T ) × Ω ,
+
+∇ · v = 0 , in (0 , T ) × Ω ,v(t, x ) = 0 , in (0 , T ) × ∂Ω ,v(0 , x ) = P3v0 , in Ω ,
+
+(16) ensured by Lemma 9 thanks to the assumption || P3v0|| 3 < ξ 0. By virtue of the Helmholtz decom-position, we have 
+
+v0(x) = P3v0(x) + ∇h . 
+
+We recall that, by virtue of Lemma 9, we have lim  
+
+> t→0
+
+|| v(t) − P3v0|| 3 = 0 .
+
+Then, it follows that lim 
+
+> t→0
+
+(v(t) − P3v0, φ ) = 0 .
+
+Since (∇h, φ ) = 0 , for all φ ∈ C0(Ω) ,
+
+we deduce lim 
+
+> t→0
+
+(v(t) − v0, φ ) = 0 , for all φ ∈ C0(Ω) .
+
+We conclude that ( v, π v) is also a global solution to problem (3) and we refer to it as ( v, π v). By virtue of Lemma 9, it is clear that ( v, π v) satisfies properties (14). It is also clear that ( v, π v)satisfies (13) and, since the Helmholtz decomposition is well-defined in Lr(Ω), with r ∈ ( 32 , 3), then if v0 ∈ L3(Ω) ∩ Lr(Ω) we also have P3v0 ∈ J3(Ω) ∩ Lr(Ω). Therefore, estimates (15) hold if v0 ∈ L3(Ω) ∩ Lr(Ω), r ∈ ( 32 , 3). We verify the uniqueness of the solution ( v, π v). Actually, the proof is analogous to that of the uniqueness for problem (16), that follows an idea of Foias [12]. We sketch it for the sake of completeness. We consider two solutions ( v1, π v1 ) and ( v2, π v2 ) to problem (3) belonging to the class (13) and we set 
+
+bv = v1 − v2 , πbv = πv1 − πv2 .
+
+The functions ( bv, π bv) are solutions to the following problem: 
+
+bvt − ∆bv + bv · ∇ v1 + v2 · ∇ bv + ∇πbv = 0 , in (0 , T ) × Ω ,
+
+∇ · bv = 0 , in (0 , T ) × Ω ,
+
+bv(t, x ) = 0 , in (0 , T ) × ∂Ω ,
+
+(bv(0 , x ), φ ) = 0 , for all φ ∈ C0(Ω) .
+
+(17) 14 We consider ( z, π z ) solution to the Stokes problem with initial datum z0 ∈ C0(Ω). Let t > 0. We set bz(τ, x ) = z(t − τ, x ), τ ∈ (0 , t ). We multiply equation (17) 1 by bz and integrate over (0 , t ) × Ω. We get (bv(t), z 0) = ( bv(0) , z (t)) + 
+
+Z t
+
+> 0
+
+(bv · ∇ bz, v 1) + ( v2 · ∇ bz, bv) dτ . (18) By virtue of condition (17) 4, we have ( bv(0) , z (t)) = 0. Moreover, we have 
+
+Z t
+
+> 0
+
+(bv · ∇ bz, v 1) + ( v2 · ∇ bz, bv) dτ ≤
+
+Z t
+
+> 0
+
+(bv · ∇ bz, v 1) + ( v2 · ∇ bz, bv) dτ 
+
+≤
+
+Z t
+
+> 0
+
+|| bv(τ )|| 3||∇ bz(τ )|| 32
+
+(|| v1(τ )|| ∞ + || v2(τ )|| ∞) dτ . 
+
+Set 
+
+k := 
+
+Z t
+
+> 0
+
+τ − 12 (t − τ )− 12 dτ . 
+
+Employing the semigroup properties for z and estimate (14) 1 for v1 and v2, we obtain 
+
+Z t
+
+> 0
+
+|| bv(τ )|| 3||∇ bz(τ )|| 32
+
+(|| v1(τ )|| ∞ + || v2(τ )|| ∞) dτ 
+
+≤ c|| z0|| 32
+
+h1|| P3v0|| 3
+
+1 + (1 − h2|| P3v0|| 3) 12
+
+Z t
+
+> 0
+
+τ − 12 (t − τ )− 12 || bv(τ )|| 3 dτ 
+
+≤ ck || z0|| 32
+
+h1|| P3v0|| 3
+
+1 + (1 − h2|| P3v0|| 3) 12
+
+sup 
+
+> (0 ,t )
+
+|| bv(τ )|| 3 .
+
+Since there is no lower bound for ξ0, we may assume that 
+
+ξ0 < (ckh 1)−1 ,
+
+and, therefore, 
+
+c := ck h1|| P3v0|| 3
+
+1 + (1 − h2|| P3v0|| 3) 12
+
+< 1 ,
+
+Going back to (57), in view of the arbitrariness of z0, we obtain (1 − c) sup 
+
+> (0 ,t )
+
+|| bv(τ )|| 3 ≤ 0 ,
+
+which in turn implies the uniqueness of the solution. The theorem is completely proved. As a consequence of the previous theorem and Corollary 3, we have 
+
+Corollary 4. Let (v, π v) the solution to problem (3) obtained in Theorem 2. Then 
+
+||∇ v(t)|| 3 ≤ ct − 12 || v0|| 3 , for all t > 0 .
+
+Moreover, if v0 ∈ L3(Ω) ∩ Lr(Ω) , for some r ∈ ( 32 , 3) , then 
+
+||∇ v(t)|| 3 ≤ ct − 32r || v0|| r , for all t > 0 .15 
+
+# 4 A perturbed Navier-Stokes problem 
+
+In this section, we perform an analytic study of problem (4). We recall that in the aforementioned problem v denotes the solution to problem (3), ensured by Theorem 2, and w0 ∈ L2(Ω). Our goal is to construct a global weak solution to problem (4) in the sense of Leray-Hopf. Further, we also discuss the partial regularity of the quoted solution, proving a structure theorem. 
+
+Remark 5. We denote by c1 the constant related to the embedding cW 1,2(Ω) ,→ L6(Ω), namely 
+
+|| f || 6 ≤ c1||∇ f || 2 , for all f ∈ cW 1,2(Ω) .
+
+As in Theorem 2 there is now lower bound for ξ0, we can take it so that 
+
+ξ0 < min {(c1h1)−1, h −12 } ,
+
+where h1 and h2 are given in (14) 1. Setting ec := c1 h1 
+
+> 1+(1 −h2|| P3v0|| 3)12
+
+, we get 1 − ec|| P3v0|| 3 > 0 . (19) We give the following definition for a weak solution. 
+
+Definition 3. A field w : (0 , ∞) × Ω → R3 is said a weak solution to problem (4) if, for all T > 0,the following properties hold: 
+
+(a) w ∈ L∞(0 , T ; L2(Ω)) ∩ L2(0 , T ; W 1,2(Ω)) ;
+
+(b) for all t, s ∈ (0 , T ), w satisfies the following integral equation: 
+
+Z ts
+
+(w, ϕ τ ) − (∇w, ∇ϕ) + (( w + v) · ∇ ϕ, w ) + ( w · ∇ ϕ, v ) dτ 
+
++( w(s), ϕ (s)) = ( w(t), ϕ (t)) , for all ϕ ∈ C10 ([0 , T ) × Ω) , with ∇ · ϕ = 0 , for all t ∈ [0 , T ); 
+
+(c) w satisfies the following inequality: 
+
+|| w(t)|| 22+2(1 −ec|| P3v0|| 3)
+
+Z ts
+
+||∇ w(τ )|| 22 dτ ≤ || w(s)|| 22 , for all t ≥ s for s = 0 and for a. a. s ≥ 0 ; 
+
+(d) lim 
+
+> t→0+
+
+(w(t), φ ) = ( w0, φ ), for all φ ∈ C0(Ω) .
+
+We also give the following notion of regular solution to problem (4) 
+
+Definition 4. A weak solution w to problem (4) is said regular on (0 , T ) × Ω if 
+
+w ∈ L2(0 , T ; W 2,2(Ω)) , w t ∈ L2(0 , T ; L2(Ω)) 
+
+and there exists a scalar field πw : (0 , T ) × Ω → R such that 
+
+∇πw ∈ L2(0 , T ; L2(Ω)) .16 The main result of this section reads as follows. 
+
+Theorem 3. For all w0 ∈ L2(Ω) there exists a weak solution w to problem (4) in the sense of Defi-nition 3. Moreover, there exists θ := η−2(1 −ec|| P3v0|| 3)−1|| P2w0|| 42, η ∈  0, (1 −ec|| P3v0|| 3)− 12 || P2w0|| 22
+
+,and a sequence of open time intervals {(θl, T l)}l∈N0 such that 
+
+(θ0, T 0) = ( θ, ∞) , and (0 , ∞) \ ∪
+
+> l∈N0
+
+(θl, T l) has zero Lebesgue measure ,w is regular on (θl, T l) × Ω , for all l ∈ N0 .
+
+The existence of a weak solution is proved following the idea of Leray [25], hence we study the following approximating problem. We set Jn[·] = J 1
+
+> n
+
+[·], where J 1
+
+> n
+
+is a usual Friedrichs mollifier. 
+
+
+
+wnt − ∆wn + Jn[wn] · ∇ wn + wn · ∇ v + v · ∇ wn + ∇πwn = 0 , in (0 , T ) × Ω ,
+
+∇ · wn = 0 , in (0 , T ) × Ω ,wn(t, x ) = 0 , in (0 , T ) × ∂Ω ,wn(0 , x ) = P2w0 , in Ω .
+
+(20) We recall again that v is the regular solution to problem (3), ensured by Theorem 2. Problem (20) can be studied employing the consolidated Faedo-Galerkin method in the way suggested by Prodi [39] and Heywood [18]. Since the procedure is well-understood, we omit it for the sake of brevity and we only perform the essential estimates on the Galerkin approximating sequences that allow to obtain a smooth solution to (20). 
+
+4.1 Existence and uniqueness of a strong solution to (20) 
+
+In this subsection we establish the following result. 
+
+Theorem 4. For all n ∈ N there exists a unique solution (wn, π wn ) to problem (20) such that 
+
+wn ∈ C([0 , T ); J2(Ω)) ∩ L2(0 , T ; J1,2(Ω)) ,
+
+for all δ > 0, w nt , D 2wn, ∇πwn ∈ L2(δ, T ; L2(Ω)) .
+
+The proof of the theorem is based on a priori estimates on the Galerkin approximating sequence 
+
+{wnj }j related to problem (20). We recall that the j-th element of the Galerkin sequence {wnj }j is given by wnj (t, x ) = 
+
+> j
+
+X
+
+> k=1
+
+ckj (t)ak(x), where {ak}k is a special basis of J1,2(Ω), orthonormal in J2(Ω), with {ak}k eigenfunctions of the Stokes operator −P2∆ and {λk}k the corresponding eigenvalues. The functions ckj (t) satisfy the following system of ODEs: 
+
+((∂twnj − P2∆wnj − Jn[wnj ] · ∇ wnj − v · ∇ wnj − wnj · ∇ v, a k) = 0 ,ckj (0) = ( P2w0, a k) , k = 1 , . . . , j . (21) 17 The estimates on the Galerkin approximating sequence are performed in the following lemmas, where, to avoid overloading the notation, we will omit the index j.We first provide energy estimates. 
+
+Lemma 11. For all n ∈ N, uniformly in j ∈ N, we get 
+
+|| wn(t)|| 22 + 2(1 − ec|| P3v0|| 3)
+
+Z t
+
+> 0
+
+||∇ wn(t)|| 22 dτ ≤ || P2w0|| 22 , (22) 
+
+where ec is given in Remark 5. 
+
+Proof. Multiply equation (21) 1 by ckj and sum over the index k = 1 , . . . , j . Integrating over (0 , t ), we get 
+
+|| wn(t)|| 22 + 2 
+
+Z t
+
+> 0
+
+||∇ wn(τ )|| 22 dτ = || P2w0|| 22 + 2 
+
+Z t
+
+> 0
+
+(wn · ∇ v, w n) dτ . 
+
+Integrating by parts, we obtain (wn · ∇ v, w n) = −(wn · ∇ wn, v ) .
+
+Moreover, we have 
+
+|(wn · ∇ wn, v )| ≤ c1|| v|| 3||∇ wn|| 22 ≤ ec|| P3v0|| 3||∇ wn|| 22 .
+
+Therefore, we conclude the proof of the lemma. In the following lemma we furnish estimates for second-order spatial derivatives and first-order time derivatives for the Galerkin sequence {wnj }j .
+
+Lemma 12. Under the same assumptions of Lemma 11, for all n ∈ N we get, uniformly in j ∈ N,the following estimate: 
+
+t||∇ wn(t)|| 22 +
+
+Z t
+
+> 0
+
+τ || P2∆wn(τ )|| 22 + || wnτ (τ )|| 22
+
+ dτ 
+
+≤ c
+
+Z t
+
+> 0
+
+τ c(n)|| wn(τ )|| 22||∇ wn(τ )|| 22 + ( ||∇ v(τ )|| 23 + || v(τ )|| 2
+
+> ∞
+
+)||∇ wn(τ )|| 22
+
+ dτ < ∞ .
+
+(23) 
+
+Proof. Firstly, we notice that the right-hand side of (23) is finite thanks to properties (13) 1,3,4,5
+
+and Lemma 11. We now prove the validity of the estimate. We multiply equation (21) 1 first by 
+
+−λkckj , then by τ , sum over k = 1 , . . . , j and integrate over (0 , t ). We get 
+
+t||∇ wm(t)|| 22 + 2 
+
+Z t
+
+> 0
+
+τ || P2∆wm(τ )|| 22 dτ 
+
+= 2 
+
+Z t
+
+> 0
+
+τ (Jn[wn] · ∇ wn, P2∆wn) + ( wn · ∇ v, P2∆wn) + ( v · ∇ wn, P2∆wn) dτ . 
+
+(24) 18 We estimate the right-hand side of the previous identity employing elementary properties of mol-lifiers, H¨ older and Young inequalities. We have 
+
+|(Jn[wn] · ∇ wn, P2∆wn)| ≤ c(n)|| wn|| 2||∇ wn|| 2|| P2∆wn|| 2 ≤ 16 || P2∆wn|| 22 + c(n)|| wn|| 22||∇ wn|| 22 ,
+
+|(wn · ∇ v, P2∆wn)| ≤ || P2∆wn|| 2||∇ v|| 3|| wn|| 6 ≤ 16 || P2∆wn|| 22 + c||∇ v|| 23||∇ wn|| 22 ,
+
+|(v · ∇ wn, P2∆wn) ≤ || v|| ∞||∇ wn|| 2|| P2∆wn|| 2 ≤ 16 || P2∆wn|| 22 + c|| v|| 2
+
+> ∞
+
+||∇ wn|| 22 .
+
+Hence, we obtain 
+
+Z t
+
+> 0
+
+τ (Jn[wn] · ∇ wn, P2∆wn) + ( wn · ∇ v, P2∆wn) + ( v · ∇ wn, P2∆wn) dτ 
+
+≤ 12
+
+Z t
+
+> 0
+
+τ || P2∆wn(τ )|| 22 dτ +
+
+Z t
+
+> 0
+
+τ c(n)|| wn(τ )|| 22||∇ wn(τ )|| 22 + c(|| v(τ )|| 2 
+
+> ∞
+
++ ||∇ v(τ )|| 23)||∇ wn(τ )|| 22
+
+dτ . 
+
+Therefore, going back to (24), we deduce 
+
+t||∇ wn(t)|| 22 +
+
+Z t
+
+> 0
+
+τ || P2∆wn(τ )|| 22 dτ 
+
+≤ c
+
+Z t
+
+> 0
+
+τ c(n)|| wn(τ )|| 22||∇ wn(τ )|| 22 + ( ||∇ v(τ )|| 23 + || v(τ )|| 2
+
+> ∞
+
+)||∇ wn(τ )|| 22
+
+ dτ . 
+
+(25) Analogously, multiplying equation (21) 1 first by ∂τ ckj and then by τ , summing over k = 1 , . . . , j ,and integrating over (0 , t ), we get 
+
+t||∇ wm(t)|| 22 + 2 
+
+Z t
+
+> 0
+
+τ || wmt (τ )|| 22 dτ 
+
+= 2 
+
+Z t
+
+> 0
+
+τ (Jn[wn] · ∇ wn, w nt ) + ( wn · ∇ v, w nt ) + ( v · ∇ wn, w nt ) dτ . 
+
+(26) We estimate the right-hand side of (26) by analogous arguments to those employed for (24). We finally deduce that 
+
+t||∇ wn(t)|| 22 +
+
+Z t
+
+> 0
+
+τ || wnt (τ )|| 22 dτ 
+
+≤ c
+
+Z t
+
+> 0
+
+τ c(n)|| wn(τ )|| 22||∇ wn(τ )|| 22 + ( ||∇ v(τ )|| 23 + || v(τ )|| 2
+
+> ∞
+
+)||∇ wn(τ )|| 22
+
+ dτ . 
+
+(27) Combining estimates (25) and (27), we conclude the proof. 
+
+Proof of Theorem 4. The existence of a solution ( wn, π wn ) such that 
+
+wn ∈ C([0 , T ); J2(Ω)) ∩ L2(0 , T ; J1,2(Ω)) ,wnt , D 2wn, ∇πwn ∈ L2(δ, T ; L2(Ω)) , for all δ > 0 ,19 can be achieved by following the procedure suggested in [18, 39] in view of Lemmas 11-12. In order to prove the uniqueness of the quoted solution, we assume that ( wn 
+
+> 1
+
+, π wn 
+
+> 1
+
+) and ( wn 
+
+> 2
+
+, π wn 
+
+> 2
+
+) are two solutions to problem (20). We set ( bwn, bπn) := ( wn 
+
+> 1
+
+− wn 
+
+> 2
+
+, π wn 
+
+> 1
+
+− πwn 
+
+> 2
+
+). It is readily seen that ( bwn, bπn)satisfies 
+
+bwnt −∆ bwn +Jn[ bwn] · ∇ wn 
+
+> 1
+
++Jn[wn 
+
+> 2
+
+] · ∇ bwn + bwn · ∇ v+v · ∇ bwn +∇bπn = 0 , in (0 , T ) × Ω ,
+
+∇ · bwn = 0 , in (0 , T ) × Ω ,
+
+bwn(t, x ) = 0 , in (0 , T ) × ∂Ω ,
+
+bwn(0 , x ) = 0 , in Ω .
+
+(28) We multiply equation (28) 1 by bwn and integrate over Ω. By virtue of the divergence theorem, we get 12
+
+ddt || bwn(t)|| 22 + ||∇ bwn(t)|| 22 = −(Jn[ bwn(t)] · ∇ wn 
+
+> 1
+
+(t), bwn(t)) − ( bwn(t) · ∇ v(t), bwn(t)) , for all t > 0 .
+
+We estimate the right-hand side of the above identity. We have 
+
+|(Jn[ bwn] · ∇ wn 
+
+> 1
+
+, bwn)| ≤ c(n)||∇ wn 
+
+> 1
+
+|| 2|| bwn|| 22 ,
+
+|( bwn · ∇ v, bwn)| = |( bwn · ∇ bwn, v )| ≤ || v|| 3||∇ bwn|| 2|| bwn|| 6 ≤ ec|| P3v0|| 3||∇ bwn|| 22 ,
+
+where ec is given in Remark 5. Therefore, recalling the aforementioned remark and that, by virtue of Lemma 11, ||∇ wn 
+
+> 1
+
+|| 2 ∈ L2(0 , T ), for all T > 0, we conclude the proof of the theorem by invoking Gronwall’s Lemma. 
+
+Remark 6. It seems worth to emphasize that, differently from what is known for the L3-theory for global weak solutions (see [30, 40]), with our technique the approximating sequence for the weak solution w is uniquely determined. 
+
+4.2 Existence of a weak solution to problem (4) 
+
+We want to prove the existence of a weak solution to problem (4). The weak solution will be obtained through a limit process on the sequence {wn}n, constructed in the previous subsection. In order to reach our goal we need two preparatory lemmas. The former allows us to deduce some estimates concerning the pressure fields {πwn }n, uniformly with respect to n ∈ N. The latter shows that, for all t > 0, the L2 norm of wn(t) in the exterior domain Ω R vanishes letting R → ∞ ,uniformly in n ∈ N.
+
+Lemma 13. Let (wn, π wn ) be the solution to problem (20) established in Theorem 4 and let 
+
+λ ∈ (0 , 12 ). Set β = 1−2λ 
+
+> 3
+
+. Then, πwn = πn 
+
+> 1
+
++ πn 
+
+> 2
+
+, with 
+
+Z T
+
+> 0
+
+||∇ πn 
+
+> 1
+
+(τ )|| 5454
+
+dτ ≤ C1(|| v0|| 3, T ) ,
+
+|| πn 
+
+> 2
+
+(t)|| Lr (Ω R) ≤ c(T )|| P2w0|| 2[t−1+ β 
+
+> 2
+
++ t−1+ β 
+
+> 4
+
+] , for all R > 0 , r > 3 and t ∈ (0 , T ) .
+
+(29) 20 
+
+Proof. We can write ( wn, π wn ) = ( wn 
+
+> 1
+
+, π n 
+
+> 1
+
+) + ( wn 
+
+> 2
+
+, π n 
+
+> 2
+
+), where ( wn 
+
+> 1
+
+, π n 
+
+> 1
+
+) solves 
+
+
+
+∂twn 
+
+> 1
+
+− ∆wn 
+
+> 1
+
+= −∇ πn 
+
+> 1
+
++ f n , in (0 , T ) × Ω ,
+
+∇ · wn 
+
+> 1
+
+= 0 , in (0 , T ) × Ω ,wn 
+
+> 1
+
+(t, x ) = 0 , in (0 , T ) × ∂Ω ,wn 
+
+> 1
+
+(0 , x ) = 0 , in {0} × Ω ,
+
+(30) with 
+
+f n = −Jn[wn] · ∇ wn − v · ∇ wn − wn · ∇ v , 
+
+while ( wn 
+
+> 2
+
+, π n 
+
+> 2
+
+) solves 
+
+
+
+∂twn 
+
+> 2
+
+− ∆wn 
+
+> 2
+
+= −∇ πn 
+
+> 2
+
+, in (0 , T ) × Ω ,
+
+∇ · wn 
+
+> 2
+
+= 0 , in (0 , T ) × Ω ,wn 
+
+> 2
+
+(t, x ) = 0 , in (0 , T ) × ∂Ω ,wn 
+
+> 2
+
+(0 , x ) = P2w0 , in {0} × Ω .
+
+(31) Therefore, estimate (29) 1 is a consequence of Lemma 10 and Lemma 7, while estimate (29) 2 follows from Lemma 6 and Corollary 2. The lemma is proved. 
+
+Remark 7. We point out that, by virtue of Lemma 8, there exists a function c1(t) such that 
+
+Z T
+
+> 0
+
+|| πn 
+
+> 1
+
+(τ ) − c1(τ )|| 5415 7
+
+dτ ≤ C1(|| v0|| 3, T ) .
+
+From now on, with an abuse of notation, we will denote the field πn 
+
+> 1
+
+(t, x ) − c1(t) employing the concise notation πn 
+
+> 1
+
+(t, x ). 
+
+Lemma 14. Let (wn, π wn ) be the solution to problem (20) established in Theorem 4. Then, for all t > 0, we have 
+
+lim  
+
+> R→∞
+
+|| wn(t)|| L2(Ω R) = 0 , uniformly in n ∈ N . (32) 
+
+Proof. Consider a smooth cut-off function φR(x), hence φR(x) = 1 if |x| ≤ R and φR(x) = 0 if 
+
+|x| ≥ 2R. Moreover, supp( ∇iζR) ⊂ { x ∈ R3 : R < |x| < 2R} and |∇ iφR(x)| ≤ cR −i, for all 
+
+x ∈ R3, i ∈ N. Set ζR(x) := 1 − φR(x). We multiply equation (20) 1 by ζ2
+
+> R
+
+wn. Integration by parts over (0 , t ) × Ω yields 12 || ζRwn(t)|| 22 +
+
+Z t
+
+> 0
+
+|| ζ2
+
+> R
+
+∇wn(τ )|| 22 dτ =
+
+Z t
+
+> 0
+
+(|wn(τ )|2, ∆ζ2
+
+> R
+
+) dτ 
+
++
+
+Z t
+
+> 0
+
+([ Jn[wn] + v(τ )] · ∇ ζ2
+
+> R
+
+, |wn(τ )|2) dτ +
+
+Z t
+
+> 0
+
+(wn(τ ) · ∇ v(τ ), ζ 2
+
+> R
+
+wn(τ )) dτ 
+
++
+
+Z t
+
+> 0
+
+(πwn (τ )wn(τ ), ∇ζ2
+
+> R
+
+) dτ =: 
+
+> 4
+
+X
+
+> i=1
+
+Ii(t, n, R ) .
+
+(33) 21 By virtue of Lemma 11, we get 
+
+|I1(t, n, R )| ≤ c(t, || P2w0|| 22)R−2 .
+
+Concerning I2, employing H¨ older’s inequality we have 
+
+|I2(t, n, R )| ≤ cR −1
+
+Z t
+
+> 0
+
+|| wn(τ )|| 33 + || v|| ∞|| wn(τ )|| 22
+
+ dτ . 
+
+Since || wn|| 3 ≤ || wn|| 12 
+
+> 2
+
+||∇ wn|| 12 
+
+> 2
+
+and, by virtue of property (14) 1, v ∈ L1(0 , T ; L∞(Ω)), invoking Lemma 11, we deduce 
+
+|I2(t, n, R )| ≤ c(t, || P2w0|| 2, || v0|| 3)R−1 .
+
+Concerning I3, integrating by parts we obtain 
+
+I3(t, n, R ) = −
+
+Z t
+
+> 0
+
+(wn(τ ) · ∇ wn(τ ), ζ 2
+
+> R
+
+v(τ )) + ( wn(τ ) · (∇ζ2 
+
+> R
+
+⊗ wn(τ )) , v (τ ))  dτ =: −(I3,1 + I3,2) .
+
+Employing H¨ older’s inequality and recalling Remark 5, we get 
+
+|I3,1(t, n, R )| ≤ 
+
+Z t
+
+> 0
+
+|| wn(τ )|| 6|| ζ2
+
+> R
+
+∇wn(τ )|| 2|| v(τ )|| 3 dτ ≤ ec
+
+Z t
+
+> 0
+
+|| P3v0|| 3|| ζ2
+
+> R
+
+∇wn(τ )|| 22 dτ . 
+
+Moreover, concerning I3,2, employing H¨ older’s inequality, we find that 
+
+|I3,2(t, n, R )| ≤ cR −1
+
+Z t
+
+> 0
+
+|| wn(τ )|| 6||∇ wn(τ )|| 2|| v(τ )|| 3 dτ. 
+
+Invoking again Lemma 11 and (14) 1, we conclude that lim  
+
+> R→∞
+
+|I3,2(t, n, R )| = 0 , uniformly in n ∈ N .
+
+Finally, we discuss the term I4. We have 
+
+I4(t, n, R ) = 
+
+Z t
+
+> 0
+
+(πwn (τ )∇ζ2
+
+> R
+
+, w n(τ )) dτ =
+
+Z t
+
+> 0
+
+(( πn 
+
+> 1
+
+(τ ) + πn 
+
+> 2
+
+(τ )) ∇ζ2
+
+> R
+
+, w n(τ )) dτ =: I4,1 + I4,2 ,
+
+where 
+
+I4,1(t, n, R ) := 
+
+Z t
+
+> 0
+
+(πn 
+
+> 1
+
+(τ )∇ζ2
+
+> R
+
+, w n(τ )) dτ , I4,2(t, n, R ) := 
+
+Z t
+
+> 0
+
+(πn 
+
+> 2
+
+(τ )∇ζ2
+
+> R
+
+, w n(τ )) dτ . 
+
+By virtue of H¨ older’s inequality, Lemma 11 and the properties of cut-off functions, we get 
+
+Z t
+
+> 0
+
+(πn 
+
+> 1
+
+(τ )∇ζ2
+
+> R
+
+, w n(τ )) dτ ≤
+
+Z t
+
+> 0
+
+|| πn 
+
+> 1
+
+(τ )|| 15 7
+
+||∇ ζR|| 30 || wn(τ )|| 2 dτ 
+
+≤ cR − 910 
+
+Z t
+
+> 0
+
+|| πn 
+
+> 1
+
+(τ )|| 15 7
+
+|| wn(τ )|| 2 dτ ≤ c(|| P2w0|| 2)R− 910 
+
+Z t
+
+> 0
+
+|| πn 
+
+> 1
+
+(τ )|| 15 7
+
+dτ . 22 Recalling Remark 7, we conclude that lim  
+
+> R→∞
+
+|I4,1(t, n, R )| = 0 , uniformly in n ∈ N .
+
+Finally, we consider I4,2. Let r ∈ (3 , 6). Since supp( ∇ζR) ⊂ { x : R < |x| < 2R} ⊂ ΩR, employing H¨ older’s inequality, Lemma 13 and the properties of cut-off functions, we get 
+
+|I4,2(t, n, R )| ≤ 
+
+Z t
+
+> 0
+
+|| wn(τ )|| 2||∇ ζR|| 2rr−2
+
+|| πn 
+
+> 2
+
+(τ )|| L2(Ω R) dτ ≤ c|| P2w0|| 22R r−62r
+
+Z t
+
+> 0
+
+[τ −1+ β 
+
+> 2
+
++ τ −1+ β 
+
+> 4
+
+] dτ . 
+
+We recall that from Lemma 13 we have β > 0. Since 
+
+Z t
+
+> 0
+
+[τ −1+ β 
+
+> 2
+
++ τ −1+ β 
+
+> 4
+
+] dτ = 2
+
+β t β 
+
+> 2
+
++ 4
+
+β t β 
+
+> 4
+
+,
+
+and r ∈ (3 , 6), we conclude that lim  
+
+> R→∞
+
+|I4,2(t, n, R )| = 0 , uniformly in n ∈ N .
+
+Going back to (33), we deduce 12 || ζRwn(t)|| 22 + (1 − ec|| P3v0|| 3)
+
+Z t
+
+> 0
+
+|| ζ2
+
+> R
+
+∇wn(τ )|| 22 dτ ≤ c  X
+
+> i=1 ,2,4
+
+|Ii(t, n, R )| + |I3,2(t, n, R )| .
+
+As we proved that the right-hand side of the above inequality tends to 0, uniformly in n ∈ N, as 
+
+R → ∞ , we conclude the proof of the Lemma. We are now in a position to prove the main result of this subsection. 
+
+Theorem 5. There exists a weak solution w to problem (4) in the sense of Definition 3. 
+
+Proof. We deduce our weak solution w as the weak limit of the sequence {wn}n∈N, established in Theorem 4, in a suitable metric. By virtue of Lemma 11, we see that the sequence {wn}n is bounded in L2(0 , T ; J1,2(Ω)). Hence, there exists a subsequence, still denoted by {wn}, which admits a weak limit w in this space. Employing consolidated arguments, see [13, 23, 39], one can prove that, for all ψ ∈ J2(Ω), the sequence 
+
+{(wn(τ ), ψ )}n∈N
+
+is equicontinuous and uniformly bounded. Hence, the Ascoli-Arzel` a Theorem ensures that there exists a subsequence weakly converging to a function h(t) ∈ C([0 , T )). Then, we deduce that 
+
+h(t) = ( w(t), ψ ) , a. e. in [0 , T ) .
+
+We now show that w satisfies the strong energy inequality given in the item ( c) of Definition 3. It is readily seen that the sequence {wn}n satisfies the energy relation 
+
+|| wn(t)|| 22 + 2(1 − ec|| P3v0|| 3)
+
+Z ts
+
+||∇ wn(τ )|| 22 dτ ≤ || wn(s)|| 22 , for all t > s and a. a. s ≥ 0 . (34) 23 As a matter of fact, the above inequality is obtained multiplying equation (20) 1 by wn, integrating over ( s, t ) × Ω, employing H¨ older’s inequality as long as estimate (14) 1, and recalling Remark 5. We show that for a. a. s ∈ (0 , t )lim  
+
+> n→∞
+
+|| wn(s)|| 22 = || w(s)|| 22 .
+
+In fact, since 
+
+|| wn(s)|| 22 = || wn(s)|| 2 
+
+> L2(Ω R)
+
++ || wn(s)|| 2 
+
+> L2(Ω R)
+
+,
+
+and, by virtue of Friedrich’s Lemma and Lemma 14 we have 
+
+wn → w strongly in L2(0 , T ; L2(Ω R)) ,
+
+lim  
+
+> R→∞
+
+|| wn(s)|| L2(Ω R) = 0 , uniformly in n ∈ N ,
+
+and our claim is achieved. We take the minimum limit in (34) and we get 
+
+|| w(t)|| 22 + 2(1 − ec|| P3v0|| 3)
+
+Z ts
+
+||∇ w(τ )|| 2 dτ ≤ || w(s)|| 22 , for all t > 0 and a. a. s ∈ (0 , t ) .
+
+We conclude that w satisfies item ( c) of Definition 3. From the validity of item ( c) we also get that item ( a) is satisfied. The proof of items ( d) and ( b) can be achieved employing classical arguments, see, for instance, [23]. 
+
+4.3 Partial regularity of the weak solution 
+
+We now provide for the weak solution obtained in Theorem 5 a Th´ eor` eme de Structure in the spirit of the celebrated result of Leray for the Navier-Stokes problem. We follow the ideas introduced by P. Maremonti and the author of this manuscript in the recent paper [33] 1. We first need to prove the following 
+
+Lemma 15. Let {wn}n∈N be the sequence established in Theorem 4. Then, for all τ > 0 and 
+
+n ∈ N, the following inequality holds: 
+
+ddt ||∇ wn(τ )|| 22 + 12 || P2∆wn(τ )|| 22 + || wnτ (τ )|| 22 ≤ c(|| v(τ )|| 2 
+
+> ∞
+
++ ||∇ v(τ )|| 23 + ||∇ wn(τ )|| 42)||∇ wn(τ )|| 22 . (35) 
+
+Moreover, for all ε ∈ (0 , 1) and T > 0,
+
+Z T
+
+> 0
+
+|| P2∆wn(t)||  
+
+> 23+ ε
+> 2
+
+dt ≤ C(T, || P2w0|| 2) < ∞ , for all n ∈ N . (36)   
+
+> 1The new proof of the Th´ eor` eme de Structure in the paper [33] is based on arguments that might be employed also in different context of parabolic problems, in this connection see [34] for applications to the dynamic interaction between a rigid body and a viscous incompressible fluid.
+
+24 
+
+Proof. We apply the Helmholtz projection operator P2 to both sides of equations (20) 1 and then evaluate the L2 norm of both sides. For all τ > 0, we get 
+
+ddt ||∇ wn(τ )|| 22 + || P2∆wn(τ )|| 22 + || wnτ (τ )|| 22 = || P2[Jn[wn(τ )] · ∇ wn(τ )] || 22
+
++|| P2[v(τ ) · ∇ wn(τ )] || 22 + || P2[wn(τ ) · ∇ v(τ )] || 22 .
+
+(37) We estimate the right-hand side of (37). Employing H¨ older’s inequality and recalling Lemma 4, we have 
+
+|| P2[Jn[wn(τ )] · ∇ wn(τ )] || 22 ≤ c|| wn(τ )|| 2
+
+> ∞
+
+||∇ wn(τ )|| 22 ≤ 12 || P2∆wn(τ )|| 22 + c||∇ wn(τ )|| 62 ,
+
+|| P2[v(τ ) · ∇ wn(τ )] || 22 ≤ c|| v(τ )|| 2
+
+> ∞
+
+||∇ wn(τ )|| 22 ,
+
+|| P2[wn(τ ) · ∇ v(τ )] || 22 ≤ c|| wn(τ )|| 26||∇ v(τ )|| 23 ≤ c||∇ v(τ )|| 23||∇ wn(τ )|| 22 .
+
+Therefore, we deduce the validity of (35). Let α ∈ (0 , ε ) and multiply both sides of (35) by 
+
+τ α(1 + ||∇ wn(τ )|| 22)−2. Employing (13) 1,3,4 for v(τ ), τ > 0, we obtain 
+
+τ α|| P2∆wn(τ )|| 22(1 + ||∇ wn(τ )|| 22)−2 ≤ aτ α−1 + cτ α||∇ wn(τ )|| 22 − τ α ddτ (1 + ||∇ wn(τ )|| 22)−1 .
+
+We integrate both sides of the above inequality on (0 , T ) and apply to the left-hand side the reverse H¨ older’s inequality with exponents 13+ ε and − 12+ ε . We get 
+
+ Z T
+
+> 0
+
+|| P2∆wn(τ )||  
+
+> 23+ ε
+> 2
+
+dτ 
+
+3+ ε Z T
+
+> 0
+
+τ − α 
+
+> 2+ ε
+
+(1 + ||∇ wn(τ )|| 22) 22+ ε dτ 
+
+−(2+ ε)
+
+≤
+
+ aα T α + cT α
+
+Z T
+
+> 0
+
+||∇ wn(τ )|| 22 dτ −
+
+Z T
+
+> 0
+
+τ α ddτ (1 + ||∇ wn(τ )|| 22)−1 dτ 
+
+
+
+.
+
+(38) We estimate the last integral on the right-hand side of (38). Integration by parts yields 
+
+−
+
+Z T
+
+> 0
+
+τ α ddτ (1 + ||∇ wn(τ )|| 22)−1 dτ = −T α(1 + ||∇ wn(T )|| 22)−1
+
++α
+
+Z T
+
+> 0
+
+τ α−1(1 + ||∇ wn(τ )|| 22)−1 dτ ≤ − T α(1 + ||∇ wn(T )|| 22)−1 + T α ≤ T α .
+
+Moreover, employing H¨ older’s inequality and recalling the assumptions on α and ε, we have 
+
+Z T
+
+> 0
+
+τ − α 
+
+> 2+ ε
+
+(1+ ||∇ wn(τ )|| 22) 22+ ε dτ ≤
+
+ Z T
+
+> 0
+
+τ − αε dτ 
+
+ ε 
+
+> 2+ ε
+
+ Z T
+
+> 0
+
+(1+ ||∇ wn(τ )|| 22) dτ 
+
+ 22+ ε
+
+≤ c(T, || P2w0|| 2) .
+
+Therefore, going back to (38), we conclude the proof of the lemma. 
+
+Remark 8. In the context of the Navier-Stokes equations, in [32] it was proved for the Leray approximating solutions {un}n∈N an analogous property to that proved in Lemma 15, namely 
+
+Z T
+
+> 0
+
+|| D2un(τ )|| 23 
+
+> 2
+
+dτ ≤ C(T, || u0|| 2) .25 This property allowed for a strong convergence property related the sequence {∇ un}n, namely 
+
+{∇ un}n → ∇ u strongly in Lp(0 , T ; L2(Ω)) , for all p ∈ [1 , 2) , (39) where u is the Leray weak solution 2.In our case, as the norms ∥v(t)∥∞ and ∥∇ v(t)∥3 have a singularity at t = 0, we proved the slightly weaker integrability property (36). However, this property will be sufficient to prove the structure theorem related to the weak solution w to problem (4). In fact, as we will show in the next lemma, it is possible to get a suitable strong convergence property for the sequence {∇ wn}n
+
+Lemma 16. Let {wn}n be the sequence established in Theorem 4 and let w be the weak solution obtained in Theorem 5. Under the assumptions of Lemma 15, we get 
+
+{∇ wn}n → ∇ w strongly in L1(0 , T ; L2(Ω)) .
+
+In particular, 
+
+||∇ wn(t)|| 2 → ||∇ w(t)|| 2 , a. e. in (0 , T ) .
+
+Proof. For all n, m ∈ N, we have 
+
+||∇ (wn(τ ) − wm(τ )) || 22 = −(P2∆( wn(τ ) − wm(τ )) , w n(τ ) − wm(τ )) .
+
+Employing H¨ older’s inequality, we get 
+
+Z T
+
+> 0
+
+||∇ (wn(τ ) − wm(τ )) || 2 dτ ≤
+
+Z T
+
+> 0
+
+|| P2∆( wn(τ ) − wm(τ )) || 12 
+
+> 2
+
+|| wn(τ ) − wm(τ )|| 12 
+
+> 2
+
+dτ 
+
+≤
+
+ Z T
+
+> 0
+
+|| P2∆( wn(τ ) − wm(τ )) ||  
+
+> 23+ ε
+> 2
+
+dτ 
+
+ 3+ ε 
+
+> 4
+
+ Z T
+
+> 0
+
+|| wn(τ ) − wm(τ )|| 
+
+> 21−ε
+> 2
+
+ 1−ε
+
+> 4
+
+.
+
+(40) Since 
+
+|| wn(τ ) − wm(τ )|| 2 ≤ || wn(τ ) − wm(τ )|| L2(Ω R) + || wn(τ ) − wm(τ )|| L2(Ω R)
+
+≤ || wn(τ ) − wm(τ )|| L2(Ω R) + || wn(τ )|| L2(Ω R) + || wm(τ )|| L2(Ω R) .
+
+By virtue of Friedrich’s Lemma, Lemma 14 and Lemma 15, we conclude that {∇ wn}n is a Cauchy sequence in L1(0 , T ; L2(Ω)). The proof of the lemma can be concluded by classical arguments. We are now in a position to prove our partial regularity result for the weak solution w.
+
+Theorem 6. Let w be the solution established in Theorem 5. Then there exists θ := η−2(1 −
+
+ec|| P3v0|| 3)−1|| P2w0|| 42, η ∈  0, (1 − ec|| P3v0|| 3)− 12 || P2w0|| 22
+
+, and a sequence of open time intervals 
+
+{(θl, T l)}l∈N such that (0 , θ ) \ ∪ 
+
+> l∈N
+
+(θl, T l) has zero Lebesgue measure and 
+
+w ∈ C(θl, T l; J1,2(Ω)) ∩ L2(θl, T l; W 2,2(Ω)) , w t ∈ L2(θl, T l; L2(Ω)) , ∀l ∈ N,w ∈ C([ θ, ∞); J1,2(Ω)) ∩ L2(θ, ∞; W 2,2(Ω)) , w t ∈ L2(θ, ∞; L2(Ω)) . (41) 
+
+> 2Notice that we have to specify the nature of the weak solution, since estimate (39) has not been proved yet for the Hopf-Galerkin approximating sequences in unbounded domains.
+
+26 
+
+Proof. By virtue of Lemma 11, the sequence {wn}n satisfies the energy inequality 
+
+|| wn(t)|| 22 + 2(1 − ec|| P3v0|| 3)
+
+Z t
+
+> 0
+
+||∇ wn(τ )|| 22 dτ ≤ || P2w0|| 22 . (42) We prove that for all η ∈  0, (1 − ec|| P3v0|| 3)− 12 || P2w0|| 22
+
+ and for all n ∈ N
+
+there exists tn ∈ 1, η −2(1 −ec|| P3v0|| 3)−1|| P2w0|| 42
+
+ ≡ [1 , θ ) such that ||∇ wn(tn)|| 2|| P2w0|| 2 ≤ η . (43) If this is not the case, for all t ∈ [1 , θ ), we would have η < ||∇ wn(t)|| 2|| P2w0|| 2. Then 
+
+|| P2w0|| 2 = || P2w0|| 42|| P2w0|| −22 η2η−2(1 − ec|| P3v0|| 3)−1(1 − ec|| P3v0|| 3)
+
+< 2|| P2w0|| 42|| P2w0|| −22 η2η−2(1 − ec|| P3v0|| 3)−1(1 − ec|| P3v0|| 3)= 2(1 − ec|| P3v0|| 3)η2|| P2w0|| −22
+
+Z η−2(1 −ec|| P3v0|| 3)−1|| P2w0|| 42
+
+> 0
+
+dt < 2(1 − ec|| P3v0|| 3)
+
+Z η−2(1 −ec|| P3v0|| 3)−1|| P2w0|| 42
+
+> 0
+
+||∇ wn(t)|| 22dt , 
+
+that contradicts estimate (42). We recall that, by virtue of estimates (15) and Corollary 4, we have 
+
+|| v(τ )|| ∞, ||∇ v(τ )|| 3 ≤ c|| v0|| 3τ − 32p , for all τ > 0 .
+
+Setting a(τ ) := c(|| v(τ )|| 2 
+
+> ∞
+
++ ||∇ v(τ )|| 23), τ > 0, we have 
+
+Z ∞
+
+> tn
+
+a(τ ) dτ < ∞. By virtue of inequality (35), setting yn(τ ) := ||∇ wn(τ )|| 22, we get ˙yn(τ ) ≤ a(τ )yn(τ ) + cy 3
+
+> n
+
+(τ ) .
+
+Since yn(tn) ≤ η2
+
+> || P2w0|| 22
+
+and η is allowed to be arbitrarily small, employing Lemma 2 we obtain 
+
+yn(t) ≤ c(t − tn)−1 , for all t > t n ,
+
+with c independent of yn. Therefore, recalling the relation (35) and property (43), we deduce 
+
+Z ∞
+
+> θ
+
+|| D2wn(τ )|| 22 + || wnτ (τ )|| 22
+
+ dτ ≤ C , uniformly in n ∈ N .
+
+We conclude that each element of the sequence {wn}n satisfies 
+
+wn ∈ C(θ, ∞; J1,2(Ω)) ∩ L2(θ, ∞; W 2,2(Ω)) , w nt ∈ L2(θ, ∞; L2(Ω)) , (44) Moreover the bounds detected by the metrics in (44) are uniform with respect to n ∈ N. Hence, we deduce the existence of a subsequence of {wn}n weakly convergent to a function w in L2(θ, ∞; W 2,2(Ω)), with wt ∈ L2(θ, ∞; L2(Ω)). By virtue of the uniqueness of the weak limit in L2(θ, ∞; W 1,2(Ω)), 27 we get w ≡ w, and, consequently, the weak solution is regular in [ θ, ∞). Therefore, there exists a pressure field πw such that ( w, π w) is a regular solution to (4) on [ θ, ∞) × Ω. We now focus on the regularity of the weak solution on the interval of time (0 , θ ). By virtue of Lemma 16, we have 
+
+||∇ wn(t)|| 2 → ||∇ w(t)|| 2 , a. e. in (0 , θ ) . (45) We set 
+
+I := {t ∈ (0 , θ ) : the limit property (45) holds } .
+
+Let tα ∈ (0 , θ ) ∩ I . We recall that the following inequality holds: ˙yn(τ ) ≤ a(τ )yn(τ ) + cy 3
+
+> n
+
+(τ ) , for all τ > t α . (46) Moreover, as tα ∈ I , there exists n(tα) ∈ N such that, for all n ≥ n(tα), yn(tα) ≤ ||∇ w(tα)|| 2 + 1. Therefore, for n ≥ n(tα), the inequality (46) can be integrated over a maximal interval of time [tα, t α + T (n, t α)) ⊃
+
+
+
+tα, t α + 12ce− R τtα a(s) ds 
+
+> (||∇ w(tα)|| 2+1) 2
+
+
+
+. As a matter of fact, setting zn(τ ) := y−2 
+
+> n
+
+(τ ), from inequality (46), we get 
+
+zn(τ ) ≥ e− R τtα a(s) ds 
+
+
+
+zn(tα) − e   
+
+> Rτtα a(s)ds
+
+Z τtα
+
+2c ds 
+
+
+
+.
+
+Since zn(tα) ≥ (||∇ w(tα)|| 2 + 1) −2 for all n ≥ n(tα), then we easily deduce [tα, t α + T (n, t α)) ⊃
+
+
+
+tα, t α + 12ce− R τtα a(s) ds 
+
+(||∇ w(tα)|| 2 + 1) 2
+
+
+
+, for all n ≥ n(tα) .
+
+Therefore, we have that [tα, t α + T (tα)) := ∩
+
+> n≥n(tα)
+
+[tα, t α + T (n, t α)) is not empty and we obtain 
+
+||∇ wn(s)|| 22 +
+
+Z stα
+
+|| D2wn(τ )|| 22 + || wnτ (τ )|| 22
+
+ dτ < ∞ , for all s ∈ [tα, t α + T (tα)) . (47) By virtue of the bound (47) we state the existence of a subsequence of {wn}n that admits a limit 
+
+w, regular solution to (4) on some maximal interval of time Iα := [ tα, t α + T (tα)) ⊃
+
+
+
+tα, t α +   
+
+> 12ce−Rτtα a(s)ds
+> (||∇ w(tα)|| 2+1) 2
+
+
+
+. As the weak limit in L2(0 , θ ; W 1,2(Ω)) is unique, we get w ≡ w. Therefore, the weak solution w is also regular on Iα × Ω. We now consider tβ ∈ (0 , θ ) ∩ (I \ Iα). By analogous arguments, we get that the weak solution is regular on some maximal interval of time Iβ = [ tβ , t β + T (tβ )). One of the following holds: 
+
+i. Iα ∩ Iβ = ∅;28 
+
+ii. Iα ∩ Iβ̸ = ∅, then Iα ⊂ Iβ .We justify the second item. If Iα ∩ Iβ̸ = ∅, since tβ /∈ Iα, then tβ < t α and, since Iβ is a maximal interval of existence, we have tα ∈ Iβ . Therefore, it has to be Iα ⊂ Iβ . If item i. holds, we take 
+
+tγ ∈ (0 , θ ) ∩ (I \ (Iα ∪ Iβ )). On the other hand, if item ii . holds, we replace Iα by Iβ and take 
+
+tγ ∈ (0 , θ ) ∩ (I \ Iβ ). Iterating this procedure, we construct a family {Iα}α∈A of time intervals of regularity for the weak solution w such that (0 , θ ) ∩ I ⊆ ∪
+
+> α∈A
+
+Iα . (48) Since for all α ∈ A the interior set of Iα (denoted by ˚Iα) is not empty and, if β̸ = α, ˚Iα ∩ ˚Iβ = ∅,then A is at most countable. Moreover, the inclusion property (48) ensures that (0 , θ ) \ ∪
+
+> α∈A
+
+˚Iα
+
+has zero Lebesgue measure. The theorem is completely proved. 
+
+Proof of Theorem 3. The proof of the Theorem follows from Theorem 5 and Theorem 6. 
+
+# 5 Proof of Theorem 1 
+
+We give the proof of our main result. 
+
+Proof of Theorem 1. We divide the proof in two steps: we first prove the existence statement and then the structure theorem. 
+
+Step 1. (Existence ). Following Lemma 1, we decompose u0 as the sum 
+
+u0 = v0 + w0 ,
+
+with v0 ∈ L3(Ω) ∩ Lp(Ω) and w0 ∈ L2(Ω) ∩ Lp(Ω). We denote by c(3) the constant related to estimate (2) with p = 3. Choosing ρ =
+
+ ξ0
+
+> 2c(3) || u0||
+> p
+> 3
+> p
+
+ 33−p
+
+in Lemma 1, invoking (2), we have 
+
+|| P3v0|| 3 < ξ 0 .
+
+Therefore, we can construct our solution u as the sum u = v + w, where v is solution to problem (3) with initial datum v0 ∈ L3(Ω) ∩ Lp(Ω), whose existence is ensured by Theorem 2, while w is a weak solution to problem (4) with initial datum w0 ∈ L2(Ω) ∩ Lp(Ω), ensured by Theorem 3. We show that u satisfies the items ( a) − (d) of Definition 1. By virtue of the regularity properties (13) for v and the ones given in Definition 3 for w, we deduce 
+
+u ∈ L4(0 , T ; L3(Ω)) .29 Moreover, given Ω ′ a bounded subdomain of Ω by straightforward considerations we deduce 
+
+v ∈ L2,∞(0 , T ; W 1,2(Ω ′)) .
+
+Therefore, recalling the regularity properties of w, we get 
+
+u ∈ L2,∞(0 , T ; W 1,2 
+
+> loc
+
+(Ω)) .
+
+Items b) − c) and the trace property in d) for u are also easy to verify, since they hold for w and 
+
+v is a global regular solution satisfying properties (13). Concerning the convergence to the initial datum, we see that (u(t), φ ) = ( v(t), φ ) + ( w(t), φ ) → (v0, φ ) + ( w0, φ ) = ( u0, φ ) , as t → 0 , for all φ ∈ C0(Ω) .
+
+The existence of a weak solution in the sense of Definition 1 is achieved. 
+
+Step 2. (Regularity ). We have u = v + w and we know v satisfies the regularity proper-ties expressed in Definition 2 for all times. Concerning w, in Theorem 6 we proved the regularity properties (41). Therefore, we easily conclude that u has the regularity properties detected in Def-inition 2 in all the time intervals in which the regularity of w is ensured. The theorem is completely proved. 
+
+Proof of Corollary 1. Since the solution constructed in Theorem 1 has the regularity properties detected in Lemma 9 on the interval of time ( θ, ∞), then properties (11) are satisfied for t > θ .Therefore, recalling also Corollary 4, the claim of the corollary follows. 
+
+# Appendix: On the proof of some properties stated in Lemma 9 
+
+Let Ω ⊆ R3 be the whole space, a half-space or an exterior domain with a sufficiently smooth boundary. As already remarked in the main body of the paper, the proof of the existence of a global regular solution to problem (3) for an initial datum in J3(Ω), satisfying a suitable smallness condition, is known in the literature thanks to works [16, 19, 20, 29]. However, in the case of Ω exterior domain, for the sake of completeness we find it worth to spend some words on the proof of properties (9) 4,5 and (11). In fact, the case of the exterior problem is particularly interesting since the semigroup properties of the Stokes operator are different with respect to the Cauchy problem and the half-space problem (see Lemma 5 and Remark 3). We first recall a result related to the Stokes initial boundary value problem with initial data in 
+
+L1(Ω), proved in [27]. Let us consider the following problem: 
+
+
+
+Vt − ∆V + ∇πV = f , in (0 , T ) × Ω,
+
+∇ · V = 0 , in (0 , T ) × Ω ,V (t, x ) = 0 , in (0 , T ) × ∂Ω ,
+
+(V (0 , x ), φ ) = ( V0(x), φ ) , for all φ ∈ C0(Ω) .
+
+(49) 30 Let r ∈ (1 , ∞) and let r′ be the complementary exponent of r. We set 
+
+Wr′ := {ϕ : ϕ ∈ C1([0 , T ] × Ω) ∩ C([0 , T ]; J1,r ′
+
+(Ω)) , ϕ t ∈ C([0 , T ]; Lr′
+
+(Ω)) };
+
+Lemma 17. Let V0 ∈ L1(Ω) . There exists a unique solution (V, π V ) to problem (49) such that 
+
+i. For all η > 0, r > 1,
+
+V ∈ C(η, T ; Jr(Ω)) ∩ L∞(η, T ; J1,r (Ω) ∩ W 2,r (Ω)) , ∇πV ∈ L∞(η, T ; Lr(Ω)); 
+
+ii. 
+
+|| V (t)|| r ≤ c|| V0|| 1t−μ , μ = 32
+
+ 1 − 1
+
+> r
+
+ , t > 0 , r ∈ (1 , ∞]; 
+
+||∇ V (t)|| r ≤ c|| V0|| 1t−μ1 , μ1 =
+
+ 
+
+> 12
+
++ μ , if t ∈ (0 , 1) , r ∈ (1 , ∞) , 
+
+> 12
+
++ μ , if t > 0 and r ∈ (1 , 3] , 
+
+> 32
+
+, if t ≥ 1 and r > 3 ; 
+
+|| Vt(t)|| r ≤ c|| V0|| 1t−μ2 , μ2 = 1 + μ , t > 0 , r ∈ (1 , ∞] ; (50) 
+
+iii. 
+
+Z t
+
+> 0
+
+(V (τ ), ϕ (τ )) − (∇V (τ ), ∇ϕ(τ ))  dτ = ( V (t), ϕ (t)) − (V0, ϕ (0)) , for all ϕ ∈ Wq′ , provided that 12 + 32 (1 − 1 
+
+> q
+
+) < 1;
+
+iv. lim 
+
+> t→0
+
+(V (t), φ ) = ( V0, φ ), for all φ ∈ C0(Ω) .
+
+In order to prove properties (9) 4 and (11) 2 we are going to employ the semigroup formalism, as done by Kato in [20], while to prove (11) 1 we employ a duality argument. In order to employ the semigroup formalism, we recall that for v0 ∈ J3(Ω) problem (3) can be rewritten in the abstract integral formulation 
+
+v(t) = e−tA v0 +
+
+Z t
+
+> 0
+
+e−(t−τ )AP3[v(τ ) · ∇ v(τ )] dτ , (51) where we denoted by A the Stokes operator on J3(Ω) and we considered the kinetic field v as a function of t taking values in a Banach space. We recall that the solution v is obtained by the recursive approximation technique. Hence, it is deduced as the limit, in suitable metrics, of the sequence {vn}n∈N0 , with 
+
+v0(t) := e−tA v0 , v n+1 (t) := v0(t) + 
+
+Z t
+
+> 0
+
+e−(t−τ )AP3[vn(τ ) · ∇ vn(τ )] dτ . (52) 
+
+Proof of properties (9) 4,5. By virtue of Lemma 5 we have 
+
+t 12 ∇v0(t) ∈ C([0 , ∞); L3(Ω)) . (53) Let n ∈ N and assume that 
+
+t 12 ∇vn(t) ∈ C([0 , ∞); L3(Ω)) , with a bound independent of n . 31 We prove by induction that 
+
+t 12 ∇vn+1 (t) ∈ C([0 , ∞); L3(Ω)) , with a bound independent of n . 
+
+By virtue of (52) we have 
+
+||∇ vn+1 (t)|| 3 ≤ ||∇ v0(t)|| 3 +
+
+Z t
+
+> 0
+
+||∇ e−(t−τ )AP3[vn(τ ) · ∇ vn(τ )] || 3 dτ. 
+
+As (53) holds, we only have to discuss the integral term. Let δ ∈ (0 , 1). Employing estimate (8) 2
+
+and recalling (2), we obtain 
+
+Z t
+
+> 0
+
+||∇ e−(t−τ )AP3[vn(τ ) · ∇ vn(τ )] || 3 dτ ≤ c
+
+Z t
+
+> 0
+
+(t − τ )− 12 − 32 ( 1+ δ   
+
+> 3−13)
+
+|| vn(τ ) · ∇ vn(τ )|| 31+ δ
+
+dτ . 
+
+Employing H¨ older’s inequality we get 
+
+Z t
+
+> 0
+
+(t − τ )− 12 − 32 ( 1+ δ   
+
+> 3−13)
+
+|| vn(τ ) · ∇ vn(τ )|| 31+ δ
+
+dτ ≤
+
+Z t
+
+> 0
+
+(t − τ )− 12 − 32 ( 1+ δ   
+
+> 3−13)
+
+|| vn(τ )|| 3
+
+> δ
+
+||∇ vn(τ )|| 3 dτ . 
+
+Finally, by virtue of property (14) 1 and the induction hypothesis, we conclude that 
+
+||∇ vn+1 (t)|| 3 ≤ ||∇ v0(t)|| 3 + c|| v0|| 23
+
+Z t
+
+> 0
+
+(t − τ )− 12 − 32 ( 1+ δ   
+
+> 3−13)
+
+τ − 12 − 32 ( 13 − δ  
+
+> 3)
+
+dτ , 
+
+and Z t
+
+> 0
+
+(t − τ )− 12 − 32 ( 1+ δ   
+
+> 3−13)
+
+τ − 12 − 32 ( 13 − δ  
+
+> 3)
+
+dτ = t− 12
+
+Z 10
+
+s−1+ δ 
+
+> 2
+
+(1 − s)− 12 − δ 
+
+> 2
+
+ds = ct − 12 .
+
+We have thus proved 
+
+t 12 ∇vn+1 (t) ∈ C([0 , ∞); L3(Ω)) .
+
+Therefore, for all n ∈ N,
+
+t 12 ∇vn(t) ∈ C([0 , ∞); L3(Ω)) .
+
+We point out that the smallness condition on || v0|| 3 allows us to get the aforementioned property uniformly with respect to n ∈ N and this allows us to state 
+
+t 12 ∇v ∈ C([0 , ∞); L3(Ω)) .
+
+Concerning property (9) 5 it can be proved by following analogous arguments. However, we have to restrict to the interval of time [0 , 1) in view of the semigroup property (8) 2.We recall that (52) 2 is the integral formulation of the following initial boundary value problem 
+
+
+
+vn+1  
+
+> t
+
+− ∆vn+1 + vn · ∇ vn + ∇πn+1 = 0 , in (0 , T ) × Ω ,
+
+∇ · vn+1 = 0 , in (0 , T ) × Ω ,vn+1 = 0 , in (0 , T ) × ∂Ω ,vn+1 (0 , x ) = 0 , in Ω .
+
+(54) 32 
+
+Proof of property (11) 1. Employing a duality argument, we are going to prove that 
+
+|| v(t)|| r ≤ c|| v0|| r , || v(t)|| ∞ ≤ c|| v0|| rt− 32r , (55) so that, employing the Riesz-Thorin theorem, we arrive at (11) 1.We proceed by induction on the recursive approximations. It is readily seen that 
+
+|| v0(t)|| r ≤ c|| v0(t)|| r , for all t > 0 .
+
+Let n ∈ N and assume that 
+
+|| vn(t)|| r ≤ c|| v0(t)|| r , for all t > 0 , with c independent of n . 
+
+We prove 
+
+|| vn+1 (t)|| r ≤ c|| v0(t)|| r , for all t > 0 , with c independent of n . (56) We consider ( z, π z ) solution to the Stokes problem with initial datum z0 ∈ C0(Ω). Let t > 0. We set bz(τ, x ) = z(t − τ, x ), τ ∈ (0 , t ). We multiply equation (54) 1 by bz and integrate over (0 , t ) × Ω. We get (vn+1 (t), z 0) = 
+
+Z t
+
+> 0
+
+(vn · ∇ bz, v n) dτ . (57) Using H¨ older’s inequality, the semigroup properties for z, property (10) 1 and the induction hypoth-esis, we find that 
+
+Z t
+
+> 0
+
+(vn · ∇ bz, v n) dτ ≤
+
+Z t
+
+> 0
+
+|| vn(τ )|| ∞||∇ bz(τ )|| rr−1 || vn(τ )|| r dτ 
+
+≤ c|| v0|| r|| v0|| 3|| z0|| rr−1
+
+Z t
+
+> 0
+
+(t − τ )− 12 τ − 12 dτ , 
+
+with the last integral being clearly finite. The smallness condition on || v0|| 3 and the arbitrariness of z0 allow us to deduce the validity of (56). Hence, we get property (55) 1.To prove (55) 2, by using analogous arguments and also employing (50) 2, we point out that 
+
+Z t
+
+> 0
+
+(vn · ∇ bz, v n) dτ ≤
+
+Z t
+
+> 0
+
+|| vn(τ )|| ∞||∇ bz(τ )|| 2r
+
+> 2r−1
+
+|| vn(τ )|| 2r dτ 
+
+≤ c|| v0|| r|| v0|| 3|| z0|| 1
+
+Z t
+
+> 0
+
+(t − τ )− 12 − 34r τ − 12 − 34r dτ . 
+
+Since r > 32 , we have 
+
+Z t
+
+> 0
+
+(t − τ )− 12 − 34r τ − 12 − 34r dτ = t− 32r
+
+Z 10
+
+(1 − s)− 12 − 34r s− 12 − 34r ds = ct − 32r .
+
+Hence, in view of the smallness condition on || v0|| 3, we obtain, uniformly in n ∈ N,
+
+|| vn(t)|| ∞ ≤ c|| v0|| rt− 32r .
+
+Therefore, (55) 2 follows. Employing the Riesz-Thorin theorem for the identity operator, we get (11) 1.33 
+
+Proof of property (11) 2 (Exterior domain case). We employ again the abstract integral formulation and the properties of the Stokes semigroup. We prove (11) 2 first for q = r, then for q = 3, and employ the Riesz-Thorin theorem to conclude. Let us prove (11) 2 for q = r. We employ an induction argument on the recurrence approxima-tions. It is readily seen that 
+
+||∇ v0(t)|| r ≤ c|| v0|| rt− 12 , for all t > 0 .
+
+Let n ∈ N and assume that 
+
+||∇ vn(t)|| r ≤ c|| v0|| rt− 12 , for all t > 0 uniformly in n ∈ N .
+
+We prove 
+
+||∇ vn+1 (t)|| r ≤ c|| v0|| rt− 12 , for all t > 0 uniformly in n ∈ N . (58) We have 
+
+||∇ vn+1 (t)|| r ≤ ||∇ v0(t)|| r +
+
+Z t
+
+> 0
+
+||∇ e−(t−τ )AP3[vn(τ ) · ∇ vn(τ )] || r dτ . 
+
+Let δ ∈ (0 , r 
+
+> 3
+
+). Employing estimates (8) 2 and (2), we find that 
+
+Z t
+
+> 0
+
+||∇ e−(t−τ )AP3[vn(τ ) · ∇ vn(τ )] || r dτ ≤
+
+Z t
+
+> 0
+
+(t − τ )− 12 − 3δ 
+
+> 2r
+
+|| vn(τ ) · ∇ vn(τ )|| r 
+
+> 1+ δ
+
+dτ . 
+
+By virtue of H¨ older’s inequality, property (10) 1 and the induction hypothesis, we get 
+
+Z t
+
+> 0
+
+(t − τ )− 12 − 3δ 
+
+> 2r
+
+|| vn(τ ) · ∇ vn(τ )|| r 
+
+> 1+ δ
+
+dτ ≤
+
+Z t
+
+> 0
+
+(t − τ )− 12 − 3δ 
+
+> 2r
+
+|| vn(τ )|| rδ ||∇ vn(τ )|| r dτ 
+
+≤ c|| v0|| 3|| v0|| r
+
+Z t
+
+> 0
+
+(t − τ )− 12 − 3δ 
+
+> 2r
+
+τ −1+ 3δ 
+
+> 2r
+
+dτ = c|| v0|| 3|| v0|| rt− 12
+
+Z 10
+
+s−1+ 3δ 
+
+> 2r
+
+(1 − s)− 12 − 3δ 
+
+> 2r
+
+ds , 
+
+the last integral being finite. Invoking the smallness condition on || v0|| 3, we deduce (58). Therefore, for all n ∈ N, we conclude that 
+
+||∇ vn(t)|| r ≤ c|| v0|| rt− 12 , for all t > 0 , c independent of n ∈ N ,
+
+and, therefore, 
+
+||∇ v(t)|| r ≤ c|| v0|| rt− 12 , for all t > 0 .
+
+By analogous arguments, we are able to prove that 
+
+||∇ v(t)|| 3 ≤ c|| v0|| rt− 32 ( 1     
+
+> r−13)−12
+
+,
+
+and, employing the Riesz-Thorin theorem for the identity operator, we conclude the proof of (11) 2.
+
+Acknowledgments. I would like to thank Prof. P. Maremonti for his valuable supervision of this research. 
+
+Data availability statement. Data sharing not applicable to this article as no datasets were generated or analyzed during the current study. 
+
+Conflict of interest. The author states that there is no Conflict of interest. 34 
+
+References 
+
+[1] Adams R. A., Fournier, J.J.F., Sobolev spaces. Second Edition , Pure and Applied Mathematics (Amsterdam) 140, 2003, Elsevier. [2] Bradshaw Z., Chernobai M., Tsai T., Global Navier-Stokes flows in intermediate spaces , J. Diff. Eq., 429 , 50-87, (2025). [3] Bradshaw Z., Kucavica I., Existence of suitable weak solutions to the Navier-Stokes equations for intermittent data , J. Math. Fluid Mech., 22 , 3 (2020). [4] Bradshaw Z., Kukavica I., Global Weak Solutions of the Navier–Stokes Equations for Inter-mittent Initial Data in Half-Space , Arch. Ration. Mech. Anal., 245 , 321-371 (2022). [5] Bradshaw Z. Kukavica I., Tsai T., Existence of Global Weak Solutions to the Navier-Stokes Equations in Weighted Spaces , Indiana Univ. Math. J., 71 , No. 1, 191-212 (2022). [6] Calder´ on C., Existence of Weak Solutions for the Navier-Stokes Equations with Initial Data in Lp, Trans. Amer. Math. Soc., 318 , No. 1, 179-200 (1990). [7] Crispo F., Grisanti C. R., Maremonti P., Some New Properties of a Suitable Weak Solution to the Navier–Stokes Equations , Waves in Flow, Advances in Mathematical Fluid Mechanics (2018). [8] Crispo F., Maremonti P., An interpolation inequality in exterior domains , Rend. Sem. Mat. Univ. Padova, 112 , 11-39 (2004). [9] Di Feola A. P., Pane V., Weighted Estimates for the Stokes Semigroup in the half-space , J. Math. Anal. Appl., 2026, 558 :130390 [10] Fabes E. B., Jones B. F., Rivi` ere N. M., The initial value problem for the Navier-Stokes equations with data in Lp, Arch. Ration. Mech. Anal., 45 , 222-240 (1972). [11] Fabes E. B., Lewis J. E., Rivi` ere N. M., Boundary Value Problems for the Navier-Stokes Equations , Indiana Univ. Math. J., 99 , No. 3, 626-668 (1977). [12] Foias C., Une remarque sur l’unicit´ e des solutions des ´ equations de Navier-Stokes en dimen-sion n, Bull. Soc. Math. France, 89 , 1-8 (1961). [13] Galdi G. P., An Introduction to the Navier-Stokes Initial-Boundary Value Problem , Adv. Math. Fluid Mech., Fundamental directions in mathematical fluid mechanics, 1-70. [14] Galdi G. P., An Introduction to the Mathematical Theory of the Navier-Stokes Equations , Vol I, Second edition, Springer Monographs in Mathematics, Springer (2011). 35 [15] Galdi G. P., Maremonti P., On the Stability of Steady-State Solutions to the Navier–Stokes Equations in the Whole Space , J. Math. Fluid Mech., 25 :7 (2023). [16] Giga Y., Solutions for Semilinear Parabolic Equations in Lp and Regularity of Weak Solutions of the Navier-Stokes System , J. Diff. Eq., 61 , 186-212 (1986). [17] Giga Y., Miyakawa T., Solutions in Lr of the Navier-Stokes Initial Value Problem , Arch. Ration. Mech. Anal., 89 , 267-281 (1985). [18] Heywood J. G., The Navier-Stokes Equations: On the Existence, Regularity and Decay of Solutions , Indiana Univ. Math. J., 29 , No. 5, 639-681 (1980). [19] Iwashita H., Lq-Lr estimates for solutions of the nonstationary Stokes equations in exterior domains and the Navier-Stokes initial value problem in Lq spaces , Math. Ann., 285 , 265-288 (1989). [20] Kato T., Strong Lp Solutions of the Navier-Stokes Equations in Rm, with Applications to Weak Solutions , Math Z., 187 , 471-480 (1984). [21] Kozono H., Global Ln Solution and Its Decay Property for the Navier-Stokes Equations in Half-Space Rn
+
+> +
+
+, J. Diff. Eq., 79 , 79-88 (1989). [22] Kwon H., Tsai T., Global Navier–Stokes Flows for Non-decaying Initial Data with Slowly Decaying Oscillation , Comm. Math. Phys., 375 , 1665-1715 (2020). [23] Ladyzhenskaya O. A., The mathematical theory of viscous incompressible flow , Gordon and Breach Science Publishers, New York (1963). [24] Lemari´ e-Rieusset PG., Recent developments in the Navier-Stokes problem , Chapman & Hall/CRC (2002). [25] Leray J., Sur le mouvement d’un liquide visqueux emplissant l’espace , Acta Math., 63 , 193-248 (1934). [26] Maremonti P., Asymptotic stability theorems for viscous fluid motions in exterior domains ,Rend. Sem. Mat. Univ. Padova, 71 , 35-72 (1984). [27] Maremonti P., A Remark on the Stokes Problem with Initial Data in L1, J. Math. Fluid Mech., 13 , 469-480 (2011). [28] Maremonti P., On weak D-solutions to the non-stationary Navier–Stokes equations in a three-dimensional exterior domain , Ann. Univ. Ferrara, 60 , 209-223 (2014). [29] Maremonti P., A note on the Navier-Stokes IBVP with small data in Ln, Disc. Cont, Dyn. Sys. S, 9, No. 1, 255-267 (2016). 36 [30] Maremonti P., Weak Solutions to the Navier–Stokes Equations with Data in L(3 , ∞), Math-ematics of Nonlinear Phenomena-Analysis and Computation, pp. 161-194 (2017). [31] Maremonti P., On an interpolation inequality involving the Stokes operator , Mathematical analysis in fluid mechanics selected recent results, Contemp. Math., Amer. Math. Soc., Prov-idence, RI, 710 , 203-209 (2018). [32] Maremonti P., On the weak solutions to the Navier-Stokes equations: a possible gap related to the energy equality , Arxiv:2512.04654v1. [33] Maremonti P., Palma F., A new proof of the Th´ eor` eme de Structure related to a weak solution to the Navier-Stokes equations , Arxiv: 2512.05598v1 [34] Maremonti P., Palma F., On the interaction between a rigid-body and a viscous-fluid: existence of a weak solution and a suitable Th´ eor` eme de Structure , Arxiv: 2602.11787 [35] Maremonti P., Pane V., The Navier–Stokes Cauchy Problem in a Class of Weighted Function Spaces , J. Math. Fluid Mech., 2025, 27 :23. [36] Maremonti P., Shimizu S., Global existence of solutions to 2-D Navier–Stokes flow with non-decaying initial data in half-plane , J. Diff. Eq., 265 , 5352-5382 (2018). [37] Maremonti P., Shimizu S., Global existence of weak solutions to 3D Navier-Stokes IBVP with non-decaying initial data in exterior domains , J. Diff. Eq., 269 , 1612-1635 (2020). [38] Maremonti P., Solonnikov V. A., On nonstationary Stokes problem in exterior domains , Ann. Sc. Norm. Sup. Pisa Cl. Sci., 24 , No. 3, 395-449 (1997). [39] Prodi G., Teoremi di tipo locale per il sistema di Navier-Stokes e stabilit` a delle soluzioni stazionarie , Rend. Sem, Mat. Univ. Padova, 32 , 374-397 (1962). [40] Seregin G., Sverak V., On global weak solutions to the Cauchy problem for the Navier–Stokes equations with large L3-initial data , Nonlin. Anal., 154 , 269-296 (2017). [41] Solonnikov V. A., Estimates for solutions of nonstationary Navier-Stokes equations , J. Soviet. Math., 8, 467-528 (1977). [42] Ukai S., A solution formula for the stokes equations in Rn
+
+> +
+
+, Comm. Pure and Appl. Math., 
+
+40 (5), 611-621 (1987).

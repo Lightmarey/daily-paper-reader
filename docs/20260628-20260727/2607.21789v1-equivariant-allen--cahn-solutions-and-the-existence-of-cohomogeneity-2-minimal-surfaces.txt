@@ -1,0 +1,3791 @@
+Title: Equivariant Allen–Cahn Solutions and the Existence of Cohomogeneity 2 Minimal Surfaces
+
+URL Source: https://arxiv.org/pdf/2607.21789v1
+
+Published Time: Mon, 27 Jul 2026 00:10:04 GMT
+
+Number of Pages: 48
+
+Markdown Content:
+# Equivariant Allen Cahn Solutions and the Existence of Cohomogeneity 2 Minimal Surfaces 
+
+## Rayssa Caju 1, Pedro Gaspar 2, and Jared Marx-Kuo 31Departamento de Ingenier´ ıa Matem´ atica and Centro de Modelamiento Matem´ atico (CNRS IRL 2807). Universidad de Chile, Beauchef 851, Santiago, Chile 
+
+> 2
+
+Facultad de Matem´ aticas, Pontificia Universidad Cat´ olica de Chile, Avenida Vicu˜ na Mackenna 4860, Santiago, Chile 
+
+> 3
+
+Department of Mathematics, Rice University, Houston, TX 77005, USA 
+
+> 1
+
+rcaju@dim.uchile.cl 2 pedro.gaspar@uc.cl 3 jm307@rice.edu 
+
+Abstract 
+
+We develop a regularity theory for equivariant Allen–Cahn solutions on closed Riemannian manifolds with a Lie group acting isometrically. When the cohomogeneity of the action is between 3 and 7, we show that a sequence of equivariant Allen–Cahn solutions with uniformly bounded energy and equivariant index converge to embedded minimal hypersurfaces with optimal regularity, meaning that the singular set is at least codimension 7 and lies in the union of all non-principal orbits. When the cohomogeneity is 2 and the action has no exceptional orbits, we show the same result but the minimal hypersurfaces may be immersed. As a result, any closed Riemmanian manifold with cohomogeneity 2 Lie group action and no exceptional orbits admits a minimal hypersurface with optimal regularity. A key tool is the regularity theory of Chodosh–Mantoulidis [CM23], building on the work of Wang–Wei [WW19a]. However, we adapt their arguments to a modified Allen–Cahn equation with a drift Laplacian. We also show that appropriate index bounds hold for the limiting minimal hypersurface when it is smooth. We also extend the variational constructions of solutions of the Allen–Cahn equation of [Gua18] and [GG18] by defining an equivariant mountain pass invariant, as well as the equivariant Allen–Cahn p-widths. This builds on the work of Gromov [Gro06] and is the Allen–Cahn parallel to Wang’s equivariant volume spectrum [Wan25] in the Almgren-Pitts setting [MMN23]. We show that in the limit as ϵ tends to 0, the equivariant Allen–Cahn p-widths converge to the equivariant p-widths, as defined by Wang [Wan25]. 
+
+# Contents 
+
+1 Introduction 2
+
+1.1 Statement of Results . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31.2 An Explanation of no exceptional orbits in cohomogeneity two . . . . . . . . . . . . . . . . . 51.3 Paper outline . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 61.4 Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+
+2 Background 6
+
+2.1 Allen-Cahn energy functional . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 72.2 Symmetric smooth approximations for G-invariant Caccioppoli sets . . . . . . . . . . . . . . . 8
+
+3 Codimension 1 equivariant min-max for phase transitions 9
+
+3.1 Equivariant mountain pass for the Allen-Cahn energy . . . . . . . . . . . . . . . . . . . . . . 93.2 The equivariant phase transition spectrum . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11 3.3 Asymptotics of the equivariant phase transition spectrum . . . . . . . . . . . . . . . . . . . . 12 1arXiv:2607.21789v1 [math.DG] 23 Jul 2026 4 Comparison with G-invariant min-max for minimal hypersurfaces 14 
+
+4.1 From sweepouts by invariant functions to sweepouts by invariant cycles . . . . . . . . . . . . 14 4.2 From sweepouts by invariant cycles to sweepouts by functions . . . . . . . . . . . . . . . . . . 17 4.3 Almost smooth sweepouts by G-tubes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19 4.4 Computing equivariant widths . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23 
+
+5 Regularity 24 6 Regularity for Cohomogeneity 2 25 7 Index Bounds 28 8 Positive Ricci for embedded G-invariant minimal surface of cohomogeneity ≥ 3 29 
+
+8.1 Smooth quotients with Cohomegeneity 2 and Ric M/G > 0 . . . . . . . . . . . . . . . . . . . . 31 
+
+9 Appendix 31 
+
+9.1 Introduction to Group Actions and Examples . . . . . . . . . . . . . . . . . . . . . . . . . . . 31 9.1.1 Examples of Group actions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32 9.2 Stable Estimates for Allen–Cahn with drift . . . . . . . . . . . . . . . . . . . . . . . . . . . . 34 9.3 Monotonicity for the Allen–Cahn equation with drift . . . . . . . . . . . . . . . . . . . . . . . 43 
+
+# 1 Introduction 
+
+In this work, we are interested in the construction of minimal hypersurfaces with symmetries given by a Lie group G, acting isometrically on a Riemannian manifold ( M n+1 , g ). There is a lengthy history to the construction of such minimal surfaces - the story begins with the work of Almgren–Pitts [Alm62] [Pit81] who laid much of the foundational theory for the existence and regularity of minimal surfaces via min–max. This program was revived by Marques–Neves [MN17, MN14, MN16] and experienced an explosion of work by various authors in constructing minimal surfaces (as well as the related surfaces with constant/prescribed mean curvature). We mention the following references for a by no means complete list of relevant works [LMN18, IMN18, MNS19, Zho20, AMN25, Son23, MMN23, Li23, GL25]. In the setting of manifolds with isometries given by a Lie group, Pitts–Rubenstein [PR88] set forth a program to construct G-equivariant minimal surfaces, i.e. minimal surfaces, Σ, such that G · Σ = Σ. This program was further expanded upon by Ketover [Ket16a], in his seminal work on the construction of equivariant minimal surfaces in closed three manifolds. Liu [Liu21a] furthered the program to manifolds of higher dimension and codimension, showing the existence of a single G-equivariant minimal surface. Wang also developed important constructions in the min-max theory of minimal surfaces to min-max theory of 
+
+G-equivariant minimal surfaces [Wan22a, Wan22b, Wan24, Wan25, WWZ26, LW26]. We also mention the recent works of Ko who establishes a min-max theorem for isotopy minimization in the G-equivariant setting [Ko25] for cohomogeneity 3, the work of Ketover [Ket16b], Buzano–Nguyen–Schulz [BNS25] and Carlotto– Franz–Schulz [CFS22] on the construction of equivariant free boundary minimal surfaces and self-shrinkers for the mean curvature flow, as well as the work of Wang–Wang–Zhou who also address isotopy minimization in the form of Simon–Smith min-max in the G-equivariant setting to show a Bernstein type theorem in round spheres [WWZ26]. Parallel to the theory of minimal surfaces is the theory of solutions to the Allen–Cahn equation on closed manifolds. Such solutions u : M → R satisfy the equation 
+
+ϵ2∆g u = W ′(u) (1) for W : R → R a “double well potential” and ϵ, a small parameter tending to 0. Such solutions are critical points of the energy functional 
+
+Eϵ(u) = 
+
+ˆ
+
+> M
+
+ϵ |∇ u|2
+
+2 + W (u)
+
+ϵ
+
+see §5 for more details on the restrictions of W .Solutions of (1) converge in various sense to minimal surfaces, Σ, in the limit that ϵ → 0 [Mod87, Ste88]. 2In the context of varifolds, this was first established by Padilla–Tonegawa [PT98] and Hutchinson–Tonegawa [HT00], expanded upon by Guaraco [Gua18] and Gaspar–Guaraco [GG18, GG19], using the regularity theory of Wickramasekera [Wic14] and the work of Tonegawa–Wickramasekera [TW12]. We present a by no means exhaustive list of some developments in the geometric aspects of the theory of the Allen–Cahn including [HT00, TW12, Wan17, Smi16, GG18, GG19, CM20, Hie20, Gas20, Man21, Dey22, CM23, MK25a, MK25b, MKSS24, FSS25, MK26]. While several theorems in the theory of minimal surfaces have been reproved with the Allen–Cahn equation, we note the recent improvements in min-max for geodesics on closed surfaces. Historically, the process of Almgren–Pitts min-max for 1-dimensional stationary varifolds on surfaces would produce geodesic networks. These are unions of geodesic segments (potentially with multiplicity), which can be singular at junctions [Pit74] (see also [MN16, Remark 1.1]). In recent work of Chodosh–Mantoulidis [CM23], the authors use the particular Sine–Gordon regularization to show that Allen–Cahn min-max yields unions of closed geodesics on surfaces, building off work of Liu–Wei who constructed an integrable family of Allen– Cahn solutions on R2 [LW21]. Since this development, the regularity afforded by the Allen–Cahn theory on surfaces has been used to prove several results related to Gromov’s p-widths, {ωp}. See [MKSS24, CC25, CG25, MK25a, MK25b, MK26] for some recent developments. Given the parallels between the Almgren–Pitts min-max theory and the Allen–Cahn theory, it is natural to develop the parallels between G-equivariant min-max theory and the Allen–Cahn theory of G-equivariant solutions. In the results below, we show that much of the theory remains similar for actions with Cohom( G) ≥
+
+3, though we overcome some novel difficulties due to the lack of robustness of Allen–Cahn solutions with finite G-equivariant index .We provide a novel contribution in the setting of Cohom( G) = 2, by using equivariant Allen–Cahn min-max to show the existence of an immersed minimal hypersurface. For groups with Cohom( G) = 2, the quotient manifold, M/G , is a smooth surface away from a small set. Using Allen–Cahn min-max, we can construct a set of G-equivariant solutions which descend to solutions of an Allen–Cahn equation with drift 
+
+on M/G ϵ∆g u + ϵ⟨∇ ln( V), ∇u⟩ − W ′(u)
+
+ϵ = 0 .
+
+We refer the reader to the discussion in §6 for further details. Despite the analytic differences, the drift term disappears under blow-up and we are able to recover the regularity result of Chodosh–Mantoulidis [CM23, Proposition 3.8] via an adaptation of the regularity estimates of Wang–Wei [WW19a] (see also Mantoulidis [Man21, Theorem 4.13]). Thus, in the limit that 
+
+ϵ → 0, we obtain a union of closed geodesics for a weighted metric on M/G . These geodesics then lift to a union of immersed minimal hypersurfaces with optimal regularity on M .When M/G has no singular points, this argument is robust, so much of our work handles singularities arising in the non-principal orbits. We remark that previous literature seems to focus on specific ambient manifolds, and our result seems to be the first general construction of Cohomogeneity 2 equivariant minimal surfaces when the action has no exceptional orbits. 
+
+## 1.1 Statement of Results 
+
+We will consider ( M n+1 , g ) a closed Riemannian manifold and G, a Lie group acting via isometries on M ,and the cohomogeneity of the action, denoted by Cohom( G), satisfies 2 ≤ Cohom( G) ≤ 7. We let M reg ⊆ M
+
+denote the dense, open subset consisting of the union of all principal orbits of the action (see §2 and §9 for formal definitions). Our first result parallels the work of Guaraco [Gua18] and is a general regularity theory showing the existence of a G-invariant minimal surface via solutions to the Allen–Cahn equation. 
+
+Theorem 1.1. Let {uϵ} ⊆ W 1,2 
+
+> G
+
+(M ) be a sequence of Allen–Cahn solutions with Eϵ(uϵ) ≤ Λ and Ind G(uϵ) ≤
+
+N for fixed Λ, N > 0. Then up to subsequence, the solutions converge in a varifold sense to a minimal G-invariant hypersurface (possibly with integer multiplicities) which is smooth away from a closed singular set, 
+
+Λ. If Cohom( G) ≥ 3, the hypersurface is embedded, if Cohom( G) = 2 and the action has no exceptional orbits, it is smoothly immersed away from the singular set. In both cases, Hn−7(Λ) < ∞, Λ ⊂ M \M reg .
+
+In some sense, the regularity theory of Theorem 1.1 is sharp, both in the dimension of the singular set and the allowance for immersed equivariant minimal surfaces when the cohomogeneity is 2. For the former, we 3note that the Simon’s Cone in R8 can be viewed as a cohomogeneity 2 minimal hypersurface with respect to the natural S3 × S3 action. Moreover, it has a singular set of dimension exactly 0 = n − 7 (see details in 
+
+§9.1.1). For the latter, we remark that for any smooth compact Lie group G, we can consider M = Σ × G
+
+with the product metric, where Σ admits a closed immersed geodesic. Then G acts naturally on just the Lie group component of M and the quotient is Σ. While Theorem 1.1 is interesting on its own, we can apply it to a G-equivariant mountain pass construction of Allen–Cahn solutions to derive the following existence result: 
+
+Corollary 1.1.1. For (M n+1 , g ) and G as above, there exists a G-equivariant minimal surface which is smooth away from a closed singular set, Λ, satisfying Hn−7(Λ) < ∞, Λ ⊂ M \M reg . In particular, a manifold with a Cohom( G) = 2 action and no exceptional orbits contains an immersed G-equivariant minimal hypersurface which is smooth away from said singular set. 
+
+To the authors knowledge, Corollary 1.1.1 is novel for this level of generality of equivariant group actions. Our work uses the phase transition methods of [CM23], and the G-equivariant minimal surface in Corollary 1.1.1 is obtained as the limit interface of solutions of the Allen-Cahn equation whose energy equal the Allen– Cahn mountain pass width ωGAC,ϵ ∈ R among G-invariant functions. In the limit, their energy converges to the equivariant Almgren–Pitts one parameter width (see Section 3.1 for more details). 
+
+Remark 1.2. If one restricts to the case of smooth quotients, then one can show the existence of an im-mersed, smooth G-equivariant minimal surfaces on M by using the existence of closed geodesics on (M/G, g )
+
+(where g is the Hsiang–Lawson conformal metric, see [HL71]). This follows via the Lyusternik–Fet Theorem [Fet52], though we note that from the min-max perspective, one could apply the work of Chodosh–Mantoulidis [CM23] directly on (M/G, g ) to find Allen–Cahn solutions which limit to unions of smooth geodesics. How-ever, as we will see in section 6, such Allen–Cahn solutions on (M/G, g ) in general do not lift to G-equivariant Allen–Cahn solutions on M . Moreover, many quotients are not smooth, and the full strength of Corollary 1.1.1 allows for singular orbits on M/G by working with G-equivariant Allen–Cahn solutions on M .
+
+The Allen–Cahn p-widths are a sequence of critical values for the Allen–Cahn energy in a compact Riemannian manifold introduced in [GG18] in parallel to the volume spectrum of a Riemannian manifold [MN17]. These geometric invariants play a central role in the phase-transitions strategy to the existence of infinitely many minimal hypersurfaces, see e.g. [GG19, CM20] and also [CFSS23, FS24] for a related nonlocal approach. In the equivariant setting, we can also apply Theorem 1.1 to the cohomological classes of sets of functions associated to the G-invariant Allen–Cahn p-widths . These are min-max critical values for the Allen-Cahn energy in spaces of G-invariant functions and can be regarded as the G-equivariant versions of the widths defined in [GG18], providing a phase-transitions counterpart of Wang’s [Wan25] equivariant volume spectrum. More precisely, 
+
+Definition 1.3. The Allen–Cahn G-invariant p-widths are defined as 
+
+ωGp,ϵ (M, g ) = inf 
+
+> Φ∈F Gp
+
+sup 
+
+> x∈Dom (Φ)
+
+Eϵ(Φ( x)) ,
+
+where FGp is the set of all images Φ( X) ⊂ W 1,2(M ), for continuous Z2-equivariant maps Φ : X → W 1,2(M )
+
+defined on a compact Z2-space with with Z2-cohomological index ≥ p and such that Φ( x) is a G-invariant function for all x ∈ X (see Section 3.2 for the detailed definition). 
+
+Adding onto the mountain pass construction, we can use the Allen–Cahn G-invariant p-widths to show the existence of G-invariant minimal surfaces: 
+
+Theorem 1.4. For each p, there exist a union of G-invariant minimal surfaces {Σpi }Np 
+
+> i=1
+
+and integer multi-plicities {api } such that 
+
+ωGp,ϵ (M, g ) = 
+
+> Np
+
+X
+
+> i=1
+
+api Area (Σ pi ).
+
+When Cohom (G) = 2 and the action has no exceptional orbits, these surfaces may intersect or be immersed. When Cohom( G) = 3 , they are embedded and disjoint. In both cases, the surfaces are smooth up to a singular set of dimension at most n − 7.
+
+4Adapting an argument of the second author [Gas20] we can also show weak index bounds of these minimal hypersurfaces. 
+
+Theorem 1.5. Suppose that {uϵi } is a sequence of G-equivariant solutions to (1) with G-equivariant index bounded by p. Let V = PNp 
+
+> i=1
+
+api Σpi be the limit varifold of the {uϵi } where {Σpi } are immersed minimal hypersurfaces. Then Np
+
+X
+
+> i=1
+
+Ind G(Reg (Σ pi )) ≤ p
+
+Here, Ind G denotes the G-equivariant index (see Section 2 for definition), and Reg(Σ) denotes the regular part of the hypersurface. Following the strategy by Dey [Dey22], we also show that these equivariant Allen-Cahn widths coincide, in the limit as ϵ → 0, to the G-equivariant p-widths, {ωGp }, as defined in Wang [Wan22a] 
+
+Theorem 1.6. We have 12σ lim  
+
+> ϵ→0
+
+ωGp,ϵ (M, g ) = ωGp (M, g )Furthermore, we recover a multiplicity one result for the first Allen-Cahn width, in the positive Ricci setting: 
+
+Theorem 1.7. When (M n+1 , g ) satisfies Ric g > 0 and Cohom( G) ≥ 3, then 
+
+lim  
+
+> ϵ→0
+
+ωGAC,ϵ (M, g ) = Area(Σ 1)
+
+for Σ1 an embedded G-equivariant minimal surface. When Cohom( G) = 2 and M/G is a smooth quotient with Ric ˜gM/G > 0, the same result holds. 
+
+We refer the reader to Theorem 4.2 for the definition of ˜ gM/G . Theorem 1.7 is analogous to work of Bellettini [Bel24], and we are able to adopt his argument to the G-invariant setting for Cohom( G) ≥ 3. The same argument however fails in Cohom( G) = 2 (see remark 8.6), but we can recover multiplicity one and embeddedness when we have the further restriction of M/G being a smooth quotient with positive Ricci curvature. 
+
+## 1.2 An Explanation of no exceptional orbits in cohomogeneity two 
+
+We remark that the requirement of no exceptional orbits in cohomogeneity 2 arises as follows: intuitively, to conclude the regularity theory of an immersed minimal surface in cohomogeneity two, we use the Sine– Gordon potential in the Allen–Cahn regularization of minimal surfaces. Applying either a mountain-pass or a p-parameter min-max construction will yield G-equivariant Allen–Cahn solutions, {uϵ}, with G-equivariant index bounded by p. Following a classic covering argument, in the limit as ϵ → 0, the “index accumulates” in at most p orbits, {O i}. On the union of principal orbits (which is open and dense), any solution on ( M, g )projects to a solution of the Allen–Cahn equation with a drift term on ( M/G, g M/G ) (see equation (13) and Theorem 6.2). This complicates the analysis significantly, and we prove an adaptation of Wang–Wei’s stability estimates [WW19a, Theorem 3.6] (see also [Man21, Theorem 4.13] for the Riemannian adaptation) for the Allen–Cahn equation with a drift Laplacian. Nonetheless, if Oi is a principal orbit, then we can use the regularity theory coming from the quotient manifold, which is locally smooth near the quotient of a principal orbit. Applying the adapted stability estimates of Theorem 6.2 and the argument of Chodosh– Mantoulidis [CM23, Theorem 3.1], we conclude. If Oi lies in the union of singular orbits, then these are necessarily at least codimension 3 (and hence at least codimension 2 when viewed as a subset of the minimal surface), by which the regularity theory and α-structural hypothesis of Tonegawa–Wickramasekera [TW12] and Wickramasekera [Wic14] allow us to “smooth” over Oi (see a similar argument by Hiesmayr [Hie18, §4.2]). Thus the core difficulty lies when the index accumulates in the exceptional orbits, which are codimension 2 in the ambient manifold and hence codimension 1 in the minimal surface itself. At this point, the machinery of Chodosh–Mantoulidis [CM23] may not apply as the quotient metric may be singular at points corresponding to quotients of exceptional orbits. The classic example of this is the S1 action on S3 as described in the appendix §9 - here one is concerned that the index accumulates at either of the two conical points in the orbifold quotient of S2,colloquially thought of as the tips of the “American Football.” 51.3 Paper outline 
+
+This paper is organized as follows: 1. In section §2, we introduce basic min-max objects with their G-invariant counterparts, the Allen–Cahn theory, and a short lemma on approximating Caccioppoli sets. 2. In §3, we construct G-equivariant solutions to the Allen–Cahn equation via mountain pass and higher 
+
+p-parameter min-max methods. The latter leads to a definition of G-equivariant Allen–Cahn widths, 
+
+{ωGp,ϵ }, and in §4, we demonstrate that these widths converge to the Almgren–Pitts G-equivariant 
+
+p-widths, {ωGp }, inspired by work of Wang [Wan25], the second author and Guaraco [GG19], and Dey [Dey22]. We also compute {ωGp } for several pairs of group actions and manifolds, using work of [CM23, MK25b, MK26]. 3. In §5, we show the regularity of stationary varifolds arising from limits of solutions to the Allen–Cahn equation. We employ tools from Tonegawa–Wickramasekera [TW12], propagating the regularity of stable solutions to the regularity of G-stable solution in G-invariant annuli. When Cohom( G) ≥ 3, the proof of regularity is quite short. Using classical ideas, any sequence of solutions {uϵi } with uniformly bounded index and energy will converge to a G-invariant smooth minimal hypersurface, away from a finite number of G-invariant orbits. When Cohom( G) ≥ 3, each of these orbits will be at least codimension 3 or more, for which the regularity theory of [TW12] allows us to smooth across the singularities up to a set of codimension 7. When Cohom( G) ≤ 7, we can further show that the singularities lie in M \M reg by working on the quotient directly. 4. In §6, we show regularity for the limiting varifolds when Cohom( G) = 2. In this setting, we handle principal orbits which correspond to singularities in our minimal surface by passing to the quotient and adapting the local theory of [CM23]. We can ignore singular orbits via the same arguments as before, and we assume there are no exceptional orbits. 5. In §7, we prove index bounds, i.e. if {uϵi } is a sequence of solutions with bounded energy and index at most p, then the regular part of the limiting minimal G-equivariant hypersurfaces will also have 
+
+G-index at most p. This adapts a theorem of the second author [Gas20, Theorem A]. 6. In §8, we prove a multiplicity one result in the positive Ricci setting. This draws from work of Bellettini [Bel24], though the same arguments do not apply for cohomogeneity 2 actions. 
+
+## 1.4 Acknowledgments 
+
+The authors are grateful to the Center for Mathematical Modeling in Santiago, Chile where part of this work was carried out. The authors would like to thank Christos Mantoulidis, Juncheng Wei, Costante Bellettini, Akashdeep Dey, and Renato Bettiol for fruitful conversations. The first author is supported by Fondecyt grant number 11230872 and by Centro de Modelamiento Matem´ atico (CMM) BASAL fund FB210005 for center of excellence from ANID-Chile. The second author was supported by ANID (Agencia Nacional de Investigaci´ on y Desarrollo, Chile) FONDECYT Iniciaci´ on grant number 11230874. The third author is supported by NSF Grant 23–603. 
+
+# 2 Background 
+
+Throughout the text, we assume ( M, g ) to be a closed Riemannian ( n + 1)-dimensional manifold, and assume 
+
+G to be a compact Lie group acting as isometries on M of cohomogeneity Cohom( G) = l + 1 ≥ 2. We refer to §9 for a more detailed introduction to group actions. We borrow the following notations from [Wan22a, 
+
+§2], adding G- in front of objects meaning they are G-invariant: 
+
+• a G-varifold V satisfies g#V = V for all g ∈ G;
+
+• a G-vector field X satisfies g∗X = X for all g ∈ G;6• a G-map F satisfies g−1 ◦ F ◦ g = F, ∀g ∈ G, (i.e. F is G-equivariant); 
+
+• a G-set ( G-neighborhood) is an (open) set which is a union of orbits. We will also sometimes add a subscript or superscript ‘ G’ to signify G-invariance: 
+
+• π: the projection π : M 7 → M/G defined by p 7 → [p]; 
+
+• BGρ (p), B Gρ (p): open and closed geodesic tubes with radius ρ around G · p;
+
+• XG(M ): the space of G-vector fields on M ;
+
+• An G(p, s, t ): the open tube BGt (p) \ BGs (p); 
+
+• Tq G · p: the tangent space of the orbit G · p at some point q ∈ G · p;
+
+• M reg : the union of orbits with principal orbit type. We recall that a G-varifold is G-stationary in M if and only if it is stationary in M [Liu21a, Lemma 2.2]. We also recall the notion of G-index as the maximal dimension of subspaces of G-vector fields, P , for which 
+
+δ2V P \{ 0}
+
+is negative definite. We notate this maximal dimension as Ind G(V ). Following Hsiang–Lawson [HL71] and T. Wang [Wan25], when ℓ+1 = Cohom( G), we define the conformal metric on the quotient, M/G , as 
+
+g = V2/ℓ gM/G (2) where gM/G is the induced metric on M/G coming from the projection map, and V(p) = Vol g (π−1(p)) is the fiber volume function. We refer to [HL71, Section 4] for the key analytic properties of this function. 
+
+## 2.1 Allen-Cahn energy functional 
+
+For ϵ > 0, we consider the Allen-Cahn energy functional :
+
+Eϵ(u) = 
+
+ˆ
+
+> M
+
+ϵ |∇ u|2
+
+2 + W (u)
+
+ϵ , (3) defined for Sobolev functions u ∈ W 1,2(M ). Here, the function W is a “double well potential” and we refer the reader to Gaspar–Guaraco [GG18, GG19] or Hutchison–Tonegawa [HT00] for the classical assumptions on W . In practice, the exact choice of W will not matter until §6, where we will define and specify the Sine-Gordon potential. Recall that critical points of Eϵ are precisely the weak solutions of the Allen-Cahn equation 
+
+−ϵ∆u + 1
+
+ϵ W ′(u) = 0 .
+
+If u ∈ W 1,2(M ) is a critical point of Eϵ, we will denote by Ind ϵ(u; Ω) and by nϵ(u; Ω) its Morse index 
+
+and its nullity on any open set Ω ⊂ M , respectively. Concretely, consider the bilinear form given by the second variation of Eϵ at u, that is 
+
+D2Eϵ(u) : W 1,2(M ) × W 1,2(M ) → R,D2Eϵ(u)[ ψ, ρ ] = 
+
+ˆ
+
+> M
+
+ϵ⟨∇ ψ, ∇ρ⟩ + W ′′ (u)
+
+ϵ ψρ 
+
+Then for any open set Ω ⊂ M we write Ind ϵ(u; Ω) = max {dim V : V subspace of W 1,20 (Ω) s.t. DE 2 
+
+> ϵ
+
+(u)|V ×V is negative definite }
+
+nϵ(u; Ω) = dim ker D2Eϵ(u) = dim {v ∈ W 1,20 (Ω) : D2Eϵ(u)[ v, ρ ] = 0 , ∀ρ ∈ W 1,2(Ω) }.
+
+7For Ω = M , we write Ind ϵ(u) = Ind ϵ(u; M ) and nϵ(u) = nϵ(u; Ω). Moreover, we recall that these numbers correspond to the number of negative Dirichlet eigenvalues and to the nullity of the linearized Allen-Cahn (or Jacobi) operator 
+
+Juϵ ϕ = −ϵ∆ϕ + W ′′ (uϵ)
+
+ϵ ϕ, 
+
+acting on smooth functions ϕ ∈ C∞ 
+
+> 0
+
+(Ω). Given a critical point uϵ of Eϵ, we introduce its energy density measure 
+
+dμ ϵi = 12σ
+
+ ϵi|∇ uϵi |2
+
+2 + W (u)
+
+ϵi
+
+
+
+dHn+1 ,
+
+and associate to it a n-varifold V (uϵi ) on M :
+
+V (uϵi ) ( ϕ) = 
+
+ˆ  
+
+> M∪{|∇ uϵi|>0}
+
+ϕ
+
+
+
+x, I − ∇uϵi
+
+|∇ uϵi | ⊗ ∇uϵi
+
+|∇ uϵi |
+
+
+
+dμ ϵi , for ϕ ∈ C(Gn(M )) We recall that these varifolds were introduced in [PT98, HT00, TW12] to study the ϵ-limit interface associated to solutions of the Allen-Cahn equation. 
+
+## 2.2 Symmetric smooth approximations for G-invariant Caccioppoli sets 
+
+We will denote by CG(M ) the set of Caccioppoli sets in M which are G-invariant. The following auxiliary results ensures that any E ∈ C G(M ) can be approximated by closed G-invariant subsets with smooth boundary. This can be seen as a G-invariant adaptation of [Dey22, Proposition 2.10]. 
+
+Lemma 2.1. Let E ∈ C G(M ) and F = M \ E. Then there exist two sequences {Ej }j and {Fj }j of 
+
+G-invariant closed subsets of M with the following properties: (i) Ej , F j ∈ C G(M ), [[ Ej ]] + [[ Fj ]] = [[ M ]] and M = Ej ∪ Fj for every j.(ii) Hn+1 (E∆Ej ) = ∥1Ej − 1E ∥L1(M ) → 0 and Hn+1 (F ∆Fj ) = ∥1Fj − 1F ∥L1(M ) → 0.(iii) ∂[[ Ej ]] = [[ ∂∗Ej ]] = [[ ∂∗Fj ]] = ∂[[ Fj ]] converges to ∂[[ E]] = ∂[[ F ]] in the F norm. In particular, ∂[[ Ej ]] = 
+
+∂[[ Fj ]] → ∂[[ E]] = ∂[[ F ]] in the flat metric, and the corresponding varifolds converge in the weak topology. (iv) For all j, the sets Ej ∩ Fj is a smooth, embedded closed hypersurface in M which coincides with the topological and the reduced boundaries of both Ej and Fj .(v) For all j and all p ∈ Ej ∩ Fj , there exists a G-invariant geodesic tube U around G · p such that 
+
+U \ (Ej ∩ Fj ) is the union of two disjoint, connected, G-invariant open sets O1 ⊂ Ej and O2 ⊂ Fj .(vi) For every p ∈ M and every R > 0, there exists a subsequence {js}∞ 
+
+> s=1
+
+such that 
+
+Hn(∂B Gt (p) ∩ (Ejs ∆E)) → 0 and Hn(∂B Gt (p) ∩ (Fjs ∆F )) → 0
+
+for a.e. t ∈ (0 , R ).Proof. As in [Dey22], using Miranda-Pallara-Paronetto-Preunkert [MPPP07], we first approximate each Ej
+
+by a sequence {uj,i }i ⊂ C∞(M, [0 , 1]) in the following sense: 
+
+uj,i → 1Ej in L1(M ), and ∥Du j,i ∥(M ) → ∥ D1Ej ∥(M ).
+
+For each i, consider the averaged function vj,i : M → [0 , 1] given by 
+
+vj,i (x) = 1
+
+|G|
+
+ˆ
+
+> G
+
+ϕ#uj,i (x) dV G(ϕ) = vj,i (x) = 1
+
+|G|
+
+ˆ
+
+> G
+
+uj,i (ϕx ) dV G(ϕ).
+
+8Here we recall that VG is the (bi-invariant) Haar measure of G and we write |G| = VG(G). Since 1Ej is 
+
+G-invariant, we can write it as 1Ej (x) = 1
+
+> |G|
+
+´ 
+
+> G
+
+ϕ#1Ej (x) dV G(ϕ), so that 
+
+∥vj,i − 1Ej ∥L1(M ) ≤ 1
+
+|G|
+
+ˆ
+
+> M
+
+ˆ
+
+> G
+
+|uj,i (ϕx ) − 1Ej,i (ϕx )| dV G(ϕ) dvol g (x)= 1
+
+|G|
+
+ˆ
+
+> G
+
+∥ϕ#uj,i − ϕ#1Ej ∥L1(M ) dV G(ϕ) → 0.
+
+In addition, ∥Dv j,i ∥(M ) → ∥ D1Ej ∥(M ) as well. To see this, note that uj,i is smooth and |∇ (uj,i ◦ ϕ)( x)| =
+
+|Dϕ −1(ϕx )∇uj,i (ϕx )| = |∇ uj,i (ϕx )|, so that 
+
+∥Dv j,i ∥(M ) = 
+
+ˆ
+
+> M
+
+|∇ vj,i | dvol g ≤ 1
+
+|G|
+
+ˆ
+
+> M
+
+ˆ
+
+> G
+
+|∇ uj,i (ϕx )| dV G(ϕ) dvol g (x) = 
+
+ˆ
+
+> M
+
+|∇ uj,i | dvol g → ∥ D1Ej ∥(M ).
+
+On the other hand, since vj,i → 1Ej in L1, the lower semicontinuity of the total variation ensures lim inf i ∥Dv j,i ∥(M ) ≥ ∥ D1Ej ∥(M ).
+
+Now the construction of Ej and Fj , and the proof of properties 1.-5. follow that of [Dey22, Proposition 2.10] without any major changes, noting that the sets Ej and Fj can be constructed as regular super-and sub-level sets of the smooth, G-invariant approximations vj,i , yielding G-invariant, closed, Caccioppoli sets. 
+
+# 3 Codimension 1 equivariant min-max for phase transitions 
+
+We note that the G-action on ( M, g ) induces a right group action on the space of real-valued functions 
+
+M → R by composition, which we will denote as ϕ#u(x) = u ◦ ϕ(x) = u(ϕx ), for ϕ ∈ G. We consider the subspace W 1,2 
+
+> G
+
+(M ) ⊂ W 1,2(M ) of G-invariant functions, that is, of all u ∈ W k,p (M ) such that ϕ#u = u for all ϕ ∈ G. Since this is a closed subspace, it is also a Hilbert space when endowed with the restriction of the inner product from W 1,2(M ). In this section, we will construct equivariant critical points of Eϵ by employing variational methods for the functional EGϵ = Eϵ|W 1,2  
+
+> G(M)\{ 0}
+
+. Note that its domain is a free Z2-space with the antipodal action u 7 → (−u), and that it is an incomplete Hilbert manifold. If u ∈ W 1,2 
+
+> G
+
+(M ) is a G-invariant critical point of Eϵ, we denote its G-equivariant index and nullity by Ind Gϵ (u) and nGϵ (u), which are computed considering D2Eϵ(u) as a bilinear form in W 1,2 
+
+> G
+
+(M ), that is, only among G-invariant functions. We will say that u is G-stable if Ind Gϵ (u) = 0, that is, if DE 2 
+
+> ϵ
+
+(u) is positive semidefinite among G-invariant functions. For c ∈ R+ and p ∈ N, we denote 
+
+KGc (p) = 
+
+n
+
+u ∈ W 1,2 
+
+> G
+
+(M ) \ { 0} : Eϵ(u) = c, D 
+
+
+
+Ee|W 1,2  
+
+> G(M)\{ 0}
+
+
+
+(u) = 0 , Ind Gϵ (u) ≤ p ≤ Ind Gϵ (u) + nGϵ (u)
+
+o
+
+.
+
+## 3.1 Equivariant mountain pass for the Allen-Cahn energy 
+
+In our first existence result, we extend the construction of a mountain-pass type critical point for the Allen-Cahn energy carried out by Guaraco in [Gua18] to the equivariant setting: 
+
+Proposition 1. Let 
+
+ΓG = {γ ∈ C0([ −1, 1] , W 1,2 
+
+> G
+
+(M )) : γ(±1) = ±1}
+
+and consider the mountain pass value for Eϵ associated to Γ, that is 
+
+ωGAC,ϵ (M, g ) = inf 
+
+> γ∈ΓG
+
+max  
+
+> t∈[−1,1]
+
+Eϵ(γ(t)) .
+
+Then ωGAC,ϵ (M, g ) > 0 for every ϵ > 0 and there exists a G-equivariant solution v ∈ C∞(M, g ) of the Allen-Cahn equation on (M, g ) with |v| ≤ 1 and such that (i) Eϵ(v) = ωGAC,ϵ (M, g )9(ii) The equivariant Morse index of v satisfies Ind Gϵ (v) ≤ 1.In addition, we have 
+
+0 < lim inf  
+
+> ϵ→0
+
+ωGAC,ϵ (M, g ) ≤ lim sup 
+
+> ϵ→0
+
+ωGAC,ϵ (M, g ) < ∞
+
+Proof. The proof follows the arguments of [Gua18, Proposition 4.5] closely, and it mirrors the equivariant min-max construction of T. Wang [Wan22b] in the Almgren-Pitts setting. Since W 1,2 
+
+> G
+
+(M ) is a closed subspace of W 1,2(M ) and Eϵ satisfies the Palais-Smale property (truncating the double-well potential outside a compact interval containing [ −1, 1] in its interior, if necessary) along bounded sequences of functions in W 1,2(M ), so does its restriction to W 1,2 
+
+> G
+
+(M ). In addition, the min-max values ωAC,ϵ (M, g ) for Eϵ associated to the class of paths of (not necessarily equivariant) functions joining the constants ( −1) and (+1) satisfy 
+
+ωAC,ϵ (M, g ) ≤ ωGAC,ϵ (M, g ). (4) This shows that ωGAC,ϵ (M, g ) > 0 = Eϵ(±1). Additionally, any critical point of Eϵ|W 1,2   
+
+> G(M)
+
+is a critical point of the Allen-Cahn energy, by Palais’ principle of Symmetric Criticality [Pal79], and its index is precisely the G-equivariant index. In fact, since the Lie group G acts on W 1,2(M ) by isometries with respect to the Sobolev norm, the ( W 1,2−)gradient of Eϵ is equivariant with respect to the G-action, which ensures that this gradient is tangent to W 1,2 
+
+> G
+
+(M ). Hence, if u ∈ W 1,2(M ) is critical for the constrained energy Eϵ|XG ,then DE ϵ(u) = 0 among all functions in W 1,2(M ). Therefore, the existence of the solution v follows from [Gho93, Corollary 10.5] (see also [Gua18, Theorem 4.3]). The lower bound for the ϵ limit of ωGAC,ϵ (M, g ) follows directly from (4) and [Gua18, Proposition 5.2], in which cϵ = ωAC,ϵ (M, g ) is shown to have a positive lower bound independent of the parameter ϵ.For the upper bound, it suffices to observe that we can use the path of functions constructed in [Gua18, Section 7.5] using the heteroclinic solutions of the Allen-Cahn equation and the level sets of a Morse function. To see this, consider the level sets {Σt = f −1(t)}t∈[0 ,1] of a G-equivariant Morse function f : M → [0 , 1], in the sense of [Was69], and let γ(t) be the composition of the heteroclinic, 1-dimensional solution of the 
+
+ϵ-Allen-Cahn equation with the following signed distance function to Σ t:
+
+dt,δ (x) = 
+
+ sign( f (x) − t) · δ, if dist( x, Σt) ≥ δ, 
+
+sign( f (x) − t) · dist( x, Σt), if dist( x, Σt) ≤ δ, 
+
+where δ > 0. Then {γ(t)}t∈[0 ,1] is a path of G-equivariant Lipschitz functions and its energy satisfies 
+
+Eϵ(γ(t)) ≤ Cδ · H n−1(Σ t) + o(1) ,
+
+with respect to ϵ → 0. Here Cδ → 2σ as δ → 0 and σ > 0 depends only on the double-well potential W . By connecting γ(0) and γ(1) linearly to the constants ( −1) and +1 and re-parameterizing the resulting path, we construct a path in Γ G whose energy remains bounded from above by 2 σ · sup t Hn−1(Σ t), that is, lim sup 
+
+> ϵ→0
+
+ωGAC,ϵ (M, g ) ≤ 2σ · sup 
+
+> t∈[0 ,1]
+
+Hn−1(Σ t).
+
+We conclude this section with a brief discussion about the least positive energy equivariant solutions, that is, solutions whose energy is given by 
+
+aGϵ = min {Eϵ(u) : u ∈ W 1,2 
+
+> G
+
+(M ), DE ϵ(u) = 0 and Eϵ(uϵ) > 0}. (5) The existence of solutions at this energy level follows readily from the Palais-Smale property and the non-degeneracy of the double well-potential, by the same proof as in [GG18, Theorem 2.1 (1)]. It naturally implies aϵ ≤ ωGAC,ϵ . In addition, if Eϵ(vϵ) = aGϵ for a G-unstable solution vϵ, then vϵ can be obtained as an equivariant min-max solution. Even more so, under this assumption, there exists a continuous path 
+
+γ : [ −1, 1] → W 1,2 
+
+> G
+
+(M ) with γ(±1) = ±1 (the constant functions), γ(0) = vϵ and such that 
+
+ωGAC,ϵ (M, g ) ≤ sup 
+
+> t∈[−1,1]
+
+Eϵ(γ(t)) = Eϵ(vϵ) = aGϵ ,
+
+10 so we obtain aGϵ = ωGAC,ϵ (M, g ) in this case. The existence of such path γ follows by the same argument of [GG18, Theorem 2.1 (2)], using the first eigenfunction associated to D2Eϵ(vϵ) in W 1,2 
+
+> G
+
+(M ) and the parabolic Allen-Cahn equation, observing that its solutions remain G-invariant for all times provided the initial data is G-invariant, by the uniqueness of solutions [GG18, Lemma 2.3]. Finally, such a solution vϵ must have 
+
+G-invariant Morse index 1, as otherwise we would be able to construct a path of G-invariant functions with energy strictly below Eϵ(vϵ), by using the eigenfunction associated to the second eigenvalue of D2Eϵ(vϵ). We summarize the discussion in the following 
+
+Proposition 2. For every ϵ > 0, there exists a G-invariant solution of the Allen-Cahn equation with energy 
+
+aGϵ , as defined in (5) . Moreover, any such solution is either G-stable or it can be obtained via the 1-parameter equivariant min-max, as described in Proposition (1) . In the latter case, the solution has G-invariant Morse index 1, and aϵ = ωGAC,ϵ (M, g ).
+
+## 3.2 The equivariant phase transition spectrum 
+
+Our next goal is to extend the min-max construction to p-dimensional families of subsets of W 1,2 
+
+> G
+
+(M ), in order to formulate a G-equivariant analogue of the phase transition spectrum defined in [GG18, GG19]. Following the construction of [GG18], for each positive integer p, we let 
+
+FGp (M ) = {A ⊂ W 1,2 
+
+> G
+
+(M ) \ { 0} : A compact , symmetric , and Ind Z2 (A) ≥ p + 1 },
+
+where Ind Z2 is the Z2-cohomological index of Fadell-Rabinowitz [FR78] (see also Appendix B in [GG18]). We define the G-equivariant phase transition spectrum of (M, g ) as the min-max sequence of critical values of EGϵ associated to the cohomological families Fp, that is the sequence {ωGp,ϵ (M, g )}p∈N defined by 
+
+ωGp,ϵ (M, g ) = inf   
+
+> A∈F Gp(M)
+
+sup {Eϵ(u) : u ∈ A}.
+
+Theorem 3.1 (Equivariant Min-Max Theorem for the Allen-Cahn energy) .
+
+(1) The G-equivariant phase transition spectrum satisfies 
+
+ωGp,ϵ (M, g ) ≤ Eϵ(0) = W (0) 
+
+ϵ vol( M, g ),
+
+with equality for every sufficiently large p depending on (M, g ), W and ϵ.
+
+(2) If ωGp,ϵ (M, g ) < E ϵ(0) , then there exists a G-invariant, smooth solution of the Allen-Cahn equation 
+
+u ∈ C∞(M ) with 
+
+|u| ≤ 1, Eϵ(u) = ωGp,ϵ (M, g ), Ind Gϵ (u) ≤ p ≤ Ind Gϵ (u) + nGϵ (u).
+
+For each fixed p ∈ N, this holds true provided ϵ is sufficiently small. 
+
+(3) If ωGp,ϵ (M, g ) = ωGp+k,ϵ (M, g ) for some p, k ∈ N, then there are infinitely many critical points of Eϵ at this energy level. More precisely, 
+
+Ind Z2
+
+
+
+KGωGp,ϵ (M,g )(p + k)
+
+
+
+≥ k + 1 .
+
+Proof. The proof follows closely the proof of Theorem 3.3 in [GG18], by adapting the techniques from [Gho93, Chapters 9 and 10], together with the following straightforward observations: 
+
+• If u ∈ W 1,2 
+
+> G
+
+(M ) \ { 0} is a critical point of Eϵ|W 1,2  
+
+> G(M)\{ 0}
+
+, then it is a critical point of the unconstrained energy functional Eϵ, and hence a solution of the Allen-Cahn equation. This is also a consequence of Palais’ Principle of Symmetric Criticality [Pal79]. 
+
+• If A ∈ F Gp , then λA = {λu : u ∈ A} ∈ F Gp for any λ ∈ R+. This ensures, as in [GG18], that 
+
+ωGp,ϵ (M, g ) ≤ Eϵ(0). 
+
+• Recall that cϵ(p) = ωid 
+
+> p,ϵ
+
+(M, g ) is the min-max critical value of Eϵ associated to Z2-symmetric families of compact subsets of W 1,2(M ) \ { 0} with Ind Z2 ≥ p + 1, [GG18]. Trivially, we have cϵ(p) ≤ ωGp,ϵ (M, g ), hence (1) follows from the corresponding statement in [GG18]. 11 • The proof that ωGp,ϵ (M, g ) < E ϵ(0) for sufficiently small ϵ > 0 can be carried out as in [GG18], replacing the Laplace spectrum of ( M, g ) by its equivariant counterpart, but it also follows from the (ϵ-independent) upper bounds for ωGϵ,p (M, g ) shown below. 
+
+## 3.3 Asymptotics of the equivariant phase transition spectrum 
+
+In this section we study the asymptotic growth of the ϵ-limits of ωp,ϵ (M, g ), akin to Theorems 10 and 13 in [Wan22b]. First, we give a short proof of the sublinear growth (with respect to p) of these limits, with an exponent determined by the cohomogeneity ( l + 1) of the G-action: 
+
+Theorem 3.2. There exists C = C(M, g, G, W ) such that 
+
+C−1p 1 
+
+> l+1
+
+≤ lim inf  
+
+> ϵ→0+
+
+ωGp,ϵ (M, g ) ≤ lim sup 
+
+> ϵ→0+
+
+ωGp,ϵ (M, g ) ≤ Cp 1 
+
+> l+1
+
+.
+
+Proof. We first prove the sublinear upper bound by lifting the piecewise linear sweepout constructed in [GG18] from the quotient M/G to M .As observed by Wang in [Wan22b], by the work of Verona [Ver80] and Illman [Ill78, Ill83] on equivariant triangulations, there exists an l-dimensional cubical subcomplex K of some Im and a bi-Lipschitz map 
+
+f : M/G → K. Therefore, by the construction of [GG18, Section 4], which can be applied to any cubical subcomplex of Im, there exists a family {ha}a∈Sp of (nonzero) Lipschitz functions K → R such that (i) h(−a) = −ha for all a ∈ Sp;(ii) If aj is a sequence in Sp with aj → a ∈ Sp, then Hϵ ◦ haj → Hϵ ◦ ha and ∇(Hϵ ◦ haj ) → ∇ (Hϵ ◦ ha)a.e. on K.(iii) For every a ∈ Sp, the sum of the Allen-Cahn energies of H ◦ ha over all l-dimensional cells of K is bounded from above by Cp 1/(l+1) , where C = C(M, g, G, W ) > 0 does not depend on a nor on ϵ > 0. Since the projection π : M → M/G is a 1-Lipschitz map (see [EF01, Section 8.12]), it follows that the set 
+
+{Hϵ ◦ ha ◦ f ◦ π : a ∈ Sp} ⊂ W 1,2 
+
+> G
+
+(M ) is in FpG(M ) and 
+
+Eϵ(Hϵ ◦ ha ◦ f ◦ π) ≤ C1 · Cp 1/l , for all a ∈ Sp,
+
+where we used [GG18, Lemma A.2] and C1 depends on the Lipschitz constants of f and π. Therefore 
+
+ωGp,ϵ (M, g ) ≤ C1C p 1/(l+1) .To prove the lower bound, let ˜Ω be a compact, regular domain contained in M reg /G with smooth boundary, and let Ω = π−1( ˜Ω). Note that Ω is G-invariant and that the restriction map u 7 → u|Ω defines a linear continuous map W 1,2 
+
+> G
+
+(M ) → W 1,2 
+
+> G
+
+(Ω). Consequently, if A ∈ F Gp (M ), then {u|Ω : u ∈ A} ∈ F Gp (Ω). Since Eϵ(u) ≥ Eϵ(u|Ω), this shows that ωGp,ϵ (Ω , g ) ≤ ωGp,ϵ (M, g ). We can endow the quotient M reg /G with a Riemannian metric gM/G which makes the quotient map 
+
+π : ( M reg , g ) → (M reg /G, g M/G ) a Riemannian submersion. We claim that there exists a constant C de-pending only on ( M, g ) and G (and on the choice of Ω, but independent of ( p, ϵ )) such that 
+
+ωp,ϵ ( ˜Ω, g M/G ) ≤ C · ωGp,ϵ (Ω , g ),
+
+compare with Theorem 4.4 in [Wan25]. Since dim ˜Ω = l + 1, by the sublinear growth of the volume spectrum of ωGp,ϵ ( ˜Ω, g M/G ), see e.g. [GG19], this inequality readily implies the claimed lower bound. For this purpose, we observe that for any u ∈ W 1,2 
+
+> G
+
+(Ω) there exists a unique ˜ u ∈ W 1,2( ˜Ω) such that ˜ u ◦ π = u, and that the corresponding map W 1,2 
+
+> G
+
+(Ω) → W 1,2( ˜Ω) is linear and continuous. In fact, the existence and uniqueness of the function ˜ u follows from the equivariance of u. The linearity is straightforward, and the continuity is then a consequence of the inequalities 
+
+∥u∥2 
+
+> L2(Ω ,g )
+
+≤ sup  
+
+> y∈˜Ω
+
+vol( G · y, g )
+
+!
+
+· ∥ ˜u∥2
+
+> L2( ˜Ω,g M/G )
+
+,
+
+∥∇ g u∥2 
+
+> L2(Ω ,g )
+
+≤ sup  
+
+> y∈˜Ω
+
+vol( G · y, g )
+
+!
+
+· ∥∇ gM/G ˜u∥2
+
+> L2( ˜Ω,g M/G )
+
+12 see e.g. [CG25, Lemma 7] for a proof. This proves that u 7 → ˜u is an odd continuous map, and ensures that if A ∈ F Gp (Ω), then {˜u : u ∈ A} ∈ F Gp ( ˜Ω) Furthermore, the second inequality above, together with the Fubini Theorem for Riemannian submersions [Sak96, Chapter II, Theorem 5.6], shows that 
+
+Eϵ(˜ u; ˜Ω, g M/G ) ≤ C · Eϵ(u; Ω , g ),
+
+where C is again the maximum volume of a G-orbit of a point in Ω. Therefore, 
+
+ωGp,ϵ ( ˜Ω, g M/G ) = inf  
+
+> A∈F Gp( ˜Ω)
+
+sup 
+
+> v∈A
+
+Eϵ(v; ˜Ω, g M/G ) ≤ inf  
+
+> A∈F Gp(Ω)
+
+sup 
+
+> u∈A
+
+Eϵ(˜ u; ˜Ω, g M/G )
+
+≤ inf  
+
+> A∈F Gp(Ω)
+
+sup 
+
+> u∈A
+
+(C · Eϵ(u; Ω , g )) ≤ C · ωGp,ϵ (Ω , g ).
+
+To conclude this section, we will compare the equivariant Allen-Cahn widths of ( M, g ) and the widths of the quotient space M/G , assuming there are no nonprincipal orbits. Let 
+
+V : M reg /G → R>0, V(π(p)) = vol gn−ℓ(π−1(π(p)) = Hn−ℓ(G · p). (6) For Ω ⊂ M we denote by E(Ω ,g ) 
+
+> ϵ
+
+the restriction of the Allen-Cahn energy functional to W 1,2(Ω), and similarly for domains D ⊂ M reg /G . Inspired by [Wan25, Theorem 4.4], we show: 
+
+Lemma 3.3. If Ω ⊂⊂ M reg is a G-invariant domain with (piecewise) smooth boundary and which contains principal orbits only and ˜gM/G is the conformal metric ˜gM/G = V2/ℓ · gM/G on M reg /G , then 
+
+E(Ω /G, ˜gM/G ) 
+
+> cϵ
+
+(u) − E(Ω ,g ) 
+
+> ϵ
+
+(u ◦ π) = 
+
+ˆ
+
+> Ω/G
+
+ ϵ
+
+2 |∇ gM/G u|2 ·
+
+ c
+
+V1/ℓ − 1
+
+
+
++ W (u)
+
+ϵ
+
+ V1/ℓ 
+
+c − 1
+
+ 
+
+V dμ gM/G 
+
+for every u ∈ W 1,2(Ω /G ) and every c > 0.Proof. Note that 
+
+|∇ ˜gM/G u|2 = 1
+
+V2/ℓ |∇ gM/G u|2, dμ ˜gM/G = V1+ 1 
+
+> ℓ
+
+dμ gM/G , |∇ g (u ◦ π)|2 = |∇ gM/G u|2
+
+Using Fubini’s Theorem for the Riemannian submersion π : (Ω , g ) → (Ω /G, g M/G ), we compute 
+
+E(Ω /G, ˜gM/G ) 
+
+> cϵ
+
+(u) − E(Ω ,g ) 
+
+> ϵ
+
+(u ◦ π) = 
+
+ˆ
+
+> Ω/G
+
+ cϵ 
+
+2
+
+|∇ gM/G u|2
+
+V2/ℓ + W (u)
+
+cϵ 
+
+
+
+V1+ 1 
+
+> ℓ
+
+dμ gM/G 
+
+−
+
+ˆ
+
+> Ω/G
+
+ ϵ
+
+2 |∇ gM/G u|2 + W (u)
+
+ϵ
+
+
+
+V dμ gM/G 
+
+=
+
+ˆ
+
+> Ω/G
+
+ ϵ
+
+2 |∇ gM/G u|2 · c
+
+V1/ℓ + W (u)
+
+ϵ · 1
+
+c/ V1/ℓ 
+
+
+
+Vdμ gM/G 
+
+−
+
+ˆ
+
+> Ω/G
+
+ ϵ
+
+2 |∇ gM/G u|2 + W (u)
+
+ϵ
+
+
+
+V dμ gM/G 
+
+By collecting the terms we obtain the claimed result. 
+
+Corollary 3.3.1. If Ω ⊂ M is a G-invariant domain with (piecewise) smooth boundary and which contains principal orbits only, then 
+
+|ωp,AC (Ω /G, ˜gM/G ) − ωGp,AC (Ω , g )| ≤ 2
+
+ max Ω V1/ℓ 
+
+min Ω V1/ℓ − 1
+
+
+
+· ωGp,AC (Ω , g )
+
+In particular, if the orbits of G have constant volume, then ωp,AC (Ω /G, ˜gM/G ) = ωGp,AC (Ω , g )13 4 Comparison with G-invariant min-max for minimal hypersur-faces 
+
+The goal of this section is to compare the ϵ limits of the phase transition spectrum ωGp,ϵ (M, g ) and the 
+
+G-equivariant volume spectrum of (M, g ), as studied in recent work by T. Wang [Wan25] and extending the results by Marques-Neves [MN14, MN17, MN16], based on Almgren-Pitts min-max theory for minimal hypersurfaces, to the equivariant setting. Concretely, we will show: 
+
+Theorem 4.1. Under the conditions described above, the equivariant Allen-Cahn phase transition spectrum of (M, g ) satisfies 12σ lim 
+
+> ϵ→0+
+
+ωGp,ϵ (M, g ) = ωGp (M, g ),
+
+where {ωGp (M, g )}p∈N is the equivariant volume spectrum of (M, g ), cf. [Wan25, Section 3]. 
+
+This comparison extends the previous work by the second named author and Guaraco [GG18] and by A. Dey [Dey22]. In particular, the latter established this convergence result for a trivial action of G = {id } and provided a strong connection between the Allen-Cahn and Almgren-Pitts min-max approaches. Ultimately, this was used in concrete examples to compute certain p-widths using fundamental results about solutions of the Allen-Cahn equation, for instance in [CM23]. As a corollary of the comparison between the equivariant phase transitions and volume spectra and [Wan25, Theorem 4.8], we obtain the following Weyl-type law in the spirit of [LMN18, GG19] (see also [GL25]). Recall that the G action on ( M, g ) has cohomogeneity ( l + 1) = dim( M reg /G ). 
+
+Theorem 4.2. The equivariant phase transition spectrum ωGp,AC (M, g ) := lim ϵ→0 ωGp,ϵ (M, g ) of (M, g ) sat-isfies: 
+
+lim  
+
+> p→∞
+
+p− 1 
+
+> ℓ+1
+
+ωGp,AC (M, g ) = τ (ℓ) · vol( M reg /G, ˜gM/G ) 1
+
+> ℓ+1
+
+where τ (ℓ) is a dimensional constant. 
+
+Along this section, we will use the notation introduced in introduction of [GG18] regarding symmetric cubical complexes. In particular, we recall that Qm = [ −1, 1] m and consider the m-dimensional cubical complex Q(m, k ) obtained by equal subdivision of each interval [ −1, 1] by 2 · 3k subintervals of equal length, for each k ∈ Z>0. We will denote by Cp the set of all connected, compact cubical complexes ˜X that have a free 
+
+Z2 action T : ˜X → ˜X, which have ind Z2 ( ˜X) ≥ p + 1, and whose corresponding orbit space is a subcomplex of Q(m, k ), for some m, z ∈ Z>0.We can associate to each such ˜X ∈ C p a min-max value for the G-equivariant Allen-Cahn energy by letting 
+
+Lϵ( ˜X; M, g ; G) = inf  
+
+> h∈ΓG(X)
+
+sup  
+
+> x∈˜X
+
+Eϵ(h(x)) , (7) where Γ G( ˜X) is the space of all continuous, Z2-equivariant functions h : ˜X → W 1,2 
+
+> G
+
+(M ) \ { 0}. We note that the proof of [GG18, Lemma 6.2] (see also p. 1025 in [Dey22]) carries over to equivariant function spaces to ensure that 
+
+ωGp,ϵ (M, g ) = inf 
+
+> ˜X∈C p
+
+Lϵ( ˜X; M, g ; G) = inf  
+
+> ˜X∈C p: dim( ˜X)= p
+
+Lϵ( ˜X; M, g ; G). (8) 
+
+## 4.1 From sweepouts by invariant functions to sweepouts by invariant cycles 
+
+We will first follow closely the strategy of [GG18] to prove: 
+
+Proposition 3. The equivariant p-widths for Allen-Cahn satisfy: 
+
+12σ lim inf  
+
+> ϵ→0+
+
+ωGp,ϵ (M, g ) ≥ ωGp (M, g ), (9) 14 For small ϵ > 0, by (8), there exist a p-dimensional cubical complex ˜X ∈ C p and a continuous odd map 
+
+h : ˜X → W 1,2 
+
+> G
+
+(M ) \ { 0} with sup 
+
+> x∈X
+
+Eϵ(h(x)) ≤ ωGp,ϵ (M, g ) + ϵ. 
+
+We would like to produce a ( G, p )-sweepout ϕ : ˜X → Z Gn (M ; Z2), according to [Wan25, Definition 3.4] – namely, a continuous map with respect to the flat metric, that detects the p-th power of the fundamental class of ZGn (M ; Z2) (see [Wan25, Theorem 3.1]) and which satisfies the no concentration of mass on orbits condition (as we discuss below) with sup x∈ ˜X M(ϕ(x)) bounded from above by sup x∈ ˜X Eϵ(hx) + o(1) with respect to ϵ. Here we write, for the sake of notation, hx := h(x), for each x ∈ ˜X.Following [GG18], we select suitable level sets for the renormalized functions ˜hx := Ψ ◦ hx, where Ψ( t) = 
+
+ˆ t
+
+> 0
+
+pW (s)/2 ds. 
+
+We recall that the rescaling introduced by the function Ψ appears in Modica’s work [Mod87, p 494] and it is used to obtain a BV limit, as ϵ ↓ 0, for functions with uniformly bounded energy. Concretely, if |hx| ≤ 1, then ˜hx satisfies |˜hx| ≤ σ/ 2, where σ = ´ 1
+
+> −1
+
+pW (s)/2 ds , and 
+
+ˆ
+
+> U
+
+|∇ ˜hx| dvol g ≤ 12
+
+ˆ
+
+> U
+
+ ϵ
+
+2 |∇ hx|2 + 1
+
+ϵ W (hx)
+
+
+
+dvol g
+
+On the other hand, if we consider the measure-theoretic level sets of ˜hx, namely the total variation measures 
+
+∥∂{˜hx > s }∥ = ∥D1{˜hx>s }∥, which are well-defined for a.e. s ∈ [−σ/ 2, σ/ 2], then by coarea formula, 
+
+ˆ s0
+
+> −s0
+
+∥∂{˜hx > s }∥ (U ) ds ≤
+
+ˆ
+
+> U
+
+|∇ ˜hx| ≤ 12
+
+ˆ
+
+> U
+
+ ϵ
+
+2 |∇ hx|2 + 1
+
+ϵ W (hx)
+
+
+
+dvol g = E(U,g ) 
+
+> ϵ
+
+(hx)/2for any s0 > 0. Fix ˜ σ ∈ (0 , σ/ 2). The argument above shows that, for every x ∈ X, there exists a ˜ sx ∈ [−˜σ, ˜σ] for which 2˜ σ∥∂{˜hx > ˜sx}∥ (M ) ≤
+
+ˆ ˜σ
+
+> −˜σ
+
+∥∂{˜hx > s }∥ (M ) ds ≤ 12 E(M,g ) 
+
+> ϵ
+
+(hx) ≤ 12 (ωGp,ϵ (M, g ) + ϵ).
+
+Since hx is assumed to be Z2-equivariant, with respect to the action T : ˜X → ˜X (and hence {hT (x) > s } =
+
+{− hx > s } = {hx < −s}), and the corresponding level sets have zero Hn-measure for a.e. s, we can choose ˜ sx
+
+so that ˜ sT (x) = −˜sx. Moreover, since the functions hx and ˜hx are G-invariant, so are their (super/sub-)level sets. Thus, we obtain a Z2-invariant map ˜ϕ0 : ˜X → Z Gn (M ; Z2) with mass ≤ (ωGp,ϵ (M, g ) + ϵ)/4˜ σ given by ˜ϕ0(x) = ∂[[ hx > s x]] ,
+
+where sx = Ψ −1(˜ sx) ∈ (−1, 1), which then descends to a map ϕ0 : X → Z Gn (M, Z2) from the orbit space of ˜X.This is important in [GG18, Section 6.9] to ensure the non-triviality of the resulting map X → Z Gn (M, Z2). Since the choice of sx is quite arbitrary, the map ϕ0 might fail to be continuous, so that the actual sweepout is constructed by discretizing the cubical complex ˜X into finer cubical divisions and by using interpolation theorems from min-max theory for the area functional, e.g. from [MN14], for its restriction to the set X[j]0 of vertices of a sufficiently fine subdivision X[j] of X.The G-equivariant versions of such interpolation theorems already appear in Wang’s work, for instance in [Wan22b, Wan23]. On the other hand, these results often assume the no concentration of mass on orbits 
+
+technical condition. This means that the mass of such equivariant sweepouts cannot accumulate of small 
+
+G-invariant tubes. More precisely, we say that a map ϕ : A → Z Gn (M, Z2) satisfies this condition if: lim  
+
+> r→0
+
+sup {∥ ϕ(x)∥(BGr (p)) : x ∈ A, p ∈ M } = 0 .
+
+To ensure we can use the G-equivariant interpolation results, we will show that, for a family of finitely many Sobolev functions, almost every level set satisfies the no concentration of mass on orbits condition: 15 Lemma 4.3. Let K ∈ W 1,1 
+
+> G
+
+(M ; [ −1, 1]) be a finite set and write 
+
+B(K) = 
+
+
+
+t ∈ [−1, 1] : lim inf  
+
+> r↓0
+
+sup {∥ ∂{w > t }∥ (BGr (p)) : w ∈ K, p ∈ M } > 0
+
+
+
+for the set of bad level sets, namely those for which the corresponding level sets do not satisfy the no concen-tration of mass on orbits condition. Then B(K) has zero (Lebesgue) measure in [−1, 1] .Proof. Let w ∈ K. It follows from [EG25, Section 5.5] that G(w) := {t ∈ [−1, 1] : {w > t } ∈ C (M )} has full Lebesgue measure. For each t ∈ G (w), it follows that the total variation measure ∥∂{w > t }∥ is a Radon measure given by the restriction of the Hausdorff measure Hn to the reduced boundary of the superlevel set 
+
+{w > t }. This ensures that, for every p ∈ M , we have: 
+
+∥∂{w > t }∥ (G · p) = lim  
+
+> r↓0
+
+∥∂{w > t }∥ (BGr (p)) ,
+
+for ∥∂{w > t }∥ is an outer regular measure. Additionally, Hn(G · p) = 0 for all p ∈ M , as the G action has cohomogeneity ≥ 2, and hence ∥∂{w > t }∥ (G · p) = 0. By the compactness of M , we conclude that sup 
+
+> p∈M
+
+∥∂{w > t }∥ (BGr (p)) → 0, as r ↓ 0.
+
+Now let G = T 
+
+> w∈K
+
+G(w). Since K is finite, this set has full Lebesgue measure in [ −1, 1], so it suffices to show that G ⊂ [−1, 1] \ B (K). Let t ∈ G . The argument above shows that for every ϵ > 0 and every w ∈ K,there exists a r(w) > 0 such that sup 
+
+> p∈M
+
+∥∂{w > t }∥ (BGr (p)) < ϵ, ∀r ∈ (0 , r (w)) .
+
+Therefore, r0 = min w∈K r(w) > 0 satisfies sup {∥ ∂{w > t }∥ (BGr (p)) : w ∈ K, p ∈ M } < ϵ, ∀r ∈ (0 , r 0).
+
+This shows that lim  
+
+> r↓0
+
+sup {∥ ∂{w > t }∥ (BGr (p)) : w ∈ K, p ∈ M } = 0 ,
+
+that is t / ∈ B (K), and concludes the proof. We can now adapt the construction from [GG18] to the equivariant setting. We point out the main changes in the proof: 
+
+• The discrete-to-continuous interpolation theorem [GG18, Theorem 6.4] extracted from [MN14, Theo-rem 14.1] can be replaced by its equivariant counterpart, [Wan22b, Theorem 3]. 
+
+• The discussion in [GG18, Section 6.5] can be directly translated to G-invariant cycles based on Wang’s extension of Almgren’s isomorphism for relative G-cycles, [Wan25, Theorems 3.1 and 3.3]. 
+
+• The criterion given by [GG18, Proposition 6.9] that describes whether an even map ˜X → Z n(M, Z/2) defined on a ˜X ∈ C p is a p-sweepout remains true for maps taking values in the space of G-invariant cycles. In particular, the proof of Lemma 6.8 in [GG18] on the local path connectedness of Zn(M ; Z/2) carries over to Zn(M ; Z/2), replacing the homotopy construction [Alm62, Theorem 8.2] by [Wan25, Theorem 3.2]. 
+
+• The interpolation result [GG18, Theorem 6.12] can be replaced by the equivariant interpolation con-structions underlying the proof of [Wan23, Theorem 4.11], which translates the results from [MN14, Section 13] to the equivariant setting, using a combinatorial argument with G-tubes instead of geodesic balls. We use the latter interpolation result for ϕ0 inductively on each cell of X[j] for sufficiently large j, as in [GG18, Section 6.8]. This allows us to conclude that, for all small δ1 > 0, there exists ϵ∗ = ϵ∗(δ1) > 0 with the following property: if ϵ ∈ (0 , ϵ ∗), then we can find a discrete map ϕ : X[j + k]0 → Z Gn (M, Z2) such that 16 (1) sup x,y ∈X[j+k]0 F(ϕ(x), ϕ (y)) ≤ ξ
+
+
+
+sup x,y ∈X[j]0 F(ϕ0(x), ϕ 0(y)
+
+
+
+, where ξ is a positive function with 
+
+ξ(s) → 0 as s → 0+.(2) sup x∈X[j+k]0 M(ϕ(x)) ≤ ωGp,ϵ (M,g )+ ϵ 
+
+> 4˜ σ
+
++ p · δ1.(3) ϕ lifts to a map ˜ϕ : ˜X[j + k]0 → C G(M ), namely ϕ(π(x)) = ∂ ˜ϕ(x) for all x ∈ ˜X[j + k]0.(4) ϕ has fineness ≤ Cp · δ1, with respect to the mass norm, for some Cp > 0 depending only on p (but not on δ1 nor ϵ). Therefore, by letting δ1 > 0 be sufficiently small, we conclude that the Almgren G-extension Φ : X →ZGn (M ; M; Z2) of ϕ, [Wan22b, Theorem 3], is a ( G, p )-sweepout with 
+
+M(Φ( x) − Φ( y)) ≤ C(M, g, G, p ) · δ1
+
+for any x, y ∈ X in a common p-cell of X[j + k], and consequently 
+
+ωGp (M, g ) ≤ sup 
+
+> x∈X
+
+M(Φ( x)) ≤ sup 
+
+> x∈X[j+k]0
+
+M(Φ( x)) + C(p, M, g, G ) · δ1 ≤ ωGp,ϵ (M, g ) + ϵ
+
+4˜ σ + ( C(p, M, g, G ) + p) · δ1
+
+By letting ϵ ↓ 0, then δ1 ↓ 0, and finally ˜ σ ↑ σ/ 2, we conclude the proof of Proposition 3. 
+
+## 4.2 From sweepouts by invariant cycles to sweepouts by functions 
+
+We now turn to the reverse inequality between the equivariant phase transitions spectrum and equivariant volume spectrum, by adapting the techniques of [Dey22]. We will also consider the equivariant min-max values and minimal hypersurfaces studied by T. Wang in [Wan22b]. Concretely, we consider a G-homotopy class Π ∈ [X, ZGn (M ; F; Z2)] defined on a cubical complex X with nontrivial, cubical double cover ˜X → X,for some cubical subcomplex ˜X of Q(m, k ). Denote by L(Π) the corresponding min-max value for the area functional, namely: 
+
+L(Π) = inf  
+
+> Φ∈Π
+
+max  
+
+> x∈X
+
+M(Φ( x)) The main goal of this section is to show the following inequality between min-max values for M and the min-max values for the Allen-Cahn energy defined in (7): 
+
+Proposition 4. With the notation above, for all ˜X ∈ C p, we have 
+
+12σ lim sup 
+
+> ϵ↓0
+
+Lϵ( ˜X; M, g ; G) ≤ L(Π) .
+
+By combining Propositions 3 and 4, we can prove Theorem 4.1 exactly as in [Dey22, Section 3.5]. We sketch the proof here for completeness. 
+
+Proof of Theorem 4.1. By Proposition 3, it suffices to show that 12σ lim sup 
+
+> ϵ↓0
+
+ωGp,ϵ (M, g ) ≤ ωGp (M, g ).
+
+Let η > 0. There exists a map Φ : X → Z n(M ; F; Z2) defined on a connected p-dimensional cubical complex 
+
+X such that Φ∗ : Hp(ZGn (M ; F; Z2); Z2) ≃ Z2 → Hp(X, Z2) is nontrivial and sup 
+
+> x∈X
+
+M(Φ( x)) ≤ ωGp (M, g ) + η. 
+
+By arguing as in [Dey22, p. 1025], we see that X has a nontrivial double cover π : ˜X → X with ˜X ∈ C p.Therefore, by (7), 
+
+ωGp,ϵ (M, g ) ≤ Lϵ( ˜X; M, g ; G).
+
+17 On the other hand, if Π is the F-homotopy class of Φ, then 
+
+L(Π) ≤ sup 
+
+> x∈X
+
+M(Φ( x)) ≤ ωGp (M, g ) + η. 
+
+Combining the two previous inequalities and Proposition 4, we conclude 12σ lim sup 
+
+> ϵ↓0
+
+ωGp,ϵ (M, g ) ≤ 12σ lim sup 
+
+> ϵ↓0
+
+Lϵ( ˜X; M, g ; G) ≤ L(Π) ≤ ωGp (M, g ) + η. 
+
+Since η > 0 is arbitrary, this concludes the proof. The proof of Proposition 4 relies on the construction of almost smooth (and almost optimal) discrete (G, p )-sweepouts. This is described in the next Lemma, which is a G-equivariant adaptation of [Dey22, Proposition 3.6], and whose proof is described in the next section. 
+
+Proposition 5. For each η > 0, there exist N, I ∈ Z>0, a closed G-invariant set S ⊂ M and a Z2-equivariant map Ψ : ˜X[N I ]0 → C G(M ) with the following properties. Here we write 
+
+Ψ( x) = Ψ( T (x)) := ˜Ψ( x) ∩ ˜Ψ( T (x)) 
+
+for each x ∈ ˜X[N I ]0.(0) Each ˜Ψ( x) is a closed subset of M with ˜Ψ( x) ∪ ˜Ψ( T (x)) = M .(1) The set S is the union of finitely many smooth codimension 2 submanifolds of M . In particular, there exist CS > 0 and ρ0 > 0 such that 
+
+Hn ({x ∈ M : dist( x, S)} = ρ) ≤ CS · ρ, for all ρ ∈ (0 , ρ 0).
+
+(2) For each x ∈ ˜X[N I ]0, the set Ψ( x) \ S is the union of finitely many G-invariant, embedded hyper-surfaces. Moreover, for every p ∈ Ψ( x) \ S , there exists a G-tube U such that U ∩ Ψ( x) is a smooth hypersurface and U \ Ψ( x) = O1 ∪ O 2, for open sets O1 ⊂ ˜Ψ( x) and O2 ⊂ ˜Ψ( T (x)) .(3) Hn(Ψ( x)) ≤ L(Π) + O(η), for all x ∈ ˜X[N I ]0.(4) If x, y lie in a common 1-cell α ∈ ˜X[N ], then the pairs ( ˜Ψ( x), ˜Ψ( y)) and ( ˜Ψ( T (x)) , ˜Ψ( T (y))) coincide outside of a tube BGr∗ (pα) for which Hn((Ψ( x) ∪ Ψ( y)) ∩ BGr∗ (pα)) ≤ O(η).
+
+By composing the signed distance functions to the G-invariant, piecewise smooth hypersurfaces Ψ( x), that is 
+
+dx : M → R, dx(p) = 
+
+ dist( p, Ψ( x)) , p ∈ ˜Ψ( x),
+
+−dist( p, Ψ( x)) , p ∈ ˜Ψ( T (x)) ,
+
+with a real function ˜Hϵ obtained by truncating the heteroclinic solution Hϵ of the Allen-Cahn solution in R to a constant away from [ −√ϵ, √ϵ], we obtain a Z2-equivariant map ϑϵ : ˜X[N I ]0 → W 1,2 
+
+> G
+
+(M ) \ { 0},
+
+ϑϵ(x) = ˜Hϵ ◦ dx. For all x ∈ ˜X[N I ]0, a standard computation via the coarea formula and normal exponential coordinates for Ψ( x) \ S shows that the energy Eϵ(ϑϵ) can be bounded from above by 2σ · sup  
+
+> τ∈[−√ϵ, √ϵ]
+
+Hn({dx = τ }) ≤ 2σ · CS · √ϵ + 2 σ · (1 + C1
+
+√ϵ) sup  
+
+> x∈˜X[N I ]
+
+Hn(Ψ( x)) ,
+
+where the second inequality follows from parts (1) and (3) from Proposition 5. We refer to [Dey22, Section 3.4] for the detailed computation, and collect the properties of ϑϵ in the proposition below, obtained by letting ϵ > 0 be sufficiently small: 
+
+Proposition 6. There exist ϵ∗ > 0 with ϵ∗ < Kη and C0 > 0 depending on (M, g ), G, and also on the map 
+
+Ψ given by Proposition 5 with the following property. For each ϵ ∈ (0 , ϵ ∗), there exists a Z2-equivariant map 
+
+ϑϵ : ˜X[N I ]0 → W 1,2 
+
+> G
+
+(M ) \ { 0} with 
+
+Eϵ(ϑϵ(x)) ≤ 2σ · (L(Π) + C0η)18 The proof of Proposition 4 then follows from the interpolation argument in [Dey22, Proposition 3.11]. It consists of defining a continuous, Z2-equivariant map ζϵ : ˜X → W 1,2(M ) \ { 0} inductively over the j-dimensional cells of ˜X[N I ]0, for j = 1 , . . . , dim ˜X using the continuous deformation map 
+
+θ : W 1,2(M ) × W 1,2(M ) × W 1,2(M ) → W 1,2(M ),θ(u, v, w ) = min {max {u0, −w}, max {u1, w }} + + max {min {u0, w }, min {u1, −w}} −
+
+The main properties of θ are described in [Dey22, Proposition 3.10]. We note here that θ(u, v, w ) ∈ W 1,2 
+
+> G
+
+(M )provide u, v, w ∈ W 1,2 
+
+> G
+
+(M ), and the energy of θ(u, v, w ) can be bounded from above by: 
+
+E(U,g ) 
+
+> ϵ
+
+(θ(u, v, w )) ≤ E(U,g ) 
+
+> ϵ
+
+(u) + E(U,g ) 
+
+> ϵ
+
+(v) + E(U,g ) 
+
+> ϵ
+
+(w) (10) for any open set U ⊂ M .To illustrate this interpolation argument, we observe that, in each 1-cell α = {vt : t ∈ [0 , 1] } of ˜X[N I ]1
+
+with vertices v0, v 1, the functions ζϵ have the form 
+
+ζϵ(vt) = θ(ϑϵ(v0), ϑ ϵ(v1), w ϵ(t)) ,
+
+for wϵ(t) = ˜Hϵ ◦ dt and a signed distance function dt to the level sets f −1(t) of a Morse function f : M →
+
+[1 /3, 2/3] with no local (non-global) extrema, interpolated linearly to ±1 over [0 , 1/3] ∪[2 /3, 1]. Again, we can choose f to be a G-equivariant Morse function [Was69], and the rest of the proof from [Dey22, Proposition 3.11] remains unchanged. In particular, we can assume that the level sets of f have area bounded by O(η)in the G-tubes given by property (4) in Proposition 5, see Proposition 3.8 in [Dey22] and Lemma 4.4 below. Therefore, for each p-cell α of ˜X[N I ] and each x ∈ α, there exists v ∈ ˜X[N I ]0 and a G-tube BGr∗ (pα) such that the energy of ζϵ(x) is bounded from above by O(η) in BGr∗ (pα), and hence 
+
+Eϵ(ζϵ(x)) ≤ Eϵ(ϑϵ(v)) + E(BGr∗ (pα),g ) 
+
+> ϵ
+
+(ζϵ(x)) ≤ 2σ · (L(Π) + Cη ),
+
+using the fact that Ψ( v) and f −1(t) have area ≤ O(η) in each of these geodesic tubes BGr∗ (pα) and (10) to bound E(BGr∗ (pα),g ) 
+
+> ϵ
+
+(ϑϵ(x)). This can be ensured by the construction of the almost sweepout, as we describe in the next subsection, and finishes the proof of Proposition 4, as it implies that 12σ Lϵ( ˜X; M, g ; G) ≤ 12σ sup  
+
+> x∈˜X
+
+Eϵ(ζϵ(x)) ≤ L(Π) + Cη, for all η > 0.
+
+## 4.3 Almost smooth sweepouts by G-tubes 
+
+In this section, we briefly describe the construction of the almost smooth sweepout described in Proposition 5 in the context of G-invariant functions and sets, following [Dey22, Section 3.3] closely. The central idea is to consider cover M by finitely many sufficiently thin, pairwise transverse, G-invariant tubes {BGr∗ (pi)}Ii=1 with smooth boundaries, in which the areas of an almost optimal ( G, p )-sweepout Φ : X → Z Gn (M ; Z2) and the volume of its lift ˜Φ : ˜X → C G(M ) remain controlled, as well as the areas of the level sets of the equivariant Morse function f : M → [1 /3, 2/3]. Next, we approximate each ˜Φ( x), for each vertex x of a fine subdivision ˜X[N ] of ˜X, by smooth G-invariant sets { ˜Φj (x)}j∈N, using Lemma 2.1. The desired almost-smooth sweepout can be roughly described as obtained by iteratively interpolating between ˜Φj (x) and ˜Φj (x′), for adjacent vertices in ˜X[N ]0, by pieces of the G-invariant tubes BGr∗ (pi) over each cell in ˜X[N ]. As a general remark, since all the building blocks in this construction are G-invariant, we can adapt Dey’s construction to the equivariant setting following the same underlying principles. In the rest of this section we describe some of the central steps, in order to emphasize that the entire process preserves the 
+
+G-invariance. For each η > 0, it follows from the equivariant interpolation results of [Wan22b, Section 4.1] that there exists a continuous map Φ : X → Z Gn (M ; M; Z2) with Φ ∈ Π such that sup 
+
+> x∈X
+
+M(Φ( x)) < L(Π) + η
+
+19 Then, by [Wan22b, Theorem 9] (see also [Wan25, Theorem 3.1]), there exists a Z2-equivariant lift ˜Φ : X →CG(M ) of Φ. This means that: if T : ˜X → ˜X is the Z2 action on ˜X (by the deck transformation of the double cover π : ˜X → X), then [[ ˜Φ( T (x))]] + [[ ˜Φ( x)]] = [[ M ]] , for all x ∈ ˜X. 
+
+Preliminary constructions. Let D ⊂ M reg /G be a countable set which is dense in M reg /G , and denote by Θ = {dist( G · p, M \ M reg ) : G · p ∈ D} the set of all distances between the orbits in D and the union of all nonprincipal orbits. We consider the countable collection of G-tubes 
+
+B = {BGt (p) : G · p ∈ D, t ∈ (0 , inj( M, g )) ∩ Q \ Θ}
+
+Note that the last condition on t ensures that ∂B ⊂ M reg for any B ∈ B . In particular, each such ∂B is a smooth G-equivariant submanifold, with smooth quotient ∂B/G of dimension ℓ.As in [Dey22], the construction of an almost smooth p-sweepout uses a 1-sweepout by the level sets of a suitable Morse function. Since the space of equivariant Morse functions is generic among equivariant smooth functions, see e.g. [Was69], there exists a G-equivariant Morse function f : M → [1 /3, 2/3] such that the restriction of f to each B ∈ B and each corresponding ∂B is a G-equivariant Morse function. We can also assume that the equivariant Morse function f above has no orbits that are local but not global maxima or minima of f . This is achieved by a local smooth perturbation around critical orbits, relying on the equivariant Morse Lemma [Was69, Lemma 4.1]. We refer to [Dey22, p.1001] for further details. Note that ˜Φ and the map t ∈ [1 /3, 2/3] 7 → ∂[[ fB > t ]] ∈ C G(M ) have the no concentration of mass on orbits property, by [Wan25, Lemma 3.5] and [Wan22b, Lemma 14]) (see also Proposition 2.1 in [Liu21b]). Hence, there exists r0 ∈ (0 , inj( M, g )) ∩ Q with t0 /∈ Θ such that 
+
+∥Φ( x)∥(BGr0 (p)) < η and Hn(f −1(t) ∩ BGr0 (p)) < η (11) for all p ∈ M , all x ∈ X and all t ∈ [1 /3, 2/3]. In addition, for all p ∈ M , we have BGr0/8(p) ∩ M reg ̸ = ∅,since M \ M reg has empty interior. Hence, by the density of D in M reg /G , there is some orbit G · pi in D
+
+contained in BGr0 (p), which then implies G · p ⊂ BGr0/4(pi). This shows that there exists I ∈ Z>0 and a finite subset {G · pi}Ii=1 ⊂ D such that {BGr0/4(pi)}Ii=1 covers M . We let B0 
+
+> i
+
+= BGr0 (pi). 
+
+Lemma 4.4. There exist r1 ∈ (r0/2, 3r0/4) ∩ Q \ Θ and δ ∈ (0 , r 0/8) such that 
+
+∥Φ( x)∥
+
+
+
+An G(pi, r 1 − 2δ, r 1 + δ)
+
+
+
+< ηI and Hn 
+
+f −1(t) ∩ An G(pi, r 1 − 2δ, r 1 + δ)
+
+
+
+< ηI
+
+for all x ∈ X, t ∈ [1 /3, 2/3] and all i = 1 , . . . , I .Proof. The proof follows from the same arguments in [Dey22, Lemma 3.2 and Lemma 3.3], by observing that the Radon measure valued maps x ∈ X 7 → ∥ Φ( x)∥ and t ∈ [1 /3, 2/3] 7 → ∥ ∂[[ f > t ]] ∥ = Hn⌊f −1(t) are continuous. In order to prove Proposition 5, we will first replace the continuous map Φ by a discrete map into ZGn (M, Z2)that is sufficiently fine with respect to the mass norm. By the continuity of Φ with respect to M and the combinatorial structure of the complex X, we can find a sufficiently fine cubical subdivision of X, namely 
+
+X[N ] for sufficiently large N ∈ Z>0, such that 
+
+• The double cover ˜X inherits a cell complex structure ˜X[N ] such that the restriction of the quotient map π : ˜X → X to each cell of ˜X[N ] is a homeomorphism onto its image. 
+
+• If x, y are vertices in the same cell of X[N ], then M(Φ( x) − Φ( y)) < η .
+
+• If x, y are vertices in the same cell of ˜X[N ], then M([[ ˜Φ( x)]] − [[ ˜Φ( y)]]) = Hn+1 ( ˜Φ( x)∆ ˜Φ( y)) < δη/I ,where δ > 0 is given by the previous lemma. 20 We may then order the cells in ˜X[N ] as {eq , f q : q = 1 , . . . Q }, with nondecreasing dimension with respect to 
+
+q, and such that T (eq ) = fq and π|eq and π|fq are homeomorphisms onto their images. 
+
+Approximation by smooth sets. By applying Lemma 2.1 to each pair { ˜Φ( x), ˜Φ( T (x)) } with x ∈ ˜X[N ]0,we obtain: 
+
+Lemma 4.5. There exists a sequence of discrete maps ˜Φj : X[N ]0 → C G(M ), j ∈ Z>0 with the following properties: for all x ∈ X,(i) ˜Φj (x) are closed subsets of M such that [[ ˜Φj (x)]] + [[ ˜Φj (T (x))]] = [[ M ]] and ˜Φj (x) ∪ ˜Φj (T (x)) = M , for all j.(ii) If Φj (π(x)) := ˜Φj (x) ∩ ˜Φ( T (x)) , then each Φj (π(x)) is a smooth hypersurface in M which coincides with the topological and the reduced boundary of both ˜Φj (x) and ˜Φj (T (x)) .(iii) ∥1Φj (x) − 1˜Φ( x)∥L1(M ) → 0 and F ([[Φ j (π(x))]] , Φ( π(x))) → 0.(iv) For all j and all p ∈ Φj (x), there exists a G-invariant tube U around G · p such that U \ Φj (x) is the union of two disjoint, connected, G-invariant open sets O1 ⊂ ˜Φj (x) and O2 ⊂ ˜Φj (T (x)) .(v) If r1 > 0 is as in Lemma 4.4 then, for all i = 1 , . . . , I ,
+
+Hn 
+
+∂B Gt (pi) ∩ ( ˜Φj (x)∆ ˜Φ( x)) 
+
+
+
+→ 0, for almost every t ∈ (0 , r 1).
+
+By induction, for each pair of cells {eq , f q } in ˜X[N ] (where q = 1 , . . . , Q ) and each orbit G · pi, where 
+
+i = 1 , . . . I , we can choose a radius ri(q) ∈ (r1 − δ, r 1) \ Θ such that the boundary of the tubes ∂B Gri(q)(pi)are smooth, G-invariant, compact hypersurfaces with (1) ∥Φ( π(x)) ∥(∂B Gri(q)(pi)) = 0. (2) ∂B Gri(q)(pi) is transverse to the smooth hypersurfaces: Φ j (x), for all j ∈ N and all x ∈ (eq )0 ∪ (fq )0, to 
+
+∂B Grs(q)(ps) for all 1 ≤ s ≤ i − 1, and to ∂B Grk (q′)(pk) for all previous cells 1 ≤ q′ ≤ q − 1 and all orbits 1 ≤ k ≤ I.(3) For all vertices x ∈ (eq )0 ∪ (fq )0 (using part (v) in Proposition 4.5), lim  
+
+> j
+
+Hn 
+
+∂B Gri(q)(pi) ∩ ( ˜Φj (x)∆ ˜Φ( x)) 
+
+
+
+= 0 (4) If x and x′ are both vertices in the same cell c = eq or c = fq in ˜X[N ], then 
+
+Hn 
+
+∂B Gri(q)(pi) ∩ ( ˜Φ( x)∆ ˜Φ( x′)) 
+
+
+
+≤ 22 dim cηI
+
+We note that the last property can be achieved by the argument used to find r1 in the proof of Lemma 4.4, together with the fineness bounds Hn+1 ( ˜Φ( x)∆ ˜Φ( x′)) < η , from the choice of the subdivision ˜X[N ] of ˜X.Finally, we can pick r∗ > 0 with max i,q ri(q) < r ∗ < r 1 such that each boundary ∂B Gr∗ (pi) is transverse to the smooth hypersurfaces Φ j (x), for all large j ∈ N and all x ∈ ˜X[N ]0, and such that 
+
+∥Φ( π(x)) ∥(∂B Gr∗ (pi)) = 0 , for all i = 1 , . . . , I and x ∈ ˜X[N ]0.
+
+With those choices, we can verify that each collection of G-tubes {BGri(q)(pi)}Ii=1 , for q = 1 , . . . , Q , and the collection B∗ := {BGr∗ (pi)}Ii=1 cover M . As in [Dey22, p. 1005], we consider the collection R of the 
+
+G-invariant open subsets of M obtained by finite intersections and finite unions of the G-invariant sets in 
+
+B∗ ∪ { M \ B : B ∈ B ∗}. The choice of the radius r∗ ensures that 
+
+∥Φ( π(x)) ∥(∂R ) ≤
+
+> I
+
+X
+
+> i=1
+
+∥Φ( π(x)) ∥(∂B Gr∗ (pi)) = 0 , for all x ∈ ˜X[N ]0 and all R ∈ R.
+
+21 Therefore, by the F-convergence given by Lemma 4.5 part (iii), the equivalence between F-convergence and weak convergence and finally [EG25, Thm 1.40] (adapted to manifolds), we have 
+
+∥Φj (x)∥(R) → ∥ Φ( π(x)) ∥(R) for all x ∈ ˜X[N ]0 and R ∈ R. (12) The following Proposition summarizes some useful properties of the approximations ˜Φj and provides the suitable smooth approximation for the discretized ( G, p )-sweepout Φ on ˜X[N ]0. Its content and its proof follows closely [Dey22, Prop 3.5] 
+
+Proposition 7. For sufficiently large j ∈ N, the smooth, G-invariant hypersurfaces { ˜Φj (x) : x ∈ ˜X[N ]0}
+
+satisfy: (i) |∥ Φj (x)∥(R) − ∥ Φ( π(x)) ∥(R)| < η , for all R ∈ R.(ii) Hn(Φ j (x)) < L(Π) + 2 η
+
+(iii) Hn(Φ j (x) ∩ BGr0 (pi)) < η , for all i = 1 , . . . I .(iv) Hn
+
+
+
+Φj (x) ∩ SIi=1 An G(pi, r 1 − 2δ, r 1 + δ)
+
+
+
+< η 
+
+(v) If x and x′ are both vertices in the same cell c = eq or c = fq in ˜X[N ], then 
+
+Hn 
+
+∂B Gri(q)(pi) ∩ ( ˜Φj (x)∆ ˜Φ(x′)) 
+
+
+
+≤ 22 dim cηI
+
+Proof. Conclusion (i) follows readily from (12). Using (i), M = S B ∈ R and the upper bound for the mass of Φ, we get 
+
+Hn(Φ j (x)) = ∥Φj (x)∥(M ) < ∥Φ( π(x)) ∥(M ) + η = M(Φ( π(x)) + η < L(Π) + 2 η, 
+
+thus proving (ii). In order to show (iii), we note that lim sup 
+
+> j→∞
+
+Hn(Φ j (x) ∩ BGr0 (pi)) = lim sup 
+
+> j→∞
+
+∥Φj (x)∥(BGr0 (pi)) 
+
+≤ lim sup 
+
+> j→∞
+
+
+
+∥Φ( π(x)) ∥(BGr0 (pi)) + F([[Φ j (x)]] , Φ( π(x))) 
+
+
+
+< η 
+
+where we used Lemma 4.5, part (iii), and (11). A similar computation, using Lemma 4.4, proves (iv). Finally, (v) follows from properties (3) and (4) in the inductive choice of the radii ri(q). From now on, we fix a large j ∈ N, as given by the previous proposition. Consider the set of all intersections between the surfaces Φ j (x) and the boundaries of the G-tubes associated to the cells of ˜X[N ] constructed above: 
+
+S =
+
+n
+
+Φj (x) ∩ ∂B Gri(q)(pi) : q = 1 , . . . , Q, i = 1 , . . . , I, x ∈ ˜X[N ]0
+
+o
+
+∪
+
+n
+
+∂B Gri(q)(pi) ∩ ∂B Gri′ (q′)(pi′ ) : q, q ′ = 1 , . . . , Q, i, i ′ = 1 , . . . , I 
+
+o
+
+By the choice of the radii ri(q), it follows that each element of S is a closed, smooth, G-invariant, codimension 2 submanifold of M . Therefore, if S = S 
+
+> Γ∈S
+
+Γ, then 
+
+Hn ({x ∈ M : dist( x, S) = ρ}) ≤ Cρ 
+
+for all sufficiently small ρ, where C = CS > 0. The final technical tool necessary in the proof of Proposition 5 is the map between Caccioppoli sets: Ω( K, K ′; B) := ( K ∩ M \ B) ∪ (K′ ∩ B),
+
+for K, K ′ ∈ C (M ) and a G-invariant, normal tube B with finite perimeter. Intuitively, this map replaces the part of K inside B by the corresponding piece of K′. It follows from its definition that Ω( K, K ′; B′) is 
+
+closed (respectively, G-invariant) provided the sets K, K ′ are also closed (respectively, G-invariant). The proof of Proposition 5 now follows precisely as in the Proof of 3.6, pages 1009-1006 in [Dey22], taking into account that all the sets that appear in the construction are G-invariant. 22 4.4 Computing equivariant widths 
+
+In this section, we compute ωGp (M, g ) for specific manifolds ( M, g ) and cohomogeneity 2 group actions, G.We rely on the computations of [CM23, MK25b, MK26] who demonstrated that 
+
+Theorem 4.6 ([CM23]) . For (S2, g round ) the standard metric on the sphere, we have 
+
+ωp(S2, g round ) = 2 π⌊√p⌋
+
+Theorem 4.7 ([MK25b]) . For (RP 2, g round ) the standard metric on the real projective plane, we have 
+
+ωp(RP 2, g round ) = 2 π
+
+ 14
+
+
+
+1 + p1 + 8 p
+
+
+
+Theorem 4.8 ([MK26]) . For (S2+, g round ) the round metric on the hemisphere, we have 
+
+ωp(S2+, g round ) = π
+
+ 12
+
+
+
+−1 + p1 + 8 p
+
+
+
+Example 1. Consider the classical Hopf fibration S1 ↷ S3, and let π : S3 → S2(1 /2) be the map defined as 
+
+π (z1, z 2) = z1 ¯z2, |z1|2 − | z2|2
+
+2
+
+!
+
+onto the 2 -sphere of radius 1/2. Then π is a Riemannian submersion with respect to the standard round metric and its fibers are closed geodesics in (S3, g round ) of length 2π.Since all the fibers have the same volume, by Corollary 3.3.1, we conclude that 
+
+ωS1 
+
+> p,AC
+
+(S3, g S3 ) = ωp,AC (S2(1 /2) , ˜gS2(1 /2) ),
+
+where the conformal metric ˜gS2(1 /2) = V2/ℓ · gS2(1 /2) = (2 π)2gS2(1 /2) . Consequently, using Theorem 4.6 we obtain that 
+
+ωS1 
+
+> p,AC
+
+(S3, g S3 ) = ωp,AC (S2(1 /2) , (2 π)2gS2(1 /2) ) = 2 πω p,AC (S2(1 /2) , g S2(1 /2) ) = 2 π2⌊√p⌋.
+
+Example 2. Consider the action O(2) ↷ SO (3) , where SO (3) is endowed with its bi-invariant metric. Then the standard projection π : SO (3) → SO (3) /O (2) ∼= RP 2, given by 
+
+π(A) = [ Ae 3],
+
+where [Ae 3] denotes the unoriented line determined by the third column of A, is a Riemannian submersion. Here SO (3) /O (2) is equipped with the induced homogeneous quotient metric. Moreover, all fibers of this map have constant volume 4π.Similarly to the previous example, applying Corollary 3.3.1, we have that 
+
+ωO(2)  
+
+> p,AC
+
+(SO (3) , g SO (3) ) = ωp,AC (RP 2, ˜gRP 2 ),
+
+where ˜gRP 2 = (4 π)2gRP 2 . Therefore, by Theorem 4.7, we conclude that for every p ∈ N+,
+
+ωO(2)  
+
+> p,AC
+
+(SO (3) , g SO (3) ) = ωp,AC (RP 2, (4 π)2gRP 2 ) = 4 πω p,AC (RP 2, g RP 2 ) = 8 π2 ·
+
+ 14 (1 + p1 + 8 p)
+
+
+
+.
+
+Example 3. Any trivial principal G-bundle over S2, S2+, or RP 2 will have G-equivariant widths equal to the p-widths of the corresponding surface times the volume of G.
+
+Remark 4.9. We observe that the examples of 3-dimensional S1-bundles and O(2) -bundles over the or-bit spaces B = S2 or B = RP 2 described above can be characterized more broadly as Seifert fibrations 
+
+π : ( M 3, g ) → (B, g round ) endowed with a Riemannian metric g for which π is a submersion onto those surfaces and such that the fibers π−1(b) have constant length = ℓ. Assuming ground has constant curvature 
+
+= 1 and that S1 acts on M 3 isometrically on the fibers, we have (here G = S1 or G = O(2) = S1 ˙∪S1)
+
+ωGp (M, g ) = ℓ · ωp(B, g 0) = 
+
+ 2πℓ · √p , if B = S2,
+
+2πℓ ·  14
+
+ 1 + √1 + 8 p , if B = RP 2.
+
+We refer to [Orl72] and [Sco83] for the general classification of these spaces. 
+
+23 5 Regularity 
+
+The goal of this section is to prove Theorem 1.1 concerning the regularity of G-equivariant solutions to (1) with bounded index and energy 
+
+Theorem. Let {uϵi } ⊆ W 1,2 
+
+> G
+
+(M, g ) be a sequence of Allen–Cahn solutions with ϵi → 0+, and Eϵi (uϵi ) ≤ Λ
+
+and Ind Gϵi (uϵi ) ≤ N for fixed Λ, N > 0.
+
+• If Cohom( G) ≥ 3, then up to subsequence, the corresponding varifolds V (uϵi ) converge (in varifold sense) to a disjoint union of embedded, minimal, G-invariant hypersurface (possibly having integer multiplicities) which are smooth up to a closed singular set. 
+
+• If Cohom( G) = 2 , further assume that the action has no exceptional orbits. Then the correspond-ing varifolds V (uϵi ) converge to a union of immersed, minimal G-equivariant minimal hypersurface (possibly having integer multiplicities) which are smooth up to a closed singular set. In both cases, the singular set is dimension at most n − 7 and contained in the union of non-principal orbits. 
+
+One of our main tools is the following regularity theory of Tonegawa–Wickramasekera 
+
+Theorem 5.1 (Theorem 2.1 [TW12], Theorem 3.8 [Gua18]) . Let {uϵi } ⊆ W 1,2(M n+1 ) be a sequence of stable Allen–Cahn solutions with ϵi → 0+ and Eϵi (uϵi ) ≤ Λ for fixed Λ > 0. Then up to subsequence, the corresponding varifolds V (uϵi ) converge to a stationary, integral n-varifold V . Moreover, if Ind Gϵi (uϵi ) ≤ N ,for some N > 0 independent of i, then supp ∥V ∥ is a smooth, embedded, stable, minimal hypersurface away from a singular set sing V with Hausdorff dimension ≤ n − 7.
+
+We begin with a proposition inspired by work of Wang [Wan22b, Lemma 2.8]: 
+
+Proposition 8. Suppose uϵ is a G-stable Allen–Cahn solution in Ω ⊆ M , a G-invariant set. Then uϵ is stable in Ω.Proof. Note that stability is equivalent to showing that the first eigenfunction of the second variation corre-sponds to a positive eigenvalue. Let v1(x) ∈ C1 
+
+> c
+
+(Ω) be the first eigenfunction for the second variation of uϵ
+
+corresponding to λ1. Since this is the first eigenfunction, it is strictly positive everywhere, and hence 
+
+vG(x) = 1
+
+|G|
+
+ˆ
+
+> G
+
+v(g · x)dV g
+
+is non-zero. Moreover, by an elementary computation, we have that 
+
+Juϵ vG(x) = λ1vG(x)and hence λ1 < 0 by G-stability, and hence uϵ is stable in Ω. We can also propagate finite G-equivariant morse index to regularity of the hypersurface outside of finitely many points 
+
+Proposition 9. Let {uϵi } ⊂ W 1.2 
+
+> G
+
+(M ) be a sequence of Allen–Cahn solutions with ϵi → 0+ and with uniformly bounded energy and Morse index, Ind Gϵi (uϵi ) ≤ p. Let V be a (subsequential) limiting stationary varifold obtained from the sequence V (ϵi), and Σ = supp( V ). Then Σ is an embedded minimal hypersurface, smooth up to a set of dimension at most n − 7, away from finitely many orbits of the form Qi = G · qi where 
+
+qi ∈ M .
+
+Note that in the above proposition, we do not distinguish between principal, exceptional, and singular orbits. 
+
+Proof. This follows from a standard argument, as if we choose any ( p + 1) disjoint, G-invariant tubes around orbits {G · qi}p+1  
+
+> i=1
+
+for qi ∈ M , then by nature of having bounded G-equivariant index by p, uϵ must be 
+
+G-equivariantly stable and hence stable at least one such tube. By Theorem 5.1, Σ is necessarily regular in that tube. Choosing a finite covering of Σ with balls of smaller and smaller radius, we conclude the theorem. 24 We can also upgrade finite index and regularity away from finitely many points to being fully smooth when the principal orbits are sufficiently small. We note that in the original setting, the index of Allen–Cahn solutions may accumulate around single points in the limiting varifold, which can be smoothened out using the condition of being stable in annuli (see e.g. [Gua18, Theorem A, Theorem 3.8]). In our setting, we must use G-equivariant annuli, which are much larger when Cohom( G)̸ = n + 1. However, we circumvent this difficulty by relying on Wickramasekera’s α-structural hypothesis, which allows stable varifolds with singular sets, Z, such that Hn−1(Z) = 0 to be actually smooth. We summarize this as follows 
+
+Corollary 5.1.1 (Theorem 3.1 [Wic14]) . Suppose V is a stationary, stable varifold in an open set U ∩reg (V )
+
+and Hn−1(sing( V ) ∩ U ) = 0 , then V is supported along a minimal hypersurface in U , which is smooth up to a set of dimension at most n − 7.
+
+The condition of H(sing( V ) ∩ U ) = 0 means that the “ α-structural hypothesis” of Wickramasekera is automatically true (see also the discussion at the beginning of [TW12, §3]). We can now prove an upgraded regularity statement: 
+
+Proposition 10. Suppose in the above that Cohom (G) ≥ 3, then Σreg = Σ ∩ M reg is embedded and smooth up to a set of dimension at most n − 7.Proof. In the previous proof, if Cohom( G) ≥ 3, then we have that dim( G · qi) ≤ n − 2, and hence we see that Σ reg is a stable, smooth minimal hypersurface outside of a set of dimension n − 2. By Corollary 5.1.1, we conclude that Σ reg is smooth up to a set of dimension at most n − 7. We can also show that the potentially non-smooth orbits from Proposition 9 are contained in the union of all non-principal orbits of the action of G on M
+
+Proposition 11. Suppose that 3 ≤ Cohom( G) ≤ 7. Let {Qi = G · qi} be the finite set of orbits contained in 
+
+Σ from Proposition 9. If for some i, Qi ⊆ M reg , then Σ is smooth and embedded in an open neighborhood of Qi.Proof. Let U be a small open neighborhood of Qi. Let ˜V denote the corresponding quotient varifold on U/G ,which has support ˜Σ := (Σ ∩ U )/G lying in U/G ⊆ M reg /G . ˜V is now a stationary varifold on ( U/G, g )with finite index. By potentially taking U smaller, we conclude ˜V is stable on ( U \Qi)/G = ( U/G )\{ qi}
+
+where qi = Π( Qi). Let m = dim( U/G ), so that by assumption 3 ≤ m ≤ 7. Since Cohom( G) ≥ 3, we see that Hm−2{qi} = 0 Applying Corollary 5.1.1 to ˜V on U/G , we conclude that ˜Σ is smooth and embedded everywhere on U/G . Lifting back to M , we conclude that Σ is smooth and embedded in U .Combining propositions 9, 10, and 11 finishes the proof of Theorem 1.1 when Cohom( G) ≥ 3. 
+
+# 6 Regularity for Cohomogeneity 2
+
+We now show that if there are no exceptional orbits then we can conclude regularity everywhere for actions with Cohomogeneity 2. Note that from Montgomery [MSY56], the union of the singular orbits is at most 
+
+n − 1 dimensional, so that a priori, the union may correspond to a set of codimension 1 within a minimal hypersurface may. However, the individual non-principal orbits are still at most ( n − 2)-dimensional in this setting (see §9.1 for examples). Recall that in their seminal work [CM23], the authors used the Sine–Gordon potential 
+
+W (t) = 1 + cos( πt )
+
+π2
+
+to define the energy functional (3). Using this potential, they showed the following: 
+
+Theorem 6.1 (Theorem 3.1, Chodosh–Mantoulidis) . Let (U, g ) be a relatively compact open submanifold of a two dimensional Riemannian manifold. Consider a sequence {uϵi } of solutions to equation (3) with the Sine–Gordon potential such that 
+
+∥uϵi ∥∞ + Ind ϵi (uϵi ; U ) + Eϵi (uϵi , U ) ≤ Λ25 for Λ > 0 independent of i. Let V be a (subsequential) limiting stationary varifold obtained from the sequence 
+
+V (ϵi) and assume ∥V ∥(U ) > 0. Then 
+
+V U
+
+=
+
+> N
+
+X
+
+> j=1
+
+Vσj
+
+where each σj is a smoothly immersed geodesic on U , and Vσj is the varifold induced by σj (we allow for repetition among the {σj }). 
+
+We are unfortunately unable to apply Theorem 6.1 directly to U = M/G , as M/G is not a closed surface due to the presence of exceptional and singular orbits. Moreover, even in the case when M/G is a smooth closed surface, it is not true that G-equivariant solutions descend to solutions to the Allen–Cahn equation on ( M/G, g ) unless the fibers are constant volume. Indeed, let uϵ be a G-equivariant solution on M and let uϵ denote the corresponding projected function on U/G . Suppose v ∈ C∞ 
+
+> c
+
+(U/G ) and let v denote its lift to C∞ 
+
+> c
+
+(U ), then we see that weakly ) 
+
+ddt t=0 
+
+Eϵ(uϵ + tv, U/G, g M/G ) = 
+
+ˆ
+
+> U/G
+
+
+
+ϵ⟨∇ gM/G uϵ, ∇gM/G v⟩ + W ′(uϵ)
+
+ϵ v
+
+
+
+dV gM/G 
+
+=
+
+ˆ
+
+> U/G
+
+ˆ
+
+> π−1([ p])
+
+
+
+ϵ⟨∇ gM/G uϵ, ∇gM/G v⟩ + W ′(uϵ)
+
+ϵ
+
+
+
+V−1([ p]) dV gM/G dV π−1([ p]) 
+
+=
+
+ˆ
+
+> U
+
+
+
+ϵ⟨∇ g uϵ, ∇g v⟩ + W ′(uϵ)
+
+ϵ
+
+
+
+V−1dV g
+
+=
+
+ˆ
+
+> U
+
+ϵ⟨∇ g uϵ, ∇ ln( V)⟩vV−1dV g
+
+=
+
+ˆ
+
+> U/G
+
+ˆ
+
+> π−1([ p])
+
+ϵ⟨∇ g uϵ, ∇ ln( V)⟩vV−1dV gM/G dV π−1([ p]) 
+
+=
+
+ˆ
+
+> U/G
+
+ϵ⟨∇ gM/G uϵ, ∇gM/G ln( V)⟩vdV gM/G 
+
+where we recall that π−1([ p]) is the fiber of the action corresponding to a point [ p] ∈ M/G , which has volume 
+
+V([ p]). This means that uϵ weakly solves 
+
+−ϵ∆g uϵ + W ′(u)
+
+ϵ − ϵ⟨∇ g uϵ, ∇ ln( V)⟩ = 0 (13) We may refer to equation (13) as an Allen–Cahn with drift equation, and we remark that solutions to equation (13) are critical points of a weighted Allen–Cahn energy functional (see equation (21)). While equation (13) differs from the original Allen–Cahn equation (1), solutions to equation (13) blow up to ϵ = 1 solutions to equation (1) on the plane. Thus one may expect similar regularity results for solutions to the drift equation as with solutions to the original Allen–Cahn equation. Our first step to proving the analogous result of Theorem 6.1 for equation (13) is to establish regularity for equation (13). 
+
+Theorem 6.2. Let (U, g ) be a smooth open two dimensional manifold with boundary. Suppose that uϵi are a sequence of stable solutions in U with respect to the energy functional 
+
+Eϵ(u, U, V, g ) := 
+
+ˆ
+
+> U
+
+V
+
+ ϵ
+
+2 |∇ g u|2 + W (u)
+
+ϵ
+
+
+
+dV g (14) 
+
+let B = |∇ 2u|2−|∇|∇ u|| 2 
+
+> |∇ u|2
+
+denote the enhanced second fundamental form and fix 0 < β < 1. There exists 
+
+C, ϵ 0 > 0 such that if ϵ < ϵ 0 and 
+
+|B(x)| ≤ C ∀x ∈ U ∩ {| u| ≤ 1 − β}
+
+then for all U ′ ⊂⊂ U
+
+|B(x)| ≤ C∗ϵ1/7 ∀x ∈ U ′ ∩ {| u| ≤ 1 − β} (15) 
+
+where C∗, ϵ0 depend on g, dist (∂U, U ′) but not ϵ.
+
+26 We delay the proof of this result (and related ones) to section §9.2. We now prove our main cohomogeneity 2 regularity result: 
+
+Proposition 12. Suppose Cohom( G) = 2 , then Proposition 9 yields Σ, such that Σ is embedded away from finitely orbits and Σ ∩ M reg is a smoothly immersed minimal hypersurface. Proof. Suppose that {uϵi } are G-invariant Allen–Cahn solutions with bounded energy and G-equivariant index. Applying Proposition 9, we obtain a limit varifold, V , Σ := supp( V ), and finitely many orbits of the form {Qj = G · qj }. Away from these orbits, our limiting stationary varifold is supported a hypersurface which is embedded and smooth up to a closed singular set of dimension at most n − 7. Let p ∈ Sing( V )\ ∪ i Qi. If p ∈ M reg , then noting that the singular set is G-invariant, we have that V is singular all along G · p, which is a set of dimension n − 2, a contradiction to the singular set being at most dimension n − 7. Thus any singular points either lie inside ∪iQi or inside the union of the non-principal orbits of the action of G on M .Let uϵ : M/G → R be the corresponding function on the quotient via uϵ(x) = uϵ(x) where x is any element of the orbit π−1(x) = G · x. For any precompact G-equivariant open subset U ⊂⊂ M reg , we have that uϵi being uniformly bounded in energy and index implies that uϵi is uniformly bounded in energy and index on U/G as follows: By the same argument of Fubini’s theorem as in lemma 3.3, we have 
+
+Eϵ(u, U ) = 
+
+ˆ
+
+> U
+
+ϵ
+
+2 |∇ g u|2 + W (u)
+
+ϵ dV g
+
+=
+
+ˆ
+
+> U/G
+
+V
+
+ ϵ
+
+2 |∇ g u|2 + W (u)
+
+ϵ
+
+
+
+dV U/G .
+
+Noting that ||V|| ∞ is finite, we conclude that equation (21) is bounded in U . Moreover, a simple integration by parts shows that the finite G-equivariant index of uϵ implies that uϵ has finite index on U with respect to (21). Now, the analogous statement of [CM23, Theorem 3.1, Proposition 3.8] holds via the improved estimates of stable solutions to the Allen–Cahn with drift equation 6.2, and the following remarks 
+
+• Chodosh–Mantoulidis [CM23, Lemma C.6] holds for Eϵ(u, U, V, g ) as above (see lemma 9.3). 
+
+• The usage of [CM23, Proposition C.1] on a two dimensional set can be replaced by using the same proposition on U · G, concluding that one obtains a stationary G-equivariant varifold on U · G, which then projects to a stationary 1-varifold on U with respect to the Hsiang–Lawson conformal metric, ˜g = Vg.The rest of the proof [CM23, Proposition 3.8] now adopts to the drift setting, and hence we conclude that Σ is smoothly immersed at any Qi ⊆ M reg .We now improve the regularity under the assumptions listed at the beginning of this section: 
+
+Proposition 13. Suppose that all of the non-principal orbits have dimension at most n − 2. Let {uϵi }
+
+be a sequence of G-invariant Allen-Cahn solutions with uniformly bounded energy and G-equivariant index bounded by p. Let V the limiting varifold of V (uϵi ), and Σ = supp (V ). Then Σ is a G-invariant minimal hypersurface, smooth up to a singular set of dimension at most n − 7, which lies in the union of all non-principal orbits. Proof. For any points qi ∈ M reg , the argument remains the same as Proposition 12, and we can conclude that Σ ∩ M reg is a union of smooth (potentially immersed) geodesics on M reg /G . If qi ∈ (M \M reg ), then 
+
+Qi = G · qi is necessarily dimension n − 2 or smaller, meaning that we can apply Tonegawa–Wickramasekera to smooth across Qi up to a singular set of dimension at most n − 7. 
+
+Remark 6.3. We emphasize that in the hypothesis of Proposition 13, we require that the dimension of any individual non-principal orbit has dimension ≤ n − 2. Contrast this with Wang [Wan22a], who’s initial work assumed that the union of the non-principal orbits is at most n − 2 dimensional, which is more restrictive. 
+
+27 See §9 for concrete examples in which the union of the non-principal orbits is n − 1 dimensional, though each non-principal orbit is ≤ n − 2 dimensional. We also note that because the action has Cohom (G) = 2 , the requirement of non-principal orbits having dimension at most n − 2 is equivalent to saying there are no exceptional orbits (see §9 for definitions). 
+
+Combining propositions 9, 12, and 13, we conclude the proof of Theorem 1.1 when Cohom( G) = 2. 
+
+# 7 Index Bounds 
+
+We consider {uϵi } a sequence of G-equivariant Allen–Cahn solutions with |uϵ| ≤ 1, Eϵ(uϵ) ≤ Λ0, and Ind G(uϵ) ≤ p. Let V (uϵ) be the corresponding measures for the these solutions and 
+
+V = lim  
+
+> i→∞
+
+V (uϵi )the stationary integral varifold which arises as a limit of a subsequence of these measures. The goal of this section is to prove the following theorem: 
+
+Theorem 7.1. For V as above, suppose that the support of V is induced by a union of minimal surfaces (potentially with multiplicity), which are smooth, disjoint, and embedded away from a set of at most dimension 
+
+n − 7, i.e. supp (V ) = ∪Mi=1 Σi, then MX
+
+> i=1
+
+Ind G(Reg (Σ i)) ≤ p
+
+Recall that Reg(Σ i) denotes the regular part of Σ i. Much of the work of the second author [Gas20] now translates to the equivariant setting, including his computations of the Allen–Cahn first and second inner variations , namely δE ϵ(u, X ) = DE ϵ(u)( ⟨∇ u, X ⟩) and δ2Eϵ(u, X ) = D2Eϵ(u)[ ⟨∇ u, X ⟩, ⟨∇ u, X ⟩] with a geometric description: 
+
+Proposition 14 (Prop 3.2, Gaspar [Gas20]) . It holds that 
+
+δE ϵ(u, X ) = 
+
+ˆ
+
+> M
+
+ ϵ|∇ u|2
+
+2 + W (u)
+
+ϵ div (X) − ϵ⟨∇ ∇uX, ∇u⟩
+
+
+
+and 
+
+δ2Eϵ(u, X ) = 
+
+ˆ
+
+> M
+
+
+
+div (∇X X) − Ric (X, X ) + tr g Sx − 12 |hX |2 + ( div X)2
+
+de ϵ
+
++ ϵ
+
+ˆ
+
+> M
+
+
+
+TX (∇u, ∇u) + 2 ⟨∇ ∇∇u X X, ∇u⟩ − ⟨∇ ∇u∇X X, ∇u⟩− 2⟨∇ ∇uX, ∇u⟩div X + R(X, ∇u, X, ∇u)
+
+
+
+where 
+
+SX (Y1, Y 2) = ⟨∇ Y1 X, ∇Y2 X⟩
+
+hX (Y1, Y 2) = ⟨∇ Y1 X, Y 2⟩ + ⟨Y1, ∇Y2 X⟩
+
+TX (Y1, Y 2) = tr g (( Z1, Z 2) 7 → ⟨∇ Z1 X, Y 1⟩ · ⟨∇ Z2 X, Y 2⟩)We will be interested in apply Proposition 14 when X is a G-equivariant vector field. We now assume that the limit varifold, V , takes the form 
+
+V = σ
+
+> N
+
+X
+
+> i=1
+
+v(Γ j , m j ) (16) where Γ j are connected minimal surfaces, mj ∈ Z+ and σ = ´ 1
+
+> −1
+
+pW (s)/2ds is a normalizing constant. We now conclude a G-equivariant version of [Gas20, Prop 2.2]: 28 Proposition 15. Let {uϵk } be a sequence of G-equivariant Allen–Cahn solutions satisfying equation (16) .Then up to subsequence 
+
+lim  
+
+> k→∞
+
+ϵk
+
+ˆ
+
+> M
+
+T (∇uϵk , ∇uϵk ) = 2 σ
+
+> N
+
+X
+
+> j=1
+
+mj
+
+ˆ
+
+> Γj
+
+T (nj , n j )
+
+where T is any G-equivariant (0 , 2) tensor on M . Here nj denotes a measure choice of a unit normal vector field defined on Γ.Proof. The same proof as in [Gas20] holds. With propositions 14 and 15, we can conclude the geometric convergence of the Allen–Cahn second inner variation to the variation of the limiting varifold plus an error term 
+
+Proposition 16. Let {uϵk } our G-equivariant sequence of solutions as above. We have that up to subsequence 
+
+12σ lim  
+
+> k→∞
+
+δ2Eϵk (uϵk , X ) = δ2V (X) + 
+
+> N
+
+X
+
+> j=1
+
+mj
+
+ˆ
+
+> Γj
+
+
+
+⟨∇ nj X, n j ⟩2 + R(X, n j , X, n j )
+
+
+
+for any G-equivariant vector field X.
+
+The same proof of Theorem A in [Gas20, §4] now gives the conclusion of Theorem 7.1. 
+
+# 8 Positive Ricci for embedded G-invariant minimal surface of co-homogeneity ≥ 3
+
+The purpose of this section is to prove the following result: 
+
+Theorem 8.1. For (M n+1 , g ), 3 ≤ n + 1 ≤ 7 and G as above, assume that Cohom (G) ≥ 3 and Ric g > 0.Then 
+
+ωG 
+
+> 1,AC
+
+(M, g ) = Area (Σ 1)
+
+i.e. the first G-invariant width occurs with multiplicity one. 
+
+The idea behind Theorem 8.1 is an adaptation of the following result of Bellettini: [Bel24] 
+
+Theorem 8.2. Let N be a compact Riemannian manifold of dimension 3 ≤ n + 1 with positive Ricci curvature. Let M ⊆ N be any smooth minimal hypersurface such that for every x ∈ M there exists a geodesic ball in N centered at x in which M is stable. Then the mountain pass Allen–Cahn min-max value, 
+
+cϵ satisfies 
+
+lim sup 
+
+> ϵ→0
+
+cϵ < 2Hn(M )Since the idea of theorem 8.1 is a short adaptation of Theorem 8.2, we only sketch the details below for the following analogous theorem, where we impose G-equivariance and require an upper bound on the dimension of the ambient manifold. 
+
+Theorem 8.3. Let N be a compact Riemannian manifold of dimension 3 ≤ n + 1 ≤ 7 with positive Ricci curvature and isometric action given by G. Let M ⊆ N be any embedded smooth G-invariant minimal hypersurface. Then the G-invariant mountain pass Allen–Cahn min-max value defined in Proposition 1, 
+
+ωGAC,ϵ , satisfies 
+
+12σ lim sup 
+
+> ϵ→0
+
+ωGAC,ϵ < 2Hn(M )We remark that Bellettini’s condition of “for every x ∈ M there exists a geodesic ball in N centered at 
+
+x in which M is stable” is automatically true for smooth embedded minimal surfaces. Moreover, by the dimension restriction of n + 1 ≤ 7, any embedded minimal surface is automatically smooth, and hence this condition is redundant. From Theorem 8.3, Theorem 8.1 follows, so we sketch the proof of Theorem 8.3. 29 Proof of Theorem 8.3. Bellettini constructs a one parameter family of functions, φ : [0 , 1] → H1(M ) such that φ(0) = −1, φ(1) = +1, and 12σ sup 
+
+> t∈[0 ,1]
+
+Eϵ(φ(t)) ≤ 2Hn(M ) − δ (17) 
+
+φ [0 ,1/2] 
+
+is constructed via explicit functional constructions which rely on the signed and unsigned distances to M (after rescaling the time domain), as well as an excised small ball B ⊆ M . When M happens to be a 
+
+G-invariant minimal hypersurface, these distance functions are also G-invariant. Furthermore, we replace B
+
+with its G-invariant counterpart G · B and find his analogous perturbing function as follows: 
+
+Lemma 8.4. There exists a geodesic, G-invariant, tube D ⊂ M and ˜ϕ ∈ C2( ˜M ) with ˜ϕ ≥ 0 such that the support of ˜ϕ is contained in ˜M \ι−1(D) and 
+
+ˆ
+
+> ˜M
+
+|∇ ˜ϕ|2 −
+
+ˆ
+
+> ˜M
+
+˜ϕ2(|A|2 + Ric N (ν, ν )) < 0
+
+Proof. The construction is identical to that of [Bel24, §5.1], though we note that we are now constructing a G-invariant tube about a point, instead of a small ball about a point. Let p ∈ N reg ∩ M , which must exist since the union of all non-regular points of the action has finite n − 1-Hausdorff dimension (and M has non-zero n-Hausdorff dimension). Because the cohomogeneity of the action is at least 3, we see that for any 
+
+p ∈ N , G · p has finite Hn−2 measure and hence there exists ρ, a G-invariant function which is 1 on the open 
+
+G-invariant tube of size δ about G · p, 0 outside of the G-invariant tube of size 2 δ, D2δ , about G · p, satisfies ´ 
+
+> N
+
+|∇ ρ|2 < Kδ for some K independent of δ. In Bellettini’s language, the 2-capacity of D2δ is finite and tending to 0 with δ → 0. The function ˜ϕ(q) = 1 − ρ(ι(q)) now works for δ sufficiently small. The above lemma implies that the constructions in Bellettini §3 - §7.4 yield G-invariant functions. These sections are used to define (again, up to a reparameterization of the time interval [0 , t 0 + 1] → [0 , 1/2]) 
+
+φ [0 ,1/2] 
+
+and hence φ [0 ,1/2] 
+
+provides a map into XG(M ). For t > 1/2, φ(t) is defined via a regularization of the parabolic Allen–Cahn equation, given by 
+
+∂u ∂t = ϵ∆g u − W ′(u)
+
+ϵ + μϵ (18) where μϵ > 0 is a constant tending to 0 as ϵ → 0. Hence it suffices to show that this flow preserves G-invariant initial data, as this means that φ (1 /2,1] 
+
+will also be G-invariant. 
+
+Lemma 8.5. Suppose (N n+1 , g ) is a closed Riemannian manifold with smooth isometric action from a Lie group, G. Consider the perturbed Allen–Cahn flow 
+
+∂u ∂t = ϵ∆g u − W ′(u)
+
+ϵ + μϵ (19) 
+
+corresponding to the gradient flow of the functional, Fϵ,μ ϵ (u) = Eϵ(u) − μϵ
+
+´ 
+
+> N
+
+u. For smooth initial condition 
+
+u0 ∈ C∞(N ), the corresponding flow, u(x, t ) exists for all time t. Moreover, if u0 is G-invariant, then u(x, t )
+
+is G-invariant for all t ∈ [0 , ∞)
+
+Proof. For any g ∈ G, consider ug (t, x ) = u(t, g · x). Then both u(t, x ) and ug (t, x ) solve equation (19) with the same initial data u(0 , x ) = u0(x) = ug (0 , x ) as ∆ g is also G-invariant. Hence by uniqueness of the flow, 
+
+u(t, x ) = ug (t, x ) for all ( x, t ). We remark that Bellettini employs various smoothing operators before applying his perturbed parabolic Allen–Cahn flow (18). This is needed because in his setting, M is not smooth a priori and has a singular set of codimension at least 7. In our case, we assume that the ambient manifold is at most 7 dimensional, meaning that the corresponding minimal hypersurfaces are smooth. Thus the constructions in §7.5 used to define φ (1 /2,1] 
+
+(with the smoothing operators omitted) now give G-invariant functions. Noting that the entire path, φ(t), is now G-invariant but the inequality of equation (17) holds, we conclude the proof. 30 Remark 8.6. We remark that in cohomogeneity 2, the minimal surfaces to consider can a priori be im-mersed, so that we lose regularity of the distance function in a tubular neighborhood of our hypersurface, preventing us from directly applying Bellettini’s work [Bel24]. We also note that Lemma 8.4 does not hold in cohomogeneity 2, as a G-invariant tube D2δ ⊆ M has positive 1-capacity inside of M and hence one cannot construct such a ˜ϕ with compact support in Lemma 8.4 via the same method. As of now, the authors conjecture that the multiplicity one result should still hold. 
+
+## 8.1 Smooth quotients with Cohomegeneity 2 and Ric M/G > 0
+
+In this section, we make some simple yet fruitful remarks for the situation in which 1. M/G is itself a smooth manifold (i.e. no non-principal orbits). 2. The Hsiang–Lawson conformal metric (see equation (2)) on the quotient, g := gM/G , satisfies Ric g > 0. As an example, any Berger metric on S3 with its S1 action will have a quotient as S2 with positive Gaussian curvature. 
+
+Theorem 8.7. Suppose that Cohom (G) = 2 and Kg > 0. Then 
+
+ωG 
+
+> 1
+
+(M, g ) = ω1(M/G, ¯g) = Area (Σ 1),
+
+where Σ1 is an embedded G-equivariant minimal hypersurface in (M, g ).
+
+Remark 8.8. Note that Theorem 8.7 asserts both multiplicity one and also embeddedness for the first width in the cohomogeneity 2. Neither of these conditions should hold in general for ωp,G .Proof of Theorem 8.7. We know that ( M/G, g ) is a smooth topological sphere with Kg > 0, and henceforth we refer to this as ( S2, g ). Applying the work of Calabi–Cao [CC92, Thm 3.1], we have directly that ΛAP,g = ℓ(γ0) (20) where Λ AP,g denotes the Almgren–Pitts one parameter width and γ0 is the shortest geodesic on ( S2, g ), which happens to be embedded because of the Kg > 0 condition and [CC92, Theorem D]. Note however, that the regularity theory of Chodosh-Mantoulidis [CM23, Theorem 3.1] gives that 
+
+ω1(M/G, g ) = 
+
+> ˜N
+
+X
+
+> i=1
+
+˜miℓ(˜ γi)where ˜ mi ∈ Z+ and ˜ γi are also closed primitive geodesics. Thus, trivially we have ω1(M/G, g ) ≥ ℓ(γ0), and from the general inequality of ω1(M/G, g ) ≤ ΛAP,g , we conclude that 
+
+ℓ(γ0) = Λ AP, ¯g = ω1(M/G, g )
+
+# 9 Appendix 
+
+## 9.1 Introduction to Group Actions and Examples 
+
+In this section, we recall some basic information about Lie Group actions on closed manifolds. Let G be a compact Lie group acting isometrically on ( M n+1 , g ), a closed Riemannian manifold. For a closed subgroup H ≤ G, we let ⟨H⟩ denote the conjugacy class of H in G. Under this notation, 
+
+p ∈ M has orbit type ⟨H⟩ if ⟨Gp⟩ = ⟨H⟩, for Gp = {g ∈ G | g · p = p} the stabilizer of p (also known as the isotropy group of p). We let 
+
+M⟨H⟩ = {p ∈ M | ⟨ Gp⟩ = ⟨H⟩} 
+
+to be the union of all points with orbit type ⟨H⟩. This is known to be a union of smooth embedded submanifolds of M (see Wall [Wal16] for more details), and there are only finitely many different orbit types on M . Recall that there are 3 types of orbits: 31 • Principal orbits, P , corresponding to a minimal conjugacy class so that the union of all principal orbits forms a dense open neighborhood of M . We define the cohomogeneity of G as the codimension of a principal orbits, i.e. Cohom( G) = codim( P )
+
+• Exceptional orbits, Q, which are not principal but codim( Q) = Cohom( G). 
+
+• Singular orbits, S, which satisfy codim( S) > Cohom( G). The orbits are themselves manifolds of potentially different dimensions leading to a stratification of the ambient manifold M .
+
+9.1.1 Examples of Group actions 
+
+It is interesting to pose the following question: 
+
+Question 1. Given a group action with Cohom( G) = ℓ ≥ 2, let k denote the Hausdorff dimension of 
+
+M \M reg . In general, it is known that k ≤ n − 1, but do there exist group actions for every pair of (ℓ, k ) ∈{2, . . . , n } × { 0, . . . , n − 1}?
+
+Here are some examples 1. SO (d) ↷ Sn+1 via acting on the first d coordinates in Sn+1 = {x21 + · · · + x2 
+
+> n+2
+
+= 1 } ⊆ Rn+2 . Then the non-principal orbits are simply fixed points of the action of the form of the form 
+
+x = (0 , . . . , 0, x d+1 , . . . , x n+2 ) s.t. x2 
+
+> d+1
+
++ · · · + x2 
+
+> n+2
+
+= 1 And hence the dimension of the non-principal orbits is 0 but the union of the non-principal orbits is 
+
+k = n + 1 − d. Moreover, the cohomogeneity of the action is ℓ = n + 1 − (d − 1) = n + 2 − d, so this demonstrates ℓ = k + 1. 2. Let S1 act on S2n−1 via complex multiplication on the first d components, i.e. 
+
+S2n−1 = {| z1|2 + · · · + |zn|2 = 1 } ⊆ Cn
+
+and 
+
+eiθ · (z1, . . . , z n) = ( eiθ z1, . . . , e iθ zd, z d+1 , . . . , z n)the principal orbits are all one dimensional, and the non-principal orbits are all singular. In particular, they are points corresponding to when z1 = z2 = · · · = zd = 0. In this case, the union of the singular orbits gives 
+
+{(0 , . . . , 0, z d+1 , . . . , z n) | | zd+1 |2 + · · · + |zn|2 = 1 }
+
+which is of dimension 2( n − d) − 1. This provides an example of ℓ = 2 n − 2 and k = 2( n − d) − 1. 3. Let G be a Lie group and M an arbitrary manifold and consider the action of 
+
+G ↷ G × M, g · (h, p ) = ( gh, p )i.e. trivial action on the product. If G acts freely on itself (i.e. only one orbit) then each principal orbit is of the form G × { p} and there are no singular orbits. In this case, the cohomogeneity is ℓ = dim( M )and the union of the singular orbits has dimension k = 0. 4. Let Z2 × S1 act on R3 via ( ±1, e iθ ) · (x, y, z ) = ( x cos θ − y sin θ, x sin θ + y cos θ, ±z), i.e. Z2 acts via reflection about the xy plane and S1 acts via rotation about the z-axis. The cohomogeneity is 2 and the principal orbits consist of any points (in polar coordinates) of the form ( r, θ, z ) where r and z are non-zero. The principal orbits are unions of circles at ( r, S 1, ±z). There is an exceptional orbit at z = 0 and r̸ = 0. And there are singular orbits at r = 0. If r = 0 and 
+
+z̸ = 0, the singular orbits are two points. If r = 0 = z, then the singular orbit is just the origin. 32 This example shows an interesting stratification of the singular set. The fundamental domain is an orbifold, namely the closed upper right hand quadrant (see figure 1). The boundary consists of a union of a point and two open rays (the r and z axis). Within the stratification of the quotient manifold, the rays correspond to the one dimensional component of the boundary and the origin corresponds to the 0-dimensional part. The Hsiang–Lawson metric on the fundamental domain is given by 
+
+g = V g euc = 4 πrg euc = 4 πr (dr 2 + dz 2)from which one can compute that the only geodesics are given by z = c (lifting to planes in R3) or the projection of the catenoid in the form z = f (r). 
+
+Figure 1: Example of S1 × (Z/2Z) ↷ R 3 and γ, a geodesic on the fundamental domain corresponding to a catenoid in R3.5. Consider the following S1 action on S3 = {| z|2 + |w|2 = 1 } ⊆ C2
+
+(z, w ) → (eipθ z, e iqθ w)where p, q > 1 and gcd( p, q ) = 1. The action is free except for points of the form ( z, 0) and (0 , w ), which form two exceptional orbits, corresponding to orbifold points in the resulting S2 quotient. See figure 2 below and we refer to Orlik [Orl72], Scott [Sco83] for the details of this construction. 6. Consider R8 = R4 × R4 = {(r, θ ), (ρ, ϕ ) | r, ρ ∈ R≥0, θ, ϕ ∈ S3} and the natural S3 × S3 action given by (θ0, ϕ 0) ∈ S3 × S3
+
+(θ0, ϕ 0) · (( r, θ ), (ρ, ϕ )) = (( r, (θ0 · θ)) , (ρ, (ϕ0 · ϕ)) where θ0 · θ and ϕ0 · ϕ are computed with the standard Lie group actions on S3. The principal orbits correspond to ( r, ρ ) such that r, ρ > 0. Singular orbits have at least one of r = 0 or ρ = 0, and there are no exceptional orbits. 33 Figure 2: Example of S1 ↷ S3 to form an orbifold quotient S2.With this action, R8/(S3 × S3) ∼= R≥0 × R≥0, i.e. the quotient is isomorphic to the closed upper right quadrant. Moreover, the Hsiang–Lawson metric is given by g = 4 π4r3ρ3(dr 2 + dρ 2). The Simon’s cone is the lift of the straight line geodesic given by r = ρ in this quotient space, and hence a coho-mogeneity 2 minimal hypersurface, with singularity set of dimension exactly equal to n − 7 = 0 at the origin. See also [HL71, Ex 1.7] which discusses the Simon’s Cone as an equivariant minimal surface, with the related action of G = SO (4) × SO (4) on R8.
+
+## 9.2 Stable Estimates for Allen–Cahn with drift 
+
+In this section, we prove estimates for the enhanced second fundamental form for stable solutions to the Allen–Cahn equation with drift (see Theorem 6.2). 
+
+Theorem. Let (U, g ) be a smooth open two dimensional manifold with boundary. Suppose that uϵi are a sequence of stable solutions in U with respect to the energy functional 
+
+Eϵ(u, U, V, g ) := 
+
+ˆ
+
+> U
+
+V
+
+ ϵ
+
+2 |∇ g u|2 + W (u)
+
+ϵ
+
+
+
+dV g (21) 
+
+let B = |∇ 2u|2−|∇|∇ u|| 2 
+
+> |∇ u|2
+
+denote the enhanced second fundamental form and fix 0 < β < 1. There exists 
+
+C, ϵ 0 > 0 such that if ϵ < ϵ 0 and 
+
+|B(x)| ≤ C ∀x ∈ U ∩ {| u| ≤ 1 − β}
+
+then for all U ′ ⊂⊂ U
+
+|B(x)| ≤ C∗ϵ1/7 ∀x ∈ U ′ ∩ {| u| ≤ 1 − β} (22) 
+
+where C∗, ϵ0 depend on g, dist (∂U, U ′) but not ϵ.
+
+To prove Theorem 6.2, we make a slight adaptation of the original proof of Wang–Wei [WW19a][Theorem 3.7]. We note that the adaptation of said theorem to the Riemannian setting was done by Mantoulidis [Man21][Theorem 4.13], in which he carefully checks that the change to the Riemannian setting adds higher order error terms which do not affect the estimate (22). We follow the same strategy by showing that the drift terms are higher order as well. 
+
+Proof. We note the necessary adjustments section by section of Wang–Wei [WW19a]. Throughout this section, we will use A ≲ B to mean that A ≤ K · B where K is a constant independent of any other relevant parameters in context, unless noted otherwise. 
+
+Adjustments to [WW19a][ §7] 
+
+34 The results of this section are identical as they rely on blow up arguments, and as remarked in the introduction 
+
+§1, a sequence of solutions, {uϵi }, to equation (13) blow up to a solution to the Sine–Gordon equation on 
+
+R2.
+
+Adjustments to [WW19a][ §8] 
+
+The same adjustments from Mantoulidis [Man21][ §Appendix C], “Adjustments to Section 8” are sufficient. We note that under rescaling of ( Br (0) , g ) → (Bϵ−1r (0) , g ϵ) and the pulled back functions, u = u(ϵx ), and 
+
+R = ln( V(ϵx )). ∆gϵ u + ⟨∇ gϵ u, ∇gϵ R⟩ − W ′(u) = 0 (23) By abuse of notation, we will label gϵ as g from here on, and in fermi coordinates about some curve γ, we let z denote the normal coordinate and y the tangential coordinate. In these coordinates, we have 
+
+g =
+
+1 00 gyy 
+
+
+
+See [Man21, Equation C.2] for corresponding curvature estimates. We record for future reference that in these rescaled coordinates, 
+
+|| ∂αR|| ∞ ≲ ϵ|α| (24) 
+
+|| ∂αgyy || ∞ ≲ ϵ|α|
+
+where ∂α denotes any combination of |α| copies of ∂z and ∂y .
+
+Adjustments to [WW19a][ §9] 
+
+Following the notation of Wang–Wei [WW19a][ §9] exactly, we plug in the ansatz of ϕ := u − g∗, where u now solves equation (23), and compute in Fermi coordinates with respect to Γ α. As in Wang–Wei [WW19a][ §9], ∆gα = ( ∂2 
+
+> z
+
+− Hz ∂z + ∆ z )gα
+
+= g′′  
+
+> α
+
+− (−1) α−1g′
+
+> α
+
+Hα − (−1) α−1g′
+
+> α
+
+∆z hα + g′′ 
+
+> α
+
+|∇ hα|2
+
+where we have notated ∆ z = gss (s, z )∂2 
+
+> s
+
+. We now compute the drift term as 
+
+⟨∇ R, ∇gα⟩ = ( −1) α−1 (∂z (R) − gyy ∂y (R)∂y hα) g′
+
+> α
+
+= ( −1) α−1∂z (R)g′ 
+
+> α
+
++ ( −1) α⟨∇ z R, ∇z h⟩g′
+
+> α
+
+where ∇z denotes the tangential gradient along the level set of dist = z. We now conclude the following revised version of [Wan17][Equation 9.4]: ∆g ϕ + ⟨∇ R, ∇ϕ⟩ = W ′′ (g∗)ϕ + R(ϕ) + 
+
+W ′(g∗) − X
+
+> β=1
+
+W ′(gβ )
+
+ (25) (−1) αg′
+
+> α
+
+[Hα + ∆ z,R hα − ∂z (R)] − g′′ 
+
+> α
+
+|∇ z hα|2
+
+− X 
+
+> β̸=α
+
+(−1) β g′ 
+
+> β
+
+Rβ, 1 + g′′  
+
+> β
+
+Rβ, 2
+
+ − X
+
+> β
+
+ξβ
+
+where 
+
+⟨∇ R, ∇ϕ⟩ = gyy Ry ϕy + Rz ϕz
+
+∆z,R h := ∆ z h − ⟨∇ z R, ∇z h⟩Rβ, 1 := ( Hβ − ∂zβ (R)) + ∆ z,R hβ
+
+Rβ, 2 := |∇ z hβ |2
+
+R(ϕ) := W ′(g∗ + ϕ) − W ′(g∗) − W ′′ (g∗)ϕ = O(ϕ2)35 where zβ denotes the fermi coordinate with respect to Γ β . Sometimes we will suppress the β notation when it is implicit. Note that ∆ z,R denotes the surface drift Laplacian on γz = {p ∈ M | dist( p, γ ) = z} with respect to the drift function, R γz
+
+.We remark that for each α,
+
+Hα(s) − ∂z (R)( y, 0) = Hα, ˜g
+
+where ˜ g = eR(y,z )−R(y, 0) g = Vα(ϵy,ϵz ) 
+
+> Vα(ϵy, 0)
+
+g and Vα(˜ y, ˜z) denotes the fiber volume function in fermi coordinates about Γ α. We also remark that by equation Wang–Wei [WW19a, Equation 8.1] (cf. Mantoulidis [Man21, Lemma 4.5] after rescaling): 
+
+Hα, ˜g ≲ ϵ ∀α (26) And derivatives in the y direction will decrease the upper bound in terms of powers of ϵ. It is thus natural to carry out the analysis with respect to ˜ g - however, the conformal invariance of the Laplacian in 2 dimensions leaves the analysis unchanged, and we will not use this alternative perspective on Hα − ∂z R until the adjustments to §20. Thus, we opt to work with the metric g, and recreate the analysis of Wang–Wei with 
+
+Hα + ∆ z hα → (Hα − ∂zα (R)) + ∆ z,R h (27) ∆g ϕ → ∆g ϕ + ⟨∇ R, ∇ϕ⟩ (28) We remark that from here on, when we say ”the analogous equation” or ”appropriate modifications,” this means symbolically making the changes denoted in equations (27) (28) to the estimates and equations that Wang–Wei originally produced. 
+
+Adjustments to [WW19a][ §10] 
+
+Most of the computations in this section remain the same (see [Man21, Appendix C] for the adaptation to the Riemannian setting without drift), so we simply include the bounds on the extra error terms. The analogue of [WW19a, Equation 10.1] is now 
+
+ˆ δR 
+
+> −δR
+
+g′
+
+> α
+
+ ∆z ϕ − Hz ∂z ϕ + ∂2 
+
+> z
+
+ϕ (29) =
+
+ˆ δR 
+
+> −δR
+
+g′
+
+> α
+
+W ′(g∗ + ϕ) − X
+
+> β=1
+
+W ′(gβ )
+
+
+
++
+
+ˆ δR 
+
+> −δR
+
+(−1) α(g′
+
+> α
+
+)2[Hα − ∂z (R) + ∆ z,R hα]+
+
+ˆ δR 
+
+> −δR
+
+−g′
+
+> α
+
+g′′ 
+
+> α
+
+|∇ z hα|2
+
+− X 
+
+> β̸=α
+
+ˆ δR 
+
+> −δR
+
+g′
+
+> α
+
+(−1) β g′ 
+
+> β
+
+Rβ, 1 + g′′  
+
+> β
+
+Rβ, 2
+
+ − X
+
+> β
+
+ˆ δR 
+
+> −δR
+
+ξβ g′
+
+> α
+
+−
+
+ˆ δR 
+
+> −δR
+
+g′
+
+> α
+
+⟨∇ R, ∇ϕ⟩
+
+In this section, Wang–Wei isolate the term on the third line of equation (29) and produce a coarse upper bound for Hα(y, 0) + ∆ 0hα using orthogonality relations. We aim to produce the analogous upper bound for ( Hα(y, 0) − ∂z (R)( y, 0)) + ∆ 0,R h. As such, it suffices to bound 
+
+I + II =
+
+ˆ δR 
+
+> −δR
+
+(−1) α(g′
+
+> α
+
+)2[−(∂z (R)( y, z ) − ∂z (R)( y, 0)) + ( ⟨∇ z R, ∇z h⟩ − ⟨∇ 0R, ∇0h⟩)] 
+
+III =
+
+ˆ δR 
+
+> −δR
+
+g′
+
+> α
+
+⟨∇ R, ∇ϕ⟩
+
+36 We the first two terms as: 
+
+|I| ≲
+
+ˆ δR 
+
+> −δR
+
+(g′
+
+> α
+
+)2z|| ∂2 
+
+> z
+
+R|| ∞
+
+≲ || ∂2 
+
+> z
+
+R|| ∞
+
+ˆ δR 
+
+> −δR
+
+(g′
+
+> α
+
+)2z
+
+≲ ϵ2
+
+|II | ≲
+
+ˆ δR 
+
+> −δR
+
+(g′
+
+> α
+
+)2 (|⟨∇ z R − ∇ 0R, ∇z h⟩| + |⟨∇ 0R, ∇z h − ∇ 0h⟩| )
+
+≲ || ∂z R|| · sup 
+
+> y
+
+||∇ 0h|| 
+
+≲ ϵ2 + sup 
+
+> y
+
+||∇ 0h|| 2
+
+having used equation (24) to bound the appropriate derivatives of R and the AM-GM inequality. For III ,we have 
+
+III =
+
+ˆ δR 
+
+> −δR
+
+g′
+
+> α
+
+(Rz ϕz + gyy Ry ϕy )=
+
+ˆ δR 
+
+> −δR
+
+g′
+
+> α
+
+(−Rzz ϕ + gyy Ry ϕy )
+
+|III | ≲
+
+ˆ
+
+g′
+
+> α
+
+(ϵ2 + |∇ y ϕ|2)
+
+≲ ϵ2 + sup     
+
+> (−6|log ϵ|,6|log ϵ|)
+
+|∇ y ϕ(y, z )|2
+
+We similarly bound these differences in the error terms, i.e. 
+
+Iβ + II β =
+
+ˆ δR 
+
+> −δR
+
+g′
+
+> α
+
+g′ 
+
+> β
+
+[−(∂z (R)( y, z ) − ∂z (R)( y, 0)) + ( ⟨∇ z R, ∇z h⟩ − ⟨∇ 0R, ∇0h⟩)] which satisfies similar error estimates also dampened by the distance between sheets 
+
+|Iβ | ≲ |dβ (y, 0) |e−√2dβ (y, 0) ϵ2
+
+≲ ϵ2
+
+|II β | ≲ ϵ|dβ (y, 0) |e−√2dβ (y, 0) sup  
+
+> Bϵ1/3(y)
+
+|∇ 0h|
+
+≲ ϵ2 + |dβ (y, 0) |e−√2dβ (y, 0) sup  
+
+> Bϵ1/3(y)
+
+|∇ 0h|2
+
+Doing the remaining analysis of Wang–Wei (and also Mantoulidis [Man21, Appendix C]), we conclude the 37 same equation of Wang–Wei [WW19a, Equation 10.2] with an extra O(sup y |∇ 0hα|2) term. (Hα(y, 0) − ∂z (R)( y, 0)) + ∆ 0,R (hα)( y, 0) (30) = 4
+
+σ0
+
+h
+
+A2(−1) e−√2dα−1(y, 0) − A2(−1) α−1 e√2dα+1 (y, 0) i
+
++ O(ϵ2)+ O(|hα(y)| + |hα−1(Π α−1(y, z )) | + ϵ1/3)e−√2dα−1(y, 0) 
+
++ O(|hα(y)| + |hα+1 (Π α+1 (y, z )) | + ϵ1/3)e−√2dα+1 (y, 0) 
+
++ O(e −3√22 dα−1(y, 0) + e −3√22 dα+1 (y, 0) )+ O(e−√2dα−2(y, 0) + e√2dα+2 (y, 0) )+ X 
+
+> β̸=α
+
+|dβ (y, 0) |e−√2|dβ (y, 0) |
+
+·
+
+"
+
+sup 
+
+> Bϵ1/3(y)
+
+|Hβ (y, 0) − ∂z (R)( y, 0) + ∆ β
+
+> 0,R
+
+hβ | + sup  
+
+> Bϵ1/3(y)
+
+|∇ hβ |2
+
+#
+
++ sup     
+
+> (−6|log ϵ|,6|log ϵ|)
+
+ |∇ 2 
+
+> y
+
+ϕ(y, z )|2 + |∇ y ϕ(y, z )|2 + |ϕ(y, z )|2
+
++ sup  
+
+> Bϵ1/3(y)
+
+|∇ 0h|2
+
+Again, all lines in equation (30) are identical to Wang–Wei [WW19a, Equation 10.2] except for the replace-ment of H + ∆ 0h → H − ∂z R + ∆ 0,R h and the last line. However, for the purposes of deriving their Lemma 10.1 (specifically [WW19a, Equation 10.3]), we can use [WW19a, Equation 9.8]: sup 
+
+> y
+
+|∇ 0hα|2 ≲ sup 
+
+> y
+
+|∇ 0ϕ(y, 0) |2 + o(e−2√2Dα(y))Combining this with (30), we conclude the analogous bound of Wang–Wei equation 10.3 sup 
+
+> Br
+
+|Hα(y, 0) − ∂z (R)( y, 0) + ∆ 0,R hα(y)|
+
+≲ sup 
+
+> Br+1
+
+e−√2Dα + ϵ2 + || ϕ|| 2 
+
+> C2,θ (Dr+1 )
+
++ X 
+
+> β̸=α
+
+sup 
+
+> Br+1
+
+h
+
+|Hβ (y, 0) − ∂z (R)( y, 0) + ∆ β
+
+> 0,R
+
+hβ |2 + e−2√2Dβ
+
+i
+
+Adjustments to [WW19a][ §11] 
+
+Wang–Wei’s [WW19a, Prop 11.1] relies on their Lemma 11.2, which in turn relies on [WW19a, Equation 9.4]. Thus we must make the same chain of deductions, arguing with our equation (25) instead. However, we note that 
+
+g′
+
+> α
+
+[Hα − ∂z (R) + ∆ z,R hα] ≲ e−cL |Hα(y, 0) − ∂z (R)( y, 0) + ∆ 0,R hα| + ϵ2 + |∇ 0hα|2 + |∇ 20hα|2
+
+This, along with the fact that 
+
+|g′ 
+
+> β
+
+[Hβ − ∂z R + ∆ z,R hβ ]| ≲ |g′ 
+
+> β
+
+|2 + |Hβ − ∂z R + ∆ z,R hβ |2
+
+≲ e−√2dβ (y,z ) + |Hβ − ∂z R + ∆ z,R hβ |2
+
+and applying [WW19b][Lemma 3.6] we conclude a similar error bound of 
+
+Lemma 9.1. In N 2 
+
+> α
+
+(r), we have 
+
+∆z ϕ − Hα∂z ϕ + ∂2 
+
+> z
+
+ϕ + ⟨∇ R, ∇ϕ⟩ = [2 + O(e−cL )] ϕ + E2
+
+> α
+
+38 where 
+
+|E2
+
+> α
+
+(y, z )| ≲ ϵ2 + e−√2Dα(y) + |∇ 20hα(y)|2 + |∇ 0hα(y)|2
+
++ e−cL |Hα(y, 0) − ∂z (R)( y, 0) + ∆ 0,R hα(y)|
+
++ X 
+
+> β̸=α
+
+sup  
+
+> Bϵ1/3(y)
+
+h
+
+|Hβ (y, 0) − ∂z (R)( y, 0) + ∆ β
+
+> 0,R
+
+hβ |2 + |∇ hβ |4 + |∇ 2hβ |4i
+
+A similar analysis gives an analogous version of Wang–Wei equation [WW19a, Equation 11.5]. We note that (∆ g (cα(y)g′
+
+> α
+
+) + ⟨∇ R, ∇(cαg′
+
+> α
+
+)⟩) = ∆ 0,R (cα(y)) g′
+
+> α
+
++ ( −cαHt + cα⟨∇ z R, ∇z h⟩ + ∂z (R)cα)g′′  
+
+> α
+
++ cαg′′′ 
+
+> α
+
+And thus, we conclude: ∆g ϕ + ⟨∇ R, ∇ϕ⟩ = W ′′ (gα)ϕ + ˜ cα(y)g′ 
+
+> α
+
++ ˜Eα
+
+˜cα(y) = ( −1) α−1[Hα(y, 0) − ∂z (R)( y, 0) + ∆ 0,R hα] − [∆ 0,R cα(y)] with the exact same form of the error term, noting that 
+
+|(−cαHt + cα⟨∇ z R, ∇z h⟩ + ∂z (R)cα)g′′ 
+
+> α
+
+| ≲ ϵ[|cα| + |∇ cα|]e−√2|z|
+
+The remainder of this section goes through the same, though the proof of lemma 11.6 must be adjusted to account for the drift terms. We sketch the necessary modifications as follows: 
+
+ˆ
+
+> R
+
+ϕ∆z ϕ + Hαϕz ϕ + ϕϕ zz =
+
+ˆ
+
+> R
+
+gyy Ry ϕy ϕ + Rz ϕz ϕ + ˜Eϕ 
+
+Integrating by parts and applying [WW19a, Theorem A.2], we have 
+
+ˆ
+
+> R
+
+ϕ∆z ϕ − gyy Ry ϕy ϕ =
+
+ˆ
+
+> R
+
+|∂z ϕ|2 + W ′′ (gα)ϕ2 + ˜Eαϕ + 12
+
+∂(Hα + Rt)
+
+∂z ϕ2
+
+≥ 3μ
+
+4
+
+ˆ
+
+> R
+
+ϕ2 − C
+
+ˆ
+
+> R
+
+˜E2
+
+> α
+
+Following the same manipulations as in the proof of [WW19a, Lemma 11.6] but the drift term, we have 12 (∆ 0 + ( ∂y R)∂y )
+
+ˆ
+
+> R
+
+ϕ2 ≥ μ
+
+2
+
+ˆ
+
+> R
+
+ϕ2 − C
+
+ˆ
+
+> R
+
+˜E2
+
+> α
+
+− Cϵ 2
+
+ˆ
+
+> R
+
+z2  |∇ 2 
+
+> y
+
+ϕ(y, z )|2 + |∇ y ϕ|2
+
+noting that the Agmon-type exponential decay estimate (see e.g. [Agm82]) still works for the operator ∆0 + ( ∂y R)∂y = ∂2 
+
+> y
+
++ ( ∂y R)∂y , we conclude [WW19a, Equation 11.6]. The rest of the section now follows with the appropriate modifications. 
+
+Adjustments to [WW19a][ §12] 
+
+With the replacements of Wang–Wei equation 9.4 by equation (25), we conclude the analogous version of their Lemma 12.1 
+
+Lemma 9.2. For any (y, z ) ∈ M 0
+
+> α
+
+|| ∆ϕ + ⟨∇ R, ∇ϕ⟩ − W ′′ (g∗)ϕ|| Cθ (B2/3(y,z )) 
+
+≲ ϵ2 + sup 
+
+> B1(y)
+
+e−√2Dα + || ϕ|| 2 
+
+> C2,θ (B1(y,z ))
+
++ e−√2|z||| Hα − ∂zα R + ∆ 0,R hα|| Cθ (B1(y, 0)) 
+
++ X 
+
+> β̸=α
+
+e−√2|dβ (y,z )|(|| ϕ|| 2   
+
+> C2,θ (Bβ
+> 2(y, 0))
+
++ sup 
+
+> B2(y)
+
+e−2√2Dβ )+ X 
+
+> β̸=α
+
+e−√2|dβ (y,z )||| Hβ − ∂zβ R + ∆ β
+
+> 0,R
+
+hβ || Cθ (Bβ 
+
+> 2(y, 0))
+
+39 The analogous Schauder estimates lead to a version of Wang–Wei [WW19a, Equation 12.2] with H+∆ h →
+
+H − ∂z R + ∆ 0,R h.We now replace the use of [WW19a, Equation 10.1] in [WW19a, Lemma 12.2] by (29). The analogous analysis holds except we include an error term from the drift Laplacian on ϕ. As such, it suffices to bound 
+
+ˆ δR 
+
+> −δR
+
+⟨∇ R, ∇ϕ⟩g′
+
+> α
+
+| ≲ ϵ2 + || ϕ|| 2    
+
+> C1(B2(y)×(−6|log ϵ|,6|log ϵ|)
+
+which is compatible with the bound on || Hα + ∆ 0hα|| at the end of the proof of [WW19a, Lemma 12.2]. 
+
+Adjustments to [WW19a][ §13] 
+
+We adapt the improved horizontal estimates. [WW19a, Equation 13.1] must now be replaced by the result of applying ∂y to equation (25), which we record as: ∆z ϕy + ∂2 
+
+> z
+
+ϕy + ⟨∇ R, ∇ϕy ⟩ = W ′′ (gα)ϕy − (−1) αg′
+
+> α
+
+[Hαyz (y, 0) − Ryz + ∆ 0,R hα,y ] + ˜Ei
+
+where ˜Ei = Ei + Fi for Ei as in [WW19a, Equation 13.1] with the analogous replacements, and Fi has the following terms coming from the drift Laplacian 
+
+Fi = gyy y Ry ϕy + hyy Ryy ϕy + Rzy ϕz
+
++ ( −1) αg′
+
+> α
+
+[gyy y hα,yy − gyy y Ry hα,y − gyy Ryy hα,y ]
+
+− X 
+
+> β̸=α
+
+(−1) β g′ 
+
+> β
+
+[gyy y hβ,yy − gyy y Ry hβ,y − gyy Ryy hβ,y ]Using the Cauchy inequality as well as our a priori bounds on R via equation (24) we have 
+
+|| Fi|| Cθ (M 2 
+
+> α(r))
+
+≲ ϵ2 + || h|| 2   
+
+> C2,θ (M2
+> α(r))
+
++ || ϕ|| 2 
+
+> C2,θ (D(r+1))
+
+≲ ϵ2 + sup 
+
+> Br+1
+
+e−2√2Dα(y) + || ϕ|| 2 
+
+> C2,θ (D(r+1))
+
+having used [WW19a, Equation 9.9]. Thus, up to a constant, ˜Ei and Ei satisfy the same upper bounds as listed in [WW19a, Lemma 13.1]. The same analysis now leads to the analogous bound on || Hαy −Ryz +∆ 0,R hα,y || as in Wang–Wei [WW19a, Equation 13.3], and the rest of the section follows. 
+
+Adjustments to [WW19a][ §14] 
+
+This section follows after replacing Hα → Hα − ∂z R and ∆ 0hα → ∆0,R hα.
+
+Adjustments to [WW19a][ §17] 
+
+Combined with the modifications from Mantoulidis [Man21, Appendix C], we replace the linearized Allen– Cahn equation with the linearized Allen–Cahn equation with drift, so [WW19a, Equation 17.1] becomes 
+
+ϵ∆v + ϵ⟨∇ ln( V), ∇v⟩ = 1
+
+ϵ W ′′ (uϵ)v (31) Lemma 17.2 remains unchanged. As in [Man21], the function φϵ = 1 ˜Dα 
+
+> ∂u ϵ
+> ∂x 2
+
+is a solution to equation (31) but with an error, i.e. 
+
+ϵ∆φϵ + ϵ⟨∇ ln( V), ∇φϵ⟩ = 1
+
+ϵ W ′′ (uϵ)φϵ + O(ϵ) (32) for the same bump function, η, multiplying (32) by Vφϵη2 and integrating by parts yields 
+
+ˆ
+
+> B1/100 (xϵ)
+
+V
+
+h
+
+ϵ|∇ (ηφ ϵ)|2 + ϵ−1W ′′ (uϵ)η2φ2
+
+> ϵ
+
+i
+
+≤ Kϵ + C
+
+ˆ
+
+Vϵφ 2
+
+> ϵ
+
+|∇ η|2 + ⟨∇V , ∇η⟩η
+
+≤ Kϵ + Cϵ 
+
+ˆ
+
+φ2
+
+> ϵ
+
+≤ C
+
+40 In the last line, we are using that one can also modify [WW19a, Lemma 17.3] to prove the result in the drift setting, using the same technique but with equation (32). In section 17.2, we aim to solve 
+
+(
+
+ϵ∆ ˜ φϵ + ϵ⟨∇ ln( V), ∇ ˜φϵ⟩ = ϵ−1W ′′ (uϵ)φϵ in Ω α,ϵ 
+
+˜φϵ = φϵ on ∂Ωα,ϵ 
+
+which by stability for the weighted energy (21), exists and is unique. Following the computations in Man-toulidis [Man21, Appendix C], we have that 
+
+ˆ
+
+> Ωα,ϵ
+
+V
+
+
+
+ϵ⟨∇ φϵ,∇ ˜φϵ⟩ + ϵ−1W ′′ (uϵ)φϵ ˜φϵ
+
+
+
+=
+
+ˆ
+
+> ∂Ωα,ϵ
+
+ϵVφϵν∂Ωα,ϵ ( ˜ φϵ) + 
+
+ˆ
+
+> Ωα,ϵ
+
+φϵ
+
+ −ϵV∆( ˜ φϵ) − ϵ⟨∇V , ∇ ˜φϵ⟩ + ϵ−1W ′′ (uϵ) ˜ φϵ
+
+
+
+=
+
+ˆ
+
+> ∂Ωα,ϵ
+
+ϵV ˜φϵν∂Ωα,ϵ ( ˜ φϵ)=
+
+ˆ
+
+> Ωα,ϵ
+
+ϵV ˜φϵ(∆ ˜ φϵ + ⟨∇V , ∇ ˜φϵ⟩) + Vϵ|∇ ˜φϵ|2
+
+=
+
+ˆ
+
+> Ωα,ϵ
+
+V  ϵ|∇ ˜φϵ|2 + ϵ−1W ′′ (uϵ) ˜ φ2
+
+> ϵ
+
+
+
+From here, the rest of the section is the same. In particular, equation 17.5 also holds in our setting, with a potentially slightly worse exponent, as introduced by both the drift term and also the Riemannian metric (cf. [Man21, Appendix C]). 
+
+Adjustments to [WW19a][ §18] 
+
+This section translates to the drift setting making the appropriate modifications and noting that the left hand side of equation 18.6 should be Hα(y, 0) − ∂z (R)( y, 0). 
+
+Adjustments to [WW19a][ §19] 
+
+Again, the stability condition is now changed to 
+
+ˆ
+
+> C5R/ 6
+
+V(ϵy, ϵz )  |∇ φ|2 + W ′′ (u)φ2 ≥ 0As in Mantoulidis, there is no explicit formula for λ(y, z ) in the Riemannian setting, but it satisfies the relevant upper bounds to be of no issue. ”The Horizontal part” (Section 19.1) is analogous in the drift setting yielding the same integrals in the upper bound but with factors of V included in the integrand. ”The Vertical Part” (Section 19.2) requires an integration by parts in the expansion of ´ φ2 
+
+> z
+
+λdzdy , which will affect the factor of V in the integrand. Thus, we can produce the same bounds on ´ Vφ2 
+
+> z
+
+λdzdy , modulo an extra error term of the form: 
+
+R = −
+
+ˆ 5R/ 6
+
+> −5R/ 6
+
+η(y)2
+
+ˆ δR 
+
+> −δR
+
+Vz g′
+
+> α
+
+g′′ 
+
+> α
+
+χ2λ
+
+Integrating by parts in t and using that |∇ χ| ≲ L−1 and |∇ λ| = O(ϵ), we have 
+
+R = − 12
+
+ˆ 5R/ 6
+
+> −5R/ 6
+
+η(y)2
+
+ˆ δR 
+
+> −δR
+
+Vzz (g′
+
+> α
+
+)2χ2λ
+
++ Vz (g′
+
+> α
+
+)22χz χλ + Vz (g′
+
+> α
+
+)22χ2λz
+
+≲
+
+
+
+ϵ2 + ϵL
+
+ ˆ 5R/ 6
+
+> −5R/ 6
+
+η(y)2 
+
+e−2√2ρ+  
+
+> α(y)
+
++ e2√2ρ− 
+
+> α(y)
+
+
+
+41 which is compatible with the final error bound in [WW19a, Eq 19.2]. The integration by parts in the “third term” of the vertical part also yields a higher order error, i.e. 
+
+ˆ 5R/ 6
+
+> −5R/ 6
+
+η(y)2
+
+ˆ δR 
+
+> −δR
+
+Vg′
+
+> α
+
+g′′ 
+
+> α
+
+χ2λz ≲
+
+
+
+ϵ2 + ϵL
+
+ ˆ 5R/ 6
+
+> −5R/ 6
+
+η(y)2 
+
+e−2√2ρ+  
+
+> α(y)
+
++ e2√2ρ− 
+
+> α(y)
+
+
+
+Now using that V is bounded, the replacement of [WW19a, Eq 19.2] becomes 0 ≤ C
+
+ˆ 5R/ 6
+
+> −5R/ 6
+
+η′(y)2 + Cϵ 2−2σ
+
+ˆ 5R
+
+> −5R/ 6
+
+η(y)2 (33) + C
+
+ 1
+
+L + ϵ
+
+ ˆ 5R/ 6
+
+> −5R/ 6
+
+η(y)2 
+
+e−2√2ρ+  
+
+> α(y)
+
++ e2√2ρ− 
+
+> α(y)
+
+
+
++
+
+ˆ 5R/ 6
+
+> −5R/ 6
+
+ˆ δR 
+
+> −δR
+
+V (W ′′ (u) − W ′′ (gα)) |g′
+
+> α
+
+|2χ2λdzdy 
+
+Much of “The Interaction Part”, i.e. [WW19a, §19.3] holds the same though [WW19a, Equation 19.3] must be modified to include the differentiated drift term: 
+
+∂∂z ⟨∇ R, ∇ϕ⟩,
+
+in addition to the differentiated terms coming from replacing Hα + ∆ z hα → Hα − ∂z R + ∆ z,R hα. The goal of this section is to now show that the appropriate modification of [WW19a, Equation 19.5] holds, i.e. 
+
+ˆ 5R/ 6
+
+> −5R/ 6
+
+η(y)2
+
+ˆ δR 
+
+> −δR
+
+V
+
+h
+
+W ′′ (u) − W ′′ (gα)
+
+i
+
+|g′
+
+> α
+
+|2χ2λ (34) = −4
+
+ˆ 5R/ 6
+
+> −5R/ 6
+
+V(y, 0) η(y)2[A2(−1) e−√2dα−1(y, 0) + A2(−1) α e√2dα+1 (y, 0) ]λ(y, 0) + O(ϵ4/3)
+
+ˆ 5R/ 6
+
+> −5R/ 6
+
+η(y)2V(y, 0) .
+
+Thus, it suffices to show that the new terms coming from the drift Laplacian in the analogous version of [WW19a, Equation 19.3] are smaller than the error threshold of O(ϵ3/2−2σ ). We remark that 
+
+g′
+
+> α
+
+∂∂z ⟨∇ R, ∇ϕ⟩ = |gyy z Ry ϕy + gyy Ryz ϕy + gyy Ry ϕyz + Rzz ϕz + Rz ϕzz || g′
+
+> α
+
+|
+
+≲ ϵ2|| ϕ|| C1(Mα(r) + ϵ|| ϕ|| C2(Mα(r)
+
+≲ ϵ2−σ
+
+having used [WW19a, Equation 18.4] to bound || ϕ|| C2 ≲ ϵ1−σ . We also remark 
+
+|∂z V| + ϵ−1|∂2 
+
+> z
+
+V| ≲ ϵ
+
+|V (y, z ) − V (y, 0) | ≲ ϵ|z|
+
+∂∂z (Hα − ∂z R) ≲ ϵ2
+
+∂∂z ∆z,R hα ≤ ∂z (∆ z hα) + ∂z (gyy Ry hα,y )
+
+≲ ϵ2−σ + ϵ3−σ + ϵ2−σ = ϵ2−σ
+
+having also used [WW19a, Lemma 9.6]. The rest of this section now follows by using the drift analogue of [WW19a, Equation 19.3], multiplying by V(y, z )η2g′
+
+> α
+
+χ2λ and integrating in y, z .42 Equation 19.6 now becomes 
+
+ˆ 5R/ 6
+
+> −5R/ 6
+
+V(y, 0) η(y)2[A2(−1) e−√2dα−1(y, 0) + A2(−1) α e√2dα+1 (y, 0) ]λ(y, 0) 
+
+≤ C
+
+ˆ 5R/ 6
+
+> −5R/ 6
+
+η′(y)2 + Cϵ 4/3
+
+ˆ 5R/ 6
+
+> −5R/ 6
+
+η(y)2dy 
+
++ C
+
+ 1
+
+L + ϵ
+
+ ˆ 5R/ 6
+
+> −5R/ 6
+
+η(y)2 h
+
+e−2√2ρ+  
+
+> α(y)
+
++ e2√2ρ− 
+
+> α(y)
+
+i
+
+Again noting that V(y, 0) is bounded from above and below by positive numbers, we can change the constant slightly and conclude exactly the same result as [WW19a, Equation 19.6]: 
+
+ˆ 5R/ 6
+
+> −5R/ 6
+
+η(y)2[A2(−1) e−√2dα−1(y, 0) + A2(−1) α e√2dα+1 (y, 0) ]λ(y, 0) (35) 
+
+≤ C
+
+ˆ 5R/ 6
+
+> −5R/ 6
+
+η′(y)2 + Cϵ 4/3
+
+ˆ 5R/ 6
+
+> −5R/ 6
+
+η(y)2dy 
+
++ C
+
+ 1
+
+L + ϵ
+
+ ˆ 5R/ 6
+
+> −5R/ 6
+
+η(y)2 h
+
+e−2√2ρ+  
+
+> α(y)
+
++ e2√2ρ− 
+
+> α(y)
+
+i
+
+The rest of the section is now exactly the same. 
+
+Adjustments to [WW19a][ §20] 
+
+In this section, we use that for the conformal metric ˜ g = Vg,
+
+H˜g ∼ Hg − ∂z (R)This follows via the formula for mean curvature under a conformal change of metric 
+
+H˜g = V−1/2 
+
+Hg − 2∂z ln( V1/2)
+
+
+
+= V−1/2
+
+
+
+Hg − ∂z VV
+
+
+
+The proof of theorem 3.6 is the same following the appropriate modifications. The rest of the section follows after the adjustment to the Riemannian setting (using ˜ gϵ = ϵ−2 ˜g) as described in [Man21]. 
+
+## 9.3 Monotonicity for the Allen–Cahn equation with drift 
+
+In this section, we prove the following adaptation of [HT00, Prop 3.4], [Gua18, Appendix B] to the drift setting: 
+
+Lemma 9.3. Suppose that u satisfies equation (13) on U ⊆ M 2 with 
+
+Eϵ(u, U, V, g ) ≤ E0
+
+then for all U ′ ⊂⊂ U , there are C, ϵ 0, r 0 > 0 depending on E0, dist (U ′, ∂U ), inj (U, g ), and || g|| C2 (taken with respect to a fixed smooth background metric) so that if ϵ ∈ (0 , ϵ 0), then 
+
+Eϵ(u, B r (p), V, g ) ≤ Cr, ∀r ∈ (0 , r 0), ∀p ∈ U ′
+
+Proof. As in [Gua18, §10.2], it suffices to establish a local monotonicity formula. Multiplying equation (13) by ( g · ∇ u) (where g is a smooth vector field and integrating over all of M gives 
+
+ˆ
+
+Vϵ|∇ u|2(div( g) − ∇ ν g(ν) + (1 /2) ⟨∇ V, g ⟩) = 
+
+ˆ
+
+V
+
+ ϵ
+
+2 |∇ u|2 − W (u)
+
+ϵ
+
+
+
+div( g) − W (u)
+
+ϵ ⟨∇V , g ⟩ (36) 43 We now use the same hessian comparison theorem and test function of g = rψ (r)∇r (where ψ(s) = φ(( s −
+
+ρ)/δ ) and φ is a smooth bump function). We note that as δ → 0, we have lim 
+
+> δ→0
+
+ˆ
+
+> M
+
+(⟨∇V , g ⟩)
+
+ ϵ
+
+2 |∇ u|2 − W (u)
+
+ϵ
+
+
+
+≤ C
+
+ˆ
+
+> M
+
+rVeϵ(u)Thus, following the computations in [Gua18, Equation 17], we have that as δ → 0, 
+
+−(n − 1) 
+
+ˆ
+
+> Bρ
+
+Veϵ(u) + ρ
+
+ˆ
+
+> ∂B ρ
+
+eϵ(u) ≥
+
+ˆ
+
+> Bρ
+
+V(−ξϵ) + ϵρ 
+
+ˆ
+
+> ∂B ρ
+
+(∇u · ∇ r)2
+
+− (√k + C)
+
+ˆ
+
+> Bρ
+
+Vr(eϵ(u) + ϵ|∇ u|2)The proof now concludes the same way after choosing larger constants (i.e. m ≥ 3( √k + C) in Guaraco’s notation). 
+
+# References 
+
+[Agm82] Shmuel Agmon, Lectures on exponential decay of solutions of second-order elliptic equations: bounds on eigenfunctions of N -body Schr¨ odinger operators , Mathematical Notes, vol. 29, Prince-ton University Press, Princeton, NJ; University of Tokyo Press, Tokyo, 1982. [Alm62] Frederick Justin Almgren, Jr., The homotopy groups of the integral cycle groups , Topology 1
+
+(1962), 257–299. [AMN25] Lucas Ambrozio, Fernando C. Marques, and Andr´ e Neves, Riemannian metrics on the sphere with Zoll families of minimal hypersurfaces , J. Differential Geom. 130 (2025), no. 2, 269–341. [Bel24] Costante Bellettini, Multiplicity-1 minmax minimal hypersurfaces in manifolds with positive Ricci curvature , Communications on Pure and Applied Mathematics 77 (2024), no. 3, 2081–2137. [BNS25] Reto Buzano, Huy The Nguyen, and Mario B. Schulz, Noncompact self-shrinkers for mean cur-vature flow with arbitrary genus , J. Reine Angew. Math. 818 (2025), 35–52. [CC92] Eugenio Calabi and Jian Guo Cao, Simple closed geodesics on convex surfaces , J. Differential Geom. 36 (1992), no. 3, 517–549. [CC25] Otis Chodosh and Sithipont Cholsaipant, The p-widths of a polygon , arXiv:2505.03047 [math.DG] (2025). [CFS22] Alessandro Carlotto, Giada Franz, and Mario B. Schulz, Free boundary minimal surfaces with connected boundary and arbitrary genus , Camb. J. Math. 10 (2022), no. 4, 835–857. [CFSS23] Michele Caselli, Enric Florit-Simon, and Joaquim Serra, Yau’s conjecture for nonlocal minimal surfaces , arXiv:2306.07100 [math.DG] (2023). [CG25] Jingwen Chen and Pedro Gaspar, Volume spectrum of fiber bundles and the widhts of Berger spheres , arXiv:2505.09548 [math.DG] (2025). [CM20] Otis Chodosh and Christos Mantoulidis, Minimal surfaces and the Allen-Cahn equation on 3-manifolds: index, multiplicity, and curvature estimates , Ann. of Math. (2) 191 (2020), no. 1, 213–328. [CM23] , The p-widths of a surface , Publ. Math. Inst. Hautes ´Etudes Sci. 137 (2023), 245–342. [Dey22] Akashdeep Dey, A comparison of the Almgren–Pitts and the Allen–Cahn min–max theory , Geo-metric and Functional Analysis 32 (2022), no. 5, 980–1040. 44 [EF01] J. Eells and B. Fuglede, Harmonic maps between Riemannian polyhedra , Cambridge Tracts in Mathematics, vol. 142, Cambridge University Press, Cambridge, 2001, With a preface by M. Gromov. [EG25] Lawrence C. Evans and Ronald F. Gariepy, Measure theory and fine properties of functions ,second ed., Textbooks in Mathematics, CRC Press, Boca Raton, FL, 2025. [Fet52] Abram Il’ich Fet, Variational problems on closed manifolds , Matematicheskii Sbornik 72 (1952), no. 2, 271–316. [FR78] Edward R. Fadell and Paul H. Rabinowitz, Generalized cohomological index theories for Lie group actions with an application to bifurcation questions for Hamiltonian systems , Invent. Math. 45 
+
+(1978), no. 2, 139–174. [FS24] Enric Florit-Simon, Weyl law and convergence in the classical limit for min-max nonlocal minimal surfaces , arXiv:2406.12162 [math.DG] (2024). [FSS25] Enric Florit-Simon and Joaquim Serra, On stable solutions to the Allen-Cahn equation with bounded energy density in R4, arXiv:2509.02739 [math.AP] (2025). [Gas20] Pedro Gaspar, The second inner variation of energy and the morse index of limit interfaces , The Journal of Geometric Analysis 30 (2020), no. 1, 69–85. [GG18] Pedro Gaspar and Marco A. M. Guaraco, The Allen-Cahn equation on closed manifolds , Calc. Var. Partial Differential Equations 57 (2018), no. 4, Paper No. 101, 42. [GG19] , The Weyl law for the phase transition spectrum and density of limit interfaces , Geom. Funct. Anal. 29 (2019), no. 2, 382–410. [Gho93] Nassif Ghoussoub, Duality and perturbation methods in critical point theory , Cambridge Tracts in Mathematics, vol. 107, Cambridge University Press, Cambridge, 1993, With appendices by David Robinson. [GL25] Larry Guth and Yevgeny Liokumovich, Parametric inequalities and Weyl law for the volume spectrum , Geom. Topol. 29 (2025), no. 2, 863–902. [Gro06] Misha Gromov, Dimension, non-linear spectra and width , Geometric Aspects of Functional Anal-ysis: Israel Seminar (GAFA) 1986–87, Springer, 2006, pp. 132–184. [Gua18] Marco A. M. Guaraco, Min-max for phase transitions and the existence of embedded minimal hypersurfaces , J. Differential Geom. 108 (2018), no. 1, 91–133. [Hie18] Fritz Hiesmayr, Spectrum and index of two-sided allen–cahn minimal hypersurfaces , Communi-cations in Partial Differential Equations 43 (2018), no. 11, 1541–1565. [Hie20] , Rigidity of low index solutions on S3 via a Frankel theorem for the Allen-Cahn equation ,arXiv:2007.08701 [math.DG] (2020). [HL71] Wu-Yi Hsiang and H. Blaine Lawson, Jr., Minimal submanifolds of low cohomogeneity , J. Differ-ential Geometry 5 (1971), 1–38. [HT00] John E. Hutchinson and Yoshihiro Tonegawa, Convergence of phase interfaces in the van der Waals-Cahn-Hilliard theory , Calc. Var. Partial Differential Equations 10 (2000), no. 1, 49–84. [Ill78] S¨ oren Illman, Smooth equivariant triangulations of G-manifolds for G a finite group , Math. Ann. 
+
+233 (1978), no. 3, 199–220. [Ill83] , The equivariant triangulation theorem for actions of compact Lie groups , Math. Ann. 
+
+262 (1983), no. 4, 487–501. 45 [IMN18] Kei Irie, Fernando Marques, and Andr´ e Neves, Density of minimal hypersurfaces for generic metrics , Annals of Mathematics 187 (2018), no. 3, 963–972. [Ket16a] Daniel Ketover, Equivariant min-max theory , arXiv:1612.08692 [math.DG] (2016). [Ket16b] , Free boundary minimal surfaces of unbounded genus , arXiv:1612.08691 [math.DG] (2016). [Ko25] Dongyeong Ko, Regularity of cohomogeneity two equivariant isotopy minimization problems and minimal hypersurfaces with large first betti number on spheres , arXiv preprint arXiv:2512.12322 (2025). [Li23] Yangyang Li, Existence of infinitely many minimal hypersurfaces in higher-dimensional closed manifolds with generic metrics , Journal of Differential Geometry 124 (2023), no. 2, 381–395. [Liu21a] Zhenhua Liu, The existence of embedded g-invariant minimal hypersurface , Calculus of Variations and Partial Differential Equations 60 (2021), no. 1, 36. [Liu21b] , The existence of embedded G-invariant minimal hypersurface , Calc. Var. Partial Differ-ential Equations 60 (2021), no. 1, Paper No. 36, 21. [LMN18] Yevgeny Liokumovich, Fernando C. Marques, and Andr´ e Neves, Weyl law for the volume spec-trum , Ann. of Math. (2) 187 (2018), no. 3, 933–961. [LW21] Yong Liu and Juncheng Wei, Classification of finite morse index solutions to the elliptic sine-gordon equation in the plane , Revista Matem´ atica Iberoamericana 38 (2021), no. 2, 355–432. [LW26] Xingzhe Li and Tongrui Wang, Infinite existence of equivariant minimal hypersurfaces , arXiv preprint arXiv:2604.13422 (2026). [Man21] Christos Mantoulidis, Allen–Cahn min-max on surfaces , Journal of Differential Geometry 117 
+
+(2021), no. 1, 93–135. [MK25a] Jared Marx-Kuo, The isospectral problem for p-widths: an application of Zoll metrics , Comptes Rendus. Math´ ematique 363 (2025), no. G6, 565–570. [MK25b] , The p-widths of RP 2, Proceedings of the American Mathematical Society 153 (2025), no. 12, 5385–5396. [MK26] , The p-widths of the Hemisphere , arXiv:2603.17734 [math.DG] (2026). [MKSS24] Jard Marx-Kuo, Lorenzo Sarnataro, and Douglas Stryker, Index, intersections, and multiplicity of min-max geodesics , arXiv:2410.02580 [math.DG] (2024). [MMN23] Fernando C Marques, Rafael Montezuma, and Andr´ e Neves, Morse inequalities for the area functional , Journal of Differential Geometry 124 (2023), no. 1, 81–111. [MN14] Fernando C. Marques and Andr´ e Neves, Min-max theory and the Willmore conjecture , Ann. of Math. (2) 179 (2014), no. 2, 683–782. [MN16] Fernando C Marques and Andr´ e Neves, Morse index and multiplicity of min-max minimal hy-persurfaces , Cambridge journal of mathematics 4 (2016), no. 4, 463–511. [MN17] Fernando C. Marques and Andr´ e Neves, Existence of infinitely many minimal hypersurfaces in positive Ricci curvature , Invent. Math. 209 (2017), no. 2, 577–616. [MNS19] Fernando C Marques, Andr´ e Neves, and Antoine Song, Equidistribution of minimal hypersurfaces for generic metrics , Inventiones mathematicae 216 (2019), no. 2, 421–443. [Mod87] Luciano Modica, Gradient theory of phase transitions with boundary contact energy , Ann. Inst. H. Poincar´ e Anal. Non Lin´ eaire 4 (1987), no. 5, 487–512. 46 [MPPP07] M. Miranda, Jr., D. Pallara, F. Paronetto, and M. Preunkert, Heat semigroup and functions of bounded variation on Riemannian manifolds , J. Reine Angew. Math. 613 (2007), 99–119. [MSY56] D Montgomery, H Samelson, and CT Yang, Exceptional orbits of highest dimension , Annals of Mathematics 64 (1956), no. 1, 131–141. [Orl72] Peter Orlik, Seifert manifolds , Lecture Notes in Mathematics, vol. Vol. 291, Springer-Verlag, Berlin-New York, 1972. [Pal79] Richard S. Palais, The principle of symmetric criticality , Comm. Math. Phys. 69 (1979), no. 1, 19–30. [Pit74] Jon T. Pitts, Regularity and singularity of one dimensional stationary integral varifolds on mani-folds arising from variational methods in the large , Symposia Mathematica, Vol. XIV (Convegno di Geometria Simplettica e Fisica Matematica & Convegno di Teoria Geometrica dell’Integrazione e Variet` a Minimali, INDAM, Rome, 1973), Istituto Nazionale di Alta Matematica, Rome, 1974, pp. 465–472. [Pit81] , Existence and regularity of minimal surfaces on Riemannian manifolds , Mathematical Notes, vol. 27, Princeton University Press, Princeton, NJ; University of Tokyo Press, Tokyo, 1981. [PR88] Jon T. Pitts and J. H. Rubinstein, Equivariant minimax and minimal surfaces in geometric three-manifolds , Bull. Amer. Math. Soc. (N.S.) 19 (1988), no. 1, 303–309. [PT98] Pablo Padilla and Yoshihiro Tonegawa, On the convergence of stable phase transitions , Comm. Pure Appl. Math. 51 (1998), no. 6, 551–579. [Sak96] Takashi Sakai, Riemannian geometry , Translations of Mathematical Monographs, vol. 149, Amer-ican Mathematical Society, Providence, RI, 1996, Translated from the 1992 Japanese original by the author. [Sco83] Peter Scott, The geometries of 3-manifolds , Bull. London Math. Soc. 15 (1983), no. 5, 401–487. [Smi16] Graham Smith, Bifurcation of solutions to the Allen–Cahn equation , Journal of the London Mathematical Society 94 (2016), no. 3, 667–687. [Son23] Antoine Song, Existence of infinitely many minimal hypersurfaces in closed manifolds , Annals of Mathematics 197 (2023), no. 3, 859–895. [Ste88] Peter Sternberg, The effect of a singular perturbation on nonconvex variational problems , Arch. Rational Mech. Anal. 101 (1988), no. 3, 209–260. [TW12] Yoshihiro Tonegawa and Neshan Wickramasekera, Stable phase interfaces in the van der Waals– Cahn–Hilliard theory , J. Reine Angew. Math. 668 (2012), 191–210. [Ver80] Andrei Verona, Triangulation of stratified fibre bundles , Manuscripta Math. 30 (1979/80), no. 4, 425–445. [Wal16] Charles Terence Clegg Wall, Differential topology , vol. 156, Cambridge University Press, 2016. [Wan17] Kelei Wang, Some remarks on the structure of finite Morse index solutions to the Allen–Cahn equation in R2, Nonlinear Differential Equations and Applications NoDEA 24 (2017), no. 5, 58. [Wan22a] Tongrui Wang, Min–max theory for g-invariant minimal hypersurfaces , The Journal of Geometric Analysis 32 (2022), no. 9, 233. [Wan22b] , Min-max theory for G-invariant minimal hypersurfaces , J. Geom. Anal. 32 (2022), no. 9, Paper No. 233, 53. 47 [Wan23] , Min-max theory for free boundary G-invariant minimal hypersurfaces , Adv. Math. 425 
+
+(2023), Paper No. 109087, 58. [Wan24] , Equivariant Morse index of min-max G-invariant minimal hypersurfaces , Math. Ann. 
+
+389 (2024), no. 2, 1599–1637. [Wan25] , Generic density of equivariant min-max hypersurfaces , J. Funct. Anal. 289 (2025), no. 5, Paper No. 110979, 39. [Was69] Arthur G. Wasserman, Equivariant differential topology , Topology 8 (1969), 127–150. [Wic14] Neshan Wickramasekera, A general regularity theory for stable codimension 1 integral varifolds ,Ann. of Math. (2) 179 (2014), no. 3, 843–1007. [WW19a] Kelei Wang and Juncheng Wei, Finite morse index implies finite ends , Communications on Pure and Applied Mathematics 72 (2019), no. 5, 1044–1119. [WW19b] , Second order estimate on transition layers , Advances in Mathematics 358 (2019), 106856. [WWZ26] Tongrui Wang, Zhichao Wang, and Xin Zhou, Equivariant min-max theory and the spherical Bernstein problem in S4, arXiv:2602.03984 [math.DG] (2026). [Zho20] Xin Zhou, On the multiplicity one conjecture in min-max theory , Annals of Mathematics 192 
+
+(2020), no. 3, 767–820. 48

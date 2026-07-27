@@ -1,0 +1,2411 @@
+Title: Higher regularity of the inverse anisotropic mean curvature flow
+
+URL Source: https://arxiv.org/pdf/2607.02067v1
+
+Published Time: Fri, 03 Jul 2026 00:57:57 GMT
+
+Number of Pages: 31
+
+Markdown Content:
+HIGHER REGULARITY OF THE INVERSE ANISOTROPIC MEAN CURVATURE FLOW 
+
+CHAOQUN GAO, YONG WEI, AND RONG ZHOU 
+
+Abstract. We prove an anisotropic analogue of the higher regularity theorem of Huisken and Ilmanen for inverse mean curvature flow. For an arbitrary smooth Minkowski norm, we first prove a Huisken–Ilmanen type Harnack estimate for smooth closed strictly star-shaped solutions. We then construct global smooth solutions starting from C1 strictly star-shaped hypersurfaces with bounded nonnegative weak anisotropic mean curvature. Combining this construction with the asymptotic theory for weak inverse anisotropic mean curvature flow, we show that weak solutions starting from bounded smooth initial sets become smooth outside a compact set. 
+
+Contents 
+
+1. Introduction 12. Preliminaries 53. Huisken–Ilmanen type Harnack estimate 11 4. Global smooth solutions under weak initial conditions 20 5. Higher regularity of the weak IAMCF 27 Acknowledgements 30 References 30 1. Introduction 
+
+Inverse mean curvature flow (IMCF) is the expanding geometric flow of hypersurfaces whose normal speed is the reciprocal of the mean curvature. In Euclidean space, a classical solution is a smooth family X : M n × [0 , T ] → Rn+1 (n ≥ 2) satisfying 
+
+∂∂t X(x, t ) = 1
+
+H(x, t ) ν(x, t ), (1.1) where H > 0 is the mean curvature and ν is the outward unit normal of Mt = X(M, t ). Gerhardt [11] and Urbas [22] proved that (1.1) has a global smooth solution when the initial hypersurface is smooth, star-shaped, and strictly mean convex. After suitable rescaling, the solution converges to a round sphere. 
+
+Date : July 3, 2026. 2020 Mathematics Subject Classification. 53C42, 53E10. 
+
+Key words and phrases. inverse anisotropic mean curvature flow, weak solution, regularity.  
+
+> 1
+> arXiv:2607.02067v1 [math.DG] 2 Jul 2026 2C. GAO, Y. WEI, AND R. ZHOU
+
+The weak theory of IMCF developed by Huisken and Ilmanen [16] allows one to start the flow from arbitrary smooth compact sets and to permit jumps of the level sets. This theory was a central ingredient in their proof of the Riemannian Penrose inequality. The regularity of such weak solutions is a subtle question because the equation degenerates where H approaches zero. In their higher regularity paper [17], Huisken and Ilmanen proved that strict star-shapedness compensates for this degeneracy and yields smooth solutions from weakly mean convex C1 data. We recall the form of their theorem that motivates the present work. 
+
+Theorem 1.1 (see [17, Theorem 2.5]) . Let X0 : M n → Rn+1 be a closed embedded hypersurface of class C1 with measurable, bounded, nonnegative weak mean curvature H ≥
+
+0. Assume that M0 = X0(M n) is strictly star-shaped, namely 
+
+0 < R 1 ≤ ⟨ X, ν ⟩ ≤ R2.
+
+Then IMCF has a global smooth solution X : M n × (0 , ∞) → Rn+1 . As t ↓ 0, Mt =
+
+X(M n, t ) converges to M0 uniformly in C0.
+
+The proof in [17] has two main ingredients. The first is a sharp lower bound for the mean curvature of star-shaped solutions, or equivalently a Harnack estimate for the speed. The second is an approximation lemma that replaces a weakly mean convex C1 initial hypersurface by smooth strictly mean convex hypersurfaces. These two ingredients give global smooth solutions from rough data. Combined with the asymptotic roundness of the level sets, they imply that weak IMCF becomes smooth after the first strictly star-shaped time [17, Theorem 2.7]. Related regularity results have since been obtained in other ambient spaces. Li and the second author [19] studied IMCF in Kottler spaces for star-shaped weakly mean convex initial hypersurfaces. Shi and Zhu [21] proved eventual smoothness and star-shapedness for weak IMCF in three-dimensional asymptotically hyperbolic manifolds, and this was extended to higher dimensions 3 ≤ n ≤ 7 by Harvie [14] for weak solutions in hyperbolic space. Harvie and Wang [15] also proved the analogous regularity results for the weak IMCF in asymptotically flat manifolds. The purpose of this paper is to prove an anisotropic counterpart of the higher regularity theorem of Huisken and Ilmanen [17]. Let F ∈ C∞(Rn+1 \ { 0}) be a Minkowski norm, so that F is a norm and D2( 12 F 2) is positive definite on Rn+1 \ { 0}. The associated inverse anisotropic mean curvature flow (IAMCF) is 
+
+∂∂t X(x, t ) = 1
+
+HF (x, t ) νF (x, t ), (1.2) where HF is the anisotropic mean curvature and νF is the anisotropic normal of Mt =
+
+X(M, t ). When the initial hypersurface is smooth, star-shaped, and strictly F -mean convex, Xia [25] proved the long-time existence of the flow (1.2) and convergence, after rescaling, to a rescaled Wulff shape. Weak IAMCF can be formulated through the anisotropic level set equation 
+
+
+
+div( DF (Du )) = F (Du ) in Rn+1 \ Ω,u = 0 on ∂Ω,u → ∞ as |x| → ∞ .
+
+(1.3) HIGHER REGULARITY OF THE INVERSE ANISOTROPIC MEAN CURVATURE FLOW 3
+
+If Et = {x ∈ Rn+1 : u(x) < t } and Mt = ∂E t, then the level sets of a solution to (1.3) represent weak IAMCF. Della Pietra, Gavitone and Xia [9] established existence and uniqueness of proper weak solutions in this setting. 
+
+Theorem 1.2 (see [9, Theorem 1.1]) . Let Ω ⊂ Rn+1 be an open bounded set with smooth boundary. Then there exists a unique proper weak solution u ∈ C0,1loc (Rn+1 \ Ω) of (1.3) in the sense of Subsection 2.4 with u = 0 on ∂Ω. Moreover, 
+
+F (Du (x)) ≤ sup 
+
+> ∂Ω
+
+H+ 
+
+> F
+
+, x ∈ Rn+1 \ Ω,
+
+and 
+
+F (Du (x)) ≤ H+ 
+
+> F
+
+(x), x ∈ ∂Ω,
+
+where H+ 
+
+> F
+
+= max {HF , 0} and HF is the anisotropic mean curvature of ∂Ω.
+
+Cabezas-Rivas, Moll and Solera [3] later obtained existence of weak IAMCF under weaker assumptions on both the anisotropy and the initial set. The authors [10] studied the asymptotic behavior of weak IAMCF and showed that the weak solution is asymptotic to the expanding Wulff shape solution. These results lead to the following question: do weak solutions of IAMCF become smooth after sufficiently large time, as in the isotropic theory of Huisken and Ilmanen [17]? We answer this question for an arbitrary smooth Minkowski norm. 1.1. Huisken–Ilmanen type Harnack estimate. We first prove a Huisken–Ilmanen type Harnack estimate for smooth star-shaped solutions of (1.2). It holds for an arbitrary smooth Minkowski norm F .For a hypersurface with Euclidean outward normal ν, we write 
+
+χ = ⟨X, ν ⟩
+
+F (ν)for its anisotropic support function. Thus strict anisotropic star-shapedness means χ > 0. 
+
+Theorem 1.3. Let F be a Minkowski norm, and X : M n × [0 , T ] → Rn+1 be a smooth closed solution to (1.2) with HF > 0. Assume that the initial hypersurface M0 = X(M, 0) 
+
+satisfies 
+
+0 < R 1 ≤ χ ≤ R2
+
+for some constants R1, R 2 > 0. Then there is a constant C = C(n, F ) > 0 such that 
+
+1
+
+HF
+
+≤ C(n, F )
+
+ R2
+
+R1
+
+ 32 
+
+1 + 1
+
+t 12
+
+
+
+R2e tn (1.4) 
+
+holds everywhere on M × (0 , T ].
+
+A key point of the estimate (1.4) is that it depends only on R1, R2, the dimension, and the fixed anisotropy, and does not depend on the initial anisotropic mean curvature. The proof is based on a pointwise maximum principle argument. Inspired by the al-ternative proof of the Huisken–Ilmanen estimate given by Choi and Daskalopoulos [4, Theorem A.5], we consider the auxiliary quantity 
+
+W = φ1−ε(w) e γG (νF )( X,X )
+
+HF
+
+,4 C. GAO, Y. WEI, AND R. ZHOU 
+
+where w = χ−1, G(νF )( X, X ) is the anisotropic analogue of |X|2, and φ, ε, and γ are chosen appropriately. Applying the maximum principle to tW on M × [0 , T ] gives a bound for the speed 1 /H F . This differs from the original proof of Huisken and Ilmanen [17], which combines the evolution of the support function and the mean curvature with the Michael–Simon Sobolev inequality and a Stampacchia iteration. In the anisotropic setting, the evolution equations contain extra terms involving the tensors Q and T associated with the dual norm, so that the Huisken–Ilmanen argument based on Sobolev inequality and iteration does not transfer directly. The maximum principle method allows these terms to be absorbed into constants depending on F , without imposing any additional assumptions on the anisotropy. 1.2. Higher regularity of IAMCF. The Harnack estimate gives a lower bound for HF
+
+along smooth star-shaped solutions, but to start the flow from rough weakly F -mean convex data one also needs an approximation theorem. We obtain this approximation by running anisotropic mean curvature flow for a short time. The smooth existence theorem below is the anisotropic counterpart of Theorem 1.1. 
+
+Theorem 1.4. Let F be a Minkowski norm. Let M0 = X0(M ) be a closed embedded hypersurface of class C1 with measurable, bounded, nonnegative weak anisotropic mean curvature HF ≥ 0. Assume that X0 is strictly star-shaped in the anisotropic sense that 
+
+0 < R 1 ≤ χ = ⟨X, ν ⟩
+
+F (ν) ≤ R2
+
+for some constants R1, R 2 > 0. Then IAMCF (1.2) has a global smooth solution X :
+
+M n × (0 , ∞) → Rn+1 . As t ↓ 0, Mt = X(M n, t ) converges to M0 uniformly in C0.
+
+The proof follows the two-step scheme of Huisken and Ilmanen [17], but both steps require new anisotropic ideas. The first step is the Harnack estimate of Subsection 1.1. Instead of the global integral argument in [17], we use the auxiliary-function maximum principle described above. This pointwise method is well suited to the anisotropic evolution equations, whose lower-order terms involve the tensors Q and T coming from derivatives of the dual norm. The second step is the approximation of the initial hypersurface. We first use elliptic regularity and radial mollification to obtain smooth approximants with a common C1,β 
+
+bound. We then run anisotropic mean curvature flow for a short time. A stopping-time ar-gument keeps the local graphical equations uniformly parabolic, while initial-time barriers, H¨ older-gradient estimates, interpolation and parabolic Schauder estimates yield uniform 
+
+C1 convergence and an integrable curvature bound. The strong maximum principle gives strict F -mean convexity of the limiting approximating hypersurfaces. Starting the smooth IAMCF from these approximations and using the Harnack estimate yields uniform esti-mates on compact time intervals away from t = 0, and a compactness argument gives the desired smooth solution. Combining Theorem 1.4 with the asymptotic behavior of the weak IAMCF yields our main regularity theorem for weak solutions starting from bounded smooth sets, which provides an anisotropic counterpart of Huisken–Ilmanen’s [17, Theorem 2.7]. 
+
+Theorem 1.5. Let F be a Minkowski norm. Let E0 = Ω ⊂ Rn+1 be a bounded open set with smooth boundary, and let u be the proper weak solution of IAMCF (1.3) starting HIGHER REGULARITY OF THE INVERSE ANISOTROPIC MEAN CURVATURE FLOW 5
+
+from Ω. Set Et = {x ∈ Rn+1 : u(x) < t } and M nt = ∂E t. Then there exists t0 ≥ 0 such that M nt0 is strictly star-shaped and of class C1. Moreover, M nt is smooth for every t > t 0.Equivalently, with K = Et0 , all level hypersurfaces are smooth in Rn+1 \ K.
+
+The proof uses the asymptotic behavior of weak IAMCF from our previous work [10]. Together with the weak gradient estimate, compactness for anisotropic almost minimizers, and small-excess regularity, it gives C1,β convergence of the rescaled level sets to a Wulff shape. Hence some large level set is strictly star-shaped and of class C1, with nonnegative bounded weak anisotropic mean curvature. Theorem 1.4 then gives a smooth classical continuation. Uniqueness in the weak formulation identifies this continuation with the original weak flow. The paper is organized as follows. Section 2 recalls the anisotropic geometry and the weak formulation of IAMCF. Section 3 proves the Harnack estimate. Section 4 constructs global smooth solutions from C1 weakly F -mean convex, strictly star-shaped initial hy-persurfaces. Section 5 proves eventual smoothness for weak solutions. 2. Preliminaries 
+
+In this section, we collect some preliminaries on anisotropic geometry and the weak formulation of inverse anisotropic mean curvature flow. 2.1. Minkowski norm and Wulff shape. We recall the definitions of the Minkowski norm and the Wulff shape. A function F ∈ C∞  Rn+1 \{ 0} is called a Minkowski norm if (1) F is a norm in Rn+1 , i.e., F is convex, even, 1-homogeneous with F (ξ) ≥ 0 for all 
+
+ξ ∈ Rn+1 , and F (ξ) = 0 if and only if ξ = 0. (2) F satisfies a uniformly elliptic condition: D2   12 F 2 is positive definite in Rn+1 \{ 0}.The dual norm of a Minkowski norm F is defined as 
+
+F ◦(x) := sup  
+
+> ξ̸=0
+
+⟨x, ξ ⟩
+
+F (ξ) , x ∈ Rn+1 , (2.1) and F ◦ is also a Minkowski norm in C∞  Rn+1 \{ 0}. From the definition (2.1), we have the anisotropic Cauchy–Schwarz inequality: 
+
+⟨x, ξ ⟩ ≤ F ◦(x)F (ξ), ∀ x, ξ ∈ Rn+1 (2.2) If x̸ = 0 and ξ̸ = 0, equality holds if and only if x = F ◦(x)DF (ξ) and ξ = F (ξ)DF ◦(x). The cases in which one vector vanishes are immediate. The following properties of F and F ◦ hold true, see e.g. [2, 5, 24]. 
+
+Lemma 2.1. For any x, ξ ∈ Rn+1 \{ 0}, we have 
+
+⟨DF (ξ), ξ ⟩ = F (ξ), ⟨DF ◦(x), x ⟩ = F ◦(x). (2.3) 
+
+F (DF ◦(x)) = 1 , F ◦ (DF (ξ)) = 1 , (2.4) 
+
+F ◦(x)DF (DF ◦(x)) = x, F (ξ)DF ◦ (DF (ξ)) = ξ. (2.5) 
+
+Here D denotes the standard gradient operator in Rn+1 .6 C. GAO, Y. WEI, AND R. ZHOU 
+
+Given a Minkowski norm F in Rn+1 , the associated Wulff shape is defined as 
+
+W := x ∈ Rn+1 : F ◦(x) < 1 .
+
+For x0 ∈ Rn+1 and r > 0, we denote by Wr(x0) = rW + x0 the scaled and translated Wulff shape, which satisfies 
+
+Wr(x0) = x ∈ Rn+1 : F ◦(x − x0) < r .
+
+When F is the Euclidean norm, Wr(x0) coincides with the Euclidean ball Br(x0) of radius 
+
+r centered at x0.2.2. Anisotropic curvatures for hypersurfaces. We recall the anisotropic geometry of hypersurfaces. More details can be found in [1], [24], and [25]. The Riemannian metric G with respect to F ◦ on Rn+1 is defined by 
+
+G(x)( V, W ) := 
+
+> n+1
+
+X
+
+> α,β =1
+
+∂2
+
+ 12 (F ◦)2 (x)
+
+
+
+∂x α∂x β V αW β , ∀ x ∈ Rn+1 \{ 0}, V, W ∈ TxRn+1 .
+
+Since the third and fourth derivatives of F ◦ do not generally vanish, for all x ∈ Rn+1 \{ 0}
+
+and U, V, W, Z ∈ TxRn+1 , we denote 
+
+Q(x)( U, V, W ) := 
+
+> n+1
+
+X
+
+> α,β,γ =1
+
+∂3
+
+ 12 (F ◦)2 (x)
+
+
+
+∂x α∂x β ∂x γ U αV β W γ ,
+
+and 
+
+T (x)( U, V, W, Z ) := 
+
+> n+1
+
+X
+
+> α,β,γ,δ =1
+
+∂4
+
+ 12 (F ◦)2 (x)
+
+
+
+∂x α∂x β ∂x γ ∂x δ U αV β W γ Zδ.
+
+Let X : M → Rn+1 be a hypersurface, and let ν denote its unit outward normal. The anisotropic Gauss map is a map νF : M → ∂W defined by 
+
+νF (p) := DF (ν(p)) = F (ν(p)) ν(p) + ∇Sn F (ν(p)) .
+
+The differential gives the anisotropic Weingarten map dνF : TpM → TνF (p)∂W,
+
+whose eigenvalues are called the anisotropic principal curvatures κF =  κF 
+
+> 1
+
+, κ F 
+
+> 2
+
+, · · · , κ Fn
+
+.Note that νF ∈ ∂W for p ∈ M , by (2.3) and (2.5) we have 
+
+G(νF )( νF , ν F ) = 1 , G(νF )( νF , V ) = 0 , for V ∈ TpM, Q(νF )( νF , V, W ) = 0 , for V, W ∈ Rn+1 . (2.6) Then the induced Riemannian metric on M ⊂ Rn+1 with respect to G is given by 
+
+g(p) := G (νF (p)) |TpM , p ∈ M. 
+
+Denote the covariant derivatives of g and G by ∇ and ˆD respectively, then the first and second fundamental form of ( M, g ) ⊂ (Rn+1 , G ) are 
+
+gij := G(νF )( ∂iX, ∂ j X), hij := G(νF )( ˆD∂i νF , ∂ j X).HIGHER REGULARITY OF THE INVERSE ANISOTROPIC MEAN CURVATURE FLOW 7
+
+In these notations, the anisotropic principal curvatures are eigenvalues of 
+
+ hij
+
+ =
+
+
+
+gik hkj 
+
+
+
+,
+
+and the anisotropic mean curvature with respect to F is the trace of h:
+
+HF = tr g(h) = gij hij .
+
+We say that M is strictly F -mean convex if HF > 0, and F -mean convex if HF ≥ 0. We have the following anisotropic Gauss–Weingarten type formulas and the anisotropic Gauss-Codazzi equation. 
+
+Lemma 2.2 (see [24, Lemma 6.7]) .
+
+∂i∂j X = − hij νF + ∇∂i ∂j X + gkℓ Aijℓ ∂kX (Gauss formula) (2.7) 
+
+∂iνF = gjk hij ∂kX (Weingarten formula) (2.8) 
+
+Rijkℓ = hik hjℓ − hiℓ hjk + ∇ℓAjki − ∇ kAjℓi 
+
++ gpm Ajkp Amℓi − gpm Ajℓp Amki 
+
+= hik hjℓ − hiℓ hjk + Dijkℓ (Gauss equation) 
+
+∇khij = ∇ihjk + hℓkAℓij − hℓi Aℓkj 
+
+= ∇ihjk + Cijk (Codazzi equation) (2.9) 
+
+Here R is the Riemannian curvature tensor of g defined by 
+
+Rijkl = g (∇k∇ℓ∂j − ∇ ℓ∇k∂j , ∂ i) ,
+
+and A, C are (0,3) tensors 
+
+Aijk = − 12
+
+
+
+hℓi Qjkℓ + hℓj Qiℓk − hℓkQijℓ 
+
+
+
+, (2.10) 
+
+Cijk = hℓkAℓij − hℓi Aℓkj ,
+
+and D is a (0,4) tensor 
+
+Dijkℓ = ∇ℓAjki − ∇ kAjℓi + gpm Ajkp Amℓi − gpm Ajℓp Amki ,
+
+where Qijk = Q(νF )( ∂iX, ∂ j X, ∂ kX).
+
+Let d μ be the area element of the hypersurface M in ( Rn+1 , δ ) with respect to the induced metric from the Euclidean metric, the anisotropic area element of M with respect to F is defined by dμF = F (ν)d μ. 
+
+For a smooth hypersurface M we write 
+
+|M |F := 
+
+Z
+
+> M
+
+dμF ,
+
+and, for a set E of locally finite perimeter and an open set U ,
+
+PF (E; U ) := 
+
+Z
+
+> ∂∗E∩U
+
+F (νE ) d Hn.8 C. GAO, Y. WEI, AND R. ZHOU 
+
+Lemma 2.3 (see [24, Lemma 2.8]) . Let dμg be the induced metric volume form of (M, g ).Assume that 
+
+dμF = F (ν)d μ = φdμg,
+
+then ∇i log φ = gjk Aijk . Consequently, for any two functions f1, f 2 ∈ C∞(M ), we have the integration by parts: 
+
+Z
+
+> M
+
+f1
+
+
+
+∆f2 + gjk Aijk ∇if2
+
+
+
+dμF = −
+
+Z
+
+> M
+
+⟨∇ f1, ∇f2⟩gdμ F . (2.11) The anisotropic support function of M with respect to F is defined as 
+
+χ = G(νF )( νF , X ).
+
+Using (2.3), (2.5) and (2.2), we see that 
+
+χ = G(νF )( νF , X ) = ⟨DF ◦(DF (ν)) , X ⟩ = ⟨X, ν ⟩
+
+F (ν) ≤ F ◦(X). (2.12) If M = ∂W, then νF (X) = X, χ = 1, hij = gij and HF = n.2.3. Anisotropic mean curvature flow. We recall some basic results on anisotropic mean curvature flow, which will be used in Subsection 4.1 for smoothing a C1 hypersurface. More details can be found in [1], [23] and [6]. The anisotropic mean curvature flow (AMCF) is a family of immersions X : M n ×
+
+[0 , T ) → Rn+1 satisfying the equation 
+
+∂tX = −HF νF , (2.13) where HF is the anisotropic mean curvature of Mt = X(M, t ) and νF is the anisotropic normal vector. We have the following evolution equations along AMCF. 
+
+Lemma 2.4. Along AMCF (2.13) , the following evolution equations hold: 
+
+∂tdμF = − H2 
+
+> F
+
+dμF , (2.14) 
+
+∂thji =∇j ∇iHF + HF (h2)ji + gjk Apik ∇pHF , (2.15) 
+
+∂tHF =∆ HF + HF |h|2 
+
+> g
+
++ gik Apik ∇pHF . (2.16) Let {e0, e 1, ..., e n} be a basis of Rn+1 with dual basis {ϕ0, ϕ 1, ..., ϕ n}. Consider a graph-like hypersurface M defined through local embeddings 
+
+x = yiei + u(y1, ..., y n)e0,
+
+where y1, · · · , y n are local coordinates on M . The unit normal field is given by 
+
+ν = Du − ϕ0
+
+p1 + |Du |2 =
+
+Pni=1 uiϕi − ϕ0
+
+p1 + |Du |2 ,
+
+where ui = ∂u ∂y i . The anisotropic mean curvature of M and the squared norm of the anisotropic second fundamental form with respect to g have the form 
+
+HF = uij DiDj F |Du −ϕ0 ,
+
+|h|2 
+
+> g
+
+= DiDkF |Du −ϕ0 Dj DℓF |Du −ϕ0 uij ukℓ ,HIGHER REGULARITY OF THE INVERSE ANISOTROPIC MEAN CURVATURE FLOW 9
+
+where uij = ∂2u∂y i∂y j denotes the second-order derivatives. Then the anisotropic mean curvature flow of the graph hypersurface M is equivalent to the following PDE 
+
+∂tu = F D 2F |Du −ϕ0 (ϕi, ϕ j )D2u(ei, e j ).
+
+For later use, set 
+
+Aij (p) := F (p − ϕ0)D2F |p−ϕ0 (ϕi, ϕ j ). (2.17) For every K < ∞ there are constants 0 < λ K ≤ ΛK < ∞, depending only on F , K, and the fixed basis, such that 
+
+λK |ξ|2 ≤ Aij (p)ξiξj ≤ ΛK |ξ|2, |p| ≤ K. (2.18) Indeed, p − ϕ0 ranges over a compact subset of Rn+1 \ { 0}, and no nonzero covector in span {ϕ1, . . . , ϕ n} is parallel to p−ϕ0. Thus the strict convexity of F in nonradial directions and compactness give (2.18). 2.4. Weak inverse anisotropic mean curvature flow. Suppose that Mt is a smooth solution to the IAMCF (1.2), and can be given by level sets Mt = ∂E t of a function 
+
+u : Rn+1 → R, with Et = {x ∈ Rn+1 : u(x) < t }. If u is smooth and Du ̸ = 0, then (1.2) is equivalent to the degenerate elliptic equation div( DF (Du )) = F (Du ) (2.19) in Rn+1 \ Ω and Ω = {u < 0}.The weak solution of (2.19) was defined in [9] via the minimizing principle as in Huisken– Ilmanen [16] for the isotropic case. Given an open bounded set Ω ⊂ Rn+1 with smooth boundary, a locally Lipschitz function u on Rn+1 is called a weak IAMCF starting from Ω, if for every locally Lipschitz function φ with {u̸ = φ} ⊂⊂ Rn+1 \ Ω and any compact set K ⊂ Rn+1 \ Ω containing {u̸ = φ} we have 
+
+JKF,u (u) ≤ JKF,u (φ)and Ω = {u < 0}, where the functional is defined as 
+
+JKF,u (φ) = 
+
+Z
+
+> K
+
+[F (Dφ ) + φF (Du )] d x. 
+
+We say that u is a proper solution if in addition lim  
+
+> |x|→ +∞
+
+u(x) = + ∞.The weak solution of (2.19) can also be defined by set functional. 
+
+Definition 2.5. We say that E minimizes JF,u in a set U (minimizes on the outside, minimizes on the inside, resp.) if 
+
+JKF,u (E) ≤ JKF,u (G)for any G such that E△G ⊂⊂ U (G ⊃ E, G ⊂ E resp.) and any compact set K containing 
+
+E△G. Here E△G = ( E\G) ∪ (G\E), and 
+
+JKF,u (G) = 
+
+Z
+
+> ∂∗G∩K
+
+F (ν)d Hn −
+
+Z
+
+> G∩K
+
+F (Du )d x
+
+for a set G of locally finite perimeter, and ∂∗G denotes the reduced boundary of G.10 C. GAO, Y. WEI, AND R. ZHOU 
+
+Then a locally Lipschitz function u on Rn+1 is a weak solution of IAMCF if for each 
+
+t > 0, Et = {u < t } minimizes JF,u in Rn+1 \ Ω in the sense of Definition 2.5. Therefore, we also say that Et is a weak solution of IAMCF with initial data E0 = Ω. We have the following comparison principle: 
+
+Lemma 2.6 (see [9, Proposition 3.3]) . Let {Et}t> 0 and {Ft}t> 0 be two weak solutions of IAMCF with initial data E0, F0 respectively, and E0 ⊂ F0, then Et ⊂ Ft as long as Et is precompact. In particular, for a given E0 there exists at most one solution {Et}t> 0 of (2.19) such that Et is precompact. 
+
+The following lemma says that a classical solution to IAMCF (1.2) is also a weak solution to IAMCF (1.3). 
+
+Lemma 2.7 (see [10, Lemma 2.5]) . Let {Mt}c≤t<d be a smooth family of hypersurfaces with positive anisotropic mean curvature that solves (1.2) classically. Let u = t on Mt,
+
+u < c in the region bounded by Mc, and set Et = {x ∈ Rn+1 : u(x) < t }. Then for 
+
+c ≤ t < d , Et minimizes JF,u in Ed\Ec in the sense of Definition 2.5. In other words, smooth flows of IAMCF satisfy the weak formulation in the domain they foliate. 
+
+The weak anisotropic mean curvature is defined by the first variational formula. 
+
+Definition 2.8. Let M n ⊂ Rn+1 be a hypersurface of C1 or C1 with a small singular set and locally finite Hausdorff measure. A locally integrable function HF on M is called weak anisotropic mean curvature if it satisfies 
+
+Z 
+
+> Mn
+
+div F,M (V )F (ν)d Hn =
+
+Z 
+
+> Mn
+
+HF ⟨V, ν ⟩dHn, (2.20) for any vector fields V ∈ C∞ 
+
+> c
+
+(Rn+1 ), where div F,M (V ) = div( V ) −
+
+
+
+DνF V, νF (ν)
+
+
+
+.Let u be a weak solution of (1.3) with initial data E0 and let Mt = ∂{u < t }. Then for a.e. t, the weak anisotropic mean curvature HF of Mt satisfies (see [9, Proposition 3.5]) 
+
+HF = F (Du ) a.e. x ∈ Mt. (2.21) Finally, the following gradient estimate and asymptotic Wulff shape property of the weak IAMCF were proved recently by the authors [10], which will be used in Section 5 to show that for sufficiently large time the level sets are strictly star-shaped. 
+
+Lemma 2.9 (see [10, Corollary 1.5]) . Let u be the weak solution of IAMCF (1.3) start-ing from an open bounded set Ω ⊂ Rn+1 with smooth boundary. After translating the coordinates so that 0 ∈ Ω, there exists a constant C = C(n, F, Ω) > 0 such that 
+
+F (Du )( x) ≤ CF ◦(x) (2.22) 
+
+for a.e. x ∈ Rn+1 \ Ω.
+
+Theorem 2.10 (see [10, Theorem 1.6]) . Let u be the weak solution of IAMCF (1.3) 
+
+starting from an open bounded set Ω ⊂ Rn+1 with smooth boundary ∂Ω. Then 
+
+u(x) = n log F ◦(x) + log 
+
+ |∂W| F
+
+|∂Ω∗|F
+
+
+
++ o(1) as F ◦(x) → ∞ ,HIGHER REGULARITY OF THE INVERSE ANISOTROPIC MEAN CURVATURE FLOW 11 
+
+where Ω∗ is the strictly outward F -minimizing hull of Ω. Moreover, the expanding Wulff shape is the only solution to (1.3) on Rn+1 \{ 0} with compact level sets. 
+
+3. Huisken–Ilmanen type Harnack estimate 
+
+In this section, we prove Theorem 1.3. The estimate shows that the upper bound for 1/H F depends only on the initial star-shaped constants R1, R2, the dimension n, and the anisotropy F . In particular, the lower bound of HF along the flow (1.2) is independent of the initial curvature. The proof employs the maximum principle applied to a suitably chosen auxiliary func-tion, with estimates performed at its space-time maximum point. This section proceeds in three parts. We first bound the anisotropic support function under strict star-shapedness. Next, we derive the evolution equation for G(νF )( X, X ), the anisotropic analogue of |X|2.Finally, we combine these results to prove Theorem 1.3. The following evolution equations along smooth IAMCF (1.2) are standard. 
+
+Lemma 3.1 (see [25, Proposition 4.1]) . Along IAMCF (1.2) , some quantities of smooth solutions Mt with HF > 0 evolve by 
+
+∂tνF = ∇HF
+
+H2
+
+> F
+
+, (3.1) 
+
+∂tdμF =d μF , (3.2) 
+
+∂tHF = 1
+
+H2
+
+> F
+
+
+
+∆HF + gik Apik ∇pHF
+
+
+
+− 2 |∇ HF |2
+
+> g
+
+H3
+
+> F
+
+− |h|2
+
+> g
+
+HF
+
+, (3.3) 
+
+∂tχ = 1
+
+H2
+
+> F
+
+
+
+∆χ + gik Apik ∇pχ
+
+
+
++ |h|2
+
+> g
+
+H2
+
+> F
+
+χ. (3.4) 3.1. Bounds on the anisotropic support function. Lemma 3.2. If the initial hypersurface M0 satisfies 
+
+0 < R 1 ≤ χ ≤ R2,
+
+then the solution Mt of IAMCF (1.2) satisfies 
+
+R1e tn ≤ χ ≤ F ◦(X) ≤ R2e tn (3.5) 
+
+on Mt for every time for which the smooth solution exists. Proof. We first prove the lower bound of χ. By the inequality |h|2 
+
+> g
+
+≥ H2 
+
+> F
+
+/n , the evolution equation (3.4) of the anisotropic support function χ gives 
+
+∂tχ ≥ 1
+
+H2
+
+> F
+
+
+
+∆χ + gik Apik ∇pχ
+
+
+
++ 1
+
+n χ. 
+
+Since initially χ ≥ R1, the maximum principle implies the lower bound 
+
+χ ≥ R1e tn on Mt.12 C. GAO, Y. WEI, AND R. ZHOU 
+
+Next, we derive an upper bound for the anisotropic distance F ◦(X). Along the flow (1.2), the evolution equation of F ◦(X) is given by 
+
+∂t (F ◦(X)) = DF ◦(X) · ∂tX = DF ◦(X) · νF
+
+HF
+
+. (3.6) Let α(t) = max 
+
+> Mt
+
+F ◦(X) be the maximum value of the anisotropic distance on Mt at time t,which is positive, and let P be a maximizing point. Then Mt lies inside the scaled Wulff shape α(t)W and is tangent to it at P from the inside. The comparison implies that at the point P ,
+
+HF ≥ n/α (t). (3.7) Moreover, the anisotropic normal of Mt at P coincides with the radial direction 
+
+νF (P ) = PF ◦(P ) ,
+
+which follows from the 1-homogeneity of F ◦. Using property (2.3) we compute 
+
+DF ◦(P ) · νF (P ) = DF ◦(P ) · PF ◦(P ) = 1 . (3.8) Combining (3.6), (3.7) and (3.8), Hamilton’s maximum principle [13, Lemma 3.5] gives, 
+
+ddt α(t) ≤ 1
+
+n α(t). (3.9) At a point where F ◦(X) attains its initial maximum, M0 is tangent from the inside to a Wulff shape centered at the origin. At this point νF = X/F ◦(X), and hence χ = F ◦(X). Therefore max M0 F ◦(X) = max M0 χ ≤ R2. The inequality (3.9) implies 
+
+F ◦(X) ≤ R2e tn on Mt.
+
+Finally, by the inequality χ ≤ F ◦(X) (see (2.12)), we complete the proof. □
+
+3.2. Evolution equation of G(νF )( X, X ).Lemma 3.3. Along the flow (1.2) , the quantity G(νF )( X, X ) evolves by 
+
+
+
+∂t − 1
+
+H2
+
+> F
+
+∆ − 1
+
+H2
+
+> F
+
+gik Apik ∇p
+
+
+
+G(νF )( X, X )= 4χHF
+
+− 2nH2
+
+> F
+
+− 2
+
+H2
+
+> F
+
+hpℓ Q(νF )( Xp, X ℓ, X )+ 1
+
+H2
+
+> F
+
+hsphpk gqℓ Qkqs Q(νF )( Xℓ, X, X )
+
+− 1
+
+H2
+
+> F
+
+hpℓ hkp T (νF )( Xk, X ℓ, X, X ), (3.10) 
+
+where we denote hij = gik hkℓ gℓj .Proof. We compute at a fixed point and choose an orthonormal basis with respect to 
+
+∇ around that point. We will start with the time derivative, then work out the first and second covariant derivatives, take the Laplacian, add the first-order term, handle the derivative of Q(νF )( Xℓ, X, X ), and finally put everything together to obtain the evolution equation (3.10). HIGHER REGULARITY OF THE INVERSE ANISOTROPIC MEAN CURVATURE FLOW 13 
+
+First, using the flow equation (1.2) and evolution equation (3.1) for νF , we obtain 
+
+∂t (G(νF )( X, X )) =2 G(νF )( ∂tX, X ) + Q(νF )( ∂tνF , X, X )=2 χHF
+
++ 1
+
+H2
+
+> F
+
+∇ℓHF Q(νF )( Xℓ, X, X ). (3.11) Next, the Weingarten formula (2.8) gives the first covariant derivative: 
+
+∇p (G(νF )( X, X )) =2 G(νF )( Xp, X ) + Q(νF )( ∂pνF , X, X )=2 G(νF )( Xp, X ) + hℓpQ(νF )( Xℓ, X, X ). (3.12) For the second covariant derivative, we employ the Gauss-Weingarten formula (2.7), (2.8) and the Codazzi equation (2.9). A direct computation gives 
+
+∇q∇p (G(νF )( X, X )) =2 G(νF )( ∂q∂pX, X ) + 2 gpq + 2 hℓqQ(νF )( Xℓ, X p, X )+ ∇qhℓpQ(νF )( Xℓ, X, X ) + hℓp∇q (Q(νF )( Xℓ, X, X )) = − 2hpq χ + 2 gkℓ Apqk G(νF )( Xℓ, X )+ 2 gpq + 2 hℓqQ(νF )( Xℓ, X p, X )+
+
+
+
+∇ℓhpq + gmℓ hsqAsmp − hℓs Asqp 
+
+
+
+Q(νF )( Xℓ, X, X )+ hℓp∇q (Q(νF )( Xℓ, X, X )) . (3.13) Taking the trace of (3.13) with respect to the metric g yields ∆ ( G(νF )( X, X )) = gpq ∇q∇p (G(νF )( X, X )) = − 2HF χ + 2 n + 2 gpq gkℓ Apqk G(νF )( Xℓ, X )+ 2 hpℓ Q(νF )( Xℓ, X p, X )+
+
+
+
+∇ℓHF + gmℓ hsp Asmp − gpq hℓs Asqp 
+
+
+
+Q(νF )( Xℓ, X, X )+ hpℓ ∇p (Q(νF )( Xℓ, X, X )) . (3.14) Combining the two equations (3.12) and (3.14), we find ∆ ( G(νF )( X, X )) + gik Apik ∇p (G(νF )( X, X )) = − 2HF χ + 2 n + ∇ℓHF Q(νF )( Xℓ, X, X )+2 hpℓ Q(νF )( Xℓ, X p, X ) + 
+
+
+
+2gpq gkℓ Apqk + 2 gik gpℓ Apik 
+
+
+
+G(νF )( Xℓ, X )
+
+| {z }
+
+> (a)
+
++ gmℓ hps Asmp Q(νF )( Xℓ, X, X ) + hpℓ ∇p (Q(νF )( Xℓ, X, X )) . (3.15) The term ( a) vanishes. Indeed, using (2.6), the decomposition of XX = gkℓ G(νF )( X, X k)Xℓ + G(νF )( X, ν F )νF ,
+
+the symmetry of Q and the definition of Aijk (see (2.10)), one finds (a) = 2 ( Apik + Aikp + hmi Qkpm ) gpℓ gik G(νF )( Xℓ, X ) = 0 . (3.16) 14 C. GAO, Y. WEI, AND R. ZHOU 
+
+To handle the ∇Q term in (3.15), we apply property (2.6) and the Gauss-Weingarten formula (2.7) (2.8) to obtain 
+
+hpℓ ∇p (Q(νF )( Xℓ, X, X )) = hpℓ Q(νF )( ∂p∂ℓX, X, X )+ 2 hpℓ Q(νF )( Xℓ, X p, X )+ hpℓ T (νF )( ∂pνF , X ℓ, X, X )=gqℓ hpk Apkq Q(νF )( Xℓ, X, X )+ 2 hpℓ Q(νF )( Xℓ, X p, X )+ hpℓ hkp T (νF )( Xk, X ℓ, X, X ). (3.17) Substituting (3.16) and (3.17) into (3.15) gives ∆ ( G(νF )( X, X )) + gik Apik ∇p (G(νF )( X, X )) = − 2HF χ + 2 n + ∇ℓHF Q(νF )( Xℓ, X, X )+
+
+
+
+gmℓ hps Asmp + gqℓ hpk Apkq 
+
+
+
+Q(νF )( Xℓ, X, X )
+
+| {z }
+
+> (b)
+
++ 2 hpℓ Q(νF )( Xℓ, X p, X ) + hpℓ hkp T (νF )( Xk, X ℓ, X, X ).
+
+Using the explicit expression of Aijk in (2.10), the term ( b) simplifies to (b) = −hsphpk gqℓ Qkqs Q(νF )( Xℓ, X, X ).
+
+Therefore, ∆ ( G(νF )( X, X )) + gik Apik ∇p (G(νF )( X, X )) = − 2HF χ + 2 n + ∇ℓHF Q(νF )( Xℓ, X, X )
+
+− hsphpk gqℓ Qkqs Q(νF )( Xℓ, X, X )+ 2 hpℓ Q(νF )( Xℓ, X p, X ) + hpℓ hkp T (νF )( Xk, X ℓ, X, X ). (3.18) Finally, combining (3.11) and (3.18), we obtain (3.10). □
+
+3.3. Proof of Theorem 1.3. Since (3.5) holds for all times under consideration, we set 
+
+w := χ−1 and consider the auxiliary function 
+
+W := φ1−ε(w)e γG (νF )( X,X )
+
+HF
+
+, (3.19) where φ := φ(w) is a function to be chosen, and γ > 0, ε ∈ (0 , 1) are constants to be determined later. The main idea is to apply the parabolic maximum principle at a maximum point of ln( tW ) on M × [0 , T ]. This converts the initial star-shaped bounds R1 ≤ χ ≤ R2 into an explicit upper bound for 1 /H F . The exponential growth of χ (see (3.5)) then propagates the estimate to all times. We divide the proof into several steps. 
+
+Step 1. Evolution equation for ln W . Denote the operator 
+
+L := ∂t − 1
+
+H2
+
+> F
+
+∆ − 1
+
+H2
+
+> F
+
+gik Apik ∇p.HIGHER REGULARITY OF THE INVERSE ANISOTROPIC MEAN CURVATURE FLOW 15 
+
+By (3.4), 
+
+L w = − |h|2
+
+> g
+
+H2
+
+> F
+
+w − 2|∇ w|2
+
+> g
+
+wH 2
+
+> F
+
+.
+
+Hence on {φ̸ = 0 } we have 
+
+L ln φ = − |h|2
+
+> g
+
+H2
+
+> F
+
+φ′wφ − |∇ w|2
+
+> g
+
+H2
+
+> F
+
+
+
+2 φ′
+
+wφ + φ′′ 
+
+φ − φ′2
+
+φ2
+
+
+
+. (3.20) To simplify the gradient terms in (3.20), we choose 
+
+φ(s) := s
+
+2R−11 − s .
+
+Then φ := φ(w) is well defined since 
+
+R−12 e− tn ≤ w ≤ R−11 e− tn ≤ R−11 . (3.21) Under the notation φ′ = φ′(w) and φ′′ = φ′′ (w), and after a direct computation, we have 
+
+φ′wφ = 22 − wR 1
+
+and 2 φ′
+
+wφ + φ′′ 
+
+φ − φ′2
+
+φ2 = φ′2
+
+φ2 . (3.22) Combining (3.20) and (3.22) yields 
+
+L ln φ = − |h|2
+
+> g
+
+H2
+
+> F
+
+φ′wφ − 1
+
+H2
+
+> F
+
+|∇ φ|2
+
+> g
+
+φ2 . (3.23) Moreover, evolution equation (3.3) implies 
+
+L ln HF = − |∇ HF |2
+
+> g
+
+H4
+
+> F
+
+− |h|2
+
+> g
+
+H2
+
+> F
+
+. (3.24) Therefore, combining (3.10), (3.23) and (3.24), we obtain 
+
+L ln W =
+
+" |∇ HF |2
+
+> g
+
+H4
+
+> F
+
++ |h|2
+
+> g
+
+H2
+
+> F
+
+#
+
+− (1 − ε)
+
+" |h|2
+
+> g
+
+H2
+
+> F
+
+φ′wφ + 1
+
+H2
+
+> F
+
+|∇ φ|2
+
+> g
+
+φ2
+
+#
+
++ γ
+
+ 4
+
+HF w − 2nH2
+
+> F
+
+
+
+− 2γH2
+
+> F
+
+hpℓ Q(νF )( Xp, X ℓ, X )+ γ 1
+
+H2
+
+> F
+
+hsphpk gqℓ Qkqs Q(νF )( Xℓ, X, X )
+
+− γ 1
+
+H2
+
+> F
+
+hpℓ hkp T (νF )( Xk, X ℓ, X, X ). (3.25) 
+
+Step 2. Gradient estimate at a critical point. Suppose the positive maximum of ˜W := tW on M × [0 , T ] is attained at some point ( p0, t 0) with t0 > 0. If t0 = T , time derivatives below are understood from the left. The same parabolic maximum-principle inequality holds. At this maximum point we have 
+
+∇ ln W (p0, t 0) = 0 .
+
+This implies 0 = ∇WW = (1 − ε) ∇φφ + γ ∇  eG(νF )( X,X )
+
+eG(νF )( X,X ) + ∇H−1
+
+> F
+
+H−1
+
+> F
+
+.16 C. GAO, Y. WEI, AND R. ZHOU 
+
+By the Cauchy–Schwarz inequality, we obtain 
+
+∇H−1
+
+> F
+
+H−1
+
+> F
+> 2
+> g
+
+= (1 − ε) ∇φφ + γ ∇  eG(νF )( X,X )
+
+eG(νF )( X,X )
+
+> 2
+> g
+
+=(1 − ε)2 ∇φφ
+
+> 2
+> g
+
++ γ2 ∇  eG(νF )( X,X )
+
+eG(νF )( X,X )
+
+> 2
+> g
+
++ 2(1 − ε)γ
+
+*
+
+∇φφ , ∇  eG(νF )( X,X )
+
+eG(νF )( X,X )
+
++
+
+> g
+
+≤
+
+
+
+(1 − ε)2 + ε(1 − ε)
+
+ ∇φφ
+
+> 2
+> g
+
++
+
+
+
+1 + 1 − εε
+
+
+
+γ2 ∇eG(νF )( X,X )
+
+eG(νF )( X,X )
+
+> 2
+> g
+
+=(1 − ε) |∇ φ|2
+
+> g
+
+φ2 + ε−1γ2 |∇ eG(νF )( X,X )|2
+
+> g
+
+e2G(νF )( X,X ) . (3.26) Therefore, at ( p0, t 0), substituting (3.26) into (3.25) and using (3.22) gives 
+
+L ln W ≤ − 
+
+ wR 1 − 2ε
+
+2 − wR 1
+
+ |h|2
+
+> g
+
+H2
+
+> F
+
++ γ
+
+ 4
+
+HF w − 2nH2
+
+> F
+
+
+
++ ε−1γ2 |∇ G(νF )( X, X )|2
+
+> g
+
+H2
+
+> F
+
+− γ 2
+
+H2
+
+> F
+
+hpℓ Q(νF )( Xp, X ℓ, X )
+
+| {z }
+
+> (I)
+
++ γ 1
+
+H2
+
+> F
+
+hsphpk gqℓ Qkqs Q(νF )( Xℓ, X, X )
+
+| {z }
+
+> (II )
+
+− γ 1
+
+H2
+
+> F
+
+hpℓ hkp T (νF )( Xk, X ℓ, X, X )
+
+| {z }
+
+> (III )
+
+. (3.27) 
+
+Step 3. Estimates for the anisotropic terms. We estimate the anisotropic terms. By (3.12), 
+
+|∇ G(νF )( X, X )|2 
+
+> g
+
+=gpq ∇p (G(νF )( X, X )) ∇q (G(νF )( X, X )) =4 gpq G(νF )( Xp, X )G(νF )( Xq, X )
+
+| {z } 
+
+> (IV )
+
++ 4 hpℓ G(νF )( Xp, X )Q(νF )( Xℓ, X, X )
+
+| {z } 
+
+> (V)
+
++ hqℓ hsqQ(νF )( Xℓ, X, X )Q(νF )( Xs, X, X )
+
+| {z }
+
+> (V I )
+
+. (3.28) HIGHER REGULARITY OF THE INVERSE ANISOTROPIC MEAN CURVATURE FLOW 17 
+
+Since F is a Minkowski norm and F ◦(νF ) = 1, the vector νF lies on the compact Wulff shape ∂W. Hence, all derivatives of F ◦ and hence the associated tensors G, Q, T are uniformly bounded on ∂W, yielding a constant C(n, F ) that depends only on n and F . In the following estimates, C(n, F ) denotes such a constant, which may change from line to line but always depends only on n and F . We also use the equivalence of norms in finite dimension: 
+
+|Y | ≤ C(F )F ◦(Y ) for all Y ∈ Rn+1 .
+
+Together with (3.5), this gives |X| ≤ C(F )R2eT /n on M ×[0 , T ]. In a g-orthonormal frame the tangent vectors Xi have Euclidean length bounded by a constant depending only on 
+
+F , because G(νF ) is uniformly equivalent to the Euclidean metric on ∂W. Using these facts, we first bound ( IV ): 
+
+|(IV )| =gpq G(νF )( Xp, X )G(νF )( Xq, X )
+
+≤G(νF )( X, X )
+
+≤C(n, F )|X|2
+
+≤C(n, F )R22e2 Tn . (3.29) For the remaining terms, we apply (3.5) together with the Cauchy–Schwarz inequality: 
+
+|(I)| ≤ C(n, F )|h|g|X| ≤ C(n, F )εγ −1|h|2 
+
+> g
+
++ C(n, F )ε−1γR 22e2 Tn ,
+
+|(II )| , |(III )| ≤ C(n, F )|h|2
+
+> g
+
+|X|2 ≤ C(n, F )|h|2
+
+> g
+
+R22e2 Tn ,
+
+|(V )| ≤ C(n, F )|h|g|X|3 ≤ C(n, F )|h|2
+
+> g
+
+R42e4 Tn + C(n, F )R22e2 Tn ,
+
+|(V I )| ≤ C(n, F )|h|2
+
+> g
+
+|X|4 ≤ C(n, F )|h|2
+
+> g
+
+R42e4 Tn . (3.30) Here the estimates for ( I) involve the parameters ε, γ to be chosen later. Now we combine the evolution equation (3.27) with the bounds above (3.28), (3.29) and (3.30). At ( p0, t 0) we obtain 
+
+L ln W ≤
+
+
+
+− wR 1 − 2ε
+
+2 − wR 1
+
++ C1ε + C2γR 22e2 Tn + ε−1γ2C3R42e4 Tn
+
+| {z }
+
+> (A)
+
+|h|2
+
+> g
+
+H2
+
+> F
+
++ γ 4
+
+HF w − 2nH2
+
+> F
+
++ ε−1γC 4R22e2 Tn
+
+H2
+
+> F
+
+!| {z }
+
+> (B)
+
+, (3.31) where C1, C 2, C 3, C 4 are constants depending only on n and F .
+
+Step 4. Parameter choice. We first require that ε and γ satisfy 
+
+ε−1γC 4(n, F )R22e2 Tn = n. (3.32) Then the term ( B) becomes (B) = − nH2
+
+> F
+
++ 4
+
+HF w ≤ − n
+
+2H2
+
+> F
+
++ 8
+
+n R22e2 Tn ,18 C. GAO, Y. WEI, AND R. ZHOU 
+
+where we used the Cauchy–Schwarz inequality and (3.5) to obtain 4
+
+HF w ≤ 8
+
+nw 2 + n
+
+2H2
+
+> F
+
+≤ 8
+
+n R22e2 Tn + n
+
+2H2
+
+> F
+
+.
+
+We then choose appropriate ε to ensure that ( A) is nonpositive. Note that (3.21) implies 
+
+R1
+
+R2e Tn
+
+≤ wR 1 ≤ 1,
+
+then 
+
+wR 1 − 2ε
+
+2 − wR 1
+
+≥ R1 − 2εR 2e Tn
+
+2R2e Tn − R1
+
+. (3.33) Hence (3.32) and (3.33) yields (A) ≤ − R1
+
+2R2e Tn − R1
+
++ ε 2R2e Tn
+
+2R2e Tn − R1
+
++ C5(n, F )
+
+!
+
+.
+
+We can choose 
+
+ε = 12
+
+R1
+
+2(1 + C5(n, F )) R2e Tn − C5(n, F )R1
+
+∈ (0 , 1) (3.34) such that ( A) ≤ 0. Therefore, at ( p0, t 0), 
+
+L ln W ≤ γ
+
+
+
+− n
+
+2H2
+
+> F
+
++ 8
+
+n R22e2 Tn
+
+
+
+. (3.35) 
+
+Step 5. Maximum principle argument. We now apply the maximum principle to the function ˜W = tW on M × [0 , T ]. Suppose that the positive maximum of ˜W is attained at some point ( p0, t 0) with t0 > 0. Using (3.35) at ( p0, t 0), we have 0 ≤ L ln ˜W (p0, t 0) ≤ γ
+
+
+
+− n
+
+2H2
+
+> F
+
++ 8
+
+n R22e2 Tn
+
+
+
++ 1
+
+t0
+
+. (3.36) Since φ is increasing in w, inequality (3.21) implies 
+
+R1
+
+2R2e Tn
+
+≤ φ
+
+
+
+R2e Tn
+
+−1
+
+≤ φ(w) ≤ φ(R−11 ) = 1 .
+
+Furthermore, the choice of γ in (3.32), the bound (3.5), and the equivalence of G(νF ) with the Euclidean metric give 0 ≤ γG (νF )( X, X ) ≤ C(n, F )γR 22e2T /n ≤ C(n, F )ε ≤ C(n, F ).
+
+Hence 1 ≤ e2γG (νF )( X,X ) ≤ C(n, F ). (3.37) Combining the definition (3.19), (3.36)–(3.37), and the choice of ε in (3.34), we deduce ˜W 2(p0, t 0) ≤C(n, F )
+
+
+
+R2e Tn
+
+2  T 2 + ε−1T 
+
+≤C(n, F )
+
+
+
+R2e Tn
+
+2 
+
+T 2 + R2
+
+R1
+
+e Tn T
+
+
+
+≤C(n, F )
+
+
+
+R2e Tn
+
+2 R2
+
+R1
+
+e Tn T 2
+
+
+
+1 + 1
+
+T
+
+
+
+.HIGHER REGULARITY OF THE INVERSE ANISOTROPIC MEAN CURVATURE FLOW 19 
+
+Consequently, for any p ∈ MT ,1
+
+H2
+
+> F
+
+(p, T )T 2 R1
+
+2R2e Tn
+
+!2−2ε
+
+≤ ˜W 2(p, T )
+
+≤C(n, F )
+
+
+
+R2e Tn
+
+2 R2
+
+R1
+
+e Tn T 2
+
+
+
+1 + 1
+
+T
+
+
+
+.
+
+Therefore, for every T > 0 and every p ∈ MT , we have the estimate 1
+
+H2
+
+> F
+
+(p, T ) ≤ C(n, F )
+
+ R2
+
+R1
+
+e Tn
+
+3−2ε 
+
+R2e Tn
+
+2 
+
+1 + 1
+
+T
+
+
+
+. (3.38) 
+
+Step 6. Complete the proof. The derivation of (3.38) uses only the support bounds at the initial time t = 0, namely, R1 ≤ χ ≤ R2. However, (3.5) tells us that for any later time s ≥ 0, the anisotropic support function satisfies 
+
+R1e sn ≤ χ ≤ R2e sn .
+
+Thus we may restart the flow at time s using these new bounds and apply the same argument on the time interval [ s, s + τ ]. This yields an estimate that depends on the bounds at time s rather than at time 0: for any s ≥ 0 and any τ > 0, we have 1
+
+H2
+
+> F
+
+(p, s + τ ) ≤ C(n, F ) R2e sn
+
+R1e sn
+
+e τn
+
+!3−2ετ 
+
+R2e s+τn
+
+2 
+
+1 + 1
+
+τ
+
+
+
+,
+
+where the parameter ετ is now given by 
+
+ετ = 12
+
+R1e sn
+
+2(1 + C5)R2e sn e τn − C5R1e sn
+
+= 12
+
+R1
+
+2(1 + C5)R2e τn − C5R1
+
+∈ (0 , 1) ,
+
+which is independent of s. Hence we obtain the estimate 1
+
+H2
+
+> F
+
+(p, s + τ ) ≤ C(n, F )
+
+ R2
+
+R1
+
+e τn
+
+3−2ετ 
+
+R2e s+τn
+
+2 
+
+1 + 1
+
+τ
+
+
+
+. (3.39) This is exactly the same form as (3.38) but with T replaced by τ and an extra factor e 2sn in the term  R2e s+τn
+
+2. Note that the right-hand side depends on s only through this explicit exponential factor. We now fix an arbitrary final time t > 0 and consider two cases to obtain the desired Harnack inequality (1.4). Notice that R2 ≥ R1 and 0 < 3 − 2ετ < 3. When 0 < τ ≤ 1, the extra factor e (3 −2ετ )τ /n is absorbed into C(n, F ), and ( R2/R 1)3−2ετ ≤ (R2/R 1)3.
+
+Case 1: 0 < t ≤ 1. Applying (3.39) with s = 0 and τ = t gives 1
+
+H2
+
+> F
+
+(p, t ) ≤ C(n, F )
+
+ R2
+
+R1
+
+3 
+
+R2e tn
+
+2 
+
+1 + 1
+
+t
+
+
+
+. (3.40) For 0 < t ≤ 1, we have the elementary estimate 
+
+r
+
+1 + 1
+
+t ≤
+
+r 2
+
+t ≤ √2
+
+
+
+1 + 1
+
+t 12
+
+
+
+.20 C. GAO, Y. WEI, AND R. ZHOU 
+
+Taking the square root in (3.40) and applying the above inequality yields 1
+
+HF
+
+(p, t ) ≤ C(n, F )
+
+ R2
+
+R1
+
+ 32
+
+R2e tn
+
+
+
+1 + 1
+
+t 12
+
+
+
+.
+
+Case 2: t > 1. Take s = t − 1 > 0 and τ = 1. Then s + τ = t and (3.39) becomes 1
+
+H2
+
+> F
+
+(p, t ) ≤ C(n, F )
+
+ R2
+
+R1
+
+3 
+
+R2e tn
+
+2
+
+. (3.41) Taking the square root in (3.41) and noting that 1 ≤ 1 + 1 /√t for t > 1, we obtain the same inequality 1
+
+HF
+
+(p, t ) ≤ C(n, F )
+
+ R2
+
+R1
+
+ 32
+
+R2e tn
+
+
+
+1 + 1
+
+t 12
+
+
+
+.
+
+This completes the proof of Theorem 1.3. 4. Global smooth solutions under weak initial conditions 
+
+In this section we prove Theorem 1.4. We first construct a family of strictly F -mean convex hypersurfaces to approximate the initial data. These approximating hypersurfaces are then employed as initial values for the classical inverse anisotropic mean curvature flow. Finally, we pass to the limit to complete the proof of Theorem 1.4. 4.1. Approximation lemma. By mollifying local graphs and evolving by anisotropic mean curvature flow, we obtain smooth star-shaped hypersurfaces that approximate the original C1 data while keeping HF uniformly bounded and strictly positive. 
+
+Lemma 4.1. Let F be a Minkowski norm, and let M0 ⊂ Rn+1 be a closed, embedded, strictly star-shaped hypersurface of class C1 satisfying 
+
+0 < R 1 ≤ χ0 ≤ R2
+
+for some positive constants R1 and R2. Assume that M0 has nonnegative weak anisotropic mean curvature satisfying 
+
+0 ≤ HF ≤ Λ for Hn-a.e. on M0 (4.1) 
+
+for some fixed constant Λ > 0. Then there exist ε0 > 0 and a family of smooth closed hypersurfaces {M ε 
+
+> 0
+
+}0<ε<ε 0 such that: 
+
+(a) M ε 
+
+> 0
+
+−→ M0 as ε ↓ 0 in C1.
+
+(b) Each M ε 
+
+> 0
+
+is strictly star-shaped and, after decreasing ε0 if necessary, 
+
+R1
+
+2 ≤ χε 
+
+> 0
+
+≤ 2R2, max  
+
+> Mε
+> 0
+
+F ◦(X) ≤ 2R2. (4.2) (c) The anisotropic mean curvature of M ε 
+
+> 0
+
+satisfies 
+
+0 < H εF ≤ C0Λ,
+
+where C0 is independent of ε.HIGHER REGULARITY OF THE INVERSE ANISOTROPIC MEAN CURVATURE FLOW 21 
+
+Proof. We divide the proof into three steps. 
+
+Step 1. Elliptic regularity of M0. Since M0 is C1, every point has a neighborhood in which M0 is represented as a graph 
+
+x = yiei + u0(y)e0
+
+over a ball B ⊂ Rn. We use the graph orientation fixed in Subsection 2.3, namely 
+
+ν = Du 0 − ϕ0
+
+p1 + |Du 0|2 .
+
+Then the weak first variation formula (2.20) is equivalent to 
+
+Z
+
+> B
+
+DiF (Du 0 − ϕ0)Diζ dy = −
+
+Z
+
+> B
+
+HF ζ dy, ζ ∈ C∞ 
+
+> c
+
+(B).
+
+Thus div  DF (Du 0 − ϕ0) = HF (4.3) weakly in B.After shrinking B if needed, the vector Du 0 −ϕ0 stays in a compact subset of Rn+1 \{ 0}.Hence the matrix 
+
+aij (Du 0) := DiDj F (Du 0 − ϕ0)is uniformly elliptic and uniformly continuous. In particular, for some λ > 0, 
+
+λ|ξ|2 ≤ aij (Du 0)ξiξj ≤ λ−1|ξ|2.
+
+The local difference-quotient theory for uniformly elliptic quasilinear equations in diver-gence form applies to (4.3), see [18, Chapter IV]. It gives u0 ∈ W 2,2loc (B). Therefore (4.3) can be written almost everywhere as 
+
+aij (Du 0)Dij u0 = HF .
+
+This is now a linear non-divergence equation with continuous uniformly elliptic coefficients. The interior W 2,p estimate [12, Theorem 9.11] gives, for every B′ ⋐ B and 1 < p < ∞,
+
+∥u0∥W 2,p (B′) ≤ C 1 + ∥HF ∥Lp(B)
+
+.
+
+Here C depends on B′ ⋐ B, p, F , and the C1 bound of the graph. It does not depend on any later approximation. Since HF ∈ L∞, the estimate holds for every finite p. Taking 
+
+p > n and using Morrey’s embedding gives 
+
+M0 ∈ C1,β ∩ W 2,p for every 0 < β < 1, 1 ≤ p < ∞. (4.4) 
+
+Step 2. Smoothing via anisotropic mean curvature flow. Strict star-shapedness allows us to write M0 as a radial graph M0 = {r0(z)z : z ∈ Sn} for a positive function 
+
+r0. By (4.4), r0 ∈ C1,β ∩ W 2,p for all 0 < β < 1 and p < ∞. Radial mollification gives positive functions ri ∈ C∞(Sn) such that 
+
+ri −→ r0 in C1,β ∩ W 2,p (4.5) for every 0 < β < 1 and p < ∞. Set Mi = {ri(z)z : z ∈ Sn}. In every fixed graph chart, 
+
+HF,i (·, 0) = aab (Du i(·, 0)) Dab ui(·, 0) , aab (q) = DaDbF (q − ϕ0).22 C. GAO, Y. WEI, AND R. ZHOU 
+
+Consequently, after pulling the functions and area measures back to M0 by the graph parametrizations, 
+
+HF,i (·, 0) −→ HF (·, 0) strongly in Lp(M0) (4.6) for every finite p.Fix β0 ∈ (0 , 1). Starting from Mi, consider anisotropic mean curvature flow 
+
+∂εXi = −HF,i νF,i .
+
+We prove that the flows exist on a time interval [0 , ε 0] independent of i. Choose finitely many triples of graph cylinders C0 
+
+> α
+
+⋐ C1 
+
+> α
+
+⋐ C2
+
+> α
+
+, so that the innermost cylinders cover M0.By (4.5), after discarding finitely many terms, all Mi are graphs in the outer cylinders with a common C1,β 0 bound and fixed positive graph and lateral-boundary margins. Choose 
+
+K strictly larger than the common initial gradient bound. Since all Mi are uniformly strictly star-shaped, choose δ > 0 independently of i, so small that whenever a radial graph r satisfies ∥r − ri∥C1(Sn) < 2δ, it remains strictly star-shaped and all the fixed outer graph representations persist with gradients below K and with positive graph and lateral-boundary margins. For each i, let θi be the supremum of the times for which the smooth flow exists as a radial graph and 
+
+∥ri(·, s ) − ri(·, 0) ∥C1(Sn) < 2δ. 
+
+On [0 , θ i) every local graph function satisfies 
+
+∂εui = Aab (Du i)Dab ui, Aab (p) = F (p − ϕ0)D2F |p−ϕ0 (ϕa, ϕ b). (4.7) By (2.18), this equation is uniformly parabolic with constants independent of i on the stopping interval. All estimates in this paragraph are local. They are made on one fixed outer graph cylinder and recorded on the corresponding inner cylinder. We suppress the index of the cylinder. On the stopping interval the gradients stay below K. Hence the coefficients Aab in (4.7) are uniformly parabolic. All derivatives of Aab are uniformly bounded on the relevant compact set of gradient values. The common C1,β 0 bound gives, at s = 0, 
+
+|ui(y, 0) − ℓi,y 0 (y)| ≤ C|y − y0|1+ β0 , ℓi,y 0 (y) := ui(y0, 0) + Du i(y0, 0) · (y − y0).
+
+For fixed y0, consider the functions 
+
+ℓi,y 0 (y) ± C |y − y0|2 + κs (1+ β0)/2.
+
+A direct calculation uses the uniform parabolicity of (4.7). It shows that, after increasing 
+
+C and choosing κ large, these functions are a super-solution and a sub-solution. The choice of C and κ is independent of i and y0. The fixed lateral margins allow the comparison principle to be used for small s. We get 
+
+∥ui(·, s ) − ui(·, 0) ∥L∞ ≤ Cs (1+ β0)/2.
+
+The scaled interior H¨ older-gradient estimate for uniformly parabolic quasilinear equations [20, Theorem 12.3] applies with these constants. Interpolation then gives numbers α ∈
+
+(0 , β 0] and γ0 := αβ 0 
+
+> 1+ α
+
+> 0 such that 
+
+∥ui(·, s ) − ui(·, 0) ∥C1 ≤ Cs γ0/2, 0 < s < min {θi, ε 0}. (4.8) Here and below, C and ε0 are independent of i.HIGHER REGULARITY OF THE INVERSE ANISOTROPIC MEAN CURVATURE FLOW 23 
+
+We now estimate the second derivatives. Fix a point at time s and take a backward cylinder Qρ with radius ρ = c√s. The constant c > 0 depends only on the fixed nesting of the graph cylinders. By (4.8) and the initial C1,β 0 bound, after subtracting the initial tangent plane we have osc 
+
+> Qρ
+
+(ui − ℓi,y 0 ) ≤ Cρ 1+ γ0 .
+
+Since Aab is smooth on the compact gradient range, [Aab (Du i)] Cα,α/ 2(Qρ) ≤ C[Du i]Cα,α/ 2(Qρ).
+
+After parabolic rescaling by ρ and normalization by the above oscillation, the coefficients have uniformly bounded Cα,α/ 2 norm. The interior parabolic Schauder estimate [20, The-orem 4.9] gives 
+
+|D2ui(y0, s )| ≤ Cρ −1+ γ0 .
+
+Since ρ = c√s, we obtain 
+
+∥D2ui(·, s )∥L∞ ≤ Cs − 1−γ02 , 0 < s < min {θi, ε 0}. (4.9) Because the cover is finite, (4.8) also gives 
+
+∥ri(·, s ) − ri(·, 0) ∥C1(Sn) ≤ Cs γ0/2.
+
+Choose ε0 > 0 so small that the right-hand side is less than δ for 0 < s ≤ ε0. Thus the radial C1 stopping condition cannot occur before ε0. If θi < ε 0, then (4.9) and the standard higher-order estimates on [ θi/2, θ i) give the bounds needed for continuation. The uniformly parabolic graphical flow then extends past θi. This is a contradiction. Hence 
+
+θi ≥ ε0 for every i.Since the inner cylinders cover the hypersurface, (4.9) gives the global curvature esti-mate 
+
+∥hi,ε ∥L∞(Mi,ε ) ≤ Cε − 1−γ02 , 0 < ε ≤ ε0. (4.10) For every 0 < τ < ε 0 and every k ≥ 0, repeated interior Schauder estimates [20, Theo-rem 4.9] and differentiation of the equation give sup  
+
+> τ≤ε≤ε0
+
+∥Mi,ε ∥Ck ≤ C(k, τ ), (4.11) again uniformly in i.Put HF,i, − = max {− HF,i , 0} and HF,i, + = max {HF,i , 0}. Equations (2.16) and (2.14), together with (2.11), imply 
+
+ddε 
+
+Z
+
+> Mi,ε
+
+H2 
+
+> F,i, −
+
+dμ F ≤ − 2
+
+Z
+
+> Mi,ε
+
+|∇ HF,i, −|2 
+
+> g
+
+dμ F
+
++ 2 ∥hi,ε ∥2
+
+> L∞
+
+Z
+
+> Mi,ε
+
+H2 
+
+> F,i, −
+
+dμ F .
+
+Because the square of the right-hand side of (4.10) is integrable at zero, 
+
+Z ε0
+
+> 0
+
+∥hi,s ∥2 
+
+> L∞
+
+ds ≤ Cγ0
+
+εγ0 
+
+> 0
+
+.
+
+Gronwall’s inequality therefore gives a constant C∗, independent of i and ε, such that 
+
+∥HF,i, −(·, ε )∥L2(Mi,ε ) ≤ C∗∥HF,i, −(·, 0) ∥L2(Mi). (4.12) 24 C. GAO, Y. WEI, AND R. ZHOU 
+
+By (4.6) and HF (·, 0) ≥ 0, the right-hand side tends to zero as i → ∞ .Similarly, for every p ≥ 2, 
+
+ddε 
+
+Z
+
+> Mi,ε
+
+HpF,i, + dμ F = −p(p − 1) 
+
+Z
+
+> Mi,ε
+
+Hp−2
+
+> F,i, +
+
+|∇ HF,i, +|2 
+
+> g
+
+dμ F
+
++ p
+
+Z
+
+> Mi,ε
+
+HpF,i, +|hi,ε |2 
+
+> g
+
+dμ F −
+
+Z
+
+> Mi,ε
+
+Hp+2  
+
+> F,i, +
+
+dμ F .
+
+After taking the p-th root and applying Gronwall, 
+
+∥HF,i, +(·, ε )∥Lp(Mi,ε ) ≤ C∗∥HF,i, +(·, 0) ∥Lp(Mi), (4.13) where the same enlarged constant C∗ is independent of p. The initial convergence (4.6) and (4.1) yield lim  
+
+> i→∞
+
+∥HF,i, +(·, 0) ∥Lp(Mi) = ∥HF (·, 0) ∥Lp(M0) ≤ Λ|M0|1/p F . (4.14) 
+
+Step 3. Passing to the limit. The estimates (4.11) give, after a diagonal subsequence, smooth convergence 
+
+Mi,ε −→ Mε on every compact subinterval of (0 , ε 0].
+
+The limit solves anisotropic mean curvature flow. The initial-time modulus (4.8), together with Mi → M0 in C1, passes to the limit and gives 
+
+Mε −→ M0 in C1 as ε ↓ 0. (4.15) The curvature estimate also passes to the limit: 
+
+∥hε∥2 
+
+> L∞(Mε)
+
+≤ Cε −1+ γ0 .
+
+Letting i → ∞ in (4.12) gives 
+
+HF (·, ε ) ≥ 0 on Mε. (4.16) Letting i → ∞ in (4.13) and using (4.14), we find, for every p ≥ 2, 
+
+∥HF (·, ε )∥Lp(Mε,dμ F ) ≤ C∗Λ|M0|1/p F .
+
+The constant is independent of p, so letting p → ∞ gives sup Mε HF ≤ C∗Λ. The inequality in (4.16) is strict for positive time. Indeed, a smooth closed hypersurface cannot have identically zero anisotropic mean curvature: at a point at which F ◦(X) is maximal, comparison with the tangent Wulff shape gives max 
+
+> Mε
+
+HF ≥ n
+
+max Mε F ◦(X) > 0.
+
+Thus HF (·, ε/ 2) is nonnegative and not identically zero. The strong maximum principle applied to (2.16) on [ ε/ 2, ε ] yields 
+
+HF (·, ε ) > 0 on Mε.
+
+Finally, (4.15) and the continuity of the anisotropic support function imply the estimates in (4.2) for small ε. Setting M ε 
+
+> 0
+
+:= Mε and C0 := C∗ completes the proof. □HIGHER REGULARITY OF THE INVERSE ANISOTROPIC MEAN CURVATURE FLOW 25 
+
+4.2. From approximants to a global smooth solution. 
+
+Proof of Theorem 1.4. Under the assumption, choose a constant Λ > 0 such that 0 ≤ HF ≤ Λ a.e. on M0.
+
+By Lemma 4.1, there exists a sequence of smooth, strictly star-shaped, strictly F -mean convex closed hypersurfaces M ε 
+
+> 0
+
+for ε > 0 small satisfying 
+
+R1
+
+2 ≤ χε 
+
+> 0
+
+≤ max  
+
+> Mε
+> 0
+
+F ◦(X) ≤ 2R2
+
+and 0 < H εF ≤ C0Λ, where C0 is independent of ε. Fix each ε > 0, let Xε : M ×
+
+(0 , ∞) → Rn+1 be the smooth solution to IAMCF (1.2) with initial hypersurface M ε 
+
+> 0
+
+, and set M εt = Xε(M, t ). By [25, Theorem 1.1], the hypersurface M εt is strictly star-shaped, strictly F -mean convex and exists for all t > 0. Moreover, Lemma 3.2 implies that the anisotropic support function χε(p, t ) of M εt satisfies 
+
+R1
+
+2 e tn ≤ χε ≤ F ◦(Xε) ≤ 2R2e tn . (4.17) The Harnack estimate in Theorem 1.3 then yields 1
+
+HεF (p, t ) ≤ C(n, F )
+
+ R2
+
+R1
+
+ 32 
+
+1 + 1
+
+t 12
+
+
+
+R2e tn . (4.18) Consequently, for every 0 < τ < T < ∞ there exists a constant h−(τ, T ) > 0, independent of ε, such that 
+
+HεF (p, t ) ≥ h−(τ, T ) on M × [τ, T ]. (4.19) On the other hand, applying the maximum principle to the evolution equation (3.3) of 
+
+HF gives, for any t > 0, sup  
+
+> Mεt
+
+HεF ≤ sup  
+
+> Mε
+> 0
+
+HεF ≤ C0Λ. (4.20) Both estimates (4.19) and (4.20) are uniform in ε.Since M εt remains strictly star-shaped, it can be written as a radial graph: 
+
+Xε(z, t ) = rε(z, t )z, z ∈ Sn.
+
+Let g = ( σij ) and ∇ be the standard metric and connection on Sn, and set 
+
+vε =
+
+q
+
+1 + |∇ log rε|2
+
+> g
+
+.
+
+Then 
+
+χε = rε
+
+vεF (νε) , νε = z − ∇ log rε
+
+vε .
+
+Moreover, 
+
+HεF = Aij (νε) 1
+
+rεvε
+
+"
+
+δij − σik − ∇irε∇krε
+
+(rεvε)2
+
+!  ∇k∇j rε
+
+rε − ∇krε∇j rε
+
+(rε)2
+
+#
+
+, (4.21) where 
+
+Aij (νε) = ∇i∇j F (νε) + F (νε)σij .26 C. GAO, Y. WEI, AND R. ZHOU 
+
+The flow equation (1.2) then becomes 
+
+∂trε = vεF (νε)
+
+HεF
+
+. (4.22) These are formulas derived in [25, Section 4]. The scalar equation (4.22) for rε is a fully nonlinear parabolic equation on Sn × [τ, T ]. The uniform estimate (4.17) provides uniform C1 bounds for the graph function rε, and (4.19) - (4.20) provide uniform two-sided bounds for HεF . The linearization of (4.22) with respect to ∇i∇j rε is uniformly parabolic. In local coordinates it is 
+
+∂∂∇i∇j rε
+
+ vεF (νε)
+
+HεF
+
+
+
+= − vεF (νε)
+
+ HεF
+
+2
+
+∂H εF
+
+∂∇i∇j rε
+
+= F (νε)
+
+ rεHεF
+
+2 Aik (νε) σkj − ∇krε∇j rε
+
+(rεvε)2
+
+!
+
+.
+
+While the flow equation (4.22) is fully nonlinear, the spatial operator (4.21) defining HεF
+
+at a fixed time is quasilinear elliptic. The C2,α estimate in [25, Pages 119–122] applies on every slab [ τ, T ] and its constants depend only on the uniform bounds for rε, |∇ rε|g
+
+and HεF . Parabolic Schauder estimates give the C2+ α, 1+ α/ 2 bound. Differentiating the equation and iterating the Schauder estimates gives, for every 0 < τ < T < ∞, k ≥ 0, and 0 < α < 1, 
+
+∥rε∥Ck+2+ α, (k+2+ α)/2(Sn×[τ,T ]) ≤ C(k, τ, T, α, n, F, R 1, R 2, Λ, M 0) (4.23) uniformly in ε.Now the family {rε} is precompact in C∞
+
+> loc
+
+(Sn × (0 , ∞)). By the Arzel` a–Ascoli theorem and a diagonal argument, there exists a subsequence converging smoothly to 
+
+r : Sn × (0 , ∞) → (0 , ∞),
+
+which solves (4.22). Hence Mt = {r(z, t )z : z ∈ Sn} is a smooth solution of IAMCF (1.2) on (0 , ∞). In particular, this solution is strictly star-shaped and satisfies the Harnack estimate (1.4) by letting ε → 0 in estimates (4.17) and (4.18). To show that Mt converges uniformly to M0 as t → 0, by (4.22), (4.23) and (4.18), 
+
+|∂trε| ≤ C(1 + t−1/2)et/n ,
+
+where C is independent of ε. Integrating in time yields 
+
+∥rε(·, t ) − rε(·, 0) ∥L∞(Sn) ≤
+
+Z t
+
+> 0
+
+|∂srε|ds ≤ C(t + t1/2) (4.24) for t < 1. For every fixed t > 0, the subsequential convergence gives rε(·, t ) → r(·, t )uniformly on Sn. At the initial time, Lemma 4.1 gives rε(·, 0) → r0 uniformly. Letting 
+
+ε → 0 in (4.24) gives 
+
+∥r(·, t ) − r0∥L∞(Sn) → 0 as t ↓ 0.
+
+Therefore Mt → M0 uniformly as t ↓ 0. This completes the proof. □
+
+We conclude this section with the following proposition, which says that the smooth solution Mt obtained in Theorem 1.4 is also a weak solution starting from M0.HIGHER REGULARITY OF THE INVERSE ANISOTROPIC MEAN CURVATURE FLOW 27 
+
+Proposition 4.2. Let {Mt}t> 0 be the smooth solution obtained in Theorem 1.4, and let 
+
+Et be the bounded region enclosed by Mt. Define the arrival-time function u by u = t
+
+on Mt, and extend it inside E0 so that u < 0 there. Then {Et}t> 0 is a weak solution of IAMCF starting from E0 in the sense of Definition 2.5. Proof. The curvature upper bound (4.20) passes to the limit and gives HF ≤ C0Λ along the smooth flow. Since a smooth IAMCF written as a level-set flow satisfies F (Du ) = HF
+
+on its regular level sets, the function u is locally Lipschitz in Rn+1 \ E0.Fix t > 0, let G be a competitor with Et△G ⋐ Rn+1 \ E0, and choose a compact set 
+
+K ⋐ Rn+1 \ E0 containing Et△G. The support estimate (4.17) passes to the limiting flow and gives 
+
+F ◦(X) ≥ χ ≥ R1
+
+2 es/n on Ms.
+
+Since the hypersurfaces are radial graphs, this implies 
+
+W(R1/2) es/n (0) ⊂ Es.
+
+Thus the regions Es exhaust Rn+1 , and we may choose T > t so large that K ⋐ ET . On the other hand, the uniform convergence Eδ → E0 as δ ↓ 0 allows us to choose 0 < δ < t 
+
+with K ⋐ Rn+1 \ Eδ. Hence 
+
+K ⋐ ET \ Eδ.
+
+The family {Ms}δ≤s<T is smooth and has positive anisotropic mean curvature. Lemma 2.7 therefore applies in the entire domain containing the variation and gives 
+
+JKF,u (Et) ≤ JKF,u (G).
+
+This is the weak minimizing property outside E0. □
+
+5. Higher regularity of the weak IAMCF 
+
+In this section, we prove Theorem 1.5. We first need to show that there exists a sufficiently large time t0 such that the weak solution Mt0 is C1 and strictly star-shaped. This relies on compactness for anisotropic almost minimizers [7], the interior small-excess regularity theorem of Duzaar–Steffen [8], and the asymptotically Wulff shape result in Theorem 2.10. In the isotropic theory of Huisken–Ilmanen [17], the corresponding large-time regularity follows from the special asymptotic regularity of the Euclidean weak IMCF. In the anisotropic setting, the available asymptotic behavior in Theorem 2.10 gives only Hausdorff convergence to an expanding Wulff shape. We therefore recover the required 
+
+C1,β regularity by using the variational almost-minimality of the level sets together with anisotropic small-excess regularity. 
+
+Proposition 5.1. Let u be the proper weak solution of (1.3) starting from a bounded open set Ω ⊂ Rn+1 with smooth boundary. Set Et = {u < t } and Mt = ∂E t. Let 
+
+γ = log 
+
+ |∂W| F
+
+|∂Ω∗|F
+
+
+
+, ρ∞ = exp 
+
+
+
+− γn
+
+
+
+,
+
+where Ω∗ is the strictly outward F -minimizing hull of Ω. Then there exists α ∈ (0 , 1) such that, for every 0 < β < α ,
+
+e− tn Mt −→ ρ∞∂W in C1,β (5.1) 28 C. GAO, Y. WEI, AND R. ZHOU 
+
+as t → ∞ . In particular, for all sufficiently large t, the level set Mt has no singular points, is of class C1,β , and is strictly star-shaped. Proof. Up to a translation, we may assume 0 ∈ Ω. By Theorem 2.10, we have 
+
+u(x) = n log F ◦(x) + γ + o(1) as F ◦(x) −→ ∞ . (5.2) By Lemma 2.9, there exists a constant C = C(n, F, Ω) > 0 such that 
+
+F (Du )( x) ≤ CF ◦(x) (5.3) for a.e. x ∈ Rn+1 \ Ω. For s ≥ 1, define 
+
+us(x) := u(sx ) − n log s, Es := {us < 0} = s−1En log s.
+
+It follows from (5.2) that 
+
+us −→ v := n log F ◦ + γ locally uniformly in Rn+1 \ { 0}. (5.4) Consequently, 
+
+1Es −→ 1E∞ in L1loc (Rn+1 \ { 0}), E∞ = {F ◦ < ρ ∞}. (5.5) Since Dv does not vanish on ∂E ∞, the local uniform convergence in (5.4) also gives 
+
+∂E s −→ ∂E ∞ = ρ∞∂W locally in the Hausdorff distance . (5.6) We now prove the C1,β convergence. Fix annuli A′ ⋐ A ⋐ Rn+1 \ { 0} with ρ∞∂W ⋐ A′.By (5.6), ∂E s ∩ A′ lies in A for all large s. Also A ⊂ Rn+1 \ s−1Ω for all large s. The scaling invariance of the weak formulation shows that Es minimizes JF,u s with respect to compactly supported variations in A.The gradient bound scales in a simple way. By (5.3), 
+
+F (Du s)( x) = sF (Du )( sx ) ≤ CF ◦(x) .
+
+Thus sup A F (Du s) ≤ ΛA with Λ A independent of s. If Es△G ⋐ Br(x) ⋐ A, the minimiz-ing property gives 
+
+PF (Es; Br(x)) ≤ PF (G; Br(x)) + Λ A|Es△G|. (5.7) Hence the normalized representatives of Es are uniform (Λ A, r A)-minimizers of the au-tonomous elliptic integrand Φ( ν) = F (ν) on A′, for some rA > 0 independent of s. This is in the sense of [7, Definition 1.8 and Lemma 2.16]. Let sj → ∞ . By the compactness theorem [7, Theorem 2.9], a subsequence has conver-gent oriented perimeter measures. Their total variations also converge. The L1loc conver-gence in (5.5) identifies the limit set as E∞. Since ∂E ∞ = ρ∞∂W is a smooth hypersurface, the limit measure is the multiplicity-one perimeter measure of E∞. Thus there is no loss of mass and no extra sheet in the limit. We choose finitely many balls B2ra (xa) ⋐ A′ centered on ∂E ∞. The radii are chosen small. First, the excess of the smooth hypersurface ∂E ∞ in each ball is below the small constant in the regularity theorem. Second, Λ Ara is below the same threshold. By [7, Remark 3.6] and the Hausdorff convergence (5.6), the excess of ∂E sj in Bra (xa) is also small for all large j. After rescaling, the almost-minimizing modulus in (5.7) is bounded HIGHER REGULARITY OF THE INVERSE ANISOTROPIC MEAN CURVATURE FLOW 29 
+
+by CΛAra, as in [8, (1.16)–(1.17)]. The interior ε-regularity theorem [8, Theorem 6.1] then gives a local graph representation of ∂E sj in each ball. The graph norms are bounded uniformly in C1,α for some α ∈ (0 , 1). The Hausdorff convergence fixes the sheet of each local graph. It also shows that these graphs cover the whole boundary for large j. On overlaps the graphs describe the same reduced boundary, so they patch to a normal graph over ρ∞∂W. The graph function tends to zero in C0. The uniform C1,α bound then gives convergence to zero in C1,β for every 0 < β < α . Since the sequence sj was arbitrary and the limit is unique, the whole family converges. Thus ∂E s has no singular points for all sufficiently large s. Taking s = et/n 
+
+proves (5.1). It remains to verify strict star-shapedness. The anisotropic support function of the limiting Wulff shape is constant: 
+
+⟨X, ν ⟩
+
+F (ν) = ρ∞ on ρ∞∂W.
+
+The anisotropic support function depends continuously on the position and Euclidean unit normal in the C1 topology. Hence 
+
+⟨ eX, eν⟩
+
+F (eν) ≥ ρ∞
+
+2 > 0 on e−t/n Mt
+
+for all sufficiently large t. Scaling back yields 
+
+χ = ⟨X, ν ⟩
+
+F (ν) ≥ ρ∞
+
+2 et/n > 0 on Mt.
+
+This proves the final assertion. □
+
+Proof of Theorem 1.5. After translating the coordinates, we may assume 0 ∈ Ω. By Proposition 5.1, there is a time T∗ > 0 such that Mt is a C1,β strictly star-shaped hyper-surface for every t ≥ T∗. Let S be the full-measure set of times for which (2.21) holds. Choose t0 ∈ S ∩ (T∗, ∞). Then Mt0 is C1,β and strictly star-shaped. Moreover, by (2.21), its weak anisotropic mean curvature satisfies 
+
+HF = F (Du ) Hn-a.e. on Mt0 .
+
+Since Mt0 is compact and lies outside the bounded set Ω, 
+
+mt0 := inf 
+
+> x∈Mt0
+
+F ◦(x) > 0.
+
+Hence the gradient estimate (2.22) gives 0 ≤ HF ≤ Cm −1 
+
+> t0
+
+Hn-a.e. on Mt0 .
+
+Thus Mt0 satisfies all hypotheses of Theorem 1.4. Use Mt0 as initial data in Theorem 1.4. After resetting the time variable, we obtain a smooth solution { fMs}s> 0 with strictly positive anisotropic mean curvature. Let eEs be the enclosed regions. Define the shifted family 
+
+bEt0+s := eEs, cMt0+s := fMs.30 C. GAO, Y. WEI, AND R. ZHOU 
+
+By Proposition 4.2, { bEt0+s}s> 0 is a weak solution starting from Et0 in Rn+1 \ Et0 . The original shifted family {Et0+s}s> 0 is also a weak solution in the same region. The level sets are compact, so Lemma 2.6 gives uniqueness. Hence 
+
+cMt = Mt for all t > t 0.
+
+Therefore the original weak solution is smooth for all t > t 0. Taking K = Et0 finishes the proof. □
+
+Acknowledgements 
+
+This work was supported by the National Key Research and Development Program of China (2021YFA1001800), the National Natural Science Foundation of China (12531002), and the Fundamental Research Funds for the Central Universities. The third author was also supported by the China Postdoctoral Science Foundation (2025M783146). 
+
+References 
+
+[1] B. Andrews, Volume-preserving anisotropic mean curvature flow. Indiana Univ. Math. J. 50 (2001), no. 2, 783–827 MR 1871390 [2] C. Bianchini and G. Ciraolo, Wulff shape characterizations in overdetermined anisotropic elliptic problems. Comm. Partial Differential Equations 43 (2018), no. 5, 790–820 MR 3920523 [3] E. Cabezas-Rivas, S. Moll, and M. Solera, Weak solutions of anisotropic (and crystalline) inverse mean curvature flow as limits of p-capacitary potentials. J. Funct. Anal. 287 (2024), no. 11, Paper No. 110642, 56 MR 4793761 [4] B. Choi and P. Daskalopoulos, Evolution of noncompact hypersurfaces by inverse mean curvature. 
+
+Duke Math. J. 170 (2021), no. 12, 2755–2803 MR 4305381 [5] A. Cianchi and P. Salani, Overdetermined anisotropic elliptic problems. Math. Ann. 345 (2009), no. 4, 859–881 MR 2545870 [6] J. Clutterbuck, Interior gradient estimates for anisotropic mean-curvature flow. Pacific J. Math. 229 
+
+(2007), no. 1, 119–136 MR 2276504 [7] G. De Philippis and F. Maggi, Regularity of free boundaries in anisotropic capillarity problems and the validity of Young’s law. Arch. Ration. Mech. Anal. 216 (2015), no. 2, 473–568 [8] F. Duzaar and K. Steffen, Optimal interior and boundary regularity for almost minimizers to elliptic variational integrals. J. Reine Angew. Math. 546 (2002), 73–138 MR 1900994 [9] F. Della Pietra, N. Gavitone, and C. Xia, Motion of level sets by inverse anisotropic mean curvature. 
+
+Comm. Anal. Geom. 31 (2023), no. 1, 97–118 MR 4652511 [10] C. Gao, Y. Wei, and R. Zhou, Asymptotic behaviour of the weak inverse anisotropic mean curvature flow. To appear in Math. Res. Lett. , arXiv:2510.08168v2 [11] C. Gerhardt, Flow of nonconvex hypersurfaces into spheres. J. Differential Geom. 32 (1990), no. 1, 299–314 MR 1064876 [12] D. Gilbarg and N. S. Trudinger, Elliptic partial differential equations of second order . Classics in Mathematics, Springer-Verlag, Berlin, 2001 [13] R. S. Hamilton, Four-manifolds with positive curvature operator, J. Differential Geom. 24 (1986), no. 2, 153–179. [14] B. Harvie, On weak inverse mean curvature flow and Minkowski-type inequalities in hyperbolic space. 
+
+Calc. Var. Partial Differential Equations 65 (2026), no. 7, Paper No. 212. [15] B. Harvie and Y.-K. Wang, Quasi-spherical metrics and the static Minkowski inequality. 2024, arXiv:2403.06216 [16] G. Huisken and T. Ilmanen, The inverse mean curvature flow and the Riemannian Penrose inequality. 
+
+J. Differential Geom. 59 (2001), no. 3, 353–437 MR 1916951 [17] G. Huisken and T. Ilmanen, Higher regularity of the inverse mean curvature flow. J. Differential Geom. 80 (2008), no. 3, 433–451 MR 2472479 HIGHER REGULARITY OF THE INVERSE ANISOTROPIC MEAN CURVATURE FLOW 31 
+
+[18] O. A. Ladyzhenskaya and N. N. Ural’tseva, Linear and quasilinear elliptic equations . Math. Sci. Eng. 46, Academic Press, New York–London, 1968 [19] H. Li and Y. Wei, On inverse mean curvature flow in Schwarzschild space and Kottler space. Calc. Var. Partial Differential Equations 56 (2017), no. 3, Paper No. 62, 21 MR 3639616 [20] G. M. Lieberman, Second order parabolic differential equations . World Scientific Publishing Co., Inc., River Edge, NJ, 1996 [21] Y. Shi and J. Zhu, Regularity of inverse mean curvature flow in asymptotically hyperbolic manifolds with dimension 3. Sci. China Math. 64 (2021), no. 6, 1109–1126 MR 4268886 [22] J. I. E. Urbas, On the expansion of starshaped hypersurfaces by symmetric functions of their principal curvatures. Math. Z. 205 (1990), no. 3, 355–372 MR 1082861 [23] Y. Wei and C. Xiong, A volume-preserving anisotropic mean curvature type flow. Indiana Univ. Math. J. 70 (2021), no. 3, 881–905 MR 4284100 [24] C. Xia, On a class of anisotropic problems . Ph.D. thesis, Albert-Ludwigs-Universit¨ at Freiburg, 2012 [25] C. Xia, Inverse anisotropic mean curvature flow and a Minkowski type inequality. Adv. Math. 315 
+
+(2017), 102–129 MR 3667582 
+
+School of Mathematical Sciences, University of Science and Technology of China, Hefei 230026, P.R. China 
+
+Email address : gaochaoqun@mail.ustc.edu.cn 
+
+Email address : yongwei@ustc.edu.cn 
+
+Email address : zhourong@mail.ustc.edu.cn

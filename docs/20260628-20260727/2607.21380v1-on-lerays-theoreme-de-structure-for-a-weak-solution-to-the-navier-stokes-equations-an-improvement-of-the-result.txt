@@ -1,0 +1,997 @@
+Title: On Leray's Theoreme de Structure for a weak solution to the Navier-Stokes equations: an improvement of the result
+
+URL Source: https://arxiv.org/pdf/2607.21380v1
+
+Published Time: Fri, 24 Jul 2026 01:02:40 GMT
+
+Number of Pages: 12
+
+Markdown Content:
+# On Leray’s Th´ eor` eme de Structure for a weak solution to the Navier-Stokes equations: an improvement of the result 
+
+Paolo Maremonti ∗
+
+to Franco Oliveri on his 60th birthday 
+
+Abstract - In this note we furnish a new result concerning the well known th´ eor` eme de structure by Leray related to a weak solution to the Navier-Stokes equations. We are able to furnish a new estimate on the left endpoint of the unbounded interval of regularity. Keywords: Navier-Stokes equations, weak solutions, partial regularity. AMS Subject Classifications: 35Q30, 35B65, 76D05. 
+
+# 1 Introduction 
+
+We consider the initial boundary value problem for the Navier-Stokes equations: 
+
+vt + v · ∇ v + ∇π = ν∆v , ∇ · v = 0 , in (0 , T ) × Ω ,v = 0 , on (0 , T ) × ∂Ω , v = v0 on {0} × Ω . (1.1) In (1.1) Ω ⊂ R3 is a smooth bounded domain, we set vt := ∂∂t v , v · ∇ v := ( v · ∇ )v , and ν denotes the kinetic viscosity of the fluid. In order to make consistent some quantity that we introduce in the following, we are going to consider problem (1.1) in dimensionless form. Hence, setting 
+
+L := diam (Ω) , V := |Ω|−1
+
+Z
+
+> Ω
+
+|v0(x)|dx , and T := LV ,
+
+we consider L , V and T as characteristic length, velocity and time, respectively. We define the Reynolds number R = LV  
+
+> ν
+
+and the velocity v′ := v 
+
+> V
+
+. With abuse of notation, we use the same symbols t, x, v , (0 , T ) and Ω in place of the dimensionless quantity x′ := x 
+
+> L
+
+, t′ := t 
+
+> T
+
+, v′ := v 
+
+> V
+
+, with 
+
+> ∗
+
+to appear in “Mathematical Models and Simulations in the Applied Sciences”, Proceedings, Springer. Dipartimento di Matematica e Fisica, Universit` a degli Studi della Campania “L. Vanvitelli”, via Vivaldi 43, 81100 Caserta, Italy. paolo.maremonti@unicampania.it The research activity is performed under the auspices of GNFM-INdAM. 
+
+1arXiv:2607.21380v1 [math-ph] 23 Jul 2026 2 P. Maremonti 
+
+(0 , T ′) and Ω ′ homothetic image domains. Hence, we study the following initial boundary value problem: 
+
+vt + v · ∇ v + ∇π = R−1∆v , ∇ · v = 0 , in (0 , T ) × Ω ,v = 0 , on (0 , T ) × ∂Ω , v = v0 on {0} × Ω . (1.2) We give the definition of weak solution to problems (1.1) and (1.2). It is immediate to understand that it differs in the problems by a coefficient, that is ν or 1 
+
+> R
+
+. We opt for the latter, being the latter carried on in the following. 
+
+Definition 1.1. A field v : (0 , ∞) × Ω → R3 is said a weak solution to problem (1.2) if, for all 
+
+T > 0, we have 
+
+i. v ∈ L∞(0 , T ; J2(Ω)) ∩ L2(0 , T ; J1,2(Ω)) .
+
+ii. v satisfies the integral equation 
+
+(v(t), φ (t)) = ( v0, φ (0)) + 
+
+> t
+
+Z
+
+> 0
+
+h
+
+(v, φ τ ) − R−1(∇v, ∇φ) + ( v · ∇ φ, v )] dτ , (1.3) 
+
+for all φ ∈ C∞ 
+
+> 0
+
+([0 , T ) × Ω) with ∇ · φ = 0 .
+
+iii. ( v(t), φ ) is a continuous function on (0 , T ), and lim 
+
+> t→0
+
+(v(t), φ ) = ( v0, φ ) .
+
+It is well known that for all v0 ∈ J2(Ω) there exists a weak solution to problem (1.1), such a solution enjoys a partial regularity that is expressed by means of the th´ eor` em de structure . Hence, the following result, initially stated for the Navier-Stokes Cauchy problem associated to (1.1), is proved 
+
+Theorem 1.1. [Leray] - Let v0 in L2(Ω) and divergence free. Then there exists a weak solution 
+
+v(t, x ) to problem (1.1) such that 
+
+|| v(t)|| 22 + 2 ν
+
+> t
+
+Z
+
+> s
+
+||∇ v(τ )|| 22dτ ≤ || v(s)|| 22, for all t > s , a. e. in s > 0 and for s = 0 ,v ∈ C(θℓ, T ℓ; J1,2(Ω)) ∩ L2(θℓ, T ℓ; W 2,2(Ω)) , v t ∈ L2(θℓ, T ℓ; L2(Ω)) ,v ∈ C(θ, ∞; J1,2(Ω)) ∩ L2(θ, ∞; W 2,2(Ω)) , v t ∈ L2(θ, ∞; L2(Ω)) ,
+
+(1.4) 
+
+where θ ≤ cν −5|| v0|| 42, (θ, ∞) ∩ (θℓ, T ℓ) = ∅ for all ℓ, (θℓ, T ℓ) ∩ (θℓ′ , T ℓ′ ) = ∅ for all ℓ̸ = ℓ′, the set 
+
+R+ − { ∪ 
+
+> ℓ∈N
+
+(θℓ, T ℓ) ∪ (θ, ∞)} has zero Lebesgue measure . 
+
+Proof. The result in the case of the Cauchy problem can be found in [5]. The case of the initial boundary value problem was proved by several authors. For the Cauchy problem , for the IBVP in bounded or in exterior domains the bound for θ is the same. On Leray’s Th´ eor` eme de Structure for a weak solution to the Navier-Stokes equations: an improvement of the result 3We stress that in Theorem 1.1 the upper bound of θ has the dimension of the time. We stress that in [10] it is proved that H 12 (R+ − { ∪ 
+
+> ℓ∈N
+
+(θℓ, T ℓ) ∪ (θ, ∞)}) = 0 , where H 12 denotes the Hausdorff measure of exponent 12 .Recently, some authors look for an improvement of the original result by Leray. We limit ourselves to quote the papers [1] and [6]. Their results are different for the goals. In the paper [1], in the special case of Ω ≡ (0 , π )3, with space periodic conditions, the authors in particular prove a new upper bound for θ, that is θ ≤ c|| v0|| 22 .
+
+In the paper [6], the authors furnish a new proof of the th´ eor` eme de structure , based on the regularity of the sequence approximating the weak solution and the uniqueness of the weak limit. An advantage of this new approach is the fact that the result can be extended in other context of parabolic problems where the Leray approach does not work, see in this connection the paper [7]. We set 
+
+α := 2 R3C4 
+
+> S
+
+c4 , β := RC 2 
+
+> S
+
+c2 , and γ := C−1 
+
+> P
+
+,
+
+where c is the constant that appears in (2.6) and CS is the constant related to Sobolev’s inequality 
+
+|| g|| 6 ≤ CS ||∇ g|| 2, and CP is the constant related to the Poincar´ e inequality 1.Here, we are interested to prove the following result 
+
+Theorem 1.2. Let v0 in L2(Ω) and divergence free. Then there exists a weak solution v(t, x ) to problem (1.2) such that 
+
+|| v(t)|| 22 + 2
+
+R
+
+> t
+
+Z
+
+> s
+
+||∇ v(τ )|| 22dτ ≤ || v(s)|| 22, for all t > s , a. e. in s > 0 and for s = 0 ,v ∈ C(θℓ, T ℓ; J1,2(Ω)) ∩ L2(θℓ, T ℓ; W 2,2(Ω)) , v t ∈ L2(θℓ, T ℓ; L2(Ω)) ,v ∈ C(θ0, ∞; J1,2(Ω)) ∩ L2(θ0, ∞; W 2,2(Ω)) , v t ∈ L2(θ0, ∞; L2(Ω)) ,
+
+(1.5) 
+
+where (θ0, ∞) ∩ (θℓ, T ℓ) = ∅ for all ℓ, (θℓ, T ℓ) ∩ (θℓ′ , T ℓ′ ) = ∅ for all ℓ̸ = ℓ′, the set R3+ − { ∪ 
+
+> ℓ∈N
+
+(θℓ, T ℓ) ∪
+
+(θ0, ∞)} has zero Lebesgue measure and θ0 ∈ (s, s + π 
+
+> 4
+
+[(1 − η)( α + β)] −1) , where the istant s = 0 
+
+holds, provided that R(α + β)|| v0|| 22 ≤ π 
+
+> 2
+
+, the istant s := R 
+
+> 2γ2
+
+log[ 4 
+
+> π
+
+(α + β)|| v0|| 22] > 0 holds otherwise. 
+
+The New Result - The instants determined in Theorem 1.2 are dimensionless quantities. Then, related to θ0, recalling our scaling, we get: 
+
+θ := Tθ0 ∈ (Ts, Ts + π 
+
+> 4
+
+(1 − η)−1T(α + β)−1) ,
+
+Ts = LV
+
+R
+
+2γ2 log[ 4
+
+π (α + β)|| v0|| 22] = L2
+
+2νγ 2 log[ 4
+
+π (α + β)|| v0|| 22] ,
+
+T(α + β)−1 = LV (α + β)−1 = LVR3C4 
+
+> S
+
+c4+VRC 2 
+
+> S
+
+c2 = LV4L3
+
+ν3 C4 
+
+> S
+
+c4+ V2L
+
+ν C2 
+
+> S
+
+c2
+
+,   
+
+> 1Since we are considering dimensionless quantities, the Poincar´ e constant is dimensionless number CP.
+
+4 P. Maremonti 
+
+these quantities, being the kinetic viscosity of dimension ( length )2/time , have the dimensions of the time variable. The result by Leray and the result of this note furnish a different upper bound for instant θ.If we fix the domain Ω and the kinetic viscosity ν, we distinguish a different behavior for the upper bound of θ. In the case of small values of L2-norm of the initial datum (in our dimensionless analysis means small Reynolds number) the result by Leray is better, in the sense that its behavior is faster to zero. Instead, in our case a priori the upper bound become large for small || v0|| 2.Conversely, for large values of L2-norm of the initial datum (in our dimensionless analysis means large Reynolds number) the upper bound given by Leray is faster divergent then the one found in this note. Actually, for large R the interval of θ from one side has the endpoint s with logarithmic behavior and from another side the size of the interval tends to zero, that is θ like s.
+
+The previous estimate for instant θ is the chief result of the note, and, to the best of our knowledge, the endpoint θ has the best upper bound for large data. Theorem 1.2 holds for Ω ≡ (0 , π )3, with space periodic conditions, too. The proof needs no change. Since, the quoted setting is very particular both in notations and in some analytic questions, for the sake of brevity, any refinement to this special domain is omitted. We restrict our result to the case of Ω bounded for two different reasons. The former is connected to the fact that the estimate is of logarithmic kind in terms of the initial datum in L2-norm. The latter is connected to the fact that in exterior domains the estimate is an algebraic form of the norms of the initial datum, that is larger than the logarithmic estimate, in any case better of the Leray’s result, but we need to require that the initial datum is in some Lq with q ∈ [1 , 2). This digression on the estimates makes to understand that the proof is connected with the decay of the kinetic energy. This property holds with no further regularity for a weak solution. We conclude the remark claiming that the proof follows the arguments lines of the one obtained in recent paper [6]. In such a way we are able to apply the result in another context too. The plan of the paper is the following. In Sect. 2, we recall some results related to some a priori estimates and we develop the Leray approach to the construction of the weak solution. In Sect. 3 we conclude the proof of Theorem 1.2. 
+
+# 2 Preliminary results and the Leray approximating sequence 
+
+As already said in Sect. 1, for the sake of brevity, we assume Ω bounded and smooth. However, the regularity can be suitably relaxed with no change of the proof. We denote by C0(Ω) the set of smooth functions u with compact support in Ω and divergence free. By the symbol J2(Ω) and J1,2(Ω) we mean the completion of C0(Ω) in L2(Ω) and in W 1,2(Ω), respectively. 
+
+Lemma 1. Let u ∈ W 2,2(Ω) ∩ J1,2(Ω) . Then there exists a constant c independent of the size of 
+
+Ω and u such that 
+
+|| D2u|| 2 ≤ c(|| P ∆u|| 2 + ||∇ u|| 2) , and ||∇ u|| 3 ≤ c(|| P ∆u|| 12 
+
+> 2
+
+||∇ u|| 12 
+
+> 2
+
++ ||∇ u|| 2) . (2.6) On Leray’s Th´ eor` eme de Structure for a weak solution to the Navier-Stokes equations: an improvement of the result 5
+
+Proof. Estimate (2.6) is typical of domain with non-compact boundary, the estimates are due to Heywood, see Lemma 1 in [3]. The following lemma is part of a result proved in [2] Sect. 6.3.1. . 
+
+Lemma 2. Let {vm} be bounded in L2(0 , T ; J1,2(Ω)) ∩L∞(0 , T ; J2(Ω)) and let {D2vm} be bounded in Lq(0 , T ; L2(Ω)) , for some q ∈ ( 12 , 2] . Denote by v the weak limit in L2(0 , T ; W 1,2(Ω)) , then, almost everywhere in t > 0, we get lim  
+
+> m
+
+||∇ vm(t) − ∇ v(t)|| 2 = 0 .
+
+Proof. Applying H¨ older’s inequality, we get 
+
+||∇ vn(τ )−∇ vp(τ )|| 22 = −(P ∆( vn(τ )−vp(τ )) , v n(τ )−vp(τ )) ≤ || P ∆( vn(τ )−vp(τ )) || 2|| vn(τ )−vp(τ )|| 2 .
+
+Integrating on (0 , T ), we arrive at 
+
+> T
+
+Z
+
+> 0
+
+||∇ vn(τ ) − ∇ vp(τ )|| p 
+
+> 2
+
+≤
+
+> T
+
+Z
+
+> 0
+
+|| P ∆vn(τ ) − P ∆vp(τ )|| p 
+
+> 2
+> 2
+
+|| vn(τ ) − vp(τ )|| p 
+
+> 2
+> 2
+
+dτ 
+
+≤
+
+h TZ
+
+> 0
+
+|| P ∆vn(τ ) − P ∆vp(τ )|| q
+
+> 2
+
+dτ 
+
+i p 
+
+> 2q
+
+h
+
+|| vn(τ ) − vp(τ )||  
+
+> pq
+> 2q−p
+> 2
+
+dτ 
+
+i 2q−p
+
+> 2q
+
+≤ M
+
+h TZ
+
+> 0
+
+|| vn(τ ) − vp(τ )||  
+
+> pq
+> 2q−p
+> 2
+
+dτ 
+
+i 2q−p
+
+> 2q
+
+,
+
+(2.7) provided that p ∈ [1 , 2q). By virtue of our assumptions and the Friederich’s lemma, [4], the last estimate ensures that {∇ vn} satisfies a Cauchy condition in Lp(0 , T ; L2(Ω)). Therefore, the strong convergence of {∇ vm} to ∇v in Lp(0 , T ; L2(Ω)), that, finally, implies the thesis of the lemma. Let us consider the following initial boundary value problem: 
+
+vmt + Jm(vm) · ∇ vm + πm = 1 
+
+> R
+
+∆vm , ∇ · vm = 0 , in (0 , T ) × Ω ,vm = 0 on (0 , T ) × ∂Ω , and vm = v0 on {0} × Ω , (2.8) where Jn ≡ J 1
+
+> n
+
+that is the Friederich mollifier. 
+
+Theorem 2.1. Let v0 ∈ J2(Ω) . Then there exists a weak solution (vm, π m) to problem (2.8) .Moreover, with a bound not uniform with respect to m ∈ N and η > 0, the solution enjoys the estimates 
+
+vm ∈ C(η, T ; J1,2(Ω)) ∩ L2(η, T ; W 2,2(Ω)) ,vmt , ∇πm ∈ L2(η, T ; L2(Ω)) . (2.9) 
+
+Finally, uniformly in m ∈ N the following hold 
+
+(vm(t), φ ) ∈ C(0 , T ) , for all φ ∈ C (Ω) , lim  
+
+> t→0
+
+|| vm(t) − v0|| 2 = 0 , (2.10) 6 P. Maremonti 
+
+|| vm(t)|| 22 + 2
+
+R
+
+> t
+
+Z
+
+> s
+
+||∇ vm(τ )|| 22dτ = || vm(s)|| 22 , for all t > s ≥ 0 , (2.11) 
+
+|| vm(t)|| 22 ≤ || v0|| 22 exp[ − 2 
+
+> R
+
+γ2t] , for all t > 0 , (2.12) 
+
+where we set γ := C−1 
+
+> P
+
+.
+
+Proof. We follow the classical construction, see [8] and [3], by means of the sequence {aℓ} of egeinvectors to the Stokes operator P ∆aℓ = −λℓaℓ , ℓ ∈ N. We consider {aℓ} orthonormal in 
+
+J2(Ω). Setting ump := 
+
+> p
+
+P
+
+> ℓ=1
+
+cℓp(t)aℓ, we realize the system of ordinary differential equations: (vmp t, a ℓ) + 1 
+
+> R
+
+(∇vmp , ∇aℓ) = −(Jm(vmp ) · ∇ vmp , a ℓ) , ℓ = 1 , · · · , p , (2.13) with vmp (0) = 
+
+> p
+
+P
+
+> ℓ=1
+
+cℓp(0) aℓ and cℓp(0) := ( v0, a ℓ), for ℓ = 1 , · · · p . We can solve globally in time the solutions to system (2.13) thanks the energy relation that holds for all t > 0 and p ∈ N:
+
+|| v0|| 22 ≥ || vmp (0) || 2 =
+
+> p
+
+P
+
+> ℓ=1
+
+(cℓp(0)) 2 = 1
+
+> Rt
+
+Z
+
+> 0
+
+||∇ vmp (τ )|| 22dτ +|| vmp (t)|| 22 = 1
+
+> Rt
+
+Z
+
+> 0
+
+||∇ vmp (τ )|| 22dτ +
+
+> p
+
+P
+
+> ℓ=1
+
+(cℓp(t)) 2. (2.14) Multiplying by R−1λℓcℓp(t) + ˙ cℓp(t), and summing on ℓ = 1 , · · · , p , we get 
+
+|| R−1P ∆vmp (t) − vmp t(t)|| 22 = ( Jm(vmp ) · ∇ vmp , R −1∆vmp (t) + vmp t(t)) ,
+
+that easily furnishes 
+
+|| R−1P ∆vmp (t) − vmp t(t)|| 22 ≤ || Jm(vmp ) · ∇ vmp || 22 .
+
+Hence, we arrive at 
+
+ddt ||∇ vm(t)|| 22+ 1 
+
+> R
+
+|| P ∆vmp (t)|| 22+R|| vmp t(t)|| 22 ≤ c(m)R|| vm(t)|| 26||∇ vm(t)|| 22 ≤ c(m)R||∇ vmp (t)|| 42 . (2.15) This last integrated on ( s, t ), via the energy estimate, furnishes 
+
+||∇ vm(t)|| 22 ≤ ||∇ vm(s)|| 22 exp[ c(m)|| v0|| 22]Integrating on (0 , t ), again via energy estimate, we also deduce 
+
+t||∇ vmp (t)|| 22 ≤ R 
+
+> 2
+
+|| v0|| 22 exp[ c(m)|| v0|| 22] . (2.16) Considering again estimate (2.15), employing on the right-hand side (2.16), an integration on ( η, T )furnishes uniformly in p ∈ N and t > η , for all η > 0, the estimate 
+
+> t
+
+Z
+
+> η
+
+h
+
+R−1|| P ∆vmp (τ )|| 22 + R|| vmp t(τ )|| 22
+
+i
+
+dτ ≤ R2 
+
+> 2
+
+Rc (m)η−1|| vm 
+
+> 0
+
+|| 42 exp[ c(m)|| v0|| 22 . (2.17) On Leray’s Th´ eor` eme de Structure for a weak solution to the Navier-Stokes equations: an improvement of the result 7This last leads to the existence of vm enjoying estimate (2.9), for all m ∈ N, with a constant depending on m ∈ N. Now, we are going to prove the estimates (2.10)-(2.12). The continuity expressed in (2.10) is classical in the Navier-Stokes mathematical theory, see e.g. [4]. In the case of (2.11), we start from the energy relation (2.14). By difference we get 
+
+|| ump (t)|| 22 + 2
+
+> Rt
+
+Z
+
+> s
+
+||∇ vmp (τ )|| 22dτ = || vmp (s)|| .
+
+Taking estimates (2.16)-(2.17) into account, via (2.7) written with q = 2, employing the Rellich-Kolmogorov theorem, letting p → ∞ , on interval ( s, t ) with s > 0, we arrive at 
+
+|| vm(t)|| 22 + 2
+
+> Rt
+
+Z
+
+> s
+
+||∇ vm(τ )|| 22dτ = || vm(s)|| 22 .
+
+On the other hand, the continuity in norm for t = 0 expressed in (2.10), allows us to consider the energy relation achieved for all t > s ≥ 0. This proves (2.11). Estimate (2.12) is classical, see e. g. 
+
+[9]. The theorem is completely proved. The following lemma has proved in [2], for the sake of completeness we furnish the proof. 
+
+Lemma 3. Let {(vm, π m)} the sequence furnished in Theorem 2.1, then we get 
+
+> T
+
+Z
+
+> 0
+
+|| D2vm(t)|| 23 
+
+> 2
+
+dt ≤ c(|| v0|| 22, T ) , for all m ∈ N . (2.18) 
+
+Proof. From system (2.8) we deduce the identity in norm: 
+
+|| vmt (t) − R−1P ∆vm(t)|| 22 = || P Jm(vm(t)) · ∇ vm(t)|| 22
+
+Developing the L2-norm on the left-hand side, and applying the Sobolev inequality for the right-hand side, we arrive at 
+
+> 1
+> R
+
+ddt ||∇ vm(t)|| 22 + 1 
+
+> R2
+
+|| P ∆vm(t)|| 22 + || vmt (t)|| 22 ≤ || Jm(vm(t)) · ∇ vm(t)|| 22 ≤ || vm(t)|| 26||∇ vm(t)|| 23 .
+
+Employing estimate (2.6), we get 
+
+ddt ||∇ vm(t)|| 22 + 1 
+
+> R
+
+|| P ∆vm(t)|| 22 +R|| vmt (t)|| 22 ≤ 2RC 2 
+
+> S
+
+c2||∇ vm(t)|| 32|| P ∆vm(t)|| 2 + 2 RC 2 
+
+> S
+
+c2||∇ vm(t)|| 42
+
+≤ 2R3C4 
+
+> S
+
+c4||∇ vm(t)|| 62 +RC 2 
+
+> S
+
+c2||∇ vm(t)|| 42 + 12R || P ∆vm(t)|| 22 ,
+
+Multiplying by (1 + ||∇ vm(t)|| 2)−2 we arrive at (1 + ||∇ vm(t)|| 22)−2 ddt ||∇ vm(t)|| 22 + 12
+
+|| P ∆vm(t)|| 22
+
+(1+ ||∇ vm(t)|| 22)2 ≤ c||∇ vm(t)|| 22 .8 P. Maremonti 
+
+Integrating on ( s, T ) and applying H¨ older’s inverse inequality with exponent − 12 , 13 , we obtain the estimate 
+
+h TZ
+
+> s
+
+|| P ∆vm(τ )|| 23 
+
+> 2
+
+dτ 
+
+i3
+
+≤
+
+h
+
+(1 + ||∇ vm(t)|| 22)−1 + c|| v0|| 22
+
+ih TZ
+
+> s
+
+(1 + ||∇ vm(τ )|| 22)dτ 
+
+i2
+
+≤
+
+h
+
+1 + c|| v0|| 22
+
+ih TZ
+
+> 0
+
+(1 + ||∇ vm(τ )|| 22)dτ 
+
+i2
+
+,
+
+that, letting s → 0, leads to the thesis. The following lemma is crucial for our aims. 
+
+Lemma 4. Let t0 ≥ 0, v(t0) ∈ J2(Ω) with R(α + β)|| v(t0)|| 22 ≤ π 
+
+> 2
+
+and assume η ∈ (0 , 1) . Then there exists θ0 ∈ (t0, t 0 + π 
+
+> 4
+
+[R(1 − η)( α + β)] −1) such that the weak solutions (vm, π m) furnished in Theorem 2.1, uniformly in m ∈ N, enjoys the estimates: 
+
+vm ∈ C(θ0, T ; J1,2(Ω)) ∩ L2(θ0, T ; W 2,2(Ω)) , for all T > θ 0 ,vmt , ∇πm ∈ L2(θ0, T ; L2(Ω)) , for all T > θ 0 . (2.19) 
+
+Finally, uniformly in m ∈ N, the following hold 
+
+(vm(t), φ ) ∈ C(t0, T ) , for all φ ∈ C (Ω) and T > 0 , lim 
+
+> t→t0
+
+|| vm(t) − v(t0)|| 2 = 0 , (2.20) 
+
+|| vm(t)|| 22 + 2
+
+R
+
+> t
+
+Z
+
+> s
+
+||∇ vm(τ )|| 22dτ = || vm(s)|| 22 , for all t > s ≥ t0 , (2.21) 
+
+|| vm(t)|| 22 ≤ || v0|| 22 exp[ − 2 
+
+> R
+
+γ2t] , for all t > t 0 . (2.22) 
+
+Proof. By virtue of Theorem 2.1 the solutions to problem (2.8) are defined for all t > t 0. Now, we look for estimates that are independent of m ∈ N. We claim that given a η ∈ (0 , 1), for all m ∈ N,there exists a tm ∈ (t0, t 0 + R|| v(t0)|| 22 
+
+> 2(1 −η)
+
+) such that ||∇ vm(tm)|| 22 < 1 − η . By contradiction, we assume that 
+
+||∇ vm(t)|| 22 ≥ 1 − η , for all t ∈ (t0, t 0 + R|| v(t0)|| 22 
+
+> 2(1 −η)
+
+) .
+
+Then, we also get 
+
+|| v(t0)|| 22 = 2
+
+R (1 − η) 
+
+> t0+R||v(t0)||222(1 −η)
+
+Z
+
+> t0
+
+dτ ≤ 2
+
+R 
+
+> t0+R||v(t0)||222(1 −η)
+
+Z
+
+> t0
+
+||∇ vm(τ )|| 22dτ , 
+
+that contradicts the validity of (2.11) for all m ∈ N and s = t0. From system (2.8) we deduce the identity in norm: 
+
+|| vmt (t) − R−1P ∆vm(t)|| 22 = || P Jm(vm(t)) · ∇ vm(t)|| 22On Leray’s Th´ eor` eme de Structure for a weak solution to the Navier-Stokes equations: an improvement of the result 9Developing the L2-norm on the left-hand side, and applying the Sobolev inequality for the right-hand side, we arrive at 
+
+ddt ||∇ vm(t)|| 22 + R−1|| P ∆vm(t)|| 22 + R|| vmt (t)|| 22 ≤ R|| Jm(vm(t)) · ∇ vm(t)|| 22 ≤ R|| vm(t)|| 26||∇ vm(t)|| 23 .
+
+Employing estimate (2.6), we get 
+
+ddt ||∇ vm(t)|| 22 + 1 
+
+> R
+
+|| P ∆vm(t)|| 22 + R|| vmt (t)|| 22 ≤ 2RC 2 
+
+> S
+
+c2||∇ vm(t)|| 32|| P ∆vm(t)|| 2 + 2 RC 2 
+
+> S
+
+c2||∇ vm(t)|| 42
+
+≤ 2RC 2 
+
+> S
+
+c2h
+
+R2C2 
+
+> S
+
+c2||∇ vm(t)|| 62 +||∇ vm(t)|| 42
+
+i
+
++ 12R || P ∆vm(t)|| 22.
+
+From the last differential inequality, with obvious meaning of constant α we deduce that 
+
+ddt ||∇ vm(t)|| 22 + 12R || P ∆vm(t)|| 22 + R|| vmt (t)|| 22 ≤ α||∇ vm(t)|| 62 + 2 RC 2 
+
+> S
+
+c2||∇ vm(t)|| 42 , (2.23) and then the following (1 + ||∇ vm(t)|| 42)−1 ddt ||∇ vm(t)|| 22 ≤ α||∇ vm(t)|| 22 + β||∇ vm(t)|| 22 ,
+
+where for the last term we toke the inequality x 
+
+> 1+ x2
+
+≤ 12 on (0 , ∞) into account. We denote by 
+
+σ ∈ (0 , π 
+
+> 4
+
+) an angle such that tan( π 
+
+> 4
+
+−σ) = 1 −η. Integrating on ( tm, t ), being || vm(tm)|| 22 ≤ || v(t0)|| 22,we get arctan ||∇ vm(t)|| 22 ≤ arctan ||∇ vm(tm)|| 22 +( α+β)
+
+> t
+
+Z
+
+> tm
+
+||∇ vm(τ )|| 22dτ < π
+
+4 −σ + R
+
+2 (α+β)|| vm(t0)|| 22 ≤ π
+
+2 −σ . 
+
+Hence, the right hand side is bounded by π 
+
+> 2
+
+− σ uniformly in m ∈ N and t > t m. Moreover, being 
+
+|| v(t0)|| 22 ≤ π 
+
+> 2
+
+[R(α + β)] −1, we get tm ∈ (t0, t 0 + π 
+
+> 4
+
+[R(1 − η)( α + β)] −1). Hence, the sequence {tm}
+
+admits sup 
+
+> m
+
+tm, say θ0. Therefore the last estimate holds uniformly in m ∈ N and in t > θ 0, in particular, it implies 
+
+||∇ vm(t)|| 22 ≤ tan( π
+
+2 − σ) =: A < ∞ , for all m ∈ N and t ≥ θ0. (2.24) Considering again estimate (2.23), then we realize 
+
+||∇ vm(t)|| 22 +
+
+> t
+
+Z
+
+> θ0
+
+h 12 || P ∆vm(τ )|| 22 + || vmτ (τ )|| 22
+
+i
+
+dτ ≤ A +
+
+h
+
+αA 2 + βA 
+
+i
+
+|| v(t0)|| 22 , for all m ∈ N and t ≥ θ0.
+
+The lemma is proved. The following lemma is well known in literature. Thus, we omit the proof. 
+
+Lemma 5. Let v(t0) ∈ J1,2(Ω) . Then there exists a unique solution to problem (1.2) such that 
+
+v ∈ C([ t0, t 0 + T ; J1,2(Ω)) ∩ L2(t0, t 0 + T ; W 2,2(Ω)) , v t, ∇π ∈ L2(t0, t 0 + T ; L2(Ω)) , (2.25) 
+
+where (t0, t 0 + T ) is a maximal interval of existence with T ≥ c||∇ v(t0)|| −42 .10 P. Maremonti 
+
+# 3 Proof of Theorem 1.2 
+
+Let v0 ∈ J2(Ω). The energy estimate (2.11) for t > 0 and s = 0 ensures that the sequence {vm}
+
+adimits a weak limit v in L2(0 , T ; J1,2(Ω)) which is a weak solution to problem (1.2). It is well known that the limit satisfies the energy inequality on strong form (1.5) 1, and the initial datum is assumed strongly in L2-norm, that is lim  
+
+> t→0
+
+|| v(t) − v0|| 22 = 0. Since this result is classical, we omit any detail. Now, we are going to show the th` eor´ em de structure . We follow the idea employed in [6]. That is, vm, almost everywhere in t > 0, admits an interval ( t, t + T (t)), independent of m ∈ N, such that 
+
+vm ∈ C(t, t + T (t); J1,2(Ω)) ∩ L2(t, t + T (t); W 2,2(Ω)) vmt ∈ L2(t, t + T (t); L2(Ω)) . (3.26) Denoted by v the limit of the sequence {vm} with respect the metric (3.26), for the uniqueness of the weak limit v, the regularity detected by (3.26) holds for v too. We start proving the existence of the interval ( θ0, ∞). For this goal in the following we distin-guish two cases. If || v0|| 22R(α + β) ≤ π 
+
+> 2
+
+, estimate (3.26) is already stated in the previous lemma, but now we have 
+
+t0 = 0, θ0 ∈ (0 , π 
+
+> 8
+
+[R(1 − η)( α + β)] −1) and interval of regularity ( θ0, ∞). So for estimate (3.26) we are going to consider the case of || v0|| 22R(α + β) > π 
+
+> 2
+
+. Let {(vm, π m)}
+
+the sequence of solutions stated in Theorem 2.1. We consider estimate (2.12). We fix the instant s
+
+such that e−2 γ2 
+
+> Rs
+
+R(α + β)|| v0|| 22 = π 
+
+> 2
+
+. Hence, we get 
+
+|| vm(s)|| 22R(α + β) ≤ π
+
+2 and s := R
+
+2γ2 log  2
+
+π || v0|| 22(α + β) . (3.27) Now, for a given η ∈ (0 , 1) we prove the existence of an instant tm ∈ [s, s + R|| vm(s)|| 22 
+
+> 2(1 −η)
+
+] such that 
+
+||∇ vm(tm)|| 22 < 1 − η. The proof is the same given in the previous lemma. That is, 
+
+|| vm(s)|| 22 = 2
+
+R 
+
+> s+R||v(s)||222(1 −η)
+
+Z
+
+> s
+
+dτ ≤ 2
+
+R 
+
+> s+R||v(s)||222(1 −η)
+
+Z
+
+> s
+
+||∇ vm(τ )|| 22ddτ , 
+
+that contradicts the energy relation (2.11). Hence, there exists tm ∈ [s, s + R|| v(s)|| 22 
+
+> 2(1 −η)
+
+] such that 
+
+||∇ vm(tm)|| 22 < 1 − η. Since estimate (2.12) implies that || vm(s)|| 22 ≤ e− 2 
+
+> Rγ2s
+
+|| v0|| 22, substituting the value of s given in (3.27), we get {tm} ⊂ [s, s + π 
+
+> 4
+
+[R(1 − η)( α + β)] −1]. Now, we procede as in the previous lemma. Hence, there exists θ0 ∈ [s, s + π 
+
+> 4
+
+[(1 − η)( α + β)] −1] such that 
+
+||∇ vm(t)|| 22 +
+
+> t
+
+Z
+
+> θ0
+
+h 12 || P ∆vm(τ )|| 22 + || vmτ (τ )|| 22
+
+i
+
+dτ ≤ A +
+
+h
+
+αA 2 + βA 
+
+i
+
+|| v(t0)|| 22 ,
+
+for all m ∈ N and t ≥ θ0 ,
+
+(3.28) On Leray’s Th´ eor` eme de Structure for a weak solution to the Navier-Stokes equations: an improvement of the result 11 where A = tan( π 
+
+> 2
+
+− σ) > ||∇ vm(t)|| 22, for all t ∈ (θ0, ∞). In both the cases we get (3.28) that ensure that the sequence {vm} admits a limit v with respect the metrics detected by (3.28). For the uniqueness of the weak limit v in L2(0 , T ; J1,2(Ω)), we realize that v ≡ v on ( θ0, ∞). Now, the proof considers the cases of t ∈ (0 , θ 0), As already said we follows the argument lines of paper [6], that we reproduce for the sake of completeness. Lemma 3 allows us to apply Lemma 2 assuming q = 23 . Hence, there exists the set T ⊆ (0 , θ 0)such that, for all t ∈ T , ∇vm(t) → ∇ v(t) strongly in L2(Ω). Let us consider tα ∈ [0 , θ 0] ∩ T . Let m(tα) be such that ||∇ vm(tα)|| 22 ≤ ||∇ v(tα)|| 22 + 1. By virtue of (2.25) we can consider an extract {vm}, m ≥ m(tα), that admits a limit ( w, π w) regular solution on some maximal interval of the kind Iα := [ tα, t α +T (tα)) ≡ ∩
+
+> m≥m(t)
+
+[tα, t α +Tm(tα)), non empty set since it contains strictly the interval [ tα, t α +c(||∇ v(tα)|| 22 +1) −2], being ||∇ vm(tα)|| −22 ≥ (||∇ v(tα)|| 22 +1) −1 for all m ≥ m(tα). By virtue of the uniqueness of the weak limit in L2(0 , θ 0; J1,2(Ω)), we get that v ≡ w again. Hence, we have proved a local in time property of regularity for v. Let us consider tβ ∈ [0 , θ 0] ∩ T − Iα. By the same previous argument lines, we can state the existence of 
+
+Iβ like maximal interval of regularity for the weak solution v. Now, there are two possibility: i. Iα ∩ Iβ = ∅;ii. Iα ∩ Iβ̸ = ∅, then Iβ ⊃ Iα.We justify the second item. If Iα ∩ Iβ̸ = ∅, since tβ /∈ Iα, then tβ < t α. So that we have tα ∈ Iβ .Hence Iα represents an extension of Iβ , that is tβ + T (tβ ) = tα + T (tα). In the case of item i. We start again with a new tγ ∈ [0 , θ 0] ∩ T − { Iα ∪ Iβ }. In the case of item ii. we replace Iα with 
+
+Iβ and start with tγ ∈ [0 , θ 0] ∩ T − Iβ . Iterating the procedure, we state a family of intervals 
+
+{Iα}α∈A , with A set of indexes. We have that [0 , θ 0] ∩ T ⊆ ∪ 
+
+> α∈A
+
+Iα, with ◦
+
+Iα̸ = ∅ and ◦
+
+Iα ∩ ◦
+
+Iβ = ∅
+
+for α̸ = β. These last property ensures that the set of indexes A has at most the cardinality of N.The theorem is completely proved. 
+
+# References 
+
+[1] G. Arioli, A. Falocchi, F. Gazzola, On the epochs of irregularity of Leray-Hopf solutions to Navier-Stokes equations , J. of Diff. Eq. 453 (2026) https://doi.org/10.1016/j.jde.2025.113887 [2] F. Crispo, C.R. Grisanti and P. Maremonti, Some new properties of a suitable weak solution to the Navier-Stokes equations , in Waves in Flows: The 2018 Prague-Sum Workshop Lectures, series: Lecture Notes in Mathematical Fluids Mechanics, editors: G.P.Galdi, T. Bodnar, S. Necasova, Birkhauser. [3] J.G. Heywood, The Navier-Stokes equations: on the existence, regularity and decay of solu-tions , Indiana Univ. Math. J. 29 (1980), no. 5, 639-681. [4] O.A. Ladyzhenskaya, The mathematical theory of viscous incompressible flow, Gordon and Breach Sc. Publ., New York-London-Paris, 1969. 12 P. Maremonti 
+
+[5] J. Leray, Sur le mouvement d’un liquide visqueux emplissant l’espace , Acta Math. 63 (1934), no. 1, 193-248. [6] P. Maremonti and F. Palma, A new proof of the Th` eor´ eme de Structure related to a weak solution to the Navier-Stokes equations, to appear on JMFM, arXiv:2512.05598 [7] P. Maremonti and F. Palma, On the interaction between a rigid-body and a viscous-fluid: existence of a weak solution and a suitable Th` eor´ eme de Structure , arXiv:2602.11787 [8] G. Prodi, Teoremi di tipo locale per il sistema di Navier-Stokes e stabilit` a delle soluzioni stazionarie (Italian) Rend. Sem. Mat. Univ. Padova 32 (1962) 374-397. [9] D. H. Sattinger, The mathematical problem of hydrodynamic stability, Journal of Mathematics and Mechanics, 19 (1970) 797-817. [10] V. Scheffer, Turbulence and Hausdorff dimension. Turbulence and Navier-Stokes equations ,Lecture Notes in Math., Vol. 565 Springer, Berlin-New York, 1976.

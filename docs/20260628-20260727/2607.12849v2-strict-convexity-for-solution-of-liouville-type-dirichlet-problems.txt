@@ -1,0 +1,1780 @@
+Title: Strict Convexity for Solution of Liouville-Type Dirichlet Problems
+
+URL Source: https://arxiv.org/pdf/2607.12849v2
+
+Published Time: Mon, 20 Jul 2026 01:04:14 GMT
+
+Number of Pages: 27
+
+Markdown Content:
+# Strict Convexity for Solution of Liouville-Type Dirichlet Problems 
+
+## Jiahuan Li, Shuning Xu 
+
+Abstract 
+
+We identify a common convexity structure for three exponential Dirichlet problems on smooth uniformly strictly convex domains: the Liouville equation ∆ u = eu, the real equation σ2(D2u) = 
+
+e2u, and its complex counterpart σ2(ui¯j ) = e2u. In each case u < 0 in the domain and u = 0 on the boundary. We prove that 
+
+w = − arcosh( e−u/ 2)is strictly convex in the underlying real variables. The argument combines domain deformation, constant-rank theory, inverse-convexity estimates, radial ball models, boundary strict convexity, and local C2 stability. 
+
+Keywords: Power concavity; Liouville equation; Hessian equations; complex Hessian equations; constant-rank theorem; convexity of solutions. 
+
+# 1 Introduction 
+
+Convexity properties of solutions to elliptic equations connect nonlinear analysis with convex geometry. A classical example is the theorem of Brascamp and Lieb [BL76], which yields log-concavity of the first Dirichlet eigenfunction of the Laplacian on a convex domain. Such concavity properties are closely related to Brunn–Minkowski inequalities for eigenvalues and other variational quantities; see [Col05, Jer96, Sal05, Sch93]. The study of convexity properties of solutions of partial differential equations predates the sys-tematic power-concavity theory of the 1980s. In 1971, Makar-Limanov proved that the square root of the torsion function is concave on planar convex domains [ML71]. In 1976, Brascamp and Lieb showed that log-concavity is preserved by the heat flow and, in particular, obtained the log-concavity of the first Dirichlet eigenfunction on convex domains [BL76]. In the 1980s, Korevaar developed the convexity maximum principle, while Kennington formulated a systematic theory of power concavity for semilinear Dirichlet problems [Kor83,Ken85]. In particular, Kennington recorded a result of Grant Keady showing that if ∆u = eu in Ω , u = k on ∂Ω,
+
+then √k − u is concave [Ken85, Theorem 5.3]. Thus, when k = 0, this result already gives the concavity of √−u for the Liouville problem considered below. The present arcosh transform yields a stronger strict-convexity statement and, consequently, strengthens this classical square-root concavity to strict concavity. For strict convexity, a foundational step was the work of Caffarelli and Friedman, who combined a deformation argument with a two-dimensional constant-rank theorem for convex solutions of semilinear elliptic equations [CF85]. Their work is the direct methodological precursor of the deformation– constant-rank strategy used in the present paper. Korevaar and Lewis subsequently extended the constant-rank theorem to higher dimensions [KL87].At the macroscopic level, Alvarez, Lasry, and Lions introduced an inverse-convexity condition involving the map A 7 → F (A−1) and used it to establish convexity of viscosity solutions under state-constraint boundary conditions [ALL97]. This inverse-matrix structure later became an important ingredient in the fully nonlinear constant-rank theory. In the fully nonlinear setting, Guan and Ma developed the constant-rank method for Hessian equations 1arXiv:2607.12849v2 [math.AP] 17 Jul 2026 in their study of the Christoffel–Minkowski problem [GM03], and Caffarelli, Guan, and Ma established a general constant-rank theorem for fully nonlinear elliptic equations [CGM07]. Bian and Guan later formulated the microscopic convexity principle under a general structural condition [BG09, BG10]. The first equation considered here is the Liouville-type problem ∆u = eu, u < 0 in Ω , u = 0 on ∂Ω. (1) In dimension two, this equation has a direct conformal interpretation. If g = eugEucl , then its Gaussian curvature is 
+
+Kg = − 12 e−u∆u;hence (1) prescribes the constant curvature Kg = −1/2. The boundary condition fixes the scale of the conformal factor. Our result shows that this negative-curvature equation carries a hidden convex geometry after an equation-adapted change of variables. We next consider Hessian operators. For 1 ≤ k ≤ n and u ∈ C2, the k-Hessian operator is 
+
+σk(D2u) = X 
+
+> 1≤i1<··· <i k≤n
+
+λi1 (D2u) · · · λik (D2u).
+
+For 1 < k ≤ n, the equation is fully nonlinear and elliptic only on the appropriate G˚ arding cone. The Dirichlet theory was developed by Caffarelli, Nirenberg, and Spruck [CNS85], while Wang studied the corresponding Hessian eigenvalue problem [Wan94]. Convexity and Brunn–Minkowski results for Hessian equations were obtained in [MX08, LMX10, Sal12]; higher-dimensional real and complex σ2
+
+developments appear in [LMS26, CLM26a]. Complex Hessian equations have their own analytic subtleties, since admissibility is imposed on the Hermitian Hessian while our conclusion is a statement about the full real Hessian. Relevant developments in a priori estimates, Dirichlet problems, Liouville theorems, and eigenvalue problems may be found in [HMW10, DK14, DK17, CP22, BZ24, CLM26b]. The original solution of a Hessian equation is generally not the convex quantity. For example, the natural transforms for 
+
+σ2(D2u) = λ(−u)2 and σ2(D2u) = 1 are, respectively, − log( −u) and −(−u)1/2. These examples belong to the power-concavity framework initiated by Kennington. The exponential source is nonhomogeneous in that scale, however, and the power transform does not remove its explicit dependence on the solution. The appropriate change of variables is 
+
+w = − arcosh( e−u/ 2), u = h(w) := −2 log(cosh w), w < 0. (2) It is characterized by the identity 
+
+h′′ (w) = −2eh(w), (3) which absorbs the exponential source into the transformed equation. With 
+
+s(w) = − sinh w cosh w > 0,
+
+problem (1) becomes 
+
+s(w)∆ w − | Dw |2 − 12 = 0 . (4) For the real exponential σ2 equation 
+
+σ2(D2u) = e2u, u < 0 in Ω , u = 0 on ∂Ω, (5) the transformed equation is 
+
+s(w)2σ2(D2w) − s(w) tr( PR(Dw )D2w) − 14 = 0 , PR(p) = |p|2I − p ⊗ p. (6) The same scalar transform applies to the complex equation 
+
+σ2(ui¯j ) = e2u, u < 0 in Ω , u = 0 on ∂Ω. (7) 2The complex Hessian must then be viewed as a compression of the real Hessian; this is why the complex result below concerns strict convexity in the underlying real variables. Our main results are as follows. 
+
+Theorem 1.1. Let Ω ⊂ RN , N ≥ 2, be a bounded, smooth, uniformly strictly convex domain. Let 
+
+u ∈ C2(Ω) ∩ C0(Ω) be a solution of (1) . Then u ∈ C∞(Ω) , and − arcosh( e−u/ 2)is strictly convex in Ω.
+
+Theorem 1.2. Let Ω ⊂ Rn, n ≥ 3, be a bounded, smooth, uniformly strictly convex domain. Let 
+
+u ∈ C2(Ω) ∩ C0(Ω) be a σ2-admissible solution of (5) . Then u ∈ C∞(Ω) , and − arcosh( e−u/ 2) is strictly convex in Ω.
+
+Theorem 1.3. Let Ω ⊂ Cm, m ≥ 2, be a bounded smooth domain that is uniformly strictly convex when regarded as a domain in R2m. Let u ∈ C2(Ω) ∩ C0(Ω) be a complex σ2-admissible solution of (7) .Then u ∈ C∞(Ω) , and w = − arcosh( e−u/ 2) is strictly convex in Ω with respect to the underlying real variables. Equivalently, 
+
+D2
+
+> R
+
+w > 0 in Ω.
+
+The proof has three components. First, the transformed equations satisfy the structural condition in the Bian–Guan microscopic convexity principle [BG09, BG10]. For the real and complex Hessian equations, this step uses inverse-convexity statements arising from G˚ arding’s theory of hyperbolic polynomials and its convex-analytic refinements [G˚ ar59, BGLS01, Ren06]. Second, direct radial ODE arguments give strict convexity on balls, while a boundary calculation gives strict convexity near the boundary of every uniformly strictly convex domain. Third, local C2 stability and Minkowski deformation reduce the general case to the ball; constant rank prevents loss of strict convexity at the closedness step. As a scalar consequence of the main theorems, the arcosh transform also recovers the classical square-root concavity. More precisely, strict convexity of − arcosh( e−u/ 2) implies strict concavity of √−u. Moreover, the exponent 1 /2 is optimal for the Liouville problem. These consequences are established in Subsection 2.6. The paper is organized as follows. Section 2 collects the algebraic and constant-rank tools and establishes the square-root concavity consequence and its sharpness. Section 3 derives the transformed equations and verifies the corresponding constant-rank structures for the Liouville equation and the real and complex σ2-Hessian equations. Section 4 establishes boundary strict convexity and analyzes the radial ball models. Section 5 develops the domain-deformation framework, proves the required local C2 stability results, and completes the proofs of the main theorems. 
+
+# Acknowledgments 
+
+The authors thank Professor Xi-Nan Ma for bringing this question to their attention. They were supported by the National Natural Science Foundation of China [grant number 2025YFA1017601]. 
+
+# 2 Preliminaries 
+
+## 2.1 The real and Hermitian σ2 operators 
+
+For a real symmetric matrix M ∈ Sn, let λ(M ) = ( λ1, . . . , λ n) be its eigenvalues and set 
+
+σ1(M ) = X
+
+> i
+
+λi, σ2(M ) = X
+
+> i<j
+
+λiλj .
+
+Equivalently, 
+
+σ2(M ) = 12 {(tr M )2 − tr( M 2)}. (8) The G˚ arding cone is Γ2 = {λ ∈ Rn : σ1(λ) > 0, σ 2(λ) > 0}.
+
+3A C2 function u on a real domain is called σ2-admissible if λ(D2u) ∈ Γ2 pointwise. For a Hermitian matrix M ∈ H n, σ1(M ) and σ2(M ) are defined using the real eigenvalues of M .A real-valued function u on a complex domain is complex σ2-admissible if λ(ui¯j ) ∈ Γ2 at every point. The first Newton tensor is 
+
+T1(M ) = σ1(M )I − M. (9) On Γ 2 one has 
+
+T1(M ) > 0. (10) Indeed, after diagonalizing M , the eigenvalues of T1(M ) are 
+
+X 
+
+> j̸=i
+
+λj (M ), i = 1 , . . . , n, 
+
+which are positive on Γ 2. We shall repeatedly use the monotonicity of σ2 on the admissible branch: if 
+
+M ∈ Γ2 and N ≥ 0, then 
+
+σ2(M + N ) ≥ σ2(M ).
+
+This follows by integrating 
+
+ddt σ2(M + tN ) = tr( T1(M + tN )N ) ≥ 0,
+
+because M + tN ∈ Γ2 and T1(M + tN ) > 0 for 0 ≤ t ≤ 1. 
+
+## 2.2 Rank-one formulas 
+
+For p ∈ Rn define 
+
+PR(p) = |p|2I − p ⊗ p. (11) For every real symmetric matrix r and every t ∈ R,
+
+σ2(r + t p ⊗ p) = σ2(r) + t tr( PR(p)r). (12) Indeed, using (8), the coefficient of t is 
+
+|p|2 tr r − pT rp = tr(( |p|2I − p ⊗ p)r),
+
+and the coefficient of t2 is σ2(p ⊗ p) = 0. For q ∈ Cm define the Hermitian matrix 
+
+PC(q) = |q|2I − q ⊗ ¯q. (13) For every Hermitian matrix M ,
+
+σ2(M − tq ⊗ ¯q) = σ2(M ) − t tr( PC(q)M ). (14) This follows from ddt σ2(M − tq ⊗ ¯q) = − tr( T1(M )q ⊗ ¯q) = −¯qT T1(M )q, 
+
+and ¯qT T1(M )q = |q|2 tr M − ¯qT M q = tr( PC(q)M ),
+
+while the quadratic term vanishes because q ⊗ ¯q has rank one. 42.3 Complex Hessians as compressed real Hessians 
+
+Identify Cm with R2m by zj = xj + iy j . If 
+
+H =
+
+ U VV T W
+
+
+
+∈ S2m,
+
+define 
+
+C(H) = 14 {U + W + i(V − V T )}. (15) Equivalently, 
+
+C(H) = 14 R∗HR, R =
+
+ IiI 
+
+
+
+∈ C2m×m. (16) If H = D2
+
+> R
+
+u, then 
+
+C(D2
+
+> R
+
+u) = ( ui¯j )1≤i,j ≤m. (17) If λ = ( a, b ) ∈ Rm × Rm and ζ = a − ib ∈ Cm, then 
+
+C(λ ⊗ λ) = 14 ζ ⊗ ¯ζ. (18) Thus a nonzero real rank-one positive semidefinite direction is compressed to a nonzero Hermitian rank-one positive semidefinite direction. 
+
+## 2.4 Bian–Guan constant rank theorem 
+
+We use the following application form of the Bian–Guan microscopic convexity principle. 
+
+Theorem 2.1. Let D ⊂ RN be connected and let v ∈ C3,1(D) be a convex solution of 
+
+F (D2v, Dv, v, x ) = 0 ,
+
+where F is C2,1 in its variables. Assume: (i) F is elliptic along the solution, namely (F αβ ) > 0;(ii) F (0 , Dv, v, x )̸ = 0 along the solution; (iii) for each fixed relevant gradient p, the set 
+
+{(A, z, x ) ∈ SN 
+
+> ++
+
+× R × D : F (A−1, p, z, x ) ≤ 0}
+
+is locally convex near the relevant points. Then rank D2v is constant in D.
+
+This is the form used in the real Hessian and complex Hessian deformation arguments; see [BG09, BG10]. 
+
+## 2.5 Inverse-convexity inputs 
+
+We first record the real inverse-convexity statement. Let α ∈ Rn, |α| = 1, and 
+
+Qα = I − α ⊗ α. 
+
+Proposition 2.2 ( [LMS26]) . Let n ≥ 3 and μ > 0. The function 
+
+A 7 → σ2(A−1) − μ
+
+tr( QαA−1) (19) 
+
+is convex on Sn
+
+> ++
+
+.
+
+5This formulation follows from G˚ arding quotient concavity together with the reciprocal-trace prin-ciple of Alvarez, Lasry, and Lions; see also [ALL97, BGLS01, G˚ ar59, Ren06]. The complex input is the compressed inverse-convexity theorem. 
+
+Proposition 2.3 ( [CLM26a]) . Let m ≥ 2. For every q ∈ Cm and every μ > 0, the set 
+
+Kq,μ = {A ∈ S2m 
+
+> ++
+
+: σ2(C(A−1) − q ⊗ ¯q) ≤ μ} (20) 
+
+is convex. 
+
+## 2.6 Square-Root Consequence and Sharpness 
+
+We first show that strict convexity of the arcosh transform implies the classical square-root concavity. 
+
+Remark 2.4. Let u < 0, and set 
+
+W = − arcosh( e−u/ 2), V = −√−u. 
+
+If W is strictly convex, then V is also strictly convex. Consequently, each of Theorems 1.1–1.3 implies that √−u is strictly concave. Indeed, since 
+
+e−u/ 2 = cosh W, 
+
+we have 
+
+−u = 2 log(cosh W ).
+
+Therefore 
+
+V = Φ( W ), Φ( t) = −p2 log(cosh t), t < 0.
+
+Direct differentiation gives 
+
+Φ′(t) = − tanh t
+
+p2 log(cosh t) > 0, t < 0,
+
+and 
+
+Φ′′ (t) = tanh 2 t − 2 log(cosh t) sech 2 t
+
+ 2 log(cosh t)3/2 .
+
+After multiplying the numerator by cosh 2 t, it becomes 
+
+Q(t) = sinh 2 t − 2 log(cosh t).
+
+The function Q is even and satisfies Q(0) = 0 . Moreover, for t > 0,
+
+Q′(t) = 2 sinh t cosh t − 2 tanh t = 2 sinh 3 t
+
+cosh t > 0.
+
+Hence 
+
+Q(t) > 0 for all t̸ = 0 ,
+
+and therefore 
+
+Φ′′ (t) > 0 for all t < 0.
+
+Since V = Φ( W ), we obtain 
+
+D2V = Φ ′(W )D2W + Φ ′′ (W )DW ⊗ DW. 
+
+For every nonzero ξ ∈ RN ,
+
+ξT D2V ξ = Φ ′(W )ξT D2W ξ + Φ ′′ (W )( ξ · DW )2 > 0.
+
+Thus D2V > 0, proving the assertion. 
+
+6The preceding argument is purely scalar. The arcosh transform is adapted to the exponential source, while composition with the increasing convex function Φ recovers the classical square-root power-concavity conclusion. We next show that the exponent 1 /2 is sharp for the Liouville equation. 
+
+Remark 2.5. The exponent 1/2 in the power-concavity consequence of Theorem 1.1 is optimal, even within the class of smooth uniformly strictly convex domains. More precisely, for every 
+
+α > 12 ,
+
+there exists a bounded, smooth, uniformly strictly convex domain Ωα ⊂ RN such that the unique solution of (
+
+∆u = eu in Ωα,u = 0 on ∂Ωα
+
+has the property that (−u)α is not concave in Ωα.Indeed, fix α > 1/2. By the sharpness result of Kennington [Ken85, Theorem 6.2(iii)], there exists a bounded convex domain Ω ⊂ RN whose torsion function 
+
+(
+
+−∆U = 1 in Ω,U = 0 on ∂Ω
+
+has the property that U α is not concave. Since the failure of concavity is expressed by a strict inequality at finitely many interior points, a standard approximation of Ω by smooth uniformly strictly convex domains, together with the stability of torsion functions under domain approximation, allows us to assume that Ω itself is smooth and uniformly strictly convex. For r > 0, let ur be the solution of 
+
+(
+
+∆ur = eur in rΩ,ur = 0 on ∂(rΩ) ,
+
+and define 
+
+vr (y) = − 1
+
+r2 ur (ry ), y ∈ Ω.
+
+Then vr > 0 and (
+
+−∆vr = e−r2vr in Ω,vr = 0 on ∂Ω.
+
+Let 
+
+M = ∥U ∥L∞(Ω) .
+
+Since 
+
+e−r2vr ≤ 1,
+
+comparison with the torsion function gives 
+
+vr ≤ U in Ω.
+
+Consequently, 
+
+e−r2vr ≥ e−r2U ≥ e−r2M .
+
+A second application of the comparison principle yields 
+
+e−r2M U ≤ vr ≤ U in Ω.
+
+7Therefore 
+
+vr −→ U uniformly in Ω
+
+as r → 0.Because U α is not concave, there exist x0, x 1 ∈ Ω and θ ∈ (0 , 1) such that, with 
+
+xθ = (1 − θ)x0 + θx 1,
+
+one has 
+
+U (xθ )α < (1 − θ)U (x0)α + θU (x1)α.
+
+The uniform convergence vr → U implies that the same strict inequality holds with vr in place of U
+
+for all sufficiently small r > 0. Hence vαr is not concave in Ω.Finally,  −ur (ry )α = r2αvr (y)α.
+
+Since multiplication by a positive constant and composition with a linear dilation preserve concavity, 
+
+(−ur )α is not concave in rΩ for all sufficiently small r > 0.Thus no exponent α > 1/2 gives a universal concavity result for solutions of 
+
+∆u = eu, u|∂Ω = 0 .
+
+On the other hand, Theorem 1.1 and Remark 2.4 show that √−u is strictly concave. Therefore the exponent 1/2 is optimal. 
+
+# 3 Transformed Equations and Constant-Rank Structure 
+
+## 3.1 Scalar identities 
+
+Let 
+
+h(w) = −2 log(cosh w), u = h(w), w < 0. (21) Then 
+
+h′(w) = −2 tanh w > 0, h′′ (w) = −2 sech 2 w < 0, eh(w) = sech 2 w. (22) In particular, 
+
+h′′ (w) = −2eh(w). (23) Set 
+
+s(w) = − sinh w cosh w > 0. (24) Then h′′ 
+
+h′ = − 1
+
+s(w) , eh
+
+h′ = 12s(w) , e2h
+
+(h′)2 = 14s(w)2 . (25) Indeed, 
+
+h′′ 
+
+h′ = −2 sech 2 w
+
+−2 tanh w = 1sinh w cosh w = − 1
+
+s(w) ,
+
+and e2h
+
+(h′)2 = sech 4 w
+
+4 tanh 2 w = 14 sinh 2 w cosh 2 w = 14s(w)2 .
+
+The inverse relation is precisely 
+
+w = − arcosh( e−u/ 2). (26) Moreover, 
+
+s′′ (z) = −2 sinh(2 z) > 0, z < 0, (27) so s is strictly convex on ( −∞ , 0). 83.2 The transformed Liouville equation 
+
+For u = h(w), one has ∆u = h′(w)∆ w + h′′ (w)|Dw |2.
+
+Thus (1) and (25) give 
+
+FL(D2w, Dw, w ) = 0 , (28) where 
+
+FL(r, p, z ) = s(z) tr r − | p|2 − 12 . (29) We need one elementary inverse-convexity fact. 
+
+Lemma 3.1. The map A 7 → tr( A−1) is convex on SN
+
+> ++
+
+. For every γ > 0, the set 
+
+Kγ = {A ∈ SN 
+
+> ++
+
+: tr( A−1) ≤ γ}
+
+is convex and is closed under dilations A 7 → λA with λ ≥ 1.Proof. For A(t) = A + tH ,
+
+d2
+
+dt 2 tr( A + tH )−1
+
+> t=0
+
+= 2 tr( A−1HA −1HA −1) ≥ 0.
+
+The last inequality follows after writing the matrix under the trace as A−1/2(A−1/2HA −1/2)2A−1/2.Convexity of Kγ follows, and tr(( λA )−1) = λ−1 tr( A−1)proves dilation closure. 
+
+Proposition 3.2. Let D ⊂ RN be connected and let w ∈ C4(D) be a convex solution of (28) . Then 
+
+rank D2w is constant in D.Proof. The equation is elliptic because 
+
+F ij L = s(w)δij > 0,
+
+and it is nondegenerate at the zero Hessian since 
+
+FL(0 , p, z ) = −| p|2 − 12̸ = 0 .
+
+Fix p ∈ RN , put γp = |p|2 + 1 /2, and consider 
+
+CLp = {(A, z ) ∈ SN 
+
+> ++
+
+× (−∞ , 0) : FL(A−1, p, z ) ≤ 0}.
+
+The defining inequality is 
+
+s(z) tr( A−1) ≤ γp.
+
+With B = A/s (z), this is equivalent to B ∈ Kγp . If ( Ai, z i) ∈ C Lp , set si = s(zi) and Bi = Ai/s i. For 0 ≤ θ ≤ 1, let 
+
+Aθ = θA 1 + (1 − θ)A2, zθ = θz 1 + (1 − θ)z2, tθ = θs 1 + (1 − θ)s2.
+
+By (27), s(zθ ) ≤ tθ , and 
+
+Aθ
+
+s(zθ ) = tθ
+
+s(zθ )
+
+ θs 1
+
+tθ
+
+B1 + (1 − θ)s2
+
+tθ
+
+B2
+
+
+
+.
+
+Lemma 3.1 shows that this matrix belongs to Kγp . Hence CLp is convex. All hypotheses of Theorem 2.1 are satisfied, and the constant-rank conclusion follows. 93.3 The transformed real σ2 equation 
+
+Let r = D2w and p = Dw . Since 
+
+D2u = h′r + h′′ p ⊗ p, 
+
+we have, using (12), 
+
+σ2(D2u) = ( h′)2σ2(r) + h′h′′ tr( PR(p)r).
+
+Thus σ2(D2u) = e2u = e2h is equivalent to 
+
+σ2(r) + h′′ 
+
+h′ tr( PR(p)r) = e2h
+
+(h′)2 .
+
+By (25), 
+
+σ2(D2w) − 1
+
+s(w) tr( PR(Dw )D2w) = 14s(w)2 . (30) Equivalently, 
+
+FR(D2w, Dw, w ) = 0 , (31) where 
+
+FR(r, p, z ) = s(z)2σ2(r) − s(z) tr( PR(p)r) − 14 . (32) 
+
+Ellipticity and nondegeneracy. We next verify that the transformed operator FR is elliptic along admissible solutions and is nondegenerate at the zero Hessian, as required for the application of the Bian–Guan constant-rank theorem. Define 
+
+N = r − 1
+
+s(z) p ⊗ p. (33) Along the solution, 
+
+D2u = h′(w)N. (34) Since h′(w) > 0 and D2u ∈ Γ2, we have N ∈ Γ2. Differentiating FR in the r variable gives 
+
+F ij  
+
+> R
+
+= s2T1(r)ij − sP R(p)ij .
+
+Using 
+
+T1
+
+
+
+r − 1
+
+s p ⊗ p
+
+
+
+= T1(r) − 1
+
+s PR(p),
+
+we obtain 
+
+F ij  
+
+> R
+
+= s2T1(N )ij > 0. (35) Thus the transformed equation is elliptic along admissible solutions. Also 
+
+FR(0 , p, z ) = − 14̸ = 0 . (36) 
+
+Level-set convexity. Fix p ∈ Rn and consider 
+
+CR 
+
+> p
+
+= {(A, z ) ∈ Sn 
+
+> ++
+
+× (−∞ , 0) : FR(A−1, p, z ) ≤ 0}. (37) The inequality is 
+
+s(z)2σ2(A−1) − s(z) tr( PR(p)A−1) ≤ 14 . (38) Set 
+
+B = As(z) .
+
+10 Then A−1 = s(z)−1B−1, and (38) becomes 
+
+σ2(B−1) − tr( PR(p)B−1) ≤ 14 . (39) Let 
+
+KR 
+
+> p
+
+=
+
+
+
+B ∈ Sn 
+
+> ++
+
+: σ2(B−1) − tr( PR(p)B−1) ≤ 14
+
+
+
+. (40) We claim that KR 
+
+> p
+
+is convex. If p̸ = 0, write p = |p|α and Qα = I − α ⊗ α. Since 
+
+PR(p) = |p|2Qα
+
+and tr( QαB−1) > 0, condition (39) is equivalent to 
+
+σ2(B−1) − 14
+
+tr( QαB−1) ≤ | p|2.
+
+By Proposition 2.2, this is a sublevel set of a convex function. Hence KR 
+
+> p
+
+is convex. If p = 0, fix a unit vector α and set pε = εα . Then KR 
+
+> pε
+
+is convex for all ε > 0, and 
+
+KR 
+
+> 0
+
+= \
+
+> ε> 0
+
+KR 
+
+> pε
+
+.
+
+Indeed, 
+
+B ∈ KR 
+
+> pε
+
+⇐⇒ σ2(B−1) − ε2 tr( QαB−1) ≤ 14 ,
+
+and letting ε ↓ 0 gives the claim. Thus KR 
+
+> 0
+
+is convex. Next, KR 
+
+> p
+
+is closed under dilations B 7 → λB , λ ≥ 1. For B ∈ KR 
+
+> p
+
+,
+
+σ2(( λB )−1) − tr( PR(p)( λB )−1)= λ−2σ2(B−1) − λ−1 tr( PR(p)B−1)= λ−2{σ2(B−1) − tr( PR(p)B−1)} + ( λ−2 − λ−1) tr( PR(p)B−1).
+
+Because PR(p) ≥ 0, B−1 > 0, and λ−2 − λ−1 ≤ 0, this is at most λ−2/4 ≤ 1/4. Therefore λB ∈ KR 
+
+> p
+
+.We now prove that CR 
+
+> p
+
+is convex. Take ( Ai, z i) ∈ C R 
+
+> p
+
+, i = 1 , 2, and 0 ≤ θ ≤ 1. Put 
+
+si = s(zi), Bi = Ai
+
+si
+
+∈ KR 
+
+> p
+
+.
+
+Let 
+
+Aθ = θA 1 + (1 − θ)A2, zθ = θz 1 + (1 − θ)z2.
+
+Since 
+
+s(z) = − sinh z cosh z = − 12 sinh(2 z),
+
+one has 
+
+s′′ (z) = −2 sinh(2 z) > 0, z < 0,
+
+so s is convex on ( −∞ , 0). Thus 
+
+sθ := s(zθ ) ≤ tθ := θs 1 + (1 − θ)s2.
+
+Moreover, 
+
+Aθ = tθ
+
+ θs 1
+
+tθ
+
+B1 + (1 − θ)s2
+
+tθ
+
+B2
+
+
+
+.
+
+The matrix in parentheses belongs to KR 
+
+> p
+
+by convexity, and multiplication by tθ /s θ ≥ 1 keeps it in KR
+
+> p
+
+by dilation closure. Therefore Aθ
+
+sθ
+
+∈ KR 
+
+> p
+
+,
+
+hence ( Aθ , z θ ) ∈ C R 
+
+> p
+
+. This proves the level-set convexity. 11 Proposition 3.3. Let D ⊂ Rn, n ≥ 3, be connected. Let w ∈ C4(D) solve (31) . Assume 
+
+D2w ≥ 0
+
+and 
+
+D2w − 1
+
+s(w) Dw ⊗ Dw ∈ Γ2.
+
+Then rank D2w is constant in D.Proof. The ellipticity, nondegeneracy, and level-set convexity conditions required by Theorem 2.1 were verified in (35), (36), and the preceding discussion. Since D2w ≥ 0, Theorem 2.1 applies and gives the conclusion. 
+
+## 3.4 The Complex Transformed Equation and Constant-Rank Structure 
+
+Let Ω ⊂ Cm and let u = h(w) with h as in (21). Put 
+
+M = ( wi¯j ), q = ∂w = ( wi)mi=1 .
+
+Then 
+
+ui¯j = h′wi¯j + h′′ wiw¯j = h′
+
+
+
+wi¯j − 1
+
+s(w) wiw¯j
+
+
+
+. (41) Thus the complex equation σ2(ui¯j ) = e2u is equivalent to 
+
+σ2(M ) − 1
+
+s(w) tr( PC(q)M ) = 14s(w)2 . (42) Equivalently, 
+
+s(w)2σ2(wi¯j ) − s(w) tr( PC(∂w )( wi¯j )) − 14 = 0 . (43) In real notation, let 
+
+H = D2
+
+> R
+
+w, p = DRw, 
+
+and let q(p) = ∂w . Define 
+
+FC(H, p, z ) = s(z)2σ2(C(H)) − s(z) tr( PC(q(p)) C(H)) − 14 . (44) Then (43) is 
+
+FC(D2
+
+> R
+
+w, D Rw, w ) = 0 .
+
+Ellipticity and nondegeneracy. Along the solution define 
+
+N = C(D2
+
+> R
+
+w) − 1
+
+s(w) ∂w ⊗ ∂w. (45) By (41), (ui¯j ) = h′(w)N. 
+
+Since h′(w) > 0 and ( ui¯j ) ∈ Γ2, we have N ∈ Γ2. Let λ ∈ R2m \ { 0} and let ζ ∈ Cm be its associated complex vector. Differentiating FC in the direction λ ⊗ λ gives 
+
+DH FC[λ ⊗ λ] = s(w)2 tr  T1(N )C(λ ⊗ λ) = s(w)2
+
+4 ζ T T1(N )ζ > 0. (46) Thus FC is strictly elliptic in the real Hessian variables along the solution. Moreover, 
+
+FC(0 , p, z ) = − 14̸ = 0 . (47) 12 Level-set convexity. Fix p ∈ R2m, and write q = q(p). Consider 
+
+CC 
+
+> p
+
+= {(A, z ) ∈ S2m 
+
+> ++
+
+× (−∞ , 0) : FC(A−1, p, z ) ≤ 0}. (48) The sublevel inequality is 
+
+s(z)2σ2(C(A−1)) − s(z) tr( PC(q)C(A−1)) ≤ 14 . (49) Set B = A/s (z). Since C is linear, 
+
+C(A−1) = 1
+
+s(z) C(B−1).
+
+Therefore (49) is equivalent to 
+
+σ2(C(B−1)) − tr( PC(q)C(B−1)) ≤ 14 . (50) By the Hermitian rank-one identity (14), this is 
+
+σ2(C(B−1) − q ⊗ ¯q) ≤ 14 . (51) Thus define 
+
+KC 
+
+> q
+
+=
+
+
+
+B ∈ S2m 
+
+> ++
+
+: σ2(C(B−1) − q ⊗ ¯q) ≤ 14
+
+
+
+.
+
+By Proposition 2.3, KC 
+
+> q
+
+is convex. It remains to check dilation closure. If B ∈ KC 
+
+> q
+
+and λ ≥ 1, let 
+
+C0 = C(B−1). Since 
+
+C(( λB )−1) = λ−1C0,
+
+we have 
+
+σ2(λ−1C0 − q ⊗ ¯q) = λ−2σ2(C0) − λ−1 tr( PC(q)C0)= λ−2{σ2(C0) − tr( PC(q)C0)}
+
++ ( λ−2 − λ−1) tr( PC(q)C0).
+
+Since PC(q) ≥ 0 and C0 > 0, the trace term is nonnegative, while λ−2 − λ−1 ≤ 0. Hence the last expression is at most λ−2/4 ≤ 1/4. Thus λB ∈ KC 
+
+> q
+
+.Now the same scaling argument as in the real case proves that CC 
+
+> p
+
+is convex. If ( Ai, z i) ∈ C C 
+
+> p
+
+, let 
+
+si = s(zi) and Bi = Ai/s i ∈ KC 
+
+> q
+
+. For a convex combination ( Aθ , z θ ), the convexity of s gives 
+
+s(zθ ) ≤ θs 1 + (1 − θ)s2.
+
+Hence Aθ /s (zθ ) is a dilation by a factor at least one of a convex combination of B1 and B2, and therefore belongs to KC 
+
+> q
+
+. Thus ( Aθ , z θ ) ∈ C C 
+
+> p
+
+.
+
+Proposition 3.4. Let D ⊂ Cm, m ≥ 2, be connected. Let w ∈ C4(D) solve (43) . Assume 
+
+D2
+
+> R
+
+w ≥ 0
+
+and 
+
+C(D2
+
+> R
+
+w) − 1
+
+s(w) ∂w ⊗ ∂w ∈ Γ2.
+
+Then rank D2
+
+> R
+
+w is constant in D.Proof. The equation is written as 
+
+FC(D2
+
+> R
+
+w, D Rw, w ) = 0 .
+
+Ellipticity follows from (46), nondegeneracy from (47), and the level-set condition from the preceding discussion. Therefore Theorem 2.1 gives constant rank. 13 4 Boundary Strict Convexity and Ball Models 
+
+Now we state the following well-known boundary convexity lemma; see, for example, Caffarelli and Friedman [CF85] or Korevaar [Kor83].In this section, uniformly convex means that the second funda-mental form of ∂Ω with respect to the exterior unit normal is uniformly positive definite. 
+
+Lemma 4.1. Let Ω ⊂ RN be a bounded, smooth, and uniformly strictly convex domain. Suppose that 
+
+u ∈ C2(Ω) , u < 0 in Ω, u = 0 on ∂Ω, ∂ν u > 0 on ∂Ω,
+
+where ν denotes the exterior unit normal. Let 
+
+v = f (u),
+
+where 
+
+f ∈ C2(( −∞ , 0)) ∩ C0(( −∞ , 0]) , f ′ > 0, f ′′ > 0,
+
+and assume that 
+
+lim 
+
+> q→0−
+
+f ′(q)
+
+f ′′ (q) = 0 .
+
+Then 
+
+v ∈ C2(Ω) ∩ C0(Ω) ,
+
+and there exists δ > 0 such that 
+
+D2v > 0 in Ωδ := {x ∈ Ω : 0 < dist( x, ∂ Ω) < δ } .
+
+We apply this lemma to 
+
+f (u) = − arcosh( e−u/ 2). (52) Since u = h(w) and w = f (u), one has 
+
+f ′(u) = 1
+
+h′(w) > 0, f ′′ (u) = − h′′ (w)(h′(w)) 3 > 0.
+
+Moreover, 
+
+f ′
+
+f ′′ = − (h′)2
+
+h′′ = 2 sinh 2 w → 0 as u → 0−. (53) 
+
+Boundary behavior of the transformed function. Although the original solution is smooth up to the boundary, the transformed function is generally not differentiable up to the boundary. Indeed, let 
+
+d(x) := dist( x, ∂ Ω) ,
+
+and let π(x) denote the nearest boundary point. Since u ∈ C2(Ω), u = 0 on ∂Ω, and ∂ν u > 0 on ∂Ω, one has 
+
+u(x) = −∂ν u(π(x)) d(x) + O(d(x)2) as d(x) → 0.
+
+Moreover, 
+
+− arcosh( e−q/ 2) = −√−q + O(( −q)3/2) as q → 0−.
+
+Consequently, 
+
+w(x) = −p∂ν u(π(x)) d(x) + O(d(x)3/2).
+
+Thus 
+
+w ∈ C∞(Ω) ∩ C0(Ω) ,
+
+but in general 
+
+w / ∈ C1(Ω) .
+
+14 Accordingly, boundary strict convexity means strict convexity in an interior boundary collar Ω δ , rather than the existence of a finite Hessian of w on ∂Ω. Thus Lemma ?? applies once the Hopf condition is known. For the Liouville problem, ∆ u = eu > 0. In the real Hessian case, admissibility gives ∆u = σ1(D2u) > 0.
+
+In the complex case, admissibility gives ∆Ru = 4 
+
+> m
+
+X
+
+> j=1
+
+uj¯j = 4 σ1(ui¯j ) > 0.
+
+Together with u < 0 in Ω and u = 0 on ∂Ω, the Hopf boundary point lemma gives ∂ν u > 0. Hence, in all three settings, the corresponding transform w = f (u) is strictly convex in the real variables in a boundary strip. 
+
+## 4.1 The Liouville ball 
+
+Lemma 4.2. Let BR ⊂ RN , N ≥ 2, be a ball, and let u solve (1) in BR. Then 
+
+w = − arcosh( e−u/ 2)
+
+satisfies D2w > 0 in BR.Proof. Uniqueness and rotational invariance imply that u(x) = ϕ(r), where r = |x|. The equation becomes 
+
+ϕ′′ + N − 1
+
+r ϕ′ = eϕ,
+
+and hence (rN −1ϕ′)′ = rN −1eϕ > 0.
+
+Since ϕ′(0) = 0, it follows that ϕ′(r) > 0 for 0 < r < R .Write w(x) = ψ(r) and y = ψ′. The scalar map q 7 → − arcosh( e−q/ 2) is strictly increasing on (−∞ , 0), so 
+
+y(r) > 0, 0 < r < R. (54) For a radial function, ∆w = y′ + N − 1
+
+r y, |Dw |2 = y2.
+
+Equation (28) therefore reads 
+
+s(ψ)
+
+
+
+y′ + N − 1
+
+r y
+
+
+
+− y2 = 12 . (55) At the origin, let 
+
+L = lim 
+
+> r→0+
+
+y(r)
+
+r = ψ′′ (0) .
+
+The leading terms in (55) give 
+
+N s (ψ(0)) L = 12 ,
+
+so L > 0. Suppose that y′ has a first zero r0 ∈ (0 , R ). Then y′ > 0 on (0 , r 0), while y′(r0) = 0 and 
+
+y′′ (r0) ≤ 0. Differentiating (55) and evaluating at r0 yields 
+
+s(ψ)y′′ = ( N − 1) s(ψ)yr2 − (N − 1) s′(ψ)y2
+
+r .
+
+Here s > 0, y > 0, and 
+
+s′(z) = −(cosh 2 z + sinh 2 z) < 0.
+
+The right-hand side is therefore strictly positive, contradicting y′′ (r0) ≤ 0. Thus y′ > 0 on (0 , R ). The eigenvalues of D2w are y′ in the radial direction and y/r in the tangential directions, and both are positive. 15 4.2 The real ball 
+
+Lemma 4.3. Let BR ⊂ Rn, n ≥ 3, be a ball. Let u be the admissible solution of (5) in BR. Then 
+
+w = − arcosh( e−u/ 2)
+
+satisfies D2w > 0 in BR.Proof. By uniqueness of the Dirichlet problem and rotational invariance, u is radial: 
+
+u(x) = ϕ(r), r = |x|.
+
+Since ∆ u > 0, (rn−1ϕ′(r)) ′ > 0.
+
+Together with ϕ′(0) = 0, this gives 
+
+ϕ′(r) > 0, 0 < r < R. (56) Write w(x) = ψ(r) and set 
+
+y(r) = ψ′(r).
+
+Since w = f (u) and f ′ > 0, (56) implies 
+
+y(r) > 0, 0 < r < R. (57) The eigenvalues of D2w are y′(r) and y(r)/r with multiplicity n − 1. Therefore 
+
+σ2(D2w) = ( n − 1) yy ′
+
+r + (n − 1)( n − 2) 2
+
+y2
+
+r2 . (58) Moreover Dw = ye r , so PR(Dw ) vanishes in the radial direction and equals y2 in tangential directions. Thus tr( PR(Dw )D2w) = ( n − 1) y3
+
+r . (59) Substituting (58) and (59) into (31), and multiplying by r2/(n − 1), gives 
+
+s2ryy ′ + cs 2y2 − sry 3 = r2
+
+4( n − 1) , c = n − 22 > 0, (60) where s = s(ψ(r)). We prove y′ > 0. At r = 0, let 
+
+L = lim 
+
+> r→0+
+
+y(r)
+
+r = ψ′′ (0) , s0 = s(ψ(0)) > 0.
+
+Using y(r) = Lr + o(r) in (60), the leading r2 terms give 
+
+s20(1 + c)L2 = 14( n − 1) .
+
+Since 1 + c = n/ 2, 
+
+L2 = 12n(n − 1) s20
+
+. (61) Because y(r) > 0 for small r > 0, L > 0. Hence ψ′′ (0) > 0. Assume by contradiction that y′ has a first zero r0 ∈ (0 , R ). Then 
+
+y′ > 0 on [0 , r 0), y′(r0) = 0 , y′′ (r0) ≤ 0.
+
+16 At r0, equation (60) gives 
+
+cs 2y2 − sry 3 = r2
+
+4( n − 1) > 0,
+
+and hence 
+
+ry < cs at r = r0. (62) Differentiate (60). Since 
+
+s′(z) = −(cosh 2 z + sinh 2 z) < 0and d(s(ψ(r))) /dr = s′(ψ)y, evaluation at r0, where y′ = 0, gives 2css ′y3 + s2ryy ′′ − s′ry 4 − sy 3 = r
+
+2( n − 1) .
+
+Thus 
+
+s2ryy ′′ = r
+
+2( n − 1) + sy 3 + s′y3(ry − 2cs ). (63) By (62), ry − 2cs < 0, and since s′ < 0, the last term is positive. Therefore the right-hand side of (63) is positive, so y′′ (r0) > 0, a contradiction. Hence y′(r) > 0 on (0 , R ). Since y/r > 0, all eigenvalues of 
+
+D2w are positive. 
+
+## 4.3 The complex ball 
+
+Lemma 4.4. Let BR ⊂ Cm, m ≥ 2, be a Euclidean ball. Let u be the complex admissible solution of 
+
+(7) in BR. Then 
+
+w = − arcosh( e−u/ 2)
+
+satisfies D2
+
+> R
+
+w > 0 in BR.Proof. By uniqueness and unitary invariance, u is radial: 
+
+u(z) = ϕ(r), r = |z|.
+
+Complex admissibility gives ∆Ru = 4 σ1(ui¯j ) > 0.
+
+Therefore (r2m−1ϕ′(r)) ′ > 0,
+
+and since ϕ′(0) = 0, 
+
+ϕ′(r) > 0, 0 < r < R. (64) Let w(z) = ψ(r) and y = ψ′. Again f ′ > 0 gives 
+
+y(r) > 0, 0 < r < R. (65) For a radial function, the complex Hessian has one radial eigenvalue 
+
+a = 14
+
+
+
+y′ + yr
+
+
+
+(66) and m − 1 tangential eigenvalues 
+
+b = y
+
+2r . (67) Hence 
+
+σ2(wi¯j ) = m − 18
+
+ yy ′
+
+r + (m − 1) y2
+
+r2
+
+
+
+. (68) Moreover |∂w |2 = y2/4, and PC(∂w ) vanishes in the complex radial direction and equals y2/4 in the complex tangential directions. Therefore tr( PC(∂w )( wi¯j )) = m − 18
+
+y3
+
+r . (69) 17 Substituting (68) and (69) into (43) and multiplying by 8 r2/(m − 1) gives 
+
+s2ryy ′ + cs 2y2 − sry 3 = dr 2, c = m − 1 > 0, d = 2
+
+m − 1 > 0. (70) At the origin, let 
+
+L = lim 
+
+> r→0+
+
+y(r)
+
+r , s0 = s(ψ(0)) > 0.
+
+The leading terms in (70) give 
+
+s20(1 + c)L2 = d. 
+
+Since 1 + c = m, we obtain 
+
+L2 = 2
+
+m(m − 1) s20
+
+. (71) The positivity of y near the origin implies L > 0. Suppose y′ has a first zero r0 ∈ (0 , R ). Then y′(r0) = 0 and y′′ (r0) ≤ 0. Evaluating (70) at r0 gives 
+
+cs 2y2 − sry 3 = dr 2 > 0,
+
+so 
+
+ry < cs. (72) Differentiating (70) and evaluating at r0 yields 2css ′y3 + s2ryy ′′ − s′ry 4 − sy 3 = 2 dr. 
+
+Thus 
+
+s2ryy ′′ = 2 dr + sy 3 + s′y3(ry − 2cs ). (73) Since s′ < 0 and ry − 2cs < 0, the last term is positive. Hence s2ryy ′′ > 0 and y′′ (r0) > 0, a contradiction. Therefore y′ > 0 on (0 , R ). The real Hessian of a radial real function on R2m has eigenvalues ψ′′ = y′ in the radial direction and ψ′/r = y/r in tangential real directions. Both are positive, so D2
+
+> R
+
+w > 0 in the ball. 
+
+# 5 Domain Deformation and Proofs of the Main Theorems 
+
+## 5.1 Solvability,Boundary Regularity, and Uniqueness along the Deforma-tion 
+
+Solvability and boundary regularity. We first explain why the solutions used below are smooth up to the boundary. Since the domains Ω t form a smooth family of uniformly strictly convex domains with uniformly controlled geometry, one may choose smooth defining functions ρt such that 
+
+ρt < 0 in Ω t, ρt = 0 on ∂Ωt,
+
+and 
+
+D2ρt ≥ κI on Ω t
+
+for some constant κ > 0 independent of t.For the Liouville equation, if A > 0 is sufficiently large, then ∆( Aρ t) = A∆ρt ≥ 1 ≥ eAρ t in Ω t.
+
+Thus Aρ t is a subsolution, while the zero function is a supersolution, since ∆0 = 0 ≤ 1 = e0.
+
+18 The sub- and supersolution method therefore gives a solution ut satisfying 
+
+Aρ t ≤ ut ≤ 0.
+
+For the real σ2 equation, the strict convexity of ρt gives 
+
+D2ρt ∈ Γ2.
+
+Moreover, 
+
+σ2(D2(Aρ t)) = A2σ2(D2ρt).
+
+Hence, after increasing A if necessary, 
+
+σ2(D2(Aρ t)) ≥ 1 ≥ e2Aρ t .
+
+Thus Aρ t is an admissible subsolution and the zero function is a supersolution. The admissible Dirichlet theory of Caffarelli–Nirenberg–Spruck [CNS85] therefore gives an admissible solution. In the complex case, real strict convexity implies that ρt is strictly plurisubharmonic. Indeed, by the compression formula,  (ρt)i¯j
+
+ = C(D2
+
+> R
+
+ρt) > 0.
+
+Consequently, 
+
+σ2
+
+ (Aρ t)i¯j
+
+ = A2σ2
+
+ (ρt)i¯j
+
+ ≥ 1 ≥ e2Aρ t
+
+for A sufficiently large. Hence Aρ t is a complex admissible subsolution, while zero is a supersolu-tion. The complex Hessian Dirichlet theory, together with its global boundary estimates, then gives a complex admissible solution; see, for example, [CP22]. In all three cases, the right-hand side is smooth and is increasing in u. The global Dirichlet estimates first give 
+
+ut ∈ C2,α (Ω t)for some α ∈ (0 , 1). Once this estimate is known, the equations are uniformly elliptic along the admissible solution. Standard Schauder bootstrapping then gives 
+
+ut ∈ C∞(Ω t).
+
+Thus the boundary regularity asserted in Theorems 1.1–1.3 is automatic and is not an additional regularity assumption. For each fixed t ∈ [0 , 1], the solution ut used below is unique in the correspond-ing admissible class. Indeed, let u and v be two solutions on Ω t with the same zero boundary data. Suppose that u − v has a positive maximum at some point x∗ ∈ Ωt. Then 
+
+u(x∗) > v (x∗), D2
+
+> R
+
+u(x∗) ≤ D2
+
+> R
+
+v(x∗).
+
+For the Liouville equation, this gives 
+
+eu(x∗) = ∆ u(x∗) ≤ ∆v(x∗) = ev(x∗),
+
+which contradicts u(x∗) > v (x∗). For the real σ2 equation, the monotonicity of σ2 on the admissible cone, recalled in Subsection 2.1, gives 
+
+e2u(x∗) = σ2
+
+ D2u(x∗) ≤ σ2
+
+ D2v(x∗) = e2v(x∗),
+
+again a contradiction. For the complex σ2 equation, formula (16) shows that the compression map C preserves the semidef-inite order. Hence  ui¯j (x∗) = C D2
+
+> R
+
+u(x∗) ≤ C D2
+
+> R
+
+v(x∗) =  vi¯j (x∗).
+
+The monotonicity of σ2 on the complex admissible cone therefore yields 
+
+e2u(x∗) = σ2
+
+ ui¯j (x∗) ≤ σ2
+
+ vi¯j (x∗) = e2v(x∗),
+
+which is impossible. Thus u ≤ v. Interchanging u and v gives v ≤ u, and consequently u = v. Therefore, for every 
+
+t ∈ [0 , 1], the notation ut below is unambiguous. 19 5.2 Local C2 Stability under Domain Deformations 
+
+We first record the semilinear stability statement used for the Liouville equation. 
+
+Proposition 5.1. Let α ∈ (0 , 1) , and let {Ωt}t∈[0 ,1] be a smooth family of bounded smooth uniformly strictly convex domains with uniformly controlled geometry. Let ut be the unique solution of 
+
+∆ut = eut in Ωt, ut = 0 on ∂Ωt.
+
+Fix t0 ∈ [0 , 1] . Then there exist smooth diffeomorphisms 
+
+Φt : Ω t0 −→ Ωt, Φt0 = id ,
+
+such that 
+
+ut ◦ Φt −→ ut0 in C2,α (Ω t0 ) as t → t0.
+
+Consequently, if 
+
+wt = − arcosh( e−ut/2),
+
+then, for every K ⋐ Ωt0 ,
+
+wt ◦ Φt −→ wt0 in C2,α (K).
+
+Proof. Write Ω0 := Ω t0 , u0 := ut0 .
+
+Since the domains form a smooth family, after restricting t to a sufficiently small neighborhood of t0,there exists a smooth family of diffeomorphisms Φt : Ω 0 −→ Ωt, Φt0 = id .
+
+Let Ψt := Φ −1 
+
+> t
+
+.
+
+For v ∈ C2,α (Ω 0), define the pulled-back Laplacian by ∆tv(x) := ∆ y (v ◦ Ψt)( y)|y=Φ t(x) .
+
+Its coefficients depend smoothly on ( t, x ), and ∆t0 = ∆ .
+
+Set 
+
+X := v ∈ C2,α (Ω 0) : v = 0 on ∂Ω0 , Y := Cα(Ω 0),
+
+and define 
+
+FL(t, v ) := ∆ tv − ev .
+
+Then 
+
+FL(t0, u 0) = 0 .
+
+The linearization with respect to v at ( t0, u 0) is 
+
+Dv FL(t0, u 0)[ φ] = ∆ φ − eu0 φ. 
+
+Denote this operator by 
+
+LLφ := ∆ φ − eu0 φ. 
+
+It is uniformly elliptic, and its zeroth-order coefficient satisfies 
+
+−eu0 < 0.
+
+The maximum principle shows that 
+
+LLφ = 0 in Ω 0, φ = 0 on ∂Ω0
+
+20 has only the trivial solution. Standard Schauder theory and the Fredholm alternative therefore imply that 
+
+LL : X −→ Y
+
+is an isomorphism. The Banach-space implicit function theorem gives a unique smooth local branch 
+
+t 7 −→ evt ∈ X
+
+such that 
+
+evt0 = u0, FL(t, evt) = 0 .
+
+Define 
+
+eut := evt ◦ Ψt.
+
+Then ∆eut = eeut in Ω t, eut = 0 on ∂Ωt.
+
+By uniqueness, 
+
+eut = ut.
+
+Consequently, 
+
+ut ◦ Φt = evt −→ u0 in C2,α (Ω 0).
+
+Finally, let 
+
+g(q) := − arcosh( e−q/ 2), q < 0.
+
+For every K ⋐ Ω0, one has 
+
+u0 ≤ − ηK < 0 on K
+
+for some ηK > 0. Hence, for t sufficiently close to t0,
+
+ut ◦ Φt ≤ − ηK
+
+2 on K. 
+
+Since g is smooth on compact subintervals of ( −∞ , 0), continuity of composition in H¨ older spaces gives 
+
+wt ◦ Φt = g(ut ◦ Φt) −→ g(u0) = wt0 in C2,α (K).
+
+We next prove the corresponding input for the Hessian equations. 
+
+Proposition 5.2. Let α ∈ (0 , 1) , and let {Ωt}t∈[0 ,1] be a smooth family of bounded smooth uniformly strictly convex domains with uniformly controlled geometry. In the real case, assume that Ωt ⊂ Rn, n ≥ 3, and that for every t ∈ [0 , 1] the Dirichlet problem 
+
+(
+
+σ2(D2ut) = e2ut in Ωt,ut = 0 on ∂Ωt
+
+admits a unique smooth σ2-admissible solution ut ∈ C2,α (Ω t).In the complex case, assume that Ωt ⊂ Cm, m ≥ 2, and that for every t ∈ [0 , 1] the Dirichlet problem (
+
+σ2(( ut)i¯j ) = e2ut in Ωt,ut = 0 on ∂Ωt
+
+admits a unique smooth complex σ2-admissible solution ut ∈ C2,α (Ω t).Fix t0 ∈ [0 , 1] . Then there exist smooth diffeomorphisms 
+
+Φt : Ω t0 −→ Ωt, Φt0 = id ,
+
+21 such that 
+
+ut ◦ Φt −→ ut0 in C2,α (Ω t0 ) as t −→ t0.
+
+Consequently, if 
+
+wt = − arcosh( e−ut/2),
+
+then for every K ⋐ Ωt0 ,
+
+wt ◦ Φt −→ wt0 in C2,α (K) as t −→ t0.
+
+Proof. Fix t0 ∈ [0 , 1], and write Ω0 := Ω t0 , u0 := ut0 .
+
+Since the domains form a smooth family, after restricting t to a sufficiently small neighborhood of t0,there exists a smooth family of diffeomorphisms Φt : Ω 0 −→ Ωt, Φt0 = id .
+
+Let Ψt := Φ −1 
+
+> t
+
+.
+
+For v ∈ C2,α (Ω 0), define the pulled-back real Hessian by 
+
+Ht[v]( x) := D2 
+
+> y
+
+(v ◦ Ψt)( y) y=Φ t(x). (74) In local coordinates,  Ht[v] 
+
+> ij
+
+=
+
+ ∂Ψμt
+
+∂y i
+
+◦ Φt
+
+  ∂Ψνt
+
+∂y j
+
+◦ Φt
+
+
+
+vμν 
+
++
+
+ ∂2Ψμt
+
+∂y i∂y j
+
+◦ Φt
+
+
+
+vμ.
+
+(75) Thus Ht[v] depends linearly on D2v and Dv , and its coefficients depend smoothly on ( t, x ). Moreover, 
+
+Ht0 [v] = D2v. (76) Set 
+
+X := v ∈ C2,α (Ω 0) : v = 0 on ∂Ω0 , Y := Cα(Ω 0). (77) We first consider the real equation. Define 
+
+FR(t, v ) := σ2
+
+ Ht[v] − e2v . (78) This is a smooth map from an open neighborhood of ( t0, u 0) in R × X into Y . Since Γ 2 is open and 
+
+u0 is strictly admissible up to the boundary, the neighborhood can be chosen so that 
+
+Ht[v]( x) ∈ Γ2 for every x ∈ Ω0.
+
+Since Φ t0 = id, one has 
+
+FR(t0, u 0) = 0 .
+
+The linearization with respect to v at ( t0, u 0) is 
+
+Dv FR(t0, u 0)[ φ] = T1(D2u0)ij φij − 2e2u0 φ. (79) Denote this operator by LR. Since 
+
+D2u0(x) ∈ Γ2 for every x ∈ Ω0,
+
+one has 
+
+T1(D2u0(x)) > 0 on Ω 0.
+
+22 By compactness of Ω 0, there exist constants λ, Λ > 0 such that 
+
+λ|ξ|2 ≤ T1(D2u0)ij ξiξj ≤ Λ|ξ|2 (80) for every ξ ∈ Rn and every x ∈ Ω0. Hence LR is uniformly elliptic. Moreover, its zeroth-order coefficient satisfies 
+
+−2e2u0 < 0.
+
+The maximum principle therefore implies that 
+
+LRφ = 0 in Ω 0, φ = 0 on ∂Ω0
+
+has only the trivial solution. Standard Schauder theory for uniformly elliptic Dirichlet problems, together with the Fredholm alternative, then shows that 
+
+LR : X −→ Y
+
+is an isomorphism. The Banach-space implicit function theorem consequently gives ε > 0 and a unique smooth map 
+
+t 7 −→ evt ∈ X, |t − t0| < ε, 
+
+such that 
+
+evt0 = u0, FR(t, evt) = 0 . (81) After decreasing ε if necessary, 
+
+Ht[evt] ∈ Γ2.
+
+Define 
+
+eut := evt ◦ Ψt.
+
+Then eut is an admissible solution of 
+
+σ2(D2 eut) = e2eut in Ω t, eut = 0 on ∂Ωt.
+
+By the uniqueness established in Subsection 5.1, we have 
+
+eut = ut.
+
+Therefore 
+
+ut ◦ Φt = evt −→ u0 in C2,α (Ω 0) as t −→ t0. (82) We now consider the complex equation. Using the compression map C defined in Subsection 2.3, define 
+
+FC(t, v ) := σ2
+
+ C(Ht[v])  − e2v . (83) Since 
+
+C(Ht0 [v]) = C(D2v) = ( vi¯j ),
+
+the linearization at ( t0, u 0) is 
+
+Dv FC(t0, u 0)[ φ] = T1(( u0)i¯j )i¯j φi¯j − 2e2u0 φ. (84) Denote this operator by LC.Because u0 is complex σ2-admissible, 
+
+T1(( u0)i¯j ) > 0 on Ω 0.
+
+Thus LC is uniformly elliptic when regarded as a real second-order operator. More explicitly, if ξ ∈ R2m
+
+and ζ ∈ Cm is the corresponding complex vector, then 
+
+DD2v FC(t0, u 0)[ ξ ⊗ ξ] = 14 ζ∗T1(( u0)i¯j )ζ ≥ λ|ξ|2 (85) 23 for some λ > 0, uniformly on Ω 0.The zeroth-order coefficient is again strictly negative: 
+
+−2e2u0 < 0.
+
+Hence the maximum principle, Schauder theory, and the Fredholm alternative show that 
+
+LC : X −→ Y
+
+is an isomorphism. The implicit function theorem therefore gives a unique local smooth branch 
+
+t 7 −→ evt ∈ X
+
+satisfying 
+
+FC(t, evt) = 0 , evt0 = u0. (86) For t sufficiently close to t0, this branch remains complex σ2-admissible. Define 
+
+eut := evt ◦ Ψt.
+
+Then eut is an admissible solution on Ω t and, By the uniqueness established in Subsection 5.1, 
+
+eut = ut.
+
+Consequently, 
+
+ut ◦ Φt −→ u0 in C2,α (Ω 0) as t −→ t0. (87) It remains to treat the transformed functions. Let 
+
+g(q) := − arcosh( e−q/ 2), q < 0.
+
+Fix K ⋐ Ω0. Since u0 < 0 in Ω 0, there exists ηK > 0 such that 
+
+u0 ≤ − 2ηK on K. 
+
+By either (82) or (87), for t sufficiently close to t0,
+
+ut ◦ Φt ≤ − ηK on K. 
+
+The function g is smooth with bounded derivatives on every compact subinterval of ( −∞ , 0). Therefore the continuity of composition in H¨ older spaces gives 
+
+wt ◦ Φt = g(ut ◦ Φt) −→ g(u0) = wt0 in C2,α (K).
+
+This proves the proposition. 
+
+Uniformity of the boundary collar. Propositions 5.1 and 5.2 imply that, after pulling the solutions back to a fixed domain, 
+
+ut ◦ Φt −→ ut0 in C2(Ω t0 ).
+
+In particular, the boundary normal derivatives and the boundary second derivatives vary continuously with t. Since min 
+
+> ∂Ωt0
+
+∂νt0 ut0 > 0and the domains remain uniformly strictly convex, there exist c0 > 0 and δ > 0, independent of t
+
+sufficiently close to t0, such that 
+
+∂νt ut ≥ c0 on ∂Ωt
+
+and 
+
+D2wt > 0 whenever 0 < dist( x, ∂ Ωt) < δ. 
+
+Thus the boundary collar in Lemma 4.1 may be chosen uniformly for t near t0.24 5.3 Proofs of the Main Theorems 
+
+We begin with Theorem 1.1. Choose a Euclidean ball BR and connect it to Ω by Minkowski addition, Ωt = (1 − t)BR + tΩ, 0 ≤ t ≤ 1. (88) The support functions satisfy 
+
+ht = (1 − t)R + th Ω,
+
+so smooth uniform strict convexity is preserved throughout the deformation. Let ut solve (1) in Ω t
+
+and set 
+
+wt = − arcosh( e−ut/2).
+
+Define 
+
+IL = {t ∈ [0 , 1] : D2wt > 0 in Ω t}.
+
+Lemma 4.2 gives 0 ∈ IL. If t0 ∈ IL, boundary strict convexity gives a uniform boundary strip on which strict convexity persists for nearby domains, while Proposition ?? preserves strict positivity on the remaining compact interior. Thus IL is open. If tj ∈ IL and tj → t0, Proposition ?? gives D2wt0 ≥ 0 in Ω t0 . Proposition 3.2 then shows that rank D2wt0 is constant. Boundary strict convexity gives full rank in a boundary strip, so the rank is full throughout Ω t0 . Hence t0 ∈ IL, and IL is closed. Therefore IL = [0 , 1], proving Theorem 1.1. We next prove Theorem 1.2. Choose a Euclidean ball BR and connect it to Ω by Minkowski addition: Ωt = (1 − t)BR + tΩ, 0 ≤ t ≤ 1. (89) In terms of support functions, 
+
+ht = (1 − t)R + th Ω.
+
+Uniform strict convexity of BR and Ω implies that the curvature-radius matrices remain uniformly positive along the deformation. Thus the domains remain smooth and uniformly strictly convex. Let ut solve (5) in Ω t and set 
+
+wt = − arcosh( e−ut/2).
+
+Define 
+
+IR = {t ∈ [0 , 1] : D2wt > 0 in Ω t}. (90) By Lemma 4.3, 0 ∈ IR. We show openness. If t0 ∈ IR, then D2wt0 > 0 in Ω t0 . Boundary strict convexity gives a boundary strip in which D2wt > 0 for t close to t0. On the remaining compact subset, strict positivity of D2wt0 and Proposition 5.2 imply D2wt > 0 for t close to t0. Hence IR is open. We show closedness. Let tj ∈ IR and tj → t0. By Proposition 5.2, 
+
+D2wt0 ≥ 0 in Ω t0 .
+
+The transformed admissibility condition follows from 
+
+D2ut0 = h′(wt0 )
+
+
+
+D2wt0 − 1
+
+s(wt0 ) Dw t0 ⊗ Dw t0
+
+
+
+and h′ > 0. Therefore Proposition 3.3 implies that rank D2wt0 is constant. Boundary strict convexity gives D2wt0 > 0 in a boundary strip, so the constant rank is full. Hence D2wt0 > 0 everywhere and 
+
+t0 ∈ IR. Thus IR is closed. Since [0 , 1] is connected, IR = [0 , 1], proving Theorem 1.2. The complex proof follows the same deformation argument, with the complex ball lemma and the complex constant-rank theorem replacing their real counterparts. Connect a ball in Cm ≃ R2m to Ω by the real Minkowski deformation Ωt = (1 − t)BR + tΩ.
+
+Real uniform strict convexity is preserved by the support-function interpolation. Let ut solve (7) and set 
+
+wt = − arcosh( e−ut/2).
+
+25 Define 
+
+IC = {t ∈ [0 , 1] : D2
+
+> R
+
+wt > 0 in Ω t}.
+
+Lemma 4.4 gives 0 ∈ IC. Openness follows from boundary strict convexity and Proposition 5.2. For closedness, if tj ∈ IC and tj → t0, then 
+
+D2
+
+> R
+
+wt0 ≥ 0.
+
+The transformed admissibility condition follows from (ut0 )i¯j = h′(wt0 )
+
+
+
+(wt0 )i¯j − 1
+
+s(wt0 ) (wt0 )i(wt0 )¯j
+
+
+
+.
+
+Proposition 3.4 gives constant rank of D2
+
+> R
+
+wt0 . Since boundary strict convexity gives full rank in a boundary strip, the rank is full everywhere. Thus IC is closed and IC = [0 , 1]. This proves Theorem 1.3. 
+
+Remark 5.3. The local C2 stability used above is not a consequence of the constant-rank theorem. It is an independent compactness input. The exponential equation is simpler than the eigenvalue equation in one respect: it has no scaling invariance, and the local quadratic barrier in Proposition ?? rules out collapse of subsequential limits to the zero function. This is the point at which the exponential right-hand side is used essentially. 
+
+# References 
+
+[ALL97] O. Alvarez, J.-M. Lasry, and P.-L. Lions. Convex viscosity solutions and state constraints. J. Math. Pures Appl. , 76:265–288, 1997. [BG09] B. Bian and P. Guan. A microscopic convexity principle for nonlinear partial differential equations. 
+
+Invent. Math. , 177:307–335, 2009. [BG10] B. Bian and P. Guan. A structural condition for microscopic convexity principle. Discrete Contin. Dyn. Syst. , 28(2):789–807, 2010. [BGLS01] H. H. Bauschke, O. Guler, A. S. Lewis, and H. S. Sendov. Hyperbolic polynomials and convex analysis. Canad. J. Math. , 53:470–488, 2001. [BL76] H. J. Brascamp and E. H. Lieb. On extensions of the Brunn–Minkowski and Pr´ ekopa–Leindler theorems. J. Funct. Anal. , 22:366–389, 1976. [BZ24] Papa Badiane and Ahmed Zeriahi. A variational approach to the eigenvalue problem for complex Hessian operators. In Diaraf Seck, Kinvi Kangni, Marie Salomon Sambou, Philibert Nang, and Mouhamed Moustapha Fall, editors, Nonlinear Analysis, Geometry and Applications , Trends in Mathematics, pages 227–256. Birkh¨ auser, Cham, 2024. [CF85] L. Caffarelli and A. Friedman. Convexity of solutions of some semilinear elliptic equations. Duke Math. J. , 52:431–455, 1985. [CGM07] Luis A. Caffarelli, Pengfei Guan, and Xi-Nan Ma. A constant rank theorem for solutions of fully nonlinear elliptic equations. Comm. Pure Appl. Math. , 60(12):1769–1791, 2007. [CLM26a] Chuanqiang Chen, Jiahuan Li, and Xi-Nan Ma. Brunn–Minkowski inequality for the first complex 
+
+σ2-Hessian eigenvalue. arXiv preprint , 2026. arXiv:2606.25678. [CLM26b] Jianchun Chu, Yaxiong Liu, and Nicholas McCleerey. The eigenvalue problem for the complex Hessian operator on m-pseudoconvex manifolds. J. Funct. Anal. , 290(3):111258, 2026. [CNS85] L. Caffarelli, L. Nirenberg, and J. Spruck. The Dirichlet problem for nonlinear second-order elliptic equations III: Functions of the eigenvalues of the Hessian. Acta Math. , 155:261–301, 1985. [Col05] A. Colesanti. Brunn–minkowski inequalities for variational functionals and related problems. Adv. Math. , 194:105–140, 2005. [CP22] T. C. Collins and S. Picard. The Dirichlet problem for the k-Hessian equation on a complex manifold. Amer. J. Math. , 144:1641–1680, 2022. [DK14] Slawomir Dinew and Slawomir Kolodziej. A priori estimates for complex Hessian equations. Anal. PDE , 7(1):227–244, 2014. 
+
+26 [DK17] Slawomir Dinew and Slawomir Kolodziej. Liouville and Calabi–Yau type theorems for complex Hessian equations. Amer. J. Math. , 139(2):403–415, 2017. [G˚ ar59] L. G˚ arding. An inequality for hyperbolic polynomials. J. Math. Mech. , 8:957–965, 1959. [GM03] P. Guan and X.-N. Ma. The Christoffel–Minkowski problem I: Convexity of solutions of a Hessian equation. Invent. Math. , 151:553–577, 2003. [HMW10] Z. Hou, X.-N. Ma, and D. Wu. A second order estimate for complex Hessian equations on a compact K¨ ahler manifold. Math. Res. Lett. , 17:547–561, 2010. [Jer96] D. Jerison. The direct method in the calculus of variations for convex bodies. Adv. Math. , 122:262– 279, 1996. [Ken85] Alan U. Kennington. Power concavity and boundary value problems. Indiana Univ. Math. J. ,34(3):687–704, 1985. [KL87] N. Korevaar and J. Lewis. Convex solutions of certain elliptic equations have constant rank Hessians. 
+
+Arch. Rational Mech. Anal. , 97:19–32, 1987. [Kor83] N. Korevaar. Convex solutions to nonlinear elliptic and parabolic boundary value problems. Indiana Univ. Math. J. , 32:603–614, 1983. [LMS26] Jiahuan Li, Xi-Nan Ma, and Paolo Salani. A Brunn–Minkowski inequality for the Hessian eigenvalue in convex domain. arXiv preprint , 2026. arXiv:2606.22847. [LMX10] P. Liu, X.-N. Ma, and L. Xu. A Brunn–Minkowski inequality for the Hessian eigenvalue in three-dimensional convex domain. Adv. Math. , 225:1616–1633, 2010. [ML71] L. G. Makar-Limanov. Solution of the dirichlet problem for the equation ∆ u = −1 in a convex region. Math. Notes Acad. Sci. USSR , 9:52–53, 1971. [MX08] X.-N. Ma and L. Xu. The convexity of solution of a class Hessian equation in bounded convex domain in R3. J. Funct. Anal. , 255:1713–1723, 2008. [Ren06] J. Renegar. Hyperbolic programs, and their derivative relaxations. Found. Comput. Math. , 6:59–79, 2006. [Sal05] P. Salani. A Brunn–Minkowski inequality for the Monge–Amp` ere eigenvalue. Adv. Math. , 194:67–86, 2005. [Sal12] P. Salani. Convexity of solutions and Brunn–Minkowski inequalities for Hessian equations in R3.
+
+Adv. Math. , 229:1924–1948, 2012. [Sch93] R. Schneider. Convex Bodies: The Brunn–Minkowski Theory . Cambridge University Press, Cam-bridge, 1993. [Wan94] X.-J. Wang. A class of fully nonlinear elliptic equations and related functionals. Indiana Univ. Math. J. , 43:25–54, 1994. (Jiahuan Li) Department of Mathematics, University of Science and Technology of China, Hefei, 230026, Anhui Province, China. Email address: jiahuan@mail.ustc.edu.cn (Shuning Xu) Department of Mathematics, University of Science and Technology of China, Hefei, 230026, Anhui Province, China. Email address: xushuning@mail.ustc.edu.cn 
+
+27

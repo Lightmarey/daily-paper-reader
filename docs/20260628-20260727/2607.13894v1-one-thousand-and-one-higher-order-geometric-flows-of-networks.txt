@@ -1,0 +1,5157 @@
+Title: One thousand and one higher-order geometric flows of networks
+
+URL Source: https://arxiv.org/pdf/2607.13894v1
+
+Published Time: Thu, 16 Jul 2026 01:28:07 GMT
+
+Number of Pages: 47
+
+Markdown Content:
+ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS     
+
+> LUCA BENATTI ·ALESSANDRA PLUDA
+> Abstract. We show short-time existence and uniqueness up to reparametrization for a large class of higher-order geometric flows of curves and networks obtained as L2-gradient flow of higher-order functionals involving derivatives of the curvature. Additionally, we prove a long-time existence result via energy methods.
+
+MSC (2020): 53E40 35K52, 35K59, 35A01, 35A02. Keywords: higher-order geometric flows, networks, motion by curvature, local existence and uniqueness, long-time existence, gradient flows. 
+
+Contents 
+
+1. Introduction 12. Curves and networks 63. Preliminaries on function spaces 74. Derivation of the flow 10 5. Short-time existence 20 6. Long-time behavior 33 7. Application to the Willmore functional 40 References 43 1. Introduction 
+
+The study of geometric evolutions typically proceeds through three stages, which arise in a natural order: establishing the existence of the flow, at least for a short time; understanding which obstructions prevent the flow from existing for all time; and analyzing its asymptotic behavior. One of the first major successes of this program is the complete description of the evolution of embedded closed planar curves by curve shortening flow. While short-time theory is com-paratively robust, reflecting the second-order parabolic nature of the evolution, the long-time and asymptotic behavior are particularly remarkable: every simple closed curve eventually be-comes convex and then shrinks to a round point in finite time [GH86; Gra87]. No singularities develop before the natural extinction time T = A0/2π, which is determined solely by the area 
+
+A0 enclosed by the initial curve. This clean result has motivated extensive efforts to generalize the theory in several directions. One direction involves replacing the classical second-order curve shortening flow with higher-order geometric evolutions. To the author’s knowledge, Polden [Pol96], closely followed by Dziuk–Kuwert–Sch¨ atzle [DKS02], was the first to carry out a complete analysis of closed curves under such a higher-order flow, from short-time existence to asymptotic behavior. Another direction aims to extend the theory from smooth curves to less regular objects. The simplest  
+
+> 1arXiv:2607.13894v1 [math.AP] 15 Jul 2026 2L. BENATTI AND A. PLUDA
+
+examples in this class are networks, namely one-dimensional connected sets composed of finitely many curves meeting at junctions. Their evolution under curve shortening flow has developed into a rich theory in its own right; for a comprehensive account, we refer to the monograph [Man+24]. This paper brings these two directions together in a systematic way. We develop a general approach to higher-order geometric flows on networks by identifying broad classes of junction constraints under which the evolution is well-posed. Specifically, we prove short-time and (con-ditional) long-time existence results for geometric gradient flows associated with arbitrary m-th order energy functionals for networks of the form 
+
+E(γ) := 
+
+ˆ
+
+> γ
+
+12 |∂ms γ|2 dγ + 12 ℓ(γ), m ≥ 2.
+
+For m = 1, the functional E reduces to length, and its geometric gradient flow is precisely the curve shortening flow discussed above. This case is not included in the present work. The first case covered by our analysis is m = 2, which corresponds to the elastic flow, another central and extensively studied geometric evolution of curves (see, e.g., [LS85; Lin89; Pol96; DKS02; Lin12; NO14; DPS16; NO17; Spe17; MP21; Poz22; KM24; Miu25; MW25; MMR25]). Before addressing the three stages mentioned, here we have face a preliminary challenge: setting the class of evolutionary problems we want to study. This task is driven by the variational structure. The underlying variational problem naturally yields the evolution equation, which is encoded in the first variation of E. An energy functional of order m gives rise to a parabolic equation of order 2 m. The genuinely delicate issue is the choice of boundary conditions. From a PDE perspective, it is clear that arbitrary boundary conditions cannot be allowed, as the problem is bound to be ill-posed in certain classes. At the same time, there may be several possible choices of boundary constraint equations for each fixed order m. The difficulty therefore lies not in selecting a convenient set of boundary conditions, but in identifying a sufficiently large and meaningful family of admissible constraint sets that still lead to a well-posed evolution. A possible choice is to impose a full set of Dirichlet boundary conditions. For an energy of order m, one expects a Dirichlet boundary conditions is of order at most m − 1. We distinguish between topological conditions and higher-order Dirichlet boundary conditions (Theorems 4.13 and 4.16). The former are vector-valued conditions of order zero. Their role is to preserve the relations between the supports of the curves along the flow, basically imposing constraints on their endpoint (e.g. fixed endpoints, junctions, ...). The latter are scalar-valued and involve geometric quantities such as tangents and curvatures. Dirichlet boundary conditions restricts the class of networks and consequently the class of admissible variations for the network. Imposing a full set of such conditions makes the boundary terms in the first variation vanish, thereby allowing us to interpret the velocity of the evolution as the L2-gradient of E.Imposing a full set of Dirichlet conditions is only one possible way of canceling the boundary terms in the first variation. If the aim is to treat a broader class of boundary value problems, this choice is too restrictive. This leads to Neumann-type boundary conditions. Intuitively, these Neumann conditions play the role of the orthogonal complement of the prescribed Dirichlet ones. More precisely, there is a natural coupling mechanism by which the absence of a Dirichlet condition of order i gives rise to a Neumann condition of order 2 m − 1 − i. This pairing is crucial for proving long-time existence and marks the point at which the variational structure becomes essential in our analysis. From the analytic point of view, the discussion above completes the picture. However, this is precisely where the geometric nature of the problem comes into play. We are interested in the geometry of the evolution, namely in the support of the curves involved, and not in the way ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 3
+
+their parametrizations change along the flow. The additional degrees of freedom arising from this geometric invariance have three main consequences. First, uniqueness can only be understood up to reparametrization: this is what we call geometric uniqueness of the flow. Second, a purely geometric evolution can prescribe only the normal velocity, so that the resulting equation is not strictly parabolic, but degenerate. Third, whenever a specific parametrization is selected, the choice saturates m − 1 degree of freedom at the boundary, making the analytic set of boundary conditions described above redundant with respect to the underlying geometric problem. The first main contribution of the present paper is to develop a systematic procedure for deriving the full list of admissible boundary conditions for the geometric L2-gradient flow associated with the energy E.With the class of problems now fully set up, we turn to the analysis of well-posedness for the resulting flow for every order m ≥ 2 and set of boundary conditions. In rough terms, the main result is the following. 
+
+Theorem 1.1. Let C be a class of networks with a fixed topology, satisfying a set of admissible boundary conditions up to order 2m − 1 and let γ0 be an admissible initial network. Then, there exist T > 0 and a solution (γ(t)) t∈[0 ,T ] to the geometric gradient flow of E(γ) in C with 
+
+γi ∈ W 1 
+
+> p
+
+((0 , T ); Lp) ∩ Lp
+
+ (0 , T ); W 2mp
+
+ .
+
+The solution is geometrically unique and admits a regular parametrization that is smooth for all 
+
+t > 0.
+
+To prove this theorem we need first to break the invariance by reparametrization by fixing a suitable tangential velocity, thereby removing the tangential degrees of freedom. We con-veniently choose the tangential velocity and obtain the Special Flow and we add the m − 1remaining boundary conditions. We then linearize this system around the initial datum. Us-ing the classical theory of Solonnikov [Sol67], we prove well-posedness for the associated linear system in Theorem 5.8. Applying Banach’s Fixed Point Theorem then yields a short-time exis-tence for the Special Flow shown in Theorem 5.19. The existence of solutions to the geometric gradient flow follows immediately. To prove uniqueness, we still have to show that any arbitrary tangential choices can be absorbed by finding a suitable family of reparametrizations. This is the content of Section 5.4. Finally, since the initial data lie only in a fractional Sobolev space ( W 2m−2m/p 
+
+> p
+
+), we employ Angenent’s parameter trick to show that the solution instantaneously becomes C∞.While the proof of this result is technical, it relies on well-established techniques. In contrast, the analysis of the long-time behavior of the flow requires substantially new ideas. 
+
+Theorem 1.2. Let C be a class of networks with a fixed topology, satisfying boundary conditions up to order 2m − 1 and let γ0 be an admissible initial network. Suppose that γt is a maximal solution (γ(t)) t∈[0 ,T ) to the geometric gradient flow of E(γ) in C. If γ(t) does not degenerate as 
+
+t → T , then T = + ∞.
+
+The leading idea is to prove that under the above assumption every finite T is an admissible starting point for the problem. To show that, one must bound the norm of γ in the initial data space as t → T . This bound follows from the fact that the kinetic energy of the flow, namely the L2-norm of the velocity, has bounded variation and therefore cannot blow up in finite time. Since the velocity is a differential operator of order 2 m along each curve, this estimate naturally provides the required control in the initial data space W 2m−2m/p p .A first obstruction to controlling the kinetic energy is that its variation along the flow has no evident sign and it is of order 4 m, which is far too high with respect to the initial data space. For 4 L. BENATTI AND A. PLUDA 
+
+closed curves, where no boundary is present, this issue can be overcome integrating by parts m
+
+times: the leading term becomes of order 3 m and, more importantly, has a manifestly negative sign. In our setting, however, boundary terms of order up to 4 m−1 emerge. These terms cannot be directly reabsorbed in the leading bulk term by means of interpolation inequalities. One would like to exploit that boundary conditions are preserved along the flow, and hence that their time derivatives vanish, in order to reduce the order of these terms. However, identifying this structure within the lengthy expression produced by this differentiation is far from straightforward. The existing literature offers little guidance in this direction, as it typically treats each specific problem by means of ad hoc cancellations dictated by its particular structure. This is precisely where the preliminary work devoted to the Dirichlet–Neumann coupling becomes essential. Up to lower-order terms, the time variations of the boundary conditions satisfy the same orthogonality structure as the original conditions, and this reveals the cancellations needed to control the boundary terms in our non specific setting. Among the hypotheses of the theorem, we required the solution to be non-degenerate as 
+
+t → T . We essentially requires that both the lengths of all curves in the network are bounded away from zero and the topological Dirichlet boundary condition hold uniformly for t close to T
+
+(see Theorem 6.14). This requirement makes the result conditional. However, this description of the long-time behavior is also optimal, since there are examples of degeneracy along the flow. We point out that the statement of the long-time behavior is exactly the same for every order m ≥ 2. This might come as a surprise, since the long-time descriptions of the two best-studied cases ( m = 1 for the curve shortening flow and m = 2 for the elastic flow) differ significantly from each other. Moreover, in the previous literature, there was only one example of long-time existence for higher-order flow of networks [DLP19; GMP20]. For the elastic flow of networks with natural boundary conditions, non-degeneracy was expressed by requiring that at each junction all concurrent curves do not align during the evolution, the angles formed by two subsequent unit tangent vectors at the junction must remain strictly positive. Stated in this way, non-degeneracy seems to affect first-order derivatives, inducing a wrong belief that the higher the order of the flow, the higher the derivatives involved in the conditional result. Ultimately, it required a deeper understanding of the flow to express this same condition only in terms of the topological condition. To achieve a complete description of the flow, once established that that flow exists globally in time, one seeks to describe the shape of the evolving object as time approaches + ∞, and to prove stability and convergence of the solutions. The present paper does not address this final question, leaving it as the subject of future research. 1.1. Comparing with the existing literature. Interest in higher-order geometric flows has grown steadily over the past fifteen years, and a community of researchers has flourished. We try to give an accurate description of the vast existing literature that inspired and guided our work. For closed curves, Langer and Singer [LS85] pioneered the variational study of elastic curves (see also [Koi96]). Then, early work by Linn´ er [Lin89] gave numerical evidence that curves evolving under elastic flow can develop self-intersections or lose convexity. Polden [Pol96] and Dziuk, Kuwert, and Sch¨ atzle [DKS02] proved the well-posedness and long-time existence for both penalized and free elastic flow. Finally, Mantegazza and Pozzetta [MP21; Poz22] established the uniqueness of the asymptotic limit of the penalized elastic flow of closed curves, while Miura and Wheeler completed the analysis of the free elastic flow [MW25]. Additionally, the sharp energy threshold below which closed curves strictly preserve their initial embeddedness was determined in [MMR25]. Okabe instead analyzed the elastic flow of closed curves under different constraints [Oka07; Oka08]. ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 5
+
+Passing to flows of order grater than four, Polden [Pol96] gave a quite complete description for closed curves and McCoy and Wheeler also studied flows of order 2 m in the recent paper [MW26] (see also [MWW19a] for the case m = 3). As detailed explaned in the first part of the introduction, when we consider open curves, there is more than one choice of boundary conditions. For Navier boundary conditions, No-vaga and Okabe established short-time and long-time existence, as well as asymptotic behavior [NO14; NO17]. Under clamped boundary conditions, short-time existence was proved by Spener [Spe17], while Lin [Lin12] addressed their long-time behavior; Dall’Acqua, Pozzi, and Spener [DPS16] completed the analysis with convergence and asymptotic properties. We mention also the case of a partial free boundary studied in [Dia24; WW24]. The case of non-compact curves is challenging. Nevertheless, it has been studied by several authors: Novaga and Okabe [NO14] provided results on both long-time behavior and asymptotic analysis. A new energy method was introduced in [MR26] to analyze the elastic flow of infinite complete curves, while the preser-vation of their embeddedness and graphicality was established in [MR25]. As above, by elastic flow, we mean the flow with length penalization; the L2-gradient flow of ´ |k|2 ds when the curve is instead subjected to a fixed length is studied in [DLP14; DLP17; DKS02; RS24]. Related to the elastic energy we also have a second-order gradient flows obtained via the tan-gent indicatrix [Wen93; Wen95; LL18; LLS15; NP20; OPW19]. Furthermore, obstacle problems for the elastic flow and bending energy was also investigates [Yos25]: Yoshizawa established the local-in-time existence of weak solutions. Other notable examples of fourth-order flows include the Helfrich flow [DP14; Whe15], the curve diffusion flow [AB19; AB20], the length-constrained diffusion flow [MWW19b], and heterogeneous elastic wires [Dal+24; DLR24; Lan25], which con-tinue to enrich the literature. Anisotropic extensions have also attracted attention: Barrett, Garcke, and N¨ urnberg [BGN12] developed parametric approximations for the anisotropic elastic flows of open and closed curves, while Bellettini, Kholmatov, and Novaga [BKN25] focused on the crystalline case. Shifting focus from single curves to networks, the analysis of higher-order flows has concen-trated on the elastic flow. When we fix only the topology of the network, the problem is coupled with second- and third-order Neumann boundary conditions. In this case, short-time existence has been established in different settings: H¨ older solutions in R2 [GMP19] and Rn [DLP21], and Sobolev solutions in R2 [GMP20]. The transition to long-time behavior is addressed both in [DLP19] and in [GMP20]. As in the case of curves, one can fix both the structure of the network and the angles at the junctions. Short-time existence for H¨ older solutions of this problem was shown in [GMP19], but no long-time existence result is currently available in the literature. We emphasize that our paper covers the analysis of the long-time behavior for this latter case as well. Finally, once the existence of the flow is solved, one can focus on beautiful geometric questions. For example, Huisken’s problem asks whether there is an elastic flow of closed planar curves that is initially contained in the upper half-plane but “migrates” to the lower half-plane at a positive time. See the recent developments in the case of open curves under natural boundary conditions [KM24; Miu25]. 
+
+Acknowledgment. This research was funded in part by the Austrian Science Fund (FWF) [grant DOI 10.55776/EFP6]. For open access purposes, the authors have applied a CC BY public copyright license to any author-accepted manuscript version arising from this submission. Luca Benatti and Alessandra Pluda were partially supported by the BIHO Project “NEWS – NEtWorks and Surfaces evolving by curvature” and by the MUR Excellence Department Project awarded to the Department of Mathematics of the University of Pisa. 6 L. BENATTI AND A. PLUDA 
+
+The authors are members of the INDAM–GNAMPA. Alessandra Pluda is partially supported by the INdAM - GNAMPA Project (codice CUP E53C25002010001) “ANGELS”. Alessandra Pluda gratefully acknowledges support from the Erwin Schr¨ odinger International Institute for Mathematics and Physics. Some of the research for this paper was carried out during the thematic program on Free Boundary Problems .Artificial intelligence was used exclusively to improve grammar and clarity of expression. It was not used to derive, verify, or prove any of the results presented. 2. Curves and networks 
+
+A planar regular curve γ is a continuous map γ : [0 , 1] → R2, differentiable on (0 , 1) with 
+
+|∂xγ(x)|̸ = 0 for every x ∈ (0 , 1). By an abuse of terminology, we use γ to denote the parametrized curve, its equivalence class, and its support. We denote by s the arclength parameter. Whenever we write a function f (s) depending on s,we actually mean f (x(s)). Additionally, we have ∂s := 1 
+
+> |∂xγ|
+
+∂x. We extensively use the arclength measure when integrating with respect to the volume element μg on [0 , 1] induced by a regular rectifiable curve γ, namely, given an integrable function f on [0 , 1], we have 
+
+ˆ
+
+> γ
+
+f dγ := 
+
+ˆ 10
+
+f (x)|∂xγ(x)| dx. 
+
+Assuming γ is of class H2, we denote by τ := ∂sγ the unit tangent vector, by ν the unit normal vector (the counterclockwise rotation of π 
+
+> 2
+
+of τ ) and by κ = ∂2 
+
+> s
+
+γ the curvature vector of the curve γ, which is defined at almost every point. In R2 we can write the curvature vector as 
+
+κ = kν with k the oriented curvature. 
+
+Definition 2.1. A network is a finite collection of curves γ = ( γ1, . . . , γ N ).
+
+A generic curve in γ will be denoted by γi; when there is no risk of confusion, we drop the i.As a direct generalization of what we just said for curves, given a network γ = ( γ1, . . . , γ N ), we denote by φ the collection φ = ( φ1, . . . , φ N ) where each function φi acts on γi. Again, when there is no possibility of confusion, we will omit indices. When we integrate along a network, we write ˆ
+
+> γ
+
+φ dγ =
+
+> N
+
+X
+
+> i=1
+
+ˆ
+
+> γi
+
+φi dγi.
+
+Given a point P ∈ R2, we say that P ∈ γi if P belongs to the support of γi and P ∈ γ means that P ∈ γi for some i ∈ { 1, . . . , N }. For the set γi(0) , γ i(1) of the endpoints of γi we use the symbol Pi and P is the union of Pi over i ∈ { 1, . . . , N }. A point P ∈ P is called d-junction if # γ−1(P ) = d. For consistency with the case of a single curve, if d = 1, we still call P an endpoint. In this paper, it is particularly convenient to introduce an “orientation-free” evaluation at the boundary. Assume that γ is a curve, not a loop, i.e. γ(0) ̸ = γ(1). If γ−1(P ) ∈ { 0, 1} we define 
+
+∂kx φ P := ( −1) k(γ−1(P )+1 )∂kx φ  γ−1(P ) .
+
+If γ−1(P )̸ ∈ { 0, 1} the evaluation will be intended to be 0. The product of expressions evaluated at different points is defined to be 0. If γ(0) = γ(1), the above definition is ambiguous since 
+
+γ−1(P ) = {0, 1}. In this case, we will perform computations as there were two copies of the curve - labeled differently - for which P is uniquely determined as the image of 0 or 1, and the other endpoint is different from P . Subsequently, the second copy will be replaced by the curve itself. Note that this evaluation is distributive with respect to the product and the sum. ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 7
+
+We also introduce 
+
+∂kx φ P := X 
+
+> P∈P
+
+
+
+∂kx φ P
+
+
+
+.
+
+Definition 2.2 (Star network) . Let γ = ( γ1, . . . , γ N ) be a network. We say that γ is a star network with center P , for P ∈ P , if P ∈ P i for every i ∈ { 1, . . . , N }.
+
+If γ = ( γ1, . . . , γ N ) is a star network with center P , then N ≤ #γ−1(P ) ≤ 2N . Further-more, there are examples of star networks with two distinct centers. We conclude this section with a definition that will be crucial in the sequel. 
+
+Definition 2.3. We denote by phσ(γ) a polynomial in ∂sγ, . . . , ∂ hs γ with constant coefficients in 
+
+R such that every monomial can be bounded by 
+
+a
+
+> h
+
+Y
+
+> l=1
+
+∂lsγ βl with 
+
+> h
+
+X
+
+> l=1
+
+(l − 1) βl ≤ σ, 
+
+where βl ∈ N0 for l ∈ { 1, . . . , h − 1} and a ∈ R. With abuse of notation, we will say that 
+
+A(γ) ∈ Rk satisfies A(γ) = phσ(γ) if all entries of A(γ) can be estimated by a polynomial phσ(γ).
+
+The polynomials phσ(γ) satisfy these basic calculus rules: 
+
+∂s
+
+
+
+phσ(γ)
+
+
+
+= ph+1 
+
+> σ+1
+
+(γ),
+
+ph1 
+
+> σ1
+
+(γ) + ph2 
+
+> σ2
+
+(γ) = pmax {h1,h 2}
+
+> max {σ1,σ 2}
+
+(γ),
+
+ph1 
+
+> σ1
+
+(γ)ph2 
+
+> σ2
+
+(γ) = pmax {h1,h 2} 
+
+> σ1+σ2
+
+(γ).
+
+With abuse of notation, we will also use the symbol ph(γ) for a polynomial in ∂xγ, . . . , ∂ hx γ with constant coefficients in R where the x-derivative of γ appears with order at most h. Accordingly, we set p0(γ) = 0. 3. Preliminaries on function spaces 
+
+3.1. Parabolic Sobolev spaces. Let m ∈ N ∖ {0}, p ∈ (1 , ∞) and T > 0. We denote by 
+
+W 1,2mp the parabolic Sobolev space 
+
+W 1,2mp := W 1 
+
+> p
+
+((0 , T ); Lp (0 , 1)) ∩ Lp
+
+ (0 , T ); W 2mp (0 , 1)  (3.1) endowed with the norm 
+
+∥·∥ W 1,2mp := ∥·∥ W 1   
+
+> p((0 ,T ); Lp(0 ,1))
+
++ ∥·∥ Lp((0 ,T ); W 2mp (0 ,1) ).
+
+For a detailed description of the space, we refer to [Ama00; Yos95]. We note that this definition is consistent with the notation used by Solonnikov [Sol67, Section 20] (see also [GMP20, Section 2]). Elements of the space W 1,2mp are functions f : (0 , T ) → Lp(0 , 1) with f ∈ Lp ((0 , T ); Lp(0 , 1)) that possess a distributional derivative with respect to time ∂tf ∈ Lp ((0 , T ); Lp(0 , 1)). More-over, for almost every t ∈ (0 , T ), the function f (t) lies in W 2mp (0 , 1) with 2 m spatial deriva-tives ∂x(f (t)) , . . . , ∂ 2mx (f (t)) ∈ Lp (0 , 1). The functions t 7 → ∂kx (f (t)), k ∈ { 1, . . . , 2m} lie in 
+
+Lp ((0 , T ); Lp(0 , 1)). By means of the isometric isomorphism 
+
+J : Lp ((0 , T ); Lp(0 , 1)) → Lp ((0 , T ) × (0 , 1)) , (Jf )( t, x ) := ( f (t)) ( x),8 L. BENATTI AND A. PLUDA 
+
+the space W 1,2mp can be identified with functions f : (0 , T )×(0 , 1) → R having one distributional derivative with respect to time and 2 m distributional derivatives with respect to space almost everywhere in (0 , T ) × (0 , 1), all of which belong to Lp ((0 , T ) × (0 , 1)). 3.2. Sobolev-Slobodeckij spaces. Once the evolution problem is formulated in the space 
+
+W 1,2mp , it is crucial to characterize the space of the initial data. This is achieved by identifying the temporal trace of W 1,2mp .
+
+Definition 3.1 (Sobolev Slobodeckij spaces) . Let p ∈ (1 , ∞) and θ ∈ (0 , 1) . The Slobodeckij seminorm of f ∈ Lp (0 , 1) is defined by 
+
+[f ]θ,p := 
+
+ˆ 10
+
+ˆ 10
+
+|f (x) − f (y)|p
+
+|x − y|θp +1 dx dy
+
+1/p
+
+.
+
+Let s ∈ (0 , ∞) be non-integer. The Sobolev-Slobodeckij space W sp (0 , 1) is defined by 
+
+W sp (0 , 1) := 
+
+
+
+f ∈ W ⌊s⌋ 
+
+> p
+
+(0 , 1) : [ f ]W sp := 
+
+h
+
+∂⌊s⌋ 
+
+> x
+
+f
+
+i 
+
+> s−⌊ s⌋,p
+
+< ∞
+
+
+
+.
+
+The Slobodeckij space W sp (0 , 1) is a Banach space endowed with the norm 
+
+∥·∥ W sp (0 ,1) := ∥ · ∥ W ⌊s⌋
+
+> p
+
++ [ · ]W sp .
+
+Let p ∈ [1 , ∞), s ∈ (0 , 1). If s − 1 
+
+> p
+
+> 0 the space W sp (0 , 1) is a Banach algebra. In particular, for any f, g ∈ W sp (0 , 1), the product f g belongs to W sp (0 , 1) and satisfies the inequality 
+
+∥f g ∥W sp (0 ,1) ≤ C( s, p )
+
+
+
+∥f ∥C 0([0 ,1]) ∥g∥W sp (0 ,1) + ∥g∥C 0([0 ,1]) ∥f ∥W sp (0 ,1) 
+
+
+
+.
+
+For p ∈ (1 , ∞), the temporal trace of W 1,2mp (at t = 0) is precisely the space W 2m−2m/p 
+
+> p
+
+(0 , 1); see [DSS08, Theorem 4.5]. 3.3. Embeddings. A key tool for our analysis is the following compact embedding: for p ∈
+
+(1 , 4m + 2) we have 
+
+W 2m 
+
+> 2
+
+(0 , 1) ,→ W 2m−2m/p 
+
+> p
+
+(0 , 1) . (3.2) By the Sobolev embedding theorem, for p ∈ (2 m + 1 , ∞) and α ∈ (0 , 1 − (2 m+1) /p) we have 
+
+W 2m−2m/p 
+
+> p
+
+(0 , 1) ,→ C 2m−1,α ([0 , 1]) .
+
+Furthermore, combining [DSS08, Theorem 4.4] and [Tri78, Theorem 4.6.1.(e)], for p ∈ (2 m +1, ∞), α ∈ (0 , 1 − (2 m+1) /p) we have continuous embeddings 
+
+W 1,2mp ((0 , T ) × (0 , 1)) ,→ C 0 
+
+[0 , T ]; W 2m−2m/p 
+
+> p
+
+(0 , 1) 
+
+
+
+,→ C 0  [0 , T ]; C 2m−1+ α ([0 , 1])  .
+
+Lemma 3.2. Let T be positive, p ∈ (2 m + 1 , ∞) and θ ∈
+
+ 1+ 1/p 
+
+> 2m−2m/p
+
+, 1
+
+
+
+. Then, 
+
+W 1,2mp ((0 , T ) × (0 , 1)) ,→ C (1 −θ)(1 −1/p)  [0 , T ]; C 1 ([0 , 1])  (3.3) 
+
+with continuous embedding. Proof. First, we recall from [DSS08, Theorem 4.4] and [Sim90, Corollary 26] that 
+
+W 1,2mp ((0 , T ) × (0 , 1)) ,→ C 0 
+
+[0 , T ]; W 2m−2m/p 
+
+> p
+
+(0 , 1) 
+
+
+
+W 1,2mp ((0 , T ) × (0 , 1)) ,→ C 1−1/p ([0 , T ]; Lp (0 , 1)) .ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 9
+
+For all θ ∈ (0 , 1) the real interpolation method (see [Tri78]) gives 
+
+W θ(2 m−2m/p) 
+
+> p
+
+((0 , 1)) = 
+
+
+
+Lp ((0 , 1)) , W 2m−2m/p 
+
+> p
+
+((0 , 1)) 
+
+ 
+
+> θ,p
+
+(3.4) and for all f ∈ W 2m−2m/p 
+
+> p
+
+((0 , 1)) it holds 
+
+∥f ∥W θ(2 m−2m/p )
+
+> p
+
+≤ C∥f ∥1−θLp ∥f ∥θW 2m−2m/p p
+
+. (3.5) For all Banach spaces X0, X1 and Y such that X0 ∩ X1 ⊂ Y and ∥y∥Y ≤ C ∥y∥1−θX0 ∥y∥θX1 for all 
+
+y ∈ X0 ∩ X1, one has the continuous embedding 
+
+C 0 ([0 , T ]; X1) ∩ C α ([0 , T ]; X0) ,→ C (1 −θ)α ([0 , T ]; Y ) .
+
+In our context, applying (3.4) and (3.5) yields 
+
+W 1,2mp ((0 , T ) × (0 , 1)) ,→ C (1 −θ)(1 −1/p) 
+
+[0 , T ]; W θ(2 m−2m/p) 
+
+> p
+
+(0 , 1) 
+
+
+
+.
+
+The choice θ ∈
+
+ 1+ 1/p 
+
+> 2m−2m/p
+
+, 1
+
+
+
+ensures that W θ(2 m−2m/p) 
+
+> p
+
+(0 , 1) ,→ C 1([0 , 1]) via Sobolev embed-ding, concluding the proof. □
+
+Finally, we recall that for p ∈ (1 , ∞), T > 0 and 0 < α < β < 1 we have the embedding 
+
+C β ([0 , T ]) ,→ W αp (0 , T )and there exist positive constants σ = σ(α, β ), C ( p, α, β ) such that for all f ∈ C β ([0 , T ]), 
+
+∥f ∥W αp ((0 ,T )) ≤ C ( p, α, β ) T σ(α,β ) ∥f ∥C β ([0 ,T ]) . (3.6) From [Sol67, Theorem 5.1] we also know the continuity of the operator 
+
+∂kx · x=0 : W 1,2mp ((0 , T ) × (0 , 1)) → W   
+
+> 12m−12mp
+> p
+
+(0 , T )
+
+γ 7 → ∂kx γ x=0 
+
+. (3.7) From now on, we fix m ≥ 2, p ∈ (2 m + 1 , 4m + 2), θ ∈
+
+ 1+ 1/p 
+
+> 2m−2m/p
+
+, 2m−12m
+
+
+
+, α = 12m − 12mp and 
+
+β = (1 − θ) (1 − 1/p). Note that in this regime α < β .Later in the discussion, we will need several estimates to be uniform in time. To this end, we endow the relevant spaces with a norm different from (but equivalent to) the standard one. 
+
+Definition 3.3. Let T > 0. We define ET as the space W 1,2mp endowed with the norm 
+
+∥f ∥ET := ∥f ∥W 1,2mp ((0 ,T )×(0 ,1)) + ∥f (0) ∥W 2m−2m/p p (0 ,1) .
+
+Similarly, we define F T as the space W   
+
+> 12m−12mp
+> p
+
+(0 , T ) endowed with the norm 
+
+∥b∥F T := ∥b∥W    
+
+> 12m−12mp p(0 ,T )
+
++ |b(0) |.
+
+A standard technique in the literature for obtaining estimates independent of the time interval is the use of extension operators. Let 0 < T < T 1. Then, there exist linear operators 
+
+Ei :W 1,2mp ((0 , T ) × (0 , 1)) → W 1,2mp ((0 , T 1) × (0 , 1)) 
+
+Eb :W 1/2m−1/2mp  
+
+> p
+
+(0 , T ) → W 1/2m−1/2mp  
+
+> p
+
+(0 , T 1)10 L. BENATTI AND A. PLUDA 
+
+such that for all f ∈ W 1,2mp ((0 , T ) × (0 , 1)), ( Eif )|(0 ,T ) = f , for all g ∈ W 1/2m−1/2mp  
+
+> p
+
+(0 , T ), (Ebg)|(0 ,T ) = g. Crucially, these operators satisfy 
+
+∥Eif ∥W 1,2mp ((0 ,T 1)×(0 ,1)) ≤ C( p, T 1)∥f ∥ET ,
+
+∥Ebg∥W 1/2m−1/2mp p (0 ,T 1) ≤ C( p, T 1)∥g∥F T , (3.8) where the constant C( p, T 1) remains bounded as T → 0. 
+
+Lemma 3.4 (Uniform embedding) . Let T1 > 0 and θ ∈
+
+ 1+ 1/p 
+
+> 2m−2m/p
+
+, 1
+
+
+
+, β = (1 − θ) (1 − 1/p).Then, there exist constants C depending on T1, p, θ such that for all T ∈ (0 , T 1] and all f ∈
+
+W 1,2mp ((0 , T ) × (0 , 1)) the following uniform estimates hold: 
+
+∥f ∥C 0([0 ,T ]; C 2m−1([0 ,1])) ≤ C( p)∥f ∥C 0    
+
+> 
+> [0 ,T ]; W2m−2m/p p(0 ,1)
+> 
+
+≤ C ( T1, p ) ∥f ∥ET , (3.9) 
+
+∥f ∥C β ([0 ,T ]; C 1([0 ,1])) ≤ C ( T1, p, θ ) ∥f ∥ET . (3.10) 
+
+Proof. Let f ∈ W 1,2mp ((0 , T ) × (0 , 1)) and let Ei be the extension operator defined above. Then 
+
+Eif lies in W 1,2mp ((0 , T 1) × (0 , 1)) and 
+
+∥f ∥C 0    
+
+> 
+> [0 ,T ]; W2m−2m/p p(0 ,1)
+> 
+
+≤ ∥ Eif ∥C 0  
+
+> 
+> [0 ,T 1]; W2m−2m/p p(0 ,1)
+> 
+
+≤ C ( T1, p ) ∥Eif ∥W 1,2mp ((0 ,T 1)×(0 ,1)) ≤ C ( T1, p ) ∥f ∥ET .
+
+The second estimate (3.10) follows by applying the same extension argument to the interpolation result in (3.3). □
+
+4. Derivation of the flow 
+
+The most recurring functional in this paper is the following energy functional on curves. 
+
+Definition 4.1. Let m ≥ 1 and γ ∈ Hm((0 , 1) , R2). We define the energy 
+
+Em(γ) := 
+
+ˆ
+
+> γ
+
+|∂ms γ|2
+
+2 dγ. (4.1) 4.1. First variation. We begin by considering a single curve. Let γ ∈ Hm((0 , 1) , R2) be the curve and φ ∈ C ∞([0 , 1] , R2). An external variation of γ with respect to φ is the one-parameter semigroup of curves given by γ + εφ . For simplicity, we will often say that φ is an external variation of γ. The first variation of Em(γ) in direction φ at γ is defined as 
+
+δφEm(γ) := ddε Em(γ + εφ ) ε=0 
+
+.
+
+Variations of derivatives of γ appear in the process of the explicit computation of δφEm. If 
+
+γ is parametrized with x ∈ [0 , 1], then δφ commutes with ∂x. For example, δφγ = φ but also 
+
+δφ∂jxγ = ∂jxδφγ. The variation of ∂js γ is more delicate. Indeed, the arclength parameter of γ is different from the arclength parameter of γ + εφ . The following lemma gives the computation rule. 
+
+Lemma 4.2. Let φ be an external variation of γ. Then, for every j ∈ N ∖ {0}, it holds 
+
+δφ∂js γ = ∂sδφ∂j−1 
+
+> s
+
+γ − ⟨ ∂sγ , ∂ sφ⟩∂js γ. (4.2) ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 11 
+
+Proof. Since ∂s = ∂x/|∂xγ|, one gets 
+
+δφ(∂js γ) = δφ
+
+ 1
+
+|∂xγ|
+
+
+
+∂x∂j−1 
+
+> s
+
+γ + 1
+
+|∂xγ| δφ(∂x∂j−1 
+
+> s
+
+γ)= − 1
+
+|∂xγ|3 ⟨∂xφ , ∂ xγ⟩∂x∂j−1 
+
+> s
+
+γ + ∂x
+
+|∂xγ| δφ(∂j−1 
+
+> s
+
+γ)= −⟨ ∂sφ , ∂ sγ⟩∂js γ + ∂sδφ(∂j−1 
+
+> s
+
+γ). □
+
+Moreover, since d γ = |∂xγ|dxδφ(d γ) = ⟨∂sφ , ∂ sγ⟩ dγ. (4.3) We can now compute the first variation of our functional in direction φ at γ.
+
+Proposition 4.3. Let m ≥ 1, γ ∈ H2m((0 , 1) , R2) and Em be the functional defined by (4.1) .For φ external variation of γ we have 
+
+δφEm(γ) = −
+
+ˆ
+
+> γ
+
+D⃗Vm(γ) , φ 
+
+E
+
+dγ + ψ0
+
+> m
+
+(γ) , φ P +
+
+> m−2
+
+X
+
+> j=0
+
+(−1) j δφ∂m−j−1 
+
+> s
+
+γ , ∂ m+js γ P ,
+
+where ⃗ Vm and ψ0 
+
+> m
+
+are operators depending on γ defined as follows ⃗Vm(γ) := ( −1) m+1 ∂2ms γ −
+
+> m−1
+
+X
+
+> j=1
+
+(−1) j ∂s( ∂m−js γ , ∂ m+js γ ∂sγ) − 12 ∂s
+
+h
+
+|∂ms γ|2∂sγ
+
+i
+
+,ψ0
+
+> m
+
+(γ) := ( −1) m−1∂2m−1 
+
+> s
+
+γ −
+
+> m−1
+
+X
+
+> j=1
+
+(−1) j ∂m−js γ , ∂ m+js γ ∂sγ − 12 |∂ms γ|2∂sγ. 
+
+Proof. Applying (4.3) and integrating by parts, we have 
+
+δφEm(γ) (4.3) 
+
+=
+
+ˆ
+
+> γ
+
+12 δφ|∂ms γ|2 + 12 |∂ms γ|2⟨∂sφ , ∂ sγ⟩ dγ
+
+=
+
+ˆ
+
+> γ
+
+⟨δφ∂ms γ , ∂ ms γ⟩ − 12
+
+D
+
+φ , ∂ s(|∂ms γ|2∂sγ)
+
+E
+
+dγ + 12 |∂ms γ|2⟨φ , ∂ sγ⟩ P .
+
+Now we iterate the following procedure m times. Isolating the integral part containing δφ,applying Theorem 4.2 and integrating by parts 
+
+ˆ
+
+> γ
+
+δφ∂m−js γ , ∂ m+js γ dγ =
+
+ˆ
+
+> γ
+
+∂sδφ∂m−j−1 
+
+> s
+
+γ , ∂ m+js γ − ∂m−js γ , ∂ m+js γ ⟨∂sφ , ∂ sγ⟩ dγ
+
+= −
+
+ˆ
+
+> γ
+
+δφ∂m−j−1 
+
+> s
+
+γ , ∂ m+j+1  
+
+> s
+
+γ − φ , ∂ s
+
+  ∂m−js γ , ∂ m+js γ ∂sγ dγ
+
++ δφ∂m−j−1 
+
+> s
+
+γ , ∂ m+js γ P − ∂m−js γ , ∂ m+js γ ⟨φ , ∂ sγ⟩ P
+
+□
+
+Remark 4.4. Observe that ⃗ Vm(γ) is purely normal. Indeed, every tangential part cancels out, and we have ⃗Vm(γ) = ( −1) m+1 (∂2ms γ)⊥ −
+
+> m−1
+
+X
+
+> j=0
+
+(−1) j ∂m−js γ , ∂ m+js γ ∂2 
+
+> s
+
+γ − 12 |∂ms γ|2∂2 
+
+> s
+
+γ. 
+
+For this reason, we will denote 
+
+Vmν =⃗ Vm(γ) (4.4) 12 L. BENATTI AND A. PLUDA 
+
+omitting the subscript m whenever there is no risk of confusion. 
+
+Previous computations can be extended to a network of curves γ = ( γ1, . . . , γ N ). Given 
+
+φ = ( φ1, . . . , φ N ) the variation of γ with respect to φ is the one-parameter semigroup of networks given by γ + εφ where each curve γi varies in direction φi. Observe that a variation can modify the topology of γ in principle. Given that 
+
+Em(γ) = 
+
+> N
+
+X
+
+> j=1
+
+Em(γj )its first variation in direction φ will be 
+
+δφEm(γ) = 
+
+> N
+
+X
+
+> j=1
+
+δφj Em(γj ).
+
+Regardless of whether a single curve or a network is considered, for the velocity V ν in (4.4) to be interpreted as the energy gradient with respect to the L2-inner product, the boundary terms in the variation must vanish: 
+
+ψ0
+
+> m
+
+(γ) , φ P +
+
+> m−2
+
+X
+
+> j=0
+
+(−1) j δφ∂m−j−1 
+
+> s
+
+γ , ∂ m+js γ P = 0 . (4.5) 4.2. The effective geometric structure. So far, computations have been performed by fixing a specific parametrization of the curve – namely, the arc-length parametrization. The energy 
+
+Em depends only on the length of the curve, the curvature and its derivative; consequently, the variation of the energy should depend solely on their variations. However, at first glance, the boundary terms (4.5) appear to depend on the variation of the 2 m parameters {∂js γ},
+
+j ∈ { 0, . . . , m − 1}. The contribution related to the position of the curve in space corresponds to the boundary component ⟨ψ0
+
+> m
+
+(∂ms γ) , φ ⟩. Among the remaining 2 m − 2 parameters, the only significant ones are those related to geometric quantities. The apparent redundancy of the free parameters arises from the fact that the natural relations between the derivatives of γ, induced by the parametrization, have not been imposed yet. Once these relations are enforced, this redundancy disappears and the expression in (4.5) simplifies. We now turn to the derivation of these relations. Under arc-length parametrization, we have |∂sγ| = 1, which implies ∂j−1|∂sγ| = 0 for j ∈{2, . . . , m − 1} providing m − 1 constraints among the derivatives of γ. Computing the variation of these identities, we get 0 = 12 δφ∂j−1
+
+> s
+
+
+
+|∂sγ|2
+
+=
+
+> j
+
+X
+
+> k=1
+
+j − 1
+
+k − 1
+
+D
+
+∂j−k+1  
+
+> s
+
+γ , δ φ∂ks γ
+
+E
+
+.
+
+Let bjk ∈ R2×2, j, k ∈ { 1, . . . , m − 1} be defined as 
+
+bjk := 
+
+j − 1
+
+k − 1
+
+
+
+(∂sγ)( ∂j−k+1  
+
+> s
+
+γ)† for k ≤ j
+
+0 otherwise 
+
+.
+
+We recursively define for α ∈ { 1, . . . , m − 1}
+
+b(m−1)  
+
+> jk
+
+:= δjk Id R2 (4.6) 
+
+b(α−1)  
+
+> jk
+
+:= b(α) 
+
+> jk
+
+− b† 
+
+> αj
+
+b(α) 
+
+> αk
+
+. (4.7) ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 13 
+
+Lemma 4.5. The following properties hold (1) b(α) 
+
+> jk
+
+= δjk Id R2 for all k ≤ α;(2) b(α) 
+
+> jk
+
+= (Id R2 −b† 
+
+> jj
+
+)b(j) 
+
+> jk
+
+for all α < j .Proof. (1) If α = m − 1 the property is true by (4.6). Assume the property is true for some α
+
+and pick k ≤ α − 1. By (4.7) we have 
+
+b(α−1)  
+
+> jk
+
+= b(α) 
+
+> jk
+
+− b† 
+
+> αj
+
+b(α) 
+
+> αk
+
+= δjk Id R2 −b† 
+
+> αj
+
+δαk Id R2 = δjk Id R2 ,
+
+since k ≤ α − 1 implies k̸ = α.(2) Observe that bαj = 0 for α < j , hence 
+
+b(α) 
+
+> jk
+
+= b(j−1)  
+
+> jk
+
+= b(j) 
+
+> jk
+
+− b† 
+
+> jj
+
+b(j) 
+
+> jk
+
+. □
+
+We now set 
+
+b⊥ 
+
+> jk
+
+:= b(0)  
+
+> jk
+
+for j, k ∈ { 1, . . . , m − 1}.
+
+Remark 4.6. In view of Theorem 4.5, the matrix b⊥ projects onto the normal component. Indeed, bjj = ( ∂sγ)( ∂sγ)† for all j ∈ { 1, . . . , m − 1}, thus 
+
+D
+
+b⊥
+
+> jk
+
+zk , ∂ sγ
+
+E
+
+=
+
+D
+
+b(j) 
+
+> jk
+
+zk , (Id R2 −bjj )∂sγ
+
+E
+
+= 0 
+
+for every z ∈ (R2)m−1. In particular, b⊥
+
+> jk
+
+zk = ⟨b⊥
+
+> jk
+
+zk , ν ⟩ν.
+
+Lemma 4.7. Let y, z ∈ (R2)m−1 with y ∈ ker b, then ⟨z , y ⟩ = ⟨b⊥z , y ⟩. Moreover, ker b⊥ =(ker b)⊥.Proof. Let y ∈ ker b. Then 
+
+⟨z , y ⟩ =
+
+> m−1
+
+X
+
+> j,k =1
+
+[b(m−1)  
+
+> jk
+
+zk]†yj − [b(m−1) (m−1) kzk]†b(m−1) j yj =
+
+> m−1
+
+X
+
+> j,k =1
+
+[b(m−2)  
+
+> jk
+
+zk]†yj
+
+= . . . =
+
+> m−1
+
+X
+
+> j,k =1
+
+[b⊥
+
+> jk
+
+zj ]†yk =
+
+D
+
+b⊥z , y 
+
+E
+
+.
+
+In particular, ker b⊥ ⊆ (ker b)⊥. We observed in Theorem 4.6 that rnk b⊥ ≤ m − 1. On the other hand, by Theorem 4.5 b⊥ 
+
+> jj
+
+ν = (Id R2 −b† 
+
+> jj
+
+)ν = ν for all j ∈ { 1, . . . , m − 1}. Then, dim ker b⊥ ≤ m − 1 and ker b⊥ = (ker b)⊥. □
+
+Definition 4.8. We define 
+
+ψjm(γ) := 
+
+> m−1
+
+X
+
+> k=1
+
+(−1) m−k−1b⊥
+
+> jk
+
+∂2m−k−1 
+
+> s
+
+γ. (4.8) 
+
+Remark 4.9. Since δφ∂ks γ ∈ ker b, the higher order boundary terms in Theorem 4.3 can be rewritten as m−2X
+
+> j=0
+
+(−1) j δφ∂m−j−1 
+
+> s
+
+γ , ∂ m+js γ P =
+
+> m−1
+
+X
+
+> j=1
+
+δφ∂js γ , ψ jm(γ) P (4.9) 
+
+In particular, since ψjm is purely normal by Theorem 4.6 we reduced the apparent 2m − 2 param-eters into the m − 1 significant geometric ones. 14 L. BENATTI AND A. PLUDA 
+
+Lemma 4.10. The structure of the operators b⊥ 
+
+> jk
+
+in terms of the derivatives of γ is as follows: 
+
+b⊥ 
+
+> jk
+
+= pk−j+1  
+
+> k−j
+
+(γ).Proof. Observe that b(m−1)  
+
+> jk
+
+= δjk Id R2 = pk−j+1  
+
+> k−j
+
+(γ). Assume now that the property is true for some α. Then, 
+
+b(α−1)  
+
+> jk
+
+= b(α) 
+
+> jk
+
+− b† 
+
+> αj
+
+b(α) 
+
+> αk
+
+= pk−j+1  
+
+> k−j
+
+(γ) − pα−j+1  
+
+> α−j
+
+(γ)pk−α+1  
+
+> k−α
+
+(γ) = pk−j+1  
+
+> k−j
+
+(γ)since either max {k − α + 1 , α − j + 1 } ≤ k − j + 1, b(α) 
+
+> αk
+
+= 0 or bαj = 0. □
+
+Remark 4.11. In the case of the Willmore functional/ elastic flow ( m = 2 ) the above procedure is redundant. For m = 2 , the only boundary term involving a derivative of the variation is 
+
+δφ∂sγ, which is already purely normal. 
+
+4.3. Boundary conditions. Following the simplification procedure detailed in the previous section, the velocity V ν in (4.4) can be understood as the L2-gradient of the energy Em provided that the boundary terms vanish. We want to work in several different classes of networks and curves, where we impose condi-tions on the topology of the network and possibly on higher-order geometric quantities (angles at the junctions and curvature, for instance). The imposed boundary conditions on a specific point 
+
+P ∈ P are not influenced by our choices at the other points. So we can choose any d-junction 
+
+P and work on it separately from the others. In Theorem 4.9, we notice that higher-order terms have a precise structure. This is because the simplifications in the previous section, which resulted from the choice of parametrization, relate to the derivatives of γ. The higher-order conditions are of a geometric nature and scalar-valued. At each d-junction, P one can impose at most d conditions for each order i ∈ { 1, . . . , m − 1}.We denote their expressions by Bij (γ). On the other hand, the choice of the zero-order Dirichlet boundary condition will be made to preserve the network’s structure throughout the evolution; thus, we must enforce a topological constraint on γ itself rather than on its derivatives (see Section 4.4 for examples). This constraint concerns the images of the endpoints under the map γ. Consequently, it is both analytic in nature – since it involves the map itself – and vector-valued, consistently with the expression in Theorem 4.3. We will denote their expressions by B0j (γ). The full set of Dirichlet boundary conditions we impose at P is given by Bij (γ) P = 0 for 
+
+i ∈ { 0, . . . , m − 1} and j ∈ { 1, . . . , d }. Consequently, 
+
+δφBij (γ) P = 0 ∈ Rd(m+1) (4.10) gives the constraints on φ and its derivatives up to order i.We assume that the imposed conditions are independent. Clearly, the more conditions we impose, the more (4.10) enforces relations on φ and its derivatives, thereby restricting the class of variations that preserve the boundary conditions. In the extreme case where every Bij is nontrivial and independent, the admissible variations must vanish at P together with all their derivatives, thus ensuring that the terms in (4.9) vanish. To treat a more general setting, we allow for cases where only a subset of the conditions 
+
+Bij (γ) P is imposed. For simplicity of notation, we will still retaining all the indices so that the order of the conditions is preserved, in this case the expression for Bij (γ) is set to zero so that Bij P = 0 is trivially satisfied. In this case, to ensure that (4.9) still vanishes, we need to impose additional restrictions on ψl. Morally speaking, ψl must belong to a suitable orthogonal ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 15 
+
+complement of the space of admissible variations with respect to the scalar product appearing in (4.9). This requirement leads to higher-order conditions involving ψl. We denote these conditions by 
+
+B(2 m−1−i)j (γ, ψ ) ∈ Rd(m+1) 
+
+for i ∈ { 0, . . . , m − 1} and j ∈ { 1, . . . , d }. The index (2 m − 1 − i) highlights that B(2 m−1−i)j
+
+contains derivatives of γ up to order (2 m − i − 1). Moreover, B(2 m−1−i)j is the complementary condition to Bij , hence the 0-order topological condition is paired with the highest-order condi-tion. This is also reflected in the structure of the conditions: the only vector-valued expressions are the ones for i = 0. We denote a specific set of conditions by 
+
+B(γ, ψ ) P = 0 ∈ R2d(m+1) .
+
+Here again, we keep all indices to maintain their correspondence with the order of the condition. 
+
+Definition 4.12. A variation φ for γ is admissible for a given set of conditions B(γ, ψ ) P = 0 
+
+if it satisfies (4.10) for all i ∈ { 0, . . . , m − 1}, and for all j ∈ { 1, . . . , d } at the d-junction P .
+
+We now assume for simplicity that P is a d-junction and γ = ( γ1, . . . , γ d) is the star network with center P . We also assume there are no loops. We define the constraints on the class of possible conditions by defining the structure of δφBij .4.4. Topological boundary conditions. We now introduce the admissible boundary condi-tions of order zero. These conditions are described by a matrix a = ( aij ), where aij ∈ R2×2.To detect the suitability of a given condition, we introduce the operator A : ( S1)d → R2d×2d
+
+defined as 
+
+A(ν) := a†a + diag( ν) diag( ν)†, (4.11) where diag( ν) is the d × d matrix whose diagonal entries are ν1, . . . , ν d ∈ R2.
+
+Definition 4.13 (Topological boundary conditions) . The conditions B0i(γ) for i ∈ { 1, . . . , d }
+
+are admissible if their variation can be written as 
+
+δφB0i =
+
+> d
+
+X
+
+> j=1
+
+aij δφγj , (4.12) 
+
+where aij ∈ R2×2 fulfill the property 
+
+n
+
+ν ∈ (S1)d : det A(ν)̸ = 0 
+
+o̸
+
+= ∅.
+
+Remark 4.14. Although this condition may appear abstract, it merely requires the existence of at least one choice of unit normal vectors to the curves at the junction for which the associated matrix A(ν) is nonsingular. Such a condition is in fact quite natural and readily satisfied in all classical situations. For example, in the case of a fixed endpoint, one has det A(ν)̸ = 0 for every ν ∈ S1. At a junction, the condition is also satisfied: indeed, the singular set of A(ν) is characterized by the equation 
+
+±ν1 = . . . = ±νd. A(ν) is nonsingular whenever the tangent directions of the curves are not all aligned. More detailed explanations and examples will be given below. 
+
+Given a network γ and a d-junction P , assume that the unit normal vectors ( ν1, . . . , ν d) = ν
+
+at the junction satisfy det A = det A(ν)̸ = 0. This implies dim(ker a) ≤ d. Indeed, rnk( A) = 2 d
+
+and rnk(diag( ν)) = d. For any ξ ∈ ker a, we get 
+
+ξ = A−1Aξ = A−1 diag( ν) diag( ν)†ξ16 L. BENATTI AND A. PLUDA 
+
+Consequently, each element in ker a is in Im A−1 diag( ν). Imposing that (4.12) vanishes is equiv-alent to saying that any admissible variation φ belongs to ker a. The previous argument shows that each admissible variation φ is fully determined by its normal components. Moreover, 
+
+φ ∈ ker a is equivalent to diag( ν)†φ ∈ ker( aA −1 diag( ν)). Indeed, rnk( aA −1 diag( ν)) = rnk( A−1 diag( ν)) − dim(ker a) = d − dim(ker a)since the image of A−1 diag( ν) contains ker a.Let π : ( R2)d → (R2)d be the orthogonal projection onto ker a. We then have 
+
+> d
+
+X
+
+> j=1
+
+ψ0(γj ) , δ φγj =
+
+> d
+
+X
+
+> j,l,k =1
+
+D
+
+πlj ψ0(γj ) , A −1
+
+> kl
+
+D
+
+νk , δ φγkE
+
+νkE
+
+=
+
+> d
+
+X
+
+> j,l,k =1
+
+D
+
+A−1 
+
+> lk
+
+πlj ψ0(γj ) , ν kED 
+
+νk , δ φγkE
+
+.
+
+The above formula shows that it is enough to constrain ψ0(γ) to lie in ker(diag( ν)†A−1π). However, in order to adopt it as a condition, we must ensure that it is not weaker than the requirement ψ0(γ) ∈ ker π, that is rnk(diag( ν)†A−1π) = rnk( π) = dim(ker a).
+
+This identity is true if Im π ∩ ker(diag( ν)†A−1) = {0}. To prove it, assume ξ ∈ Im π ∩
+
+ker(diag( ν)†A−1). Since Im π = ker a, then ξ = A−1 diag( ν) diag( ν)†ξ, hence 
+
+|ξ|2 =
+
+D
+
+ξ , A −1 diag( ν) diag( ν)†ξ
+
+E
+
+=
+
+D
+
+diag( ν)†A−1ξ , diag( ν)†ξ
+
+E
+
+= 0 .
+
+We are now ready to introduce our maximal order condition. 
+
+Definition 4.15 (Maximal order condition) . Let πjl be the orthogonal projection onto ker a and assume that det A(ν)̸ = 0 . We define the maximal order condition as 
+
+B(2 m−1) j (γ, ψ ) = 
+
+> d
+
+X
+
+> i,k =1
+
+D
+
+A(ν)−1 
+
+> ji
+
+πik ψ0(γk) , ν j E
+
+4.4.1. Examples of topological conditions. As mentioned previously, we always impose a zero-order Dirichlet boundary condition. We distinguish the cases of endpoints and junctions. 
+
+Fixed endpoints. Let γ1 ∈ γ, let P be an endpoint of γ1, and P0 ∈ R2 a fixed point. The fixed point condition is given by γ1 P = P0. If we write B01 = γ1 − P0, the class of admissible variations must be constrained with a11 = Id R2 . The condition det A(ν)̸ = 0 is satisfied for every 
+
+ν ∈ S1 since a11 is nonsingular. Moreover, π11 = 0 ∈ R2×2
+
+Concurrency condition. Let P be a d-junction. The concurrency condition says that a d-junction remains a d-junction along the flow. This condition can be expressed as B0j = γj −γj−1
+
+for all j > 1 and B01 = 0 (as explained before, B01 = 0 means that we are not imposing a condition, B01 is there only to retain the order). Then, 
+
+aij =
+
+
+
+Id R2 if i = j and i > 1, 
+
+− Id R2 if i = j − 1 and i > 1, 0 otherwise. In this case, a = ( aij ) is singular; indeed, the rank of the matrix is 2 d − 2. The condition det A(ν)̸ = 0 is equivalent to asking span ν1, . . . , ν d = R2. Indeed, ker a = (ξ, . . . , ξ ) : ξ ∈ R2 .ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 17 
+
+Therefore, ker diag( ν)† ∩ ker a = ker ν† which is trivial if and only if span ν1, . . . , ν d = R2.Moreover, πij = 1 
+
+> d
+
+Id R2 .
+
+Endpoint constrained on a straight line. Let γ1 ∈ γ, let P be an endpoint of γ1. Let Γ be a straight line and νΓ the normal unit vector to it. Assume without loss of generality that 0 ∈ Γ, then B01 = ⟨γ1 , ν Γ⟩νΓ. Hence φ1 is constrained with a11 = νΓν†
+
+> Γ
+
+. Arguing as for the concurrency condition, aij is admissible if span {νΓ, ν 1} = R2. Clearly, π11 = τΓτ †
+
+> Γ
+
+, where τΓ is the unit vector tangent to Γ. While not explicitly treated in this paper, the results for a straight line Γ could likely be extended to curves or attachment conditions on a surface. 4.5. Dirichlet-Neumann boundary conditions. Definition 4.16 (Admissible Dirichlet boundary conditions) . The conditions Bij (γ) = pii−1(γ)
+
+for i ∈ { 1, . . . , m − 1} and j ∈ { 1, . . . , d } are admissible Dirichlet boundary conditions if their variation can be written as 
+
+δφBij =
+
+> m−1
+
+X
+
+> k=1
+> d
+
+X
+
+> l=1
+
+aijkl (γ)
+
+D
+
+δφ∂ks γl , ν lE
+
+,
+
+where the coefficients aijkl = aijkl (γ) ∈ R satisfy the following properties: 
+
+• non-degeneracy: Bij = 0 whenever aijij = 0 ;
+
+• well-ordering: aijkl = 0 for kd + l > id + j;
+
+• normalization: aijij ∈ { 0, 1};
+
+• homogeneity: aijkl ∈ pi−k+1  
+
+> i−k
+
+.
+
+Remark 4.17. Observe that the only truly restrictive property is homogeneity. Non-degeneracy is required to prevent a condition of order i from being equivalently rewritten without the i-th derivative of the curve. Well-ordering serves a similar purpose to non-degeneracy: the condition 
+
+Bij is of order i and provides non-trivial information about the j-th component of the curve. Finally, since homogeneity implies that aijil is constant, normalization can always be achieved by dividing by this constant. 
+
+Given aijkl = aijkl (γ) for i, k ∈ { 1, . . . , m − 1} and j, l ∈ { 1, . . . , d } we recursively define 
+
+a(m−1,d ) 
+
+> ijkl
+
+:= δik δjl 
+
+a(α,β −1)  
+
+> ijkl
+
+:= a(α,β ) 
+
+> ijkl
+
+− aαβij a(α,β ) 
+
+> αβkl
+
+for α ∈ { 1, . . . , m − 1} and β ∈ { 1, . . . , d }
+
+a(α−1,d ) 
+
+> ijkl
+
+:= a(α, 0)  
+
+> ijkl
+
+for α ∈ { 1, . . . , m − 1}. (4.13) We now set 
+
+a⊥ 
+
+> ijkl
+
+:= a(0 ,0)  
+
+> ijkl
+
+for i, k ∈ { 1, . . . , m − 1} and j, l ∈ { 1, . . . , d }.a⊥ is the matrix associated with the orthogonal complement of the kernel of a.
+
+Lemma 4.18. The following properties hold 
+
+• a⊥ 
+
+> ijkl
+
+= (1 − aijij )δik δjl for id + j ≥ kd + l.
+
+• a⊥ 
+
+> ijkl
+
+= 0 whenever a⊥ 
+
+> ijij
+
+= 0 .
+
+• if aijkl = δik aijkl then a⊥ 
+
+> ijkl
+
+= δik a⊥
+
+> ijkl
+
+.18 L. BENATTI AND A. PLUDA 
+
+Proof. Observe that if αd + β < id + j, then 
+
+a(α,β −1)  
+
+> ijkl
+
+= a(α,β ) 
+
+> ijkl
+
+− aαβij a(α,β ) 
+
+> αβkl
+
+= a(α,β )
+
+> ijkl
+
+since aαβij = 0. Applying it and (4.13) repeatedly, we have 
+
+a⊥ 
+
+> ijkl
+
+= a(i,j −1)  
+
+> ijkl
+
+= a(i,j −1)  
+
+> ijkl
+
+= a(i,j ) 
+
+> ijkl
+
+− aijij a(i,j ) 
+
+> ijkl
+
+= (1 − aijij )a(i,j ) 
+
+> ijkl
+
+. (4.14) By induction, one can also show that a(α,β ) 
+
+> ijkl
+
+= 0 for id + j > kd + l. Indeed, if α = m − 1 and 
+
+β = d the statement is true. Additionally, if the statement is true for some α and β, then 
+
+aαβij a(α,β ) 
+
+> αβkl
+
+= 0 ,
+
+because either id + j > αd + β and aαβij = 0 or αd + β ≥ id + j > kd + l and a(α,β ) 
+
+> αβkl
+
+= 0. (1) Since a(α,β ) 
+
+> αβkl
+
+= 0 for all αd + β > id + j ≥ kd + l, (4.14) yields 
+
+a⊥ 
+
+> ijkl
+
+= (1 − aijij )a(i,j ) 
+
+> ijkl
+
+= (1 − aijij )a(m−1,d ) 
+
+> ijkl
+
+= (1 − aijij )δik δjl 
+
+(2) By the previous step, if a⊥ 
+
+> ijij
+
+= 0 then aijij = 1, therefore a⊥ 
+
+> ijkl
+
+= 0 by (4.14). (3) Observe that a(m−1,d ) 
+
+> ijkl
+
+= δik δjl = δik a(m−1,d ) 
+
+> ijkl
+
+. Assume that a(α,β ) 
+
+> ijkl
+
+= δik a(α,β ) 
+
+> ijkl
+
+for some α
+
+and β. Then, 
+
+a(α,β −1)  
+
+> ijkl
+
+= δik a(α,β ) 
+
+> ijkl
+
+− δαi aαβij a(α,β ) 
+
+> αβkl
+
+δαk .
+
+Observe that δiα δαk = δik if i̸ = k and i = k = α. If i = k̸ = α either α > i and aαβij = 0 or 
+
+α < k and a(α,β ) 
+
+> αβkl
+
+= 0. The conclusion follows. □
+
+Lemma 4.19. Let y, z ∈ Rd(m−1) with y ∈ ker a, then ⟨z , y ⟩ = ⟨a⊥z , y ⟩. Moreover, ker a⊥ =(ker a)⊥.Proof. Let y ∈ ker a.
+
+⟨z , y ⟩ =
+
+> m−1
+
+X
+
+> i,k =1
+> d
+
+X
+
+> j,l =1
+
+[a(m−1,d ) 
+
+> ijkl
+
+zkl ]†yij − [a(m−1,d )(m−1) dkl zkl ]†a(m−1) dij yij 
+
+=
+
+> m−1
+
+X
+
+> i,k =1
+> d
+
+X
+
+> j,l =1
+
+[a(m−1,d −1)  
+
+> ijkl
+
+zkl ]†yij = . . . =
+
+D
+
+a⊥z , y 
+
+E
+
+.
+
+This shows that ker a⊥ ⊆ (ker a)⊥. Theorem 4.18 implies rnk a⊥ = # {aijij = 0 } = dim ker a. In other words, ker a⊥ = (ker a)⊥. □
+
+Definition 4.20 (Neumann boundary conditions) . Let Bij be as in the Theorem 4.16 and 
+
+aijkl = aijkl (γ) the coefficients associated to it. The Neumann boundary conditions are 
+
+B(2 m−i−1) j (γ, ψ ) := 
+
+> m−1
+
+X
+
+> k=0
+> d
+
+X
+
+> l=1
+
+a⊥
+
+> ijkl
+
+(γ)
+
+D
+
+ψk(γl) , ν lE
+
+.
+
+Lemma 4.21. The structure of the operators a⊥ 
+
+> ijkl
+
+in terms of the derivatives of γ is as follows: 
+
+a⊥ 
+
+> ijkl
+
+= pk−i+1  
+
+> k−i
+
+.ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 19 
+
+Proof. Observe that a(m−1,d ) 
+
+> ijkl
+
+= δik δjl = pk−i+1  
+
+> k−i
+
+. Assume now that a(α,β ) 
+
+> ijkl
+
+= pk−i+1  
+
+> k−i
+
+. If β = 0, by (4.13) we have a(α−1,β ) 
+
+> ijkl
+
+= pk−i+1  
+
+> k−i
+
+. Assume β > 0. Then, 
+
+a(α,β −1)  
+
+> ijkl
+
+= a(α,β ) 
+
+> ijkl
+
+− aαβij a(α,β ) 
+
+> αβkl
+
+= pk−i+1  
+
+> k−i
+
+− pα−i+1  
+
+> α−i
+
+pk−α+1  
+
+> k−α
+
+= pk−i+1 
+
+> k−i
+
+since max {k − α + 1 , α − i + 1 } ≤ k − i + 1, α < i or α > k . □
+
+4.5.1. Examples of higher-order conditions. We list reasonable admissible Dirichlet boundary conditions and we compute the coefficients that turn nonzero when such a boundary condition is imposed. 
+
+Fixed angle at an endpoint. Let γ1 ∈ γ and let P be an endpoint of γ1. Let w ∈ S1. The fixed angle condition at P can be written as B11 = ⟨∂sγ1 , R 1,1w⟩, where R1,1 is the (fixed) rotation of R2 sending w to ν1 P . Consequently, a1111 = 1, since 
+
+δφB11 = δφ∂sγ1 , R 1,1w = δφ∂sγ1 , ν 1 .
+
+Fixed curvature at an endpoint. Let γ1 ∈ γ and let P be an endpoint of γ1, and k1 ∈ R.The fixed curvature condition at P is B21 = ⟨∂2 
+
+> s
+
+γ1 , ν 1⟩ − k1. Consequently, 
+
+δφB21 = δφ∂2 
+
+> s
+
+γ1 , ν 1 + ∂2 
+
+> s
+
+γ1 , δ φν1 = δφ∂2 
+
+> s
+
+γ1 , ν 1
+
+since ⟨δφν1 , ν 1⟩ = 0. Then, a2121 = 1 and a2111 = 0. 
+
+Preserved angles at a junction. Let P be a d-junction. The preserved angle condition is 
+
+B1i = ⟨∂sγi , R i,i −1∂sγi−1⟩ for every i > 1, where Ri,i −1 is the (fixed) rotation of R2 sending 
+
+∂sγi−1 P to νi P . Hence, 
+
+δφB1i = δφ∂sγi , ν i + ∂sγi , R i,i −1δφ∂sγi−1 = δφ∂sγi , ν i − δφ∂sγi−1 , ν i−1
+
+for all i > 1. Here, we used ⟨∂sγi , R i,i −1δφ∂sγi−1⟩ = −⟨ νi−1 , δ φ∂sγi−1⟩. Hence, a1i1j =
+
+δij − δ(i−1) j for all i > 1 and a111 j = 0. 
+
+Preserved curvature at a junction. Let P be a d-junction. The preserved curvature condi-tion is B2i = ⟨∂2 
+
+> s
+
+γi , ν i⟩ − ⟨ ∂2 
+
+> s
+
+γi−1 , ν i−1⟩ for every i > 1. Hence, 
+
+δφB2i = δφ∂2 
+
+> s
+
+γi , ν i − δφ∂2 
+
+> s
+
+γi−1 , ν i−1
+
+for all i > 1. Hence, a2i2j = δij − δ(i−1) j for all i > 1, a212 j = 0, and a2i1j = 0. 4.6. Set of conditions. We can finally describe the list of boundary conditions of the geometric gradient flow of Em and define the set of admissible initial data. 
+
+Definition 4.22. A set of conditions B(γ, ψ ) is admissible if for every d-junction P it can be written as Bij for i ∈ { 0, . . . , 2m − 1} and j ∈ { 1, . . . , d }, where 
+
+• B0j and Bij for i ∈ { 1, . . . , m − 1} are as in Theorem 4.13 and Theorem 4.16 respectively; 
+
+• B(2 m−1) j and B(2 m−i−1) j for i ∈ { 1, . . . , m − 1} are obtained as in Theorem 4.15 from 
+
+B0j and Theorem 4.20 from Bij respectively. 
+
+Definition 4.23 (Non-degeneracy) . A network γ satisfying a set of conditions B(γ, ψ ) is non-degenerate if (1) each curve γi ∈ γ has positive length, and (2) at every d-junction P , we have det A(ν)̸ = 0 where ν = ( ν1, . . . , ν d) are the unit normal vectors of γ at P and A(ν) is defined in (4.11) .20 L. BENATTI AND A. PLUDA 
+
+We will denote by C(B) the class of all non-degenerate networks γ that satisfy the prescribe boundary conditions B(γ, ψ ) = 0 .
+
+Theorem 4.24. Let B(γ, ψ ) be a set of admissible conditions. If γ ∈ C (B), then 
+
+δφEm(γ) = −
+
+ˆ
+
+> γ
+
+D⃗Vm(γ) , φ 
+
+E
+
+dγ
+
+for every admissible variation φ.Proof. Let P be a d-junction. Since φ is an admissible variation and B is admissible, 
+
+> d
+
+X
+
+> l=1
+
+ajl δφγlP = 0 , and 
+
+> m−1
+
+X
+
+> k=1
+> d
+
+X
+
+> l=1
+
+aijkl (γ)
+
+D
+
+δφ∂ks γl , ν lE
+
+> P
+
+= 0 .
+
+Then, by construction of the Neumann boundary conditions (see Theorems 4.15 and 4.20), we have 
+
+> m−1
+
+X
+
+> i=0
+> d
+
+X
+
+> j=1
+
+δφ∂isγj , ψ im(γj ) P = 0 .
+
+The claim follows from Theorem 4.3 and Theorem 4.9. □
+
+4.7. Definition of the flow. We aim to define the gradient flow of Em. From now on, we fix 
+
+m ≥ 2, T > 0, and p ∈ (2 m + 1 , 4m + 2). We consider the Sobolev space W 1,2mp defined in (3.1). For clarity of exposition, we suppose that γ is a star network without loops composed of d
+
+curves that meet at one junction P and with P 1, . . . , P d ∈ R2 fixed endpoints. We impose a set of admissible conditions B(γ, ψ ) and denote by C(B) the class of all non-degenerate networks γ
+
+that satisfy the prescribed boundary conditions B(γ, ψ ) = 0. 
+
+Definition 4.25 (Admissible initial datum) . We say that a network γ0 is an admissible initial datum of the gradient flow of Em for the set of boundary conditions B(γ, ψ ) if it belongs to C(B)
+
+with each curve of class W 2m−2m/p 
+
+> p
+
+(0 , 1) .
+
+Definition 4.26 (Geometric gradient flow) . A solution to the geometric gradient flow of Em in the class C(B) in the time interval [0 , T ) with admissible initial datum γ0 is a time-dependent family of networks γt∈[0 ,T ), composed of curves in W 1,2mp that evolves according to 
+
+
+
+(∂tγ)⊥ = V ν for all t ∈ [0 , T ), x ∈ (0 , 1) ,
+
+B(γ, ψ ) Pt = 0 for all Pt ∈ P t,γ t=0 = γ0 for all x ∈ [0 , 1] .
+
+(4.15) 
+
+Definition 4.27 (Uniqueness) . We say that a solution to the geometric gradient flow of Em
+
+in the class C(B) is unique if it is unique up to reparametrization, namely if any two distinct solutions to the flow coincide up to a time-dependent reparametrization. 
+
+5. Short-time existence 
+
+Polden devoted his PhD thesis [Pol96] to the study of system (4.15) for closed curves. The first question we would like to answer here is whether the imposed boundary conditions at the junctions lead to a well-posed evolution problem as well. ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 21 
+
+5.1. De Turck’s trick. As customary in geometric flows, only the normal velocity is imposed, and the motion in the tangential direction is not specified by the problem itself. This fact is reflected in the main equation of the system (4.15): the motion equation turns out to be degenerate. A now-standard method to fix this issue is the so-called De Turck’s trick: we choose a suitable tangential velocity to obtain a well-posed parabolic PDE for the parametrization in such a way that the geometric problem is invariant. Since we want to treat the problem as a PDE – thus regarding each curve γ as a function – it is convenient to work on a fixed domain. For this reason, we fix a generic parametrization x ∈ [0 , 1] for each curve in the network. Accordingly with the definition of the flow for a star network, we write γ = ( γ1, . . . , γ d). Without loss of generality, we impose P = γ1(0) = . . . = γd(0), and 
+
+P i = γi(1) for i ∈ { 1, . . . , d }.We choose the tangential component of the velocity to be 
+
+T i = ( −1) m+1 
+
+*
+
+∂2mx γi
+
+|∂xγi|2m , ∂xγi
+
+|∂xγi|
+
++
+
+. (5.1) With this choice, the evolution equation becomes 
+
+∂tγi = V iνi + T iτ i = (−1) m
+
+|∂xγi|2m ∂2mx γi + p2m−1(γ).
+
+A vector-valued PDE of order 2 m requires 2 m boundary conditions. The conditions encoded in B(γ, ψ ) provide m+1 of them. To complete the system, we impose m−1 additional conditions for each curve, namely 
+
+∂m+j−1 
+
+> x
+
+γi(t , y ), τ i(t, y ) = 0 ,
+
+for every j ∈ { 1, . . . , m − 1}, y ∈ { 0, 1}, and t ∈ [0 , T ). Consistently with the notation used for the geometric boundary conditions, we denote this additional set of conditions by B∗(γ) Pt = 0. 
+
+Definition 5.1 (Gradient flow) . A solution to the gradient flow of Em in the class C(B) in the time interval [0 , T ) with admissible initial datum γ0 is a time-dependent collection of functions 
+
+γ(t, x ) ∈ W 1,2mp that satisfy the following system 
+
+
+
+∂tγ = V ν + T τ in [0 , T ) × (0 , 1) ,
+
+B(γ, ψ ) Pt = 0 for all Pt ∈ P t, t ∈ [0 , T ),
+
+B∗(γ) Pt = 0 for all Pt ∈ P t, t ∈ [0 , T ),γ t=0 = γ0 for all x ∈ [0 , 1] .
+
+(5.2) Our first task is to show that there exists a unique solution to the gradient flow (5.2) in a small time interval [0 , T ]. The existence of a solution for the gradient flow (5.2) implies the existence of a solution for the geometric gradient flow (4.15). We postpone the discussion of the uniqueness of solutions to (4.15) in Section 5.4. 5.2. Linear system. To derive the underlying linear system, we linearize both the motion equation and the boundary conditions. Let us first focus on the evolution equation ∂tγ = V ν +T τ 
+
+where the tangential velocity (5.1) is specified in the previous section. Omitting the dependence on ( t, x ), we can write the motion equation of each curve as 
+
+∂tγ = ( −1) m+1 ∂2mx γ
+
+|∂xγ|2m +
+
+> 6m
+
+X
+
+> j=2 m+2
+
+p2m−1(γ)
+
+|∂xγ|j .22 L. BENATTI AND A. PLUDA 
+
+A suitable linearization of such an equation is obtained by linearizing only the highest-order term: 
+
+∂tγ + ( −1) m ∂2mx γ
+
+|∂xh|2m =
+
+ (−1) m
+
+|∂xh|2m − (−1) m
+
+|∂xγ|2m
+
+
+
+∂2mx γ +
+
+> 6m
+
+X
+
+> j=2 m+2
+
+p2m−1(γ)
+
+|∂xγ|j . (5.3) Consider now the list of boundary conditions in which the highest-order terms have orders i
+
+varying from 0 to 2 m − 1. We define the linearized boundary operator LhB(γ, ψ ) P linearizing each i-order boundary condition as follows. 
+
+• For i = 0, the condition is already linear/affine, so there is no need for a linearization: 
+
+LhB0j := B0j for every j ∈ { 1, . . . , d }.
+
+• If i ∈ { 1, . . . , m − 1} we define 
+
+LhBij := 
+
+> d
+
+X
+
+> l=1
+
+aijil (h)
+
+*
+
+∂ixγl
+
+|∂xhl|i , ν lh
+
++
+
+,
+
+where aijil (h) = p10(h). 
+
+• Similarly, for i ∈ { 1, . . . , m − 1} we define 
+
+LhB(2 m−i−1) j := 
+
+> d
+
+X
+
+> l=1
+
+(−1) m−i+1 a⊥
+
+> ijil
+
+(h)
+
+*
+
+∂2m−i−1 
+
+> x
+
+γl
+
+|∂xhl|2m−i−1 , ν lh
+
++
+
+,
+
+where a⊥
+
+> ijil
+
+(h) = p10(h)
+
+• Accordingly, we define the linearized maximal order condition as 
+
+LhB(2 m−1) j := ( −1) m+1 
+
+> d
+
+X
+
+> i,k =1
+
+D
+
+A(νh)−1 
+
+> ji
+
+πik νkh , ν jh
+
+E*
+
+∂2m−1 
+
+> x
+
+γk
+
+|∂xhk|2m−1 , ν kh
+
++
+
+• Finally, we should linearize the extra conditions B∗(γ) Pt = 0. For i ∈ { 1, . . . , m − 1},we define 
+
+LhB∗ 
+
+> (m+i−1) j
+
+:= 
+
+D
+
+∂(m+i−1)  
+
+> x
+
+γj , τ jh
+
+E
+
+.
+
+We also set 
+
+gij = LhBij − Bij and g∗ 
+
+> ij
+
+= LhB∗ 
+
+> ij
+
+− B∗ 
+
+> ij
+
+. (5.4) Note that gij , g ∗ 
+
+> ij
+
+∈ W   
+
+> 12m−12mp
+> p
+
+(0 , T ). 
+
+Remark 5.2. Observe that a⊥
+
+> ijil
+
+(h) is the orthogonal complement of aijil (h) = δik aijkl (h) in virtue of Theorem 4.18. 
+
+Remark 5.3. For all i ∈ { 1, . . . , 2m − 1}, the linearized boundary operator is obtained by retaining only the highest-order terms in γ appearing in the full linearization. If i = 1 , the dominant term is ∂xγ that appears also as a non-linearity at the denominator (the tangents read as ∂xγ 
+
+> |∂xγ|
+
+). We hence have a fully nonlinear condition. Although, LhB1j is the full linearization of B1j since the linearization of ∂sγ = τ is given by 
+
+∂xγ
+
+|∂xh| − ∂xh⟨∂xγ , ∂ xh⟩|∂xhl|3 =
+
+
+
+νh , ∂xγ
+
+|∂xh|
+
+
+
+νh.
+
+Definition 5.4 (Admissible initial datum) . Let g and g∗ be as above. We say that a collection of parametrized curves h = ( h1, . . . , h d) with hi : [0 , 1] → R2 is an admissible initial datum for the linearized system (5.6) associated with the gradient flow of Em if each curve hi is of class ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 23 
+
+W 2m−2m/p 
+
+> p
+
+, is regular, has positive length, and satisfies the linear compatibility conditions with respect to (g, g ∗)
+
+LhB(h) P = g(0) P and LhB∗(h) P = g∗(0) P (5.5) 
+
+and det A(νh)̸ = 0 , where νh = ( ν1
+
+> h
+
+(0) , . . . , ν dh(0)) are the unit normal vectors of h at x = 0 and 
+
+A(ν) is defined in (4.11) .
+
+Definition 5.5 (Linearized problem) . The linearized system associated with the gradient flow of Em in the class C(B) is 
+
+
+
+∂tγ(t, x ) + ( −1) m ∂ 2mx γ(t,x ) 
+
+> |∂xh(x)|2m
+
+= f (t, x ) on t ∈ [0 , T ], x ∈ (0 , 1) ,
+
+LhB(γ) Pt = g(t) Pt on [0 , T ],
+
+LhB∗(γ) Pt = g∗(t) Pt for all t ∈ [0 , T ],γ t=0 (x) = h(x) on [0 , 1] ,
+
+(5.6) 
+
+where (f, g, g ∗, h ) is a quadruple of given functions with f ∈ Lp ((0 , T ); Lp(0 , 1)) , g = ( gij ), g ∗ =(g∗ 
+
+> ij
+
+) ∈ W   
+
+> 12m−12mp
+> p
+
+(0 , T ) and h an admissible initial datum in the sense of Theorem 5.4. 
+
+Our objective is to establish an existence result for the linear system by employing the theory developed by Solonnikov [Sol67], which treats coupled boundary conditions. We apply [Sol67, Theorem 4.9] by verifying the necessary assumptions on the parabolic and boundary operators, as well as the initial conditions. 5.2.1. Parabolic system in the sense of Solonnikov. We use the notation of [Sol67, Chapter 1]: let b = m and r = 2 d, γi = ( ui, v i) and hi = ( ui
+
+> 0
+
+, v i
+
+> 0
+
+). We write the linearized evolution equation as 
+
+uit + (−1) m 
+
+> |∂xhi|2m
+
+∂2mx ui = ai,vit + (−1) m 
+
+> |∂xhi|2m
+
+∂2mx vi = bi.
+
+We can equivalently write the system as 
+
+DX = f
+
+where X and f are the vectors of components ( u1, v 1, . . . , u d, v d) and ( a1, b 1, . . . , a d, b d) respec-tively and D(x, t, ∂ x, ∂ t) is the 2 d × 2d matrix with entries 
+
+cjj = ∂t + (−1) m   
+
+> ∂xh⌈j
+> 2⌉2m
+
+!
+
+∂2mx for j ∈ { 1, . . . , 2d}
+
+ckj = 0 for k, j ∈ { 1, . . . , 2d}, k ̸ = j. 
+
+We notice that each linear differential operator ckj coincides with its principal part. With the choice sk = 0 for every k ∈ { 1, . . . , 2d} and tj = 2 b = 2 m for every j ∈ { 1, . . . , 2d}
+
+the conditions of [Sol67, page 8] are satisfied. The determinant of the diagonal matrix D is simply the product of the elements of the diagonal: det D(x, t, iξ, p ) = 
+
+> d
+
+Y
+
+> j=1
+
+p + 1
+
+|∂xhj |2m ξ2m
+
+!2
+
+.
+
+This is a polynomial of degree 2 d in p with roots of multiplicity two of the form pj = −1  
+
+> |∂xhj|2m
+
+ξ2m
+
+with j ∈ { 1, . . . , d }. Choosing δ = min 
+
+n 1  
+
+> |∂xhj|2m
+
+: j ∈ { 1, . . . , d }
+
+o
+
+the system is parabolic in the sense of Solonnikov as defined in [Sol67, page 9]. Note that the system is parabolic also in the sense of Petrovski˘ i (see [Sol67, page 8]). 24 L. BENATTI AND A. PLUDA 
+
+5.2.2. Lopatinski˘ i-Shapiro condition. As for the case of the linear operator, the boundary opera-tor must fulfill certain conditions. The Lopatinski˘ i-Shapiro condition ensures that the boundary operators are compatible with the parabolic operator. 
+
+Definition 5.6 (Lopatinski˘ i-Shapiro condition) . Let λ ∈ C with ℜ(λ) > 0. We say that the Lopatinski˘ i-Shapiro condition for system (5.6) is satisfied at a boundary point if every solution 
+
+(γi)i∈{ 1,...,d } ∈ C2m([0 , ∞), (C2)d) to the system of ODEs 
+
+
+
+λγ i(x) + (−1) m 
+
+> |∂xhi(0) |2m
+
+∂2mx γi(x) = 0 x ∈ [0 , ∞), i ∈ { 1, . . . , d } motion, 
+
+LhB(γ) x=0 
+
+LhB∗(γ) x=0 
+
+= 0 = 0 boundary conditions (5.7) 
+
+which satisfies lim x→∞ |γi(x)| = 0 is the trivial solution. 
+
+Lemma 5.7. The Lopatinski˘ i-Shapiro condition is satisfied at each d-junction. Proof. Let ( γi)i∈{ 1,...,d } be a solution to (5.7) such that lim x→∞ |γi(x)| = 0. Because of the specific exponential form of the solutions to (5.7), all the derivatives of γi also decay to zero as 
+
+x tends to infinity. We test the motion equation by |∂xhi(0) |⟨ γi(x) , ν ih⟩νih, integrate by parts 
+
+m-times and sum to get 0 = 
+
+> d
+
+X
+
+> i=1
+
+λ ∂xhi(0) 
+
+ˆ +∞
+
+> 0
+
+γi(x) , ν ih 
+
+> 2
+
+dx +
+
+ˆ +∞
+
+> 0
+
+|⟨ ∂mx γi(x) , ν ih⟩| 2
+
+|∂xhi(0) |2m−1 dx++
+
+> m−1
+
+X
+
+> j=0
+
+(−1) m−j−1
+
+*
+
+∂2m−j−1 
+
+> x
+
+γi
+
+|∂xhi(0) |2m−j−1 , ν ih
+
++* 
+
+∂jxγi
+
+|∂xhi(0) |j , ν ih
+
++
+
+> x=0
+
+.
+
+Since LhB(γ) x=0 = 0, the boundary term vanishes. Hence, |⟨ γi(x) , ν ih⟩| 2 = 0, thus γi(x) = 
+
+⟨γi(x) , τ ih⟩τ ih. In particular, γi(0) ∈ ker A(νh) which means γi(0) = 0. Testing now the motion equation by |∂xhi(0) |⟨ γi(x) , τ ih⟩τ ih we get 0 = 
+
+> d
+
+X
+
+> i=1
+
+λ ∂xhi(0) 
+
+ˆ +∞
+
+> 0
+
+γi(x) , τ ih 
+
+> 2
+
+dx +
+
+ˆ +∞
+
+> 0
+
+|⟨ ∂mx γi(x) , τ ih⟩| 2
+
+|∂xhi(0) |2m−1 dx++
+
+> m−1
+
+X
+
+> j=0
+
+(−1) m−j−1
+
+*
+
+∂2m−j−1 
+
+> x
+
+γi
+
+|∂xhi(0) |2m−j−1 , τ ih
+
++* 
+
+∂jxγi
+
+|∂xhi(0) |j , τ ih
+
++
+
+> x=0
+
+.
+
+In the boundary term, the j = 0 term vanishes since γi(0) = 0, while the terms for j > 0 vanish since LhB∗(γ) x=0 = 0. In particular, we proved that γi(x) = ⟨γi(x) , τ ih⟩τ ih = 0. □
+
+5.2.3. Initial value problem. Finally, we verify the complementary conditions for the initial data, as prescribed in [Sol67, p. 12]. Adopting the notation therein, we observe that the 2 d × 2d
+
+matrix [ Cαj ] is the identity matrix. With the choice γαj = 0 for every α ∈ { 1, . . . , 2d} and 
+
+j ∈ { 1, . . . , 2d} we obtain ρα = 0 and C0 = Id R2d×R2d . Furthermore, the rows of the matrix representing the principal part of the operator at t=0, namely D(x, 0, 0, p ) = p2d Id R2d×R2d are linearly independent modulo the polynomial p2d.ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 25 
+
+5.2.4. Existence and uniqueness of the linearized system. We verified all the assumptions to apply [Sol67, Theorem 4.9], we hence get the following existence result. 
+
+Theorem 5.8. Let T > 0 and (f, g, g ∗, h ) be a quadruple of funtions with 
+
+• f ∈ Lp ((0 , T ); Lp(0 , 1)) ;
+
+• g = ( gij ), g ∗ = ( g∗ 
+
+> ij
+
+) ∈ W 1/2m−1/2mp  
+
+> p
+
+(0 , T );
+
+• h an admissible initial datum in the sense of Theorem 5.4. Then, there exists a unique solution γ ∈ W 1,2mp to system (5.6) . Furthermore, there exists a constant C( T ) > 0 such that all solutions satisfy the inequality 
+
+∥γ∥W 1,2mp ≤ C( T )
+
+
+
+∥f ∥Lp((0 ,T ); Lp((0 ,1)) + ∥(g, g ∗)∥W 1/2m−1/2mp p
+
++ ∥h∥W 2m−2m/p p
+
+
+
+. (5.8) 
+
+Proof. As explained in Section 5.2.1, system (5.6) is parabolic. Furthermore, by Theorem 5.7, the Lopatinski˘ i-Shapiro condition is satisfied. Since p > 2m+1, the embedding W 2m−2m/p 
+
+> p
+
+((0 , 1)) ,→
+
+C2m−1 ([0 , 1]) holds, ensuring that the compatibility conditions are well-defined pointwise. Fi-nally, we showed the complementary condition for the initial datum. Thus, the theorem follows from [Sol67, Theorem 5.4]. □
+
+Definition 5.9. Let T > 0. We define the Banach spaces 
+
+ET := 
+
+n
+
+γ ∈ ET such that for all t ∈ (0 , T ) it holds B0j (γ) P = 0 
+
+o
+
+,
+
+FT := 
+
+ (f, g, g ∗, h ) ∈ Lp ((0 , T ); Lp((0 , 1)) × F T × F T × W 2m−2m/p 
+
+> p
+
+(0 , 1) 
+
+such that h satisfies the linear compatibility (5.5) with respect to (g, g ∗)
+
+
+
+endowed with the norm ∥ · ∥ ET := ∥ · ∥ ET and 
+
+∥(f, g, g ∗, h )∥FT := ∥f ∥Lp((0 ,T ); Lp((0 ,1)) + ∥g∥F T + ∥g∗∥F T + ∥h∥W 2m−2m/p p (0 ,1) .
+
+Finally, given a linear operator A : FT → ET we let 
+
+∥A∥ L (FT ,ET ) := sup {∥A (f, g, g ∗, h )∥ET : ( f, g, g ∗, h ) ∈ FT , ∥(f, g, g ∗, h )∥FT ≤ 1} .
+
+As a consequence of Theorem 5.8, the operator LT : ET → FT defined by 
+
+LT (γ) := 
+
+ 
+
+γt + ( −1) m ∂2mx γ
+
+|∂xh|2m
+
+
+
+, LhB(γ) P , LhB∗(γ) P , γ t=0 
+
+
+
+is well-defined, linear, continuous, and invertible. We then denote by L−1 
+
+> T
+
+the inverse of LT .In Theorem 5.8, we fix T > 0, show an existence result in the interval [0 , T ] and get the estimate (5.8) where the constant depends on T . Now, once a certain interval of time (0 , T 1]with T1 > 0 is chosen, for every T ∈ (0 , T 1] it is possible to estimate the norm of L−1 
+
+> T
+
+with a constant independent of T . We can promote the estimate (5.8) on an estimate on the operator norm of L−1 
+
+> T
+
+with a constant independent of T because in Theorem 5.8 we can take any T > 0, and always get existence and uniqueness. The proof is standard and uses extension operators. 
+
+Lemma 5.10. For all T1 > 0 there exists a constant C( T1) such that 
+
+sup    
+
+> T∈(0 ,12T1]
+
+∥L−1 
+
+> T
+
+∥L (FT ,ET ) ≤ C( T1).26 L. BENATTI AND A. PLUDA 
+
+5.3. Local-in-time-existence. In the previous section, we ensured the existence and unique-ness of a solution to the underlying linear problem. We should now introduce an operator that encodes the non-linearity specific to our gradient flow. We should take into account that the ini-tial datum γ0 is not necessarily zero. As a consequence, the spaces we deal with are affine rather than linear. Since we are going to use the contraction mapping principle, we need complete metric spaces. 
+
+Definition 5.11. Let T > 0, γ0 ∈ W 2m−2m/p 
+
+> p
+
+(0 , 1) . We define 
+
+Eγ0 
+
+> T
+
+:= 
+
+n
+
+γ ∈ ET such that γ t=0 = γ0
+
+o
+
+,
+
+Fγ0 
+
+> T
+
+:= {(f, g, g ∗) such that (f, g, g ∗, γ 0) ∈ FT } × { γ0} .
+
+Lemma 5.12. Let γ0 be an admissible initial datum in the sense of Theorem 4.25. Then, the space Eγ0 
+
+> T
+
+is non-empty. Proof. As γ0 is an admissible initial datum, one easily checks that f ≡ 0, g ≡ 0, g∗ ≡ 0 and 
+
+h ≡ γ0 is an admissible right hand side for system (5.6). In other words, (0 , 0, 0, γ 0) ∈ FT
+
+and hence Theorem 5.8 yields the existence of ϱ ∈ ET with LT ϱ = (0 , 0, 0, γ 0). In particular, 
+
+ϱ|t=0 = γ0 which gives ϱ ∈ Eγ0 
+
+> T
+
+. □
+
+Definition 5.13. We introduce the maps 
+
+NT : Eγ0 
+
+> T
+
+→ Fγ0 
+
+> T
+
+, NT (γ) = 
+
+
+
+N 1 
+
+> T
+
+(γ), N 2 
+
+> T
+
+(γ), N 3 
+
+> T
+
+(γ), γ t=0 
+
+
+
+KT : Eγ0 
+
+> T
+
+∩ BM → Eγ0 
+
+> T
+
+, KT := L−1 
+
+> T
+
+◦ NT
+
+where the three components N 1 
+
+> T
+
+, N 2 
+
+> T
+
+, N 3 
+
+> T
+
+are 
+
+N 1 
+
+> T
+
+:
+
+ Eγ0 
+
+> T
+
+→ Lp ((0 , T ); Lp((0 , 1)) ,γ 7 → f (γ),N 2 
+
+> T
+
+:
+
+ Eγ0 
+
+> T
+
+→ F T ,γ 7 → g(γ), N 3 
+
+> T
+
+:
+
+ Eγ0 
+
+> T
+
+→ F T ,γ 7 → g∗(γ),
+
+with 
+
+f (γ)( t, x ) := 
+
+ (−1) m
+
+|∂xγ0|2m − (−1) m
+
+|∂xγ|2m
+
+
+
+∂2mx γ +
+
+> 6m
+
+X
+
+> j=2 m+2
+
+p2m−1(γ)
+
+|∂xγ|j as defined in (5.3) 
+
+g(γ)( t) := ( gij (γ)) , g ∗(γ)( t) := ( g∗ 
+
+> ij
+
+(γ)) where gij , g ∗ 
+
+> ij
+
+are defined in (5.4) .
+
+Our final goal is to show that the map KT is a contraction. 
+
+Lemma 5.14. Given a time T1 > 0 and a radius M > 0, we define 
+
+BM := 
+
+n
+
+γ ∈ ET1 : ∥γ∥ET1 ≤ M
+
+o
+
+,
+
+c := 12 min  
+
+> i∈{ 1,...,d }
+
+inf  
+
+> x∈[0 ,1]
+
+∂xγi
+
+> 0
+
+(x) > 0.
+
+Then, there exists a time eT = eT (c, M ) ∈ (0 , T 1] such that for all γ ∈ Eγ0 
+
+> T
+
+∩ BM with T ∈ (0 , eT ]
+
+we have 
+
+min  
+
+> i∈{ 1,...,d }
+
+inf   
+
+> t∈[0 ,T ],x ∈[0 ,1]
+
+∂xγi(t, x ) ≥ c. (5.9) 
+
+In particular, the curves γi(t) are regular for all t ∈ [0 , T ].ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 27 
+
+Proof. Let θ ∈
+
+ 1+ 1/p 
+
+> 2m−2m/p
+
+, 1
+
+
+
+be fixed and β := (1 − θ) (1 − 1/p). Given T ∈ (0 , T 1] and γ ∈
+
+Eγ0 
+
+> T
+
+∩ BM we have for i ∈ { 1, . . . , d }, t ∈ [0 , T ], x ∈ [0 , 1], 
+
+∂xγi(t, x ) ≥ ∂xγi
+
+> 0
+
+(x) − ∂xγi(t, x ) − ∂xγi(0 , x ) ≥ 2c − γi(t) − γi(0) C 1([0 ,1]) .
+
+Theorem 3.4 implies for all t ∈ [0 , T ], 
+
+γi(t) − γi(0) C 1([0 ,1]) ≤ tα γi    
+
+> Cα([0 ,T ]; C1([0 ,1]))
+
+≤ T αC ( T1, p ) ∥γ∥ET ≤ T αM C ( T1, p ) .
+
+The claim follows by choosing eT sufficiently small such that eT αM C ( T1, p ) ≤ c. □
+
+From now on, T1 > 0, M > 0 are fixed and eT is the time appearing in Theorem 5.14. 
+
+Lemma 5.15. Given two curves γ, bγ ∈ ET and a polynomial p(γ) = p(∂xγ, . . . , ∂ jxγ), it holds 
+
+|∂xγ|−j − | ∂xbγ|−j ≤ p1(γ, bγ)
+
+|∂xbγ|j |∂xγ|j |∂xγ − ∂xbγ|,
+
+|p(γ) − p(bγ)| ≤ 
+
+> j
+
+X
+
+> i=1
+
+pj (γ, bγ) ∂ixγ − ∂ixbγ . (5.10) 
+
+Proof. The first equality follows from the identity: 1
+
+|∂xγ|j − 1
+
+|∂xbγ|j = |∂xbγ|j − | ∂xγ|j
+
+|∂xγ|j |∂xbγ|j =(|∂xbγ| − | ∂xγ|)
+
+Pj−1 
+
+> i=0
+
+|∂xbγ|j−1−i|∂xγ|i
+
+
+
+|∂xγ|j |∂xbγ|j .
+
+Regarding (5.10), it follows from the fact that given a polynomial p ∈ R[x1, . . . , x j ]
+
+p(x) − p(y) = 
+
+> j
+
+X
+
+> i=1
+
+(xi − yi)
+
+ˆ 10
+
+∂ip(y + t(x − y)) d t =
+
+> j
+
+X
+
+> i=1
+
+(xi − yi)q(x, y ),
+
+where q(x, y ) ∈ R[x, y ]. □
+
+Proposition 5.16. For every T ∈ (0 , eT ] the map N 1 
+
+> T
+
+is well-defined and there exist constants 
+
+α ∈ (0 , 1) and C = C( c, M ) such that for all γ, bγ ∈ Eγ0 
+
+> T
+
+∩ BM , there hold 
+
+N 1 
+
+> T
+
+(γ) − N 1 
+
+> T
+
+(bγ) Lp((0 ,T ); Lp(0 ,1)) ≤ C ( c, M ) T α∥γ − bγ∥ET .
+
+Proof. Let γ, bγ ∈ Eγ0 
+
+> T
+
+∩ BM . Recall the structure of the non-linear operator: 
+
+N 1 
+
+> T
+
+(γ) = ( n(γ0) − n(γ)) ∂2mx γ + p(γ)|∂xγ|−6m
+
+where p(γ) = p(∂xγ, . . . , ∂ 2m−1 
+
+> x
+
+γ) is a polynomial and n(γ) = ( −1) m|∂xγ|−2m. The difference 
+
+N 1 
+
+> T
+
+(γ) − N 1 
+
+> T
+
+(bγ) can be rewritten as 
+
+N 1 
+
+> T
+
+(γ) − N 1 
+
+> T
+
+(bγ) = ( n(γ0) − n(γ))( ∂2mx γ − ∂2ms bγ) + ( n(bγ) − n(γ)) ∂2mx bγ
+
++ p(γ)|∂xγ|−6m − p(bγ)|∂xbγ|−6m.
+
+Using Theorems 5.14 and 5.15 we obtain 
+
+N 1 
+
+> T
+
+(γ) − N 1 
+
+> T
+
+(bγ) ≤ C|∂xγ − ∂xγ0| ∂2mx γ − ∂2mx bγ + C |∂xγ − ∂xbγ| ∂2mx bγ
+
++ C 
+
+> 2m−1
+
+X
+
+> j=1
+
+p2m−1(γ, ˆγ) ∂jxγ − ∂jxbγ (5.11) 28 L. BENATTI AND A. PLUDA 
+
+First, we observe that sup  
+
+> t∈[0 ,T ],x ∈[0 ,1]
+
+|∂xγ − ∂xγ0| ≤ CT β ∥γ∥C β ([0 ,T ]; C 1([0 ,1])) (3.10) 
+
+≤ CT β ∥γ∥ET ,
+
+and, since ( γ − bγ) t=0 = 0, we similarly obtain sup  
+
+> t∈[0 ,T ],x ∈[0 ,1]
+
+|∂xbγ − ∂xγ| ≤ CT β ∥γ − bγ∥ET .
+
+Moreover, 
+
+∂2mx bγ Lp((0 ,T ); Lp(0 ,1)) ≤ C∥bγ∥ET ≤ C( M ),
+
+and 
+
+∂2mx γ − ∂2mx bγ Lp((0 ,T ); Lp(0 ,1)) ≤ C∥γ − bγ∥ET .
+
+Combining these estimates, the first two terms in (5.11) can be controlled accordingly. On the other hand, 
+
+∂kx γ − ∂kx bγ Lp((0 ,T )Lp(0 ,1) ≤ CT 1 
+
+> p
+
+∥γ − bγ∥C 0([0 ,T ]; C 2m−1([0 ,1]) (3.9) 
+
+≤ CT 1 
+
+> p
+
+∥γ − bγ∥ET ,
+
+and sup  
+
+> t∈[0 ,T ],x ∈[0 ,1]
+
+p2m−1(γ, bγ) (3.9) 
+
+≤ C( ∥γ∥ET ∥bγ∥ET + 1) η ≤ C( M ),
+
+which conclude the proof. □
+
+Proposition 5.17. For every T ∈ (0 , eT ] the maps N 2 
+
+> T
+
+and N 3 
+
+> T
+
+are well-defined and there exist constants σ ∈ (0 , 1) and C = C( c, M ) > 0 such that for all γ, bγ ∈ Eγ0 
+
+> T
+
+∩ BM ,
+
+∥N 2 
+
+> T
+
+(γ) − N 2 
+
+> T
+
+(bγ) ∥F T ≤ C( c, M )T σ∥γ − bγ∥ET ,
+
+∥N 3 
+
+> T
+
+(γ) − N 3 
+
+> T
+
+(bγ) ∥F T ≤ C( c, M )T σ∥γ − bγ∥ET .
+
+Proof. The structure of each component of the non-linear boundary operators N 2 
+
+> T
+
+and N 3 
+
+> T
+
+is (N • 
+
+> T
+
+)ij (γ) = 
+
+> d
+
+X
+
+> l=1
+
+D
+
+nijl (γ0) − nijl (γ) , ∂ ixγlE
+
++ p(γ)
+
+> d
+
+Y
+
+> l=1
+
+∂xγl −βl ,
+
+where 
+
+nijl (γ) = pijl (γ)
+
+> d
+
+Y
+
+> l=1
+
+∂xγl −βl
+
+for two polynomials p(γ) = p(∂xγ, . . . , ∂ i−1 
+
+> x
+
+γ) and pijl (γ) = pijl (∂xγ) in γ = ( γ1, . . . , γ d). Fix θ ∈
+
+ p+1 2m(p−1) , 2m−12m
+
+
+
+and let α = 1/2m − 1/2mp , β = (1 − θ) (1 − 1/p). Consider γ, bγ ∈ Eγ0 
+
+> T
+
+∩ BM . Since γ t=0 = bγ t=0 = γ0, the difference at t = 0 vanishes, and it suffices to estimate ( N • 
+
+> T
+
+)ij (γ) − (N • 
+
+> T
+
+)ij (bγ) in W αp -norm. Employing Theorems 5.14 and 5.15 as in Theorem 5.16, the difference ( N • 
+
+> T
+
+)ij (γ) − (N • 
+
+> T
+
+)ij (bγ) can be estimated as 
+
+|(N • 
+
+> T
+
+)ij (γ) − (N • 
+
+> T
+
+)ij (bγ)| ≤ C
+
+> i
+
+X
+
+> k=1
+> d
+
+X
+
+> l=1
+
+pi(γ, bγ, γ 0) ∂kx γl − ∂kx bγl
+
+Since W αp is a Banach algebra, (3.7) and (3.8) imply 
+
+pi(γ, bγ, γ 0) W αp
+
+≤ C
+
+
+
+∥γ∥ET ∥bγ∥ET ∥γ0∥ET + 1 
+
+η
+
+≤ C( M )ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 29 
+
+for some positive η and similarly 
+
+∥(N • 
+
+> T
+
+)ij (γ) − (N • 
+
+> T
+
+)ij (bγ)∥W αp ≤ C( M )
+
+> i
+
+X
+
+> k=1
+> d
+
+X
+
+> l=1
+
+∂kx γl − ∂kx bγl 
+
+> Wαp
+
+≤ C( M )∥γ − bγ∥ET .
+
+Our choice of θ implies that α < β and hence there exists a positive constant σ = σ(α, β ) such that 
+
+∥∂xγ∥W αp
+
+> (3.6)
+
+≤ CT σ∥∂xγ∥C β ([0 ,T ]) . (5.12) Therefore, we get 
+
+∥(N • 
+
+> T
+
+)ij (γ) − (N • 
+
+> T
+
+)ij (bγ)∥W αp
+
+> (5.9)
+
+≤ C∥∂xγ∥W αp ∥(N • 
+
+> T
+
+)ij (γ) − (N • 
+
+> T
+
+)ij (bγ)∥W αp
+
+> (5.12)
+
+≤ CT σ∥∂xγ∥C β ([0 ,T ]) ∥γ − bγ∥ET
+
+≤ CT σ∥∂xγ∥C β ([0 ,T ]; C 1([0 ,1])) ∥γ − bγ∥ET
+
+> (3.10)
+
+≤ CT σ∥γ∥ET ∥γ − bγ∥ET ≤ C( M )T σ∥γ − bγ∥ET . □
+
+Theorem 5.18. Let c defined as in (5.9) and eT be the time appearing in Theorem 5.14. Then, there exists M = M (c, ∥γ0∥W 2m−2m/p p
+
+) > 0 and bT ∈ (0 , eT ] such that for all T ∈ (0 , bT ] the map 
+
+KT : Eγ0 
+
+> T
+
+∩ BM → Eγ0 
+
+> T
+
+∩ BM is a contraction. Proof. Step 1: For every M > 0, T ∈ (0 , eT ] the map KT : Eγ0 
+
+> T
+
+∩ BM → Eγ0 
+
+> T
+
+is well-defined. The map NT (γ) =  N 1 
+
+> T
+
+(γ), N 2 
+
+> T
+
+(γ), N 3 
+
+> T
+
+(γ), γ t=0 
+
+ sends Eγ0 
+
+> T
+
+into Fγ0 
+
+> T
+
+and KT sends Eγ0 
+
+> T
+
+into ET . We should only show that KT (γ) t=0 = γ0. Directly from the definition: 
+
+KT (γ) t=0 = ( NT (γ)) 4 = γ t=0 = γ0.
+
+Step 2: Lipschitzianity. By the definition of KT , Theorems 5.10, 5.16 and 5.17 there exist 
+
+α ∈ (0 , 1) and a constant C > 0 independent of T such that 
+
+∥KT (γ) − KT (bγ)∥ET = ∥L−1 
+
+> T
+
+(NT (γ) − NT (bγ)) ∥ET
+
+≤ sup    
+
+> T∈(0 ,eT]
+
+∥L−1 
+
+> T
+
+∥L (FT ,ET )∥NT (γ) − NT (bγ)∥FT
+
+≤ CT α∥γ − bγ∥ET .
+
+By choosing T small enough, we get C T α < 1. 
+
+Step 3: There exists M > 0 such that KT is a self-mapping from Eγ0 
+
+> T
+
+∩ BM . Let T ∈ (0 , T ]. Given the γ0 initial datum, we construct ϱ ∈ Eγ0 
+
+> T
+
+as in Theorem 5.12. Then there exists a time ˆT = ˆT (c, ∥γ0∥W 2m−2m/p p
+
+) ∈ (0 , T ] such that for all t ∈ [0 , ˆT ], ϱi are regular curves to which the operator N ˆT can be applied. Let 
+
+M := 2 max 
+
+(
+
+sup    
+
+> T∈(0 ,ˆT]
+
+∥L−1 
+
+> T
+
+∥L (FT ,ET ), 1
+
+)
+
+max 
+
+n
+
+∥ϱ∥E ˆT , ∥
+
+
+
+N 1ˆT (ϱ), N 2ˆT (ϱ), N 3ˆT (ϱ), γ 0
+
+
+
+∥F ˆT
+
+o
+
+.
+
+With this choice of M , ϱ lies in Eγ0 
+
+> T
+
+∩ BM for all T ∈ (0 , 1] with ∥KT (ϱ)∥ET ≤ M/2.We choose a bT ∈ (0 , ˆT ) so small that 
+
+∥KT (γ) − KT (ϱ) ∥ET ≤ C ( c, M ) T β ∥γ − ϱ∥ET ≤ C ( c, M ) T β 2M ≤ M/2.30 L. BENATTI AND A. PLUDA 
+
+and we conclude that for all T ∈ (0 , bT ] and γ ∈ Eγ0 
+
+> T
+
+∩ BM ,
+
+∥KT (γ)∥ET ≤ ∥ KT (γ) − KT (ϱ)∥ET + ∥KT (ϱ)∥ET ≤ M/2 + M/2 = M. 
+
+Combining Step 1 to 3, we get that KT : Eγ0 
+
+> T
+
+∩ BM → Eγ0 
+
+> T
+
+∩ BM is a contraction. □
+
+Theorem 5.19. Let γ0 be an admissible initial datum. Then, there exists a positive time eT (γ0)
+
+depending on min i∈{ 1,...,d },x ∈[0 ,1] |∂xγi
+
+> 0
+
+(x)| and ∥γ0∥W 2m−2m/p p (0 ,1) such that for all T ∈ (0 , eT (γ0)] 
+
+the system (5.2) has a solution in ET which is unique in ET ∩ BM .Proof. Choosing appropriately, as in Theorem 5.18, M and eT , the solution to system (5.2) are the fixed points of the contraction KT : ET ∩ BM → ET ∩ BM . Thanks to the Contraction Mapping Principle, such a fixed point exists and it is unique. □
+
+Theorem 5.20 (Local-in-time-existence) . Let γ0 be an admissible initial datum in the sense of Theorem 4.25. Then, there exists T > 0 and there exists a solution γt∈[0 ,T ] to the geometric gradient flow (4.15) of Em in the class C(γ) in the time interval [0 , T ] with initial datum γ0.Proof. Thanks to the previous Theorem 5.19, there exists a unique solution γt to the analytic problem (5.2) in the short time interval [0 , eT ]. Such a solution is clearly also a solution to (4.15). □
+
+5.4. Uniqueness. While the previous section established the existence of a solution to the geometric gradient flow of Em, the question of uniqueness remains. As noted previously, because we are dealing with a geometric flow, uniqueness is at best expected up to reparameterization (as formalized in Theorem 4.27). Ideally, this property holds, and indeed, we show that it does in this section by constructing a solution to an auxiliary PDE system. 
+
+Theorem 5.21 (Uniqueness up to reparametrization) . Let T, eT > 0. Suppose that γ0 is an admissible initial datum, eγ is the solution to (5.2) in [0 , eT ], and γ is a solution to the geometric gradient flow (4.15) in [0 , T ], both with initial datum γ0. Then there exists a positive time 
+
+bT ≤ min {T, eT } and a reparametrization ξi : [0 , bT ] × [0 , 1] → [0 , 1] such that for all t ∈ [0 , bT ]
+
+eγi(t, ξ i(t, x )) = γi(t, x ).
+
+In other words, the solution to (4.15) is unique in the sense of Theorem 4.27. Proof. We formally derive an equation for ξi. We omit the superscript i. Differentiating in the time variable, we get 
+
+∂teγ(t, ξ (t, x )) + ∂y eγ(t, ξ (t, x )) ∂tξ(t, x ) = ∂tγ(t, x ) (5.13) Since the normal velocity is the same for both flows, we have 
+
+∂tγ(t, x ) − ∂teγ(t, ξ (t, x )) = [ T (t, x ) − eT (t, ξ (t, x ))] ∂xγ(t, x )
+
+|∂xγ(t, x )|
+
+= T (t, x ) + ( −1) m
+
+* ∂2my eγ(t, ξ (t, x )) 
+
+|∂y eγ(t, ξ (t, x )) |2m , ∂xγ(t, x )
+
+|∂xγ(t, x )|
+
++! 
+
+∂xγ(t, x )
+
+|∂xγ(t, x )| .
+
+Therefore, by (5.13) we obtain 
+
+∂tξ(t, x ) = 1
+
+|∂y eγ(t, ξ (t, x )) | T (t, x ) + ( −1) m
+
+* ∂2my eγ(t, ξ (t, x )) 
+
+|∂y eγ(t, ξ (t, x )) |2m , ∂xγ(t, x )
+
+|∂xγ(t, x )|
+
++! 
+
+.ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 31 
+
+To conclude, we need to express the right-hand side in terms of the derivatives of ξ. To do so, we will use that 
+
+∂xγ(t, x ) = ∂y eγ(t, ξ (t, x )) ∂xξ(x, t )
+
+∂2
+
+> x
+
+γ(t, x ) = ∂2 
+
+> y
+
+eγ(t, ξ (t, x ))( ∂xξ(x, t )) 2 + ∂y eγ(t, ξ (t, x )) ∂2
+
+> x
+
+ξ(x, t )...
+
+∂2mx γ(t, x ) = ∂2my eγ(t, ξ (t, x ))( ∂xξ(x, t )) 2m + ∂y eγ(t, ξ (t, x )) ∂2mx ξ(x, t ) + p2m−1(γ, ξ ),
+
+(5.14) from which one can express the derivatives of eγ in terms of the derivatives of ξ, the derivatives of γ, |∂xγ|−1 and |∂xξ|−1. Hence, we obtain that 
+
+∂tξ = ( −1) m ∂2mx ξ
+
+|∂xγ|2m +
+
+
+
+(−1) m ⟨∂2mx γ , ∂ xγ⟩|∂xγ|2m+2 + T
+
+|∂xγ|
+
+
+
+∂xξ + p(γ, ξ )where p(γ, ξ ) depends only on derivatives of γ and ξ up to order 2 m − 1, |∂xξ|−1, and |∂xγ|−1.We now have to provide m boundary conditions at each boundary point ¯ x = 0 , 1. The first is ξ(t, ¯x) = ¯ x. For the remaining m − 1 conditions, we will again employ (5.14). Recall that 
+
+|∂y eγ(t, ¯x)| = 1. Hence, multiplying (5.14) by ∂y eγ(t, ¯x) and evaluating at ¯ x we obtain 
+
+∂xξ(t, ¯x) = |∂xγ(t, ¯x)|
+
+∂2
+
+> x
+
+ξ(t, ¯x) = ∂2
+
+> x
+
+γ(t , ¯x) − ∂2 
+
+> y
+
+eγ(t, ¯x)( ∂xξ(t, ¯x)) 2, ∂ y eγ(t, ¯x)
+
+...
+
+∂m−1 
+
+> x
+
+ξ(t, ¯x) = ∂m−1 
+
+> x
+
+γ(t , ¯x) − ∂m−1 
+
+> y
+
+eγ(t, ¯x)( ∂xξ(t, ¯x)) m−1, ∂ y eγ(t, ¯x) + pm−2(γ, ξ ),
+
+where each derivative of ξ is expressed in terms of derivatives of γ and eγ and lower order derivatives of ξ. By substitution, we derived the following system 
+
+
+
+∂tξ = ( −1) m ∂2mx ξ 
+
+> |∂xγ|2m
+
++
+
+h
+
+(−1) m ⟨∂2mx γ , ∂ xγ⟩|∂xγ|2m+2 + T
+
+> |∂xγ|
+
+i
+
+∂xξ + p(γ, ξ )
+
+ξ(t, 0) = 0 
+
+ξ(t, 1) = 1 
+
+∂jxξ(t, 0) = pj (γ, eγ)( t, 0) 
+
+∂jxξ(t, 1) = pj (γ, eγ)( t, 1) 
+
+ξ(0 , x ) = x
+
+This system has the same structure as the main one we have studied earlier in this paper, and following the steps of that argument, we can prove that there exists a T ′ > 0 such that the solution ξ is of class W 1,2mp ((0 , T ′) × (0 , 1)) and for all t ∈ [0 , T ′], for all i ∈ { 1, . . . , n } we have that ξi : [0 , 1] → [0 , 1] is a C1–diffeomorphism. We conclude by taking bT = min {T, eT , T ′}.We omit further details, we refer to [GMP20, Theorem 5.4] and [Men20, Theorem 4.60] for the case m = 2 of the Willmore functional/elastic flow. □
+
+5.5. Maximal solutions and parabolic regularization. With local well-posedness estab-lished, we can now define the maximal interval on which a solution to the flow exists. 
+
+Definition 5.22 (Maximal solutions) . Let γ0 be an admissible initial datum in the sense of Theorem 4.25. A time-dependent family of networks γt∈[0 ,T ) with T ∈ (0 , ∞)∪{∞} is a maximal solution to the geometric gradient flow (4.15) of Em in the class C(γ) with initial datum γ0 if 
+
+• For every ˆT < T , the restriction γt∈[0 , ˆT ] is a solution in the sense of Theorem 4.26; 
+
+• There is no solution eγt∈[0 , eT ] to (4.15) with eT ≥ T such that γ = eγ on [0 , T ).32 L. BENATTI AND A. PLUDA 
+
+In this case, T is called the maximal time of existence and is denoted by Tmax .
+
+Proposition 5.23 (Existence and uniqueness of maximal solutions) . Let γ0 be an admissible initial datum. Then, there exists a maximal solution to the geometric gradient flow (4.15) of Em
+
+in the class C(γ) with initial datum γ0 which is unique in the sense of Theorem 4.27. Proof. We define the maximal time of existence as the supremum 
+
+Tmax := sup 
+
+n
+
+T > 0 : there exists a solution γTt∈[0 ,T ] to (4.15) with initial datum γ0
+
+o
+
+.
+
+Theorem 5.20 ensures that Tmax ∈ (0 , ∞) ∪ {∞} . For any t ∈ [0 , T max ) we consider a solution 
+
+γTt∈[0 ,T ] and set 
+
+γ(t) := γT (t), where T ∈ (t, T max ),
+
+which is well-defined on [0 , T max ) as any two solutions γT1 and γT2 with T1, T2 ∈ [0 , T max )coincide on their common interval of existence by Theorem 5.21. Moreover, γ satisfies the properties of a maximal solution. Indeed, suppose that there exists a solution eγt∈[0 , eT ] with 
+
+eT = Tmax . Theorem 5.20 would imply the existence of a solution with initial datum eγ( eT ) in a time interval [0 , δ ] with δ > 0. This would yield the existence of a solution in the time interval [0 , eT + δ] with initial datum γ0, contradicting the definition of Tmax . Finally, the uniqueness of this maximal solution is an immediate consequence of Theorem 5.21. □
+
+Until now, we have obtained a Sobolev solution to our problem. However, our subsequent analysis of long-time behavior requires estimates on higher-order derivatives; consequently, a higher degree of regularity for the solution is required. The following theorem ensures that the flow instantly smoothens the initial data, providing a parametrization that is smooth for all 
+
+t > 0. 
+
+Lemma 5.24. Let T be positive and γ0 be an admissible initial parametrization. Suppose that 
+
+γt∈[0 ,T ] is a solution to the geometric gradient flow (4.15) of Em in the class C(γ) in the time interval [0 , T ] with initial datum γ0. Then, the solution γ is smooth for positive times in the sense that 
+
+γ ∈ C∞ ([ ε, T ] × [0 , 1]) 
+
+for every ε ∈ (0 , T ).
+
+The proof of this result is relatively standard in the literature, exploiting the parabolic smooth-ing effects inherent to gradient flows of this type. To this end, one can apply the classical theory presented in [Sol67] provided that the boundary conditions are quasilinear. Alternatively, the core idea of the proof relies on the so-called ‘parameter trick’ due to Angenent [Ang90] (see also [DG79]). This method has been generalized to several settings that, again, fully cover the case of quasilinear boundary conditions [Lun95; Lun04; PS16]. In the current paper, there is only one possible boundary condition that is fully nonlinear and is not treated in the aforementioned results: the angle condition that involves ∂xγ 
+
+> |∂xγ|
+
+. An adaptation of the parameter trick that allows for the treatment of fully nonlinear boundary terms of the mentioned type is presented both in [G¨ oß19, Chapter 6.6] and [GMP23, Section 4]. 
+
+Proof of Theorem 1.1. The theorem follows combining Theorem 5.20 with Theorem 5.21 and Theorem 5.24. □ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 33 
+
+6. Long-time behavior 
+
+In this section γt is a maximal smooth solution to the geometric gradient flow (4.15) in the maximal time interval [0 , T max ). 6.1. Special variations. We consider three special variations that are particularly useful during this section. The first is the time variation, which is φ = ∂tγt. The second is the tangential variation φ = T τ and the last is the normal variation φ = V ν .Since Em smoothly depends on γ, we have 
+
+δ∂tγt Em(γt) = ddt Em(γt).
+
+Similarly, δ∂tγ ∂js γ = ∂t∂js γ and we know how ∂t and ∂s commute thanks to (4.2). It is now easy to prove the following lemma. 
+
+Lemma 6.1. Let γt be a maximal solution to the geometric gradient flow (4.15) in the class 
+
+C(B). Then, ∂tγt is an admissible variation in the sense of Theorem 4.12. Proof. Let Pt ∈ P t. Observe that t 7 → Bij (γt) Pt ≡ 0, for every t ∈ [0 , T max ), i ∈ { 0, . . . , m − 1}
+
+and j ∈ { 1, . . . , d }. Hence, ∂tBij (γt) Pt = 0 for all i ∈ { 0, . . . , m − 1} and j ∈ { 1, . . . , d }, i.e. 
+
+∂tγt is an admissible variation. □
+
+Corollary 6.2. If B(γ, ψ ) is admissible for γt, the energy t 7 → E (γt) is decreasing and 
+
+∂tE(γt) = −
+
+ˆ
+
+> γt
+
+V 2 dγt.
+
+In particular, E(γt) ≤ E (γ0) < +∞.Proof. Since ∂tγt = V ν + T τ , by Theorem 6.1 and Theorem 4.24, we have 
+
+∂tE(γt) = −
+
+ˆ
+
+> γt
+
+⟨∂tγt , V ν ⟩ dγt = −
+
+ˆ
+
+> γt
+
+V 2 dγt. □
+
+The tangential variation takes into account the reparameterization of the curve due to the tangential component of the velocity. 
+
+Lemma 6.3. For j ∈ N we have 
+
+δT τ ∂js γ = T ∂ j+1  
+
+> s
+
+γ. (6.1) 
+
+Moreover, 
+
+δT τ (d γ) = ∂sT dγ. 
+
+Proof. We prove (6.1) by induction. By definition δT τ γ = T τ = T ∂ sγ. Now, assume the statement is true for some j, then 
+
+δT τ ∂j+1  
+
+> s
+
+γ = ∂sδT τ ∂js γ − ∂sT ∂ j+1  
+
+> s
+
+γ = ∂sT ∂ j+1  
+
+> s
+
+γ + T ∂ j+2  
+
+> s
+
+γ − ∂sT ∂ j+1  
+
+> s
+
+γ = T ∂ j+2  
+
+> s
+
+γ. □
+
+The normal variation is the most geometric one. Indeed, it only sees the evolution of the support of the curves since V ν = ∂tγ − T τ .
+
+Lemma 6.4. For j ≥ 1 we have 
+
+δV ν ∂js γ = ∂sδV ν ∂j−1 
+
+> s
+
+γ + V ν , ∂ 2 
+
+> s
+
+γ ∂js γ. (6.2) 
+
+Moreover, 
+
+δV ν (d γ) = ⟨∂s(V ν ) , ∂ sγ⟩dγ. 34 L. BENATTI AND A. PLUDA 
+
+Proof. We combine (4.2) with (6.1): 
+
+δV ν ∂js γ = δ∂tγ ∂js γ − δT τ ∂js γ = ∂s∂t∂j−1 
+
+> s
+
+γ − ⟨ ∂sγ , ∂ s∂tγ⟩∂js γ − T ∂ j+1  
+
+> s
+
+γ
+
+= ∂s∂t∂j−1 
+
+> s
+
+γ + V ν , ∂ 2 
+
+> s
+
+γ ∂js γ − ∂sT ∂ js γ − T ∂ j+1  
+
+> s
+
+γ
+
+= ∂s
+
+ ∂t∂j−1 
+
+> s
+
+γ − T ∂ js γ + V ν , ∂ 2 
+
+> s
+
+γ ∂js γ
+
+= ∂sδV ν ∂j−1 
+
+> s
+
+γ + V ν , ∂ 2 
+
+> s
+
+γ ∂js γ. □
+
+Applying repeatedly (6.2) for every j ≥ 1 and k ∈ { 0, . . . , j }
+
+δV ν ∂js γ = ∂ks δV ν ∂j−ks γ +
+
+> k−1
+
+X
+
+> i=0
+
+∂is
+
+  V ν , ∂ 2 
+
+> s
+
+γ ∂j−is γ .
+
+In the following we will apply often the lemma in this exact form. In Theorem 6.2 we get control of the energy from its monotonicity along the flow. Similarly, we aim to gain control over the velocity by examining its evolution along the flow. As a first step, we derive its analytical expression in a concise yet still meaningful way. 
+
+Lemma 6.5. It holds 
+
+ddt
+
+ˆ
+
+> γt
+
+V 2 dγt = −
+
+ˆ
+
+> γt
+
+|∂ms V |2 + ( ∂ms V )p3m−13m−1(γt) + p3m−16m−2(γt) d γt
+
++ T V 2 
+
+> Pt
+
++
+
+> m−1
+
+X
+
+> j=0
+
+(−1) j δV ν ∂m−j−1 
+
+> s
+
+γt , ∂ js δV ν ∂ms γt Pt
+
+.
+
+(6.3) 
+
+Proof. Observe that 
+
+∂t
+
+ˆ
+
+> γt
+
+V 2 dγt = δV ν 
+
+ˆ
+
+> γt
+
+V 2 dγt + δT τ 
+
+ˆ
+
+V 2 dγt
+
+= δV ν 
+
+ˆ
+
+> γt
+
+V 2 dγt +
+
+ˆ
+
+> γt
+
+T ∂ s(V 2) + V 2∂sT dγt
+
+= δV ν 
+
+ˆ
+
+> γt
+
+V 2 dγt +
+
+ˆ
+
+> γt
+
+∂s(T V 2) d γt
+
+= δV ν 
+
+ˆ
+
+> γt
+
+V 2 dγt + T V 2 
+
+> Pt
+
+.
+
+Hence, we need just to compute the variation of the velocity in direction V ν . By Leibniz rule 
+
+δV ν 
+
+ˆ
+
+> γt
+
+V 2 dγt =
+
+ˆ
+
+> γt
+
+2⟨V ν , δ V ν (V ν )⟩ − V 3 ν , ∂ 2 
+
+> s
+
+γt dγt
+
+=
+
+ˆ
+
+> γt
+
+2⟨V ν , δ V ν (V ν )⟩ + p2m
+
+> 6m−2
+
+(γt) d γt
+
+Recall that V ν =⃗ V (γt), where ⃗ V is defined in Theorem 4.3. By Theorem 6.4 we have 
+
+δV ν ⃗ V (γt) = ( −1) m+1 ∂ms δV ν ∂ms γt −
+
+> m−1
+
+X
+
+> j=0
+
+(−1) j ∂s
+
+ ∂m−js γt , ∂ js δV ν ∂ms γt ∂sγt
+
+
+
++ ( ∂ms V )p3m−1 
+
+> m
+
+(γt) + p3m−14m−1(γt)ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 35 
+
+By Leibniz rule since ⟨ν , ∂ sγt⟩ = 0 and (6.2), we get 
+
+V ν , ∂ s
+
+ ∂m−js γt , ∂ js δV ν ∂ms γt ∂sγt
+
+ = −⟨ ∂s(V ν ) , ∂ sγt⟩ ∂m−js γt , ∂ js δV ν ∂ms γt
+
+= δV ν ∂m−js γt − ∂sδV ν ∂m−j−1 
+
+> s
+
+γt , ∂ js δV ν ∂ms γt .
+
+Integrating the last term by part and rearranging, we get 
+
+ˆ
+
+> γt
+
+V ν , ∂ s
+
+ ∂m−js γt , ∂ js δV ν ∂ms γt ∂sγt
+
+ − δV ν ∂m−j−1 
+
+> s
+
+γt , ∂ j+1  
+
+> s
+
+δV ν ∂ms γt dγt
+
+=
+
+ˆ
+
+> γt
+
+δV ν ∂m−js γt , ∂ js δV ν ∂ms γt dγt − δV ν ∂m−j−1 
+
+> s
+
+γt , ∂ js δV ν ∂ms γt .
+
+Applying the formula for j ∈ { 0, . . . , m − 1}, we get 
+
+ˆ
+
+> γt
+
+⟨V ν , δ V ν (V ν )⟩ = −
+
+ˆ
+
+> γt
+
+|δV ν ∂ms γ|2 + ( ∂ms V )p3m−13m−1(γt) + p3m−16m−2(γt) d γt
+
++
+
+> m−1
+
+X
+
+> j=0
+
+(−1) j δV ν ∂m−j−1 
+
+> s
+
+γt , ∂ js δV ν ∂ms γt ,
+
+and therefore the conclusion since 
+
+|δV ν ∂ms γ|2 = |∂ms V |2 + ( ∂ms V )p3m−13m−1(γt) + p3m−16m−2(γt). □
+
+6.2. Boundary terms. In this section, we focus on the boundary contribution in (6.3), keeping track of the tangential part of the velocity T . While the normal velocity is defined by the problem, we do not have control over the tangential velocity. However, we will show a geometric control over T at the boundary. 
+
+Lemma 6.6. Assume det A(νt)̸ = 0 where A(νt) is defined in (4.11) . There holds 
+
+> m−1
+
+X
+
+> i=0
+
+(−1) i δV ν ∂m−i−1 
+
+> s
+
+γt , ∂ isδV ν ∂ms γt = p3m−16m−3(γt) + p3m−14m−2(γt)T + p3m−12m−1(γt)T 2 (6.4) 
+
+Proof. By Theorem 6.4 and Leibniz rule 
+
+V ν , ∂ m−1 
+
+> s
+
+δV ν ∂ms γt − V ν , δ V ν ψ0(γt) = p3m−16m−3(γjt ).
+
+and 
+
+δV ν ∂m−i−1 
+
+> s
+
+γt , ∂ isδV ν ∂ms γt − δV ν ∂m−i−1 
+
+> s
+
+γt , δ V ν ∂m+is γt = p3m−16m−3(γt).
+
+Hence, the left-hand side of (6.4) can be rewritten as 
+
+V ν , δ V ν ψ0(γt) +
+
+> m−2
+
+X
+
+> i=0
+
+(−1) i δV ν ∂m−i−1 
+
+> s
+
+γt , δ V ν ∂m+is γt + p3m−16m−3(γt). (6.5) Recall the definition of ψ0 in Theorem 4.3. Straightforward computations give 
+
+∂sγt , δ V ν ψ0(γt) +
+
+> m−2
+
+X
+
+> i=0
+
+(−1) i ∂m−is γt , δ V ν ∂m+is γt = p3m−14m−2(γt).
+
+Multiplying the above expression by T and summing the result to (6.5), we get 
+
+∂tγt , δ V ν ψ0(γt)
+
+| {z }
+
+> (I)
+
++
+
+> m−2
+
+X
+
+> i=0
+
+(−1) i ∂t∂m−i−1 
+
+> s
+
+γt , δ V ν ∂m+is γt
+
+| {z }
+
+> (II)
+
++p3m−16m−3(γt) + T p3m−14m−2(γt).36 L. BENATTI AND A. PLUDA 
+
+We now analyze the two terms separately. Since det A̸ = 0, we have (I) = 
+
+> d
+
+X
+
+> j,i,k =1
+
+D
+
+∂tγjt ,
+
+D
+
+A−1 
+
+> ij
+
+πik δV ν ψ0(γkt ) , ν j E
+
+νj E
+
+=
+
+> d
+
+X
+
+> j=1
+
+D
+
+∂tγjt , δ V ν B(2 m−1) j (γt)νj E
+
++ p3m−14m−2(γt)T j + p3m−16m−2(γt).
+
+Since ∂tB(2 m−1) j = 0 and ∂sB(2 m−1) j = p2m
+
+> 2m−1
+
+(γt) we conclude (I) = T 2p3m−12m−1(γt) + T p3m−14m−2(γt) + p3m−16m−3(γt)The second part is a little more delicate. First observe that ∂t∂lsγt ∈ ker b since 
+
+> m−1
+
+X
+
+> l=1
+
+bkl (γt)∂t∂lsγt = 12 ∂t∂k−1 
+
+> s
+
+|∂sγ|2 = 0 .
+
+By Theorem 4.7, we then have (II) = 
+
+> m−1
+
+X
+
+> i=1
+> m−1
+
+X
+
+> k=1
+
+∂t∂isγt , ν 
+
+D
+
+(−1) m−k−1b⊥
+
+> ik
+
+δV ν ∂2m−k−1 
+
+> s
+
+γt , ν 
+
+E
+
++ p3m−16m−3(γt). (6.6) Recall the expression of ψk(γt) presented in (4.8). Observe that (−1) m−k−1b⊥
+
+> ik
+
+δV ν ∂2m−k−1 
+
+> s
+
+γt = δV ν ψk(γt) + p3m−14m−i−2(γt),
+
+that substituting in (6.6) gives (II) = 
+
+> m−1
+
+X
+
+> i=1
+
+∂t∂isγt , ν δV ν ψi(γt) , ν + p3m−16m−3(γt) + p3m−14m−2(γt)T. 
+
+Since ∂tBij = 0, ⟨∂t∂isγjt , ν j ⟩ belongs to ker a. Then, (II) = 
+
+> m−1
+
+X
+
+> i,k =1
+> d
+
+X
+
+> j,l =1
+
+a⊥
+
+> ijkl
+
+(γt)
+
+D
+
+∂t∂isγjt , ν jt
+
+ED 
+
+δV ν ψk(γlt) , ν lE
+
+=
+
+> m−1
+
+X
+
+> i=1
+> d
+
+X
+
+> j=1
+
+D
+
+∂t∂isγjt , ν jt
+
+E
+
+δV ν B(2 m−i−1) j (γt) + p3m−16m−2(γt) + p3m−14m−2(γt)T j
+
+Using that ∂tB(2 m−i−1) j = 0 and ∂sB(2 m−i−1) j = p2m−i
+
+> 2m−i−1
+
+, we obtain that (II) = T 2p3m−12m−1(γt) + T p3m−14m−2(γt) + p3m−16m−3(γt).
+
+which concludes the proof. □
+
+Definition 6.7 (Uniform non–degeneracy) . Let I ⊆ R be an interval. A solution γt to the geo-metric gradient flow (4.15) in the class C(B) in the time interval I is uniformly non-degenerate 
+
+if (1) the length of each curve γit ∈ γt is uniformly bounded from below, and (2) there exists ρ > such that at every d-junction P , we have 
+
+inf  
+
+> t∈I
+
+det A(νt) ≥ ρ > 0.
+
+where A(νt) is defined in (4.11) .ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 37 
+
+Lemma 6.8. Let γt be a uniformly non-degenerate solution to the flow in the time interval I.Then, for every t ∈ I the tangential velocity T i of the l-th curve at a d-junction can be expressed as a linear combination with coefficients uniformly bounded in time of the normal velocities 
+
+V 1, . . . , V d of all the curves meeting at the junction. Proof. Since dX
+
+> k=1
+
+ajk ∂tγkt = ∂tB0j (γt) = 0 for all j ∈ { 1, . . . , d }, ∂tγt ∈ ker a. Hence 
+
+∂tγlt =
+
+> d
+
+X
+
+> j,k =1
+
+A−1 
+
+> lj
+
+diag( νν †)jk ∂tγkt =
+
+> d
+
+X
+
+> j=1
+
+A−1 
+
+> lj
+
+V j νj
+
+Recalling that ∂tγlt = V lνl + T lτ l, we conclude 
+
+T l =
+
+> d
+
+X
+
+> j=1
+
+D
+
+[A−1 
+
+> lj
+
+− δlj ]V j νj , τ lE
+
+with A−1 
+
+> lj
+
+− δlj ≤ 1 + 1
+
+ρ max  
+
+> j,k
+
+|ajk |. □
+
+Lemma 6.9. It holds 
+
+ddt
+
+ˆ
+
+> γt
+
+V 2 dγt = −
+
+ˆ
+
+> γt
+
+(∂ms V )2 + ( ∂ms V )p3m−13m−1(γt) + p3m−16m−2(γt) d γt + p3m−16m−3(γt) Pt
+
+.
+
+Proof. The result follows directly combining Theorem 6.5 with Theorem 6.6 and Theorem 6.8. 
+
+□
+
+6.3. Gagliardo-Nirenberg type estimate. We now derive some Gagliardo-Nirenberg type estimates. It is noteworthy that Gagliardo-Nirenberg’s inequality is applied for derivatives with respect to the arclength parameter. Hence, the constants appearing in this section also depend on the inverse of the length of each curve. We will omit this dependency when the estimate is for a fixed time. 
+
+Lemma 6.10. For every j ∈ { 2, . . . , m − 1} we have 
+
+∂js γ L∞ ≤ C( ∥∂ms γ∥ 
+
+> 2( j−1) 2m−3
+> L2
+
++ 1) .
+
+Proof. By Gagliardo-Nirenberg inequality, we have 
+
+∂js γ L∞ ≤ C
+
+
+
+∥∂ms γ∥ 
+
+> 2( j−1) 2m−3
+> L2
+
+∥∂sγ∥ 
+
+> 2( m−j)−12m−3
+> L∞
+
++ ∥∂sγ∥L∞
+
+
+
+. □
+
+Lemma 6.11. Let σ ≥ 0, k ≥ m, and p ∈ [1 , +∞], then 
+
+pkσ(γ) Lp ≤ C ( ∥∂ms γ∥L2 + 1) ξ
+
+ ∂k+1  
+
+> s
+
+γ   
+
+> (k−m+ 12 )σ
+> (k−1)( k−m+1) −1
+> p(k−m+1)
+> L2
+
++ 1 
+
+
+
+for some finite constant C > 0 depending on m, k, σ, and p and some ξ depending only on m,
+
+k, and σ. In particular, if 
+
+(k − m + 12 )σ
+
+(k − 1)( k − m + 1) − 1
+
+p(k − m + 1) < 2,
+
+for every ε > 0 there exists a constant C > 0 depending on ε, m, k, σ, and p such that 
+
+pkσ(γ) Lp ≤ ε ∂k+1  
+
+> s
+
+γ 2 
+
+> L2
+
++ C ( ∥∂ms γ∥L2 + 1) ξ , (6.7) 38 L. BENATTI AND A. PLUDA 
+
+where ξ can now also depend on p.Proof. By Theorem 6.10, derivatives up to ( m − 1)-order are uniformly bounded. Without loss of generality, we can assume that 
+
+pkσ ≤
+
+> k
+
+Y
+
+> j=m
+
+∂js γ βj with 
+
+> k
+
+X
+
+> j=m
+
+(j − 1) βj ≤ σ. 
+
+If p < +∞ we first have to use H¨ older inequality to get 
+
+pkσ Lp ≤
+
+> k
+
+Y
+
+> j=m
+
+∂js γ pβ j 
+
+> 1
+> p
+> Lk−m+1
+
+=
+
+> k
+
+Y
+
+> j=m
+
+∂js γ βj 
+
+> L(k−m+1) pβ j
+
+.
+
+Fix j and apply Gagliardo-Nirenberg inequality to get 
+
+∂js γ βj 
+
+> L(k−m+1) pβ j
+
+≤ C
+
+
+
+∂k+1  
+
+> s
+
+γ θj 
+
+> L2
+
+∥∂ms γ∥1−θj 
+
+> L2
+
++ ∥∂ms γ∥L2
+
+βj
+
+,
+
+where (k − m + 1) θj = j − m + 12 − 1(k − m + 1) pβ j
+
+.
+
+Since m ≥ 2(k − m + 1) 
+
+> k
+
+X
+
+> j=m
+
+βj θj =
+
+> k
+
+X
+
+> j=m
+
+(j − 1) βj +
+
+ 32 − m
+
+ kX
+
+> j=m
+
+βj − 1(k − m + 1) p
+
+≤ σ + 
+
+> 32
+
+− mk − 1 σ − 1(k − m + 1) p = k − m + 12
+
+k − 1 σ − 1(k − m + 1) p
+
+The lemma follows, since max 
+
+n
+
+x1−θj , x 
+
+o
+
+≤ 1 + x
+
+and kY
+
+> j=m
+
+(1 + xθj )βj ≤ C 1 + x  
+
+> (k−m+ 12 )σ
+> (k−1)( k−m+1) −1
+> p(k−m+1)
+
+!
+
+for x ≥ 0. (6.7) follows by Peter-Paul’s inequality. □
+
+Proposition 6.12. Let (γt)t∈[0 ,T max ) be a uniformly non-degenerate maximal solution of the geometric gradient flow (4.15) . For every j ≥ 0, we have 
+
+∂j+2 ms γ 2 
+
+> L2
+
+≤ C
+
+
+
+∂js V 2 
+
+> L2
+
++ 1 
+
+
+
+.
+
+where the constant depends on m, j, Em(γ0) and the inverse of the length of each curve. Proof. Notice that 
+
+∂j+2 ms γ − ∂ks V ν = ∂js (∂2ms γ − V ν ) + pj+2 m−1 
+
+> j+2 m−1
+
+= ∂js ( ∂2ms γ , ∂ sγ ∂sγ) + p2m+j−12m+j−1 = p2m+j−12m+j−1,
+
+since 0 = ∂2m−2 
+
+> s
+
+∂2 
+
+> s
+
+γ , ∂ sγ = ∂2ms γ , ∂ sγ + p2m−12m−1.
+
+Now 
+
+∂j+2 ms γ 2 
+
+> L2
+
+≤ 4 ∂js V 2 
+
+> L2
+
++ 4 ∂j+2 ms γ − ∂js V ν 2 
+
+> L2
+
+= 4 ∂js V 2 
+
+> L2
+
++ 4 p2m+j−14m+2 j−2 L1 .
+
+By Theorem 6.11 with k = 2 m + j − 1, p = 1 and σ = 4 m + 2 j − 2, we get 
+
+∂j+2 ms γ 2 
+
+> L2
+
+≤ 4 ∂js V 2 
+
+> L2
+
++ ε2 ∂j+2 ms γ 2 
+
+> L2
+
++ C ( Em(γt) + 1) ξ .ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 39 
+
+The lemma corollary follows by Theorem 6.2 and choosing ε ≤ 12 . □
+
+Theorem 6.13. Let (γt)t∈[0 ,T max ) be a uniformly non-degenerate maximal solution of the geo-metric gradient flow (4.15) . We have 
+
+ddt
+
+ˆ
+
+> γt
+
+V 2 dγt ≤ C
+
+where C only depends on m, Em(γ0), and the inverse of the length of each curve. Proof. By the Peter-Paul inequality, we have ddt
+
+ˆ
+
+> γt
+
+V 2 dγt = −
+
+ˆ
+
+> γt
+
+(∂ms V )2 + ( ∂ms V )p3m−13m−1(γt) + p3m−16m−2(γt) d γt + p3m−16m−3(γt) Pt
+
+≤ − 12
+
+ˆ
+
+> γt
+
+(∂ms V )2 dγt + p3m−16m−2(γt) L1 + p3m−16m−3(γt) L∞ .
+
+Applying Theorem 6.11 with k = 3 m − 1, σ = 6 m − 2, and p = 1 for the second term, and 
+
+k = 3 m − 1, σ = 6 m − 3, and p = ∞ for the third term we get ddt
+
+ˆ
+
+> γt
+
+V 2 dγt ≤ − 12
+
+ˆ
+
+> γt
+
+(∂ms V )2 + ε ∂3ms γ 2 dγt + C ( E(γt) + 1) ξ .
+
+≤
+
+
+
+− 12 + εC
+
+ ˆ
+
+> γt
+
+(∂ms V )2 dγt + C ( E(γt) + 1) ξ .
+
+In the second inequality, we used Theorem 6.12. By Theorem 6.9. We conclude by Theorem 6.2 and choosing ε so that εC < 14 . □
+
+6.4. Long-time behavior. From now on, we will consider the geometric gradient flow of the functional 
+
+E = Em + E1 =
+
+ˆ
+
+> γ
+
+12 |∂ms γ|2 dγ + 12 ℓ(γ).
+
+Theorem 6.13 also holds for this flow, replacing the velocity with V = Vm + V1, defined in (4.4). As a consequence of this choice, we also have that 
+
+ℓ(γt) ≤ 2E(γt) ≤ 2E(γ0)by Theorem 6.2. We now rephrase Theorem 1.2 in a more precise way. 
+
+Theorem 6.14. Let γ0 be an admissible initial network. Suppose that (γt)t∈[0 ,T max ) is a maximal solution to the geometric gradient flow of E in the class C(B) with initial datum γ0. Then, 
+
+Tmax = + ∞
+
+or at least one of the following happens: (1) there exists a curve γit such that 
+
+lim inf  
+
+> t→T−
+> max
+
+ℓ(γit ) = 0; 
+
+(2) there exists a d-junction such that 
+
+lim inf  
+
+> t→T−
+> max
+
+det A(νt) = 0 ,
+
+where A(νt) is defined in (4.11) .40 L. BENATTI AND A. PLUDA 
+
+Proof of Theorem 1.2. Let γt be a maximal solution to the flow in [0 , T max ). Suppose by con-tradiction that Tmax is finite and assume that for all t ∈ [0 , T max ): (1) there exists a positive constant C 1 independent of time such that 
+
+ℓ(γit ) ≥ C1 > 0 for all i;(2) there exists a positive constant C 2 independent of time such that det A(νt) ≥ C2 > 0 at every d-junction ,
+
+where A(νt) is defined in (4.11) Then, γ(t) is uniformly non-degenerate in [0 , T max ). Fix ε ∈ (0 , T max /10) and δ ∈ (0 , T max /4). We can apply Theorem 6.13 with a constant uniformly bounded in [0 , T max ): ddt
+
+ˆ
+
+> γt
+
+V 2 dγt ≤ C.
+
+Integrating on the interval ( ε, t ) ⊆ (ε, T max − δ), and recalling the definition of V , we get 
+
+ˆ
+
+> γt
+
+V 2 dγt ≤
+
+ˆ
+
+> γε
+
+V 2 dγε + C( Tmax − ε). (6.8) By Theorem 6.12 for j = 0, we also have 
+
+ˆ
+
+> γt
+
+∂2ms γt 
+
+> 2
+
+dγt ≤ C
+
+ˆ
+
+> γt
+
+V 2 dγt + 1 
+
+
+
+(6.9) for some constant C > 0 depending only on m, E(γ0) and the inverse of the length of each curve. Hence, (6.8) and (6.9) give ∂2ms γt ∈ L∞  (ε, T max − δ); L2(0 , ℓ (γt)) . By interpolation 
+
+∥∂sγt∥W 2m−12 (0 ,ℓ (γt)) ≤ Cfor every t ∈ (ε, T max − δ), where C depends only on ε and Tmax .We reparametrize each curve γit ∈ γt so that |∂xγit | = ℓi(γt), that is bounded away from zero for the hypothesis (1) and bounded from the gradient flow structure in the entire interval (ε, T max − δ). Since ∂s = ∂x/ℓ (γt) we also get 
+
+∥∂xγt∥W 2m−12 (0 ,1) ≤ Cfor every t ∈ (ε, T max − δ), where C depends only on ε and Tmax . Since p ∈ (2 m + 1 , 4m + 2), Sobolev embedding theorem (3.2) yields 
+
+∥∂xγt∥W 2m−1−2m/p p (0 ,1) ≤ C, (6.10) where C depends only on ε and Tmax . By Theorem 5.20, we can restart the flow γt for all times 
+
+τ ∈ [0 , 2T ] where T < T max /4 only depends on the constant C in (6.10). Taking δ = T , γt exists for every t ∈ [0 , T max + T ) contradicting the maximality of Tmax . □
+
+7. Application to the Willmore functional 
+
+We now consider the Willmore functional, i.e. 
+
+W(γ) = E2(γ) + E1(γ) = 
+
+ˆ
+
+> γ
+
+12 ∂2 
+
+> s
+
+γ 2 + 12 dγ. 
+
+Thanks to (4.4), the velocity of the flow is given by 
+
+V ν = −(∂4 
+
+> s
+
+γ)⊥ + ∂3 
+
+> s
+
+γ , ∂ sγ ∂2 
+
+> s
+
+γ − 12 ∂2 
+
+> s
+
+γ 2∂2 
+
+> s
+
+γ
+
+| {z }
+
+> V2ν
+
++ 12 (∂2 
+
+> s
+
+γ)⊥
+
+| {z }
+
+> V1ν
+
+.ONE THOUSAND AND ONE HIGHER-ORDER GEOMETRIC FLOWS OF NETWORKS 41 
+
+At any d-junction P ∈ P the boundary term is 
+
+> d
+
+X
+
+> j=1
+
+φj , ψ 02 (γj ) + ψ01 (γj ) + δφ∂sγj , ν j νj , ψ 12 (γj ) .
+
+Observe that in this specific case 
+
+ψ12 (γj ) = ∂2 
+
+> s
+
+γj , ν j νj .
+
+7.1. Topological conditions. For simplicity, we assume that γ0 = ( γ10 , γ 20 , γ 30 ) is a star network with a 3-junction P0 = γ10 (1) = γ20 (1) = γ30 (1) and 3 fixed endpoints γ10 (0) = P 10 , γ20 (0) = P 20 ,and γ30 (0) = P 30 .At each endpoint the matrix a11 = Id R2 and the non-degeneracy condition is automatically satisfied. The resulting maximal order condition will then be B3j = 0 since π11 = 0. At the junction, the non-degeneracy condition is satisfied provided span {ν1, ν 2, ν 3} = R2.Moreover, the maximal order condition will be 
+
+B3j =
+
+> d
+
+X
+
+> i,k =1
+
+D
+
+A(ν)−1 
+
+> ji
+
+πik [ψ01 (γk) + ψ02 (γk)] , ν j E
+
+.
+
+Since {ν1, ν 2, ν 3} generates R2, det A(ν)̸ = 0 and πik = 13 Id R2 , thus B3j = 0 is equivalent to 
+
+> 3
+
+X
+
+> k=1
+
+ψ01 (γk) + ψ02 (γk) = 0 .
+
+7.2. Natural condition at the endpoints. If we do not impose any condition of order 1 at the endpoint of the curve γi, the resulting R1×1 matrix will be a1111 = 0, then a⊥ 
+
+> 1111
+
+= 1. Hence, the corresponding Neumann second order condition will be 
+
+B21 = ki(0) .
+
+7.3. Natural conditions at the junction. If we do not impose any condition of order 1 at the junction, the R3×3 matrix will be a1i1j = 0 and therefore a⊥ 
+
+> 1i1j
+
+= δij . Hence the second order condition will be 
+
+B2i = ki(1) .
+
+The gradient flow of the Willmore functional with natural conditions is given by 
+
+
+
+(∂tγi)⊥ = −∂2 
+
+> s
+
+(ki) − 12 (ki)3 + 12 (ki) νi normal velocity 
+
+γi(t, 0) = P i fixed endpoint condition 
+
+ki(t, 0) = 0 second-order condition 
+
+γ1(t, 1) = γ2(t, 1) = γ3(t, 1) concurrency condition 
+
+ki(t, 1) = 0 second-order conditions 
+
+P3
+
+> i=1
+
+[∂skiνi + 12 (ki)2τ i − 12 τ i]( t, 1) = 0 third-order condition 
+
+γi(0 , x ) = γi
+
+> 0
+
+(x) initial condition (7.1) 42 L. BENATTI AND A. PLUDA 
+
+7.4. Preserved angles condition. In this case we are adding a first order condition on the unit tangent vectors at the junction which are 
+
+B1j = τ j , R j,j −1τ j−1
+
+for j = 2 , 3. Rj,j −1 is the fixed rotation of the plane which sends τ j−10 (1) to νj 
+
+> 0
+
+(1). The matrix 
+
+a1i1j = ( δij − δ(i−1) j ) for i = 2 , 3 and a111 j = 0. Hence the matrix a⊥ is given by a⊥ 
+
+> 111 j
+
+= 1 and 
+
+a1i1j = 0 for i = 2 , 3. We then get 
+
+B2j =
+
+> 3
+
+X
+
+> l=1
+
+a⊥
+
+> 1j1l
+
+kl = 0 j = 2 , 3
+
+B21 =
+
+> 3
+
+X
+
+> l=1
+
+a⊥
+
+> 111 l
+
+kl =
+
+> 3
+
+X
+
+> l=1
+
+kl
+
+The gradient flow of the Willmore functional with preserved angle conditions is given by 
+
+
+
+(∂tγi)⊥ = −∂2 
+
+> s
+
+(ki) − 12 (ki)3 + 12 (ki) νi normal velocity 
+
+γi(t, 0) = P i fixed endpoint condition 
+
+ki(t, 1) = 0 second-order condition 
+
+γ1(t, 1) = γ2(t, 1) = γ3(t, 1) concurrency condition 
+
+⟨τ i , R i,i +1 τ i+1 ⟩(t, 1) = 0 preserved angle condition 
+
+P3 
+
+> i=1
+
+ki(t, 1) = 0 second-order conditions 
+
+P3
+
+> i=1
+
+[∂skiνi + 12 (ki)2τ i − 12 τ i]( t, 1) = 0 third-order condition 
+
+γi(0 , x ) = γi
+
+> 0
+
+(x) initial condition (7.2) 7.5. Gradient flow of the Willmore functional. The following theorem holds 
+
+Theorem 7.1. Let γ0 an admissible network of class W 4−4/p 
+
+> p
+
+. There exists a Tmax > 0 and a maximal unique (up to reparametrization) solution (γt)t∈[0 ,T max ) to the problem (7.1) or (7.2) 
+
+with 
+
+γit ∈ W 1 
+
+> p
+
+((0 , T max ); Lp(0 , 1)) ∩ Lp((0 , T max ); W 4 
+
+> p
+
+(0 , 1)) .
+
+Moreover, either Tmax = + ∞ or at least one of the following happens: (1) there exists a curve γit such that 
+
+lim inf  
+
+> t→T−
+> max
+
+ℓ(γit ) = 0; 
+
+(2) there exists a d-junction such that 
+
+lim inf  
+
+> t→T−
+> max
+
+det A(νt) = 0 ,
+
+where A(νt) is defined in (4.11) .Proof. Since the conditions are admissible, solution and uniqueness follows from Theorem 5.19 and Theorem 5.21. The long time behavior directly follows from Theorem 6.14. □
+
+Remark 7.2. Scenario (2) never happens for solutions to the problem (7.2) .
+
+Remark 7.3. Problem (7.1) coincides with the problem studied and solved in [GMP20] and [DLP19; DLP21]. REFERENCES 43 
+
+References 
+
+[AB19] H. Abels and J. Butz. “Short time existence for the curve diffusion flow with a contact angle”. In: J. Differential Equations 268.1 (2019), pp. 318–352. issn : 0022-0396. doi : 10.1016/j.jde.2019.08.018 . url : https://doi.org/10.1016/j. jde.2019.08.018 .[AB20] H. Abels and J. Butz. “A blow–up criterion for the curve diffusion flow with a contact angle”. In: SIAM J. Math. Anal. 52.3 (2020), pp. 2592–2623. issn : 0036-1410. doi : 10.1137/19M1242914 . url : https://doi.org/10.1137/19M1242914 .[Ama00] H. Amann. “Compact embeddings of vector-valued Sobolev and Besov spaces”. In: Glas. Mat. Ser. III 35(55).1 (2000), pp. 161–177. issn : 0017-095X. [Ang90] S. Angenent. “Parabolic equations for curves on surfaces. I. Curves with p-integrable curvature”. In: Ann. of Math. (2) 132.3 (1990), pp. 451–483. [BGN12] J. W. Barrett, H. Garcke, and R. N¨ urnberg. “Parametric approximation of isotropic and anisotropic elastic flow for closed and open curves”. English. In: 
+
+Numer. Math. 120.3 (2012), pp. 489–542. issn : 0029-599X. doi : 10.1007/s00211-011-0416-x . url : epub.uni-regensburg.de/20501/1/MP126.pdf .[BKN25] G. Bellettini, S. Y. Kholmatov, and M. Novaga. Crystalline elastic flow of polygo-nal curves: long time behaviour and convergence to stationary solutions . Preprint, arXiv:2506.15869 [math.AP] (2025). 2025. url : https://arxiv.org/abs/2506. 15869 .[DG79] G. Da Prato and P. Grisvard. “Equations d’´ evolution abstraites non lin´ eaires de type parabolique”. In: Ann. Mat. Pura Appl. (4) 120 (1979), pp. 329–396. issn :0003-4622. doi : 10.1007/BF02411952 . url : https://doi.org/10.1007/BF0241 1952 .[DLP14] A. Dall’Acqua, C.-C. Lin, and P. Pozzi. “Evolution of open elastic curves in Rn
+
+subject to fixed length and natural boundary conditions”. In: Analysis (Berlin) 
+
+34.2 (2014), pp. 209–222. issn : 0174-4747. doi : 10.1515/anly-2014-1249 . url :
+
+https://doi.org/10.1515/anly-2014-1249 .[DLP17] A. Dall’Acqua, C.-C. Lin, and P. Pozzi. “A gradient flow for open elastic curves with fixed length and clamped ends”. In: Ann. Sc. Norm. Super. Pisa Cl. Sci. (5) 
+
+17.3 (2017), pp. 1031–1066. issn : 0391-173X. [DLP19] A. Dall’Acqua, C.-C. Lin, and P. Pozzi. “Elastic flow of networks: long–time ex-istence result”. In: Geom. Flows 4.1 (2019), pp. 83–136. doi : 10.1515/geofl-2019-0005 . url : https://doi.org/10.1515/geofl-2019-0005 .[DP14] A. Dall’Acqua and P. Pozzi. “A Willmore–Helfrich L2-flow of curves with natural boundary conditions”. In: Comm. Anal. Geom. 22.4 (2014), pp. 617–669. issn :1019-8385. doi : 10.4310/CAG.2014.v22.n4.a2 . url : https://doi.org/10. 4310/CAG.2014.v22.n4.a2 .[DPS16] A. Dall’Acqua, P. Pozzi, and A. Spener. “The Lojasiewicz–Simon gradient inequal-ity for open elastic curves”. In: J. Differential Equations 261.3 (2016), pp. 2168– 2209. issn : 0022-0396. doi : 10.1016/j.jde.2016.04.027 . url : https://doi. org/10.1016/j.jde.2016.04.027 .[Dal+24] A. Dall’Acqua, G. Jankowiak, L. Langer, and F. Rupp. “Conservation, conver-gence, and computation for evolving heterogeneous elastic wires”. In: SIAM J. Math. Anal. 56.4 (2024), pp. 4494–4529. issn : 0036-1410,1095-7154. doi : 10.1137/ 23M159086X . url : https://doi.org/10.1137/23M159086X .44 REFERENCES 
+
+[DLR24] A. Dall’Acqua, L. Langer, and F. Rupp. “A dynamic approach to heterogeneous elastic wires”. In: J. Differential Equations 392 (2024), pp. 1–42. issn : 0022-0396,1090-2732. doi : 10.1016/j.jde.2024.02.001 . url : https://doi.org/10. 1016/j.jde.2024.02.001 .[DLP21] A. Dall’Acqua, C.-C. Lin, and P. Pozzi. “Elastic flow of networks: short-time ex-istence result”. English. In: J. Evol. Equ. 21.2 (2021), pp. 1299–1344. issn : 1424-3199. doi : 10.1007/s00028-020-00626-6 .[DSS08] R. Denk, J. Saal, and J. Seiler. “Inhomogeneous symbols, the Newton polygon, and maximal Lp-regularity”. In: Russ. J. Math. Phys. 15.2 (2008), pp. 171–191. 
+
+issn : 1061-9208. doi : 10.1134/S1061920808020040 . url : https://doi.org/10. 1134/S1061920808020040 .[Dia24] A. Diana. “Elastic flow of curves with partial free boundary”. English. In: NoDEA, Nonlinear Differ. Equ. Appl. 31.5 (2024). Id/No 96, p. 42. issn : 1021-9722. doi :
+
+10.1007/s00030-024-00984-x .[DKS02] G. Dziuk, E. Kuwert, and R. Sch¨ atzle. “Evolution of elastic curves in Rn: existence and computation”. In: SIAM J. Math. Anal. 33.5 (2002), pp. 1228–1245. [GH86] M. Gage and R. S. Hamilton. “The heat equation shrinking convex plane curves”. In: J. Differential Geom. 23 (1986), pp. 69–95. [GMP19] H. Garcke, J. Menzel, and A. Pluda. “Willmore flow of planar networks”. In: J. Differential Equations 266.4 (2019), pp. 2019–2051. [GMP20] H. Garcke, J. Menzel, and A. Pluda. “Long time existence of solutions to an elastic flow of networks”. In: Comm. Partial Differential Equations 45.10 (2020), pp. 1253–1305. issn : 0360-5302,1532-4133. doi : 10.1080/03605302.2020.177136 4. url : https://doi.org/10.1080/03605302.2020.1771364 .[G¨ oß19] M. G¨ oßwein. “Surface Diffusion Flow of Triple Junction Clusters in Higher Space Dimensions”. PhD thesis. urn:nbn:de:bvb:355-epub-383760: Universit¨ at Regens-burg, 2019. [GMP23] M. G¨ oßwein, J. Menzel, and A. Pluda. “Existence and uniqueness of the motion by curvature of regular networks”. In: Interfaces Free Bound. 25.1 (2023), pp. 109– 154. [Gra87] M. A. Grayson. “The heat equation shrinks embedded plane curves to round points”. In: J. Differential Geom. 26 (1987), pp. 285–314. [KM24] T. Kemmochi and T. Miura. “Migrating elastic flows”. English. In: J. Math. Pures Appl. (9) 185 (2024), pp. 47–62. issn : 0021-7824. doi : 10.1016/j.matpur.2024. 02.003 .[Koi96] N. Koiso. “On the motion of a curve towards elastica”. In: Actes de la Table Ronde de G´ eom´ etrie Diff´ erentielle (Luminy, 1992) . Vol. 1. S´ emin. Congr. Soc. Math. France, Paris, 1996, pp. 403–436. [LS85] J. Langer and D. A. Singer. “Curve straightening and a minimax argument for closed elastic curves”. English. In: Topology 24 (1985), pp. 75–88. issn : 0040-9383. 
+
+doi : 10.1016/0040-9383(85)90046-1 .[Lan25] L. Langer. “Dynamics of elastic wires: preserving area without nonlocality”. Eng-lish. In: Calc. Var. Partial Differ. Equ. 64.3 (2025). Id/No 106, p. 35. issn : 0944-2669. doi : 10.1007/s00526-025-02948-0 .[Lin12] C.-C. Lin. “ L2-flow of elastic curves with clamped boundary conditions”. In: J. Differential Equations 252.12 (2012), pp. 6414–6428. issn : 0022-0396. doi : 10 . 1016/j.jde.2012.03.010 . url : https://doi.org/10.1016/j.jde.2012.03. 010 .REFERENCES 45 
+
+[LL18] C.-C. Lin and Y.-K. Lue. “Evolving inextensible and elastic curves with clamped ends under the second–order evolution equation in R2”. In: Geom. Flows 3.1 (2018), pp. 14–18. doi : 10.1515/geofl-2018-0002 . url : https://doi.org/10. 1515/geofl-2018-0002 .[LLS15] C.-C. Lin, Y.-K. Lue, and H. R. Schwetlick. “The second–order L2–flow of inex-tensible elastic curves with hinged ends in the plane”. In: J. Elasticity 119.1-2 (2015), pp. 263–291. issn : 0374-3535. doi : 10.1007/s10659-015-9518-5 . url :
+
+https://doi.org/10.1007/s10659-015-9518-5 .[Lin89] A. Linn´ er. “Some properties of the curve straightening flow in the plane”. In: 
+
+Trans. Amer. Math. Soc. 314.2 (1989), pp. 605–618. issn : 0002-9947. doi : 10 . 2307/2001400 . url : https://doi.org/10.2307/2001400 .[Lun95] A. Lunardi. Analytic semigroups and optimal regularity in parabolic problems .Basel: Birkh¨ auser, 1995. [Lun04] A. Lunardi. “Nonlinear parabolic equations and systems”. In: Evolutionary equa-tions. Vol. I . Handb. Differ. Equ. Amsterdam: North-Holland, 2004, pp. 385–436. [Man+24] C. Mantegazza, M. Novaga, A. Pluda, and F. Schulze. “Evolution of networks with multiple junctions”. In: Ast´ erisque 452 (2024), pp. viii+254. issn : 0303-1179,2492-5926. [MP21] C. Mantegazza and M. Pozzetta. “The Lojasiewicz-Simon inequality for the elastic flow”. English. In: Calc. Var. Partial Differ. Equ. 60.1 (2021). Id/No 56, p. 18. 
+
+issn : 0944-2669. doi : 10.1007/s00526-020-01916-0 .[MWW19a] J. McCoy, G. Wheeler, and Y. Wu. “A sixth order curvature flow of plane curves with boundary conditions”. In: 2017 MATRIX annals . Vol. 2. MATRIX Book Ser. Springer, Cham, 2019, pp. 213–221. [MWW19b] J. McCoy, G. Wheeler, and Y. Wu. “Evolution of closed curves by length– constrained curve diffusion”. In: Proc. Amer. Math. Soc. 147.8 (2019), pp. 3493– 3506. issn : 0002-9939. doi : 10.1090/proc/14473 . url : https://doi.org/10. 1090/proc/14473 .[MW26] J. McCoy and G. Wheeler. On the generalised ideal flow of closed planar curves .Preprint, arXiv:2605.09379 [math.DG] (2026). 2026. url : https://arxiv.org/ abs/2605.09379 .[Men20] J. Menzel. “Boundary Value Problems for Evolutions of Willmore Type”. PhD thesis. Universit¨ at Regensburg, 2020. [Miu25] T. Miura. “Migrating elastic flows II”. English. In: Int. Math. Res. Not. 2025.11 (2025). Id/No rnaf148, p. 08. issn : 1073-7928. doi : 10.1093/imrn/rnaf148 .[MMR25] T. Miura, M. M¨ uller, and F. Rupp. “Optimal thresholds for preserving embed-dedness of elastic flows”. English. In: Am. J. Math. 147.1 (2025), pp. 33–80. issn :0002-9327. doi : 10.1353/ajm.2025.a950273 .[MR25] T. Miura and F. Rupp. Embeddedness and graphicality of the elastic flow for com-plete curves . Preprint, arXiv:2508.18979 [math.AP] (2025). 2025. url : https : //arxiv.org/abs/2508.18979 .[MR26] T. Miura and F. Rupp. “A new energy method for shortening and straightening complete curves”. English. In: J. Reine Angew. Math. 830 (2026), pp. 1–50. issn :0075-4102. doi : 10.1515/crelle-2025-0077 .[MW25] T. Miura and G. Wheeler. “The free elastic flow for closed planar curves”. English. In: J. Funct. Anal. 289.7 (2025). Id/No 111030, p. 22. issn : 0022-1236. doi : 10. 1016/j.jfa.2025.111030 .46 REFERENCES 
+
+[NO14] M. Novaga and S. Okabe. “Curve shortening–straightening flow for non–closed planar curves with infinite length”. In: J. Differential Equations 256.3 (2014), pp. 1093–1132. issn : 0022-0396. doi : 10.1016/j.jde.2013.10.009 . url : https: //doi.org/10.1016/j.jde.2013.10.009 .[NO17] M. Novaga and S. Okabe. “Convergence to equilibrium of gradient flows defined on planar curves”. In: J. Reine Angew. Math. 733 (2017), pp. 87–119. issn : 0075-4102. 
+
+doi : 10.1515/crelle- 2015- 0001 . url : https://doi.org/10.1515/crelle-2015-0001 .[NP20] M. Novaga and P. Pozzi. “A second order gradient flow of p–elastic planar net-works”. In: SIAM Journal on Mathematical Analysis 52.1 (2020), pp. 682–708. [Oka07] S. Okabe. “The motion of elastic planar closed curves under the area–preserving condition”. In: Indiana Univ. Math. J. 56.4 (2007), pp. 1871–1912. issn : 0022-2518. doi : 10.1512/iumj.2007.56.3015 . url : https://doi.org/10.1512/ iumj.2007.56.3015 .[OPW19] S. Okabe, P. Pozzi, and G. Wheeler. “A gradient flow for the p–elastic energy defined on closed planar curves”. To appear on Math. Ann. 2019. [Oka08] S. Okabe. “The dynamics of elastic closed curves under uniform high pressure”. English. In: Calc. Var. Partial Differ. Equ. 33.4 (2008), pp. 493–521. issn : 0944-2669. doi : 10.1007/s00526-008-0179-0 .[Pol96] A. Polden. “Curves and Surfaces of Least Total Curvature and Fourth-Order Flows”. PhD thesis. Universit¨ at T¨ ubingen, 1996. [Poz22] M. Pozzetta. “Convergence of elastic flows of curves into manifolds”. English. In: Nonlinear Anal., Theory Methods Appl., Ser. A, Theory Methods 214 (2022). Id/No 112581, p. 53. issn : 0362-546X. doi : 10.1016/j.na.2021.112581 .[PS16] J. Pr¨ uss and G. Simonett. Moving interfaces and quasilinear parabolic evolution equations . Vol. 105. Monographs in Mathematics. Birkh¨ auser/Springer, [Cham], 2016, pp. xix+609. isbn : 978-3-319-27697-7. doi : 10.1007/978-3-319-27698-4 .
+
+url : https://doi.org/10.1007/978-3-319-27698-4 .[RS24] F. Rupp and A. Spener. “Existence and convergence of the length-preserving elas-tic flow of clamped curves”. English. In: J. Evol. Equ. 24.3 (2024). Id/No 59, p. 41. 
+
+issn : 1424-3199. doi : 10.1007/s00028-024-00988-1 .[Sim90] J. Simon. “Sobolev, Besov and Nikolskii fractional spaces: imbeddings and com-parisons for vector valued spaces on an interval”. In: Ann. Mat. Pura Appl. (4) 
+
+157 (1990), pp. 117–148. issn : 0003-4622. doi : 10.1007/BF01765315 . url : https: //doi.org/10.1007/BF01765315 .[Sol67] V. A. Solonnikov. Boundary value problems of mathematical physics. III, Pro-ceedings of the Steklov Institute of Mathematics, No. 83 (1965) . Providence, R.I.: Amer. Math. Soc., 1967. [Spe17] A. Spener. “Short time existence for the elastic flow of clamped curves”. In: Math. Nachr. 290.13 (2017), pp. 2052–2077. issn : 0025-584X. doi : 10.1002/mana.2016 00304 . url : https://doi.org/10.1002/mana.201600304 .[Tri78] H. Triebel. Interpolation theory, function spaces, differential operators . Vol. 18. North-Holland Mathematical Library. North-Holland Publishing Co., Amsterdam-New York, 1978, p. 528. isbn : 0-7204-0710-9. [Wen93] Y. Wen. “ L2 flow of curve straightening in the plane”. In: Duke Math. J. 70.3 (1993), pp. 683–698. issn : 0012-7094. [Wen95] Y. Wen. “Curve straightening flow deforms closed plane curves with nonzero ro-tation number to circles”. In: J. Differential Equations 120.1 (1995), pp. 89–107. REFERENCES 47 
+
+[Whe15] G. Wheeler. “Global analysis of the generalised Helfrich flow of closed curves im-mersed in Rn”. In: Trans. Amer. Math. Soc. 367.4 (2015), pp. 2263–2300. issn :0002-9947. doi : 10.1090/S0002-9947-2014-06592-6 . url : https://doi.org/ 10.1090/S0002-9947-2014-06592-6 .[WW24] G. Wheeler and V.-M. Wheeler. “Curve diffusion and straightening flows on par-allel lines”. English. In: Commun. Anal. Geom. 32.7 (2024), pp. 1979–2034. issn :1019-8385. doi : 10.4310/CAG.241204023527 .[Yos25] K. Yoshizawa. Obstacle problems for the elastic flow and related topics . Preprint, arXiv:2512.21802 [math.AP] (2025). 2025. url : https://arxiv.org/abs/2512. 21802 .[Yos95] K. Yosida. Functional analysis . Classics in Mathematics. Reprint of the sixth (1980) edition. Springer-Verlag, Berlin, 1995, pp. xii+501. isbn : 3-540-58654-7. 
+
+doi : 10.1007/978-3-642-61859-8 . url : https://doi.org/10.1007/978-3-642-61859-8 .

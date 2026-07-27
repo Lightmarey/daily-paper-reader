@@ -1,0 +1,2575 @@
+Title: Existence of weak solutions of the surface Beris-Edwards model
+
+URL Source: https://arxiv.org/pdf/2607.01638v1
+
+Published Time: Fri, 03 Jul 2026 00:27:11 GMT
+
+Number of Pages: 21
+
+Markdown Content:
+EXISTENCE OF WEAK SOLUTIONS OF THE SURFACE BERIS–EDWARDS MODEL             
+
+> GONZALO A. BENAVIDES, RICARDO H. NOCHETTO, AND MANSUR SHAKIPOV ABSTRACT .We prove the existence of weak solutions to the surface Beris–Edwards model for nematic liquid crystals posed on a d-dimensional ( d∈ { 2,3}) closed hypersurface of class C2,1.This thermodynamically consistent model, recently introduced by Bouck, Nochetto and Yushutin (2024), couples the incompressible tangent Navier–Stokes equations with a kinematic equation for the Q-tensor field that encodes the orientation of the liquid crystal particles with a general state of orientational order. Extending ideas by Abels, Dolzmann and Liu (2014) and Guill´ en-Gonz´ alez and Rodr´ ıguez-Bellido (2015) for the Beris–Edwards model in flat domains, we design a Faedo–Galerkin scheme based upon eigenfunctions of an appropriate tangent Stokes operator and tensor-valued Laplace–Beltrami operator and recover a weak solution via standard compactness arguments.
+
+CONTENTS 
+
+1. Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11.1. Governing equations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21.2. Related models in flat domains . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41.3. Main results . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42. Preliminaries on spectral theory . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63. Existence of weak solutions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 83.1. Faedo–Galerkin method . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 83.2. Energy law and a-priori estimates . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 93.3. Proof of Theorem 1.5: existence of weak solutions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13 3.4. Proof of Theorem 1.6: recovery of the pressure field π. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17 Acknowledgements . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19 References . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19 Appendix A. Formal derivation of the weak formulation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20 1. I NTRODUCTION 
+
+Nematic Liquid Crystals (NLCs) are materials that exhibit properties from both conventional liquids and solid crystals within a certain temperature range [54]. They are characterized by having elongated rod-shaped particles with a head-to-tail symmetry, that do not possess positional order but retain orientational order. Consequently, NLCs flow similarly to traditional fluids while enjoying optical properties typical of crystals such as light polarization, which is affected by point defects [11]. These are small regions in the NLC material that do not have a well-defined average orientation of the molecules; mathematically, they are represented by singularities of the associated LC director field. NLCs fall within a broader category of materials called active matter . Active matter possesses microscopic con-stituents that consume energy in order to produce forces that overall lead to macroscopic dynamics. In particular, nematic systems have been observed to exhibit self-similar organization properties [26]. Point defects, in turn, can travel in time and merge or annihilate each other depending on their topological charges [52, 32]. Furthermore, it was hypothesized in [38] and later observed in [33] that point defects in thin LC shells can mimic colloidal chemistry. Due to their unique mechanical and optical properties, they are widely used in, for instance, the manufacturing of liquid crystal displays (LCDs) [47], soft robotics (liquid crystal elastomers) [59], and solar energy [49]. Further applications    
+
+> 2020 Mathematics Subject Classification. 76D03, 76A15, 35R01, 35D30, 35Q35.
+> Key words and phrases. weak solution, liquid crystal, PDEs on manifolds, Beris–Edwards, Faedo–Galerkin.
+> 1
+> arXiv:2607.01638v1 [math.AP] 2 Jul 2026 2
+
+of active nematic systems include [29, 55, 53] for modeling the morphogenesis of simple organisms like the hydra, active gel systems [45], cytoskeletons [50], bacterial suspensions [57] and filaments [12]. We refer to [37, 19] for a thorough discussion. Due to intrinsic limitations of NLC experiments, it is of paramount importance to obtain mathematical models that are numerically tractable but rich enough to capture complex behavior. Simplifications to 2D models for thin (but curved) NLC shells and droplets are not satisfactory because they do not account for the non-negligible effect of curvature [33, §2.2]. It is therefore necessary to consider models for NLCs on surfaces. Examples for which these models are relevant are given by domains with a high length-to-width ratio which are wide enough to freely accommodate rod-like NLC particles but thin enough to neglect variations of their orientation along the thickness. The most popular approach within continuum mechanics for modeling materials with orientational order is the Q-tensor theory [16, 8, 36]. Essentially, the idea is to associate a probability density function ρ defined on the unit sphere Sd which encodes the statistical distribution of the orientations of the LC molecules at every Eulerian point 
+
+x ∈ Rd+1 . Due to the head-to-tail symmetry assumption on the LC molecules, the first-order moments vector of ρ
+
+vanishes. Therefore, the first non-trivial information about the LC particle distribution is given by the second-order moments matrix of ρ. By substracting an appropriate multiple of the identity matrix, one obtains a symmetric and traceless matrix Q known as the Q-tensor that measures the deviation of the LC from the isotropic state. The most physically relevant quantities derived from Q are its eigenframe and corresponding eigenvalues. Hydrodynamic NLC models on surfaces are a relatively new area of research. To the best of our knowledge, only three articles [39, 9, 41] have considered the coupling of Q-tensor kinematics with a momentum equation (aka Beris– Edwards model) for curved liquid crystal films. Chronologically, the first model was proposed by Nestler and Voigt in [39] in which the Q-tensor field Q is assumed to be conforming (i.e. the normal to the surface is assumed to be an eigenvector of Q); however, the overall system lacks an energy law. Later, Bouck, Nochetto and Yushutin derived in [9] the first Beris–Edwards model for NLCs on stationary surfaces that allows for arbitrarily oriented liquid crystal particles (that is, the eigenframe of Q is not anchored to the tangent plane of the surface). The model is obtained by means of the Generalized Onsager’s principle [17, 18], whence it is thermodynamically consistent , and hence it obeys an energy law. In turn, Nitschke and Voigt proposed in [41] a more general thermodynamically consistent framework for hydrodynamics of NLCs that allows, among other features, for evolving surfaces; their arguments are based upon the Lagrange d’Alembert’s principle of classical mechanics. We also find it important to mention the recent work [42] in which, among other things, the Beris–Edwards framework [41, §3.1] is utilized to derive a hydrodynamic model for symmetric lipid bilayers. The goal of this paper is to establish the existence of weak solutions for the aforementioned surface Beris–Edwards model [9]. As far as the authors are concerned our work is the first one to address the solvability of a hydrody-namic model for NLCs on surfaces. Recognizing the structural similarities of the surface Beris–Edwards model [9] with its flat-domain counterpart [6], we adapt ideas by Abels, Dolzmann and Liu [1] and Guill´ en-Gonz´ alez and Rodr´ ıguez-Bellido [25] and design a Faedo–Galerkin method based upon eigenfunctions of appropriate tangent Stokes and tensor-valued Laplace–Beltrami operators. We establish discrete a-priori estimates that are uniform in the degree of approximation and recover a weak solution via standard compactness arguments. 1.1. G OVERNING EQUATIONS 
+
+Let Γ ⊂ Rd+1 (d = 2 , 3) be a closed, compact and connected hypersurface of sufficient regularity (to be specified later). Associated to Γ, let ν = ( νi)d+1  
+
+> i=1
+
+: Γ → Rd+1 denote the outward unit normal vector field to Γ, let P := 
+
+I − ν ⊗ ν be the projection matrix onto the tangent plane and B := ∇M ν be the Weingarten map (aka shape operator ). Table 1 summarizes various differential operators defined over Γ that will be used throughout this work. Let u be a tangential vector field to Γ and Q a Q-tensor. 
+
+• The double-well potential of a given Q-tensor Q is given by 
+
+F [Q] := a
+
+2 |Q|2 − b
+
+3 Q : Q2 + c
+
+4 |Q|4, (1) where a, b and c are constants, with c > 0.
+
+• Let P be the orthogonal projection onto the space of symmetric and traceless matrices. Then, 
+
+PF ′[Q] = aQ − bQ2 + b
+
+3 tr( Q2)I + c tr( Q2)Q, (2) 3
+
+Operator name Notation Definition scalar-valued vector-valued tensor-valued extrinsic gradient ∇M ∇M v := P∇ve ∇M v := ∇veP dyadic covariant gradient ∇Γ ∇Γv := ∇M v ∇Γv := P∇M v N/A extrinsic strain rate DM N/A DM v := ( ∇M v + ∇TM v)/2 N/A extrinsic spin tensor WM N/A WM v := ( ∇M v − ∇ TM v)/2 N/A covariant strain rate DΓ N/A DΓv := ( ∇Γv + ∇T 
+
+> Γ
+
+v)/2 N/A covariant spin tensor WΓ N/A WΓv := ( ∇Γv − ∇ T 
+
+> Γ
+
+v)/2 N/A extrinsic divergence div M N/A div M := tr ∇M row-wise covariant divergence div Γ N/A div Γ := tr ∇Γ = div M row-wise Laplace–Beltrami ∆M ∆M := div M ∇M (defined componentwise) Surface diffusion ∆S N/A ∆S := P div Γ DΓ N/A TABLE 1. Differential operators on Γ. Here, (·)e denotes the constant normal extension into a tubular neighborhood around Γ, and N/A means either that the operator does not make sense or that it shall not be used in this work. where F ′ denotes the first variation of F .
+
+• The molecular field associated to the Q-tensor Q is the symmetric and traceless matrix given by 
+
+H[Q] := P (L div M ∇M Q − F ′[Q]) , (3) where L > 0 is a material constant. 
+
+• The star spin tensor 
+
+W∗u := Bu ⊗ ν − ν ⊗ Bu . (4) 
+
+• The corotation tensor S[Q, u] := SΓ[Q, u] + S∗[Q, u] is given by the sum of the covariant corotation and 
+
+star corotation tensors, correspondingly defined by 
+
+SΓ[Q, u] := WΓ(u)Q − QW Γ(u), S∗[Q, u] := W∗(u)Q − QW ∗(u). (5) 
+
+• The Ericksen stress Σ[Q] and the tangential Ericksen stress ΣΓ are skew-symmetric tensors respectively defined as follows 
+
+Σ[Q] := QH [Q] − H[Q]Q, ΣΓ[Q] := PΣ [Q]P. (6) 
+
+• The surface Beris–Edwards and star forces are respectively given by 
+
+fΓ[Q] := −P div Γ ΣΓ[Q] + H[Q] : ∇M Q, f∗[Q] := 2 BΣ [Q]ν. (7) The Surface Beris–Edwards model [9] reads: find a tangential vector vector field u, a Q-tensor Q and a scalar pressure 
+
+π that satisfy the following evolutionary system of surface PDEs respectively given by the kinematics of Q-tensor ,
+
+linear momentum and incompressibility equations: 
+
+∂tQ + ( ∇M Q)u = M H[Q] + S[Q, u], (8a) 
+
+ρ (∂tu + ( ∇Γu)u + ∇Γπ) = 2 μP div Γ DΓu − (fΓ[Q] + f∗[Q]) , (8b) 
+
+div Γ u = 0 , (8c) where the mobility M , viscosity μ, and density ρ are positive material constants. These equations are supplemented with the initial conditions 
+
+u(0) = u0 and Q(0) = Q0. (9) System (8) was derived in [9] by means of the Onsager’s principle [17, 18], making it thermodynamically consistent. For that reason, despite its intimidating appearance, (8) formally admits an energy law given by 
+
+ddt
+
+
+
+K[u] + ELdG [Q]
+
+
+
+= −2μ∥DΓu∥2 − M ∥H∥2, (10) 4
+
+where K[u] and ELdG [Q] are, respectively, the kinetic and Landau–de Gennes energies defined as follows: 
+
+K[u] := 
+
+Z
+
+> Γ
+
+ρ
+
+2 |u|2, ELdG [Q] := 
+
+Z
+
+> Γ
+
+L
+
+2 |∇ M Q|2 + F [Q]. (11) 1.2. R ELATED MODELS IN FLAT DOMAINS 
+
+The Beris–Edwards model in flat domains has been thoroughly analyzed in subdomains of the Euclidean space Rd
+
+and with or without incorporating the so-called ratio of tumbling and alignment parameter ξ ∈ R within the model. Existence of weak solutions and higher regularity in the whole Euclidean space have been studied for d = 2 , 3 by Paicu and Zarnescu [43, 44] for sufficiently small ξ and by Wilkinson [56] for general ξ. Paicu and Zarnescu also established weak-strong uniqueness for d = 2 .Similar results for the half-space were established by Barbera, Murata and Shibata [3], for bounded domains—by Abels, Dolzmann and Liu [1, 2], Guill´ en-Gonz´ alez and Rodr´ ıguez-Bellido [23, 25, 24], Xiao [58], Chen and Terraneo [14] and Hieber, Wussein and Wrona [28]—and for the torus—by Cavaterra, Rocca, Wu and Xu [13]. In turn, more complex models obtained by considering different potentials than the double-well (1) have also been considered, e.g., [56] for a singular potential and [30, 34] for an anisotropic potential. For a more detailed up-to-date discussion of the analysis of the Beris–Edwards and related models in flat domains we refer to [3, pp. 2-3], [28, pp. 3-4] and [14, pp. 2-3]. 1.3. M AIN RESULTS 
+
+In this section we present our results concerning the solvability of problem (8), but postpone their proofs to Sec-tion 3.3 and Section 3.4. We begin by introducing some functional analytic concepts that are required to state our main results. For the manifold Γ of sufficiently regularity, we adopt the standard notation for Lebesgue spaces Lp and manifold Sobolev spaces Wm,p for m ≥ 0 and p ∈ [1 , ∞), whose corresponding norms are denoted respectively by ∥ · ∥ 0,p 
+
+and ∥ · ∥ m,p . We also write Hm := W m, 2 with norm ∥ · ∥ m := ∥ · ∥ m, 2; for m = 0 we simply write ∥ · ∥ . Since Γ
+
+is compact, Sobolev embeddings (Gagliardo–Nirenberg–Sobolev, Morrey’s and Rellich–Kondrachov) behave just like in flat domains [27]. For a systematic discussion of Sobolev spaces on manifolds of limited regularity we refer to, e.g., [5, Section 3]. Throughout this article, for any integrability parameter p ∈ (1 , ∞), we denote by p∗ := pp−1 its Lebesgue conjugate exponent; notice that p∗∗ = p. Also, p ∈ (1 , 2) if and only if p∗ ∈ (2 , ∞). For any pair of functions v ∈ Lp and 
+
+w ∈ Lp∗
+
+we write (v, w )Γ := R 
+
+> Γ
+
+v w .For any scalar function space V defined on Γ, we denote by V and V its (d + 1) -vectorial and (d + 1) × (d + 1) 
+
+tensorial counterparts, and use the same notation for their respective inner products and/or norms. Finally, for any normed space V its dual space is denoted by V ′, whose induced norm is given by ∥f ∥V ′ := sup 0̸=v∈Vf (v) 
+
+> ∥v∥V
+
+. We denote the duality pairing between V ′ and V by ⟨· , ·⟩ V ′×V ; when there is no ambiguity, we will simply write ⟨· , ·⟩ .Let BC w([0 , T ]; V ) denote the space of weakly-continuous functions defined on [0 , T ] with values in V .Finally, for m ∈ N ∪ { 0}, we introduce the following spaces 
+
+Wm,p  
+
+> #
+
+:= {q ∈ Wm,p : R 
+
+> Γ
+
+q = 0 },
+
+Wm,p t := {v ∈ Wm,p : v · ν = 0 a.e. on Γ},
+
+Wm,p t,σ := {v ∈ Wm,p t : R 
+
+> Γ
+
+v · ∇ Γq = 0 , ∀q ∈ W1,p ∗
+
+},
+
+Wm,p S := {A ∈ Wm,p : A = AT , tr( A) = 0 a.e. on Γ}.
+
+Sobolev spaces on Γ satisfy integration-by-parts formula that highly resemble their flat-domain counterparts. In par-ticular, we have the following set of results. 
+
+Proposition 1.1 ([5, Proposition 3.9] scalar-vector integration-by-parts formula) . If Γ is of class C1,1, then for each 
+
+u ∈ W1,1(Γ) and φ ∈ C1(Γ) it holds that 
+
+(u, div Γ φ)Γ = −(∇Γu, φ)Γ + (tr( B)u, φ · ν)Γ (12) 5
+
+Corollary 1.2 (vector-tensor integration-by-parts formula) . If Γ is of class C1,1, then for each u ∈ W1,1(Γ) and 
+
+τ ∈ C1(Γ) it holds that 
+
+(u, div Γ τ )Γ = −(∇M u, τ )Γ + (tr( B)u, τ ν )Γ. (13) 
+
+Corollary 1.3 (external integration-by-parts formula) . If Γ is of class C1,1, then for each σ ∈ W2,1(Γ) and τ ∈ C1(Γ) 
+
+it holds that 
+
+(div M ∇M σ, τ )Γ = −(∇M σ, ∇M τ )Γ. (14) By testing system (8) with appropriate test functions and formally integrating by parts in space and time we arrive at the following definition for weak solutions of the surface Beris–Edwards system (8). We leave the details of the calculations for Appendix A below. 
+
+Definition 1.4 (weak solution) . Let Γ be of class C2,1. Then, for each T > 0, u0 ∈ L2 
+
+> t,σ
+
+, Q0 ∈ H1 
+
+> S
+
+, we say that the pair (u, Q), with 
+
+u ∈ BC w([0 , T ]; L2 
+
+> t,σ
+
+) ∩ L2([0 , T ]; H1 
+
+> t,σ
+
+),
+
+Q ∈ BC w([0 , T ]; H1 
+
+> S
+
+) ∩ L2([0 , T ]; H2 
+
+> S
+
+),
+
+is a weak solution of (8) in [0 , T ] × Γ with initial conditions (9) if: (i) For any w ∈ C1([0 , T ]; H2 
+
+> t,σ
+
+) and Ψ ∈ C1([0 , T ]; H1 
+
+> S
+
+) with w(T ) = 0 and Ψ(T ) = 0, the momentum (8b) 
+
+and liquid-crystal kinematic (8a) equations are, respectively, weakly satisfied in the following sense 
+
+− ρ
+
+Z T
+
+> 0
+
+(u, ∂ tw)Γ + ρ
+
+Z T
+
+> 0
+
+(( ∇Γu)u, w)Γ + 2 μ
+
+Z T
+
+> 0
+
+(DΓu, DΓw)Γ
+
++
+
+Z T
+
+> 0
+
+(ΣΓ[Q], ∇Γw)Γ +
+
+Z T
+
+> 0
+
+(H[Q] : ∇M Q, w)Γ + 2 
+
+Z T
+
+> 0
+
+(BΣ [Q]ν, w)Γ = ρ(u0, w(0)) Γ, (15) 
+
+and 
+
+−
+
+Z T
+
+> 0
+
+(Q, ∂ tΨ)Γ +
+
+Z T
+
+> 0
+
+(( ∇M Q)u, Ψ)Γ −
+
+Z T
+
+> 0
+
+(S[Q, u], Ψ)Γ = M
+
+Z T
+
+> 0
+
+(H[Q], Ψ)Γ + ( Q0, Ψ(0)) Γ. (16) 
+
+(ii) For a.e. t ∈ (0 , T ) the following energy dissipation law corresponding to (10) holds: 
+
+K[u(t)] + ELdG [Q(t)] + 
+
+Z t
+
+> 0
+
+Z
+
+> Γ
+
+2μ|DΓu|2 + M |H|2 dx dt′ ≤ K[u0] + ELdG [Q0]. (17) The following two statements are the main results of our paper. 
+
+Theorem 1.5 (existence of weak solutions) . Let d ∈ { 2, 3} and assume Γ is of class C2,1. Then, for each T > 0,
+
+u0 ∈ L2 
+
+> t,σ
+
+and Q0 ∈ H1 
+
+> S
+
+, there is a weak solution (u, Q) of the system (8) in [0 , T ] × Γ with initial conditions (9) .
+
+Since Γ has no boundary, we are able to recover the pressure field π with higher regularity in time than the flat-domain analogue of the Beris-Edwards system [25, Remark 9]. 
+
+Theorem 1.6 (recovery of the pressure field) . Let d ∈ { 2, 3} and let Γ be of class C2,1. Let (u, Q) be a weak solution provided by Theorem 1.5. Then, there exists a unique π ∈ T 
+
+> ε∈(0 ,1)
+
+L2([0 , T ]; L (d+ε)∗ 
+
+> #
+
+) such that 
+
+− ρ
+
+Z T
+
+> 0
+
+(u, ∂ tw)Γ + ρ
+
+Z T
+
+> 0
+
+(( ∇Γu)u, w)Γ + 2 μ
+
+Z T
+
+> 0
+
+(DΓu, DΓw)Γ − ρ
+
+Z T
+
+> 0
+
+(π, div Γ w)Γ
+
++
+
+Z T
+
+> 0
+
+(ΣΓ[Q], ∇Γw)Γ +
+
+Z T
+
+> 0
+
+(H[Q] : ∇M Q, w)Γ + 2 
+
+Z T
+
+> 0
+
+(BΣ [Q]ν, w)Γ = ρ(u0, w(0)) Γ, (18) 
+
+for any w ∈ C1([0 , T ]; W2,d +εt ) with w(T ) = 0. Moreover, there exists C = C(Γ , T, ε, ρ, μ ) > 0 such that 
+
+∥π∥L2([0 ,T ];L (d+ε)∗  
+
+> #)
+
+≤ C
+
+
+
+∥u∥2L2([0 ,T ]; H1) + ∥u∥L2([0 ,T ]; L2) + ∥H[Q]∥L2([0 ,T ]; L2)∥∇ M Q∥L∞([0 ,T ]; L2)
+
++ ∥Q∥L∞([0 ,T ]; H1)∥H[Q]∥L2([0 ,T ]; L2)
+
+
+
+. (19) 6
+
+The rest of this paper is structured as follows. In Section 2 we establish the existence of orthonormal bases of eigenfunctions of appropriate surface PDE operators. Their existence is a consequence of the regularity theory for PDEs on manifolds found in [4] and the classical spectral decomposition of self-adjoint compact operators [21, §D.6], [10, Chapter 6]. In Section 3, we utilize the aforementioned bases to design a Faedo–Galerkin scheme for the ap-proximation of the surface Beris-Edwards system (8). We prove that Galerkin solutions satisfy a discrete energy law analogous to (10) and a-priori estimates that are uniform in the size of the discrete system. Via standard compactness arguments, we extract convergent subsequences in different strong and weak topologies that allow us to pass to the limit in the appropriately tested (in-time) Galerkin scheme to recover a weak solution (u, Q) in the sense of Defini-tion 1.4 of (8) (cf. Theorem 1.5). Because the manifold Γ has no boundary, we are able to recover the pressure field π
+
+from (u, Q) via a “postprocessing” approach based upon Proposition 2.2 (Helmholtz–Weyl decomposition on Γ) and the well-posedness of the ultra-weak formulation of the Laplace–Beltrami operator [4, Lemma 4.3]. 2. P RELIMINARIES ON SPECTRAL THEORY 
+
+In this section we establish the existence of orthonormal bases of eigenfunctions that will be utilized in the Faedo– Galerkin scheme for the Beris–Edwards problem (8). 
+
+Proposition 2.1 (Eigendecomposition of the − div M ∇M + I operator) . If Γ is of class C1,1, then there exist a family 
+
+{A(n)}n∈N ⊆ H2 
+
+> S
+
+that is an orthonormal basis of L2 
+
+> S
+
+and an orthogonal basis of H1 
+
+> S
+
+, and a nondecreasing sequence of nonnegative numbers with lim n→∞ λn = ∞ such that 
+
+− div M ∇M A(n) + A(n) = λnA(n), on Γ.
+
+Proof. We first notice that the Riesz-representation theorem in H1 ensures that for each F ∈ L2, there exists a unique 
+
+A ∈ H1 such that 
+
+(∇M A, ∇M R)Γ + ( A, R)Γ = ( F, R)Γ, ∀ R ∈ H1. (20) Furthermore, by choosing R = vei ⊗ ej for fixed i, j ∈ { 1, . . . , d } and v ∈ H1, we obtain 
+
+(∇M Aij , ∇M v) + ( Aij , v )Γ = ( Fij , v )Γ, ∀ v ∈ H1, (21) which is a scalar Γ-Poisson problem for Aij . The higher regularity theory [5, Theorem 1.4] (see also [7, Lemma 3] for Γ of class C2) implies that Aij ∈ H2 and ∥Aij ∥2 ≤ C∥Fij ∥ for each i, j ; hence, A ∈ H2 and ∥A∥2 ≤ C∥F∥.Furthermore, by integrating by parts (cf. (14)), we deduce that A strongly satisfies 
+
+T (A) = F, (22) where T : H2 → L2 is the continuous and invertible operator given by T (A) := − div M ∇M A + A. Hence, recalling that H2 is compactly embedded in L2 [27, Theorem 8.2], the operator T −1 from L2 to L2 is compact, symmetric (cf. (20)) and positive. Since L2 is separable, it thus follows from [21, §D.6] that there exist an orthonormal basis 
+
+{A(n)}n∈N of L2 and a sequence of nonincreasing numbers {αn}n∈N with lim n→+∞ αn = 0 such that T −1(A(n)) = 
+
+αnA(n), or equivalently, T (A(n)) = λnA(n) with λn = α−1 
+
+> n
+
+. By the aforementioned regularity theory [7] we also know that A(n) ∈ H2. From the identity (∇M A(n), ∇M R)Γ + ( A(n), R)Γ = R 
+
+> Γ
+
+T (A(n)) : R = λn
+
+R 
+
+> Γ
+
+A(n) : R, it is easy to see that {A(n)}n∈N is also an orthogonal basis of H1.Integrating by parts (cf. (12)) in (21) with Fij = λnA(n) 
+
+> ij
+
+, we deduce that each component A(n) 
+
+> ij
+
+of A(n) strongly satisfies 
+
+− div M ∇M A(n) 
+
+> ij
+
++ A(n) 
+
+> ij
+
+= λnA(n) 
+
+> ij
+
+, a.e. on Γ. (23) Let eA(n) be given by eA(n) 
+
+> ij
+
+= 12 (A(n) 
+
+> ij
+
++ A(n) 
+
+> ji
+
+) − 1 
+
+> d+1
+
+δij tr( A(n)). Clearly, eA(n) ∈ H2 
+
+> S
+
+and by linearity of (23) each of its components satisfies 
+
+− div M ∇M eA(n) 
+
+> ij
+
++ eA(n) 
+
+> ij
+
+= λn eA(n) 
+
+> ij
+
+, a.e. on Γ,
+
+which altogether is equivalent to 
+
+− div M ∇M eA(n) + eA(n) = λn eA(n), on Γ.
+
+The L2- and H1-orthogonalities of { eA(n)} follow from the fact that λn̸ = λm if m̸ = n and 
+
+λn( eA(n), eA(m))Γ = ( T ( eA(n)), eA(m))Γ = ( ∇M A(n), ∇M A(m))Γ + ( A(n), A(m))Γ7
+
+= ( eA(n), T ( eA(m))) Γ = λm( eA(n) : eA(m))Γ.
+
+Finally, to see that { eA(n)}n∈N is both a basis of L2 
+
+> S
+
+and H1 
+
+> S
+
+it suffices to notice that if A ∈ L2 
+
+> S
+
+or A ∈ H1 
+
+> S
+
+is expressed in terms of the basis {A(n)}n∈N as A = P∞ 
+
+> n=1
+
+βnA(n), then 
+
+A = 12 (A + AT ) − tr( A)
+
+d + 1 I =
+
+> ∞
+
+X
+
+> n=1
+
+βn
+
+ 12 (A(n) + A(n)T ) − tr( A(n))
+
+d + 1 I
+
+
+
+=
+
+> ∞
+
+X
+
+> n=1
+
+βn eA(n).
+
+This finishes the proof. □
+
+We next state a Helmholtz–Weyl decomposition result for closed hypersurfaces that will be instrumental in proving the existence of the pressure field π satisfying an appropriate weak formulation of the momentum equation (8b). 
+
+Proposition 2.2 ([4, Proposition 4.3] Helmholtz–Weyl decomposition on Γ). Let p ∈ (1 , ∞). Let m be a nonnegative integer and assume Γ is of class C1 if m = 0 or Cm, 1 if m ≥ 1. Then Wm,p t can be decomposed as 
+
+Wm,p t = Wm,p t,σ ⊕ ∇ ΓWm+1 ,p  
+
+> #
+
+. (24) 
+
+Furthermore, this decomposition is stable in the sense that there exists a positive constant C > 0, depending only on 
+
+m, p and Γ, such that for each v = v1 + v2 ∈ Wm,p t with v1 ∈ Wm,p t,σ and v2 ∈ ∇ ΓWm+1 ,p  
+
+> #
+
+it holds that 
+
+∥v1∥m,p + ∥v2∥m,p ≤ C∥v∥m,p .
+
+For p = 2 , this decomposition is L2-orthogonal. 
+
+The Helmholtz–Weyl decomposition gives rise to the projection onto a div Γ-free subspace, called the Leray pro-jection. 
+
+Definition 2.3 ([4, Definition 4.4] Leray projection on Γ). Under the hypotheses of Proposition 2.2, we define the Leray projection Pσ : Lpt → Lpt,σ by Pσ v = h for each v = h + g ∈ Lpt , where h ∈ Lpt,σ and g ∈ ∇ ΓW1,p  
+
+> #
+
+are the unique components of v given by Proposition 2.2 (Helmholtz–Weyl decomposition on Γ). We also denote P ⊥ 
+
+> σ
+
+v = g.
+
+Notice that 
+
+∥Pσ v∥m,p + ∥P ⊥ 
+
+> σ
+
+v∥m,p ≤ C∥v∥m,p , v ∈ Wm,p t (25) and 
+
+(v, w)Γ = ( Pσ v, P σ w)Γ + ( P ⊥ 
+
+> σ
+
+v, P ⊥ 
+
+> σ
+
+w)Γ, ∀v ∈ Lpt , w ∈ Lp∗ 
+
+> t
+
+.
+
+Central to the Faedo–Galerkin method will be the following Stokes operator and its properties that motivated and were proven in our previous work [4]. 
+
+Definition 2.4 ([4, p. 23] Stokes operator on Γ). Let p ∈ (1 , ∞) and Γ be of class C2,1. Let A : W2,p t,σ → Lpt,σ denote the Stokes operator on Γ defined by Av = −Pσ (P div Γ ∇Γv). 
+
+Proposition 2.5 ([4, Theorem 4.11] eigenfunctions of the Stokes operator) . If Γ is of class C2,1, then there is a family of functions {vn}n∈N ⊆ T 
+
+> 2≤p< ∞
+
+W2,p t,σ and positive numbers {ωn}n∈N with lim n→∞ ωn = ∞ such that (i) For each n ∈ N, (vn, ω n) is an eigenpair of A:
+
+Avn = ωnvn, a.e. on Γ.
+
+(ii) {vn}n∈N is an orthonormal basis of L2 
+
+> t,σ
+
+.(iii) {ω−1/2 
+
+> n
+
+vn}n∈N is an orthonormal basis of H1 
+
+> t,σ
+
+with respect to the equivalent inner product (u, v) 7 →
+
+(∇Γu, ∇Γv)Γ.(iv) {ω−1 
+
+> n
+
+vn}n∈N is an orthonormal basis of H2 
+
+> t,σ
+
+with respect to the equivalent inner product (u, v) 7 → (Au, A v)Γ,because the Poincar´ e inequality is valid in H1 
+
+> t
+
+[4, Theorem 3.3] .8
+
+3. E XISTENCE OF WEAK SOLUTIONS 
+
+This section is devoted to proving Theorem 1.5 (existence of weak solutions) and Theorem 1.6 (recovery of the pressure field). In Section 3.1 we design a Faedo–Galerkin method based upon the orthonormal bases of eigenfunctions introduced in Section 2 for the approximation of the surface Beris–Edwards model (8). In Section 3.2 we establish an energy law and useful a-priori estimates satisfied by the solution of the Faedo–Galerkin scheme that are needed for the proofs of Theorem 1.5 and Theorem 1.6. In turn, we prove our main results Theorem 1.5 and Theorem 1.6 respectively in Section 3.3 and Section 3.4. 
+
+Remark 3.1 (regularity on Γ). From now onwards we assume that Γ is of class C2,1.
+
+3.1. F AEDO –G ALERKIN METHOD 
+
+In this section we design a continuous-in-time Faedo–Galerkin method based upon eigenfunctions of surface ana-logues of the Stokes and Laplace operators to respectively approximate the velocity field u and Q-tensor Q of the Beris–Edwards problem (8). Let {A(i)}∞ 
+
+> i=1
+
+⊆ H2 
+
+> S
+
+and {v(i)}∞ 
+
+> i=1
+
+⊆ H2 
+
+> t,σ
+
+be, respectively, the eigenfunctions of I − div M ∇M and the Stokes operators from Proposition 2.1 and Proposition 2.5. We define the finite-dimensional spaces 
+
+Qn := span {A(1) , · · · , A(n)} ⊆ L2
+
+> S
+
+Vn := span {v(1) , · · · , v(n)} ⊆ L2 
+
+> t,σ
+
+.
+
+and the associated orthogonal projectors 
+
+πn : L2 
+
+> S
+
+→ Q n, and Pn : L2 
+
+> t,σ
+
+→ V n.
+
+Recall that these orthogonal projectors are bounded linear operators with operator norms bounded by 1.We define the following discrete versions of Σ and ΣΓ (cf. (6)) that will be present in the Galerkin method to be soon introduced 
+
+Σn[Q] := Q πnH[Q] − (πnH[Q]) Q, Σn, Γ[Q] := PΣ n[Q]P; (26) note that Σn[Q] and Σn, Γ[Q] are skew-symmetric. We seek approximations of the form 
+
+u(n)(t)( x) = 
+
+> n
+
+X
+
+> i=1
+
+di(t)v(i)(x) and Q(n)(t)( x) = 
+
+> n
+
+X
+
+> i=1
+
+hi(t)A(i)(x),
+
+such that the pair (u(n), Q(n)) satisfies the following weak formulations for t ∈ (0 , T ):
+
+• the linear momentum equation (8b) on Vn:
+
+ρ
+
+n
+
+(∂tu(n), v(k))Γ + (( ∇Γu(n))u(n), v(k))Γ
+
+o
+
++ 2 μ (DΓu(n), DΓv(k))Γ
+
+= −(Σn, Γ[Q(n)], ∇Γv(k))Γ − (πnH[Q(n)] : ∇M Q(n), v(k))Γ − 2( BΣ n[Q(n)]ν, v(k))Γ, (27a) for all k ∈ { 1, . . . , n }.
+
+• the liquid crystal kinematic equation (8a) on Qn:
+
+(∂tQ(n), A(l))Γ + (( ∇M Q(n))u(n), A(l))Γ = M (H[Q(n)], A(l))Γ + ( S[Q(n), u(n)], A(l))Γ, (27b) for all l ∈ { 1, . . . , n }.We supplement these equations with the boundary conditions 
+
+u(n)(0) = u(n)0 := Pnu0 and Q(n)(0) = Q(n)0 := πnQ0. (27c) 
+
+Remark 3.2. In what follows we will use that for all t ∈ [0 , T ),(i) ∂tQ(n)(t) ∈ Q n, and hence πn∂tQ(n) = ∂tQ(n).(ii) div M ∇M Q(n)(t) = (1 − λn)Q(n)(t) ∈ Q n, and hence πn div M ∇M Q(n) = div M ∇M Q(n).
+
+The system formed by collecting equations (27) can be seen as a finite-dimensional system of time-dependent ODEs. Such system, according to the Peano existence theorem [15, p. 6] has a solution on a maximal time interval 
+
+[0 , T n), with Tn > 0. We must show that Tn is independent of n.9
+
+3.2. E NERGY LAW AND A -PRIORI ESTIMATES 
+
+In this section, we establish a discrete analogue of the energy law (10) and appropriate a-priori estimates that are fundamental for the proof of Theorem 1.5 (existence of weak solutions). 
+
+Proposition 3.3 (discrete energy law) . For each n ∈ N the Galerkin scheme (27) satisfies the following energy law 
+
+ddt
+
+
+
+ELdG [Q(n)(t)] + K[u(n)(t)] 
+
+
+
+= −2μ∥DΓu(n)(t)∥2 − M ∥πnH[Q(n)(t)] ∥2 (28) 
+
+for all t ∈ (0 , T n).Proof. In contrast to [9], that derives (10) via the Generalized Onsager’s principle, we now proceed by testing (27) with suitable test functions and exploiting algebraic cancellations. We start by noticing that we can replace A(l) by 
+
+πnH[Q(n)] in (27b), since the latter is a (time-dependent) linear combination of the {A(l)}nl=1 . That way, we obtain in first instance: 
+
+(∂tQ(n), π nH[Q(n)]) Γ + (( ∇M Q(n))u(n),π nH[Q(n)]) Γ
+
+= M (H[Q(n)], π nH[Q(n)]) Γ + ( S[Q(n), u(n)], π nH[Q(n)]) Γ
+
+= M ∥πnH[Q(n)]∥2 + ( S[Q(n), u(n)], π nH[Q(n)]) Γ.
+
+(29) Since ∂tQ(n)(t) ∈ Q n (cf. (i) of Remark 3.2), the first term on the left-hand side of (29) can be rewritten as a total derivative in time; more precisely 
+
+(∂tQ(n), π nH[Q(n)]) Γ = ( ∂tQ(n), H[Q(n)]) Γ
+
+> (3)
+
+=
+
+
+
+∂tQ(n), P
+
+
+
+L div M ∇M Q(n) − F ′[Q(n)]
+
+ 
+
+> Γ
+
+= L(∂tQ(n), div M ∇M Q(n))Γ − (∂tQ(n), F ′[Q(n)]) Γ
+
+> (14)
+
+= −L(∂t∇M Q(n), ∇M Q(n))Γ − (∂tQ(n), F ′[Q(n)]) Γ
+
+= − L
+
+2ddt ∥∇ M Q(n)∥2 − ddt F [Q(n)] = − ddt ELdG [Q(n)].
+
+Replacing this back in (64), yields 
+
+ddt ELdG [Q(n)] + M ∥πnH[Q(n)]∥2 = −(S[Q(n), u(n)], π nH[Q(n)]) Γ + (( ∇M Q(n))u(n), π nH[Q(n)]) Γ. (30) Now, since u(n) is a (time-dependent) linear combination of the v(k), k = 1 , . . . , n , we can replace v(k) by u(n) in (27a), thereby obtaining 
+
+ddt K[u(n)] + 2 μ∥DΓu(n)∥2 (11) 
+
+= ρ
+
+2ddt ∥u(n)∥2 + 2 μ∥DΓu(n)∥2
+
+= −(Σn, Γ[Q(n)], ∇Γu(n))Γ − (πnH[Q(n)] : ∇M Q(n), u(n))Γ − 2( BΣ n[Q(n)]ν, u(n))Γ, (31) where we have used that (( ∇Γu(n))u(n), u(n))Γ = 0 , because u(n) is Γ-divergence-free (see, e.g. [4, Proposition 5.1]). In order to conclude the proof we shall rewrite each one of the three terms in the right-hand side of (31). Regarding the first term, we have 
+
+(Σn, Γ[Q(n)], ∇Γu(n))Γ
+
+> (26)
+
+= ( Σn[Q(n)], ∇Γu(n))Γ
+
+> Table 1
+
+= (Σn[Q(n)], WΓ(u(n))) Γ
+
+> (26)
+
+= ( Q(n) πnH[Q(n)] − πnH[Q(n)] Q(n), WΓ(u(n))) Γ
+
+= −(WΓ(u(n))Q(n) − Q(n)WΓ(u(n)), π nH[Q(n)]) Γ
+
+> (5)
+
+= −(SΓ[Q(n), u(n)], π nH[Q(n)]) Γ,
+
+(32) where have used that ∇Γu(n) = P(∇Γu(n))P, the fact that Σn[Q(n)] is skew-symmetric and Q(n) and πnH[Q(n)]
+
+are symmetric, and the easily verifiable identity for A, B symmetric and C skew-symmetric (AB −BA ) : C = −B :(CA − AC ). On the other hand, upon using the identity 
+
+(R : ∇M T) · v = R : ( ∇M T)v (33) 10 
+
+for tensor-valued functions R and T, and vector-valued function v [9, eq. (2.6)], the second term takes the form 
+
+(πnH[Q(n)] : ∇M Q(n), u(n))Γ = (( ∇M Q(n))u(n), π nH[Q(n)]) Γ. (34) Finally, for the third term, we utilize the symmetry of the Weingarten map B, Q(n) and πnH[Q(n)] and the skew-symmetry of Σn[Q(n)] and W∗(u(n)) to write 
+
+2( BΣ n[Q(n)]ν, u(n))Γ = 2( Σn[Q(n)], Bu (n) ⊗ ν)Γ = ( Σn[Q(n)], Bu (n) ⊗ ν − ν ⊗ Bu (n))Γ
+
+> (4)
+
+= ( Σn[Q(n)], W∗(u(n))) Γ
+
+> (26)
+
+= ( Q(n) πnH[Q(n)] − πnH[Q(n)] Q(n), W∗(u(n))) Γ
+
+> (33)
+
+= −(W∗(u(n))Q(n) − Q(n)W∗(u(n)), π nH[Q(n)]) Γ
+
+> (5)
+
+= −(S∗[Q(n), u(n)], π nH[Q(n)]) Γ. (35) Upon replacing (32), (34) and (35) back in (31), the proof is finished by adding the resulting equality to (30) and realizing that S[Q(n), u(n)] := SΓ[Q(n), u(n)] + S∗[Q(n), u(n)] cancels with the corresponding term in (30). □
+
+We now integrate the estimate (28) in time over [0 , t ] with t < T n to obtain the following discrete a priori estimate associated with the Galerkin scheme (27): 
+
+ELdG [Q(n)(t)] + K[u(n)(t)] + 
+
+Z t
+
+> 0
+
+
+
+2μ∥DΓu(n)(s)∥2 + M ∥πnH[Q(n)(s)] ∥2
+
+ds ≤ ELdG [Q(n)0 ] + K[u(n)0 ]. (36) Since |Q|4 is the leading order term of F [Q] (cf. (1)) and Γ is bounded, it is easy to see that there are constants c1, c2,
+
+c3 and c4 depending only on a, b, c and d such that for all matrix A
+
+c1|A|4 − c2 ≤ F [A] ≤ c3|A|4 + c4. (37) Since ELdG and K are bounded from below, the a priori estimate (36) can be split as 
+
+sup 
+
+> t∈[0 ,T n)
+
+
+
+∥∇ M Q(n)(t)∥2 + ∥Q(n)(t)∥40,4
+
+
+
++
+
+Z Tn
+
+> 0
+
+∥πnH[Q(n)(s)] ∥2 ds
+
+≤ C1
+
+
+
+∥∇ M Q(n)0 ∥2 + ∥Q(n)0 ∥40,4 + ∥u(n)0 ∥2
+
++ C2 (38) and 
+
+sup 
+
+> t∈[0 ,T n)
+
+∥u(n)(t)∥2 +
+
+Z Tn
+
+> 0
+
+∥DΓu(n)(s)∥2 ds ≤ C1
+
+
+
+∥∇ M Q(n)0 ∥2 + ∥Q(n)0 ∥40,4 + ∥u(n)0 ∥2
+
++ C2, (39) where C1 and C2 are positive constants depending only on L, ρ, a, b, c, d, μ and M .
+
+Theorem 3.4. Every solution (u(n), Q(n)) of the Galerkin scheme (27) exists globally in time, namely Tn = ∞.Proof. From (38) and (39), t → ∥ Q(n)(t)∥0,4 + ∥u(n)(t)∥ is uniformly bounded. That is, the norm of the solu-tion (u(n), Q(n)) (belonging to a finite-dimensional space) is uniformly bounded in time. Then, a straightforward application of [35, Theorem 3.1] yields Tn = ∞. □
+
+Proposition 3.5 (a-priori estimates for (u(n), Q(n))). Let n ∈ N and let (u(n), Q(n)) be a solution of system (27) .Then, for all T > 0,
+
+u(n) ∈ L2([0 , T ]; H1 
+
+> t,σ
+
+) ∩ L∞([0 , T ]; L2 
+
+> t,σ
+
+)
+
+Q(n) ∈ L2([0 , T ]; H2 
+
+> S
+
+) ∩ L∞([0 , T ]; H1 
+
+> S
+
+) (40) 
+
+and the a priori estimate holds 
+
+Z T
+
+> 0
+
+∥u(n)(t)∥21 dt + sup  
+
+> t∈[0 ,T ]
+
+∥u(n)(t)∥2 +
+
+Z T
+
+> 0
+
+∥Q(n)(t)∥22 dt + sup  
+
+> t∈[0 ,T ]
+
+∥Q(n)(t)∥21 ≤ C, (41) 
+
+where C > 0 depends only on T , L, ρ, a, b, c, d, μ, M ,∥u0∥ and ∥Q0∥1.11 
+
+Proof. First notice that since {A(n)}n∈N is an orthogonal basis of H1 
+
+> S
+
+(cf. Proposition 2.1), the operator πn|H1 
+
+> S
+
+is the orthogonal projector from H1 
+
+> S
+
+onto Qn.We shall now bound the right-hand sides of (39) and (38) independently of n. Indeed, it holds that 
+
+∥∇ M Q(n)0 ∥2 + ∥Q(n)0 ∥40,4 + ∥u(n)0 ∥2 = ∥∇ M πnQ0∥2 + ∥πnQ0∥40,4 + ∥Pnu0∥2
+
+≤ ∥ πnQ0∥21 + ∥ı∥4∥πnQ0∥41 + ∥u0∥2 ≤ ∥ Q0∥21 + ∥ı∥4∥Q0∥41 + ∥u0∥2, (42) where ∥ı∥ is the boundedness constant of the continuous (and compact) Sobolev embedding ı : H1 → L4. Now, combining the fact that L∞([0 , T ]; L2 
+
+> t
+
+) is continuously embedded in L2([0 , T ]; L2 
+
+> t
+
+) (with a constant depending on T )and Korn’s inequality in H1 
+
+> t
+
+[31, eq. (4.8)], yields 
+
+sup  
+
+> t∈[0 ,T ]
+
+∥u(n)(t)∥2 +
+
+Z T
+
+> 0
+
+∥DΓu(n)(t)∥2 dt ≥ 12 sup  
+
+> t∈[0 ,T ]
+
+∥u(n)(t)∥2 + CT
+
+Z T
+
+> 0
+
+∥u(n)(t)∥2 + ∥DΓu(n)(t)∥2 dt
+
+!
+
+≥ 12 sup  
+
+> t∈[0 ,T ]
+
+∥u(n)(t)∥2 + ˜CT
+
+Z T
+
+> 0
+
+∥u(n)(t)∥21 dt. 
+
+This, combined with (39) and (42), proves the desired bound on u(n). To prove the desired estimate for Q(n) we need to improve the bound on πnH[Q(n)] (cf. (38)) to a uniform bound on div M ∇M Q(n). Recall the definition (3) of 
+
+H[Q(n)], which since div M ∇M Q(n) ∈ Q n (cf. (ii) of Remark 3.2), lets us write 
+
+πnH[Q(n)] = L div M ∇M Q(n) − πnPF ′[Q(n)] = L div M ∇M Q(n) − πnF ′[Q(n)]. (43) Note that combining (38) and (42) leads to 
+
+sup  
+
+> t∈[0 ,T ]
+
+∥Q(n)(t)∥1 ≤ C. (44) In turn, combining of identity (43) and estimates (38) and (42) implies 
+
+Z T
+
+> 0
+
+∥ div M ∇M Q(n)(t)∥2 dt ≤ C +
+
+Z T
+
+> 0
+
+∥F ′[Q(n)]( t)∥2 dt, 
+
+for some C > 0 depending on ∥Q0∥1 and ∥u0∥. Moreover, since F ′[Q(n)] has at most cubic terms in Q(n), the Sobolev embedding H1 ,→ L6 (because d = 2 or d = 3 ) in conjunction with (44) further yields 
+
+Z T
+
+> 0
+
+∥ div M ∇M Q(n)(t)∥2 dt ≤ CT .
+
+We finally notice that by elliptic regularity of the operator div M ∇M − I (see the proof of Proposition 2.1) it holds that 
+
+∥Q(n)(t)∥22 ≤ C
+
+
+
+∥ div M ∇M Q(n)(t)∥2 + ∥Q(n)(t)∥2
+
+, a.e. t ∈ [0 , T ].
+
+This concludes the proof. □
+
+Before establishing further a-priori estimates for (u(n), Q(n)) we require some interpolation inequalities, which due to the lack of boundary of Γ, are akin to their flat domain counterparts (the so-called Ladyzhenskaya’s inequality). 
+
+Lemma 3.6 (Ladyzhenskaya’s inequalities) . If d = 2 , then 
+
+∥v∥0,4 ≲ ∥v∥1/21 ∥v∥1/2, ∀v ∈ H1(Γ) , (45) 
+
+whereas if d = 3 , then 
+
+∥v∥0,3 ≲ ∥v∥1/21 ∥v∥1/2, ∀v ∈ H1(Γ) , (46) 
+
+and 
+
+∥v∥0,4 ≲ ∥v∥3/41 ∥v∥1/4, ∀v ∈ H1(Γ) . (47) 12 
+
+Proof. Since Γ is compact there is a finite atlas {(Vi, Ui, χi)}Ni=1 , where each of the charts χi : Vi → U i ∩ Γ are isomorphisms of the same regularity of Γ and compatible with its orientation. Without loss of generality we can assume that there exist domains Wi ⊆ Rd+1 such that Wi ⊆ U i and {W i}Ni=1 is still a covering of Γ. Furthermore, by considering a partition of unity {θi}Ni=1 associated with the covering {W i}Ni=1 of Γ it follows that for each i =1, . . . , N the function vi := θiv ∈ H1(Γ) are such that vi ◦ χi ∈ H10(Vi). Let us prove the case d = 2 ; the case 
+
+d = 3 will follow similarly. By the triangle’s inequality, Ladyzhenskaya’s inequality in flat domains [40] and Cauchy-Schwarz inequality we have that 
+
+∥v∥0,4 ≤
+
+> N
+
+X
+
+> i=1
+
+∥vi∥0,4 ∼=
+
+> N
+
+X
+
+> i=1
+
+∥vi ◦ χi∥L4(Vi) ≲
+
+> N
+
+X
+
+> i=1
+
+∥vi ◦ χi∥1/2H1(Vi)∥vi ◦ χi∥1/2L2(Vi) ∼=
+
+> N
+
+X
+
+> i=1
+
+∥vi∥1/21 ∥vi∥1/2.
+
+Finally, by noticing that ∥vi∥1 ≲ ∥v∥1 and ∥vi∥ ≲ ∥v∥ because θi ∈ C1(Γ) , we obtain that 
+
+∥v∥0,4 ≲
+
+> N
+
+X
+
+> i=1
+
+∥v∥1/21 ∥v∥1/2 = N ∥v∥1/21 ∥v∥1/2,
+
+which finishes the proof. □
+
+Proposition 3.7 (a-priori estimates in time for (∂tu(n), ∂ tQ(n))). Let n ∈ N and let (u(n), Q(n)) be a solution of system (27) . Then, for all T > 0 we have the following estimate: 
+
+Z T
+
+> 0
+
+∥∂tu(n)∥2(H2  
+
+> t,σ )′
+
+dt +
+
+Z T
+
+> 0
+
+∥∂tQ(n)∥2(H1  
+
+> S)′
+
+dt ≤ C, 
+
+where C > 0 is a constant depending only on T , L, ρ, a, b, c, d, μ, M , ∥B∥0,∞, ∥u0∥ and ∥Q0∥1.Proof. We start by proving the estimate for ∂tu(n). By H¨ older’s inequality and the Sobolev embeddings H2 ,→ L∞,
+
+H1 ,→ L6 and H1 ,→ L3, we have that for each v ∈ V n and for each t ∈ (0 , T ],
+
+|(DΓu(n), DΓv)Γ| ≤ ∥∇ Γu(n)∥∥∇ Γv∥ ≤ ∥ u(n)∥1∥v∥2,
+
+|(Σn, Γ[Q(n)], ∇Γv)Γ| (26) 
+
+≤ 2∥Q(n)∥0,6∥πnH[Q(n)]∥∥∇ Γv∥0,3 ≲ ∥Q(n)∥1∥πnH[Q(n)]∥∥ v∥2,
+
+|(πnH[Q(n)] : ∇M Q(n), v)Γ| ≤ ∥ πnH[Q(n)]∥∥∇ M Q(n)∥∥ v∥0,∞ ≲ ∥πnH[Q(n)]∥Q(n)∥1∥v∥2,
+
+and 
+
+|(BΣ n[Q(n)]ν, v)Γ| ≤ ∥ B∥0,∞∥Q(n) πnH[Q(n)]−πnH[Q(n)] Q(n)∥0,1∥v∥0,∞ ≲ ∥B∥0,∞∥Q(n)∥∥ πnH[Q(n)]∥∥ v∥2.
+
+Depending on the dimension d, we control the convective term differently. For d = 2 , using H¨ older’s inequality and interpolation inequality (45) we arrive at 
+
+|(( ∇Γu(n))u(n), v)Γ| = |(( ∇Γv)u(n), u(n))Γ| ≤ ∥ u(n)∥20,4∥∇ Γv∥L2 ≲ ∥u(n)∥∥ u(n)∥1∥v∥1. (48a) If d = 3 we proceed similarly by using instead interpolation inequality (46) and the embedding H1 ,→ L3, thus arriving at 
+
+|(( ∇Γu(n))u(n), v)Γ| = |(( ∇Γv)u(n), u(n))Γ| ≤ ∥ u(n)∥20,3∥∇ Γv∥0,3 ≲ ∥u(n)∥∥ u(n)∥1∥v∥2. (48b) Hence, upon recalling the form of the discrete momentum equation (27a), we deduce that for each t ∈ (0 , T ]:
+
+|(∂tu(n), v)Γ| ≤ Cα n∥v∥2, ∀v ∈ V n.
+
+where C is a positive constant depending on Ω, ∥B∥L∞(Ω) , ρ and μ, and αn is a time-dependent function defined by 
+
+αn := (1 + ∥u(n)∥)∥u(n)∥1 + ∥πnH[Q(n)]∥∥ Q(n)∥1,
+
+which is in L2([0 , T ]) with an L2-norm bounded independently of n (cf. (38), (41)). Moreover, keeping in mind that (∂tu(n), v)Γ = 0 for all v in the L2-orthogonal complement of Vn (because u(n)(t) ∈ V n for each t) and that 
+
+∥Pnv∥2 ≲ ∥v∥2 for each v ∈ H2 
+
+> t,σ
+
+(because of Proposition 2.5), we obtain that for each t ∈ (0 , T ],
+
+∥∂tu(n)∥(H2  
+
+> t,σ )′
+
+= sup 
+
+> v∈H2
+> t,σ
+
+|(∂tu(n), v)Γ|∥v∥2
+
+= sup 
+
+> v∈H2
+> t,σ
+
+|(∂tu(n), Pnv)Γ|∥v∥2
+
+≲ sup 
+
+> v∈H2
+> t,σ
+
+|(∂tu(n), Pnv)Γ|∥Pnv∥2
+
+≲ αn. (49) 13 
+
+which proves the estimate for ∂tu(n).Now we prove the estimate for ∂tQ(n). By H¨ older’s inequality and Sobolev embeddings H1 ,→ L6 and H1 ,→ L6
+
+we have that for each t ∈ (0 , T ] and A ∈ Q n,
+
+|(( ∇M Q(n))u(n), A)Γ| ≤ ∥∇ M Q(n)∥∥ u(n)∥0,3∥A∥0,6 ≲ ∥Q(n)∥1∥u(n)∥1∥A∥1,
+
+|(πnH[Q(n)], A)Γ| ≤ ∥ πnH[Q(n)]∥∥ A∥1
+
+and 
+
+|(S[Q(n), u(n)], A)Γ| (5) 
+
+≤ (∥WΓ[u(n)]∥+∥W∗[u(n)]∥)∥Q(n)∥0,3∥A∥0,6 ≲ (∥WΓ[u(n)]∥+∥W∗[u(n)]∥)∥Q(n)∥1∥A∥1
+
+> Table 1 ,(4)
+
+≤ C(∥∇ Γu(n)∥ + ∥B∥0,∞∥u(n)∥∥ )∥Q(n)∥1∥A∥1 ≤ C(1 + ∥B∥0,∞)∥Q(n)∥1∥u(n)∥1∥A∥1.
+
+All these estimates combined with the discrete kinematic equation (27b) yield, 
+
+|(∂tQ(n), A)Γ| ≤ Cb n∥A∥1, ∀t ∈ (0 , T ],
+
+where C > 0 only depends on M and ∥B∥0,∞, and yn is the time-dependent function defined by 
+
+bn := ∥Q(n)∥1∥u(n)∥1 + ∥πnH[Q(n)]∥,
+
+which is in L2([0 , T ]) with an L2-norm bounded independently of n (cf. (38),(41)). Since (∂tQ(n), A)Γ = 0 for all 
+
+A in the L2-orthogonal complement of Qn (because u(n)(t) ∈ Q n for each t) and that ∥πnA∥1 ≤ C∥A∥1 for each 
+
+A ∈ H1 
+
+> S
+
+(because of Proposition 2.1), we proceed similarly to (49) to obtain that for each t ∈ (0 , T ],
+
+∥∂tQ(n)∥(H1  
+
+> S)′
+
+≲ bn ≤ b, 
+
+which proves the estimate for ∂tQ(n). □
+
+3.3. P ROOF OF THEOREM 1.5: EXISTENCE OF WEAK SOLUTIONS 
+
+We proceed similarly to [1, Proof of Theorem 1.2] (see also [25]) by standard compactness arguments. In Sec-tion 3.3.1 we utilize the classical Aubin–Lions–Simon and Banach–Alaoglu theorems and interpolation inequalities to extract subsequences of the sequence of Galerkin solutions that converge in appropriate weak and strong topologies to a unique limit (u, Q). With these convergences at hand, we are able to pass to the limit in the suitably tested-in-time equations (27) satisfied by the Galerkin solutions in order to respectively prove in Section 3.3.2, Section 3.3.3 and Section 3.3.4 that the limit (u, Q) satisfies the weak momentum equation (15), weak LC kinematics equation (16) and energy inequality (17); hence, (u, Q) is a weak solution of the surface Beris–Edwards problem. 3.3.1. F IRST STEP : CONVERGENCE UP TO SUBSEQUENCE 
+
+Let T > 0. From Proposition 3.5 and Proposition 3.7 we know that the sequence of discrete solutions (u(n), Q(n))
+
+satisfy the bound 
+
+Z T
+
+> 0
+
+∥u(n)(t)∥21 dt + sup  
+
+> t∈[0 ,T ]
+
+∥u(n)(t)∥2 +
+
+Z T
+
+> 0
+
+∥∂tu(n)∥2(H2  
+
+> t,σ )′
+
+dt
+
++
+
+Z T
+
+> 0
+
+∥Q(n)(t)∥22 dt + sup  
+
+> t∈[0 ,T ]
+
+∥Q(n)(t)∥21 +
+
+Z T
+
+> 0
+
+∥∂tQ(n)∥2(H1  
+
+> S)′
+
+dt ≤ C, 
+
+(50) where C > 0 depends on data and T , but is independent of n. By the Banach–Alaoglu Theorem [10, Theorems 3.16 and 3.18] and the reflexivity of the corresponding Bochner spaces for p ∈ (1 , ∞), we have that (up to a subsequence) 
+
+u(n) ⇀ u, in L2([0 , T ]; H1 
+
+> t,σ
+
+), (51a) 
+
+DΓu(n) ⇀ DΓu, in L2([0 , T ]; L2), (51b) 
+
+u(n) ∗
+
+−⇀ u, in L∞([0 , T ]; L2 
+
+> t,σ
+
+), (51c) 
+
+Q(n) ⇀ Q, in L2([0 , T ]; H2 
+
+> S
+
+), (51d) 
+
+∇M Q(n) ⇀ ∇M Q, in L2([0 , T ]; H 1(Γ , R(d+1) 3
+
+)) , (51e) 14 
+
+div M ∇M Q(n) ⇀ div M ∇M Q, in L2([0 , T ]; L2 
+
+> S
+
+), (51f) 
+
+Q(n) ∗
+
+−⇀ Q, in L∞([0 , T ]; H1 
+
+> S
+
+), (51g) 
+
+∇M Q(n) ∗
+
+−⇀ ∇M Q, L∞([0 , T ]; L 2(Γ , R(d+1) 3
+
+)); (51h) notice that we have used in (51f) that div M ∇M Q ∈ L2 
+
+> S
+
+because div M ∇M Q(n) ∈ Q n ⊆ L2 
+
+> S
+
+for all n. Moreover, taking into account the sequence of Sobolev embeddings H2
+
+> Sc
+
+,−→ H1 
+
+> S
+
+,→ (H1 
+
+> S
+
+)′ and H1
+
+> Sc
+
+,−→ LpS ,→ (H2 
+
+> S
+
+)′ for 
+
+p ∈ (1 , 6) , a direct application of Aubin–Lions–Simon theorem [48, p. 85, Corollary 4] to estimates (50) yields the following strong convergences (up to a subsequence) for the sequence of Q-tensors {Q(n)}n∈N:
+
+Q(n) → Q, in L2([0 , T ]; H1 
+
+> S
+
+), (52a) 
+
+Q(n) → Q, in C([0 , T ]; LpS ). (52b) Similarly, given the sequence of Sobolev embeddings H1
+
+> t,σ c
+
+,−→ L2 
+
+> t,σ
+
+,→ (H2 
+
+> t,σ
+
+)′ and L2
+
+> t,σ c
+
+,−→ (H1 
+
+> t,σ
+
+)′ ,→ (H2 
+
+> t,σ
+
+)′, we also obtain the following strong convergences for {u(n)}n∈N:
+
+u(n) → u, in L2([0 , T ]; L2 
+
+> t,σ
+
+), (52c) 
+
+u(n) → u, in C([0 , T ]; ( H1 
+
+> t,σ
+
+)′). (52d) Since u ∈ L∞([0 , T ]; L2 
+
+> t,σ
+
+) ∩ C([0 , T ]; ( H1 
+
+> t,σ
+
+)′) and the embedding L2 
+
+> t,σ
+
+,→ (H1 
+
+> t,σ
+
+)′ is continuous, we deduce from [51, p. 178, Lemma 1.4] that u ∈ BC w([0 , T ]; L2 
+
+> t,σ
+
+). Similarly, since Q ∈ L∞([0 , T ]; H1 
+
+> S
+
+) ∩ C([0 , T ]; L2 
+
+> S
+
+) we deduce that BC w([0 , T ]; H1 
+
+> S
+
+). We also claim that 
+
+πnH[Q(n)] ⇀ H[Q], in L2([0 , T ]; L2 
+
+> S
+
+). (53) In fact, recall from definition (3) and identity (43) that 
+
+πnH[Q(n)] = L div M ∇M Q(n) − πnPF ′[Q(n)],
+
+H[Q] = P (L div M ∇M Q − F ′[Q]) = L div M ∇M Q − P F ′[Q].
+
+Hence, given the weak convergence (51f), in order to prove (53) it suffices to show that πnPF ′[Q(n)] ⇀ PF ′[Q]
+
+in L2([0 , T ]; L2 
+
+> S
+
+). Indeed, since {Q(n)}n∈N is bounded in L∞([0 , T ]; H1) and PF ′[Q(n)] is a cubic polynomial on 
+
+Q(n) in view of (2), the continuous injection H1 ,→ L6 implies that {P F ′[Q(n)]}n∈N is bounded in L2([0 , T ]; L2 
+
+> S
+
+)
+
+and so in L2 
+
+> S
+
+([0 , T ] × Γ) as well. Moreover, notice that because of (52b), it follows that (up to a subsequence) 
+
+PF ′[Q(n)] → P F ′[Q] a.e. in [0 , T ] × Γ. Invoking [46, Section 8.2, Theorem 12], these last two properties imply that 
+
+PF ′[Q(n)] converges weakly to PF ′[Q(n)] in L2 
+
+> S
+
+([0 , T ] × Γ) and so it does weakly in L2([0 , T ]; L2 
+
+> S
+
+). Finally, due to the pointwise convergence of the self-adjoint operator πn to the identity map on L2 
+
+> S
+
+and using [10, Proposition 3.5, (iii)] it can be proved that πnPF ′[Q(n)] also weakly converges to PF ′[Q] in L2([0 , T ]; L2 
+
+> S
+
+); hence we obtain (53). Finally, regarding the nonlinear terms, we claim that {u(n) ⊗ u(n)}n∈N is bounded in 
+
+(
+
+L2([0 , T ]; L2), if d = 2 ,
+
+L 43 ([0 , T ]; L2), if d = 3 .
+
+In fact, for d = 2 , combining interpolation inequality (45) and H¨ older’s inequality in time yield 
+
+
+
+> T
+
+Z
+
+> 0
+
+∥u(n) ⊗ u(n)∥2
+
+
+
+> 12
+
+≤
+
+
+
+> T
+
+Z
+
+> 0
+
+∥u(n)∥40,4
+
+
+
+> 12
+
+≲
+
+
+
+> T
+
+Z
+
+> 0
+
+∥u(n)∥21∥u(n)∥2
+
+
+
+> 12
+
+≤ ∥ u(n)∥L2([0 ,T ]; H1)∥u(n)∥L∞([0 ,T ]; L2)
+
+> (50)
+
+≤ C. 
+
+Analogously, for d = 3 , using interpolation inequality (47), 
+
+
+
+> T
+
+Z
+
+> 0
+
+∥u(n) ⊗ u(n)∥ 43
+
+
+
+> 34
+
+≤
+
+
+
+> T
+
+Z
+
+> 0
+
+∥u(n)∥ 83
+
+> 0,4
+
+
+
+> 34
+
+≲
+
+
+
+> T
+
+Z
+
+> 0
+
+∥u(n)∥21∥u(n)∥ 23
+
+
+
+> 34
+
+≤ ∥ u(n)∥ 32 
+
+> L2([0 ,T ]; H1)
+
+∥u(n)∥ 12 
+
+> L∞([0 ,T ]; L2)
+> (50)
+
+≤ C, 15 
+
+whence (up to a subsequence) 
+
+u(n) ⊗ u(n) ⇀ u ⊗ u, in 
+
+(
+
+L2([0 , T ]; L2), if d = 2 ,
+
+L 43 ([0 , T ]; L2), if d = 3; (54) the weak limit coinciding with u ⊗ u because u(n) ⊗ u(n) → u ⊗ u a.e. in [0 , T ] × Γ (cf. (52c)) and by [46, Section 8.2, Theorem 12]. 3.3.2. S TEP 2: MOMENTUM EQUATION SATISFIED BY (u, Q)
+
+Let w ∈ C1([0 , T ]; H2 
+
+> t,σ
+
+) be such that w(T ) = 0 . For any t ∈ [0 , T ], we write 
+
+w(t) = 
+
+> ∞
+
+X
+
+> i=1
+
+di(t)v(i),
+
+with di(t) = ( w(t), v(i))Γ and the series converging in the C([0 , T ]; Hm)-norms, m ∈ { 0, 1, 2} (cf. Proposition 2.5). Notice that di ∈ C1([0 , T ]) and di(T ) = 0 for each i ∈ N. Moreover, it holds that ∂tw(t) = P∞ 
+
+> i=1
+
+d′
+
+> i
+
+(t)v(i) ∈
+
+C([0 , T ]; H2 
+
+> t,σ
+
+) with the series also converging in the previously mentioned norms (this follows from combining the Banach–Steinhaus theorem and the fact that {∂tw(t) : t ∈ [0 , T ]} is a compact subset of H2 
+
+> t,σ
+
+). For a fixed N ≤ n define w(N ) := PNi=1 div(i). Taking w(N )(t) ∈ V n for each t ∈ [0 , T ] in (27a), integrating in time (including an integration-by-parts in the first term), and using the initial condition u(n)(0) = u(n)0 , we arrive at 
+
+− ρ
+
+> T
+
+Z
+
+> 0
+
+(u(n), ∂ tw(N ))Γ + ρ
+
+> T
+
+Z
+
+> 0
+
+(( ∇Γu(n))u(n), w(N ))Γ + 2 μ
+
+> T
+
+Z
+
+> 0
+
+(DΓu(n), DΓw(N ))Γ +
+
+> T
+
+Z
+
+> 0
+
+(Σn, Γ[Q(n)], ∇Γw(N ))Γ
+
++
+
+> T
+
+Z
+
+> 0
+
+(πnH[Q(n)] : ∇M Q(n), w(N ))Γ + 2 
+
+> T
+
+Z
+
+> 0
+
+(BΣ n[Q(n)]ν, w(N ))Γ = ρ(u(n)0 , w(N )(0)) Γ. (55) By utilizing convergences (52c) and (51b), we can first pass to the limit as n → ∞ and then as N → ∞ in the first and third terms of (55), thus yielding 
+
+Z T
+
+> 0
+
+(u(n), ∂ tw(N ))Γ
+
+> n→∞
+
+−−−−→
+
+Z T
+
+> 0
+
+(u, ∂ tw(N ))Γ 
+
+> N→∞
+
+−−−−→
+
+Z T
+
+> 0
+
+(u, ∂ tw)Γ,
+
+Z T
+
+> 0
+
+(DΓu(n), DΓw(N ))Γ
+
+> n→∞
+
+−−−−→
+
+Z T
+
+> 0
+
+(DΓu, DΓw(N ))Γ 
+
+> N→∞
+
+−−−−→
+
+Z T
+
+> 0
+
+(DΓu, DΓw)Γ.
+
+(56a) Regarding the second term in (55), using the in-space integration-by-parts formula [9, Lemma 3.3] (valid by density) and (54) we obtain 
+
+Z T
+
+> 0
+
+(( ∇Γu(n))u(n), w(N ))Γ = −
+
+Z T
+
+> 0
+
+(∇Γw(N ), u(n) ⊗ u(n))Γ
+
+> n→∞
+
+−−−−→ − 
+
+Z T
+
+> 0
+
+(∇Γw(N ), u ⊗ u)Γ 
+
+> N→∞
+
+−−−−→ − 
+
+Z T
+
+> 0
+
+(∇Γw, u ⊗ u)Γ =
+
+Z T
+
+> 0
+
+(( ∇Γu)u, w)Γ. (56b) On the other hand, recalling definition (26) of Σn, Γ and using convergences Q(n) → Q in L4([0 , T ] × Γ) (cf. (52b)) and (53), we apply [10, Proposition 3.5, (iv)] to get 
+
+Z T
+
+> 0
+
+(Σn, Γ[Q(n)], ∇Γ(w(N ))) Γ =
+
+Z T
+
+> 0
+
+(Σn, Γ[Q(n)], WΓ(w(N ))) Γ = 2 
+
+Z T
+
+> 0
+
+(Q(n)πnH[Q(n)], WΓ(w(N ))) Γ
+
+= 2 
+
+Z T
+
+> 0
+
+(πnH[Q(n)], Q(n)WΓ(w(N ))) Γ
+
+> n→∞
+
+−−−−→ 2
+
+Z T
+
+> 0
+
+(H[Q], QW Γ(w(N ))) Γ 
+
+> N→∞
+
+−−−−→ 2
+
+Z T
+
+> 0
+
+(H[Q], QW Γ(w)) Γ =
+
+Z T
+
+> 0
+
+(ΣΓ[Q], ∇Γw)Γ, (56c) 16 
+
+where in the last limit we have used the convergence WΓ(w(N )) → WΓ(w) in C([0 , T ]; L4). By recalling that B
+
+and ν are (time-independent) and bounded, we also obtain via similar arguments that 
+
+Z T
+
+> 0
+
+(BΣ n[Q(n)]ν, w(N ))Γ
+
+> n→∞
+
+−−−−→
+
+Z T
+
+> 0
+
+(BΣ [Q]ν, w(N ))Γ 
+
+> N→∞
+
+−−−−→
+
+Z T
+
+> 0
+
+(BΣ [Q]ν, w)Γ. (56d) Recalling the weak convergence (53) and noticing that (∇M Q(n)) w(N ) n→∞ 
+
+−−−−→ (∇M Q) w(N ) in L2([0 , T ]; L2)
+
+because of (52a) and w(N ) ∈ C([0 , T ]; H2) ,→ C([0 , T ]; L∞), we arrive at 
+
+Z T
+
+> 0
+
+(πnH[Q(n)] : ∇M Q(n), w(N ))Γ =
+
+Z T
+
+> 0
+
+(πnH[Q(n)], (∇M Q(n))w(N ))Γ
+
+> n→∞
+
+−−−−→
+
+Z T
+
+> 0
+
+(H[Q], (∇M Q)w(N ))Γ 
+
+> N→∞
+
+−−−−→
+
+Z T
+
+> 0
+
+(H[Q], (∇M Q)w)Γ =
+
+Z T
+
+> 0
+
+(H[Q] : ∇M Q, w)Γ, (56e) Finally, by standard properties of the orthogonal projector Pn we obtain 
+
+(u(n)0 , w(N )(0)) Γ = ( Pnu0, w(N )(0)) Γ
+
+> n→∞
+
+−−−−→ (u0, w(N )(0)) Γ 
+
+> N→∞
+
+−−−−→ (u0, w(0)) Γ. (56f) Altogether, equations (56) let us pass to the limit in (55) and conclude that (u, Q) satisfies (15). 3.3.3. S TEP 3: LIQUID -CRYSTAL KINEMATIC EQUATION SATISFIED BY (u, Q)
+
+Let Ψ ∈ C1([0 , T ]; H1 
+
+> S
+
+) be such that Ψ(T ) = 0. For any t ∈ [0 , T ], we write 
+
+Ψ(t) = 
+
+> ∞
+
+X
+
+> i=1
+
+hi(t)A(i),
+
+with hi(t) = ( Ψ(t), A(i))Γ and the series converging in C([0 , T ]; Hm), m ∈ { 0, 1} (cf. Proposition 2.1). Notice that 
+
+hi ∈ C1([0 , T ]) , hi(T ) = 0 for each i ∈ N. Moreover, it holds that ∂tΨ(t) = P∞ 
+
+> i=1
+
+h′
+
+> i
+
+(t)A(i) ∈ C([0 , T ]; H1 
+
+> S
+
+) with the series also converging in the previously mentioned norms. For a fixed N ≤ n define Ψ(N ) := PNi=1 hiA(i). Taking Ψ(N )(t) ∈ Q n for each t ∈ [0 , T ] in (27b), integrating in time (including an integration-by-parts in the first term), and using the initial condition Q(n)(0) = Q(n)0 , we arrive at 
+
+−
+
+Z T
+
+> 0
+
+(Q(n), ∂ tΨ(N ))Γ +
+
+Z T
+
+> 0
+
+(( ∇M Q(n))u(n), Ψ(N ))Γ −
+
+Z T
+
+> 0
+
+(S[Q(n), u(n)], Ψ(N ))Γ
+
+= M
+
+Z T
+
+> 0
+
+(H[Q(n)], Ψ(N ))Γ + ( Q(n)0 , Ψ(N )(0)) . (57) We can pass to the limit in the first term of the left-hand side of (57) because of (52a), whereas for the second term we use the convergences ∇M Q(n) ⇀ ∇M Q in L2([0 , T ]; L 4(Γ , R(d+1) 3
+
+)) (cf. (51e)), (52c) and Ψ(N ) → Ψ in 
+
+C([0 , T ]; L4); namely 
+
+Z T
+
+> 0
+
+(Q(n), ∂ tΨ(N ))Γ
+
+> n→∞
+
+−−−−→
+
+Z T
+
+> 0
+
+(Q, ∂ tΨ(N ))Γ 
+
+> N→∞
+
+−−−−→
+
+Z T
+
+> 0
+
+(Q, ∂ tΨ)Γ, (58a) 
+
+Z T
+
+> 0
+
+(( ∇M Q(n))u(n), Ψ(N ))Γ
+
+> n→∞
+
+−−−−→
+
+Z T
+
+> 0
+
+(( ∇M Q)u, Ψ(N ))Γ 
+
+> N→∞
+
+−−−−→
+
+Z T
+
+> 0
+
+(( ∇M Q)u, Ψ)Γ. (58b) On the other hand, recalling that S = SΓ + S∗ along with the definitions (5) of SΓ and S∗ and the definition (4) of 
+
+W∗(v) = Bv ⊗ ν − ν ⊗ Bv (with B and ν uniformly bounded), convergences (52a), (51a), (51b) and (52c) and the continuous injection H1 ,→ L4 imply 
+
+Z T
+
+> 0
+
+(SΓ[Q(n), u(n)], Ψ(N ))Γ =
+
+Z T
+
+> 0
+
+(WΓ(u(n))Q(n) − Q(n)WΓ(u(n)), Ψ(N ))Γ
+
+> n→∞
+
+−−−−→
+
+Z T
+
+> 0
+
+(WΓ(u)Q − QW Γ(u), Ψ(N ))Γ 
+
+> N→∞
+
+−−−−→
+
+Z T
+
+> 0
+
+(SΓ[Q], Ψ)Γ (58c) and 17 
+
+Z T
+
+> 0
+
+(S∗[Q(n), u(n)], Ψ(N ))Γ =
+
+Z T
+
+> 0
+
+(W∗(u(n))Q(n) − Q(n)W∗(u(n)), Ψ(N ))Γ
+
+> n→∞
+
+−−−−→
+
+Z T
+
+> 0
+
+(W∗(u)Q − QW ∗(u), Ψ(N ))Γ 
+
+> N→∞
+
+−−−−→
+
+Z T
+
+> 0
+
+(S∗[Q], Ψ)Γ. (58d) Finally, the weak convergence (53) and classical properties of the orthogonal projector πn enable us to treat the terms in the right-hand side of (57); more precisely we have 
+
+Z T
+
+> 0
+
+(H[Q(n)], Ψ(N ))Γ
+
+> n→∞
+
+−−−−→
+
+Z T
+
+> 0
+
+(H[Q], Ψ(N ))Γ 
+
+> N→∞
+
+−−−−→
+
+Z T
+
+> 0
+
+(H[Q], Ψ)Γ, (58e) 
+
+(Q(n)0 , Ψ(N )(0)) Γ = ( πnQ0, Ψ(N )(0)) Γ
+
+> n→∞
+
+−−−−→ (Q0, Ψ(N )(0)) Γ 
+
+> N→∞
+
+−−−−→ (Q0, Ψ(0)) Γ. (58f) In this way, identities (58) let us pass to the limit in (57) to deduce that (u, Q) satisfies (16). 3.3.4. S TEP 4: ENERGY INEQUALITY 
+
+Recall from (36) that the Galerkin solution (u(n), Q(n)) satisfies the following discrete energy inequality 
+
+ELdG [Q(n)(t)] + K[u(n)(t)] + 
+
+Z t
+
+> 0
+
+
+
+2μ∥DΓu(n)(s)∥2 + M ∥πnH[Q(n)(s)] ∥2
+
+ds ≤ ELdG [Q(n)0 ] + K[u(n)0 ]. (36) Standard properties of the weak and weak-* convergences [10, Proposition 3.5-(iii) and Proposition 3.13-(iii)] applied to (51h), (51c), (51b) and (53) imply 
+
+∥∇ M Q∥L∞([0 ,T ]; L2(Γ ,R(d+1) 3 )) ≤ lim inf  
+
+> n→∞
+
+∥∇ M Q(n)∥L∞([0 ,T ]; L2(Γ ,R(d+1) 3 )) ,
+
+∥u∥L∞([0 ,T ]; L2) ≤ lim inf  
+
+> n→∞
+
+∥u(n)∥L∞([0 ,T ]; L2),
+
+∥DΓu∥L2([0 ,T ]; L2) ≤ lim inf  
+
+> n→∞
+
+∥DΓu(n)∥L2([0 ,T ]; L2),
+
+∥H[Q]∥L2([0 ,T ]; L2) ≤ lim inf  
+
+> n→∞
+
+∥πnH[Q(n)]∥L2([0 ,T ]; L2).
+
+(59a) In turn, recalling the strong convergence (52b) for p = 4 , for every time t, the generalized Lebesgue’s dominated convergence theorem [22, Theorem 1.20] with dominating function gn := c3|Q(n)|4 + c4 (cf. (37)), implies that 
+
+Z
+
+> Γ
+
+F [Q(t)] = lim 
+
+> n→∞
+
+Z
+
+> Γ
+
+F [Q(n)(t)] , ∀t ∈ (0 , T ). (59b) On the other hand, the H1-continuity of πn, the continuous injection H1 ,→ L4, and the L2-continuity of Pn yield 
+
+ELdG [Q0] = lim  
+
+> n→∞
+
+ELdG [Q(n)0 ],K[u0] = lim  
+
+> n→∞
+
+K[u(n)0 ]. (59c) Collecting identities (59), we can now take lim inf n→∞ in (36) to conclude that (u, Q) satisfies the energy inequality (17). 3.4. P ROOF OF THEOREM 1.6: RECOVERY OF THE PRESSURE FIELD π
+
+Fix ε > 0 and let p := ( d + ε)∗. Due to the strong nonlinearities of the Beris–Edwards system (8), we now abandon the L2 setting in space for the strictly weaker Lp-based setting. By virtue of Proposition 2.2 (Helmholtz– Weyl decomposition on Γ), each w ∈ C1([0 , T ]; W2,p t ) can be uniquely decomposed as w = w + ∇Γϕ, where w ∈
+
+C1([0 , T ]; W2,p t,σ ) and ϕ ∈ C1([0 , T ]; W 3,p  
+
+> #
+
+). Consequently, recalling the incompressibility condition div Γ u = 0 and Theorem 1.5 (existence of weak solutions), it is necessary and sufficient to show the existence of π ∈ L2([0 , T ]; L p
+
+> #
+
+)
+
+(in principle dependent on ε) such that 
+
+− ρ
+
+Z T
+
+> 0
+
+(u, ∂ t∇Γϕ)Γ + ρ
+
+Z T
+
+> 0
+
+(( ∇Γu)u, ∇Γϕ)Γ + 2 μ
+
+Z T
+
+> 0
+
+(DΓu, DΓ∇Γϕ)Γ − ρ
+
+Z T
+
+> 0
+
+(π, ∆Γϕ)Γ
+
++
+
+Z T
+
+> 0
+
+(ΣΓ[Q], ∇Γ∇Γϕ)Γ +
+
+Z T
+
+> 0
+
+(H[Q] : ∇M Q, ∇Γϕ)Γ + 2 
+
+Z T
+
+> 0
+
+(BΣ [Q]ν, ∇Γϕ)Γ = ρ(u0, ∇Γϕ(0)) Γ (60) 18 
+
+for any ϕ ∈ C1([0 , T ]; W 3,p ∗ 
+
+> #
+
+) such that ∇Γϕ(T ) = 0. Notice that because of the condition div Γ u0 = 0 , it follows that 
+
+(u0, ∇Γϕ(t)) = 0 for each t ∈ [0 , T ]; consequently, we can drop the final-time requirement on ∇Γϕ. It is possible to further simplify (60). Indeed, since time and spatial derivatives commute and because of the incompresibility condition on u, it follows that 
+
+(u, ∂ t∇Γϕ)Γ = ( u, ∇Γ∂tϕ)Γ = 0 , a.e. on (0 , T ).
+
+In turn, due to the symmetry of the covariant Hessian ∇Γ∇Γϕ (see, e.g. [4, Proposition B.2]), the skew-symmetry of 
+
+ΣΓ[Q] and identity [4, Lemma 2.13] we have that 
+
+Z T
+
+> 0
+
+(DΓu, DΓ∇Γϕ)Γ =
+
+Z T
+
+> 0
+
+(DΓu, ∇Γ∇Γϕ)Γ =
+
+Z T
+
+> 0
+
+(∇Γu, ∇Γ∇Γϕ)Γ = −
+
+Z T
+
+> 0
+
+((tr( B)B − B2)u, ∇Γϕ)Γ
+
+and 
+
+ΣΓ[Q] : ∇Γ∇Γϕ = 0 , a.e. on (0 , T ), a.e. on Γ.
+
+In this way, in order to establish the existence and uniqueness of π ∈ L2([0 , T ]; L p
+
+> #
+
+) that satisfies (60) (and so (18) as well), it suffices to establish it for 
+
+−ρ
+
+Z T
+
+> 0
+
+(π, ∆Γϕ)Γ =
+
+Z T
+
+> 0
+
+(F[u, Q], ∇Γϕ)Γ, ∀ϕ ∈ C1([0 , T ]; W 3,p ∗ 
+
+> #
+
+), (61) where F[u, Q] := −ρ (∇Γu)u + 2 μ (tr( B)B − B2)u − H[Q] : ∇M Q − 2BΣ [Q]ν. We claim that F[u, Q] ∈
+
+L2([0 , T ]; ( W1,d +εt )′) ∼= (L 2([0 , T ]; W1,d +εt )′ for every ε ∈ (0 , 1) . In fact, for every v ∈ L2([0 , T ]; W1,d +εt ),Holder’s inequalities and Sobolev embeddings W1,d +ε ,→ L∞ ,→ L3 and H1 ,→ L6 imply that 
+
+Z T
+
+> 0
+
+|(( ∇Γu)u, v)Γ| =
+
+Z T
+
+> 0
+
+|(u ⊗ u, ∇Γv)| ≤ ∥ u ⊗ u∥L2([0 ,T ]; Ld∗ )∥∇ Γv∥L2([0 ,T ]; Ld)
+
+≤ ∥ u∥2L2([0 ,T ]; L2d∗ )∥v∥L2([0 ,T ]; W1,d ) ≤ Cε∥u∥2L2([0 ,T ]; H1)∥v∥L2([0 ,T ]; W1,d +ε), (62a) 
+
+Z T
+
+> 0
+
+((tr( B)B − B2)u, v)Γ ≲ ∥u∥L2([0 ,T ]; L2)∥v∥L2([0 ,T ]; L2) ≤ Cε∥u∥L2([0 ,T ]; L2)∥v∥L2([0 ,T ]; W1,d +ε), (62b) 
+
+Z T
+
+> 0
+
+|(H[Q] : ∇M Q, v)Γ| ≤ ∥ H[Q]∥L2([0 ,T ]; L2)∥∇ M Q∥L∞([0 ,T ]; L2)∥v∥L2([0 ,T ]; L∞)
+
+≤ Cε∥H[Q]∥L2([0 ,T ]; L2)∥∇ M Q∥L∞([0 ,T ]; L2)∥v∥L2([0 ,T ]; W1,d +ε) (62c) and 
+
+Z T
+
+> 0
+
+|(BΣ [Q]ν, v)Γ| (6) 
+
+≲ ∥Q∥L∞([0 ,T ]; L6)∥H[Q]∥L2([0 ,T ]; L2)∥v∥L2([0 ,T ]; L3)
+
+≤ Cε∥Q∥L∞([0 ,T ]; H1)∥H[Q]∥L2([0 ,T ]; L2)∥v∥L2([0 ,T ]; W1,d +ε). (62d) Altogether, and considering the regularity of (u, Q), we deduce from (62) that F[u, Q] ∈ L2([0 , T ]; ( W1,d +εt )′), as previously stated. Now, observe that for a.e. t ∈ (0 , T ), F[u, Q] t ∈ (W1,d +εt )′. Consequently, a straightforward combination of the well-posedness of the ultra-weak formulation of the stationary Laplace–Beltrami operator ∆Γ
+
+[4, Lemma 4.3] and the Banach–Neˇ cas–Babuˇ ska theorem [20, Theorem 2.6] yields the existence of a unique π ∈
+
+L2([0 , T ]; L (d+ε)∗ 
+
+> #
+
+) such that 
+
+−ρ
+
+Z T
+
+> 0
+
+(π, ∆Γϕ)Γ =
+
+Z T
+
+> 0
+
+⟨F[u, Q], ∇Γϕ⟩(W1,d +εt )′×W1,d +εt
+
+=
+
+Z T
+
+> 0
+
+(F[u, Q], ∇Γϕ)Γ, ∀ϕ ∈ L2([0 , T ]; W 2,d +ε 
+
+> #
+
+).
+
+(63) In particular, π satisfies (61) with p = ( d + ε)∗ (and therefore (60) and (18) as well). Moreover, π satisfies the estimate 
+
+ρ∥π∥L2([0 ,T ];L (d+ε)∗  
+
+> #)
+
+≤ eCε∥F[u, Q]∥(W1,d +εt )′ ,
+
+which, combined with (62), yields (19). 19 
+
+Finally, the existence of a uniform-in-ε pressure field π follows from noticing that 
+
+L2([0 , T ]; L (d+ε1)∗ 
+
+> #
+
+) ⊆ L2([0 , T ]; L (d+ε2)∗ 
+
+> #
+
+),
+
+L2([0 , T ]; W 2,d +ε1 
+
+> #
+
+) ⊇ L2([0 , T ]; W 2,d +ε2 
+
+> #
+
+)
+
+if 0 < ε 1 < ε 2, and recalling the existence (for a given ε) of a unique solution of problem (63). ACKNOWLEDGEMENTS 
+
+All three authors were partially supported by the NSF Grants DMS-1908267 and DMS-2512392. REFERENCES [1] H. Abels, G. Dolzmann, and Y. Liu. Well-posedness of a fully coupled Navier-Stokes/Q-tensor system with inhomogeneous boundary data. 
+
+SIAM J. Math. Anal. , 46(4):3050–3077, 2014. [2] H. Abels, G. Dolzmann, and Y. Liu. Strong solutions for the Beris-Edwards model for nematic liquid crystals with homogeneous Dirichlet boundary conditions. Adv. Differential Equations , 21(1-2):109–152, 2016. [3] D. Barbera, M. Murata, and Y. Shibata. The global well-posedness for the q-tensor model of nematic liquid crystals in the half-space, 2025. [4] G. A. Benavides, R. H. Nochetto, and M. Shakipov. Lp-based Sobolev theory for PDEs on closed manifolds of minimal regularity: Vector-valued problems. arXiv:2508.11109. [5] G. A. Benavides, R. H. Nochetto, and M. Shakipov. Lp-based Sobolev theory on closed manifolds of minimal regularity: scalar elliptic equations. J. Math. Anal. Appl. , 562(1):Paper No. 130666, 29, 2026. [6] A. Beris and B. Edwards. Thermodynamics of Flowing Systems: With Internal Microstructure . Oxford engineering science series. Oxford University Press, 1994. [7] A. Bonito, A. Demlow, and R. H. Nochetto. Finite element methods for the Laplace-Beltrami operator. In Geometric partial differential equations. Part I , volume 21 of Handb. Numer. Anal. , pages 1–103. Elsevier/North-Holland, Amsterdam, [2020] ©2020. [8] J. P. Borthagaray and S. W. Walker. The f Q-tensor model with uniaxial constraint. In Geometric partial differential equations. Part II ,volume 22 of Handb. Numer. Anal. , pages 313–382. Elsevier/North-Holland, Amsterdam, 2021. [9] L. Bouck, R. H. Nochetto, and V. Yushutin. A hydrodynamical model of nematic liquid crystal films with a general state of orientational order. 
+
+J. Nonlinear Sci. , 34(1):Paper No. 5, 63, 2024. [10] H. Brezis. Functional analysis, Sobolev spaces and partial differential equations . Universitext. Springer, New York, 2011. [11] W. F. Brinkman and P. E. Cladis. Defects in liquid crystals. Phys. Today , 35(5):48–54, 05 1982. [12] M. C. Calderer, D. Golovaty, L. Yao, and L. Zhao. Shear flow of active matter in thin channels. Phys. Rev. E , 104(3):Paper No. 034607, 14, 2021. [13] C. Cavaterra, E. Rocca, H. Wu, and X. Xu. Global strong solutions of the full Navier-Stokes and Q-tensor system for nematic liquid crystal flows in two dimensions. SIAM J. Math. Anal. , 48(2):1368–1399, 2016. [14] Z. Chen and E. Terraneo. Global regularity to the liquid crystal flows of Q-tensor model. Mediterr. J. Math. , 22(5):Paper No. 111, 26, 2025. [15] E. A. Coddington and N. Levinson. Theory of ordinary differential equations . McGraw-Hill Book Co., Inc., New York-Toronto-London, 1955. [16] P.-G. De Gennes and J. Prost. The Physics of Liquid Crystals . Number 83 in International series of monographs on physics. Clarendon press, Oxford, second edition, 1993. [17] M. Doi. Onsager’s variational principle in soft matter. J. Phys. Condens. Matter , 23(28):284118, July 2011. [18] M. Doi. Onsager principle as a tool for approximation. Chinese Phys. B , 24(2):020505, Feb. 2015. [19] A. Doostmohammadi, J. Ign´ es-Mullol, J. M. Yeomans, and F. Sagu´ es. Active nematics. Nat. Commun. , 9(1):3246, Aug. 2018. [20] A. Ern and J.-L. Guermond. Theory and practice of finite elements , volume 159 of Applied Mathematical Sciences . Springer-Verlag, New York, 2004. [21] L. C. Evans. Partial Differential Equations , volume 19 of Graduate Studies in Mathematics . American Mathematical Society, Providence, RI, second edition, 2010. [22] L. C. Evans and R. F. Gariepy. Measure theory and fine properties of functions . Studies in Advanced Mathematics. CRC Press, Boca Raton, FL, 1992. [23] F. Guill´ en-Gonz´ alez and M. A. Rodr´ ıguez-Bellido. Weak time regularity and uniqueness for a Q-tensor model. SIAM J. Math. Anal. ,46(5):3540–3567, 2014. [24] F. Guill´ en-Gonz´ alez and M. A. Rodr´ ıguez-Bellido. A uniqueness and regularity criterion for Q-tensor models with Neumann boundary con-ditions. Differential Integral Equations , 28(5-6):537–552, 2015. [25] F. Guill´ en-Gonz´ alez and M. A. Rodr´ ıguez-Bellido. Weak solutions for an initial-boundary Q-tensor problem related to liquid crystals. Non-linear Anal. , 112:84–104, 2015. [26] S. M. Hashemi, U. Jagodiˇ c, M. R. Mozaffari, M. R. Ejtehadi, I. Muˇ seviˇ c, and M. Ravnik. Fractal nematic colloids. Nat. Commun. , 8(1):14026, Jan. 2017. [27] E. Hebey and F. Robert. Sobolev spaces on manifolds. In Handbook of global analysis , pages 375–415, 1213. Elsevier Sci. B. V., Amsterdam, 2008. [28] M. Hieber, A. Hussein, and M. Wrona. Strong well-posedness of the Q-tensor model for liquid crystals: the case of arbitrary ratio of tumbling and aligning effects ξ. Arch. Ration. Mech. Anal. , 248(3):Paper No. 40, 22, 2024. 20 
+
+[29] L. A. Hoffmann, L. N. Carenza, J. Eckert, and L. Giomi. Theory of defect-mediated morphogenesis. Sci. Adv. , 8(15), 2022. eabk2712. [30] J. Huang and S. Ding. Global well-posedness for the dynamical Q-tensor model of liquid crystals. Sci. China Math. , 58(6):1349–1366, 2015. [31] T. Jankuhn, M. A. Olshanskii, and A. Reusken. Incompressible fluid problems on embedded surfaces: modeling and variational formulations. 
+
+Interfaces Free Bound. , 20(3):353–377, 2018. [32] F. C. Keber, E. Loiseau, T. Sanchez, S. J. DeCamp, L. Giomi, M. J. Bowick, M. C. Marchetti, Z. Dogic, and A. R. Bausch. Topology and dynamics of active nematic vesicles. Science , 345(6201):1135–1139, 2014. [33] J. P. Lagerwall and G. Scalia. A new era for liquid crystal research: Applications of liquid crystals in soft matter nano-, bio- and microtech-nology. Curr. Appl. Phys. , 12(6):1387–1412, 2012. [34] Y. Liu and W. Wang. On the initial boundary value problem of a Navier-Stokes/ Q-tensor model for liquid crystals. Discrete Contin. Dyn. Syst. Ser. B , 23(9):3879–3899, 2018. [35] A. J. Majda and A. L. Bertozzi. Vorticity and incompressible flow , volume 27 of Cambridge Texts in Applied Mathematics . Cambridge University Press, Cambridge, 2002. [36] N. J. Mottram and C. J. Newton. Introduction to Q-tensor theory. arXiv preprint arXiv:1409.3542 , 2014. [37] D. Needleman and Z. Dogic. Active matter at the interface between materials science and cell biology. Nat. Rev. Mater. , 2(9):17048, July 2017. [38] D. R. Nelson. Toward a tetravalent chemistry of colloids. Nano Letters , 2(10):1125–1129, 2002. [39] M. Nestler and A. Voigt. Active Nematodynamics on Curved Surfaces – The Influence of Geometric Forces on Motion Patterns of Topological Defects. CiCP , 31(3):947–965, June 2022. [40] L. Nirenberg. On elliptic partial differential equations. Ann. Scuola Norm. Sup. Pisa Cl. Sci. (3) , 13:115–162, 1959. [41] I. Nitschke and A. Voigt. Beris-Edwards models on evolving surfaces: a Lagrange-d’Alembert approach. Adv. Differential Equations , 30(5-6):335–420, 2025. [42] I. Nitschke and A. Voigt. Hydrodynamic liquid crystal models for lipid bilayers, 2025. [43] M. Paicu and A. Zarnescu. Global existence and regularity for the full coupled Navier-Stokes and Q-tensor system. SIAM J. Math. Anal. ,43(5):2009–2049, 2011. [44] M. Paicu and A. Zarnescu. Energy dissipation and regularity for a coupled Navier-Stokes and Q-tensor system. Arch. Ration. Mech. Anal. ,203(1):45–67, 2012. [45] J. Prost, F. J¨ ulicher, and J.-F. Joanny. Active gel physics. Nat. Phys. , 11(2):111–117, Feb. 2015. [46] H. L. Royden and P. Fitzpatrick. Real analysis . Pearson, Boston, fourth edition. edition, 2010. [47] M. Schadt. Liquid crystal materials and liquid crystal displays. Annual Review of Materials Research , 27(Volume 27, 1997):305–379, 1997. [48] J. Simon. Compact sets in the space Lp(0 , T ; B). Ann. Mat. Pura Appl. (4) , 146:65–96, 1987. [49] K. Sun, Z. Xiao, S. Lu, W. Zajaczkowski, W. Pisula, E. Hanssen, J. M. White, R. M. Williamson, J. Subbiah, J. Ouyang, A. B. Holmes, W. W. Wong, and D. J. Jones. A molecular nematic liquid crystalline material for high-performance organic photovoltaics. Nature Communications ,6(1):6013, Jan 2015. [50] K. Suzuki, M. Miyazaki, J. Takagi, T. Itabashi, and S. Ishiwata. Spatial confinement of active microtubule networks induces large-scale rotational cytoplasmic flow. Proc. Natl. Acad. Sci. U. S. A. , 114(11):2922–2927, 2017. [51] R. Temam. Navier–Stokes Equations: Theory and Numerical Analysis . AMS Chelsea Publishing, Providence, RI, 2001. Reprint of the 1984 edition. [52] G. T´ oth, C. Denniston, and J. M. Yeomans. Hydrodynamics of topological defects in nematic liquid crystals. Phys. Rev. Lett. , 88:105504, 2 2002. [53] F. Vafa and L. Mahadevan. Active nematic defects and epithelial morphogenesis. Phys. Rev. Lett. , 129:098102, 8 2022. [54] E. G. Virga. Variational Theories for Liquid Crystals , volume 8 of Applied Mathematics and Mathematical Computation . Chapman & Hall, London, 1994. [55] Z. Wang, M. C. Marchetti, and F. Brauns. Patterning of morphogenetic anisotropy fields. Proc. Natl. Acad. Sci. U. S. A. , 120(13):e2220167120, 2023. [56] M. Wilkinson. Strictly physical global weak solutions of a Navier-Stokes Q-tensor system with singular potential. Arch. Ration. Mech. Anal. ,218(1):487–526, 2015. [57] H. Wioland, F. G. Woodhouse, J. Dunkel, J. O. Kessler, and R. E. Goldstein. Confinement stabilizes a bacterial suspension into a spiral vortex. 
+
+Phys. Rev. Lett. , 110:268102, 6 2013. [58] Y. Xiao. Global strong solution to the three-dimensional liquid crystal flows of Q-tensor model. J. Differential Equations , 262(3):1291–1316, 2017. [59] Y. Zhang, Z. Wang, Y. Yang, Q. Chen, X. Qian, Y. Wu, H. Liang, Y. Xu, Y. Wei, and Y. Ji. Seamless multimaterial 3d liquid-crystalline elastomer actuators for next-generation entirely soft robots. Science Advances , 6(9):eaay8606, 2020. 
+
+APPENDIX A. F ORMAL DERIVATION OF THE WEAK FORMULATION 
+
+In this section we utilize integration-by-parts formulas (12), (13), (14) to formally derive a continuous-in-time variational formulation for the surface Beris–Edwards system (8) that inspires Definition 1.4 (weak solution). These calculations, albeit being relatively simple, are not present in [9] and therefore we include them in this paper for the sake of completeness. 21 
+
+In what follows all functions involved are assumed to be sufficiently smooth. Assume that u is tangential to Γ and that it satisfies the incompressibility condition (8c). Then, for any tangential and div Γ-free function v, we have 
+
+(P div Γ DΓu, v)Γ = (div Γ DΓu, v)Γ
+
+> (13)
+
+= −(DΓu, DM v)Γ + (tr( B) DΓ(u)ν, v)Γ.
+
+Because of the identity DΓu = PD M (u)P it holds that DΓu : DM v = DΓu : DΓv and DΓ(u)ν = 0, whence we finally obtain 
+
+(P div Γ DΓu, v)Γ = −(DΓu, DΓv)Γ. (64) By testing fΓ + f∗ with v we can write 
+
+(fΓ, v)Γ + ( f∗, v)Γ = ( −P div Γ ΣΓ, v)Γ + ( H : ∇M Q, v)Γ + 2( BΣ ν, v)Γ.
+
+The first term in the right-hand-side can be rewritten upon utilizing integration-by-parts, and by noticing that ΣΓ :
+
+∇M v = ΣΓ : ∇Γv and ΣΓν = 0, because ΣΓ = PΣP , obtaining 
+
+(−P div Γ ΣΓ, v)Γ = ( − div Γ ΣΓ, v)Γ
+
+> (13)
+
+= ( ΣΓ, ∇M v)Γ + (tr( B)ΣΓν, v)Γ = ( ΣΓ, ∇Γv)Γ.
+
+Thus, 
+
+(fΓ, v)Γ + ( f∗, v)Γ = ( ΣΓ, ∇Γv)Γ + ( H : ∇M Q, v)Γ + 2( BΣ ν, v)Γ. (65) By collecting (64) and (65), noticing that (∇Γπ, v)Γ = 0 for v div Γ-free, and by integration-by-parts formula (12) we arrive at the following weak form of the momentum equation (8b): 
+
+ρ
+
+n
+
+(∂tu, v)Γ + (( ∇Γu)u, v)Γ
+
+o
+
++ 2 μ(DΓu, DΓv)Γ = −(ΣΓ[Q], ∇Γv)Γ − (H[Q] : ∇M Q, v)Γ − 2( BΣ [Q]ν, v)Γ.
+
+(66) For any T : Γ → R(d+1) ×(d+1) , we weakly impose the liquid-crystal kinematic equation (8a) as 
+
+(∂tQ, T)Γ + (( ∇M Q)u, T)Γ = M (H[Q], T)Γ + ( S[Q, u], T)Γ. (67) By integrating (66) and (67) in time, and integrating by parts so as to transfer the time derivatives to the test functions v
+
+and T, we respectively arrive at the formal analogues of equations (66) and (67) in Definition 1.4. Notice that, should we not restrict v to satisfy div Γ v = 0 , a term involving the pressure field π would be present in (66), which after being integrated in time, would lead to the formal analogue of (18) in Theorem 1.6 (recovery of the pressure field).

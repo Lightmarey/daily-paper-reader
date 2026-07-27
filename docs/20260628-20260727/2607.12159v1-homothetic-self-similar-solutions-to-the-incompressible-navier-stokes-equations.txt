@@ -1,0 +1,2686 @@
+Title: Homothetic Self-Similar Solutions to the Incompressible Navier-Stokes Equations
+
+URL Source: https://arxiv.org/pdf/2607.12159v1
+
+Published Time: Wed, 15 Jul 2026 11:55:37 GMT
+
+Number of Pages: 49
+
+Markdown Content:
+# Homothetic Self-Similar Solutions to the Incompressible Navier-Stokes Equations 
+
+## Tim Binz & Matei P. Coiculescu July 15, 2026 
+
+Abstract 
+
+We investigate homothetic forward self-similar solutions of the incompress-ible Navier-Stokes equations: the solutions U for which both U and βU are self-similar profiles for some nontrivial β. Homothetic solutions are, in addi-tion, the only solutions for which a singular limit argument can be used to prove non-uniqueness of Leray-Hopf solutions along the lines of the Jia-ˇSver´ ak program. In three dimensions, and for sufficiently regular initial data, we prove a Liouville theorem that rules out the existence of non-trivial homothetic solu-tions. In two dimensions, our Liouville theorem proves that the only decaying homothetic solution is the Oseen vortex. In addition, we prove that the Euler operator linearized around the Oseen vortex is stable. On the other hand, we also discover a homothetic solution for which an unstable approximate eigen-value of the linearized Euler operator exists. 
+
+# 1 Introduction 
+
+We consider the initial value problem of the unforced, incompressible Navier-Stokes equations in R3: 
+
+∂tu − ν∆u + u · ∇ u + ∇p = 0 div u = 0 
+
+u(t = 0) = u0.
+
+(1) Since its value will not concern us, we set the viscosity parameter ν = 1. The existence of a global-in-time Leray-Hopf weak solution to Equation (1) is classical (see [33] for details), but the uniqueness question is still open. 1arXiv:2607.12159v1 [math.AP] 13 Jul 2026 One of the most promising avenues towards proving non-uniqueness of Leray-Hopf weak solutions is the following program proposed by Jia and ˇSver´ ak in [20]. Given σ > 0 and any ( −1)-homogeneous weakly divergence free vector field u0(x) ∈
+
+Cα(R3 \ { 0}) ⊂ L3,∞(R3), Jia and ˇSver´ ak proved in [21] the existence of a spatially smooth, forward self-similar solution Uσ(x, t ) with initial data σu 0(x). For sufficiently small σ > 0, the results of [21] guarantee the uniqueness of the solution Uσ.Following [20, 21] we consider the self-similar ansatz appropriate to the parabolic scaling of the Navier-Stokes equations, 
+
+ξ = xt −1/2, τ = log( t), u(x, t ) = t−1/2U (ξ, τ ),
+
+and obtain 
+
+−∆U − U
+
+2 − ξ
+
+2 · ∇ U + U · ∇ U + ∇P = 0 div U = 0 .
+
+(2) The initial data u0 enters as a boundary condition at infinity given by 
+
+U (ξ) = u0(ξ) + o
+
+ 1
+
+|ξ|
+
+
+
+, |ξ| → ∞ . (3) A forward self-similar solution ¯ uσ corresponds to a self-similar profile U σ, i.e. asteady solution of (2). Consider the linearization of Equation (2) around the self-similar profile U σ:
+
+LσU := ∆ U + U
+
+2 + ξ
+
+2 · ∇ U − U σ · ∇ U − U · ∇ U σ − ∇ P. 
+
+Jia and ˇSver´ ak prove in [20] that under some spectral conditions on Lσ, the non-uniqueness of Leray-Hopf weak solutions to Equation (1) is guaranteed. The general idea is that as σ increases in magnitude, the spectrum of Lσ will eventually cross the imaginary axis, leading to a bifurcation and the existence of another scale-invariant solution. Then, if the data u0 decays like 1 /|x|, a truncation argument can be used to prove the non-uniqueness of Leray-Hopf solutions. We remark that Hou, Wang, and Yang have announced in [18] a computer assisted completion of the Jia-ˇSver´ ak program. Very recently, Ionescu, Jia, and Palasek [19] have provided strong numerical evidence of the existence of an unstable axisymmetric self-similar solution, which would complete the Jia-ˇSver´ ak program even in the axi-symmetric setting. We observe that the boundary condition in Equation (3) can be relaxed if one permits the use of different function spaces. We shall instead require, at the very least, that the following blow-down limit holds pointwise: lim  
+
+> R→∞
+
+RU (R · x) = u0(x). (4) 2The blow-down limit corresponds to the boundary conditions of Jia and ˇSver´ ak in the case when |U (ξ)| = O(1 /|ξ|), and we shall see that the topology that the limit is taken in generally depends on the regularity of the ( −1)-homogeneous function u0 on the sphere. In order to distinguish between our more general notion of the boundary conditions and the classic boundary conditions of Jia and ˇSver´ ak, we call a forward self-similar solution U isotropically decaying if and only if |U (ξ)| = O (1 /|ξ|) , and in this case the boundary condition in Equation (3) is appropriate. Otherwise, we call the solution anisotropically decaying . We shall see that there exist forward-self-similar solutions that are anisotropically decaying. We remark that the Jia-ˇSver´ ak approach to non-uniqueness can be used for the anisotropically decaying solutions, which would lead to non-uniqueness examples in weaker critical spaces such as BM O −1 or the critical Morrey spaces rather than the Leray-Hopf class. Albritton, Brue, and Colombo were able to carry out the Jia-ˇSver´ ak program in [3] by introducing a force. The force enabled them to consider the linearization 
+
+Lσ around an arbitrary, smooth, divergence free vector field σ · U for any positive number σ > 0, not necessarily around an exact self-similar profile. Then, by proving the existence of an unstable eigenvalue to the linearization of the Euler operator (for some particular choice of U ): 
+
+LϕU := −U · ∇ U − U · ∇ U + ∇P, 
+
+they were able to prove the existence of an unstable eigenvalue for the linearization of the self-similar Navier-Stokes equations 
+
+LσU = U
+
+2 + x
+
+2 · ∇ U + ∆ U + σL ϕU
+
+around σ ¯U for some σ > 0. Their proof relies on a singular limit argument: consider the operator ˜LσU = σ−1LU = σ−1
+
+U
+
+2 + x
+
+2 · ∇ U + ∆ U
+
+
+
++ LϕU. 
+
+Albritton. Brue, and Colombo prove that ˜Lσ → Lϕ as σ → +∞
+
+in the strong resolvent sense uniformly on compact sets in {z : Re( z) > 0} ∩ ρ(Lϕ), which implies the convergence of isolated eigenvalues. This allows the authors to conclude the existence of an unstable eigenvalue for ˜Lσ, hence for Lσ, when σ > 0 is sufficiently large. Our work is motivated by the following question: can the singular 3limit argument of Albritton, Brue, and Colombo work for the unforced Navier-Stokes equations? One thing that is necessary for the argument to work is that ¯U and β ¯U are self-similar solutions for some non-trivial β, which, we shall see, is far from being true for a generic self-similar solution. In addition, the singular limit argument from [3] relies heavily on the profile U having compact support, which is not feasible in the unforced case, since as we can see from the boundary conditions, any compactly supported self-similar solution corresponds to zero initial data at physical time t = 0. Once again, our key observation is that the singular limit argument of [3] can only be carried through for a specific class of self-similar solutions: 
+
+Definition 1. A self-similar solution ¯U is called a homothetic self-similar solution if and only if there exists a real number β with |β|̸ = 1 , 0 such that β ¯U is also a self-similar solution. 
+
+We shall often simply call such solutions homothetic solutions. As we shall see, for the Navier-Stokes equations, once ¯U and β ¯U are solutions for some |β|̸ = 0 , 1, βU 
+
+is a self-similar solution for all β ∈ R. It is worth pointing out that homothetic solu-tions are uniquely determined by their boundary data: for a given (-1)-homogeneous divergence free Cα-vector-field u0 we shall show that there exists at most one ho-mothetic self-similar solution whose blow-down limit is u0. Inspired by the work in [20] and [3], we begin by investigating when a sufficient condition for non-uniqueness of Leray-Hopf solutions of the Navier-Stokes equations can be found in terms of the linearized Euler operator. A careful look at the arguments in [20] and [3] yields the following result. 
+
+Theorem 1.1. If there exists an isotropically decaying homothetic self-similar solu-tion ¯U with boundary data in Cα
+
+> loc
+
+(R3 \ { 0}) such that the linearization of the Euler equations around ¯U has an unstable eigenvalue, then there exists an initial data in 
+
+L2 
+
+> df
+
+(R3) for which Equation (1) has two distinct Leray-Hopf weak solutions. 
+
+Our main result essentially rules out this scenario. Indeed, we show the following Liouville type theorem. 
+
+Theorem 1.2. Suppose ¯U is a homothetic forward self-similar solution to the three-dimensional Navier-Stokes equations lying in the Morrey space M3 
+
+> q
+
+(R3) for some 
+
+2 < q ≤ 3 and corresponding to initial data 
+
+u0 =⃗v + f⃗ n
+
+|x| ∈ M 3 
+
+> q
+
+(R3),
+
+where ⃗n is the unit normal to the sphere and ⃗v is a tangent vector field to the sphere. Suppose either 
+
+41. ⃗v ∈ W 1,4/3(S2) and f ∈ L4(S2)
+
+2. ⃗v, f ∈ C α(S2), for some α > 1/2
+
+then f = 0 and the head pressure |⃗v| 2 + 2 p = 0 as well. In case (2) we get that ⃗v = u 0 = ¯U = 0 with no additional assumptions. For case (1), if we assume that the set {ω ∈ S2 :⃗v(ω) = 0 } has measure zero or is closed with C 2 boundary, then ⃗v = u 0 = ¯U = 0 .
+
+For the reader’s benefit, we recall the definition of the Morrey spaces Mpq (R3)where 1 ≤ q ≤ p:
+
+f ∈ M pq (R3) ⇐⇒ ∃ C > 0, ∀x ∈ R3, ∀R > 0,
+
+Z
+
+> BR(x)
+
+|f (y)|qdy ≤ CR 3− 3qp .
+
+Evidently, since u0 ∈ M 3 
+
+> q
+
+(R3), we have ⃗v, f ∈ L q(S2), so there is a gap between a reasonable class of data ( Lq with 2 < q ≤ 3) and the level at which the Liouville theorem can be proven ( L4). Indeed, the existence of a unique mild solution to the Navier-Stokes equations has even been shown for small data u0 ∈ M 3 
+
+> q
+
+(R3) for any 
+
+q > 1. The main idea behind our proof of Theorem 1.2 is that the blow-down limit of a homothetic solution in three-dimensions is always a ( −1)-homogeneous weak stationary solution of the three-dimensional incompressible Euler equations (if the profile ¯U belongs to at least M3 
+
+> q
+
+(R3) with q > 2). The proof then continues by showing the nonexistence of nontrivial ( −1)-homogeneous Euler solutions in the reg-ularity classes dealt with in Theorem 1.2. Our Liouville theorem for the steady Euler equations is a generalization of the result of Shvydkoy [31]. We also mention that three-dimensional homogeneous Euler flows have been studied in [31] and [1], and two-dimensional Euler flows have been studied in [28] and [9]. Let us point out that while for the Jia-ˇSver´ ak program the boundary data in Theorem 1.1 is allowed to be in Cα(S2) for any α > 0, our Theorem 1.2 only rules out the existence of homothetic solutions with boundary data in Cα(S2) for α > 12 .Consequently, the range α ∈ (0 , 1/2] remains open and may still admit possible candidates for non-uniqueness via a singular limit argument. Therefore, one may now wonder whether our Theorem 1.2 can be generalized to all α > 0. The bottleneck in our proof is the Liouville theorem for ( −1)-homogeneous solutions to the steady Euler equations. It is unlikely that this result can be generalized to arbitrary ( −1)-homogeneous Cα-solutions below the Onsager threshold α = 13 . Instead, we expect the existence of wild solutions arising from convex integration in this regime. It is unknown to us whether such irregular boundary data can yield isotropically decaying 5homothetic self-similar solutions or not. If such solutions exist, however, our Theorem 1.1 would reduce the proof of non-uniqueness of Leray-Hopf solutions to a spectral problem for the linearized Euler operator. For anisotropically decaying homothetic solutions, on the other hand, we are able to find examples with boundary data below the regularity of Theorem 1.2, see Section 5. This confirms that the regularity conditions in Theorem 1.2 cannot be removed in general. Indeed, a few such homothetic solutions have been described previously in the work [30] of Okamoto, but we believe some of our examples are new self-similar solutions of the three-dimensional Navier-Stokes equations. The con-struction of these solutions is, surprisingly, more geometric than analytic in nature. Moreover, we shall prove that these solutions sometimes admit instabilities of the Euler operator in the form of unstable normal modes, which can be used to construct approximate eigenvalues. As an example, we consider the shear flow described by Okamoto in [30]: 
+
+U 1,β (ξ1, ξ 2, ξ 3) = β
+
+√π
+
+2 e− ξ224 erfi 
+
+ξ2
+
+2
+
+
+
+, 0, 0
+
+
+
+.
+
+The vector field U 1,β is an anisotropically decaying self-similar solution to the Navier-Stokes equations from initial data: 
+
+u1,β (x, y, z ) = P.V. 
+
+βy , 0, 0
+
+
+
+.
+
+Note that this solution is outside the regularity range of our previously discussed Liouville theorems, indeed the data lies in BM O −1, so the unique existence of a mild solution follows from the work done by Koch and Tataru in [24], as long as β
+
+is sufficiently small. The second author and Palasek have proven in [11] that non-uniqueness can occur for data in the class BM O −1, but the uniqueness question for any particular initial data, such as u1,β with large β, remains open. Interestingly, we are able to prove the existence of an unstable element of the approximate point spectrum: 
+
+Theorem 1.3. Let Lϕ be the linearization of the Euler equations around U 1,β . Then there exists λ ∈ σap (Lϕ, L 2(R3)) with Re (λ) > 0.
+
+Although our Theorem 1.1 suggests that we should be able to improve Theorem 1.3 to a non-uniqueness result, there are clear technical obstacles to doing so. First, the singular limit argument that allows one to conclude the existence of an unstable eigenvalue of Lσ crucially depends on the existence of a discrete eigenvalue to allow 6the instability the pass through the singular limit. Second, the lack of decay of the background profile makes several parts of the argument, for instance the truncation of the data, unfeasible. Third, attempts to use custom anisotropic function spaces for the singular limit argument are usually defeated by the drift operator x·∇ , which behaves poorly on such spaces. Let us now describe the analogous situation in two dimensions. We emphasize that, in contrast to the three-dimensional situation, the existence of an unstable eigenvalue for the two-dimensional self-similar Navier–Stokes equations would not imply non-uniqueness of Leray–Hopf solutions. Rather, the Jia– ˇSver´ ak program would imply non-uniqueness in L pt Lqx with 2 
+
+> p
+
++ 2 
+
+> q
+
+> 1, which would confirm that Serrin’s condition is sharp. For a detailed discussion of the Jia– ˇSver´ ak program in dimension two we refer to the recent work of Albritton et. al. [4]. Again, we rule out the singular limit scenario by proving the following results. The first one shows that the Oseen vortex is the only isotropically decaying homothetic forward self-similar solution to the two-dimensional Navier-Stokes equations, which is a consequence of the following: 
+
+Theorem 1.4. Suppose ¯U is a homothetic forward self-similar solution to the two-dimensional Navier-Stokes equations, and suppose that its blow-down limit is u0 =
+
+b(ω)/r , for a function b(ω) ∈ L2(S1), that solves the two-dimensional Euler equations on R2 \ { 0} in the distributional sense. Then we necessarily have 
+
+b(ω) = Aω ⊥,
+
+for A ∈ R where ω = (cos( θ), sin( θ)) , in polar coordinates. This implies that ¯U is the Oseen vortex: 
+
+¯U (r, ω ) = A1 − e− r24
+
+r ω⊥.
+
+The long-time stability of the Oseen vortex for the two-dimensional self-similar Navier–Stokes equations was established by [16]; however, their result does not di-rectly apply to the Jia-ˇSver´ ak program since their analysis is carried out in weighted function spaces. We prove the following stability result which rules out the singular-limit scenario in the two-dimensional case. 
+
+Theorem 1.5. The linearization of the Euler equations around the Oseen vortex generates a strongly-continuous semigroup on L2(R2) and 
+
+s(Lϕ, L 2(R2)) = ω0(Lϕ, L 2(R2)) = 0 .
+
+7Here s(L, X ) denotes the spectral bound of a closed, densely defined operator 
+
+L : D(L) ⊂ X → X and ω0(L, X ) denotes the growth bound of the strongly contin-uous semigroup generated by L.While Theorem 1.5 rules out the singular limit argument of [3] for non-uniqueness from the simple data 1 /|x| in two-dimensions, the question of uniqueness from this data proposed e.g. in [24], remains open. In the course of proving the stability of the Oseen vortex, we prove the (to our best knowledge) first general stability criterion for the Euler equations on the whole plane: 
+
+Theorem 1.6. Suppose u(r) is a smooth function on [0 , ∞) that vanishes at r = 0 
+
+and satisfies u(k)(r) = O(1 /r k) as r → ∞ for all k ≥ 0. Suppose u(r, θ ) = u(r)eθ is the velocity field of a radial vortex on the plane with vorticity ω(r). The spectrum of the linearization of the Euler equations in vorticity form around ω as an operator on 
+
+L2(R2) is contained in the imaginary axis if either of the following is true: 
+
+ω′(r) > 0 or ω′(r) < 0.
+
+## Acknowledgments 
+
+We thank Princeton University for its support. MPC also thanks the Simons Foun-dation and New York University for their support. TB acknowledges the support of the DFG Walter-Benjamin Fellowship no. 538212014. 
+
+# 2 An Overview of the Jia-ˇ Sver´ ak program 
+
+In this section, we rigorously justify the motivation presented in the introduction by proving Theorem 1.1. Our argument follows the outline of [20] and [3]. For convenience of the reader we recall the main steps and point out which assumptions are necessary to carry it out. Furthermore, we show that parts of the proof follow directly from abstract semigroup theory, which may give some new insights into the Jia-ˇSver´ ak program. The main idea is to construct two distinct solutions to the incompressible Navier-Stokes equations with scaling-invariant initial data u0(x) = |x|−1 · v( x 
+
+> |x|
+
+) by using an instability in self-similar coordinates. To this end, we set τ = log( t) and ξ = x√t and define 
+
+u(t, x ) = 1
+
+√tU (τ, ξ ). (5) 8One of the solutions is the forward self-similar solution ¯ u(x, t ) given via (5) from a smooth, bounded, exact self-similar profile ¯U (ξ). The other solution is u(x, t ) which corresponds to U (ξ, τ ) via (5), where U (ξ, τ ) will be constructed as 
+
+U = ¯U + Ulin + Uper .
+
+Let us now explain this construction in more detail: We consider the following Banach space of divergence-free vector fields, X = L 2df (R3) ∩ L4df (R3), and the linearization at ¯U of the self-similar Navier-Stokes equations 
+
+Lss V = ∆ V + 12ξ·∇ V + 12V −P( ¯U ·∇ V +V ·∇ ¯U ), D(Lss ) = {V ∈ X : Lss V ∈ X},
+
+where P denotes the Leray projection. We first collect some functional-analytic properties of the operator Lss . The following is a generalization of [3, Proposition 4.3 & Lemma 4.4]. 
+
+Proposition 2.1. Let q ∈ (1 , ∞). The operator Lss generates a C0-semigroup 
+
+(TLss (τ )) τ ∈R+ on the space Lq
+
+> df
+
+(Rd) satisfying parabolic estimates 
+
+∥TLss (τ )U0∥Ws2,q (Rd) ≤ M · τ − s2−s12 − d 
+
+> 2
+
+( 1   
+
+> p−1
+> q
+
+) · e(ω0+δ)τ · ∥ U0∥Ws1,p (Rd)
+
+for some M depending on arbitrary 0 ≤ s1 ≤ s2, 1 < p ≤ q < ∞ and δ > 0, where 
+
+ω0 ∈ R denotes the growth bound of Lss on Lq(Rd).Proof. We denote the main part of the operator by 
+
+DV := ∆ V + 12ξ · ∇ V + 12V, D(D) = {V ∈ W2,q  
+
+> df
+
+(R3) : DV ∈ Lq(R3)}
+
+and the perturbations by 
+
+QV := −P( ¯U · ∇ V ) − P(V · ∇ ¯U ).
+
+It is well-known that D generates a quasi-dissipative C0-semigroup ( T0(τ )) τ ≥0 satisfy-ing the desired estimates with growth bound ω0(D) = 12 − d 
+
+> 2q
+
+. Indeed, the semigroup generation was proven in [29], and the bounds follow easily by undoing the self-similar coordinates and using the corresponding estimates for the heat semigroup on Lq(Rd). Furthermore, as in [20, (2.6)] we see D(D) ⊂ W1,q (Rd). Since ¯U , ∇ ¯U ∈ L∞(Rd)we obtain that Q is relatively D-bounded. Using the parabolic estimates of ( T0(τ )) τ ≥0
+
+9with growth bound ω0(D) = − d 
+
+> 2q
+
++ 12 on L q(Rd), we obtain 
+
+Z T
+
+> 0
+
+∥QT 0(τ )V ∥pX dτ =
+
+Z T
+
+> 0
+
+∥QT 0(τ )V ∥p 
+
+> Lq(Rd)
+
+dτ
+
+≤
+
+Z T
+
+> 0
+
+∥T0(τ )V ∥p 
+
+> W1,q (Rd)
+
+dτ
+
+≤
+
+Z T
+
+> 0
+
+Cτ p
+
+> 2
+
+· ep(− d    
+
+> 2q+12+δ)τ
+
+dτ · ∥ V ∥p 
+
+> Lq(Rd)
+
+= ˜C · ∥ V ∥p 
+
+> Lq(Rd)
+
+for p ∈ (1 , 2). Hence, Q is a Miyadera-Voigt perturbation of D and the generation of a C0-semigroup on L q(Rd) follows from [2, Theorem 18]. It remains to establish the parabolic bounds. Note that the polynomial part describes the short term behaviour of the semigroup whereas the exponential term captures its long term behaviour. Therefore, we can split the problem into two parts. For τ ∈ (0 , 2): We obtain the Duhamel formula 
+
+TLss (τ )U0 = T0(τ )U0 +
+
+Z τ
+
+> 0
+
+TLss (τ − s)QT 0(s)U0 ds. (6) Since ¯U is smooth and bounded and all its derivatives are bounded, we obtain that 
+
+∥QT 0(s)U0∥Ws2,q (Rd) ≤ ∥ T0(s)U0∥Ws2+1 ,q (Rd) ≤ Cs − s2−s12 − d 
+
+> 2
+
+( 1   
+
+> p−1
+> q
+
+)− 12 ∥U0∥Ws1,p (Rd).
+
+Using the boundedness of the operators TLss (τ − s) we obtain 
+
+Z τ
+
+> 0
+
+TLss (τ − s)QT 0(s)U0 ds ≤ C
+
+Z τ
+
+> 0
+
+s− s2−s12 − d 
+
+> 2
+
+( 1   
+
+> p−1
+> q
+
+)− 12 ∥U0∥Ws1,p (Rd) ds
+
+≤ C · τ − s2−s12 − d 
+
+> 2
+
+( 1   
+
+> p−1
+> q
+
+)+ 12 ∥U0∥Ws1,p (Rd),
+
+which is an even better estimate than the one desired. Note that the integration above suffices for |s2 − s1| ≪ 1, and a simple bootstrapping argument yields the estimate for |s2 − s1| ≫ 1. On the other hand, the first term on the right-hand side of Equation (6) satisfies the parabolic estimates we need, whence TLss (τ ) does for small τ ∈ (0 , 2]. For τ ∈ [2 , ∞): We obtain by the semigroup property: 
+
+∥TLss (τ )U0∥Ws,q (Rd) ≤ ∥ TLss (1) ∥L(L q (Rd),Ws,q (Rd)) · ∥ TLss (τ − 1) U0∥Lq (Rd)
+
+≤ C · ∥ TLss (τ − 1) U0∥Lq (Rd) ≤ ˜C · e(ω0+δ)τ · ∥ U0∥Lq (Rd).
+
+Combining the inequalities implies the claim. 10 Now, Ulin is defined to be an ancient solution of 
+
+∂τ Ulin (τ ) = Lss Ulin (τ ), τ ∈ R
+
+with Ulin (τ ) → 0 as τ → −∞ . For U to satisfy the self-similar Navier–Stokes equations, the part Uper must satisfy 
+
+∂τ Uper − Lss Uper = P(Uper · ∇ Uper + Ulin · ∇ Uper + Uper · ∇ Ulin + Ulin · ∇ Ulin ).
+
+The mild formulation of these equations reads as: 
+
+Uper (τ ) = 
+
+Z τ
+
+> −∞
+
+TLss (τ −s)P(Uper ·∇ Uper +Ulin ·∇ Uper +Uper ·∇ Ulin +Ulin ·∇ Ulin ) d s (7) Following [3] we introduce the Banach space (for some numbers T and N to be determined) 
+
+Z := {U ∈ C( −∞ , T ; H N (R3)) : sup 
+
+> τ <T
+
+e−(ω0+δ)τ ∥U (τ )∥HN (R3) and div U = 0 }.
+
+The next result shows the existence of Uper assuming the existence of an ancient solution Ulin .
+
+Proposition 2.2. Given an ancient solution Ulin , there exists T ∈ R such that there exists Uper ∈ Z satisfying (7) . If ω0 > 0 then Uper (τ ) → 0 as τ → −∞ . Furthermore, if Ulin ̸ = 0 then Uper ̸ = −Ulin and hence U̸ = ¯U .Proof. The existence of Uper follows from Banach’s fixed point theorem and Propo-sition 2.1 as in [3, Section 4]. It remains to show that U̸ = ¯U , which is equivalent to Ulin ̸ = −Uper . Indeed, 
+
+Ulin = −Uper would imply 
+
+P(Uper · ∇ Uper + Ulin · ∇ Uper + Uper · ∇ Ulin + Ulin · ∇ Ulin ) = 0 and hence 
+
+−Ulin = Uper (τ ) = =
+
+Z τ
+
+> −∞
+
+TLss (τ − s)P(Uper · ∇ Uper + Ulin · ∇ Uper + Uper · ∇ Ulin + Ulin · ∇ Ulin ) d s = 0 ,
+
+which contradicts Ulin ̸ = 0. 11 Motivated by this construction, the following question arises: how can one find an ancient solution Ulin ̸ = 0 which decays Ulin (τ ) → 0 as τ → −∞ ? Note that the existence of such a Ulin would follow, for example, from the existence of (any!) unstable spectrum under the assumption that the semigroup generated by Lss is hyperbolic, see [15, Section VI.1.c]. An easier way to proceed is the existence of an unstable eigenvalue λuns ∈ σp(Lss ) ∩ { μ ∈ C : Re μ > 0}. Then the spectral mapping theorem of the point spectrum [15, Corollary IV.3.8] guarantees that 
+
+Ulin := Re( eλuns τ η),
+
+is an ancient solution, where η̸ = 0 is an eigenfunction of Lss associated to the eigenvalue λuns .In [3] Albritton, Brue and Colombo used the following idea to construct an un-stable eigenvalue for the forced Navier-Stokes equations: Replacing ¯U by β ¯U for a positive number β > 0 one obtains for the linearization 
+
+Lvel ,β V = ∆ V + 12ξ · ∇ V + 12V − βP( ¯U · ∇ V + V · ∇ ¯U )= β · (β−1 · (∆ V + 12ξ · ∇ V + 12V ) − P( ¯U · ∇ V + V · ∇ ¯U )) =: β · ˜Lvel ,β 
+
+where both operators are defined on X with their maximal domains. Note that 
+
+βλ β ∈ σ(Lvel ,β ) ⇐⇒ λ ∈ σ( ˜Lvel ,β ),
+
+and in particular Lβ admits an unstable eigenvalue if and only if ˜Lβ does so. Since, in contrast to the work of Albritton, Brue and Colombo, we aim for an understanding of the unforced Navier-Stokes equations, we need that β ¯U is a self-similar solution of the Navier-Stokes equations, i.e. ¯U is necessarily a homothetic self-similar solution .Now the idea is to pass to the limit β → +∞. Formally, applying this limit to ˜Lvel ,β ,we obtain ˜Lvel ,∞V := −P( ¯U · ∇ V + V · ∇ ¯U ), D( ˜Lvel ,∞) := {V ∈ X : ˜Lvel ,∞V ∈ X}
+
+i.e. we recover the linearization of the three-dimensional Euler equations at ¯U . Since it is sometimes more convenient to argue in vorticity form rather than in velocity form, we introduce the space Y = L 2(Rd) ∩ L4(Rd) and the operators ˜Lvor ,β Ω := β−1 ·
+
+
+
+∆Ω + 12ξ · ∇ Ω + Ω 
+
+
+
+− [ ¯U , Ω] − [U, ¯Ω] ,Lvor ,β Ω := β · ˜Lvor ,β Ω,D(Lvor ,β ) := D( ˜Lvor ,β ) = {Ω ∈ W2,2(R3) ∩ W2,4(R3) : ξ · ∇ Ω ∈ Y },
+
+˜Lvor ,∞Ω := −[ ¯U , Ω] − [U, ¯Ω] , D( ˜Lvor ,∞) = {Ω ∈ Y : ¯U · ∇ Ω ∈ Y }.
+
+12 The next result guarantees that we can switch freely between the velocity and vortic-ity formulation of the operators in the following sense. The proof requires a departure from [3] because our profile cannot be compactly supported. 
+
+Lemma 2.3. Assume that the background U is isotropically decaying. Assume in addition that λ ∈ C with Re λ > 12 . Then 
+
+λ ∈ σp( ˜Lvor ,β ) ⇐⇒ λ ∈ σp( ˜Lvel ,β ), λ ∈ σp(Lvor ,β ) ⇐⇒ λ ∈ σp(Lvel ,β ).
+
+Proof. Both equivalences follow by similar arguments. We prove the second one. Assume λ ∈ σp(Lvel ,β ), then there exists a V̸ = 0 such that λV = Lvel ,β V . Note that 
+
+V ∈ D(Lvel ,β ) ⊂ W2,2(R3) ∩ W2,4(R3) and div V = 0. Therefore, we can apply the curl and obtain for Ω = curl( V )̸ = 0 with λΩ = Lvor ,β Ω. The other inclusion follows by applying the Biot-Savart operator and using its mapping properties. Indeed, once we can show Ω ∈ L6/5(R3) the mapping properties of the Biot-Savart operator yields 
+
+U = BS(Ω) ∈ L2df (R3) is an eigenfunction of ˜Lvel ,β . In order to show this, we consider 
+
+λΩ −
+
+
+
+1 + ξ
+
+2 · ∇ 
+
+
+
+Ω − ∆Ω = F := −β[ ¯U , Ω] − β[U, ¯Ω] .
+
+Since Ω ∈ D(Lvor ,β ), we have F ∈ L2(R3). However, since the background profile cannot be compactly supported, the proof now departs from that in [3]. Instead, we separate the part of F that is well-controlled and of zeroth-order from the part that contributes a transport term. We have instead 
+
+λΩ −
+
+
+
+1 + ξ
+
+2 · ∇ 
+
+
+
+Ω + βU · ∇ Ω − ∆Ω = F1 := F + βU · ∇ Ω,
+
+where, more precisely, 
+
+F1 = −β  U · ∇ Ω + Ω · ∇ U + Ω · ∇ U  .
+
+Since Ω ∈ D(Lvor ,β ), we have Ω ∈ L2(R3), and in particular KBS ∗ Ω = U ∈ L6(R3). Due to its isotropic decay (spatial smoothness is known for any self-similar solution to the incompressible Navier-Stokes equations), we have U ∈ L3,∞(R3), ∇U , Ω ∈
+
+L3/2,∞(R3), and ∇Ω ∈ L1,∞(R3). In particular, F1 ∈ L1(R3) ∩ L∞(R3) (with room to spare). We now undo the self-similar variables by considering 
+
+h(x, t ) := tλ−1Ω( xt −1/2), f1(x, t ) := tλ−2F1(xt −1/2).
+
+13 We obtain 
+
+∂th + βt −1/2U (xt −1/2) · ∇ h − ∆h = f1, h(0) = 0 where we have used Re λ > 1/4 to obtain h(0) = 0 from setting q = 2 and d = 3 in 
+
+∥h(t)∥Lq (Rd) = tRe λ−1+ d 
+
+> 2q
+
+∥Ω∥Lq (Rd) → 0. (8) Note that, due to the isotropic decay of U , t−1/2U (xt −1/2) behaves like the ( −1) −
+
+homogeneous data u0(x) for t near 0, and this type of perturbation was dealt with in Section 3 of [20]. Now we observe that when Re( λ) > 1/2, f1(t) has uniformly bounded L1 norm for all finite times by setting q = 1 and d = 3 in: 
+
+∥f (t)∥Lq (Rd) = tRe λ−2+ d 
+
+> 2q
+
+∥F ∥Lq (Rd).
+
+Lastly, the regularity theory of the perturbed heat equation generating a continu-ous semigroup T (the perturbation is essentially a transport term by a lower-order singular term t−1/2U (xt −1/2) as dealt with in [20]) implies Ω( ξ) = h(ξ, 1) = 
+
+Z 10
+
+T (1 − s)f (s) d s ∈ L6/5(R3),
+
+since F ∈ L1(R3) ∩ L∞(R3). We can now establish the following singular limit result. 
+
+Lemma 2.4. Assume that there exists an unstable eigenvalue of the linearization of the three-dimensional Euler equation λ∞ ∈ σp( ˜Lvor ,∞) ∩ { μ ∈ C : Re μ > 0}.Furthermore, assume that 
+
+R(λ, ˜Lvel ,β )V → R(λ, ˜Lvel ,∞)V, or R(λ, ˜Lvor ,β )Ω → R(λ, ˜Lvor ,∞)Ω 
+
+uniformly on compact sets K ⊂ { μ ∈ C : Re μ > 0} ∩ ρ(Lvor ,∞). Then there exists 
+
+β0 > 0 such that for all β ≥ β0 there exists unstable eigenvalues ˜λβ ∈ σp( ˜Lvor ,β )∩{ μ ∈
+
+C : Re μ > 0} with ˜λβ → λ∞.
+
+Furthermore, λβ = β˜λβ is an unstable eigenvalue of Lvor ,β and Lvel ,β .Proof. The first part follows from [23, Section VIII.1.4]. By choosing β ≥ β0 suffi-ciently large, we can guarantee that Re λ = β · Re ˜λβ > 12 and hence the claim follows from Lemma 2.3. 14 In particular, for Lss = Lvel ,β 0 we obtain a non-trivial ancient decaying solution 
+
+Ulin and therefore, by Proposition 2.2, the existence of two distinct solutions U̸ = ¯U
+
+and u̸ = ¯ u to the incompressible Navier-Stokes equations with scaling-invariant initial data u0(x) = |x|−1 · v( x 
+
+> |x|
+
+). Next, we study why the assumptions from Lemma 2.4 are not automatically fulfilled. We split the operator in vorticity form Lvor ,β in the following way: 
+
+Lvor ,β = β−1D + M + S + K
+
+using the operators 
+
+DΩ := ∆Ω + ξ
+
+2∇Ω + Ω ,M Ω := − ¯U · ∇ Ω,SΩ := ¯Ω · ∇ U + Ω · ∇ ¯U , KΩ := −(BS(Ω) · ∇ ) ¯Ω,
+
+equipped with their natural domains. These operators have the following properties. 
+
+Lemma 2.5. For β ≥ 1 we have (i) The operators D and β−1D generate quasi-contractive semigroups on the space 
+
+Lq(R3);(ii) the operator M is skew-symmetric, dissipative, and relatively D-bounded with infinitesimal bound; (iii) the operator S is bounded with bound η := ∥S∥.In particular, Aβ := 1 
+
+> β
+
+D + M + S and A∞ := M + S generate quasi-contractive semigroups with growth-bounds ω0(Aβ ), ω 0(A∞) ≤ max {(1 − 32q + η), η } =: ˜ η. This implies 
+
+∥R(λ, A β )∥ ≤ 1Re λ − ˜η
+
+and strong convergence 
+
+R(λ, A β )Ω → R(λ, A ∞)Ω 
+
+locally uniformly in {μ ∈ C : Re μ > ˜η} as β → +∞.
+
+15 Proof. Part (i) can be found e.g. in [27]. Nevertheless, we outline the proof here. It suffices to study ∆ + ξ 
+
+> 2
+
+∇ since the remainder is just rescaling of the semigroup, see [15, Section II.2.2]. For this operator, the quasi-dissipativity can be shown by a direct calculation and we obtain that D generates a quasi-contractive semigroup (TD(τ )) τ ≥0 by the Lumer-Phillips theorem, see [15, Theorem II.3.15]. Its growth bound is given by ω0(D) = 1 − 32q . Using rescaling of the semigroup, see [15, Section II.2.2], we obtain that that β−1D generate semigroups with 
+
+Tβ−1D(τ ) = TD(β−1τ ).
+
+This implies quasi-contractivity with growth bounds ω0(β−1D) = β−1(1 − 32q ). The skew-symmetry and dissipativity of M follow from a direct calculation. The 
+
+D-boundedness follows from the fact that ¯U is smooth, bounded and has bounded derivatives. Hence, M is lower order compared to D. This shows part (ii). Part (iii) follows from the fact that ¯U is smooth, bounded and has bounded derivatives, the use of H¨ older’s inequality, and the fact that Ω 7 → ∇ U is a singular integral operator of order zero and thus bounded on Lebesgue spaces. Using part (i) and (ii) in conjunction with the perturbation theorem of quasi-contractive semigroups from [15, Theorem III.2.7] we obtain that β−1D +M generate quasi-contractive C0-semigroups with growth bounds ω0(β−1D + M ) = β−1(1 − 32q ). Now, part (iii) and the bounded perturbation theorem, [15, Theorem III.1.3] implies that Aβ generate quasi-contractive C0-semigroups with growth bounds ω0(Aβ ) = 
+
+β−1(1 − 32q ) + η. In particular, we obtain the uniform bounds 
+
+∥TAβ (τ )∥ ≤ eτ (β−1(1 − 32q )+ η) ≤ max {eτ ((1 − 32q )+ η), e τ η }.
+
+The Hille-Yosida theorem, see [15, Theorem II.3.5], implies the desired resolvent bounds. Note that M , which is a transport semigroup by a smooth and decaying vector field, generates a continuous contraction semigroup and that S is a bounded operator. Therefore, A∞ generates a continuous semigroup. Moreover, C∞ 
+
+> c
+
+is a core for A∞, C∞ 
+
+> c
+
+⊂ D(Aβ ) for all β > 0, and we have 
+
+Aβ Ω → A∞Ω for Ω ∈ C∞ 
+
+> c
+
+(R3).
+
+The Trotter-Kato theorem, see [15, Theorem III.4.8], now implies the strong conver-gence 
+
+R(λ, A β )Ω → R(λ, A ∞)Ω .
+
+Finally, uniformity of the convergence follows from the fact that we consider Re μ > ˜η
+
+and ˜ η > 0 is an upper bound of the growth bound. Hence, on a fixed compact set 16 the resolvents are uniformly bounded and analytic functions which converge strongly. This implies the uniform strong convergence. Lemma 2.5 shows that the non-local term K is in fact the helpful term for the gen-eration of instability. To formalize the singular limit argument, we require uniform convergence of the resolvents. In vorticity form, the operator K gains a derivative, which, along with the isotropic decay of the profile, allows it to be a compact opera-tor. In this case, addition of the compact perturbation does not affect the essential spectrum but may add discrete eigenvalues to the the spectrum of the operator. By Lemma 2.5, we get uniform convergence of the resolvents away from this essential spectrum, with the exception of discrete eigenvalues. This allows the spectral projec-tion argument from [3] to be carried along and discrete eigenvalues to persist through the singular limit. 
+
+Lemma 2.6. If the background is isotropically decaying, then the operator 
+
+K : L q(Rd) → Lq(Rd)
+
+is compact. Proof. See Section 3 in [5]. Before we finish the proof of Theorem 1.1, let us point out that, in this case, restricting the construction of Ulin to unstable eigenvalues is not a genuine limitation. 
+
+Lemma 2.7. Suppose the background is isotropically decaying. We consider Lss as an operator on Lqdf (R3). Then ωess (Lss ) = 12 − 32q . In particular, the unstable spectrum of Lss is either a collection of discrete eigenvalues or empty. Proof. The proof relies on the Duhamel formula (6). The isotropic decay condition implies that R τ 
+
+> 0
+
+TLss (τ − s)QT 0(s)U0 ds with QV := −P( ¯U · ∇ V + V · ∇ ¯U ) is a compact operator and therefore the claim. Now, the claim follows from the fact that 
+
+D generates a C0-semigroup with growth bound ω0(D) = 12 − 32q on L q(R3). We refer the reader to [20, Lemma 2.7] for details. The result above is complemented by the following spectral result. 
+
+Proposition 2.8. Suppose the background is isotropically decaying. We consider 
+
+Lss as an operator on Lqdf (R3). Then 
+
+n
+
+λ ∈ C : Re (λ) = 12 − 32q
+
+o
+
+⊂ σ(Lss ).
+
+17 Proof. By Proposition 2.1 the operator Lss generates a strongly continuous semi-group ( T (τ )) τ ∈R+ on L 2 
+
+> df
+
+(R3). We now proceed with an argument from [13] and used for Ornstein-Uhlenbeck operators in [29]. Consider the the following isometries on 
+
+Lq(R3): (IsU )( x) := s−3/q U (s−1x).
+
+We observe that for any U ∈ C∞ 
+
+> c
+
+(R3)
+
+I−1 
+
+> s
+
+˜LIsU = P
+
+U
+
+2 + x
+
+2 · ∇ U + s−2∆U − s−1U (sx ) · ∇ U (x) − U (x) · (∇U )( sx )
+
+
+
+.
+
+By the results in [21], we know that for any isotropically decaying self-similar solution, 
+
+U decays as 1 /|x| and ∇U decays as 1 /|x|2 as |x| → ∞ . It follows (by continuity of 
+
+P on Lq(R3)) that lim  
+
+> s→∞
+
+I−1 
+
+> s
+
+˜LIsU = P
+
+U
+
+2 + x
+
+2 · ∇ U
+
+
+
+,
+
+strongly in L2(R3) for any U ∈ C∞ 
+
+> c
+
+(R3) with div U = 0. By the Trotter-Kato theorem, and since {U ∈ C∞ 
+
+> c
+
+(R3, R3) : div U = 0 } is a core, we conclude that the semigroups I−1 
+
+> s
+
+T (τ )Is converge strongly to the semigroup S(τ ) generated by the drift operator DU := U 
+
+> 2
+
++ x 
+
+> 2
+
+· ∇ U with its natural domain on L2(R3. Here, we used that 
+
+D commutes with P. By Corollary 13 in [13], we conclude that σ(D) ⊂ σ(Lss ). [29, Theorem 2.3] implies that σ(D) = {λ ∈ C : Re( λ) = 12 − 32q }, (cf. Section 2 in [29]) which finishes the proof of the proposition. Now we show that the convergence assumption from Lemma 2.4 is satisfied if one assumes the isotropic decay condition. 
+
+Theorem 2.9. Suppose the background is isotropically decaying. Assume that there exists an unstable eigenvalue λ∞ ∈ σp( ˜Lvor ,∞) ∩ { μ ∈ C : Re μ > ˜η}, for ˜η from Lemma 2.5, then there exists two distinct solutions to the incompressible Navier-Stokes equations with scaling-invariant initial data u0(x) = |x|−1 · v( x 
+
+> |x|
+
+).Proof. It suffices to verify the assumptions of Lemma 2.4. Note that 
+
+λ − Lvor ,β = ( λ − Aβ )(1 − R(λ, A β K)) and we know by Lemma 2.6 that K is compact. Therefore it can be approximated by operators Fn of finite rank. We obtain from Lemma 2.5 that 
+
+R(λ, A β )Fn → R(λ, A ∞)Fn in L(X)18 uniformly in λ on compact sets B ⊂ { μ ∈ C : Re μ > ˜η} ∩ ρ(A∞). Passing to the limit n → ∞ implies 
+
+R(λ, A β )K → R(λ, A ∞)K in L(X)uniformly in λ on compact sets B ⊂ { μ ∈ C : Re μ > ˜η} ∩ ρ(A∞). Hence, for β > 0sufficiently large, we see that 1 − R(λ, A β )K is a small perturbation of the invertible operator 1 − R(λ, A ∞)K and therefore invertible. This implies λ ∈ ρ( ˜Lvor ,β ) and 
+
+R(λ, ˜Lvor ,β )Ω = (1 − R(λ, A β K)) −1R(λ, A β )Ω → (1 − R(λ, A ∞K)) −1R(λ, A ∞)Ω uniformly in λ on compact sets B ⊂ { μ ∈ C : Re μ > ˜η} ∩ ρ(A∞). Now, Lemma 2.4 implies the existence of an unstable eigenvalue of Lss by choosing β sufficiently large. Hence, we obtain an ancient, decaying Ulin] ̸ = 0 and therefore by Proposition 2.2 the existence of two distinct solutions the incompressible Navier-Stokes equations arising from the same scaling-invariant initial data u0(x) = |x|−1 · v( x 
+
+> |x|
+
+). Using the localization technique from Jia-ˇSver´ ak this result implies a criterion for the non-uniqueness of Leray-Hopf solutions. 
+
+Corollary 2.10. Suppose the background is isotropically decaying. Assume that there exists an unstable eigenvalue λ∞ ∈ σp( ˜Lvor ,∞) ∩ { μ ∈ C : Re μ > ˜η}, for ˜η from Lemma 2.5, then there exists two distinct Leray-Hopf solutions to the incompressible three-dimensional Navier-Stokes equations. Proof. See [20, Section 5] for the truncation argument. We obtain the same result in velocity form. 
+
+Theorem 2.11. Suppose the background is isotropically decaying. Assume that there exists an unstable eigenvalue λ∞ ∈ σp( ˜Lvel ,∞) ∩ { μ ∈ C : Re μ > ˜η}, then there exists two distinct solutions to the incompressible Navier-Stokes equations with scaling-invariant initial data u0(x) = |x|−1 · v( x 
+
+> |x|
+
+).Proof. Essentially the same proof as Theorem 2.9. Using the localization technique from Jia-ˇSver´ ak this result implies a criterion for the non-uniqueness of Leray-Hopf solutions. 
+
+Corollary 2.12. Suppose the background is isotropically decaying. Assume that there exists an unstable eigenvalue λ∞ ∈ σp( ˜Lvel ,∞) ∩ { μ ∈ C : Re μ > ˜η}, then there exists two distinct Leray-Hopf solutions to the incompressible three-dimensional Navier-Stokes equations. 
+
+19 Proof. See [20, Section 5]. We note that although the singular limit argument and the compactness of K
+
+seem to depend on the isotropic decay of the background profile, one may still attempt to construct the ancient solution Ulin for an anisotropically decaying background in order to prove non-uniqueness. 
+
+# 3 Homothetic Self-Similar Solutions 
+
+Let U be a homothetic self-similar solution to the Navier-Stokes Equations. By definition there exists β with |β|̸ = 1 , 0 such that U and βU are both self-similar profiles; in particular, both solve Equation (2). Henceforth we shall always assume that the corresponding pressure terms P and Pβ are, at the very least, tempered dis-tributions modulo polynomials (which we denote S′/P). Then we have the following short lemma: 
+
+Lemma 3.1. U is a homothetic self-similar solution to the Navier-Stokes equations if and only if there exists a scalar pressure P such that 
+
+U · ∇ U + ∇P = 0 
+
+U
+
+2 + x
+
+2 · ∇ U + ∆ U = 0 
+
+div U = 0 .
+
+(9) 
+
+Moreover, if U is homothetic, then βU is a solution for all β ∈ R.Proof. By hypothesis we know that there exists P and Pβ such that 
+
+−U
+
+2 − x
+
+2 · ∇ U − ∆U + U · ∇ U + ∇P = 0 and 
+
+−β U
+
+2 − β x
+
+2 · ∇ U − β∆U + β2U · ∇ U + ∇Pβ = 0 .
+
+Let us use the divergence free condition and take the divergence of the second listed equation. This yields 
+
+−∆Pβ = β2div 2(U ⊗ U ) = −β2∆P, 
+
+which implies that Pβ − β2P is harmonic on R3. By our assumption that P, P β ∈S′/P, we have that Pβ = β2P . Now, multiplying the first equation by β and sub-tracting we get: (β2 − β)U · ∇ U + ( β2 − β)∇P = 0 .
+
+20 Since |β|̸ = 1 , 0, we get: 
+
+U · ∇ U + ∇P = 0 .
+
+Therefore U is a solution of the steady Euler equations, which implies the other desired equality. The last claim now becomes evident. Our first goal becomes one of constructing solutions of the Ornstein-Uhlenbeck-type equation U
+
+2 + x
+
+2 · ∇ U + ∆ U = 0 div u = 0 (10) from ( −1)-homogeneous data u0(x) at infinity, in the sense that the following blow-down limit holds (at the very least in the pointwise sense): lim  
+
+> R→∞
+
+RU (R · x) = u0(x). (11) This corresponds to constructing forward self-similar solutions of the heat equa-tion from ( −1)-homogeneous data at initial time. We therefore consider the following data: 
+
+u0(x) = |x|−1 · v( x 
+
+> |x|
+
+).
+
+Our construction has two steps: from the data we first construct a distribution 
+
+a : S2 → C3 which captures the angular information of the solution U , then we construct U from a. What permits this route is the radial symmetry of the Ornstein-Uhlenbeck operator. 
+
+Lemma 3.2 (From v to a). Any v ∈ L2(S2; R3) can be expanded in terms of the spherical harmonics Ykl as 
+
+v = veven + vodd = X 
+
+> keven
+> k
+
+X
+
+> l=−k
+
+ckl Ykl + X 
+
+> kodd
+> k
+
+X
+
+> l=−k
+
+ckl Ykl 
+
+with ck, −l = ( −1) lckl . Let T be the following linear operator defined by its action on the spherical harmonics: 
+
+T Y kl =
+
+  
+
+> (−1) k−12
+> 2πi k!! (k−1)!!
+
+Ykl , if k odd,     
+
+> (−1) k
+> 2
+> 2π
+> 2k(k
+> 2 !) 2
+> k!
+
+Ykl , if k even, and suppose a = T v . Then a ∈ H−2(S2, C3) ⊂ D′(S2, C3).
+
+21 Proof. Since v ∈ L2(S2), the vector field can be expanded in spherical harmonics with coefficients ckl = ⟨v, Y kl ⟩L2 . Moreover, Parseval’s identity implies ckl ∈ ℓ2, and hence in particular |ckl | ≤ C. Let φ ∈ C∞(S2) be smooth. It can be expanded as 
+
+φ = P∞
+
+> k=0
+
+Pkl=−k ˜ckl Ykl . Since φ is smooth, we have ∆ m 
+
+> S2
+
+φ ∈ L2(S2) for all m ∈ N
+
+and hence obtain that km(k + 1) m˜ckl ∈ ℓ2. This implies 
+
+⟨a, φ ⟩ = X 
+
+> keven
+> k
+
+X
+
+> l=−k
+
+(−1) k
+
+> 2
+
+2π
+
+2k(k 
+
+> 2
+
+!) 2
+
+k! ckl ˜ckl + X 
+
+> kodd
+> k
+
+X
+
+> l=−k
+
+(−1) k−12
+
+2πi k!! (k − 1)!! ckl ˜ckl .
+
+Direct calculations show 
+
+(−1) k
+
+> 2
+
+2π
+
+2k(k 
+
+> 2
+
+!) 2
+
+k! ckl ˜ckl ≤ Ck 32
+
+· | k(k + 1)˜ ckl |
+
+and 
+
+(−1) k−12
+
+2πi k!! (k − 1)!! ckl ˜ckl ≤ Ck 32
+
+· | k(k + 1)˜ ckl |.
+
+Therefore, we have 
+
+|⟨ a, φ ⟩| ≤ C · ∥ ∆S2 φ∥L2(S2) = C · ∥ D2φ∥L∞(S2)
+
+and a is a distribution in H−2(S2, C3). 
+
+Lemma 3.3 (From a to U ). Given any distribution a ∈ D′(S2, C3) with a(−ω) = 
+
+a(ω), we define 
+
+U (ξ) = Ueven (ξ) + Uodd (ξ)
+
+where 
+
+Ueven (ξ) = 
+
+√π
+
+2
+
+Z
+
+> S2
+
+e− (ω·ξ)24 a(ω) d ω, Uodd (ξ) = i
+
+Z
+
+> S2
+
+D(ω·ξ 
+
+> 2
+
+)a(ω) d ω, 
+
+and where D(z) := e−z2 R z 
+
+> 0
+
+et2
+
+dt is the Dawson function. Then U ∈ C∞(R3, R3)
+
+solves 
+
+∆U + 12ξ · ∇ U + 12U = 0 . (12) 
+
+If, in addition, we have ω · a(ω) = 0 , then div U = 0 .
+
+22 Proof. We first show that (12) holds distributionally. Consider the following pairing: 
+
+Ueven (ξ) = ⟨a, K even (ξ, ·)⟩,
+
+where 
+
+ω → Keven (ξ, ω ) := 
+
+√π
+
+2 e− (ω·ξ)24
+
+is smooth on S2 for each ξ ∈ R3 (and is therefore an admissible test function). It follows that the expression is well-defined for all ξ ∈ R3. Using ∆ξKeven (ξ, ω ) = −12 (1 − (ω·ξ)2 
+
+> 2
+
+)Keven (ξ, ω ),
+
+(ξ · ∇ ξ)Keven (ξ, ω ) = −(ω·ξ)2 
+
+> 2
+
+Keven (ξ, ω ),
+
+we obtain ∆Keven + 12 ξ · ∇ Keven + 12 Keven = 0 and therefore ∆Ueven + 12 ξ · ∇ Ueven + 12 Ueven = ⟨a, ∆Keven + 12 ξ · ∇ Keven + 12 Keven ⟩ = 0 .
+
+For the odd part we argue along the same lines: we have 
+
+Uodd (ξ) = ⟨a, K odd (ξ, ·)⟩,
+
+where 
+
+ω → Kodd (ξ, ω ) := iD  ω·ξ
+
+> 2
+
+
+
+is smooth on S2 for each ξ ∈ R3 (i.e. an admissible test function). The expression is thus well-defined for all ξ ∈ R3. Using ∆ξKodd (ξ, ω ) = −12 (1 + i 
+
+> 2
+
+(ω · ξ) − (ω·ξ)2 
+
+> 2
+
+)Kodd (ξ, ω ),
+
+(ξ · ∇ ξ)Kodd (ξ, ω ) = 
+
+ i 
+
+> 2
+
+(ω · ξ) − (ω·ξ)2
+
+> 2
+
+
+
+Kodd (ξ, ω ),
+
+we obtain ∆Kodd + 12 ξ · ∇ Kodd + 12 Kodd = 0 and therefore ∆Uodd + 12 ξ · ∇ Uodd + 12 Uodd = ⟨a, ∆Kodd + 12 ξ · ∇ Kodd + 12 Kodd ⟩ = 0 .
+
+23 Now suppose that ω · a(ω) = 0 (this product makes sense for any distribution a
+
+since ω is smooth). Then: div Ueven (ξ) = ∂j (Ueven (ξ)) j =
+
+√π
+
+2
+
+Z
+
+> S2
+
+e−(ω·ξ)2/4
+
+−(ω · ξ)ωj
+
+2
+
+
+
+aj (ω)d ω = 0 ,
+
+since ωj aj (ω) = 0 in the distributional sense. The proof that Uodd is divergence free follows in the same way. Finally, the smoothness of U follows from the fact that the Ornstein-Uhlenbeck operator is hypo-elliptic. Hence, (12) holds point-wise. Note that in fact any distribution satisfying the hypotheses of the above lemma gives rise to a solution of Equation (10), but its convergence to the data may be less well-understood. Finally, we prove the following. 
+
+Proposition 3.4. Let u0(x) = |x|−1 · v( x 
+
+> |x|
+
+) be a divergence-free, (−1) -homogeneous function. Then U ∈ C∞(R3, R3) constructed via Lemma 3.2 and Lemma 3.3 solves 
+
+∆U + 12ξ · ∇ U + 12U = 0 ,
+
+and div U = 0 . Furthermore, its blow-down limit is the data u0, i.e. 
+
+lim  
+
+> R→∞
+
+UR(ξ) = u0(ξ) = |ξ|−1v( ξ 
+
+> |ξ|
+
+)
+
+for ξ ∈ R3 in the pointwise sense. In particular, U is uniquely determined by its data v (i.e. we have uniqueness of forward self-similar solutions within the class of homothetic solutions). Proof. From Lemma 3.3 we know that U ∈ C∞(R3, R3) and that U solves the desired equations. It remains to check the blow-down limit. We consider 
+
+Ueven ,R (ξ) := RU even (Rξ ) = 
+
+√π
+
+2
+
+Z
+
+> S2
+
+Re − R2(ω·ξ)24 aeven (ω) d ω. 
+
+We have by dominated convergence theorem 
+
+Z
+
+> R
+
+Re − R2s24 ϕ(s) d s = 2 
+
+Z
+
+> R
+
+e−r2
+
+ϕ  2rR
+
+ dr → 2ϕ(0) 
+
+Z
+
+> R
+
+e−r2
+
+dr = 2 √πϕ (0) for every test function ϕ ∈ C∞ 
+
+> c
+
+(R), which implies for s = ( ω · ξ) and ξ = |ξ|ω′:
+
+Re − R2(ω·ξ)24 → | ξ|−12√πδ 0(ω · ω′) as R → +∞,
+
+24 in the sense of distributions. We conclude 
+
+Ueven ,R (ξ) = 
+
+√π
+
+2
+
+Z
+
+> S2
+
+Re − R2(ω·ξ)24 aeven (ω) d ω → | ξ|−1π
+
+Z
+
+> S2
+
+δ0(ω · ω′)aeven (ω) d ω
+
+as R → ∞ . For the odd part, we consider 
+
+Uodd ,R (ξ) := iR 
+
+Z
+
+> S2
+
+D(Rω ·ξ 
+
+> 2
+
+)aodd (ω) d ω. 
+
+A simple property of the Dawson function is that: 
+
+D(y) − 12y ≤ 1
+
+|y|3 , ∀| y| ≥ 1.
+
+From this we have: 
+
+RD 
+
+Rs 
+
+2
+
+
+
+− 1
+
+s ≤ R−2 · 8
+
+|s|3 , ∀s ∈ R, s.t. |Rs | ≥ 2 (13) Now let ϕ ∈ C∞ 
+
+> c
+
+(R) be an arbitrary test function and let M > 2 be an arbitrary real number. We have: 
+
+Z
+
+> R
+
+RD (Rs/ 2) ϕ(s)ds =
+
+Z
+
+> |s|≥ M R −1
+
+RD (Rs/ 2) ϕ(s)ds +
+
+Z
+
+> |s|≤ M R −1
+
+RD (Rs/ 2) ϕ(s)ds. 
+
+For the second term on the right we see 
+
+Z
+
+> |s|≤ M R −1
+
+RD (Rs/ 2) ϕ(s)ds = 2 
+
+Z
+
+> |y|≤ M/ 2
+
+D(y)ϕ  2yR
+
+ dy → 0,
+
+as R → ∞ by the dominated convergence theorem and since the Dawson function is odd. For the other term, we use that M > 2 and the inequality from Equation (13) to get: 
+
+Z
+
+> |s|≥ M R −1
+
+RD (Rs/ 2) ϕ(s)ds =
+
+Z
+
+> |s|≥ M R −1
+
+1
+
+s ϕ(s)ds + O(R−2)
+
+Z
+
+> |s|≥ M R −1
+
+1
+
+|s|3 ϕ(s)ds. 
+
+Here the implicit constant in O(R−2) is of course independent of M . One more change of variables gets us: 
+
+Z
+
+> |s|≥ M R −1
+
+RD (Rs/ 2) ϕ(s)ds =
+
+Z
+
+> |s|≥ M R −1
+
+1
+
+s ϕ(s)ds + O(1) 
+
+Z
+
+> |y|≥ M
+
+1
+
+|y|3 ϕ(y/R )dy. 
+
+25 Once again the implicit constant in O(1) is independent of both R and M . Now, taking the limit as R → ∞ we get: lim 
+
+> R→∞
+
+Z
+
+> |s|≥ M R −1
+
+RD (Rs/ 2) ϕ(s)ds = P.V. 
+
+1
+
+s
+
+
+
++ O(1) 
+
+Z
+
+> |y|≥ M
+
+1
+
+|y|3 ϕ(0) dy. 
+
+Taken together with the local integral, we conclude that: lim 
+
+> R→∞
+
+Z
+
+> R
+
+RD (Rs/ 2) ϕ(s)ds = P.V. 
+
+1
+
+s
+
+
+
++ O(1) 
+
+Z
+
+> |y|≥ M
+
+1
+
+|y|3 ϕ(0) dy. 
+
+Now, letting M → ∞ , we conclude: lim 
+
+> R→∞
+
+Z
+
+> R
+
+RD (Rs/ 2) ϕ(s)ds = P.V. 
+
+1
+
+s
+
+
+
+.
+
+This implies that for s = ( ω · ξ) with ξ = |ξ|ω′ we have 
+
+RD (Rω ·ξ 
+
+> 2
+
+) → | ξ|−1P.V. 1
+
+ω · ω′ as R → +∞,
+
+in the sense of distributions. We conclude 
+
+Uodd ,R (ξ) = i
+
+Z
+
+> S2
+
+RD (Rω ·ξ 
+
+> 2
+
+)aodd (ω) d ω → i|ξ|−1
+
+Z
+
+> S2
+
+P.V. aodd (ω′)
+
+ω · ω′ dω′ as R → +∞.
+
+Combining both parts, we see that 
+
+UR(ξ) = RU (Rξ ) → u0(ξ)and the claim is proven. 
+
+Remark 3.5. Let us point out that the boundary condition in [20] and [21] given by 
+
+|U (x) − u0(x)| = o(|x|−1) as |x| → +∞
+
+implies that u0 is the blow-down limit of U .
+
+# 4 Properties of Homothetic Solutions 
+
+## 4.1 Regularity of the Data 
+
+In this subsection, we shall prove Theorem 1.2. We recall the definition of the Morrey spaces Mpq (R3) where 1 ≤ q ≤ p:
+
+f ∈ M pq (R3) ⇐⇒ ∀ x ∈ R3, ∀R > 0,
+
+Z
+
+> BR(x)
+
+|f (y)|qdy ≤ R3− 3qp .
+
+The following proposition is key: 26 Proposition 4.1. Let U be a homothetic solution of the three-dimensional Navier-Stokes equations and assume that U ∈ M 3 
+
+> q
+
+(R3) for some 2 < q ≤ 3. Then the data u0 corresponding to U (equivalently the distributional blow-down limit of U ) is a (−1) -homogeneous weak stationary solution of the Euler equations that also lies in 
+
+M3 
+
+> q
+
+(R3).Proof. Let K be an arbitrary compact subset of R3. By hypothesis, we have that 
+
+U ∈ M 3 
+
+> q
+
+(R3) for some 2 < q ≤ 3, whence there exists a constant C > 0 such that 
+
+Z
+
+> K
+
+|UR(x)|qdx ≤ C, 
+
+uniformly in R > 0. In particular, since q > 2, we conclude by the theorem of De La Vall´ ee Poussin (see [6]) that |UR|2 is uniformly integrable on K. We have previously shown that UR converges distributionally and in the (almost everywhere) pointwise sense on R3 to its blow-down limit u0. This implies that UR converges in measure to u0 on the compact set K. Finally, by the Vitali convergence theorem (see [7]), we conclude that UR converges strongly in L2(K) to u0. Now consider an arbitrary divergence free distribution ϕ on R3. We have shown that UR converges strongly in 
+
+L2 on the support of ϕ to u0, so we get: lim 
+
+> R→∞
+
+Z
+
+> R3
+
+UR ⊗ UR : ∇ϕdx =
+
+Z
+
+> R3
+
+u0 ⊗ u0 : ∇ϕdx. 
+
+We may conclude that u0 is a distributional solution of the Euler equations. 
+
+Remark 4.2. Note that the choice of Morrey space we make is not quite arbitrary. For instance, Taylor and Kato prove in [32] and respectively [22] that the Morrey space M3 
+
+> q
+
+(R3) admits a small-data global well-posedness result for mild solutions whenever q ∈ (1 , 3] . Of course, any solution satisfying the boundary conditions of Jia and ˇSver´ ak trivially belongs in this class as well. 
+
+Remark 4.3. It is not difficult to see that if the blow-down limit u0(x) above equals 
+
+u0(x) = |x|−1v(x/ |x|) ∈ M 3 
+
+> q
+
+(R3), then v ∈ Lq(S2).
+
+4.1.1 Three-Dimensions 
+
+In this section we prove Theorem 1.2, which is a conditional Liouville theorem for homothetic self-similar solutions. The main idea of the proof is to instead show that the data (a ( −1)-homogeneous solution to the Euler equations) is trivial by sharpening a similar proof from [31]. We split the proof of Theorem 1.2 into two propositions, each of which handles one itemized hypothesis from the statement of Theorem 1.2. We begin with: 27 Proposition 4.4. Suppose U is a homothetic forward self-similar solution to the three-dimensional Navier-Stokes equations lying in the Morrey space M3 
+
+> q
+
+(R3) for some 2 < q ≤ 3. Suppose that the forward self-similar solution corresponds to initial data 
+
+u0 =⃗v + f⃗ n
+
+|x| ∈ Lq(S2),
+
+where ⃗n is the unit normal to the sphere and ⃗v is a tangent vector field to the sphere. Suppose ⃗v ∈ W 1,4/3(S2) and f ∈ L4(S2). Then f = 0 and the head pressure |⃗v| 2 +2 p =0 as well. If, in addition, the set {ω ∈ S2 :⃗v(ω) = 0 } has measure zero or is a closed set with C2 boundary, then ⃗v = u 0 = U = 0 .Proof. We know by Proposition 4.1 that u0 is a stationary solution of the three-dimensional Euler equations. This reduces to a system of differential equations on the sphere: 
+
+(∇⊥ · v)v⊥ + ∇  12 |v|2 + p = 0 
+
+v · ∇ f = |v|2 + f 2 + 2 pf + ∇ · v = 0 .
+
+(14) Here we have abused notation by writing v instead of ⃗v. We remark that the first equation in the system above can be written as 
+
+v · ∇ v + ∇p = 0 ,
+
+therefore we can always recover the pressure from 
+
+−∆p = div 2(v ⊗ v) + |v|2 + 2 p. 
+
+Since v ∈ W 1,4/3 ⊂ L4, it follows from standard elliptic regularity that p ∈ L2. Let 
+
+h := 2 p+|v|2 ∈ L2. Then we have that h, f satisfy the following transport equations: 
+
+v · ∇ h = 0 and 
+
+v · ∇ f = h + f 2.
+
+Since v ∈ L4, f ∈ L4, and h ∈ L2, we have that vf h ∈ L1, and in particular, vf h is a distribution (i.e. we can take its divergence). Since v ∈ W 1,4/3, we can say that the following integrals are justified 0 = 
+
+Z
+
+> S2
+
+div ( vf h ) = 
+
+Z
+
+> S2
+
+(∇ · v)f h +
+
+Z
+
+> S2
+
+h(v · ∇ f ) + 
+
+Z
+
+> S2
+
+f (v · ∇ h) = 
+
+Z
+
+> S2
+
+h2.
+
+28 From here we conclude that h ≡ 0, which, along with v ∈ W 1,4/3, implies that the distribution ( ∇⊥ · v)v⊥ = 0. Now since v ∈ L4 and f 3 ∈ L4/3, we get vf 3 ∈ L1 and the following integrals are justified: 0 = 
+
+Z
+
+> S2
+
+div( vf 3) = 2 
+
+Z
+
+> S2
+
+f 4.
+
+We conclude that f ≡ 0, which implies that ∇ · v = 0. This concludes the proof that 
+
+u0 must be tangential to the sphere, divergence free, and with zero head pressure whenever u0 lies in this regularity class. If in addition, v has a Lebesgue null zero set, then we have to conclude ∇⊥ · v = 0 a.e., so v is harmonic and therefore zero on 
+
+S2. Otherwise, if the boundary of the (closed) null set of v is C2, then whenever v
+
+is not zero, it is harmonic (on a C2 open subset of S2). Therefore, v = 0 necessarily on that set as well. 
+
+Remark 4.5. In the proof above, there remains a pathological case: that the data 
+
+u0 =⃗v/ |x| is a distributionally divergence-free vector field that has ⃗v = 0 on a rough non-null set Z and that curl S2⃗v = 0 in the distributional sense on the complement of Z in S2. This essentially means that v = ∇⊥ψ for some ψ ∈ C1,α , with ψ smooth and harmonic on the complement of a rough set Z and ∇ψ = 0 on Z. However, this boundary value problem is pathological and not well-understood. 
+
+Remark 4.6. Instead of assumptions on the null set of ⃗v, we may assume continuity of ⃗v to conclude the conditional Liouville theorem. For instance, if v ∈ W 1,q with 
+
+q > 2, then v is continuous. Then we get (∇⊥ · v)|v⊥|2 = 0 a.e. on S2. Since v
+
+is continuous, we conclude that the Lq function ∇⊥ · v = 0 a.e. on the open set 
+
+{x ∈ S2 : |v(x)|̸ = 0 }. In addition, ∇⊥ · v = 0 trivially on the interior of the zero set 
+
+{x ∈ S2 : |v(x)| = 0 }. We conclude that ∇⊥ · v = 0 a.e. on S2. Combined with the knowledge that ∇ · v = 0 on S2, we know that ∆v = 0 a.e. on S2. This implies that 
+
+v = 0 .
+
+We now prove the other part of Theorem 1.2: 
+
+Proposition 4.7. Suppose U is a homothetic forward self-similar solution to the three-dimensional Navier-Stokes equations lying in the Morrey space M3 
+
+> q
+
+(R3) for some 2 < q ≤ 3. Suppose that the forward self-similar solution corresponds to initial data 
+
+u0 =⃗v + f⃗ n
+
+|x| ∈ Lq(S2),
+
+where ⃗n is the unit normal to the sphere and ⃗v is a tangent vector field to the sphere. Suppose ⃗v, f ∈ C α(S2), for some α > 1/2. Then f =⃗v = u 0 = U = 0 .
+
+29 Proof. Note that since α > 1/2, the product v · ∇ q makes sense as a distribution in 
+
+Bα−1 
+
+> ∞,∞
+
+for any q ∈ Cα(S2). We let |v|2 + f 2 + 2 p := H.For any vector field or function q on the sphere, we consider its mollification qϵ.Following the idea from [12], we have the following commutator estimate for any 
+
+q ∈ Cα.
+
+∥(vϵ · ∇ qϵ) − (v · ∇ q)ϵ∥L∞ ≤ ϵ2α−1∥q∥Cα ∥v∥Cα .
+
+Therefore, for every α > 1/2, we have: 
+
+vϵ · ∇ fϵ = Hϵ + R1(ϵ),
+
+and 
+
+vϵ · ∇ hϵ = R2(ϵ),
+
+where Ri(ϵ) → 0 as ϵ → 0. Performing an integration by parts as in the proof of the nonexistence of ( −1)-homogeneous Euler solutions in the C1 category (see [31] or consider div ( fϵvϵhϵ)) and taking ϵ → 0 implies that f = H = 0 and moreover: (curl v)v⊥ = 0 ,
+
+in the distributional sense (note that the product makes sense as a distribution in 
+
+Bα−1
+
+> ∞,∞
+
+. Since v is continuous, the set U that is the complement in S2 of the zero set of v is an open set. What we get from the above equality is that curl v = 0 on U in the distributional sense. Since div v = 0 on S2, we conclude that v is a distributionally harmonic vector field on U . In particular, v is smooth on U and is a classically harmonic vector field on U . However, we have already that v = 0 on the complement of U . This yields that v = 0 on S2.
+
+Remark 4.8. The data u0 ∈ Cα with α > 1/2 implies that a(ω) is Holder continuous, in Cα−1/2. In particular, we have essentially ruled out H¨ older continuous a(ω) (of course there remains the endpoint case of C1/2 data and strictly C0 a(ω)). 
+
+4.1.2 Two-Dimensions 
+
+The result in this section essentially shows that the only isotropically decaying ho-mothetic self-similar solution to the incompressible two-dimensional Navier-Stokes equations is the Oseen vortex. Although a result analogous to Proposition 4.1 is not readily available in the two-dimensional case, we consider that the blow-down limit of U should also, in some sense, be a “solution” of the Euler equations, which is the motivation for the following proposition. The proof of the following is inspired by the non-existence result of (non-trivial) ( −1)-homogeneous steady two-dimensional Euler solutions proven in [28]. 30 Proposition 4.9. Suppose U is a homothetic forward self-similar solution to the two-dimensional Navier-Stokes equations, and suppose that its blow-down limit is u0 =
+
+b(ω)/r , for a function b ∈ L2(S1), that solves the two-dimensional Euler equations on R2 \ { 0} in the distributional sense. Then we necessarily have 
+
+b(ω) = Aω ⊥,
+
+where ω = (cos( θ), sin( θ)) , in polar coordinates. In particular, U is necessarily the Oseen vortex: 
+
+U (r, ω ) = A1 − e− r24
+
+r ω⊥.
+
+Proof. By hypothesis b(θ)/r has to be a ( −1)-homogeneous solution to the two-dimensional Euler on R2 \ { 0}. The only such solution where b ∈ C1(S1) is precisely as stated in the statement of the theorem, as proven by Luo and Shvdkoy in [28]. Therefore, we just have to show that any b ∈ L2 is necessarily C1, but this is clear for the following reason. Again from [28], we know that, in polar coordinates, b satisfies an ODE of the form: 
+
+b′ = c1b2 + c2,
+
+where c1, c 2 are constants. Then if b ∈ L2(S1), we have b ∈ W 1,1(S1). In one dimension, this implies that b is an absolutely continuous function. It is not difficult to see that the only periodic, absolutely continuous, distributional solutions of the Ricatti equation for b are exactly the constants. In this case, the data is always odd on the sphere. In particular, from the repre-sentation formulas from before, we know that this data must satisfy: 
+
+b(ω) = i P.V. 
+
+Z
+
+> S1
+
+a(Ω) 
+
+ω · ΩdΩ.
+
+By inverting the singular integral transform, (which is straightforward here since the integral transform is diagonalizable and we only deal with first modes) we find that 
+
+a(ω) = A
+
+2πi ω + B
+
+2πi ω⊥.
+
+Essentially, then, we require that ˆU (ρ, ω ) = ρ−1e−ρ2
+
+(Aω + Bω ⊥) for some complex numbers A, B . Therefore, by using the Hankel transform and polar coordinates, we conclude: 
+
+U (r, ω ) = 1 − e− r24
+
+r
+
+ Aω + Bω ⊥ .
+
+31 However, for U to be divergence-free it is clear that A is necessarily zero, which makes U the Oseen vortex. The data is clearly the corresponding homogeneous solution of two-dimensional Euler given by ω⊥ 
+
+> r
+
+.
+
+Remark 4.10. If u0(r, ω ) = ω⊥ 
+
+> r
+
+exhibits non-uniqueness, then the other forward self-similar solution cannot be homothetic. 
+
+Remark 4.11. Note that the case of (−1) -homogeneous steady states of Euler cor-responds to the point vortex solutions, so these cannot correspond to classical dis-tributional solutions in the whole domain R2. Instead, we believe (but do not prove here) that the blow-down limit of a homothetic solution in R2 is always a solution of Euler, but in some appropriate sense that can probably be precisely determined. 
+
+Remark 4.12. The (−1) -homogeneous shear flow 
+
+U 1,β (ξ1, ξ 2) = 
+
+√π
+
+2 e− ξ224 erfi 
+
+ξ2
+
+2
+
+
+
+, 0
+
+
+
+with boundary data (P .V.1/y, 0) , is not ruled out by this theorem since the angular data is far from being in L2(S1).
+
+## 4.2 Support to Decay Relationship 
+
+In this section we use the following calculus trick attributed to Laplace: 
+
+Lemma 4.13 (Laplace’s Method) . Let a, b ∈ R ∪ { +∞} ∪ {−∞} . Let f ∈ C2([ a, b ]) .Suppose there exists a unique point x0 ∈ [a, b ] such that 
+
+f (x0) = sup 
+
+> x∈[a,b ]
+
+f (x), f ′′ (x0) < 0.
+
+Then 
+
+lim 
+
+> n→∞
+
+R ba enf (x)dx enf (x0)
+
+q 2πn(−f ′′ (x0)) 
+
+= 1 .
+
+Recall that for any homothetic solution U , there exists some distribution a ∈
+
+D′(S2, C3) with a(−ω) = a(ω) and where 
+
+U (ξ) = Ueven (ξ) + Uodd (ξ)
+
+Ueven (ξ) = 
+
+√π
+
+2
+
+Z
+
+> S2
+
+e− (ω·ξ)24 a(ω) d ω, Uodd (ξ) = i
+
+Z
+
+> S2
+
+D(ω·ξ 
+
+> 2
+
+)a(ω) d ω. 
+
+(15) 32 For the purposes of this subsection, let us suppose that a is in fact a vector-valued measure on the sphere. There is a natural geometric relationship between the support of the measure a and the decay of the homothetic solution U that we describe in: 
+
+Theorem 4.14 (Support to Decay Relationship) . Let U be a homothetic solution given by Equation (15) , where a(ω) = μ(ω) some finite vector-valued Borel measure on S2 with support Σ. For any ω ∈ S2, let 
+
+Gω := {Ω ∈ S2 : ω · Ω = 0 }.
+
+be the great circle of directions perpendicular to ω.The asymptotic decay of U (sω ) as s → ∞ (i.e. along rays in the direction ω from the origin) is determined by how Gω intersects Σ and the parity of U in the following way: Support to Decay Relationship for the Even Part 1. Zero-Dimensional Support: If Σ = {± ω0} for some fixed ω0 ∈ S2, then U (ξ)
+
+does not decay for all ξ ⊥ ω0 (the orthogonal plane), and U (ξ) decays exponen-tially ( O(e−s2
+
+)) in all other directions. 2. One-Dimensional Support: If Σ = Gω0 , then U (ξ) does not decay for ξ =
+
+±ω0 (parallel to the orthogonal axis), and U (ξ) decays as O(s−1) in all other directions. 3. Two-Dimensional Support: If Σ = S2, then U (ξ) decays isotropically as O(s−1)
+
+in all directions. Support to Decay Relationship for the Odd Part 1. Zero-Dimensional Support If Σ = {± ω0}, then U (ξ) ≡ 0 for all ξ ⊥ ω0, and 
+
+U (ξ) decays as O(s−1) in all other directions. 2. One-Dimensional Support: If Σ = Gω0 , then U (ξ) ≡ 0 for ξ = ±ω0, and U (ξ)
+
+decays as O(s−1) in all other directions. 3. Two-Dimensional Support: If Σ = S2, then U (ξ) decays isotropically as O(s−1)
+
+in all directions. 
+
+33 Proof. Let ξ = sυ with s = |ξ| → ∞ and υ ∈ S2 a fixed direction. We analyze the asymptotic behavior of the integral representations for the even and odd parts of a homothetic solution U . We begin our analysis with the even part. As s → ∞ , the Gaussian in the integral representation of Ueven exponentially decays unless ω · υ = 0. Thus, any large contributions to the integral come from the intersection Σ ∩ Gυ.
+
+• Case 1: Let a = δω0 + δ−ω0 . The integral evaluates to the function e−(ω0·ξ)2/4. If 
+
+ξ ⊥ ω0, then ω0 · ξ = 0, yielding a constant. If ξ̸ ⊥ ω0, then we get exponential decay. 
+
+• Case 2: Let Σ = Gω0 . If υ = ±ω0, then Σ = Gω0 = Gυ, which implies 
+
+ω · ξ = 0 everywhere on Σ. The integrand is then identically 1, which yields a constant. If υ̸ = ±ω0, then the great circles Σ = Gω0 and Gυ intersect transversely at exactly two points. By Lemma 4.13, the integral decays as 
+
+O(( s2)−1/2) = O(s−1). Indeed, after rotating the frame, we may write the integral on the great circle as (up to a constant prefactor) 
+
+Z 2π
+
+> 0
+
+e− (sυ ·(cos( θ),sin( θ),0)) 24 dθ =
+
+Z 2π
+
+> 0
+
+e−s2 υ21 +υ224 cos 2(θ−u)dθ ≈ 1/s, 
+
+where υ = pυ21 + υ22 (cos( u), sin( u), υ 3). We may have to split the integral into parts in order to apply Lemma 4.13, but the final result remains unchanged. 
+
+• Case 3: Since Σ = S2, the support of μ covers the great circle Gυ for any υ.Without loss of generality, we now let υ = (0 , 0, 1). Using spherical coordinates (φ, θ ), we write the integral as 
+
+Z π
+
+> 0
+
+Z 2π
+
+> 0
+
+es2(− cos 2(θ)/4) sin( θ)dθdφ, 
+
+which is once more O(s−1) by Lemma 4.13. For the odd part the kernel is D(sω ·υ/ 2), where D is the Dawson function, which is odd and satisfies the asymptotic expansion D(z) = 12z + O(z−3) for large |z|.
+
+• Case 1: Let a = δω0 − δ−ω0 . The integral evaluates pointwise, up to constant prefactor, to D(sω 0 · υ/ 2). If ξ ⊥ ω0, then ω0 · ξ = 0 and U ≡ 0 in this plane. If 
+
+υ̸ ⊥ ω0, then |ω0 · ξ|̸ = 0, so, using the asymptotic expansion D(z/ 2) ∼ (z)−1,the decay is O(s−1). 34 • Case 2: Let Σ = Gω0 . If υ = ±ω0, then ω · ξ = 0 everywhere on Σ. The integral thus evaluates to 0. If ξ̸ = ±ω0, Σ intersects Gυ at two antipodal points. Let 
+
+ω · υ = x and let A(x) be the integral of a(ω) on the circle determined by x.Then the odd part’s integral representation is now 
+
+Z 1
+
+> −1
+
+D(( sx )/2) A(x)dx. 
+
+Since a(ω) is odd, A(x) remains odd, with series expansion A(x) ≈ A′(0) x at 
+
+x = 0. Therefore, up to constant prefactor: 
+
+Z 1
+
+> −1
+
+D(( sx )/2) A(x)dx ≈ s−2
+
+Z s/ 2
+
+> −s/ 2
+
+uD (u)du ≈ s−1.
+
+• Case 3: Follows as in Case 2. Note that, with the exception of the case of full support on S2, our Theorem 4.14 refers to decay along rays from the origin, not to isotropic decay For example, although the Okamoto shear flow discussed in the introduction decays along every ray from the origin, it does not isotropically decay since it is not O(1 /|x|). To use our criterion for non-uniqueness (or to construct a plausible candidate for the Jia-ˇSver´ ak program), we need to construct a homothetic solution that decays isotropically. Since U is homothetic, U is obtained via singular integrals on the sphere from some measure μ on the sphere. Theorem 4.14 shows that for isotropic decay, it suffices to find a measure μ with full support on the sphere. Measures with this property include measures that are absolutely continuous with respect to the surface measure on the sphere. While it is easy to construct self-similar solutions to the heat equation from such measures, it is not at all clear that the corresponding vector field U solves the Euler equations (which corresponds to a strong geometric constraint on the measure μ). 
+
+# 5 Examples of Homothetic Solutions 
+
+## 5.1 Atomic Measures 
+
+Every pair of Dirac masses supported at antipodal points ±ω0 ∈ S2 corresponds to what we term an Okamoto shear flow. 35 Let ω0 ∈ S2 and let ω1 ∈ S2 be orthogonal to ω0 (in particular ω1 lies on the great circle Gω0 ). Consider the distribution 
+
+a(ω) = ( δω0 (ω) + δ−ω0 (ω)) ω1.
+
+Evidently, this distribution satisfies the symmetry and divergence-free conditions we require on a(ω), in particular a(−ω) = a(ω) and ω · a(ω) = 0. Also, it is clear that this is an even distribution, i.e. a(−ω) = a(ω). Therefore, the corresponding solution to the Ornstein-Uhlenbeck equation is, according to Equation (15) and up to constant prefactor, 
+
+U (r, ω ) = 
+
+Z
+
+> S2
+
+e− (ω·Ω) 2r24 a(Ω) dΩ = 
+
+Z
+
+> S2
+
+e− (ω·Ω) 2r24 (( δω0 (Ω) + δ−ω0 (Ω)) ω1) dΩ.
+
+Therefore, up to an unimportant constant prefactor: 
+
+U (r, ω ) = ω1e− (ω·ω0)2r24 .
+
+To illustrate this example more clearly, let ω0 = (0 , 1, 0) and let, for instance ω1 =(1 , 0, 0). Then we can say: 
+
+U (ξ1, ξ 2, ξ 3) = 
+
+
+
+e−ξ22 /4, 0, 0
+
+
+
+.
+
+This solution corresponds to a forward self-similar solution of Navier-Stokes from vortex sheet initial data ( δ0(y), 0, 0), which lies in BM O −1, and was described by Okamoto in [30]. The other one-dimensional shear flow described by Okamoto comes from the distribution 
+
+a(ω) = −i (δω0 (ω) − δ−ω0 (ω)) ω1.
+
+Indeed, in this case the distribution satisfies the symmetry and divergence-free con-ditions and is odd, so we only see the odd part: 
+
+U (r, ω ) = 
+
+Z
+
+> S2
+
+D
+
+r(ω · Ω) 2
+
+
+
+(δω0 (Ω) − δ−ω0 (Ω)) ω1dΩ.
+
+Therefore, up to an unimportant constant prefactor: 
+
+U (r, ω ) = ω1D
+
+r(ω · ω0)2
+
+
+
+.
+
+36 To illustrate this example more clearly, let ω0 = (0 , 1, 0) and ω1 = (1 , 0, 0), then we can say: 
+
+U (ξ1, ξ 2, ξ 3) = ( D(ξ2/2) , 0, 0) ,
+
+which is the other shear flow found by Okamoto. We also recognize this as the shear flow for which we shall later prove instability as promised in Theorem 1.3 of the introduction. Formally, an Okamoto shear flow is of the form: 
+
+S(ξ) = ω1F (ξ · ω0),
+
+where ω1 ⊥ ω0 and F is either the Gaussian or Dawson function. As done with the Mikado flow building blocks of convex integration, it is clear that the sum of any two Okamoto shear flows S(ξ) and S′(ξ) with direction ω′ 
+
+> 1
+
+and decay in ω′ 
+
+> 0
+
+direction remains a homothetic self similar solution if and only if 
+
+ω1 · ω′ 
+
+> 0
+
+= 0 and ω′ 
+
+> 1
+
+· ω0 = 0 ,
+
+which, in R3, already forces at least one pair of directions to be parallel. 
+
+## 5.2 Measures Supported on Curves 
+
+Now we recover another example of Okamoto’s. Let ω0 ∈ S2 be arbitrary, and consider the great circle Gω0 of vectors in S2 orthogonal to ω0. Consider the following vector valued measure supported on the great circle Gω0
+
+a(ω) = δ0(ω · ω0)ω0.
+
+This distribution is even, so we get 
+
+U (r, ω ) = 
+
+Z
+
+> S2
+
+e− (ω·Ω) 2r24 δ0(Ω · ω0)ω0dΩ.
+
+For illustrative purposes, let ω0 = (1 , 0, 0). The integral above now becomes an integral over the great circle γ := Gω0 , which we may parametrize by γ(t) =(0 , cos( t), sin( t)). We get: 
+
+U (r, ω ) = (1 , 0, 0) 
+
+Z 2π
+
+> 0
+
+e− r24 (ω2 cos( t)+ ω3 sin( t)) 2
+
+dt. 
+
+However we note that up to unimportant prefactors: 
+
+Z 2π
+
+> 0
+
+exp 
+
+
+
+−r2
+
+4 (ω2 cos t + ω3 sin t)2
+
+
+
+dt = exp 
+
+
+
+−r2
+
+8 (ω22 + ω23 )
+
+
+
+I0
+
+r2
+
+8 (ω22 + ω23 )
+
+
+
+,
+
+37 where I0 denotes the modified Bessel function of the first kind. In cylindrical coordinates with axis parallel to ω0 = (1 , 0, 0), we have 
+
+U (x1, ρ, θ ) = 
+
+
+
+e−ρ2/8I0(ρ2/8) , 0, 0
+
+
+
+,
+
+which is an axisymmetric shear flow identified by Okamoto in [30]. Our next particular solution shows that if a(ω) has the same support but a different vector field along the support, the corresponding homothetic solution can be quite different. Indeed, let ω0 ∈ S2 be arbitrary, and consider the great circle Gω0
+
+of vectors in S2 orthogonal to ω0. Consider the distribution supported on the great circle Gω0 .
+
+a(ω) = −iδ 0(ω · ω0)( ω × ω0).
+
+This is an odd distribution that respects the symmetry condition to recover a real-valued vector field. In particular, because a is odd we have 
+
+U (r, ω ) = 
+
+Z
+
+> S2
+
+D
+
+r(ω · Ω) 2
+
+
+
+(δ0(Ω · ω0)(Ω × ω0)) dΩ.
+
+Once again, this is simply an integral over the circle Gω0 , which we parametrize by (0 , cos( t), sin( t)). The resulting integral is 
+
+U (r, ω ) = 
+
+Z 2π
+
+> 0
+
+D
+
+ r
+
+2(ω2 cos( t) + ω3 sin( t)) 
+
+
+
+(0 , sin( t), − cos( t)) dt. 
+
+We can evaluate the integral and get, up to unimportant prefactors: 
+
+U (ξ1, ξ 2, ξ 3) = 1 − e−(ξ22 +ξ23 )/4
+
+ξ22 + ξ23
+
+(0 , −ξ3, ξ 2) .
+
+In cylindrical coordinates, we see that 
+
+U (x1, ρ, θ ) = 1 − e−ρ2/4
+
+ρ eθ,
+
+which is a pure swirl vector field. Essentially, this flow is the Oseen vortex lifted to three dimensions. We leave open the question whether another vector field distribu-tion on the great circle can lead to a homothetic self-similar solution. The Okamoto shear flow and the lifted Oseen vortex can both be modified in the following way. Instead of having a distribution with support on the entire great circle, we allow the distribution to be supported on antipodal partial arcs of the great 38 circle. If one expands the analytic integrand as a series and integrates term-by-term, one can find a series representation for the solutions in this case. Note that the lifted Oseen vortex is the only homothetic self-similar solution of the form U = uθ(r)eθ, so the modification to the lifted Oseen vortex gets us a vector field that is, of course, not pure swirl. First we consider the distribution 
+
+a(ω) = δ0(ω · ω0)ω0(χA(ω) + χ−A(ω)) ,
+
+where ω0 ∈ S2 is fixed and A is some fixed subarc of the great circle Gω0 that is disjoint from −A. This remains an even, real-valued distribution and has the symmetry property a(ω) = a(−ω). Since the distribution is even, we get 
+
+U (r, ω ) = 
+
+Z
+
+> S2
+
+e− (ω·Ω) 2r24 δ0(Ω · ω0)ω0(χA(Ω) + χ−A(Ω)) dΩ.
+
+For illustrative purposes, let ω0 = (1 , 0, 0). The integral above becomes an integral over the subarcs of the circle γ := Gω0 corresponding to A and −A, and we may parametrize the curve γ by γ(t) = (0 , cos( t), sin( t)). Suppose the subarcs are exactly: [θ1, θ 2] and [ π + θ1, π + θ2]. We get: 
+
+U (r, ω ) = (1 , 0, 0) 
+
+Z θ2
+
+> θ1
+
+e− r24 (ω2 cos( t)+ ω3 sin( t)) 2
+
+dt +
+
+Z θ2+πθ1+π
+
+e− r24 (ω2 cos( t)+ ω3 sin( t)) 2
+
+dt 
+
+
+
+.
+
+Now let ϕ be the angle such that cos( ϕ) = ω2
+
+pω22 + ω23
+
+, sin( ϕ) = ω3
+
+pω22 + ω23
+
+.
+
+In addition, let ρ = px22 + x23. Then: 
+
+U (r, ω ) = (1 , 0, 0) 
+
+
+
+2e−ρ2/8
+
+Z θ2−ϕθ1−ϕ
+
+e− ρ28 cos(2 t)dt 
+
+
+
+.
+
+We use the series expansion for e−z at z = 0: 
+
+e−z = X
+
+> n≥0
+
+(−1) n
+
+n! zn.
+
+Therefore, we may integrate term by term and get 
+
+U (r, ω ) = (2 , 0, 0) e−ρ2/8 X
+
+> n≥0
+
+Z θ2−ϕθ1−ϕ
+
+(−1) n
+
+n!
+
+ρ2
+
+8 cos(2 t)
+
+n
+
+dt, 
+
+39 or 
+
+U (r, ω ) = (2 , 0, 0) e−ρ2/8 X
+
+> n≥0
+
+(−1) n
+
+n!
+
+ρ2
+
+8
+
+n Z θ2−ϕθ1−ϕ
+
+cos n(2 t)dt. 
+
+We observe that the solution U we construct is no longer axisymmetric, unless 
+
+θ2 − θ1 = π or 2 π, for which the integral above becomes independent of the angular variable and the solution reduces to a constant multiple of the previously discussed Okamoto shear flow. We also remark that since the profile above remains a shear flow, it is clearly a stationary solution of the three-dimensional Euler equations and therefore a homothetic solution. Let us compute the corresponding “data at infinity” by returning to the following general form of the profile: 
+
+U (r, ω ) = (1 , 0, 0) 
+
+
+
+2
+
+Z θ2−ϕθ1−ϕ
+
+e− ρ24 cos 2(t)dt 
+
+
+
+.
+
+Therefore, RU (Rr, ω ) is 
+
+RU (Rr, ω ) = (1 , 0, 0) 
+
+
+
+2R
+
+Z θ2−ϕθ1−ϕ
+
+e−R2 ρ24 cos 2(t)dt 
+
+
+
+.
+
+As R → ∞ , we see that the integral only contributes something nontrivial in the limit if cos( t) = 0 somewhere in the interval [ θ1 − ϕ, θ 2 − ϕ]. Let tk be the roots of cos( t) in the interval, and let N (ϕ) be the number of roots in the interval. Then we have for some arbitrary ϵ > 0: 
+
+R
+
+Z θ2−ϕθ1−ϕ
+
+e−(Rρ )2 
+
+> 4cos 2(t)
+
+dt = R
+
+Z
+
+> K
+
+e−(Rρ )2 
+
+> 4cos 2(t)
+
+dt + X 
+
+> tk∈[θ1−ϕ,θ 2−ϕ]
+
+R
+
+Z tk +ϵtk −ϵ
+
+e−(Rρ )2 
+
+> 4cos 2(t)
+
+dt. 
+
+Here we denoted K to be the (compact) complement of the union of intervals ( tk −
+
+ϵ, t k + ϵ) relative to the original interval depending on ϕ. Since cos( t) does not vanish on K, as R → ∞ , the corresponding integral vanishes. For each term in the sum we have approximately: lim 
+
+> R→∞
+
+Rρ ρ
+
+Z tk +ϵtk −ϵ
+
+e− (Rρ )24 cos 2(t)dt ≈ lim 
+
+> R→∞
+
+Rρ/ 2
+
+ρ/ 2
+
+Z tk +ϵtk −ϵ
+
+e− (Rρ )24 (t−tk )2
+
+dt == 2
+
+ρ lim   
+
+> M→∞
+
+M
+
+Z tk +ϵtk −ϵ
+
+e−M 2(t−tk )2
+
+dt = 2
+
+ρ lim  
+
+> M→∞
+
+√πErf( M ϵ ) = 2√πρ .
+
+Therefore, up to an unimportant prefactor, we see that the data at infinity should be 
+
+u0(ρ, ϕ, x 1) = N (ϕ)
+
+ρ .
+
+40 For illustrative purposes, if θ1 = π/ 2 and θ2 = π as in our explicit example from before, then N (ϕ) is a step function: 
+
+N (ϕ) := 
+
+(
+
+1, when ϕ ∈ [0 , π/ 2] ∪ [π, 3π/ 2] 0, when ϕ ∈ (π/ 2, π ) ∪ (3 π/ 2, 2π).
+
+Note how the data corresponds to the support of the measure we began the analysis with. One can perform a similar construction and consider “subarc” constructions of the lifted Oseen vortex. We leave this construction to the interested reader. The case just discussed, when the measure is supported on a curve, gets us a profile whose blow-down limit is essentially 1 /ρ , which fails to be in L2 
+
+> loc
+
+(and therefore cannot be a weak solution to the Euler equations in R3). This does not contradict our Proposition 4.1, since that result required that the homothetic solution lie in the Morrey space M3 
+
+> q
+
+with q > 2, while the profiles constructed above lie in 
+
+M3 
+
+> q
+
+with q < 2. Nevertheless, we know that small-data global well-posedness results have been proven in the class M3 
+
+> q
+
+for any q > 1, so the question of uniqueness from the simple data β/ρ for large β remains open and interesting. 
+
+## 5.3 Instability 
+
+Let us denote the Okamoto shear flow by 
+
+U 1,β (ξ1, ξ 2, ξ 3) = 
+
+
+
+β
+
+√π
+
+2 e− ξ224 erfi 
+
+ξ2
+
+2
+
+
+
+, 0, 0
+
+
+
+.
+
+As just discussed, the vector field U 1,β is an anisotropically decaying self-similar solution to the Navier-Stokes equations from initial data: 
+
+u1,β (x, y, z ) = P.V. 
+
+βy , 0, 0
+
+
+
+.
+
+The goal of this subsection is to prove Theorem 1.3 from the introduction, or: 
+
+Theorem 5.1. Let Lϕ be the linearization of the Euler equations around U 1,β . Then there exists λ ∈ σap (Lϕ, L 2(R3)) with Re (λ) > 0.
+
+We first recall a sufficient criterion for the existence of an unstable normal mode for the two-dimensional incompressible Euler equations due to Lin. Consider a shear flow in two-dimensions of the form 
+
+U (x, y ) = ( P (y), 0) .
+
+41 This is a solution to the two-dimensional Euler equations. The linearization of the Euler equations around U in vorticity form is 
+
+∂tω + u · ∇ Ω + U · ∇ ω = 0 
+
+KBS ∗ ω = u
+
+Suppose have the ansatz that the stream function ψ associated to a solution w of the linearization above is of the form 
+
+ψ(x, y, t ) = ϕ(y)eiα (x−ct ).
+
+It turns out that in order for ψ to be the stream function of a solution w, ϕ needs to solve Rayleigh’s equation: (P (y) − c)
+
+ d2
+
+dy 2 − α2
+
+
+
+ϕ − P ′′ ϕ = 0 .
+
+Evidently, an exponentially growing (in time) mode corresponds to Im( c) > 0. We recall the following theorem from [25] due to Lin. 
+
+Theorem 5.2. Let P (y) ∈ C2(R) be odd. Suppose that the function 
+
+K(y) = −P ′′ (y)
+
+P (y)
+
+is bounded and lim y→±∞ K(y) = 0 . If −α20 < −α21 < . . . < −α2 
+
+> k
+
+< . . . < 0 are the negative eigenvalues of the operator − d2 
+
+> dy 2
+
+− K(y) on H2(R), then there exists c(α)
+
+with Im {c(α)} > 0 and a function ϕα ∈ H2(R) solving Rayleigh’s equation for every 
+
+α ∈ (α1, α 0) ∪ (α3, α 2) ∪ . . . (α2k−1, α 2k−2) ∪ . . . 
+
+Proof of Theorem 5.1. For us, the profile that must be examined is P (y) = D(y/ 2), where D is, once again, the Dawson function. This is an odd function, so we can apply Theorem 5.2. For this profile we have 
+
+K(y) = −P ′′ (y)
+
+P (y) = 14
+
+yD  y
+
+> 2
+
+ − y2 + 2 
+
+!
+
+The function K is evidently bounded and limits to 0 as |y| → ∞ , so by Theorem 5.2, for every wave number in the union of intervals described above, there exists an unstable mode, a function ϕ(y) ∈ H2(R) such that 
+
+ψ(x, y, t ) = ϕ(y)eiα (x−ct )
+
+42 is a solution to the Euler equations linearized around the background profile. The corresponding vorticity, which is ∆ ψ up to sign, lies in L2(dy ) whenever x is fixed. By Squire’s theorem (see [14]), the three-dimensional linearized Euler problem also has an unstably growing normal mode, which, we note here, does not lie in L2(R3)due to a lack of decay. Nevertheless, by the elementary arguments presented in [17], a growing normal mode can be used to construct a wave packet instability, which allows us to assert the existence of λ with Re( λ) > 0 that lies in the approximate point spectrum of the linearized Euler equations around the profile. 
+
+Remark 5.3. We note that a similar analysis can be done for the other shear flows identified by Okamoto, they all appear to admit the existence of unstable parts of the spectrum that are approximate eigenvalues. 
+
+We note that, for analytic semigroups, even an approximate unstable eigenvalue guarantees the existence a nontrivial trajectory backwards in time t → −∞ (see [26]), which would be sufficient for the non-uniqueness program, as we discussed in Section 2. Note that neither the linearization of the self-similar Navier-Stokes equation nor the linearization of the Euler equation gives rise to an analytic semigroup. In the example above, then, the primary barrier to proving non-uniqueness from the data 1/y appears to be making sense of the singular limit to the Navier-Stokes equations when the profile anisotropically decays. We plan to investigate this direction further. 
+
+# 6 Stability of the Oseen Vortex 
+
+We prove the stability of the Euler equations linearized around the Oseen vortex in physical coordinates. This result is related to, but completely independent of the long-time stability of the Oseen vortex discovered by Gallay and Wayne in [16]. Our result here shows that non-uniqueness in L2,∞ for the corresponding homogeneous data 1 /|x| in R2 cannot be proven via a singular limit argument. Combined with our Liouville theorem in two-dimensions, we can in fact claim that the singular limit argument is completely ruled out in R2. The question of non-uniqueness from the data β/ |x| for large β in the Koch-Tataru path-space, which was posed by Koch and Tataru in [24], remains open. Recall the velocity field of the Oseen vortex: 
+
+u(r, θ ) = 1 − e−r2/4
+
+r .
+
+43 The corresponding vorticity is: 
+
+ω(r, θ ) = 12e−r2/4
+
+and the stream function is 
+
+ψ(r, θ ) = log( r) − 12Ei 
+
+−r2
+
+4
+
+
+
+.
+
+We first consider the linearization of the two-dimensional Euler equations in vorticity form around the vorticity profile ω:
+
+Lϕω = −u · ∇ ω − u · ∇ ω, 
+
+where u = KBS ∗ ω is given by convolution against the Biot-Savart operator. Since the vorticity profile ω is smooth and uniformly decays, Lϕ is now truly the compact perturbation of a skew-adjoint and dissipative operator as in [5]. The only possibility for instability is the existence of an unstable eigenvalue in the right-half plane, which we now show is impossible. We proceed by using the following orthogonal decomposition of L2(R2): 
+
+L2(R2) = 
+
+> ℓ2
+
+M
+
+> k∈Z
+
+Uk,
+
+where 
+
+Uk := {g(r)eikθ : g(r) ∈ L2(R+, rdr )}.
+
+We may reduce the analysis of Lϕ on L2(R2) to the analysis of Lϕ on each orthogonal subspace Uk, or the following differential operator on Uk:(Lkg)( r) := −ik 1 − e−r2/4
+
+r2 · g(r) + e−r2/4
+
+4 · f (r)
+
+!
+
+where 
+
+f ′′ (r) + f ′(r)
+
+r − k2f (r)
+
+r2 = g(r).
+
+We perform an exponential change of variables 
+
+F (s) := f (es)e−s G(s) = g(es)es,
+
+44 as in [8], so that the problem is equivalent to one on L2(R, ds ). We get the operator ( ˜LkG)( s) = −ik · 14e−3s− e2s
+
+> 4
+
+
+
+e4sF (s) + 4 
+
+
+
+ee2s 
+
+> 4
+
+− 1
+
+
+
+G(s)
+
+
+
+where 
+
+G(s) = F ′′ (s) + 2 F ′(s) + (1 − k2)F (s).
+
+We look for an eigenfunction G ∈ L2(ds ) or, equivalently, an eigenfunction F ∈
+
+W 2,2(R) of the following differential equation: 
+
+−ik · 14e−3s− e2s
+
+> 4
+
+
+
+e4sF (s) + 4 
+
+
+
+ee2s 
+
+> 4
+
+− 1
+
+  F ′′ (s) + 2 F ′(s) + (1 − k2)F (s)
+
+=
+
+λ  F ′′ (s) + 2 F ′(s) + (1 − k2)F (s) .
+
+We simplify this expression and get: 
+
+F ′′ (s) + 2 F ′(s) + (1 − k2)F (s) = Pλ,k (s)F (s),
+
+where 
+
+Pλ,k (s) := ke 4s
+
+−4k
+
+
+
+ee2s 
+
+> 4
+
+− 1
+
+
+
++ 4 iλe 2s+ e2s
+
+> 4
+
+.
+
+As long as Re( λ) > 0, the potential Pλ,k (s) is smooth and exponentially decaying to zero as |s| → ∞ . Using the standard theory of ordinary differential equations (see [10]), we know that, if there exists an eigenfunction, it behaves asymptotically when 
+
+|s| → ∞ as the solutions to the limiting differential equation: 
+
+F ′′ (s) + 2 F ′(s) + (1 − k2)F (s) = 0 .
+
+In the case when k = 0 , 1, −1, we see immediately that there cannot be any decaying solution as s → −∞ , and these modes are discounted. Now we deal with the case when k ≥ 2 (the analysis when k ≤ − 2 is analogous). If F ∈ W 2,2(R), this means that 
+
+F (s) ∼ c−e(k−1) s as s → −∞ , F (s) ∼ c+e(−1−k)s as s → +∞,
+
+for some constants c−, c +. The derivative F ′(s) decays in a similar fashion. Moreover, due to this decay, we have that esF ∈ L2(ds ) and esF ′ ∈ L2(ds ). Thus, if we multiply the differential equation by e2sF and integrate by parts (which is now justified), we get: Z
+
+> R
+
+e2s|F ′|2ds + ( k2 − 1) 
+
+Z
+
+> R
+
+e2s|F |2ds = −
+
+Z
+
+> R
+
+e2sPk,λ (s)|F |2ds. 
+
+45 The left-hand-side of the equality above is real, so the imaginary part of the integral on the right-hand-side must be zero, which, since Re( λ) > 0 and the imaginary part of Pk,λ is signed, can only occur if F = 0 identically. Indeed, if λ = a + ib with 
+
+a, b ∈ R, then Im( Pk,λ (s)) = −ake 6s+ e2s
+
+> 4
+
+4
+
+
+
+a2e4s+ e2s 
+
+> 2
+
++
+
+
+
+k − ee2s 
+
+> 4
+
+(be 2s + k)
+
+2,
+
+which has a strict sign as long as a̸ = 0. To wit, we have proven 
+
+Proposition 6.1. The spectrum of the linearization of the two-dimensional Euler equations in vorticity form around the Oseen vortex is contained in the imaginary axis. 
+
+More generally, we have the following criterion for stability of a radial vortex on the whole plane: 
+
+Theorem 6.2. Suppose u(r) is a smooth function on [0 , ∞) that vanishes at r = 0 
+
+and satisfies u(k)(r) = O(1 /r k) as r → ∞ for all k ≥ 0. Suppose u(r, θ ) = u(r)eθ is the velocity field of a radial vortex on the plane with vorticity ω(r). The spectrum of the linearization of the Euler equations in vorticity form around ω as an operator on 
+
+L2(R2) is contained in the imaginary axis if either of the following is true: 
+
+ω′(r) > 0 or ω′(r) < 0.
+
+Proof. Due to the decay, the term −u · ∇ ω is a compact perturbation of the skew-adjoint operator −u · ∇ ω. Therefore, besides essential spectrum on the imaginary axis, there can only be discrete eigenvalues. We proceed to rule out the existence of such eigenvalues. As above, we can reduce the question to whether there exists F (s) ∈ W 2,2(R)solution to the following ordinary differential equation: 
+
+F ′′ (s) + 2 F ′(s) + (1 − k2)F (s) = F (s)Pλ,k (s),
+
+where 
+
+Pλ,k (s) = ik (e2su′′ (es) + esu′ (es) − u (es)) 
+
+λe s + iku (es) .
+
+All we require is that Pλ,k (s) is smooth (guaranteed whenever Re( λ)̸ = 0) and ex-ponentially decaying as |s| → ∞ (guaranteed by our hypotheses on u(r)). Suppose 
+
+λ = a + ib where a, b ∈ R. Then: Im( Pλ,k (s)) = ake s (es (esu′′ (es) + u′ (es)) − u (es)) 
+
+e2s (a2 + b2) + ku (es) (2 be s + ku (es)) .
+
+46 By our hypothesis on ω, we see that Im( Pλ,k (s)) is a signed quantity when a̸ = 0. We now achieve a contradiction using energy estimates, as we did in the case of the Oseen vortex. This stability criterion should be considered analogous to Rayleigh’s inflection point criterion for shear flows, and the proof above is the first rigorous demonstration of such a stability criterion on the whole plane. We leave to the reader to find the sharpest vanishing, decay, and smoothness conditions that allow the conclusion of the theorem to hold. 
+
+# References 
+
+[1] Abe, K. Existence of Homogeneous Euler Flows of Degree −α̸ ∈ [−2, 0]. Arch. Ration. Mech. Anal. Vol. 248. No. 30. (2024). [2] Adler, M., Bombieri, M., Engel, K-J. On Perturbations of Generators of C0-Semigroups . Abstr. Appl. Anal. pp. 1–13. (2014). [3] Albritton, D., Brue, E., Colombo, M. Non-uniqueness of Leray Solutions of the Forced Navier-Stokes Equations . Ann. of Math. Vol. 196. No. 1. pp. 415-455. (2022). [4] Albritton, D., Guillod, J., Korobkov, M., Ren, X. Forward self-similar solutions to the 2D Navier–Stokes equations arXiv:2601.03161 [5] Albritton, D., Brue, E., Colombo, M., De Lellis, C., Giri, V., Janisch, M., Kwon, H. Instability and Non-uniqueness for the 2D Euler Equations, after M. Vishik .Annals of Mathematics Studies. 219. Princeton, N.J., (2023). [6] Alexopoulos, J. De La Vall´ ee Poussin’s Theorem and Weakly Compact Sets in Orlicz Spaces . Quaestiones Mathematicae. Vol. 17. pp. 231-248. (1994). [7] Bogachev, V.I. Measure Theory Volume I . Springer-Verlag. (2007). [8] Binz, T., Coiculescu, M.P. Stability of the Inviscid Power-Law Vortex .arXiv:2411.13397 [9] Choi, H., Coiculescu, M.P. Multi-Sink Solutions to the Self-Similar Euler Equa-tions . arXiv:2602.15152 47 [10] Coddington, E.A., Levinson, N. Theory of Ordinary Differential Equations . R.E. Krieger (1984). [11] Coiculescu, M.P., Palasek, S. Non-uniqueness of smooth solutions of the Navier–Stokes equations from critical data . Invent. Math. Vol. 244. pp. 165-219. (2026). [12] Constantin, P., E, W. Titi, E.S. Onsager’s Conjecture on the Energy Conserva-tion for Solutions of Euler’s Equation . Comm. Math. Phys. Vol. 165. pp.207-209. (1994). [13] Davies, E.B., Simon, B. L1 Properties of Intrinsic Schr¨ odinger Semigroups . J. Funct. Anal. Vol. 65. pp. 126-146. (1986). [14] Drazin, P.G., Reid, W.H. Hydrodynamic Stability . 2nd Edition. Cambridge Mathematical Library. (2010). [15] Engel, K-J., Nagel, R. One-Parameter Semigroups for Linear Evolution Equa-tions . Graduate Texts in Mathematics. Springer-Verlag. (2000). [16] Gallay, T., Wayne, C.E. Global Stability of Vortex Solutions of the Two-Dimensional Navier-Stokes Equation . Comm. Math. Phys. Vol. 255. pp.97-129. (2005). [17] Hislop, P.D., Sigal, I.M. Introduction to Spectral Theory: with Applications to Schr¨ odinger Operators . Springer-Verlag (1996). [18] Hou, T., Wang, Y., Yang, C. Nonuniqueness of Leray-Hopf solutions to the unforced incompressible three-dimensional Navier-Stokes Equation . arXiv: 2509.25116. [19] Ionescu, A., Jia, H., Palasek, S. On the non-uniqueness of solutions of the axi-symmetric swirl-free Navier-Stokes equations, I . arXiv: 2606.07501. [20] Jia, H., ˇSver´ ak, V. Are the incompressible 3d Navier-Stokes equations locally ill-posed in the natural energy space? . J. Funct. Anal. Vol. 268. No. 12. pp. 3734-3766. (2015). [21] Jia, H., ˇSver´ ak, V. Local-in-space estimates near initial time for weak solutions of the Navier-Stokes equations and forward self-similar solutions . Invent. Math. Vol. 196. pp. 233-265. (2014). 48 [22] Kato, T. Strong solutions of the Navier-Stokes equation in Morrey spaces . Bul-letin of the Brazilian Mathematical Society. Vol. 22. pp. 127-155. (1992). [23] Kato, T. Perturbation Theory for Linear Operators . Springer. Second Edition. (1995). [24] Koch, H., Tataru, D. Well-posedness for the Navier-Stokes Equations . Adv. Math. Vol. 157. pp.22-35. (2001). [25] Lin, Z. Instability of some Ideal Plane Flows . SIAM J. Math. Anal. Vol. 35. No. 2. pp.318-356. (2003). [26] Lunardi, A. Analytic Semigroups and Optimal Regularity in Parabolic Problems .Birkh¨ auser. (1995). [27] Lunardi, A., Metafune, G., Pallara, D. The Ornstein–Uhlenbeck semigroup in finite dimension . Philos. Trans. A Math. Phys. Eng. Sci. Vol. 378. No. 2185. (2020). [28] Luo, X., Shvydkoy, R. 2D Homogeneous Solutions to the Euler Equation . Comm. PDE. Vol. 40. No. 9. pp. 1666-1687. (2015). [29] Metafune, G. Lp Spectrum of Ornstein-Uhlenbeck Operators . Annali della Scuola Normale Superiore di Pisa. Vol. 30. No. 1. pp. 97-124. (2001). [30] Okamoto, H. Exact Solutions of the Navier-Stokes Equations via Leray’s Scheme . Japan J. Indust. Appl. Math. Vol. 14. pp. 169-197. (1997). [31] Shvydkoy, R. Homogeneous Solutions to the three-dimensional Euler System .Trans. Amer. Math. Soc. Vol. 370. No. 4. pp. 2517-2535. (2018). [32] Taylor, M.E. Analysis on Morrey Spaces and Applications to Navier-Stokes and Other Evolution Equations . Comm. PDE. Vol. 17. pp. 1407-1456. (1992). [33] Tsai, T.P. Lectures on Navier-Stokes Equations Graduate Studies in Mathemat-ics. Vol. 192. A.M.S. (2018). 49

@@ -1,0 +1,2365 @@
+Title: L^2(ℝ^2) Well-Posedness and Logarithmic Lipschitz Regularity for the Density Patch Problem
+
+URL Source: https://arxiv.org/pdf/2607.10676v1
+
+Published Time: Tue, 14 Jul 2026 01:08:14 GMT
+
+Number of Pages: 19
+
+Markdown Content:
+L2(R2) WELL-POSEDNESS AND LOGARITHMIC LIPSCHITZ REGULARITY FOR THE DENSITY PATCH PROBLEM 
+
+ALESSANDRO VIOLINI 
+
+Abstract. We study the density patch problem for the two-dimensional inhomogeneous incompressible Navier– Stokes system with vacuum, for initial data consisting of a Lipschitz density patch and a divergence-free velocity field in L2(R2).We establish uniqueness of solutions at the natural energy level, thereby concluding the global well-posedness for L2 data. Furthermore, we prove a log-Lipschitz estimate for the velocity field, extending the classical result of Chemin-Lerner to the inhomogeneous setting. As a consequence, the associated flow belongs to L∞ 
+
+> t
+
+C1−εx for any ε ∈
+
+(0 , 1) , ensuring that the patch boundary remains a continuous curve of Hausdorff dimension 1, thus preserving its initial dimension for all time. 
+
+1. Introduction 
+
+In this work, we address Lions’ density patch problem [20, p. 34]. Specifically, we consider an initial density 
+
+ρ0 = 1D given by the indicator function of a Lipschitz domain D, which represents a patch of a homogeneous incompressible fluid surrounded by vacuum. For such an initial configuration, it is known that there exists at least one global weak solution where the density remains a patch ρ(t) = 1D(t) for all t ≥ 0, maintaining a constant volume ( |D(t)| = |D|). The fundamental question raised by Lions is whether the geometric regularity of the initial domain D is preserved by the domain D(t) during the time evolution. As observed by Lions, this problem can be naturally formulated in terms of the inhomogeneous incompressible Navier–Stokes system posed on R+ × R2, namely (1.1) 
+
+
+
+∂t(ρu ) + div( ρu ⊗ u) + ∇P = ∆ u, ∂tρ + div( ρu ) = 0 ,
+
+div u = 0 ,
+
+where ρ = ρ(t, x ) ≥ 0 denotes the density, u = u(t, x ) ∈ R2 the velocity field, and P = P (t, x ) the pressure. For simplicity, the viscosity coefficient has been normalized to 1.The system is supplemented with the initial data (1.2) ρ(0 , x ) = ρ0(x) = 1D (x), u(0 , x ) = u0(x) ∈ L2 
+
+> σ
+
+(R2),
+
+where D ⊂ R2 is a bounded smooth domain and L2 
+
+> σ
+
+(R2) denotes the space of weakly divergence-free vector fields in L2(R2).Under the assumptions in (1.2), Lions proved in [20] the existence of a global Leray–Hopf weak solution, namely a distributional solution of (1.1) satisfying the energy inequality (1.3) 12
+
+Z
+
+> R2
+
+ρ|u(t)|2 dx +
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+|∇ u|2 dx ds ≤ 12
+
+Z
+
+> R2
+
+ρ0|u0|2 dx
+
+for almost every t ≥ 0.In the first part of this work, we investigate the problem of uniqueness of these solutions. To put our result into perspective, let us first recall the situation in the nondegenerate case of strictly positive density, (1.4) 0 < c < ρ 0(x) < C, u0 ∈ L2 
+
+> σ
+
+(R2).
+
+where the well-posedness theory has been extensively studied over the last two decades. Early contributions established global well-posedness and uniqueness under additional regularity assumptions on the initial velocity; see, for instance, [8, 1, 2, 10, 21, 9]. 
+
+2020 Mathematics Subject Classification. 76D03, 76D05, 46E35, 35Q30. 
+
+Key words and phrases. Inhomogeneous Navier–Stokes equations; density patch problem; vacuum; uniqueness; log-Lipschitz regularity.  
+
+> 1arXiv:2607.10676v1 [math.AP] 12 Jul 2026 2A. VIOLINI
+
+A major breakthrough was achieved by Hao, Shao, Wei, and Zhang [16], who proved global well-posedness and uniqueness in two space dimensions at the natural energy level u0 ∈ L2 
+
+> σ
+
+. This result was subsequently extended to the full Leray–Hopf class in [24]. As a consequence, in the absence of vacuum, the uniqueness theory is by now essentially well understood. The situation is markedly different in the presence of vacuum. Indeed, the degeneracy of the momentum equation and the lack of integrability of the velocity field in vacuum regions introduce additional difficulties. A fundamental contribution in this direction was obtained by Danchin and Mucha [11] (see also [12]), who proved global well-posedness for general nonnegative densities and initial data u0 ∈ H1(T2). The restriction to the torus was later removed in [22], where uniqueness was established for u0 ∈ H1(R2) under additional geometric assumptions on the initial density, including the patch configuration (1.2). Further contributions in this direction can be found in [14, 17]. More recently, uniqueness at critical regularity was established in [23], where global well-posedness for initial data of the form (1.2) was proved under the additional assumption 
+
+u0 ∈ ˙B02,1(R2).
+
+In the present work, we extend global well-posedness to the natural energy space L2. To state our main result, we first introduce the time-weighted energy functionals 
+
+A0(t, u ) := ∥√ρ u (t)∥2 
+
+> L2
+
++
+
+Z t
+
+> 0
+
+∥∇ u(s)∥2 
+
+> L2
+
+ds, A1(t, u ) := t∥∇ u(t)∥2 
+
+> L2
+
++
+
+Z t
+
+> 0
+
+s ∥∇ 2u(s), ∇P (s), √ρ ˙u(s)∥2 
+
+> L2
+
+ds, A2(t, u ) := t2∥√ρ ˙u(t), ∇2u(t)∥2 
+
+> L2
+
++
+
+Z t
+
+> 0
+
+s2∥∇ ˙u(s)∥2 
+
+> L2
+
+ds, A3(t, u ) := t3∥∇ ˙u(t)∥2 
+
+> L2
+
++
+
+Z t
+
+> 0
+
+s3∥∇ 2 ˙u(s)∥2 
+
+> L2
+
+ds, 
+
+where 
+
+˙u := ∂tu + ( u · ∇ )u
+
+denotes the material derivative. We now introduce the class of solutions for which well-posedness is established (for an overview of these solutions, we refer to [6]). 
+
+Definition 1.1. A Leray–Hopf solution (ρ, u ) is called an immediately strong solution if (1.5) sup 
+
+> i=0 ,1,2,3
+
+sup 
+
+> t> 0
+
+Ai(t, u ) =: Cu < ∞.
+
+Our first main result is the following uniqueness theorem. 
+
+Theorem A. Let (ρ0, u 0) satisfy 
+
+(1.6) ρ0(x) = 1D (x), u0 ∈ L2 
+
+> σ
+
+(R2),
+
+where D ⊂ R2 is a bounded Lipschitz domain. Then there exists at most one immediately strong solution to (1.1) 
+
+with initial data (ρ0, u 0).
+
+Combined with the existence theory established in [23], this yields global well-posedness in the natural energy class. For convenience, we recall the corresponding existence result. 
+
+Theorem 1.2 ([23, Theorem 1.2, Section 3]) . Let (ρ0, u 0) be as in (1.6) . Then there exists an immediately strong solution (ρ, u ) to (1.1) . This solution satisfies i) ρu ∈ C([0 , ∞); L2(R2)) ;ii) ρ ∈ C([0 , ∞); Lp
+
+> loc
+
+(R2)) for every p < ∞;iii) the energy identity (1.3) holds with equality. Moreover, any immediately strong solution (¯ ρ, ¯u) with initial data (1.6) admits an associated flow map ¯X(t, x )
+
+satisfying the following parabolic displacement 1
+
+(1.7) | ¯X(t, x ) − x| ≤ C√t  
+
+> 1The parabolic displacement holds true for any immediately strong solution with initial data (1.6), not only for the one con-structed in [23, Theorem 1.2]. L2(R2)WELL-POSEDNESS AND LOGARITHMIC LIPSCHITZ REGULARITY FOR THE DENSITY PATCH PROBLEM 3
+
+for almost every x ∈ D and almost every t ∈ (0 , T ), where the constant C > 0 depends only on C¯u, T and D.
+
+In the second part of this work, we investigate the geometric evolution of the density patch. Since the density is transported by the flow associated with the velocity field u, namely the map X(t, x ) solving 
+
+ddt X(t, x ) = u(t, X (t, x )) , X(0 , x ) = x, 
+
+one has 
+
+ρ(t, x ) = 1D(t)(x), D(t) := X(t, D ).
+
+Therefore, the regularity of the evolving patch D(t) is entirely determined by the regularity of the flow map X.The first global propagation result in this direction was obtained by Danchin and Mucha [11], who proved that if u0 ∈ H1(T2), then the associated flow satisfies 
+
+X ∈ C1,γ , γ ∈ (0 , 1) ,
+
+and consequently the C1,γ regularity of the patch is preserved for all times. This result was later extended in [15] to initial data u0 ∈ Hs(R2) with s > γ , and was recently improved in [23], where the endpoint space 
+
+u0 ∈ ˙Bγ
+
+> 2,1
+
+(R2) was reached. At the critical level γ = 0 , it was further shown in [23] that if u0 ∈ ˙B02,1(R2) and D is a bounded Lipschitz domain, then the corresponding velocity field satisfies (1.8) 
+
+Z ∞
+
+> 0
+
+∥∇ u(t)∥L∞(R2) dt < ∞.
+
+As a consequence, the associated flow is uniformly Lipschitz in time, and therefore the Lipschitz regularity of the patch is propagated globally. On the other hand, if one only assumes u0 ∈ L2(R2), the estimate (1.8) is no longer expected to hold. Indeed, already for the two-dimensional heat equation, one can construct solutions with initial data in L2 for which 
+
+∇u / ∈ L1loc ([0 , ∞); L∞(R2)) .
+
+Nevertheless, solutions to the heat equation with L2 initial data still satisfy a weaker log-Lipschitz estimate of the form (1.9) |u(t, x ) − u(t, y )| ≤ γ(t) |x − y|  − log |x − y|1−η ,
+
+for |x − y| < 1, where η ∈ (0 , 12 ) and γ ∈ L1loc ([0 , ∞)) .For the homogeneous Navier–Stokes equations, such an estimate was established by Chemin and Lerner in [5]; see also [3, Theorem 5.43]. More precisely, they proved (1.9) for Leray–Hopf solutions arising from divergence-free initial data u0 ∈ L2(R2).Our next result extends this log-Lipschitz regularity to the inhomogeneous setting, both in the presence and absence of vacuum. 
+
+Theorem B. Assume one of the following two scenarios: i) (ρ, u ) is the unique Leray–Hopf solution corresponding to strictly positive density as in (1.4) ;ii) (ρ, u ) is the unique immediately strong solution corresponding to (1.6) .Then, for every η ∈ (0 , 12 ), there exists 
+
+γ ∈ L1loc ([0 , ∞)) 
+
+such that, for almost every t > 0 and every x, y ∈ R2 with 0 < |x − y| < 1,
+
+|u(t, x ) − u(t, y )| ≤ γ(t) |x − y|  − log |x − y|1−η .(1.10) In contrast to [5] (see also [3, Theorem 5.43]), our proof does not rely on frequency localization, but is instead based on an atomic decomposition of the initial data. Although we do not pursue this direction here, the argument appears sufficiently robust to be applied in settings where the Fourier approach is not available. The regularity of u, combined with the results of Chemin and Lerner [5], yields the following dimensional bound for the advected patch. 4 A. VIOLINI 
+
+Corollary 1.3. Let (ρ, u ) be the unique immediately strong solution corresponding to the initial data (ρ0, u 0)
+
+defined in (1.6) . Then, the associated flow map X satisfies 
+
+X ∈ L∞
+
+> loc
+
+([0 , ∞); C1−ε(R2)) for all ε ∈ (0 , 1) .(1.11) 
+
+In particular, the Hausdorff dimension of the patch boundary is preserved: 
+
+dim H (∂D (t)) = 1 for all t ≥ 0.(1.12) 
+
+Proof. Thanks to(1.10), the flow X(t, ·) admits the following modulus of continuity for |x − y| sufficiently small (see [5, Theorem 1.3]): 
+
+|X(t, x ) − X(t, y )| ≤ exp 
+
+
+
+− (− log |x − y|)η − η∥γ∥L1(0 ,t )
+
+ 1
+
+> η
+
+
+
+.(1.13) Since η > 0, (1.13) directly implies the Hölder regularity stated in (1.11). Consequently, the standard properties of the Hausdorff dimension under Hölder continuous mappings yield 
+
+dim H (∂D (t)) ≤ 11 − ε dim H (∂D 0) = 11 − ε .
+
+Sending ε → 0+ concludes the proof of (1.12). □
+
+Some remarks are in order: (1) It is clear that the estimate (1.11) holds true in both scenarios of Theorem B. Moreover, any 1-dimensional object is mapped by X(t, ·) into a 1-dimensional object. (2) The condition η > 0 defines the threshold for the stability of the Hausdorff dimension of the boundary. In the classical log-Lipschitz case ( η = 0 ), by taking the limit η → 0+ in (1.13), we recover the estimate 
+
+|X(t, x ) − X(t, y )| ≤ | x − y|α(t), α(t) = exp  −∥ γ∥L1(0 ,t )
+
+ .
+
+This leads to a time-dependent bound on the Hausdorff dimension: 
+
+dim H (∂D (t)) ≤ 1
+
+α(t) dim H (∂D 0) = exp  ∥γ∥L1(0 ,t )
+
+ .
+
+Thus, the strictly positive assumption η > 0 is exactly what we need to guarantee that the boundary remains a 1-dimensional object for all time t ≥ 0.(3) While our result ensures that the boundary does not grow dimensionally, it leaves open the question of its underlying geometric structure. As previously discussed, the lack of Lipschitz regularity (inherent to the L2 regularity of the initial data) allows for the possibility of cusp formation, which precludes the preservation of the interface as a Lipschitz curve. In particular, it remains an open question whether the perimeter of the patch becomes infinite over time. 1.1. Strategy of the proof. To prove Theorem A, our goal is to place the energy estimate for the difference of two solutions within a Gronwall framework. Let (ρ1, u 1) and (ρ2, u 2) be two immediately strong solutions arising from the same initial data, and denote 
+
+δρ := ρ1 − ρ2, δu := u1 − u2.
+
+A formal computation yields 
+
+12 ∥√ρ1 δu (t)∥2 
+
+> L2
+
++
+
+Z t
+
+> 0
+
+∥∇ δu (s)∥2 
+
+> L2
+
+ds ≤ I(t) + J(t),
+
+where 
+
+I(t) := 
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+ρ1δu ⊗ δu : ∇u2 , J(t) := 
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+δρ ˙u2 · δu .
+
+We first discuss the term I(t). Away from vacuum, the classical approach follows the homogeneous setting and relies on Ladyzhenskaya’s inequality: 
+
+∥√ρ1 δu (s)∥2 
+
+> L4
+
+≲ ∥δu (s)∥L2 ∥∇ δu (s)∥L2 ≲ ∥√ρ1 δu (s)∥L2 ∥∇ δu (s)∥L2 .(1.14) In the L2 vacuum setting, however, estimate (1.14) is no longer available, since the weighted norm ∥√ρ1 δu ∥L2
+
+only controls δu on the support of ρ1. Moreover, the estimate cannot be closed through a direct Gronwall argument because, in general, 
+
+∇u2 /∈ L1 
+
+> t
+
+L∞ 
+
+> x
+
+.L2(R2) WELL-POSEDNESS AND LOGARITHMIC LIPSCHITZ REGULARITY FOR THE DENSITY PATCH PROBLEM 5
+
+The main idea is to replace (1.14) with a localized estimate on the evolving patch. Using the displacement bound (1.7), we prove that (1.15) ∥δu (s)∥2 
+
+> L4(X1(s,D ))
+
+≲ s1/2∥∇ δu (s)∥2 
+
+> L2
+
++ ∥√ρ1 δu (s)∥L2 ∥∇ δu (s)∥L2 + Err( s),
+
+where X1 is the flow associated with u1. Since 
+
+∥√ρ1 δu (s)∥L4 = ∥δu (s)∥L4(X1(s,D )) ,
+
+estimate (1.15) plays the role of (1.14) in the vacuum case. This is enough to estimate I(t), after a suitable use of Young’s and Hölder’s inequalities. The term J(t) is more delicate. It contains δρ rather than ρ1, and therefore it measures the mismatch between the two transported patches. In particular, it is no longer sufficient to estimate δu only on X1(s, D ).After passing to Lagrangian coordinates, one is naturally led to control δu on the family of sets 
+
+Yτ (s, D ) := X2(s; τ, X 1(τ, D )) , 0 ≤ τ ≤ s ≤ t, 
+
+where X2(s; τ, ·) denotes the flow associated with u2 starting from time τ .The key point is that the proof of (1.15) does not rely on any specific property of the flow X1, but only on the fact that the underlying map is measure-preserving and satisfies the parabolic displacement estimate (1.7). Consequently, the same argument yields an estimate of the form (1.15), with X1(s, D ) replaced by Yτ (s, D ),provided that 
+
+|Yτ (s, x ) − x| ≲ √s, for a.e. x ∈ D. (1.16) In particular, this allows us to control δu on the transported sets Yτ (s, D ) in the same way as on X1(s, D ).If the flow X2 were uniformly Lipschitz, then (1.16) would follow immediately. Indeed, 
+
+|X2(s; τ, X 1(τ, x )) − x| ≤ | X2(s; τ, X 1(τ, x )) − X2(s; τ, x )| + |X2(s; τ, x ) − x|≤ ∥∇ X2∥L∞ 
+
+> t,x
+
+|X1(τ, x ) − x| + |X2(s; τ, x ) − x| ≲ √s. 
+
+However, such a Lipschitz bound would require 
+
+∇u2 ∈ L1 
+
+> t
+
+L∞ 
+
+> x
+
+,
+
+which is not available at the energy level. In Proposition 2.4, we prove that the displacement estimate (1.16) nevertheless remains valid under the weaker assumption √t ∇u2 ∈ L2 
+
+> t
+
+L∞ 
+
+> x
+
+,
+
+which is satisfied by immediately strong solutions as noticed in [16]. Although this condition does not yield uniform Lipschitz control of the flow, it still provides enough quantitative control on the distortion of trajectories to propagate the parabolic displacement estimate along the composed flow Yτ (s, ·).This is the key mechanism allowing us to estimate J(t) and ultimately close the Gronwall argument. Now we briefly explain the strategy of the proof of Theorem B. Let (ρ, u ) denote either the unique Leray–Hopf solution associated with (1.4), or the unique immediately strong solution associated with (1.6). The first ingredient is an atomic decomposition of the initial datum in the spirit of [19]: 
+
+L2(R2) = [ ˙H−s(R2), ˙Hs(R2)] 1/2,2, s ∈ (0 , 1] .(1.17) Hence we can decompose 
+
+u0 = X
+
+> j∈Z
+
+uj, 0,
+
+where {uj, 0}j∈Z is a sequence of divergence-free atoms satisfying 
+
+cj := 2 −j/ 2∥uj, 0∥ ˙Hs + 2 j/ 2∥uj, 0∥ ˙H−s , ∥cj ∥ℓ2(Z) < ∞.(1.18) For each atom uj, 0, we consider its evolution under the flow generated by (ρ, u ), namely the solution uj of the linearized system 
+
+∂t(ρu j ) + div( ρu j ⊗ u) + ∇Pj = ∆ uj ,
+
+div uj = 0 ,uj |t=0 = uj, 0.
+
+(1.19) 6 A. VIOLINI 
+
+The second key ingredient is the parabolic decay satisfied by each atom. More precisely, for every s ∈ (0 , 1/2) 
+
+there exists C > 0 such that, for almost every t > 0 and every j ∈ Z,
+
+∥∇ uj (t)∥L2 ≤ C min 
+
+n
+
+t s   
+
+> 2−12
+
+∥uj, 0∥ ˙Hs , t − s   
+
+> 2−12
+
+∥uj, 0∥ ˙H−s
+
+o
+
+,
+
+∥∇ uj (t)∥L∞ ≤ C min 
+
+n
+
+t s 
+
+> 2−1
+
+∥uj, 0∥ ˙Hs , t − s 
+
+> 2−1
+
+∥uj, 0∥ ˙H−s
+
+o
+
+.
+
+(1.20) These estimates were obtained in [9] in the strictly positive density case (1.4), and in [23] for density patches (1.6), for solutions of (1.19). Combining (1.18) and (1.20), we prove the log-Lipschitz estimate (1.10). This extends the arguments of [9, 23], where the same decay estimates were used to prove Lipschitz regularity in the critical Besov case 
+
+u0 ∈ ˙B02,1, corresponding to {cj } ∈ ℓ1(Z).Fix p > 2/s and by Morrey’s inequality 
+
+|u(t, x ) − u(t, y )| ≲ |x − y| X
+
+> |j|≤ N
+
+∥∇ uj (t)∥L∞ + |x − y|1− 2
+
+> p
+
+X
+
+> |j|>N
+
+∥∇ uj (t)∥Lp .(1.21) Then, we define 
+
+A(t) := X
+
+> j∈Z
+
+(1 + |j|)η−1∥∇ uj (t)∥L∞ , B(t) := X
+
+> j∈Z
+
+2 |j| 
+
+> sp
+
+(1 + |j|)η−1∥∇ uj (t)∥Lp .
+
+Since η ∈ (0 , 1) and r 7 → 2−r/ (sp )(1 + r)1−η is eventually decreasing one can show the following estimates 
+
+X
+
+> |j|≤ N
+
+∥∇ uj (t)∥L∞ ≤ (1 + N )1−η A(t), X
+
+> |j|>N
+
+∥∇ uj (t)∥Lp ≲ 2−N/ (sp )(1 + N )1−η B(t).
+
+Combining these bounds with (1.21), we obtain 
+
+|u(t, x ) − u(t, y )| ≲ (1 + N )1−η 
+
+|x − y|A(t) + |x − y|1− 2 
+
+> p
+
+2−N/ (sp )B(t)
+
+
+
+.
+
+Inspired by [5] we choose 
+
+N := ⌊− log 2 |x − y|⌋ ,
+
+and using that sp > 2, a straightforward computation yields (for |x − y| < 1)
+
+|u(t, x ) − u(t, y )| ≲ |x − y|(− log |x − y|)1−η  A(t) + B(t).
+
+Therefore, the main difficulty is to prove that 
+
+A, B ∈ L1loc ([0 , ∞)) ,
+
+assuming (1.20). This proof is is discussed in Section 4. 2. Preliminary estimates and structural properties 
+
+In this section, we collect the main structural properties of immediately strong solutions, together with stability estimates describing the interaction between two such solutions. These results will be used throughout the proof of Theorem A. For convenience, we introduce the following two recurring settings. (S1) Let (ρ, u ) be an immediately strong solution with initial data (ρ0, u 0) satisfying (1.6), and let X denote the associated flow. We write Cu for the constant appearing in (1.5). (S2) Let (ρ1, u 1) and (ρ2, u 2) be two immediately strong solutions corresponding to the initial data (ρ0, u 1(0)) 
+
+and (ρ0, u 2(0)) , respectively, satisfying (1.6). Let X1 and X2 denote the associated flows. We write Cu1 and 
+
+Cu2 for the constants appearing in (1.5) associated with u1 and u2, respectively. L2(R2) WELL-POSEDNESS AND LOGARITHMIC LIPSCHITZ REGULARITY FOR THE DENSITY PATCH PROBLEM 7
+
+2.1. Estimates along the flow. Lemma 2.1. Let T > 0. Under assumption S1 there exists C = C(Cu, T, D ) such that for every f ∈ ˙H1(R2) ∩
+
+L2(D) and almost every t ∈ (0 , T ),
+
+(2.1) ∥f ∥L4(X(t,D )) ≤ C
+
+
+
+t1/4 ∥∇ f ∥L2(R2) + ∥f ∥1/2 
+
+> L2(D)
+
+∥∇ f ∥1/2 
+
+> L2(R2)
+
++ ∥f ∥L2(D)
+
+
+
+.
+
+Proof. We denote by C any constant depending only on Cu, T and D, which may change from line to line. We recall the fractional maximal operator of order 1/2:
+
+M1/2(g)( x) = sup 
+
+> r> 0
+
+r−3/2
+
+Z 
+
+> Br(x)
+
+|g(y)| dy. 
+
+There exists a negligible set N ⊂ R2 such that for all x, y / ∈ N (see [18, Eq. (1.2)]) (2.2) |f (y) − f (x)| ≤ C |y − x|1/2
+
+(M1/2∇f )( y) + ( M1/2∇f )( x)
+
+
+
+.
+
+Applying (2.2) with y = X(t, x ) and using the displacement estimate from Theorem 1.2 (see (1.7)), 
+
+|X(t, x ) − x| ≤ C√t for a.e. x ∈ D, for a.e. t>0 ,
+
+we obtain for almost every x ∈ D
+
+|f (X(t, x )) − f (x)|4 ≤ Ct 
+
+
+
+|(M1/2∇f )( X(t, x )) |4 + |(M1/2∇f )( x)|4
+
+.
+
+Integrating over D and using that X(t, ·) is measure-preserving, we get 
+
+∥f ◦ X(t, ·) − f ∥4 
+
+> L4(D)
+
+≤ Ct ∥M1/2(∇f )∥4
+
+> L4(R2)
+
+.
+
+Taking the fourth root and using the boundedness M1/2 : L2 → L4 (see [4, Section 1.1]), we infer (2.3) ∥f ◦ X(t, ·) − f ∥L4(D) ≤ C t 1/4 ∥∇ f ∥L2(R2).
+
+Since X(t, ·) is measure-preserving, 
+
+∥f ∥L4(X(t,D )) = ∥f ◦ X(t, ·)∥L4(D),
+
+and therefore 
+
+∥f ∥L4(X(t,D )) ≤ C t 1/4 ∥∇ f ∥L2(R2) + ∥f ∥L4(D).
+
+Finally, by the two-dimensional Gagliardo–Nirenberg inequality, (2.4) ∥f ∥L4(D) ≤ C∥f ∥1/2
+
+> L2(D)
+
+∥∇ f ∥1/2 
+
+> L2(R2)
+
++ C∥f ∥L2(D).
+
+Combining (2.3) with (2.4) yields (2.1). □
+
+Remark 2.2 . Inspecting the previous proof, we observe that the estimate (2.1) holds for any flow map X(t)
+
+which is measure-preserving and satisfies 
+
+|X(t, x ) − x| ≤ K√t for a.e. x ∈ D, for a.e. t ∈ (0 , T ).
+
+In this case, the constant C depends only on K and D.We will repeatedly use the following estimate, which is a simplified version of the result in [23] (see Section 
+
+3 therein). 
+
+Lemma 2.3. Under assumption S1, fix R > 0 and T > 0. Let 
+
+DR,t := D + BR√t(0) .
+
+Then there exists a constant C = C(Cu, R, T, D ) > 0 such that, for every measurable function v and for almost every t ∈ (0 , T ),
+
+∥v∥L2(DR,t ) ≤ C
+
+
+
+t 12 ∥∇ v∥L2(R2) + ∥ρ(t) v∥L2(R2)
+
+
+
+,
+
+∥v∥L∞(DR,t ) ≤ C
+
+
+
+t 14 ∥∇ v∥L4(R2) + t− 12 ∥ρ(t) v∥L2(R2)
+
+
+
+.8 A. VIOLINI 
+
+2.2. Flow distortion. We now turn to the analysis of the distortion of the flow associated with immediately strong solutions. If u0 /∈ ˙B02,1(R2), the velocity field is no longer Lipschitz, and the associated flow may exhibit a loss of regularity. The next result provides a quantitative control of this effect. 
+
+Proposition 2.4. Under assumption S2, fix T > 0. For 0 < s < t < T , define 
+
+Ys(t, x ) := X2
+
+ t, s, X 1(s, x ).
+
+Then there exists a constant C = C(Cu1 , C u2 , T, D ) > 0 such that, for almost every x ∈ D and almost every 
+
+0 < s < t < T ,
+
+|Ys(t, x ) − x| ≤ C√t. 
+
+Proof. We first estimate the Lipschitz constant of the flow X2. By the standard bound, 
+
+∥∇ X2(t, s, ·)∥L∞(R2) ≤ exp 
+
+Z ts
+
+∥∇ u2(τ )∥L∞(R2) dτ 
+
+
+
+.
+
+Moreover, by [17, Equation 3.11] and Young’s inequality, 
+
+∥∇ u2(τ )∥2 
+
+> L∞
+
+≲ ∥√ρ ˙u2(τ )∥2 
+
+> L2
+
++ ∥∇ u2(τ )∥L2 ∥∇ ˙u2(τ )∥L2
+
+≲ ∥√ρ ˙u2(τ )∥2 
+
+> L2
+
++ τ −1∥∇ u2(τ )∥2 
+
+> L2
+
++ τ ∥∇ ˙u2(τ )∥2 
+
+> L2
+
+.
+
+Multiplying by τ and integrating over (0 , ∞), we obtain 
+
+Z ∞
+
+> 0
+
+τ ∥∇ u2(τ )∥2 
+
+> L∞
+
+dτ ≲ C2 
+
+> u2
+
+.
+
+Hence, for every 0 < s < t , by Cauchy–Schwarz, 
+
+Z ts
+
+∥∇ u2(τ )∥L∞ dτ ≤
+
+Z ts
+
+τ −1 dτ 
+
+1/2 Z ts
+
+τ ∥∇ u2(τ )∥2 
+
+> L∞
+
+dτ 
+
+1/2
+
+≤ Cu2
+
+r
+
+log ts .
+
+Therefore, 
+
+∥∇ X2(t, s, ·)∥L∞(R2) ≤ exp 
+
+
+
+Cu2
+
+q
+
+log ts
+
+
+
+≤ C
+
+r ts ,(2.5) where C > 0 depends only on Cu2 , and we used the elementary inequality 
+
+a√x ≤ 12 x + a2 
+
+> 2
+
+, x ≥ 0.
+
+Fix x ∈ D. Using the flow property 
+
+X2(t, x ) = X2
+
+ t, s, X 2(s, x ),
+
+we write 
+
+|Ys(t, x ) − x| ≤ | X2(t, s, X 1(s, x )) − X2(t, s, X 2(s, x )) | + |X2(t, x ) − x|.
+
+By Theorem 1.2, there exist constants Ci = Ci(Cui , T, D ) such that 
+
+|Xi(τ, x ) − x| ≤ Ci
+
+√τ , i = 1 , 2,
+
+for all τ ≥ 0 and a.e. x ∈ D. In particular, 
+
+|X2(t, x ) − x| ≤ C2
+
+√t, |X1(s, x ) − X2(s, x )| ≤ (C1 + C2)√s. 
+
+Using (2.5), we estimate 
+
+|X2(t, s, X 1(s, x )) − X2(t, s, X 2(s, x )) | ≤ ∥∇ X2(t, s, ·)∥L∞ |X1(s, x ) − X2(s, x )| ≤ C(C1 + C2)√t. 
+
+Combining the above estimates yields the claim. □
+
+The quantity 
+
+wM (t, s ) := exp M
+
+r
+
+log ts
+
+!
+
+(2.6) will play a central role in the sequel. As a consequence of Proposition 2.4, we obtain the following estimate. L2(R2) WELL-POSEDNESS AND LOGARITHMIC LIPSCHITZ REGULARITY FOR THE DENSITY PATCH PROBLEM 9
+
+Corollary 2.5. Under assumption (S1) , there exists a constant M = M (Cu) > 0 such that, for almost every 
+
+0 < s < t ,
+
+(2.7) ∥∇ X(t, s, ·)∥L∞(R2) ≤ wM (t, s ).
+
+Proof. The claim follows directly from (2.5). □
+
+A closely related weight appeared in [16] in a different context. In particular, the authors establish a variant of the following result. 
+
+Lemma 2.6. Let M > 0 and define 
+
+LwM f (t) := 1
+
+t
+
+Z t
+
+> 0
+
+wM (t, s ) f (s) d s. 
+
+Then LwM is bounded on Lp(0 , ∞) for every p ∈ (1 , ∞]. Moreover, its operator norm depends only on p and 
+
+M . In particular, taking p = ∞ and f ≡ 1, there exists a constant C = C(M ) > 0 such that for every t > 0,
+
+Z t
+
+> 0
+
+wM (t, s ) d s ≤ C t. 
+
+Proof. After the change of variables s = tτ , we write 
+
+LwM f (t) = 
+
+Z 10
+
+exp  M p| log τ | f (tτ ) d τ. 
+
+By Minkowski’s integral inequality, for every p ∈ (1 , ∞],
+
+∥LwM f ∥Lp(0 ,T ) ≤
+
+Z 10
+
+exp  M p| log τ | ∥f (tτ )∥Lp(0 ,T ) dτ. 
+
+A change of variables yields 
+
+∥f (tτ )∥Lp(0 ,T ) = τ −1/p ∥f ∥Lp(0 ,τ T ),
+
+and therefore 
+
+∥LwM f ∥Lp(0 ,T ) ≤ ∥ f ∥Lp(0 ,T )
+
+Z 10
+
+exp  M p| log τ | τ −1/p dτ. 
+
+Setting τ = e−y , we obtain Z 10
+
+exp  M p| log τ | τ −1/p dτ =
+
+Z ∞
+
+> 0
+
+eM √y e−(1 −1/p )y dy, 
+
+which is finite for every p > 1, since the exponential decay dominates the sublinear growth eM √y . □
+
+2.3. Duality formulation. We now exploit the distortion control provided by (2.7) to quantify the loss of regularity in time for the transport equation. 
+
+Proposition 2.7. Under assumption (S2) , let δρ := ρ1 − ρ2 and δu := u1 − u2. Then δρ satisfies 
+
+(
+
+∂tδρ + div( δρ u 2) = − div( ρ1 δu ),δρ (0) = 0 .
+
+Moreover, for every t > 0 and every g = g1g2, one has 
+
+Z
+
+> R2
+
+δρ (t, x ) g(x) d x =
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+ρ1 δu (s, x ) · ∇  φ1(s, x ) φ2(s, x ) dx ds, 
+
+where, for i = 1 , 2, φi solves (
+
+∂sφi + u2 · ∇ φi = 0 ,φi(t) = gi.
+
+(2.8) 
+
+Furthermore, for every p ∈ [1 , ∞], i = 1 , 2, and every measurable set A ⊂ R2, we have 
+
+∥φi(s)∥Lp(A) ≤ ∥ gi∥Lp(X2(t,s,A )) ,
+
+∥∇ φi(s)∥Lp(R2) ≤ wM2 (t, s ) ∥∇ gi∥Lp(R2),
+
+where M2 > 0 is the constant associated with u2 in Corollary 2.5. 10 A. VIOLINI 
+
+Proof. The proof is based on duality. Fix t > 0, and let φ solve the backward transport equation on (0 , t ):
+
+(
+
+∂sφ + u2 · ∇ φ = 0 ,φ(t) = g1g2.
+
+Since div u2 = 0 , a standard duality argument yields 
+
+Z
+
+> R2
+
+δρ (t, x ) g(x) d x =
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+ρ1δu (s, x ) · ∇ φ(s, x ) d x ds. 
+
+Moreover, by uniqueness of solutions to the transport equation, we have the factorization 
+
+φ = φ1 φ2,
+
+where φi solves (2.8) for i = 1 , 2. For the Lp estimate, using that X2(t, s, ·) is measure-preserving, we obtain for i = 1 , 2
+
+∥φi(s)∥Lp(A) ≤ ∥ φi(t)∥Lp(X2(t,s,A )) = ∥gi∥Lp(X2(t,s,A )) .
+
+For the gradient, the standard flow estimate gives 
+
+∥∇ φi(s)∥Lp(R2) ≤ ∥∇ gi∥Lp(R2)∥∇ X2(t, s, ·)∥L∞(R2) ≤ wM2 (t, s ) ∥∇ gi∥Lp(R2).
+
+This concludes the proof. □
+
+3. Proof of Theorem A 
+
+The proof proceeds in steps, utilizing a relative energy argument inspired by [7] to show that two solutions with identical initial data coincide. Since the low-regularity regime prevents directly using one solution as a test function for the other, we follow [24] by regularizing one solution via mollification and passing to the limit at the end. This technical setup is covered in Step 1; readers familiar with the technique may start directly from Step 2. 
+
+Step 1. Assume that (ρ, u ) is an immediately strong solution arising from initial data (ρ0, u 0). Then, by definition, 
+
+sup 
+
+> i∈{ 0,1,2,3}
+
+Ai(ρ, u ) ≤ Cu.
+
+Let u0,n := u0 ∗ φn, where φn is a standard mollifier. By Theorem 1.2 (and specifically [23, Theorem 2.2]), there exists an immediately strong solution (ρn, u n) with initial data (ρ0, u 0,n ). Moreover, this solution satisfies 
+
+sup 
+
+> i∈{ 0,1,2,3}
+
+Ai(ρn, u n) ≤ Cun ,
+
+where Cun depends non-decreasingly on ∥√ρ0 u0,n ∥L2(R2). Since ρ0 ≤ 1, we have 
+
+∥√ρ0 u0,n ∥L2(R2) ≤ ∥ u0,n ∥L2(R2) ≤ ∥ u0∥L2(R2).
+
+Consequently, there exists a uniform constant eC > 0, independent of n, such that 
+
+sup 
+
+> i∈{ 0,1,2,3}
+
+Ai(ρn, u n) ≤ eC. 
+
+Fix T > 0. Since (ρn, u n) is associated with a smooth initial velocity, the relative energy inequality holds for almost every t ∈ (0 , T ) (see [7, Lemma 4.1]): (3.1) 
+
+∥√ρ (u − un)( t)∥2 
+
+> L2(R2)
+
++
+
+Z t
+
+> 0
+
+∥∇ (u − un)( s)∥2 
+
+> L2(R2)
+
+ds ≤ ∥ √ρ0 (u0 − u0,n )∥2
+
+> L2(R2)
+
++
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+ρ (u − un) ⊗ (u − un) : ∇un dx ds +
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+(ρ − ρn) ˙ un · (u − un) d x ds. 
+
+Our main goal is to establish the existence of a constant C = C(Cu, eC, T, D ) > 0 such that, for almost every 
+
+t ∈ (0 , T ),(3.2) ∥√ρ (u − un)( t)∥2 
+
+> L2(R2)
+
++
+
+Z t
+
+> 0
+
+∥∇ (u − un)( s)∥2 
+
+> L2(R2)
+
+ds ≤ C ∥√ρ0 (u0 − u0,n )∥2
+
+> L2(R2)
+
+.
+
+We postpone the proof of (3.2) to the subsequent steps and show first how it implies uniqueness. L2(R2) WELL-POSEDNESS AND LOGARITHMIC LIPSCHITZ REGULARITY FOR THE DENSITY PATCH PROBLEM 11 
+
+To upgrade the control provided by (3.2) to a local L2-convergence, we combine it with Lemma 2.3 and a Poincaré-type argument. By applying Lemma 2.3 with R = 0 , we find a constant C = C(Cu, T, D ) > 0 such that for every measurable function v and every t ∈ (0 , T ),(3.3) ∥v∥L2(D) ≤ C
+
+
+
+t1/2∥∇ v∥L2(R2) + ∥pρ(t) v∥L2(R2)
+
+
+
+.
+
+Fix R0 > 0 such that D ⊂ BR0 (0) , and let R > R 0. For any open set Ω, denote the integral average by 
+
+(v)Ω := |Ω|−1 R 
+
+> Ω
+
+v(x) d x. By Poincaré’s inequality on BR, we have 
+
+∥v∥L2(BR) ≲R ∥∇ v∥L2(BR) + |(v)BR |.
+
+Moreover, adding and subtracting the average over D, we estimate 
+
+|(v)BR | ≤ | (v)BR − (v)D | + |(v)D | ≲R,D ∥∇ v∥L2(BR) + ∥v∥L2(D).
+
+Combining these estimates with (3.3), we obtain for t ∈ (0 , T ) the bound (3.4) ∥v∥L2(BR) ≲Cu,T,D,R ∥∇ v∥L2(R2) + ∥pρ(t) v∥L2(R2).
+
+Since u0,n → u0 in L2, the right-hand side of (3.2) converges to zero. Therefore, evaluating (3.2) yields 
+
+lim  
+
+> n→∞
+
+sup  
+
+> t∈(0 ,T )
+
+∥pρ(t) ( u(t) − un(t)) ∥2 
+
+> L2(R2)
+
+= 0 , lim 
+
+> n→∞
+
+Z T
+
+> 0
+
+∥∇ (u − un)( t)∥2 
+
+> L2(R2)
+
+dt = 0 .
+
+Applying (3.4) to the difference v = ( u − un)( t) and integrating over (0 , T ), we conclude 
+
+lim 
+
+> n→∞
+
+Z T
+
+> 0
+
+∥(u − un)( t)∥2 
+
+> L2(BR)
+
+dt = 0 ,
+
+which implies 
+
+un → u in L2(0 , T ; L2loc (R2)) .
+
+Finally, if (˜ ρ, ˜u) is another immediately strong solution originating from the same initial data, the exact same procedure yields 
+
+un → ˜u in L2(0 , T ; L2loc (R2)) .
+
+By uniqueness of the limit, u = ˜ u almost everywhere in (0 , T ) × R2. Since T > 0 was chosen arbitrarily, we deduce 
+
+u = ˜ u a.e. in (0 , ∞) × R2.
+
+Consequently, ρ = ˜ ρ almost everywhere. This follows from the uniqueness of bounded solutions to the transport equation with a divergence-free Sobolev velocity field, as established by the DiPerna-Lions theory [13]. 
+
+Step 2. We now turn to the proof of (3.2). To simplify the notation, we relabel the solutions as follows. We denote the immediately strong solution (ρ, u ) by (ρ1, u 1), with associated constant Cu1 . The mollified solution (ρn, u n) is denoted by (ρ2, u 2), with associated constant Cu2 (previously denoted by eC). We set 
+
+δu := u1 − u2, δρ := ρ1 − ρ2.
+
+Moreover, we introduce 
+
+h(t) := sup 
+
+> s∈(0 ,t )
+
+∥pρ1(s) δu (s)∥L2(R2), d(t) := ∥∇ δu (t)∥L2(R2).
+
+In what follows, we do not track explicitly the dependence of constants on Cu1 , Cu2 , T , and D. We write 
+
+≲ to denote inequalities up to such constants, and use C to denote generic constants depending only on these quantities. Any additional dependence will be specified explicitly. We will repeatedly use that, by Theorem 1.2, there exists a constant N = N (Cu1 , C u2 , T, D ) > 0 such that, for all t ≥ 0,
+
+supp ρi(t) ⊂ D + BN √t(0) =: DN,t , i = 1 , 2.
+
+With this notation, the relative energy inequality (3.1) reads 
+
+h(T )2 +
+
+Z T
+
+> 0
+
+d(t)2 dt ≤ h(0) 2 +
+
+Z T
+
+> 0
+
+P (t) d t +
+
+Z T
+
+> 0
+
+N (t) d t, (3.5) 12 A. VIOLINI 
+
+where 
+
+P (t) := 
+
+Z
+
+> R2
+
+ρ1(t, x ) δu (t, x ) ⊗ δu (t, x ) : ∇u2(t, x ) d x, N (t) := 
+
+Z
+
+> R2
+
+δρ (t, x ) ˙ u2(t, x ) · δu (t, x ) d x. 
+
+We now estimate the terms P (t) and N (t) and close (3.5) by Grönwall’s inequality. 
+
+Step 3. We start with P (t). By Lemma 2.1, in particular (2.1) with X = X1, for a.e. t ∈ (0 , T ) and every f ,
+
+∥f ∥L4(X1(t,D )) ≲ t1/4∥∇ f ∥L2(R2) + ∥f ∥1/2
+
+> L2(D)
+
+∥∇ f ∥1/2 
+
+> L2(R2)
+
++ ∥f ∥L2(D).
+
+Since ρ1(t) = 1X1(t,D ), this yields 
+
+∥ρ1(t)f ∥L4(R2) = ∥f ∥L4(X1(t,D )) .
+
+Combining with Lemma 2.3 (with R = 0 ), 
+
+∥f ∥L2(D) ≲ t1/2∥∇ f ∥L2(R2) + ∥ρ1(t)f ∥L2(R2),
+
+we obtain 
+
+∥ρ1(t)f ∥L4(R2) ≲ t1/4∥∇ f ∥L2(R2) + ∥ρ1(t)f ∥1/2 
+
+> L2
+
+∥∇ f ∥1/2 
+
+> L2
+
++ ∥ρ1(t)f ∥L2 .
+
+Applying this with f = δu (t) gives 
+
+∥ρ1δu (t)∥L4(R2) ≲ t1/4d(t) + h(t)1/2d(t)1/2 + h(t).(3.6) By Hölder’s inequality, 
+
+P (t) ≤ ∥ √ρ1δu (t)∥L4 ∥√ρ1δu (t) ∇u2(t)∥L4/3 .
+
+Using (3.6), we write 
+
+P (t) ≲ P1(t) + P2(t) + P3(t),
+
+where 
+
+P1(t) = t1/4d(t)∥√ρ1δu (t) ∇u2(t)∥L4/3 ,P2(t) = h(t)1/2d(t)1/2∥√ρ1δu (t) ∇u2(t)∥L4/3 ,P3(t) = h(t)∥√ρ1δu (t) ∇u2(t)∥L4/3 .
+
+For P1, by Hölder and Young, for any ε > 0
+
+P1(t) ≤ t1/4d(t)∥√ρ1δu (t)∥L2 ∥∇ u2(t)∥L4 ≤ εd (t)2 + Cεh(t)2t1/2∥∇ u2(t)∥2 
+
+> L4
+
+.
+
+For P2, using again (3.6) and Young, 
+
+P2(t) ≲ h(t)1/2d(t)1/2 
+
+t1/4d(t) + h(t)1/2d(t)1/2 + h(t)
+
+
+
+∥∇ u2(t)∥L2
+
+≤ εd (t)2 + Cεh(t)2 
+
+t∥∇ u2(t)∥4 
+
+> L2
+
++ ∥∇ u2(t)∥2 
+
+> L2
+
++ ∥∇ u2(t)∥4/3
+
+> L2
+
+
+
+.
+
+For P3,
+
+P3(t) ≤ h(t)2∥∇ u2(t)∥L4 .
+
+Collecting the above estimates, we conclude that for every ε > 0 and almost every t ∈ (0 , T )
+
+P (t) ≤ εd (t)2 + Cεh(t)2γ1(t),(3.7) where 
+
+γ1(t) := t1/2∥∇ u2(t)∥2 
+
+> L4
+
++ t∥∇ u2(t)∥4 
+
+> L2
+
++ ∥∇ u2(t)∥2 
+
+> L2
+
++ ∥∇ u2(t)∥4/3 
+
+> L2
+
++ ∥∇ u2(t)∥L4 .L2(R2) WELL-POSEDNESS AND LOGARITHMIC LIPSCHITZ REGULARITY FOR THE DENSITY PATCH PROBLEM 13 
+
+Step 4. We now estimate the second term N (t). By Proposition 2.7, applied with 
+
+g1 = ˙ u2(t), g2 = δu (t),
+
+we obtain 
+
+N (t) = 
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+ρ1(s, x ) δu (s, x ) · ∇  φ1(s, x ) φ2(s, x ) dx ds, 
+
+where, for i = 1 , 2, φi solves the backward transport equation associated with gi.Moreover, for every p ∈ [1 , ∞], i = 1 , 2, and every measurable set A ⊂ R2, we have 
+
+∥φ1(s)∥Lp(A) ≤ ∥ ˙u2(t)∥Lp(X2(t,s,A )) ,
+
+∥∇ φ1(s)∥Lp(R2) ≤ wM2 (t, s ) ∥∇ ˙u2(t)∥Lp(R2),
+
+(3.8) and 
+
+∥φ2(s)∥Lp(A) ≤ ∥ δu (t)∥Lp(X2(t,s,A )) ,
+
+∥∇ φ2(s)∥Lp(R2) ≤ wM2 (t, s ) ∥∇ δu (t)∥Lp(R2).
+
+(3.9) Here M2 > 0 is the constant associated with u2 in Corollary 2.5, and wM2 is defined in (2.6). We decompose 
+
+N (t) ≤ N1(t) + N2(t),
+
+where 
+
+N1(t) = 
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+ρ1 δu · φ1∇φ2 dx ds , N2(t) = 
+
+Z t
+
+> 0
+
+Z
+
+> R2
+
+ρ1 δu · φ2∇φ1 dx ds .
+
+We begin with N1(t). By Hölder’s inequality, the fact that ρ1(s) is supported on X1(s, D ), and (3.8)–(3.9), we obtain 
+
+N1(t) ≤
+
+Z t
+
+> 0
+
+∥√ρ1 δu (s)∥L2(R2)∥φ1(s)∥L∞(X1(s,D )) ∥∇ φ2(s)∥L2(R2) ds
+
+≤
+
+Z t
+
+> 0
+
+h(s) ∥ ˙u2(t)∥L∞(X2(t,s,X 1(s,D ))) wM2 (t, s ) d(t) d s. 
+
+Using the definition of h, we infer 
+
+N1(t) ≤ d(t) h(t)
+
+Z t
+
+> 0
+
+∥ ˙u2(t)∥L∞(X2(t,s,X 1(s,D ))) wM2 (t, s ) d s. 
+
+By Proposition 2.4, the composed flow 
+
+Ys(t, x ) := X2
+
+ t, s, X 1(s, x )
+
+satisfies, for a.e. t ∈ (0 , T ) and x ∈ D,
+
+|Ys(t, x ) − x| ≤ ˆC√t, hence X2(t, s, X 1(s, D )) ⊂ D ˆC,t .(3.10) Therefore, Z t
+
+> 0
+
+∥ ˙u2(t)∥L∞(X2(t,s,X 1(s,D ))) wM2 (t, s ) d s ≤ ∥ ˙u2(t)∥L∞(D ˆC,t )
+
+Z t
+
+> 0
+
+wM2 (t, s ) d s. 
+
+By Lemma 2.6, Z t
+
+> 0
+
+wM2 (t, s ) d s ≲ t, (3.11) and thus 
+
+N1(t) ≲ d(t) h(t) t∥ ˙u2(t)∥L∞(D ˆC,t ).
+
+By Young’s inequality, 
+
+N1(t) ≤ εd (t)2 + Cεh(t)2 t2∥ ˙u2(t)∥2 
+
+> L∞(DˆC,t )
+
+.(3.12) We now turn to N2(t). By Hölder’s inequality and (3.9), we write 
+
+N2(t) ≤
+
+Z t
+
+> 0
+
+∥ρ1δu (s)∇φ1(s)∥L4/3 ∥δu (t)∥L4(Ys(t,D )) ds. 14 A. VIOLINI 
+
+Using Lemma 2.1 and, in particular, Remark 2.2, we can apply the estimate (2.1) with the flow Ys and f = δu (t).Since (3.10) ensures that Ys satisfies the required displacement bound, we obtain 
+
+∥δu (t)∥L4(Ys(t,D )) ≤ C
+
+
+
+t1/4∥∇ δu (t)∥L2(R2) + ∥δu (t)∥1/2
+
+> L2(D)
+
+∥∇ δu (t)∥1/2 
+
+> L2(R2)
+
++ ∥δu (t)∥L2(D)
+
+
+
+.
+
+Arguing as in (3.6), we deduce 
+
+∥δu (t)∥L4(Ys(t,D )) ≲ t1/4d(t) + h(t)1/2d(t)1/2 + h(t).(3.13) Inserting (3.13), we decompose 
+
+N2(t) ≲ N2,1(t) + N2,2(t) + N2,3(t),
+
+with the obvious definitions. 
+
+Estimate of N2,1. By Hölder, (3.8) and (3.11) 
+
+N2,1(t) ≲ t1/4d(t)
+
+Z t
+
+> 0
+
+∥ρ1δu (s)∥L2 ∥∇ φ1(s)∥L4 ds ≲ t1/4d(t)h(t)∥∇ ˙u2(t)∥L4
+
+Z t
+
+> 0
+
+wM2 (t, s ) d s
+
+≲ t5/4d(t)h(t)∥∇ ˙u2(t)∥L4 .
+
+Hence, 
+
+N2,1(t) ≤ εd (t)2 + Cεh(t)2 t5/2∥∇ ˙u2(t)∥2 
+
+> L4
+
+.
+
+Estimate of N2,3. Arguing similarly, 
+
+N2,3(t) ≤ h(t)
+
+Z t
+
+> 0
+
+∥ρ1δu (s)∇φ1(s)∥L4/3 ds ≲ h(t)2 t∥∇ ˙u2(t)∥L4 .
+
+Estimate of N2,2. Using Hölder and (3.8), 
+
+N2,2(t) ≲ h(t)1/2d(t)1/2
+
+Z t
+
+> 0
+
+∥ρ1δu (s)∥L4 ∥∇ φ1(s)∥L2 ds. 
+
+≲ h(t)1/2d(t)1/2∥∇ ˙u2(t)∥L2
+
+Z t
+
+> 0
+
+wM2 (t, s )∥ρ1δu (s)∥L4 ds. 
+
+Applying (3.6), we obtain 
+
+N2,2(t) ≲ h(t)1/2d(t)1/2∥∇ ˙u2(t)∥L2
+
+Z t
+
+> 0
+
+wM2 (t, s )
+
+
+
+t1/4d(s) + h(s)1/2d(s)1/2 + h(s)
+
+
+
+ds. 
+
+Define 
+
+(Lwg)( t) := 1
+
+t
+
+Z t
+
+> 0
+
+wM2 (t, s ) g(s) d s. 
+
+Then, again by (3.11), 
+
+Z t
+
+> 0
+
+wM2 (t, s )( · · · ) d s ≲ t5/4(Lwd)( t) + th (t)1/2(Lwd1/2)( t) + th (t).
+
+Using Young’s inequality, 
+
+N2,2(t) ≤ εd (t)2 + ε(Lwd(t)) 2 + ε(Lwd1/2(t)) 4 + Cεh(t)2γ2(t),
+
+where 
+
+γ2(t) := t5/2∥∇ ˙u2(t)∥2 
+
+> L4
+
++ t∥∇ ˙u2(t)∥L4 + t5∥∇ ˙u2(t)∥4 
+
+> L2
+
++ t2∥∇ ˙u2(t)∥2 
+
+> L2
+
++ t4/3∥∇ ˙u2(t)∥4/3 
+
+> L2
+
+.
+
+Collecting estimates for N2,1, N2,2 and N2,3, we conclude 
+
+N2(t) ≤ εd (t)2 + ε(Lwd(t)) 2 + ε(Lwd1/2(t)) 4 + Cεh(t)2γ2(t).(3.14) L2(R2) WELL-POSEDNESS AND LOGARITHMIC LIPSCHITZ REGULARITY FOR THE DENSITY PATCH PROBLEM 15 
+
+Step 5. Collecting the estimates for P , N1, and N2 (see (3.7), (3.12), and (3.14)), we obtain 
+
+P (t) + N1(t) + N2(t) ≤ εd (t)2 + ε(Lwd(t)) 2 + ε(Lwd1/2(t)) 4 + h(t)2 γ(t),
+
+where 
+
+γ(t) := γ1(t) + t2∥ ˙u2(t)∥2  
+
+> L∞(DˆC,t )
+
++ γ2(t).
+
+Assuming that γ ∈ L1(0 , T ), inserting this estimate into (3.5) yields 
+
+h(T )2 +
+
+Z T
+
+> 0
+
+d(t)2 dt ≤ h(0) 2 + ε
+
+Z T
+
+> 0
+
+d(t)2 dt + ε
+
+Z T
+
+> 0
+
+(Lwd(t)) 2 dt
+
++ ε
+
+Z T
+
+> 0
+
+(Lwd1/2(t)) 4 dt + Cε
+
+Z T
+
+> 0
+
+h(t)2 γ(t) d t. 
+
+Since Lw is bounded on Lp(0 , T ) (see Lemma 2.6), we have 
+
+Z T
+
+> 0
+
+(Lwd(t)) 2 dt ≤ C
+
+Z T
+
+> 0
+
+d(t)2 dt, 
+
+and similarly Z T
+
+> 0
+
+(Lwd1/2(t)) 4 dt ≤ C
+
+Z T
+
+> 0
+
+d(t)2 dt. 
+
+Therefore, 
+
+h(t)2 +
+
+Z T
+
+> 0
+
+d(t)2 dt ≤ h(0) 2 + ε(1 + 2 C)
+
+Z T
+
+> 0
+
+d(t)2 dt + Cε
+
+Z T
+
+> 0
+
+h(t)2 γ(t) d t. 
+
+Choosing ε > 0 sufficiently small, we can absorb the second term on the left-hand side and obtain 
+
+h(T )2 + 12
+
+Z T
+
+> 0
+
+d(t)2 dt ≤ h(0) 2 + Cε
+
+Z T
+
+> 0
+
+h(t)2 γ(t) d t. 
+
+An application of Grönwall’s inequality yields 
+
+h(T )2 + 12
+
+Z T
+
+> 0
+
+d(t)2 dt ≤ h(0) 2 exp 
+
+Z T
+
+> 0
+
+γ(t) d t
+
+!
+
+.
+
+To conclude (3.2), it remains to show that γ ∈ L1(0 , T ).
+
+Step 6. We first show that γ2 ∈ L1(0 , T ), arguing term by term. For the first contribution, using Gagliardo– Nirenberg and Young’s inequality, we write 
+
+Z T
+
+> 0
+
+t5/2∥∇ ˙u2(t)∥2 
+
+> L4
+
+dt ≲
+
+Z T
+
+> 0
+
+t5/2∥∇ ˙u2(t)∥L2 ∥∇ 2 ˙u2(t)∥L2 dt
+
+≤
+
+Z T
+
+> 0
+
+t2∥∇ ˙u2(t)∥2 
+
+> L2
+
+dt +
+
+Z T
+
+> 0
+
+t3∥∇ 2 ˙u2(t)∥2 
+
+> L2
+
+dt ≤ C. 
+
+(3.15) For the second term, using interpolation and Young’s inequality, 
+
+Z T
+
+> 0
+
+t∥∇ ˙u2(t)∥L4 dt ≲
+
+Z T
+
+> 0
+
+t−1/4 t∥∇ ˙u2(t)∥L2
+
+1/2 t3/2∥∇ 2 ˙u2(t)∥L2
+
+1/2 dt
+
+≲
+
+Z T
+
+> 0
+
+t−1/2 dt +
+
+Z T
+
+> 0
+
+t2∥∇ ˙u2(t)∥2 
+
+> L2
+
+dt +
+
+Z T
+
+> 0
+
+t3∥∇ 2 ˙u2(t)∥2 
+
+> L2
+
+dt ≤ C. 
+
+For the third term, we use a supremum bound: 
+
+Z T
+
+> 0
+
+t5∥∇ ˙u2(t)∥4 
+
+> L2
+
+dt ≲ sup  
+
+> t∈(0 ,T )
+
+t3∥∇ ˙u2(t)∥2
+
+> L2
+
+Z T
+
+> 0
+
+t2∥∇ ˙u2(t)∥2 
+
+> L2
+
+dt ≤ C. 
+
+The fourth contribution is directly controlled by the energy bounds. For the last term, by Hölder’s inequality, 
+
+Z T
+
+> 0
+
+t4/3∥∇ ˙u2(t)∥4/3 
+
+> L2
+
+dt ≲
+
+Z T
+
+> 0
+
+t2∥∇ ˙u2(t)∥2 
+
+> L2
+
+dt ≤ C. 
+
+This proves that γ2 ∈ L1(0 , T ).16 A. VIOLINI 
+
+The strategy for γ1 is analogous. It remains to show that 
+
+Z T
+
+> 0
+
+t2∥ ˙u2(t)∥2  
+
+> L∞(DˆC,t )
+
+dt ≤ C. 
+
+To this end, we use Lemma 2.3, which ensures that for every v and t ∈ (0 , T ),
+
+∥v∥L∞(D ˆC,t ) ≤ C(t 14 ∥∇ v∥L4(R2) + t− 12 ∥ρ2(t) v∥L2(R2)),
+
+where C depends on Cu2 , T, D and ˆC C u2 . Choosing v = ˙ u2, we obtain 
+
+Z T
+
+> 0
+
+t2∥ ˙u2(t)∥2  
+
+> L∞(DˆC,t )
+
+dt ≲
+
+Z T
+
+> 0
+
+t5/2∥∇ ˙u2(t)∥2 
+
+> L4
+
+dt +
+
+Z T
+
+> 0
+
+t∥ρ2(t) ˙ u2(t)∥2 
+
+> L2
+
+dt. 
+
+The second term is controlled by the energy bounds, while the first one has already been estimated in (3.15). This concludes the proof that γ ∈ L1(0 , T ).4. Proof of Theorem B 
+
+Step A. In this step, we recall several results from the literature that will be used throughout the proof. Let (ρ, u ) be the unique immediately strong solution of Theorem B associated with initial data (ρ0, u 0)
+
+satisfying (1.6). Fix 
+
+s ∈
+
+
+
+0, 12
+
+
+
+.
+
+By real interpolation (see (1.17)), the initial velocity can be decomposed as 
+
+u0 = X
+
+> j∈Z
+
+uj, 0,
+
+where {uj, 0}j∈Z is a sequence of divergence-free atoms satisfying 
+
+cj := 2 −j/ 2∥uj, 0∥ ˙Hs + 2 j/ 2∥uj, 0∥ ˙H−s , ∥cj ∥ℓ2(Z) < ∞.
+
+For each j ∈ Z, consider the linearized system 
+
+
+
+∂t(ρu j ) + div( ρu j ⊗ u) + ∇P = ∆ uj ,
+
+div uj = 0 ,uj |t=0 = uj, 0.
+
+(4.1) It is proved in [23, Section 4 and Section 5] that there exists a solution uj to (4.1) such that, for some constant 
+
+C > 0 depending only on D and ∥u0∥L2 , but independent of j and t > 0, the following estimates hold: 
+
+∥∇ uj (t)∥L2 ≤ C min 
+
+n
+
+t−1/2+ s/ 2∥uj, 0∥ ˙Hs , t −1/2−s/ 2∥uj, 0∥ ˙H−s
+
+o
+
+,
+
+∥√ρ ˙uj (t)∥L2 ≤ C min 
+
+n
+
+t−1+ s/ 2∥uj, 0∥ ˙Hs , t −1−s/ 2∥uj, 0∥ ˙H−s
+
+o
+
+,
+
+∥∇ ˙uj (t)∥L2 ≤ C min 
+
+n
+
+t−3/2+ s/ 2∥uj, 0∥ ˙Hs , t −3/2−s/ 2∥uj, 0∥ ˙H−s
+
+o
+
+,
+
+(4.2) where 
+
+˙uj = ∂tuj + ( u · ∇ )uj
+
+denotes the material derivative. We also make use of the scale-invariant inequality introduced in [17, Equation (3.11)], which allows one to control the Lipschitz norm using only L2-based quantities: 
+
+∥∇ uj (t)∥L∞ ≲ ∥√ρ ˙uj (t)∥L2 + ∥∇ uj (t)∥1/2 
+
+> L2
+
+∥∇ ˙uj (t)∥1/2 
+
+> L2
+
+.(4.3) Combining (4.2) with (4.3), we obtain 
+
+∥∇ uj (t)∥L∞ ≤ C min 
+
+n
+
+t−1+ s/ 2∥uj, 0∥ ˙Hs , t −1−s/ 2∥uj, 0∥ ˙H−s
+
+o
+
+.(4.4) Since the constant C is independent of j, interpolation between the first estimate in (4.2) and (4.4) yields, for every p ∈ (2 , ∞),
+
+∥∇ uj (t)∥Lp ≤ C min 
+
+n
+
+t s   
+
+> 2+1
+> p−1
+
+∥uj, 0∥ ˙Hs , t − s   
+
+> 2+1
+> p−1
+
+∥uj, 0∥ ˙H−s
+
+o
+
+.(4.5) L2(R2) WELL-POSEDNESS AND LOGARITHMIC LIPSCHITZ REGULARITY FOR THE DENSITY PATCH PROBLEM 17 
+
+Finally, we recall that X
+
+> |j|≤ J
+
+uj → u in D′ (0 , ∞) × R2 as J → ∞ ,(4.6) which is proved in [23, Section 4]. 
+
+Step B. Let p > 2 
+
+> s
+
+, and define 
+
+A(t) := X
+
+> j∈Z
+
+(1 + |j|)η−1∥∇ uj (t)∥L∞ , B(t) := X
+
+> j∈Z
+
+2 |j| 
+
+> sp
+
+(1 + |j|)η−1∥∇ uj (t)∥Lp .
+
+Fix T > 0. Throughout the proof, all implicit constants may depend on 
+
+C, s, p, η, and T. 
+
+Using (4.6), together with Morrey’s inequality, we obtain that for every N > 0,
+
+|u(t, x ) − u(t, y )| ≤ X
+
+> |j|≤ N
+
+|uj (t, x ) − uj (t, y )| + X
+
+> |j|>N
+
+|uj (t, x ) − uj (t, y )|
+
+≲ |x − y| X
+
+> |j|≤ N
+
+∥∇ uj (t)∥L∞ + |x − y|1− 2
+
+> p
+
+X
+
+> |j|>N
+
+∥∇ uj (t)∥Lp .
+
+(4.7) Since η ∈ (0 , 1) , we have 
+
+X
+
+> |j|≤ N
+
+∥∇ uj (t)∥L∞ ≤ (1 + N )1−η X
+
+> |j|≤ N
+
+(1 + |j|)η−1∥∇ uj (t)∥L∞ ≤ (1 + N )1−η A(t).(4.8) Moreover, since the function 
+
+r 7 → 2−r/ (sp )(1 + r)1−η
+
+is eventually decreasing, we have 
+
+2− |j| 
+
+> sp
+
+(1 + |j|)1−η ≲ 2− Nsp (1 + N )1−η for all |j| > N. 
+
+Therefore, X
+
+> |j|>N
+
+∥∇ uj (t)∥Lp = X
+
+> |j|>N
+
+2− |j| 
+
+> sp
+
+(1 + |j|)1−η 
+
+2 |j| 
+
+> sp
+
+(1 + |j|)η−1∥∇ uj (t)∥Lp
+
+
+
+≲ 2− Nsp (1 + N )1−η B(t).
+
+(4.9) Combining (4.8), (4.9) with (4.7), we obtain 
+
+|u(t, x ) − u(t, y )| ≲ (1 + N )1−η 
+
+|x − y| A(t) + |x − y|1− 2 
+
+> p
+
+2− Nsp B(t)
+
+
+
+.(4.10) We now choose 
+
+N := − log 2 |x − y|.
+
+Then 
+
+2−N ≤ 2|x − y|.
+
+With this choice of N , (4.10) yields 
+
+|u(t, x ) − u(t, y )| ≲ |x − y| (− log |x − y|)1−η A(t)+ |x − y|1− 2   
+
+> p+1
+> sp
+
+(− log |x − y|)1−η B(t).
+
+Since s < 1/2, we have 
+
+1 − 2
+
+p + 1
+
+sp > 1.
+
+Hence, recalling that 0 < |x − y| < 1,
+
+|x − y|1− 2   
+
+> p+1
+> sp
+
+≤ | x − y|.
+
+Therefore, 
+
+|u(t, x ) − u(t, y )| ≲ |x − y| (− log |x − y|)1−η  A(t) + B(t).(4.11) 18 A. VIOLINI 
+
+Step C. We are left to show that A, B ∈ L1(0 , T ). To this end, we claim that for every q ∈ [2 , ∞] with 
+
+s > 2/q ,
+
+Z T
+
+> 0
+
+∥∇ uj (t)∥Lq dt ≲ 2− |j| 
+
+> sq
+
+cj , j ∈ Z,(4.12) with the convention 1/∞ = 0 .Assuming (4.12), we obtain 
+
+∥B∥L1(0 ,T ) ≤ X
+
+> j∈Z
+
+2 |j| 
+
+> sp
+
+(1 + |j|)η−1
+
+Z T
+
+> 0
+
+∥∇ uj (t)∥Lp dt ≲ X
+
+> j∈Z
+
+(1 + |j|)η−1cj .
+
+Since η < 12 , Cauchy–Schwarz yields 
+
+X
+
+> j∈Z
+
+(1 + |j|)η−1cj ≤
+
+ X 
+
+> j∈Z
+
+(1 + |j|)2η−21/2
+
+∥cj ∥ℓ2(Z) ≲ ∥cj ∥ℓ2(Z).
+
+Hence, 
+
+∥B∥L1(0 ,T ) ≲ ∥cj ∥ℓ2(Z).
+
+Similarly, applying (4.12) with q = ∞, we obtain 
+
+∥A∥L1(0 ,T ) ≲ X
+
+> j∈Z
+
+(1 + |j|)η−1cj ≲ ∥cj ∥ℓ2(Z).
+
+Therefore A, B ∈ L1(0 , T ).It remains to prove (4.12). Fix j ∈ Z, and set τ := 2 −j/s . Using (4.5), we split the time integral: 
+
+Z T
+
+> 0
+
+∥∇ uj (t)∥Lq dt ≲
+
+Z τ
+
+> 0
+
+t s   
+
+> 2+1
+> q−1
+
+∥uj, 0∥ ˙Hs dt +
+
+Z ∞
+
+> τ
+
+t− s   
+
+> 2+1
+> q−1
+
+∥uj, 0∥ ˙H−s dt 
+
+≲ τ s   
+
+> 2+1
+> q
+
+∥uj, 0∥ ˙Hs + τ − s   
+
+> 2+1
+> q
+
+∥uj, 0∥ ˙H−s
+
+= 2 −j( 12 + 1 
+
+> sq
+
+)∥uj, 0∥ ˙Hs + 2 j( 12 − 1 
+
+> sq
+
+)∥uj, 0∥ ˙H−s .
+
+Hence Z T
+
+> 0
+
+∥∇ uj (t)∥Lq dt ≲ 2−j/ (sq ) cj .
+
+If j ≥ 0, then −j/ (sq ) = −| j|/(sq ), which gives (4.12). If j < 0, we instead use only the first branch: 
+
+Z T
+
+> 0
+
+∥∇ uj (t)∥Lq dt ≲
+
+Z T
+
+> 0
+
+t s   
+
+> 2+1
+> q−1
+
+∥uj, 0∥ ˙Hs dt ≲ ∥uj, 0∥ ˙Hs ≲ 2j/ 2cj .
+
+Since j < 0 and sq > 2, we have j/ 2 ≤ j/ (sq ), hence 
+
+2j/ 2 ≤ 2j/ (sq ) = 2 −| j|/(sq ).
+
+This proves (4.12). Finally, define 
+
+γ(t) := C A(t) + B(t),
+
+where C > 0 is the implicit constant in (4.11). Since A, B ∈ L1(0 , T ) and T > 0 is arbitrary, we have 
+
+γ ∈ L1loc ([0 , ∞)) , and (1.10) follows from (4.11). 
+
+Acknowledgments. The author is supported by the Deutsche Forschungsgemeinschaft (DFG) through the project Inhomogeneous and compressible fluids: statistical solutions and dissipative anomalies within the SPP 2410 Hyperbolic Balance Laws in Fluid Mechanics: Complexity, Scales, Randomness (CoScaRa). The author thanks G. Crippa and S. Škondrić for helpful discussions. The author is also grateful to S. Škondrić for an early review of this manuscript. 
+
+Data availability statement Data sharing not applicable to this article as no data sets were generated or analyzed during the current study. 
+
+Conflicts of interest The authors have no competing interests to declare that are relevant to the content of this article. L2(R2) WELL-POSEDNESS AND LOGARITHMIC LIPSCHITZ REGULARITY FOR THE DENSITY PATCH PROBLEM 19 
+
+References 
+
+[1] H. Abidi. Équation de navier–stokes avec densité et viscosité variables dans l’espace critique. Rev. Mat. Iberoam. , 23:537–586, 2007. [2] H. Abidi, G. Gui, and P. Zhang. On the well-posedness of 3-d inhomogeneous navier–stokes equations in the critical spaces. 
+
+Arch. Ration. Mech. Anal. , 204:189–230, 2012. [3] H. Bahouri, J.-Y. Chemin, and R. Danchin. Fourier Analysis and Nonlinear Partial Differential Equations . Springer, 2011. [4] C. Capone, D. Cruz-Uribe, and A. Fiorenza. The fractional maximal operator and fractional integrals on variable lp spaces. 
+
+Revista Matemática Iberoamericana , 23:743–770, 2007. [5] J.-Y. Chemin and N. Lerner. Flot de champs de vecteurs non-lipschitziens et équations de navier–stokes. Journal of Differential Equations , 121:314–328, 1995. [6] T. Crin-Barat, N. De Nitti, S. Škondrić, and A. Violini. Regularity aspects of leray–hopf solutions to the 2d inhomogeneous navier–stokes system and applications to weak-strong uniqueness. Nonlinearity , 38:125020, 2025. [7] T. Crin-Barat, S. Škondrić, and A. Violini. Relative energy method for weak–strong uniqueness of the inhomogeneous navier–stokes equations far from vacuum. Journal of Evolution Equations , 25:010001, 2025. [8] R. Danchin. Density-dependent incompressible viscous fluids in critical spaces. Proc. Roy. Soc. Edinburgh Sect. A , 133:1311– 1334, 2003. [9] R. Danchin. Global well-posedness for two-dimensional inhomogeneous viscous flows with rough data via dynamic interpolation. 
+
+Analysis & PDE , 18:1231–1270, 2025. [10] R. Danchin and P. B. Mucha. A lagrangian approach for the incompressible navier–stokes equations with variable density. 
+
+Comm. Pure Appl. Math. , 65:1458–1480, 2012. [11] R. Danchin and P. B. Mucha. The incompressible navier–stokes equations in vacuum. Comm. Pure Appl. Math. , 72:1351–1385, 2019. [12] R. Danchin, P. B. Mucha, and T. Piasecki. Stability of the density patches problem with vacuum for incompressible inhomo-geneous viscous flows. Ann. Inst. H. Poincaré Anal. Non Linéaire , 41:897–931, 2024. [13] R. J. DiPerna and P.-L. Lions. Ordinary differential equations, transport theory and Sobolev spaces. Invent. Math. , 98:511–547, 1989. [14] F. Gancedo and E. García-Juárez. Global regularity of 2d density patches for inhomogeneous navier–stokes. Arch. Ration. Mech. Anal. , 229:339–360, 2018. [15] F. Gancedo, E. García-Juárez, and P. Luna-Velasco. On 2d navier–stokes free boundary: nonnegative density and small viscosity contrast, 2025. arXiv:2507.09333. [16] T. Hao, F. Shao, D. Wei, and Z. Zhang. Global well-posedness of inhomogeneous navier–stokes equations with bounded density. 
+
+International Mathematics Research Notices , 2025:rnaf283, 2025. [17] T. Hao, F. Shao, D. Wei, and Z. Zhang. On the density patch problem for the 2-d inhomogeneous navier–stokes equations. 
+
+Science China Mathematics , 2026. [18] J. Kinnunen and O. Martio. Hardy’s inequalities for sobolev functions. Mathematical Research Letters , 4:489–500, 1997. [19] J.-L. Lions and J. Peetre. Sur une classe d’espaces d’interpolation. Publications Mathématiques de l’IHÉS , 19:5–68, 1964. [20] P.-L. Lions. Mathematical Topics in Fluid Mechanics. Vol. 1. Incompressible Models . Oxford University Press, 1996. [21] M. Paicu, P. Zhang, and Z. Zhang. Global unique solvability of inhomogeneous navier–stokes equations with bounded density. 
+
+Comm. Partial Differential Equations , 38:1208–1234, 2013. [22] C. Prange and J. Tan. Free boundary regularity of vacuum states for incompressible viscous flows in unbounded domains, 2023. arXiv:2310.09288. [23] S. Škondrić and A. Violini. On lions’ density patch problem at a critical level of regularity, 2026. arXiv:2604.16017. [24] S. Škondrić. Existence and uniqueness of leray-hopf weak solution for the inhomogeneous 2d navier–stokes equations without vacuum, 2025. arXiv:2504.16638. (A. Violini) Universität Basel, Department Mathematik und Informatik, Spiegelgasse 1, 4051 Basel, Switzerland. 
+
+Email address : alessandro.violini@unibas.ch

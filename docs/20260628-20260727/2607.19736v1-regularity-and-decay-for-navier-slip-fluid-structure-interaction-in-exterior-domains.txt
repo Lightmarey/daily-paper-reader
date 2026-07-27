@@ -1,0 +1,4412 @@
+Title: Regularity and Decay for Navier-Slip Fluid-Structure Interaction in Exterior Domains
+
+URL Source: https://arxiv.org/pdf/2607.19736v1
+
+Published Time: Thu, 23 Jul 2026 00:23:32 GMT
+
+Number of Pages: 44
+
+Markdown Content:
+REGULARITY AND DECAY FOR NAVIER-SLIP FLUID-STRUCTURE INTERACTION IN EXTERIOR DOMAINS 
+
+BUM JA JIN ABSTRACT . We study the linearized motion of a spherical rigid body immersed in an incompressible viscous fluid occupying the whole space, under Navier slip boundary conditions with friction. While semigroup regularity and decay esti-mates are well understood for the no-slip case, such results have been limited to bounded domains in the slip setting. By exploiting the geometric regularity of the sphere, we establish strong Lq -regularity, bounded analyticity, and sharp 
+
+Lq − Lr estimates for the corresponding fluid-structure operator. These results would provide a foundation for constructing strong W 2,1 
+
+> q
+
+solutions and Kato-type solutions to the corresponding nonlinear system. 
+
+1. Introduction 
+
+We consider a homogeneous rigid body immersed in a viscous, incompressible fluid occupying the entire space R3. Let v and π denote the velocity and pressure of the fluid, respectively. Let B ⊂ R3 represent the initial region occupied by the rigid body, and define the fluid domain as Ω := R3 \ B. At any time t > 0,the body occupies the region B(t), and its center of mass is denoted by h(t). The translational velocity is ℓ(t) = ˙h(t) and the angular velocity is ω(t). Consequently, the time-dependent fluid domain is given by 
+
+Ω( t) = R3 \ B(t).
+
+For the sake of simplicity, we assume that the densities of both the fluid and the rigid body are equal to 1 throughout this paper (i.e., ρF = 1 and ρB = 1 ). In particular, we consider the case where the rigid body is a ball centered at the origin. However, we note that the general case where the densities may differ is discussed in Remark 3.2. Under these assumptions, the motion of the fluid and the rigid body is governed by the following system of equations in Ω( t):
+
+∂v
+
+∂t + v · ∇ v − μ∆v + ∇π = f0
+
+div v = 0 
+
+in Ω( t) for t > 0, (1.1) 
+
+2020 Mathematics Subject Classification. 76D05, 35Q35, 76D07. 
+
+Key words and phrases. Keywords: Fluid-rigid body interaction, Navier slip boundary condition, Analytic semigroup, Maximal Lq -regularity, Lq -Lr estimates. This paper is supported by the Basic Research Program through the National Research Foundation of Korea funded by the Ministry of Education and Technology(RS-2023-00280597).  
+
+> 1arXiv:2607.19736v1 [math.AP] 22 Jul 2026 2B. JIN
+
+coupled with an ODE 
+
+m dℓ
+
+dt (t) = −
+
+Z
+
+> ∂Ω( t)
+
+S(v, π )ndS + mf1
+
+d(Jω)
+
+dt (t) = −
+
+Z
+
+> ∂Ω( t)
+
+(x − h(t)) × S(v, π )ndS x + Jf2
+
+for t > 0. (1.2) We prescribe the initial condition: 
+
+v|t=0 = v0, ℓ|t=0 = ℓ0, ω|t=0 = ω0. (1.3) For t > 0, on ∂Ω( t), we impose the Navier-slip boundary condition: 
+
+(
+
+(v − ℓ − ω × (x − h(t))) · n = 0 ,
+
+2μn × D(v)n + αn × (v − ℓ − ω × (x − h(t))) = 0 on ∂Ω( t). (1.4) In these boundary conditions, n denotes the unit outward normal vector on ∂Ω( t),and α > 0 is the friction coefficient. The constant μ > 0 represents the fluid viscosity, and the shear stress tensor is defined as 
+
+S(v, π ) = 2 μD(v) − πI3,
+
+where I3 is the 3×3 identity matrix. The rate-of-strain tensor D(v) = ( Dij (v)) 3
+
+> i,j =1
+
+is given by 
+
+Dij (v) = 12
+
+ ∂v j
+
+∂x i
+
++ ∂v i
+
+∂x j
+
+
+
+.
+
+Let m and J denote the total mass and the inertia tensor of the rigid body, respec-tively. We assume that the rigid body is sufficiently smooth, with the boundary ∂Ω
+
+being of class C∞.By the product rule and the kinematic identity ˙J(t)ω = ω×(Jω), the time deriv-ative of the angular momentum expands to ddt (Jω) = J ˙ω + ω × (Jω). Throughout this work, the dot notation indicates the time derivative, i.e., ˙y(t) = dy dt .The first equation in (1.4) represents the kinematic condition (no-penetration), while the second is the Navier-slip condition, implying that the tangential stress is proportional to the relative tangential velocity between the fluid and the rigid body. For any vector-valued function a on ∂Ω, let [a]τ := a − (a · n)n denote its tangential component. It is worth noting that the slip condition in (1.4) 2 can be equivalently expressed as 
+
+2μ[D(v)n]τ + α[v − ℓ − ω × x]τ = 0. (1.5) Finally, we impose the far-field condition: 
+
+v(x, t ) → 0 as |x| → ∞ for t > 0. (1.6) A number of studies have investigated the fluid-rigid body interaction problem under Navier-slip boundary conditions in bounded domains. In [21], the existence of weak solutions up to collision has been demonstrated. For uniqueness and con-tinuity of the 2D weak solution in a bounded domain, refer to [9]. In [45], both the existence and uniqueness of the 2D strong solution up to collision are established. Furthermore, [3] shows the global in-time solvability of 3D strong solutions in the NAVIER-SLIP FLUID-STRUCTURE INTERACTION 3
+
+Lqt Lpx framework when the initial data is sufficiently small. Note that in [3] and [45], the fluid region is contained within a bounded container. We adopt the change of variables used in the papers [42, 46, 17]. Under the frame transformation x 7 → x + h(t), the system (1.1)–(1.6) can be rewritten in the fixed domain Ω as 
+
+
+
+∂v
+
+∂t + ( v − ℓ) · ∇ v − μ∆v + ∇π = f0
+
+div v = 0 in Ω for t > 0,m˙ℓ(t) = −
+
+Z
+
+> ∂Ω
+
+S(v, π )n dS x + mf1
+
+J ˙ω(t) + ω × (Jω) = −
+
+Z
+
+> ∂Ω
+
+x × S(v, π )n dS x + Jf2
+
+for t > 0,
+
+(1.7) 
+
+v|t=0 = v0, ℓ|t=0 = ℓ0, ω|t=0 = ω0, (C1) 
+
+(
+
+(v − ℓ − ω × x) · n = 0 2μ[D(v)n]τ + α[v − ℓ − ω × x]τ = 0 on ∂Ω for t > 0, (C2) 
+
+v(x, t ) → 0 as |x| → ∞ for t > 0. (C3) 
+
+Remark 1.1. For the spherical case, the inertia tensor J reduces to |J|I3, mean-ing the gyroscopic torque vanishes, i.e., ω × (Jω) = 0. Therefore, the angular momentum balance equation simplifies to a linear form: 
+
+J ˙ω(t) = −
+
+Z
+
+> ∂Ω
+
+x × S(v, π )n dS x + Jf2.
+
+We focus on the linearized system around the rest state, which serves as the basis for our analysis. Through linearization, the nonlinear convective term, the gyroscopic torque, and the time-dependency of the inertia tensor are eliminated. Let B be the reference configuration of the rigid body. We denote by J0 the constant inertia tensor at the reference state, defined by 
+
+J0 =
+
+Z 
+
+> B
+
+ρB (δij |x|2 − xixj ) dx 
+
+
+
+> 1≤i,j ≤3
+
+,
+
+where ρB is the density of the rigid body. Supplemented with conditions (C1)–(C3), the linearized system is given by 
+
+
+
+∂v
+
+∂t − μ∆v + ∇π = f0
+
+div v = 0 in Ω for t > 0,m˙ℓ(t) = −
+
+Z
+
+> ∂Ω
+
+S(v, π )n dS x + mf1
+
+J0 ˙ω(t) = −
+
+Z
+
+> ∂Ω
+
+x × S(v, π )n dS x + J0f2
+
+for t > 0.
+
+(1.8) The semigroup associated with the linear system (1.8), subject to the conditions (C1)–(C3), is referred to as the fluid-structure semigroup under Navier-slip bound-ary conditions. Its generator is called the fluid-structure operator. 4 B. JIN 
+
+The semigroup associated with the linear system (1.8), subject to the conditions (C1)–(C3), is referred to as the fluid-structure semigroup under Navier-slip bound-ary conditions. Its generator is called the fluid-structure operator corresponding to the Navier-slip boundary condition. Previous studies have investigated this operator under no-slip boundary condi-tions (see [17, 32, 42, 46, 26]), and more recently under Navier-slip conditions in bounded domains [3]. Before stating our main results, we briefly recall some related works on fluid structure interaction under Navier-slip boundary conditions. Let O be a bounded domain in R3 with B ⊂ O. The resolvent problem for the fluid–structure operator under Navier-slip boundary conditions on the bounded fluid region O \ B has been studied in [3]. The corresponding fluid-structure op-erator generates an analytic semigroup with exponential stability (see [3, Theorem 4.7]), and the system enjoys the maximal regularity property (see [3, Theorem 4.9]). Moreover, there exists a unique strong solution u ∈ Lqt (W2,p x ) ∩ W1,q t (Lpx)
+
+to the nonlinear problem (see [3, Theorem 2.1]). In this paper, we study the linear system (1.8) in the exterior domain Ω := 
+
+R3 \ B, where the body B is contained in a ball BR0 for some R0 > 0. The sys-tem is supplemented with the conditions (C1)–(C3), representing the initial state, boundary behavior, and the condition at infinity, respectively. We establish strong 
+
+Lq regularity and prove that the associated fluid-structure semigroup is bounded and analytic. In addition, we derive Lr-Lq decay estimates. The rest of this paper is organized as follows. In Section 2, we introduce the general notation and state the main results. Section 3 describes the fluid–structure operator, followed by basic computations in Section 4. Sections 5 and 6 are devoted to the proof of Lq-maximal regularity and the establishment of uniform-in-time boundedness. We first address the L2 case in Section 5 by proving the self-adjointness of the fluid-structure operator (Lemma 5.1). For the general Lq case ( 1 < q < ∞), we derive crucial a priori estimates in Section 6 (Lemma 6.1) via a localization method that patches together known results for whole-space and bounded-domain problems. Using these estimates as a key tool, we establish time-dependent Lq-maximal regularity in Section 6.1. Sub-sequently, in Section 6.2, we improve these results for the range 1 < q < 3/2 by showing that the solution is uniformly bounded independent of time T . This uni-form estimate is achieved through a contradiction argument utilizing the previously derived a priori estimates and the uniqueness of the solution (Lemma 6.2). In Section 7, we establish the boundedness of the semigroup by exploiting the sectoriality of the fluid-structure operator, as maximal regularity alone does not di-rectly guarantee the uniform boundedness of the semigroup. Our strategy relies on the fact that sectoriality is an immediate consequence of self-adjointness for q = 2 
+
+and is likewise yielded by the uniform-in-time maximal regularity for 1 < q < 3/2
+
+through standard functional-analytic arguments. By interpolating between these two anchor cases, we obtain sectoriality for the range 3/2 ≤ q < 2, while a duality argument is further employed to cover the remaining range q > 2. This systematic NAVIER-SLIP FLUID-STRUCTURE INTERACTION 5
+
+approach ensures the bounded analyticity of the fluid-structure semigroup for all 
+
+1 < q < ∞.Finally, Section 8 establishes the general Lr-Lq decay estimates for 1 < r ≤
+
+q < ∞. We begin by deriving a Korn-type inequality (Lemma 4.3) for the Navier-slip condition with friction, which enables the derivation of the estimate (Lemma 8.1). This estimate subsequently provides the foundational Lr-L2 decay rates for 
+
+6/5 ≤ r < 2. Furthermore, by combining the Korn-type inequality with the Gagliardo-Nirenberg inequality, we close the energy estimate (8.11) via the Gron-wall inequality (8.12), which allows us to extend these decay rates to the full range 
+
+1 < r < 2. The estimates for the remaining range 1 < r ≤ q < ∞ then follow by standard arguments involving the semigroup property. The q = ∞ case is left for the future study. 2. Notation and Main Theorems 
+
+In this section, we briefly introduce the notation and function spaces required for the statement of the main theorem. To maintain focus, we reserve additional operator-specific notation for the fluid–structure interaction for Section 3. Throughout this paper, c denotes a generic positive constant whose value may change at each occurrence, with dependence on specific parameters indicated by 
+
+c(·, . . . , ·). For simplicity, we may omit parameters that remain fixed, such as q and 
+
+B.Functions are distinguished according to their algebraic nature: scalar-valued functions are written in lightface, vector-valued functions in boldface (e.g., u), and tensor-valued functions in blackboard bold (e.g., T). To ensure a clear distinction between the dimensions of the target spaces, we consistently use lightface, bold-face, and blackboard bold symbols to denote the corresponding function spaces and their product spaces. For instance, X(D), X(D), and X(D) represent spaces of functions taking values in R, Rk (k ≥ 2), and tensors of rank k ≥ 2, respec-tively. Under this convention, the second-order derivative D2u is understood as an element of a tensor-valued space such as Lq(D) or Ws,p (D). The spatial variable is denoted simply by x, even when representing a vector. Regardless of these typographical distinctions, the associated norms are always written in the standard form ∥ · ∥ X without boldface or other decorations, inde-pendently of whether the underlying space X is scalar-, vector-, or tensor-valued. For instance, we simply write ∥u∥Lq (D) for u ∈ Lq(D).In particular, when the domain is the entire space R3, we often omit the domain and write ∥u∥Lr for the 
+
+Lr(R3)-norm. For any vector x ∈ R3, its norm is denoted by |x|.For a domain D ⊂ R3, we denote by Ck 
+
+> 0
+
+(D) the space of scalar-valued Ck
+
+functions with compact support in D (0 ≤ k ≤ ∞ ). For 1 ≤ p ≤ ∞ , Lp(D)
+
+is the usual Lebesgue space. For s ≥ 0, W s,p (D) denotes the Sobolev space of order s, which refers to the classical Sobolev space when s ∈ N0, and the Sobolev–Slobodeckij space when s / ∈ N. In the latter case, we have the identifica-tion W s,p (D) = Bsp,p (D).6 B. JIN 
+
+Following the common convention in fluid mechanics, we denote by C∞
+
+> 0,σ
+
+(D)
+
+the space of smooth, solenoidal functions compactly supported in D, and by Lqσ(D)
+
+the space of divergence-free Lq functions in D.For the specific notation in the fluid domain Ω, we define 
+
+Lqσ,τ (Ω) := {v ∈ Lqσ(Ω) : v · n = 0 on ∂Ω}.
+
+It is well known that Lqσ,τ (Ω) coincides with the closure of C∞
+
+> 0,σ
+
+(Ω) with respect to the Lq(Ω) -norm (see, e.g., [20, Section III.2] and [40, Chapter II]). This charac-terization implies that the boundary condition v · n = 0 is naturally satisfied in the sense of traces for any v ∈ Lqσ,τ (Ω) .The Stokes operator Aα,q : D(Aα,q ) ⊂ Lqσ,τ (Ω) → Lqσ,τ (Ω) is defined by 
+
+Aα,q v := −P ∆v, where P is the Helmholtz projection. Its domain is given by 
+
+D(Aα,q ) := v ∈ Lqσ,τ (Ω) ∩ W2,q (Ω) : 2 μ[D(v)n]τ + α[v]τ = 0 on ∂Ω .
+
+For any T > 0, we define the space-time domain QT := Ω × (0 , T ). We denote by (X1, X 2)a,q the real interpolation space between X1 and X2. For later use, we say that a triple (v0, ℓ0, ω0) ∈ W2− 2 
+
+> q,q
+
+(Ω) × R3 × R3 satisfies the compatibility condition if 
+
+v0 − φ0 ∈ (Lqσ,τ (Ω) , D(Aα,q )) 1− 1 
+
+> q, q
+
+for some φ0 ∈ C20(Ω) such that (φ0, ℓ0, ω0) satisfies 
+
+
+
+div φ0 = 0 in Ω,
+
+(φ0 − ℓ0 − ω0 × x) · n = 0 on ∂Ω,
+
+[2 μD(φ0)n]τ + α[φ0 − ℓ0 − ω0 × x]τ = 0 on ∂Ω,
+
+lim  
+
+> |x|→∞
+
+φ0 = 0.
+
+(2.1) For initial data with lower regularity, specifically for v0 ∈ Lq(Ω) , the compatibility condition is understood in a reduced sense: we require v0 − φ0 ∈ Lqσ,τ (Ω) for a solenoidal extension φ0 satisfying (2.1) 1,2,4.This definition of the compatibility condition is motivated by the functional framework established for bounded domains in [3]. Since we intend to adapt and employ several fundamental estimates from the bounded case to our exterior do-main setting, we adopt a consistent notion of compatibility. This ensures a natural transition transition of results between different domain geometries and provides a unified basis for the regularity analysis that follows. To establish strong solutions, we next recall the notion of maximal Lq-regularity, which will play a central role in the analysis of the fluid–structure operator. 
+
+Definition 2.1. Let X be a Banach space. Let 1 < q < ∞ and 0 < T ≤ ∞ .Consider the Cauchy problem 
+
+dy dt + Ay = f, t ∈ (0 , T ), y(0) = 0 NAVIER-SLIP FLUID-STRUCTURE INTERACTION 7
+
+for a given f ∈ Lq(0 , T ; X). We say A has maximal Lq regularity in X on (0 , T ) if for every such f , there exists a unique solution y satisfying dy dt , Ay ∈ Lq(0 , T ; X),and dy dt Lq (0 ,T ;X)
+
++ ∥Ay ∥Lq (0 ,T ;X) ≤ c∥f ∥Lq (0 ,T ;X)
+
+for some constant c > 0 independent of f .
+
+We first investigate the key structural properties of the fluid-structure interac-tion operator on the Hilbert space X2. These properties guarantee the maximal L2-regularity of the associated Cauchy problem within a subspace of L2
+
+> σ
+
+(Ω) ×R3 ×R3.(For the definition of Xq, see Section 3.) 
+
+Theorem 2.2. Let Ω be the exterior domain introduced in Section 1, and let 0 <T < ∞. Suppose that the initial data (v0, ℓ0, ω0) ∈ W1,2(Ω) × R3 × R3 satisfies the compatibility condition, and that the forcing terms (f0, f1, f2) ∈ L2(QT ) ×
+
+L2(0 , T ) × L2(0 , T ).Then, there exists a unique strong solution (v, π, ℓ, ω) to the system (1.8) on 
+
+(0 , T ), subject to the conditions (C1) –(C3) , satisfying the following regularity es-timate: 
+
+∥v∥L2(0 ,T ;W 2,2(Ω)) + ∥∂tv∥L2(Ω ×(0 ,T )) + ∥v∥L∞(0 ,T ;W 1,2(Ω)) 
+
++ ∥∇ π∥L2(0 ,T ;L2(Ω)) + ∥ℓ∥W 1,2(0 ,T ) + ∥ω∥W 1,2(0 ,T )
+
+≤ c(T ) ∥v0∥W 1,2(Ω) +|ℓ0|+|ω0|+∥f0∥L2(Ω ×(0 ,T )) + ∥f1∥L2(0 ,T )+∥f2∥L2(0 ,T )
+
+.
+
+Second, we establish the maximal Lq-regularity in the space Xq for 1 < q < ∞
+
+using a localization technique and a density argument. The precise result is stated in the following theorem. 
+
+Theorem 2.3. Consider the same geometric setting as in Theorem 2.2. Let 1 <q < ∞ and 0 < T < ∞. Suppose that the initial data satisfies (v0, ℓ0, ω0) ∈
+
+W2− 2 
+
+> q,q
+
+(Ω) ×R3×R3 along with the appropriate compatibility conditions. Assume further that the external forces satisfy (f0, f1, f2) ∈ Lq(QT )×Lq(0 , T )×Lq(0 , T ).Then, there exists a unique strong solution (v, π, ℓ, ω) to the system (1.8) , sub-ject to the conditions (C1) –(C3) , which satisfies the following estimate: 
+
+∥∇ 2v∥Lq (Ω ×(0 ,T )) + ∥∂tv∥Lq (Ω ×(0 ,T )) + ∥v∥L∞(0 ,T ;W 2− 2 
+
+> q ,q (Ω))
+
++ ∥∇ π∥Lq (Ω ×(0 ,T )) + ∥ℓ∥W 1,q (0 ,T ) + ∥ω∥W 1,q (0 ,T )
+
+≤ c(T ) ∥v0∥W 2− 2 
+
+> q ,q (Ω)
+
++|ℓ0|+|ω0|+∥f0∥Lq (Ω ×(0 ,T )+∥f1∥Lq (0 ,T )+∥f2∥Lq (0 ,T )
+
+.
+
+In particular, if q < 32 , then c(T ) is independent of T .
+
+The following theorem shows that the fluid–structure operator generates a bounded analytic semigroup on a suitable subspace of Lq(R3), which will be introduced in Section 3. 
+
+Theorem 2.4. Under the same geometric setting for Ω as above, let 1 < q < ∞.The fluid–structure operator associated with system (1.8) , subject to (C2) –(C3) ,generates a bounded analytic semigroup on this subspace. 8 B. JIN 
+
+Furthermore, assume that the external forces vanish, i.e., (f0, f1, f2) = ( 0, 0, 0).For any initial data (v0, ℓ0, ω0) ∈ Lqσ(Ω) × R3 × R3 satisfying the compatibil-ity conditions, the unique strong solution (v, π, ℓ, ω) to system (1.8) satisfies the following estimates for all t > 0:
+
+∥v(t)∥Lq (Ω) + |ℓ(t)| + |ω(t)| ≤ c ∥v0∥Lq (Ω) + |ℓ0| + |ω0|,
+
+∥∂tv(t)∥Lq (Ω) + |˙ℓ(t)| + | ˙ω(t)| ≤ ct −1 ∥v0∥Lq (Ω) + |ℓ0| + |ω0|.
+
+Finally, we derive Lq −Lr estimates for the fluid–structure semigroup. 
+
+Theorem 2.5. Assume the same geometric setting as in Theorem 2.2. Let 1 <r ≤ q < ∞. Assume further that the external forces vanish and that the initial data (v0, ℓ0, ω0) ∈ Lrσ(Ω) × R3 × R3 satisfying the compatibility conditions,. Set 
+
+∥(v0, ℓ0, ω0)∥Xr := ∥v0∥Lr (Ω) + m 1 
+
+> r
+
+|ℓ0| + |J0| 1 
+
+> r
+
+|ω0|.
+
+Then, the solution (v, π, ℓ, ω) to system (1.8) , under the conditions (C1) –(C3) ,satisfies the following estimates for all t > 0:
+
+∥v(t)∥Lq (Ω) + t∥∂tv(t)∥Lq (Ω) ≤ ct − 32   
+
+> 1
+> r−1
+> q
+> 
+
+∥(v0, ℓ0, ω0)∥Xr ,
+
+|ℓ(t)| + |ω(t)| + t|˙ℓ(t)| + t| ˙ω(t)| ≤ c(m)(1 + t)− 12 − 32 ( 1   
+
+> r−1
+> m
+
+)∥(v0, ℓ0, ω0)∥Xr .
+
+Moreover, for short-time scales t ≤ 1, we have: 
+
+t∥D2
+
+> x
+
+v(t)∥Lq (Ω) + t∥∇ π∥Lq + t 12 ∥∇ v(t)∥Lq (Ω) ≤ ct − 32   
+
+> 1
+> r−1
+> q
+> 
+
+∥(v0, ℓ0, ω0)∥Xr ,
+
+and for large-time scales t ≥ 1, the following refined estimates hold: 
+
+∥∇ v(t)∥Lq (Ω) ≤ c(m)
+
+
+
+t− 12 − 32   
+
+> 1
+> r−1
+> q
+> 
+
++ t− 32r + 22m
+
+
+
+∥(v0, ℓ0, ω0)∥Xr ,
+
+∥D2
+
+> x
+
+v(t)∥Lq (Ω) + ∥∇ π∥Lq ≤ c(m)
+
+
+
+t−1− 32   
+
+> 1
+> r−1
+> q
+> 
+
++ t− 32r + 22m
+
+
+
+∥(v0, ℓ0, ω0)∥Xr .
+
+Here, m can be taken to be arbitrarily large. 
+
+3. Fluid structure operator 
+
+In this section, we introduce the fluid–structure operator that generates the semi-group describing the motion of a rigid body immersed in a fluid. Unless stated otherwise, we work throughout the paper in an exterior domain, where the fluid surrounds the rigid body and satisfies Navier-slip boundary conditions at the inter-face. For 1 < q < ∞, set 
+
+Xq := {(v, ℓ, ω) ∈ Lqσ(Ω) × R3 × R3 : v · n = ( ℓ + ω × x) · n on ∂Ω}.
+
+The function space Xq is a Banach space equipped with the norm 
+
+∥(v, ℓ, ω)∥Xq = ∥v∥Lq (Ω) + m 1 
+
+> q
+
+|ℓ| + |J0| 1 
+
+> q
+
+|ω|.NAVIER-SLIP FLUID-STRUCTURE INTERACTION 9
+
+We note that Xq′
+
+is the dual space of Xq(Ω) , where q′ := qq−1 , with the duality pairing 
+
+⟨(v, ℓ, ω), (φ, g, θ)⟩ := 
+
+Z
+
+> Ω
+
+v · φ dx + mℓ · g + ( J0ω) · θdx 
+
+for (v, ℓ, ω) ∈ Xq, (φ, g, θ) ∈ Xq′
+
+.Define 
+
+˜Xq := u ∈ Lqσ(R3) : D(u) = 0 in B ,
+
+equipped with the norm ∥u∥˜Xq := ∥u∥Lq (R3). It is clear that the space {u ∈
+
+C∞
+
+> 0,σ
+
+(R3) : D(u) = 0 in B} is dense in ˜Xq.For a given state u ∈ ˜Xq, we introduce the following notation, used frequently in the subsequent analysis, to extract its fluid, translational, and angular velocity components respectively: 
+
+vu := u|Ω, ℓu := m−1
+
+Z
+
+> B
+
+u dx, ωu := J−10
+
+Z
+
+> B
+
+x × u dx. 
+
+Then, u ∈ ˜Xq if and only if (vu, ℓu, ωu) ∈ Xq, and 
+
+∥u∥˜Xq ≈ ∥ (vu, ℓu, ωu)∥Xq (see Lemma 1.1 in [44]) .
+
+Here, A ≈ B means that there exists a constant c > 0 such that 1 
+
+> c
+
+B ≤ A ≤ cB. 
+
+In this sense, Xq is isomorphic to ˜Xq. From now on, we denote by u ≃ (v, ℓ, ω)
+
+whenever (vu, ℓu, ωu) = ( v, ℓ, ω).
+
+There exists a Helmholtz–Weyl type decomposition of Lq(R3) into the direct sum of ˜Xq and the spaces Gq 
+
+> 1
+
+and Gq
+
+> 2
+
+, where 
+
+Gq 
+
+> 1
+
+:=  u ∈ Lq(R3) u = ∇q1 for some q1 ∈ L1loc (R3) ,
+
+and 
+
+Gq 
+
+> 2
+
+: = 
+
+n
+
+u ∈ Lqσ(R3) u = ∇q2 in Ω for some q2 ∈ L1loc (R3),
+
+u = φ in B with φ ∈ Lq(B),
+
+Z
+
+> B
+
+φ dx = −
+
+Z
+
+> ∂Ω
+
+q2n dS x,
+
+Z
+
+> B
+
+φ × x dx = −
+
+Z
+
+> ∂Ω
+
+q2n × x dS x
+
+o
+
+.
+
+For the fundamental decomposition, we refer to Theorem 2.2 in [46]; for the spe-cific form of Gq 
+
+> 2
+
+adapted to fluid-structure interaction, see [7, 13, 17]. The follow-ing Proposition restates this decomposition for completeness and establishes the boundedness of the associated projection. 
+
+Proposition 3.1 (Theorem 2.2 in [46]) . Let 1 < q < ∞. Then 
+
+Lq(R3) = ˜Xq ⊕ Gq 
+
+> 1
+
+⊕ Gq
+
+> 2
+
+.
+
+Moreover, for any u ∈ Lq(R3), there exists a unique triple (v, ∇q1, w) ∈ ˜Xq ×
+
+Gq 
+
+> 1
+
+× Gq 
+
+> 2
+
+such that u = v + ∇q1 + w, and 
+
+∥v∥Lq (R3), ∥∇ q1∥Lq (R3), ∥w∥Lq (R3) ≤ c ∥u∥Lq (R3).10 B. JIN 
+
+We define the Helmholtz projection by 
+
+Pqu := v.
+
+Then Pq : Lq(R3) → ˜Xq is bounded, and its adjoint operator is Pq′ for 1 < q < ∞.
+
+Since the fluid velocity is originally defined only in the exterior domain Ω, while our fluid–structure interaction model is formulated in the whole space R3, it is con-venient to extend the solution space to vector fields on R3. In particular, we regard the rigid body velocity inside B as part of a global velocity field on R3. This allows us to work with operators defined on the whole space, where the Helmholtz–Weyl decomposition of Lq(R3) is available. Let A be the linear operator defined for ϕ ∈ C20(R3) by 
+
+Aϕ := 
+
+
+
+−μ∆ϕ, in Ω,
+
+2μm −1
+
+Z
+
+> ∂Ω
+
+D(ϕ)n dS y + 2 μ
+
+
+
+J−10
+
+Z
+
+> ∂Ω
+
+y × D(ϕ)n dS y
+
+
+
+× x, in B. 
+
+(3.1) Using the Helmholtz projection Pq on Lq(R3), we define the fluid–structure operator by 
+
+Aα,q := PqA,
+
+with domain 
+
+D(Aα,q ) := 
+
+n
+
+u ∈ ˜Xq vu ∈ W2,q (Ω) ,
+
+2μ[D(vu)n]τ + α[vu − ℓu − ωu × x]τ = 0 on ∂Ω
+
+o
+
+.
+
+Remark 3.2. While we previously set both the fluid density and the rigid body density ρ0 to 1 for simplicity, we now consider the general case. Let ρF and ρB be the densities of the fluid and the rigid body, respectively. If ρF̸ = ρB , the function spaces and operators are defined as follows: 
+
+(1) Global Density: Let ρ(x) = ρF χΩ + ρB χB , where ρB and ρF are the constant densities. The mass of the rigid body is m = R 
+
+> B
+
+ρB dx .
+
+(2) Linear Operator: The operator A in (3.1) is extended to: 
+
+Aϕ := 
+
+(
+
+−μρ −1 
+
+> F
+
+∆ϕ in Ω,
+
+2μm −1 R 
+
+> Σ
+
+D(ϕ)n dS + 2 μ  J−10
+
+R 
+
+> Σ
+
+y × D(ϕ)n dS  × x in B. 
+
+(3) Function Space and Inner Product: The space Xq is defined as: 
+
+Xq := {ϕ ∈ Lq(R3) | ∇ · (ρϕ) = 0 in R3, D(ϕ) = 0 in B}.
+
+We define the weighted Lq duality pairing (which coincides with the inner product when q = 2 ) on the entire space R3 by: 
+
+⟨f , g⟩ := 
+
+Z
+
+> R3
+
+ρ(x)f · g dx, f ∈ Lq(R3), g ∈ Lq′
+
+(R3).
+
+This global definition allows us to treat the Helmholtz-Weyl decomposition and the projection operator Pq in a unified manner. NAVIER-SLIP FLUID-STRUCTURE INTERACTION 11 
+
+In particular, when f and g belong to the subspace Xq (and Xq′
+
+re-spectively), the restriction f |B = ℓf + ωf × x implies that the integral over B reduces to the rigid body’s translational and angular momenta. Consequently, for f ∈ Xq and g ∈ Xq′
+
+, the pairing admits the following representation: 
+
+⟨f , g⟩ = ρF
+
+Z
+
+> Ω
+
+vf · vg dx + mℓf · ℓg + ( J0ωf ) · ωg.
+
+Furthermore, the Helmholtz-Weyl type decomposition remains valid under these density-weighted settings. Let 1 < q < ∞ and define: 
+
+Gq 
+
+> 1
+
+:= u ∈ Lq(R3) | ρu = ∇q1 for some q1 ∈ L1
+
+> loc
+
+(R3) ,Gq 
+
+> 2
+
+:= 
+
+n
+
+u ∈ Lqσ(R3) | ρF u = ∇q2 in Ω, u = φ in B with φ ∈ Lq(B),
+
+Z
+
+> B
+
+φρB dy = −
+
+Z
+
+> Σ
+
+q2n dS, 
+
+Z
+
+> B
+
+φ × yρ B dy = −
+
+Z
+
+> Σ
+
+q2n × y dS y
+
+o
+
+.
+
+Then, Lq(R3) = Xq ⊕ Gq 
+
+> 1
+
+⊕ Gq
+
+> 2
+
+. For any u ∈ Lq(R3), there exists a unique triple (v, w1, w2) ∈ Xq × Gq 
+
+> 1
+
+× Gq 
+
+> 2
+
+such that u = v + w1 + w2. The projection 
+
+Pq : Lq(R3) → Xq is bounded and satisfies ⟨Pqu, ϕ⟩ = ⟨u, Pq′ ϕ⟩ for all u ∈
+
+Lq(R3), ϕ ∈ Lq′
+
+(R3).
+
+Before introducing the mild formulation, we recall that Theorem 2.4 asserts that the operator −Aα,q generates a bounded analytic (and hence strongly continuous) semigroup on Xq. We denote this semigroup by e−Aα,q t for t ≥ 0.We introduce the space 
+
+cW 1,q (Ω) := f ∈ Lq
+
+> loc
+
+(Ω) : ∇f ∈ Lq(Ω) .
+
+Define the mild solution by 
+
+u(t) := e−Aα,q tu0 +
+
+Z t
+
+> 0
+
+e−Aα,q (t−s)Pqf (s) ds, 
+
+where u0 ≃ (v0, ℓ0, ω0) and f ≃ (f0, f1, f2).For each t ≥ 0, we let u(t) ≃ (v(t), ℓ(t), ω(t)) . We will show that there exists a function π ∈ C([0 , ∞); cW 1,q (Ω)) such that the quadruple (v, π, ℓ, ω) satisfies the system of equations (1.8), along with the conditions (C1)–C3). (See Proposition 3.2 in [32] for further details on the methodology.) To facilitate subsequent analysis, we define the real interpolation space 
+
+B2− 2  
+
+> q,q α
+
+:= 
+
+ ˜Xq, D(Aα,q )
+
+   
+
+> 1−1
+> q,q
+
+.
+
+For any initial data (v0, ℓ0, ω0) ∈ W2− 2 
+
+> q,q
+
+(Ω) ×R3 ×R3 satisfying the compatibil-ity conditions, the corresponding vector u0 ≃ (v0, ℓ0, ω0) is naturally contained in the space B2− 2  
+
+> q,q α
+
+.12 B. JIN 
+
+Remark 3.3. The characterization of the interpolation space B2− 2  
+
+> q,q α
+
+as a space satisfying the compatibility condition (2.1) is consistent with the operator-theoretic framework used in fluid-structure interaction. Although foundational works such as Maity and Tucsnak [32, Section 3.1] primarily consider the Dirichlet (no-slip) in-terface condition, the underlying principle—where the compatibility-conditioned Sobolev space is identified with the real interpolation space of the fluid-structure operator—remains invariant under the Navier-slip condition α > 0. This is be-cause the change in boundary conditions only modifies the specific form of the trace operator in (2.1) , without altering the regularity class of the associated Besov spaces (cf. Shibata [37, Section 2] for the fluid-only slip case) Notably, to establish the sectorial property and the bounded analyticity of the semigroup, it is sufficient that the initial data satisfying (2.1) are contained in the interpolation space B2− 2  
+
+> q,q α
+
+. This inclusion ensures a consistent transition from the maximal regularity estimates obtained in Theorems 2.2 and 2.3 to the resolvent analysis of the operator Aα,q .
+
+4. Auxiliary Estimates 
+
+In this section, we introduce several key estimates that will be used throughout the paper. 
+
+Lemma 4.1. Let u ∈ D(Aα,q ) and ϕ ∈ D(Aα,q ′ ), with 
+
+u ≃ (v, ℓ, ω) and ϕ ≃ (φ, g, θ).
+
+Then, 
+
+⟨Aα,q u, ϕ⟩ = 2 μ
+
+Z
+
+> Ω
+
+D(v) : D(φ) dx 
+
++ α
+
+Z
+
+> ∂Ω
+
+[v − ℓ − ω × x]τ · [φ − g − θ × x]τ dS x.
+
+Hence, 
+
+⟨Aα,q u, ϕ⟩ = ⟨u, Aα,q ′ ϕ⟩.
+
+In particular, for u ∈ D(Aα, 2)
+
+⟨Aα, 2u, u⟩ = 2 μ
+
+Z
+
+> Ω
+
+|D(v)|2 dx + α
+
+Z
+
+> ∂Ω
+
+|[v − ℓ − ω × x]τ |2 dS x.
+
+Proof. Since the dual of Pq is Pq′ , the orthogonal decomposition in Proposition 3.1 implies 
+
+⟨Aqu, ϕ⟩ = ⟨Au, Pq′ ϕ⟩ = ⟨Au, ϕ⟩
+
+= −μ
+
+Z
+
+> Ω
+
+∆v · φ dx + g ·
+
+
+
+2μ
+
+Z
+
+> ∂Ω
+
+D(v)n dS x
+
+
+
++ θ ·
+
+
+
+2μ
+
+Z
+
+> ∂Ω
+
+y × D(v)n dS x
+
+
+
+.
+
+By integration by parts, we have 
+
+−μ
+
+Z
+
+> Ω
+
+∆v · φ dx = 2 μ
+
+Z
+
+> Ω
+
+D(v) : D(φ) dx − 2μ
+
+Z
+
+> ∂Ω
+
+φ · D(v)n dS x.NAVIER-SLIP FLUID-STRUCTURE INTERACTION 13 
+
+By the definition of D(Aα,q ), for u ≃ (v, ℓ, ω) ∈ D(Aα,q ) we have 
+
+2μ[D(v)n]τ + α[v − ℓ − ω × x]τ = 0 on ∂Ω,
+
+and hence 
+
+− 2μ
+
+Z
+
+> ∂Ω
+
+φ · D(v)n dS x
+
+= α
+
+Z
+
+> ∂Ω
+
+[φ − g − θ × x]τ · [v − ℓ − ω × x]τ dS x
+
++ g ·
+
+
+
+− 2μ
+
+Z
+
+> ∂Ω
+
+D(v)n dS x
+
+
+
++ θ ·
+
+
+
+− 2μ
+
+Z
+
+> ∂Ω
+
+x × D(v)n dS 
+
+
+
+.
+
+This leads to the identity in our Lemma. □
+
+Lemma 4.2. Let u ∈ W1,2(Ω) with div u = 0 in Ω and u · n = 0 on ∂Ω. Then, 
+
+Z
+
+> Ω
+
+|∇ u|2 dx =
+
+Z
+
+> ∂Ω
+
+κ(x)|[u]τ |2 dS x + 2 
+
+Z
+
+> Ω
+
+|D(u)|2 dx, 
+
+where κ(x) denotes the curvature of ∂Ω, representing the scalar curvature for 
+
+n = 2 and the Weingarten endomorphism (shape operator) for n = 3 . For the geometric definition and its properties, we refer to do Carmo [15, Section 3-2] ,and for its specific formulation in Navier-slip fluid boundaries, see Bresch et al. 
+
+[10, Section 2.1] .Proof. In [10], it is shown that for u ∈ C∞ 
+
+> 0
+
+( ¯Ω) with u ·n = 0 on ∂Ω, the following holds: 
+
+[D(u)n]τ = 12 [ ∂u
+
+∂n ]τ − 12 κ(x)[ u]τ .
+
+Observe that 
+
+−
+
+Z
+
+> Ω
+
+∆u · u dx = −
+
+Z
+
+> ∂Ω
+
+u · ∂u
+
+∂n dS x +
+
+Z
+
+> Ω
+
+|∇ u|2 dx. 
+
+On the other hand, since ui∆ui = ui∂xj
+
+ ∂xj ui + ∂xi uj
+
+,
+
+−
+
+Z
+
+> Ω
+
+∆u · u dx = −2
+
+Z
+
+> ∂Ω
+
+u · D(u)n dS x + 2 
+
+Z
+
+> Ω
+
+|D(u)|2 dx. 
+
+These lead to the identity 
+
+Z
+
+> Ω
+
+|∇ u|2 dx =
+
+Z
+
+> ∂Ω
+
+u ·
+
+
+
+−2D(u)n + ∂u
+
+∂n
+
+
+
+dS x + 2 
+
+Z
+
+> Ω
+
+|D(u)|2 dx 
+
+=
+
+Z
+
+> ∂Ω
+
+κ(x)|[u]τ |2 dS x + 2 
+
+Z
+
+> Ω
+
+|D(u)|2 dx. 
+
+□
+
+While Lemma 4.2 establishes an exact geometric identity for vector fields with strict slip boundary conditions, we often need a more flexible estimate when deal-ing with exterior domains and rigid body motions. The following lemma provides a generalized Korn-type inequality that bounds the full gradient by the symmetric gradient and a relaxed boundary slip condition. 14 B. JIN 
+
+Lemma 4.3 (Korn’s type inequality) . Let Ω be an exterior domain. Assume that 
+
+v ∈ W 1,2(Ω) , ℓ, ω ∈ R3 satisfying that v · n = ( ℓ + ω × x) · n, and [v − ℓ −
+
+ω × x]τ ∈ L2(∂Ω) .Then, the following inequality holds: 
+
+∥∇ v∥L2(Ω) + |ℓ| + |ω| ≤ c
+
+
+
+∥D(v)∥L2(Ω) + ∥[v − ℓ − ω × x]τ ∥L2(∂Ω) 
+
+
+
+.
+
+Proof. Since the mapping (ℓ, ω) 7 → R 
+
+> ∂Ω
+
+|ℓ + ω × x|2dS defines a strictly positive definite quadratic form on R6, we readily observe the following equivalence for any ℓ, ω ∈ R3: Z
+
+> ∂Ω
+
+|ℓ + ω × x|2dS ≃ | ℓ|2 + |ω|2,
+
+where the implicit constants depend only on the geometry of ∂Ω.Since |ℓ + ω × x| ≤ | v − ℓ − ω × x| + |v|,
+
+Z
+
+> ∂Ω
+
+|ℓ + ω × x|2dS ≤ c
+
+Z
+
+> ∂Ω
+
+|v − ℓ − ω × x|2dS + c
+
+Z
+
+> ∂Ω
+
+|v|2dS. 
+
+By the condition (v − ℓ − ω × x) · n = 0,
+
+Z
+
+> ∂Ω
+
+|v − ℓ − ω × x|2dS =
+
+Z
+
+> ∂Ω
+
+|[v − ℓ − ω × x]τ |2dS. 
+
+By the trace theorem and Gagliardo-Nirenberg inequality, 
+
+Z
+
+> ∂Ω
+
+|v|2dS ≤ c∥v∥2  
+
+> W122(Ω R)
+
+≤ c∥∇ v∥2 
+
+> L2(Ω R)
+
++ c∥v∥2
+
+> L2(Ω R)
+
+.
+
+Shibata and Soga [39] showed that 
+
+∥v∥L2(Ω R) ≤ c∥∇ v∥L2(Ω) .
+
+Combining all the above estimates, we obtain 
+
+|ℓ|2 + |ω|2 ≤
+
+Z
+
+> ∂Ω
+
+|[v − ℓ − ω × x]τ |2dS + c∥∇ v∥2
+
+> L2(Ω)
+
+.
+
+Taking the square root on both sides and using the fact that Shibata and Soga also showed 
+
+∥∇ v∥L2(Ω) ≤ c∥D(v)∥L2(Ω) ,
+
+we immediately arrive at the desired linear bound. This completes the proof of our Lemma. □
+
+Lemma 4.4. Let u ∈ D(Aα, 2), and let v = u|Ω. Then, 
+
+∥∇ v∥2 
+
+> L2(Ω)
+
+≤ c⟨Aα, 2u, u⟩ + c∥u∥2˜X2 .
+
+Proof. Let u ≃ (v, ℓ, ω), and let vB := ℓ + ω × x and ˜vB = − 12 ∇ × (ζ(x ×
+
+ℓ + ω|x|2)) for a smooth cut-off function ζ with ζ = 1 near ∂Ω. Then, we have div ˜vB = 0 in Ω and ˜vB = vB on ∂Ω. Hence, by Lemma 4.2, we obtain 
+
+∥∇ (v − ˜vB )∥2 
+
+> L2(Ω)
+
+= 2 ∥D(v − ˜vB )∥2 
+
+> L2(Ω)
+
++ κ∥[v − vB ]τ ∥2
+
+> L2(∂Ω)
+
+.NAVIER-SLIP FLUID-STRUCTURE INTERACTION 15 
+
+Since ∥∇ ˜vB ∥2 
+
+> L2(Ω)
+
+≤ c(|ℓ|2 + |ω|2) ≤ c∥u∥2, we can conclude that 
+
+∥∇ v∥2 
+
+> L2(Ω)
+
+≤ 2∥D(v)∥2 
+
+> L2(Ω)
+
++ α∥[v − ℓ − ω × x]τ ∥2 
+
+> L2(∂Ω)
+
++ c(|ℓ|2 + |ω|2).
+
+Recall that 
+
+(Aα, 2u, u) = 2 μ
+
+Z
+
+> Ω
+
+|D(v)|2 dx + α
+
+Z
+
+> ∂Ω
+
+|[v − ℓ − ω × x]τ |2 dS x.
+
+This leads us to the inequality stated in Lemma 4.2. □
+
+Let us consider the boundary value problem of the Stokes equations in an exte-rior domain O under Navier slip conditions: 
+
+
+
+−μ∆u + ∇p = f in O,
+
+div u = 0 in O,
+
+u · n = 0 , 2μ[D(u)n]τ + α[u]τ = 0 on ∂O,
+
+lim |x|→∞ u(x) = 0.
+
+(4.1) The following estimates are derived using techniques similar to those in [20, 28, 35]. 
+
+Lemma 4.5. Let Ω be the exterior domain as defined previously. For R > 3R0
+
+satisfying Ωc ⊂ BR/ 3, let ΩR = Ω ∩ BR. Let f ∈ W m,r (Ω) for m ∈ N ∪ { 0}. Let 
+
+(u, p ) be a solution to (4.1) such that Dm+2 u, ∇m+1 p ∈ Lr
+
+> loc
+
+(Ω) .
+
+(i) If 1 < r < 32 , then the following estimate holds: 
+
+∥∇ 2u∥W m,r (Ω) + ∥∇ p∥W m,r (Ω) ≤ c∥f∥W m,r (Ω) .
+
+(ii) Let 1 < r < ∞. If u ∈ Lq(Ω R) for some q ∈ [r, ∞], then 
+
+∥∇ 2u∥W m,r (Ω) + ∥∇ p∥W m,r (Ω) ≤ c∥f∥W m,r (Ω) + c∥u∥Lq (Ω R).
+
+By Lemma A.6, the local Lq-norm ∥u∥Lq (Ω R) in (ii) can be further bounded by the gradient norm ∥∇ u∥Lq (Ω R).Proof. The case m = 0 is proved in Appendix A. For higher-order regularity, the result follows from a standard inductive argument. Indeed, since the Navier slip boundary condition satisfies the Lopatinskii–Shapiro compatibility condition and the operator is elliptic in the sense of Agmon–Douglas–Nirenberg, the W k,r -regularity estimates are obtained by differentiating the system and applying the 
+
+W 2,r estimate iteratively. This requires only that ∂Ω is of class Ck, k ≥ 2. □
+
+Remark 4.6. The regularity theory for the Stokes equations in bounded domains, as well as for the no-slip (Dirichlet) boundary conditions in exterior domains, is well-established; see, e.g., Galdi [20] , Kozono–Ogawa [28] , and Maremonti– Solonnikov [35] . Regarding Navier-slip boundary conditions in exterior domains, previous studies have primarily utilized weighted Sobolev spaces to analyze the decay properties at infinity (see [4, 14] ). In contrast, our estimate in Lemma 4.5 is derived in standard Sobolev spaces. For r ≥ 3/2, the presence of a local Lq-term is essential to account for the interplay between the slip boundary condition and the unbounded nature of the domain. For the reader’s convenience, a summary of 16 B. JIN 
+
+known results for various domains and the detailed proof of Lemma 4.5 for m = 0 
+
+are provided in Appendix A. 
+
+Lemma 4.7. Let u ∈ D(Aα,q ), and let v = u|Ω. Then, for any m ∈ N, it holds that 
+
+∥v∥W 2m,q (Ω) ≤ c
+
+
+
+∥Amα,q u∥˜Xq + ∥u∥˜Xq
+
+
+
+, if u ∈ D(Amα,q ). (4.2) 
+
+Proof. Let u ≃ (v, ℓ, ω), and let F = Aα,q u Ω.Since Aα,q = PA : D(Aα,q ) → ˜Xq, there exists a pressure p such that 
+
+−μ∆v + ∇p = F, div v = 0 in Ω,
+
+(v − ℓ − ω × x) · n = 0 on ∂Ω,
+
+2μ[D(v)n]τ + α[v − ℓ − ω × x]τ = 0 on ∂Ω.
+
+Let ˜vB be the auxiliary field constructed in the proof of Lemma 4.4. Applying Lemma 4.5 to v − ˜vB yields 
+
+∥∇ 2(v − ˜vB )∥Lq (Ω) ≤ c∥F∥Lq (Ω) + c∥∆˜ vB ∥Lq (Ω R) + c∥v − ˜vB ∥Lq (Ω R).
+
+Hence 
+
+∥∇ 2v∥Lq (Ω) ≤ c∥F∥Lq (Ω) + c|ℓ| + c|ω| + c∥v∥Lq (Ω R)
+
+≤ c∥Aα,q u∥˜Xq + c∥u∥˜Xq .
+
+This proves the estimate for m = 1 .We now prove the general case by induction on m. Suppose that for some m ≥ 1
+
+(4.2) holds. Let u ∈ D(Am+1  
+
+> α,q
+
+). Then Aα,q u ∈ D(Amα,q ), so we may apply (4.2) with u
+
+replaced by Aα,q u:
+
+∥Aα,q u|Ω∥W 2m,q Ω) ≤ c
+
+
+
+∥Am+1  
+
+> α,q
+
+u∥˜Xq + ∥Aα,q u∥˜Xq
+
+
+
+. (4.3) Also, according to Lemma 4.5 it holds that 
+
+∥v∥W 2m+2 ,q (Ω) ≤ c
+
+
+
+∥Aα,q u|Ω∥W 2m,q (Ω) + ∥v∥Lq (Ω R)
+
+
+
+. (4.4) Since Aα,q u = PqAu,
+
+∥Aα,q u∥Xq ≤ c∥Au∥Lq (R3) ≤ c∥v∥W 2,q (Ω) .
+
+Now we use a standard interpolation inequality of Gagliardo–Nirenberg type to obtain, for any ε > 0,
+
+∥v∥W 2,q (Ω) ≤ ϵ∥∇ 2m+2 v∥Lq (Ω) + Cε∥v∥Lq (Ω) , (4.5) and choosing ε > 0 sufficiently small, we obtain 
+
+∥∇ 2m+2 v∥Lq (Ω) ≤ c
+
+
+
+∥A2mα,q u∥˜Xq + ∥u∥˜Xq
+
+
+
+.
+
+Thus the estimate holds for m + 1 , and by induction (4.2) holds for all m ∈ N.
+
+Remark. The general case m is used later in Section 8.1 for the short-time Lq–Lr
+
+estimates, where higher–order spatial derivatives of v := u|Ω naturally appear in the semigroup bounds. □NAVIER-SLIP FLUID-STRUCTURE INTERACTION 17 
+
+5. Proof of Theorem 2.2 
+
+For notational convenience in this section, we set 
+
+˜X := ˜X2, P := P2, Aα := Aα, 2.
+
+We now present the following lemma, which plays a key role in establishing the strong solvability in W 2,12 (QT ).
+
+Lemma 5.1. The operator Aα : D(Aα) ⊂ ˜X → ˜X is surjective; that is, 
+
+Ran( I + Aα) = ˜X,
+
+and satisfies the estimate 
+
+∥u∥D(Aα) ≤ ∥ (I + Aα)u∥˜X for all u ∈ D(Aα). (5.1) 
+
+Proof. Before going on, we define the function spaces ˜Y as follows: 
+
+˜Y := {u ∈ ˜X : u|Ω ∈ W 1,2(Ω) },
+
+and define the bilinear form a : ˜Y × ˜Y → R by 
+
+a(u, ϕ) = 
+
+Z
+
+> Ω
+
+v · φ dx + m ℓ · g + J0 ω · θ + 2 μ
+
+Z
+
+> Ω
+
+D(v) : D(φ) dx 
+
++ α
+
+Z
+
+> ∂Ω
+
+[v − ℓ − ω × x]τ · [φ − g − θ × x]τ dS x,
+
+where u ≃ (v, ℓ, ω) and ϕ ≃ (φ, g, θ).This bilinear form is bounded on the Hilbert space ˜Y,
+
+|a(u, ϕ)| ≤ c∥u∥˜Y∥ϕ∥˜Y.
+
+Moreover, it is coercive: 
+
+a(u, u) ≥ c∥u∥2˜Y.
+
+Let f ∈ ˜X with f ≃ (f0, f1, f2). Then, for any ϕ ≃ (φ, g, θ),
+
+⟨f , ϕ⟩ =
+
+Z
+
+> Ω
+
+f0(x)φ(x) dx + mf1 · g + J0f2 · θ ≤ c∥f ∥˜X∥ϕ∥˜X ≤ c∥f ∥˜X∥ϕ∥˜Y.
+
+Hence, f ∈ ˜Y′, where ˜Y′ is the dual space of ˜Y.By the Lax–Milgram theorem, there exists a unique u ∈ ˜Y such that 
+
+a(u, ϕ) = ⟨f , ϕ⟩, ∀ϕ ∈ ˜Y. (5.2) This variational solution u is precisely the weak solution to the operator equa-tion (I + Aα)u = f . To conclude that u coincides with the strong definition of 
+
+Aα := PA introduced in Section 3, it suffices to show that u belongs to the do-main D(Aα).In what follows, we demonstrate that u possesses the required W 2,2-regularity and satisfies the prescribed boundary conditions, thereby ensuring that the identity 
+
+(I + Aα)u = f holds in ˜X.18 B. JIN 
+
+Since u ∈ ˜Y, we have: div u = 0 in R3, D(u) = 0 in B, (u − ℓ − ω × x) · n = 0 
+
+on ∂Ω. Moreover, the condition D(u) = 0 in B, together with the definitions 
+
+ℓ = 1
+
+m
+
+Z
+
+> B
+
+u dx, ω = J−10
+
+Z
+
+> B
+
+x × u dx, 
+
+implies that 
+
+u(x) = ℓ + ω × x in B. 
+
+Taking ϕ = u in the weak formulation (5.2), we obtain 
+
+∥u∥2 
+
+> X
+
++ 2 μ
+
+Z
+
+> Ω
+
+|D(v)|2 dx + α
+
+Z
+
+> ∂Ω
+
+|[v − ℓ − ω × x]τ |2 dS x ≤ c∥f ∥˜X∥u∥˜X.
+
+This implies the estimate 
+
+∥u∥2 
+
+> X
+
++
+
+Z
+
+> Ω
+
+|D(v)|2dx +
+
+Z
+
+> ∂Ω
+
+|[v − ℓ − ω × x]τ |2 dS x ≤ c∥f ∥2˜X.
+
+Furthermore, by Lemma 4.4, we have 
+
+∥u∥2˜Y ≈ ∥ u∥2˜X +
+
+Z
+
+> Ω
+
+|D(v)|2 dx +
+
+Z
+
+> ∂Ω
+
+|[v − ℓ − ω × x]τ |2 dS x.
+
+Hence 
+
+∥u∥˜Y ≤ c∥f ∥˜X.
+
+Let φ ∈ C∞
+
+> 0,σ
+
+(Ω) . Define ϕ =
+
+(
+
+φ in Ω,
+
+0 in B. Substituting this test function into the weak formulation (5.2) yields the identity 
+
+(−μ∆v + v − f0, φ) = 0 .
+
+By a well-known result due to Temam [43], there exists a function π ∈ (C∞ 
+
+> 0
+
+(Ω)) ′
+
+such that 
+
+−μ∆v + v − f0 = −∇ π in Ω.
+
+Integrating by parts, the weak formulation (5.2) can be rewritten as 
+
+2μ R 
+
+> ∂Ω
+
+φ · D(v)n dS x − R 
+
+> ∂Ω
+
+πφ · n dS x
+
++α R
+
+> ∂Ω
+
+[v − ℓ − ω × x]τ · [φ − g − θ × x]τ dS x
+
++mℓ · g + J0ω · θ = mf1 · g + J0f2 · θ
+
+(5.3) for any ϕ ∈ C∞
+
+> 0,σ
+
+(R3) ∩ ˜Y with ϕ ≃ (φ, g, θ).
+
+In particular, choosing ϕ = − 12 ∇ ×  ζ(x × g + θ|x|2) , with ζ ∈ C∞ 
+
+> 0
+
+(R3)
+
+such that ζ = 1 on B, equation (5.3) reduces to the following identity: 
+
+g ·
+
+Z 
+
+> ∂Ω
+
+2μD(v)n dS x + mℓ − mf1 −
+
+Z
+
+> ∂Ω
+
+πndS x
+
+
+
++ θ ·
+
+
+
+2μ
+
+Z
+
+> ∂Ω
+
+x × D(v)n dS x − J0ω − J0f2 −
+
+Z
+
+> ∂Ω
+
+x × πn dS x
+
+
+
+= 0 .
+
+From the arbitrariness of g, θ ∈ R3, we conclude: 
+
+mℓ + R 
+
+> ∂Ω
+
+πn dS x = −2μ R 
+
+> ∂Ω
+
+D(v)n dS x + mf1,
+
+J0ω + R 
+
+> ∂Ω
+
+x × πn dS x = −2μ R 
+
+> ∂Ω
+
+x × D(v)n dS x + J0f2. (5.4) NAVIER-SLIP FLUID-STRUCTURE INTERACTION 19 
+
+Again, applying the identity (5.4) to the expression (5.3), we obtain 
+
+Z
+
+> ∂Ω
+
+[φ − g − θ × x]τ · (2 μ[D(v)n]τ + α[v − ℓ − ω × x]τ ) dS x = 0 
+
+for any ϕ ∈ C∞
+
+> 0,σ
+
+(R3) ∩ ˜Y with ϕ ≃ (φ, g, θ). This leads to the conclusion: 
+
+2μ[D(v)n]τ + α[v − ℓ − ω × x]τ = 0 on ∂Ω.
+
+For the smooth cut-off fucntion ζ with ζ = 1 near ∂Ω define ˜vB = − 12 ∇ ×  ζ(x × ℓ + ω|x|2) and ˜v = v − ˜vB . Applying Lemma 4.5 to the solution of the system 
+
+−μ∆˜ v + ∇π = f0 − v + μ∆˜ uB ,
+
+div ˜ v = 0 in Ω,
+
+˜v · n = 0 , 2μ[D(˜ v)n]τ + α[˜ v]τ = 0 on ∂Ω,
+
+lim  
+
+> |x|→∞
+
+˜v(x) = 0,
+
+we deduce that v ∈ W2,2(Ω) , and 
+
+∥v∥W 2,2(Ω) ≤ c∥f ∥˜X + c∥u∥˜X.
+
+This implies that u ∈ D(Aα), and furthermore, 
+
+∥u∥D(Aα) ≤ c∥(I + Aα)u∥L2(Rn).
+
+Therefore, the operator I + Aα : D(Aα) → X is surjective, and satisfies the estimate (5.1). □
+
+According to Lemma 4.1, the operator Aα is symmetric and positive definite—that is, −Aα is accretive. Furthermore, by Theorem 5.19 in [47], the operator 
+
+−Aα : D(Aα) ⊂ ˜X → ˜X is self-adjoint ,
+
+owing to its symmetry, positive definiteness, and the fact that Ran( I + Aα) = ˜X.
+
+Now, suppose that 
+
+(f0, f1, f2) ∈ L2(QT )×L2(0 , T )×L2(0 , T ), (v0, ℓ0, ω0) ∈ W1,2(Ω) ×R3 ×R3
+
+satisfying the compatibility condition. Let 
+
+f ≃ (f0, f1, f2), u0 ≃ (v0, ℓ0, ω0).
+
+Then, we have 
+
+f ∈ L2(0 , T ; L2(Rn)) , u0 ∈ B1,2 
+
+> α
+
+.
+
+According to Theorem 3.1 in [8], the self-adjointness and accretivity of −Aα
+
+ensure that the equation 
+
+du
+
+dt + Aαu = Pf , u(0) = u0 (5.5) admits a solution u ∈ L2(0 , T ; D(Aα)) ∩ C([0 , T ]; B1,2 
+
+> α
+
+) ∩ W1,2(0 , T ; X) with the estimate 
+
+∥u∥L2(0 ,T ;D(Aα)) + ∥u∥L∞(0 ,T ;B1,2  
+
+> α))
+
++ ∥u∥W 1,2(0 ,T ;˜X)20 B. JIN 
+
+≤ C
+
+
+
+∥u0∥B1,2 
+
+> α
+
++ ∥Pf ∥L2(0 ,T ;˜X)
+
+
+
+.
+
+Furthermore, combining the previous computations with Lemma 4.5, we obtain the estimate 
+
+∥v∥L2(0 ,T ;W 2,2(Ω)) + ∥∇ π∥L2(0 ,T ;L2(Ω)) ≤ C
+
+
+
+∥u0∥B1,2 
+
+> α
+
++ ∥Pf ∥L2(0 ,T ;˜X)
+
+
+
+.
+
+Let u ∈ ˜X with u ≃ (v, ℓ, ω) and ϕ ∈ ˜X with ϕ ≃ (φ, g, θ). Taking the inner product of (5.5) with ϕ ∈ ˜X, we obtain 
+
+0 = ⟨ ddt u + Au − Pf , ϕ⟩ =
+
+Z
+
+> Ω
+
+(∂tv − μ∆v − f ) · φ dx + m˙ℓ · g + J0 ˙ω · θdx 
+
++ g ·
+
+Z
+
+> ∂Ω
+
+2μD(v)n dS x + θ ·
+
+Z
+
+> ∂Ω
+
+x × D(v) n dS x. (5.6) For φ ∈ C∞
+
+> 0,σ
+
+(Ω) , we define the test function ϕ as its zero extension to R3.Then, we obtain Z
+
+> Ω
+
+(∂tv − μ∆v − f0) · φ dx = 0 .
+
+According to Proposition 1.2 in [43], there exists π ∈ L2(0 , T ; ˆW 1,2(Ω)) such that 
+
+∂tv(t) − μ∆v(t) + ∇π(t) = f0(t) in Ω.
+
+This yields Z
+
+> Ω
+
+(∂tv − μ∆v − f0) · φ dx = −
+
+Z
+
+> ∂Ω
+
+πn · φ dS x.
+
+Thus, (5.6) leads to the identity 
+
+m˙ℓ·g + J0 ˙ω·θ + g·
+
+Z
+
+> ∂Ω
+
+(2 μD(v)−πI3) n dS x + θ·
+
+Z
+
+> ∂Ω
+
+x × (2 μD(v)−πI3)n dS x = 0 .
+
+From the above identity we deduce that 
+
+m˙ℓ = −
+
+Z
+
+> ∂Ω
+
+(2 μD(v) − πI3)n dS x,
+
+J0 ˙ω = −
+
+Z
+
+> ∂Ω
+
+x × (2 μD(v) − πI3)n dS x.
+
+This completes the proof of Theorem 2.2. 6. Proof of Theorem 2.3 
+
+The following lemma provides an intermediate estimate essential for the proof of Lq maximal regularity. 
+
+Lemma 6.1. Let 
+
+(f0, f1, f2) ∈ Lq(QT ) × Lq(0 , T ) × Lq(0 , T ),
+
+(v0, ℓ0, ω0) ∈ W2− 2 
+
+> q,q
+
+(Ω) × R3 × R3, 1 < q < ∞,
+
+satisfying the compatibility conditions. NAVIER-SLIP FLUID-STRUCTURE INTERACTION 21 
+
+Let (v, π, ℓ, ω) be the solution to the system (1.8) with conditions (C1) –(C3) .Suppose that 
+
+v ∈ Lq(0 , T ; W2,q (Ω)) ∩ W1,q (0 , T ; Lq(Ω)) , π ∈ Lq(0 , T ; cW 1,q (Ω)) .
+
+Then, the following estimate holds: 
+
+Z T
+
+> 0
+
+ ∥∂tv(t)∥qLq (Ω) + ∥∇ 2v(t)∥qLq (Ω) + ∥∇ π∥qLq (Ω) 
+
++ |ℓ|q + |ω|q + |˙ℓ|q + | ˙ω|qdt 
+
+≤ c
+
+ Z T
+
+> 0
+
+∥v∥qLq (Ω 2R) + ∥f0(t)∥qLq (Ω) + |f1(t)|q + |f2(t)|qdt 
+
+
+
++ c∥v0∥qW 2− 2 
+
+> q ,q (Ω)
+
++ c|ℓ0|q + c|ω0|q. (6.1) 
+
+Proof. Let Ωc ⊂ B R
+
+> 4
+
+. Take a cut-off function ξ ∈ C∞ 
+
+> 0
+
+(R3) with ξ = 1 on B R
+
+> 2
+
+,
+
+ξ = 0 on BcR. Set ϕ = N ∗ (v · ∇ ξ), and define 
+
+v′′ = v(1 − ξ) + ∇ϕ, π′′ = π(1 − ξ) − (∂tϕ − μ∆ϕ) .
+
+Here, N is the Newtonian potential, that is, N (x) = − 14π 
+
+> 1
+> |x|
+
+.Then, (v′′ , π ′′ ) satisfies the Stokes system in the whole space: 
+
+∂tv′′ − μ∆v′′ + ∇π′′ = f ′′ 
+
+> 0
+
+div v′′ = 0 ,
+
+v′′ ||x|→∞ = 0 , t > 0,
+
+v′′ |t=0 = (1 − ξ)v0 + ∇ϕ0 := v′′  
+
+> 0
+
+, in R3,
+
+where ϕ0 = N ∗ (v0 · ∇ ξ),
+
+f ′′  
+
+> 0
+
+= (1 − ξ)f0 + μ (2 ∇v · ∇ ξ + v∆ξ) − π∇ξ. 
+
+Based on the well-known estimate for the Stokes operator defined in the whole space, we obtain the following estimate: 
+
+Z T
+
+> 0
+
+∥∂tv′′ ∥qLq (R3) + ∥∇ 2v′′ ∥qLq (R3) + ∥∇ π′′ ∥qLq (R3)dt 
+
+≤ c
+
+Z T
+
+> 0
+
+∥f ′′  
+
+> 0
+
+∥qLq (R3)dt + c∥v′′  
+
+> 0
+
+∥qW 2− 2 
+
+> qq(R3)
+
+. (6.2) By the Calder´ on-Zygmund inequality, we have 
+
+∥D2∇ϕ∥Lq ≤ c∥v∥W 1,q (Ω R). (6.3) We observe that 
+
+∂tϕ = N ∗
+
+
+
+∂tv·∇ ξ
+
+
+
+= −(∇N )∗
+
+
+
+μ∇v·∇ ξ−π∇ξ
+
+
+
++N ∗
+
+
+
+−μ∇v·∇ 2ξ+π∆ξ+f0·∇ ξ
+
+
+
+.
+
+since ∂tv · ∇ ξ = div 
+
+
+
+μ∇v · ∇ ξ − π∇ξ
+
+
+
+− μ∇v · ∇ 2ξ + π∆ξ + f0 · ∇ ξ. 
+
+Thus, we have 
+
+∥∇ ∂tϕ∥Lq ≤ ∥ v∥W 1  
+
+> q(Ω R)
+
++ ∥π∥Lq (Ω R) + ∥f0(t)∥Lq (Ω) . (6.4) 22 B. JIN 
+
+By combining (6.2) - (6.4), we arrive at 
+
+Z T
+
+> 0
+
+
+
+∥∂tv(t)∥qLq (BcR) + ∥∇ 2v(t)∥qLq (BcR) + ∥∇ π∥qLp(BcR)
+
+
+
+dt (6.5) 
+
+≤ c
+
+ Z T
+
+> 0
+
+∥v∥qW 1,q (Ω R) + ∥π∥qLq (Ω R) + ∥f0(t)∥qLq (Ω) dt + ∥v0∥qW 2− 2 
+
+> q ,q (Ω)
+
+
+
+.
+
+Now, we take a cut-off function ζ ∈ C∞ 
+
+> 0
+
+(R3) such that ζ = 1 on BR and ζ = 0 
+
+on Bc
+
+> 2R
+
+. We define B to be the Bogovski operator with the property that div Bf = f − 1
+
+|Ω2R| f dx in Ω2R, Bf |∂Ω2R = 0 .
+
+Observe that 
+
+Z
+
+> Ω2R
+
+v · ∇ ζdx =
+
+Z
+
+> ∂Ω
+
+(ℓ + ω × x) · ndS x =
+
+Z
+
+> B
+
+div (ℓ + ω × x)dx = 0 .
+
+Consequently, we find that div B(v · ∇ ζ) = v · ∇ ζ. Since B(v · ∇ ζ) = 0 on ∂Ω2R,it follows that n × D(B(v · ∇ ζ)) n = 0 on ∂Ω2R.Set v′ = vζ − B(v · ∇ ζ) and π′ = πζ . Then, (v′, π ′) satisfies the the linearized fluid interaction problem in Ω2R,
+
+
+
+∂tv′ − μ∆v′ + ∇π′ = f ′
+
+> 0
+
+div v′ = 0 in Ω2R,
+
+v′ = 0 on ∂Ω2R,
+
+(v′ − ℓ − ω × x) · n = 0 2μ[D(v′)n]τ + α[v′ − ℓ − ω × x]τ = 0 on ∂Ω,m˙ℓ = −
+
+Z
+
+> ∂Ω
+
+S(v, π )ndS x + mf1
+
+J0 ˙ω = −
+
+Z
+
+> ∂Ω
+
+x × S(v, π )ndS x + J0f2
+
+for t > 0,
+
+v′|t=0 = v′
+
+> 0
+
+, ℓ|t=0 = ℓ0, ω|t=0 = ω0 on Ω2R,
+
+(6.6) where v′ 
+
+> 0
+
+:= ζv0 − B(v0 · ζ), and 
+
+f ′ 
+
+> 0
+
+:= ζf0 − μ (2 ∇v · ∇ ζ + v∆ζ) + π∇ζ − (∂tB(v · ∇ ζ) − μ∆B(v · ∇ ζ)) .
+
+According to the result in [3, Theorem 4.9], (v′, π ′) satisfies the following 
+
+Lqt (Lqx) regularity estimates: 
+
+Z T
+
+> 0
+
+∥∂tv′∥qLq (Ω 2R) + ∥D2
+
+> x
+
+v′∥qLq (Ω 2R) + ∥∇ π′∥qLq (Ω 2R)
+
++ |ℓ|q + |˙ℓ|q + |ω|q + | ˙ω|q dt (6.7) 
+
+≤ c
+
+Z T
+
+> 0
+
+∥f ′
+
+> 0
+
+∥qLq (Ω 2R) + |f1(t)|q + |f2(t)|q dt + ∥v0∥qW 2− 2 
+
+> q ,q (Ω 2R)
+
++ |ℓ0|q + |ω0|q.
+
+Observe that 
+
+∂tv · ∇ ζ = div 
+
+
+
+μ∇v · ∇ ζ − π∇ζ
+
+
+
++ f0 · ∇ ζ − μ∇v · ∇ 2ζ + π∆ζ. NAVIER-SLIP FLUID-STRUCTURE INTERACTION 23 
+
+By the properties of the Bogovski operator, we have: 
+
+∥∂tB(v · ∇ ζ) − μ∆B(v · ∇ ζ)∥Lq (Ω 2R)
+
+≤ c∥f0∥Lq (Ω 2R) + c∥∇ v∥W 1,2(Ω 2R) + c∥π∥Lq (Ω 2R).
+
+Therefore, (6.7) leads to the estimate 
+
+Z T
+
+> 0
+
+
+
+∥∂tv∥qLq (Ω R) + ∥∇ 2v∥qLq (Ω R) + ∥∇ π∥qLq (Ω R) + |ℓ|q + |˙ℓ|q + |ω|q + | ˙ω|q
+
+dt 
+
+≤ c
+
+Z T
+
+> 0
+
+
+
+∥v∥qW 1,q (Ω 2R) + ∥π∥qLq (Ω 2R) + ∥f0∥qLq (Ω) + |f1(t)|q + |f2(t)|q
+
+dt 
+
++ c∥v0∥qW 2− 2 
+
+> q ,q (Ω)
+
++ c|ℓ0|q + c|ω0|q. (6.8) Combining (6.5) and (6.8), we obtain the estimate 
+
+Z T
+
+> 0
+
+
+
+∥∂tv(t)∥qLq (Ω) + ∥∇ 2v(t)∥qLq (Ω) + ∥∇ π(t)∥qLq (Ω) 
+
++ |ℓ(t)|q + |ω(t)|q + |˙ℓ(t)|q + | ˙ω(t)|q
+
+dt 
+
+≤ c
+
+Z T
+
+> 0
+
+
+
+∥v(t)∥qW 1,q (Ω R) + ∥π(t)∥qLq (Ω R) + ∥f0(t)∥qLq (Ω) + |f1(t)|q + |f2(t)|q
+
+dt 
+
++ c∥v0∥qW 2− 2 
+
+> q ,q (Ω)
+
++ c|ℓ0|q + c|ω0|q. (6.9) Observe that π satisfies the equations: 
+
+∆π = 0 in ΩR,∂π ∂n = n · ∆v|∂ΩR =
+
+> n
+
+X
+
+> i,k =1
+
+
+
+ni
+
+∂∂x k
+
+− nk
+
+∂∂x i
+
+ ∂v i
+
+∂x k
+
+.
+
+In the proof of Theorem 8.1 in [41](see also [34, Eq. (3.3)]), it is established that 
+
+∥π∥Lq (Ω 2R) ≤ c∥∇ v∥W s,q (∂Ω) ≤ c∥∇ v∥W s+ 1 
+
+> q ,q (Ω 2R)
+
+≤ ϵ∥D2v∥Lq (Ω 2R) + Cϵ∥v∥Lq (Ω 2R), 0 < s < 1 − 1
+
+q . (6.10) By the interpolation theorem, we have: 
+
+∥v∥qW 1,q (Ω 2R) ≤ ϵ∥D2v(t)∥Lq (Ω) + Cϵ∥v(t)∥Lq (Ω 2R).
+
+Hence, by choosing ϵ small enough, (6.9) reduces to the following inequality. 
+
+Z T
+
+> 0
+
+ ∥∂tv(t)∥qLq (Ω) + ∥∇ 2v(t)∥qLq (Ω) + ∥∇ π∥qLq (Ω) 
+
++ |ℓ|q + |ω|q + |˙ℓ|q + | ˙ω|qdt 
+
+≤ c
+
+ Z T
+
+> 0
+
+∥v∥qLq (Ω 2R) + ∥f0(t)∥qLq (Ω) + |f1(t)|q + |f2(t)|qdt 
+
+
+
++ c∥v0∥qW 2− 2 
+
+> q ,q (Ω)
+
++ c|ℓ0|q + c|ω0|q.24 B. JIN 
+
+This completes the proof of Lemma 6.1. 
+
+□
+
+We now begin the proof of Theorem 2.3. Without loss of generality, we may as-sume that v0 ∈ C∞
+
+> 0,σ
+
+( ¯Ω) , with (v0, ℓ0, ω0) satisfying the compatibility conditions (2.1). By Theorem 2.2, there exists a solution 
+
+(v, ℓ, ω) ∈ C∞( ¯Ω × (0 , T )) × C∞(0 , T ) × C∞(0 , T ), π ∈ C∞(Ω × (0 , T )) .
+
+Let u ≃ (v, ℓ, ω).
+
+To derive uniform estimates in the Lq setting, we begin with the estimate (6.1) from Lemma 6.1. 6.1. Uniform boundedness locally in time. Since v(t) = v0 + R t 
+
+> 0
+
+∂τ v(s)ds, we have 
+
+∥v(t)∥Lq (Ω) ≤ ∥ v0∥Lq (Ω) +
+
+Z t
+
+> 0
+
+∥∂τ v∥Lq (Ω) ds 
+
+≤ ∥ v0∥Lq (Ω) + c(t)
+
+Z t
+
+> 0
+
+∥∂τ v∥qLq (Ω) ds 
+
+ 1
+
+> q
+
+.
+
+Combining this with (6.1) in Lemma 6.1, we obtain the following Gronwall inequality 
+
+∥v(t)∥qLq (Ω) ≤ c(t)
+
+Z t
+
+> 0
+
+∥v∥qLq (Ω) dt + c(t)
+
+
+
+∥v0∥qB2− 2 
+
+> q ,q (Ω)
+
++ |ℓ0|q + |ω0|q
+
++ c(t)
+
+Z t
+
+> 0
+
+∥f0(t)∥qLq (Ω) + |f1(t)|q + |f2(t)|qdt. 
+
+By solving the Gronwall inequality, we obtain the following estimate 
+
+Z T
+
+> 0
+
+∥v(t)∥qLq (Ω) dt ≤ c(T )
+
+ Z T
+
+> 0
+
+∥f0(t)∥qLq (Ω) + |f1(t)|q + |f2(t)|qdt 
+
++ ∥v0∥qW 2− 2 
+
+> q ,q (Ω)
+
++ |ℓ0|q + |ω0|q
+
+.
+
+Applying the above estimates to (6.1) yields: 
+
+Z T
+
+> 0
+
+ ∥∂tv(t)∥qLq (Ω) + ∥∇ 2v(t)∥qLq (Ω) + ∥∇ π∥qLq (Ω) + |ℓ|q + |˙ℓ|q + |ω|q + | ˙ω|qdt 
+
+≤ c(T )
+
+ Z T
+
+> 0
+
+∥f0(t)∥qLq (Ω) dt + |f1(t)|q + |f2(t)|q + ∥v0∥qW 2− 2 
+
+> q ,q (Ω)
+
++ |ℓ0|q + |ω0|q
+
+.
+
+6.2. Uniform boundedness globally in time for 1 < q < 32 . The following uniqueness result will be useful for our proof. NAVIER-SLIP FLUID-STRUCTURE INTERACTION 25 
+
+Lemma 6.2. Let (v, ℓ, ω, π ) be a solution to 
+
+
+
+∂v
+
+∂t − μ∆v + ∇π = 0,
+
+div v = 0 in Ω for t > 0,m dℓ dt (t) = −
+
+Z
+
+> ∂Ω
+
+S(v, π )ndS x
+
+J0 ˙ω(t) = −
+
+Z
+
+> ∂S
+
+x × S(v, π )ndS x
+
+for t > 0,
+
+v|t=0 = 0, ℓ|t=0 = 0, ω|t=0 = 0,
+
+(v − ℓ − ω × x) · n = 0 2μ[D(v)n]τ + α[v − ℓ − ω × x]τ = 0 on ∂Ω for t > 0.
+
+(6.11) 
+
+If v ∈ Lr(0 , T ; Ls(Ω)) for some 1 ≤ r ≤ ∞ , 1 ≤ s < ∞ and ∂tv, D 2v, ∇π ∈
+
+Lq(QT ) for some 1 ≤ q ≤ ∞ , then 
+
+(v, ℓ, ω) ≡ 0.
+
+Proof. See Appendix B. □
+
+Let 1 < q < 32 . We claim that for any data f0 ∈ Lq(QT ), f1, f2 ∈ Lq(0 , T ), and initial values v0, ℓ0, ω0, there exists a constant c independent of T such that 
+
+Z T
+
+> 0
+
+
+
+∥∂tv∥qLq (Ω) + ∥∇ 2v∥qLq (Ω) + ∥∇ π∥qLq (Ω) + |ℓ|q + |˙ℓ|q + |ω|q + | ˙ω|q
+
+dt 
+
+≤ c
+
+
+
+∥f0∥qLq (QT ) + ∥f1∥qLq + ∥f2∥qLq + ∥v0∥qW 2− 2 
+
+> q ,q
+
++ |ℓ0|q + |ω0|q
+
+
+
+.
+
+Assume, for contradiction, that the estimate fails. Then, for each m ∈ N, there exists a sequence of data 
+
+(f0,m , f1,m , f2,m , v0,m , ℓ0,m , ω0,m )
+
+satisfying 
+
+Z T
+
+> 0
+
+
+
+∥f0,m ∥qLq (Ω) + |f1,m |q + |f2,m |q
+
+dt +∥v0,m ∥qW 2− 2 
+
+> q ,q (Ω)
+
++|ℓ0,m |q+|ω0,m |q ≤ 1
+
+m ,
+
+and corresponding solutions (vm, ℓm, ωm, π m) to the system (1.8), with conditions (C1)-(C3), such that 
+
+Z T
+
+> 0
+
+(∥∂tvm∥qLq (Ω) +∥∇ 2vm∥qLq (Ω) +∥∇ πm∥qLq (Ω) +|ℓm|q+|˙ℓm|q+|ω|q+| ˙ωm|q)dt = 1 .
+
+By Lemma 6.1, we have 
+
+1 ≤ c
+
+Z T
+
+> 0
+
+∥vm∥qLq (Ω 2R)dt + cm .
+
+Using Banach–Alaoglu and Aubin–Lions theorems, we extract a limit (v, ℓ, ω, π )
+
+satisfying the system (6.11). The strong convergence holds locally in space, i.e., in 
+
+Lq(0 , T ; Ls(K)) for any compact K ⊂ Ω, where s < q ∗ := 3q 
+
+> 3−2q
+
+if q < 32 , and 
+
+s < ∞ otherwise. 26 B. JIN 
+
+By the lower semi-continuity, we have 
+
+Z T
+
+> 0
+
+(∥∂tv(t)∥qLq (Ω) +∥∇ 2v(t)∥qLq (Ω) +∥∇ π(t)∥qLq (Ω) +|ℓ|q+|˙ℓ|q+|ω|q+| ˙ω|q)dt ≤ 1.
+
+Then, by the Sobolev embedding W 2,q (Ω) ,→ Lq∗
+
+(Ω) with q∗ = 3q 
+
+> 3−2q
+
+, valid for 
+
+q < 32 , it follows that Z T
+
+> 0
+
+∥v(t)∥qLq∗ (Ω) dt < C. 
+
+Hence, the condition v ∈ Lr(0 , T ; Ls(Ω)) in Lemma 6.2 is satisfied, and we con-clude that (v, ℓ, ω) ≡ (0, 0, 0).However, strong convergence yields 
+
+Z T
+
+> 0
+
+∥v(t)∥qLq (Ω 2R)dt = lim 
+
+> k→∞
+
+Z T
+
+> 0
+
+∥vmk (t)∥qLq (Ω 2R)dt ≥ 1
+
+c ,
+
+a contradiction. Therefore, the original estimate holds, completing the proof of Theorem 2.3. 7. Proof of Theorem 2.4 
+
+Theorems 2.2 and 2.3 imply that the fluid-structure operator possesses maximal 
+
+Lq-regularity for all 1 < q < ∞. According to [16, Section 8], this property ensures that the fluid-structure semigroup is analytic in ˜Xq for all 1 < q < ∞.In this section, we aim to show that this semigroup is, in fact, a bounded analytic semigroup. To this end, we establish the sectoriality of the fluid-structure operator in ˜Xq.Denote the sector Σθ by 
+
+Σθ = {λ ∈ C \ { 0} : | arg( λ)| < θ }, for θ > 0.
+
+Definition 7.1. Let X be a complex Banach space, , and let L(X) denote the space of bounded linear operators on X. Consider a densely defined, closed, linear operator A : D(A) ⊂ X → X. We say that A is sectorial with angle θ at ω if there exist constants ω ∈ R, θ ∈   π 
+
+> 2
+
+, π , and M > 0 such that: 
+
+(i) ρ(A) ⊃ ω + Σ θ, (ii ) ∥(λI − A)−1∥L(X) ≤ M
+
+|λ − ω| , λ ∈ ω + Σ θ.
+
+When ω = 0 , the operator is commonly referred to as sectorial with angle θ. Asemigroup generated by a sectorial operator A is denoted by eAt .
+
+7.1. Sectoriality in ˜X2. According to Theorem 13.31 in [36], the self-adjointness of the operator −Aα, 2 on ˜X2 implies that its spectrum is purely real. Furthermore, its accretivity (or non-negativity) ensures that the spectrum is contained in the non-positive real axis: 
+
+σ(−Aα, 2) ⊂ (−∞ , 0] , or equivalently, C \ (−∞ , 0] ⊂ ρ(−Aα, 2). (7.1) In particular, it is straightforward to verify the following resolvent estimate: 
+
+∥λ(λI + Aα, 2)−1∥L(˜X2) ≤ 1 for all λ ∈ C \ 0 with Re( λ) ≥ 0. (7.2) NAVIER-SLIP FLUID-STRUCTURE INTERACTION 27 
+
+According to Proposition 2.1.11 in [31], the spectral properties in (7.1) and the resolvent estimate in (7.2) together imply that the operator −Aα, 2 is sectorial with any angle θ ∈   π 
+
+> 2
+
+, π .7.2. Sectoriality in ˜Xq for 1 < q < 32 . Since the maximal Lq-regularity is estab-lished on the infinite interval T = ∞ for 1 < q < 32 , we can apply Proposition 2.1.3 from [16]. This property guarantees the existence of a constant M1 > 0 such that the following uniform resolvent estimate holds: 
+
+{λ ∈ C : Re λ ≥ 0} ⊂ ρ(−Aα,q ),
+
+(λI + Aα,q )−1  
+
+> L(˜Xq)
+
+≤ M1
+
+1 + |λ| for all Re λ ≥ 0. (7.3) Furthermore, according to Proposition 2.1.11 in [31], the resolvent estimate in (7.3) implies that the operator −Aα,q is sectorial with some angle θ ∈   π 
+
+> 2
+
+, π  .
+
+7.3. Sectoriality for general q ∈ (1 , ∞). Recall that the operator −Aα, 2 is secto-rial with angle θ, for any θ ∈   π 
+
+> 2
+
+, π  satisfying 
+
+|λ| (λI + Aα, 2)−1f ˜X2 ≤ C2∥f ∥˜X2 for all λ ∈ Σθ,
+
+and the operator −Aα,q 0 is also sectorial with θ for some θ0 ∈   π 
+
+> 2
+
+, π  satisfying 
+
+|λ| (λI + Aα,q 0 )−1f ˜Xq0
+
+≤ Cq0 ∥f ∥˜Xq0
+
+for all λ ∈ Σθ0 .
+
+Case: 32 ≤ q < 2.
+
+Choose q0 ∈  1, 32
+
+. Then, there exists s ∈ (0 , 1) such that 
+
+1
+
+q = 1 − sq0
+
++ s
+
+2 .
+
+By the interpolation theorem, the operator −Aα,q is also sectorial with the angle 
+
+θ0, and satisfies 
+
+|λ| (λI + Aα,q )−1f ˜Xq ≤ C1−sq0 Cs 
+
+> 2
+
+∥f ∥˜Xq for all λ ∈ Σθ0 .
+
+Case: 2 < q < ∞.
+
+In this case, we have 1 < q ′ < 2, where q′ is the H¨ older conjugate of q. Using the duality argument, we observe that 
+
+⟨(λI + Aα,q )−1f , ϕ⟩ = ⟨f , (λI + Aα,q ′ )−1ϕ⟩,
+
+which implies the estimate 
+
+|λ| (λI + Aα,q )−1f ˜Xq ≤ Cq∥f ∥˜Xq for all λ ∈ Σθ0 .28 B. JIN 
+
+7.4. Bounded Analyticity. From the result established in the previous section, the operator −Aα,q is sectorial with angle ω = 0 on ˜Xq for 1 < q < ∞.By applying Proposition 2.1.1 in [31], it follows that −Aα,q generates a bounded analytic C0-semigroup {e−Aα,q t}t≥0 on ˜Xq. Moreover, the following estimates hold for all f ∈ ˜Xq and t > 0:
+
+e−Aα,q tf ˜Xq
+
+≤ c∥f ∥˜Xq ,
+
+Aα,q e−Aα,q tf ˜Xq
+
+≤ ct −1∥f ∥˜Xq ,
+
+for all f ∈ ˜Xq and t > 0, where c > 0 is a constant independent of t.This concludes the proof of Theorem 2.4. 8. Proof of Theorem 2.5 
+
+Suppose that u0 ≃ (v0, ℓ0, ω0), and let e−tAα,q u0 := u ≃ (v, ℓ, ω). Let π
+
+be the associated pressure such that the quadruple (v, ℓ, ω, π ) satisfies the system (1.8) under the conditions (C1)–(C3), assuming the external force (f0, f1, f2) is identically zero. We assume that u0 ∈ ˜Xr. Recall that the norm equivalence 
+
+∥u∥˜Xr ≈ ∥ u∥Lr (R3) ≈ ∥ v∥Lr (Ω) + |ℓ| + |ω|
+
+holds when u ≃ (v, ℓ, ω).To facilitate a consistent presentation throughout the following subsections, we fix a constant T > 0. We adopt a unified decay-type notation by observing that on the compact interval t ∈ (0 , T ], any constant c can be bounded as c ≤ c(T )(1 + 
+
+t)−α for any α ≥ 0. This technical choice allows us to maintain a consistent form between the short-time estimates ( 0 < t ≤ T ) and the large-time estimates ( t ≥ T )presented in Section 8.2. 8.1. Lr–Lq Estimate for short time 0 < t ≤ T . Let 1 < r ≤ q < ∞ and 
+
+0 < t ≤ T . In this subsection, we establish Lq–Lr estimates specifically for the short-time interval. By the unified notation introduced above, particularly taking 
+
+α = 32 ( 1 
+
+> r
+
+− 1 
+
+> q
+
+), the following estimates hold for 0 < t ≤ T :
+
+|ℓ(t)| + |ω(t)| ≤ ∥ u(t)∥˜Xr ≤ c∥u0∥˜Xr ≤ c(T )(1 + t)− 32   
+
+> 1
+> r−1
+> q
+> 
+
+∥u0∥˜Xr , (8.1) Since |˙ℓ| + | ˙ω| ≤ ∥ ∂tu(t)∥ ˜Xr and ∥∂tu(t)∥ ˜Xr ≤ ct −1∥u(t)∥˜Xr , (8.17) implies that 
+
+|˙ℓ| + | ˙ω| ≤ c(T )t−1(1 + t)− 32   
+
+> 1
+> r−1
+> q
+> 
+
+∥u0∥˜Xr . (8.2) By the Gagliardo–Nirenberg interpolation inequality for exterior domains [12], 
+
+∥v(t)∥Lq (Ω) ≤ c∥∇ 2mv(t)∥θLr (Ω) ∥v(t)∥1−θLr (Ω) ,
+
+where 1
+
+q = θ
+
+ 1
+
+r − 2m
+
+3
+
+
+
++ (1 − θ) 1
+
+r , provided r > 3
+
+m .NAVIER-SLIP FLUID-STRUCTURE INTERACTION 29 
+
+From Lemma 4.7, we have the regularity estimate 
+
+∥∇ 2mv(t)∥Lr (Ω) ≤ c(t−m + 1) ∥u0∥˜Xr .
+
+Combining the above, we deduce 
+
+∥v(t)∥Lq (Ω) ≤ c(T )t− 12 − 32   
+
+> 1
+> r−1
+> q
+> 
+
+∥u0∥˜Xr . (8.3) From (8.17) and (8.3), we obtain the following estimate: 
+
+∥∂tv(t)∥Lq (Ω) ≤ ∥ ∂tu(t)∥˜Xq ≤ ct −1∥u(t)∥˜Xq = ct −1  ∥v(t)∥Lq (Ω) + |ℓ(t)| + |ω(t)|
+
+= c(T )t− 32 − 32   
+
+> 1
+> r−1
+> q
+> 
+
+∥u0∥˜Xr . (8.4) Applying Lemma 4.5 together with the estimates (8.3) and (8.4), we obtain the following bound: 
+
+∥∇ 2v(t)∥Lq (Ω) + ∥∇ π(t)∥Lq (Ω) ≤ c∥∂tv(t)∥Lq (Ω) + c∥v(t)∥Lq (Ω R)
+
+≤ c(T )t− 32 − 32   
+
+> 1
+> r−1
+> q
+> 
+
+∥u0∥˜Xr . (8.5) Finally, applying the Gagliardo–Nirenberg inequality yields 
+
+∥∇ v(t)∥Lq (Ω) ≤ c∥∇ 2v(t)∥1/2 
+
+> Lq(Ω)
+
+∥v(t)∥1/2  
+
+> Lq(Ω)
+
+≤ c(T )t− 12 − 32   
+
+> 1
+> r−1
+> q
+> 
+
+∥u0∥˜Xr .
+
+(8.6) 8.2. Lr–Lq Estimate for large time t > 2. Our remaining task is to derive the estimates under the assumption t > 2, which will be maintained throughout the rest of the analysis. While the previous section established estimates on a fixed interval 
+
+(0 , T ] with T > 2, we now focus on the actual asymptotic decay as t increases beyond 2. 8.2.1. Lr-L2 Estimates for the Velocity Field u. We first establish the following decay estimate: 
+
+Lemma 8.1. There exists a constant c > 0 such that 
+
+∥∇ v(t)∥L2(Ω) + |ℓ(t)| + |ω(t)| ≤ ct − 12 ∥u0∥L2(R3). (8.7) 
+
+Proof. Let u(t) = e−tAα, 2 u0. By the properties of the analytic semigroup, we observe that 
+
+⟨Aα, 2u, u⟩ ≤ ∥ Aα, 2u∥∥ u∥
+
+= ∥Aα, 2e−tAα, 2 u0∥∥ e−tAα, 2 u0∥ ≤ ct −1∥u0∥2 
+
+> L2
+
+.
+
+Recalling the identity from Lemma 4.1: 
+
+⟨Aα, 2u, u⟩ = μ∥D(v)∥2 
+
+> L2(Ω)
+
++ α∥[v − ℓ(t) − ω(t) × x]τ ∥2
+
+> L2(∂Ω)
+
+,
+
+we deduce that 
+
+∥D(v(t)) ∥L2(Ω) + ∥[v − ℓ(t) − ω(t) × x]τ ∥L2(∂Ω) ≤ ct − 12 ∥u0∥L2(R3). (8.8) Finally, applying the Korn-type inequality (Lemma 4.3) to (8.8), we obtain the desired decay estimate in Lemma 8.1. □30 B. JIN 
+
+Combining Lemma 8.1 with standard interpolation properties leads to the fol-lowing decay rate estimates for the velocity field in Lq spaces. 
+
+Corollary 8.2. Let (v, ℓ, ω) and (v0, ℓ0, ω0) be the same as those defined in Lemma 8.8. Then for t > 1, we have 
+
+∥v(t)∥Lq (Ω) ≤
+
+(
+
+ct − 32   
+
+> 12−1
+> q
+> 
+
+∥u0∥L2(R3), 2 ≤ q ≤ 6,ct − 12 ∥u0∥L2(R3), 6 < q ≤ ∞ .
+
+Proof. According to Lemma 4.5, we have the following strong regularity estimate: 
+
+∥∇ 2v∥L2(Ω) + ∥∇ π∥L2(Ω) ≤ c∥∂tv∥L2(Ω) + c∥v∥L2(Ω R) + c|ℓ| + c|ω|≤ ct − 12 ∥u0∥L2(R3), t > 1.
+
+Here, we used the estimate by Shibata and Soga [39] that ∥v∥L2(Ω R) ≤ c∥∇ v∥L2(Ω) .By the interpolation property, we have 
+
+∥v∥Lq (Ω) ≤ c∥∇ v∥θL2(Ω) ∥v∥1−θL2(Ω) , θ = 3 
+
+ 12 − 1
+
+q
+
+
+
+, 2 ≤ q ≤ 6.
+
+If 6 < q ≤ ∞ , then 
+
+∥v∥Lq (Ω) ≤ c∥∇ v∥L 3q 
+
+> 3+ q(Ω)
+
+≤ c∥∇ 2v∥1−θL2(Ω) ∥∇ v∥θL2(Ω) , θ = 3 
+
+ 1
+
+q + 16
+
+
+
+.
+
+Applying the bounds from Lemma 8.1 and the strong regularity estimate yields the desired decay rates. □
+
+By a duality argument, we also conclude the following: 
+
+Corollary 8.3. Let (v, ℓ, ω) and (v0, ℓ0, ω0) be the same as those defined in Corollary 8.2. Then for t > 1, we have 
+
+∥v(t)∥L2(Ω) ≤
+
+(
+
+ct − 32 ( 1   
+
+> r−12
+
+)∥u0∥Lr (R3), 65 ≤ r ≤ 2,ct − 12 ∥u0∥Lr (R3), 1 < r ≤ 65 . (8.9) We now wish to extend the estimate (8.9) 1 to the case 1 < r ≤ 2:
+
+Lemma 8.4. Let 1 < r ≤ 2. Then 
+
+∥e−tAα u0∥˜X2 ≤ ct − 32 ( 1   
+
+> r−12
+
+)∥u0∥˜Xr . (8.10) 
+
+Proof. By a standard density argument, we may assume without loss of generality that the initial data and the solution are sufficiently smooth to justify the following energy arguments. Taking the L2 inner product of (1.8) with v and utilizing the boundary condi-tions, we obtain the energy identity: 
+
+12
+
+ddt E(t) + 2 μ∥D(v(t)) ∥2 
+
+> L2(Ω)
+
++ α∥[v − ℓ − ω × x]τ ∥2 
+
+> L2(∂Ω)
+
+= 0 , (8.11) where E(t) := ∥v(t)∥2 
+
+> L2(Ω)
+
++ m|ℓ(t)|2 + |J0|ω(t)|2.NAVIER-SLIP FLUID-STRUCTURE INTERACTION 31 
+
+By the Korn type inequality in Lemma 4.3, there exists a constant c > 0 such that 
+
+c(∥∇ v∥L2(Ω) + |ℓ| + |ω|) ≤ ∥ D(v(t)) ∥L2(Ω) + α∥[v − ℓ − ω × x]τ ∥L2(∂Ω) .
+
+Combining this with the Gagliardo-Nirenberg inequality, we obtain: 
+
+∥v∥L2(Ω) +|ℓ|+|ω| ≤ c
+
+
+
+∥D(v(t)) ∥L2(Ω) +α∥[v−ℓ−ω ×x]τ ∥L2(∂Ω) 
+
+θ
+
+∥u0∥1−θ 
+
+> ˜Xr
+
+,
+
+where θ = 32
+
+  1 
+
+> r
+
+− 12
+
+ , 1 < r ≤ 2.
+
+Substituting this into the energy identity (8.11), we reduce it to the following Gronwall-type inequality for E(t) := ∥v(t)∥2 
+
+> L2(Ω)
+
++ m|ℓ(t)|2 + |J0|| ω(t)|2:
+
+ddt E(t) + cE(t) 12θ ∥u0∥− 1−θθ 
+
+> ˜Xr
+
+≤ 0. (8.12) Note that the exponent 12θ = 13( 1    
+
+> r−12)
+
+= 132r
+
+> 2−r
+
+Solving this differential inequality, we obtain the desired decay rate: 
+
+∥v(t)∥L2(Ω) + |ℓ(t)| + |ω(t)| ≤ ct − 32 ( 1   
+
+> r−12)
+
+∥u0∥˜Xr , t > 1. (8.13) This completes the proof of Lemma 8.4. 
+
+□
+
+8.2.2. Estimates for u for other values of q and r. Based on the estimate for 
+
+1 < r ≤ 2, we can derive estimates for other values of r and q as follows: 
+
+• Case 1. 
+
+Let 1 < r ≤ 2 ≤ q < ∞. Then, 1 < r, q ′ ≤ 2. From Lemma 8.4, we have 
+
+⟨e−tAα u0, ϕ0⟩ = ⟨e− t  
+
+> 2Aα
+
+u0, e − t  
+
+> 2Aα
+
+ϕ0⟩ ≤ ∥ e− t  
+
+> 2Aα
+
+u0∥L2 ∥e− t  
+
+> 2Aα
+
+ϕ0∥L2
+
+≤ ct − 32 ( 1   
+
+> r−1
+> q)
+
+∥u0∥Lr ∥ϕ0∥Lq′ .
+
+Hence, by the duality argument, we obtain the estimate: 
+
+∥e−tAα u0∥˜Xq ≤ ct − 32 ( 1   
+
+> r−1
+> q)
+
+∥u0∥˜Xr for 1 < r ≤ 2 ≤ q < ∞. (8.14) 
+
+• Case 2. 
+
+Let 2 ≤ r ≤ q < ∞. Then, 1 < q ′ ≤ r′ ≤ 2. There exists θ ∈ (0 , 1) 
+
+such that 1 
+
+> r′
+
+= 1−θq′ + θ 
+
+> 2
+
+. From the interpolation property and from Lemma 8.4, we have 
+
+⟨e−tAα u0, ϕ0⟩ = ⟨u0, e −tAα ϕ0⟩ ≤ ∥ u0∥Lr ∥e− t  
+
+> 2Aα
+
+ϕ0∥Lr′
+
+≤ ∥ u0∥Lr ∥e− t  
+
+> 2Aα
+
+ϕ0∥1−θLq′ ∥e− t  
+
+> 2Aα
+
+ϕ0∥θL2
+
+≤ ct − 32 ( 1   
+
+> r−1
+> q)
+
+∥u0∥Lr ∥ϕ0∥Lq′ .
+
+Hence, a duality argument leads to the estimate: 
+
+∥e−tAα u0∥˜Xq ≤ ct − 32 ( 1   
+
+> r−1
+> q)
+
+∥u0∥˜Xr for 2 ≤ r ≤ q < ∞. (8.15) 32 B. JIN 
+
+• Case 3. 
+
+Let 1 < r ≤ q ≤ 2. Then, we have 2 ≤ q′ ≤ r′ < ∞.From the estimate in (8.15), we obtain: 
+
+∥e−tAα ϕ0∥˜Xr′ ≤ ct − 32   
+
+> 1
+> q′−1
+> r′
+> 
+
+∥ϕ0∥˜Xq′ .
+
+Hence, we can write: 
+
+⟨e−tAα u0, ϕ0⟩ = ⟨u0, e −tAα ϕ0⟩ ≤ ∥ u0∥Lr ∥e− t  
+
+> 2Aα
+
+ϕ0∥Lr′
+
+≤ ct − 32   
+
+> 1
+> r−1
+> q
+> 
+
+∥u0∥Lr ∥ϕ0∥Lq′ .
+
+The duality argument leads us to the following estimate: 
+
+∥e−tAα u0∥˜Xq ≤ ct − 32   
+
+> 1
+> r−1
+> q
+> 
+
+∥u0∥˜Xr , 1 < r ≤ q ≤ 2. (8.16) By combining the estimates (8.10)–(8.16), we obtain the first estimate stated in Theorem 2.5 for t > 2.
+
+Corollary 8.5. Let 1 < r ≤ q < ∞ and t > 1. Then for u(t) := e−tAα,q u0, the following decay estimates hold: 
+
+|ℓ(t)| + |ω(t)| ≤ Ct − 32   
+
+> 1
+> r−1
+> q
+> 
+
+∥u0∥˜Xr , (8.17) 
+
+∥u(t)∥Lq (Ω) ≤ Ct − 32   
+
+> 1
+> r−1
+> q
+> 
+
+∥u0∥˜Xr . (8.18) 
+
+Remark 8.6. Combining the first estimate stated in Theorem 2.5 for q = r and 
+
+q = m, we obtain the estimate: 
+
+|ℓ(t)| + |ω(t)| ≤ c(m)(1 + t)− 32 ( 1   
+
+> r−1
+> m
+
+)∥u0∥˜Xr . (8.19) 
+
+Here, m can be taken to be arbitrarily large. 
+
+8.2.3. Estimate for ∂tu. Since 
+
+∥∂te−tAα u0∥Lq ≤ ct −1∥e− t  
+
+> 2Aα
+
+u0∥Lq ,
+
+we arrive at the following estimate, which corresponds to the second assertion of Theorem 2.5 for t > 2:
+
+∥∂tu∥˜Xq = ∥∂te−tAα u0∥˜Xq ≤ ct −1− 32   
+
+> 1
+> r−1
+> q
+> 
+
+∥u0∥˜Xr . (8.20) For u ≃ (v, ℓ, ω), we recall the norm equivalence ∥u∥˜Xr ≈ ∥ v∥Lr (Ω) +|ℓ|+|ω|.The same relation applies to the time derivative: 
+
+∥∂tu∥˜Xq ≈ ∥ ∂tv∥Lq (Ω) + |˙ℓ| + | ˙ω|. (8.21) Note that this equivalence implies 
+
+∥∂tv∥Lq (Ω) + |˙ℓ| + | ˙ω| ≤ ct −1− 32   
+
+> 1
+> r−1
+> q
+> 
+
+∥u0∥˜Xr .NAVIER-SLIP FLUID-STRUCTURE INTERACTION 33 
+
+8.2.4. Estimate of ∇2v, ∇π. Let vB := ℓ + ω × x and ˜vB = − 12 ∇ × (ζ(x ×
+
+ℓ + ω|x|2)) for a smooth cut-off function ζ with ζ = 1 near ∂Ω. Then, we have div ˜vB = 0 in Ω and ˜vB = vB on ∂Ω, and (v − ˜vB , π ) satisfies the equations: 
+
+
+
+−μ∆( v − ˜vB ) + ∇π = −∂tv + μ∆˜ vB
+
+div (v − ˜vB ) = 0 in Ω,
+
+(v − ˜vB ) · n = 0 2μ[D(v − ˜vB )n]τ + α[v − ˜vB ]τ = 0 on ∂Ω.
+
+Hence, applying Lemma 4.5 to (v − ˜vB , π ), first estimate in Theorem 2.5 and (8.20) yield the following bound: 
+
+∥D2
+
+> x
+
+v(t)∥Lq (Ω) + ∥∇ π(t)∥Lq ≤ c∥∂tv(t)∥Lq (Ω) + c∥v(t)∥Lm(Ω 2R) + c|ℓ(t)| + c|ω(t)|≤ c(m)
+
+
+
+t−1− 32   
+
+> 1
+> r−1
+> q
+> 
+
++ t− 32 ( 1   
+
+> r−1
+> m
+
+)
+
+
+
+∥u0∥˜Xr .
+
+Here m can be arbitraily large. 8.2.5. Estimate of ∇v. • Estimate near the boundary. 
+
+By the interpolation theorem for bounded domains (see [19]), we observe that 
+
+∥∇ v∥Lq (Ω 2R) ≤ c∥∇ 2v∥Lq (Ω 2R) + c∥v∥Lm(Ω R)
+
+≤ c(m)
+
+
+
+t−1− 32   
+
+> 1
+> r−1
+> q
+> 
+
++ t− 32 ( 1   
+
+> r−1
+> m
+
+)
+
+
+
+∥u0∥˜Xr , t ≥ 2.
+
+• Estimate at large distance 
+
+Assume that Ωc ⊂ B R
+
+> 2
+
+and Ω ∩ BcR = BcR. Let ζ ∈ C∞ 
+
+> 0
+
+(R3) be a smooth cutoff function such that 
+
+ζ(x) = 
+
+(
+
+1, for |x| ≥ R, 
+
+0, for |x| ≤ R 
+
+> 2
+
+.
+
+Define w1 = ∇N ∗ (v · ∇ ζ). Then, we have: 
+
+∥∇ w1∥Lq ≤ c∥v∥Lq (Ω R) ≤ c∥v∥L6(Ω R) ≤ ct − 32 ( 1     
+
+> r−12+13
+
+)∥u0∥Lr (R3), t > 2.
+
+(8.22) Without loss of generality, we take π with R 
+
+> ΩR
+
+π dx = 0 . Let w = ζv − w1 and 
+
+q = ζπ .Then, we have the following system: 
+
+
+
+div w = 0 in R3,∂tw − μ∆w + ∇q = −2μ∇v · ∇ ζ − μv∆ζ + π∇ζ − ∂tw1 + μ∆w1 := ˜f in R3,
+
+w|t=0 = ζv0 − ∇ N ∗ (v0 · ∇ )ζ := ˜ w0.
+
+The solution w(t) to the system in R3 can be expressed using the heat semigroup and the Helmholtz projection: 
+
+w(t) = eμt ∆ ˜w0 +
+
+Z t
+
+> 0
+
+eμ(t−s)∆ Q˜f (s) ds, 34 B. JIN 
+
+where Q is the Helmholtz projection operator, whose components are given by the Riesz transforms as Qij = δij + RiRj . The heat semigroup eμt ∆ is defined by the convolution 
+
+(eμt ∆g)( x) := 
+
+Z
+
+> R3
+
+Γ( x − y, t )g(y) dy, 
+
+where Γ( x, t ) is the heat kernel: 
+
+Γ( x, t ) = 1(4 μπt )3/2 exp 
+
+
+
+− |x|2
+
+4μt 
+
+
+
+.
+
+Using the well-known estimate for the heat operator, we obtain: 
+
+∥∇ eμt ∆ ˜w0∥Lq ≤ ct − 12 − 32   
+
+> 1
+> r−1
+> q
+> 
+
+∥u0∥˜Xr . (8.23) We estimate the Lq(BcR) norm of the term 
+
+Z t
+
+> 0
+
+∇eμ(t−s)∆ Q˜f (s) ds 
+
+by splitting it into two parts: 
+
+I =
+
+Z t
+
+> 1
+
+∇eμ(t−s)∆ Q˜f (s) ds, II =
+
+Z 10
+
+∇eμ(t−s)∆ Q˜f (s) ds. 
+
+Note that ˜f is compactly supported in ΩR, and we have the estimate 
+
+∥˜f (s)∥Lq ≤ c∥∇ v(s)∥Lq (Ω R) + c∥v(s)∥Lq (Ω R) + c∥π(s)∥Lq (Ω R).
+
+(i) First, we estimate the Lq(BcR) norm of the term I.To this end, we follow the approach presented in the proof of Lemma 8.1 in [34]. Specifically, we observe that the kernel Q(t, x ) = ∇eμt ∆(δij +
+
+RiRj ) satisfies the following pointwise estimate: 
+
+∇eμ(t−s)∆ Q ≤ c  |x − y|2 + ( t − s)−2 .
+
+This decay property is crucial for establishing the local Lq-regularity of the velocity gradient. For |x| ≥ 2R and |y| ≤ R, we have |x − y| ≈ | x|,which leads to: 
+
+|I(x, t )| ≤ c
+
+Z t
+
+> 1
+
+Z 
+
+> R
+> 2≤| y|≤ R
+
+ |x|2 + ( t − s)−2 |˜f (y, s )| dy ds. 
+
+We choose the pressure π such that 
+
+Z
+
+> ΩR
+
+π dx = 0 .
+
+Then, the following estimate holds: 
+
+∥˜f (s)∥Lq ≤ c∥∇ v(s)∥Lq (Ω R) + c∥v(s)∥Lq (Ω R) + c∥∇ π(s)∥Lq (Ω R)
+
+≤ c∥∇ v(s)∥Lq (Ω R) + c∥v(s)∥Lm(Ω R) + c∥∇ π(s)∥Lq (Ω R)NAVIER-SLIP FLUID-STRUCTURE INTERACTION 35 
+
+≤ c(m)
+
+
+
+s−1− 32
+
+ 1 
+
+> r
+
+− 1
+
+> q
+
+
+
++ s− 32 ( 1 
+
+> r
+
+− 1 
+
+> m
+
+)
+
+
+
+∥u0∥˜Xr , s > 1.
+
+Therefore, we obtain the estimate 
+
+∥I(t)∥Lq (Bc
+
+> 2R
+
+) ≤
+
+Z t
+
+1
+
+Z
+
+Bc
+
+> 2R
+
+ |x|2 + ( t − s)−2q dx 
+
+! 1
+
+> q
+
+∥˜f (s)∥L1 ds 
+
+≤ c
+
+Z t
+
+1
+
+ R2 + ( t − s)− 12
+
+
+
+4− 3
+
+> q
+
+
+
+∥˜f (s)∥Lq ds 
+
+≤ c(m)
+
+Z t
+
+1
+
+ R2 + ( t − s)− 12
+
+
+
+4− 3
+
+> q
+
+ 
+
+s−1− 32
+
+ 1 
+
+> r
+
+− 1
+
+> q
+
+
+
++ s− 32 ( 1 
+
+> r
+
+− 1 
+
+> m
+
+)
+
+
+
+ds ∥u0∥˜Xr
+
+≤ c(m)
+
+
+
+t− 34 − 32
+
+ 1 
+
+> r
+
+− 1
+
+> q
+
+
+
++ t− 32 ( 1 
+
+> r
+
+− 1 
+
+> m
+
+)
+
+
+
+∥u0∥˜Xr . (8.24) Here, we used the estimate 
+
+Z
+
+BcR
+
+ |x|2 + ( t − s)−2q dx 
+
+! 1
+
+> q
+
+= c  R2 + ( t − s)− 12
+
+
+
+4− 3
+
+> q
+
+
+
+.
+
+(ii) Next, we estimate the Lq(BcR) norm of the term II .Recall the estimate (6.10) and the Gagliardo-Nirenberg-type inequality for fractional Sobolev spaces, as established in [11]. For 0 < a < 1
+
+r′ , we have 
+
+∥π∥Lr (Ω 2R) ≤ c∥∇ v∥W ar (Ω 2R)
+
+≤ c∥∇ v∥Lr (Ω 2R) + c∥∇ v∥1−aLr (Ω 2R)∥∇ 2v∥aLr (Ω 2R).
+
+Hence, according to the estimate for short time t (see Section 8.1), we have 
+
+∥˜f (s)∥Lr ≤ c∥∇ v∥Lr (Ω R) + c∥v∥Lr (Ω R) + c∥π∥Lr (Ω R)
+
+≤ cs − a 
+
+> 2
+
+− 12 ∥u0∥˜Xr , s < 1.
+
+Then, we have: 
+
+∥II ∥Lq ≤
+
+Z 10
+
+(t − s)− 12 − 32
+
+ 1 
+
+> r
+
+− 1
+
+> q
+
+
+
+∥˜f ∥Lr ds 
+
+≤ c
+
+Z 10
+
+(t − s)− 12 − 32
+
+ 1 
+
+> r
+
+− 1
+
+> q
+
+
+
+τ − s 
+
+> 2
+
+− 12 ∥u0∥˜Xr ds 
+
+= ct − 12 − 32
+
+ 1 
+
+> r
+
+− 1
+
+> q
+
+
+
+∥u0∥˜Xr . (8.25) Combining the estimate (8.22)-(8.25) we obtain the estimate of ∥∇ v∥Lq (B2R):
+
+∥∇ v∥Lq (Bc
+
+> 2R
+
+) ≤ c(m)
+
+
+
+t− 12 − 32
+
+ 1 
+
+> r
+
+− 1
+
+> q
+
+
+
++ t− 32 ( 1 
+
+> r
+
+− 1 
+
+> m
+
+)
+
+
+
+∥u0∥˜Xr , t ≥ 2.36 B. JIN 
+
+APPENDIX A. PROOF OF LEMMA 4.5: S TRONG Lp ESTIMATE 
+
+The following propositions are classical results and will be used in the proof of Lemma 4.5. 
+
+Proposition A.1 (See [40, Theorem 2.2.1], [20, Theorem IV.4.1], and [18, Lemma 2.1]) . Let 1 < r < ∞. Suppose that f ∈ Lr(R3), g ∈ W 1,r (R3), and that (u, p ) is a generalized solution of 
+
+−μ∆u + ∇p = f, div u = g in R3,
+
+satisfying D2u, ∇p ∈ Lr(R3). Then, there exists a constant c = c(r, μ ) > 0 such that 
+
+∥D2u∥Lr (R3) + ∥∇ p∥Lr (R3) ≤ c  ∥f∥Lr (R3) + ∥∇ g∥Lr (R3)
+
+ .
+
+Proposition A.2 ( See [20, Theorem IV.6.1], [29, Lemma 3.2], and [41, Theorem 1] ) . Let 1 < r < ∞ and let O ⊂ R3 be a bounded domain of class C2 (or class C1,1). Suppose that f ∈ Lr(O) and g ∈ W 1,r (O) satisfy the compatibility condition R 
+
+> O
+
+g(x) dx = 0 . Let (u, p ) ∈ W2,r (O) × W 1,r (O) be the generalized solution of (
+
+−μ∆u + ∇p = f, div u = g in O,
+
+u = 0 on ∂O.
+
+Then, there exists a constant c = c(r, μ, O) > 0 such that 
+
+∥u∥W 2,r (O) + ∥p∥W 1,r (O)/R ≤ c  ∥f∥Lr (O) + ∥g∥W 1,r (O)
+
+ .
+
+Proposition A.3 (See [2, Theorem 3.11], [6, Theorem 3.8], and [1, Theorem 4]) .
+
+Let O be a bounded domain in R3 of class C1,1 (or C2 for simplicity). Let 1 <p < ∞ and assume the friction coefficient α ∈ C0,1(∂O) (or a constant α ≥
+
+0). Suppose f ∈ Lp(O) and g ∈ W 1,p (O) satisfy the compatibility condition R 
+
+> O
+
+g(x) dx = 0 . If (u, p ) ∈ W2,p (O) × W 1,p (O) is a solution to the Stokes problem with Navier-type boundary conditions: 
+
+−μ∆u + ∇p = f, div u = g in O,
+
+u · n = 0 , [2 μD(u)n]τ + αuτ = 0 on ∂O.
+
+Then, there exists a constant c = c(r, μ, O, α ) > 0 such that 
+
+∥D2u∥Lr (O) + ∥∇ p∥Lr (O) ≤ c  ∥f∥Lr (O) + ∥∇ g∥Lr (O)
+
+ .
+
+The following local estimate for the pressure is essential for our analysis. A key feature of this estimate is that it relies solely on the interior structure of the Stokes equations and the local integrability of the velocity gradient, making it independent of the specific boundary conditions prescribed on ∂Ω.
+
+Proposition A.4. Let Ω and R be defined as in Lemma 4.4, where Ω is an exterior domain and R is such that Ωc ⊂ BR. For ΩR = Ω ∩BR, assume that R 
+
+> ΩR
+
+p dx = 0 
+
+for 1 < r < ∞. Suppose that (u, p ) is a solution to (4.1) in Ω with ∇u ∈ Lr(Ω) 
+
+and p ∈ Lr
+
+> loc
+
+(Ω) for 1 < r < ∞. If we assume R 
+
+> ΩR
+
+p dx = 0 , then there exists a constant c, depending on r, R, and the geometry of B, such that 
+
+∥p∥Lr (Ω R) ≤ c  ∥f∥Lr (Ω R) + ∥∇ u∥Lr (Ω R)
+
+ .NAVIER-SLIP FLUID-STRUCTURE INTERACTION 37 
+
+Proof. Since this estimate is fundamental but its independence from boundary con-ditions is sometimes overlooked, we provide a brief justification for the reader’s convenience. For the bounded domain ΩR = Ω ∩ BR, where Ωc ⊂ BR, the Lr-norm of p is characterized by the duality identity 
+
+∥p∥Lr (Ω R) = sup  
+
+> 0̸=ϕ∈C∞
+> 0(Ω R)
+
+⟨p, ϕ ⟩∥ϕ∥Lr′ (Ω R)
+
+.
+
+For each such ϕ, the Bogovski˘ ı operator yields a vector field ψ ∈ W1,r ′ 
+
+> 0
+
+(Ω R)
+
+satisfying 
+
+div ψ = ϕ in ΩR, ψ|∂ΩR = 0 , ∥∇ ψ∥Lr′ (Ω R) ≤ c∥ϕ∥Lr′ (Ω R).
+
+By testing the Stokes equation with ψ, the pressure p is bounded by the local 
+
+Lr-norms of f and ∇u. Because ψ vanishes on the entire boundary ∂ΩR, this argument depends only on the local structure of the operator and the geometry of 
+
+ΩR. Consequently, the estimate remains valid regardless of the specific boundary conditions on ∂Ω, following the standard approach in Galdi [20, Lemma IV.1.1]. 
+
+□
+
+Using the four Propositions above, we obtain the following estimate. 
+
+Lemma A.5. Let Ω and R be the domain as in Lemma 4.5. Suppose that f ∈ Lr(Ω) 
+
+and that (u, p ) is a solution of (4.1) with u ∈ Lr
+
+> loc
+
+(Ω) . Then, D2u, ∇p ∈ Lr(Ω) ,and there exists a constant c > 0 such that 
+
+∥D2u∥Lr (Ω) + ∥∇ p∥Lr (Ω) + ∥∇ u∥Lr (Ω R) + ∥p∥Lr (Ω R)/R (A.1) 
+
+≤ C  ∥f∥Lr (Ω) + ∥u∥Lr (Ω R)
+
+ .
+
+Here, 
+
+∥p∥Lr (Ω R)/R := inf  
+
+> k∈R
+
+∥p + k∥Lr (Ω R).
+
+Proof. Take a cut-off function ζ, ξ ∈ C∞ 
+
+> 0
+
+(R3) with ζ = 1 on B R
+
+> 2
+
+, ζ = 0 on BcR,
+
+ξ = 1 on B R
+
+> 3
+
+and ξ = 0 on B 2R
+
+> 3
+
+. Observe that u = uξ + uζ(1 − ξ) + u(1 − ζ)(1 −
+
+ξ) := u1 + u2 + u3, and p = pξ + pζ (1 − ξ) + p(1 − ζ)(1 − ξ) := p1 + p2 + p3.Then, (u1, p 1) satisfies 
+
+ −μ∆u1 + ∇p1 = f1, div u1 = g1, in ΩR,
+
+u1 · n = 0 , 2μ[D(u1)n]τ + α[u1]τ = 0 on ∂ΩR, (A.2) 
+
+(u2, p 2) satisfies  −μ∆u2 + ∇p2 = f2, div u2 = g2, in ΩR,
+
+u2 = 0 , on ∂ΩR, (A.3) and (u3, p 3) satisfies 
+
+−μ∆u3 + ∇p3 = f3, div u3 = g3, in R3. (A.4) where f1, f2, f3 are defined by 
+
+f1 = ξf − 2∇u · ∇ ξ − u∆ξ + ( p + k)∇ξ, 38 B. JIN 
+
+f2 = ζ(1 − ξ)f − 2∇u · ∇ (ζ(1 − ξ)) − u∆( ζ(1 − ξ)) + ( p + k)∇(ζ(1 − ξ)) ,
+
+f3 = (1 − ζ)(1 − ξ)f − 2∇u · ∇ 
+
+
+
+(1 − ξ)(1 − ζ)
+
+
+
+− u∆
+
+
+
+(1 − ξ)(1 − ζ)
+
+
+
++ ( p + k)∇
+
+
+
+(1 − ξ)(1 − ζ)
+
+
+
+.
+
+and g1, g 2, g 3 are defined by 
+
+g1 = u · ∇ ξ, g 2 = u · ∇ (ζ(1 − ξ)) , g 3 = u · ∇ 
+
+
+
+(1 − ξ)(1 − ζ)
+
+
+
+.
+
+Here, k is any constant. According to Proposition A.1-Proposition A.3 we have 
+
+∥∇ 2u∥Lp(Ω R) + ∥∇ p∥Lp(Ω R)
+
+≤ c∥f∥Lp(Ω) + c∥∇ u∥Lp(Ω R) + c∥u∥Lp(Ω R) + c∥p∥Lp(Ω R)/R.
+
+If we choose k = − R 
+
+> ΩR
+
+pdx , then R 
+
+> ΩR
+
+p+kdx = 0 , hence, according to Lemma A.4, 
+
+∥p∥Lr (Ω R)/R ≤ c∥f∥Lr (Ω) + c∥∇ u∥Lr (Ω R).
+
+By the well-known Gagliardo–Nirenberg inequality in bounded domains (see [19]), we have 
+
+∥∇ u∥Lr (Ω R) ≤ c∥D2u∥1/2 
+
+> Lr(Ω R)
+
+∥u∥1/2  
+
+> Lr(Ω R)
+
++ ∥u∥Lr (Ω R).
+
+For any ϵ > 0, there exists a constant Cϵ > 0 such that 
+
+c∥D2u∥1/2 
+
+> Lr(Ω R)
+
+∥u∥1/2  
+
+> Lr(Ω R)
+
+≤ ϵ∥D2u∥Lr (Ω R) + Cϵ∥u∥Lr (Ω R).
+
+Hence, 
+
+∥∇ u∥Lr (Ω R) ≤ ϵ∥D2u∥Lr (Ω R) + Cϵ∥u∥Lr (Ω R).
+
+Combining the estimates above and taking ϵ > 0 sufficiently small, we obtain the inequality (A.1) stated in Lemma A.5. □
+
+Lemma A.6. Let Ω ⊂ Rn be an exterior domain such that Ωc ⊂ BR. For any 
+
+u ∈ C∞ 
+
+> 0
+
+(Ω) satisfying the boundary condition u · n = 0 on ∂Ω, there exists a constant C > 0 such that 
+
+∥u∥Lq (Ω R) ≤ C(R)∥∇ u∥Lq (Ω R).
+
+Proof. We proceed by contradiction. Suppose there exists a sequence {uk} ⊂ 
+
+C∞ 
+
+> 0
+
+(Ω R) such that 
+
+∥uk∥Lq (Ω R) = 1 , ∥∇ uk∥Lq (Ω) ≤ 1
+
+k , and uk · n = 0 on ∂Ω.
+
+By the Rellich-Kondrachov compactness theorem, there exists a subsequence (still denoted by {uk}) and a function u ∈ W 1,q (Ω R) such that 
+
+uk → u strongly in Lq(Ω R) and ∇uk ⇀ ∇u weakly in Lq(Ω R).
+
+By the lower semi-continuity of the norm, we have 
+
+∥∇ u∥Lq (Ω R) ≤ lim inf  
+
+> k→∞
+
+∥∇ uk∥Lq (Ω) = 0 ,NAVIER-SLIP FLUID-STRUCTURE INTERACTION 39 
+
+which implies that u is a constant vector, say u ≡ c, on each connected component of ΩR. Furthermore, the strong convergence implies ∥u∥Lq (Ω R) = 1 , hence c̸ = 0.By the trace theorem, the boundary condition uk ·n = 0 is preserved in the limit, yielding c · n(x) = 0 for all x ∈ ∂Ω. However, for a bounded closed surface ∂Ω,there must exist at least one point x0 ∈ ∂Ω where the unit normal vector n(x0)
+
+is parallel to c (i.e., n(x0) = ±c/|c|). At this point, we have |c · n(x0)| = |c|,which implies c = 0. This contradicts the fact that ∥u∥Lq (Ω R) = 1 , completing the proof. □
+
+Remark A.7. Lemma A.6 implies that the local Lq-norm of u on the right-hand side of (ii) in Lemma 4.5 can be controlled by the local Lq-norm of ∇u
+
+We are now ready to prove the estimate in Lemma 4.5. If u ∈ Lr(Ω) and q 
+
+∈ [r, ∞], then ∥u∥Lr (Ω R) ≤ C(R)∥u∥Lq (Ω R). Applying this inequality to (A.1) in Lemma A.5 directly leads to estimate (ii) in Lemma 4.5. To complete the proof of Lemma 4.5, it remains to establish estimate (i) in the case r < 32 . For this purpose, we make use of the following uniqueness result: 
+
+Theorem A.8. Let Ω be an exterior domain in R3, and let u be a weak solution to the Stokes system 
+
+
+
+−μ∆u + ∇p = 0 in Ω,
+
+div u = 0 in Ω,
+
+u · n = 0 , 2μ[D(u)n]τ + α[u]τ = 0 on ∂Ω,
+
+u ∈ Lr(Ω) for some 1 ≤ r < ∞,
+
+(A.5) 
+
+with D2u ∈ Lq(Ω) for some q ≥ 1. Then, u ≡ 0 in Ω.Proof. According to Theorem V. 3.3 in [20], if u satisfies (∇u, ∇φ) = [ f, φ] for all φ ∈ C∞
+
+> 0,σ
+
+(Ω) with D2u ∈ Lq(Ω) and compactly supported f ∈ Lq(Ω) for some 1 < q < ∞, then 
+
+u(x) = u0 + U0 · x + u(1) (x), p (x) = p0 + p(1) (x),
+
+where trace (U0) = 0 , u0, p 0 are constants and Dmu(1) (x) = O(|x|−1−m), D mp(1) (x) = 
+
+O(|x|−2−m), m ≥ 0. From the condition u ∈ Lr(Ω) for some r < ∞, we deduce that u0 = 0 , U0 = 0 . Hence Dmu(x) = O(|x|−1−m).Now multiply u to (4.1) 1 and integrate by parts over ΩR, then we deduce that 
+
+2μ
+
+Z
+
+> ΩR
+
+|D(u)|2dx + α
+
+Z
+
+> ∂Ω
+
+|[u]τ |2dS x =
+
+Z
+
+> ∂ΩR
+
+u · S(u, p )ndS x
+
+≤ c
+
+Z
+
+> ∂ΩR
+
+|x|−3dx → 0 as R → ∞ .
+
+This leads to the conclusion that u ≡ 0. □
+
+We claim that 
+
+∥D2u∥Lp(Ω) + ∥∇ p∥Lp(Ω) ≤ c∥f∥Lp(Ω) , 1 < p < 32 .
+
+We employ a contradiction argument, following the approach in the proof of Theorem 2.2 in [24]. Assume, for contradiction, that the estimate fails. Then, there 40 B. JIN 
+
+exists a sequence {fm} ⊂ Lp(Ω) with ∥fm∥Lp(Ω) ≤ 1 
+
+> m
+
+, and corresponding solu-tions (um, p m) to the system (4.1), such that 
+
+∥D2um∥Lp(Ω) + ∥∇ pm∥Lp(Ω) = 1 .
+
+This normalization is introduced in order to apply Lemma A.5 and obtain a uniform lower bound for ∥um∥Lp(Ω R). Indeed, Lemma A.5 yields 
+
+1 ≤ Cm + c∥um∥Lp(Ω R),
+
+so ∥um∥Lp(Ω R) cannot converge to zero. This nontrivial lower bound will later lead to a contradiction with the compactness argument. By compactness, there exists a subsequence (still indexed by m) and a limit pair 
+
+(u, p ) such that 
+
+D2um ⇀ D 2u weakly in Lp(Ω) ,
+
+um → u strongly in Lr(K), r < p ∗,
+
+∇pm ⇀ ∇p weakly in Lp(Ω) ,
+
+for any compact K ⊂ Ω, where p∗ = 3p 
+
+> 3−2p
+
+if p < 32 , and p∗ = ∞ otherwise. Passing to the limit the limit pair (u, p ) satisfies the Stokes system (A.5). Al-though the data vanish in the limit, the solution remains nontrivial due to the pre-served estimate 
+
+1 ≤ c∥u∥Lp(Ω R),
+
+which follows from the strong convergence um → u in Lr(K) for any compact 
+
+K ⊂ Ω and r < p ∗.Meanwhile, by lower semi-continuity, we have 
+
+∥D2u∥Lp(Ω) + ∥∇ p∥Lp(Ω) ≤ lim inf 
+
+> m→∞
+
+ ∥D2um∥Lp(Ω) + ∥∇ pm∥Lp(Ω) 
+
+ = 1 .
+
+If p < 32 , the Sobolev embedding yields 
+
+∇2u ∈ Lp(Ω) ⇒ u ∈ L 3p 
+
+> 3−2p
+
+(Ω) ,
+
+so u ∈ Lr(Ω) for some r < ∞. Then, by the uniqueness result in Theorem A.8, we conclude u ≡ 0, contradicting the estimate above. Therefore, the original estimate must hold. APPENDIX B. P ROOF OF LEMMA 6.2 Let N be the fundamental solution of the Laplace equation, and let Γ = Γ t
+
+be the fundamental solution of the heat equation: The fundamental solution of the Stokes equations is represented by 
+
+Gi := ∇ × ∇ × (N ∗ Γtei) = Γ tei + ∇
+
+ ∂∂x i
+
+N ∗ Γt
+
+
+
+, Qi := −∂xi N (x)δ(t),
+
+which satisfies 
+
+∂tGi − ∆Gi + ∇Qi = δ(x)δ(t)ei, div Gi = 0 .
+
+(See Chapter 4 in [30] for details.) NAVIER-SLIP FLUID-STRUCTURE INTERACTION 41 
+
+Let ζR be a cut-off function such that ζR = 1 on BR and ζR = 0 on B2R.Let v = ( v1, v 2, v 2). Then, each component vi, i = 1 , 2, 3 is represented by the following integral equation: 
+
+vi(x, t )ζR(x) = −
+
+Z t
+
+> 0
+
+Z
+
+> ∂Ω
+
+Gi(x − y, t − s) · S(v, π )( y, τ )n
+
+− v(y, τ ) · S(Gi, Q i)( x − y, t − s)n dS y ds 
+
++
+
+Z
+
+> Ω
+
+v(y, t ) · (∇ζR(y)) ∂yi N (x − y) − (∇ζR(y)) × ∇ × (N (x − y)ei) dy 
+
++
+
+Z t
+
+> 0
+
+Z
+
+> Ω2
+
+X
+
+> j=1
+
+v(y, τ ) · Rij (x, y, t − s) dy ds 
+
+= v(1)  
+
+> i
+
++ v(2)  
+
+> i
+
++ v(3)  
+
+> i
+
+,
+
+(B.1) where 
+
+Ri
+
+> 1
+
+(x, y, t − s) = −2
+
+> 3
+
+X
+
+> k=1
+
+∇∂yk ζR(y) ∇y × (∂yk N ∗ Γt(x − y, t − s)ei)
+
+− ∇ ∆ζR(y) × ∇yN ∗ Γt(x − y, t − s) × ei ,Ri
+
+> 2
+
+(x, y, t − s) = −2( ∇ζR(y) · ∇ y)Gi(x − y, t − s) − ∆ζR(y)Gi(x − y, t − s).
+
+Direct computation shows that 
+
+|∇ k(N ∗ Γt)( x − y, t − s)| ≤ c(|x − y| + √t − s)−1−k.
+
+Let R ≥ 2|x|. Then, we estimate: 
+
+|∇ 2v(2)  
+
+> i
+
+(x, t )| ≤ cR −1
+
+Z
+
+> R≤| y|≤ 2R
+
+|v(y, τ )|| x − y|−4 dy ds 
+
+≤ c∥v∥L∞(0 ,T ;Lr (Ω)) R−2− 3 
+
+> r
+
+→ 0 as R → ∞ ,
+
+and similarly, 
+
+|∇ 2v(3)  
+
+> i
+
+(x, t )| ≤ c
+
+> 3
+
+X
+
+> k=1
+
+R−3+ k
+
+Z t
+
+> 0
+
+Z
+
+> R≤| y|≤ 2R
+
+|∇ 2v(y, τ )|(|x − y| + √t − s)−2−k dy ds 
+
+≤ cT ∥∇ 2v∥L∞(0 ,T ;Lq (Ω)) R− 3  
+
+> q−2
+
+→ 0 as R → ∞ .
+
+Here, we observe that ∥v(t)∥Lq (Ω) ≤ c R 
+
+> 0
+
+∥∂tv∥Lq (Ω) ≤ c(T )∥∂tv∥Lq (QT ).
+
+Let v(j) = ( v(j)1 , v (j)2 , v (j)3 ), j = 1 , 2, 3. Since v − v(1) = v(2) + v(3) and the left-hand side does not depend on R, it follows that 
+
+∇2v(2) + ∇2v(3) ≡ 0.
+
+Therefore, 
+
+v(x, t ) = a(t) + B(t) · x + v(1) (x, t ),
+
+where a(t) ∈ R3 and B(t) ∈ R3×3 are time-dependent coefficients. 42 B. JIN 
+
+The assumption v ∈ Lr(0 , T ; Ls(Ω)) for some s < ∞ implies that both a(t) = 0 and B(t) = 0 .This leads to the following representation for the pressure π:
+
+π(x, t ) = p0+
+
+Z t
+
+> 0
+
+Z
+
+> ∂Ω
+
+Q(x−y)·S(v(y, τ ), π (y, τ )) n−v(y, τ )·∇ Q(x−y)n dS y dt. 
+
+Here, Q = ( Qi)3
+
+> i=1
+
+.Now, let |x| ≥ R with Ωc ⊂ BR/ 2. Then, direct computation shows: 
+
+|∇ kv(1) (x, t )| ≤ c(t)|x|−3−kt1/q ′  ∥∇ 2v∥Lq (QT ) + ∥∇ p∥Lq (QT )
+
+ ,
+
+|∇ kπ(x, t )| ≤ c|x|−1−kt1/q ′  ∥∇ 2v∥Lq (QT ) + ∥∇ p∥Lq (QT )
+
+ .
+
+Multiplying v to the first equation in (6.11) and integrating over ΩR × (0 , T )
+
+yields: 
+
+12
+
+Z 
+
+> ΩR
+
+|v|2dx + m|ℓ|2 + |J0|| ω|2
+
+
+
++ 2 μ
+
+Z t
+
+> 0
+
+Z
+
+> ΩR
+
+|D(v)|2dxdt + α
+
+Z t
+
+> 0
+
+Z
+
+> ∂Ω
+
+|[v − ℓ − ω × x]τ |2dSdt 
+
+≤
+
+Z
+
+> ∂ΩR
+
+|v|(|∇ v| + |π|) dS x dt ≤ c(T )R−1 → 0 as R → ∞ .
+
+This leads to the estimate: 
+
+12
+
+Z 
+
+> Ω
+
+|v|2dx + m|ℓ|2 + |J0|| ω|2
+
+
+
++ 2 μ
+
+Z t
+
+> 0
+
+Z
+
+> Ω
+
+|D(v)|2dxdt + α
+
+Z t
+
+> 0
+
+Z
+
+> ∂Ω
+
+|[v − ℓ − ω × x]τ |2dSdt = 0 ,
+
+and thus we conclude that 
+
+(v, ℓ, ω) ≡ (0, 0, 0).
+
+REFERENCES 
+
+[1] P. Acevedo, C. Amrouche, C. Conca, and A. Ghosh, Stokes and Navier-Stokes equations with Navier boundary condition, C. R. Acad. Sci. Paris, Ser. I , Vol. 357, No. 2, pp. 115–119, 2019. [2] P. Acevedo Tapia, C. Amrouche, C. Conca and A. Ghosh, Stokes and Navier-Stokes equations with Navier boundary conditions, J. Differential equations 285(2021) 258-320. [3] H. Al Baba, A. Ghosh, B. Muha and S. Neˇ casov´ a, Lp strong solution to fuid-rigid body inter-action system with Navier slip boundary condition , J. Elliptic Parabol. Equ. 7 (2021), 439-489. [4] C. Amrouche and M. Meslameni, Stokes problem with several types of boundary conditions in an exterior domain , Electron. J. Differ. Equ, 2013(196)(2013), 1–28. [5] C. Amrouche, M. Escobedo and A. Ghosh , Semigroup Theory for the Stokes Operator with Navier Boundary Condition on Lp Spaces , Waves in Flows,:The 2018 Prague-Sum Workshop Lectures, Birkh ¨auser (2021). [6] C. Amrouche and K.R. Rajagopal, The Stokes approximations with slip boundary conditions and Lp estimates, Nonlinear Anal. Theory Methods Appl. , Vol. 72, No. 5, pp. 2304–2324, 2010. [7] H.-O. Bae and B. J. Jin Asymptotic profile for the interaction of a rigid ball and an incompress-ible viscous fluid , Journal of Differential Equations 376 (2023),682-713 NAVIER-SLIP FLUID-STRUCTURE INTERACTION 43 
+
+[8] A. Bensoussan, G. Da Prato, M.C. Delfour and S.K. Mitter, Representation and control of infinite-dimensional systems, Vol.1, Birk ¨auser Boston Inc., Boston, MA, 1992. [9] Marco Bravin, Energy Equality and Uniqueness of Weak Solutions of a “Viscous Incompress-ible Fluid + Rigid Body” System with Navier Slip-with-Friction Conditions in a 2D Bounded Domain ,J. Math. Fluid Mech. 21 (2019),1-31 [10] D. Bresch, B. Desjardins and D. G ´erard-Veret, On compressible Navier-Stokes equations with density dependent viscosities in bounded domains , J. Math. Pures Appl. 87(2007), 227-235. [11] H. Brezis and P. Mironescu, Gagliardo-Nirenberg, composition and products in fractional Sobolev spaces , J. Evolution Equations 1 2001), 387-404. [12] F. Crispo and P. Maremonti, An interpolation inequality in exterior domains , Rend. Sem. Mat. Univ. Padova, 112(2004),11-39. [13] M. Dashti and J.C. Robinson, The motion of a fluid-Rigid Disc system at the zero limit of the Rigid Disc Radius , Arch. Rational Mech. Anal. 200 (2011), 285-312. [14] A. Dhifaoui -theory for the exterior Stokes problem with Navier’s type slip-without-friction boundary conditions, Math. Z. 73 (2022). [15] M. P. do Carmo, Differential Geometry of Curves and Surfaces , Revised and Updated Second Edition, Dover Publications, 2016. [16] J. Pr¨ uss, Evolutionary Integral Equations and Applications , Monographs in Mathematics, vol. 87, Birkh¨ auser, Basel, 1993. [17] S. Ervedoza, D. Maity and M. Tucsnak, Large time behavior for the motion of a solid in a viscous incompresible fluid, Math. Ann. 385 (2023), 631–691. [18] R. Farwig and H. Sohr, Generalized resolvent estimates for the Stokes system in bounded and unbounded domains, J. Math. Soc. Japan , 48 (1996), 581–601. [19] E. Gagliardo, Proprieta di alcune classi di funzioni in pia varialili , Richerche Mat. 7(1958), 102-137. [20] G. P. Galdi, An Introduction to the Mathematical Theory of the Navier–Stokes Equations, Vol. I & II , 2nd edition, Springer, New York, 2011. [21] D. Gerard-Varet and M. Hilliaret, Existence of weak solutions up to collision for viscous fluid-solid systems with slip, Comm. Pure Appl. Math. 67(2014), 2022-2076. [22] Y. Giga. Domains of fractional powers of the Stokes operator in Lr spaces. Archive for Rational Mechanics and Analysis , 89(3):251–265, 1985. [23] Y. Giga, Domains of fractional powers of the Stokes operator in Lr spaces, Arch. Rat. Mech. Anal. 89(1985), 251-265. [24] Y. Giga and H. Sohr, On the Stokes operator in exterior domains , J. Fac. Sci. Univ. Tokyo Sect. IA Math. 36(1989),103-130. [25] P. Grisvard, Elliptic Problems in a Nonsmooth Domains, Pitmsan Advanced Publishing Pro-gram(1985). [26] T. Hishida, Stability of time-dependent motions for fluid–rigid ball interaction, J. Math. Fluid Mech. , 26(1):1–25, 2024. [27] H. Iwashita, Lq − Lr estimates for solutions of the nonstationary stokes equations in an exterior domain and the Navier-Stokes initial value problems in Lq spaces, Math. Ann. 285, (1989) 265-288. [28] H. Kozono and T. Ogawa, Some Lp estimate for the exterior Stokes flow and an application to the non-stationary Navier-Stokes equations , Indiana Univ. Math. J. 41 (1992),789-808. [29] H. Kozono and H. Sohr, New a prior estimate for the Stokes equations in exterior domains, 
+
+Indiana Univ. Math. J. 40 (1991), 1-27. [30] O.A. Ladyzhenskaya, The Mathematical Theory of Visous Incompressible Flow, Gordon and Beach 1963. [31] A. Lunardi, Analytic Semigroups and optimal Regularity in Parabolic Problems, Birkh ¨auser (1999). [32] D. Maity and M. Tucsnak, Lp − Lq Maximal Regulairty for some Operators associated with Linearlized Incompressible Fluid-Rigid Body problems, Math. Anal. Fluid Mech.—Sel. Recent Results, Contemp. Math., 710 (2018), 175-201. 44 B. JIN 
+
+[33] D. Maity and M. Tucsnak. Lp-Lq maximal regularity for some fluid-structure interaction prob-lems. Analysis and PDE , 12(8):1913–1964, 2019. [34] P. Maremonti and V.A. Solonnikov, On nonstationary Stokes problem in exterior domains , Ann. Sc. Norm. Super. Pisa Cl. Sci. Ser. 24 (1997), 395-449. [35] P. Maremonti and V.A. Solonnikov, An estimate for the solutions of solutions of the Stokes system in exterior domains, Zap. Nauch. Sem. LOMI 180(1990), 105-120. [36] W. Rudin, Functional Analysis, McGraw-Hill Science, 1991. [37] R. Shibata, On the Stokes equations with slip boundary condition, Math. Methods Appl. Sci. 23 (2000), 203–226. [38] Y. Shibata and R. Shimada, On the Lp-Lq estimates of the Stokes semigroup in a vector bundle ,Differential and Integral Equations, 20 (11) (2007), 1201-1236. [39] Y. Shibata and H. Soga, Scattering theory for the elastic wave equation in an exterior domain, 
+
+Journal of the Mathematical Society of Japan , 41 (1989), no. 2, 311–327. [40] H. Sohr, The Navier–Stokes Equations: An Elementary Functional Analytic Approach ,Birkh¨ auser, Basel, 2001. [41] V.A. Solonnikov, Estimates for solutions of nonstationary Navier-Stokes equations, J. Soviet Math. 8(1977), 467-523. [42] T. Takahashi and M. Tucsnak, Gloabal strong solutions for the two-dimensional motion of an-finite cylinder in a viscous fluid , J. Math. fluid mech. 6 (2004), 53-77. [43] R. Temam, Navier-Stokes Equations, Theory and Numerical Analysis, Studies in Mathematics and Its Applications, Vol 2, Elsevier Science Publications B.V. 1984. [44] R. Temam, Probl` emes math´ ematiques en plasticit´ e. Gauthier-Villars, Paris, 1983. [45] C. Wang, Strong solutions for the fluid-solid systems in a 2-D domain , Asymptot. Anal. 89(2014),263-306. [46] Y. Wang and Z. Xin, Analysis of the semigroup associated with the fluid-rigid body problem and local existence of strong solutions , J. Funct. Anal. 261(2011), 2587-2616. [47] J. Weidmann, Linear operators in Hilbert spaces, Springer-Verlag(1976). DEPARTMENT OF MATHEMATICS EDUCATION , M OKPO NATIONAL UNIVERSITY 
+
+MUAN 534-729, S OUTH KOREA 
+
+Email address : bumjajin@mnu.ac.kr
