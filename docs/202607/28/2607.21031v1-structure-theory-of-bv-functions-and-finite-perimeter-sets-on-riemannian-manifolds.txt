@@ -1,0 +1,3441 @@
+Title: Structure theory of BV functions and finite perimeter sets on Riemannian manifolds
+
+URL Source: https://arxiv.org/pdf/2607.21031v1
+
+Published Time: Fri, 24 Jul 2026 00:38:31 GMT
+
+Number of Pages: 39
+
+Markdown Content:
+STRUCTURE THEORY OF BV FUNCTIONS AND FINITE PERIMETER SETS ON RIEMANNIAN MANIFOLDS 
+
+PÉTER KOLTAI 1 AND KATHRIN VÖLKNER 2
+
+Abstract. We develop the theory of functions of bounded variation and the structure theory of finite-perimeter sets on arbitrary Riemannian manifolds without relying on global curvature bounds or completeness of the manifold. To this end, we build a localization framework that permits a synthesis of techniques from Euclidean geometric measure theory and analysis on metric measure spaces while preserving genuinely Riemannian features, such as polar and nor-mal vector fields, reduced boundaries, and approximate tangent spaces. As a consequence, we recover key results of the Euclidean theory, such as a differentiation theorem for a Riemannian generalization of vector-valued measures and the structure theorems by De Giorgi and Federer, formulated intrinsically on Riemannian manifolds. This makes a large portion of the classical Euclidean BV theory available to the Riemannian setting. We demonstrate this by providing the theoretical background for boundary value problems on domains in manifolds, including trace and Gauss–Green theorems. Finally, we prove an approximation result for finite-perimeter sets in a strict sense that respects a prescribed Dirichlet boundary portion of a given ambient domain and apply this to prove Gamma-convergence of a family of energy functionals for capillarity problems with mixed boundary conditions. 
+
+Contents 
+
+1. Introduction 12. Preliminaries 43. BV functions and covector measures on Riemannian manifolds 54. Differentiation theorems for Radon and covector measures 12 5. Structure theory for sets of finite perimeter 17 6. Theory for boundary value problems and a mixed boundary capillarity problem 29 Appendix A. 36 Declarations 37 References 37 1. Introduction 
+
+Functions of bounded variation ( BV functions ) and the structure theory of sets of finite perime-ter in Rm are central to geometric analysis, the calculus of variations, and geometric measure theory. Classical results such as De Giorgi’s structure theorem and Federer’s characterization of sets of finite perimeter are essential tools in minimal surface theory and the study of isoperimet-ric problems. Generalizations of such Euclidean results to Riemannian manifolds have gained increasing attention over the past years. For instance, quantitative isoperimetric problems were studied first in the special cases of the sphere [13] and of hyperbolic space [12] before it was shown 
+
+> 1
+
+Universität Bayreuth, Bayreuth, Germany 
+
+> 2
+
+Freie Universität Berlin, Berlin, Germany. Corresponding author. kathrin.voelkner@fu-berlin.de 2020 Mathematics Subject Classification. 49Q15, 26B30, 28A75, 58J32. This research was funded by an Einstein Visiting Fellowship of the Einstein Foundation Berlin. K.V. was sup-ported by the Deutsche Forschungsgemeinschaft under Germany’s Excellence Strategy – The Berlin Mathematics Research Center MATH+ (EXC-2046/2, project ID: 390685689). K.V. would like to thank Batu Güneysu for an insightful exchange regarding covector measures and the effect of curvature conditions on BV functions, and Giona Veronelli for helpful remarks on Example 6.11. We further thank Gary Froyland and Elena Mäder-Baumdicker for pointing us to valuable references on related works. 
+
+> 1arXiv:2607.21031v1 [math.DG] 23 Jul 2026 2
+
+in [17] that an analog of the classical Euclidean result fails on general Riemannian manifolds. On the other hand, applications of BV functions in areas such as free boundary problems or shape optimization naturally occur on curved spaces, e.g. [10, 49]. The study of this type of problems requires an in-depth knowledge of BV functions and the structure theory of finite perimeter sets on Riemannian manifolds. To the best of our knowledge, an account of this is not available in the existing literature. Yet, the Riemannian generalizations are far from trivial: For instance, a naive definition of the reduced boundary of finite perimeter sets would assume a globally trivial tangent bundle, something that can be done in hyperbolic space but is clearly false in general. It is therefore a natural question to what extent the theory can be formulated intrinsically on Riemannian manifolds without imposing restrictive global as-sumptions or relying on a higher dimensional Euclidean ambient space. In this context, two main lines of work have emerged in recent years. On the one hand, treatments of BV functions on Riemannian manifolds are mainly concerned with the heat semigroup ap-proximation of the total variation. These works rely on global curvature bounds or completeness of the manifold [16, 26, 30, 47], or they consider merely compact manifolds [1, 36]. On the other hand, the theory of BV functions on metric measure spaces , which can be viewed as a further generalization, has been developed extensively under restrictive global assumptions: here, one typically assumes that the space is complete, volume doubling, and satisfies a 1-Poincaré inequal-ity, yielding powerful analytic tools in a very general framework. We only mention [3,6,39,46] and underline that this list is far from being exhaustive. However, these global structural hypotheses are not satisfied on arbitrary (noncompact) Riemannian manifolds. Moreover, several geometric objects from the Euclidean theory that can be given an intrinsic meaning on smooth manifolds, such as a notion of vector measures, normal vector fields, reduced boundaries and approximate tangent spaces to rectifiable sets, do not arise naturally in the general metric measure space setting. We also mention a related but separate line of work on weakly differentiable functions in the setting of rectifiable varifolds, see [44, 45]. Rectifiable varifolds generalize rectifiable subsets of Euclidean space and, in particular, smoothly embedded submanifolds. However, the the-ory is formulated in an ambient Euclidean space and is therefore not intrinsic to the manifold. While some results have parallel aspects with the structure theory developed here (compare, e.g., [45, Corollary 12.2] with Theorem 5.15), they concern a genuinely different class of func-tions, which does not contain functions of bounded variation (see [45, Remark 8.10]); moreover, the full-dimensional setting of the present paper is structurally excluded by the standing assump-tion of positive codimension. The purpose of this work is to bridge the gap between the Euclidean setting and the metric mea-sure space framework by developing localization techniques for functions of bounded variation and sets of finite perimeter on smooth Riemannian manifolds. Our approach is based on the characterization of BV functions via a Riemannian analog of vector-valued measures from [30] and exploits the fact that every relatively compact domain of a smooth manifold satisfies local doubling and local Poincaré inequalities. This allows us to combine methods from Euclidean geometric measure theory with results from analysis on metric measure spaces while retaining genuinely Riemannian information encoded in covector measures. In particular, throughout the paper we avoid global curvature assumptions and do not require completeness of the manifold. A distinctive feature of our approach is that we give intrinsic (coordinate-free) Riemannian def-initions while simultaneously developing a localization machinery (cf. Lemma 5.2, Lemma 5.7, Lemma 5.13 and Corollary 5.18). In this way, the present work provides a unified framework that connects both perspectives and makes a large portion of the Euclidean and metric measure space literature available on arbitrary smooth Riemannian manifolds. After introducing some notation and preliminaries in Section 2, the paper is organized as follows: 3
+
+BV functions and covector measures on Riemannian manifolds. As mentioned above, a central ingredient of our framework is the characterization of BV functions via distributional derivatives that can be represented in terms of a Riemannian analog of vector-valued measures. In Section 3 we base our theory on [30] and the representation theorem for such measures proved therein, and further develop the theory of spaces of (locally) finite covector measures on Riemannian manifolds and their dependence on the choice of the Riemannian metric. We go on to ad-dress convergence and compactness properties of covector measures and BV functions, including weak ∗ compactness (Lemma 3.9), strict approximation by smooth functions (Proposition 3.13), and compactness in BV loc (Corollary 3.14). 
+
+Differentiation theorems for Radon and covector measures. A key analytic tool in our arguments is a differentiation theorem for covector measures. In Section 4 we first establish a Riemannian version of the Lebesgue–Besicovitch–Federer differentiation theorem for Radon measures (The-orem 4.2), based on Vitali relations generated by closed Riemannian balls. As a consequence, Theorem 4.3 yields a differentiation theorem for covector measures by recovering the density vec-tor field of a given covector measure with respect to an arbitrary Radon measure from the weak ∗-limit of a sequence of covector measures. These results provide the main localization mechanism of the paper: they allow us to recover pointwise geometric information from measure-theoretic data without invoking global curvature assumptions. A chartwise formulation (Lemma 5.2) later shows that the differentiation process is compatible with local coordinates, which is essential for transferring Euclidean results to the Riemannian setting. 
+
+Structure theory for sets of finite perimeter. Section 5 develops the structure theory of finite perimeter sets. Using the differentiation results from Section 4, we introduce a Riemannian no-tion of reduced boundary based on the existence of a measure-theoretic inner normal vector. This definition is consistent with the classical Euclidean one and retains the geometric information encoded in the polar vector field of the perimeter measure. We proceed with a definition of ap-proximate tangent spaces to rectifiable sets via blow-ups in Riemannian manifolds leading up to the proofs of the main structure theorems: Theorem 5.15 is a Riemannian version of De Giorgi’s theorem and states that the reduced boundary ∂∗E of a set E of (locally) finite perimeter is (locally) rectifiable and the perimeter measure is given by the restriction of the codimension-1
+
+Hausdorff measure to ∂∗E. In addition, it establishes the connections between the measure-theoretic normal vectors and approximate tangent spaces at ∂∗E. Theorem 5.19 generalizes a Euclidean result by Federer, stating that the measure-theoretic boundary of a finite perimeter set is contained in the set of points of density 1/2 up to sets of codimension-1 Hausdorff measure zero and establishes the equivalence in Hausdorff measure of the reduced and measure-theoretic boundary. The last section is dedicated to applications of the previously established theory: 
+
+Theory for boundary value problems and a mixed boundary capillarity problem. In Section 6 we present Riemannian versions of the central tools for the treatment of boundary value problems on domains in Riemannian manifolds. This includes conditions for the existence and continuity of extension and trace operators, as well as local compactness and smooth approximation up to the boundary. We employ the localization principles established earlier to deduce a Riemannian Gauss–Green formula (Corollary 6.6), complementing existing approaches that rely on global geometric assumptions. In Section 6.2 we illustrate the flexibility of the developed theory by deriving a framework for the treatment of variational problems with mixed boundary conditions on rough domains in Riemannian manifolds. Such problems arise in various contexts, ranging from generalized mixed boundary Cheeger problems used to model landslides [20, 34] to the study of coherent sets in dynamical systems [7, 24]. Here, the subspace of functions with zero boundary conditions on the given Dirichlet boundary portion (or the subspace of sets with a ‘no touch’ condition thereon) is not closed under weak ∗ convergence, and more generally, traces are not lower semicontinuous with 4
+
+respect to weak ∗ convergence. Thus, one cannot expect that minimizers exist in the constrained function spaces. We employ the previously developed structure theory to prove a strict interior approximation result (Theorem 6.12) on the level of relative perimeters that respects a Dirichlet boundary condition on a fixed boundary portion under very general regularity assumptions on the domain. In variational problems such as those mentioned above, this result has two main applications: first, it permits the relaxation of boundary-constrained minimization problems to well-posed minimization problems on the full space of finite perimeter sets, by adding a penalization term to a given energy functional and provides a general tool to rigorously prove equivalence of the constrained and unconstrained minimization problem. Such techniques are applied, e.g. in [20, 34] using related results for Lipschitz domains in Euclidean space. Second, the approximation serves as a means to construct recovery sequences for Gamma-convergence problems with mixed boundary conditions, as we shall demonstrate in the last section. In Section 6.3 we formulate a capillarity problem in a rough domain with mixed boundary con-ditions in a manifold. Capillarity problems in domains model equilibrium states of liquids in solid containers and the formation of droplets on surfaces and have been studied extensively in recent years, e.g. [25, 33, 42, 50, 51]. The mixed boundary conditions in the problem under consideration correspond to an inhomogeneous container whose walls consist of two parts with different adhesion properties, for instance where one part is treated with a hydrophobic coating while the other part is wetting . After proving existence of minimizers using the theory developed in Sections 6.1 and 6.2, we consider a family of mixed boundary capillarity problems depending on a varying adhesion parameter and show that the energy functionals Gamma-converge un-der suitable convergence of the adhesion parameter by employing Theorem 6.12 to construct a recovery sequence. 2. Preliminaries 
+
+Throughout this paper M ≡ (M, g ) is a smooth, connected and oriented m-dimensional Rie-mannian manifold. In the sequel we assume all our chart domains to be relatively compact. If 
+
+C is a regularity class, we let ΓC (M ; T M ) denote the space of sections in the tangent bundle of class C, and we use the same convention for open subsets of M , interpreting them as open submanifolds in the usual way. If the regularity C is not specified, then Γ( M ; T M ) is the space of rough sections in the sense of [40, Chapter 10]. We use similar notation for sections in the cotangent bundle T ∗M .We write (X, Y )( x) := ( X, Y )g(x) := gx(X(x), Y (x)) for x ∈ M and sections X, Y in T M 
+
+where we will often omit the pointwise dependence of sections in situations where this causes no confusion. Since g is fixed throughout, we will indicate the dependence of Riemannian objects on g by a subscript only when necessary, for instance when other Riemannian metrics aside from 
+
+g appear. In particular, the Riemannian ball around x ∈ M of radius r > 0 will be denoted by 
+
+B(x, r ) = Bg(x, r ).Let ˆg : T M → T ∗M be the canonical Riemannian bundle isomorphism given by the (pointwise) action ˆg(X)( Y ) = ( X, Y )g and its inverse ˆg−1 : T ∗M → T M satisfying (ˆ g−1(α), X )g = α(X).Then the canonical bundle metric on the cotangent bundle T ∗M is denoted by g−1 and satisfies 
+
+(α, β )g−1 = α(ˆ g−1(β)) .The spaces of Borel measurable and bounded Borel measurable functions on U will be denoted by B(U ) and Bb(U ), and unless specified otherwise, by measurable we will always mean Borel measurable. For open sets U ⊂ M we denote the space of p-integrable functions with respect to the Riemannian volume measure vol = vol g by Lp(U ) = Lp(U, g ) and write ∥·∥ p,U = ∥·∥ p,U,g for the corresponding norm. If E ⊂ M is a measurable set, we will sometimes write |E|g = |E| := vol( E).The divergence of a C1-vector field X on M with respect to the volume measure is uniquely defined as the function div( X) = div g(X) ∈ C(M ) satisfying 
+
+ˆ
+
+> M
+
+ϕ div( X) dvol = −
+
+ˆ
+
+> M
+
+dϕ (X) dvol for all ϕ ∈ C∞ 
+
+> c
+
+(M ),5
+
+where dϕ is the exterior derivative of ϕ. If X = P 
+
+> i
+
+Xi ∂∂x i in local coordinates, then 
+
+div( X) = X
+
+> i
+
+1
+
+√det g∂∂x i
+
+pdet gX i. (2.1) For open sets U the equality ˆ
+
+> U
+
+ϕ div( X) dvol = −
+
+ˆ
+
+> U
+
+(∇ϕ, X ) dvol 
+
+is satisfied for ϕ ∈ C1(U ) and X ∈ ΓC1 (U ; T U ) if ϕ or X is compactly supported in U .
+
+Remark 2.1 . By the previous considerations, − div is the formal adjoint of the gradient operator with respect to the L2-inner product of vector fields on M . Thus, given a distribution T :
+
+C∞ 
+
+> c
+
+(U ) → R, we can define its distributional gradient (∇T )( X) = −T ( div( X)) and for a regular distribution Tu induced by u ∈ L1loc (U ), we can view Du = Dgu as a distributional derivative defined by 
+
+Du [X] := ∇Tu(X) = −
+
+ˆ
+
+> U
+
+u div( X) dvol , X ∈ ΓC∞ 
+
+> c
+
+(U ; T U ),
+
+and Du [X] is well-defined for X ∈ ΓC1 
+
+> c
+
+(U ; T U ).We will repeatedly rely on results from BV -theory on metric measure spaces which often relies on the validity of a 1-Poincaré inequality and a doubling condition on the measure. It is well-known that both assumptions are valid globally on complete Riemannian manifolds with nonnegative Ricci curvature (see e.g. [54, Chapter 5.6.3]). For our purposes, it will often be sufficient to rely on these metric measure space assumptions locally on arbitrary Riemannian manifolds. This is justified by the following: 
+
+Remark 2.2 . If Ω ⊂ M is relatively compact, then we can always view it as a domain in a closed Riemannian manifold: take some smoothly bounded relatively compact domain M0 in M
+
+such that Ω is compactly contained in M0. Then its closure ¯M0 is a compact manifold with smooth boundary and can be extended to a closed manifold ˆM , its so-called double , see [40, Example 9.32]. Since ˆM is closed, the Riemannian metric can be extended from the closure of Ω to all of ˆM by [40, Lemma 10.12]. In particular, as every closed manifold has bounded curvature, [54, Theorems 5.6.4, 5.6.5] can be applied to Ω. This means that 
+
+• the volume measure is doubling on every relatively compact domain Ω in M ,
+
+• every relatively compact domain Ω satisfies a 1-Poincaré inequality for arbitrary balls 
+
+B ⊂ Ω,with constants depending on Ω. If M is complete, then the same statements apply to arbitrary bounded domains. 3. BV functions and covector measures on Riemannian manifolds 
+
+The total variation of a function u ∈ L1loc (Ω) on an open subset Ω ⊂ M is defined by 
+
+Var Ω(u) := sup 
+
+ˆ
+
+> Ω
+
+u div( X) dvol : X ∈ ΓC1 
+
+> c
+
+(Ω; T Ω) , |X| ≤ 1
+
+
+
+∈ [0 , ∞]. (3.1) The total variation is lower semicontinuous with respect to L1loc . That is, if a sequence (un)
+
+converges to u in L1loc (Ω) , then for all open subsets U ⊂ Ω one has 
+
+lim inf  
+
+> n
+
+Var Ω(un)( U ) ≥ Var Ω(u)( U ).
+
+We write U ⊂⊂ Ω to express that a subset U is relatively compact in Ω. If Var U (u) < ∞
+
+holds for all open subsets U ⊂⊂ Ω, we say that u has locally bounded variation on Ω and write u ∈ BV loc (Ω) . If u ∈ L1(Ω) and Var Ω(u) < ∞, we say that u is a function of bounded variation on Ω. The space BV (Ω) of functions of bounded variation on Ω becomes a Banach space with the norm ∥u∥BV (Ω) := ∥u∥1,Ω + Var Ω(u).In the Euclidean setting, functions of bounded variation can be characterized as those integrable functions whose distributional derivative can be represented by a vector-valued Radon measure. 6
+
+We adapt the Riemannian analog introduced in [30] in terms of so-called generalized vector measures that act on 1-forms to measures that act on vector fields. We denote by M(Ω) and 
+
+Mloc (Ω) the spaces of finite Radon measures and Radon measures on Ω, respectively. Note that Radon measures are always locally finite. 
+
+Definition 3.1. A (locally) finite covector measure on an open set Ω ⊂ M is defined as a pair 
+
+ν = ( μ, σ ) consisting of a (locally) finite Radon measure μ on Ω and a (locally) bounded Borel measurable section σ : Ω → T ∗Ω. For ν = ( μ, σ ) we define 
+
+σν (x) := 
+
+
+
+σ(x)
+
+|σ(x)| , if σ(x)̸ = 0 0, otherwise and |ν| := |σ|μ, 
+
+and identify two pairs ν = ( |ν|, σ ν ) and ˜ν = ( |˜ν|, σ ˜ν ) if |ν| = |˜ν| as Borel measures and σν (x) = 
+
+σ˜ν (x) for |ν|-almost every x ∈ Ω. We denote the spaces of finite and locally finite covector measures on Ω by M(Ω; T ∗Ω) and Mloc (Ω; T ∗Ω) , respectively, and remark that clearly one always has M(Ω; T ∗Ω) ⊂ M loc (Ω; T ∗Ω) . Often, we simply refer to ν ∈ M loc (Ω; T ∗Ω) as a covector measure. By [30, Theorem 1] the classical Riesz–Markov representation theorem for measures extends to covector measures in the following way: 
+
+Theorem 3.2 (Riesz–Markov representation theorem for finite covector measures) . The map 
+
+M(Ω; T ∗Ω) → (Γ C0 (Ω; T Ω) , ∥·∥ ∞)∗
+
+ν 7 → Tν
+
+with Tν [X] := 
+
+ˆ
+
+> Ω
+
+σν (X) d|ν| (3.2) 
+
+is a well-defined bijection, and |ν|(Ω) equals the operator norm of Tν , that is, 
+
+|ν|(Ω) = ∥Tν ∥Ω,∞,∗ = sup 
+
+ˆ
+
+> Ω
+
+σν (X) d|ν| : X ∈ ΓC0 (Ω; T Ω) , |X| ≤ 1
+
+
+
+. (3.3) Here, C0 stands for the space of continuous functions vanishing at infinity. We deduce the Riesz–Markov representation theorem for locally finite covector measures: 
+
+Corollary 3.3. For every linear map T : Γ Cc (Ω; T Ω) → R satisfying 
+
+∥T ∥U, ∞,∗ < ∞ for every open set U ⊂⊂ Ω, (3.4) 
+
+there exists a unique ν = ( ν, σ ) ∈ M loc (Ω; T ∗Ω) such that 
+
+T [X] = 
+
+ˆ
+
+> Ω
+
+σ(X) dμ for all X ∈ ΓCc (Ω; T Ω) .
+
+Where T 7 → ν is a bijection and one has ∥T ∥U, ∞,∗ = |ν|(U ).Proof. To see this, note that by density of Cc(U ) in C0(U ), condition (3.4) is satisfied if and only if the restriction of T to ΓC0 (U ; T U ) is bounded with respect to uniform convergence for all open U ⊂⊂ Ω. On the other hand, ν = ( μ, σ ) lies in Mloc (Ω; T ∗Ω) if and only if the restriction 
+
+ν⌞U = ( μ⌞U, σ |U ) (see also the definition at the end of this section) is a finite covector measure on each relatively compact open set U ⊂⊂ Ω. Now one can apply the Riesz–Markov theorem for finite covector measures on U to the respective restrictions of T and ν. □
+
+From now on, we identify M(Ω; T ∗Ω) with (Γ C0 (Ω; T Ω)) ∗ and Mloc (Ω; T ∗Ω) with (Γ Cc (Ω; T Ω)) ∗.If ν is a covector measure on Ω, the measure |ν| is called its total variation measure , and we define the polar vector field Σν : Ω → T Ω of ν as the Borel measurable vector field given by 
+
+Σν := ˆ g−1(σν ). (3.5) Then, by Definition 3.1, one has that |Σν (x)| = 1 for |ν|-almost every x ∈ Ω, and we write 
+
+ν[X] := 
+
+ˆ
+
+> Ω
+
+X · dν := 
+
+ˆ
+
+> Ω
+
+σν (X) d|ν| =
+
+ˆ
+
+> Ω
+
+(Σ ν , X ) d|ν|,
+
+where the action ν[X] ∈ [−∞ , ∞] is well-defined for Borel sections X : Ω → T Ω. We identify 
+
+ν = ( |ν|, σ ν ) = ( |ν|, Σν ) and refer to the last representation as the polar decomposition of ν. It 7
+
+follows immediately that on Rm, the space of covector measures coincides with the usual space of vector-valued measures, since the cotangent and tangent bundles are globally trivial. Finally, we mention that the total variation measure of an open subset U ⊂ Ω is given by 
+
+|ν|(U ) = sup 
+
+ˆ
+
+> Ω
+
+(Σ ν , X ) d|ν| : X ∈ ΓC (U ; T U ), |X| ≤ 1
+
+
+
+.
+
+Here, the supremum can be taken over vector fields of class C, with C being any dense subspace of 
+
+C0(U ), such as C10 (U ), C1 
+
+> c
+
+(U ) or C∞ 
+
+> c
+
+(U ), and by separability of C0(U ), one can pick a countable dense subset as well. As a result of these considerations, we immediately obtain the announced characterization of functions of bounded variation: 
+
+Theorem 3.4 (Characterization of BV) . A function u ∈ L1loc (Ω) has (locally) bounded varia-tion if and only if there exists a (locally) finite covector measure Du with polar decomposition 
+
+(|Du |, Σu) on Ω such that 
+
+ˆ
+
+> Ω
+
+(X, Σu) d|Du | = −
+
+ˆ
+
+> Ω
+
+u div( X) dvol for all X ∈ ΓC1 
+
+> c
+
+(Ω , T Ω) .
+
+The covector measure Du and |Du |(Ω) coincides with the total variation of u as defined in (3.1) .Example 3.5 . If u ∈ W 1,1(Ω) (respectively, W 1,1loc (Ω) ), and ∇u denotes the weak gradient of u,then − ´ 
+
+> Ω
+
+u div( X) dvol = ´
+
+> Ω
+
+(X, ∇u) dvol implies that u ∈ BV (Ω) (respectively, u ∈ BV loc (Ω) )with 
+
+|Du |(A) = 
+
+ˆ
+
+> A
+
+|∇ u| dvol and Σu = ∇u(|∇ u|)−1 on sppt ∇u. 
+
+In particular, for u ∈ W 1,1(Ω) one has ∥u∥W 1,1(Ω) = ∥u∥BV (Ω) .
+
+Remark 3.6 . The principal advantage of our formulations of Definition 3.1 and Corollary 3.3 is that the space Mloc (Ω; T ∗Ω) is well-defined on arbitrary smooth manifolds and the Riesz–Markov theorem remains valid without a Riemannian metric 1. This is due to the fact that boundedness of a vector field on relatively compact sets U is well-defined by boundedness in the Euclidean sense for every finite cover of U by local charts. The same is true for property (3.4) and we define the action of ν as a continuous linear functional on ΓCc (Ω; T Ω) via the dual pairing rather than the Riemannian metric. By contrast, the definitions of finite covector measures and of functions of bounded variation on noncompact open subsets of Ω do require a norm on tangent vectors. From this perspective, working with the polar decomposition ν = ( |ν|, Σν ) provides a more natural framework, closely paralleling the classical theory of vector-valued measures and BV functions on Rm. Since several results developed later in this paper are inherently Riemannian, from now on we shall employ the polar decomposition with respect to the fixed metric g.We conclude this section by defining some operations on covector measures. We denote by 
+
+Bb(Ω) the space of bounded Borel measurable functions on Ω. Let ν be a (locally) finite covector measure on Ω. Then its multiplication with f ∈ Bb(Ω) produces a (locally) finite covector measure f ν by setting 
+
+(f ν )[ X] := ν[f X ] = 
+
+ˆ
+
+> Ω
+
+(X, Σν )f d |ν|
+
+for |ν|-integrable vector fields X. For a section in the endomorphism bundle A ∈ ΓBb (Ω , End( T Ω)) ,we define the (locally) finite covector measure Aν by 
+
+(Aν)[ X] := ν[AX] = 
+
+ˆ
+
+> Ω
+
+(X, A∗Σν ) d|ν|.
+
+The restriction of ν to a Borel measurable set E is defined by 
+
+(ν⌞E)[ X] := 
+
+ˆ
+
+> E
+
+X · dν.   
+
+> 1In other works on Riemannian BV functions, generalizations of Euclidean vector-valued measures are typically defined directly in terms of their polar decomposition, see [30]. 8
+
+For a fixed vector field X ∈ ΓBb (Ω; T Ω) , the contraction νX of ν with X defines a signed measure on Ω by 
+
+νX (E) := 
+
+ˆ
+
+> E
+
+X · dν 
+
+for Borel sets E ⊂ Ω. If f : M → N is a diffeomorphism, then the pushforward of Mloc (M ; T ∗M )
+
+by f is the locally finite covector measure f∗ν on N defined by 
+
+f∗ν [Y ] = ν [( f −1)∗Y ]
+
+for Y ∈ ΓC10 (N, T N ). Similarly, the pullback of η ∈ M loc (N ; T ∗N ) under f is the locally finite covector measure on M defined by 
+
+f ∗η [X] := η [f∗X],
+
+and we obtain f∗ν [Y ] = ( f −1)∗ν [Y ].3.1. Dependence of M and BV on the choice of Riemannian metric. We examine the dependence of the spaces of covector measures and functions of bounded variation on the choice of Riemannian metric. Since the polar decomposition of a covector measure ν depends on the Riemannian metric, and therefore the operator seminorms of ν do as well, we shall indicate the dependence when necessary by writing (|ν|g, Σνg ). As we have seen earlier, the distributional gradient Dgu = Du of u ∈ L1loc (Ω) depends on the Riemannian volume measure. Hence, the total variation measure of u depends on g twofold, and we shall write |Du | = |Du |g = |Dgu|g,unless two Riemannian metrics are involved. Let h be another Riemannian metric on M . Then 
+
+A = Ag,h := ˆ g−1 ◦ ˆh and A−1 = Ah,g = ˆh−1 ◦ ˆg (3.6) are the unique endomorphisms of T M satisfying 
+
+(X, Y )h = ( A X, Y )g and (X, A−1Y )h = ( X, Y )g. (3.7) Then g ≤ Ch holds on Ω ⊂ M in the sense of bilinear forms for some constant C > 0 if and only if ∥A −1∥∞,Ω := sup x∈Ω |A −1(x)| is finite, and in that case, the optimal constant C
+
+equals ∥A −1∥∞,Ω. Then pdet( A) is the Jacobian of the identity map from (M, g ) to (M, h )
+
+and satisfies det( A) = det( h)/det( g). In view of the local formula for the Riemannian volume measure in coordinates one has vol h = pdet( A) vol g.
+
+Lemma 3.7. The polar decompositions of a covector measure ν on Ω transform via 
+
+d|ν|h
+
+d|ν|g
+
+= (Σ νh, Σνg )g = |A −1 Σνg |h =
+
+q
+
+(Σ νg , A−1 Σνg )g (3.8) 
+
+and 
+
+Σνh = A−1 Σνg
+
+|A −1 Σνg |h
+
+. (3.9) 
+
+If for some C > 0 one has g ≤ Ch on Ω, then M(Ω; T ∗Ω, g ) ⊂ M (Ω; T ∗Ω, h ) and for every 
+
+ν ∈ M (Ω; T ∗Ω, g ) the total variation measures satisfy |ν|h(E) ≤ C|ν|g(E) for all Borel sets 
+
+E ⊂ Ω.Proof. If g ≤ Ch on Ω, then (Γ C0 (Ω , T Ω) , ∥·∥ g, ∞) is embedded into (Γ C0 (Ω , T Ω) , ∥·∥ h, ∞) with embedding constant C. Using the Riesz–Markov isomorphism, it follows that M(Ω; T ∗Ω, g ) ⊂M(Ω; T ∗Ω, h ) and every ν ∈ M (Ω; T ∗Ω, g ) admits a unique polar decomposition (|ν|h, Σνh) with respect to h. For open subsets U ⊂ Ω, the estimate |ν|h(U ) ≤ C|ν|g(U ) follows directly from the characterization of the total variation on open subsets in terms of the dual space norm and ex-tends to arbitrary Borel sets by outer regularity of finite Radon measures. Finally, Definition 3.1 and (3.5) immediately imply (3.8) and (3.9). □
+
+We summarize some consequences of the previous lemma: 9
+
+Remark 3.8 . (1) If h and g are bi-Lipschitz equivalent on Ω, meaning that there exists a constant 
+
+C ≥ 1 such that 1 
+
+> C
+
+g ≤ h ≤ Cg holds on Ω, then the spaces L1(Ω) , BV (Ω) , and M(Ω; T ∗Ω) 
+
+defined with respect to g coincide, as sets, with the corresponding spaces defined with respect to h. Moreover, the norms induced by h and g on each of these spaces are equivalent. In particular, since two Riemannian metrics on M are always locally bi-Lipschitz equivalent, the spaces BV loc (Ω) and Mloc (Ω; T ∗Ω, g ) are independent of the choice of metric, as we observed for Mloc in Remark 3.6 by the very construction. On each of these spaces, the family of seminorms given by the norms on the restrictions to relatively compact open subsets of Ω
+
+induces a topology which is independent of the Riemannian metric. (2) For u ∈ L1loc (Ω) , one can deduce from the coordinate representation of div g and div h that 
+
+Dhu[X] = pdet( A)Dgu[X],
+
+and with Lemma 3.7 we conclude that one has BV (Ω , g ) = BV (Ω , h ) if and only if both 
+
+∥A∥ ∞,Ω and ∥A −1∥∞,Ω are finite. Then one gets 
+
+|Du |h =
+
+q
+
+det( A)(Σ ug , A−1Σug )g |Du |g. (3.10) (3) If ν is a covector measure on M represented by (Σ g, |ν|g) with respect to g and f : M → N
+
+is a diffeomorphism, then f∗ν is represented by (f∗(Σ g), f ∗|ν|g) with respect to ˜g := ( f −1)∗g.Moreover, if u ∈ BV loc (M ), then ˜u := ( f −1)∗u = u ◦ f −1 ∈ BV loc (N ) and one has 
+
+D˜g ˜u[Y ] = Dgu[( f −1)∗Y ] = f∗(Dgu)[ Y ]
+
+and |D˜g ˜u|˜g = f∗(|Dgu|g).3.2. Convergence of covector measures and convergence in BV . Recall that a sequence of (signed) Radon measures μn on Ω is said to converge in the weak ∗ or vague sense of measures to μ if for all ψ ∈ C0(Ω) one has ˆ
+
+> Ω
+
+ψ dμ n →
+
+ˆ
+
+> Ω
+
+ψ dμ as n → ∞ , (3.11) and we then write μn ∗
+
+⇀ μ . Note that the space of test functions can be reduced to the dense subspace Cc(Ω) . If (3.11) holds for all bounded, continuous functions ψ ∈ Cb(Ω) , then we say that 
+
+μn converges to μ weakly , in which case we write μn ⇀ μ . Weak and weak ∗ limits are unique, and every bounded sequence of (signed) Radon measures admits a weakly ∗ convergent subsequence. Similarly, we define weak ∗ convergence of covector measures νn to ν ∈ M loc (Ω; T ∗Ω) via the condition that 
+
+νn[X] → ν[X] as n → ∞ (3.12) for all C0 or equivalently Cc vector fields X. For finite covector measures we say that νn converges to ν weakly if (3.12) holds for all Cb-vector fields X and we use the same notation as above to indicate weak and weak ∗ convergence. Finally, we say that a sequence of covector measures on Ω(νn) is bounded if sup n |νn|(Ω) < ∞ and locally bounded if it is bounded on all relatively compact subsets of Ω.
+
+Lemma 3.9. Let ν and νn, n ∈ N, be finite covector measures on Ω.(i) Weak ∗ and weak limits of (νn) are unique. (ii) If (νn) is bounded, then it admits a weakly ∗ convergent subsequence. (iii) Assume that νn ∗
+
+⇀ ν . Then one has lim inf n |νn|(U ) ≥ | ν|(U ) for all open subsets U ⊂ Ω.If in addition, lim sup |νn|(Ω) ≤ | ν|(Ω) , then one has |νn| ⇀ |ν|.Proof. (i) The identification of M(Ω , T ∗Ω) with (Γ C0 (Ω; T Ω)) ∗ via the Riesz–Markov representa-tion theorem for covector measures implies that sequential weak ∗ convergence in (Γ C0 (Ω; T Ω)) ∗
+
+is equivalent to weak ∗ convergence of the corresponding sequence in M(Ω , T ∗Ω) . In particular, weak ∗ limits of finite covector measures are unique and since every weak limit is a weak ∗ limit as well, this implies uniqueness of weak limits. 10 
+
+(ii) Since the space ΓC0 (Ω; T Ω) is a separable Banach space, bounded subsets of its dual space are relatively sequentially weakly ∗-compact by the Banach-Alaoglu theorem, and we conclude that every bounded sequence of finite covector measures has a weakly ∗ convergent subsequence. (iii) Let U ⊂ Ω be open and fix ε > 0. By (3.3) and a density argument, we can find X ∈
+
+ΓCc (U, T U ) with |X| ≤ 1 such that |ν|(U ) ≤ ´ 
+
+> U
+
+(X, Σν ) d|ν| + ε. Hence by weak ∗ convergence, 
+
+|ν|(U ) − ε ≤
+
+ˆ
+
+> Ω
+
+(X, Σν ) d|ν| = lim 
+
+> n
+
+ˆ
+
+> Ω
+
+(X, Σνn) d|νn| ≤ lim inf 
+
+> n
+
+ˆ
+
+> Ω
+
+|(X, Σνn)| d|νn|≤ lim inf 
+
+> n
+
+ˆ
+
+> Ω
+
+1 d|νn| = lim inf  
+
+> n
+
+|νn|(U ).
+
+This proves the first assertion. Now the second assertion is an immediate application of a version of the Portmanteau theorem for finite Borel measures which states that |νn| converges weakly to |ν| if and only if lim |νn|(Ω) = |ν|(Ω) and lim inf n |νn|(U ) ≥ | ν| for open subsets U ⊂ Ω,see [21, Theorem 4.10]. □
+
+Remark 3.10 . By definition, a sequence (νn) of covector measures is bounded if and only if the sequence of total variation measures (|νn|) is bounded. Just like (νn), the associated measures 
+
+|νn| admit a weakly ∗ convergent subsequence with a weak ∗ limit μ in the sense of (3.11), but in general this does not imply μ = |ν|. The third part of Lemma 3.9 provides a sufficient condition for equality of μ and |ν|.In analogy to the Euclidean case, we define the notion of strict convergence of functions of bounded variation: 
+
+Definition 3.11. A sequence un ∈ BV (Ω) converges strictly to u ∈ BV (Ω) if un → u in L1(Ω) 
+
+and |Du n|(Ω) → | Du |(Ω) .Clearly, this notion of convergence is weaker than norm convergence in BV (Ω) . However, it turns out to be useful since, unlike the norm topology, it admits approximations by smooth functions, as we shall see in Proposition 3.13. We first state some connections between notions of convergence for BV functions. 
+
+Corollary 3.12. Let un, u ∈ BV (Ω) .(i) If ∥un − u∥1,Ω → 0 and sup n |Du n|(Ω) < ∞, then Du n ∗
+
+⇀ Du .(ii) If un → u strictly, then Du n ⇀ Du and |Du n| ⇀ |Du |.Proof. (i) By part (ii) of Lemma 3.9 one can extract a weakly ∗ convergent subsequence of Du n
+
+with weak ∗ limit ν = ( |ν|, Σν ). It remains to prove that ν = Du . Indeed, using that un → u in 
+
+L1(Ω) , one gets for arbitrary X ∈ ΓC1 
+
+> c
+
+(Ω , T Ω) ,
+
+−
+
+ˆ
+
+> Ω
+
+u div( X) dvol = − lim 
+
+> n
+
+ˆ
+
+> Ω
+
+un div( X) dvol = lim 
+
+> n
+
+ˆ
+
+> Ω
+
+(X, Σun ) d|Du n| =
+
+ˆ
+
+> Ω
+
+(X, Σν ) d|ν|,
+
+hence by Theorem 3.4, we get (|ν|, Σν ) = ( |Du |, Σu). Since this equality is independent of the choice of subsequence, the whole sequence (Du n) converges weakly ∗ to Du .(ii) If (U, φ ) is a local chart for M , then an application of Remark 3.8 implies that un → u strictly in BV (U ) if and only if ˜un = un ◦ φ−1 → u ◦ φ−1 = ˜ u in BV (φ(U )) . From [4, Proposition 3.15] it follows that D˜un → D˜u weakly on the domain φ(U ) ⊂ Rm. Therefore, the pushforward measures under the inverse chart φ−1 
+
+> ∗
+
+(D˜un) = φ∗(φ−1 
+
+> ∗
+
+(Du n)) = Du n converge weakly to φ−1 
+
+> ∗
+
+(D˜u) = Du 
+
+on U . Now let {Uα}α be a locally finite and countable atlas for Ω and let {ζα}α ⊂ C∞(M ) be a partition of unity subordinate to {Uα}α. Then for all X ∈ ΓCb (Ω; T Ω) we get 
+
+Du n[X] = X
+
+> α
+
+ˆ
+
+> Uα
+
+ζαX · dDu n → X
+
+> α
+
+ˆ
+
+> Uα
+
+ζαX · dDu = Du [X]. (3.13) Now Du n converges to Du weakly and by definition of strict convergence, we have |Du n|(Ω) →|Du |(Ω) . Thus, we are in the situation of Part 3 of Lemma 3.9 and conclude that |Du n| ⇀ |Du |
+
+as well. □11 
+
+As we have seen earlier, the Sobolev space W 1,1(Ω) is a subspace of BV (Ω) and for u ∈ W 1,1(Ω) 
+
+the BV - and Sobolev-norms coincide. Thus, W 1,1(Ω) is closed in BV (Ω) . By the Meyers–Serrin theorem, smooth Sobolev functions are dense in Sobolev spaces and therefore, they cannot be dense in BV (Ω) with respect to the norm topology. However, it is possible to assert the following density result in terms of strict convergence. Note that a strict approximation result for functions in BV (M ) on a complete manifold M appears in [47], and a weaker approximation result in terms of an L1-approximation of BV functions with weak ∗ convergence of the total variation measures is shown in [5, Theorem 2.4] in the sub-Riemannian setting. 
+
+Proposition 3.13 (Strict approximation by smooth functions) . For all u ∈ BV (Ω) there exists a sequence of functions un ∈ C∞(Ω) ∩ BV (Ω) such that un converges to u strictly. Proof. Let u ∈ BV (Ω) . By [5, Thm. 3.1] there exists a sequence of locally Lipschitz continuous functions vk satisfying 
+
+sup 
+
+> k
+
+|Dv k|(Ω) = sup 
+
+> k
+
+ˆ
+
+> Ω
+
+|∇ vk| dvol < ∞
+
+such that (vk) converges to u strictly. By Rademacher’s theorem Lip loc (Ω) ⊂ W 1,1loc (Ω) , so we get vk ∈ W 1,1loc (Ω) ∩ BV (Ω) ⊂ W 1,1(Ω) . Therefore we can use density of C∞(Ω) ∩ W 1,1(Ω) in 
+
+W 1,1(Ω) (cf. [48, Lemma 3.1] or more generally, [29, Cor. 3.6]) to approximate each vk by a sequence (ukn ) in C∞(Ω) ∩ W 1,1(Ω) . Since convergence in W 1,1(Ω) implies strict convergence on 
+
+Ω, we can pick an appropriate diagonal sequence (un) ⊂ C∞(Ω) ∩ W 1,1(Ω) = C∞(Ω) ∩ BV (Ω) 
+
+that converges to u strictly on Ω. □
+
+As a consequence, we formulate an equivalent characterization for functions of bounded vari-ation: A function u lies in BV (Ω) if and only if there exists a sequence (un) ⊂ C∞(Ω) ∩
+
+W 1,1(Ω) such that un → u in L1(Ω) and lim sup n
+
+´ 
+
+> Ω
+
+|∇ un| dvol < ∞. In that case, |Du |(Ω) = lim n
+
+´ 
+
+> Ω
+
+|∇ un| dvol . We note moreover that if u is compactly supported or if Ω = M and M is complete, then the sequence can be chosen in C∞ 
+
+> c
+
+(Ω) (see [29] and [8], respectively). 
+
+Corollary 3.14. If (un) ⊂ BV loc (Ω) is a sequence such that sup n∥un∥BV (U ) < ∞ for all open 
+
+U ⊂⊂ Ω, then there exists u ∈ BV loc (Ω) such that along a subsequence, un → u in L1loc (Ω) and 
+
+Du n → Du weakly ∗.Proof. Step 1) For each U ⊂⊂ Ω one can find a subsequence that converges to some v in L1(U )
+
+and such that Du n ∗
+
+⇀ Dv on U .Proof of Step 1). We fix such a set U and let U ′ ⊂⊂ Ω be an open set with smooth boundary such that U ⊂⊂ U ′. Then un ∈ BV (U ′) so by Proposition 3.13, we can find for each n a function 
+
+vn ∈ C∞(U ′) ∩ BV (U ′) ⊂ W 1,1(U ′) such that 
+
+∥un − vn∥1,U ′ < 1 
+
+> n
+
+and |Du n|(U ′) − | Dv n|(U ′)| < 1
+
+n . (3.14) Therefore, since ∥un∥BV (U ′) is uniformly bounded, it follows that ∥vn∥W 1,1(U ′) = ∥vn∥BV (U ′)
+
+is uniformly bounded as well. Since the closure of U ′ is compact with smooth boundary, the embedding W 1,1(U ′) ,→ L1(U ′) is compact by [32, Theorem 10.1] and there exists v ∈ L1(U ′)
+
+such that vn → v in L1(U ′) along a subsequence. Then in view of (3.14), we have un → v in 
+
+L1(U ′) along the same subsequence and by Corollary 3.12, v lies in BV (U ′) and Du n ∗
+
+⇀ Dv on 
+
+U ′ and the same convergences are valid on U .
+
+Step 2) The compactness statement holds for BV loc (Ω) .Proof of Step 2). Let (Uk)k≥1 be an exhaustion of Ω by compactly contained open sets. Apply Step 1 iteratively to Uk for k ≥ 1, to obtain, for each k, a subsequence (ukn )n converging to some vk in L1(Uk) and with Du kn → Dv k weakly ∗ on Uk. Since the sets Uk are nested, we have 
+
+vk+1 |Uk = vk. Now for arbitrary measurable A ⊂⊂ Ω, we can find some k such that A ⊂ Uk,hence the function u ∈ L1loc (Ω) is well-defined by setting u|A := vk|A. Finally, we extract a diagonal sequence of (ukn ) that converges to u ∈ L1loc (Ω) and satisfies Du kn → Du weakly ∗
+
+on Ω. □12 
+
+3.3. Sets of finite perimeter. Let E be a measurable subset of M and let Ω ⊂ M be open. The perimeter of E in Ω is defined as 
+
+P(E; Ω) := |D1E |(Ω) ,
+
+and E is called a set of (locally) finite perimeter in Ω if 1E has (locally) bounded variation in Ω.If we say E has (locally) finite perimeter, we always mean that E has (locally) finite perimeter in M and refer to P (E) := P (E; M ) as the perimeter of E. Sets of finite perimeter are also referred to as Caccioppoli sets and we will thus write 
+
+C (Ω) = {E ⊂ Ω : |E| < ∞ and P(E; Ω) < ∞} 
+
+and define Cloc (Ω) as the measurable subsets of locally finite perimeter. We say that a family 
+
+{En} in C (Ω) is uniformly bounded if sup n |En| + P(En; Ω) < ∞. If E ⊂ M has finite perimeter in Ω, then the perimeter of E in F is well-defined and finite for all measurable sets F ⊂ Ω. A sequence of finite perimeter sets En ⊂ M is said to converge strictly in Ω to E if the indicator functions 1En converge strictly to 1E in BV (Ω) . Recall also that a sequence of measurable sets 
+
+En ⊂ M converges to E ⊂ M in measure if their indicator functions converge in L1(M ) with respect to the volume measure or equivalently, if the symmetric differences of En and E satisfy 
+
+vol( En∆E) → 0. Then, local convergence in measure is defined in the obvious way. 
+
+Remark 3.15 . The space of Borel measurable subsets of Ω is closed under (local) convergence in measure. This follows from the fact that any L1-convergent sequence of indicator functions admits a subsequence that (locally) converges pointwise almost everywhere. Since the pointwise limit must also have values in the closed set {0, 1}, it must be an indicator function, too. In particular, this implies that the compactness property from 3.14 can be applied to Cloc (Ω) in a similar manner. We recall a central theorem of the theory of BV functions (cf. the proof of [46, Theorem 4.2]): 
+
+Theorem 3.16 (Coarea formula) . Let u ∈ BV (Ω) . Then 
+
+|Du |(B) = 
+
+ˆ
+
+> R
+
+|D1{u>t }|(B) dt for all measurable B ⊂ Ω,
+
+where 1{u>t } is the indicator function of the superlevel set Et := {x ∈ Ω : u(x) > t } for t ∈ R.Moreover, one has 
+
+|Du |(B) = 
+
+ˆ ∞
+
+> 0
+
+|D1{| u|>t }|(B) dt for all measurable B ⊂ Ω.
+
+Note that the second equality follows from the first one, using either the identity |D|u|| = |Du |,or using that for t > 0, the measure |D1{| u|>t }| is concentrated on the disjoint sets {u = t} and 
+
+{u = −t}, and decomposes as desired on these sets. 4. Differentiation theorems for Radon and covector measures 
+
+We devote this section to the proof of a differentiation theorem for arbitrary covector measures with respect to Radon measures on M . Recall that the classical Lebesgue differentiation theorem states that, given f ∈ L1loc (Rm), with respect to the Lebesgue measure λ one has 
+
+f (x) = lim 
+
+> r→0
+
+1
+
+λ(Be(x, r )) 
+
+ˆ
+
+> Be(x,r )
+
+f dλ for a.e. x ∈ Rm.
+
+The more general Lebesgue–Besicovitch theorem states that, given a positive Radon measure μ
+
+and a signed or vector-valued Radon measure ν on Rm, the limit 
+
+F (x) = lim 
+
+> r↓0
+
+ν( ¯Be(x, r )) 
+
+μ( ¯Be(x, r )) (4.1) exists for μ-almost every x ∈ Rm and one has ν = F μ + νs, where νs is the singular part of ν
+
+with respect to μ [4, Theorem 2.22]. The generalization of this statement to covector measures on Riemannian manifolds presents itself with two major difficulties. Firstly, the expression in (4.1) is not well-defined for a Radon 13 
+
+measure μ on M and ν ∈ M loc (M ; T ∗M ). Instead, we will consider the weak ∗-limit of the sequence given by 
+
+ν⌞ ¯B(x, r )
+
+μ( ¯B(x, r )) ∈ M (M ; T ∗M ),
+
+see Theorem 4.3. Secondly, the proof of the Euclidean statement relies on the Besicovitch covering lemma, which establishes a uniform bound on the overlap among countable subcollections of any family of closed balls. While this covering lemma is generally false on arbitrary Riemannian manifolds, Federer actually proves a much more general differentiation theorem on metric spaces for every locally Borel regular measure that admits a so-called Vitali relation. We review some constructions and results from [22] in order to apply them to the Riemannian setting: If X is a metric space, a Vitali relation V for a measure μ on X is a family of pairs 
+
+V ⊂ { (x, S ) : x ∈ S and S ⊂ X } 
+
+such that (i) for every x ∈ X , the family V is fine at x in the sense that inf {diam( S) : ( x, S ) ∈ V } =0,(ii) if ˜V is a subcollection of V and A ⊂ X is such that ˜V is fine at each x ∈ A, then there exists a countable subcollection of pairwise disjoint sets 
+
+{S1, S 2, . . . } ⊂ ˜V (A) := 
+
+n
+
+S : ( x, S ) ∈ ˜V and x ∈ A
+
+o
+
+such that μ(A \ S∞
+
+> k=1
+
+Sk) = 0 .
+
+For a given Vitali relation V and a function Ψ : dom(Ψ) → R defined on a subset dom(Ψ) of the power set of X , the sequences defined by 
+
+ar = sup {Ψ( S) : ( x, S ) ∈ V , diam( S) < r, S ∈ dom(Ψ) } ∈ R
+
+ar = inf {Ψ( S) : ( x, S ) ∈ V , diam( S) < r, S ∈ dom(Ψ) } ∈ R
+
+are monotone increasing and decreasing respectively and admit limits in R for r ↓ 0. One writes 
+
+lim sup 
+
+> S→x
+
+Ψ( S) := lim sup 
+
+> r↓0
+
+ar = lim  
+
+> r↓0
+
+ar and lim inf  
+
+> S→x
+
+Ψ( S) = lim inf  
+
+> r↓0
+
+ar = lim  
+
+> r↓0
+
+ar. (4.2) If both limits coincide, then one defines 
+
+lim  
+
+> S→x
+
+Ψ( S) := lim sup 
+
+> S→x
+
+Ψ( S) = lim inf  
+
+> S→x
+
+Ψ( S). (4.3) We collect some remarks concerning these constructions on M .
+
+Remark 4.1 . (1) If Y is another metric space and φ : X → Y is a bi-Lipschitz map, then it is straightforward to show that 
+
+φ(V ) := {(φ(x), φ (S)) : ( x, S ) ∈ V }
+
+is a Vitali relation for the pushforward measure φ∗μ on Y.(2) We will use these constructions in the following setting: For every Radon measure on M ,the family of closed Riemannian balls 
+
+V = (x, ¯B(x, r )) : x ∈ M, r > 0
+
+forms a Vitali relation. This is due to the fact that the Riemannian distance function is 
+
+directionally limited on relatively compact sets (see [22, 2.8.9] and the example thereafter, as well as [11, Def. 2.5] for a more accessible definition). Along with separability of M and the fact that M can be covered by countably many compact subsets, Theorem 2.8.18 in [22] implies that V satisfies the claimed property. Now suppose φ is a local chart for M . Then the limits in the sense of (4.3) with respect to φ(V ) can be written equivalently as 
+
+lim inf  
+
+> φ(S)→φ(x)
+
+Ψ( φ(S)) = lim inf  
+
+> r↓0
+
+Ψ( φ( ¯B(x, r ))) , lim sup 
+
+> φ(S)→φ(x)
+
+Ψ( φ(S)) = lim sup 
+
+> r↓0
+
+Ψ( φ( ¯B(x, r ))) 
+
+and lim  
+
+> φ(S)→φ(x)
+
+Ψ( φ(S)) = lim  
+
+> r↓0
+
+Ψ( φ( ¯B(x, r ))) ,14 
+
+and clearly the same holds for φ = id M . Typically, Ψ will be of the form νμ where ν is a Radon measure or a covector measure, and μ is another Radon measure in M .(3) Let μ and ν be Radon measures on M . Then by [22, Theorem 2.9.2], 
+
+νμ(A) := inf {ν(B) : B is Borel measurable with μ(A \ B) = 0 } for A ⊂ M
+
+defines a Radon measure that is absolutely continuous with respect to μ. Moreover, there exists a Borel set Bμ with μ(M \ Bμ) = 0 such that 
+
+νμ = ν⌞Bμ and ν = νμ + νs with νs := ν⌞(M \ Bμ).
+
+Then the Radon measures νs and μ are mutually singular, that is, ν = νμ +νs is the Lebesgue decomposition of ν with respect to μ.Using our observations thus far, the following theorem is a summary of the results from [22, 2.9.5– 2.9.10] applied to manifolds and the Vitali relation of closed metric balls for arbitrary Radon measures on M , and we stress that the statements are independent of the choice of Vitali relation. 
+
+Theorem 4.2 (Lebesgue–Besicovitch–Federer Differentiation theorem) . Let μ and ν be Radon measures on M .(i) The limit 
+
+f (x) := lim 
+
+> r↓0
+
+ν( ¯B(x, r )) 
+
+μ( ¯B(x, r )) exists in [0 , ∞) for μ-a.e. x ∈ M
+
+and the function f : M → [0 , ∞) is μ-measurable. Every μ-measurable set A ⊂ M is 
+
+νμ-measurable and one has νμ(A) = ´ 
+
+> A
+
+f dμ. 
+
+(ii) If f : M → ¯R is a locally μ-integrable function, then for μ-almost every x ∈ M ,
+
+lim 
+
+> r↓0
+
+1
+
+μ( ¯B(x, r )
+
+ˆ
+
+> ¯B(x,r ))
+
+f dμ = f (x).
+
+(iii) For μ-almost every x ∈ M one has 
+
+lim 
+
+> r↓0
+
+νμ( ¯B(x, r )) 
+
+μ( ¯B(x, r )) = lim 
+
+> r↓0
+
+ν( ¯B(x, r )) 
+
+μ( ¯B(x, r )) and lim 
+
+> r↓0
+
+νs( ¯B(x, r )) 
+
+μ( ¯B(x, r )) = 0 .
+
+As a corollary, we formulate a differentiation theorem for covector measures with respect to arbi-trary Radon measures on M . We say that a covector measure ν ∈ M loc (M ; T ∗M ) is absolutely continuous with respect to a Radon measure μ on M if its restriction ν⌞E to a Borel set E ⊂ M
+
+with μ(E) = 0 satisfies ν⌞E = 0 . It follows easily that one has ν ≪ μ if and only if the total variation measure satisfies |ν| ≪ μ. The property of ν and μ being mutually singular is defined analogously and holds if and only if |ν| and μ are mutually singular. Thus, ν admits a (unique) Lebesgue decomposition ν = νμ + νs given by 
+
+νμ[X] := 
+
+ˆ
+
+> M
+
+(Σ ν , X ) d|ν|μ and νs[X] := 
+
+ˆ
+
+> M
+
+(Σ ν , X ) d|ν|s for X ∈ ΓC∞ 
+
+> c
+
+(M ; T M ).
+
+Theorem 4.3. Let ν ∈ M loc (M ; T ∗M ) be a covector measure and μ a Radon measure on M .Then for μ-almost every x ∈ M and every X ∈ ΓC∞ 
+
+> c
+
+(M ; T M ) there exists fX (x) ∈ R such that 
+
+lim 
+
+> r↓0
+
+ν⌞ ¯B(x, r )
+
+μ( ¯B(x, r )) [X] = fX (x),
+
+and fX : M → R defines a locally μ-integrable function. Moreover, there exists a μ-a.e. uniquely defined locally μ-integrable section F : M → T M such that for all X, we have 
+
+fX (x) = ( F (x), X (x)) ,
+
+whenever the limit exists at x. Finally, it holds that 
+
+νμ[X] = 
+
+ˆ
+
+> M
+
+(F, X ) dμ, 
+
+and if ν ∈ M (M ; T ∗M ), then fX and F are μ-integrable. 15 
+
+Proof. Let (Σ ν , |ν|) be the polar decomposition of ν and let ν = νμ +νs be its Lebesgue decompo-sition with respect to μ. Fix X ∈ ΓC∞ 
+
+> c
+
+(M ; T M ). The signed measure νsX defined by contracting 
+
+νs with X admits a Jordan decomposition into its positive and negative parts (νsX )±. Since 
+
+νs and μ are mutually singular, we have (νsX )± ⊥ μ as well. Thus, from the third part of Theorem 4.2 applied to (νsX )± it follows that 
+
+lim 
+
+> r↓0
+
+(νs⌞ ¯B(x, r )) 
+
+μ( ¯B(x, r )) [X] = lim 
+
+> r↓0
+
+(νsX )+( ¯B(x, r )) 
+
+μ( ¯B(x, r )) − lim 
+
+> r↓0
+
+(νsX )−( ¯B(x, r )) 
+
+μ( ¯B(x, r )) = 0 (4.4) for μ-almost every x ∈ M . Next, invoking the Besicovitch–Federer theorem for |ν| and μ, the limit 
+
+f (x) = lim 
+
+> r↓0
+
+|ν|( ¯B(x, r )) 
+
+μ( ¯B(x, r )) 
+
+exists μ-almost everywhere with |ν|μ(A) = ´ 
+
+> A
+
+f dμ for μ-measurable sets A ⊂ M . Since |ν| is locally finite, f is locally μ-integrable. By Borel measurability of Σν , the function 
+
+fX := f · (Σ ν , X )
+
+is μ-measurable. For μ-measurable sets E ⊂ M , we use that |Σν | = 1 for |ν|-almost every x to estimate ˆ
+
+> E
+
+|fX | dμ =
+
+ˆ
+
+> E
+
+|(Σ ν , X )|f dμ =
+
+ˆ
+
+> E
+
+|(Σ ν , X )| d|ν|μ ≤
+
+ˆ
+
+> E
+
+|X| d|ν|μ,
+
+and since |ν|μ ≤ | ν| is locally finite and X is bounded, the function fX is locally μ-integrable. Thus, combining the second part of Theorem 4.2 with (4.4), we get 
+
+lim 
+
+> r↓0
+
+(ν⌞ ¯B(x, r )) 
+
+μ( ¯B(x, r )) [X] = lim 
+
+> r↓0
+
+(νμ⌞ ¯B(x, r )) 
+
+μ( ¯B(x, r )) [X] + lim 
+
+> r↓0
+
+(νs⌞ ¯B(x, r )) 
+
+μ( ¯B(x, r )) [X]= lim 
+
+> r↓0
+
+1
+
+μ( ¯B(x, r )) 
+
+ˆ
+
+> ¯B(x,r )
+
+f · (Σ ν , X ) dμ + 0 = f (x)(Σ ν (x), X (x)) = fX (x) for μ-almost every x ∈ M. 
+
+To complete the proof, it remains to show that F (x) := f (x)Σ ν (x) is uniquely determined for μ-almost every x and defines a locally μ-integrable section. We know that f (x) is unique μ-almost everywhere and by definition of ν, the vector field Σν is unique |ν|-almost everywhere on M .Suppose ˆΣν is another representative of Σν and consider 
+
+S := 
+
+n
+
+x ∈ M : ˆΣν (x)̸ = Σ ν (x)
+
+o
+
+.
+
+Since ˆΣν and Σν are Borel measurable, the set S is Borel measurable, and therefore μ-measurable. Using that ˆΣν = Σ ν holds |ν|-almost everywhere and |ν|μ ≪ | ν|, we have 
+
+0 = |ν|(S) = |ν|μ(S) = 
+
+ˆ
+
+> S
+
+f dμ. 
+
+So if μ(S)̸ = 0 , then f ≥ 0 implies f ≡ 0 on S and this shows that F (x) ∈ TxM is well-defined for μ-almost every x ∈ M , and for relatively compact E we have 
+
+ˆ
+
+> E
+
+|F | dμ ≤
+
+ˆ
+
+> E
+
+f · | Σν | dμ ≤ | ν|(E) < ∞.
+
+If ν ∈ M (M ; T ∗M ), then μ-integrability of f , fX and F follow from finiteness of |ν|. □
+
+Notice that the first part of the statement of Theorem 4.3 can be formulated equivalently by saying that there exists a unique μ-integrable section F in T M such that for μ-almost every 
+
+x ∈ M , the family of covector measures 
+
+ν⌞ ¯B(x, r )
+
+μ( ¯B(x, r )) converges in the weak ∗-sense to F δ x as r ↓ 0, (4.5) 16 
+
+where the covector Dirac measure F δ x is defined by 
+
+F δ x[X] = 
+
+ˆ
+
+> M
+
+(F, X ) dδ x = ( F (x), X (x)) .
+
+If ν ∈ M (M ; T ∗M ), then weak ∗-convergence in (4.5) is equivalent to weak convergence. We stress that in Euclidean space, this is consistent with the Besicovitch theorem for classical vector-valued measures [4]. Every covector measure on Rm is uniquely determined by its polar decomposition 
+
+(|ν|e, Σνe ) with respect to the Euclidean scalar product e, and the same applies to classical vector-valued measures on Rm. We write 
+
+ν[X] = 
+
+ˆ
+
+> Rm
+
+(Σ νe , X )e d|ν|e for X ∈ C∞ 
+
+> c
+
+(Rm; Rm)
+
+when viewing ν as a covector measure and 
+
+ν(A) = 
+
+ˆ
+
+> A
+
+Σνe d|ν|e ∈ Rm
+
+to regard ν as a vector-valued measure on Rm. Due to these identifications, it is clear that the density vector fields (4.1) produced by the classical vector-valued Lebesgue–Besicovitch theorem and the Lebesgue–Besicovitch–Federer theorem for covector measures (Theorem 4.3) with respect to a Radon measure μ must coincide μ-almost everywhere. Later, we will be interested in pointwise properties of these functions in order to define a Riemannian version of the reduced boundary of a finite perimeter set, where the following lemma will be of use. 
+
+Lemma 4.4. Let μ be a Radon measure and ν a vector-valued measure on Rm. We fix a point 
+
+x ∈ Rm. If 
+
+lim 
+
+> r↓0
+
+ν⌞ ¯Be(x, r )
+
+μ( ¯Be(x, r )) [X] exists in R for all X ∈ C∞ 
+
+> c
+
+(Rm; Rm), (4.6) 
+
+then 
+
+lim 
+
+> r↓0
+
+ν( ¯Be(x, r )) 
+
+μ( ¯Be(x, r )) exists in Rm. (4.7) 
+
+If the locally μ-integrable vector field F : Rm → Rm from Theorem 4.3 additionally satisfies 2
+
+lim sup  
+
+> r↓0¯Be(x,r )
+
+|F |e dμ < ∞, (4.8) 
+
+then (4.6) and (4.7) are equivalent. Here we write ffl  
+
+> B
+
+dμ for the μ-average over B.Proof. To prove that (4.6) implies (4.7), simply pick the vector field X to be constant on some small neighborhood of x. Then (4.6) applied to all such X implies that 
+
+ν( ¯Be(x, r )) 
+
+μ( ¯Be(x, r )) ⇀ F (x) in Rm.
+
+Since this is equivalent to strong convergence in Rm, we obtain (4.7). For the reverse implication, suppose x is such that (4.7) and (4.8) hold and let X ∈ C∞ 
+
+> c
+
+(Rm; Rm) be arbitrary. First notice that 
+
+lim  
+
+> r↓0¯Be(x,r )
+
+|X(y) − X(x)|e dμ (y) ≤ lim  
+
+> r↓0
+
+sup  
+
+> y∈¯Be(x,r )
+
+|X(y) − X(x)|e = 0 (4.9)        
+
+> 2Note that (4.8) is satisfied for all x∈Rmif Fis locally essentially bounded with respect to μ.17
+
+holds for arbitrary x since X is smooth. For νμ = F μ , we get 
+
+νμ⌞ ¯Be(x, r )
+
+μ( ¯Be(x, r )) [X] − (F (x), X (x)) e
+
+= ¯Be(x,r )
+
+(F, X )e dμ − (F (x), X (x)) e + ¯Be(x,r )
+
+(F (y), X (x)) e − (F (y), X (x)) e dμ (y)= ¯Be(x,r )
+
+(F (y), X (y) − X(x)) e dμ (y) + ¯Be(x,r )
+
+(F (y), X (x)) e dμ (y) − (F (x), X (x)) e
+
+≤ ¯Be(x,r )
+
+|F |e dμ ¯Be(x,r )
+
+|X(y) − X(x)|e dμ (y) (4.10) 
+
++  ffl ¯Be(x,r )F dμ , X (x) 
+
+> e
+
+−  F (x), X (x)
+
+> e
+
+. (4.11) The term in (4.10) tends to zero as r ↓ 0 in view of (4.9) and boundedness of ffl ¯B(x,r ) |F |e dμ for sufficiently small r. The last term (4.11) equals 
+
+ νμ( ¯Be(x,r ))  
+
+> μ( ¯Be(x,r ))
+
+− F (x) , X (x)
+
+
+
+> e
+
+and tends to zero since νμ( ¯Be(x,r ))  
+
+> μ( ¯Be(x,r ))
+
+converges to F (x) strongly in Rm. We conclude that 
+
+lim 
+
+> r↓0
+
+ν⌞ ¯Be(x, r )
+
+μ( ¯Be(x, r )) [X] = lim 
+
+> r↓0
+
+νμ⌞ ¯Be(x, r )
+
+μ( ¯Be(x, r )) [X] = ( F (x), X (x)) e.
+
+□
+
+5. Structure theory for sets of finite perimeter 
+
+Central results in the theory of finite perimeter sets in Rm are the structure theorems by De Giorgi and Federer [4, 3.59 and 3.61]. In order to prove their Riemannian versions, we first provide the required geometric definitions and prove the analogs of some structure results from the theory of rectifiable sets in Rm. For details on the Euclidean case we refer to [56, Chapter 3], [4, Chapter 2.9 - 2.12] and [43, Chapter 10]. 5.1. The reduced boundary. Recall that the reduced boundary ∂∗E of a set of locally finite perimeter in Rm is the set of x ∈ sppt |D1E |e such that the Euclidean measure-theoretic inner normal vector 
+
+nEe (x) := lim 
+
+> r↓0
+
+D1E ( ¯Be(x, r )) 
+
+|D1E |e( ¯Be(x, r )) 
+
+exists and lies in unit sphere in Rm. With the Lebesgue–Besicovitch–Federer theorem for covector measures at hand, we can extend this definition to Riemannian manifolds: 
+
+Definition 5.1. The reduced boundary ∂∗E of a set of locally finite perimeter E ⊂ M is the set of points x ∈ M whose measure-theoretic inner normal vector nE (x) defined by 
+
+lim 
+
+> r↓0
+
+D1E ⌞( ¯B(x, r )) 
+
+|D1E |( ¯B(x, r )) [X] = ( nE (x), X (x)) for all X ∈ ΓC∞ 
+
+> c
+
+(M ; T M )
+
+exists and has unit norm. Thus, if ΣE is the polar vector field of D1E , then for x ∈ ∂∗E we get ΣE (x) = nE (x). Since 
+
+ΣE is bounded by construction, Lemma 4.4 shows that in the Euclidean setting, our definition of the reduced boundary is equivalent to the classical one above. In order to apply results from the Euclidean theory of finite perimeter sets, we show that the Lebesgue–Besicovitch–Federer theorem for covector measures can be expressed chartwise: Let μ be a Radon measure on M
+
+and ν a covector measure on M . If (U, φ ) is a local chart for M , then φ∗μ is a Radon measure on φ(U ) ⊂ Rm and we view it as a measure on the full space which is concentrated on φ(U ) by setting 
+
+φ∗μ(E) := μ(φ−1(E ∩ φ(U ))) for Borel sets E ⊂ Rm.18 
+
+Similarly, φ∗ν is a covector measure on Rm and therefore a classical vector-valued measure with 
+
+φ∗ν(E) = 
+
+ˆ
+
+> E
+
+Σφ∗νe d|φ∗ν|e ∈ Rm for Borel sets E ⊂ Rm,
+
+where (Σ φ∗νe , |φ∗ν|e) is the polar decomposition of φ∗ν with respect to the Euclidean metric e.As before we denote the m-dimensional Euclidean closed ball of radius r around w by ¯Be(w, r ).
+
+Lemma 5.2. Let μ be a Radon measure and ν a covector measure on M . Then for all X ∈
+
+ΓC∞ 
+
+> c
+
+(M ; T M ) the limit 
+
+lim 
+
+> r↓0
+
+ν⌞( ¯B(x, r )) 
+
+μ( ¯B(x, r )) [X] =: ( F (x), X (x)) exists at x ∈ M (5.1) 
+
+if and only if for each chart (U, φ ) around x and all Y ∈ C∞ 
+
+> c
+
+(Rm; Rm) the limit 
+
+lim 
+
+> r↓0
+
+(φ∗ν)( ¯Be(w, r )) (φ∗μ)( ¯Be(w, r )) [Y ] =: ( Fφ(w), Y (w)) e exists at w := φ(x). (5.2) 
+
+In that case, one has 
+
+Fφ(w) = ( A φ∗)( F (x)) , (5.3) 
+
+where A = Ae, ˜g is as in (3.6) with ˜g = ( φ−1)∗g.Proof. We divide the proof into three steps. 
+
+Step 1) For φ∗μ-almost every w ∈ φ(U ) ⊂ Rm, it holds that Fφ(w) = ( Aφ∗F )( w).Proof of Step 1). First notice that ν ≪ μ holds if and only if φ∗ν ≪ φ∗μ, hence we get 
+
+φ∗(νμ) = ( φ∗ν)φ∗μ. (5.4) For Y ∈ C∞ 
+
+> c
+
+(φ(U ), Rm) we have 
+
+(φ∗(νμ))[ Y ] = νμ[φ−1 
+
+> ∗
+
+Y ] = 
+
+ˆ 
+
+> φ(U)
+
+(F, (φ−1)∗Y )g ◦ φ−1 d(φ∗μ) = 
+
+ˆ 
+
+> φ(U)
+
+(φ∗F, Y )˜g d(φ∗μ)=
+
+ˆ 
+
+> φ(U)
+
+(A(φ∗F ), Y )e d(φ∗μ).
+
+On the other hand, using (5.4) and the definition of Fφ, this is equal to 
+
+(φ∗ν)φ∗μ[Y ] = 
+
+ˆ 
+
+> φ(U)
+
+(Fφ, Y )e d(φ∗μ) for all Y ∈ C∞ 
+
+> c
+
+(φ(U ), Rm).
+
+By a version of the fundamental lemma of the calculus of variations, this implies that Fφ coincides 
+
+μ-almost everywhere with A(φ∗F ).
+
+Step 2) If for w = φ(x), the limit (5.2) exists for all Y ∈ C∞ 
+
+> c
+
+(Rm; Rm), then the limit (5.1) 
+
+exists at x for all X ∈ ΓC∞ 
+
+> c
+
+(M ; T M ).Proof of Step 2). Let X ∈ ΓC∞ 
+
+> c
+
+(U ; T U ) and write Y := φ∗X ∈ C∞ 
+
+> c
+
+(Rm, Rm). Then 
+
+lim 
+
+> r↓0
+
+ν⌞ φ−1( ¯Be(w, r )) 
+
+μ φ−1( ¯Be(w, r ))  [X] = lim 
+
+> r↓0
+
+ (φ∗μ)( ¯Be(w, r )) −1
+
+ˆ
+
+> φ−1( ¯Be(w,r ))
+
+(F, X )g dμ 
+
+= lim 
+
+> r↓0
+
+ (φ∗μ)( ¯Be(w, r )) −1
+
+ˆ
+
+> ¯Be(w,r )
+
+(F, (φ−1)∗Y )g ◦ φ−1 d(φ∗μ)= lim 
+
+> r↓0
+
+(φ∗ν)( ¯Be(w, r )) (φ∗μ)( ¯Be(w, r )) = ( Fφ(w), Y (w)) e ∈ R.
+
+(5.5) By Remark 4.1, the images of closed Euclidean balls under φ−1 form a Vitali relation on U .Since the limit is independent of the choice of Vitali relation, we must have 
+
+(Fφ(w), Y (w)) e = lim 
+
+> r↓0
+
+ν⌞ φ−1( ¯Be(w, r )) 
+
+μ φ−1( ¯Be(w, r ))  [X] = lim 
+
+> r↓0
+
+ν⌞( ¯B(x, r )) 
+
+μ( ¯B(x, r )) [X] = ( F (x), X (x)) g,19 
+
+and in particular, F (x) is well-defined. Since X was arbitrary and φ∗ is a local isomorphism of the tangent bundles, the assertion is valid for arbitrary Y ∈ C∞ 
+
+> c
+
+(φ(U ); Rm). This is sufficient to deduce the statement for smooth, compactly supported sections on the full spaces. 
+
+Step 3) The converse of the previous claim is valid by analogous arguments. Therefore, the relation (5.3) is true pointwise for every such w = φ(x) and a simple calculation shows that the statement is independent of the choice of chart. □
+
+As a corollary of this lemma, we obtain a chartwise characterization of the reduced boundary. If 
+
+(U, φ ) is a chart for M and E ⊂ M , we will sometimes use the notation 
+
+φ(E) := φ(E ∩ U ).
+
+Corollary 5.3. If E ⊂ M is a set of finite perimeter, then x ∈ ∂∗E if and only if φ(x) ∈
+
+∂∗φ(E) ∩ φ(U ) for an arbitrary chart (U, φ ) around x. Moreover, nE (x) is a measure-theoretic inner normal vector of E at x if and only if 
+
+nφ(E) 
+
+> e
+
+(φ(x)) = (A φ∗)( nE (x)) 
+
+|(A φ∗)( nE (x)) |e
+
+is a Euclidean measure-theoretic inner normal vector of φ(E) at φ(x), with A as in Lemma 5.2. 
+
+5.2. Rectifiability and De Giorgi’s structure theorem. Let Hkg be the k-dimensional Haus-dorff measure on M induced by the Riemannian distance function. That is, for E ⊂ M ,
+
+Hkg (E) = lim  
+
+> r↓0
+
+inf 
+
+n
+
+ωk
+
+X
+
+> j
+
+  12 diam g(Bj )k : Bj ⊂ M, E ⊂ [
+
+> j
+
+Bj , diam g Bj < r 
+
+o
+
+with ωk denoting the k-dimensional Lebesgue measure of the Euclidean k-dimensional unit ball. One can show that Hkg is Borel regular on M . If h is another Riemannian metric on M , then for Lipschitz functions f : ( M, g ) → (M, h ) one has 
+
+Hkh(f (E)) ≤ Lip( f )kHkg (E) (5.6) for arbitrary sets E ⊂ M . In particular, the identity map from (M, g ) to (M, h ) is locally bi-Lipschitz continuous, and the families of Borel measurable sets of measure zero coincide for Hkg
+
+and Hkh. Since both measures are Borel regular, this implies by Carathéorory’s theorem that the families of measurable sets coincide with the completion of the Borel-σ-algebra on M and are independent of the choice of metric, and we simply say a set is Hk-measurable if it is Hkg
+
+measurable. Moreover, the families of sets of locally finite k-dimensional Hausdorff measure are independent of the choice of Riemannian metric by (5.6). If φ : M → N is a diffeomorphism, then φ becomes an isometry if we equip N with the pullback metric ˜g = ( φ−1)∗g. In particular, the Riemannian distance is preserved under φ, hence the Hausdorff measures satisfy 
+
+φ∗Hkg = Hk 
+
+> (φ−1)∗g
+
+= Hk 
+
+> ˜g
+
+and (φ−1)∗Hk 
+
+> ˜g
+
+= Hkg . (5.7) By these considerations, the following definition is independent of the choice of Riemannian metric: 
+
+Definition 5.4. A Hk-measurable set S ⊂ M is called countably Hk-rectifiable if there exist countably many Lipschitz functions fj : Rk → M , 1 ≤ j < ∞, such that 
+
+Hk
+
+
+
+S \ [
+
+> j
+
+fj (Rk)
+
+
+
+= 0 .
+
+If in addition, Hk(S) < ∞, then S is called Hk-rectifiable and if Hk(S ∩ K) < ∞ for compact sets K ⊂ M , then S is called locally Hk-rectifiable .
+
+Remark 5.5 . Using Borel regularity of Hausdorff measures, further characterizations of rectifiable sets in Rm can be generalized to Riemannian manifolds: (i) A set S ⊂ M is countably Hk-rectifiable if and only if there exists a disjoint decomposition 
+
+S = S0 ∪ S∞ 
+
+> j=1
+
+fj (Aj ) with Lipschitz functions fj : Rk → M , 1 ≤ j < ∞, Borel sets 
+
+Aj ⊂ Rk and a Borel set S0 with Hk(S0) = 0 .20 
+
+(ii) A set S ⊂ M is countably Hk-rectifiable if and only if it can be written as a disjoint union 
+
+S = S 
+
+> j≥0
+
+Sj of Borel subsets Sj of C1-embedded k-submanifolds Nj ⊂ M , 1 ≤ j < ∞
+
+and a Borel measurable Hk-nullset S0.We stress that these decompositions are non-unique. Using the first characterization and the fact that charts are locally bi-Lipschitz maps, it is straightforward to show the following: (iii) A set S ⊂ M is countably Hk-rectifiable if and only if for each chart (U, φ ), the set φ(S)
+
+is countably Hk-rectifiable in Rm.The previous remark will permit the generalization of a characterization of locally Hk-rectifiable sets in terms of tangential properties. By the classical Euclidean theory, S ⊂ Rm has locally finite Hk measure, then S is locally Hk-rectifiable if and only if S admits an approximate tangent space TxS at Hk-almost every x ∈ S. That is, there exists a k-dimensional subspace TxS of Rm
+
+such that (ϕx,r )∗(Hke ⌞S)
+
+rk
+
+> ∗
+
+⇀ Hke ⌞TxS on Rm as r ↓ 0,
+
+where ϕx,r (y) := y−xr , defines blow-ups of S at x by Sx,r := ϕx,r (S) = S−xr . Using (5.6), we observe that (ϕx,r )∗Hke = Hke ◦ ϕ−1 
+
+> x,r
+
+= rkHke , and therefore 3,
+
+(ϕx,r )∗(Hke ⌞S)
+
+rk = Hke ⌞( S−xr ).
+
+We define the approximate tangent spaces on M in terms of local charts: 
+
+Definition 5.6. Let S ⊂ M be a set of locally finite Hk measure. We say that S admits an 
+
+approximate tangent space TxS at x if φ(S) admits an approximate tangent space Tφ(x)φ(S) at 
+
+φ(x) in Rm for some chart φ around x. In that case, we set TxS := ( dφ −1)φ(x)(Tφ(x)φ(S)) .In the following lemma we will show that the above definition is independent of the choice of chart. Then by Remark 5.5, this implies that a set S ⊂ M of locally finite Hk-measure is locally 
+
+Hk-rectifiable if and only if S admits an approximate tangent space at x.
+
+Lemma 5.7. The approximate tangent space is well-defined, that is, independent of the choice of chart. Proof. Let S ⊂ M be a set of locally finite Hk-measure. 
+
+(i) Preparations. Without loss of generality, let φ and ψ be two charts around x ∈ S with the same chart domain U and such that φ(x) = 0 = ψ(x).
+
+• Writing ϕr(y) := y/r , we define 
+
+Lr := ϕr ◦ ψ ◦ φ−1 ◦ ϕ1/r : φ(U ) 
+
+> r
+
+→ ψ(U )
+
+> r
+
+for r > 0. Then Lr( φ(S) 
+
+> r
+
+) = ψ(S) 
+
+> r
+
+and we have 
+
+lim  
+
+> r↓0
+
+Lr(z) = lim 
+
+> r↓0
+
+(ψ ◦ φ)−1(rz )
+
+r = d(ψ ◦ φ−1)0z =: L0(z) for z ∈ φ(U )
+
+> r
+
+locally uniformly in z due to smoothness of ψ ◦ φ−1. Similarly, we get dLr → dL0 = L0 locally uniformly as r ↓ 0.
+
+• If ˜S ⊂ Rm is a locally Hk-rectifiable set, then the projection of dLr(z) to the approximate tangent space of ˜S at z is well-defined at Hk-almost every z ∈ ˜S ∩ φ(U ) and we shall denote its determinant by det( dLr| ˜S )( z). By the area formula for locally Hk-rectifiable sets in Rm
+
+(see [56, Ch.3 §2]), we have for arbitrary f ∈ C∞ 
+
+> c
+
+(Rm),
+
+Hke ⌞(Lr( ˜S))( f ) = 
+
+ˆ
+
+> ˜S
+
+f ◦ L r| det( dLr| ˜S )| dHke , (5.8) and one always has | det( dLr| ˜S )( z)| ≤ k · ∥ dLr(z)∥.               
+
+> 3Here and throughout this section, we frequently use that for a Radon measure μon M, a measurable set
+> E⊂Mand a measurable map f:M→None has f∗(μ⌞E) = ( f∗μ)⌞(f(E)) .21
+
+• Using (5.7), we have for arbitrary Hk-measurable E,
+
+ Hke ⌞(Lr(E)) (f ) = 
+
+
+
+(Lr)∗(HkL∗ 
+
+> re
+
+⌞E
+
+
+
+(f ) = ( HkL∗ 
+
+> re
+
+⌞E)( f ◦ L r). (5.9) In particular, for r = 0 the map L0 = d(ψ ◦φ−1)0 : Rm → Rm is linear, so L∗ 
+
+> 0
+
+e is a scalar product on Rm whose induced distance is globally equivalent to the Euclidean distance. Therefore, the corresponding Hausdorff measures are equivalent with respective bounded and nonvanishing smooth density functions that are defined globally. 
+
+(ii) We assume that Hke ⌞( φ(S) 
+
+> r
+
+) ∗
+
+⇀ Hke ⌞T0φ(S) and prove that this implies 
+
+Hke ⌞( ψ(S) 
+
+> r
+
+) ∗
+
+⇀ Hke ⌞d(ψ ◦ φ−1)0(T0φ(S)) .
+
+To this end, fix f ∈ C∞ 
+
+> c
+
+(Rm) and let K ⊂ Rm be a compact set such that 
+
+Kf := [
+
+> 0≤r≤1
+
+sppt ( f ◦ L r)
+
+is compactly contained in the interior ˚K of K. Now write fr := f ◦ L r ∈ C∞ 
+
+> c
+
+( ˚K) and use (5.8) and (5.9) for the Hk-rectifiable set φ(S)/r to expand 
+
+Hke ⌞(Lr( φ(S) 
+
+> r
+
+))( f ) − H ke ⌞(L0(T0φ(S))( f )=
+
+ˆ 
+
+> φ(S)
+> r∩K
+
+fr| det( dLr| φ(S)
+
+> r
+
+)| dHke −
+
+ˆ 
+
+> φ(S)
+> r∩K
+
+f0| det( dL0| φ(S)
+
+> r
+
+)| dHke (5.10) 
+
++  HkL∗ 
+
+> 0e
+
+⌞( φ(S) 
+
+> r
+
+)(f0) −  HkL∗ 
+
+> 0e
+
+⌞(T0φ(S)) (f0). (5.11) In order to prove convergence of the difference in (5.10), first note that by uniform convergence of dLr to dL0, we have 
+
+sup 
+
+> 0≤r≤1
+
+sup 
+
+> z∈K
+
+∥dLr(z)∥ < C 1.
+
+If ξ ∈ C∞ 
+
+> c
+
+( ˚K) is such that 0 ≤ ξ ≤ 1 and ξ ≡ 1 on Kf , then we can estimate (5.10) above by 
+
+sup 
+
+> z∈K
+
+k · ∥ dLr(z)∥
+
+ˆ 
+
+> φ(S)
+> r∩K
+
+|fr(z) − f0(z)|ξ d Hke ≤ k · C1 sup 
+
+> z∈K
+
+|fr(z) − f0(z)|
+
+ˆ
+
+> φ(S)
+> r
+
+ξ d Hke .
+
+The term sup z∈K |fr(z) − f0(z)| converges to zero since Lr → L 0 locally uniformly and the factor term converges to (Hke ⌞(T0φ(S)))( ξ) < ∞ by assumption. Therefore, (5.10) vanishes for r ↓ 0.For convergence of (5.11), it is sufficient to note that the Hausdorff measures induced by the distance functions corresponding to the scalar products e and L∗
+
+> 0
+
+e on Rm are globally equivalent. This implies that (5.11) converges to zero. Thus, we have shown that ψ(S) has an approximate tangent space at ψ(x) = 0 given by T0ψ(S) = 
+
+L0(T0φ(S)) . We conclude that the existence of an approximate tangent space is independent of the choice of chart. Recalling that L0 = d(ψ ◦ φ−1)0 and applying the chain rule yields 
+
+dψ −1
+
+> ψ(x)
+
+(T0ψ(S)) = dφ −1
+
+> φ(x)
+
+(T0φ(S)) ,
+
+so TxS is determined uniquely. □
+
+Remark 5.8 . If S ⊂ M is locally Hk-rectifiable and admits an approximate tangent space TxS
+
+at x ∈ S, then TxS = TxNj , where Nj is a C1-embedded k-submanifold such that S = S 
+
+> j
+
+Sj
+
+and Sj ⊂ Nj in the sense of Remark 5.5. We stress that this is a nontrivial statement since the decomposition is non-unique. Indeed, this can be derived from the corresponding Euclidean statement: Given a chart φ, any such decomposition S = S Sj with Sj ⊂ Nj naturally induces a decomposition φ(S) = S φ(Sj ) with φ(Sj ) ⊂ φ(Nj ). Then the approximate tangent space of 
+
+S at x is uniquely defined by 
+
+TxS = ( dφ −1)φ(x)(Tφ(x)φ(S)) = ( dφ −1)φ(x)(Tφ(x)φ(Nj )) = TxNj .22 
+
+Our next aim is to prove a transformation formula for Hausdorff measures. Let h be another Riemannian metric on M and let A = Ag,h as in (3.6). If S is a locally Hk-rectifiable set in M ,then we denote by A|S (x) the restriction of A to the approximate tangent space TxS of S at x.Let ε1, . . . , ε m be a basis for TxM such that ε1, . . . , ε k span TxS. If A is the matrix representation of A at x with respect to (εj )j≤m, then 
+
+det( A|S )( x) := det([ Ai,j ]i,j ≤k)
+
+is well-defined for Hk-almost every x ∈ S. We prove an area formula for locally Hk-rectifiable sets. 
+
+Lemma 5.9. Assume in the situation of Remark 5.8 that S is locally Hk-rectifiable in M . Then for all Borel subsets B ⊂ M , the Hausdorff measures with respect to h and g transform via 
+
+Hkh⌞S(B) = 
+
+ˆ
+
+> S∩B
+
+q
+
+det( A|S ) dHkg . (5.12) 
+
+Proof. First assume that S is a C1-embedded k-submanifold of M . Then the restriction of Hkg to 
+
+S equals the Riemannian volume of the induced metric g|S , that is, Hkg ⌞S = vol g|S , cf. [52, Section 1.5.2]. Since the induced metrics satisfy g|S (A|S ·, ·) = h|S (·, ·), the classical change of variables formula on manifolds implies 
+
+Hkh⌞S = vol h|S =
+
+q
+
+det( A|S )vol g|S =
+
+q
+
+det( A|S )Hkg ⌞S. 
+
+Next, let S = S 
+
+> j
+
+Sj be a disjoint decomposition into Borel subsets Sj of C1 submanifolds Nj for 
+
+j ≥ 1 and Hkg (S0) = 0 . Then by Remark 5.8, if x ∈ Nj we have TxNj = TxS hence 
+
+Hkh(S ∩ B) = X
+
+> j≥1
+
+Hkh(Sj ∩ B) = X
+
+> j≥1
+
+Hkh(( S ∩ B) ∩ Nj )= X
+
+> j≥1
+
+ˆ 
+
+> Sj∩B
+
+q
+
+det( A|Nj ) dHkg =
+
+ˆ
+
+> S∩B
+
+q
+
+det( A|S ) dHkg .
+
+□
+
+Since the approximate tangent space for locally Hk-rectifiable S ⊂ M is well-defined Hk-almost everywhere on S as a k-subspace of TxM , we can naturally define an approximate normal space 
+
+NxS as the orthogonal complement of TxS in TxM with respect to g.
+
+Corollary 5.10. Let S be locally Hm−1-rectifiable and nSg (x) a unit vector spanning the approx-imate normal space NxS whenever it exists. Then 
+
+Hm−1 
+
+> h
+
+⌞S(B) = 
+
+ˆ
+
+> S∩B
+
+q
+
+det( A) g(A−1nSg , nSg ) dHm−1 
+
+> g
+
+, (5.13) 
+
+where we use the same conventions as above. Proof. In view of Lemma 5.9 it suffices to show that for locally Hm−1-rectifiable S one has 
+
+det( A|S ) = det( A) g(A−1nSg , nSg )
+
+Hm−1-almost everywhere on S. Fix x ∈ S such that TxS exists, let ε1, . . . , ε m−1 be an orthonor-mal basis for TxS with respect to g and let εm = nSg be the normal vector to S at x. Then 
+
+Ai,j := g(A(x)εi, ε j ) is the representation of A at x with respect to (εi)1≤i≤m, i.e. Ai,j = εi · Aε j .Let ai,j be the (i, j )-th minor of A and denote by adj( A)i,j = ( −1) i+j aj,i the adjugate matrix of 
+
+A. Recall that by Cramer’s rule one has adj( A) = det( A) A−1. Using εm = nSg , we compute 
+
+det( A|S )( x) = am,m = nSg · adj( A) nSg = det( A) nSg · A−1nSg = det( A)( x) g(A−1(x)nSg , nSg )
+
+and the right- and left-hand side of this identity are independent of the choice of basis for TxS. □
+
+For fixed x ∈ M , let Rx ∈ (0 , ∞] be the injectivity radius at x. Recall that the exponential map 
+
+exp x is a diffeomorphism from the open ball around 0 ∈ TxM of radius Rx to B(x, R x) ⊂ M .Induced charts are referred to as normal charts in the sequel. 23 
+
+Definition 5.11. For x ∈ M and r < R x, we define the blow-up map at x by 
+
+ϕMx,r : B(x, R x) → TxM ; ϕMx,r (y) := exp −1 
+
+> x
+
+(y)
+
+r
+
+and call Sx,r := ϕMx,r (S) := ϕMx,r (S ∩ B(x, R x)) ⊂ TxM the blow-ups of S ⊂ M at x.This allows a Riemannian characterization of approximate tangent spaces: 
+
+Lemma 5.12. A set S ⊂ M of locally finite Hk-measure admits an approximate tangent space 
+
+TxS at x if and only if 
+
+(ϕMx,r )∗(Hkg ⌞S)
+
+rk
+
+> ∗
+
+⇀ Hkgx ⌞TxS as r ↓ 0,
+
+where Hkgx is the k-dimensional Hausdorff measure on the fiber (TxM, g x). In that case, TxS
+
+coincides with the approximate tangent space from Definition 5.6. Proof. The statement is the special case of Lemma 5.13 applied to normal coordinates around x.
+
+□
+
+Lemma 5.13. A set S of locally finite Hk measure has an approximate tangent space TxS at 
+
+x ∈ S if and only if for each chart (U, φ ) around x one has 
+
+(ϕφ(x),r ◦ φ)∗(Hkg ⌞S)
+
+rk
+
+> ∗
+
+⇀ (dφ x)∗(Hkgx ⌞(TxS)) on Rm as r ↓ 0. (5.14) 
+
+Proof. Again we assume without loss of generality that (U, φ ) is a chart around x with φ(x) = 0 ,and let ˜g = ( φ−1)∗g. Using that φ∗Hkg = Hk 
+
+> ˜g
+
+and (dφ x)∗Hkgx = Hk 
+
+> ˜g0
+
+, it follows that (5.14) is equivalent to 
+
+Hk 
+
+> ˜g
+
+⌞  φ(S)
+
+> r
+
+ ∗
+
+⇀ Hk 
+
+> ˜g0
+
+⌞ T0φ(S)) . (5.15) Moreover, by linearity of dφ x : TxM → Rm, one can argue as in the proof of Lemma 5.7 to find that by global equivalence of Hke and Hk 
+
+> ˜g0
+
+it suffices to prove that (5.15) holds if and only if 
+
+Hk 
+
+> ˜g0
+
+⌞  φ(S)
+
+> r
+
+ ∗
+
+⇀ Hk 
+
+> ˜g0
+
+⌞ T0φ(S). (5.16) We assume (5.16) and show that 
+
+Hk 
+
+> ˜g
+
+⌞  φ(S)
+
+> r
+
+ − H k 
+
+> ˜g0
+
+⌞  φ(S)
+
+> r
+
+ ∗
+
+⇀ 0 (5.17) Let f ∈ C∞ 
+
+> c
+
+(Rm) be arbitrary and let A = Ae, ˜g as in (3.6). We use Lemma 5.9 to estimate 
+
+
+
+Hk 
+
+> ˜g
+
+⌞  φ(S)
+
+> r
+
+ − H k 
+
+> ˜g0
+
+⌞  φ(S)
+
+> r
+
+
+
+(f ) = r−k
+
+Hk 
+
+> ˜g
+
+⌞ φ(S) − H k 
+
+> ˜g0
+
+⌞ φ(S)
+
+(f ◦ ϕr)= r−k
+
+ˆ
+
+> φ(S)
+
+f ( zr ) | det A|φ(S)(z) − | det A|φ(S)(0) | dHke (z)
+
+≤ sup   
+
+> zr∈sppt( f)
+
+| det A|φ(S)(z)| − | det A|φ(S)(0) |
+
+ˆ
+
+> φ(S)
+> r
+
+|f | dHke .
+
+The last factor is bounded since Hke ⌞( φ(S) 
+
+> r
+
+) ∗
+
+⇀ Hke ⌞(T0φ(S)) by assumption. Moreover, using that z 7 → det |A |φ(S)(z)| is locally Lipschitz, there exists some constant C > 0 such that the whole expression in the last line is bounded above by C · sup {| z| : zr ∈ sppt( f )} and vanishes as 
+
+r tends to zero. This implies (5.15). To prove the other direction, assume that (5.15) holds and write 
+
+Hk 
+
+> ˜g0
+
+⌞  φ(S)
+
+> r
+
+(f ) = 
+
+ˆ
+
+> φ(S)
+
+f ( zr )| det(( A−1(z)A(0)) |φ(S))| dHke .
+
+Then the same line of arguments as before shows that (5.16) holds true. □
+
+Lemma 5.14. Let H ⊂ TxM be a measurable set such that vol gx (∂H ) = 0 and let φ be a local chart around x. The blow-ups Ex,r ⊂ TxM of a measurable set E ⊂ M at x ∈ E converge locally in vol gx to H as r ↓ 0 if and only if the blow-ups of φ(E) ⊂ Rm at φ(x) converge locally in Lebesgue measure λ to dφ x(H).24 
+
+Proof. We first assume that φ is a normal chart centered in x and let ˜g = ( φ−1)∗g. Then convergence of ϕMx,r (E) ⊂ TxM to H locally in vol gx is clearly equivalent to convergence of 
+
+φ(E) ⊂ Rm to dφ 0(H) with respect to the induced volume measure vol ˜g0 due to the canonical identification of (TxM, g x) and (Rm, ˜g0). Since vol ˜g0 has a constant density with respect to the Lebesgue measure, this shows equivalence of both statements in the special case where φ is a normal chart. It remains to show that convergence of the blow-ups φ(E) at φ(x) in Rm is independent of the choice of chart. To this end, consider two charts φ and ψ as in part (i) of the proof of Lemma 5.7 as well as the maps Lr and L0 and the corresponding constructions. Then we have ψ(E) 
+
+> r
+
+= Lr( φ(E) 
+
+> r
+
+) and 1ψ(E)/r = 1φ(E)/r ◦ L −1 
+
+> r
+
+.
+
+We assume without loss of generality that φ(E)/r locally converges in measure to dφ x(H) and show that ψ(E)/r locally converges in measure to L−10 (dφ x(H)) = dψ x(H). Fix a relatively compact set V ⊂ Rm. Then 
+
+ˆ
+
+> V
+
+|1ψ(E)/r −1dψ x(H)| dλ ≤
+
+ˆ
+
+> V
+
+|(1φ(E)/r −1dφ x(H))◦L −1 
+
+> r
+
+| dλ +
+
+ˆ
+
+> V
+
+|1dφ x(H) ◦L −1 
+
+> r
+
+−1dφ x(H) ◦L −10 | dλ 
+
+(5.18) and we prove convergence of the first and second term on the right-hand side separately. Since 
+
+Lr → L 0 uniformly, and similarly L−1 
+
+> r
+
+→ L −10 uniformly, we can find a compact set K(V ) ⊂ Rm
+
+containing all sets L−1 
+
+> r
+
+(V ) for 0 ≤ r ≤ 1. Using the transformation formula, the first term on the right-hand side of (5.18) becomes 
+
+ˆ  
+
+> L−1
+> r(V)
+
+|(1φ(E)/r − 1dφ x(H)) det( dLr)| dλ ≤
+
+ˆ
+
+> K
+
+|1φ(E)/r − 1dφ x(H)| dλ sup  
+
+> z∈K(V)
+
+| det( dLr(z)) | → 0.
+
+For the last term of (5.18), note that the discontinuity set ∂(dφ x(H)) of 1dφ x(H) satisfies 
+
+λ(L0(∂(dφ x(H)))) = 0 since L0 is a linear bijection. Thus, using that L−1 
+
+> r
+
+converges to L−1 lo-cally in measure, we can apply the continuous mapping theorem to conclude that 1dφ x(H) ◦L −1 
+
+> r
+
+→
+
+1dφ x(H) ◦ L −10 locally in measure and this is equivalent to convergence locally in L1. Therefore, the last term of (5.18) tends to zero as r ↓ 0 and the proof is complete. □
+
+We use these constructions to prove the announced Riemannian version of the classical structure theorem due to De Giorgi. 
+
+Theorem 5.15 (De Giorgi) . Let E ⊂ M have (locally) finite perimeter. (i) The reduced boundary ∂∗E is (locally) Hm−1-rectifiable. (ii) For every x ∈ ∂∗E the approximate tangent space Tx∂∗E exists and is given by the orthogonal complement of nE (x) in TxM .(iii) The perimeter measure of E satisfies |D1E | = Hm−1⌞(∂∗E).(iv) If x ∈ ∂∗E, then the blow-ups Ex,r := ϕMr (E) ⊂ TxM locally converge as r ↓ 0 in measure to the half space HE (x) = ξ ∈ TxM : ( ξ, n E (x)) ≥ 0 .Proof. We cover M by countably many charts and let φ : U → ˜U = φ(U ) ⊂ Rm be such a chart with inverse φ−1 : ˜U → U . Set ˜g := ( φ−1)∗g and A = Ae, ˜g as in (3.6). (i) Combine Corollary 5.3 with Remark 5.5 and apply the corresponding statement for Rm
+
+from [43, Cor. 16.1]. (ii) By Definition 5.6 and Lemma 5.7, the Riemannian approximate tangent space of ∂∗E at x
+
+exists if and only if the Euclidean approximate tangent space of φ(∂∗E) exists at φ(x) and one has 
+
+Tφ(x)φ(∂∗E) = dφ (Tx∂∗E). (5.19) Moreover, in view of Corollary 5.3, the Euclidean normal vector nφ(E) 
+
+> e
+
+(φ(x)) and the Riemannian normal vector nE (x) satisfy 
+
+nφ(E) 
+
+> e
+
+(φ(x)) = c · A dφ (nE (x)) with c = |A dφ (nE (x)) |−1 
+
+> e
+
+.25 
+
+Now for arbitrary ξ ∈ TxM , one has 
+
+ ξ, n E (x) 
+
+> g
+
+=  dφ (ξ), A dφ (nE (x))  
+
+> e
+
+= c ·  dφ (ξ), n φ(E) 
+
+> e
+
+(φ(x)
+
+> e
+
+. (5.20) Together with (5.19) and the Euclidean statement in [43, Cor. 16.1], this implies that the ap-proximate tangent space at x is given as the orthogonal complement of the measure-theoretic inner normal. (iii) Let B ⊂ U be a Borel measurable subset of U . Applying the pushforward relations for covector measures in Remark 3.8, we have 
+
+|D1E |g(B) = |D(1E ◦ φ−1)|˜g(φ(B)) = |D1φ(E)|˜g(φ(B)) . (5.21) Since the polar vector field of the Euclidean variation measure of 1φ(E) coincides with the Eu-clidean generalized normal vector nφ(E) 
+
+> e
+
+on ∂∗(φ(E)) ∩ φ(U ), we can apply (3.10) to get 
+
+|D1φ(E)|˜g =
+
+q
+
+det( A)  A−1nφ(E) 
+
+> e
+
+, n φ(E)
+
+> e
+
+ 
+
+> e
+
+|D1φ(E)|e. (5.22) By De Giorgi’s theorem in Euclidean space we have that 
+
+|D1φ(E)|e(φ(B)) = Hm−1
+
+> e
+
+ ∂∗(φ(E)) ∩ φ(B) (5.23) and nφ(E) 
+
+> e
+
+is orthogonal to the approximate tangent space of ∂∗φ(E) ∩ φ(U ). Therefore, Corol-lary 5.10 yields 
+
+q
+
+det( A)  A−1nφ(E) 
+
+> e
+
+, n φ(E)
+
+> e
+
+ 
+
+> e
+
+Hm−1
+
+> e
+
+ ∂∗(φ(E)) ∩ φ(B) = Hm−1˜g
+
+ ∂∗(φ(E)) ∩ φ(B). (5.24) Combining (5.21)–(5.24) and using Hk 
+
+> ˜g
+
+= Hkg ◦ φ−1 on φ(U ), and φ−1(∂∗(φ(E)) ∩ φ(B)) = 
+
+∂∗E ∩ B, we conclude that |D1E |g(B) = Hm−1 
+
+> g
+
+(∂∗E ∩ B).
+
+(iv) This follows from combining Lemma 5.14 with (5.20) and using the Euclidean statement from [43, Theorem 15.5]. 
+
+□
+
+5.3. The measure-theoretic boundary and Federer’s Theorem. Let E be a measurable subset of M . For r > 0 define 
+
+ΘE (x, r ) := vol( E ∩ B(x, r )) vol( B(x, r )) ∈ [0 , 1] and ΘE (x) := lim  
+
+> r↓0
+
+ΘE (x, r ).
+
+Then ΘE (x) is called the density of E at x ∈ M and one has 
+
+ΘE (x) = 1 − ΘEc (x). (5.25) For t ∈ [0 , 1] , we denote by E(t) the set of points x ∈ M where E has density t. Clearly, E has density 1 at all points in the topological interior of E and density 0 at all points in the topological exterior of E. Moreover, by Theorem 4.2 (ii) for f = 1E one has ΘE (x) = 1 for almost every 
+
+x ∈ E and ΘE (x) = 0 for almost every x ∈ M \ E with respect to the volume measure. Thus, 
+
+E(1) and E(0) are called the essential interior and essential exterior , respectively. The essential boundary of E is defined as the set 
+
+∂ess E := {x ∈ M : Θ E (x) ∈ (0 , 1) } ⊂ ∂E. 
+
+Sometimes these sets are referred to as measure-theoretic interior, exterior, and boundary. If U
+
+is an open neighborhood of x, then ΘE (x) = Θ E∩U (x). Moreover, the set ∂ess E is independent of the Riemannian metric g on M . To see this, let h be another Riemannian metric and recall that locally, vol h = ϱvol g with a smooth, positive density function ϱ that is bounded away from zero. This implies 
+
+vol h(E ∩ B(x, r )) vol h(B(x, r )) ≲ vol g(E ∩ B(x, r )) vol g(B(x, r )) ≲ vol h(E ∩ B(x, r )) vol h(B(x, r )) ,
+
+and we note that the same holds if we replace the volume measure with any absolutely continuous measure on M . Then with (5.25), the density of E with respect to vol h at a point x equals zero (or one) if and only if the density with respect to vol g equals zero (or one). This means that 26 
+
+E(0) and E(1) are purely topological data since they are independent of the choice of Riemannian metric. We shall see that E(t) for t ∈ (0 , 1) , on the other hand, does depend on g and is therefore Riemannian. First we prove invariance of the essential boundary under coordinate charts. 
+
+Lemma 5.16. A point x ∈ M belongs to ∂ess E if and only if φ(x) belongs to ∂ess (φ(E)) ∩ φ(U )
+
+in Rm for every chart (U, φ ) of M with x ∈ U .Proof. Let x ∈ ∂ess E and let (U, φ ) be a chart of M containing x. Let r0 > 0 be such that 
+
+Be(φ(x), r 0) ⊂ φ(U ) and suppose that r0 is sufficiently small such that for some L = L(r0) > 1
+
+one has 
+
+L−1|φ(y) − φ(z)| ≤ dist( y, z ) ≤ L |φ(y) − φ(z)| for all y, z ∈ φ−1(Be(φ(x), r 0)) ,
+
+and B(x, Lr 0) ⊂ U (see [27, Lemma 3.24] for a construction). Then for all r < r 0 one has 
+
+φ−1 (Be(φ(x), r )) ⊂ B(x, Lr ) and φ(B(x, L −1r)) ⊂ Be(φ(x), r ),
+
+hence 
+
+B(x, L −1r)) ⊂ φ−1(Be(φ(x), r )) ⊂ B(x, Lr )) . (5.26) By Remark 2.2 there exists a local doubling constant Cv = Cv(r0), that is, for all r < r 0 we have 
+
+vol( B(x, Lr )) ≤ L2mCv vol( B(x, L −1r)) . (5.27) Since r is sufficiently small such that φ−1(Be(φ(x), r )) ⊂ U and since φ is bijective, we have 
+
+Θφ(E)(φ(x), r ) = 
+
+λ
+
+
+
+φ E ∩ Be(φ(x), r )
+
+
+
+λ
+
+
+
+Be(φ(x), r )
+
+ =
+
+λ
+
+
+
+φ E ∩ φ−1(Be(φ(x), r )) 
+
+λ
+
+
+
+φ φ−1(Be(φ(x), r )) 
+
+=
+
+ˆ
+
+> E∩φ−1(Be(φ(x),r ))
+
+(pdet g)−1 dvol 
+
+ˆ
+
+> φ−1(Be(φ(x),r ))
+
+(pdet g)−1 dvol 
+
+≤ Cϱ
+
+vol 
+
+
+
+E ∩ φ−1(Be(φ(x), r )) 
+
+
+
+vol 
+
+
+
+φ−1(Be(φ(x), r )) 
+
+
+
+with 
+
+Cϱ = Cϱ(r0) = sup 
+
+np det g(y) : y ∈ φ−1(Be(φ(x), r 0)
+
+o
+
+inf 
+
+np det g(y) : y ∈ φ−1(Be(φ(x), r 0)
+
+o > 0.
+
+Now we use (5.26) and (5.27) to estimate 
+
+Cϱ
+
+vol 
+
+
+
+E ∩ φ−1(Be(φ(x), r )) 
+
+
+
+vol 
+
+
+
+φ−1(Be(φ(x), r )) 
+
+ ≤ Cϱ
+
+vol 
+
+
+
+E ∩ B(x, Lr )
+
+
+
+vol 
+
+
+
+B(x, L −1r)
+
+
+
+≤ L2mCvCϱ
+
+vol 
+
+
+
+E ∩ B(x, Lr )
+
+
+
+vol 
+
+
+
+B(x, Lr )
+
+ = L2mCvCϱ ΘE (x, Lr ).
+
+Taking the limit r → 0, it follows that Θφ(E)(φ(x)) ≥ const . ΘE (x) where ΘE (x) is the density of E at x with respect to the Riemannian volume measure. Therefore, ΘE (x)̸ = 0 implies 
+
+Θφ(E)(φ(x)) ̸ = 0 . Using that ΘE (x) = 1 if and only if ΘM \E (x) = 0 it follows similarly that 
+
+ΘE (x)̸ = 1 implies Θφ(E)(φ(x)) ̸ = 1 . Recalling that the essential boundary is independent of the choice of volume measure, we conclude: if x ∈ ∂ess E, then φ(x) ∈ ∂ess (φ(E)) ∩ φ(U ). The proof for the reverse implication works analogously. □
+
+In the proof of Lemma 5.16 we showed that for a given point x ∈ M , a set E ⊂ M has density 
+
+t = 0 (respectively, t = 1) at x if and only if for some/every chart φ around x one has that 
+
+φ(E) has density t = 0 (respectively, t = 1 ) at φ(x). This is generally false for t ∈ (0 , 1) as the following example shows for t = 1 /2.27 
+
+Example 5.17 . Consider the density of the set E = {| x2| > |x1|} ⊂ R2 at x = 0 . Then for arbitrary r > 0,
+
+λ(E ∩ Br(0)) 
+
+λ(Br(0)) = 12
+
+is the Euclidean density of E at x = 0 . Let A be the diagonal matrix with entries A11 = 1 and 
+
+A22 = 2 . As Figure 1 illustrates, we get for every r > 0
+
+λ(A(E) ∩ Br(0)) 
+
+λ(Br(0)) < r2
+
+2πr 2 = 12π .
+
+Figure 1. The density of E at the origin is not preserved under the linear transformation A.
+
+x1
+
+x2
+
+E
+
+r
+
+(a) The volume of E ∩Br (0) equals half the volume of Br (0) .
+
+x1
+
+x2
+
+A(E)
+
+r
+
+(b) The volume of A(E) ∩ Br (0) is smaller than r2,the volume of the dark colored area. 
+
+We remark that nevertheless, applying the transformation formula and exploiting smoothness of the Jacobian determinant, one finds that 
+
+lim 
+
+> r↓0
+
+λ(f (E ∩ Br(x)) 
+
+λ(f (Br(x))) = lim 
+
+> r↓0
+
+λ(E ∩ Br(x)
+
+λ(Br(x)) 
+
+for every diffeomorphism f : M → Rm. The Riemannian nature of the density of E at x is reflected in the following result on the density of a point in normal coordinates. The proof relies on the following estimate for the doubling constant from [53, inequality (2)]: If r is sufficiently small such that B(x, 2r) is relatively compact and if Ric |B(x, 2r) ≥ − K for some K ≥ 0, then 
+
+vol  B(x, r ) ≤ vol  B(x, s )  rs
+
+m
+
+exp  (m − 1) Kr  for all x ∈ M and 0 < s < r. (5.28) 
+
+Corollary 5.18. The density of E ⊂ M at x ∈ M coincides with the density of its image under a normal chart centered in x.Proof. Consider the constants L(r0), C ϱ and Cv from the proof of Lemma 5.16. From the con-struction in [27, Lemma 3.24] it follows that we can choose 
+
+L(r0) = sup 
+
+> y∈φ−1(Be(φ(x),r 0))
+
+max ∥[gij ]( y)∥, 1/∥[gij ]−1(y)∥
+
+= sup 
+
+> y∈φ−1(Be(φ(x),r 0))
+
+max {λmax (y), 1/λ min (y)} ,
+
+where λmax (y), λ min (y) are the largest and smallest eigenvalues of the matrix [gij ]( y). By (5.28), for sufficiently small r0 and a local lower Ricci curvature bound K we have 
+
+Cv(r0) = 
+
+ 1
+
+> L(r0)
+
+2m
+
+exp(( m − 1) Kr 0).28 
+
+Now suppose φ is a normal chart in x and L(r0)r0 is smaller than the injectivity radius at x.Then 
+
+gij (y) = δij + O(dist( x, y )) for y ∈ B(x, L (r0)r0)
+
+(see e.g. [9]). Therefore, we get 
+
+L(r0) → 1, Cϱ(r0) → 1 and Cv(r0) → 1 as r0 → 0.
+
+Thus, since for arbitrary r < r 0 we have 
+
+Θφ(E)(φ(x), r ) ≤ L(r0)2m Cv(r0) Cϱ(r0) Θ E (x, L (r0)r),
+
+taking the limit r0 → 0 implies that Θφ(E)(φ(x)) ≤ ΘE (x). The other direction works analo-gously. □
+
+With the machinery developed in the previous sections, the formulation of Federer’s theorem [4, Theorem 3.61] translates verbatim to the Riemannian setting: 
+
+Theorem 5.19 (Federer) . If E has finite perimeter in Ω, then 
+
+(∂∗E ∩ Ω) ⊂ E(1 /2) ⊂ ∂ess E, 
+
+and 
+
+Hm−1 Ω \ (E(0) ∪ ∂∗E ∪ E(1) ) = 0 .
+
+In particular, E has density either 0, 12 , or 1 at Hm−1-almost every x ∈ Ω, and Hm−1-almost every x ∈ ∂ess E ∩ Ω belongs to ∂∗E.Proof. Let x ∈ ∂∗E ∩ Ω and let (U, φ ) be a normal chart centered in x. Then by Corollary 5.3 we have φ(x) ∈ ∂∗(φ(E)) ∩ φ(Ω) ⊂ Rm, hence Federer’s theorem in Euclidean space implies that 
+
+φ(x) ∈ φ(E)(1 /2) . Since by Corollary 5.18 the density of a set at a point is invariant under a normal chart centered in that point, it follows that x ∈ E(1 /2) and the first inclusion is proved. The second inclusion is an immediate consequence of the definition of the essential boundary. Finally, using the Euclidean result, for an arbitrary chart (U, φ ) we have 
+
+Hm−1
+
+> e
+
+ φ(Ω) \ (φ(E)(0) ∪ ∂∗(φ(E)) ∪ φ(E)(1) ) = 0 
+
+and since nullsets are invariant under Hausdorff measures with respect to a change of the Rie-mannian metric, using the same arguments as before and the pushforward formula for Hausdorff measures, we get 
+
+0 = Hm−1˜g
+
+ φ(Ω) \ (φ(E)(0) ∪ ∂∗(φ(E)) ∪ φ(E)(1) ) = Hm−1
+
+> g
+
+ (Ω ∩ U ) \ (E(0) ∪ ∂∗E ∪ E(1) )
+
+and the full statement follows from a straightforward covering argument. □
+
+As we have observed earlier, the density of a measurable set E at x equals the density of its image φ(E) under a chart φ at φ(x) for almost every x ∈ M . Using Federer’s theorem and our previous results regarding pointwise properties of the reduced and essential boundary, we can refine this statement as follows: 
+
+Corollary 5.20. If E has finite perimeter in the chart domain of an arbitrary local chart (U, φ )
+
+around x, then 
+
+Hm−1
+
+> g
+
+ E(1 /2) ∆( φ−1(φ(E)(1 /2) ))  = 0 .
+
+In other words, φ(E) has density 1/2 at φ(x) at Hm−1 
+
+> g
+
+-almost every x ∈ E(1 /2) .
+
+We compare this result to the setting of a complete metric measure space (X , d, μ ) satisfying a doubling property and a 1-Poincaré inequality (PI space). Since general PI spaces do not have a fixed dimension, one uses the following construction: Let Br denote a metric ball of radius r
+
+in X and let S = Sμ,d be the generalized codimension-1 spherical Hausdorff measure given by 
+
+Sμ,d (A) := lim  
+
+> r→0
+
+inf 
+
+X
+
+> j
+
+μ(Brj )
+
+rj
+
+: A ⊂ [
+
+> j
+
+Brj , r j ≤ r
+
+
+
+.29 
+
+The following result is due to [2, Theorems 5.3] and [6, Theorem 4.6]: If E ⊂ M is a set of finite perimeter, then there exist 0 < c 1 < c 2 < ∞ and a Borel measurable density function 
+
+θ : ∂ess E → [c1, c 2] such that 
+
+|D1E |(A) = 
+
+ˆ
+
+> ∂ess E∩A
+
+θ d Sμ,g for A ∈ B(M ). (5.29) For the Riemannian distance function and the volume measure on M , the measure S is equivalent to the classical Hausdorff measure Hm−1. While the existence of the density function in (5.29) is obtained in a nonconstructive way, Theorem 5.19 refines this result to the explicit density θ ≡ 1
+
+with respect to Hm−1 and we obtain 
+
+|D1E | = Hm−1⌞∂ess E
+
+in analogy to the Euclidean case. Notice, moreover, that Ω has finite perimeter if and only if 
+
+Hm−1(∂ess Ω) < ∞. This result, too, is due to Federer in the Euclidean case and was proved for metric measure spaces in [38]. 6. Theory for boundary value problems and a mixed boundary capillarity problem 
+
+6.1. Extensions, boundary traces and the Gauss–Green formula. We begin by collecting the essential ingredients for boundary value problems from the metric measure space literature and adapt them to the Riemannian setting with the classical codimension-1 Hausdorff measures on M . We recall the definitions of extension domains from [15]. 
+
+Definition 6.1. A domain Ω ⊂ M is called a BV-extension domain if there exists a map E :
+
+BV (Ω) → BV (M ) with Eu|Ω = u and a constant C > 0 such that ∥E u∥BV (M ) ≤ C∥u∥BV (Ω) for 
+
+u ∈ BV (Ω) . If in addition, E can be chosen such that the total variation satisfies |D(Eu)|(∂Ω) = 0, then Ω is called strong BV-extension domain .
+
+Remark 6.2 . (1) By [37, Theorem 3.1] a sufficient condition for a bounded domain Ω in a com-plete PI space to be a strong BV -extension domain is that Ω be uniform in the following sense: there exists a constant C ≥ 1 such that any two points x, y ∈ Ω can be joined by a rectifiable curve γ whose length ℓ(γ) satisfies 
+
+ℓ(γ) ≤ C dist( x, y ) and dist( γ(t), ∂ Ω) ≥ C−1 min {t, ℓ (γ) − t} , t ∈ [0 , ℓ (γ)] .
+
+By classical results, this is satisfied by bounded Lipschitz domains in Rm and carries over to bounded Lipschitz domains in M . More recent results show that in complete PI spaces, an open and bounded domain Ω is a strong BV -extension domain if and only if it is a W 1,1-extension domain (cf. [15, Theorems 1.5, 1.6] and the prior Remark that the boundary of Sobolev extension domains in PI spaces have zero measure). (2) Compactness in BV (Ω) . Assume that Ω ⊂ M is a BV-extension domain. If (un) ⊂ BV (Ω) 
+
+is uniformly bounded in BV (Ω) , then there exists u ∈ BV (Ω) such that along a subsequence, 
+
+un → u in L1(Ω) and Du n → Du weakly ∗. Indeed, if E denotes the extension operator, then 
+
+∥E un∥BV (M ) ≤ ∥ un∥BV (Ω) is uniformly bounded. Now one can apply Step 1 from the proof of the local compactness result Corollary 3.14 to the set Ω ⊂⊂ M .(3) Smooth approximation up to the boundary. If Ω is a strong BV-extension domain, then every 
+
+u ∈ BV (Ω) can be approximated strictly by a sequence in C∞( ¯Ω) : Let un ∈ C∞(M ) ∩
+
+W 1,1(M ) be a strict approximation of the extended function Eu ∈ BV (M ). Since we have 
+
+|D(Eu)|(∂Ω) = 0 , the Portmanteau theorem [21, 4.10] implies that |Du n|(Ω) converges to 
+
+|D(Eu)|(Ω) = |Du |(Ω) , and clearly, (un) converges to u in L1(Ω) . Hence the sequence lies in C∞( ¯Ω) and converges to u strictly in BV (Ω) .
+
+Definition 6.3. A domain Ω ⊂ M is said to admit a (BV -)trace operator if for every u ∈ BV (Ω) 
+
+there exists a measurable function tr Ω(u) : ∂Ω → R such that for Hm−1-almost every x ∈ ∂Ω
+
+one has 
+
+lim 
+
+> r↓0
+
+1
+
+rm
+
+ˆ
+
+> Ω∩B(x,r )
+
+|u(y) − tr Ω(u)( x)| dvol( y) = 0 .30 
+
+Theorem 6.4. A strong BV -extension domain Ω admits a BV -trace operator. If in addition, 
+
+Ω admits a constant C > 0 such that for Hm−1-almost every x ∈ ∂∗Ω one has 
+
+Hm−1(∂∗Ω ∩ B(x, r )) ≤ C vol( B(x, r )) 
+
+r for all r ∈ (0 , 2 diam(Ω)) , (6.1) 
+
+then the trace operator u 7 → tr Ω(u) is a bounded linear operator from BV (Ω) to L1(∂∗Ω; Hm−1).Similarly, tr Ω : BV (Ω) → L1(∂Ω; Hm−1) is bounded if condition (6.1) is satisfied for the full boundary ∂Ω.Proof. By [14, Proposition 4.2], a strong BV -extension domain satisfies a strong measure density condition in the sense that there exists a constant c > 0 such that 
+
+ΘΩ(x, r ) = vol(Ω ∩ B(x, r )) vol( B(x, r )) ≥ c for all x ∈ M \ Ω(0) , r ∈ (0 , diam(Ω)) .
+
+Since Ω is open, we have Ω ⊂ Ω(1) ⊂ M \ Ω(0) , hence Ω ⊂ M \ Ω(0) . Using this condition, the existence statement is proved in [31, Theorem 5.7]. The L1-estimate is proved for ∂ess Ω in [37, Theorem 4.13] and by Theorem 5.19 we may replace the essential boundary ∂ess Ω with ∂∗Ω. The 
+
+L1-estimate for ∂Ω can be found in [39, Theorem 5.5]. □
+
+Remark 6.5 . (1) Condition (6.1) is necessary and sufficient for the L1-bound but is not satisfied by arbitrary uniform domains Ω, even if Hm−1(∂Ω) < ∞ (see [39, Example 5.3]). In partic-ular, it is not satisfied for arbitrary strong BV -extension domains. However, the condition does hold for bounded Lipschitz domains where one has |D1Ω| = Hm−1⌞(∂Ω) < ∞ (see the proof of [4, Theorem 3.87] for the Euclidean case). If the domain is relatively compact, then either of the two L1-bounds implies that Hm−1(∂∗Ω) < ∞, hence Ω must have finite perime-ter. For further necessary and sufficient conditions for the existence and L1-boundedness of trace operators see [37, 39]. (2) If Ω ⊂ M admits a bounded linear trace operator tr Ω : BV (Ω) → L1(∂Ω; Hm−1), then the trace operator is continuous with respect to the weaker topology of strict convergence on BV (Ω) . That is, if a sequence un → u strictly in BV (Ω) , then tr Ω(un) → tr Ω(u) in 
+
+L1(∂Ω; Hm−1) by [35, Proposition 7.1]. The proof of this theorem applies verbatim if one replaces ∂Ω by ∂∗Ω and the analogous statement remains true if the trace operator is only continuous from BV (Ω) to L1(∂∗Ω; Hm−1).(3) For an arbitrary domain Ω ⊂ M and u ∈ BV (Ω) we define the zero extension of u to M as the function ¯u ∈ L1(M ) given by ¯u|Ω = u and ¯u|M \Ω = 0 . Then we have 
+
+BV ( ¯Ω) := {u ∈ BV (Ω) : ¯ u ∈ BV (M )} = u ∈ BV (M ) : u|M \Ω = 0 .
+
+If Ω is a bounded BV -extension domain with a trace operator that admits an L1-bound in the sense of Theorem 6.4, then one has ¯u ∈ BV (M ) for all u ∈ BV (Ω) (cf. [37, 39]), hence 
+
+BV (Ω) = BV ( ¯Ω) .
+
+Corollary 6.6 (Gauss–Green) . Let Ω be a finite perimeter strong BV -extension domain that admits a bounded linear trace operator tr Ω : BV (Ω) → L1(∂∗Ω; Hm−1). Then for u ∈ BV (Ω) 
+
+and all X ∈ ΓC∞ 
+
+> c
+
+(M ; T M ) one has 
+
+−
+
+ˆ
+
+> Ω
+
+u div( X) dvol = 
+
+ˆ
+
+> Ω
+
+X · dDu +
+
+ˆ
+
+> ∂∗Ω
+
+tr Ω(u)( X, n Ω) dHm−1.
+
+Proof. Since Ω is a strong BV -extension domain, there exist un ∈ C∞( ¯Ω) converging to u strictly in BV (Ω) by Remark 6.2. Since Ω has finite perimeter, we obtain 
+
+−
+
+ˆ
+
+> Ω
+
+div( ϕX ) dvol = 
+
+ˆ
+
+> ∂Ω
+
+(ϕX, n Ω) d|D1Ω| (6.2) 31 
+
+for arbitrary ϕ ∈ C∞(M ) and X ∈ ΓC∞ 
+
+> c
+
+(M ; T M ). Using the chain rule for div( unX) and applying (6.2) with ϕ = un yields 
+
+−
+
+ˆ
+
+> Ω
+
+un div( X) dvol = 
+
+ˆ
+
+> Ω
+
+du n(X) dvol −
+
+ˆ
+
+> Ω
+
+div( unX) dvol =
+
+ˆ
+
+> Ω
+
+X · dDu n +
+
+ˆ
+
+> ∂Ω
+
+un(X, n Ω) d|D1Ω|.
+
+By strict convergence, one has un → u in L1(Ω) and Du n → Du weakly (cf. Corollary 3.12). Moreover, continuity of the trace operator with respect to strict convergence (Remark 6.5) implies that un|∂Ω = tr Ω(un) → tr Ω(u) in L1(∂∗Ω; Hm−1). Thus, taking limits on both sides and using 
+
+|D1Ω| = Hm−1⌞∂∗Ω on M , we obtain the claimed formula. □
+
+Since we will repeatedly rely on the validity of Corollary 6.6, we introduce the following conven-tion, which will later be assumed from time to time: 
+
+Assumption (A). The domain Ω ⊂ M has finite perimeter, admits a strong BV -extension oper-ator E : BV (Ω) → BV (M ) and a bounded linear trace operator tr Ω : BV (Ω) → L1(∂∗Ω; Hm−1).6.2. Strict interior approximation of finite perimeter sets for mixed boundary prob-lems. Throughout this section let Ω ⊂ M be a domain and let γ ⊂ ∂Ω be a measurable subset with Hm−1(γ∗)̸ = 0 for γ∗ := γ ∩ ∂∗Ω. The set γ will play the role of a designated Dirichlet boundary. On the level of finite perimeter sets, Hm−1(∂∗E ∩ γ) = 0 reflects a Dirichlet boundary condition. If Ω admits a trace operator, then we define by 
+
+BV γ (Ω) := u ∈ BV (Ω) : tr Ω(u) = 0 , Hm−1-a.e. on γ
+
+the space of BV functions with zero boundary conditions on γ. As before, ¯u denotes the zero extension of u ∈ BV (Ω) . Note that under Assumption (A) , one has 
+
+P (E; Ω ∪ γ) = P (E; Ω) + Hm−1(∂∗E ∩ γ)
+
+and 
+
+|D¯u|(Ω ∪ γ) = |Du |(Ω) + 
+
+ˆ
+
+> γ∗
+
+tr Ω(u) dHm−1.
+
+Lemma 6.7. Assume (A) and that γ ⊂ ∂Ω is relatively open. Then for all u ∈ BV (Ω) one has 
+
+|D¯u|(Ω ∪ γ) = sup 
+
+ˆ
+
+> Ω
+
+u div( X) dvol : X ∈ ΓC∞ 
+
+> c
+
+(Ω ∪ γ; T M ), |X| ≤ 1
+
+
+
+,
+
+where ΓC∞ 
+
+> c
+
+(Ω ∪ γ; T M ) is defined as in Appendix A. Proof. Since γ ⊂ ∂Ω is relatively open, there exists an open set U ⊂ M such that ¯Ω ∩ U = Ω ∪ γ.Now, since |D¯u| is concentrated on ¯Ω, it follows that 
+
+|D¯u|(Ω ∪ γ) = |D¯u|(U ) = sup {D ¯u[X] : X ∈ ΓCc (U, T U ), |X| ≤ 1} . (6.3) Note that ¯Ω ∩ U = Ω ∪ γ is a locally compact Hausdorff space. By Lemma A.1 the space 
+
+C∞ 
+
+> c
+
+(Ω ∪ γ) is dense in Cc(Ω ∪ γ) with respect to uniform convergence and every function in 
+
+Cc(Ω ∪ γ) can be extended to a function in Cc(U ) ⊂ C0(U ). In particular, using a partition of unity argument, one has ΓC∞ 
+
+> c
+
+(Ω ∪ γ; T M ) ⊂ ΓCc (U, T U ). For every X ∈ ΓC∞ 
+
+> c
+
+(Ω ∪ γ; T M ), the Gauss–Green formula above shows that 
+
+−
+
+ˆ
+
+> Ω
+
+u div( X) dvol = D ¯u[X],
+
+which implies that 
+
+sup 
+
+ˆ
+
+> Ω
+
+u div( X) dvol : X ∈ ΓC∞ 
+
+> c
+
+(Ω ∪ γ; T M ), |X| ≤ 1
+
+
+
+= |D¯u|(Ω ∪ γ).
+
+For the other inequality, take X ∈ ΓC∞ 
+
+> c
+
+(U, T U ). Then the support of the restriction X| ¯Ω∩U is compact since it is given by sppt( X) ∩ ¯Ω, and therefore, 
+
+X| ¯Ω∩U ∈ ΓC∞ 
+
+> c
+
+( ¯Ω ∩ U, T M ) = Γ C∞ 
+
+> c
+
+(Ω ∪ γ, T M ).32 
+
+Finally, we use the Gauss–Green formula once more to deduce that D ¯u[X] = D ¯u(X|Ω∪γ ), and conclude using (6.3) that 
+
+|D¯u|(Ω ∪ γ) = sup D ¯u[X] : X ∈ ΓC∞ 
+
+> c
+
+(U, T U ) : |X| ≤ 1
+
+≤ sup D ¯u[X] : X ∈ ΓC∞ 
+
+> c
+
+(Ω ∪ γ; T M ), |X| ≤ 1 .
+
+□
+
+Remark 6.8 . Let γ be relatively open in ∂Ω.(1) Compactness in BV (Ω ∪γ). Let Ω be a BV -extension domain. If (un) ⊂ BV (Ω) is a sequence such that ∥un∥1,Ω + |D¯un|(Ω ∪ γ) is uniformly bounded, then there exists u ∈ BV (Ω) such that along some subsequence, un → u in L1(Ω) and D ¯un⌞(Ω ∪ γ) → D ¯u⌞(Ω ∪ γ) weakly ∗
+
+in the sense of generalized vector measures on Ω ∪ γ. In other words, D¯un[X] → D¯u[X] for all vector fields X with coefficients in C0(Ω ∪ γ). This can be seen as follows: Since γ ⊂ ∂Ω
+
+is relatively open, there exists an open subset U ⊂ M such that U ∩ ¯Ω = Ω ∪ γ and since 
+
+Ω is a strong BV -extension domain, we can pick U satisfying this property as well. Then 
+
+∥¯un∥1,U + |D¯un|(U ) = ∥¯un∥1,Ω + |D¯un|(Ω ∪ γ), so the compactness result from Remark 6.2 for ¯un ⊂ BV (M ) on U yields existence of a subsequence converging to some ¯u in L1(U ) and with D¯un → D¯u weakly ∗ on U . Using the same density and extension argument as in the proof of Lemma 6.7, it follows that D¯un[X] → D¯u[X] for all X ∈ ΓC∞ 
+
+> c
+
+(Ω ∪ γ; T M ).(2) Lower semicontinuity. Assume (A) . Then Lemma 6.7 implies the following: If un → u in 
+
+L1(Ω) , or if Du n[X] → Du [X] holds for all C0(Ω ∪γ) vector fields X, then lim inf n |D ¯un|(U ) ≥|D ¯u|(U ) for all relatively open subsets U ⊂ Ω ∪ γ.(3) If ˜γ ⊂ ∂Ω is a measurable subset with Hm−1(˜ γ∆γ) = 0 , then one has 
+
+|D¯u|(Ω ∪ γ) = |D¯u|(Ω ∪ ˜γ),
+
+hence the compactness and lower semicontinuity properties remain valid on Ω ∪ ˜γ.For future reference we record: 
+
+Assumption (B). The set Ω ⊂ M is a relatively compact set of finite perimeter with 
+
+Hm−1 Ω(1) ∩ ∂Ω = 0 . (6.4) 
+
+Remark 6.9 . (1) It was shown in [28] that a relatively compact set of finite perimeter Ω in Rm
+
+satisfies (6.4) if and only if Ω can be approximated strictly from inside by smoothly bounded open sets, meaning that there exist sets ˆΩn ⊂⊂ Ω with C∞-boundary such that ˆΩn → Ω and 
+
+P( ˆΩn) → P(Ω) as n → ∞ . Employing the localization techniques from the previous section, the same is true on Riemannian manifolds. (2) Recalling the definitions from Section 5.3, notice that (6.4) is equivalent to 
+
+lim sup 
+
+> r↓0
+
+ΘΩ(x, r ) < 1 for Hm−1-almost every x ∈ ∂Ω.Similarly, Hm−1(Ω (0) ∩ ∂Ω) = 0 is equivalent to 
+
+lim inf  
+
+> r↓0
+
+ΘΩ(x, r ) > 0 for Hm−1-almost every x ∈ ∂Ω.In particular, this implies that if both (A) and (B) are satisfied, then the strong measure density condition on strong extension domains yields 
+
+Hm−1((Ω (0) ∪ Ω(1) ) ∩ ∂Ω) = 0 .
+
+The final approximation result will rely on the following property: 
+
+Lemma 6.10. Let E and F be sets of locally finite perimeter in M . If x ∈ ∂∗E ∩ ∂∗F and there exists some ε > 0 such that essentially (that is, up to nullsets) one has 
+
+(E ∩ Bε(x)) ⊂ (F ∩ Bε(x)) , (6.5) 
+
+then nE (x) = nF (x).33 
+
+Proof. Assume that (6.5) is satisfied, and without loss of generality, assume that ε is small enough such that the exponential map is well-defined on the ball of radius ε around 0 in TxM . For r > 0,let Ex,r be the blow-up of E at x ∈ M from Definition 5.11. If x ∈ ∂∗E, then by Theorem 5.15 one has 
+
+Ex,r loc. 
+
+→ HE (x) = ξ ∈ TxM : (ξ, n E (x)) ≥ 0 ,
+
+and an analogous condition holds for Fx,r .Now let K ⊂ TxM be a compact set and let RK > 0 be the radius of some ball centered at zero which contains K. We set rK := ε/R K . Using that exp x is a radial isometry, by definition of the blow-up one gets that Ex,r ∩ K is essentially contained in Fx,r ∩ K for all r < r K . Then from 
+
+Ex,r ∩ K → HE (x) ∩ K and Fx,r ∩ K → HF (x) ∩ K it follows that HE (x) ∩ K is essentially contained in HF (x) ∩ K. Since K was arbitrary, this implies that the half spaces HE (x) and 
+
+HF (x) coincide and therefore, nE (x) = nF (x). □
+
+We specify the assumptions on the Dirichlet boundary. 
+
+Assumption (C). There exists a relatively open set ˆγ ⊂ ∂Ω with Hm−1(ˆ γ∆γ) = 0 as well as a set A ⊂ Ω with finite perimeter such that 
+
+∂∗A ∩ ∂∗Ω = γ ∩ ∂∗Ω =: γ∗. (6.6) 
+
+Example 6.11 . If Ω is a relatively compact Lipschitz domain and γ ⊂ ∂Ω is the closure of a relatively open subset of ∂Ω, then one can show that there exists a bounded Lipschitz domain 
+
+A ⊂ Ω such that ∂A ∩ ∂Ω = γ.
+
+Theorem 6.12. Assume (A) , (B) and (C) and let E ⊂ Ω be a set of finite perimeter in Ω. Then there exists a sequence of finite perimeter sets En ⊂ Ω with P(En; γ) = 0 and P(En; ∂Ω \ γ) = 
+
+P(E; ∂Ω \ γ) for all n ∈ N such that 
+
+En → E, and P(En; Ω) → P(E; Ω ∪ γ). (6.7) 
+
+In other words, En converges to E strictly on Ω ∪ γ.Proof. Firstly, notice that for every subset E ⊂ Ω with P(E; Ω) < ∞ the trace theorem implies that 
+
+P(E) = P(E; Ω) + P(E; γ) + P(E; ∂Ω \ γ)= |D1E |(Ω) + Hm−1(∂∗E ∩ γ) + Hm−1(∂∗E ∩ (∂∗Ω \ γ)) . (6.8) In addition, for arbitrary sets E, F ⊂ M of (locally) finite perimeter, it holds that both E ∪ F
+
+and E ∩ F are of (locally) finite perimeter and for every Borel measurable set U ⊂ M one has 
+
+P(E ∪ F ; U ) + P(E ∩ F ; U ) ≤ P(E; U ) + P(F ; U ). (6.9) This follows from [43, Theorem 16.3] in the Euclidean case and with the structure theory from the previous section at hand, the proof of this theorem applies verbatim to the Riemannian case. We divide the proof into two steps. 
+
+Step 1: There exists a sequence of finite perimeter sets ˆEn ⊂ Ω with P( ˆEn; ∂Ω) = 0 such that 
+
+ˆEn → E and P( ˆEn; Ω) → P(E; ¯Ω) = P(E).Proof of Step 1: Let ˆΩn be as in Remark 6.9 and set ˆEn := E ∩ ˆΩn. Then it is clear that 
+
+ˆEn → E. Thus, by lower semicontinuity of the perimeter and since ˆEn ⊂⊂ Ω, it follows that 
+
+lim inf P( ˆEn; Ω) = lim inf P( ˆEn) ≥ P(E). It remains to show that P ( ˆEn; ¯Ω) = P ( ˆEn) is upper semicontinuous: Using (6.9) we compute 
+
+lim sup P( ˆEn) ≤ lim sup( −P(E ∪ ˆΩn)) + P(E) + lim P( ˆΩn)= − lim inf P(E ∪ ˆΩn) + P(E) + P(Ω) ≤ P(E),
+
+where the last inequality follows from E ∪ ˆΩn → Ω and lower semicontinuity of P(E ∪ ˆΩn).34 
+
+Step 2: There exists a sequence (En) satisfying the statement of the Lemma. Proof of Step 2: Let A ⊂ Ω be as in (C) and set En := ( E ∩ (Ω \ A)) ∪ ˆEn where ˆEn = E ∩ ˆΩn
+
+is as in Step 1. We first prove the following identities: 
+
+P(E ∩ (Ω \ A); ∂Ω) = P(E; ∂Ω \ γ) and P(E ∩ (Ω \ A); γ) = 0 (6.10) 
+
+P(En; γ) = 0 (6.11) 
+
+P(En; ∂Ω \ γ) = P(E; ∂Ω \ γ) (6.12) for all n ∈ N. Starting with (6.10), we use [43, Theorem 16.3] to get 
+
+P(E ∩ (Ω \ A); ∂Ω) = P(E; (Ω \ A)(1) ∩ ∂Ω)) + P(Ω \ A; E(1) ∩ ∂Ω) + Hm−1  nE = nΩ\A ∩ ∂Ω. (6.13) By De Giorgi’s Theorem 5.15, the first two terms on the right-hand side equal 
+
+Hm−1(∂∗E ∩ (Ω \ A)(1) ∩ ∂Ω)) + Hm−1(∂∗(Ω \ A) ∩ E(1) ∩ ∂Ω) 
+
+and using that ((Ω \ A)(1) ∩ ∂Ω) ⊂ (Ω (1) ∩ ∂Ω) and (E(1) ∩ ∂Ω) ⊂ (Ω (1) ∩ ∂Ω) , the equality (6.4) implies that both terms are equal to zero. For the third term, observe first that for every 
+
+x ∈ nE = nΩ\A ∩∂Ω by definition one has x ∈ ∂∗(Ω \A)∩∂∗Ω and since Ω\A ⊂ Ω, Lemma 6.10 implies that nΩ\A(x) = nΩ(x). Hence we get 
+
+nE = nΩ\A ∩ ∂Ω = nE = nΩ ∩ ∂∗(Ω \ A) = ∂∗E ∩ ∂∗Ω ∩ ∂∗(Ω \ A),
+
+where we applied Lemma 6.10 to E ⊂ Ω to get the second equality. Since with Theorem 5.19 we get that 
+
+Hm−1(∂∗Ω ∩ ∂∗(Ω \ A)) = Hm−1(( ∂Ω \ γ) ∩ ∂∗Ω) ,
+
+the first equality in (6.10) follows via 
+
+Hm−1  nE = nΩ\A ∩ ∂Ω  = Hm−1(∂∗E ∩ ∂∗Ω ∩ (∂Ω \ γ)) = P(E; ∂Ω \ γ).
+
+Using the decomposition (6.13) for γ instead of the full boundary ∂Ω and repeating the arguments thereafter, one finds that P(E ∩ (Ω \ A); γ) = 0 . We move on to (6.11). Applying (6.9) to En,we get 
+
+P(En; γ) ≤ P(E ∩ (Ω \ A); γ) + P( ˆEn; γ) − P( ˆEn ∩ (Ω \ A); γ).
+
+The first term equals zero by (6.10). The remaining two terms vanish since ˆEn is compactly contained in Ω and thus, has zero perimeter on ∂Ω. For the third identity (6.12), we write 
+
+F := E ∩ (Ω \ A) and invoke [43, Theorem 16.3] once more to get 
+
+P(En; ∂Ω \ γ) = P( ˆEn; F (0) ∩ (∂Ω \ γ)) + P(F ; ˆE(0)  
+
+> n
+
+∩ (∂Ω \ γ)) + Hm−1({n ˆEn = nF } ∩ ∂Ω \ γ)
+
+The first term vanishes since ˆEn ⊂⊂ Ω has no perimeter on ∂Ω \ γ. For the same reason one has {n ˆEn = nF } = ∅ and the third term vanishes as well. Finally, ˆEn ⊂⊂ Ω implies that 
+
+(∂Ω \ γ) ⊂ ˆE(0)  
+
+> n
+
+and thus, the second term is equal to P(E ∩ (Ω \ A); ∂Ω \ γ). Using (6.10), we obtain the claimed identity (6.12). We are left to prove the convergence (6.7). Since we clearly have En → E, it follows from lower semicontinuity of relative perimeters in Ω ∪ γ (see Remark 6.8) that lim inf P(En; Ω) = lim inf P(En; Ω ∪ γ) ≥ P(E; Ω ∪ γ). Using (6.9) we get 
+
+P(En; Ω) ≤ P(E ∩ (Ω \ A); Ω) + P( ˆEn; Ω) − P(( E ∩ (Ω \ A)) ∩ ˆΩn; Ω) .
+
+Taking lim sup on both sides as before and using (6.8) as well as Step 1 yields 
+
+lim sup P(En; Ω) ≤ P(E ∩ (Ω \ A); Ω) + P(E) − P(E ∩ (Ω \ A)) = P(E) − P(E ∩ (Ω \ A); ∂Ω) = P(E; Ω ∪ γ),
+
+where the last identity is equivalent to (6.10). □35 
+
+We briefly comment on related results to Theorem 6.12 and applications in variational problems, complementing the discussion from the introduction. In general, strict (smooth) interior approx-imation results for finite perimeter sets in Ω can be viewed as the measure theoretic analog of strict density of (smooth) compactly supported functions in BV (Ω) , but the techniques avail-able for set approximations are fundamentally different. In particular, standard mollification procedures and smooth cut-off functions are not available. In this spirit, the approximation result for Euclidean BV -functions on Lipschitz domains by a sequence of functions in BV (Rm) with compact support given in [34, Lemma 1] is related to Theorem 6.12. However, this is not an interior approximation (with respect to γ). Moreover, one should note that the approximating sets En ⊂ Ω in our setting cannot simultaneously be smoothly bounded and satisfy (6.7) unless ∂E ∩ γ∗ is smooth or Hm−1(∂E ∩ γ∗) = 0 .6.3. A capillarity problem in a container with inhomogeneous boundary. Capillarity problems model equilibrium states of liquids and the formation of droplets on surfaces. We refer to [43, Chapter 19] for an introduction to the variational framework. If Ω is an open set in Rm,the free energy of a liquid covering a subset E of Ω is modeled by 
+
+Fβ (E) := P(E; Ω) + βP (E; ∂Ω) + 
+
+ˆ
+
+> E
+
+v(x) dx. 
+
+The parameter β ∈ [−1, 1] is an adhesion parameter between the container walls ∂Ω and the liquid, and the last term is a potential energy term. If v ∈ C0(Ω) and ˆE ∈ C (Ω) with c := | ˆE| <
+
+∞ minimizes Fβ among all finite perimeter sets E in Ω with volume |E| = c, then there exists some λ ∈ R such that ˆE has distributional mean curvature −v + λ in Ω. If additionally, Ω has a C1-boundary and Ω ∩ ∂ ˆE is a C2-hypersurface with boundary, then ˆE satisfies Young’s law :
+
+n ˆE · nΩ = −β on ∂(Ω ∩ ∂ ˆE).
+
+In other words, the contact angle θ between the liquid and the container walls satisfies β = cos( θ).The term βP (E; ∂Ω) in Fβ is also referred to as the wetting energy and ∂Ω can be understood as fully wetting if |β| = 1 and as hydrophobic if β = 0 . Various aspects of capillarity problems and the related prescribed mean curvature problems have been studied extensively in recent years, see [19, 25, 41, 50, 55], just to mention a few. The authors in [42] and [33] study regularity and stability of capillary surfaces in 3-manifolds. Motivated by this, we propose a variational formulation for a capillary problem with mixed boundary in a Riemannian manifold and use the results from Section 6.2 to prove existence of minimizers and use the approximation from Theorem 6.12 to construct recovery sequences in a Gamma-convergence problem for capillarity functionals with varying adhesion parameters β.
+
+Lemma 6.13. Let Ω satisfy (A) and let γ ⊂ ∂Ω be Hm−1-equivalent to a relatively open subset of ∂Ω. For β ∈ [0 , 1] , v ∈ L1(Ω) and measurable sets E ⊂ Ω, let 
+
+Fγβ (E) = P(E; Ω) + P(E; γ) + βP (E; ∂Ω \ γ) + 
+
+ˆ
+
+> E
+
+v d vol (6.14) 
+
+Then the functional Fγβ is lower semicontinuous with respect to convergence in volume measure on Ω. Moreover, for every c ∈ (0 , |Ω|), Fγβ admits a minimizer in {E ∈ C (Ω) : |E| = c}.Proof. We rewrite 
+
+Fγβ (E) = (1 − β)P(E; Ω ∪ γ) + βP (E) + 
+
+ˆ
+
+> E
+
+v d vol .
+
+By virtue of the lower semicontinuity statement for mixed boundaries in Remark 6.8 and the classical lower semicontinuity property of perimeters on open sets, the first two summands are lower semicontinuous and nonnegative functionals. Using that the third summand is continuous with respect to E, the sum of all three functionals is lower semicontinuous, too. For arbitrary subsets E ∈ Ω, the value Fγβ (E) is bounded below by −∥ v∥Ω,1. Therefore, for every c ∈ (0 , |Ω|),
+
+mβ (c) := inf 
+
+n
+
+Fγβ (E) : E ⊂ Ω, |E| = c
+
+o36 
+
+takes a value in R and we may pick an infimizing sequence of sets En ⊂ Ω with |E| = c such that 
+
+Fγβ (En) → mβ (c). By definition of Fγβ and nonnegativity of perimeters, it follows that for all n,
+
+P(En; Ω) ≤ mβ (c) + ∥v∥Ω,1 < ∞,
+
+hence the sequence is uniformly bounded in C (Ω) and since Ω is a bounded extension domain, we may argue as for the compactness property in Remark 6.8 combined with Remark 3.15 to find that (En) converges in measure to some E ∈ C (Ω) along a subsequence and clearly, |E| = c.Finally, invoking lower semicontinuity of Fγβ , we conclude that Fγβ (E) = mβ (c). □
+
+We want to examine the behavior of the minimizer under continuous changes of the prescribed contact angle θ via the parameter β. To this end, we prove the following convergence result where we will crucially depend on the approximation Theorem 6.12 for the construction of a recovery sequence. 
+
+Theorem 6.14. Suppose that the assumptions of Lemma 6.13 hold. Assume furthermore that 
+
+(B) and (C) are satisfied. If (βn) → β in [0 , 1] , then the functionals Fγβn Gamma-converge to 
+
+Fγβ on the space of measurable subsets of Ω.Proof. Let E ⊂ Ω be arbitrary. We first prove the lower semicontinuity estimate and assume that (En) is a sequence of measurable subsets of Ω that converges to E in volume measure. Using the same arguments as in the proof of Lemma 6.13, we immediately get 
+
+lim inf  
+
+> n
+
+Fγβn (En) ≥ lim  
+
+> n
+
+(1 − βn) lim inf  
+
+> n
+
+P(En; Ω ∪ γ) + lim  
+
+> n
+
+βn lim inf  
+
+> n
+
+P(En) + lim 
+
+> n
+
+ˆ
+
+> En
+
+v d vol 
+
+≥ (1 − β)P(E; Ω ∪ γ) + βP (E) + 
+
+ˆ
+
+> E
+
+v d vol = Fγβ (E).
+
+We conclude the proof by constructing a recovery sequence. Indeed, for arbitrary fixed E, let 
+
+(En) be the sequence from Theorem 6.12. Then the construction directly yields 
+
+lim  
+
+> n
+
+Fγβn (En) = lim 
+
+> n
+
+
+
+P(En; Ω ∪ γ) + βnP(En; ∂Ω \ γ) + 
+
+ˆ
+
+> En
+
+v d vol 
+
+
+
+= Fγβ (E).
+
+□
+
+Appendix A. For an arbitrary subset A ⊂ M we write C(A) for the space of continuous functions on A
+
+with respect to the subspace topology. Let Cc(A) be the space of continuous functions with compact support in A and Cb(A) the space of uniformly bounded continuous functions on A.We denote the space of continuous functions vanishing at infinity by C0(A) and clearly one has 
+
+Cc(A) ⊂ C0(A) ⊂ Cb(A). If A is locally compact, then C0(A) is the closure of Cc(A) with respect to uniform convergence. Given an open set Ω ⊂ M and k ∈ N ∪ {∞} , we denote the space of 
+
+k-times continuously differentiable functions on Ω by Ck(Ω) and for arbitrary sets A ⊂ M we let 
+
+Ck(A) = u : A → R : there exist U ⊂ M open and ˆu ∈ Ck(U ) s.t. A ⊂ U and ˆu|A = u
+
+and define Ckc (A) ⊂ Ck 
+
+> 0
+
+(A) ⊂ Ckb (A) as above. Similarly we define ΓC∞ (A; T M ) to be the space of sections X : A → T M for which there exists an open subset U ⊂ M containing A such that 
+
+X extends to a section in ΓC∞ (U ; T M ) = Γ C∞ (T U ).
+
+Lemma A.1. Let X be a locally compact Hausdorff space and let A ⊂ X be locally compact in the subspace topology. (1) Every u ∈ Cc(A) can be extended to a function ˜u ∈ Cc(X ).(2) Suppose X = M . Then C∞ 
+
+> c
+
+(A) is dense in Cc(A) (and C0(A)) with respect to uniform convergence. (3) There exists a countable set D ⊂ C∞ 
+
+> c
+
+(A) which is dense in C0(A).37 
+
+Proof. 1. Let K := sppt( u). Then K is a compact subset of the LCH space A. By [23, Proposition 4.31] there exists a relatively open, relatively compact set UA in A such that 
+
+K ⊂⊂ UA ⊂ cl A(UA) ⊂⊂ A ⊂ X .
+
+Here cl A denotes the closure of a set in the subspace topology of A, but since cl A(UA) is a compact subspace of A, it is a compact subspace of X and therefore, cl A(UA) = cl( UA). By definition of the subspace topology, UA is open in A if and only if there exists an open set U ⊂ X 
+
+s.t. UA = U ∩ A.We apply Tietze’s extension theorem for locally compact Hausdorff spaces [23, Theorem 4.34] to u ∈ C(cl( UA)) where we consider cl( UA) ⊂⊂ X . That is, we let ˆu ∈ C(X ) s.t. ˆu|cl( UA) = u.Moreover, by Urysohn’s lemma [23, Lemma 4.32], since K ⊂⊂ U and U is open in X , there exists f ∈ C(X ) such that f (x) = 1 for x ∈ K and f (x) = 0 for all x ∈ X \ U . We define 
+
+˜u = ˆ uf ∈ C(X ) and write A = ( A \ U ) ∪ (A ∩ U ). If x ∈ A \ U , then f (x) = 0 , hence ˜u(x) = 0 
+
+and since K = sppt( u) ⊂ U , u(x) = 0 . Now assume x ∈ A ∩ U = UA, then ˆu(x) = u(x)
+
+and if x / ∈ K, then ˜u(x) = ˆ u(x)f (x) = 0 = u(x). Finally, if x ∈ K, then f (x) = 1 , hence 
+
+˜u(x) = ˆ u(x)f (x) = u(x).2. Fix u ∈ Cc(A) as above and let ˜u ∈ Cc(M ) be the continuous extension to M with U
+
+and UA as above. Then sppt(˜ u) is compactly contained in U with U ⊂ M open, hence by using Friedrichs mollifiers there is a sequence of functions ˜un ∈ C∞ 
+
+> c
+
+(M ) with sppt(˜ un) ⊂⊂ U
+
+converging uniformly to ˜u on M . Therefore, by setting un : = ˜ un|A, we obtain a sequence in 
+
+C∞(A) approximating u uniformly on A and one has 
+
+sppt( un) = sppt(˜ un) ∩ A = (sppt(˜ un) ∩ cl( UA)) ⊂ A. 
+
+Hence, sppt( un) is compact as the intersection of two compact sets and we conclude that un ∈
+
+C∞ 
+
+> c
+
+(A). Density in C0(A) follows density of Cc(A) in C0.3. Since A is locally compact, C0(A) is a separable Banach space (cf. [18]). Now the claim follows from density of C∞ 
+
+> c
+
+(A) in C0(A). □
+
+Declarations 
+
+Competing interests: On behalf of all authors, the corresponding author states that there is no conflict of interest. 
+
+Data availability: Data sharing is not applicable to this article as no datasets were generated or analyzed. 
+
+References 
+
+[1] P. Alonso Ruíz and F. Baudoin. Yet another heat semigroup characterization of BV functions on Riemannian manifolds. Annales de la Faculté des sciences de Toulouse : Mathématiques , 32(3):577–606, Aug. 2023. [2] L. Ambrosio. Fine Properties of Sets of Finite Perimeter in Doubling Metric Measure Spaces. Set-Valued Analysis , 10(2/3):111–128, 2002. [3] L. Ambrosio and S. Di Marino. Equivalent definitions of BV space and of total variation on metric measure spaces. Journal of Functional Analysis , 266(7):4150–4188, Apr. 2014. [4] L. Ambrosio, N. Fusco, and D. Pallara. Functions of Bounded Variation and Free Discontinuity Problems .Oxford Mathematical Monographs. Clarendon press, Oxford, 2000. [5] L. Ambrosio, R. Ghezzi, and V. Magnani. BV functions and sets of finite perimeter in sub-Riemannian manifolds. Annales de l’Institut Henri Poincaré C, Analyse non linéaire , 32(3):489–517, June 2015. [6] L. Ambrosio, M. Miranda, and D. Pallara. Special Functions of Bounded Variation in Doubling Metric Measure Spaces. In Calculus of Variations: Topics from the Mathematical Heritage of E. De Giorgi , volume 14 of Quaderni Di Matematica , pages 1–45. Dipartimento di Matematica, Seconda Università di Napoli, 2004. [7] J. Atnip, G. Froyland, and P. Koltai. An inflated dynamic Laplacian to track the emergence and disappearance of semi-material coherent sets. arXiv preprint arXiv:2403.10360 , 2024. [8] T. Aubin. Espaces de Sobolev sur les variétés riemanniennes. Bulletin des Sciences Mathématiques. 2e Série ,100(2):149–173, 1976. [9] N. Berline, E. Getzler, and M. Vergne. Heat Kernels and Dirac Operators . Grundlehren Text Editions. Springer, Berlin ; New York, 2004. [10] J. Brokman, M. Burger, and G. Gilboa. Spectral Total-variation Processing of Shapes—Theory and Appli-cations. ACM Transactions on Graphics , 43(2):1–20, Apr. 2024. 38 
+
+[11] B. Buet and G. P. Leonardi. Recovering measures from approximate values on balls. Annales Academiae Scientiarum Fennicae Mathematica , 41:947–972, 2016. [12] V. Bögelein, F. Duzaar, and N. Fusco. A quantitative isoperimetric inequality on the sphere. Advances in Calculus of Variations , 10(3):223–265, July 2017. [13] V. Bögelein, F. Duzaar, and C. Scheven. A sharp quantitative isoperimetric inequality in hyperbolic n-space. 
+
+Calculus of Variations and Partial Differential Equations , 54(4):3967–4017, Dec. 2015. [14] E. Caputo, J. Koivu, D. Lučić, and T. Rajala. Closed BV-extension and W 1,1-extension sets. arXiv preprint arXiv:2503.15716, Mar. 2025. [15] E. Caputo, J. Koivu, and T. Rajala. Sobolev, BV and perimeter extensions in metric measure spaces. Annales Fennici Mathematici , 49(1):135–165, Mar. 2024. [16] A. Carbonaro and G. Mauceri. A note on bounded variation and heat semigroup on Riemannian manifolds. 
+
+Bulletin of the Australian Mathematical Society , 76(1):155–160, Aug. 2007. [17] O. Chodosh, M. Engelstein, and L. Spolaor. The Riemannian quantitative isoperimetric inequality. Journal of the European Mathematical Society , 25(5):1711–1741, Apr. 2022. [18] C.-Y. Chou. Notes on the Separability of C∗-Algebras. Taiwanese Journal of Mathematics , 16(2):555–559, Mar. 2012. [19] G. De Philippis, N. Fusco, and M. Morini. Regularity of capillarity droplets with obstacle. Transactions of the American Mathematical Society , 377(8):5787–5835, Apr. 2024. [20] S. Dweik. Weighted total variation minimization problem with mixed Dirichlet–Neumann boundary condi-tions. Pacific Journal of Mathematics , 335(1):53–79, Mar. 2025. [21] J. Elstrodt. Maß- und Integrationstheorie . Springer Berlin Heidelberg, Berlin, Heidelberg, 2018. [22] H. Federer. Geometric Measure Theory . Classics in Mathematics. Springer, Berlin; New York, 1996. [23] G. B. Folland. Real Analysis: Modern Techniques and Their Applications . A Wiley-Interscience Publication. Wiley, New York Weinheim, 2. ed edition, 1999. [24] G. Froyland and P. Koltai. Detecting the birth and death of finite-time coherent sets. Communications on Pure and Applied Mathematics , 76(12):3642–3684, July 2023. [25] N. Fusco, V. Julin, M. Morini, and A. Pratelli. The isoperimetric inequality for the capillary energy outside convex sets, Sept. 2025. [26] L. Gennaioli. Sets of finite perimeter on Riemannian manifolds and stochastic completeness. arXiv preprint arXiv:2605.01979, May 2026. [27] A. Grigor’yan. Heat Kernel and Analysis on Manifolds , volume 47 of AMS/IP Studies in Advanced Mathe-matics . American Mathematical Society, Providence, Rhode Island, Nov. 2012. [28] C. Gui, Y. Hu, and Q. Li. On smooth interior approximation of sets of finite perimeter. Proceedings of the American Mathematical Society , 151(5):1949–1962, Feb. 2023. [29] D. Guidetti, B. Güneysu, and D. Pallara. L1-elliptic regularity and H = W on the whole Lp-scale on arbitrary manifolds. Annales Academiae Scientiarum Fennicae Mathematica , 42:497–521, Feb. 2017. [30] B. Güneysu and D. Pallara. Functions with bounded variation on a class of Riemannian manifolds with Ricci curvature unbounded from below. Mathematische Annalen , 363(3-4):1307–1331, Dec. 2015. [31] H. Hakkarainen, J. Kinnunen, P. Lahti, and P. Lehtelä. Relaxation and Integral Representation for Functionals of Linear Growth on Metric Measure spaces. Analysis and Geometry in Metric Spaces ,4(1):000010151520160013, Nov. 2016. [32] E. Hebey. Nonlinear Analysis on Manifolds: Sobolev Spaces and Inequalities , volume 5 of Courant Lecture Notes in Mathematics . Courant Inst. of Math. Sciences ; Providence, RI, New York, NY, repr. edition, 2000. [33] H. Hong and A. B. Saturnino. Capillary surfaces: Stability, index and curvature estimates. Journal für die reine und angewandte Mathematik (Crelles Journal) , 0(0), Aug. 2023. [34] I. R. Ionescu and T. Lachand-Robert. Generalized Cheeger sets related to landslides. Calculus of Variations and Partial Differential Equations , 23(2):227–249, June 2005. [35] R. Korte, P. Lahti, X. Li, and N. Shanmugalingam. Notions of Dirichlet problem for functions of least gradient in metric measure spaces. Revista Matemática Iberoamericana , 35(6):1603–1648, July 2019. [36] A. Kreuml and O. Mordhorst. Fractional Sobolev norms and BV functions on manifolds. Nonlinear Analysis ,187:450–466, Oct. 2019. [37] P. Lahti. Extensions and traces of functions of bounded variation on metric spaces. Journal of Mathematical Analysis and Applications , 423(1):521–537, Mar. 2015. [38] P. Lahti. Federer’s characterization of sets of finite perimeter in metric spaces. Analysis & PDE , 13(5):1501– 1519, July 2020. [39] P. Lahti and N. Shanmugalingam. Trace theorems for functions of bounded variation in metric spaces. Journal of Functional Analysis , 274(10):2754–2791, May 2018. [40] J. M. Lee. Introduction to Smooth Manifolds , volume 218 of Graduate Texts in Mathematics . Springer New York, New York, NY, 2 edition, 2012. [41] S. Lee, S. Park, and J. Pyo. Capillary Stable Minimal Hypersurfaces in a High Dimensional Riemannian Manifold. The Journal of Geometric Analysis , 35(5):157, May 2025. [42] C. Li, X. Zhou, and J. J. Zhu. Min-max theory for capillary surfaces. Journal für die reine und angewandte Mathematik (Crelles Journal) , 2025(818):215–262, 2025. 39 
+
+[43] F. Maggi. Sets of Finite Perimeter and Geometric Variational Problems: An Introduction to Geometric Measure Theory . Cambridge University Press, 1 edition, Aug. 2012. [44] U. Menne. Sobolev functions on varifolds. Proceedings of the London Mathematical Society , 113(6):725–774, Nov. 2016. [45] U. Menne. Weakly differentiable functions on varifolds. Indiana University Mathematics Journal , 65(3):977– 1088, 2016. [46] M. Miranda. Functions of bounded variation on “good” metric spaces. Journal de Mathématiques Pures et Appliquées , 82(8):975–1004, Aug. 2003. [47] M. Miranda, D. Pallara, F. Paronetto, and M. Preunkert. Heat semigroup and functions of bounded variation on Riemannian manifolds. Journal für die reine und angewandte Mathematik , 613:99–119, 2007. [48] W. Müller and G. Salomonsen. Scattering theory for the Laplacian on manifolds with bounded curvature. 
+
+Journal of Functional Analysis , 253(1):158–206, Dec. 2007. [49] G. Nardi, B. Charlier, and A. Trouvé. The matching problem between functional shapes via a BV penalty term: A γ-convergence result. Interfaces and Free Boundaries, Mathematical Analysis, Computation and Applications , 26(3):381–414, Apr. 2024. [50] G. Pascale and M. Pozzetta. Quantitative isoperimetric inequalities for classical capillarity problems. Calculus of Variations and Partial Differential Equations , 63(9):225, Dec. 2024. [51] G. D. Philippis and F. Maggi. Regularity of free boundaries in anisotropic capillarity problems and the validity of Young’s law, Feb. 2014. [52] M. Ritoré. Isoperimetric Inequalities in Riemannian Manifolds , volume 348 of Progress in Mathematics .Springer International Publishing, Cham, 2023. [53] L. Saloff-Coste. Uniformly elliptic operators on Riemannian manifolds. Journal of Differential Geometry ,36(2):417–450, Jan. 1992. [54] L. Saloff-Coste. Aspects of Sobolev-type Inequalities . Number 289 in London Mathematical Society Lecture Note Series. Cambridge University Press, Cambridge ; New York, 2002. [55] T. Schmidt. Isoperimetric conditions, lower semicontinuity, and existence results for perimeter functionals with measure data. Mathematische Annalen , 391(4):5729–5807, Apr. 2025. [56] L. Simon. Introduction to Geometric Measure Theory. Lecture notes, Stanford University, https://math.s tanford.edu/~lms/ntu-gmt-text.pdf (accessed 2026-02-10), 2018.

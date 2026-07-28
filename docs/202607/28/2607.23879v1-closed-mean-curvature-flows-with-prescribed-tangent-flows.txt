@@ -1,0 +1,3487 @@
+Title: Closed mean curvature flows with prescribed tangent flows
+
+URL Source: https://arxiv.org/pdf/2607.23879v1
+
+Published Time: Tue, 28 Jul 2026 01:21:57 GMT
+
+Number of Pages: 40
+
+Markdown Content:
+CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS      
+
+> JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO
+> Abstract. Given an embedded shrinker Σ in Rn+1 that is either closed, asymptotically conical, or a Cartesian product of such a shrinker with Rk, we construct a closed embedded mean curvature flow whose tangent flow at the first singularity is modeled on Σ. We also prescribe the first-order asymptotics of the tangent flow. This result is a consequence of a more general theorem that allows us to construct mean curvature flows with an additional force whose tangent flow and first-order asymptotics at the first singularity are prescribed.
+
+1. Introduction 
+
+Singularity formation is one of the central topics in the study of geometric evolution equations. For mean curvature flow, Huisken’s monotonicity formula and parabolic rescaling show that tangent flows at singularities are self-similarly shrinking solutions, called (self-)shrinkers. A central problem is to determine which shrinkers can actually arise as singularity models for flows starting from closed hypersurfaces. Throughout the paper, we consider codimension-one mean curvature flows. A smooth one-parameter family of hypersurfaces M n(t) ⊂ Rn+1 , t ∈ I, evolves by its mean curvature if 
+
+∂tx =⃗ H(x),
+
+where ⃗ H(x) is the mean curvature vector of the hypersurface at the point x. A shrinker is a smooth embedded hypersurface Σ n ⊂ Rn+1 satisfying ⃗HΣ + x⊥
+
+2 = 0 .(1.1) Equivalently, the family of hypersurfaces ( √−tΣ) t< 0 is a self-similarly shrinking solution to mean curvature flow. If ( x0, T ) is a singular point of a mean curvature flow, we say that the singularity (x0, T ) is modeled by Σ if the tangent flow is the multiplicity-one self-shrinking flow ( √−tΣ) t< 0.We will say ( √−tΣ) t< 0 is the multiplicity-one self-shrinking flow associated to Σ. The purpose of this paper is to prove realization and asymptotic prescription results for a large class of smooth embedded shrinkers. The classes of models considered here are the following: (†)(1) closed shrinkers; (2) smoothly asymptotically conical shrinkers; (3) Euclidean products Rℓ × Σ0, where Σ 0 is as in (1) or (2). These classes include the standard families of smooth embedded shrinkers appearing in the liter-ature. In dimension two, they are also consistent with Ilmanen’s conjectural picture for smooth embedded shrinkers; see, for example, [Ilm95, Note on page 19] and [Wan14, Wan16]. There are  
+
+> Date : July 28, 2026.
+> 1arXiv:2607.23879v1 [math.DG] 26 Jul 2026 2JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO
+
+numerous examples of shrinkers in the list ( †) constructed in R3, cf. [Ang92,KKM18,Ngu14,KM23, BNS25, IW25, Ket24, SZ25, HMW25] and the references therein. We also want to mention that the end behaviors of the shrinkers constructed in [Ket16, SWZ24, CS25] and the low-genus examples in [BNS25, Ket24] are not explicit. Nevertheless, they might still belong to ( †). Our first main result says that every nonflat shrinker in ( †) can be realized as the tangent flow of a first-time singularity of a closed embedded mean curvature flow. 
+
+Theorem 1.2. Let Σ n ⊂ Rn+1 be a nonflat smooth embedded shrinker belonging to one of the classes in ( †). Then there exist a smooth closed embedded hypersurface M n 
+
+> 0
+
+⊂ Rn+1 , a time T < ∞,and a point x0 ∈ Rn+1 such that the mean curvature flow starting from M0 is smooth on [0 , T ), has first singular time T , and has a tangent flow at ( x0, T ) equal to the multiplicity-one self-shrinking flow associated to Σ. Thus, within the class ( †), there is no further obstruction to realizing a smooth embedded shrinker as a first-time singularity model of a closed embedded mean curvature flow. In contrast, some other singularity models are known to be obstructed from appearing as the blow-up limit of closed geometric flows. For example, the 1-dimensional embedded translator, grim reaper, can not show up as the blow-up limit of smooth embedded curve shortening flow; the 2-dimensional Cigar soliton ×R can not show up as the blow-up limit of 3-dimensional Ricci flow of closed Riemannian manifolds. Theorem 1.2 is obtained from a more flexible statement for forced mean curvature flow. After a tangential reparametrization, we write such a flow in the form 
+
+∂tF =⃗ HF + ϕ[F, t ]nF ,
+
+where nF is a choice of unit normal and ϕ is a prescribed scalar forcing term. The precise hypothesis on admissible ϕ is stated in Assumption 2.8. 
+
+Theorem 1.3 (Forced realization) . Let Σ n ⊂ Rn+1 be either a closed shrinker or a nonflat smoothly asymptotically conical shrinker. If the forcing term ϕ satisfies Assumption 2.8 with δ0, ε 0 in Assump-tion 2.8 sufficiently small, then there exists a smooth closed embedded hypersurface M0 ⊂ Rn+1 
+
+whose forced mean curvature flow develops a first-time singularity with tangent flow equal to the multiplicity-one self-shrinking flow associated to Σ. Theorem 1.3 is useful because several geometric situations become forced mean curvature flows after a natural rescaling or quotient. The first application is to mean curvature flow in a general Riemannian ambient manifold. 
+
+Theorem 1.4 (Riemannian ambient manifolds) . Let ( N n+1 , g ) be a smooth Riemannian manifold. Let p ∈ N , and identify TpN with Rn+1 using a normal coordinate centered at p. Let Σ n ⊂ TpN
+
+be a nonflat smooth embedded shrinker of type (1) or (2) in ( †). Then there exists a smooth closed embedded hypersurface M0 ⊂ N whose mean curvature flow has first singular time T < ∞ and has 
+
+p as a singular point at time T , such that, in normal coordinates centered at p, a tangent flow at (p, T ) is the multiplicity-one self-shrinking flow associated to Σ. The second application concerns rotationally symmetric flows. Write 
+
+Rn+1 = Rk × Rn−k+1 ,CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS 3
+
+and let SO (n − k + 1) act on the second factor. The quotient can be identified with the half-space 
+
+Rk × [0 , ∞).
+
+An SO (n − k + 1)-invariant mean curvature flow in Rn+1 induces a forced mean curvature flow for its profile hypersurfaces in this quotient. 
+
+Theorem 1.5 (Rotationally symmetric realization) . Let 0 < k < n , and let Σ k ⊂ Rk+1 be a nonflat smooth embedded shrinker of type (1) or (2) in ( †). Then there exists a smooth closed embedded hypersurface 
+
+M n 
+
+> 0
+
+⊂ Rn+1 = Rk × Rn−k+1 ,
+
+invariant under the standard SO (n − k + 1)-action, such that the induced profile flow in Rk ×
+
+(0 , ∞) develops a first-time singularity whose tangent flow is modeled on Σ. Equivalently, the corresponding singularity of the SO (n − k + 1)-invariant flow in Rn+1 has a tangent flow modeled on Σ × Rn−k.
+
+Theorems 1.3, 1.4, and 1.5 imply Theorem 1.2 for all shrinkers in ( †). We would like to compare the construction method in this paper with the previous work of the second-named and fourth-named authors [LZ24]. The construction in [LZ24] used a doubling argument, which relies on the symmetry of the ambient Euclidean space, and it produces two identical first-time singularities. In contrast, the present argument in this paper does not rely on a symmetry that produces two identical first-time singularities. Although we still close off a large compact piece of the shrinker, the dynamical selection argument is local near a single prescribed model and yields either a single prescribed first-time singularity or an orbit of such singularities. We next turn to a finer question. Once a tangent flow has been prescribed, one may ask whether the leading-order asymptotics of the rescaled flow near the singularity can also be prescribed. Let 
+
+LΣ = ∆ Σ − 12 ⟨x, ∇Σ(·)⟩ + |AΣ|2 + 12be the linearized operator of the rescaled mean curvature flow at Σ (see Section 2.1 for a detailed description), acting on the weighted space 
+
+L2 
+
+> W
+
+(Σ) = L2
+
+Σ, e −| x|2/4 dμ Σ
+
+
+
+.
+
+With this convention, a Fourier mode φ satisfying 
+
+LΣφ = −λφ, λ > 0,
+
+corresponds formally to a decaying term e−λτ φ in the rescaled flow. The next theorem shows that such leading-order terms can be prescribed when λ ∈ (0 , 1/2). In the asymptotically conical case, the admissibility condition includes the decay range required for the large-scale estimates. 
+
+Theorem 1.6 (Prescribed first-order asymptotics) . Let Σ n ⊂ Rn+1 be either a closed self-shrinker or a smoothly asymptotically conical self-shrinker. Let λ ∈ (0 , 1/2) be an eigenvalue of −LΣ, and let φ be an eigenfunction satisfying 
+
+LΣφ = −λφ. 
+
+Then there exists a mean curvature flow with additional forces satisfying Assumption 2.8 of closed embedded hypersurfaces whose rescaled flow converges to Σ as τ → ∞ , smoothly in the closed case 4 JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO 
+
+and locally smoothly in the asymptotically conical case. Furthermore, for all sufficiently large τ ,the rescaled flow is represented, on the relevant graphical region, by normal graphs u(·, τ ) over Σ, and 
+
+χτ u(·, τ ) − e−λτ φ L2
+
+> W
+
+= o(e−λτ ) as τ → ∞ .
+
+Here χτ ≡ 1 in the closed case, while in the asymptotically conical case χτ is the cutoff function specified in Step 1 of the proof of Theorem 6.9. Prescribing the asymptotics near the singularity model is closely related to the stable/unstable manifold theory. In the context of mean curvature flow, Angenent–Velazquez [AV97] used the Wa˙ zewski Box principle to construct rotationally symmetric mean curvature flow profile near a cylindrical singularity. Sesum [ ˇSeˇ s08] used the inverse function theory to prescribe the first-order asymptotics of mean curvature flow near a spherical singularity, and as a consequence, proved that the level set function of the mean curvature flow with a spherical singularity may not have C3-regularity. This idea was later generalized in [Str20, SWX25b]. For a general closed shrinker, in the 1-dimensional case, the stable/unstable manifolds were first constructed by [EW87]. In higher dimensions, the construction of asymptotic orbits using contraction mapping theory was established in [CM19], and the stable/unstable manifolds using the invariant cone technique from dynamical systems were established in [SX21]. The first-order term in the rescaled flow contains geometric information about the singularity beyond its tangent flow. For cylindrical singularities, this phenomenon appears in the work of the third-named author, Zhihan Wang, and Jinxin Xue [SWX25a, SWX25b], where the leading asymptotic profile is related to the local structure of the singular set. In particular, the first-order term can distinguish isolated cylindrical singularities from non-isolated ones and, in the latter case, determine curvature information for the singular set. A related phenomenon occurs for flows modeled on Simons cone: the work of Angenent–Daskalopoulos–Sesum [AD ˇS26], building on the solutions of Vel´ azquez [Vel94], shows that the side through which a flow continues past the singularity is encoded in the first-order asymptotics. We expect that the existence of prescribed first-order asymptotics of mean curvature flow near a singularity could be the first step towards the higher-order asymptotics. In the special situa-tion of spherical singularities and cylindrical singularities, the third-named author, Zhihan Wang, and Jinxin Xue have used the first-order asymptotics to derive the next-order asymptotics near a cylindrical singularity, see [SWX25b]. 1.1. Proof ideas. The main theorems are based on the Wa˙ zewski box argument. It is a topolog-ical argument that has been used to construct singularities possibly with the first-order behavior prescribed for geometric flows in [AV97, Sto22, LZ24, SS26]. We briefly describe how Theorem 1.3 is proven for an asymptotically conical shrinker Σ . The main ideas follow similar structures as in [Sto22, LZ24]. However, several new ingredients are necessary to deal with more complicated nature of the flow in the setting of Theorem 1.3. First, we construct a closed embedded hypersurface Σ cap  
+
+> R
+
+that coincides with Σ in a large ball BR outside which the curvature is very small. The goal is to suitably perturb Σ cap  
+
+> R
+
+so that the mean curvature flow starting from it develops a singularity with the prescribed tangent flow. To this end, we look at the space of flows starting from perturbations using truncated eigen-modes. These flows are assumed to have suitable decaying rates on both their stable and unstable components and form a finite-dimensional box. A large portion of the arguments is dedicated to CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS 5
+
+establishing an improved interior estimate to show that such a perturbed flow can leave the box only from the unstable side. A topological argument implies the existence of a desired solution with the prescribed singularity modeled on Σ . Roughly speaking, if such a long-time solution did not exist, each parameter p in a small m-dimensional closed ball B would lead to a solution hp existing up to a finite time τ (p). The fact that a perturbed flow can leave the box only from the unstable side allows us to construct a continuous map from B to its boundary, an ( m − 1)-dimensional sphere. Showing that this continuous map is a retraction leads to a contradiction. Theorem 1.6 follows from the same principle but with a more refined box in the topological argument. We organize the paper as follows. In Section 2, we start with preliminary results and provide the evolution equations of the forced mean curvature flow. In Section 3, we construct barrier functions that will be used in Section 4 to prove the global C2 improvement theorem. In Section 5, we prove the main theorems about prescribing tangent flows. In Section 6, we prove the theorem about prescribing first-order asymptotics. In Section 7, we indicate how the proofs can be simplified to deal with the case of closed shrinkers. We construct a barrier function for ∇h in Appendix A, provide detailed proofs for Propositions 2.15 and 2.16 in Appendix B, and construct the closed embedded hypersurface Σ cap  
+
+> R
+
+mentioned above in Appendix C. 
+
+Acknowledgment. J.C. is supported by the AMS-Simons Travel Grant. T.-K.L. acknowledges the support from Man-Chun Lee and NSF Grant DMS-2529637. A.S. is supported by the AMS-Simons Travel Grant and the Simons Foundation Travel Support for Mathematicians; he thanks Zhihan Wang for some helpful discussions. X.Z. is supported by NSF Grant DMS 1812142, NSF Grant DMS 1811267 and NSF Grant DMS 2104349; he thanks Lu Wang for some helpful discussions. 2. Preliminary 
+
+2.1. Shrinkers and linearization. Let Σ be an n-dimensional smooth embedded hypersurface in 
+
+Rn+1 . We say Σ is a shrinker if its mean curvature ⃗ H = H satisfies (1.1). Shrinkers arise naturally when singularities of a mean curvature flow are studied via a blow-up analysis, which has another interpretation by the rescaled mean curvature flow, as we will explain in the following. Let M be an n-dimensional manifold and F : M × [−1, 0) → Rn+1 be an embedded mean curvature flow in the sense that ∂tF = H, the mean curvature vector of F (·, t ). The rescaled flow 
+
+eF (x, τ ) := eτ / 2 · F  x, −e−τ 
+
+satisfies the rescaled mean curvature flow equation ∂τ eF = eH + eF / 2. At (0 , 0) ∈ Rn+1 × R, a tangent flow of F is modeled on a shrinker Σ if and only if the rescaled flow eF (·, t ) subsequentially converges to the embedding of Σ in the locally smooth sense. Thus, to study the behavior of solutions to the rescaled flow, it is important to understand its linearization ( ∂t − L)u = 0 where 
+
+L = LΣ := ∆ Σ − 12 ⟨x, ∇Σ(·)⟩ + |AΣ|2 + 12 .
+
+The operator L is self-adjoint with respect to the Gaussian weighted L2-inner product ⟨u, v ⟩L2 
+
+> W
+
+:= 
+
+R 
+
+> Σ
+
+u(x) v(x) e−| x|2/4dHn(x); see [CM12]. The corresponding L2 and Hk spaces will be denoted by 
+
+L2 
+
+> W
+
+= L2 
+
+> W
+
+(Σ) and HkW = HkW (Σ) .6 JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO 
+
+2.2. Asymptotically conical shrinkers. In the rest of the paper, we will mostly work with an asymptotically conical shrinker. In Section 7, we will indicate how the same proofs apply to a closed shrinker after suitable simplifications. A smooth embedded shrinker Σ ⊆ Rn+1 is called asymptotically conical if its blowdown is a regular cone; that is, √−tΣ → C in C∞
+
+> loc
+
+(Rn+1 \ { 0}) as t → 0− where C is a cone whose link is a smooth embedded hypersurface in Sn. As explained in [BW17, CS21, LZ24], there exists an 
+
+L2 
+
+> W
+
+-orthonormal basis {hi}i∈N of L2 
+
+> W
+
+(Σ) such that (2.1) Lh i = −λihi.
+
+The eigenvalues λi’s satisfy λ1 < λ 2 ≤ λ3 ≤ · · · tending to ∞ and each eigenspace Eλi is finite-dimensional. Each of the eigenfunction hi has polynomial growth; see [CM25] and [LZ24, Theorem 2.4]. Some weighted spaces considered in [CS21] will be used when we establish the estimates. Let ˜r ≥ 1 be a smooth function such that ˜ r = |x| + 1 for |x| ≥ 1. We consider the weighted norms 
+
+∥u∥hom 0; −γ := sup 
+
+> x∈Σ
+
+˜r(x)γ |u(x)|, and [u]hom  
+
+> α;−γ−α
+
+:= sup 
+
+> x,y ∈Σ
+
+1˜r(x)−γ−α + ˜ r(y)−γ−α
+
+|u(x) − u(y)||x − y|α .
+
+The space C0,α  
+
+> hom ,−γ
+
+is defined to collect all u such that 
+
+∥u∥C0,α 
+
+> hom ,−γ
+
+:= ∥u∥hom 0; −γ + [ u]hom  
+
+> α;−γ−α
+
+< ∞,
+
+and the space C1,α  
+
+> hom ,−γ
+
+is defined to collect all u such that 
+
+∥u∥C1,α 
+
+> hom ,−γ
+
+:= 
+
+> 1
+
+X
+
+> j=0
+
+∥(∇Σ)j u∥C0,α 
+
+> hom ,−j−γ
+
+< ∞.
+
+We will mostly use the norms when γ = −1, that is, the Ck,α 
+
+> hom ,1
+
+-norms. In the rest of the paper, we will mostly view hypersurfaces and flows by their embedding maps into the Euclidean space. For example, on a shrinker F : Σ → Rn+1 , the shrinker equation (1.1) and div |F |24
+
+(V ) = div( V ) −
+
+
+
+V, F
+
+2
+
+
+
+,(2.2) imply ∆ |F |2
+
+4 − ∇ ∇g |F |24
+
+|F |2
+
+4 = n
+
+2 − f, (2.3) where we let f := |F |2/4 and let g be the metric induced by the Euclidean one. 2.3. Forced mean curvature flow. In this section, we consider the forced mean curvature flow (2.4) ∂tF0 = H(F0, t ) + ϕ0[F0, t ] · nF0 ,
+
+for a family of immersions F0 : M × I → Rn+1 where M tentatively denotes an abstract manifold. The main theorems will be proven after they are reduced to two different types of forced mean CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS 7
+
+curvature flows in Section 2.4. After rescaling, the equation for the rescaled forced mean curvature flow Fr : M × [0 , ∞) → Rn+1 is (2.5) ∂τ Fr = HFr + 12 Fr + ϕr[Fr, τ ] · nFr .
+
+We fix an asymptotically conical shrinker Σ n ⊂ Rn+1 and view it as an embedding F : Σ →
+
+Rn+1 . If Fr can be written as the graph of a function h(x, t ) over Σ, then as the calculation in [LZ24, Appendix A], we denote 
+
+g0(t)( X, Y ) = ⟨X(F0(·, t )) , Y (F0(·, t )) ⟩,
+
+and construct a family of diffeomorphisms φt of Σ and functions h such that 1
+
+√−t F0(φt(x), t ) = F (x) + h(x, t )nF (x) = Fr(x, t ),(2.6) which implies that (∂tF0)( φt(x), t ) + dF 0(φt(x), t )( ∂tφt(x)) + 12√−t F (x) = 
+
+√−t ∂ th(x, t ) − 12√−t h(x, t )
+
+
+
+nF (x).
+
+Thus, for τ = − ln( −t), ∂t = 1 
+
+> −t
+
+∂τ and 
+
+∂h ∂τ =Lh + Q1 + Q2,(2.7) where 
+
+Q1 =√−t ⟨(∂tF0 − ∆g0 F0)( φt(x), t ), nF0 (φt(x)) ⟩ 1
+
+⟨nF (x), nFr (x)⟩ , and 
+
+Q2 =C3(F, ∇F, ∇2F, h ) ∗ h + C4(F, ∇F, ∇2F, h, ∇h) ∗ ∇ h + C5(F, ∇F, ∇2F, h, ∇h) ∗ ∇ 2h. 
+
+Compared with the discussion in the Euclidean case, the key difference is that previously in [LZ24], (∂tF0 − ∆g0 F0)( φt(x), t ) = 0 on (x, τ ) ∈ Σ × [0 , ∞) : f (x) < γ 2e(τ +τ0) for a large constant γ2 and nonzero outside because of the cutoff. However, here it is nonzero in general due to the forcing term. The main aim of this paper is to prove Theorem 1.3, where the flow F0(x, t ) with additional forces satisfies the following assumption. 
+
+Assumption 2.8 (Assumption on additional forces) . Let f = |F |2/4 and ef = f + 1 , and let ˜ r ≥ 1be smooth with ˜ r(x) = |F (x)| + 1 for |F (x)| ≥ 1. Fix Γ 0 ≥ 4. We assume that there are δ0, ε 0 > 0sufficiently small and τ0 > 0 sufficiently large such that the following holds. (1) If ˜ r−1|h| + |∇ h| + |∇ 2h| ≤ ε < ε 0, then (2.9) 
+
+Q1 =
+
+√−t ⟨(∂tF0 − ∆g0 F0)( φt(x), t ), nF0 (φt(x), t )⟩⟨nF (x), nFr (x, τ )⟩
+
+= ϕr[F (x) + h(x, τ )nF (x), τ ]
+
+⟨nF (x), nFr (x, τ )⟩
+
+= Y0(x, τ ) + Y1(h, ˜r∇h, x, τ )h + Y m 
+
+> 2
+
+(h, ˜r∇h, x, τ )( ∇h)m + Y ij  
+
+> 3
+
+(h, ˜r∇h, x, τ )( ∇2h)ij .
+
+Here Yj = Yj (a, p, x, s ), where a and p denote the fibre variables corresponding to h and ˜ r∇h,respectively; ∇x differentiates in x with ( a, p, s ) fixed, and ∇βa,p denotes a fibre derivative of total order β.8 JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO 
+
+(2) For all nonnegative integers l, k, β with 2 l + k + β ≤ 4n + 6, whenever |F (x)| ≤ Γ0e 12 (τ +τ0),
+
+we have 
+
+|∂ls∇kxY0|(x, τ ) ≤ δ0e− 12 (τ +τ0) ˜f − k 
+
+> 2
+
+,(2.10) ˜rβ |∂ls∇kx∇βa,p Y1|(h, ˜r∇h, x, τ ) ≤ δ0e−(τ +τ0) ˜f − k 
+
+> 2
+
+,(2.11) ˜rβ |∂ls∇kx∇βa,p Y m 
+
+> 2
+
+|(h, ˜r∇h, x, τ ) ≤ δ0e− 12 (τ +τ0) ˜f − k 
+
+> 2
+
+,(2.12) ˜rβ |∂ls∇kx∇βa,p Y ij  
+
+> 3
+
+|(h, ˜r∇h, x, τ ) ≤ Cl,k,β ηamb e−(τ +τ0) ˜f 1− k 
+
+> 2
+
+≤ δ0 ˜f − k 
+
+> 2
+
+.(2.13) The constants are chosen so that ⟨nF , nFr ⟩ ≥ 12 and the full second-order coefficients remain uniformly elliptic. (3) We also assume short-time existence, uniqueness, continuous dependence, and the standard continuation criterion for F0. For every capped perturbation used below, let Mt, −1 ≤
+
+t < T ≤ 0, be its maximal smooth flow, and define fM = |FM |2/4 on the initial capped hypersurface. The exterior pseudolocality requirement is (2.14) |∇ j AMt |(F0(x, t )) ≤ Cj Γ− j+1 2 
+
+> 0
+
+on 
+
+
+
+(x, t ) | fM (x) ≥ 12 Γ0, −1 ≤ t < T 
+
+
+
+for 0 ≤ j ≤ 4n + 6 , where Cj is independent of τ0 and of the permitted perturbation. This estimate is obtained from buffered initial geometric bounds on {fM ≥ 14 Γ0}.For a closed shrinker, the exterior requirement (2.14) is omitted. This assumption is required to ensure that the additional forces would not beat the rescaling. If the additional forces are too large, then the blow-up limit may not even be the shrinker, and the system would behave essentially differently. 2.4. Rotationally symmetric and Riemannian mean curvature flows. We verify Assump-tion 2.8 for the Riemannian and rotationally symmetric flows. The detailed proofs are in Appen-dix B and we provide the main proof ideas here. Suppose that the rescaled flow is written as Fr = F + hnF over the shrinker F : Σ → Rn+1 , and assume ˜ r−1|h| + |∇ h| + |∇ 2h| ≤ ε < ε 0. Since ˜f 1/2 ≃ ˜r, after reducing ε0,
+
+⟨nF , nFr ⟩ ≥ 12 .
+
+All x-derivatives of Yj (a, p, x, s ) are taken with ( a, p, s ) fixed and then evaluated at ( a, p, s ) = (h, ˜r∇h, τ ). 
+
+Proposition 2.15. Let ( N n+1 , g ) be a smooth Riemannian manifold and p ∈ N . For every fixed Γ0, after choosing the normal-coordinate homothety sufficiently small and τ0 sufficiently large, the rescaled Riemannian mean curvature flow starting from the capped perturbation constructed in Appendix C satisfies Assumption 2.8. 
+
+Proof sketch. Let ¯ gτ be the rescaled ambient metric. For 2 l + |α| ≤ 4n + 8, the normal-coordinate homothety gives 
+
+∂lτ ∂α(¯ gτ − δ) ≤ Cl,α ηamb e−(τ +τ0)(1 + |ξ|)2−| α|,
+
+∂lτ ∂αΓ¯gτ ≤ Cl,α ηamb e−(τ +τ0)(1 + |ξ|)1−| α|,CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS 9
+
+where ηamb → 0 with the homothety scale. The difference between the Riemannian and Euclidean mean-curvature operators is affine-linear in ∇2h. The calculations in Appendix B.1 therefore give (2.9) and (2.10)–(2.13) for 2 l + k + β ≤ 4n + 6, provided Cn, Σηamb Γ20 ≤ δ0.
+
+For the exterior estimate, extend the metric from a normal-coordinate ball to a complete bounded-geometry metric, without changing it near the capped flow. A strictly convex normal-coordinate function and the maximum principle keep the flow inside the unchanged region. Chen– Yin pseudolocality [CY07] and the interior derivative estimates then give (2.14). Standard compact mean curvature flow theory gives the remaining well-posedness statements. □
+
+Proposition 2.16. Let M be any capped quotient profile, including the permitted perturbation constructed in Appendix C. Translate the rotation axis to y = −Cax eτ0/2, and let M ′ ⊂ Rn × Rm be its SO (m)-invariant lift. If Cax = Cax (δ0, Γ0, m, Σ) is sufficiently large, then the rescaled quotient flow starting from M satisfies Assumption 2.8. 
+
+Proof sketch. After translating the axis and rescaling, the rotational forcing is 
+
+−(m − 1) e− 12 (τ +τ0) (∂y)⊥
+
+Cax + e− 12 (τ +τ0)y .
+
+The cap construction and the choice of Cax ensure that the denominator is bounded below by 
+
+Cax /2, both on the normal-graph region and on the entire initial capped profile. Moreover, 
+
+⟨∂y, nF +hnF ⟩⟨nF , nF +hnF ⟩ = ⟨nF , ∂ y⟩ − ⟨ ∂iF, ∂ y⟩ (I + hA F )−1ij (∇h)j .
+
+Hence (2.9) holds with Y ij  
+
+> 3
+
+= 0, and the estimates (2.10)–(2.12) follow by differentiating the explicit coefficients; see Appendix B.2. The full lift M ′ 
+
+> t
+
+is an ordinary Euclidean mean curvature flow. Comparison with shrinking cylinders preserves its distance from the rotation axis. The strengthened cap estimates, Euclidean pseudolocality, and the interior derivative estimates therefore give (2.14). Standard compact mean curvature flow theory gives the remaining well-posedness statements. □
+
+Thus, Propositions 2.15 and 2.16 verify Assumption 2.8 for the Riemannian and rotationally symmetric flows. Consequently, Theorems 1.4 and 1.5 follow from Theorem 1.3. 3. Barrier functions 
+
+In this section, we construct barrier functions that will be used in the proof of the global C2
+
+improvement theorem. Similar to [Sto22, Section 6.2], our barrier function will be of the form (3.1) u = e−2λ∗(τ +τ0) 
+
+D ˜f 2λ∗+1 − B ˜f 2λ∗
+
+
+
+for some fixed λ∗ ∈ (0 , 1/2) and some positive constants B and D, where ˜f (x) = f (x) + 1 = |F (x)|2
+
+4 + 1 .
+
+By choosing the constants B and D suitably, the function u satisfies ( ∂τ − Q)u ≥ 0 on the corre-sponding region for a comparison operator Q defined in (3.10). With these choices, Proposition 3.15 gives the desired estimate. Unlike in the Ricci flow case, we need a similar construction for ∇h, as explained at the end of this section. The calculations are similar and are included in Appendix A. 10 JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO 
+
+Together, the barriers for h and ∇h provide the large-scale input for the global C2 improvement at the end of Section 4. We start from the evolution inequality for the square of the normal graph function over an asymptotically conical shrinker F : Σ → Rn+1 . Using the graph equation and the notation of [LZ24], one obtains after (2.7) that 
+
+∂τ h2 = 2 h∂ τ h = 2 h(Lh + Q1 + Q2)
+
+≤
+
+
+
+∆g − ∇ g  
+
+> ∇g|F|24
+
+
+
+|h|2 − 2|∇ gh|2 +  2|Ag|2 + 1  h2 + Cab ∇ga∇gb h2 − 2Cab ∇gah∇gb h
+
++ 2 |hQ1| + |h| · | C3 ∗ h + C4 ∗ ∇ gh|.
+
+(3.2) Here, the part of Q2 that contains second derivatives of h is written in the form 
+
+Cab ∇ga∇gb h := |(I + hA g)−1(∇gh)|2(∆ gh)+ (1 + |(I + hA g)−1(∇gh)|2)( ˜hab − |∇ h|2
+
+> g
+
+gab )∇ga∇gb h. 
+
+(3.3) For the remaining lower-order terms, we use C = C(F, ∇F, ∇2F, h, ∇h) to denote a tensor whose coefficients depend only on the listed quantities. With this convention, 
+
+|C3 ∗ h| ≤ h2 · |∇ Ag| · | Ag|, and 
+
+|C4 ∗ ∇ gh| ≤ Cn|∇ gh|2(1 − | hA g|)−2(( |hA g|(1 + |∇ gh|) + 1 + |∇ gh|2) · | Ag| + |∇ Ag| · | h| · (|hA g| + |∇ gh|)) + Cn(|∇ Ag| · | h| · |∇ gh| · (1 + (1 − | hA g|)−1) + |Ag| · (|∇ gh|2 + |hA g| · |∇ gh|)) .
+
+Combining (3.3) with Cauchy’s inequality gives the following bounds. If ∥h∥C1,α 
+
+> hom ,1
+
+≤ ε < ε n, Σ, then 
+
+|Cab | ≤ Cn, Σ
+
+ |hA | + |∇ gh|2 ≤Cn, Σε, (3.4) 
+
+|h| · | C3 ∗ h + C4 ∗ ∇ gh| ≤ Cn, Σ(ε|∇ gh|2 + ( |A|2 + ε|∇ A|)h2),(3.5) 
+
+|hQ1 − hY ij  
+
+> 3
+
+(∇2h)ij | ≤ δ0|h|e− 12 (τ +τ0)(1 + e− 12 (τ +τ0)|h| + |∇ h|),(3.6) 
+
+hY ij  
+
+> 3
+
+(∇2h)ij = 12 Y ij  
+
+> 3
+
+∇gi ∇gj h2 − Y ij  
+
+> 3
+
+∇gi h∇gj h, (3.7) 
+
+|Y ij  
+
+> 3
+
+| ≤ C0ηe −(τ +τ0)f ≤ δ0,(3.8) where (3.6) follows from (2.10)–(2.12). These five inequalities are used to obtain the upper bound (3.9) for the derivative of h2.On the region {f (x) ≤ Γeτ +τ0 }, we choose δ0 small enough so that |Y ij  
+
+> 3
+
+| ≤ δ0 < ε 0. Taking 
+
+ε ≤ εn, Σ then makes the gradient contribution strictly favorable: 
+
+−2|∇ gh|2 − 2( Cab + Y ab  
+
+> 3
+
+)∇gah∇gb h + ( Cn, Σε + δ0)|∇ gh|2 < 0.
+
+Consequently, 
+
+∂τ |h|2 ≤
+
+
+
+gab + Cab + Y ab 
+
+> 3
+
+
+
+∇ga∇gb h2 − ∇ g  
+
+> ∇g|F|24
+
+|h|2
+
++  Cn|A|2 + Cn|∇ A| + 1 + 3 δ0e−τ −τ0  h2 + 2 δ0e− 12 (τ +τ0)|h|.
+
+(3.9) CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS 11 
+
+This motivates the comparison operator 
+
+Qψ := 
+
+
+
+gab + Cab + Y ab 
+
+> 3
+
+
+
+∇ga∇gb ψ − ∇ g  
+
+> ∇g|F|24
+
+ψ
+
++  Cn|A|2 + Cn|∇ A| + 1 + 3 δ0e−τ −τ0  ψ + 2 δ0e− 12 (τ +τ0)p|ψ|.
+
+(3.10) Recall that we let ˜f = |F |2 
+
+> 4
+
++ 1, which is positive on Σ. Using the relation (2.3), for any exponent k,we obtain 
+
+gab ∇ga∇gb ˜f k − ∇ g  
+
+> ∇g|F|24
+
+˜f k = k ˜f k−1  n
+
+2 + 1 − ˜f
+
+
+
++ k(k − 1) ˜f k−2|∇ g ˜f |2.(3.11) Combined with that ∇ga∇gb ˜f = ∇ga∇gb  
+
+> |F|2
+> 4
+
+= ⟨Fa,F b⟩ 
+
+> 2
+
+− ⟨F,A ab n⟩ 
+
+> 2
+
+, the perturbative second-order term is estimated by 
+
+(Cab + Y ab  
+
+> 3
+
+)∇a∇b ˜f k = k ˜f k−1(Cab + Y ab  
+
+> 3
+
+)∇ga∇gb ˜f + k(k − 1)( Cab + Y ab  
+
+> 3
+
+) ˜f k−2∇ga ˜f ∇gb ˜f(3.12) 
+
+≤ k ˜f k−1 · Cab + Y ab 
+
+> 3
+
+
+
+|Aab | ˜f 12 + ( 12 + |k − 1|)|Fa|| Fb|
+
+
+
+.
+
+We next build the large-scale barrier. Following the structure of the Ricci-flow barrier in [Sto22, Section 6.2], fix 0 < λ ∗ < 12 and consider the function defined by (3.1) on the region 
+
+(x, τ ) ∈ Σ × [0 , ∞) : Γ < f (x) < Γeτ +τ0 .
+
+Using (3.11) and (3.12) together with |∇ f |2 ≤ f , we compute 
+
+e2λ∗(τ +τ0)(∂τ − Q)u
+
+=e2λ∗(τ +τ0)(∂τ − Q)
+
+
+
+e−2λ∗(τ +τ0) 
+
+D ˜f 2λ∗+1 − B ˜f 2λ∗
+
+ 
+
+= − ( n
+
+2 + 1) 
+
+
+
+(2 λ∗ + 1) D ˜f 2λ∗ − 2λ∗B ˜f 2λ∗−1
+
++ B ˜f 2λ∗ − ((2 λ∗ + 1)(2 λ∗)D ˜f 2λ∗ − (2 λ∗)(2 λ∗ − 1) B ˜f 2λ∗−1) |∇ ˜f |2
+
+˜f
+
+− (Cab + Y ab  
+
+> 3
+
+)∇a∇b
+
+
+
+D ˜f 2λ∗+1 − B ˜f 2λ∗
+
+
+
+−  Cn|A|2 + Cn|∇ A| + 3 δ0e−τ −τ0  
+
+D ˜f 2λ∗+1 − B ˜f 2λ∗
+
+
+
+− e2λ∗(τ +τ0)p|u|2δ0e− 12 (τ +τ0)
+
+≥ ˜f 2λ∗ B + 2λ∗(n + 2) B
+
+2 ˜f − (n + 2)(2 λ∗ + 1) D
+
+2 − (2 λ∗ + 1)(2 λ∗)D |∇ ˜f |2
+
+˜f + 2 λ∗(2 λ∗ − 1) B
+
+˜f
+
+|∇ ˜f |2
+
+˜f
+
+− D(2 λ∗ + 1) Cab + Y ab  
+
+> 3
+
+|Aab | ˜f 12 − D(2 λ∗ + 1)(2 λ∗ + 12 ) Cab + Y ab  
+
+> 3
+
+− B(2 λ∗) Cab + Y ab  
+
+> 3
+
+|Aab | ˜f − 12
+
+− B(2 λ∗)( 32 − 2λ∗) Cab + Y ab 
+
+> 3
+
+˜f −  Cn, Σ|A|2 + Cn, Σ|∇ A| + 3 δ0e−τ −τ0  (D ˜f − B)) 
+
+!
+
+− e2λ∗(τ +τ0)
+
+q
+
+|e−2λ∗(τ +τ0)(D ˜f 2λ∗+1 − B ˜f 2λ∗ )|2δ0e− 12 (τ +τ0).12 JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO 
+
+The last term is harmless on the large-scale region. Indeed, if D > 2B
+
+> Γ
+
+e2λ∗(τ +τ0)
+
+q
+
+|e−2λ∗(τ +τ0)(D ˜f 2λ∗+1 − B ˜f 2λ∗ )|2δ0e− 12 (τ +τ0)
+
+(3.13) 
+
+≤2δ0e(λ∗− 12 )( τ +τ0)√D ˜f λ∗+ 12 = 2 δ0
+
+√D ˜feτ +τ0
+
+! 12 −λ∗
+
+˜f 2λ∗ ≤ 2δ0
+
+√D(2Γ) 12 −λ∗ ˜f 2λ∗ .
+
+Fix T > 0 and denote 
+
+AT, Γ,τ 0 := (x, τ ) ∈ Σ × [0 , T ] : Γ < f (x) < Γeτ +τ0 .
+
+Here again f = |F |2/4 and ef = f + 1. On this region, 
+
+ef ≥ Γ + 1 and efeτ +τ0 ≤ Γ + e−τ0 .
+
+Fix once and for all a constant Cn, Σ ≥ 1 dominating all constants in the preceding estimates, and set 
+
+β := 4 Cn, Σ
+
+
+
+(2 λ∗ + 1) 
+
+
+
+2λ∗ + 1 + n
+
+2
+
+
+
++ sup 
+
+> Σ
+
+ ef |A|2 + ef |∇ A|
+
+
+
++ 1 
+
+
+
+.
+
+Choose Γ and τ0 so that Γ + 1 ≥ max {2β, 16 Cn, Σ}.
+
+Assume ∥h∥C1,α 
+
+> hom ,1
+
+≤ ε and assume ε, δ 0 > 0 are sufficiently small so that 
+
+Cn, Σ(ε + δ0)
+
+
+
+1 + β
+
+Γ + 1 
+
+
+
+≤ β
+
+16 and 3δ0
+
+ Γ + e−τ0  ≤ β
+
+16 .
+
+Define B and D by (3.14) 
+
+B := βD, D := max 
+
+(
+
+sup 
+
+> ∂pAT, Γ,τ 0
+
+e2λ∗(τ +τ0)h2
+
+ef 2λ∗ ( ef − β) ,
+
+ 32 δ0
+
+β
+
+ Γ + e−τ0  12 −λ∗
+
+2)
+
+,
+
+where ∂pAT, Γ,τ 0 denotes the parabolic boundary of the moving region. Then we have the following barrier estimate. 
+
+Proposition 3.15 (Large-scale barrier; cf. the Ricci-flow estimates in [Sto22, Lemmas 6.5–6.7]) .
+
+Assume ∥h∥C1hom ,1 ≤ ε < ε n. Then h2 is a subsolution of the operator Q in the sense that (∂τ − Q)h2 ≤ 0, where Q is defined in (3.10). In addition, assume that Q1 satisfies Assump-tion 2.8. For the constants Cn, Σ, β, and Γ chosen above, and for B and D given in (3.14), on 
+
+{(x, τ ) ∈ Σ × [0 , ∞) : Γ < f (x) < Γeτ +τ0 } , the function u defined in (3.1) is a supersolution; that is, ( ∂τ − Q)u ≥ 0 on this region. Consequently, 
+
+h2 ≤ u on AT, Γ,τ 0 .
+
+Proof. By our choice of the constants Γ, B, and D, the function 
+
+u := e−2λ∗(τ +τ0) 
+
+D ef 2λ∗+1 − B ef 2λ∗
+
+
+
+= De −2λ∗(τ +τ0) ef 2λ∗ ( ef − β)is positive on AT, Γ,τ 0 , satisfies h2 ≤ u on ∂pAT, Γ,τ 0 , and obeys (∂τ − Q)u ≥ B
+
+4 e−2λ∗(τ +τ0) ef 2λ∗ > 0CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS 13 
+
+throughout AT, Γ,τ 0 . Hence the comparison principle gives the desired estimate. □
+
+Proposition 3.15 controls the homogeneous C0 size of h. In the mean curvature flow setting, however, this is not sufficient by itself, as the normal graph function may have linear growth at infinity, so the rescaling argument used in the Ricci-flow case does not directly upgrade C0 control to the required gradient control. We therefore need to repeat the barrier construction for ∇h. The calculations are similar, but we include them in Appendix A for completeness. 4. Interior estimates 
+
+We next record the interior estimates needed for the forced mean curvature flow equation. The ultimate goal of this section is to derive a global C2-improvement estimate, which is presented in Theorem 4.13. It is a consequence of interior estimates that we will start to recall and establish. In the proof of the main theorem, the improvement theorem will be crucial when we argue that the flow can leave the designed “box” only through the unstable side; see Section 5. The starting point is the following scaled H¨ older estimate, where we defined the scaled H¨ older norm as 
+
+∥u∥C2m,α (Ω) := X
+
+> i+2 j≤2m
+
+ri+2 j 
+
+> Ω
+
+(∥∇ i∂jt u∥C0(Ω) + rα
+
+> Ω
+
+[∇i∂jt u]α, α 
+
+> 2
+
+).(4.1) 
+
+Proposition 4.2 (Scaled H¨ older estimate; cf. [LZ24, Proposition 4.3], and for Ricci-flow analogues see [Bam14,App18,Sto22]) . Let 2 r ≥ s > 0, and set Ω = Br ×[0 , s 2] and Ω ′ = B2r ×[0 , s 2]. Suppose that u ∈ C2(Ω ′) satisfies (∂t − L)u = Q[u] + F
+
+=r−2f1(r−1x, r −2t, u, r ∇u) · u + r−1f2(r−1x, r −2t, u, r ∇u) · ∇ u
+
++ f3(r−1x, r −2t, u, r ∇u) · ∇ u ⊗ ∇ u + f4(r−1x, r −2t, u, r ∇u) · u ⊗ ∇ 2u
+
++ f5(r−1x, r −2t, u, r ∇u) · r∇u ⊗ ∇ 2u + F (x, t )(4.3) with initial data u(·, 0) = u0, where f1, f 2, f 3, f 4, and f5 are smooth. The operator L has the form 
+
+Lu = aij (x, t )∂2 
+
+> ij
+
+u + bi(x, t )∂iu + c(x, t )u, 
+
+and for m ≥ 1, its coefficients obey, 1Λ ≤ aij ≤ Λ, ∥aij ∥C2m−2,α (Ω ′) ≤ Λ, ∥bi∥C2m−2,α (Ω ′) ≤ r−1Λ, and ∥c∥C2m−2,α (Ω ′) ≤ r−2Λ.
+
+Then there exist constants ε > 0 and C < ∞, depending only on n, m, α, Λ, and the functions fi,such that if ∥u∥C0(Ω ′) + ∥u0∥C2m,α (B2r ) + r2∥F ∥C2m−2,α (Ω ′) ≤ ε, then 
+
+∥u∥C2m,α (Ω) ≤ C  ∥u∥C0(Ω ′) + ∥u0∥C2m,α (B2r ) + r2∥F ∥C2m−2,α (Ω ′)
+
+ .
+
+We now explain why this estimate applies to the forced mean curvature flow equation (2.9). The only term requiring comment is the coefficient of ∇2h. By the fundamental theorem of calculus, 
+
+Y ij  
+
+> 3
+
+(h, ˜r ∇h, x, τ )( ∇2h)ij 
+
+=
+
+
+
+Y ij  
+
+> 3
+
+(0 , 0, x, τ ) + ˆY ij  
+
+> 3
+
+(h, ˜r∇h, x, τ ) · h + ˜Y ij  
+
+> 3
+
+(h, ˜r∇h, x, τ ) · ˜r∇h
+
+
+
+(∇2h)ij .
+
+(4.4) 14 JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO 
+
+The first term can be moved to the left-hand side of (4.3), whereas the remaining two terms have the nonlinear structure allowed on the right-hand side. All other terms are handled similarly, except for Y0(x, τ ), which is treated as the inhomogeneous forcing term F . We use the decay estimate (2.10) and these give the following local H¨ older estimate. 
+
+Proposition 4.5 (Forced MCF H¨ older estimate; cf. [LZ24, Proposition 4.4], and for Ricci-flow analogues see [Sto22, Lemma 6.2]) . Let Σ be an asymptotically conical shrinker, and let h solve (2.7) on Ω ′ × (τ1, τ 3), where Ω ⋐ Ω′ ⋐ Σ. Fix m ∈ N and times τ1 ≤ τ2 < τ 3. Assume also that Q1 satisfies Assumption 2.8. Then there are constants ε = ε(n, m ) > 0 and C =
+
+C (n, m, Σ, F, dist Σ(Ω , Σ \ Ω′), τ 2 − τ1) < ∞ such that the following estimates hold. (1) If τ2 > τ 1, then 
+
+∥h∥L∞(Ω ′×[τ1,τ 3]) < ε ⇒ ∥ h∥Cm(Ω ×[τ2,τ 3]) ≤ C(∥h∥L∞(Ω ′×[τ1,τ 3]) + δ0e− 12 (τ1+τ0)).
+
+(2) If τ2 = τ1, then 
+
+∥h∥L∞(Ω ′×[τ1,τ 3]) + ∥h∥Cm+1 (Ω ′×{ τ1}) < ε 
+
+⇒∥ h∥Cm(Ω ×[τ1,τ 3]) ≤ C
+
+
+
+∥h∥L∞(Ω ′×[τ1,τ 3]) + ∥h∥Cm+1 (Ω ′×{ τ1}) + δ0e− 12 (τ1+τ0)
+
+.
+
+We also need the corresponding local energy estimate. 
+
+Lemma 4.6 (Local integral estimate; cf. [LZ24, Lemma 4.5], and for Ricci-flow analogues see [Sto22, Lemma 6.3]) . Let Σ be an asymptotically conical shrinker, and let h solve (2.7) on Ω ′ ×
+
+(τ1, τ 3), where Ω ⋐ Ω′ ⋐ Σ. Fix m ∈ N and times τ1 ≤ τ2 < τ 3. Assume that Q1 satisfies Assumption 2.8. Then there exist constants ε = ε(n, m ) > 0 and C = C(n, m, Σ, F, dist Σ(Ω , Σ \
+
+Ω′), τ 2 − τ1) < ∞ with the following properties. (1) If τ2 > τ 1 and ∥h∥Cm+2 (Ω ′×[τ1,τ 3]) < ε, then sup  
+
+> τ∈[τ2,τ 3]
+
+∥∇ mh(τ )∥L2  
+
+> W(Ω)
+
++ ∥h∥Hm+1   
+
+> WL2(Ω ×[τ2,τ 3])
+
+≤ C
+
+
+
+∥h∥HmW L2(Ω ′×[τ1,τ 3]) + δ0e− 12 (τ1+τ0)
+
+.
+
+(2) If τ2 = τ1 and ∥h∥Cm+2 (Ω ′×[τ1,τ 3]) < ε, then sup  
+
+> τ∈[τ1,τ 3]
+
+∥∇ mh(τ )∥L2  
+
+> W(Ω)
+
++ ∥h∥Hm+1   
+
+> WL2(Ω ×[τ1,τ 3])
+
+≤ C
+
+
+
+∥h(τ1)∥HmW (Ω ′) + ∥h∥HmW L2(Ω ′×[τ1,τ 3]) + δ0e− 12 (τ1+τ0)
+
+.
+
+Proof. The proof is a standard local energy argument. We indicate only the changes caused by the forcing terms. Compared with the estimates in [LZ24, Lemma 4.5] and [Sto22, Lemma 6.3], the new contribution is Y0(x, τ ) + Y1(h, ˜r ∇h, x, τ )h + Y m 
+
+> 2
+
+(h, ˜r ∇h, x, τ )( ∇h)m + Y ij  
+
+> 3
+
+(h, ˜r ∇h, x, τ )( ∇2h)ij .We write N (x, τ ) = Y0(x, τ ). By (2.2) and (4.4), the equation can be arranged as 
+
+∂τ h = Lh +
+
+> 1
+
+X
+
+> l=0
+
+B0 
+
+> l
+
+∗ ∇ lh − div |F |24
+
+ˆh0 ∗ ∇ h
+
+
+
++ N, 
+
+where ˆh0 is a function of h and ∇h, Lf := ∆ gf − 12 ⟨F, ∇gf ⟩ is the drift Laplacian, and div |F |24
+
+(T ) = div( T ) − 12 ⟨F, T ⟩. The coefficients B0 
+
+> l
+
+depend on the derivatives of h up to order two and are small under the hypotheses. The symbol ∗ denotes a fixed linear combination of the indicated tensor contractions. CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS 15 
+
+Given C0 > 0 and δ > 0, there exists ε > 0 such that 
+
+∥h(τ )∥C2(Ω ′) < ε ⇒ ∥ B01 ∥L∞(Ω ′) + ∥B00 ∥L∞(Ω ′) < C 0 and ∥ˆh0∥L∞(Ω ′) ≤ δ. 
+
+Commuting derivatives and arguing by induction gives 
+
+∂τ ∇mh = L∇ mh +
+
+> m+1
+
+X
+
+> l=1
+
+Bml ∗ ∇ lh − div |F |24
+
+ˆhm ∗ ∇ m+1 h
+
+
+
++ ∇mN, 
+
+where, for some Cm and for every δ > 0, one can choose ε > 0 so that 
+
+∥h(τ )∥Cm+2 (Ω ′) < ε ⇒
+
+> m+1
+
+X
+
+> l=0
+
+∥Bml ∥L∞(Ω ′) < C m and ∥ˆhm∥L∞(Ω ′) ≤ δ. 
+
+The estimate then follows by integration by parts, Young’s inequality, and the estimate 
+
+∥Y0∥HmW L2(Ω ′×[τ1,τ 3]) ≤ δ0e− 12 (τ0+τ1)
+
+that follows from the decay (2.10) of the forcing term. □
+
+The previous estimates imply the compact-region interior estimate that will be used later. The restriction λ∗ < 12 is essential in this step. 
+
+Proposition 4.7 (Compact-region interior estimate; cf. the Ricci-flow estimate [Sto22, Lemma 6.4]) .
+
+Let Γ > 0, and let h solve (2.7) on Σ × (0 , τ 1). Assume that Q1 satisfies Assumption 2.8 and that 
+
+∥h∥C0,α  
+
+> hom ,1(Σ ×[0 ,τ 1])
+
+< ε, 
+
+∥h(τ )∥L2  
+
+> W(Σ)
+
+≤ μe −λ∗(τ +τ0) for all τ ∈ [0 , τ 1], and 
+
+> 4n+3
+
+X
+
+> l=0
+
+∇lh g (x, 0) ≤ C0 ¯pe −λ∗τ0 for all x ∈
+
+ |F |2
+
+4 < 2Γ 
+
+
+
+and τ = 0 for some 0 < λ ∗ < 12 , where λ∗ does not belong to the spectrum of L. If Γ > Γ0(n, Σ, F ), 
+
+ε < ε 0(n, Σ, F, Γ), and τ0 > C (n, μ, Σ, F, λ ∗, Γ, C 0 ¯p), then there exists C1 = C1(n, Σ, F, λ ∗, Γ) < ∞
+
+such that 
+
+> 2
+
+X
+
+> l=0
+
+|∇ lh|g(x, τ ) ≤ C1(μ + C0 ¯p)e−λ∗(τ +τ0) for all ( x, τ ) ∈
+
+ |F |2
+
+4 < Γ
+
+
+
+× [0 , τ 1].
+
+The same local estimate also gives large-scale interior bounds after a rescaling adapted to the shrinker. Recall from [CS21] the family of diffeomorphisms φt : Σ → Σ generated by Xt = 1 
+
+> −2t
+
+xT
+
+with t = −e−τ ; namely ∂tφt = Xt ◦ φt with φ−1 = Id . Set ˆ gt = ( −t)φ∗ 
+
+> t
+
+gΣ. This family converges to the metric cone asymptotic to Σ in the pointed C∞ Cheeger–Gromov sense. Define 
+
+H(x, t ) = √−t · h(φt(x) , − log( −t)) .
+
+Then (2.7) implies 
+
+∂H
+
+∂t (x, t ) = 
+
+
+
+∆ˆgt H + H| A(φt(x)) |2
+
+−t
+
+
+
+(x, t ) + 1
+
+√−t (Q1 + Q2)( φt(x) , − log( −t)) .(4.8) 16 JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO 
+
+The convergence of ˆ gt to the cone gives uniform comparison of the corresponding homogeneous norms: 
+
+C−1∥h∥C∗,α  
+
+> hom ,1(B2R/ √−t\BR/ √−t)
+
+≤ ∥H∥ C∗,α  
+
+> hom ,1(B2R\BR)
+
+≤ C∥h∥C∗,α 
+
+> hom ,1(B2R/ √−t\BR/ √−t)
+
+.(4.9) Thus, 1√−t Q2(φt(x) , − log( −t)) can be expressed in terms of H, ∇H , and ∇2H. We also use the following comparison between φt and the pure conical dilation. If the end of Σ is parametrized by 
+
+F : ( R, ∞) × Γ → Σ, let ˜ φt = F −1 ◦ φt ◦ F and let ϕt : ( R, ∞) × Γ → (R, ∞) × Γ be given by (r, ω ) 7 → (( −t)− 12 r, ω ). 
+
+Lemma 4.10 ([CS21, Lemma 3.8]) . For j ≥ 1 and η > 0, 
+
+dgC ( ˜ φt(r, θ ), ϕ t(r, θ )) ≲ 1
+
+√−t · r and |D(j)( ˜ φt − ϕt)|(r, θ ) ≲ 1
+
+√−t · r1+ j−η .
+
+Applying ∇ˆgt to (4.8) gives 
+
+∂∂t (∇ˆgt H) =∆ ˆgt (∇ˆgt H) + 
+
+ |A(φt(x)) |2
+
+−t − Ric ˆgt
+
+
+
+∇ˆgt H
+
++ H∇ ˆgt
+
+ |A(φt(x)) |2
+
+−t
+
+
+
++ ∇gΣ (Q1 + Q2)( φt(x) , − log( −t)) .
+
+(4.11) Using (2.4), (2.9), (4.4), Lemma 4.10, and Proposition 4.2 in (4.11), the forcing term can be taken as 
+
+F =H
+
+
+
+∇ˆgt
+
+ |A(φt(x)) |2
+
+−t
+
+
+
++ ∇gΣ C3 + ∇gΣ Y1(0 , 0, ·, ·)
+
+
+
++ ∇gΣ Y0
+
+=O
+
+
+
+∥H∥ C0hom ,1
+
+  
+
+|x|−2 + Γ 0δ0e−(τ +τ0)
+
++ δ0e−(τ +τ0).
+
+Together with the pointed C∞ Cheeger–Gromov convergence of ˆ gt to the cone, this yields the large-scale interior estimate. The argument is the mean-curvature-flow analogue of the rescaled estimates in [Sto22, Lemma 6.8]. 
+
+Lemma 4.12 (Large-scale interior estimate; cf. [LZ24, Lemmas 4.14 and 4.15], and for Ricci-flow analogues see [Sto22, Lemmas 6.8 and 6.9]) . Let h solve (2.7), and assume that Q1 satisfies As-sumption 2.8. Fix 0 < λ ∗ < 12 with λ∗ outside the spectrum of L. Suppose that 
+
+|h|g ≤ C0e−λ∗(τ +τ0)
+
+ |F |2
+
+4 (x)
+
+λ∗+ 12
+
+on 
+
+
+
+(x, τ ) ∈ Σ × (0 , τ 1) : Γ < |F |2
+
+4 < Γeτ +τ0
+
+
+
+,
+
+|∇ gh|g ≤ C0e−λ∗(τ +τ0)
+
+ |F |2
+
+4 (x)
+
+λ∗
+
+on 
+
+
+
+(x, τ ) ∈ Σ × (0 , τ 1) : Γ < |F |2
+
+4 < Γeτ +τ0
+
+
+
+, and 
+
+|∇ lh|g(x, 0) ≤ C0e−λ∗τ0
+
+ |F |2
+
+4 (x)
+
+λ∗+ 12 − l
+
+> 2
+
+for all l ∈ { 0, 1, 2, 3}, x ∈
+
+
+
+Γ < |F |2
+
+4 < Γeτ +τ0
+
+
+
+.
+
+Then, for Γ > Γ0(n, Σ, F ), there exists C1 = C1(n, Σ, F, λ ∗) < ∞ such that 
+
+|∇ lh|g(x, τ ) ≤ C1C0e−λ∗(τ +τ0)
+
+ |F |2
+
+4 (x)
+
+λ∗
+
+on 
+
+
+
+(x, τ ) ∈ Σ × (0 , τ 1) : 4Γ ≤ |F |2
+
+4 (x) ≤ 14 Γeτ +τ0
+
+
+
+for every l ∈ { 1, 2}.CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS 17 
+
+Combining the compact-region estimate in Proposition 4.7 with the large-scale estimate in Lemma 4.12 and the barrier functions in Section 3, we obtain the global C2 improvement the-orem below. The proof follows Stolarski’s large-scale bootstrapping argument in [Sto22, Section 6], while the analytic inputs are the forced mean curvature flow estimates recorded above. The extra homogeneous C1 assumption reflects the normal-graph formulation: since h may grow linearly at infinity, C0 controls are not sufficient. 
+
+Theorem 4.13 (Quantitative global C2-improvement; cf. [LZ24, Theorem 5.10] and [Sto22, The-orem 6.1]) . Fix 0 < λ ∗ < 12 , λ∗ /∈ spec( L),
+
+and take the constant Γ 0 in Assumption 2.8 sufficiently large. Let h solve (2.7) on Σ × [0 , τ 1], where 0 < τ 1 < ∞. Assume that the total term Q1, including any transplantation error, admits the decomposition in the last line of (2.9) and satisfies (2.10)–(2.13), with constants independent of τ1, and that the full second-order coefficient is uniformly elliptic. Suppose also that, for every 
+
+τ ∈ [0 , τ 1], supp h(·, τ ) ⊂ f ≤ Γ0eτ +τ0 ,
+
+∥h∥C1,α  
+
+> hom ,1(Σ ×[0 ,τ 1])
+
++ ∥∇ 2h∥C0(Σ ×[0 ,τ 1]) ≤ ε, 
+
+∥h(τ )∥L2 
+
+> W
+
+≤ μe −λ∗(τ +τ0).
+
+Define 
+
+Kin := eλ∗τ0 max  
+
+> 0≤j≤4n+4
+
+sup 
+
+> Σ
+
+˜r−2λ∗−1+ j |∇ j h(·, 0) | and Θ := μ + Kin + δ0.
+
+Then there exist constants 
+
+ε∗, δ ∗, Θ∗ > 0, τ∗ < ∞, W < ∞
+
+depending on n, Σ, F, λ ∗, Γ0 and the fixed H¨ older exponent, but independent of h, τ 0, and τ1, such that, whenever 
+
+ε ≤ ε∗, δ0 ≤ δ∗, Θ ≤ Θ∗, τ0 ≥ τ∗,
+
+we have 
+
+|∇ ℓh|(x, τ ) ≤ W q (Θ) ˜ r(x)2λ∗+1 −ℓe−λ∗(τ +τ0), ℓ = 0 , 1,(4.14) 
+
+|∇ 2h|(x, τ ) ≤ W q (Θ) ˜ r(x)2λ∗ e−λ∗(τ +τ0)
+
+(4.15) for every ( x, τ ) ∈ Σ × [0 , τ 1], where lim  
+
+> Θ→0
+
+q(Θ) = 0 .
+
+In particular, for every prescribed εpt > 0, if the parameters are chosen so that W q (Θ) ≤ εpt ,then the right-hand sides of (4.14) and (4.15) hold with εpt in place of W q (Θ). 5. Box argument 
+
+In this section, we will prove the main theorem by adapting the Wa˙ zewski box argument to the forced mean curvature flow setting. Throughout this section, the forcing term is assumed to satisfy Assumption 2.8. In particular, after we write the rescaled flow as a normal graph over the shrinker, the forcing term contributes lower-order terms with the decay and smallness recorded in (2.10)–(2.13). 18 JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO 
+
+Let Σ be the concerned asymptotically conical shrinker and F : Σ → Rn+1 be the corresponding embedding. First, we choose τ0 and Γ 0 sufficiently large and follow Appendix C to construct a closed hypersurface 
+
+M = Σ cap 4√Γ0e 12 τ0
+
+.
+
+We let FM : M → Rn+1 be the corresponding embedding map. Fix λ∗ > 0 such that 0 < λ ∗ < 12 and λm < λ ∗ < λ m+1 ,(5.1) where λm < λ m+1 are two different eigenvalues of L = LΣ. Recall that we let hi be the corresponding eigenfunctions. We also fix a cutoff function η : (0 , ∞) → [0 , 1] with η = 1 on (0 , 1/2) and η = 0 on (1 , ∞). For 
+
+p = ( p1, . . . , p m) ∈ B¯pe −λ∗τ0 (0) ⊂ Rm,
+
+we perturb FM by the unstable eigenfunctions, namely 
+
+Fp,0(x) = FM (x) + hp(x) nFM (x),(5.2) where nFM denotes the chosen unit normal along FM , f (x) = |FM (x)|2/4, and 
+
+hp(x) := η
+
+ f (x)
+
+γ0eτ0
+
+ mX
+
+> i=1
+
+pihi(x).
+
+The eigenfunction growth estimate gives 
+
+η
+
+ f (x)
+
+γ0eτ0
+
+ mX
+
+> i=1
+
+pihi(x) ≤ C ¯pγ λ∗ 
+
+> 0
+
+|x|.(5.3) Thus, after taking ¯ p and γ0 sufficiently small, the perturbed hypersurface Fp,0 defined in (5.2) remains embedded. We transplant it back to the original shrinker by ˆFp(x, t ) = η
+
+ f (x)Γ0eτ0
+
+
+
+Fp(x, t ) + 
+
+
+
+1 − η
+
+ f (x)Γ0eτ0
+
+ 
+
+F (x, t ).
+
+As in the unforced case, for a positive time depending on p, we may write the rescaled transplanted flow as a normal graph over Σ by 1
+
+√−t ˆFp(φt(x), t ) = F (x) + hp(x, τ )nF (x) for τ = − log( −t).
+
+The support of hp(·, τ ) is contained in a compact subset of Σ for each fixed τ , since the transplanted flow agrees with the model shrinker outside the cutoff region. The graph function satisfies an equation of the form 
+
+∂τ hp = Lh p + Q1,p + Q2,p.(5.4) Here, Q2,p denotes the nonlinear normal-graph error, including the usual quadratic terms coming from the graph parametrization. The term Q1,p contains both the cutoff error from the transplanted CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS 19 
+
+flow and the forcing terms. More explicitly, we write 
+
+Q1,p := √−t
+
+D ∂t ˆFp − ∆g0 ˆFp)( φt(x), t ), nF1 (x)
+
+E
+
+⟨nF1 (x), nF (x)⟩
+
+= Y0(x, τ ) + Y1(hp, ˜r∇hp, x, τ )hp
+
++ Y a 
+
+> 2
+
+(hp, ˜r∇hp, x, τ )∇ahp + Y ab  
+
+> 3
+
+(hp, ˜r∇hp, x, τ )∇2
+
+> ab
+
+hp.
+
+(5.5) The denominator in (5.5) is harmless as long as the graph remains in the box. The corresponding angle correction is included in Q2,p. Assumption 2.8 gives, for δ0 > 0 as small as needed, 
+
+Y ab  
+
+> 3
+
+≤ δ0,
+
+|Y0| + f 12 |∇ Y0| ≤ Cδ 0e− 12 (τ +τ0),(5.6) 
+
+|Q 1,p| ≤ Cδ 0e− 12 (τ +τ0) 
+
+1 + e− 12 (τ +τ0) |hp| + |∇ hp| + ∇2hp
+
+
+
+.
+
+We start defining the box for which we will apply a topological argument as in [Sto22, LZ24]. For any h ∈ L2 
+
+> W
+
+(Σ), define its unstable and stable projections by 
+
+hu := 
+
+> m
+
+X
+
+> j=1
+
+⟨h, h j ⟩L2 
+
+> W
+
+hj , and hs := 
+
+> ∞
+
+X
+
+> j=m+1
+
+⟨h, h j ⟩L2 
+
+> W
+
+hj = h − hu.
+
+We define the box 
+
+B[λ∗, μ u, μ s, ε 0, ε 1, ε 2, t 1]to be the set of all functions 
+
+h : Σ × [0 , − log( −t1)] → R
+
+satisfying the following conditions. (1) For every τ ∈ [0 , − log( −t1)], the function h(·, τ ) is compactly supported in Σ. (2) For every τ ∈ [0 , − log( −t1)], 
+
+∥hu(·, τ )∥L2 
+
+> W
+
+≤ μue−λ∗(τ +τ0), ∥hs(·, τ )∥L2 
+
+> W
+
+≤ μse−λ∗(τ +τ0).
+
+(3) For every τ ∈ [0 , − log( −t1)], the pointwise bounds 
+
+|h|¯g(x) ≤ ε0 ˜r(x), |∇ h|¯g(x) ≤ ε1, |∇ 2h|¯g(x) ≤ ε2
+
+hold on Σ. As before, ˜ r is a fixed smooth function on Σ satisfying ˜ r ≥ 1 and ˜ r(x) = |x| + 1 for |x| ≥ 1. Our goal is to show that, after choosing 
+
+γ0, ¯p, δ 0 ≪ 1, Γ0, τ 0 ≫ 1,
+
+the graph function hp can leave the box only through the unstable side. 
+
+Proposition 5.7 (Exit through the unstable side for the forced flow) . Fix λ∗ as in (5.1) and assume that the forcing term satisfies Assumption 2.8. After we choose δ0, γ 0, ¯p, ε 0, ε 1, ε 2 > 0 sufficiently small and Γ 0, τ 0 < ∞ sufficiently large, the following holds. Let hp be the graph function constructed above with |p| ≤ ¯pe −λ∗τ0 such that 
+
+hp /∈ B [λ∗, μ u, μ s, ε 0, ε 1, ε 2, 0] .20 JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO 
+
+Define t(p) < 0 to be the largest time such that 
+
+hp ∈ B [λ∗, μ u, μ s, ε 0, ε 1, ε 2, t (p)] .
+
+Then, with τ (p) = − log( −t(p)), one has 
+
+∥hp,u (·, τ (p)) ∥L2 
+
+> W
+
+= μue−λ∗(τ (p)+ τ0).(5.8) Moreover, for every τ > τ (p) sufficiently close to τ (p), 
+
+∥hp,u (·, τ )∥L2 
+
+> W
+
+> μ ue−λ∗(τ +τ0).(5.9) 
+
+Proof. Short-time existence for the forced mean curvature flow and continuous dependence on the initial hypersurface imply that t(p) > −1 when ¯ p and γ0 are sufficiently small. We first estimate the cutoff error. From (5.3) and the curvature decay (C.2) on the capping region, the initial hypersurface satisfies 
+
+|∇ mA|(x, 0) ≤ Dm
+
+ 1Γ0
+
+ m+1 2
+
+on M \ { f ≤ Γ0 
+
+> 2
+
+}. The forcing term is perturbative under Assumption 2.8. Hence, the interior estimates and the pseudolocality estimates [EH91, INS19], applied with the forcing bounds, give 
+
+|∇ mA|(x, t ) ≤ Cm
+
+ 1Γ0
+
+ m+1 2
+
+for ( x, t ) ∈ (M \ { f ≤ Γ0/2}) × [−1, t (p)] . Consequently, while hp stays in the box, the error Ep
+
+contributed by cutoff in rescaled variables is controlled by supp Ep(·, τ ) ⊆
+
+ Γ0eτ +τ0
+
+2 ≤ f ≤ Γ0eτ +τ0
+
+
+
+,
+
+|E p(·, τ )| ≤ C
+
+ 1Γ0eτ +τ0
+
+ 12
+
+,(5.10) 
+
+|∇E p(·, τ )| ≤ C
+
+ 1Γ0eτ +τ0
+
+
+
+.
+
+These fit into Assumption 2.8 for τ0 sufficiently large. Thus, the global C2-improvement theorem, Theorem 4.13, applies to the forced equation (5.4), and after we take τ0 large and the parameters εi’s in the construction small, the pointwise part of the box is improved on [0 , τ (p)]: 
+
+|hp| ≤ 12 ε0 ˜r, |∇ hp| ≤ 12 ε1, |∇ 2hp| ≤ 12 ε2.(5.11) In particular, hp cannot exit through the C0, C1, or C2 faces of the box. We next record the L2 
+
+> W
+
+size of the remaining errors. The nonlinear graph terms are quadratic under the improved estimates, and the angle correction in (5.5) is also quadratic in the graph size. Therefore, 
+
+∥Q 2,p∥L2 
+
+> W
+
+≤ Ce −2λ∗(τ +τ0).(5.12) For the forcing contribution, (5.6) gives 
+
+∥Q 1,p − E p∥L2 
+
+> W
+
+≤ Cδ 0e− 12 (τ +τ0).(5.13) CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS 21 
+
+Combining (5.11), (5.12), (5.13), and projecting (5.4) onto the eigenspaces of L, we obtain 
+
+ddτ ∥eλ∗(τ +τ0)hp,u ∥L2 
+
+> W
+
+≥ (λ∗ − λm − Cδ 0)∥eλ∗(τ +τ0)hp,u ∥L2 
+
+> W
+
+− ωτ0,δ 0 and 
+
+ddτ ∥eλ∗(τ +τ0)hp,s ∥L2 
+
+> W
+
+≤ (λ∗ − λm+1 + Cδ 0)∥eλ∗(τ +τ0)hp,s ∥L2 
+
+> W
+
++ ωτ0,δ 0 ,
+
+(5.14) where the error is given by 
+
+ωτ0,δ 0 := C
+
+
+
+e−λ∗τ0 + δ0e−( 12 −λ∗)τ0
+
+
+
+.
+
+Since 0 < λ ∗ < 1/2, this error tends to zero as τ0 → ∞ once δ0 is fixed. We now choose δ0 > 0 so small that 
+
+λ∗ − λm − Cδ 0 > 0 and λm+1 − λ∗ − Cδ 0 > 0.
+
+The initial data satisfy 
+
+⟨hp(·, 0) , h j ⟩L2 
+
+> W
+
+− pj ≤ Ce − γ0100 eτ0 for j ≤ m, 
+
+∥hp,s (·, 0) ∥L2 
+
+> W
+
+≤ Ce − γ0100 eτ0 .
+
+(5.15) Using the stable inequality in (5.14), (5.15), and the smallness of ωτ0,δ 0 , we obtain 
+
+∥hp,s (·, τ (p)) ∥L2 
+
+> W
+
+< μ se−λ∗(τ (p)+ τ0)
+
+(5.16) for τ0 large enough. Together with the improved pointwise bounds (5.11), this shows that the first exit cannot occur through the stable side or through the C2 part of the box. Therefore, the only possible exit face is the unstable one, which proves (5.8). It remains to show that the exit is outward. At τ = τ (p), (5.8) gives 
+
+∥eλ∗(τ (p)+ τ0)hp,u (·, τ (p)) ∥L2 
+
+> W
+
+= μu.
+
+Choosing τ0 larger, if necessary, so that 
+
+ωτ0,δ 0 < 12 (λ∗ − λm − Cδ 0)μu,
+
+the first inequality in (5.14) implies that the rescaled unstable norm is increasing at τ (p). Hence, (5.9) holds for all τ > τ (p) sufficiently close to τ (p). □
+
+We next choose the perturbation parameters by a topological argument. The proof is unchanged at the topological level; the only analytic input needed for the forced flow is the strict outward crossing in Proposition 5.7. 
+
+Proposition 5.17 (Choice of a perturbation remaining in the box) . Under the parameter choices in Proposition 5.7, and after taking ¯ p < μ u/2, there exists 
+
+p ∈ B¯pe −λ∗τ0 (0) ⊂ Rm
+
+such that 
+
+hp ∈ B [λ∗, μ u, μ s, ε 0, ε 1, ε 2, 0] .(5.18) 22 JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO 
+
+Proof. Assume, toward a contradiction, that every p ∈ B¯pe −λ∗τ0 makes hp leave the box before time 1. For each such p, let τ (p) = − log( −t(p)) be the first exit time from Proposition 5.7. Define the rescaled exit map 
+
+F(p) := eλ∗(τ (p)+ τ0) ⟨hp(·, τ (p)) , h 1⟩L2 
+
+> W
+
+, . . . , ⟨hp(·, τ (p)) , h m⟩L2
+
+> W
+
+ ∈ Rm.
+
+By Proposition 5.7, |F (p)| = μu for every p in the closed parameter ball B¯pe −λ∗τ0 . Moreover, the strict inequality (5.9), together with the continuous dependence of the forced mean curvature flow on the initial hypersurface, implies that F is a continuous function on B¯pe −λ∗τ0 .
+
+On the boundary of the parameter ball, the initial projection estimates (5.15) and the differential inequalities (5.14) show that F has the same degree as the radial map 
+
+p 7 −→ μu
+
+p
+
+|p| .
+
+Equivalently, after increasing τ0 and decreasing δ0 if necessary, the straight-line homotopy between these two boundary maps never hits the origin. Thus, the restriction of F to ∂B ¯pe −λ∗τ0 (0) has degree one as a map to the sphere of radius μu. This is impossible because F is assumed to extend continuously to the whole closed ball while taking values in the same sphere. Hence, the contradiction assumption is false, so there exists a parameter p satisfying (5.18). □
+
+Proof of Theorems 1.3, 1.4 and 1.5 . Proposition 5.17 proves Theorem 1.3 for an asymptotically conical shrinker. As indicated in Section 2.4, this implies the main theorems 1.4 and 1.5 for an asymptotically conical shrinker based on Propositions 2.15 and 2.16. □
+
+6. Prescribing the first order asymptotics 
+
+In this section, we explain how to prescribe the leading order asymptotic of the forced rescaled mean curvature flow by refining the box argument in Section 5 and prove Theorem 1.6 for an asymptotically conical shrinker Σ .
+
+Fix eigenvalues λm−1 < λ m = · · · = λM < λ M +1 =: λ+ of L and assume (6.1) 0 < λ m < 12 .
+
+Set 
+
+E< := M 
+
+> λj<λ m
+
+Eλj , E0 := ker( L + λm), E> := M 
+
+> λj>λ M
+
+Eλj .
+
+We also write E≤ := E< ⊕ E0, and let Π ≤ : L2 
+
+> W
+
+→ E≤ and Π > : L2 
+
+> W
+
+→ E> be the corresponding orthogonal projections. We use the forced graph equation in the form 
+
+∂τ u =Lu + E
+
++ Y0 + Y1(u, ˜r∇u, x, τ )u + Y a 
+
+> 2
+
+(u, ˜r∇u, x, τ )∇au
+
++ Y ab  
+
+> 3
+
+(u, ˜r∇u, x, τ )∇2
+
+> ab
+
+u + Q2(u).
+
+(6.2) Here, E denotes the cutoff error from the compact gluing construction, and Q2(u) is the quadratic Euclidean graph nonlinearity. The construction gives supp u(·, τ ) ⊂ { f ≤ Γ0eτ +τ0 }.CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS 23 
+
+Extend the coefficients using a cutoff which equals one on this set and is supported where ˜f ≤ 
+
+> 14
+
+Γ20eτ +τ0 ; for Γ 0 ≥ 16, this lies in the region of Assumption 2.8. Absorbing the transition errors into E, we have, uniformly in the small graphical regime and for 2 q + k ≤ 4n + 6, 
+
+|∂qτ ∇kE| ≤ Cq,k δ0e− 12 (τ +τ0) ˜f −k/ 2,(6.3) 
+
+∥E (τ )∥L2 
+
+> W
+
+≤ CN e−N (τ +τ0) for every N > 0.(6.4) We retain the notation Yj for the extended coefficients. If η0 denotes the constant in (2.13) and 
+
+∇a,p denotes fibre differentiation, then (6.5) ˜rℓ|∂qτ ∇kx∇ℓa,p Y3| ≤ Cq,k,ℓ η0e−(τ +τ0) ˜f 1− k 
+
+> 2
+
+≤ δ0 ˜f − k 
+
+> 2
+
+,
+
+for 2 q + k + ℓ ≤ 4n + 6, uniformly on the admissible fibre ball, provided Cη 0Γ20 ≤ δ0.Define 
+
+Y ab 
+
+> 3,0
+
+(x, τ ) := Y ab  
+
+> 3
+
+(0 , 0, x, τ ), Pτ v := Y ab 
+
+> 3,0
+
+(x, τ )∇2
+
+> ab
+
+v, D(Pτ ) = H2 
+
+> W
+
+(Σ) .
+
+For V := E≤, the finite-dimensional eigenfunction estimates give (6.6) |∇ j v| ≤ CV ∥v∥L2 
+
+> W
+
+˜r2λm+1 −j , ∥ ˜f q∇j v∥L2 
+
+> W
+
+≤ CV,j,q ∥v∥L2 
+
+> W
+
+,v ∈ V, 0 ≤ j ≤ 4n + 4 , q ≥ 0.
+
+See Section 2.1 and [LZ24, Theorem 2.4]. In particular, for every φ ∈ E0,(6.7) ∥Pτ φ∥L2 
+
+> W
+
+≤ Cη 0e−(τ +τ0)∥φ∥L2 
+
+> W
+
+.
+
+Choose (6.8) λm < β < min 
+
+
+
+λ+, 2λm, 12
+
+
+
+.
+
+Such a β exists by (6.1). 
+
+Theorem 6.9. For every ψ ∈ E0, after choosing δ0, γ 0 > 0 sufficiently small, Γ 0, τ 0 sufficiently large, and an additional force satisfying Assumption 2.8 for these choices with Cη 0Γ20 ≤ δ0, there exists a closed initial hypersurface such that the associated transplanted rescaled flow has a compactly supported normal-graph function u(τ ) over Σ satisfying (6.10) u(τ ) = e−λm(τ +τ0)ψ + z(τ ),
+
+where ∥z(τ )∥L2 
+
+> W
+
+≤ Ce −β(τ +τ0) for all τ ≥ 0. Consequently, lim   
+
+> τ→∞
+
+eλm(τ +τ0)u(τ ) = ψ in L2 
+
+> W
+
+.
+
+Proof. Fix ψ ∈ E0 and set Hψ(τ ) := e−λm(τ +τ0)ψ. Since Lψ = −λmψ, we have (6.11) (∂τ − L)Hψ = 0 .
+
+We will construct u so that z := u − Hψ decays like e−β(τ +τ0).
+
+Step 1: Correcting the cutoff on the finite-dimensional space. 
+
+Choose ϑ ∈ C∞([0 , ∞), [0 , 1]) with ϑ = 1 on [0 , 1] and ϑ = 0 on [2 , ∞), and, for σ ≥ τ0, set 
+
+χσ(x) = ϑ ˜f (x)
+
+γ0eσ
+
+!
+
+.24 JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO 
+
+Take 0 < γ 0 < Γ0/8, so that supp χτ0 lies in the part of the cap which agrees with Σ. Define an operator Tτ0 : V → V by 
+
+Tτ0 v = Π ≤(χτ0 v).
+
+Since V is finite-dimensional, its elements have polynomial growth. Therefore, the Gaussian tail estimate gives 
+
+∥(1 − χτ0 )v∥L2 
+
+> W
+
+≤ Ce −cγ 0eτ0 ∥v∥L2
+
+> W
+
+for all v ∈ V. Hence, we can estimate the operator norm 
+
+∥Tτ0 − I∥ ≤ Ce −cγ 0eτ0 ,
+
+so for τ0 sufficiently large, Tτ0 is invertible with ∥T −1 
+
+> τ0
+
+∥ ≤ 2.
+
+Fix μ > 0. For 
+
+a ∈ Bμ(V ) := {a ∈ V : ∥a∥L2 
+
+> W
+
+≤ μ},
+
+define 
+
+rψ := Π ≤
+
+
+
+(χτ0 − 1) e−λmτ0 ψ
+
+
+
+and wa := T −1
+
+> τ0
+
+
+
+e−βτ 0 a − rψ
+
+
+
+.
+
+We take the initial graph to be (6.12) ua(0) = χτ0
+
+
+
+e−λmτ0 ψ + wa
+
+
+
+.
+
+As in the compact gluing construction, this compactly supported graph is inserted into the fixed exterior closed hypersurface, giving a closed initial hypersurface. Let 
+
+za(0) := ua(0) − e−λmτ0 ψ. 
+
+By the definition of wa,(6.13) Π≤za(0) = e−βτ 0 a. 
+
+Moreover, for each fixed γ0 > 0, uniformly in a ∈ Bμ(V ), ∥Π>za(0) ∥L2 
+
+> W
+
+= o(e−βτ 0 ) as τ0 → ∞ ,
+
+since the high-frequency part only comes from cutting off finite-dimensional eigenfunction data hence is exponentially small in the Gaussian tail. For α chosen in Step 2, the same cutoff and eigenfunction estimates give 
+
+Kγ0,τ 0 := eατ 0 max  
+
+> 0≤j≤4n+4
+
+sup  
+
+> a∈Bμ(V)
+
+sup 
+
+> Σ
+
+˜r−2α−1+ j |∇ j ua(0) |.
+
+More precisely, the cutoff derivative estimates give 
+
+Kγ0,τ 0 ≤ Cψ
+
+ e−(λm−α)τ0 + γλm−α
+
+> 0
+
+ + Cμe −(β−α)τ0 + Cμγ λm−α 
+
+> 0
+
+e−(β−λm)τ0 + Ce −cγ 0eτ0 .
+
+Consequently, lim  
+
+> γ0↓0
+
+lim sup 
+
+> τ0→∞
+
+Kγ0,τ 0 = 0 .
+
+In particular, the initial graphs satisfy the required smallness assumptions. 
+
+Step 2: The refined box. 
+
+Let ua(τ ) be the solution starting from (6.12) and set 
+
+za(τ ) := ua(τ ) − Hψ(τ ).
+
+Define 
+
+A(τ ) := eβ(τ +τ0)∥Π≤za(τ )∥L2 
+
+> W
+
+and B(τ ) := eβ(τ +τ0)∥Π>za(τ )∥L2 
+
+> W
+
+.CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS 25 
+
+The refined box is defined by the standard pointwise small graph bounds for ua and the additional bounds (6.14) A(τ ) ≤ μ and B(τ ) ≤ μ. 
+
+Choose α outside the spectrum of L such that (6.15) β
+
+2 < α < λ m.
+
+This is possible because of (6.8). Inside the box, 
+
+∥ua(τ )∥L2 
+
+> W
+
+≤ ∥ ψ∥L2 
+
+> W
+
+e−λm(τ +τ0) + 2 μe −β(τ +τ0).
+
+Thus 
+
+∥ua(τ )∥L2 
+
+> W
+
+≤ c(τ0)e−α(τ +τ0), c(τ0) := ∥ψ∥L2 
+
+> W
+
+e−(λm−α)τ0 + 2 μe −(β−α)τ0 → 0as τ0 → ∞ . The proof of Theorem 4.13 uses the special eigenfunction form of its initial data only to obtain the scale-invariant initial bounds. Thus the same proof, using (6.3)–(6.5) and the fixed cutoff buffer, applies with c(τ0) and Kγ0,τ 0 . Consequently, for any εpt > 0, after choosing the parameters as above, it gives, uniformly while the solution remains in the box, 
+
+|∇ ℓua| ≤ εpt ˜r2α+1 −ℓe−α(τ +τ0) for ℓ = 0 , 1,(6.16) 
+
+|∇ 2ua| ≤ εpt ˜r2αe−α(τ +τ0).(6.17) Since supp ua ⊂ { f ≤ Γ0eτ +τ0 }, we have ˜ r2αe−α(τ +τ0) ≤ CΓα 
+
+> 0
+
+there. Thus choosing εpt sufficiently small makes the pointwise box inequalities strict. Hence a first exit cannot occur through a pointwise face. 
+
+Step 3: The equation for the remainder. 
+
+Using (6.2) and (6.11), and denoting the corresponding transplantation error by Ea, the remain-der za = ua − Hψ satisfies (6.18) ∂τ za = Lz a + Pτ za + Ra,
+
+where 
+
+Ra := Ea + Y0 + Y1(ua, ˜r∇ua, x, τ )ua + Y b 
+
+> 2
+
+(ua, ˜r∇ua, x, τ )∇bua
+
++  Y bc  
+
+> 3
+
+(ua, ˜r∇ua, x, τ ) − Y bc 
+
+> 3,0
+
+(x, τ )∇2
+
+> bc
+
+ua + Pτ Hψ + Q2(ua).
+
+(6.19) We claim that for any prescribed εR > 0, after taking τ0 sufficiently large, we have (6.20) eβ(τ +τ0)∥Ra(τ )∥L2 
+
+> W
+
+≤ εR
+
+uniformly while the solution remains in the box. We will estimate each of the terms in Ra.
+
+Uniformly while the solution remains in the box, (6.4) gives, for every N ,
+
+∥E a(τ )∥L2 
+
+> W
+
+≤ CN e−N (τ +τ0).
+
+The quadratic graph error satisfies 
+
+∥Q2(ua)∥L2 
+
+> W
+
+≤ Cε 2pt e−2α(τ +τ0)26 JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO 
+
+by (6.16), (6.17), and the Gaussian integrability of polynomial weights. The lower order forcing terms satisfy 
+
+∥Y0∥L2 
+
+> W
+
+≤ Cδ 0e− 12 (τ +τ0), ∥Y1ua∥L2 
+
+> W
+
+≤ Cδ 0e−(1+ α)( τ +τ0), ∥Y b 
+
+> 2
+
+∇bua∥L2 
+
+> W
+
+≤ Cδ 0e−( 12 +α)( τ +τ0).
+
+By the mean value theorem in the fibre variables, the intervening segment being admissible by the strict pointwise improvement, the fibre derivative bounds for Y3, (6.16), and (6.17), it follows that 
+
+ Y3(ua, ˜r∇ua, x, τ ) − Y3,0(x, τ )∇2ua L2
+
+> W
+
+≤ Cδ 0ε2pt e−2α(τ +τ0).
+
+Finally, (6.7) implies 
+
+∥Pτ Hψ∥L2 
+
+> W
+
+= e−λm(τ +τ0)∥Pτ ψ∥L2 
+
+> W
+
+≤ Cη 0e−(λm+1)( τ +τ0)∥ψ∥L2 
+
+> W
+
+.
+
+Because 
+
+β < 12 , β < 2α, β < λ m + 1 ,
+
+all terms are o(e−β(τ +τ0)), uniformly on that interval after taking τ0 large. This proves (6.20). 
+
+Step 4: Spectral inequalities. 
+
+The compact support of ua, the polynomial growth of Hψ, and parabolic regularity give za ∈
+
+C([0 , T ]; H2 
+
+> W
+
+) ∩ C1([0 , T ]; L2 
+
+> W
+
+) on every compact time interval on which the solution remains in the box. We use the estimate |∇ kY3,0| ≤ Cδ 0 ˜f −k/ 2, 0 ≤ k ≤ 2, which follows from (6.5). For 
+
+v ∈ E≤,(6.21) ∥Pτ v∥L2 
+
+> W
+
+≤ Cδ 0∥v∥L2
+
+> W
+
+by finite-dimensionality and (6.6). If {φq} is an orthonormal basis of E≤, then 
+
+P ∗,W τ φq = ef ∇j ∇i(e−f Y ij 
+
+> 3,0
+
+φq).
+
+Using |∇ f | ≤ C ˜f 1/2, |∇ 2f | ≤ C, (6.5), and (6.6), we obtain ∥P ∗,W τ φq∥L2 
+
+> W
+
+≤ Cδ 0. Consequently, for w ∈ E> ∩ H2 
+
+> W
+
+,(6.22) ∥Π≤Pτ w∥L2 
+
+> W
+
+≤ Cδ 0∥w∥L2 
+
+> W
+
+.
+
+We write dμ W := e−f dμ Σ. For w ∈ E> ∩ H2 
+
+> W
+
+, integration by parts and the weighted inequality below give (6.23) |⟨ Pτ w, w ⟩L2 
+
+> W
+
+| ≤ Cδ 0
+
+Z
+
+> Σ
+
+(|∇ w|2 + w2) dμ W .
+
+The terms involving ∇f are controlled by the weighted inequality 
+
+Z
+
+> Σ
+
+f w 2 dμ W ≤ C
+
+Z
+
+> Σ
+
+(|∇ w|2 + w2) dμ W .
+
+This follows from (2.3) and Cauchy’s inequality (cf. [BW17, CS21]). Since 
+
+⟨Lw, w ⟩L2 
+
+> W
+
+= −
+
+Z
+
+> Σ
+
+|∇ w|2 dμ W +
+
+Z
+
+> Σ
+
+
+
+|A|2 + 12
+
+
+
+w2 dμ W
+
+and |A| is bounded, (6.23) implies 
+
+|⟨ Pτ w, w ⟩L2 
+
+> W
+
+| ≤ Cδ 0
+
+
+
+−⟨ Lw, w ⟩L2 
+
+> W
+
++ ∥w∥2
+
+> L2
+> W
+
+
+
+.CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS 27 
+
+The same calculation gives 
+
+|⟨ Pτ v, w ⟩L2 
+
+> W
+
+| ≤ Cδ 0∥v∥H1 
+
+> W
+
+∥w∥H1 
+
+> W
+
+,
+
+so the form extends to H1 
+
+> W
+
+× H1 
+
+> W
+
+and the estimate holds on the form domain by density. Using 
+
+⟨Lw, w ⟩L2 
+
+> W
+
+≤ − λ+∥w∥2
+
+> L2
+> W
+
+for w ∈ E>, we obtain (6.24) ⟨(L + Pτ )w, w ⟩L2 
+
+> W
+
+≤ − (λ+ − Cδ 0)∥w∥2
+
+> L2
+> W
+
+.
+
+Write 
+
+z≤ := Π ≤za and z> := Π >za.
+
+Let D+ and D+ denote the lower and upper right Dini derivatives. From (6.18), (6.20), (6.21), (6.22), and (6.24), norm differentiation gives 
+
+D+A ≥  β − λm − Cδ 0
+
+A − Cδ 0B − eβ(τ +τ0)∥Ra∥L2 
+
+> W
+
+,(6.25) 
+
+D+B ≤ −  λ+ − β − Cδ 0
+
+B + Cδ 0A + eβ(τ +τ0)∥Ra∥L2 
+
+> W
+
+.(6.26) Here, we use that all the eigenvalues on E≤ are at most λm, while all the eigenvalues on E> are at least λ+.Set g∗ := min {β − λm, λ + − β} > 0. Choose δ0 and then τ0 so that 2Cδ 0 ≤ 14 g∗, εR ≤ 14 g∗μ. 
+
+It follows that D+A > 0 on {A = μ, B ≤ μ}, while D+B < 0 on {B = μ, A ≤ μ}. Thus, the B-face and the pointwise faces are inward pointing, so the only possible first exit from the refined box is through the A-face, and the crossing there is strictly outward. 
+
+Step 5: The degree argument. 
+
+As long as ua remains in the box, parabolic estimates in the graphical region and (2.14) on its complement give the bounds required by the continuation criterion. Thus a finite maximal time can occur only through a box exit. Moreover, by (6.13) and the Gaussian high-mode tail, after increasing τ0,
+
+A(0) = ∥a∥L2 
+
+> W
+
+, B(0) < μ
+
+2 ,
+
+and all pointwise faces are strict at time zero. For a ∈ Bμ(V ), let τ (a) be the supremum of times on which the solution exists and remains in the box. Suppose, for contradiction, that τ (a) < ∞ for every a. By the previous step, every first exit is a strictly outward crossing of the A-face. Define Φ( a) := eβ(τ (a)+ τ0)Π≤za(τ (a)) .
+
+Then Φ( a) ∈ ∂B μ(V ). If aj → a, continuous dependence rules out exit of uaj before τ (a) − o(1), while uniform strict transversality forces exit before τ (a) + o(1). Hence τ (a), and therefore Φ, is continuous. If a ∈ ∂B μ(V ), then by (6.13), eβτ 0 Π≤za(0) = a. All other faces are strict, and D+A(0) > 0; hence τ (a) = 0 and Φ( a) = a. Thus, Φ is a continuous retraction from the closed ball Bμ(V )onto its boundary ∂B μ(V ), which is impossible. Hence, there exists a∗ ∈ Bμ(V ) such that the corresponding solution never exits the box. 28 JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO 
+
+For this parameter a∗, we have 
+
+∥Π≤za∗ (τ )∥L2 
+
+> W
+
++ ∥Π>za∗ (τ )∥L2 
+
+> W
+
+≤ 2μe −β(τ +τ0).
+
+Therefore, ∥za∗ (τ )∥L2 
+
+> W
+
+≤ Ce −β(τ +τ0). Since ua∗ (τ ) = Hψ(τ ) + za∗ (τ ), we get 
+
+eλm(τ +τ0)ua∗ (τ ) − ψ L2
+
+> W
+
+= eλm(τ +τ0)∥za∗ (τ )∥L2 
+
+> W
+
+≤ Ce −(β−λm)( τ +τ0).
+
+Since β > λ m, the right hand side tends to zero as τ → ∞ . This proves the theorem. □
+
+Finally, parabolically rescale the constructed flow and force by 
+
+cMbt := e−τ0/2Meτ0 bt, bϕ[y, bt] := eτ0/2ϕ[eτ0/2y, e τ0 bt].
+
+Here −e−τ0 ≤ bt < 0. This replaces τ + τ0 by bτ in the scale-invariant bounds of Assumption 2.8. Since bτ := − log( −bt) = τ + τ0, bu(bτ ) = ua∗ (bτ − τ0), and hence 
+
+bu(bτ ) = e−λm bτ ψ + OL2 
+
+> W
+
+(e−βbτ ).
+
+Since the transplanted and actual flows agree on every fixed compact set for all sufficiently large bτ ,the estimates (6.16)– (6.17) and parabolic interior estimates imply local smooth convergence to Σ. Moreover, the cutoff from Step 1 and the Gaussian tail estimate give 
+
+∥(1 − χbτ )ψ∥L2 
+
+> W
+
+≤ Ce −cγ 0ebτ
+
+∥ψ∥L2 
+
+> W
+
+,
+
+and hence 
+
+∥χbτ bu(bτ ) − e−λm bτ ψ∥L2 
+
+> W
+
+= o(e−λm bτ ).
+
+Taking λm = λ, ψ = φ, and renaming bτ as τ proves Theorem 1.6 in the asymptotically conical case. 7. The case of closed singularities 
+
+Finally, in this section, we deal with closed shrinkers, for which the theorems can be derived by conceptually simpler arguments; see [Str20, SWX25b] for fixed point type arguments in the case of spherical singularities. We indicate how the arguments in Sections 3–6 imply the main theorems for a closed shrinker. For Theorem 1.3, we look at the estimates and arguments in Sections 3–5. The calculations in Section 3 and Appendix A remain valid after replacing all homogeneous Ck
+
+> hom ,1
+
+-norms with the standard Ck-norms. In fact, the avoidance principle implies that a closed mean curvature flow stays in a fixed large Euclidean ball, and the homogeneous norms and the usual Ck-norms are equivalent. The barrier functions in Section 3 and the rest of the arguments in Section 4 then lead to the global C2 improvement theorem for a closed shrinker with all cutoff functions η removed. The box argument (with η removed) in Section 5 then implies Theorems 1.4 and 1.5 for such a closed shrinker. For Theorem 1.6, we look at Section 6. As above, all the cutoff functions are not needed, and we could work with za in Step 2 directly without the cutoff estimates in Steps 1 and 3. The rest of the arguments remain valid and imply Theorem 1.6 for a closed shrinker. CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS 29 
+
+Appendix A. Barrier for ∇h
+
+In this section, we define the comparison operator ˜Q and the barrier function ˜ u for ∇h, and complete the calculations outlined in Section 3. Differentiating (2.7) and pairing with ∇gh gives 
+
+∂τ |∇ gh|2
+
+≤
+
+
+
+∆g − ∇ g  
+
+> ∇g|F|24
+
+
+
+|∇ gh|2 − 2|∇ 2,g h|2 + 2 |Ag|2|∇ gh|2 + 2 A2(∇gh, ∇gh) + Cab ∇ga∇gb |∇ gh|2
+
++ 2 h⟨∇| A|2, ∇h⟩ − 2Cab gcd ∇2,g ac h∇2,g bd h + 2 |∇ gh · (∇gQ1 + ˜C5h)| + |∇ gh| · | ˜C3 ∗ ∇ gh + ˜C4 ∗ ∇ 2,g h|.
+
+The same estimates used for h give, under the smallness assumption ∥h∥C1hom ,1 + ∥h∥C2 ≤ ε ≤ εn,
+
+|Cab | ≤ Cn, Σ
+
+ |hA | + |∇ gh|2 ≤Cn, Σε, 
+
+|∇ gh| · | ˜C3 ∗ ∇ gh + ˜C4 ∗ ∇ 2,g h| ≤ Cn, Σ(ε|∇ 2,g h|2 + ( |A|2 + ε|∇ A| + εf )|∇ gh|2),
+
+|∇ gh| · | ˜C5h| ≤ (|Ag| · |∇ 2,g Ag| + |∇ gAg|2)h2|∇ gh| ≤ Cn, Σ|∇ gh| · h2
+
+f 2 .
+
+On {(x, τ ) ∈ Σ × [0 , ∞) : Γ < f (x) < Γeτ +τ0 }, the forcing terms satisfy 
+
+|∇ gh · ∇ gQ1 − (∇gh)kY ij  
+
+> 3
+
+(∇3h)ijk | ≤ 2δ0|∇ h|f − 12 (e− 12 (τ +τ0) + e− 12 (τ +τ0)|∇ h| + e−(τ +τ0)|h| + |∇ 2h|),
+
+|(∇gh)kY ij  
+
+> 3
+
+(∇3h)ijk − 12 Y ij  
+
+> 3
+
+∇gi ∇gj (|∇ gh|2)| ≤ δ0(|∇ 2h|2 + Cn|A|2|∇ gh|2).
+
+The useful point is that ∇gh is governed by the linearized operator ∂τ − (∆ |F |24
+
++ |A|2) rather than ∂τ − (∆ |F |24
+
++ |A|2 + 12 ). This removes one power of f from the gradient barrier. Assuming 
+
+h2 ≤ u = e−2λ∗(τ +τ0) 
+
+D ˜f 2λ∗+1 − B ˜f 2λ∗
+
+
+
+on (x, τ ) ∈ Σ × [0 , ∞) : Γ < f (x) < Γeτ +τ0 ,
+
+we define ˜Qψ := 
+
+
+
+gab + Cab + Y ab 
+
+> 3
+
+
+
+∇ga∇gb ψ − ∇ g  
+
+> ∇g|F|24
+
+ψ +
+
+
+
+Cn|A|2 + Cn|∇ A| + Cn
+
+˜f + δ0e− 12 (τ +τ0) ˜f − 12
+
+
+
+ψ
+
++ p|ψ| · (2 δ0e− 12 (τ +τ0) ˜f − 12 + 2 δ0e−(τ +τ0) ˜f − 12
+
+√u + Cn, Σ ˜f − 32
+
+√u + Cn, Σ ˜f −2u).
+
+A parallel barrier calculation gives ˜u = e−2λ∗(τ +τ0)  ˜D ˜f 2λ∗ − ˜B ˜f 2λ∗−1
+
+on (x, τ ) ∈ Σ × [0 , ∞) : Γ < f (x) < Γeτ +τ0 ,
+
+For the square-root contribution in ˜Q, we have 
+
+e2λ∗(τ +τ0)
+
+q
+
+e−2λ∗(τ +τ0)( ˜D ˜f 2λ∗ − ˜B ˜f 2λ∗−1)
+
+
+
+2δ0e− 12 (τ +τ0) ˜f − 12 + 2 δ0e−(τ +τ0) ˜f − 12
+
+√u + Cn, Σ ˜f − 32
+
+√u + Cn, Σ ˜f −2u
+
+
+
+≤eλ∗(τ +τ0)p ˜D ˜f λ∗
+
+
+
+2δ0e− 12 (τ +τ0) ˜f − 12 + 2 δ0e−(λ∗+1)( τ +τ0)√D ˜f λ∗ + Cn, Σ ˜f − 32
+
+√u + Cn, ΣDe −2λ∗(τ +τ0) ˜f 2λ∗−1
+
+≤
+
+p ˜D ˜f 2λ∗−1(2 δ0Γ 12 −λ∗ + 2 δ0
+
+√DΓ + √D + Cn, ΣDΓλ∗ ).30 JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO 
+
+Fix Γ > 0 to be finite, and enlarge Cn, Σ once and for all so that it dominates all constants in the preceding drift, potential, and second-order perturbation estimates. Prescribe 
+
+eB
+
+eD = Cn, Σ
+
+
+
+2λ∗
+
+ n
+
+2 + 1 
+
+
+
++ sup 
+
+> Σ
+
+  ef |A|2 + ef |∇ A| + 1 
+
+
+
+.
+
+Choose Γ sufficiently large that 1 + Γ ≥ Cn, Σ max 
+
+(
+
+1, BD , eB
+
+eD
+
+)
+
+,
+
+and then choose ε and δ0, depending on the fixed Γ, sufficiently small that 
+
+Cn, Σ
+
+
+
+ε + δ0 + δ0Γ1/2 + δ0Γ
+
+
+
+≤ 14 .
+
+For every fixed T > 0, choose 
+
+eD = max 
+
+(
+
+C2
+
+> n, Σ
+
+√D + 2 δ0Γ 12 −λ∗ + 2 δ0
+
+√D Γ + DΓλ∗
+
+2
+
+,
+
+2 sup 
+
+> ∂pAT, Γ,τ 0
+
+e2λ∗(τ +τ0) ef (x)−2λ∗ |∇ h(x, τ )|2
+
+)
+
+,
+
+(A.1) and set 
+
+eB = Cn, Σ eD
+
+
+
+2λ∗
+
+ n
+
+2 + 1 
+
+
+
++ sup 
+
+> Σ
+
+  ef |A|2 + ef |∇ A| + 1 
+
+
+
+.
+
+These choices imply 
+
+eu = e−2λ∗(τ +τ0) ef 2λ∗−1  eD ef − eB ≥ eD
+
+2 e−2λ∗(τ +τ0) ef 2λ∗ > 0.
+
+Combining the exact radial calculation with the preceding second-order, potential, and square-root estimates therefore gives (∂τ − eQ)eu ≥ eB
+
+8 e−2λ∗(τ +τ0) ef 2λ∗−1 > 0 on (x, τ ) ∈ Σ × (0 , T ) : Γ < f (x) < Γeτ +τ0 .
+
+The boundary term in (A.1) also guarantees |∇ h|2 ≤ eu on the fixed inner face and the moving outer face. 
+
+Appendix B. Computations for the geometric forcing terms 
+
+In this appendix, we provide detailed proofs for Propositions 2.15 and 2.16. Recall that we let 
+
+f = |F |2/4 and ef = f + 1 , and let ˜ r ≥ 1 be smooth with ˜ r(x) = |F (x)| + 1 for |F (x)| ≥ 1. B.1. The Riemannian manifold forcing. We prove Proposition 2.15. Choose normal coordi-nates ξ = ( ξ1, . . . , ξ n+1 ) centered at p, so that gαβ (0) = δαβ and ∂γ gαβ (0) = 0. For 0 < ρ ≤ 1, let 
+
+ιρ(ξ) = ρξ and set 
+
+g(ρ) := ρ−2ι∗
+
+> ρ
+
+g, (g(ρ))αβ (ξ) = gαβ (ρξ ).
+
+The rescaled ambient metric is ¯gτ = eτ +τ0 ι∗   
+
+> e−12 (τ+τ0)
+
+g(ρ),CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS 31 
+
+and hence (¯ gτ )αβ (ξ) = gαβ 
+
+ ρe − 12 (τ +τ0)ξ.
+
+After reducing ρ, there is a constant ηamb = ηamb (ρ, g, p ) > 0, with ηamb → 0 as ρ → 0, such that, for 2 l + |α| ≤ 4n + 8, 
+
+|∂lτ ∂α(¯ gτ − δ)|(ξ) ≤ Cl,α ηamb e−(τ +τ0)(1 + |ξ|)2−| α|,(B.1) 
+
+|∂lτ ∂αΓ¯gτ |(ξ) ≤ Cl,α ηamb e−(τ +τ0)(1 + |ξ|)1−| α|
+
+(B.2) for |ξ| ≤ CΓ0e 12 (τ +τ0), provided ρΓ0 is sufficiently small. These estimates follow by repeatedly differentiating the normal-coordinate expansion of g.For a hypersurface F : X → Rn+1 , the scalar forcing term is 
+
+ϕr[X, τ ] = ⟨H¯gτ (X) − Heuc (X), nX ⟩euc .
+
+We apply this to the graph 
+
+Xh = F + hnF
+
+of a function h. We temporarily regard the height and the weighted gradient as independent fibre variables. Let z and w correspond to h and ˜ r∇h, respectively, and set 
+
+q = ˜ r−1w, |z| + |w| ≤ ε0 ˜r. 
+
+Set 
+
+Xz = F + znF .
+
+In a local orthonormal frame {ei} on F , define 
+
+Ei(z, q ) = dF (ei) + z ∇euc  
+
+> ei
+
+nF + qinF .
+
+For the actual graph, 
+
+z = h, w = ˜ r∇h, q = ∇h. 
+
+Whenever ∇x is applied to a coefficient below, the fibre variables ( z, w ) and the time variable are held fixed. We use throughout the symbol estimates 
+
+|∇ k ˜r| ≤ Ck ˜r1−k, |∇ k ˜r−1| ≤ Ck ˜r−1−k.
+
+Let n0 be the Euclidean unit normal to the plane spanned by the Ei, and let P ⊥ 
+
+> 0
+
+be the Euclidean normal projection. Let nτ be the ¯ gτ -unit normal to the same plane, and let P ⊥ 
+
+> τ
+
+be the ¯ gτ -normal projection. Define bGij = ⟨Ei, E j ⟩ and Gτij = ¯ gτ (Ei, E j ). The shrinker estimates and the graph smallness assumption imply 
+
+|∇ kXz | ≤ Ck ˜f 12 − k 
+
+> 2
+
+,(B.3) 
+
+|∇ kEi| ≤ Ck ˜f − k 
+
+> 2
+
+,(B.4) 
+
+|∇ k bGij | + |∇ kn0| + |∇ kP ⊥ 
+
+> 0
+
+| ≤ Ck ˜f − k 
+
+> 2
+
+.(B.5) We now estimate the principal coefficient perturbation 
+
+Cij (z, q, x, τ ) := ( Gτ )ij P ⊥ 
+
+> τ
+
+− bGij P ⊥ 
+
+> 0
+
+.
+
+Write Gτij = bGij + Bij and Bij = (¯ gτ − δ)Xz (Ei, E j ). From (B.1), (B.3), and (B.4), (B.6) |∇ kBij | ≤ Ckηamb e−(τ +τ0) ˜f 1− k 
+
+> 2
+
+.32 JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO 
+
+On the region defined by ˜f ≤ CΓ20eτ +τ0 , we have |Bij | ≤ Cη amb Γ20. Choosing the coordinate scale so that Cη amb Γ20 ≪ 1, the induced metrics Gτ and bG are uniformly equivalent. Since (Gτ )−1 − bG−1 = −(Gτ )−1B bG−1,
+
+we get (B.7) ∇k (Gτ )ij − bGij  ≤ Ckηamb e−(τ +τ0) ˜f 1− k 
+
+> 2
+
+.
+
+The normal comparison is also standard. Since n0 is Euclidean orthogonal to Ei,¯gτ (n0, E i) = (¯ gτ − δ)Xz (n0, E i).
+
+The ¯ gτ -unit normal is 
+
+nτ = μ−1/2  n0 − (Gτ )ij ¯gτ (n0, E j )Ei
+
+ ,
+
+where 
+
+μ = ¯ gτ (n0, n0) − (Gτ )ij ¯gτ (n0, E i)¯ gτ (n0, E j ).
+
+Using (B.1) and the estimates above, one obtains 
+
+|∇ k(μ − 1) | ≤ Ckηamb e−(τ +τ0) ˜f 1− k 
+
+> 2
+
+.
+
+After reducing ηamb , we have μ ≥ 1/2. Therefore 
+
+|∇ k(nτ − n0)| ≤ Ckηamb e−(τ +τ0) ˜f 1− k 
+
+> 2
+
+,
+
+and hence 
+
+|∇ k(P ⊥ 
+
+> τ
+
+− P ⊥ 
+
+> 0
+
+)| ≤ Ckηamb e−(τ +τ0) ˜f 1− k 
+
+> 2
+
+.
+
+Combining this with (B.7), we get (B.8) |∇ kCij | ≤ Ckηamb e−(τ +τ0) ˜f 1− k 
+
+> 2
+
+.
+
+The same argument gives the derivative estimates 
+
+|∇ k∂z Cij | ≤ Ckηamb e−(τ +τ0) ˜f 12 − k 
+
+> 2
+
+,(B.9) 
+
+|∇ k∂qm Cij | ≤ Ckηamb e−(τ +τ0) ˜f 1− k 
+
+> 2
+
+.(B.10) Indeed, differentiating in z differentiates either the ambient coefficient in the normal direction or the graph tensors in the z-direction, and therefore loses one factor ˜f 1/2. Differentiating in q does not force this loss. We now deal with the mean curvature difference. With respect to the frame {ei},
+
+H¯gτ (Xh) − Heuc (Xh) = Cij (h, ∇h, x, τ )∇euc  
+
+> ei
+
+Ej + ( Gτ )ij P ⊥ 
+
+> τ
+
+Γ¯gτ (Ei, E j ).(B.11) Moreover, (B.12) ∇euc  
+
+> ei
+
+Ej = ( ∇i∇j h)nF + Rij (h, ∇h, x ),
+
+where Rij does not depend on ∇2h, and 
+
+|∇ kRij | ≤ Ck ˜f − 12 − k 
+
+> 2
+
+,(B.13) 
+
+|∇ k∂z Rij | ≤ Ck ˜f −1− k 
+
+> 2
+
+,(B.14) 
+
+|∇ k∂qm Rij | ≤ Ck ˜f − 12 − k 
+
+> 2
+
+.(B.15) CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS 33 
+
+It follows that the Q1 term 
+
+ϕr[F + hnF , τ ]
+
+⟨nF , nFr ⟩
+
+is affine-linear in ∇2h. Hence, there exist smooth coefficients 
+
+A = A(z, q, x, τ ), Bij = Bij (z, q, x, τ ),
+
+such that (B.16) ϕr[F + hnF , τ ]
+
+⟨nF , nFr ⟩ = A(h, ∇h, x, τ ) + Bij (h, ∇h, x, τ )( ∇2h)ij .
+
+The denominator is harmless because ⟨nF , nFr ⟩ ≥ 1/2.
+
+From (B.8), the coefficients of ∇2h satisfy (B.17) |∇ kBij | ≤ Ckηamb e−(τ +τ0) ˜f 1− k 
+
+> 2
+
+.
+
+The lower-order part A has two contributions. The principal contribution is Cij Rij , which is bounded by 
+
+Ckηamb e−(τ +τ0) ˜f 12 − k 
+
+> 2
+
+.
+
+The Christoffel contribution in (B.11) is controlled by (B.2). Since 
+
+|Γ¯gτ (Xz )| ≤ Cη amb e−(τ +τ0) ˜f 1/2,
+
+it satisfies the same bound. Thus, (B.18) |∇ kA(0 , 0, x, τ )| ≤ Ckηamb e−(τ +τ0) ˜f 12 − k 
+
+> 2
+
+.
+
+Using (B.9), (B.10), (B.14), and (B.15), we also get 
+
+|∇ k∂z A(z, q, x, τ )| ≤ Ckηamb e−(τ +τ0) ˜f − k 
+
+> 2
+
+,(B.19) 
+
+|∇ k∂qm A(z, q, x, τ )| ≤ Ckηamb e−(τ +τ0) ˜f 12 − k 
+
+> 2
+
+.(B.20) Define 
+
+Y0(x, s ) := A(0 , 0, x, s ), Y1(z, w, x, s ) := 
+
+Z 10
+
+∂z A(θz, θ ˜r−1w, x, s ) dθ, Y m 
+
+> 2
+
+(z, w, x, s ) := 
+
+Z 10
+
+∂qm A(θz, θ ˜r−1w, x, s ) dθ, Y ij  
+
+> 3
+
+(z, w, x, s ) := Bij (z, ˜r−1w, x, s ).
+
+By the fundamental theorem of calculus, 
+
+A(h, ∇h, x, τ ) = A(0 , 0, x, τ ) + 
+
+Z 10
+
+∂z A(sh, s ∇h, x, τ ) ds 
+
+
+
+h +
+
+Z 10
+
+∂qm A(sh, s ∇h, x, τ ) ds 
+
+
+
+(∇h)m.
+
+Therefore, (B.16) implies (2.9). Repeated differentiation of the preceding identities, with the fibre variables fixed under ∇x, gives, after evaluation at ( z, w, s ) = ( h, ˜r∇h, τ ), 
+
+|∂ls∇kxY0| ≤ Cl,k ηamb e−(τ +τ0) ˜f 12 − k 
+
+> 2
+
+, ˜rβ |∂ls∇kx∇βz,w Y1| ≤ Cl,k,β ηamb e−(τ +τ0) ˜f − k 
+
+> 2
+
+,
+
+˜rβ |∂ls∇kx∇βz,w Y2| ≤ Cl,k,β ηamb e−(τ +τ0) ˜f 12 − k 
+
+> 2
+
+, ˜rβ |∂ls∇kx∇βz,w Y3| ≤ Cl,k,β ηamb e−(τ +τ0) ˜f 1− k 
+
+> 2
+
+.
+
+These estimates hold whenever 2 l + k + β ≤ 4n + 6. 34 JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO 
+
+For |F (x)| ≤ Γ0e 12 (τ +τ0), we have ˜f 1/2 ≤ CΓ0e 12 (τ +τ0). Hence 
+
+e−(τ +τ0) ˜f 12 − k 
+
+> 2
+
+≤ CΓ0e− 12 (τ +τ0) ˜f − k 
+
+> 2
+
+and e−(τ +τ0) ˜f 1− k 
+
+> 2
+
+≤ CΓ20 ˜f − k 
+
+> 2
+
+.
+
+Thus (2.10)–(2.13) follow after choosing the homothety scale so that 
+
+Cn, Σηamb Γ20 ≤ δ0.
+
+This choice also makes the full second-order coefficients uniformly elliptic. We finally verify the exterior part of Assumption 2.8. Choose normal-coordinate balls U ′ ⋐ U
+
+so that every capped initial hypersurface lies in U ′, and so that χ(ξ) = |ξ|2 satisfies ∇2 
+
+> g(ρ)
+
+χ ≥ cg (ρ)
+
+on U . Extend g(ρ)|U to a complete bounded-geometry metric bg on Rn+1 , with bg = g(ρ) on U . Along the flow, (∂t − ∆Mt )χ = − tr T M t ∇2 
+
+> g(ρ)
+
+χ ≤ − cn. 
+
+The maximum principle keeps Mt in U ′. Hence the same flow is also a mean curvature flow in (Rn+1 , bg). On fM ≥ 14 Γ0, the estimates give the hypotheses of Chen–Yin pseudolocality [CY07, Theorem 7.3]. The pseudolocality and interior derivative estimates imply, on the part issued from 
+
+fM ≥ 12 Γ0,
+
+|∇ j AMt | ≤ Cj Γ− j+1 2 
+
+> 0
+
+, 0 ≤ j ≤ 4n + 6 ,
+
+throughout −1 ≤ t < 0. This proves (2.14). Standard compact mean curvature flow theory supplies the remaining well-posedness and continuation statements. This proves Proposition 2.15. B.2. The rotationally symmetric forcing. We prove Proposition 2.16 in this section. Let 
+
+m ≥ 2, write Rn+m = Rn × Rm, and let SO (m) act on the Rm-factor. The quotient is identified with 
+
+Rn+1 + = {(x1, . . . , x n, y ) : y ≥ 0}
+
+where y := |y| for y ∈ Rm. Let M ′ ⊂ Rn × Rm be an SO (m)-invariant hypersurface which does not meet the rotation axis, and let M ⊂ Rn+1 + be its quotient. Then 
+
+A(M ) := Area( M ′) = ωm−1
+
+Z
+
+> M
+
+ym−1 dHn.
+
+For a normal variation X = ζν of M ,
+
+δA(M ) = ωm−1
+
+Z
+
+> M
+
+ (m − 1) ym−2ζν y − ym−1HM ζ dHn
+
+= −ωm−1
+
+Z
+
+> M
+
+ζ
+
+
+
+HM − m − 1
+
+y νy
+
+
+
+ym−1 dHn.
+
+Thus, the quotient mean curvature vector is 
+
+HM − m − 1
+
+y (∂y)⊥.
+
+Next, translate the rotation axis to y = −Cax e τ02 where Cax > 1 will be chosen large. For every capped profile and permitted perturbation used below, the cap construction gives sup 
+
+> M
+
+|y| ≤ CΣΓ1/20 .CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS 35 
+
+Thus, after requiring Cax ≥ 2CΣΓ1/20 , the entire initial profile satisfies (B.21) Cax eτ0/2 + y ≥ 12 Cax eτ0/2 > 0.
+
+Then the flow becomes 
+
+∂tX = HM − m − 1
+
+Cax e τ02 + y (∂y)⊥.
+
+After rescaling, for Xh = F + hnF , the forcing term is (B.22) ϕr[Xh, τ ] = −(m − 1) e− 12 (τ +τ0) ⟨∂y, nXh ⟩
+
+Cax + e− 12 (τ +τ0)⟨Xh, ∂ y⟩ .
+
+The graph normal identity is (B.23) ⟨∂y, nXh ⟩⟨nF , nXh ⟩ = ⟨nF , ∂ y⟩ − ⟨ ∂iF, ∂ y⟩ (I + hA F )−1ij (∇h)j .
+
+Combining (B.22) and (B.23), we get (B.24) ϕr[F + hnF , τ ]
+
+⟨nF , nXh ⟩ = −(m − 1) e− 12 (τ +τ0) ⟨nF , ∂ y⟩ − ⟨ ∂iF, ∂ y⟩ (I + hA F )−1ij (∇h)j
+
+Cax + e− 12 (τ +τ0)⟨F + hnF , ∂ y⟩ .
+
+Let a and p be independent fibre variables corresponding to h and ˜ r∇h, respectively, and assume 
+
+|a| + |p| ≤ ε0 ˜r(x).
+
+After reducing ε0, the matrix I + aA F is uniformly invertible. Here s ≥ 0 denotes the independent time variable of the coefficient functions. For |F (x)| ≤ Γ0e 12 (s+τ0), choose Cax ≥ CΣΓ0 so that (B.25) Cax + e− 12 (s+τ0)⟨F + anF , ∂ y⟩ ≥ 12 Cax .
+
+Indeed, |⟨ F +anF , ∂ y⟩| ≤ C ˜f 1/2 and e− 12 (s+τ0) ˜f 1/2 ≤ CΓ0 on the region {(x, τ ) | | F (x)| ≤ Γ0e 12 (s+τ0)}.Since 
+
+Cax + e− 12 (τ +τ0)⟨F + hnF , ∂ y⟩ = Cax + e− 12 (τ +τ0)⟨F, ∂ y⟩ + e− 12 (τ +τ0)h⟨nF , ∂ y⟩,
+
+we have 
+
+− e− 12 (τ +τ0) ⟨nF , ∂ y⟩
+
+Cax + e− 12 (τ +τ0)⟨F + hnF , ∂ y⟩ + e− 12 (τ +τ0) ⟨nF , ∂ y⟩
+
+Cax + e− 12 (τ +τ0)⟨F, ∂ y⟩
+
+=e−(τ +τ0) ⟨nF , ∂ y⟩2
+
+
+
+Cax + e− 12 (τ +τ0)⟨F + hnF , ∂ y⟩
+
+  
+
+Cax + e− 12 (τ +τ0)⟨F, ∂ y⟩
+
+ h. 36 JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO 
+
+Therefore, (B.24) is exactly of the form (2.9) with 
+
+Y0(x, s ) := −(m − 1) e− 12 (s+τ0) ⟨nF , ∂ y⟩
+
+Cax + e− 12 (s+τ0)⟨F, ∂ y⟩ ,(B.26) 
+
+Y1(a, p, x, s ) := ( m − 1) e−(s+τ0) ⟨nF , ∂ y⟩2
+
+
+
+Cax + e− 12 (s+τ0)⟨F + anF , ∂ y⟩
+
+  
+
+Cax + e− 12 (s+τ0)⟨F, ∂ y⟩
+
+ ,(B.27) 
+
+Y j 
+
+> 2
+
+(a, p, x, s ) := ( m − 1) e− 12 (s+τ0) ⟨∂iF, ∂ y⟩ (I + aA F )−1ij 
+
+Cax + e− 12 (s+τ0)⟨F + anF , ∂ y⟩ ,
+
+(B.28) 
+
+Y ij  
+
+> 3
+
+(a, p, x, s ) := 0 .
+
+(B.29) These coefficients are independent of p. Evaluating at ( a, p, s ) = ( h, ˜r∇h, τ ) gives (B.24), and hence (2.9). It remains to estimate the coefficients. All x-derivatives below are taken with ( a, p, s ) fixed. The shrinker estimates imply 
+
+|∇ kx⟨nF , ∂ y⟩| ≤ Ck ˜f − k 
+
+> 2
+
+,(B.30) ˜rβ ∇kx∂βa
+
+h
+
+⟨∂iF, ∂ y⟩ (I + aA F )−1ij i
+
+≤ Ck,β ˜f − k 
+
+> 2
+
+,(B.31) ˜rβ |∇ kx∂βa ⟨F + anF , ∂ y⟩| + |∇ kx⟨F, ∂ y⟩| ≤ Ck,β ˜f 12 − k 
+
+> 2
+
+.(B.32) Using (B.25) and repeated differentiation of an inverse function, both inverse denominators are bounded by 2 C−1ax . Every nonzero mixed derivative satisfies (B.33) ˜rβ ∂ls∇kx∂βa
+
+
+
+Cax + e− 12 (s+τ0)⟨F + anF , ∂ y⟩
+
+−1
+
+≤ Cl,k,β C−2ax e− 12 (s+τ0) ˜f 12 − k 
+
+> 2
+
+,
+
+and the same estimate holds with a = 0. Here l + k + β ≥ 1. Combining these estimates with (B.26)–(B.29), we obtain, whenever 2 l + k + β ≤ 4n + 6, 
+
+|∂ls∇kxY0| ≤ Cl,k (m − 1) C−1ax e− 12 (s+τ0) ˜f − k 
+
+> 2
+
+, ˜rβ |∂ls∇kx∇βa,p Y1| ≤ Cl,k,β (m − 1) C−2ax e−(s+τ0) ˜f − k 
+
+> 2
+
+,
+
+˜rβ |∂ls∇kx∇βa,p Y2| ≤ Cl,k,β (m − 1) C−1ax e− 12 (s+τ0) ˜f − k 
+
+> 2
+
+, ˜rβ |∂ls∇kx∇βa,p Y3| = 0 .
+
+After increasing Cax = Cax (δ0, Γ0, m, Σ) , these are precisely (2.10)–(2.13). We finally verify the exterior-regularity requirement. The full lift in Rn+1 is 
+
+M ′ 
+
+> t
+
+=
+
+n x, (Cax eτ0/2 + y)ω : ( x, y ) ∈ Mt, ω ∈ Sm−1o
+
+.
+
+Let ϱ = |y| = Cax eτ0/2 + y denote its distance to the rotation axis Rn × { 0}. By (B.21), 
+
+ϱ|M ′−1 ≥ 12 Cax eτ0/2.
+
+Consider the shrinking cylinders Rn × Sm−1(r(t)) with 
+
+r(t)2 = C2ax eτ0
+
+16 − 2( m − 1)( t + 1) .CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS 37 
+
+If C2ax eτ0 ≥ 64( m − 1), the avoidance principle gives 
+
+ϱ|M ′ 
+
+> t
+
+≥ r(t) ≥ Cax eτ0/2
+
+4√2 > 0for every time t ∈ [−1, 0) at which the lifted flow is smooth. Thus the lift cannot meet the rotation axis. If νy = ⟨nM , ∂ y⟩, then 
+
+|AM ′ |2 = |AM |2 + ( m − 1) ν2
+
+> y
+
+ϱ2 .
+
+The higher-order cap estimates and the preceding lower bound for ϱ give, on the lift of fM ≥ 14 Γ0 ,
+
+|∇ j AM ′−1 | ≤ Cj Γ− j+1 2 
+
+> 0
+
+, 0 ≤ j ≤ 4n + 6 ,
+
+together with a graphical radius comparable to Γ 0e1/2. Since M ′ 
+
+> t
+
+is an unforced Euclidean mean curvature flow, pseudolocality and the interior derivative estimates give, on the lift of the part issued from fM ≥ 12 Γ0 ,
+
+|∇ j AM ′ 
+
+> t
+
+| ≤ Cj Γ− j+1 2 
+
+> 0
+
+, 0 ≤ j ≤ 4n + 6 ,
+
+throughout −1 ≤ t < 0. Restricting to the profile directions gives (2.14) for the quotient flow. Standard compact mean curvature flow theory and preservation of the SO (m)-symmetry give the remaining well-posedness and continuation statements. This proves Proposition 2.16. 
+
+Appendix C. Capping off asymptotically conical shrinkers 
+
+In this section, given an asymptotically conical hypersurface Σ , we construct a closed embedded hypersurface by directly capping off the asymptotically conical ends of Σ. For any large enough R, 
+
+the resulting closed hypersurface Σ cap  
+
+> R
+
+will be identical to Σ in BR and have small curvature outside 
+
+B2R; that is, Σ cap  
+
+> R
+
+satisfies (C.1) and (C.2). Unlike the doubling construction performed in [LZ24], this procedure does not require a second copy of Σ or a reflection across a hyperplane. Let C be the asymptotic cone of Σ, and denote its link by Λ := C ∩ Sn. Thus, Λ is a smooth closed embedded hypersurface of Sn. For simplicity, assume that Λ is connected, as different connected components can be treated separately. By the Jordan–Brouwer separation theorem, Sn \ Λ has two connected components. Fix one of them and denote its closure by Ω so that ∂Ω = Λ .
+
+By the asymptotically conical assumption, together with Lu Wang’s uniqueness of the asymp-totically conical ends of shrinkers [Wan14], for R0 large enough, the end of Σ can be parametrized over C \ BR0 as 
+
+F0(r, θ ) = rθ + f (r, θ ) nC (θ) for (r, θ ) ∈ [R0, ∞) × Λ,
+
+where nC is a unit normal vector field along C and f satisfies the usual decay estimates; see [Wan14, CS21]. Fix R ≫ R0. Choose a smooth cutoff function χR : [ R, ∞) → [0 , 1] satisfying 
+
+χR(r) = 
+
+(
+
+1, R ≤ r ≤ 32 R, 
+
+0, r ≥ 2R, 38 JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO 
+
+with ∂kr χR ≤ CkR−k for every k ≥ 1. Define 
+
+FR(r, θ ) = rθ + χR(r)f (r, θ )nC (θ) for ( r, θ ) ∈ [R, 3R] × Λ.
+
+Thus, FR(r, θ ) = F0(r, θ ) when R ≤ r ≤ 32 R, whereas FR(r, θ ) = rθ when 2 R ≤ r ≤ 3R. For R
+
+sufficiently large, the decay estimates for f imply that FR is an embedding. We may therefore define the truncated hypersurface Σtr  
+
+> R
+
+:= (Σ \ F0(( R, ∞) × Γ)) ∪ FR
+
+ [R, 3R] × Λ.
+
+Since χR is identically one near r = R, the two pieces agree smoothly along F0(R, Λ). Moreover, 
+
+∂Σtr  
+
+> R
+
+= 3 R Λ = {3R ω : ω ∈ Λ}.
+
+We now attach a cap to this boundary. Consider the scaled spherical domain 
+
+KR := 3 R Ω = {3R ω : ω ∈ Ω} ⊂ ∂B 3R.
+
+Its boundary is ∂K R = 3 R Λ = ∂Σtr 
+
+> R
+
+. Consequently, Σ tr  
+
+> R
+
+∪ KR is a compact embedded hypersurface with a corner along 3 R Λ. We next smooth this corner. Let nΛ be the unit normal of Λ in Sn pointing into Ω. For a sufficiently small constant ε0 > 0, a neighborhood of 3 R Λ can be parametrized by ΨR(θ, s, t ) = (3 R + s) exp Sn
+
+> θ
+
+ t
+
+3R nΛ(θ)
+
+
+
+,
+
+where θ ∈ Λ, |s| < ε 0R, and |t| < ε 0R. Equivalently, in these coordinates, ΨR(θ, s, t ) = (3 R + s)
+
+
+
+cos 
+
+ t
+
+3R
+
+
+
+θ + sin 
+
+ t
+
+3R
+
+
+
+nΛ(θ)
+
+
+
+.
+
+The conical part of Σ tr  
+
+> R
+
+is represented by {t = 0 , s ≤ 0}, while the spherical cap KR is represented by {s = 0 , t ≥ 0}. Thus, in the ( s, t )-plane, their union is locally modeled on the broken curve 
+
+ (−∞ , 0] × { 0} ∪  {0} × [0 , ∞).
+
+Choose a smooth embedded curve γR ⊂ { s ≤ 0, t ≥ 0} which agrees with the negative s-axis and the positive t-axis outside the disk {s2 + t2 < (ε0R)2}, and which smoothly rounds off the corner at (0 , 0). We replace the cornered portion of Σ tr  
+
+> R
+
+∪ KR by 
+
+{ΨR(θ, s, t ) : θ ∈ Λ, (s, t ) ∈ γR} .
+
+Denote the resulting hypersurface by Σ cap  
+
+> R
+
+.
+
+Since Ψ R is an embedding on the above tubular neighborhood and γR is a smooth embedded curve, the resulting hypersurface Σ cap  
+
+> R
+
+is smooth and embedded. It is compact and has no boundary. Furthermore, Σcap  
+
+> R
+
+∩ BR = Σ ∩ BR.(C.1) We have therefore constructed a closed embedded hypersurface which agrees with the original shrinker on an arbitrarily large compact set by capping off its asymptotically conical end. Finally, if the rounding curve γR is obtained by scaling a fixed rounding profile by the factor R,then the geometry of the added cap satisfies the scale-invariant estimate sup  
+
+> Σcap
+> R\B2R
+
+|∇ j A| ≤ Cj
+
+Rj+1 .(C.2) CLOSED MEAN CURVATURE FLOWS WITH PRESCRIBED TANGENT FLOWS 39 
+
+Here C < ∞ depends only on the link Λ and the chosen rounding profile. Thus, given Σ , we could choose such a constant C = C(Σ) < ∞ such that (C.2) holds for any R large enough. 
+
+References 
+
+[Ang92] S. Angenent, Shrinking doughnuts , Nonlinear diffusion equations and their equilibrium states, 3 (Gregynog, 1989), Progr. Nonlinear Differential Equations Appl., vol. 7, Birkh¨ auser Boston, Boston, MA, 1992, pp. 21– 38. MR1167827 [AD ˇS26] S. Angenent, P. Daskalopoulos, and N. ˇSeˇ sum, Type-II smoothing in mean curvature flow , Anal. PDE 19 
+
+(2026), no. 5, 857–908. MR5079118 [AV97] S. Angenent and J. J. L. Vel´ azquez, Degenerate neckpinches in mean curvature flow , J. Reine Angew. Math. 482 (1997), 15–66. MR1427656 [App18] A. Appleton, Scalar curvature rigidity and Ricci DeTurck flow on perturbations of Euclidean space , Calc. Var. Partial Differential Equations 57 (2018), no. 5, Paper No. 132, 23. MR3844513 [Bam14] R. H. Bamler, Stability of hyperbolic manifolds with cusps under Ricci flow , Adv. Math. 263 (2014), 412–467. MR3239144 [BW17] J. Bernstein and Lu Wang, A topological property of asymptotically conical self-shrinkers of small entropy ,Duke Math. J. 166 (2017), no. 3, 403–435. MR3606722 [BNS25] R. Buzano, H. T. Nguyen, and M. B. Schulz, Noncompact self-shrinkers for mean curvature flow with arbitrary genus , J. Reine Angew. Math. 818 (2025), 35–52. MR4846020 [CY07] Bing-Long Chen and Le Yin, Uniqueness and pseudolocality theorems of the mean curvature flow , Comm. Anal. Geom. 15 (2007), no. 3, 435–490, DOI 10.4310/CAG.2007.v15.n3.a1. [CS21] O. Chodosh and F. Schulze, Uniqueness of asymptotically conical tangent flows , Duke Math. J. 170 (2021), no. 16, 3601–3657. MR4332673 [CS25] Adrian. C.-P. Chu and Ao Sun, Genus-one singularities in mean curvature flow , Geom. Topol. 29 (2025), no. 8, 4299–4340. MR5000350 [CM12] T. H. Colding and W. P. Minicozzi II, Generic mean curvature flow I: generic singularities , Ann. of Math. (2) 175 (2012), no. 2, 755–833. MR2993752 [CM19] , Dynamics of closed singularities , Ann. Inst. Fourier (Grenoble) 69 (2019), no. 7, 2973–3016 (English, with English and French summaries). MR4286828 [CM25] , Singularities of Ricci flow and diffeomorphisms , Publ. Math. Inst. Hautes ´Etudes Sci. 142 (2025), 75–152. MR4992850 [EH91] K. Ecker and G. Huisken, Interior estimates for hypersurfaces moving by mean curvature , Invent. Math. 
+
+105 (1991), no. 3, 547–569. MR1117150 [EW87] C. L. Epstein and M. I. Weinstein, A stable manifold theorem for the curve shortening equation , Comm. Pure Appl. Math. 40 (1987), no. 1, 119–139. MR0865360 [GS18] S.-H. Guo and N. Sesum, Analysis of Vel´ azquez’s solution to the mean curvature flow with a type II singularity , Comm. Partial Differential Equations 43 (2018), no. 2, 185–285. MR3777874 [HMW25] D. Hoffman, F. Martin, and B. White, Generating Shrinkers by Mean Curvature Flow , arXiv preprint arXiv:2502.20340 (2025). [Ilm95] T. Ilmanen, Singularities of Mean Curvature Flow of Surfaces (1995). Preprint available at https://arxiv.org/abs/2601.21133. [INS19] T. Ilmanen, A. Neves, and F. Schulze, On short time existence for the planar network flow , J. Differential Geom. 111 (2019), no. 1, 39–89, DOI 10.4310/jdg/1547607687. MR3909904 [IW25] T. Ilmanen and B. White, Fattening in mean curvature flow , Ars Inven. Anal. (2025), Paper No. 4, 32. MR4888468 [KKM18] N. Kapouleas, S. J. Kleene, and N. M. Møller, Mean curvature self-shrinkers of high genus: non-compact examples , J. Reine Angew. Math. 739 (2018), 1–39. MR3808256 [KM23] N. Kapouleas and P. McGrath, Generalizing the linearized doubling approach, I: General theory and new minimal surfaces and self-shrinkers , Camb. J. Math. 11 (2023), no. 2, 299–439. MR4600544 [Ket16] D. Ketover, Self-shrinking platonic solids , arXiv preprint arXiv:1602.07271 (2016). [Ket24] , Self-shrinkers whose asymptotic cones fatten , arXiv preprint arXiv:2407.01240 (2024). [LZ24] Tang-Kai Lee and Xinrui Zhao, Closed mean curvature flows with asymptotically conical singularities ,arXiv preprint arXiv:2405.15577 (2024). 40 JINGWEN CHEN, TANG-KAI LEE, AO SUN, AND XINRUI ZHAO 
+
+[Ngu14] X. H. Nguyen, Construction of complete embedded self-similar surfaces under mean curvature flow, Part III , Duke Math. J. 163 (2014), no. 11, 2023–2056. MR3263027 [ˇSeˇ s08] N. ˇSeˇ sum, Rate of convergence of the mean curvature flow , Comm. Pure Appl. Math. 61 (2008), no. 4, 464–485. MR2383930 [SZ25] Guanhua Shao and Jiahua Zou, Self-shrinkers with any number of ends in R3 by stacking R2, arXiv preprint arXiv:2507.18825 (2025). [Sto22] M. Stolarski, Closed Ricci flows with singularities modeled on asymptotically conical shrinkers , arXiv preprint arXiv:2202.03386 (2022). [SS26] M. Stolarski and W.-B. Su, Finite-Time Singularities of Lagrangian Mean Curvature Flow with Quanti-tatively Precise Dynamics , arXiv preprint arXiv:2607.03152 (2026). [Str20] N. Strehlke, Asymptotics for the level set equation near a maximum , J. Reine Angew. Math. 763 (2020), 201–221. MR4104282 [SWZ24] Ao Sun, Zhichao Wang, and Xin Zhou, Multiplicity one for min-max theory in compact manifolds with boundary and its applications , Calc. Var. Partial Differential Equations 63 (2024), no. 3, Paper No. 70, 52. MR4714846 [SWX25a] Ao Sun, Zhihan Wang, and Jinxin Xue, Passing through nondegenerate singularities in mean curvature flows , arXiv preprint arXiv:2501.16678 (2025). [SWX25b] , Regularity of cylindrical singular sets of mean curvature flow , arXiv preprint arXiv:2509.01707 (2025). [SX21] Ao Sun and Jinxin Xue, Initial perturbation of the mean curvature flow for closed limit shrinker , arXiv preprint arXiv:2104.03101 (2021). [Vel94] J. J. L. Vel´ azquez, Curvature blow-up in perturbations of minimal cones evolving by mean curvature flow ,Ann. Scuola Norm. Sup. Pisa Cl. Sci. (4) 21 (1994), no. 4, 595–628. MR1318773 [Wan14] Lu Wang, Uniqueness of self-similar shrinkers with asymptotically conical ends , J. Amer. Math. Soc. 27 
+
+(2014), no. 3, 613–638. MR3194490 [Wan16] , Asymptotic structure of self-shrinkers , arXiv preprint arXiv:1610.04904 (2016). 
+
+Email address : jingwchmath@gmail.com, aos223@lehigh.edu, leetk@math.columbia.edu, and xinrui.zhao@yale.edu

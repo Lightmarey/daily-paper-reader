@@ -1,0 +1,2445 @@
+Title: An unfitted boundary algebraic equation method with Calderón preconditioning for 2D Stokes flow in irregular geometry
+
+URL Source: https://arxiv.org/pdf/2607.21295v1
+
+Published Time: Fri, 24 Jul 2026 01:09:24 GMT
+
+Number of Pages: 34
+
+Markdown Content:
+# An unfitted boundary algebraic equation method with Calderón preconditioning for 2D Stokes flow in irregular geometry 
+
+Wenjun Ying ∗ Qing Xia †
+
+Abstract 
+
+We present an unfitted boundary algebraic equation method for the two-dimensional exterior/interior Stokes equations on a staggered MAC grid. By constructing an explicit free-space pair of velocity and pressure lattice Green’s functions (LGFs) from free-space Laplace LGFs, we represent homogeneous fields using sources supported exclusively on thin staggered boundary layers. This formulation imposes physical Dirichlet data at cut points via local interpolation, while sampled-normal rank updates remove hydrostatic null modes associated with single or multiple obstacles. The workflow parallels that of classical boundary integral formulations and requires no artificial boundary conditions for exterior flows, but follows a discretize-then-represent route and does not require singular/near-singular quadrature. The resulting dense boundary system is solved via GMRES, utilizing a componentwise discrete Calderón preconditioner built from the scalar Laplace kernel and padded FFTs for fast volume convolutions. Extensive numerical validation, including multiply connected domains, narrow gaps, and Moffatt eddies, confirms discrete incompressibility to solver accuracy and recovers the expected Moffatt eddy scaling. We achieve second-order velocity and pressure convergence and bound maximum discrete divergence within numerical accuracy. The discrete Calderón preconditioner reduces the condition number by orders of magnitude and yields nearly mesh-independent conditioning in exterior configurations, while remaining effective—though more demanding—for narrow-gap and fine-grid interior problems. 
+
+Keywords: Stokes equations; Lattice Green’s function; boundary algebraic equation; discrete potential theory; MAC scheme; Calderón preconditioning 
+
+# 1 Introduction 
+
+The steady incompressible Stokes equations describe viscous flow in the low-Reynolds-number regime and arise in particulate suspensions, microfluidics, porous media, and fluid-structure interaction. In these applications, the fluid region may contain curved inclusions, multiple obstacles, narrow gaps, or moving boundaries. Boundary-fitted discretizations can resolve such geometries accurately, but generating and updating a fitted mesh may dominate the computational workflow. Unfitted approaches instead embed the physical domain in a simple background grid. Representative examples include immersed boundary and immersed interface methods [ 1 –3], fictitious-domain methods [ 4 , 5 ], and cut finite elements [ 6]. A central difficulty is to impose the physical boundary conditions accurately without sacrificing the stability and discrete incompressibility of the underlying flow discretization. Boundary integral formulations offer a complementary viewpoint. By representing a Stokes field with fundamental solutions, they reduce a domain problem to unknown densities on the boundary and are well suited to exterior and multiple-particle flows [ 7 ]. Fast multipole and related acceleration techniques can reduce the cost of evaluating the resulting layer potentials [ 8 ]. 
+
+> ∗
+
+School of Mathematical Sciences, MOE-LSC and Institute of Natural Sciences, Shanghai Jiao Tong University, Minhang, Shanghai 200240, China. Email: wying@sjtu.edu.cn 
+
+> †
+
+Corresponding author. College of Science, Mathematics and Technology, Wenzhou Kean University, Zhejiang 325060, China. Email: qxia@kean.edu 
+
+1arXiv:2607.21295v1 [math.NA] 23 Jul 2026 Their implementation requires accurate singular and nearly singular quadrature on the physical boundary. Kernel-free boundary integral methods move the potential evaluation to an auxiliary Cartesian grid while retaining a boundary formulation [ 9 – 11 ]. More precisely, a kernel-free boundary integral (KFBI) method begins with a continuous boundary integral equation but evaluates its boundary and volume potentials indirectly by solving corrected interface problems on an auxiliary structured grid. The analytical Green’s kernel is therefore not needed. This strategy has recently been extended to Stokes–Brinkman interface problems with a corrected MAC discretization [12]. The method developed here is related to both classical BIE and KFBI, but is best described as a fully discrete boundary-integral analogue rather than as a direct discretization of the continuous Stokes BIE. A classical BIE follows a represent-then-discretize route, whereas the present method follows a discretize-then-represent route. Like immersed-boundary, KFBI and cut-cell schemes, it works on a simple background grid and incorporates geometry only near the physical boundary. Like boundary-integral methods, it reduces the unknown to a boundary density and evaluates the field through potentials. The distinction is the order of construction: by first committing to a discrete Stokes operator and then building its potentials, one obtains a formulation that inherits the structure of the underlying MAC discretization, while retaining the boundary-centric organization familiar from classical potential theory. In particular, because the kernels are discrete from the outset, no singular or nearly singular quadratures are required. This construction is rooted in discrete potential theory [ 13 ] and in boundary algebraic equations for lattice problems [ 14 ]. Closely related difference-potential methods characterize admissible boundary traces through an auxiliary discrete problem [ 15 ]. More recent unfitted formulations combine discrete potentials with local basis functions to impose boundary data on implicitly defined geometries [ 16 , 17 ]. Lattice Green’s functions are especially attractive in this setting because they invert a translation-invariant difference operator on the infinite lattice and therefore permit fast convolution on a Cartesian grid and retain far-field asymptotics, thus requiring no artificial boundary conditions [ 18 –20 ]. Related LGF constructions also arise outside fluid solvers: Hodapp et al. [ 21 ] develop lattice Green function methods as a discrete boundary-element analogue for atomistic/continuum coupling in solid mechanics, while Bhamidipati et al. [22 ] use lattice Green functions to formulate inverse source problems for localizing defects in conducting lattices and metamaterials. The physical geometry enters only through a thin set of lattice nodes near the boundary and through local interpolation to the boundary itself. LGF-based incompressible flow solvers already exploit mimetic staggered-grid operators and fast discrete convolutions on unbounded domains [ 23 ]. In the work of Liska and Colonius, the scalar Laplace LGF is used to solve the discrete Poisson subproblems arising from a projection method. Their immersed-boundary extension couples prescribed surfaces to this flow solver through regularized interpolation and spreading, with boundary forces acting as Lagrange multipliers [ 24 ]. They do not form the velocity–pressure LGF pair of the coupled steady Stokes operator as a discrete layer-potential kernel. Discrete Green’s functions for Stokes response have also been developed for correcting the self-induced velocity in Euler–Lagrange point-particle simulations, including channel geometries [ 25 ]. They exploited periodicity in two homogeneous directions to tabulate wall-dependent discrete Stokes velocity responses for a three-dimensional two-plane channel. Their kernels depend parametrically on wall-normal source position and are used locally for particle self-disturbance correction. In contrast, the present velocity and pressure LGFs are translation-invariant free-space kernels of the MAC Stokes operator and are used globally to construct boundary and volume potentials. The specific advance here is a translation-invariant free-space, matrix-valued velocity LGF and associated pressure kernel for the steady two-dimensional MAC Stokes operator. Constructed from regularized Laplace and biharmonic LGFs, this pair supplies homogeneous boundary-layer and inhomogeneous volume potentials. Physical Dirichlet data are imposed sharply at cut points, 2yielding a rank-completed, Calderón-preconditioned boundary algebraic equation. Extending this idea from a scalar elliptic equation [ 17 ] to the Stokes system introduces several coupled difficulties. The two velocity components and the pressure occupy different locations on the staggered MAC grid; the velocity kernel is tensor valued; the representation must preserve the discrete divergence constraint; and pressure-jump modes generate hydrostatic nullspaces whose dimension changes with the number of disconnected objects. Moreover, the boundary-density equation is dense and becomes increasingly ill conditioned under refinement. The purpose of this work is to address these issues in a single unfitted boundary algebraic framework. The main contributions are as follows. 1. We derive explicit free-space velocity and pressure lattice Green’s functions for the two-dimensional steady MAC Stokes discretization from regularized Laplace and biharmonic lattice Green’s functions. In contrast to using a scalar Laplace LGF only within a projection solve, the resulting kernel pair represents the coupled discrete Stokes response, satisfies the momentum equations and divergence constraint, and provides both homogeneous layer potentials and inhomogeneous volume potentials. 2. We formulate a Stokes boundary algebraic equation on componentwise staggered boundary layers. Local cut-point interpolation imposes Dirichlet data, while sampled-normal rank completion removes one independent hydrostatic mode for each disconnected obstacle. 3. We construct a componentwise discrete Calderón preconditioner from the scalar Laplace lattice Green’s function, including rank updates for the constant modes on multiple objects. Nonzero body forces are handled by a particular volume potential without changing the boundary operator, and padded FFTs provide efficient lattice convolutions. 4. We evaluate the method on smooth and multiply connected interior flows, a narrow-gap geometry, a body-forced problem, corner eddies, and exterior flows with one and several obstacles. The tests assess accuracy, conditioning, iteration counts, topology, and preservation of discrete incompressibility. The remainder of the paper is organized as follows. Section 2 derives and regularizes the MAC Stokes lattice Green’s functions. Section 3 develops the boundary algebraic representation, and Section 4 imposes the physical Dirichlet data and completes the hydrostatic nullspace. The discrete Calderón preconditioner is introduced in Section 5. Inhomogeneous body forcing and FFT acceleration are treated in Sections 6 and 7, respectively, and Section 8 summarizes the complete computational procedure. Section 9 presents the numerical experiments, followed by conclusions in Section 10. 
+
+# 2 MAC Stokes lattice Green’s functions 
+
+We first recall the lattice Green’s function for the two-dimensional discrete Laplacian, since the Stokes lattice Green’s function can be written in terms of the harmonic/biharmonic lattice Green’s function. Let m = ( m1, m 2) ∈ Z2, and define the unscaled five-point difference operator 
+
+(Lϕ )( m) = ϕ(m + e1) + ϕ(m − e1) + ϕ(m + e2) + ϕ(m − e2) − 4ϕ(m). (2.1) Its Fourier symbol is 
+
+λ(θ) = 2 cos θ1 + 2 cos θ2 − 4, θ = ( θ1, θ 2) ∈ [−π, π ]2. (2.2) Formally, the Laplace lattice Green’s function is 
+
+G(m) = 14π2 f. p.  
+
+> ∫π
+> −π
+> ∫π
+> −π
+
+ei(m1θ1+m2θ2)
+
+λ(θ) dθ 1 dθ 2, (2.3) 3where the integral is interpreted in the finite-part sense because λ(θ) ∼ −| θ|2 near θ = 0 .Equivalently, one may use the normalized regularized representative 
+
+Greg (m) = 14π2
+
+∫ π
+
+> −π
+
+∫ π
+
+> −π
+
+ei(m1θ1+m2θ2) − 1
+
+λ(θ) dθ 1 dθ 2. (2.4) This fixes the additive constant by setting Greg (0) = 0 . The asymptotic properties and efficient computation of Greg are well established [17, 18, 26]. The corresponding formal biharmonic lattice Green’s function is 
+
+H(m) = 14π2 f. p.
+
+∫ π
+
+> −π
+
+∫ π
+
+> −π
+
+ei(m1θ1+m2θ2)
+
+λ(θ)2 dθ 1 dθ 2. (2.5) The singularity in (2.5) is stronger than that of the Laplace kernel. Thus direct numerical evaluation of (2.5) is inconvenient. In computation, we use a regularized, gauge-fixed representa-tive of H, obtained from the regularized Laplace LGF. The Fourier-symbol derivation below is performed with the formal kernels (2.3) and (2.5) ; the numerical implementation replaces them by the chosen regularized representatives. This distinction fixes only the pressure and velocity reference gauges and does not change the discrete Stokes equations satisfied by the resulting kernels. We consider the steady incompressible Stokes equations 
+
+−μ∆u + ∇p = f , (2.6a) 
+
+∇ · u = 0 , (2.6b) where u = ( u, v ), p is the pressure, μ > 0 is the viscosity, and f = ( f u, f v) is the applied force. We discretize the equations by the standard MAC scheme on a uniform grid of spacing h
+
+(Figure 1). pm1,m 2       
+
+> um1−12,m 2um1+12,m 2
+> vm1,m 2+12
+> vm1,m 2−12
+
+Figure 1: MAC scheme The horizontal velocity u is stored at vertical cell faces, 
+
+um1+1 /2,m 2 ≈ u(xm1+1 /2, y m2 ), (2.7) the vertical velocity v is stored at horizontal cell faces, 
+
+vm1,m 2+1 /2 ≈ v(xm1 , y m2+1 /2), (2.8) and the pressure is stored at cell centers, 
+
+pm1,m 2 ≈ p(xm1 , y m2 ). (2.9) 4Multiplying the momentum equations by h2, the MAC discretization is 
+
+−μLu m1+1 /2,m 2 + h (pm1+1 ,m 2 − pm1,m 2 ) = h2f um1+1 /2,m 2 , (2.10a) 
+
+−μLv m1,m 2+1 /2 + h (pm1,m 2+1 − pm1,m 2 ) = h2f vm1,m 2+1 /2, (2.10b) 
+
+um1+1 /2,m 2 − um1−1/2,m 2 + vm1,m 2+1 /2 − vm1,m 2−1/2 = 0 . (2.10c) Here L denotes the same unscaled five-point difference operator applied on the corresponding velocity grid. Define the unscaled difference operators 
+
+D+ 
+
+> x
+
+ϕ(m1, m 2) = ϕ(m1 + 1 , m 2) − ϕ(m1, m 2), (2.11a) 
+
+D+ 
+
+> y
+
+ϕ(m1, m 2) = ϕ(m1, m 2 + 1) − ϕ(m1, m 2), (2.11b) 
+
+D− 
+
+> x
+
+ϕ(m1, m 2) = ϕ(m1, m 2) − ϕ(m1 − 1, m 2), (2.11c) 
+
+D− 
+
+> y
+
+ϕ(m1, m 2) = ϕ(m1, m 2) − ϕ(m1, m 2 − 1) , (2.11d) and 
+
+Dxx ϕ(m1, m 2) = ϕ(m1 + 1 , m 2) − 2ϕ(m1, m 2) + ϕ(m1 − 1, m 2), (2.12a) 
+
+Dyy ϕ(m1, m 2) = ϕ(m1, m 2 + 1) − 2ϕ(m1, m 2) + ϕ(m1, m 2 − 1) . (2.12b) 
+
+Theorem 2.1 (MAC Stokes lattice Green’s function) . Let G be the Laplace lattice Green’s func-tion and let H be a biharmonic lattice Green’s function satisfying LH = G in the distributional sense. Then the MAC Stokes lattice Green’s function is 
+
+S(m1, m 2) = − 1
+
+μ
+
+[ Dyy H(m1, m 2) −D+ 
+
+> y
+
+D+ 
+
+> x
+
+H(m1, m 2 − 1) 
+
+−D+ 
+
+> y
+
+D+ 
+
+> x
+
+H(m1 − 1, m 2) Dxx H(m1, m 2)
+
+]
+
+. (2.13) 
+
+The associated pressure lattice Green’s function is 
+
+P(m1, m 2) = 1
+
+h
+
+[D− 
+
+> x
+
+G(m1, m 2)
+
+D− 
+
+> y
+
+G(m1, m 2)
+
+]
+
+. (2.14) 
+
+The first column of S gives the velocity generated by a unit force in the x-direction at a horizontal velocity node, and the second column gives the velocity generated by a unit force in the y-direction at a vertical velocity node. Proof. We give the derivation for a unit force in the x-direction. The derivation for a unit force in the y-direction is identical after interchanging x and y.Use the staggered Fourier transforms ̂
+
+u(θ) = h2 ∑
+
+> m∈Z2
+
+um1+1 /2,m 2 e−i(( m1+1 /2) θ1+m2θ2), (2.15a) ̂
+
+v(θ) = h2 ∑
+
+> m∈Z2
+
+vm1,m 2+1 /2e−i(m1θ1+( m2+1 /2) θ2), (2.15b) ̂
+
+p(θ) = h2 ∑
+
+> m∈Z2
+
+pm1,m 2 e−i(m1θ1+m2θ2). (2.15c) Let 
+
+sj = sin( θj /2) , γj = eiθ j /2 − e−iθ j /2 = 2 is j , j = 1 , 2. (2.16) 5For a unit x-force at the horizontal velocity node (1 /2, 0) , the transformed MAC equations become 
+
+−μλ (θ)̂u + hγ 1̂ p = h2e−iθ 1/2, (2.17a) 
+
+−μλ (θ)̂v + hγ 2̂ p = 0 , (2.17b) 
+
+γ1̂ u + γ2̂ v = 0 . (2.17c) Since 
+
+λ(θ) = −4( s21 + s22), (2.18) the incompressibility constraint projects the forcing onto the discrete divergence-free subspace. Solving (2.17a)–(2.17c) gives ̂
+
+p(1) = ih 
+
+24s1e−iθ 1/2
+
+λ(θ) , (2.19a) ̂
+
+u(1) = h2e−iθ 1/2
+
+μ
+
+4s22
+
+λ(θ)2 , (2.19b) ̂
+
+v(1) = − h2e−iθ 1/2
+
+μ
+
+4s1s2
+
+λ(θ)2 . (2.19c) The superscript (1) denotes forcing in the x-direction. We now identify the inverse transforms. Since 
+
+Dyy H ←→ 
+
+(
+
+eiθ 2 + e−iθ 2 − 2
+
+) 1
+
+λ(θ)2 = − 4s22
+
+λ(θ)2 , (2.20) equation (2.19b) gives 
+
+u(1)  
+
+> m1+1 /2,m 2
+
+= − 1
+
+μ Dyy H(m1, m 2). (2.21) Similarly, 
+
+D+ 
+
+> y
+
+D+ 
+
+> x
+
+H(m1 − 1, m 2) ←→ − 4s1s2e−iθ 1/2eiθ 2/2
+
+λ(θ)2 , (2.22) with the staggered inverse phase for v, so that 
+
+v(1)  
+
+> m1,m 2+1 /2
+
+= 1
+
+μ D+ 
+
+> y
+
+D+ 
+
+> x
+
+H(m1 − 1, m 2). (2.23) The pressure follows from (2.19a): 
+
+p(1)  
+
+> m1,m 2
+
+= 1
+
+h D− 
+
+> x
+
+G(m1, m 2). (2.24) For a unit force in the y-direction, the same calculation yields ̂
+
+p(2) = ih 
+
+24s2e−iθ 2/2
+
+λ(θ) , (2.25a) ̂
+
+u(2) = − h2e−iθ 2/2
+
+μ
+
+4s1s2
+
+λ(θ)2 , (2.25b) ̂
+
+v(2) = h2e−iθ 2/2
+
+μ
+
+4s21
+
+λ(θ)2 . (2.25c) 6Transforming back gives 
+
+u(2)  
+
+> m1+1 /2,m 2
+
+= 1
+
+μ D+ 
+
+> y
+
+D+ 
+
+> x
+
+H(m1, m 2 − 1) , (2.26a) 
+
+v(2)  
+
+> m1,m 2+1 /2
+
+= − 1
+
+μ Dxx H(m1, m 2), (2.26b) 
+
+p(2)  
+
+> m1,m 2
+
+= 1
+
+h D− 
+
+> y
+
+G(m1, m 2). (2.26c) Collecting the two velocity responses as the columns of S, and collecting the two pressure responses as P, gives (2.13) and (2.14). 
+
+Remark 2.1 (Regularization and gauge) . The proof above uses the Fourier multipliers 1/λ and 
+
+1/λ 2 in the finite-part sense. In the actual computation, however, one should not evaluate (2.5) 
+
+directly. Instead, a regularized representative of H is used. Different regularizations correspond to different choices of additive discrete harmonic or biharmonic null-space components. These choices fix the pressure and velocity gauges. Once a gauge is fixed, the formulas (2.13) and 
+
+(2.14) define the corresponding discrete Stokes kernel. The same gauge must be used consistently throughout the computation. 
+
+Although H satisfies 
+
+LH = G (2.27) on the infinite lattice, direct computation of H from this equation is inconvenient. A finite-domain truncation requires artificial boundary conditions for a non-decaying biharmonic kernel, and direct quadrature of (2.5) is strongly singular at the zero Fourier mode. Instead, we compute a regularized representative of H from the regularized Laplace LGF. The Duffin–Shelly identity [27] gives 
+
+16 H(m1, m 2) = m21
+
+> (
+
+2G(m1, m 2) + G(m1, m 2 + 1) + G(m1, m 2 − 1) 
+
+> )
+
++ m22
+
+> (
+
+2G(m1, m 2) + G(m1 + 1 , m 2) + G(m1 − 1, m 2)
+
+> )
+
+− 2G(m1, m 2). (2.28) Here G should be understood as the same regularized Laplace LGF used in (2.4) . Equation (2.28) fixes a compatible regularization of H. This is the representative used in the numerical construction of the Stokes LGF through (2.13) . In computation, the regularized kernels G and 
+
+H are tabulated for lattice indices ranging from 0 to N in each coordinate and extended by symmetry as needed. 
+
+# 3 Stokes boundary algebraic equations 
+
+We now use the regularized velocity and pressure LGFs to represent discrete Stokes fields generated by sources on a thin lattice layer. Throughout this section, S and P denote the gauge-fixed kernels constructed in Section 2. 
+
+3.1 LGF representation of discrete Stokes solutions 
+
+Theorem 3.1. Let C = ⋃ 
+
+> n
+
+Cn be a union of cells indexed by their centers n. The following velocity and pressure potentials satisfy the homogeneous Stokes difference equations at every lattice point whose stencil does not intersect C:
+
+u(m) = 
+
+> [
+
+u(m + e1/2) 
+
+v(m + e2/2) 
+
+> ]
+
+= ∑
+
+> n
+
+S(m, n ) 
+
+> [
+
+qun+e1/2
+
+qvn+e2/2
+
+> ]
+
+(3.1) 7and 
+
+p(m) = ∑
+
+> n
+
+P(m, n )
+
+[ qun+e1/2
+
+qvn+e2/2
+
+]
+
+(3.2) 
+
+Here m = ( m1, m 2), n = ( n1, n 2), e1 = (1 , 0) , and e2 = (0 , 1) . The tensors S and P map the staggered source components to velocity and pressure, respectively. Proof. In the operator form, the velocity and pressure tensors satisfy 
+
+−μ∆hS(m) + I∇hP(m) = 1
+
+h2 δmI, (3.3a) 
+
+∇h · S (m) = 0. (3.3b) For the velocity equations, 
+
+− μ∆hu(m) + ∇hp(m) (3.4a) 
+
+= − μ∆h
+
+∑
+
+> n
+
+S(m, n )
+
+[ qun+e1/2
+
+qvn+e2/2
+
+]
+
++ ∇h
+
+∑
+
+> n
+
+P(m, n )
+
+[ qun+e1/2
+
+qvn+e2/2
+
+]
+
+(3.4b) 
+
+= ∑
+
+> n
+
+(−μ∆hS(m, n ) + I∇hP)
+
+[ qun+e1/2
+
+qvn+e2/2
+
+]
+
+(3.4c) 
+
+= 1
+
+h2
+
+∑
+
+> n
+
+[ δm−nqun+e1/2
+
+δm−nqvn+e2/2
+
+]
+
+(3.4d) which vanishes whenever m / ∈ C.The discrete incompressibility condition is satisfied identically: 
+
+∇h · u(m) = ∇h · ∑
+
+> n
+
+S(m, n )
+
+[ qun+e1/2
+
+qvn+e2/2
+
+]
+
+(3.5a) 
+
+= ∑
+
+> n
+
+∇h · S (m, n )
+
+[ qun+e1/2
+
+qvn+e2/2
+
+]
+
+= 0 (3.5b) for any densities. 
+
+3.2 Staggered-grid point sets 
+
+We next define the lattice sets used to separate interior and exterior stencils. We will focus on a bounded domain Ω, and follow the difference-potentials convention of Ryaben’kii [15] . (For an exterior problem, the roles of the interior and exterior sets are reversed.) Embed Ω in the infinite lattice hZ2 with spacing h. The sets M u 
+
+> +
+
+and M v 
+
+> +
+
+contain the u-and v-velocity nodes inside Ω, whereas M u 
+
+> −
+
+and M v 
+
+> −
+
+contain the corresponding exterior nodes. At a cell-centered lattice point (m1h, m 2h), the standard five-point stencil is 
+
+N 5 
+
+> m1,m 2
+
+= {(m1h, m 2h), (( m1 ± 1) h, m 2h), (m1h, (m2 ± 1) h)}. (3.6) Taking the union of these stencils over the u-velocity nodes gives 
+
+N u 
+
+> ±
+
+= ⋃ 
+
+> (( m1+1 /2) h,m 2h)∈Mu
+> ±
+
+N 5 
+
+> m1+1 /2,m 2
+
+. (3.7) Their intersection γu := N u 
+
+> +
+
+∩ N u 
+
+> −
+
+is the discrete interface layer for the u component. We further split it into the interior and exterior layers γu 
+
+> +
+
+:= γu ∩ M u 
+
+> +
+
+and γu 
+
+> −
+
+:= γu ∩ M u 
+
+> −
+
+(Figure 2a). The sets M v
+
+> ±
+
+, N v
+
+> ±
+
+, γv, and γv 
+
+> ±
+
+(Figure 2b) are defined analogously after replacing the u-grid location (m1 + 1 /2, m 2) by the v-grid location (m1, m 2 + 1 /2) .Analogous pressure sets M p 
+
+> ±
+
+may be introduced, but no independent pressure-layer density is required: the pressure is recovered from the two velocity-source densities through the pressure LGF P.8(a) γu 
+
+> ±
+
+(b) γv
+
+> ±
+
+Figure 2: Illustration of γu 
+
+> ±
+
+and γv 
+
+> ±
+
+(solid triangles and squares denote γu 
+
+> −
+
+and γv 
+
+> −
+
+and hollow triangles and squares denote γu 
+
+> +
+
+and γv
+
+> +
+
+)
+
+3.3 Boundary algebraic trace equations 
+
+Theorem 3.1 pairs qu and qv on the two staggered faces of a common cell. Near an unfitted boundary, however, |γu| and |γv| need not agree. The next result therefore allows the two densities to be supported independently on their respective exterior layers. 
+
+Corollary 3.1. Given the exterior boundary points γu 
+
+> −
+
+and γv 
+
+> −
+
+and the densities qu and qv
+
+defined at these points, the velocities and associated pressures 
+
+uu(m) = ∑
+
+> n+e1/2∈γu
+> −
+
+S(m, n )
+
+[ qun+e1/2
+
+0
+
+]
+
+, pu(m) = ∑
+
+> n+e1/2∈γu
+> −
+
+P(m, n )
+
+[ qun+e1/2
+
+0
+
+]
+
+(3.8) 
+
+and 
+
+uv(m) = ∑
+
+> n+e2/2∈γv
+> −
+
+S(m, n )
+
+[ 0
+
+qvn+e2/2
+
+]
+
+, pv(m) = ∑
+
+> n+e2/2∈γv
+> −
+
+P(m, n )
+
+[ 0
+
+qvn+e2/2
+
+]
+
+(3.9) 
+
+satisfy the Stokes difference equations (2.10a) –(2.10c) ; by linearity, so does their sum (uu +
+
+uv, p u + pv).Proof. The densities qu and qv are arbitrary in the proof of Theorem 3.1, thus the pairs (uu, p u)
+
+and (uv, p v) satisfy the Stokes difference equations, respectively. Since the operators are linear, the additions also satisfy the difference equations. In particular, restricting the target points to γu 
+
+> +
+
+and γu 
+
+> −
+
+leads to 
+
+uγu 
+
+> −
+
+= ∑
+
+> n+e1/2∈γu
+> −
+
+S−
+
+> 11
+
+(m, n )qun+e1/2 + ∑
+
+> n+e2/2∈γv
+> −
+
+S−
+
+> 12
+
+(m, n )qvn+e2/2, (3.10a) 
+
+uγu 
+
+> +
+
+= ∑
+
+> n+e1/2∈γu
+> −
+
+S+11 (m, n )qun+e1/2 + ∑
+
+> n+e2/2∈γv
+> −
+
+S+12 (m, n )qvn+e2/2, (3.10b) Here S− denotes evaluation from the exterior source layers to the exterior target layers, whereas 
+
+S+ denotes evaluation from the same sources to the interior target layers. Similarly, restricting target points to γv 
+
+> ±
+
+gives 
+
+vγv 
+
+> −
+
+= ∑
+
+> n+e1/2∈γu
+> −
+
+S−
+
+> 21
+
+(m, n )qun+e1/2 + ∑
+
+> n+e2/2∈γv
+> −
+
+S−
+
+> 22
+
+(m, n )qvn+e2/2, (3.11a) 
+
+vγv 
+
+> +
+
+= ∑
+
+> n+e1/2∈γu
+> −
+
+S+21 (m, n )qun+e1/2 + ∑
+
+> n+e2/2∈γv
+> −
+
+S+22 (m, n )qvn+e2/2. (3.11b) 9In compact block-matrix form, the mappings from the unknown density vector q = [ qu, q v]T
+
+to the velocity boundary traces are: 
+
+( uγu
+
+> −
+
+vγv
+
+> −
+
+)
+
+=
+
+[
+
+S− 
+
+> 11
+
+S−
+
+> 12
+
+S− 
+
+> 21
+
+S−
+
+> 22
+
+] ( qun+e1/2
+
+qvn+e2/2
+
+)
+
+⇒ u− = S−q (3.12) and 
+
+( uγu
+
+> +
+
+vγv
+
+> +
+
+)
+
+=
+
+[
+
+S+11 S+12 
+
+S+21 S+22 
+
+] ( qun+e1/2
+
+qvn+e2/2
+
+)
+
+⇒ u+ = S+q (3.13) where u± are the velocity traces on (γu
+
+> ±
+
+, γ v
+
+> ±
+
+), respectively, and S± are the block matrices assembled from S±.
+
+3.4 Nullspace and constrained invertibility 
+
+Lemma 3.1 (Energy identity for the staggered Stokes single layer) . Let q = ( qu, q v) be a density supported on γ− := γu 
+
+> −
+
+∪ γv
+
+> −
+
+, extended by zero to the whole infinite staggered lattice. Let 
+
+u = Sq, p = Pq
+
+be the corresponding regularized Stokes LGF potential. Assume that q satisfies the force-balance conditions 
+
+∑
+
+> γu
+> −
+
+qu = 0 , ∑
+
+> γv
+> −
+
+qv = 0 , (3.14) 
+
+so that the net force in each component vanishes and the associated velocity field has finite discrete energy. Then 
+
+⟨q, S −q⟩γ− = μ∥∇ hu∥2 
+
+> ℓ2(Z2)
+
+≥ 0. (3.15) 
+
+In particular, S− is positive semidefinite on the force-balanced density space. Proof. Since q is supported on γ−, and since u|γ− = S−q, we have 
+
+⟨q, S −q⟩γ− = ⟨q, u⟩Z2 . (3.16) The Stokes LGF potential satisfies 
+
+−μ∆hu + ∇hp = q, ∇h · u = 0 (3.17) on the infinite staggered lattice. Therefore 
+
+⟨q, u⟩Z2 = ⟨− μ∆hu + ∇hp, u⟩Z2
+
+= μ∥∇ hu∥2 
+
+> ℓ2(Z2)
+
+− ⟨ p, ∇h · u⟩Z2 . (3.18) The boundary term at infinity vanishes because the density is force-balanced and the regularized velocity field has finite energy. Since ∇h · u = 0 , the pressure term vanishes. Hence 
+
+⟨q, S −q⟩γ− = μ∥∇ hu∥2 
+
+> ℓ2(Z2)
+
+≥ 0. (3.19) 10 Theorem 3.2 (Nullspace of S−). Let S− be the exterior-layer Stokes single-layer matrix assembled from the regularized Stokes LGF. Assume that the density space is restricted to the force-balanced class so that the corresponding velocity potential has finite discrete energy. Let 
+
+Zh := 
+
+> {
+
+∇hχ|γ− : χ is piecewise constant away from γ−
+
+> }
+
+be the space of discrete hydrostatic pressure-jump modes. Then 
+
+Zh ⊆ ker S−.
+
+Moreover, if the only finite-energy homogeneous Stokes velocity field on the infinite lattice with zero trace on γ− is the zero velocity field, then 
+
+ker S− = Zh.
+
+Proof. We first show that Zh ⊆ ker S−. Let q ∈ Zh. Then q = ∇hχ on γ−, where χ is piecewise constant away from the boundary layer. Extend q by zero away from γ−. The pair 
+
+u ≡ 0, p = χ
+
+satisfies 
+
+−μ∆hu + ∇hp = q, ∇h · u = 0 ,
+
+in the distributional lattice sense. Therefore the velocity trace generated by this density is zero on γ−, and hence 
+
+S−q = 0 .
+
+Thus Zh ⊆ ker S−.Conversely, suppose S−q = 0 , and let (u, p ) be the Stokes LGF potential generated by q.Since q is supported on γ−,
+
+qT S−q = ∑
+
+> m∈γ−
+
+q(m) · u(m).
+
+Using the discrete Stokes equations and summation by parts gives 
+
+qT S−q = μ∥∇ hu∥2
+
+> ℓ2
+> h
+
+− ⟨ p, ∇h · u⟩h.
+
+The pressure term vanishes because ∇h · u = 0 . Since S−q = 0 , the left-hand side is zero, and therefore 
+
+∇hu = 0 .
+
+The finite-energy condition, or equivalently the chosen velocity gauge, eliminates nonzero constant velocities. Hence u ≡ 0.Substituting u = 0 into the Stokes equations gives 
+
+∇hp = q on γ−, ∇hp = 0 away from γ−.
+
+Thus p is piecewise constant away from the boundary layer, and q is the discrete gradient of a piecewise constant pressure field. Therefore q ∈ Zh, which proves 
+
+ker S− ⊆ Zh.
+
+Combining the two inclusions gives 
+
+ker S− = Zh.
+
+11 Corollary 3.2 (Injectivity modulo hydrostatic modes) . Assume the hypotheses of Theorem 3.2. Let 
+
+Q0 
+
+> h
+
+:= 
+
+> 
+
+q : ∑
+
+> γ−
+
+q = 0 , ⟨q, z ⟩γ− = 0 for all z ∈ Zh 
+
+> 
+
+.
+
+Then 
+
+S−q = 0 , q ∈ Q0 
+
+> h
+
+=⇒ q = 0 .
+
+Equivalently, S− is injective on the constrained space Q0
+
+> h
+
+, or, in quotient notation, S− is injective on Qh/Z h.Proof. Let q ∈ Q0 
+
+> h
+
+and suppose S−q = 0 . By Theorem 3.2, 
+
+q ∈ ker S− = Zh.
+
+But q ∈ Q0 
+
+> h
+
+also implies 
+
+⟨q, z ⟩γ− = 0 ∀z ∈ Zh.
+
+Taking z = q gives 
+
+∥q∥2 
+
+> γ−
+
+= 0 .
+
+Therefore q = 0 .
+
+# 4 Dirichlet boundary closure 
+
+No boundary condition has entered the construction so far. The LGF representation gives a discrete Stokes field satisfying the homogeneous difference equations away from the source layer. The purpose of the boundary closure is to determine the unknown layer density q =
+
+> [
+
+qu
+
+qv
+
+> ]
+
+from the prescribed boundary data. We consider the Dirichlet condition 
+
+u|Γ = gu, v|Γ = gv, (4.1) where Γ is the continuous boundary. Following the local boundary interpolation approach of [16 , 28 ], we impose the boundary condition by evaluating local tensor-product hat functions at cut points. For a grid point (xj , y k) of the appropriate staggered lattice, define 
+
+ϕjk (x, y ) = ϕ 
+
+> (
+
+x − xj
+
+h
+
+> )
+
+ϕ 
+
+> (
+
+y − yk
+
+h
+
+> )
+
+, (4.2) where 
+
+ϕ(ξ) = 
+
+> 
+
+1 + ξ, −1 ≤ ξ ≤ 0,
+
+1 − ξ, 0 ≤ ξ ≤ 1,
+
+0, otherwise .
+
+(4.3) The point (xj , y k) is taken from either the x-velocity staggered grid or the y-velocity staggered grid, depending on the velocity component being interpolated. For each exterior boundary-layer point in γu 
+
+> −
+
+and γv
+
+> −
+
+, we select the nearest intersection point between the corresponding staggered grid line and the physical boundary Γ (see Figure 3). The intersection points are denoted by 
+
+xu = {xua }|γu
+
+> −|
+> a=1
+
+, xv = {xvb }|γv 
+
+> −|
+> b=1
+
+. (4.4) 12 (a) u-velocity half grids (b) v-velocity half grids 
+
+Figure 3: Cut-cell interpolation for staggered velocity components. (Contribution of solid triangles/squares is zero at the intersections.) Thus 
+
+|xu| = |γu
+
+> −
+
+|, |xv| = |γv
+
+> −
+
+|. (4.5) For the u-component, we use the local representation 
+
+u(x, y ) = ∑
+
+> (m1+1 /2,m 2)∈γu
+
+um1+1 /2,m 2 ϕum1+1 /2,m 2 (x, y ), (x, y ) ∈ Ccut , (4.6) where 
+
+γu = γu 
+
+> +
+
+∪ γu
+
+> −
+
+.
+
+For the basic closure, the basis functions associated with γu are sufficient at the selected intersection points. Therefore the u-component boundary condition is discretized as 
+
+∑
+
+> (m1+1 /2,m 2)∈γu
+
+um1+1 /2,m 2 ϕum1+1 /2,m 2 (xua ) = gu(xua ), a = 1 , . . . , |γu
+
+> −
+
+|. (4.7) In matrix form, 
+
+Φu
+
+> +
+
+u+ + Φ u
+
+> −
+
+u− = gu. (4.8) Similarly, for the v-component, 
+
+∑
+
+> (m1,m 2+1 /2) ∈γv
+
+vm1,m 2+1 /2 ϕvm1,m 2+1 /2(xvb ) = gv(xvb ), b = 1 , . . . , |γv
+
+> −
+
+|, (4.9) or 
+
+Φv
+
+> +
+
+v+ + Φ v
+
+> −
+
+v− = gv. (4.10) Combining (4.8) and (4.10) gives 
+
+Φ+u+ + Φ −u− = g, (4.11) where 
+
+Φ± =
+
+[
+
+Φu 
+
+> ±
+
+00 Φv
+
+> ±
+
+]
+
+, g =
+
+[
+
+gu
+
+gv
+
+]
+
+. (4.12) 13 The layer potential representation gives 
+
+u+ = S+q, u− = S−q, (4.13) with 
+
+S± =
+
+> [
+
+S± 
+
+> 11
+
+S±
+
+> 12
+
+S± 
+
+> 21
+
+S±
+
+> 22
+> ]
+
+. (4.14) Substitution of (4.13) into (4.11) gives the boundary-density equation 
+
+Aq = g, A := Φ +S+ + Φ −S−. (4.15) 
+
+Rank-one completion for a single object For a single connected object, the hydrostatic nullspace is one-dimensional. It is represented, up to discretization and scaling, by the normal density. Let ν = ( ν1, ν 2) be the outward unit normal to the continuous boundary Γ (pointing to fluids). Define the sampled normal vector on the intersection points by 
+
+nΓ =
+
+> [
+
+ν1(xu 
+
+> 1
+
+), · · · , ν 1(xu
+
+> |γu
+> −|
+
+), ν 2(xv
+
+> 1
+
+), · · · , ν 2(xv
+
+> |γv
+> −|
+
+)]T
+
+. (4.16) The rank-one completed boundary-density system is 
+
+Acq = g, Ac := A + τ n ΓnT 
+
+> Γ
+
+, τ̸ = 0 . (4.17) 
+
+Remark 4.1. The parameter τ is designed to lift the nullspace of the rank-deficient matrix A
+
+by introducing new singular values that naturally match the scale of the existing non-zero ones. Rather than computing the smallest non-null singular value by an SVD, we take 
+
+τ = ∥A∥F /√n, 
+
+where n is the number of columns of A. This Frobenius-norm proxy approximates the mean singular-value magnitude and keeps Ac well conditioned without distorting the bulk of its spectrum. 
+
+The rank-one completion in (4.17) removes the hydrostatic pressure-jump nullspace. Indeed, if the velocity vanishes and the pressure is piecewise constant, 
+
+u ≡ 0, p =
+
+> {
+
+pin , inside the object ,pout , outside the object ,
+
+then the continuous Stokes equation reduces to ∇p = q. In the continuous traction interpretation, this gives a boundary density proportional to the normal, q ∝ − [p]ν. Thus the hydrostatic null mode is a normal mode. In the exact staggered discretization, the corresponding algebraic null vector is 
+
+zh = ∇hχ|γ− ,
+
+where χ is a cell-centered indicator that is constant away from the discrete boundary layer. The sampled vector nΓ in (4.16) is the cut-point representation of the same mode and is natural when the Dirichlet data are imposed at boundary intersection points. 
+
+Remark 4.2. For K disconnected objects, there are K independent hydrostatic pressure-jump modes. Let n(k)Γ denote the sampled normal vector supported on the intersection points belonging to object k, and define 
+
+NΓ =
+
+> [
+
+n(1) Γ n(2) Γ · · · n(K)Γ
+
+> ]
+
+. (4.18) 
+
+The rank-K completed matrix is 
+
+A(K) 
+
+> c
+
+= A + τ N ΓN T 
+
+> Γ
+
+, τ̸ = 0 . (4.19) Once q has been determined from (4.17) , the velocity and pressure are recovered by the LGF convolutions 
+
+u = Sq, p = Pq. (4.20) 14 Closure with additional exterior points In some cut configurations, the local interpolation stencil contains additional exterior velocity points beyond γu 
+
+> −
+
+and γv
+
+> −
+
+. Let these additional unknowns be denoted by ηu and ηv. The boundary interpolation equations become 
+
+Φu
+
+> +
+
+u+ + Φ u
+
+> −
+
+u− + Φ uη ηu = gu, (4.21a) 
+
+Φv
+
+> +
+
+v+ + Φ v
+
+> −
+
+v− + Φ vηηv = gv. (4.21b) The extra values are eliminated by local extrapolation: 
+
+Ru 
+
+> 1
+
+u+ + Ru 
+
+> 2
+
+u− + ηu = 0 , ηu = −Ru 
+
+> 1
+
+u+ − Ru 
+
+> 2
+
+u−, (4.22a) 
+
+Rv
+
+> 1
+
+v+ + Rv
+
+> 2
+
+v− + ηv = 0 , ηv = −Rv
+
+> 1
+
+v+ − Rv
+
+> 2
+
+v−. (4.22b) Substituting (4.22) into (4.21) gives 
+
+(
+
+Φu 
+
+> +
+
+− Φuη Ru
+
+> 1
+
+)
+
+u+ +
+
+(
+
+Φu 
+
+> −
+
+− Φuη Ru
+
+> 2
+
+)
+
+u− = gu, (4.23a) 
+
+(
+
+Φv 
+
+> +
+
+− ΦvηRv
+
+> 1
+
+)
+
+v+ +
+
+(
+
+Φv 
+
+> −
+
+− ΦvηRv
+
+> 2
+
+)
+
+v− = gv. (4.23b) Define the effective interpolation matrices 
+
+˜Φ+ := 
+
+[
+
+Φu 
+
+> +
+
+− Φuη Ru 
+
+> 1
+
+00 Φv 
+
+> +
+
+− ΦvηRv
+
+> 1
+
+]
+
+, ˜Φ− := 
+
+[
+
+Φu 
+
+> −
+
+− Φuη Ru 
+
+> 2
+
+00 Φv 
+
+> −
+
+− ΦvηRv
+
+> 2
+
+]
+
+. (4.24) Then the boundary condition can be written compactly as 
+
+˜Φ+u+ + ˜Φ−u− = g. (4.25) Using u± = S±q, we obtain 
+
+˜Aq = g, ˜A := ˜Φ+S+ + ˜Φ−S−. (4.26) The corresponding rank-one completed system is 
+
+˜Acq = g, ˜Ac := ˜A + τ n ΓnT 
+
+> Γ
+
+, τ̸ = 0 . (4.27) Equivalently, ˜A has the block form 
+
+˜A =
+
+[(Φ u 
+
+> +
+
+− Φuη Ru 
+
+> 1
+
+)S+11 + (Φ u 
+
+> −
+
+− Φuη Ru 
+
+> 2
+
+)S− 
+
+> 11
+
+(Φ u 
+
+> +
+
+− Φuη Ru 
+
+> 1
+
+)S+12 + (Φ u 
+
+> −
+
+− Φuη Ru 
+
+> 2
+
+)S−
+
+> 12
+
+(Φ v 
+
+> +
+
+− ΦvηRv
+
+> 1
+
+)S+21 + (Φ v 
+
+> −
+
+− ΦvηRv
+
+> 2
+
+)S− 
+
+> 21
+
+(Φ v 
+
+> +
+
+− ΦvηRv
+
+> 1
+
+)S+22 + (Φ v 
+
+> −
+
+− ΦvηRv
+
+> 2
+
+)S−
+
+> 22
+
+]
+
+. (4.28) Although the matrices in (4.15) and (4.26) are dense, their matrix-vector products can be evaluated by LGF convolutions. Hence the completed systems (4.17) and (4.27) are suitable for matrix-free GMRES. 
+
+# 5 Calderón preconditioning with the Laplace LGF 
+
+The boundary-density equation obtained above has the form 
+
+Acq = g, (5.1) where Ac denotes the rank-completed version of either 
+
+A = Φ +S+ + Φ −S−
+
+or, when additional exterior points are used, 
+
+˜A = ˜Φ+S+ + ˜Φ−S−.
+
+15 Although this system is square after the hydrostatic completion, it is dense and may become ill-conditioned as the boundary is refined. We therefore use a preconditioner built from the scalar Laplace lattice Green’s function on the same staggered boundary sets. Let G denote the regularized scalar Laplace LGF. For each velocity component α ∈ { u, v },define the scalar Laplace layer matrices Vα by 
+
+(Vαρ)( m) = ∑
+
+> n∈γα
+> −
+
+G(m − n)ρ(n), m ∈ γα
+
+> −
+
+. (5.2) Thus Vα maps scalar densities on the exterior layer γα 
+
+> −
+
+to values on the same exterior layer. We then define the componentwise Laplace preconditioner 
+
+V := 
+
+> [
+
+Vu 00 Vv
+
+> ]
+
+. (5.3) The preconditioned system is then solved in left-preconditioned form: 
+
+V −1Acq = V −1g. (5.4) 
+
+Operator-order interpretation The effectiveness of the Laplace preconditioner follows from the shared principal singularity of the Laplace and Stokes kernels. In Fourier variables, ̂
+
+G(θ) = h2
+
+λ(θ) ,̂ S(θ) = − h2
+
+μ λ (θ) Πh(θ),
+
+where Πh(θ) is the discrete Leray–Helmholtz projector onto the divergence-free subspace on the staggered MAC grid. Up to the viscosity factor and this bounded matrix-valued projection, the Stokes velocity kernel has the same singular scalar factor as the Laplace kernel. After restriction to a boundary layer, both single-layer operators are of order −1, so V captures the leading singular order of A and V −1Ac is expected to behave like an order-zero operator on the constrained density space. 
+
+Preconditioning via discrete Calderón identities The condition numbers of Vu and 
+
+Vv grow in proportion to the number of boundary nodes, or O(h−1) for a resolved smooth boundary [ 14 , 17 ]. Although the formal preconditioner V −1 corrects this operator order, forming or inverting the dense matrix V is expensive. We therefore replace V −1 by a componentwise construction based on discrete Calderón identities. For each velocity component α ∈ { u, v }, we first define an unscaled double-difference matrix 
+
+Wα acting across the discrete boundary interface γα
+
+> −
+
+. Let t− and s− denote a given target node and source node in γα
+
+> −
+
+, with respective further-exterior neighbor nodes t+ and s+ (one lattice step farther from Ω across the intersected bar). The matrix elements are constructed via the lattice Green’s function as 
+
+(Wα)t−s− = −[G(s+ − t+) − G(s− − t+) − G(s+ − t−) + G(s− − t−)], s−, t − ∈ γα
+
+> −
+
+, (5.5) adapted from [29]. In an unfitted lattice framework, the mapping between the exterior boundary nodes and the intersected lattice bars is generally not one-to-one; therefore, we must introduce an incidence scaling matrix Jα to balance the topological dimensions. Assuming uniform unit conductance, 
+
+Jα reduces to a diagonal matrix where each entry (Jα)ii corresponds exactly to the number of exterior lattice connections attached to the boundary node i ∈ γα
+
+> −
+
+. The fully formed discrete hyper-singular operator for component α is then given by Hα = Jα + Wα.On each component block, this construction satisfies the discrete Calderón identity [29] 
+
+Vα(Jα + Wα) = −Kα(Iα + Kα), (5.6) 16 where Kα is the discrete double-layer operator on γα 
+
+> −
+
+and Iα is the identity. In this lattice normalization, the jump contribution is contained in Kα rather than written as a separate one-half identity term. For smooth, well-resolved boundaries, the relevant eigenvalues of Kα
+
+cluster near −1/2; hence the polynomial −Kα(Iα + Kα) clusters near 1/4.While the product VαHα provides the desired spectral clustering, the matrix Hα inherently possesses a one-dimensional null space spanned by the constant vector 1, faithfully mirroring the property of the continuum hyper-singular operator which maps a constant field to zero. If left unregularized, applying the unscaled discrete operator Vα to this constant mode produces an isolated eigenvalue that scales proportionally with the boundary dimension mα = |γα
+
+> −
+
+|. This disparate scaling causes the overall condition number of the preconditioned system to double with each mesh refinement. To control the mesh-dependent growth of the preconditioned spectrum, we deflate the null space for each component via a rank-1 update. Let eα = 1√mα 1 denote the normalized constant vector. We define the regularized block preconditioner as 
+
+Hreg ,α = Hα + cαeαeTα , (5.7) where we introduce cα as the shift parameter. To minimize the overall spectral spread, cα is chosen such that the isolated constant mode is mapped directly into the center of the existing Calderón eigenvalue cluster at 0.25 . By measuring the spectral scaling of the constant mode under the single-layer operator as λα = eTα Vαeα, the mathematically optimal scaling parameter is determined to be 
+
+cα = 0.25 
+
+λα
+
+. (5.8) Finally, the global componentwise preconditioner is assembled as a block-diagonal matrix, 
+
+Hreg := 
+
+> [
+
+Hreg ,u 00 Hreg ,v 
+
+> ]
+
+, (5.9) which replaces V −1 in (5.4) to form the robust left-preconditioned system 
+
+Hreg Acq = Hreg g, (5.10) with no inverse of dense matrices. 
+
+Remark 5.1 (Generalization to multiple disjoint objects) . When we have M objects, let e(k)
+
+> α
+
+denote the normalized indicator vector for the k-th object on the α-component grid, defined such that its i-th entry is 1/√mα,k if boundary node i belongs to object k, and 0 otherwise. Because the object boundaries are spatially disjoint, these indicator vectors are strictly orthogonal. The fully regularized block preconditioner is constructed by independently deflating each topological component: 
+
+Hreg ,α = Hα +
+
+> M∑
+> k=1
+
+cα,k e(k) 
+
+> α
+
+(e(k) 
+
+> α
+
+)T . (5.11) 
+
+To preserve the tight Calderón spectral clustering, the optimal shift parameter is calculated independently for each object’s constant mode via 
+
+cα,k = 0.25 (e(k) 
+
+> α
+
+)T Vαe(k)
+
+> α
+
+. (5.12) 
+
+This rank-M completion maps each resolved componentwise constant mode to the target value 
+
+0.25 . It therefore preserves the intended spectral clustering when the lattice resolves the gaps between distinct objects. 
+
+17 6 Inhomogeneous body forcing 
+
+While the preceding construction addressed the homogeneous Stokes equations, extending this framework to include nonzero body forces is straightforward and leaves the boundary algebraic operator unchanged. Consider the inhomogeneous boundary value problem: 
+
+−μ∆u + ∇p = f , ∇ · u = 0 in Ω, u = g on Γ. (6.1) We decompose the numerical solution into a particular volume potential and a homogeneous boundary correction: 
+
+uh = ufh + Shq, ph = pfh + Phq. (6.2) Here (ufh, p fh) is a particular volume potential, whereas (Shq, Phq) is a homogeneous boundary correction with unknown layer density q.Let fh = ( f1,h , f 2,h ) denote the body force sampled on the two staggered velocity grids. The stored LGFs invert the discrete Stokes operator 
+
+−μ∆huh + ∇hph = Fh, ∇h · uh = 0 , (6.3) where Fh = ( F1,h , F 2,h ) denotes the discrete right-hand side associated with the chosen MAC scaling of the momentum equations (cf. (2.10a)–(2.10b)). The particular solution is computed via discrete convolution: 
+
+ufh = S11 ,h ∗ F1,h + S12 ,h ∗ F2,h ,vfh = S21 ,h ∗ F1,h + S22 ,h ∗ F2,h ,pfh = P1,h ∗ F1,h + P2,h ∗ F2,h ,
+
+(6.4) where Sij,h are the discrete Stokes velocity kernels and Pi,h are the corresponding pressure kernels. Enforcing the prescribed Dirichlet data requires subtracting the trace of the particular solution from the boundary right-hand side: 
+
+Acq = gh − Φ+uf 
+
+> +
+
+− Φ−uf
+
+> −
+
+, (6.5) where uf 
+
+> ±
+
+denotes the trace of the particular solution at their corresponding boundary nodes. Thus Ac is unchanged from the homogeneous problem; only its right-hand side changes. Formally, 
+
+q = A−1
+
+> c
+> (
+
+gh − Φ+uf 
+
+> +
+
+− Φ−uf
+
+> −
+> )
+
+. (6.6) In practice, the action of A−1 
+
+> c
+
+in (6.6) is computed by preconditioned GMRES rather than by forming an inverse. The final velocity and pressure follow from (6.2) ; as usual, the pressure is determined only up to an additive constant. This decomposition also provides a natural pathway for solving time-dependent incompressible flows. In a semi-implicit Navier–Stokes discretization, the nonlinear and temporal terms can be treated as known volume sources at each time step, allowing the boundary algebraic equation to enforce the no-slip condition entirely through the homogeneous correction. 
+
+# 7 FFT acceleration of LGF convolutions 
+
+The discrete Stokes layer potentials and volume potentials are translation-invariant convolutions evaluated on the underlying Cartesian lattice. Direct evaluation of these potentials is compu-tationally expensive; for instance, a direct volume convolution on an N1 × N2 grid requires 
+
+O(N 21 N 22 ) operations. Boundary-to-volume reconstruction is similarly costly if evaluated by dense summation at all target grid points. 18 These computational costs are significantly reduced by embedding the linear convolution into a circulant convolution and applying the Fast Fourier Transform (FFT). For a generic kernel Kh
+
+and source Fh, this is expressed as: 
+
+Kh ∗ Fh = crop 
+
+[
+
+F−1 (
+
+F(Kpad  
+
+> h
+
+) · F (F pad  
+
+> h
+
+)
+
+)] 
+
+, (7.1) where F denotes the two-dimensional FFT, pointwise multiplication is applied in frequency space, and the crop operation extracts the physical target region. This approach reduces the operational cost of a volume convolution to: 
+
+O(M1M2 log( M1M2)) , (7.2) where M1 × M2 are the dimensions of the padded arrays (typically Mi ≈ 2Ni for an N1 × N2
+
+target grid). The same procedure applies componentwise to the Stokes velocity and pressure kernels. For a staggered-grid force Fh = ( F1,h , F 2,h ), the volume potential is efficiently evaluated by: 
+
+ufh = crop 
+
+[
+
+F−1 (̂ 
+
+S11 ,h ̂ F1,h +̂ S12 ,h ̂ F2,h 
+
+)] 
+
+,vfh = crop 
+
+[
+
+F−1 (̂ 
+
+S21 ,h ̂ F1,h +̂ S22 ,h ̂ F2,h 
+
+)] 
+
+,pfh = crop 
+
+[
+
+F−1 (̂ 
+
+P1,h ̂ F1,h +̂ P2,h ̂ F2,h 
+
+)] 
+
+,
+
+(7.3) where hats denote the FFTs of the padded arrays. Boundary layer reconstruction is handled using an identical framework. The boundary density is first distributed onto the corresponding staggered grid locations to form grid-supported source arrays, Q1,h and Q2,h . The homogeneous velocity and pressure corrections are then computed via: 
+
+S1,h q = crop 
+
+[
+
+F−1 (̂ 
+
+S11 ,h ̂ Q1,h +̂ S12 ,h ̂ Q2,h 
+
+)] 
+
+,
+
+S2,h q = crop 
+
+[
+
+F−1 (̂ 
+
+S21 ,h ̂ Q1,h +̂ S22 ,h ̂ Q2,h 
+
+)] 
+
+,
+
+Phq = crop 
+
+[
+
+F−1 (̂ 
+
+P1,h ̂ Q1,h +̂ P2,h ̂ Q2,h 
+
+)] 
+
+.
+
+(7.4) For repeated solves on a fixed grid, the FFTs of the padded kernels ̂
+
+S11 ,h ,̂ S12 ,h ,̂ S21 ,h ,̂ S22 ,h ,̂ P1,h ,̂ P2,h , (7.5) are precomputed once and cached. Only the FFTs of the transient source arrays or boundary density arrays need to be computed during each solve. This precomputation is highly advan-tageous for moving-boundary or time-dependent problems, as the background grid and lattice Green’s functions remain static while only the geometry-dependent interpolation and boundary algebraic equation require updates. 
+
+# 8 Algorithm 
+
+Algorithm 1 collects the preceding construction into a single computational procedure. The kernel tables depend only on the background lattice and can be reused, whereas the boundary layers, interpolation matrices, rank completions, and preconditioner depend on the current geometry. 19 Algorithm 1 Unfitted BAE solver for the steady Stokes equations 
+
+Require: Physical boundary Γ, MAC-grid spacing h, viscosity μ, body force f , Dirichlet data g, and GMRES tolerance ε
+
+Ensure: Staggered velocity uh and cell-centered pressure ph 
+
+> 1:
+
+Classify the staggered velocity nodes into M u 
+
+> ±
+
+and M v
+
+> ±
+
+; construct the boundary layers γu 
+
+> ±
+
+and γv
+
+> ±
+
+. 
+
+> 2:
+
+Locate the grid-line intersections with Γ and assemble Φ±; if extra exterior nodes enter a cut stencil, eliminate them by local extrapolation to obtain ˜Φ±. 
+
+> 3:
+
+Tabulate the regularized Laplace LGF G and the biharmonic LGF H; form the Stokes velocity kernels 
+
+Sij,h and pressure kernels Pi,h . 
+
+> 4:
+
+Form the boundary operator A from the interpolation matrices and the interior/exterior traces of the Stokes layer potential.  
+
+> 5:
+
+Add one sampled-normal update for each independent hydrostatic mode, Ac = A + τ N ΓN T 
+
+> Γ
+
+. 
+
+> 6:
+
+Build the componentwise Calderón preconditioner Hreg from Vα, Jα, and Wα, including one constant-mode update per resolved object.  
+
+> 7:
+
+if f̸ ≡ 0 then  
+
+> 8:
+
+Form the discrete right-hand side Fh and evaluate the particular fields (ufh, p fh) by LGF convolution.  
+
+> 9:
+
+else  
+
+> 10:
+
+Set (ufh, p fh) = ( 0, 0) . 
+
+> 11:
+
+end if  
+
+> 12:
+
+Form the effective boundary data bh = gh − Φ+uf 
+
+> +
+
+− Φ−uf
+
+> −
+
+. 
+
+> 13:
+
+Solve Hreg Acq = Hreg bh by GMRES to tolerance ε; apply the LGF convolutions directly or by padded FFTs.  
+
+> 14:
+
+Reconstruct uh = ufh + Shq and ph = pfh + Phq. 
+
+> 15:
+
+Fix the additive pressure constant according to the chosen gauge. 
+
+# 9 Numerical experiments 
+
+We assess four features of the method: accuracy under grid refinement, performance of the Calderón preconditioner, preservation of the discrete divergence constraint, and robustness with respect to geometry and domain topology. The tests progress from smooth interior domains to narrow gaps, body forcing, corner eddies, and exterior domains with multiple obstacles. Unless stated otherwise, μ = 1 (without loss of generality for steady Stokes flow, which is linear in μ), and consecutive values of N approximately double the linear grid resolution in the computational domain [−1.15 , 1.15] × [−1.15 , 1.15] . Here N denotes the number of MAC cells in each coordinate direction of that box. We report componentwise maximum-norm errors over all fluid-grid nodes: 
+
+Eu = max  
+
+> j,k
+
+|uj,k − uexact  
+
+> j,k
+
+|, Ev = max  
+
+> j,k
+
+|vj,k − vexact  
+
+> j,k
+
+|, Ep = max  
+
+> j,k
+
+|pj,k − pexact  
+
+> j,k
+
+|. (9.1) Because pressure is defined only up to a constant, the numerical and exact pressures are aligned to the same gauge before Ep is evaluated. All GMRES solves use the Calderón preconditioner and a stopping tolerance of 10 −10 unless stated otherwise. Solver tables list the condition number of the rank-completed operator κ(Ac) and of the preconditioned operator κ(Hreg Ac),the GMRES iteration count, and the maximum discrete divergence ∥∇ h · u∥∞.Several convergence tests use the following force-doublet solution. Place a Stokeslet with force f at x0 and an opposing Stokeslet with force −f at −x0. With r+ = x − x0, r− = x + x0,and r± = |r±|, the resulting velocity and pressure are 
+
+ui(x) = 14πμ 
+
+[( 
+
+−δij ln r+ + r+ 
+
+> i
+
+r+
+
+> j
+
+(r+)2
+
+)
+
+−
+
+(
+
+−δij ln r− + r− 
+
+> i
+
+r−
+
+> j
+
+(r−)2
+
+)] 
+
+fj ,p(x) = 12π
+
+[ r+
+
+> j
+
+(r+)2 − r−
+
+> j
+
+(r−)2
+
+]
+
+fj .
+
+(9.2) 20 When both singularities lie outside the fluid region, these fields are smooth exact solutions in the computational domain and supply consistent Dirichlet data for a convergence study. In (9.2) ,repeated indices are summed. 
+
+9.1 Interior flows 
+
+9.1.1 Ellipse aspect-ratio study 
+
+We first consider the family of ellipses x2 + α2y2 = 1 with α ∈ { 1, 2, 4, 8}. The two Stokeslets are located at (2 , 2) and (−2, −2) , with forces (10 , 1) T and (−10 , −1) T , respectively. These sources remain outside every ellipse, and the exact doublet velocity supplies the boundary data. Varying 
+
+α tests whether the cut-cell closure remains accurate as the geometry becomes increasingly slender.      
+
+> (a) u(b) v(c) p
+
+Figure 4: Maximum-norm convergence for ellipses with different aspect ratios α. The dashed line has slope two.                       
+
+> (a) α= 1 (b) α= 2 (c) α= 4 (d) α= 8
+> (e) α= 1 (f) α= 2 (g) α= 4 (h) α= 8
+
+Figure 5: Velocity magnitude with streamlines (top) and pressure (bottom) for ellipse aspect ratios α = 1 , 2, 4, 8 at N = 1023 .Figure 4 shows nearly parallel second-order decay for both velocity components across all four aspect ratios. Pressure also approaches second-order convergence, although its absolute error grows as the ellipse becomes more slender. The fields in Figure 5 remain smooth up to the unfitted boundary and show no visible grid-aligned artifacts. Table 1 shows that preconditioning reduces the condition number by two to four orders of magnitude. Across all sixteen geometry–resolution combinations, GMRES requires between 59 21 N α = 1 α = 2 127 6.0599 × 10 4 / 1.2440 × 10 2 (71) 4.2317 × 10 4 / 9.8453 × 10 1 (72) 
+
+255 9.0113 × 10 4 / 7.7860 × 10 1 (59) 1.2041 × 10 5 / 1.3301 × 10 2 (87) 
+
+511 3.3379 × 10 5 / 1.4656 × 10 2 (90) 2.3935 × 10 5 / 1.2087 × 10 2 (88) 
+
+1023 1.1605 × 10 7 / 2.2004 × 10 3 (93) 8.8150 × 10 5 / 1.5970 × 10 2 (106) 
+
+N α = 4 α = 8 127 3.7070 × 10 4 / 1.0368 × 10 2 (74) 3.6958 × 10 4 / 2.1202 × 10 2 (79) 
+
+255 1.3311 × 10 5 / 1.4817 × 10 2 (87) 9.6353 × 10 4 / 1.7869 × 10 2 (91) 
+
+511 2.8017 × 10 5 / 1.5818 × 10 2 (101) 2.4961 × 10 5 / 1.7878 × 10 2 (103) 
+
+1023 5.1673 × 10 5 / 1.3307 × 10 2 (100) 1.0583 × 10 6 / 2.5829 × 10 2 (123) 
+
+Table 1: Condition numbers before and after preconditioning, reported as κ(Ac)/κ (Hreg Ac),with GMRES iteration counts in parentheses. and 123 iterations. The iteration count grows moderately with aspect ratio, but the preconditioner remains effective even for α = 8 .
+
+N ∇h · u (α = 1) ∇h · u (α = 2) ∇h · u (α = 4) ∇h · u (α = 8) 127 1.1792 × 10 −11 2.1749 × 10 −12 1.0691 × 10 −12 1.0618 × 10 −12 
+
+255 5.4900 × 10 −11 9.4904 × 10 −12 5.6735 × 10 −12 4.9016 × 10 −12 
+
+511 4.5181 × 10 −10 5.1704 × 10 −11 2.7782 × 10 −11 2.2669 × 10 −11 
+
+1023 2.5178 × 10 −9 3.8415 × 10 −10 2.1967 × 10 −10 1.3543 × 10 −10 
+
+Table 2: Maximum discrete divergence for ellipses of different aspect ratios and grid resolutions. The divergence values in Table 2 remain between 10 −12 and 2.5 × 10 −9. Their mild increase on finer grids is consistent with accumulated floating-point and iterative-solver error; it does not indicate a loss of the algebraic MAC divergence constraint. 
+
+9.1.2 Taylor–Couette flow in an annulus 
+
+We next consider steady Taylor–Couette flow between two concentric circles, whose circular boundaries cut the Cartesian grid arbitrarily. Unlike the preceding manufactured solution, this benchmark has a simple radial profile and therefore directly tests cut-cell interpolation and rotational symmetry on the Cartesian MAC grid. The inner and outer radii are Ri = 0 .3 and Ro = 1 . The inner cylinder rotates with angular velocity Ωi = 1 , while the outer cylinder is stationary, Ωo = 0 . In the Stokes limit the pressure is constant, and the exact azimuthal velocity is 
+
+uθ(r) = Ar + Br , A = ΩoR2 
+
+> o
+
+− ΩiR2
+
+> i
+
+R2 
+
+> o
+
+− R2
+
+> i
+
+, B = (Ω i − Ωo)R2 
+
+> i
+
+R2
+
+> o
+
+R2 
+
+> o
+
+− R2
+
+> i
+
+, (9.3) where r = √x2 + y2. The Cartesian components are 
+
+u(x, y ) = −uθ(r) yr ,v(x, y ) = uθ(r) xr .
+
+The annular boundary is represented by the level-set function ϕ(x, y ) = max( r − Ro, R i − r).The concentric streamlines in Figure 6(a) show that the Cartesian discretization does not introduce a visible preferred direction. The computed values in panel (b) collapse onto the radial analytic profile, while panel (c) localizes the remaining error near the inner unfitted boundaries. 22 (a) Velocity (b) Azimuthal velocity (c) Azimuthal velocity difference 
+
+Figure 6: Taylor–Couette solution at N = 1023 : velocity field, computed azimuthal profile, and pointwise azimuthal-velocity error. 
+
+N Eu Rate Ev Rate Ep Rate 
+
+127 5.2835 × 10 −5 – 5.2835 × 10 −5 – 1.2282 × 10 −3 –
+
+255 1.3496 × 10 −5 1.97 1.3496 × 10 −5 1.97 4.1894 × 10 −4 1.55 511 3.4338 × 10 −6 1.97 3.4338 × 10 −6 1.97 1.1813 × 10 −4 1.83 1023 8.7357 × 10 −7 1.97 8.7358 × 10 −7 1.97 3.4001 × 10 −5 1.80 
+
+Table 3: Maximum-norm errors and convergence rates for the Taylor–Couette benchmark. Table 3 gives rates of 1.97 for both velocity components at every refinement, demonstrating uniform second-order velocity convergence. The pressure rate rises from 1.55 to 1.80 as the grid is refined. Because the exact pressure is constant, this column tests pressure recovery and gauge alignment rather than a nontrivial pressure profile. 
+
+(a) 0.27s 16.1% 0.47s 7.5% 0.95s 3.6% 0.08s 4.7% 0.27s 4.3% 1.07s 4.1% 1.02s 59.6% 4.22s 67.0% 18.76s 71.6% 0.04s 2.2% 0.15s 2.4% 0.53s 2.0% 0.30s 17.4% 1.19s 18.8% 4.87s 18.6%     
+
+> 255 (1.71s) 511 (6.30s) 1023 (26.19s)
+> N(Total runtime)
+> 0246810 12 14 16 18 20
+> Runtime (s)
+> Mesh Setup LGF Operator and Preconditioner GMRES Solve Volume Build
+
+(b) 
+
+Figure 7: GMRES relative residuals and runtimes for the Taylor–Couette benchmark. Figure 7 presents the GMRES relative residuals; the uniformly exponential decay across meshes confirms the effectiveness of the preconditioner. The runtime breakdown shows that constructing the operator Ac and the preconditioner Hreg takes approximately 60–72% of total runtime. The total runtimes approximately quadruple upon mesh refinement from 1.71s to 6.30s and to 26.19s from N = 255 to N = 1023 , consistent with near-optimal O(N 2 log N ) scaling in the number of grid cells. We present residual histories and runtimes only for Taylor–Couette flow; the other cases are similar. As shown in Table 4, the condition number of Ac grows from 7.8 × 10 4 to 1.5 × 10 7. The Calderón preconditioner reduces these values substantially, although the finest-grid precondi-tioned condition number still rises to 3.3 × 10 3. GMRES requires 64–92 iterations, and the 23 N Iterations κ(Ac) κ(Hreg Ac) ∇h · u
+
+127 64 7.7788 × 10 4 2.0713 × 10 2 4.1455 × 10 −12 
+
+255 70 1.4381 × 10 5 2.0021 × 10 2 2.3489 × 10 −11 
+
+511 85 4.2946 × 10 5 2.2667 × 10 2 9.6010 × 10 −11 
+
+1023 92 1.4969 × 10 7 3.3102 × 10 3 5.6478 × 10 −10 
+
+Table 4: GMRES iterations, condition numbers before and after preconditioning, and maximum discrete divergence for Taylor–Couette flow. maximum discrete divergence remains below 5.7 × 10 −10 . Thus the preconditioner controls the solve sufficiently for the tested resolutions while the MAC incompressibility constraint is retained to solver accuracy. 
+
+9.1.3 Two-hole domain 
+
+To test a multiply connected interior domain, we remove two circles from the unit disk. Their centers are (−0.4, 0) and (0 .4, 0.2) , and their radii are 0.3 and 0.2, respectively. Boundary data on all three components are sampled from the force-doublet solution in (9.2). 
+
+N Eu Rate Ev Rate Ep Rate 
+
+127 4.1571 × 10 −6 – 2.4229 × 10 −6 – 1.0489 × 10 −4 –
+
+255 1.0589 × 10 −6 1.97 5.9806 × 10 −7 2.02 2.6692 × 10 −5 1.97 511 2.6720 × 10 −7 1.99 1.4972 × 10 −7 2.00 6.7469 × 10 −6 1.98 1023 6.7122 × 10 −8 1.99 3.7359 × 10 −8 2.00 1.7409 × 10 −6 1.95 
+
+Table 5: Maximum-norm errors and convergence rates for the force-doublet solution in the two-hole domain. 
+
+N Iterations κ(Ac) κ(Hreg Ac) ∇h · u
+
+127 122 8.8930 × 10 4 1.2676 × 10 3 1.1789 × 10 −11 
+
+255 113 1.6597 × 10 5 1.2691 × 10 3 5.4896 × 10 −11 
+
+511 153 1.2302 × 10 6 2.6562 × 10 3 4.5181 × 10 −10 
+
+1023 137 1.7261 × 10 7 5.5154 × 10 3 2.5178 × 10 −9
+
+Table 6: GMRES iterations, condition numbers before and after preconditioning, and maximum discrete divergence in the two-hole domain. Table 5 shows second-order convergence for both velocity components and for pressure despite the three boundary components. Preconditioning reduces the condition number by factors ranging from about 70 on the coarsest grid to more than 3 × 10 3 on the finest grid in Table 6. GMRES uses 113–153 iterations, and the maximum divergence stays below 2.6 × 10 −9.Figure 8 confirms that the solution remains smooth around both embedded boundaries. 
+
+9.1.4 Narrow-gap three-component domain 
+
+We next move the two circular holes close together. Their centers are (−0.3, 0) and (0 .2, 0) 
+
+and their radii are 0.29 and 0.19 , leaving a gap of only 0.02 between the boundaries. The outer boundary remains the unit circle, and the force-doublet solution again supplies the data. This case tests the sensitivity of the boundary closure and preconditioner to nearly touching components. 24 (a) Velocity (b) Pressure 
+
+Figure 8: Velocity magnitude with streamlines and pressure in the two-hole domain at N = 1023 .
+
+N Eu Rate Ev Rate Ep Rate 
+
+127 3.6647 × 10 −6 – 4.1043 × 10 −6 – 3.6862 × 10 −3 –
+
+255 9.2874 × 10 −7 1.98 9.1154 × 10 −7 2.17 6.2074 × 10 −4 2.57 511 2.3410 × 10 −7 1.99 2.2908 × 10 −7 1.99 1.5822 × 10 −4 1.97 1023 5.8768 × 10 −8 1.99 5.6987 × 10 −8 2.01 3.9855 × 10 −5 1.99 
+
+Table 7: Maximum-norm errors and convergence rates for the force-doublet solution in the narrow-gap domain. 
+
+N Iterations κ(Ac) κ(Hreg Ac) ∇h · u
+
+127 141 2.6046 × 10 5 8.3943 × 10 3 1.1784 × 10 −11 
+
+255 117 1.6950 × 10 5 2.9591 × 10 3 5.4894 × 10 −11 
+
+511 167 6.4832 × 10 5 3.5393 × 10 3 4.5183 × 10 −10 
+
+1023 146 1.6974 × 10 7 5.5851 × 10 3 2.5179 × 10 −9
+
+Table 8: GMRES iterations, condition numbers before and after preconditioning, and maximum discrete divergence in the narrow-gap domain. 25 The two velocity errors in Table 7 retain second-order convergence. The pressure error is comparatively large on the coarsest grid, for which the 0.02 gap is only weakly resolved, but the rate settles to approximately two on the last two refinements. The preconditioned condition numbers remain between 3.0 × 10 3 and 8.4 × 10 3, and GMRES takes 117–167 iterations in Table 8. Relative to the separated-hole case, the narrow gap is therefore more demanding, but it does not change the asymptotic accuracy. The divergence remains below 2.6 × 10 −9. 
+
+> (a) Velocity (b) Pressure
+
+Figure 9: Velocity magnitude with streamlines and pressure in the narrow-gap domain at 
+
+N = 1023 .Figure 9 plots the approximated solution for the velocity magnitude with streamlines and pressure in a narrow-gap setup. 
+
+9.1.5 Moffatt eddies in a 30 ◦ wedge 
+
+This example tests whether the method can resolve localized flow structures over several spatial scales. A remote disturbance in a sufficiently sharp Stokes corner generates a sequence of counter-rotating Moffatt eddies whose sizes and intensities decrease geometrically toward the apex [ 30 ]. For a wedge of total opening angle 30 ◦ (half-angle 15 ◦), the predicted asymptotic ratio of consecutive eddy-center distances is rn/r n+1 ≈ 2.10 .The wedge apex is at y = −0.8, and a tangentially moving curved boundary drives the flow with unit tangent velocity. On the N = 1023 MAC grid, the preconditioned system has condition number 1.82 × 10 3 and GMRES converges in 82 iterations. The maximum discrete divergence is 
+
+1.45 × 10 −7.We locate the first four vortex centers from zero crossings of the horizontal velocity, u = 0 ,along the symmetry line x = 0 in Figure 10. Their distances from the apex are r1 = 0 .899657 ,
+
+r2 = 0 .427323 , r3 = 0 .202243 , and r4 = 0 .096529 , which give r1/r 2 = 2 .105 , r2/r 3 = 2 .113 , and 
+
+r3/r 4 = 2 .095 . A visualization is given in Figure 10. Thus the experiment resolves three successive scale reductions accurately; a dedicated refinement study would be needed to attribute the remaining discrepancy to a specific source. 26 Figure 10: Moffatt eddies in a 30 ◦ wedge at N = 1023 ; color denotes log 10 |u|.
+
+9.1.6 Interior flow with body forcing 
+
+To verify the volume-potential construction of Section 6, we return to the unit disk ( α = 1 in the ellipse study) and prescribe the smooth exact fields 
+
+u = sin( πx ) cos( πy ), (9.4a) 
+
+v = − cos( πx ) sin( πy ), (9.4b) 
+
+p = cos(2 πx ) sin( πy ). (9.4c) Substitution into the Stokes equations gives the body force 
+
+f u = 2 μπ 2 sin( πx ) cos( πy ) − 2π sin(2 πx ) sin( πy ), (9.5a) 
+
+f v = −2μπ 2 cos( πx ) sin( πy ) + π cos(2 πx ) cos( πy ). (9.5b) The exact velocity is divergence-free, so this test isolates the accuracy of the particular volume potential and its boundary correction. 
+
+N Eu Rate Ev Rate Ep Rate 
+
+127 1.1108 × 10 −4 – 1.2326 × 10 −4 – 2.3026 × 10 −3 –
+
+255 2.8287 × 10 −5 1.97 3.1289 × 10 −5 1.98 6.0868 × 10 −4 1.92 511 7.1008 × 10 −6 1.99 7.8491 × 10 −6 2.00 1.5283 × 10 −4 1.99 1023 1.7822 × 10 −6 1.99 1.9687 × 10 −6 2.00 3.8318 × 10 −5 2.00 
+
+Table 9: Maximum-norm errors and convergence rates for the body-forced trigonometric solution. 
+
+N Iterations κ(Ac) κ(Hreg Ac) ∇h · u
+
+127 68 6.0599 × 10 4 1.2440 × 10 2 2.8241 × 10 −11 
+
+255 59 9.0113 × 10 4 7.7860 × 10 1 1.4377 × 10 −10 
+
+511 84 3.3379 × 10 5 1.4656 × 10 2 8.2074 × 10 −10 
+
+1023 94 1.1605 × 10 7 2.2004 × 10 3 9.3361 × 10 −9
+
+Table 10: GMRES iterations, condition numbers before and after preconditioning, and maximum discrete divergence for the body-forced solution. All three fields converge at second order in Table 9. Because the boundary operator is unchanged by the volume forcing, the condition numbers in Table 10 match those of the same 27 unit-disk geometry in the homogeneous test. GMRES takes 59–94 iterations, and the maximum divergence remains below 9.4 × 10 −9. These results confirm that adding a volume potential preserves both the boundary convergence rate and the discrete incompressibility property. 
+
+9.2 Exterior flows 
+
+In this subsection, we consider two cases of exterior flows. The fluid occupies the unbounded complement of the prescribed obstacles. Dirichlet data are imposed only on the obstacle boundaries; the free-space LGF representation requires no artificial boundary conditions on any outer truncation of the computational box [−1.15 , 1.15] 2, which is used solely for evaluation and error measurement. Because the Stokes LGF grows logarithmically, a force-balanced density (Lemma 3.1) is essential for a bounded velocity at infinity; the hydrostatic rank completion of Section 4 places the discrete density in this compatible class. 
+
+9.2.1 Single-obstacle manufactured solution 
+
+A circular obstacle of radius 0.3 is placed at the origin. The two opposing Stokeslets are located at (0 .05 , 0.05) and (−0.05 , −0.05) , inside the excluded circle, with forces (10 , 1) T and (−10 , −1) T .The force-doublet field is therefore smooth throughout the fluid region and provides exact Dirichlet data on the obstacle.                                                       
+
+> NEuRate EvRate EpRate
+> 127 1.5550 ×10 −4–1.0101 ×10 −4–3.5642 ×10 −3–
+> 255 4.0325 ×10 −51.95 2.5936 ×10 −51.96 1.3612 ×10 −31.39 511 1.0249 ×10 −51.98 6.5884 ×10 −61.98 2.9871 ×10 −42.19 1023 2.5797 ×10 −61.99 1.6695 ×10 −61.98 9.4356 ×10 −51.66
+
+Table 11: Maximum-norm errors and convergence rates for the single-obstacle exterior solution.                                               
+
+> NIterations κ(Ac)κ(Hreg Ac)∇h·u
+> 127 42 6.5248 ×10 35.0344 ×10 11.9231 ×10 −11
+> 255 62 2.7607 ×10 41.1000 ×10 21.1575 ×10 −10
+> 511 54 4.3124 ×10 46.3385 ×10 16.5885 ×10 −10
+> 1023 73 1.5279 ×10 51.1768 ×10 23.2557 ×10 −9
+
+Table 12: GMRES iterations, condition numbers before and after preconditioning, and maximum discrete divergence for the single-obstacle exterior solution. The two velocity components converge at rates between 1.95 and 1.99 (Table 11). The pressure rate varies more on individual refinements, but the total reduction from N = 127 to 
+
+N = 1023 corresponds to an average order of approximately 1.75 . In Table 12, preconditioning keeps the condition number between 50 and 118 and GMRES converges in 42–73 iterations, while the maximum divergence stays below 3.3 × 10 −9.The approximated velocity magnitude with streamlines and pressure on mesh N = 1023 are presented in Figure 11. 28 (a) Velocity (b) Pressure 
+
+Figure 11: Velocity magnitude with streamlines and pressure for the single-obstacle exterior flow at N = 1023 .
+
+9.2.2 Three-obstacle manufactured solution 
+
+The final manufactured example contains three elliptical obstacles. Their boundaries are the zero level sets of 
+
+ϕ1(x, y ) = 1 − (x + 0 .3) 2
+
+0.15 2 − (y − 0.2) 2
+
+0.25 2 , (9.6a) 
+
+ϕ2(x, y ) = 1 − (x − 0.2) 2
+
+0.25 2 − (y + 0 .2) 2
+
+0.12 , (9.6b) 
+
+ϕ3(x, y ) = 1 − (x − 0.1) 2
+
+0.24 2 − (y − 0.35) 2
+
+0.12 2 . (9.6c) The obstacle centers are xc1 = ( −0.3, 0.2) , xc2 = (0 .2, −0.2) , and xc3 = (0 .1, 0.35) .We construct a smooth exterior solution by placing Stokes singularities at these centers, which lie outside the fluid domain, and set μ = 1 .For a source at x0, let r = x − x0 and r = |r|. A two-dimensional rotlet of torque L generates 
+
+urot (x; x0, L ) = L
+
+4πμr 2
+
+> (
+
+−ry
+
+rx
+
+> )
+
+, prot = 0 . (9.7) A symmetric, torque-free stresslet with force f and dipole direction d generates 
+
+ustr (x; x0, f , d) = 14πμ 
+
+> (
+
+− (f · d)
+
+r2 r + 2( r · f )( r · d)
+
+r4 r
+
+> )
+
+, (9.8a) 
+
+pstr (x; x0, f , d) = 12π
+
+> (
+
+− f · d
+
+r2 + 2( r · f )( r · d)
+
+r4
+
+> )
+
+. (9.8b) The exact solution is the sum of two rotlets and one stresslet: 
+
+u(x) = urot (x; xc1, L 1) + urot (x; xc2, L 2) + ustr (x; xc3, f , d), (9.9a) 
+
+p(x) = pstr (x; xc3, f , d). (9.9b) The rotlets at xc1 and xc2 have torques L1 = L2 = 1 . The stresslet at xc3 uses f = (1 , 0.3) T and 
+
+d = (0 .4, 1) T . This configuration tests the rank completion for several disconnected boundaries as well as interactions among distinct tensorial singularities. Table 13 shows convergence rates between 1.89 and 1.99 for all fields, with the rates moving closer to two as the grid is refined. More importantly for the multiple-object completion, the 29 (a) Velocity (b) Pressure 
+
+Figure 12: Velocity magnitude with streamlines and pressure for the three-obstacle exterior flow at N = 2047 .
+
+N Eu Rate Ev Rate Ep Rate 
+
+255 2.9714 × 10 −4 – 3.8773 × 10 −4 – 1.7405 × 10 −2 –
+
+511 8.0391 × 10 −5 1.89 9.9531 × 10 −5 1.96 4.6968 × 10 −3 1.89 1023 2.1036 × 10 −5 1.93 2.5571 × 10 −5 1.96 1.2587 × 10 −3 1.90 2047 5.3415 × 10 −6 1.98 6.4262 × 10 −6 1.99 3.3151 × 10 −4 1.92 
+
+Table 13: Maximum-norm errors and convergence rates for the three-obstacle manufactured solution. 
+
+N Iterations κ(Ac) κ(Hreg Ac) ∇h · u
+
+255 107 6.1632 × 10 4 6.6705 × 10 2 2.1988 × 10 −10 
+
+511 118 1.5156 × 10 5 5.7229 × 10 2 1.5983 × 10 −9
+
+1023 132 5.4677 × 10 5 6.0863 × 10 2 6.0880 × 10 −9
+
+2047 148 1.1876 × 10 6 6.6029 × 10 2 3.2678 × 10 −8
+
+Table 14: GMRES iterations, condition numbers before and after preconditioning, and maximum discrete divergence for the three-obstacle solution. 30 preconditioned condition number in Table 14 remains between 5.7 × 10 2 and 6.7 × 10 2 over three refinements. GMRES iterations increase gradually from 107 to 148, and the maximum divergence is below 3.3 × 10 −8. The fields in Figure 12 remain smooth in the inter-obstacle regions and show no visible grid-aligned artifacts near any boundary component. 
+
+9.3 Overall observations 
+
+Across the manufactured tests, the velocity converges uniformly at approximately second order. Pressure is also close to second order in the ellipse, multiply connected, body-forced, and three-obstacle tests; the Taylor–Couette and single-obstacle exterior cases show more variable pressure rates but monotone error reduction. The maximum discrete divergence ranges from 10 −12 
+
+to 10 −7, confirming that geometry interpolation does not destroy the MAC incompressibility constraint. Finally, the Calderón preconditioner reduces the condition number by orders of magnitude in every test. Its strongest nearly mesh-independent behavior occurs in the exterior three-obstacle example, while the narrow-gap and finest-grid interior cases remain the most demanding. 
+
+# 10 Conclusion 
+
+We have developed an unfitted boundary algebraic equation method for the two-dimensional steady incompressible Stokes equations on a staggered MAC grid. Regularized Laplace and biharmonic lattice Green’s functions generate the discrete Stokes velocity and pressure kernels, while local cut-point interpolation imposes Dirichlet data without requiring a boundary-fitted mesh. Sampled-normal rank updates remove the hydrostatic null modes, including the indepen-dent modes associated with multiple obstacles. Nonzero body forces are incorporated through a particular volume potential, leaving the boundary operator unchanged, while padded FFTs accelerate the evaluation of both volume and boundary convolutions. Numerical experiments verify both the accuracy and the structural properties of the method. Velocity converges at approximately second order across the manufactured tests, with pressure converging at a similar rate in most configurations. The maximum discrete divergence ranges from 10 −12 to 10 −7, indicating that the unfitted boundary closure preserves the MAC-grid incompressibility constraint to the accuracy of the iterative solve and floating-point evaluation. By counteracting the mesh-dependent spectral growth of the boundary system, the discrete Calderón construction reduces the condition number by orders of magnitude and substantially improves solver robustness for multiply connected and multiple-obstacle geometries, with the strongest conditioning gains observed for exterior flows. The method also resolves complex multiscale flow structures: the Moffatt-eddy calculation, for example, recovers the first three asymptotic scale ratios to within 0.7% .The principal mathematical attraction of the framework is its separation of tasks: the LGFs on the background grid enforce the discrete Stokes equations and incompressibility, while geometry dependence is confined to thin boundary layers and local interpolation. Its distinctive contribution is this combination of a boundary-only density solve, sharp cut-point geometry enforcement, MAC-grid incompressibility, hydrostatic rank completion, and discrete Calderón preconditioning. In this sense, the method is a discretize-then-represent boundary-integral analogue built from the MAC operator itself, rather than a quadrature discretization of the continuous Stokes BIE. It makes complex geometries easier to accommodate without a fitted mesh or singular surface quadrature; the boundary operator can be reused when only the body force changes, and the lattice kernels can be reused when the geometry changes on a fixed grid. While the current boundary algebraic framework effectively resolves complex geometries, several natural directions remain for further development. Close gaps and corners may benefit from adaptive or locally refined lattices, while larger boundary systems will require stronger 31 matrix-free or multilevel acceleration. To further enhance solver robustness and expand the algebraic representation, developing a discrete double-layer formulation for the Stokes equations is a logical next step. Furthermore, this discrete potential framework can be naturally generalized to solid mechanics, specifically to boundary algebraic equations for linear elasticity, building on LGF-based discrete boundary-element ideas already explored in atomistic/continuum coupling [ 21 ]. Finally, the volume-potential and homogeneous-correction decomposition provides a natural organizing principle for extensions to three-dimensional, time-dependent, and incompressible Navier–Stokes problems. 
+
+# Acknowledgement 
+
+This work was partially supported by the National Natural Science Foundation of China (Grant Nos. 12471342 to W. Ying and 12401546 to Q. Xia). Q. Xia additionally acknowledges funding from Wenzhou-Kean University (Grant Nos. ISRG2024003 and KY20250604000452). Q. Xia also thanks Anna-Karin Tornberg for many inspiring and helpful discussions on boundary integral method for Stokes flow. 
+
+# References 
+
+[1] Charles S Peskin. The immersed boundary method. Acta Numerica , 11:479–517, 2002. doi: 10.1017/S0962492902000077. [2] Randall J LeVeque and Zhilin Li. The immersed interface method for elliptic equations with discontinuous coefficients and singular sources. SIAM Journal on Numerical Analysis ,31(4):1019–1044, 1994. doi: 10.1137/0731054. [3] Zhijun Tan, KM Lim, and BC Khoo. A fast immersed interface method for solving Stokes flows on irregular domains. Computers & Fluids , 38(10):1973–1983, 2009. doi: 10.1016/j.compfluid.2009.06.004. [4] Roland Glowinski, Tsorng-Whay Pan, and Jacques Periaux. A fictitious domain method for Dirichlet problem and applications. Computer Methods in Applied Mechanics and Engineering , 111(3-4):283–303, 1994. doi: 10.1016/0045-7825(94)90135-X. [5] Erik Burman and Peter Hansbo. Fictitious domain methods using cut elements: III. a stabilized Nitsche method for Stokes’ problem. ESAIM: Mathematical Modelling and Numerical Analysis , 48(3):859–874, 2014. doi: 10.1051/m2an/2013123. [6] Peter Hansbo, Mats G Larson, and Sara Zahedi. A cut finite element method for a Stokes interface problem. Applied Numerical Mathematics , 85:90–114, 2014. doi: 10.1016/j.apnum. 2014.06.009. [7] Constantine Pozrikidis. Boundary integral and singularity methods for linearized viscous flow . Cambridge University Press, 1992. doi: 10.1017/CBO9780511624124. [8] Anna-Karin Tornberg and Leslie Greengard. A fast multipole method for the three-dimensional Stokes equations. Journal of Computational Physics , 227(3):1613–1619, 2008. doi: 10.1016/j.jcp.2007.06.029. [9] Wenjun Ying and Craig S Henriquez. A kernel-free boundary integral method for elliptic boundary value problems. Journal of Computational Physics , 227(2):1046–1074, 2007. doi: 10.1016/j.jcp.2007.08.021. 32 [10] Wenjun Ying and Wei-Cheng Wang. A kernel-free boundary integral method for implicitly defined surfaces. Journal of Computational Physics , 252:606–624, 2013. doi: 10.1016/j.jcp. 2013.06.019. [11] Han Zhou and Wenjun Ying. A correction function-based kernel-free boundary integral method for elliptic PDEs with implicitly defined interfaces. Journal of Computational Physics , 496:112545, 2024. doi: 10.1016/j.jcp.2023.112545. [12] Han Zhou and Wenjun Ying. A correction function-based KFBI method for Brinkman interface problems. 2026. doi: 10.48550/arXiv.2604.15509. [13] Richard J Duffin. Discrete potential theory. Duke Math. J. , 20(1):233–251, 1953. doi: 10.1215/S0012-7094-53-02023-7. [14] Per-Gunnar Martinsson and Gregory J Rodin. Boundary algebraic equations for lattice problems. Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences , 465(2108):2489–2503, 2009. doi: 10.1098/rspa.2008.0473. [15] Viktor S. Ryaben’kii. Method of Difference Potentials and its applications , volume 30. Springer Science & Business Media, 2012. doi: 10.1007/978-3-642-56344-7. [16] Qing Xia. Local-basis difference potentials method for elliptic PDEs in complex geometry. 
+
+Journal of Computational Physics , 488:112246, 2023. doi: 10.1016/j.jcp.2023.112246. [17] Qing Xia. A geometrically robust unfitted boundary algebraic equation method based on discrete potentials and local basis functions. Journal of Computational Physics , 561:114957, 2026. doi: 10.1016/j.jcp.2026.114957. [18] Per-Gunnar Martinsson and Gregory J Rodin. Asymptotic expansions of lattice Green’s functions. Proceedings of the Royal Society of London. Series A: Mathematical, Physical and Engineering Sciences , 458(2027):2609–2622, 2002. doi: 10.1098/rspa.2002.0985. [19] Adrianna Gillman and Per-Gunnar Martinsson. A fast solver for Poisson problems on infinite regular lattices. Journal of Computational and Applied Mathematics , 258:42–56, 2014. doi: 10.1016/j.cam.2013.09.003. [20] Benedikt Dorschner, Ke Yu, Gianmarco Mengaldo, and Tim Colonius. A fast multi-resolution lattice Green’s function method for elliptic difference equations. Journal of Computational Physics , 407:109270, 2020. doi: 10.1016/j.jcp.2020.109270. [21] M. Hodapp, G. Anciaux, and W. A. Curtin. Lattice Green function methods for atom-istic/continuum coupling: Theory and data-sparse implementation. Computer Methods in Applied Mechanics and Engineering , 348:1039–1075, 2019. doi: 10.1016/j.cma.2019.02.006. [22] Vikram Bhamidipati, Loukas F. Kallivokas, and Gregory J. Rodin. The inverse problem for conducting defective lattices. Computer Methods in Applied Mechanics and Engineering ,393:114788, 2022. doi: 10.1016/j.cma.2022.114788. [23] Sebastian Liska and Tim Colonius. A fast lattice Green’s function method for solving viscous incompressible flows on unbounded domains. Journal of Computational Physics ,316:360–384, 2016. doi: 10.1016/j.jcp.2016.04.023. [24] Sebastian Liska and Tim Colonius. A fast immersed boundary method for external incompressible viscous flows using lattice Green’s functions. Journal of Computational Physics , 331:257–279, 2017. doi: 10.1016/j.jcp.2016.11.034. 33 [25] Jeremy A. K. Horwitz, Gianluca Iaccarino, John K. Eaton, and Ali Mani. The discrete Green’s function paradigm for two-way coupled Euler–Lagrange simulation. Journal of Fluid Mechanics , 931:A3, 2022. doi: 10.1017/jfm.2021.928. [26] Jonathan M. Borwein, M. L. Glasser, R. C. McPhedran, J. G. Wan, and I. J. Zucker. Lattice sums then and now . Number 150 in Encyclopedia of Mathematics and its Applications. Cambridge University Press, 2013. doi: 10.1017/CBO9781139626804. [27] R. J. Duffin and E. P. Shelly. Difference equations of polyharmonic type. Duke Mathematical Journal , 25(2):209–238, June 1958. doi: 10.1215/S0012-7094-58-02521-3. [28] Jeffrey W Banks and Thomas Hagstrom. On Galerkin difference methods. Journal of Computational Physics , 313:310–327, 2016. doi: 10.1016/j.jcp.2016.02.042. [29] Vikram Bhamidipati. Forward and Inverse Modeling of Conducting Lattices Using Lattice Green’s Functions . Ph.d. dissertation, The University of Texas at Austin, Austin, TX, December 2021. [30] H Keith Moffatt. Viscous and resistive eddies near a sharp corner. Journal of Fluid Mechanics , 18(1):1–18, 1964. doi: 10.1017/S0022112064000015. 34

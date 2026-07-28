@@ -1,0 +1,3794 @@
+Title: Long-time asymptotic behavior for the defocusing Hirota equation on a finite-genus algebro-geometric background
+
+URL Source: https://arxiv.org/pdf/2607.19119v1
+
+Published Time: Wed, 22 Jul 2026 01:04:09 GMT
+
+Number of Pages: 40
+
+Markdown Content:
+# Long-time asymptotic behavior for the defocusing Hirota equation on a finite-genus algebro-geometric background 
+
+Taohua Luo 1,2 , Zhenya Yan 3,2,1, ∗, Guoqiang Zhang 1
+
+> 1State Key Laboratory of Mathematical Sciences, Academy of Mathematics and Systems Science, Chinese Academy of Sciences, Beijing 100190, China
+> 2School of Mathematical Sciences, University of Chinese Academy of Sciences, Beijing 100049, China
+> 3School of Mathematics and Information Science, Zhongyuan University of Technology, Zhengzhou 450007, China
+
+Abstract 
+
+In this paper, we investigate the long-time asymptotics for the solution of the Cauchy problem of the defocusing Hirota equation on a finite-genus algebro-geometric background in the whole (x, t)-half-plane, whose method is mainly based on a Riemann-Hilbert (RH) formulation and Deift-Zhou nonlinear steepest descent method. The critical values of the phase function in the associated RH problem divide the space-time plane into four regions, in which the leading-order term is given by a phase-shifted finite-genus algebro-geometric solution. The subleading behavior depends on the region: the correction is of order t−1/3 and is governed by a Painlevé-XXXIV model RH problem in the transition regions; the leading radiation is of order t−1/2 in the Zakharov–Manakov region; and the error is O(t−1) in the fast-decay region. These results can also be extended to other higher-order members of the AKNS hierarchy. 
+
+Keywords Defocusing Hirota equation; finite-genus algebro-geometric background; Riemann-Hilbert problem; long-time asymptotics; Painlevé-XXXIV equation 
+
+Mathematics Subject Classification 35Q51 · 35Q15 · 37K15 · 35P20 · 35C20 · 35G25 
+
+# Contents 
+
+1 Introduction 2
+
+1.1 Main results . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+
+2 Preliminaries 10 
+
+2.1 Algebro-geometric solution via the RH problem . . . . . . . . . . . . . . . . . . . . . . . 10 
+
+2.2 Jost functions under the finite-genus algebro-geometric background . . . . . . . . . . . . 12 
+
+2.3 Two types of Riemann-Hilbert problems and properties . . . . . . . . . . . . . . . . . . . 15 
+
+2.3.1 Two types of Riemann-Hilbert problems . . . . . . . . . . . . . . . . . . . . . . . 15 
+
+2.3.2 Factorizations of the jump matrices . . . . . . . . . . . . . . . . . . . . . . . . . . 16 
+
+2.3.3 Signature table for Im θ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17 
+
+> ∗Email address : zyyan@mmrc.iss.ac.cn (Corresponding author)
+
+1arXiv:2607.19119v1 [nlin.SI] 21 Jul 2026 3 Long-time asymptotics in the transition region I 18 
+
+3.1 Global parametrix . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21 
+
+3.2 Local parametrix . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22 
+
+3.3 Construction of a model Riemann–Hilbert problem . . . . . . . . . . . . . . . . . . . . . 23 
+
+3.4 The small-norm Riemann–Hilbert problem . . . . . . . . . . . . . . . . . . . . . . . . . . 25 
+
+4 Long-time asymptotics in the transition region II 26 
+
+5 Long-time asymptotics in the Zakharov-Manakov region III and fast-decay region IV 31 
+
+6 Proof of Theorem 1.4 35 
+
+References 37 
+
+# 1 Introduction 
+
+In this paper, we consider the long-time asymptotics of the solution for Cauchy problem of the defocusing Hirota equation [ 39 ]
+
+iq t + α(qxx − 2|q|2q) + iβ(qxxx − 6|q|2qx ) = 0, (x, t) ∈ R × R+, (1.1) under a finite-genus algebro-geometric background: 
+
+q(x, 0 ) = q0 (x) ∼ q(AG )(x, t)∣∣t=0, x → ± ∞, (1.2) where q = q(x, t) is an envelope field, α, β ∈ R are real parameters, q(AG )(x, t) = q(AG )(x, t; E,̂ E, φ)
+
+denotes a finite-genus algebro-geometric solution of ( 1.1 ), which can be found by using the Baker-Akhiezer function on the hyperelliptic Riemann surface of genus n defined by [ 5, 30 , 34 , 45 ]. 
+
+w2(z) = 
+
+> n
+
+# ∏
+
+> j=0
+
+(z − Ej )( z −̂ Ej), E0 <̂ E0 < E1 <̂ E1 < · · · < En <̂ En, (1.3) where E = ( E0, . . . , En),̂ E = ( ̂ E0, . . . , ̂ En), φ = ( φ1, . . . , φn) are real-valued vectors with n ∈ N0.For completeness of the Cauchy problem, the perturbation is assumed to be integrable relative to the algebro-geometric background, 
+
+> ∫
+> R
+
+|q(x, t) − q(AG )(x, t)| dx < ∞, t ≥ 0. (1.4) In the asymptotic analysis below, we impose a compact perturbation assumption on the initial data, namely q0(x) = q(AG )(x, 0 ) for |x| sufficiently large. This assumption ensures good analytic proper-ties of the scattering data and allows us to focus on the essential Riemann–Hilbert steepest descent mechanism. The Hirota equation ( 1.1 ), originally introduced by Hirota in the study of exact envelope-soliton solutions [ 39 ], is one of the most important higher-order integrable extensions of the focusing ( σ = 1) and defocusing ( σ = −1) nonlinear Schrödinger (NLS) equation [ 62 ]
+
+iq t + qxx + 2σ|q|2q = 0, σ = ±1, (1.5) 2and extension of the focusing ( σ = 1) and defocusing ( σ = −1) complex modified Korteweg-de Vries (cmKdV) equations [ 57 ] (Notice that Eq. ( 1.6 ) reduces to the mKdV equation as q = ¯q, where the bar denotes the complex conjugate): 
+
+qt + qxxx + 6σ|q|2qx = 0, σ = ±1. (1.6) Such higher-order models naturally occur in nonlinear optics and dispersive wave theory, where the standard NLS approximation is often refined by higher-order dispersion and nonlinear self-steepening effects [ 37 ]. The Hirota equation is also connected, via the Hasimoto transformation and its higher-order corrections, with vortex filament motion and axial-flow effects in incompressible flu-ids [ 32 , 38 ]. When β = 0, equation ( 1.1 ) reduces to the defocusing NLS equation ( 1.5 ) with σ = −1; when α = 0, it reduces to the defocusing cmKdV equation ( 1.6 ) with σ = −1. This mixture of the NLS and cmKdV flows in the AKNS hierarchy [ 2] makes the Hirota equation a natural model for studying higher-order effects within the inverse-scattering framework [ 28 ]. Although the parameters α and β in (1.1 ) are allowed to be arbitrary real numbers, it is sufficient for the purpose of the present asymptotic analysis to consider the case α ≥ 0, β > 0. Indeed, the spatial reflection q(x, t) 7 → q(−x, t) changes 
+
+(α, β) into (α, −β), while the complex conjugation q(x, t) 7 → q(x, t) changes (α, β) into (−α, β). Hence every case with β 6 = 0 can be reduced to α ≥ 0, β > 0. The case β = 0 corresponds to the defocusing NLS equation and has already been treated in the finite-genus algebro-geometric setting [ 29 ]. There-fore, throughout the rest of this paper we focus on the genuinely Hirota case α ≥ 0, β > 0. The NLS, cmKdV, and their higher-order extensions [ 1, 53 ] occupy a central position in the theory of nonlinear wave propagation [ 37 ], inverse scattering [ 3, 33 ], and Riemann–Hilbert problems [ 20 , 24 ]. The inverse scattering transform (IST) for AKNS-type systems [ 2] was developed in the classical works [ 33 , 63 ], and its rigorous formulation with possible spectral singularities was further studied in [ 65 ]. Within this framework, the Riemann–Hilbert (RH) formulation of inverse scattering [ 4] has become one of the most powerful tools for both exact solution theory [ 5] and long-time asymptotic analysis [ 61 ]. The long-time asymptotic behaviors of solutions to integrable nonlinear wave equa-tions is a fundamental subject in nonlinear dispersive PDEs [ 61 ]. For rapidly decaying initial data, the IST converts the Cauchy problem into a matrix RH problem whose jump matrix contains oscil-latory exponential factors depending on a large parameter t. The nonlinear steepest descent method of Deift and Zhou [ 24 ] provides a systematic way of deforming the associated contour and reducing the original oscillatory RH problem to explicitly solvable model problems. Since its introduction, this method and its refinements have been successfully applied to the mKdV equation [ 24 ], the NLS equa-tion [ 25 ], the KdV equation [ 22 , 23 ] and many other integrable models [ 45 , 52 ]. A crucial ingredient in many nonlinear steepest descent analyses is the so-called g-function mechanism, which is designed to normalize the oscillatory phase and deform the original RH problem into a model problem that is explicitly solvable. This mechanism also provides a systematic way of constructing local parametrices near critical points and deriving rigorous error estimates [ 2, 45 , 52 , 63 , 65 ]. Many types of integrable structures of the Hirota equation have been investigated from several complementary viewpoints. For example, the bilinear method [ 39 , 40 ] yields exact multisoliton so-lutions [ 39 ], while inverse scattering and matrix triplet methods produce explicit reflectionless so-lutions, including solitons, breathers and multipole soliton solutions [ 15 , 26 , 58 , 64 ]. The Darboux transform and its generalization were used to find rogue waves of the Hirota equation [ 35 , 56 ]. Non-3linear stability of multi-solitons was studied for the Hirota equation [ 59 ]. For the Hirota equation with decaying initial data, Huang et al derived a RH representation and applied the Deift–Zhou non-linear steepest descent method to obtain its long-time asymptotic formulae [ 41 ]. Related long-time asymptotic problems on the half-line were also considered in [ 36 ]. Chen et al [16 ] and Pemg et al [54 ]studied the long-time asymptotics for the focusing and defocusing Hirota equations with non-zero constant boundary conditions. More recently, Xun et al studied the transition region for the defocus-ing Hirota equation with Schwartz initial data, and showed that the leading asymptotics in the critical region can be expressed in terms of a Painlevé II transcendent [ 60 ]. In parallel, the algebro-geometric integration of the Hirota equation and the corresponding Baker-Akhiezer function have also been studied by means of RH method [ 14 ]. These works demonstrate that the Hirota equation admits a rich asymptotic structures, while also showing that the third-order flow introduces phase functions and critical-point configurations that are more complicated than those of the standard NLS equation. Most of the above-mentioned asymptotic results for the Hirota equation concern either zero bound-ary conditions, rapidly decaying perturbations of trivial backgrounds, or non-zero constant back-grounds. However, many physically and mathematically relevant nonlinear wave patterns are not perturbations of zero, but rather perturbations of periodic, quasi-periodic or finite-gap backgrounds [27 , 44 ]. From the point of view of finite-gap integration, algebro-geometric solutions provide the natural class of nonlinear quasi-periodic backgrounds for integrable systems. Such solutions are con-structed on hyperelliptic Riemann surfaces by means of Abelian differentials, Abel maps, Riemann theta functions and Baker-Akhiezer functions; see, for example, [ 5, 34 ]. In the Riemann–Hilbert ap-proach, the finite-gap background is encoded by a model problem with constant jumps along spectral bands [ 9, 21 , 45 ]. For the NLS equation, the planar unimodular Baker–Akhiezer function and its RH characterization were developed in [ 48 ]. The study of perturbations of nonzero or finite-gap backgrounds has attracted considerable at-tention in recent years. Even in the zero-boundary setting, the (x, t)-plane may contain narrow tran-sition regions where the asymptotic behavior differs from that in the standard oscillatory or decay sectors; see, for instance, the collisionless-shock and transition-region analyses for KdV and related models [ 22 ,23 ]. In the presence of nonzero or finite-gap backgrounds, these transition phenomena be-come more intricate because the associated RH problems involve spectral bands, branch points and nontrivial background parametrices. For the focusing NLS equation with decaying data, nonzero, step-like or oscillatory backgrounds, several long-time asymptotic scenarios have been analyzed by RH methods [ 6, 8, 10 , 12 ]. The step-like oscillating case also exhibits rich genus-dependent structures, including a genus-three sector studied in [ 11 ]. Beyond the NLS setting, finite-gap background per-turbations have been investigated for the periodic Toda lattice and the KdV equation in [ 46 , 51 ]. For the defocusing NLS equation with a finite-genus algebro-geometric background, Fan et al recently obtained long-time asymptotics in four distinct space-time regions and showed that Painlevé XXXIV transcendents arise naturally in the transition regions [ 29 ]. We also refer to [ 43 ] for the appearance of the Painlevé XXXIV transcendent in critical edge asymptotics of random matrix ensembles. These works reveal that finite-gap backgrounds lead to a delicate interaction between the topology of the spectral curve, the distribution of stationary phase points, theta-function parametrices and Painlevé-type local models. The Cauchy problem of the defocusing Hirota equation ( 1.1 )-( 1.2 ) considered here is closely re-4lated to, but substantially different from, the defocusing NLS problem on a finite-genus algebro-geometric background [ 29 ]. In comparison with the NLS equation, the Hirota equation ( 1.1 ) contains an additional third-order flow. This changes the phase function, modifies the critical rays, and leads to a different signature table. In the present problem, the phase function has the form 
+
+θ(z; ξ) = −( f (z) − f0)ξ − α(g(z) − g0) − β(h(z) − h0), ξ = x
+
+t , (1.7) where f (z), g(z), h(z) defined by ( 1.10 ) are normalized Abelian integrals of the second kind associ-ated with the x-flow, the NLS time flow and the complex mKdV time flow, respectively [ 5, 27 ], and 
+
+f0, g0, h0 are given by ( 2.11 ). The critical point structure of this phase function determines the space-time decomposition used in the asymptotic analysis. Compared with the NLS case, the additional Abelian integral h(z) associated with the third-order AKNS flow modifies the phase geometry, the critical rays and the associated signature table, and hence requires a separate steepest descent analy-sis. The main purpose of this paper is to obtain the long-time asymptotics of the solution q(x, t) to the Cauchy problem ( 1.1 ), ( 1.2 ), ( 1.4 ) in the whole (x, t)-half-plane t > 0. The quantities ξj and ̂
+
+ξj determined by the critical point conditions divide the (x, t)-plane into four types of asymptotic regions: two transition regions, denoted by region I and region II, the Zakharov–Manakov [ 61 ] region III , and the fast-decay region IV. Our results show that the leading term in all regions is given by the finite-genus algebro-geometric background with a phase shift determined by the reflection data. More precisely, the leading contribution has the form 
+
+qlt = e−2δ(∞)q(AG )(x, t; E,̂ E, φ − δ), (1.8) where δ and δ(∞) are determined by the scalar δ-function associated with the corresponding defor-mation of the RH problem. The subleading terms depend essentially on the space-time region. In the two transition regions, where ξ = x/t approaches a critical value at the rate t−2/3 , the correction term is of order t−1/3 and is expressed in terms of a model RH problem associated with the Painlevé XXXIV equation [ 31 ]. The RH approach to Painlevé transcendents has been systematically developed in [ 31 ], and Painlevé-type asymptotics have appeared in a variety of nonlinear wave and random matrix problems [ 13 , 18 ]. In the present setting, for |ξ −̂ ξj |t2/3 ≤ C or |ξ − ξj |t2/3 ≤ C, the solution admits an expansion of the form 
+
+q(x, t) = e−2δ(∞)q(AG )(x, t; E,̂ E, φ − δ) + H ν(s)t−1/3 + O(t−ε), ε ∈ (1/3, 2/3 ), (1.9) where s is the scaled transition variable, ν(s) is determined by the Painlevé XXXIV model, and H is an explicit coefficient depending on the local behavior of the global parametrix and the phase near the relevant branch point. In the Zakharov-Manakov region [ 61 ], where two simple saddle points contribute to the leading radiation, the first correction is of order t−1/2 . In the fast-decay region, there are no real stationary phase contributions to the leading-order radiation term, and the solution is approximated by the shifted algebro-geometric background with an error of order O(t−1).The proof is based on a nonlinear steepest descent analysis of RH problems [ 24 ] adapted to a finite-genus background. We first construct Jost solutions normalized by the algebro-geometric Baker– Akhiezer function [ 48 ] and formulate two equivalent RH problems. The use of two RH problems is 5convenient because different factorizations of the jump matrix are required in different sign regions of the phase. We then introduce scalar δ-functions to remove the non-decaying diagonal part of the jump matrices and to incorporate the reflection coefficients into the phase-shifted finite-gap background. The global parametrix is built from the finite-genus Baker-Akhiezer function and can be expressed in terms of Riemann theta functions. Near the critical branch points, however, the global parametrix is no longer sufficient; one must construct local parametrices that match the global one on the boundary of small neighborhoods. In the transition regions, the local model is governed by a Painlevé XXXIV Riemann–Hilbert problem. Finally, a standard small-norm argument yields the error estimates and allows us to recover the asymptotic expansion of q(x, t) from the large-z behavior of the solution to the deformed RH problem. Related stability, nonzero-boundary and ¯∂-steepest-descent techniques for integrable equations may be found in [ 7, 19 , 50 ]. We emphasize that the present results extend the finite-genus asymptotic theory for the defocusing NLS equation to a higher-order member of the AKNS hierarchy. Formally, when β = 0, the third-order contribution disappears and the phase function reduces to that of the defocusing NLS equation, whose finite-genus asymptotic theory was obtained in [ 29 ]. When β > 0, the additional Abelian integral h(z) associated with the third-order flow modifies the phase geometry, the critical values, and the local matching data near the transition rays. The analysis developed here may also be useful for studying higher-order AKNS equations of Hirota type, where the phase function is modified by the corresponding higher-order normalized Abelian integrals. In the following, we state the main asymptotic results and define the four space-time regions determined by the critical values of the phase function. 
+
+## 1.1 Main results 
+
+Let Ej and ̂ Ej, (j = 0, 1, . . . , n) be fixed real-valued constants. We now define z fj , zgj , zhj in terms of Ej
+
+and ̂ Ej as follows. Let 
+
+f (z) := 
+
+> ∫ẑ
+> E0
+
+∏nj=0(s − z fj )
+
+w(s) ds, g(z) := 
+
+> ∫ẑ
+> E0
+
+4 ∏n+1 
+
+> j=0
+
+(s − zgj )
+
+w(s) ds, h(z) := 
+
+> ∫ẑ
+> E0
+
+12 ∏n+2 
+
+> j=0
+
+(s − zhj )
+
+w(s) ds,(1.10) be three hyperelliptic integrals. The function w(z) determined by ( 1.3 ) can make sure that the con-stants z fj , zgj , zhj are uniquely determined by the conditions 
+
+
+
+f (z) = z + O(1), g(z) = 2z2 + O(1), h(z) = 4z3 + O(1), z → ∞,
+
+∫̂ Ej 
+
+> Ej
+
+d f = 0, ∫̂ Ej 
+
+> Ej
+
+dg = 0, ∫̂ Ej 
+
+> Ej
+
+dh = 0, j = 1, . . . , n.(1.11) Moreover, 
+
+(
+
+{z fj }nj=0 ∪ { zgj }n+1 
+
+> j=0
+
+∪ { zhj }n+2
+
+> j=0
+
+)
+
+∩ { Ej,̂ Ej}nj=0 = ∅.The points ξj,̂ ξj, (j = 1, ..., n) are precisely the critical points of the phase function θ defined in (1.7 ), and defined by 
+
+ξj = − 4α ∏n+1 
+
+> k=0
+
+(Ej − zgk ) + 12 β ∏n+2 
+
+> k=0
+
+(Ej − zhk )
+
+∏nk=0(Ej − z fk ) , (1.12) ̂
+
+ξj = − 4α ∏n+1 
+
+> k=0
+
+(̂ Ej − zgk ) + 12 β ∏n+2 
+
+> k=0
+
+(̂ Ej − zhk )
+
+∏nk=0(̂ Ej − z fk ) . (1.13) 6Figure 1: Four distinct asymptotic regions for the different genuses: (a) n = 1 and (b) n = 2. these points are used to divide the (x, t)-half-plane into several distinct space–time regions. 
+
+Definition 1.1. For any positive constant C, set ξ = x/t
+
+• Transition region I: ∪nj=0{ξ : |ξ −̂ ξj|t2/3 ≤ C},• Transition region II: ∪nj=0{ξ : |ξ − ξj|t2/3 ≤ C},• Zakharov–Manakov region III: ξ ∈ (−∞,̂ ξn) ∪nj=1 (ξj,̂ ξj−1) ∪ (ξ0, +∞),• Fast decaying region IV: ξ ∈ ∪ nj=0(̂ ξj, ξj).
+
+Remark 1.2. For the general mth-order flow equation of the AKNS hierarchy [ 2]
+
+iq t +
+
+> m
+
+# ∑
+
+> ℓ=2
+
+μℓαℓFℓ(q, qx, qxx , ... ) = 0, (1.14) where αℓ ∈ R, μj = 1 (j = 2, 4, ... ), μj = i, (j = 3, 5, ... ), the NLS double operator F2, Hirota cubic operator F3 [39 ], Lakshmanan-Porsezian-Daniel quartic operator F4 [49 , 55 ] and quintic operator 7F5 [17 , 47 ] are given by 
+
+F2 = qxx − 2|q|2q,
+
+F3 = qxxx − 6|q|2qx,
+
+F4 = qxxxx − 8|q|2qxx + 6|q|4q − 4|qx |2q − 6 ¯ qq 2 
+
+> x
+
+− 2q2 ¯qxx ,
+
+F5 = q5x − 10 |q|2qxxx − 10 (q|qx|2)x − 20 q2qx qxx + 30 |q|4qx ,
+
+· · · · · · ,(1.15) the higher-order hyperelliptic integrals of g and h related to the second- and third-order flows may be chosen as the general form 
+
+hℓ(z) := 
+
+> ∫ẑ
+> E0
+
+2ℓ−1ℓ ∏n+ℓ−1 
+
+> j=0
+
+(s − zhℓ 
+
+> j
+
+)
+
+w(s) ds, ℓ = 2, 3, ..., m, (1.16) where zhℓ 
+
+> j
+
+’s are uniquely determined by the conditions 
+
+
+
+hℓ(z) = 2ℓ−1zℓ + O(1), z → ∞, ℓ = 2, 3, ..., m,
+
+∫̂ Ej 
+
+> Ej
+
+dhℓ = 0, j = 1, . . . , n.(1.17) Moreover, the phase function ( 1.7 ) in the corresponding RH problem is changed as 
+
+θm(z; ξ) = −( f (z) − f0)ξ −
+
+> m
+
+# ∑
+
+> ℓ=2
+
+αℓ(hℓ(z) − hℓ0), ξ = x
+
+t , (1.18) where αℓ (ℓ = 2, 3, ..., m) are coefficients of the mth-order AKNS flow, and hℓ0’s defined by 
+
+hℓ0 := lim 
+
+> z→∞
+
+(hℓ(z) − 2ℓ−1zℓ), ℓ = 2, 3, ..., m. (1.19) The points ξj,̂ ξj, (j = 1, ..., n) are precisely the critical points of the generalized phase function θ
+
+defined in ( 1.18 ), and defined by 
+
+ξj = − ∑m 
+
+> ℓ=2
+
+αℓ ∏n+ℓ−1 
+
+> k=0
+
+(Ej − zhℓ 
+
+> k
+
+)
+
+∏nk=0(Ej − z fk ) , (1.20) ̂
+
+ξj = − ∑m 
+
+> ℓ=2
+
+αℓ ∏n+ℓ−1 
+
+> k=0
+
+(̂ Ej − zhℓ 
+
+> k
+
+)
+
+∏nk=0(̂ Ej − z fk ) , (1.21) these points are used to divide the (x, t)-half-plane into several distinct space–time regions (cf. Defi-nition 1.1 ). An illustration of the four regions for genuses 1 and 2 described above is given in Fig. 1. We derive the long-time asymptotics of q(x, t) in these regions under the following assumptions. 
+
+Assumption 1.3. Throughout this paper, we impose the following assumptions: • There exists a positive constant C such that q0 (x) = q(AG )(x, 0 ) for |x| > C, that is, the initial condition q0(x) coincides with the finite-genus algebro-geometric background outside a com-pact set. 8• Let rj (j = 1, 2 ) determined by ( 2.37 ), be the reflection coefficients associated with the initial condition q0(x) and we assume that |ri (z)| = 1 for z ∈ { Ej,̂ Ej}nj=0 and that rj’s are bounded on the set: ∪nj=0(Ej,̂ Ej).• We may take the fixed real numbers Ej,̂ Ej (j = 0, 1, . . . , n), so that the saddle points z1 and z2
+
+defined in ( 2.49 ) do not simultaneously approach the same critical value ξj or ̂ ξj.
+
+Theorem 1.4. For the given finite-genus algebro-geometric solution q (AG )(x, t) = q(AG )(x, t; E,̂ E, φ) of the defocusing Hirota equation ( 1.1 ), we have the following long-time asympotic behaviors of the Cauchy prob-lem given by ( 1.1 ), ( 1.2 ) with the constraint ( 1.4 ) and Assumption 1.3 in the different regions I-IV given by Definition 1.1 :
+
+• Long-time asymptotics for the transition region I: Let j 1 ∈ { 0, . . . , n} be fixed and |ξ −̂ ξj1 |t2/3 ≤
+
+C, then we have q(x, t) = e−2δ(∞)q(AG )(x, t; E,̂ E, φ − δ) + Ĥ Ej1
+
+ν(s)t−1/3 + O(t−̺ ),̺ ∈ (1/3, 2/3 ), (1.22) 
+
+where the real vector δ = ( δ1, . . . , δn) and the purely imaginary constant δ(∞) are defined in (3.6 ) and 
+
+(3.8 ), respectively, H ̂ Ej1
+
+is defined in (6.4 ), and ν(s) is given in (3.33 ).
+
+• Long-time asymptotics for the transition region II : Let j 2 ∈ { 0, . . . , n} be fixed, and |ξ − ξj2 |t2/3 ≤
+
+C then we have q(x, t) = e−2δ(∞)q(AG )(x, t; E,̂ E, φ − δ) + ˜HEj2 ν(s)t−1/3 + O(t−̺ ),̺ ∈ (1/3, 2/3 ), (1.23) 
+
+where the real vector δ = ( δ1, . . . , δn) and the purely imaginary constant δ(∞) are defined in (4.6 ) and 
+
+(4.9 ), respectively, ˜HEj2 is defined in (6.6 ), and ν(s) is given in (3.33 ).
+
+• Long-time asymptotics for the Zakharov-Manakov region III : For ξ ∈ (−∞,̂ ξn) ∪nj=1 (ξj,̂ ξj−1) ∪
+
+(ξ0, +∞),q (x, t) = e−2δ(∞)q(AG )(x, t; E,̂ E, φ − δ)+
+
+> 2
+
+# ∑
+
+> j=1
+
+ie −2δ(∞)
+
+√
+
+θ(zj,2 )(ξ)
+
+(
+
+β21 M(glo ) 
+
+> 11
+
+(zj)2 − β12 M(glo ) 
+
+> 12
+
+(zj)2)
+
+t−1/2 + O(t−1), (1.24) 
+
+where the real vector δ = ( δ1, . . . , δn) and the purely imaginary constant δ(∞) are defined in (5.7 ) and 
+
+(5.9 ), respectively, θ(zj,2 )(ξ) is defined in (5.16 ), M (glo ) is given in (3.13 ), and β12 and β21 are defined in (5.19 ).
+
+• Long-time asymptotics for the fast-decay region IV : For ξ ∈ ∪ nj=0(̂ ξj, ξj),q (x, t) = e−2δ(∞)q(AG )(x, t; E,̂ E, φ − δ) + O(t−1). (1.25) 
+
+Remark 1.5. Specifically, when α 6 = 0, β = 0, these results for the defocusing Hirota equation reduces to the corresponding results for the defocusing NLS equation [ 29 ]. When α = 0, β 6 = 0, these results reduce to the results for the defocusing cmKdV equation ( 1.6 ). Similar generalizations can also be obtained for higher-order Hirota equations in the AKNS hierarchy by choosing higher orders of g
+
+and h (see Remark 1.2 ). 9The rest of this paper is organized as follows. In Sec. 2, we recall the finite-genus algebro-geometric solution of the defocusing Hirota equation, construct the associated Jost functions, for-mulate the RH problems, and analyze the signature table together with the required matrix factor-izations. Sections 3 and 4 are devoted to the nonlinear steepest descent analysis in the two transition regions, including the construction of the global parametrix, the local Painlevé XXXIV parametrices and the corresponding small-norm RH problems. In Sec. 5, we treat the Zakharov-Manakov region-III and the fast-decay region-IV. Finally, we assemble the asymptotic expansions and prove the main theorems in Sec. 6. Notice that these results can also be extended to the general mth-order flow of the AKNS hierarchy. 
+
+# 2 Preliminaries 
+
+## 2.1 Algebro-geometric solution via the RH problem 
+
+To analyze the Cauchy problem given by ( 1.1 ) and ( 1.2 ) with the constraint ( 1.4 ), we need to construct the algebro-geometric solution q(AG ) of the dfocusing Hirota equation ( 1.1 ). We first recall some ingredients from the theory of Riemann surfaces [ 5, 30 , 34 , 45 , 48 ]. Let {Ej,̂ Ej}nj=0 be fixed 2 (n + 1) real constants, and X the Riemann surface of genus n defined by the equation w2(z) = P(z) with w(z) given by ( 1.3 ), where w is analytic in C \ (∪nj=0[Ej,̂ Ej]) , with the branch chosen such that w(z) ∼ zn+1 as z → ∞, and z = π(P) denotes the standard projection. The Riemann surface X can be constructed as follows. We first glue two sheets along the cuts (Ej,̂ Ej),
+
+j = 0, 1, . . . , n, and then compactify the resulting surface by adding one point at infinity on each sheet. The Abelian integrals are defined by ̟
+
+> j
+
+(z) =  
+
+> ∫ẑ
+> E0
+
+νj(s) ds , j = 1, 2, . . . , n, (2.1) where d̟ j(P) form a basis of holomorphic differentials on X :
+
+νj(z) = ∑ni=1 cji zn−i
+
+√P(z) . (2.2) The coefficients cji are uniquely determined by the normalization conditions 
+
+> ∮
+> ai
+
+d̟ j(P) = 2 
+
+> ∫̂Ei
+> Ei
+
+νj+ (z) dz = δji =
+
+{ 1, i = j,0, i 6 = j, , i, j = 1, 2, . . . , n, (2.3) The normalized holomorphic differentials define the b-period matrix B = ( Bij )ni,j=1 by 
+
+Bij =
+
+> ∮
+> bj
+
+d̟ i(P) = 2
+
+> j
+
+# ∑ 
+
+> k=1
+> ∫Ek̂
+> Ek−1
+
+νi(z) dz , (2.4) where the ai-cycle is a closed curve on the upper sheet encircling the interval (Ei,̂ Ei) counterclock-wise, bj-cycle starts from (E0,̂ E0), runs on the upper sheet to (Ej,̂ Ej), and returns to the starting point on the lower sheet (see Fig. 2). Moreover, ai ◦ bj = δij , (i, j = 1, ..., n).10 E0 ˆE0 E1 ˆE1 E2 ˆE2 En ˆEn  
+
+> b1
+> b2
+> bn
+> a1a2an
+
+Figure 2: The canonical homology basis {ai, bi}ni=1 on the Riemann surface X . Here the solid and dashed arcs indicate the parts lying on the upper and lower sheets, respectively. The matrix B is symmetric and has positive definite imaginary part. Associated with the matrix B
+
+is the Riemann theta function defined by the Fourier series 
+
+Θ() = ∑
+
+> m∈Zn
+
+exp 
+
+(
+
+iπmT Bm + 2iπmT 
+
+)
+
+,  = ( 1, . . . , n) ∈ Cn, (2.5) together with the column vector of Riemann constants 
+
+K = ( K1, . . . , Kn), Kj =
+
+> n
+
+# ∑
+
+> i=1
+
+Bji + j
+
+2 , j = 1, . . . , n. (2.6) The theta function is even and satisfies the periodicity relations 
+
+Θ( ± ej) = Θ(), Θ( ± Bej) = Θ()e∓2πij−πiB jj , (2.7) where ej = ( 0, . . . , 0, 1, 0, . . . , 0 ) is the j-th basis vector in Rn. Consequently, the function ̂
+
+Θ() = Θ( + c + d)
+
+Θ( + d) , c, d ∈ Rn, (2.8) has the periodicity properties ̂
+
+Θ( ± ej) = ̂ Θ(),̂ Θ( ± Bej) = e∓2πic ĵ Θ(). (2.9) The Abel map A on X , with base point ˆ P0 = ( 0, ̂ E0), is defined by 
+
+A(P) = ( A1(P), . . . , An(P)) T, Aj (P) = 
+
+∫ P
+
+> ˆP0
+
+dωj(P). (2.10) Based on the functions f (z), g(z), and h(z) defined by ( 1.10 ), we let 
+
+f0 := lim 
+
+> z→∞
+
+( f (z) − z), g0 := lim 
+
+> z→∞
+
+(g(z) − 2z2), h0 := lim 
+
+> z→∞
+
+(h(z) − 4z3), (2.11) and introduce the real constants 
+
+B fj :=
+
+∮
+
+> bj
+
+d f , Bgj :=
+
+∮
+
+> bj
+
+dg , Bhj :=
+
+∮
+
+> bj
+
+dh , j = 1, . . . , n. (2.12) Let φ = ( φ1, . . . , φn) ∈ Rn be arbitrary, and D = ∑nj=1 Pj be the unique divisor of degree n such that Pj, j = 1, . . . , n, lie on the upper sheet of X , with π(Pj) ∈ (̂ Ej−1, Ej), and satisfy 
+
+> n
+
+# ∏
+
+> i=0
+
+(π(Pj) − Ei) = 
+
+> n
+
+# ∏
+
+> i=0
+
+(π(Pj) −̂ Ei ). (2.13) 11 By solving the Riemann-Hilbert problem related to the Baker-Akhiezer function on the Riemann surface [ 5, 14 , 34 , 45 , 48 ], the finite-genus algebro-geometric solution q(AG ) of the defocusing Hirota equation ( 1.1 ) can be found as 
+
+q(AG )(x, t; E,̂ E, φ) = i
+
+2
+
+( n
+
+# ∑
+
+> j=1
+
+(̂ Ej − Ej)
+
+)
+
+e2i( f0x+( αg0+βh0)t)
+
+× Θ(A(∞) + A(D) + K)Θ(−A (∞) + C(x, t; φ) + A(D) + K)
+
+Θ(−A (∞) + A(D) + K)Θ(A(∞) + C(x, t; φ) + A(D) + K) ,(2.14) where C(x, t; φ) = ( c1(x, t; φ1), . . . , cn(x, t; φn)) T is the column vector with components 
+
+cj(x, t; φj) = − 1
+
+2π
+
+(
+
+B fj x + ( αBgj + βBhj )t + φj
+
+)
+
+, j = 1, . . . , n. (2.15) 
+
+Remark 2.1. Similarly, we can also generate the finite-genus algebro-geometric solution of the general defocusing mth-order equation ( 1.15 ) in the AKNS hierarchy 
+
+q(AG ) 
+
+> m
+
+(x, t; E,̂ E, φ) = i
+
+2
+
+( n
+
+# ∑
+
+> j=1
+
+(̂ Ej − Ej)
+
+)
+
+e2i( f0x+( ∑m  
+
+> ℓ=2αℓhℓ0)t)
+
+× Θ(A(∞) + A(D) + K)Θ(−A (∞) + C(x, t; φ) + A(D) + K)
+
+Θ(−A (∞) + A(D) + K)Θ(A(∞) + C(x, t; φ) + A(D) + K) ,(2.16) where C(x, t; φ) = ( c1(x, t; φ1), . . . , cn(x, t; φn)) T is the column vector with components 
+
+cj(x, t; φj) = − 1
+
+2π
+
+(
+
+B fj x + ( 
+
+> m
+
+# ∑
+
+> ℓ=2
+
+αℓ Bhℓ 
+
+> j
+
+)t + φj
+
+)
+
+, j = 1, . . . , n. (2.17) with 
+
+Bhℓ 
+
+> j
+
+:=
+
+∮
+
+> bj
+
+dh ℓ, j = 1, . . . , n. (2.18) 
+
+## 2.2 Jost functions under the finite-genus algebro-geometric background 
+
+The defocusing Hirota equation ( 1.1 ) admits the following Lax pair [ 2, 64 ]: 
+
+{ Ψx = X(x, t; z)Ψ, X(x, t; z) = −iz σ3 + Q,
+
+Ψt = T(x, t; z)Ψ, T(x, t; z) = αTnls + βTcmkdv , (2.19) where 
+
+Q = Q(x, t) = 
+
+( 0 q(x, t)
+
+q(x, t) 0
+
+)
+
+, σ3 =
+
+(1 00 −1
+
+)
+
+,
+
+Tnls = 2zX + iσ3(Qx − Q2),
+
+Tcmkdv = 2zT nls + [ Qx, Q] + 2Q3 − Qxx .(2.20) where Ψ = Ψ(x, t; z) is a matrix-valued eigenfunction, z ∈ C a spectral parameter, and the potential q
+
+solves the Hirota equation ( 1.1 ). For the given finite-genus algebro-geometric solution q = q(AG ) defined by ( 2.14 ), the Jost function 
+
+Ψ(AG ) for the Lax pair ( 2.19 ) can be written as [ 14 , 48 ]
+
+Ψ(AG )(x, t; z) = ei( f0x+( αg0+βh0)t)σ3 μ(AG )(x, t; z)e−i( f (z)x+( αg(x)+ βh(x)) t)σ3, (2.21) 12 where 
+
+μ(AG )(x, t; z) = 1
+
+2
+
+
+
+(κ(z) + κ(z)−1) W11 (x, t; z, φ)
+
+W11 (∞; x, t, φ) (κ(z) − κ(z)−1) W12 (x, t; z, φ)
+
+W11 (x, t; ∞, φ)(κ(z) − κ(z)−1) W21 (x, t; z, φ)
+
+W22 (x, t; ∞, φ) (κ(z) + κ(z)−1) W22 (x, t; z, φ)
+
+W22 (x, t; ∞, φ)
+
+ . (2.22) where 
+
+W11 (x, t; z, φ) = Θ(A(z) + C(x, t; φ) + A(D) + K)
+
+Θ(A(z) + A(D) + K) ,
+
+W12 (x, t; z, φ) = Θ(−A (z) + C(x, t; φ) + A(D) + K)
+
+Θ(−A (z) + A(D) + K) ,
+
+W21 (x, t; z, φ) = Θ(A(z) + C(x, t; φ) − A (D) − K)
+
+Θ(A(z) − A (D) − K) ,
+
+W22 (x, t; z, φ) = Θ(A(z) − C(x, t; φ) + A(D) + K)
+
+Θ(A(z) + A(D) + K) .(2.23) and 
+
+κ(z) = 
+
+( n
+
+# ∏
+
+> j=0
+
+z − Ej
+
+z −̂ Ej
+
+)1/4 
+
+(2.24) is analytic in C \ (∪nj=0[Ej,̂ Ej]) , with the branch chosen such that κ(∞) = 1, and 
+
+κ− (z) = iκ+(z), z ∈ ∪ nj=0[Ej,̂ Ej], (2.25) 
+
+κ(z) = 
+
+
+
+(z −̂ Ej )−1/4 + O(1), z →̂ Ej,1 + ∑nj=0̂  
+
+> Ej−Ej
+> 4z
+
++ O(z−2), z → ∞
+
+(2.26) 
+
+Riemann-Hilbert Problem 2.2. The function μ(AG )(x, t; z) satisfies the following RH problem [ 14 ,48 ]: (μ(AG )1) Analyticity: μ(AG )(z) = μ(AG )(x, t; z) is analytic in C \ (∪nj=0[Ej,̂ Ej]) .(μ(AG )2) Jump condition: μ(AG )+ (z) = μ(AG ) 
+
+> −
+
+(z)Jμ(AG ) (z), where the jump matrix is given by ( z ∈
+
+(Ej,̂ Ej), j = 0, . . . , n.) 
+
+Jμ(AG ) (z) = 
+
+
+
+0 −ie −i    
+
+> (
+> Bfjx+( αBgj+βBhj)t+φj
+> )
+
+−ie i    
+
+> (
+> Bfjx+( αBgj+βBhj)t+φj
+> )
+
+0
+
+ . (2.27) (μ(AG )3) Normalization at infinity: As z → ∞, μ(AG )(z) = I + O(z−1).(μ(AG )4) Local behavior: μ(AG )(z) has at most fourth-root singularities near the branch points Ej and ̂
+
+Ej, j = 0, 1, . . . , n; that is, 
+
+μ(AG )(z) = O(( z − p)−1/4 ), z → p ∈ { Ej,̂ Ej}nj=0. (2.28) Thus, the algebro-geometric solution q(AG ) of ( 1.1 ) can be written as 
+
+q(AG )(x, t) = 2ie 2i( f0x+( αg0+βh0)t) lim  
+
+> z→∞
+
+zμ(AG ) 
+
+> 12
+
+(z). (2.29) 13 We next consider solutions of the Lax pair ( 2.19 ) with q being the solution of the Cauchy problem for the defocusing Hirota equation ( 1.1 ) with the finite-genus algebro-geometric background ( 1.2 ). Let 
+
+μ± be the solutions of the following Volterra integral equations: 
+
+μ±(x, t; z) = ei( f0x+( αg0+βh0)t) ˆσ3 μ(AG )(x, t; z)+
+
+∫ x
+
+> ±∞
+
+Ψ(AG )(x, t; z)Ψ(AG )(s, t; z)−1Q(q − q(AG ))( s, t)μ±(s, t; z)e−i( f (z)− f0)( s−x)σ3ds,(2.30) where e ˆσ3 A = eσ3 Ae −σ3
+
+Let μ± (x, t; z) = (μ± 
+
+> 1
+
+(x, t; z), μ± 
+
+> 2
+
+(x, t; z)). Then one can easily show that the column vectors 
+
+μ− 
+
+> 1
+
+(x, t; z) and μ+ 
+
+> 2
+
+(x, t; z) exist uniquely for z ∈ C+ \ { Ej,̂ Ej}nj=0, are analytic in C+, and admit con-tinuous extensions to z ∈ C+ \ { Ej,̂ Ej}nj=0. Similarly, the column vectors μ+ 
+
+> 1
+
+(x, t; z) and μ− 
+
+> 2
+
+(x, t; z)
+
+exist uniquely for z ∈ C− \ { Ej,̂ Ej}nj=0, are analytic in C−, and admit continuous extensions to 
+
+z ∈ C− \ { Ej,̂ Ej}nj=0. Moreover, (μ∓ 
+
+> 1
+
+(z), μ± 
+
+> 2
+
+(z)) = I + O(z−1) as z → ∞.Next, we define 
+
+Ψ±(x, t; z) := μ± (x, t; z)e−i[( f (z)− f0)x+( α(g(z)−g0)+ β(h(z)−h0)) t]σ3 , (2.31) which are two linearly independent solutions of the Lax pair ( 2.19 ). Thus, there exists a scattering matrix S(z) = ( Sij (z)) 2×2, independent of (x, t), such that 
+
+Ψ+(x, t; z) = Ψ−(x, t; z)S(z), z ∈ R \ (∪nj=0[Ej,̂ Ej]) , (2.32) and det S(z) = 1 for z ∈ R \ (∪nj=0[Ej,̂ Ej]) . It follows from ( 2.31 ) and ( 2.32 ) that 
+
+S11 (z) = |Ψ+ 
+
+> 1
+
+(x, t; z), Ψ− 
+
+> 2
+
+(x, t; z)| = |μ+ 
+
+> 1
+
+(x, t; z), μ− 
+
+> 2
+
+(x, t; z)|,
+
+S22 (z) = |Ψ− 
+
+> 1
+
+(x, t; z), Ψ+ 
+
+> 2
+
+(x, t; z)| = |μ− 
+
+> 1
+
+(x, t; z), μ+ 
+
+> 2
+
+(x, t; z)|,
+
+S12 (z) = |Ψ+ 
+
+> 2
+
+(x, t; z), Ψ− 
+
+> 2
+
+(x, t; z)| = |μ+ 
+
+> 2
+
+(x, t; z), μ− 
+
+> 2
+
+(x, t; z)|e2i[( f (z)− f0)x+( α(g(z)−g0)+ β(h(z)−h0)) t],
+
+S21 (z) = |Ψ− 
+
+> 1
+
+(x, t; z), Ψ+ 
+
+> 1
+
+(x, t; z)| = |μ− 
+
+> 1
+
+(x, t; z), μ+ 
+
+> 1
+
+(x, t; z)|e−2i[( f (z)− f0)x+( α(g(z)−g0)+ β(h(z)−h0)) t].(2.33) Similarly, based on ( 2.33 ), the scattering data S11 (z) and S22 (z) are analytic in C− and C+, respec-tively, and admit continuous extensions to C− \ { Ej,̂ Ej }nj=0 and C+ \ { Ej,̂ Ej}nj=0, respectively. In fact, 
+
+Si(3−i) (i = 1, 2 ) admit continuous extensions to R \ { Ej,̂ Ej}nj=0. For z ∈ ∪ nj=0(Ej,̂ Ej),
+
+S12 (z) = |μ+ 
+
+> 2
+
+ei[( f+(z)− f0)x+( α(g+(z)−g0)+ β(h+(z)−h0)) t], μ− 
+
+> 2
+
+ei[( f−(z)− f0)x+( α(g−(z)−g0)+ β(h−(z)−h0)) t]|,
+
+S21 (z) = |μ− 
+
+> 1
+
+e−i[( f+(z)− f0)x+( α(g+(z)−g0)+ β(h+(z)−h0)) t], μ+ 
+
+> 1
+
+e−i[( f−(z)− f0)x+( α(g−(z)−g0)+ β(h−(z)−h0)) t]|,(2.34) The remaining entries generally do not admit analytic continuations to C±. Moreover, S11 (z), S22 (z) = 
+
+1 + O(z−1), S12 (z), S21 (z) = O(z−1) as z → ∞.Moreover, we have the following symmetry relations: 
+
+S11 (z) = S22 (z), S12 (z) = S21 (z), z ∈ R \ (∪nj=0[Ej,̂ Ej]) . (2.35) and |S11 (z)|2 − | S12 (z)|2 = 1. We define the reflection coefficients in terms of the scattering matrix 
+
+S(z) by 
+
+r1(z) = S12 (z)
+
+S11 (z) , r2(z) = S21 (z)
+
+S11 (z) , z ∈ R \ (∪nj=0[Ej,̂ Ej]) , (2.36) 14 which generates 
+
+r1(z) = S21 (z)
+
+S22 (z) , r2(z) = S12 (z)
+
+S22 (z) , z ∈ R \ (∪nj=0[Ej,̂ Ej]) . (2.37) and |r1(z)|2 = |r2(z)|2 = 1 − | s11 |−2.
+
+## 2.3 Two types of Riemann-Hilbert problems and properties 
+
+2.3.1 Two types of Riemann-Hilbert problems 
+
+According the analyticity of Jost functions μ± 
+
+> j
+
+(x, t; z) ( j = 1, 2 ) defined by ( 2.30 ) and scattering data 
+
+Sjj (j = 1, 2 ) given by ( 2.32 ), we introduce these two types of matrix-valued functions 
+
+M(x, t; z) = 
+
+( μ− 
+
+> 1
+
+(x, t; z)
+
+S22 (z) , μ+ 
+
+> 2
+
+(x, t; z)
+
+)
+
+, z ∈ C+,
+
+(
+
+μ+ 
+
+> 1
+
+(x, t; z), μ− 
+
+> 2
+
+(x, t; z)
+
+S11 (z)
+
+)
+
+, z ∈ C−,
+
+N(x, t; z) = 
+
+(
+
+μ− 
+
+> 1
+
+(x, t; z), μ+ 
+
+> 2
+
+(x, t; z)
+
+S22 (z)
+
+)
+
+, z ∈ C+,
+
+( μ+ 
+
+> 1
+
+(x, t; z)
+
+S11 (z) , μ− 
+
+> 2
+
+(x, t; z)
+
+)
+
+, z ∈ C−.(2.38) 
+
+Riemann-Hilbert Problem 2.3. M(x, t; z) satisfies the following RH problem: (M1) Analyticity: M(z) is analytic in C \ R.(M2) Jump condition: M+(z) = M−(z)JM(z) for z ∈ R, where the jump matrix is given by 
+
+JM(z) = 
+
+
+
+−ie i( f0x+( αg0+βh0)t−(B fj x+( αBgj +βBhj )t+φj)/2 ) ˆσ3 σ1, z ∈ (Ej,̂ Ej), j = 0, . . . , n,
+
+ 1 − | r1 (z)|2 r1(z)e2it θ(z)
+
+−r1 (z)e−2it θ(z) 1
+
+ , z ∈ R \ (∪nj=0[Ej,̂ Ej]) ,(2.39) where σ1 =
+
+(0 11 0
+
+)
+
+is the Pauli matrix, θ(z) = θ(z; ξ) is given by ( 1.7 ), i.e., 
+
+θ(z) = θ(z; ξ) = −( f (z) − f0)ξ − α(g(z) − g0) − β(h(z) − h0), ξ = x
+
+t . (2.40) (M3) Normalization at infinity: As z → ∞, M(z) = I + O(z−1).(M4) Local behavior: For p ∈ { Ej,̂ Ej}nj=0, M(z) has the following local behavior: 
+
+M(z) = ( O(( z − p)±1/4 ), O(( z − p)∓1/4 )) , z → p from C±. (2.41) 
+
+Riemann-Hilbert Problem 2.4. N(x, t; z) satisfies the following Riemann–Hilbert problem: (N1) Analyticity: N(z) is analytic in C \ R.15 (N2) Jump condition: N+(z) = N−(z)JN(z) for z ∈ R, where the jump matrix is given by 
+
+JN (z) = 
+
+
+
+−ie i( f0x+( αg0+βh0)t−(B fj x+( αBgj +βBhj )t+φj)/2 ) ˆσ3 σ1, z ∈ (Ej,̂ Ej), j = 0, . . . , n,
+
+ 1 r2(z)e2it θ(z)
+
+−r2 (z)e−2it θ(z) 1 − | r2(z)|2
+
+ , z ∈ R \ (∪nj=0[Ej,̂ Ej]) ,(2.42) (N3) Normalization at infinity: As z → ∞, N(z) = I + O(z−1).(N4) Local behavior: For p ∈ { Ej,̂ Ej}nj=0, N(z) has the following local behavior: 
+
+N(z) = ( O(( z − p)∓1/4 ), O(( z − p)±1/4 )) , z → p from C±. (2.43) We have the following reconstruction formula between the solution q(x, t) and M(z) or N(z):
+
+q(x, t) = 2i lim  
+
+> z→∞
+
+zM 12 (z) = 2i lim  
+
+> z→∞
+
+zN 12 (z). (2.44) 
+
+2.3.2 Factorizations of the jump matrices 
+
+For the later use, we record several factorizations of the jump matrices JM and JN , which will be used to deform the contours onto the steepest descent paths determined by the signature table of the phase function θ.We have the following factorizations: 
+
+JM(z) = 
+
+
+
+1 0
+
+− r1 (z)e−2it θ(z) 
+
+> 1−| r1(z)|2
+
+1
+
+ (1 − | r1(z)|2)σ3
+
+1 r1 (z)e2it θ(z)
+
+> 1−| r1(z)|2
+
+0 1
+
+
+
+=
+
+(1 r1 (z)e2it θ(z)
+
+0 1
+
+) ( 1 0
+
+−r1 (z)e−2it θ(z) 1
+
+)
+
+, z ∈ R \ (∪nj=0[Ej,̂ Ej]) ,(2.45) and 
+
+JM (z) = 
+
+(1 r1(z)e2it θ−(z)
+
+0 1
+
+)  0 −ie i(t(θ+(z)+ θ−(z)) −φj)
+
+−ie −i(t(θ+(z)+ θ−(z)) −φj) 0
+
+
+
+×
+
+( 1 0
+
+−r1 (z)e−2i(tθ+(z)−φj) 1
+
+)
+
+=
+
+
+
+1 0
+
+− r1 (z)e−2i(tθ−(z)−φj) 
+
+> 1−(r1(z)) 2e2iφj
+
+1
+
+ 0 −ie i(t(θ+(z)+ θ−(z)) −φj)
+
+−ie −i(t(θ+(z)+ θ−(z)) −φj) 0
+
+
+
+×
+
+
+
+1 r1 (z)e2it θ+(z)
+
+> 1−(r1(z)) 2e2iφj
+
+0 1
+
+ , z ∈ ∪ nj=0(Ej,̂ Ej),(2.46) where θ+(z) + θ−(z) = 2( f0ξ + αg0 + βh0) − B fj ξ − αBgj − βBhj .16 Similarly, for the jump matrix JN, one has 
+
+JN (z) = 
+
+1 r2(z)e2it θ(z)
+
+> 1−| r2(z)|2
+
+0 1
+
+ (1 − | r2(z)|2)σ3
+
+
+
+1 0
+
+− r2 (z)e−2it θ(z) 
+
+> 1−| r2(z)|2
+
+1
+
+
+
+=
+
+( 1 0
+
+−r2 (z)e−2it θ(z) 1
+
+) ( 1 r2(z)e2it θ(z)
+
+0 1
+
+)
+
+, z ∈ R \ (∪nj=0[Ej,̂ Ej]) ,(2.47) and 
+
+JN (z) = 
+
+( 1 0
+
+−r2(z)e−2it θ−(z) 1
+
+)  0 −ie i(t(θ+(z)+ θ−(z)) −φj)
+
+−ie −i(t(θ+(z)+ θ−(z)) −φj) 0
+
+
+
+×
+
+(1 r2(z)e2i(tθ+(z)−φj)
+
+0 1
+
+)
+
+=
+
+
+
+1 r2 (z)e2i(tθ−(z)−φj)
+
+> 1−(r2(z)) 2e−2iφj
+
+0 1
+
+ 0 −ie i(t(θ+(z)+ θ−(z)) −φj)
+
+−ie −i(t(θ+(z)+ θ−(z)) −φj) 0
+
+
+
+×
+
+
+
+1 − r2 (z)e−2it θ+(z)
+
+> 1−(r2(z)) 2e−2iφj
+
+0 1
+
+ , z ∈ ∪ nj=0(Ej,̂ Ej).(2.48) 
+
+2.3.3 Signature table for Im θ
+
+For the given phase θ(z; ξ) in ( 1.7 ), a point z = z(ξ) ∈ R is called its saddle point if it satisfies one of the following conditions: 
+
+(a) θ′ (z; ξ) = 0, for z ∈ R\(∪nj=0(Ej,̂ Ej)) ;
+
+(b) Im θ(z; ξ) = 0, for z ∈ ∪ nj=0(Ej,̂ Ej). (2.49) It follows from ( 1.7 ) and ( 1.10 ) that 
+
+θ′(z; ξ) = − 1
+
+w(z)
+
+[
+
+ξ
+
+> n
+
+# ∏
+
+> j=0
+
+(z − z fj ) + 4α
+
+> n+1
+
+# ∏
+
+> j=0
+
+(z − zgj ) + 12 β
+
+> n+2
+
+# ∏
+
+> j=0
+
+(z − zhj )
+
+]
+
+, (2.50) so that its zeros are precisely the roots of 
+
+F(z; ξ) = ξ
+
+> n
+
+# ∏
+
+> j=0
+
+(z − z fj ) + 4α
+
+> n+1
+
+# ∏
+
+> j=0
+
+(z − zgj ) + 12 β
+
+> n+2
+
+# ∏
+
+> j=0
+
+(z − zhj ) = 0. (2.51) Since f (Ej) = f (̂ Ej), g(Ej) = g(̂ Ej), and h(Ej) = h(̂ Ej) for j = 0, 1, . . . , n, we have θ(Ej) = θ(̂ Ej).This implies that F(z; ξ) has at least one zero in each interval (Ej,̂ Ej). Since F(z; ξ) is a polynomial of degree n + 3, there remain two zeros. If such a zero lies outside the union of these intervals, namely in R \ (∪nj=0(Ej,̂ Ej)) , then it corresponds to case (a). On the other hand, if such a zero lies inside one of the intervals (Ej,̂ Ej), then it corresponds to case (b). This gives rise to two saddle points, denoted by z1 and z2 (without loss of generality, assume that z1 < z2). 17 We claim that the two saddle points cannot coincide. Indeed, since 
+
+θ′′ (z; ξ) = F(z; ξ)w′(z) − ∂z F(z; ξ)w(z)
+
+w2(z) , (2.52) When θ′(z; ξ) = 0, noting that α, β > 0 do not affect the sign, this reduces to 
+
+θ′′ (z; ξ) = − ∂z F(z; ξ)
+
+w(z) < 0. (2.53) For case (a), let z1 = z1(ξ) ∈ R \ (∪ni=0(Ei,̂ Ei)) . In view of the identities 
+
+F(Ej; ξj) = F(̂ Ej;̂ ξj) = 0, j = 0, 1, . . . , n, (2.54) where ξj,̂ ξj are given by ( 1.12 ) and ( 1.13 ). By the implicit function theorem, taking the interval (̂ Ej, Ej+1) as an example, we obtain 
+
+∂ξ z1(ξ) = − ∂ξ F(z1; ξ)
+
+∂z1 F(z1; ξ) = − ∏nk=0(z1 − z fk )
+
+∂z1 F(z1; ξ) < 0. (2.55) Indeed, if n − j is even, then both ∂z1 F(z1; ξ) and ∏nk=0(z1 − z fk ) are positive; if n − j is odd, then both quantities are negative. Hence ∂ξ z1(ξ) < 0. Therefore, z1(ξ) is a monotonically decreasing function of ξ on each interval of R \ (∪ni=0(Ei,̂ Ei)) .Similarly, in case (b), z1(ξ) is a monotonically decreasing function of ξ on ∪nj=0(Ej,̂ Ej). Moreover, 
+
+z1(ξ) tends to ̂ Ej as ξ tends to ̂ ξj. The same conclusion holds for z2 = z2(ξ); in particular, we have 
+
+z1(̂ ξj) = ̂ Ej and z2(ξj) = Ej.
+
+Remark 2.5. For the general mth-order flow of the AKNS hierarchy, it follows from ( 1.10 ), ( 1.16 ), (1.18 ) that 
+
+θ′
+
+> m
+
+(z; ξ) = − 1
+
+w(z)
+
+[
+
+ξ
+
+> n
+
+# ∏
+
+> j=0
+
+(z − z fj ) + 
+
+> m
+
+# ∑
+
+> ℓ=2
+
+αℓ2ℓ−1ℓ
+
+> n+ℓ−1
+
+# ∏
+
+> j=0
+
+(z − zhℓ 
+
+> j
+
+)
+
+]
+
+, (2.56) so that its zeros are precisely the roots of 
+
+Fm(z; ξ) = ξ
+
+> n
+
+# ∏
+
+> j=0
+
+(z − z fj ) + 
+
+> m
+
+# ∑
+
+> ℓ=2
+
+αℓ2ℓ−1ℓ
+
+> n+ℓ−1
+
+# ∏
+
+> j=0
+
+(z − zhℓ 
+
+> j
+
+). (2.57) Similarly, one can also give the signature table for Im θ in principle. 
+
+# 3 Long-time asymptotics in the transition region I 
+
+In this section, we carry out the asymptotic analysis of the Riemann–Hilbert problem 2.3 for M(x, t; z)
+
+in order to derive the asymptotics of q in the transition region I. According to Definition 1.1 , we may choose C so that, throughout this section, only one of the saddle points z1 is involved in the transition regime −C ≤ (ξ −̂ ξj1 )t2/3 ≤ 0, for some fixed j1 ∈ { 0, . . . , n}, since the analysis in the complementary half-region is analogous. For large t, one has ξj1+1 < ξ <̂ ξj1 , and hence the saddle point satisfies 
+
+z1 ∈ [̂ Ej1 , Ej1+1).18 Let zj1 ∈ (Ej1 ,̂ Ej1 ) be fixed. We set 
+
+Ω1 = Ω1(ξ) = {z ∈ C : 0 ≤ arg (z − z1) ≤ ϕ1}, Σ1 = Σ1(ξ) = z1 + eiϕ1 R+,
+
+Ω2 = Ω2(ξ) = {z ∈ C : π − ϕ1 ≤ arg (z − zj1 ) ≤ π}, Σ2 = Σ2(ξ) = zj1 + ei(π−ϕ1)R+, (3.1) where ϕ1 is chosen such that Im θ(z)
+
+{
+
+< 0, z ∈ Σ1 \ { z1},
+
+> 0, z ∈ Σ2 \ { zj1 }, (3.2) and U∗ denotes the complex conjugate of a region U.The first transformation of M is defined by 
+
+M(1)(z) = eδ(∞)σ3 M(z)GM(z)e−δ(z)σ3, (3.3) where 
+
+GM(z) = 
+
+ 1 0
+
+r1 (z)e−2it θ(z) 1
+
+ , z ∈ Ω1,
+
+1 r1(z)e2it θ(z)
+
+0 1
+
+ , z ∈ Ω∗ 
+
+> 1
+
+,
+
+
+
+1 − r1 (z)e2it θ(z)
+
+> 1−| r1(z)|2
+
+0 1
+
+ , z ∈ Ω2,
+
+
+
+1 0
+
+− r1 (z)e−2it θ(z) 
+
+> 1−| r1(z)|2
+
+1
+
+ , z ∈ Ω∗ 
+
+> 2
+
+,
+
+I, elsewhere, (3.4) is a matrix-valued function determined by the factorizations of the jump matrix JM. The scalar func-tion δ(z) is defined by 
+
+δ(z) = w(z)
+
+2πi
+
+[ n
+
+# ∑
+
+> j=1
+
+δj
+
+∫̂ Ej
+
+> Ej
+
+i ds
+
+w+(s)( s − z) −
+
+∫   
+
+> (−∞,Ej1)\(∪j1−1
+> j=0(Ej,̂Ej))
+
+log (1 − | r1(s)|2)ds
+
+w(s)( s − z)
+
+]
+
+, (3.5) where the logarithm is taken on the principal branch, and the constants δj, j = 1, . . . , n, are determined by the linear system 
+
+∫    
+
+> (−∞,Ej1)\(∪j1−1
+> j=0(Ej,̂Ej))
+
+log (1 − | r1(s)|2)skds
+
+w(s) = i
+
+> n
+
+# ∑
+
+> j=1
+
+δj
+
+∫̂ Ej
+
+> Ej
+
+skds
+
+w+(s) , k = 0, . . . , n − 1. (3.6) Here it is understood that (Ej1−1,̂ Ej1−1) = ∅ if j1 = 0. In addition, one can prove that each δj is real. 
+
+Riemann-Hilbert Problem 3.1. δ(z) satisfies the following Riemann–Hilbert problem: (δ1) Analyticity: δ(z) is analytic in C \ (∪nj=0[Ej,̂ Ej] ∪ (−∞,̂ Ej1 ]) .19 Ω2
+
+Ω∗
+
+> 2
+
+Σ2
+
+Σ∗
+
+> 2
+
+zj1
+
+Ej1
+
+ˆEj1
+
+z1
+
+Σ1
+
+Σ∗
+
+> 1
+
+Ω1
+
+Ω∗
+
+> 1
+
+Figure 3: The contours Σ(1).(δ2) Jump condition: δ(z) = −δ( ¯z) satisfies the jump relation 
+
+
+
+δ−(z) = δ+(z) + log (1 − | r1 (z)|2), z ∈ (−∞, Ej1 ) \ (∪j1 −1 
+
+> j=0
+
+[Ej,̂ Ej]) ,
+
+δ−(z) = −δ+ (z) + iδj, z ∈ (Ej,̂ Ej), j = 1, . . . , n.(3.7) (δ3) Normalization at infinity: As z → ∞, δ(z) = δ(∞) + δ(1) 
+
+> z
+
++ O(z−2), where 
+
+δ(∞) = 1
+
+2πi
+
+[∫   
+
+> (−∞,Ej1)\(∪j1−1
+> j=0(Ej,̂Ej))
+
+log (1 − | r1(s)|2)snds
+
+w(s) − i
+
+> n
+
+# ∑
+
+> j=1
+
+δj
+
+∫̂ Ej
+
+> Ej
+
+snds
+
+w+(s)
+
+]
+
+, (3.8) and 
+
+δ(1) = δ(∞)
+
+> n
+
+# ∑
+
+> j=0
+
+(Ej +̂ Ej )
+
+− 1
+
+2πi
+
+[∫   
+
+> (−∞,Ej1)\(∪j1−1
+> j=1(Ej,̂Ej))
+
+log (1 − | r1(s)|2)sn+1ds
+
+w(s) − i
+
+> n
+
+# ∑
+
+> j=1
+
+δj
+
+∫̂ Ej
+
+> Ej
+
+sn+1ds
+
+w+(s)
+
+]
+
+.(3.9) (δ4) Local behavior: As z → p ∈ { Ej}j1 
+
+> j=0
+
+∪ { ̂ Ej }j1 −1 
+
+> j=0
+
+from C+, we have eδ(z) = O(( z − p)1/2 ), and 
+
+δ(z) = i 
+
+> 2
+
+δj1 + O(( z −̂ Ej1 )1/2 ), z →̂ Ej1 from C \ (−∞,̂ Ej1 ).
+
+Riemann-Hilbert Problem 3.2. M(1) satisfies the following Riemann-Hilbert problem: (M(1)1) Analyticity: M(1)(z) is analytic in C \ Σ(1), where Σ(1), shown in Fig. 3, is defined by 
+
+Σ(1) = ( −∞, z1] ∪ (∪nj=0[Ej,̂ Ej]) ∪ Σ1 ∪ Σ∗ 
+
+> 1
+
+∪ Σ2 ∪ Σ∗ 
+
+> 2
+
+. (3.10) (M(1)2) Jump condition: M(1)(z) satisfies the jump relation M(1)+ (z) = M(1) 
+
+> −
+
+(z)J(1) 
+
+> M
+
+(z) for z ∈ Σ(1),20 where the jump matrix is given by 
+
+J(1) 
+
+> M
+
+(z) = 
+
+
+
+−ie i( f0x+( αg0+βh0)t−(B fj x+( αBgj +βBhj )t+φj−δj)/2 ) ˆσ3 σ1,
+
+ 1 0
+
+−r1 (z)e−2it θ(z)−2δ(z) 1
+
+ , z ∈ Σ1,
+
+(
+
+1 r1(z)e2it θ(z)+ 2δ(z)
+
+0 1
+
+)
+
+, z ∈ Σ∗ 
+
+> 1
+
+,
+
+
+
+1 r1(z)e2it θ(z)+ 2δ(z)
+
+1 − | r1 (z)|2
+
+0 1
+
+ , z ∈ Σ2, v
+
+
+
+1 0
+
+−r1 (z)e−2it θ(z)−2δ(z)
+
+1 − | r1(z)|2 1
+
+ , z ∈ Σ∗ 
+
+> 2
+
+,
+
+ 1 − | r1(z)|2 r1 (z)e2it θ(z)+ 2δ(z)
+
+−r1 (z)e−2it θ(z)−2δ(z) 1
+
+ , z ∈ (̂ Ej1 , z1),(3.11) with φ0 = δ0 = 0 and j = 0, . . . , n.(M(1)3) Normalization at infinity: As z → ∞, we have M(1)(z) = I + O(z−1).(M(1)4) Local behavior: For p ∈ { Ej,̂ Ej}nj=0 \ { ̂ Ej1 }, M(1)(z) = O(( z − p)−1/4 ), z → p.
+
+## 3.1 Global parametrix 
+
+We now construct the global parametrix, which captures the leading asymptotic behavior of the Riemann–Hilbert problem. We seek a global parametrix M(glo ) solving the model Riemann–Hilbert problem obtained by neglecting the exponentially small jumps on the lens contours. More precisely, we consider the following problem: 
+
+Riemann-Hilbert Problem 3.3. M(glo )(z) satisfies the following Riemann–Hilbert problem: (M(glo )1) Analyticity: M(glo )(z) is analytic in C \ (∪nj=0[Ej,̂ Ej]) .(M(glo )2) Jump condition: M(glo )+ (z) = M(glo ) 
+
+> −
+
+(z)J(glo ) 
+
+> M
+
+(z) for z ∈ ∪ nj=0(Ej,̂ Ej), where the jump matrix is given by 
+
+J(glo ) 
+
+> M
+
+(z) = −ie i( f0x+( αg0+βh0)t−(B fj x+( αBgj +βBhj )t+φj−δj)/2 ) ˆσ3 σ1, z ∈ (Ej,̂ Ej), (3.12) with φ0 = δ0 = 0 and j = 0, . . . , n.(M(glo )3) Normalization at infinity: As z → ∞, M(glo )(z) = I + M(glo ) 
+
+> 1
+> z
+
++ O(z−2).(M(glo )4) Local behavior: For p ∈ { Ej,̂ Ej}nj=0, M(glo )(z) = O(( z − p)−1/4 ), z → p.21 As in the Riemann–Hilbert problem for μ(AG ), the above problem can be solved explicitly using the planar matrix Baker–Akhiezer function. More precisely, we have 
+
+M(glo )(z) = e−i( f0x+( αg0+βh0)t)σ3 D(glo )(∞)−1D(glo )(z)ei( f0x+( αg0+βh0)t)σ3 , (3.13) where D(glo )(z) = 
+
+(
+
+D(glo ) 
+
+> ij
+
+(z)
+
+) 
+
+> i,j=1,2
+
+with 
+
+D(glo ) 
+
+> jj
+
+(z) = 1
+
+2 (κ(z) + κ(z)−1)Wjj (z; x, t, φ − δ), j = 1, 2, (3.14) 
+
+D(glo ) 
+
+> ij
+
+(z) = 1
+
+2 (κ(z) − κ(z)−1)Wij (z; x, t, φ − δ), i = 1, 2; j = 3 − i. (3.15) Consequently, we obtain 
+
+q(AG )(x, t; E,̂ E, φ − δ) = 2i
+
+(
+
+M(glo )
+
+> 1
+
+) 
+
+> 12
+
+. (3.16) 
+
+## 3.2 Local parametrix 
+
+The global parametrix M(glo )(z) constructed in the previous subsection gives an accurate approxima-tion to M(1)(z) away from the endpoint ̂ Ej1 . At the endpoint ̂ Ej1 , however, this approximation fails because the jump matrices for M(1)(z) do not converge uniformly to the identity and may exhibit singular behavior. To resolve this issue, we construct a local parametrix in a small neighborhood of this point. We define the small open disk U1 = {z ∈ C : |z −̂ Ej1 | < δ1} centered at ̂ Ej1 , with fixed radius 
+
+δ1 > 0 chosen sufficiently small. In particular, we may choose 
+
+δ1 = min 
+
+{ 1
+
+2 (̂ Ej1 − zj1 ), 1
+
+2 (Ej1 +1 −̂ Ej1 ), 2 (z1 −̂ Ej1 )t̺
+
+}
+
+,̺ ∈ (1/3, 2/3 ). (3.17) 
+
+Riemann-Hilbert Problem 3.4. M(loc )(z) satisfying the following Riemann–Hilbert problem: (M(loc )1) Analyticity: M(loc )(z) is analytic in U1 \ Σ(1).(M(loc )2) Jump condition: M(loc )+ (z) = M(loc ) 
+
+> −
+
+(z)J(1) 
+
+> M
+
+(z) for z ∈ Σ(1) ∩ U1.(M(loc )3) Matching condition: As t → ∞, M(loc )(z) matches M(glo )(z) on the boundary ∂U1.(M(loc )4) Local behavior: At ̂ Ej1 , M(loc )(z) = O(( z −̂ Ej1 )−1/4 ), z →̂ Ej1 .To construct the solution, we need a suitable conformal map that captures the local behavior of the phase function near the endpoint. For θ, we have the following local expansion: 
+
+θ(z) = θ(0, ˆ j1) + ( ξ −̂ ξj1 )θ(1, ˆ j1)(z −̂ Ej1 )1/2 + 2
+
+3 θ(3, ˆ j1)(z −̂ Ej1 )3/2 + O
+
+(
+
+(z −̂ Ej1 )5/2 )
+
+, (3.18) as z →̂ Ej1 , for fixed ξ, where 
+
+θ(0, ˆj1) = θ(̂ Ej1 ; ξ) = f0ξ + αg0 + βh0 − 1
+
+2 (B fj1 ξ + αBgj1 + βBhj1 ), (3.19) 22 θ(1, ˆj1) = − 2 ∏nj=0(̂ Ej1 − z fj )
+
+ˆw(j1)(̂ Ej1 ) , (3.20) 
+
+θ(3, ˆj1) = 1
+
+ˆw(j1)(̂ Ej1 )2
+
+[
+
+F(̂ Ej1 ; ξ)( ˆw(j1))′(̂ Ej1 ) − ∂z F(̂ Ej1 ; ξ) ˆw(j1)(̂ Ej1 )
+
+]
+
+, (3.21) with 
+
+w(i)(z) = 
+
+[
+
+−
+
+> n
+
+# ∏
+
+> k=0
+
+(z −̂ Ek) · ∏ 
+
+> k=0,..., n,k6=i
+
+(z − Ek)
+
+] 1
+
+> 2
+
+, (3.22) and ˆw(i)(z) = 
+
+[ n
+
+# ∏
+
+> k=0
+
+(z − Ek) · ∏ 
+
+> k=0,..., n,k6=i
+
+(z −̂ Ek)
+
+] 1
+
+> 2
+
+. (3.23) This local expansion motivates the definition 
+
+ζ(z) = ζ(z; ξ) = 
+
+( 3it 
+
+2 (θ(̂ Ej1 ) + ( ξ −̂ ξj1 )θ(1, ˆ j1)(z −̂ Ej1 )1/2 − θ(z)) 
+
+)2/3 
+
+, z ∈ U1, (3.24) which is a one-to-one conformal map in U1 with respect to z. Moreover, it is readily seen that 
+
+ζ(̂ Ej1 ) = 0, ζ′(̂ Ej1 ) = −| θ(3, ˆ j1)(ξ)|2/3 t2/3 < 0. (3.25) 
+
+## 3.3 Construction of a model Riemann–Hilbert problem 
+
+In this subsection, we explicitly construct the matrix function M(loc )(z) using the Painlevé XXXIV function. The construction is carried out in three steps: first, we solve a standard model Riemann– Hilbert problem in the auxiliary ζ-plane; next, we establish the error estimate; finally, we construct 
+
+M(loc )(z).We use the standard Painlevé XXXIV parametrix Ψ(ζ), as described in [ 29 ]. 
+
+Riemann-Hilbert Problem 3.5. Ψ(ζ) satifies the following RH problem: (Ψ1) Analyticity: Ψ(ζ) is analytic in C \ Σ(loc ,ζ) and continuous up to the boundary. The jump con-tour Σ(loc ,ζ) is defined by 
+
+Σ(loc ,ζ) = ( ζ(z1), +∞) ∪ Σ(loc ) 
+
+> 1
+
+∪ Σ(loc )∗ 
+
+> 1
+
+,
+
+Σ(loc ) 
+
+> 1
+
+= ( ζ(Σ∗ 
+
+> 1
+
+∩ U)) ∪ { ζ(Σ∗ 
+
+> 1
+
+∩ ∂U) + ei(π−ϕ)R+}.(3.26) (Ψ2) Jump condition: Ψ(ζ) satisfies the jump relation Ψ+(ζ) = Ψ−(ζ)J(loc ,1 ) 
+
+> M
+
+(ζ), where the jump matrices are given by 
+
+J(loc ,1 ) 
+
+> M
+
+(ζ) = eit θ(̂ Ej1 ) ˆσ3
+
+
+
+ie −i(φj1 −δj1 ) ˆσ3/2 σ1, ζ ∈ R+,
+
+(
+
+1 e−iφj1 +2 ˆθ(ζ)+ iδj1
+
+0 1
+
+)
+
+, ζ ∈ Σ(loc ) 
+
+> 1
+
+,
+
+( 1 0
+
+eiφj1 +2 ˆθ(ζ)−iδj1 1
+
+)
+
+, ζ ∈ Σ(loc )∗ 
+
+> 1
+
+,
+
+( 1 0
+
+eiφj1 +2 ˆ θ(ζ)−iδj1 1
+
+) ( 
+
+1 e−iφj1 +2 ˆθ(ζ)+ iδj1
+
+0 1
+
+)
+
+, ζ ∈ (ζ(z1), 0 ),(3.27) 23 where ˆθ(ζ) = sζ1/2 + 2
+
+3 ζ3/2 , s = − θ(1, ˆ j1)
+
+|θ(3, ˆ j1)(ξ)|1/3 (ξ −̂ ξj1 )t2/3 ∈ R. (3.28) (Ψ3) Asymptotics at infinity: As ζ → ∞,
+
+Ψ(ζ) = 
+
+(
+
+I + O
+
+(
+
+ζ−1)) iζ− 1 
+
+> 4σ3
+
+√2 σ1 G1(ζ), (3.29) where 
+
+G1(ζ) = 
+
+(
+
+0 −11 0
+
+)
+
+eπiσ3/4 e−i(tθ(̂ Ej1)−φj1 +δj1 )σ3/2 , ζ ∈ C+,
+
+eπiσ3/4 e−i(tθ(̂ Ej1)−φj1 +δj1 )σ3/2 , ζ ∈ C−.(3.30) (Ψ4) Local behavior: As ζ → 0, Ψ(ζ) = O(ζ−1/4 ).This model problem admits an explicit solution in terms of the Painlevé XXXIV function M(P34 )(ζ; s, α, ω).To this end, let α = −1/4 and ω = 0, and define 
+
+Ψ(ζ) = 
+
+( 1 0
+
+iν(s) 1
+
+)
+
+M(P34 )(ζ; s, −1/4, 0 )e ˆθ(ζ)σ3 G1(ζ)G2(ζ), (3.31) where 
+
+G2(ζ) = eit θ(̂ Ej1 ) ˆσ3
+
+(
+
+1 e−iφj1 +2 ˆ θ(ζ)+ iδj1
+
+0 1
+
+)
+
+, ζ ∈ Σ(loc ) 
+
+> 1
+
+,
+
+( 1 0
+
+eiφj1 +2 ˆ θ(ζ)−iδj1 1
+
+)
+
+, ζ ∈ Σ(loc )∗ 
+
+> 1
+
+,
+
+I, elsewhere, (3.32) with 
+
+ν(s) = 
+
+∫ s
+
+> −∞
+
+(
+
+P34 (ω) + ω
+
+2
+
+)
+
+dω. (3.33) Here P34 (s) is the unique solution of the Painlevé-XXXIV equation [ 31 ]
+
+P′′ 
+
+> 34
+
+(s) = 4P34 (s)2 + 2sP 34 (s) + 4P′
+
+> 34
+
+(s)2 − 1
+
+8P34 (s) . (3.34) Note that, as t → ∞, J(1) 
+
+> M
+
+(ζ) is well approximated by J(loc ,1 ) 
+
+> M
+
+(ζ) for ζ ∈ Σ(loc ) 
+
+> 1
+
+∩ ζ(U). It is there-fore natural to expect that M(loc ) is well approximated by Ψ for large t. We begin by introducing a Riemann–Hilbert problem whose jump matrix is the same as that of M(loc ) and whose large-ζ asymp-totics agree with those of Ψ.
+
+Riemann-Hilbert Problem 3.6. M(loc ,0 )(ζ) satisfies the following RH problem: (M(loc ,0 )1) Analyticity: M(loc ,0 )(ζ) is analytic in C \ Σ(loc ,ζ).(M(loc ,0 )2) Jump condition: M(loc ,0 )+ (ζ) = M(loc ,0 ) 
+
+> −
+
+(ζ)J(1) 
+
+> M
+
+(ζ), ζ ∈ Σ(loc ,ζ).24 (M(loc ,0 )3) Asymptotics at infinity: As ζ → ∞,
+
+M(loc ,0 )(ζ) = 1
+
+√2
+
+(
+
+I + O
+
+(
+
+ζ−1)) 
+
+ζ− 1 
+
+> 4σ3
+
+(1 ii 1
+
+)
+
+G1(ζ), (3.35) (M(loc ,0 )4) Local behavior: As ζ → 0, M(loc ,0 )(ζ) = O(ζ−1/4 ).Set Ξ(ζ) = M(loc ,0 )(ζ)Ψ(ζ)−1. Following [ 29 ], one obtains that, as t → ∞, Ξ(ζ) exists uniquely and satisfies 
+
+Ξ(ζ) = I + O(t−1/3 ). (3.36) Hence the asymptotic expansion of M(loc ,0 )(ζ) is 
+
+M(loc ,0 )(ζ) = 1
+
+√2
+
+(
+
+I + M(loc ,0 )
+
+> 1
+
+ζ + O
+
+(
+
+ζ−2))
+
+ζ− 1 
+
+> 4σ3
+
+(1 ii 1
+
+)
+
+G1(ζ), (3.37) where 
+
+(M(loc ,0 ) 
+
+> 1
+
+)12 = iν(s) + O(t−1/3 ). (3.38) We now construct M(loc )(z). With the aid of M(loc ,0 )(ζ), we finally define 
+
+M(loc )(z) = H1(z)tσ3/6 M(loc ,0 )(ζ(z)) , z ∈ U1, (3.39) where 
+
+H1(z) = 1
+
+√2 M(glo )(z)G1(ζ(z)) −1
+
+( 1 −i
+
+−i 1
+
+) (
+
+(̂ Ej1 − z)|θ(3, ˆj1)(̂ ξj1 )|2/3 )σ3 /4 
+
+. (3.40) The function H1(z) is analytic in U1; see [ 29 ]. Finally, using M(glo )(z) and M(loc )(z), we obtain 
+
+M(loc )(z)M(glo )(z)−1 = I − t1/3 
+
+ζ(z) H1(z)
+
+(0 iν(s)
+
+0 0
+
+)
+
+H1(z)−1 + O(t1/3 −2̺ ), (3.41) as t → ∞, for z ∈ ∂U1.
+
+## 3.4 The small-norm Riemann–Hilbert problem 
+
+The final transformation involves the global parametrix M(glo )(z) and the local parametrix M(loc )(z).We define the matrix-valued function E(z) by 
+
+E(z) = 
+
+{
+
+M(1)(z)M(glo )(z)−1, z ∈ C \ U1,
+
+M(1)(z)M(loc )(z)−1, z ∈ U1, (3.42) which satisfies the following Riemann–Hilbert problem. 
+
+Riemann-Hilbert Problem 3.7. E(z) satisfies the following Riemann–Hilbert problem: (E1) Analyticity: E(z) is analytic in C \ Σ(E), where Σ(E) = ∂U1 ∪ Σ2 ∪ Σ∗ 
+
+> 2
+
+∪ Σ1 ∪ Σ∗ 
+
+> 1
+
+\ U1 (see Fig. 4). (E2) Jump condition: E+(z) = E−(z)JE(z), where the jump matrix is given by 
+
+JE(z) = 
+
+
+
+M(glo )(z)J(1) 
+
+> M
+
+(z)M(glo )(z)−1, z ∈ Σ(E) \ ∂U1,
+
+M(loc )(z)M(glo )(z)−1, z ∈ ∂U1.(3.43) 25 Ω2
+
+Ω∗
+
+> 2
+
+Σ2
+
+Σ∗
+
+> 2
+
+Ej1
+
+zj1
+
+ˆEj1
+
+z1
+
+∂U 1
+
+Σ1
+
+Σ∗
+
+> 1
+
+Ω1
+
+Ω∗
+
+> 1
+
+Figure 4: The contours Σ(E).(E3) Asymptotics at infinity: As z → ∞, E(z) = I + E1 
+
+> z
+
++ O(z−2).(E4) Local behavior: As z →̂ Ej1 , E(z) = O(( z −̂ Ej1 )−1/2 ).A direct calculation shows that 
+
+‖ JE(z) − I ‖Lp =
+
+{O
+
+(
+
+e−ct ̺ /2 )
+
+, z ∈ Σ(E) \ ∂U1,
+
+O(t−κp ), z ∈ ∂U1, (3.44) for some positive constant c, with κ∞ =̺ − 1/3 and κ2 =̺ /2; see [ 29 ]. Since the jump matrix is uniformly close to the identity, the standard small-norm Riemann–Hilbert theory (see, e.g., [ 24 ]) implies that the Riemann–Hilbert problem for E has a unique solution for sufficiently large positive 
+
+t. Moreover, 
+
+E(z) = I + 1
+
+2πi
+
+∫
+
+> Σ(E)
+
+̟
+
+(λ)( JE(λ) − I)
+
+λ − z dλ, (3.45) where ̟ ∈ I + L2(Σ(E)) is the unique solution of the Fredholm-type equation ̟
+
+= I + CE̟ , (3.46) and CE:L2(Σ(E)) → L2 (Σ(E)) is the integral operator defined by CE( f )( z) = C− ( f (JE(z) − I)) , with 
+
+C− being the Cauchy projection operator on Σ(E) defined by 
+
+C± f (z) = lim 
+
+> z′→z∈Σ(E)
+
+1
+
+2πi
+
+∫
+
+> Σ(E)
+
+f (ζ)
+
+ζ − z′ dζ. (3.47) It is readily seen that 
+
+E1 = − 1
+
+2πi
+
+∫
+
+> Σ(E)
+
+̟ (λ)( JE(λ) − I)dλ. (3.48) As in [ 29 ], we obtain 
+
+E1 = − t−1/3 
+
+|θ(3, ˆ j1)(̂ ξj1 )|2/3 H1(̂ Ej1 )
+
+(0 ia 
+
+0 0
+
+)
+
+H1(̂ Ej1 )−1 + O(t−̺ ). (3.49) 
+
+# 4 Long-time asymptotics in the transition region II 
+
+In this section, we carry out the asymptotic analysis of the Riemann–Hilbert problem for N(x, t; z)
+
+in order to derive the asymptotics of q in transition region II. According to Definition 2.1, we may 26 choose C so that, throughout this section, only one of the saddle points z2 is involved in the transition regime 0 ≤ (ξ − ξj2 )t2/3 ≤ C for some fixed j2 ∈ { 0, . . . , n}, since the analysis in the complementary half-region is analogous. For large t, one has ξj2 < ξ <̂ ξj2 −1, and hence the saddle point satisfies 
+
+z2 ∈ [̂ Ej2 −1, Ej2 ).In this and the next section, we use the same notation as before, with the meaning understood from the corresponding context. Let zj2 ∈ (Ej2 ,̂ Ej2 ) be fixed. We set 
+
+Ω3 = Ω3(ξ) = {z ∈ C : π − ϕ2 ≤ arg (z − z2) ≤ π}, Σ3 = Σ3(ξ) = z2 + eiϕ2 R+,
+
+Ω4 = Ω4(ξ) = {z ∈ C : 0 ≤ arg (z − zj2 ) ≤ ϕ2}, Σ4 = Σ4(ξ) = zj2 + ei(π−ϕ2)R+, (4.1) where ϕ2 is chosen such that Im θ(z)
+
+{
+
+< 0, z ∈ Σ3 \ { z2},
+
+> 0, z ∈ Σ4 \ { zj2 }. (4.2) The first transformation for N is defined by 
+
+N(1)(z) = eδ(∞)σ3 N(z)GN(z)e−δ(z)σ3, (4.3) where 
+
+GN (z) = 
+
+(
+
+1 −r2 (z)e2it θ(z)
+
+0 1
+
+)
+
+, z ∈ Ω3,
+
+(
+
+1 0
+
+−r2 (z)e−2it θ(z) 1
+
+)
+
+, z ∈ Ω∗ 
+
+> 3
+
+,
+
+ 1 0  
+
+> r2(z)e−2it θ(z)
+> 1−| r2(z)|2
+
+1
+
+ , z ∈ Ω4,
+
+1 r2(z)e2it θ(z)
+
+> 1−| r2(z)|2
+
+0 1
+
+ , z ∈ Ω∗ 
+
+> 4
+
+,
+
+I, elsewhere, (4.4) Similarly, the function δ(z) is defined by 
+
+δ(z) = w(z)
+
+2πi
+
+[ n
+
+# ∑
+
+> j=1
+
+δj
+
+∫̂ Ej
+
+> Ej
+
+i ds
+
+w+(s)( s − z) +
+
+∫    
+
+> (̂Ej2,+∞)\(∪nj=j2(Ej,̂Ej))
+
+log (1 − | r2(s)|2) ds
+
+w(s)( s − z)
+
+]
+
+, (4.5) where the logarithm is taken on the principal branch, and the constants δj, j = 1, . . . , n, are determined by the linear system 
+
+∫   
+
+> (̂Ej2,+∞)\(∪nj=j2(Ej,̂Ej))
+
+log (1 − | r2 (s)|2)skds
+
+w(s) +
+
+> n
+
+# ∑
+
+> j=1
+
+δj
+
+∫̂ Ej
+
+> Ej
+
+is kds
+
+w+(s) = 0, k = 0, . . . , n − 1. (4.6) 
+
+Riemann-Hilbert Problem 4.1. δ(z) = −δ( ¯z) satisfies the following Riemann–Hilbert problem: (δ1) Analyticity: δ(z) is analytic in C \ (∪nj=0[Ej,̂ Ej] ∪ [z2, +∞)) .27 Ω3
+
+Ω∗
+
+> 3
+
+Σ3
+
+Σ∗
+
+> 3
+
+z2
+
+Ej2 zj2
+
+Σ4
+
+Σ∗
+
+> 4
+
+Ω4
+
+Ω∗ 
+
+> 4
+
+ˆEj2
+
+Figure 5: The contour Σ(1).(δ2) Jump condition: δ(z) satisfies the jump relation 
+
+{δ−(z) = δ+(z) + log (1 − | r2(z)|2), z ∈ (̂ Ej2 , +∞) \ (∪nj=j2 [Ej,̂ Ej]) ,
+
+δ−(z) = −δ+(z) + iδj, z ∈ (Ej,̂ Ej), j = 1, . . . , n. (4.7) (δ3) Normalization at infinity: As z → ∞,
+
+δ(z) = δ(∞) + δ(1)
+
+z + O(z−2), z → ∞, (4.8) where 
+
+δ(∞) = − 1
+
+2πi
+
+[∫   
+
+> (̂Ej2,+∞)\(∪nj=j2(Ej,̂Ej))
+
+log (1 − | r2(s)|2)snds
+
+w(s) +
+
+> n
+
+# ∑
+
+> j=1
+
+δj
+
+∫̂ Ej
+
+> Ej
+
+is nds
+
+w+(s)
+
+]
+
+, (4.9) and 
+
+δ(1) = −δ(∞)
+
+> n
+
+# ∑
+
+> j=0
+
+(Ej +̂ Ej)
+
+− 1
+
+2πi
+
+[∫    
+
+> (̂Ej2,+∞)\(∪nj=j2(Ej,̂Ej))
+
+log (1 − | r2(s)|2)sn+1ds
+
+w(s) +
+
+> n
+
+# ∑
+
+> j=1
+
+δj
+
+∫̂ Ej
+
+> Ej
+
+is n+1ds
+
+w+(s)
+
+]
+
+.(4.10) (δ4) Local behavior: As z → p ∈ { Ej }nj=j2+1 ∪ { ̂ Ej }nj=j2 from C+, we have 
+
+eδ(z) = O(( z − p)−1/2 ), (4.11) and 
+
+δ(z) = i
+
+2 δj2 + O(( z − Ej2 )1/2 ), z → Ej2 from C \ (−∞, Ej2 ). (4.12) 
+
+Riemann-Hilbert Problem 4.2. N(1) satisfies the following Riemann–Hilbert problem: (N(1)1) Analyticity: N(1)(z) is analytic in C \ Σ(1), where Σ(1) = [ z2, Ej2 ] ∪ (∪nj=0[Ej,̂ Ej]) ∪ Σ3 ∪ Σ∗ 
+
+> 3
+
+∪
+
+Σ4 ∪ Σ∗ 
+
+> 4
+
+(see Fig. 5). 28 (N(1)2) Jump condition: N(1)+ (z) = N(1) 
+
+> −
+
+(z)J(1) 
+
+> N
+
+(z) for z ∈ Σ(1), where the jump matrix is given by 
+
+J(1) 
+
+> N
+
+(z) = 
+
+
+
+−ie i( f0x+( αg0+βh0)t−(B fj x+( αBgj +βBhj )t+φj−δj)/2 ) ˆσ3 σ1, z ∈ (Ej,̂ Ej),
+
+(
+
+1 r2(z)e2it θ(z)+ 2δ(z)
+
+0 1
+
+)
+
+, z ∈ Σ3,
+
+ 1 0
+
+−r2 (z)e−2it θ(z)−2δ(z) 1
+
+ , z ∈ Σ∗ 
+
+> 3
+
+,
+
+
+
+1 0
+
+−r2 (z)e−2it θ(z)−2δ(z)
+
+1 − | r2(z)|2 1
+
+ , z ∈ Σ4,
+
+1 r2(z)e2it θ(z)+ 2δ(z)
+
+1 − | r2(z)|2
+
+0 1
+
+ , z ∈ Σ∗ 
+
+> 4
+
+,
+
+ 1 r2(z)e2it θ(z)+ 2δ(z)
+
+−r2 (z)e−2it θ(z)−2δ(z) 1 − | r2 (z)|2
+
+ , z ∈ (z2, Ej2 ).(4.13) (N(1)3) Normalization at infinity: As z → ∞, N(1)(z) = I + O(z−1).(N(1)4) Local behavior: For p ∈ { Ej,̂ Ej}nj=0 \ { Ej2 }, N(1)(z) = O(( z − p)−1/4 ), z → p.Let 
+
+E(z) = 
+
+{
+
+N(1)(z)N(glo )(z)−1, z ∈ C \ U2,
+
+N(1)(z)N(loc )(z)−1, z ∈ U2, (4.14) where N(glo )(z) and N(loc )(z) are the global and local parametrices for N(1)(z), respectively, and 
+
+U2 = {z ∈ C : |z − Ej2 | < δ2} is centered at Ej2 , with fixed radius δ2 > 0 chosen sufficiently small. In particular, we may choose 
+
+δ2 = min 
+
+{ 1
+
+2 (zj2 − Ej2 ), 1
+
+2 (Ej2 +1 −̂ Ej2 ), 2 (z2 −̂ Ej2 )t̺
+
+}
+
+,̺ ∈ (1/3, 2/3 ). (4.15) Similarly to transition region I, N(glo )(z) satisfies the same global model Riemann–Hilbert prob-lem, whose solution is similar to M(glo )(z) given by ( 3.13 ) with the parameters δj’s replaced by ( 4.6 ). 
+
+Riemann-Hilbert Problem 4.3. N(loc )(z) satisfies the following Riemann–Hilbert problem: (N(loc )1) Analyticity: N(loc )(z) is analytic in U2 \ Σ(1).(N(loc )2) Jump condition: N(loc )+ (z) = N(loc ) 
+
+> −
+
+(z)J(1) 
+
+> N
+
+(z) for z ∈ Σ(1) ∩ U2.(N(loc )3) Matching condition: As t → ∞, N(loc )(z) matches N(glo )(z) on the boundary ∂U2 of U2.(N(loc )4) Local behavior: At Ej2 , N(loc )(z) = O(( z − Ej2 )−1/4 ), z → Ej2 .29 Similarly, to construct the solution, we need a suitable conformal map that captures the local behavior of the phase function near the endpoint. For θ, we have the following local expansion: 
+
+θ(z) = θ(0, j2) + ( ξ − ξj2 )θ(1, j2)(Ej2 − z)1/2 + 2
+
+3 θ(3, j2)(Ej2 − z)3/2 + O
+
+(
+
+(Ej2 − z)5/2 )
+
+, (4.16) as z → Ej2 , for fixed ξ, where 
+
+θ(0, j2) = f0ξ + αg0 + βh0 − 1
+
+2 (B fj2 ξ + αBgj2 + βBhj2 ), (4.17) 
+
+θ(1, j2) = − 2 ∏nj=0(Ej2 − z fj2 )
+
+w(j2)(Ej2 ) , (4.18) 
+
+θ(3, j2) = −1
+
+w(j2)(Ej2 )2
+
+[
+
+∂z F(Ej2 ; ξ)w(j2)(Ej2 ) − F(Ej2 ; ξ)( w(j2))′(Ej2 )
+
+]
+
+. (4.19) This local expansion motivates the definition 
+
+ζ(z) = 
+
+( 3it 
+
+2 (θ(Ej2 ) + ( ξ − ξj2 )θ(1, j2)(Ej2 − z)1/2 − θ(z)) 
+
+)2/3 
+
+, z ∈ U2, (4.20) which is a one-to-one conformal map in U2 with respect to z. Moreover, it is readily seen that 
+
+ζ(Ej2 ) = 0, ζ′(Ej2 ) = −| θ(3, j2)(ξj2 )|2/3 t2/3 < 0. (4.21) As in transition region I, the local parametrix N(loc )(z) is given by 
+
+N(loc )(z) = ˜H1(z)tσ3/6 
+
+( 1 0
+
+iν(s) 1
+
+)
+
+M(P34 )(ζ(z); s, −1/4, 0 )e ˆθ(ζ(z)) σ3 G1(ζ(z)) G2(ζ(z)) , (4.22) where 
+
+G1(ζ) = 
+
+(
+
+0 −11 0
+
+)
+
+e−πiσ3/4 e−i( f0x+( αg0+βh0)t−(B fj2 x+( αBgj2 +βBhj2 )t+δj2 )σ3/2 , ζ ∈ C−,
+
+e−πiσ3/4 e−i( f0x+( αg0+βh0)t−(B fj2 x+( αBgj2 +βBhj2 )t+δj2 )σ3/2 , ζ ∈ C+,(4.23) 
+
+G2(ζ) = eit θ(Ej2 ) ˆσ3
+
+(
+
+1 −r2 (Ej2 )e2θ(ζ)+ iδj2
+
+0 1
+
+)
+
+, ζ ∈ Ω(loc ) 
+
+> 3
+
+,
+
+( 1 0
+
+−r2(Ej2 )e2θ(ζ)−iδj2 1
+
+)
+
+, ζ ∈ Ω(loc )∗ 
+
+> 3
+
+,
+
+I, elsewhere, (4.24) and ˜H1(z) = 1
+
+√2 N(glo )(z)G1(ζ(z)) −1
+
+( 1 −i
+
+−i 1
+
+) (
+
+(z − Ej2 )|θ(3, j2)(ξ)|2/3 )σ3 /4 
+
+. (4.25) Using N(glo )(z) and N(loc )(z), we obtain 
+
+N(loc )(z)N(glo )(z)−1 = I − t1/3 
+
+ζ(z) ˜H1(z)
+
+(0 iν(s)
+
+0 0
+
+)
+
+˜H1(z)−1 + O(t1/3 −2̺ ), (4.26) as t → ∞, for z ∈ ∂U2.30 Ω3
+
+Ω∗
+
+> 3
+
+Σ3
+
+Σ∗
+
+> 3
+
+Ej2
+
+zj2 ˆEj2
+
+z2
+
+∂U 2
+
+Σ4
+
+Σ∗
+
+> 4
+
+Ω4
+
+Ω∗
+
+> 4
+
+Figure 6: The contours Σ(E).
+
+Riemann-Hilbert Problem 4.4. E(z) defined by ( 4.14 ) satisfies the following Riemann–Hilbert prob-lem: (E1) Analyticity: E(z) is analytic in C \ Σ(E), where Σ(E) = ∂U2 ∪ Σ3 ∪ Σ∗ 
+
+> 3
+
+∪ Σ4 ∪ Σ∗ 
+
+> 4
+
+\ U2 (see Fig. 6). (E2) Jump condition: E+(z) = E−(z)JE(z), where the jump matrix is given by 
+
+JE(z) = 
+
+
+
+N(glo )(z)J(1) 
+
+> N
+
+(z)N(glo )(z)−1, z ∈ Σ(E) \ ∂U2,
+
+N(loc )(z)N(glo )(z)−1, z ∈ ∂U2.(4.27) (E3) Asymptotics at infinity: As z → ∞, E(z) = I + E1 
+
+> z
+
++ O(z−2).(E4) Local behavior: As z → Ej2 , E(z) = O(( z − Ej2 )−1/2 ).Similarly, by the standard small-norm Riemann–Hilbert theory, there exists a unique solution to the Riemann–Hilbert problem for E for sufficiently large positive t. Moreover, we have 
+
+E1 = t−1/3 
+
+|θ(3, j2)(ξj2 )|2/3 ˜H1(Ej2 )
+
+(0 iν(s)
+
+0 0
+
+)
+
+˜H1(Ej2 )−1 + O(t−̺ ), t → +∞. (4.28) 
+
+# 5 Long-time asymptotics in the Zakharov-Manakov region III and fast-decay region IV 
+
+In this section, we carry out the asymptotic analysis of the Riemann–Hilbert problem for M when ξ
+
+belongs to the Zakharov–Manakov region, that is, ξ ∈ (−∞,̂ ξn) ∪nj=1 (ξj,̂ ξj−1) ∪ (ξ0, +∞), and to the fast-decay region, that is, ξ ∈ ∪ nj=0(̂ ξj, ξj). In the Zakharov–Manakov region, the saddle points satisfy 
+
+zi ∈ R \ (∪nj=0[Ej,̂ Ej]) , i = 1, 2, whereas in the fast-decay region they satisfy zi ∈ ∪ nj=0(Ej,̂ Ej). We set 
+
+Ω1 = Ω1(ξ) = {z ∈ C : 0 ≤ arg (z − z1) ≤ ϕ1}, Σ1 = Σ1(ξ) = z1 + eiϕ1 R+,
+
+Ω2 = Ω2(ξ) = {z ∈ C : π − ϕ1 ≤ arg (z − z1) ≤ π}, Σ2 = Σ2(ξ) = z1 + ei(π−ϕ1)R+,
+
+Ω3 = Ω3(ξ) = {z ∈ C : 0 ≤ arg (z − z2) ≤ ϕ2}, Σ3 = Σ3(ξ) = z2 + eiϕ2 R+,
+
+Ω4 = Ω4(ξ) = {z ∈ C : π − ϕ2 ≤ arg (z − z2) ≤ π}, Σ4 = Σ4(ξ) = z2 + ei(π−ϕ2)R+,(5.1) 31 where ϕ1 is chosen such that Im θ(z)
+
+{
+
+< 0, z ∈ Σ1 \ { z1},
+
+> 0, z ∈ Σ2 \ { z1}, (5.2) and ϕ2 is chosen such that Im θ(z)
+
+{
+
+< 0, z ∈ Σ3 \ { z2},
+
+> 0, z ∈ Σ4 \ { z2}. (5.3) Similarly, the first transformation for M is defined by 
+
+M(1)(z) = eδ(∞)σ3 M(z)G(z)e−δ(z)σ3, (5.4) where 
+
+G(z) = 
+
+(
+
+1 0
+
+r1(z)e−2it θ(z) 1
+
+)
+
+, z ∈ Ω1 ∪ Ω3,
+
+(
+
+1 r1(z)e2it θ(z)
+
+0 1
+
+)
+
+, z ∈ Ω∗ 
+
+> 1
+
+∪ Ω∗ 
+
+> 3
+
+,
+
+1 − r1 (z)e2it θ(z)
+
+> 1−| r1(z)|2
+
+0 1
+
+ , z ∈ Ω2 ∪ Ω4,
+
+ 1 0
+
+− r1 (z)e−2it θ(z) 
+
+> 1−| r1(z)|2
+
+1
+
+ , z ∈ Ω∗ 
+
+> 2
+
+∪ Ω∗ 
+
+> 4
+
+,
+
+I, elsewhere. (5.5) The function δ(z) is defined by 
+
+δ(z) = w(z)
+
+2πi
+
+[ n
+
+# ∑
+
+> j=1
+
+δj
+
+∫̂ Ej
+
+> Ej
+
+i ds
+
+w+(s)( s − z) −
+
+∫ 
+
+> ∪2
+> i=1(−∞,zi)\(∪nj=0(Ej,̂Ej))
+
+log (1 − | r1(s)|2) ds
+
+w(s)( s − z)
+
+]
+
+, (5.6) where the logarithm is taken on the principal branch, and the constants δj, j = 1, . . . , n, are determined by the linear system 
+
+∫ 
+
+> ∪2
+> i=1(−∞,zi)\(∪nj=0(Ej,̂Ej))
+
+log (1 − | r1 (s)|2)skds
+
+w(s) −
+
+> n
+
+# ∑
+
+> j=1
+
+δj
+
+∫̂ Ej
+
+> Ej
+
+is kds
+
+w+(s) = 0, k = 0, . . . , n − 1. (5.7) 
+
+Riemann-Hilbert Problem 5.1. δ(z) satisfies the following Riemann–Hilbert problem: (δ1) Analyticity: δ(z) is analytic in C \ (∪nj=0[Ej,̂ Ej] ∪ (−∞, z1] ∪ (−∞, z2]) .(δ2) Jump condition: δ(z) satisfies the jump relation 
+
+{δ−(z) = δ+(z) + log (1 − | r1 (z)|2), z ∈ ∪ 2
+
+> i=1
+
+(−∞, zi) \ (∪nj=0[Ej,̂ Ej ]) ,
+
+δ+(z) + δ−(z) = iδj, z ∈ (Ej,̂ Ej), j = 1, . . . , n. (5.8) (δ3) Normalization at infinity: As z → ∞, δ(z) = δ(∞) + δ(1) 
+
+> z
+
++ O(z−2), where 
+
+δ(∞) = 1
+
+2πi
+
+[∫  
+
+> ∪2
+> i=1(−∞,zi)\(∪nj=0(Ej,̂Ej))
+
+log (1 − | r1 (s)|2)snds
+
+w(s) −
+
+> n
+
+# ∑
+
+> j=1
+
+δj
+
+∫̂ Ej
+
+> Ej
+
+is nds
+
+w+(s)
+
+]
+
+, (5.9) 32 Ej1
+
+ˆEj1Ω2
+
+Ω∗
+
+> 2
+
+Ω1
+
+Ω∗
+
+> 1
+
+Σ2
+
+Σ∗
+
+> 2
+
+Σ1
+
+Σ∗
+
+> 1
+
+z1 Ej2
+
+ˆEj2
+
+Ω4
+
+Ω∗
+
+> 4
+
+Ω3
+
+Ω∗
+
+> 3
+
+Σ4
+
+Σ∗
+
+> 4
+
+Σ3
+
+Σ∗
+
+> 3
+
+z2
+
+Figure 7: The contours Σ(1) in the Zakharov–Manakov region III. 
+
+Ej1Ω2
+
+Ω∗
+
+> 2
+
+Ω1
+
+Ω∗
+
+> 1
+
+Σ2
+
+Σ∗
+
+> 2
+
+Σ1
+
+Σ∗
+
+> 1
+
+z1 ˆEj2Ω4
+
+Ω∗
+
+> 4
+
+Ω3
+
+Ω∗
+
+> 3
+
+Σ4
+
+Σ∗
+
+> 4
+
+Σ3
+
+Σ∗
+
+> 3
+
+z2
+
+Figure 8: The contours Σ(1) in the fast-decay region IV. and 
+
+δ(1) = δ(∞)
+
+> n
+
+# ∑
+
+> j
+
+=0
+
+(Ej +̂ Ej )
+
+− 1
+
+2πi
+
+[∫
+
+∪2
+
+> i=1
+
+(−∞,zi)\(∪nj=0(Ej,̂ Ej)) 
+
+log (1 − | r1 (s)|2)sn+1ds
+
+w(s) −
+
+> n
+
+# ∑
+
+> j
+
+=1
+
+δj
+
+∫̂ Ej
+
+> Ej
+
+is n+1ds
+
+w+(s)
+
+]
+
+.(5.10) (δ4) Local behavior: δ(z) = i 
+
+> 2
+
+δi + O(( z − zi)1/2 ), z → zi from C \ (−∞, zi).
+
+Riemann-Hilbert Problem 5.2. M(1) satisfies the following Riemann–Hilbert problem: (M(1)1) Analyticity: M(1)(z) is analytic in C \ Σ(1), where Σ(1) = ( ∪nj=0[Ej,̂ Ej]) ∪4
+
+> i
+
+=1 (Σi ∪ Σ∗ 
+
+> i
+
+) (see Figs. 7 and 8). (M(1)2) Jump condition: M(1)+ (z) = M(1)
+
+− (z)J(1) 
+
+> M
+
+(z) for z ∈ Σ(1), where the jump matrix is given by 
+
+J(1) 
+
+> M
+
+(z) = 
+
+
+
+−ie i( f0x+( αg0+βh0)t−(B fj x+( αBgj +βBhj )t+φj−δj)/2 ) ˆσ3 σ1, z ∈ (Ej,̂ Ej),
+
+(
+
+1 0
+
+−r1 (z)e−2it θ(z)−2δ(z) 1
+
+)
+
+, z ∈ Σ1 ∪ Σ3,
+
+(
+
+1 r1(z)e2it θ(z)+ 2δ(z)
+
+0 1
+
+)
+
+, z ∈ Σ∗ 
+
+> 1
+
+∪ Σ∗ 
+
+> 3
+
+,
+
+1 r1(z)e2it θ(z)+ 2δ(z)
+
+1 − | r1(z)|2
+
+0 1
+
+ , z ∈ Σ2 ∪ Σ4,
+
+
+
+1 0
+
+−r1 (z)e−2it θ(z)−2δ(z)
+
+1 − | r1 (z)|2 1
+
+ , z ∈ Σ∗ 
+
+> 2
+
+∪ Σ∗ 
+
+> 4
+
+.(5.11) (M(1)3) Normalization at infinity: As z → ∞, M(1)(z) = I + O(z−1).33 (M(1)4) Local behavior: For p ∈ { Ej,̂ Ej}nj=0, M(1)(z) = O(( z − p)−1/4 ), z → p.Let 
+
+E(z) = 
+
+
+
+M(1)(z)M(glo )(z)−1, z ∈ C \ ∪ 2
+
+> i=1
+
+Ui,
+
+M(1)(z)M(loc )(z)−1, z ∈ Ui, i = 1, 2, (5.12) where M(glo )(z) and M(loc )(z) are the global and local parametrices for M(1)(z), respectively. The neighborhoods Ui are defined by 
+
+Ui =
+
+
+
+{z : |z − zi | ≤ ci}, ξ belongs to the Zakharov-Manakov region IV, 
+
+∅, ξ belongs to the fast-decay region IV, (5.13) with 
+
+ci = min 
+
+> j=0,..., n
+
+{ |̂ Eji − zi|
+
+2 , |Ej − zi|
+
+2 , |z1 − z2|
+
+2
+
+}
+
+. (5.14) As in transition region I, M(glo )(z) satisfies the same global model Riemann–Hilbert problem, whose solution is explicitly given by ( 3.13 ). For the local parametrix, it remains only to consider the case in which ξ belongs to the Zakharov–Manakov region. 
+
+Riemann-Hilbert Problem 5.3. M(loc )(z) satisfying the following Riemann–Hilbert problem: (M(loc )1) Analyticity: M(loc )(z) is analytic in Ui \ Σ(1).(M(loc )2) Jump condition: M(loc )+ (z) = M(loc ) 
+
+> −
+
+(z)J(1) 
+
+> M
+
+(z) for z ∈ Σ(1) ∩ Ui.(M(loc )3) Matching condition: As t → ∞, M(loc )(z) matches M(glo )(z) on the boundary ∂Ui of Ui.To construct the solution, we need a suitable conformal map that captures the local behavior of the phase function near the saddle point zi. We have the following local expansion: 
+
+θ(z) = θ(zi) − θ(zi,2 )(ξ)( z − zi )2 + O
+
+(
+
+(z − zi )3)
+
+, z → zi, (5.15) where 
+
+θ(zi,2 )(ξ) := ∂z F(zi; ξ)
+
+w(zi) > 0. (5.16) Let 
+
+ζ = 2(z − zi)
+
+√
+
+θ(zi,2 )(ξ)t1/2 . (5.17) This local Riemann–Hilbert problem can be solved explicitly using the parabolic-cylinder parametrix given in [ 29 , 42 ]. To this end, we obtain 
+
+M(loc )(z) = I + t−1/2 
+
+2(z − zi)
+
+√
+
+θ(zi,2 )(ξ)
+
+( 0 β21 
+
+β12 0
+
+)
+
++ O(t−1), t → ∞, (5.18) where 
+
+β12 =
+
+√2πe 1  
+
+> 4(πi−log (1−| r0|2))
+
+r0Γ(i log (1 − | r0 |2)/2 π) , β21 = log (1 − | r0 |2)
+
+2πβ 12 
+
+, (5.19) 34 Ej1 
+
+> ˆEj1Ω2
+> Ω∗
+> 2
+> Ω1
+> Ω∗
+> 1
+> Σ2
+> Σ∗
+> 2
+> Σ1
+> Σ∗
+> 1
+> z1
+> Ej2ˆEj2
+> Ω4
+> Ω∗
+> 4
+> Ω3
+> Ω∗
+> 3
+> Σ4
+> Σ∗
+> 4
+> Σ3
+> Σ∗
+> 3
+> z2
+> ∂U 2∂U 1
+
+Figure 9: The contours Σ(E).
+
+r0 = −r1 (zi)
+
+(
+
+2
+
+√
+
+θ(zi,2 )(ξ)
+
+) i 
+
+> 2πlog (1−| r1(zi)|2)
+
+× exp 
+
+{
+
+w(zi)
+
+2πi
+
+[ n
+
+# ∑
+
+> j=0
+
+δj
+
+∫̂ Ej
+
+> Ej
+
+ids
+
+w+(s)( s − zi)
+
+]
+
++ log (1 − | r1 (zi)|2) log (ci)
+
+2πi − 2it θ(zi)
+
+}
+
+× exp 
+
+{
+
+w(zi)
+
+2πi
+
+∫  
+
+> (−∞,zi)\(∪nj=0(Ej,̂Ej))
+
+[ χ(zi−ci,zi ) log (1 − | r1 (zi)|2)
+
+w(zi)( s − zi ) − log (1 − | r1 (s)|2)
+
+w(s)( s − zi)
+
+]
+
+ds
+
+}
+
+,(5.20) and χI denotes the characteristic function of the interval I.
+
+Riemann-Hilbert Problem 5.4. E(z) satisfies the following Riemann–Hilbert problem: (E1) Analyticity: E(z) is analytic in C \ Σ(E), where Σ(E) = ∪4
+
+> i=1
+
+(Σi ∪ Σ∗ 
+
+> i
+
+) ∪ ∂U1 ∪ ∂U2 \ ∪ 2
+
+> i=1
+
+Ui (see Fig. 9). (E2) Jump condition: E+(z) = E−(z)JE(z), where the jump matrix is given by 
+
+JE(z) = 
+
+
+
+M(glo )(z)J(1) 
+
+> M
+
+(z)M(glo )(z)−1, z ∈ Σ(E) \ ∪ 2
+
+> i=1
+
+∂Ui,
+
+M(loc )(z)M(glo )(z)−1, z ∈ ∂Ui, i = 1, 2. (5.21) (E3) Asymptotics at infinity: As z → ∞, E(z) = I + O(z−1).By the standard small-norm Riemann–Hilbert theory, there exists a unique solution to the Riemann– Hilbert problem for E for sufficiently large positive t. As ξ belongs to the Zakharov–Manakov region III, we have 
+
+E(z) = I + E1
+
+z + O(z−2), z → ∞, (5.22) where 
+
+E1 =
+
+> 2
+
+# ∑
+
+> i=1
+
+t−1/2 
+
+2
+
+√
+
+θ(zi,2 )(ξ)
+
+M(glo )(zi)
+
+( 0 β21 
+
+β12 0
+
+)
+
+M(glo )(zi)−1 + O(t−1), t → +∞. (5.23) As ξ belongs to the fast-decay region IV, we have 
+
+E(z) = I + O(t−1). (5.24) 
+
+# 6 Proof of Theorem 1.4 
+
+We now establish the uniform asymptotic expansions for the solution q(x, t) by inverting the sequence of transformations performed in the previous sections. For the asymptotics of q(x, t) in transition 35 region I, the transformations M 7 → M(1) 7 → E yield, as t → +∞,
+
+M(z) = e−δ(∞)σ3 E(z)M(glo )(z)eδ(z)σ3 GM(z)−1, z ∈ C \ U1. (6.1) Using E(z) = I + E1 
+
+> z
+
++ O(z−2), M(glo )(z) = I + M(glo ) 
+
+> 1
+> z
+
++ O(z−2), and δ(z) = δ(∞) + δ(1) 
+
+> z
+
++ O(z−2) as 
+
+z → ∞, we obtain 
+
+M(z) = I + 1
+
+z
+
+(
+
+e−δ(∞) ˆσ3 (E1 + M(glo ) 
+
+> 1
+
+) + δ(1)σ3
+
+)
+
++ O(z−2), z → ∞. (6.2) By the reconstruction formula ( 2.44 ), together with ( 3.16 ) and ( 3.49 ), we obtain 
+
+q (x, t) = 2i lim  
+
+> z→∞
+
+zM 12 = 2ie −2δ(∞) (
+
+(E1)12 +
+
+(
+
+M(glo )
+
+> 1
+
+)
+
+> 12
+
+)
+
+= e−2δ(∞)q(AG )(x, t; E,̂ E, φ − δ) + 2e−2δ(∞)
+
+|(θ(3, ˆ j1)(̂ ξj1 )) 2/3 | ν(s)( H1)11 (̂ Ej1 )2t−1/3 + O(t−̺ ).(6.3) A direct calculation gives 
+
+Ĥ Ej1
+
+= 2e−2δ(∞)
+
+|(θ(3, ˆ j1)(̂ ξj1 )) 2/3 | (H1)11 (̂ Ej1 )2
+
+= ei(tθ(̂ Ej1;ξ)−φj1 +δj1 )−2δ(∞)
+
+|θ(3, ˆj1)(̂ ξj1 )|1/3 
+
+( ∏nj=0(̂ Ej1 − Ej )
+
+∏j=0, ··· ,n,j6 =j1 (̂ Ej1 −̂ Ej )
+
+)1/2 
+
+×
+
+( Θ(A(̂ Ej1 ) + C(x, t; φ − δ) + A(D) + K)Θ(A(∞) + A(D) + K)
+
+Θ(A(̂ Ej1 ) + A(D) + K)Θ(A(∞) + C(x, t; φ − δ) + A(D) + K)
+
+)2
+
+.(6.4) Similarly, in transition region II, we have 
+
+q(x, t) = e−2δ(∞)q(AG )(x, t; E,̂ E, φ − δ) − ˜HEj2 ν(s)t−1/3 + O(t−̺ ), (6.5) where ˜HEj2 = eπi/2 +i(tθ(Ej2)−φj2 +δj2 )−2δ(∞)
+
+|θ(3, j2)(ξj2 )|1/3 
+
+( ∏nj=0(Ej2 −̂ Ej)
+
+∏j=0, ··· ,n,j6 =j2 (Ej2 − Ej)
+
+)1/2 
+
+×
+
+( Θ(A(Ej2 ) + C(x, t; φ − δ) + A(D) + K)Θ(A(∞) + A(D) + K)
+
+Θ(A(Ej2 ) + A(D) + K)Θ(A(∞) + C(x, t; φ − δ) + A(D) + K)
+
+)2
+
+.(6.6) For the asymptotics of q(x, t) in the Zakharov–Manakov region III, using ( 5.23 ), we obtain 
+
+q (x, t) = 2i lim  
+
+> z→∞
+
+zM 12 = 2ie −2δ(∞) (
+
+(E1)12 +
+
+(
+
+M(glo )
+
+> 1
+
+)
+
+> 12
+
+)
+
+= e−2δ(∞)q(AG )(x, t; E,̂ E, φ − δ)+
+
+> 2
+
+# ∑
+
+> j=1
+
+ie −2δ(∞)
+
+√
+
+θ(zj,2 )(ξ)
+
+(
+
+β21 M(glo ) 
+
+> 11
+
+(zj)2 − β12 M(glo ) 
+
+> 12
+
+(zj)2)
+
+t−1/2 + O(t−1).(6.7) Finally, for the asymptotics of q(x, t) in the fast-decay region IV, using ( 5.24 ), we have 
+
+q (x, t) = 2i lim  
+
+> z→∞
+
+zM 12 = 2ie −2δ(∞) (
+
+(E1)12 +
+
+(
+
+M(glo )
+
+> 1
+
+)
+
+> 12
+
+)
+
+= e−2δ(∞)q(AG )(x, t; E,̂ E, φ − δ) + O(t−1).(6.8) 36 This completes the proof of Theorem 1.4 .
+
+Acknowledgements . This work was supported by the National Natural Science Foundation of China (No. 12471242), and Beijing Natural Science Foundation (No. 1262023). 
+
+Data Availability Statements . The data that supports the findings of this work are available within the paper. 
+
+Conflict of Interest . The authors have no conflicts to disclose. 
+
+# References 
+
+[1] M. J. Ablowitz and P. A. Clarkson, Solitons, Nonlinear Evolution Equations and Inverse Scattering ,Cambridge University Press, 1991. [2] M. J. Ablowitz, D. J. Kaup, A. C. Newell and H. Segur, The inverse scattering transform–Fourier analysis for nonlinear problems, Stud. Appl. Math. 53 (1974), 249–315. [3] M. J. Ablowitz and H. Segur, Solitons and the Inverse Scattering Transform , SIAM, 1981. [4] R. Beals and R. R. Coifman, Scattering and inverse scattering for first order systems, Comm. Pure Appl. Math. 37 (1984), 39–90. [5] E. D. Belokolos, A. I. Bobenko, V. Z. Enol´ skii, A. R. Its and V. B. Matveev, Algebro-Geometric Approach to Nonlinear Integrable Equations , Springer, 1994. [6] G. Biondini, S. Li and D. Mantzavinos, Long-time asymptotics for the focusing nonlinear Schrödinger equation with nonzero boundary conditions in the presence of a discrete spectrum, 
+
+Commun. Math. Phys. 382 (2021), 1495–1577. [7] G. Biondini and G. Kovacic, Inverse scattering transform for the focusing nonlinear Schrödinger equation with nonzero boundary conditions, J. Math. Phys. 55 (2014), 031506. [8] M. Borghese, R. Jenkins and K. D. T.-R. McLaughlin, Long time asymptotic behavior of the focus-ing nonlinear Schrödinger equation, Ann. Inst. H. Poincaré C Anal. Non Linéaire 35 (2018), 887–920. [9] A. Boutet de Monvel, I. Egorova and G. Teschl, Inverse scattering theory for one-dimensional Schrödinger operators with steplike finite-gap potentials, J. Anal. Math. 106 (2008), 271–316. [10] A. Boutet de Monvel, J. Lenells and D. Shepelsky, The focusing NLS equation with step-like oscillating background: scenarios of long-time asymptotics, Commun. Math. Phys. 383 (2021), 893–952. [11] A. Boutet de Monvel, J. Lenells and D. Shepelsky, The focusing NLS equation with step-like oscillating background: the genus 3 sector, Commun. Math. Phys. 390 (2022), 1081–1148. [12] A. Boutet de Monvel, V. P. Kotlyarov and D. Shepelsky, Focusing NLS equation: long-time dy-namics of step-like initial data, Int. Math. Res. Not. 2011 (2011), 1613–1653. [13] R. J. Buckingham and P. D. Miller, Large-degree asymptotics of rational Painlevé-II functions: noncritical behavior, Nonlinearity 27 (2014), 2489–2577. [14] Q. Cao and P. Zhao, Algebro-geometric integration of the Hirota equation and the Riemann– Hilbert problem, Rep. Math. Phys. 94 (2024), 365–394. 37 [15] S. Chen, Z. Yan, The higher-order nonlinear Schrödinger equation with non-zero boundary con-ditions: robust inverse scattering transform, breathers, and rogons, Phys. Lett. A 383 (2019), 125906. [16] S. Chen, Z. Yan, B. Guo, Long-time asymptotics for the focusing Hirota equation with non-zero boundary conditions at infinity via the Deift-Zhou approach, Math. Phys. Anal. Geom. 24 (2021), 17. [17] A. Chowdury, D.J. Kedziora, A. Ankiewicz, N. Akhmediev, Soliton solutions of an integrable nonlinear Schrödinger equation with quintic terms, Phys. Rev. E 90 (2014), 032922. [18] T. Claeys, A. B. J. Kuijlaars and M. Vanlessen, Multi-critical unitary random matrix ensembles and the general Painlevé II equation, Ann. of Math. 168 (2008), 601–641. [19] S. Cuccagna and R. Jenkins, On the asymptotic stability of N-soliton solutions of the defocusing nonlinear Schrödinger equation, Commun. Math. Phys. 343 (2016), 921–969. [20] P. Deift, Orthogonal Polynomials and Random Matrices: A Riemann-Hilbert Approach , American Mathematical Society, 1999. [21] P. Deift, A. Its, A. Kapaev and X. Zhou, On the algebro-geometric integration of the Schlesinger equations, Commun. Math. Phys. 203 (1999), 613–633. [22] P. Deift, S. Venakides and X. Zhou, The collisionless shock region for the long-time behavior of solutions of the KdV equation, Comm. Pure Appl. Math. 47 (1994), 199–206. [23] P. Deift, S. Venakides and X. Zhou, New results in small dispersion KdV by an extension of the steepest descent method for Riemann–Hilbert problems, Int. Math. Res. Not. 1997 (1997), no. 6, 285–299. [24] P. Deift and X. Zhou, A steepest descent method for oscillatory Riemann–Hilbert problems: asymptotics for the mKdV equation, Ann. of Math. 137 (1993), 295–368. [25] P. Deift and X. Zhou, Long-time asymptotics for solutions of the NLS equation with initial data in a weighted Sobolev space, Comm. Pure Appl. Math. 56 (2003), 1029–1077. [26] F. Demontis, G. Ortenzi and C. van der Mee, Exact solutions of the Hirota equation and vortex filaments motion, Physica D 313 (2015), 61–80. [27] B. A. Dubrovin, Theta functions and nonlinear equations, Russ. Math. Surv. 36 (1981), 11–92. [28] L. D. Faddeev and L. A. Takhtajan, Hamiltonian Methods in the Theory of Solitons , Springer, 1987. [29] E. Fan, G. Li, Y. Yang and L. Zhang, Painlevé XXXIV asymptotics for the defocusing nonlinear Schrödinger equation with a finite-genus algebro-geometric background, Math. Ann. 394 (2026), 44. [30] H. Farkas, I. Kra, Riemann Surfaces , Springer, 1992. [31] A. S. Fokas, A. R. Its, A. A. Kapaev and V. Yu. Novokshenov, Painlevé Transcendents: The Riemann– Hilbert Approach , American Mathematical Society, 2006. [32] Y. Fukumoto and T. Miyazaki, Three-dimensional distortions of a vortex filament with axial velocity, J. Fluid Mech. 222 (1991), 369–416. [33] C. S. Gardner, J. M. Greene, M. D. Kruskal and R. M. Miura, Method for solving the Korteweg-de Vries equation, Phys. Rev. Lett. 19 (1967), 1095–1097. [34] F. Gesztesy and H. Holden, Soliton Equations and Their Algebro-Geometric Solutions , Vol. I: (1+1)-Dimensional Continuous Models, Cambridge University Press, 2003. 38 [35] C. Gu, H. Hu, Z. Zhou, Darboux Transformations in Integrable Systems: Theory and their Applications to Geometry , Springer, 2005. [36] B. Guo, N. Liu and Y. Wang, Long-time asymptotics for the Hirota equation on the half-line, 
+
+Nonlinear Anal. 174 (2018), 118–140. [37] A. Hasegawa and Y. Kodama, Solitons in Optical Communications , Oxford University Press, 1995. [38] H. Hasimoto, A soliton on a vortex filament, J. Fluid Mech. 51 (1972), 477–485. [39] R. Hirota, Exact envelope-soliton solutions of a nonlinear wave equation, J. Math. Phys. 14 (1973), 805–809. [40] R. Hirota, The Direct Method in Soliton Theory , Cambridge University Press, 2004. [41] L. Huang, J. Xu and E. Fan, Long-time asymptotic for the Hirota equation via nonlinear steepest descent method, Nonlinear Anal. Real World Appl. 26 (2015), 229–262. [42] A. R. Its, Asymptotic behavior of the solutions to the nonlinear Schrödinger equation, and isomonodromic deformations of systems of linear differential equations, Sov. Math. Dokl. 24 
+
+(1981), 452-456. [43] A. R. Its, A. B. J. Kuijlaars and J. Östensson, Critical edge behavior in unitary random matrix ensembles and the thirty-fourth Painlevé transcendent, Int. Math. Res. Not. 2008 (2008), rnn017. [44] A. R. Its and V. B. Matveev, Schrödinger operators with finite-gap spectrum and N-soliton solu-tions of the Korteweg–de Vries equation, Theoret. Math. Phys. 23 (1975), 343–355. [45] S. Kamvissis, K. D. T.-R. McLaughlin and P. D. Miller, Semiclassical Soliton Ensembles for the Focus-ing Nonlinear Schrödinger Equation , Princeton University Press, 2003. [46] S. Kamvissis and G. Teschl, Long-time asymptotics of the periodic Toda lattice under short-range perturbations, J. Math. Phys. 53 (2012), 073706. [47] T. Kano, Normal form of nonlinear Schrödinger equation, J. Phys. Soc. Jpn. 58 (1989), 4322. [48] V. Kotlyarov and D. Shepelsky, Planar unimodular Baker–Akhiezer function for the nonlinear Schrödinger equation, Ann. Math. Sci. Appl. 2 (2017), 343–384. [49] M. Lakshmanan, K. Porsezian, M. Daniel, Effect of discreteness on the continuum limit of the Heisenberg spin chain, Phys. Lett. A 133 (1988), 483. [50] K. D. T.-R. McLaughlin and P. D. Miller, The ¯∂ steepest descent method for orthogonal polyno-mials on the real line with varying weights, Int. Math. Res. Not. 2008 (2008), rnn075. [51] A. Mikikits-Leitner and G. Teschl, Long-time asymptotics of perturbed finite-gap Korteweg–de Vries solutions, J. Anal. Math. 116 (2012), 163–218. [52] P. D. Miller, Applied Asymptotic Analysis , American Mathematical Society, 2006. [53] A. C. Newell, Solitons in Mathematics and Physics , SIAM, 1985. [54] W. Q. Peng, Y. Chen, Long-time asymptotics for the defocusingHirota equation with finite den-sity initial data, Proc. R. Soc. A 482 , (2026), 20250708. [55] K. Porsezian, M. Daniel, M. Lakshmanan, On the integrability aspects of the onedimensional classical continuum isotropic biquadratic Heisenberg spin chain, J. Math. Phys. 33 (1992), 1807. [56] Y. Tao, J. He, Multisolitons, breathers, and rogue waves for the Hirota equation generated by the Darboux transformation, Phys. Rev. E 85 (2012) 026601. [57] M. Wadati, The exact solution of the modified Korteweg-de Vries equation, J. Phys. Soc. Jpn. 32 
+
+(1972), 1681. 39 [58] W. Weng, Z. Yan, Inverse scattering and N-triple-pole soliton and breather solutions of the focus-ing nonlinear Schrödinger hierarchy with nonzero boundary conditions, Phys. Lett. A 407 (2021), 127472. [59] Y. Xiao, B. Guo, Z. Wang, Nonlinear stability of multi-solitons for the Hirota equation, J. Differ. Equa. 342 (2023) 369-417. [60] W. Xun, L. Ju and E. Fan, Painlevé-type asymptotics for the defocusing Hirota equation in tran-sition region, Proc. R. Soc. A 478 (2022), 20220401. [61] V. E. Zakharov and S. V. Manakov, Asymptotic behavior of non-linear wave systems integrated by the inverse scattering method, Sov. Phys. JETP 44 (1976), 106–112. [62] V. E. Zakharov and A. B. Shabat, Exact theory of two-dimensional self-focusing and one-dimensional self-modulation of waves in nonlinear media, Sov. Phys. JETP 34 (1972), 62–69. [63] V. E. Zakharov and A. B. Shabat, Integration of nonlinear equations of mathematical physics by the method of inverse scattering. II, Funct. Anal. Appl. 13 (1979), 166–174. [64] G. Zhang, S. Chen, Z. Yan, Focusing and defocusing Hirota equations with non-zero boundary conditions: inverse scattering transforms and soliton solutions, Commun. Nonlinear Sci. Numer. Simul. 80 (2020), 104927. [65] X. Zhou, Direct and inverse scattering transforms with arbitrary spectral singularities, Commun. Pure Appl. Math. 42 (1989), 895–938. 40

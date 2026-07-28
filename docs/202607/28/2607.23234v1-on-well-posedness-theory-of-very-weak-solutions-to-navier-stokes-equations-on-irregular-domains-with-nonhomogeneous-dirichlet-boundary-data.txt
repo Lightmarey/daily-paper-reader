@@ -1,0 +1,2130 @@
+Title: On well-posedness theory of very weak solutions to Navier-Stokes equations on irregular domains with nonhomogeneous Dirichlet boundary data
+
+URL Source: https://arxiv.org/pdf/2607.23234v1
+
+Published Time: Tue, 28 Jul 2026 00:38:20 GMT
+
+Number of Pages: 22
+
+Markdown Content:
+# On well-posedness theory of very weak solutions to Navier–Stokes equations on irregular domains with nonhomogeneous Dirichlet boundary data 
+
+Xiaojin Bai ∗ Siran Li † Xiangxiang Su ‡
+
+Abstract 
+
+The well-posedness theory of very weak solutions is a central topic in mathemat-ical hydrodynamics, especially in the regularity theory for Navier–Stokes equations. It has been fully developed for incompressible fluid flows on bounded domains in 
+
+R3 of C2,1-regularity. In this paper, based on the analytic theories in [D. Breit and A. Gaudin, ArXiv Preprint: 2511.19091 (2025)] and [V. G. Maz’ya and T. O. Shaposhnikova, Vol.337, Grundlehren der mathematischen Wissenschaften (2009)], we establish the well-posedness theory of very weak solutions to the Navier–Stokes equations on bounded Lipschitz domains whose boundary has local graphing func-tions with sufficiently small Sobolev multiplier norm, which contain the bounded Lipschitz domains with sufficiently small Lipschitz constants as a special case. 
+
+Mathematics Subject Classification 2020: 35Q30, 76D05, 76D03. Key words: Navier–Stokes equations; very weak solutions; Sobolev multipliers; Lipschitz domains; Stokes semigroup; nonhomogeneous boundary data. 
+
+Statements and Declarations .Competing Interests: The authors declare that they have no competing interests. Data Availability: No data was used for the research described in the article. AI Statement: The authors thank ChatGPT 5.5 AI model for computational assistance and language editing. All mathematical derivations, conclusions, and errors remain solely the responsibility of the authors. 
+
+Acknowledgement . The authors are indebted to Tobias Barker for insightful discussions on very weak solutions and the partial regularity theory for the Navier–Stokes equations. The research of SL is supported by NSFC Projects 12331008 & 12411530065, the Young Elite Scientists Sponsorship Program by CAST 2023QNRC001, National Key Research & Development Programs 2023YFA1010900 and 2024YFA1014900, Shanghai Rising-Star Program 24QA2703600, Shanghai Qi-Guang Scholarship, and Shanghai Frontiers Science Center of Modern Analysis. The research of XS is partially supported by National Key Research & Development Programs 2023YFA1010900 and 2024YFA1014900. 
+
+> ∗
+
+School of Mathematical Sciences, Shanghai Jiao Tong University, Shanghai 200240, China. Email: baileymoon@sjtu.edu.cn 
+
+> †
+
+Corresponding author at: School of Mathematical Sciences & CMA-Shanghai, Shanghai Jiao Tong University, Shanghai 200240, China. Email: siran.li@sjtu.edu.cn 
+
+> ‡
+
+School of Mathematical Sciences, Shanghai Jiao Tong University, Shanghai 200240, China. Email: sjtusxx@sjtu.edu.cn 
+
+1arXiv:2607.23234v1 [math.AP] 25 Jul 2026 Very weak solutions to the Navier-Stokes equations 2
+
+# 1 Introduction 
+
+Consider the instationary Navier–Stokes equations (NSE): 
+
+
+
+∂tu − ∆u + div( u ⊗ u) + ∇π = div F in (0 , T ) × Ω,
+
+div u = 0 in (0 , T ) × Ω,
+
+u = g on (0 , T ) × ∂Ω,
+
+u(0) = u0 in Ω (1.1) in a bounded Lipschitz domain Ω ⊂ R3 with the functions F, g, u0 satisfying 
+
+F ∈ Ls(0 , T ; Lr(Ω)) , g ∈ Ls(0 , T ; W 1− 1 
+
+> q,q
+
+(∂Ω)) , u0 ∈ Lqσ(Ω) , (1.2) where 3 < q < ∞, 2 < s < ∞, 1 < r < q such that 13 + 1 
+
+> q
+
+= 1 
+
+> r
+
+and 2 
+
+> s
+
++ 3 
+
+> q
+
+= 1. The compatibility condition is imposed: 
+
+Z
+
+> ∂Ω
+
+g(t) · N dS = 0 for a.e. t ∈ (0 , T ), (1.3) where N = N(x) denotes the outer unit normal vector field along ∂Ω. In many problems of fluid mechanics, one encounters geometrical or physical data that are too irregular to fit into the classical framework of weak solutions. This motivates Amann (2002–03) to introduce the notion of very weak solutions to the NSE [1, 2], which requires the velocity field to be merely Lst Lqx-integrable. Since then, very weak solutions have been an important topic in the theory of mathematical hydrodynamics. See Farwig– Galdi–Sohr [7–9]. Existence results for very weak solutions to the nonstationary NSE have been estab-lished primarily on C2,1-domains, i.e. , the domains whose boundaries are locally graphs of functions whose second derivatives are Lipschitz continuous; cf. Farwig–Galdi–Sohr [7,10]. In this case, the stationary Stokes problem 
+
+−∆u + ∇π = 0 , div u = 0 , u|∂Ω = g
+
+admits a unique solution ( u, π ) ∈ W 2,q (Ω) × W 1,q (Ω) for any g ∈ W 2− 1 
+
+> q,q
+
+(∂Ω). This fol-lows from standard W 2,q -elliptic regularity theory, namely the Calder´ on–Zygmund theory. This, however, fails for general Lipschitz domains. Shen [23] proved that the Stokes oper-ator generates a bounded analytic semigroup in Lqσ(Ω) only for |1 
+
+> q
+
+− 12 | < 12d +ε in Lipschitz domains Ω ⊂ Rd with d ≥ 3, where ε depends only on d and the Lipschitz character of Ω. Gabel–Tolksdorf [11] also considered the case d = 2. More recently, Geng–Shen [13] obtained Lq-resolvent estimates on bounded and exterior C1-domains for all 1 < q < ∞,and further established in [14] L∞-resolvent estimates in bounded C1-domains for d ≥ 3and Lipschitz domains for d = 2. Building upon the resolvent estimates by Shen [23] and the maximal regularity of Kunstmann–Weis [20] for the Stokes operator, Tolksdorf [24] developed the Lq-theory for the NSE on 3-dimensional bounded Lipschitz domains. As for very weak solutions, Coscia [6] established the existence and uniqueness of the solution to stationary NSE in bounded Lipschitz domains, with boundary value in L2(∂Ω). We also refer to [15–18] by Giga, Miyakawa, and Sohr for pioneering work on the semigroup approach to the NSE. Very weak solutions to the Navier-Stokes equations 3The well-known regularity criterion for Leray–Hopf weak solutions to the 3D incom-pressible NSE `a la Lady˘ zhenskaja–Prodi–Serrin has been established for Lst Lqx-solutions with 2 
+
+> s
+
++ 3 
+
+> q
+
+= 1, which requires 3 < q < ∞ in the non-endpoint case. On the other hand, in view of Shen [23] and subsequent developments, one expects the well-posedness of very weak solutions on 3D bounded Lipschitz domains, where 32 −ε < q < 3+ ε. The above two ranges of the index q are barely disjoint. Hence, we face essential difficulties in developing the well-posedness theory of very weak solutions to NSE on general Lipschitz domains. Based on recent breakthroughs due to Breit [4] and Breit–Gaudin [5] (which, in turn, have theoretical foundations in Maz’ya–Shaposhnikova [22]), we investigate the subclass of bounded Lipschitz domains whose boundary charts belong to a Sobolev multiplier class with sufficiently small multiplier norm, as detailed in Definition 2.2. This subclass lies strictly between Lipschitz domains and C1,α domains. We note that the formulation in [8] of very weak solutions to NSE on C2,1-domains makes crucial use of the expression 
+
+⟨g, N · ∇ w⟩∂Ω,
+
+where w ∈ C10 ([0 , T ); C20,σ (Ω)) is a solenoidal test function, and g ∈ W −1/q,q (∂Ω) is the boundary datum. In contrast, for the aforementioned bounded Lipschitz domains in the Sobolev multiplier class, the low regularity of ∂Ω makes it troublesome to take boundary traces and integrate by parts. We circumvent this issue by formulating the solution in the domain of the Stokes operator D(Aq′ ) and interpreting certain terms of divergence form by duality. For smooth divergence-free zero-trace test functions, our definition reduces to the identity in [8] (see Remark 3.4). Our main result is as follows. The definition of the Sobolev multiplier class M1+ α,ρ W (ε)is given in Definition 2.2. We refer the reader to Proposition 2.3 for the smallness of ε0.
+
+Theorem 1.1. There exists a universal constant ε0 > 0 such that the following holds: Let Ω ⊂ R3 be a bounded Lipschitz domain of Sobolev multiplier class M1+ α,ρ W (ε) with any 
+
+α ∈ (0 , 1) , ρ ∈ [1 , +∞], and ε < ε 0. Assume that the data F, g and u0 satisfy the regularity assumptions (1.2) and the compatibility condition (1.3) with 3 < q < ∞, 2 < s < ∞,
+
+1 < r < q such that 13 + 1 
+
+> q
+
+= 1 
+
+> r
+
+and 2 
+
+> s
+
++ 3 
+
+> q
+
+= 1 . Then there exists T ∗ = T ∗(F, g, u0) ∈ (0 , T ]
+
+such that the NSE (1.1) admits a unique very weak solution u ∈ Ls(0 , T ∗; Lq(Ω)) with 
+
+∥u∥Ls(0 ,T ;Lq (Ω)) ≤ C ∥F∥Ls(0 ,T ;Lr (Ω)) + ∥g∥Ls     
+
+> 
+> 0,T ;W1−1
+> q ,q (∂Ω)
+> 
+
++ ∥u0∥Lq (Ω) 
+
+!
+
+. (1.4) 
+
+The constant C = C(Ω , α, ρ, q ) is independent of T .Moreover, there exists a positive constant μ = μ(Ω , α, ρ, q ) independent of T such that the following holds: Suppose that the data satisfy the smallness condition 
+
+∥F∥Ls(0 ,T ;Lr (Ω)) + ∥g∥Ls(0 ,T ;W 1− 1  
+
+> q ,q (∂Ω))
+
++ ∥u0∥Lq (Ω) ≤ μ for any T > 0. (1.5) 
+
+Then there exists a unique very weak solution u ∈ Ls(0 , ∞; Lq(Ω)) to the NSE (1.1) that satisfies the estimate (1.4) .
+
+Remark 1.2. Theorem 1.1 can be adapted to the inhomogeneous Besov-space setting 
+
+Bsp,q (Ω) instead of Lq(Ω), with 1 < p < ∞, 1 ≤ q ≤ ∞ , and s ∈ (−1 + 1 
+
+> p
+
+, 1 
+
+> p
+
+). Indeed, Very weak solutions to the Navier-Stokes equations 4replacing the estimates in Proposition 2.3 by their Besov analogues from [5], the same argument yields the existence and uniqueness of a very weak solution u ∈ Lσ(0 , T ; Bsp,q (Ω)) to the NSE (1.1) with 2 < σ < ∞ and data in the corresponding Besov spaces. To outline our strategies for the proof of Theorem 1.1, we recall again the essential technical difficulty in our current setting: the low regularity of both the domain and the boundary data make, in general, the classical W 2,q -estimates for the Stokes system invalid. To overcome this issue, we construct stationary auxiliary fields that absorb the forcing and boundary data, and then solve the linearised problem in our very weak setting by making use of Stokes semigroup estimates, which have been established for the irregular domains in [5]. By interpreting suitable nonlinear terms via duality, we succeed in reformulating the definition of very weak solutions to the NSE as the solution ( a.k.a. the mild solution) to an equivalent integral equation. The resulting integral equation can be solved effectively through fixed point arguments. The paper is organized as follows. In Section 2 we define the multiplier boundary class and collect the Stokes estimates, which will be used throughout the paper. In Section 3 we construct stationary auxiliary fields and introduces the very weak solution. In Section 4, we establish the existence and uniqueness of very weak solutions to the linear Stokes problem. Section 5 establishes the equivalence between the very weak formulation and an integral equation. The proof of the Main Theorem 1.1 is presented in Section 6. In addition, we sketch the proof of the Stokes estimates in Appendix A. 
+
+# 2 Preliminaries 
+
+Let Ω ⊂ R3 be a bounded Lipschitz domain. For 1 < q < ∞, we denote by q′ its conjugate exponent, i.e., 1 
+
+> q
+
++ 1 
+
+> q′
+
+= 1. The Lebesgue space Lq(Ω) is equipped with the norm ∥ · ∥ Lq (Ω) , and the Sobolev space W α,q (Ω) is equipped with the norm ∥ · ∥ W α,q (Ω) 
+
+for α ≥ 0. The space W −α,q (Ω) := ( W α,q ′ 
+
+> 0
+
+(Ω)) ∗ denotes the dual space of W α,q ′ 
+
+> 0
+
+(Ω), with the natural duality pairing denoted by ⟨· , ·⟩ Ω. The same notation applies to functions defined on the boundary ∂Ω, namely Lq(∂Ω), W α,q (∂Ω), and W −α,q (∂Ω). We shall make use of the standard local spaces Lq
+
+> loc
+
+(Ω) and W α,q  
+
+> loc
+
+(Ω), defined as the sets of measurable functions belonging to Lq(K) and W α,q (K), respectively, for every compact K ⊂ Ω. The space of compactly supported smooth functions is denoted by C∞ 
+
+> c
+
+(Ω), and we set 
+
+C∞
+
+> c,σ
+
+(Ω) := {u ∈ C∞ 
+
+> c
+
+(Ω) : div u = 0 }.
+
+The space Lqσ(Ω) is then defined as the closure of C∞
+
+> c,σ
+
+(Ω) in Lq(Ω). The space W 1,q  
+
+> 0,σ
+
+(Ω) is defined as the closure of C∞
+
+> c,σ
+
+(Ω) in W 1,q  
+
+> 0
+
+(Ω), or equivalently, 
+
+W 1,q  
+
+> 0,σ
+
+(Ω) := {u ∈ W 1,q  
+
+> 0
+
+(Ω) : div u = 0 }.
+
+2.1 Boundary regularity via Sobolev multiplier 
+
+We first recall the notion of Sobolev multipliers from [22, Chapter 14]. For a function 
+
+φ ∈ W 1,1loc (Ω), the multiplier norm for Sobolev spaces W 1+ α,ρ (Ω) is defined by 
+
+∥φ∥M1+ α,ρ W (Ω) := sup  
+
+> v∈Wα,ρ (Ω ,C3)
+> ∥v∥W α,ρ (Ω) =1
+
+∥∇ φ · v∥W α,ρ (Ω) Very weak solutions to the Navier-Stokes equations 5with α ∈ R and ρ ∈ [1 , ∞]. 
+
+Definition 2.1. The Sobolev multiplier space M1+ α,ρ W (Ω) is the set of all functions φ ∈
+
+W 1,1loc (Ω) for which the norm ∥φ∥M1+ α,ρ W (Ω) is finite. For ε > 0, we denote by M1+ α,ρ W (Ω , ε )the open ball of radius ε in M1+ α,ρ W (Ω), i.e., 
+
+M1+ α,ρ W (Ω , ε ) := φ ∈ M 1+ α,ρ W (Ω) : ∥φ∥M1+ α,ρ W (Ω) < ε .
+
+In the two-dimensional case, the space M1+ α,ρ W (R2) is defined analogously by replacing Ω with R2 and taking v ∈ C2.We now impose a regularity condition on the boundary following [3, Section 3]. 
+
+Definition 2.2. Let Ω ⊂ R3 be a bounded domain, α ∈ (0 , 1), ρ ∈ [1 , ∞], and ε > 0sufficiently small. We say that ∂Ω belongs to the multiplier class M1+ α,ρ W (ε) if there exists a finite cover of ∂Ω by open sets U 1, . . . , U ℓ for some ℓ ∈ N such that, for each j, after a suitable translation and rotation, 
+
+U j ∩ Ω = U j ∩ (x′, x 3) ∈ R3 : x3 > φ j (x′)
+
+for some φj : R2 → R, and 
+
+φj ∈ M 1+ α,ρ W (R2, ε ) for all j = 1 , . . . , ℓ. 
+
+2.2 The Stokes–Dirichlet operator 
+
+In what follows, let Ω ⊂ R3 be a bounded Lipschitz domain whose boundary belongs to the multiplier class M1+ α,ρ W (ε) for α ∈ (0 , 1), ρ ∈ [1 , ∞], and sufficiently small ε > 0. For 1 < q < ∞, the Stokes–Dirichlet operator Aq is defined by 
+
+Aqv := f , v ∈ D(Aq), (2.1) where D(Aq) consists of all v ∈ W 1,q  
+
+> 0,σ
+
+(Ω) for which there exists f ∈ Lqσ(Ω) satisfying 
+
+Z
+
+> Ω
+
+∇v : ∇ϕ dx =
+
+Z
+
+> Ω
+
+f · ϕ dx for all ϕ ∈ W 1,q ′ 
+
+> 0,σ
+
+(Ω) .
+
+The norm on D(Aq) is given by 
+
+∥v∥D(Aq ) := ∥v∥Lq (Ω) + ∥Aqv∥Lq (Ω) .
+
+The vector field f is unique, since W 1,q ′ 
+
+> 0,σ
+
+(Ω) is dense in Lq′ 
+
+> σ
+
+(Ω) (see Proposition (2.3) (i) below). In the present setting, we emphasize that D(Aq) is not in general identified with 
+
+W 2,q (Ω) ∩ W 1,q  
+
+> 0
+
+(Ω) ∩ Lqσ(Ω). All the Stokes estimates needed in the sequel are collected in the next proposition, with its proof deferred to Appendix A. Let 3 < q < ∞ be fixed and let r be defined by 1 
+
+> r
+
+= 13 + 1 
+
+> q
+
+. Set Eq := {q, q ′, r, r ′}.
+
+Proposition 2.3. For every p ∈ E q, there exists ε > 0 sufficiently small in Definition 2.2 such that the following assertions hold on bounded Lipschitz domains of class M1+ α,ρ W (ε).Very weak solutions to the Navier-Stokes equations 6(i) The Helmholtz projection Pp : Lp(Ω) → Lpσ(Ω) is bounded and 
+
+Lp(Ω) = Lpσ(Ω) ⊕ ∇  W 1,p (Ω) /R. (2.2) 
+
+Moreover, for f ∈ Lp(Ω) and ψ ∈ Lp′
+
+(Ω) 
+
+Z
+
+> Ω
+
+Ppf · ψ dx =
+
+Z
+
+> Ω
+
+f · Pp′ ψ dx. (2.3) 
+
+The duality  Lpσ(Ω) ∗ ∼= Lp′ 
+
+> σ
+
+(Ω) holds via the integral pairing: for every bounded linear functional Λ ∈  Lp′ 
+
+> σ
+
+(Ω) ∗, there exists a unique f ∈ Lpσ(Ω) such that 
+
+Λ( ψ) = 
+
+Z
+
+> Ω
+
+f · ψ dx, ∀ψ ∈ Lp′ 
+
+> σ
+
+(Ω) .
+
+(ii) The operator Ap defined by (2.1) is invertible on Lpσ(Ω) and satisfies 
+
+D(A1/2 
+
+> p
+
+) = W 1,p  
+
+> 0,σ
+
+(Ω) , A1/2 
+
+> p
+
+v Lp(Ω) ≃ ∥∇ v∥Lp(Ω) . (2.4) 
+
+For v ∈ W 1,p  
+
+> 0,σ
+
+(Ω) and ϕ ∈ W 1,p ′ 
+
+> 0,σ
+
+(Ω) ,
+
+Z
+
+> Ω
+
+∇v : ∇ϕ dx =
+
+Z
+
+> Ω
+
+A1/2 
+
+> p
+
+v · A1/2 
+
+> p′
+
+ϕ dx. (2.5) 
+
+The inverse and the semigroup satisfy 
+
+Z
+
+> Ω
+
+A−1 
+
+> p
+
+f · ψ dx =
+
+Z
+
+> Ω
+
+f · A−1 
+
+> p′
+
+ψ dx, (2.6) 
+
+and Z
+
+> Ω
+
+e−tA p f · ψ dx =
+
+Z
+
+> Ω
+
+f · e−tA p′ ψ dx, t ≥ 0. (2.7) (iii) For 1 < τ < ∞, T ∈ (0 , ∞] and h ∈ Lτ (0 , T ; Lpσ(Ω)) , the problem 
+
+∂tz + Apz = h, z(0) = 0 
+
+has a unique solution z ∈ W 1,τ (0 , T ; Lpσ(Ω)) ∩ Lτ (0 , T ; D(Ap)) , and 
+
+∥zt∥Lτ (0 ,T ;Lpσ (Ω)) + ∥Apz∥Lτ (0 ,T ;Lpσ (Ω)) ≤ C ∥h∥Lτ (0 ,T ;Lpσ (Ω)) , (2.8) 
+
+where C is independent of T .
+
+(iv) There are Mp ≥ 1 and ωp > 0 such that 
+
+e−tA p  
+
+> L(Lpσ(Ω))
+
+≤ Mpe−ωpt, t ≥ 0, (2.9) 
+
+where L(Lpσ(Ω)) denotes the space of bounded linear operators on Lpσ(Ω) . In partic-ular, for p = q there are C, ω > 0 such that 
+
+∇e−tA q′ ψ L( q  
+
+> 2 )′(Ω)
+
+≤ Ct − 12 − 32q e−ωt ∥ψ∥Lq′ (Ω) , t > 0. (2.10) Very weak solutions to the Navier-Stokes equations 7
+
+# 3 Definition of very weak solution 
+
+In this section, we construct stationary auxiliary fields that allow us to formulate the very weak problem without invoking W 2,q -regularity of the Stokes system. These fields absorb, respectively, the divergence-form force term and the boundary datum, thereby circumventing the integrations by parts that are available only on smoother domains. 
+
+Proposition 3.1. For every F ∈ Lr(Ω) , there is a unique vF ∈ W 1,r  
+
+> 0,σ
+
+(Ω) satisfying 
+
+Z
+
+> Ω
+
+∇vF : ∇ϕ dx = −
+
+Z
+
+> Ω
+
+F : ∇ϕ dx ∀ϕ ∈ W 1,r ′ 
+
+> 0,σ
+
+(Ω) . (3.1) 
+
+Moreover, vF ∈ Lqσ(Ω) and 
+
+∥vF∥W 1,r (Ω) + ∥vF∥Lq (Ω) ≤ C ∥F∥Lr (Ω) . (3.2) 
+
+Proof. We begin by establishing a general solvability result for the weak Stokes problem. For any p ∈ E q and ℓ ∈  W 1,p ′ 
+
+> 0,σ
+
+(Ω) ∗, there exists a unique v ∈ W 1,p  
+
+> 0,σ
+
+(Ω) such that 
+
+Z
+
+> Ω
+
+∇v : ∇ϕ dx = ℓ(ϕ), ∀ϕ ∈ W 1,p ′ 
+
+> 0,σ
+
+(Ω) . (3.3) Indeed, by Proposition 2.3 (i), the dual space of Lpσ(Ω) is isometrically isomorphic to 
+
+Lp′ 
+
+> σ
+
+(Ω) via the integral pairing. Consequently, there exists a unique f ∈ Lpσ(Ω) such that 
+
+ℓ A−1/2 
+
+> p
+
+ψ =
+
+Z
+
+> Ω
+
+f · ψ dx, ∀ψ ∈ Lp′ 
+
+> σ
+
+(Ω) ,
+
+with the bound 
+
+∥f∥Lp(Ω) ≤ C∥ℓ∥ W 1,p ′ 
+
+> 0,σ (Ω)
+
+∗ .
+
+Define v := A−1/2 
+
+> p
+
+f. Then v ∈ W 1,p  
+
+> 0,σ
+
+(Ω) by Proposition 2.3 (ii). For any ϕ ∈ W 1,p ′ 
+
+> 0,σ
+
+(Ω), set 
+
+ψ := A1/2 
+
+> p′
+
+ϕ. Applying (2.5), we obtain 
+
+Z
+
+> Ω
+
+∇v : ∇ϕ dx =
+
+Z
+
+> Ω
+
+A1/2 
+
+> p
+
+v · A1/2 
+
+> p′
+
+ϕ dx =
+
+Z
+
+> Ω
+
+f · ψ dx = ℓ(ϕ),
+
+which proves (3.3). Uniqueness follows immediately from the invertibility of Ap on Lpσ(Ω). We now apply this general result with p = r and define 
+
+ℓF(ϕ) := −
+
+Z
+
+> Ω
+
+F : ∇ϕ dx, ϕ ∈ W 1,r ′ 
+
+> 0,σ
+
+(Ω) .
+
+Since F ∈ Lr(Ω) and ∇ϕ ∈ Lr′
+
+(Ω), H¨ older’s inequality yields ℓF ∈  W 1,r ′ 
+
+> 0,σ
+
+(Ω) ∗. The preceding argument therefore furnishes a unique vF ∈ W 1,r  
+
+> 0,σ
+
+(Ω) satisfying (3.1), together with the estimate 
+
+∥vF∥W 1,r (Ω) ≤ C∥F∥Lr (Ω) . (3.4) Since r < 3 and 1 
+
+> q
+
+= 1 
+
+> r
+
+− 13 , the Sobolev embedding W 1,r (Ω) ,→ Lq(Ω) is continuous. Then 
+
+∥vF∥Lq (Ω) ≤ C∥vF∥W 1,r (Ω) ≤ C∥F∥Lr (Ω) . (3.5) Very weak solutions to the Navier-Stokes equations 8Hence, (3.4) and (3.5) yield (3.2). Finally, to verify that vF belongs to Lqσ(Ω), we invoke the standard density result for solenoidal functions on bounded Lipschitz domains: there exists a sequence {ϕn}∞ 
+
+> n=1
+
+⊂
+
+C∞
+
+> c,σ
+
+(Ω) such that ϕn → vF in W 1,r (Ω). By the same Sobolev embedding, convergence also holds in Lq(Ω). Hence vF lies in the closure of C∞
+
+> c,σ
+
+(Ω) in Lq(Ω), i.e., vF ∈ Lqσ(Ω). This completes the proof. The next proposition constructs a stationary extension of the boundary data that en-joys a homogeneous variational identity in the interior. This property is essential because a merely solenoidal extension would not produce the boundary cancellation used later. 
+
+Proposition 3.2. Let g ∈ W 1− 1 
+
+> q,q
+
+(∂Ω) satisfy the compatibility condition (1.3) . Then there exists a unique vector field Ug ∈ W 1,q (Ω) such that 
+
+div Ug = 0 , Tr Ug = g,
+
+Z
+
+> Ω
+
+∇Ug : ∇ϕ dx = 0 ∀ϕ ∈ W 1,q ′ 
+
+> 0,σ
+
+(Ω) , (3.6) 
+
+and the estimate 
+
+∥Ug∥W 1,q (Ω) ≤ C ∥g∥W 1− 1  
+
+> q ,q (∂Ω)
+
+. (3.7) 
+
+Consider the Hodge decomposition 
+
+Ug = PqUg + ∇Hg, (3.8) 
+
+where Hg is defined modulo constants. Then 
+
+∥PqUg∥Lq (Ω) + ∥∇ Hg∥Lq (Ω) ≤ C ∥g∥W 1− 1  
+
+> q ,q (∂Ω)
+
+, (3.9) 
+
+and for every ϕ ∈ W 1,q ′
+
+(Ω) ,
+
+Z
+
+> Ω
+
+∇Hg · ∇ ϕ dx =
+
+Z
+
+> ∂Ω
+
+(g · N) Tr ϕ dS. (3.10) 
+
+Proof. Let E0 : W 1− 1 
+
+> q,q
+
+(∂Ω) → W 1,q (Ω) be a bounded right inverse of the trace operator. The compatibility condition (1.3) and the divergence theorem lead to 
+
+Z
+
+> Ω
+
+div( E0g) d x =
+
+Z
+
+> ∂Ω
+
+g · N dS = 0 .
+
+By Bogovskii’s theorem [12], there exists bg ∈ W 1,q  
+
+> 0
+
+(Ω) such that div bg = div( E0g), ∥bg∥W 1,q (Ω) ≤ C ∥div( E0g)∥Lq (Ω) .
+
+Define 
+
+Eg := E0g − bg.
+
+Then div Eg = 0 , Tr Eg = g, ∥Eg∥W 1,q (Ω) ≤ C ∥g∥W 1− 1  
+
+> q ,q (∂Ω)
+
+.Very weak solutions to the Navier-Stokes equations 9Using Proposition 3.1, there exists a unique zg ∈ W 1,q  
+
+> 0,σ
+
+(Ω) such that 
+
+Z
+
+> Ω
+
+∇zg : ∇ϕ dx =
+
+Z
+
+> Ω
+
+∇Eg : ∇ϕ dx ∀ϕ ∈ W 1,q ′ 
+
+> 0,σ
+
+(Ω) ,
+
+with 
+
+∥zg∥W 1,q (Ω) ≤ C ∥Eg∥W 1,q (Ω) .
+
+Define 
+
+Ug := Eg − zg.
+
+Then Ug satisfies (3.6) and (3.7) by construction. Suppose U1 and U2 both satisfy (3.6). Then U1 − U2 ∈ W 1,q  
+
+> 0,σ
+
+(Ω) and 
+
+Z
+
+> Ω
+
+∇(U1 − U2) : ∇ϕ dx = 0 ∀ϕ ∈ W 1,q ′ 
+
+> 0,σ
+
+(Ω) .
+
+It follows from the uniqueness assertion in Proposition 3.1 with F = 0 that U1 = U2.The Hodge decomposition (3.8) follows from Proposition 2.3 (i). The estimate (3.9) is then a consequence of the boundedness of Pq and (3.7). Since PqUg ∈ Lqσ(Ω), one has 
+
+Z
+
+> Ω
+
+PqUg · ∇ ϕ dx = 0 ∀ϕ ∈ W 1,q ′
+
+(Ω) .
+
+On the other hand, since div Ug = 0 and Tr Ug = g, Green’s formula gives 
+
+Z
+
+> Ω
+
+Ug · ∇ ϕ dx =
+
+Z
+
+> ∂Ω
+
+(g · N) Tr ϕ dS. 
+
+Combining the last two identities with Ug = PqUg + ∇Hg yields (3.10). For later use, we record the following identity for the boundary extension: if Φ is smooth in a neighborhood of Ω such that div Φ = 0 and Tr Φ = 0, then 
+
+−
+
+Z
+
+> Ω
+
+Ug · ∆Φ dx +
+
+Z
+
+> ∂Ω
+
+g · ∂NΦ dS = 0 , (3.11) where ∂NΦ := ( ∇Φ)N. Indeed, Φ ∈ W 1,q ′ 
+
+> 0,σ
+
+(Ω), and (3.6) gives 0 = 
+
+Z
+
+> Ω
+
+∇Ug : ∇Φ dx. 
+
+Since Tr Ug = g, then integration by parts yields (3.11). We now define very weak solutions of the Navier–Stokes problem (1.1). 
+
+Definition 3.3. Assume that the data F, g and u0 satisfy the regularity assumptions (1.2) and compatibility condition (1.3). Let vF, Ug and Hg be the stationary fields from Very weak solutions to the Navier-Stokes equations 10 Proposition 3.1 and Proposition 3.2. A vector field u ∈ Ls(0 , T ; Lq(Ω)) is a very weak solution of (1.1) if for every Φ ∈ C 1 
+
+> c
+
+([0 , T ); D(Aq′ )), 
+
+−
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+u · ∂tΦ dxdt +
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+(Pqu − PqUg) · Aq′ Φ dxdt −
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+(u ⊗ u) : ∇Φ dxdt
+
+=
+
+Z
+
+> Ω
+
+u0 · Φ(0) d x +
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+vF · Aq′ Φ dxdt, 
+
+(3.12) and for every ϕ ∈ C∞ 
+
+> c
+
+([0 , T ) × Ω), 
+
+−
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+u · ∇ ϕ dxdt +
+
+Z T
+
+> 0
+
+Z
+
+> ∂Ω
+
+(g · N)ϕ dSdt = 0 . (3.13) The linear very weak formulation is obtained by deleting the nonlinear term. We now consider the test space C1 
+
+> c
+
+([0 , T ); D(Aq′ )) in Definition 3.3. The nonlinear term is well-defined for this test space. In fact, if Φ ∈ D(Aq′ ), then 
+
+∥∇ Φ∥L( q  
+
+> 2 )′(Ω)
+
+= ∇A−1 
+
+> q′
+
+Aq′ Φ L( q  
+
+> 2 )′(Ω)
+
+≤ C ∥Aq′ Φ∥Lq′ (Ω) , (3.14) where the estimate follows from integrating (2.10) over (0 , ∞) for ψ = Aq′ Φ.We next claim that (3.13) is equivalent to the system div u = 0 u · N = g · N on ∂Ω.
+
+To this end, taking ϕ(t, x ) = η(t)ζ(x) with η ∈ C∞ 
+
+> c
+
+(0 , T ) and ζ ∈ C∞(Ω) in (3.13) gives 
+
+Z T
+
+> 0
+
+η(t)
+
+Z
+
+> Ω
+
+u(t, x ) · ∇ ζ(x) d xdt =
+
+Z T
+
+> 0
+
+η(t)
+
+Z
+
+> ∂Ω
+
+(g · N)ζ(x) d Sdt. 
+
+Applying (3.10), we obtain 
+
+Z T
+
+> 0
+
+η(t)
+
+Z
+
+> Ω
+
+ u(t, x ) − ∇ Hg(t, x ) · ∇ ζ(x) d xdt = 0 ,
+
+Since W 1,q ′
+
+(Ω) is separable, we choose a countable dense family {ζk}∞ 
+
+> k=1
+
+in W 1,q ′
+
+(Ω). For each fixed k, the arbitrariness of η ∈ C∞ 
+
+> c
+
+(0 , T ) implies that 
+
+Z
+
+> Ω
+
+ u(t) − ∇ Hg(t) · ∇ ζk dx = 0 for a.e. t ∈ (0 , T ),
+
+where the exceptional null set may depend on k. Taking the union of these countably many exceptional sets yields a single null set N ⊂ (0 , T ) such that 
+
+Z
+
+> Ω
+
+ u(t) − ∇ Hg(t) · ∇ ζk dx = 0 ∀k, t / ∈ N. (3.15) Since {ζk} is dense in W 1,q ′
+
+(Ω) and the mapping 
+
+ζ 7 −→ 
+
+Z
+
+> Ω
+
+ u(t) − ∇ Hg(t) · ∇ ζ dxVery weak solutions to the Navier-Stokes equations 11 is continuous for each fixed t / ∈ N , then (3.15) extends to all ζ ∈ W 1,q ′
+
+(Ω) for t / ∈ N .Hence, for almost every t ∈ (0 , T ), 
+
+Z
+
+> Ω
+
+ u(t) − ∇ Hg(t) · ∇ ζ dx = 0 ∀ζ ∈ W 1,q ′
+
+(Ω) .
+
+The Helmholtz decomposition (2.2) now yields (I − Pq)u = ∇Hg for a.e. t ∈ (0 , T ). (3.16) Conversely, combining (3.16) with (3.10) recovers (3.13). Thus the two formulations are equivalent. 
+
+Remark 3.4. We show that for any 
+
+Φ ∈ C1 
+
+> c
+
+([0 , T ); C∞(Ω)) , div Φ = 0 , Tr Φ = 0 ,
+
+the identity (3.12) reduces to 
+
+−
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+u · (∂tΦ + ∆ Φ) d xdt −
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+(u ⊗ u) : ∇Φ dxdt +
+
+Z T
+
+> 0
+
+Z
+
+> ∂Ω
+
+g · ∂NΦ dSdt
+
+=
+
+Z
+
+> Ω
+
+u0 · Φ(0) d x −
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+F : ∇Φ dxdt, (3.17) which is precisely the very weak formulation in [8] when div u = 0 and g ∈ W 1− 1 
+
+> q,q
+
+(∂Ω). To verify this, we first note that if Φ is smooth in a neighborhood of Ω with div Φ = 0 and Tr Φ = 0, then 
+
+Φ ∈ D(Aq′ ), Aq′ Φ = Pq′ (−∆Φ). (3.18) Indeed, for any η ∈ W 1,q ′ 
+
+> 0,σ
+
+(Ω), integration by parts gives 
+
+Z
+
+> Ω
+
+∇Φ : ∇η dx =
+
+Z
+
+> Ω
+
+(−∆Φ) · η dx =
+
+Z
+
+> Ω
+
+Pq′ (−∆Φ) · η dx. 
+
+Now, since (I − Pq)u = ∇Hg and (I − Pq)Ug = ∇Hg,
+
+we have 
+
+Pq(u − Ug) = u − Ug.
+
+Using this identity together with (3.18) and (2.3) for p = q′, we obtain 
+
+Z
+
+> Ω
+
+(Pqu − PqUg) · Aq′ Φ dx =
+
+Z
+
+> Ω
+
+Pq(u − Ug) · Pq′ (−∆Φ) d x = −
+
+Z
+
+> Ω
+
+(u − Ug) · ∆Φ dx. 
+
+Moreover, since vF ∈ Lqσ(Ω) and Aq′ Φ = Pq′ (−∆Φ), (3.1) gives 
+
+Z
+
+> Ω
+
+vF · Aq′ Φ dx =
+
+Z
+
+> Ω
+
+vF · (−∆Φ) d x =
+
+Z
+
+> Ω
+
+∇vF : ∇Φ dx = −
+
+Z
+
+> Ω
+
+F : ∇Φ dx. 
+
+Finally, it follows from (3.11) that 
+
+−
+
+Z
+
+> Ω
+
+Ug · ∆Φ dx +
+
+Z
+
+> ∂Ω
+
+g · ∂NΦ dS = 0 .
+
+Substituting the last three identities into (3.12) yields (3.17). Very weak solutions to the Navier-Stokes equations 12 
+
+# 4 The linear problem 
+
+In this section, we establish the existence and uniqueness of very weak solutions to the linearized Navier–Stokes system introduced in Definition 3.3. More precisely, we consider the Stokes system 
+
+∂tu − ∆u + ∇π = div F in (0 , T ) × Ω,
+
+div u = 0 in (0 , T ) × Ω,
+
+u = g on (0 , T ) × ∂Ω,
+
+u(0) = u0 in Ω ,
+
+(4.1) where F, g, u0 satisfy the regularity assumptions (1.2) and compatibility condition (1.3). 
+
+Definition 4.1. Assume that F, g, u0 satisfy (1.2) and (1.3). Let vF and Ug be the stationary auxiliary fields from Propositions 3.1 and 3.2. A vector field u ∈ Ls(0 , T ; Lq(Ω)) is a very weak solution of (4.1) if for every Φ ∈ C1 
+
+> c
+
+([0 , T ); D(Aq′ )), 
+
+−
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+u · ∂tΦ dxdt +
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+(Pqu − PqUg) · Aq′ Φ dxdt
+
+=
+
+Z
+
+> Ω
+
+u0 · Φ(0) d x +
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+vF · Aq′ Φ dxdt;(4.2) and for every ϕ ∈ C∞ 
+
+> c
+
+([0 , T ) × Ω), 
+
+−
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+u · ∇ ϕ dxdt +
+
+Z T
+
+> 0
+
+Z
+
+> ∂Ω
+
+(g · N)ϕ dSdt = 0 . (4.3) Now, we define 
+
+MT (u0, F, g) := e−tA q u0 Ls(0 ,T ;Lq (Ω)) + ∥F∥Ls(0 ,T ;Lr (Ω)) + ∥g∥Ls(0 ,T ;W 1− 1  
+
+> q ,q (∂Ω))
+
+. (4.4) 
+
+Proposition 4.2. Assume that F, g, u0 satisfy (1.2) and (1.3) . Then the system (4.1) 
+
+admits a unique very weak solution U ∈ Ls(0 , T ; Lq(Ω)) . Moreover, there exists a constant 
+
+C∗ > 0, independent of T , such that 
+
+U Ls(0 ,T ;Lq (Ω)) ≤ C∗MT . (4.5) 
+
+Proof. Set 
+
+h := vF + PqUg.
+
+By estimates (3.2), (3.7), (3.9), and the boundedness of Pq in Proposition 2.3, we have 
+
+∥h∥Ls(0 ,T ;Lq (Ω)) ≤ C
+
+
+
+∥F∥Ls(0 ,T ;Lr (Ω)) + ∥g∥Ls(0 ,T ;W 1− 1 
+
+> q ,q (∂Ω))
+
+
+
+, (4.6) where C is independent of T .It follows from Proposition 2.3 (iii) that the Cauchy problem 
+
+∂tz + Aqz = h, z(0) = 0 (4.7) Very weak solutions to the Navier-Stokes equations 13 has a unique solution z ∈ W 1,s (0 , T ; Lqσ(Ω)) ∩ Ls(0 , T ; D(Aq)) . Define 
+
+Y(t) := A−1 
+
+> q
+
+e−tA q u0 + z(t)and 
+
+U(t) := AqY(t) + ∇Hg(t) = e−tA q u0 + Aqz(t) + ∇Hg(t). (4.8) We verify that U satisfies (4.2) and (4.3) in Definition 4.1. First, since Pq∇Hg = 0, we deduce from (4.8) that 
+
+Y = A−1 
+
+> q
+
+PqU. (4.9) Moreover, the term A−1 
+
+> q
+
+e−tA q u0 satisfies the homogeneous equation 
+
+∂t(A−1 
+
+> q
+
+e−tA q u0) + e−tA q u0 = 0 ,
+
+Combining this with the equation (4.7), we obtain 
+
+∂tY + PqU = h = vF + PqUg, Y(0) = A−1 
+
+> q
+
+u0. (4.10) Let Φ ∈ C 1 
+
+> c
+
+([0 , T ); D(Aq′ )). Pairing (4.10) with Aq′ Φ, integrating in time, and using (2.6) together with the fact that Φt is solenoidal, yields (4.2) in Definition 4.1. The identity (4.3) follows directly from the formula (4.8), since the first two terms on the right-hand side of (4.8) are solenoidal and the remaining term ∇Hg satisfies (3.10). Thus U is a very weak solution of (4.1) in the sense of Definition 4.1. For uniqueness, let u∗ be the difference of two very weak solutions. Applying (4.3) to 
+
+u∗ yields the corresponding identity with vanishing boundary term. In view of (3.16), it implies (I − Pq)u∗(t) = ∇Hg(t) = 0 for a.e. t ∈ (0 , T ),
+
+where the last equality follows from (3.10) with g = 0. Hence u∗ = Pqu∗. Now let Ψ ∈
+
+C1 
+
+> c
+
+([0 , T ); Lq′ 
+
+> σ
+
+(Ω)) and take Φ = A−1 
+
+> q′
+
+Ψ in (4.2) for the difference. Setting Y := A−1 
+
+> q
+
+u∗,one obtains 
+
+−
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+Y · ∂tΨ dxdt +
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+AqY · Ψ dxdt = 0 , Y(0) = 0 .
+
+Thus ∂tY + AqY = 0 in the sense of distributions. Since AqY = u∗ ∈ Ls(0 , T ; Lqσ(Ω)), we have ∂tY ∈ Ls
+
+> loc
+
+(0 , T ; Lqσ(Ω)) and hence Y ∈ W 1,s  
+
+> loc
+
+(0 , T ; Lqσ(Ω)). The uniqueness of the Cauchy problem in Proposition 2.3 (iii) gives Y = 0, and consequently u∗ = 0. It remains to prove the bound (4.5). From (4.8), we have 
+
+∥U∥Ls(0 ,T ;Lq (Ω)) ≤ ∥ e−tA q u0∥Ls(0 ,T ;Lq (Ω)) + ∥Aqz∥Ls(0 ,T ;Lq (Ω)) + ∥∇ Hg∥Ls(0 ,T ;Lq (Ω)) .
+
+The first term is part of MT in (4.4). For the second term, (2.8) and (4.6) yield 
+
+∥Aqz∥Ls(0 ,T ;Lq (Ω)) ≤ C ∥F∥Ls(0 ,T ;Lr (Ω)) + ∥g∥Ls(0 ,T ;W 1− 1 
+
+> q ,q (∂Ω))
+
+,
+
+where C is independent of T . The third term is bounded by MT via (3.9), again with a constant independent of T . Combining these estimates gives (4.5). Very weak solutions to the Navier-Stokes equations 14 
+
+# 5 The nonlinear term and the integral equation 
+
+In this section, we transform the very weak formulation from Definition 3.3 into an equiv-alent integral equation in the space Ls(0 , T ; Lq(Ω)). This expresses the solution as a fixed point of a nonlinear operator, which will be the key to the existence proof. The main difficulty is that the nonlinear term div( u ⊗ u) is not an Lq-function in space, since u ⊗ u belongs only to Lq 
+
+> 2
+
+(Ω). Consequently, the expression A−1 
+
+> q
+
+Pq div( u ⊗ u)cannot be interpreted directly. To overcome this, we define this term by duality, using the inverse Stokes operator and the analytic semigroup. We begin with the stationary operator Rq, which will replace the formal expression 
+
+A−1 
+
+> q
+
+Pq div G for rough tensor fields G. For ψ ∈ Lq′ 
+
+> σ
+
+(Ω), the inverse semigroup formula and (2.10) give 
+
+∇A−1 
+
+> q′
+
+ψ L( q  
+
+> 2 )′(Ω)
+
+≤
+
+Z ∞
+
+> 0
+
+∇e−tA q′ ψ L( q  
+
+> 2 )′(Ω)
+
+dt ≤ C ∥ψ∥Lq′ (Ω) . (5.1) For G ∈ Lq 
+
+> 2
+
+(Ω), define RqG ∈ Lqσ(Ω) by 
+
+Z
+
+> Ω
+
+RqG · ψ dx = −
+
+Z
+
+> Ω
+
+G : ∇A−1 
+
+> q′
+
+ψ dx, ∀ ψ ∈ Lq′ 
+
+> σ
+
+(Ω) . (5.2) This is well defined by (5.1). Moreover, 
+
+∥RqG∥Lq (Ω) ≤ C ∥G∥L q  
+
+> 2(Ω)
+
+. (5.3) If G ∈ C∞ 
+
+> c
+
+(Ω), then by (2.3), (2.6), (5.2) and integration by parts, 
+
+RqG = A−1 
+
+> q
+
+Pq div G (5.4) Next, we introduce the time-dependent operator K, which incorporates the evolution semigroup and will be used to define the nonlinear term in the integral formulation. For 
+
+G ∈ L s 
+
+> 2
+
+(0 , T ; Lq 
+
+> 2
+
+(Ω)), define KG(t) by 
+
+Z
+
+> Ω
+
+KG(t) · ψ dx := −
+
+Z t
+
+> 0
+
+Z
+
+> Ω
+
+G(τ ) : ∇e−(t−τ )Aq′ ψ dxdτ, a.e. t ∈ (0 , T ). (5.5) The following lemma extends this definition to L s 
+
+> 2
+
+(0 , T ; Lq 
+
+> 2
+
+(Ω)), the space in which 
+
+u ⊗ u lies when u ∈ Ls(0 , T ; Lq(Ω)). 
+
+Lemma 5.1. The map K is bounded from L s 
+
+> 2
+
+(0 , T ; Lq 
+
+> 2
+
+(Ω)) to Ls(0 , T ; Lqσ(Ω)) with 
+
+∥K G∥Ls(0 ,T ;Lq (Ω)) ≤ CK ∥G∥L s     
+
+> 2(0 ,T ;Lq
+> 2(Ω))
+
+, (5.6) 
+
+where the constant CK > 0 is independent of T .Proof. Set γ := 12 + 32q . Since q > 3, we have γ < 1. Using H¨ older’s inequality and (2.10), we obtain 
+
+∥K G(t)∥Lq (Ω) ≤ C
+
+Z t
+
+> 0
+
+(t − τ )−γ ∥G(τ )∥L q  
+
+> 2(Ω)
+
+dτ. 
+
+Extending ∥G(·)∥Lq/ 2(Ω) by zero outside (0 , T ), we apply the one-dimensional Hardy– Littlewood–Sobolev inequality [21, Chapter 4] of order 1 
+
+> s
+
+, which maps L s 
+
+> 2
+
+(R) into Ls(R)since 1 < s 
+
+> 2
+
+< s . This implies (5.6). The constant is independent of T because of the zero extension. Very weak solutions to the Navier-Stokes equations 15 For w, v ∈ Ls(0 , T ; Lq(Ω)), define 
+
+Q(w, v) := K(w ⊗ v).
+
+Lemma 5.1 and H¨ older’s inequality yield that 
+
+∥Q (w, v)∥Ls(0 ,T ;Lq (Ω)) ≤ CB ∥w∥Ls(0 ,T ;Lq (Ω)) ∥v∥Ls(0 ,T ;Lq (Ω)) (5.7) with CB independent of T .The next lemma shows that KG is exactly AqY, where Y is the unique solution of the evolution equation with source RqG and zero initial data by Proposition 2.3 (iii). 
+
+Lemma 5.2. Let G ∈ L s 
+
+> 2
+
+(0 , T ; Lq 
+
+> 2
+
+(Ω)) and Y ∈ W 1, s 
+
+> 2
+
+(0 , T ; Lqσ(Ω)) ∩ L s 
+
+> 2
+
+(0 , T ; D(Aq)) be the unique solution of 
+
+∂tY + AqY = RqG, Y(0) = 0 . (5.8) 
+
+Then 
+
+AqY = KG a.e. on (0 , T ), (5.9) 
+
+and 
+
+∂t(A−1 
+
+> q
+
+KG) + KG = RqG, (A−1 
+
+> q
+
+KG)(0) = 0 . (5.10) 
+
+Proof. Choose a sequence Gn ∈ C∞ 
+
+> c
+
+((0 , T ) × Ω) such that Gn → G in L s 
+
+> 2
+
+(0 , T ; Lq 
+
+> 2
+
+(Ω)) as n → ∞ . If T = ∞, take the approximants with compact time support. Let Yn be the unique solution of 
+
+∂tYn + AqYn = RqGn, Yn(0) = 0 .
+
+By Duhamel’s formula, together with (5.4), we have 
+
+AqYn(t) = 
+
+Z t
+
+> 0
+
+e−(t−τ )Aq Pq div Gn(τ ) d τ. 
+
+Pairing this expression with ψ ∈ Lq′ 
+
+> σ
+
+(Ω) and using (2.7), we obtain (5.5) for KGn. Hence 
+
+AqYn = KGn.
+
+It follows from (2.8) and (5.3) that 
+
+AqYn → AqY in L s 
+
+> 2
+
+(0 , T ; Lqσ(Ω)) as n → ∞ . On the other hand, Lemma 5.1 gives 
+
+KGn → K G in Ls(0 , T ; Lqσ(Ω)) .
+
+Since Ls(0 , T 0) ,→ L s 
+
+> 2
+
+(0 , T 0) on every finite interval (0 , T 0) ⊂ (0 , T ), the two limits of the common sequence AqYn = KGn coincide on (0 , T 0). This proves (5.9) on every finite subinterval. If T = ∞, the same conclusion follows by exhaustion. Substituting (5.9) into (5.8) and using invertibility of Aq gives Y = A−1 
+
+> q
+
+KG and 
+
+∂tY + KG = RqG, Y(0) = 0 .
+
+which is (5.10). Very weak solutions to the Navier-Stokes equations 16 Now we are in position to establish the equivalence between the very weak formulation in Definition 3.3 with an equivalent integral equation. 
+
+Proposition 5.3. Assume that F, g, u0 satisfy (1.2) and (1.3) . Then u ∈ Ls(0 , T ; Lq(Ω)) 
+
+is a very weak solution of NSE (1.1) if and only if it satisfies 
+
+u = U − Q (u, u) in Ls(0 , T ; Lq(Ω)) , (5.11) 
+
+where U is given by (4.8) .Proof. Assume that u ∈ Ls(0 , T ; Lq(Ω)) is a very weak solution of NSE (1.1). From (4.8), since both e−tA q u0 and Aqz take values in Lqσ(Ω), we have (I − Pq)U = ∇Hg.
+
+Then it follows from (3.16) that ( I − Pq)u = ( I − Pq)U. Let Ψ ∈ C1 
+
+> c
+
+([0 , T ); Lq′ 
+
+> σ
+
+(Ω)) and take Φ = A−1 
+
+> q′
+
+Ψ in (3.12). For Y = A−1 
+
+> q
+
+Pqu, it derives from (2.6) and (5.2) that 
+
+−
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+Y · ∂tΨ dxdt +
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+ Pqu − PqUg + Rq(u ⊗ u) − vF
+
+ · Ψ dxdt =
+
+Z
+
+> Ω
+
+A−1 
+
+> q
+
+u0 · Ψ(0) d x. 
+
+Consequently, on every finite subinterval, 
+
+∂tY + Pqu = vF + PqUg − Rq(u ⊗ u), Y(0) = A−1 
+
+> q
+
+u0. (5.12) Since all terms on the right-hand side belong locally to L s 
+
+> 2
+
+(0 , T ; Lqσ(Ω)), we get Y ∈
+
+W 1, s 
+
+> 2
+> loc
+
+(0 , T ; Lqσ(Ω)) and the initial datum in (5.12) is well-defined. Subtracting (4.10) from (5.12) and applying Lemma 5.2 with G = u ⊗ u, then the vector field 
+
+Z := A−1
+
+> q
+
+ Pqu − PqU + Q(u, u)
+
+satisfies 
+
+∂tZ + AqZ = 0 , Z(0) = 0 .
+
+By uniqueness of the Cauchy problem in Proposition 2.3 (iii), Z = 0. Since Aq is injective, 
+
+Pqu = PqU − Q (u, u).
+
+Together with ( I − Pq)u = ( I − Pq)U = ∇Hg, we obtain 
+
+u = Pqu + ( I − Pq)u = PqU − Q (u, u) + ( I − Pq)U = U − Q (u, u),
+
+which implies (5.11). Conversely, assume that (5.11) holds. Since Q(u, u) = K(u⊗u) takes values in Lqσ(Ω), we have (I − Pq)u = ( I − Pq)U = ∇Hg.
+
+Combining this identity with (3.10) and integrating in time yields (3.13). Very weak solutions to the Navier-Stokes equations 17 It remains to prove (3.12). Put G = u ⊗ u and X = A−1 
+
+> q
+
+KG. From (5.11), 
+
+A−1 
+
+> q
+
+Pqu = Y − X.
+
+Applying (4.10) to Y and (5.10) to X, we get 
+
+∂t(A−1 
+
+> q
+
+Pqu) + Pqu = vF + PqUg − Rq(u ⊗ u), (A−1 
+
+> q
+
+Pqu)(0) = A−1 
+
+> q
+
+u0.
+
+For Φ ∈ C 1 
+
+> c
+
+([0 , T ); D(Aq′ )), testing this equation with Aq′ Φ and integrating in time gives (3.12). In this process, the terms involving the time derivative and the initial data are treated using (2.6). The remaining term is handled by the definition of Rq in (5.2), which gives 
+
+Z
+
+> Ω
+
+Rq(u ⊗ u) · Aq′ Φ dx = −
+
+Z
+
+> Ω
+
+(u ⊗ u) : ∇Φ dx. 
+
+Thus u satisfies both identities in Definition 3.3, and then is a very weak solution. 
+
+# 6 Proof of Theorem 1.1 
+
+This section is devoted to the proof of Theorem 1.1. We first establish an existence result under the assumption that MT is sufficiently small. This assumption is then verified in two scenarios: T small, and for all T > 0 under the additional smallness condition (1.5). 
+
+Proposition 6.1. Assume that the data F, g and u0 satisfy (1.2) and (1.3) . There exists 
+
+μ0 = μ0(Ω , α, ρ, q ) > 0, independent of T , such that if 
+
+MT (u0, F, g) ≤ μ0,
+
+then NSE (1.1) admits a unique very weak solution for any T ∈ (0 , ∞]. Moreover, 
+
+∥u∥Ls(0 ,T ;Lq (Ω)) ≤ CMT (u0, F, g),
+
+where C is independent of T .Proof. By Proposition 4.2, one has 
+
+U Ls(0 ,T ;Lq (Ω)) ≤ C∗MT (u0, F, g).
+
+Write u = U + V. Then the equation (5.11) is equivalent to 
+
+V = T V := −Q (U + V, U + V).
+
+Let δT := U Ls(0 ,T ;Lq (Ω)) and consider the closed ball 
+
+BδT := 
+
+n
+
+V ∈ Ls(0 , T ; Lq(Ω)) : ∥V∥Ls(0 ,T ;Lq (Ω)) ≤ δT
+
+o
+
+.
+
+For V ∈ BδT , the bilinear estimate (5.7) yields 
+
+∥T V∥Ls(0 ,T ;Lq (Ω)) ≤ 4CB δ2 
+
+> T
+
+.Very weak solutions to the Navier-Stokes equations 18 Similarly, for V1, V2 ∈ BδT ,
+
+∥T V1 − T V2∥Ls(0 ,T ;Lq (Ω)) ≤ 4CB δT ∥V1 − V2∥Ls(0 ,T ;Lq (Ω)) .
+
+If δT ≤ 18CB , then T maps BδT into itself and is a contraction with Lipschitz constant at most 12 . Banach’s fixed-point theorem therefore gives a unique fixed point V ∈ BδT . By Proposition 5.3, the function u = U + V is a very weak solution of (1.1), and 
+
+∥u∥Ls(0 ,T ;Lq (Ω)) ≤ 2δT ≤ 2C∗MT (u0, F, g).
+
+Hence we may take μ0 = (8 CB C∗)−1.It remains to prove uniqueness without assuming that another solution lies in the contraction ball. Let u1, u2 ∈ Ls(0 , T ; Lq(Ω)) be very weak solutions with the same data, and set u∗ = u1 − u2. By Proposition 5.3, 
+
+u∗ = −Q (u∗, u1) − Q (u2, u∗). (6.1) For T < ∞, we argue by partition. Since u1, u2 ∈ Ls(0 , T ; Lq(Ω)), the function 
+
+t 7 →
+
+Z t
+
+> 0
+
+ ∥u1(τ )∥sLq (Ω) + ∥u2(τ )∥sLq (Ω) 
+
+ dτ 
+
+is absolutely continuous. Thus there exists a finite partition 0 = t0 < t 1 < · · · < t N = T
+
+such that, with Ij = ( tj−1, t j ), 
+
+CB
+
+ ∥u1∥Ls(Ij ;Lq (Ω)) + ∥u2∥Ls(Ij ;Lq (Ω)) 
+
+ < 1 ∀j = 1 , . . . , N. 
+
+On I1, the definition of K only involves times 0 < τ < t , so applying (5.7) to (6.1) gives 
+
+∥u∗∥Ls(I1;Lq (Ω)) ≤ CB
+
+ ∥u1∥Ls(I1;Lq (Ω)) + ∥u2∥Ls(I1;Lq (Ω)) 
+
+ ∥u∗∥Ls(I1;Lq (Ω)) .
+
+Since the factor in parentheses is strictly less than 1, it follows that u∗ = 0 on I1. Now suppose u∗ = 0 on (0 , t j−1). For t ∈ Ij , the time integrals defining Q(u∗, u1)( t) and 
+
+Q(u2, u∗)( t) over 0 < τ < t j−1 vanish. Hence only the integrals over tj−1 < τ < t remain. Applying the same estimate on Ij (after translating to an interval starting at zero) yields 
+
+u∗ = 0 on Ij . By induction, u∗ = 0 on (0 , T ). For T = ∞, the same argument applies to every finite interval, yielding uniqueness. Now we are in position to prove Theorem 1.1. 
+
+Proof of Theorem 1.1. First, we establish the local-in-time existence of very weak solution. Choose T ∗ ∈ (0 , min {T, 1}], with the convention min {∞ , 1} = 1. As t ↓ 0, due to the boundedness of the analytic semigroup, 
+
+∥e−τ A q u0∥Ls(0 ,t ;Lq (Ω)) ≤ Ct 1 
+
+> s
+
+∥u0∥Lq (Ω) Very weak solutions to the Navier-Stokes equations 19 shows that this initial term in Mt decays to zero. The force and boundary terms in Mt
+
+also tend to zero as t ↓ 0 by absolute continuity of the Bochner integrals. Hence there exists T ∗ > 0 sufficiently small such that MT ∗ ≤ μ0. Applying Proposition 6.1 gives a unique very weak solution u on (0 , T ∗), together with the estimate 
+
+∥u∥Ls(0 ,T ∗;Lq (Ω)) ≤ C
+
+
+
+∥u0∥Lq (Ω) + ∥F∥Ls(0 ,T ∗;Lr (Ω)) + ∥g∥Ls(0 ,T ∗;W 1− 1 
+
+> q ,q (∂Ω))
+
+
+
+.
+
+This proves the first part of Theorem 1.1, with T ∗ depending on the data. For the global assertion, assume additionally that the data satisfy the smallness con-dition (1.5). By (2.9), we have 
+
+∥e−tA q u0∥Ls(0 ,T ;Lq (Ω)) ≤ C∗∥u0∥Lq (Ω) 
+
+with C∗ independent of T . Consequently, for T = ∞,
+
+M∞(u0, F, g) ≤ C∗∥u0∥Lq (Ω) + ∥F∥Ls(0 ,∞;Lr (Ω)) + ∥g∥Ls(0 ,∞;W 1− 1 
+
+> q ,q (∂Ω))
+
+. (6.2) Choosing μ in (1.5) sufficiently small so that the right-hand side is bounded by μ0, we apply Proposition 6.1 to obtain a unique very weak solution u, with the estimate 
+
+∥u∥Ls(0 ,∞;Lq (Ω)) ≤ C M∞(u0, F, g),
+
+which is exactly (1.4) since (6.2) holds. It remains to show that the very weak solution obtained above admits a pressure. Set 
+
+R := ∂tu − ∆u + div( u ⊗ u) − div F ∈ D ′((0 , T ) × Ω) .
+
+Taking a solenoidal test field Φ ∈ C∞ 
+
+> c
+
+((0 , T ) × Ω) in (3.17) gives 
+
+⟨R, Φ⟩ = 0 div Φ = 0 .
+
+By the de Rham theorem, there exists π ∈ D ′((0 , T ) × Ω) such that R + ∇π = 0. The uniqueness up to a time-dependent distribution follows from the fact that a distribution with zero spatial gradient depends only on time, which ends the proof of Theorem 1.1. □
+
+# A Proof of Proposition 2.3 
+
+We explain how the results in Breit–Gaudin [5] apply to the set of exponents Eq =
+
+{q, q ′, r, r ′}; the parameter ε in Definition 2.2 is chosen sufficiently small so that the estimates cited below hold for each exponent in this set. (i) The Hodge decomposition, the boundedness of Pp, and the duality relation (2.3) follow from [5, Theorem 4.38 and Proposition 4.40]. These results also identify ( Lp′ 
+
+> σ
+
+(Ω)) ∗
+
+with Lpσ(Ω) under the integral pairing. (ii) We first recall the relevant results from Breit–Gaudin [5]. In their work, the Stokes–Dirichlet operator, which we denote by eAp, is the solenoidal Dirichlet realization of the Laplacian. At the Lpσ-level it acts as 
+
+eApv = Pp(−∆v)Very weak solutions to the Navier-Stokes equations 20 in the distributional sense on its operator domain. [5, Theorem 6.5] gives a densely defined, invertible and 0-sectorial operator on Lpσ(Ω), with a bounded H∞(Σ θ)-functional calculus for every θ ∈ (0 , π ), and with the fractional-domain identification needed for the square-root property. In particular, these results yield invertibility, sectoriality, a bounded H∞-functional calculus and the square-root identification D( eA1/2 
+
+> p
+
+) = W 1,p  
+
+> 0,σ
+
+(Ω) with the norm equivalence in (2.4). They also give the following variational characterization: for v ∈
+
+D( eAp) and ϕ ∈ W 1,p ′ 
+
+> 0,σ
+
+(Ω), 
+
+Z
+
+> Ω
+
+eApv · ϕ dx =
+
+Z
+
+> Ω
+
+∇v : ∇ϕ dx. (A.1) To prove (2.6), let f ∈ Lpσ(Ω) and ψ ∈ Lp′ 
+
+> σ
+
+(Ω). Set v = A−1 
+
+> p
+
+f and ϕ = A−1 
+
+> p′
+
+ψ. Applying (A.1) to the pair ( v, ϕ) and then to the dual pair ( ϕ, v) yields the desired duality identity (2.6). The semigroup duality (2.7) follows from the corresponding duality of the Stokes resolvents and the standard representation of the analytic semigroup. It remains to identify eAp with the operator Ap defined by (2.1). The inclusion D( eAp) ⊂
+
+D(Ap) follows from (A.1). Conversely, for v ∈ D(Ap), set f = Apv and w := eA−1 
+
+> p
+
+f . Then 
+
+v − w ∈ W 1,p  
+
+> 0,σ
+
+(Ω) and 
+
+Z
+
+> Ω
+
+∇(v − w) : ∇ϕ dx = 0 ∀ϕ ∈ W 1,p ′ 
+
+> 0,σ
+
+(Ω) .
+
+Using (2.5), this becomes Z
+
+> Ω
+
+A1/2 
+
+> p
+
+(v − w) · A1/2 
+
+> p′
+
+ϕ dx = 0 .
+
+Since A1/2 
+
+> p′
+
+maps W 1,p ′ 
+
+> 0,σ
+
+(Ω) onto Lp′ 
+
+> σ
+
+(Ω), we get A1/2 
+
+> p
+
+(v − w) = 0. The invertibility of Ap
+
+gives v = w. Hence Ap = eAp.(iii) Since Lpσ(Ω) is a complemented subspace of Lp(Ω), it is a UMD space for 1 <p < ∞. The bounded H∞-calculus of angle smaller than π 
+
+> 2
+
+implies R-sectoriality, and Weis’ maximal-regularity theorem stated as [5, Theorem 2.22] yields (2.8). The constant on finite intervals is obtained by extending the right-hand side by zero to (0 , ∞) and restricting the solution. (iv) The bound (2.9) is a variant of the spectral estimate for the Stokes–Dirichlet semigroup on Lpσ(Ω) in [19, Chapter 3]. Since 12 + 32
+
+ 1
+
+q′ − 1( q 
+
+> 2
+
+)′
+
+
+
+= 12 + 32q ,
+
+it follows from [5, Proposition 6.19 and Meta-Theorem 6.20] with the source space Lq′ 
+
+> σ
+
+(Ω) and the target space L(q/ 2) ′
+
+(Ω) that 
+
+∇e−tA q′ ψ L( q  
+
+> 2 )′(Ω)
+
+≤ Ct − 12 − 32q ∥ψ∥Lq′ (Ω) t > 0.
+
+for some C > 0. Then by (2.9) we have 
+
+∇e−tA q′ ψ L( q  
+
+> 2 )′(Ω)
+
+= ∇e− t  
+
+> 2Aq′
+
+e− t  
+
+> 2Aq′
+
+ψ L( q 
+
+> 2 )′(Ω)
+
+≤ C
+
+ t
+
+2
+
+− 12 − 32q
+
+e−ωq′ t 
+
+> 2
+
+∥ψ∥Lq′ (Ω) ,
+
+which implies (2.10). Very weak solutions to the Navier-Stokes equations 21 
+
+# References 
+
+[1] H. Amann. Nonhomogeneous Navier-Stokes equations with integrable low-regularity data. In Nonlinear problems in mathematical physics and related topics , Int. Math. Ser., pages 1–28. Kluwer/Plenum, New York, 2002. [2] H. Amann. Navier-Stokes equations with nonhomogeneous Dirichlet data. J. Non-linear Math. Phys. , 10:1–11, 2003. [3] D. Breit. Regularity results in 2D fluid-structure interaction. Math. Ann. , 388:1495– 1538, 2024. [4] D. Breit. Partial boundary regularity for the Navier-Stokes equations in irregular domains. J. Funct. Anal. , 289:111188, 2025. [5] D. Breit and A. Gaudin. Optimal regularity results for the Stokes–Dirichlet problem. 
+
+arXiv preprint , 2025, 10.48550/arXiv.2511.19091. [6] V. Coscia. Existence and uniqueness of very weak solutions to the steady-state Navier-Stokes problem in Lipschitz domains. J. Math. Fluid Mech. , 19:819–829, 2017. [7] R. Farwig, G. P. Galdi, and H. Sohr. Very weak solutions of stationary and insta-tionary Navier-Stokes equations with nonhomogeneous data. In Nonlinear elliptic and parabolic problems , volume 64 of Progr. Nonlinear Differential Equations Appl. ,pages 113–136. Birkh¨ auser, Basel, 2005. [8] R. Farwig, G. P. Galdi, and H. Sohr. A new class of weak solutions of the Navier– Stokes equations with nonhomogeneous data. J. Math. Fluid Mech. , 8:423–444, 2006. [9] R. Farwig, G. P. Galdi, and H. Sohr. Very weak solutions and large uniqueness classes of stationary Navier-Stokes equations in bounded domains of R2. J. Differential Equations , 227:564–580, 2006. [10] R. Farwig, H. Kozono, and H. Sohr. Very weak solutions of the Navier-Stokes equa-tions in exterior domains with nonhomogeneous data. J. Math. Soc. Japan , 59:127– 150, 2007. [11] F. Gabel and P. Tolksdorf. The stokes operator in two-dimensional bounded Lipschitz domains. J. Differential Equations , 340:227–272, 2022. [12] G. P. Galdi. An Introduction to the Mathematical Theory of the Navier–Stokes Equa-tions: Steady-State Problems . Springer Monographs in Mathematics. Springer, New York, second edition, 2011. [13] J. Geng and Z. Shen. Resolvent estimates for the Stokes operator in bounded and exterior C1 domains. Math. Ann. , 391:1467–1503, 2025. [14] J. Geng and Z. Shen. Resolvent estimates in L∞ for the Stokes operator in nonsmooth domains. Invent. Math. , 243:657–701, 2026. Very weak solutions to the Navier-Stokes equations 22 [15] Y. Giga. Domains of fractional powers of the Stokes operator in Lr spaces. Arch. Ration. Mech. Anal. , 89:251–265, 1985. [16] Y. Giga. Solutions for semilinear parabolic equations in Lp and regularity of weak solutions of the Navier–Stokes system. J. Differential Equations , 62:186–212, 1986. [17] Y. Giga and T. Miyakawa. Solutions in Lr of the Navier–Stokes initial value problem. 
+
+Arch. Ration. Mech. Anal. , 89:267–281, 1985. [18] Y. Giga and H. Sohr. Abstract Lp estimates for the Cauchy problem with applications to the Navier–Stokes equations in exterior domains. J. Funct. Anal. , 102:72–94, 1991. [19] M. Haase. The Functional Calculus for Sectorial Operators , volume 169 of Operator Theory: Advances and Applications . Birkh¨ auser, Basel, 2006. [20] P.C. Kunstmann and L. Weis. New criteria for the H∞-calculus and the Stokes operator on bounded Lipschitz domains. J. Evol. Equ , 17:387–409, 2017. [21] E. H. Lieb and M. Loss. Analysis , volume 14 of Graduate Studies in Mathematics .American Mathematical Society, Providence, RI, second edition, 2001. [22] V. G. Maz’ya and T. O. Shaposhnikova. Theory of Sobolev multipliers: With appli-cations to differential and integral operators , volume 337 of Grundlehren der mathe-matischen Wissenschaften . Springer-Verlag, Berlin, 2009. [23] Z. Shen. Resolvent estimates in Lp for the Stokes operator in Lipschitz domains. 
+
+Arch. Ration. Mech. Anal. , 205:395–424, 2012. [24] P. Tolksdorf. On the Lp-theory of the Navier-Stokes equations on three-dimensional bounded Lipschitz domains. Math. Ann. , 371:445–460, 2018.

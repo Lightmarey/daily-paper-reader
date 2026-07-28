@@ -1,0 +1,4559 @@
+Title: On the well-posedness of porous medium equations on general metric measure spaces
+
+URL Source: https://arxiv.org/pdf/2607.20894v2
+
+Published Time: Tue, 28 Jul 2026 01:09:20 GMT
+
+Number of Pages: 35
+
+Markdown Content:
+ON THE WELL-POSEDNESS OF POROUS MEDIUM EQUATIONS ON GENERAL METRIC MEASURE SPACES 
+
+DIWEN CHANG Abstract . On general metric measure spaces, we develop a well-posedness theory for the Cauchy problem associated with the signed porous medium equation and its fast di ff usion counterpart 
+
+∂tu = L(|u|m−1u), m > 0,
+
+where L is the generator of a symmetric Dirichlet form. We prove that, for every initial datum 
+
+u0 ∈ Lm+1(M, μ ), there exists a unique weak solution in the natural energy space associated with the Dirichlet form. The proof relies on the Rothe method and the theory of monotone operators, and only requires the Dirichlet form and its extended Dirichlet space; no additional regularity or geometric assumptions are imposed. Consequently, the theory applies to a wide range of metric measure spaces, including non-smooth fractals. 
+
+Contents 
+
+1. Introduction 12. Preliminaries on Dirichlet forms 52.1. Dirichlet forms 52.2. The extended Dirichlet space Fe 73. Functional framework: the spaces Vq B Lq ∩ F e 83.1. Basic properties of Vq 83.2. Commutation lemmas among weak limits, energy and Bochner integrals 11 4. Well-posedness of the time-discrete elliptic problem 13 4.1. Weak formulation and the Minty–Browder theorem 13 4.2. A priori estimates 15 5. Well-posedness of the Cauchy problem (1.2) 16 5.1. Construction of approximate solutions and uniform estimates 17 5.2. Derivation of the weak formulation 19 5.3. Regularity improvement of u in time 22 5.4. Identification of the limit via the Minty trick 23 6. Applications to specific metric measure spaces 27 6.1. Euclidean spaces 27 6.2. Riemannian manifolds 28 6.3. Sierpi´ nski gasket and infinite Sierpi´ nski gasket 28 6.4. A heat kernel construction on metric measure spaces 31 Appendix A. Proof of Lemma 2.5 32 References 34 1. I ntroduction 
+
+Let ( M, d) be a locally compact, separable metric space equipped with a Radon measure μ of full support (i.e., supp μ = M). The triple ( M, d, μ ) is called a metric measure space .
+
+Date : July 28, 2026. 2020 Mathematics Subject Classification. Primary: 35K15; Secondary: 47H05, 46N20, 28A80. 
+
+Key words and phrases. porous medium equation, Rothe method, monotone operator, fractals.  
+
+> 1arXiv:2607.20894v2 [math.AP] 26 Jul 2026 2CHANG
+
+In this article, we focus on the following quasi-linear evolution equation 
+
+∂tu = L |u|m−1u , m > 0, (1.1) and investigate the existence and uniqueness of the related Cauchy problem 
+
+
+
+∂tu = L |u|m−1u , (t, x) ∈ (0 , T ) × M,
+
+u(0 , ·) = u0, x ∈ M, (1.2) on a metric measure space ( M, d, μ ), where L is a nonpositive self-adjoint operator associated with a Dirichlet form ( E, F ) on L2(M, μ ) by (cf. [21, Theorem 1.3.9]) 
+
+Z
+
+> M
+
+(−L u, v) dμ = E(u, v), for any u ∈ D(L), v ∈ F , (1.3) and u0 ∈ Lm+1(M, μ ) is a given function. Equation (1.1) is known in the literature as the signed porous medium equation (PME) when 
+
+m > 1, while for 0 < m < 1, it is called the signed fast di ff usion equation (FDE), and when m = 1, it reduces to the classical heat equation. The following concrete realizations of the operator L illustrate the scope of this framework: (i) On RN with Lebesgue measure dx , taking L = ∆ gives the classical signed PME ( m > 1) or signed FDE (0 < m < 1); taking L = −(−∆)β/ 2 (0 < β < 2) gives the signed frac-tional PME (FPME) or its fast-di ff usion counterpart (FFDE), respectively. The associated Dirichlet forms are given in Examples 2.2(i) and (ii). (ii) On a geodesically complete Riemannian manifold M with volume measure, taking L =∆g, the Laplace–Beltrami operator, gives the classical signed PME ( m > 1) or signed FDE (0 < m < 1) on manifolds. The associated Dirichlet form is given in Example 2.2(iii). (iii) On a self-similar fractal such as the Sierpi´ nski gasket, a concrete realization is to take L
+
+as the unique non-positive self-adjoint operator associated with the Dirichlet form con-structed by Kigami [38]. To the best of our knowledge, no systematic well-posedness theory for the PME or FDE has been established in this fractal setting. This case is pre-cisely a primary motivation for the present work. Consequently, equation (1.1) unifies both local and non-local quasilinear di ff usion processes on a wide variety of geometries, ranging from Euclidean domains and Riemannian manifolds to self-similar fractals. We begin by briefly recalling the relevant literature. In the classical Euclidean setting, both the PME and the FDE have been systematically treated in the monograph [54] and the references therein. Their fractional counterparts, the FPME and FFDE, were first introduced in the pioneering works [12, 13]. Beyond the Euclidean case, the PME and FDE have been extensively studied on Riemannian manifolds, where geometric properties such as curvature play a prominent role. On manifolds with non-positive sectional curvature, such as hyperbolic spaces and Cartan–Hadamard manifolds, well-posedness and asymptotic behaviour for broad classes of initial data have been addressed in a substantial body of work (see, e.g., [7, 30, 31, 32, 33, 34, 55]). The FPME on manifolds was recently studied via a potential method tailored to non-positively curved settings [6]. This strategy was later adapted to the PME on manifolds with nonnegative Ricci curvature by means of a Green function technique [29]. More recently, the well-posedness of the Cauchy problem for the Leibenson equation (which reduces to the PME or FDE when p = 2) was established on arbitrary geodesically complete Riemannian manifolds, without imposing any curvature restriction [52]. A natural question then arises: how can one define and study the PME on non-smooth metric measure spaces such as fractals? The main obstacle is that fractals lack a di ff erential structure, so the classical Laplace–Beltrami operator is not directly available. Nevertheless, an alternative framework has been developed. Analysis on fractals originated with the probabilistic construction of Brownian motion on the Sierpi´ nski gasket [4] and the Sierpi´ nski carpet [2]. Subsequently, based on graph approximations, an analytic framework for defining a Laplacian on a wide class ON THE WELL-POSEDNESS OF PMES ON GENERAL METRIC MEASURE SPACES 3
+
+of fractals was developed [38]. All these constructions—whether probabilistic or analytic—are unified within the theory of Dirichlet forms [10, 21]. In this framework, a given regular Dirichlet form is associated with a unique non-positive definite self-adjoint operator, which serves precisely as the Laplacian on the fractal [10, 21]. Over the past four decades, significant progress has been made in the study of PDEs on fractals and general metric measure spaces, ranging from the heat equation and heat kernel estimates [3, 24, 25, 26, 27, 28, 41] to the wave equation [11, 51], semilinear PDEs [16, 17, 18, 19], and vector analysis /first-order PDEs [35, 36, 37]. These works have profoundly revealed how fractal geometry, in particular fractal dimensions, a ff ects the behaviour of solutions. Nevertheless, research on equation (1.1) on general metric measure spaces remains limited. The works [46, 47] established a well-posedness theory for the stochastic version of the more general equation ∂tu = L(P(u)) (which covers the power case P(u) = |u|m−1u) on general measure spaces. Their framework, however, requires that the underlying Dirichlet form be transient and relies essentially on stochastic analysis tools such as the Lp-Itˆ o formula. While natural in the stochastic context, these tools impose additional regularity on the solution that is not required in the purely deterministic setting. On the deterministic side, the closest result we are aware of is in [1, Section 3], which also establishes a well-posedness theory for ∂tu = L(P(u)). However, their framework is not tailored to the power case P(u) = |u|m−1u. Indeed, [1, Theorem 3.4] requires that P′ take values in a closed subinterval of (0 , ∞), a condition which clearly fails for the power function. Alternatively, although [1, Theorem 3.7] can be applied to this power case, it does so under the additional assumptions of finite total measure and L∞ initial data. More fundamentally, their framework is built upon a Gelfand triple, which naturally enforces the condition P(u) ∈ L2. For the weak formulation of (1.2), only finiteness of the energy of P(u) is needed; the L2-integrability is largely an artefact of the Hilbert structure rather than a genuine requirement of the equation. This is not a limitation of [1] per se, but rather a natural consequence of the broader scope for which their framework is designed. For the specific power-law case (1.2), however, such a structure imposes unnecessary restrictions. In view of the above, we develop a new well-posedness theory for (1.2) in which the function spaces are dictated by the natural energy estimates of the equation, namely u ∈ Lm+1 and the finiteness of the energy of |u|m−1u, rather than by a pre-fixed Hilbert structure. This eliminates the unnecessary L2-regularity requirement and extends the applicability of the theory to general metric measure spaces and initial data u0 ∈ Lm+1(M, μ ). The present work constitutes a first systematic step towards the analysis of (1.2) on fractals and general metric measure spaces. We shall work with the space V B L1+1/m(M, μ ) ∩ F e, equipped with the norm 
+
+∥u∥V :=
+
+q
+
+∥u∥2 
+
+> L1+1/m
+
++ E(u, u)(cf. Proposition 3.1), where Fe is the extended Dirichlet space (cf. Section 2) of ( E, F ). The space 
+
+V is chosen so that the inverse of the map s 7 → | s|m−1 s, denoted by Ψ−1 and given explicitly by 
+
+Ψ−1(v) = |v|1/m sgn( v), maps V into Lm+1(M, μ ) whenever v ∈ V ⊂ L1+1/m(M, μ ). Let V∗ denote the dual space of V. We now introduce the notion of weak solutions for (1.2). 
+
+Definition 1.1 (Weak solution of (1.2)) . Let T > 0 be fixed and let u 0 ∈ Lm+1(M, μ ). A function u ∈ L∞(0 , T ; Lm+1(M, μ )) ∩ W1,2(0 , T ; V∗)
+
+is called a weak solution of the Cauchy problem (1.2) (or equivalently, u weakly solves (1.1) with initial datum u 0) on [0 , T ) if |u|m−1u ∈ L2(0 , T ; V) and 
+
+−
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+u ∂tφ dμ dt +
+
+Z T
+
+> 0
+
+E  |u|m−1u (t), φ (t) dt =
+
+Z
+
+> M
+
+u0 φ(0) dμ
+
+for every test function φ ∈ C1 
+
+> c
+
+([0 , T ); V).
+
+Remark 1.2. The weak formulation involves only the energy form E, not the pointwise action of L. While (1.3) holds for v ∈ F ⊂ L2(M, μ ), the weak solution only requires that the pairing 4 CHANG 
+
+E |u|m−1u, ϕ  is meaningful. Since |u|m−1u need not be L 2-integrable, we extend the energy form to the larger space Fe, where E is well-defined without requiring L 2-regularity. Test functions are taken in V := L1+1/m(M, μ ) ∩ F e to ensure integrability with the time derivative. This extension is natural in the Dirichlet-form framework and matches the energy estimates u ∈ Lm+1 and |u|m−1u ∈Fe. The precise definitions of F and Fe are given in Section 2. 
+
+Our main theorem is stated as follows. 
+
+Theorem 1.3. Let (M, d, μ ) be a metric measure space and let (E, F ) be a Dirichlet form on L2(M, μ ) with the associated generator L. Then, for every T > 0 and every u 0 ∈ Lm+1(M, μ ), there exists a unique u ∈ L∞(0 , T ; Lm+1(M, μ )) ∩ W1,2(0 , T ; V∗)
+
+satisfying the weak formulation of (1.1) with initial datum u 0 in the sense of Definition 1.1. More-over, if u 0 ≥ 0 μ-a.e., then u (t, ·) ≥ 0 μ-a.e. for almost every t ∈ (0 , T ).
+
+Theorem 1.3 consists of three assertions: existence (cf. Theorem 5.9), uniqueness (cf. Theorem 5.9), and preservation of non-negativity (cf. Corollary 5.11). The existence proof relies on two classical tools: the Rothe method for time discretization and the theory of monotone operators (see, e.g., [45]). These techniques have been successfully applied to a range of variational-hemivariational inequalities [5, 44] and evolution equations [50, 56]. In all these works, the underlying functional setting is the standard Gelfand triple. In most cases, compactness of the embedding between the spaces is required; exceptions occur when the Minty trick is used to bypass compactness, as in [50]. In any case, however, the Gelfand triple structure itself remains the backbone of the argument. In our setting, however, such a Gelfand triple structure is not available: the extended Dirichlet space Fe may fail to be complete with respect to the energy norm, and no natural Hilbert space serves as the intermediate space of such a triple. Moreover, no compact embedding between the relevant function spaces is guaranteed. To overcome these di ffi culties, we introduce auxiliary spaces Vq B Lq ∩ F e and establish their uniform convexity(cf. Section 3). The construction of our weak solution is then carried out in three steps. First, for each fixed time step, we discretize the equation and obtain a family of elliptic problems, whose solvability is guaranteed by the Minty–Browder theorem. Second, we use their solutions to construct piecewise constant approximate solutions and derive uniform a priori estimates independent of the step size. Third, we pass to the limit as the step size tends to zero; the Minty trick identifies the weak limit of a subsequence of these approximate solutions as a weak solution of (1.2). To our knowledge, this is the first adaptation of the Rothe method to the signed porous medium equation on general metric measure spaces that completely bypasses the Gelfand triple framework. Uniqueness follows from a standard strict monotonicity argument applied to the weak formula-tion. The preservation of non-negativity is obtained by the following comparison principle. 
+
+Theorem 1.4 (Comparison Principle) . Suppose ˆu0, ˜u0 ∈ Lm+1(M, μ ) satisfy ˆu0 ≤ ˜u0 μ-a.e. Let ˆuand ˜u be the corresponding weak solutions of (1.2) given by Theorem 1.3. Then ˆu(t, ·) ≤ ˜u(t, ·)
+
+μ-a.e. for almost all t ∈ (0 , T ).
+
+The proof of Theorem 1.4 (cf. Theorem 5.10) is based on the discrete comparison principle for the elliptic subproblems (cf. Proposition 4.4): for each fixed step size, the order of the approximate solutions is entirely determined by the order of the initial data. Passing to the weak limit preserves this order relation. The main new points of our approach are as follows. (1) Minimal geometric assumptions. We work under the standard assumptions stated at the outset of this section: local compactness, separability, and a full-support Radon measure. These ensure that the extended Dirichlet space Fe is well-defined (see [21, p. 40, the discussion preceding Theorem 1.5.2]). No additional geometric conditions are imposed. In particular, our framework covers both smooth Riemannian manifolds and non-smooth self-similar fractals within a unified theory. ON THE WELL-POSEDNESS OF PMES ON GENERAL METRIC MEASURE SPACES 5
+
+(2) Weak assumptions on the Dirichlet form. The theory requires only the existence of a Dirichlet form and its extended Dirichlet space; neither regularity nor locality of the form is needed. Consequently, our results apply simultaneously to local operators (e.g., Laplace–Beltrami), nonlocal operators (e.g., fractional Laplacians), and operators on frac-tal spaces, all within a single functional-analytic framework. (3) A new functional framework. A key ingredient of our approach is the introduction of the spaces 
+
+Vq := Lq(M, μ ) ∩ F e, 1 < q < ∞,
+
+equipped with the norm 
+
+∥u∥Vq :=
+
+q
+
+∥u∥2 
+
+> Lq
+
++ E(u).
+
+We prove that ( Vq, ∥ · ∥ Vq ) is a uniformly convex (and hence reflexive) Banach space for every 1 < q < ∞ (cf. Section 3). This is not automatic, since Fe need not be complete with respect to E (cf. Section 2). The mixed norm supplies the missing completeness while preserving the energy structure. In particular, this construction provides a viable replacement for the Gelfand triple framework, which is not available in our setting. It yields a natural ambient space for the nonlinearity Ψ(u) = |u|m−1u when q = 1 + 1/m,precisely matching the energy estimates u ∈ Lm+1 and Ψ(u) ∈ F e.(4) Identification of nonlinear limits via Minty’s trick. In the passage to the limit as the time step tends to zero, we obtain weak limits of both the approximate solution and its non-linearity. However, without compact embeddings, it is not automatic that the latter is the nonlinearity of the former. The Minty trick resolves this by using the strict monotonicity of the power nonlinearity, thus identifying the limit without any compactness assumption. The rest of this paper is organized as follows. In Section 2, we recall the basic properties of Dirichlet forms and their associated extended Dirichlet spaces. In Section 3, we prove the completeness and reflexivity of ( Vq, ∥ · ∥ Vq ) for every 1 < q < ∞, and establish some auxiliary functional inequalities for later use. In Section 4, we investigate the existence and uniqueness of the elliptic equation obtained by time discretization. The proof of our main theorem is completed in Section 5 via the Rothe method and the Minty trick. Finally, we illustrate our main results with specific examples in Section 6. Notation . We set 
+
+Ψ(u) : = |u|m−1u, u ∈ R,
+
+and denote by Ψ−1 its inverse, given by Ψ−1(v) = |v|1/m sgn( v) for v ∈ R. Both Ψ and Ψ−1 are continuous, strictly increasing, and satisfy Ψ(0) = Ψ −1(0) = 0. For 1 ≤ q ≤ ∞ , we abbreviate Lq(M, μ ) by Lq, and write ∥ · ∥ Lq for its norm. For a general normed space X, we denote its norm by ∥ · ∥ X , and let ⟨· , ·⟩ X denote the duality pairing between X∗
+
+and X.For 1 ≤ q ≤ ∞ , we write Lq(0 , T ; X) for the Bochner–Lebesgue space of X-valued functions on [0 , T ]. We also write W1,2(0 , T ; X) for the Sobolev–Bochner space of functions whose weak time derivative belongs to L2(0 , T ; X). We write C1 
+
+> c
+
+([0 , T ); X) for the space of X-valued C1-functions compactly supported in [0 , T ). We follow the standard conventions for Bochner–Lebesgue spaces (see, e.g., [15, §5.9.2]). For any symmetric bilinear form B, we write B(u) : = B(u, u) for u in the domain of B.2. P reliminaries on Dirichlet forms 
+
+In this section we recall the definition and some basic properties of Dirichlet forms. 2.1. Dirichlet forms. We begin by recalling the definition of a Dirichlet form on L2(M, μ ). 
+
+Definition 2.1 (Dirichlet form) . A symmetric non-negative bilinear form (E, F ) on L 2(M, μ ) is called a Dirichlet form if the following conditions hold: 
+
+(1) F , the domain of E, is dense in L 2(M, μ );6 CHANG 
+
+(2) (Closeness) F is a Hilbert space with respect to the inner product 
+
+(u, v)E1 := (u, v)L2 + E(u, v), u, v ∈ F ,
+
+with associated norm ∥u∥E1 := p(u, u)E1 ;
+
+(3) (Markovian property) for every u ∈ F , the function ¯u := (u ∨ 0) ∧ 1 belongs to F and satisfies 
+
+E(¯ u) ≤ E (u).
+
+Since a Dirichlet form is a closed symmetric form, the general correspondence between closed symmetric forms and non-positive self-adjoint operators applies: there exists a unique non-positive self-adjoint operator L on L2(M, μ ) such that 
+
+F = D  √−L  , E(u, v) =
+
+Z
+
+> M
+
+ √−L u  √−L v dμ, u, v ∈ F , (2.1) which implies (1.3). For simplicity, we say that L is the generator (or the associated self-adjoint operator ) of ( E, F ). This operator will be central to our study, as the equation ∂tu = L(|u|m−1u) is precisely the evolu-tion equation associated with this generator. Before presenting concrete examples, we recall the notions of regularity and locality for Dirich-let forms. A Dirichlet form ( E, F ) is called regular if F ∩ Cc(M) is dense in F with respect to the 
+
+E1-norm and in Cc(M) with respect to the uniform norm; it is called local if E(u, v) = 0 whenever 
+
+u, v ∈ F have disjoint compact supports (see, e.g., [21]). We emphasize that neither regularity nor locality is required for our main results; they are mentioned only for completeness in the examples. The following examples illustrate the scope of the above framework. 
+
+Example 2.2. The following three classes of Dirichlet forms are particularly relevant to our framework. 
+
+(i) Euclidean Sobolev spaces. On M = Rn with Lebesgue measure, let F = W1,2(Rn) and 
+
+E(u, v) =
+
+Z
+
+> Rn
+
+∇u · ∇ v dx .
+
+This is a regular local Dirichlet form, and its generator is the classical Laplacian L = ∆ ,where ∆ := Pni=1 ∂2
+
+> ∂x2
+> i
+
+.
+
+(ii) Fractional Sobolev spaces. For 0 < β < 2, define 
+
+Eβ(u, v) =
+
+Z
+
+> Rn
+
+|ξ|βbu(ξ)bv(ξ) dξ
+
+for u , v ∈ L2(Rn) with domain Fβ = {u ∈ L2(Rn) : Eβ(u, u) < ∞} , where bu and bv are the Fourier transforms of u and v, respectively. Equivalently, for u , v ∈ F β,
+
+Eβ(u, v) = Cn,β 
+
+Z
+
+> Rn
+
+Z
+
+> Rn
+
+(u(x) − u(y))( v(x) − v(y)) 
+
+|x − y|n+β dx dy ,
+
+with Cn,β = 2β−1β Γ(( n + β)/2) 
+
+πn/2Γ(1 − β/ 2) ,
+
+where Γ denotes the Gamma function. The space Fβ is exactly the fractional Sobolev space Wβ/ 2,2(Rn).For every 0 < β < 2, (Eβ, Fβ) is a regular non-local Dirichlet form, and its generator is the fractional Laplacian −(−∆)β/ 2.
+
+(iii) Sobolev spaces on Riemannian manifolds. Let (M, g) be a geodesically complete Riemann-ian manifold with volume measure μ, and denote by (·, ·)g the Riemannian inner product induced by g. The quadratic form 
+
+E(u, v) : =
+
+Z
+
+> M
+
+⟨∇ u, ∇v⟩g dμ, u, v ∈ C∞ 
+
+> c
+
+(M),ON THE WELL-POSEDNESS OF PMES ON GENERAL METRIC MEASURE SPACES 7
+
+is closable in L 2(M, μ ), and its closure is a regular local Dirichlet form (E, W1,2(M)) . The associated generator is the Laplace–Beltrami operator ∆g (see, e.g., [23, Chapter 4 & Theorem 11.5] ). 
+
+(iv) Dirichlet forms on the Sierpi´ nski gasket and the Sierpi´ nski carpet. Let K be the Sierpi´ nski gasket in Rn, and let μ be the Hausdor ff measure on K. Kigami [38] constructed a reg-ular self-similar Dirichlet form on L 2(K, μ ) by building a compatible sequence of graph energies on approximating graphs; this construction was later extended to general post-critically finite (p.c.f.) self-similar fractals [39] . For non-p.c.f. fractals such as the Sierpi´ nski carpet, the construction of a regular self-similar Dirichlet form is more deli-cate; see, e.g., [42] .
+
+2.2. The extended Dirichlet space Fe. While ( F , ∥ · ∥ E1 ) is a Hilbert space by virtue of the closedness of the form, F is not necessarily complete with respect to the energy norm √E alone. This causes a technical obstruction in the limiting procedure of Sections 4 and 5, where E-Cauchy sequences arise. To accommodate E-Cauchy sequences that may not converge within F , we enlarge F to Fe as follows. 
+
+Definition 2.3 (Extended Dirichlet space) . Let Fe be the set of all measurable functions u for which there exists an E-Cauchy sequence {uk}k≥1 ⊂ F such that u k → u μ-a.e. We call such a sequence an approximating sequence of u. For u ∈ F e, set 
+
+E(u, u) : = lim  
+
+> k→∞
+
+E(uk, uk),
+
+which is well-defined independently of the choice of the approximating sequence {uk}k≥1 (see [21, Theorem 1.5.2(i)] ). The pair (Fe, E) is called the extended Dirichlet space of (E, F ). In the sequel, we shall also refer to Fe itself as the extended Dirichlet space when no confusion arises. 
+
+The definition directly implies the following basic property. 
+
+Proposition 2.4. Let u ∈ F e and let {un}n≥1 be an approximating sequence of u. Then 
+
+lim  
+
+> n→∞
+
+E(un − u) = 0.
+
+Proof. For each fixed n ≥ 1, the sequence {un − um}m≥1 is an approximating sequence of un − u.Hence, by the definition of ( E, Fe), 
+
+E(un − u) = lim  
+
+> m→∞
+
+E(un − um).
+
+Since {un}n≥1 is an E-Cauchy sequence, for every ε > 0 there exists N such that 
+
+E(un − um) < ε
+
+2for all n, m ≥ N. Therefore, 
+
+E(un − u) = lim  
+
+> m→∞
+
+E(un − um) ≤ ε
+
+2 < ε 
+
+for every n ≥ N, which proves the claim. □
+
+The following lemma extends the conclusion of Proposition 2.4 to E-Cauchy sequences in the larger space Fe.
+
+Lemma 2.5. Let {un}n≥1 ⊂ F e be an E-Cauchy sequence such that u n → u μ-a.e. for some measurable function u. Then u ∈ F e and 
+
+lim  
+
+> n→∞
+
+E(un − u) = 0.
+
+Since the proof of Lemma 2.5 is lengthy and technical, we relegate it to Appendix A to avoid interrupting the main flow. 8 CHANG 
+
+In general, the space ( Fe, √E) is not complete; indeed, there exists a Dirichlet form for which the extended space is not complete in the energy norm (see [49, Corollary 6.3]). Thus Fe is not the ultimate solution to the completeness problem. Despite the incompleteness of ( Fe, √E), the intersection Fe ∩ L2 recovers the original Hilbert space F (see [21, Theorem 1.5.2]): 
+
+F = Fe ∩ L2(M, μ ). (2.2) The identity (2.2) shows that, when q = 2, intersecting Fe with Lq gives back the original form domain F , which is complete under the E1-norm. For q , 2, however, the space Lq ∩ F e is not covered by the standard theory and, to the best of our knowledge, has not been systematically studied in this generality. In the next section, we shall systematically study these intersection spaces and prove that they are reflexive Banach spaces under suitable norms—a fact that will be essential for the Minty–Browder argument in Section 4. 3. F unctional framework : the spaces Vq B Lq ∩ F e
+
+Motivated by the discussion at the end of Section 2, for every 1 < q < ∞, we introduce the intersection space 
+
+Vq := Lq ∩ F e,
+
+and define the functional 
+
+∥u∥Vq := ∥u∥2 
+
+> Lq
+
++ E(u)1/2 . (3.1) 3.1. Basic properties of Vq. In this subsection we prove that ( Vq, ∥ · ∥ Vq ) is a reflexive Banach space for every 1 < q < ∞. To this end, we first prove completeness and then establish uniform convexity, which implies reflexivity by the Milman–Pettis theorem. 
+
+Proposition 3.1. For every 1 < q < ∞, ∥ · ∥ Vq is a norm on V q.Proof. Homogeneity and nonnegativity are immediate from the definition. Moreover, since 
+
+∥v∥Lq ≤ ∥ v∥Vq ∀v ∈ Vq,
+
+we have ∥v∥Vq = 0 if and only if v = 0 μ-a.e. It remains to verify the triangle inequality. Let v, w ∈ Vq. Then 
+
+∥v + w∥2 
+
+> Vq
+
+= ∥v + w∥2 
+
+> Lq
+
++ E(v + w)
+
+≤  ∥v∥Lq + ∥w∥Lq
+
+2 +  E(v) + E(w) + 2E(v, w)
+
+= ∥v∥2 
+
+> Vq
+
++ ∥w∥2 
+
+> Vq
+
++ 2 ∥v∥Lq ∥w∥Lq + E(v, w). (3.2) On the other hand, 
+
+ ∥v∥Vq + ∥w∥Vq
+
+2 = ∥v∥2 
+
+> Vq
+
++ ∥w∥2 
+
+> Vq
+
++ 2∥v∥Vq ∥w∥Vq
+
+= ∥v∥2 
+
+> Vq
+
++ ∥w∥2 
+
+> Vq
+
++ 2
+
+q
+
+∥v∥2 
+
+> Lq
+
++ E(v)
+
+q
+
+∥w∥2 
+
+> Lq
+
++ E(w). (3.3) Subtracting (3.2) from (3.3) yields 
+
+ ∥v∥Vq + ∥w∥Vq
+
+2 − ∥ v + w∥2
+
+> Vq
+
+= 2 q
+
+∥v∥2 
+
+> Lq
+
++ E(v)
+
+q
+
+∥w∥2 
+
+> Lq
+
++ E(w) − ∥ v∥Lq ∥w∥Lq − E (v, w).
+
+(3.4) By the Cauchy–Schwarz inequality in R2 applied to the pairs ( ∥v∥Lq , √E(v)) and ( ∥w∥Lq , √E(w)), we have q
+
+∥v∥2 
+
+> Lq
+
++ E(v)
+
+q
+
+∥w∥2 
+
+> Lq
+
++ E(w) ≥ ∥ v∥Lq ∥w∥Lq + pE(v)E(w).
+
+Since |E (v, w)| ≤ √E(v)E(w) by the Cauchy–Schwarz inequality for E, it follows that 
+
+pE(v)E(w) ≥ E (v, w).ON THE WELL-POSEDNESS OF PMES ON GENERAL METRIC MEASURE SPACES 9
+
+Combining these estimates gives 
+
+q
+
+∥v∥2 
+
+> Lq
+
++ E(v)
+
+q
+
+∥w∥2 
+
+> Lq
+
++ E(w) ≥ ∥ v∥Lq ∥w∥Lq + E(v, w).
+
+Inserting this into (3.4) yields 
+
+ ∥v∥Vq + ∥w∥Vq
+
+2 − ∥ v + w∥2 
+
+> Vq
+
+≥ 0,
+
+which is precisely the triangle inequality. This completes the proof. □
+
+Having established that ∥ · ∥ Vq is a norm, we now address completeness. 
+
+Proposition 3.2. For every 1 < q < ∞, (Vq, ∥ · ∥ Vq ) is a Banach space. Proof. Let {vn}n≥1 be a Cauchy sequence in Vq. Then lim  
+
+> n,m→∞
+
+∥vn − vm∥Vq = lim 
+
+> n,m→∞
+
+q
+
+∥vn − vm∥2 
+
+> Lq
+
++ E(vn − vm) = 0.
+
+In particular, {vn}n≥1 is Cauchy in Lq and E-Cauchy in Fe. Since Lq is complete, there exists v ∈ Lq
+
+such that lim  
+
+> n→∞
+
+∥vn − v∥Lq = 0. (3.5) Hence vn → v in measure; passing to a subsequence if necessary, we may assume vkn → v μ-a.e. as n → ∞ . Since {vkn }n≥1 is also E-Cauchy, Lemma 2.5 gives v ∈ F e and lim  
+
+> n→∞
+
+E(vkn − v) = 0. (3.6) It remains to show that the full sequence {vn}n≥1 converges with respect to the energy norm. To this end, fix ε > 0. Since {vn}n≥1 is E-Cauchy, there exists Nε such that 
+
+pE(vl − vkn ) < ε whenever l, n ≥ Nε.
+
+Letting n → ∞ in the above inequality, we obtain, by the triangle inequality for E and (3.6), 
+
+pE(vl − v) ≤ lim 
+
+> n→∞
+
+ p E(vl − vkn ) + pE(vkn − v) ≤ ε for any l ≥ Nε.
+
+Hence lim sup 
+
+> l→∞
+
+pE(vl − v) ≤ ε. 
+
+Since ε > 0 was arbitrary, we conclude lim  
+
+> l→∞
+
+E(vl − v) = 0.
+
+Together with (3.5), this gives lim  
+
+> n→∞
+
+∥vn − v∥Vq = lim 
+
+> n→∞
+
+q
+
+∥vn − v∥2 
+
+> Lq
+
++ E(vn − v) = 0.
+
+Thus ( Vq, ∥ · ∥ Vq ) is complete. □
+
+The Banach space structure alone, however, is not su ffi cient for the application of the Minty– Browder theorem; we also require reflexivity. A convenient route to reflexivity is to establish uniform convexity, which we do in the following proposition. 
+
+Proposition 3.3. For every 1 < q < ∞, (Vq, ∥ · ∥ Vq ) is uniformly convex. Proof. Fix ε > 0 and take v, w ∈ Vq such that 
+
+∥v∥Vq = ∥w∥Vq = 1, ∥v − w∥Vq > ε. (3.7) From the definition of ∥ · ∥ Vq and the triangle inequality for ∥ · ∥ Lq , we have 
+
+v + w
+
+2
+
+> 2
+> Vq
+
+= 14 ∥v + w∥2 
+
+> Vq
+
+= 14
+
+∥v + w∥2 
+
+> Lq
+
++ E(v + w)
+
+≤ 14
+
+  ∥v∥Lq + ∥w∥Lq
+
+2 + E(v + w) . (3.8) 10 CHANG 
+
+Using the identities 
+
+E(v + w) = 2E(v) + 2E(w) − E (v − w), (∥v∥Lq + ∥w∥Lq )2 = 2∥v∥2 
+
+> Lq
+
++ 2∥w∥2 
+
+> Lq
+
+− (∥v∥Lq − ∥ w∥Lq )2 ,
+
+we obtain from (3.8) that 
+
+v + w
+
+2
+
+> 2
+> Vq
+
+≤ 14
+
+2∥v∥2 
+
+> Lq
+
++ 2∥w∥2 
+
+> Lq
+
+−  ∥v∥Lq − ∥ w∥Lq
+
+2 + 2E(v) + 2E(w) − E (v − w)
+
+= 14
+
+2∥v∥2 
+
+> Vq
+
++ 2∥w∥2 
+
+> Vq
+
+−  ∥v∥Lq − ∥ w∥Lq
+
+2 − E (v − w)
+
+= 14
+
+4 −  ∥v∥Lq − ∥ w∥Lq
+
+2 − E (v − w) . (3.9) We now distinguish two cases. 
+
+Case 1: E(v − w) > ε 2/4. Then from (3.9) we get 
+
+v + w
+
+2
+
+> 2
+> Vq
+
+≤ 14 4 − ε2
+
+4
+
+!
+
+= 1 − ε2
+
+16 . (3.10) 
+
+Case 2: E(v − w) ≤ ε2/4. Since ∥v − w∥2 
+
+> Vq
+
+= ∥v − w∥2 
+
+> Lq
+
++ E(v − w) > ε 2, we have 
+
+∥v − w∥Lq > ε
+
+2 . (3.11) If ∥v∥Lq − ∥ w∥Lq > ε/ 4, then (3.9) yields 
+
+v + w
+
+2
+
+> 2
+> Vq
+
+≤ 14 4 −
+
+ ε
+
+4
+
+2!
+
+= 1 − ε2
+
+64 . (3.12) Thus we may assume 
+
+∥v∥Lq − ∥ w∥Lq ≤ ε
+
+4 .
+
+Set a := ∥v∥Lq and b := ∥w∥Lq . Then a, b ∈ [0 , 1]. By symmetry we may assume a ≥ b. We claim b > 0; indeed, if b = 0, then w = 0 μ-a.e., so a = ∥v − w∥Lq > ε/ 2, but a − b = a ≤ ε/ 4, a contradiction. Define ˜v := va , ˜w := wb .
+
+Then ∥˜v∥Lq = ∥ ˜w∥Lq = 1. From (3.11) and the triangle inequality, 
+
+ε
+
+2 < ∥v − w∥Lq = ∥a˜v − b ˜w∥Lq ≤ | a − b|∥ ˜v∥Lq + b∥˜v − ˜w∥Lq ≤ ε
+
+4 + ∥˜v − ˜w∥Lq ,
+
+hence 
+
+∥˜v − ˜w∥Lq > ε
+
+4 .
+
+By the uniform convexity of Lq(M, μ ), there exists δq ∈ (0 , 1), depending only on q and ε, such that ˜v + ˜w
+
+2 Lq
+
+≤ 1 − δq.
+
+Now, 
+
+v + w
+
+2 Lq
+
+= a˜v + b ˜w
+
+2 Lq
+
+≤ a − b
+
+2 ∥˜v∥Lq + b ˜v + ˜w
+
+2 Lq
+
+≤ a − b
+
+2 + b(1 − δq) = a + b
+
+2 − bδq. (3.13) Using a2 + E(v) = 1 and b2 + E(w) = 1, we get 
+
+v + w
+
+2
+
+> 2
+> Vq
+
+= v + w
+
+2
+
+> 2
+> Lq
+
++ E
+
+ v + w
+
+2
+
+ON THE WELL-POSEDNESS OF PMES ON GENERAL METRIC MEASURE SPACES 11 
+
+≤ a + b
+
+2 − bδq
+
+!2
+
++ E(v) + E(w)2
+
+= a + b
+
+2 − bδq
+
+!2
+
++ (1 − a2) + (1 − b2)2
+
+= 1 − ab δq − b2δq(1 − δq)
+
+≤ 1 − ab δq ≤ 1 − b2δq, (3.14) where the last two inequalities follow from 0 < δ q < 1 and 0 < b ≤ a, respectively. Thus 
+
+v + w
+
+2 Vq
+
+≤
+
+q
+
+1 − b2δq.
+
+Finally, from a − b ≤ ε/ 4 and a + b ≥ ∥ v − w∥Lq > ε/ 2, we obtain b > ε/ 8. Hence 
+
+v + w
+
+2 Vq
+
+<
+
+r
+
+1 − ε2
+
+64 δq. (3.15) Combining (3.10), (3.12) and (3.15), for every ε > 0, there exists 
+
+δ := 1 −
+
+r
+
+1 − ε2
+
+64 δq ∈ (0 , 1) ,
+
+depending only on ε, such that whenever ∥v∥Vq = ∥w∥Vq = 1 and ∥v − w∥Vq > ε , we have 
+
+v + w
+
+2 Vq
+
+≤ 1 − δ. 
+
+By definition, ( Vq, ∥ · ∥ Vq ) is uniformly convex. □
+
+Corollary 3.4. For every 1 < q < ∞, V q is a reflexive Banach space. Proof. This follows immediately from Propositions 3.2 and 3.3, together with the Milman–Pettis theorem. □
+
+3.2. Commutation lemmas among weak limits, energy and Bochner integrals. To implement the limiting procedure in Section 5, we shall need to interchange the order of several operations: weak limits, the Dirichlet energy E, and time integrals. The three lemmas collected below provide the necessary commutation rules. The lemmas are stated in a general setting that includes our situation as a special case: they hold for any Banach space X and any symmetric bilinear form B : X × X → R satisfying 
+
+|B (x, y)| ≤ C∥x∥X ∥y∥X ∀x, y ∈ X, (3.16) for some constant C > 0 independent of x, y. In particular, for each fixed y ∈ X, the linear functional 
+
+B(·, y) : x 7 → B (x, y)is bounded on X, with ∥B (·, y)∥X∗ ≤ C∥y∥X and 
+
+B(x, y) = ⟨B (·, y), x⟩X . (3.17) The first lemma deals with the interchange of limits and the energy functional. 
+
+Lemma 3.5 (Lower semicontinuity of the energy) . Assume (3.16) . If {xk} ⊂ X converges weakly to x in X as k → ∞ , then 
+
+B(x, x) ≤ lim inf  
+
+> k→∞
+
+B(xk, xk). (3.18) 
+
+Proof. If B(x, x) = 0, then (3.18) is trivial. Suppose B(x, x) > 0. By (3.16), the map B(·, x) is a bounded linear functional on X. Hence, from xk ⇀ x in X, we have lim  
+
+> k→∞
+
+B(xk, x) = B(x, x). (3.19) On the other hand, the Cauchy–Schwarz inequality for B gives 
+
+B(xk, x)2 ≤ B (xk, xk)B(x, x).12 CHANG 
+
+Taking the lower limit as k → ∞ and using (3.19), we obtain 
+
+B(x, x)2 ≤ B (x, x) · lim inf  
+
+> k→∞
+
+B(xk, xk).
+
+Since B(x, x) > 0, dividing by B(x, x) yields (3.18). This completes the proof. □
+
+The next lemma ensures that weak convergence in the Bochner space is preserved under time integration. 
+
+Lemma 3.6 (Weak continuity of the Bochner integral) . Suppose that {xk}k≥1 ∪ { x} ⊂ L2(0 , T ; X)
+
+and xk ⇀ x in L 2(0 , T ; X) as k → ∞ . Then, for every measurable interval I ⊂ [0 , T ],
+
+Z
+
+> I
+
+xk(t) dt ⇀
+
+Z
+
+> I
+
+x(t) dt in X as k → ∞ . (3.20) 
+
+Moreover, assume that (3.16) holds. Then for every measurable interval I ⊂ [0 , T ],
+
+B
+
+Z
+
+> I
+
+x(t) dt ,
+
+Z
+
+> I
+
+x(t) dt 
+
+!
+
+≤ lim inf  
+
+> k→∞
+
+B
+
+Z
+
+> I
+
+xk(t) dt ,
+
+Z
+
+> I
+
+xk(t) dt 
+
+!
+
+. (3.21) 
+
+Proof. Fix h ∈ X∗. We prove that lim 
+
+> k→∞
+
+*
+
+h,
+
+Z
+
+> I
+
+xk(t) dt 
+
++
+
+> X
+
+=
+
+*
+
+h,
+
+Z
+
+> I
+
+x(t) dt 
+
++
+
+> X
+
+. (3.22) By the Bochner’s theorem (see, e.g., [15, Theorem 8, Appendix E.5] or [57, Theorem 23.9(a)]), for any w ∈ L2(0 , T ; X), *
+
+h,
+
+Z
+
+> I
+
+w(t) dt 
+
++
+
+> X
+
+=
+
+Z
+
+> I
+
+⟨h, w(t)⟩X dt . (3.23) Define h∗ by h∗(t) : = h1I (t). Then h∗ ∈ L2(0 , T ; X∗) and 
+
+Z
+
+> I
+
+⟨h, w(t)⟩X dt =
+
+Z T
+
+> 0
+
+⟨h∗(t), w(t)⟩X dt = ⟨h∗, w⟩L2(0 ,T ;X) for all w ∈ L2(0 , T ; X). (3.24) Taking w = xk in (3.23) and (3.24), we obtain 
+
+*
+
+h,
+
+Z
+
+> I
+
+xk(t) dt 
+
++
+
+> X
+
+= ⟨h∗, xk⟩L2(0 ,T ;X).
+
+Letting k → ∞ and using xk ⇀ x in L2(0 , T ; X), we get lim 
+
+> k→∞
+
+*
+
+h,
+
+Z
+
+> I
+
+xk(t) dt 
+
++
+
+> X
+
+= ⟨h∗, x⟩L2(0 ,T ;X) =
+
+*
+
+h,
+
+Z
+
+> I
+
+x(t) dt 
+
++
+
+> X
+
+,
+
+which proves (3.22). Since h ∈ X∗ was arbitrary, (3.20) follows. Finally, applying (3.20) to Lemma 3.5, we obtain (3.21). □
+
+The final lemma provides a Fubini-type rule for interchanging B with a double time integral. 
+
+Lemma 3.7 (Fubini identity for B). Assume (3.16) . For any x ∈ L2(0 , T ; X) and any measurable intervals I , J ⊂ [0 , T ], there holds 
+
+B
+
+Z
+
+> I
+
+x(t) dt ,
+
+Z
+
+> J
+
+x(s) ds 
+
+!
+
+=
+
+Z
+
+> I
+
+B x(t),
+
+Z
+
+> J
+
+x(s) ds 
+
+!
+
+dt =
+
+Z
+
+> I
+
+Z
+
+> J
+
+B(x(t), x(s)) ds dt . (3.25) 
+
+Proof. By (3.17) and the Bochner theorem applied to the bounded linear functional B ·, R 
+
+> J
+
+x(s) ds ,we have 
+
+B
+
+Z
+
+> I
+
+x(t) dt ,
+
+Z
+
+> J
+
+x(s) ds 
+
+!
+
+=
+
+*
+
+B ·,
+
+Z
+
+> J
+
+x(s) ds 
+
+!
+
+,
+
+Z
+
+> I
+
+x(t) dt 
+
++
+
+> X
+
+=
+
+Z
+
+> I
+
+B x(t),
+
+Z
+
+> J
+
+x(s) ds 
+
+!
+
+dt . (3.26) ON THE WELL-POSEDNESS OF PMES ON GENERAL METRIC MEASURE SPACES 13 
+
+Similarly, for each fixed t ∈ I, it follows from the symmetry of B and the Bochner theorem that 
+
+B x(t),
+
+Z
+
+> J
+
+x(s) ds 
+
+!
+
+= B
+
+Z
+
+> J
+
+x(s) ds , x(t)
+
+!
+
+=
+
+Z
+
+> J
+
+B(x(s), x(t)) ds =
+
+Z
+
+> J
+
+B(x(t), x(s)) ds . (3.27) Integrating both sides of (3.27) with respect to t on I, we finally obtain (3.25). This completes the proof. □
+
+The three lemmas above provide the commutation rules between weak limits, B (and hence 
+
+E) and time integrations, which will be essential in the Minty trick argument of Section 5. Their proofs rely only on (3.16) and are independent of the particular structure of Vq.For the rest of the paper, whenever m > 0 is fixed, we write 
+
+V := V1+1/m and ∥ · ∥ V := ∥ · ∥ V1+1/m . (3.28) Since 1 + 1/m ∈ (1 , ∞) for m ∈ (0 , ∞), it follows from Corollary 3.4 that V is a reflexive Banach space. Both the reflexivity and the completeness of V will be used in the subsequent sections when applying the Minty–Browder theorem. 4. W ell -posedness of the time -discrete elliptic problem 
+
+In this section, we study the elliptic problem obtained by time-discretization of the evolution equation ∂tu = L(Ψ(u)). The results established here will be used in Section 5 to construct approximate solutions via the Rothe method and to derive the uniform estimates needed for the passage to the limit. Let m > 0 and T > 0 be fixed, and let n ∈ N. A backward Euler discretization of the equation on [0 , T ) leads to the following recursive problem: given uk−1 ∈ Lm+1(M, μ ), find uk such that 
+
+uk − uk−1
+
+T/n = L(Ψ(uk)) .
+
+Equivalently, 
+
+uk − Tn L(Ψ(uk)) = uk−1. (4.1) This is a nonlinear elliptic equation of the form 
+
+u − τL(Ψ(u)) = g, (4.2) where u := uk is the unknown, g := uk−1 is the data from the previous time step, and τ := T/n is the time step. Setting 
+
+v := Ψ (u) = |u|m−1u,
+
+we have u = Ψ −1(v) = |v|1/m sgn( v), and (4.2) becomes 
+
+Ψ−1(v) − τL(v) = g. (4.3) We shall study (4.3) in the reflexive Banach space V := V1+1/m defined in (3.28). 4.1. Weak formulation and the Minty–Browder theorem. We begin with the notion of weak solution to (4.3). 
+
+Definition 4.1. Let τ > 0 and m > 0 be given, and let g ∈ V∗. A function v ∈ V is called a weak solution of (4.3) if Z
+
+> M
+
+Ψ−1(v) ϕ dμ + τ E(v, ϕ ) = ⟨g, ϕ ⟩V (4.4) 
+
+for every ϕ ∈ V. 
+
+The Minty–Browder theorem will be our main tool for proving existence and uniqueness. We recall the following standard result (see [58, Theorem 26.A]). We note that, in the version stated below, separability of X is not required. 
+
+Theorem 4.2 (Minty–Browder theorem) . Let X be a reflexive real Banach space, and let A : X →
+
+X∗ be an operator satisfying: 14 CHANG 
+
+(i) Monotonicity: for all v , w ∈ X, 
+
+⟨Av − Aw , v − w⟩X ≥ 0; (ii) Hemicontinuity: for all v , w, h ∈ X, the map t 7 → ⟨ A(v + tw ), h⟩X
+
+is continuous on [0 , 1] ;
+
+(iii) Coercivity: lim  
+
+> ∥v∥X→∞
+
+⟨Av , v⟩X
+
+∥v∥X
+
+= ∞.
+
+Then, for every g ∈ X∗, there exists v 0 ∈ X such that Av 0 = g. If A is strictly monotone (i.e., 
+
+⟨Av − Aw , v − w⟩X = 0 implies v = w), then v 0 is unique. 
+
+We now apply the theorem to the operator associated with (4.3). 
+
+Lemma 4.3. Let τ > 0 and m > 0 be given. Then, for every g ∈ V∗, the equation (4.3) admits a unique weak solution v ∈ V. Proof. Define the operator A : V → V∗ by 
+
+⟨Av , ϕ ⟩V :=
+
+Z
+
+> M
+
+Ψ−1(v) ϕ dμ + τ E(v, ϕ ) (4.5) for v, ϕ ∈ V.The operator A is well-defined and bounded. Moreover, a weak solution of (4.3) is precisely a solution of Av = g. We now verify that A satisfies the hypotheses of Theorem 4.2. 
+
+Strict monotonicity. For v, w ∈ V, we have 
+
+⟨Av − Aw , v − w⟩V =
+
+Z
+
+> M
+
+(Ψ−1(v) − Ψ−1(w))( v − w) dμ + τ E(v − w, v − w)
+
+≥
+
+Z
+
+> M
+
+(Ψ−1(v) − Ψ−1(w))( v − w) dμ ≥ 0, (4.6) where the last inequality follows from the strict monotonicity of the function Ψ−1(s) = |s|1/m sgn( s). Moreover, equality in (4.6) holds only if v = w μ-a.e. Hence A is strictly monotone. 
+
+Hemicontinuity. Fix v, w, ϕ ∈ V and define 
+
+F(t) : = ⟨A(v + tw ), ϕ ⟩V =
+
+Z
+
+> M
+
+Ψ−1(v + tw ) ϕ dμ + τ E(v + tw , ϕ ), t ∈ [0 , 1] .
+
+The second term is linear in t, hence continuous. For the first term, note that for all t ∈ [−2, 2], 
+
+Ψ−1(v + tw ) ϕ = |v + tw |1/m|ϕ| ≤ (|v| + 2|w|)1/m|ϕ|,
+
+and the right-hand side is integrable by H¨ older’s inequality. Therefore, by the dominated conver-gence theorem and the continuity of Ψ−1, for any t0 ∈ [0 , 1], lim 
+
+> t→t0
+
+Z
+
+> M
+
+Ψ−1(v + tw ) ϕ dμ =
+
+Z
+
+> M
+
+Ψ−1(v + t0w) ϕ dμ. 
+
+Thus F is continuous on [0 , 1], proving hemicontinuity. 
+
+Coercivity. For v ∈ V, set a := ∥v∥Lm+1 and b := √E(v). Then ∥v∥V = √a2 + b2, and 
+
+⟨Av , v⟩V
+
+∥v∥V
+
+= ∥v∥m+1 
+
+> Lm+1
+
++ τ E(v)
+
+q
+
+∥v∥2 
+
+> Lm+1
+
++ E(v)
+
+= a1+1/m + τb2
+
+√a2 + b2 .
+
+We claim that 
+
+a1+1/m + τb2
+
+√a2 + b2 ≥
+
+
+
+2−(1 +1/m)/2 ( √a2 + b2)1/m, a ≥ b,τ
+
+2
+
+√a2 + b2, a < b.ON THE WELL-POSEDNESS OF PMES ON GENERAL METRIC MEASURE SPACES 15 
+
+Indeed, if a ≥ b, then a2 ≥ (a2 + b2)/2, so 
+
+a1+1/m + τb2
+
+√a2 + b2 ≥ a1+1/m
+
+√a2 + b2 ≥ (( a2 + b2)/2) (1 +1/m)/2
+
+√a2 + b2 = 2−(1 +1/m)/2(
+
+p
+
+a2 + b2)1/m.
+
+If a < b, then b2 ≥ (a2 + b2)/2, so 
+
+a1+1/m + τb2
+
+√a2 + b2 ≥ τb2
+
+√a2 + b2 ≥ τ
+
+2
+
+p
+
+a2 + b2.
+
+Consequently, for ∥v∥V ≥ 1, 
+
+⟨Av , v⟩V
+
+∥v∥V
+
+≥ min 
+
+
+
+2−(1 +1/m)/2, τ
+
+2
+
+
+
+∥v∥min(1 /m, 1)  
+
+> V
+
+,
+
+which tends to ∞ as ∥v∥V → ∞ . Thus A is coercive. All hypotheses of the Minty–Browder theorem are satisfied. Hence there exists a unique v ∈ V
+
+such that Av = g. By Definition 4.1, this v is the unique weak solution of (4.3). □
+
+4.2. A priori estimates. We now focus on the case where the datum g ∈ Lm+1(M, μ ). Since 
+
+V ,→ Lm+1(M, μ ) continuously, the natural embedding Lm+1(M, μ ) ,→ V∗ given by 
+
+⟨g, ϕ ⟩V =
+
+Z
+
+> M
+
+g ϕ dμ for all ϕ ∈ V
+
+is also continuous. We first establish the comparison principle for the elliptic problem. 
+
+Proposition 4.4 (Comparison principle for the elliptic problem) . Let g 1, g2 ∈ Lm+1(M, μ ) with g1 ≤ g2 μ-a.e., and for i = 1, 2, let v i ∈ V be the corresponding weak solution of (4.3) with datum g = gi. Then v 1 ≤ v2 μ-a.e. Proof. Set w := v1 − v2. Applying the weak formulation (4.4) to v1 and v2 with the same test function ϕ ∈ V, and subtracting, yields 
+
+Z
+
+> M
+
+(Ψ−1(v1) − Ψ−1(v2)) ϕ dμ + τ E(w, ϕ ) =
+
+Z
+
+> M
+
+(g1 − g2) ϕ dμ ∀ϕ ∈ V. (4.7) It su ffi ces to show that w+ = 0 μ-a.e. Since w ∈ V = L1+1/m ∩ F e and t 7 → t+ is a normal contraction, [21, Corollary 1.6.3] yields 
+
+w+ ∈ F e. Moreover, 0 ≤ w+ ≤ | w| gives w+ ∈ L1+1/m, hence w+ ∈ V.Take ϕ = w+ in (4.7). Since g1 − g2 ≤ 0 and w+ ≥ 0, we obtain 
+
+Z
+
+> M
+
+(Ψ−1(v1) − Ψ−1(v2)) w+ dμ + τ E(w, w+) ≤ 0. (4.8) We claim that the left-hand side of (4.8) is non-negative. Indeed, since Ψ−1 is strictly increasing, (Ψ−1(v1) − Ψ−1(v2)) w+ ≥ 0 μ-a.e. ,
+
+so the integral is non-negative. Moreover, using w = w+ − w− and |w| = w+ + w−, we have 
+
+E(w) = E(w+) + E(w−) − 2E(w+, w−),
+
+and 
+
+E(|w|) = E(w+) + E(w−) + 2E(w+, w−).
+
+The Markovian property gives E(|w|) ≤ E (w); comparing the two expressions yields 
+
+E(w+, w−) ≤ 0.
+
+Therefore, 
+
+E(w, w+) = E(w+ − w−, w+) = E(w+) − E (w+, w−) ≥ 0.
+
+Thus both terms on the left-hand side of (4.8) are non-negative, while the right-hand side is non-positive. Hence equality must hold, and in particular 
+
+Z
+
+> M
+
+(Ψ−1(v1) − Ψ−1(v2)) w+ dμ = 0.16 CHANG 
+
+By the strict monotonicity of Ψ−1, this implies w+ = 0 μ-a.e., i.e., v1 ≤ v2. □
+
+Corollary 4.5 (Nonnegativity preservation) . Let g ∈ Lm+1(M, μ ) with g ≥ 0 μ-a.e., and let v ∈ Vbe the weak solution of (4.3) with datum g. Then v ≥ 0 μ-a.e. Proof. Let v0 be the weak solution of (4.3) with datum 0. Taking ϕ = v0 in (4.4), we have 
+
+Z
+
+> M
+
+Ψ−1(v0)v0 dμ + τ E(v0) = 0,
+
+which implies v0 = 0 μ-a.e., since R 
+
+> M
+
+Ψ−1(v0)v0 dμ = ∥v0∥1+1/mL1+1/m ≥ 0 and E(v0) ≥ 0. Applying Proposition 4.4 with g1 = g and g2 = 0, we obtain v ≥ v0 = 0 μ-a.e. □
+
+We now derive the energy estimate which will be essential for Section 5. 
+
+Lemma 4.6. Let g ∈ Lm+1(M, μ ) and let v ∈ V be the weak solution of (4.3) with datum g. Then 
+
+∥v∥1+1/mL1+1/m + τ(m + 1) E(v) ≤ ∥ g∥m+1 
+
+> Lm+1
+
+. (4.9) 
+
+Proof. Taking ϕ = v in (4.4) gives 
+
+Z
+
+> M
+
+Ψ−1(v)v d μ + τ E(v) =
+
+Z
+
+> M
+
+g v d μ. 
+
+By Young’s inequality, 
+
+Z
+
+> M
+
+g v d μ ≤ 1
+
+m + 1 ∥g∥m+1 
+
+> Lm+1
+
++ mm + 1 ∥v∥1+1/mL1+1/m .
+
+Since Ψ−1(v)v = |v|1+1/m, we obtain (4.9). □
+
+Finally, returning to the original variable u = Ψ −1(v), we obtain the following corollary, which will be used in Section 5 to construct the sequence of approximate solutions. 
+
+Corollary 4.7. Let g ∈ Lm+1(M, μ ) with g ≥ 0 μ-a.e. Then there exists a unique u such that u ∈ Lm+1(M, μ ), u ≥ 0 μ-a.e. , Ψ(u) ∈ F e,
+
+and u is the unique weak solution of (4.2) , i.e., 
+
+Z
+
+> M
+
+u ϕ dμ + τ E(Ψ(u), ϕ ) =
+
+Z
+
+> M
+
+g ϕ dμ ∀ϕ ∈ V. (4.10) 
+
+Moreover, 
+
+∥u∥m+1 
+
+> Lm+1
+
++ τ(m + 1) E(Ψ(u)) ≤ ∥ g∥m+1 
+
+> Lm+1
+
+. (4.11) 
+
+Proof. This follows directly from Lemma 4.3, Proposition 4.5, Lemma 4.6, and the change of variables u = Ψ −1(v). □
+
+5. W ell -posedness of the Cauchy problem (1.2) In this section, we prove the main theorem stated in Section 1, namely the existence and unique-ness of weak solutions to the Cauchy problem (1.2). The argument is carried out via the Rothe method: we construct a sequence of piecewise constant in time approximations using the elliptic solvers from Section 4, establish uniform a priori estimates, pass to a weak limit, and then identify the limit via a monotonicity argument. ON THE WELL-POSEDNESS OF PMES ON GENERAL METRIC MEASURE SPACES 17 
+
+5.1. Construction of approximate solutions and uniform estimates. For each n ≥ 1, starting from un,0 := u0, we recursively apply Corollary 4.7 with τ = T/n and g = un,k−1 to obtain a sequence {un,k}nk=0 ⊂ Lm+1(M, μ ) such that, for each 1 ≤ k ≤ n,(i) Ψ(un,k) ∈ F e, and un,k is the unique weak solution of 
+
+un,k − Tn L(Ψ(un,k)) = un,k−1
+
+in the sense of Corollary 4.7; (ii) 
+
+∥un,k∥m+1 
+
+> Lm+1
+
++ Tn (m + 1) E(Ψ(un,k)) ≤ ∥ un,k−1∥m+1 
+
+> Lm+1
+
+. (5.1) Moreover, if u0 ≥ 0 μ-a.e., then un,k ≥ 0 μ-a.e. for each 1 ≤ k ≤ n.For each n ≥ 1, define the piecewise constant approximate solution un as follows. For every 
+
+t ∈ (0 , T ], let k ∈ { 1, . . . , n} be the unique index such that t ∈ (( k − 1) T/n, kT /n]. Then, for μ-a.e. 
+
+x ∈ M,
+
+un(t, x) : = un,k(x).
+
+At t = 0, set un(0 , ·) ≡ u0.Based on un, we define 
+
+vn(t, x) : = Ψ (un(t, x)) , wn(t, x) : = un,k − un,k−1
+
+T/n for t ∈ (( k − 1) T/n, kT /n],
+
+with vn(0 , ·) ≡ 0 and wn(0 , ·) ≡ 0. Equivalently, for t ∈ [0 , T ] and μ-a.e. x ∈ M,
+
+un(t, x) =
+
+> n
+
+X
+
+> k=1
+
+un,k(x)1(( k−1) T/n,kT /n](t) + u0(x)1{0}(t), (5.2) 
+
+vn(t, x) =
+
+> n
+
+X
+
+> k=1
+
+Ψ(un,k(x)) 1(( k−1) T/n,kT /n](t), (5.3) 
+
+wn(t, x) =
+
+> n
+
+X
+
+> k=1
+
+un,k − un,k−1
+
+T/n 1(( k−1) T/n,kT /n](t). (5.4) In particular, vn(t, ·) = Ψ (un(t, ·)) for all 0 < t ≤ T .We now establish uniform bounds for the approximate solutions un and the associated quantities 
+
+vn and wn, independent of n.
+
+Proposition 5.1 (Uniform bounds) . The following statements hold. 
+
+(i) For each n ≥ 1, u n ∈ L∞(0 , T ; Lm+1) ⊂ L2(0 , T ; Lm+1). Moreover, 
+
+sup 
+
+> n≥1
+
+∥un∥L∞(0 ,T ;Lm+1) ≤ ∥ u0∥Lm+1 , (5.5) sup 
+
+> n≥1
+
+∥un∥L2(0 ,T ;Lm+1) ≤ √T ∥u0∥Lm+1 . (5.6) (ii) For each n ≥ 1, v n ∈ L2(0 , T ; V). Moreover, 
+
+sup 
+
+> n≥1
+
+∥vn∥L2(0 ,T ;V) ≤
+
+s
+
+T ∥u0∥2mLm+1 + ∥u0∥m+1
+
+> Lm+1
+
+m + 1 =: C∗(m, T, ∥u0∥Lm+1 ). (5.7) (iii) For each n ≥ 1, w n ∈ L2(0 , T ; V∗). Moreover, 
+
+sup 
+
+> n≥1
+
+∥wn∥L2(0 ,T ;V∗) ≤ ∥u0∥m+1
+
+> Lm+1
+
+m + 1 . (5.8) 18 CHANG 
+
+Proof. We first prove (i). For each n ≥ 1, it follows from (5.1) that, for each 1 ≤ k ≤ n,
+
+∥un,k∥Lm+1 ≤ ∥ un,k−1∥Lm+1 .
+
+Hence esup  
+
+> t∈[0 ,T]
+
+∥un(t)∥Lm+1 = max  
+
+> 0≤k≤n
+
+∥un,k∥Lm+1 ≤ ∥ un,0∥Lm+1 = ∥u0∥Lm+1 ,
+
+which gives un ∈ L∞(0 , T ; Lm+1) and proves (5.5). The embedding L∞(0 , T ; Lm+1) ⊂ L2(0 , T ; Lm+1)is immediate. Furthermore, from the above estimate, 
+
+∥un∥2  
+
+> L2(0 ,T;Lm+1)
+
+=
+
+Z T
+
+> 0
+
+∥un(t)∥2 
+
+> Lm+1
+
+dt ≤ T ∥u0∥2 
+
+> Lm+1
+
+,
+
+which proves (5.6). We now prove (ii). Since |vn(t, ·)| = |un(t, ·)|m for every 0 < t ≤ T , we have 
+
+Z T
+
+> 0
+
+∥vn(t)∥2 
+
+> L1+1/m
+
+dt =
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+|vn(t)|1+1/m dμ
+
+! 21+1/m
+
+dt 
+
+=
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+|un(t)|1+m dμ
+
+! 2m
+
+> 1+m
+
+dt 
+
+=
+
+Z T
+
+> 0
+
+∥un(t)∥2mLm+1 dt ≤ T ∥u0∥2mLm+1 . (5.9) On the other hand, by the definition of vn in (5.3) and using (5.1), 
+
+Z T
+
+> 0
+
+E(vn(t)) dt = Tn
+
+> n
+
+X
+
+> k=1
+
+E(Ψ(un,k)) ≤ 1
+
+m + 1
+
+> n
+
+X
+
+> k=1
+
+∥uk−1∥m+1 
+
+> Lm+1
+
+− ∥ uk∥m+1
+
+> Lm+1
+
+ ≤ ∥u0∥m+1
+
+> Lm+1
+
+m + 1 . (5.10) Combining (5.9) and (5.10), we obtain 
+
+Z T
+
+> 0
+
+∥vn(t)∥2 
+
+> V
+
+dt =
+
+Z T
+
+> 0
+
+∥vn(t)∥2 
+
+> L1+1/m
+
+dt +
+
+Z T
+
+> 0
+
+E(vn(t)) dt ≤ T ∥u0∥2mLm+1 + ∥u0∥m+1
+
+> Lm+1
+
+m + 1 ,
+
+which shows that vn ∈ L2(0 , T ; V) and proves (5.7). We finally prove (iii). From (4.4), for each 1 ≤ k ≤ n and any ϕ ∈ V,
+
+* un,k − un,k−1
+
+T/n , ϕ 
+
++
+
+> V
+
+= |E (Ψ(un,k), ϕ )| ≤ pE(Ψ(un,k)) pE(ϕ) ≤ pE(Ψ(un,k)) ∥ϕ∥V ,
+
+hence un,k − un,k−1
+
+T/n V∗
+
+≤ pE(Ψ(un,k)) . (5.11) Using (5.10), we get 
+
+Z T
+
+> 0
+
+∥wn(t)∥2 
+
+> V∗
+
+dt =
+
+> n
+
+X
+
+> k=1
+
+Z kT /n
+
+> (k−1) T/n
+
+un,k − un,k−1
+
+T/n
+
+> 2
+> V∗
+
+dt ≤ Tn
+
+> n
+
+X
+
+> k=1
+
+E(Ψ(un,k)) ≤ ∥u0∥m+1
+
+> Lm+1
+
+m + 1 .
+
+Thus wn ∈ L2(0 , T ; V∗) and (5.8) holds. □
+
+Since V is reflexive (Corollary 3.4) and Lm+1(M, μ ) is reflexive, it follows from the Phillips theorem for vector-valued Lp-spaces (see, e.g., [14, Corollary 2, §IV]) that both L2(0 , T ; V) and 
+
+L2(0 , T ; V∗) are reflexive. Moreover, the separability of Lm+1(M, μ ) implies 
+
+L∞(0 , T ; Lm+1) = L1(0 , T ; L1+1/m)∗
+
+(see, e.g., [57, Problem 23.12d]). Consequently, the uniform bounds from Proposition 5.1 allow us to apply the Banach–Alaoglu theorem for weak-* convergence and the Eberlein– ˇ Smulian theorem for weak convergence, yielding a subsequence {n j} ⊂ N such that 
+
+un j
+
+> ∗
+
+⇀ u∗ in L∞(0 , T ; Lm+1), (5.12) ON THE WELL-POSEDNESS OF PMES ON GENERAL METRIC MEASURE SPACES 19 
+
+un j ⇀ u in L2(0 , T ; Lm+1), (5.13) 
+
+vn j ⇀ v in L2(0 , T ; V), (5.14) 
+
+wn j ⇀ w in L2(0 , T ; V∗). (5.15) Since the same subsequence converges weakly in L2(0 , T ; Lm+1) and weak-* in L∞(0 , T ; Lm+1), the two limits agree a.e. on (0 , T ) × M. Hence u(t, ·) = u∗(t, ·) for a.e. t ∈ (0 , T ), and consequently 
+
+u ∈ L∞(0 , T ; Lm+1). 5.2. Derivation of the weak formulation. We first establish a discrete energy identity that will serve as the starting point for the passage to the limit. For φ ∈ C1 
+
+> c
+
+([0 , T ); V) and n ≥ 1, define 
+
+φn,k := φ (k − 1) Tn , ·
+
+!
+
+for each 1 ≤ k ≤ n,
+
+and set φn,n+1 ≡ 0. Define the piecewise constant approximation of φ by 
+
+φn(t, x) : =
+
+> n
+
+X
+
+> k=1
+
+φn,k(x)1h (k−1) Tn , kT n
+
+> 
+
+(t) + 0 · 1{T }(t)for 0 ≤ t ≤ T and μ-a.e. x ∈ M.The following standard estimate will be used to pass to the limit in the discrete energy identity. 
+
+Lemma 5.2. For every φ ∈ C1 
+
+> c
+
+([0 , T ); V),
+
+∥φn − φ∥L2(0 ,T ;V) ≤ T
+
+√n ∥∂tφ∥L2(0 ,T ;V). (5.16) 
+
+In particular, φn → φ strongly in L 2(0 , T ; V) as n → ∞ .Proof. From the definition of φn,
+
+∥φn − φ∥2  
+
+> L2(0 ,T;V)
+
+=
+
+> n
+
+X
+
+> k=1
+
+Z kT /n
+
+> (k−1) T/n
+
+φ (k − 1) Tn
+
+!
+
+− φ(t)
+
+> 2
+> V
+
+dt . (5.17) By [15, Theorem 2(ii), § 5.9.2], 
+
+φ (k − 1) Tn
+
+!
+
+− φ(t) = −
+
+Z t
+
+> (k−1) T/n
+
+∂tφ(s) ds .
+
+Thus, by the Bochner theorem (see [15, Theorem 8, Appendix E.5]) and the Cauchy–Schwarz inequality, for any t ∈ [( k − 1) T/n, kT /n], 
+
+φ (k − 1) Tn
+
+!
+
+− φ(t)
+
+> 2
+> V
+
+=
+
+Z t
+
+> (k−1) T/n
+
+∂tφ(s) ds 
+
+> 2
+> V
+
+≤
+
+Z t
+
+> (k−1) T/n
+
+∥∂tφ(s)∥V ds 
+
+!2
+
+≤ t − (k − 1) Tn
+
+! Z t
+
+> (k−1) T/n
+
+∥∂tφ(s)∥2 
+
+> V
+
+ds 
+
+≤ Tn ∥∂tφ∥2 
+
+> L2(0 ,T;V)
+
+. (5.18) Substituting (5.18) into (5.17) yields 
+
+∥φn − φ∥2  
+
+> L2(0 ,T;V)
+
+≤
+
+> n
+
+X
+
+> k=1
+
+Z kT /n
+
+> (k−1) T/n
+
+Tn ∥∂tφ∥2  
+
+> L2(0 ,T;V)
+
+dt = T 2
+
+n ∥∂tφ∥2 
+
+> L2(0 ,T;V)
+
+,
+
+which proves (5.16). □
+
+The following discrete energy identity is the core of the Rothe method. 20 CHANG 
+
+Proposition 5.3 (Discrete energy identity) . For every φ ∈ C1 
+
+> c
+
+([0 , T ); V) and every n ≥ 1,
+
+−
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+un ∂tφ dμ dt +
+
+Z T
+
+> 0
+
+E(vn(t), φ n(t)) dt =
+
+Z
+
+> M
+
+u0 φ(0) dμ. (5.19) 
+
+Proof. For each 1 ≤ k ≤ n, taking ϕ = φn,k in the weak formulation for un,k (see Corollary 4.7), we obtain Z
+
+> M
+
+(un,k − un,k−1)φn,k dμ + Tn E(Ψ(un,k), φ n,k) = 0. (5.20) Summing (5.20) over k = 1, . . . , n gives 
+
+> n
+
+X
+
+> k=1
+
+Z
+
+> M
+
+un,kφn,k dμ −
+
+> n
+
+X
+
+> k=1
+
+Z
+
+> M
+
+un,k−1φn,k dμ + Tn
+
+> n
+
+X
+
+> k=1
+
+E(Ψ(un,k), φ n,k) = 0. (5.21) We now rewrite the time-integral terms. First, by the definition of vn in (5.3), 
+
+Z T
+
+> 0
+
+E(vn(t), φ n(t)) dt =
+
+> n
+
+X
+
+> k=1
+
+Z kT /n
+
+> (k−1) T/n
+
+E(Ψ(un,k), φ n,k) dt = Tn
+
+> n
+
+X
+
+> k=1
+
+E(Ψ(un,k), φ n,k). (5.22) Second, 
+
+−
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+un(t) ∂tφ(t) dμ dt = −
+
+> n
+
+X
+
+> k=1
+
+Z kT /n
+
+> (k−1) T/n
+
+Z
+
+> M
+
+un,k ∂tφ(t) dμ dt 
+
+= −
+
+> n
+
+X
+
+> k=1
+
+Z
+
+> M
+
+un,k φ kT n , ·
+
+!
+
+− φ (k − 1) Tn , ·
+
+!! 
+
+dμ
+
+= −
+
+> n
+
+X
+
+> k=1
+
+Z
+
+> M
+
+un,k(φn,k+1 − φn,k) dμ
+
+=
+
+> n
+
+X
+
+> k=1
+
+Z
+
+> M
+
+un,kφn,k dμ −
+
+> n
+
+X
+
+> k=1
+
+Z
+
+> M
+
+un,kφn,k+1 dμ, (5.23) where we used φn,n+1 ≡ 0. Adding (5.22) and (5.23), and comparing with (5.21), we get 
+
+−
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+un ∂tφ dμ dt +
+
+Z T
+
+> 0
+
+E(vn(t), φ n(t)) dt 
+
+=
+
+> n
+
+X
+
+> k=1
+
+Z
+
+> M
+
+un,kφn,k dμ −
+
+> n
+
+X
+
+> k=1
+
+Z
+
+> M
+
+un,kφn,k+1 dμ + Tn
+
+> n
+
+X
+
+> k=1
+
+E(Ψ(un,k), φ n,k)
+
+=
+
+> n
+
+X
+
+> k=1
+
+Z
+
+> M
+
+un,kφn,k dμ −
+
+> n
+
+X
+
+> k=1
+
+Z
+
+> M
+
+un,k−1φn,k dμ + Tn
+
+> n
+
+X
+
+> k=1
+
+E(Ψ(un,k), φ n,k)
+
+!
+
++
+
+> n
+
+X
+
+> k=1
+
+Z
+
+> M
+
+un,k−1φn,k dμ −
+
+> n
+
+X
+
+> k=1
+
+Z
+
+> M
+
+un,kφn,k+1 dμ
+
+!
+
+= 0 +
+
+Z
+
+> M
+
+u0 φn,1 dμ −
+
+Z
+
+> M
+
+un φn,n+1 dμ
+
+=
+
+Z
+
+> M
+
+u0 φ(0 , ·) dμ, (5.24) where the last equality follows from φn,1 = φ(0 , ·) and φn,n+1 ≡ 0. This proves (5.19). □
+
+Proposition 5.4 (Weak formulation on smooth test functions) . Let u and v be the weak limits obtained in (5.13) and (5.14) , respectively. Then, for every φ ∈ C1 
+
+> c
+
+([0 , T ); V),
+
+−
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+u ∂tφ dμ dt +
+
+Z T
+
+> 0
+
+E(v(t), φ (t)) dt =
+
+Z
+
+> M
+
+u0 φ(0) dμ. (5.25) ON THE WELL-POSEDNESS OF PMES ON GENERAL METRIC MEASURE SPACES 21 
+
+Proof. Let {n j} j≥1 ⊂ N be the subsequence for which both (5.13) and (5.14) hold. Since (5.19) holds for each n ≥ 1, for any j ≥ 1, 
+
+−
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+un j ∂tφ dμ dt +
+
+Z T
+
+> 0
+
+E(vn j (t), φ n j (t)) dt =
+
+Z
+
+> M
+
+u0 φ(0) dμ. (5.26) Since φ ∈ C1 
+
+> c
+
+([0 , T ); V), we have 
+
+∂tφ ∈ Cc([0 , T ); V) ⊂ L2(0 , T ; V) ⊂ L2(0 , T ; L1+1/m).
+
+Thus, for any ˜ u ∈ L2(0 , T ; Lm+1), by H¨ older’s inequality, 
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+˜u ∂tφ dμ dt ≤ ∥ ˜u∥L2(0 ,T ;Lm+1)∥∂tφ∥L2(0 ,T ;L1+1/m).
+
+Hence the linear functional ˜u 7 →
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+˜u ∂tφ dμ dt 
+
+is bounded on L2(0 , T ; Lm+1). Therefore, lim 
+
+> j→∞
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+un j ∂tφ dμ dt =
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+u ∂tφ dμ dt . (5.27) We now claim that lim 
+
+> j→∞
+
+Z T
+
+> 0
+
+E(vn j (t), φ n j (t)) dt =
+
+Z T
+
+> 0
+
+E(v(t), φ (t)) dt . (5.28) Indeed, Z T
+
+> 0
+
+E(vn j (t), φ n j (t)) dt =
+
+Z T
+
+> 0
+
+E(vn j (t), φ (t)) dt +
+
+Z T
+
+> 0
+
+E(vn j (t), φ n j (t) − φ(t)) dt .
+
+For the first term at the right hand side of the equality above, note that for any ˜ v ∈ L2(0 , T ; V), 
+
+Z T
+
+> 0
+
+E(˜ v(t), φ (t)) dt ≤ ∥ ˜v∥L2(0 ,T ;V)∥φ∥L2(0 ,T ;V),
+
+so the linear functional ˜ v 7 → R T 
+
+> 0
+
+E(˜ v(t), φ (t)) dt is bounded on L2(0 , T ; V). Since vn j ⇀ v in 
+
+L2(0 , T ; V), lim 
+
+> j→∞
+
+Z T
+
+> 0
+
+E(vn j (t), φ (t)) dt =
+
+Z T
+
+> 0
+
+E(v(t), φ (t)) dt . (5.29) For the second term, by H¨ older’s inequality, (5.10), and Lemma 5.2, 
+
+Z T
+
+> 0
+
+E(vn j (t), φ n j (t) − φ(t)) dt 
+
+≤
+
+Z T
+
+> 0
+
+q
+
+E(vn j (t)) ∥φn j (t) − φ(t)∥V dt 
+
+≤
+
+Z T
+
+> 0
+
+E(vn j (t)) dt 
+
+!1/2
+
+∥φn j − φ∥L2(0 ,T ;V)
+
+≤
+
+s
+
+∥u0∥m+1
+
+> Lm+1
+
+m + 1 · T
+
+√n j
+
+∥∂tφ∥L2(0 ,T ;V). (5.30) Thus lim 
+
+> j→∞
+
+Z T
+
+> 0
+
+E(vn j (t), φ n j (t) − φ(t)) dt = 0.
+
+Combining this with (5.29) proves (5.28). Finally, letting j → ∞ in (5.26) and using (5.27) and (5.28), we obtain (5.25). □22 CHANG 
+
+5.3. Regularity improvement of u in time. We now establish that the limit function u satisfies the time regularity required in Definition 1.1, namely u ∈ W1,2(0 , T ; V∗). This property is in-dependent of the derivation of the weak formulation and serves only to verify that the limiting object belongs to the correct function space. The following proposition identifies the weak time derivative of u with the limit w from (5.15). 
+
+Proposition 5.5. The function w is the weak derivative of u; that is, for any f ∈ C∞ 
+
+> c
+
+((0 , T )) and any v ∈ V, Z T
+
+> 0
+
+⟨u(t), f ′(t)v⟩V dt = −
+
+Z T
+
+> 0
+
+⟨w(t), f (t)v⟩V dt . (5.31) 
+
+Proof. For each n ≥ 1 and each 0 ≤ k ≤ n, set 
+
+sn,k := ⟨un,k, v⟩V , fk := f kT n
+
+!
+
+,
+
+and note that f0 = fn = 0. Then 
+
+Z T
+
+> 0
+
+⟨un(t), f ′(t)v⟩V dt =
+
+> n
+
+X
+
+> k=1
+
+Z kT /n
+
+> (k−1) T/n
+
+⟨un,k, f ′(t)v⟩V dt 
+
+=
+
+> n
+
+X
+
+> k=1
+
+⟨un,k, v⟩V
+
+Z kT /n
+
+> (k−1) T/n
+
+f ′(t) dt 
+
+=
+
+> n
+
+X
+
+> k=1
+
+sn,k ( fk − fk−1) =
+
+> n−1
+
+X
+
+> k=1
+
+sn,k fk −
+
+> n
+
+X
+
+> k=1
+
+sn,k fk−1. (5.32) On the other hand, 
+
+−
+
+Z T
+
+> 0
+
+⟨wn(t), f (t)v⟩V dt = −
+
+> n
+
+X
+
+> k=1
+
+Z kT /n
+
+> (k−1) T/n
+
+* un,k − un,k−1
+
+T/n , f (t)v
+
++
+
+> V
+
+dt 
+
+= −
+
+> n
+
+X
+
+> k=1
+
+(sn,k − sn,k−1)
+
+Z kT /n
+
+> (k−1) T/n
+
+f (t)
+
+T/n dt 
+
+= −
+
+> n
+
+X
+
+> k=1
+
+(sn,k − sn,k−1) fk−1 +
+
+Z kT /n
+
+> (k−1) T/n
+
+f (t) − fk−1
+
+T/n dt 
+
+!
+
+=
+
+> n
+
+X
+
+> k=1
+
+(sn,k−1 − sn,k) fk−1 +
+
+> n
+
+X
+
+> k=1
+
+sn,k−1 − sn,k
+
+T/n
+
+Z kT /n
+
+> (k−1) T/n
+
+Z t
+
+> (k−1) T/n
+
+f ′(s) ds dt 
+
+=: I1(n) + I2(n). (5.33) Since f0 = fn = 0, we have 
+
+I1(n) =
+
+> n
+
+X
+
+> k=1
+
+(sn,k−1 − sn,k) fk−1 =
+
+> n−1
+
+X
+
+> k=1
+
+sn,k fk −
+
+> n
+
+X
+
+> k=1
+
+sn,k fk−1 =
+
+Z T
+
+> 0
+
+⟨un(t), f ′(t)v⟩V dt .
+
+Comparing this with (5.32) and (5.33), we obtain 
+
+Z T
+
+> 0
+
+⟨un(t), f ′(t)v⟩V dt + I2(n) = −
+
+Z T
+
+> 0
+
+⟨wn(t), f (t)v⟩V dt , (5.34) where 
+
+I2(n) : =
+
+> n
+
+X
+
+> k=1
+
+sn,k−1 − sn,k
+
+T/n
+
+Z kT /n
+
+> (k−1) T/n
+
+Z t
+
+> (k−1) T/n
+
+f ′(s) ds dt .
+
+We now show that I2(n) → 0 as n → ∞ . Indeed, 
+
+|I2(n)| ≤ 
+
+> n
+
+X
+
+> k=1
+
+sn,k−1 − sn,k
+
+T/n
+
+Z kT /n
+
+> (k−1) T/n
+
+Z t
+
+> (k−1) T/n
+
+| f ′(s)| ds dt ON THE WELL-POSEDNESS OF PMES ON GENERAL METRIC MEASURE SPACES 23 
+
+=
+
+> n
+
+X
+
+> k=1
+
+* un,k−1 − un,k
+
+T/n , v
+
++
+
+> V
+
+Z kT /n
+
+> (k−1) T/n
+
+Z t
+
+> (k−1) T/n
+
+| f ′(s)| ds dt 
+
+≤
+
+> n
+
+X
+
+> k=1
+
+un,k−1 − un,k
+
+T/n V∗
+
+∥v∥V ∥ f ′∥C[0 ,T ]
+
+T 2
+
+n2
+
+!
+
+≤ T 2∥v∥V ∥ f ′∥C[0 ,T ]
+
+n2
+
+> n
+
+X
+
+> k=1
+
+pE(Ψ(un,k)) , (5.35) where we used (5.11) in the last inequality. By Cauchy–Schwarz inequality and (5.10), 
+
+> n
+
+X
+
+> k=1
+
+pE(Ψ(un,k)) ≤ √n
+
+
+
+> n
+
+X
+
+> k=1
+
+E(Ψ(un,k)) 
+
+
+
+> 1/2
+
+≤ √n
+
+s
+
+∥u0∥m+1
+
+> Lm+1
+
+m + 1 .
+
+Substituting this into (5.35), we get 
+
+|I2(n)| ≤ T 2∥v∥V ∥ f ′∥C[0 ,T ]
+
+n3/2
+
+s
+
+∥u0∥m+1
+
+> Lm+1
+
+m + 1 ,
+
+so I2(n) → 0 as n → ∞ .Since (5.34) holds for every n j, j ≥ 1, we let j → ∞ . Using un j ⇀ u in L2(0 , T ; Lm+1), wn j ⇀ w
+
+in L2(0 , T ; V∗), and I2(n j) → 0, we obtain (5.31) from (5.34). □
+
+Corollary 5.6. Let u be the weak limit in (5.13) . Then u ∈ L∞(0 , T ; Lm+1) ∩ W1,2(0 , T ; V∗).
+
+Proof. It is immediate from (5.12) and (5.13) that 
+
+u ∈ L∞(0 , T ; Lm+1) ∩ L2(0 , T ; Lm+1) = L∞(0 , T ; Lm+1).
+
+Since V ,→ L1+1/m, we have Lm+1 ,→ V∗, and hence 
+
+L2(0 , T ; Lm+1) ,→ L2(0 , T ; V∗).
+
+By Proposition 5.5, the weak derivative of u exists and lies in L2(0 , T ; V∗). Therefore u ∈
+
+W1,2(0 , T ; V∗). □
+
+5.4. Identification of the limit via the Minty trick. In the preceding subsections, we have ob-tained the weak formulation (5.25) (Proposition 5.4) and established the required time regularity of u. However, (5.25) does not yet identify v with Ψ(u) = |u|m−1u. To prove this identification, we employ the classical Minty trick. As a first step, we extend the weak formulation to a larger class of test functions. Set 
+
+H := {φ ∈ W1,2(0 , T ; V) : φ(T, ·) = 0 μ-a.e. }.
+
+Since C1 
+
+> c
+
+([0 , T ); V) is dense in H by the standard density argument for Bochner–Sobolev spaces, the following result follows immediately. 
+
+Proposition 5.7. The identity (5.25) holds for every φ ∈ H .Proof. Fix φ ∈ H and let {φ(n)}n≥1 ⊂ C1 
+
+> c
+
+([0 , T ); V) be a sequence approximating φ in H. By Proposition 5.4, for each n ≥ 1, 
+
+−
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+u ∂tφ(n) dμ dt +
+
+Z T
+
+> 0
+
+E(v(t, ·), φ (n)(t, ·)) dt =
+
+Z
+
+> M
+
+u0 φ(n)(0 , ·) dμ. (5.36) Since φ ∪ { φ(n)}n≥1 ⊂ W1,2(0 , T ; V), it follows from [15, Theorem 2, § 5.9.2] that there exists a constant C > 0 such that, for every n ≥ 1, 
+
+∥φ(n)(0) − φ(0) ∥V ≤ max   
+
+> t∈[0 ,T]
+
+∥φ(n)(t) − φ(t)∥V ≤ C∥φ(n) − φ∥W1,2(0 ,T ;V). (5.37) 24 CHANG 
+
+On the other hand, the linear functional 
+
+φ 7 → − 
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+u ∂tφ dμ dt +
+
+Z T
+
+> 0
+
+E(v(t, ·), φ (t, ·)) dt 
+
+is bounded on W1,2(0 , T ; V). Letting n → ∞ in (5.36) and using (5.37), we obtain the desired result. □
+
+Before applying the classical Minty trick to prove that v = Ψ (u) in the sense that v(t, ·) =Ψ(u(t, ·)) for a.e. t ∈ (0 , T ), we need the following auxiliary inequality. It compares the space-time integral R T
+
+> 0
+
+R 
+
+> M
+
+uv d μ dt with the upper limit of the discrete integrals R T
+
+> 0
+
+R 
+
+> M
+
+un j vn j dμ dt .
+
+Proposition 5.8. Let {un j } j≥1 and {vn j } j≥1 be the sequences from (5.13) and (5.14) , respectively. Then 
+
+lim inf 
+
+> j→∞
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+un j vn j dμ dt ≤
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+uv d μ dt . (5.38) 
+
+Proof. Set 
+
+φ :=
+
+Z Tt
+
+v(s) ds .
+
+One readily checks that φ ∈ H and ∂tφ = −v. Hence, by Proposition 5.7, 
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+uv d μ dt +
+
+Z T
+
+> 0
+
+E v(t),
+
+Z Tt
+
+v(s) ds 
+
+!
+
+dt =
+
+Z
+
+> M
+
+u0
+
+Z T
+
+> 0
+
+v(s) ds d μ. (5.39) By Lemma 3.7, Fubini’s theorem, and the symmetry of E,
+
+Z T
+
+> 0
+
+E v(t),
+
+Z Tt
+
+v(s) ds 
+
+!
+
+dt =
+
+Z T
+
+> 0
+
+Z Tt
+
+E(v(t), v(s)) ds dt 
+
+= 12
+
+Z T
+
+> 0
+
+Z T
+
+> 0
+
+E(v(t), v(s)) ds dt 
+
+= 12 E
+
+Z T
+
+> 0
+
+v(t) dt 
+
+!
+
+. (5.40) Substituting this into (5.39) yields 
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+uv d μ dt =
+
+Z
+
+> M
+
+u0
+
+Z T
+
+> 0
+
+v(s) ds d μ − 12 E
+
+Z T
+
+> 0
+
+v(t) dt 
+
+!
+
+. (5.41) We now estimate R T
+
+> 0
+
+R 
+
+> M
+
+un j vn j dμ dt . From (5.26), we have 
+
+−
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+un j ∂tφ dμ dt +
+
+Z T
+
+> 0
+
+E(vn j (t), φ (t)) dt 
+
+≤ − 
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+un j ∂tφ dμ dt +
+
+Z T
+
+> 0
+
+E(vn j (t), φ n j (t)) dt +
+
+Z T
+
+> 0
+
+E(vn j (t), φ n j (t) − φ(t)) dt 
+
+≤
+
+Z
+
+> M
+
+u0 φ(0 , ·) dμ +
+
+s
+
+∥u0∥m+1
+
+> Lm+1
+
+m + 1 · T
+
+√n j
+
+∥∂tφ∥L2(0 ,T ;V). (5.42) By the density argument used in the proof of Proposition 5.7, the estimate (5.42) holds for every 
+
+φ ∈ H . Applying it with 
+
+φ =
+
+Z Tt
+
+vn j (s) ds 
+
+and using (5.7), we obtain 
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+un j vn j dμ dt +
+
+Z T
+
+> 0
+
+E vn j (t),
+
+Z Tt
+
+vn j (s) ds 
+
+!
+
+dt ON THE WELL-POSEDNESS OF PMES ON GENERAL METRIC MEASURE SPACES 25 
+
+≤
+
+Z
+
+> M
+
+u0
+
+Z T
+
+> 0
+
+vn j (s) ds d μ +
+
+s
+
+∥u0∥m+1
+
+> Lm+1
+
+m + 1 · T
+
+√n j
+
+∥vn j ∥L2(0 ,T ;V)
+
+≤
+
+Z
+
+> M
+
+u0
+
+Z T
+
+> 0
+
+vn j (s) ds d μ + C#
+
+√n j
+
+, (5.43) where 
+
+C# := C#(m, T, ∥u0∥Lm+1 ) : =
+
+s
+
+∥u0∥m+1
+
+> Lm+1
+
+m + 1 T C ∗(m, T, ∥u0∥Lm+1 )is a nonnegative constant depending only on m, T , and ∥u0∥Lm+1 .Again, by Lemma 3.7, Fubini’s theorem, and the symmetry of E,
+
+Z T
+
+> 0
+
+E vn j (t),
+
+Z Tt
+
+vn j (s) ds 
+
+!
+
+dt = 12 E
+
+Z T
+
+> 0
+
+vn j (s) ds 
+
+!
+
+.
+
+Thus, for each j ≥ 1, 
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+un j vn j dμ dt ≤
+
+Z
+
+> M
+
+u0
+
+Z T
+
+> 0
+
+vn j (s) ds d μ + C#
+
+√n j
+
+− 12 E
+
+Z T
+
+> 0
+
+vn j (s) ds 
+
+!
+
+. (5.44) Since vn j ⇀ v in L2(0 , T ; V), Lemma 3.6 gives 
+
+Z T
+
+> 0
+
+vn j (s) ds ⇀
+
+Z T
+
+> 0
+
+v(s) ds in V, (5.45) and hence, by (3.21), 
+
+E
+
+Z T
+
+> 0
+
+v(s) ds 
+
+!
+
+≤ lim inf  
+
+> j→∞
+
+E
+
+Z T
+
+> 0
+
+vn j (s) ds 
+
+!
+
+. (5.46) Letting j → ∞ in (5.44) and using (5.45), (5.46), and (5.41), we obtain lim sup 
+
+> j→∞
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+un j vn j dμ dt ≤
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+uv d μ dt ,
+
+which proves (5.38). □
+
+We now complete the proof of existence by applying the Minty trick. 
+
+Theorem 5.9. The function u obtained in (5.13) is the unique weak solution of (1.2) .Proof. Corollary 5.6 gives u ∈ L∞(0 , T ; Lm+1) ∩ W1,2(0 , T ; V∗). It remains to prove that v(t) =Ψ(u(t)) for a.e. t ∈ (0 , T ). For every j ≥ 1, since vn j (t) = Ψ (un j (t)) for any 0 < t ≤ T , the strict monotonicity of Ψ implies that, for any h ∈ L2(0 , T ; Lm+1), 
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+(un j − h)( vn j − Ψ(h)) dμ dt ≥ 0,
+
+equivalently, 
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+un j vn j dμ dt ≥
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+hv n j dμ dt +
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+un j Ψ(h) dμ dt −
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+hΨ(h) dμ dt . (5.47) Note that, the functionals ˜u 7 →
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+˜u Ψ(h) dμ dt , ˜v 7 →
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+˜v h d μ dt 
+
+are bounded on L2(0 , T ; Lm+1) and L2(0 , T ; L1+1/m), respectively. Letting j → ∞ in (5.47) and using (5.38), we get 
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+uv d μ dt ≥ lim sup 
+
+> j→∞
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+un j vn j dμ dt 26 CHANG 
+
+≥
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+hv d μ dt +
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+uΨ(h) dμ dt −
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+hΨ(h) dμ dt ,
+
+i.e., Z T
+
+> 0
+
+Z
+
+> M
+
+(u − h)( v − Ψ(h)) dμ dt ≥ 0 (5.48) for every h ∈ L2(0 , T ; Lm+1). Taking h = u ± λw with λ > 0 and w ∈ L2(0 , T ; Lm+1), and letting λ ↓ 0, we obtain 
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+(v − Ψ(u)) w d μ dt = 0for all w ∈ L2(0 , T ; Lm+1). Hence v = Ψ (u) a.e. in (0 , T ) × M. By Fubini’s theorem, v(t, ·) =Ψ(u(t, ·)) μ-a.e. for a.e. t ∈ (0 , T ). Thus u is a weak solution of (1.1). It remains to prove uniqueness. Let ˆ u be another weak solution. Then, for every φ ∈ C1 
+
+> c
+
+([0 , T ); V), 
+
+−
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+(u − ˆu)∂tφ dμ dt +
+
+Z T
+
+> 0
+
+E(Ψ(u(t)) − Ψ(ˆ u(t)) , φ (t)) dt = 0. (5.49) By the same density argument as in Proposition 5.7, (5.49) holds for every φ ∈ H . Taking 
+
+φ =
+
+Z Tt
+
+(Ψ(u(s)) − Ψ(ˆ u(s))) ds 
+
+and applying Lemma 3.7, we get 
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+(u − ˆu)( Ψ(u) − Ψ(ˆ u)) dμ dt + 12 E
+
+Z T
+
+> 0
+
+(Ψ(u(s)) − Ψ(ˆ u(s))) ds 
+
+!
+
+= 0.
+
+Since the second term is nonnegative and Ψ is strictly monotone, we conclude u(t) = ˆu(t) for a.e. 
+
+t ∈ (0 , T ). □
+
+It remains to show that u(t, ·) ≥ 0 μ-a.e. for almost all t ∈ (0 , T ). This follows from the following comparison principle for the parabolic equation. 
+
+Theorem 5.10. Suppose ˆu0, ˜u0 ∈ Lm+1(M, μ ) satisfy ˆu0 ≤ ˜u0 μ-a.e. Let ˆu and ˜u be the correspond-ing weak solutions of (1.1) with initial data ˆu0 and ˜u0, respectively. Then ˆu(t) ≤ ˜u(t) μ-a.e. for almost all t ∈ (0 , T ).Proof. Let {ˆun}n≥1 and {˜un}n≥1 be the approximate solutions constructed in Subsection 5.1 with initial data ˆ u0 and ˜ u0, respectively. Since ˆ u0 ≤ ˜u0, Proposition 4.4 gives ˆ un(t, ·) ≤ ˜un(t, ·) for every 
+
+t ∈ (0 , T ) and every n ≥ 1. By the compactness argument in Section 5, there exists a common subsequence {n j} j≥1 such that ˆun j ⇀ ˆu, ˜un j ⇀ ˜u in L2(0 , T ; Lm+1)as j → ∞ . These limits are exactly the weak solutions with initial data ˆ u0 and ˜ u0, respectively. Since ˆ un j ≤ ˜un j for every j, for any nonnegative φ ∈ L2(0 , T ; L1+1/m), 
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+(ˆ un j − ˜un j )φ dμ dt ≤ 0.
+
+Passing to the limit and using the weak convergences, we obtain 
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+(ˆ u − ˜u)φ dμ dt ≤ 0for every nonnegative φ ∈ L2(0 , T ; L1+1/m). To conclude, we take φ as a suitable approximation of the characteristic function of the set 
+
+{ˆu > ˜u}. More precisely, for R > 0, let ηR(s) : = (s ∧ R) ∨ 0 and define φR := ηR((ˆ u − ˜u)+). Then ON THE WELL-POSEDNESS OF PMES ON GENERAL METRIC MEASURE SPACES 27 
+
+φR ∈ L2(0 , T ; L1+1/m) is nonnegative, and φR ↑ (ˆ u − ˜u)+ as R → ∞ pointwise. Applying the above inequality with φ = φR and then letting R → ∞ , we obtain 
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+(ˆ u − ˜u)2 
+
+> +
+
+dμ dt ≤ 0.
+
+Hence (ˆ u − ˜u)+ = 0 a.e. on (0 , T ) × M, which implies ˆ u(t, ·) ≤ ˜u(t, ·) μ-a.e. for a.e. t ∈ (0 , T ). 
+
+□
+
+Corollary 5.11. Let u 0 ∈ Lm+1(M, μ ) with u 0 ≥ 0 μ-a.e., and let u be the weak solution of (1.1) 
+
+with initial datum u 0. Then u (t, ·) ≥ 0 μ-a.e. for a.e. t ∈ (0 , T ).Proof. By Theorem 5.9, the zero function is the unique weak solution with zero initial datum. Applying Theorem 5.10 with ˆ u0 = 0 and ˜ u0 = u0, we obtain u(t, ·) ≥ 0 μ-a.e. for a.e. t ∈ (0 , T ). □
+
+6. A pplications to specific metric measure spaces 
+
+In this section, we apply Theorem 1.3 to concrete metric measure spaces equipped with Dirich-let forms, thereby obtaining well-posedness results for the porous medium equation in a variety of settings. The examples we consider range from classical Euclidean spaces and smooth Riemann-ian manifolds to non-smooth fractal spaces and general metric measure spaces. In the Euclidean and Riemannian cases, our results are compatible with known ones. In the fractal and general metric measure settings, the results appear to be new. 6.1. Euclidean spaces. We first illustrate Theorem 1.3 in the classical Euclidean setting. 6.1.1. PME and FDE on Euclidean spaces. Let ( M, d) = (RN , | · | ) with N ≥ 2, μ = dx the Lebesgue measure on RN , and let L be the Laplace operator on RN . Then equation (1.1) reduces to the porous medium equation ( m > 1) or the fast di ff usion equation (0 < m < 1). Recall from Example 2.2(i) that L is associated with the Dirichlet form 
+
+Z
+
+> RN
+
+∇u · ∇ v dx , W1,2(RN )
+
+!
+
+.
+
+By [21, Examples 1.5.3 & 1.6.2], the extended Dirichlet space satisfies 
+
+W1,2 
+
+> e
+
+(RN ) =
+
+
+
+˙W1,2(RN )/R, N ≥ 3,
+
+˙W1,2(RN ), N = 2,
+
+where ˙W1,2(RN ) : = {u ∈ L2loc (RN ) : ∇u ∈ L2(RN )}
+
+is the homogeneous Sobolev space. Applying Theorem 1.3 yields the following consequence. 
+
+Corollary 6.1. Set V := L1+1/m ∩ ˙W1,2. For every u 0 ∈ Lm+1(RN ), there exists a unique u ∈ L∞(0 , T ; Lm+1) ∩ W1,2(0 , T ; V∗)
+
+such that Ψ(u) ∈ L2(0 , T ; V) and 
+
+Z T
+
+> 0
+
+Z
+
+> RN
+
+−u ∂tφ dx dt +
+
+Z T
+
+> 0
+
+Z
+
+> RN
+
+∇um · ∇ φ dx dt =
+
+Z
+
+> RN
+
+u0φ(0 , ·) dx for every φ ∈ C1 
+
+> c
+
+([0 , T ); V). Moreover, if u 0 ≥ 0 a.e., then u (t, ·) ≥ 0 a.e. for a.e. t ∈ (0 , T ).
+
+This is compatible with [54, Definition 9.3 & Theorem 9.25] and slightly extends the class of admissible initial data. 28 CHANG 
+
+6.1.2. Fractional PME and Fractional FDE on Euclidean spaces. Let ( M, d, μ ) be as in the pre-vious subsection, but now let L = −(−∆)β/ 2 be the fractional Laplace operator on RN for some 0 < β < 2. Then equation (1.1) reduces to the fractional porous medium equation ( m > 1) or the corresponding fast di ff usion equation (0 < m < 1). Recall from Example 2.2(ii) that −(−∆)β/ 2 is associated with the Dirichlet form ( Eβ, Fβ), where 
+
+Fβ = Wβ/ 2,2(RN ). Since β < 2 ≤ N, by [21, Examples 1.5.2, (1.5.17)–(1.5.19)], the extended Dirichlet space satisfies 
+
+Wβ/ 2,2 
+
+> e
+
+(RN ) = ˙Lβ/ 2,2(RN ),
+
+the Riesz potential space of index β/ 2. Applying Theorem 1.3 yields the following consequence. 
+
+Corollary 6.2. Set V := L1+1/m ∩ ˙Lβ/ 2,2. For every u 0 ∈ Lm+1(RN ), there exists a unique u ∈ L∞(0 , T ; Lm+1) ∩ W1,2(0 , T ; V∗)
+
+such that Ψ(u) ∈ L2(0 , T ; V) and 
+
+Z T
+
+> 0
+
+Z
+
+> RN
+
+−u ∂tφ dx dt +
+
+Z T
+
+> 0
+
+Z
+
+> RN
+
+|ξ|βbu(ξ)bφ(ξ) dξ dt =
+
+Z
+
+> RN
+
+u0φ(0 , ·) dx for every φ ∈ C1 
+
+> c
+
+([0 , T ); V). Moreover, if u 0 ≥ 0 a.e., then u (t, ·) ≥ 0 a.e. for a.e. t ∈ (0 , T ).
+
+This is compatible with [13, Definition 3.1] and slightly extends the class of admissible initial data. 6.2. Riemannian manifolds. Let ( M, g) be a geodesically complete Riemannian manifold with volume measure μ and Laplace–Beltrami operator ∆g. As recalled in Example 2.2(iii), the qua-dratic form 
+
+E(u, v) =
+
+Z
+
+> M
+
+(∇u, ∇v)g dμ
+
+is closable in L2(M, μ ), and its closure is a regular local Dirichlet form on L2(M, μ ) with domain 
+
+W1,2(M); its generator is the associated self-adjoint operator −∆g. Applying Theorem 1.3 yields the same well-posedness result as in the Euclidean case (cf. Corollary 6.1). 6.3. Sierpi ´ nski gasket and infinite Sierpi ´ nski gasket. We now apply Theorem 1.3 to the Sierpi´ nski gasket, considering both the compact case (with Cauchy–Dirichlet problem) and the non-compact blow-up (with Cauchy problem). 6.3.1. The Cauchy–Dirichlet problem on the Sierpi´ nski gasket. Let {q1, q2, q3} be the vertices of the unit equilateral triangle in R2, say 
+
+q1 =
+
+ 12 ,
+
+√32
+
+ , q2 = (0 , 0) , q3 = (1 , 0) .
+
+For i = 1, 2, 3, define the contraction maps 
+
+Fi(x) : = x + qi
+
+2 , x ∈ R2.
+
+The Sierpi´ nski gasket K is the unique non-empty compact set satisfying 
+
+K =
+
+> 3
+
+[
+
+> i=1
+
+Fi(K).
+
+Let μ be any fixed self-similar measure on K, that is, a Borel probability measure with full support satisfying 
+
+μ(A) =
+
+> 3
+
+X
+
+> i=1
+
+μi μ(F−1 
+
+> i
+
+(A)) for some weights μ1, μ 2, μ 3 ∈ (0 , 1) with μ1 + μ2 + μ3 = 1. Then ( K, | · | , μ ) is a compact metric measure space in the sense of Section 1. ON THE WELL-POSEDNESS OF PMES ON GENERAL METRIC MEASURE SPACES 29 
+
+For each n ≥ 0, define the boundary set V0 := {q1, q2, q3} and the n-th level vertex set 
+
+Vn :=
+
+[
+
+> τ∈In
+
+Fτ(V0),
+
+where I := {1, 2, 3}, I0 := {∅}, and Fτ := Fτ1 ◦ · · · ◦ Fτn for τ = τ1 · · · τn ∈ In. The sets {Vn}n≥0
+
+form an increasing sequence of finite subsets of K, and Sn≥0 Vn = K.We now recall the construction of the Dirichlet form on K due to Kigami [38]. On each finite set Vn, define the discrete energy 
+
+En(u, u) : = 53
+
+!n X
+
+> τ∈In
+
+X 
+
+> i<j
+
+ u(Fτ(qi)) − u(Fτ(q j)) 2, u ∈ ℓ(Vn).
+
+The renormalization factor 5 /3 ensures the compatibility condition En+1|Vn = En after harmonic extension. For any u ∈ C(K), the sequence {E n(u|Vn , u|Vn )}n≥1 is non-decreasing in n. Hence, define 
+
+F :=
+
+(
+
+u ∈ C(K) : sup 
+
+> n≥0
+
+En
+
+ u|Vn , u|Vn
+
+ < ∞
+
+)
+
+,
+
+and 
+
+E(u, u) : = lim  
+
+> n→∞
+
+En(u|Vn , u|Vn ), u ∈ F .
+
+The pair ( E, F ) is a strongly local, regular, self-similar Dirichlet form on L2(K, μ ) (see [40, Section 9]), and satisfies the following Sobolev-type inequality (see [22] or [17, Lemma 2.4]): there exists a constant C > 0 such that, for any u ∈ F and any x, y ∈ K,
+
+|u(x) − u(y)|2 ≤ C|x − y|γE(u), (6.1) where γ := log 2(5 /3) > 0. To define the Cauchy–Dirichlet problem with zero boundary values, we introduce the space F0
+
+as the closure of F ∩ Cc(K \ V0) in F with respect to the E1-norm. Then ( E, F0) is again a regular Dirichlet form on L2(K, μ ), and its generator will be denoted by Lμ, D. By (6.1), every function in 
+
+F0 vanishes on V0, so the zero boundary condition is encoded in the domain. We consider the following Cauchy–Dirichlet problem: 
+
+
+
+∂tu = Lμ, D
+
+|u|m−1u , (t, x) ∈ (0 , T ) × K,
+
+u(0 , x) = u0(x), x ∈ K, (6.2) where the boundary condition is understood as u(t, ·) ∈ F 0 for a.e. t ∈ (0 , T ), i.e., the functions 
+
+u(t, ·) vanish on V0.The following observation is crucial for applying Theorem 1.3. 
+
+Proposition 6.3. For the Dirichlet form (E, F0) on the Sierpi´ nski gasket, 
+
+F0,e = F0,
+
+where F0,e denotes the extended Dirichlet space of (E, F0).Proof. It su ffi ces to prove F0,e ⊂ F 0.For any u ∈ F 0, by definition there exists a sequence {ϕn} ⊂ F ∩ Cc(K \ V0) converging to u in the E1-norm. Since each ϕn vanishes on V0, applying (6.1) to ϕn with y = q1 ∈ V0 yields 
+
+|ϕn(x)|2 ≤ C|x − q1|γE(ϕn) ≤ C E(ϕn),
+
+where the last inequality uses diam( K) = 1. Integrating over K gives 
+
+∥ϕn∥2 
+
+> L2(K,μ )
+
+≤ C E(ϕn).
+
+Passing to the limit as n → ∞ , we obtain 
+
+∥u∥2 
+
+> L2(K,μ )
+
+≤ C E(u), u ∈ F 0. (6.3) 30 CHANG 
+
+Now fix v ∈ F 0,e and let {vn} ⊂ F 0 be an approximating sequence for v in the extended sense: 
+
+vn → v μ-a.e. and E(vn − v) → 0. Applying (6.3) to vn and passing to the limit via Fatou’s lemma yields 
+
+∥v∥2 
+
+> L2(K,μ )
+
+≤ lim inf  
+
+> n→∞
+
+∥vn∥2 
+
+> L2(K,μ )
+
+≤ C lim  
+
+> n→∞
+
+E(vn) = C E(v),
+
+showing that v ∈ F 0. Thus F0,e ⊂ F 0. The reverse inclusion is immediate. □
+
+With the identification F0,e = F0, the Cauchy–Dirichlet problem (6.2) fits exactly into the framework of Theorem 1.3 with V := F0. Note that F0 ⊂ C(K), K is compact and μ(V0) = 0, so 
+
+F0 ⊂ L1+1/m(K, μ ) = L1+1/m(K \ V0, μ ). Therefore, we obtain the following. 
+
+Corollary 6.4. For every T > 0 and every u 0 ∈ Lm+1(K, μ ), there exists a unique u ∈ L∞(0 , T ; Lm+1) ∩ W1,2(0 , T ; F ∗ 
+
+> 0
+
+)
+
+such that 
+
+Ψ(u) : = |u|m−1u ∈ L2(0 , T ; F0),
+
+and u satisfies 
+
+−
+
+Z T
+
+> 0
+
+Z
+
+> K
+
+u ∂tφ dμ dt +
+
+Z T
+
+> 0
+
+E Ψ(u)( t), φ (t) dt =
+
+Z
+
+> K
+
+u0 φ(0 , ·) dμ
+
+for every φ ∈ C1 
+
+> c
+
+([0 , T ); F0). Moreover, if u 0 ≥ 0 μ-a.e., then u (t, ·) ≥ 0 μ-a.e. for a.e. t ∈ (0 , T ).
+
+Remark 6.5. The proof of Corollary 6.4 relies essentially only on two structural properties of the Dirichlet form (E, F ): the embedding F ,→ C(K) and the Sobolev-type inequality 
+
+|u(x) − u(y)|2 ≤ C|x − y|γE(u), u ∈ F ,
+
+for some constants C > 0 and γ > 0 depending on the fractal. These properties hold for a broad class of fractals, including all nested fractals [43] and the Sierpi´ nski carpet [42] . Consequently, the same well-posedness result as in Corollary 6.4 holds for the Cauchy–Dirichlet problem on these spaces, with F0 replaced by the corresponding Dirichlet subspace (and V 0 understood as the natural boundary of the fractal; see, e.g., [9] ). 
+
+6.3.2. The Cauchy problem on the infinite Sierpi´ nski gasket. We now consider the unbounded version of the Sierpi´ nski gasket, obtained by a blow-up construction (see, e.g., [48] or [53]). Let the contraction maps F1, F2, F3 and the compact Sierpi´ nski gasket K be as above, with the standard Dirichlet form ( E, F ) on L2(K, ν ), where ν is the self-similar measure with equal weights 1/3, 1/3, 1/3. Fix an infinite backward sequence S := {i−n}n≥1 ⊂ I. For each n ≥ 1, define 
+
+F−n,S := F−1 
+
+> i−1
+
+◦ F−1 
+
+> i−2
+
+◦ · · · ◦ F−1 
+
+> i−n
+
+, K−n := F−n,S (K).
+
+Since each K−n is a compact subset, the sets {K−n}n≥1 form an increasing sequence and provide a compact exhaustion of the unbounded set 
+
+K−∞ :=
+
+[
+
+> n≥1
+
+K−n.
+
+The space K−∞ is non-compact. To equip it with a measure, for each n ≥ 1, define ν−n on K−n
+
+by Z
+
+> K−n
+
+f d ν−n =
+
+X
+
+> τ∈In
+
+Z 
+
+> F−n,S◦Fτ(K)
+
+f d ν = 3n
+
+Z
+
+> K
+
+f ◦ F−n,S dν, f ∈ C(K−n).
+
+The measures ν−n are compatible with the inclusions K−n ⊂ K−(n+1) , and hence extend to a Radon measure ν−∞ on K−∞ with ν−∞ (K−∞ ) = ∞.The Dirichlet form on K−∞ is obtained by scaling the compact one. For each n ≥ 1, define 
+
+F−n := {g ◦ F−n,S : g ∈ F } , E−n(u, u) : = 35
+
+!n
+
+E(u ◦ F−n,S , u ◦ F−n,S ), u ∈ F −n.ON THE WELL-POSEDNESS OF PMES ON GENERAL METRIC MEASURE SPACES 31 
+
+Let 
+
+F−∞ :=
+
+(
+
+u ∈ L2(K−∞ , ν −∞ ) : u|K−n ∈ F −n ∀n ≥ 1, sup 
+
+> n≥1
+
+E−n(u|K−n ) < ∞
+
+)
+
+,
+
+and for u ∈ F −∞ , define 
+
+E−∞ (u, u) : = lim  
+
+> n→∞
+
+E−n(u|K−n , u|K−n ).
+
+By [20, Theorem 6.4], the pair ( E−∞ , F−∞ ) is a local, regular Dirichlet form on L2(K−∞ , ν −∞ ); its generator is denoted by L−∞ .Applying Theorem 1.3 with V := L1+1/m(K−∞ , ν −∞ ) ∩ F −∞ ,e yields the following. 
+
+Corollary 6.6. Set V := L1+1/m(K−∞ , ν −∞ )∩F −∞ ,e. For every T > 0 and every u 0 ∈ Lm+1(K−∞ , ν −∞ ),there exists a unique u ∈ L∞(0 , T ; Lm+1) ∩ W1,2(0 , T ; V∗)
+
+such that 
+
+Ψ(u) : = |u|m−1u ∈ L2(0 , T ; V),
+
+and u satisfies the weak formulation 
+
+−
+
+Z T
+
+> 0
+
+Z
+
+> K−∞
+
+u ∂tφ dν−∞ dt +
+
+Z T
+
+> 0
+
+E−∞ 
+
+ Ψ(u)( t), φ (t) dt =
+
+Z
+
+> K−∞
+
+u0 φ(0 , ·) dν−∞ 
+
+for every φ ∈ C1 
+
+> c
+
+([0 , T ); V). Moreover, if u 0 ≥ 0 ν−∞ -a.e., then u (t, ·) ≥ 0 ν−∞ -a.e. for a.e. t ∈ (0 , T ).
+
+6.4. A heat kernel construction on metric measure spaces. In this subsection, we consider a setting where the heat kernel is obtained directly from multiresolution analysis, rather than from a pre-existing Dirichlet form. A construction by Cao, Grigor’yan, and Liu [8] introduces such a heat kernel on general metric measure spaces satisfying the volume doubling condition, yielding stochastically complete heat kernels with stable-like upper estimates. Let ( M, d, μ ) be a metric measure space satisfying the volume doubling condition: 
+
+μ(B(x, 2r)) ≤ CDμ(B(x, r)) , ∀x ∈ M, r > 0,
+
+for some constant CD > 1. For every β > 0, the construction in [8] yields a stochastically complete positive heat kernel {pt}t>0 on M satisfying 
+
+Z
+
+> M
+
+pt(x, y) dμ(y) = 1, ∀t > 0, μ -a.e. x ∈ M,
+
+and the stable-like upper estimate 0 ≤ pt(x, y) ≤ CV(x, t1/β + d(x, y)) 
+
+t1/β 
+
+t1/β + d(x, y)
+
+!β
+
+, ∀t > 0, x, y ∈ M,
+
+where V(x, r) : = μ(B(x, r)) and C is a constant independent of t, x, y.Let {Pt}t≥0 be the associated semigroup on L2(M, μ ), 
+
+Pt f (x) : =
+
+Z
+
+> M
+
+pt(x, y) f (y) dμ(y).
+
+The generator L of {Pt}t≥0 gives rise to a Dirichlet form ( E, F ) by 
+
+E( f, f ) : = lim 
+
+> t↓0
+
+1
+
+t ⟨ f − Pt f, f ⟩L2(M,μ ), f ∈ L2(M, μ ),
+
+with domain 
+
+F :=
+
+(
+
+f ∈ L2(M, μ ) : lim 
+
+> t↓0
+
+1
+
+t ⟨ f − Pt f, f ⟩L2(M,μ ) < ∞
+
+)
+
+.
+
+This quadratic form is exact a Dirichlet form on L2(M, μ ) (see, e.g., [21, Theorem 1.3.1]). The associated generator is precisely the operator L in the sense of Dirichlet form theory. Set 
+
+V := L1+1/m(M, μ ) ∩ F e,32 CHANG 
+
+where Fe denotes the extended Dirichlet space of ( E, F ). Applying Theorem 1.3 with this choice of V yields the following. 
+
+Corollary 6.7. For every T > 0 and every u 0 ∈ Lm+1(M, μ ), there exists a unique u ∈ L∞(0 , T ; Lm+1) ∩ W1,2(0 , T ; V∗)
+
+such that 
+
+Ψ(u) : = |u|m−1u ∈ L2(0 , T ; V),
+
+and u satisfies 
+
+−
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+u ∂tφ dμ dt +
+
+Z T
+
+> 0
+
+E(Ψ(u)( t), φ (t)) dt =
+
+Z
+
+> M
+
+u0 φ(0 , ·) dμ
+
+for every φ ∈ C1 
+
+> c
+
+([0 , T ); V). Moreover, if u 0 ≥ 0 μ-a.e., then u (t, ·) ≥ 0 μ-a.e. for a.e. t ∈ (0 , T ).
+
+Appendix A. P roof of Lemma 2.5 In this section, we prove Lemma 2.5. The argument relies on the following diagonal extraction lemma. 
+
+Proposition A.1 (Diagonal extraction lemma) . Let μ be a σ-finite measure on a measurable space X, and let u : X → R be measurable. Suppose that {un}n≥1 is a sequence of measurable functions such that u n → u μ-a.e. as n → ∞ , and that for each n ≥ 1, there exists a sequence {vn,k}k≥1 of measurable functions such that v n,k → un μ-a.e. as k → ∞ . Then there exists a map g : N → N
+
+with g (n) → ∞ as n → ∞ such that vn,g(n) → u μ-a.e. as n → ∞ .
+
+Moreover, if h : N → N satisfies h (n) ≥ g(n) for all n, then v n,h(n) → u μ-a.e. as well. Proof. Since μ is σ-finite, there exists an increasing sequence of measurable sets {Xm}m≥1 such that Xm ↑ X and μ(Xm) < ∞ for each m ≥ 1. For each m ≥ 1 and n ≥ 1, by Egorov’s theorem applied on the finite-measure set Xm, there exist measurable sets Am and Bm,n such that 
+
+μ(Am) < 2−m, μ(Bm,n) < 2−(m+n),
+
+and 
+
+un → u uniformly on Xm \ Am, vn,k → un uniformly on Xm \ Bm,n.
+
+Define the good sets 
+
+Cm := Xm \
+
+Am ∪
+
+> ∞
+
+[
+
+> n=1
+
+Bm,n
+
+ , m ≥ 1.
+
+On each Cm, we have uniform convergence un → u, and for each fixed n, uniform convergence 
+
+vn,k → un as k → ∞ .Set 
+
+C :=
+
+> ∞
+
+[
+
+> n=1
+> ∞
+
+\
+
+> m=n
+
+Cm.
+
+We claim that μ(X \ C) = 0. Indeed, 
+
+X \ C ⊂
+
+> ∞
+
+\
+
+> n=1
+> ∞
+
+[
+
+> m=n
+
+(Xm \ Cm),
+
+and 
+
+> ∞
+
+X
+
+> m=1
+
+μ(Xm \ Cm) ≤
+
+> ∞
+
+X
+
+> m=1
+
+μ(Am) +
+
+> ∞
+
+X
+
+> n=1
+
+μ(Bm,n)
+
+ ≤
+
+> ∞
+
+X
+
+> m=1
+
+2−m +
+
+> ∞
+
+X
+
+> n=1
+
+2−(m+n)
+
+ =
+
+> ∞
+
+X
+
+> m=1
+
+2−(m−1) = 2 < ∞.
+
+Thus μ(X \ C) = 0 by the Borel–Cantelli lemma. ON THE WELL-POSEDNESS OF PMES ON GENERAL METRIC MEASURE SPACES 33 
+
+We now construct g. For each fixed n, since vn,k → un uniformly on each Cm, and since C is covered by the nested sequence {T∞ 
+
+> m=n
+
+Cm}n≥1, for every x ∈ C we may choose K(n, m, l) such that sup 
+
+> y∈Cm
+
+|vn,k(y) − un(y)| < 1
+
+l whenever k ≥ K(n, m, l).
+
+Also, since un → u uniformly on each Cm, for each l there exists n(m, l) such that sup 
+
+> y∈Cm
+
+|un(y) − u(y)| < 1
+
+l whenever n ≥ n(m, l).
+
+Define 
+
+g(n) : = max  
+
+> 1≤l≤n
+
+K(n, l, l).
+
+We show that vn,g(n) → u pointwise on C. Fix x ∈ C and ε > 0. Since x ∈ C, there exists 
+
+a := a(x) ∈ N+ such that x ∈ Cm for all m ≥ a. Choose l ∈ N such that l ≥ a and 1 /l < ε/ 2. Then, for any n ≥ l ∨ n(l, l), we have 
+
+|un(x) − u(x)| ≤ sup 
+
+> y∈Cl
+
+|un(y) − u(y)| < 1
+
+l < ε
+
+2 ,
+
+and, since g(n) ≥ K(n, l, l), 
+
+|vn,g(n)(x) − un(x)| ≤ sup 
+
+> y∈Cl
+
+|vn,g(n)(y) − un(y)| < 1
+
+l < ε
+
+2 .
+
+Therefore |vn,g(n)(x) − u(x)| < ε for all su ffi ciently large n ≥ l ∨ n(l, l). Thus vn,g(n) → u pointwise on C, hence μ-a.e. The final assertion for any h ≥ g follows by the same argument, since h(n) ≥ g(n) ≥ K(n, l, l)for all su ffi ciently large n. □
+
+We now prove Lemma 2.5 using the diagonal extraction lemma. 
+
+Proof of Lemma 2.5. Let {vn}n≥1 ⊂ F e be an E-Cauchy sequence such that vn → v μ-a.e. For each 
+
+n ≥ 1, by definition of Fe, there exists an E-Cauchy sequence {vn,k}k≥1 ⊂ F such that vn,k → vn
+
+μ-a.e. as k → ∞ .We recall that, under our standing assumption that ( M, d) is locally compact and separable and 
+
+μ is a Radon measure, μ is σ-finite. This justifies the use of the diagonal extraction argument below. For every n ≥ 1, applying Proposition A.1 to the sequence {vn,k} yields a map g : N → N with 
+
+g(n) → ∞ such that 
+
+vn,g(n) → v μ-a.e. as n → ∞ .
+
+On the other hand, since for each fixed n we have vn,k → vn in the E-sense as k → ∞ by definition of Fe, there exists a map h : N → N such that 
+
+E(vn,h(n) − vn) < 1
+
+n2 for all n ≥ 1.
+
+Now define 
+
+f (n) : = max {g(n), h(n)} (n ≥ 1) .
+
+Then f (n) ≥ g(n) for all n, so by the final assertion of Proposition A.1, we still have 
+
+vn, f (n) → v μ-a.e. as n → ∞ .
+
+Moreover, since f (n) ≥ h(n) for all n, we also have 
+
+E(vn, f (n) − vn) < 1
+
+n2 for all n ≥ 1.
+
+Thus f simultaneously controls both the μ-a.e. convergence and the energy error. Finally, by the triangle inequality for √E,
+
+pE(vn − v) ≤
+
+q
+
+E(vn − vn, f (n)) +
+
+q
+
+E(vn, f (n) − v) ≤ 1
+
+n +
+
+q
+
+E(vn, f (n) − v).34 CHANG 
+
+Letting n → ∞ , the right-hand side tends to 0; hence E(vn − v) → 0 as n → ∞ . This proves v ∈ F e
+
+and the desired convergence. The proof is complete. □
+
+Acknowledgement . The author thanks Meng Yang for valuable discussions on the extended Dirichlet space, which were instrumental in developing the functional framework of this work. References 
+
+[1] L. A mbrosio , A. M ondino , and G. S avar ´e, Nonlinear di ff usion equations and curvature conditions in metric mea-sure spaces , Memoirs of the American Mathematical Society, 262 (2019), pp. v + 121. [2] M. T. B arlow and R. F. B ass , The construction of Brownian motion on the Sierpi´ nski carpet , Ann. Inst. Henri Poincar´ e Probab. Stat., 25 (1989), pp. 225–257. [3] M. T. B arlow , A. G rigor ’yan , and T. K umagai , On the equivalence of parabolic Harnack inequalities and heat kernel estimates , J. Math. Soc. Japan, 64 (2012), pp. 1091–1146. [4] M. T. B arlow and E. A. P erkins , Brownian motion on the Sierpi´ nski gasket , Probab. Theory Related Fields, 79 (1988), pp. 543–623. [5] K. B artosz , X. C heng , P. K alita , Y. Y u, and C. Z heng , Rothe method for parabolic variational–hemivariational inequalities , Journal of Mathematical Analysis and Applications, 423 (2015), pp. 841–862. [6] E. B erchio , M. B onforte , G. G rillo , and M. M uratori , The fractional porous medium equation on noncompact Riemannian manifolds , Mathematische Annalen, 389 (2024), pp. 3603–3651. [7] M. B onforte , G. G rillo , and J. L. V azquez , Fast di ff usion flow on manifolds of nonpositive curvature , J. Evol. Equ., 8 (2008), pp. 99–128. [8] J. C ao , A. G rigor ’yan , and L. L iu , Construction of heat kernels on metric measure spaces via multiresolution analysis , Mathematische Annalen, 396 (2026), p. 4. [9] S. C ao and H. Q iu , Sobolev spaces on p.c.f. self-similar sets I: Critical orders and atomic decompositions , Journal of Functional Analysis, 282 (2022), p. 109331. [10] Z.-Q. C hen and M. F ukushima , Symmetric Markov processes, time change, and boundary theory , vol. 35 of London Math. Soc. Monographs Series, Princeton University Press, Princeton, NJ, 2012. [11] K. D alrymple , R. S. S trichartz , and J. P. V inson , Fractal di ff erential equations on the Sierpinski gasket , J. Fourier Anal. Appl., 5 (1999), pp. 203–284. [12] A. de Pablo , F. Q uir ´os , A. R odr ´ıguez , and J. L. V´ azquez , A fractional porous medium equation , Advances in Mathematics, 226 (2011), pp. 1378–1409. [13] A. de Pablo , F. Q uir ´os , A. R odr ´ıguez , and J. L. V´ azquez , A general fractional porous medium equation , Commu-nications on Pure and Applied Mathematics, 65 (2012), pp. 1242–1284. [14] J. D iestel and J. U hl , Vector measures , no. 15 in Mathematical Surveys, American Mathematical Society, 1977. [15] L. C. E vans , Partial di ff erential equations , vol. 19 of Graduate Studies in Mathematics, American Mathematical Society, Providence, RI, second ed., 2010. [16] K. J. F alconer , Semilinear PDEs on self-similar fractals , Comm. Math. Phys., 206 (1999), pp. 235–245. [17] K. J. F alconer and J. H u, Non-linear elliptical equations on the Sierpi´ nski gasket , J. Math. Anal. Appl., 240 (1999), pp. 552–573. [18] , Nonlinear di ff usion equations on unbounded fractal domains , J. Math. Anal. Appl., 256 (2001), pp. 606– 624. [19] K. J. F alconer , J. H u, and Y. S un , Inhomogeneous parabolic equations on unbounded metric measure spaces ,Proceedings of the Royal Society of Edinburgh: Section A Mathematics, 142 (2012), p. 1003–1025. [20] M. F ukushima , Dirichlet forms, di ff usion processes and spectral dimensions for nested fractals , in Ideas and methods in mathematical analysis, stochastics, and applications (Oslo, 1988), Cambridge Univ. Press, Cambridge, 1992, pp. 151–161. [21] M. F ukushima , Y. O shima , and M. T akeda , Dirichlet forms and symmetric Markov processes , De Gruyter Studies in Mathematics, Walter de Gruyter & Co., Berlin, 2011. [22] M. F ukushima and T. S hima , On a spectral analysis for the Sierpi´ nski gasket , Potential Anal., 1 (1992), pp. 1–35. [23] A. G rigor ’yan , Heat kernel and analysis on manifolds , vol. 47 of AMS /IP Studies in Advanced Mathematics, American Mathematical Society, Providence, RI; International Press, Boston, MA, 2009. [24] A. G rigor ’yan , E. H u, and J. H u, Two-sided estimates of heat kernels of jump type Dirichlet forms , Adv. Math., 330 (2018), pp. 433–515. [25] A. G rigor ’yan and J. H u, Off -diagonal upper estimates for the heat kernel of the Dirichlet forms on metric spaces ,Invent. Math., 174 (2008), pp. 81–126. [26] , Upper bounds of heat kernels on doubling spaces , Mosc. Math. J., 14 (2014), pp. 505–563. [27] A. G rigor ’yan , J. H u, and K.-S. L au , Generalized capacity, Harnack inequality and heat kernels of Dirichlet forms on metric measure spaces , J. Math. Soc. Japan, 67 (2015), pp. 1485–1549. [28] A. G rigor ’yan and A. T elcs , Two-sided estimates of heat kernels on metric measure spaces , Ann. Probab., 40 (2012), pp. 1212–1284. ON THE WELL-POSEDNESS OF PMES ON GENERAL METRIC MEASURE SPACES 35 
+
+[29] G. G rillo , D. D. M onticelli , and F. P unzo , The porous medium equation on noncompact manifolds with nonneg-ative Ricci curvature: A Green function approach , Journal of Di ff erential Equations, 430 (2025), p. 113191. [30] G. G rillo and M. M uratori , Radial fast di ff usion on the hyperbolic space , Proceedings of the London Mathemat-ical Society, 109 (2014), pp. 283–317. [31] G. G rillo and M. M uratori , Smoothing e ff ects for the porous medium equation on Cartan–Hadamard manifolds ,Nonlinear Analysis, 131 (2016), pp. 346–362. Qualitative and Quantitative Properties of Solutions to Parabolic Equations, in Honor of Victor A. Galaktionov for his 60th Birthday. [32] G. G rillo , M. M uratori , and F. P unzo , The porous medium equation with large initial data on negatively curved Riemannian manifolds , Journal de Math´ ematiques Pures et Appliqu´ ees, 113 (2018), pp. 195–226. [33] G. G rillo , M. M uratori , and J. L. V´ azquez , The porous medium equation on Riemannian manifolds with negative curvature: The large-time behaviour , Advances in Mathematics, 314 (2017), pp. 328–377. [34] G. G rillo , M. M uratori , and J. L. V´ azquez , The porous medium equation on Riemannian manifolds with negative curvature: the superquadratic case , Math. Ann., 373 (2019), pp. 119–153. [35] M. H inz and M. M einert , On the viscous Burgers equation on metric graphs and fractals , J. Fractal Geom., 7 (2020), pp. 137–182. [36] M. H inz , M. R¨ ockner , and A. T eplyaev , Vector analysis for Dirichlet forms and quasilinear PDE and SPDE on metric measure spaces , Stochastic Processes and their Applications, 123 (2013), pp. 4373–4406. [37] M. H inz and W. S chefer , On equations of continuity and transport type on metric graphs and fractals , 2024. [38] J. K igami , Harmonic calculus on p.c.f. self-similar sets , Trans. Amer. Math. Soc., 335 (1993), pp. 721–755. [39] , Analysis on fractals , vol. 143 of Cambridge Tracts in Mathematics, Cambridge University Press, Cam-bridge, 2001. [40] , Resistance forms, quasisymmetric maps and heat kernel estimates , Mem. Amer. Math. Soc., 216 (2012), pp. vi +132. [41] T. K umagai , Estimates of transition densities for Brownian motion on nested fractals , Probab. Theory Related Fields, 96 (1993), pp. 205–224. [42] S. K usuoka and X. Y. Z hou , Dirichlet forms on fractals: Poincar´ e constant and resistance , Probab. Theory Related Fields, 93 (1992), pp. 169–196. [43] T. L indstrøm , Brownian motion on nested fractals , Mem. Amer. Math. Soc., 83 (1990), pp. iv +128. [44] Z. P eng , Y. Z hao , and F. L ong , Existence and uniqueness of the solution to a new class of evolutionary variational hemivariational inequalities , Nonlinear Analysis: Real World Applications, 81 (2025), p. 104210. [45] T. R oub ´ıˇcek , Evolution by pseudomonotone or weakly continuous mappings , Springer Basel, Basel, 2013, pp. 213– 301. [46] M. R¨ ockner , W. W u, and Y. X ie , Stochastic porous media equation on general measure spaces with increasing Lipschitz nonlinearities , Stochastic Processes and their Applications, 128 (2018), pp. 2131–2151. [47] M. R¨ ockner , W. W u, and Y. X ie , Stochastic generalized porous media equations over σ-finite measure spaces with non-continuous di ff usivity function , Potential Analysis, 61 (2024), pp. 731–773. [48] C. S abot , Pure point spectrum for the Laplacian on unbounded nested fractals , Journal of Functional Analysis, 173 (2000), pp. 497–524. [49] M. S chmidt , (weak) hardy and poincar´ e inequalities and criticality theory , in Dirichlet Forms and Related Topics, Z.-Q. Chen, M. Takeda, and T. Uemura, eds., Singapore, 2022, Springer Nature Singapore, pp. 421–459. [50] M. S lodi ˇcka and V. V r´abel ’, Existence and uniqueness of a solution for a field /circuit coupled problem , ESAIM: Mathematical Modelling and Numerical Analysis, 51 (2017), pp. 1045–1061. [51] R. S. S trichartz , Di ff erential equations on fractals , Princeton University Press, Princeton, NJ, 2006. A tutorial. [52] P. S¨ urig , Existence results for Leibenson’s equation on Riemannian manifolds , 2026. [53] A. T eplyaev , Spectral analysis on infinite Sierpi´ nski gaskets , Journal of Functional Analysis, 159 (1998), pp. 537– 567. [54] J. L. V azquez , The Porous Medium Equation: Mathematical Theory , Oxford University Press, 10 2006. [55] J. L. V´ azquez , Fundamental solution and long time behavior of the porous medium equation in hyperbolic space ,Journal de Math´ ematiques Pures et Appliqu´ ees, 104 (2015), pp. 454–484. [56] B. Y in and B. Z eng , Existence and feedback control for a class of nonlinear evolutionary equations , Applicable Analysis, 103 (2024), pp. 1459–1481. [57] E. Z eidler , Hilbert Space Methods and Linear Parabolic Di ff erential Equations , Springer New York, New York, NY, 1990, pp. 402–451. [58] , Monotone Operators and Quasi-Linear Elliptic Di ff erential Equations , Springer New York, New York, NY, 1990, pp. 553–579. School of Mathematics and Statistics , B eijing Technology and Business University , B eijing , 102488, C hina .
+
+Email address : dwchang@btbu.edu.cn
