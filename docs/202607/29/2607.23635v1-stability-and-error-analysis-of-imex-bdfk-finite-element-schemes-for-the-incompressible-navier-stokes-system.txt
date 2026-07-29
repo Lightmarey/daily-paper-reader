@@ -1,0 +1,6934 @@
+Title: Stability and error analysis of IMEX-BDFk finite element schemes for the incompressible Navier-Stokes system
+
+URL Source: https://arxiv.org/pdf/2607.23635v1
+
+Published Time: Tue, 28 Jul 2026 01:23:53 GMT
+
+Number of Pages: 39
+
+Markdown Content:
+STABILITY AND ERROR ANALYSIS OF IMEX-BDF 𝑘 FINITE ELEMENT SCHEMES FOR THE INCOMPRESSIBLE NAVIER-STOKES SYSTEM 
+
+QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO 
+
+Abstract. In this paper, we propose and analyze a class of high-order numerical schemes within a fully discrete finite element framework for the incompressible Navier-Stokes equations with no-slip boundary conditions. The temporal discretization employs a 𝑘 th-order ( 𝑘 = 1, · · · , 6) implicit-explicit backward difference formula (IMEX-BDF 𝑘 ), in which the nonlinear convection term is treated explicitly and the linear Stokes part implicitly, whereas the spatial discretization utilizes Taylor-Hood finite elements. We establish the stability and uniform boundedness of the numerical solution. We further establish optimal order error estimates in both space and time without any CFL-type condition, in the sense that the time step is independent of the spatial mesh size. In three dimensions, these include 𝐿 2- and 𝐻 1-norm error estimates for the velocity and 𝐿 2-norm error estimates for the pressure, with temporal convergence rates up to sixth order for all variables. Numerical experiments are presented to demonstrate the effectiveness of the scheme and to confirm the theoretical convergence rates. 
+
+1. Introduction 
+
+This work develops and analyzes a class of high-order fully discrete finite element methods for the incompressible Navier-Stokes equations based on 𝑘 th-order backward dif-ferentiation formula (BDF 𝑘 ), with temporal orders 𝑘 = 1, · · · , 6. The governing equations are posed on a three-dimensional domain Ω ⊂ R3 and read 
+
+𝜕 u
+
+𝜕𝑡 − 𝜈 Δu + ( u · ∇) u + ∇ 𝑝 = f in Ω × ( 0, 𝑇 ],(1.1) div u = 0 in Ω × ( 0, 𝑇 ],(1.2) where 𝑇 > 0 is a given finite final time, u denotes the velocity field, 𝑝 the pressure, 𝜈 the viscosity of the fluid, and f the external force. The system is supplemented with the initial condition and no-slip boundary condition (1.3) u(x, 0) = u0 ∀ x ∈ Ω, u = 0 on 𝜕 Ω × ( 0, 𝑇 ].
+
+Considerable effort has been devoted to the development of efficient and reliable nu-merical methods for the Navier-Stokes equations, with particular emphasis on temporal discretization strategies. These methods can be naturally classified according to their order of accuracy. First-order methods, such as the semi-implicit Euler scheme, are widely used 
+
+2020 Mathematics Subject Classification. Primary 65M60, 65M15, 65M12, 76D05. 
+
+Key words and phrases. Navier-Stokes equations, IMEX-BDF 𝑘 , Finite element method, Optimal error anal-ysis, Unconditional stability. S. Mao was supported by the National Key Research and Development Program of China (2024YFA1012502), and the National Natural Science Foundation of China (No. 12271514). arXiv:2607.23635v1 [math.NA] 26 Jul 2026 2 QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO 
+
+due to their simplicity, robustness, and unconditional stability [4, 17, 29, 31]. Implicit-explicit (IMEX) first-order schemes have also attracted attention [18, 20, 30], as they treat the nonlinear terms explicitly while retaining an implicit treatment of the stiff lin-ear components, thereby avoiding the solution of nonlinear systems at each time step and reducing computational costs. Second-order methods, including the Crank-Nicolson scheme and the BDF2 method, provide an improved balance between accuracy and stabil-ity and are among the most commonly employed approaches in finite element frameworks [7, 11, 12, 19, 26, 27, 34, 37]. However, even these first- and second-order schemes may be insufficient for capturing complex transient phenomena, especially in problems involving multi-scale dynamics such as turbulence and interfacial instabilities. Motivated by these limitations, the development of high-order temporal discretization techniques, such as third-, fourth-, and higher-order BDF and linear multistep methods, has become an important research direction. Compared with low-order schemes, high-order methods can significantly improve temporal accuracy under the same spatial discretization, leading to faster convergence toward the exact solution. This advantage is particularly pronounced in problems that involve fine-scale physical features, including small-scale turbulence, interfacial instabilities, and vortex dynamics. When a prescribed accuracy is targeted, high-order schemes permit larger time steps or coarser spatial meshes, thereby reducing the overall computational cost and substantially enhancing efficiency, a crucial benefit in large-scale three-dimensional simulations [15, 16]. In recent years, several key advances have been achieved in the analysis of high-order temporal discretization methods for the Navier-Stokes equations. In [9], uniform a priori bounds were established for semi-discrete high-order IMEX schemes of up to fourth-order in two-dimensional (2D) periodic domains. Later, [25] proposed a unified analytical framework for IMEX-BDF 𝑘 schemes coupled with Fourier-Galerkin spectral methods un-der periodic boundary conditions, proving 𝑘 th-order convergence for 1 ≤ 𝑘 ≤ 5. This framework was further extended in [28] through the introduction of discrete orthogonal convolution kernels, yielding optimal 𝐿 2-error estimates for the velocity under condition 
+
+𝜏 ≤ 𝑐𝑁 −2/𝑘 . It should be noted that all these works rely on periodic boundary conditions or spectral methods, which limits their applicability to realistic problems involving complex geometries and essential physical constraints. However, many practical flow phenomena occur in domains with curved boundaries, corners, or complex geometries where spectral or Fourier methods are not readily appli-cable. Finite element methods, on the other hand, offer great flexibility in handling such irregular domains and naturally accommodate a variety of boundary conditions, including the no-slip condition. Although the finite element method (FEM) is widely acknowledged as a highly effective tool for solving the Navier-Stokes equations in such complex settings, rigorous numerical analysis of high-order temporal discretization schemes within the FEM framework remains scarce. To our knowledge, the first error analysis of a third-order BDF scheme for the Navier-Stokes equations was carried out by Baker et al. [6] using a non-standard Galerkin approach, in which optimal 𝐿 2 convergence rates for the velocity were proved under the restriction 𝜏 ≤ 𝑐ℎ 2/3. Later, [1] analyzed a discontinuous Galerkin time discretization combined with continuous FEM for transient Stokes problems, deriving error estimates by exploiting the commutativity of temporal and spatial interpolation operators. For Stokes equations posed on time-dependent domains, an arbitrary Lagrangian-Eulerian formulation was proposed in [32], which employed BDF 𝑘 (1 ≤ 𝑘 ≤ 5) for temporal dis-cretization and Taylor-Hood finite elements in space. A notable breakthrough was recently achieved by [13], who presented the first rigorous finite element error analysis for fourth-OPTIMAL ERROR ANALYSIS FOR HIGH-ORDER NAVIER-STOKES EQUATIONS 3
+
+and fifth-order BDF discretizations of the incompressible Navier-Stokes equations. They established optimal error estimates for fully discrete BDF 𝑘 (𝑘 ≤ 5) finite element schemes under a CFL-type restriction of the form 𝜏 ≤ 𝐶ℎ 𝛼 , employing a fully implicit treatment of the nonlinear convection term. More recently, [35] proposed a semi-implicit finite ele-ment method based on multi-step BDF discretizations of orders up to five for the unsteady Navier-Stokes-Darcy system. Their analysis established optimal 𝐿 2-error estimates for the coupled Stokes-Darcy Ritz projection without requiring the standard 𝐻 2-regularity assump-tion. Nevertheless, the convergence analysis still relies on a CFL-type time-step restriction. It is well known that BDF methods of order greater than six are no longer zero-stable (see Chapter III of [15]), making BDF6 the highest-order member of the BDF family suitable for practical computations. The primary challenge for BDF6 stems from the absence of a positive multiplier in the sense of Nevanlinna and Odeh [33], which distinguishes it from its lower-order counterparts ( 𝑘 ≤ 5). A significant breakthrough was recently made by [3], who provided the stability analysis of BDF6 for parabolic problems. This result was further extended to the Stokes problem in [10], where up to sixth-order convergence was established. Despite these important developments, rigorous analyses for high-order finite element approximations of the incompressible Navier-Stokes equations remain far from complete. In particular, all existing analyses of fourth- and fifth-order BDF finite ele-ment schemes require CFL-type restrictions, while no rigorous unconditional stability and optimal error analysis is currently available for sixth-order finite element discretizations. Motivated by the above discussion, we develop and analyze a class of fully discrete finite element approximations of the incompressible Navier-Stokes equations based on BDF 𝑘 
+
+time discretizations with orders 𝑘 = 1, · · · , 6. The nonlinear convection term is treated explicitly, while the viscous and pressure terms are discretized implicitly. This IMEX treatment of the nonlinearity yields, at each time step, a linear system with a constant coefficient matrix, thereby simplifying the computation. For BDF orders 𝑘 = 1, · · · , 5, our analysis is built upon the multiplier framework of Nevanlinna and Odeh [33]. By combining the associated discrete energy technique with finite element approximation theory, we establish unconditional stability and optimal-order error estimates for fully discrete finite element approximations of the 3D Navier-Stokes equations. The sixth-order case requires a separate and substantially more delicate analysis. Although a suitable multiplier structure for BDF6 has recently been developed for linear parabolic problems [3] and subsequently extended to the Stokes problem [10], its extension to the Navier-Stokes equations is nontrivial due to the interaction between the sixth-order multistep discretization and the explicitly treated nonlinear convection term. To address this obstacle, we recast the multistep velocity combination appearing in the extrapolated convection term as a weighted sum of sixth-order temporal derivatives and derive an identity linking the current time derivative to the solution values at the current and six previous time levels. These ingredients provide the key analytical tools for controlling the convection-induced consistency errors and recovering the full sixth-order temporal accuracy. Combining the unified analysis for 𝑘 = 1, · · · , 5 with the dedicated sixth-order analysis, we obtain unconditional energy stability and optimal error estimates for all IMEX-BDF 𝑘 schemes with 𝑘 = 1, · · · , 6. In particular, optimal convergence rates are obtained for the velocity in the 𝐿 ∞ (0, 𝑇 ; L2) and 𝐿 ∞ (0, 𝑇 ; H1) norms and for the pressure in the 𝐿 2 (0, 𝑇 ; 𝐿 2) norm. The error bounds are optimal in both space and time, yielding full 𝑘 th-order temporal convergence for every order considered. To the best of our knowledge, existing rigorous analyses of third-, fourth-, and fifth-order fully discrete BDF finite element schemes for the Navier-Stokes equations all require CFL-type restrictions. The present work removes this 4 QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO 
+
+limitation and proves unconditional stability together with optimal-order error estimates for fully discrete IMEX-BDF 𝑘 finite element approximations of orders 𝑘 = 4, 5 and 6. In particular, it provides the first rigorous convergence analysis for a sixth-order IMEX-BDF finite element scheme for the incompressible Navier-Stokes equations. Numerical experiments corroborate the theoretical analysis and demonstrate the effectiveness of the proposed schemes. The remainder of this paper is organized as follows. Section 2 introduces the necessary preliminaries, including notation, Sobolev spaces, the variational formulation and the dis-crete method for Navier-Stokes equations, and then states the main results on unconditional stability and optimal error estimates. Section 3 provides a detailed proof of the stability of the numerical solutions, followed by a rigorous derivation of the optimal error estimates for the velocity in the 𝐿 2- and 𝐻 1-norms and for the pressure in the 𝐿 2-norm. Numerical experiments are given in Section 4 to support the theoretical findings. Finally, concluding remarks are summarized in Section 5. 2. Preliminaries 
+
+We begin by introducing basic notation that will be used throughout the paper. For any integer 𝑚 ∈ N+, 1 ≤ 𝑝 ≤ ∞ , let 𝑊 𝑚, 𝑝 (Ω) denote the standard Sobolev space, which is denoted by 𝐻 𝑚 (Ω) when 𝑝 = 2. The associated norm in 𝑊 𝑚, 𝑝 (Ω) is denoted by 
+
+∥ · ∥ 𝑚, 𝑝 . The 𝐿 2 inner product is defined as (𝜙, 𝜓 ) = ∫ 
+
+> Ω
+
+𝜙𝜓 𝑑𝑥 , and the corresponding norm is denoted by ∥ · ∥ 0. Vector-valued functions appear in boldface notation, such as 
+
+u = (𝑢 1, 𝑢 2, 𝑢 3)⊤ and L2 (Ω) = (𝐿 2 (Ω)) 3. The superscript ⊤ denotes transposition. We use 𝐶 and 𝑐 , with or without subscripts, to denote generic positive constants independent of the discretization parameters, which may take different values at different places. For problem described by (1.1)-(1.3), we introduce the following Sobolev spaces 
+
+X = H10 (Ω), X0 = {v ∈ X, div v = 0} , 𝑄 =
+
+
+
+𝑞 ∈ 𝐿 2 (Ω),
+
+∫
+
+> Ω
+
+𝑞 (𝑥 ) 𝑑𝑥 = 0
+
+
+
+.
+
+For the sake of convenience, we define the following notation 
+
+𝑎 (u, u, v) = (( u · ∇) u, v), 𝑑 (v, 𝑝 ) = (div v, 𝑝 ).
+
+The following scheme presents the weak formulation of (1.1)-(1.3): find the solution 
+
+(u, 𝑝 ) ∈ 𝐿 2 (0, 𝑇 ; X) ∩ 𝐿 ∞ (0, 𝑇 ; L2 (Ω)) × 𝐿 ∞ (0, 𝑇 ; 𝑄 ) such that, for all (v, 𝑞 ) ∈ ( X × 𝑄 )
+
+ 𝜕 u
+
+𝜕𝑡 , v
+
+
+
++ 𝜈 (∇ u, ∇v) + 𝑎 (u, u, v) − 𝑑 (v, 𝑝 ) = (f , v),(2.1) 
+
+𝑑 (u, 𝑞 ) = 0.(2.2) We also frequently employ the following inequalities [36] (2.3) 𝑎 (w, u, v) ≤ 
+
+
+
+𝐶 ∥w∥1,2 ∥u∥1,2 ∥v∥1,2.𝐶 ∥w∥2,2 ∥u∥0 ∥v∥1,2.𝐶 ∥w∥2,2 ∥u∥1,2 ∥v∥0.𝐶 ∥w∥1,2 ∥u∥2,2 ∥v∥0.𝐶 ∥w∥0 ∥u∥2,2 ∥v∥1,2.
+
+The domain Ω is assumed to be convex polyhedral and partitioned into a mesh Tℎ,which consists of tetrahedral elements 𝐾 . The family of meshes {T ℎ } is assumed to be shape-regular and quasi-uniform. To approximate the velocity-pressure pair (u, 𝑝 ), we employ generalized Taylor-Hood elements (X𝑙 ℎ, 𝑄 𝑙 −1 
+
+> ℎ
+
+) with 𝑙 ≥ 2. Here, X𝑙 ℎ represents the OPTIMAL ERROR ANALYSIS FOR HIGH-ORDER NAVIER-STOKES EQUATIONS 5
+
+𝑙 th-order vectorial Lagrange finite element subspace of X, while 𝑄 𝑙 −1 
+
+> ℎ
+
+is the (𝑙 − 1)th-order scalar Lagrange finite element subspace of 𝑄 , see [14] for more details. In the lowest-order stable approximation, the MINI element pair is adopted for the velocity-pressure approximation. Furthermore, the discrete kernel space of the divergence operator can be defined by 
+
+X𝑙  
+
+> 0ℎ
+
+= vℎ ∈ X𝑙 ℎ, 𝑑 (vℎ, 𝑞 ℎ) = 0 ∀ 𝑞 ℎ ∈ 𝑄 𝑙 −1 
+
+> ℎ
+
+.
+
+By the Fortin criterion, the discrete inf-sup condition (see, e.g. Chapter 2 of [8] or [24]) holds (2.4) inf  
+
+> 0≠𝑞 ℎ∈𝑄 𝑙 −1
+> ℎ
+
+sup  
+
+> 0≠vℎ∈X𝑙 ℎ
+
+(𝑞 ℎ, div vℎ)∥vℎ ∥1,2 ∥𝑞 ℎ ∥0
+
+≥ 𝜒 ∗,
+
+where 𝜒 ∗ denotes a generic positive constant dependent on the domain Ω.To describe the BDF 𝑘 time discretization, let 𝑁 be a positive integer and 0 = 𝑡 0 < 𝑡 1 <
+
+· · · < 𝑡 𝑁 = 𝑇 a uniform partition of [0, 𝑇 ] with time step size 𝜏 = 𝑡 𝑖 − 𝑡 𝑖 −1, 𝑖 = 1, 2, · · · , 𝑁 ,and denote by u𝑛 = u(𝑡 𝑛 ) the exact solution at time 𝑡 𝑛 . We consider the following fully discrete finite element approximation of (2.1)-(2.2): given u0
+
+> ℎ
+
+, u1
+
+> ℎ
+
+, · · · , u𝑘 −1 
+
+> ℎ
+
+, find 
+
+(u𝑛 +1 
+
+> ℎ
+
+, 𝑝 𝑛 +1 
+
+> ℎ
+
+) ∈ ( X𝑙 ℎ × 𝑄 𝑙 −1 
+
+> ℎ
+
+) such that for all (vℎ, 𝑞 ℎ) ∈ ( X𝑙 ℎ × 𝑄 𝑙 −1 
+
+> ℎ
+
+)
+
+𝛼 𝑘 u𝑛 +1 
+
+> ℎ
+
+− 𝛽 𝑘 (u𝑛 ℎ)
+
+𝜏 , vℎ
+
+!
+
++ 𝜈 (∇ u𝑛 +1 
+
+> ℎ
+
+, ∇vℎ) + 𝑎 (𝛾 𝑘 (u𝑛 ℎ), 𝛾 𝑘 (u𝑛 ℎ), vℎ)− 𝑑 (vℎ, 𝑝 𝑛 +1 
+
+> ℎ
+
+) = (f 𝑛 +1, vℎ),(2.5) 
+
+𝑑 (u𝑛 +1 
+
+> ℎ
+
+, 𝑞 ℎ) = 0.(2.6) The initial values are defined by uℓℎ = 𝐿 ℎuℓ , with ℓ = 0, 1, · · · , 𝑘 −1, where 𝐿 ℎ : L2 (Ω) → 
+
+X𝑙  
+
+> 0ℎ
+
+denotes the L2-orthogonal projection. The following standard estimate holds [2, 22], 
+
+∥uℓ − uℓℎ ∥0 ≤ 𝐶ℎ 𝑙 +1 ∥uℓ ∥𝑙 +1,2.(2.7) In the above formulation, the coefficients 𝛼 𝑘 and the operators 𝛽 𝑘 and 𝛾 𝑘 for 𝑘 = 1, · · · , 6, see, [15, 16], are given by: first-order, 
+
+𝛼 1 = 1, 𝛽 1 (u𝑛 ℎ) = u𝑛 ℎ, 𝛾 1 (u𝑛 ℎ) = u𝑛 ℎ,(2.8) second-order, 
+
+𝛼 2 = 32 , 𝛽 2 (u𝑛 ℎ) = 2u𝑛 ℎ − 12 u𝑛 −1 
+
+> ℎ
+
+, 𝛾 2 (u𝑛 ℎ) = 2u𝑛 ℎ − u𝑛 −1 
+
+> ℎ
+
+,(2.9) third-order, 
+
+𝛼 3 = 11 6 , 𝛽 3 (u𝑛 ℎ) = 3u𝑛 ℎ − 32 u𝑛 −1 
+
+> ℎ
+
++ 13 u𝑛 −2 
+
+> ℎ
+
+,𝛾 3 (u𝑛 ℎ) = 3u𝑛 ℎ − 3u𝑛 −1 
+
+> ℎ
+
++ u𝑛 −2 
+
+> ℎ
+
+,(2.10) fourth-order, 
+
+𝛼 4 = 25 12 , 𝛽 4 (u𝑛 ℎ) = 4u𝑛 ℎ − 3u𝑛 −1 
+
+> ℎ
+
++ 43 u𝑛 −2 
+
+> ℎ
+
+− 14 u𝑛 −3 
+
+> ℎ
+
+,𝛾 4 (u𝑛 ℎ) = 4u𝑛 ℎ − 6u𝑛 −1 
+
+> ℎ
+
++ 4u𝑛 −2 
+
+> ℎ
+
+− u𝑛 −3 
+
+> ℎ
+
+,(2.11) 6 QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO 
+
+fifth-order, 
+
+𝛼 5 = 137 60 , 𝛽 5 (u𝑛 ℎ) = 5u𝑛 ℎ − 5u𝑛 −1 
+
+> ℎ
+
++ 10 3 u𝑛 −2 
+
+> ℎ
+
+− 54 u𝑛 −3 
+
+> ℎ
+
++ 15 u𝑛 −4 
+
+> ℎ
+
+,𝛾 5 (u𝑛 ℎ) = 5u𝑛 ℎ − 10 u𝑛 −1 
+
+> ℎ
+
++ 10 u𝑛 −2 
+
+> ℎ
+
+− 5u𝑛 −3 
+
+> ℎ
+
++ u𝑛 −4 
+
+> ℎ
+
+,(2.12) sixth-order, 
+
+𝛼 6 = 147 60 , 𝛽 6 (u𝑛 ℎ) = 6u𝑛 ℎ − 15 2 u𝑛 −1 
+
+> ℎ
+
++ 20 3 u𝑛 −2 
+
+> ℎ
+
+− 15 4 u𝑛 −3 
+
+> ℎ
+
++ 65 u𝑛 −4 
+
+> ℎ
+
+− 16 u𝑛 −5 
+
+> ℎ
+
+,𝛾 6 (u𝑛 ℎ) = 6u𝑛 ℎ − 15 u𝑛 −1 
+
+> ℎ
+
++ 20 u𝑛 −2 
+
+> ℎ
+
+− 15 u𝑛 −3 
+
+> ℎ
+
++ 6u𝑛 −4 
+
+> ℎ
+
+− u𝑛 −5 
+
+> ℎ
+
+.(2.13) 
+
+Remark 2.1. We emphasize that the present analysis differs substantially from existing results on BDF-based finite element discretizations for the Navier-Stokes equations, which are typically limited to orders 𝑘 = 3, 4, 5 and require CFL-type step-size restrictions of the form 𝜏 ≤ 𝐶ℎ 𝛼 . The unified framework developed in this work establishes unconditional stability and convergence for all orders 𝑘 = 1, · · · , 6, thereby removing any coupling condition between the time-step size and the mesh size. In particular, the unconditional stability and optimal-order error estimates for the sixth-order IMEX-BDF scheme appear to be new. A further feature of the analysis is that the nonlinear convection term is treated in an IMEX manner, so that only linear problems have to be solved at each time step. The scheme therefore retains the computational efficiency of linearized time stepping while still admitting an unconditional energy estimate without any CFL-type restriction. 
+
+To establish the boundedness of the numerical solution in the energy norm utilizing BDF 𝑘 scheme within a unified framework, we define herein the discrete Stokes operator 
+
+Aℎ = −𝐿 ℎΔℎ, cf [21], and −Δℎ is defined in such a way that 
+
+(− Δℎuℎ, vℎ) = (∇ uℎ, ∇vℎ), ∀ uℎ, vℎ ∈ X𝑙 ℎ .
+
+The corresponding discrete norm is defined as ∥vℎ ∥2,ℎ = ∥A ℎvℎ ∥0.To achieve optimal-order 𝐿 2-norm error estimate for the velocity field, we impose the following regularity conditions on the exact solution. 
+
+Hypothesis 2.1. The solution of (2.1)-(2.2) exists and satisfies 
+
+u ∈ 𝐿 ∞ (0, 𝑇 ; H1+𝑙 (Ω)) , 𝜕 u
+
+𝜕𝑡 ∈ 𝐿 2 (0, 𝑇 ; H1+𝑙 (Ω)) , 𝑝 ∈ 𝐿 ∞ (0, 𝑇 ; 𝐻 𝑙 (Ω)) ,𝜕 𝑘 +1u
+
+𝜕𝑡 𝑘 +1 ∈ 𝐿 2 (0, 𝑇 ; L2 (Ω)) , 𝜕 𝑘 u
+
+𝜕𝑡 𝑘 ∈ 𝐿 2 (0, 𝑇 ; H1 (Ω)) .
+
+In order to derive the optimal 𝐻 1-norm of velocity and the optimal 𝐿 2-norm error estimate of pressure, we need to further impose the following regularity assumption on the exact solution. 
+
+Hypothesis 2.2. The solution of (2.1)-(2.2) exists and satisfies 
+
+𝜕 𝑘 +1u
+
+𝜕𝑡 𝑘 +1 ∈ 𝐿 ∞ (0, 𝑇 ; H1 (Ω)) , 𝜕 𝑘 u
+
+𝜕𝑡 𝑘 ∈ 𝐿 ∞ (0, 𝑇 ; H2 (Ω)) .
+
+Theorem 2.1. Let u𝑛 ℎ denote the numerical solution generated by the scheme (2.5)-(2.6) with 𝑘 = 1, · · · , 6. Then there exist a constant 𝐶 ∗ > 0, independent of 𝜏 and ℎ, such that, for 𝑚 + 1 ≤ 𝑁 
+
+∥∇ u𝑚 +1 
+
+> ℎ
+
+∥20 +
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =𝑘 −1
+
+𝜈𝜏 ∥A ℎu𝑛 +1 
+
+> ℎ
+
+∥20 ≤ 𝐶 ∗.(2.14) OPTIMAL ERROR ANALYSIS FOR HIGH-ORDER NAVIER-STOKES EQUATIONS 7
+
+Assume, in addition, that the continuous problem (2.1)-(2.2) admits a unique solution 
+
+(u𝑛 , 𝑝 𝑛 ) satisfying Hypothesis 2.1. Then the finite element problem (2.5)-(2.6) admits a unique solution (u𝑛 ℎ, 𝑝 𝑛 ℎ). Moreover, there exist a constant 𝜏 0 > 0, independent of 𝜏 and ℎ,such that, for 𝜏 ≤ 𝜏 0
+
+∥u𝑚 +1 − u𝑚 +1 
+
+> ℎ
+
+∥0 ≤ 𝐶 𝑢 
+
+
+
+ℎ𝑙 +1 + 𝜏 𝑘 
+
+,(2.15) 
+
+where the constant 𝐶 𝑢 depends on 𝑇, 𝜈, Ω and the exact solution u, but is independent of 𝜏 
+
+and ℎ. Moreover, if Hypothesis 2.2 additionally holds, then there exists a positive constant 
+
+ℎ0 such that, for ℎ ≤ ℎ0, the following optimal 𝐻 1-error estimate holds 
+
+∥∇ u𝑚 +1 − ∇ u𝑚 +1 
+
+> ℎ
+
+∥0 ≤ 𝐶 𝑢 
+
+
+
+ℎ𝑙 + 𝜏 𝑘 
+
+.(2.16) Based on the results established in Theorem 2.1, we derive the optimal error estimate for the pressure field. 
+
+Theorem 2.2. Under the same conditions as Theorem 2.1, with 𝑘 = 1, · · · , 6, the following estimate holds for all 𝑚 + 1 ≤ 𝑁 𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =𝑘 −1
+
+∥ 𝑝 𝑛 +1 − 𝑝 𝑛 +1 
+
+> ℎ
+
+∥20 ≤ 𝐶 𝑢, 𝑝 
+
+
+
+ℎ2𝑙 + 𝜏 2𝑘 
+
+,
+
+where the constant 𝐶 𝑢, 𝑝 depends on 𝑇, 𝜈, Ω and the exact solution u, 𝑝 , but is independent of 𝜏 and ℎ.
+
+Remark 2.2. The proposed fully discrete IMEX-BDF 𝑘 schemes are energy stable for sufficiently small time steps 𝜏 and mesh sizes ℎ. In space, the schemes achieve optimal-order convergence rates for the velocity in both the 𝐿 2- and 𝐻 1-norms and for the pressure in the 𝐿 2-norm. In time, they attain the optimal 𝑘 th-order convergence rate for all 𝑘 = 1, · · · , 6
+
+in all of these error estimates. Moreover, the stability and error estimates are established without any CFL-type condition, in the sense that the admissible time-step restriction is independent of the spatial mesh size. 
+
+3. Proofs of the main results 
+
+3.1. Preparations for error analysis. Prior to analyzing the stability and optimal error estimates of the numerical solution, we first present several necessary lemmas. The follow-ing two discrete versions of the Gr ¥onwall lemma are frequently invoked, and their detailed proofs are provided in [23]. These lemmas are essential for establishing the error estimates of the numerical scheme. 
+
+Lemma 3.1. (Gr ¥onwall Lemma 1) Let 𝐶 ★★ , 𝜏, 𝑎 𝑛 , 𝑏 𝑛 , 𝑐 𝑛 and 𝑑 𝑛 be non-negative numbers with 𝑛 ≥ 0 such that 
+
+𝑎 𝑚 + 𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =0
+
+𝑏 𝑛 ≤ 𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =0
+
+𝑑 𝑛 𝑎 𝑛 + 𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =0
+
+𝑐 𝑛 + 𝐶 ★★ ∀ 𝑚 ≥ 0.
+
+Suppose that 𝜏𝑑 𝑛 < 1, for all n, and set 𝜎 𝑛 = (1 − 𝜏𝑑 𝑛 )−1. Then, 
+
+𝑎 𝑚 + 𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =0
+
+𝑏 𝑛 ≤ exp 𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =0
+
+𝜎 𝑛 𝑑 𝑛 
+
+! ( 
+
+𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =0
+
+𝑐 𝑛 + 𝐶 ★★ 
+
+)
+
+∀ 𝑚 ≥ 0.8 QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO 
+
+Lemma 3.2. (Gr ¥onwall Lemma 2) Let 𝐶 ★★ , 𝜏, 𝑎 𝑛 , 𝑏 𝑛 , 𝑐 𝑛 and 𝑑 𝑛 be non-negative numbers with 𝑛 ≥ 0 such that 
+
+𝑎 𝑚 + 𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =0
+
+𝑏 𝑛 ≤ 𝜏 
+
+> 𝑚 −1
+
+∑︁ 
+
+> 𝑛 =0
+
+𝑑 𝑛 𝑎 𝑛 + 𝜏 
+
+> 𝑚 −1
+
+∑︁ 
+
+> 𝑛 =0
+
+𝑐 𝑛 + 𝐶 ★★ ∀ 𝑚 ≥ 0.
+
+Then, 
+
+𝑎 𝑚 + 𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =0
+
+𝑏 𝑛 ≤ exp 𝜏 
+
+> 𝑚 −1
+
+∑︁ 
+
+> 𝑛 =0
+
+𝑑 𝑛 
+
+! ( 
+
+𝜏 
+
+> 𝑚 −1
+
+∑︁ 
+
+> 𝑛 =0
+
+𝑐 𝑛 + 𝐶 ★★ 
+
+)
+
+∀ 𝑚 ≥ 0.
+
+We conclude by recalling the following important result established by Nevanlinna and Odeh [33] based on Dahlquist’s G-stability theory, which establishes the stability properties of BDF 𝑘 schemes for 𝑘 = 1, · · · , 5. 
+
+Lemma 3.3. For 𝑘 = 1, · · · , 5, there exist 0 ≤ 𝜇 𝑘 < 1, a positive definite symmetric matrix 
+
+𝐺 = (𝑔 𝑖 𝑗 ) ∈ R𝑘,𝑘 and real numbers 𝛿 0, · · · , 𝛿 𝑘 such that 
+
+(𝛼 𝑘 u𝑛 +1 − 𝛽 𝑘 (u𝑛 ), u𝑛 +1 − 𝜇 𝑘 u𝑛 ) =
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (u𝑛 +1+𝑖 −𝑘 , u𝑛 +1+ 𝑗 −𝑘 )−
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (u𝑛 +𝑖 −𝑘 , u𝑛 + 𝑗 −𝑘 ) + 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =0
+
+𝛿 𝑖 u𝑛 +1+𝑖 −𝑘 
+
+> 20
+
+,
+
+where the smallest possible values of 𝜇 𝑘 are 𝜇 1 = 𝜇 2 = 0, 𝜇 3 = 0.0836 , 𝜇 4 = 0.2878 , 𝜇 5 =
+
+0.8160 , and 𝛼 𝑘 , 𝛽 𝑘 are defined in (2.8)-(2.12). 
+
+The absence of a Nevanlinna and Odeh multiplier for the six-step BDF method neces-sitates an alternative approach to establishing energy stability and optimal error estimates. We therefore employ the energy estimates developed for BDF6 in the setting of an abstract parabolic PDE in a Hilbert space, as presented in sections 3.1-3.2 of [3]. Further details can be found in Lemma 3.6 and Theorem 5.1 of [10]. 
+
+Lemma 3.4. There exist a positive definite symmetric matrix 𝐺 = (𝑔 𝑖 𝑗 ) ∈ R6,6 such that for u𝑛 −5, u𝑛 −4, u𝑛 −3, u𝑛 −2, u𝑛 −1, u𝑛 , u𝑛 +1 in the inner product space 
+
+(𝛼 6u𝑛 +1 − 𝛽 6 (u𝑛 ), ˆu𝑛 +1) ≥ 
+
+> 6
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (u𝑛 +𝑖 −5, u𝑛 + 𝑗 −5) − 
+
+> 6
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (u𝑛 +𝑖 −6, u𝑛 + 𝑗 −6),
+
+where ˆu𝑛 +1 = u𝑛 +1 − 13 9 u𝑛 + 25 36 u𝑛 −1 − 19 u𝑛 −2, and 𝛼 6, 𝛽 6 are defined in (2.13). 
+
+To facilitate the error analysis, we introduce the Galerkin projection operators. Given 
+
+(u, 𝑝 ) ∈ ( X0 × 𝑄 ), then our aim is to find Pℎu ∈ X𝑙 ℎ, Qℎ 𝑝 ∈ 𝑄 𝑙 −1 
+
+> ℎ
+
+, for all (vℎ, 𝑞 ℎ) ∈ (X𝑙 ℎ × 𝑄 𝑙 −1 
+
+> ℎ
+
+), the following holds 
+
+𝜈 (∇P ℎu, ∇vℎ) − 𝑑 (vℎ, Qℎ 𝑝 ) + 𝑑 (P ℎu, 𝑞 ℎ) = 𝜈 (∇ u, ∇vℎ) − 𝑑 (vℎ, 𝑝 ) + 𝑑 (u, 𝑞 ℎ).
+
+(3.1) OPTIMAL ERROR ANALYSIS FOR HIGH-ORDER NAVIER-STOKES EQUATIONS 9
+
+As established in [14], the following key properties are recalled 
+
+∥u𝑛 +1 − P ℎu𝑛 +1 ∥0 + ℎ∥∇( u𝑛 +1 − P ℎu𝑛 +1)∥ 0 + ℎ∥ 𝑝 𝑛 +1 − Q ℎ 𝑝 𝑛 +1 ∥0
+
+≤ 𝐶ℎ 1+𝑙 
+
+∥u𝑛 +1 ∥1+𝑙, 2 + ∥ 𝑝 𝑛 +1 ∥𝑙, 2
+
+
+
+,
+
+𝜕 (u𝑛 +1 − P ℎu𝑛 +1)
+
+𝜕𝑡 0
+
+≤ 𝐶ℎ 1+𝑙 𝜕 u𝑛 +1
+
+𝜕𝑡 𝑙 +1,2
+
+.(3.2) For notational convenience, we define here and hereafter, 
+
+𝑒 𝑛 +1 
+
+> u
+
+= u𝑛 +1 − P ℎu𝑛 +1, 𝑒 𝑛 +1 
+
+> 𝑝
+
+= 𝑝 𝑛 +1 − Q ℎ 𝑝 𝑛 +1, 𝜂 𝑛 +1 
+
+> u
+
+= Pℎu𝑛 +1 − u𝑛 +1 
+
+> ℎ
+
+, 𝜂 𝑛 +1 
+
+> 𝑝
+
+= Qℎ 𝑝 𝑛 +1 − 𝑝 𝑛 +1 
+
+> ℎ
+
+.
+
+Setting v = vℎ in (2.1) and 𝑞 = 𝑞 ℎ in (2.2), and combining with (2.5)-(2.6) as well as (3.1), we derive the error equations for u𝑛 +1 
+
+> ℎ
+
+and 𝑝 𝑛 +1 
+
+> ℎ
+
+as 
+
+(𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+), vℎ) + 𝜈𝜏 (∇ 𝜂 𝑛 +1 
+
+> u
+
+, ∇vℎ) − 𝜏 (𝜂 𝑛 +1 
+
+> 𝑝
+
+, ∇ · vℎ)
+
+= − 𝜏𝑎 (u𝑛 +1, u𝑛 +1, vℎ) + 𝜏𝑎 (𝛾 𝑘 (u𝑛 ℎ), 𝛾 𝑘 (u𝑛 ℎ), vℎ)+ ( 𝛼 𝑘 Pℎu𝑛 +1 − 𝛽 𝑘 (P ℎu𝑛 ) − 𝜏𝜕 𝑡 u𝑛 +1, vℎ)
+
+=(𝜏𝐸 𝑘, 1 + 𝐸 𝑘, 2 + 𝜏𝐸 𝑘, 3, vℎ),(3.3) 
+
+𝜏 (𝑞 ℎ, ∇ · 𝜂 𝑛 +1 
+
+> u
+
+) = 0,(3.4) where 
+
+𝐸 𝑘, 1 = − u𝑛 +1 · ∇ u𝑛 +1 + 𝛾 𝑘 (u𝑛 ℎ) · ∇ 𝛾 𝑘 (u𝑛 ℎ)
+
+=[− u𝑛 +1 + 𝛾 𝑘 (u𝑛 ) − 𝛾 𝑘 (u𝑛 − u𝑛 ℎ)] · ∇ u𝑛 +1
+
+− 𝛾 𝑘 (u𝑛 ℎ) · ∇[ u𝑛 +1 − 𝛾 𝑘 (u𝑛 )] − 𝛾 𝑘 (u𝑛 ℎ) · ∇ 𝛾 𝑘 (u𝑛 − u𝑛 ℎ),
+
+and 
+
+𝐸 𝑘, 2 =𝛼 𝑘 Pℎu𝑛 +1 − 𝛽 𝑘 (P ℎu𝑛 ) − 𝜏 𝜕 Pℎu𝑛 +1
+
+𝜕𝑡 =
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+(𝑠 − 𝑡 𝑛 +1−𝑖 )𝑘 𝜕 𝑘 +1 Pℎu
+
+𝜕𝑡 𝑘 +1 (𝑠 ) 𝑑𝑠, 
+
+where 𝑜 𝑖 are fixed, bounded constants determined by the truncation errors, for example, in the case 𝑘 = 4, the following expression holds 
+
+𝐸 4,2 =𝛼 4 Pℎu𝑛 +1 − 𝛽 4 (P ℎu𝑛 ) − 𝜏 𝜕 Pℎu𝑛 +1
+
+𝜕𝑡 
+
+= 16
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛
+
+(𝑠 − 𝑡 𝑛 )4 𝜕 5 Pℎu
+
+𝜕𝑡 5 (𝑠 ) 𝑑𝑠 − 18
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 −1
+
+(𝑠 − 𝑡 𝑛 −1)4 𝜕 5 Pℎu
+
+𝜕𝑡 5 (𝑠 ) 𝑑𝑠 
+
++ 118 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 −2
+
+(𝑠 − 𝑡 𝑛 −2)4 𝜕 5 Pℎu
+
+𝜕𝑡 5 (𝑠 ) 𝑑𝑠 − 196 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 −3
+
+(𝑠 − 𝑡 𝑛 −3)4 𝜕 5 Pℎu
+
+𝜕𝑡 5 (𝑠 ) 𝑑𝑠, 10 QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO 
+
+and in the case 𝑘 = 6, the following expression holds 
+
+𝐸 6,2 =𝛼 6 Pℎu𝑛 +1 − 𝛽 6 (P ℎu𝑛 ) − 𝜏 𝜕 Pℎu𝑛 +1
+
+𝜕𝑡 
+
+= 1120 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛
+
+(𝑠 − 𝑡 𝑛 )6 𝜕 7 Pℎu
+
+𝜕𝑡 7 (𝑠 ) 𝑑𝑠 − 196 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 −1
+
+(𝑠 − 𝑡 𝑛 −1)6 𝜕 7 Pℎu
+
+𝜕𝑡 7 (𝑠 ) 𝑑𝑠 
+
++ 1108 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 −2
+
+(𝑠 − 𝑡 𝑛 −2)6 𝜕 7 Pℎu
+
+𝜕𝑡 7 (𝑠 ) 𝑑𝑠 − 1192 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 −3
+
+(𝑠 − 𝑡 𝑛 −3)6 𝜕 7 Pℎu
+
+𝜕𝑡 7 (𝑠 ) 𝑑𝑠 
+
++ 1600 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 −4
+
+(𝑠 − 𝑡 𝑛 −4)6 𝜕 7 Pℎu
+
+𝜕𝑡 7 (𝑠 ) 𝑑𝑠 − 14320 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 −5
+
+(𝑠 − 𝑡 𝑛 −5)6 𝜕 7 Pℎu
+
+𝜕𝑡 7 (𝑠 ) 𝑑𝑠. 
+
+And 𝐸 𝑘, 3 represents as follow 
+
+𝐸 𝑘, 3 = 𝜕 Pℎu𝑛 +1
+
+𝜕𝑡 − 𝜕 u𝑛 +1
+
+𝜕𝑡 .
+
+3.2. Proof of optimal error estimates for velocity. We now prove optimal 𝐿 2- and 𝐻 1-error estimates for the velocity of the fully discrete numerical solution to the system (2.5)-(2.6). 
+
+Proof of Theorem 2.1. Step I : This proof is divided into four steps. Firstly, we denote 
+
+𝐶 𝐻 1 = max   
+
+> 0≤𝑡 ≤𝑇
+
+∥∇ u(· , 𝑡 )∥ 0 and 𝐶 ^ = 𝐶 𝐻 1 + 2.(3.5) We need to prove a uniform bound of ∇u𝑛 ℎ by induction, 
+
+∥∇ u𝑛 ℎ ∥0 ≤ 𝐶 ^, ∀ 𝑛 ≤ 𝑁. (3.6) Under the assumption (2.7), (3.6) certainly holds for 𝑛 = 0. Now suppose we have 
+
+∥∇ u𝑛 ℎ ∥0 ≤ 𝐶 ^, ∀ 𝑛 ≤ 𝑚. (3.7) we shall prove below 
+
+∥∇ u𝑚 +1 
+
+> ℎ
+
+∥0 ≤ 𝐶 ^(3.8) for the same constant 𝐶 ^.For 1 ≤ 𝑘 ≤ 5, choosing vℎ = Aℎ ˜u𝑛 +1 
+
+> ℎ
+
+∈ X𝑙  
+
+> 0ℎ
+
+in (2.5), where ˜ u𝑛 +1 
+
+> ℎ
+
+= u𝑛 +1 
+
+> ℎ
+
+− 𝜇 𝑘 u𝑛 ℎ,and taking 𝑞 ℎ = 0 in (2.6), then adding the two equations, there holds 
+
+(𝛼 𝑘 u𝑛 +1 
+
+> ℎ
+
+− 𝛽 𝑘 (u𝑛 ℎ), Aℎ ˜u𝑛 +1 
+
+> ℎ
+
+) + 𝜈𝜏 (A ℎu𝑛 +1 
+
+> ℎ
+
+, Aℎ ˜u𝑛 +1 
+
+> ℎ
+
+)+ 𝜏𝑎 (𝛾 𝑘 (u𝑛 ℎ), 𝛾 𝑘 (u𝑛 ℎ), Aℎ ˜u𝑛 +1 
+
+> ℎ
+
+) = 𝜏 (f 𝑛 +1, Aℎ ˜u𝑛 +1 
+
+> ℎ
+
+).(3.9) For the first two terms on the left-hand side of (3.9), we invoke Lemma 3.3 to derive the following identity 
+
+(𝛼 𝑘 u𝑛 +1 
+
+> ℎ
+
+− 𝛽 𝑘 (u𝑛 ℎ), Aℎ ˜u𝑛 +1 
+
+> ℎ
+
+) = (∇( 𝛼 𝑘 u𝑛 +1 
+
+> ℎ
+
+− 𝛽 𝑘 (u𝑛 ℎ)) , ∇( u𝑛 +1 
+
+> ℎ
+
+− 𝜇 𝑘 u𝑛 ℎ)) 
+
+=
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (∇ u𝑛 +1+𝑖 −𝑘 ℎ , ∇u𝑛 +1+ 𝑗 −𝑘 ℎ ) − 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (∇ u𝑛 +𝑖 −𝑘 ℎ , ∇u𝑛 + 𝑗 −𝑘 ℎ ) + 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =0
+
+𝛿 𝑖 ∇u𝑛 +1+𝑖 −𝑘 ℎ
+
+> 20
+
+.
+
+(3.10) By performing a direct calculation, we derive the following result 
+
+𝜈 (A ℎu𝑛 +1 
+
+> ℎ
+
+, Aℎ (u𝑛 +1 
+
+> ℎ
+
+− 𝜇 𝑘 u𝑛 ℎ)) = 𝜈 ∥A ℎu𝑛 +1 
+
+> ℎ
+
+∥20 − 𝜈𝜇 𝑘 (A ℎu𝑛 +1 
+
+> ℎ
+
+, Aℎu𝑛 ℎ).(3.11) OPTIMAL ERROR ANALYSIS FOR HIGH-ORDER NAVIER-STOKES EQUATIONS 11 
+
+Inserting (3.10)-(3.11) into (3.9) can be inferred 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (∇ u𝑛 +1+𝑖 −𝑘 ℎ , ∇u𝑛 +1+ 𝑗 −𝑘 ℎ ) − 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (∇ u𝑛 +𝑖 −𝑘 ℎ , ∇u𝑛 + 𝑗 −𝑘 ℎ )+
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =0
+
+𝛿 𝑖 ∇u𝑛 +1+𝑖 −𝑘 ℎ
+
+> 20
+
++ 𝜈𝜏 ∥A ℎu𝑛 +1 
+
+> ℎ
+
+∥20 − 𝜈𝜏𝜇 𝑘 (A ℎu𝑛 +1 
+
+> ℎ
+
+, Aℎu𝑛 ℎ)+ 𝜏𝑎 (𝛾 𝑘 (u𝑛 ℎ), 𝛾 𝑘 (u𝑛 ℎ), Aℎ ˜u𝑛 +1 
+
+> ℎ
+
+) = 𝜏 (f 𝑛 +1, Aℎ ˜u𝑛 +1 
+
+> ℎ
+
+).(3.12) Applying the Gagliardo-Nirenberg inequality to control the nonlinear convection term, we obtain 
+
+𝑎 (𝛾 𝑘 (u𝑛 ℎ), 𝛾 𝑘 (u𝑛 ℎ), Aℎ (u𝑛 +1 
+
+> ℎ
+
+− 𝜇 𝑘 u𝑛 ℎ)) 
+
+≤𝐶 ∥𝛾 𝑘 (u𝑛 ℎ)∥ 0,6 ∥∇ 𝛾 𝑘 (u𝑛 ℎ)∥ 0,3 ∥A ℎ (u𝑛 +1 
+
+> ℎ
+
+− 𝜇 𝑘 u𝑛 ℎ)∥ 0
+
+≤𝐶 ∥∇ 𝛾 𝑘 (u𝑛 ℎ)∥ 0 ∥∇ 𝛾 𝑘 (u𝑛 ℎ)∥ 1/20 ∥𝛾 𝑘 (u𝑛 ℎ)∥ 1/22,ℎ (∥A ℎu𝑛 +1 
+
+> ℎ
+
+∥0 + 𝜇 𝑘 ∥A ℎu𝑛 ℎ ∥0)≤𝐶 (𝜀𝜈 )−1 ∥∇ 𝛾 𝑘 (u𝑛 ℎ)∥ 30 ∥𝛾 𝑘 (u𝑛 ℎ)∥ 2,ℎ + 𝜀𝜈 ∥A ℎu𝑛 +1 
+
+> ℎ
+
+∥20 + 𝜀𝜈𝜇 2 
+
+> 𝑘
+
+∥A ℎu𝑛 ℎ ∥20
+
+≤𝐶 (𝜀𝜈 )−2 ∥∇ 𝛾 𝑘 (u𝑛 ℎ)∥ 60 + 𝜀𝜈 ∥A ℎ 𝛾 𝑘 (u𝑛 ℎ)∥ 20 + 𝜀𝜈 ∥A ℎu𝑛 +1 
+
+> ℎ
+
+∥20 + 𝜀𝜈𝜇 2 
+
+> 𝑘
+
+∥A ℎu𝑛 ℎ ∥20,(3.13) where we apply the elliptic regularity estimate ∥𝛾 𝑘 (u𝑛 ℎ)∥ 22,ℎ ≤ ∥A ℎ (𝛾 𝑘 (u𝑛 ℎ))∥ 20 in the last inequality above. By invoking the Young’s inequality, there holds 
+
+𝜈𝜇 𝑘 (A ℎu𝑛 +1 
+
+> ℎ
+
+, Aℎu𝑛 ℎ) ≤ 12 𝜈 ∥A ℎu𝑛 +1 
+
+> ℎ
+
+∥20 + 12 𝜈𝜇 2 
+
+> 𝑘
+
+∥A ℎu𝑛 ℎ ∥20.(3.14) For the right-hand side of (3.12), it implies 
+
+(f 𝑛 +1, Aℎ ˜u𝑛 +1 
+
+> ℎ
+
+) ≤ 𝜀𝜈 ∥A ℎu𝑛 +1 
+
+> ℎ
+
+∥20 + 𝜀𝜈𝜇 2 
+
+> 𝑘
+
+∥A ℎu𝑛 ℎ ∥20 + 𝐶 (𝜀𝜈 )−1 ∥f 𝑛 +1 ∥20.(3.15) Now, combining (3.13)-(3.15) with (3.12), we obtain 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (∇ u𝑛 +1+𝑖 −𝑘 ℎ , ∇u𝑛 +1+ 𝑗 −𝑘 ℎ ) − 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (∇ u𝑛 +𝑖 −𝑘 ℎ , ∇u𝑛 + 𝑗 −𝑘 ℎ )+
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =0
+
+𝛿 𝑖 ∇u𝑛 +1+𝑖 −𝑘 ℎ
+
+> 20
+
++ 𝜈𝜏 (1/2 − 2𝜀 )∥A ℎu𝑛 +1 
+
+> ℎ
+
+∥20
+
+≤𝜈𝜏 (1/2 + 2𝜀 )𝜇 2 
+
+> 𝑘
+
+∥A ℎu𝑛 ℎ ∥20 + 𝐶 (𝜀𝜈 )−1𝜏 ∥f 𝑛 +1 ∥20
+
++ 𝐶 (𝜀𝜈 )−2𝜏 ∥∇ 𝛾 𝑘 (u𝑛 ℎ)∥ 60 + 2𝜀𝜈𝜏 ∥A ℎ 𝛾 𝑘 (u𝑛 ℎ)∥ 20.(3.16) We can choose 𝜀 small enough, such that 12 − 2𝜀 > ( 12 + 2𝜀 )𝜇 2 
+
+> 𝑘
+
++ 2𝜀 . Noting that 𝐺 = (𝑔 𝑖 𝑗 )
+
+is a symmetric positive definite matrix with smallest eigenvalue 𝜆 𝑔 and largest eigenvalue 
+
+𝜆 𝐺 . Applying (3.7), then take the sum on (3.16) for 𝑛 from 𝑘 − 1 to 𝑚 and drop some 12 QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO 
+
+unnecessary terms: 
+
+𝜆 𝑔 ∥∇ u𝑚 +1 
+
+> ℎ
+
+∥20 + 𝜈𝜏 1 − 𝜇 2
+
+> 𝑘
+
+2
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =𝑘 −1
+
+∥A ℎu𝑛 +1 
+
+> ℎ
+
+∥20
+
+≤𝐶𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =𝑘 −1
+
+
+
+∥∇ 𝛾 𝑘 (u𝑛 ℎ)∥ 60 + ∥∇ 𝛾 𝑘 (u𝑛 ℎ)∥ 20
+
+
+
++ 𝐶𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =𝑘 −1
+
+∥f 𝑛 +1 ∥20 + 𝜆 𝐺 𝑘 −1∑︁ 
+
+> 𝑖 =0
+
+∥∇ u𝑖 ℎ ∥20
+
+≤𝐶𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =𝑘 −1
+
+
+
+∥∇ u𝑛 ℎ ∥60 + ∥∇ u𝑛 ℎ ∥20
+
+
+
++ 𝐶𝑇𝐶 2 
+
+> 𝑓
+
++ 𝑀 0 ≤ 𝐶𝑇 (𝐶 6 
+
+> ^
+
++ 𝐶 2 
+
+> ^
+
++ 𝐶 2 
+
+> 𝑓
+
+) + 𝑀 0 ≤ 𝐶 ∗,
+
+(3.17) where 𝑀 0 is a constant dependent only on the initial data, and the estimate ∥f ∥20 ≤ 𝐶 2 
+
+> 𝑓
+
+has been applied. For 𝑘 = 6, choosing vℎ = Aℎ ˆu𝑛 +1 
+
+> ℎ
+
+∈ X𝑙  
+
+> 0ℎ
+
+in (2.5), where ˆ u𝑛 +1 
+
+> ℎ
+
+= u𝑛 +1 
+
+> ℎ
+
+− 13 9 u𝑛 ℎ + 
+
+> 25 36
+
+u𝑛 −1 
+
+> ℎ
+
+− 19 u𝑛 −2 
+
+> ℎ
+
+, and taking 𝑞 ℎ = 0 in (2.6), then adding the two equations, there holds 
+
+(𝛼 6u𝑛 +1 
+
+> ℎ
+
+− 𝛽 6 (u𝑛 ℎ), Aℎ ˆu𝑛 +1 
+
+> ℎ
+
+) + 𝜈𝜏 (A ℎu𝑛 +1 
+
+> ℎ
+
+, Aℎ ˆu𝑛 +1 
+
+> ℎ
+
+)+ 𝜏𝑎 (𝛾 6 (u𝑛 ℎ), 𝛾 6 (u𝑛 ℎ), Aℎ ˆu𝑛 +1 
+
+> ℎ
+
+) = 𝜏 (f 𝑛 +1, Aℎ ˆu𝑛 +1 
+
+> ℎ
+
+).(3.18) For the first term on the left-hand side of (3.18), we invoke Lemma 3.4 to derive the following identity 
+
+(𝛼 6u𝑛 +1 
+
+> ℎ
+
+− 𝛽 6 (u𝑛 ℎ), Aℎ ˆu𝑛 +1 
+
+> ℎ
+
+) = (∇( 𝛼 6u𝑛 +1 
+
+> ℎ
+
+− 𝛽 6 (u𝑛 ℎ)) , ∇ ˆu𝑛 +1 
+
+> ℎ
+
+)≥
+
+> 6
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (∇ u𝑛 +𝑖 −5 
+
+> ℎ
+
+, ∇u𝑛 + 𝑗 −5 
+
+> ℎ
+
+) − 
+
+> 6
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (∇ u𝑛 +𝑖 −6 
+
+> ℎ
+
+, ∇u𝑛 + 𝑗 −6 
+
+> ℎ
+
+)
+
+=|∇ U𝑛 +1 
+
+> ℎ
+
+|2 
+
+> 𝐺
+
+− |∇ U𝑛 ℎ |2 
+
+> 𝐺
+
+.(3.19) Here the norm |∇ U𝑛 +1 
+
+> ℎ
+
+|2 
+
+> 𝐺
+
+given by 
+
+|∇ U𝑛 +1 
+
+> ℎ
+
+|2 
+
+> 𝐺
+
+=
+
+> 6
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (∇ u𝑛 +𝑖 −5 
+
+> ℎ
+
+, ∇u𝑛 + 𝑗 −5 
+
+> ℎ
+
+),
+
+for the notation U𝑛 +1 
+
+> ℎ
+
+= (u𝑛 −5 
+
+> ℎ
+
+, u𝑛 −4 
+
+> ℎ
+
+, u𝑛 −3 
+
+> ℎ
+
+, u𝑛 −2 
+
+> ℎ
+
+, u𝑛 −1 
+
+> ℎ
+
+, u𝑛 ℎ, u𝑛 +1 
+
+> ℎ
+
+)⊤. Inserting (3.19) into (3.18) can be inferred 
+
+|∇ U𝑛 +1 
+
+> ℎ
+
+|2 
+
+> 𝐺
+
+− |∇ U𝑛 ℎ |2 
+
+> 𝐺
+
++ 𝜈𝜏 (A ℎu𝑛 +1 
+
+> ℎ
+
+, Aℎ ˆu𝑛 +1 
+
+> ℎ
+
+)+ 𝜏𝑎 (𝛾 6 (u𝑛 ℎ), 𝛾 6 (u𝑛 ℎ), Aℎ ˆu𝑛 +1 
+
+> ℎ
+
+) ≤ 𝜏 (f 𝑛 +1, Aℎ ˆu𝑛 +1 
+
+> ℎ
+
+).(3.20) Similar to (3.13), we have the following estimate 
+
+|𝑎 (𝛾 6 (u𝑛 ℎ), 𝛾 6 (u𝑛 ℎ), Aℎ ˆu𝑛 +1 
+
+> ℎ
+
+)| ≤𝐶 (𝜀𝜈 )−2 ∥∇ 𝛾 6 (u𝑛 ℎ)∥ 60 + 𝜀𝜈 ∥A ℎ 𝛾 6 (u𝑛 ℎ)∥ 20 + 𝜀𝜈 ∥A ℎ ˆu𝑛 +1 
+
+> ℎ
+
+∥20.(3.21) By invoking the Young’s inequality, for the right-hand side of (3.20), it implies 
+
+|( f 𝑛 +1, Aℎ ˆu𝑛 +1 
+
+> ℎ
+
+)| ≤ 𝜀𝜈 ∥A ℎ ˆu𝑛 +1 
+
+> ℎ
+
+∥20 + 𝐶 (𝜀𝜈 )−1 ∥f 𝑛 +1 ∥20.(3.22) OPTIMAL ERROR ANALYSIS FOR HIGH-ORDER NAVIER-STOKES EQUATIONS 13 
+
+Now, combining (3.21)-(3.22) with (3.20), and then taking the sum for 𝑛 from 5 to 𝑚 , we obtain 
+
+|∇ U𝑚 +1 
+
+> ℎ
+
+|2 
+
+> 𝐺
+
++ 𝜈𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+(A ℎu𝑛 +1 
+
+> ℎ
+
+, Aℎ ˆu𝑛 +1 
+
+> ℎ
+
+) ≤ |∇ U5 
+
+> ℎ
+
+|2 
+
+> 𝐺
+
++ 2𝜀𝜈𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+∥A ℎ ˆu𝑛 +1 
+
+> ℎ
+
+∥20
+
++ 𝐶 (𝜀𝜈 )−2𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+∥∇ 𝛾 6 (u𝑛 ℎ)∥ 60 + 𝜀𝜈𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+∥A ℎ 𝛾 6 (u𝑛 ℎ)∥ 20 + 𝐶 (𝜀𝜈 )−1
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+𝜏 ∥f 𝑛 +1 ∥20.(3.23) In section 3.1 of [3], the authors were able to bound the sums expression on the left-hand side of (3.20) from below by recasting the sums into a weighted double sum of inner products where the weights stem from a Toeplitz matrix which turns out to be nonnegative thanks to relaxed positivity assumption 1 − 13 9 cos (𝑥 ) + 25 36 cos (2𝑥 ) − 19 cos (3𝑥 ) > 0. For the velocity the resulting estimate reads 
+
+𝜈 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+(A ℎu𝑛 +1 
+
+> ℎ
+
+, Aℎ ˆu𝑛 +1 
+
+> ℎ
+
+) ≥ 𝜈 132 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+∥A ℎu𝑛 +1 
+
+> ℎ
+
+∥20 − 𝜈 
+
+
+
+Aℎu6
+
+> ℎ
+
+, 13 9 Aℎu5 
+
+> ℎ
+
+− 25 36 Aℎu4 
+
+> ℎ
+
++ 19 Aℎu3
+
+> ℎ
+
+
+
+− 𝜈 
+
+
+
+Aℎu7
+
+> ℎ
+
+, − 25 36 Aℎu5 
+
+> ℎ
+
++ 19 Aℎu4
+
+> ℎ
+
+
+
+− 𝜈 
+
+
+
+Aℎu8
+
+> ℎ
+
+, 19 Aℎu5
+
+> ℎ
+
+
+
+.(3.24) By invoking the Young’s inequality, there holds 
+
+𝜈 
+
+
+
+Aℎu6
+
+> ℎ
+
+, 13 9 Aℎu5 
+
+> ℎ
+
+− 25 36 Aℎu4 
+
+> ℎ
+
++ 19 Aℎu3
+
+> ℎ
+
+
+
+≤3𝜀𝜈 ∥A ℎu6 
+
+> ℎ
+
+∥20 + 𝐶 (𝜀𝜈 )−1 ∥A ℎu5 
+
+> ℎ
+
+∥20 + ∥A ℎu4 
+
+> ℎ
+
+∥20 + ∥A ℎu3 
+
+> ℎ
+
+∥20
+
+ ,(3.25) 
+
+𝜈 
+
+
+
+Aℎu7
+
+> ℎ
+
+, − 25 36 Aℎu5 
+
+> ℎ
+
++ 19 Aℎu4
+
+> ℎ
+
+
+
+≤2𝜀𝜈 ∥A ℎu7 
+
+> ℎ
+
+∥20 + 𝐶 (𝜀𝜈 )−1 ∥A ℎu5 
+
+> ℎ
+
+∥20 + ∥A ℎu4 
+
+> ℎ
+
+∥20
+
+ ,(3.26) 
+
+𝜈 
+
+
+
+Aℎu8
+
+> ℎ
+
+, 19 Aℎu5
+
+> ℎ
+
+
+
+≤ 𝜀𝜈 ∥A ℎu8 
+
+> ℎ
+
+∥20 + 𝐶 (𝜀𝜈 )−1 ∥A ℎu5 
+
+> ℎ
+
+∥20.(3.27) Now, combining (3.24)-(3.27) with (3.23), we obtain 
+
+|∇ U𝑚 +1 
+
+> ℎ
+
+|2 
+
+> 𝐺
+
++ 𝜈𝜏 132 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+∥A ℎu𝑛 +1 
+
+> ℎ
+
+∥20
+
+≤|∇ U5 
+
+> ℎ
+
+|2 
+
+> 𝐺
+
++ 2𝜀𝜈𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+∥A ℎ ˆu𝑛 +1 
+
+> ℎ
+
+∥20 + 𝜀𝜈𝜏 ∥A ℎu8 
+
+> ℎ
+
+∥20 + 2∥A ℎu7 
+
+> ℎ
+
+∥20 + 3∥A ℎu6 
+
+> ℎ
+
+∥20
+
+
+
++ 𝐶 (𝜀𝜈 )−2𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+∥∇ 𝛾 6 (u𝑛 ℎ)∥ 60 + 𝜀𝜈𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+∥A ℎ 𝛾 6 (u𝑛 ℎ)∥ 20 + 𝐶 (𝜀𝜈 )−1
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+𝜏 ∥f 𝑛 +1 ∥20
+
++ 3𝐶 (𝜀𝜈 )−1𝜏 ∥A ℎu5 
+
+> ℎ
+
+∥20 + 2𝐶 (𝜀𝜈 )−1𝜏 ∥A ℎu4 
+
+> ℎ
+
+∥20 + 𝐶 (𝜀𝜈 )−1𝜏 ∥A ℎu3 
+
+> ℎ
+
+∥20.(3.28) 14 QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO 
+
+We can choose 𝜀 small enough, such that 164 > 9𝜀 . Noting that 𝐺 = (𝑔 𝑖 𝑗 ) is a symmetric positive definite matrix with smallest eigenvalue 𝜆 1𝑔 and largest eigenvalue 𝜆 1𝐺 , there holds 
+
+𝜆 1𝑔 ∥∇ u𝑚 +1 
+
+> ℎ
+
+∥20 + 𝜈𝜏 164 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+∥A ℎu𝑛 +1 
+
+> ℎ
+
+∥20
+
+≤𝐶𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+
+
+∥∇ 𝛾 6 (u𝑛 ℎ)∥ 60 + ∥∇ 𝛾 6 (u𝑛 ℎ)∥ 20
+
+
+
++ 𝐶𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+∥f 𝑛 +1 ∥20 + 𝐶 
+
+> 5
+
+∑︁ 
+
+> 𝑖 =3
+
+∥A ℎu𝑖 ℎ ∥20 + 𝜆 1𝐺 
+
+> 5
+
+∑︁ 
+
+> 𝑖 =0
+
+∥∇ u𝑖 ℎ ∥20
+
+≤𝐶𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+
+
+∥∇ u𝑛 ℎ ∥60 + ∥∇ u𝑛 ℎ ∥20
+
+
+
++ 𝐶𝑇𝐶 2 
+
+> 𝑓
+
++ 𝑀 0,
+
+where 𝑀 0 is a constant dependent only on the initial data u0
+
+> ℎ
+
+, u1
+
+> ℎ
+
+, u2
+
+> ℎ
+
+, u3
+
+> ℎ
+
+, u4
+
+> ℎ
+
+, u5 
+
+> ℎ
+
+and where we used ∥f ∥20 ≤ 𝐶 2 
+
+> 𝑓
+
+. Under the induction assumption in (3.6), there exists 𝐶 ∗ > 0independent of 𝜏 such that 
+
+𝜆 1𝑔 ∥∇ u𝑚 +1 
+
+> ℎ
+
+∥20 + 𝜏 164 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+𝜈 ∥A ℎu𝑛 +1 
+
+> ℎ
+
+∥20 ≤ 𝐶𝑇 (𝐶 6 
+
+> ⋄
+
++ 𝐶 2 
+
+> ⋄
+
++ 𝐶 2 
+
+> 𝑓
+
+) + 𝑀 0 ≤ 𝐶 ∗.(3.29) 
+
+Step II : For 1 ≤ 𝑘 ≤ 5, from equation (3.4), it can be deduced that 
+
+𝜏 (𝑞 ℎ, ∇ · ( 𝜂 𝑛 +1 
+
+> u
+
+− 𝜇 𝑘 𝜂 𝑛 
+
+> u
+
+)) = 0.(3.30) Choosing vℎ = ˜𝜂 𝑛 +1 
+
+> u
+
+in (3.3) with ˜ 𝜂 𝑛 +1 
+
+> u
+
+= 𝜂 𝑛 +1 
+
+> u
+
+− 𝜇 𝑘 𝜂 𝑛 
+
+> u
+
+, 𝑞 ℎ = 𝜂 𝑛 +1 
+
+> 𝑝
+
+in (3.30), and adding up these two equations yields the following 
+
+(𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+), ˜𝜂 𝑛 +1 
+
+> u
+
+) + 𝜈𝜏 (∇ 𝜂 𝑛 +1 
+
+> u
+
+, ∇ ˜𝜂 𝑛 +1 
+
+> u
+
+) = (𝜏𝐸 𝑘, 1 + 𝐸 𝑘, 2 + 𝜏𝐸 𝑘, 3, ˜𝜂 𝑛 +1 
+
+> u
+
+).(3.31) For the left-hand side of (3.31), with the help of Lemma 3.3, it can be concluded that 
+
+(𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+), ˜𝜂 𝑛 +1 
+
+> u
+
+) = (𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+), 𝜂 𝑛 +1 
+
+> u
+
+− 𝜇 𝑘 𝜂 𝑛 
+
+> u
+
+)
+
+=
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (𝜂 𝑛 +1+𝑖 −𝑘  
+
+> u
+
+, 𝜂 𝑛 +1+ 𝑗 −𝑘  
+
+> u
+
+) − 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (𝜂 𝑛 +𝑖 −𝑘  
+
+> u
+
+, 𝜂 𝑛 + 𝑗 −𝑘  
+
+> u
+
+) + 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =0
+
+𝛿 𝑖 𝜂 𝑛 +1+𝑖 −𝑘 
+
+> u
+> 20
+
+.(3.32) By inserting (3.32) into (3.31), we obtain 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (𝜂 𝑛 +1+𝑖 −𝑘  
+
+> u
+
+, 𝜂 𝑛 +1+ 𝑗 −𝑘  
+
+> u
+
+) − 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (𝜂 𝑛 +𝑖 −𝑘  
+
+> u
+
+, 𝜂 𝑛 + 𝑗 −𝑘  
+
+> u
+
+) + 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =0
+
+𝛿 𝑖 𝜂 𝑛 +1+𝑖 −𝑘 
+
+> u
+> 20
+
++ 𝜈𝜏 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20
+
+=𝜈𝜏 (∇ 𝜂 𝑛 +1 
+
+> u
+
+, 𝜇 𝑘 ∇𝜂 𝑛 
+
+> u
+
+) + ( 𝜏𝐸 𝑘, 1 + 𝐸 𝑘, 2 + 𝜏𝐸 𝑘, 3, ˜𝜂 𝑛 +1 
+
+> u
+
+).
+
+(3.33) OPTIMAL ERROR ANALYSIS FOR HIGH-ORDER NAVIER-STOKES EQUATIONS 15 
+
+We bound the terms on the right-hand side of (3.33) with the help of (2.3), there holds 
+
+𝑎 (− u𝑛 +1 + 𝛾 𝑘 (u𝑛 ) − 𝛾 𝑘 (u𝑛 − u𝑛 ℎ), u𝑛 +1, 𝜂 𝑛 +1 
+
+> u
+
+− 𝜇 𝑘 𝜂 𝑛 
+
+> u
+
+)
+
+≤(∥ u𝑛 +1 − 𝛾 𝑘 (u𝑛 )∥ 0 + ∥ 𝛾 𝑘 (u𝑛 − u𝑛 ℎ)∥ 0)∥ u𝑛 +1 ∥2,2 ∥𝜂 𝑛 +1 
+
+> u
+
+− 𝜇 𝑘 𝜂 𝑛  
+
+> u
+
+∥1,2
+
+≤𝐶 (𝜀𝜈 )−1 ∥u𝑛 +1 ∥22,2
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+(𝑠 − 𝑡 𝑛 +1−𝑖 )𝑘 −1 𝜕 𝑘 u
+
+𝜕𝑡 𝑘 (𝑠 ) 𝑑𝑠 
+
+> 20
+
++ 2𝜀𝜈 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20 + 2𝜇 2 
+
+> 𝑘
+
+𝜀𝜈 ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20 + 𝐶 (𝜀𝜈 )−1 (∥ 𝛾 𝑘 (𝜂 𝑛 
+
+> u
+
+)∥ 20 + ∥ 𝛾 𝑘 (𝑒 𝑛 
+
+> u
+
+)∥ 20)∥ u𝑛 +1 ∥22,2
+
+≤𝐶 (𝜀𝜈 )−1 ∥u𝑛 +1 ∥22,2𝜏 2𝑘 −1
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 𝑘 u
+
+𝜕𝑡 𝑘 (𝑠 )
+
+> 20
+
+𝑑𝑠 
+
++ 2𝜀𝜈 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20 + 2𝜇 2 
+
+> 𝑘
+
+𝜀𝜈 ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20 + 𝐶 (𝜀𝜈 )−1 
+
+∥𝛾 𝑘 (𝜂 𝑛 
+
+> u
+
+)∥ 20 + ∥ 𝛾 𝑘 (𝑒 𝑛 
+
+> u
+
+)∥ 20
+
+
+
+∥u𝑛 +1 ∥22,2,
+
+where 𝑜 𝑖 are some fixed and bounded constants determined by the truncation error. As an illustration, in the case 𝑘 = 4, we have 
+
+u𝑛 +1 − 𝛾 4 (u𝑛 ) = − 23
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛
+
+(𝑠 − 𝑡 𝑛 )3 𝜕 4u
+
+𝜕𝑡 4 (𝑠 ) 𝑑𝑠 +
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 −1
+
+(𝑠 − 𝑡 𝑛 −1)3 𝜕 4u
+
+𝜕𝑡 4 (𝑠 ) 𝑑𝑠 
+
+− 23
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 −2
+
+(𝑠 − 𝑡 𝑛 −2)3 𝜕 4u
+
+𝜕𝑡 4 (𝑠 ) 𝑑𝑠 + 16
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 −3
+
+(𝑠 − 𝑡 𝑛 −3)3 𝜕 4u
+
+𝜕𝑡 4 (𝑠 ) 𝑑𝑠. 
+
+Similarly, we can derive that 
+
+𝑎 (𝛾 𝑘 (u𝑛 ℎ), u𝑛 +1 − 𝛾 𝑘 (u𝑛 ), 𝜂 𝑛 +1 
+
+> u
+
+− 𝜇 𝑘 𝜂 𝑛 
+
+> u
+
+)
+
+≤∥ 𝛾 𝑘 (u𝑛 ℎ)∥ 1,2 ∥u𝑛 +1 − 𝛾 𝑘 (u𝑛 )∥ 1,2 ∥𝜂 𝑛 +1 
+
+> u
+
+− 𝜇 𝑘 𝜂 𝑛  
+
+> u
+
+∥1,2
+
+≤𝐶𝜏 2𝑘 −1 (𝜀𝜈 )−1 ∥𝛾 𝑘 (u𝑛 ℎ)∥ 21,2
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 𝑘 u
+
+𝜕𝑡 𝑘 (𝑠 )
+
+> 21,2
+
+𝑑𝑠 + 𝜀𝜈 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20 + 𝜇 2 
+
+> 𝑘
+
+𝜀𝜈 ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20,
+
+and 
+
+𝑎 (𝛾 𝑘 (u𝑛 ℎ), 𝛾 𝑘 (u𝑛 − u𝑛 ℎ), 𝜂 𝑛 +1 
+
+> u
+
+− 𝜇 𝑘 𝜂 𝑛 
+
+> u
+
+)
+
+≤∥A ℎ (𝛾 𝑘 (u𝑛 ℎ))∥ 0 ∥𝛾 𝑘 (𝜂 𝑛 
+
+> u
+
+)∥ 0 ∥𝜂 𝑛 +1 
+
+> u
+
+− 𝜇 𝑘 𝜂 𝑛  
+
+> u
+
+∥1,2 + ∥A ℎ (𝛾 𝑘 (u𝑛 ℎ))∥ 0 ∥𝛾 𝑘 (𝑒 𝑛 
+
+> u
+
+)∥ 0 ∥𝜂 𝑛 +1 
+
+> u
+
+− 𝜇 𝑘 𝜂 𝑛  
+
+> u
+
+∥1,2
+
+≤𝐶 (𝜀𝜈 )−1 
+
+∥A ℎ (𝛾 𝑘 (u𝑛 ℎ))∥ 20 ∥𝛾 𝑘 (𝜂 𝑛 
+
+> u
+
+)∥ 20 + ∥A ℎ (𝛾 𝑘 (u𝑛 ℎ))∥ 20 ∥𝛾 𝑘 (𝑒 𝑛 
+
+> u
+
+)∥ 20
+
+
+
++ 𝜀𝜈 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20 + 𝜇 2 
+
+> 𝑘
+
+𝜀𝜈 ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20.16 QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO 
+
+Combining these estimates, we can conclude that 
+
+(𝐸 𝑘, 1, ˜𝜂 𝑛 +1 
+
+> u
+
+) ≤4𝜀𝜈 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20 + 4𝜇 2 
+
+> 𝑘
+
+𝜀𝜈 ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20
+
++ 𝐶 (𝜀𝜈 )−1𝜏 2𝑘 −1 ∥u𝑛 +1 ∥22,2
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 𝑘 u
+
+𝜕𝑡 𝑘 (𝑠 )
+
+> 20
+
+𝑑𝑠 
+
++ 𝐶 (𝜀𝜈 )−1𝜏 2𝑘 −1 ∥𝛾 𝑘 (u𝑛 ℎ)∥ 21,2
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 𝑘 u
+
+𝜕𝑡 𝑘 (𝑠 )
+
+> 21,2
+
+𝑑𝑠 
+
++ 𝐶 (𝜀𝜈 )−1 (∥A ℎ (𝛾 𝑘 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2)∥ 𝛾 𝑘 (𝜂 𝑛 
+
+> u
+
+)∥ 20
+
++ 𝐶 (𝜀𝜈 )−1 (∥A ℎ (𝛾 𝑘 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2)∥ 𝛾 𝑘 (𝑒 𝑛 
+
+> u
+
+)∥ 20.(3.34) We continue to estimate 
+
+(𝐸 𝑘, 2, ˜𝜂 𝑛 +1 
+
+> u
+
+) ≤𝜀𝜈𝜏 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20 + 𝜇 2 
+
+> 𝑘
+
+𝜀𝜈𝜏 ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20
+
++ 𝐶 (𝜀𝜈 )−1𝜏 −1𝜏 2𝑘 +1
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 𝑘 +1 Pℎu
+
+𝜕𝑡 𝑘 +1 (𝑠 )
+
+> 20
+
+𝑑𝑠, (3.35) and 
+
+(𝐸 𝑘, 3, ˜𝜂 𝑛 +1 
+
+> u
+
+) ≤ 𝐶 (𝜀𝜈 )−1 ℎ2(𝑙 +1) 𝜕 u𝑛 +1
+
+𝜕𝑡 
+
+> 2
+> 𝑙 +1,2
+
++ 𝜀𝜈 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20 + 𝜇 2 
+
+> 𝑘
+
+𝜀𝜈 ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20.(3.36) By applying the Young’s inequality, we can easily derive the following 
+
+𝜈 (∇ 𝜂 𝑛 +1 
+
+> u
+
+, 𝜇 𝑘 ∇𝜂 𝑛 
+
+> u
+
+) ≤ 12 𝜈 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20 + 12 𝜇 2 
+
+> 𝑘
+
+𝜈 ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20.(3.37) Now, combining (3.34)-(3.37) with (3.33), we derive 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (𝜂 𝑛 +1+𝑖 −𝑘  
+
+> u
+
+, 𝜂 𝑛 +1+ 𝑗 −𝑘  
+
+> u
+
+) − 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (𝜂 𝑛 +𝑖 −𝑘  
+
+> u
+
+, 𝜂 𝑛 + 𝑗 −𝑘  
+
+> u
+
+) + 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =0
+
+𝛿 𝑖 𝜂 𝑛 +1+𝑖 −𝑘 
+
+> u
+> 20
+
++ 𝜈𝜏 (1/2 − 6𝜀 )∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20
+
+≤𝜈𝜏 (1/2 + 6𝜀 )𝜇 2 
+
+> 𝑘
+
+∥∇ 𝜂 𝑛  
+
+> u
+
+∥20 + 𝐶𝜏 2𝑘 ∥u𝑛 +1 ∥22,2
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 𝑘 u
+
+𝜕𝑡 𝑘 (𝑠 )
+
+> 20
+
+𝑑𝑠 
+
++ 𝐶𝜏 
+
+
+
+∥A ℎ (𝛾 𝑘 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2
+
+  
+
+∥𝛾 𝑘 (𝜂 𝑛 
+
+> u
+
+)∥ 20 + ∥ 𝛾 𝑘 (𝑒 𝑛 
+
+> u
+
+)∥ 20
+
+
+
++ 𝐶𝜏 2𝑘 ∥𝛾 𝑘 (u𝑛 ℎ)∥ 21,2
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 𝑘 u
+
+𝜕𝑡 𝑘 (𝑠 )
+
+> 21,2
+
+𝑑𝑠 
+
++ 𝐶𝜏 2𝑘 𝑘 ∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 𝑘 +1u
+
+𝜕𝑡 𝑘 +1 (𝑠 )
+
+> 20
+
+𝑑𝑠 + 𝐶ℎ 2(𝑙 +1) 𝜏 𝜕 u𝑛 +1
+
+𝜕𝑡 
+
+> 2
+> 𝑙 +1,2
+
+.
+
+(3.38) Next, with 0 ≤ 𝜇 𝑘 < 1, we can choose 𝜀 small enough such that 12 − 6𝜀 > ( 12 + 6𝜀 )𝜇 2 
+
+> 𝑘
+
+.
+
+Summing both sides of inequality (3.38) for 𝑛 from 𝑘 − 1 to 𝑚 , and noting that 𝐺 = (𝑔 𝑖 𝑗 )OPTIMAL ERROR ANALYSIS FOR HIGH-ORDER NAVIER-STOKES EQUATIONS 17 
+
+is a symmetric positive definite matrix with smallest eigenvalue 𝜆 2𝑔 and largest eigenvalue 
+
+𝜆 2𝐺 , we then obtain, after dropping some unnecessary terms 
+
+𝜆 2𝑔 ∥𝜂 𝑚 +1 
+
+> u
+
+∥20 + 𝜏 1 − 𝜇 2
+
+> 𝑘
+
+2
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =𝑘 −1
+
+𝜈 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20
+
+≤𝐶𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =𝑘 −1
+
+
+
+∥A ℎ (𝛾 𝑘 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2
+
+
+
+∥𝛾 𝑘 (𝜂 𝑛 
+
+> u
+
+)∥ 20
+
++ 𝐶𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =𝑘 −1
+
+
+
+∥A ℎ (𝛾 𝑘 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2
+
+
+
+∥𝛾 𝑘 (𝑒 𝑛 
+
+> u
+
+)∥ 20
+
++ 𝐶𝜏 2𝑘 
+
+∫ 𝑇 
+
+> 0
+
+𝜕 𝑘 u
+
+𝜕𝑡 𝑘 (𝑠 )
+
+> 20
+
++ 𝜕 𝑘 u
+
+𝜕𝑡 𝑘 (𝑠 )
+
+> 21,2
+
++ 𝜕 𝑘 +1u
+
+𝜕𝑡 𝑘 +1 (𝑠 )
+
+> 20
+
+!
+
+𝑑𝑠 
+
++ 𝐶ℎ 2(𝑙 +1) 𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =𝑘 −1
+
+𝜕 u𝑛 +1
+
+𝜕𝑡 
+
+> 2
+> 𝑙 +1,2
+
++ 𝜆 2𝐺 𝑘 −1∑︁ 
+
+> 𝑖 =0
+
+∥𝜂 𝑖  
+
+> u
+
+∥20.(3.39) By invoking (3.17) and the assumptions in Hypothesis 2.1 imposed on the exact solution, we derive the following 
+
+∥∇ u𝑚 ℎ ∥0 ≤ 𝐶 ∗,
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =𝑘 −1
+
+𝜈𝜏 ∥A ℎu𝑛 ℎ ∥20 ≤ 𝐶 ∗, ∥u𝑛 +1 ∥22,2 ≤ 𝐶 1.
+
+Applying (2.7) and Gr ¥onwall Lemma 3.2 to (3.39) then yields 
+
+∥𝜂 𝑚 +1 
+
+> u
+
+∥20 + 𝜏 1 − 𝜇 2
+
+> 𝑘
+
+2
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =𝑘 −1
+
+𝜈 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20
+
+≤𝐶 exp (𝐶𝐶 ∗ + 𝐶𝐶 1)
+
+
+
+𝑇 𝜏 2𝑘 + ℎ2(𝑙 +1) 
+
+≤ 𝐶 𝑢 
+
+
+
+𝜏 2𝑘 + ℎ2(𝑙 +1) 
+
+.(3.40) For 𝑘 = 6, from equation (3.4), it can be deduced that 
+
+𝜏 
+
+
+
+𝑞 ℎ, ∇ · 
+
+
+
+𝜂 𝑛 +1 
+
+> u
+
+− 13 9 𝜂 𝑛  
+
+> u
+
++ 25 36 𝜂 𝑛 −1 
+
+> u
+
+− 19 𝜂 𝑛 −2
+
+> u
+
+ 
+
+= 0.(3.41) Choosing vℎ = ˆ𝜂 𝑛 +1 
+
+> u
+
+in (3.3) with ˆ 𝜂 𝑛 +1 
+
+> u
+
+= 𝜂 𝑛 +1 
+
+> u
+
+− 13 9 𝜂 𝑛  
+
+> u
+
++ 25 36 𝜂 𝑛 −1 
+
+> u
+
+− 19 𝜂 𝑛 −2 
+
+> u
+
+, 𝑞 ℎ = 𝜂 𝑛 +1 
+
+> 𝑝
+
+in (3.41), and adding up these two equations yields the following 
+
+(𝛼 6𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 6 (𝜂 𝑛 
+
+> u
+
+), ˆ𝜂 𝑛 +1 
+
+> u
+
+) + 𝜈𝜏 (∇ 𝜂 𝑛 +1 
+
+> u
+
+, ∇ ˆ𝜂 𝑛 +1 
+
+> u
+
+) = (𝜏𝐸 6,1 + 𝐸 6,2 + 𝜏𝐸 6,3, ˆ𝜂 𝑛 +1 
+
+> u
+
+).(3.42) For the left-hand side of (3.42), with the help of Lemma 3.4, it can be concluded that 
+
+(𝛼 6𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 6 (𝜂 𝑛 
+
+> u
+
+), ˆ𝜂 𝑛 +1 
+
+> u
+
+) ≥ 
+
+> 6
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (𝜂 𝑛 +𝑖 −5 
+
+> u
+
+, 𝜂 𝑛 + 𝑗 −5 
+
+> u
+
+) − 
+
+> 6
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (𝜂 𝑛 +𝑖 −6 
+
+> u
+
+, 𝜂 𝑛 + 𝑗 −6 
+
+> u
+
+)
+
+=|U𝑛 +1 
+
+> 𝜂
+
+|2 
+
+> 𝐺
+
+− | U𝑛 𝜂 |2 
+
+> 𝐺
+
+.(3.43) Here the norm |U𝑛 +1 
+
+> 𝜂
+
+|2 
+
+> 𝐺
+
+given by 
+
+|U𝑛 +1 
+
+> 𝜂
+
+|2 
+
+> 𝐺
+
+=
+
+> 6
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (𝜂 𝑛 +𝑖 −5 
+
+> u
+
+, 𝜂 𝑛 + 𝑗 −5 
+
+> u
+
+),18 QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO 
+
+for the notation U𝑛 +1 
+
+> 𝜂
+
+= (𝜂 𝑛 −5 
+
+> u
+
+, 𝜂 𝑛 −4 
+
+> u
+
+, 𝜂 𝑛 −3 
+
+> u
+
+, 𝜂 𝑛 −2 
+
+> u
+
+, 𝜂 𝑛 −1 
+
+> u
+
+, 𝜂 𝑛 
+
+> u
+
+, 𝜂 𝑛 +1 
+
+> u
+
+)⊤. By inserting (3.43) into (3.42), we obtain 
+
+|U𝑛 +1 
+
+> 𝜂
+
+|2 
+
+> 𝐺
+
+− | U𝑛 𝜂 |2 
+
+> 𝐺
+
++ 𝜈𝜏 (∇ 𝜂 𝑛 +1 
+
+> u
+
+, ∇ ˆ𝜂 𝑛 +1 
+
+> u
+
+) ≤ ( 𝜏𝐸 6,1 + 𝐸 6,2 + 𝜏𝐸 6,3, ˆ𝜂 𝑛 +1 
+
+> u
+
+).(3.44) We bound the terms on the right-hand side of (3.44) with the help of (2.3), there holds 
+
+𝑎 (− u𝑛 +1 + 𝛾 6 (u𝑛 ) − 𝛾 6 (u𝑛 − u𝑛 ℎ), u𝑛 +1, ˆ𝜂 𝑛 +1 
+
+> u
+
+)
+
+≤
+
+
+
+∥u𝑛 +1 − 𝛾 6 (u𝑛 )∥ 0 + ∥ 𝛾 6 (u𝑛 − u𝑛 ℎ)∥ 0
+
+
+
+∥u𝑛 +1 ∥2,2 ∥ ˆ𝜂 𝑛 +1 
+
+> u
+
+∥1,2
+
+≤𝐶 (𝜀𝜈 )−1𝜏 11 ∥u𝑛 +1 ∥22,26∑︁ 
+
+> 𝑖 =1
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 6u
+
+𝜕𝑡 6 (𝑠 )
+
+> 20
+
+𝑑𝑠 + 𝐶 (𝜀𝜈 )−1 
+
+∥𝛾 6 (𝜂 𝑛 
+
+> u
+
+)∥ 20 + ∥ 𝛾 6 (𝑒 𝑛 
+
+> u
+
+)∥ 20
+
+
+
+∥u𝑛 +1 ∥22,2
+
++ 𝜀𝜈 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20 + 𝜀𝜈 ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −1 
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −2 
+
+> u
+
+∥20
+
+ ,
+
+here, we have used the following identity 
+
+u𝑛 +1 − 𝛾 6 (u𝑛 )
+
+= − 120 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛
+
+(𝑠 − 𝑡 𝑛 )5 𝜕 6u
+
+𝜕𝑡 6 (𝑠 ) 𝑑𝑠 + 18
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 −1
+
+(𝑠 − 𝑡 𝑛 −1)5 𝜕 6u
+
+𝜕𝑡 6 (𝑠 ) 𝑑𝑠 
+
+− 16
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 −2
+
+(𝑠 − 𝑡 𝑛 −2)5 𝜕 6u
+
+𝜕𝑡 6 (𝑠 ) 𝑑𝑠 + 18
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 −3
+
+(𝑠 − 𝑡 𝑛 −3)5 𝜕 6u
+
+𝜕𝑡 6 (𝑠 ) 𝑑𝑠 
+
+− 120 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 −4
+
+(𝑠 − 𝑡 𝑛 −4)5 𝜕 6u
+
+𝜕𝑡 6 (𝑠 ) 𝑑𝑠 + 1120 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 −5
+
+(𝑠 − 𝑡 𝑛 −5)5 𝜕 6u
+
+𝜕𝑡 6 (𝑠 ) 𝑑𝑠. (3.45) Similarly, we can derive that 
+
+𝑎 (𝛾 6 (u𝑛 ℎ), u𝑛 +1 − 𝛾 6 (u𝑛 ), ˆ𝜂 𝑛 +1 
+
+> u
+
+)
+
+≤𝐶 (𝜀𝜈 )−1𝜏 11 ∥𝛾 6 (u𝑛 ℎ)∥ 21,26∑︁ 
+
+> 𝑖 =1
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 6u
+
+𝜕𝑡 6 (𝑠 )
+
+> 21,2
+
+𝑑𝑠 + 𝜀𝜈 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20
+
++ 𝜀𝜈 ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −1 
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −2 
+
+> u
+
+∥20
+
+ ,
+
+and 
+
+𝑎 (𝛾 6 (u𝑛 ℎ), 𝛾 6 (u𝑛 − u𝑛 ℎ), ˆ𝜂 𝑛 +1 
+
+> u
+
+)
+
+≤∥A ℎ (𝛾 6 (u𝑛 ℎ))∥ 0 ∥𝛾 6 (𝜂 𝑛 
+
+> u
+
+)∥ 0 ∥ ˆ𝜂 𝑛 +1 
+
+> u
+
+∥1,2 + ∥A ℎ (𝛾 6 (u𝑛 ℎ))∥ 0 ∥𝛾 6 (𝑒 𝑛 
+
+> u
+
+)∥ 0 ∥ ˆ𝜂 𝑛 +1 
+
+> u
+
+∥1,2
+
+≤𝐶 (𝜀𝜈 )−1 
+
+∥A ℎ (𝛾 6 (u𝑛 ℎ))∥ 20 ∥𝛾 6 (𝜂 𝑛 
+
+> u
+
+)∥ 20 + ∥A ℎ (𝛾 6 (u𝑛 ℎ))∥ 20 ∥𝛾 6 (𝑒 𝑛 
+
+> u
+
+)∥ 20
+
+
+
++ 𝜀𝜈 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20 + 𝜀𝜈 ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −1 
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −2 
+
+> u
+
+∥20
+
+ .OPTIMAL ERROR ANALYSIS FOR HIGH-ORDER NAVIER-STOKES EQUATIONS 19 
+
+Combining these estimates, we can conclude that 
+
+(𝐸 6,1, ˆ𝜂 𝑛 +1 
+
+> u
+
+) ≤3𝜀𝜈 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −1 
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −2 
+
+> u
+
+∥20
+
+
+
++ 𝐶 (𝜀𝜈 )−1𝜏 11 ∥u𝑛 +1 ∥22,26∑︁ 
+
+> 𝑖 =1
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 6u
+
+𝜕𝑡 6 (𝑠 )
+
+> 20
+
+𝑑𝑠 
+
++ 𝐶 (𝜀𝜈 )−1𝜏 11 ∥𝛾 6 (u𝑛 ℎ)∥ 21,26∑︁ 
+
+> 𝑖 =1
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 6u
+
+𝜕𝑡 6 (𝑠 )
+
+> 21,2
+
+𝑑𝑠 
+
++ 𝐶 (𝜀𝜈 )−1 
+
+∥A ℎ (𝛾 6 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2
+
+
+
+∥𝛾 6 (𝜂 𝑛 
+
+> u
+
+)∥ 20
+
++ 𝐶 (𝜀𝜈 )−1 
+
+∥A ℎ (𝛾 6 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2
+
+
+
+∥𝛾 6 (𝑒 𝑛 
+
+> u
+
+)∥ 20.(3.46) We continue to estimate 
+
+(𝐸 6,2, ˆ𝜂 𝑛 +1 
+
+> u
+
+) ≤𝜀𝜈𝜏 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −1 
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −2 
+
+> u
+
+∥20
+
+
+
++ 𝐶 (𝜀𝜈 )−1𝜏 −1𝜏 13 6∑︁ 
+
+> 𝑖 =1
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 7 Pℎu
+
+𝜕𝑡 7 (𝑠 )
+
+> 20
+
+𝑑𝑠, (3.47) and 
+
+(𝐸 6,3, ˆ𝜂 𝑛 +1 
+
+> u
+
+) ≤𝐶 (𝜀𝜈 )−1 ℎ2(𝑙 +1) 𝜕 u𝑛 +1
+
+𝜕𝑡 
+
+> 2
+> 𝑙 +1,2
+
++ 𝜀𝜈 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −1 
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −2 
+
+> u
+
+∥20
+
+ .(3.48) Now, combining (3.46)-(3.48) with (3.44), and then taking the sum for 𝑛 from 5 to 𝑚 , we obtain 
+
+|U𝑚 +1 
+
+> 𝜂
+
+|2 
+
+> 𝐺
+
++ 𝜈𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+(∇ 𝜂 𝑛 +1 
+
+> u
+
+, ∇ ˆ𝜂 𝑛 +1 
+
+> u
+
+) ≤ | U5 
+
+> 𝜂
+
+|2 
+
+> 𝐺
+
++ 𝐶𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+ℎ2(𝑙 +1) 𝜕 u𝑛 +1
+
+𝜕𝑡 
+
+> 2
+> 𝑙 +1,2
+
++ 𝐶𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+
+
+∥A ℎ (𝛾 6 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2
+
+  
+
+∥𝛾 6 (𝜂 𝑛 
+
+> u
+
+)∥ 20 + ∥ 𝛾 6 (𝑒 𝑛 
+
+> u
+
+)∥ 20
+
+
+
++ 5𝜀𝜈𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −1 
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −2 
+
+> u
+
+∥20
+
+
+
++ 𝐶𝜏 12 
+
+∫ 𝑇 
+
+> 0
+
+𝜕 6u
+
+𝜕𝑡 6 (𝑠 )
+
+> 20
+
++ 𝜕 6u
+
+𝜕𝑡 6 (𝑠 )
+
+> 21,2
+
++ 𝜕 7u
+
+𝜕𝑡 7 (𝑠 )
+
+> 20
+
+!
+
+𝑑𝑠. (3.49) Similar to (3.24), we can easily derive the following 
+
+𝜈 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+(∇ 𝜂 𝑛 +1 
+
+> u
+
+, ∇ ˆ𝜂 𝑛 +1 
+
+> u
+
+) ≥ 𝜈 132 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20 − 𝜈 
+
+
+
+∇𝜂 6
+
+> u
+
+, 13 9 ∇𝜂 5 
+
+> u
+
+− 25 36 ∇𝜂 4 
+
+> u
+
++ 19 ∇𝜂 3
+
+> u
+
+
+
+− 𝜈 
+
+
+
+∇𝜂 7
+
+> u
+
+, − 25 36 ∇𝜂 5 
+
+> u
+
++ 19 ∇𝜂 4
+
+> u
+
+
+
+− 𝜈 
+
+
+
+∇𝜂 8
+
+> u
+
+, 19 ∇𝜂 5
+
+> u
+
+
+
+.(3.50) 20 QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO 
+
+By invoking the Young’s inequality, there holds 
+
+𝜈 
+
+
+
+∇𝜂 6
+
+> u
+
+, 13 9 ∇𝜂 5 
+
+> u
+
+− 25 36 ∇𝜂 4 
+
+> u
+
++ 19 ∇𝜂 3
+
+> u
+
+
+
+≤3𝜀𝜈 ∥∇ 𝜂 6 
+
+> u
+
+∥20 + 𝐶 (𝜀𝜈 )−1 ∥∇ 𝜂 5 
+
+> u
+
+∥20 + ∥∇ 𝜂 4 
+
+> u
+
+∥20 + ∥∇ 𝜂 3 
+
+> u
+
+∥20
+
+
+
+(3.51) 
+
+𝜈 
+
+
+
+∇𝜂 7
+
+> u
+
+, − 25 36 ∇𝜂 5 
+
+> u
+
++ 19 ∇𝜂 4
+
+> u
+
+
+
+≤2𝜀𝜈 ∥∇ 𝜂 7 
+
+> u
+
+∥20 + 𝐶 (𝜀𝜈 )−1 ∥∇ 𝜂 5 
+
+> u
+
+∥20 + ∥∇ 𝜂 4 
+
+> u
+
+∥20
+
+
+
+(3.52) 
+
+𝜈 
+
+
+
+∇𝜂 8
+
+> u
+
+, 19 ∇𝜂 5
+
+> u
+
+
+
+≤ 𝜀𝜈 ∥∇ 𝜂 8 
+
+> u
+
+∥20 + 𝐶 (𝜀𝜈 )−1 ∥∇ 𝜂 5 
+
+> u
+
+∥20.(3.53) Now, combining (3.50)-(3.53) with (3.49), we derive 
+
+|U𝑚 +1 
+
+> 𝜂
+
+|2 
+
+> 𝐺
+
++ 𝜈𝜏 132 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20
+
+≤| U5 
+
+> 𝜂
+
+|2 
+
+> 𝐺
+
++ 𝐶𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+ℎ2(𝑙 +1) 𝜕 u𝑛 +1
+
+𝜕𝑡 
+
+> 2
+> 𝑙 +1,2
+
++ 𝐶𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+
+
+∥A ℎ (𝛾 6 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2
+
+  
+
+∥𝛾 6 (𝜂 𝑛 
+
+> u
+
+)∥ 20 + ∥ 𝛾 6 (𝑒 𝑛 
+
+> u
+
+)∥ 20
+
+
+
++ 5𝜀𝜈𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −1 
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −2 
+
+> u
+
+∥20
+
+
+
++ 𝐶𝜏 12 
+
+∫ 𝑇 
+
+> 0
+
+𝜕 6u
+
+𝜕𝑡 6 (𝑠 )
+
+> 20
+
++ 𝜕 6u
+
+𝜕𝑡 6 (𝑠 )
+
+> 21,2
+
++ 𝜕 7u
+
+𝜕𝑡 7 (𝑠 )
+
+> 20
+
+!
+
+𝑑𝑠 
+
++ 𝜀𝜈𝜏 ∥∇ 𝜂 8 
+
+> u
+
+∥20 + 2∥∇ 𝜂 7 
+
+> u
+
+∥20 + 3∥∇ 𝜂 6 
+
+> u
+
+∥20
+
+ + 𝐶 (𝜀𝜈 )−1𝜏 3∥∇ 𝜂 5 
+
+> u
+
+∥20 + 2∥∇ 𝜂 4 
+
+> u
+
+∥20 + ∥∇ 𝜂 3 
+
+> u
+
+∥20
+
+ .
+
+(3.54) Next, we can choose 𝜀 small enough such that 164 > 26 𝜀 . Using (2.7), and noting that 
+
+𝐺 = (𝑔 𝑖 𝑗 ) is a symmetric positive definite matrix with smallest eigenvalue 𝜆 3𝑔 and largest OPTIMAL ERROR ANALYSIS FOR HIGH-ORDER NAVIER-STOKES EQUATIONS 21 
+
+eigenvalue 𝜆 3𝐺 , we then obtain 
+
+𝜆 3𝑔 ∥𝜂 𝑚 +1 
+
+> u
+
+∥20 + 𝜏 164 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+𝜈 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20
+
+≤𝐶𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+
+
+∥A ℎ (𝛾 6 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2
+
+
+
+∥𝛾 6 (𝜂 𝑛 
+
+> u
+
+)∥ 20
+
++ 𝐶𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+
+
+∥A ℎ (𝛾 6 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2
+
+
+
+∥𝛾 6 (𝑒 𝑛 
+
+> u
+
+)∥ 20
+
++ 𝐶𝜏 12 
+
+∫ 𝑇 
+
+> 0
+
+𝜕 6u
+
+𝜕𝑡 6 (𝑠 )
+
+> 20
+
++ 𝜕 6u
+
+𝜕𝑡 6 (𝑠 )
+
+> 21,2
+
++ 𝜕 7u
+
+𝜕𝑡 7 (𝑠 )
+
+> 20
+
+!
+
+𝑑𝑠 
+
++ 𝐶ℎ 2(𝑙 +1) 𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+𝜕 u𝑛 +1
+
+𝜕𝑡 
+
+> 2
+> 𝑙 +1,2
+
++ 𝐶ℎ 2(𝑙 +1) + 𝐶𝜏 12 + 𝜆 3𝐺 
+
+> 5
+
+∑︁ 
+
+> 𝑖 =0
+
+∥𝜂 𝑖  
+
+> u
+
+∥20.(3.55) By invoking (2.14) and the assumptions in Hypothesis 2.1 imposed on the exact solution, we derive the following 
+
+∥∇ u𝑚 +1 
+
+> ℎ
+
+∥0 ≤ 𝐶 ∗,
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+𝜈𝜏 ∥A ℎu𝑛 +1 
+
+> ℎ
+
+∥20 ≤ 𝐶 ∗, ∥u𝑛 +1 ∥22,2 ≤ 𝐶 1.
+
+Applying Gr ¥onwall Lemma 3.2 to (3.55) then yields 
+
+∥𝜂 𝑚 +1 
+
+> u
+
+∥20 + 𝜏 164 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+𝜈 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20
+
+≤𝐶 exp (𝐶𝐶 ∗ + 𝐶𝐶 1)
+
+
+
+𝑇 𝜏 12 + ℎ2(𝑙 +1) 
+
+≤ 𝐶 𝑢 
+
+
+
+𝜏 12 + ℎ2(𝑙 +1) 
+
+.(3.56) By applying the triangle inequality on (3.40) and (3.56), and the approximation properties of the projection operators, the desired result is now the conclusion of (2.15). 
+
+Step III : According to the definitions of 𝛼 𝑘 and 𝛽 𝑘 , it can be deduced that by equation (3.4) 
+
+𝜏 (𝑞 ℎ, ∇ · ( 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+))) = 0.(3.57) For 1 ≤ 𝑘 ≤ 5, choosing vℎ = 𝛼 𝑘 𝜂 𝑛 +1     
+
+> u−𝛽 𝑘 (𝜂 𝑛
+> u)
+> 𝜏
+
+in (3.3), 𝑞 ℎ = 1 
+
+> 𝜏
+
+𝜂 𝑛 +1 
+
+> 𝑝
+
+in (3.57), and adding up these two equations, there holds 
+
+𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+> 20
+
++ 𝜈 𝜏 (∇( 𝜂 𝑛 +1 
+
+> u
+
+− 𝜇 𝑘 𝜂 𝑛 
+
+> u
+
+), ∇( 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+))) + 𝜈 𝜏 (∇( 𝜇 𝑘 𝜂 𝑛 
+
+> u
+
+), ∇( 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+))) =
+
+
+
+𝐸 𝑘, 1 + 1
+
+𝜏 𝐸 𝑘, 2 + 𝐸 𝑘, 3, 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+
+
+.
+
+(3.58) 22 QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO 
+
+For the left-hand side of (3.58), with the help of Lemma 3.3, it can be concluded that 
+
+(∇( 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)) , ∇( 𝜂 𝑛 +1 
+
+> u
+
+− 𝜇 𝑘 𝜂 𝑛 
+
+> u
+
+)) 
+
+=
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (∇ 𝜂 𝑛 +1+𝑖 −𝑘  
+
+> u
+
+, ∇𝜂 𝑛 +1+ 𝑗 −𝑘  
+
+> u
+
+) − 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (∇ 𝜂 𝑛 +𝑖 −𝑘  
+
+> u
+
+, ∇𝜂 𝑛 + 𝑗 −𝑘  
+
+> u
+
+) + 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =0
+
+𝛿 𝑖 ∇𝜂 𝑛 +1+𝑖 −𝑘 
+
+> u
+> 20
+
+.
+
+(3.59) By inserting (3.59) into (3.58), then we have 
+
+𝜈 𝜏 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (∇ 𝜂 𝑛 +1+𝑖 −𝑘  
+
+> u
+
+, ∇𝜂 𝑛 +1+ 𝑗 −𝑘  
+
+> u
+
+) − 𝜈 𝜏 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (∇ 𝜂 𝑛 +𝑖 −𝑘  
+
+> u
+
+, ∇𝜂 𝑛 + 𝑗 −𝑘  
+
+> u
+
+)+ 𝜈 𝜏 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =0
+
+𝛿 𝑖 ∇𝜂 𝑛 +1+𝑖 −𝑘 
+
+> u
+> 20
+
++ 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+> 20
+
+= − 𝜈 𝜏 (∇( 𝜇 𝑘 𝜂 𝑛 
+
+> u
+
+), ∇( 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+))) + 
+
+
+
+𝐸 𝑘, 1 + 1
+
+𝜏 𝐸 𝑘, 2 + 𝐸 𝑘, 3, 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+
+
+.
+
+(3.60) We bound the terms on the right-hand side of (3.60) with the help of (2.3), there holds 
+
+𝑎 
+
+
+
+−u𝑛 +1 + 𝛾 𝑘 (u𝑛 ) − 𝛾 𝑘 (u𝑛 − u𝑛 ℎ), u𝑛 +1, 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+
+
+≤
+
+
+
+∥u𝑛 +1 − 𝛾 𝑘 (u𝑛 )∥ 1,2 + ∥ 𝛾 𝑘 (u𝑛 − u𝑛 ℎ)∥ 1,2
+
+
+
+∥u𝑛 +1 ∥2,2
+
+𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 0
+
+≤𝐶𝜀 −1 ∥u𝑛 +1 ∥22,2𝜏 2𝑘 −1
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 𝑘 u
+
+𝜕𝑡 𝑘 (𝑠 )
+
+> 21,2
+
+𝑑𝑠 
+
++ 2𝜀 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+> 20
+
++ 𝐶𝜀 −1 
+
+∥𝛾 𝑘 (𝜂 𝑛 
+
+> u
+
+)∥ 21,2 + ∥ 𝛾 𝑘 (𝑒 𝑛 
+
+> u
+
+)∥ 21,2
+
+
+
+∥u𝑛 +1 ∥22,2.
+
+Following similar techniques, one can derive that 
+
+𝑎 
+
+
+
+𝛾 𝑘 (u𝑛 ℎ), u𝑛 +1 − 𝛾 𝑘 (u𝑛 ), 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+
+
+≤∥ 𝛾 𝑘 (u𝑛 ℎ)∥ 1,2 ∥u𝑛 +1 − 𝛾 𝑘 (u𝑛 )∥ 2,2
+
+𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 0
+
+≤𝐶𝜀 −1𝜏 2𝑘 −1 ∥𝛾 𝑘 (u𝑛 ℎ)∥ 21,2
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 𝑘 u
+
+𝜕𝑡 𝑘 (𝑠 )
+
+> 22,2
+
+𝑑𝑠 + 𝜀 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+> 20
+
+,OPTIMAL ERROR ANALYSIS FOR HIGH-ORDER NAVIER-STOKES EQUATIONS 23 
+
+and 
+
+𝑎 
+
+
+
+𝛾 𝑘 (u𝑛 ℎ), 𝛾 𝑘 (u𝑛 − u𝑛 ℎ), 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+
+
+≤∥A ℎ (𝛾 𝑘 (u𝑛 ℎ))∥ 0
+
+ ∥𝛾 𝑘 (𝜂 𝑛 
+
+> u
+
+)∥ 1,2 + ∥ 𝛾 𝑘 (𝑒 𝑛 
+
+> u
+
+)∥ 1,2
+
+ 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 0
+
+≤𝐶𝜀 −1 ∥A ℎ (𝛾 𝑘 (u𝑛 ℎ))∥ 20
+
+
+
+∥𝛾 𝑘 (𝜂 𝑛 
+
+> u
+
+)∥ 21,2 + ∥ 𝛾 𝑘 (𝑒 𝑛 
+
+> u
+
+)∥ 21,2
+
+
+
++ 𝜀 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+> 20
+
+.
+
+This implies 
+
+
+
+𝐸 𝑘, 1, 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+
+
+≤4𝜀 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+> 20
+
++ 𝐶𝜀 −1𝜏 2𝑘 −1 ∥u𝑛 +1 ∥22,2
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 𝑘 u
+
+𝜕𝑡 𝑘 (𝑠 )
+
+> 21,2
+
+𝑑𝑠 
+
++ 𝐶𝜀 −1𝜏 2𝑘 −1 ∥𝛾 𝑘 (u𝑛 ℎ)∥ 21,2
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 𝑘 u
+
+𝜕𝑡 𝑘 (𝑠 )
+
+> 22,2
+
+𝑑𝑠 
+
++ 𝐶𝜀 −1 
+
+∥A ℎ (𝛾 𝑘 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2
+
+ ∥𝛾 𝑘 (𝜂 𝑛 
+
+> u
+
+)∥ 21,2 + ∥ 𝛾 𝑘 (𝑒 𝑛 
+
+> u
+
+)∥ 21,2
+
+ .(3.61) We continue to estimate 
+
+
+
+𝐸 𝑘, 2, 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+
+
+≤𝜀 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+> 20
+
++ 𝐶𝜀 −1𝜏 2𝑘 𝑘 ∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑘
+
+𝜕 𝑘 +1 Pℎu
+
+𝜕𝑡 𝑘 +1 (𝑠 )
+
+> 20
+
+𝑑𝑠, 
+
+(3.62) and 
+
+
+
+𝐸 𝑘, 3, 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+
+
+≤ 𝐶𝜀 −1 ℎ2(𝑙 +1) ∥𝜕 𝑡 u𝑛 +1 ∥2 
+
+> 𝑙 +1,2
+
++ 𝜀 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+> 20
+
+.
+
+(3.63) By invoking Young’s inequality, we derive the following estimate 
+
+𝜈 𝜏 (∇( 𝜇 𝑘 𝜂 𝑛 
+
+> u
+
+), ∇( 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+))) ≤ 𝜈𝜇 𝑘 
+
+2𝜏 ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20 + 𝜈𝜇 𝑘 
+
+2𝜏 ∥∇( 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+))∥ 20.
+
+(3.64) An application of the results established in Appendix A, cf. (A.1), yields the following 
+
+𝜈 𝜏 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =0
+
+𝛿 𝑖 ∇𝜂 𝑛 +1+𝑖 −𝑘 
+
+> u
+> 20
+
+≥ 𝜈𝑐 0
+
+𝜏 ∇( 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)) 20 − 𝜈𝐶 hist 
+
+𝜏 
+
+> 𝑘 −1
+
+∑︁ 
+
+> 𝑗 =0
+
+∇𝜂 𝑛 − 𝑗  
+
+> u
+> 20
+
+.(3.65) 24 QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO 
+
+By combining inequalities (3.61)-(3.65) with (3.60), we derive the following estimate 
+
+𝜈 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (∇ 𝜂 𝑛 +1+𝑖 −𝑘  
+
+> u
+
+, ∇𝜂 𝑛 +1+ 𝑗 −𝑘  
+
+> u
+
+) − 𝜈 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (∇ 𝜂 𝑛 +𝑖 −𝑘  
+
+> u
+
+, ∇𝜂 𝑛 + 𝑗 −𝑘  
+
+> u
+
+)+ 𝜈 (𝑐 0 − 𝜇 𝑘 /2) ∇( 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)) 20 + 𝜏 (1 − 6𝜀 ) 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+> 20
+
+≤𝐶𝜏 ©«
+
+𝜈 
+
+2𝜏 𝜇 𝑘 ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20 + 𝜈𝐶 hist 
+
+𝜏 
+
+> 𝑘 −1
+
+∑︁ 
+
+> 𝑗 =0
+
+∇𝜂 𝑛 − 𝑗 
+
+> u
+> 20
+
+ª®¬
+
++ 𝐶𝜏 
+
+
+
+∥A ℎ (𝛾 𝑘 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2
+
+  
+
+∥𝛾 𝑘 (𝜂 𝑛 
+
+> u
+
+)∥ 21,2 + ∥ 𝛾 𝑘 (𝑒 𝑛 
+
+> u
+
+)∥ 21,2
+
+
+
++ 𝐶𝜏 2𝑘 ∥u𝑛 +1 ∥22,2
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 𝑘 u
+
+𝜕𝑡 𝑘 (𝑠 )
+
+> 21,2
+
+𝑑𝑠 
+
++ 𝐶𝜏 2𝑘 ∥𝛾 𝑘 (u𝑛 ℎ)∥ 21,2
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 𝑘 u
+
+𝜕𝑡 𝑘 (𝑠 )
+
+> 22,2
+
+𝑑𝑠 
+
++ 𝐶𝜏 2𝑘 𝑘 ∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 𝑘 +1u
+
+𝜕𝑡 𝑘 +1 (𝑠 )
+
+> 20
+
+𝑑𝑠 + 𝐶ℎ 2(𝑙 +1) 𝜏 ∥𝜕 𝑡 u𝑛 +1 ∥2
+
+> 𝑙 +1,2
+
+.(3.66) Let 𝑐 0 ≥ 𝜇 𝑘 /2, and choose 𝜀 sufficiently small. Summing both sides of equation (3.66) over 𝑛 from 𝑘 − 1 to 𝑚 , and invoking Hypothesis 2.1 on the exact solution along with the fact that 𝐺 = (𝑔 𝑖 𝑗 ) is a symmetric positive definite matrix with smallest eigenvalue 𝜆 4𝑔 and largest eigenvalue 𝜆 4𝐺 , we obtain the following estimate after removing some non-essential terms 
+
+𝜆 4𝑔 ∥∇ 𝜂 𝑚 +1 
+
+> u
+
+∥20 + 𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =𝑘 −1
+
+(1 − 6𝜀 ) 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+> 20
+
+≤𝐶𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =𝑘 −1
+
+𝑑 𝑛 ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20 + 𝐶𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =𝑘 −1
+
+∥u𝑛 +1 ∥22,2 ∥𝛾 𝑘 (𝜂 𝑛 
+
+> u
+
+)∥ 21,2
+
++ 𝐶𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =𝑘 −1
+
+
+
+∥A ℎ (𝛾 𝑘 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2
+
+
+
+∥𝛾 𝑘 (𝑒 𝑛 
+
+> u
+
+)∥ 21,2
+
++ 𝐶𝜏 2𝑘 
+
+∫ 𝑇 
+
+> 0
+
+𝜕 𝑘 u
+
+𝜕𝑡 𝑘 (𝑠 )
+
+> 21,2
+
++ 𝜕 𝑘 u
+
+𝜕𝑡 𝑘 (𝑠 )
+
+> 22,2
+
++ 𝜕 𝑘 +1u
+
+𝜕𝑡 𝑘 +1 (𝑠 )
+
+> 20
+
+!
+
+𝑑𝑠 
+
++ 𝐶ℎ 2(𝑙 +1) 𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =𝑘 −1
+
+𝜕 u𝑛 +1
+
+𝜕𝑡 
+
+> 2
+> 𝑙 +1,2
+
++ 𝜆 4𝐺 𝑘 −1∑︁ 
+
+> 𝑖 =0
+
+∥∇ 𝜂 𝑖  
+
+> u
+
+∥20,(3.67) OPTIMAL ERROR ANALYSIS FOR HIGH-ORDER NAVIER-STOKES EQUATIONS 25 
+
+with 𝑑 𝑛 = ∥A ℎ (𝛾 𝑘 (u𝑛 ℎ))∥ 20 + 𝜈  
+
+> 2𝜏
+
+𝜇 𝑘 + 𝜈𝐶 hist  
+
+> 𝜏
+
+. By invoking (2.7), (3.40) and applying Gr ¥onwall Lemma 3.2 to (3.67), we derive the following result: 
+
+∥∇ 𝜂 𝑚 +1 
+
+> u
+
+∥20 + 𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =𝑘 −1
+
+(1 − 6𝜀 ) 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+> 20
+
+≤ 𝐶 𝑢 
+
+
+
+𝜏 2𝑘 + ℎ2𝑙 
+
+.(3.68) For 𝑘 = 6, choosing vℎ = 𝛼 6 𝜂 𝑛 +1     
+
+> u−𝛽 6(𝜂 𝑛
+> u)
+> 𝜏
+
+in (3.3), 𝑞 ℎ = 1 
+
+> 𝜏
+
+𝜂 𝑛 +1 
+
+> 𝑝
+
+in (3.4), and adding up these two equations, there holds 
+
+𝜈 𝜏 
+
+
+
+∇
+
+
+
+𝜂 𝑛 +1 
+
+> u
+
+− 13 9 𝜂 𝑛  
+
+> u
+
++ 25 36 𝜂 𝑛 −1 
+
+> u
+
+− 19 𝜂 𝑛 −2
+
+> u
+
+
+
+, ∇
+
+
+
+𝛼 6𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 6 (𝜂 𝑛 
+
+> u
+
+)
+
+
+
++ 𝜈 𝜏 
+
+
+
+∇
+
+ 13 9 𝜂 𝑛  
+
+> u
+
+− 25 36 𝜂 𝑛 −1 
+
+> u
+
++ 19 𝜂 𝑛 −2
+
+> u
+
+
+
+, ∇
+
+
+
+𝛼 6𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 6 (𝜂 𝑛 
+
+> u
+
+)
+
+
+
++ 𝛼 6𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 6 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+> 20
+
+=
+
+
+
+𝐸 6,1 + 1
+
+𝜏 𝐸 6,2 + 𝐸 6,3, 𝛼 6𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 6 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+
+
+.(3.69) For the left-hand side of (3.69), with the help of Lemma 3.4, it can be concluded that 
+
+
+
+∇
+
+
+
+𝜂 𝑛 +1 
+
+> u
+
+− 13 9 𝜂 𝑛  
+
+> u
+
++ 25 36 𝜂 𝑛 −1 
+
+> u
+
+− 19 𝜂 𝑛 −2
+
+> u
+
+
+
+, ∇
+
+
+
+𝛼 6𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 6 (𝜂 𝑛 
+
+> u
+
+)
+
+
+
+≥
+
+> 6
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (∇ 𝜂 𝑛 +𝑖 −5 
+
+> u
+
+, ∇𝜂 𝑛 + 𝑗 −5 
+
+> u
+
+) − 
+
+> 6
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+𝑔 𝑖 𝑗 (∇ 𝜂 𝑛 +𝑖 −6 
+
+> u
+
+, ∇𝜂 𝑛 + 𝑗 −6 
+
+> u
+
+)
+
+=|∇ U𝑛 +1 
+
+> 𝜂
+
+|2 
+
+> 𝐺
+
+− |∇ U𝑛 𝜂 |2 
+
+> 𝐺
+
+.(3.70) By inserting (3.70) into (3.69), then we have 
+
+𝜈 𝜏 
+
+
+
+|∇ U𝑛 +1 
+
+> 𝜂
+
+|2 
+
+> 𝐺
+
+− |∇ U𝑛 𝜂 |2
+
+> 𝐺
+
+
+
++ 𝛼 6𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 6 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+> 20
+
+≤ − 𝜈 𝜏 
+
+
+
+∇
+
+ 13 9 𝜂 𝑛  
+
+> u
+
+− 25 36 𝜂 𝑛 −1 
+
+> u
+
++ 19 𝜂 𝑛 −2
+
+> u
+
+
+
+, ∇
+
+
+
+𝛼 6𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 6 (𝜂 𝑛 
+
+> u
+
+)
+
+
+
++
+
+
+
+𝐸 6,1 + 1
+
+𝜏 𝐸 6,2 + 𝐸 6,3, 𝛼 6𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 6 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+
+
+.(3.71) We bound the terms on the right-hand side of (3.71) with the help of (2.3) and (3.45), there holds 
+
+𝑎 
+
+
+
+−u𝑛 +1 + 𝛾 6 (u𝑛 ) − 𝛾 6 (u𝑛 − u𝑛 ℎ), u𝑛 +1, 𝛼 6𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 6 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+
+
+≤
+
+
+
+∥u𝑛 +1 − 𝛾 6 (u𝑛 )∥ 1,2 + ∥ 𝛾 6 (u𝑛 − u𝑛 ℎ)∥ 1,2
+
+
+
+∥u𝑛 +1 ∥2,2
+
+𝛼 6𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 6 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 0
+
+≤𝐶𝜀 −1𝜏 11 ∥u𝑛 +1 ∥22,26∑︁ 
+
+> 𝑖 =1
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 6u
+
+𝜕𝑡 6 (𝑠 )
+
+> 21,2
+
+𝑑𝑠 
+
++ 2𝜀 𝛼 6𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 6 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+> 20
+
++ 𝐶𝜀 −1 
+
+∥𝛾 6 (𝜂 𝑛 
+
+> u
+
+)∥ 21,2 + ∥ 𝛾 6 (𝑒 𝑛 
+
+> u
+
+)∥ 21,2
+
+
+
+∥u𝑛 +1 ∥22,2.26 QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO 
+
+Following similar techniques, one can derive that 
+
+𝑎 
+
+
+
+𝛾 6 (u𝑛 ℎ), u𝑛 +1 − 𝛾 6 (u𝑛 ), 𝛼 6𝜂 𝑛 +1
+
+u − 𝛽 6 (𝜂 𝑛 
+
+u)
+
+𝜏 
+
+
+
+≤∥ 𝛾 6 (u𝑛 ℎ)∥ 1,2 ∥u𝑛 +1 − 𝛾 6 (u𝑛 )∥ 2,2
+
+𝛼 6𝜂 𝑛 +1
+
+u − 𝛽 6 (𝜂 𝑛 
+
+u)
+
+𝜏 0
+
+≤𝐶𝜀 −1𝜏 11 ∥𝛾 6 (u𝑛 ℎ)∥ 21,26∑︁ 
+
+𝑖 =1
+
+∫ 𝑡 𝑛 +1
+
+𝑡 𝑛 +1−𝑖 
+
+𝜕 6u
+
+𝜕𝑡 6 (𝑠 )
+
+22,2
+
+𝑑𝑠 + 𝜀 𝛼 6𝜂 𝑛 +1
+
+u − 𝛽 6 (𝜂 𝑛 
+
+u)
+
+𝜏 
+
+20
+
+,
+
+and 
+
+𝑎 
+
+
+
+𝛾 6 (u𝑛 ℎ), 𝛾 6 (u𝑛 − u𝑛 ℎ), 𝛼 6𝜂 𝑛 +1
+
+u − 𝛽 6 (𝜂 𝑛 
+
+u)
+
+𝜏 
+
+
+
+≤∥A ℎ (𝛾 6 (u𝑛 ℎ))∥ 0
+
+ ∥𝛾 6 (𝜂 𝑛 
+
+u)∥ 1,2 + ∥ 𝛾 6 (𝑒 𝑛 
+
+u)∥ 1,2
+
+ 𝛼 6𝜂 𝑛 +1
+
+u − 𝛽 6 (𝜂 𝑛 
+
+u)
+
+𝜏 0
+
+≤𝐶𝜀 −1 ∥A ℎ (𝛾 6 (u𝑛 ℎ))∥ 20
+
+
+
+∥𝛾 6 (𝜂 𝑛 
+
+u)∥ 21,2 + ∥ 𝛾 6 (𝑒 𝑛 
+
+u)∥ 21,2
+
+
+
++ 𝜀 𝛼 6𝜂 𝑛 +1
+
+u − 𝛽 6 (𝜂 𝑛 
+
+u)
+
+𝜏 
+
+20
+
+.
+
+This implies 
+
+
+
+𝐸 6,1, 𝛼 6𝜂 𝑛 +1
+
+u − 𝛽 6 (𝜂 𝑛 
+
+u)
+
+𝜏 
+
+
+
+≤4𝜀 𝛼 6𝜂 𝑛 +1
+
+u − 𝛽 6 (𝜂 𝑛 
+
+u)
+
+𝜏 
+
+20
+
++ 𝐶𝜀 −1𝜏 11 ∥u𝑛 +1 ∥22,26∑︁ 
+
+𝑖 =1
+
+∫ 𝑡 𝑛 +1
+
+𝑡 𝑛 +1−𝑖 
+
+𝜕 6u
+
+𝜕𝑡 6 (𝑠 )
+
+21,2
+
+𝑑𝑠 
+
++ 𝐶𝜀 −1𝜏 11 ∥𝛾 6 (u𝑛 ℎ)∥ 21,26∑︁ 
+
+𝑖 =1
+
+∫ 𝑡 𝑛 +1
+
+𝑡 𝑛 +1−𝑖 
+
+𝜕 6u
+
+𝜕𝑡 6 (𝑠 )
+
+22,2
+
+𝑑𝑠 
+
++ 𝐶𝜀 −1 
+
+∥A ℎ (𝛾 6 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2
+
+
+
+∥𝛾 6 (𝜂 𝑛 
+
+u)∥ 21,2
+
++ 𝐶𝜀 −1 
+
+∥A ℎ (𝛾 6 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2
+
+
+
+∥𝛾 6 (𝑒 𝑛 
+
+u)∥ 21,2.(3.72) We continue to estimate 
+
+
+
+𝐸 6,2, 𝛼 6𝜂 𝑛 +1
+
+u − 𝛽 6 (𝜂 𝑛 
+
+u)
+
+𝜏 
+
+
+
+≤𝜀 𝛼 6𝜂 𝑛 +1
+
+u − 𝛽 6 (𝜂 𝑛 
+
+u)
+
+𝜏 
+
+20
+
++ 𝐶 (𝜀𝜈 )−1𝜏 −1𝜏 13 6∑︁ 
+
+𝑖 =1
+
+∫ 𝑡 𝑛 +1
+
+𝑡 𝑛 +1−𝑖 
+
+𝜕 7 Pℎu
+
+𝜕𝑡 7 (𝑠 )
+
+20
+
+𝑑𝑠, (3.73) and 
+
+
+
+𝐸 6,3, 𝛼 6𝜂 𝑛 +1
+
+u − 𝛽 6 (𝜂 𝑛 
+
+u)
+
+𝜏 
+
+
+
+≤ 𝐶𝜀 −1 ℎ2(𝑙 +1) 𝜕 u𝑛 +1
+
+𝜕𝑡 
+
+2
+
+𝑙 +1,2
+
++ 𝜀 𝛼 6𝜂 𝑛 +1
+
+u − 𝛽 6 (𝜂 𝑛 
+
+u)
+
+𝜏 
+
+20
+
+.
+
+(3.74) OPTIMAL ERROR ANALYSIS FOR HIGH-ORDER NAVIER-STOKES EQUATIONS 27 
+
+By invoking Young’s inequality, we derive the following estimate 
+
+𝜈 𝜏 
+
+
+
+∇
+
+ 13 9 𝜂 𝑛  
+
+> u
+
+− 25 36 𝜂 𝑛 −1 
+
+> u
+
++ 19 𝜂 𝑛 −2
+
+> u
+
+
+
+, ∇
+
+
+
+𝛼 6𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 6 (𝜂 𝑛 
+
+> u
+
+)
+
+
+
+≤𝐶𝜈 12𝜏 
+
+∥∇ 𝜂 𝑛  
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −1 
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −2 
+
+> u
+
+∥20
+
+ + 𝜈 12𝜏 ∇( 𝛼 6𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 6 (𝜂 𝑛 
+
+> u
+
+)) 20 .(3.75) By combining inequalities (3.72)-(3.75) with (3.71), we derive the following estimate 
+
+𝜈 
+
+
+
+|∇ U𝑛 +1 
+
+> 𝜂
+
+|2 
+
+> 𝐺
+
+− |∇ U𝑛 𝜂 |2
+
+> 𝐺
+
+
+
++ 𝜏 (1 − 6𝜀 ) 𝛼 6𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 6 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+> 20
+
+≤𝐶𝜏 ¯𝑑 𝑛 
+
+∥∇ 𝛼 6𝜂 𝑛 +1 
+
+> u
+
+∥20 + ∥∇ 𝛽 6 (𝜂 𝑛 
+
+> u
+
+)∥ 20 + ∥∇ 𝜂 𝑛  
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −1 
+
+> u
+
+∥20 + ∥∇ 𝜂 𝑛 −2 
+
+> u
+
+∥20
+
++∥ 𝛾 6 (𝜂 𝑛 
+
+> u
+
+)∥ 21,2
+
+ + 𝐶𝜏 
+
+
+
+∥A ℎ (𝛾 6 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2
+
+
+
+∥𝛾 6 (𝑒 𝑛 
+
+> u
+
+)∥ 21,2
+
++ 𝐶𝜏 12 ∥u𝑛 +1 ∥22,26∑︁ 
+
+> 𝑖 =1
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 6u
+
+𝜕𝑡 6 (𝑠 )
+
+> 21,2
+
+𝑑𝑠 
+
++ 𝐶𝜏 12 ∥𝛾 6 (u𝑛 ℎ)∥ 21,26∑︁ 
+
+> 𝑖 =1
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 6u
+
+𝜕𝑡 6 (𝑠 )
+
+> 22,2
+
+𝑑𝑠 
+
++ 𝐶𝜏 12 6∑︁ 
+
+> 𝑖 =1
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 7u
+
+𝜕𝑡 7 (𝑠 )
+
+> 20
+
+𝑑𝑠 + 𝐶ℎ 2(𝑙 +1) 𝜏 𝜕 u𝑛 +1
+
+𝜕𝑡 
+
+> 2
+> 𝑙 +1,2
+
+,(3.76) with ¯ 𝑑 𝑛 = 𝜈 12𝜏 + ∥A ℎ (𝛾 6 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2. Summing both sides of equation (3.76) over 
+
+𝑛 from 5 to 𝑚 , and invoking Hypothesis 2.1 on the exact solution, along with the fact that 
+
+𝐺 = (𝑔 𝑖 𝑗 ) is a symmetric positive definite matrix with smallest eigenvalue 𝜆 5𝑔 and largest eigenvalue 𝜆 5𝐺 , we obtain the following estimate 
+
+𝜆 5𝑔 ∥∇ 𝜂 𝑚 +1 
+
+> u
+
+∥20 + 𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+(1 − 6𝜀 ) 𝛼 6𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 6 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+> 20
+
+≤𝐶𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+¯𝑑 𝑛 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20 + 𝐶𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+
+
+∥A ℎ (𝛾 6 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2
+
+
+
+∥𝛾 6 (𝑒 𝑛 
+
+> u
+
+)∥ 21,2
+
++ 𝐶𝜏 12 
+
+∫ 𝑇 
+
+> 0
+
+𝜕 6u
+
+𝜕𝑡 6 (𝑠 )
+
+> 21,2
+
++ 𝜕 6u
+
+𝜕𝑡 6 (𝑠 )
+
+> 22,2
+
++ 𝜕 7u
+
+𝜕𝑡 7 (𝑠 )
+
+> 20
+
+!
+
+𝑑𝑠 
+
++ 𝐶ℎ 2(𝑙 +1) 𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+𝜕 u𝑛 +1
+
+𝜕𝑡 
+
+> 2
+> 𝑙 +1,2
+
++ 𝜆 5𝐺 
+
+> 5
+
+∑︁ 
+
+> 𝑖 =0
+
+∥∇ 𝜂 𝑖  
+
+> u
+
+∥20.(3.77) By invoking (2.7) and Lemma 3.1 with 𝜏 ¯𝑑 𝑛 < 1, we derive the following result: 
+
+∥∇ 𝜂 𝑚 +1 
+
+> u
+
+∥20 + 𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =5
+
+(1 − 6𝜀 ) 𝛼 6𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 6 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+> 20
+
+≤ 𝐶 𝑢 
+
+
+
+𝜏 12 + ℎ2𝑙 
+
+.(3.78) By applying the triangle inequality on (3.68) and (3.78) together with the approximation properties of the projection operators, the desired result follows (2.16). 28 QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO 
+
+Step IV : With the help of (2.16), we are now ready to show (3.8) is valid. By virtue of (2.16), we see 
+
+∥∇ u𝑚 +1 
+
+> ℎ
+
+∥0 ≤∥∇ u(· , 𝑡 𝑚 +1)∥ 0 + 𝐶 𝑢 
+
+
+
+𝜏 𝑘 + ℎ𝑙 
+
+,
+
+it follows from the definition of 𝐶 ^ in (3.5) that (3.8) is obviously true if we choose 
+
+𝜏 𝑘 ≤ min {1, 1/𝐶 𝑢 }, ℎ𝑙 ≤ min {1, 1/𝐶 𝑢 }.
+
+Thus, the induction is complete, and (2.14) follows. This concludes the proof of Theorem 2.1. □
+
+3.3. Proof of optimal error estimate for pressure. Based on the results established in Theorem 2.1, we derive the optimal error estimate for the pressure field. 
+
+Proof of Theorem 2.2. By analyzing the error equation for 𝑝 𝑛 +1 
+
+> ℎ
+
+, we have 
+
+(𝜂 𝑛 +1 
+
+> 𝑝
+
+, ∇ · vℎ) =
+
+ 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 , vℎ
+
+
+
+−
+
+
+
+𝐸 𝑘, 1 + 1
+
+𝜏 𝐸 𝑘, 2 + 𝐸 𝑘, 3, vℎ
+
+
+
++ 𝜈 (∇ 𝜂 𝑛 +1 
+
+> u
+
+, ∇vℎ).
+
+(3.79) By invoking the inf-sup condition (2.4), there holds 
+
+𝜒 ∗ ∥𝜂 𝑛 +1 
+
+> 𝑝
+
+∥0 ≤ (𝜂 𝑛 +1 
+
+> 𝑝
+
+, ∇ · vℎ)∥vℎ ∥1,2
+
+.(3.80) Combining (3.79) and (3.80), we will continue to derive 
+
+𝜏 ∥𝜂 𝑛 +1 
+
+> 𝑝
+
+∥20 ≤𝐶𝜏 𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+𝜏 
+
+> 20
+
++ 𝐶𝜈 2𝜏 ∥∇ 𝜂 𝑛 +1 
+
+> u
+
+∥20
+
++ 𝐶𝜏 
+
+
+
+∥∇( 𝛾 𝑘 (u𝑛 ℎ))∥ 20 + ∥ u𝑛 +1 ∥22,2
+
+  
+
+∥𝛾 𝑘 (𝜂 𝑛 
+
+> u
+
+)∥ 21,2 + ∥ 𝛾 𝑘 (𝑒 𝑛 
+
+> u
+
+)∥ 21,2
+
+
+
++ 𝐶𝜏 2𝑘 ∥u𝑛 +1 ∥22,2
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 𝑘 u
+
+𝜕𝑡 𝑘 (𝑠 )
+
+> 20
+
+𝑑𝑠 
+
++ 𝐶𝜏 2𝑘 ∥𝛾 𝑘 (u𝑛 ℎ)∥ 21,2
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 𝑘 u
+
+𝜕𝑡 𝑘 (𝑠 )
+
+> 21,2
+
+𝑑𝑠 
+
++ 𝐶𝜏 2𝑘 𝑘 ∑︁ 
+
+> 𝑖 =1
+
+𝑜 𝑖 
+
+∫ 𝑡 𝑛 +1
+
+> 𝑡 𝑛 +1−𝑖
+
+𝜕 𝑘 +1u
+
+𝜕𝑡 𝑘 +1 (𝑠 )
+
+> 20
+
+𝑑𝑠 + 𝐶ℎ 2(𝑙 +1) 𝜏 𝜕 u𝑛 +1
+
+𝜕𝑡 
+
+> 2
+> 𝑙 +1,2
+
+.(3.81) By combining (3.40), (3.56), (3.68), (3.78) and (3.81), the following inequality is obtained 
+
+𝜏 
+
+> 𝑚
+
+∑︁ 
+
+> 𝑛 =𝑘 −1
+
+∥𝜂 𝑛 +1 
+
+> 𝑝
+
+∥20 ≤ 𝐶 𝑢, 𝑝 
+
+
+
+𝜏 2𝑘 + ℎ2𝑙 
+
+.(3.82) The desired result is obtained by invoking the triangle inequality and the approximation properties of the projection operators. □OPTIMAL ERROR ANALYSIS FOR HIGH-ORDER NAVIER-STOKES EQUATIONS 29 
+
+4. Numerical experiments 
+
+In this section, we conduct a series of numerical experiments to validate the accuracy and stability of the proposed IMEX-BDF 𝑘 finite element scheme. For all tests, the Taylor-Hood (𝑃 2-𝑃 1) finite element pair is employed to approximate the velocity-pressure fields. The numerical implementation is based on the finite element discretization library MFEM [5] (version: 4.8.1), and all computations are performed on the LSSC-IV cluster of the State Key Laboratory of Scientific and Engineering Computing, Chinese Academy of Sciences. 4.1. Convergence rate for temporal discretization. In this example, we assess the tem-poral accuracy of the proposed numerical scheme by considering a problem with a known exact solution. The computational domain is chosen as Ω = [0, 1]3, with the exact solutions prescribed by 
+
+u = (𝑦 sin 2 (𝑡 ), 𝑧 sin 2 (𝑡 ), 𝑥 sin 2 (𝑡 )) ⊤, 𝑝 = (𝑥 + 𝑦 + 𝑧 − 1.5) sin 2 (𝑡 ).
+
+The boundary conditions and source terms are determined to align with these exact so-lutions. Given that the exact solutions exhibit linearity in space, the error is dominated by temporal discretization. The kinematic viscosity is set to 𝜈 = 1, and the unit cube is uniformly partitioned into 48 × 48 × 48 small cubes, with each small cube subdivided into six tetrahedral elements. To assess convergence rates, we employ second- to sixth-order temporal schemes ( 𝑘 = 2, 3, 4, 5, 6). The final time is set to 𝑇 = 5.0 for 𝑘 = 2, 4, 𝑇 = 7.5 for 
+
+𝑘 = 3, 5 and 𝑇 = 10 .0 for 𝑘 = 6. The time step 𝜏 is selected as {𝑇 /20 , 𝑇 /40 , 𝑇 /80 , 𝑇 /160 }
+
+for successive refinements. The convergence behavior of the velocity errors in the 𝐻 1- and 
+
+𝐿 2-norms, along with the 𝐿 2-error of the pressure, is displayed in Figure 1. As demon-strated, this is in full agreement with the theoretical prediction and validates the temporal discretization approach adopted in this work. 4.2. Convergence rate for spatial discretization. Similar to subsection 4.1, this example is designed to examine the convergence rates for spatial approximations. The computational domain is taken as Ω = [0, 1]3, and the physical parameter 𝜈 is set to 1. The true solutions are expressed as follows 
+
+u = (𝑦 (1 − 𝑦 )𝑧 (1 − 𝑧 ) cos (𝑡 ), 𝑥 (1 − 𝑥 )𝑧 (1 − 𝑧 ) cos (𝑡 ), 0)⊤, 𝑝 = (2𝑥 − 1)𝑦𝑧 cos (𝑡 ).
+
+We fix the time step at 𝜏 = 0.01 to examine spatial convergence rates with respect to mesh refinement. Table 1 and Table 2 present the numerical errors and convergence orders for 
+
+𝑘 = 1 and 𝑘 = 2 schemes at the final time 𝑇 = 1.0, respectively. These results confirm that all schemes attain the theoretical convergence orders. When evaluating spatial accuracy, we fix 𝜏 sufficiently small to ensure error stabilization under temporal refinement, meaning the spatial error dominated the temporal error. At this point, using higher-order temporal schemes, the 𝜏 𝑘 term decreases as the order 𝑘 increases, leading to an overall error that remains nearly unchanged. Consequently, the computed errors and convergence orders for 
+
+𝑘 = 3, 4, 5, 6 are almost identical to those for 𝑘 = 2 and are omitted for brevity. 4.3. Double shear layer problem. We consider the classical double shear layer problem for the Navier-Stokes equations in the unit square domain Ω = (0, 1) × ( 0, 1), with the initial condition given by 
+
+𝑢 1 (𝑥, 𝑦, 0) =
+
+(
+
+tanh (𝜌 (𝑦 − 0.25 )) , 𝑦 ≤ 0.5,
+
+tanh (𝜌 (0.75 − 𝑦 )) , 𝑦 > 0.5, 𝑢 2 (𝑥, 𝑦, 0) = 𝜁 sin (2𝜋𝑥 ),30 QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO 
+
+(a) 𝑘 = 2 (b) 𝑘 = 3
+
+(c) 𝑘 = 4 (d) 𝑘 = 5
+
+(e) 𝑘 = 6
+
+Figure 1. Temporal convergence rates of the BDF 𝑘 (𝑘 = 2, 3, 4, 5, 6) schemes where 𝜌 determines the slope of the shear layer and 𝜁 represents the size of the perturbation. The perturbation amplitude is fixed on 𝜁 = 0.05 and the external body force is taken as 
+
+f = 0 in our simulations. To evaluate the performance of the high-order numerical scheme in capturing complex flow structures, we first simulate the thick shear layer problem using the BDF4 and BDF6 schemes with physical parameters 𝜌 = 30 .0 and 𝜈 = 0.0001. Spatial discretization employs a 128 ×128 uniform grid and the time step is set to 𝜏 = 5×10 −4 for 𝑘 = 4 and 𝜏 = 1.25 ×10 −4OPTIMAL ERROR ANALYSIS FOR HIGH-ORDER NAVIER-STOKES EQUATIONS 31 
+
+ℎ 0.281 0.140 0.070 0.035 
+
+∥u(𝑇 ) − u𝑁 ℎ ∥0 1.87E-04 2.40E-05 3.05E-06 5.78E-07 
+
+order - - 2.97 2.97 2.80 
+
+∥u(𝑇 ) − u𝑁 ℎ ∥1,2 6.36E-03 1.61E-03 4.06E-04 1.02E-04 
+
+order - - 1.98 1.99 1.99 
+
+∥ 𝑝 (𝑇 ) − 𝑝 𝑁 ℎ ∥0 4.24E-03 1.05E-03 2.65E-04 7.77E-05 
+
+order - - 2.02 2.00 1.93 
+
+Table 1. Spatial convergence order at 𝑇 = 1.0, 𝑘 = 1
+
+ℎ 0.281 0.140 0.070 0.035 
+
+∥u(𝑇 ) − u𝑁 ℎ ∥0 1.87E-04 2.40E-05 3.02E-06 3.79E-07 
+
+order - - 2.96 2.98 2.98 
+
+∥u(𝑇 ) − u𝑁 ℎ ∥1,2 6.36E-03 1.61E-03 4.05E-04 1.02E-04 
+
+order - - 1.98 1.99 1.99 
+
+∥ 𝑝 (𝑇 ) − 𝑝 𝑁 ℎ ∥0 4.23E-03 1.05E-03 2.61E-04 6.53E-05 
+
+order - - 2.02 2.01 2.01 
+
+Table 2. Spatial convergence order at 𝑇 = 1.0, 𝑘 = 2for 𝑘 = 6. The simulation is advanced until the final time 𝑇 = 1.2, capturing the temporal evolution of the thick shear layer flow. Figure 2 and Figure 3 present the snapshots of vorticity at different time for the thick shear layer. To further assess the capability of the high-order scheme in resolving fine-scale structures at high Reynolds numbers, we conduct simulations of the thin shear layer problem using BDF4 and BDF6 temporal discretization with physical parameters 𝜌 = 100 .0 and 𝜈 =
+
+0.00005. The spatial discretization is performed on a 256 × 256 uniform grid, and the time step is set to 𝜏 = 1.25 × 10 −4 for 𝑘 = 4 and 𝜏 = 5 × 10 −5 for 𝑘 = 6. As illustrated in Figure 4 and Figure 5, the vorticity contours produced by the proposed method exhibit good agreement with those reported in the literature [25]. This findings confirm the robustness and accuracy of the high-order algorithm in capturing complex flow dynamics under extreme Reynolds number conditions. Finally, to evaluate the performance differences between high-order and low-order nu-merical schemes in high Reynolds number 𝜈 = 0.0001 flows, simulations are carried out using the first-order temporal discretization ( 𝑘 = 1) with the time step 𝜏 = 5.0 × 10 −4. As shown in Figure 6, the linear system solver for 𝑘 = 1 scheme exhibits numerical instability and blows up at approximately 𝑡 = 0.6. To further investigate the limitations of the low-order method, the time step is reduced to 𝜏 = 2.5 × 10 −4, and computations are performed at 𝑡 = 1.2 and 𝑡 = 1.4 for 𝑘 = 1. For comparison, the same scenarios are simulated using the fourth-order scheme ( 𝑘 = 4) with 𝜏 = 5.0 × 10 −4. As shown in Figure 7, the low-order scheme fails to yield physically meaningful solutions even with halved temporal resolution, whereas the high-order scheme maintains robust convergence and accuracy. This demon-strates that for high-Reynolds-number flows with complex structures, high-order schemes 32 QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO                       
+
+> (a) 𝑡 =0.2(b) 𝑡 =0.4(c) 𝑡 =0.6
+> (d) 𝑡 =0.8(e) 𝑡 =1.0(f) 𝑡 =1.2
+
+Figure 2. Snapshots of vorticity for the thick shear layer problem com-puted by using BDF4 scheme with 𝜈 = 0.0001 at different time. outperform low-order ones, since significantly reduced time steps are required to obtain cor-rect solutions with low-order schemes. Furthermore, high-order schemes exhibit superior stability to low-order schemes at high Reynolds numbers. 5. Conclusion 
+
+In this work, we have developed and analyzed a class of fully discrete IMEX-BDF 𝑘 
+
+finite element schemes for the incompressible Navier-Stokes equations, for temporal orders 
+
+𝑘 = 1, · · · , 6. The analysis provides a unified finite element framework for BDF 𝑘 time discretizations and establishes stability as well as optimal error estimates for the fully discrete approximations. By treating the nonlinear convection term explicitly while maintaining an implicit dis-cretization for the viscous and pressure terms, the proposed formulation yields a sequence of linear problems at each time step, thereby reducing computational cost while preserving unconditional energy stability. From a theoretical perspective, the main contribution lies in the development of a unified stability and error analysis applicable to all BDF orders up to six. In particular, we prove stability and uniform boundedness of the fully discrete solutions without any restrictive condition between the time step and the mesh size. Moreover, opti-mal error estimates are derived in the three-dimensional setting, including optimal 𝐿 2- and 
+
+𝐻 1-convergence rates for the velocity and optimal 𝐿 2-convergence rates for the pressure. The scheme achieves full 𝑘 th-order temporal accuracy for both velocity and pressure. OPTIMAL ERROR ANALYSIS FOR HIGH-ORDER NAVIER-STOKES EQUATIONS 33                       
+
+> (a) 𝑡 =0.2(b) 𝑡 =0.4(c) 𝑡 =0.6
+> (d) 𝑡 =0.8(e) 𝑡 =1.0(f) 𝑡 =1.2
+
+Figure 3. Snapshots of vorticity for the thick shear layer problem com-puted by using the BDF6 scheme with 𝜈 = 0.0001 at different time. Although BDF schemes have been extensively studied in the literature, the available rigorous analyses for higher-order fully discrete finite element approximations are con-siderably more restrictive. Existing results for third-, fourth-, and fifth-order BDF finite element schemes typically rely on CFL-type restrictions of the form 𝜏 ≤ 𝐶ℎ 𝛼 . By contrast, the present work removes such restrictions and establishes unconditional energy stability together with optimal convergence for fully discrete IMEX-BDF finite element schemes of orders 𝑘 = 4, 5 and 6. To the best of our knowledge, this is the first rigorous unconditional stability and convergence analysis of a sixth-order IMEX-BDF finite element discretization of the incompressible Navier-Stokes equations. The analysis of the sixth-order scheme re-quires several new ingredients, including a suitable reformulation of the multistep structure and a discrete identity that enables the recovery of the full sixth-order temporal accuracy in the presence of explicitly treated nonlinear convection. Beyond the finite element pairs considered herein, the structure of the analysis suggests that the methodology can be extended to a broader class of inf-sup stable discretizations. In particular, it would be of considerable interest to investigate its extension to divergence-conforming 𝐻 (div ) finite element methods, such as Raviart-Thomas and Brezzi-Douglas-Marini discretizations, which provide a natural framework for exactly divergence-free velocity approximations and pressure-robust formulations. Overall, the combination of high-order temporal accuracy, unconditional stability, and computational efficiency makes the IMEX-BDF 𝑘 framework developed in this work particularly attractive for the simulation of incompressible flows with complex multiscale dynamics, especially in high-Reynolds-number regimes. Numerical experiments are presented to illustrate the theoretical results 34 QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO 
+
+(a) 𝑡 = 0.2 (b) 𝑡 = 0.4 (c) 𝑡 = 0.6
+
+(d) 𝑡 = 0.8 (e) 𝑡 = 1.0 (f) 𝑡 = 1.2
+
+Figure 4. Snapshots of vorticity for the thin shear layer problem com-puted by using the BDF4 scheme with 𝜈 = 0.00005 at different time. and to assess the practical performance of the proposed schemes. In particular, the sixth-order approximation remains reliable for Reynolds numbers up to 2 × 10 4, indicating its potential for large-scale computations of convection-dominated incompressible flows and motivating further investigations in high-Reynolds-number and turbulence-resolving simulations. 
+
+Appendix A. An auxiliary inequality 
+
+To facilitate the derivation of the optimal 𝐻 1-error estimate for the velocity, we establish the following auxiliary inequality. 
+
+𝜈 𝜏 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =0
+
+𝛿 𝑖 ∇𝜂 𝑛 +1+𝑖 −𝑘 
+
+> u
+> 20
+
+≥ 𝜈𝑐 0
+
+𝜏 ∇
+
+
+
+𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+ 20 − 𝜈𝐶 hist 
+
+𝜏 
+
+> 𝑘 −1
+
+∑︁ 
+
+> 𝑗 =0
+
+∇𝜂 𝑛 − 𝑗  
+
+> u
+> 20
+
+.(A.1) Here, 𝑐 0 > 0 and 𝐶 hist > 0 are independent of the time step size 𝜏 and the time index 𝑛 .
+
+Proof of (A.1). We proceed in two steps. 
+
+Step 1: Decomposition into the current and historical time levels. Since 𝛼 𝑘 ≠ 0 and 
+
+𝛿 𝑘 ≠ 0 for the BDF schemes considered here, 𝑘 = 1, · · · , 5, we may decompose the discrete time-difference operator as 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =0
+
+𝛿 𝑖 𝜂 𝑛 +1+𝑖 −𝑘  
+
+> u
+
+= 𝛿 𝑘 
+
+𝛼 𝑘 
+
+
+
+𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+
+
++ 𝑅 𝑛 ,(A.2) OPTIMAL ERROR ANALYSIS FOR HIGH-ORDER NAVIER-STOKES EQUATIONS 35 
+
+(a) 𝑡 = 0.2 (b) 𝑡 = 0.4 (c) 𝑡 = 0.6
+
+(d) 𝑡 = 0.8 (e) 𝑡 = 1.0 (f) 𝑡 = 1.2
+
+Figure 5. Snapshots of vorticity for the thin shear layer problem com-puted by using the BDF6 scheme with 𝜈 = 0.00005 at different time. 
+
+Figure 6. Residual variation over time for the FGMRES solver, 𝑘 = 1, 
+
+𝜏 = 5 × 10 −4
+
+where 
+
+𝑅 𝑛 :=
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =0
+
+𝛿 𝑖 𝜂 𝑛 +1+𝑖 −𝑘  
+
+> u
+
+− 𝛿 𝑘 
+
+𝛼 𝑘 
+
+
+
+𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+
+
+.(A.3) 36 QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO 
+
+(a) 𝑘 = 1, 𝑡 = 1.2, 𝜏 = 2.5 × 10 −4 (b) 𝑘 = 1, 𝑡 = 1.4, 𝜏 = 2.5 × 10 −4
+
+(c) 𝑘 = 4, 𝑡 = 1.2, 𝜏 = 5 × 10 −4 (d) 𝑘 = 4, 𝑡 = 1.4, 𝜏 = 5 × 10 −4
+
+Figure 7. Comparison of vorticity contours between high-order and low-order schemes. The solution obtained using the low-order scheme is inaccurate. Using the fact that the coefficient of 𝜂 𝑛 +1 
+
+> u
+
+in the first term on the right-hand side of (A.2) is precisely 𝛿 𝑘 , we obtain 
+
+𝑅 𝑛 =
+
+> 𝑘 −1
+
+∑︁ 
+
+> 𝑖 =0
+
+𝛿 𝑖 𝜂 𝑛 +1+𝑖 −𝑘  
+
+> u
+
++ 𝛿 𝑘 
+
+𝛼 𝑘 
+
+𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+).(A.4) Thus, the contribution from the current time level 𝜂 𝑛 +1 
+
+> u
+
+cancels exactly in 𝑅 𝑛 . Consequently, 
+
+𝑅 𝑛 depends only on the historical error levels 
+
+𝜂 𝑛 
+
+> u
+
+, 𝜂 𝑛 −1 
+
+> u
+
+, . . . , 𝜂 𝑛 +1−𝑘  
+
+> u
+
+.
+
+Taking the gradient in (A.2) gives 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =0
+
+𝛿 𝑖 ∇𝜂 𝑛 +1+𝑖 −𝑘  
+
+> u
+
+= 𝛿 𝑘 
+
+𝛼 𝑘 
+
+∇
+
+
+
+𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+
+
++ ∇ 𝑅 𝑛 .(A.5) OPTIMAL ERROR ANALYSIS FOR HIGH-ORDER NAVIER-STOKES EQUATIONS 37 
+
+Step 2: Lower bound. Applying the inequality 
+
+∥𝑎 + 𝑏 ∥20 ≥ 12 ∥𝑎 ∥20 − ∥ 𝑏 ∥20,
+
+which follows directly from Young’s inequality, to (A.5), we obtain 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =0
+
+𝛿 𝑖 ∇𝜂 𝑛 +1+𝑖 −𝑘 
+
+> u
+> 20
+
+≥ 12
+
+ 𝛿 𝑘 
+
+𝛼 𝑘 
+
+2
+
+∇
+
+
+
+𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+ 20 − ∥∇ 𝑅 𝑛 ∥20.(A.6) It remains to estimate the remainder term. By (A.4) and the Cauchy-Schwarz inequality, there exists a constant 𝐶 hist > 0, such that 
+
+∥∇ 𝑅 𝑛 ∥20 ≤ 𝐶 hist 
+
+> 𝑘 −1
+
+∑︁ 
+
+> 𝑗 =0
+
+∇𝜂 𝑛 − 𝑗  
+
+> u
+> 20
+
+.(A.7) In particular, 𝐶 hist is independent of both the time step size 𝜏 and the time index 𝑛 .Combining (A.6) and (A.7), and setting 
+
+𝑐 0 := 12
+
+ 𝛿 𝑘 
+
+𝛼 𝑘 
+
+2
+
+> 0,
+
+we arrive at 
+
+> 𝑘
+
+∑︁ 
+
+> 𝑖 =0
+
+𝛿 𝑖 ∇𝜂 𝑛 +1+𝑖 −𝑘 
+
+> u
+> 20
+
+≥ 𝑐 0 ∇
+
+
+
+𝛼 𝑘 𝜂 𝑛 +1 
+
+> u
+
+− 𝛽 𝑘 (𝜂 𝑛 
+
+> u
+
+)
+
+ 20 − 𝐶 hist 
+
+> 𝑘 −1
+
+∑︁ 
+
+> 𝑗 =0
+
+∇𝜂 𝑛 − 𝑗  
+
+> u
+> 20
+
+.(A.8) Multiplying both sides by 𝜈 /𝜏 completes the proof of (A.1). □
+
+References 
+
+1. Naveed Ahmed, Simon Becher, and Gunar Matthies, Higher-order discontinuous Galerkin time stepping and local projection stabilization techniques for the transient Stokes problem , Comput. Methods Appl. Mech. Engrg. 313 (2017), 28–52. MR 3577930 2. Ali Ait Ou Ammi and Martine Marion, Nonlinear Galerkin methods and mixed finite elements: two-grid algorithms for the Navier-Stokes equations , Numer. Math. 68 (1994), no. 2, 189–213. MR 1283337 3. Georgios Akrivis, Minghua Chen, Fan Yu, and Zhi Zhou, The energy technique for the six-step BDF method ,SIAM J. Numer. Anal. 59 (2021), no. 5, 2449–2472. MR 4316580 4. Alejandro Allendes, Gabriel R. Barrenechea, and Julia Novo, A divergence-free stabilized finite element method for the evolutionary Navier-Stokes equations , SIAM J. Sci. Comput. 43 (2021), no. 6, A3809–A3836. MR 4336329 5. Robert Anderson, Julian Andrej, Andrew Barker, and et al., MFEM: A modular finite element methods library ,Comput. Math. Appl. 81 (2021), 42–74. MR 4189802 6. Garth A. Baker, Vassilios A. Dougalis, and Ohannes A. Karakashian, On a higher order accurate fully discrete Galerkin approximation to the Navier-Stokes equations , Math. Comp. 39 (1982), no. 160, 339–375. MR 669634 7. R. Bermejo, P. Gal´ an del Sastre, and L. Saavedra, A second order in time modified Lagrange-Galerkin finite element method for the incompressible Navier-Stokes equations , SIAM J. Numer. Anal. 50 (2012), no. 6, 3084–3109. MR 3022255 8. Franco Brezzi and Michel Fortin, Mixed and hybrid finite element methods , Springer Series in Computational Mathematics, vol. 15, Springer-Verlag, New York, 1991. MR 1115205 9. Kelong Cheng and Cheng Wang, Long time stability of high order multistep numerical schemes for two-dimensional incompressible Navier-Stokes equations , SIAM J. Numer. Anal. 54 (2016), no. 5, 3123–3144. MR 3564779 10. Alessandro Contri, Bal´ azs Kov´ acs, and Andr´ e Massing, Error analysis of BDF 1–6 time-stepping methods for the transient Stokes problem: velocity and pressure estimates , SIAM J. Numer. Anal. 63 (2025), no. 4, 1586–1616. MR 4937622 38 QIANQIAN DING, YIFAN LUO, AND SHIPENG MAO 
+
+11. Amanda E. Diegel, Cheng Wang, Xiaoming Wang, and Steven M. Wise, Convergence analysis and error estimates for a second order accurate finite element method for the Cahn-Hilliard-Navier-Stokes system ,Numer. Math. 137 (2017), no. 3, 495–534. MR 3712284 12. Bosco Garc´ ıa-Archilla and Julia Novo, Robust error bounds for the Navier-Stokes equations using implicit-explicit second-order BDF method with variable steps , IMA J. Numer. Anal. 43 (2023), no. 5, 2892–2933. MR 4648524 13. Bosco Garc´ ıa-Archilla, V. John, and Julia Novo, Error analysis of bdf schemes for the evolutionary incom-pressible navier–stokes equations , 2025, arXiv. 14. Vivette Girault and Pierre-Arnaud Raviart, Finite element methods for Navier-Stokes equations , Springer Se-ries in Computational Mathematics, vol. 5, Springer-Verlag, Berlin, 1986, Theory and algorithms. MR 851383 15. E. Hairer, S. P. Nø rsett, and G. Wanner, Solving ordinary differential equations. I , second ed., Springer Series in Computational Mathematics, vol. 8, Springer-Verlag, Berlin, 1993, Nonstiff problems. MR 1227985 16. E. Hairer and G. Wanner, Solving ordinary differential equations. II , second ed., Springer Series in Com-putational Mathematics, vol. 14, Springer-Verlag, Berlin, 1996, Stiff and differential-algebraic problems. MR 1439506 17. Yongbin Han and Yanren Hou, Semirobust analysis of an H(div )-conforming DG method with semi-implicit time-marching for the evolutionary incompressible Navier-Stokes equations , IMA J. Numer. Anal. 42 (2022), no. 2, 1568–1597. MR 4410752 18. Yongbin Han, Yanren Hou, and Min Zhang, Analysis of divergence-free 𝐻 1 conforming FEM with IMEX-SAV scheme for the Navier-Stokes equations at high Reynolds number , Math. Comp. 92 (2023), no. 340, 557–582. MR 4524102 19. Yinnian He, Two-level method based on finite element and Crank-Nicolson extrapolation for the time-dependent Navier-Stokes equations , SIAM J. Numer. Anal. 41 (2003), no. 4, 1263–1285. MR 2034880 20. , The Euler implicit/explicit scheme for the 2D time-dependent Navier-Stokes equations with smooth or non-smooth initial data , Math. Comp. 77 (2008), no. 264, 2097–2124. MR 2429876 21. Yinnian He and Weiwei Sun, Stability and convergence of the Crank-Nicolson/Adams-Bashforth scheme for the time-dependent Navier-Stokes equations , SIAM J. Numer. Anal. 45 (2007), no. 2, 837–869. MR 2300299 22. J. G. Heywood and Rolf Rannacher, Finite element approximation of the nonstationary Navier-Stokes problem. I. Regularity of solutions and second-order error estimates for spatial discretization , SIAM J. Numer. Anal. 
+
+19 (1982), no. 2, 275–311. MR 650052 23. John G. Heywood and Rolf Rannacher, Finite-element approximation of the nonstationary Navier-Stokes problem. IV. Error analysis for second-order time discretization , SIAM J. Numer. Anal. 27 (1990), no. 2, 353–384. MR 1043610 24. R. Hiptmair, Finite elements in computational electromagnetism , Acta Numer. 11 (2002), 237–339. MR 2009375 25. Fukeng Huang and Jie Shen, Stability and error analysis of a class of high-order IMEX schemes for Navier-Stokes equations with periodic boundary conditions , SIAM J. Numer. Anal. 59 (2021), no. 6, 2926–2954. MR 4342123 26. Ross Ingram, Unconditional convergence of high-order extrapolations of the Crank-Nicolson, finite element method for the Navier-Stokes equations , Int. J. Numer. Anal. Model. 10 (2013), no. 2, 257–297. MR 3055600 27. Bingquan Ji, Yuezheng Gong, Yushun Wang, and Xuan Zhao, Time-grid independent error analysis of adaptive predictor-corrector bdf2 scheme for the unsteady navier–stokes equations with high reynolds number ,IMA Journal of Numerical Analysis (2025), draf094. 28. Bingquan Ji and Hong-lin Liao, A unified 𝐿 2 norm error analysis of SAV-BDF schemes for the incompressible Navier-Stokes equations , J. Sci. Comput. 100 (2024), no. 1, Paper No. 5, 25. MR 4748939 29. Buyang Li, Shu Ma, and Katharina Schratz, A semi-implicit exponential low-regularity integrator for the Navier-Stokes equations , SIAM J. Numer. Anal. 60 (2022), no. 4, 2273–2292. MR 4471050 30. Xiaoli Li and Jie Shen, Error estimate of a consistent splitting GSAV scheme for the Navier-Stokes equations ,Appl. Numer. Math. 188 (2023), 62–74. MR 4563542 31. Yuan Li and Rong An, Temporal error analysis of a new Euler semi-implicit scheme for the incompressible Navier-Stokes equations with variable density , Commun. Nonlinear Sci. Numer. Simul. 109 (2022), Paper No. 106330, 17. MR 4383081 32. Jie Liu, Simple and efficient ALE methods with provable temporal accuracy up to fifth order for the Stokes equations on time varying domains , SIAM J. Numer. Anal. 51 (2013), no. 2, 743–772. MR 3033031 33. Olavi Nevanlinna and F. Odeh, Multiplier techniques for linear multistep methods , Numer. Funct. Anal. Optim. 3 (1981), no. 4, 377–423. MR 636736 OPTIMAL ERROR ANALYSIS FOR HIGH-ORDER NAVIER-STOKES EQUATIONS 39 
+
+34. Anouar Obbadi, Mofdi El-Amrani, Mohammed Seaid, and Driss Yakoubi, A stable second-order splitting method for incompressible Navier-Stokes equations using the scalar auxiliary variable approach , Comput. Methods Appl. Mech. Engrg. 437 (2025), Paper No. 117801, 24. MR 4859092 35. Changxin Qiu, Kai Wang, Xiaoming He, and Yanping Lin, Analysis of a joint stokes–darcy ritz-projection and multi-step bdf schemes for decoupling the unsteady navier–stokes–darcy model , IMA Journal of Numerical Analysis (2026), drag037. 36. Roger Temam, Navier-Stokes equations and nonlinear functional analysis , CBMS-NSF Regional Conference Series in Applied Mathematics, vol. 41, Society for Industrial and Applied Mathematics (SIAM), Philadelphia, PA, 1983. MR 764933 37. Xiaoming Wang, An efficient second order in time scheme for approximating long time statistical properties of the two dimensional Navier-Stokes equations , Numer. Math. 121 (2012), no. 4, 753–779. MR 2945615 
+
+School of Mathematics and Statistics, Beijing Jiaotong University, Beijing 100044, China 
+
+Email address : dingqianqian@lsec.cc.ac.cn 
+
+State Key Laboratory of Mathematical Sciences, Academy of Mathematics and Systems Science, Chinese Academy of Sciences, Beijing 100190, China, School of Mathematical Sciences, University of Chinese Academy of Sciences, Beijing 100049, China 
+
+Email address : luoyifan24@mails.ucas.ac.cn 
+
+State Key Laboratory of Mathematical Sciences, Academy of Mathematics and Systems Science, Chinese Academy of Sciences, Beijing 100190, China, School of Mathematical Sciences, University of Chinese Academy of Sciences, Beijing 100049, China 
+
+Email address : maosp@lsec.cc.ac.cn

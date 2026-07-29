@@ -1,0 +1,1465 @@
+Title: Parallelisation of Discrete Exterior Calculus via Representation Theory on Curved and Three-Dimensional Meshes
+
+URL Source: https://arxiv.org/pdf/2607.25192v1
+
+Published Time: Wed, 29 Jul 2026 00:23:40 GMT
+
+Number of Pages: 33
+
+Markdown Content:
+# Parallelisation of Discrete Exterior Calculus via Representation Theory on Curved and Three-Dimensional Meshes 
+
+Leon D. da Silva , Marcelo P. Santos , Jos´ e D. da Silva , Gilson Ferreira Jr. 
+
+Departamento de Matem´ atica, Universidade Federal Rural de Pernambuco Rua Dom Manoel de Medeiros, s/n, Recife, PE, 52171-900, Brazil Corresponding author: leon.silva@ufrpe.br 
+
+July 29, 2026 
+
+1. Symmetric Mesh 
+
+Topology & group G      
+
+> S2:IhT3:Td
+
+2. Universal Equivariance 
+
+[ρ(g), d ] = 0 & [ρ(g), ⋆ ] = 0 
+
+single symmetry-adapted basis Q
+
+(built once, PDE-agnostic) 
+
+L 7 → QTLQ 
+
+3. Decoupled Systems 
+
+block-diagonal, solved in parallel 
+
+Poisson (∆) 
+
+Maxwell (d, δ )
+
+Navier–Stokes ∗
+
+L1
+
+L2
+
+. . .Ln
+
+> ∗linear substeps (operator splitting)
+
+Graphical Abstract. A single symmetry-adapted orthogonal basis Q, built once from the mesh symmetry group G, block-diagonalizes every DEC operator L into independently solvable isotypic blocks via L 7 → QTL Q .
+
+Abstract 
+
+We establish a universal block-diagonalization framework for Discrete Exterior Calculus (DEC) operators on symmetric meshes, enabling embarrassingly parallel solvers with prov-able FLOP reductions. We prove that the two fundamental DEC operators, the discrete exterior derivative d and the Hodge star ⋆, are equivariant under isometric finite group ac-tions on simplicial complexes. The proof exploits the permutation representation induced on cochain spaces by the group action. As a consequence, any operator assembled from d and 
+
+⋆ (including the Hodge Laplacian, the codifferential, Maxwell-type operators, and elasticity operators) inherits a block-diagonal structure in a single symmetry-adapted basis, which is computed only once per mesh. Unlike spectral methods restricted to flat Platonic domains, the framework applies natively to curved manifolds and is applicable in principle to compu-tational electromagnetism and geometric fluid simulation on symmetric domains. Numerical experiments on a geodesic sphere ( Ih symmetry) and a hexagonal torus ( D6h symmetry) yield FLOP-based parallel speedups, relative to a dense direct factorization, of up to 62 ×
+
+and 182 ×, respectively. A further experiment on a body-centred-cubic (BCC) tessellation of the flat 3-torus T 3 with Td symmetry confirms equivariance of the exterior derivative, Hodge star, and Hodge Laplacian at machine precision for form degrees k = 0 , 1, 2 across three mesh resolutions. The FLOP-based sequential speedup approaches its theoretical asymptote of 
+
+≈ 9.07 ×, which a standard Schur-multiplicity reduction deepens by a further factor of order 
+
+|G|. These results show that a single symmetry-adapted basis reduces the linear-solve cost of structure-preserving DEC computations on curved and three-dimensional meshes. 
+
+1arXiv:2607.25192v1 [math.NA] 28 Jul 2026 Keywords: Discrete Exterior Calculus, Group Representation Theory, Equivariance, Symmetry-Adapted Basis, Block-Diagonalization, Hodge Laplacian, Curved Manifolds, Three-Dimensional Meshes.  
+
+> MSC 2010: 65N30 (primary); 65N22, 65Y05, 65Y20, 68W10, 20C15, 20C35, 58A14, 58A12, 05E18 (secondary).
+
+# 1 Introduction 
+
+Discrete Exterior Calculus (DEC) [1, 2] is a structure-preserving framework for the discretiza-tion of partial differential equations on manifolds. DEC represents physical fields as discrete differential forms (cochains) defined on simplicial complexes and their circumcentric duals. This construction guarantees that the generalized Stokes’ theorem, the de Rham complex structure, and physical conservation laws hold exactly at the discrete level, avoiding non-physical ar-tifacts common to conventional discretizations. The framework is applied in computational electromagnetism [3] and geometry processing [4]. DEC also extends naturally to triangulated curved surfaces. Fluid solvers in this framework originate in a circulation-preserving simplicial scheme [5]. The incompressible Navier–Stokes equations have since been discretized on pla-nar and spherical surfaces [6, 7], and a covariant formulation treats genus-zero flows together with harmonic vector fields on the torus [8]. Numerical convergence is established on arbitrary, including non-Delaunay, surface meshes [9]. Despite these structural guarantees, achieving high-fidelity numerical resolution in DEC requires inverting large, sparse matrix systems—most notably those arising from the discrete Hodge Laplacian ∆ = δd + dδ . Even scalable iterative solvers such as multigrid can require problem-specific tuning here, owing to the kernels induced by nontrivial cohomology and to the anisotropy of meshes over curved manifolds. A well-established paradigm for reducing these linear solve costs is symmetry exploitation .When a spatial discretization respects the symmetries of a finite group G, classical representa-tion theory guarantees a block-diagonalization of the system matrix via a unitary change to a 
+
+symmetry-adapted basis , decoupling the problem into independent subsystems of reduced dimen-sion. This algebraic reduction has historical roots in computational chemistry and molecular physics [10, 11]. Bossavit formalised the construction for boundary-value problems, reducing a 
+
+G-invariant problem to one subproblem per irreducible representation posed on the symmetry cell [12]. The same reduction admits a purely algebraic statement, in which the generalized Fourier transform block-diagonalizes equivariant matrices [13]. Representation theory is now used to exploit symmetries across a wide range of computa-tional methodologies. Olver [14] recently demonstrated how global polynomial spectral bases on flat Platonic domains (rectangles, cubes) produce block-diagonalizations that reduce the cost of linear solves. However, such spectral approaches are conceptually tied to flat geometries. As Olver himself emphasizes [14, Sec. 2], meshes that faithfully carry a finite symmetry group in 3D are essentially restricted to variants of the five Platonic solids; combined with the scalability of multigrid solvers on general meshes, this geometric restriction led the computational commu-nity to largely abandon symmetry-adapted bases in mesh-based discretizations. The situation is more severe on curved manifolds, where global polynomial bases are unavailable altogether. Similarly, within the framework of Finite Element Exterior Calculus (FEEC) [15, 16], repre-sentation theory classifies symmetry-invariant bases of polynomial differential forms on reference simplices [17, 18], yet the challenge of establishing the equivariance of globally assembled opera-tors on the mesh remains. A related but distinct use of symmetry appears in discrete geometric mechanics, where discrete Noether-type theorems ensure that variational integrators preserve momentum structures associated with the underlying symmetries [19]. Despite these advances, no existing framework, whether in spectral methods, FEEC, geometric deep learning [20, 21], or variational integrators, has so far established the equivariance of mesh-based discrete operators, 2such as those of DEC, under finite group actions on curved manifolds. We close this gap by establishing a block-diagonalization framework for Discrete Exterior Calculus. Our contributions are twofold. First, we prove strict equivariance for the two fun-damental DEC operators, the discrete exterior derivative d and the discrete Hodge star ⋆,under isometric group actions on simplicial complexes of arbitrary topological dimension. The proof of equivariance for d is purely combinatorial and dimension-agnostic, and the Hodge-star equivariance holds under the same isometry hypothesis. The dimensional subtlety concerns the invertibility of ⋆ rather than its equivariance. On any strictly Delaunay surface the circumcen-tric star is positive, whereas in three dimensions positivity is a strict additional requirement, met here by a centroid-based star (Section 6.5). Because every DEC-constructed differential operator is assembled from d and ⋆, the block-diagonal structure is inherited automatically. A single symmetry-adapted basis block-diagonalizes all DEC operators on the mesh. Second, this reach is geometric as well as dimensional. Whereas spectral polynomial bases require flat, regular (Platonic) domains, the DEC construction carries the symmetry group of any simplicial mesh admitting a finite isometry group, from curved surfaces such as geodesic spheres and hexagonal tori to three-dimensional tessellations such as the body-centred-cubic lattice on the 3-torus. This algebraic reduction complements existing mesh-based parallelization rather than re-placing it, composing naturally with MPI-based domain decomposition on unstructured tetra-hedralizations [22]. The symmetry-adapted basis is computed by character-theoretic projection on sparse cochain spaces, requiring only the combinatorial indexing of the group action and no polynomial spatial algebra. Across curved two-dimensional surfaces and a three-dimensional tessellation, equiv-ariance holds to machine precision and the sequential block-diagonal speedup approaches its regular-representation limit, with ∆ 2 saturating this limit already at modest mesh resolution, and a standard Schur-multiplicity reduction deepens it by a further factor of order |G| (Sec-tion 6). Sections 2–3 review the algebraic and geometric foundations: representation theory, symmetry-adapted bases, and the DEC formalism with isometric group actions. Sections 4–5 prove the equivariance of d and ⋆ and derive the universal block-diagonalization theorem. Sections 6–8 present numerical experiments on curved two-dimensional surfaces and three-dimensional tes-sellations, discuss implications, and conclude. 
+
+# 2 Representation-Theoretic Tools for Symmetry Exploitation 
+
+This section provides a concise outline of the symmetry-adapted basis method within the rep-resentation theory of finite groups, aimed at the block-diagonalization of equivariant operators. For brevity, we omit full demonstrations; interested readers can find detailed proofs and ex-tended discussions in standard references such as [23] (Chapters 1 to 5) and [11]. Let V be a finite-dimensional vector space over C (or R when representations are strictly real-orthogonal, as is typical in geometric discretizations). Let G be a finite group. A homo-morphism ϕ : G → GL( V ) is a linear representation of G. When ϕ is given, we say that V is a representation of G. The dimension of V is called the degree of ϕ, denoted as deg( ϕ). A vector subspace U ⊂ V is said to be ϕ-invariant if ϕ(g)( U ) ⊂ U for all g ∈ G. A ϕ-invariant subspace U ⊂ V is a subrepresentation of ϕ; thus, a subrepresentation is itself a representation. A representation ϕ is reducible if there is a ϕ-invariant proper subspace U ⊂ V , and irreducible 
+
+otherwise. Under our assumptions, a representation ϕ has a decomposition V = Lri=1 Ui such that the subrepresentation ϕi(g) = ϕ(g)|Ui for all g ∈ G is irreducible. Accordingly, we can express ϕ
+
+as a direct sum of irreducible representations (irreps), ϕ = ϕ1 ⊕ · · · ⊕ ϕr. In matrix form, this decomposition induces a block-diagonal matrix structure, with each block corresponding to one 3irrep ϕi.Given two representations ϕ : G → GL( V ) and ψ : G → GL( W ), a linear transformation 
+
+τ : V → W such that 
+
+ψ(g) ◦ τ = τ ◦ ϕ(g), ∀g ∈ G, (1) is called an equivariant map . If τ is an isomorphism, we say ψ and ϕ are equivalent .Consider the decomposition of a representation ϕ : G → GL( V ) into its irreducible subrep-resentations. We can write 
+
+V = V1 ⊕ · · · ⊕ Vn, (2) where each Vj is the sum 
+
+Vj =
+
+> cj
+
+M
+
+> l=1
+
+V lj (3) of equivalent subrepresentations. Here, cj is called the multiplicity , while the common degree of each V lj is denoted by nj . The ( cj nj )-dimensional subspaces Vj are called isotypic components ,and (2) is called the isotypic decomposition. The decompositions (2) and (3) induce a decomposition 
+
+ϕ = c1ϕ1 ⊕ · · · ⊕ cnϕn, (4) where ϕj is the restriction of ϕ to one irreducible component V lj , and cj denotes the number of copies. A basis of V that realizes the decomposition (4) is called a symmetry-adapted basis . In general, it is not unique. In the next subsection, we describe an algorithm to obtain one such basis. 
+
+2.1 Calculating the Symmetry-Adapted Basis 
+
+Let χϕ(g) = tr( ϕ(g)). The function χ : G → C is the character of ϕ. The canonical inner product between characters is: 
+
+⟨χ1, χ 2⟩ = 1
+
+|G|
+
+X
+
+> g∈G
+
+χ1(g−1)χ2(g). (5) The set of irreducible subrepresentations of each finite group G is finite (up to equivalence). Given a set of representative elements of each class of nonequivalent representations, we say that the corresponding characters form a complete set of characters. Let {χ1, . . . , χ k} be a complete set of characters of G.Characters provide a method for identifying components because the inner product ⟨χϕ, χ i⟩
+
+is equal to the multiplicity ci, denoting exactly how many distinct copies of an irreducible representation possessing character χi occur within ϕ.We can define the projection operators Π j , for j = 1 , . . . , k , corresponding to the projection of V onto Vj . The explicit expressions for these projectors are given below: Πj = nj
+
+|G|
+
+X
+
+> g∈G
+
+χj (g−1)ϕ(g). (6) In the above expression, the coefficient nj 
+
+> |G|
+
+is not required, and we can choose to omit it to reduce the computational cost, or include it to make the associated operators orthonormal. Also, if necessary, we can modify the projectors to make the symmetry-adapted basis orthonormal. In our case, no such re-orthonormalization is required in exact arithmetic, since the representation is already given by orthonormal operators; the numerical construction of Section 5.1 nonetheless restores orthonormality lost to floating-point round-off. 4Given a complete set of irreducible representations δj , for j = 1 , . . . , k , of G, and letting (djpq ) be the corresponding matrix representation, one defines the transfer operators :
+
+P jpq = nj
+
+|G|
+
+X
+
+> g∈G
+
+djpq (g−1)ϕ(g). (7) The linear operator P jpq is null for an isotypic component Vl (l̸ = j) and acts as an isomorphism between the irreducible components of Vj . The symmetry-adapted basis is explicitly constructed by means of these operators. To systematically construct the complete symmetry-adapted basis, we can follow these steps: (i) Construct P j
+
+> 11
+
+, whose image has dimension cj (the multiplicity of ϕj ). Select a basis 
+
+β1 
+
+> j
+
+= {v11 , v 21 , . . . , v cj 
+
+> 1
+
+} of its image. (ii) For m = 2 , . . . , n j and i = 1 , . . . , c j , define the vectors: 
+
+vim = P j
+
+> 1m
+
+vi
+
+> 1
+
+. (8) Applying P j 
+
+> 12
+
+to each vector in β1 
+
+> j
+
+, we obtain β2 
+
+> j
+
+= {v12 , v 22 , . . . , v cj 
+
+> 2
+
+}. Applying P j 
+
+> 13
+
+to each vector in β1 
+
+> j
+
+, we obtain β3 
+
+> j
+
+= {v13 , v 23 , . . . , v cj 
+
+> 3
+
+}. And so on. The ordered basis 
+
+βj = β1 
+
+> j
+
+∪ · · · ∪ βnj 
+
+> j
+
+(9) = {v11 , v 21 , . . . , v cj 
+
+> 1
+
+, v 12 , v 22 , . . . , v cj 
+
+> 2
+
+, . . . , v 1 
+
+> nj
+
+, v 2 
+
+> nj
+
+, . . . , v cj 
+
+> nj
+
+} (10) is the part of the symmetry-adapted basis relative to the isotypic component Vj . Now, we repeat this process from j = 1 to j = k to complete the basis. 
+
+2.2 Block Matrix Structure of Equivariant Maps 
+
+Theorem 2.1 (Schur’s Lemma) . Let ψ : G → GL( V ) and ϕ : G → GL( W ) be two irreducible representations of a group G, and let τ : V → W be an equivariant map. Exactly one of the following is true: (i) τ is the null linear transformation ( τ = 0 ). (ii) τ is a linear isomorphism, ψ and ϕ are equivalent, and ψ(g) = τ ◦ ϕ(g) ◦ τ −1.
+
+We can compare two representations by applying Schur’s Lemma to each pair of irreducible constituents of the decomposition (4). 
+
+Lemma 2.2. Let ψ : G → GL( V ) and ϕ : G → GL( W ) be representations with decompositions 
+
+ψ = b1ψ1 ⊕ · · · ⊕ bkψk and ϕ = c1ϕ1 ⊕ · · · ⊕ cnϕn. Let τ : V → W be an equivariant map. Let 
+
+Tij be the restriction of τ connecting ψi and ϕj .i) Tij vanishes whenever ψi is not equivalent to ϕj .ii) Tij is decomposed as deg( ϕj ) identical copies of an operator tij of order bi × cj . In the corresponding matrix form relative to the symmetry-adapted basis, Tij takes the block-diagonal form: 
+
+Tij =
+
+
+
+tij 
+
+. . .
+
+tij 
+
+ . (11) 53 Formalism: DEC and Group Actions 
+
+In this section, we rigorously define the algebraic and geometric foundations of Discrete Exterior Calculus (DEC) [1, 2] in the presence of isometric group actions. Our formalism aligns with standard conventions in computational cohomology and representation theory. 
+
+3.1 Simplicial complexes and discrete differential forms 
+
+Definition 3.1 (Simplicial Complex and Dual Complex) . Let K be an oriented, n-dimensional simplicial complex embedded in RN . We denote the space of oriented k-chains over R by Ck(K),with topological boundary operator ∂k : Ck(K) → Ck−1(K). Let ⋆K denote the circumcentric dual complex associated with K. For each primal k-simplex σ ∈ K, there is a corresponding uniquely determined dual (n − k)-cell denoted by ⋆σ ∈ ⋆K .
+
+Definition 3.2 (Discrete Differential Forms) . The space of discrete k-forms on K, denoted 
+
+Ωkd(K), is formally defined as the algebraic dual space of the k-chains: 
+
+Ωkd(K) := Hom( Ck(K), R). (12) 
+
+For any α ∈ Ωkd(K) and σ ∈ Ck(K), the natural pairing is given by the evaluation ⟨α, σ ⟩ := 
+
+α(σ). Geometrically, this bilinear pairing operates as the exact discrete analog of integrating a continuous exterior k-form over σ.
+
+3.2 Induced group action on cochains 
+
+Let G be a finite group acting on the simplicial complex K. We require that the action of each element g ∈ G acts as a simplicial isomorphism that strictly preserves the incidence relations of 
+
+K, while additionally operating as a geometric isometry on the ambient space RN .
+
+Definition 3.3 (Induced Representation) . The isometric group action g : K → K induces a well-defined linear representation ρk : G → GL(Ω kd(K)) on the space of discrete k-forms via the standard geometric pullback: 
+
+⟨ρk(g)α, σ ⟩ := ⟨α, g −1σ⟩, ∀g ∈ G, α ∈ Ωkd(K), σ ∈ Ck(K). (13) 
+
+Remark 3.4. The mapping g−1 is linear, so it sends an oriented k-simplex σ to an oriented 
+
+k-simplex g−1σ ∈ K. When g−1 reverses the orientation of σ, the parity convention ⟨α, −σ⟩ =
+
+−⟨ α, σ ⟩ fixes the sign of the evaluation. 
+
+3.3 Fundamental DEC operators 
+
+We now introduce the discrete differential operators of DEC, whose algebraic structure parallels the continuous de Rham complex. 
+
+Definition 3.5 (Discrete Exterior Derivative) . The discrete exterior derivative dk : Ω kd(K) →
+
+Ωk+1  
+
+> d
+
+(K) is defined by exact duality to the topological boundary operator ∂k+1 , thus satisfying a discrete generalized Stokes’ theorem by construction: 
+
+⟨dkα, σ ⟩ := ⟨α, ∂ k+1 σ⟩, ∀α ∈ Ωkd(K), σ ∈ Ck+1 (K). (14) 
+
+Definition 3.6 (Discrete Hodge Star) . The diagonal discrete Hodge star operator ⋆k : Ω kd(K) →
+
+Ωn−kd (⋆K ) establishes an isomorphism coupling the primal k-cochains to the dual (n−k)-cochains according to local metric geometries: 
+
+⟨⋆kα, ⋆σ ⟩ := | ⋆ σ ||σ| ⟨α, σ ⟩, (15) 
+
+where |σ| denotes the standard k-dimensional Euclidean volume of the primal simplex σ, and 
+
+| ⋆ σ | denotes the (n − k)-dimensional volume of its respective circumcentric dual cell. 
+
+6Remark 3.7 (Cotangent formula as volume ratio) . Within the circumcentric DEC framework, the abstract ratio | ⋆ e |/|e| in (15) admits an explicit trigonometric evaluation for 1-forms. Because the dual vertex is placed at the circumcentre of each primal triangle, the dual edge ⋆e 
+
+is orthogonal to e, and elementary trigonometry yields 
+
+⋆1(e) = | ⋆ e ||e| = cot αe + cot βe
+
+2 ,
+
+where αe and βe are the angles opposite to edge e in its two adjacent triangles [2]. Strict positivity of ⋆1(e) is equivalent to the dual edge having positive length, which fails precisely when αe + βe ≥ π.
+
+Definition 3.8 (Discrete Codifferential and Laplacian) . The discrete formulation of the codif-ferential mapping δk : Ω kd(K) → Ωk−1 
+
+> d
+
+(K) is implicitly formalized as: 
+
+δk := ( −1) n(k−1)+1 ⋆−1 
+
+> k−1
+
+◦dn−k ◦ ⋆k. (16) 
+
+Here the sign (−1) n(k−1)+1 follows the convention of [1], where the orientation of the dual com-plex is chosen so that the primal–dual pairing is positive. With this convention δk is the formal adjoint of dk−1 with respect to the L2 inner product on cochains. Consequently, the discrete Hodge Laplacian acting algebraically on k-forms is synthesized via the canonical decomposition: 
+
+∆k := δk+1 ◦ dk + dk−1 ◦ δk. (17) 
+
+# 4 Equivariance of DEC Operators 
+
+The central result is that the fundamental DEC operators are equivariant, and hence are block-diagonal in the symmetry-adapted bases derived in Section 2 
+
+4.1 Equivariance of the discrete exterior derivative 
+
+Theorem 4.1. Assume the finite group G transforms the complex K via strictly simplicial iso-morphisms. The discrete exterior derivative dk : Ω kd(K) → Ωk+1  
+
+> d
+
+(K) constitutes an equivariant operator satisfying the equivariant relation: 
+
+dk ◦ ρk(g) = ρk+1 (g) ◦ dk, ∀g ∈ G. (18) 
+
+Proof. Let α ∈ Ωkd(K), let σ ∈ Ck+1 (K), and let g ∈ G. Combining the discrete Stokes’ theorem (14) with the pullback definition (13) gives: 
+
+⟨dk(ρk(g)α), σ ⟩ = ⟨ρk(g)α, ∂ k+1 σ⟩
+
+= ⟨α, g −1(∂k+1 σ)⟩. (19) Because g is a simplicial isomorphism, it preserves the incidence relations of the complex, so the group action commutes with the topological boundary operator: 
+
+g−1(∂k+1 σ) = ∂k+1 (g−1σ). (20) Substituting (20) into (19), and using (14): 
+
+⟨α, ∂ k+1 (g−1σ)⟩ = ⟨dkα, g −1σ⟩
+
+= ⟨ρk+1 (g)( dkα), σ ⟩. (21) Since this holds for every ( k + 1)-simplex σ, we conclude that dk ◦ ρk(g) = ρk+1 (g) ◦ dk.
+
+Remark 4.2. The equivariance of dk is purely topological and metric-agnostic, requiring only that G act by simplicial automorphisms; it is the discrete counterpart of the naturality of the exterior derivative under smooth pullback. In particular, the result holds for n-complexes of arbitrary dimension, since the proof makes no use of the topological dimension of K. This generality is exploited in Section 6.5. 
+
+74.2 Equivariance of the discrete Hodge star 
+
+Unlike the discrete exterior derivative, which is purely topological, the discrete Hodge star depends on the metric through the volume ratios of Definition 3.6. Its equivariance therefore needs more than the combinatorial action of G: the group must act by isometries, so that these volumes are preserved along each orbit. 
+
+Theorem 4.3. Suppose the finite group G acts on the simplicial complex K by exact isometries of RN . Then: (i) The circumcentric dual ⋆K is invariant under the action of G, in the sense that g(⋆σ ) = 
+
+⋆(gσ ) for every simplex σ ∈ K.(ii) The discrete Hodge star ⋆k : Ω kd(K) → Ωn−kd (⋆K ) is equivariant: 
+
+⋆k ◦ ρk(g) = ρn−k(g) ◦ ⋆k, ∀g ∈ G. (22) 
+
+Proof. Proof of (i): invariance of the dual complex. Let σ = [ v0, . . . , v k] be a k-simplex with circumcenter cσ, the unique point of the affine span of σ equidistant from its vertices. Because 
+
+g acts as an isometry, it preserves distances and affine spans, so it carries the circumcenter of σ
+
+to that of gσ :
+
+g(cσ) = cgσ . (23) The dual cell ⋆σ is assembled from the circumcenters of the cofaces τ ⊇ σ. Since g preserves the face relation, τ ⊇ σ implies gτ ⊇ gσ , and the identity above sends each circumcenter generating 
+
+⋆σ to the corresponding circumcenter of ⋆(gσ ). Therefore g(⋆σ ) = ⋆(gσ ). 
+
+Proof of (ii): equivariance of ⋆k. We evaluate the two compositions ⋆k ◦ ρk(g) and ρn−k(g) ◦ ⋆k
+
+on an arbitrary cochain α ∈ Ωkd(K) and compare their values on each dual cell ⋆σ . For the first composition, the Hodge-star definition (15) and the action of ρk(g) give 
+
+⟨⋆k(ρk(g)α), ⋆σ ⟩ = | ⋆ σ ||σ| ⟨ρk(g)α, σ ⟩
+
+= | ⋆ σ ||σ| ⟨α, g −1σ⟩. (24) Because g is an isometry, it preserves both the primal k-volumes and the dual ( n − k)-volumes; together with part (i) this gives 
+
+|g−1σ| = |σ| and | ⋆ (g−1σ)| = |g−1(⋆σ )| = | ⋆ σ |, (25) so the volume ratio that defines the Hodge star is constant along the orbit of σ:
+
+| ⋆ (g−1σ)||g−1σ| = | ⋆ σ ||σ| . (26) For the second composition, the same definition and the action of ρn−k(g) on the dual cell yield 
+
+⟨ρn−k(g)( ⋆kα), ⋆σ ⟩ = ⟨⋆kα, g −1(⋆σ )⟩
+
+= ⟨⋆kα, ⋆ (g−1σ)⟩
+
+= | ⋆ (g−1σ)||g−1σ| ⟨α, g −1σ⟩
+
+= | ⋆ σ ||σ| ⟨α, g −1σ⟩, (27) where the second equality uses part (i) and the last uses (26). The right-hand sides of (24) and (27) agree for every σ, so ⋆k ◦ ρk(g) = ρn−k(g) ◦ ⋆k.8Corollary 4.4 (Dual-agnostic equivariance) . Let G act on K by isometries and let σ 7 → ⋆σ be any dual assignment that is G-equivariant, in the sense that g(⋆σ ) = ⋆(gσ ) for every σ ∈ K
+
+and g ∈ G. Then the discrete Hodge star ⋆k defined by the volume ratios of Definition 3.6 is equivariant, ⋆k ◦ ρk(g) = ρn−k(g) ◦ ⋆k. The circumcentric dual is the instance covered by Theorem 4.3; the barycentric (centroid) dual used in Section 6.5 is another, since an isometry sends the barycenter of a coface to the barycenter of its image, g(bτ ) = bgτ .Proof. The proof of Theorem 4.3(ii) uses the dual complex only through the equivariance 
+
+g(⋆σ ) = ⋆(gσ ) and the isometry-invariance of the dual volumes | ⋆ σ |, the latter automatic because G acts by isometries. Both hold under the stated hypothesis, so the argument of that proof applies verbatim. 
+
+Remark 4.5. The equivariance of Theorem 4.3 uses only that G acts by isometries, so well-centeredness is not among its hypotheses. Well-centeredness enters separately, as the condition under which every primal simplex contains its circumcenter in its interior. It makes the dual cells of [1] well defined and the Hodge volumes |⋆ σ |/|σ| strictly positive, the positivity that ren-ders each ⋆k invertible in Lemma 4.7. In two dimensions, well-centeredness implies the local Delaunay condition but is strictly stronger, since a Delaunay triangulation may contain obtuse triangles. For the circumcentric dual, the weaker Delaunay property already renders these vol-umes positive, strictly so except in the cocircular degenerate case where opposite angles sum to exactly π [24]. In three dimensions the condition is more restrictive, because Delaunay tetra-hedralizations need not be well-centered [25, 26] and the circumcentric dual may then acquire negative dual volumes. Section 6.5 addresses this gap by replacing the circumcentric dual with a centroid-based Hodge star on the fan-BCC mesh , a Td-symmetric tetrahedralization of T 3 in which each unit cube is split into twelve tetrahedra fanning from its body centre. This construc-tion is not well-centered [25], yet Corollary 4.4 shows that the equivariance of Theorem 4.3 continues to hold for it, because the barycentric dual assignment is itself G-equivariant. 
+
+Remark 4.6. A mesh built in floating-point arithmetic realizes the symmetry group G only approximately. A group element fixes the connectivity exactly, but the embedded image gσ of a simplex differs from σ by rounding-level perturbations. The volume ratios | ⋆ σ |/|σ| that define the discrete Hodge star (Definition 3.6) are then not exactly equal across a G-orbit, and the isometry hypothesis of Theorem 4.3 holds only up to that error. Averaging each ratio over the stabilizer Gσ of σ,
+
+r(σ) := 1
+
+|Gσ|
+
+X
+
+> g∈Gσ
+
+| ⋆ (gσ )||gσ | , (28) 
+
+replaces the perturbed local weights by a single symmetrized value and removes the discrepancy. The orbit-averaging construction is independent of the topological dimension of K and of the choice of dual cell (circumcentric or centroid-based); it restores the equivariance relation when-ever the symmetry G acts only approximately at the floating-point level, at the cost of a one-time geometric preprocessing step. 
+
+4.3 Equivariance of the codifferential 
+
+Equivariance is preserved under the algebraic operations from which the codifferential is as-sembled. Because δk is, up to an overall sign, the composition of an exterior derivative with two Hodge stars (one of them entering through its inverse), its equivariance follows from The-orems 4.1 and 4.3 once we observe that the inverse of an equivariant isomorphism is again equivariant. 
+
+Lemma 4.7. Let G act on K by isometries, and suppose each Hodge star ⋆j is invertible. Then the discrete codifferential δk : Ω kd(K) → Ωk−1 
+
+> d
+
+(K) of (16) is equivariant: 
+
+δk ◦ ρk(g) = ρk−1(g) ◦ δk, ∀g ∈ G. (29) 9Proof. We first record that the inverse of an equivariant isomorphism is equivariant. By Theo-rem 4.3 the star ⋆k−1 intertwines ρk−1 and ρn−k+1 ,
+
+⋆k−1 ◦ ρk−1(g) = ρn−k+1 (g) ◦ ⋆k−1;composing on both sides with ⋆−1 
+
+> k−1
+
+rearranges this to 
+
+ρk−1(g) ◦ ⋆−1 
+
+> k−1
+
+= ⋆−1 
+
+> k−1
+
+◦ ρn−k+1 (g),
+
+so ⋆−1 
+
+> k−1
+
+intertwines ρn−k+1 and ρk−1. The codifferential (16) is the composition Ωkd(K) ⋆k
+
+−−→ Ωn−kd (K) dn−k
+
+−−−−→ Ωn−k+1  
+
+> d
+
+(K) ⋆−1
+
+> k−1
+
+−−−−→ Ωk−1 
+
+> d
+
+(K),
+
+scaled by the constant ( −1) n(k−1)+1 . Its three factors intertwine, respectively, ρk → ρn−k (Theo-rem 4.3), ρn−k → ρn−k+1 (Theorem 4.1), and ρn−k+1 → ρk−1 (the inversion step above). Chaining the three intertwining relations and absorbing the scalar, which commutes with every ρk−1(g), yields δk ◦ ρk(g) = ρk−1(g) ◦ δk for all g ∈ G.
+
+Remark 4.8. The hypothesis of Lemma 4.7 is invertibility of the participating Hodge stars, which is what the proof uses; well-centeredness (Remark 4.5) is a sufficient geometric condition for it, not a necessary one. The cotangent positivity of ⋆1 in two dimensions [24] and the centroid-based Hodge of Section 6.5, which is not well-centered, both meet this requirement by construction. 
+
+# 5 Universal Block-Diagonalization 
+
+We now state the main structural result, which captures the universality of the DEC approach to symmetry-adapted computation. 
+
+Theorem 5.1 (Universal Block-Diagonalization) . Under the hypotheses of Theorems 4.1 and 4.3, let G be a finite group acting on a simplicial complex K by isometries, and let dk and ⋆k de-note the DEC exterior derivative and Hodge star, respectively. Suppose in addition that each participating Hodge star ⋆j is invertible. Then: (i) Any linear operator P : Ω kd(K) → Ωℓd(K) that can be expressed as a composition and/or linear combination of the operators {dj , ⋆ j , ⋆ −1 
+
+> j
+
+} and scalar multiplication is equivariant under G.(ii) Let {ϕ1, . . . , ϕ r} be the distinct irreducible representations of G, with deg ϕi = ni. For each ϕi, define the isotypic projection operator on Ωkd(K) (analogous to equation (6) ): 
+
+Πki = ni
+
+|G|
+
+X
+
+> g∈G
+
+χi(g−1) ρk(g), (30) 
+
+where χi is the character of ϕi. Then Ωkd(K) decomposes uniquely into isotypic compo-nents: 
+
+Ωkd(K) = 
+
+> r
+
+M
+
+> i=1
+
+V ki , V ki = Π ki Ωkd(K). (31) 
+
+(iii) When both domain and codomain are expressed in their respective symmetry-adapted bases, constructed via the transfer operators (7) and ordered canonically by irreducible represen-tation (Section 5.1), the matrix of P strictly assumes a block-diagonal form: 
+
+[P ]sym =
+
+> r
+
+M
+
+> i=1
+
+[P ]i, (32) 
+
+where [P ]i is the exact block matrix corresponding to the i-th irreducible representation. 
+
+10 Proof. Part (i) follows from the fact that equivariant operators are closed under composition, linear combination, and scalar multiplication, and that the inverse of an equivariant isomorphism is again equivariant, as established in the proof of Lemma 4.7. Since dk (Theorem 4.1) and ⋆k
+
+(Theorem 4.3) are equivariant and each ⋆j is invertible by hypothesis, any algebraic expression built from {dj , ⋆ j , ⋆ −1 
+
+> j
+
+} is equivariant. Part (ii) follows directly from the character properties reviewed in Section 2: the operators Πki form a complete set of orthogonal idempotents summing to the identity, and each V ki expands as a direct sum of equivalent copies of ϕi.Part (iii) translates the global constraint of Schur’s Lemma (Theorem 2.1) onto the adapted bases. An equivariant operator restricts within matched isotypic components, forcing the cross-component blocks to vanish (Lemma 2.2). 
+
+Remark 5.2. The symmetry-adapted basis for the cochain space Ωkd(K) is determined solely by the group action on K and is independent of the specific PDE being solved. Once computed, it simultaneously block-diagonalizes: 
+
+• the scalar Laplacian ∆0 = δ1d0,
+
+• the vector Laplacian ∆1 = δ2d1 + d0δ1,
+
+• Maxwell-type operators, 
+
+• elasticity operators, 
+
+• any other operator assembled from DEC building blocks. This contrasts with approaches (such as [14]) where equivariance must be verified and the symmetry-adapted decomposition must be constructed from scratch for each specific differen-tial operator. 
+
+Remark 5.3 (Anisotropic data and boundary conditions) . The block-diagonalization of The-orem 5.1 is a property of the operator , not of the data [27]. When the mesh geometry and operator coefficients are G-equivariant, the system matrix is block-diagonal in the symmetry-adapted basis irrespective of the symmetry of the right-hand side or the boundary conditions. Inhomogeneous Dirichlet conditions enter through a lifting function and inhomogeneous Neu-mann conditions through the load vector; the load vector, however anisotropic, is projected onto the isotypic blocks, which are then solved independently. The construction mirrors the spectral setting of [14, Sec. 5], where the operator coefficients are group-invariant while the load vector and the solution carry no symmetry. 
+
+Remark 5.4 (Nonlinear equations and operator splitting) . Theorem 5.1 applies to linear op-erators assembled from d and ⋆. For nonlinear PDEs such as the Navier–Stokes equations, the framework remains applicable within operator-splitting (fractional-step) time integrators [28]. The dominant implicit substeps, typically a viscous diffusion solve (Helmholtz equation) and a pressure-projection solve (Poisson equation), are linear and, provided the viscosity and geometry respect G, equivariant. Assembled from d and ⋆ [5], they are block-diagonalized by the precom-puted matrices Qk at every time step, whereas the nonlinear terms depend on the generally asymmetric solution field and are evaluated in the physical basis. The method isolates rather than eliminates the nonlinear cost; the implicit solves are accelerated while the typically subdom-inant explicit evaluation is unchanged. The same holds for any time integrator that treats stiff linear terms implicitly and nonlinear terms explicitly, provided the implicit part is assembled from equivariant DEC operators [14, Sec. 7]. 
+
+11 5.1 Algorithmic construction of symmetry-adapted bases 
+
+The practical construction of the symmetry-adapted basis Qk for meshes with thousands of sim-plices requires a numerically stable procedure. General-purpose software frameworks such as 
+
+PySymmetry [29] can facilitate this task. Given a finite group G, they automatically enumerate its conjugacy classes, compute the full character table, and determine all irreducible represen-tations, thereby providing the exact algebraic input required by the projection formula (30) without manual derivation. The results reported in this paper were produced by a lightweight numerical extraction pipeline, developed for this work and tailored to the point groups of our target curved manifolds (the icosahedral group Ih for spherical meshes and the point group 
+
+D6h for toroidal grids), which applies the character values to the large sparse representation matrices of the mesh and extracts the symmetry-adapted basis via spectral decomposition and QR factorization. We now describe this pipeline, which realizes the block-diagonal structure of Theorem 5.1 for any finite symmetry group G.
+
+• Step 1: Group enumeration. Given a set of geometric generators of G (e.g., rotations about symmetry axes, reflections, or inversions), all |G| group elements are enumerated by breadth-first search (BFS). Each element g is stored as a pair ( πv, M ), where M ∈ O(N )is the N × N orthogonal matrix acting on RN and πv ∈ SN0 is the induced permutation of the vertex set. The permutation array πv (an integer vector) serves as the unique identifier for g, avoiding floating-point comparisons entirely. 
+
+• Step 2: Representation matrices on k-cochains. For each group element g ∈ G, the linear representation ρk(g) ∈ GL(Ω kd(K)) defined by (13) is assembled as a signed permutation matrix. For 0-forms (vertices), ρ0(g) is the standard permutation matrix induced by πv.For k-forms with k ≥ 1, the action on an oriented k-simplex σ = [ v0, . . . , v k] maps it to 
+
+gσ = [ g(v0), . . . , g (vk)]; if the resulting simplex requires reordering to match the canonical orientation, the matrix entry acquires a sign factor sgn( g, σ ) = ±1. Thus ρk(g) has exactly 
+
+Nk nonzero entries, each equal to ±1. 
+
+• Step 3: Isotypic projection. For each irreducible representation ϕi with character χi and degree ni, the isotypic projector Π ki onto the component V ki is computed via the character projection formula (30): Πki = ni
+
+|G|
+
+X
+
+> g∈G
+
+χi(g−1) ρk(g).
+
+Since every ρk(g) is a signed permutation (with Nk nonzero entries), accumulating the sum costs O(|G| · Nk) arithmetic operations per irrep (, yielding a dense symmetric matrix Πki ∈ RNk ×Nk whose eigenvalues lie in {0, 1}. In practice, since characters are class functions, the sum over |G| elements collapses to a sum over the Ncl conjugacy classes of 
+
+G, reducing the cost to O(Ncl · Nk) per irrep. 
+
+• Step 4: Orthonormal basis extraction. An orthonormal basis for each V ki = Im(Π ki ) is obtained by spectral decomposition of the symmetric projector Π ki : retaining the eigen-vectors associated with the unit eigenvalue yields a basis of dimension dim V ki = ci · ni,where ci is the multiplicity computed via the character inner product (5). A subsequent QR factorization restores orthonormality to machine precision, correcting floating-point round-off from the eigendecomposition. In exact arithmetic the isotypic construction is al-ready orthonormal, so this QR step is a finite-precision safeguard rather than an algebraic requirement. This step dominates the overall cost at O(N 3 
+
+> k
+
+) (via symmetric eigendecom-position), but is performed once as a preprocessing step and amortized over all operators and right-hand sides. 12 • Step 5: Assembly of the change-of-basis matrix. The global orthogonal matrix Qk is formed by concatenating the orthonormal bases in the canonical order of the irreducible representations: 
+
+Qk =  ˜Qk 
+
+> 1
+
+˜Qk 
+
+> 2
+
+· · · ˜Qkr
+
+,
+
+where ˜Qki ∈ RNk ×dim V ki and r is the number of distinct irreps. By construction Q⊤ 
+
+> k
+
+Qk =
+
+INk , so the change of basis is orthogonal and numerically stable. The column order-ing assurres the order of symmetry adapted basis. For any equivariant operator P , the transformed matrix Q⊤ 
+
+> k
+
+P Q k is block-diagonal with blocks indexed by the irreps of G.
+
+Group-specific considerations. While the algorithm above applies to any finite symmetry group, the choice of generators and the classification of group elements into conjugacy classes are group-dependent. For the icosahedral group Ih (order 120, 10 irreps of dimensions 1 , 3, 3, 4, 5in gerade/ungerade pairs), the generators are a 72 ◦ rotation about a 5-fold axis, a 120 ◦ rotation about a 3-fold axis, and the spatial inversion. For the point group D6h (order 24, 12 irreps of dimensions 1 or 2), the generators are a 60 ◦ rotation about the principal axis, a 180 ◦ rotation about a perpendicular axis, and the horizontal mirror reflection. For the tetrahedral point group Td (order 24, 5 irreps of dimensions 1 , 1, 2, 3, 3, namely A1, A 2, E, T 1, T 2), the group-enumeration step (Step 1 of the algorithm in Section 5.1) admits a combinatorial shortcut via the isomorphism Td ∼= S4: the 24 elements are enumerated directly as signed permutations of ( x, y, z ) with product of signs equal to +1, bypassing the BFS but producing the same set of orthogonal matrices required by Steps 2–5. In all three cases, conjugacy-class membership is determined from the trace and determinant of the orthogonal matrix M , which suffices to evaluate the characters χi(g) appearing in the projection formula. All characters of Ih, D6h and 
+
+Td are real-valued, so χi(g−1) = χi(g), and the projectors Π ki are symmetric. 
+
+5.2 Computational complexity reduction 
+
+Let Nk = dim Ω kd(K) be the total number of k-simplices. Without symmetry adaptation, a dense direct factorization of ∆ k costs Θ( N 3 
+
+> k
+
+) operations. Because ∆ k carries only O(Nk)nonzeros, a sparse direct or iterative solver, the baseline a practitioner would use, can reduce this substantially; the FLOP counts reported here are stated against the dense factorization, the like-for-like comparator for the dense isotypic blocks. In the symmetry-adapted basis, the dense factorization cost reduces to 
+
+> r
+
+X
+
+> i=1
+
+Θ dim( V ki )3. (33) Since P 
+
+> i
+
+dim V ki = Nk and the cost is dominated by the largest block, the reduction is greatest when the group G splits the space into many components of comparable dimension. More-over, the r independent blocks can be factorized in parallel, yielding an embarrassingly parallel algorithm. The block-diagonalization is orthogonal to sparsity. It decouples the system by symmetry regardless of how each block is subsequently factored, and therefore composes with a sparse per-block solver rather than competing with it. For example, consider the full icosahedral group Ih with |G| = 120 and 10 irreducible repre-sentations of dimensions dμ ∈ { 1, 3, 3, 4, 5} (gerade and ungerade, satisfying P d2 
+
+> μ
+
+= 120). For the 1-form Laplacian ∆ 1 on the geodesic icosphere at subdivision level n = 4, the cochain space has dimension N1 = 480 and the ten isotypic blocks have dimensions 4 , 36 , 36 , 64 , 100 , 4, 36 , 36 , 64 , 100. The sequential direct-solve cost reduces by a factor of 
+
+N 31P
+
+> μ
+
+(dim V 1 
+
+> μ
+
+)3 = 480 3
+
+2(4 3 + 36 3 + 36 3 + 64 3 + 100 3) ≈ 41 . (34) 13 When the ten blocks are factorized in parallel, the wall-clock time is dominated by the largest block (dimension 100), yielding a parallel speedup of 480 3/100 3 ≈ 110. This worked example uses the 1-form Laplacian ∆ 1. The speedups measured in Section 6 (Tables 3–4) are instead for the 0-form Laplacian ∆ 0, whose smaller cochain space and different block distribution give the distinct ratios reported there. This isotypic reduction is the first of two levels. By Schur’s lemma the equivariant operator restricted to each isotypic component V kμ acts as Mμ ⊗ Idμ , so the block of dimension cμdμ
+
+is dμ identical copies of a single cμ × cμ matrix Mμ, with cμ = dim V kμ /d μ the multiplicity. Factorizing one copy per irrep replaces P
+
+> μ
+
+(dim V kμ )3 by P 
+
+> μ
+
+c3
+
+> μ
+
+; for the same ∆ 1 example the sequential factor becomes 480 3/[ 2(4 3 + 12 3 + 12 3 + 16 3 + 20 3) ] ≈ 3541. In general the sequential and parallel asymptotes rise from |G|3/ P 
+
+> ρ
+
+d6 
+
+> ρ
+
+and |G|3/d 6max to |G|3/ P 
+
+> ρ
+
+d3 
+
+> ρ
+
+and |G|3/d 3max , a further factor of order |G|. This deeper reduction is standard in computational group theory; we record it here because it applies verbatim to the DEC operators of Theorem 5.1. 
+
+# 6 Numerical Experiments 
+
+We present a sequence of numerical experiments that validate the theoretical framework and demonstrate its computational advantages. Experiments 1–3 are carried out on two curved test surfaces chosen to span different topologies, curvature profiles, and symmetry groups: a geodesic icosahedral sphere ( S2, genus 0, point group Ih of order 120 with 10 irreps) and a torus of revolution ( T 2, genus 1, point group D6h of order 24 with 12 irreps). Experiment 4 (Section 6.5) extends the verification to a three-dimensional tessellation, the flat 3-torus T 3
+
+under the tetrahedral group Td. We begin by documenting the verification tests performed on the discrete implementation. 
+
+6.1 Verification of the discrete implementation 
+
+The verification tests in this subsection are performed on a geodesic icosphere at subdivision level n = 3, consisting of N0 = 92 vertices, N1 = 270 edges, and N2 = 180 faces. The imple-mentation comprises three independent modules: mesh generation, DEC operator assembly, and symmetry-adapted basis construction. Each is verified by a dedicated test suite, with results summarized in Table 1. Standard topological and operator identities ( χ = 2, ∂1∂2 = 0, primal–dual orthogonality, self-adjointness of ⋆k∆k, de Rham cohomology dimensions dim ker ∆ 0 = 1 and dim ker ∆ 1 = 0, basis orthogonality ∥Q⊤ 
+
+> k
+
+Qk − I∥ < 2 × 10 −15 , and completeness P 
+
+> μ
+
+dim V kμ = Nk) all hold to machine precision and serve as software self-checks. For an operator A : Ω kd(K) → Ωmd (K) we write [ ρ(g), A ] := ρm(g) A − A ρ k(g) for its equivariance defect, which reduces to an ordinary commutator when m = k; equivariance of A is the vanishing of this defect for all g ∈ G.The load-bearing residuals are summarized in Table 1: equivariance of d0 and ⋆1 under all 120 elements of Ih holds at machine precision (Theorems 4.1, 4.3), and the off-block-diagonal residuals of ∆ 0 and ∆ 1 in the symmetry-adapted basis are below 10 −15 , confirming exact block-diagonalization (Theorem 5.1). A stronger universality test goes beyond block-diagonalizing the operators used to build 
+
+Q0. Stripping the Hodge stars from ∆ 0 = ⋆−10 d⊤ 
+
+> 0
+
+⋆1 d0 yields the metric-free Laplacian d⊤ 
+
+> 0
+
+d0,a structurally distinct operator that does not appear anywhere in the construction of Q0; nev-ertheless, the same Q0 block-diagonalizes it with residual 6 .3 × 10 −16 . This confirms that the symmetry-adapted basis is a property of the group action on the mesh, not of any particular operator built from it. 14 Table 1: Load-bearing verification residuals for the geodesic icosphere at n = 3 ( N0 = 92, 
+
+N1 = 270, N2 = 180, |Ih| = 120). Standard topological and operator identities (Euler charac-teristic, boundary identity, primal–dual orthogonality, self-adjointness, de Rham cohomology, basis orthogonality and completeness) all hold to machine precision εmach ≈ 2.2 × 10 −16 and are omitted here. 
+
+Test Quantity Residual 
+
+Equivariance of d0 under Ih max g ∥[ρ1(g), d 0]∥ 0Equivariance of ⋆1 under Ih max g ∥[ρ1(g), ⋆ 1]∥ 5.9 × 10 −15 
+
+Off-block residual of ∆ 0 ∥Q⊤ 
+
+> 0
+
+∆0Q0 − blockdiag ∥ 6.6 × 10 −16 
+
+Off-block residual of ∆ 1 ∥Q⊤ 
+
+> 1
+
+∆1Q1 − blockdiag ∥ 9.6 × 10 −16 
+
+Universality ( d⊤ 
+
+> 0
+
+d0, no Hodge) ∥Q⊤ 
+
+> 0
+
+(d⊤ 
+
+> 0
+
+d0)Q0 − blockdiag ∥ 6.3 × 10 −16 
+
+6.2 Experiment 1: Block-diagonalization of DEC building blocks 
+
+This experiment verifies, on two geometrically distinct surfaces, that the DEC building blocks are individually block-diagonal in the symmetry-adapted basis and that the composite Hodge Laplacian ∆ 1 inherits this structure by algebraic composition. 
+
+Icosahedral sphere. We discretize the 2-sphere S2 using an icosahedral geodesic mesh at subdivision level n = 4, obtained by subdividing each face of the regular icosahedron into 
+
+n2 triangles and projecting the resulting vertices onto the unit sphere. The mesh consists of 
+
+N0 = 162 vertices, N1 = 480 edges, and N2 = 320 faces. This triangulation is invariant under the full icosahedral group Ih of order |Ih| = 120, which contains the 60 proper rotations of I and their 60 improper counterparts (compositions with the spatial inversion i). The 120 elements are enumerated from a standard generator set (5-fold, 3-fold, inversion). The symmetry-adapted bases Q0, Q1, Q2 for the cochain spaces Ω 0
+
+> d
+
+, Ω 1
+
+> d
+
+, Ω 2 
+
+> d
+
+are con-structed via the character-theoretic projection operators (30). Since Ih = I × { E, i }, its ten irreducible representations are obtained by pairing each irrep of I with the two one-dimensional representations of Z2: the five gerade (even) irreps Ag, T1g, T2g, Gg, Hg and the five ungerade (odd) irreps Au, T1u, T2u, Gu, Hu, all of dimensions 1 , 3, 3, 4, 5 respectively (with 2(1 2 + 3 2 + 3 2 + 4 2 + 5 2) = 120 = |Ih|). Rather than block-diagonalizing the composite operator ∆ 1 directly, we first verify that the DEC building blocks are individually block-diagonal in the symmetry-adapted basis. The relative off-block residuals of d0 and d1 are 6 .9 × 10 −16 and 8 .6 × 10 −16 respectively, confirming equivariance to machine precision (Theorem 4.1). The Hodge stars, being diagonal matrices on a symmetric mesh, satisfy the same property by construction ( ⋆k commutes with ρk(g) because symmetry-related simplices have equal metric volumes; residuals ≤ 9.4 × 10 −16 for all three). Since ∆ 1 = δ2d1 + d0δ1 where δk = ⋆−1 
+
+> k−1
+
+d⊤ 
+
+> k−1
+
+⋆k, the Hodge Laplacian is composed entirely from the block-diagonalized building blocks. We assemble ∆ 1 in the symmetry-adapted basis by composing the transformed operators: [∆ 1]sym = ˜ ⋆−11 ˜d⊤ 
+
+> 1
+
+˜⋆2 ˜d1 + ˜d0 ˜⋆−10 ˜d⊤ 
+
+> 0
+
+˜⋆1,
+
+where ˜dk = Q⊤
+
+> k+1
+
+dk Qk and ˜ ⋆k = Q⊤ 
+
+> k
+
+⋆k Qk. The resulting matrix is block-diagonal by construc-tion, with off-block residual 1 .7 × 10 −15 , and agrees with the direct computation Q⊤ 
+
+> 1
+
+∆1Q1 to relative error 2 .0 × 10 −15 .
+
+Torus with D6h symmetry. To demonstrate that the framework generalises beyond the sphere, we construct a torus of revolution T 2 embedded in R3 via the standard parametriza-tion r(u, v ) = (( R + r cos v) cos u, (R + r cos v) sin u, r sin v) with major radius R = 3 and 15 minor radius r = 1. This embedded torus carries a non-constant Gaussian curvature K(v) = cos v / [r(R + r cos v)] that is positive on the outer rim ( v = 0), negative on the inner rim (v = π), and vanishes on the top and bottom parallels ( v = ±π/ 2) [30]; it is therefore a curved test surface, distinct from the intrinsically flat 3-torus of Section 6.5. The triangulation uses a hexagonal (staggered) lattice with 36 × 12 = 432 vertices, 1296 edges, and 864 faces, yielding Euler characteristic χ = 432 − 1296 + 864 = 0 as expected for genus 1. The mesh is invariant under the point group D6h of order |D6h| = 24, generated by a 60 ◦ rotation C6 about the torus axis, a 180 ◦ rotation C′ 
+
+> 2
+
+about a radial axis, and the horizontal mirror σh : z 7 → − z. The group has 12 conjugacy classes and 12 irreducible representations: four one-dimensional ( A1g, A2g,
+
+B1g, B2g) and two two-dimensional ( E1g, E2g) gerade irreps, plus their ungerade counterparts (4 · 12 + 2 · 22 = 12, and 2 · 12 = 24 = |D6h|). The choice of a hexagonal lattice, in which odd poloidal rows are staggered by half a grid step in the toroidal direction, is motivated by a numerical obstruction that arises with quad-based triangulations. When a quadrilateral cell is split into two triangles by a single diagonal, the two triangles sharing that diagonal form a parallelogram whose opposite angles sum to π.The cotangent formula for the discrete Hodge star on 1-forms, ⋆1(e) = (cot αe + cot βe)/2, then yields ⋆1(e) = 0 on every diagonal edge—the cocircular, degenerate-Delaunay case, in which the opposite angles across the diagonal meet the local Delaunay bound αe + βe ≤ π with equality, so the cotangent weight sits at the boundary of positivity [24, 31]. Since the composition of ∆1 from building blocks requires the inversion of ⋆1, vanishing diagonal entries render this composition numerically unstable. The hexagonal lattice avoids this issue entirely. All triangles are approximately equilateral, all cotangent weights are strictly positive, and ⋆1 is everywhere invertible (see Section 7 for further discussion). On the torus, the same procedure is applied with Q0, Q1, Q2 constructed from the D6h
+
+character table. The relative off-block residuals are 8 .8 × 10 −16 for d0 and 2 .9 × 10 −15 for ⋆1,confirming equivariance at machine precision on a surface with fundamentally different topology and curvature. The composed ∆ 1 has off-block residual 3 .1 × 10 −15 and agrees with the direct computation to relative error 1 .9 × 10 −15 . The kernel of ∆ 1 on the torus is two-dimensional, reflecting H1(T 2) ∼= R2 (two independent non-contractible cycles), in contrast to the trivial 
+
+H1(S2) = 0 on the sphere. The predicted structure appears on both surfaces (Figure 1). On the sphere, Q⊤ 
+
+> 1
+
+d0 Q0 takes the rectangular block-diagonal form that connects the isotypic components of Ω 0 
+
+> d
+
+and Ω 1
+
+> d
+
+, and the ∆ 1 composed from the building blocks exhibits ten square diagonal blocks. The torus follows the analogous construction, with 12 blocks corresponding to the D6h irreps. Classifying the eigenvalues by irrep (Figure 2) reveals degeneracies dμ ∈ { 1, 3, 3, 4, 5} per parity sector on the sphere and dμ ∈ { 1, 1, 1, 1, 2, 2} per parity sector on the torus. The consistency of the block-diagonal structure across two surfaces with different topology (genus 0 vs. 1), curvature (constant positive vs. sign-changing Gaussian curvature), and symmetry group ( Ih vs. D6h)validates the framework. 16 0 50 100 150 
+
+column index 
+
+> 0
+> 100
+> 200
+> 300
+> 400
+> row index
+
+(A) Q > 
+
+> 1
+
+d0 Q0 S 2, Ih    
+
+> 0100 200 300 400
+
+column index           
+
+> 0
+> 100
+> 200
+> 300
+> 400
+> row index
+> Ag(4)
+> T1g(36)
+> T2g(36)
+> Gg(64)
+> Hg(100)
+> Au(4)
+> T1u(36)
+> T2u(36)
+> Gu(64)
+> Hu(100)
+
+(B) ∆1 S 2, Ih    
+
+> 0100 200 300 400
+
+column index 
+
+> 0
+> 200
+> 400
+> 600
+> 800
+> 1000
+> 1200
+> row index
+
+(C) Q > 
+
+> 1
+
+d0 Q0 T 2, D6h     
+
+> 0250 500 750 1000 1250
+
+column index             
+
+> 0
+> 200
+> 400
+> 600
+> 800
+> 1000
+> 1200
+> row index
+> A1g(54)
+> A2g(60)
+> B1g(51)
+> B2g(51)
+> E1g(204)
+> E2g(228)
+> A1u(54)
+> A2u(48)
+> B1u(57)
+> B2u(57)
+> E1u(228)
+> E2u(204)
+
+(D) ∆1 T 2, D6h
+
+Block-diagonalization of DEC building blocks on symmetric meshes Figure 1: Block-diagonalization of the DEC building blocks on two symmetric surfaces. Pan-els (A) and (B) treat the icosahedral sphere S2 at subdivision level n = 4 ( N1 = 480 edges, 
+
+|Ih| = 120); panels (C) and (D) treat the torus T 2 on a 36 × 12 hexagonal lattice ( N1 = 1296, 
+
+|D6h| = 24). (A, C) The exterior derivative Q⊤ 
+
+> 1
+
+d0 Q0 in the symmetry-adapted basis, whose rectangular blocks connect the isotypic components of Ω 0 
+
+> d
+
+and Ω 1
+
+> d
+
+. (B, D) The Hodge Lapla-cian ∆ 1 assembled from the transformed building blocks, with ten square diagonal blocks on the sphere and twelve on the torus. In every panel the horizontal axis is the column index and the vertical axis the row index, grey intensity encodes the magnitude of the matrix entry, and each block carries an outline and a light tint in a colour keyed to its irrep. The right-margin labels of (B) name each block by irrep and size, reading Ag (4), T1g (36), T2g (36), Gg (64), Hg (100) through the gerade sector and Au (4), T1u (36), T2u (36), Gu (64), Hu (100) through the unger-ade sector; those of (D) read A1g (54), A2g (60), B1g (51), B2g (51), E1g (204), E2g (228) and then A1u (54), A2u (48), B1u (57), B2u (57), E1u (228), E2u (204). A short leader line joins any label displaced to avoid overprinting back to the block it annotates. Entries outside the outlined blocks do not vanish identically but stay at relative magnitude ∼ 10 −15 , so the block-diagonalization is exact to machine precision. 17 0 100 200 300 400 
+
+> eigenvalue index
+> 0
+> 100
+> 200
+> 300
+> 400
+> eigenvalue  λ
+
+(A) Spectrum ∆1 S 2, Ih                  
+
+> 025 50
+> index
+> 0
+> 10
+> 20
+> first 60 eigenvalues
+> Ag(d=1)
+> T1g(d=3)
+> T2g(d=3)
+> Gg(d=4)
+> Hg(d=5)
+> Au(d=1)
+> T1u(d=3)
+> T2u(d=3)
+> Gu(d=4)
+> Hu(d=5)
+> 0200 400 600 800 1000 1200
+> eigenvalue index
+> 0
+> 50
+> 100
+> 150
+> 200
+> eigenvalue  λ
+
+(B) Spectrum ∆1 T 2, D6h              
+
+> 025 50
+> index
+> 15
+> 10
+> 5
+> 0
+> first 60 eigenvalues
+> A1g(d=1)
+> A2g(d=1)
+> B1g(d=1)
+> B2g(d=1)
+> E1g(d=2)
+> E2g(d=2)
+> A1u(d=1)
+> A2u(d=1)
+> B1u(d=1)
+> B2u(d=1)
+> E1u(d=2)
+> E2u(d=2)
+
+Eigenvalue classification by irreducible representation Figure 2: Classification of the ∆ 1 eigenvalues by irreducible representation, on the two meshes of Figure 1. (A) Icosahedral sphere S2 under Ih. (B) Torus T 2 under D6h. Each panel plots the eigenvalue λ against its index in ascending order. Every eigenvalue is drawn as a marker whose colour and shape both record the irrep of the block that produced it, so that the series stay separable in greyscale; the legend of each panel lists the irreps with their dimension, given as d. The dashed horizontal line marks λ = 0. An inset in each panel magnifies the first 60 eigenvalues, the grey rectangle in the main axes delimits the magnified window, and grey connector lines join that window to the inset. Every eigenvalue carries a definite irrep label, and the degeneracies are the ones Schur’s lemma dictates, dμ-fold for the irrep μ, with 
+
+dμ ∈ { 1, 3, 3, 4, 5} per parity sector on the sphere and dμ ∈ { 1, 1, 1, 1, 2, 2} per parity sector on the torus. 
+
+6.3 Experiment 2: Eigenfunction classification by irreducible representation 
+
+The block-diagonal structure established in Experiment 1 has a direct spectral consequence. Every eigenfunction of an equivariant operator belongs to exactly one irreducible representa-tion of Ih. Rather than computing the full spectrum and classifying eigenvectors a posteriori ,the symmetry-adapted basis provides this classification for free—one simply diagonalises each reduced block independently. We apply this procedure to the scalar Laplacian ∆ 0 = δ1d0 on the n = 4 icosahedral mesh (N0 = 162 vertices). The change of basis Q⊤ 
+
+> 0
+
+∆0Q0 yields ten diagonal blocks (one per irrep of Ih), and diagonalising each block produces eigenfunctions that are automatically labelled by their symmetry class. Figure 3 displays the lowest non-trivial eigenfunction from each irrep, rendered as a scalar field on the sphere. The gerade eigenfunctions (top row) are invariant under spatial inversion x 7 → − x, while the ungerade eigenfunctions (bottom row) change sign. Within each parity sector, the nodal structure reflects the dimension of the irrep: A-type eigenfunctions ( dμ = 1) have the fewest nodal lines, while H-type eigenfunctions ( dμ = 5) exhibit the most complex patterns. This classification is analogous to the Boson/Fermion decomposition of Schr¨ odinger eigenfunctions on the cube demonstrated by Olver [14], but extended here to a curved surface with icosahedral symmetry and to the DEC framework. The analogous classification holds on the torus under 18 D6h (12 classes, dμ ∈ { 1, 1, 1, 1, 2, 2} per parity sector); the visualisation is omitted as the qualitative conclusions are identical. Ag                     
+
+> λ= 36 .32
+> T1g
+> λ= 32 .40
+> T2g
+> λ= 45 .99
+> Gg
+> λ= 17 .71
+> Hg
+> λ= 5 .14
+> Au
+> (absent at n= 4 )
+> T1u
+> λ= 0 .35
+> T2u
+> λ= 9 .35
+> Gu
+> λ= 11 .00
+> Hu
+> λ= 24 .65
+> gerade ungerade
+> Eigenfunctions of ∆0classified by Ihirrep (n= 4 ,N0= 162 ,|Ih|= 120 )
+
+Figure 3: Lowest non-trivial eigenfunction of ∆ 0 in each irreducible representation of Ih, ren-dered on the geodesic icosphere ( n = 4, N0 = 162). Top row: gerade irreps (invariant under inversion). Bottom row: ungerade irreps (anti-invariant under inversion). The Au irrep has multiplicity zero at this resolution. Colour scale: purple (positive) to orange (negative). 
+
+Spectral fingerprint of the subduction Dℓ ↓ Ih. The block classification of Experiment 2 tells us which irrep an eigenfunction carries; representation theory predicts more. On the round sphere the eigenspaces of the Laplace–Beltrami operator are the spherical-harmonic degrees Dℓ,each an irreducible representation of SO(3) of dimension 2 ℓ + 1. Restricting the SO(3) action to the icosahedral subgroup decomposes Dℓ into icosahedral irreps—the subduction Dℓ ↓ Ih,equivalently the crystal-field splitting familiar from molecular physics [32]. The smallest degree 
+
+ℓ whose subduction first contains a given irrep μ is therefore the lowest spherical-harmonic degree at which μ can appear. We test the sharper claim that the lowest non-trivial eigenfunction of ∆0 in each isotypic block concentrates its spectral weight at exactly that predicted degree ℓpred .For each block we take the full degenerate multiplet at its lowest non-trivial eigenvalue and measure its per-degree content against a real spherical-harmonic design matrix Yℓ in the mass-weighted discrete inner product ⟨f, g ⟩M = f ⊤M g , with M = ⋆0 the dual-area mass matrix. The per-degree power is the trace of the M -orthogonal least-squares projection onto span Yℓ,
+
+P (ℓ) = tr  b⊤ 
+
+> ℓ
+
+G−1 
+
+> ℓ
+
+bℓ
+
+ tr  Φ⊤M Φ with Gram matrix Gℓ = Y ⊤ 
+
+> ℓ
+
+M Y ℓ and bℓ = Y ⊤ 
+
+> ℓ
+
+M Φ; the residual of the joint fit over all degrees serves as a quality gate. We weight by M for two reasons. The icosphere vertices carry unequal dual areas, and the sampled real harmonics are not orthogonal, so the naive estimator P 
+
+> m
+
+|⟨ ϕ, Y mℓ ⟩| 2 smears power across degrees. Treating the whole multiplet as a subspace (rather than a single eigenvector) keeps P (ℓ) basis-independent. Table 2 reports the measured dominant degree ℓ⋆ at N0 = 362 ( n = 6) against the subduction prediction. All ten irreps place their dominant degree exactly where Dℓ ↓ Ih predicts, the measured multiplet degeneracy equals the irrep dimension in every block, and the dominant-degree power fraction exceeds 0 .98 throughout. Under refinement from N0 = 162 to N0 = 362 the joint-fit residual tightens by an order of magnitude (from ≤ 0.156 to ≤ 0.015), confirming that the residual is a discretisation artifact rather than spectral leakage. Figure 4 shows the full per-degree spectra. The pseudoscalar Au first subduces only at ℓ = 15 (the lowest odd degree whose subduction contains the totally antisymmetric irrep [33]); its lowest-block multiplet is 19 orthogonal to every degree ℓ < 15 to within a joint-fit residual of ∼ 10 −12 , the spectral signature of a representation that no low harmonic can carry. 
+
+Irrep λ mult. ℓ⋆ P (ℓ⋆) ℓpred 
+
+Ag 37.788 1 6 0.987 6
+
+T1g 37.971 3 6 0.997 6
+
+T2g 60.124 3 8 0.997 8
+
+Gg 19.093 4 4 0.999 4
+
+Hg 5.809 5 2 0.997 2
+
+Au 120.257 1 15 1.000 15 
+
+T1u 1.866 3 1 0.997 1
+
+T2u 11.410 3 3 0.996 3
+
+Gu 11.701 4 3 0.999 3
+
+Hu 27.736 5 5 0.998 5
+
+Table 2: Measured spherical-harmonic content of the lowest non-trivial eigenfunction of ∆ 0 in each isotypic block on the geodesic icosphere ( n = 6, N0 = 362). For every irrep the dominant degree ℓ⋆ matches the subduction prediction ℓpred (smallest ℓ > 0 whose Dℓ ↓ Ih contains the irrep), the multiplet degeneracy equals the irrep dimension, and the dominant-degree power fraction P (ℓ⋆) exceeds 0 .98. The pseudoscalar Au, first admissible at ℓ = 15, is orthogonal to every lower degree to machine precision. 20 0.0  
+
+> 0.5
+> 1.0
+> P(`) `= 6
+
+Ag 
+
+> 0.0
+> 0.5
+> 1.0
+> `= 6
+
+T1g 
+
+> 0.0
+> 0.5
+> 1.0
+> P(`) `= 8
+
+T2g 
+
+> 0.0
+> 0.5
+> 1.0
+> `= 4
+
+Gg 
+
+> 0.0
+> 0.5
+> 1.0
+> P(`) `= 2
+
+Hg 
+
+> 0.0
+> 0.5
+> 1.0
+> `= 15
+
+Au 
+
+> 0.0
+> 0.5
+> 1.0
+> P(`) `= 1
+
+T1u 
+
+> 0.0
+> 0.5
+> 1.0
+> `= 3
+
+T2u       
+
+> 0246810 12 14
+
+degree ` 
+
+> 0.0
+> 0.5
+> 1.0
+> P(`) `= 3
+
+Gu       
+
+> 0246810 12 14
+
+degree ` 
+
+> 0.0
+> 0.5
+> 1.0
+> `= 5
+
+Hu
+
+Mass-weighted SH content of ∆0 lowest non-trivial eigenfunctions ( N0 = 362 )Figure 4: Mass-weighted per-degree power P (ℓ) of the lowest non-trivial eigenfunction of ∆ 0 in each icosahedral irrep, on the geodesic icosphere ( n = 6, N0 = 362). Each panel is annotated with the measured dominant degree ℓ⋆, which coincides with the subduction prediction in all ten cases. The concentration of power at a single degree turns the group-theoretic correlation diagram Dℓ ↓ Ih into a directly measurable spectral fingerprint. A sampling limitation bounds the high-degree claims. At N0 = 362 the degree-ℓ Gram matrix Gℓ becomes ill-conditioned as the harmonic count K = ( ℓ + 1) 2 approaches N0, so ℓ = 15 (where K = 256) is the sampling ceiling. The unit power fraction reported for Au at ℓ = 15 therefore does not separate ℓ = 15 from ℓ > 15; the well-sampled statement is orthogonality to every degree ℓ < 15, which is exactly what the subduction predicts for the pseudoscalar. 21 6.4 Experiment 3: Computational performance 
+
+The block-diagonal structure produced by the symmetry-adapted basis directly translates into computational savings. Instead of factorising one N0 × N0 system, we factorise several inde-pendent blocks whose dimensions are at most ∼ N0d2max /|G|, where dmax is the largest irrep dimension. Because dense Cholesky factorisation costs 13 n3 floating-point operations (FLOPs), the cubic scaling makes the decomposition increasingly advantageous as N0 grows. We solve the regularised Poisson equation (∆ 0 + εI )ϕ = ρ, with regularisation ε = 10 −6
+
+(the same value used in Section 6.5) lifting the constant null mode that ∆ 0 carries on a closed manifold, and with right-hand side ρ a generic random cochain drawn from the standard normal distribution; the FLOP counts and the solve cost are independent of the particular ρ. We compare three strategies: (a) Direct : dense symmetric Cholesky solve of the full N0 × N0 system. (b) Sequential blocks : factorise each diagonal block independently and sum the costs. (c) Parallel blocks : the cost equals that of the largest block (ideal parallelisation). To ensure reproducibility, we report the theoretical FLOP count F = 13 n3 + 2 n2 (Cholesky factorisation plus two triangular solves) rather than wall-clock time. 1
+
+All three strategies use dense factorization, of the full operator in strategy (a) and of each isotypic block in strategies (b) and (c), so the speedups below are FLOP reductions relative to a dense factorization. This is the like-for-like comparator, because the symmetry-adapted change of basis Q mixes the sparse ∆ 0 into dense isotypic blocks. A practitioner would instead use a sparse direct or iterative solver, for instance multigrid, that exploits the O(N0) nonzeros of ∆ 0; we do not benchmark that path here. As noted in Section 5.2, the block-diagonalization is orthogonal to sparsity and composes with such a solver, so the figures below isolate the symmetry gain in the dense regime rather than claiming an absolute advantage over the fastest available solver. 
+
+Icosahedral sphere ( Ih). Table 3 reports the FLOP counts for five subdivision levels ( n =2, . . . , 6; N0 = 42 , . . . , 362). The parallel FLOP speedup grows from 18 × at n = 2 to 62 ×
+
+at n = 6, reflecting the fact that the largest block (the Hg isotypic component, of leading dimension 25 N0/120) grows much more slowly than the full problem size. The number of active blocks reaches 10 at n = 6 when the Au irrep first acquires nonzero multiplicity. 
+
+n N0 blocks max block Sseq (FLOPs) S∥ (FLOPs) 2 42 7 15 13.6 17.9 3 92 9 25 26.3 42.8 4 162 9 45 27.6 42.7 5 252 9 65 32.4 54.6 6 362 10 90 34.7 62.0 
+
+Table 3: FLOP-based speedups for (∆ 0 + εI )ϕ = ρ on icosahedral meshes ( Ih, 10 irreps). Sseq 
+
+= direct FLOPs / sum of block FLOPs; S∥ = direct FLOPs / max block FLOPs. 
+
+> 1FLOP counts depend only on the block dimensions dictated by the character table, and are therefore de-terministic and independent of hardware, compiler, BLAS implementation, and concurrency runtime; wall-clock measurements would introduce variability unrelated to the algebraic reduction studied here.
+
+22 Torus ( D6h). We repeat the experiment on the hexagonal-lattice torus with five grid reso-lutions (18 × 6 through 108 × 36; N0 = 108 , . . . , 3888). Although |D6h| = 24 is much smaller than |Ih| = 120, the group has 12 irreps (all of dimension ≤ 2), which distributes the cochain space into more numerous and smaller blocks. As shown in Table 4, the parallel FLOP speedup reaches 182 × at the largest resolution, higher than on the sphere at comparable sizes. This gain owes to the more uniform block distribution. The largest block (the E2g isotypic component) accounts for only ∼ 18% of the total degrees of freedom, compared to ∼ 25% for the Hg block on the sphere.                                           
+
+> Grid N0blocks max block Sseq (FLOPs) S∥(FLOPs) 18 ×6108 12 24 31.6 77.0 36 ×12 432 12 84 45.1 128.7 54 ×18 972 12 180 48.8 153.3 72 ×24 1728 12 312 50.3 167.3 108 ×36 3888 12 684 51.4 182.3
+
+Table 4: FLOP-based speedups for (∆ 0 + εI )ϕ = ρ on hexagonal-lattice torus meshes ( D6h, 12 irreps). The higher speedup compared to the sphere reflects the more uniform distribution of degrees of freedom across 12 irreps, all of dimension ≤ 2. Figure 5 presents the FLOP counts and speedup factors for both surfaces. The direct cost grows as Θ( N 30 ), while the block-wise cost grows much more slowly because the block dimensions scale as O(N0/|G|) in the leading term. Since each isotypic block has asymptotic dimension dim V kμ ∼ d2
+
+> μ
+
+N0/|G|, the sequential speedup converges to |G|3/P 
+
+> μ
+
+d6 
+
+> μ
+
+and the parallel speedup to |G|3/d 6max as N0 → ∞ , where dmax = max μ dμ. For Ih (dmax = 5) these asymptotic limits are ≈ 41 (sequential) and ≈ 111 (parallel); for D6h (dmax = 2) they are ≈ 52 and ≈ 216, respectively. The observed speedups at the largest resolutions (62 × for the sphere, 182 × for the torus) are approaching these bounds from below, as expected for moderate N0. The cost of assembling the change-of-basis matrix Q0 is excluded, as it is amortised over all subsequent operator solves on the same mesh. Reducing each isotypic block to its multiplicity space, as described in Section 5.2, raises the sequential asymptotes further, to |G|3/ P 
+
+> ρ
+
+d3 
+
+> ρ
+
+≈ 3541 for Ih
+
+and ≈ 346 for D6h.23 10 2        
+
+> N0
+> 10 3
+> 10 4
+> 10 5
+> 10 6
+> 10 7
+> FLOPs (Cholesky + solve)
+> (A) Icosahedral sphere ( Ih, 10 irreps)
+> Direct
+> Block (seq.)
+> Block (par.)
+> O(N3)
+> O(N)
+> 10 2
+> N0
+> 0
+> 10
+> 20
+> 30
+> 40
+> 50
+> 60
+> Speedup (FLOP ratio)
+> (B) Speedup vs problem size
+> Sequential speedup
+> Parallel speedup
+> 10 210 3
+> N0
+> 10 4
+> 10 5
+> 10 6
+> 10 7
+> 10 8
+> 10 9
+> 10 10
+> FLOPs (Cholesky + solve)
+> (C) Torus ( D6h, 12 irreps)
+> Direct
+> Block (seq.)
+> Block (par.)
+> O(N3)
+> O(N)
+> 10 210 3
+> N0
+> 0
+> 25
+> 50
+> 75
+> 100
+> 125
+> 150
+> 175
+> Speedup (FLOP ratio)
+> (D) Speedup vs problem size
+> Sequential speedup
+> Parallel speedup
+
+Direct vs symmetry-adapted solve for ∆0ϕ = ρFigure 5: Computational performance of direct vs. symmetry-adapted solve for ∆ 0ϕ = ρ on two surfaces. Top row: icosahedral sphere ( Ih, 10 irreps). Bottom row: torus ( D6h, 12 irreps). 
+
+(A, C) FLOP count (log-log) as a function of N0. (B, D) FLOP-based speedup: sequential (sum of block costs) and parallel (largest block cost). The torus achieves higher speedup than the sphere due to its more numerous irreps of smaller dimension. To confirm that the FLOP reduction translates into wall-clock gains, we timed the dense Cholesky solve of ( K + εI )ϕ = ρ, with K = ⋆0∆0 = d⊤
+
+0 ⋆1 d0 the symmetric positive-definite form of the Poisson operator, against its isotypic blocks, using single-threaded BLAS and the median of auto-batched repetitions. The measured parallel speedup reaches about 100 × on the torus at the largest resolutions, 13 .6× on the sphere at N0 = 362, and 5 .4× on the fan-BCC tessellation of T 3 (Section 6.5) at N0 = 432 (Figure 6). It stays below the FLOP prediction at every resolution. On the torus it grows and closes on the prediction through N0 = 1728, where it reaches about 101 × against a predicted 167 ×; at the largest resolution N0 = 3888 it plateaus near 100 × while the prediction rises to 182 ×, so the achieved fraction of the FLOP bound drops at this last point rather than continuing to narrow. The FLOP counts of Tables 3–4 therefore remain a reproducible upper bound, approached most closely at intermediate torus sizes. On the smallest meshes the direct solve is already sub-millisecond, where fixed overheads dominate and the sequential-block strategy falls below unit speedup. Timings were obtained on an AMD Ryzen 7 3700U (eight logical cores, 9.7 GB RAM) with OpenBLAS 0.3.31 restricted to one thread, under NumPy 2.4.4 and SciPy 1.17.1. 24 10 2 10 3    
+
+> System size N0
+> 10 1
+> 10 2
+> Parallel speedup  S‖
+> Sphere Ih
+> Torus D6h
+> fan-BCC Td
+> wall-clock (measured) FLOP (predicted)
+
+Figure 6: Measured wall-clock parallel speedup versus the predicted FLOP speedup for the block-diagonal solve of ( K + εI )ϕ = ρ, as a function of the number of 0-cochain degrees of freedom N0 (log-log). Solid curves with filled markers are the measured wall-clock speedup 
+
+S∥ = tdirect /t max-block ; dashed curves with hollow markers are the FLOP-count prediction. Colour and marker encode the case, with sphere Ih shown as blue circles, torus D6h as vermillion squares, and fan-BCC Td as green triangles. Solves used single-threaded OpenBLAS. The measured speedup lies below the FLOP prediction at every size; on the torus it grows and narrows the gap through N0 = 1728, then plateaus near 100 × at N0 = 3888 as the prediction continues to rise. 
+
+6.5 Experiment 4: 3-complex extension under Td symmetry 
+
+We extend the numerical verification to a three-dimensional simplicial complex, confirming Theorems 4.1, 4.3, and 5.1 in this higher-dimensional setting. 
+
+Test problem. The domain is the flat 3-torus T 3 = R3/Z3 tessellated by the fan-BCC triangulation. Each unit cube is divided into 12 tetrahedra by the body-centred-cubic rule, producing a purely simplicial 3-complex. The measured Hodge-Laplacian kernel dimensions dim ker ∆ k = 1 , 3, 3 for k = 0 , 1, 2 match the Betti numbers of the 3-torus at every reso-lution, and Poincar´ e duality fixes β3 = β0 = 1, so the mesh reproduces the full signature (β0, β 1, β 2, β 3) = (1 , 3, 3, 1) of T 3. The symmetry group is the tetrahedral point group Td (or-der 24, five irreps A1, A 2, E, T 1, T 2 with dimensions 1 , 1, 2, 3, 3). The BCC lattice itself carries the full octahedral point group Oh of order 48. The diagonal-splitting rule is invariant only under its tetrahedral subgroup Td, because a four-fold rotation of a cube face reverses the cho-sen diagonal. Because the fan-BCC tessellation is not well-centered, the circumcentric dual of Definition 3.6 can develop negative dual volumes [25], so the Hodge stars here use the standard barycentric (centroid) dual, in which ⋆σ is spanned by the barycenters of the cofaces of σ. The barycenters of any chain of cofaces are affinely independent, so the barycentric dual cells are non-degenerate and the ratios | ⋆ σ |/|σ| of (15) are strictly positive for every σ, independently of well-centeredness. Each ⋆k is therefore positive-diagonal and invertible, and δk, ∆k are well-defined on the mesh. Positivity is confirmed numerically at every resolution (min σ(⋆k)σσ > 0for k = 0 , 1, 2, 3). By Corollary 4.4, the equivariance of Theorem 4.3 extends to this dual, since an isometry sends the barycenter of a coface to that of its image, g(bτ ) = bgτ , exactly as for circumcenters, and preserves the barycentric cell volumes. The flat 3-torus with a body-centred-cubic tessellation is the standard periodic cell of a cubic crystal, and the model problem (∆ 0 + εI )ϕ = ρ can be read as the discrete screened Poisson (Debye–H¨ uckel) equation for the electrostatic potential ϕ of a periodic charge density ρ, with ε
+
+25 in the role of the inverse squared screening length. This reading fixes the physical interpretation of the model problem; it is not a claim that ∆ k on the barycentric fan-BCC mesh is a validated electrostatics solver. The barycentric dual trades the primal–dual orthogonality of the circum-centric construction (Remark 4.5) for guaranteed positivity, so each ⋆k is positive and invertible but is not shown to be a consistent discretization; whether ∆ k approximates the continuum screened Poisson operator on this non-well-centered mesh is the open convergence question of Section 7. This section accordingly establishes structure (equivariance, block decomposition, and cost), not approximation accuracy. The block-diagonalization applies directly to periodic electrostatics in a crystal of Td site symmetry, a setting where symmetry-adapted bases are already standard practice. The value ε = 10 −6 used here corresponds to weak screening and regularises the constant null mode that ∆ 0 carries on a closed manifold. The right-hand side is generic, since the cost reduction depends on the operator and the group action rather than on a particular charge configuration. The fan-BCC construction is valid only for even n ≥ 4; three resolutions n ∈ { 4, 6, 8} are used, corresponding to N0 = 128 , 432 , 1024 vertices. At n = 8 ( N0 = 1024) only the equivari-ance verification was performed; the dense 12288 × 12288 character projector for the ∆ 2 block decomposition, together with its eigensolver workspace, exceeds the 9 .7 GB of memory available on the workstation used here, so the full block-decomposition pipeline becomes memory-bound at this resolution. The full pipeline was run at n = 4 and n = 6, where n = 6 already attains the regular-representation asymptote (Figure 8). 
+
+Equivariance. Theorems 4.1 and 4.3 predict that the equivariance defects [ ρk+1 (g), d k] and [ρn−k(g), ⋆ k] vanish exactly for every g ∈ Td. Table 5 reports the maximum residual over all 24 group elements at three mesh resolutions, all at machine precision. The composite operator ∆k inherits equivariance via Lemma 4.7; the slight precision loss for ∆ k relative to dk and ⋆k
+
+reflects accumulated round-off in the matrix products that define it.                                             
+
+> N0kmax g∥[ρk+1 (g), d k]∥∞max g∥[ρn−k(g), ⋆ k]∥∞max g∥[ρk(g),∆k]∥∞
+> 128 00.00e+00 0.00e+00 7.11e-15 128 10.00e+00 3.89e-16 4.26e-14 128 20.00e+00 0.00e+00 1.42e-14 432 00.00e+00 0.00e+00 7.11e-15 432 10.00e+00 3.89e-16 4.97e-14 432 20.00e+00 0.00e+00 2.13e-14 1024 00.00e+00 0.00e+00 1.07e-14 1024 10.00e+00 6.66e-16 8.53e-14 1024 20.00e+00 0.00e+00 2.84e-14
+
+Table 5: Equivariance residuals for dk, ⋆k, and ∆ k on the fan-BCC tessellation of T 3 under 
+
+Td symmetry at three mesh resolutions ( N0 = 128 , 432 , 1024). All commutator norms are at machine precision ( ≤ 8.53 × 10 −14 ), confirming equivariance across all three Laplacian degrees and all 24 group elements. 
+
+Block decomposition and speedup. The character projectors split each Hodge-Laplacian into the five isotypic blocks of Td, whose sizes reproduce the multiplicities predicted by the character table, with the residual outside the blocks at machine precision (Figure 7). Solving each block separately reduces the arithmetic cost of the corresponding linear solve, and the resulting FLOP speedup ρFLOP grows with mesh resolution toward the regular-representation asymptote (Table 6, Figure 8). The wall-clock realisation of the same block-diagonal solve on this mesh is reported alongside the two surface cases in Figure 6. 26 A1 A2 E T1 T2                       
+
+> irrep of Td
+> 0
+> 50
+> 100
+> 150
+> 200
+> isotypic block size
+> 44
+> 6
+> 76
+> 204
+> 102
+> ∆0
+> A1A2ET1T2
+> irrep of Td
+> 0
+> 500
+> 1000
+> 178 88
+> 508
+> 1260
+> 990
+> ∆1
+> A1A2ET1T2
+> irrep of Td
+> 0
+> 500
+> 1000
+> 1500
+> 2000
+> 225 207
+> 864
+> 1971 1917
+> ∆2
+> Isotypic block decomposition under Td(n= 6 :N0= 432 ,N1= 3024 ,N2= 5184 )
+
+Figure 7: Block sizes of the isotypic decomposition of ∆ 0, ∆ 1, ∆ 2 under Td on the BCC mesh at resolution n = 6 ( N0 = 432, N1 = 3024, N2 = 5184). For each Laplacian, the cochain space decomposes into five blocks indexed by the irreducible representations A1, A2, E, T1, T2 of Td
+
+with respective dimensions 1, 1, 2, 3, 3. Block sizes equal the predicted multiplicities from the character table to machine precision. 
+
+N0 Nk k blocks ( A1, A 2, E, T 1, T 2) ρFLOP ρSchur seq ρSchur par 
+
+128 128 0 (19 , 1, 24 , 63 , 21) 7.5 115.3 226.4 128 896 1 (62 , 22 , 152 , 390 , 270) 8.7 199.0 327.4 128 1536 2 (68 , 60 , 256 , 588 , 564) 9.1 215.7 481.3 432 432 0 (44 , 6, 76 , 204 , 102) 8.0 163.2 256.4 432 3024 1 (178 , 88 , 508 , 1260 , 990) 8.9 208.3 373.2 432 5184 2 (225 , 207 , 864 , 1971 , 1917) 9.1 215.9 491.2 
+
+Table 6: FLOP-based speedup ratios for block-diagonalized solve of (∆ k + εI )ϕ = ρ on the fan-BCC T 3 mesh under Td at resolutions n = 4 ( N0 = 128) and n = 6 ( N0 = 432). The isotypic block dimensions match character-table predictions; speedup approaches the sequential asymp-tote ρ∞ ≈ 9.07 derived in Figure 8. The two rightmost columns give the Schur-multiplicity refinement (Section 5.2): ρSchur seq factorizes one cμ × cμ block per irrep in place of the full isotypic block, with sequential limit |G|3/ P 
+
+> ρ
+
+d3 
+
+> ρ
+
+= 216; ρSchur par is the corresponding parallel ratio, limit 
+
+|G|3/d 3max = 512. Two features of the speedup data merit interpretation. First, ∆ 2 saturates the regular-representation asymptote already at n = 6 while ∆ 0 and ∆ 1 approach it more slowly. The asymptote ρ∞ = |G|3/ P 
+
+> ρ
+
+d6 
+
+> ρ
+
+is attained when the isotypic block sizes are proportional to d2
+
+> ρ
+
+; on the BCC mesh, the block multiplicities of ∆ 2 are nearly uniform across the higher-dimensional irreps and already approximate this regime, whereas ∆ 0 and ∆ 1 retain multiplicities skewed toward the one-dimensional irreps A1, A 2, slowing the approach. Second, the gap between the sequential and parallel limits ( ρseq  
+
+> ∞
+
+≈ 9.07 versus ρpar  
+
+> ∞
+
+≈ 18 .96) quantifies a further factor-of-two acceleration obtainable by solving the five isotypic blocks concurrently, requiring no algorithmic complexity beyond a five-way task parallelism. Carried to its natural conclusion, the same construction admits a second reduction inside each isotypic component. By Schur’s lemma an equivariant operator restricted to the component of irrep μ acts as Mμ ⊗ Idμ , that is, as dμ identical copies of a single cμ × cμ matrix Mμ on the multiplicity space, with multiplicity cμ the isotypic block size divided by dμ. Factoring one copy per irrep rather than the whole isotypic block replaces the cost P
+
+> μ
+
+(cμdμ)3 by P 
+
+> μ
+
+c3
+
+> μ
+
+.The sequential asymptote rises from the isotypic |G|3/ P 
+
+> μ
+
+d6 
+
+> μ
+
+≈ 9.07 to |G|3/ P 
+
+> μ
+
+d3 
+
+> μ
+
+= 216, a further factor of about |G|, and the parallel limit to |G|3/d 3max = 512. As with the isotypic 27 10 3         
+
+> Nk(number of k-simplices)
+> 0.0
+> 2.5
+> 5.0
+> 7.5
+> 10.0
+> 12.5
+> 15.0
+> 17.5
+> 20.0
+> FLOP speedup ratio  ρFLOP
+> ρ∞
+> seq ≈9.07
+> ρ∞
+> par ≈18 .96
+> Block-diagonalization speedup vs. mesh size (Td, fan-BCC, T3)
+> ∆0
+> ∆1
+> ∆2
+
+Figure 8: FLOP speedup ratio ρFLOP for the block-diagonalized sequential solve of ∆ 0, ∆ 1, ∆ 2
+
+on the fan-BCC tessellation of T 3 under Td. The dashed line marks the regular-representation sequential limit ρ∞ 
+
+> seq
+
+= |G|3/ P 
+
+> ρ
+
+d6 
+
+> ρ
+
+≈ 9.07; the upper bound ρ∞ 
+
+> par
+
+= |G|3/d 6max ≈ 18 .96 is attainable by solving the isotypic blocks in parallel. Convergence exponents α (fitted via ρ∞ −
+
+ρ ∝ N −αk ) are annotated in the legend. curve, ∆ 2 saturates this refined asymptote already at n = 6, reaching 215 .9, and Table 6 and Figure 8 now carry both tiers. Built explicitly from the partner (transfer) projector, Mμ recovers every eigenvalue of the full operator with dμ-fold multiplicity to machine precision (worst case 1.3 × 10 −12 ), so dμ − 1 of every dμ blocks are redundant rather than merely counted away. In a linear solve the dμ copies share one factorization and need dμ back-substitutions, an O(dμc2
+
+> μ
+
+)sub-leading term that leaves the leading order and asymptote unchanged. 
+
+# 7 Discussion 
+
+The experiments confirm that the equivariance proved in Theorems 4.1–4.3 propagates automat-ically to every operator assembled from d and ⋆, including the Hodge Laplacians, and that the resulting block-diagonal systems approach the asymptotic bounds derived in Section 5.2. The framework occupies a complementary position to existing symmetry-exploitation techniques in numerical PDEs, as the following comparisons illustrate. DEC sits closest to spectral block-diagonalization methods. Olver’s spectral approach [14] achieves block-diagonalization on flat Platonic domains (squares, cubes) using global polyno-mial bases, with the advantage of spectral convergence. Our DEC approach trades spectral convergence for geometric generality, applying to any simplicial mesh that faithfully represents the symmetry group, including meshes on curved manifolds where global polynomial bases are unavailable. A direct numerical comparison between the two frameworks is not well-defined because the underlying function spaces differ. Olver’s construction operates on L2 of polyno-mial spaces over flat polytopes, while ours operates on cochain spaces Ω kd(K) over simplicial complexes on curved manifolds. The two approaches address disjoint portions of the space of PDE problems, and their computational gains are not commensurable. Finite Element Exterior Calculus offers a second point of comparison. The FEEC framework [15, 16] provides a Hilbert-complex approach to discretizing the de Rham complex. While FEEC is more general than DEC in terms of approximation order, extending equivariance to higher-order FEEC discretizations requires explicitly classifying and constructing symmetry-adapted bases for complex spaces of polynomial differential forms. As recently detailed by Berchenko-Kogan [17] and Licht [18], this task is algebraically intensive and highly dependent on the specific polynomial degree and element type. In contrast, DEC has the advantage of 28 geometric simplicity, since the operators d and ⋆ are defined directly on topological cochains without weak formulations, projection operators, or spatial polynomial algebras. This simplicity makes the equivariance analysis universal; a single, purely combinatorial symmetry-adapted basis computation completely block-diagonalizes the system, avoiding the degree-dependent algebraic complexity inherent to higher-order FEEC. The construction also constrains mesh design through the invertibility of the Hodge star. The compositional pathway δk = ⋆−1
+
+> k−1
+
+d⊤
+
+> k−1
+
+⋆k requires ⋆1 to be everywhere invertible. The cotangent weights ⋆1(e) = (cot αe + cot βe)/2 vanish when the two angles opposite an interior edge sum to exactly π [24, 31], rendering ⋆1 singular and the operator composition unstable (see Section 6 for the quad-based torus case). This positivity condition ties mesh design to the intrinsic Delaunay property [24, Prop. 17]. The local Delaunay criterion [24, Lem. 9] requires that the sum of opposite angles across any interior edge not exceed π, a condition weaker than global acute-angle constraints that permits obtuse triangles. Positivity of ⋆1, however, needs the strict inequality αe + βe < π . The degenerate, cocircular case of equality is Delaunay yet yields ⋆1(e) = 0, so invertibility of ⋆1 is guaranteed by the strictly Delaunay property, and this degenerate case must be excluded explicitly on structured grids designed for symmetry preservation. This study concerns the cost and structure of the symmetry reduction rather than the order of accuracy of the discretization. The symmetry-adapted solve is algebraically exact relative to the direct solve, so the solution inherits the accuracy of the underlying DEC discretization, whose convergence for Hodge–Laplace problems is established in [9, 34]. Symmetry has a second consequence beyond cost. On well-centered meshes over con-tractible domains, the DEC Hodge–Laplace approximation superconverges on certain symmetric meshes [35]. Whether that gain survives on the closed manifolds and non-well-centered tessel-lations used here, whose harmonic forms are non-trivial, remains open. The scope of the block-diagonalization extends well beyond the linear, isotropic model prob-lems of the experiments. As clarified in Remarks 5.3 and 5.4, it is a property of the operator and therefore persists when the boundary data and forcing are fully anisotropic, and it extends to the linear substeps of operator-splitting schemes for nonlinear equations such as Navier–Stokes. Several limitations remain. The framework requires the mesh to exactly realize the sym-metry group G; for meshes with only approximate symmetry, the orbit-averaging technique of Remark 4.6 restores equivariance at the cost of a one-time geometric preprocessing step, while a more systematic treatment via approximate representation theory or perturbation bounds on the block structure remains an open direction. In three or more dimensions, positivity of the circumcentric Hodge star is a substantive geometric constraint not implied by Delaunay alone [25, 26]; Section 6.5 sidesteps this by adopting a centroid-based Hodge star, but extend-ing the framework to general non-well-centered tetrahedralizations requires further analysis of the dual-cell volume formula. Finally, assembling the isotypic projections costs O(|G| · N 2 
+
+> k
+
+); although dominated by the O(N 3 
+
+> k
+
+) solve for large Nk, this may become a bottleneck for very large meshes without sparse-matrix acceleration. 
+
+# 8 Conclusion 
+
+We have proved that the discrete exterior derivative d and the discrete Hodge star ⋆ are equiv-ariant under isometric finite group actions on simplicial complexes of arbitrary topological di-mension. As a direct consequence, any operator assembled from d and ⋆ automatically inherits a block-diagonal structure when expressed in a symmetry-adapted basis, without requiring a separate equivariance analysis for each PDE. A single symmetry analysis of the mesh simulta-neously decouples all DEC-based operators defined on it. Three properties of the framework distinguish it from existing symmetry-exploitation strate-gies. First, it applies natively to curved manifolds where global spectral bases are unavailable, 29 such as geodesic spheres and tori, as well as to three-dimensional tessellations. Second, the sym-metry analysis is purely combinatorial. The symmetry-adapted basis is computed once from the group action on the mesh, independently of the specific PDE coefficients or boundary data. Third, the block structure provides insight beyond the speedup. Eigenvalues of DEC operators are automatically classified by irreducible representation, giving each eigenfunction a definite symmetry label (Experiment 2) and connecting the discrete computation to the spectral theory of the symmetry group. A practical consequence of the dimension-agnostic proof of Theorem 4.1 is that the frame-work extends transparently to three-dimensional simplicial complexes, opening symmetry-based DEC parallelization to crystallographic and molecular-point-group settings. The Hodge-star equivariance (Theorem 4.3) holds under the same isometry hypothesis. The additional struc-tural condition in three dimensions concerns the invertibility of ⋆ rather than its equivariance. Positivity of the circumcentric star is automatic on Delaunay surfaces but not on tetrahedral meshes [25, 26]. The fan-BCC mesh of Section 6.5 demonstrates that this requirement can be circumvented in practice by replacing the circumcentric Hodge with a centroid-based variant, for which the equivariance argument is unchanged. The algebraic reduction developed here is complementary to existing domain-decomposition implementations of DEC [22], and the composition of the two levels of parallelism, block-diagonalization by symmetry followed by MPI distribution within each sufficiently large block, is a natural engineering follow-up. Exploiting the full lattice symmetry at the block-diagonalization layer requires a symmetry-preserving mesh subdivision, which the default 5-/6-tetrahedron brick pattern of [22] is not, by the same diagonal-versus-symmetry argument applied to the fan-BCC rule in Section 6.5. The symmetry level itself admits a further algebraic reduction. Because Schur’s lemma makes each isotypic block a tensor product Mμ ⊗ Idμ , only one block per irreducible representation carries distinct spectral information, which deepens the sequential speedup and shrinks the largest block passed to the distributed layer (Section 6.5). Extending this unified equivariance framework to non-compact groups, adaptive meshes, and higher-order DEC discretizations [34] remains an open direction for future research. 
+
+# Code and data availability 
+
+The code, recorded results, and figures that reproduce the numerical experiments reported here are openly available under the MIT license at https://github.com/ldsufrpe/dec-equivariance .The repository documents which script produces each figure and table in the paper. 
+
+# References 
+
+[1] Anil N. Hirani. Discrete Exterior Calculus . PhD thesis, California Institute of Technology, 2003. DOI: doi:10.7907/ZHY8-V329. [2] Mathieu Desbrun, Anil N. Hirani, Melvin Leok, and Jerrold E. Marsden. Discrete exterior calculus. arXiv preprint math/0508341 , 2005. DOI: doi:10.48550/arXiv.math/0508341. [3] Alain Bossavit. Computational Electromagnetism: Variational Formulations, Complemen-tarity, Edge Elements . Academic Press, 1998. doi:10.1016/B978-0-12-118740-8.X5000-8. [4] Keenan Crane, Fernando de Goes, Mathieu Desbrun, and Peter Schr¨ oder. Digital geometry processing with discrete exterior calculus. In ACM SIGGRAPH 2013 Courses , SIGGRAPH ’13, New York, NY, USA, 2013. ACM. doi:10.1145/2504435.2504442. [5] Sharif Elcott, Yiying Tong, Eva Kanso, Peter Schr¨ oder, and Mathieu Desbrun. Stable, circulation-preserving, simplicial fluids. ACM Transactions on Graphics , 26(1):4, 2007. doi:10.1145/1189762.1189766. 30 [6] Mamdouh S. Mohamed, Anil N. Hirani, and Ravi Samtaney. Discrete exterior calculus discretization of incompressible Navier–Stokes equations over surface simplicial meshes. 
+
+Journal of Computational Physics , 312:175–191, 2016. doi:10.1016/j.jcp.2016.02.028. [7] Pankaj Jagad, Abdullah Abukhwejah, Mamdouh S. Mohamed, and Ravi Samtaney. A primitive variable discrete exterior calculus discretization of incompressible Navier– Stokes equations over surface simplicial meshes. Physics of Fluids , 33(1):017114, 2021. doi:10.1063/5.0035981. [8] Ingo Nitschke, Sebastian Reuther, and Axel Voigt. Discrete exterior calculus (DEC) for the surface Navier–Stokes equation. In Dieter Bothe and Arnold Reusken, editors, Transport Processes at Fluidic Interfaces , Advances in Mathematical Fluid Mechanics, pages 177–197. Springer, 2017. doi:10.1007/978-3-319-56602-3 7. [9] Mamdouh S. Mohamed, Anil N. Hirani, and Ravi Samtaney. Numerical convergence of discrete exterior calculus on arbitrary surface meshes. International Journal for Computational Methods in Engineering Science and Mechanics , 19(3):194–206, 2018. doi:10.1080/15502287.2018.1446196. [10] Eugene L. Allgower, K. B¨ ohmer, K. Georg, and R. Miranda. Exploiting symmetry in applied and numerical analysis , volume 29 of Lectures in Applied Mathematics . American Mathematical Society, Providence, RI, 1997. doi:10.1090/lam/029. [11] Albert F¨ assler and Eduard Stiefel. Group Theoretical Methods and Their Applications .Birkh¨ auser, 1992. ISBN 978-1-4612-2824-0. doi:10.1007/978-1-4612-2824-0. [12] Alain Bossavit. Symmetry, groups, and boundary value problems. A progressive introduc-tion to noncommutative harmonic analysis of partial differential equations in domains with geometrical symmetry. Computer Methods in Applied Mechanics and Engineering , 56(2): 167–215, 1986. doi:10.1016/0045-7825(86)90119-2. [13] Krister ˚ Ahlander and Hans Z. Munthe-Kaas. Applications of the generalized Fourier transform in numerical linear algebra. BIT Numerical Mathematics , 45(4):819–850, 2005. doi:10.1007/s10543-005-0030-3. [14] Sheehan Olver. Parallelisation of partial differential equations via representation the-ory. SIAM Review (to appear) , 2025. URL https://arxiv.org/abs/2411.07365 . arXiv preprint arXiv:2411.07365 .[15] Douglas N. Arnold, Richard S. Falk, and Ragnar Winther. Finite element exterior calculus, homological techniques, and applications. Acta Numerica , 15:1–155, 2006. doi:10.1017/S0962492906210018. [16] Douglas N. Arnold, Richard S. Falk, and Ragnar Winther. Finite element exterior calculus: from Hodge theory to numerical stability. Bulletin of the American Mathematical Society ,47(2):281–354, 2010. doi:10.1090/S0273-0979-10-01278-4. [17] Yakov Berchenko-Kogan. Symmetric bases for finite element exterior calculus spaces. Foun-dations of Computational Mathematics , 24(5):1485–1515, 2024. doi:10.1007/s10208-024-09653-z. [18] Martin W. Licht. Symmetry and invariant bases in finite element exterior calculus. Foun-dations of Computational Mathematics , 24(4):1185–1224, 2024. doi:10.1007/s10208-024-09650-4. [19] Jerrold E. Marsden and Matthew West. Discrete mechanics and variational integrators. 
+
+Acta Numerica , 10:357–514, 2001. doi:10.1017/S096249290100003X. 31 [20] Michael M. Bronstein, Joan Bruna, Taco Cohen, and Petar Veliˇ ckovi´ c. Geometric deep learning: Grids, groups, graphs, geodesics, and gauges. arXiv preprint arXiv:2104.13478 ,2021. doi:10.48550/arXiv.2104.13478. [21] Taco Cohen and Max Welling. Group equivariant convolutional networks. In Interna-tional Conference on Machine Learning (ICML) , pages 2990–2999, 2016. URL http: //proceedings.mlr.press/v48/cohen16.html .[22] Pieter D. Boom, Ashley Seepujak, Odysseas Kosmas, Lee Margetts, and Andrey Jivkov. Parallelized discrete exterior calculus for three-dimensional elliptic prob-lems. Computer Physics Communications , 279:108456, 2022. ISSN 0010-4655. doi:10.1016/j.cpc.2022.108456. URL https://doi.org/10.1016/j.cpc.2022.108456 .[23] Jean-Pierre Serre. Linear Representations of Finite Groups . Springer-Verlag, 1977. ISBN 978-1-4684-9458-7. doi:10.1007/978-1-4684-9458-7. [24] Alexander I. Bobenko and Boris A. Springborn. A discrete Laplace-Beltrami opera-tor for simplicial surfaces. Discrete & Computational Geometry , 38(4):740–756, 2007. doi:10.1007/s00454-007-1339-4. [25] Evan VanderZee, Anil N. Hirani, Damrong Guoy, and Edgar A. Ramos. Well-centered triangulation. SIAM Journal on Scientific Computing , 31(6):4497–4523, 2010. doi:10.1137/090748214. [26] Anil N. Hirani, Kalyana B. Nakshatrala, and Jehanzeb H. Chaudhry. Numerical method for Darcy flow derived using Discrete Exterior Calculus. International Journal for Computational Methods in Engineering Science and Mechanics , 16(3):151–169, 2015. doi:10.1080/15502287.2014.977500. [27] A. Bossavit. Boundary value problems with symmetry and their approximation by finite elements. SIAM J. Appl. Math. , 53(5):1352–1380, 1993. doi:10.1137/0153064. [28] J.-L. Guermond, P. Minev, and J. Shen. An overview of projection methods for incompressible flows. Comput. Methods Appl. Mech. Engrg. , 195:6011–6045, 2006. doi:10.1016/j.cma.2005.10.010. [29] Leon D. da Silva and Marcelo P. Santos. PySymmetry: A Sage/Python Framework for the Symmetry Reduction of Linear G-equivariant Systems. arXiv preprint arXiv:2509.19479 ,2025. doi:10.48550/arXiv.2509.19479. URL https://doi.org/10.48550/arXiv.2509. 19479 .[30] Manfredo P. do Carmo. Differential Geometry of Curves and Surfaces . Dover Publications, Mineola, NY, 2 edition, 2016. ISBN 978-0-486-80699-0. [31] Max Wardetzky, Saket Mathur, Felix K¨ alberer, and Eitan Grinspun. Discrete Laplace operators: No free lunch. In Proceedings of the Fifth Eurographics Symposium on Geometry Processing (SGP 2007) , pages 33–37, 2007. doi:10.2312/SGP/SGP07/033-037. [32] Mildred S. Dresselhaus, Gene Dresselhaus, and Ado Jorio. Group Theory: Application to the Physics of Condensed Matter . Springer, Berlin, Heidelberg, 2008. doi:10.1007/978-3-540-32899-5. [33] N. V. Cohan. The spherical harmonics with the symmetry of the icosahe-dral group. Proceedings of the Cambridge Philosophical Society , 54(1):28–38, 1958. doi:10.1017/S0305004100033156. 32 [34] Holger Schulz and Gantumur Tsogtgerel. Convergence of discrete exterior calculus approx-imations for poisson problems. Discrete & Computational Geometry , 63(2):346–376, 2020. doi:10.1007/s00454-019-00159-x. [35] Johnny Guzm´ an and Pratyush Potu. A framework for analysis of DEC approximations to Hodge-Laplacian problems using generalized Whitney forms, 2025. URL https://arxiv. org/abs/2505.08934 . arXiv preprint arXiv:2505.08934 .33

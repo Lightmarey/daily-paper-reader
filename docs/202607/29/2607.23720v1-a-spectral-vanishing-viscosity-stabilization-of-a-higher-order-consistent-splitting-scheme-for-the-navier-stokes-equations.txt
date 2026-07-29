@@ -1,0 +1,1579 @@
+Title: A spectral-vanishing-viscosity stabilization of a higher-order consistent splitting scheme for the Navier-Stokes equations
+
+URL Source: https://arxiv.org/pdf/2607.23720v1
+
+Published Time: Tue, 28 Jul 2026 01:30:18 GMT
+
+Number of Pages: 32
+
+Markdown Content:
+# A spectral-vanishing-viscosity stabilization of a higher-order consistent splitting scheme for the Navier–Stokes equations 
+
+M Nader Alhomsi ∗
+
+, Akram Moustafa †
+
+, Mohammad Al-Saqqa ‡
+
+, Jiahong Wu § and Xiaoming Zheng ¶
+
+Abstract 
+
+Huang and Shen [30] developed a novel class of high-order BDF–IMEX consistent-splitting schemes for the incompressible Navier–Stokes equations, giving the first rigorous stability and error analysis for a fully decoupled splitting scheme of temporal order higher than two. Extending their analysis from unit viscosity to arbitrary viscosity, this work reveals that the error upper bound coefficient contains inverse powers of the viscosity. Our numeri-cal experiments further confirms that the scheme can break down at high Reynolds number. To prevent this failure, we stabilize the scheme by adding to the velocity update a symmet-ric positive-semidefinite spectral vanishing viscosity operator, built from the directionally applied Maday–Kaber–Tadmor kernel, which selectively damps the high, under-resolved modes at no additional asymptotic cost. We establish stability and error estimates for the stabilized scheme in which the spectral vanishing viscosity provides viscosity-independent coercive control of the high modes. Three two-dimensional tests demonstrate the robustness and accuracy of the stabilized scheme. For a manufactured solution, the stabilized scheme retains its design order for k = 2 , 3, 4, whereas the unstabilized scheme diverges. For a perturbed Kovasznay flow, it accurately resolves the boundary layer at Re = 10 4 and drives the perturbation back to the steady state, while the unstabilized scheme blows up. For the Kelvin–Helmholtz instability problem, it reproduces the reference integral diagnostics throughout the reliable regime, whereas the unstabilized scheme produces spurious solutions or blows up. 
+
+Keywords: Spectral vanishing viscosity; Consistent splitting scheme; BDF–IMEX time discretization; Incompressible Navier–Stokes equations; Error estimates and stability analysis; High Reynolds number robustness; perturbed Kovasznay problem; 2D Kelvin–Helmholtz insta-bility problem 
+
+# 1 Introduction 
+
+The unsteady incompressible Navier–Stokes equations on a bounded domain Ω ⊂ Rd (d = 2 , 3), 
+
+∂tu + u · ∇ u = −∇ p + ν∆u + f , div u = 0 , (1) with boundary condition u|∂Ω = 0 admit at most one strong solution under standard hypothe-ses on f and u(0) [55], and the design of higher-order time-stepping schemes that are both 
+
+> ∗
+
+Department of Mathematics, Central Michigan University, Mount Pleasant, MI 48858. Email: Al-hom1n@cmich.edu 
+
+> †
+
+Department of Computer Science, Central Michigan University, Mount Pleasant, MI 48858. Email: moust1am@cmich.edu 
+
+> ‡
+
+Department of Mathematics, Central Michigan University, Mount Pleasant, MI 48858. Email: al-saq1m@cmich.edu 
+
+> §
+
+Department of Mathematics, University of Notre Dame, Notre Dame, IN 46556. Email: jwu29@nd.edu 
+
+> ¶
+
+Department of Mathematics, Central Michigan University, Mount Pleasant, MI 48858. Email: zheng1x@cmich.edu 
+
+1arXiv:2607.23720v1 [math.NA] 26 Jul 2026 stable and accurate at large Reynolds number Re ∼ 1/ν remains an ongoing challenge in com-putational fluid dynamics [43, 60]. Numerical methods for (1) fall broadly into fully coupled mixed formulations [4, 14, 17], which solve for the velocity and pressure simultaneously, and decoupled strategies that split them at each step: projection and pressure-/velocity-correction methods [8, 12, 18, 20, 21, 23, 33, 42, 45, 49, 51, 56], gauge methods [13, 40, 57], and consistent splitting methods [19, 28, 30, 31, 52, 59]; see Guermond et al. [22] for an overview of the decou-pled approach. Fully coupled formulations require solving a large, indefinite velocity–pressure saddle-point system at every time step, which is computationally expensive and demands spe-cialized solvers and preconditioners. Splitting (or pressure-correction) schemes instead decouple this system into a sequence of standard elliptic problems at each step, a convection–diffusion solve for each velocity component and a Poisson solve for the pressure, which can be handled by fast, well-established solvers and scale well to large problems, accounting for their wide use in large-scale simulation [8, 22, 33]. Classical projection methods incur a well-known splitting error , caused by an inconsistent artificial pressure boundary condition, that limits their accu-racy in the velocity H1 norm and in the pressure [21, 22]. Consistent splitting schemes [19, 30] were introduced to remove it. One central difficulty of numerical methods for turbulent flows, present even for fully coupled discretizations, is robustness, namely whether the coefficients in the error upper bound contain inverse powers of the viscosity [1, 10, 15]. Huang and Shen [30] recently introduced a novel class of higher-order implicit-explicit (IMEX), consistent splitting schemes for (1) that employ Taylor-shifted backward differenti-ation formulas (BDF) of order k ∈ { 2, 3, 4} followed by a curl–curl pressure Poisson update. The construction builds on their framework of generalized BDF/IMEX multipliers for parabolic problems [29], with a second-order such scheme implemented for the Navier–Stokes equations [28] and a perturbed Boussinesq system [2]. Under the splitting, the velocity step is implicit on the viscous term and explicit on the convection term (IMEX), while the pressure step is a decoupled discrete Poisson problem. These provide the first rigorous stability and convergence analysis, with optimal global-in-time error estimates in both two and three dimensions, for a fully decoupled splitting scheme of order higher than two for the Navier–Stokes equations. These estimates, however, are not robust in the inviscid limit: as shown in Theorem 3.1, the constant in the error upper bound contains negative powers of the viscosity. A closely related work, Garc´ ıa-Archilla et al. [16], utilizes the classical BDF time stepping (the β = 1 member of the Taylor-shifted family), a fully coupled and implicit velocity–pressure discretization for the Navier–Stokes equations in a finite-element setting. They prove optimal-order error bounds in time (not in space) with inf-sup stable mixed elements, relying, exactly as [30], on the G-stability of BDF as the central temporal tool and reaching comparably high order in time. Most relevant for the present paper is the route to ν-robustness: Garc´ ıa-Archilla et al. [16] uses fully implicit skew-symmetric convection augmented with grad–div stabilization, which yields error constants independent of inverse powers of ν. By contrast, the estimate for the present splitting scheme (Section 2.1, Theorem 3.1) still retains the ν−5 degeneracy inherited from [30]. The spectral-vanishing-viscosity term introduced in Section 2.2 plays, for the spectral consistent splitting scheme, the same coercive stabilizing role that grad–div plays in the coupled finite-element analysis of Garc´ ıa-Archilla et al. [16]. Because the splitting method in [30] is not robust as the viscosity tends to zero, we propose the spectral vanishing viscosity (SVV) technique as a remedy. The idea of SVV originates with Tadmor [53], who introduced spectral vanishing viscosity for the Fourier approximation of nonlinear scalar conservation laws as a way to reconcile two competing demands: enough dissipation to enforce the entropy condition and recover the physically relevant weak solution, yet little enough that spectral accuracy is preserved. The mechanism is to activate an artificial viscosity only above a cut-off wavenumber mN , with an amplitude εN → 0 as N → ∞ . Maday et al. [37] carried the construction to the non-periodic Legendre pseudo-spectral setting and supplied the smooth kernel in common use since, which we adopt in (4), together with the 2scalings εN ∼ N −1, mN ∼ √N . Convergence for multidimensional conservation laws was established by Chen et al. [6], Guo et al. [24], and the method was extended to Chebyshev discretizations by Andreassen et al. [3], who also gave the first two-dimensional fluid application (waves in a stratified atmosphere). We refer to Tadmor [54] for a survey of approximate solutions of nonlinear conservation laws. The transfer of SVV from conservation laws to the incompressible Navier–Stokes equations was made by Karamanos and Karniadakis [32], who observed that in an under-resolved simula-tion a spectral method interprets a steep gradient as a discontinuity, so that the same entropy-dissipation argument applies. They formulated SVV for spectral/ hp elements and validated it on the Kovasznay flow and on turbulent channel flow at Re τ = 180 and 395. The method was then developed systematically by Pasquetti, Xu and co-workers into a practical tool for high Reynolds number computation: Pasquetti and Xu [44] and Xu and Pasquetti [60] showed that SVV stabilizes spectral-element computations that are otherwise unstable, while preserving ex-ponential convergence, and applied it to the turbulent wake of a cylinder [43, 46, 61], with Kirby and Sherwin [34] establishing the same for spectral/ hp elements. Used as a subgrid model, SVV has since been applied to turbulent flows at Reynolds numbers beyond the reach of direct sim-ulation: S´ ev´ erac and Serre [48] computed the three-dimensional turbulent rotor–stator cavity at Re = 7 × 10 4–7 × 10 5, matching both DNS and experiment, Minguez et al. [38] performed an SVV-LES of the flow over the Ahmed body at Re ≈ 7.7 × 10 5, and Chen et al. [7] extended SVV to triangular spectral elements and computed the backward-facing step at Re = 10 4 and 5 ×10 4,reporting that the unstabilized spectral element method is unstable at the higher Reynolds num-ber while the SVV-stabilized method is not, the same dichotomy we report in Section 4. Moura et al. [39] give an eigensolution analysis of SVV-stabilized advection–diffusion and caution that not every kernel behaves as intended. The essential point that motivates the present work is that spectral methods are much less numerically dissipative than low-order methods, so the energy that should be dissipated at the grid scale instead accumulates there and causes the computation to break down, the failure mode we document in Section 4 for the bare scheme. Two points from this literature bear directly on what follows. First, the one-dimensional theory is well established, but the extension of the kernel to several dimensions is not canonical: S´ ev´ erac and Serre [48, §3.2] note that “there is not a direct way” to extend the one-dimensional definition, and different authors have made different choices. We adopt the directional (diagonal) form of S´ ev´ erac and Serre [48] and Chen et al. [7]; see (8). Second, essentially all of the work above is computational : SVV is used as a stabilization or subgrid device and its effect on the flow is assessed a posteriori. What is missing, and what this paper supplies, is a convergence analysis of an SVV-stabilized higher-order splitting scheme in which the SVV term is shown to enter the energy estimate as a coercive contribution, the role played by grad–div in the coupled finite-element analysis of Garc´ ıa-Archilla et al. [16]. We propose, analyze, and validate an SVV-stabilized variant of the [30] BDF–IMEX schemes of orders k = 2 , 3, 4. Section 2.1 recalls the scheme and the source of its ν−5 error estimate, Section 2.2 introduces the spectral-vanishing-viscosity stabilization and its efficient implemen-tation, Section 3 establishes the corresponding energy and error estimates, Section 4 reports numerical experiments on a manufactured-solution convergence test, the perturbed Kovasznay flow, and the Kelvin–Helmholtz problem, and Section 5 collects the conclusions. 
+
+# 2 The consistent splitting scheme and its SVV stabilization 
+
+2.1 The higher-order BDF/IMEX consistent splitting scheme in [30] 
+
+Let Ω ⊂ Rd (d = 2 , 3) be a bounded domain. We consider the Navier–Stokes initial–boundary value problem 
+
+∂tu + u · ∇ u − ν∆u + ∇p = f , div u = 0 , u|∂Ω = 0, u(0) = u0, (2) 3on (0 , T ) × Ω. We denote by ( ·, ·) the L2 inner product on Ω, and by ∥·∥ , ∥·∥ 1, ∥·∥ 2 the norms of L2(Ω), H1(Ω), and H2(Ω), respectively. The product spaces are L2(Ω) = ( L2(Ω)) d,
+
+H10 (Ω) = ( H10 (Ω)) d, H2(Ω) = ( H2(Ω)) d, etc. In the theoretical analysis, we adopt the following assumptions. 
+
+Assumption 2.1. Let Ω ⊂ Rd (d ≤ 3) be a connected bounded domain with C3 boundary. The initial velocity satisfies u0 ∈ H10 (Ω) ∩ H2(Ω) with ∇ · u0 = 0. The velocity u satisfies 
+
+u ∈ L∞(0 , T ; H10 (Ω) ∩ H2(Ω)), ∂kt u ∈ L∞(0 , T ; H2(Ω)), ∂k+1  
+
+> t
+
+u ∈ L∞(0 , T ; L2(Ω)), and ∂kt (u·∇u) ∈ L2(0 , T ; L2(Ω)). The pressure satisfies p ∈ L∞(0 , T ; H1(Ω) /R), ∂kt p ∈ L2(0 , T ; H1(Ω)). The external force satisfies f ∈ L∞(0 , T ; L2(Ω)). The higher-order Taylor-shifted consistent splitting scheme of [30] is given as follows. For each order k ∈ { 2, 3, 4}, one chooses a Taylor-shift parameter βk ∈ N (the values β2 = 3 , β 3 =6, β 4 = 9 are recommended). Set tn = nδt and denote un and pn as the numerical solution at 
+
+tn. For k = 2 , 3, 4 the scheme reads: given un−k+1 , . . . , un and pn−k+1 , . . . , p n, n ≥ k − 1, find 
+
+un+1 and pn+1 satisfying 
+
+Ak(un+1 )
+
+δt − ν∆Bk(un+1 ) + ∇Ck(pn) + Ck(un)·∇ Ck(un) = f n+βk , (3a) (∇pn+1 , ∇q) = ( f n+1 − un+1 ·∇ un+1 , ∇q) − ν(∇ × ∇ × un+1 , ∇q), ∀q ∈ H1(Ω) . (3b) Given a sequence {ϕn}, Ak(ϕn+1 )/δt is a k-th order approximation of ∂tϕ(tn+βk ) by using 
+
+{ϕn+1 −k, · · · , ϕ n+1 }, Bk(ϕn+1 ) is a k-th order implicit extrapolation to fit ϕ(tn+βk ) through 
+
+{ϕn+2 −k, · · · , ϕ n+1 }, and Ck is a k-th order explicit extrapolation to approximate ϕ(tn+βk ) via 
+
+{ϕn+1 −k, · · · , ϕ n}. Their concrete forms are provided in [30] and listed in Table 1. Table 1: The operators Ak, Bk, Ck of the BDF–IMEX consistent-splitting scheme in [30] 
+
+k = 2 ( β2 = 3) k = 3 ( β3 = 6) k = 4 ( β4 = 9) 
+
+Ak(ϕn+1 ) 52 ϕn−1 − 6ϕn + 72 ϕn+1 − 107 6 ϕn−2 + 59 ϕn−1
+
+− 131 2 ϕn + 73 3 ϕn+1 1691 12 ϕn−3 − 604 ϕn−2 + 975 ϕn−1
+
+− 2108 3 ϕn + 763 4 ϕn+1 
+
+Bk(ϕn+1 ) −2ϕn + 3 ϕn+1 15 ϕn−1 − 35 ϕn + 21 ϕn+1 −120 ϕn−2 + 396 ϕn−1 − 440 ϕn + 165 ϕn+1 
+
+Ck(ϕn) −3ϕn−1 + 4 ϕn 21 ϕn−2 − 48 ϕn−1 + 28 ϕn −165 ϕn−3 + 540 ϕn−2 − 594 ϕn−1 + 220 ϕn
+
+2.2 The SVV-stabilized scheme 
+
+Since the pressure equation (3b) is simply a Poisson problem with a natural Neumann boundary condition, it is solved by a standard spectral-Galerkin Poisson solver [5, 50]. Below we focus on the velocity solver. For ease of presentation, this section considers homogeneous Dirichlet boundary conditions and employs the Legendre Galerkin spectral method. The formulation for periodic and free-slip boundary conditions using a Fourier–trigonometric basis is provided in Appendix B. Let XN = { v ∈ PN (−1, 1) : v(±1) = 0 } be the one-dimensional space of polynomials of degree at most N vanishing at the endpoints, of dimension M = N − 1. We represent it in the Legendre–Galerkin basis ϕj = Lj − Lj+2 (Lj the Legendre polynomial of degree j), 
+
+j = 0 , . . . , N − 2, for which the stiffness and mass matrices Sv and Mv of the H10 and L2 inner products are sparse [50]. Let vi ∈ RM be the Mv-orthonormal solutions of the generalized eigenproblem Svvi = μiMvvi, and set E = [ v0, . . . , vM −1], so that E⊤MvE = I and E⊤SvE =Λ := diag( μi) [27, Theorem 7.6.4]. The columns of E are the ϕ-coordinates of the eigenfunctions 
+
+ψi = PM −1 
+
+> m=0
+
+Emi ϕm, which form the simultaneous-diagonalization basis of XN , with ( ψi, ψ j ) = 4δij and ( ψ′
+
+> i
+
+, ψ ′ 
+
+> j
+
+) = μiδij . The matrix E is the change of basis between the assembly basis {ϕj }
+
+and the eigen-basis {ψi} used in the solver below. The discrete velocity space is the tensor product VN =  XN ⊗ XN
+
+2 ⊂ H10 (Ω) on Ω = (−1, 1) 2, each component XN ⊗ XN spanned by the Legendre–Galerkin assembly basis Φ ij =
+
+ϕi(x) ϕj (y), 0 ≤ i, j ≤ M − 1. Let {Ψij }0≤i,j ≤M −1 be the tensor eigen-basis of XN ⊗ XN (with Ψij = ψi(x) ψj (y)), which is orthonormal and simultaneously diagonalizes the mass and stiffness forms: (Ψ ij , Ψi′j′ ) = δii ′ δjj ′ , (∇Ψij , ∇Ψi′j′ ) = ( μi + μj ) δii ′ δjj ′ .
+
+Equivalently, on VN , −∆Ψ ij = ( μi + μj )Ψ ij , and, separating directions, ( ∂xΨij , ∂ xΨi′j′ ) = 
+
+μiδii ′ δjj ′ and ( ∂yΨij , ∂ yΨi′j′ ) = μj δii ′ δjj ′ .The SVV term damps the high, under-resolved modes while leaving the well-resolved low modes untouched. To build it, we first introduce the one-dimensional Maday–Kaber–Tadmor SVV kernel bQℓ on {ψℓ} of XN [37, 53], 
+
+bQℓ =
+
+(0, 0 ≤ ℓ ≤ mN ,
+
+exp  −(ℓ − M )2/(ℓ − mN )2, mN < ℓ ≤ M − 1, (4) with parameters 
+
+εN = Csvv 
+
+M , mN = ⌈√M ⌉, Csvv = O(1) . (5) It vanishes on the low modes ℓ ≤ mN ∼ √M , preserving accuracy on the smooth part of the solution, and rises monotonically to bQM −1 → 1 at the cut-off. In two dimensions we apply the kernel directionally , following S´ ev´ erac and Serre [48] and Chen et al. [7], so that each coordinate carries its own one-dimensional kernel. 
+
+Definition 2.2 (SVV operator) . Define the SVV operator SN : VN → VN by its action on the eigen-basis, extended linearly and applied componentwise to vector fields: for u = P 
+
+> ij
+
+buij Ψij ,
+
+SN Ψij := εN
+
+  bQiμi + bQj μj
+
+Ψij , SN u = εN
+
+X
+
+> ij
+
+  bQiμi + bQj μj
+
+buij Ψij . (6) The associated scalar multiplier QN , its square root, and the two directional multipliers, all diagonal in {Ψij }, are 
+
+QN Ψij := bQij Ψij , pQN Ψij := 
+
+qbQij Ψij , bQij := bQiμi + bQj μj
+
+μi + μj
+
+, (7) 
+
+bQ xΨij := bQi Ψij , bQ yΨij := bQj Ψij , QN := diag   bQ x, bQ y. (8) 
+
+Lemma 2.3 (Properties of the SVV operator) . The operator SN of Definition 2.2 has the following properties. 
+
+(P1) Strong form. SN = −εN QN ∆ on VN .
+
+(P2) Directional (divergence) form. SN u = −εN div  QN ∇u on VN , in the weak sense. 
+
+(P3) Diagonal, self-adjoint, commuting. QN and √QN are diagonal in {Ψij }, hence self-adjoint, and commute with ∆ on VN .
+
+(P4) Bounded symbol. bQij ∈ [0 , 1] , hence ∥QN v∥ ≤ ∥ v∥ and ∥√QN v∥ ≤ ∥ v∥, and these bounds extend to all v ∈ L2(Ω) by the truncated expansion. 
+
+(P5) Vanishing on resolved modes. bQij = 0 ⇐⇒ i ≤ mN and j ≤ mN .
+
+5(P6) Positive semidefinite. (SN u, u) = εN ∥∇ √QN u∥2 ≥ 0; in particular SN is self-adjoint and positive semidefinite. 
+
+The strong forms (P1)–(P2) of the SVV operator are proved in Appendix A. Properties (P3)–(P6) are classical and go back to Tadmor [53], Maday et al. [37], and Guo et al. [24]. The two-dimensional directional (diagonal) kernel QN is that of S´ ev´ erac and Serre [48] and Chen et al. [7]. The SVV-stabilized scheme replaces (3a) by 
+
+Ak(un+1 )
+
+δt − (ν + εN QN )∆ Bk(un+1 ) + ∇Ck(pn) + Ck(un)·∇ Ck(un) = f n+βk , (9) keeping the pressure step (3b) unchanged. The SVV contribution −εN QN ∆Bk(un+1 ) = SN Bk(un+1 )acts on Bk(un+1 ), at tn+βk like the viscosity. Note (9) is linear in un+1 and takes the form 
+
+L un+1 = g, where 
+
+L un+1 := ak,k 
+
+δt un+1 − bk,k −1 (ν + εN QN ) ∆ un+1 , (10) where ak,k and bk,k −1 are the coefficients of un+1 in Ak and Bk, respectively, and the right-hand side g collects all other terms. In the eigen-basis {Ψij },( cLu)ij = λv(i, j ) buij , (11) where buij are the coefficients of u in {Ψij } and λv(i, j ) is given by 
+
+λv(i, j ) = ak,k 
+
+δt + bk,k −1
+
+h
+
+ν (μi +μj ) + εN
+
+  bQi μi + bQj μj
+
+i
+
+= ak,k 
+
+δt + bk,k −1
+
+ ν +εN bQij 
+
+ (μi +μj ),
+
+(12) with bQij as in (7). The directional kernel introduces no additional asymptotic computational cost: it changes only one diagonal entry. Consequently the velocity step L un+1 = g, applied to each velocity component, is computed in four sub-steps that use the Φ ij basis for assembly and the eigen-basis Ψ ij for inversion: 1. Assemble the right-hand side g in the Φ ij basis and obtain the coefficient matrix G.2. Rotate into the eigen-basis, bG = E⊤G E .3. Diagonal solve : in {Ψij } the operator L is diagonal with entries λv(i, j ), so bUij =
+
+bGij /λ v(i, j ). 4. Rotate back to the Φ ij basis, U = E bU E ⊤; the entries of U are the coefficients of un+1 .The per-step cost is therefore identical to the scheme without SVV, since the stabilization only adds εN ( bQiμi + bQj μj ) to the diagonal entry λv(i, j ). The directional kernel is thus free. 
+
+2.3 Initialization of the multistep scheme 
+
+The k-step scheme (3) needs starting levels u0, . . . , uk−1 and p0, . . . , p k−1. For a manufactured solution these are read off the exact fields, as in the ν = 1 study below. Otherwise, as for the perturbed Kovasznay flow of Section 4.2, they must be generated to the design order without destabilizing the run. We use a Richardson-extrapolated backward-Euler self-start [11, 25]. The building block is one backward-Euler substep, the k = 1, β1 = 0 member of (3), with the viscous and SVV terms implicit and the convection and pressure gradient explicit. Advancing (un, p n) to ( un+1 , p n+1 ) over a substep τ ,
+
+un+1 − un
+
+τ − ν∆un+1 + SN un+1 = f (tn+1 ) − (un ·∇ )un − ∇ pn, un+1 |∂Ω = 0 , (13) 6after which pn+1 follows from (3b). By (12) this is a single diagonal solve with symbol 1 /τ +
+
+ν(μi + μj ) + εN ( bQiμi + bQj μj ) ≥ 1/τ > 0, so the substep is L-stable and carries no viscous restriction, unlike a Runge–Kutta self-start, which on the Gauss–Lobatto grid would require 
+
+τ ≲ 1/(νN 4) [58]. Only the explicit convective restriction of the main scheme remains, and refining the substep relaxes it. Backward Euler is first order, so its result at a fixed time admits an asymptotic expansion in the substep τ . For each level j = 1 , . . . , k − 1 we integrate [0 , t j ] with τℓ = δt/ 2ℓ and mℓ = j 2ℓ
+
+steps for ℓ = 0 , . . . , L , giving u(j) 
+
+> ℓ
+
+, and combine them by the Neville recursion [26] 
+
+T (0)  
+
+> ℓ
+
+= u(j) 
+
+> ℓ
+
+, T (r) 
+
+> ℓ
+
+= T (r−1)  
+
+> ℓ
+
++ T (r−1)  
+
+> ℓ
+
+− T (r−1) 
+
+> ℓ−1
+
+2r − 1 , r = 1 , . . . , L, ℓ = r, . . . , L. (14) Each column cancels one further term of the expansion, so uj := T (L) 
+
+> L
+
+carries an error of order 
+
+δt L+2 , and pj is its consistent pressure from (3b). Taking L = k − 2 makes every starting level accurate to order δt k, the minimum for global order k. We use L = k, so that the starting error stays below the temporal error at the finest δt and largest N considered. 
+
+# 3 Energy and error estimates for the SVV-stabilized scheme 
+
+3.1 Main results 
+
+The error analysis in [30] is established only for the case ν = 1. We extend it to arbitrary viscosities ν > 0 and to the SVV-stabilized scheme in Theorem 3.1. Define ei = ui − u(ti) and 
+
+eip = pi − p(ti). 
+
+Theorem 3.1 (Stability and error estimates for the SVV-stabilized scheme) . Suppose Assump-tion 2.1 holds and ∥∇ ei∥2+δt ∥∆ei∥2 ≤ Cδt 2k for i = 0 , . . . , k −1. Set C0 := max 0≤t≤T ∥∇ u(t)∥+1, M2 := sup t∥u(t)∥2, Mf := sup t∥f (t)∥, and Rk := R T
+
+> 0
+
+ ∥∂k+1  
+
+> t
+
+u∥2 + ∥∂kt u∥22 + ∥∂kt p∥21 + ∥∂kt (u·∇u)∥2dt . Then, for any εN ≥ 0 and δt sufficiently small, the SVV-stabilized scheme (9) , (3b) 
+
+satisfies the following. 
+
+Part 1 (stability). sup 
+
+> 0≤j≤n+1
+
+∥∇ uj ∥ ≤ C0, (15) sup 
+
+> m≤n
+
+∥∇ um+1 ∥2 + νδt 
+
+> n
+
+X
+
+> i=0
+
+∥∆ui+1 ∥2 + εN δt 
+
+> n
+
+X
+
+> i=0
+
+∥pQN ∆ui+1 ∥2 ≤ Ca1, (16) 
+
+where Ca1 = CC 60 Tν3 + CT M 2 
+
+> f
+> ν
+
++ CC 20 (1 + νT ).
+
+Part 2 (error). 
+
+∥∇ en+1 ∥2 + νδt 
+
+> n+1
+
+X
+
+> i=0
+
+∥∆ei∥2 + δt ν
+
+> n+1
+
+X
+
+> i=0
+
+∥∇ eip∥2 + ηkεN δt 
+
+2
+
+> n+1
+
+X
+
+> i=0
+
+∥pQN ∆Ck(ei)∥2
+
+≤  CR δt 2k + B Dsvv 
+
+ G,
+
+(17) 
+
+where the amplification B, the data factor CR, and the Gronwall factor G are 
+
+B := 1 + C60 Tν5 + T M 2
+
+> f
+
+ν3 + T (C20 + M 22 )
+
+ν + C20
+
+ν2 + νT, CR := C (1 + ν2)Rk + ν
+
+ν B,
+
+G := exp 
+
+ CC 60 Tν5 + CT M 2
+
+> f
+
+ν3 + CT M 22
+
+ν + CC 20 Tν + CC 20
+
+ν2
+
+
+
+,
+
+(18) 
+
+and Dsvv ≤ c ε N T sup 0≤t≤T ∥√QN ∆u(t)∥2 with c depending only on Ak, B k, and C depends only on Ω and k. In particular εN = 0 gives Dsvv = 0 , removes the two SVV terms, and recovers the ν-dependent version of [30, Thm. 4.1]. 
+
+7Remark 3.2. It is worth saying precisely where these negative powers of ν come from, since SVV does not remove them. In the stability estimate the second-order terms are absorbed on all modes only by the viscous coercivity ηkνδt ∥∆Ck(ui+1 )∥2, whose coefficient is ν. The SVV coercivity is available too, but only on the high modes, so it cannot carry the low-mode part. The trilinear convection term (25) is therefore split by Young’s inequality with a weight tied to ν, which leaves the free term Cδt ν −3∥∇ Ck(ui)∥6. This is the origin of the ν−3 in 
+
+Ca1. The pressure step (29)–(30) contributes similarly. The hydrodynamic pressure gradient 
+
+∥Ck(f i − ui ·∇ ui)∥ stays O(1) as ν → 0, yet it is absorbed by the same ν-viscous coercivity and so is divided by ν, and through ∥uj ·∇ uj ∥2 ≤ CC 30 ∥∆uj ∥ it feeds a further ν−3. In the error estimate the Gronwall driver contains ∥∆ui∥2, and δt P
+
+> i
+
+∥∆ui∥2 ≤ Ca1/ν = O(ν−4) by (34). The exponent of the Gronwall factor is then Cν · Ca1 
+
+> ν
+
+= O(ν−5), which is the ν−5 in G.SVV cannot break this chain, because its kernel vanishes on the low modes that the convection and pressure absorption must also cover, so it adds no coercivity there and the ν-tied Young weights stay unavoidable. 
+
+3.2 Some lemmas 
+
+We collect here the notation and the lemmas used in the proof. 
+
+Lemma 3.3 (Stokes-pressure estimate, [36]) . Fix a constant ε ∈ (0 , 12 ). There exists C > 0,depending only on Ω and ε, such that for every u ∈ H2(Ω) ∩ H10 (Ω) ,
+
+∥∇ ps(u)∥2 ≤   12 + ε∥∆u∥2 + C ∥∇ u∥2,
+
+where ps(u) ∈ H1/R is the Stokes pressure defined by (∇ps(u), ∇q) = (div ∆ u, q ) for all q ∈
+
+H1(Ω) .
+
+Lemma 3.4 ([55]) . For d = 2 , 3 and u, v, w ∈ H10 (Ω) ∩ H2(Ω) ,
+
+|(u · ∇ v, w)| ≤ c ∥u∥1 ∥v∥1/21 ∥v∥1/22 ∥w∥, ∥u · ∇ u∥2 ≤ c ∥u∥31∥u∥2,
+
+where c depends only on Ω.
+
+The G-stability of the shifted BDF time derivative is obtained by applying the Dahlquist G-stability theorem [9] to the multiplier conditions of [30, Lem. 3.1], and is recorded as [30, eq. (3.37)]. 
+
+Lemma 3.5 (G-stability of shifted BDF time derivative, [30]) . There exists a symmetric and positive definite matrix Gk = ( gi,j ) ∈ Rk×k, depending only on k and βk, with smallest eigenvalue 
+
+λgk > 0, such that for any Rd-valued sequence {ϕj },
+
+ Ak(ϕn+1 ), −∆Ck(ϕn+1 ) ≥ ∥∇ ϕn+1 ∥2 
+
+> Gk
+
+− ∥∇ ϕn∥2 
+
+> Gk
+
+,
+
+where ∥∇ ϕn+1 ∥2 
+
+> Gk
+
+:= Pkl,j =1 gl,j 
+
+ ∇ϕn+1+ l−k, ∇ϕn+1+ j−k denotes the Gk-weighted quadratic form of the gradient history; it satisfies ∥∇ ϕn+1 ∥2 
+
+> Gk
+
+≥ λgk ∥∇ ϕn+1 ∥2.
+
+The coercivity of the viscous term is obtained from the splitting Bk = ηkCk +Dk +Fk, where the inner product involving Dk is treated by feeding the multiplier conditions of [30, Lem. 3.2] into the Dahlquist G-stability theorem [9], while the one involving Fk is handled in Appendix A of [30]. 
+
+Lemma 3.6 (Bk–Ck coercivity, [30]) . With ηk = 0 .71 , there exist a symmetric and positive definite matrix Hk = ( hi,j ) ∈ R(k−1) ×(k−1) , a positive semidefinite quadratic form Uk, and 
+
+κk > 0 such that 
+
+ ∆Bk(ϕn+1 ), ∆Ck(ϕn+1 ) ≥ ηk∥∆Ck(ϕn+1 )∥2 + κk∥∆ϕn+1 ∥2 +  Hn+1 (ϕ) − H n(ϕ)
+
++  Un+1 (ϕ) − U n(ϕ),
+
+where Hn(ϕ) := Pk−1 
+
+> i,j =1
+
+hi,j 
+
+ ∆ϕn+1+ i−k, ∆ϕn+1+ j−k and Un(ϕ) := Uk(∆ ϕn, . . . , ∆ϕn+2 −k).
+
+8Lemma 3.7 (SVV coercivity) . For any sequence {ϕj } ⊂ VN ,
+
+ p QN ∆Bk(ϕn+1 ), pQN ∆Ck(ϕn+1 ) ≥ ηk∥pQN ∆Ck(ϕn+1 )∥2 + κk∥pQN ∆ϕn+1 ∥2
+
++  HQn+1 (ϕ) − H Qn (ϕ) +  UQn+1 (ϕ) − U Qn (ϕ), (19) 
+
+where, with the matrix Hk and form Uk from Lemma 3.6, 
+
+HQn (ϕ) = 
+
+> k−1
+
+X
+
+> i,j =1
+
+hi,j 
+
+ p QN ∆ϕn+1+ i−k, pQN ∆ϕn+1+ j−k,
+
+UQn (ϕ) = Uk
+
+ p QN ∆ϕn, . . . , pQN ∆ϕn+2 −k.
+
+Proof of Lemma 3.7. Recall from Section 2.2 the eigen-basis {Ψij }0≤i,j ≤M −1 (M = N − 1), Ψij (x, y ) = ψi(x)ψj (y), which L2-orthonormalises VN . For v ∈ VN write bvij := ( v, Ψij ) for the coordinate of v along Ψ ij , so that v = P 
+
+> i,j
+
+bvij Ψij . By Section 2.2, QN is the spectral multiplier 
+
+QN Ψij = bQij Ψij , bQij := bQi μi + bQj μj
+
+μi + μj
+
+∈ [0 , 1] ,
+
+cf. (7); note that only bQij ∈ [0 , 1] and its diagonality are used below, so the argument is independent of the particular two-dimensional kernel. It commutes with ∆ and √QN Ψij =q bQij Ψij . Expanding ∆ Bk(ϕn+1 ) and ∆ Ck(ϕn+1 ) in {Ψij } and using orthonormality, (pQN ∆Bk(ϕn+1 ), pQN ∆Ck(ϕn+1 )) =  
+
+> M−1
+
+X
+
+> i,j =0
+
+bQij 
+
+ ∆Bk(ϕn+1 ), Ψij 
+
+  ∆Ck(ϕn+1 ), Ψij 
+
+.
+
+The proof of Lemma 3.6 in [30] uses only the algebraic structure of Bk and Ck, so the inequal-ity holds mode by mode in the diagonalization basis. Multiplying the mode-( i, j ) version of Lemma 3.6 by the non-negative bQij and summing over i, j yields (19). 
+
+Lemma 3.8. Denote Ck(uj ) = Pk−1 
+
+> q=0
+
+ck,q uj−k+1+ q, ck = max 0≤q≤k−1 |ck,q | and assume 
+
+sup j≤n∥∇ uj ∥ ≤ C0. Then sup j≤n∥∇ Ck(uj )∥ ≤ k c k C0.Proof. The triangle inequality implies ∥∇ Ck(uj )∥ ≤ P 
+
+> q
+
+|ck,q |∥∇ uj−k+1+ q∥ ≤ kc kC0.
+
+3.3 Proof of Theorem 3.1 
+
+We write C for a generic positive constant depending only on Ω and k, and in particular not on ν, δt , or n. We use two tools from [30]. First, the trilinear estimates 
+
+b(u, v, w) ≤ C ∥u∥1 ∥v∥2 ∥w∥, b(u, v, w) ≤ C ∥u∥2 ∥v∥1 ∥w∥. (20) Second, the discrete Gronwall lemma ([30], Lemma 2.1): if an, b n, c n, d n ≥ 0 and CG, τ > 0satisfy, for all m ≥ 1, 
+
+am + τ
+
+> m
+
+X
+
+> n=1
+
+bn ≤ τ
+
+> m−1
+
+X
+
+> n=0
+
+andn + τ
+
+> m−1
+
+X
+
+> n=0
+
+cn + CG,
+
+then 
+
+am + τ
+
+> m
+
+X
+
+> n=1
+
+bn ≤ exp 
+
+
+
+τ
+
+> m−1
+
+X
+
+> n=0
+
+dn
+
+ 
+
+τ
+
+> m−1
+
+X
+
+> n=0
+
+cn + CG
+
+
+
+.
+
+9Proof of Theorem 3.1. We prove by induction on n. Assuming 
+
+∥∇ ui∥ ≤ C0, i = 0 , . . . , n (21) (which holds for i = 0), we shall prove ∥∇ un+1 ∥ ≤ C0.
+
+Step 1. Stability: proof of Part 1. 
+
+We take the inner product of (9), written at level i+1 ≤ n, with −δt ∆Ck(ui+1 ), and estimate the resulting terms one at a time. The time-derivative, convection, pressure, and forcing terms are exactly as in the bare scheme; the combined operator −(ν +εN QN )∆ Bk contributes, beyond the viscous pairing, the SVV pairing treated in (24). For the time-derivative term, Lemma 3.5 gives  Ak(ui+1 ), −∆Ck(ui+1 ) ≥ ∥∇ ui+1 ∥2 
+
+> Gk
+
+− ∥∇ ui∥2 
+
+> Gk
+
+. (22) For the viscous term, Lemma 3.6 (with ϕ = u) yields 
+
+νδt  ∆Bk(ui+1 ), ∆Ck(ui+1 ) ≥ ηkνδt ∥∆Ck(ui+1 )∥2 + νκ kδt ∥∆ui+1 ∥2
+
++ νδt  Hi+1 (u) − H i(u) + νδt  Ui+1 (u) − U i(u). (23) For the SVV term, Lemma 3.7 gives 
+
+εN δt  QN ∆Bk(ui+1 ), ∆Ck(ui+1 ) ≥ εN ηkδt ∥pQN ∆Ck(ui+1 )∥2 + εN κkδt ∥pQN ∆ui+1 ∥2
+
++ εN δt  HQi+1 (u) − H Qi (u) + εN δt  UQi+1 (u) − U Qi (u),
+
+(24) a nonnegative coercive contribution to the left-hand side. For the convection term, we use Lemma 3.4 with u = v = Ck(ui), the bound ∥Ck(ui)∥2 ≤ C∥∆Ck(ui)∥, and Young’s inequality with weight δ1ν, to obtain 
+
+δt  Ck(ui)·∇ Ck(ui), ∆Ck(ui+1 ) ≤ Cδt ν3 ∥∇ Ck(ui)∥6 + δ1νδt 
+
+
+
+∥∆Ck(ui)∥2 + ∥∆Ck(ui+1 )∥2
+
+.
+
+(25) For v ∈ H2(Ω), the Stokes pressure ps(v) satisfies the variational identity (Theorem 1 of [36]) (∇ps(v), ∇q) = −(∇ × ∇ × v, ∇q), ∀q ∈ H1(Ω) . (26) Inserting (26) into the pressure step (3b) written at level i expresses the discrete pressure as (∇pi, ∇q) =  f i − ui ·∇ ui, ∇q + ν (∇ps(ui), ∇q), ∀q ∈ H1(Ω) . (27) Applying the explicit extrapolation Ck to (27) and then choosing q = Ck(pi) yields 
+
+∥∇ Ck(pi)∥ ≤ ∥ Ck(f i − ui ·∇ ui)∥ + ν ∥∇ ps(Ck(ui)) ∥. (28) We compute the inner product between ∇Ck(pi) and −∆Ck(ui+1 ) via Cauchy-Schwarz inequal-ity and (28). The forcing–convection part is treated by Young’s inequality with weight δαν. For the Stokes-pressure part, Young’s inequality with weight δγ ν gives 
+
+ν∥∇ ps(Ck(ui)) ∥ ∥ ∆Ck(ui+1 )∥ ≤ ν
+
+4δγ
+
+∥∇ ps(Ck(ui)) ∥2 + δγ ν∥∆Ck(ui+1 )∥2,
+
+into which the Stokes-pressure estimate of Lemma 3.3 (with u = Ck(ui)) is inserted, i.e., 
+
+∥∇ ps(Ck(ui)) ∥2 ≤ ( 12 + ε)∥∆Ck(ui)∥2 + C∥∇ Ck(ui)∥2. Altogether, we obtain 
+
+δt  ∇Ck(pi), ∆Ck(ui+1 ) ≤ Cδt ν ∥Ck(f i − ui ·∇ ui)∥2 + ν(1 + 2 ε)8δγ
+
+δt ∥∆Ck(ui)∥2
+
++ Cνδt δγ
+
+∥∇ Ck(ui)∥2 + ( δα + δγ )νδt ∥∆Ck(ui+1 )∥2.
+
+(29) 10 The first term on the right involves Ck, a bounded combination of the levels j = i + 1 − k, . . . , i ,so it is controlled level by level. For each such j, ∥uj ·∇ uj ∥2 ≤ C∥uj ∥31∥uj ∥2 ≤ CC 30 ∥∆uj ∥ by (21) for j ≤ i ≤ n, and ∥Ck(f i)∥ ≤ CM f . Hence 
+
+Cδt ν ∥Ck(f i − ui ·∇ ui)∥2 ≤ Cδt ν M 2 
+
+> f
+
++ CC 30 δt ν
+
+> i
+
+X
+
+> j=i+1 −k
+
+∥∆uj ∥. (30) Finally, the right-hand side of (3a) contributes 
+
+δt  f i+βk , −∆Ck(ui+1 ) ≤ Cδt ν M 2 
+
+> f
+
++ δf νδt ∥∆Ck(ui+1 )∥2. (31) Summing (22), (23), (24), (25), (29), and (31) for i = k − 1, . . . , m , the time, viscous, and SVV contributions combine into the total energy 
+
+E i+1 := ∥∇ ui+1 ∥2 
+
+> Gk
+
++ νδt Hi+1 (u) + νδt Ui+1 (u) + εN δt HQi+1 (u) + εN δt UQi+1 (u),
+
+whose increments telescope to E m+1 − E k−1. Using P 
+
+> i
+
+δt ≤ T on the forcing, the summed bounds read 
+
+Em+1 − E k−1 +
+
+h
+
+ηk − 1+2 ε 
+
+> 8δγ
+
+− (δ1 + δα + δγ + δf )
+
+i
+
+νδt 
+
+> m
+
+X
+
+> i=k−1
+
+∥∆Ck(ui+1 )∥2
+
++ κk νδt 
+
+> m
+
+X
+
+> i=k−1
+
+∥∆ui+1 ∥2 + εN ηkδt 
+
+> m
+
+X
+
+> i=k−1
+
+∥pQN ∆Ck(ui+1 )∥2 + εN κkδt 
+
+> m
+
+X
+
+> i=k−1
+
+∥pQN ∆ui+1 ∥2
+
+≤ Cδt ν3
+
+> m
+
+X
+
+> i=k−1
+
+∥∇ Ck(ui)∥6 + Cνδt δγmX
+
+> i=k−1
+
+∥∇ Ck(ui)∥2 + CT M 2
+
+> f
+
+ν + CC 30
+
+ν δt 
+
+> m
+
+X
+
+> i=k−1
+> i
+
+X
+
+> j=i+1 −k
+
+∥∆uj ∥.
+
+(32) As Hm+1 (u), Um+1 (u), HQm+1 (u), UQm+1 (u) ≥ 0, the final level satisfies E m+1 ≥ λgk∥∇ um+1 ∥2,so these endpoint terms are discarded, while E k−1 depends only on the first k − 1 steps. By the hypotheses on the startup values and the smoothness of the exact solution, ∥∇ ui∥ ≤ C0 for 
+
+i ≤ k − 1, so M0 ≤ CC 20 . We choose δ1, δ α, δ f , ε small and δγ suitable so that 
+
+ηk − 1 + 2 ε
+
+8δγ
+
+− (δ1 + δα + δγ + δf ) ≥ 0 (33) (corresponding to condition (4.21) of [30]). This is feasible because 18δγ + δγ has minimum 1√2 ≈
+
+0.7071, attained at δγ = 12√2 , which lies just below ηk = 0 .71. The margin ηk − 1√2 ≈ 2.9 × 10 −3
+
+is small and must also absorb δ1 + δα + δf and the excess 2ε 
+
+> 8δγ
+
+, so these parameters are taken correspondingly small. The resulting nonnegative term νδt ∥∆Ck(uj )∥2 is then dropped. Using (21), ∥∇ Ck(ui)∥6 ≤ CC 60 and ∥∇ Ck(ui)∥2 ≤ CC 20 (the latter, with δγ bounded away from 0 and mδt ≤ T , producing the CC 20 νT term), and absorbing the first-power term (the stencil sum in (30) re-indexes to a single sum, up to the factor k absorbed in C) by 
+
+CC 30
+
+ν δt 
+
+> m
+
+X
+
+> i=k−1
+
+∥∆ui∥ ≤ κk
+
+2 νδt 
+
+> m
+
+X
+
+> i=k−1
+
+∥∆ui∥2 + CC 60 Tν3 ,
+
+we obtain the ν-explicit form of (4.22)–(4.23) of [30], which is Part 1, (16): 
+
+Ca1 := sup 
+
+> m≤n
+
+∥∇ um+1 ∥2 + νδt 
+
+> n
+
+X
+
+> i=0
+
+∥∆ui+1 ∥2 + εN δt 
+
+> n
+
+X
+
+> i=0
+
+∥pQN ∆ui+1 ∥2
+
+≤ CC 60 Tν3 + CT M 2
+
+> f
+
+ν + CC 20 (1 + νT ).
+
+(34) 11 In particular δt P
+
+> i
+
+∥∆ui∥2 ≤ Ca1/ν = O(ν−4). 
+
+Step 2. Error estimate for ∥∇ en+1 ∥.
+
+Subtracting from (3a) the identity satisfied by the exact solution yields the error equation ([30], (4.24)): with ei := ui − u(ti) and eip := pi − p(ti), 
+
+Ak(ei+1 )
+
+δt −(ν+εN QN )∆ Bk(ei+1 )+ ∇Ck(eip)+ Ck(ui)·∇ Ck(ui)−Ck(u(ti)) ·∇ Ck(u(ti)) = P ik+Qik+Rik+Sik+T ik,
+
+(35) where P ik, Q ik, R ik, S ik are the pressure, viscous, time, and convection truncation errors of [30], (4.25)–(4.28), and T ik := εN QN ∆Bk(u(ti+1 )) is the SVV truncation error, which has no contin-uous counterpart and satisfies ∥T ik∥ ≤ εN ∥∆Bk(u(ti+1 )) ∥ ≤ Cε N sup t∥∆u(t)∥. Taking the L2
+
+inner product of (35) with −δt ∆Ck(ei+1 ), the time-derivative and viscous terms are estimated exactly as in (22)–(23), with u replaced by e. The SVV operator contributes the coercive term, bounded below by Lemma 3.7 (the analogue of (24) with u replaced by e), 
+
+εN δt  QN ∆Bk(ei+1 ), ∆Ck(ei+1 ) ≥ εN ηkδt ∥pQN ∆Ck(ei+1 )∥2 + εN δt  HQi+1 (e) − H Qi (e)
+
++ εN δt  UQi+1 (e) − U Qi (e),
+
+(36) with HQ(e), UQ(e) ≥ 0. Since √QN is self-adjoint, Young’s inequality gives 
+
+δt (T ik, ∆Ck(ei+1 )) = εN δt (pQN ∆Bk(u(ti+1 )) , pQN ∆Ck(ei+1 )) 
+
+≤ εN δt 
+
+2ηk
+
+∥pQN ∆Bk(u(ti+1 )) ∥2 + ηk
+
+2 εN δt ∥pQN ∆Ck(ei+1 )∥2. (37) The last term is absorbed into the coercivity of (36), leaving ηk 
+
+> 2
+
+εN δt ∥√QN ∆Ck(ei+1 )∥2 on the left, and summation with ∥√QN ∆Bk(u(ti+1 )) ∥ ≤ C sup t∥√QN ∆u(t)∥ bounds the new free term by the data constant 
+
+Dsvv := εN δt 
+
+2ηknX
+
+> i=k−1
+
+∥pQN ∆Bk(u(ti+1 )) ∥2 ≤ c ε N T sup 
+
+> t
+
+∥pQN ∆u(t)∥2, (38) added to the data of the master estimate (44). The convective term is split into 
+
+Ck(ui)·∇ Ck(ui) − Ck(u(ti)) ·∇ Ck(u(ti)) = Ck(ei)·∇ Ck(ui) + Ck(u(ti)) ·∇ Ck(ei). (39) Each piece is bounded with one inequality in (20). With ∥Ck(ui)∥2 ≤ C∥∆Ck(ui)∥ and Young’s inequality with weight δ2ν,
+
+δt  Ck(ei)·∇ Ck(ui) + Ck(u(ti)) ·∇ Ck(ei), −∆Ck(ei+1 )
+
+≤ Cδt ν ∥∇ Ck(ei)∥2
+
+∥∆Ck(ui)∥2 + ∥Ck(u(ti)) ∥22
+
+
+
++ δ2νδt ∥∆Ck(ei+1 )∥2.
+
+(40) The pressure error is treated through the Stokes pressure, as in [30], (4.34)–(4.39): from the error form of (3b), 
+
+ ∇Ck(eip), ∇q =  Ck(u(ti)·∇ u(ti)−ui·∇ ui), ∇q+ν ∇ps(Ck(ei)) , ∇q, ∀q ∈ H1(Ω) . (41) Taking q = Ck(eip) gives, as in [30], (4.36), 
+
+∥∇ Ck(eip)∥ ≤ ∥ Ck
+
+ u(ti)·∇ u(ti) − ui ·∇ ui∥ + ν∥∇ ps(Ck(ei)) ∥.
+
+12 Using u(ti)·∇ u(ti) − ui·∇ ui = −ei·∇ ui − u(ti)·∇ ei, and the Sobolev and Poincar´ e inequalities give 
+
+∥Ck
+
+ u(ti)·∇ u(ti) − ui ·∇ ui∥2 ≤ C
+
+> i
+
+X
+
+> j=i+1 −k
+
+ ∥∇ ej ∥2∥∆uj ∥2 + ∥u(tj )∥22∥∇ ej ∥2.
+
+We then apply Cauchy–Schwarz inequality and Young’s inequalities of weights ∝ ν, and Lemma 3.3 for the Stokes pressure to yield 
+
+δt  ∇Ck(eip), −∆Ck(ei+1 ) ≤ Cδt ν
+
+> i
+
+X
+
+> j=i+1 −k
+
+∥∇ ej ∥2
+
+∥∆uj ∥2 + ∥u(tj )∥22
+
+
+
++ ν(1 + 2 ε)8δγ
+
+δt ∥∆Ck(ei)∥2 + Cνδt δγ
+
+∥∇ Ck(ei)∥2 + ( δα + δγ ) νδt ∥∆Ck(ei+1 )∥2.
+
+(42) For the four truncation errors P ik, Q ik, R ik, S ik ([30], (4.25)–(4.28): pressure, viscous, time, convection), Taylor expansion about ti+βk gives, after summation, 
+
+δt ν
+
+X
+
+> i
+
+
+
+∥P ik∥2 + ∥Qik∥2 + ∥Rik∥2 + ∥Sik∥2
+
+≤ C(1 + ν2)
+
+ν δt 2kRk, (43) where the factor ν2 is only from Qik = −ν∆u(ti+βk ) + ν∆Bk(u(ti+1 )). Combining the above, dropping the nonnegative telescoping and dissipation terms, keeping the coefficient of νδt ∥∆Ck(ej )∥2 positive as in (33), and summing for i = k − 1, . . . , n , we obtain the master estimate. The conversion of the extrapolated quantities ∥∆Ck(ei)∥2 into the true error norms ∥∆ei∥2 is supplied by the Bk = ηkCk + Dk + Fk decomposition: the Fk coercivity term νκ kδt ∥∆ei+1 ∥2 of Lemma 3.6, exactly as in [30], (4.40)–(4.46), absorbs the remaining 
+
+∥∆Ck(ei)∥2 contributions and leaves a positive multiple of νδt P
+
+> i
+
+∥∆ei∥2, absorbed into C. We thus reach the analogue of [30], (4.46): 
+
+∥∇ en+1 ∥2 + νδt 
+
+> n+1
+
+X
+
+> i=k
+
+∥∆ei∥2 + ηkεN δt 
+
+2
+
+> n+1
+
+X
+
+> i=k
+
+∥pQN ∆Ck(ei)∥2 ≤ Cν δt 
+
+> n
+
+X
+
+> i=k−1
+
+∥∇ ei∥2 ∥∆ui∥2 + ∥u(ti)∥22
+
+
+
++ Cν δt 
+
+> n
+
+X
+
+> i=k−1
+
+∥∇ Ck(ei)∥2 ∥∆Ck(ui)∥2 + ∥Ck(u(ti)) ∥22 + 1  + C(1 + ν2)
+
+ν δt 2kRk + M err 0 + Dsvv ,
+
+(44) with M err 0 ≤ Cδt 2k and the Gronwall driver 
+
+di = ∥∆ui∥2 + ∥u(ti)∥22 +
+
+> min {k−1, n −i}
+
+X
+
+> q=0
+
+ ∥∆Ck(ui+q)∥2 + ∥Ck(u(ti+q)) ∥22 + 1 .
+
+Note (44) is in the form required by the discrete Gronwall lemma, with τ = δt , ai = ∥∇ ei∥2,
+
+bi = ν∥∆ei∥2, weights Cν di, data τ P ci = C(1+ ν2) 
+
+> ν
+
+δt 2kRk, and constant CG = M err 0 + Dsvv (the nonnegative SVV coercive term on the left of (44) rides through the lemma unchanged). By Step 1, (34), and the regularity of the exact solution, 
+
+δt 
+
+> n
+
+X
+
+> i=k−1
+
+Cν di ≤ Cν
+
+
+
+δt 
+
+> n
+
+X
+
+> i=k−1
+
+ ∥∆ui∥2 + ∥∆Ck(ui)∥2 + δt 
+
+> n
+
+X
+
+> i=k−1
+
+ ∥u(ti)∥22 + ∥Ck(u(ti)) ∥22
+
+ + T
+
+
+
+≤ Cν
+
+ Ca1
+
+ν + T M 22 + T
+
+
+
+≤ CC 60 Tν5 + CT M 2
+
+> f
+
+ν3 + CT M 22
+
+ν + CC 20 Tν + CC 20
+
+ν2 .
+
+(45) 13 the ν−5 arising from 1 
+
+> ν
+
+· Ca1 
+
+> ν
+
+with Ca1 = O(ν−3). The Gronwall lemma then yields the analogue of [30], (4.48): 
+
+∥∇ en+1 ∥2 + νδt 
+
+> n+1
+
+X
+
+> i=0
+
+∥∆ei∥2 + ηkεN δt 
+
+2
+
+> n+1
+
+X
+
+> i=0
+
+∥pQN ∆Ck(ei)∥2 ≤
+
+h C(1 + ν2)Rk
+
+ν δt 2k + M err 0 + Dsvv 
+
+i
+
+G
+
+=: Cvel  
+
+> a2
+
+δt 2k + Dsvv G, G := exp 
+
+ CC 60 Tν5 + CT M 2
+
+> f
+
+ν3 + CT M 22
+
+ν + CC 20 Tν + CC 20
+
+ν2
+
+
+
+.
+
+(46) To close the induction, the triangle inequality and ∥∇ u(tn+1 )∥ ≤ C0 − 1 give 
+
+∥∇ un+1 ∥ ≤ ∥∇ u(tn+1 )∥ + ∥∇ en+1 ∥ ≤ (C0 − 1) + 
+
+q
+
+Cvel  
+
+> a2
+
+δt 2k + Dsvv G ≤ C0
+
+once δt and εN are small enough that Cvel  
+
+> a2
+
+δt 2k + Dsvv G ≤ 1, which completes the induction. 
+
+Step 3. Error estimate for the pressure. 
+
+Setting q = eip in the error form of (3b) and using Lemma 3.3 and the Sobolev inequality, as in [30], (4.51), yield 
+
+∥∇ eip∥2 ≤ C∥∇ ei∥2
+
+∥∆ui∥2 + ∥u(ti)∥22
+
+
+
++ 2 ν2∥∆ei∥2 + Cν 2∥∇ ei∥2, 1 ≤ i ≤ n + 1 . (47) Multiplying by δt/ν , summing i = 1 , . . . , n +1, and using (34), (46) together with δt P
+
+> i
+
+∥∆ui∥2 ≤
+
+Ca1/ν ,
+
+δt ν
+
+> n+1
+
+X
+
+> i=1
+
+∥∇ eip∥2 ≤ Cpress  
+
+> a2
+
+δt 2k + B Dsvv G, Cpress  
+
+> a2
+
+≤ C B Cvel  
+
+> a2
+
+, (48) with B as in (18). The Stokes-pressure step multiplies the SVV data term by the same factor B
+
+that multiplies CR, because the first term on the right of (47) inherits Dsvv G from (46) through sup i∥∇ ei∥2.Adding (46) and (48) gives Part 2, (17), with amplification B, data factor CR, and Gronwall factor G as in (18). The velocity part contributes Dsvv G and the pressure part B Dsvv G, whose sum is bounded by 2 B Dsvv G since B ≥ 1, and the factor 2 is absorbed into Dsvv . Setting εN = 0 annihilates the coercive SVV term on the left and Dsvv on the right, recovering the ν-dependent version of [30, Thm. 4.1]. 
+
+# 4 Numerical experiments 
+
+In this section, we present several two-dimensional numerical experiments to demonstrate the stability and accuracy of the proposed SVV-stabilized higher-order consistent splitting scheme with spectral spatial discretizations. In Examples 1 and 2, we employ the Legendre–Galerkin method [19, 50]. On the domain ( −1, 1) 2, the velocity is approximated in the tensor-product space XN ⊗XN , with XN defined in Section 2.2, while the pressure is approximated in YN ⊗YN ,where YN = span {Lm : m = 0 , 1, . . . , N } and Lm denotes the Legendre polynomial of degree 
+
+m. In Example 3, we employ a Fourier–trigonometric spatial discretization, whose details are provided in Appendix B. 
+
+4.1 Example 1: convergence test 
+
+We verify that the scheme attains its design temporal order k, and the SVV term does not degrade that order where the temporal error dominates. We use the manufactured solution of [30, Example 2] on Ω = ( −1, 1) 2,
+
+u =  sin(2 πy ) sin 2(πx ), − sin(2 πx ) sin 2(πy ) sin t, p = cos( πx ) sin( πy ) sin t. 
+
+14 We take N = 128 modes in each direction so that the spatial error is negligible against the temporal error, integrate to T = 1, and report the relative L2 errors Eu = ∥un −u(tn)∥/∥u(tn)∥
+
+and Ep = ∥pn − p(tn)∥/∥p(tn)∥ at T = 1, comparing the bare scheme ( Csvv = 0) with the SVV-stabilized scheme ( Csvv = 1, εN = Csvv /M , kernel (4)). We consider two viscosities, ν = 10 −3
+
+and ν = 10 −4, and generate the first k levels by the Richardson-BE self-start, except where the exact solution is used for comparison. When ν = 10 −3, the bare scheme achieves the optimal convergence rates, as shown in Ta-bles 2–4. For k = 2, the SVV-stabilized scheme produces results nearly identical to those of the bare scheme, whereas for k = 3 and k = 4, the velocity error saturates at approximately 10 −4, as observed in Table 3 at δt = 0 .00625 and in Table 4 at δt = 0 .0125 and 0 .00625. This saturation is caused by the SVV term εN QN ∆Bk(un+1 ) in scheme (9), which contributes the error term 
+
+BDsvv in (17), where Dsvv ≤ c ε N T sup t∥√QN ∆u(t)∥2. For the simulations considered here, this upper bound is independent of δt and remains below the temporal discretization error over most of the δt range in Tables 2–4, becoming visible only for the smallest time steps when k = 3 and k = 4. Table 2: ν = 10 −3, N = 128, temporal convergence for k = 2 ( β2 = 3) at T = 1. 
+
+Eu Ep
+
+δt bare order SVV order bare order SVV order 0.1000 1.63 × 10 −1 – 1.62 × 10 −1 – 1.15 × 10 −1 – 1.15 × 10 −1 –0.0500 5.09 × 10 −2 1.67 5.09 × 10 −2 1.67 3.83 × 10 −2 1.59 3.82 × 10 −2 1.59 0.0250 1.46 × 10 −2 1.80 1.46 × 10 −2 1.80 1.12 × 10 −2 1.77 1.12 × 10 −2 1.77 0.0125 3.90 × 10 −3 1.90 3.89 × 10 −3 1.90 3.03 × 10 −3 1.89 3.03 × 10 −3 1.89 0.00625 1.00 × 10 −3 1.96 1.01 × 10 −3 1.95 7.82 × 10 −4 1.95 7.83 × 10 −4 1.95 
+
+Table 3: ν = 10 −3, N = 128, temporal convergence for k = 3 ( β3 = 6) at T = 1. 
+
+Eu Ep
+
+δt bare order SVV order bare order SVV order 0.1000 1.31 × 10 −1 – 1.30 × 10 −1 – 8.69 × 10 −2 – 8.68 × 10 −2 –0.0500 3.23 × 10 −2 2.01 3.23 × 10 −2 2.02 2.22 × 10 −2 1.97 2.22 × 10 −2 1.97 0.0250 5.40 × 10 −3 2.58 5.39 × 10 −3 2.58 3.85 × 10 −3 2.53 3.85 × 10 −3 2.53 0.0125 7.37 × 10 −4 2.87 7.43 × 10 −4 2.86 5.28 × 10 −4 2.87 5.28 × 10 −4 2.87 0.00625 9.45 × 10 −5 2.96 1.42 × 10 −4 2.39 6.73 × 10 −5 2.97 6.90 × 10 −5 2.94 
+
+Table 4: ν = 10 −3, N = 128, temporal convergence for k = 4 ( β4 = 9) at T = 1. 
+
+Eu Ep
+
+δt bare order SVV order bare order SVV order 0.10000 1.65 × 10 −2 – 1.65 × 10 −2 – 1.18 × 10 −2 – 1.18 × 10 −2 –0.05000 4.21 × 10 −3 1.97 5.32 × 10 −3 1.63 3.21 × 10 −3 1.88 3.22 × 10 −3 1.88 0.02500 8.11 × 10 −4 2.37 5.60 × 10 −4 3.25 4.54 × 10 −4 2.82 4.24 × 10 −4 2.92 0.01250 4.43 × 10 −5 4.19 1.14 × 10 −4 2.29 3.48 × 10 −5 3.70 3.53 × 10 −5 3.59 0.00625 3.08 × 10 −6 3.85 1.06 × 10 −4 0.11 2.43 × 10 −6 3.84 1.10 × 10 −5 1.68 
+
+At ν = 10 −4 (Re = 10 4), the bare scheme is no longer stable for most values of δt , as shown in Table 5. The table reports the relative velocity error Eu at T = 1 for k = 2 , 3, 4, using two initialization procedures for the bare scheme: the exact solution and Richardson-BE initialization. The bare scheme diverges under both initialization procedures, with the error reaching 10 14 –10 25 or overflowing to a non-finite value for most choices of δt ; only a few isolated cases with sufficiently small δt remain stable. Because the exact initialization supplies the true solution at the first k time levels and the computation still blows up, the 15 instability is attributable to the bare spatial discretization at this Reynolds number rather than to the initialization procedure. In contrast, the SVV-stabilized scheme with the Richardson-BE initialization yields stable and convergent solutions for every tested δt , with the attainable accuracy limited by the SVV saturation level ≈ 10 −4 discussed above. The pressure error exhibits the same behavior and is therefore omitted. Table 5: ν = 10 −4 (Re = 10 4), N = 128. Relative L2 velocity error Eu at T = 1 under the bare scheme with the exact and Richardson-BE initializations and the SVV-stabilized scheme with Richardson-BE initialization. “NaN” denotes a non-finite (overflowed) value. The SAV column is the second-order GSAV consistent splitting scheme of Alhomsi et al. [1] ( β2 = 4, exact start), listed in the k = 2 block only since it is a second-order method. The last column is the observed order of the SVV velocity error. 
+
+k δt bare, exact start bare, Richardson-BE SAV SVV, Richardson-BE order 20.1000 1.66 × 10 −1 1.66 × 10 −1 2.54 × 10 −1 1.77 × 10 −1 –0.0500 6.28 × 10 −2 2.15 × 10 2 1.15 × 10 −1 7.62 × 10 −2 1.22 0.0250 1.40 × 10 1 7.09 × 10 25 1.27 × 10 0 1.49 × 10 −2 2.35 0.0125 7.14 × 10 −1 4.32 × 10 14 9.92 × 10 −1 3.99 × 10 −3 1.90 0.00625 1.03 × 10 −3 1.03 × 10 −3 1.71 × 10 −3 1.04 × 10 −3 1.94 30.1000 1.34 × 10 −1 1.42 × 10 −1 – 1.35 × 10 −1 –0.0500 1.52 × 10 −1 1.81 × 10 16 – 1.29 × 10 −1 0.07 0.0250 3.47 × 10 25 NaN – 5.90 × 10 −3 4.45 0.0125 4.64 × 10 20 NaN – 7.78 × 10 −4 2.92 0.00625 9.81 × 10 −5 3.47 × 10 −4 – 1.92 × 10 −4 2.02 40.05000 4.75 × 10 −3 4.17 × 10 2 – 7.39 × 10 1 –0.02500 1.76 × 10 16 NaN – 1.04 × 10 −2 12 .79 0.01250 1.20 × 10 14 NaN – 1.70 × 10 −4 5.94 0.00625 1.29 × 10 −5 1.18 × 10 −5 – 1.65 × 10 −4 0.04 
+
+4.2 Example 2: perturbed Kovasznay problem 
+
+4.2.1 Problem setup and long time behavior 
+
+We consider the steady Kovasznay flow [35] on Ω = ( −1, 1) 2,
+
+uKov =   1 − eλx cos(2 πy ) , λ 
+
+> 2π
+
+eλx sin(2 πy ) , pKov = 12 (1 − e2λx ), (49) with λ = Re 2 −
+
+q Re 2 
+
+> 4
+
++ 4 π2, as the base flow. Its graph with Re = 10 4 is shown in Fig. 1. We add a small divergence-free perturbation 
+
+w0(x, y ) = Apert 
+
+
+
+−4y(1 − x2)2(1 − y2), 4x(1 − x2)(1 − y2)2
+
+, (50) with Apert = 10 −2, as the initial perturbation. We solve (2) with u(0 , ·) = uKov + w0 with the Dirichlet boundary condition u = uKov on ∂Ω. We therefore subtract the steady solution and solve the evolution equation for the perturbation 
+
+w = u − uKov , (51) which satisfies w|∂Ω = 0. The spatial discretization is the Legendre–Galerkin method [50] with N = 128 polynomial degree per direction in all production runs. The time step is δt = 10 −4 throughout. SVV parameters are Csvv = 1, mN = ⌈√M ⌉ = 12, unless otherwise specified. We test the consistent splitting scheme for Re = 10 2, 10 3, 10 4, using k = 2 and δt = 10 −4,both with and without SVV. For N = 128 and Re = 10 3, we also test k = 2 , 3, 4 with δt = 10 −4
+
+and 10 −5. The results are nearly identical to those obtained with k = 2 and δt = 10 −4,16 Figure 1: Example 2. Kovasznay flow uKov at Re = 10 4. The red region is where the first component uKov, 1 is negative. indicating that the spatial discretization error dominates in this setting. Therefore, below we report results for different spatial resolutions while fixing k = 2 and δt = 10 −4.Figure 2[a] shows ∥w(t)∥ at Re = 10 2, 10 3, 10 4 at N = 128, with and without SVV. The SVV results indicate that the perturbation decays exponentially and the long-time solution returns to the Kovasznay flow. These curves are insensitive to the resolution: the SVV results for N = 128 , 256 , 512 , 1024 coincide at each Reynolds number, as shown for Re = 10 4 in Figure 2[b]. At Re = 10 2 the two schemes agree to all reported digits, so no stabilization is needed. At Re = 10 3 the scheme without SVV reaches a minimum near t ≈ 40 and then grows to 1 .2 × 10 −1 at t = 1000, and at Re = 10 4 it blows up near t ≈ 10. SVV thus improves stability and accuracy together, removing the spurious growth and the blow-up and driving the solution to the steady Kovasznay flow. 
+
+[a] [b] Figure 2: Example 2. [a]: ∥w(t)∥L2(Ω) vs time for Re = 10 2, 10 3, 10 4. The curves for Re = 10 2
+
+with SVV and without SVV coincide. [b]: ∥w(t)∥L2(Ω) vs time for Re = 10 4 with different mesh resolutions. The solid curves (SVV results) coincide. The dots are where the scheme blows up. 
+
+4.2.2 Boundary layer 
+
+The main difficulty in this problem is the boundary layer at the outflow wall x = 1 and the oscillations associated with it. The total velocity satisfies u = uKov on ∂Ω, and because 
+
+uKov, 1(1 , y ) > 0 for every y (see Fig. 1), the fluid at x = 1 flows out of the domain. The perturbation satisfies w = 0 on ∂Ω. It is therefore carried toward x = 1 by the base flow and forced to vanish there, and a boundary layer forms. Figure 3 shows the perturbation vorticity 
+
+∇ × w over the full domain, with the region of interest located near the right wall. Figure 4 provides a magnified view of this region at different mesh resolutions. 17 Figure 3: Example 2 perturbation vorticity fields ∇ × w at t = 10 for Re = 10 4, N = 128 (left) and N = 1024 (right). 
+
+Figure 4: Example 2 perturbation vorticity ∇ × w near right boundary for Re = 10 4. From left to right: N = 128 , 256 , 512 , 1024. Fig. 5 shows the profiles of the perturbation quantities w = ( w1, w 2), ∇ × w and p − pKov 
+
+along y = 0 for Re = 10 4. The boundary layer thickness, distance from the outflow wall to the peak of w2 along y = 0, converges to 1 .3 × 10 −2 under mesh refinement. This layer contains 7, 13, 27 and 53 Legendre–Gauss–Lobatto points for N = 128, 256, 512 and 1024, respectively. 
+
+[a] Figure 5: Example 2 boundary layer for Re = 10 4: the perturbation quantities, w1, w2, ∇ × w,and q = p − pKov along y = 0 at t = 10. First row: the interval x ∈ [−1, 1]. Second row: the small interval x ∈ [0 .9, 1]. Since no exact solution is available, we take the Re = 10 4, N = 1024 run as the reference and report the relative error ∥wN − w1024 ∥/∥w1024 ∥ at t = 10, both over the whole domain and 18 over the outflow region [0 .8, 1] × [−0.2, 0.2]. Table 6 collects the results, which demonstrates the convergence of the scheme. Table 6: Example 2. Spatial convergence of the perturbation velocity at t = 10 for Re = 10 4,measured against the N = 1024 run.                                  
+
+> whole domain [0 .8,1] ×[−0.2,0.2]
+> Nrelative error order relative error order 128 1.45 ×10 −1–3.35 ×10 −1–256 9.44 ×10 −20.62 2.12 ×10 −10.66 512 5.17 ×10 −20.87 1.12 ×10 −10.92
+
+We follow the layer in time and across Reynolds number. Along y = 0 we record the peak of |w2| near the outflow wall, its distance from the wall 1 − xpeak , the wall derivative ∂xw2(1 , 0), and two ratios, 
+
+dslope = max |w2||∂xw2(1 , 0) | , R∇ = |∂xw2(1 , 0) |
+
+max |x|<0.8 |∂xw2| . (52) Both are independent of the size of the perturbation, since numerator and denominator carry it equally. Because w1 vanishes along x = 1, its tangential derivative there is zero and ∂xw2(1 , 0) is the boundary vorticity. Fig. 6 shows these quantities for Re = 10 2, 10 3 and 10 4 at N = 256. The perturbation oscillates with a period close to 0 .73 at all three Reynolds numbers and the wall derivative changes sign on every cycle, so the two ratios are evaluated at the crest of each cycle, where the layer is strongest. The perturbation decays exponentially in every case and the decay slows as the Reynolds number rises. After a transient ending near t = 10 the three layer measures settle onto constants and hold them while the amplitude falls by five to seven decades, so the layer keeps its shape as the solution returns to the Kovasznay flow and only its amplitude decreases. For Re = 10 3
+
+and 10 4 we follow the measures only up to t ≈ 193 and t ≈ 235, beyond which ∥w∥L2(Ω) levels off while the layer amplitude keeps decaying and the peak-location measures no longer describe the outflow layer. The thickness orders cleanly with the Reynolds number: taking medians over 
+
+t > 20, the peak of w2 sits 5 .0 × 10 −2, 2 .9 × 10 −2 and 1 .9 × 10 −2 from the wall for Re = 10 2,10 3 and 10 4, and dslope follows the same ordering with 1 .86, 1 .32 and 1 .07 × 10 −2. The ratio R∇
+
+stays between 11 and 21 throughout, so the wall gradient exceeds the largest interior gradient by more than an order of magnitude at every Reynolds number, but it is not monotone in Re and we do not read an ordering from it. This resolution is needed for the comparison: at N = 128 the curves for Re = 10 3 and 10 4 coincide in all three layer measures, which reflects the grid rather than the flow. 19 Figure 6: Example 2. Outflow layer along y = 0 at N = 256 for Re = 10 2 (green), 10 3 (blue) and 10 4 (red). Upper row: peak of |w2|, the whole-domain norm ∥w∥L2(Ω) , and the wall derivative 
+
+|∂xw2(1 , 0) |, on a logarithmic scale. Lower row: the distance 1 − xpeak and the two ratios of (52). The faint lines are the full recorded signal at every step. The bold lines trace the crest of each oscillation cycle, and follow the signal itself where it no longer oscillates. 
+
+4.2.3 Comparison with a FEM/Newton scheme 
+
+We close this example by comparing the cost of reaching T = 1 at Re = 10 4 with a finite-element/Newton solver, analysed in [16] and applied to this problem in [1], which uses Taylor– Hood P2/P 1 elements with grad-div stabilization, fully implicit BDF-2 in time, and a Newton solve at every step, both codes run at δt = 10 −4. Table 7 reports the cost. The two codes are not comparable at equal N , since N counts polynomial degree for the spectral scheme and mesh cells for the finite-element one, so we compare at a similar number of unknowns. There the spectral scheme is about 42 times cheaper near 0 .6 to 0 .8 million degrees of freedom and about 29 times cheaper near 2 .4 to 3 .1 million, taking 85 ms per step against 1792 ms and using 0 .37 GB against 54 .5 GB. Equal degrees of freedom is not equal error, so these figures measure the cost of carrying a given number of unknowns rather than the cost of reaching a given accuracy. Table 7: Example 2. Cost of integrating to T = 1 at Re = 10 4 with δt = 10 −4, for the present Legendre-Galerkin SVV scheme and a Galerkin–Newton Taylor–Hood P2/P 1 solver. Memory is the total over the job: the spectral runs are a single shared-memory process, and the finite-element runs are the number of ranks times the largest resident set size among them.                                                            
+
+> method Nvelocity dof total dof wall (s) cores core-h ms/step memory (GB) spectral 128 32 258 48 899 46 .180.10 4.60.11 256 130 050 196 099 204 .780.46 20 .50.11 512 522 242 785 411 853 .881.90 85 .40.37 1024 2 093 058 3 143 683 6555 .3814 .57 655 .51.10 Newton 128 132 098 148 739 1856 .516 8.25 185 .717 .0256 526 338 592 387 17917 .116 79 .63 1791 .754 .5512 2 101 250 2 364 419 23945 .864 425 .70 2394 .6215 .7
+
+To weigh cost against accuracy we compare the two solutions at the point where they are hardest to compute. Figure 7 shows the perturbation vorticity near the outflow wall and the 20 profile of w2 along y = 0 at t = 1, for the spectral scheme at N = 1024 and the finite-element solver at N = 512, two runs of comparable size, 3 .1 and 2 .4 million unknowns, costing 14 .6and 425 .7 core-hours. Away from the wall the two agree closely, the interior lobes of w2 near 
+
+x = −0.1 and x = 0 .75 differing by a few percent, so both solvers capture the transported perturbation equally well. The difference is confined to the layer. The spectral peak of w2 reaches 1 .81 × 10 −1 against 1.06 × 10 −1 and the peak vorticity 62 .9 against 25 .2, while both place the peak at nearly the same distance from the wall, 1 .33 × 10 −2 and 1 .56 × 10 −2, so it is the height of the layer that is missed, not its position. The reason is visible in the markers of the right panel. The Legendre– Gauss–Lobatto nodes are spaced 7 .0 × 10 −6 apart at the wall against 3 .9 × 10 −3 for the uniform lattice, a factor of 560, so the finite-element cut carries about four points across the layer where the spectral cut carries several dozen. The vorticity fields show the same thing, the spectral solution resolving a train of alternating bands upstream of the wall sheet that the finite-element solution does not represent at all. 
+
+Figure 7: Example 2 at Re = 10 4 and t = 1, comparing the spectral scheme with N = 1024 against the Galerkin–Newton solver with N = 512. The two left panels show the perturbation vorticity ∇ × w near the outflow wall for the two methods. The two right panels show w2 along 
+
+y = 0 over the whole interval and in a zoom near the outflow wall. 
+
+4.3 Example 3: Kelvin–Helmholtz problem 
+
+The two-dimensional Kelvin–Helmholtz instability is a classical shear-flow problem for incom-pressible solvers at high Reynolds number. We adopt the specific configuration in [41, 47]. On the unit square Ω = (0 , 1) 2 the velocity u = ( u1, u 2) and pressure p solve the incompressible Navier–Stokes equations (1). The boundary conditions are periodic in x and free-slip at the walls y = 0 , 1, the latter imposed as u · n = 0 and  −ν ∇u · n × n = 0. The free-slip condition is equivalent to 
+
+u2 = 0 and ∂yu1 = 0 on y ∈ { 0, 1}. (53) The pressure is also periodic in x direction and satisfies ∂yp = 0 on y ∈ { 0, 1} by using the relation ∂p ∂n = −n · (( u·∇ )u + ν ∇ × ∇ × u) and (53). The spatial discretization of this problem is described in Appendix B. The initial condition is defined by 
+
+u01 = u∞ tanh 
+
+ 2y − 1
+
+δ0
+
+
+
++ cn ∂yψ(x, y ), u02 = −cn ∂xψ(x, y ). (54) where δ0 = 128 is the initial vorticity thickness, u∞ = 1 is a reference velocity, cn = 10 −3 is a noise/scaling factor, and ψ(x, y ) = u∞
+
+ cos(8 πx ) + cos(20 πx ) exp( −(y − 0.5) 2/δ 20 ). The Reynolds number is defined by Re = δ0 u∞/ν = 1 /(28 ν), and ν is determined by selecting Re . We take Re = 10 3 and 10 4. As documented in [41, 47], the ensuing roll-up of the layer into vortices and their successive pairing is strongly sensitive to small perturbations, which makes the problem a demanding test of the numerical stability. 21 Figure 8 shows the early evolution of the vorticity field ∇ × u for the SVV-stabilized scheme with k = 4 and N = 512, comparing Re = 10 3 (top row) with Re = 10 4 (bottom row) on the common colour scale of [47]. At t = 0 the two rows are identical, since the initial shear layer is independent of Re. As the layer rolls up into the two primary vortices, the two Reynolds numbers separate: at Re = 10 4 the braids connecting the cores stay thin and sharply defined and the vortices retain a large vorticity magnitude (min ∇ × u ≈ − 57 at t = 7), whereas at Re = 10 3 the stronger viscous diffusion smears the braids and weakens the cores (min ∇ × u ≈ − 44 at t = 7). At both Reynolds numbers the SVV-stabilized run is free of the spurious high-wavenumber oscillations that render the bare scheme unstable at this resolution, and the roll-up proceeds cleanly, consistent with the reference computations of [41, 47]. 
+
+Figure 8: Kelvin–Helmholtz problem: vorticity ∇ × u for the SVV-stabilized scheme with k = 4 and N = 512 at t = 0 , 1, 2, 3, 5, 7 (left to right). Top row: Re = 10 3; bottom row: Re = 10 4.Both rows share the colour scale of [47], ∇ × u ∈ [−63 .3, 0]; the value printed in each panel is the minimum vorticity. To expose what the SVV term suppresses, Figure 9 shows the vorticity at the coarsest resolution N = 128 and t = 2, well within the reliable regime t ≤ 7. The three left panels of each row use the SVV-stabilized scheme with k = 2 , 3, 4 and are almost indistinguishable from one another, and from the N = 256 and N = 512 SVV results, so that with SVV even the coarse grid already captures the correct roll-up at both Reynolds numbers. The three right panels repeat the computation with SVV switched off. At Re = 10 3 small spurious oscillations appear around the vortices, while at Re = 10 4 they contaminate the entire field: the bare scheme injects grid-scale noise whose amplitude (min ∇ × u ≈ − 106, far below the physical range) overwhelms the true vorticity. The SVV term removes exactly this under-resolved, high-wavenumber content while leaving the resolved vortices intact. 22 Figure 9: Kelvin–Helmholtz problem at the coarse resolution N = 128 and t = 2 (within the reliable regime): vorticity ∇ × u for Re = 10 3 (top row) and Re = 10 4 (bottom row). In each row the left three panels use SVV with k = 2 , 3, 4 and the right three switch SVV off. With SVV the k = 2 , 3, 4 results coincide; without SVV spurious high-wavenumber oscillations appear, severely so at Re = 10 4. Common colour scale of [47], ∇ × u ∈ [−63 .3, 0] (values below 
+
+−63 .3 are clipped to the end colour); the number in each panel is the minimum vorticity. This behaviour is consistent across the parameters we tested. With SVV active the coarse (N = 128), intermediate ( N = 256) and fine ( N = 512) fields agree to plotting accuracy throughout the reliable regime and for every order k = 2 , 3, 4, so the stabilized scheme delivers a resolution- and order-robust solution rather than one that must be chased with mesh refinement. Without SVV the picture is the opposite: the bare scheme is only marginally usable at Re = 10 3
+
+and is already polluted by grid-scale oscillations at Re = 10 4, with the contamination growing as the Reynolds number increases and the physical scales become finer. The spectral vanishing viscosity therefore acts precisely where it is needed, on the unresolved high modes, and is what makes the higher-order consistent splitting scheme dependable in the demanding high-Reynolds-number regime that motivates this study. Figure 10 compares the two Reynolds numbers at the fixed resolution N = 512, using the SVV-stabilized scheme with k = 2 , 3, 4, at the two later times t = 12 and t = 20. By this stage the shear layer has rolled up into a pair of co-rotating primary vortices which, as described in [47], subsequently pair into ever larger structures until a single vortex remains, an inverse transfer of energy from small to large scales that is characteristic of two-dimensional flow and whose final pairing time is extremely sensitive to perturbations. This sensitivity is now visible in the computed fields: at these late times the three temporal orders no longer coincide. At Re = 10 3 (top row) the k = 2 field is markedly different from the k = 3 and k = 4 fields, which remain close to one another; this pattern holds at both t = 12 and t = 20, where the k = 3 and 
+
+k = 4 vortices nearly coincide while the k = 2 vortex is displaced. At Re = 10 4 (bottom row) all three orders differ at t = 12, and although by t = 20 each has collapsed onto a single large vortex, its location differs from one order to the next. This divergence is not a failure of the scheme but the expected signature of the chaotic late-time pairing anticipated above: the infinitesimal differences in temporal truncation error between the orders are amplified by the flow’s extreme sensitivity, so that the phase and timing of the pairing—rather than its qualitative character— vary with k. The two Reynolds numbers also differ markedly in texture: at Re = 10 3 the strong viscous diffusion has erased the thin braids and left smooth, nearly circular vortices, whereas at Re = 10 4 the cores stay compact and intense, the connecting braids remain thin and sheet-like, and fine secondary filaments survive. What is robust across k is therefore stability rather than the detailed late-time field: at every order the SVV-stabilized run stays well resolved and free 23 of grid-scale oscillations throughout, whereas the corresponding runs without SVV blow up at these resolutions, consistent with the instability of the bare scheme documented above. 
+
+Figure 10: Kelvin–Helmholtz problem at N = 512 with the SVV-stabilized scheme: vorticity 
+
+∇ × u for Re = 10 3 (top row) and Re = 10 4 (bottom row). In each row the left three panels are t = 12 and the right three are t = 20, with k = 2 , 3, 4 within each group. Common colour scale of [47], ∇ × u ∈ [−63 .3, 0]; the number in each panel is the minimum vorticity. Finally, we validate the stabilized scheme against the reference solutions of [47], whose inte-gral time series are available for Re = 10 3 and Re = 10 4. We monitor four integral diagnostics. Writing u = ( u1, u 2) for the velocity, ω = ∇ × u = ∂xu2 − ∂yu1 for the scalar vorticity, and 
+
+⟨ · ⟩ for the average over the periodic x-direction, these are the kinetic energy ( K(t)), enstrophy (E(t)), palinstrophy ( P (t)), and vorticity thickness ( δω(t)), 
+
+K(t) = 12
+
+Z
+
+> Ω
+
+|u|2 dx, E(t) = 12
+
+Z
+
+> Ω
+
+ω2 dx,P (t) = 12
+
+Z
+
+> Ω
+
+|∇ ω|2 dx, δω(t) = 2u∞
+
+max  
+
+> y
+
+∂y⟨u1⟩(y, t ) ,
+
+(55) with δω(0) = δ0 = 1 /28. Here K and E measure the total flow energy and the mean-square vorticity, P measures the mean-square vorticity gradient and hence the degree of filamentation, and δω is the shear-layer (vorticity) thickness built from the x-averaged streamwise profile. Figure 11 overlays the reference of [47] (black; solid for Re = 10 3, dashed for Re = 10 4) on these four quantities computed at N = 512 for k = 2 , 3, 4, with and without SVV. The reference data extend to the scaled time ¯ t = 400, i.e. t = ¯ t δ 0/u ∞ = 14 .3, marked by the vertical line. Through the reliable regime ( t ≤ 7) the SVV results are indistinguishable from the reference for every order k and both Reynolds numbers, most strikingly in the kinetic energy, which the SVV curves track to plotting accuracy. Beyond the roll-up the curves separate only in the timing of the final vortex pairing. The palinstrophy peak, the enstrophy step and the thickness jump occur at slightly different times, a manifestation of the extreme sensitivity of that pairing documented in [47]. The kinetic energy, being insensitive to the pairing, continues to agree throughout. The bare scheme, by contrast, departs from the reference and, for the under-resolved configurations, blows up. This shows as the enstrophy and palinstrophy excursions of the “no SVV” curves, severe at Re = 10 4, where the k = 2 run diverges near t ≈ 4. 24 Figure 11: Kelvin–Helmholtz integral diagnostics at N = 512 for k = 2 , 3, 4 with and without SVV, compared with the reference solutions of [47]. Top row: kinetic energy K (left) and enstrophy E (right); bottom row: palinstrophy P (log scale, left) and vorticity thickness δ/δ 0
+
+(right). Colour encodes the Reynolds number and SVV on/off, line style the order k; the reference is drawn in black (solid Re = 10 3, from Re 1000 ; dashed Re = 10 4, from Re 10000 ). Time is physical (¯ t = 28 t); the reference ends at t = 14 .3 (¯ t = 400, vertical line). 
+
+# 5 Conclusions 
+
+The BDF–IMEX consistent splitting scheme of Huang and Shen [30] for the Navier–Stokes equations is higher-order, but its error estimate carries a constant that degenerates as ν−5 in the inviscid limit, and in practice the bare scheme blows up at high Reynolds number. To cure this we augment the velocity update with a symmetric positive-semidefinite spectral-vanishing-viscosity (SVV) operator SN = −εN div( QN ∇), built from the Maday–Kaber–Tadmor ker-nel [37, 53] applied directionally [7, 48], so that each mode is damped along the direction in which it is under-resolved while the low, resolved modes are left untouched. The modification is implementationally trivial, a single diagonal correction in the simultaneous-diagonalization eigenbasis, and preserves the per-step cost and the unconditional linear stability of the base scheme, while carrying through unchanged to every order k = 2 , 3, 4 of the BDF–IMEX family (only the coefficients ak,k , b k,k −1 in (12) change). Because the added operator is, mode by mode, a scalar multiple of the Laplacian, it leaves the structure of the error analysis intact. Analytically (Theorem 3.1), the SVV term contributes an additional, ν-independent coercive piece εN δt P∥√QN ∆un+1 ∥2 on the left of the energy identity, giving a ν-uniform bound on the high-mode part of the discrete Laplacian. The right-hand-side constant, however, retains the ν−5 scaling of the bare scheme: the Stokes-pressure absorption forces the convection weight 
+
+ε ∼ ν on the low-mode subspace, exactly where the MKT–SVV kernel vanishes. This contrast between the ν-uniform left-hand side and the unchanged ν-dependent right-hand side is the analytical fingerprint of the intervention, and closing the gap between this bound and the 25 robustness observed in practice remains an open problem. Three two-dimensional experiments establish that robustness numerically. In the manufactured-solution convergence test (Example 1), the SVV scheme reproduces the design temporal order 
+
+k = 2 , 3, 4 wherever the temporal error dominates; the only visible effect of the stabilization is a mild accuracy floor ≈ 10 −4 set by the SVV consistency term Dsvv ≤ c ε N T sup t∥√QN ∆u(t)∥2,which surfaces only at the smallest time steps for k = 3 , 4. At Re = 10 4 the bare scheme diverges under both exact and Richardson–BE initialization, the error reaching 10 14 –10 25 or overflowing, which confirms that the instability originates in the spatial discretization; the SVV scheme, by contrast, stays stable and convergent for every δt .On the perturbed Kovasznay flow (Example 2), the bare scheme grows spuriously at Re = 10 3 (a minimum near t ≈ 40 followed by growth to 1 .2 × 10 −1) and blows up near t ≈ 10 at Re = 10 4, whereas the SVV scheme drives the perturbation to exponential decay back to the steady flow. The stabilized result is insensitive to resolution (the N = 128 , 256 , 512 , 1024 curves coincide), resolves the thin outflow boundary layer, converges under mesh refinement, and agrees with an independent Galerkin–Newton finite-element reference in the position of the layer, differing only in the peak amplitude that the coarser finite-element mesh under-resolves. The Kelvin–Helmholtz problem (Example 3) probes the demanding high-Reynolds, perturbation-sensitive regime that motivates this study. With SVV the roll-up of the shear layer is captured cleanly, and the vorticity fields at N = 128 , 256 , 512 agree to plotting accuracy for every order 
+
+k = 2 , 3, 4 throughout the reliable regime, so the stabilized scheme is resolution- and order-robust rather than something that must be chased with mesh refinement. Without SVV the bare scheme is only marginally usable at Re = 10 3 and is swamped by grid-scale oscillations at Re = 10 4 (spurious vorticity min ∇ × u ≈ − 106, far outside the physical range) before diverg-ing. Validated against the reference integral time series of Schroeder et al. [47], the SVV kinetic energy, enstrophy, palinstrophy and vorticity thickness are indistinguishable from the reference through the reliable regime at both Reynolds numbers; beyond the roll-up the curves separate only in the timing of the final, notoriously perturbation-sensitive vortex pairing, while the ki-netic energy, insensitive to that pairing, continues to track the reference throughout. Taken together, the three examples show that the spectral vanishing viscosity acts precisely where it is needed, on the unresolved high modes, and is what makes the higher-order consistent splitting scheme dependable at high Reynolds number. The implementation here is two-dimensional, but the extension to three space dimensions is straightforward, since the eigenbasis solver carries over directly. Several questions remain open for future work. On the theoretical side, the robustness of the error bound in the viscosity could be sharpened: removing the ν−5 factor from Theorem 3.1 appears to require a quantitative low/high-mode splitting of the trilinear convective term, in the spirit of [37] for conservation laws and [24] for multi-dimensional spectral viscosity, carried through with the additional bookkeeping of the BDF–IMEX Taylor-shift operators. Finally, the SVV accuracy floor, the saturation ≈ 10 −4 observed for k = 3 , 4 in Example 1, is governed by the SVV amplitude εN = Csvv /M and the kernel cut-off mN . A sharper, problem-adapted choice of these parameters, or a defect correction that removes the SVV consistency error once the flow is resolved, would let the higher-order variants realize their full temporal accuracy without sacrificing robustness. 
+
+# Appendix A Proof of the reduction (P1)–(P2) 
+
+We prove the reduction (P1)–(P2) of Lemma 2.3 for the operator SN of Definition 2.2; the remaining properties (P3)–(P6) are the classical spectral-vanishing-viscosity facts recalled after the lemma. Throughout, u = P 
+
+> ij
+
+buij Ψij and v = P 
+
+> ij
+
+bvij Ψij are in VN , and we use the orthonormality (Ψ ij , Ψi′j′ ) = δii ′ δjj ′ together with the stiffness relations −∆Ψ ij = ( μi + μj )Ψ ij ,(∂xΨij , ∂ xΨi′j′ ) = μiδii ′ δjj ′ , and ( ∂yΨij , ∂ yΨi′j′ ) = μj δii ′ δjj ′ .26 (P1) Strong form. 
+
+Both SN and −εN QN ∆ are diagonal in {Ψij }, so it suffices to compare them mode by mode. Using −∆Ψ ij = ( μi + μj )Ψ ij , QN Ψij = bQij Ψij , and bQij (μi + μj ) = bQiμi + bQj μj ,
+
+−εN QN ∆ Ψ ij = εN bQij (μi + μj )Ψ ij = εN
+
+  bQiμi + bQj μj
+
+Ψij = SN Ψij .
+
+Agreement on a basis of VN gives SN = −εN QN ∆ on VN .
+
+(P2) Directional form. 
+
+For u, v ∈ VN ⊂ H10 (Ω), integration by parts (the boundary term vanishes) gives 
+
+−εN
+
+ div( QN ∇u), v = εN
+
+ QN ∇u, ∇v = εN
+
+h
+
+( bQ x∂xu, ∂ xv) + ( bQ y∂yu, ∂ yv)
+
+i
+
+.
+
+With u = Ψ ij and v = Ψ i′j′ , since bQ x scales the x-mode i by bQi,( bQ x∂xΨij , ∂ xΨi′j′ ) = bQiμi δii ′ δjj ′ , ( bQ y∂yΨij , ∂ yΨi′j′ ) = bQj μj δii ′ δjj ′ .
+
+Summing, −εN (div( QN ∇Ψij ), Ψi′j′ ) = εN ( bQiμi + bQj μj )δii ′ δjj ′ = ( SN Ψij , Ψi′j′ ). As this holds for every basis pair, the two operators coincide on VN .
+
+# Appendix B The Fourier–cosine/sine realization for the Kelvin– Helmholtz problem 
+
+We describe here the spectral Fourier( x)×cosine/sine( y) realization for the Kelvin–Helmholtz problem in Section 4.3. The time discretization Ak, B k, C k and the SVV operator SN = −εN QN ∆are unchanged. Only the spatial basis differs, and it enters the solver only through the eigenpairs of the one-dimensional operators. 
+
+Fourier basis in x.
+
+Because the flow is periodic in x, each field is expanded in the Fourier basis em(x) = e2πimx ,
+
+m = −Nx/2 + 1 , . . . , N x/2, on the uniform grid xl = l/N x, l = 0 , . . . , N x − 1. Each em is an eigenfunction of −∂xx with eigenvalue k2 
+
+> m
+
+= (2 πm )2, and ∂x acts as the multiplier 2 πim. The Fourier pair ( em, k 2
+
+> m
+
+) plays the role that the one-dimensional simultaneous-diagonalization pair (ψi, μ i) of XN plays in x in Section 2.2. 
+
+Cosine/sine basis in y.
+
+This is the y-space used for the Kelvin–Helmholtz computations. The tangential velocity u1
+
+and the pressure satisfy the Neumann condition ∂y(·) = 0 at y = 0 , 1 and are expanded in the cosine family 
+
+cm(y) = cos( mπy ), m = 0 , . . . , N y − 1, (56) while the normal velocity u2 satisfies the Dirichlet condition u2 = 0 at y = 0 , 1 and is expanded in the sine family 
+
+sm(y) = sin( mπy ), m = 1 , . . . , N y. (57) Both families are collocated on the cell-centered uniform grid yj = ( j + 12 )/N y, j = 0 , . . . , N y −1, which gives uniform resolution across the shear layer. Each cm and sm is an eigenfunction of 
+
+−∂yy with eigenvalue ( mπ )2, so the cosine pair  cm, (mπ )2 and the sine pair  sm, (mπ )2 are the y-eigenpairs used by the solver. A field is represented in the tensor basis Ψ mn = em(x) cn(y) for a cosine field, that is u1 and the pressure, and em(x) sn(y) for a sine field, that is u2. The Laplacian is diagonal, 
+
+−∆ Ψ mn =  k2 
+
+> m
+
++ ( nπ )2 Ψmn , (58) so the Helmholtz operator of each velocity component is diagonal in the index pair ( m, n ). 27 SVV kernel. 
+
+The Maday–Kaber–Tadmor kernel (4) is applied directionally , exactly as in (8). In x it is indexed by the Fourier wavenumber magnitude |m|, with cut-off Mx = Nx/2 and threshold 
+
+mN,x = ⌈√Mx ⌉, giving bQx
+
+> |m|
+
+. In y it is indexed by the mode number n = 0 , . . . , N y − 1, with cut-off My = Ny and threshold mN,y = ⌈pMy ⌉, giving bQyn. Both velocity components use the same one-dimensional kernels. Writing μxm = k2 
+
+> m
+
+and μyn = ( nπ )2 for the Laplacian eigenvalues in each direction, the operator is 
+
+SN Ψmn = εN
+
+  bQx 
+
+> |m|
+
+μxm + bQyn μyn
+
+Ψmn = εN bQmn 
+
+ μxm + μyn
+
+ Ψmn ,
+
+bQmn := 
+
+bQx
+
+> |m|
+
+μxm + bQynμyn
+
+μxm + μyn
+
+, εN = Csvv 
+
+max( Mx, M y) ,
+
+(59) so that, as in (7), SN = −εN QN ∆ with the scalar multiplier bQmn ∈ [0 , 1]. The directional form matters here for a concrete reason. In the Kelvin–Helmholtz flow the under-resolved structures are the braids and vortex sheets: thin in one direction and long in the other. Because QN judges each direction separately, such a mode is damped according to the direction in which it is unresolved, however smooth it may be in the other. 
+
+Diagonal velocity update. 
+
+Let a⋆k and b⋆k denote the coefficients of un+1 in Ak and Bk. Substituting the tensor basis into the SVV-stabilized momentum equation (9) makes each velocity component a diagonal solve, 
+
+h a⋆k
+
+δt + b⋆k
+
+
+
+ν k2 
+
+> m
+
++ ( nπ )2 + εN
+
+  bQx
+
+> |m|
+
+k2 
+
+> m
+
++ bQyn(nπ )2i bu n+1  
+
+> mn
+
+= bRmn , (60) where the right-hand side bRmn collects the older Ak terms, the extrapolated convection Ck(un)·∇Ck(un), the extrapolated pressure gradient ∇Ck(pn), and the explicit part of ( ν+εN QN )∆ Bk(un+1 ), all in the tensor basis. The cosine transform is used for u1 and the sine transform for u2. The stabilizing operator is the same −εN QN ∆Bk(un+1 ) = SN Bk(un+1 ) as in (9). 
+
+Remark B.1. The stabilization is identical to that of the main text. The Legendre eigenpairs (ψi, μ i) are replaced by the Fourier pair ( em, k 2
+
+> m
+
+) in x and by the cosine and sine pairs  cn, (nπ )2
+
+and  sn, (nπ )2 in y, so the Laplacian eigenvalues ( μi + μj ) of Section 2.2 become ( k2 
+
+> m
+
++ ( nπ )2). The energy and error estimates of Section 3 are stated in terms of the operators SN , QN and 
+
+∇, so they hold verbatim for this realization. 
+
+# Acknowledgments 
+
+J. Wu was partially supported by the National Science Foundation of the United States (Grant No. DMS-2104682 and DMS-2309748). X. Zheng was partially supported by NSF grant DMS-2309747. This work was supported in part by the computational resources and services pro-vided by the High Performance Computing Center (HPCC) of the Institute for Cyber-Enabled Research at Michigan State University through a collaboration program of Central Michigan University. 
+
+# References 
+
+[1] M. Nader Alhomsi, Jiahong Wu, and Xiaoming Zheng. Viscosity in error upper bound for a consistent splitting scheme of the Navier–Stokes equations. Journal of Computational and Applied Mathematics , page 117965, 2026. ISSN 0377-0427. doi: 10.1016/j.cam.2026.117965. 28 [2] M. Nader Alhomsi, Jiahong Wu, and Xiaoming Zheng. A consistent-splitting generalized scalar auxiliary variable scheme for the perturbed Boussinesq system. https://arxiv. org/abs/2606.31152 , 2026. Submitted for publication. [3] Ø. Andreassen, I. Lie, and C. E. Wasberg. The spectral viscosity method applied to simulation of waves in a stratified atmosphere. J. Comput. Phys. , 110(2):257–273, 1994. doi: 10.1006/jcph.1994.1023. [4] F. Brezzi and M. Fortin. Mixed and Hybrid Finite Element Methods , volume 15 of Springer Series in Computational Mathematics . Springer-Verlag, New York, 1991. doi: 10.1007/ 978-1-4612-3172-1. [5] C. Canuto, M. Y. Hussaini, A. Quarteroni, and T. A. Zang. Spectral Methods: Fundamen-tals in Single Domains . Springer, Berlin, 2006. [6] G.-Q. Chen, Q. Du, and E. Tadmor. Spectral viscosity approximations to multidimensional scalar conservation laws. Math. Comp. , 61(204):629–643, 1993. doi: 10.2307/2153244. [7] L. Chen, R. Pasquetti, and C. Xu. Efficient SVV stabilized triangular spectral element methods for incompressible flows of high Reynolds numbers. Adv. Aerodyn. , 3:27, 2021. doi: 10.1186/s42774-021-00090-x. [8] A. J. Chorin. Numerical solution of the Navier–Stokes equations. Math. Comp. , 22(104): 745–762, 1968. doi: 10.1090/S0025-5718-1968-0242392-2. [9] G. Dahlquist. G-stability is equivalent to A-stability. BIT , 18(4):384–401, 1978. doi: 10.1007/BF01932018. [10] J. de Frutos, B. Garc´ ıa-Archilla, V. John, and J. Novo. Grad-div stabilization for the evolutionary Oseen problem with inf-sup stable finite elements. J. Sci. Comput. , 66(3): 991–1024, 2016. doi: 10.1007/s10915-015-0052-1. [11] P. Deuflhard. Recent progress in extrapolation methods for ordinary differential equations. 
+
+SIAM Review , 27(4):505–535, 1985. [12] W. E and J.-G. Liu. Projection method. I. Convergence and numerical boundary layers. 
+
+SIAM J. Numer. Anal. , 32(4):1017–1057, 1995. doi: 10.1137/0732047. [13] W. E and J.-G. Liu. Gauge method for viscous incompressible flows. Commun. Math. Sci. ,1(2):317–332, 2003. doi: 10.4310/cms.2003.v1.n2.a6. [14] H. C. Elman, D. J. Silvester, and A. J. Wathen. Finite Elements and Fast Iterative Solvers: With Applications in Incompressible Fluid Dynamics . Oxford Univ. Press, Oxford, 2nd edition, 2014. doi: 10.1093/acprof:oso/9780199678792.001.0001. [15] B. Garc´ ıa-Archilla, V. John, and J. Novo. On the convergence order of the finite element er-ror in the kinetic energy for high Reynolds number incompressible flows. Comput. Methods Appl. Mech. Engrg. , 385:114032, 2021. doi: 10.1016/j.cma.2021.114032. [16] B. Garc´ ıa-Archilla, V. John, and J. Novo. Error analysis of BDF schemes for the evolu-tionary incompressible Navier–Stokes equations. arXiv preprint arXiv:2506.16917 , 2025. doi: 10.48550/arXiv.2506.16917. [17] V. Girault and P.-A. Raviart. Finite Element Approximation of the Navier–Stokes Equa-tions , volume 749 of Lecture Notes in Mathematics . Springer-Verlag, Berlin, 1979. 29 [18] J.-L. Guermond and A. J. Salgado. Error analysis of a fractional time-stepping technique for incompressible flows with variable density. SIAM J. Numer. Anal. , 49(3):917–944, 2011. doi: 10.1137/090768758. [19] J. L. Guermond and J. Shen. A new class of truly consistent splitting schemes for incom-pressible flows. J. Comput. Phys. , 192(1):262–276, 2003. doi: 10.1016/j.jcp.2003.07.009. [20] J. L. Guermond and J. Shen. Velocity-correction projection methods for incompressible flows. SIAM J. Numer. Anal. , 41(1):112–134, 2003. doi: 10.1137/S0036142901395400. [21] J. L. Guermond and J. Shen. On the error estimates for the rotational pressure-correction projection methods. Math. Comp. , 73(248):1719–1737, 2004. doi: 10.1090/ S0025-5718-03-01621-1. [22] J. L. Guermond, P. Minev, and J. Shen. An overview of projection methods for incom-pressible flows. Comput. Methods Appl. Mech. Engrg. , 195(44-47):6011–6045, 2006. doi: 10.1016/j.cma.2005.10.010. [23] J.-L. Guermond, P. D. Minev, and A. J. Salgado. Convergence analysis of a class of massively parallel direction splitting algorithms for the Navier–Stokes equations in simple domains. Math. Comp. , 81(280):1951–1977, 2012. doi: 10.1090/S0025-5718-2012-02588-9. [24] B.-Y. Guo, H.-P. Ma, and E. Tadmor. Spectral vanishing viscosity method for nonlin-ear conservation laws. SIAM J. Numer. Anal. , 39(4):1254–1268, 2001. doi: 10.1137/ S0036142900374233. [25] E. Hairer and G. Wanner. Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems , volume 14 of Springer Series in Computational Mathematics . Springer-Verlag, Berlin, 2nd edition, 1996. [26] E. Hairer, S. P. Nørsett, and G. Wanner. Solving Ordinary Differential Equations I: Nonstiff Problems , volume 8 of Springer Series in Computational Mathematics . Springer-Verlag, Berlin, 2nd edition, 1993. [27] R. A. Horn and C. R. Johnson. Matrix Analysis . Cambridge University Press, Cambridge, 2nd edition, 2013. [28] F. Huang and J. Shen. Stability and error analysis of a second-order consistent splitting scheme for the Navier–Stokes equations. SIAM J. Numer. Anal. , 61(5):2408–2433, 2023. doi: 10.1137/23M1556022. [29] F. Huang and J. Shen. On a new class of BDF and IMEX schemes for parabolic type equations. SIAM J. Numer. Anal. , 62(4):1609–1637, 2024. doi: 10.1137/23M1612986. [30] F. Huang and J. Shen. Stability and error analysis of a new class of higher-order consistent splitting schemes for the navier-stokes equations. Math. Comp. , 2025. doi: https://doi. org/10.1090/mcom/4132. [31] H. Johnston and J.-G. Liu. Accurate, stable and efficient Navier–Stokes solvers based on explicit treatment of the pressure term. J. Comput. Phys. , 199(1):221–259, 2004. doi: 10.1016/j.jcp.2004.02.009. [32] G.-S. Karamanos and G. E. Karniadakis. A spectral vanishing viscosity method for large-eddy simulations. J. Comput. Phys. , 163(1):22–50, 2000. doi: 10.1006/jcph.2000.6552. [33] G. E. Karniadakis, M. Israeli, and S. A. Orszag. High-order splitting methods for the incompressible Navier–Stokes equations. J. Comput. Phys. , 97(2):414–443, 1991. doi: 10.1016/0021-9991(91)90007-8. 30 [34] R. M. Kirby and S. J. Sherwin. Stabilisation of spectral/hp element methods through spectral vanishing viscosity: Application to fluid mechanics modelling. Comput. Methods Appl. Mech. Engrg. , 195(23-24):3128–3144, 2006. doi: 10.1016/j.cma.2004.09.019. [35] L. I. G. Kovasznay. Laminar flow behind a two-dimensional grid. Math. Proc. Cambridge Philos. Soc. , 44(1):58–62, 1948. doi: 10.1017/S0305004100023999. [36] J.-G. Liu, J. Liu, and R. L. Pego. Stable and accurate pressure approximation for unsteady incompressible viscous flow. Comm. Pure Appl. Math. , 60(10):1443–1487, 2007. doi: 10. 1002/cpa.20178. [37] Y. Maday, S. M. Ould Kaber, and E. Tadmor. Legendre pseudospectral viscosity method for nonlinear conservation laws. SIAM J. Numer. Anal. , 30(2):321–342, 1993. doi: 10. 1137/0730016. [38] M. Minguez, R. Pasquetti, and E. Serre. High-order large-eddy simulation of flow over the “Ahmed body” car model. Phys. Fluids , 20(9):095101, 2008. doi: 10.1063/1.2952595. [39] R. C. Moura, S. J. Sherwin, and J. Peir´ o. Eigensolution analysis of spectral/hp continuous Galerkin approximations to advection–diffusion problems: Insights into spectral vanishing viscosity. J. Comput. Phys. , 307:401–422, 2016. doi: 10.1016/j.jcp.2015.12.009. [40] R. H. Nochetto and J.-H. Pyo. Error estimates for semi-discrete gauge methods for the Navier–Stokes equations. Math. Comp. , 74(250):521–542, 2005. doi: 10.1090/ S0025-5718-04-01687-4. [41] M. A. Olshanskii and L. G. Rebholz. Longer time accuracy for incompressible Navier– Stokes simulations with the EMAC formulation. Computer Methods in Applied Mechanics and Engineering , 372:113369, 2020. doi: 10.1016/j.cma.2020.113369. [42] S. A. Orszag, M. Israeli, and M. O. Deville. Boundary conditions for incompressible flows. 
+
+J. Sci. Comput. , 1(1):75–111, 1986. [43] R. Pasquetti. Spectral vanishing viscosity method for large-eddy simulation of turbulent flows. J. Sci. Comput. , 27(1-3):365–375, 2006. doi: 10.1007/s10915-005-9029-9. [44] R. Pasquetti and C. J. Xu. High-order algorithms for large-eddy simulation of incompress-ible flows. J. Sci. Comput. , 17(1-4):273–284, 2002. doi: 10.1023/A:1015113017729. [45] A. Prohl. Projection and Quasi-compressibility Methods for Solving the Incompressible Navier–Stokes Equations . Advances in Numerical Mathematics. B. G. Teubner, Stuttgart, 1997. doi: 10.1007/978-3-663-11171-9. [46] Z. J. Rong and C. J. Xu. Spectral vanishing viscosity for large-eddy simulations by spectral element methods. Chinese J. Theor. Appl. Mech. , 41(6):155–161, 2009. [47] P. W. Schroeder, V. John, P. L. Lederer, C. Lehrenfeld, G. Lube, and J. Sch¨ oberl. On ref-erence solutions and the sensitivity of the 2D Kelvin–Helmholtz instability problem. Com-puters & Mathematics with Applications , 77(4):1010–1028, 2019. doi: 10.1016/j.camwa. 2018.10.030. [48] ´E. S´ ev´ erac and E. Serre. A spectral vanishing viscosity LES model for the simulation of turbulent flows within rotating cavities. J. Comput. Phys. , 226(2):1234–1255, 2007. doi: 10.1016/j.jcp.2007.05.023. [49] J. Shen. On error estimates of projection methods for Navier–Stokes equations: first-order schemes. SIAM J. Numer. Anal. , 29(1):57–77, 1992. doi: 10.1137/0729004. 31 [50] J. Shen. Efficient spectral-Galerkin method. I. Direct solvers of second- and fourth-order equations using Legendre polynomials. SIAM J. Sci. Comput. , 15(6):1489–1505, 1994. doi: 10.1137/0915089. [51] J. Shen. Modeling and numerical approximation of two-phase incompressible flows by a phase-field approach. In Multiscale Modeling and Analysis for Materials Simulation ,volume 22 of Lect. Notes Ser. Inst. Math. Sci. Natl. Univ. Singap. , pages 147–195. World Sci. Publ., Hackensack, NJ, 2012. [52] J. Shen and X. Yang. Error estimates for finite element approximations of consistent splitting schemes for incompressible flows. Discrete Contin. Dyn. Syst. Ser. B , 8(3):663– 676, 2007. doi: 10.3934/dcdsb.2007.8.663. [53] E. Tadmor. Convergence of spectral methods for nonlinear conservation laws. SIAM J. Numer. Anal. , 26(1):30–44, 1989. doi: 10.1137/0726003. [54] E. Tadmor. Approximate solutions of nonlinear conservation laws. Lecture Notes in Math. ,1697:1–149, 1998. doi: 10.1007/BFb0096351. Advanced Numerical Approximation of Non-linear Hyperbolic Equations (Cetraro, 1997), Springer. [55] R. Temam. Navier–Stokes Equations: Theory and Numerical Analysis . North-Holland, Amsterdam, 3rd edition, 1984. [56] L. J. P. Timmermans, P. D. Minev, and F. N. van de Vosse. An approximate projection scheme for incompressible flow using spectral elements. Internat. J. Numer. Methods Fluids ,22(7):673–688, 1996. [57] C. Wang and J.-G. Liu. Convergence of gauge method for incompressible flow. Math. Comp. , 69(232):1385–1407, 2000. doi: 10.1090/S0025-5718-00-01248-5. [58] J. A. C. Weideman and L. N. Trefethen. The eigenvalues of second-order spectral dif-ferentiation matrices. SIAM Journal on Numerical Analysis , 25(6):1279–1298, 1988. doi: 10.1137/0725072. [59] K. Wu, F. Huang, and J. Shen. A new class of higher-order decoupled schemes for the incompressible Navier–Stokes equations and applications to rotating dynamics. J. Comput. Phys. , 458:111097, 2022. doi: 10.1016/j.jcp.2022.111097. [60] C. Xu and R. Pasquetti. Stabilized spectral element computations of high Reynolds number incompressible flows. J. Comput. Phys. , 196(2):680–704, 2004. doi: 10.1016/j.jcp.2003.11. 009. [61] C. J. Xu. Stabilization methods for spectral element computations of incompressible flows. 
+
+J. Sci. Comput. , 27(1-3):495–505, 2006. doi: 10.1007/s10915-005-9059-3. 32

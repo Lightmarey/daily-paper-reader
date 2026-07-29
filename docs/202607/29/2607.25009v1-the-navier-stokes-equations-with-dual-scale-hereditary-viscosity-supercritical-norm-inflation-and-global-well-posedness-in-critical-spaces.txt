@@ -1,0 +1,1801 @@
+Title: The Navier-Stokes equations with dual-scale hereditary viscosity: supercritical norm inflation and global well-posedness in critical spaces
+
+URL Source: https://arxiv.org/pdf/2607.25009v1
+
+Published Time: Wed, 29 Jul 2026 00:11:21 GMT
+
+Number of Pages: 28
+
+Markdown Content:
+THE NAVIER-STOKES EQUATIONS WITH DUAL-SCALE HEREDITARY VISCOSITY: SUPERCRITICAL NORM INFLATION AND GLOBAL WELL-POSEDNESS IN CRITICAL SPACES 
+
+BRUNO DE ANDRADE 
+
+Abstract. This manuscript investigates the Cauchy problem for an incompressible fluid flow governed by a dual-scale hereditary memory, representing a viscoelastic variant of the classical Navier-Stokes equations that captures anomalous momentum transport. The non-local dissipation breaks exact global scale invariance, dictating a pseudo-differential analysis within the H¨ ormander class S−21,0 where the spatial gradient induces a fractional temporal penalty. We rigorously establish Lq − Lp decay estimates and identify the critical Lebesgue threshold pc = N ( 1+ α∞ 
+
+> 1−α∞
+
+). In the supercritical regime 1 < p < p c, we bypass the loss of spatial localization by mapping the frequency-modulated bilinear flow directly into Fourier space; by utilizing Bernstein’s inequalities, we prove instantaneous norm inflation at the origin and confirm intrinsic ill-posedness. Conversely, in the topological limit p → ∞ , we demonstrate that the dual-scale memory structurally prevents the collapse traditionally ob-served for classical fluids within the maximal critical Besov space ˙B−1
+
+> ∞,∞
+
+. By exploiting an asymmetric interpolation within Bony’s para-differential calculus, we prove that the tempo-ral smoothing overpowers the high-high convective resonant cascade. This delicate analytical balance confines ill-posedness to the non-separable high-frequency tail of the Besov topology, thereby establishing global-in-time Hadamard well-posedness for small initial data possessing high-frequency adherence within ˙B−κ
+
+> ∞,∞
+
+(RN ), a well-posedness regime strictly broader than the separable little Besov closure ˙b−κ
+
+> ∞,∞
+
+(RN ), where κ = 1−α∞ 
+
+> 1+ α∞
+
+.
+
+1. Introduction 
+
+The mathematical theory of incompressible fluid dynamics is classically anchored by the Navier-Stokes equations, whose well-posedness in critical function spaces remains one of the most prominent challenges in nonlinear analysis. While the classical model is a triumph of continuum mechanics, the increasing need to understand complex fluid behaviors has driven the community to investigate non-local and anomalous momentum transport. In this manuscript, we establish the exact topological boundaries for the existence, stability, and supercritical collapse of incompressible flows governed by a non-local, dual-scale hereditary memory. 1.1. Physical motivation and the multi-scale memory kernel. To capture the dynam-ics of complex media, we replace the instantaneous kinematic viscosity of the classical model with a hereditary integration operator. The resulting initial-value problem, which we denote as the Navier-Stokes equations with Hereditary Viscosity (NSHV), governs the velocity field 
+
+2020 Mathematics Subject Classification. Primary 35Q30, 35R09; Secondary 76D05, 42B25. 
+
+Key words and phrases. Navier-Stokes equations, dual-scale memory, Besov spaces, norm inflation, para-differential calculus, anomalous diffusion.  
+
+> 1arXiv:2607.25009v1 [math.AP] 27 Jul 2026 2B. DE ANDRADE
+
+u(x, t ) and the hydrostatic pressure p(x, t ) as follows 
+
+
+
+ut =
+
+Z t
+
+> 0
+
+g(t − s)∆ u(x, s ) ds − (u · ∇ )u − ∇ p, in RN × (0 , ∞),
+
+∇ · u = 0 , in RN × (0 , ∞),u(x, 0) = u0(x), in RN .
+
+Projecting the system onto the space of distributionally divergence-free vector fields via the Leray-Hopf operator P canonically rewrites the convective term into the abstract form 
+
+ut =
+
+Z t
+
+> 0
+
+g(t − s)∆ u(x, s ) ds − P∇ · (u ⊗ u). (1.1) The introduction of the memory kernel g ∈ L1loc (R+) is not merely a mathematical abstrac-tion, but a phenomenological necessity in the rational mechanics of non-Newtonian fluids and viscoelastic turbulence (see Barbu and Sritharan [3]). In highly heterogeneous fluids—such as polymer melts, micellar networks, and concentrated suspensions—momentum transport exhibits a fading memory effect. In this work, we assume that g is a dual-scale admissible kernel. Much of the classical literature on fractional viscoelasticity employs single-scale power-law kernels (equivalent to standard Caputo or Riemann-Liouville fractional derivatives). However, as extensively docu-mented in modern rheology (e.g., Jaishankar and McKinley [17] and Mainardi [21]), a single power-law implies an infinite zero-shear viscosity and fails to capture the terminal relaxation of some real complex fluids. The dual-scale kernel resolves this physical paradox: its Laplace transform encodes an anomalous, highly elastic response at short times (high frequencies) governed by an exponent α∞ ∈ (0 , 1), which continuously crosses over to a distinct fluid-like terminal relaxation at long times (low frequencies) characterized by α0 ∈ [0 , 1). From a mathematical perspective, this physical fidelity comes at a severe analytical cost: the continuous crossover between distinct asymptotic regimes permanently breaks the exact global scale invariance of the system. 1.2. State of the art and mathematical challenges. A central feature of the classical Navier-Stokes model is its exact scale invariance, which dictates the topological boundaries for local and global existence. The quest for well-posedness in scale-invariant functional spaces has driven decades of profound harmonic analysis. This trajectory was rigorously in-augurated by Kato [18], who established the well-posedness of strong solutions in the critical Lebesgue space LN (RN ). Subsequent advancements led to seminal results in critical Besov spaces by Cannone [6], culminating in the optimal well-posedness threshold in BM O −1 by Koch and Tataru [19]. However, this classical framework suffers from a severe topological col-lapse in the maximal scale-critical Besov space ˙B−1
+
+> ∞,∞
+
+(RN ). As established by Bourgain and Pavlovi´ c [5], and further geometrically refined by Cheskidov and Shvydkoy [7], the classical flow is intrinsically ill-posed in this limit. The mechanism of failure relies on a catastrophic low-frequency resonance: high-frequency convective interactions generate a continuous en-ergy cascade towards the macroscopic modes, causing instantaneous norm inflation even for arbitrarily small initial data. Determining whether fractional and integro-differential variants of fluid models inherit this catastrophic collapse requires a robust mild framework. The rigorous mathematical analysis of the NSHV equations was inaugurated in [3], establishing local solvability in the L2-setting NAVIER-STOKES EQUATIONS WITH DUAL-SCALE HEREDITARY VISCOSITY 3
+
+via an m-accretive quantization. Integrating fractional calculus with abstract evolution the-ory, de Andrade, Silva, and Viana [10] advanced the model to Lq-settings for power-type materials. By utilizing the concept of ϵ-regular mild solutions [1], they circumvented the temporal singularity at the origin inherent to singular Volterra convolutions. The robustness of this abstract integro-differential framework was broadly generalized by de Andrade and Viana [9] to handle generic parabolic models with memory driven by critical nonlinearities. Pushing the topological boundaries further, de Andrade, Cuevas, and Dantas [11] established well-posedness in the expansive framework of homogeneous Besov-Morrey spaces, while de Andrade and Santana [13] provided a unified abstract theory for local existence and blow-up alternatives in interpolation scales. Despite these significant milestones, previous approaches to the NSHV equations invariably relied on single-scale fractional models or operated strictly within subcritical regimes. In those specific contexts, the single-scale kernels preserve a form of global scale invariance, allowing the linear resolvent to be treated via classical subordination principles and standard Wright functions. By introducing the dual-scale memory kernel, this analytical convenience breaks down entirely. The inherent absence of a global self-similar scaling dictates that the problem must be tackled via a highly refined pseudo-differential harmonic analysis. The core mathematical challenge lies in resolving a delicate analytical balance. On one side, the Calder´ on-Zygmund nature of the Leray-Hopf projector coupled with the spatial gradient 
+
+∇ forces the dispersion of momentum, continually attempting to drive the bilinear flow into instantaneous ill-posedness. On the other side, the dual-scale hereditary integration operator acts as a pseudo-differential smoothing mechanism, suppressing high-frequency oscillations via algebraic tails in Fourier space. 1.3. Main contributions and methodology. Our analysis relies on the pseudo-differential framework developed in [12] combined with Bony’s para-differential calculus and Littlewood-Paley dyadic decompositions [23]. The central results are summarized as follows: 
+
+A. Linear estimates and topological barriers: The exact physical symbol of the dual-scale resolvent globally belongs to the H¨ ormander multiplier class S−21,0 . Consequently, the application of the spatial gradient exacts an anomalous temporal penalty. We derive sharp 
+
+Lq − Lp decay estimates, revealing that the local integrability of the associated singular kernel is governed by the structural constraint 1 /q − 1/p < 1/N . This geometric barrier identifies the critical Lebesgue threshold for local well-posedness as pc = N (1+ α∞ 
+
+> 1−α∞
+
+). The parameter α∞ ∈ (0 , 1) actively modulates this threshold: as α∞ → 0, we recover the classical Navier-Stokes critical exponent pc → N ; conversely, as α∞ → 1−, the temporal smoothing deteriorates, driving pc → ∞ , thereby highlighting the severe topological penalty exacted by strong initial hereditary elasticity. 
+
+B. Supercritical norm inflation ( 1 < p < p c): For Lebesgue topologies strictly below the critical threshold, the space lacks the structural capacity to absorb the convective loss of regularity. By adapting the frequency modulation technique of Christ, Colliander, and Tao [8], we demonstrate that the non-linear flow undergoes instantaneous norm inflation at the origin. A crucial harmonic innovation in our proof is the utilization of compactly supported spectra and Bernstein’s inequalities, which elegantly circumvent the failure of the Hausdorff-Young inequality. This establishes that the singular integral flow is genuinely ill-posed without relying on localized spatial bounds, which are invariably destroyed by the Leray-Hopf projector. 4 B. DE ANDRADE 
+
+C. Well-posedness in the critical Besov limit: As p → ∞ , the well-posedness bound-ary merges into the scale-critical Besov space ˙B−κ
+
+> ∞,∞
+
+(RN ), where κ = 1−α∞ 
+
+> 1+ α∞
+
+. To determine whether the NSHV equations inherit the Bourgain-Pavlovi´ c catastrophe, we dissect the non-linear flow using Bony’s paraproduct. By introducing asymmetric bilinear estimates within the high-high residue term, we interpolate the spatial base topology with a fractional tem-poral weight tγ . This asymmetric interpolation avoids non-integrable temporal singularities at the origin and proves that the hereditary memory strictly overpowers the resonant cas-cade before it can inflate the macroscopic modes. Consequently, we secure global-in-time Hadamard well-posedness for small data in a class strictly broader than the separable little Besov closure ˙b−κ
+
+> ∞,∞
+
+(RN ), thereby mapping the exact topological boundary of the non-local parabolic regularization. 1.4. Structure of the paper. The manuscript is organized as follows. Section 2 formalizes the mathematical setting, detailing the structural hypotheses on the dual-scale memory kernel and the mild integral framework. Section 3 reviews the preliminary harmonic analysis tools, including Littlewood-Paley operators, Besov spaces, and the scale-invariant properties of the Leray-Hopf multiplier. In Section 4, we establish the Lq − Lp singular decay estimates via pseudo-differential analysis. Section 5 identifies the critical Lebesgue threshold pc, proving local well-posedness in the subcritical regime, followed by the rigorous proof of instantaneous norm inflation for 1 < p < p c. Finally, Section 6 establishes global well-posedness in the maximal critical limit via a contraction mapping. 2. Mathematical Setting and the Dual-Scale Resolvent 
+
+2.1. Admissible kernels. The underlying linear dynamics are governed by the memory kernel g ∈ L1loc (R+), whose structural behavior is characterized by the analytic properties of its Laplace transform ˆ g(λ) = L{ g(t)}(λ). This spectral representation, whose mathemat-ical framework traces back to the classical theory of Widder [24], effectively resolves the high-frequency regime while systematically accommodating potential crossovers to terminal Newtonian relaxation or alternative viscoelastic behaviors at low frequencies. Throughout this work, we assume that g belongs to the class of admissible kernels, satisfying the following structural hypotheses: 
+
+• (H1) Asymptotic sectoriality, regularity, and compatibility: The function ˆg(λ) remains analytic and non-vanishing in C \ (−∞ , 0]. Furthermore, there exists a continuous function θ : (0 , ∞) → (0 , π ) satisfying inf r> 0 θ(r) > 0, which guarantees that the roots of the characteristic equation λ + |ξ|2 ˆg(λ) = 0 strictly lie within the region | arg λ| ≤ π − θ(|λ|). As |λ| → ∞ , the sector aperture stabilizes to θ(|λ|) →
+
+θ∞ > 0, which satisfies the high-frequency compatibility condition 
+
+θ∞ < πα ∞
+
+1 + α∞
+
+,
+
+for some α∞ ∈ (0 , 1). 
+
+• (H2) High-frequency asymptotics (short time): There exist constants C1, C 2 >
+
+0 such that, for |λ| sufficiently large within the principal sector Σ θ∞ :
+
+C1|λ|−α∞ ≤ | ˆg(λ)| ≤ C2|λ|−α∞ .NAVIER-STOKES EQUATIONS WITH DUAL-SCALE HEREDITARY VISCOSITY 5
+
+• (H3) Low-frequency asymptotics (long time): There exist an exponent α0 ∈
+
+[0 , 1) and constants c1, c 2 > 0 such that, for |λ| sufficiently small within C \ (−∞ , 0]: 
+
+c1|λ|−α0 ≤ | ˆg(λ)| ≤ c2|λ|−α0 .
+
+To illustrate the physical relevance of the admissible class and firmly ground our mathe-matical hypotheses in the rational mechanics of complex fluids, we highlight four canonical examples of anomalous momentum transport, emphasizing their spectral configurations. 
+
+Example 1 (Pure fractional viscoelasticity). The standard power-law fluid model, extensively validated in modern rheology for complex bulk and interfacial dynamics [17], is recovered by choosing the Riemann-Liouville fractional kernel, which yields the Laplace transform ˆ g(λ) = λ−α for α ∈ (0 , 1). This kernel satisfies (H1)–(H3) with exact scale in-variance, wherein the high-frequency and low-frequency asymptotic exponents collapse to a single parameter α∞ = α0 = α.
+
+Example 2 (Multi-term viscoelastic relaxation). In complex viscoelastic fluids pre-senting structural heterogeneities (e.g., polymer melts), the momentum transport mecha-nism often transitions between distinct anomalous regimes over time. These dynamics can be modeled by a sum of fractional kernels, an approach systematically detailed in the theory of linear viscoelasticity [21], yielding ˆ g(λ) = c1λ−α + c2λ−β with 0 < β < α < 1. As |λ| → ∞ ,the fluid response is dominated by the most singular exponent β, yielding α∞ = β, whereas as |λ| → 0, the α term dominates the terminal relaxation, leading to α0 = α.
+
+Example 3 (Fractional retardation and Cole-Cole relaxation). Viscoelastic systems exhibiting a transition from an initial anomalous elastic state to a terminal Newtonian vis-cous profile at long times are modeled via fractional retardation kernels, an approach widely established in macroscopic fractional rheology [21]. The algebraic structure in the Laplace domain is given by ˆ g(λ) = ( λα + γ)−1 for α ∈ (0 , 1) and γ > 0. As |λ| → ∞ , the scal-ing |ˆg(λ)| ∼ | λ|−α establishes the short-time fractional exponent α∞ = α. Conversely, as 
+
+|λ| → 0, the low-frequency transform behaves as γ−1|λ|0, definitively confirming the classical Newtonian crossover exponent α0 = 0. 
+
+Example 4 (Multi-scale Prabhakar memory). Momentum transport in macroscopically disordered fluid networks (such as dense micellar solutions) often transitions between two distinct anomalous regimes before reaching terminal saturation. Such behavior is captured by multi-scale kernels whose framework is governed by the generalized Mittag-Leffler functions of Prabhakar [14, 22]. The transform is defined as ˆ g(λ) = ( λα0 +τ λ α∞ )−1 with 0 < α 0 < α ∞ < 1and τ > 0. For short times ( |λ| → ∞ ), the high-frequency elastic response is dominated by the higher power τ λ α∞ , yielding the algebraic control |ˆg(λ)| ∼ τ −1|λ|−α∞ , confirming (H2). For long times ( |λ| → 0), the low-frequency relaxation is dictated by the lower power λα0 ,leading to |ˆg(λ)| ∼ | λ|−α0 , confirming (H3). 2.2. Mild framework. Transitioning from the strong integro-differential formulation to an integral representation via the Duhamel principle circumvents classical differentiability re-quirements, thereby transferring the spatial and temporal derivatives directly onto the resol-vent operator of the underlying linear non-local Stokes problem. Applying the spatial Fourier transform (with frequency variable ξ ∈ RN ) alongside the temporal Laplace transform (with dual variable λ ∈ C) diagonalizes the spatial Laplacian and algebraically deconvolves the memory kernel, yielding the resolvent symbol in the joint 6 B. DE ANDRADE 
+
+frequency-Laplace domain 
+
+bS(λ, ξ ) = 1
+
+λ + |ξ|2 ˆg(λ).
+
+The linear hereditary resolvent operator, denoted by S(t), is then formally recovered via the inverse Laplace transform (the Bromwich integral) along a suitable contour Γ in the complex plane, defining the spatial Fourier multiplier 
+
+bS(t, ξ ) = 12πi 
+
+Z
+
+> Γ
+
+eλt 1
+
+λ + |ξ|2 ˆg(λ) dλ. 
+
+Treating the nonlinear convective term P∇ · (u ⊗ u) as an external force field allows for the application of the variation of constants formula, thereby establishing the rigorous framework for mild solutions. 
+
+Definition 2.1. Let T > 0 and p ∈ (1 , ∞). Given initial data u0 ∈ Lp(RN ) satisfying the distributional divergence-free condition ∇· u0 = 0, a measurable vector field u : RN ×[0 , T ] →
+
+RN is called a local-in-time mild solution to the NSHV equations on [0 , T ] if it satisfies the following conditions: (i) Regularity: u ∈ C([0 , T ]; Lp(RN )); (ii) Incompressibility: ∇ · u(t) = 0 in the sense of distributions for all t ∈ [0 , T ]; (iii) Integral Equation: The function u satisfies the Duhamel integral formulation 
+
+u(t) = S(t)u0 −
+
+Z t
+
+> 0
+
+∇S(t − s)P(u ⊗ u)( s) ds, for all t ∈ [0 , T ], (2.1) where the time integral converges absolutely in the Bochner sense in Lp(RN ). If the above conditions hold for every T > 0, u is called a global-in-time mild solution. 3. Preliminaries: Littlewood-Paley theory and function spaces 
+
+In this section, we briefly review the foundational elements of the Littlewood-Paley mathe-matical framework, homogeneous Besov spaces, and Bony’s para-differential calculus. These harmonic analysis tools are critical for establishing estimates for the non-local dual-scale re-solvent operator and for decomposing the non-linear convective term. For a comprehensive treatise, we refer the reader to Grafakos [15] and Sawano [23]. 3.1. Dyadic partition of unity and Littlewood-Paley operators. Let C = {ξ ∈ RN : 
+
+> 34
+
+≤ | ξ| ≤ 83 } denote the standard dyadic annulus, and let B = {ξ ∈ RN : |ξ| ≤ 43 } denote the corresponding low-frequency ball. We select smooth, radially symmetric cut-off functions 
+
+χ ∈ C∞ 
+
+> c
+
+(B) and φ ∈ C∞ 
+
+> c
+
+(C) with values in [0 , 1] satisfying the spectral partition identities 
+
+χ(ξ) + X
+
+> j≥0
+
+φ(2 −j ξ) = 1 , and X
+
+> j∈Z
+
+φ(2 −j ξ) = 1 , ∀ξ̸ = 0 .
+
+For any j ∈ Z, the homogeneous dyadic blocks ∆ j and the low-frequency cut-off operators 
+
+Sj are defined as frequency-localized Fourier multipliers. We denote by S′
+
+> h
+
+(RN ) the space of tempered distributions with vanishing low-frequency components, rigorously defined as the subspace of u ∈ S ′(RN ) such that ∥Sj u∥L∞ → 0 as j → −∞ . For any u ∈ S ′
+
+> h
+
+(RN ), we define ∆j u = F−1  φ(2 −j ·)bu = ψj ∗ u, where ψj (x) = 2 jN F−1{φ}(2 j x); 
+
+Sj u = X
+
+> k≤j−1
+
+∆ku = F−1  χ(2 −j ·)bu = ϕj ∗ u, where ϕj (x) = 2 jN F−1{χ}(2 j x).NAVIER-STOKES EQUATIONS WITH DUAL-SCALE HEREDITARY VISCOSITY 7
+
+In the distributional sense, any u ∈ S ′
+
+> h
+
+(RN ) can be recovered via the homogeneous Littlewood-Paley decomposition u = P 
+
+> j∈Z
+
+∆j u.3.2. Homogeneous Besov spaces. Equipped with the dyadic partition, we formalize the topology of homogeneous Besov spaces, which generalize standard Sobolev frameworks and precisely capture fractional regularity. 
+
+Definition 3.1 (Homogeneous Besov spaces [23]) . Let s ∈ R and 1 ≤ p, q ≤ ∞ . The homogeneous Besov space ˙Bsp,q (RN ) is defined as the set of all tempered distributions u ∈S′
+
+> h
+
+(RN ) such that the norm 
+
+∥u∥ ˙Bsp,q = X
+
+> j∈Z
+
+2jsq ∥∆j u∥qLp
+
+!1/q 
+
+is finite, with the standard supremum modification for q = ∞:
+
+∥u∥ ˙Bsp, ∞ = sup 
+
+> j∈Z
+
+2js ∥∆j u∥Lp .
+
+The separable little Besov space, denoted by ˙bsp, ∞(RN ), is constructed as the topological closure within the ˙Bsp, ∞(RN ) norm of the subspace S0(RN ) comprising Schwartz functions whose Fourier transforms are compactly supported away from the origin. It is uniquely characterized by the asymptotic adherence condition lim |j|→∞ 2js ∥∆j u∥Lp = 0. 3.3. Bernstein inequalities. The localization of frequencies within dyadic spheres or annuli imposes strict constraints on spatial derivatives, allowing differential operators to be bounded by algebraic frequency prefactors. 
+
+Lemma 3.2 (Bernstein inequalities [23]) . Let 1 ≤ p ≤ r ≤ ∞ . There exists a uniform constant C > 0, independent of j, such that for any multi-index β ∈ N0 
+
+> N
+
+and any j ∈ Z, the following assertions hold: 
+
+(i) For spectral balls: If supp( bf ) ⊂ B(0 , R 2j ), then 
+
+∥∂β f ∥Lp ≤ C|β|+1 2j|β|∥f ∥Lp .
+
+(ii) For spectral annuli: If supp( bf ) ⊂ C (0 , R 12j , R 22j ), then 
+
+C−| β|− 12j|β|∥f ∥Lp ≤ ∥ ∂β f ∥Lp ≤ C|β|+1 2j|β|∥f ∥Lp .
+
+(iii) Embedding constraints: If supp( bf ) ⊂ B(0 , R 2j ), then 
+
+∥f ∥Lr ≤ C2jN ( 1   
+
+> p−1
+> r
+
+)∥f ∥Lp .
+
+3.4. Bony’s paraproduct decomposition. The pointwise multiplication of two tempered distributions necessitates a rigorous analysis of overlapping frequency supports. Bony’s para-differential calculus [2, 4, 23] decouples the product uv into directional non-local operators, filtering high-frequency modulations systematically. Let u, v ∈ S ′
+
+> h
+
+(RN ). The product can be formally expanded using the resolution of the identity as uv = P 
+
+> k,m ∈Z
+
+∆ku∆mv. Grouping these terms according to their relative frequency positions yields Bony’s decomposition 
+
+uv = Tuv + Tvu + R(u, v ),
+
+where the operators are explicitly defined as: 8 B. DE ANDRADE 
+
+(i) The paraproduct of v by u, denoted by Tuv, gathers low frequencies of u interacting with high frequencies of v:
+
+Tuv = X
+
+> k∈Z
+
+Sk−1u∆kv. 
+
+(ii) The symmetric paraproduct of u by v: Tvu = P 
+
+> k∈Z
+
+Sk−1v∆ku.(iii) The high-high symmetric residue operator R(u, v ) captures close-range frequency in-teractions where neither factor asymptotically dominates 
+
+R(u, v ) = X
+
+> k∈Z
+
+X
+
+> |k−m|≤ 1
+
+∆ku∆mv. 
+
+The compact support of the generating functions χ and φ ensures that the j-th dyadic block of these interactions is finitely supported: ∆j (Tuv) = X
+
+> |j−k|≤ 4
+
+∆j (Sk−1u∆kv), and ∆j R(u, v ) = X
+
+> k≥j−3
+
+∆j (∆ ku e∆kv),
+
+where e∆k = ∆ k−1 + ∆ k + ∆ k+1 .3.5. Fourier multipliers and the Leray-Hopf projector. To resolve the pressure term in the fluid dynamics system, we apply the Leray-Hopf projector P onto the divergence-free vector fields. In Fourier space, the matrix symbol of this projection is 
+
+σ(P)mn (ξ) = δmn − ξmξn/|ξ|2.
+
+Since the symbol is homogeneous of degree zero and infinitely differentiable away from the origin, classical Calder´ on-Zygmund theory guarantees that P acts as a bounded linear operator on Lp(RN ) for all 1 < p < ∞ [20]. However, such singular integrals generally fail to be bounded in the limits L1(RN ) and L∞(RN ). To circumvent this topological ob-struction, we exploit dyadic localization. When restricted to the annulus Cj , the localized symbol σ(P)( ξ)φ(2 −j ξ) is smooth and compactly supported. By Paley-Wiener theory and the foundational properties of Littlewood-Paley multipliers [15, Chapter 6], its inverse Fourier transform defines a Schwartz convolution kernel Kj ∈ S (RN ) ⊂ L1(RN ). Furthermore, the scaling relation Kj (x) = 2 jN K0(2 j x) ensures that its L1-norm is strictly scale-invariant (∥Kj ∥L1 = ∥K0∥L1 ). By Young’s convolution inequality, the composite operator P∆j maps 
+
+L∞(RN ) to L∞(RN ) uniformly with respect to j ∈ Z, a critical property extensively utilized in critical Besov spaces. 4. Linear estimates 
+
+This section establishes the Lq − Lp decay estimates for the linear hereditary resolvent operator S(t) and its composition with the spatial gradient operator, denoted by ∇S(t). In contrast to the classical heat semigroup generated by the standard Laplacian, the under-lying linear dynamics are governed by a non-local memory kernel that imposes a spectral dichotomy upon the resolvent operator. Consequently, its regularizing capacity transitions from a short-time regime—dictated by the high-frequency parameter α∞ ∈ (0 , 1)—to a long-time asymptotic regime governed by the low-frequency parameter α0 ∈ [0 , 1). NAVIER-STOKES EQUATIONS WITH DUAL-SCALE HEREDITARY VISCOSITY 9
+
+Capturing this anomalous dissipation necessitates defining the respective local and global scaling exponents. For the short-time high-frequency regime, we set 
+
+γq,p = 1 + α∞
+
+2 N
+
+1
+
+q − 1
+
+p
+
+
+
+, and ˜γq,p = γq,p + 1 + α∞
+
+2 .
+
+For the long-time low-frequency regime, the exponents are given by 
+
+βq,p = 1 + α0
+
+2 N
+
+1
+
+q − 1
+
+p
+
+
+
+, and ˜βq,p = βq,p + 1 + α0
+
+2 .
+
+The ensuing mapping properties, categorized into short- and long-time regimes, naturally encode the topological restrictions imposed by both the Leray-Hopf projector and the fun-damental geometric integrability thresholds. 
+
+Lemma 4.1 (Short-time linear estimates) . Let T > 0. Under the hypotheses (H1) and (H2), there exists a constant CT > 0 such that for any 0 < t ≤ T , the following estimates hold: 
+
+(i) Pure resolvent: Let q ∈ [1 , ∞) and p ∈ [q, ∞] satisfy the condition 1 
+
+> q
+
+− 1 
+
+> p
+
+< 2 
+
+> N
+
+. For any vector field f ∈ Lq(RN ), we have 
+
+∥S(t)f ∥Lp ≤ CT t−γq,p ∥f ∥Lq .
+
+(ii) Gradient with projector: Let q ∈ (1 , ∞) and p ∈ [q, ∞] satisfy the condition 1 
+
+> q
+
+− 1 
+
+> p
+
+< 1 
+
+> N
+
+.For any vector field f ∈ Lq(RN ), we have 
+
+∥∇ S(t)Pf ∥Lp ≤ CT t−˜γq,p ∥f ∥Lq .
+
+Proof. The pure resolvent estimate (i) was rigorously established in [12] by analyzing the Bromwich integral of the multiplier over the high-frequency spectrum; hence, our focus re-mains strictly on (ii). Given that the spatial gradient ∇, the Leray-Hopf projector P, and the resolvent operator 
+
+S(t) pairwise commute, their composition can be decoupled to act sequentially upon the vector field, yielding ∇S(t)Pf = ∇S(t)( Pf ). Rather than relying on ad-hoc physical kernel decompositions, we explicitly leverage the pseudo-differential framework established in [12]. For the short-time regime t ∈ (0 , T ], the temporal scaling η = ξt 1+ α∞ 
+
+> 2
+
+and the spatial dilation parameter μ = t1+ α∞ 
+
+> 2
+
+diagonalize the high-frequency operator. The scaled pure resolvent symbol ˜Ψ( t, η ) = bS(t, μ −1η) belongs uniformly to the H¨ ormander class S−21,0 [12, Lemma 3.1]. Applying the spatial gradient ∇ introduces the Fourier multiplier iξ . Under the scaling transformation, this reads iξ = μ−1iη . Thus, the gradient operator satisfies 
+
+∇S(t)f (x) = μ−1F−1iη ˜Ψ( t, η ) bfμ(η) (μ−1x) = μ−1T 1 
+
+> t
+
+(fμ)( μ−1x), (4.1) where fμ(y) = f (μy ), and T 1 
+
+> t
+
+is the pseudo-differential operator associated with the multiplier 
+
+m1(t, η ) = iη ˜Ψ( t, η ). Since ˜Ψ ∈ S−21,0 , the gradient symbol m1 structurally belongs to S−11,0 . By classical pseudo-differential theory, a symbol in the class S−11,0 generates a spatial convolution kernel G1 
+
+> t
+
+(w)that is smooth away from the origin while encapsulating a localized singularity of order 
+
+O(|w|−(N −1) ) near the origin. Consequently, the local integrability condition G1 
+
+> t
+
+∈ Lr(RN )dictates that R 
+
+> |w|<1
+
+|w|−r(N −1) dw < ∞, yielding the geometric constraint r < NN −1 . Utilizing Young’s convolution inequality, the operator T 1 
+
+> t
+
+acts boundedly from Lq(RN ) to Lp(RN )10 B. DE ANDRADE 
+
+under the relation 1 + 1 /p = 1 /r + 1 /q . This mapping property explicitly translates the geometric singularity at the origin into the fundamental topological barrier 1
+
+q − 1
+
+p = 1 − 1
+
+r < 1 − N − 1
+
+N = 1
+
+N .
+
+Under this geometric constraint, evaluating the Lp-norm of (4.1) yields 
+
+∥∇ S(t)f ∥Lp = μ−1μNp ∥T 1 
+
+> t
+
+(fμ)∥Lp ≤ Cμ −1+ Np ∥fμ∥Lq = Cμ −1+ N ( 1   
+
+> p−1
+> q
+
+)∥f ∥Lq .
+
+Substituting the scaling parameter μ = t1+ α∞ 
+
+> 2
+
+explicitly recovers the targeted temporal decay exponent 
+
+t1+ α∞ 
+
+> 2
+
+[−1−N (1   
+
+> q−1
+> p
+
+)] = t− 1+ α∞  
+
+> 2−γq,p
+
+= t−˜γq,p .
+
+Finally, since the Leray-Hopf projector P is uniformly bounded in Lq(RN ) for all q ∈ (1 , ∞), the desired composite bounds follow immediately, completing the proof. □
+
+Lemma 4.2 (Long-time linear estimates) . Under the hypotheses (H1), (H2), and (H3), there exists a constant C > 0 such that for sufficiently large times t > T , the following asymptotic bounds hold: 
+
+(i) Pure resolvent: Let q ∈ [1 , ∞) and p ∈ [q, ∞] satisfy the condition 1 
+
+> q
+
+− 1 
+
+> p
+
+< 2 
+
+> N
+
+. For any vector field f ∈ Lq(RN ), we have 
+
+∥S(t)f ∥Lp ≤ Ct −βq,p ∥f ∥Lq .
+
+(ii) Gradient with projector: Let q ∈ (1 , ∞) and p ∈ [q, ∞] satisfy the condition 1 
+
+> q
+
+− 1 
+
+> p
+
+< 1 
+
+> N
+
+.For any vector field f ∈ Lq(RN ), we have 
+
+∥∇ S(t)Pf ∥Lp ≤ Ct − ˜βq,p ∥f ∥Lq .
+
+Proof. Analogous to the short-time regime, the pure resolvent asymptotic estimate (i) fol-lows directly from the low-frequency dyadic framework established in [12, Lemma 3.4] under hypotheses (H1)–(H3); therefore, we restrict our attention to the gradient estimate (ii). Because the generalized memory kernel g breaks exact global scale invariance, its limit cannot be deduced from isolated self-similar profiles. Instead, we rely on the low-frequency Littlewood-Paley dyadic partition S(t) = S0(t) + P∞ 
+
+> j=1
+
+Sj (t) constructed in [12]. For the high-frequency residual branch S0(t), the roots of the characteristic equation are strictly bounded away from the imaginary axis, establishing a uniform spectral gap Re( λ) ≤ − ˜c < 
+
+0. By deforming the Bromwich contour strictly into the left half-plane, the corresponding resolvent component acquires an exponential damping O(e−˜ct ). Although the spatial gradient introduces an additional algebraic factor, this exponential decay overwhelmingly dominates the long-time behavior, ensuring that the gradient contribution of S0(t) remains subordinate to the algebraic rate for t ≥ 1. For the low-frequency components j ≥ 1, the spatial frequencies are localized within the dyadic annuli |ξ| ∼ 2−j . Consequently, the action of the spatial gradient ∇ geometrically extracts a spectral factor proportional to 2 −j (cf. Lemma 3.2). Applying this property to the uniform H¨ ormander multiplier bounds derived in [12] yields 
+
+∥∇ Sj (t)f ∥Lp ≤ C2−j · 2−jN (1   
+
+> q−1
+> p
+
+)e−ct 2−jγ 0 ∥∆j f ∥Lq = C2−j[N (1   
+
+> q−1
+> p
+
+)+1 ]e−ct 2−jγ 0 ∥∆j f ∥Lq ,
+
+where γ0 = 21+ α0 determines the speed of the moving poles toward the origin. To estimate the summation over j ≥ 1 for large times t ≥ 1, we bisect the series at the time-dependent critical index j0(t) ∈ N. This index is chosen such that the dynamic NAVIER-STOKES EQUATIONS WITH DUAL-SCALE HEREDITARY VISCOSITY 11 
+
+transition scale satisfies t2−j0(t)γ0 ∼ 1, which algebraically imposes 2 −j0(t) ∼ t−1/γ 0 = t− 1+ α02 .Within the damped frequency scales j ≤ j0(t), the condition t2−jγ 0 ≥ 1 holds. Because the exponential damping term e−ct 2−jγ 0 decays for smaller indices j (representing relatively higher frequencies), the sum is dominated by its largest term at the cutoff boundary j = j0(t): 
+
+> j0(t)
+
+X
+
+> j=1
+
+∥∇ Sj (t)f ∥Lp ≤ C∥f ∥Lq
+
+> j0(t)
+
+X
+
+> j=1
+
+2−j[N (1   
+
+> q−1
+> p
+
+)+1 ]e−ct 2−jγ 0
+
+≤ C∥f ∥Lq 2−j0(t)[N (1   
+
+> q−1
+> p
+
+)+1 ]= C∥f ∥Lq
+
+
+
+t− 1+ α02
+
+N (1   
+
+> q−1
+> p
+
+)+1 
+
+= Ct −βq,p − 1+ α02 ∥f ∥Lq = Ct − ˜βq,p ∥f ∥Lq .
+
+Conversely, over the ultra-low frequency scales j > j 0(t), the temporal condition transitions to t2−jγ 0 < 1, rendering the exponential damping factor of order O(1). Since the relation 
+
+q ≤ p guarantees that the algebraic exponent satisfies N (1 /q −1/p )+1 ≥ 1 > 0, the remaining summation transforms into a strictly convergent geometric series. This tail is thus bounded by its leading term at j = j0(t) + 1: 
+
+> ∞
+
+X
+
+> j=j0(t)+1
+
+∥∇ Sj (t)f ∥Lp ≤ C∥f ∥Lq
+
+> ∞
+
+X
+
+> j=j0(t)+1
+
+2−j[N (1   
+
+> q−1
+> p
+
+)+1 ]
+
+≤ C2−j0(t)[N (1   
+
+> q−1
+> p
+
+)+1 ]∥f ∥Lq ≤ Ct − ˜βq,p ∥f ∥Lq .
+
+Synthesizing the bounds from both spectral domains and leveraging the uniform bound-edness of P in Lq(RN ) secures the global asymptotic estimate ∥∇ S(t)Pf ∥Lp ≤ Ct − ˜βq,p ∥f ∥Lq .This derivation closes the proof. □
+
+5. Local well-posedness and the geometric threshold pc
+
+Having established the linear decay estimates, we now address the local Hadamard well-posedness of the NSHV equations. The integral Duhamel formulation (2.1) provides a natural framework to construct mild solutions via the Banach fixed-point theorem, simultaneously yielding existence, uniqueness, and continuous dependence on the initial data. We define the bilinear integral form 
+
+B(u, v )( t) = 
+
+Z t
+
+> 0
+
+∇S(t − s)P(u ⊗ v)( s) ds. 
+
+The mild formulation is thus rewritten as u(t) = S(t)u0−B(u, u )( t). Applying the contraction mapping principle within C([0 , T ]; Lp(RN )) requires controlling the Lp-norm of this bilinear form. By invoking the short-time spatial derivative estimate from Lemma 4.1(ii), the non-local term imposes a strict integrability condition. Given vector fields u, v ∈ Lp(RN ), H¨ older’s inequality dictates that u ⊗ v ∈ Lp/ 2(RN ). Applying the linear bound with the source space configured as q = p/ 2 yields 
+
+∥B(u, v )( t)∥Lp ≤ CT
+
+Z t
+
+> 0
+
+(t − s)−˜γp/ 2,p ∥u(s)∥Lp ∥v(s)∥Lp ds. 
+
+The fractional temporal singularity is explicitly governed by the local exponent ˜γp/ 2,p = 1 + α∞
+
+2 N
+
+2
+
+p − 1
+
+p
+
+
+
++ 1 + α∞
+
+2 = 1 + α∞
+
+2
+
+Np + 1 
+
+
+
+.12 B. DE ANDRADE 
+
+Ensuring the absolute convergence of the temporal convolution near the singular limit s → t−
+
+demands the strict bound ˜ γp/ 2,p < 1. The threshold at which this inequality degenerates into an equality precisely isolates the critical Lebesgue exponent 
+
+pc = N
+
+ 1 + α∞
+
+1 − α∞
+
+
+
+.
+
+Since the short-time material parameter satisfies α∞ ∈ (0 , 1) and the spatial dimension is 
+
+N ≥ 2, the critical threshold satisfies pc > N ≥ 2. Consequently, assuming p ≥ pc simulta-neously guarantees p/ 2 > 1—securing the uniform boundedness of the Leray-Hopf projector 
+
+P in Lp/ 2(RN ) via the Marcinkiewicz multiplier theorem—and the geometric integrability constraint 1 
+
+> p/ 2
+
+− 1 
+
+> p
+
+< 1 
+
+> N
+
+, ensuring the applicability of the spatial derivative bounds derived in Lemma 4.1. 
+
+Remark 5.1 (Asymptotic limits of the critical threshold) . The dependence of the critical Lebesgue exponent pc = N (1+ α∞ 
+
+> 1−α∞
+
+) on the high-frequency memory parameter α∞ ∈ (0 , 1) mathematically quantifies the delicate analytical balance between the non-local convective transport and the pseudo-differential dissipation. This dependence exhibits two fundamental asymptotic regimes: (i) The Newtonian limit ( α∞ → 0): As the high-frequency fractional anomaly van-ishes, the memory kernel functionally approaches instantaneous dissipation. Concur-rently, the critical exponent converges to lim α∞→0 pc(α∞) = N . This convergence recovers the classical critical space LN (RN ) established by Kato [18] for the stan-dard Navier-Stokes equations, ensuring the topological consistency of our non-local framework. (ii) The extreme elasticity limit ( α∞ → 1−): As the material memory intensifies, the initial temporal relaxation becomes highly singular, implying that the fluid retains a strong elastic response at short times. Analytically, the fractional temporal smoothing provided by the resolvent deteriorates. To counterbalance the unabated spatial loss of regularity induced by the convective derivative, the requisite spatial integrability diverges: lim α∞→1− pc(α∞) = + ∞. In this regime, the functional space must be extremely smooth to absorb the convective cascade, thereby severely restricting the admissible initial data. 5.1. Local well-posedness in the critical and subcritical regimes. This temporal in-tegrability boundary divides the existence theory into two distinct regimes: the integrable subcritical regime ( p > p c) and the scale-critical regime ( p = pc). We formalize this dichotomy in the following theorem. 
+
+Theorem 5.2 (Local well-posedness and the threshold pc). Let N ≥ 2 and assume the structural hypotheses (H1) and (H2) hold. The critical Lebesgue threshold pc = N (1+ α∞ 
+
+> 1−α∞
+
+)
+
+dictates the well-posedness limits for the NSHV equations: 
+
+(i) Subcritical regime ( p > p c): For any initial data u0 ∈ Lp(RN ) satisfying ∇ · u0 = 0 
+
+distributionally, there exists a maximal time Tmax > 0 and a unique local-in-time mild solution u ∈ C([0 , T max ); Lp(RN )) to problem (1.1) .
+
+(ii) Critical regime ( p = pc): If in addition (H3) holds, then there exists a small constant 
+
+ε > 0 such that, for any initial data u0 ∈ Lpc (RN ) satisfying ∇· u0 = 0 distributionally and ∥u0∥Lpc < ε , problem (1.1) admits a unique global-in-time mild solution satisfying 
+
+lim t→0+ tγpc, 2pc ∥u(t)∥L2pc = 0 .NAVIER-STOKES EQUATIONS WITH DUAL-SCALE HEREDITARY VISCOSITY 13 
+
+Furthermore, in both cases, the data-to-solution map u0 7 → u is locally Lipschitz continuous, securing Hadamard well-posedness in their respective functional spaces. Proof. We divide the proof according to the respective regimes. 
+
+Proof of (i) Subcritical regime ( p > p c). Let T > 0 and define the Banach space 
+
+XT = C([0 , T ]; Lp(RN )) equipped with the standard supremum norm ∥u∥XT = sup 0≤t≤T ∥u(t)∥Lp . Seeking a unique fixed point for the nonlinear mapping Φ( u)( t) = S(t)u0 − B(u, u )( t)in XT , we observe that since p > p c, the geometric exponent satisfies ˜ γp/ 2,p < 1. By Lemma 4.1, the linear term S(·)u0 belongs to XT and satisfies the uniform bound ∥S(·)u0∥XT ≤
+
+CT ∥u0∥Lp . Applying the spatial derivative estimate with q = p/ 2 to the bilinear form yields, for any u, v ∈ X T :
+
+∥B(u, v )( t)∥Lp ≤ CT
+
+Z t
+
+> 0
+
+(t − s)−˜γp/ 2,p ∥u(s)∥Lp ∥v(s)∥Lp ds 
+
+≤ CT ∥u∥XT ∥v∥XT
+
+Z t
+
+> 0
+
+(t − s)−˜γp/ 2,p ds 
+
+≤ CT
+
+T 1−˜γp/ 2,p 
+
+1 − ˜γp/ 2,p 
+
+∥u∥XT ∥v∥XT .
+
+Verifying Φ( u) ∈ X T requires establishing the strong continuity of the mapping t 7 → Φ( u)( t)in Lp(RN ). The strong continuity of the linear term t 7 → S(t)u0 down to t = 0 follows from the sectorial properties of the resolvent symbol. For the bilinear term, let 0 ≤ t1 < t 2 ≤ T .We decompose the increment as 
+
+B(u, v )( t2) − B(u, v )( t1) = 
+
+Z t2
+
+> t1
+
+∇S(t2 − s)P(u ⊗ v)( s) ds 
+
++
+
+Z t1
+
+> 0
+
+[∇S(t2 − s) − ∇ S(t1 − s)] P(u ⊗ v)( s) ds 
+
+=: I1 + I2.
+
+For I1, utilizing the uniform boundedness of u, v ∈ X T , we estimate 
+
+∥I1∥Lp ≤ CT ∥u∥XT ∥v∥XT
+
+Z t2
+
+> t1
+
+(t2 − s)−˜γp/ 2,p ds = CT ∥u∥XT ∥v∥XT
+
+(t2 − t1)1−˜γp/ 2,p 
+
+1 − ˜γp/ 2,p 
+
+,
+
+which vanishes as t2 ↘ t1 since 1 − ˜γp/ 2,p > 0. For I2, the analyticity of the multiplier in the sector Σ θ∞ implies that the map t 7 → ∇ S(t) is strongly continuous for t > 0. Thus, the integrand converges to zero in Lp(RN ) for almost every s ∈ (0 , t 1). Moreover, it is ma-jorized by the integrable function 2 CT (t1 − s)−˜γp/ 2,p ∥u∥XT ∥v∥XT . By the Lebesgue Dominated Convergence Theorem, ∥I2∥Lp → 0. This confirms that B(u, v ) ∈ X T . Setting the constant 
+
+KT = CT (1 − ˜γp/ 2,p )−1T 1−˜γp/ 2,p , we conclude that Φ is well-defined and maps XT into itself. To invoke the contraction mapping principle, we define the closed absorbing ball 
+
+BR = {u ∈ X T : ∥u∥XT ≤ R}14 B. DE ANDRADE 
+
+with radius R = 2 CT ∥u0∥Lp . For any u ∈ B R, the triangle inequality yields 
+
+∥Φ( u)∥XT ≤ ∥ S(·)u0∥XT + ∥B(u, u )∥XT ≤ R
+
+2 + KT R2.
+
+Furthermore, utilizing the algebraic identity u ⊗ u − v ⊗ v = u ⊗ (u − v) + ( u − v) ⊗ v and the bilinearity of B, we evaluate the difference for any u, v ∈ B R as 
+
+∥Φ( u) − Φ( v)∥XT ≤ ∥ B(u, u − v)∥XT + ∥B(u − v, v )∥XT ≤ 2KT R∥u − v∥XT .
+
+To ensure that Φ leaves BR invariant and acts as a strict contraction, we impose the condition 2KT R ≤ 1/2. Substituting the definitions of KT and R, this requirement is equivalent to 
+
+T 1−˜γp/ 2,p ≤ 1 − ˜γp/ 2,p 
+
+8C2 
+
+> T
+
+∥u0∥Lp
+
+. (5.1) Since 1 − ˜γp/ 2,p > 0, the left-hand side approaches zero as T → 0+. Therefore, for any given initial data u0 ∈ Lp(RN ), there exists a sufficiently short time T > 0 such that (5.1) holds. By the Banach fixed-point theorem, Φ possesses a unique fixed point in BR, establishing local existence. To extend this local uniqueness from the ball BR to the entire space XT , suppose u, v ∈ X T
+
+are two mild solutions originating from the same initial data u0, and let w = u − v. By the bilinearity of B, their difference satisfies the integral equation 
+
+w(t) = −B(u, w )( t) − B(w, v )( t).
+
+Given that u and v belong to C([0 , T ]; Lp(RN )), their norms are uniformly bounded on [0 , T ]by some constant M > 0. Estimating the Lp-norm of w(t) yields 
+
+∥w(t)∥Lp ≤ CT M
+
+Z t
+
+> 0
+
+(t − s)−˜γp/ 2,p ∥w(s)∥Lp ds. 
+
+Since the exponent satisfies ˜ γp/ 2,p < 1, we can invoke the singular Gr¨ onwall inequality (see Henry [16]). As the homogeneous driving term is zero, the inequality mandates ∥w(t)∥Lp = 0 for all t ∈ [0 , T ], proving that u ≡ v globally in XT .Now, we address the maximal time of existence. The local solution constructed on [0 , T ]can be evaluated at the endpoint to supply new initial data u(T ) ∈ Lp(RN ), allowing the solution to be extended to a larger interval [0 , T ′]. Since the admissible step size depends strictly on the magnitude of the Lp-norm via (5.1), we can iterate this continuation argument to generate a maximal interval of existence [0 , T max ). If Tmax < ∞, the local existence bounds dictate that the Lp-norm must grow unbounded; otherwise, a uniform time step would permit a trivial extension beyond Tmax . This confirms the standard blow-up alternative: if Tmax < ∞,then necessarily lim sup t↗Tmax ∥u(t)∥Lp = ∞.Finally, to establish continuous dependence on the initial data within the subcritical regime, let u, v ∈ B R be two mild solutions originating from divergence-free initial data u0, v 0 ∈
+
+Lp(RN ), respectively. Utilizing the algebraic identity for the bilinear form, their difference satisfies 
+
+u(t) − v(t) = S(t)( u0 − v0) − B(u, u − v)( t) − B(u − v, v )( t).
+
+Taking the norm in the Banach space XT and applying the previously derived bilinear esti-mates yields 
+
+∥u − v∥XT ≤ ∥ S(·)( u0 − v0)∥XT + ∥B(u, u − v)∥XT + ∥B(u − v, v )∥XT
+
+≤ CT ∥u0 − v0∥Lp + KT (∥u∥XT + ∥v∥XT ) ∥u − v∥XT .NAVIER-STOKES EQUATIONS WITH DUAL-SCALE HEREDITARY VISCOSITY 15 
+
+Since both solutions reside within the closed ball BR, we have ∥u∥XT +∥v∥XT ≤ 2R. Recalling the sharp contraction condition (5.1), which inherently enforces 2 KT R ≤ 1/2, the estimate reduces to 
+
+∥u − v∥XT ≤ CT ∥u0 − v0∥Lp + 12∥u − v∥XT .
+
+Absorbing the non-linear residual into the left-hand side immediately generates the local Lipschitz continuity bound for the data-to-solution map 
+
+∥u − v∥XT ≤ 2CT ∥u0 − v0∥Lp ,
+
+which successfully completes the verification of local well-posedness in the sense of Hadamard for the subcritical regime. 
+
+Proof of (ii) Critical regime ( p = pc). Reaching the geometric threshold p = pc triggers an analytical obstruction, as the exponent evaluates precisely to ˜ γpc/2,p c = 1. This structural barrier causes the temporal integration kernel to diverge logarithmically, rendering the un-weighted space C([0 , T ]; Lpc (RN )) structurally inadequate to close the fixed-point argument. Circumventing this critical logarithmic collapse requires the introduction of a generalized Kato-type auxiliary space endowed with a fractional temporal weight. Let us fix q = 2 pc. We define the generalized critical space K∞ as the Banach space of functions u ∈ C([0 , ∞); Lpc (RN )) ∩ C((0 , ∞); Lq(RN )) satisfying the initial adherence condition lim t→0+ tγpc,q ∥u(t)∥Lq = 0, equipped with the composite norm 
+
+∥u∥K∞ = sup 
+
+> t> 0
+
+∥u(t)∥Lpc + sup 
+
+> t> 0
+
+tγpc,q ∥u(t)∥Lq ,
+
+where the exponent evaluates to γpc,q = 1+ α∞ 
+
+> 2
+
+N
+
+ 1 
+
+> pc
+
+− 1
+
+> q
+
+
+
+= 1−α∞ 
+
+> 4
+
+. We seek a unique global fixed point for the nonlinear mapping Φ( u)( t) = S(t)u0 − B(u, u )( t)in K∞.By Lemma 4.1 and Lemma 4.2, the linear term satisfies the dual bounds ∥S(t)u0∥Lpc ≤
+
+C∥u0∥Lpc and tγpc,q ∥S(t)u0∥Lq ≤ C∥u0∥Lpc globally in time. Furthermore, the strong continu-ity property of the linear resolvent ensures lim t→0+ tγpc,q ∥S(t)u0∥Lq = 0. Thus, S(·)u0 ∈ K ∞
+
+with uniform bound ∥S(·)u0∥K∞ ≤ C0∥u0∥Lpc .To verify that B(u, v ) ∈ K ∞, we evaluate the bilinear form with respect to both base topologies. For the Lpc target, the tensor condition u ⊗ v ∈ Lpc dictates that the pseudo-differential mapping occurs from Lpc → Lpc , which incurs a spatial derivative penalty of ˜γpc,p c = 1+ α∞ 
+
+> 2
+
+. By extracting the requisite temporal weight from the auxiliary Lq-norms of the fields, we obtain for any u, v ∈ K ∞:
+
+∥B(u, v )( t)∥Lpc ≤ C
+
+Z t
+
+> 0
+
+(t − s)−˜γpc,pc ∥u(s)∥Lq ∥v(s)∥Lq ds 
+
+≤ C∥u∥K∞ ∥v∥K∞
+
+Z t
+
+> 0
+
+(t − s)− 1+ α∞ 
+
+> 2
+
+s−2γpc,q ds. 
+
+Since 2 γpc,q = 1−α∞ 
+
+> 2
+
+, the sum of the temporal singularities inside the convolution evaluates to exactly 1+ α∞ 
+
+> 2
+
++ 1−α∞ 
+
+> 2
+
+= 1. This critical scaling explicitly balances the temporal integration to t0, yielding a finite bounded profile proportional to the Beta function B  1+ α∞ 
+
+> 2
+
+, 1−α∞
+
+> 2
+
+.Thus, we acquire the estimate ∥B(u, v )( t)∥Lpc ≤ C1∥u∥K∞ ∥v∥K∞ .16 B. DE ANDRADE 
+
+Similarly, targeting the auxiliary Lq space, the tensor mapping originates from Lq/ 2 → Lq,thereby triggering the spatial derivative penalty ˜ γq/ 2,q = 3+ α∞ 
+
+> 4
+
+. This evaluation yields 
+
+∥B(u, v )( t)∥Lq ≤ C
+
+Z t
+
+> 0
+
+(t − s)−˜γq/ 2,q ∥u(s)∥Lq ∥v(s)∥Lq ds 
+
+≤ C∥u∥K∞ ∥v∥K∞
+
+Z t
+
+> 0
+
+(t − s)− 3+ α∞ 
+
+> 4
+
+s− 1−α∞ 
+
+> 2
+
+ds. 
+
+Evaluating the convolution explicitly produces the factor t− 1−α∞ 
+
+> 4
+
+B  1+ α∞ 
+
+> 2
+
+, 1−α∞
+
+> 4
+
+. Multiply-ing this result by the spatial weight tγpc,q = t1−α∞ 
+
+> 4
+
+identically cancels the temporal diver-gence, securing the symmetric uniform bound tγpc,q ∥B(u, v )( t)∥Lq ≤ C2∥u∥K∞ ∥v∥K∞ . Defin-ing C∗ = max {C1, C 2}, we obtain the global bilinear control ∥B(u, v )∥K∞ ≤ C∗∥u∥K∞ ∥v∥K∞ .Consequently, Φ is well-defined and maps K∞ into itself. To invoke the contraction mapping principle, we construct the closed absorbing ball 
+
+BR = {u ∈ K ∞ : ∥u∥K∞ ≤ R}
+
+with radius R = 2 C0∥u0∥Lpc . For any u ∈ B R, the global estimates yield 
+
+∥Φ( u)∥K∞ ≤ ∥ S(·)u0∥K∞ + ∥B(u, u )∥K∞ ≤ R
+
+2 + C∗R2.
+
+Using the bilinear identity u ⊗ u − v ⊗ v = u ⊗ (u − v) + ( u − v) ⊗ v, we evaluate the difference for any u, v ∈ B R as 
+
+∥Φ( u) − Φ( v)∥K∞ ≤ 2C∗R∥u − v∥K∞ .
+
+To ensure that Φ leaves BR invariant and acts as a strict contraction, we enforce the condition 2C∗R ≤ 1/2. Substituting the definition of R, this requirement translates explicitly into a smallness condition on the initial data 
+
+∥u0∥Lpc ≤ 18C0C∗
+
+:= ε. (5.2) Provided ∥u0∥Lpc < ε , the mapping Φ possesses a unique fixed point in BR, generating a global-in-time mild solution. To elevate this uniqueness to the entire space K∞, suppose u, v ∈ K ∞ are two mild solutions originating from the same small initial data. Let w = u−v. By the inherent definition of K∞,any solution intrinsically satisfies lim t→0+ tγpc,q ∥u(t)∥Lq = 0. Thus, for any arbitrarily small 
+
+δ > 0, there exists a time T0 > 0 such that the local restriction satisfies ∥u∥KT0 + ∥v∥KT0 < δ ,where ∥ · ∥ KT0 denotes the norm taken over the truncated interval [0 , T 0]. Evaluating the difference w = −B(u, w ) − B(w, v ) strictly on [0 , T 0] yields 
+
+∥w∥KT0 ≤ C∗
+
+ ∥u∥KT0 + ∥v∥KT0
+
+ ∥w∥KT0 ≤ C∗δ∥w∥KT0 .
+
+Choosing δ < (2 C∗)−1, we obtain a strict contraction ∥w∥KT0 ≤ 12 ∥w∥KT0 , which forces w ≡ 0on [0 , T 0]. Standard continuation arguments for Volterra integral equations then propagate this identity for all t > 0, ensuring global uniqueness in K∞.Finally, continuous dependence on the initial data within the critical regime follows by evaluating the difference u − v directly within the weighted topology of K∞. By applying the global bilinear control and invoking the initial smallness threshold (5.2) to enforce the strict contraction barrier C∗(∥u∥K∞ + ∥v∥K∞ ) ≤ 2C∗R ≤ 1/2, we immediately absorb the non-linear components into the left-hand side, obtaining the global Lipschitz bound 
+
+∥u − v∥K∞ ≤ 2C0∥u0 − v0∥Lpc ,NAVIER-STOKES EQUATIONS WITH DUAL-SCALE HEREDITARY VISCOSITY 17 
+
+securing the complete Hadamard well-posedness framework and concluding the proof. □
+
+5.2. Supercritical ill-posedness via norm inflation. We now demonstrate that the geo-metric integrability boundary pc = N (1+ α∞ 
+
+> 1−α∞
+
+) established in Theorem 5.2 is sharp. For any Lebesgue index p < p c, the spatial topology is too weak to absorb the loss of regularity induced by the convective flow. To capture this dimensional breakdown, we evaluate the regularity of the data-to-solution map near the origin. Assuming local well-posedness in the Hadamard sense would imply uniform continuity of the flow map, thereby necessitating the uniform boundedness of its Picard iterates. Adapting the frequency modulation machinery of Christ, Colliander, and Tao [8], and modifying the approach of [12] to account for the non-local convective transport, we demonstrate instantaneous norm inflation of the bilinear iterate. 
+
+Theorem 5.3 (Norm inflation for 1 < p < p c). Let N ≥ 2, assume hypotheses (H1) and (H2) hold, and let 1 < p < p c. The Cauchy problem (1.1) is ill-posed at the origin in the following sense: for any ε > 0, there exists a sequence of localized divergence-free initial data 
+
+u0,k ∈ Lp(RN ) and a sequence of positive times tk → 0+ such that 
+
+∥u0,k ∥Lp(RN ) < ε, ∀k ∈ N,
+
+whereas the corresponding bilinear Picard iterates satisfy the instantaneous norm inflation 
+
+lim  
+
+> k→∞
+
+∥u(2)  
+
+> k
+
+(tk)∥Lp(RN ) = ∞.
+
+Consequently, the data-to-solution map u0 7 → u fails to be uniformly continuous at the origin in the Lp(RN ) topology. Proof. Assuming the local well-posedness of the NSHV equations in Lp(RN ) in the Hadamard sense, the data-to-solution map must be uniformly continuous near the origin. This implies that the second Picard iterate (the bilinear integral term), defined by 
+
+u(2) (t) = −
+
+Z t
+
+> 0
+
+∇S(t − s)P S(s)u0 ⊗ S(s)u0
+
+ ds, 
+
+must satisfy the uniform local estimate ∥u(2) (t)∥Lp ≤ C∥u0∥2 
+
+> Lp
+
+for all sufficiently small initial data. Let ϕ ∈ S (RN ) be a non-trivial divergence-free vector field whose Fourier transform bϕ is compactly supported. To ensure the nonlinear flow is structurally non-degenerate, we choose 
+
+ϕ such that its projected bilinear convective term generates a non-zero Fourier amplitude away from the origin, i.e., F{ P∇ · (ϕ ⊗ ϕ)}(ζ0)̸ = 0 for some fixed ζ0̸ = 0. For a scaling parameter λ ≫ 1 and an amplitude Aλ > 0, we define the initial datum 
+
+u0,λ (x) = Aλϕ(λx ).
+
+A direct evaluation yields ∥u0,λ ∥Lp(RN ) = Aλλ−N/p ∥ϕ∥Lp(RN ).Recall the dynamic scaling invariance of the high-frequency system. The temporal scaling modulation is σ = 21+ α∞ , and the spatial scaling factor is κ = 1−α∞ 
+
+> 1+ α∞
+
+. We evaluate the nonlinear flow at the time tλ = τ λ −σ, where τ > 0 is a fixed observation window. Utilizing the spatial change of variables y = λx and the Fourier duality ζ = ξ/λ , the linear evolution condenses into 
+
+S(sλ −σ)u0,λ (y/λ ) = Aλ
+
+K(s, λ )ϕ(y),18 B. DE ANDRADE 
+
+where K(s, λ ) is the frequency-modulated pseudo-differential operator whose Fourier multi-plier is bK(s, λ, ζ ) = bS(sλ −σ, λζ ). Substituting this representation into the bilinear form, modifying the integration variable to s (representing the scaled temporal variable), and recognizing that the spatial derivative extracts a factor of λ, the iterate becomes 
+
+u(2) (tλ, y/λ ) = −λ1−σA2
+
+> λ
+
+Z τ
+
+> 0
+
+∇K(τ − s, λ )P K(s, λ )ϕ ⊗ K(s, λ )ϕ(y) ds. 
+
+A direct algebraic manipulation confirms the identity 1 − σ = −κ. Taking the Lp-norm with respect to the original variable x = y/λ extracts the volumetric factor λ−N/p , yielding 
+
+∥u(2) (tλ, ·)∥Lp(RN ) = A2
+
+> λ
+
+λ−κ− Np ∥Fλ∥Lp(RN ), (5.3) where the integral spatial profile is defined as 
+
+Fλ(y) := 
+
+Z τ
+
+> 0
+
+∇K(τ − s, λ )P K(s, λ )ϕ ⊗ K(s, λ )ϕ(y) ds. 
+
+As rigorously established in Section 4 and verified uniformly for the modulated family in [12, Theorem 4.2], the operators K(s, λ ) are uniformly bounded multipliers in any Lq(RN ). Given that ϕ ∈ S (RN ), we have K(s, λ )ϕ ∈ L2p(RN ), permitting us to evaluate the non-linear tensor directly in the base space Lp(RN ). Since p > 1, the projector P acts boundedly. Furthermore, as λ → ∞ , the modulated operator K(s, λ ) converges strongly to the limit-ing pure fractional resolvent Sα∞ (s), whose spectral multiplier is governed strictly by the high-frequency exponent α∞. Lebesgue interpolation thus guarantees the strong tensor con-vergence 
+
+K(s, λ )ϕ ⊗ K(s, λ )ϕ → Sα∞ (s)ϕ ⊗ Sα∞ (s)ϕ
+
+in Lp(RN ). To transfer this tensor convergence to the bilinear profile Fλ, we evaluate the unbounded spatial gradient ∇. Utilizing the scaling identity K(s, λ )f (y) = [ S(sλ −σ)f (λ·)]( y/λ ) and applying the bound from Lemma 4.1(ii) with q = p, the spatial scale factors exactly cancel, yielding the uniform operator bound 
+
+∥∇ K(τ − s, λ )Pf ∥Lp(RN ) ≤ C(τ − s)−˜γp,p ∥f ∥Lp(RN ),
+
+independent of λ ≥ 1. Since the symmetric temporal singularity evaluates to ˜ γp,p = 1+ α∞ 
+
+> 2
+
+< 1, the convolution kernel remains locally integrable over [0 , τ ]. By the Lebesgue Dominated Convergence Theorem, the spatial profile converges strongly Fλ → F∞ in Lp(RN ), where 
+
+F∞(y) = 
+
+Z τ
+
+> 0
+
+∇Sα∞ (τ − s)P Sα∞ (s)ϕ ⊗ Sα∞ (s)ϕ(y) ds. 
+
+To bypass the spatial decay failure, we extract the non-triviality of the master profile directly in frequency space. As bϕ is explicitly chosen to have compact frequency support, the non-linear tensor ϕ ⊗ ϕ and the resulting modulated bilinear profile Fλ identically possess uniform compact frequency support (e.g., confined within a fixed frequency ball B(0 , R )). Given that Fλ → F∞ strongly in Lp(RN ) and their Fourier spectra are uniformly compactly supported, Bernstein’s inequalities guarantee that all Lq-norms are equivalent on this spectral subspace. Consequently, the strong Lp-convergence implies the uniform convergence of the NAVIER-STOKES EQUATIONS WITH DUAL-SCALE HEREDITARY VISCOSITY 19 
+
+Fourier transforms cFλ → cF∞ on the compact support B(0 , R ), where 
+
+cF∞(ζ) = 
+
+Z τ
+
+> 0
+
+iζ dSα∞ (τ − s, ζ ) · σ(P)( ζ)FSα∞ (s)ϕ ⊗ Sα∞ (s)ϕ (ζ) ds. 
+
+As ϕ was selected to enforce a non-trivial convective projection at frequency ζ0̸ = 0, the strong continuity of the fractional resolvent near the origin ensures that for a sufficiently small choice of τ > 0, the mass does not self-cancel. Thus, there exists a neighborhood 
+
+U around ζ0 and a constant c0 > 0 such that ∥ cF∞∥L∞(U ) > c 0. The uniform convergence guarantees that for all sufficiently large λ ≥ λ0, ∥cFλ∥L∞(U ) ≥ c0/2. By the equivalence of norms for compactly supported distributions (or Plancherel’s identity over the bounded support), this spectral gap inversely secures a uniform lower bound in the spatial domain given by ∥Fλ∥Lp(RN ) ≥ c1 > 0 for all λ ≥ λ0.Returning to the scaling identity (5.3), we select the amplitude Aλ = ελ Np −δ(ln λ)−1, where the geometric deficit is parameterized as δ = 14
+
+Np − κ
+
+
+
+. In the supercritical regime p < p c,the relation pc = N/κ inherently enforces Np − κ > 0, ensuring δ > 0. The initial energy scales as ∥u0,λ ∥Lp = ελ −δ(ln λ)−1, which vanishes as λ → ∞ . Conversely, the energy of the bilinear cascade becomes 
+
+∥u(2) (tλ)∥Lp = ε2(ln λ)−2λ2Np −2δλ−κ− Np ∥Fλ∥Lp = ε2(ln λ)−2λNp −κ−2δ∥Fλ∥Lp .
+
+By our choice of δ, we have Np − κ − 2δ = 12
+
+Np − κ
+
+
+
+> 0. Defining the sequence λk → ∞ and setting tk = τ λ −σk , we observe tk → 0+. The initial norms satisfy ∥u0,k ∥Lp → 0, yet the bilinear response evaluates to 
+
+∥u(2)  
+
+> k
+
+(tk)∥Lp ≥ c1ε2(ln λk)−2λ12 (Np −κ)
+
+> kk→∞
+
+−−−→ ∞ .
+
+This divergence of the bilinear iterate contradicts the uniform local continuity of the data-to-solution map, rendering the Cauchy problem ill-posed at the origin. □
+
+6. Well-posedness in the critical limit 
+
+As established in Theorem 5.2, the critical Lebesgue exponent for the local well-posedness of the NSHV equations is pc = N/κ , where the geometric deficit parameter is given by 
+
+κ = 1−α∞ 
+
+> 1+ α∞
+
+. By virtue of the standard Besov embedding scale s − N/p = −κ, extending this criticality to the endpoint p = ∞ naturally identifies ˙B−κ
+
+> ∞,∞
+
+(RN ) as the ultimate critical space for the existence theory. In the classical Navier-Stokes framework ( α∞ → 0, κ → 1), it is well known since the sem-inal work of Bourgain and Pavlovi´ c [5] that the flow is intrinsically ill-posed in ˙B−1
+
+> ∞,∞
+
+(RN ). The classical mechanism dictating this topological collapse relies on a low-frequency reso-nance, wherein high-frequency convective interactions continuously project energy near the frequency origin, thereby triggering an instantaneous norm inflation. Before establishing the main result, it is instructive to ascertain how the dual-scale memory of the NSHV model structurally prevents this specific ill-posedness mechanism. First, we verify the conservation of the macroscopic zero-mode for the linear resolvent. Since the memory kernel satisfies the strict sectorial condition (H1), the characteristic denominator 
+
+λ + |ξ|2 ˆg(λ) is uniformly bounded away from zero on any deformed Hankel contour Γ defined 20 B. DE ANDRADE 
+
+by an angle θ ∈ (π/ 2, θ ∞). Applying the Lebesgue Dominated Convergence Theorem as 
+
+|ξ| → 0 isolates the simple pole at the origin within the Bromwich integral, yielding lim 
+
+> |ξ|→ 0
+
+bS(t, ξ ) = 12πi 
+
+Z
+
+> Γ
+
+eλt 
+
+λ dλ = 1 .
+
+Although this confirms that the non-local dissipation geometrically preserves the macroscopic zero-mode, the non-linear transfer of energy into the low-frequency regime is severely damped by the non-local memory, as formalized below. 
+
+Remark 6.1 (Stability of the low-frequency interactions) . Analyzing the low-frequency pro-jection of the bilinear interaction of a high-frequency block u0,m with itself reveals that the convective transfer toward the frequency origin is strictly regulated. Let ∆ ≤0 := P 
+
+> j≤0
+
+∆j
+
+denote the standard low-frequency cut-off operator (see Lemma 3.2). Utilizing Bernstein’s in-equality on spectral balls, this projector absorbs the derivative operator, yielding the uniform bound ∥∇ ∆≤0f ∥L∞ ≲ ∥f ∥L∞ . Evaluating the bilinear form B(u0,m , u 0,m ) at the characteristic lifespan tm ≃ λ− 21+ α∞ 
+
+> m
+
+provides the asymptotic estimate 
+
+∥∆≤0B(u0,m , u 0,m )( tm)∥L∞ ≲ ∥u0,m ∥2 
+
+> L∞
+
+tm ≃ (λκm)2λ− 21+ α∞ 
+
+> m
+
+= λ− 2α∞ 
+
+> 1+ α∞
+> m
+
+.
+
+Since α∞ ∈ (0 , 1), this resulting exponent is strictly negative. Consequently, the summation of these low-frequency contributions is absolutely convergent, generating only a bounded perturbation. Thus, the dual-scale memory imposes sufficiently strong dissipation upon the high-frequency components to dampen the convective cascade before it can inflate the low-frequency Besov norm. Given the stability presented in Remark 6.1, the existence of a continuous flow is governed exclusively by the forward control of high-frequency interactions. To rigorously establish that the regularizing effect of the non-local memory suppresses the convective growth at high frequencies, we deploy Bony’s paraproduct decomposition within a modified Kato-type smoothing functions space, thereby establishing global well-posedness in the critical homo-geneous topology. Let ϵ ∈ (κ, 1) act as a sufficiently small structural parameter. We define the fractional time-decay exponent γ = 1+ α∞ 
+
+> 2
+
+(κ + ϵ). Given that κ = 1−α∞ 
+
+> 1+ α∞
+
+, we verify that for any ϵ < 1, the temporal singularity remains locally integrable: 
+
+γ = 1 + α∞
+
+2
+
+1 − α∞
+
+1 + α∞
+
++ ϵ
+
+
+
+= 1 − α∞
+
+2 + 1 + α∞
+
+2 ϵ < 1 − α∞
+
+2 + 1 + α∞
+
+2 = 1 . (6.1) To accommodate the dual-scale nature of the resolvent—which fundamentally lacks a global self-similar scaling profile—we preserve the homogeneous Besov space ˙B−κ
+
+> ∞,∞
+
+(RN ) as the base topology to respect the critical scaling limit, while isolating the temporal smoothing effect strictly within the high-frequency regime. To rigorously bypass the low-frequency separability restriction, we introduce the asymmetric little Besov space ˙bϵ, +
+
+> ∞,∞
+
+(RN ), defined as the subspace of distributions f ∈ ˙Bϵ
+
+> ∞,∞
+
+(RN ) satisfying the high-frequency adherence condition lim  
+
+> j→+∞
+
+2jϵ ∥∆j f ∥L∞ = 0 . (6.2) Associated with this space, we define the high-frequency semi-norm 
+
+∥u∥˙bϵ, + 
+
+> ∞,∞
+
+= sup 
+
+> j≥0
+
+2jϵ ∥∆j u∥L∞(RN ).NAVIER-STOKES EQUATIONS WITH DUAL-SCALE HEREDITARY VISCOSITY 21 
+
+To capture the initial data adherence, we define the solution space X as the class of continuous functions u ∈ C([0 , ∞); ˙B−κ
+
+> ∞,∞
+
+(RN )) whose high-frequency components satisfy the temporal adherence condition lim t→0+ tγ ∥u(t)∥˙bϵ, + 
+
+> ∞,∞
+
+= 0. The space X is naturally equipped with the composite norm 
+
+∥u∥X = sup 
+
+> t≥0
+
+∥u(t)∥ ˙B−κ 
+
+> ∞,∞
+
++ sup 
+
+> t> 0
+
+tγ ∥u(t)∥˙bϵ, + 
+
+> ∞,∞
+
+.
+
+Lemma 6.2. Consider the bilinear operator 
+
+B(u, v )( t) = 
+
+Z t
+
+> 0
+
+S(t − s)P∇ · (u(s) ⊗ v(s)) ds. 
+
+There exists a universal constant C > 0 such that for all u, v ∈ X , the dyadic blocks satisfy 
+
+sup 
+
+> t> 0
+
+tγ ∥B(u, v )( t)∥˙bϵ, + 
+
+> ∞,∞
+
++ sup 
+
+> t> 0
+
+∥B(u, v )( t)∥ ˙B−κ 
+
+> ∞,∞
+
+≤ C∥u∥X ∥v∥X .
+
+Proof. We must control the spatial amplitude of the bilinear term across each dyadic scale 
+
+j ∈ Z. By means of Bony’s paraproduct decomposition (cf. Subsection 3.4), the nonlinear convective tensor u ⊗ v is split into three distinct spectral interactions: Tuv + Tvu + R(u, v ). Since the base topology ˙B−κ 
+
+> ∞,∞
+
+exhibits negative regularity ( κ > 0), both the cross-frequency paraproducts and the high-high residue term dictate the maximal regularity limit. Let us analyze the terms projected onto the j-th block for j ≥ 0. For the paraproduct 
+
+Tuv = P 
+
+> k
+
+Sk−1u∆kv, the standard dyadic localization property dictates that ∆ j (Tuv) ≈
+
+Sj−1u∆j v. Leveraging the base topology to control the low-frequency accumulation of u, the partial sum scales geometrically, yielding 
+
+∥Sj−1u(s)∥L∞ ≤ X
+
+> m≤j−1
+
+∥∆mu(s)∥L∞ ≲ X
+
+> m≤j−1
+
+2mκ ∥u(s)∥ ˙B−κ 
+
+> ∞,∞
+
+≲ 2jκ ∥u∥X .
+
+Coupling this estimate with the high-frequency smoothing norm for ∆ j v(s) provides the explicit uniform bound for the paraproduct: 
+
+∥∆j (Tuv)( s)∥L∞ ≲  2jκ ∥u∥X
+
+  2−jϵ s−γ ∥v∥X
+
+ = 2 −j(ϵ−κ)s−γ ∥u∥X ∥v∥X . (6.3) Symmetrically, the interaction ∆ j (Tvu) satisfies the exact same bound. For the high-high residue term Rj (s) = ∆ j
+
+P 
+
+> k≥j−2
+
+∆ku(s) e∆kv(s), we interpolate the product using the smooth-ing semi-norm for u and the base topology for v. Given that ϵ > κ , the resulting series converges geometrically 
+
+∥Rj (s)∥L∞ ≤ X
+
+> k≥j−2
+
+ 2−kϵ s−γ ∥u∥X
+
+  2kκ ∥v∥X
+
+ ≲ 2−j(ϵ−κ)s−γ ∥u∥X ∥v∥X . (6.4) This asymmetric interpolation—assigning the high-frequency smoothing norm to only one of the factors—bypasses the temporal singularity s−2γ . Since 2 γ > 1 is structurally possible within our parameter range, a symmetric allocation of weights would render the subsequent Duhamel integral non-integrable at the origin, thereby collapsing the contraction argument. Thus, all non-linear spectral interactions evaluated at high frequencies j ≥ 0 are uniformly bounded by C2−j(ϵ−κ)s−γ ∥u∥X ∥v∥X .Proceeding to the Duhamel integration over the dyadic annulus Cj := {ξ ∈ RN : 34 2j ≤|ξ| ≤ 83 2j }, we encounter the Leray-Hopf projector P. While P is an unbounded singular integral in global L∞(RN ), its localized Fourier symbol σ(P)mn ψj (ξ) is smooth and compactly supported away from the origin (see Subsection 3.5). By Paley-Wiener theory, its inverse Fourier transform belongs to L1(RN ) with a strictly scale-invariant norm. Therefore, the 22 B. DE ANDRADE 
+
+composite operator P∆j maps L∞ to L∞ uniformly on each annulus Cj , securing the spatial derivative multiplier bound ∥P∇∆j · ∥ L∞ ≲ 2j .Exploiting the asymptotic decay of the resolvent for the high-frequency regime, the spectral multiplier is bounded by the Mittag-Leffler profile bS(t − s, ·) L∞(Cj ) ≲ E1+ α∞ (−c22j (t −
+
+s)1+ α∞ ). Combining this with (6.3) and (6.4), the temporal evolution of the j-th block amplitude is governed by the singular convolution 
+
+Ij (t) = 
+
+Z t
+
+> 0
+
+2j E1+ α∞
+
+  − c22j (t − s)1+ α∞ s−γ ds. 
+
+Introducing the dimensionless variables τ = 2 2j 
+
+> 1+ α∞
+
+s and τ ′ = 2 2j 
+
+> 1+ α∞
+
+t reveals the intrinsic temporal scaling. Factoring out the powers of 2 j , the integral becomes 
+
+Ij (t) = 2 j
+
+ 1− 21+ α∞ + 2γ
+
+> 1+ α∞
+
+ Z τ ′
+
+> 0
+
+E1+ α∞ (−c(τ ′ − τ )1+ α∞ )τ −γ dτ. 
+
+By invoking the identity 1 − 21+ α∞ = −κ and recalling that 2γ 
+
+> 1+ α∞
+
+= κ + ϵ, the dyadic prefactor reduces exactly to 2 jϵ . Let F (τ ′) denote the dimensionless integral. Since γ < 1, the convolution yields a bounded function exhibiting an asymptotic decay rate of O (τ ′)−γ 
+
+as τ ′ → ∞ .Combining the spatial prefactors with the evaluated integral, the total amplitude is bounded by 
+
+∥∆j B(u, v )( t)∥L∞ ≲ 2−j(ϵ−κ) × 2jϵ F (τ ′)∥u∥X ∥v∥X = 2 jκ F (τ ′)∥u∥X ∥v∥X .
+
+Applying the uniform bound F (τ ′) ≤ C verifies the base homogeneous norm constraint 
+
+∥∆j B(u, v )( t)∥L∞ ≲ 2jκ ∥u∥X ∥v∥X . Furthermore, tracking the asymptotic decay F (τ ′) ≲
+
+(τ ′)−γ = (2 2j 
+
+> 1+ α∞
+
+t)−γ = 2 −j(κ+ϵ)t−γ yields the fractional temporal smoothing bound 
+
+∥∆j B(u, v )( t)∥L∞ ≲ 2jκ  2−j(κ+ϵ)t−γ ∥u∥X ∥v∥X = 2 −jϵ t−γ ∥u∥X ∥v∥X .
+
+This formulation isolates the time singularity and guarantees boundedness within the weighted semi-norm tγ ˙bϵ, +
+
+> ∞,∞
+
+, concluding the derivation of the high-frequency bilinear bound. For the low-frequency outputs ( j < 0), the analysis demands delicate care, since u, v ∈
+
+˙B−κ 
+
+> ∞,∞
+
+possess negative regularity, rendering classical pointwise multiplication ill-defined. The projection of high-high frequency interactions into the macroscopic modes generates the spectral series 
+
+Rj (s) = ∆ j
+
+X
+
+> k≥0
+
+∆ku e∆kv. 
+
+Without the fractional temporal smoothing, a direct norm estimate would encounter the divergent series P 
+
+> k≥0
+
+22kκ = ∞. However, by exploiting the asymmetric interpolation con-structed previously, the sum is rendered absolutely convergent and bounded by Cs −γ ∥u∥X ∥v∥X .Applying the spatial gradient geometrically yields a multiplier of order 2 j . Since the resolvent lacks high-frequency decay within this regime ( bS ≈ 1), the temporal convolution is bounded by R t 
+
+> 0
+
+2j s−γ ds ≲ 2j t1−γ . Multiplying by the base Besov weight 2 −jκ , the total amplitude is governed by 2 j(1 −κ)t1−γ . As the geometric deficit parameter satisfies κ < 1, the expo-nent 1 − κ remains strictly positive, forcing the low-frequency tail to decay geometrically as 
+
+j → −∞ . This geometric decay neutralizes the singular accumulation, thereby securing the global boundedness in the base topology ˙B−κ 
+
+> ∞,∞
+
+and confirming the absolute continuity of the Volterra integral. This completes the proof. □NAVIER-STOKES EQUATIONS WITH DUAL-SCALE HEREDITARY VISCOSITY 23 
+
+Theorem 6.3 (Global well-posedness in the maximal critical space) . Let N ≥ 2. There exists a universal constant δ > 0 such that for any initial datum u0 ∈ ˙B−κ
+
+> ∞,∞
+
+(RN ) satisfying 
+
+∇ · u0 = 0 , the high-frequency adherence condition 
+
+lim  
+
+> j→+∞
+
+2−jκ ∥∆j u0∥L∞ = 0 , (6.5) 
+
+and the smallness threshold ∥u0∥ ˙B−κ 
+
+> ∞,∞
+
+≤ δ, the NSHV equations admit a unique global-in-time mild solution u ∈ X . Furthermore, the data-to-solution map u0 7 → u is Lipschitz continuous, establishing global well-posedness in the sense of Hadamard. Proof. We first establish that the linear evolution uL(t) = S(t)u0 belongs to the space X .Since the non-local memory kernel restricts the symbol globally such that sup t> 0,ξ ∈RN | bS(t, ξ )| ≤ 
+
+C, classical Fourier multiplier theorems ensure that the operator S(t) maps L∞(RN ) to itself uniformly across all dyadic blocks, preserving the homogeneous base topology sup 
+
+> t> 0
+
+∥uL(t)∥ ˙B−κ 
+
+> ∞,∞
+
+≤ C1∥u0∥ ˙B−κ 
+
+> ∞,∞
+
+.
+
+Next, we extract the temporal smoothing effect exclusively within the high-frequency regime ( j ≥ 0). On the dyadic annulus Cj , the algebraic tail of the Mittag-Leffler profile enforces the bound | bS(t, ξ )| ≲ (1 + |ξ|2t1+ α∞ )−1. Interpolating this decay to the fractional power a = ϵ+κ 
+
+> 2
+
+∈ (0 , 1) yields the strict upper bound 
+
+| bS(t, ξ )| ≲  1 + |ξ|2t1+ α∞ − ϵ+κ 
+
+> 2
+
+≤  |ξ|2t1+ α∞ − ϵ+κ 
+
+> 2
+
+≃ 2−j(ϵ+κ)t−γ ,
+
+where we used |ξ| ∼ 2j alongside definition (6.1). Acting as a multiplier on the j-th block, this establishes 
+
+∥∆j uL(t)∥L∞ ≤ C22−j(ϵ+κ)t−γ ∥∆j u0∥L∞ , ∀j ≥ 0. (6.6) Multiplying (6.6) by tγ 2jϵ and substituting the initial data relation ∥∆j u0∥L∞ ≤ 2jκ ∥u0∥ ˙B−κ
+
+> ∞,∞
+
+gives sup 
+
+> t> 0
+
+tγ ∥uL(t)∥˙bϵ, + 
+
+> ∞,∞
+
+≤ C2∥u0∥ ˙B−κ 
+
+> ∞,∞
+
+.
+
+To prove that uL ∈ X , we must verify the temporal adherence condition lim t→0+ tγ ∥uL(t)∥˙bϵ, + 
+
+> ∞,∞
+
+=0, alongside the strong continuity at the origin lim t→0+ ∥uL(t) − u0∥ ˙B−κ 
+
+> ∞,∞
+
+= 0. Addressing the high-frequency adherence, let η > 0 be arbitrary. Invoking the condition (6.5) guarantees the existence of a high-frequency threshold M ∈ N such that sup 
+
+> j≥M
+
+2−jκ ∥∆j u0∥L∞ < η
+
+2C2
+
+. (6.7) Fixing this M , we split the supremum of the weighted semi-norm. For j ≥ M , utilizing the decay estimate (6.6) and (6.7), we have sup 
+
+> j≥M
+
+tγ 2jϵ ∥∆j uL(t)∥L∞ ≤ C2 sup 
+
+> j≥M
+
+2−jκ ∥∆j u0∥L∞ < η
+
+2 , ∀t > 0.
+
+For the low-to-intermediate frequencies 0 ≤ j < M , the uniform boundedness of S(t) in L∞
+
+maintains ∥∆j uL(t)∥L∞ ≤ C1∥∆j u0∥L∞ . Thus, we obtain max  
+
+> 0≤j<M
+
+tγ 2jϵ ∥∆j uL(t)∥L∞ ≤ C1tγ 2M ϵ ∥u0∥ ˙B−κ 
+
+> ∞,∞
+
+.
+
+Since γ > 0 and M is finite, there exists a time T0 > 0 such that for all 0 < t < T 0:
+
+C1tγ 2M ϵ ∥u0∥ ˙B−κ 
+
+> ∞,∞
+
+< η
+
+2 .24 B. DE ANDRADE 
+
+Aggregating both frequency regimes confirms that sup j≥0 tγ 2jϵ ∥∆j uL(t)∥L∞ < η for all 0 <t < T 0, proving that lim t→0+ tγ ∥uL(t)∥˙bϵ, + 
+
+> ∞,∞
+
+= 0. Finally, we address the strong continuity at t = 0. We partition the supremum of ∥uL(t) −
+
+u0∥ ˙B−κ 
+
+> ∞,∞
+
+into three distinct spectral regions for a given η > 0: 
+
+∥uL(t) − u0∥ ˙B−κ 
+
+> ∞,∞
+
+≤ sup 
+
+> j≥M
+
+2−jκ ∥∆j (S(t)u0 − u0)∥L∞
+
++ sup  
+
+> j≤− M′
+
+2−jκ ∥∆j (S(t)u0 − u0)∥L∞
+
++ max   
+
+> −M′<j<M
+
+2−jκ ∥∆j (S(t)u0 − u0)∥L∞
+
+=: Khigh + Klow + Kmid .
+
+For the term Khigh , the uniform boundedness of the resolvent operator yields 
+
+Khigh ≤ (C1 + 1) sup 
+
+> j≥M
+
+2−jκ ∥∆j u0∥L∞ .
+
+Selecting M sufficiently large via (6.5) ensures Khigh < η/ 3 uniformly for all t > 0. For the low-frequency term Klow , we exploit the spectral asymptotics near the origin. By hypothesis (H3), the Laplace transform ˆ g(λ) exhibits a low-frequency power-law of order α0 ∈
+
+[0 , 1). Evaluating the Bromwich integral for |ξ| → 0 dictates the low-frequency multiplier control 
+
+| bS(t, ξ ) − 1| ≤ C3t1+ α0 |ξ|2.
+
+Substituting |ξ| ∼ 2j on the support of the dyadic block for j ≤ 0, we obtain 2−jκ ∥∆j (S(t)u0 − u0)∥L∞ ≤ C3t1+ α0 22j  2−jκ ∥∆j u0∥L∞
+
+
+
+≤ C3t1+ α0 22j ∥u0∥ ˙B−κ 
+
+> ∞,∞
+
+.
+
+Since j ≤ 0, the multiplier 2 2j is strictly bounded by 1. Consequently, the entire low-frequency tail is dominated by the temporal weight t1+ α0 . Given that we evaluate the strong continuity specifically in the limit t → 0+, this temporal term vanishes. This geometric fact dispenses entirely with the need for a logarithmic cut-off M ′, guaranteeing Klow < η/ 3 for all sufficiently small t > 0. Lastly, for the intermediate compact band Kmid , we have a finite number of dyadic blocks. For each individual block index −M ′ < j < M , the multiplier bS(t, ξ ) − 1 converges to 0 uniformly on the compact annulus Cj as t → 0+. Thus, there exists a time T1 > 0 such that for all 0 < t < T 1, Kmid < η/ 3. Aggregating these bounds establishes ∥uL(t) − u0∥ ˙B−κ 
+
+> ∞,∞
+
+< η for all 0 < t < min {T0, T 1},which proves that uL ∈ C([0 , ∞); ˙B−κ
+
+> ∞,∞
+
+(RN )), and thus uL ∈ X with ∥uL∥X ≤ (C1 + C2)δ.Equipped with the linear inclusion uL ∈ X and the strict bilinear contraction from Lemma 6.2, the standard Picard iterative scheme generates a Cauchy sequence within the complete metric space X . Let R = 2( C1 + C2)δ define the radius of the stable absorbing ball 
+
+BR ⊂ X . Provided the initial datum is sufficiently small to satisfy 4 C(C1 +C2)δ ≤ 1/2, where 
+
+C is the universal bilinear contraction constant, the Banach fixed-point theorem dictates that the sequence converges strongly to a unique global-in-time limit u ∈ B R.To elevate this uniqueness from the conditional absorbing ball BR to the entire uncondi-tional path space X , let v ∈ X be any other global mild solution originating from the same initial data u0. By the definition of the path space X , the continuity of the base topology NAVIER-STOKES EQUATIONS WITH DUAL-SCALE HEREDITARY VISCOSITY 25 
+
+enforces lim sup t→0+ ∥v(t)∥ ˙B−κ 
+
+> ∞,∞
+
+≤ ∥ u0∥ ˙B−κ 
+
+> ∞,∞
+
+≤ δ. Simultaneously, the temporal adherence condition guarantees lim t→0+ tγ ∥v(t)∥˙bϵ, + 
+
+> ∞,∞
+
+= 0. Therefore, for any arbitrarily small ¯ η > 0, there exists a sufficiently short time T ∗ > 0 such that the local restriction of the path norm satisfies ∥v∥XT ∗ ≤ δ + ¯ η. The identically constructed solution u ∈ B R symmetrically verifies 
+
+∥u∥XT ∗ ≤ δ + ¯ η. Evaluating the difference w = u − v = −B(u, w ) − B(w, v ) on the truncated space XT ∗ , the bilinear estimate commands 
+
+∥w∥XT ∗ ≤ C (∥u∥XT ∗ + ∥v∥XT ∗ ) ∥w∥XT ∗ ≤ 2C(δ + ¯ η)∥w∥XT ∗ .
+
+Since the structural smallness parameterizes 2 Cδ ≤ 1/4, we select ¯ η sufficiently small such that 2 C(δ + ¯ η) ≤ 1/2. This strict contraction forces ∥w∥XT ∗ = 0, implying u ≡ v on [0 , T ∗]. Standard continuation arguments for the integral Volterra equation propagate this identity globally, ensuring v ≡ u everywhere in X .To culminate the Hadamard well-posedness framework, we establish continuous depen-dence on the initial data. Let u, v ∈ B R be two global mild solutions originating from small initial data u0, v 0 ∈ ˙B−κ
+
+> ∞,∞
+
+(RN ) satisfying (6.5), respectively. Due to the bilinearity of the non-local form, their difference resolves to u − v = S(·)( u0 − v0) − B(u, u − v) − B(u − v, v ). Evaluating this difference in the composite norm of X yields 
+
+∥u − v∥X ≤ ∥ S(·)( u0 − v0)∥X + C (∥u∥X + ∥v∥X ) ∥u − v∥X
+
+≤ (C1 + C2)∥u0 − v0∥ ˙B−κ 
+
+> ∞,∞
+
++ 2 CR ∥u − v∥X .
+
+Since the strict contraction condition enforces 2 CR ≤ 1/2, the nonlinear term is entirely absorbed into the left-hand side to obtain the global Lipschitz bound 
+
+∥u − v∥X ≤ 2( C1 + C2)∥u0 − v0∥ ˙B−κ 
+
+> ∞,∞
+
+.
+
+This boundary guarantees uniform continuity of the flow map, formally confirming the Hadamard well-posedness in the critical homogeneous limit. □
+
+Remark 6.4 (The non-separable boundary and open dynamics) . It is fundamentally instruc-tive to contrast the global well-posedness of the NSHV system established in Theorem 6.3 with the classical ill-posedness framework of Bourgain and Pavlovi´ c [5] for the standard Navier-Stokes equations. In the classical setting, the critical space ˙B−1
+
+> ∞,∞
+
+(R3) is structurally unresolvable: norm inflation occurs intrinsically even for arbitrarily small initial data due to a low-frequency resonant amplification. Conversely, Theorem 6.3 demonstrates that the dual-scale memory kernel explicitly suppresses this catastrophic cascade for initial data pos-sessing high-frequency adherence, thereby extending Hadamard well-posedness beyond the strict separability of the little Besov closure ˙b−κ
+
+> ∞,∞
+
+(RN ). This dichotomy uncovers a sharp topological boundary. The question of whether the NSHV equations are genuinely ill-posed within the completely non-adherent complement ˙B−κ
+
+> ∞,∞
+
+(RN ) \ ˙b−κ, + 
+
+> ∞,∞
+
+(RN ) remains a challenging open problem. In this exterior regime, the high-frequency dyadic tail fails to vanish at infinity (lim sup j→∞ 2−jκ ∥∆j u0∥L∞ > 0), se-verely obstructing the strong continuity of the linear hereditary resolvent at the temporal origin ( t → 0+). This mathematical boundary strongly suggests that, while the dual-scale memory successfully tames standard turbulent cascades, highly oscillating lacunary data structures residing in the non-separable tail may still trigger localized norm inflation, thereby highlighting the exact limits of non-local parabolic regularizations. 
+
+Remark 6.5 (The paradox of spatial versus temporal regularization) . At first glance, it ap-pears deeply counterintuitive that the classical Navier-Stokes equations—governed by the 26 B. DE ANDRADE 
+
+heat semigroup, which instantaneously imposes infinite spatial regularization ( C∞)—suffer from catastrophic ill-posedness within the critical space ˙B−1
+
+> ∞,∞
+
+(RN ), whereas the NSHV system—driven by a resolvent with severely restricted spatial smoothing capacity (bounded strictly by the pseudo-differential class S−21,0 )—remains globally well-posed. This paradox elegantly exposes the fundamental mechanics of the Bourgain-Pavlovi´ c norm inflation: the catastrophic cascade is inherently a temporal resonance phenomenon, not a spa-tial one. Infinite spatial smoothness is entirely defenseless against the instantaneous temporal accumulation of convective energy at macroscopic scales. In stark contrast, the dual-scale hereditary memory provides a structural fractional retardation in time (analytically encap-sulated by the temporal smoothing weight tγ ). This temporal dampening strictly throttles the singular Volterra integration, suffocating the high-high convective resonance before it can inflate the low-frequency macroscopic modes. Thus, it is the non-local temporal mem-ory, rather than instantaneous spatial viscosity, that ultimately cures the critical topological collapse. 7. Concluding remarks 
+
+This work delineates the topological boundaries governing the well-posedness of the Navier-Stokes equations when subjected to dual-scale hereditary viscosity. By embedding the linear resolvent into a pseudo-differential framework within the H¨ ormander multiplier class S−21,0 ,we systematically addressed the analytical obstructions posed by the absence of exact global scale invariance. The identification of the geometric threshold pc = N (1+ α∞ 
+
+> 1−α∞
+
+) explicitly confirms that within the supercritical regime 1 < p < p c, the non-local convective transport strictly dominates the non-local dissipation, driving an anomalous momentum transfer that culminates in instantaneous norm inflation. A fundamental consequence of this framework emerges in the scale-critical topological limit p → ∞ . By demonstrating that an asymmetric interpolation within Bony’s para-differential calculus effectively neutralizes the high-high convective cascade, we establish that the Bourgain-Pavlovi´ c pathology is not an intrinsic feature of all non-local fluid systems. Instead, this topological collapse is an instability structurally confined to the non-separable boundary of the Besov topology ˙B−κ
+
+> ∞,∞
+
+(RN ). The fading memory effect provides sufficient fractional dissipation to suppress turbulent backscatter into macroscopic modes, ensuring global solutions for initial data satisfying a high-frequency adherence condition. Notably, the macroscopic temporal dampening inherently regulates the low-frequency limit, thereby extending the topological boundary of existence beyond the strict separability restrictions of the little Besov closure ˙b−κ
+
+> ∞,∞
+
+(RN ). A natural extension of this theory involves investigating whether the interplay between highly oscillating lacunary data in the non-separable tail and the dual-scale hereditary re-tardation triggers localized norm inflation, or if the memory effects extend their stabilizing properties entirely beyond the separable adherence. We anticipate that the harmonic analysis machinery and the fractionally weighted Kato path spaces developed herein provide a robust blueprint for examining advanced non-Newtonian fluid dynamics models. 
+
+## Acknowledgement and declarations NAVIER-STOKES EQUATIONS WITH DUAL-SCALE HEREDITARY VISCOSITY 27 
+
+Bruno de Andrade is partially supported by CNPQ (grant 310384/2022-2) and FAPITEC/SE (grant 019203.01303/2024-1). 
+
+Data availability: Data sharing is not applicable to this article as no datasets were gener-ated or analyzed during the current study. 
+
+Conflict of interest: The author declares that he has no conflict of interest. 
+
+Declaration of Generative AI and AI-assisted technologies in the writing process: 
+
+During the preparation of this work, the author used Gemini to improve the English language. After using this tool, the author reviewed and edited the content as needed and take full responsibility for the final version of the manuscript. 
+
+References 
+
+[1] J. M. Arrieta and A. N. Carvalho, Abstract parabolic problems with critical nonlinearities and applications to Navier-Stokes and heat equations , Trans. Amer. Math. Soc. 352 (2000), no. 1, 285–310. [2] H. Bahouri, J.-Y. Chemin, and R. Danchin, Fourier Analysis and Nonlinear Partial Differential Equa-tions , Grundlehren der mathematischen Wissenschaften, vol. 343, Springer, Heidelberg, 2011. [3] V. Barbu and S. S. Sritharan, Navier-Stokes equation with hereditary viscosity , Z. Angew. Math. Phys. 
+
+54 (2003), no. 3, 449–461. [4] J.-M. Bony, Calcul symbolique et propagation des singularit´ es pour les ´ equations aux d´ eriv´ ees partielles non lin´ eaires , Ann. Sci. ´Ecole Norm. Sup. (4) 14 (1981), no. 2, 209–246. [5] J. Bourgain and N. Pavlovi´ c, Ill-posedness of the Navier-Stokes equations in a critical space in 3D , J. Funct. Anal. 255 (2008), no. 9, 2233–2247. [6] M. Cannone, A generalization of a theorem by Kato on Navier-Stokes equations , Rev. Mat. Iberoam. 11 
+
+(1995), no. 3, 573–624. [7] A. Cheskidov and R. Shvydkoy, Ill-posedness of the basic equations of fluid dynamics in Besov spaces ,Proc. Amer. Math. Soc. 138 (2010), no. 3, 1059–1067. [8] M. Christ, J. Colliander, and T. Tao, Asymptotics, frequency modulation, and low regularity ill-posedness for canonical dispersive equations , Amer. J. Math. 125 (2003), no. 6, 1235–1293. [9] B. de Andrade and A. Viana, Abstract Volterra integrodifferential equations with applications to parabolic models with memory , Math. Ann. 369 (2017), no. 3-4, 1131–1175. [10] B. de Andrade, C. Silva, and A. Viana, Lq -solvability for an equation of viscoelasticity in power type materials , Z. Angew. Math. Phys. 72 (2021), no. 1, Paper No. 10. [11] B. de Andrade, C. Cuevas, and J. Dantas, Navier-Stokes equation with hereditary viscosity and initial data in Besov-Morrey spaces , Z. Angew. Math. Phys. 75 (2024), no. 1, Paper No. 11. [12] B. de Andrade, Critical thresholds and instantaneous norm inflation for super-diffusive integro-differential equations , arXiv:2607.17430, 2026. [13] B. de Andrade and M. G. de Santana, Abstract integrodifferential equations and applications ,arXiv:2602.08691, 2026. [14] A. Giusti, I. Colombaro, R. Garra, R. Garrappa, F. Mainardi, M. Mentrelli, and Z. Tomovski, A practical guide to Prabhakar fractional calculus , Fract. Calc. Appl. Anal., 23 (2020), 9–54. [15] L. Grafakos, Classical Fourier Analysis , third ed., Graduate Texts in Math., vol. 249, Springer, New York, 2014. [16] D. Henry, Geometric Theory of Semilinear Parabolic Equations , Lecture Notes in Math., vol. 840, Springer-Verlag, Berlin, 1981. [17] A. Jaishankar and G. H. McKinley, Power-law rheology in the bulk and at the interface: quasi-properties and fractional constitutive equations , Proc. Roy. Soc. Lond. Ser. A 469 (2013), no. 2149, 20120284. [18] T. Kato, Strong Lp-solutions of the Navier-Stokes equation in Rm, with applications to weak solutions ,Math. Z. 187 (1984), no. 4, 471–480. [19] H. Koch and D. Tataru, Well-posedness for the Navier-Stokes equations , Adv. Math. 157 (2001), no. 1, 22–35. 28 B. DE ANDRADE 
+
+[20] P. G. Lemari´ e-Rieusset, Recent Developments in the Navier-Stokes Problem , Chapman & Hall/CRC Research Notes in Mathematics, vol. 431, Chapman & Hall/CRC, Boca Raton, FL, 2002. [21] F. Mainardi, Fractional Calculus and Waves in Linear Viscoelasticity: An Introduction to Mathematical Models , Imperial College Press, London, 2010. [22] T. R. Prabhakar, A singular integral equation with a generalized Mittag-Leffler function in the kernel ,Yokohama Math. J., 19 (1971), 7–15. [23] Y. Sawano, Theory of Besov spaces , vol. 56, Springer, 2018. [24] D. V. Widder, The Laplace Transform , Princeton Mathematical Series, v. 6, Princeton University Press, Princeton, N.J., 1941. (B. de Andrade) Departamento de Matem´ atica, Universidade Federal de Sergipe, S˜ ao Crist´ ov˜ ao - SE, Brazil. 
+
+Email address : bruno@mat.ufs.br

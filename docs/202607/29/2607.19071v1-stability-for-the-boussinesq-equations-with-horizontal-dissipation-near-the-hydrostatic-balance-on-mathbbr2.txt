@@ -1,0 +1,3882 @@
+Title: Stability for the Boussinesq Equations with Horizontal Dissipation near the Hydrostatic Balance on ℝ^2
+
+URL Source: https://arxiv.org/pdf/2607.19071v1
+
+Published Time: Wed, 22 Jul 2026 00:59:45 GMT
+
+Number of Pages: 40
+
+Markdown Content:
+# Stability for the Boussinesq Equations with Horizontal Dissipation near the Hydrostatic Balance on R2Jiahong Wu ∗ Mengxin Yan † Ning Zhu ‡
+
+Abstract 
+
+The hydrostatic balance is a fundamental equilibrium state in stratified fluids and plays a central role in geophysical fluid dynamics. Understanding its stability under incomplete dissipation is a longstanding challenge, since anisotropic diffu-sion alone is generally insufficient to control the nonlinear evolution and no robust stabilizing mechanism is known for the corresponding anisotropically dissipative Navier–Stokes equations. In this paper, we investigate the two-dimensional Boussi-nesq equations on R2 with only horizontal dissipation near the hydrostatic equilib-rium pU, Θq “ p 0, x 2q. We show that the velocity–temperature coupling generates internal gravity waves whose dispersive decay, together with the horizontal dissipa-tion, provides an effective stabilizing mechanism that compensates for the complete absence of vertical dissipation. This identifies a mechanism by which dispersive wave propagation restores stability in an incompletely dissipative fluid system. For sufficiently small initial perturbations in HkpR2q X W 3,1pR2q with k ě 14, we estab-lish the global existence and uniqueness of classical solutions together with explicit anisotropic, componentwise large-time decay rates for the velocity and temperature, including faster decay of the vertical velocity. 
+
+Keywords: Boussinesq equations; hydrostatic equilibrium; horizontal dissipation; sta-bility; large-time behavior; dispersive estimates. 
+
+2020 Mathematics Subject Classification: 35Q35; 35B35; 35B40; 76D03; 76D50. 
+
+# 1 Introduction 
+
+A fundamental problem in fluid dynamics is to understand whether small perturba-tions of an equilibrium remain stable and eventually decay as time evolves. For many 
+
+> ∗
+
+Department of Mathematics, University of Notre Dame, Notre Dame, IN 46556, USA. Email: jwu29@nd.edu 
+
+> †
+
+School of Mathematics, Shandong University, Jinan, Shandong 250000, P. R. China. Email: 3020135975@qq.com 
+
+> ‡
+
+School of Mathematics, Shandong University, Jinan, Shandong 250000, P. R. China. Email: ning.zhu@sdu.edu.cn 
+
+1arXiv:2607.19071v1 [math.AP] 21 Jul 2026 important fluid models, such a stabilizing mechanism is either absent or still poorly understood. Even with small initial data, the three-dimensional (3D) incompressible Euler equations, for example, may develop finite-time singularities, as demonstrated in recent breakthrough works by Elgindi [14], Chen–Hou [6, 7], C´ ordoba [9], and Shao–Wei– Zhang [31]. Even in two dimensions, where global regularity is known, solutions of the incompressible Euler equations may experience extremely rapid growth of Sobolev norms, with double exponential growth in time being possible (see, e.g., [8, 18, 22, 37]). On the other hand, for the incompressible Navier–Stokes equations with the full Laplacian dissipation, every finite-energy weak solution in the whole space decays al-gebraically to zero as t Ñ 8 (see Schonbek [29]). However, once only partial dissi-pation is present, the situation becomes much less clear. Consider, for example, the two-dimensional Navier–Stokes equations with only horizontal dissipation, 
+
+$’’&’’%
+
+Btu ´ B 21 u ` u ¨ ∇u ` ∇p “ 0, x P R2, t ą 0,
+
+∇ ¨ u “ 0,upx, 0q “ u0pxq.
+
+(1.1) For sufficiently smooth initial data, for instance u0 P H2pR2q, the above system admits a unique global solution. The real issue is not global existence but rather its long-time behavior: does every solution remain uniformly bounded and converge to zero, or can higher Sobolev norms grow? Standard energy estimates yield at best a doubly exponen-tial upper bound on the H2 norm, providing essentially no information on the actual asymptotic behavior. In a recent work [35], Wang, Wu, and Zhu proved that replacing 
+
+B21 by the fractional operator p´B 21 qα with 0 ď α ă 1 leads to global decay of solutions. However, the physically important endpoint case α “ 1 remains completely open. A remarkable phenomenon emerges when incompletely dissipative fluid equations are coupled with additional physical effects such as buoyancy, rotation, or a background magnetic field. Unlike the underlying fluid equations, the coupled systems possess an intrinsic hyperbolic wave structure. The propagation of these waves gives rise to dispersive effects, which spread the energy over space and generate temporal decay of the solution. Although this decay is fundamentally different from the exponential damping produced by viscosity, it nevertheless provides an effective stabilizing mechanism. When combined with even weak or anisotropic dissipation, the dispersive decay can produce additional smoothing and time integrability that are unavailable from the dissipative terms alone. Understanding how such weak wave-induced stabilization compensates for the lack of full 2dissipation has become a central theme in the mathematical analysis of geophysical fluids and magnetohydrodynamics. The Boussinesq equations constitute one of the simplest and most important fluid models exhibiting this stabilization mechanism. The coupling between the velocity and the temperature naturally generates internal gravity waves, whose dispersive decay can substantially alter the long-time behavior of the fluid. Motivated by this phenomenon, we consider the two-dimensional Boussinesq equations with only horizontal dissipation, 
+
+$’’’’’&’’’’’%
+
+BtU ´ B 21 U ` U ¨ ∇U ` ∇P “ Θe2, x P R2, t ą 0,
+
+BtΘ ´ B 21 Θ ` U ¨ ∇Θ “ 0,
+
+∇ ¨ U “ 0,U px, 0q “ U0pxq, Θpx, 0q “ Θ0pxq,
+
+(1.2) where U px, t q “ p U1px, t q, U 2px, t qq denotes the fluid velocity, Θ px, t q the temperature, 
+
+P px, t q the scalar pressure. B1 is an abbreviation of Bx1 and e2 “ p 0, 1q, the forcing term represents the buoyancy force of the fluid. The Boussinesq equations are fundamental models for buoyancy-driven incompress-ible flows and arise naturally in atmospheric dynamics, oceanography, and Rayleigh– B´ enard convection. In these models, the buoyancy force generated by temperature vari-ations interacts with the incompressible velocity field to produce internal gravity waves, whose dispersive properties play a fundamental role in the large-time dynamics. Systems with only partial or anisotropic dissipation also arise in several physically relevant situa-tions, with Prandtl’s boundary layer equations being one of the most notable examples. Among the equilibrium states of the Boussinesq equations, the hydrostatic balance plays a distinguished role in geophysical fluid dynamics. It describes a fluid at rest in which the vertical pressure gradient exactly balances the buoyancy force. Such a balance provides the leading-order approximation for many large-scale atmospheric and oceanic flows and serves as a fundamental reference state in the study of stratified fluids. More precisely, 
+
+Uhe fi p0, 0q, Θhe fi x2, Phe fi 12x22
+
+forms a steady solution of (1.2). The main objective of this paper is to investigate the nonlinear stability and large-time behavior of solutions that are initially close to this hydrostatic equilibrium. 3To this end, we introduce the perturbation variables 
+
+u “ U ´ Uhe , θ “ Θ ´ Θhe , p “ P ´ Phe .
+
+Substituting these expressions into (1.2), one easily verifies that the perturbation pu, θ, p q
+
+satisfies 
+
+$’’’’’&’’’’’%
+
+Btu ´ B 21 u ` u ¨ ∇u ` ∇p “ θe 2, x P R2, t ą 0,
+
+Btθ ´ B 21 θ ` u2 ` u ¨ ∇θ “ 0,
+
+∇ ¨ u “ 0,up0, x q “ u0pxq, θ p0, x q “ θ0pxq.
+
+(1.3) The perturbation system (1.3) exhibits a remarkable feature absent from the incompress-ible Navier–Stokes equations. Owing to the coupling between the buoyancy force θe 2
+
+and the stratification term u2, the linearized system possesses an intrinsic internal grav-ity wave structure. As will be shown below, the dispersive decay associated with these waves provides an effective stabilizing mechanism that compensates for the lack of full dissipation. The stability problem for the perturbation system (1.3) cannot be resolved by stan-dard energy methods. As discussed above, the horizontal dissipation fails to provide sufficient smoothing for the velocity field and the classical energy method yields at best a rapidly growing upper bound for higher Sobolev norms. Treating the velocity equation separately therefore fails to capture the mechanism responsible for stabilization. The es-sential difficulty stems from the lack of vertical dissipation. At the level of the vorticity (ω “ ∇ ˆ u) equation, the nonlinear terms contain products involving vertical derivatives that cannot be absorbed by the available horizontal dissipation. In particular, the most delicate nonlinear interactions ż
+
+> R2
+
+B2u2pB 2ωq2dx 
+
+generate coefficients that, under the decay expected from the one-dimensional heat oper-ator, behave only like p1 ` tq´1, which is critical and fails to provide the time integrability needed to close the energy estimates. Consequently, the standard energy method alone cannot establish uniform-in-time bounds, let alone decay of the solution. The key idea of this paper is to regard (1.3) as a genuinely coupled system rather than as the Navier–Stokes equations with a forcing term. The coupling between the momentum and temperature equations gives rise to a wave structure that is invisible 4from the individual equations. More precisely, the buoyancy force in the momentum equation and the stratification term u2 in the temperature equation combine to generate internal gravity waves. These waves exhibit dispersive decay, which weakens the nonlinear interactions and provides an effective damping mechanism. Although this wave-induced stabilization is substantially weaker than the classical parabolic smoothing generated by the full Laplacian, it supplies precisely the additional decay needed to compensate for the missing dissipation. The main challenge is to quantify this dispersive stabilization at the nonlinear level and to combine it with the available horizontal dissipation in a manner that yields uniform energy bounds and ultimately global nonlinear stability. Our main result shows that this program can indeed be carried out. More precisely, we establish the global stability of the hydrostatic equilibrium together with explicit anisotropic decay estimates for the perturbation. 
+
+Theorem 1.1. Let k ě 14 . Consider (1.3) with the initial data u0, θ 0 P HkpR2q Ş W 3,1pR2q
+
+and ∇ ¨ u0 “ 0. Then there exists ε ą 0 such that whenever 
+
+}u0}Hk ` } θ0}Hk ` } u0}W 3,1 ` } θ0}W 3,1 ď ε, (1.4) 
+
+the system (1.3) admits a unique global-in-time solution pu, θ q satisfying 
+
+}uptq} 2 
+
+> Hk
+
+` } θptq} 2 
+
+> Hk
+
+`
+
+ż t
+
+> 0
+
+p}B 1upτ q} 2 
+
+> Hk
+
+` }B 1θpτ q} 2 
+
+> Hk
+
+qdτ ď C20 ε2,
+
+for every t ě 0. Moreover, the solution satisfies the following decay estimates: 
+
+}p u1|θqp tq} L2 ď C0εp1 ` tq´ 18 ´η,
+
+}u2ptq} L2 ď C0εp1 ` tq´ 14 ,
+
+}pB 1u1|B 1θqp tq} L2 ď C0εp1 ` tq´ 58 ´η,
+
+}pB 2u1|B 2θqp tq} L2 ď C0εp1 ` tq´ 18 ´η,
+
+}B 1u2ptq} L2 ď C0εp1 ` tq´ 34 ,
+
+}p u1|θqp tq} L4 ď C0εp1 ` tq´ 12 ,
+
+}u2ptq} L4 ď C0εp1 ` tq´ 78 ´η`δ,
+
+}pB 1u|B 1θqp tq} L4 ď C0εp1 ` tq´1`δ,
+
+where the parameters η “ 1120 , δ “ 10 ´5 and C0 is a universal positive constant. 
+
+5Theorem 1.1 establishes the global nonlinear stability of the hydrostatic equilibrium despite the presence of only horizontal dissipation. It shows that the hidden wave structure generated by the buoyancy coupling fundamentally changes the long-time dynamics of the system. Although the available dissipation acts only in the horizontal direction and is by itself insufficient to prevent the rapid growth predicted by standard energy estimates, the dispersive decay associated with the resulting internal gravity waves supplies the missing time integrability needed to close the nonlinear energy estimates. Consequently, the weak anisotropic dissipation, when combined with this dispersive stabilization, is sufficient to recover global stability. Moreover, the theorem provides explicit componentwise decay rates for the velocity and temperature that reflect the anisotropic nature of the underlying stabilization mechanism. The proof is based on the philosophy that the perturbation system should be viewed as a coupled dispersive-dissipative system rather than as the Navier–Stokes equations with an external forcing. The essential difficulty is that the horizontal dissipation alone is far too weak to control the nonlinear evolution. Instead, the missing decay is recovered from the hidden wave structure generated by the coupling between the velocity and temperature equations. The first step of the proof is to uncover the hidden dispersive structure of the pertur-bation system. Rather than analyzing the velocity and temperature equations separately, we combine them into the vector-valued unknown 
+
+v “ p u1, u 2, θ qT
+
+and rewrite (1.3) as an evolution equation for v. After applying an extended Helmholtz projection, the linearized system takes the form 
+
+Btv ` Lv ` rPJ rPv “ 0,
+
+where L “ B 21 I represents the horizontal dissipation and the skew-adjoint operator rPJ rP
+
+encodes the coupling between the velocity and temperature. A direct Fourier analysis shows that the operator ´rPJ rP possesses the eigenvalues 
+
+#
+
+i|ξ1||ξ| , ´i|ξ1||ξ| , 0
+
++
+
+.
+
+6Consequently, the linear solution admits the representation 
+
+T ptqv0pxq “ etB21 etR1 F´1
+
+”
+
+xˆv0,⃗ a 1pξqy C3⃗a 1pξq
+
+ı
+
+pxq` etB21 e´tR1 F´1
+
+”
+
+xˆv0,⃗ a 2pξqy C3⃗a 2pξq
+
+ı
+
+pxq` etB21 F´1
+
+”
+
+xˆv0,⃗ a 3pξqy C3⃗a 3pξq
+
+ı
+
+pxq,
+
+where R1 denotes the Fourier multiplier with symbol i|ξ1|{| ξ|. The factors e˘tR1 de-scribe the propagation of internal gravity waves, while the horizontal heat semigroup etB21
+
+provides the available anisotropic dissipation. Their interaction forms the fundamental dispersive–dissipative mechanism exploited throughout the paper. Using the divergence-free condition, the non-propagating mode corresponding to the zero eigenvalue vanishes identically. Consequently, both the linear and nonlinear solutions can be represented entirely in terms of the two oscillatory wave modes. More precisely, Duhamel’s principle yields the representation 
+
+vptq “ ÿ
+
+> σPt˘u
+
+Sσptqv0 ´
+
+ż t
+
+> 0
+
+Sσpt ´ sqN pvpsqq ds, (1.5) where 
+
+Sσptq “ etB21 eσt R1 Qσ,Qσ denotes the projection onto the eigenspace corresponding to the eigenvalue σi |ξ1||ξ| ,and N pvq denotes the nonlinear terms. The representation (1.5) reveals that the entire nonlinear dynamics is governed by the oscillatory semigroups tS˘ptqu tě0. The heart of the analysis is therefore to establish sharp dispersive decay estimates for these semigroups and to combine them with the available horizontal dissipation in the nonlinear energy estimates. The resulting dispersive decay provides precisely the additional stabilization needed to compensate for the lack of full dissipation and ultimately yields global nonlinear stability. The proof then proceeds in two main steps. First, in Section 3, we establish the linear dispersive estimates for the oscillatory-dissipative semigroups S˘ptq. The key point is that the phase 
+
+˘|ξ1||ξ|
+
+is anisotropic and degenerate in certain frequency regions. We therefore decompose the frequency space according to the relative sizes of |ξ1| and |ξ2|. In the region where the 7oscillatory phase is non-degenerate, stationary phase yields dispersive decay. In the com-plementary region, where the phase degenerates, the horizontal heat kernel etB21 provides the necessary decay. This combination of oscillation and horizontal dissipation leads to the crucial L4 decay estimate for the linear flow. Second, in Section 4, we combine these linear decay estimates with refined nonlinear energy estimates through a bootstrap argument. The bootstrap assumptions include both uniform high-order Sobolev bounds and anisotropic decay estimates for the components of 
+
+pu, θ q and their horizontal and vertical derivatives. Under these assumptions, the disper-sive estimates obtained in Section 3 allow us to control the Duhamel terms and improve all bootstrap bounds by a factor of one half. The standard continuity argument then extends the solution globally in time and yields the decay estimates stated in Theorem 1.1. To place Theorem 1.1 into perspective, we briefly review several closely related devel-opments on the stability of Boussinesq systems with partial dissipation. A first important observation is that the stabilizing mechanism exploited in this paper is genuinely tied to the stratified background: near the trivial equilibrium pU, Θq “ p 0, 0q, the buoyancy force does not stabilize the flow and may in fact drive the growth of solutions. Brandolese and Schonbek [4] showed that, for the viscous Boussinesq system without thermal diffu-sion, the energy of the velocity field may grow in time even for small and well-localized data, in sharp contrast with the decay theory for the Navier–Stokes equations. Kukav-ica and Wang [23] investigated the long-time behavior of the two-dimensional Boussinesq equations with zero diffusivity and obtained quantitative upper bounds on the growth of Sobolev norms of the solution. More recently, Kiselev, Park and Yao [21] proved the formation of small scales for the two-dimensional Boussinesq equations, establishing infinite-in-time growth of higher-order norms of the temperature. These results demon-strate that no decay or even uniform boundedness can be expected near the trivial steady state, and that the stability obtained in this paper is a manifestation of the wave structure generated by the hydrostatic stratification. For perturbations near hydrostatic equilibria, where the coupling between the velocity and the temperature provides an additional stabilizing mechanism, the picture is funda-mentally different. Doering, Wu, Zhao and Zheng [10] initiated the rigorous study of the stability and large-time behavior of the hydrostatic equilibrium for the two-dimensional Boussinesq equations with only kinematic dissipation (and no thermal diffusion), working on a bounded domain with stress-free boundary conditions. In a subsequent paper, Tao, Wu, Zhao and Zheng [33] resolved several questions left open in [10], in particular estab-lishing the velocity decay rates and identifying the eventual temperature profile, this time 8on the periodic domain. Stability has also been established when the viscous dissipation is replaced by weaker damping mechanisms. Wan [34] proved the global well-posedness of the two-dimensional Boussinesq equations with a velocity damping term, Castro, C´ ordoba and Lear [5] established the asymptotic stability of stratified solutions for the damped system, and Kim and Lee [20] further developed the stability theory for the stratified Boussinesq equations with velocity damping. The dispersive stabilization generated by the buoyancy coupling has subsequently been investigated in a variety of partially dissipative Boussinesq models. Ben Said, Pandey and Wu [3] showed that the temperature coupling alone exerts a stabilizing effect on a class of buoyancy-driven flows. Lai, Wu and Zhong [24] established global stability and large-time behavior for the two-dimensional Boussinesq equations with partial (degenerate) dissipation, exploiting the damped wave structure induced by the coupling, while Lai, Wu, Xu, Zhang and Zhong [25] derived optimal decay estimates. Adhikari, Ben Said, Pandey and Wu [1] proved global stability for the two-dimensional Boussinesq system with horizontal dissipation and vertical thermal diffusion, demonstrating how anisotropic dissipation and buoyancy-induced dispersion complement each other. Dong and Sun [12, 13] established the asymptotic stability of the two- and three-dimensional Boussinesq equations without thermal conduction. Subsequent works by Shang and Xu [30], Wu and Zhang [36], Ji, Yan, and Wu [17], Kang, Lee, and Nguyen [19], Fujii and Li [16] and Lin, Wu and Zheng [27] substantially advanced the theory by establishing stability and large-time behavior for anisotropic Boussinesq systems with partial dissipation near hydrostatic equilibrium. We refer the reader to these works and the references therein for further developments. It is worth emphasizing that the stability problem depends crucially on the under-lying spatial domain. For the mixed domain Ω “ T ˆ R, Dong, Wu, Xu and Zhu [11] established the global stability and exponential decay of the two-dimensional anisotropic Boussinesq equations with horizontal dissipation. Their analysis relies on decomposing the solution into its vertical average and oscillatory components and exploiting a Poincar´ einequality for the oscillatory part. Such an approach is unavailable in the whole-space setting R2, where no distinguished zero Fourier mode exists and no Poincar´ e-type in-equality is available. Consequently, the dispersive estimates developed in the present paper must completely replace the stabilizing mechanism provided by the periodic struc-ture. Compared with the previous works, the present paper treats a substantially more delicate regime in which the available dissipation is purely horizontal, the velocity field is considerably more singular, and global stability is achieved almost entirely through the 9dispersive decay generated by the buoyancy coupling. 
+
+Notations. In the d-dimensional Euclidean space Rd, Lp denotes the standard Lebesgue space. The Sobolev space W k,p consists of functions whose weak derivatives up to order k belong to Lp, while the homogeneous Sobolev space 9W k,p is defined by requiring only the highest-order weak derivatives to belong to Lp. When p “ 2, W k,p 
+
+and 9W k,p are also denoted as Hk and 9Hk correspondingly. Given two normed spaces 
+
+N1 and N2 on measure spaces pX1, μ 1q and pX2, μ 2q, respectively, the anisotropic space 
+
+N2pX2, μ 2q N1pX1, μ 1q is defined by first taking the N1-norm in the X1 variable and then the N2-norm in the X2 variable. More precisely, for a function f defined on the product space X1 ˆ X2, we set 
+
+}f }N2pX2,μ 2q N1pX1,μ 1q fi ›› }f px1, x 2q} N1pX1,μ 1q
+
+››N2pX2,μ 2q.
+
+Given two functions f and g, we interpret the symbol }p f |gq} N pX,μ q as follows: 
+
+}p f |gq} N pX,μ q fi }f }N pX,μ q ` } g}N pX,μ q.
+
+The operator Λ si denotes the fractional derivative in the xi-direction, defined via the Fourier transform by 
+
+yΛsi f pξq “ | ξi|s pf pξq, 0 ď s ď 1.
+
+The notation a À b means that there exists a uniform constant C (which may be different in each occurrence), such that a ď Cb .The rest of the paper is organized as follows. In Section 2, we symmetrize the linearized system and derive the explicit semigroup representation of the solution. In Section 3, we collect several useful lemmas and establish the key L4 dispersive estimate for the linear part. In Section 4, we carry out the energy estimates and reduce the proof of Theorem 1.1 to a family of decay estimates. Finally, in Section 5, we prove these decay estimates and complete the proof of Theorem 1.1. 
+
+# 2 Symmetrization of Linear System 
+
+In this section, we perform the symmetrization of the linear system. First, we in-troduce a new unknown function which combines the velocity field with the thermal disturbance 
+
+v fi pu, θ qT “ p u1, u 2, θ qT .
+
+10 Set 
+
+L fi 
+
+¨˚˝
+
+B21 0 00 B21 00 0 B21
+
+˛‹‚, J fi 
+
+¨˚˝
+
+0 0 00 0 ´10 1 0
+
+˛‹‚,
+
+and r∇ fi pB 1, B2, 0qT . Then the original system can be written as 
+
+$’’&’’%
+
+Btv ` Lv ` Jv ` p v ¨ r∇qv ` r∇p “ 0,
+
+r∇ ¨ v “ 0,vp0, x q “ v0pxq.
+
+(2.1) Next, let rP be the extended Helmholtz projection, which is defined by 
+
+rP fi 
+
+˜
+
+pδjk ` Rj Rkq1ďj,k ď2 00 1
+
+¸
+
+.
+
+Here Rj is the Riesz transform defined by the Fourier multiplier i ξj 
+
+> |ξ|
+
+. Applying the ex-tended Helmholtz projection rP to (2.1) gives the following evolution equation: 
+
+$’’&’’%
+
+Btv ` Lv ` rPJ rPv ` rPpv ¨ r∇qv “ 0,
+
+r∇ ¨ v “ 0,vp0, x q “ v0pxq.
+
+(2.2) A direct computation shows that the eigenvalues of ´˜PJ ˜P are 
+
+#
+
+i|ξ1||ξ| , ´i|ξ1||ξ| , 0
+
++
+
+,
+
+and the corresponding eigenvectors t⃗a j u3 
+
+> j“1
+
+are given by ⃗a 1pξq fi 1
+
+?2|ξ1|| ξ|piξ 1ξ2, ´iξ 21 , |ξ1|| ξ|q T ,⃗ a 2pξq fi 1
+
+?2|ξ1|| ξ|p´ iξ 1ξ2, iξ 21 , |ξ1|| ξ|q T ,⃗ a 3pξq fi 1
+
+|ξ|pξ1, ξ 2, 0qT .
+
+Straightforward computation shows that for ξ1 ‰ 0, the eigenvectors t⃗a j u3 
+
+> j“1
+
+define an orthogonal basis in C3, which is the 3-dimensional complex Euclidean space and the inner 11 product is taken as xf, g yC3 “ 3ř
+
+> j“1
+
+fj ¯gj .So the semigroup tT ptqu tě0 generated by the linear operator L ` rPJ rP can be written explicitly by 
+
+T ptqv0pxq “ etB21 etR1 F´1
+
+”
+
+xˆv0,⃗ a 1pξqy C3⃗a 1pξq
+
+ı
+
+pxq` etB21 e´tR1 F´1
+
+”
+
+xˆv0,⃗ a 2pξqy C3⃗a 2pξq
+
+ı
+
+pxq` etB21 F´1
+
+”
+
+xˆv0,⃗ a 3pξqy C3⃗a 3pξq
+
+ı
+
+pxq,
+
+where Rj denote the Fourier multiplier with symbol i|ξj ||ξ| . By the divergence-free condition of u0 and the extended Helmholtz projection of the velocity u¨∇u onto the divergence-free vector field, we get that 
+
+xˆv0,⃗ a 3pξqy C3 “ 0,
+
+xFrrPpv ¨ ˜∇qvs,⃗ a 3pξqy C3 “ 0.
+
+Thus by Duhamel principle, the solution of the nonlinear equation (2.2) can be written as: 
+
+vpt, x q “ etB21 etR1 F´1
+
+”
+
+x ˆv0,⃗ a 1pξqy C3⃗a 1pξq
+
+ı
+
+pxq` etB21 e´tR1 F´1
+
+”
+
+x ˆv0,⃗ a 2pξqy C3⃗a 2pξq
+
+ı
+
+pxq`
+
+ż t
+
+> 0
+
+ept´sqB 21 ept´sqR1 F´1
+
+”
+
+xFrrPpv ¨ r∇qvs,⃗ a 1pξqy C3⃗a 1pξq
+
+ı
+
+pxqds 
+
+`
+
+ż t
+
+> 0
+
+ept´sqB 21 ept´sqR1 F´1
+
+”
+
+xFrrPpv ¨ r∇qvs,⃗ a 2pξqy C3⃗a 2pξq
+
+ı
+
+pxqds. 
+
+Using the explicit expressions of the eigenvectors, we can write the solution as: 
+
+u1 “ ÿ
+
+> σPt˘u
+
+etB21 eσt R1 Qu1 
+
+> σ
+
+pu0, θ 0q ` 
+
+ż t
+
+> 0
+
+ept´sqB 21 eσpt´sqR1 Qu1 
+
+> σ
+
+pPpu ¨ ∇uq, u ¨ ∇θq ds, (2.3) 
+
+u2 “ ÿ
+
+> σPt˘u
+
+etB21 eσt R1 Qu2 
+
+> σ
+
+pu0, θ 0q ` 
+
+ż t
+
+> 0
+
+ept´sqB 21 eσpt´sqR1 Qu2 
+
+> σ
+
+pPpu ¨ ∇uq, u ¨ ∇θq ds, (2.4) 
+
+θ “ ÿ
+
+> σPt˘u
+
+etB21 eσt R1 Qθσpu0, θ 0q ` 
+
+ż t
+
+> 0
+
+ept´sqB 21 eσpt´sqR1 QθσpPpu ¨ ∇uq, u ¨ ∇θq ds, (2.5) 12 where 
+
+Qu1 
+
+> ˘
+
+pu, θ q fi 12
+
+!
+
+´ B22
+
+Λ2 u1 ` B1
+
+Λ
+
+B2
+
+Λ u2 ¯ i B1
+
+Λ1
+
+B2
+
+Λ θ
+
+)
+
+, (2.6) 
+
+Qu2 
+
+> ˘
+
+pu, θ q fi 12
+
+!B2
+
+Λ
+
+B1
+
+Λ u1 ` Λ21
+
+Λ2 u2 ˘ i B1
+
+Λ1
+
+B1
+
+Λ θ
+
+)
+
+, (2.7) 
+
+Qθ
+
+> ˘
+
+pu, θ q fi ˘ i
+
+2
+
+! B1
+
+Λ1
+
+B2
+
+Λ u1 ´ B1
+
+Λ1
+
+B1
+
+Λ u2
+
+)
+
+` 12θ. (2.8) 
+
+# 3 Tool Lemmas and Kernel Function Estimate 
+
+This section makes several preparations. First of all, we introduce the Littlewood-Paley decomposition (3.1). In the next subsection, we will give several useful inequalities which will be frequently used later. After introducing these useful inequalities, we shall present the L4 estimate for the linear system. 
+
+3.1 Littlewood-Paley decomposition 
+
+Choose a radial function φ P SpR2q supported in tξ P R2, 34 ď | ξ| ď 83 u such that 
+
+φpξq “ 1, for 1 ď | ξ| ď 43,
+
+and ÿ
+
+> jPZ
+
+φp2´j ξq “ 1 for all ξ ‰ 0.
+
+For f P S1
+
+> h
+
+pR2q, the frequency localization operator ∆ j is defined by ∆j f “ φp2´j Dqf. 
+
+By localizing f in frequency, we can decompose f as 
+
+f “ ÿ
+
+> jPZ
+
+∆j f. (3.1) 
+
+3.2 Some Tool Lemmas 
+
+The following Bernstein’s lemma which is related to the Littlewood-paley decompo-sition will be repeatedly used throughout this paper. 13 Lemma 3.1. Let C be an annulus and B a ball. A constant C exists such that for any nonnegative integer k, any couple pp, q q in r1, 8s 2 with q ě p ě 1, and any function u in 
+
+Lp, we have 
+
+Supp ˆ u Ă λB ùñ } Dku}Lq fi sup 
+
+> |α|“ k
+
+}B αu}Lq ď Ck`1λk`dp 1   
+
+> p´1
+> qq
+
+}u}Lp ,
+
+Supp ˆ u Ă λC ùñ C´k´1λk}u}Lp ď } Dku}Lp ď Ck`1λk}u}Lp .
+
+We state in the following lemma the fractional Leibniz rule and relevant commutator estimates. These inequalities are commonly named the Kato-Ponce inequalities, which are of great utility for product estimates and will be met while dealing with nonlinear terms. The proofs of these inequalities are given in [26]. 
+
+Lemma 3.2. Let f, g P SpRdq, let s ą 0, then there holds: 
+
+}Dspf g q} Lp ď Cs,d,p 1,p 2,p 3,p 4 p} Dsf }Lp1 }g}Lp2 ` } f }Lp3 }Dsg}Lp4 q,
+
+}Dspf g q ´ f D sg}Lp ď Cs,d,p 1,p 2,p 3,p 4 p} Dsf }Lp1 }g}Lp2 ` } Df }Lp3 }Ds´1g}Lp4 q,
+
+where 1
+
+p “ 1
+
+p1
+
+` 1
+
+p2
+
+“ 1
+
+p3
+
+` 1
+
+p4
+
+, 1 ă p ă 8 , 1 ă p1, p 2, p 3, p 4 ď 8 
+
+and Cs,d,p 1,p 2,p 3,p 4 is a constant depending only on s, d, p 1, p 2, p 3, p 4.
+
+The following lemma provides the decay estimate for a convolution-type integral which will be used when we investigate the decay for the nonlinear Duhamel integral. Its proof can be found in [28]. 
+
+Lemma 3.3. Assume α ě 1, β ą 1. Then, for some constant C ą 0 and t ą 1, we have 
+
+ż t´10
+
+pt ´ τ q´αp1 ` τ q´β dτ ď
+
+$&%
+
+Cp1 ` tq´α, α ď β, Cp1 ` tq´β , α ą β. (3.2) 
+
+Assume α ă 1. Then, for some constant C ą 0, we have 
+
+ż t
+
+> 0
+
+pt ´ τ q´αp1 ` τ q´β dτ ď
+
+$’’’&’’’%
+
+Cp1 ` tq´α, β ą 1,Cp1 ` tq´α ln p1 ` tq, β “ 1,Cp1 ` tq1´α´β , β ă 1.
+
+(3.3) 14 The heat semigroup estimate is frequently used in the following text, the proof of which can be found in [28]. 
+
+Lemma 3.4. Let σ ě 0, α ą 0, ν ą 0, 1 ď p ď q ď 8 . Then 
+
+}Λσe´νp´ ∆qαtf }Lq pRdq ď Ct ´ σ   
+
+> 2α´d
+> 2α
+
+p 1   
+
+> p´1
+> q
+
+q}f }LppRdq.
+
+The next lemma provides an inequality which reflects the action of the heat flow on spectrally supported functions. One may refer to [2] for the detailed proof. 
+
+Lemma 3.5. There exist absolute positive constants c and C such that 
+
+}e∆t∆j u}LppRdq ď Ce ´c22j t}∆j u}LppRdq
+
+for all j P Z, t ą 0. Moreover, for any s ą 0, there exists a positive constant C “ Cpsq
+
+such that ÿ
+
+> jPZ
+
+2sj }e∆t∆j u}LppRdq ď Ct ´ s 
+
+> 2
+
+sup 
+
+> jPZ
+
+}∆j u}LppRdq.
+
+3.3 The linear estimate 
+
+This subsection aims to establish linear estimates, specifically an L4 estimate for the linear part that couples the dispersive and dissipative effects. Recall the representation formula for solutions to the linear part: 
+
+ulin  
+
+> 1
+
+fi ÿ
+
+> σPt˘u
+
+etB21 eσt R1 Qu1 
+
+> σ
+
+pu0, θ 0q, ulin  
+
+> 2
+
+fi ÿ
+
+> σPt˘u
+
+etB21 eσt R1 Qu2 
+
+> σ
+
+pu0, θ 0q,θlin fi ÿ
+
+> σPt˘u
+
+etB21 eσt R1 Qθσpu0, θ 0q,
+
+where Qu1 , Qu2 and Qθ are defined in (2.6)–(2.8). By Young’s convolution inequality, it is direct to obtain that the Riesz transform (when d “ 1, it is the Hilbert transform) is uniformly bounded in the sense that there exists a constant C ą 0 independent of j such that: 
+
+}Rj ∆j f }LppRdq ď C}∆j f }LppRdq for all 1 ď p ď 8 . (3.4) So the linear estimate is reduced to the decay estimate for the kernel epB 21 `R1qt. For simplicity, let us study the following linear equation, whose solution is generated by the 15 semigroup epB 21 `R1qt,
+
+#Btf ´ B 21 f ´ R1f “ 0, t ą 0,f px, 0q “ f0pxq. (3.5) Roughly speaking, we divide the frequency space into two parts, |ξ1| ď | ξ2| and |ξ2| ď | ξ1|.In the first case, the kernel ei ξ1  
+
+> |ξ|t
+
+is non-degenerate, so it can make a better dispersive decay estimate; in the second case, the kernel ei ξ1  
+
+> |ξ|t
+
+is degenerate, it can only make a degenerate dispersive estimate, but the 1-D kernel e´ξ21 t behaves as the 2-D kernel e´p ξ21 `ξ22 qt.In order to investigate the dispersive estimate, we use the stationary phase estimate of oscillatory integrals under small perturbations. Its proof can be found in [32]. 
+
+Lemma 3.6. Let d ě 1 be an integer. Let ψ P C8 
+
+> c
+
+pRdq and let U be a neighborhood of supp ψ. Let Φ P C8pU ; Rq satisfy 
+
+rank p∇2Φpξqq ě k, ξ P supp tψu,
+
+for some k P t 1, . . . d u. Then there exist two positive constants ε “ εpd, ψ, Φq and C “
+
+Cpd, ψ, Φq such that 
+
+ˇˇˇˇż
+
+> Rd
+
+eix ¨ξeit pΦpξq` Ψpξqq ψpξqdξ 
+
+ˇˇˇˇ ď Cp1 ` | t|q ´ k 
+
+> 2
+
+,
+
+for all t P R, x P Rd and Ψ P C8pU ; Rq satisfying }Ψ}Cd`3psupp tψuq ď ε.
+
+In the next lemma, we establish the localized L2 estimate and L8 estimate for the semigroup epB 21 `R1qt.
+
+Lemma 3.7. For f0 P L1pR2q Ş L2pR2q, we have 
+
+}epB 21 `R1qt∆j f0}L2 À } ∆j f0}L2 , (3.6) 
+
+}epB 21 `R1qt∆j f0}L8 À p 22j p1 ` tq´1 ` 22j e´c22j tp1 ` tq´ 12 q} ∆j f0}L1 . (3.7) Proof: According to lemma 3.1 and Plancherel’s Theorem, it is straightforward to obtain that 
+
+}epB 21 `R1qt∆j f0}L2 “} ei |ξ1||ξ| te´ξ21 tφp2´j ξq ˆf0}L2 À } ∆j f0}L2 .
+
+Then we show the proof of (3.7) by virtue of Lemma 3.4. For the kernel ei |ξ1||ξ| t, its phase 16 function |ξ1||ξ| is not smooth at ξ1 “ 0, so in order to use Lemma 3.6, we write it as 
+
+ei |ξ1||ξ| t “ 1 ` sgn pξ1q
+
+2 ei ξ1  
+
+> |ξ|t
+
+` 1 ´ sgn pξ1q
+
+2 e´i ξ1 
+
+> |ξ|t
+
+,
+
+where sgn pξ1q is the sign function of ξ1, which is the symbol of the Hilbert transform. So by the boundedness of the Hilbert transform (3.4), we get 
+
+}epB 21 `R1qt∆j f0}L8 À } epB 21 `R1qt∆j f0}L8 .
+
+A direct computation gives the Hessian (in ξ) of ϕ fi ξ1 
+
+> |ξ|
+
+as 
+
+Hϕpξq “ | ξ|´5
+
+˜
+
+´3ξ1ξ22 ξ2p2ξ21 ´ ξ22 q
+
+ξ2p2ξ21 ´ ξ22 q ´ξ1pξ21 ´ 2ξ22 q
+
+¸
+
+with determinant ´ ξ22 
+
+> |ξ|6
+
+.Since the kernel function ϕ has a degenerate point ξ2 “ 0, in order to achieve better decay rate, we introduce a smooth bump function ψ1 : R Ñ R satisfying: 
+
+ψ1pξ1q “ 1, 13 ď | ξ1| ď 3,
+
+and 
+
+ψ1pξ1q “ 0, |ξ1| ď 14 or |ξ1| ě 4.
+
+Let ψ2pξ1q “ 1 ´ ψ1pξ1q. Then it is easy to verify that Supp tψ1pξqφpξqu Ă 
+
+!
+
+ξ P R2
+
+ˇˇˇ 34 ď | ξ| ď 83, 14 ď | ξ1| ď 83
+
+)
+
+and Supp tψ2pξqφpξqu Ă 
+
+!
+
+ξ P R2
+
+ˇˇˇ 34 ď | ξ| ď 83, |ξ1| ď 13,
+
+?65 12 ď | ξ2| ď 83
+
+)
+
+.
+
+For the L8 estimate of ∆ j f0, we use the Young’s inequality for convolution to obtain that 
+
+}epB 21 `R1qt∆j f0}L8 “} epB 21 `R1qtpψ1p2´j D1q ` ψ2p2´j D1qq ∆j f0}L8
+
+À}p ei ξ1  
+
+> |ξ|t
+
+˜φp2´j ξqq _ ˚ eB21 tψ1p2´j D1q∆j f0}L8
+
+` }p ei ξ1 
+
+> |ξ|t
+
+ψ2p2´j ξ1q ˜φp2´j ξqq _ ˚ eB21 t∆j f0}L8
+
+17 À}p ei ξ1  
+
+> |ξ|t
+
+˜φp2´j ξqq _}L8 }eB21 tψ1p2´j D1q∆j f0}L1
+
+` }p ei ξ1 
+
+> |ξ|t
+
+ψ2p2´j ξq ˜φp2´j ξqq _}L8 }∆j f0}L1
+
+fi A1 ` A2,
+
+where ˜ φ is a slightly “fattened” bump function (which equals 1 on the support of φ)satisfying ˜φpξq “ 0, |ξ| ď 12 or |ξ| ě 25 9 .
+
+By the definition of ˜ φpξq, we can obtain that Supp tψ2pξq ˜φpξqu Ă 
+
+!
+
+ξ P R2
+
+ˇˇˇ 12 ď | ξ| ď 25 9 , |ξ1| ď 13,
+
+?56 ď | ξ2| ď 25 9
+
+)
+
+.
+
+For the first term A1, by scaling, we can obtain 
+
+F´1
+
+”
+
+pei ξ1  
+
+> |ξ|t
+
+˜φp2´j ξqq 
+
+ı
+
+pxq “ 
+
+ż
+
+> R2
+
+eix ¨ξei ξ1  
+
+> |ξ|t
+
+˜φp2´j ξqdξ 
+
+“22j
+
+ż
+
+> |ξ|„ 1
+
+ei2j x¨ξei ξ1 
+
+> |ξ|t
+
+φpξqdξ 
+
+“22j
+
+ż
+
+> |ξ|„ 1
+
+ei2j x¨ξeiϕ pξqtφpξqdξ, 
+
+by Lemma 3.6, we have 
+
+ˇˇˇż
+
+> |ξ|„ 1
+
+eip2j xq¨ ξei ξ1 
+
+> |ξ|t
+
+φpξqdξ 
+
+ˇˇˇ À p 1 ` tq´ 12 .
+
+The kernel function ϕ is degenerate, but we can use the heat kernel to obtain the decay. By the definition of cut-off operator ψ1 and Lemma 3.5, we have 
+
+}eB21 tψ1p2´j D1q∆j f0}L1 À e´c22j t}∆j f0}L1 .
+
+As a result, by Lemma 3.5, 
+
+A1 À 22j e´c22j tp1 ` tq´ 12 . (3.8) For the second term, by scaling 
+
+pp ei ξ1 
+
+> |ξ|t
+
+ψ2p2´j ξ1q ˜φp2´j ξqq _pxq“
+
+ż
+
+> R2
+
+eix ¨ξei ξ1 
+
+> |ξ|t
+
+ψ2p2´j ξ1q ˜φp2´j ξqdξ 
+
+18 “22j
+
+ż 
+
+> |ξ|„ 1,|ξ2|„ 1
+
+eip2j xq¨ ξei ξ1 
+
+> |ξ|t
+
+ψ2pξ1q ˜φpξqdξ 
+
+“22j
+
+ż 
+
+> |ξ|„ 1,|ξ2|„ 1
+
+eip2j xq¨ ξeiϕ pξqtψ2pξ1q ˜φpξqdξ. 
+
+Owing to the presence of ψ2, the kernel function ϕ is non-degenerate, so by Lemma 3.6, we get 
+
+ˇˇˇż 
+
+> |ξ|„ 1,|ξ2|„ 1
+
+ei2j x¨ξeiϕ pξqtφpξqdξ 
+
+ˇˇˇ À p 1 ` tq´1. (3.9) This leads to 
+
+A2 À 22j p1 ` tq´1}∆j f0}L1 . (3.10) Combining these two estimates (3.8) and (3.9) for A1 and A2 yields the desired bound (3.7). In order to obtain the Lp p1 ă p ă 8q estimate, we need to use the following Riesz-Th¨ orin interpolation Theorem, the proof of which can be found in [15]. 
+
+Lemma 3.8. Suppose that (X, M, μ) and (Y, N, ν) are measure spaces and p0, p 1, q 0, q 1 Pr1, 8s . If q0 “ q1 “ 8 , suppose also that ν is semifinite. For 0 ă t ă 1, define pt and qt
+
+by 1
+
+pt
+
+“ 1 ´ tp0
+
+` tp1
+
+, 1
+
+qt
+
+“ 1 ´ tq0
+
+` tq1
+
+.
+
+If T is a linear map from Lp0 pμq ` Lp1 pμq into Lq0 pνq ` Lq1 pνq such that 
+
+}T f }q0 ď M0}f }p0 , @f P Lp0 pμq,
+
+and 
+
+}T f }q1 ď M1}f }p1 , @f P Lp1 pμq,
+
+then 
+
+}T f }qt ď M 1´t 
+
+> 0
+
+M t
+
+> 1
+
+}f }pt , @f P Lpt pμq.
+
+Using Lemma 3.8 and the estimate in Lemma 3.7, we can obtain the following L4
+
+estimate for the linear equation (3.5). 
+
+Proposition 3.9. If f0 P W 1`γ, 43 , the solution f of equation (3.5) has the following decay estimate: 
+
+}f }L4 À p 1 ` tq´ 12 }f0}W 1`γ, 43 , (3.11) 19 where the parameter γ “ 10 ´5.
+
+Proof : By Lemma 3.8 and Lemma 3.7, we get 
+
+}epB 21 `R1qt∆j f0}L4 À p 2j p1 ` tq´ 12 ` 2j e´c22j tp1 ` tq´ 14 q} ∆j f0}L 43 . (3.12) Therefore 
+
+}f }L4 À ÿ
+
+> jPZ
+
+}epB 21 `R1qt∆j f0}L4
+
+À ÿ
+
+> jPZ
+
+p2 j 
+
+> 2
+
+` 2j qp 1 ` tq´ 12 }∆j f0}L 43
+
+Àp 1 ` tq´ 12 p} f0}L 43 ` } Λ1`γ f0}L 43 qÀp 1 ` tq´ 12 }f0}W 1`γ, 43 .
+
+Thus we complete the proof of (3.11). 
+
+# 4 Energy estimate and Proof of Theorem 1.1 
+
+In the next two sections, we prove Theorem 1.1. Since the local well-posedness of (1.3) can be obtained by a standard approach such as Friedrichs’ method of cutoff in Fourier space, we focus on deriving the global bounds of u and θ.The argument is based on a bootstrap approach combined with refined energy esti-mates that yield global-in-time decay and stability. 
+
+Bootstrap assumptions. We assume that there exists a constant C0 ą 0 such that for all t P r 0, T q, the solution satisfies the following uniform bounds: 
+
+}p u|θqp tq} Hk ď C0ε, (4.1) 
+
+}B α 
+
+> 1
+
+pu1|θqp tq} L2 ď C0εp1 ` tq´ 1`4α 
+
+> 8´η
+
+, (4.2) 
+
+}B α 
+
+> 1
+
+pu1|θqp tq} L4 ď C0εp1 ` tq´ 1`p 1´δqα 
+
+> 2
+
+, (4.3) 
+
+}B α 
+
+> 1
+
+u2ptq} L2 ď C0εp1 ` tq´ 1`2α 
+
+> 4
+
+, (4.4) 
+
+}u2ptq} L4 ď C0εp1 ` tq´ 78 ´η`δ, (4.5) 
+
+}B α 
+
+> 1
+
+B2pu1|θqp tq} L2 ď C0εp1 ` tq´ 1`4α 
+
+> 8´η
+
+, (4.6) where the parameters α P t 0, 1u, η “ 1120 and δ “ 10 ´5.
+
+Improved estimates. Based on the initial condition (1.4) and the above a priori bounds, 20 we will establish the improved estimates 
+
+}p u|θqp tq} Hk ď 12C0ε, (4.7) 
+
+}B α 
+
+> 1
+
+pu1|θqp tq} L2 ď 12C0εp1 ` tq´ 1`4α 
+
+> 8´η
+
+, (4.8) 
+
+}B α 
+
+> 1
+
+pu1|θqp tq} L4 ď 12C0εp1 ` tq´ 1`p 1´δqα 
+
+> 2
+
+, (4.9) 
+
+}B α 
+
+> 1
+
+u2ptq} L2 ď 12C0εp1 ` tq´ 1`2α 
+
+> 4
+
+, (4.10) 
+
+}u2ptq} L4 ď 12C0εp1 ` tq´ 78 ´η`δ, (4.11) 
+
+}B α 
+
+> 1
+
+B2pu1|θqp tq} L2 ď 12C0εp1 ` tq´ 1`4α 
+
+> 8´η
+
+. (4.12) Once (4.7)—(4.12) are established, a standard bootstrap argument implies that the max-imal existence time satisfies T “ 8 , and hence all decay estimates hold globally in time. 
+
+4.1 Estimate for }p u|θq} Hk
+
+In this section, we will verify (4.7) first. By virtue of the norm equivalence 
+
+}p u|θq} Hk „ }p u|θq} L2 ` }p u|θq} 9Hk ,
+
+it suffices to bound the L2 norm and 9Hk norm of u and θ. The L2 energy estimate for u
+
+and θ is standard, 
+
+}p u|θqp tq} 2 
+
+> L2
+
+` 2
+
+ż t
+
+> 0
+
+}B 1upτ q} 2 
+
+> L2
+
+dτ ` 2
+
+ż t
+
+> 0
+
+}B 1θpτ q} 2 
+
+> L2
+
+dτ “ }p u0|θ0q} 2 
+
+> L2
+
+.
+
+Applying Bkm (with m P t 1, 2u) to the equation of u and θ, then taking the L2 inner product with Bkmu and Bkmθ respectively. Adding the resulting estimates together and integrating from 0 to t, we get 
+
+}p u|θqp tq} 2 
+
+> Hk
+
+` 2
+
+ż t
+
+> 0
+
+}B 1upτ q} 2 
+
+> Hk
+
+dτ ` 2
+
+ż t
+
+> 0
+
+}B 1θpτ q} 2 
+
+> Hk
+
+dτ 
+
+“}p u0|θ0q} 2 
+
+> Hk
+
+´ 2
+
+ż t
+
+> 0
+
+pB1 ` B2 ` B3 ` B4qp τ qdτ, 
+
+(4.13) where 
+
+B1 “ pB k 
+
+> 1
+
+pu ¨ ∇uq, Bk 
+
+> 1
+
+uqL2 ` pB k 
+
+> 2
+
+pu ¨ ∇u2q, Bk 
+
+> 2
+
+u2qL2 ,
+
+21 B2 “ pB k 
+
+> 1
+
+pu ¨ ∇θq, Bk 
+
+> 1
+
+θqL2 ,B3 “ pB k 
+
+> 2
+
+pu ¨ ∇θq, Bk 
+
+> 2
+
+θqL2 ,B4 “ pB k 
+
+> 2
+
+pu ¨ ∇u1q, Bk 
+
+> 2
+
+u1qL2 .
+
+Now we estimate each term on the right-hand side of (4.13). For 
+
+B1 “
+
+> 2
+
+ÿ
+
+> i“1
+> k
+
+ÿ
+
+> j“1
+
+Cjk pB j
+
+> 1
+
+uiBiBk´j 
+
+> 1
+
+u, Bk 
+
+> 1
+
+uqL2 `
+
+> 2
+
+ÿ
+
+> i“1
+> k
+
+ÿ
+
+> j“1
+
+Cjk pB j
+
+> 2
+
+uiBiBk´j 
+
+> 2
+
+u2, Bk 
+
+> 2
+
+u2qL2 ,
+
+by divergence-free condition of u, H¨ older’s inequality, it is easy to derive that 
+
+|B1| À } u}Hk }B 1u}2 
+
+> Hk
+
+.
+
+Similarly, B2 can be estimated by analogy with B1:
+
+|B2| À }p u|θq} Hk }pB 1u|B 1θq} 2 
+
+> Hk
+
+.
+
+We now focus on the estimation of B3. Since u satisfies the divergence-free condition, we can get 
+
+|B3| “|pB k 
+
+> 2
+
+pu ¨ ∇θq ´ u ¨ ∇Bk 
+
+> 2
+
+θ, Bk 
+
+> 2
+
+θqL2 |À|pB k 
+
+> 2
+
+pu1B1θq ´ u1B1Bk 
+
+> 2
+
+θ, Bk 
+
+> 2
+
+θqL2 | ` |pB k 
+
+> 2
+
+pu2B2θq ´ u2Bk`12 θ, Bk 
+
+> 2
+
+θqL2 |
+
+fi B31 ` B32 .
+
+For B31 , by H¨ older’s inequality, Lemma 3.2 we can bound it by: 
+
+B31 À}pB k 
+
+> 2
+
+pu1B1θq ´ u1B1Bk 
+
+> 2
+
+θq} L2  
+
+> x1pL2
+> x2q
+
+}B k 
+
+> 2
+
+θ}L2
+
+À
+
+´› ››}B 2u1}L4 
+
+> x2
+
+}B 1Bk´12 θ}L4
+
+> x2
+
+›››L2
+
+> x1
+
+`
+
+›››}B k 
+
+> 2
+
+u1}L2 
+
+> x2
+
+}B 1θ}L8
+
+> x2
+
+›››L2
+
+> x1
+
+¯
+
+}B k 
+
+> 2
+
+θ}L2
+
+À}B 2u1}L8  
+
+> x1pL4
+> x2q
+
+}B 1Bk´12 θ}L2  
+
+> x1pL4
+> x2q
+
+}B k 
+
+> 2
+
+θ}L2 ` }B k 
+
+> 2
+
+u1}L4  
+
+> x1pL2
+> x2q
+
+}B 1θ}L4  
+
+> x1pL8
+> x2q
+
+}B k 
+
+> 2
+
+θ}L2
+
+fi B311 ` B312 .
+
+For the first term B311 , by Minkowski’s inequality, interpolation and Young’s inequality, we get 
+
+B311 À}B 2u1}34 
+
+> L4
+
+}B 1B2u1}14 
+
+> L4
+
+}B 1Bk´12 θ}34 
+
+> L2
+
+}B 1Bk 
+
+> 2
+
+θ}14 
+
+> L2
+
+}B k 
+
+> 2
+
+θ}L2
+
+À}B 2u1}32 
+
+> L4
+
+}B 1B2u1}12 
+
+> L4
+
+}B k 
+
+> 2
+
+θ}L2 ` }B 1Bk´12 θ}32 
+
+> L2
+
+}B 1Bk 
+
+> 2
+
+θ}12 
+
+> L2
+
+}B k 
+
+> 2
+
+θ}L2
+
+22 À} u1}3k´62k´2
+
+L4 }B k´12 u1} 32k´2
+
+L4 }B 1u1} k´32k´4
+
+L4 }B 1Bk´22 u1} 12k´4
+
+L4 }B k
+
+2 θ}L2 ` } θ}Hk }B 1θ}2
+
+Hk
+
+À} u1}3k´62k´2
+
+L4 }B 1u1} k´32k´4
+
+L4 }p u|θq} 
+
+> 2k2´2k´32k2´6k`4
+
+Hk ` } θ}Hk }B 1θ}2
+
+Hk .
+
+For the term B312 , applying Minkowski’s inequality, Young’s inequality and related inter-polation tools, we can obtain that 
+
+B312 À}B k
+
+2 u1}34
+
+L2 }B 1Bk
+
+2 u1}14
+
+L2 }B 1θ}34
+
+L4 }B 1B2θ}14
+
+L4 }B k
+
+2 θ}L2
+
+À}B k
+
+2 u1}6
+
+L2 }B 1Bk
+
+2 u1}2
+
+L2 ` }B 1θ}67
+
+L4 }B 1B2θ}27
+
+L4 }B k
+
+2 θ}87
+
+L2
+
+À}B 1θ}56 k´126 49 k´98 
+
+L4 }B 1Bk´22 θ} 27k´14 
+
+L4 }B k
+
+2 θ}87
+
+L2 ` } u}6
+
+Hk }B 1u}2
+
+Hk
+
+À}B 1θ}56 k´126 49 k´98 
+
+L4 }θ}56 k´98 49 k´98 
+
+Hk ` } u}6
+
+Hk }B 1u}2
+
+Hk .
+
+For B32 , the estimation follows the same lines as that for B31 .
+
+B32 À}pB k
+
+2 pu2B2θq ´ u2Bk`12 θq} L2 }B k
+
+2 θ}L2
+
+À}B 1u1}34
+
+L4 }B 1B2u1}14
+
+L4 }B k
+
+2 θ}34
+
+L2 }B 1Bk
+
+2 θ}14
+
+L2 }B k
+
+2 θ}L2
+
+` }B 1Bk´12 u1}34
+
+L2 }B 1Bk
+
+2 u1}14
+
+L2 }B 2θ}34
+
+L4 }B 1B2θ}14
+
+L4 }B k
+
+2 θ}L2
+
+À}B 1u1}56 k´126 49 k´98 
+
+L4 }p u|θq} 56 k´98 49 k´98 
+
+Hk ` } θ}6
+
+Hk }B 1θ}2
+
+Hk
+
+` } θ}3k´62k´2
+
+L4 }B 1θ} k´32k´4
+
+L4 }θ}
+
+> 2k2´2k´32k2´6k`4
+
+Hk ` } u}Hk }B 1u}2
+
+Hk .
+
+Using the same argument as B3, we can bound B4 by: 
+
+B4 À}B 1u1}56 k´126 49 k´98 
+
+L4 }u}56 k´98 49 k´98 
+
+Hk ` } u}6
+
+Hk }B 1u}2
+
+Hk
+
+` } u}3k´62k´2
+
+L4 }B 1u} k´32k´4
+
+L4 }u}
+
+> 2k2´2k´32k2´6k`4
+
+Hk ` } u}Hk }B 1u}2
+
+Hk .
+
+Thus collecting these above estimates, we obtain the energy inequality: 
+
+}p u, θ qp tq} 2
+
+Hk ` 2
+
+ż t
+
+0
+
+}B 1upτ q} 2
+
+Hk dτ ` 2
+
+ż t
+
+0
+
+}B 1θpτ q} 2
+
+Hk dτ 
+
+ď}p u0, θ 0q} 2
+
+Hk `
+
+ż t
+
+0
+
+C}p u|θq} Hk }pB 1u|B 1θq} 2
+
+Hk ` C}p u|θq} 6
+
+Hk }pB 1u|B 1θq} 2
+
+Hk dτ 
+
+`
+
+ż t
+
+0
+
+C}p u|θq} 3k´62k´2
+
+L4 }pB 1u|B 1θq} k´32k´4
+
+L4 }p u|θq} 
+
+> 2k2´2k´32k2´6k`4
+
+Hk ` C}pB 1u1|B 1θq} 56 k´126 49 k´98 
+
+L4 }θ}56 k´98 49 k´98 
+
+Hk dτ. 
+
+(4.14) 23 By substituting (4.1)—(4.6) into (4.14) and combining the initial condition (1.4), we can get 
+
+}p u|θqp tq} 2 
+
+> Hk
+
+` 2
+
+ż t
+
+> 0
+
+}B 1upτ q} 2 
+
+> Hk
+
+dτ ` 2
+
+ż t
+
+> 0
+
+}B 1θpτ q} 2 
+
+> Hk
+
+dτ 
+
+ďCε 
+
+ż t
+
+> 0
+
+}B 1upτ q} 2 
+
+> Hk
+
+dτ ` Cε 
+
+ż t
+
+> 0
+
+}B 1θpτ q} 2 
+
+> Hk
+
+dτ ` ε2 ` 2CC 30 ε3 ` 2CC 16 7 
+
+> 0
+
+ε16 7 .
+
+(4.15) For ε sufficiently small such that 
+
+Cε ď 1, 2CC 30 ε ď 1, 2CC 16 7 
+
+> 0
+
+ε27 ď 1,
+
+we can deduce, taking the universal constant C0 ě 6, 
+
+}p u|θqp tq} 2 
+
+> Hk
+
+`
+
+ż t
+
+> 0
+
+}B 1upτ q} 2 
+
+> Hk
+
+dτ `
+
+ż t
+
+> 0
+
+}B 1θpτ q} 2 
+
+> Hk
+
+dτ ď 3ε2,
+
+that is 
+
+}p u|θqp tq} Hk `
+
+´ ż t
+
+> 0
+
+}B 1upτ q} 2 
+
+> Hk
+
+dτ 
+
+¯12
+
+`
+
+´ ż t
+
+> 0
+
+}B 1θpτ q} 2 
+
+> Hk
+
+dτ 
+
+¯12
+
+ď 3ε ď C0
+
+2 ε, 
+
+thus we finish the proof of (4.7). In the next section, we will establish the decay estimate (4.8)—(4.12). 
+
+# 5 Decay estimate 
+
+To establish the decay estimate of u and θ, let us recall the formulations of u and θ,
+
+u1 “ ÿ
+
+> σPt˘u
+
+etB21 eσt R1 Qu1 
+
+> σ
+
+pu0, θ 0q ` 
+
+ż t
+
+> 0
+
+ept´sqB 21 eσpt´sqR1 Qu1 
+
+> σ
+
+pPpu ¨ ∇uq, u ¨ ∇θq ds, u2 “ ÿ
+
+> σPt˘u
+
+etB21 eσt R1 Qu2 
+
+> σ
+
+pu0, θ 0q ` 
+
+ż t
+
+> 0
+
+ept´sqB 21 eσpt´sqR1 Qu2 
+
+> σ
+
+pPpu ¨ ∇uq, u ¨ ∇θq ds, θ “ ÿ
+
+> σPt˘u
+
+etB21 eσt R1 Qθσpu0, θ 0q ` 
+
+ż t
+
+> 0
+
+ept´sqB 21 eσpt´sqR1 QθσpPpu ¨ ∇uq, u ¨ ∇θq ds, 
+
+where Qu1 , Qu2 and Qθ are defined in (2.6)–(2.8). 24 5.1 L2 estimate of Bα
+
+1 u1 and Bα
+
+1 θ
+
+Taking the L2 norm of Bα 
+
+> 1
+
+u1, using the boundedness of the Riesz transform and the 
+
+L2 isometry of the Fourier transform: 
+
+}B α 
+
+> 1
+
+pu1|θq} L2
+
+À} etB21 eσt R1 Bα 
+
+> 1
+
+Qu1 
+
+> σ
+
+pu0, θ 0q} L2 `
+
+ż t
+
+> 0
+
+}ept´sqB 21 eσpt´sqR1 Bα 
+
+> 1
+
+Qu1 
+
+> σ
+
+pPpu ¨ ∇uq, u ¨ ∇θq} L2 dτ 
+
+` } etB21 eσt R1 Bα 
+
+> 1
+
+Qθσpu0, θ 0q} L2 `
+
+ż t
+
+> 0
+
+}ept´sqB 21 eσpt´sqR1 Bα 
+
+> 1
+
+QθσpPpu ¨ ∇uq, u ¨ ∇θq} L2 dτ 
+
+À} etB21 Bα 
+
+> 1
+
+pu0|θ0q} L2 `
+
+ż t
+
+> 0
+
+}ept´τ qB 21 Bα 
+
+> 1
+
+pu ¨ ∇θq} L2 dτ `
+
+ż t
+
+> 0
+
+}ept´τ qB 21 Bα 
+
+> 1
+
+pu ¨ ∇u1q} L2 dτ 
+
+`
+
+ż t
+
+> 0
+
+}ept´τ qB 21 Bα 
+
+> 1
+
+pu ¨ ∇u2q} L2 dτ 
+
+fi }etB21 Bα 
+
+> 1
+
+pu0|θ0q} L2 ` D1 ` D2 ` D3.
+
+By Lemma 3.4 and interpolation, the linear term admits a straightforward decay estimate, 
+
+}etB21 Bα 
+
+> 1
+
+pu0|θ0q} L2 À p 1 ` tq´ 1`2α 
+
+> 4
+
+p}p u0|θ0q} L2   
+
+> x2pL1
+> x1q
+
+` }B α 
+
+> 1
+
+pu0|θ0q} L2 qÀ p 1 ` tq´ 1`2α 
+
+> 4
+
+p}p u0|θ0q} W 2,1 ` }p u0|θ0q} H2 qÀ εp1 ` tq´ 1`α 
+
+> 4
+
+.
+
+For the term D1, by Lemma 3.4, we get 
+
+ż t
+
+> 0
+
+}eB21 pt´τ qBα 
+
+> 1
+
+pu ¨ ∇θq} L2 dτ 
+
+À
+
+ż t
+
+> 0
+
+}eB21 pt´τ qBα 
+
+> 1
+
+pu1B1θ ` u2B2θq} L2 dτ 
+
+À
+
+ż t
+
+> 0
+
+pt ´ τ q´ 1`4α 
+
+> 8´η
+
+p} u1B1θ}L2  
+
+> x2pL
+> 43`8ηx1q
+
+` } u2B2θ}L2  
+
+> x2pL
+> 43`8ηx1q
+
+qdτ 
+
+fi 
+
+ż t
+
+> 0
+
+pt ´ τ q´ 1`4α 
+
+> 8´η
+
+pD11 ` D12 qp τ qdτ. 
+
+For the term D11 , by Minkowski’s inequality, H¨ older’s inequality and interpolation, we can obtain that 
+
+D11 pτ q À 
+
+›››}u1}L4 
+
+> x2
+
+}B 1θ}L4
+
+> x2
+
+›››L
+
+> 43`8ηx1
+
+25 À} u1}L 
+
+> 41`8ηx1
+
+pL4 
+
+> x2
+
+q
+
+}B 1θ}L2 
+
+> x1
+
+pL4 
+
+> x2
+
+q
+
+À} u1}1´2ηL 41`8η
+
+}B 2u1}2ηL 41`8η
+
+}B 1θ}34
+
+L2 }B 1B2θ}14
+
+L2
+
+À} u1}p1´8ηqp 1´2ηq
+
+L4 }u1}8ηp1´2ηq
+
+L2 }B 2u1}p1´8ηq2ηL4
+
+ˆ }B 2u1}8η¨2ηL2 }B 1θ}34
+
+L2 }B 1B2θ}14
+
+L2
+
+À} u1}p1´8ηqp 1´2ηq
+
+L4 }u1}8ηp1´2ηq
+
+L2 }u1}p1´8ηq2η k´2
+
+> k´1
+
+L4 }B k´12 u1}p1´8ηq2η 1
+
+> k´1
+
+L4
+
+ˆ }B 2u1}8η¨2ηL2 }B 1θ}34
+
+L2 }B 1B2θ}14
+
+L2
+
+ÀC20 ε2p1 ` τ q´s1 ,
+
+where 
+
+s1 “ 12p1 ´ 8ηqp 1 ´ 2ηq ` k ´ 22k ´ 2p1 ´ 8ηq2η ` p 18 ` ηq8η ` 58 ` η. 
+
+For η “ 1120 , k “ 14, we can get s1 ≈ 1.1088 which is larger than 1. For D12 , based on Minkowski’s inequality, H¨ older’s inequality and related interpolation tools, we get 
+
+D12 pτ q À 
+
+›››}u2}L8 
+
+> x2
+
+}B 2θ}L2
+
+> x2
+
+›››L
+
+> 43`8ηx1
+
+À} u2}L 
+
+> 41`8ηx1
+
+pL8 
+
+> x2
+
+q
+
+}B 2θ}L2
+
+À} u2}L 
+
+> 41`8ηx1
+
+pL8 
+
+> x2
+
+q
+
+}B 2θ}L2
+
+À} u2}p 34 ´2ηqp 1´8ηq
+
+L4 }u2}p 34 ´2ηq8ηL2 }B 1u1}p 14 `2ηqp 1´8ηq
+
+L4 }B 1u1}p 14 `2ηq8ηL2 }B 2θ}L2
+
+ÀC20 ε2p1 ` τ q´s2 ,
+
+where 
+
+s2 “ rp 78 ` η ´ δqp 1 ´ 8ηq ` 2ηsp 34 ´ 2ηq ` rp 1 ´ 8ηqp 1 ´ δq ` 5η ` 8η2sp 14 ` 2ηq ` p 18 ` ηq.
+
+For η “ 1120 , k “ 14 and δ “ 10 ´5, we can get s2 ≈ 1.01028 which is larger than 1. Therefore by Lemma 3.3, we derive that 
+
+D1 ÀC20 ε2
+
+ż t
+
+0
+
+pt ´ τ q´ 1`4α 
+
+> 8
+
+´η
+
+´
+
+p1 ` τ q´s1 ` p 1 ` τ q´s2
+
+¯
+
+dτ 
+
+ÀC20 ε2p1 ` tq´ 1`4α 
+
+> 8
+
+´η.
+
+26 The term D2 can be estimated in a similar way as for D1 that, 
+
+D2 À C20 ε2p1 ` tq´ 1`4α 
+
+> 8´η
+
+.
+
+For the nonlinear term D3, since the decay of u2 is faster than that of u1 in both the L2
+
+and L4 norms, the estimate of D3 is easier than that of D1; we omit the details. 
+
+D3 À C20 ε2p1 ` tq´ 1`4α 
+
+> 8´η
+
+.
+
+Combining the estimates above, we obtain 
+
+}p u1|θq} L2 À p 1 ` C20 εqεp1 ` tq´ 1`4α 
+
+> 8´η
+
+.
+
+Taking ε sufficiently small, one can derive the bootstrap conclusion (4.8). 
+
+5.2 L4 estimate of Bα
+
+1 u1 and Bα
+
+1 θ
+
+Taking the L4 norm of Bα 
+
+> 1
+
+u1, using the L4 boundedness of the Riesz transform, we get 
+
+}B α 
+
+> 1
+
+pu1|θq} L4
+
+À} etB21 eσt R1 Bα 
+
+> 1
+
+Qu1 
+
+> σ
+
+pu0, θ 0q} L4 `
+
+ż t
+
+> 0
+
+}ept´τ qB 21 eσpt´τ qR1 Bα 
+
+> 1
+
+Qu1 
+
+> σ
+
+pPpu ¨ ∇uq, u ¨ ∇θq} L4 dτ 
+
+` } etB21 eσt R1 Bα 
+
+> 1
+
+Qθσpu0, θ 0q} L4 `
+
+ż t
+
+> 0
+
+}ept´τ qB 21 eσpt´τ qR1 Bα 
+
+> 1
+
+QθσpPpu ¨ ∇uq, u ¨ ∇θq} L4 dτ 
+
+À} etB21 eσt R1 Bα 
+
+> 1
+
+pu0|θ0q} L4 `
+
+ż t
+
+> 0
+
+}ept´τ qB 21 eσpt´τ qR1 Bα 
+
+> 1
+
+pu ¨ ∇u|u ¨ ∇θq} L4 dτ. 
+
+By Proposition 3.9, Lemma 3.5 and interpolation, the linear term can be estimated: 
+
+}etB21 eσt R1 Bα 
+
+> 1
+
+pu0|θ0q} L4 À p 1 ` tq´ 12 }B α 
+
+> 1
+
+etB212 pu0|θ0q} W 1`γ, 43
+
+À p 1 ` tq´ 1`α 
+
+> 2
+
+p}p u0|θ0q} W 1`γ, 43 ` }B α 
+
+> 1
+
+pu0|θ0q} W 1`γ, 43 qÀ p 1 ` tq´ 1`α 
+
+> 2
+
+p}p u0|θ0q} W 3,1 ` }p u0|θ0q} H3 qÀ εp1 ` tq´ 1`α 
+
+> 2
+
+.
+
+27 For the nonlinear terms, by Proposition 3.9, Lemma 3.5 and H¨ older’s inequality, we get 
+
+ż t
+
+> 0
+
+}ept´τ qB 21 eσpt´τ qR1 Bα 
+
+> 1
+
+pu ¨ ∇u|u ¨ ∇θq} L4 dτ 
+
+À
+
+ż t
+
+> 0
+
+pt ´ τ q´ 1`p 1´δqα 
+
+> 2
+
+}p u ¨ ∇u|u ¨ ∇θq} W 1`2γ, 43 dτ 
+
+À
+
+ż t
+
+> 0
+
+pt ´ τ q´ 1`p 1´δqα
+
+> 2
+
+ˆ
+
+}p u ¨ ∇u|u ¨ ∇θq} L 43 ` } Λ1`2γ 
+
+> 2
+
+pu ¨ ∇u|u ¨ ∇θq} L 43
+
+` } Λ1`2γ 
+
+> 1
+
+pu ¨ ∇u|u ¨ ∇θq} L 43 dτ 
+
+˙
+
+fi 
+
+ż t
+
+> 0
+
+pt ´ τ q´ 1`p 1´δqα 
+
+> 2
+
+pE1 ` E2 ` E3qdτ. 
+
+For the term E1, by H¨ older’s inequality, we have 
+
+E1pτ q À } u1}L4 }pB 1u|B 1θq} L2 ` } u2}L4 }pB 2u|B 2θq} L2
+
+À C20 ε2p1 ` τ q´p 1`2η´δq.
+
+We now turn to the term E2 and decompose it into three parts. 
+
+E2pτ q “} Λ1`2γ 
+
+> 2
+
+pu ¨ ∇θq} L 43 ` } Λ1`2γ 
+
+> 2
+
+pu ¨ ∇u1q} L 43 ` } Λ1`2γ 
+
+> 2
+
+pu ¨ ∇u2q} L 43
+
+fi E21 ` E22 ` E23 .
+
+By Lemma 3.2 and H¨ older’s inequality, we can get 
+
+E21 À} u1}L4 }Λ1`2γ 
+
+> 2
+
+B1θ}L2 ` } Λ1`2γ 
+
+> 2
+
+u1}L2 }B 1θ}L4
+
+` } u2}L4 }Λ1`2γ 
+
+> 2
+
+B2θ}L2 ` } Λ1`2γ 
+
+> 2
+
+u2}L2 }B 2θ}L4 .
+
+By interpolation, 
+
+}Λ2`2γ 
+
+> 2
+
+θ}L2 À }B 2θ}k´2´2γk´1 
+
+> L2
+
+}B k 
+
+> 2
+
+θ}1`2γk´1 
+
+> L2
+
+.
+
+The other terms can be estimated through interpolation similarly. Since k ě 14 and 
+
+γ “ 10 ´5, by the assumption of decay estimate (4.1)—(4.6), we get 
+
+E21 À C20 ε2p1 ` τ q´1´δ.
+
+28 The term E22 contained in E2 can be estimated similarly. 
+
+E22 À C20 ε2p1 ` τ q´1´δ.
+
+For the nonlinear term }Λ1`2γ 
+
+> 2
+
+pu ¨ ∇u2q} L 43 contained in E2, by H¨ older’s inequality and Lemma 3.2, we get 
+
+}Λ1`2γ 
+
+> 2
+
+pu ¨ ∇u2q} L 43 À} u1}L4 }Λ1`2γ 
+
+> 2
+
+B1u2}L2 ` } Λ1`2γ 
+
+> 2
+
+u1}L2 }B 1u2}L4
+
+` } u2}L4 }Λ1`2γ 
+
+> 2
+
+B2u2}L2 ` } Λ1`2γ 
+
+> 2
+
+u2}L2 }B 2u2}L4 .
+
+Then by interpolation, we can get 
+
+E23 À C20 ε2p1 ` τ q´1´δ.
+
+For E3, because the dissipation is in the horizontal direction, the estimate is easier com-pared with E2. We can obtain that 
+
+E3pτ q À C20 ε2p1 ` tq´1´δ.
+
+Combining the estimates above, by Lemma 3.3, we obtain 
+
+}p u1|θq} L4 À p 1 ` C20 εqεp1 ` tq´ 1`p 1´δqα 
+
+> 2
+
+.
+
+Taking ε sufficiently small, one can derive the bootstrap conclusion (4.9). 
+
+5.3 L2 estimate of Bα
+
+1 u2
+
+Due to the special structure of the nonlinear equation, both the L2 norm and the L4
+
+norm of u2 enjoy a faster decay rate than u1. Taking the L2 norm to Bα 
+
+> 1
+
+u2, using the boundedness of the Riesz transform and the L2 isometry of the Fourier transform: 
+
+}B α 
+
+> 1
+
+u2}L2 À } etB21 eσt R1 Bα 
+
+> 1
+
+Qu2 
+
+> σ
+
+pu0, θ 0q} L2 `
+
+ż t
+
+> 0
+
+}ept´τ qB 21 eσpt´τ qR1 Bα 
+
+> 1
+
+Qu2 
+
+> σ
+
+pPpu ¨ ∇uq, u ¨ ∇θq} L2 dτ 
+
+À } etB21 Bα 
+
+> 1
+
+pu0|θ0q} L2 `
+
+ż t
+
+> 0
+
+}ept´τ qB 21 Bα 
+
+> 1
+
+B1puθ q} L2 dτ `
+
+ż t
+
+> 0
+
+}ept´τ qB 21 Bα 
+
+> 1
+
+B1pu b uq} L2 dτ 
+
+fi }etB21 Bα 
+
+> 1
+
+pu0|θ0q} L2 ` F1 ` F2.
+
+29 The linear term admits a straightforward decay estimate: 
+
+}etB21 Bα
+
+1 pu0|θ0q} L2 À p 1 ` tq´ 1`2α 
+
+> 4
+
+p}p u0|θ0q} L1 
+
+> x1
+
+L2 
+
+> x2
+
+` }B α
+
+1 pu0|θ0q} L2 qÀ p 1 ` tq´ 1`2α 
+
+> 4
+
+p}p u0|θ0q} W 2,1 ` }p u0|θ0q} H2 qÀ εp1 ` tq´ 1`2α 
+
+> 4
+
+.
+
+For the nonlinear terms F1,
+
+F1 À
+
+ż t
+
+0
+
+}eB21 pt´τ qBα
+
+1 B1pu1θq} L2 dτ `
+
+ż t
+
+0
+
+}eB21 pt´τ qBα
+
+1 B1pu2θq} L2 dτ 
+
+fi F11 ` F12 .
+
+By the boundedness of the Hilbert transform and Lemma 3.4, we have 
+
+F11 À
+
+ż t
+
+0
+
+}eB21 pt´τ qΛ1`α
+
+1 pu1θ ` u2θq} L2 dτ 
+
+À
+
+ż t
+
+0
+
+pt ´ τ q´ 1`2α 
+
+> 4
+
+p} Λ34
+
+1 pu1θq} L2 
+
+> x2
+
+pL 43 
+
+> x1
+
+q ` } Λ34
+
+1 pu2θq} L2 
+
+> x2
+
+pL 43 
+
+> x1
+
+qqdτ 
+
+fi 
+
+ż t
+
+0
+
+pt ´ τ q´ 1`2α 
+
+> 4
+
+pF111 ` F112 qp τ qdτ. 
+
+Applying Minkowski’s inequality, H¨ older’s inequality together with Lemma 3.2, we derive 
+
+F111 À
+
+›››}Λ34
+
+1 θ}L4 
+
+> x1
+
+}u1}L2 
+
+> x1
+
+` } Λ34
+
+1 u1}L4 
+
+> x1
+
+}θ}L2
+
+> x1
+
+›››L2
+
+> x2
+
+À
+
+›››}Λ1θ}34
+
+L4
+
+> x1
+
+}θ}14
+
+L4
+
+> x1
+
+}u1}L2
+
+> x1
+
+›››L2
+
+> x2
+
+`
+
+›››}Λ1u1}34
+
+L4
+
+> x1
+
+}u1}14
+
+L4
+
+> x1
+
+}θ}L2
+
+> x1
+
+›››L2
+
+> x2
+
+À} Λ1θ}34
+
+L4 }θ}14
+
+L4 }u1}L2 
+
+> x1
+
+pL4 
+
+> x2
+
+q ` } Λ1u1}34
+
+L4 }u1}14
+
+L4 }θ}L2 
+
+> x1
+
+pL4 
+
+> x2
+
+q.
+
+Via interpolation in the x2 variable, we have 
+
+}θ}L2 
+
+> x1
+
+pL4 
+
+> x2
+
+q ď } θ}34
+
+L2 }B 2θ}14
+
+L2 ,
+
+and 
+
+}u1}L2 
+
+> x1
+
+pL4 
+
+> x2
+
+q ď } u1}34
+
+L2 }B 2u1}14
+
+L2 .
+
+30 Similarly, by Minkowski’s inequality, H¨ older’s inequality and interpolation, 
+
+F112 À
+
+›››}Λ34 
+
+> 1
+
+u2}L4 
+
+> x1
+
+}θ}L2
+
+> x1
+
+›››L2
+
+> x2
+
+`
+
+›››}Λ34 
+
+> 1
+
+θ}L4 
+
+> x1
+
+}u2}L2
+
+> x1
+
+›››L2
+
+> x2
+
+À
+
+›››}Λ1u2}34
+
+> L4
+> x1
+
+}u2}14
+
+> L4
+> x1
+
+}θ}L2
+
+> x1
+
+›››L2
+
+> x2
+
+`
+
+›››}Λ1θ}34
+
+> L4
+> x1
+
+}θ}14
+
+> L4
+> x1
+
+}u2}L2
+
+> x1
+
+›››L2
+
+> x2
+
+À} Λ1u2}34 
+
+> L4
+
+}u2}14 
+
+> L4
+
+}θ}L2   
+
+> x1pL4
+> x2q
+
+` } Λ1θ}34 
+
+> L4
+
+}θ}14 
+
+> L4
+
+}u2}L2  
+
+> x1pL4
+> x2q
+
+.
+
+And by interpolation in x2,
+
+}u2}L2   
+
+> x1pL4
+> x2q
+
+À } u2}34 
+
+> L2
+
+}B 2u2}14 
+
+> L2
+
+,
+
+according to the assumption of decay estimate (4.1)—(4.6), we can get 
+
+F111 ` F112 À C20 ε2p1 ` τ q´1´η`δ.
+
+Thus by Lemma 3.3, we have 
+
+F1 ÀC20 ε2
+
+ż t
+
+> 0
+
+pt ´ τ q´ 1`2α 
+
+> 4
+
+p1 ` τ q´1´η`δdτ 
+
+ÀC20 ε2p1 ` tq´ 1`2α 
+
+> 4
+
+.
+
+The nonlinear term F2 can be estimated similarly. 
+
+F2 À C20 ε2p1 ` tq´ 1`2α 
+
+> 4
+
+.
+
+Combining the estimates above, we obtain 
+
+}u2}L2 À p 1 ` C20 εqεp1 ` tq´ 1`2α 
+
+> 4
+
+.
+
+Taking ε sufficiently small, one can derive the bootstrap conclusion (4.10). 
+
+5.4 L4 estimate of u2
+
+Taking the L4 norm to u2, using the L4 boundedness of the Riesz transform, we can get 
+
+}u2}L4 À } etB21 eσt R1 Qu2 
+
+> σ
+
+pu0, θ 0q} L4 `
+
+ż t
+
+> 0
+
+}ept´τ qB 21 eσpt´τ qR1 Qu2 
+
+> σ
+
+pPpu ¨ ∇uq, u ¨ ∇θq} L4 dτ 
+
+31 À } etB21 eσt R1 B1Λ´1pu0|θ0q} L4 `
+
+ż t
+
+> 0
+
+}ept´τ qB 21 eσpt´τ qR1 B1Λ´1pu ¨ ∇u|u ¨ ∇θq} L4 dτ 
+
+fi G1 ` G2.
+
+By Proposition 3.9, (3.12) and the divergence-free condition of u, the linear term G1
+
+admits the following decay estimate: 
+
+G1 À ÿ
+
+> jPZ
+
+}etB21 eσt R1 B1Λ´1∆j pu0|θ0q} L4
+
+À ÿ
+
+> jPZ
+
+2j p1 ` tq´ 12 }etB21 B1Λ´1∆j pu0|θ0q} L 43
+
+` ÿ
+
+> jPZ
+
+p1 ` tq´ 14 e´c22j t2j }∆j pu0|θ0q} L 43
+
+fi G11 ` G12 .
+
+(5.1) For the term G11 , by Lemma 3.1 and Lemma 3.5, we have 
+
+G11 “ ÿ
+
+> jPZ
+
+2j p1 ` tq´ 12 }etB21 B1Λ´1∆j pu0|θ0q} L 43
+
+À ÿ
+
+> jPZ
+
+p1 ` tq´ 12 }etB21 B1∆j pu0|θ0q} L 43
+
+À ÿ
+
+> jPZ
+
+p1 ` tq´1`δp22jδ ` 2j q} ∆j pu0|θ0q} L 43
+
+Àp 1 ` tq´1`δp}p u0|θ0q} W 2,1 ` }p u0|θ0q} W 2,2 q.
+
+For the term G12 , we have 
+
+G12 À ÿ
+
+> jPZ
+
+p1 ` tq´ 14 e´c22j t23j 
+
+> 2
+
+}∆j pu0|θ0q} L1
+
+À ÿ
+
+> jPZ
+
+p1 ` tq´1`δp23j 
+
+> 2
+
+` 22jδ q} ∆j pu0|θ0q} L1
+
+Àp 1 ` tq´1`δp}p u0|θ0q} W 2,1 ` }p u0|θ0q} W 2,2 q.
+
+So collecting the estimate for G11 and G12 , we can get 
+
+G1 À εp1 ` tq´1`δ. (5.2) 32 For the nonlinear term G2, by Lemma 3.1, we obtain that 
+
+G2 À ÿ
+
+jPZ
+
+}ept´τ qB 21 eσpt´τ qR1 B1Λ´11 ∆j pu ¨ ∇u|u ¨ ∇θq} L4
+
+À ÿ
+
+jPZ
+
+pt ´ τ q´ 14 e´c22j pt´τ q2j }∆j B1Λ´1pu ¨ ∇u|u ¨ ∇θq} L 43
+
+` ÿ
+
+jPZ
+
+pt ´ τ q´ 12 2j }ept´τ qB 21 B1Λ´1∆j pu ¨ ∇u|u ¨ ∇θq} L 43
+
+fi G21 ` G22 .
+
+For G21 , by Lemma 3.1, we further deduce from the above that 
+
+G21 À ÿ
+
+jPZ
+
+pt ´ τ q´ 14 e´c22j pt´τ q2j }∆j B1Λ´1pu ¨ ∇u|u ¨ ∇θq} L 43
+
+À ÿ
+
+jPZ
+
+pt ´ τ q´ 14 e´c22j pt´τ q2j }∆j Λ1pu b u ` uθ q} L 43
+
+À ÿ
+
+jPZ
+
+pt ´ τ q´ 14 e´c22j pt´τ q25j 
+
+> 4
+
+22ηj 2´2δj }∆j Λ34 ´2η`2δ
+
+1 pu b u ` uθ q} L 43
+
+Àp t ´ τ q´ 78 ´η`δ}Λ34 ´2η`2δ
+
+1 pu b u ` uθ q} L 43 .
+
+By applying Lemma 3.2, H¨ older’s inequality and interpolation, 
+
+}Λ34 ´2η`2δ
+
+1 pu1θq} L 43
+
+À} Λ34 ´2η`2δ
+
+1 θ}L2 }u1}L4 ` } Λ34 ´2η`2δ
+
+1 u1}L2 }θ}L4
+
+À} Λ1θ}34 ´2η`2δL2 }θ}14 `2η´2δL2 }u1}L4 ` } Λ1u1}34 ´2η`2δL2 }u1}14 `2η´2δL2 }θ}L4 .
+
+Similarly, via Lemma 3.2, H¨ older’s inequality and standard interpolation procedures, we can get 
+
+}Λ34 ´2η`2δ
+
+1 pu2θq} L 43
+
+À} Λ34 ´2η`2δ
+
+1 θ}L2 }u2}L4 ` } Λ34 ´2η`2δ
+
+1 u2}L2 }θ}L4
+
+À} Λ1θ}34 ´2η`2δL2 }θ}14 `2η´2δL2 }u2}L4 ` } Λ1u2}34 ´2η`2δL2 }u2}14 `2η´2δL2 }θ}L4 .
+
+According to the assumption of decay estimate (4.1)—(4.6), we arrive 
+
+}Λ34 ´2η`2δ
+
+1 pu b u ` uθ q} L 43 À C20 ε2p1 ` τ q´1´δ.
+
+33 For G22 , it can be estimated as 
+
+G22 À ÿ
+
+> jPZ
+
+pt ´ τ q´ 12 2j }ept´τ qB 21 B1Λ´1∆j pu ¨ ∇u|u ¨ ∇θq} L 43
+
+À ÿ
+
+> jPZ
+
+pt ´ τ q´1`δ22δj }∆j pu ¨ ∇u|u ¨ ∇θq} L 43
+
+Àp t ´ τ q´1`δp}p u ¨ ∇u|u ¨ ∇θq} L 43 ` } Λγ 
+
+> 1
+
+pu ¨ ∇u|u ¨ ∇θq} L 43 ` } Λγ 
+
+> 2
+
+pu ¨ ∇u|u ¨ ∇θq} L 43 q.
+
+By the estimate for E1, E2 and E3, we have 
+
+}p u ¨ ∇u|u ¨ ∇θq} L 43 ` } Λγ 
+
+> 1
+
+pu ¨ ∇u|u ¨ ∇θq} L 43 ` } Λγ 
+
+> 2
+
+pu ¨ ∇u|u ¨ ∇θq} L 43 À C20 ε2p1 ` τ q´1´δ.
+
+Thus, in the end, by Lemma 3.3, we get 
+
+G2 ÀC20 ε2
+
+ż t
+
+> 0
+
+pt ´ τ q´ 78 ´η`δp1 ` τ q´1´δdτ 
+
+ÀC20 ε2p1 ` tq´ 78 ´η`δ.
+
+(5.3) Combining the estimates above (5.2), (5.3), we obtain 
+
+}u2}L4 À p 1 ` C20 εqεp1 ` tq´ 78 ´η`δ.
+
+Taking ε sufficiently small, one can derive the bootstrap conclusion (4.11). 
+
+5.5 L2 estimate of Bα
+
+1 B2u1 and Bα
+
+1 B2θ
+
+In this subsection, we will give the L2 decay estimate of Bα 
+
+> 1
+
+B2u1 and Bα 
+
+> 1
+
+B2θ. From the equation, we can get: 
+
+}B α 
+
+> 1
+
+pB 2u1|B 2θq} L2 À} etB21 eσt R1 Bα 
+
+> 1
+
+Qu1 
+
+> σ
+
+pB 2u0, B2θ0q} L2 ` } etB21 eσt R1 Bα 
+
+> 1
+
+QθσpB 2u0, B2θ0q} L2
+
+`
+
+ż t
+
+> 0
+
+}ept´τ qB 21 eσpt´τ qR1 Bα 
+
+> 1
+
+Qu1 
+
+> σ
+
+pB 2Ppu ¨ ∇uq, B2pu ¨ ∇θqq} L2 dτ 
+
+`
+
+ż t
+
+> 0
+
+}ept´τ qB 21 eσpt´τ qR1 Bα 
+
+> 1
+
+QθσpB 2Ppu ¨ ∇uq, B2pu ¨ ∇θqq} L2 dτ 
+
+À} etB21 Bα 
+
+> 1
+
+pB 2u0|B 2θ0q} L2 `
+
+ż t
+
+> 0
+
+}ept´τ qB 21 Bα 
+
+> 1
+
+B2pu ¨ ∇θq} L2 dτ 
+
+`
+
+ż t
+
+> 0
+
+}ept´τ qB 21 Bα 
+
+> 1
+
+B2pu ¨ ∇u1q} L2 dτ `
+
+ż t
+
+> 0
+
+}ept´τ qB 21 Bα 
+
+> 1
+
+B2pu ¨ ∇u2q} L2 dτ 
+
+fi }etB21 Bα 
+
+> 1
+
+pB 2u0|B 2θ0q} L2 ` H1 ` H2 ` H3.
+
+34 The linear term admits a straightforward decay estimate: 
+
+}etB21 Bα
+
+1 pB 2u0|B 2θ0q} L2 À p 1 ` tq´ 1`2α 
+
+> 4
+
+p}pB 2u0|B 2θ0q} L2 
+
+> x2
+
+pL1 
+
+> x1
+
+q ` }B α
+
+1 pB 2u0|B 2θ0q} L2 qÀ p 1 ` tq´ 1`2α 
+
+> 4
+
+p}p u0|θ0q} W 2,1 ` }p u0|θ0q} H2 qÀ εp1 ` tq´ 1`2α 
+
+> 4
+
+.
+
+For the nonlinear term H1, by Lemma 3.4 and the divergence-free condition of u, we have 
+
+H1 À
+
+ż t
+
+0
+
+}ept´τ qB 21 Bα
+
+1 B2pu1B1θ ` u2B2θq} L2 dτ 
+
+À
+
+ż t
+
+0
+
+pt ´ τ q´ 1`4α 
+
+> 8
+
+´ηp} u1B1B2θ}L2 
+
+> x2
+
+pL 
+
+> 43`8ηx1
+
+q
+
+` } u2B22 θ}L2 
+
+> x2
+
+pL 
+
+> 43`8ηx1
+
+q
+
+qdτ 
+
+`
+
+ż t
+
+0
+
+pt ´ τ q´ 1`4α 
+
+> 8
+
+´ηp}B 2u1B1θ}L2 
+
+> x2
+
+pL 
+
+> 43`8ηx1
+
+q
+
+` }B 1u1B2θ}L2 
+
+> x2
+
+pL 
+
+> 43`8ηx1
+
+q
+
+qdτ 
+
+fi 
+
+ż t
+
+0
+
+pt ´ τ q´ 1`4α 
+
+> 8
+
+´ηpH11 ` H12 ` H13 ` H14 qp τ qdτ. 
+
+By Minkowski’s inequality, H¨ older’s inequality and interpolation, 
+
+H11 pτ q À 
+
+›››}u1}L4 
+
+> x2
+
+}B 1B2θ}L4
+
+> x2
+
+›››L
+
+> 43`8ηx1
+
+À} u1}L 
+
+> 41`8ηx1
+
+pL4 
+
+> x2
+
+q
+
+}B 1B2θ}L2 
+
+> x1
+
+pL4 
+
+> x2
+
+q
+
+À} u1}1´2ηL 41`8η
+
+}B 2u1}2ηL 41`8η
+
+}B 1B2θ}34
+
+L2 }B 1B22 θ}14
+
+L2
+
+À} u1}p1´2ηqp 1´8ηq
+
+L4 }u1}p1´2ηq8ηL2 }B 2u1}2ηp1´8ηq
+
+L4
+
+ˆ }B 2u1}2η¨8ηL2 }B 1B2θ}34
+
+L2 }B 1B22 θ}14
+
+L2
+
+À} u1}p1´2ηqp 1´8ηq
+
+L4 }u1}p1´2ηq8ηL2 }u1}2ηp1´8ηq k´2
+
+> k´1
+
+L4 }B k´12 u1}2ηp1´8ηq 1
+
+> k´1
+
+L4
+
+ˆ }B 2u1}2η¨8ηL2 }B 1B2θ}34
+
+L2 }B 1B2θ} k´34k´8
+
+L2 }B 1Bk´12 θ} 14k´8
+
+L2
+
+ÀC20 ε2p1 ` τ q´m1 ,
+
+where 
+
+m1 “ r 12p1´8ηq`p 18 `ηq8ηsp 1´2ηq`r 12p1´8ηqp k ´ 2
+
+k ´ 1q`p 18 `ηq8ηs2η`p 58 `ηqp 34 ` k ´ 34k ´ 8q.
+
+For η “ 1120 , k “ 14 and δ “ 10 ´5, we can get m1 ≈ 1.0950 which is larger than 1. Based on Minkowski’s inequality, H¨ older’s inequality and related interpolation tools, we 35 get 
+
+H12 pτ q À 
+
+›››}u2}L8 
+
+> x2
+
+}B 22 θ}L2
+
+> x2
+
+›››L
+
+> 43`8ηx1
+
+À} u2}L 
+
+> 41`8ηx1
+
+pL8 
+
+> x2
+
+q
+
+}B 22 θ}L2
+
+À} u2}L 
+
+> 41`8ηx1
+
+pL8 
+
+> x2
+
+q
+
+}B 22 θ}L2
+
+À} u2}p 34 ´2ηqp 1´8ηq
+
+L4 }u2}p 34 ´2ηq8ηL2 }B 1u1}p 14 `2ηqp 1´8ηq
+
+L4 }B 1u1}p 14 `2ηq8ηL2 }B 22 θ}L2
+
+À} u2}p 34 ´2ηqp 1´8ηq
+
+L4 }u2}p 34 ´2ηq8ηL2 }B 1u1}p 14 `2ηqp 1´8ηq
+
+L4 }B 1u1}p 14 `2ηq8ηL2 }B 2θ}k´2
+
+> k´1
+
+L2 }B k
+
+2 θ} 1
+
+> k´1
+
+L2
+
+ÀC20 ε2p1 ` τ q´m2 ,
+
+where 
+
+m2 “ rp 78 `η ´δqp 1´8ηq` 2ηsp 34 ´2ηq`rp 1´8ηqp 1´δq` 5η `8η2sp 14 `2ηq` k ´ 2
+
+k ´ 1p18 `ηq.
+
+For η “ 1120 , k “ 14 and δ “ 10 ´5, we can get m2 ≈ 1.000030553 which is larger than 1. In view of Minkowski’s inequality, H¨ older’s inequality and interpolation, 
+
+H13 pτ q À 
+
+›››}B 1θ}L4 
+
+> x2
+
+}B 2u1}L4
+
+> x2
+
+›››L
+
+> 43`8ηx1
+
+À}B 1θ}L 
+
+> 41`8ηx1
+
+pL4 
+
+> x2
+
+q
+
+}B 2u1}L2 
+
+> x1
+
+pL4 
+
+> x2
+
+q
+
+À}B 1θ}1´2ηL 41`8η
+
+}B 1B2θ}2ηL 41`8η
+
+}B 2u1}34
+
+L2 }B 22 u1}14
+
+L2
+
+À}B 1θ}p1´8ηqp 1´2ηq
+
+L4 }B 1θ}p1´2ηq8ηL2
+
+ˆ }B 1B2θ}2ηp1´8ηq
+
+L4 }B 1B2θ}8η¨2ηL2 }B 2u1}34
+
+L2 }B 22 u1}14
+
+L2
+
+À}B 1θ}p1´8ηqp 1´2ηq
+
+L4 }B 1θ}p1´2ηq8ηL2 }B 1θ}2ηp1´8ηq k´3
+
+> k´2
+
+L4 }B 1Bk´22 θ}2ηp1´8ηq 1
+
+> k´2
+
+L4
+
+ˆ }B 1B2θ}8η¨2ηL2 }B 2u1}34
+
+L2 }B 2u1} k´24k´4
+
+L2 }B k
+
+2 u1} 14k´4
+
+L2
+
+ÀC20 ε2p1 ` τ q´m3 ,
+
+where 
+
+m3 “ p 58 ` ηq8η ` p 1 ´ δqp 1 ´ 8ηqrp 1 ´ 2ηq ` k ´ 3
+
+k ´ 22ηs ` p 18 ` ηqr 34 ` k ´ 24k ´ 4s.
+
+36 For η “ 1120 , k “ 14 and δ “ 10 ´5, we can get m3 ≈ 1.1050 which is larger than 1. The term H14 can be estimated similarly to H13 , and we obtain that 
+
+H14 pτ q À C20 ε2p1 ` τ q´m3 .
+
+Therefore by Lemma 3.3, we get that 
+
+H1 “
+
+ż t
+
+> 0
+
+}eB21 pt´τ qB2pu ¨ ∇θq} L2 dτ 
+
+ÀC20 ε2p1 ` tq´ 1`4α 
+
+> 8´η
+
+.
+
+(5.4) The nonlinear terms H2 can be estimated similarly, 
+
+H2 À C20 ε2p1 ` tq´ 1`4α 
+
+> 8´η
+
+. (5.5) For the nonlinear term H3, since the decay of u2 is faster than that of u1 in both the L2
+
+and L4 norms, the estimate of H3 is easier than that of H1; we omit the details here. 
+
+H3 À C20 ε2p1 ` tq´ 1`4α 
+
+> 8´η
+
+. (5.6) Combining the estimates (5.4), (5.5), (5.6) above, we obtain 
+
+}B α 
+
+> 1
+
+pB 2u1|B 2θq} L2 À p 1 ` C20 εqεp1 ` tq´ 1`4α 
+
+> 8´η
+
+.
+
+Taking ε sufficiently small, one can derive the bootstrap conclusion (4.12). 
+
+# Acknowledgements 
+
+J. Wu was partially supported by the National Science Foundation of USA (DMS 2104682 and DMS 2309748). N. Zhu was partially supported by the National Natural Sci-ence Foundation of China (Grant No. 12301285 and No. 12171010) and by the Shandong Provincial Natural Science Foundation (Project ZR2023QA002). 
+
+Data availability statement. Data sharing is not applicable to this article, as no datasets were generated or analyzed during the current study. 
+
+Conflict of interest. The authors declare that they have no conflict of interest. 37 References 
+
+[1] D. Adhikari, O. Ben Said, U. R. Pandey and J. Wu, Stability and large-time behav-ior for the 2D Boussinesq system with horizontal dissipation and vertical thermal diffusion, Nonlinear Differ. Equ. Appl. 29 (2022), Art. 42. [2] H. Bahouri, J.-Y. Chemin and R. Danchin, Fourier Analysis and Nonlinear Partial Differential Equations, Vol. 343, Springer, Heidelberg, 2011. [3] O. Ben Said, U. R. Pandey and J. Wu, The stabilizing effect of the temperature on buoyancy-driven fluids, Indiana Univ. Math. J. 71 (2022), 2605–2645. [4] L. Brandolese and M. E. Schonbek, Large time decay and growth for solutions of a viscous Boussinesq system, Trans. Amer. Math. Soc. 364 (2012), no. 10, 5057–5090. [5] ´A. Castro, D. C´ ordoba and D. Lear, On the asymptotic stability of stratified solutions for the 2D Boussinesq equations with a velocity damping term, Math. Models Methods Appl. Sci. 29 (2019), 1227–1277. [6] J. Chen and T. Y. Hou, Stable nearly self-similar blowup of the 2D Boussinesq and 3D Euler equations with smooth data, arXiv:2210.07191v3. [7] J. Chen and T. Y. Hou, Stable nearly self-similar blowup of the 2D Boussinesq and 3D Euler equations with smooth data II: Rigorous Numerics, Multiscale Model. Simul. 
+
+23 (2025), 25–130. [8] K. Choi and I.-J. Jeong, Infinite growth in vorticity gradient of compactly supported planar vorticity near Lamb dipole, Nonlinear Anal. Real World Appl. 65 (2022), Paper No. 103470, 20 pp. [9] D. C´ ordoba, L. Mart´ ınez-Zoroa and F. Zheng, Finite time singularities to the 3D incompressible Euler equations for solutions in C8pR3zt 0uq X C1,α X L2, Ann. PDE 
+
+11 (2025), Art. 14. [10] C. Doering, J. Wu, K. Zhao and X. Zheng, Long time behavior of the two-dimensional Boussinesq equations without buoyancy diffusion, Physica D 376/377 (2018), 144– 159. [11] B. Dong, J. Wu, X. Xu and N. Zhu, Stability and exponential decay for the 2D anisotropic Boussinesq equations with horizontal dissipation, Calc. Var. Partial Dif-ferential Equations 60 (2021), Art. 116, 21 pp. 38 [12] L. Dong and Y. Sun, Asymptotic stability of the 2D Boussinesq equations without thermal conduction, J. Differential Equations 337 (2022), 507–540. [13] L. Dong and Y. Sun, Asymptotic stability of the 3D Boussinesq equations without thermal conduction, Sci. China Math. 67 (2024), 253–280. [14] T. M. Elgindi, Finite-time singularity formation for C1,α solutions to the incompress-ible Euler equations on R3, Ann. of Math. 194 (2021), 647–727. [15] G. B. Folland, Real Analysis: Modern Techniques and Their Applications, John Wiley & Sons, New York, 1999. [16] M. Fujii and Y. Li, Linear and nonlinear stability for the three dimensional stratified Boussinesq equations with horizontal viscosity and diffusivity, SIAM J. Math. Anal. 
+
+58 (2026), 411–449. [17] R. Ji, L. Yan and J. Wu, Optimal decay for the 3D anisotropic Boussinesq equations near the hydrostatic balance, Calc. Var. Partial Differential Equations 61 (2022), no. 4, Art. 136. [18] I.-J. Jeong, Y. Yao and T. Zhou, Superlinear gradient growth for 2D Euler equation without boundary, arXiv:2507.15739 (2025). [19] K. Kang, J. Lee and D. Nguyen, Global well-posedness and stability of the 2D Boussinesq equations with partial dissipation near a hydrostatic equilibrium, arXiv:2306.08286 (2023). [20] J. Kim and J. Lee, Stratified Boussinesq equations with a velocity damping term, 
+
+Nonlinearity 35 (2022), 3059–3094. [21] A. Kiselev, J. Park and Y. Yao, Small scale formation for the 2-dimensional Boussi-nesq equation, Anal. PDE 18 (2025), no. 1, 171–198. [22] A. Kiselev and V. ˇSver´ ak, Small scale creation for solutions of the incompressible two dimensional Euler equation, Ann. of Math. 180 (2014), 1205–1220. [23] I. Kukavica and W. Wang, Long time behavior of solutions to the 2D Boussinesq equations with zero diffusivity, J. Dynam. Differential Equations 32 (2020), no. 4, 2061–2077. [24] S. Lai, J. Wu and Y. Zhong, Stability and large-time behavior of the 2D Boussinesq equations with partial dissipation, J. Differential Equations 271 (2021), 764–796. 39 [25] S. Lai, J. Wu, X. Xu, J. Zhang and Y. Zhong, Optimal decay estimates for 2D Boussinesq equations with partial dissipation, J. Nonlinear Sci. 31 (2021), Art. 16. [26] D. Li, On Kato–Ponce and fractional Leibniz, Rev. Mat. Iberoam. 35 (2019), no. 1, 23–100. [27] H. Lin, J. Wu and X. Zheng, Global stability and decay for the 2D Boussinesq system with only velocity damping, submitted for publication, 2026. [28] C. Miao, B. Yuan and B. Zhang, Well-posedness of the Cauchy problem for the fractional power dissipative equations, Nonlinear Anal. 68 (2008), no. 3, 461–484. [29] M. E. Schonbek, L2 decay for weak solutions of the Navier–Stokes equations, Arch. Rational Mech. Anal. 88 (1985), 209–222. [30] H. Shang and L. Xu, Stability near hydrostatic equilibrium to the three-dimensional Boussinesq equations with partial dissipation, Z. Angew. Math. Phys. 72 (2021), no. 2, Art. 80, 1–14. [31] F. Shao, D. Wei, P. Zhang and Z. Zhang, Self-similar blow-up solutions of incom-pressible Euler equations in Rd, d ě 3, with C1,1´ 2  
+
+> d´
+
+velocity, arXiv:2605.19716. [32] E. M. Stein, Harmonic Analysis: Real-Variable Methods, Orthogonality, and Os-cillatory Integrals, Princeton Math. Ser. 43, Princeton Univ. Press, Princeton, NJ, 1993. [33] L. Tao, J. Wu, K. Zhao and X. Zheng, Stability near hydrostatic equilibrium to the 2D Boussinesq equations without thermal diffusion, Arch. Ration. Mech. Anal. 237 
+
+(2020), 585–630. [34] R. Wan, Global well-posedness for the 2D Boussinesq equations with a velocity damp-ing term, Discrete Contin. Dyn. Syst. 39 (2019), no. 5, 2709–2730. [35] Z. Wang, J. Wu and N. Zhu, Stability and decay for the 2D anisotropic Navier–Stokes equations with fractional horizontal dissipation on R2, arXiv:2601.16110v2 (2026). [36] J. Wu and Q. Zhang, Stability and optimal decay for a system of 3D anisotropic Boussinesq equations, Nonlinearity 34 (2021), no. 8, 5456–5484. [37] A. Zlatoˇ s, Exponential growth of the vorticity gradient for the Euler equation on the torus, Adv. Math. 268 (2015), 396–403. 40
