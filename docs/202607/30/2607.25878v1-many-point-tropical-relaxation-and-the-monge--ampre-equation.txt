@@ -1,0 +1,3576 @@
+Title: Many-point tropical relaxation and the Monge–Ampère equation
+
+URL Source: https://arxiv.org/pdf/2607.25878v1
+
+Published Time: Wed, 29 Jul 2026 01:22:22 GMT
+
+Number of Pages: 62
+
+Markdown Content:
+MANY-POINT TROPICAL RELAXATION AND THE MONGE–AMPÈRE EQUATION 
+
+NIKITA KALININ, ERNESTO LUPERCIO, HIGINIO SERRANO, AND MIKHAIL SHKOLNIKOV 
+
+Abstract. We construct an incidence-driven tropical approximation of the planar Aleksandrov Monge–Ampère equation. Let Ω ⊂ R2 be a bounded open convex domain, let K ⋐ Ω, and let 
+
+FN = GPN 0Ω be the minimal nonnegative concave tropical series with integral slopes, zero boundary values, and corner locus containing an N -point set PN ⊂ K. For universally generic configurations whose empirical measures converge to μ,
+
+N −1/2FN −→ Fμ, Ω
+
+uniformly on Ω, where Fμ, Ω is the unique continuous concave Aleksandrov solution of MA( F ) = μ
+
+with zero boundary values. On every compact L ⋐ Ω we prove an O(N −1/2) bounded-Lipschitz-type estimate for the curvature discrepancy. No regularity or strict-convexity assumption is imposed on 
+
+∂Ω.For rational polygons, strong genericity holds on an open dense full-measure locus. The tropical curve has exactly N bounded cells, the marked dual edges form a spanning tree, and every compact internal edge has weight one. These finite statements yield global weak curvature convergence and the exact identity 
+
+MA( FN )(Ω ◦) = N − 1 + 12 Dterm (FN ), Dterm (FN ) = O(√N ).
+
+The proof combines tropical interpolation, semilinear marked topology, an Euler–Pick curvature formula, minimal coefficient deformations, tangential coarea, and a weighted Crofton estimate uniform over rational polygonal exhaustions. We also obtain almost-sure limits for random point clouds, full affine covariance of the continuum solution, and a configuration-dependent Abelian-sandpile diagonal. 
+
+Contents 
+
+1. Introduction 31.1. Main results 31.2. Relation to previous work 51.3. Proof architecture 61.4. Affine covariance and discrete origin 71.5. Organization 82. Tropical relaxation and Aleksandrov curvature 82.1. Rational polygons and zero-boundary tropical series 82.2. The essential cell presentation 92.3. Newton duality, discrete curvature, and complexity 10 2.4. Embedded graph convention 10 2.5. Aleksandrov Monge–Ampère measure 11 2.6. Strong genericity 11 3. Tropical interpolation and square-root complexity 12 3.1. A tropical dependence lemma 12 
+
+Date : July 2026. 2020 Mathematics Subject Classification. 14T90, 35J96, 52A40, 60K35, 82C27. 
+
+Key words and phrases. Monge–Ampère equation, tropical geometry, Aleksandrov solutions, convex geometry, affine covariance, Abelian sandpile. 
+
+1arXiv:2607.25878v1 [math.AP] 28 Jul 2026 2 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+3.2. Square-root slopes 12 3.3. A zero-boundary competitor 13 3.4. The symplectic-area comparison engine 13 3.5. Complexity of the minimal relaxation 14 4. Semilinear genericity and marked topology 15 4.1. A uniform finite slope set 15 4.2. The finite semilinear relaxation map 16 4.3. A finite active-set blueprint 18 4.4. Bounded-cell incidence rank 21 4.5. Incidence dimensions and the generic locus 22 4.6. Generic genus and the marked-tree theorem 23 4.7. The marked tree and finite core 27 5. The local Euler–Monge–Ampère identity 27 5.1. Regular windows and Pick excess 27 5.2. Graph Gauss–Bonnet 28 5.3. Marked source-curvature balance 29 6. Minimality and interior mildness 29 6.1. Unmarked faces: localized lowering 29 6.2. Marked edges: the tree–cotree deformation 31 6.3. Terminal branches and inward truncation 34 7. Quantitative curvature on rational polygons 36 7.1. The signed curvature-error measure 36 7.2. Tangential coarea on the tropical graph 37 7.3. Exact total mass 38 7.4. Global convergence of curvature measures 38 8. Polygonal compactness and the Monge–Ampère limit 39 8.1. Boundary control and compactness 39 8.2. Identification and uniqueness 40 9. Arbitrary bounded convex domains 40 9.1. Fixed-exhaustion and intrinsic genericity 41 9.2. The rational-core theorem and polygonal exhaustion 43 9.3. Interior gradient and weighted Crofton control 47 9.4. Local excess and the quantitative estimate 49 9.5. Compactness, curvature convergence, and identification 51 9.6. Boundary conditions 52 10. Random point clouds and affine covariance 52 10.1. Almost-sure point-cloud limits 52 10.2. Affine covariance of the continuum solution 52 10.3. Integral-affine covariance before the limit 53 10.4. Explicit disk and ellipse profiles 53 Appendix A. Background 53 A.1. Literature context 54 A.2. Tropical relaxation on rational polygons 54 A.3. Symplectic area and boundary complexity 55 A.4. Marked genus and topology: comparison only 55 A.5. Fixed-source Abelian-sandpile convergence 55 A.6. Aleksandrov Monge–Ampère theory 55 A.7. Coarea, convex analysis, and empirical measures 56 A.8. Tropical and Newton-polytope background 56 Appendix B. Abelian sandpile diagonal and deficit law 56 MANY-POINT TROPICAL RELAXATION 3
+
+B.1. Deficit measure 57 Appendix C. Numerical diagnostics 58 C.1. Exact topology and boundary-parallel carriers 58 C.2. Continuum and discrete approximation 59 Acknowledgments 61 References 61 1. Introduction 
+
+We construct an incidence-driven integral-affine approximation of the planar Aleksandrov Monge– Ampère equation. Let Ω ⊂ R2 be bounded and convex, and let P ⊂ Ω be finite. Among all nonnegative concave tropical series with integral slopes, zero boundary values, and corner locus containing P , there is a pointwise-minimal element 
+
+FΩ,P = GP 0Ω.
+
+If |P | = N , tropical interpolation forces the natural height scale √N . We prove that, when the empirical measures of the marked points converge, N −1/2FΩ,P converges to the zero-boundary Aleksandrov solution of the corresponding Monge–Ampère equation. The determinant operator is not built into the discrete model. The relaxation is selected only by incidence and minimality. Its Monge–Ampère measure is recovered from the topology of the tropical curve and the lattice areas of dual Newton polygons: Euler characteristic and Pick’s formula give an exact local source–curvature identity, minimality forces primitive compact edges, and coarea converts the remaining topological error into an O(N −1/2) discrepancy of measures. The microscopic construction has exact GL (2 , Z) covariance; the limit has the full affine covariance of the Monge–Ampère equation. The result has two levels. On every bounded convex planar domain we obtain uniform convergence of the potentials and a quantitative curvature estimate on compact subsets. No boundary smoothness or strict convexity is required. On rational polygons the finite tropical geometry is globally controlled, giving open genericity, an explicit marked topology, global curvature convergence, and an exact boundary correction to the total Monge–Ampère mass. 1.1. Main results. Fix K ⋐ Ω. For an N -point configuration PN ⊂ K, set 
+
+FN = GPN 0Ω, uN = N −1/2FN , μN = 1
+
+N
+
+X
+
+> p∈PN
+
+δp.
+
+For a continuous concave function F , the Aleksandrov Monge–Ampère measure is the Euclidean area of its superdifferential image [Ale58; Gut16; Fig17]; in dimension two, MA (aF ) = a2 MA (F ). For a general convex domain, we impose an intrinsic simultaneous genericity condition: a configuration must be strongly generic for every rational-coordinate polygonal test domain whose interior contains it. The countability of these test polygons makes the universally generic locus residual and full measure, while eliminating dependence on a selected exhaustion. 
+
+Theorem 1.1 (Bounded convex-domain Monge–Ampère limit) . Let Ω ⊂ R2 be a bounded open convex domain with nonempty interior, let PN ⊂ K ⋐ Ω be universally generic in Ω, and assume 
+
+μN ⇀ μ, 
+
+where μ is a probability measure supported in K. Then 
+
+uN −→ Fμ, Ω4 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+uniformly on Ω, where Fμ, Ω is the unique continuous concave Aleksandrov solution of 
+
+MA( Fμ, Ω) = μ, Fμ, Ω|∂Ω = 0 .
+
+For every compact L ⋐ Ω there is a constant C = C(Ω , K, L ) such that, whenever φ ∈ C1 
+
+> c
+
+(Ω) and 
+
+supp φ ⊂ L, Z
+
+> Ω
+
+φ d  MA( uN ) − μN
+
+ ≤ C
+
+√N
+
+ ∥φ∥∞ + ∥∇ φ∥∞
+
+.
+
+Consequently, 
+
+MA( uN ) ⇀ μ 
+
+vaguely in Ω.
+
+Flat pieces, corners, irrational supporting directions, and mixed smooth–polygonal boundaries are allowed. Convexity and the fixed compact-support condition K ⋐ Ω remain essential. The zero boundary datum is affine, so the generalized Dirichlet theory applies on every bounded convex domain [Ale58; RT77; Moo18]. When Ω is a bounded rational convex polygon, strong genericity holds on an open dense full-measure semilinear locus. The marked carrier edges are distinct, their dual edges form a spanning tree, cutting them produces a tree, and every compact internal edge has weight one. These finite statements yield the stronger global theorem. 
+
+Theorem 1.2 (Polygonal structure, quantitative curvature, and continuum limit) . Let PN ⊂ K be strongly generic and suppose μN ⇀ μ , where μ is a probability measure supported in K. Then 
+
+uN −→ Fμ, Ω
+
+uniformly on Ω, and 
+
+MA( uN ) ⇀ μ 
+
+weakly as finite measures on Ω. The potentials converge in Lp(Ω) for every 1 ≤ p ≤ ∞ . Moreover, there is a constant C = C(Ω , K ) such that for every strongly generic N -point set P ⊂ K and every 
+
+φ ∈ C1 
+
+> c
+
+(Ω) ,
+
+Z
+
+> Ω
+
+φ d 
+
+MA 
+
+
+
+N −1/2GP 0Ω
+
+
+
+− 1
+
+N
+
+X
+
+> p∈P
+
+δp
+
+ ≤ C
+
+√N
+
+ ∥φ∥∞ + ∥∇ φ∥∞
+
+.
+
+The passage from interior control to weak convergence on the closed polygon is governed by an exact terminal correction. 
+
+Theorem 1.3 (Exact polygonal total curvature) . For every strongly generic P ⊂ K, |P | = N ,
+
+MA( GP 0Ω)(Ω ◦) = N − 1 + 12 Dterm (GP 0Ω),
+
+where Dterm is the total weighted multiplicity of the terminal tropical branches, defined by a sufficiently small regular inward truncation. Furthermore, 
+
+Dterm (GP 0Ω) ≤ CΩD∂ (GP 0Ω) ≤ CΩ,K 
+
+√N . 
+
+Consequently, 
+
+MA( uP )(Ω ◦) = 1 + OΩ,K (N −1/2).
+
+The total boundary quasi-degree D∂ controls global polygonal complexity, while Dterm is the exact curvature correction. The distinction is essential near polygonal corners. MANY-POINT TROPICAL RELAXATION 5
+
+1.2. Relation to previous work. The construction developed here starts from an established finite-source theory. The limit studied in this paper is different from the earlier scaling limits. The category of Ω-tropical series, the wave operators Gp, the pointwise-minimal relaxation GP 0Ω, finite canonical presentations on rational polygons, and the symplectic-area comparison principle were developed in [KS18, Sections 5–6 and 14]. The sandpile theorem of [KS26, Propositions 4.8 and 5.4] keeps a finite source set P fixed and lets the lattice mesh tend to zero, identifying the corresponding Abelian-sandpile odometer with the tropical relaxation GP 0Ω; its mesh threshold may depend on the complete fixed configuration. The continuous tropical sandpile and its self-organized-criticality interpretation were introduced and studied in [Kal+18], following the earlier observation of lattice strings in [CPS10]. Tropical wavefronts and the instantaneous polygonization of positive-time cores for arbitrary convex domains were established in [MS23, Proposition 24 and Corollary 25]. That theory concerns the canonical unmarked tropical distance and its caustic; it does not address marked minimal relaxations or empirical-measure limits. The closest earlier finite-N topological result is [KP23, Theorem 3.3]. It proves, for generic finite configurations, that the bounded-face genus of GP 0Ω equals |P | and gives a tree statement after removing the marked points; the same paper reports numerical evidence that the tropical degree has order p|P | and that typical curves are close to a square-grid pattern. We do not claim the bare identity g = |P | as new, and none of the arguments below depends on the proof in that paper. What is new here is the semilinear open full-measure genericity theorem, the complete marked primal–dual topology, and the use of that topology as a quantitative curvature mechanism. None of these cited works proves a continuum limit in which the number of marked points tends to infinity and their empirical measures converge, and none identifies a nonlinear PDE governing that limit. The contributions of the present paper are the following. (i) Many-point Monge–Ampère limit. We let N = |PN | → ∞ in the tropical relaxation itself and prove that N −1/2GPN 0Ω converges to the zero-boundary Aleksandrov solution with Monge– Ampère measure equal to the weak limit of the empirical source measures. The theorem holds on every bounded convex planar domain for source clouds contained in one fixed K ⋐ Ω.(ii) Quantitative curvature convergence. On every compact interior set we prove an O(N −1/2)
+
+bounded-Lipschitz-type estimate comparing the normalized atomic Monge–Ampère measure of the tropical roof with the empirical source measure. On rational polygons the estimate combines with exact total-mass control to give weak convergence on Ω.(iii) Deterministic square-root complexity and normalization. The earlier numerical observation of a √N degree scale is replaced by deterministic O(√N ) bounds obtained from tropical interpolation and transferred to the minimal relaxation by the symplectic-area engine. These bounds control weighted tropical length, ordinary length, and boundary quasi-degree without genericity. When the empirical measures have a nonzero weak limit, the continuum theorem confirms N −1/2 as the correct macroscopic normalization of the potentials. (iv) A strengthened finite topology. For rational polygons we construct a finite semilinear coefficient model and an open dense full-measure strongly generic locus. The marked dual edges form a spanning tree, cutting the marked carriers gives a primal tree, reidentification produces a finite core of first Betti number N , and every component outside that core is a boundary tree attached once. This refines the earlier genus/tree statement and makes the marked incidence structure usable in deformation arguments. (v) Curvature from topology and minimality. Euler characteristic and Pick’s formula give an exact local source–curvature identity. Coefficient-lowering and tree–cotree deformations force every compact internal edge to have weight one. The remaining discrepancy is localized at terminal 6 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+branches, yielding both the quantitative estimate and the exact polygonal identity 
+
+MA( GP 0Ω)(Ω ◦) = |P | − 1 + 12 Dterm (GP 0Ω).
+
+(vi) Extension beyond polygons. An intrinsic countable genericity condition, exact rational-core reduction, and a weighted Crofton estimate extend the potential and compact-interior curvature limits to arbitrary bounded convex domains, including domains with corners, flat pieces, and irrational supporting directions. (vii) Affine and probabilistic consequences. We obtain almost-sure limits for i.i.d. source clouds and the full area-preserving affine covariance of the continuum solution. Returning to the discrete Abelian sandpile uses only the earlier fixed-source theorem and therefore yields a configuration-dependent diagonal corollary; no uniform simultaneous (N, h ) limit is claimed. Thus the new result is not a refinement of the fixed-source sandpile limit alone. It is a many-source law in which a fully nonlinear affine-covariant PDE emerges from incidence constraints, planar tropical topology, lattice area, and minimality. 1.3. Proof architecture. The proof has four interacting parts. Square-root interpolation. A Hahn-field dependence produces a tropical polynomial through the prescribed points, with gradients in a square of radius O(√N ) [Hah07; DSS05]. A tropical-distance barrier imposes zero boundary values. The symplectic-area engine of Theorem 3.6 then identifies the weighted edge length with the boundary quasi-degree sum and makes the minimal relaxation no more expensive than any zero-boundary tropical polynomial through the marks. The explicit interpolating competitor satisfies that admissible class, giving 
+
+Asymp (V (FN )) + H1(V (FN )) + D∂ (FN ) = OΩ,K (√N ).
+
+This deterministic estimate uses no genericity. Marked topology and local curvature. A finite slope bound makes the minimal coefficient vector semilinear and piecewise affine in the marked configuration. A dimension argument gives g(V (FN )) = 
+
+N , where g is the number of bounded complementary cells, and identifies the marked dual edges as a spanning tree. Long carriers parallel to polygon sides create no additional modulus; multiple marks on one carrier form a positive-codimension discriminant. For a regular window U ⋐ Ω, Euler characteristic and Pick’s formula yield 
+
+MA( FP )( U ) = #( P ∩ U ) + 12 BP (U ) − cP (U ) + Ξ P (U ).
+
+Minimality, coarea, and Crofton control. Coefficient-lowering deformations eliminate interior lattice points from the relevant Newton polygons and force every compact internal edge to have weight one. Signed layer cake and one-dimensional coarea on the tropical graph then bound the curvature discrepancy by tangential variation of the test function. On arbitrary convex domains, the rational-core theorem gives a finite polygonal model at every positive level and identifies the direct relaxation there with a shifted zero-boundary polygonal relaxation. A common tropical-distance barrier controls the active gradients on fixed interior rectangles, and weighted Crofton estimates give the local 
+
+O(√N ) length and excess bounds uniformly over the exhausting polygons. Compactness and identification. Aleksandrov’s maximum principle gives a common boundary modu-lus, concavity gives interior compactness, and stability of Monge–Ampère measure identifies every subsequential limit. Uniqueness of the zero-boundary Dirichlet problem removes subsequences. The exact terminal formula supplies the additional tightness needed for weak convergence on a closed rational polygon. Figure 1 summarizes the primal–dual geometry: bounded and boundary cells, marked carriers, the marked dual tree, the cut tree, the finite core, terminal branches, and the interior rectangle used in the Crofton estimate. MANY-POINT TROPICAL RELAXATION 7(a) Marked tropical curve: bounded and boundary cells      
+
+> ∂Ωboundary cell
+> p1
+> p2
+> p3
+> R1
+> R2R3
+> marked carriers terminal branches g= 3 bounded cells
+
+(b) Cut the marked carriers: the completed graph TP is a tree       
+
+> p−
+> 1p+1
+> p−
+> 2p+2
+> p−
+> 3p+3
+> formal boundary ends connected +acyclic
+
+(c) Dual tree and the finite N -cycle core        
+
+> f∞
+> f1
+> f2
+> f3
+> e∨
+> 1e∨
+> 2
+> e∨
+> 3
+> marked dual edges form a spanning tree
+> identify
+> p−
+> i∼p+
+> i
+> Γcore
+> Pis connected,
+> β1(Γ core
+> P) = N= 3
+> outside the core: unmarked boundary trees attach at one point
+
+(d) Local curvature control inside a fixed rectangle     
+
+> R
+> L⋐R
+> w= 1
+> w= 2
+> terminal slices record integer slope jumps
+
+∑     
+
+> e w(e)H1(e∩R)≤2L
+
+(wd( R) + ht( R)
+
+)   
+
+> ΞF(L)≤12
+
+∑  
+
+> x∈V(F)∩∂R w(ex )
+
+Figure 1. Structural architecture of the proof (schematic, N = 3 ). (a) Blue regions are bounded linearity cells; gray regions meet ∂Ω and are not counted in the bounded-face genus. Marked carriers are red and terminal branches purple. (b) Cutting every marked carrier at its marked point and adjoining formal ends produces the completed marked tree TP . (c) The duals of the marked carriers form a spanning tree; reidentifying the cut ends creates the finite core with first Betti number N , while every component outside the core is a boundary tree attached once. (d) Vertical and horizontal slices of a regular rectangle control weighted tropical length by variation of the integer gradients, and terminal contributions to the Pick-excess measure cross its boundary once. The drawing is combinatorial and not metrically to scale. 1.4. Affine covariance and discrete origin. For an invertible affine map T (x) = Ax + b, the continuum solution satisfies 
+
+FT#μ,T Ω = | det A|1/2Fμ, Ω ◦ T −1.
+
+The finite relaxation has exact covariance only under unimodular integral-affine maps. Full affine covariance is therefore an emergent property of the limit. The fixed-source origin of GP and its relation to the many-point theorem are summarized in Section 1.2. The underlying discrete model uses abelian stabilization and least action [BTW87; Dha90]; related growth questions appear in [FLP10]. Combining the fixed-source theorem with the many-point result gives, for each configuration sequence, a diagonal choice of meshes hN → 0 such that 
+
+hN
+
+√N HhN ,P N −→ Fμ, Ω.8 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+No rate uniform in N , and no convergence for every simultaneous sequence satisfying N h 2 → 0, is asserted. For i.i.d. points with an absolutely continuous law supported in K, genericity holds for all finite initial configurations on one probability-one event, and empirical measures converge almost surely [Var58]. The fixed-support condition 
+
+dist( PN , ∂ Ω) ≥ δ > 0
+
+is part of the theorem. Source clouds approaching the boundary as N → ∞ remain open; this issue is distinct from boundary regularity. We also do not treat nonconvex domains, general nonzero Dirichlet traces, signed reservoir-potential models, or higher-dimensional analogues. Disk and ellipse formulas for measures reaching the boundary are included only as continuum benchmarks. 1.5. Organization. Section 2 fixes the tropical, Newton, graph, and Aleksandrov conventions. Sections 3 and 4 establish square-root complexity and marked topology. Sections 5 to 7 prove the local curvature identity, interior mildness, quantitative polygonal estimates, and exact total mass. Sections 8 and 9 identify the polygonal and general convex-domain limits. Section 10 treats random clouds, affine covariance, and explicit profiles. The appendices reconcile the results we use from the literature, record the soft sandpile diagonal, and give numerical diagnostics. Continuum existence and uniqueness are supplied uniformly by the standard Aleksandrov Dirichlet theory. 2. Tropical relaxation and Aleksandrov curvature 
+
+We use the min-plus convention for tropical polynomials and the standard duality between tropical faces and regular subdivisions of a Newton polygon; background references include [Mik05; RST05; MS15]. The relation between polyhedral convex functions, Newton polytopes, and Monge–Ampère mass is also central in [PR04]. Sections 2–8 work with a fixed bounded rational convex polygon Ω. The bounded-convex-domain extension in Section 9 returns to arbitrary bounded convex domains and uses the polygonal theory locally on rational exhaustions. 2.1. Rational polygons and zero-boundary tropical series. By a bounded rational convex polygon we mean the compact convex polygonal body itself. Its interior and boundary are denoted by Ω◦ and ∂Ω. Tropical series are defined on Ω◦ and are always understood with their continuous extension to the compact body Ω. When an open rational polygon O appears, it means the interior of such a compact polygonal body; expressions such as K ⋐ O refer to compact containment in that open interior. Let Ω ⊂ R2 be a bounded rational convex polygon. Choose primitive inward normals n1, . . . , n s ∈
+
+Z2 and primitive affine functions 
+
+λr(x) = ⟨nr, x ⟩ + ar
+
+such that 
+
+Ω = 
+
+> s
+
+\
+
+> r=1
+
+{λr ≥ 0}, Sr = {λr = 0 } ∩ Ω.
+
+Definition 2.1. An Ω-tropical series is a continuous function F : Ω → R≥0 satisfying F |∂Ω = 0 and admitting locally in Ω◦ a representation 
+
+F (x) = min 
+
+> m∈A
+
+ cm + ⟨m, x ⟩, A ⊂ Z2.
+
+We use the concave min-plus convention. Its corner locus V (F ) is the set where the minimum is attained by at least two distinct affine functions. MANY-POINT TROPICAL RELAXATION 9
+
+The theory in [KS18] implies local finiteness, continuity to the boundary, and a finite small canonical form when Ω is a compact rational polygon and the input is a tropical polynomial. We record the precise statements we use from the literature in Section A. For a finite P ⊂ Ω◦, let V(Ω , P, F ) be the class of Ω-tropical series G ≥ F whose corner loci contain P . The tropical relaxation is 
+
+GP F (x) = inf   
+
+> G∈V (Ω ,P,F )
+
+G(x).
+
+The theory of relaxation gives the following. 
+
+Proposition 2.2 (Tropical relaxation) . For every finite P ⊂ Ω◦ and every Ω-tropical polynomial F ,the function GP F is an Ω-tropical series, belongs to V(Ω , P, F ), and is pointwise minimal in that class. For F = 0 Ω, its small canonical form is finite. 
+
+We write 
+
+FP = GP 0Ω, ΓP = V (FP ).
+
+2.2. The essential cell presentation. Let F be an Ω-tropical polynomial. A two-dimensional linearity cell means the closure of a maximal connected open subset of Ω◦ on which F is affine. Denote the finite set of these cells by C2(F ). For C ∈ C2(F ), choose xC ∈ relint (C). The function is affine near xC ; write 
+
+LC (x) = F (xC ) + ⟨mC , x − xC ⟩, mC ∈ Z2.
+
+We call LC the essential cell monomial of C.
+
+Proposition 2.3 (Essential presentation) . Every tropical polynomial admits the finite presentation 
+
+F (x) = min   
+
+> C∈C2(F)
+
+LC (x) (x ∈ Ω) .
+
+For every C ∈ C2(F ), the contact set of its essential monomial is exactly the cell closure: 
+
+{x ∈ Ω : F (x) = LC (x)} = C. 
+
+If x lies in the relative interior of an interior tropical edge, exactly the two essential monomials belonging to the two adjacent two-dimensional cells attain the minimum at x.Proof. At xC , the gradient mC is a supergradient of the concave function F . Hence 
+
+F (y) ≤ F (xC ) + ⟨mC , y − xC ⟩ = LC (y)
+
+for every y ∈ Ω. Thus every essential monomial lies above F .The closures of the full-dimensional cells cover Ω. Given x ∈ Ω, choose C with x ∈ C. Since 
+
+F = LC on the relative interior of C, continuity gives F (x) = LC (x). Taking the minimum over all cells proves the displayed representation. Fix C and set 
+
+KC = {x ∈ Ω : F (x) = LC (x)}.
+
+The supporting inequality gives F ≤ LC . If x, y ∈ KC , concavity gives 
+
+F (tx + (1 − t)y) ≥ tF (x) + (1 − t)F (y) = LC (tx + (1 − t)y),
+
+while the reverse inequality follows from F ≤ LC . Hence KC is closed and convex. It contains C.If it contained a point y / ∈ C, choose a small open ball B ⋐ relint (C). The convex hull of B ∪ { y}
+
+contains a connected open set strictly larger than relint (C) on which F = LC , contradicting the maximality of the linearity cell. Thus KC = C.At a relative-interior point of an interior edge, the polyhedral subdivision has exactly two adjacent two-dimensional cells. Their essential monomials attain F , and the contact-set identity excludes every other essential monomial. Hence precisely the two adjacent essential monomials are active. □10 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+Remark 2.4. The small canonical form may contain additional canonical monomials that agree with F only on lower-dimensional faces of the tropical complex. The essential presentation omits all such terms without changing the function. We use the small canonical form for finiteness and slope bounds, and the essential presentation for coefficient deformations. 2.3. Newton duality, discrete curvature, and complexity. Write the essential monomial of a two-dimensional cell C as 
+
+LC (x) = cC + ⟨mC , x ⟩.
+
+The lifted points (mC , c C ) ∈ R3 determine the regular Newton subdivision of the convex hull of the essential gradients [Mik05; MS15]. Equivalently, if τ is a closed face of the tropical polyhedral complex, let 
+
+Aτ = {mC : LC = F on relint( τ )} , Qτ = conv( Aτ ).
+
+The polytopes Qτ are the faces of the regular Newton subdivision dual to the tropical faces. The correspondence is inclusion-reversing: two-dimensional tropical cells are dual to lattice points, interior tropical edges are dual to lattice segments, and interior tropical vertices are dual to lattice polygons. In particular, 
+
+Qv = ∂+F (v)
+
+for an interior tropical vertex v.Let e be an edge of a tropical curve. If the two adjacent gradients are m0, m 1 ∈ Z2, write 
+
+m1 − m0 = w(e)ne,
+
+where ne is primitive. The integer w(e) ≥ 1 is the tropical weight. A primitive tangent vector ve is obtained by rotating ne by ninety degrees. Near the relative interior of a side Sr, a tropical polynomial has the form 
+
+F = mF (Sr)λr
+
+for an integer mF (Sr) ≥ 0. This is the side quasi-degree. Define 
+
+D∂ (F ) = 
+
+> s
+
+X
+
+> r=1
+
+mF (Sr).
+
+We call D∂ (F ) the total boundary quasi-degree ; it is not an individual side quasi-degree. The tropical symplectic area of a finite weighted tropical curve is 
+
+Asymp (V (F )) = X
+
+> e
+
+w(e)ℓEuc (e)∥ve∥,
+
+where ve is primitive and parallel to e. For a polygon side Sr, let vr be either primitive tangent vector and set 
+
+Area trop (Sr) = ℓEuc (Sr)∥vr∥.
+
+Thus Area trop (Sr) is the symplectic area of the side with weight one. The exact boundary identity, the admissible comparison class, and the minimality statement used below are stated together in Theorem 3.6; this makes the background we use explicit before it is applied to the interpolating competitor. 2.4. Embedded graph convention. The corner locus is treated as an embedded polyhedral graph. A transverse crossing is a four-valent embedded vertex. Degree-two subdivision points are suppressed unless they are marked or lie on a window boundary. This convention is used for Euler characteristic, first Betti number, and local curvature. A two-dimensional linearity cell is called bounded if its closure is compactly contained in Ω◦;otherwise it is a boundary cell . Thus a strip bounded partly by a tropical edge and partly by ∂Ω is a boundary cell, not a bounded face. An edge is terminal relative to Ω if its closure meets ∂Ω; an edge MANY-POINT TROPICAL RELAXATION 11 
+
+whose closure is compactly contained in Ω◦ is a compact internal edge . For any finite tropical corner locus Γ, define its bounded-face genus by 
+
+g(Γ) = # {bounded two-dimensional components of Ω◦ \ Γ} .
+
+This definition does not presuppose that Γ is connected. If Γ is connected and G is a sufficiently small regular inward truncation retaining all tropical vertices, then the exterior pieces merge into the single unbounded face of the plane graph G, and Euler’s formula gives 
+
+g(Γ) = β1(G).
+
+Pruning terminal leaf tails changes neither side of this equality. A marked point is assumed to lie in the relative interior of an edge. The unique edge containing a marked point pi in its relative interior is called its marked carrier edge and is denoted by ei. Cutting at a marked point replaces it by two degree-one endpoints. One cut increases Euler characteristic by one. 2.5. Aleksandrov Monge–Ampère measure. For a concave function F on Ω, define its superdif-ferential (compare the standard convex-analytic convention in [Roc70]) 
+
+∂+F (x) = p ∈ R2 : F (y) ≤ F (x) + ⟨p, y − x⟩ for all y ∈ Ω .
+
+The Aleksandrov Monge–Ampère measure [Ale58; Gut16; Fig17] is 
+
+MA( F )( B) = Leb 2
+
+ ∂+F (B).
+
+For a polyhedral concave function, it is atomic at the vertices: 
+
+MA( F ) = X
+
+> v
+
+Area( Qv)δv, Qv = ∂+F (v).
+
+Here area is ordinary Euclidean area in the gradient lattice. A unimodular trivalent vertex has mass 
+
+1/2, and an elementary nodal parallelogram has mass 1.The measure is quadratically homogeneous: 
+
+MA( aF ) = a2 MA( F ), a ≥ 0.
+
+Adding an affine function does not change the measure. Measure convention. In Sections 2 to 8, Ω denotes a compact polygonal body. There MA (F ) is regarded first as a Radon measure on the open domain Ω◦, and Ckc (Ω) is shorthand for Ckc (Ω ◦).Whenever weak convergence is stated on the compact body Ω = Ω , the interior measures are extended by zero to ∂Ω. In Section 9, Ω itself is open, and “vague convergence on Ω” means convergence against all tests in Cc(Ω) .Passing to u = −F converts the concave convention into the standard convex convention. The comparison principle, maximum principle, compactness, stability, and zero-boundary Dirichlet solvability on bounded convex domains are recalled in Section A. Since the boundary datum is affine, no strict-convexity assumption is needed; rational polygons are covered by the same standard theory. 2.6. Strong genericity. For an open rational polygon O satisfying 
+
+K ⋐ O ⋐ Ω◦,
+
+let 
+
+Conf N (O) = {(p1, . . . , p N ) ∈ O N : pi̸ = pj for i̸ = j}.
+
+A configuration is called strongly generic when it lies in the open full-measure locus constructed in Theorem 4.19. On this locus every marked point lies in the interior of a distinct edge, and the gradient-labelled marked combinatorial type is locally stable. 12 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+3. Tropical interpolation and square-root complexity 
+
+3.1. A tropical dependence lemma. Let K = C(( tR)) be the Hahn field with real value group [Hah07]. For a nonzero series z, let val( z) be its least exponent, and set val(0) = + ∞.
+
+Lemma 3.1 (Non-Archimedean cancellation) . If z1 + · · · + zM = 0 in K and the terms are not all zero, then min j val( zj ) is attained at least twice. Proof. A uniquely minimal valuation cannot cancel with terms of strictly larger valuation. □
+
+The next lemma is the elementary Hahn-field form of tropical column dependence; compare [DSS05]. 
+
+Lemma 3.2 (Tropical column dependence) . Let X = ( xij ) ∈ RN ×M with M > N . There exist 
+
+c1, . . . , c M ∈ R ∪ { +∞} , not all infinite, such that for every row i the minimum 
+
+min  
+
+> j
+
+(cj + xij )
+
+is attained at least twice. Proof. Consider the N × M matrix eXij = txij over K. Its columns are linearly dependent, so there is a nonzero vector z = ( zj ) with X
+
+> j
+
+zj txij = 0 
+
+for every i. Set cj = val( zj ). Then 
+
+val( zj txij ) = cj + xij ,
+
+and Lemma 3.1 gives the conclusion. □
+
+Theorem 3.3 (Tropical interpolation) . Let P = {p1, . . . , p N } ⊂ R2 and let A = {m1, . . . , m M } ⊂ Z2
+
+with M > N . There is a tropical polynomial 
+
+q(x) = min 
+
+> j∈J
+
+ cj + ⟨mj , x ⟩, ∅̸ = J ⊂ { 1, . . . , M },
+
+such that P ⊂ V (q).Proof. Apply Lemma 3.2 to xij = ⟨mj , p i⟩ and omit the indices with infinite coefficient. □
+
+3.2. Square-root slopes. For d ≥ 0, set 
+
+Ad = [ −d, d ]2 ∩ Z2, |Ad| = (2 d + 1) 2.
+
+Choose 
+
+dN =
+
+ √N + 1 − 12
+
+
+
+.
+
+Then |AdN | > N .
+
+Corollary 3.4 (Square-root-gradient interpolant) . Every N -point set P ⊂ R2 lies on the corner locus of a tropical polynomial qP whose active gradients satisfy 
+
+∥m∥ ≤ √2dN = O(√N ).
+
+After replacing qP by 
+
+bqP = qP − min  
+
+> Ω
+
+qP ,
+
+one has 
+
+bqP ≥ 0 on Ω, P ⊂ V (bqP ),
+
+Lip( bqP ) ≤ C√N , 0 ≤ bqP ≤ CΩ
+
+√N . 
+
+Proof. Apply Theorem 3.3 with A = AdN . A minimum of affine functions with gradients of norm at most R is R-Lipschitz. The oscillation on Ω is therefore at most R diam(Ω) . □MANY-POINT TROPICAL RELAXATION 13 
+
+3.3. A zero-boundary competitor. Define the primitive tropical distance barrier 
+
+DΩ(x) = min  
+
+> 1≤r≤s
+
+λr(x).
+
+It is nonnegative, zero on ∂Ω, and strictly positive in Ω◦. Set 
+
+δK = min  
+
+> K
+
+DΩ > 0, HN = max  
+
+> Ω
+
+bqP ,
+
+and choose 
+
+MN =
+
+ HN
+
+δK
+
+
+
++ 1 .
+
+Then MN = OΩ,K (√N ) and 
+
+MN DΩ(p) > bqP (p)
+
+for every p ∈ P .
+
+Proposition 3.5 (Dirichlet competitor) . The tropical polynomial 
+
+EP = min {bqP , M N DΩ}
+
+satisfies 
+
+EP ≥ 0, EP |∂Ω = 0 , P ⊂ V (EP ).
+
+Every gradient occurring in EP has norm OΩ,K (√N ), and every side quasi-degree satisfies 
+
+mEP (Sr) ≤ MN .
+
+Proof. The function is a finite minimum of affine functions with integer gradients. On the boundary, 
+
+MN DΩ = 0 and bqP ≥ 0. At every marked point the inequality bqP < M N DΩ is strict and persists in a neighborhood, so the corner condition of bqP survives. Near a relative-interior point of Sr, the barrier is MN λr. Any other nonnegative affine monomial that vanishes there is a nonnegative integral multiple of λr. Hence the smallest boundary multiple appearing in EP is at most MN . □
+
+3.4. The symplectic-area comparison engine. The next theorem is the precise geometric information that transfers the explicit competitor bound to the minimal relaxation. We state its admissible class and normalization here because it is the sole nontrivial comparison principle behind the global O(√N ) complexity estimate. For a finite set P ⊂ Ω◦, let 
+
+T (Ω , P ) = 
+
+
+
+E : Ω → R≥0 : E is a finite Ω-tropical polynomial ,E|∂Ω = 0 , P ⊂ V (E)
+
+
+
+.
+
+Here “finite” means that E is the minimum of finitely many affine functions with gradients in Z2. In particular, every E ∈ T (Ω , P ) has a finite weighted corner locus and finite tropical symplectic area. 
+
+Theorem 3.6 (Symplectic-area engine on a rational polygon) . Let Ω be a bounded rational convex polygon with sides S1, . . . , S s. For every zero-boundary Ω-tropical polynomial E one has the exact identity 
+
+(3.1) Asymp (V (E)) = 
+
+> s
+
+X
+
+> r=1
+
+mE (Sr) Area trop (Sr),
+
+where 
+
+Asymp (V (E)) = X 
+
+> e⊂V(E)
+
+w(e)ℓEuc (e)∥ve∥, Area trop (Sr) = ℓEuc (Sr)∥vr∥,ve and vr being primitive tangent vectors. If P ⊂ Ω◦ is finite, then FP = GP 0Ω has a finite small canonical form and 
+
+(3.2) Asymp (Γ P ) ≤ Asymp (V (E)) for every E ∈ T (Ω , P ).14 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+Source and hypothesis reconciliation. The area normalization is [KS18, Definition 14.1]. In the terminology of that source, a compact Q-polygon is exactly a bounded rational convex polygon, a 
+
+∆-tropical polynomial is a nonnegative integral-slope tropical polynomial with zero boundary values, and its quasi-degree on a side is the integer mE (Sr) used here. Lemma 14.6 of that source gives (3.1) with the displayed normalization. Finiteness of the small canonical form of FP on a compact rational polygon is [KS18, Remark 9.5]. For completeness, the minimality conclusion can be read directly from the boundary identity and the pointwise relaxation order. If E ∈ T (Ω , P ), then Proposition 2.2 gives FP ≤ E on Ω. Near a relative-interior point of Sr one has 
+
+FP = mFP (Sr)λr, E = mE (Sr)λr.
+
+Evaluating at an interior point with λr = t > 0 gives 
+
+mFP (Sr) ≤ mE (Sr) (1 ≤ r ≤ s).
+
+Multiplying by the positive numbers Area trop (Sr), summing over r, and using (3.1) proves (3.2) .This is precisely the specialization of [KS18, Corollary 14.7] needed here. □
+
+Lemma 3.7 (The interpolating competitor satisfies the comparison hypotheses) . The function EP
+
+of Proposition 3.5 belongs to T (Ω , P ). Moreover, 
+
+mEP (Sr) ≤ MN (1 ≤ r ≤ s),
+
+so its symplectic area is finite and obeys 
+
+(3.3) Asymp (V (EP )) ≤ MNsX
+
+> r=1
+
+Area trop (Sr).
+
+Proof. By construction, EP is the minimum of the finitely many affine monomials occurring in bqP
+
+and in MN DΩ; all gradients are integral. Proposition 3.5 proves that EP ≥ 0, that EP vanishes continuously on ∂Ω, and that every point of P lies in V (EP ). Hence EP ∈ T (Ω , P ). The same proposition gives mEP (Sr) ≤ MN , and substituting this inequality in the boundary identity (3.1) gives (3.3). □
+
+3.5. Complexity of the minimal relaxation. Theorem 3.8 (Square-root complexity) . There is a constant C = C(Ω , K ) such that, for every 
+
+P ⊂ K with |P | = N ,
+
+Asymp (Γ P ) ≤ C√N , 
+
+H1(Γ P ) ≤ C√N , 
+
+and 
+
+D∂ (FP ) ≤ C√N . 
+
+No genericity hypothesis is required. Proof. By Lemma 3.7, the explicit function EP lies in the admissible comparison class T (Ω , P ).The minimality part of Theorem 3.6 and (3.3) therefore give 
+
+Asymp (Γ P ) ≤ Asymp (V (EP )) ≤ MNsX
+
+> r=1
+
+Area trop (Sr) ≤ CΩ,K 
+
+√N . 
+
+For every edge e of ΓP , both w(e) and ∥ve∥ are at least one. Hence 
+
+H1(Γ P ) = X
+
+> e
+
+ℓEuc (e) ≤ X
+
+> e
+
+w(e)ℓEuc (e)∥ve∥ = Asymp (Γ P ).MANY-POINT TROPICAL RELAXATION 15 
+
+Finally, the exact boundary identity (3.1), applied to FP , gives 
+
+Asymp (Γ P ) = 
+
+> s
+
+X
+
+> r=1
+
+mFP (Sr) Area trop (Sr) ≥ amin D∂ (FP ), amin = min  
+
+> r
+
+Area trop (Sr) > 0.
+
+The three asserted bounds follow with a constant depending only on Ω and K. □
+
+4. Semilinear genericity and marked topology 
+
+4.1. A uniform finite slope set. Fix N and an open rational polygon O with 
+
+K ⋐ O ⋐ Ω◦.
+
+The complexity estimate of Theorem 3.8 is uniform for configurations in O: there is C = C(Ω , O)
+
+such that 
+
+D∂ (FP ) ≤ C√N (P ∈ Conf N (O)) .
+
+The following finite-dimensional reduction is the point at which this estimate enters the genericity argument. 
+
+Lemma 4.1 (Uniform slope support) . For fixed N , there is a finite set 
+
+AN ⊂ Z2
+
+containing every gradient in the small canonical form of FP , for every P ∈ Conf N (O).Proof. Let S1, . . . , S s be the sides of Ω, with primitive inward normals n1, . . . , n s. The boundary gradient associated with Sr is mFP (Sr)nr. Since each side quasi-degree is bounded by D∂ (FP ),these boundary gradients lie in a fixed Euclidean ball, depending on N, Ω, O. By the convex-hull description of the small-canonical gradients in [KS18, Remark 9.7], every gradient of FP belongs to the convex hull of the boundary gradients. Hence all such gradients lie in a fixed bounded subset of 
+
+R2. Its intersection with Z2 is the required finite set AN . □
+
+For c = ( cm)m∈AN ∈ RAN , write 
+
+fc(x) = min 
+
+> m∈AN
+
+ cm + ⟨m, x ⟩.
+
+If a tropical function f has small-canonical support contained in AN , define its completed coefficient at m ∈ AN by 
+
+κm(f ) = max 
+
+> x∈Ω
+
+ f (x) − ⟨ m, x ⟩.
+
+Every completed monomial lies above f . Since the original small-canonical monomials remain among the completed terms, one has 
+
+f (x) = min 
+
+> m∈AN
+
+ κm(f ) + ⟨m, x ⟩.
+
+Set 
+
+c(P ) =  κm(FP ) 
+
+> m∈AN
+
+.
+
+Thus fc(P ) = FP in a fixed coefficient space independent of P .
+
+Lemma 4.2 (Uniqueness of completed coordinates) . Let A ⊂ Z2 be finite and let f admit a presentation 
+
+f (x) = min 
+
+> m∈A
+
+ am + ⟨m, x ⟩ (x ∈ Ω) .
+
+Then the completed vector 
+
+κA(f ) = 
+
+
+
+max 
+
+> x∈Ω
+
+ f (x) − ⟨ m, x ⟩ 
+
+> m∈A16 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV
+
+is the unique vector c ∈ RA satisfying both f = fc and cm = max Ω(f − ⟨ m, ·⟩ ) for every m ∈ A.Consequently, the coordinates c(P ) carry neither an additive gauge nor an ambiguity coming from redundant monomials. Proof. Every affine term in a presentation of f lies above f , so κm(f ) ≤ am. At a point x, choose an index m active in the given presentation. Then 
+
+am = f (x) − ⟨ m, x ⟩ ≤ max 
+
+> y∈Ω
+
+ f (y) − ⟨ m, y ⟩ = κm(f ),
+
+so κm(f ) = am for at least one active index at every point. Hence the completed terms reproduce f .If c is another completed vector representing f , then its defining completion identity gives cm = κm(f )
+
+for each m. Thus c = κA(f ). In particular, coefficients of monomials that are nowhere essential are fixed by completion rather than left free, and an additive shift would change the represented zero-boundary function. □
+
+4.2. The finite semilinear relaxation map. A subset of a finite-dimensional real vector space is called semilinear if it is a finite union of relatively open polyhedra. Its dimension is the maximum of the affine dimensions of the polyhedra in such a decomposition, with dim ∅ = −∞ .
+
+Proposition 4.3 (Semilinear dimension facts) . Semilinear sets have the following properties. 
+
+(i) They are closed under finite Boolean operations and linear projections. 
+
+(ii) If π is linear and X is semilinear, then 
+
+dim π(X) ≤ dim X. 
+
+(iii) If X ⊂ Ra × Rb is semilinear and every nonempty fiber Xx has dimension at most d, then 
+
+dim X ≤ dim π(X) + d, 
+
+where π : Ra × Rb → Ra is the coordinate projection. 
+
+(iv) If a semilinear set G ⊂ Ra × Rb is the graph of a single-valued map, then the domain admits a finite semilinear partition on every cell of which the map is affine. 
+
+(v) For a finite family of polyhedra defined by affine equalities and inequalities whose right-hand sides depend affinely on parameters, the parameter loci on which a member is nonempty, has a prescribed dimension, or satisfies a prescribed closure-intersection or face-containment relation are semilinear. Proof. Closure under Boolean operations and projection is quantifier elimination for ordered real vector spaces; projection may also be obtained directly by Fourier–Motzkin elimination. Decompose a semilinear set into finitely many relatively open polyhedra. The linear image of each cell has dimension no larger than that cell, proving (ii). For (iii), let Q be one cell of such a decomposition of X. On the affine hull of Q, rank–nullity for 
+
+π gives 
+
+dim Q = dim π(Q) + dim  aff( Q) ∩ ker π.
+
+Over the relative interior of π(Q), the last dimension is the dimension of the fibers of Q, and is therefore at most d. Since dim π(Q) ≤ dim π(X), taking the maximum over Q proves the fiber inequality. For (iv), decompose the graph into relatively open polyhedra. The projection is injective on the affine hull of every graph cell: a nonzero vertical direction would, by relative openness, give two nearby graph points over the same base point. Hence the inverse of the projected affine map is affine on that cell. Refining the projected cells gives the required partition. Finally, (v) follows from the same finite elimination procedure. Nonemptiness is an existential affine formula; dimension is determined after a finite subdivision by the ranks of the active equality systems; and a closure intersection P ∩ Q̸ = ∅ is again an existential affine formula with weak inequalities. A face-containment relation, such as Q ⊂ P , is the complement of the projection of MANY-POINT TROPICAL RELAXATION 17 
+
+the semilinear set of parameter–point pairs with the point in Q \ P . Finite Boolean combinations preserve semilinearity. □
+
+Let AN ⊂ Conf N (O) × RAN be the set of pairs (P, c ) such that fc is nonnegative on Ω, zero on 
+
+∂Ω, and nonsmooth at every point of P .
+
+Lemma 4.4 (Polyhedral admissibility) . The set AN is semilinear. Proof. We express each admissibility condition by finitely many affine equalities and inequalities. First, fc ≥ 0 on Ω if and only if every affine term is nonnegative on Ω. An affine function attains its minimum on a compact polygon at a polygon vertex, so this is equivalent to 
+
+cm + ⟨m, v ⟩ ≥ 0
+
+for every m ∈ AN and every vertex v of Ω.Assume these inequalities. On a side S, the equality fc = 0 holds identically if and only if at least one monomial vanishes identically on S. One implication is immediate. Conversely, the zero sets on the interval S of the finitely many nonnegative affine restrictions are each empty, a point, or all of S.If their union covers S, one of them must equal all of S. Vanishing identically on a fixed side is a finite affine system in the coefficient cm.Finally, pi ∈ V (fc) if and only if there are distinct m, n ∈ AN such that 
+
+cm + ⟨m, p i⟩ = cn + ⟨n, p i⟩ ≤ cr + ⟨r, p i⟩ (r ∈ AN ).
+
+This is a finite disjunction over the pairs (m, n ). The conjunction of the three families of conditions is therefore semilinear. □
+
+Lemma 4.5 (Least coefficient vector) . For every P , the completed vector c(P ) belongs to the fiber 
+
+AN (P ) and satisfies 
+
+c(P ) ≤ d
+
+coordinatewise for every d ∈ AN (P ).Proof. The vector c(P ) represents FP , which is nonnegative, zero on the boundary, and nonsmooth at every marked point; hence c(P ) ∈ AN (P ). If d ∈ AN (P ), then fd is admissible for the relaxation defining FP . Pointwise minimality gives FP ≤ fd. Thus, for each m ∈ AN ,
+
+cm(P ) = max 
+
+> x∈Ω
+
+ FP (x) − ⟨ m, x ⟩
+
+≤ max 
+
+> x∈Ω
+
+ fd(x) − ⟨ m, x ⟩
+
+≤ dm,
+
+because fd(x) ≤ dm + ⟨m, x ⟩. □
+
+Proposition 4.6 (Semilinear graph) . The graph 
+
+GN = {(P, c (P )) : P ∈ Conf N (O)}
+
+is semilinear. Proof. By Lemma 4.5, a pair (P, c ) belongs to GN precisely when (P, c ) ∈ AN and there is no 
+
+d ∈ AN (P ) with dm < c m for at least one m ∈ AN . The set of triples (P, c, d ) satisfying the latter strict inequality in some coordinate is semilinear. By Proposition 4.3(i), projecting it to (P, c ), taking its complement, and intersecting with AN gives GN . □
+
+Proposition 4.7 (Piecewise-affine dependence) . There is a finite polyhedral partition of Conf N (O)
+
+such that P 7 → c(P ) is affine on every cell. 18 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+Proof. Decompose the semilinear graph GN into finitely many relatively open polyhedra. The projection 
+
+π : GN −→ Conf N (O)
+
+is injective because the completed coefficient vector is unique. On the affine hull of each graph cell, the kernel of the linear part of π is therefore trivial: a nonzero vertical direction would produce two graph points over the same configuration. Hence the restriction of π has an affine inverse on its image. Each graph cell is consequently the graph of an affine map over a polyhedron. Refining the finitely many projected polyhedra gives the desired partition. □
+
+4.3. A finite active-set blueprint. Let F (Ω) denote the finite face lattice of the compact polygon 
+
+Ω: the polygon itself, its closed sides, and its vertices. For σ ∈ F (Ω) , fix once and for all an affine description of relint σ by constant-coefficient affine equalities and strict inequalities. Let Q be a relatively open polyhedron in the partition of Proposition 4.7; throughout the next construction the parameter is P ∈ Q and the completed coefficient vector c(P ) is affine in P . Set 
+
+ℓm(P, x ) = cm(P ) + ⟨m, x ⟩ (m ∈ AN ).
+
+For a nonempty subset B ⊂ AN , choose a distinguished element b(B) ∈ B and define the exact active-face fiber (4.1) ZB,σ (P ) = 
+
+
+
+x ∈ relint σ : ℓm(P, x ) = ℓb(B)(P, x ) (m ∈ B),ℓb(B)(P, x ) < ℓ r(P, x ) (r ∈ AN \ B)
+
+
+
+.
+
+Thus B is the exact set of active monomials at every point of ZB,σ (P ), while σ records whether the face lies in the interior, in a side, or at a vertex of Ω.Replacing the strict inequalities in (4.1) and in the description of relint σ by weak inequalities defines a closed candidate polyhedron, denoted bZB,σ (P ).
+
+Lemma 4.8 (Parameterized exact active faces) . For each pair (B, σ ), the total set 
+
+ZB,σ = {(P, x ) ∈ Q × Ω : x ∈ ZB,σ (P )}
+
+is semilinear. More precisely, there are constant matrices EB,σ and GB,σ and affine functions qB,σ (P )
+
+and hB,σ (P ) such that 
+
+ZB,σ (P ) = {x : EB,σ x = qB,σ (P ), G B,σ x < h B,σ (P )}.
+
+Whenever this fiber is nonempty, it is a connected relatively open convex polyhedron and 
+
+ZB,σ (P ) = bZB,σ (P ),
+
+where the closure is taken in Ω. Its dimension is the dimension of the affine solution space of the displayed equality system. If rank EB,σ = 2 and the equality system is consistent, it has a unique candidate point vB,σ (P ),affine in P . The exact fiber is either empty or the singleton {vB,σ (P )}, according to the strict inequalities. In particular: 
+
+(i) an interior vertex with exact active set B is the unique solution of 
+
+(m − b(B)) · x = cb(B)(P ) − cm(P ) (m ∈ B \ { b(B)}); 
+
+(ii) an endpoint on the relative interior of a side S is the unique solution of the same active equalities together with the fixed affine equation of S;
+
+(iii) contact with a polygon vertex is evaluated at that fixed vertex. Finally, the nonempty fibers ZB,σ (P ), over all (B, σ ), form a disjoint partition of Ω.MANY-POINT TROPICAL RELAXATION 19 
+
+Proof. Choose b = b(B). The active equalities are 
+
+⟨m − b, x ⟩ = cb(P ) − cm(P ) (m ∈ B \ { b}),
+
+and the strict minimality inequalities are 
+
+⟨b − r, x ⟩ < c r(P ) − cb(P ) (r / ∈ B).
+
+Appending the fixed equalities and strict inequalities defining relint σ gives the asserted constant matrices and affine right-hand sides. The rank of EB,σ is therefore independent of P . If LB,σ is any matrix whose rows span the left kernel of EB,σ , consistency is exactly the affine condition 
+
+LB,σ qB,σ (P ) = 0 .
+
+Hence the total set, as well as the consistency locus of its equality system, is semilinear. Each fiber is the intersection of an affine subspace with finitely many open half-spaces, so it is relatively open, convex, and connected. If it is nonempty, every weak boundary point can be approached from a strict point along a segment contained in the weak polyhedron; hence its closure is exactly the polyhedron obtained by replacing all strict inequalities by weak ones. Strict inequalities do not lower the affine dimension, proving the dimension assertion. If the equality matrix has rank two, choose once and for all two independent rows. Their constant 
+
+2 × 2 matrix is invertible and their right-hand side is affine in P , so the candidate solution vB,σ (P ) is affine in P . Consistency with the remaining equalities and membership in the strict inequalities are separate affine predicates. When those inequalities hold, the exact fiber is the singleton candidate point. The three displayed cases are the corresponding systems for the interior, a side, and a polygon vertex. Every point x ∈ Ω lies in exactly one relatively open polygon face σ and has one exact active set 
+
+B = {m : ℓm(P, x ) = fc(P )(x)}. This proves the final partition statement. □
+
+Proposition 4.9 (Finite parameterized blueprint for the embedded tropical type) . Let Q be as above. There is a finite semilinear refinement of Q such that on every resulting parameter cell Q′ the following data are constant. 
+
+(i) For every pair (B, σ ), consistency or inconsistency of its equality system, nonemptiness or emptiness of ZB,σ (P ), and the dimension of every nonempty fiber. In particular, the label set 
+
+L (Q′) = {(B, σ ) : ZB,σ (P )̸ = ∅}
+
+is fixed. 
+
+(ii) For every two nonempty labels α = ( B, σ ) and β = ( C, τ ) in L (Q′), the closure-incidence relation 
+
+ZC,τ (P ) ⊂ ZB,σ (P ).
+
+(iii) For every consistent rank-two candidate system, the fixed affine formula for vB,σ (P ); for every pair of such candidates, whether they coincide; and, for candidates on one polygon side, the weak and strict order relations in a fixed affine coordinate along that side. Exact membership of each candidate in its prescribed active region is also fixed. 
+
+(iv) For each marked point pi, the unique label (Bi, Ω) for which pi ∈ ZBi,Ω(P ).These data determine the complete gradient-labelled embedded polyhedral subdivision of Ω induced by 
+
+fc(P ), and hence the complete embedded multigraph type of its corner locus. They distinguish parallel edges and all endpoint incidences. At every interior vertex they determine the incident edge germs and their cyclic order, including transverse nodes. The direction and weight of every interior edge are constant on Q′.Proof. There are only finitely many pairs (B, σ ). By Lemma 4.8, consistency is a finite affine system and nonemptiness of the exact fiber is semilinear. Its dimension is determined by the rank of its constant equality matrix once consistency is imposed. Refining by all these predicates proves (i). 20 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+For labels α = ( B, σ ) and β = ( C, τ ), once Zα(P ) is nonempty its closure is the weak polyhedron 
+
+bZα(P ). The failure of the containment in (ii) is expressed by the existence of a point 
+
+x ∈ Zβ (P ) \ bZα(P ).
+
+This is an existential Boolean combination of affine equalities and strict or weak inequalities in (P, x ).Its projection to P is semilinear, so refining by its truth value fixes every closure incidence. By Lemma 4.8, every consistent rank-two system has a candidate point vB,σ (P ) given by a fixed affine formula. Membership of that point in the prescribed exact region is a finite list of affine equalities and strict inequalities. Coincidence of two candidate points is a finite affine equality system. If the candidates lie on a common side, choose a fixed affine coordinate tS on that side; the sign of tS (vB,σ (P )) − tS (vC,τ (P )) is the sign of an affine function of P . Refining by equality and the two strict signs fixes all candidate mergers, exact memberships, and boundary orders, proving (iii). For a mark pi, the condition that its exact active set is B is precisely the finite system 
+
+ℓm(P, p i) = ℓb(B)(P, p i) ( m ∈ B), ℓb(B)(P, p i) < ℓ r(P, p i) ( r / ∈ B).
+
+Because both c(P ) and the coordinate pi are affine in the configuration parameters, these are affine predicates. Refinement by their truth values proves (iv). It remains to recover the embedded complex. By Lemma 4.8, the nonempty exact fibers are connected and partition Ω; the fixed closure relation is therefore their complete labeled face poset. A two-dimensional interior fiber has a singleton active set and is labelled by its gradient. A one-dimensional interior fiber is incident, through the fixed face poset, to its adjacent two-dimensional gradient cells. If the extreme adjacent gradients are m− and m+, its supporting line is orthogonal to 
+
+m+ − m− and its weight is the lattice length of the dual gradient segment; both are fixed. Distinct one-dimensional labels with the same direction remain distinct because their endpoint labels and closure incidences are recorded, so parallel edges and multigraph incidences are not collapsed. At a zero-dimensional interior fiber, the incident one-dimensional labels are fixed by the face poset. Their direction vectors depend only on the fixed gradients. Thus every oriented determinant sign between two incident directions is constant, and their cyclic order in the oriented plane is fixed; this also records the four germs at a transverse node. Since every one-dimensional exact fiber is convex and connected, its closure is a segment and the zero-dimensional labels incident to it are precisely its at most two endpoints. The affine positions of all vertices and boundary endpoints, together with the fixed order of boundary contacts, therefore determine the embedding of every edge segment. Constancy of nonemptiness and dimension prevents appearances or disappearances; the coincidence and order predicates prevent unrecorded mergers; and the closure predicates prevent changes of incidence. Thus the complete gradient-labelled embedded subdivision and corner-locus multigraph are constant on Q′. □
+
+Lemma 4.10 (Active-set encoding of the tropical complex) . For a fixed coefficient vector, the nonempty exact active-face regions, their dimensions, their closure incidences, and their ordered boundary contacts determine the complete gradient-labelled embedded face poset of the corner locus. In particular, they determine all adjacent two-dimensional cells, all interior edge directions and weights, the cyclic order at every vertex, and every boundary contact. Proof. Apply the reconstruction in the final paragraph of the proof of Proposition 4.9 with the parameter space reduced to one point. □
+
+Proposition 4.11 (Stable-type stratification) . There is a finite semilinear stratification of Conf N (O)
+
+such that, on each stratum: (i) the complete gradient-labelled embedded face poset of ΓP is constant; (ii) all edge directions, weights, cyclic incidences, and boundary incidences are constant; (iii) the exact face containing every marked point is constant; (iv) corresponding tropical vertices and edge endpoints depend affinely on P .MANY-POINT TROPICAL RELAXATION 21 
+
+On the interior of a full-dimensional stratum these data persist under every sufficiently small independent perturbation of the marked points. Proof. Start with the finite polyhedral partition supplied by Proposition 4.7. On each cell Q, the coefficient vector c(P ) is affine and, by Lemma 4.2, has no residual additive or redundant-monomial ambiguity. Apply Proposition 4.9 to each Q and take a common finite semilinear refinement. The resulting cells have constant complete embedded gradient-labelled type, constant marked-face labels, and affine vertex and endpoint coordinates. Taking relative interiors in one common finite polyhedral complex gives a stratification. A full-dimensional stratum is open in the ambient configuration space, so all of its defining strict inequalities and all noncollision signs persist under every sufficiently small independent perturbation of the marked points. □
+
+4.4. Bounded-cell incidence rank. Let R1, . . . , R g be the bounded complementary cells of ΓP ,with essential cell monomials L1, . . . , L g. For each marked point, define 
+
+Ai = {j : pi ∈ Rj }, ai = 1Ai ∈ Fg
+
+> 2
+
+.
+
+Lemma 4.12. For every bounded complementary cell Rj ,
+
+min 
+
+> Ω
+
+Lj > 0.
+
+Proof. Every essential cell monomial lies above FP ≥ 0 by Proposition 2.3. If Lj vanished at a boundary point, then Lj = FP = 0 there and the monomial would be active. Its active locus is an intersection of affine half-spaces and is convex. Since it contains the open cell Rj , activity at the boundary point would force the closure of the corresponding two-dimensional active region to reach 
+
+∂Ω, contrary to boundedness of Rj . A nonnegative affine function that vanishes at an interior point is identically zero; this would force the nonzero relaxation FP to vanish on an open set and hence everywhere. Thus Lj is strictly positive on the compact set Ω. □
+
+Lemma 4.13 (Binary spanning) . The vectors a1, . . . , a N span Fg
+
+> 2
+
+. In particular, 
+
+g ≤ N. 
+
+Proof. Suppose that the vectors do not span. Choose a nonzero vector x = ( x1, . . . , x g) ∈ Fg
+
+> 2
+
+orthogonal to every ai, and let 
+
+S = {j : xj = 1 }.
+
+Then S is nonempty and |Ai ∩ S| is even for every i; it is therefore zero or at least two. Set 
+
+α = min  
+
+> j∈S
+
+min 
+
+> Ω
+
+Lj > 0.
+
+For every pair (i, j ) with j ∈ S \ Ai, the selected monomial is inactive at pi, so 
+
+γij = Lj (pi) − FP (pi) > 0.
+
+Let β be the minimum of these finitely many gaps, with β = + ∞ if there are no such pairs. Choose 
+
+0 < ε < min {α, β }.
+
+Use the essential presentation from Proposition 2.3. Lower every bounded-cell monomial Lj , j ∈ S,by ε, leaving every other essential cell monomial unchanged. Every shifted monomial remains positive on Ω, and all essential monomials belonging to boundary cells are unshifted. Hence the deformed tropical polynomial is nonnegative and zero on ∂Ω. If Ai ∩ S
+
+is empty, every shifted term remains above the old minimum at pi by the choice of β, so the original active terms remain tied and minimal. If |Ai ∩ S| ≥ 2, at least two active monomials are lowered equally; every selected inactive monomial remains above them by its original positive gap, and every unshifted active monomial has value FP (pi) > F P (pi) − ε. Thus every marked corner condition persists. On the interior of each selected cell, the new function is at most FP − ε. This contradicts pointwise minimality of FP . □22 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+4.5. Incidence dimensions and the generic locus. A gradient-labelled type records the embedded face poset, the gradient attached to every two-dimensional cell, every edge weight, all incidences with the sides and vertices of Ω, and the face containing every marked point. There are only finitely many such types because AN is finite. 
+
+Definition 4.14 (Realization space of a gradient-labelled type) . Fix a gradient-labelled type τ .Its curve realization space Mτ is the set of completed coefficient vectors c ∈ RAN for which fc
+
+realizes the unmarked gradient-labelled embedded face poset, edge weights, and boundary incidences prescribed by τ . The positions of the marked points along their prescribed faces are not included in 
+
+Mτ . Completed coefficient vectors are unique, so no quotient by additive constants or redundant monomials is taken. Applying Proposition 4.9 with the coefficient vector itself as the affine parameter makes the type conditions semilinear. The completion condition is semilinear as well: for every 
+
+m ∈ AN it requires a nonempty exact active face ZB,σ with m ∈ B. Hence Mτ is semilinear. 
+
+Lemma 4.15 (Moduli bound) . For a fixed gradient-labelled type τ with gτ bounded complementary cells, the realization space Mτ has dimension at most gτ .Proof. Each two-dimensional cell has a unique essential cell monomial. If the closure of a cell meets the relative interior of a prescribed side, its nonnegative active monomial must vanish identically on that side, which fixes its coefficient. If it meets only a prescribed polygon vertex, vanishing at that vertex fixes the coefficient. Thus every boundary-cell coefficient is fixed by the labelled type. Only coefficients attached to bounded complementary cells may vary. Once those gτ coefficients are specified, the function is the minimum of the corresponding fixed-gradient monomials and the fixed boundary monomials; any completed monomial active only on a lower-dimensional face is determined by the resulting function. Therefore the coordinate projection from Mτ to the gτ bounded-cell coefficients is injective, and dim Mτ ≤ gτ . □
+
+Lemma 4.16 (Marked incidence dimension) . Fix a gradient-labelled type τ . If e marked points are assigned to specified edge interiors and the remaining N − e points are assigned to specified vertices, the corresponding semilinear incidence space has dimension at most 
+
+gτ + e. 
+
+Proof. The underlying curve contributes at most gτ parameters by Lemma 4.15. For a fixed curve, a point in a specified edge interior contributes one scalar parameter along that edge, while a point fixed at a specified vertex contributes none. The fiber-dimension inequality in Proposition 4.3(iii) gives the stated bound. □
+
+Proposition 4.17 (Marked-vertex and same-edge discriminants) . The locus where at least one marked point is a tropical vertex is contained in a finite union of semilinear sets of dimension at most 2N − 1. The locus where two distinct marked points lie on one tropical edge is contained in a finite union of affine hypersurfaces. Proof. For a type with at least one vertex-marked point, the number e of edge-interior points satisfies 
+
+e ≤ N − 1. The binary spanning lemma gives gτ ≤ N , and Lemma 4.16 gives dimension at most 
+
+N + ( N − 1) = 2 N − 1. Projection to the point coordinates cannot increase semilinear dimension by Proposition 4.3(ii). Taking the finite union over types and incidence assignments proves the first claim. Only finitely many edge directions occur because all gradients belong to AN . If pi and pj lie on an edge of primitive direction w, then 
+
+det( pi − pj , w ) = 0 .
+
+For fixed i, j, w this is a proper affine hypersurface. The finite union over all choices proves the second claim. □MANY-POINT TROPICAL RELAXATION 23 
+
+Proposition 4.18 (Boundary-parallel carriers create no generic genus defect) . Fix a gradient-labelled type τ on a rational polygon Ω.
+
+(i) If a tropical edge is parallel to a side of Ω and, together with part of ∂Ω, bounds a strip, that strip is a boundary cell and does not contribute to g(Γ) .
+
+(ii) The Euclidean length of such a carrier introduces no additional modulus in Mτ : every coefficient belonging to a boundary cell is pinned by the zero-boundary condition, and the realization-space bound remains dim Mτ ≤ gτ .
+
+(iii) The locus on which two distinct marked points lie on one carrier is contained in the same-edge discriminant of Proposition 4.17 and has positive codimension. Consequently, arbitrarily long boundary-parallel marked carriers do not alter the full-dimensional dimension count used to prove g(Γ P ) = N .Proof. A strip whose closure contains a nontrivial boundary segment meets ∂Ω, so it is a boundary cell by definition and is absent from the bounded-face genus. For a fixed labelled type, the coefficient of any cell meeting a side is fixed by vanishing on that side, and the coefficient of a cell meeting only a polygon vertex is fixed by vanishing at that vertex. Intersections of the resulting affine lines determine the endpoints and length of the carrier; the length is an output of the coefficients, not an independent parameter. This is exactly the argument of Lemma 4.15. Finally, if two marked points 
+
+pi, p j lie on an edge of primitive direction w, then det (pi − pj , w ) = 0 , one of the affine hypersurfaces appearing in Proposition 4.17. The last assertion follows. □
+
+Theorem 4.19 (Strong genericity) . For each N , there is an open dense full-measure semilinear subset 
+
+Conf gen  
+
+> N
+
+(O) ⊂ Conf N (O)
+
+such that for every P in this subset: (i) every marked point lies in the relative interior of an edge of ΓP ;(ii) distinct marked points lie on distinct edges; (iii) the complete gradient-labelled marked tropical type is stable under all sufficiently small independent perturbations of P .Proof. Take a common finite polyhedral refinement of the stable-type stratification in Proposition 4.11, the marked-vertex discriminant, the same-edge hypersurfaces, and the collision diagonals. Define 
+
+Conf gen  
+
+> N
+
+(O) as the union of the full-dimensional relatively open cells not contained in any bad locus. It is open in configuration space. Its complement lies in the finite union of the codimension-one skeleton and the lower-dimensional discriminants, so it is nowhere dense and has Lebesgue measure zero. On each retained cell, all strict inequalities defining the labelled type persist under sufficiently small independent perturbations. □
+
+4.6. Generic genus and the marked-tree theorem. Theorem 4.20 (Generic genus) . For every strongly generic configuration, 
+
+g(Γ P ) = N. 
+
+Moreover, the N bounded-face incidence vectors a1, . . . , a N form a basis of FN 
+
+> 2
+
+.Proof. Let P lie in a full-dimensional generic chamber of gradient-labelled type τ , and let g = gτ .All N marked points lie in specified edge interiors. The corresponding incidence space contains the chamber and therefore has dimension at least 2N . By Proposition 4.18, this remains true when some marked carriers are arbitrarily long and parallel to polygon sides. By Lemma 4.16, its dimension is at most g + N . Hence g ≥ N . The binary spanning lemma gives g ≤ N , so g = N . The N incidence vectors span the N -dimensional vector space FN 
+
+> 2
+
+and therefore form a basis. □24 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+We next prove the marked-tree statement internally. The first ingredient is a connectivity property valid for every nonzero tropical polynomial with zero boundary values. 
+
+Lemma 4.21 (Facet adjacency of a convex subdivision) . Let P be a finite polyhedral subdivision of a convex polygon. The graph whose vertices are the two-dimensional cells of P and whose edges record common one-dimensional facets is connected. Proof. Choose interior points x and y in two prescribed cells. Because the subdivision has finitely many vertices and edges, one can choose an intermediate point z ∈ Ω◦ such that the polygonal path [x, z ] ∪ [z, y ] avoids every vertex of the subdivision and contains no nontrivial segment of its one-dimensional skeleton. Each of its two segments therefore crosses the skeleton only through relative interiors of one-dimensional facets. Reading the successive two-dimensional cells met by the path gives a facet-adjacency chain between the prescribed cells. □
+
+Lemma 4.22 (No interior leaves) . After suppressing unmarked degree-two subdivision points, the corner locus of a tropical polynomial has no one-valent vertex in Ω◦.Proof. At every interior tropical vertex, the weighted primitive outgoing tangent vectors satisfy the tropical balancing condition X
+
+> e∋v
+
+w(e)ve = 0 .
+
+A one-valent vertex would leave a single nonzero vector in this sum, which is impossible. Thus every genuine leaf of the uncut tropical graph lies on the polygon boundary. □
+
+Lemma 4.23 (Connectivity of the full tropical curve) . Let F be a nonzero Ω-tropical polynomial. Then its corner locus 
+
+Γ = V (F ) ⊂ Ω◦
+
+is connected. Proof. Let R1, . . . , R M be the closures of the two-dimensional linearity cells of F , and let Lj be its essential cell monomial from Proposition 2.3. Each Rj is a compact convex polygon. We first show that 
+
+Bj := ∂R j ∩ Ω◦
+
+is connected. Since F = 0 on ∂Ω and every monomial lies above F , a point of Rj ∩ ∂Ω satisfies 
+
+Lj = 0 . The affine function Lj is nonnegative on Ω, so its zero set on Ω is a face of the convex polygon Ω: it is empty, a point, or a segment contained in one side. It cannot equal all of Ω, since F
+
+is nonzero. Thus Rj ∩ ∂Ω is a connected proper face of the polygon Rj . Removing this face from the boundary circle of Rj leaves a connected arc; this arc is precisely Bj . If Rj is disjoint from ∂Ω,then Bj = ∂R j is connected as well. By Lemma 4.21, the two-dimensional cells form a connected facet-adjacency graph. If Rj and Rk
+
+are adjacent, then Bj ∩ Bk contains their common tropical edge and is nonempty. Therefore the union M[
+
+> j=1
+
+Bj = Γ 
+
+is connected. □
+
+Lemma 4.24 (Existence of a terminal branch) . Let F be a nonzero nonnegative concave tropical polynomial on a bounded rational convex polygon Ω, with F = 0 on ∂Ω. Then V (F ) has an edge whose closure meets ∂Ω.Proof. Suppose that V (F ) were compactly contained in Ω◦. A sufficiently thin connected collar of 
+
+∂Ω would then lie in one affine linearity region of F . The affine monomial defining that region agrees MANY-POINT TROPICAL RELAXATION 25 
+
+with F = 0 on the whole polygonal boundary and is therefore identically zero. Hence F vanishes on a nonempty open subset of Ω◦.If F (y) > 0 at some point y, choose x in the interior of that zero set. For all sufficiently small 
+
+t > 0, the point (1 − t)x + ty remains in the zero set, whereas concavity gives 
+
+F ((1 − t)x + ty ) ≥ tF (y) > 0,
+
+a contradiction. Thus F ≡ 0, contrary to the hypothesis. □
+
+Lemma 4.25 (One interior endpoint for every terminal edge) . Let F be a nonzero Ω-tropical polynomial. If the closure of an edge e ⊂ V (F ) meets ∂Ω, then its other endpoint is an interior tropical vertex. In particular, no tropical edge has both endpoints on ∂Ω.Proof. Suppose that an edge e had two boundary endpoints and no interior endpoint. The relative interior of a tropical edge cannot meet another edge without producing an interior tropical vertex. Hence e is a connected component of V (F ). By Lemma 4.23, it is the whole corner locus. The chord e divides Ω◦ into exactly two two-dimensional linearity cells. Let L1 and L2 be their essential cell monomials from Proposition 2.3. Each Li is nonnegative on Ω, and its zero set on Ω is a proper exposed face: either a polygon vertex or a segment contained in one side. Since F = 0 on 
+
+∂Ω, every boundary point must lie in the zero set of L1 or of L2. The boundary of a two-dimensional polygon, which has at least three sides, cannot be covered by two proper faces. This contradiction proves the claim. □
+
+Choose a sufficiently small regular polygonal truncation 
+
+Ω′ ⋐ Ω
+
+that contains every marked point and every tropical vertex, avoids all marked points and vertices on its boundary, and crosses each edge leaving this compact set transversely exactly once. Let 
+
+G = Γ P ∩ Ω′
+
+with each crossing point on ∂Ω′ treated as a degree-one vertex. By Lemma 4.23, ΓP is connected. By Lemma 4.25, every portion removed in passing to G is a terminal open edge segment issuing from a unique interior vertex. Thus G is obtained by pruning leaf tails and remains connected. Pruning such tails creates no bounded complementary face, so the bounded faces of G are exactly the bounded complementary cells of ΓP . By Theorem 4.20, there are N of them. 
+
+Lemma 4.26 (No bounded self-incidence) . An interior tropical edge cannot have the same bounded linearity cell on both sides. Proof. Suppose that a bounded open linearity cell R occurred on both sides of an edge e. Choose a point in the relative interior of e and nearby points x+, x − ∈ R on its two opposite sides. The cell R
+
+is convex, so the segment [x+, x −] is contained in R. This segment crosses e, while e ⊂ V (FP ) is disjoint from the open linearity cell R, a contradiction. □
+
+Lemma 4.27 (Planar separation for cycles and attached trees) . Let G be a finite plane multigraph, with every transverse intersection treated as a vertex. 
+
+(i) Let C ⊂ G be an embedded simple cycle, allowing a two-edge cycle formed by parallel edges. If two faces of G lie on different sides of C, then every path between their vertices in the planar dual G∨ contains the dual of an edge of C.
+
+(ii) Let G ⊂ Ω◦, let R be a bounded face of G, and let T ⊂ Ω be a finite embedded tree such that 
+
+T ∩ G = {a}
+
+for one attachment point a. If every leaf of T other than possibly a lies on ∂Ω, then 
+
+T ∩ R = ∅.26 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+Proof. For (i), the image of C is a Jordan curve. A dual path from a face in its bounded complementary component to a face in its unbounded complementary component must cross that curve. A dual edge crosses the primal graph only through the interior of its corresponding primal edge, so the crossing dual edge is dual to an edge of C.For (ii), suppose that T met R, and let K be the closure in T of one component of T ∩ R. Because 
+
+∂R ⊂ G and T ∩ G = {a}, the tree K can meet ∂R only at a. A nontrivial finite tree has at least two leaves, so K has a leaf b̸ = a. Since b ∈ R, any edge of T incident to b also begins inside R and therefore belongs to K; hence b is a leaf of T . It lies in Ω◦, contradicting the hypothesis that every leaf other than possibly a lies on ∂Ω. □
+
+Let G∨ be the planar dual, with vertices 
+
+f∞, f 1, . . . , f N ,
+
+where f∞ is the unbounded face. If ei is the carrier edge containing pi, then Lemma 4.26 shows that its reduced dual incidence column is exactly ai: it is er + es when the two adjacent faces are the distinct bounded faces fr, f s, it is er when one adjacent face is f∞, and it is zero only when the exterior face occurs on both sides. 
+
+Lemma 4.28 (Marked dual tree) . The dual edges 
+
+e∨ 
+
+> 1
+
+, . . . , e ∨
+
+> N
+
+form a spanning tree of G∨.Proof. The reduced incidence matrix of these N dual edges is the matrix whose columns are 
+
+a1, . . . , a N . By Theorem 4.20, these columns form a basis of FN 
+
+> 2
+
+. The rank of a reduced incidence matrix equals the number of vertices minus the number of connected components, so the marked dual subgraph is connected on the N + 1 face vertices. It has exactly N edges, hence it is a tree. □
+
+Lemma 4.29 (Terminal edges are not marked) . No terminal edge of ΓP contains a marked point. Proof. Pass to the finite inward truncation G used above. A terminal edge becomes a leaf edge of 
+
+G and hence a bridge. In a plane graph, a bridge has the same face on both sides, so its reduced dual-incidence column is zero. By Theorem 4.20, the reduced incidence columns of the marked carrier edges form a basis of FN 
+
+> 2
+
+and in particular are nonzero. Therefore a terminal edge cannot be marked. □
+
+Lemma 4.30 (Planar tree–cotree complement) . Let S = {e1, . . . , e N }. The subgraph of G containing all vertices and all edges outside S is a spanning tree. Proof. Euler’s formula and the fact that G∨ has N + 1 vertices give 
+
+|E(G) \ S| = |V (G)| − 1.
+
+Suppose that G \ S contained a cycle, and choose an embedded simple cycle C inside it. The marked dual tree contains a path joining a face on one side of C to a face on the other. By Lemma 4.27(i), this path must contain the dual of an edge of C. But every edge of C lies outside S, whereas the marked dual tree contains only the duals of the edges in S. This contradiction shows that G \ S is acyclic. A spanning acyclic graph with |V (G)| − 1 edges is a tree. □
+
+A carrier edge cannot be terminal in G: a degree-one edge is a bridge and its dual is a loop, whose reduced incidence column is zero, contradicting the basis property. Cut each carrier edge at its marked point. Starting from the spanning tree G \ S, this operation attaches two leaf edges, one to each endpoint of every deleted carrier edge. The crossing vertices on ∂Ω′ are retained as formal terminal ends. The resulting graph is therefore a tree. Deleting these degree-one endpoints, as in the open graph ΓP \ (P ∪ ∂Ω) , preserves connectedness and acyclicity. MANY-POINT TROPICAL RELAXATION 27 
+
+Theorem 4.31 (Internal marked-tree theorem) . For every strongly generic configuration, the completed graph obtained from 
+
+ΓP \ (P ∪ ∂Ω) 
+
+by adjoining the two formal ends p± 
+
+> i
+
+at every marked cut and one formal end at every terminal branch is a finite tree. In particular, 
+
+ΓP \ (P ∪ ∂Ω) 
+
+is connected and contains no topological cycle. Proof. The preceding construction identifies the completed cut graph with the tree obtained from 
+
+G \ S by attaching the marked half-edges and retaining the truncation crossings as formal terminal ends. Hence it is connected and acyclic. □
+
+4.7. The marked tree and finite core. Complete the graph after removing P and ∂Ω by adjoining two marked ends p± 
+
+> i
+
+at every cut and one degree-one endpoint at every boundary branch. Denote the resulting finite graph by TP .
+
+Theorem 4.32 (Marked-tree and finite-core theorem) . For every strongly generic configuration: (i) TP is a finite tree; (ii) the minimal subtree HP ⊂ TP containing all 2N marked ends is compactly contained in Ω◦;(iii) identifying p+ 
+
+> i
+
+∼ p− 
+
+> i
+
+produces a connected finite core Γcore  
+
+> P
+
+with 
+
+β1(Γ core  
+
+> P
+
+) = N ;
+
+(iv) every cycle of ΓP lies in the core; (v) every component outside the core is an unmarked tree attached to the core at one point, and every other leaf of that tree lies on ∂Ω.Proof. The internal marked-tree theorem gives (i). The marked hull is a finite union of unique paths between marked ends; a degree-one boundary end cannot lie on such a path, proving (ii). The hull is a tree, so its Euler characteristic is one. Each of the N identifications lowers Euler characteristic by one, giving (iii). Cutting any cycle at its marked points produces paths between marked ends, which lie in the hull, giving (iv). A component outside the hull attaches once to a tree. Every leaf other than the attachment must lie on the boundary by Lemma 4.22, proving (v). □
+
+The cut-and-reidentification construction, together with the corresponding marked dual tree, is illustrated schematically in Figure 1. 5. The local Euler–Monge–Ampère identity 
+
+5.1. Regular windows and Pick excess. Let F be a tropical polynomial and Γ = V (F ). Arelatively compact open set U ⋐ Ω◦ is regular when its piecewise C1 boundary contains no tropical vertex or marked point, meets every tropical edge transversely, and has finitely many crossings. It may be disconnected. Let 
+
+BF (U ) = #(Γ ∩ ∂U ), cF (U ) = c(Γ ∩ U ), βF (U ) = β1(Γ ∩ U ),
+
+where every crossing of ∂U is treated as a degree-one boundary vertex. At a tropical vertex v, let 
+
+Qv = ∂+F (v), μF (v) = Area( Qv),
+
+and let d(v) be the number of embedded incident edge germs. 28 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+Definition 5.1. The singularity excess at v is 
+
+σF (v) = μF (v) − d(v) − 22 .
+
+The associated atomic measure is 
+
+ΞF = X
+
+> v
+
+σF (v)δv.
+
+Proposition 5.2 (Pick-theoretic excess) . Let I(Qv) be the number of interior lattice points of Qv.Then 
+
+σF (v) = I(Qv) + 12
+
+X
+
+> e∋v
+
+(w(e) − 1) .
+
+In particular, σF (v) ≥ 0.Proof. Pick’s theorem [Pic99] gives 
+
+Area( Qv) = I(Qv) + B(Qv)2 − 1.
+
+The lattice length of a side of Qv equals the weight of the dual tropical edge, so 
+
+B(Qv) = X
+
+> e∋v
+
+w(e).
+
+The polygon has d(v) sides. Subtracting (d(v) − 2) /2 yields the formula. □
+
+5.2. Graph Gauss–Bonnet. Lemma 5.3. For every regular window U ,
+
+X
+
+> v∈U
+
+d(v) − 22 = βF (U ) + 12 BF (U ) − cF (U ).
+
+Proof. Let V be the number of genuine tropical vertices in U , E the number of truncated edges, and 
+
+B = BF (U ) the number of degree-one boundary vertices. Handshaking gives 
+
+X
+
+> v
+
+d(v) + B = 2 E, 
+
+while Euler’s formula gives 
+
+V + B − E = cF (U ) − βF (U ).
+
+Eliminating E proves the identity. □
+
+Theorem 5.4 (Local Euler–Monge–Ampère identity) . For every regular window U ,
+
+MA( F )( U ) = βF (U ) + 12 BF (U ) − cF (U ) + Ξ F (U ).
+
+Proof. Sum 
+
+μF (v) = d(v) − 22 + σF (v)
+
+over the vertices in U and apply Lemma 5.3. □MANY-POINT TROPICAL RELAXATION 29 
+
+5.3. Marked source-curvature balance. Let P ⊂ V (F ) be a set of distinct edge-interior marked points. Cutting the points in P ∩ U increases Euler characteristic by #( P ∩ U ). Let TF,P (U ) be the cut graph, with component count ccut  
+
+> F,P
+
+(U ) and first Betti number βcut  
+
+> F,P
+
+(U ).
+
+Corollary 5.5 (Marked local balance) . For every regular window, 
+
+MA( F )( U ) − #( P ∩ U ) = βcut  
+
+> F,P
+
+(U ) − ccut  
+
+> F,P
+
+(U ) + 12 BF (U ) + Ξ F (U ).
+
+Proof. The cut Euler relation is 
+
+ccut  
+
+> F,P
+
+(U ) − βcut  
+
+> F,P
+
+(U ) = cF (U ) − βF (U ) + #( P ∩ U ).
+
+Insert it into Theorem 5.4. □
+
+For F = FP with P strongly generic, complete the marked cut graph by its formal marked and terminal ends. It is a tree by Theorem 4.32. 
+
+Lemma 5.6 (Components of an interior cut forest) . Let U ⋐ Ω◦ be regular. The restriction of the completed marked cut tree to U , with crossings of ∂U treated as degree-one vertices, is a forest. Every component meets ∂U , and therefore 
+
+ccut  
+
+> F,P
+
+(U ) ≤ BF (U ).
+
+Proof. A subgraph of a tree is a forest. Suppose that one component of the restricted forest did not meet ∂U . It would then be a connected component of the global completed cut tree unless it were the whole tree. The first alternative contradicts global connectedness. The second is impossible because Lemmas 4.24 and 4.29 supply a terminal branch that survives every marked cut and reaches 
+
+∂Ω, whereas U ⋐ Ω◦. Thus every restricted component meets ∂U . Distinct components contain disjoint boundary-crossing vertices, so choosing one crossing from each component gives the asserted inequality. □
+
+Theorem 5.7 (Exact source–curvature balance) . Let P be strongly generic and set F = FP . For every regular U ⋐ Ω◦,
+
+MA( FP )( U ) = #( P ∩ U ) + 12 BP (U ) − cP (U ) + Ξ P (U ),
+
+where cP (U ) = ccut  
+
+> F,P
+
+(U ) is the number of components of the restricted marked cut forest. Moreover, 
+
+0 ≤ cP (U ) ≤ BP (U ),
+
+and therefore 
+
+|MA( FP )( U ) − #( P ∩ U ) − ΞP (U )| ≤ 12 BP (U ).
+
+Proof. The global cut tree has no cycles, so the cut Betti number in Corollary 5.5 vanishes. The displayed identity follows from that corollary, and Lemma 5.6 gives cP (U ) ≤ BP (U ). Since cP (U ) ≥ 0,the final estimate follows. □
+
+6. Minimality and interior mildness 
+
+6.1. Unmarked faces: localized lowering. Use the essential presentation from Proposition 2.3: 
+
+F (x) = min   
+
+> C∈C2(F)
+
+LC (x).
+
+Let Q be a face of the regular Newton subdivision, with vertices m1, . . . , m r. These vertices correspond to essential cell monomials Lm1 , . . . , L mr . Let 
+
+q ∈ relint( Q) ∩ Z230 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+be a lattice point that is not a vertex of Q. Choose 
+
+q =
+
+> r
+
+X
+
+> j=1
+
+λj mj , λj > 0, X
+
+> j
+
+λj = 1 ,
+
+and define the affine function 
+
+Lq =
+
+> r
+
+X
+
+> j=1
+
+λj Lmj .
+
+Lemma 6.1. One has Lq ≥ F on Ω, and equality holds exactly on the closed tropical face τQ dual to Q.Proof. Every essential monomial Lmj lies above F , so their convex combination does as well. Since every coefficient λj is positive, equality holds precisely when all the vertex monomials Lmj are active. Their common contact locus is the closed tropical face dual to Q. □
+
+Lemma 6.2 (Localized face-monomial lowering) . Assume τQ ⋐ Ω◦, and let W be any neighborhood of τQ compactly contained in Ω◦. Then, for sufficiently small ε > 0,
+
+Fε,q = min {F, L q − ε}
+
+is nonnegative, zero on ∂Ω, agrees with F on Ω \ W , and is strictly smaller than F near τQ.Proof. Set g = Lq − F . By Lemma 6.1, its zero set is τQ. Choose 
+
+τQ ⊂ W0 ⋐ W ⋐ Ω◦.
+
+Then 
+
+η := min 
+
+> Ω\W0
+
+g > 0.
+
+A nonzero nonnegative concave function with zero boundary values is strictly positive in the interior, so 
+
+a := min 
+
+> W0
+
+F > 0.
+
+Choose 
+
+0 < ε < min {η, a }.
+
+Outside W0, one has Lq − ε > F , so the function is unchanged there, in particular on Ω \ W and near ∂Ω. Where the lowered monomial can be active, the point lies in W0 and 
+
+Lq − ε ≥ F − ε ≥ a − ε > 0.
+
+On τQ one has Lq − ε = F − ε < F , and the strict inequality persists on a neighborhood of τQ. □
+
+Remark 6.3. The affine function Lq may already occur in the full small canonical form because it agrees with F on the lower-dimensional face τQ. The operation above is therefore a lowering of its interpolating coefficient, not an assertion that the canonical term is absent. The essential presentation is used only to identify the vertex monomials of Q and to represent F without lower-dimensional-only terms. If W avoids the marked set, the deformation preserves all marked corner constraints. Minimality then excludes such a lowering. 
+
+Theorem 6.4 (Empty interior Newton polygons) . For a strongly generic relaxation FP , every interior tropical vertex v has 
+
+Int( Qv) ∩ Z2 = ∅.
+
+Proof. A marked point is never a tropical vertex. If q ∈ Int (Qv) ∩ Z2, choose a small neighborhood of v disjoint from P and apply Lemma 6.2. The result is a strictly smaller admissible tropical polynomial. □MANY-POINT TROPICAL RELAXATION 31 
+
+Theorem 6.5 (Primitive unmarked edges) . Let e be a tropical edge with e ⋐ Ω◦ and e ∩ P = ∅.Then w(e) = 1 .Proof. Let Lm0 and Lm1 be the two essential monomials of the adjacent two-dimensional cells. If 
+
+m1 − m0 = wn, w ≥ 2,
+
+with n primitive, then q = m0 + n is an interior lattice point of the dual segment [m0, m 1]. Apply Lemma 6.2 in a neighborhood of e disjoint from P . □
+
+6.2. Marked edges: the tree–cotree deformation. Let G = Γ core  
+
+> P
+
+be the finite marked core. The marked points are retained as distinguished points in edge interiors and are not introduced as vertices when the planar dual is formed. Let e1, . . . , e N be their distinct carrier edges and put 
+
+S = {e1, . . . , e N }.
+
+Lemma 6.6 (Primal spanning tree) . The graph 
+
+T = G \
+
+> N
+
+[
+
+> i=1
+
+e◦
+
+> i
+
+is a spanning tree of G.Proof. Cutting ei at pi replaces the carrier edge by two leaf edges ending at the formal marked ends p+ 
+
+> i
+
+and p− 
+
+> i
+
+. By Theorem 4.32, the marked hull obtained after all cuts is a tree. Deleting the 
+
+2N new leaf edges and their leaf endpoints leaves exactly T . Pruning leaves from a tree preserves connectedness among the remaining vertices and cannot create a cycle. Every original vertex of G
+
+remains, so T is a spanning tree. □
+
+Let G∨ be the planar dual multigraph. Parallel edges are allowed, and transverse tropical nodes remain primal vertices. 
+
+Lemma 6.7 (Dual marked-edge tree) . The dual edges 
+
+S∨ = {e∨ 
+
+> 1
+
+, . . . , e ∨ 
+
+> N
+
+}
+
+form a spanning tree of G∨.Proof. By Lemma 6.6, T is a primal spanning tree and S = E(G) \ E(T ). Contract the edges of 
+
+T successively in the plane. The quotient G/T is a connected plane graph with one vertex and precisely the edges in S. Primal contraction corresponds to deletion in the dual, so the dual of G/T 
+
+is the subgraph S∨ of G∨. The dual of a connected plane graph is connected. Moreover, Euler’s formula and β1(G) = N give |V (G∨)| = N + 1 , while S∨ has N edges. Thus S∨ is a connected graph on N + 1 vertices with N edges, hence a tree. □
+
+Fix a marked carrier edge e = ei. Deleting e∨ from the dual tree produces two components. Let Ce
+
+be the component not containing the exterior dual vertex, and let Re be the corresponding collection of complementary faces of G.
+
+Lemma 6.8 (Bounded selected face block) . The collection Re is nonempty and consists of bounded complementary cells of the full tropical curve ΓP . The edge e is the unique marked carrier edge with one adjacent cell in Re and one outside it. Proof. Both components of a tree after deletion of one edge are nonempty. Since Ce does not contain the exterior dual vertex, all its vertices represent bounded faces of the core. By Theorem 4.32, every component of ΓP \ G is a tree attached to G at one point, and every other leaf lies on ∂Ω. By Lemma 4.27(ii), such a component cannot enter a bounded face R of G.Hence every bounded face of G is a complete two-dimensional linearity cell of the full curve and is compactly contained in Ω◦.32 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+A marked carrier edge ej crosses the partition of faces precisely when its dual edge e∨ 
+
+> j
+
+joins the two components of S∨ \ { e∨}. In a tree, the deleted edge is the unique edge joining those components. Therefore e is the unique marked crossing. □
+
+For each R ∈ R e, let 
+
+LR(x) = cR + ⟨mR, x ⟩
+
+be its essential cell monomial from Proposition 2.3. 
+
+Lemma 6.9 (Positivity of the selected monomials) . For every R ∈ R e,
+
+min 
+
+> Ω
+
+LR > 0.
+
+Proof. Every essential cell monomial satisfies LR ≥ FP ≥ 0 by Proposition 2.3. If LR vanished at a boundary point, it would be active there. Its active locus is convex and contains the open cell R, so the closure of its two-dimensional active region would reach ∂Ω, contrary to the boundedness established in Lemma 6.8. An interior zero of a nonnegative affine function would make it identically zero, which is impossible for the nonzero relaxation. Compactness gives the strict positive minimum. □
+
+Let the two monomials adjacent to e be 
+
+Lu = cu + ⟨u, x ⟩, Lv = cv + ⟨v, x ⟩,
+
+with the v-cell selected. Write 
+
+v − u = mn, n ∈ Z2 primitive , m = w(e).
+
+Assume for contradiction that m ≥ 2, set 
+
+q = v − n, 
+
+and define 
+
+Lq = 1
+
+m Lu + m − 1
+
+m Lv.
+
+Lemma 6.10 (Primitive intermediate monomial) . The gradient of Lq is the lattice point q ∈ Z2, the segment [q, v ] has lattice length one, and 
+
+Lq ≥ FP
+
+on Ω, with equality exactly on the closed edge e. In particular, 
+
+min 
+
+> Ω
+
+Lq > 0.
+
+Proof. The gradient computation is 
+
+1
+
+m u + m − 1
+
+m v = v − v − um = v − n = q. 
+
+Both Lu and Lv lie above FP , so their strict convex combination does as well. Equality occurs precisely when both are active, namely on the closed tropical edge dual to [u, v ]. This edge belongs to the compact core, hence e ⋐ Ω◦. The relaxation is strictly positive in the interior. Thus Lq > 0
+
+on e, while away from e one has Lq > F P ≥ 0. Compactness gives the positive minimum. Finally, 
+
+v − q = n is primitive, so [q, v ] has lattice length one. □
+
+Define the shifted collection 
+
+Se = {LR : R ∈ R e} ∪ { Lq}.
+
+At each marked point we designate the terms that must remain minimal: 
+
+• at pi, the pair Lv, L q;
+
+• at a marked point whose two adjacent cells lie in Re, its two selected adjacent monomials; 
+
+• at a marked point on the exterior side, its two original unshifted adjacent monomials. The unique-crossing assertion in Lemma 6.8 ensures that these cases exhaust the marked points. MANY-POINT TROPICAL RELAXATION 33 
+
+Lemma 6.11 (Uniform protection gap) . There are constants α, γ > 0 such that 
+
+α ≤ min 
+
+> Ω
+
+L (L ∈ Se),
+
+and 
+
+γ ≤ L(pj ) − FP (pj )
+
+whenever L ∈ Se is not one of the designated shifted terms at pj .Proof. The positive number α is the minimum of the finitely many positive minima supplied by Lemmas 6.9 and 6.10. At a marked edge-interior point, exactly the two adjacent essential cell monomials are active by Proposition 2.3. No two marked points lie on the same carrier edge, and 
+
+Lq = FP only on e. Hence every non-designated shifted term has a strict positive gap at the marked point. The minimum of the finitely many gaps is the required γ; if the collection is empty, any positive γ may be used. □
+
+Choose 
+
+0 < ε < min {α, γ }.
+
+Starting from the essential presentation of FP in Proposition 2.3, lower every selected cell monomial 
+
+LR, R ∈ R e, by ε, adjoin the term Lq − ε, and leave every unselected essential monomial unchanged. Denote the resulting tropical polynomial by Eε. Any lower-dimensional-only canonical term of gradient q is omitted from the essential presentation; adjoining Lq − ε simply replaces its face-interpolating coefficient by a smaller one in the new minimum. 
+
+Lemma 6.12 (Admissibility of the coordinated deformation) . The function Eε is nonnegative on Ω,vanishes on ∂Ω, and satisfies 
+
+P ⊂ V (Eε).
+
+Proof. Every shifted or adjoined monomial remains positive on Ω because ε < α . Every essential monomial belonging to a boundary cell is unshifted. Since the essential presentation represents FP
+
+exactly, these unshifted boundary-cell monomials still attain zero on ∂Ω. Hence Eε ≥ 0 and Eε = 0 
+
+on ∂Ω.At the distinguished point pi,
+
+Lu(pi) = Lv(pi) = Lq(pi) = FP (pi).
+
+After the deformation, Lv − ε and Lq − ε are tied at FP (pi) − ε, while Lu remains at FP (pi). Every other shifted term is separated from the protected pair by its positive gap. Thus pi remains a corner, now supported by the distinct gradients v and q.At a selected-side marked point, the two adjacent active monomials are both lowered by the same amount and remain tied at FP (pj ) − ε. Every unshifted term has value at least FP (pj ), and every other shifted term retains its original positive gap above the protected pair. At an exterior-side marked point, the original active pair remains unshifted and tied at FP (pj ).Every shifted term remains strictly above this value because ε < γ . Hence all marked corner constraints persist. □
+
+Theorem 6.13 (Primitive marked edges) . Every marked carrier edge has weight one. Proof. If a marked edge had weight m ≥ 2, the preceding construction would give an admissible tropical polynomial Eε. Since Re is nonempty, choose R ∈ R e. On the interior of R, the monomial 
+
+LR is uniquely active for FP , while 
+
+Eε ≤ LR − ε = FP − ε. 
+
+Moreover Eε ≤ FP everywhere because every original term is either retained or lowered. This contradicts the pointwise minimality of FP = GP 0Ω. □
+
+Corollary 6.14 (Complete interior mildness) . Every edge e with e ⋐ Ω◦ has weight one, and every interior dual Newton polygon contains no interior lattice point. 34 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+6.3. Terminal branches and inward truncation. Lemma 6.15 (Boundary localization at polygon vertices) . The closure of a tropical edge cannot meet the relative interior of a side of Ω. Hence every branch approaching ∂Ω terminates at a polygon vertex. Proof. Fix a relative-interior point x of a side Sr. In a neighborhood of x the boundary normal is unique, and every affine monomial that is nonnegative on Ω and vanishes at x is a nonnegative multiple of the primitive defining function λr. The least such active multiple is the side monomial 
+
+mF (Sr)λr.
+
+Every larger multiple is strictly above it in the interior, while a second term with the same multiple is identical. Thus F = mF (Sr)λr on an interior neighborhood of x, and the corner locus does not meet that neighborhood. □
+
+For the next lemma, let 
+
+vr = Sr ∩ Sr+1 , kr = mF (Sr), kr+1 = mF (Sr+1 ).
+
+Let D(r)term (F ) denote the sum of the weights of the terminal branches ending at vr.
+
+Lemma 6.16 (Corner Newton chain) . Let C0, . . . , C q be the two-dimensional linearity cells whose closures contain vr, ordered from the Sr+1 side to the Sr side, and let mj be their essential gradients. Then there are unique real numbers αj , β j such that 
+
+mj = αj nr + βj nr+1 .
+
+They satisfy 
+
+0 = α0 < α 1 < · · · < α q = kr, kr+1 = β0 > β 1 > · · · > β q = 0 .
+
+Each Newton segment [mj−1, m j ] is dual to exactly one terminal branch ending at vr, and its lattice length is the weight of that branch. Consequently, 
+
+D(r)term (F ) ≤ ∥ nr∥kr + ∥nr+1 ∥kr+1 .
+
+Proof. Use the affine coordinates 
+
+a = λr, b = λr+1 
+
+near vr. The normals nr, n r+1 are linearly independent, so every affine function vanishing at vr has a unique expression αa + βb . Every essential monomial whose cell closure contains vr is active at vr
+
+and hence vanishes there. Since it is nonnegative on the local tangent cone a, b ≥ 0, its coefficients satisfy α, β ≥ 0.The boundary cells contribute the two monomials 
+
+kr+1 b and kra, 
+
+with gradients kr+1 nr+1 and krnr. If an essential monomial αa + βb had α > k r, it would be strictly above kra at every interior point with a > 0, and hence could not be active on a two-dimensional cell. Thus α ≤ kr. Similarly β ≤ kr+1 . Equality with one of these upper bounds, together with a positive value of the other coefficient, would again make the monomial strictly dominated by the corresponding boundary monomial. Hence the two boundary terms are the endpoints of the chain and every intermediate term has strict inequalities in both coordinates. All essential monomials not vanishing at vr have a positive value there and are inactive in a sufficiently small corner neighborhood. In that neighborhood the tropical function is therefore the homogeneous lower envelope 
+
+F (a, b ) = min  
+
+> j
+
+(αj a + βj b).MANY-POINT TROPICAL RELAXATION 35 
+
+For a > 0, put t = b/a . The normalized lower envelope is 
+
+h(t) = min  
+
+> j
+
+(αj + βj t), t ∈ [0 , ∞).
+
+It is concave and piecewise affine. As t increases, the slopes of its consecutively active affine pieces are strictly decreasing, so the corresponding βj are strictly decreasing. At a switch value tj > 0
+
+between consecutive active terms, 
+
+αj−1 + βj−1tj = αj + βj tj ,
+
+and therefore 
+
+αj − αj−1 = ( βj−1 − βj )tj > 0.
+
+This proves the asserted monotonicity and endpoint values. The ray b = tj a is exactly the locus on which the two consecutive essential monomials are tied and minimal. It is therefore the tropical branch dual to the Newton segment [mj−1, m j ]. Conversely, every branch in the local corner fan occurs at one such switch. Shrinking the corner neighborhood if necessary, there are no interior tropical vertices there, so these rays are precisely the terminal branches ending at vr. By the definition of tropical weight, if 
+
+mj − mj−1 = wj νj
+
+with νj ∈ Z2 primitive, then wj is the weight of the corresponding branch. Since ∥νj ∥ ≥ 1,
+
+wj ≤ ∥ mj − mj−1∥.
+
+Writing 
+
+mj − mj−1 = ( αj − αj−1)nr + ( βj − βj−1)nr+1 
+
+and using the monotonicity gives 
+
+> q
+
+X
+
+> j=1
+
+wj ≤
+
+> q
+
+X
+
+> j=1
+
+∥mj − mj−1∥≤ ∥ nr∥
+
+> q
+
+X
+
+> j=1
+
+(αj − αj−1) + ∥nr+1 ∥
+
+> q
+
+X
+
+> j=1
+
+(βj−1 − βj )= ∥nr∥kr + ∥nr+1 ∥kr+1 .
+
+The left side is D(r)term (F ). □
+
+Set 
+
+Dterm (F ) = X
+
+> r
+
+D(r)term (F ).
+
+Summing Lemma 6.16 over the polygon vertices, each side quasi-degree occurs at its two endpoints, and therefore 
+
+Dterm (F ) ≤ 2 max  
+
+> r
+
+∥nr∥D∂ (F ).
+
+Lemma 6.17 (Terminal-germ partition) . Let FP be a strongly generic relaxation. There is a sufficiently small boundary collar such that every regular rational convex inward polygon 
+
+Ω′ ⋐ Ω
+
+whose boundary lies in that collar and which contains all marked points and interior tropical vertices has the following properties: 
+
+(i) ∂Ω′ crosses every terminal branch exactly once and transversely; 
+
+(ii) ∂Ω′ crosses no compact internal edge; 
+
+(iii) the crossing points are canonically partitioned by the polygon vertices at which the correspond-ing terminal branches end. 36 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+Consequently, the number 
+
+Bterm (FP ) = # {terminal branches of ΓP }
+
+and the weighted terminal multiplicity 
+
+Dterm (FP ) = X 
+
+> ℓterminal
+
+w(ℓ)
+
+are independent of the chosen sufficiently small regular inward truncation. Proof. The tropical graph is finite. By Lemma 6.15, every branch reaching the boundary ends at a polygon vertex, and by Lemma 4.25 its other endpoint is a unique interior tropical vertex. For each polygon vertex, choose a small corner neighborhood containing no interior tropical vertex. The local description in the proof of Lemma 6.16 shows that the tropical graph in this neighborhood is a finite fan of straight terminal germs issuing from that polygon vertex. The union of all compact internal edges, marked points, and interior tropical vertices is a compact subset of Ω◦. Choose a sufficiently thin boundary collar disjoint from this compact set and so that every portion of ΓP inside the collar lies in one of the selected corner neighborhoods. A sufficiently small inward polygon whose boundary lies in the collar therefore contains every compact internal edge and crosses no such edge. Each terminal branch has its interior endpoint inside the truncation and its polygon endpoint outside it. Since the truncation is convex, the intersection of the branch segment with its boundary consists of exactly one point; a generic rational choice of the inward offsets makes every such intersection transverse and avoids all marked points and tropical vertices. The terminal branch itself identifies both its crossing point and its polygon endpoint, giving the asserted partition. Every sufficiently small regular truncation therefore produces the same finite set of terminal branches, counted once each, and hence the same unweighted and weighted totals. □
+
+Proposition 6.18 (Boundary localization of excess) . For a strongly generic relaxation, 
+
+ΞP (Ω ◦) = 12
+
+X 
+
+> ℓterminal
+
+(w(ℓ) − 1) = 12
+
+ Dterm (FP ) − Bterm (FP ).
+
+Consequently, 
+
+∥ΞP ∥TV ≤ CΩD∂ (FP ) ≤ CΩ,K 
+
+√N . 
+
+Proof. By Theorem 6.4, the interior lattice-point term in Proposition 5.2 vanishes. By Corollary 6.14, every compact internal edge has weight one. By Lemma 4.25, each terminal edge has exactly one interior endpoint. Summing the remaining weight terms over all interior vertices therefore counts each terminal edge exactly once. The truncation-independent identification of these edges with the terminal germs is supplied by Lemma 6.17. □
+
+7. Quantitative curvature on rational polygons 
+
+7.1. The signed curvature-error measure. For a strongly generic P , define 
+
+νP = X
+
+> p∈P
+
+δp, ΘP = MA( FP ) − νP − ΞP .
+
+By Theorem 5.7, for every regular window U ,
+
+ΘP (U ) = 12 BP (U ) − cP (U ),
+
+and therefore 
+
+|ΘP (U )| ≤ 12 BP (U ).MANY-POINT TROPICAL RELAXATION 37 
+
+7.2. Tangential coarea on the tropical graph. Lemma 7.1 (Regular superlevel windows) . Let φ ∈ C∞ 
+
+> c
+
+(Ω) . There is a Lebesgue-null set Eφ ⊂ R,containing 0, such that for every t / ∈ Eφ:
+
+(i) t is a regular value of φ in the plane; 
+
+(ii) the level set {φ = t} avoids every tropical vertex and every marked point; 
+
+(iii) the level set meets the relative interior of every tropical edge transversely and in finitely many points. Consequently, if φ ≥ 0, then Ut = {φ > t } is a regular window for almost every t > 0.Proof. By Sard’s theorem, the set of critical values of φ : Ω → R has measure zero. Parametrize each of the finitely many closed tropical edges by Euclidean arclength, 
+
+γe : [0 , ℓ (e)] −→ e, 
+
+and set fe = φ ◦ γe. One-dimensional Sard implies that the critical values of each smooth function fe
+
+form a null set. This includes the single value of any edge on which φ is constant. The finite union of these edgewise critical-value sets is null. Finally, the values of φ at the finitely many tropical vertices and marked points form a finite set. Let Eφ be the union of these sets and {0}. If t / ∈ Eφ, the planar regular-value condition makes 
+
+{φ = t} a smooth one-dimensional submanifold. Avoidance of the finite vertex and marked sets is automatic. At an intersection with the relative interior of an edge, one has 
+
+(φ ◦ γe)′̸ = 0 ,
+
+which is exactly transversality to that edge. The preimage f −1 
+
+> e
+
+(t) is discrete and closed in the compact interval [0 , ℓ (e)] , hence finite. Since φ is compactly supported and t > 0, the superlevel set is compactly contained in Ω◦. □
+
+Let φ ∈ C∞ 
+
+> c
+
+(Ω) be real-valued. Signed layer cake gives 
+
+Z
+
+φ d ΘP =
+
+Z ∞
+
+> 0
+
+ΘP ({φ > t }) dt −
+
+Z ∞
+
+> 0
+
+ΘP ({φ < −t}) dt. 
+
+For almost every t > 0, both superlevel sets are regular by Lemma 7.1 applied to φ and to −φ.Hence Z
+
+φ d ΘP ≤ 12
+
+Z ∞
+
+> 0
+
+[#(Γ P ∩ { φ = t}) + #(Γ P ∩ { φ = −t})] dt. 
+
+For each edge parametrization γe, the one-dimensional coarea formula [FR60; Fed69] gives 
+
+Z
+
+> R
+
+#{s ∈ [0 , ℓ (e)] : φ(γe(s)) = t} dt =
+
+Z ℓ(e)0
+
+dds φ(γe(s)) ds. 
+
+The positive and negative level integrals partition the nonzero levels, while the zero level is negligible. Summing over the finitely many edges therefore yields 
+
+Z ∞
+
+> 0
+
+[#(Γ P ∩ { φ = t}) + #(Γ P ∩ { φ = −t})] dt =
+
+Z
+
+> ΓP
+
+|∇ τ φ| dH1.
+
+For φ ∈ C1 
+
+> c
+
+(Ω) , choose φk ∈ C∞ 
+
+> c
+
+(Ω) with supports in one fixed compact subset and φk → φ in 
+
+C1. The signed measure ΘP is finite, so the left-hand integrals converge. Since ΓP has finitely many edges and the tangential derivatives converge uniformly on each edge, the right-hand integrals converge as well. Passing to the limit gives: 
+
+Theorem 7.2 (Tangential-variation estimate) . For every φ ∈ C1 
+
+> c
+
+(Ω) ,
+
+Z
+
+> Ω
+
+φ d  MA( FP ) − νP − ΞP
+
+ ≤ 12
+
+Z
+
+> ΓP
+
+|∇ τ φ| dH1.38 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+Combining Theorem 7.2 with Theorem 3.8 and Proposition 6.18 yields: 
+
+Theorem 7.3 (Quantitative curvature–source estimate) . There is C = C(Ω , K ) such that for every strongly generic N -point configuration P ⊂ K and every φ ∈ C1 
+
+> c
+
+(Ω) ,
+
+Z
+
+> Ω
+
+φ d  MA( FP ) − νP
+
+ ≤ C√N  ∥φ∥∞ + ∥∇ φ∥∞
+
+.
+
+Equivalently, for uP = N −1/2FP ,
+
+Z
+
+> Ω
+
+φ d  MA( uP ) − μP
+
+ ≤ C
+
+√N
+
+ ∥φ∥∞ + ∥∇ φ∥∞
+
+.
+
+7.3. Exact total mass. Choose a sufficiently small generic inward truncation Ω(η) supplied by Lemma 6.17. It contains every marked point and every tropical vertex, crosses each terminal branch exactly once, and crosses no compact internal edge. Since every atom of MA (FP ) lies at an interior tropical vertex, restricting to Ω(η) does not change the total Monge–Ampère mass. The restricted marked cut tree is connected, so its component count equals one. The exact local formula gives 
+
+MA( FP )(Ω ◦) = N + 12 Bterm (FP ) − 1 + Ξ P (Ω ◦).
+
+Using Proposition 6.18 gives the exact cancellation of the unweighted count. 
+
+Theorem 7.4 (Exact total mass) . For every strongly generic P ⊂ K, |P | = N ,
+
+MA( FP )(Ω ◦) = N − 1 + 12 Dterm (FP ).
+
+Moreover, 
+
+Dterm (FP ) ≤ CΩD∂ (FP ) ≤ CΩ,K 
+
+√N . 
+
+Therefore 
+
+MA( N −1/2FP )(Ω ◦) = 1 − 1
+
+N + Dterm (FP )2N = 1 + OΩ,K (N −1/2).
+
+7.4. Global convergence of curvature measures. Let PN be strongly generic, let uN =
+
+N −1/2FPN , and assume μN ⇀ μ with supp μ ⊂ K and μ(Ω) = 1 .We first justify vague convergence on the open domain Ω◦, against all tests in Cc(Ω ◦). Fix 
+
+ψ ∈ Cc(Ω ◦) and choose a compact L ⋐ Ω◦ containing its support in its interior. A nonnegative cutoff χL ∈ C1 
+
+> c
+
+(Ω ◦) with χL = 1 near L, together with Theorem 7.3, gives a uniform bound for 
+
+MA (uN )( L). Approximate ψ uniformly by ψk ∈ C1 
+
+> c
+
+(Ω ◦) supported in L. For each fixed k, first let 
+
+N → ∞ in the quantitative estimate and then let k → ∞ , using the uniform local mass bound. Since μN ⇀ μ , this proves 
+
+MA( uN ) ⇀ μ 
+
+vaguely on Ω◦.The total masses converge to one by Theorem 7.4. Choose χ ∈ C∞ 
+
+> c
+
+(Ω ◦) with 0 ≤ χ ≤ 1 and χ = 1 
+
+near K. Then Z
+
+χ d MA( uN ) −→ 1,
+
+and Z
+
+(1 − χ) d MA( uN ) = MA( uN )(Ω ◦) −
+
+Z
+
+χ d MA( uN ) −→ 0.
+
+Thus no mass is lost near the boundary. To pass from vague to weak convergence, let φ ∈ C(Ω) . Since χ = 1 on a neighborhood of 
+
+supp μ ⊂ K,Z
+
+> Ω
+
+φ d  MA( uN ) − μ =
+
+Z
+
+> Ω
+
+χφ d  MA( uN ) − μ +
+
+Z
+
+> Ω
+
+(1 − χ)φ d MA( uN ).MANY-POINT TROPICAL RELAXATION 39 
+
+The first term tends to zero by vague convergence, while the second is bounded in absolute value by 
+
+∥φ∥∞
+
+Z
+
+(1 − χ) d MA( uN ) −→ 0.
+
+Corollary 7.5 (Global curvature convergence) . Under the preceding assumptions, 
+
+MA( uN ) ⇀ μ 
+
+weakly as finite measures on Ω.
+
+8. Polygonal compactness and the Monge–Ampère limit 
+
+Let uN = N −1/2FPN . By Theorem 7.4, 
+
+sup 
+
+> N
+
+MA( uN )(Ω ◦) < ∞.
+
+Set vN = −uN . Then vN is convex, nonpositive, and zero on ∂Ω.8.1. Boundary control and compactness. The planar Aleksandrov maximum principle [Ale58; Gut16; Fig17; Moo18] gives 
+
+|vN (x)|2 ≤ CΩ dist( x, ∂ Ω) MA( uN )(Ω ◦).
+
+Hence there is A = A(Ω , K ) such that 
+
+0 ≤ uN (x) ≤ A dist( x, ∂ Ω) 1/2.
+
+In particular, ∥uN ∥∞ ≤ M uniformly. For 
+
+Ωδ = {x ∈ Ω : dist( x, ∂ Ω) ≥ δ},
+
+the set Ωδ is convex because it is the inner parallel body of the convex polygon Ω. Concavity gives 
+
+Lip( uN |Ωδ ) ≤ Mδ .
+
+Indeed, a supergradient at x ∈ Ωδ can be tested at x ± δe in every unit direction e.Balancing the boundary estimate Aδ 1/2 with the interior estimate M r/δ , where r = |x − y|, gives the following. 
+
+Proposition 8.1 (Uniform global modulus) . There is C = C(Ω , K ) such that 
+
+|uN (x) − uN (y)| ≤ C|x − y|1/3
+
+for every x, y ∈ Ω and every N .Proof. For small r = |x − y|, set 
+
+δ =
+
+ MA
+
+2/3
+
+r2/3.
+
+After decreasing the small-distance threshold if necessary, one has r ≤ δ. If one point lies within 2δ
+
+of the boundary, the other lies within 2δ + r ≤ 3δ, and the boundary estimate gives O(r1/3). If both lie farther than 2δ, then x, y ∈ Ω2δ. Convexity of Ω2δ places the whole segment [x, y ] in Ω2δ ⊂ Ωδ,and the interior Lipschitz estimate gives 
+
+|uN (x) − uN (y)| ≤ Mδ r = O(r1/3).
+
+Larger distances are absorbed by the uniform height bound. □40 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+8.2. Identification and uniqueness. Arzelà–Ascoli gives uniform precompactness in C(Ω) . Let 
+
+uNj → u uniformly. The limit is continuous, concave, nonnegative, and zero on ∂Ω.Aleksandrov stability [Gut16; Fig17; Moo18] applied to the convex functions −uNj gives 
+
+MA( uNj ) ⇀ MA( u)
+
+in the interior. By Corollary 7.5, the same measures converge to μ. Hence 
+
+MA( u) = μ. 
+
+The standard zero-boundary Aleksandrov Dirichlet theorem on bounded convex domains gives existence of Fμ, Ω, and the comparison principle gives uniqueness; see [Ale58; RT77; Moo18; Gut16; Fig17]. The datum is identically zero and hence affine, so the theorem applies to the polygon without any strict-convexity hypothesis. Therefore 
+
+u = Fμ, Ω.
+
+Every subsequence has the same cluster point. 
+
+Theorem 8.2 (Polygonal tropical-to-Monge–Ampère limit) . Let PN ⊂ K be strongly generic, 
+
+|PN | = N , and assume 
+
+1
+
+N
+
+X
+
+> p∈PN
+
+δp ⇀ μ, 
+
+where μ is a probability measure supported in K. Then 
+
+N −1/2GPN 0Ω −→ Fμ, Ω
+
+uniformly on Ω. Moreover, 
+
+MA 
+
+
+
+N −1/2GPN 0Ω
+
+
+
+⇀ μ 
+
+weakly on Ω, and the convergence of potentials holds in Lp(Ω) for every 1 ≤ p ≤ ∞ .
+
+9. Arbitrary bounded convex domains 
+
+This section extends the zero-boundary many-point limit from rational polygons to every bounded open convex planar domain. For the remainder of the section, Ω ⊂ R2 is bounded, open, and convex with nonempty interior, and every tropical function is understood with its continuous extension to 
+
+Ω. Every exhaustion polygon ∆j denotes the compact closed polygonal body, while ∆◦ 
+
+> j
+
+denotes its open interior; the relaxation F∆j ,P is defined on ∆◦ 
+
+> j
+
+and extended continuously to ∆j . No regularity or strict-convexity assumption is imposed on ∂Ω. Fix a compact set 
+
+K ⋐ Ω.
+
+For any open set U ⊂ R2, write 
+
+Conf N (U ) = {(p1, . . . , p N ) ∈ U N : pi̸ = pj for i̸ = j}.
+
+For a finite P ⊂ K, write 
+
+FΩ,P = GP 0Ω, νP = X
+
+> p∈P
+
+δp.
+
+Existence, local finiteness, and boundary continuity of this relaxation on an arbitrary bounded convex domain are part of the general tropical-series theory in [KS18]. Positive-time polygonization is the corresponding wavefront phenomenon in [MS23]. On the continuum side, zero is affine boundary data; hence the generalized Dirichlet theory [Ale58; RT77] and the modern comparison formulation [Moo18, Theorem 1 and Remark 1] give a unique continuous concave solution for every finite measure on every bounded convex domain, without strict convexity of the boundary. MANY-POINT TROPICAL RELAXATION 41 
+
+9.1. Fixed-exhaustion and intrinsic genericity. Because K ⋐ Ω and Ω is open and convex, one can choose an open rational polygon O and nested compact rational convex polygons ∆j such that (9.1) K ⋐ O ⋐ ∆◦
+
+> 1
+
+, ∆j ⊂ ∆◦ 
+
+> j+1
+
+⋐ Ω, [
+
+> j≥1
+
+∆◦ 
+
+> j
+
+= Ω .
+
+Definition 9.1 (Fixed-exhaustion genericity) . Fix an exhaustion E = (∆ j ) as in (9.1) . For fixed N
+
+and j, let 
+
+GN (∆ j ) ⊂ Conf N (∆ ◦ 
+
+> j
+
+)
+
+be the intrinsic strong-genericity locus for the polygon ∆j : the set of ordered configurations for which the three conclusions of Theorem 4.19 hold for the relaxation on ∆j . Set 
+
+GE 
+
+> N
+
+= Conf N (O) ∩ \
+
+> j≥1
+
+GN (∆ j ).
+
+An ordered configuration in GE 
+
+> N
+
+is called E -generic . An unordered N -point set is E -generic when one, equivalently every, ordering is E -generic. For every fixed rational polygon ∆, the set GN (∆) is open, dense, permutation-invariant, and of full Lebesgue measure in Conf N (∆ ◦). Indeed, exhaust ∆◦ by open rational polygons Om ⋐ ∆◦
+
+and apply Theorem 4.19 on each Conf N (Om). The intrinsic locus GN (∆) contains every good locus supplied by that theorem, so its complement has measure zero and is nowhere dense on each 
+
+Conf N (Om), hence on all of Conf N (∆ ◦). Openness follows directly from the local-stability condition in the definition of strong genericity. Consequently, by Baire’s theorem and countable subadditivity, 
+
+GE 
+
+> N
+
+is a dense Gδ set of full Lebesgue measure in Conf N (O). It need not be open. The fixed exhaustion is convenient for the proof, but it is not intrinsic to the direct relaxation on 
+
+Ω. We now remove that dependence. 
+
+Definition 9.2 (Rational-coordinate test polygons) . Let PQ(Ω) be the family of compact convex polygons ∆ with nonempty interior, all vertices in Q2, and ∆ ⋐ Ω. This family is countable. For 
+
+∆ ∈ PQ(Ω) define 
+
+bGN (∆) = GN (∆) ∪ (p1, . . . , p N ) ∈ Conf N (Ω) : pi /∈ ∆ for some i .
+
+Finally set (9.2) Guniv  
+
+> N
+
+(Ω) = \
+
+> ∆∈PQ(Ω)
+
+bGN (∆) .
+
+A configuration in Guniv  
+
+> N
+
+(Ω) is called universally generic in Ω.
+
+Lemma 9.3 (Countable cofinality) . The family PQ(Ω) is cofinal among compact subsets of Ω: for every compact C ⋐ Ω there is ∆ ∈ PQ(Ω) with 
+
+C ⋐ ∆◦ ⋐ Ω.
+
+Moreover, one may choose a nested exhaustion (∆ j ) satisfying (9.1) with every ∆j ∈ PQ(Ω) .Proof. Replace C by its compact convex hull, which is still compactly contained in the open convex set Ω. Choose r > 0 so that the closed 2r-neighborhood of this hull lies in Ω. For a sufficiently fine rational square grid, take the convex hull of all grid vertices belonging to squares that meet the closed r-neighborhood. The resulting polygon has rational vertices, contains C in its interior, and lies in the closed 2r-neighborhood, hence in Ω. Applying this construction recursively to a compact exhaustion of Ω together with the preceding polygon gives the nested exhaustion. □
+
+Proposition 9.4 (Intrinsic universal genericity) . For every N , the set Guniv  
+
+> N
+
+(Ω) is permutation-invariant, residual, and of full Lebesgue measure in Conf N (Ω) . If P ∈ G univ  
+
+> N
+
+(Ω) and P ⊂ ∆◦ for some ∆ ∈ PQ(Ω) , then P is strongly generic for the relaxation on ∆.42 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+Proof. For fixed ∆, the set bGN (∆) is open in Conf N (Ω) . Its complement consists of configurations all of whose points lie in ∆, with either at least one point on ∂∆ or an interior configuration outside 
+
+GN (∆) . The first set is contained in a finite union of codimension-one boundary-incidence sets, and the second has measure zero and is nowhere dense by strong genericity on ∆. Thus bGN (∆) is open, dense, and full measure. The family PQ(Ω) is countable, so (9.2) is residual and full measure. Permutation invariance is immediate. If P ⊂ ∆◦, the second alternative in the definition of bGN (∆) 
+
+is impossible, hence P ∈ G N (∆) . □
+
+The configuration-dependent positive-level polygon Ωt(FΩ,P ) used below for exact local reduction is distinct from both the fixed exhaustion and the countable family of test polygons. 
+
+Theorem 9.5 (Fixed-exhaustion convex-domain Monge–Ampère limit) . Let PN ⊂ K be E -generic configurations with |PN | = N , and suppose 
+
+μN := 1
+
+N
+
+X
+
+> p∈PN
+
+δp ⇀ μ, 
+
+where μ is a probability measure supported in K. Put 
+
+uN = N −1/2FΩ,P N .
+
+Then: 
+
+(i) for every compact L ⋐ Ω there is a constant C = C(Ω , K, L ) such that, whenever φ ∈ C1 
+
+> c
+
+(Ω) 
+
+and supp φ ⊂ L,
+
+(9.3) 
+
+Z
+
+> Ω
+
+φ d  MA( uN ) − μN
+
+ ≤ C
+
+√N
+
+ ∥φ∥∞ + ∥∇ φ∥∞
+
+;
+
+(ii) MA( uN ) ⇀ μ vaguely in Ω;
+
+(iii) uN → Fμ, Ω uniformly on Ω, where Fμ, Ω is the unique continuous concave Aleksandrov solution of 
+
+MA( Fμ, Ω) = μ, Fμ, Ω|∂Ω = 0 .
+
+Corollary 9.6 (Intrinsic convex-domain Monge–Ampère limit) . Let PN ⊂ K be universally generic in Ω, with |PN | = N , and suppose the empirical measures μN converge weakly to a probability measure 
+
+μ supported in K. Then conclusions (i) –(iii) of Theorem 9.5 hold. In particular, the hypothesis and conclusion are independent of any selected rational polygonal exhaustion. Proof. By Lemma 9.3, choose a nested exhaustion (∆ j ) from PQ(Ω) with K ⋐ ∆◦
+
+> 1
+
+. Universal genericity and Proposition 9.4 make every PN strongly generic for every ∆j , hence E -generic. Apply Theorem 9.5. □
+
+The theorem allows flat boundary pieces, corners, irrational supporting directions, and arbitrary boundary regularity compatible with convexity. The fixed compact support condition K ⋐ Ω is retained; the regime in which the source clouds approach ∂Ω with N is not covered. 
+
+Remark 9.7 (Boundary shape versus boundary-reaching sources) . The regularity of ∂Ω and the distance of the sources from ∂Ω are separate issues. Corners and flat sides are allowed because the proof is local on compact subsets and uses only convexity. The positive lower bound 
+
+inf  
+
+> N
+
+dist( PN , ∂ Ω) > 0
+
+encoded by PN ⊂ K ⋐ Ω remains essential to the present uniform O(√N ) barriers. No conclusion is asserted when the minimum source depth tends to zero with N .MANY-POINT TROPICAL RELAXATION 43 
+
+9.2. The rational-core theorem and polygonal exhaustion. For m ∈ Z2 \ { 0} define the support defect 
+
+ℓΩ,m (x) = ⟨m, x ⟩ − min 
+
+> y∈Ω
+
+⟨m, y ⟩.
+
+The primitive tropical distance is (9.4) DΩ(x) = inf 
+
+> m∈Z2prim
+
+ℓΩ,m (x).
+
+This equals the infimum over all nonzero lattice vectors. Indeed, if m = km 0 with k ≥ 1 and m0
+
+primitive, then 
+
+ℓΩ,m = kℓ Ω,m 0 ≥ ℓΩ,m 0
+
+on Ω. The function DΩ is positive in Ω and extends continuously by zero to ∂Ω [KS18, Lemmas 4.3–4.4]. 
+
+Theorem 9.8 (Exact rational-core and replacement theorem) . Let F be a nonnegative concave tropical series on a bounded convex domain Ω, continuous on Ω and equal to zero on ∂Ω. Fix 
+
+0 < t < max 
+
+> Ω
+
+F, ∆t := {F ≥ t}.
+
+Then the following hold. 
+
+(i) Finite rational core. The set ∆t is a compact convex polygon with rational slopes and nonempty interior. There exist an open neighborhood Ut ⋐ Ω of ∆t and finitely many global integer-slope supporting monomials L1, . . . , L M of F such that 
+
+(9.5) F = min  
+
+> 1≤j≤M
+
+Lj on Ut.
+
+Consequently, 
+
+Ht := F − t
+
+is a nonnegative zero-boundary tropical polynomial on ∆t.
+
+(ii) Core gluing. Let G be a nonnegative zero-boundary tropical polynomial on ∆t satisfying 
+
+G ≤ Ht. Then 
+
+(9.6) eF (x) = 
+
+(
+
+t + G(x), x ∈ ∆t,F (x), x ∈ Ω \ ∆t
+
+is a nonnegative concave tropical series on Ω, continuous on Ω and zero on ∂Ω.
+
+(iii) Exact shifted relaxation. Assume in addition that F = FΩ,P for a nonempty finite set P ⊂ Ω,and let C ⋐ Ω be compact. Then F > 0 throughout Ω. For every 
+
+0 < t < min  
+
+> x∈C∪P
+
+F (x),
+
+one has C ∪ P ⋐ ∆◦ 
+
+> t
+
+and 
+
+(9.7) F = t + F∆t,P on ∆t.
+
+Thus every prescribed compact portion of the direct relaxation on Ω is represented exactly, up to the additive normalization t, by a zero-boundary relaxation on one compact rational polygon. No regular-value assumption on t is required. Proof. Step 1: compactness, finite presentation, and polygonization. Concavity makes ∆t convex. Since F is continuous on Ω, vanishes on ∂Ω, and t > 0, the set ∆t is compactly contained in Ω. The strict inequality t < max F and continuity imply that ∆t has nonempty interior. Moreover, (9.8) ∂∆t = {F = t}.44 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+Indeed, F > t at a point of ∆t implies, by continuity, that the point is interior to ∆t, so every boundary point has value t. Conversely, suppose that x ∈ ∆◦ 
+
+> t
+
+and F (x) = t. Choose y ∈ Ω with 
+
+F (y) > t . Since x is interior to ∆t, for sufficiently small ε > 0 the point z = x − ε(y − x) still lies in 
+
+∆t. The identity 
+
+x = 11 + ε z + ε
+
+1 + ε y
+
+and concavity give 
+
+t = F (x) ≥ 11 + ε F (z) + ε
+
+1 + ε F (y) > t, 
+
+a contradiction. Hence no point of {F = t} lies in ∆◦ 
+
+> t
+
+, proving (9.8) . In particular, a full-dimensional constant cell can occur only in the maximum set {F = max F }, not at a level considered here. Choose a compact convex set Kt with 
+
+∆t ⋐ K◦ 
+
+> t
+
+⋐ Kt ⋐ Ω.
+
+Local finiteness of the tropical series gives, at every point of Kt, a neighborhood on which F is the minimum of finitely many integer-slope affine functions. Discard any term that is nowhere active in that neighborhood. If an affine term L is active at a point x, then L(x) = F (x) and L ≥ F in a neighborhood of x. This local support is automatically global. Indeed, for arbitrary y ∈ Ω and sufficiently small s > 0, the point xs = (1 − s)x + sy lies in that neighborhood, so 
+
+(1 − s)F (x) + sF (y) ≤ F (xs) ≤ L(xs) = (1 − s)L(x) + sL (y).
+
+Since F (x) = L(x), division by s gives F (y) ≤ L(y). Thus every locally active affine term extends to a global supporting monomial of F . Choose a finite subcover of Kt and let L1, . . . , L M be the union of the resulting supporting monomials. At every point of an open neighborhood Ut of Kt, one of the selected local terms is active, while all selected terms lie above F globally. Therefore (9.5) holds on Ut.Put 
+
+Qt := 
+
+> M
+
+\
+
+> j=1
+
+{Lj ≥ t}.
+
+On Kt the finite presentation gives 
+
+Qt ∩ Kt = {F ≥ t} = ∆ t.
+
+We claim that Qt ⊂ Kt. Otherwise choose y ∈ Qt \ Kt and x ∈ ∆◦ 
+
+> t
+
+. Convexity of Qt implies that the segment [x, y ] lies in Qt. Its first intersection z with ∂K t then belongs to Qt ∩ Kt = ∆ t, contradicting 
+
+∆t ⋐ K◦ 
+
+> t
+
+. Hence Qt = ∆ t. Thus ∆t is a bounded finite intersection of half-planes with integer normals, so it is a compact convex polygon with rational slopes. The same finite presentation shows that Ht = F − t is a tropical polynomial on ∆t; because ∂∆t ⊂ { F = t}, it is nonnegative and vanishes on the whole boundary. This argument does not use regularity of the level. In particular, it applies at critical values at which the combinatorial type of the polygon changes. The excluded endpoint t = max F may have a lower-dimensional core or a positive-dimensional maximal cell and is not needed below. 
+
+Step 2: linewise concavity of the glued function. The two formulas in (9.6) agree on ∂∆t, since 
+
+G = 0 and F = t there. Let S be a side of ∆t, and let λS be its primitive inward affine defining function. Near relint( S), zero-boundary tropical polynomials have the form (9.9) Ht = mH (S)λS , G = mG(S)λS
+
+for nonnegative integers mH (S) and mG(S). To see this, take a monomial active at an interior point of S. It is nonnegative on the side and vanishes at an interior point, so its affine restriction to S
+
+vanishes identically. Its gradient is therefore an integral multiple of the primitive inward normal. The minimum of the active normal monomials is the one with the smallest nonnegative multiplicity, giving (9.9). Since G ≤ Ht on the inward side, mG(S) ≤ mH (S).MANY-POINT TROPICAL RELAXATION 45 
+
+Fix an affine line ℓ meeting ∆t. If ℓ ∩ ∆t has positive length, parametrize it so that 
+
+ℓ−1(∆ t) = [ a, b ].
+
+Assume first that ℓ(a) and ℓ(b) lie in relative interiors of sides. At the entry point a, the corresponding inward defining function has positive derivative. If da 
+
+> out
+
+is the derivative of F ◦ ℓ immediately before entry, and daH , d aG are the derivatives of Ht ◦ ℓ, G ◦ ℓ immediately after entry, concavity of F and 
+
+mG ≤ mH give 
+
+da 
+
+> out
+
+≥ daH ≥ daG.
+
+At the exit point b, the inward defining function has negative derivative. Writing dbH , d bG for the derivatives immediately before exit and db 
+
+> out
+
+for the derivative of F ◦ ℓ immediately after exit, one obtains 
+
+dbG ≥ dbH ≥ db
+
+> out
+
+.
+
+Equivalently, this is the entry calculation applied to the reversed parametrization of ℓ: reversing orientation changes all three signs. In the original orientation, the second inequality is the concavity inequality for F , while the first follows from mG ≤ mH after multiplication by the negative derivative of the inward defining function. Hence the one-dimensional derivative of eF ◦ ℓ is nonincreasing at both crossings. It is nonincreasing between crossings because the two pieces are concave. Therefore 
+
+eF ◦ ℓ is concave. If an endpoint of ℓ ∩ ∆t is a polygon vertex, approximate ℓ by parallel lines avoiding all vertices. For points x, y ∈ ℓ and 0 ≤ θ ≤ 1, choose corresponding xk, y k on the approximating lines. Concavity there gives 
+
+eF ((1 − θ)xk + θy k) ≥ (1 − θ) eF (xk) + θ eF (yk),
+
+and continuity permits passage to the limit. A line supporting a side of ∆t causes no additional issue: on the side the glued function equals t = F , and outside the side it equals the original concave restriction of F . A line meeting the core in a single point is handled by the same parallel-line approximation. Thus the restriction of eF to every affine line is concave, and therefore eF is concave on Ω.It remains to verify the tropical structure. Away from ∂∆t this is immediate. Near a boundary point, use the finite local presentation of F furnished in Step 1 and the finite presentation of G on 
+
+∆t. Refine the two finite polyhedral complexes together with the polygonal decomposition by ∂∆t.On every cell of this common finite refinement, eF is one of the affine pieces of F or of t + G, hence has integral gradient. Thus eF is locally piecewise affine with integer slopes. Since it is concave, on each such neighborhood it is the minimum of its finitely many affine pieces; this is precisely the local tropical-series condition. Nonnegativity and the zero boundary value on ∂Ω are immediate, proving part (ii). 
+
+Step 3: exact shifted relaxation. Suppose now that F = FΩ,P with P̸ = ∅. The relaxation is not identically zero, because the zero function has empty corner locus. If F (x0) = 0 at an interior point, then for any y ∈ Ω continue the ray from y through x0 to a point z ∈ ∂Ω and write x0 = (1 − λ)y + λz 
+
+with 0 < λ < 1. Concavity, nonnegativity, and F (z) = 0 yield 
+
+0 = F (x0) ≥ (1 − λ)F (y),
+
+so F (y) = 0 . Hence F ≡ 0, a contradiction. Therefore F > 0 in Ω.Fix C ⋐ Ω and 0 < t < min C∪P F . Part (i) gives the compact rational polygon ∆t and places 
+
+C ∪ P in its interior. The function Ht = F − t is a nonnegative zero-boundary tropical polynomial on ∆t whose corner locus contains P . By minimality of the polygonal relaxation, 
+
+G := F∆t,P ≤ Ht.
+
+Apply part (ii) and glue t + G into the core. The resulting eF is a zero-boundary tropical series on 
+
+Ω whose corner locus contains every point of P , so minimality of FΩ,P gives F ≤ eF . Conversely, 46 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+G ≤ Ht gives eF ≤ F on ∆t, and the two functions agree outside. Hence eF = F , which is exactly (9.7). □
+
+Remark 9.9. The rational-core theorem contains, in a form internal to this paper, the positive-level polygonization and shifted-restriction mechanism that appears in [KS18, Lemma 10.3]. It is valid at critical levels and does not require a regular wavefront. The additive constant in (9.7) is forced by the boundary normalization: F = t on ∂∆t, while F∆t,P = 0 there. Thus every fixed positive level converts the convex-domain geometry into a finite zero-boundary polygonal geometry. The number and arithmetic complexity of the sides may diverge as t ↓ 0, so the estimates below are designed to be independent of that boundary fan. 9.2.1. Monotonicity and exhaustion stability. 
+
+Lemma 9.10 (Domain monotonicity) . Let Ω1 ⊂ Ω2 be bounded admissible convex domains and let 
+
+P ⋐ Ω1. Then 
+
+FΩ1,P ≤ FΩ2,P on Ω1.
+
+Proof. Put F2 = FΩ2,P . Since DΩ1 > 0 near the finite set P , one may choose an integer M ≥ 1 so large that 
+
+M D Ω1 > F 2
+
+on neighborhoods of all marked points. Then 
+
+H = min {F2|Ω1 , M D Ω1 }
+
+is a nonnegative tropical series on Ω1, is zero on ∂Ω1, and agrees with F2 near each marked point. It is therefore admissible for the relaxation on Ω1. Minimality gives 
+
+FΩ1,P ≤ H ≤ F2.
+
+□
+
+Lemma 9.11 (Locally finite limits with integer slopes) . Let Uj ⊂ U be increasing open convex sets with S 
+
+> j
+
+Uj = U , and let fj be nonnegative concave tropical polynomials on Uj satisfying fj ≤ fj+1 
+
+on Uj . Assume that on every W ⋐ U the functions are uniformly bounded and their active gradients lie, for all sufficiently large j, in one finite subset of Z2. Then the pointwise limit f is a locally finite tropical series and fj → f locally uniformly. If a fixed point p ∈ U belongs to V (fj ) for every sufficiently large j, then p ∈ V (f ).Proof. Fix compact convex sets W ⋐ W ′ ⋐ U . The hypotheses give a uniform Lipschitz bound on 
+
+W ′ and hence a continuous pointwise limit f there. Monotone convergence to a continuous limit is uniform on W ′ by Dini’s theorem. Let A ⊂ Z2 be a finite set containing all gradients active on W ′. Complete the local presentation by setting 
+
+cj,m = max  
+
+> x∈W′
+
+ fj (x) − ⟨ m, x ⟩, m ∈ A. 
+
+Every active supporting monomial occurs among these terms, and therefore 
+
+fj (x) = min 
+
+> m∈A
+
+(cj,m + ⟨m, x ⟩) (x ∈ W ).
+
+Uniform convergence gives 
+
+cj,m −→ cm := max  
+
+> x∈W′
+
+ f (x) − ⟨ m, x ⟩.
+
+Passing to the limit shows 
+
+f (x) = min 
+
+> m∈A
+
+(cm + ⟨m, x ⟩) (x ∈ W ),
+
+so f is locally tropical. MANY-POINT TROPICAL RELAXATION 47 
+
+If p ∈ V (fj ), at least two distinct gradients are active at p. There are only finitely many pairs in 
+
+A, so along a subsequence one fixed pair m̸ = n is active. Passing to the coefficient limits shows that both corresponding affine functions attain the minimum of f at p. Hence p ∈ V (f ). □
+
+Proposition 9.12 (Exhaustion stability) . For every fixed finite P ⊂ K,
+
+F∆j ,P ↗ FΩ,P 
+
+locally uniformly in Ω.Proof. Write Fj = F∆j ,P and F = FΩ,P . Domain monotonicity gives 
+
+0 ≤ Fj ≤ Fj+1 ≤ F
+
+on ∆j . Let G = lim j Fj pointwise in Ω.Fix a compact set W ⋐ Ω and choose a compact convex set W ′ with W ⋐ W ′ ⋐ Ω. For all sufficiently large j, the distance from W ′ to ∂∆j is bounded below by a positive constant. Since 
+
+Fj ≤ F and F is bounded for the fixed configuration, the standard interior slope estimate for concave functions gives a uniform bound for the gradients active on W ′. Concretely, after choosing W ′′ with 
+
+W ′ ⋐ W ′′ ⋐ Ω and r = dist (W ′, ∂W ′′ ) > 0, every supergradient m of Fj at a point of W ′ satisfies 
+
+∥m∥ ≤ 2∥F ∥L∞(W ′′ )/r . These gradients are integral, so they lie in one finite set. Lemma 9.11 shows that G is a locally finite tropical series and that Fj → G locally uniformly. It also shows that every 
+
+p ∈ P remains in V (G), because p ∈ V (Fj ) for all large j.The limit is nonnegative. Moreover G ≤ F , and F extends continuously by zero to ∂Ω; hence G
+
+has the same zero boundary extension. Thus G is admissible for the relaxation defining F = GP 0Ω.Pointwise minimality gives F ≤ G, while the monotonicity bound gives G ≤ F . Therefore G = F ,proving the assertion. □
+
+If U ⋐ Ω, choose U ′ with U ⊂ U ′ ⋐ Ω. For all large j, U ′ ⊂ ∆◦ 
+
+> j
+
+, and the preceding proposition gives uniform convergence on U ′. Aleksandrov stability on the fixed open set U ′ [Gut16; Fig17; Moo18] therefore gives the local convergence (9.10) 
+
+Z
+
+> U
+
+ϕ d MA( F∆j ,P ) −→ 
+
+Z
+
+> U
+
+ϕ d MA( FΩ,P ) (ϕ ∈ Cc(U )) 
+
+for every fixed P . Equivalently, the Monge–Ampère measures converge vaguely on U .9.3. Interior gradient and weighted Crofton control. The interpolant in Corollary 3.4 is independent of the boundary. For every N -point set P ⊂ R2, it gives a tropical polynomial qP
+
+through P whose active gradients have norm O(√N ). After subtracting its minimum on Ω, write 
+
+bqP = qP − min 
+
+> Ω
+
+qP .
+
+Then (9.11) bqP ≥ 0, P ⊂ V (bqP ), Lip( bqP ) ≤ C√N , ∥bqP ∥∞ ≤ CΩ
+
+√N . 
+
+Set 
+
+δK = min  
+
+> K
+
+DΩ > 0, HN = max 
+
+> Ω
+
+bqP , MN =
+
+ HN
+
+δK
+
+
+
++ 1 .
+
+Then MN = OΩ,K (√N ).
+
+Proposition 9.13 (Convex-domain Dirichlet barrier) . The tropical series 
+
+EP = min {bqP , M N DΩ}
+
+is admissible for GP 0Ω. Consequently, 
+
+(9.12) 0 ≤ FΩ,P ≤ CΩ,K 
+
+√N , FΩ,P (x) ≤ CΩ,K 
+
+√N D Ω(x).48 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+Proof. The minimum of two tropical series is tropical. It is nonnegative and zero on ∂Ω. At every 
+
+p ∈ P ,
+
+bqP (p) < M N DΩ(p),
+
+and the strict inequality persists locally, so the marked corner condition of bqP survives. Pointwise minimality gives FΩ,P ≤ EP , and the bounds follow from (9.11). □
+
+Lemma 9.14 (Uniform interior gradient bound) . Let W ⋐ Ω. For all sufficiently large j, every gradient m ∈ Z2 of a linearity cell of F∆j ,P whose relative interior meets W satisfies 
+
+∥m∥∞ ≤ CΩ,K,W 
+
+√N , 
+
+with a constant independent of j, P ⊂ K, and N = |P |.Proof. Choose r > 0 such that dist (W, ∂ ∆j ) ≥ r for all sufficiently large j. By domain monotonicity and Proposition 9.13, 
+
+0 ≤ F∆j ,P ≤ FΩ,P ≤ H, H = CΩ,K 
+
+√N . 
+
+At a differentiability point x in the cell, x ± (r/ 2) ei ∈ ∆j . Concavity gives 
+
+F (x + ( r/ 2) ei) ≤ F (x) + ( r/ 2) mi, F (x − (r/ 2) ei) ≤ F (x) − (r/ 2) mi.
+
+Since 0 ≤ F ≤ H, one obtains |mi| ≤ 4H/r . □
+
+9.3.1. The weighted Crofton estimate. If an edge e separates cells of gradients m+ and m−, write 
+
+m+ − m− = w(e)ne,
+
+where ne ∈ Z2 is primitive and w(e) ≥ 1 is the tropical weight. 
+
+Definition 9.15 (Regular axis-parallel rectangle) . Let F be a tropical polynomial. An open axis-parallel rectangle R compactly contained in the domain of F is regular for V (F ) if its boundary contains no tropical vertex or marked point, contains no nontrivial segment of a tropical edge, meets every tropical edge transversely in the relative interior of a side of R, and has no crossing at a corner of R. In particular, every x ∈ V (F ) ∩ ∂R lies on a unique edge ex, and there are finitely many crossings. This is the rectangular specialization of the regular-window convention in Section 5. Panel (d) of Figure 1 depicts this local-window geometry and the slicing mechanism behind the estimate. 
+
+Lemma 9.16 (Weighted Crofton bound) . Let 
+
+R = ( a, b ) × (c, d )
+
+be a rectangle compactly contained in the domain of a tropical polynomial F . Suppose every gradient of a cell meeting a neighborhood of R satisfies ∥m∥∞ ≤ L. Then 
+
+(9.13) X
+
+> e
+
+w(e)H1(e ∩ R) ≤ 2L (b − a) + ( d − c).
+
+If R is regular for V (F ) in the sense of Definition 9.15, then 
+
+(9.14) Bw(R) := X  
+
+> x∈V(F)∩∂R
+
+w(ex) ≤ 8L. 
+
+Proof. For almost every vertical line x = t, the restriction y 7 → F (t, y ) is a concave piecewise-affine function. Its one-sided derivatives are the second coordinates of active integer gradients; they form a nonincreasing sequence in [−L, L ] ∩ Z. At a transverse crossing with an edge e, the derivative jump has magnitude 
+
+|m+2 − m− 
+
+> 2
+
+| = w(e)|(ne)2|.MANY-POINT TROPICAL RELAXATION 49 
+
+If the edge is not vertical, then (ne)2̸ = 0 , so the jump is at least w(e). Vertical edges contribute nothing to the projection onto the x-axis. The total derivative variation is at most 2L, and the one-dimensional area formula gives 
+
+X
+
+> e
+
+w(e)
+
+Z
+
+> e∩R
+
+|τx| dH1 ≤ 2L(b − a).
+
+Horizontal slices similarly give 
+
+X
+
+> e
+
+w(e)
+
+Z
+
+> e∩R
+
+|τy| dH1 ≤ 2L(d − c).
+
+Since |τx| + |τy| ≥ 1 for a unit tangent, adding proves (9.13) . The same slope-variation argument on each regular side bounds the sum of crossing weights by 2L; summing over four sides proves (9.14). □
+
+Corollary 9.17 (Uniform local square-root length) . For every compact L ⋐ Ω there is C =
+
+C(Ω , K, L ) such that, for all sufficiently large j, all N , and all P ⊂ K with |P | = N ,
+
+(9.15) X
+
+> e
+
+w(e)H1(e ∩ L) ≤ C√N
+
+for the tropical curve of F∆j ,P . In particular, its unweighted Euclidean length in L is O(√N ).Proof. Cover L by finitely many rectangles compactly contained in a larger compact subset of Ω,and apply Lemmas 9.14 and 9.16. □
+
+9.4. Local excess and the quantitative estimate. Definition 9.18 (Terminal edge relative to an exhaustion polygon) . Let ∆ be a compact rational polygon and let F be a tropical polynomial on ∆◦ with zero boundary values. An edge of V (F ) is 
+
+terminal relative to ∆ if its closure meets ∂∆; otherwise it is a compact internal edge. If such an edge is incident to an interior tropical vertex, its other endpoint is the unique point where its closure reaches ∂∆. This terminology is always relative to the current exhaustion polygon and does not assert that the direct convex-domain graph has a globally finite terminal structure. The interior mildness theorem Corollary 6.14 says that the dual Newton polygon of every interior vertex has no interior lattice point and that every compact internal edge has weight one. Consequently, if v is an interior tropical vertex, (9.16) σF (v) = 12
+
+X 
+
+> e∋veterminal relative to ∆
+
+(w(e) − 1) .
+
+Lemma 9.19 (Local excess controlled by weighted crossings) . Let F = F∆,P be strongly generic on a compact rational polygon ∆, and let 
+
+L ⋐ R ⋐ ∆◦,
+
+where R is regular for V (F ) in the sense of Definition 9.15. Then 
+
+ΞF (L) ≤ 12 Bw(R).
+
+Proof. By (9.16) , only terminal edges incident to vertices in L contribute to ΞF (L). Each such edge is a straight segment from its unique interior endpoint toward ∂∆. Since R is convex and contains 
+
+L, the edge crosses ∂R exactly once. Distinct terminal edges give distinct crossings, and replacing 
+
+w(e) − 1 by w(e) proves the estimate. □50 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+Corollary 9.20 (Uniform local excess) . For every compact L ⋐ Ω there is C = C(Ω , K, L ) such that, for all sufficiently large j, every N -point set P ⊂ K that is strongly generic for ∆j satisfies 
+
+(9.17) ΞF∆j ,P (L) ≤ C√N . 
+
+Proof. Choose fixed axis-parallel rectangles Q1, . . . , Q M and larger open rectangles S1, . . . , S M such that 
+
+L ⊂
+
+> M
+
+[
+
+> α=1
+
+Q◦
+
+> α
+
+, Qα ⋐ Sα ⋐ Ω.
+
+For each finite tropical graph, perturb the sides of an intermediate rectangle inside the fixed gap between Qα and Sα to obtain a regular rectangle Rα,F with 
+
+Qα ⋐ Rα,F ⋐ Sα.
+
+The gradient estimate is applied on the fixed compact set S 
+
+> α
+
+Sα, so its constant is independent of the perturbation, j, and P . By Lemma 9.19 and (9.14), 
+
+ΞF (Qα) ≤ 12 Bw(Rα,F ) ≤ Cα
+
+√N . 
+
+Summing over the finite cover proves the claim. □
+
+9.4.1. The quantitative estimate. 
+
+Proposition 9.21 (Uniform polygonal estimate on an interior compact set) . Fix L ⋐ Ω. There is 
+
+C = C(Ω , K, L ) such that, for every sufficiently large j, every strongly generic N -point configuration 
+
+P ⊂ K, and every φ ∈ C1 
+
+> c
+
+(Ω) with supp φ ⊂ L,
+
+(9.18) 
+
+Z
+
+φ d  MA( F∆j ,P ) − νP
+
+ ≤ C√N  ∥φ∥∞ + ∥∇ φ∥∞
+
+.
+
+The constant is independent of the boundary fan of ∆j .Proof. By Theorem 7.2, 
+
+Z
+
+φ d  MA( F∆j ,P ) − νP
+
+ ≤ 12
+
+Z  
+
+> V(F∆j ,P )
+
+|∇ τ φ| dH1 + ∥φ∥∞ΞF∆j ,P (L).
+
+The first term is bounded by 12 ∥∇ φ∥∞ times the unweighted tropical length in L, which is O(√N )
+
+by Corollary 9.17. The second is O(√N )∥φ∥∞ by Corollary 9.20. □
+
+Theorem 9.22 (Quantitative estimate on a bounded convex domain) . Let P ∈ G E 
+
+> N
+
+, |P | = N . For every compact L ⋐ Ω, there is C = C(Ω , K, L ) such that 
+
+(9.19) 
+
+Z
+
+φ d  MA( FΩ,P ) − νP
+
+ ≤ C√N  ∥φ∥∞ + ∥∇ φ∥∞
+
+
+
+for every φ ∈ C1 
+
+> c
+
+(Ω) supported in L.Proof. For every j, E -genericity makes P strongly generic for ∆j , so Proposition 9.21 applies. Choose 
+
+U with L ⋐ U ⋐ Ω. By Proposition 9.12, F∆j ,P → FΩ,P uniformly on a neighborhood of U . Passing to the limit in (9.18) using (9.10) proves the result. □
+
+Scaling by N −1/2 in dimension two proves (9.3). MANY-POINT TROPICAL RELAXATION 51 
+
+9.5. Compactness, curvature convergence, and identification. From Proposition 9.13, (9.20) 0 ≤ uN ≤ CΩ,K DΩ, ∥uN ∥∞ ≤ CΩ,K .
+
+Since DΩ is continuous on Ω and vanishes on ∂Ω, this gives a common boundary modulus. For δ > 0, the inner parallel body 
+
+Ωδ = {x ∈ Ω : dist( x, ∂ Ω) ≥ δ}
+
+is convex. Concavity and the uniform height bound give (9.21) Lip( uN |Ωδ ) ≤ Cδ .
+
+Proposition 9.23 (Uniform convex-domain equicontinuity) . The family (uN ) is uniformly bounded and equicontinuous on Ω.Proof. Given ε > 0, choose δ > 0 such that 
+
+CΩ,K sup 
+
+> dist( x,∂ Ω) ≤3δ
+
+DΩ(x) < ε/ 4.
+
+If |x − y| < δ and one point lies within 2δ of the boundary, both values are less than ε/ 4. If both points lie in Ω2δ, convexity puts [x, y ] in Ω2δ, and (9.21) gives the required bound once |x − y| is sufficiently small relative to δ. The choice is independent of N . □
+
+9.5.1. Vague curvature convergence. Let L ⋐ Ω, and choose a nonnegative χ ∈ C1 
+
+> c
+
+(Ω) with χ = 1 
+
+near L. Applying (9.3) to χ gives 
+
+sup 
+
+> N
+
+MA( uN )( L) < ∞.
+
+Fix ψ ∈ Cc(Ω) and choose Lψ ⋐ Ω containing its support in its interior. Approximate ψ uniformly by ψk ∈ C1 
+
+> c
+
+(Ω) supported in Lψ. For fixed k, first let N → ∞ in (9.3) ; then let k → ∞ using the uniform local mass bound. Thus Z
+
+ψ d  MA( uN ) − μN
+
+ −→ 0.
+
+Since μN ⇀ μ ,(9.22) MA( uN ) ⇀ μ vaguely on Ω.
+
+9.5.2. Aleksandrov identification. Arzelà–Ascoli and Proposition 9.23 give a uniformly convergent subsequence 
+
+uNk −→ u on Ω.
+
+The limit is continuous, concave, nonnegative, and zero on ∂Ω. Aleksandrov stability on compact subsets gives 
+
+MA( uNk ) ⇀ MA( u) vaguely on Ω.
+
+Together with (9.22) , this yields MA (u) = μ. The zero-boundary Aleksandrov Dirichlet problem on a bounded convex domain has a unique continuous concave solution by the generalized Dirichlet theory [Ale58; RT77]; in the convex sign convention this is also the linear-boundary-data case of [Moo18, Theorem 1 and Remark 1], and uniqueness follows from comparison. Hence u = Fμ, Ω.Every subsequence has the same cluster point, proving uniform convergence of the full sequence and completing the proof of Theorem 9.5. 52 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+9.6. Boundary conditions. Positive-level reduction is exact, but it does not make the global boundary combinatorics uniform as the level tends to zero. For a general bounded convex domain outside the rational-polygon case, the tropical boundary fan may have infinitely many events accumulating at ∂Ω. The local argument above is insensitive to that tail, while the exact polygonal terminal formula is not. Accordingly: (i) no finite total-curvature formula analogous to Theorem 7.4 is asserted in the general non-polygonal case; (ii) the general convex-domain theorem gives vague curvature convergence in Ω, not weak convergence of finite measures on Ω;(iii) the intrinsic universally generic locus is residual and full measure, but is not claimed to be open; for rational polygons the stronger open genericity theorem remains available; (iv) the sandpile diagonal in Section B remains a rational-polygon result; (v) the source configurations are required to lie in one fixed compact set K ⋐ Ω, equivalently 
+
+dist (PN , ∂ Ω) ≥ δ > 0 uniformly in N ; the boundary-layer regime dist (PN , ∂ Ω) → 0 remains outside the theorem. 10. Random point clouds and affine covariance 
+
+10.1. Almost-sure point-cloud limits. Let X1, X 2, . . . be i.i.d. with an absolutely continuous probability law μ supported in K, and put 
+
+PN = {X1, . . . , X N }.
+
+Absolute continuity implies that all sampled points are distinct on one probability-one event. The empirical measures converge weakly to μ almost surely by Varadarajan’s theorem [Var58]. 
+
+Theorem 10.1 (Almost-sure limits) . The following statements hold with probability one. 
+
+(i) If Ω is a bounded rational convex polygon, every PN is strongly generic and 
+
+N −1/2GPN 0Ω −→ Fμ, Ω
+
+uniformly on Ω, while 
+
+MA 
+
+
+
+N −1/2GPN 0Ω
+
+
+
+⇀ μ 
+
+weakly as finite measures on Ω.
+
+(ii) If Ω is any bounded open convex domain with nonempty interior, every PN is universally generic in Ω and the same potential convergence holds uniformly on Ω, while the curvature measures converge vaguely in Ω.Proof. In the polygonal case, for each fixed N the complement of the strong-genericity locus has Lebesgue measure zero. A countable intersection over N gives simultaneous strong genericity, and Theorem 8.2 applies. In the general convex case, for each N and each ∆ ∈ PQ(Ω) , the complement of bGN (∆) has measure zero. The family of pairs (N, ∆) is countable, so one probability-one event makes every finite initial segment universally generic. Then Corollary 9.6 applies. □
+
+10.2. Affine covariance of the continuum solution. Let T (x) = Ax + b with A ∈ GL (2 , R), and define 
+
+G(y) = aF (T −1y).
+
+If x = T −1y, then 
+
+∂+G(y) = aA −T ∂+F (x).
+
+Consequently, 
+
+MA( G) = a2
+
+| det A| T# MA( F ).MANY-POINT TROPICAL RELAXATION 53 
+
+Taking a = | det A|1/2 and using uniqueness of the zero-boundary Dirichlet solution gives: 
+
+Theorem 10.2 (Affine covariance) . Whenever the zero-boundary Aleksandrov problem is uniquely solvable on Ω and T Ω,
+
+FT#μ,T Ω = | det A|1/2Fμ, Ω ◦ T −1.
+
+In particular, the statement holds for rational polygons and for every bounded convex domain. 
+
+The integrated action 
+
+J (μ, Ω) = 
+
+Z
+
+> Ω
+
+Fμ, Ω(x) dx 
+
+therefore transforms as 
+
+J (T#μ, T Ω) = | det A|3/2J (μ, Ω) .
+
+10.3. Integral-affine covariance before the limit. If A ∈ GL (2 , Z) and | det A| = 1 , then A−T
+
+preserves Z2. Pullback by T −1 is a bijection between tropical series on Ω and tropical series on 
+
+T Ω, preserves pointwise order, and carries the marked admissible class for (Ω , P ) onto that for 
+
+(T Ω, T (P )) .
+
+Proposition 10.3 (Integral-affine tropical covariance) . For every unimodular integral-affine map T ,
+
+GT (P )0T Ω = ( GP 0Ω) ◦ T −1.
+
+Thus the microscopic relaxation has exact GL (2 , Z) covariance, while the continuum equation has the full affine covariance in Theorem 10.2. 10.4. Explicit disk and ellipse profiles. Let BR = {x : |x| < R } and let ρ0 > 0 be constant. The function 
+
+F (x) = 
+
+√ρ0
+
+2 (R2 − | x|2)
+
+is concave, zero on ∂B R, and satisfies det D2F = ρ0. For uniform probability measure on BR,
+
+ρ0 = ( πR 2)−1, so (10.1) Funif ,B R (x) = R2 − | x|2
+
+2√πR .
+
+In particular, 
+
+Funif ,D(x) = 1 − | x|2
+
+2√π , −∆Funif ,D = 2
+
+√π .
+
+If E = AD + b and μE is uniform probability measure on E, affine covariance gives (10.2) FμE ,E (y) = | det A|1/2
+
+2√π
+
+ 1 − | A−1(y − b)|2 .
+
+Remark 10.4 (Boundary-reaching source laws) . The bounded-convex-domain theorem applies to point clouds supported in a fixed compact set K ⋐ Ω. Uniform probability measure on the entire disk or ellipse reaches the boundary and therefore lies outside that hypothesis. Formulas Equations (10.1) and (10.2) are continuum benchmarks; deriving them as direct tropical limits would require estimates uniform for source supports approaching ∂Ω.
+
+Appendix A. Background 
+
+This appendix separates the external results used logically in the proofs from references supplied for provenance and context. Every load-bearing imported statement is listed with the precise form in which it enters the manuscript and with the hypotheses needed here. Results proved again in the body of the paper are explicitly marked as internal, even when an earlier version exists in the literature. 54 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+A.1. Literature context. 
+
+Input Primary source Use and reconciliation 
+
+Tropical relaxation on a rational polygon [KS18] Gives the admissible tropical class, existence and minimality of GP 0Ω, finite small-canonical form, side quasi-degrees, and the boundary-gradient convex-hull bound. Our domains are bounded rational polygons, exactly the admissible compact case of that source. Symplectic-area minimality [KS18] Gives the boundary quasi-degree formula and minimality of the relaxation among zero-boundary tropical curves through the marks. This is used only on rational polygons. Fixed-source sandpile limit [KS26] Gives proper lattice roundings and the two-sided odometer comparison for each fixed finite source configuration. The mesh threshold may depend on the complete configuration; our diagonal corollary preserves that dependence. Aleksandrov comparison, compactness, stability, and Dirichlet solvability [Ale58; RT77; Moo18; Gut16; Fig17] Applied after changing sign from concave to convex functions. The boundary datum is zero, hence affine; strict convexity of the domain is not required. The same standard theorem covers both rational polygons and arbitrary bounded convex domains. Coarea formula [FR60; Fed69] Used for one-dimensional level counting on tropical edges and for the signed layer-cake estimate. All functions involved are Lipschitz or C1, and the tropical graph is finite in the polygonal argument. Almost-sure empirical-measure convergence [Var58] Applied to i.i.d. samples in the separable metric space K ⊂ R2.
+
+A.2. Tropical relaxation on rational polygons. A bounded rational convex polygon is admissible in the sense of [KS18, Definition 2.8]. The definition of an Ω-tropical series is [KS18, Definition 3.1]; local finiteness follows from Lemmas 3.4 and 3.5 and Corollary 3.6 there. The admissible class and relaxation operator are [KS18, Definitions 5.1 and 5.3]. Nonemptiness of the class is Lemma 5.2, tropicality of its pointwise infimum is Lemma 5.7, and Proposition 6.1 proves convergence of repeated one-point waves and verifies that the limiting corner locus contains every marked point. Together these statements give the pointwise-minimal element denoted here by 
+
+GP 0Ω.For a compact rational polygon, finite small-canonical form is stated in [KS18, Remark 9.5]. Side quasi-degree is Definition 9.6, and Remark 9.7 places every small-canonical gradient in the convex hull of the boundary gradients mF (S)n(S). These are the imported finiteness and slope-control statements used in Sections 2 and 4. For an arbitrary bounded convex domain, Lemmas 4.3–4.4 of the same source give continuity and positivity of the tropical distance. A shifted restriction to a positive-level core appears as Lemma 10.3. The present paper does not use that lemma as a black box: the consolidated rational-core theorem proves finite positive-level polygonization, linewise tropical core gluing, and exact shifted reduction around prescribed interior data; monotone rational-exhaustion stability is then proved internally in Section 9. The independent wavefront formulation of Mikhalkin–Shkolnikov proves that every positive-time propagation of a compact convex planar domain is a finite rational polygon [MS23, Proposition 24 MANY-POINT TROPICAL RELAXATION 55 
+
+and Corollary 25]. We cite this as geometric provenance for the polygonization mechanism; the exact reduction needed in the main proof is established internally. A.3. Symplectic area and boundary complexity. Tropical symplectic area is [KS18, Defini-tion 14.1]. Deformation invariance is Lemma 14.5, the boundary quasi-degree formula is Lemma 14.6, and Corollary 14.7 records minimality of V (GP 0Ω) among tropical curves through P . The precise specialization used here—including the admissible class, normalization, boundary identity, and hypothesis reconciliation—is stated in Theorem 3.6. In the main text the minimality inequality is also derived directly from pointwise relaxation minimality and sidewise comparison of quasi-degrees. Lemma 3.7 then verifies explicitly that the Hahn-field/barrier competitor lies in that class. No symplectic-area statement is imported on a nonpolygonal domain. A.4. Marked genus and topology: comparison only. Theorem 3.3 of [KP23] states an earlier generic genus result, and its proof contains an earlier tree argument after removing the marked points. The present paper does not use that proof. The finite semilinear coefficient model, strong genericity, connectivity of the full zero-boundary corner locus, the marked dual spanning tree, the primal cut tree, and the finite-core theorem are all proved internally in Section 4. The citation is retained solely for historical comparison. A.5. Fixed-source Abelian-sandpile convergence. The abelian stabilization and least-action framework originates in [Dha90]; the physical model was introduced in [BTW87]. In the published article [KS26], proper lattice roundings are Definition 4.1, their existence is Proposition 4.3, the upper odometer bound is Proposition 4.8, and the lower bound on a rational polygon is Proposition 5.4. These locators agree with arXiv:1502.06284v10. Consequently, for fixed finite P and every ε > 0,
+
+FP (z) − ε < hH h,P (z) ≤ FP (z)
+
+on the lattice sites for all sufficiently small h. The smallness threshold is allowed to depend on the fixed configuration. This dependence is preserved in Section B; we do not infer a uniform fixed-source rate as |P | varies. The planar string structures visible in the numerical appendix have earlier integral-affine conser-vation laws in [CPS10]. This is contextual and is not a proof input. A.6. Aleksandrov Monge–Ampère theory. The weak solution concept used throughout goes back to Aleksandrov’s generalized Dirichlet theory [Ale58]; Rauch–Taylor provide a classical existence treatment for the multidimensional generalized Dirichlet problem [RT77]. We use the following modern package in exactly the form summarized by Mooney: 
+
+• comparison principle: [Moo18, Proposition 3]; 
+
+• Aleksandrov maximum principle: [Moo18, Proposition 4]; 
+
+• stability under locally uniform convergence: [Moo18, Proposition 5]; 
+
+• compactness of normalized convex solutions with bounded Monge–Ampère mass: [Moo18, Proposition 6]; 
+
+• existence and uniqueness for continuous boundary values on a bounded strictly convex domain: [Moo18, Theorem 1]; 
+
+• removal of strict convexity for linear boundary data: [Moo18, Remark 1]. Our functions are concave, so these results are applied to −F . The boundary datum is identically zero and hence linear. Therefore neither the polygonal theorem nor the general bounded-convex-domain theorem requires a smooth or strictly convex boundary. We use the standard generalized Dirichlet theorem for existence and the comparison principle for uniqueness in both settings; the maximum principle, compactness, and stability enter the convergence arguments. Systematic modern references are [Gut16; Fig17]. 56 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+A.7. Coarea, convex analysis, and empirical measures. The one-dimensional coarea identity used on each tropical edge is a special case of the Fleming–Rishel formula [FR60] and of the general coarea theorem in geometric measure theory [Fed69]. In our application every edge is a compact line segment and the restricted test function is C1, so the required formula reduces to the elementary one-dimensional area formula. The signed passage is proved in the text by applying layer cake to positive and negative levels separately. Basic facts about superdifferentials, affine support planes, and interior slope bounds for concave functions are used in their standard finite-dimensional form; see [Roc70]. General support-function and inner-parallel-body terminology is compatible with [Sch14]. These references provide background rather than additional logical hypotheses. For the random-cloud theorem, Varadarajan’s theorem [Var58] gives almost-sure weak convergence of empirical probability measures on separable metric spaces. Here the samples lie in the compact set K ⊂ R2, so all of its hypotheses are automatic. Absolute continuity is used separately to avoid all countably many semilinear discriminants with probability one. A.8. Tropical and Newton-polytope background. The tropical interpolation proof in Section 3 is internal. Its coefficient field is the Hahn field introduced in [Hah07]; the valuation-cancellation mechanism is the elementary source of tropical dependence and is closely related to the Kapranov-rank viewpoint in [DSS05]. Neither source is invoked for the theorem itself. The face duality between a tropical polyhedral complex and the regular subdivision of its Newton polygon is standard; foundational references include [Mik05; RST05; MS15]. The appearance of Monge–Ampère mass as Newton-polytope area has a related convex-analytic antecedent in the Ronkin-function theory of [PR04]. The paper defines all required dual objects directly in Section 2. Pick’s formula is cited in its original source [Pic99]; only the planar lattice-polygon identity is used. 
+
+Appendix B. Abelian sandpile diagonal and deficit law 
+
+Throughout this appendix, Ω is a bounded rational convex polygon. This appendix records a discrete consequence of the continuum theorem. The abelian stabilization and odometer framework originate in [Dha90]; we use the fixed-source odometer convergence in [KS26]. The proposition numbering cited below is that of the published article and agrees with arXiv:1502.06284v10. The mesh selected below may depend on the complete point configuration. Let 
+
+Ωh = Ω ◦ ∩ hZ2
+
+and extend lattice functions by zero outside Ωh. We use the unscaled discrete Laplacian 
+
+∆hf (v) = X
+
+> |w−v|=h
+
+f (w) − 4f (v).
+
+For a fixed finite P ⊂ Ω◦, choose proper lattice roundings P h as in [KS26, Definition 4.1 and Proposition 4.3] and stabilize the maximal stable background plus one grain at each rounded point. Let Hh,P be the odometer. The upper and lower bounds in [KS26, Propositions 4.8 and 5.4] give, for fixed P ,
+
+sup 
+
+> z∈Ωh
+
+|hH h,P (z) − FP (z)| −→ 0.
+
+Let PN satisfy the hypotheses of Theorem 8.2. For each fixed N , choose hN > 0 so small that 
+
+hN < 1
+
+N
+
+and 
+
+sup 
+
+> z∈ΩhN
+
+|hN HhN ,P N (z) − FPN (z)| ≤ 1
+
+N .
+
+Then N h 2 
+
+> N
+
+→ 0.MANY-POINT TROPICAL RELAXATION 57 
+
+Theorem B.1 (Soft Abelian diagonal) . There exist configuration-dependent meshes hN → 0 and proper roundings such that 
+
+N h 2 
+
+> N
+
+→ 0
+
+and 
+
+sup 
+
+> z∈ΩhN
+
+hN
+
+√N HhN ,P N (z) − Fμ, Ω(z) −→ 0.
+
+Proof. The difference is bounded by 
+
+1
+
+√N sup 
+
+> ΩhN
+
+|hN HhN ,P N − FPN | + N −1/2FPN − Fμ, Ω ∞ .
+
+The first term is at most N −3/2 and the second tends to zero by Theorem 8.2. □
+
+B.1. Deficit measure. Let ϕ◦ 
+
+> h,P
+
+be the stabilized configuration and define the final deficit 
+
+dh,P (v) = 3 − ϕ◦ 
+
+> h,P
+
+(v).
+
+The odometer identity is 
+
+dh,P = −ξh,P − ∆hHh,P ,
+
+where ξh,P is the sum of delta functions at the rounded sources. Define 
+
+DN = hN
+
+√N
+
+X
+
+> v∈ΩhN
+
+dhN ,P N (v)δv.
+
+For ψ ∈ C∞ 
+
+> c
+
+(Ω ◦), discrete summation by parts gives 
+
+Z
+
+ψ d DN = − hN
+
+√N
+
+> N
+
+X
+
+> j=1
+
+ψ(phN 
+
+> N,j
+
+) − X
+
+> v
+
+UN (v)∆ hN ψ(v),
+
+where 
+
+UN (v) = hN
+
+√N HhN ,P N (v).
+
+The first term tends to zero because hN
+
+√N → 0. Taylor expansion gives 
+
+∆hN ψ(v) = h2 
+
+> N
+
+∆ψ(v) + Oψ(h4 
+
+> N
+
+).
+
+By Theorem B.1, the functions UN are uniformly bounded. Only Oψ(h−2 
+
+> N
+
+) lattice sites meet the fixed compact support of ψ and its nearest-neighbor stencil. Hence the total contribution of the Taylor remainder is 
+
+O(1) Oψ(h−2 
+
+> N
+
+) Oψ(h4 
+
+> N
+
+) = Oψ(h2 
+
+> N
+
+) −→ 0.
+
+The main term is therefore a Riemann sum converging, by the uniform convergence UN → Fμ, Ω, to 
+
+−
+
+Z
+
+> Ω
+
+Fμ, Ω∆ψ dx. 
+
+Theorem B.2 (Deficit law) . Along the selected diagonal, 
+
+DN ⇀ −∆Fμ, Ω
+
+vaguely in Ω◦.58 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+Since Fμ, Ω is concave, −∆Fμ, Ω is a positive Radon measure. If W ⋐ Ω◦ is a Lipschitz window with 
+
+(−∆Fμ, Ω)( ∂W ) = 0 ,
+
+then 
+
+hN
+
+√N
+
+X 
+
+> v∈W∩ΩhN
+
+dhN ,P N (v) −→ (−∆Fμ, Ω)( W ).
+
+Since W is bounded and Lipschitz, 
+
+h2 
+
+> N
+
+#( W ∩ hN Z2) −→ | W |.
+
+Consequently, for the average deficit dN (W ),
+
+dN (W )
+
+hN
+
+√N −→ (−∆Fμ, Ω)( W )
+
+|W | .
+
+The theorem is an existence statement for a diagonal sequence. It does not assert convergence for every joint regime satisfying N h 2 → 0.
+
+Appendix C. Numerical diagnostics 
+
+This appendix records three compact checks of the zero-boundary theory: exact marked topology, the many-source Monge–Ampère limit, and the fixed-source Abelian-to-tropical approximation. The computations use the finite representation 
+
+F (x) = min 
+
+> m∈A
+
+ cm + ⟨m, x ⟩, A ⊂ Z2 finite ,
+
+and reconstruct the linearity complex by exact polyhedral clipping. At a tropical vertex v, the Aleksandrov mass is computed directly from the Newton polygon, 
+
+MA( F )( {v}) = Area conv {m : cm + ⟨m, v ⟩ = F (v)}.
+
+No raster skeletonization or finite-difference Hessian is used, and none of the numerics enters a proof. The complete code, seeds, tables, saved states, and omitted diagnostics are contained in the separate reproducibility archive. C.1. Exact topology and boundary-parallel carriers. For Ω = [ −1, 1] 2, ten independent generic configurations were computed for each N ∈ { 10 , 20 , 40 , 80 , 160 , 320 }. In all sixty runs the exact bounded-cell count was 
+
+g = N, 
+
+and the trivalent planar identity Vint = 2 N + B − 2 held with zero error, where B is the number of boundary linearity cells. We also tested the most adverse boundary geometry. In 164 fully stabilized generic configurations, with N ≤ 40 and sources placed in collars of thickness down to 10 −4, every run still had g = N ; the longest marked boundary-parallel carrier had length 1.999975 in a square of side 2. The excluded same-carrier discriminant behaves differently: eight points at one tropical depth give g = 1 , while every tested nonzero independent normal perturbation restores eight distinct carriers and g = 8 .MANY-POINT TROPICAL RELAXATION 59 
+
+Figure 2. Exact topology and the boundary-carrier stress test. Top left: the polyhedral complex for one N = 160 configuration, with g = 160 . Top right: N = 20 
+
+distinct marked carriers in a collar of thickness 10 −3, vertically magnified. Bottom: the nongeneric same-carrier collapse g = 1 and its generic normal unfolding to g = 8 .C.2. Continuum and discrete approximation. For a compactly supported radial source in the unit disk, 
+
+dμ a = 1
+
+πa 2 1{| x|≤ a} dx, a = 0 .6,
+
+the zero-boundary concave Aleksandrov solution is explicit: 
+
+Fa(r) = 1
+
+√π
+
+
+
+1 − a
+
+2 − r2
+
+2a , 0 ≤ r ≤ a, 
+
+1 − r, a ≤ r ≤ 1.
+
+The tropical computation uses a rational lattice polygon approximating the disk and compares 
+
+FN /√N with Fa, with no fitted parameter. For N = 25 , 50 , 100 , 200 , 400 , the mean relative field 60 KALININ, LUPERCIO, SERRANO, AND SHKOLNIKOV 
+
+errors are respectively 
+
+0.1138 , 0.0665 , 0.0556 , 0.0394 , 0.0343 .
+
+For twenty-one fixed compactly supported test functions, set 
+
+DN = max 
+
+j
+
+Z
+
+φj d N −1 MA( FN ) − μN
+
+ .
+
+The corresponding values of √N D N are 0.1229 , 0.0802 , 0.0686 , 0.0653 , 0.0557 . A matched-cloud resolution check reduces the N = 200 field error from 0.0394 at lattice scale R = 40 to 0.0322 at 
+
+R = 80 , identifying part of the residual as domain-polygonization error. 0.0 0.2 0.4 0.6 0.8 1.0            
+
+> r
+> 0.0
+> 0.1
+> 0.2
+> 0.3
+> 0.4 angular mean of  FN/( R√ N )
+> (a) Explicit radial benchmark
+> exact continuum profile
+> N= 25
+> N= 50
+> N= 100
+> N= 200
+> N= 400
+> 10 2
+> N
+> 10 −1
+> 2 × 10 −2
+> 3 × 10 −2
+> 4 × 10 −2
+> 6 × 10 −2
+> relative  L2 error on  r ≤ 0.95
+> (b) Finite-Nand polygonization effects
+> reference N−1/2
+> R= 40 ensemble
+> R= 80 resolution check
+> 10 2
+> N
+> 0.395
+> 0.400
+> 0.405
+> 0.410
+> 0.415
+> 0.420
+> FN(0)/( R√ N )
+> (c) Square-root height scale
+> exact Fa(0) = 0.3949
+> R= 40 tropical data
+
+Figure 3. Compact-support disk benchmark. Left: angular means of the normalized tropical fields and the exact Aleksandrov profile. Center: relative field error, including the matched R = 80 resolution check. Right: normalized center height and the exact continuum value. The N −1/2 line is a reference scale, not a fitted exponent. Finally, fix eight generic rational source sets with N = 12 . Starting from the maximal stable background, let Hh,P be the Abelian-sandpile odometer on the square lattice of mesh h. The same sources are represented exactly on every mesh, and the relative errors between hH h,P and 
+
+FP = GP 0Ω are: 
+
+h relative L2 error relative L∞ error 
+
+1/20 0.03617 ± 0.00168 0.05960 ± 0.00102 1/40 0.01745 ± 0.00088 0.02980 ± 0.00051 1/80 0.00856 ± 0.00045 0.01490 ± 0.00025 1/160 0.00424 ± 0.00023 0.00745 ± 0.00013 1/240 0.00282 ± 0.00015 0.00497 ± 0.00008 1/480 0.00140 ± 0.00008 0.00248 ± 0.00004 1/960 0.00070 ± 0.00004 0.00124 ± 0.00002 
+
+Table 1. Fixed-source Abelian-to-tropical refinement. Values are means and stan-dard errors over eight source sets. These experiments support the exact generic topology, the compact-interior source–curvature estimate, and fixed-source Abelian-to-tropical convergence. They do not establish a universal simultaneous (N, h ) limit, nor the boundary layer regime dist( PN , ∂ Ω) → 0.REFERENCES 61 
+
+Acknowledgments 
+
+The work of E.L., H.S., and M.S. was supported by the Simons Foundation under grant SFI-MPS-T-Institutes-00007697 and by the Ministry of Education and Science of the Republic of Bulgaria under grant DO1-239/10.12.2024. E.L. gratefully acknowledges Cinvestav for a sabbatical leave during which this work was prepared and submitted, as well as the Institute for the Mathematical Sciences of the Americas (IMSA) at the University of Miami for its hospitality and support on several occasions during the preparation of this work. We are grateful to Conan Leung and Grigory Mikhalkin for numerous stimulating conversations that helped shape several of the ideas developed in this work. Their insights, questions, and perspectives on tropical and affine geometry were especially valuable in clarifying the conceptual framework of the paper. 
+
+References 
+
+[Ale58] A. D. Aleksandrov. “Dirichlet’s problem for the equation det ∥zij ∥ = φ(z1, . . . , z n, z, x1, . . . , x n). I”. In: Vestnik Leningrad. Univ. Ser. Mat. Mekh. Astronom. 13.1 (1958). In Russian, pp. 5–24. [BTW87] Per Bak, Chao Tang, and Kurt Wiesenfeld. “Self-organized criticality: An explanation of the 1/f noise”. In: Physical Review Letters 59.4 (1987), pp. 381–384. doi : 10.1103/ PhysRevLett.59.381 .[CPS10] Sergio Caracciolo, Guglielmo Paoletti, and Andrea Sportiello. “Conservation laws for strings in the Abelian sandpile model”. In: EPL (Europhysics Letters) 90.6 (2010), p. 60003. 
+
+doi : 10.1209/0295-5075/90/60003 . arXiv: 1002.3974 .[Dha90] Deepak Dhar. “Self-organized critical state of sandpile automaton models”. In: Physical Review Letters 64.14 (1990), pp. 1613–1616. doi : 10.1103/PhysRevLett.64.1613 .[DSS05] Mike Develin, Francisco Santos, and Bernd Sturmfels. “On the rank of a tropical matrix”. In: Combinatorial and Computational Geometry . Ed. by Jacob E. Goodman, János Pach, and Emo Welzl. Vol. 52. MSRI Publications. Cambridge University Press, 2005, pp. 213– 242. arXiv: math/0312114 .[Fed69] Herbert Federer. Geometric Measure Theory . Vol. 153. Grundlehren der mathematischen Wissenschaften. New York: Springer-Verlag, 1969. doi : 10.1007/978-3-642-62010-2 .[Fig17] Alessio Figalli. The Monge–Ampère Equation and Its Applications . Zurich Lectures in Advanced Mathematics. Zürich: European Mathematical Society, 2017. doi : 10.4171/170 .[FLP10] Anne Fey, Lionel Levine, and Yuval Peres. “Growth rates and explosions in sandpiles”. In: Journal of Statistical Physics 138 (2010), pp. 143–159. doi : 10.1007/s10955-009-9899-6 .[FR60] Wendell H. Fleming and Raymond Rishel. “An integral formula for total gradient variation”. In: Archiv der Mathematik 11 (1960), pp. 218–222. doi : 10.1007/BF01236935 .[Gut16] Cristian E. Gutiérrez. The Monge–Ampère Equation . 2nd ed. Vol. 89. Progress in Nonlinear Differential Equations and Their Applications. Cham: Birkhäuser/Springer, 2016. doi :
+
+10.1007/978-3-319-43374-5 .[Hah07] Hans Hahn. “Über die nichtarchimedischen Größensysteme”. In: Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Klasse, Abteilung IIa 116 (1907), pp. 601–655. [Kal+18] Nikita Kalinin, Aldo Guzmán-Sáenz, Yulieth Prieto, Mikhail Shkolnikov, Vera Kalinina, and Ernesto Lupercio. “Self-organized criticality and pattern emergence through the lens of tropical geometry”. In: Proceedings of the National Academy of Sciences of the United States of America 115.35 (2018), E8135–E8142. doi : 10.1073/pnas.1805847115 .62 REFERENCES 
+
+[KP23] Nikita Kalinin and Yulieth Prieto. “Some statistics about tropical sandpile model”. In: 
+
+Communications in Mathematics 31.3 (2023), pp. 9–19. doi : 10.46298/cm.10500 . arXiv: 
+
+1906.02802 .[KS18] Nikita Kalinin and Mikhail Shkolnikov. “Introduction to tropical series and wave dynamic on them”. In: Discrete and Continuous Dynamical Systems 38.6 (2018), pp. 2827–2849. 
+
+doi : 10.3934/dcds.2018120 . arXiv: 1706.03062 .[KS26] Nikita Kalinin and Mikhail Shkolnikov. “Tropical curves in sandpile models”. In: Advances in Mathematics 502 (2026), p. 111127. doi : 10 . 1016 / j . aim . 2026 . 111127 . arXiv: 
+
+1502.06284 [math.CO] .[Mik05] Grigory Mikhalkin. “Enumerative tropical algebraic geometry in R2”. In: Journal of the American Mathematical Society 18.2 (2005), pp. 313–377. doi : 10.1090/S0894-0347-05-00477-7 .[Moo18] Connor Mooney. “The Monge–Ampère equation”. In: Rendiconti del Seminario Matematico dell’Università e del Politecnico di Torino 76.1 (2018), pp. 93–113. arXiv: 1806.09945 [math.AP] .[MS15] Diane Maclagan and Bernd Sturmfels. Introduction to Tropical Geometry . Vol. 161. Graduate Studies in Mathematics. Providence, RI: American Mathematical Society, 2015. 
+
+doi : 10.1090/gsm/161 .[MS23] Grigory Mikhalkin and Mikhail Shkolnikov. “Wave fronts and caustics in the tropical plane”. In: Proceedings of the 28th Gökova Geometry-Topology Conference . 2023, pp. 11–48. arXiv: 2310.17269 .[Pic99] Georg Pick. “Geometrisches zur Zahlenlehre”. In: Sitzungsber. Dtsch. Naturwiss.-Med. Ver. Böhmen “Lotos” Prag 47 (1899), pp. 311–319. [PR04] Mikael Passare and Hans Rullgård. “Amoebas, Monge–Ampère measures, and triangula-tions of the Newton polytope”. In: Duke Mathematical Journal 121.3 (2004), pp. 481–507. 
+
+doi : 10.1215/S0012-7094-04-12134-7 .[Roc70] R. Tyrrell Rockafellar. Convex Analysis . Vol. 28. Princeton Mathematical Series. Princeton, NJ: Princeton University Press, 1970. [RST05] Jürgen Richter-Gebert, Bernd Sturmfels, and Thorsten Theobald. “First steps in tropical geometry”. In: Idempotent Mathematics and Mathematical Physics . Ed. by G. L. Litvinov and V. P. Maslov. Vol. 377. Contemporary Mathematics. Providence, RI: American Mathematical Society, 2005, pp. 289–317. [RT77] Jeffrey Rauch and B. A. Taylor. “The Dirichlet problem for the multidimensional Monge– Ampère equation”. In: Rocky Mountain Journal of Mathematics 7.2 (1977), pp. 345–364. 
+
+doi : 10.1216/RMJ-1977-7-2-345 .[Sch14] Rolf Schneider. Convex Bodies: The Brunn–Minkowski Theory . 2nd ed. Vol. 151. Ency-clopedia of Mathematics and Its Applications. Cambridge University Press, 2014. doi :
+
+10.1017/CBO9781139003858 .[Var58] V. S. Varadarajan. “Weak convergence of measures on separable metric spaces”. In: 
+
+Sankhy¯ a 19 (1958), pp. 15–22.

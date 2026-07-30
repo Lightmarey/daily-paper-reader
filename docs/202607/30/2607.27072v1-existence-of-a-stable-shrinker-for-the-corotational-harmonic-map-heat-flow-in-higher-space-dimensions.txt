@@ -1,0 +1,6082 @@
+Title: Existence of a stable shrinker for the corotational harmonic map heat flow in higher space dimensions
+
+URL Source: https://arxiv.org/pdf/2607.27072v1
+
+Published Time: Thu, 30 Jul 2026 01:08:13 GMT
+
+Number of Pages: 48
+
+Markdown Content:
+EXISTENCE OF A STABLE SHRINKER FOR THE COROTATIONAL HARMONIC MAP HEAT FLOW IN HIGHER SPACE DIMENSIONS 
+
+JOHANNES ANGERER, SARAH KISTNER, AND BIRGIT SCHÖRKHUBER 
+
+Abstract. We study singularity formation for the heat flow of harmonic maps from Rd
+
+into Sd in supercritical dimensions d ∈ { 3, 4, 5, 6}. It is well known that in each of these dimensions there exist infinitely many self-similar solutions that provide examples of loss of regularity in finite time. In this paper, we extend the results of [ 3 ], [ 4 ] for d = 3 to higher space dimensions d ∈ { 4, 5, 6} and prove the existence of a monotonically increasing self-similar profile f0, which is asymptotically stable under small corotational perturbations. To construct the solution and resolve the spectral problem, we use rigorous computer assistance. As a byproduct of our stability analysis, we also obtain finite-codimension stability of arbitrary self-similar profiles within the corotational class. 
+
+1. Introduction 
+
+We consider the heat flow of harmonic maps from Rd into Sd, which corresponds to the negative L2-gradient flow of the energy functional 
+
+S(U ) = 12
+
+∫
+
+> Rd
+
+˜hij (x)hab (U (x)) ∂iU a(x)∂j U b(x)
+
+√
+
+|˜h(x)|dx, (1.1) where ˜h and h are the corresponding metrics on Rd and Sd, respectively. The flow reads 1
+
+∂tU a − ∆˜hU a − ˜hij Γabc (U )∂iU b∂j U c = 0 , t > 0. (1.2) It is well known that singularity formation in finite time occurs in d ≥ 2; see [ 9 ], [ 8 ]. Classical results by Struwe [ 31 ] imply that scale-invariant, i.e., self-similar, solutions may play an important role in the characterization of blowup in d ≥ 3. We restrict ourselves to this case for the rest of the paper and refer to [ 27 ] for a more general discussion and further references. To reduce the system of equations (1.2) by means of corotational symmetry, we choose polar coordinates (r, ω ) ∈ [0 , ∞) × Sd−1 on Rd and hyperspherical coordinates (u, Ω) ∈ (0 , π ) × Sd−1
+
+on Sd, and make the ansatz U (t, r, ω ) = ( u(t, r ), ω ). Under this symmetry, Eq. (1.2) reduces to a single semilinear radial heat equation for u, given by 
+
+∂tu(t, r ) − ∂2 
+
+> r
+
+u(t, r ) − d − 1
+
+r ∂ru(t, r ) + (d − 1) 2r2 sin(2 u(t, r )) = 0 . (1.3) Within the corotational setting, the scaling law is u 7 → uλ, λ > 0, where 
+
+uλ(t, r ) = u(λ2t, λr ),
+
+and self-similar solutions are either of the form f
+
+( r√−t
+
+)
+
+or f
+
+( r√t
+
+)
+
+. The latter are usually referred to as expanders and have been studied intensively by Germain and Rupflin [ 17 ], as well as by Germain, Ghoul, and Miura [ 16 ]. In contrast, shrinkers provide explicit examples of singularity formation in finite time. More precisely, any solution of the profile equation 
+
+f ′′ (ρ) + 
+
+( d − 1
+
+ρ − ρ
+
+2
+
+)
+
+f ′(ρ) − (d − 1) 2ρ2 sin(2 f (ρ)) = 0 , ρ ≥ 0, f (0) = 0 , f (∞) = const .
+
+(1.4) 
+
+> 1
+
+Using Einstein’s summation convention. 
+
+> 1arXiv:2607.27072v1 [math.AP] 29 Jul 2026
+
+with f ′(0) > 0 gives rise to a solution of (1.3) of the form 
+
+uT (t, r ) = f 
+
+> (
+
+r
+
+√T − t
+
+> )
+
+, (t, r ) ∈ [0 , T ) × [0 , ∞), (1.5) satisfying 
+
+|∂ru(t, 0) | ∼ (T − t)− 12 , t → T −.
+
+Interestingly, Bizoń and Wasserman [ 7] proved that no such solutions exist in high space dimensions d ≥ 7. Instead, blowup is of type II, with explicit constructions by Biernat and Seki [ 5 ], [ 6 ], as well as by Ghoul, Ibrahim, and Nguyen [ 19 ]. We also refer to [ 15 ] for results in the more general k-equivariant case. The picture changes completely in dimensions d ∈ { 3, 4, 5, 6}. In this case, Fan proved the existence of an infinite countable family of profiles solving Eq. (1.4) . Moreover, numerical experiments by Biernat and Bizoń [ 2] within the corotational setting suggest that the ground state f0 of this family—which can be ordered according to the number of intersections with  
+
+> π
+> 2
+
+—acts as an attractor for generic blowup solutions. In particular, it is expected to be asymptotically stable. A major obstacle to a rigorous stability analysis is the fact that neither 
+
+f0 nor any other shrinker profile is known in closed form. In the lowest supercritical dimension d = 3 , this problem has been addressed using rigor-ous computer-assisted methods. More precisely, Biernat and Donninger [ 3] proved, using Chebyshev spectral methods combined with interval arithmetic, that there is a monotonically increasing shrinker profile, called f0, which is spectrally stable with respect to an underlying self-adjoint problem. Based on this result, Biernat, Donninger, and the third author proved the nonlinear asymptotic stability of f0 under small corotational perturbations [ 4]. The main goal of this paper is to generalize this result to higher space dimensions d ∈ { 4, 5, 6}.1.1. The main results. We study the harmonic map heat flow (1.2) in normal coordinates 
+
+(u, ˜Ω) on Sd, where ˜Ω ∈ Sd−1 ↪→ Rd. In this way, we can identify any map into Sd with a map U : Rd → Rd of the form U (x) = ( u(x), ˜Ω (x)) for x ∈ Rd; see, e.g., [ 30 ]. Corotational solutions U : [0 , T ) × Rd → Rd transform to 
+
+U (t, x ) = x
+
+|x| u(t, |x|),
+
+where u solves equation (1.3) . A self-similar shrinking solution uT given by (1.5) leads to a corresponding shrinker UT : [0 , T ) × Rd → Rd in normal coordinates, 
+
+UT (t, x ) = x
+
+|x| uT (t, |x|) = y
+
+|y| f (|y|) ,
+
+where y := x√T −t is the self-similar spatial variable. Since in every dimension d ∈ { 3, 4, 5, 6}
+
+there exists an infinite countable family of shrinking solutions, we divide the stability analysis into two parts. First, we prove a codimension-N stability result for any shrinker UT with corresponding profile f . Then, we show that there exists a profile f0 that solves equation (1.4) and is stable in the sense that the only non-negative eigenvalue of the underlying linear operator is 1, which is due to the freedom of choosing the blowup time T .To formulate the first result, let f ∈ C∞([0 , ∞)) be a solution of (1.4) and define F (y) :=  
+
+> y
+> |y|
+
+f (|y|), as the corresponding self-similar solution to equation (1.2) in normal coordinates. To study the stability of F , we set T = 1 and consider corotational initial data of the form 
+
+U (0 , x ) = F (x) + H0(x),
+
+where H0(x) := x 
+
+> |x|
+
+h0(|x|) is a perturbation in normal coordinates with radial profile h0 :[0 , ∞) → R.2Theorem 1.1 (Finite-codimension stability) . Let d ∈ { 3, 4, 5, 6}, and let s, k > 0 satisfy 
+
+d
+
+2 < s ≤ d
+
+2 + 12d , k = d + 3 .
+
+Then there exist ε > 0, Nf ∈ N, and real valued functions F ij ∈ ˙Hs ∩ ˙Hk(Rd) with i ∈{1, . . . , N j } and j ∈ { 1, . . . , N f } such that the following holds. Let H0 : Rd → Rd be a Schwartz function satisfying 
+
+∥H0∥ ˙Hs∩ ˙Hk (Rd) ≤ ε. 
+
+Then there exist constants ai,j (H0) ∈ R, i ∈ { 1, . . . , N j } and j ∈ { 1, . . . , N f }, depending Lipschitz continuously on H0, such that the initial value problem (1.2) with initial datum 
+
+U (0 , ·) = F + H0 +
+
+> Nf
+> ∑
+> j=1
+> Nj
+> ∑
+> i=1
+
+ai,j (H0)F ij (1.6) 
+
+has a classical solution U ∈ C∞([0 , 1) ×Rd) that blows up at the origin as t → 1−. Furthermore, 
+
+U can be decomposed as 
+
+U (t, x ) = F 
+
+> (
+
+x
+
+√1 − t
+
+> )
+
++ H
+
+> (
+
+t, x
+
+√1 − t
+
+> )
+
+,
+
+where, for any p ∈ [s, k ], we have 
+
+∥H(t, ·)∥ ˙Hp(Rd) → 0 (1.7) 
+
+as t → 1−.
+
+Our second result concerns the existence and stability of a shrinker UT in any space dimension 
+
+d ∈ { 3, 4, 5, 6} without the necessity of correcting the initial condition along a codimension-N
+
+Lipschitz manifold. For this, we exploit a rigorous computer-assisted method that allows us to solve the spectral problem. 
+
+Theorem 1.2. Let d ∈ { 3, 4, 5, 6}, and let s, k > 0 satisfy 
+
+d
+
+2 < s ≤ d
+
+2 + 12d , k = d + 3 .
+
+There exists a self-similar profile f0 ∈ C∞([0 , ∞)) that solves Eq. (1.4) and defines, for any 
+
+T > 0, a self-similar blowup solution 
+
+UT (t, x ) := F0 
+
+> (
+
+x
+
+√T − t
+
+> )
+
+, F0(y) := y
+
+|y| f0 (|y|) ,
+
+to Eq. (1.2) , such that the following holds. There exists an ε > 0 such that for any corotational initial datum of the form 
+
+U0 = F0 + H0,
+
+where H0 : Rd → Rd is a Schwartz function satisfying 
+
+∥H0∥ ˙Hs∩ ˙Hk (Rd) ≤ ε, 
+
+there exist T > 0 and a classical solution U ∈ C∞([0 , T ) × Rd) to (1.2) whose gradient blows up at the origin as t → T −. Furthermore, U can be decomposed as 
+
+U (t, x ) = F0 
+
+> (
+
+x
+
+√T − t
+
+> )
+
++ H
+
+> (
+
+t, x
+
+√T − t
+
+> )
+
+, (1.8) 
+
+where, for any p ∈ [s, k ], we have 
+
+∥H(t, ·)∥ ˙Hp(Rd) → 0
+
+as t → T −.
+
+3Remark 1.3 . We note that the profile satisfies 0 ≤ f0 < π . However, we do not have pointwise control over the perturbation H and thus cannot guarantee that U takes values only in Bdπ.In particular, it could wrap around the sphere multiple times. Nevertheless, we do control the gradient of U , since Sobolev embedding implies that ∥∇ H(t, ·)∥L∞(Rd) → 0 as t → T −,which yields √T − t∥∇ U (t, √T − t·) − ∇ F0∥L∞(Rd) → 0
+
+as t → T −.1.2. Outline of the proof and novelties. We briefly outline the main steps of the proof. First, it is convenient to set rv (t, r ) := u(t, r ) for r > 0 and observe that v solves 
+
+∂tv(t, r ) − ∂2 
+
+> r
+
+v(t, r ) − d + 1 
+
+r ∂rv(t, r ) + (d − 1) 2r3 (sin(2 rv (t, r )) − 2rv (t, r )) = 0 . (1.9) Given a shrinker profile f , we insert a perturbative ansatz into Eq. (1.9) , which we regard as a radial heat equation on Rn with n := d + 2 . Transforming the resulting equation to similarity coordinates (τ, ξ ) ∈ [0 , ∞) × Rn yields 
+
+∂τ φ(τ, ·) = Lf φ(τ, ·) + N (φ(τ, ·)) , τ > 0,
+
+for the perturbation φ, where Lf = L0 + L′ 
+
+> f
+
+with 
+
+L0u := ∆ u − 12 ξ · ∇ u − 12 u, L′ 
+
+> f
+
+u := Vf (| · | ) u, 
+
+and Vf is the radial potential determined by the profile f . The natural function space for the linearized problem is the weighted space L2
+
+> σ
+
+(Rn), σ(x) = e−| x|2/4, restricted to radial functions. In this setting, Lf is self-adjoint and generates a strongly continuous semigroup 
+
+(S(τ )) τ ≥0. Naturally, the spectrum of Lf depends on the potential and hence on the profile 
+
+f . Our key result proves the existence of a non-negative, monotonically increasing profile 
+
+f0 that is spectrally stable modulo symmetry eigenvalues. More precisely, the self-adjoint operator Lf0 satisfies 
+
+σ(Lf0 ) ⊂ (−∞ , 0) ∪ { 1}.
+
+The full result is stated in Theorem 2.4. The proof of Theorem 2.4 follows the general approach of [ 3], which treats the case d = 3 . We first construct a closed-form approximation ˜f0 with rational coefficients determined using Chebyshev spectral methods. The approximation is then extended to an exact solution f0 by a fixed-point argument. The main difficulty is the construction of the inverse of an approximate linear operator arising in the fixed-point argument and a rigorous proof of explicit bounds. This requires suitable approximations of the associated fundamental system, which is delicate, especially in even space dimensions. The result on the spectrum of Lf0 relies on analyzing the underlying Sturm–Liouville operator and rigorously counting the zeros of solutions to the associated spectral problem. Both the fixed-point construction of the profile f0 and the subsequent spectral analysis require rigorous bounds for rational functions. In contrast to [ 3], where interval arithmetic is used, we implement the evaluation method of [ 11 ]. As the spatial dimension increases, the required estimates become more demanding, in particular because the spectral argument requires sharper bounds on the exact solution. For this reason, we optimize the evaluation method for our setting by developing an exact truncated Chebyshev expansion with rigorous tail bounds; see the discussion in Section 5. For the sake of completeness, we include d = 3 and thus reprove the statement in this case. To handle the nonlinear stability problem, we work in the radial intersection Sobolev space 
+
+X := ˙Hs
+
+> rad
+
+(Rn) ∩ ˙Hk
+
+> rad
+
+(Rn)
+
+for sc < s < s c + 12( n−2) < n 
+
+> 2
+
+, where sc is the scaling-critical exponent and k = n + 1 . With this choice, one has 
+
+X ↪ → Crad (Rn) ∩ L∞(Rn) ↪→ L2
+
+> σ
+
+(Rn),
+
+4and local Lipschitz bounds for the nonlinearity follow from Schauder-type estimates established in [ 21 ]. The linearized evolution on X is obtained from that on L2
+
+> σ
+
+(Rn) by restriction. The most crucial step is to transfer the spectral information from Theorem 2.4 to the non-self-adjoint operator LXf0 := Lf0 |X and to use it efficiently in order to derive suitable growth bounds for the linearized evolution. In contrast to [ 4 ], which is based on energy estimates using graph norms, we employ a considerably shorter argument; see [ 24 ]. This argument uses the representation 
+
+SXf0 (τ ) − SX 
+
+> 0
+
+(τ ) = 
+
+∫ τ
+
+> 0
+
+SXf0 (τ − τ ′)L′ 
+
+> f0
+
+SX 
+
+> 0
+
+(τ ′) dτ ′,
+
+where (SX 
+
+> 0
+
+(τ )) τ ≥0 is the semigroup generated by LX 
+
+> 0
+
+. Exploiting the decay of f0 at infinity and the explicit form of SX 
+
+> 0
+
+(τ ), we show that the integral defines a compact operator on X for every τ ≥ 0. This allows us to apply standard results relating the spectrum of a semigroup to its growth bound and to the spectrum of its generator, thereby yielding the required bounds for the evolution on X. The nonlinear problem is then treated by a standard fixed-point argument, including a suitable adjustment of the blowup time. In fact, the stability analysis carries over to arbitrary self-similar profiles, except that only finite-codimension stability can be obtained without a precise spectral analysis. 1.3. Notation and conventions. We write a ≲ b if there exists a constant C > 0, such that a ≤ Cb and we write a ≃ b if a ≲ b and b ≲ a. If the constant C depends on some parameter ε, then we write a ≲ε b. We denote the open ball with radius R > 0 in Rd
+
+by BR(Rd). We also use the common Japanese bracket notation ⟨x⟩ := √1 + |x|2. By 
+
+C∞(Rd) and S(Rd) we denote the space of smooth functions and the space of Schwartz functions respectively. By C∞ 
+
+> c
+
+(Rd) we denote the standard test space consisting of smooth and compactly supported functions. In case of radial functions we use a lower index r as in C∞ 
+
+> r
+
+(Rd), Sr(Rd), C∞
+
+> c,r
+
+(Rd). For smooth functions being bounded and having all (partial) derivatives bounded we use the lower index b as in C∞ 
+
+> b
+
+([0 , ∞)) . For convenience, we also write C∞(Rd), C∞ 
+
+> c
+
+(Rd) and S(Rd) for sets of vector-valued functions whose every component belongs to that space. For a closed linear operator (L, D(L)) , we write ρ(L) for the resolvent set, and σ(L) := C \ ρ(L) for the spectrum. Given λ ∈ ρ(L), we use the following convention for the resolvent RL(λ) := ( λ − L )−1. For f ∈ C∞ 
+
+> c
+
+(Rd), we use the following definition of the Fourier transform 
+
+ˆf (ξ) = Ff (ξ) := (2 π)− d
+
+> 2
+
+∫
+
+> Rd
+
+e−iξ ·xf (x)dx, ξ ∈ Rd.
+
+For f, g ∈ C∞ 
+
+> c
+
+(Rd) and s ≥ 0, we define the homogeneous inner product 
+
+⟨f, g ⟩ ˙Hs(Rd) := ⟨| · | sFf, | · | sFg⟩L2(Rd),
+
+which induces a homogeneous Sobolev norm on C∞ 
+
+> c
+
+(Rd)
+
+∥f ∥2˙Hs(Rd) := ⟨f, f ⟩ ˙Hs(Rd). (1.10) As usual, the homogeneous Sobolev space ˙Hs(Rd) is defined as the completion of C∞ 
+
+> c
+
+(Rd)
+
+under the norm (1.10) . Analogously, we define intersection Sobolev spaces ˙Hs1 (Rd) ∩ ˙Hs2 (Rd)
+
+and radial intersection Sobolev spaces ˙Hs1 
+
+> r
+
+(Rd) ∩ ˙Hs2 
+
+> r
+
+(Rd) as the completion of C∞ 
+
+> c
+
+(Rd) and 
+
+C∞
+
+> c,r
+
+(Rd), respectively, with respect to the inner product 
+
+⟨u, v ⟩ ˙Hs1 (Rd)∩ ˙Hs2 (Rd) := ⟨u, v ⟩ ˙Hs1 (Rd) + ⟨u, v ⟩ ˙Hs2 (Rd).
+
+2. Formulation of the stability problem - Spectral stability 
+
+In the following, we assume that f ∈ C∞([0 , ∞)) is a solution to Eq. (1.4) . Then we have the following characterization. 5Lemma 2.1. Any solution f ∈ C∞([0 , ∞)) to (1.4) satisfies 
+
+f (2 ℓ)(0) = 0 , ℓ ∈ N0, (2.1) 
+
+and for each ℓ ∈ N there exists a constant Cℓ > 0 such that 
+
+|f (ℓ)(ρ)| ≤ Cℓρ−2−ℓ, ρ ≥ 1. (2.2) 
+
+Proof. For d = 3 the proof is given in full detail in [ 3 ], Proposition 1.3. By inspection, one sees that the argument does not depend on d and is true in all higher space dimensions 
+
+d ∈ { 4, 5, 6}. □
+
+We consider Eq. (1.9) as a starting point for the investigation of the stability of a shrinker profile f under corotational perturbations. More precisely, we consider the following Cauchy problem for w(t, x ) := v(t, |x|), x ∈ Rn, n = d + 2 ,
+
+> 
+
+∂tw(t, x ) = ∆ w(t, x ) + n − 32|x|3 (2 |x|w(t, x ) − sin(2 |x|w(t, x ))) , t > 0,w(0 , ·) = | · | −1f (| · | ) + | · | −1h0(·)
+
+(2.3) where f is a smooth shrinker profile and h0 : Rn → R a radial perturbation. We note that for n ∈ { 5, 6, 7, 8} the existence of shrinkers is guaranteed by [ 14 ]. We study the equation in similarity coordinates (τ, ξ ) ∈ [0 , ∞) × Rn,
+
+τ = τ (t) := log  
+
+> (
+
+TT − t
+
+> )
+
+and ξ := x
+
+√T − t , T > 0,
+
+and set 
+
+ψ(τ, ξ ) = √T e − τ 
+
+> 2
+
+w(T (1 − e−τ ), √T e − τ 
+
+> 2
+
+ξ),
+
+which yields 
+
+> 
+
+∂τ ψ(τ, ξ ) = ∆ ξψ(τ, y ) − Λψ(τ, ξ ) + n − 32|ξ|3 (2 |ξ|ψ(τ, ξ ) − sin(2 |ξ|ψ(τ, ξ ))) , τ > 0,ψ(0 , ·) = √T (f (√T | · | ) + h0(√T | · | )) ,
+
+(2.4) where f := | · | −1f (| · | ), h0 := | · | −1h0(| · | ) , and 
+
+[Λ f ]( ξ) := 12 ξ · ∇ f (ξ) + 12 f (ξ).
+
+The ansatz 
+
+ψ(τ, ·) = f (| · | ) + φ(τ, ·),
+
+for a radial perturbation φ : Rn → R leads to the evolution equation 
+
+> {
+
+∂τ φ(τ, ·) = Lf φ(τ, ·) + N (φ(τ, ·)) , τ > 0,φ(0 , ·) = U (h0, T ), (2.5) for data 
+
+U (h0, T ) := √T h0(√T | · | ) + √T f (√T | · | ) − f (| · | ) (2.6) and formal differential operators 
+
+Lf = L0 + L′ 
+
+> f
+
+, L0u := ∆ u − Λu, L′ 
+
+> f
+
+u = Vf (| · | )u, (2.7) with the potential 
+
+Vf (y) = n − 3
+
+y2
+
+> (
+
+1 − cos(2 f (y)) ), y ∈ [0 , ∞). (2.8) The nonlinear remainder is given by 
+
+[N (φ(τ, ·))]( ξ) = n − 3
+
+|ξ|3 (η′(f (|ξ|)) |ξ|φ(τ, ξ ) + η(f (|ξ|)) − η(f (|ξ|) + |ξ|φ(τ, ξ ))) , (2.9) 6where η(z) = 12 sin (2 z) for z ∈ R. Obviously, the nonlinearity depends on the profile f as well. However, we drop this dependence in the notation as the nonlinear part of the argument does not rely on the precise form of the profile. For later use, we state the following properties of the potential. 
+
+Lemma 2.2. Let f ∈ C∞([0 , ∞)) be a solution to Eq. (1.4) . Then the corresponding potential satisfies Vf ∈ C∞ 
+
+> b
+
+([0 , ∞)) and for every k ∈ N0 there is a constant Ck > 0 such that 
+
+|V (k) 
+
+> f
+
+(y)| ≤ Ck⟨y⟩−2−k
+
+for all y ∈ [0 , ∞).Proof. The decay at infinity is obvious and regularity at zero is obvious from Lemma 2.1 and Taylor expansion. □
+
+2.1. Self-adjoint linear theory - Spectral stability. We set σ(x) := e−| x|2/4 for x ∈ Rn
+
+and define a weighted L2-space of radial functions 
+
+H := {u ∈ L2
+
+> σ
+
+(Rn) : u is radial }, (2.10) with induced norm ∥ · ∥ H coming from the inner product 
+
+⟨u, v ⟩H := 
+
+> ∫
+> Rn
+
+u(x)v(x)σ(x)dx, for u, v ∈ H. 
+
+We note that the choice of a complex function space accommodates spectral theory. We consider Lf and L0 as defined in Eq. (2.7) on C∞
+
+> c,r
+
+(Rn) ⊂ H. Thus, they are densely defined and symmetric operators on H.It is well-known that (L0, C ∞
+
+> c,r
+
+(Rn)) is closable in H and the closure L0 : D(L0) ⊆ H → H is self-adjoint, has compact resolvent and generates a strongly continuous semigroup (S0(τ )) τ ≥0
+
+of bounded operators on H given by 
+
+[S0(τ )u]( x) = e− τ 
+
+> 2
+
+(Gα(τ ) ∗ u)( e− τ 
+
+> 2
+
+x), x ∈ Rn, (2.11) where Gα(τ )(x) = e− |x|24α(τ ) (4 πα (τ )) − n 
+
+> 2
+
+with α(τ ) := 1 − e−τ , see e.g. the proof of Proposition 3.1 in [23]. Lemma 2.2 implies that L′ 
+
+> f
+
+extends to a bounded operator on H and we obtain the following proposition on the linearized evolution in H, which follows from standard arguments. 
+
+Proposition 2.3. The operator (Lf , C ∞
+
+> c,r
+
+(Rn)) is closable in H and the closure Lf : D(Lf ) ⊆
+
+H → H is self-adjoint, has compact resolvent and generates a strongly continuous semigroup 
+
+(Sf (τ )) τ ≥0 of bounded operators on H. Furthermore, the spectrum of Lf consists only of real eigenvalues and each eigenvalue has finite multiplicity. 
+
+As we will see, the information on the unstable part of the spectrum of Lf in H is the key for the nonlinear stability analysis. Time-translation invariance implies that for any profile 
+
+f , 1 ∈ σ(Lf ) with eigenfunction f ′. The crucial part is the detection of further unstable eigenvalues. In the self-adjoint setting, one can use results from the theory of Schrödinger operators provided sufficiently precise information on f and thus on the potential Vf is given. One of our main results of this paper is the following. 
+
+Theorem 2.4. For every d ∈ { 3, 4, 5, 6}, there exists a solution f0 ∈ C∞([0 , ∞)) to Eq. (1.4) ,which is monotonically increasing and satisfies f0 > 0 on (0 , ∞). Furthermore, 
+
+σ(Lf0 ) ⊂ (−∞ , 0) ∪ { 1},
+
+where λ = 1 is a simple eigenvalue with eigenfunction f ′
+
+> 0
+
+.
+
+7For d = 3 , this has been proven in [ 3], but we include this case for the sake of completeness. For better readability of the paper, the proof, which is based on rigorous computer-assistence, is postponed to Section 4. To study the nonlinear evolution, we have to consider a different functional analytic setup, which will be introduced in the next section. 3. Nonlinear stability 
+
+3.1. Setup. First, state an important feature of (radial) intersection Sobolev spaces. 
+
+Lemma 3.1. For s1, s 2 > 0 with s1 < n 
+
+> 2
+
+< s 2, the following embedding holds 
+
+˙Hs1 
+
+> r
+
+(Rn) ∩ ˙Hs2 
+
+> r
+
+(Rn) ↪→ L∞(Rn).
+
+Furthermore, the space ˙Hs1 
+
+> r
+
+(Rn) ∩ ˙Hs2 
+
+> r
+
+(Rn) is closed under multiplication, moreover, 
+
+∥uv ∥ ˙Hs1    
+
+> r(Rn)∩˙Hs2
+> r(Rn)
+
+≲ ∥u∥ ˙Hs1   
+
+> r(Rn)∩˙Hs2
+> r(Rn)
+
+∥v∥ ˙Hs1   
+
+> r(Rn)∩˙Hs2
+> r(Rn)
+
+, (3.1) 
+
+for all u, v ∈ ˙Hs1 
+
+> r
+
+(Rn) ∩ ˙Hs2 
+
+> r
+
+(Rn).Proof. The embedding into L∞(Rn) follows from the choice s1 < n 
+
+> 2
+
+< s 2. A detailed proof can be found in [ 23 ], Appendix A.1. The algebra property follows by the generalized Leibniz rule, see [25], Theorem 1, together with the embedding of ˙Hs1 
+
+> r
+
+(Rn) ∩ ˙Hs2 
+
+> r
+
+(Rn) into L∞(Rn). □
+
+Now we introduce the main function space of this paper and gather some properties. 
+
+Definition 3.2. For (s, k ) satisfying 
+
+n
+
+2 − 1 < s < n
+
+2 − 1 + 12( n − 2) , and k = n + 1 , (3.2) we define Xks (Rn) as the completion of the space of radial test functions C∞
+
+> c,r
+
+(Rn) with respect to the inner product 
+
+⟨u, v ⟩Xks (Rn) := ⟨u, v ⟩ ˙Hs(Rn) + ⟨u, v ⟩ ˙Hk (Rn).
+
+Lemma 3.3. For (s, k ) as in Eq. (3.2) , the following embeddings hold 
+
+Xks (Rn) ↪→ L∞(Rn) ∩ Cr(Rn) ↪→ H. 
+
+Furthermore, Xks (Rn) is closed under multiplication, i.e., 
+
+∥uv ∥Xks (Rn) ≲ ∥u∥Xks (Rn)∥v∥Xks (Rn), (3.3) 
+
+for all u, v ∈ Xks (Rn).Proof. The L∞− embedding as well as (3.3) follow from Lemma 3.1. The last embedding is a consequence of the fast decay of the weight function. □
+
+3.2. The linear evolution on Xks (Rn). In this section, we make use of the embedding 
+
+Xks (Rn) ↪→ H by Lemma 3.3 to analyze the linearized operator and its corresponding semigroup in Xks (Rn).
+
+Lemma 3.4. Let f ∈ C∞([0 , ∞)) be a solution to Eq. (1.4) . Then the smooth functions f ′,
+
+f = | · | −1f (| · | ) and Vf belong to Xks (Rn).Proof. By using the decay properties stated in Lemma 2.1 and Lemma 2.2 one can easily check that f ′ and Vf belong to ˙H⌊s⌋ 
+
+> r
+
+(Rn) ∩ ˙Hkr (Rn) since ⌊s⌋ ≥ ⌊ n 
+
+> 2
+
+− 1⌋ > n 
+
+> 2
+
+− 2. By the continuous embedding ˙H⌊s⌋ 
+
+> r
+
+(Rn) ∩ ˙Hkr (Rn) ↪→ Xks (Rn) the statement for f ′ and Vf follows. To see that f belongs to Xks (Rn), we use the fact that |∂β f (x)| ≲ ⟨x⟩−1−| β| for all β ∈ Nd 
+
+> 0
+
+and apply Lemma 2.1 from [12]. □
+
+8Proposition 3.5. The restrictions LX 
+
+> 0
+
+:= L0
+
+∣∣Xks (Rn) and LXf := Lf
+
+∣∣Xks (Rn) of the linear operators L0 and Lf to Xks (Rn) with domains D(LX 
+
+> 0
+
+) = D(LXf ) = {u ∈ D (Lf ) ∩ Xks (Rn) : 
+
+Lf u ∈ Xks (Rn)}, respectively, generate strongly continuous one-parameter semigroups of bounded linear operators (SX 
+
+> 0
+
+(τ )) τ ≥0 and (SXf (τ )) τ ≥0 on Xks (Rn), that are given by the restrictions of (S0(τ )) τ ≥0 and (Sf (τ )) τ ≥0 to Xks (Rn) respectively, i.e. SX 
+
+> 0
+
+(τ ) = S0(τ )∣∣Xks (Rn)
+
+and SXf (τ ) = Sf (τ )∣∣Xks (Rn) for all τ ≥ 0. Finally, the Schwartz functions S(Rn) are a core for Lf .Proof. Let τ ≥ 0 and u ∈ C∞
+
+> c,r
+
+(Rn), then a straightforward calculation shows 
+
+∥S0(τ )u∥Xks (Rn) ≤ eω0τ ∥u∥Xks (Rn), (3.4) where ω0 := 12
+
+( n 
+
+> 2
+
+− 1 − s) < 0. Furthermore, since 
+
+F(S0(τ )u)( ·) = e( n   
+
+> 2−12
+
+)τ e(1 −eτ )|·| 2
+
+F(u)( e τ 
+
+> 2
+
+·),
+
+we find 
+
+∥| · | s(F(S0(τ )u − u)) ∥L2(Rn) = ∥| · | s(e( n    
+
+> 2−12)τ
+
+e(1 −eτ )|·| 2
+
+F(u)( e τ 
+
+> 2
+
+·) − F (u)) ∥L2(Rn).
+
+By the Dominated Convergence Theorem we infer 
+
+lim   
+
+> τ→0+
+
+∥S0(τ )u − u∥Xks (Rn) = 0 .
+
+Density of C∞
+
+> c,r
+
+(Rn) in Xks (Rn) implies that S0(τ ) defines a strongly continuous semigroup on 
+
+Xks (Rn). Since Xks (Rn) is invariant under (S0(τ )) τ ≥0 we find by Proposition 2.3, Chapter II, [13 ], that LX 
+
+> 0
+
+:= L0
+
+∣∣Xks (Rn) with domain D(LX 
+
+> 0
+
+) = {u ∈ D (L0) ∩ Xks (Rn) : L0u ∈ Xks (Rn)}
+
+generates the restricted semigroup (SX 
+
+> 0
+
+(τ )) τ ≥0 in Xks (Rn), where SX 
+
+> 0
+
+(τ ) = S0(τ )∣∣Xks (Rn).The Bounded Perturbation Theorem (see, e.g., [ 13 ], Chapter III, Theorem 1.3) implies that 
+
+LXf = LX 
+
+> 0
+
++ L′ 
+
+> f
+
+= ( L0 + L′ 
+
+> f
+
+)∣∣Xks (Rn) with D(LXf ) = D(LX 
+
+> 0
+
+) generates the strongly continuous semigroup (SXf (τ )) τ ≥0 on Xks (Rn), which is given by the restriction SXf (τ ) = Sf (τ )∣∣Xks (Rn)
+
+for all τ ≥ 0. This follows since 
+
+∥L′ 
+
+> f
+
+u∥Xks (Rn) = ∥Vf u∥Xks (Rn) ≲ ∥Vf ∥Xks (Rn)∥u∥Xks (Rn),
+
+for all u ∈ Xks (Rn) by (3.3), where Vf ∈ Xks (Rn) by Lemma 3.4. The last statement follows from the fact that S(Rn) is dense in Xks (Rn) and SX 
+
+> 0
+
+(τ ) leaves Schwartz functions invariant, hence S(Rn) is a core for LX 
+
+> 0
+
+. Since LXf is a bounded perturba-tion of LX 
+
+> 0
+
+, the space S(Rn) is also a core for LXf . □
+
+Lemma 3.6. The semigroup (SXf (τ )) τ ≥0 is a compact perturbation of the free semigroup 
+
+(SX 
+
+> 0
+
+(τ )) τ ≥0, meaning that the right-hand side of the variantion of parameters formula 
+
+SXf (τ ) − SX 
+
+> 0
+
+(τ ) = 
+
+∫ τ
+
+> 0
+
+SXf (τ − τ ′)L′ 
+
+> f
+
+SX 
+
+> 0
+
+(τ ′)dτ ′,
+
+is a compact operator for each τ ≥ 0.Proof. The proof is based on a variant of the Rellich-Kondrachov Theorem. The details are provided in Appendix A. □
+
+With this result at hand we are able to prove that there exist at most a finite number of unstable eigenvalues of the linear operator. 
+
+Proposition 3.7. The set Kf := σ(LXf ) ∩ { λ ∈ C : Re (λ) ≥ 0} consists of finitely many eigenvalues of LXf , all of which are real and have finite algebraic multiplicity. Proof. See Proposition 3.10 in [24]. □
+
+9To prove stability of a shrinking solution F with profile f we need to show exponential decay of the semigroup (SXf (τ )) τ ≥0 in Xks (Rn) on a stable subspace. To define a stable subspace we consider for each unstable eigenvalue λ ∈ Kf its Riesz-projection 
+
+Pλ := 12πi 
+
+∫
+
+> γλ
+
+RLXf
+
+(λ′)dλ ′,
+
+where γλ is a positively oriented circle centered at λ, contained in ρ(LXf ) and which, apart from λ, contains no other spectral points in its interior. For each d ∈ { 3, 4, 5, 6} and each shrinker profile f there exists Nf ∈ N with Kf = {λj }Nf 
+
+> j=1
+
+⊂
+
+R. Furthermore, we can choose {uij }Nj 
+
+> i=1
+
+with uij real valued, as a basis of the corresponding finite dimensional eigenspace to the eigenvalue λj . By definition of the operator LXf as the restriction of Lf to Xks (Rn) and the structure of the spectrum of LXf it follows that each Riesz projection can be expressed as 
+
+Pλj u =
+
+> Nj
+
+∑
+
+> i=1
+
+P ij u, with P ij u = αij ⟨u, u ij ⟩L2 
+
+> σ(Rn)
+
+uij , αij ∈ R \ { 0},
+
+for u ∈ Xks (Rn). In particular, rg (Pλj ) = span (u1 
+
+> j
+
+, ..., u Nj 
+
+> j
+
+), (3.5) for all j ∈ { 1, ..., N f }. Furthermore, the projections are mutually transversal with Pλj Pλl = 0 
+
+for j̸ = l. In the following we define the projection onto all unstable directions by 
+
+Pf := 
+
+> Nf
+
+∑
+
+> j=1
+> Nj
+
+∑
+
+> i=1
+
+P ij . (3.6) 
+
+Proposition 3.8. Let f0 be the shrinker profile from Theorem 2.4 and LXf0 = LX 
+
+> 0
+
++ L′ 
+
+> f0
+
+the corresponding linear operator. Then we have Kf0 = {1}, where the geometric and algebraic eigenspaces corresponding to the eigenvalue λ = 1 coincide, are one-dimensional and spanned by f ′
+
+> 0
+
+.Proof. By Proposition 3.7 it follows that Kf0 consists of finitely many eigenvalues of LXf0 , all of which have finite algebraic multiplicity. By Lemma 3.4 we know that f ′ 
+
+> 0
+
+belongs to Xks (Rn) and since f ′ 
+
+> 0
+
+is an eigenfunction of Lf0 by Theorem 2.4 it follows that f ′ 
+
+> 0
+
+∈ D (LXf ) with LXf0 f0 = f0.This shows {1} ⊆ Kf0 . To prove the opposite inclusion let λ ∈ σp(LXf0 ) ∩ { λ ∈ C : Re (λ) ≥ 0},then λ is also an eigenvalue of Lf0 . By Theorem 2.4 we infer λ = 1 . That the geometric and algebraic eigenspaces coincide and are one-dimensional follows from (3.5) and Theorem 2.4. □
+
+The following result will be one of the main ingredients to prove nonlinear stability of a shrinking solution. 
+
+Proposition 3.9. For all d ∈ { 3, 4, 5, 6} and every shrinker profile f there exists ν > 0 and 
+
+C ≥ 1, such that 
+
+∥SXf (τ )(1 − Pf )u∥Xks (Rn) ≤ Ce −ντ ∥(1 − Pf )u∥Xks (Rn), (3.7) 
+
+for all τ ≥ 0 and u ∈ Xks (Rn).Proof. The proof is a direct consequence of the decomposition of Xks (Rn) into ker (Pf ) and 
+
+rg( Pf ). A detailed proof can be found in [24], Proposition 3.8. □
+
+10 3.3. The nonlinear time evolution. From now on, we restrict ourselves to real valued functions and use again the symbol Xks (Rn) to denote the corresponding closed subspace of 
+
+Xks (Rn). We recall the definition of the nonlinear operator for a suitable function φ : Rn → R
+
+[N (φ)]( ξ) = n − 3
+
+|ξ|3 (η′(f (|ξ|)) |ξ|φ(ξ) + η(f (|ξ|)) − η(f (|ξ|) + |ξ|φ(ξ))) ,
+
+for ξ ∈ Rn and η(z) = 12 sin(2 z) for z ∈ R. By the following result we infer that N is locally Lipschitz continuous on Xks (Rn) which is necessary to construct strong solutions to our problem. 
+
+Lemma 3.10. The nonlinearity N given by (2.9) extends to a map N : Xks (Rn) → Xks (Rn)
+
+satisfying 
+
+∥N (φ) − N (ϕ)∥Xks (Rn) ≤ γ(∥φ∥Xks (Rn), ∥ϕ∥Xks (Rn))( ∥φ∥Xks (Rn) + ∥ϕ∥Xks (Rn))∥φ − ϕ∥Xks (Rn),
+
+for all φ, ϕ ∈ Xks (Rn), where γ : [0 , ∞) × [0 , ∞) → [0 , ∞) is a continuous function. Proof. By density if suffices to prove the inequality for functions belonging to C∞
+
+> c,r
+
+(Rn). We first establish an auxiliary identity for functions u ∈ C3(R) with u′′ (0) = 0 . Let a, b, c ∈ R,then by three times application of the Fundamental Theorem of Calculus we have 
+
+u(a + c) − u(a + b) − u′(a)( c − b)= ( c − b)
+
+∫ 10
+
+(b + x(c − b)) 
+
+∫ 10
+
+(a + w(b + x(c − b))) 
+
+∫ 10
+
+u′′′ (z(a + w(b + x(c − b)))) dzdwdx. 
+
+For the nonlinearity we obtain 
+
+[N (φ) − N (ϕ)]( ξ)= n − 3
+
+|ξ|3
+
+(
+
+η
+
+(
+
+f (|ξ|) + |ξ|ϕ(ξ)
+
+)
+
+− η
+
+(
+
+f (|ξ|) + |ξ|φ(ξ)
+
+)
+
+− η′(
+
+f (|ξ|
+
+)
+
+|ξ|(ϕ(ξ) − φ(ξ)) 
+
+)
+
+.
+
+Since η is an odd function we have η′′ (0) = 0 and the above identity yields 
+
+[N (φ) − N (ϕ)]( ξ)
+
+n − 3=
+
+∫ 10
+
+∫ 10
+
+∫ 10
+
+(
+
+ϕ(ξ)) − φ(ξ)
+
+)( 
+
+φ(ξ) + x(ϕ(ξ) − φ(ξ)) 
+
+)( 
+
+f (|ξ|) + y(φ(ξ) + x(ϕ(ξ) − φ(ξ))) 
+
+)
+
+· η(3) 
+
+(
+
+|ξ|z
+
+(
+
+f (|ξ|) + y(φ(ξ) + x(ϕ(ξ) − φ(ξ)) )))
+
+dzdydx. 
+
+Note that η(3) is an even function having all derivatives bounded. We use the generalized Schauder estimate given in [21], Proposition A.1, which reads 
+
+∥u1u2u3η(3) (| · | v)∥Xks (Rn) ≲ ∥u1u2u3η(3) (| · | v)∥ ˙Hk1 ∩ ˙Hk (Rn)
+
+≲
+
+> 3
+
+∏
+
+> i=1
+
+∥ui∥Xks (Rn)
+
+> k
+
+∑
+
+> j=0
+
+∥v∥2jXks (Rn), (3.8) for k1 := ⌊ n 
+
+> 2
+
+− 2⌋, where u1, u 2, u 3, v ∈ C∞
+
+> c,r
+
+(Rn) and v is real-valued. By inspection, the same bound holds for u3 being replaced by f (| · | ), respectively for v ∈ C∞ 
+
+> r
+
+(Rn) ∩ Xks (Rn). □
+
+The last ingredient to construct strong solutions to (2.5) is the following characterization of the initial data operator. We recall that U is given by 
+
+U (h, T ) = √T f (√T | · | ) + √T h(√T | · | ) − f (| · | ),
+
+for h ∈ Xks (Rn).11 Lemma 3.11. Let 0 < δ ≤ 12 . Then the map 
+
+T 7 → U (h, T ) : [1 − δ, 1 + δ] → Xks (Rn),
+
+as defined in (2.6) is continuous for h ∈ Xks (Rn). Furthermore, we have 
+
+∥U (h, T )∥Xks (Rn) ≲ ∥h∥Xks (Rn) + |T − 1|, (3.9) 
+
+for all h ∈ Xks (Rn) and T ∈
+
+[ 12 , 32
+
+]
+
+.Proof. To show continuity of the given map, let h ∈ Xks (Rn), T1, T 2 ∈ [1 − δ, 1 + δ] and write 
+
+U (h, T 1) − U (h, T 2)= ( √T1 − √T2)[ f + h]( √T1| · | ) + √T2([ f + h]( √T1| · | ) − [f + h]( √T2| · | )) .
+
+Next let ε > 0, then there exists χ ∈ C∞
+
+> c,r
+
+(Rn), such that ∥χ − [f + h]∥Xks (Rn) ≤ ε. By this we can write the second term from above as 
+
+[f + h]( √T1| · | ) − [f + h]( √T2| · | ) = ([ f + h]( √T1| · | ) − χ(√T1·)) + ( χ(√T1·) − χ(√T2·)) + ( χ(√T2·) − [f + h]( √T2| · | )) ,
+
+to infer 
+
+lim 
+
+> T2→T1
+
+∥U (h, T 1) − U (h, T 2)∥Xks (Rn) ≤ Cε, 
+
+for some C > 0. Here we used the fact that lim T2→T1 ∥χ(√T1·) − χ(√T2·)∥Xks (Rn) = 0 , as the function χ is smooth and compactly supported. As ε > 0 was chosen arbitrarily, continuity follows. Next we show (3.9). Let h ∈ Xks (Rn) and T ∈ [ 12 , 32 ], then we have 
+
+∥U (h, T )∥Xks (Rn) = ∥√T f (√T | · | ) + √T h(√T | · | ) − f ∥Xks (Rn)
+
+≤ √T ∥h(√T | · | )∥Xks (Rn) + √T ∥f (√T | · | ) − f ∥Xks (Rn) + |√T − 1|∥ f ∥Xks (Rn)
+
+≲ ∥h∥Xks (Rn) + |T − 1|∥ f ∥Xks (Rn) + ∥f (√T | · | ) − f ∥Xks (Rn).
+
+To estimate the remaining term we do the following. For z ∈ R+ we obtain 
+
+f (√T z ) − f (z) = z(√T − 1) 
+
+∫ 10
+
+f ′(z(( √T − 1) t + 1)) dt, 
+
+by the Fundamental Theorem of Calculus, where we have by definition 
+
+f ′(z) = f ′(z)
+
+z − f (z)
+
+z2 , z ∈ R+.
+
+This implies 
+
+∥f (√T | · | ) − f ∥Xks (Rn)
+
+|√T − 1| ≤
+
+∫ 10
+
+(1 + t(√T − 1)) −1(∥f ′(| · | (1 + t(√T − 1))) ∥Xks (Rn)dt 
+
++
+
+∫ 10
+
+(1 + t(√T − 1)) −1∥f (| · | (1 + t(√T − 1))) ∥Xks (Rn)dt. 
+
+Using the fact that 
+
+∥u(| · | (1 + t(√T − 1))) ∥Xks (Rn)
+
+≤ max {(1 + t(√T − 1)) s− n 
+
+> 2
+
+, (1 + t(√T − 1)) k− n 
+
+> 2
+
+}∥ u∥Xks (Rn),
+
+for u ∈ Xks (Rn) gives 
+
+∥f (√T | · | ) − f ∥Xks (Rn) ≲ |√T − 1|(∥f ′∥Xks (Rn) + ∥f ∥Xks (Rn))
+
+≲ |T − 1|,
+
+where we exploited that all components of the integrals are positive and bounded due to 
+
+k > s > n 
+
+> 2
+
+− 1 and that f ′, f ∈ Xks (Rn) by Lemma 3.4. □
+
+12 3.4. Construction of strong solutions. In this section we only give a short outline how to construct strong solutions to (2.5) for any shrinker profile f . A detailed proof can be found in [ 24 ], section 4.2. We emphasize that all the arguments used there are applicable to our problem since they are based on the exponential decay of the semigroup together with the local Lipschitz continuity of the nonlinear operator. We call a function φ a strong solution to (2.5), if φ ∈ C([0 , ∞), X ks (Rn)) and if it satisfies 
+
+φ(τ ) = SXf (τ )U (h0, T ) + 
+
+∫ τ
+
+> 0
+
+SXf (τ − τ ′)N (φ(τ ′)dτ ′, τ ≥ 0. (3.10) If f is any shrinker profile, there might exist more unstable eigenvalues than λ = 1 which is caused by the time translation symmetry of the blowup time T . This lack of information on the spectral problem only permits a codimension stability result. More precisely, by constructing a codimension Nf Lipschitz manifold Mf in the initial data space we correct the initial perturbations of f along the unstable directions such that the corresponding solution has the same blowup regime as the shrinking solution f . For that we set T = 1 which reduces the initial data map to U (h0, 1) = h0. We define the Banach space 
+
+X ks := {φ ∈ C([0 , ∞), X ks (Rn)) : ∥φ∥X ks := sup  
+
+> τ≥0
+
+eντ ∥φ(τ )∥Xks (Rn) < ∞} ,
+
+with ν > 0 being the constant from (3.7) . To run a fixed point argument on a stable subspace, we define for each unstable eigenvalue λj ∈ Kf , j ∈ { 1, ..., N f } a correction term 
+
+Cj (φ, u ) := Pj u + Pj
+
+∫ ∞
+
+> 0
+
+e−λj τ ′
+
+N (φ(τ ′)) dτ ′, (3.11) and set 
+
+Cf (φ, u ) := 
+
+> Nf
+
+∑
+
+> j=1
+
+Cj (φ, u ), (3.12) for φ ∈ X ks and u ∈ Xks (Rn). With this at hand we are able to define the operator 
+
+[Kf (φ, u )]( τ ) := SXf (τ )( u − Cf (φ, u )) + 
+
+∫ τ
+
+> 0
+
+SXf (τ − τ ′)N (φ(τ ′)) dτ ′, τ ≥ 0. (3.13) The first step to prove stability is to apply the contraction mapping principle to Kf provided the initial data u is chosen sufficient small. This gives a unique fixed point φu of Kf associated to the initial condition u and we abbreviate Cf (u) := Cf (φu, u ). The next step is to show that for every M > 0 there exists a sufficiently small δ > 0 such that if h0 ∈ Xks (Rn)
+
+satisfies ∥h0∥Xks (Rn) ≤ δM 2 , then there exist parameters ai,j ∈ [− δM , δM ], (i, j ) ∈ I with 
+
+I := {(i, j ) : 1 ≤ i ≤ Nj : 1 ≤ j ≤ Nf } such that 
+
+C
+
+(
+
+h0 + ∑
+
+> (i,j )∈I
+
+ai,j uij
+
+)
+
+= 0 .
+
+Furthermore, the parameters ai,j = ai,j (h0) depend Lipschitz continuously on the data, i.e. 
+
+∑
+
+> (i,j )∈I
+
+|ai,j (h0) − ai,j (h1)| ≲ ∥h0 − h1∥Xks (Rn),
+
+for all h0, h1 ∈ Xks (Rn) satisfying ∥h0∥Xks (Rn), ∥h1∥Xks (Rn) ≤ δM 2 . These results together with smoothing properties of the free semigroup (S0(τ )) τ ≥0 and Sobolev embeddings lead to a classical solution φ ∈ C∞([0 , ∞) × Rn) to the problem 
+
+{∂τ φ = Lf φ(τ, ·) + N (φ(τ, ·)) ,φ(0 , ·) = h0 + ∑ 
+
+> (i,j )∈I
+
+ai,j uij , (3.14) where h0 ∈ S r(Rn) satisfies ∥h0∥Xks (Rn) ≤ δM 2 . Furthermore, φ satisfies ∥φ(τ, ·)∥Xks (Rn) ≤
+
+δe −ντ for τ ≥ 0.13 3.5. Proof of Theorem 1.1. Let h0 ∈ S r(Rn), then we can identify h0 also with a radial Schwartz function on Rd. For H0(x) = xh0(|x|), x ∈ Rd we have an equivalence of Sobolev norms 
+
+∥H0∥ ˙Hs∩ ˙Hk (Rd) ≃ ∥ h0∥Xks (Rn),
+
+see [ 20 ], Proposition A.5. Hence, we can choose ε > 0 small enough to guarantee ∥h0∥Xks (Rn) ≤  
+
+> δM2
+
+and ∥H0∥ ˙Hs∩ ˙Hk (Rd) ≤ ε. Let φ ∈ C∞([0 , ∞) × Rn) be the resulting solution to (3.18) .Translating everything back into physical coordinates x ∈ Rn and t ∈ [0 , 1) via 
+
+w(t, x ) = (1 − t)− 12
+
+(
+
+f
+
+( |x|√1 − t
+
+) ( |x|√1 − t
+
+)−1
+
++ φ
+
+(
+
+log 
+
+( 11 − t
+
+)
+
+, x
+
+√1 − t
+
+))
+
+,
+
+gives a solution w to (2.3). This leads to a classical solution U ∈ C∞([0 , 1) × Rd) via 
+
+U (t, x ) = x
+
+√1 − t
+
+(
+
+f
+
+( |x|√1 − t
+
+) ( |x|√1 − t
+
+)−1
+
++ φ
+
+(
+
+log 
+
+( 11 − t
+
+)
+
+, x
+
+√1 − t
+
+))
+
+= F
+
+( x
+
+√1 − t
+
+)
+
++ H
+
+(
+
+t, x
+
+√1 − t
+
+)
+
+,
+
+where H(t, x ) := xφ 
+
+(
+
+log 
+
+( 11−t
+
+)
+
+, x 
+
+)
+
+for x ∈ Rd and t ∈ [0 , 1) . We point out that the spatial variable x now belongs to Rd instead of Rn which is possible since φ is radial. Furthermore, we have 
+
+∥H(t, ·)∥ ˙Hs∩ ˙Hk (Rd) ≃ ∥ φ(τ, ·)∥Xks (Rn) ≤ δe −ντ = δ(1 − t)ν ,
+
+which shows (1.7). 3.6. Stable blowup via f0. In case of the shrinker profile f0 we know that the only unstable eigenvalue is λ = 1 and the corresponding (algebraic and geometric) eigenspace is one-dimensional and spanned by f ′
+
+> 0
+
+. Since this instability is caused by the freedom of choosing the blowup time T we exploit this causality to prove stability of f0 without correcting the initial data. For that, we consider Duhamel’s formula (3.10) with initial data U (h0, T ) for some 
+
+T > 0. As before, exponential decay of the semigroup (SXf0 (τ )) τ ≥0 on the stable subspace 
+
+(1 − Pf0 ) together with the local Lipschitz continuity of the nonlinearity N lead to a unique fixed point φu of the map K given by (3.13) provided u is chosen small enough. To prove vanishing of the correction term (3.12) we make use of Lemma 3.11 that allows for a Taylor expansion of √T f0(√T ·) − f0 in T = 1 . More precisely, we have 
+
+U(h0, T ) = √T h0(√T ·) + C(1 − T )f ′
+
+> 0
+
+(·) + (1 − T )2R(T, ·), (3.15) for some C ∈ R \ { 0} and a remainder term satisfying ∥R(T, ·)∥Xks (Rn) ≲ 1 for T close to 1.By definition of the correction term (3.12) it follows that C(φU (h0,T ), U (h0, T )) = 0 if and only if 〈
+
+Pf0 U (h0, T ) + 
+
+∫ ∞
+
+> 0
+
+e−τ ′
+
+N (φU (h0,T )(τ ′)) dτ ′, f ′
+
+> 0
+
+〉
+
+= 0 . (3.16) The Taylor expansion (3.15) together with the local Lipschitz continuity of N imply that (3.16) is equivalent to 
+
+T = W (T ) + 1 ,
+
+for a continuous function W . The main idea is to show that for sufficient constants M, δ > 0
+
+the map T 7 → W (T ) + 1 maps the interval into itself. The Intermediate Value Theorem implies the existence of a strong solution φ that solves (3.10) . In summary, we have the following result. 14 Proposition 3.12. There exists M > 0 sufficiently large and δ > 0 sufficiently small, such that for all real-valued h0 ∈ Xks (Rn) with ∥h0∥Xks ≤ δM 2 , there exists a T = T (h0) ∈
+
+[1 − δM , 1 + δM ] and a unique solution φ ∈ C([0 , ∞), X ks (Rn)) satisfying (3.10) for all τ ≥ 0,such that 
+
+∥φ(τ )∥Xks (Rn) ≤ δe −ντ , ∀τ ≥ 0, (3.17) 
+
+where ν > 0 is the constant from Proposition 3.9. 
+
+To generate classical solutions to our problem we again exploit the smoothing of the free semigroup. It follows that if h0 ∈ S r(Rn) satisfies ∥h0∥Xks (Rn) ≤ δM 2 , we infer a classical solution φ ∈ C∞([0 , ∞) × Rn) to the problem 
+
+{∂τ φ = Lf0 φ(τ, ·) + N (φ(τ, ·)) ,φ(0 , ·) = U (h0, T ), (3.18) with the blowup time T = T (h0) from Proposition 3.12. 3.7. Proof of Theorem 1.2. The proof is analogous to the proof of Theorem 1.1. The only difference lies in the self-similar variables (τ, ξ ) used to transform φ back to U . They are given by τ = log 
+
+( TT −t
+
+)
+
+and ξ = x√T −t with T = T (h0) being the blowup time from Proposition 3.12. 4. Existence of a spectrally stable profile f0
+
+The goal of this section is to prove Theorem 2.4. For this, we generalize the analytic framework of [ 3] to higher dimensions and adapt the methods of [ 11 ] to prove rigorous bounds using computer-assistance. The implementation and all required coefficient files are available at 
+
+https://git.uibk.ac.at/csaw4329/hmhf_paper_code .We start by introducing a closed form approximate solution to Eq. (1.4). 
+
+Definition 4.1. For d ∈ { 3, 4, 5, 6}, we define 
+
+˜f0(y) := 2 arctan 
+
+( K∑
+
+> k=0
+
+ck( ˜f0)T2k+1 
+
+( y
+
+√y2 + 4 
+
+)) 
+
+,
+
+with rational coefficients (ck( ˜f0)) Kk=0 given in Tables 1-4, and K determined in each case by the number of listed coefficients. The corresponding CVS-file is coefs_f .2
+
+We note that this ansatz simplifies the nonlinearity in Eq. (1.4) as 
+
+sin(2 ˜f0) = sin(4 arctan( g)) = 4( g − g3)(g2 + 1) 2 ,
+
+where we let 
+
+g(y) = 
+
+> K
+
+∑
+
+> k=0
+
+ck( ˜f0)T2k+1 
+
+( y
+
+√y2 + 4 
+
+)
+
+. (4.1) Furthermore, we use only odd Chebyshev polynomials, as extending Eq. (1.4) to negative y
+
+shows that the solution must be odd. 
+
+Remark 4.2 . The coefficients (ck( ˜f0)) Kk=0 are computed by inserting the ansatz for ˜f0 into Eq. (1.4) and applying the variable transformation x = y√y2+4 , with x ∈ [0 , 1] . We impose that the transformed differential equation must be satisfied at the points 
+
+xk = cos 
+
+( (2 k−1) π
+
+> 4( K+1)
+
+)
+
+, for k = 1 , 2, ..., K + 1 ,  
+
+> 2Note that we use a different transformed variable than in [ 3], which is convenient for later steps. As a result, the coefficients and the subsequently derived bounds are not directly comparable.
+
+15 which are the positive Chebyshev nodes of degree 2K + 2 . The resulting system of nonlinear equations is then solved numerically. The results are converted to rational numbers using an absolute tolerance based on the smallest coefficient and the number of coefficients. 4.1. Existence of f0. In this section, we prove that Eq. (1.4) has a solution f0 which is well approximated by ˜f0. To formulate the result, we define the following weight functions. 
+
+Definition 4.3. For d ∈ { 3, 4, 5, 6}, we define p1, p2, p3 : (0 , ∞) → R as 
+
+p1(y) := 
+
+√y2 + 4 
+
+y ,p2(y) := (y2 + 4) 5/2
+
+y
+
+( KN∑
+
+> k=0
+
+ck,N (p2) yk
+
+)/( KD∑
+
+> k=0
+
+ck,D (p2) yk
+
+)
+
+,p3(y) := (y2 + 4) 3/2
+
+4 ,
+
+with the coefficients (ck,N (p2)) KN 
+
+> k=0
+
+and (ck,D (p2)) KD
+
+> k=0
+
+, respectively given in the CSV-files 
+
+coefs_p2_n and coefs_p2_d , and KN , K D determined in each case by the number of listed coefficients. 
+
+Remark 4.4 . The weight p2 is positive and for d ∈ { 3, 5} we have ck,N (p2) = ck,D (p2) = 0 for all odd k. Furthermore, the behavior of p2 at both 0 and ∞ is given by 
+
+p2 ∼ (y2 + 4) 5/2
+
+(d + 1) y3 + (4 d + 16) y .
+
+In this paper we only include in Appendix C those coefficients which are necessary to to derive all other quantities and to entirely reproduce our results. We refrain from including all coefficients due to their length and instead refer to the files in the online repository. To simplify the notation, we denote the L∞-norm on [0 , ∞) by ∥ · ∥ ∞ in the following. 
+
+Definition 4.5. We define 
+
+∥f ∥Y := ∥p1f ∥∞ + ∥p3f ′∥∞
+
+and denote by Y be the space C1([0 , ∞)) equipped with ∥ · ∥ Y .We now state the first main result of this section. 
+
+Theorem 4.6. Let d ∈ { 3, 4, 5, 6}, then there exists f0 ∈ C∞([0 , ∞)) solving Eq. (1.4) with 
+
+∥f0 − ˜f0∥Y ≤ ε =
+
+ 
+
+> 120940
+
+, d = 3 , 
+
+> 1143829
+
+, d = 4 , 
+
+> 11268555
+
+, d = 5 , 
+
+> 115875639
+
+, d = 6 .
+
+The proof of Theorem 4.6 is based on a fixed-point argument. For this, we insert the ansatz 
+
+f0 = ˜f0 + δ
+
+into Eq. (1.4) and write the resulting equation as 
+
+L(δ) = R( ˜f0) + N (δ) (4.2) with 
+
+L(δ) := −δ′′ −
+
+( d − 1
+
+y − y
+
+2
+
+)
+
+δ′ + d − 1
+
+y2 δ − 2( d − 1) 
+
+y2 sin 2( ˜f0)δ (4.3) 
+
+R( ˜f0) := ˜f ′′  
+
+> 0
+
++
+
+( d − 1
+
+y − y
+
+2
+
+)˜f ′ 
+
+> 0
+
+− d − 12y2 sin(2 ˜f0) (4.4) 16 N (δ) := d − 1
+
+y2 cos(2 ˜f0)δ + d − 12y2 sin(2 ˜f0) − d − 12y2 sin(2 ˜f0 + 2 δ)= d − 1
+
+y2 
+
+> (
+
+cos(2 ˜f0)δ − cos(2 ˜f0 + δ) sin( δ)).
+
+(4.5) The obvious strategy is to show that 
+
+K(δ) = L−1(R( ˜f0) + N (δ))
+
+is a contraction on the closed subset 
+
+Yε = {δ ∈ C1([0 , ∞)) , ∥δ∥Y ≤ ε}. (4.6) A formal inverse of L can be written as 
+
+L−1(δ)( y) =  
+
+> ∫∞
+> 0
+
+G(x, y )δ(x) dx 
+
+where G is the Green’s function defined by 
+
+G(x, y ) = −1
+
+W (w0, w 1)( x)
+
+> {
+
+w0(y)w1(x), y ≤ x, w0(x)w1(y), x < y, 
+
+with {w0, w 1} a fundamental system of L and W denoting the Wronskian. However, because of the complicated form of ˜f0, it is impossible to find closed form expressions for w0 and w1,which would be required to obtain explicit bounds. So instead of working with L directly, we provide closed form approximations ˜w0 and ˜w1 and use them to define an approximate linear operator ˜L, see Section 4.1.3. Consequently, we consider the problem 
+
+> ˜
+
+L(δ) = R( ˜f0) + N (δ) + ( ˜L − L )( δ) (4.7) and show that 
+
+> ˜
+
+K(δ) = ˜L−1(R( ˜f0) + N (δ) + ( ˜L − L )( δ)) (4.8) is a contraction on Yε. For ˜L−1α to be in Y, we impose restrictions on the endpoint behavior of α. The admissible behavior is enforced through the weight p2, with the actual defining properties given in Section 4.1.4. The bound on the inverse operator then has the form 
+
+∥ ˜L−1α∥Y ≤ c ˜L∥p2α∥∞,
+
+for some constant c ˜L > 0. Consequently, the contraction argument requires bounds on 
+
+∥p2R( ˜f0)∥∞, ∥p2N (δ)∥∞, ∥p2(N (δ) − N (γ)) ∥∞, ∥p2( ˜L − L )( δ)∥∞,
+
+for δ, γ ∈ Y ε.4.1.1. Bounds for the remainder term. We start be rewriting Eq. (4.4) using that ˜f0(y) = 2 arctan( g(y)) , for g defined in (4.1), giving 
+
+R( ˜f0) = 2g′′ (1 + g2) − 4g(g′)2
+
+(1 + g2)2 + 
+
+> (
+
+d − 1
+
+y − y
+
+2 
+
+> )
+
+2g′
+
+1 + g2 − d − 12y2
+
+4( g − g3)(1 + g2)2
+
+= 21 + g2
+
+> (
+
+g′′ + 
+
+> (
+
+d − 1
+
+y − y
+
+2 − 2gg ′
+
+1 + g2
+
+> )
+
+g′ + d − 1
+
+y2
+
+g3 − g
+
+1 + g2
+
+> )
+
+. (4.9) Since T2k+1 (x) = xP k(x2) for a polynomial Pk, we have that 
+
+g(y) = y
+
+> √
+
+y2 + 4 F1(y2),
+
+where F1 is a rational function with only rational coefficients 
+
+F1(y2) = 
+
+> K∑
+> k=0
+
+ck( ˜f0)Pk 
+
+> (
+
+y2
+
+y2 + 4 
+
+> )
+
+.
+
+17 Similarly we have that 
+
+g′(y) = 1
+
+√y2 + 4 F2(y2), g′′ (y) = y
+
+√y2 + 4 F3(y2),
+
+where F2 and F3 are also rational functions with rational coefficients 
+
+F2(y2) = 2 y2F ′
+
+> 1
+
+(y2) + 4
+
+y2 + 4 F1(y2)
+
+F3(y2) = 2 F ′
+
+> 2
+
+(y2) − 1
+
+y2 + 4 F2(y2).
+
+Inserting these representations in (4.9) shows that for d ∈ { 3, 5} the remainder term p2R( ˜f0) is a rational function in y2 with only rational coefficients. However due to the more complicated form of the weight p2 for d ∈ { 4, 6} the weighted term is only a rational function in y. Since the evaluation method requires a finite domain, we apply a variable transformation y ∈ [0 , ∞)
+
+to z ∈ [0 , 1] . For d ∈ { 3, 5}, we use 
+
+y2 = 4z
+
+1 − z , (4.10) and for d ∈ { 4, 6},
+
+y = 4z
+
+1 − z . (4.11) The coefficients for the numerator and denominator of the transformed rational function are given in the CSV-files coefs_resid_n and coefs_resid_d . After applying the evaluation method we have 
+
+∥p2R( ˜f0)∥∞ ≤ cR =
+
+ 
+
+> 93 440690713
+
+, d = 3 , 
+
+> 96 7276398917
+
+, d = 4 , 
+
+> 95 377877930362
+
+, d = 5 , 
+
+> 62 17322232151807
+
+, d = 6 .
+
+(4.12) 4.1.2. Bounds for the nonlinear term. First we rewrite the nonlinear term (4.5) 
+
+N (δ) = d − 1
+
+y2
+
+( cos(2 ˜f0)δ − cos(2 ˜f0 + δ) sin( δ))
+
+= d − 1
+
+y2
+
+( cos(2 ˜f0)( δ − sin( δ)) + 4 cos( δ/ 2) sin 2(δ/ 2) sin(2 ˜f0 + δ/ 2) ).
+
+After applying the bounds 
+
+|δ − sin( δ)| ≤ 16 |δ|3, | sin 2(δ/ 2) | ≤ 14 |δ|2, | sin(2 ˜f0 + δ/ 2) | ≤ | sin(2 ˜f0)| + 12 |δ| (4.13) we get 
+
+|N (δ)| ≤ d − 1
+
+y2
+
+( 16 |δ|3 + |δ|2
+
+(
+
+| sin(2 ˜f0)| + 12 |δ|
+
+)) 
+
+= d − 1
+
+y2 |δ|2
+
+(
+
+| sin(2 ˜f0)| + 23 |δ|
+
+)
+
+.
+
+Next we insert the weights for the norm of δ and the bound for the nonlinear term 
+
+|p2N (δ)| ≤ (p1δ)2
+
+(∣ ∣∣∣
+
+(d − 1) p2
+
+p21y2 sin(2 ˜f0)
+
+∣∣∣∣ + 2( d − 1) p2
+
+3p31y2 |p1δ|
+
+)
+
+.
+
+For δ ∈ Y ε, it follows that 
+
+|p2N (δ)| ≤ 
+
+(∣ ∣∣∣
+
+(d − 1) p2
+
+p21y2 sin(2 ˜f0)
+
+∣∣∣∣ + 2( d − 1) p2
+
+3p31y2 ε
+
+)
+
+∥δ∥2 
+
+> Y
+
+. (4.14) Similar to the analysis for the remainder term, the sine term is a rational function in y2 for 
+
+d ∈ { 3, 5} and a rational function in y for d ∈ { 4, 6}. The same also holds for the weight 18 term. Applying the evaluation method with the variable transformation (4.10) for odd d and (4.11) for even d to the sine term and the weight term separately, gives the bounds 3
+
+∥p2N (δ)∥∞ ≤ cN ∥δ∥2 
+
+> Y
+
+, cN =
+
+ 
+
+> 295 86
+
+, d = 3 , 
+
+> 310 89
+
+, d = 4 , 
+
+> 361 83
+
+, d = 5 , 
+
+> 622 97
+
+, d = 6 .
+
+(4.15) Next let δ, γ ∈ Y ε. Rewriting the difference gives 
+
+N (δ) − N (γ) = d − 1
+
+y2
+
+( cos(2 ˜f0)( δ − γ) − cos(2 ˜f0 + δ) sin( δ) + cos(2 ˜f0 + γ) sin( γ))
+
+= d − 1
+
+y2
+
+( cos(2 ˜f0)(( δ − γ) − sin( δ − γ)) + 2 sin(( δ + γ)/2) sin( δ − γ) sin(2 ˜f0 + ( δ + γ)/2) ).
+
+Similar to before, applying the bounds (4.13) yields 
+
+|N (δ) − N (γ)| ≤ d − 1
+
+y2
+
+( 16 |δ − γ|3 + |δ + γ|| δ − γ|
+
+(
+
+| sin(2 ˜f0)| + 12 |δ + γ|
+
+)) 
+
+≤ d − 1
+
+y2 |δ − γ|(|δ| + |γ|)
+
+(
+
+| sin(2 ˜f0)| + 23 (|δ| + |γ|)
+
+)
+
+.
+
+With the appropriate weights included, we have 
+
+|p2(N (δ)−N (γ)) | ≤ | p1(δ−γ)|(|p1δ|+|p1γ|)
+
+(∣ ∣∣∣
+
+(d − 1) p2
+
+p21y2 sin(2 ˜f0)
+
+∣∣∣∣ + 2( d − 1) p2
+
+3p31y2 (|p1δ| + |p1γ|)
+
+)
+
+,
+
+which then gives 
+
+∥p2(N (δ) − N (γ)) ∥∞ ≤
+
+(∣ ∣∣∣
+
+(d − 1) p2
+
+p21y2 sin(2 ˜f0)
+
+∣∣∣∣ + 4( d − 1) p2
+
+3p31y2 ε
+
+)
+
+∥δ − γ∥Y (∥δ∥Y + ∥γ∥Y ). (4.16) We can reuse the previous result to finally get the estimate 
+
+∥p2(N (δ) − N (γ)) ∥∞ ≤ cN ∥δ − γ∥Y (∥δ∥Y + ∥γ∥Y ). (4.17) Note that (4.15) already accounts for the slightly larger constant needed in (4.17). 4.1.3. Approximate Linear Operator. We first isolate the endpoint behavior by considering the free part of L, namely 
+
+L0(δ) := −δ′′ −
+
+( d − 1
+
+y − y
+
+2
+
+)
+
+δ′ + d − 1
+
+y2 δ. (4.18) A fundamental system {v0, v 1} for L0 is given by 
+
+v0(y) = 
+
+ 
+
+> 3
+> y2
+
+ey2/4 ((y2 + 2) D+
+
+( y
+
+> 2
+
+) − y) , d = 3 ,
+
+> 4ey2/8
+> 3y
+
+(
+
+y2I0
+
+( y2
+
+> 8
+
+)
+
+− (y2 + 4) I1
+
+( y2
+
+> 8
+
+)) 
+
+, d = 4 , 
+
+> 15 4y4
+
+ey2/4 ((y4 + 4 y2 + 12) D+
+
+( y
+
+> 2
+
+) − (y3 + 6 y)) , d = 5 ,
+
+> 8ey2/8
+> 5y3
+
+(
+
+(y4 + 2 y2)I0
+
+( y2
+
+> 8
+
+)
+
+− (y4 + 6 y2 + 32) I1
+
+( y2
+
+> 8
+
+)) 
+
+, d = 6 
+
+(4.19) 
+
+v1(y) = 
+
+
+
+1 + 2 
+
+> y2
+
+, d = 3 , 
+
+> 8
+> y3
+
+U
+
+(
+
+− 32 , −1, y2
+
+> 4
+
+)
+
+, d = 4 ,
+
+1 + 4( y2+3)  
+
+> y4
+
+, d = 5 , 
+
+> y
+> 2
+
+U
+
+( 12 , 4, y2
+
+> 4
+
+)
+
+, d = 6 ,
+
+(4.20)     
+
+> 3The corresponding CSV-files are coefs_sin_n(d) and coefs_weights_n(d) .
+
+19 where D+ is the Dawson integral, Iν is the modified Bessel function of the first kind and U
+
+denotes Tricomi’s confluent hypergeometric function. The asymptotic behavior is given by 
+
+v0(y) = y + O(y3), for y → 0,v0(y) ∼ y−dey2/4, for y → ∞ ,
+
+and 
+
+v1(y) ∼ y1−d, for y → 0,v1(y) = 1 + O(y−2), for y → ∞ .
+
+Since these special functions are difficult do deal with in the derivation of quantitative bounds, we note that is suffices to isolate their endpoint behavior. Hence, we provide rational approximations of v0 and v1, which simultaneously match the dominating behavior both at 0
+
+and ∞.
+
+Definition 4.7. For d ∈ { 3, 4, 5, 6} we define 
+
+˜v0(y) := ye y2/4
+
+( KN∑
+
+> k=0
+
+ck,N (˜v0) yk
+
+)/( KD∑
+
+> k=0
+
+ck,D (˜v0) yk
+
+)˜v1(y) := y1−d
+
+( KN∑
+
+> k=0
+
+ck,N (˜v1) yk
+
+)/( KD∑
+
+> k=0
+
+ck,D (˜v1) yk
+
+)
+
+,
+
+with the coefficients given in Appendix C, with KN , K D depending on d. The corresponding CVS-files are coefs_v0_n(d) and coefs_v1_n(d) .
+
+Remark 4.8 . For d ∈ { 3, 5} the approximation ˜v0 is obtained by replacing the Dawson integral with a 4-term truncation of the 2-point expansion provided in [ 28 ], while ˜v1 coincides with 
+
+v1. For d ∈ { 4, 6} the coefficients of ˜v0 were computed by applying the method described in [10 ] to v0 
+
+> ye y2/4
+
+. For ˜v1, we expanded v1 and the ansatz both at 0 and ∞ and solved for the coefficients. For later use, we state the following technical lemma. 
+
+Lemma 4.9. For all y ∈ (0 , ∞), the functions ˜v0 and ˜v1, as well as ˜v′ 
+
+> 0
+
+are positive, while ˜v′
+
+> 1
+
+is negative. Proof. Since all coefficients are positive or zero, it is clear that ˜v1 is positive for y ∈ (0 , ∞).After a direct calculation, we have that ˜v′ 
+
+> 1
+
+has a positive denominator with all coefficients in the numerator non-positive. For ˜v0 and ˜v′
+
+> 0
+
+, we apply the evaluation method with variable transformations (4.10) for d ∈ { 3, 5} and (4.11) for d ∈ { 4, 6} to show that 4
+
+˜v0(y)e−y2/4 1 + yd+1 
+
+y ≥
+
+ 
+
+> 71 78
+
+, d = 3 , 
+
+> 68 75
+
+, d = 4 , 
+
+> 37 41
+
+, d = 5 , 
+
+> 22 25
+
+, d = 6 
+
+˜v′
+
+> 0
+
+(y)e−y2/4(1 + yd−1) ≥
+
+ 
+
+> 55 61
+
+, d = 3 , 
+
+> 89 97
+
+, d = 4 , 
+
+> 68 71
+
+, d = 5 , 
+
+> 10 11
+
+, d = 6 .
+
+for all y ∈ (0 , ∞). This implies the claim. □
+
+Next, we derive a closed-form approximate fundamental system for L.    
+
+> 4The corresponding CSV-files are coefs_v0pos_n(d) and coefs_v0dpos_n(d) .
+
+20 Definition 4.10. For d ∈ { 3, 4, 5, 6} we define 
+
+˜w0(y) := ˜v0(y)
+
+> K
+
+∑
+
+> k=0
+
+ck( ˜w0)T2k
+
+( y
+
+√y2 + 4 
+
+)
+
+,
+
+˜w1(y) := ˜v1(y)
+
+> K
+
+∑
+
+> k=0
+
+ck( ˜w1)Tk
+
+( y − 2
+
+y + 2 
+
+)
+
+,
+
+with the coefficients given in Tables 13-16 and Tables 17-20, and K determined in each case by the number of listed coefficients. The corresponding CVS-files are coefs_w0 and coefs_w1 .
+
+Remark 4.11 . Extending L to negative arguments shows that the equation admits an odd solution. Since the antisymmetric behavior is already contained in ˜v0, the Chebyshev expansion must be even to ensure the correct endpoint behavior. For the second solution, we use a general Chebyshev expansion and enforce the correct endpoint behavior through the coefficients. The computation of the coefficients is very similar to the computation of the coefficients of ˜f0. However, after having determined (ck( ˜w1)) K−2 
+
+> k=0
+
+, we exactly solve 
+
+> K
+
+∑
+
+> k=0
+
+ck( ˜w1)T ′
+
+> k
+
+(−1) = 0 ,
+
+> K
+
+∑
+
+> k=0
+
+ck( ˜w1)T ′
+
+> k
+
+(1) = 0 ,
+
+for cK−1( ˜w1) and cK ( ˜w1), ensuring the correct endpoint behavior. These two coefficients are uniquely determined by these two conditions and are thus not explicitly given in the tables, but can be found in the CSV-files. 
+
+Lemma 4.12. Let L be given as in (4.3) and ˜w0, ˜w1 ∈ C2((0 , ∞)) as defined above. Then 
+
+{ ˜w0, ˜w1} is a fundamental system for the linear operator ˜L = L + P ∂ y + Q with 
+
+P = −1
+
+W ( ˜w0, ˜w1) ( ˜w0L( ˜w1) − L ( ˜w0) ˜w1),Q = 1
+
+W ( ˜w0, ˜w1) ( ˜w′
+
+> 0
+
+L( ˜w1) − L ( ˜w0) ˜w′
+
+> 1
+
+).
+
+(4.21) 
+
+Proof. By construction, ˜L ˜w0 = 0 and ˜L ˜w1 = 0 . □
+
+Next, we show that ˜L is a reasonable approximation to L. More precisely, we consider the difference 
+
+p2( ˜L − L )( δ) = p2(P δ ′ + Qδ ),
+
+where P and Q are defined in (4.21) . After adding the appropriate weights, we get the bound 
+
+∥p2( ˜L − L )( δ)∥∞ ≤
+
+(∥ ∥∥∥
+
+p2
+
+p3
+
+P
+
+∥∥∥∥∞
+
+∥p3δ′∥∞ +
+
+∥∥∥∥
+
+p2
+
+p1
+
+Q
+
+∥∥∥∥∞
+
+∥p1δ∥∞
+
+)
+
+(4.22) 
+
+≤
+
+(∥ ∥∥∥
+
+p2
+
+p3
+
+P
+
+∥∥∥∥∞
+
++
+
+∥∥∥∥
+
+p2
+
+p1
+
+Q
+
+∥∥∥∥∞
+
+)
+
+∥δ∥Y .
+
+A direct calculation shows that both fractions are rational functions in y. Applying the evaluation method with variable transformation (4.11), we get 5
+
+∥p2( ˜L − L )( δ)∥∞ ≤ (cP + cQ)∥δ∥Y = cL∥δ∥Y , (4.23) where 
+
+∥∥∥∥
+
+p2
+
+p3
+
+P
+
+∥∥∥∥∞
+
+≤ cP =
+
+ 
+
+> 73 1227666
+
+, d = 3 , 
+
+> 468085
+
+, d = 4 , 
+
+> 35 17955088
+
+, d = 5 , 
+
+> 17 401628416
+
+, d = 6 
+
+(4.24)     
+
+> 5The corresponding CVS-files are coefs_P_n(d) and coefs_Q_n(d) .
+
+21 ∥∥∥∥
+
+p2
+
+p1
+
+Q
+
+∥∥∥∥∞
+
+≤ cQ =
+
+ 
+
+> 25 484609
+
+, d = 3 , 
+
+> 29 422128
+
+, d = 4 , 
+
+> 87 9583418
+
+, d = 5 , 
+
+> 88 490373645
+
+, d = 6 .
+
+(4.25) 4.1.4. Bounds for the inverse operator. The goal is then to derive a bound of the form 
+
+∥ ˜L−1α∥Y = ∥p1 ˜L−1α∥∞ + ∥p3( ˜L−1α)′∥∞ ≤ c ˜L∥p2α∥∞, (4.26) where p2 is the weight introduced in Definition 4.3. With ˜G denoting the Green’s function of 
+
+˜L,
+
+˜G(x, y ) = −1
+
+W ( ˜w0, ˜w1)( x)
+
+{ ˜w0(y) ˜w1(x), y ≤ x, 
+
+˜w0(x) ˜w1(y), x < y, (4.27) a formal inverse of ˜L is given by 
+
+˜L−1(α)( y) = 
+
+∫ ∞
+
+> 0
+
+˜G(x, y )α(x) dx. 
+
+For further use, we introduce the approximate free part of the linear operator L
+
+˜L0 := L0 + P0∂y + Q0, (4.28) for 
+
+P0 = −1
+
+W (˜v0, ˜v1) (˜v0L0(˜v1) − L 0(˜v0)˜v1),Q0 = 1
+
+W (˜v0, ˜v1) (˜v′
+
+> 0
+
+L0(˜v1) − L 0(˜v0)˜v′
+
+> 1
+
+).
+
+(4.29) By construction, a fundamental system of ˜L0 is given by {˜v0, ˜v1}. The associated Green’s function is denoted as 
+
+˜G0(x, y ) = −1
+
+W (˜v0, ˜v1)( x)
+
+{˜v0(y)˜v1(x), y ≤ x, 
+
+˜v0(x)˜v1(y), x < y. (4.30) We start by considering the p1=term in (4.26) . After including the appropriate weights and factoring out the endpoint behavior, we have the bound 
+
+∥p1 ˜L−1α∥∞ ≤ sup 
+
+> y≥0
+
+(∫ ∞
+
+> 0
+
+∣∣∣∣ ˜G0(x, y ) p1(y)
+
+p2(x)
+
+∣∣∣∣ dx 
+
+) ∥∥∥∥∥˜G
+
+˜G0
+
+∥∥∥∥∥L∞([0 ,∞)2)
+
+∥p2α∥∞. (4.31) Similarly for the p3-term, we have 
+
+∥p3( ˜L−1α)′∥∞ ≤ sup 
+
+> y≥0
+
+(∫ ∞
+
+> 0
+
+∣∣∣∣∂y ˜G0(x, y ) p3(y)
+
+p2(x)
+
+∣∣∣∣ dx 
+
+) ∥∥∥∥∥
+
+∂y ˜G∂y ˜G0
+
+∥∥∥∥∥L∞([0 ,∞)2)
+
+∥p2α∥∞. (4.32) Next, we derive upper bounds on the supremum of the two integrals. For this, we note that the weight functions satisfy 
+
+˜L0
+
+( 1
+
+p1
+
+)
+
+= 1
+
+p2
+
+,
+
+( 1
+
+p1
+
+)′
+
+= 1
+
+p3
+
+, (4.33) which are actually their defining properties. Using the formal inverse of ˜L0 given through ˜G0,this implies ∫ ∞
+
+> 0
+
+˜G0(x, y ) p1(y)
+
+p2(x) dx = 1 , (4.34) 
+
+∫ ∞
+
+> 0
+
+∂y ˜G0(x, y ) p3(y)
+
+p2(x) dx = 1 . (4.35) However, we cannot directly apply these identities to the inequalities (4.31) and (4.32) without first considering the signs of the integrands. The weights p1, p2 and p3 are positive on (0 , ∞)
+
+22 so it remains to determine the signs of ˜G0(x, y ) and ∂y ˜G0(x, y ). It follows from Lemma 4.9, that ˜G0 is non-negative, while ∂y ˜G0(x, y ) ≥ 0 if y ≤ x and ∂y ˜G0(x, y ) ≤ 0 if x < y . The absolute value in the integral of (4.32) can thus be omitted by splitting the integration domain 
+
+∫ ∞
+
+> 0
+
+∣∣∣∣∂y ˜G0(x, y ) p3(y)
+
+p2(x)
+
+∣∣∣∣ dx = ˜v′
+
+> 1
+
+(y)p3(y)
+
+∫ y
+
+> 0
+
+1
+
+W (˜v0, ˜v1)( x)
+
+˜v0(x)
+
+p2(x) dx 
+
+− ˜v′
+
+> 0
+
+(y)p3(y)
+
+∫ ∞
+
+> y
+
+1
+
+W (˜v0, ˜v1)( x)
+
+˜v1(x)
+
+p2(x) dx. 
+
+To abbreviate the notation we define 
+
+I0(y) := ˜v′
+
+> 1
+
+(y)p3(y)
+
+∫ y
+
+> 0
+
+1
+
+W (˜v0, ˜v1)( x)
+
+˜v0(x)
+
+p2(x) dx, (4.36) 
+
+I1(y) := −˜v′
+
+> 0
+
+(y)p3(y)
+
+∫ ∞
+
+> y
+
+1
+
+W (˜v0, ˜v1)( x)
+
+˜v1(x)
+
+p2(x) dx, (4.37) and note that (4.35) gives 
+
+I1(y) − I0(y) = 1 . (4.38) Direct integration is infeasible, instead we factor out the exponential behavior 
+
+I1(y) = −˜v′
+
+> 0
+
+(y)p3(y)e−y2/4ey2/4
+
+∫ ∞
+
+> y
+
+e−x2/4 ex2/4
+
+W (˜v0, ˜v1)( x)
+
+˜v1(x)
+
+p2(x) dx 
+
+and first show that 
+
+− ex2/4
+
+W (˜v0, ˜v1)( x)
+
+˜v1(x)
+
+p2(x) ≤
+
+ 
+
+> 81 101
+
+, d = 3  
+
+> 195 704
+
+x + 93 1517 , d = 4 , 
+
+> 110
+
+x2 + 80 63 , d = 5 , 
+
+> 91 2816
+
+x3 + 65 2816 x + 53 97 , d = 6 .
+
+(4.39) More precisely, to obtain these bounds, we apply the evaluation method to compute a negative upper bound on the maximum of the difference, using the variable transformation 
+
+x = 4z
+
+1 − z2 , (4.40) which maps x ∈ [0 , ∞) to z ∈ [0 , 1] and converts the √x2 + 4 term introduced by p2 to a rational function. 6 Repeated integration by parts shows that 
+
+∫ ∞
+
+> y
+
+e−x2/4(c3x3 +c2x2 +c1x+c0) dx = 2 e−y2/4(c3(y2 +4)+ c2y +c1)+ 
+
+∫ ∞
+
+> y
+
+e−x2/4(2 c2 +c0) dx. 
+
+After inserting the upper bound (4.39), we have 
+
+ey2/4
+
+∫ ∞
+
+> y
+
+−1
+
+W (˜v0, ˜v1)( x)
+
+˜v1(x)
+
+p2(x) dx ≤
+
+ 
+
+> 81 101 16 y+18 8y2+9 y+10
+
+, d = 3 , 
+
+> 195 352
+
++ 93 1517 16 y+18 8y2+9 y+10 , d = 4 , 
+
+> 15
+
+y + 463 315 16 y+18 8y2+9 y+10 , d = 5 , 
+
+> 91 1408
+
+y2 + 39 128 + 53 97 16 y+18 8y2+9 y+10 , d = 6 ,
+
+(4.41) where we used a root free variation of the upper bound [1, 7.1.13] 
+
+ey2/4
+
+∫ ∞
+
+> y
+
+e−x2/4 dx ≤ 4
+
+y +
+
+√
+
+y2 + 16 
+
+> π
+
+≤ 16 y + 18 8y2 + 9 y + 10 , y ≥ 0. (4.42) Applying the evaluation method with the transformation (4.40) , with y in place of x, to the product of ˜v′
+
+> 0
+
+p3e−y2/4 and the upper bound in (4.41) yields an upper bound on I1.76 The corresponding CSV-files are coefs_ingrtneg_n(d) .  
+
+> 7The corresponding CSV-files are coefs_I1_n(d) .
+
+23 Combining this bound with (4.38), we conclude that 
+
+∫ ∞
+
+> 0
+
+∣∣∣∣∂y ˜G0(x, y ) p3(y)
+
+p2(x)
+
+∣∣∣∣ dx = I0(y) + I1(y) = 2 I1(y) − 1 ≤
+
+ 
+
+> 82 17
+
+, d = 3 , 
+
+> 59 13
+
+, d = 4 , 
+
+> 271 28
+
+, d = 5 , 
+
+> 67 9
+
+, d = 6 .
+
+(4.43) Lastly, we derive rigorous bounds for the Green function ratios appearing in (4.31) and (4.32) .Since ∥∥∥∥∥˜G
+
+˜G0
+
+∥∥∥∥∥L∞([0 ,∞)2)
+
+≤
+
+∥∥∥∥
+
+W (˜v0, ˜v1)
+
+W ( ˜w0, ˜w1)
+
+∥∥∥∥∞
+
+∥∥∥∥˜w0
+
+˜v0
+
+∥∥∥∥∞
+
+∥∥∥∥˜w1
+
+˜v1
+
+∥∥∥∥∞
+
+,
+
+∥∥∥∥∥
+
+∂y ˜G∂y ˜G0
+
+∥∥∥∥∥L∞([0 ,∞)2)
+
+≤
+
+∥∥∥∥
+
+W (˜v0, ˜v1)
+
+W ( ˜w0, ˜w1)
+
+∥∥∥∥∞
+
+max 
+
+(∥∥∥∥˜w′
+
+> 0
+
+˜v′
+
+> 0
+
+∥∥∥∥∞
+
+∥∥∥∥˜w1
+
+˜v1
+
+∥∥∥∥∞
+
+,
+
+∥∥∥∥˜w0
+
+˜v0
+
+∥∥∥∥∞
+
+∥∥∥∥˜w′
+
+> 1
+
+˜v′
+
+> 1
+
+∥∥∥∥∞
+
+)
+
+,
+
+it remains to apply the evaluation method to each of the fractions. All terms are rational functions in y. Furthermore, ˜w0
+
+˜v0
+
+for d ∈ { 3, 4, 5, 6}, and ˜w′
+
+> 0
+
+˜v′
+
+> 0
+
+for d ∈ { 3, 5} are rational functions in y2. Applying the evaluation method with the variable transformation (4.10) for the terms in y2 and (4.11) for all other terms and combining the results, we have the final estimate 8
+
+∥ ˜L−1α∥ ≤ 
+
+∥∥∥∥∥˜G
+
+˜G0
+
+∥∥∥∥∥L∞([0 ,∞)2)
+
++ (2 I1 − 1) 
+
+∥∥∥∥∥
+
+∂y ˜G∂y ˜G0
+
+∥∥∥∥∥L∞([0 ,∞)2)
+
+ ∥p2α∥∞ ≤ c ˜L∥p2α∥∞, (4.44) for all α ∈ Z , where 
+
+c ˜L =
+
+ 
+
+> 6467 31
+
+, d = 3 , 
+
+> 24119 52
+
+, d = 4 ,
+
+2941 , d = 5 , 
+
+> 1042526 65
+
+, d = 6 .
+
+(4.45) 4.1.5. Proof of Theorem 4.6. We show that ˜K defined in Eq. (4.8) is a contraction on Yε
+
+for ε as stated in Theorem 4.6. Given δ ∈ Y ε, we apply the bounds derived in the previous sections to get 
+
+∥ ˜K(δ)∥Y = ∥ ˜L−1(R( ˜f0) + N (δ) + ( ˜L − L )( δ)) ∥Y
+
+≤ c ˜L(∥p2R( ˜f0)∥∞ + ∥p2N (δ)∥∞ + ∥p2( ˜L − L )( δ)∥∞)
+
+≤ c ˜L(cR + cN ∥δ∥2 
+
+> Y
+
++ cL∥δ∥Y )
+
+≤ c ˜L(cRε−1 + cN ε + cL)ε. 
+
+Then ˜K(δ) ∈ Y ε follows from 
+
+c ˜L(cRε−1 + cN ε + cL) ≤
+
+ 
+
+> 95 97
+
+, d = 3 , 
+
+> 77 81
+
+, d = 4 , 
+
+> 51 52
+
+, d = 5 , 
+
+> 47 51
+
+, d = 6 .
+
+(4.46) Similarly, given δ, γ ∈ Y ε we have 
+
+∥ ˜K(δ) − ˜K(γ)∥Y = ∥ ˜L−1(N (δ) − N (γ) + ( ˜L − L )( δ − γ)) ∥Y
+
+≤ c ˜L(∥p2(N (δ) − N (γ)) ∥∞ + ∥p2( ˜L − L )( δ − γ)∥∞)
+
+≤ c ˜L(cN (∥δ∥Y + ∥γ∥Y ) + cL)∥δ − γ∥Y
+
+≤ c ˜L(2 cN ε + cL)∥δ − γ∥Y ,      
+
+> 8The corresponding CSV-files are coefs_wron_n(d) ,coefs_w0_n(d) ,coefs_w1_n(d) ,coefs_w0d_n(d)
+> and coefs_w1d_n(d) .
+
+24 where ˜K being a contraction then follows with 
+
+c ˜L(2 cN ε + cL) ≤ 
+
+> 
+> 998
+
+, d = 3 , 
+
+> 449
+
+, d = 4 , 
+
+> 119
+
+, d = 5 , 
+
+> 9545
+
+, d = 6 .
+
+(4.47) By the contraction mapping principle there exists a δ0 ∈ Y ε solving (4.2) . Since ˜f0 ∈
+
+C∞([0 , ∞)) and the ODE (4.2) has smooth coefficients on (0 , ∞), we have δ0 ∈ C∞((0 , ∞)) .Furthermore, the definition of Y implies δ0(y) = O(y) as y → 0, excluding the singular behavior at the origin. Thus δ0 ∈ C∞([0 , ∞)) and f0 = ˜f0 + δ0 is a smooth solution of Eq. (1.4) satisfying ∥f0 − ˜f0∥Y ≤ ε, completing the proof of Theorem 4.6. 4.2. Spectral stability of f0. In this section, we prove that the solution f0 constructed in Theorem 4.6 is spectrally stable. This yields Theorem 2.4. The proof follows the general approach of [3] and utilizes the closed form approximations from the previous section. First, with the result of Theorem 4.6, we can defined the self-adjoint linearized operator 
+
+Lf0 : D(Lf0 ) ⊂ H → H
+
+where n = d + 2 . By definition, H is a space of radially symmetric functions. Hence, by introducing the weighted space H := L2
+
+> ρ
+
+([0 , ∞)) with ρ(y) = yd−1e−y2/4 and a unitary map 
+
+U : H → H, ˜u 7 → | Sn−1|− 12 | · | −1 ˜u(| · | )
+
+we can define the unitarily equivalent operator A0 := −U −1Lf0 U with domain D(A0) := 
+
+U−1D(Lf0 ) ⊂ H and 
+
+A0w(y) = −w′′ (y) − 
+
+> (
+
+d − 1
+
+y − y
+
+2
+
+> )
+
+w′(y) + d − 1
+
+y2 cos(2 f0(y)) w(y). (4.48) After reducing the operator to Schrödinger form with the substitution v(y) = √ρ(y)w(y),Theorems 6.4 and 6.6 in [32] imply that A0 is in the limit-point case at both 0 and ∞.For λ ∈ R, we consider the solution regular at the origin, satisfying the spectral ODE 
+
+A0W = λW, W (0) = 0 , W ′(0) = 1 . (4.49) By the limit-point case at 0, the admissible behavior is unique up to normalization, which we fix by choosing W ′(0) = 1 . We denote the solution of (4.49) by Wλ.Since the operator is limit-point at both endpoints, it admits a unique self-adjoint realization and the domain D(A0) must coincide with the maximal domain of definition. Thus, for a solution Wλ of (4.49) to be an eigenfunction, it suffices to check if Wλ ∈ H .Our goal is to prove Theorem 2.4 by applying Theorem 1.2 of [ 18 ]. This reduces counting the negative eigenvalues to determining the number of zeros of Wλ. In particular, we count the zeros of Wλ for λ = 0 , λ = −1 and λ < −1.4.2.1. The case λ = 0 . The goal is to determine the number of zeros W0 has on (0 , ∞). For additional control, we define q := W0 
+
+> y
+
+, which solves 
+
+q′′ (y) =  
+
+> (
+
+y
+
+2 − d + 1 
+
+y
+
+> )
+
+q′(y) +  
+
+> (
+
+12 − 2( d − 1) 
+
+y2 + 2( d − 1) 
+
+y2 cos 2(f0(y)) 
+
+> )
+
+q(y), (4.50) and note that W0 and q share the same zeros on (0 , ∞). Notice that for y ≥ y∗, where 
+
+y∗ = d + 3 2 (4.51) the following inequalities hold 
+
+y
+
+2 − d + 1 
+
+y > 0, 12 − 2( d − 1) 
+
+y2 ≥ 0.
+
+25 If we assume q(y∗) < 0 and q′(y∗) < 0, then by (4.50) , it follows that q′′ (y∗) < 0. Consequently for any y ≥ y∗ we have 
+
+q(y) < 0, q′(y) < 0,
+
+which implies that any zeros of q on (0 , ∞) must lie in (0 , y ∗). This reduces determining the number of zeros of W0 on (0 , ∞) to finding rigorous bound on the behavior of W0 and q on the interval [0 , y ∗].For this, we compare the operators A0 in Eq. (4.48) and L in Eq. (4.3), and notice that 
+
+A0 = L + ( V0 − ˜V0),
+
+where V0 is given in (4.48) and 
+
+> ˜
+
+V0 = − 2( d − 1) 
+
+y2 sin 2( ˜f0). (4.52) By Theorem 4.6, we expect the difference ˜V0 − V0 to be small, implying that an approximate solution of Lw = 0 should also be a reasonable approximate solution of A0W = 0 .This is established in the following lemma. The proof closely follows that of Theorem 4.6, allowing us to reuse the previously established bounds. 
+
+Lemma 4.13. There exists a constant c0 > 0 such that 
+
+∥χp 1(W0 − c0 ˜w0)∥∞ + ∥χp 3(W ′ 
+
+> 0
+
+− c0 ˜w′
+
+> 0
+
+)∥∞ ≤ c0̂ ε, (4.53) 
+
+where ˜w0 is defined in (4.10), χ denotes the indicator function on [0 , y ∗] and ̂
+
+ε = 
+
+> 
+> 53
+
+, d = 3 , 
+
+> 65
+
+, d = 4 , 
+
+> 913
+
+, d = 5 , 
+
+> 729
+
+, d = 6 .
+
+(4.54) 
+
+Proof. The proof is divided into three key steps. We first formulate the fixed-point problem, then derive two additional bounds, and finally apply them in the contraction argument. Let ˜w0 +̂ δ be a solution of A0W = 0 . Then ̂ δ satisfies 
+
+> ˜
+
+L(̂ δ) = ( ˜L − L )( ˜w0 +̂ δ) + ( ˜V0 − V0)( ˜w0 +̂ δ).
+
+As we are only interested in the behavior of ̂ δ on [0 , y ∗], we apply a cutoff χ
+
+> ˜
+
+L(δ) = χ( ˜L − L )( ˜w0) + χ( ˜V0 − V0)( ˜w0) + ( ˜L − L )( δ) + ( ˜V0 − V0)( δ).
+
+The cutoff eliminates the exponential growth of ˜w0 for large y without changing the behavior of ̂ δ on [0 , y ∗]. This leads to the definition of ̂
+
+K(δ) = ˜L−1(χ( ˜L − L )( ˜w0) + χ( ˜V0 − V0)( ˜w0) + ( ˜L − L )( δ) + ( ˜V0 − V0)( δ)). (4.55) We show that ̂ K is a contraction on 
+
+Yˆε := {δ ∈ C1([0 , ∞)) , ∥δ∥Y ≤̂ ε}. (4.56) While we can reuse the bounds (4.23) and (4.44), we also need to derive two additional estimates. Starting with the bound for ˜V0 − V0, we have 
+
+∥p2( ˜V0 − V0)δ∥∞ ≤
+
+> ∥∥∥∥
+
+p2
+
+p1
+
+( ˜V0 − V0)
+
+> ∥∥∥∥∞
+
+∥p1δ∥∞ ≤
+
+> ∥∥∥∥
+
+p2
+
+p1
+
+( ˜V0 − V0)
+
+> ∥∥∥∥∞
+
+∥δ∥Y . (4.57) Substituting f0 = ˜f0 + δ0 gives 
+
+> ∣∣∣∣
+
+p2
+
+p1
+
+( ˜V0 − V0) 
+
+> ∣∣∣∣
+
+=
+
+> ∣∣∣∣
+
+2( d − 1) p2
+
+p1y2 (sin 2( ˜f0 + δ0) − sin 2( ˜f0)) 
+
+> ∣∣∣∣
+
+=
+
+> ∣∣∣∣
+
+2( d − 1) p2
+
+p1y2 sin(2 ˜f0 + δ0) sin( δ0) 
+
+> ∣∣∣∣
+
+.
+
+26 After applying bounds 
+
+| sin(2 ˜f0 + δ0)| ≤ | sin(2 ˜f0)| + |δ0|, | sin( δ0)| ≤ | δ0|
+
+and including the appropriate weights, we have 
+
+∣∣∣∣
+
+p2
+
+p1
+
+( ˜V0 − V0)
+
+∣∣∣∣ ≤ | p1δ0|
+
+(∣ ∣∣∣
+
+2( d − 1) p2
+
+p21y2 sin(2 ˜f0)
+
+∣∣∣∣ + 2( d − 1) p2
+
+p31y2 |p1δ0|
+
+)
+
+≤
+
+(
+
+2
+
+∣∣∣∣
+
+(d − 1) p2
+
+p21y2 sin(2 ˜f0)
+
+∣∣∣∣ + 2( d − 1) p2
+
+p31y2 ε
+
+)
+
+ε. 
+
+Here we used δ0 ∈ Y ε, where Yε is defined in (4.6). We can reuse the bound on the sine and the weight terms, calculated in Section 4.1.2, to get 
+
+∥p2( ˜V0 − V0)δ∥∞ ≤ cV ∥δ∥Y , (4.58) where 
+
+cV =
+
+ 
+
+> 25 76309
+
+, d = 3 , 
+
+> 97 2002923
+
+, d = 4 , 
+
+> 87 12687862
+
+, d = 5 , 
+
+> 69 85422589
+
+, d = 6 .
+
+(4.59) Having established the bound on the potential term, we now continue with the ˜w0 terms. Due to the cutoff, it suffices to find rigorous bounds for ∥p1 ˜w0∥L∞([0 ,y ∗]) and ∥p3 ˜w′
+
+> 0
+
+∥L∞([0 ,y ∗]) .However, both p1 ˜w0 and p3 ˜w′ 
+
+> 0
+
+contain an exponential function and a square root, preventing us from directly applying the evaluation method. However, with a bit more work, we find that 
+
+∥χp 2( ˜L − L )( ˜w0)∥∞ + ∥χp 2( ˜V0 − V0)( ˜w0)∥∞ ≤ cw, (4.60) where 
+
+cw =
+
+ 
+
+> 27 4492
+
+, d = 3 , 
+
+> 69 29468
+
+, d = 4 , 
+
+> 20 98769
+
+, d = 5 , 
+
+> 99 6763105
+
+, d = 6 ,
+
+(4.61) and refer to Appendix B.1 for a detailed derivation. To finish the proof, let δ, γ ∈ Y ˆε, then ̂ K
+
+is self mapping since 
+
+∥̂ K(δ)∥Y ≤ c ˜L(cw + ( cL + cV )∥δ∥Y ) ≤ c ˜L(cŵ ε−1 + ( cL + cV )) ̂ε, 
+
+where 
+
+c ˜L(cŵ ε−1 + ( cL + cV )) ≤
+
+ 
+
+> 92 109
+
+, d = 3 , 
+
+> 74 75
+
+, d = 4 , 
+
+> 21 23
+
+, d = 5 , 
+
+> 92 93
+
+, d = 6 .
+
+(4.62) Similarly, ̂ K being a contraction follows with 
+
+∥̂ K(δ) −̂ K(γ)∥Y ≤ c ˜L(cL + cV )∥δ − γ∥Y ,
+
+where we have 
+
+c ˜L(cL + cV ) ≤
+
+ 
+
+> 998
+
+, d = 3 , 
+
+> 449
+
+, d = 4 , 
+
+> 119
+
+, d = 5 , 
+
+> 9545
+
+, d = 6 .
+
+(4.63) Since ̂ K is a contraction on Yˆε, there exists a unique ̂ δ0 ∈ Y ˆε such that ̂ W0 := ˜w0 +̂ δ0 is a solution of 
+
+A0W = (1 − χ)( ˜L − L )( ˜w0) + (1 − χ)( ˜V0 − V0)( ˜w0).
+
+Thus, ̂ W0 is also a solution of A0W = 0 for y ∈ [0 , y ∗].27 Next we adjust ̂ W0 to satisfy the boundary conditions in (4.49). We already have that ̂
+
+W0(0) = 0 , since ˜w0(0) = 0 and ̂ δ0(0) = 0 . After normalizing with c0 := 1 /̂ W ′
+
+> 0
+
+(0) we have 
+
+W0(y) = c0̂ W0(y) for y ∈ [0 , y ∗]. Note that c0 > 0, since ˜w′
+
+> 0
+
+(0) > 0 and |̂ δ′
+
+> 0
+
+(0) | ≤ ̂ εp3(0) < ˜w′
+
+> 0
+
+(0) .Finally with 
+
+∥χp 1(W0 − c0 ˜w0)∥∞ + ∥χp 3(W ′ 
+
+> 0
+
+− c0 ˜w′
+
+> 0
+
+)∥∞ ≤ ∥ c0̂ δ0∥Y ≤ c0̂ ε, 
+
+the result of the lemma follows. □
+
+Lemma 4.14. The function W0 has exactly one zero in (0 , ∞). Proof. The bounds throughout this proof are on [0 , y ∗], unless stated otherwise. As a direct result of Lemma 4.13 we have the bounds 
+
+|W0 − c0 ˜w0| ≤ c0̂ εp1
+
+, (4.64) 
+
+|W ′ 
+
+> 0
+
+− c0 ˜w′
+
+> 0
+
+| ≤ c0̂ εp3
+
+, (4.65) which, in turn, imply ∣∣∣∣q − c0
+
+˜w0
+
+y
+
+∣∣∣∣ ≤ c0̂ εp1y , (4.66) 
+
+∣∣∣∣q′ − c0
+
+˜w′
+
+> 0
+
+y + c0
+
+˜w0
+
+y2
+
+∣∣∣∣ ≤ c0̂ εp1y2 + c0̂ εp3y . (4.67) We will show that q > 0 on [0 , 1] , by using the lower bound provided by (4.66) 
+
+c0 ˜w0
+
+y − c0̂ εp1y ≤ q. 
+
+Similarly, we will derive W ′ 
+
+> 0
+
+< 0 on [1 , y ∗], with the upper bound of (4.65) 
+
+W ′ 
+
+> 0
+
+≤ c0 ˜w′ 
+
+> 0
+
++ c0̂ εp3
+
+.
+
+As these bounds contain both exponential functions and square roots, we will refer to the Appendix B.2 for the derivation of the bounds 
+
+˜w0
+
+y −̂ εp1y > 0, for y ∈ [0 , 1] , (4.68) 
+
+˜w′ 
+
+> 0
+
++̂ εp3
+
+< 0, for y ∈ [1 , y ∗]. (4.69) Evaluating the upper bounds on q and q′ at y∗ gives 
+
+q(y∗) ≤ c0
+
+( ˜w0
+
+y +̂ εp1y
+
+)∣ ∣∣∣y=y∗
+
+≤ − c0
+
+ 
+
+> 194
+
+, d = 3 , 
+
+> 51652
+
+, d = 4 , 
+
+> 9716
+
+, d = 5 , 
+
+> 2197
+
+, d = 6 ,
+
+(4.70) 
+
+q′(y∗) ≤ c0
+
+( ˜w′
+
+> 0
+
+y − ˜w0
+
+y2 +̂ εp1y2 +̂ εp3y
+
+)∣ ∣∣∣y=y∗
+
+≤ − c0
+
+ 
+
+> 740
+
+, d = 3 , 
+
+> 557
+
+, d = 4 , 
+
+> 128
+
+, d = 5 , 
+
+> 5721
+
+, d = 6 .
+
+(4.71) With q > 0 on [0 , 1] , it follows that W0 is positive on (0 , 1] . Since W ′ 
+
+> 0
+
+< 0 on [1 , y ∗] and 
+
+q(y∗) < 0, we know that W0 crosses zero exactly once in (0 , y ∗].As previously outlined, if q(y∗) < 0 and q′(y∗) < 0, then both q and W0 remain negative. Therefore, W0 has exactly one zero on (0 , ∞), completing the proof of the lemma. □
+
+28 We note that ̂ ε was chosen to be almost as large as possible without (4.68), (4.69), (4.70) or (4.71) failing. This minimizes the necessary number of coefficients in the definitions of ˜f0, ˜w0
+
+and ˜w1, thereby reducing the computational cost of the evaluation method. 
+
+Lemma 4.15. The operator A0 has no eigenvalue λ = 0 .Proof. For y → ∞ the solution W0 has, up to normalization, the two possible asymptotics 
+
+W0(y) = 1 + O(y−2)
+
+W0(y) = y−dey2/4(1 + O(y−2)) .
+
+The first gives 
+
+q(y) = y−1 + O(y−3), q′(y) = −y−2 + O(y−4),
+
+which implies that for large enough y, q and q′ would have different signs. This directly contradicts the previous conclusion that q and q′ are both negative for all y ≥ y∗.This only leaves the second behavior. However, then 
+
+∣∣W0(y)∣∣2ρ(y) = ∣∣y−dey2/4(1 + O(y−2)) ∣∣2 yd−1e−y2/4 = y−d−1ey2/4(1 + O(y−2)) 2
+
+and we conclude that W0 /∈ H . □
+
+4.2.2. The case λ = −1. In this section, we continue with the case of λ = −1. We show that 
+
+W−1 is the eigenfunction associated with the gauge eigenvalue λ = −1 and determine its number of zeros on (0 , ∞).
+
+Lemma 4.16. There exists a constant c−1 > 0 such that W−1(y) = c−1yf ′
+
+> 0
+
+(y). Furthermore, 
+
+W−1 is the eigenfunction of A0 corresponding to the eigenvalue λ = −1.Proof. A direct calculation, using that f0 solves (1.4), shows 
+
+A0(yf ′
+
+> 0
+
+) = −yf ′
+
+> 0
+
+.
+
+From Theorem 4.6, we know that f ′
+
+> 0
+
+(0) > 0, implying c−1 = 1 /f ′
+
+> 0
+
+(0) > 0. Finally, Theorem 4.6 also implies that W−1 ∈ H , completing the proof. □
+
+Lemma 4.17. The function W−1 is positive on (0 , ∞).Proof. From Lemma 4.16 we have W−1 = c−1yf ′
+
+> 0
+
+. Theorem 4.6 implies 
+
+|f ′ 
+
+> 0
+
+− ˜f ′
+
+> 0
+
+| ≤ εp3
+
+,
+
+which gives the lower bound 
+
+W−1 ≥ c−1y ˜f ′ 
+
+> 0
+
+− c−1εy p3
+
+.
+
+After rewriting this, we get 
+
+y ˜f ′ 
+
+> 0
+
+− εy p3
+
+= y
+
+(y2 + 4) 3/2
+
+(
+
+(y2 + 4) 3/2 ˜f ′ 
+
+> 0
+
+− 4 ε
+
+)
+
+.
+
+Based on the Analysis in Section 4.1.1, the second term is a rational function in y2. After applying the evaluation method with variable transformation (4.10) we have 9
+
+(y2 + 4) 3/2 ˜f ′ 
+
+> 0
+
+− 4 ε ≥
+
+ 
+
+> 74
+
+, d = 3 , 
+
+> 53
+
+, d = 4 ,
+
+1, d = 5 , 
+
+> 47
+
+, d = 6 ,
+
+(4.72) for all y ∈ [0 , ∞), which in turn implies the result of the lemma. □  
+
+> 9The corresponding CSV-files are coefs_fdpos_n(d) .
+
+29 4.2.3. The case λ < −1. For the final case of λ < −1, we use the Picone Identity [ 29 ] to determine the number of zeros of Wλ on (0 , ∞), closely following the proof of Lemma 3.5 in [3]. 
+
+Lemma 4.18 (Picone Identity) . For a1, a 2, b 1, b 2 ∈ C1(R) let u and v be solutions of 
+
+(a1u′)′ + b1u = 0 and (a2v′)′ + b2v = 0 .
+
+Then for all x ∈ R with v(x)̸ = 0 we have  
+
+> (
+
+uv (a1u′v − a2uv ′)
+
+> )′
+
+= ( b2 − b1)u2 + ( a1 − a2)( u′)2 + a2
+
+> (
+
+u′ − uv ′
+
+v
+
+> )2
+
+.
+
+Proof. The result follows immediately through a direct computation. □
+
+Lemma 4.19. For any λ < −1, Wλ has no zeros in (0 , ∞).Proof. Applying the Picone identity for u = Wλ and v = W−1, with a1 = a2 = ρ and 
+
+b2 − b1 = ( −1 − λ)ρ gives 
+
+> (
+
+ρ Wλ
+
+W−1
+
+(W ′
+
+> λ
+
+W−1 − WλW ′−1)
+
+> )′
+
+= ( −1 − λ)ρW 2 
+
+> λ
+
++ ρ
+
+> (
+
+W ′ 
+
+> λ
+
+− WλW ′−1
+
+W−1
+
+> )2
+
+. (4.73) By Lemma 4.17 this must hold for all y ∈ (0 , ∞). Now suppose there exists y0 ∈ (0 , ∞), the first zero of Wλ. Integrating then gives  
+
+> ∫y0
+> 0
+> (
+
+ρ Wλ
+
+W−1
+
+(W ′
+
+> λ
+
+W−1 − WλW ′−1)
+
+> )′
+
+dy = ρ Wλ
+
+W−1
+
+(W ′
+
+> λ
+
+W−1 − WλW ′−1)
+
+> ∣∣∣∣
+> y0
+> 0
+
+= 0 ,
+
+where we used ρ(0) = 0 and Wλ(y0) = 0 . Since −1 − λ > 0 and ρ > 0 the right-hand side of (4.73) can only be zero if the both squared terms are zero on [0 , y 0]. This then gives the contradiction that Wλ(y) = 0 for all y ∈ [0 , y 0]. □
+
+4.2.4. Proof of Theorem 2.4. By Lemma 4.14, the function W0 has exactly one zero on (0 , ∞).Moreover, Lemmas 4.17 and 4.19, show that for any λ ∈ (−∞ , −1] , the function Wλ has no zeros on (0 , ∞).Applying Theorem 1.2 of [ 18 ], we conclude that for any λ ∈ (−∞ , −1] , the interval [λ, 0) 
+
+contains exactly one simple eigenvalue, which is λ = −1, by Lemma 4.16. Finally, since Lemma 4.15 ensures that λ = 0 is not an eigenvalue, we infer that σ(A0) ∩ (−∞ , 0] = {− 1}.The spectral result follows by unitary equivalence of Lf0 and −A 0, noting that 
+
+U(yf ′
+
+> 0
+
+) = |Sn−1|− 12 f ′
+
+> 0
+
+(| · | ).
+
+The monotonicity of f0 follows from Lemma 4.17, which also implies f0 > 0 on (0 , ∞). This completes the proof of Theorem 2.4. 5. Computer-assisted methods 
+
+In this section, we describe the computer-assisted methods used to derive the rigorous bounds required throughout the previous section. The approach, introduced in Section 5 of [ 11 ], com-bines exact rational arithmetic and analytical bounds. We first recall the fundamental ideas, then derive a truncated Chebyshev expansion tailored to our application.The implementation and all required coefficient files are available at https://git.uibk.ac.at/csaw4329/hmhf_ paper_code .30 5.1. Evaluation Methods. The main idea of the evaluation method is to evaluate the function at multiple points and control the behavior in between using rigorous bounds on the derivative. These bounds are established in the following lemma. 
+
+Lemma 5.1. For a, b ∈ R with a < b , let f ∈ C1([ a, b ]) . Then for any M satisfying 
+
+∥f ′∥L∞([ a,b ]) ≤ M and any x ∈ [a, b ], we have 
+
+∣∣∣∣f (x) − f (b) + f (a)2
+
+∣∣∣∣ ≤ b − a
+
+2 M. 
+
+Proof. Applying the Mean Value Theorem for x ∈ [a, b ] directly gives 
+
+f (a) − (x − a)M ≤ f (x) ≤ f (a) + ( x − a)Mf (b) − (b − x)M ≤ f (x) ≤ f (b) + ( b − x)M
+
+The result follows after adding the inequalities. □
+
+For N ∈ N, evaluate the function on the set 
+
+ΩN =
+
+{
+
+xk := a + b − aN k
+
+∣∣∣∣ k = 0 , ..., N 
+
+}
+
+(5.1) and applying Lemma 5.1 on the intervals [xk, x k+1 ] gives rigorous bounds on the function. These bounds can be improved arbitrarily by increasing the number of evaluation points. To obtain the required derivative bounds, we consider polynomials in Chebyshev basis 10 
+
+p(x) = 
+
+> K
+
+∑∗
+
+> n=0
+
+ˆcnTn
+
+( 2xb − a − a + bb − a
+
+)
+
+and define the T -norm of p on [a, b ] as 
+
+∥p∥T ([ a,b ]) := 
+
+> K
+
+∑∗
+
+> n=0
+
+|ˆcn|
+
+The following lemma then applies this approach to rational functions. 
+
+Lemma 5.2. For a, b ∈ R with a < b , let p, q : [ a, b ] → R be polynomials and assume that 
+
+min  
+
+> [a,b ]
+
+|q| > 0. For N ∈ N, set 
+
+ε = b − a
+
+2N
+
+∥p′q − pq ′∥T ([ a,b ]) 
+
+min  
+
+> [a,b ]
+
+q2
+
+we then have 
+
+max 
+
+> [a,b ]
+
+pq ≤ max 
+
+> ΩN
+
+pq + ε, min 
+
+> [a,b ]
+
+pq ≥ min 
+
+> ΩN
+
+pq − ε
+
+and ∥∥∥∥
+
+pq
+
+∥∥∥∥L∞([ a,b ]) 
+
+≤ max 
+
+> ΩN
+
+∣∣∣∣
+
+pq
+
+∣∣∣∣ + ε. 
+
+Proof. Follows after applying Lemma 5.1 to each [xk, x k+1 ] and using that |Tn| ≤ 1 on [−1, 1] .For further details we refer to [11]. □
+
+The bounds in the above lemma still hold if we replace the minimum of q2 with a lower bound, as long as this bound remains positive. To determine such a bound, we apply the same approach to compute a positive lower bound on min  
+
+> [a,b ]
+
+|q|.Even with exact values on 
+
+∥pq ′ − p′q∥L∞([ a,b ]) and min  
+
+> [a,b ]
+
+q2 
+
+> 10 The star indicates that the first summand of the summation is halved.
+
+31 the bound on the derivative in Lemma 5.2 may be very inefficient if these values are attained at two distant points. In some applications the resulting number of evaluations will be too large to be computed in any reasonable time frame. To resolve this, we split the interval [a, b ] and recursively apply the methods on [a, (a + b)/2] 
+
+and [( a + b)/2, b ] before combining the results. Note that this happens at the very start of the method, to avoid computing unnecessary Chebyshev expansions and further subdivisions take place as needed when applying the methods to the subintervals. 
+
+Remark 5.3 . In all applications throughout this paper, the endpoints and all coefficients are rational numbers. Hence the evaluations on ΩN , as well as the resulting bounds, can be computed using exact rational arithmetic. This ensures that the computer-assisted estimates are rigorous. 5.2. Truncated Chebyshev Expansion. The main computational cost of the evaluation method lies in computing the Chebyshev coefficients and evaluating the function on the grid. Working with truncated Chebyshev expansions instead of the full Chebyshev transformation significantly reduces the cost of both steps. The corresponding rigorous tail bounds are then carried through all subsequent estimates, ensuring that the method remains rigorous. In this section, we introduce a method for efficiently computing the exact low-degree coefficients and deriving rigorous bounds on high-degree tail. Let p(x) = ∑Kk=0 ckxk, for ck ∈ Q. Then for α, β ∈ Q, with β > 0 the Chebyshev coefficients of p of the interval [α − β, α + β] are 
+
+ˆcn = 2
+
+π 
+
+> ∫1
+> −1
+
+p(α + βx ) Tn(x) dx 
+
+√1 − x2 , n = 0 , ..., K, (5.2) where Tn denotes the n-th Chebyshev polynomial, defined by 
+
+Tn+1 = 2 xT n − Tn−1 with T0(x) = 1 , T 1(x) = x. (5.3) The polynomial can now be written as 
+
+p(α + βx ) = 
+
+> K∑∗
+> n=0
+
+ˆcnTn(x),
+
+and truncating with N ≤ K gives the bounds 
+
+> ∣∣∣∣∣
+
+p(α + βx ) −
+
+> N∑∗
+> n=0
+
+ˆcnTn(x) 
+
+> ∣∣∣∣∣
+
+≤ 
+
+> K∑
+> n=N+1
+
+|ˆcn| . (5.4) The goal is now to efficiently compute ( ˆcn)Nn=0 and find a rigorous upper bound on ∑Kn=N +1 |ˆcn|.For this we define 
+
+Ik,n (α, β ) := 2
+
+π 
+
+> ∫1
+> −1
+
+(α + βx )k Tn(x) dx 
+
+√1 − x2 . (5.5) 
+
+Lemma 5.4. Let k, n ∈ N0, then Ik,n (α, β ) evaluates to 
+
+Ik,n (α, β ) = 
+
+⌊ k−n 
+
+> 2
+
+⌋∑ 
+
+> m=0
+> (
+
+kn + 2 m
+
+> )(
+
+n + 2 mm
+
+> )
+
+21−n−2mαk−n−2mβn+2 m.
+
+Proof. After expanding (5.5) with the binomial theorem, we have 
+
+Ik,n (α, β ) = 
+
+> k∑
+> j=0
+> (
+
+kj
+
+> )
+
+αk−j βj 
+
+> (
+
+2
+
+π 
+
+> ∫1
+> −1
+
+xj Tn(x) dx 
+
+√1 − x2
+
+> )
+
+.
+
+For j ≥ n and j − n even the integral is non-zero with 
+
+2
+
+π 
+
+> ∫1
+> −1
+
+xj Tn(x) dx 
+
+√1 − x2 = 2 1−j 
+
+> (
+
+j
+
+> j−n
+> 2
+> )
+
+.
+
+After the substitution j = n + 2 m for 0 ≤ m ≤ 
+
+> ⌊k−n
+> 2
+> ⌋
+
+, the claimed result follows. □
+
+32 To shorten the notation we will henceforth only write Ik,n . Given Ik,n for k, n ≤ K, we can write the Chebyshev coefficients as 
+
+ˆcn =
+
+> K
+
+∑
+
+> k=0
+
+ckIk,n . (5.6) 
+
+Remark 5.5 . Note that Ik,n = 0 for k < n and that If α̸ = 0 , then sign (Ik,n (α, β )) = sign (α)k−nsign (β)n.
+
+In any case, for β > 0,
+
+|Ik,n (α, β )| = Ik,n (|α|, β ).
+
+Due to the computational cost of evaluating the closed form formula we will not directly apply it to determine Ik,n . Instead we use the following recurrence relation. 
+
+Lemma 5.6. The values (Ik,n )k,n ≥0 satisfy the recurrence relation 
+
+Ik+1 ,n = αI k,n + β
+
+2 (Ik,n +1 + Ik,n −1) with I0,0 = 2 , I k,n = 0 for k < n, 
+
+in the case of n = 0 we have 
+
+Ik+1 ,0 = αI k, 0 + βI k, 1.
+
+Proof. Follows directly after splitting (α + βx )k+1 = α(α + βx )k + βx (α + βx )k and inserting the recurrence relation xT n = Tn+1 +Tn−1 
+
+> 2
+
+. □
+
+Starting from I0,0 = 2 and Ik,n = 0 for k < n , we can now compute Ik,n for k, n = 0 , ..., K .However, for the truncated Chebyshev expansion we only require the moments Ik,n for 
+
+k = 0 , ..., K and n = 0 , ..., N . As illustrated in Figure 1, the desired moments form the region D, while the recurrence relation also requires the additional moments indicated by the auxiliary region A.        
+
+> D
+> A
+> K+N
+> 2
+> k
+> n
+> k=n
+> K
+> N
+> DA
+> K+Nk
+> n
+> k=n
+> K
+> N
+
+Figure 1. Comparison of the computational complexity for the direct use of Lemma 5.6 on the left and the modified procedure using also the n = 0 recur-rence from Lemma 5.8 on the right. 
+
+Remark 5.7 . While Lemma 5.6 could also be used to determine Ik,n for k = 0 , ..., K and 
+
+n = 0 , ..., N , this would again scale as O(K2). If instead Ik, 0 for k = 0 , ..., K + N can be computed efficiently, the method scales as O(N K ). This, however, requires a different recurrence relation. 
+
+Lemma 5.8. The sequence (Ik, 0)k≥0 satisfies the recurrence relation 
+
+Ik, 0 = 2k − 1
+
+k αI k−1,0 + k − 1
+
+k (β2 − α2)Ik−2,0 with I0,0 = 2 , I 1,0 = 2 α. 
+
+33 Proof. We start by splitting kI k, 0 = Ak + Bk for 
+
+Ak =
+
+⌊ k 
+
+> 2
+
+⌋∑
+
+> m=0
+
+(k − 2m)
+
+( k
+
+2m
+
+)( 2mm
+
+)
+
+21−2mαk−2mβ2m
+
+Bk =
+
+⌊ k 
+
+> 2
+
+⌋∑
+
+> m=1
+
+2m
+
+( k
+
+2m
+
+)( 2mm
+
+)
+
+21−2mαk−2mβ2m.
+
+For the first term we use (k − 2m)( k
+
+> 2m
+
+) = k(k−12m
+
+) and have 
+
+Ak =
+
+⌊ k 
+
+> 2
+
+⌋∑
+
+> m=0
+
+k
+
+(k − 12m
+
+)( 2mm
+
+)
+
+21−2mαk−2mβ2m
+
+=
+
+⌊ k−12 ⌋∑
+
+> m=0
+
+k
+
+(k − 12m
+
+)( 2mm
+
+)
+
+21−2mαk−2mβ2m
+
+= kαI k−1,0.
+
+Similarly for the second term we use ( k
+
+> 2m
+
+) = ( k−12m−1
+
+) + (k−12m
+
+) to further split the sum to get 
+
+⌊ k 
+
+> 2
+
+⌋∑
+
+> m=1
+
+2m
+
+( k − 12m − 1
+
+)( 2mm
+
+)
+
+21−2mαk−2mβ2m
+
+=
+
+⌊ k−22 ⌋∑
+
+> m=0
+
+(2 m + 2) 
+
+( k − 12m + 1 
+
+)( 2m + 2 
+
+m + 1 
+
+)
+
+2−1−2mαk−2m−2β2m+2 
+
+=
+
+⌊ k−22 ⌋∑
+
+> m=0
+
+(k − 1) 
+
+(k − 22m
+
+)( 2mm
+
+)
+
+21−2mαk−2m−2β2m+2 
+
+= ( k − 1) β2Ik−2,0
+
+and 
+
+⌊ k 
+
+> 2
+
+⌋∑
+
+> m=1
+
+2m
+
+(k − 12m
+
+)( 2mm
+
+)
+
+21−2mαk−2mβ2m
+
+=
+
+⌊ k−12 ⌋∑
+
+> m=1
+
+2m
+
+(k − 12m
+
+)( 2mm
+
+)
+
+21−2mαk−2mβ2m
+
+= αB k−1.
+
+Similarly splitting Ik−1,0 gives 
+
+Bk−1 = ( k − 1) Ik−1,0 − Ak−1 = ( k − 1)( Ik−1,0 − αI k−2,0).
+
+Combing these results gives the claimed recurrence relation. □
+
+The remaining moments in the truncated strip can then be computed from 
+
+Ik, 1 = Ik+1 ,0 − αI k, 0
+
+β ,
+
+and, for n ≥ 2,
+
+Ik,n = 2
+
+β (Ik+1 ,n −1 − αI k,n −1) − Ik,n −2.
+
+Thus, after computing Ik, 0 for k = 0 , . . . , K + N , all moments Ik,n with 0 ≤ k ≤ K and 
+
+0 ≤ n ≤ N are obtained in O(N K ) arithmetic operations. 34 It remains to find a rigorous upper bound on ∑Kn=N +1 |ˆcn|. For this we define 
+
+Sk := 
+
+> k
+
+∑ 
+
+> n=N+1
+
+|Ik,n | . (5.7) 
+
+Lemma 5.9. For N ≤ K we have that 
+
+> K
+
+∑ 
+
+> n=N+1
+
+|ˆcn| ≤ 
+
+> K
+
+∑
+
+> k=0
+
+|ck| Sk.
+
+Proof. Using the representation in (5.6) the claimed bound follows with 
+
+> K
+
+∑ 
+
+> n=N+1
+
+|ˆcn| =
+
+> K
+
+∑ 
+
+> n=N+1
+
+∣∣∣∣∣
+
+> K
+
+∑
+
+> k=0
+
+ckIk,n 
+
+∣∣∣∣∣ ≤
+
+> K
+
+∑
+
+> k=0
+
+|ck|
+
+> K
+
+∑ 
+
+> n=N+1
+
+|Ik,n | =
+
+> K
+
+∑
+
+> k=0
+
+|ck| Sk,
+
+where we used that Ik,n = 0 for k < n . □
+
+The last step is to efficiently compute S0, S 1, ..., S K .
+
+Lemma 5.10. For 1 ≤ N ≤ K, the sequence (Sk)k≥0 satisfies the recurrence relation 
+
+Sk+1 = ( |α| + β)Sk +
+
+(
+
+|α| + β
+
+2
+
+)
+
+|Ik,N | + β
+
+2 |Ik,N −1| − | Ik+1 ,N | with S0 = 0 .
+
+Proof. Since |Ik,n (α, β )| = Ik,n (|α| , β ), we start by assuming that α ≥ 0. Then Ik,n ≥ 0 for all k, n ≥ 0 and after inserting the recurrence from Lemma 5.6 we get 
+
+Sk+1 =
+
+> k+1
+
+∑ 
+
+> n=N+1
+
+αI k,n + β
+
+2 (Ik,n +1 + Ik,n −1)= αS k + β
+
+2 (Sk − Ik,N +1 ) + β
+
+2 (Sk + Ik,N )= ( α + β)Sk +
+
+(
+
+α + β
+
+2
+
+)
+
+Ik,N + β
+
+2 Ik,N −1 − Ik+1 ,N .
+
+The claimed result follows after taking absolute values of all terms depending on sign (α). □
+
+This gives a method for computing a truncated Chebyshev expansion of degree N with a rigorous tail bound for a polynomial of degree K in O(N K ) operations. In practice, this significantly reduces the computational cost, since N is typically much smaller than K.
+
+Appendix A. Proof of Lemma 3.6 
+
+Let τ > 0, then by [ 13 ], Theorem C.7 it suffices to show that SXf (τ −τ ′)L′ 
+
+> f
+
+SX 
+
+> 0
+
+(τ ′) is a compact operator for each τ ′ ∈ (0 , τ ). Furthermore, since SXf (τ − τ ′) is a linear and bounded operator, it suffices to show that L′ 
+
+> f
+
+SX 
+
+> 0
+
+(τ ′) is a compact operator for each τ ′ ∈ (0 , τ ). To prove this we use a variant of the Rellich-Kondrachov Theorem (see Theorem 10, [ 26 ]) and show that 
+
+[L′ 
+
+> f
+
+SX 
+
+> 0
+
+(τ )]( BX 
+
+> 1
+
+) is relatively compact in ˙H⌊s⌋ 
+
+> r
+
+(Rn) ∩ ˙Hkr (Rn), where BX 
+
+> 1
+
+= {u ∈ Xks (Rn) : 
+
+∥u∥Xks (Rn) ≤ 1}. The continuous embedding of ˙H⌊s⌋ 
+
+> r
+
+(Rn) ∩ ˙Hkr (Rn) into Xks (Rn) then implies relative compactness of [L′ 
+
+> f
+
+SX 
+
+> 0
+
+(τ )]( BX 
+
+> 1
+
+) in Xks (Rn).Let α1, α 2 ∈ Nn 
+
+> 0
+
+with |α1| = ⌊s⌋ and |α2| = k and define Kα1 := ∂α1 (V · SX 
+
+> 0
+
+(τ )( BX 
+
+> 1
+
+)) and 
+
+Kα2 := ∂α2 (V · SX 
+
+> 0
+
+(τ )( BX 
+
+> 1
+
+)) . To apply Theorem 10 in [ 26 ] we need to show that each of these subsets is bounded in H1(R3) and for all ε > 0 there exists R > 0 such that for all u
+
+belonging to the corresponding subspace we have that 
+
+∫
+
+> |x|≥ R
+
+|u(x)|2 + |∇ u(x)|2dx < ε. (A.1) 35 If u ∈ BX 
+
+> 1
+
+and αi ∈ Nn 
+
+> 0
+
+, i ∈ { 1, 2} we have 
+
+∂αi (Vf · SX 
+
+> 0
+
+(τ )( u)) = ∑
+
+> β≤αi
+
+(αi
+
+β
+
+)
+
+∂β Vf · ∂αi−β (SX 
+
+> 0
+
+(τ )( u)) .
+
+For each β ∈ Nn 
+
+> 0
+
+, β ≤ αi, i ∈ { 1, 2} we define 
+
+uiβ := ∂β Vf · ∂αi−β uS0 ,
+
+where we abbreviate uS0 := SX 
+
+> 0
+
+(τ )( u). By additivity, it suffices to prove that any uiβ with 
+
+β ∈ Nn 
+
+> 0
+
+, β ≤ αi, i ∈ { 1, 2} is bounded in H1(Rn) and that for all ε > 0 there exists R > 0
+
+such that for all uiβ estimate (A.1) holds. Let uiβ with β ∈ Nn 
+
+> 0
+
+, β ≤ αi, i ∈ { 1, 2}, then we observe 
+
+∥uiβ ∥2 
+
+> H1(Rn)
+
+=
+
+∫
+
+> Rn
+
+|uiβ (x)|2 + |∇ uiβ (x)|2dx 
+
+≲
+
+∫
+
+> Rn
+
+(
+
+|∂β Vf (x)|2 + |∇ ∂β Vf (x)|2)
+
+|∂αi−β uS0 (x)|2 + |∂β Vf (x)|2|∇ ∂αi−β uS0 (x)|2dx. 
+
+(A.2) In the following we proof boundedness in H1(Rn) by splitting the integral above into one that integrats over BR(Rn) and one that integrats over BcR(Rn) for some R > 1. In addition, we are able to proof (A.1) in this way too. In the following we will make extensive use of estimate of Lemma 2.2 for any partial derivative of the potential Vf . Furthermore, we use that we can estimate 
+
+∥uS0 ∥Xks (Rn) ≤ e−ω0τ ∥u∥Xks (Rn) ≤ 1,
+
+by (3.4) for u ∈ BX 
+
+> 1
+
+.First, let i = 1 , α1 ∈ Nn 
+
+> 0
+
+with |α1| = ⌊s⌋ and β ∈ Nn 
+
+> 0
+
+with β ≤ α1. By Lemma 3.1 we infer 
+
+∥∂α1−β uS0 ∥L∞(Rn) ≲ ∥∂α1−β uS0 ∥ ˙Hs−| α1|+|β|    
+
+> r∩˙Hk−| α1|+|β|
+> r(Rn)
+
+≲ ∥uS0 ∥Xks (Rn) ≲ 1. (A.3) By this the first integral over the ball with radius R > 1 can be estimated by 
+
+∫
+
+> BR(Rn)
+
+(
+
+|∂β Vf (x)|2 + |∇ ∂β Vf (x)|2)
+
+|∂αi−β uS0 (x)|2dx ≲ 1,
+
+where we used (A.3) and boundedness of all partial derivatives of Vf . On BcR(Rn) we need to distinguish two cases. If |β| = |α1|, i.e. if β = α1 we observe by the decay of Vf and (A.3) 
+
+∫
+
+> BcR(Rn)
+
+(
+
+|∂α1 Vf (x)|2 + |∇ ∂α1 Vf (x)|2)
+
+|uS0 (x)|2dx ≲
+
+∫
+
+> BcR(Rn)
+
+|x|−4−| α1|dx ≲ R−(4 −n+2 |β|),
+
+where 4 − n + 2 |β| ≥ 2 since |α1| = ⌊s⌋ = ⌊ n 
+
+> 2
+
+⌋ − 1 ≥ n 
+
+> 2
+
+− 32 . If |β| < |α1| we choose 
+
+γ ∈
+
+( n
+
+2 − 2 − | β|, min 
+
+{ n − 12 , |α1| − | β| + n
+
+2 − s
+
+}) 
+
+, (A.4) to estimate ∫
+
+> BcR(Rn)
+
+(
+
+|∂β Vf (x)|2 + |∇ ∂β Vf (x)|2)
+
+|∂αi−β uS0 (x)|2dx 
+
+≲
+
+(∫
+
+> BcR(Rn)
+
+|x|−4−2|β|− 2γ dx 
+
+)
+
+∥| · | γ ∂αi−β uS0 ∥2
+
+> L∞(Rn)
+
+≲ R−(4 −n+2 |β|+2 γ)∥uS0 ∥ ˙H|α1|−| β|+ n 
+
+> 2−γ
+
+≲ R−(4 −n+2 |β|+2 γ),
+
+36 where we used an weighted L∞(Rn) estimate for radial homogenous Sobolev spaces, see Proposition B.1 in [ 22 ], that is applicable due to 12 < γ < n 
+
+> 2
+
+by (A.4) . Furthermore, also by (A.4) we find s ≤ | α1| − | β| + n 
+
+> 2
+
+− γ ≤ k which means we can estimate 
+
+∥uS0 ∥ ˙H|α1|−| β|+ n  
+
+> 2−γ
+
+≲ ∥uS0 ∥Xks (Rn) ≲ 1.
+
+To treat the second part of the integral (A.2) we distinguish three cases. First, if |β| = 0 we find ∫
+
+> BR(Rn)
+
+|Vf (x)|2|∇ ∂αi uS0 (x)|2dx +
+
+∫
+
+> BcR(Rn)
+
++|Vf (x)|2|∇ ∂αi uS0 (x)|2dx 
+
+≲
+
+(
+
+1 + ∥Vf ∥2
+
+> L∞(BcR(Rn)
+
+)
+
+∥∇ ∂α1 uS0 ∥2
+
+> L2(Rn)
+
+≲ 1 + R−4,
+
+where we exploited k > |α1| + 1 = ⌊s⌋ + 1 > s and the decay of Vf . If |β| = |α1|, i.e. β = α1
+
+we observe ∫
+
+> BR(Rn)
+
+|∂α1 Vf (x)|2|∇ uS0 (x)|2dx +
+
+∫
+
+> BcR(Rn)
+
+|∂α1 Vf (x)|2|∇ uS0 (x)|2dx 
+
+≲
+
+(
+
+1 + 
+
+∫
+
+> BcR(Rn)
+
+|x|−4−2|α1|dx 
+
+)
+
+∥∇ uS0 ∥2
+
+> L∞(Rn)
+
+≲ (1 + R−2)∥∇ uS0 ∥2˙Hs−1   
+
+> r∩˙Hk−1
+> r(Rn)
+
+≲ 1 + R−2,
+
+by Lemma 3.1. If 1 ≤ | β| ≤ | α1| − 1 we have 
+
+∥∇ ∂αi−β uS0 ∥L∞(Rn) ≲ ∥∇ ∂αi−β uS0 ∥ ˙Hs−| α1|+|β|− 1    
+
+> r∩˙Hk−| α1|+|β|− 1
+> r(Rn)
+
+≲ ∥uS0 ∥Xks (Rn) ≲ 1,
+
+by Lemma 3.1. This implies 
+
+∫
+
+> BR(Rn)
+
+|∂β Vf (x)|2|∇ ∂αi−β uS0 (x)|2dx ≲ 1.
+
+To estimate the integral over BcR(Rn) we choose 
+
+γ ∈
+
+( n
+
+2 − 2 − | β|, min 
+
+{ n − 12 , |α1| − | β| + n
+
+2 + 1 − s
+
+}) 
+
+, (A.5) to find ∫
+
+> BR(Rn)c
+
+|∂β Vf (x)|2|∇ ∂αi−β uS0 (x)|2dx 
+
+≲
+
+(∫
+
+> BcR(Rn)
+
+|x|−4−2|β|− 2γ dx 
+
+)
+
+∥| · | γ ∇∂αi−β uS0 ∥2
+
+> L∞(Rn)
+
+≲ R−(4 −n+2 |β|+2 γ)∥uS0 ∥ ˙H|α1|−| β|+1+ n 
+
+> 2−γ
+
+≲ R−(4 −n+2 |β|+2 γ),
+
+where we again used Proposition B.1 in [ 22 ]. Furthermore, by (A.5) we have 4−n+2 |β|+2 γ > 
+
+0.Next, let i = 2 , α2 ∈ Nn 
+
+> 0
+
+with |α2| = k = n + 1 and β ∈ Nn 
+
+> 0
+
+with β ≤ α2. We distin-guish again between different values of |α2| − | β|. If |α2| − | β| ≤ ⌊ n+1 2 ⌋ we can estimate 
+
+∥∂α2−β uS0 ∥L∞(Rn) ≲ ∥∂α2−β uS0 ∥ ˙Hs∩ ˙H n+1 2 (Rn) ≲ ∥uS0 ∥ ˙Hs+|α2|−| β|∩ ˙H n+1 2 +|α2|−| β|(Rn) ≲ ∥uS0 ∥Xks (Rn),
+
+by Lemma 3.1 and the fact that n+1 2 + |α2| − | β| ≤ n + 1 . This implies 
+
+∫
+
+> Rn
+
+(
+
+|∂β Vf (x)|2 + |∇ ∂β Vf (x)|2)
+
+|∂α2−β uS0 (x)|2dx 
+
+37 ≲
+
+(
+
+1 + 
+
+∫
+
+> BcR(Rn)
+
+|x|−4−2|β|dx 
+
+)
+
+∥∂α2−β uS0 ∥2
+
+> L∞(Rn)
+
+≲ 1 + R−5,
+
+since |β| ≥ n+1 2 in this case. If |α2| − | β| ≥ ⌊ n+1 2 ⌋ + 1 we estimate 
+
+∫
+
+> Rn
+
+(
+
+|∂β Vf (x)|2 + |∇ ∂β Vf (x)|2)
+
+|∂α2−β uS0 (x)|2dx 
+
+≲
+
+(
+
+1 + ∥∂β Vf ∥2 
+
+> L∞(BcR(Rn))
+
++ ∥∇ ∂β Vf ∥2
+
+> L∞(BcR(Rn))
+
+)
+
+∥∂α2−β uS0 ∥2
+
+> L2(Rn)
+
+≲ 1 + R−4−2|β|,
+
+as we have s < |α2| − | β| ≤ n + 1 . For the second part of the integral (A.2) we distinguish three cases. First, if |α2| − | β| + 1 ≤ ⌊ n+1 2 ⌋ we do the same as for the first integral part of (A.2). We have 
+
+∥∇ ∂α2−β uS0 ∥L∞(Rn) ≲ ∥∇ ∂α2−β uS0 ∥ ˙Hs∩ ˙H n+1 2 (Rn) ≲ ∥uS0 ∥ ˙Hs+1+ |α2|−| β|∩ ˙H n+1 2 +1+ |α2|−| β|(Rn) ≲ ∥uS0 ∥Xks (Rn),
+
+by Lemma 3.1 and the fact that n+1 2 + 1 + |α2| − | β| ≤ n + 1 . Again, we infer 
+
+∫
+
+> Rn
+
+|∂β Vf (x)|2|∇ ∂α2−β uS0 (x)|2dx 
+
+≲
+
+(
+
+1 + 
+
+∫
+
+> BcR(Rn)
+
+|x|−4−2|β|dx 
+
+)
+
+∥∇ ∂α2−β uS0 ∥2
+
+> L∞(Rn)
+
+≲ 1 + R−7,
+
+since |β| ≥ n+3 2 . Next, if n + 1 ≥ | α2| − | β| + 1 ≥ ⌊ n+1 2 ⌋ + 1 , we have 
+
+∫
+
+> Rn
+
+|∂β Vf (x)|2|∇ ∂α2−β uS0 (x)|2dx 
+
+≲
+
+(
+
+1 + ∥∂β Vf ∥2
+
+> L∞(BcR(Rn))
+
+)
+
+∥∇ ∂α2−β uS0 ∥2
+
+> L2(Rn)
+
+≲ 1 + R−4−2|β|,
+
+since s < |α2| − | β| + 1 ≤ n + 1 . For the remaining case |β| = 0 we exploit the following property of the free semigroup (SX 
+
+> 0
+
+(τ )) τ ≥0.
+
+∥∇ ∂α2 (SX 
+
+> 0
+
+(τ )u)∥L2(Rn) ≲ ∥SX 
+
+> 0
+
+(τ )u∥ ˙Hn+2 (Rn)
+
+≲ e− 12 ( n 
+
+> 2+3
+
+)τ ∥| · | 2F(Hα(τ ))∥L∞(Rn)∥u∥ ˙Hn+1 (Rn)
+
+≲ m(τ )∥u∥Xks (Rn),
+
+by definition of the free semigroup (2.11) for some constant m(τ ) > 0. This shows 
+
+∫
+
+> Rn
+
+|Vf (x)|2|∇ ∂α2 uS0 (x)|2dx ≲ (1 + ∥Vf ∥2
+
+> L∞(BcR(Rn))
+
+∥∇ ∂α2 (SX 
+
+> 0
+
+(τ )u)∥L2(Rn) ≲ 1 + R−4.
+
+By Theorem 10 in [ 26 ], we infer that each subset Kα1 , K α2 for all possible choices of α1, α 2 ∈ Nn
+
+> 0
+
+is relatively compact in L2(Rn), implying that [L′ 
+
+> f
+
+SX 
+
+> 0
+
+(τ )]( BX 
+
+> 1
+
+) is relatively compact in 
+
+˙H⌊s⌋ 
+
+> r
+
+(Rn) ∩ ˙Hkr (Rn) and hence also in Xks (Rn).
+
+Appendix B. Additional bounds 
+
+B.1. Bounds required for Lemma 4.13. In this section we derive the upper bounds for 
+
+∥χp 2( ˜L−L )( ˜w0)∥∞ and ∥χp 2( ˜V0 −V0)( ˜w0)∥∞, which are required for the proof of Lemma 4.13. Since we now apply these operators to the explicitly know ˜w0, the bounds ∥p1 ˜w0∥∞ ≤ ∥ ˜w0∥
+
+and ∥p3 ˜w′
+
+> 0
+
+∥∞ ≤ ∥ ˜w0∥, previously required in (4.22) and (4.57), are no longer necessary. This gives the more accurate bounds 
+
+∥χp 2( ˜L − L )( ˜w0)∥∞ ≤ cP ∥p3 ˜w′
+
+> 0
+
+∥L∞([0 ,y ∗]) + cQ∥p1 ˜w0∥L∞([0 ,y ∗]) (B.1) 38 ∥χp 2( ˜V0 − V0)( ˜w0)∥∞ ≤ cV ∥p1 ˜w0∥L∞([0 ,y ∗]) . (B.2) It now remains to find rigorous bounds on ∥p1 ˜w0∥L∞([0 ,y ∗]) and ∥p3 ˜w′
+
+> 0
+
+∥L∞([0 ,y ∗]) , which include both an exponential and a root term. Since we are considering compact intervals, we can can derive simple bounds on the behavior of the exponential by truncating the Taylor expansion and bounding the tail. Truncating after the n-th term, then for y ∈ [0 , n + 2) we have the tail bound ∞∑
+
+> k=n+1
+
+yk
+
+k! ≤ yn+1 
+
+(n + 1)! 
+
+> ∞
+
+∑
+
+> k=0
+
+yk
+
+(n + 2) k = yn+1 
+
+(n + 1)! 
+
+n + 2 
+
+n + 2 − y ,
+
+which gives the bounds 
+
+> n
+
+∑
+
+> k=0
+
+yk
+
+k! ≤ ey ≤
+
+> n
+
+∑
+
+> k=0
+
+yk
+
+k! + yn+1 
+
+(n + 1)! 
+
+n + 2 
+
+n + 2 − y . (B.3) For our application we truncate after the 10-th term and since y∗2 
+
+> 4
+
+< 6 we get good bounds on the behavior of ey2/4 for all y ∈ [0 , y ∗]. After replacing the exponential term in both ˜w0 and 
+
+˜w′ 
+
+> 0
+
+with the upper bound, we apply the evaluation method with the variable transformation (4.40) to convert the √y2 + 4 term to a rational function. 11 Note that this transformation maps y∗ to an irrational number, hence we apply the method to a slightly larger interval with 
+
+√y∗2 + 4 − 2
+
+y∗ ≤
+
+ 
+
+> 713
+
+, d = 3 , 
+
+> 712
+
+, d = 4 , 
+
+> 58
+
+, d = 5 , 
+
+> 23
+
+, d = 6 .
+
+(B.4) This gives the bounds 
+
+∥p1 ˜w0∥L∞([0 ,y ∗]) ≤
+
+ 
+
+> 1107 89
+
+, d = 3 , 
+
+> 32 3
+
+, d = 4 , 
+
+> 791 72
+
+, d = 5 , 
+
+> 554 39
+
+, d = 6 
+
+(B.5) 
+
+∥p3 ˜w′
+
+> 0
+
+∥L∞([0 ,y ∗]) ≤
+
+ 
+
+> 1284 59
+
+, d = 3 , 
+
+> 725 39
+
+, d = 4 , 
+
+> 999 71
+
+, d = 5 , 
+
+> 1351 93
+
+, d = 6 .
+
+(B.6) B.2. Bounds required for Lemma 4.14. The proof of Lemma 4.14 required ˜w0 
+
+> y
+
+−̂ εp1y > 0
+
+on [0 , 1] and ˜w′ 
+
+> 0
+
++̂εp3 < 0 on [1 , y ∗]. Both terms again contain an exponential and a root term, preventing a direct application of the evaluation method. We proceed similarly to the previous section. After replacing the exponential term with the lower bound in (B.3) we use the evaluation method with the variable transformation (4.40) and compute a lower bound on the minimum. Note that 1 is not mapped to a rational number and we apply the evaluation method to a slightly larger interval using 12 
+
+√5 − 2 < 938 .
+
+This gives the bound 
+
+˜w0
+
+y −̂ εp1y ≥
+
+ 
+
+> 82 245
+
+, d = 3 , 
+
+> 23 39
+
+, d = 4 , 
+
+> 71 106
+
+, d = 5 , 
+
+> 22 43
+
+, d = 6 ,
+
+for y ∈ [0 , 1] . (B.7)       
+
+> 11 The corresponding CSV-files are coefs_w0norm_n(d) and coefs_w0dnorm_n(d) .
+> 12 The corresponding CSV-files are coefs_w0pos_n(d) .
+
+39 Similarly for the second bound we also replace the exponential term with the lower bound in (B.3) and apply the evaluation method with variable transformation (4.40) to compute an upper bound on the maximum. The method is again applied to a larger interval using 
+
+√5 − 2 > 417 
+
+for the left endpoint and (B.4) for the right endpoint. 13 This gives the bounds 
+
+˜w′
+
+0 +̂ εp3
+
+≤
+
+
+
+− 93 121 , d = 3 ,
+
+− 70 127 , d = 4 ,
+
+− 56 191 , d = 5 ,
+
+− 44 487 , d = 6 ,
+
+for y ∈ [1 , y ∗]. (B.8) 
+
+Appendix C. Tables of Coefficients 
+
+Table 1. Coefficients of ˜f0 for d = 3 
+
+k ck( ˜f0) k ck( ˜f0) k ck( ˜f0) k ck( ˜f0)
+
+0 17917987 9041390 1 −1787334 10331077 2 73964 2277441 3 −19969 2807730 
+
+4 2443 1310683 5 −559 1078135 6 279 1751716 7 −112 2211443 
+
+8 71 4121060 9 −34 5675721 10 52282942 11 −11231629 
+
+12 13193614 13 −18212397 14 120443233 15 −150686210 
+
+16 1122132135 17 −1294420759 18 1691376676 19 −11596862914 
+
+20 13804447767 21 −16917614371 22 114073643006 
+
+Table 2. Coefficients of ˜f0 for d = 4 
+
+k ck( ˜f0) k ck( ˜f0) k ck( ˜f0) k ck( ˜f0)
+
+0 1678407 1120145 1 −2537013 16423454 2 216093 7214351 3 −14695 2150586 
+
+4 17007 9639343 5 −4182 8629697 6 160 1126623 7 −335 7759386 
+
+8 99 7219261 9 −13 2911069 10 23 15298106 11 −11941051 
+
+12 15513680 13 −115468537 14 142408044 15 −1115311156 
+
+16 1307176919 17 −1814242470 18 12118692601 19 −15508577091 
+
+20 113839342729 21 −136680946502 22 174602017724 23 −1160169802612 
+
+Table 3. Coefficients of ˜f0 for d = 5 
+
+k ck( ˜f0) k ck( ˜f0) k ck( ˜f0) k ck( ˜f0)
+
+0 35906507 27171432 1 −21019909 114472475 2 209749 4768329 3 −2918307 236413223 
+
+4 87910 23206417 5 −142361 115811713 6 30995 74455296 7 −24641 169239825 
+
+8 1635 31240396 9 −1670 86801659 10 109 15106525 11 −163 59214350 
+
+12 106 99366663 13 −14 33404487 14 16 95936727 15 −344694464 
+
+16 136622696 17 −189170688 18 1215145821 19 −1514878404 
+
+20 11222530085 21 −12882474052 22 16749831264 23 −115710621422 
+
+24 136342676884 25 −183664242268 26 1191410485855 27 −1436135649340 
+
+28 1992887333445 29 −12183756191730 30 15155418015968 31 −19113413538542 
+
+32 116722637027588 
+
+13 The corresponding CSV-files are coefs_w0dneg_n(d) .
+
+40 Table 4. Coefficients of ˜f0 for d = 6 
+
+k ck( ˜f0) k ck( ˜f0) k ck( ˜f0) k ck( ˜f0)
+
+0 3181181323 2539737309 1 −807089099 3187292536 2 458518339 5341055703 3 −302197667 8954113777 
+
+4 135400793 9476708028 5 −102660047 16214513459 6 38274411 13214175724 7 −10583201 7798195796 
+
+8 1703288 2628406219 9 −502044 1597449671 10 1152857 7465200546 11 −168586 2196583141 
+
+12 286457 7435715019 13 −73604 3772695307 14 332375 33373113963 15 −39527 7718373033 
+
+16 13295 5015245563 17 −7748 5611740159 18 1013 1400702663 19 −1873 4918072611 
+
+20 1507 7477051893 21 −186 1735641941 22 147 2568511333 23 −131 4268198649 
+
+24 59 3570443384 25 −23 2575546883 26 43 8878425910 27 −16 6070734717 
+
+28 19 13204573173 29 −22538101677 30 36931479602 31 −14194716286 
+
+32 17594934235 33 −113715673692 34 124707413670 35 −144401449457 
+
+36 179609903024 37 −1142421390209 38 1254248102472 39 −1452948657393 
+
+40 1805343108516 41 −11429179159267 42 12531576930286 43 −14476422230126 
+
+44 17901770349367 45 −113924970285842 46 124503395881364 47 −143036104656234 
+
+48 175539854140593 49 −1132189039954001 50 1231454552391722 51 −1404345929357245 
+
+52 1698920210540690 53 −11240781608305367 54 11990463536013411 55 −13697906578379550 
+
+56 14678996313335638 57 −16623962259232476 
+
+Table 5. Coefficients of ˜v0 for 
+
+d = 3 
+
+k ck,N (˜v0)
+
+0 1680 
+
+1 0
+
+2 144 
+
+3 0
+
+4 12 
+
+k ck,D (˜v0)
+
+0 1680 
+
+1 0
+
+2 480 
+
+3 0
+
+4 72 
+
+5 0
+
+6 8
+
+7 0
+
+8 1
+
+Table 6. Coefficients of ˜v0 for 
+
+d = 5 
+
+k ck,N (˜v0)
+
+0 1680 
+
+1 0
+
+2 120 
+
+k ck,D (˜v0)
+
+0 1680 
+
+1 0
+
+2 480 
+
+3 0
+
+4 72 
+
+5 0
+
+6 8
+
+7 0
+
+8 1
+
+41 Table 7. Coefficients of ˜v0 for d = 4 
+
+k ck,N (˜v0)
+
+0 579366515126277800970711700618505876785582870162990694400 
+
+1 1193764586299578819416080927604020919434885633379197255680 
+
+2 677436184484477983704065888154602186570197945061791498240 
+
+3 93347599518394264229682388561028304480121080136324136960 
+
+4 34612529389692782776324853572974768010557313876947026944 
+
+5 6035849857615260007987783579326728373580191580323140096 
+
+6 1765310305619229813592352943991965857236661039250215040 
+
+7 241875323693909850166395643425619884960878762112698880 
+
+8 133689567968387754607166779571556514083067908778713600 
+
+9 −49391262615220223047263124844768449073699276986339328 
+
+10 28855505866526366713167482609816632801664854421025280 
+
+k ck,D (˜v0)
+
+0 579366515126277800970711700618505876785582870162990694400 
+
+1 1193764586299578819416080927604020919434885633379197255680 
+
+2 798137541802452525572964159116790910900527709679081226240 
+
+3 342048554997473184941365915145199329362388920423656898560 
+
+4 187689472975216926753781638335816816057870768721739551744 
+
+5 50094298476564583251265296847766216144246504970491306496 
+
+6 23670684323321090095952051454732380690285053738707678720 
+
+7 4924237385299052798359299547178072718288902305960107360 
+
+8 2095582266046305333734588069995722799632331405002707790 
+
+9 302693354082594553165646671332552830739585151949025027 
+
+10 171310074915842619848910589859205035961504678684996528 
+
+11 8402064008142629461528492684804552206140612182073595 
+
+12 13540080848032974183739871760176862984975590010462660 
+
+13 −293274498015283437065450785243991013554686200092400 
+
+14 −1368081848006810155428453031921853347922068041525024 
+
+15 799264722155204759810747032516227755159750939218740 
+
+42 Table 8. Coefficients of ˜v0 for d = 6 
+
+k ck,N (˜v0)
+
+0 5580692290047319809357206997409109485890437269425532724551700824719360 
+
+1 11449616475552574765621120314918627769858387831876202125946150788792320 
+
+2 6377957380372636613068591422206295021217735432271576161066642569953280 
+
+3 741484200397125637106997435101220790149027494541364168246283733565440 
+
+4 258077236913689397172354452124076290242430776833494444811607808196608 
+
+5 37559978442428274803119169493491938977403798545703908636986515439616 
+
+6 11576290130903980212442756605289061868662737858769252761939987489280 
+
+7 822461754606230398948114002368940720709523800135239846369963812864 
+
+8 792594470939244312895315467519605842119568274649305643911519240192 
+
+9 −262948844569745663443589808206931392090037191175032988171951480832 
+
+10 125369016643285531080861310782486158757584668151017183653402494976 
+
+k ck,D (˜v0)
+
+0 5580692290047319809357206997409109485890437269425532724551700824719360 
+
+1 11449616475552574765621120314918627769858387831876202125946150788792320 
+
+2 7598733818820487821365480452889537721256268584958411444562327125360640 
+
+3 3246087804424251367086617503989670614805549832764283383297004218613760 
+
+4 1782962910455287847162653285241797863012904550115877978916352354385920 
+
+5 465873780207181616730609490741281780692259061412812487040000133693440 
+
+6 225090384238373975621658432339037993997150767769559144723907085058560 
+
+7 44372096335032259813884072431788645641552854412607647004887409034240 
+
+8 19829386815053728528646829587072111379695810515677070923378879701520 
+
+9 2831692269409545475466251225033455558690946894078936066784555200800 
+
+10 1474990680230044734901674378336502438177329058286300486310404367414 
+
+11 107656186628585981007139942252160766946643164603166884543907867073 
+
+12 101024492479652905906099822577098991396118557148770596371602857716 
+
+13 747496715514403170091026810481731135409010646233453156655541677 
+
+14 6147078775874973465854430855402518829797086967096257089214686492 
+
+15 −196174075342472880099303658283267844351174934535083512359708260 
+
+16 −606948682423063498715672497636737943389645505198051996845768688 
+
+17 289381608018947426145454019916960238609481655888356425336333884 
+
+Table 9. Coefficients of ˜v1 for 
+
+d = 3 
+
+k ck,N (˜v1)
+
+0 2
+
+1 0
+
+2 1
+
+k ck,D (˜v1)
+
+0 1
+
+Table 10. Coefficients of ˜v1 for 
+
+d = 4 
+
+k ck,N (˜v1)
+
+0 3675760 
+
+1 3171168 
+
+2 2108106 
+
+3 1299597 
+
+4 702702 
+
+5 161694 
+
+k ck,D (˜v1)
+
+0 814515 
+
+1 702702 
+
+2 161694 
+
+43 Table 11. Coefficients of ˜v1 for 
+
+d = 5 
+
+k ck,N (˜v1)
+
+0 12 
+
+1 0
+
+2 4
+
+3 0
+
+4 1
+
+k ck,D (˜v1)
+
+0 1
+
+Table 12. Coefficients of ˜v1 for 
+
+d = 6 
+
+k ck,N (˜v1)
+
+0 35555190528 
+
+1 38060923648 
+
+2 26338094640 
+
+3 14414091120 
+
+4 6841779945 
+
+5 3093704874 
+
+6 1403257284 
+
+7 421773300 
+
+8 69802590 
+
+k ck,D (˜v1)
+
+0 984838374 
+
+1 1054244334 
+
+2 421773300 
+
+3 69802590 
+
+Table 13. Coefficients of ˜w0 for d = 3 
+
+k ck( ˜w0) k ck( ˜w0) k ck( ˜w0) k ck( ˜w0) k ck( ˜w0)
+
+0 1 1 −650018 302905 2 2356067 1728292 3 −543204 831913 4 62301 167735 
+
+5 −65326 316559 6 29919 342124 7 −100995 1684276 8 10466 351979 9 −5753 549017 
+
+10 5544 500639 11 −743 243232 12 517 321767 13 −1168 544833 14 −67 390178 
+
+15 −296 486165 16 207 957608 17 23 200732 18 42 179105 19 49 567796 
+
+20 8196489 21 −3102988 22 −381830 23 −6164369 24 −4209105 
+
+25 −3476996 26 1267011 27 2282875 28 2286991 29 1218864 
+
+30 1494167 31 −13484331490 32 −1949515 33 −1742170 34 −1899237 
+
+35 −11445920 36 −13850545 37 129028033 38 14970842 39 14414530 
+
+40 15230596 41 110802323 42 −130791846 
+
+Table 14. Coefficients of ˜w0 for d = 4 
+
+k ck( ˜w0) k ck( ˜w0) k ck( ˜w0) k ck( ˜w0) k ck( ˜w0)
+
+0 1 1 −90134 48295 2 988153 858840 3 −808427 1556222 4 74443 291243 
+
+5 −9672 73595 6 40617 757252 7 −4929 159305 8 1247 94867 9 −4055 775024 
+
+10 309 67256 11 −25 116339 12 212 183409 13 −208 384851 14 −103 246042 
+
+15 −401 658488 16 −135 568436 17 −1428810 18 57 304454 19 169 868474 
+
+20 21 168661 21 13 491256 22 −19 509239 23 −44 756931 24 −22 483891 
+
+25 −147535 26 −129987759 27 7650271 28 5404094 29 2226717 
+
+30 1244941 31 12392713 32 −1661776 33 −1492905 34 −1579472 
+
+35 −1888822 36 −11911602 37 −113856017 38 14824953 39 13160054 
+
+40 13184290 41 14334020 42 17517208 43 129234864 44 −144244926 
+
+45 −117509391 46 −121018669 47 −129831524 48 −121891443 
+
+44 Table 15. Coefficients of ˜w0 for d = 5 
+
+k ck( ˜w0) k ck( ˜w0) k ck( ˜w0) k ck( ˜w0) k ck( ˜w0)
+
+0 1 1 −20785558 11521181 2 15495806 13273235 3 −9243359 15900034 4 1586702 4973477 
+
+5 −1178712 6882937 6 728591 9906161 7 −161224 3367667 8 278719 12497371 9 −41798 5168753 
+
+10 32880 3921227 11 −77147 46080381 12 2947 2275160 13 −5708 3758725 14 −4624 12462993 
+
+15 −6743 11314019 16 169 4745664 17 1148 12087581 18 1027 4689522 19 860 6394503 
+
+20 994 13471875 21 −11 4469968 22 −173 5135922 23 −340 7823313 24 −263 8237766 
+
+25 −44 2691859 26 −39 19737940 27 147 23468371 28 127 14022874 29 139 17808651 
+
+30 15 3100814 31 17 9738220 32 −36158147 33 −10 6165203 34 −31649366 
+
+35 −53472282 36 −14 16711441 37 −13689959 38 17860666 39 13067439 
+
+40 25554409 41 13438757 42 15582427 43 114252949 44 −191669933 
+
+45 −117718539 46 −114202646 47 −115962753 48 −122832272 49 −144010043 
+
+50 −1200747207 51 1147482463 52 180167552 53 175627642 54 191491874 
+
+55 1138903121 56 1286846120 57 12226377220 58 −1698795889 59 −1426937724 
+
+60 −1430620135 61 −1545716544 62 −11092557571 63 114948803387 
+
+Table 16. Coefficients of ˜w0 for d = 6 
+
+k ck( ˜w0) k ck( ˜w0) k ck( ˜w0) k ck( ˜w0) k ck( ˜w0)
+
+0 1 1 −47652279 26191717 2 34644161 25569907 3 −11380805 12877876 4 32420909 56818391 
+
+5 −37769270 102927907 6 4580539 20023311 7 −13416447 92129545 8 2558049 28195928 9 −1638758 29087257 
+
+10 899323 25117084 11 −662771 30633181 12 330178 23819583 13 −339550 39926651 14 254327 49496718 
+
+15 −177613 51630619 16 56186 29583583 17 −18031 13818204 18 108206 135172509 19 −13661 32491369 
+
+20 20053 55706850 21 −1514 10377671 22 802 6523541 23 −2403 28767967 24 648 29402173 
+
+25 −1538 33549791 26 367 58310946 27 −233 19519592 28 686 65555331 29 25 12025148 
+
+30 150 19922981 31 61 44062539 32 43 26290988 33 −21 15980876 34 −27 27989407 
+
+35 −25 17061021 36 −65 91604749 37 −18 38307307 38 142645472 39 747930373 
+
+40 11 41069434 41 14651679 42 15925529 43 336997513 44 140587070 
+
+45 −143232326 46 −247952243 47 −121180596 48 −126146339 49 −139069371 
+
+50 −187874316 51 −11805862275 52 1151908411 53 1106344548 54 1108141322 
+
+55 1140526234 56 1230114612 57 1586953492 58 −13795425332 59 −1695287583 
+
+60 −1533793708 61 −1562469187 62 −1730261268 63 −11175024011 64 −12757167363 
+
+65 176975187354 66 14034497647 67 12851751791 68 12847902087 69 13477674193 
+
+70 15140425808 71 19946705258 72 145349217889 73 −131617003600 74 −116395151285 
+
+75 −114565805234 76 −116049911071 77 −121320418839 78 −133670810531 79 −177619629444 
+
+80 −11420087279918 81 1125158988872 82 189743734804 83 184631820919 84 1116761871589 
+
+85 1195350597374 86 1176578936899 
+
+Table 17. Coefficients of ˜w1 for d = 3 
+
+k ck( ˜w1) k ck( ˜w1) k ck( ˜w1) k ck( ˜w1) k ck( ˜w1)
+
+0 1 1 11803625 8800252 2 −3893 481164 3 −864831 2757703 4 167774 2999557 
+
+5 50497 701038 6 −114461 2889844 7 −7856 3180127 8 12779 1300443 9 −3942 1107947 
+
+10 −867 2903818 11 1300 1817057 12 −803 2803689 13 105 2015003 14 11 1153578 
+
+15 −37 1744403 16 40 2380829 17 −2311935 18 −11266945 19 72922589 
+
+20 −1779671 21 15746076 22 14938094 23 −16166019 24 118271223 
+
+25 1272724931 26 −156968973 27 1139599039 28 11317546995 29 c29 ( ˜w1)
+
+30 c30 ( ˜w1)
+
+45 Table 18. Coefficients of ˜w1 for d = 4 
+
+k ck( ˜w1) k ck( ˜w1) k ck( ˜w1) k ck( ˜w1) k ck( ˜w1)
+
+0 1 1 97762735 65380431 2 30504083 106243288 3 −30128105 83898268 4 −5633586 47450267 
+
+5 2012842 16321441 6 1517799 66254210 7 −1321075 32104308 8 140793 124498868 9 1100359 100849093 
+
+10 −93223 38848750 11 −361358 165125365 12 12733 14243143 13 51863 138790902 14 −11460 48469339 
+
+15 −1562 22160843 16 7264 114973269 17 753 51856541 18 −1157 60265016 19 −43 27833766 
+
+20 492 89100845 21 −19 38373933 22 −13 9731089 23 14 41339867 24 23 85935810 
+
+25 −435742063 26 −476202427 27 130295308 28 1104467578 29 −1110872658 
+
+30 −1511931277 31 1337707502 32 −19664024017 33 −11652769343 34 11146857116493 
+
+35 14165370537 36 −19742752883 37 1106587665632 38 −150876909278 39 128821129587 
+
+40 −137469561746 41 160878490681 42 −177216963898 43 184968894530 44 −1101847610801 
+
+45 1129424165177 46 −1159746819643 47 1191448867071 48 −1230116445748 49 1275416015993 
+
+50 −1332555168008 51 1401161361773 52 −1463399831633 53 1562437067981 54 −1682033486903 
+
+55 1732113686242 56 −1958808221604 57 11153554662275 58 −11027965331803 59 11898618895409 
+
+60 −11867497289776 61 11181497339970 62 −150957953147904 63 12292720722907 64 −11080950121897 
+
+65 −11406382606167 66 −1928110102950 67 1522894080259 68 c68 ( ˜w1) 69 c69 ( ˜w1)
+
+Table 19. Coefficients of ˜w1 for d = 5 
+
+k ck( ˜w1) k ck( ˜w1) k ck( ˜w1) k ck( ˜w1) k ck( ˜w1)
+
+0 1 1 26041005 16807873 2 4074199 8786101 3 −9573986 31160203 4 −7023207 29585884 
+
+5 5816978 67979357 6 3715267 42062527 7 −376193 11758379 8 −758862 26640751 9 658053 52983181 
+
+10 185690 22513119 11 −62335 14162584 12 −31329 13597135 13 63473 43496631 14 7557 11416580 
+
+15 −6812 14075011 16 −6505 33801961 17 231 1410914 18 431 8040597 19 −1361 24750956 
+
+20 −384 27324749 21 953 52852186 22 113 31961419 23 −164 28134331 24 −43 50314655 
+
+25 127 67488911 26 526927627 27 −914847415 28 −133618767 29 315506287 
+
+30 −133429764811 31 −116368585 32 1343942617 33 152209119 34 −1551792563 
+
+35 −1167394615 36 11163144143 37 1538720307 38 −12755610661 39 −11714550509 
+
+40 17706223108 41 15341882956 42 −149770421587 43 −122574341232 44 −1144162788918 
+
+45 c45 ( ˜w1) 46 c46 ( ˜w1)
+
+Table 20. Coefficients of ˜w1 for d = 6 
+
+k ck( ˜w1) k ck( ˜w1) k ck( ˜w1) k ck( ˜w1) k ck( ˜w1)
+
+0 1 1 158338445 100094528 2 46363281 79772759 3 −8520156 35818093 4 −4046322 13230331 
+
+5 1007353 47444741 6 14449094 116634659 7 35341 9966240 8 −609003 12870683 9 −114867 33971347 
+
+10 1070420 61351359 11 221995 122111503 12 −377407 59580110 13 −75481 85762660 14 633310 275456861 
+
+15 22444 56766371 16 −31375 37644457 17 −14918 88395113 18 10443 34788227 19 25897 366736009 
+
+20 −25835 239923926 21 −711 24367261 22 2975 77074861 23 971 81940254 24 −1464 106083811 
+
+25 −142 29930755 26 91 18528450 27 299 158699121 28 −135 77499397 29 −55 74042421 
+
+30 22 35701675 31 31 106719848 32 −38 175004821 33 −10 88629059 34 791921724 
+
+35 122932004 36 −137606009 37 −159624775 38 1108189443 39 1155788487 
+
+40 −1313018571 41 −1408759847 42 1911539877 43 11076457553 44 −12673485287 
+
+45 −12846389642 46 17899944000 47 17560441790 48 −123380299632 49 −120038567545 
+
+50 168829888534 51 151183267058 52 −1233258372207 53 −1123513075974 54 −15375176710463 
+
+55 1426885927463 56 11267188251902 57 c57 ( ˜w1) 58 c58 ( ˜w1)
+
+46 References 
+
+[1] Milton Abramowitz and Irene A. Stegun, editors. Handbook of Mathematical Functions . Number 55 in Applied Mathematics Series. National Bureau of Standards, 1972. 10th printing. [2] PawełBiernat and Piotr Bizoń. Shrinkers, expanders, and the unique continuation beyond generic blowup in the heat flow for harmonic maps between spheres. Nonlinearity , 24(8):2211–2228, 2011. [3] Paweł Biernat and Roland Donninger. Construction of a spectrally stable self-similar blowup solution to the supercritical corotational harmonic map heat flow. Nonlinearity , 31(8):3543–3566, 2018. [4] Paweł Biernat, Roland Donninger, and Birgit Schörkhuber. Stable self-similar blowup in the supercritical heat flow of harmonic maps. Calc. Var. Partial Differential Equations , 56(6):Art. 171, 31, 2017. [5] Paweł Biernat and Yukihiro Seki. Type II blow-up mechanism for supercritical harmonic map heat flow. 
+
+Int. Math. Res. Not. IMRN , (2):407–456, 2019. [6] Paweł Biernat and Yukihiro Seki. Transition of blow-up mechanisms in k-equivariant harmonic map heat flow. Nonlinearity , 33(6):2756–2796, 2020. [7] Piotr Bizoń and Arthur Wasserman. Nonexistence of shrinkers for the harmonic map flow in higher dimensions. Int. Math. Res. Not. IMRN , (17):7757–7762, 2015. [8] Kung-Ching Chang, Wei Yue Ding, and Rugang Ye. Finite-time blow-up of the heat flow of harmonic maps from surfaces. J. Differential Geom. , 36(2):507–515, 1992. [9] Jean-Michel Coron and Jean-Michel Ghidaglia. Explosion en temps fini pour le flot des applications harmoniques. C. R. Acad. Sci. Paris Sér. I Math. , 308(12):339–344, 1989. [10] Eliana X.L. de Andrade, John H. McCabe, and A. Sri Ranga. The q-d algorithm for transforming series expansions into a corresponding continued fraction: an extension to cope with zero coefficients. Journal of Computational and Applied Mathematics , 156(2):487–497, 2003. [11] Roland Donninger and Birgit Schörkhuber. Self-Similar Blowup for the Cubic Schrödinger Equation. 
+
+Comm. Pure Appl. Math. , 79(8):1831–1918, 2026. [12] Roland Donninger, Birgit Schörkhuber, and Alexander Wittenstein. Stable blowup for supercritical wave maps into perturbed spheres. J. Funct. Anal. , 291(9):Paper No. 111601, 2026. [13] Klaus-Jochen Engel and Rainer Nagel. One-parameter semigroups for linear evolution equations , volume 194 of Graduate Texts in Mathematics . Springer-Verlag, New York, 2000. With contributions by S. Brendle, M. Campiti, T. Hahn, G. Metafune, G. Nickel, D. Pallara, C. Perazzoli, A. Rhandi, S. Romanelli and R. Schnaubelt. [14] Huijun Fan. Existence of the self-similar solutions in the heat flow of harmonic maps. Sci. China Ser. A ,42(2):113–132, 1999. [15] Andreas Gastel. Singularities of first kind in the harmonic map and Yang-Mills heat flows. Math. Z. ,242(1):47–62, 2002. [16] Pierre Germain, Tej-Eddine Ghoul, and Hideyuki Miura. On uniqueness for the harmonic map heat flow in supercritical dimensions. Comm. Pure Appl. Math. , 70(12):2247–2299, 2017. [17] Pierre Germain and Melanie Rupflin. Selfsimilar expanders of the harmonic map flow. Ann. Inst. H. Poincaré C Anal. Non Linéaire , 28(5):743–773, 2011. [18] F. Gesztesy, B. Simon, and G. Teschl. Zeros of the Wronskian and renormalized oscillation theory. Amer. J. Math. , 118(3):571–594, 1996. [19] Tej-eddine Ghoul, Slim Ibrahim, and Van Tien Nguyen. On the stability of type ii blowup for the 1-corotational energy-supercritical harmonic heat flow. Anal. PDE , 12(1):113–187, 2019. [20] Irfan Glogić. Stable blowup for the supercritical hyperbolic Yang-Mills equations. Adv. Math. , 408(part B):Paper No. 108633, 52, 2022. [21] Irfan Glogić. Globally stable blowup profile for supercritical wave maps in all dimensions. Calc. Var. Partial Differential Equations , 64(2):Paper No. 46, 34, 2025. [22] Irfan Glogić. Globally stable blowup profile for supercritical wave maps in all dimensions. Calc. Var. Partial Differential Equations , 64(2):Paper No. 46, 34, 2025. [23] Irfan Glogić, Sarah Kistner, and Birgit Schörkhuber. Existence and stability of shrinkers for the harmonic map heat flow in higher dimensions. Calc. Var. Partial Differential Equations , 63(4):Paper No. 96, 33, 2024. [24] Irfan Glogić, Sarah Kistner, and Birgit Schörkhuber. Stable blowup profile for a semilinear heat equation with spatially inhomogeneous nonlinearity, 2026. [25] Loukas Grafakos and Seungly Oh. The Kato-Ponce inequality. Comm. Partial Differential Equations ,39(6):1128–1157, 2014. [26] Harald Hanche-Olsen and Helge Holden. The kolmogorov–riesz compactness theorem. Expositiones Mathematicae , 28(4):385–394, 2010. [27] Fanghua Lin and Changyou Wang. The analysis of harmonic maps and their heat flows . World Scientific Publishing Co. Pte. Ltd., Hackensack, NJ, 2008. [28] John H. McCabe. A continued fraction expansion, with a truncation error estimate, for dawson’s integral. 
+
+Mathematics of Computation , 28(127):811–816, 1974. 
+
+47 [29] Mauro Picone. Sui valori eccezionali di un parametro da cui dipende un’equazione differenziale lineare ordinaria del second’ordine. Ann. Scuola Norm. Sup. Pisa Cl. Sci. , 11:144, 1910. [30] Jalal Shatah and A. Shadi Tahvildar-Zadeh. On the Cauchy problem for equivariant wave maps. Comm. Pure Appl. Math. , 47(5):719–754, 1994. [31] Michael Struwe. On the evolution of harmonic maps in higher dimensions. J. Differential Geom. , 28(3):485– 502, 1988. [32] Joachim Weidmann. Spectral Theory of Ordinary Differential Operators . Lecture Notes in Mathematics. Springer-Verlag, Berlin, Heidelberg, 1987. 
+
+Universität Innsbruck, Institut für Mathematik,, Technikerstraße 13, 6020 Innsbruck, Austria 
+
+Email address : Johannes.Angerer@student.uibk.ac.at 
+
+Universität Innsbruck, Institut für Mathematik,, Technikerstraße 13, 6020 Innsbruck, Austria 
+
+Email address : Sarah.kistner@uibk.ac.at 
+
+Universität Innsbruck, Institut für Mathematik,, Technikerstraße 13, 6020 Innsbruck, Austria 
+
+Email address : Birgit.Schoerkhuber@uibk.ac.at 
+
+48

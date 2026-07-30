@@ -41,17 +41,17 @@
 <section class="dpr-home-dashboard-card dpr-home-report-card">
   <div class="dpr-home-dashboard-header">
     <div>
-      <span class="dpr-home-dashboard-kicker">2026-07-29</span>
+      <span class="dpr-home-dashboard-kicker">2026-07-30</span>
       <h3 class="dpr-home-dashboard-title">今日汇总</h3>
     </div>
-    <strong class="dpr-home-dashboard-count">共 9 篇</strong>
+    <strong class="dpr-home-dashboard-count">共 13 篇</strong>
   </div>
   <dl class="dpr-home-dashboard-stats">
     <div class="dpr-home-dashboard-stat"><dt>累计更新</dt><dd>1 次</dd></div>
-    <div class="dpr-home-dashboard-stat"><dt>精读</dt><dd>3</dd></div>
-    <div class="dpr-home-dashboard-stat"><dt>速读</dt><dd>6</dd></div>
+    <div class="dpr-home-dashboard-stat"><dt>精读</dt><dd>2</dd></div>
+    <div class="dpr-home-dashboard-stat"><dt>速读</dt><dd>11</dd></div>
   </dl>
-  <p class="dpr-home-dashboard-body">最近更新：2026-07-29 21:20:28 UTC<br>状态：成功</p>
+  <p class="dpr-home-dashboard-body">最近更新：2026-07-30 21:34:37 UTC<br>状态：成功</p>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-brief-card">
   <div class="dpr-home-dashboard-header">
@@ -62,9 +62,9 @@
     <strong class="dpr-home-dashboard-count">AI</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<p>今日聚焦Navier-Stokes方程双尺度粘性与双曲曲面组合Yamabe流，共9篇论文（精读2篇，速读6篇）。</p>
-<p>最值得关注的成果：Navier-Stokes超临界范数膨胀机制与临界空间全局适定性，以及无限三角剖分双曲曲面上组合Yamabe流的收敛性。</p>
-<p>建议优先细读精读列表中的两篇，前者对理解流体非线性分析有重要突破，后者为几何流提供新工具。</p>
+<p>今日精读两篇流体力学与几何分析突破：不可压缩流中实现精确拉格朗日应变传感，以及高维空间共轭调和映射热流稳定收缩子的存在性证明。</p>
+<p>最值得关注：不可压缩流的鲁棒应变传感方法（9.0分）为实验测量提供理论框架；高维调和映射热流收缩子的稳定性结果（8.0分）推进了几何分析基础理论。</p>
+<p>建议优先精读精读列表中的两篇高分论文，对理解流固耦合和几何流有重要启发。</p>
   </div>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-deep-card">
@@ -73,12 +73,12 @@
       <span class="dpr-home-dashboard-kicker">今日累计</span>
       <h3 class="dpr-home-dashboard-title">精读推荐</h3>
     </div>
-    <strong class="dpr-home-dashboard-count">3 篇</strong>
+    <strong class="dpr-home-dashboard-count">2 篇</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="The Navier-Stokes equations with dual-scale hereditary viscosity: supercritical norm inflation and global well-posedness in critical spaces">The Navier-Stokes equations with dual-scale hereditary viscosity: supercritical norm inflation and global well-posedness in critical spaces</span></li><li><span class="dpr-home-dashboard-paper-title" title="Combinatorial Yamabe flow on infinitely triangulated hyperbolic surfaces">Combinatorial Yamabe flow on infinitely triangulated hyperbolic surfaces</span></li><li><span class="dpr-home-dashboard-paper-title" title="Sharp rigidity for quasilinear Liouville equation on manifolds with nonnegative Ricci curvature">Sharp rigidity for quasilinear Liouville equation on manifolds with nonnegative Ricci curvature</span></li></ul>
+<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Exact Lagrangian Realization and Robust Strain Sensing in Incompressible Flow">Exact Lagrangian Realization and Robust Strain Sensing in Incompressible Flow</span></li><li><span class="dpr-home-dashboard-paper-title" title="Existence of a stable shrinker for the corotational harmonic map heat flow in higher space dimensions">Existence of a stable shrinker for the corotational harmonic map heat flow in higher space dimensions</span></li></ul>
   </div>
-  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>3</strong></span></div>
+  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>2</strong></span></div>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-skim-card">
   <div class="dpr-home-dashboard-header">
@@ -86,12 +86,12 @@
       <span class="dpr-home-dashboard-kicker">今日累计</span>
       <h3 class="dpr-home-dashboard-title">速读推荐</h3>
     </div>
-    <strong class="dpr-home-dashboard-count">6 篇</strong>
+    <strong class="dpr-home-dashboard-count">11 篇</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Stability and error analysis of IMEX-BDFk finite element schemes for the incompressible Navier-Stokes system">Stability and error analysis of IMEX-BDFk finite element schemes for the incompressible Navier-Stokes system</span></li><li><span class="dpr-home-dashboard-paper-title" title="Parallelisation of Discrete Exterior Calculus via Representation Theory on Curved and Three-Dimensional Meshes">Parallelisation of Discrete Exterior Calculus via Representation Theory on Curved and Three-Dimensional Meshes</span></li><li><span class="dpr-home-dashboard-paper-title" title="Stability for the Boussinesq Equations with Horizontal Dissipation near the Hydrostatic Balance on $\mathbb{R}^2$">Stability for the Boussinesq Equations with Horizontal Dissipation near the Hydrostatic Balance on $\mathbb{R}^2$</span></li></ul>
+<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Weighted $H^2$ regularity of fluid-structure interaction when the interface intersects the boundary">Weighted $H^2$ regularity of fluid-structure interaction when the interface intersects the boundary</span></li><li><span class="dpr-home-dashboard-paper-title" title="Continuous Data Assimilation for the 2D Navier-Stokes Equations from Partial Tangential Boundary Observations">Continuous Data Assimilation for the 2D Navier-Stokes Equations from Partial Tangential Boundary Observations</span></li><li><span class="dpr-home-dashboard-paper-title" title="Sharpness and Stability of the Alexandrov-Bakelman-Pucci Estimate: a Convex Geometric Approach">Sharpness and Stability of the Alexandrov-Bakelman-Pucci Estimate: a Convex Geometric Approach</span></li></ul>
   </div>
-  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>6</strong></span></div>
+  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>11</strong></span></div>
 </section>
 </div>
 

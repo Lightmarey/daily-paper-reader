@@ -1,0 +1,1334 @@
+Title: Sharpness and Stability of the Alexandrov-Bakelman-Pucci Estimate: a Convex Geometric Approach
+
+URL Source: https://arxiv.org/pdf/2607.24388v1
+
+Published Time: Tue, 28 Jul 2026 01:57:49 GMT
+
+Number of Pages: 19
+
+Markdown Content:
+# Sharpness and Stability of the Alexandrov-Bakelman-Pucci Estimate: a Convex Geometric Approach 
+
+Antonio Porricelli  
+
+> Abstract
+> Based on a 1981 work by G. Talenti, which established a comparison principle for smooth solutions of the Monge-Ampère equation alongside related two-dimensional a priori estimates, this paper explores the connection to the Blaschke-Santalò inequality and its reverse form by K. Mahler (1939). More specifically, in this work, a quantitative version of one of Talenti’s a priori estimates is proved. We exploit the interplay between Talenti’s analytical framework and Mahler/Blaschke-Santalò inequali-ties via convex geometry, demonstrating how this link can be utilized to gain sharp insights into the Alexandrov-Bakelman-Pucci (ABP) maximum principle for elliptic PDEs.
+> Keywords: ABP, Monge-Ampère, Quantitative Inequality MSC 2020: 35B35, 35B45, 52A40
+
+## 1 Introduction 
+
+The study of sharp a priori estimates for solutions to elliptic partial differential equations has a long and celebrated history, sitting at the fertile intersection of mathematical anal-ysis and convex geometry. A foundational milestone in this framework was established in 1981 by G. Talenti in his seminal paper [18]. Investigating smooth and generalized solutions to the Dirichlet problem for the Monge-Ampère equation in the plane, Talenti proved a remarkably elegant supremum estimate. Specifically, let Ω ⊂ R2 be a convex domain and let u ∈ C2(Ω) ∩ C(Ω) be a concave function satisfying u = 0 on ∂Ω. Then, the following sharp inequality holds: 
+
+(sup 
+
+> Ω
+
+u)2 ≤ 427 |Ω|
+
+∫
+
+> Ω
+
+| det D2u| dx. (1.1) The constant 427 is sharp and is uniquely attained when the domain Ω is a triangle and the graph of u corresponds to a suitable cone over Ω.Talenti’s arguments were profoundly geometric. In the section 6 (Perimeter or area?) of his work, he pointed out that the analytical deficit in (1.1) is intimately tied to the dual structure of convex bodies, effectively establishing a result equivalent to the celebrated Mahler conjecture in dimension two. In the decades following Talenti’s work, the interplay between fully nonlinear elliptic op-erators and affine convex geometry has become a cornerstone of modern analysis. The cornerstone of this dictionary is the Alexandrov-Bakelman-Pucci (ABP) maximum princi-
+
+1arXiv:2607.24388v1 [math.AP] 27 Jul 2026 ple, which controls the supremum of a sub-solution via the Lebesgue measure of its normal mapping (or superdifferential). In its classical formulation, the ABP estimate provides a bound in terms of the geometry of the domain, but it generally lacks sharp stability information regarding the shape of Ω when the configuration is close to the optimal one. More recently, a flourishing line of research has focused on the quantitative stability of geometric and functional inequalities. Triggered by the breakthrough work of Fusco, Maggi, and Pratelli on the quantitative isoperimetric inequality, similar stability questions have been successfully addressed in many other fields. In the context of convex geometry, Boroczky, Makai, Meyer, and Reisner [5] proved a landmark stability version of Mahler’s inequality in R2, quantifying how close a convex body must be to a triangle (in terms of the Banach-Mazur distance) whenever its volume product is close to the minimal value  
+
+> 27 4
+
+.The aim of this paper is to bridge these two frameworks by establishing a novel, quanti-tative version of Talenti’s a priori estimate (1.1), thereby providing an explicit stability gauge for the ABP maximum principle in terms of the geometry of the underlying domain. Our main result shows that if the functional deficit in Talenti’s inequality is small, then the domain Ω must be close to a triangle in the Banach-Mazur sense. Formally, we prove the following theorem: 
+
+Theorem 1.1. Let Ω ⊂ R2 be a convex body with 0 ∈ int Ω and u ∈ C2(Ω) a concave function such that u = 0 on ∂Ω. Then, if T is any triangle it holds: 
+
+427 |Ω|
+
+> ∫
+> Ω
+
+| det D2u|dx − (sup 
+
+> Ω
+
+u)2
+
+427 |Ω|
+
+> ∫
+> Ω
+
+| det D2u|dx 
+
+≥ δBM (Ω , T ) − 1
+
+δBM (Ω , T ) + 899 . (1.2) The paper is organized as follows. In Section 2, we review the necessary machinery from the theory of Monge-Ampère measures and establish the required tools from affine convex geometry, focusing on the properties of polar bodies and the Santalò point. In Section 3, we reconstruct Talenti’s original setting and detail the optimization properties of cone functions under the Minkowski functional. Section 4 is devoted to the proof of our quantitative main theorem and finally, in Section 5 we exploit its direct implications for the structural stability of the ABP maximum principle. 
+
+> 2
+
+## 2 Notations and preliminaries 
+
+2.1 The Monge-Ampère measure and the gradient map Definition 2.1. Let Ω ⊂ RN be an open set and let u be a measurable function defined in Ω. We define: 
+
+Γ+ 
+
+> u
+
+= {y ∈ Ω : ∃ p ∈ RN s.t. u(x) ≤ u(y) + p · (x − y) ∀x ∈ Ω}, (2.1) 
+
+as the upper contact set of u.
+
+Geometrically, Γ+ 
+
+> u
+
+represents the set of points where the graph of u can be touched from above by a global supporting hyperplane. In other words, Γ+ 
+
+> u
+
+is precisely the subset of Ω
+
+where u coincides with its concave envelope. For a generic point y ∈ Γ+ 
+
+> u
+
+, the supporting hyperplane may not be unique. In gen-eral, we define the superdifferential (or normal mapping) of u at a point y ∈ Ω as the set of all the possible slopes of such supporting hyperplanes, namely: 
+
+∂+ 
+
+> u
+
+(y) = {p ∈ RN : u(x) ≤ u(y) + p · (x − y), ∀x ∈ Ω} (2.2) and for any subset E ⊂ Ω:
+
+∂+ 
+
+> u
+
+(E) = ⋃
+
+> y∈E
+
+∂+ 
+
+> u
+
+(y). (2.3) We observe that if u is differentiable at y ∈ Γ+ 
+
+> u
+
+, the superdifferential reduces to the singleton containing the classical gradient, i.e., ∂+ 
+
+> u
+
+(y) = {∇ u(y)}. Consequently, if u is differentiable in the whole Ω, we have ∂+ 
+
+> u
+
+(Γ + 
+
+> u
+
+) = ∇u(Γ + 
+
+> u
+
+).If u ∈ C2(Ω) , the gradient map ∇u is locally Lipschitz. By applying the classical area formula, we can relate the geometric volume of the image to the Hessian matrix: 
+
+|∂+ 
+
+> u
+
+(E)| ≤ 
+
+> ∫
+> E∩Γ+
+> u
+
+det( −D2u(x)) dx (2.4) for any measurable set E ⊂ Ω. Equality holds if the gradient map is injective on E ∩ Γ+ 
+
+> u
+
+,which is guaranteed, for instance, if u ∈ C2(Ω) and u is strictly concave. More in general, if u ∈ C2(Ω) is concave (not necessarily strictly), equality is still preserved by virtue of Sard’s Theorem, since the set of critical values of ∇u has Lebesgue measure zero, and the flat regions where det D2u = 0 contribute zero to both sides of the identity (see [12]). In the general setting, it is a classical result that if Ω ⊂ RN is open and u ∈ C(Ω) ,the class: 
+
+S = {E ⊂ Ω : ∂+ 
+
+> u
+
+(E) is Lebesgue measurable }
+
+is a Borel σ-algebra. This allows us to properly define the set function μu : S −→ [0 , +∞]
+
+> 3
+
+as μu(E) = |∂+ 
+
+> u
+
+(E)|, which is a Borel measure called the Monge-Ampère measure 
+
+associated with u.The definition of the Monge–Ampère measure naturally leads to a wider class of solutions, known as generalized or Alexandrov solutions, which is closed under uniform convergence. 
+
+Definition 2.2. Let μ be a Borel measure defined in Ω, an open and convex subset of RN .The convex function u ∈ C(Ω) is a generalized solution , or Alexandrov solution ,to the Monge–Ampère equation 
+
+det D2u = μ
+
+if the Monge–Ampère measure μu associated with u equals μ.
+
+Now, in our setting, we consider Ω to be a convex open subset of RN . If u is concave in Ω,by definition, there exists a global supporting hyperplane at each point, yielding Γ+ 
+
+> u
+
+= Ω .Furthermore, since every concave function is locally Lipschitz, Rademacher’s theorem implies that u is differentiable almost everywhere in Ω. Since the set of points where 
+
+∂+ 
+
+> u
+
+(y) is not a singleton has Lebesgue measure zero, the Monge-Ampère measure simplifies to the Lebesgue measure of the gradient image of the differentiability points, namely 
+
+μu(E) = |∇ u(E ∩ D u)| for every E ∈ S , where Du denotes the set of differentiability points of u.
+
+2.2 Convex bodies and volume product 
+
+In order to use convex geometry arguments to show the link between the Monge-Ampère equation and the Mahler/Blaschke-Santalò inequality, in this paragraph we recall some basic concepts that we’ll need later, such as convex bodies, polar bodies of convex bodies, and the volume product. 
+
+Definition 2.3. A convex body is a non-empty convex, compact subset of RN with non-empty interior. 
+
+Definition 2.4. Let Ω ⊂ RN be a convex body. We define the polar body of Ω with respect to a point x0 ∈ int (Ω) as follows: 
+
+Ω◦ 
+
+> x0
+
+= {p ∈ RN | p · (x − x0) ≤ 1, ∀x ∈ Ω}. (2.5) 
+
+If 0 ∈ int (Ω) , we will write Ω◦ for the polar body with respect to the origin. 
+
+Remark 2.5. It follows by the previous definition that: 
+
+Ω◦ 
+
+> x0
+
+= (Ω − x0)◦
+
+It can be proved that there exists a unique point s(Ω) ∈ int (Ω) such that: 
+
+|Ω◦
+
+> s(Ω)
+
+| = min  
+
+> x∈int (Ω)
+
+|Ω◦
+
+> x
+
+|
+
+> 4
+
+And it is called the Santalò point of Ω.
+
+Definition 2.6. The volume product of a convex body Ω ⊂ RN is defined as |Ω|| Ω◦
+
+> s(Ω)
+
+|.
+
+It can easily be observed that the volume product is affine invariant, so we can always suppose that 0 ∈ int (Ω) and s(Ω) = 0 without affecting the generality. Now, we recall two important inequalities concerning upper and lower bounds for the volume product of convex bodies. 
+
+Theorem 2.7 (Blaschke-Santalò inequality) . Let Ω ⊂ RN be a convex body, and let s(Ω) 
+
+be its Santalò point. Then it holds: 
+
+|Ω|| Ω◦
+
+> s(Ω)
+
+| ≤ ω2 
+
+> N
+
+(2.6) 
+
+where ωN denotes the volume of the unit ball in RN . Furthermore, equality holds if and only if Ω is an ellipsoid. 
+
+For the lower bound, the situation is more nuanced. The long-standing Mahler’s conjec-ture (1938) states that for every convex body Ω ⊂ RN , the volume product is minimized by the simplex, yielding: 
+
+|Ω|| Ω◦
+
+> s(Ω)
+
+| ≥ (N + 1) N +1 
+
+(N !) 2 (2.7) If we restrict our attention to centrally symmetric convex bodies, the conjectured mini-mum is instead attained by the hypercube, with a lower bound of 4N  
+
+> N!
+
+.To date, Mahler’s conjecture has been fully proved in dimension N = 2 (Mahler, 1939) and recently in dimension N = 3 (see [8], for both the symmetric and non-symmetric cases), while it remains open for N ≥ 4.
+
+2.3 Rearrangements 
+
+To introduce Talenti’s framework, we must first discuss the concept of function rearrange-ments. First of all, we recall the definition of the perimeter of a measurable set. 
+
+Definition 2.8. Let Ω ⊂ RN be a Lebesgue measurable set. The perimeter of Ω in RN
+
+(in the sense of De Giorgi) is defined as the total variation of its characteristic function 
+
+χΩ, namely: 
+
+P (Ω) = sup 
+
+> {∫
+> Ω
+
+div φ(x) dx : φ ∈ C1 
+
+> c
+
+(RN ; RN ), ∥φ∥L∞ ≤ 1
+
+> }
+
+. (2.8) We say that Ω has finite perimeter if χΩ ∈ BV( RN ). When Ω ⊂ RN is a convex set (or has a sufficiently regular boundary), its perimeter simply coincides with the (N − 1) -dimensional Hausdorff measure of its topological boundary: 
+
+P (Ω) = HN −1(∂Ω) . (2.9) 
+
+> 5
+
+For a comprehensive treatment of sets of finite perimeter, BV functions, and the classical isoperimetric inequality, we refer the reader to [2, 9]. Let Ω ⊂ RN be a bounded domain with finite perimeter. From the classical isoperimetric inequality , we know that: 
+
+P (Ω) ≥ N ω 1/N N |Ω|N −1 
+
+> N
+
+= P (Ω ♯) (2.10) where ωN denotes the volume of the unit ball in RN , |Ω| is the Lebesgue measure (volume) of Ω, and Ω♯ represents the ball centered at the origin having the exact same volume as 
+
+Ω.
+
+Definition 2.9. We define two distinct notions of equivalent radii associated with the domain Ω:1. Equivalent radius with respect to volume ( ξ0(Ω) ): 
+
+ξ0(Ω) =  
+
+> (
+
+|Ω|
+
+ωN 
+
+> )1
+> N
+
+(2.11) 
+
+which represents the radius of the ball Ω◦ sharing the same volume as Ω, such that 
+
+ωN (ξ0(Ω)) N = |Ω|.2. Equivalent radius with respect to perimeter ( ξ1(Ω) ): For a convex set Ω ⊂
+
+RN , we define: 
+
+ξ1(Ω) =  
+
+> (
+
+P (Ω) 
+
+N ω N  
+
+> )1
+> N−1
+
+(2.12) 
+
+which represents the radius of the ball Ω⋆ sharing the same perimeter as Ω, such that N ω N (ξ1(Ω)) N −1 = P (Ω) .
+
+Remark 2.10. By utilizing the isoperimetric inequality (2.10) , we can directly compare the two equivalent radii: 
+
+ξ1(Ω) =  
+
+> (
+
+P (Ω) 
+
+N ω N  
+
+> )1
+> N−1
+
+≥ 
+
+> 
+
+N ω 1/N N |Ω|N −1
+
+> N
+
+N ω N 
+
+> 
+> 1
+> N−1
+
+= 
+
+> 
+
+|Ω|1− 1
+
+> N
+
+ω1− 1 
+
+> N
+> N
+> 
+> 1
+> N−1
+
+= 
+
+> (
+
+|Ω|
+
+ωN 
+
+> )1
+> N
+
+= ξ0(Ω) 
+
+(2.13) 
+
+From ξ1(Ω) ≥ ξ0(Ω) , the geometric inclusion relation for the respective symmetrized balls immediately follows: 
+
+Ω♯ ⊂ Ω⋆ (2.14) 
+
+Definition 2.11. Consider a measurable function u : Ω → R. To generalize these geo-metric properties to functions, we introduce the distribution functions associated with the level sets {| u| > t }:
+
+μu(t) = LN ({| u| > t }),ξ0(t) = ξ0({| u| > t }).
+
+> 6
+
+Furthermore, if Ω is convex and u is concave (or convex), we define: 
+
+λu(t) = P ({| u| > t }),ξ1(t) = ξ1({| u| > t }).
+
+Accordingly, we define their respective one-dimensional decreasing rearrangements 
+
+(generalized inverse functions) as: 
+
+u∗(s) = inf {t > 0 : μu(t) ≤ s}, s ∈ [0 , |Ω|]. (2.15) 
+
+Under the assumption that Ω is convex and u is concave (or convex), we set: 
+
+u•(s) = inf {t > 0 : λu(t) ≤ s}, s ∈ [0 , P (Ω)] . (2.16) 
+
+Remark 2.12. The following quasi-inversion properties hold and are crucial for analytical evaluations: 
+
+μu(u∗(s)) ≤ s, u∗(μu(t)) ≥ t, μu(u∗(s)−) ≤ s, u∗(μu(t)−) ≥ t. (2.17) 
+
+λu(u•(s)) ≤ s, u•(λu(t)) ≥ t, λu(u•(s)−) ≤ s, u•(λu(t)−) ≥ t. (2.18) 
+
+Definition 2.13. We define the spherically symmetric rearrangements u♯ and u⋆
+
+for x belonging to their respective symmetrized balls: 
+
+• For x ∈ Ω♯:
+
+u♯(x) = u∗(ωN |x|N ) = inf {t > 0 : μu(t) ≤ ωN |x|N } = inf {t > 0 : ξ0(t) ≤ | x|} .
+
+(2.19) 
+
+• If Ω is convex and u is concave (or convex), then for x ∈ Ω⋆:
+
+u⋆(x) = u•(N ω N |x|N −1) = inf {t > 0 : λu(t) ≤ N ω N |x|N −1} = inf {t > 0 : ξ1(t) ≤ | x|} .
+
+(2.20) To conclude this section, we establish a pointwise comparison between the two rearrange-ments and derive the corresponding estimates involving their Lp norms. On Ω◦, both functions u♯ and u⋆ are well-defined since Ω◦ ⊂ Ω⋆. Exploiting the fact that 
+
+ξ0(t) ≤ ξ1(t) for all t > 0, we have: 
+
+{t > 0 : ξ0(t) ≤ | x|} ⊃ { t > 0 : ξ1(t) ≤ | x|} ∀x ∈ Ω♯
+
+By taking the infimum of these sets, the inclusion reverses due to the properties of infima over nested sets, yielding: 
+
+u♯(x) ≤ u⋆(x) ∀x ∈ Ω♯ (2.21) 
+
+> 7
+
+From this pointwise inequality, the Lp norm estimates directly follow for any p ∈ [1 , +∞):
+
+∥u∥Lp(Ω) = ∥u♯∥Lp(Ω ♯) ≤ ∥ u⋆∥Lp(Ω ♯) ≤ ∥ u⋆∥Lp(Ω ⋆) (2.22) Meanwhile, by construction, the following identity holds for the L∞ norm: 
+
+ess sup 
+
+> Ω
+
+|u| = ∥u∥L∞(Ω) = ∥u♯∥L∞(Ω ♯) = ∥u⋆∥L∞(Ω ⋆) (2.23) 
+
+## 3 Talenti’s analytical framework 
+
+In his seminal paper [18], G. Talenti investigated the properties of solutions to the Dirichlet problem for the Monge–Ampère equation in the plane. More precisely, let Ω ⊂ R2 be a convex open set and let f ∈ L1(Ω) be a given function. The fully nonlinear boundary value problem under consideration is given by: 
+
+> 
+
+det D2u = f in Ω,u = 0 on ∂Ω,u ≥ 0 and concave in Ω.
+
+(3.1) The main result of his paper is the following comparison principle for solutions of the previous problem, yielding an a priori estimate that depends on the perimeter of the set 
+
+Ω.
+
+Theorem 3.1 (Talenti, 1981) . Let u ∈ C2(Ω) ∩ C(Ω) be the solution of problem (3.1) 
+
+and let v ∈ C2(Ω ⋆
+
+> 1
+
+) ∩ C(Ω ⋆
+
+> 1
+
+) be the solution of the symmetrized problem: 
+
+> 
+
+det D2v = f ♯ in Ω⋆,v = 0 on ∂Ω⋆,v ≥ 0 and concave in Ω⋆.
+
+(3.2) 
+
+Then, the following estimates hold: 
+
+u⋆(x) ≤ v(x), ∀x ∈ Ω⋆; (3.3) 
+
+> ∫
+> Ω
+
+|Du | dx ≤
+
+> ∫
+> Ω⋆
+
+|Dv | dx. (3.4) 
+
+Here, f ♯ denotes the spherically symmetric decreasing rearrangement of f , as defined in 
+
+(2.19) , extended by zero in Ω⋆ \ Ω♯. Moreover, equality holds if and only if Ω is equivalent to a ball. 
+
+Considering the fact that the solution v to problem (3.2) is explicitly given by: 
+
+v(x) =    
+
+> ∫P(Ω) 24π
+> π|x|2
+> (
+
+1
+
+π 
+
+> ∫s
+> 0
+
+f ∗(r) dr   
+
+> )12
+
+ds 
+
+√4πs , (3.5) 
+
+> 8
+
+and using the property that rearrangements preserve the supremum of a function (2.23), one obtains the following sharp a priori estimate: 
+
+(sup 
+
+> Ω
+
+u)2 ≤ P (Ω) 2
+
+4π3
+
+> ∫
+> Ω
+
+f (x) dx, (3.6) with equality when Ω is a ball. It is worth noting that both this classical result and its generalization by Tso (1985) provide estimates incorporating each quermassintegral of the domain. Conversely, in Section 6 of his seminal paper, Talenti derived an alternative bound involving the Lebesgue measure of the domain, which directly connects to the Mahler inequality for the volume product of convex bodies. A key feature of Talenti’s approach is the comparison of a general solution u with a suitable extremal geometry constructed over the same domain. In the same paper, he obtains another a priori estimate involving the area of the set Ω
+
+via convex geometry arguments, and more specifically, a result that is equivalent to the Mahler/Blaschke-Santaló inequality in the plane. To this end, let x0 ∈ Ω be a point where 
+
+u attains its global maximum. We introduce the cone function k : Ω → [0 , +∞) uniquely determined by the Minkowski functional of Ω centered at x0:
+
+k(x) = u(x0) (1 − inf {t > 0 : x − x0 ∈ t(Ω − x0)}) . (3.7) By construction, k is a concave function such that k(x0) = u(x0) and k = 0 on ∂Ω. Geo-metrically, the graph of k is a ruled surface with a vertex at (x0, u (x0)) . A fundamental property of this construction relies on the inclusion of their respective superdifferentials. Indeed, since u is concave and vanishes on the boundary, any global supporting hyper-plane for the cone k at its vertex x0 lies strictly below u across a part of the domain Ω.Consequently, by performing a vertical translation, such a hyperplane necessarily touches the graph of u at some point belonging to the upper contact set Γ+ 
+
+> u
+
+= Ω . It follows that: 
+
+∂+ 
+
+> k
+
+(x0) ⊂ ∂+ 
+
+> u
+
+(Ω) . (3.8) Furthermore, we observe that the cone function k is differentiable at every point x ∈
+
+Ω \ { x0}, where its superdifferential reduces to a single gradient vector ∂+ 
+
+> k
+
+(x) = {∇ k(x)}.Since the image of the set of differentiability points Ω \ { x0} via the normal mapping has zero Lebesgue measure, the total Monge-Ampère measure of the cone is concentrated at the vertex. This yields the crucial geometric bound: 
+
+|∂+ 
+
+> k
+
+(x0)| = |∂+ 
+
+> k
+
+(Ω) | ≤ | ∂+ 
+
+> u
+
+(Ω) |. (3.9) Motivated by this comparison mechanism, for any convex body Ω ⊂ RN and any fixed vertex x0 ∈ Ω, we introduce the functional: 
+
+J(x0, Ω) = inf {
+
+u(x0)−N |∂+ 
+
+> u
+
+(Ω) | : u ∈ C(Ω) is concave in Ω, u = 0 on ∂Ω}
+
+, (3.10) 
+
+> 9
+
+and we define the global geometric invariant j(Ω) by minimizing over all possible vertex locations within the domain: 
+
+j(Ω) = inf  
+
+> x0∈Ω
+
+J(x0, Ω) = inf 
+
+> {
+
+(max  
+
+> Ω
+
+u)−N |∂+ 
+
+> u
+
+(Ω) | : u ∈ C(Ω) is concave in Ω, u = 0 on ∂Ω
+
+> }
+
+.
+
+(3.11) The monotonicity and inclusion properties detailed in (3.9) guarantee that the global infimum in (3.11) is explicitly attained when u is chosen to be the optimal cone function 
+
+k. Specifically, we have: 
+
+j(Ω) = (max  
+
+> Ω
+
+k)−N |∂+ 
+
+> k
+
+(Ω) |, (3.12) where the vertex x0 ∈ Ω of the minimizing cone is precisely the point that minimizes the localized functional J(·, Ω) .
+
+## 4 The convex geometric perspective and the quantitative result 
+
+Now we focus on the link with the convex geometry and the Mahler inequality. We start by proving the following lemma: 
+
+Lemma 4.1. Let Ω ⊂ RN be a convex body (2.3) . Then: 
+
+j(Ω) = |Ω◦ 
+
+> x0
+
+| (4.1) 
+
+Where x0 ∈ Ω is the point which minimizes J(·, Ω) and Ω◦ 
+
+> x0
+
+is defined in (2.5) .Proof. Let k be the cone function defined in (3.7). Since j(Ω) = (max Ω k)−N |∂+ 
+
+> k
+
+(Ω) |, it is enough to prove that: 
+
+∂+ 
+
+> k
+
+(x0) = −k(x0)Ω ◦ 
+
+> x0
+
+.
+
+So we prove the double inclusion. 
+
+⊆: Taken a slope p ∈ ∂+ 
+
+> k
+
+(x0), we have: 
+
+k(x) ≤ k(x0) + p · (x − x0), ∀x ∈ Ω
+
+Which implies: 
+
+−p · (x − x0) ≤ k(x0) − k(x) ≤ k(x0)
+
+where we used the fact that k(x) ≥ 0 on Ω. And then: 
+
+− pk(x0) · (x − x0) ≤ 1, ∀x ∈ Ω.
+
+So p ∈ − k(x0)Ω ◦ 
+
+> x0
+
+.
+
+⊇: Taken p ∈ − k(x0)Ω ◦ 
+
+> x0
+
+, we have that: 
+
+− pk(x0) · (x − x0) ≤ 1, ∀x ∈ Ω.
+
+> 10
+
+Now, since Ω is convex, for any x ∈ Ω there always exists λ ∈ [0 , 1] and a point 
+
+z ∈ ∂Ω such that x = (1 − λ)x0 + λz , which implies x − x0 = λ(z − x0). Since k is defined via the Minkowski functional, we observe that: 
+
+k(x) = k(x0)(1 − inf {t > 0 : λ(z − x0) ∈ t(Ω − x0)}) = k(x0)(1 − λ).
+
+This directly implies that: 
+
+λk (x0) = k(x0) − k(x).
+
+Since the initial inequality holds for any point in Ω, it must hold for the boundary point z ∈ ∂Ω ⊂ Ω as well: 
+
+−p · (z − x0) ≤ k(x0).
+
+Multiplying both sides by λ ≥ 0 and recalling that λ(z − x0) = x − x0, we obtain: 
+
+−p · (x − x0) ≤ λk (x0) = k(x0) − k(x).
+
+Rearranging the terms yields: 
+
+k(x) ≤ k(x0) + p · (x − x0), ∀x ∈ Ω
+
+In conclusion, p ∈ ∂+ 
+
+> k
+
+(x0), completing the proof. 
+
+Remark. Since we proved that j(Ω) = |Ω◦ 
+
+> x0
+
+|, and x0 minimizes J(·, Ω) , we observe that 
+
+x0 is exactly the Santalò point of Ω, so the product j(Ω) |Ω| is the Mahler product of Ω,which is affine-invariant. Then, without loss of generality, we can always suppose that 
+
+x0 = 0 ∈ Ω.
+
+G. Talenti in 1981 proved this result, which we can observe that is strictly related to the Mahler/Blaschke-Santalò inequality in dimension two. 
+
+Theorem 4.2 (Talenti, 1981) . Let Ω ⊂ R2 be a convex body. Then it holds: 
+
+27 4 ≤ j(Ω) |Ω| ≤ π2
+
+With equality on the left when Ω is a triangle and on the right when Ω is an ellipse. 
+
+From this inequality, we can deduce that for every u concave in Ω such that u ∈ C(Ω) ,
+
+u = 0 on ∂Ω, it holds: 
+
+27 4 ≤ j(Ω) |Ω| ≤ 1(sup Ω u)2 |Ω|| ∂+ 
+
+> u
+
+(Ω) |
+
+=⇒ (sup 
+
+> Ω
+
+u)2 ≤ 427 |Ω|| ∂+ 
+
+> u
+
+(Ω) |
+
+> 11
+
+And if u ∈ C2(Ω) , the area formula implies: 
+
+(sup 
+
+> Ω
+
+u)2 ≤ 427 |Ω|
+
+> ∫
+> Ω
+
+| det D2u|dx 
+
+Remark. Observe that the same inequalities hold also in dimension three, namely: 
+
+(sup 
+
+> Ω
+
+u)3 ≤ 964 |Ω|| ∂+ 
+
+> u
+
+(Ω) |
+
+And if u ∈ C2(Ω) , the area formula implies: 
+
+(sup 
+
+> Ω
+
+u)3 ≤ 964 |Ω|
+
+> ∫
+> Ω
+
+| det D2u|dx 
+
+Now we want to prove this inequality in a quantitative form, using the concept of Banach-Mazur distance and a stability result on Mahler’s inequality proved in [5] First of all, we define the concept of Banach-Mazur distance, which measures how much two convex bodies represent an affine deformation of each other. 
+
+Definition 4.3. Let K, L ⊂ RN be two convex bodies. The Banach-Mazur distance 
+
+between K and L is defined as: 
+
+δBM (K, L ) = inf {t ≥ 1 
+
+> ∣∣∣∣
+
+∃ A : RN → RN affine invertible and x ∈ RN such that L ⊂ A(K) ⊂ tL + x} (4.2) The following result quantifies how much a convex body is affine to a triangle if its volume product is close to 27 4 .
+
+Theorem 4.4 (Boroczky-Makai-Meyer-Reisner, 2013) . Let K ⊂ R2 be a convex body, with 0 ∈ int K and let T be a triangle. Then, ∀ϵ > 0 such that |K|| K◦|− 27 427 4
+
+≤ ϵ we have: 
+
+δBM (K, T ) ≤ 1 + 900 ϵ. 
+
+The previous result can be stated as: 
+
+δBM (K, T ) ≤ 1 + 900 ( |K|| K◦| − 27 427 4
+
+> )
+
+=⇒ 27 4
+
+> (
+
+1 + δBM (K, T ) − 1900 
+
+> )
+
+≤ | K|| K◦|
+
+=⇒ 27 4 
+
+> (
+
+δBM (K, T ) + 899 900 
+
+> )
+
+≤ | K|| K◦| (4.3) And now we are ready to prove our inequality in a quantitative form. 
+
+Theorem 4.5. Let Ω ⊂ R2 be a convex body with 0 ∈ int Ω and let u ∈ C(Ω) a concave 
+
+> 12
+
+function such that u = 0 on ∂Ω. Then, if T is any triangle it holds:  
+
+> 427
+
+|Ω|| ∂+ 
+
+> u
+
+(Ω) | − (sup Ω u)2427 |Ω|| ∂+ 
+
+> u
+
+(Ω) | ≥ δBM (Ω , T ) − 1
+
+δBM (Ω , T ) + 899 .
+
+Proof. Starting from the previous inequality and proceding as for Talenti inequality we obtain: 
+
+27 4 
+
+> (
+
+δBM (Ω , T ) + 899 900 
+
+> )
+
+≤ | Ω|| Ω◦| = |Ω|j(Ω) ≤ 1(sup Ω u)2 |Ω|| ∂+ 
+
+> u
+
+(Ω) |
+
+=⇒ (sup 
+
+> Ω
+
+u)2 ≤ 427  
+
+> (
+
+900 
+
+δBM (Ω , T ) + 899 
+
+> )
+
+|Ω|| ∂+ 
+
+> u
+
+(Ω) |
+
+Then we can deduce: 
+
+427 |Ω|| ∂+ 
+
+> u
+
+(Ω) | − (sup 
+
+> Ω
+
+u)2 ≥ 427 |Ω|| ∂+ 
+
+> u
+
+(Ω) | − 427  
+
+> (
+
+900 
+
+δBM (Ω , T ) + 899 
+
+> )
+
+|Ω|| ∂+ 
+
+> u
+
+(Ω) |
+
+=⇒ 
+
+> 427
+
+|Ω|| ∂+ 
+
+> u
+
+(Ω) | − (sup Ω u)2427 |Ω|| ∂+ 
+
+> u
+
+(Ω) | ≥ 1 − 900 
+
+δBM (Ω , T ) + 899 = δBM (Ω , T ) − 1
+
+δBM (Ω , T ) + 899 
+
+As stated. 
+
+Remark 4.6. For u ∈ C2(Ω) , we can apply the area formula as in (2.4) and obtain: 
+
+427 |Ω|
+
+> ∫
+> Ω
+
+| det D2u|dx − (sup 
+
+> Ω
+
+u)2
+
+427 |Ω|
+
+> ∫
+> Ω
+
+| det D2u|dx 
+
+≥ δBM (Ω , T ) − 1
+
+δBM (Ω , T ) + 899 .
+
+## 5 On the ABP maximum principle 
+
+5.1 The classical ABP theorem 
+
+We conclude by analyzing the implications of this theory for the celebrated Alexandrov-Bakelman-Pucci (ABP) weak maximum principle for a specific class of second-order fully nonlinear and linear elliptic operators, with a quantitative version for convex bodies in dimension two based on the previous results. In general, this is the setting. Let Ω ⊂ RN be a bounded open set and let L be a linear uniformly elliptic operator of the second order defined by: 
+
+Lu =
+
+> N∑
+> i,j =1
+
+aij (x) ∂2u∂x i∂x j
+
++
+
+> N∑
+> i=1
+
+bi(x) ∂u ∂x i
+
++ c(x)u. 
+
+Let A(x) = ( aij (x)) denote the coefficient matrix, and assume there exist two structural constants λ, Λ > 0 such that, for all x ∈ Ω and all ξ ∈ RN , the uniform ellipticity condition 
+
+> 13
+
+holds: 
+
+λ|ξ|2 ≤
+
+> N∑
+> i,j =1
+
+aij (x)ξiξj ≤ Λ|ξ|2.
+
+Setting b = ( bi), the operator L can be compactly expressed as Lu = tr( AD 2u)+ b·∇ u+cu .Under the standard assumptions that the coefficients satisfy aij  
+
+> det( A)1/N
+
+, bi 
+
+> det( A)1/N
+
+∈ LN (Ω) ,
+
+c ≤ 0 almost everywhere, and the source term satisfies f 
+
+> det( A)1/N
+
+∈ LN (Ω) , the classical ABP maximum principle provides an a priori bound for solutions to the differential in-equality Lu ≥ f in terms of the geometry of the domain and the LN -norm of the data. Formally, the standard result states: 
+
+Theorem. Let Ω ⊂ RN be a bounded domain. Let u ∈ W 2,N  
+
+> loc
+
+(Ω) satisfy Lu ≥ f in Ω
+
+(eventually in weak sense). Then there exists a positive constant C, depending only on 
+
+N, diam(Ω) , and ∥∥∥ b 
+
+> det( A)1/N
+> ∥∥∥LN(Ω)
+
+, such that: 
+
+sup 
+
+> Ω
+
+u ≤ lim sup 
+
+> x→∂Ω
+
+u+ + C
+
+> ∥∥∥∥∥
+
+f −
+
+det( A)1/N   
+
+> ∥∥∥∥∥LN(Γ +
+> u)
+
+.
+
+In general, explicit formulas for the sharp constant C are extremely difficult to track due to the abstract geometric cover mechanism of the normal mapping. However, in low di-mensions ( N = 2 and N = 3 ), Talenti’s framework provides an elegant dictionary linking Monge-Ampère measures to linear operators via algebraic invariants. From a historical perspective, the roots of this maximum principle lie in the pioneer-ing geometric ideas of A.D. Alexandrov (1961) regarding the subdifferentials of convex functions. This geometric machinery was subsequently translated into the framework of elliptic partial differential equations by I.Ya. Bakelman (1963, 1965). Independently, C. Pucci (1966) derived uniform bounds for second-order elliptic operators by introducing the notion of extremal operators, culminating in what is now universally designated as the Alexandrov–Bakelman–Pucci (ABP) estimate. In the subsequent decades, a major line of inquiry focused on sharpening the geometric dependencies embedded within the classical ABP bound. A significant breakthrough in this direction was achieved by Cabré (1995), who re-examined the analytical structure of the estimate to eliminate its rigid dependence on the linear diameter of the domain Ω. Cabré’s refinement successfully replaced the di-ameter with an intrinsic constant C scaling directly with the Lebesgue measure (volume) of the domain, thereby providing a more stable and geometrically adaptive formulation of the maximum principle. 
+
+5.2 ABP and Monge-Ampère sharp connection 
+
+The structural bridge connecting the Aleksandrov-Bakelman-Pucci (ABP) estimate to the Monge-Ampère operator relies fundamentally on the classical arithmetic-geometric mean (AM-GM) inequality applied to the eigenvalues of matrix products. 
+
+> 14
+
+Theorem 5.1 (AM-GM inequality for matrices) . Let A, B ∈ GL (N, R) be positive definite symmetric matrices. Then: 
+
+det( A) det( B) ≤ 
+
+> (
+
+tr( AB )
+
+N
+
+> )N
+
+, (5.1) 
+
+with equality holding if and only if B is a scalar multiple of the cofactor matrix of A, i.e., 
+
+B = c cof( A) for some c > 0.
+
+In our specific framework, we restrict our attention to the pure second-order linear elliptic operator Lu = tr( AD 2u). Assuming that u is a concave function (so that −D2u is positive semidefinite), inequality (5.1) yields a sharp pointwise differential control: 
+
+det( −D2u) ≤ 
+
+> (
+
+−Lu N det( A)1/N 
+
+> )N
+
+. (5.2) Equality is achieved if and only if the diffusion matrix A(x) is point-by-point proportional to the cofactor matrix of the Hessian, A(x) = c(x) cof( −D2u(x)) . This relation offers a direct path to interpret the Monge-Ampère equation as the lower envelope of linearized second-order elliptic PDEs. By combining this pointwise matrix control with quantitative functional inequalities, we establish sharp, geometrically stable formulations of the ABP maximum principle on convex bodies. In the analysis of the equality case, a technical difficulty arises since the cone function fails to be C2(Ω) ; but this lack of regularity can be managed via a suitable approximation argument. 
+
+Theorem 5.2. Let Ω ⊂ RN be a convex body with 0 ∈ int Ω (see definition (2.3) ), let 
+
+A(x) ∈ GL (N, R) define a uniformly elliptic linear operator, and let Lu = tr( AD 2u). Let 
+
+f be a given datum such that f 
+
+> det( A)1/N
+
+∈ C(Ω) , and let u ∈ C2(Ω) ∩ C(Ω) be a concave function satisfying Lu ≥ f in Ω with zero Dirichlet boundary conditions u = 0 on ∂Ω.Then the following sharp functional estimates hold: 1. Sharp ABP in dimension N = 2 : If N = 2 , then: 
+
+sup 
+
+> Ω
+
+u ≤ 13√3|Ω|1/2
+
+> ∥∥∥∥∥
+
+f
+
+det( A)1/2
+
+> ∥∥∥∥∥L2(Ω)
+
+. (5.3) 
+
+Equality is asymptotically attained if and only if Ω is a triangle, u is an optimal smooth cone approximation, and A(x) = cof( −D2u(x)) .2. Sharp ABP in dimension N = 3 : If N = 3 , then: 
+
+sup 
+
+> Ω
+
+u ≤ 14 3
+
+√3|Ω|1/3
+
+> ∥∥∥∥∥
+
+f
+
+det( A)1/3
+
+> ∥∥∥∥∥L3(Ω)
+
+. (5.4) 
+
+Equality is asymptotically attained if and only if Ω is a simplex, u is an optimal smooth cone approximation, and A(x) = cof( −D2u(x)) .
+
+> 15
+
+3. Quantitative Geometric Stability ( N = 2 ): If N = 2 and T is any triangle in the plane, the functional deficit in the sharp ABP maximum principle controls the geometric distance of the domain from the optimal triangular shape via the Banach-Mazur distance δBM as follows:  
+
+> 127
+
+|Ω|  
+
+> ∥∥∥f
+> det( A)1/2
+> ∥∥∥2
+> L2(Ω)
+
+− (sup Ω u)2127 |Ω| ∥∥∥ f
+
+> det( A)1/2
+> ∥∥∥2
+> L2(Ω)
+
+≥ δBM (Ω , T ) − 1
+
+δBM (Ω , T ) + 899 . (5.5) A crucial observation is that standard formulations of the ABP estimate do not provide sharp bounds in terms of the volume of the domain across all dimensions. For instance, a well-known classical bound is expressed via the diameter of the domain: 
+
+sup 
+
+> Ω
+
+u ≤ diam(Ω) 
+
+ω1/N N
+
+> (∫
+> Γ+
+> u
+
+det( −D2u) dx 
+
+> )1/N
+
+, (5.6) where Γ+ 
+
+> u
+
+denotes the upper contact set of u. This estimate originates from construct-ing a comparison cone k whose vertex corresponds to the maximum point x0 ∈ Ω and whose base is the ball centered at x0 with radius equal to diam(Ω) . By analyzing the subdifferential image of k, one obtains the containment: 
+
+B u(x0)diam(Ω) 
+
+(0) ⊂ ∇ u(Γ + 
+
+> u
+
+).
+
+Taking the Lebesgue measure on both sides yields: 
+
+ωN 
+
+> (
+
+sup Ω u
+
+diam(Ω) 
+
+> )N
+
+≤ |∇ u(Γ + 
+
+> u
+
+)|.
+
+Applying the area formula to the right-hand side immediately produces (5.6): 
+
+ωN 
+
+> (
+
+sup Ω u
+
+diam(Ω) 
+
+> )N
+
+≤
+
+> ∫
+> Γ+
+> u
+
+det( −D2u) dx. 
+
+Although robust, estimate (5.6) is structurally suboptimal due to its dependence on the linear diameter, which fails to capture the intrinsic geometry of Ω. A sharp alternative is achieved by constructing the comparison cone k directly over the base Ω with its vertex at the maximum point x0. Utilizing the geometric relation between the cone and the polar body Ω◦ 
+
+> x0
+
+centered at x0, the subdifferential image satisfies: 
+
+(sup 
+
+> Ω
+
+u)N |Ω◦ 
+
+> x0
+
+| = |∂+k(x0)| ≤ | ∂+u(Ω) |.
+
+This finer geometric confinement leads to the following sharp theorem for the Monge-Ampère operator, establishing the ultimate connection with the polar body invariant. 
+
+Theorem 5.3. Let Ω ⊂ RN be a convex body and let u ∈ C(Ω) be a concave function 
+
+> 16
+
+such that u = 0 on ∂Ω, attaining its maximum at x0 ∈ Ω. Then: 
+
+sup 
+
+> Ω
+
+u ≤ 1
+
+|Ω◦ 
+
+> x0
+
+|1/N |∂+u(Ω) |1/N . (5.7) 
+
+Equality holds strictly if and only if u is the geometric cone constructed over Ω with vertex at x0. Furthermore, if u ∈ C2(Ω) ∩ C(Ω) , the subdifferential measure can be expressed via the Monge-Ampère determinant, yielding the sharp functional estimate: 
+
+sup 
+
+> Ω
+
+u ≤ 1
+
+|Ω◦ 
+
+> x0
+
+|1/N 
+
+> (∫
+> Ω
+
+det( −D2u) dx 
+
+> )1/N
+
+. (5.8) 
+
+In this smooth setting, equality is achieved asymptotically by a family of optimal regularized cones uμ ∈ C2(Ω) converging uniformly to the geometric cone as the smoothing parameter 
+
+μ → 0.
+
+> 17
+
+## References 
+
+[1] A. D. Aleksandrov. Certain estimates for the Dirichlet problem. Soviet Math. Dokl. ,1:1151–1154, 1961. [2] L. Ambrosio, N. Fusco, and D. Pallara. Functions of Bounded Variation and Free Discontinuity Problems . Oxford Mathematical Monographs. The Clarendon Press, Oxford University Press, New York, 2000. [3] I. Ya. Bakelman. The dirichlet problem for an equation with a Monge–Ampère operator. Dokl. Akad. Nauk SSSR , 141:1011–1014, 1963. [4] I. Ya. Bakelman. Geometric methods of solution of elliptic equations . Nauka, Moscow, 1965. [5] K. J. Böröczky, E. Makai, M. Meyer, and S. Reisner. On the volume product of planar polar convex bodies — lower estimates with stability. Studia Scientiarum Mathematicarum Hungarica , 50(2):159–198, 2013. [6] X. Cabrè. On the Alexandroff-Bakelman-Pucci estimate and the reversed hölder inequality for solutions of elliptic and parabolic equations. Comm. Pure Appl. Math. ,48(5):539–570, 1995. [7] X. Cabrè and L. A. Caffarelli. Fully Nonlinear Elliptic Equations , volume 43 of 
+
+Colloquium Publications . American Mathematical Society, Providence, RI, 1995. [8] S. Chen, Y. Li, D. Xi, and Z. Xu. The Mahler Conjecture in Three Dimensions. Preprint arXiv:2605.09334v3 [math.MG], June 2026. [9] A. Cianchi and N. Fusco. Functions of bounded variation and rearrangements. Archive for Rational Mechanics and Analysis , 165(1):1–40, 2002. [10] A. Figalli. The Monge-Ampère Equation and its Applications . Zurich Lectures in Advanced Mathematics, Zürich, 2017. [11] D. Gilbarg and N. S. Trudinger. Elliptic Partial Differential Equations of Second Order . Classics in Mathematics. Springer-Verlag, Berlin, 2001. [12] C. E. Gutièrrez. The Monge-Ampère Equation , volume 89 of Progress in Nonlinear Differential Equations and Their Applications . Birkhäuser, second edition, 2016. [13] K. Mahler. Ein Minimalproblem für konvexe Polygone. Mathematica B (Zutphen) ,B7:118–127, 1938. [14] K. Mahler. Ein Übertragungsprinzip für konvexe Körper. Časopis pro pěstování matematiky a fysiky , 68:93–102, 1939. [15] C. Pucci. Limitazioni per soluzioni di equazioni ellittiche. Annali di Matematica Pura ed Applicata , 74:15–30, 1966. 
+
+> 18
+
+[16] R. T. Rockafellar. Convex Analysis . Princeton University Press, Princeton, NJ, 1970. [17] R. Schneider. Convex Bodies: The Brunn-Minkowski Theory , volume 151 of Ency-clopedia of Mathematics and its Applications . Cambridge University Press, second edition, 2014. [18] G. Talenti. Some estimates of solutions to Monge-Ampère type equations in dimen-sion two. Ann. Scuola Norm. Sup. Pisa Cl. Sci. , 8(2):183–230, 1981. [19] K. Tso. On symmetrization and Hessian equations. Journal d’Analyse Mathématique ,52:94–106, 1989. 
+
+E-mail address: antonio.porricelli2@unina.it 
+
+Dipartimento di Matematica e Applicazioni "R. Caccioppoli", Università degli Studi di Napoli Federico II, Via Cintia, Complesso Universitario Monte S. Angelo, 80126, Napoli, Italy.

@@ -1,0 +1,4388 @@
+Title: Almost-Hermitian and Hermitian metrics
+
+URL Source: https://arxiv.org/pdf/2607.26673v1
+
+Published Time: Thu, 30 Jul 2026 00:39:57 GMT
+
+Number of Pages: 44
+
+Markdown Content:
+# Almost-Hermitian and Hermitian metrics 
+
+## Daniele Angella ∗
+
+## July 30, 2026 
+
+La scienza – così come la legge – nasce sempre come esigenza di tutela e di liberazione dell’uomo, ma è facile si traduca in un nuovo strumento di oppressione. La tecnica – così come la legge – può dunque essere usata come strumento di liberazione se riusciamo ogni volta a comprendere i bisogni reali cui si deve rispondere, evitando di presumere o di accettare che la scienza e la legge servano a rispondere ai bisogni dei tecnici o della società che li delega. 
+
+Franco Basaglia, Franca Ongaro Basaglia, Crimini di pace 
+
+Abstract 
+
+We describe three problems in Hermitian geometry related to the scalar curvature of the Chern connection, aimed at identifying and constructing canonical metrics. They are chosen as toy examples where different techniques naturally interact: analytic methods for partial differential equations, the notion of momentum map, and variational methods. 
+
+# 1 Introduction and motivation 
+
+As illustrated by the foundational Uniformization Theorem, encoding information in canonically attached metrics is a powerful tool for attacking classification problems. Here, “canonical” refers to uniqueness up to the corresponding automorphism group. But how do canonical metrics emerge? Asking for prescribed curvature (e.g. constant curvature, in some sense) usually translates into solving partial differential equations on manifolds, which may be solvable when coupled with other constraints on the metric (e.g. coupling the Ricci-flat and Kähler conditions leads to a complex Monge-Ampère equation, whose solution gives Calabi-Yau metrics). These elliptic equations also have parabolic counterparts, so that canonical metrics may emerge as the limiting behaviour of geometric flows. Moreover, they can sometimes be interpreted as Euler-Lagrange equations of suitable functionals, whose critical points are precisely the metrics we are looking for: for instance, extremal Kähler metrics are defined as critical points of the Calabi functional, given by the 𝐿 2-norm of the scalar curvature, and include constant scalar curvature Kähler and Kähler-Einstein metrics. In the Kähler setting, the scalar curvature plays a particularly important role: by the foundational work of Fujiki and Donaldson, it arises as a momentum map for an infinite-dimensional Hamiltonian action on the space of Kähler structures, and constant scalar curvature Kähler metrics arise precisely as its zeroes. In these lectures, we cover three problems in Hermitian geometry where all these approaches appear in a natural way. They are taken from joint works of the author with Simone Calamai, Francesco Pediconi, Carlo Scarpa, Cristiano Spotti, and Oluwagbenga Joshua Windare [ACS17, ACPS25, APS +26]. Why 
+
+> ∗
+
+Dipartimento di Matematica e Informatica, Università di Firenze, viale Morgagni 67/A, 50134 Firenze, Italy, daniele.angella@unifi.it 
+
+1arXiv:2607.26673v1 [math.DG] 29 Jul 2026 this choice? First of all, because the author knows them well. He is conscious that these results will not revolutionize complex geometry, but he regards them as excellent toy examples from a pedagogical point of view, well suited to conveying the techniques he learned during the preparation of those papers, thanks especially to his coauthors. In Section 2, we recall some preliminaries on the Chern connection. In particular, we introduce the Chern scalar curvature, the main character of these notes, and compute its conformal transformation rule together with those of some related geometric quantities. In Section 3, we introduce an analogue of the Yamabe problem, looking for Hermitian metrics in a conformal class with constant scalar curvature with respect to the Chern connection. This problem was originally introduced in [ACS17] and studied as a partial differential equation of Liouville type, which is not variational in general. Motivated by the Fujiki-Donaldson picture, we asked ourselves whether the Chern scalar curvature still admits an interpretation as a momentum map. This was studied in [ACPS25] in a specific Hermitian non-Kähler setting, which we discuss in Section 4. In that work, it emerged that the Chern scalar curvature itself may not be the most natural quantity to study, but rather a deformation of it involving torsion terms. The corresponding deformed Yamabe-type problems arise as the Euler-Lagrange equations of a functional and were studied in [APS +26] using variational techniques, which we recall in Section 5. Some of these problems have counterparts or generalizations in the almost-Hermitian setting, which is in fact the natural framework for the momentum map picture; see e.g. [dRS03, LU20, BL23]. Before continuing, the author would like to sadly highlight that all the mathematicians named in these notes (whether associated with a theorem, a geometric object, or a foundational result) studied in the Global North and are male. This reflects how far our field still is from inclusiveness and decolonization, and should motivate us to explore all the culture we have yet to discover. The author would like to be able to apply the teaching of Basaglia and Ongaro Basaglia, who argue in the same volume cited above that any strategy should first recognize people (all people, not an abstract notion) and their needs as its ultimate aim, rather than the needs of those who practice it or of the institutions that legitimize it. 
+
+# 2 Preliminaries and notation 
+
+## 2.1 Setting and notation 
+
+In these notes, we work on complex manifolds 𝑋 , always assumed to be connected and, unless otherwise stated, compact. The superscript 𝑛 in 𝑋 𝑛 denotes the complex dimension. We will denote by 𝐽 the associated almost-complex structure, which we usually assume integrable, even if many objects and results can be extended to the non-integrable case. We usually assume functions and tensors to be smooth, even if the singular setting is also very interesting in some situations. We do not assume the existence of Kähler metrics or other special structures; instead, we consider general Hermitian metrics. We encode them in the datum of a real positive (1, 1)-form 𝜔 , while the underlying Riemannian metric is 
+
+𝑔 = 𝜔 (· , 𝐽 ·) . The tensor ℎ = 𝑔 − √−1 𝜔 then yields a Hermitian structure on the fibres of the holomorphic tangent bundle. We always integrate with respect to the volume form 𝜔 𝑛  
+
+> 𝑛 !
+
+naturally associated with 𝑔 and the canonical orientation induced by the complex structure. For 1 ≤ 𝑝 < +∞ , the 𝐿 𝑝 -norm of a function 
+
+𝑓 is 
+
+∥ 𝑓 ∥𝐿 𝑝 :=
+
+∫ 
+
+> 𝑋
+
+| 𝑓 | 𝑝 𝜔 𝑛 
+
+𝑛 !
+
+ 1
+
+> 𝑝
+
+.
+
+We denote by the same symbol the induced 𝐿 2-pairings on forms and endomorphisms, extending the scalar product to tensors in the natural way; in particular, on endomorphisms, ⟨𝐴, 𝐵 ⟩𝐿 2 = ∫ 
+
+> 𝑋
+
+tr ( 𝐴𝐵 𝑡 ) 𝜔 𝑛  
+
+> 𝑛 !
+
+,where (·) 𝑡 denotes the 𝑔 -adjoint. We denote by Δ := 𝑑𝑑 ∗ + 𝑑 ∗ 𝑑 the Hodge-de Rham (“geometric”) Laplacian with respect to 𝜔 , and write Δ𝜔 when we need to avoid ambiguity. Recall that 𝑑 ∗ is the formal adjoint of 𝑑 with respect to the 𝐿 2-inner product induced by 𝑔 on the space of global smooth differential forms. In particular, integration by parts gives ∫ 
+
+> 𝑋
+
+𝑓 Δ𝑢 𝜔 𝑛  
+
+> 𝑛 !
+
+= ∫ 
+
+> 𝑋
+
+𝑔 (𝑑𝑓 , 𝑑𝑢 ) 𝜔 𝑛  
+
+> 𝑛 !
+
+for smooth functions 𝑓 and 𝑢 on 𝑋 . With our 
+
+2sign convention, for any smooth real-valued function 𝑓 on 𝑋 , at a local maximum point 𝑥 max we have 
+
+(Δ 𝑓 )( 𝑥 max ) ≥ 0. We denote by ∇ the gradient operator on smooth functions induced by 𝑔 , defined by 
+
+∇ 𝑓 := (𝑑𝑓 )♯. Here, ♯ denotes the musical isomorphism induced by 𝑔 , namely 𝑑𝑓 (𝑋 ) = 𝑔 (𝑋, (𝑑𝑓 )♯) for any vector field 𝑋 , and ♭ denotes its inverse. For a survey on the problems treated in these lecture notes, as well as on other problems in complex geometry, see also [AT26], where interested readers can also find further details on the preliminaries recalled here. 
+
+## 2.2 Chern connection and curvature 
+
+We denote by 𝐷 the Levi-Civita connection of 𝑔 . It is known that 𝐷𝐽 = 0 if and only if 𝜔 is Kähler, i.e., 
+
+𝑑𝜔 = 0. In other words, in the general Hermitian setting, the Levi-Civita connection does not preserve the Hermitian structure. To avoid this issue, one considers connections ∇ on the tangent bundle satisfying 
+
+∇𝑔 = 0 and ∇𝐽 = 0,
+
+at the price of having non-zero torsion 𝑇 (𝑋, 𝑌 ) := ∇𝑋 𝑌 − ∇ 𝑌 𝑋 − [ 𝑋, 𝑌 ]. The space of Hermitian connections forms an affine space modeled on vector-valued real (1, 1)-forms, so the choice is not unique. Some connections arise more naturally than others. In these notes, we focus on the Chern connection, namely the unique Hermitian connection whose (0, 1)-part equals the Cauchy-Riemann operator ¯𝜕 𝑇 𝑋 on the holomorphic tangent bundle. It is denoted ∇Ch and is given by 
+
+𝑔 (∇ Ch  
+
+> 𝑉
+
+𝑊, 𝑍 ) = 𝑔 (𝐷 𝑉 𝑊, 𝑍 ) − 12 𝑑𝜔 (𝐽𝑉, 𝑊, 𝑍 ).
+
+The corresponding geometric quantities (curvature, torsion, etc.) will be denoted with the superscript “Ch” when needed to avoid confusion and referred to as Chern quantities. We mention that other natural choices are available, e.g. the Bismut connection [Bis89, Str86] or, more generally, the one-parameter family of Gauduchon connections [Gau97]. The torsion of the Chern connection is given by 
+
+−2𝑔 (𝑇 Ch (𝑋, 𝑌 ), 𝑍 ) = 𝑑𝜔 (𝐽 𝑋, 𝑌 , 𝑍 ) + 𝑑𝜔 (𝑋, 𝐽𝑌 , 𝑍 ),
+
+and has vanishing (1, 1)-component, i.e., 𝐽𝑇 Ch (𝑋, 𝑌 ) = 𝑇 Ch (𝐽 𝑋, 𝑌 ) = 𝑇 Ch (𝑋, 𝐽𝑌 ). To make the notation lighter, we will usually forget the superscript “Ch” and denote 𝑇 := 𝑇 Ch . Its trace 
+
+𝜃 :=
+
+> 2𝑛
+
+∑︁ 
+
+> 𝑖 =1
+
+𝑔 (𝑇 Ch (· , 𝑒 𝑖 ), 𝑒 𝑖 ),
+
+where (𝑒 𝑖 , 𝑒 𝑛 +𝑖 := 𝐽𝑒 𝑖 )𝑖 =1,...,𝑛 is a local 𝑔 -orthonormal 𝐽 -adapted frame of the tangent bundle, is called the Lee form and is characterized by 
+
+𝑑𝜔 𝑛 −1 = 𝜃 ∧ 𝜔 𝑛 −1.
+
+The Chern Laplacian ΔCh acts on smooth functions 𝑓 as 
+
+ΔCh 𝑓 = 𝑔 
+
+
+
+𝜔, −2√−1 𝜕𝜕 𝑓 
+
+
+
+= tr 𝜔 
+
+
+
+−2 √−1 𝜕𝜕 𝑓 
+
+
+
+.
+
+In local holomorphic coordinates (𝑧 𝑖 )𝑖 , writing 
+
+𝜔 loc 
+
+= ℎ𝑖 ¯𝑗 
+
+√−1 𝑑𝑧 𝑖 ∧ 𝑑 ¯𝑧 𝑗 ,
+
+where (ℎ𝑖 ¯𝑗 )𝑖, 𝑗 is a positive definite Hermitian matrix, the Chern Laplacian is given by 
+
+ΔCh 𝑓 loc 
+
+= −2ℎ ¯𝑗𝑖 𝜕 2 𝑓 𝜕𝑧 𝑖 𝜕 ¯𝑧 𝑗 ,
+
+3where (ℎ ¯𝑗𝑖 )𝑖, 𝑗 denotes the inverse matrix of (ℎ𝑖 ¯𝑗 )𝑖, 𝑗 . Note that the Chern Laplacian is an elliptic differential operator of second order with no zero-order terms, and its second-order term coincides with that of the Hodge-de Rham Laplacian. In particular, ΔCh − Δ is a first-order operator, hence compact relative to Δ, and so ΔCh has the same Fredholm index as the Hodge-de Rham Laplacian; see [Gau77, page 388]. More precisely, by [Gau84, pages 502-503], we have the following relation. 
+
+Proposition 2.1 ([Gau84]) . Let 𝑋 be a compact complex manifold, endowed with a Hermitian metric 𝜔 
+
+with Lee form 𝜃 . Then, for every smooth function 𝑓 ∈ C ∞ (𝑋, R),
+
+ΔCh 𝑓 = Δ 𝑓 + 𝑔 (𝑑𝑓 , 𝜃 ). (1) 
+
+Proof. We introduce the real differential operator 𝑑 𝑐 := 𝐽 −1 𝑑𝐽 , where 𝐽 is extended to forms by 
+
+(𝐽𝜑 )( 𝑋 1, . . . , 𝑋 𝑘 ) := 𝜑 (𝐽 𝑋 1, . . . , 𝐽 𝑋 𝑘 ) for 𝜑 a 𝑘 -form, following the convention of [Huy05]. In particular, on smooth functions 𝑓 ,
+
+𝑑 𝑐 𝑓 = −𝑑𝑓 ◦ 𝐽 = −√−1 (𝜕 𝑓 − ¯𝜕 𝑓 ),
+
+so that 𝑑𝑑 𝑐 𝑓 = 2√−1 𝜕 ¯𝜕 𝑓 . By the trace definition of the Chern Laplacian, 
+
+−𝑑𝑑 𝑐 𝑓 ∧ 𝜔 𝑛 −1
+
+(𝑛 − 1)! = Δ Ch 𝑓 𝜔 𝑛 
+
+𝑛 ! .
+
+We also use the standard identity (see e.g. [Huy05, Proposition 1.2.31]) 
+
+∗𝑑𝑓 = 𝑑 𝑐 𝑓 ∧ 𝜔 𝑛 −1
+
+(𝑛 − 1)! .
+
+Applying 𝑑 , we get 
+
+𝑑 ∗ 𝑑𝑓 = 𝑑𝑑 𝑐 𝑓 ∧ 𝜔 𝑛 −1
+
+(𝑛 − 1)! − 𝑑 𝑐 𝑓 ∧ 𝑑 
+
+ 𝜔 𝑛 −1
+
+(𝑛 − 1)!
+
+
+
+= −ΔCh 𝑓 𝜔 𝑛 
+
+𝑛 ! − 𝑑 𝑐 𝑓 ∧ 𝜃 ∧ 𝜔 𝑛 −1
+
+(𝑛 − 1)!
+
+= −ΔCh 𝑓 𝜔 𝑛 
+
+𝑛 ! + 𝜃 ∧ ∗ 𝑑𝑓 
+
+= −
+
+
+
+ΔCh 𝑓 − 𝑔 (𝜃, 𝑑𝑓 )
+
+ 𝜔 𝑛 
+
+𝑛 ! .
+
+On the other hand, Δ 𝑓 = 𝑑 ∗ 𝑑𝑓 = −∗ 𝑑 ∗𝑑𝑓 on smooth functions 𝑓 , so that Δ 𝑓 𝜔 𝑛  
+
+> 𝑛 !
+
+= −𝑑 ∗ 𝑑𝑓 . Comparing the two expressions for 𝑑 ∗ 𝑑𝑓 yields the identity. □
+
+The curvature tensor of ∇Ch is 
+
+ΘCh (𝑋, 𝑌 , 𝑍, 𝑊 ) := 𝑔 (∇ Ch  
+
+> 𝑋
+
+∇Ch  
+
+> 𝑌
+
+𝑍 − ∇ Ch  
+
+> 𝑌
+
+∇Ch  
+
+> 𝑋
+
+𝑍 − ∇ Ch   
+
+> [𝑋,𝑌 ]
+
+𝑍, 𝑊 ).
+
+In local holomorphic coordinates, the Chern curvature tensor has local expression 
+
+ΘCh loc 
+
+= Θ 𝑖 ¯𝑗 𝑘 ¯ℓ
+
+√−1 𝑑𝑧 𝑖 ∧ 𝑑 ¯𝑧 𝑗 ⊗ √−1 𝑑𝑧 𝑘 ∧ 𝑑 ¯𝑧 ℓ ,
+
+where 
+
+Θ𝑖 ¯𝑗 𝑘 ¯ℓ = − 𝜕 2 ℎ𝑘 ¯ℓ
+
+𝜕𝑧 𝑖 𝜕 ¯𝑧 𝑗 + ℎ ¯𝑞 𝑝 𝜕ℎ 𝑝 ¯ℓ
+
+𝜕 ¯𝑧 𝑗 
+
+𝜕ℎ 𝑘 ¯𝑞 
+
+𝜕𝑧 𝑖 .
+
+In the Kähler case, the Chern connection coincides with the Levi-Civita connection, and therefore the curvature tensor satisfies many symmetries: up to raising an index, it can be viewed as a real (1, 1)-form with values in the endomorphisms of the holomorphic tangent bundle. In the general Hermitian setting, however, the Bianchi identity fails due to the presence of torsion, so several traces are possible, yielding 
+
+4different notions of Ricci curvature; see e.g. [ACS20]. We recall the local expression of the first Chern Ricci curvature form: 
+
+Ric Ch (𝜔 ) loc 
+
+= ℎ ¯ℓ 𝑘 ΘCh   
+
+> 𝑖 ¯𝑗 𝑘 ¯ℓ
+
+√−1 𝑑𝑧 𝑖 ∧ 𝑑 ¯𝑧 𝑗 
+
+= − 𝜕 2 log det (ℎ𝑟 ¯𝑠 )𝑟 ,𝑠 
+
+𝜕𝑧 𝑖 𝜕 ¯𝑧 𝑗 
+
+√−1 𝑑𝑧 𝑖 ∧ 𝑑 ¯𝑧 𝑗 ,
+
+while a second Chern-Ricci curvature will briefly appear in Remark 3.9. Note that Ric Ch (𝜔 ) is a closed 
+
+(1, 1)-form representing the first Bott-Chern class 𝑐 𝐵𝐶  
+
+> 1
+
+(𝑋 ) ∈ 𝐻 1,1 
+
+> 𝐵𝐶
+
+(𝑋, R), where 
+
+𝐻 1,1 
+
+> 𝐵𝐶
+
+(𝑋, R) := {𝑑 -closed real (1, 1)-forms on 𝑋 }
+
+n√−1 𝜕 ¯𝜕𝜓 : 𝜓 ∈ C ∞ (𝑋, R)
+
+o
+
+is the real (1, 1)-Bott-Chern cohomology of 𝑋 . In Section 3 we will also meet the Aeppli cohomology, defined as 
+
+𝐻 •,• 
+
+> 𝐴
+
+(𝑋 ) := ker 𝜕𝜕 
+
+im 𝜕 + im 𝜕 ,
+
+which is in duality with the Bott-Chern cohomology; see [Dem12, Sch07]. 
+
+## 2.3 Chern scalar curvature 
+
+The main character in these notes is the Chern scalar curvature, obtained by tracing the curvature tensor twice in the following order: 
+
+scal Ch (𝜔 ) := −2
+
+> 𝑛
+
+∑︁ 
+
+> 𝑖, 𝑗 =1
+
+ΘCh (𝑒 𝑖 , 𝐽𝑒 𝑖 , 𝑒 𝑗 , 𝐽𝑒 𝑗 ).
+
+In local holomorphic coordinates, 
+
+scal Ch (𝜔 ) loc 
+
+= 2 ℎ ¯𝑗𝑖 ℎ ¯ℓ 𝑘 ΘCh   
+
+> 𝑖 ¯𝑗 𝑘 ¯ℓ
+
+= −2 ℎ ¯𝑗𝑖 𝜕 2 log det (ℎ𝑟 ¯𝑠 )
+
+𝜕𝑧 𝑖 𝜕 ¯𝑧 𝑗 
+
+= ΔCh log det (ℎ𝑟 ¯𝑠 ).
+
+We choose this normalization, with coefficient 2, so that the Chern scalar curvature and the Riemannian scalar curvature scal (𝑔 ) are related by [Gau84, Equation (33)], in the clean form stated in Proposition 2.2 below. There is another way to trace out a function from ΘCh , namely 
+
+gscal Ch loc 
+
+:= 2ℎ ¯ℓ𝑖 ℎ ¯𝑗 𝑘 Θ𝑖 ¯𝑗 𝑘 ¯ℓ ,
+
+see [Gau84, Equation (19)], and will appear briefly in Equation (22) below. We now collect the relations between the two Chern scalar curvatures scal Ch and gscal Ch , and the Riemannian scalar curvature scal (𝑔 ).
+
+Proposition 2.2 ([Gau84]) . Let 𝑋 be a compact complex manifold, endowed with a Hermitian metric 
+
+𝜔 . Denote by 𝑔 the underlying Riemannian metric, by scal (𝑔 ) its scalar curvature, and by gscal Ch (𝜔 ) the other scalar trace of the Chern curvature. Then 
+
+gscal Ch (𝜔 ) = scal Ch (𝜔 ) − 𝑑 ∗𝜃 − | 𝜃 |2, (2) 
+
+and 
+
+scal (𝑔 ) = scal Ch (𝜔 ) + 𝑑 ∗𝜃 − 14 |𝑇 Ch |2. (3) 
+
+In particular, when 𝜔 is Kähler, then scal (𝑔 ) = scal Ch (𝜔 ) = gscal Ch (𝜔 ).
+
+5Proof. Throughout the proof, (𝑒 𝛼 )𝛼 =1,..., 2𝑛 denotes a local 𝑔 -orthonormal frame, and we set 
+
+𝜏 𝛼𝛽𝛾 := 𝑔 (𝑇 Ch (𝑒 𝛼 , 𝑒 𝛽 ), 𝑒 𝛾 )
+
+so that 
+
+|𝑇 Ch |2 =∑︁ 
+
+> 𝛼,𝛽,𝛾
+
+𝜏 2 
+
+> 𝛼𝛽𝛾
+
+.
+
+Step 1. The contorsion tensor and the Lee form. Write ∇Ch = 𝐷 + 𝐴 . Since both connections are metric and 𝐷 is torsion-free, the tensor 𝐴 satisfies 𝑔 ( 𝐴 (𝑋, 𝑌 ), 𝑍 ) = −𝑔 ( 𝐴 (𝑋, 𝑍 ), 𝑌 ) and 𝐴 (𝑋, 𝑌 ) − 𝐴 (𝑌 , 𝑋 ) =
+
+𝑇 Ch (𝑋, 𝑌 ); these two conditions determine 𝐴 uniquely as 
+
+𝑔 ( 𝐴 (𝑋, 𝑌 ), 𝑍 ) = 12
+
+
+
+𝑔 (𝑇 Ch (𝑋, 𝑌 ), 𝑍 ) − 𝑔 (𝑇 Ch (𝑌 , 𝑍 ), 𝑋 ) + 𝑔 (𝑇 Ch (𝑍, 𝑋 ), 𝑌 )
+
+
+
+.
+
+The trace of 𝐴 is related to the Lee form. Indeed, set 𝑎 := Í𝛼 𝐴 (𝑒 𝛼 , 𝑒 𝛼 ). By the previous equation and the skew-symmetry of 𝑇 Ch in its arguments, 
+
+𝑔 (𝑎, 𝑒 𝛾 ) = 12∑︁ 𝛼 
+
+
+
+0 − 𝜏 𝛼𝛾 𝛼 + 𝜏 𝛾 𝛼𝛼 
+
+
+
+=∑︁ 
+
+> 𝛼
+
+𝑔 (𝑇 Ch (𝑒 𝛾 , 𝑒 𝛼 ), 𝑒 𝛼 ) = 𝜃 (𝑒 𝛾 ),
+
+that is, 𝑎 = 𝜃 ♯.For ∇Ch = 𝐷 + 𝐴 one has the standard formula (see e.g. [Bes08, 1.20]) 
+
+ΘCh (𝑋, 𝑌 )𝑍 = Rm (𝑋, 𝑌 )𝑍 + ( 𝐷 𝑋 𝐴 )( 𝑌 , 𝑍 ) − ( 𝐷 𝑌 𝐴 )( 𝑋, 𝑍 )+𝐴 (𝑋, 𝐴 (𝑌 , 𝑍 )) − 𝐴 (𝑌 , 𝐴 (𝑋, 𝑍 )) ,
+
+where Rm denotes the Riemannian curvature tensor of the Levi-Civita connection. 
+
+Step 2. Comparison of the curvature traces. Fix 𝑝 ∈ 𝑋 and choose the frame to be 𝐷 -parallel at 𝑝 .Write 𝐴 𝛼𝛽𝛾 := 𝑔 ( 𝐴 (𝑒 𝛼 , 𝑒 𝛽 ), 𝑒 𝛾 ) and note that 𝐴 𝛼𝛽 𝛼 = −𝐴 𝛼𝛼𝛽 . Tracing the equation above against Í𝛼,𝛽 𝑔 ( · ( 𝑒 𝛼 , 𝑒 𝛽 )𝑒 𝛽 , 𝑒 𝛼 ) gives: 
+
+gscal Ch (𝜔 ) =∑︁ 
+
+> 𝛼,𝛽
+
+𝑔 (ΘCh (𝑒 𝛼 , 𝑒 𝛽 )𝑒 𝛽 , 𝑒 𝛼 )
+
+=∑︁ 
+
+> 𝛼,𝛽
+
+𝑔 (Rm (𝑒 𝛼 , 𝑒 𝛽 )𝑒 𝛽 , 𝑒 𝛼 )+∑︁ 
+
+> 𝛼
+
+𝐷 𝑒 𝛼 
+
+∑︁ 
+
+> 𝛽
+
+𝐴 𝛽𝛽 𝛼 
+
+
+
+−∑︁ 
+
+> 𝛽
+
+𝐷 𝑒 𝛽 
+
+∑︁ 
+
+> 𝛼
+
+𝐴 𝛼𝛽 𝛼 
+
+
+
++∑︁ 
+
+> 𝛼
+
+𝑔 ( 𝐴 (𝑒 𝛼 , 𝑎 ), 𝑒 𝛼 ) − ∑︁ 
+
+> 𝛼,𝛽,𝛾
+
+𝐴 𝛼𝛽𝛾 𝐴 𝛽𝛾 𝛼 
+
+= scal (𝑔 ) + div (𝑎 ) + div (𝑎 ) − | 𝑎 |2 −∑︁ 
+
+> 𝛼,𝛽,𝛾
+
+𝐴 𝛼𝛽𝛾 𝐴 𝛽𝛾 𝛼 
+
+= scal (𝑔 ) − 2𝑑 ∗𝜃 − | 𝜃 |2 − 𝑐, 
+
+where we used 𝑎 = 𝜃 ♯ and div (𝜃 ♯) = −𝑑 ∗𝜃 , and we set the quadratic term 
+
+𝑐 :=∑︁ 
+
+> 𝛼,𝛽,𝛾
+
+𝐴 𝛼𝛽𝛾 𝐴 𝛽𝛾 𝛼 ,
+
+which we now compute explicitly. 
+
+6Step 3. The quadratic term. From the above formula characterizing the tensor 𝐴 in terms of the torsion, we have 
+
+𝐴 𝛼𝛽𝛾 𝐴 𝛽𝛾 𝛼 = 14
+
+ 𝜏 𝛼𝛽𝛾 + 𝜏 𝛾 𝛼𝛽 − 𝜏 𝛽𝛾 𝛼 
+
+   𝜏 𝛽𝛾 𝛼 + 𝜏 𝛼𝛽𝛾 − 𝜏 𝛾 𝛼𝛽 
+
+
+
+= 14
+
+
+
+𝜏 2 
+
+> 𝛼𝛽𝛾
+
+− ( 𝜏 𝛽𝛾 𝛼 − 𝜏 𝛾 𝛼𝛽 )2
+
+= 14
+
+
+
+𝜏 2 
+
+> 𝛼𝛽𝛾
+
+− 𝜏 2 
+
+> 𝛽𝛾 𝛼
+
+− 𝜏 2 
+
+> 𝛾 𝛼𝛽
+
++ 2 𝜏 𝛽𝛾 𝛼 𝜏 𝛾 𝛼𝛽 
+
+
+
+Therefore 
+
+𝑐 =∑︁ 
+
+> 𝛼,𝛽,𝛾
+
+𝐴 𝛼𝛽𝛾 𝐴 𝛽𝛾 𝛼 = 14
+
+
+
+− | 𝑇 Ch |2 + 2𝑐 ′
+
+,
+
+where 
+
+𝑐 ′ :=∑︁ 
+
+> 𝛼,𝛽,𝛾
+
+𝜏 𝛼𝛽𝛾 𝜏 𝛽𝛾 𝛼 .
+
+We claim that 𝑐 ′ = 0. Indeed, extend 𝑔 and 𝑇 Ch complex-bilinearly. Since 𝑔 is 𝐽 -invariant, 
+
+𝑔 (𝑍, 𝑊 ) = 0 whenever 𝑍, 𝑊 are both of type (1, 0), or both of type (0, 1). Since the (1, 1)-part of 𝑇 Ch vanishes, 𝑇 Ch (𝑍, ¯𝑊 ) = 0. Hence the only non-vanishing components of 𝜏 are those of type  (1, 0), (1, 0), (0, 1) and their conjugates. But then, in 𝜏 𝛼𝛽𝛾 𝜏 𝛽𝛾 𝛼 , the first factor is non-zero only if 
+
+𝑒 𝛼 , 𝑒 𝛽 are of type (1, 0) and 𝑒 𝛾 is of type (0, 1); in that case the second factor 𝜏 𝛽𝛾 𝛼 has its first two arguments 𝑒 𝛽 , 𝑒 𝛾 of mixed type (1, 0), (0, 1), hence vanishes by the above. Therefore 
+
+𝑐 = − 14 |𝑇 Ch |2.
+
+Step 4. The relation between scal Ch and gscal Ch . Recall that scal Ch and gscal Ch trace the same curvature tensor Θ𝑖 ¯𝑗 𝑘 ¯ℓ against different pairs of indices, ℎ ¯𝑗𝑖 ℎ ¯ℓ 𝑘 and ℎ ¯ℓ𝑖 ℎ ¯𝑗 𝑘 respectively. Since Θ𝑖 ¯𝑗 𝑘 ¯ℓ is symmetric in (𝑖, 𝑘 ) and in ( ¯𝑗, ¯ℓ) but not, in general, under the simultaneous exchange (𝑖, ¯𝑗 ) ↔ ( 𝑘, ¯ℓ), the difference 
+
+gscal Ch − scal Ch is governed by the failure of this symmetry, measured by the first Bianchi identity for 
+
+ΘCh (which involves ∇Ch 𝑇 Ch , see e.g. [Gau15, Section 1.16]). Tracing this identity against ℎ ¯𝑗𝑖 ℎ ¯ℓ 𝑘 and expressing ∇Ch 𝑇 Ch in terms of 𝜃 via the local formulas for 𝑇 Ch and 𝜃 , one obtains, after contracting all indices, 
+
+gscal Ch (𝜔 ) − scal Ch (𝜔 ) = −𝑑 ∗𝜃 − | 𝜃 |2,
+
+which is [Gau84, Equation (19)]. 
+
+Step 5. Conclusion and the Kähler case. Substituting 𝑐 = − 14 |𝑇 Ch |2 in the formula found in Step 2, we get 
+
+gscal Ch (𝜔 ) = scal (𝑔 ) − 2𝑑 ∗𝜃 − | 𝜃 |2 + 14 |𝑇 Ch |2.
+
+Substituting now the expression for gscal Ch found in Step 4, we get 
+
+scal Ch (𝜔 ) − 𝑑 ∗𝜃 − | 𝜃 |2 = scal (𝑔 ) − 2 𝑑 ∗𝜃 − | 𝜃 |2 + 14 |𝑇 Ch |2,
+
+and the terms in |𝜃 |2 cancel, leaving 
+
+scal (𝑔 ) = scal Ch (𝜔 ) + 𝑑 ∗𝜃 − 14 |𝑇 Ch |2,
+
+which is (3). 
+
+Step 6. Kähler case. The last statement follows by noticing that, for a Kähler metric, 𝑇 Ch = 0 and 𝜃 = 0,therefore the relation reduces to the equality between the Chern scalar curvatures and the Riemannian scalar curvature. □
+
+72.4 Conformal transformations of geometric quantities 
+
+In these notes, we are interested in moving within a fixed conformal class 
+
+{𝜔 } := 𝑒 𝑓 𝜔 : 𝑓 smooth real function on 𝑋 
+
+of Hermitian metrics in order to prescribe curvature quantities. When homotheties are natural symmetries for our problems, we can work up to their action and consider the slice given by fixing a normalization condition on 𝑓 . We collect here the transformation formulae for the geometric quantities associated to the Chern connection under conformal change; see [ACS17, APS +26]. 
+
+Proposition 2.3. Let 𝑋 be a compact complex manifold of complex dimension 𝑛 endowed with a Hermitian metric 𝜔 . Let 𝑓 : 𝑋 → R be a smooth function, and set 𝜔 ′ := 𝑒 𝑓 𝜔 . Denote by 𝑇 ′, 𝜃 ′, and 𝑑 ∗ 
+
+> 𝑔 ′
+
+the torsion, the Lee form, and the codifferential associated with 𝜔 ′, respectively. Then 
+
+scal Ch (𝜔 ′) = 𝑒 − 𝑓 
+
+scal Ch (𝜔 ) + 𝑛 Δ 𝑓 + 𝑛 𝑔 (𝑑𝑓 , 𝜃 )
+
+
+
+, (4) 
+
+𝑑 ∗ 
+
+> 𝑔 ′
+
+𝜃 ′ = 𝑒 − 𝑓 
+
+𝑑 ∗𝜃 + ( 𝑛 − 1)Δ 𝑓 − ( 𝑛 − 1)𝑔 (𝑑𝑓 , 𝜃 ) − ( 𝑛 − 1)2 |∇ 𝑓 |2
+
+, (5) 
+
+|𝑇 ′ |2 
+
+> 𝑔 ′
+
+= 𝑒 − 𝑓 
+
+|𝑇 |2 + 4𝑔 (𝑑𝑓 , 𝜃 ) + 2(𝑛 − 1)|∇ 𝑓 |2
+
+, (6) 
+
+where all quantities on the right-hand sides are computed with respect to 𝜔 .Proof. We work in local holomorphic coordinates (𝑧 𝑖 )𝑖 . Writing 
+
+𝜔 = ℎ𝑖 ¯𝑗 
+
+√−1 𝑑𝑧 𝑖 ∧ 𝑑 ¯𝑧 𝑗 , 𝜔 ′ = ℎ′ 
+
+> 𝑖 ¯𝑗
+
+√−1 𝑑𝑧 𝑖 ∧ 𝑑 ¯𝑧 𝑗 ,
+
+we have ℎ′  
+
+> 𝑖 ¯𝑗
+
+= 𝑒 𝑓 ℎ𝑖 ¯𝑗 and ℎ′ ¯𝑗𝑖 = 𝑒 − 𝑓 ℎ ¯𝑗𝑖 .
+
+Chern scalar curvature. A direct computation gives 
+
+scal Ch (𝜔 ′) = 2ℎ′ ¯𝑗𝑖 
+
+
+
+− 𝜕 2
+
+𝜕𝑧 𝑖 𝜕 ¯𝑧 𝑗 log det (ℎ′ 
+
+> ℓ¯𝑚
+
+)ℓ,𝑚 
+
+
+
+= 𝑒 − 𝑓 
+
+scal Ch (𝜔 ) − 2𝑛ℎ ¯𝑗𝑖 𝜕 2 𝑓 𝜕𝑧 𝑖 𝜕 ¯𝑧 𝑗 
+
+
+
+= 𝑒 − 𝑓 
+
+scal Ch (𝜔 ) + 𝑛 ΔCh 𝑓 
+
+
+
+= 𝑒 − 𝑓 
+
+scal Ch (𝜔 ) + 𝑛 Δ 𝑓 + 𝑛𝑔 (𝑑𝑓 , 𝜃 )
+
+
+
+.
+
+Chern torsion norm. For the conformal transformation of |𝑇 ′ |2 
+
+> 𝑔 ′
+
+, note first that the torsion tensor transforms without any conformal factor: in local holomorphic coordinates, 
+
+𝑇 𝑘 𝑖 𝑗 = ℎ ¯ℓ 𝑘  𝜕 𝑖 ℎ 𝑗 ¯ℓ − 𝜕 𝑗 ℎ𝑖 ¯ℓ
+
+,
+
+and then we get 
+
+𝑇 ′ 𝑘 𝑖 𝑗 = 𝑇 𝑘 𝑖 𝑗 + 𝜕 𝑓 𝜕𝑧 𝑖 𝛿 𝑘 𝑗 − 𝜕 𝑓 𝜕𝑧 𝑗 𝛿 𝑘 𝑖 .
+
+Setting 𝑆 𝑟 𝑖 𝑝 := 𝜕 𝑓 𝜕𝑧 𝑖 𝛿 𝑟 𝑝 − 𝜕 𝑓 𝜕𝑧 𝑝 𝛿 𝑟 𝑖 so that 𝑇 ′ 𝑘 𝑖 𝑗 = 𝑇 𝑘 𝑖 𝑗 + 𝑆 𝑘 𝑖 𝑗 , and denoting by ⟨· , ·⟩ the Hermitian pairing 
+
+⟨𝐴, 𝐵 ⟩ := 2ℎ ¯𝑗𝑖 ℎ ¯𝑞 𝑝 ℎ𝑟 ¯𝑠 𝐴 𝑟 𝑖 𝑝 𝐵 𝑠 𝑗𝑞 , for which |𝑇 |2 = ⟨𝑇, 𝑇 ⟩, we get 
+
+|𝑇 ′ |2 
+
+> 𝑔 ′
+
+= 𝑒 − 𝑓 
+
+|𝑇 |2 + 2 Re ⟨𝑇, 𝑆 ⟩ + ⟨ 𝑆, 𝑆 ⟩
+
+
+
+.
+
+8Expanding ⟨𝑆, 𝑆 ⟩ into four terms, the two contractions ℎ ¯𝑞 𝑝 ℎ𝑝 ¯𝑞 = ℎ ¯𝑗𝑖 ℎ𝑖 ¯𝑗 = 𝑛 contribute 𝑛 |∇ 𝑓 |2 each, while the two mixed ones contribute −|∇ 𝑓 |2 each, so that ⟨𝑆, 𝑆 ⟩ = 2(𝑛 − 1)|∇ 𝑓 |2. Similarly, using 
+
+𝑇 𝑝 𝑖 𝑝 = 𝜃 𝑖 and 𝑇 𝑖 𝑖 𝑝 = −𝜃 𝑝 , one gets ⟨𝑇, 𝑆 ⟩ = 4ℎ ¯𝑗𝑖 𝜃 𝑖 𝜕 𝑓 𝜕𝑧 𝑗 , whence 2 Re ⟨𝑇, 𝑆 ⟩ = 4𝑔 (∇ 𝑓 , 𝜃 ♯). Substituting gives (6). 
+
+Codifferential of the Lee form. For the Lee form, we have 
+
+𝜃 ′ = 𝜃 + ( 𝑛 − 1) 𝑑𝑓 , 
+
+which follows either directly from computing 𝑑 (𝜔 ′)𝑛 −1, or by contracting the indices 𝑘 and 𝑗 in the transformation formula for 𝑇 ′ 𝑘 𝑖 𝑗 . Recall that the divergence of a vector field 𝑉 with respect to 𝑔 is 
+
+div 𝑔 𝑉 := tr (𝐷𝑉 ), so that div 𝑔 (∇ 𝑓 ) = −Δ 𝑓 for a smooth function 𝑓 ; equivalently, div 𝑔 𝑉 is the unique function satisfying 𝑑 ∗ 
+
+> 𝑔
+
+(𝑉 ♭) = −div 𝑔 𝑉 . We also use the identities 
+
+div 𝑔 ′ 𝑉 = div 𝑔 𝑉 + 𝑛 𝑑𝑓 (𝑉 ), div 𝑔 (𝜙𝑉 ) = 𝜙 div 𝑔 𝑉 + 𝑑𝜙 (𝑉 ),
+
+the latter being a straightforward computation, and see, e.g., [Bes08, Theorem 1.159] for the conformal law for the divergence in the former equation. Then we compute 
+
+𝑑 ∗ 
+
+> 𝑔 ′
+
+𝜃 ′ = −div 𝑔 ′ (( 𝜃 ′)♯𝑔 ′ )
+
+= −div 𝑔 ′
+
+
+
+𝑒 − 𝑓 (𝜃 ♯ + ( 𝑛 − 1)∇ 𝑓 )
+
+
+
+= −div 𝑔 
+
+
+
+𝑒 − 𝑓 
+
+𝜃 ♯ + ( 𝑛 − 1)∇ 𝑓 
+
+ 
+
+− 𝑛𝑒 − 𝑓 𝑑𝑓 
+
+
+
+𝜃 ♯ + ( 𝑛 − 1)∇ 𝑓 
+
+
+
+= 𝑒 − 𝑓 (𝑑 ∗𝜃 + ( 𝑛 − 1)Δ 𝑓 ) + 𝑒 − 𝑓 (𝑛 − 1)|∇ 𝑓 |2 + 𝑒 − 𝑓 𝑔 (∇ 𝑓 , 𝜃 ♯)−𝑛𝑒 − 𝑓 
+
+𝑔 (∇ 𝑓 , 𝜃 ♯) + ( 𝑛 − 1)|∇ 𝑓 |2
+
+= 𝑒 − 𝑓 
+
+𝑑 ∗𝜃 + ( 𝑛 − 1)Δ 𝑓 − ( 𝑛 − 1)𝑔 (∇ 𝑓 , 𝜃 ♯) − ( 𝑛 − 1)2 |∇ 𝑓 |2
+
+,
+
+which concludes the proof. □
+
+Remark 2.4 . We notice here that the term 𝑔 (𝑑𝑓 , 𝜃 ) is the one responsible for the failure of variational techniques, see Remark 3.6. 
+
+## 2.5 Special Hermitian metrics 
+
+We conclude this preliminary section by recalling some classes of Hermitian metrics of particular interest [GH80]. In these notes, we will meet the following classes. 
+
+• Gauduchon metrics are characterized by 
+
+𝜕 ¯𝜕𝜔 𝑛 −1 = 0,
+
+equivalently 𝑑 ∗𝜃 = 0. In this case, ∫ 
+
+> 𝑋
+
+ΔCh 𝑓 𝜔 𝑛  
+
+> 𝑛 !
+
+= 0 for every smooth function 𝑓 , i.e., we have a Green identity for the Chern Laplacian. 
+
+• Balanced metrics are characterized by 
+
+𝑑𝜔 𝑛 −1 = 0,
+
+equivalently 𝜃 = 0. This implies ΔCh 𝑓 = Δ 𝑓 for every smooth function 𝑓 . Note that admitting a balanced metric is a property invariant under bimeromorphisms [AB96]. 
+
+• Locally conformally Kähler metrics, which will appear in Section 4, are characterized by 
+
+𝑑𝜔 = 1
+
+𝑛 − 1 𝜃 ∧ 𝜔, 𝑑𝜃 = 0.
+
+9In other words, the Lee form encodes local conformal transformations that make the metric Kähler. This can be interpreted as an equivariant Kähler geometry with respect to homotheties: indeed, there exists a covering space endowed with a conformal Kähler metric on which the deck transformation group acts by homotheties. The factor 1/( 𝑛 − 1) is chosen so that 𝜃 coincides with the Lee form as defined above. While balanced and locally conformally Kähler metrics are not always available on a compact complex manifold, the following foundational result of Gauduchon plays a key role in what follows. 
+
+Theorem 2.5 ([Gau77, Théorème 1]) . On every compact complex manifold, every conformal class of Hermitian metrics contains a Gauduchon metric, unique up to homothety. Proof. Computing the formal adjoint of the Chern Laplacian, 
+
+(ΔCh )∗ 𝑓 = Δ 𝑓 − 𝑔 (𝑑𝑓 , 𝜃 ) + ( 𝑑 ∗𝜃 ) 𝑓 , 
+
+gives in particular 𝑑 ∗𝜃 = (ΔCh )∗ (1). Fix a Hermitian metric 𝜔 ; we look for Φ > 0 such that 𝜔 ′ := Φ 2 
+
+> 𝑛 −1
+
+𝜔 
+
+is Gauduchon. A direct computation of how ΔCh and (ΔCh )∗ transform under this conformal change shows that 𝜔 ′ is Gauduchon if and only if (ΔCh )∗ (Φ2) = 0, so the problem reduces to finding a positive generator of ker (ΔCh )∗.Since ΔCh is elliptic of second order with no zero-order term, the maximum principle gives ker ΔCh =
+
+R. Moreover, ΔCh and Δ share the same principal symbol, hence differ by a compact operator, so 
+
+ind (ΔCh ) = ind (Δ) = 0; by the Fredholm alternative, coker (ΔCh ) ≃ ker (ΔCh )∗, so 0 = ind (ΔCh ) =
+
+dim ker ΔCh − dim ker (ΔCh )∗, whence dim ker (ΔCh )∗ = 1 as well. It remains to show that a generator 𝑓 
+
+of this one-dimensional kernel has a sign. Suppose 𝑓 . 0 changes sign. Choosing a suitable positive weight 𝜑 , by a straighforward argument one can arrange ∫ 
+
+> 𝑋
+
+𝜑 𝑓 𝜔 𝑛  
+
+> 𝑛 !
+
+= 0, i.e., 𝜑 1−𝑛 𝑓 ∈ ker (ΔCh  
+
+> 𝜑 𝜔
+
+)∗ has zero mean with respect to 𝜑𝜔 . But a generator of a one-dimensional ker (ΔCh )∗ can never have zero mean: otherwise the constant function 1 would be 
+
+𝐿 2-orthogonal to ker (ΔCh )∗, hence, by the Fredholm decomposition C∞ (𝑋, R) = ker (ΔCh )∗ ⊕ im ΔCh ,equal to ΔCh ℎ for some ℎ; by the maximum principle ℎ would be constant, forcing ΔCh ℎ = 0 ≠ 1, a contradiction. Hence 𝑓 has constant sign, say 𝑓 ≥ 0, and the strong maximum principle for (ΔCh )∗
+
+upgrades this to 𝑓 > 0.Setting ˜𝜔 := 𝑓 1 
+
+> 𝑛 −1
+
+𝜔 gives the desired Gauduchon representative, unique up to a positive constant since ker (ΔCh )∗ is one-dimensional. □
+
+# 3 Hermitian metrics with constant Chern-scalar curvature 
+
+The Yamabe problem is a foundational problem in Riemannian geometry, initiated by Yamabe [Yam60] and solved by the combined efforts of Trudinger [Tru68], Aubin [Aub76], and Schoen [Sch84], who used the positive mass theorem from general relativity [SY79]. It establishes the existence of a metric with constant Riemannian scalar curvature in every conformal class on a compact Riemannian manifold. The problem reduces to solving a partial differential equation, via variational methods. See [LP87] for an account on the topic. 
+
+Theorem 3.1 ([Yam60, Tru68, Aub76, Sch84]) . Any Riemannian metric 𝑔 on a compact manifold can be conformally rescaled to a metric of constant scalar curvature. 
+
+In this section, we discuss an analogue of the Yamabe problem in the Hermitian setting, as proposed in [ACS17] and further studied in [CZ20, LU20, KL20, LM18, Ho21, HS21, Bar23, Fus22, Yu23, Yu25, AP22, She21]. 
+
+10 3.1 Chern Yamabe problem 
+
+In this section, let 𝑋 𝑛 denote a compact complex manifold of complex dimension 𝑛 . Fix a Hermitian metric 𝜔 and consider its conformal class 
+
+{𝜔 } :=
+
+n
+
+𝑒 𝑓 𝑛 𝜔 : 𝑓 ∈ C ∞ (𝑋, R)
+
+o
+
+,
+
+which consists of Hermitian metrics. The factor “ 1/𝑛 ” is chosen only for notational convenience in the formulae below. We are interested in the existence of Hermitian metrics in {𝜔 } with constant Chern scalar curvature. More precisely, we introduce the Chern-Yamabe moduli space 
+
+CℎY𝑎 (𝑋, {𝜔 }) :=
+
+𝜔 ′ ∈ { 𝜔 } scal Ch (𝜔 ′) is constant 
+
+Aut (𝑋, {𝜔 }) × R>0 ,
+
+consisting of conformal Hermitian metrics with constant Chern scalar curvature, up to homotheties and biholomorphisms of 𝑋 preserving the conformal class. Here Aut (𝑋, {𝜔 }) is isomorphic to the compact Lie group of holomorphic isometries of the unit volume Gauduchon representative of {𝜔 }; see [ACS17, Lemma 1.3]. We are interested in questions such as whether this space is empty, consists of a single metric, or is compact. 
+
+Remark 3.2 . For compact complex curves, the Chern connection coincides with the Levi-Civita connec-tion and 𝜃 = 𝑇 Ch = 0, so the Chern-Yamabe problem reduces to the classical uniformization problem: therefore CℎY𝑎 (𝑋, {𝜔 }) consists of a single point, corresponding to the unique constant curvature metric (whose sign is that of −𝜒 (𝑋 ), hence depends on the genus). It is instructive to observe where the quotient by Aut (𝑋, {𝜔 }) is really needed. For genus 𝑔 ≥ 1, uniqueness already holds before quotienting: the constant curvature representative is unique in {𝜔 } up to homothety, since the automorphisms preserving the conformal class act by isometries of it. For 𝑔 = 0, uniqueness genuinely fails before quotienting: the group Aut (CP 1, {𝜔 FS }) ≃ PGL (2, C) is non-compact and does not act by isometries of 𝜔 FS , so pulling back the round metric along Möbius transformations produces a non-compact family of pairwise distinct constant curvature metrics in {𝜔 FS }. This is the Hermitian counterpart of the well-known non-compactness of the solution set of the Yamabe problem on the round sphere. This is also the mechanism underlying the borderline case 𝜆 𝑡 𝑋 ({ 𝜔 }) = 𝑡 Λ𝑛 in Theorem 5.8: on CP 1, the test bubbles 𝑢 𝜀 are, up to rescaling, exactly the local trace near the concentration point 𝑝 of the pullback of 𝜔 FS under the dilations 
+
+𝑧 ↦ → 𝑧 /𝜀 , a non-compact one-parameter subgroup of PGL (2, C); as 𝜀 → 0, this subgroup escapes to infinity, which is precisely why the bubbles saturate the sharp constant 𝑡 Λ𝑛 in the limit. 
+
+Remark 3.3 . In the non-Kähler setting, the problems of finding metrics with constant Chern scalar curvature and with constant Riemannian scalar curvature are genuinely different: a solution to one does not provide a solution to the other, as one sees by comparing the two curvatures in (3). Note that a Hermitian metric may well have both curvatures constant, but with different values: this is the case, for example, for the Hopf manifold with the standard metric of Remark 5.10, where scal Ch (𝜔 ) = 2𝑛 (𝑛 − 1)
+
+while scal (𝑔 𝜔 ) = (𝑛 − 1)( 2𝑛 − 1). Indeed, if both are constant, then integrating (3) gives 
+
+ scal (𝑔 𝜔 ) − scal Ch (𝜔 ) Vol (𝑋, 𝑔 𝜔 ) = − 14
+
+∫
+
+> 𝑋
+
+|𝑇 Ch |2 𝜔 𝑛 
+
+𝑛 ! ≤ 0,
+
+so that scal (𝑔 𝜔 ) ≤ scal Ch (𝜔 ), with equality if and only if 𝜔 is Kähler. This last statement was already observed in [LY17, Corollary 4.5]: the Chern scalar curvature and the Riemannian scalar curvature cannot coincide pointwise, or even just on average, unless the metric is Kähler. The same phenomenon occurs for another analogue of the Yamabe problem in the almost Hermitian setting, introduced in [dRS03]. 
+
+## 3.2 Existence results in the non-positive curvature regime 
+
+The aim of this section is to give a positive answer to the Chern-Yamabe problem on the existence of Hermitian metrics with constant Chern scalar curvature in a conformal class and their uniqueness up to 
+
+11 homotheties, under the assumption that the expected curvature is non-positive. The positive curvature case, discussed briefly in the next section, remains open. See also [Fus22] for the problem of prescribing the Chern scalar curvature by a (not necessarily constant) function. First, we rewrite the Chern-Yamabe problem as a semilinear partial differential equation, similar to the Liouville equation. This is based on the conformal transformation formula (4) for the Chern scalar curvature, which we rewrite here for convenience as 
+
+scal Ch (𝑒 𝑓 𝑛 𝜔 ) = 𝑒 − 𝑓 𝑛 
+
+
+
+scal Ch (𝜔 ) + Δ 𝑓 + 𝑔 (𝑑𝑓 , 𝜃 )
+
+
+
+= 𝑒 − 𝑓 𝑛 
+
+
+
+scal Ch (𝜔 ) + ΔCh 𝑓 
+
+
+
+.
+
+The Chern-Yamabe problem thus reduces to finding 𝑓 ∈ C ∞ (𝑋, R) and a constant 𝜆 ∈ R such that 
+
+ΔCh 𝑓 + scal Ch (𝜔 ) = 𝜆 𝑒 𝑓 𝑛 , (ChYa) which corresponds to scal Ch (𝑒 𝑓 𝑛 𝜔 ) = 𝜆 .We give a geometric interpretation of the expected constant 𝜆 . Fix the Gauduchon representative 𝜂 
+
+of unit volume in {𝜔 } as a reference metric. Up to homothety, normalize 𝑓 by imposing 
+
+∫
+
+> 𝑋
+
+𝑒 𝑓 𝑛 𝜂 𝑛 
+
+𝑛 ! = 1.
+
+Note that by Jensen’s inequality, any metric in this normalized slice has volume at least 1. Integrating (ChYa) with respect to the volume form of 𝜂 and using that 𝜂 is Gauduchon (so the Green identity holds for the Chern Laplacian), we find that 𝜆 is a cohomological invariant of (𝑋, {𝜔 }) :
+
+𝜆 =
+
+∫
+
+> 𝑋
+
+scal Ch (𝜂 ) 𝜂 𝑛 
+
+𝑛 ! = 2
+
+(𝑛 − 1)!
+
+∫
+
+> 𝑋
+
+𝑐 𝐵𝐶  
+
+> 1
+
+(𝐾 −1 
+
+> 𝑋
+
+) ∧ [ 𝜂 𝑛 −1],
+
+where 𝑐 𝐵𝐶  
+
+> 1
+
+(𝐾 −1 
+
+> 𝑋
+
+) ∈ 𝐻 1,1 
+
+> 𝐵𝐶
+
+(𝑋, R) is represented by Ric Ch (𝜔 ) and maps to the first Chern class of 𝑋 in 
+
+𝐻 2 (𝑋, R), and [𝜂 𝑛 −1] ∈ 𝐻 𝑛 −1,𝑛 −1 
+
+> 𝐴
+
+(𝑋, R) is well defined since 𝜂 is Gauduchon. This quantity is the Gauduchon degree Γ𝑋 ({ 𝜔 }) of {𝜔 }, equal to the volume of the divisor of any meromorphic section of 
+
+𝐾 −1 
+
+> 𝑋
+
+measured with respect to 𝜂 ; see [Gau81, Gau84]. When Kod (𝑋 ) ≥ 0, the existence of holomorphic sections of the pluricanonical bundles forces Γ𝑋 ({ 𝜔 }) ≤ 0 for every conformal class {𝜔 }. More precisely, 
+
+Γ𝑋 ({ 𝜔 }) < 0 unless 𝐾 𝑋 is holomorphically torsion, i.e., 𝐾 ⊗ℓ𝑋  O𝑋 for some integer ℓ, in which case 
+
+Γ𝑋 ({ 𝜔 }) = 0.We are now ready to state the main result of this section. 
+
+Theorem 3.4 ([ACS17]) . Let 𝑋 be a compact complex manifold endowed with a conformal class {𝜔 }
+
+of Hermitian metrics. If Γ𝑋 ({ 𝜔 }) ≤ 0, then the Chern-Yamabe moduli space CℎY𝑎 (𝑋, {𝜔 }) consists of a single point. In particular, this holds for any conformal class on a compact complex manifold with non-negative Kodaira dimension. Proof. Let 𝜂 be the unique unit-volume Gauduchon representative in the conformal class {𝜔 }. We split the proof according to the sign of Γ𝑋 ({ 𝜔 }) .
+
+The case Γ𝑋 ({ 𝜔 }) = 0. The Chern-Yamabe equation (ChYa) reduces to the linear equation 
+
+ΔCh 𝑓 = −scal Ch (𝜂 ).
+
+By the Fredholm alternative, this is solvable if and only if −scal Ch (𝜂 ) is orthogonal to ker (ΔCh )∗. Adirect computation gives 
+
+(ΔCh )∗ 𝑓 = Δ 𝑓 − 𝑔 (𝑑𝑓 , 𝜃 ),
+
+12 where the term 𝑑 ∗𝜃 vanishes since 𝜂 is Gauduchon. If 𝑓 ∈ ker (ΔCh )∗, then 
+
+0 =
+
+∫
+
+> 𝑋
+
+𝑓 (ΔCh )∗ 𝑓 𝜂 𝑛 
+
+𝑛 ! =
+
+∫
+
+> 𝑋
+
+
+
+|𝑑𝑓 |2 − 12 𝑔 (𝑑 ( 𝑓 2), 𝜃 )
+
+ 𝜂 𝑛 
+
+𝑛 ! =
+
+∫
+
+> 𝑋
+
+|𝑑𝑓 |2 𝜂 𝑛 
+
+𝑛 ! ,
+
+where again we use that 𝜂 is Gauduchon. Hence ker (ΔCh )∗ consists only of constant functions. Since 
+
+Γ𝑋 ({ 𝜔 }) = 0, we have ∫ 
+
+> 𝑋
+
+scal Ch (𝜂 ) 𝜂 𝑛  
+
+> 𝑛 !
+
+= 0, so −scal Ch (𝜂 ) is indeed orthogonal to the constants, and the equation is solvable. The solution is smooth by classical arguments, and unique up to an additive constant, since ker ΔCh also consists of constants by the maximum principle. 
+
+The case Γ𝑋 ({ 𝜔 }) < 0. We apply the continuity method. First, by solving the linear equation 
+
+ΔCh 𝑓 = −scal Ch (𝜂 ) + Γ𝑋 ({ 𝜔 }) 
+
+as above, we find a conformal metric 𝜔 := 𝑒 𝑓 𝑛 𝜂 whose Chern scalar curvature satisfies 
+
+scal Ch (𝜔 ) = 𝑒 − 𝑓 𝑛 Γ𝑋 ({ 𝜔 }) < 0
+
+everywhere on 𝑋 . We fix this metric as our reference representative in {𝜔 }.Set 𝜆 := Γ 𝑋 ({ 𝜔 }) < 0 and consider the continuity path 
+
+ChYa (𝑡, 𝑓 ) := Δ Ch 𝑓 + 𝑡 scal Ch (𝜔 ) − 𝜆 𝑒 𝑓 𝑛 + 𝜆 (1 − 𝑡 )
+
+for (𝑡, 𝑓 ) ∈ [ 0, 1] × C 2, 𝛼 (𝑋, R). Define 
+
+𝑇 := 𝑡 ∈ [ 0, 1] : ∃ 𝑓 𝑡 ∈ C 2, 𝛼 (𝑋, R) such that ChYa (𝑡, 𝑓 𝑡 ) = 0 .𝑇 is non-empty. Clearly 0 ∈ 𝑇 , since ChYa (0, 0) = 0.
+
+𝑇 is open. The linearization of ChYa at (𝑡 0, 𝑓 𝑡 0 ) in the 𝑓 -direction is 
+
+𝐷𝑣 = Δ Ch 𝑣 − 𝜆 𝑛 𝑒 𝑓𝑡 0 
+
+> 𝑛
+
+· 𝑣. 
+
+We show ker 𝐷 = {0}. If 𝐷𝑣 = 0, then at a maximum point 𝑥 max of 𝑣 ,
+
+− 𝜆 𝑛 𝑒 𝑓𝑡 0 ( 𝑥 max ) 
+
+> 𝑛
+
+· 𝑣 (𝑥 max ) = −ΔCh 𝑣 (𝑥 max ) ≤ 0,
+
+and since 𝜆 < 0 and 𝑒 𝑓𝑡 0 
+
+> 𝑛
+
+> 0, we get max 𝑣 ≤ 0. Similarly, at a minimum point 𝑥 min , one obtains 
+
+min 𝑣 ≥ 0. Hence 𝑣 ≡ 0. Since 𝐷 differs from ΔCh by a compact operator, they have the same Fredholm index, so injectivity of 𝐷 implies surjectivity. By the implicit function theorem, 𝑇 is open. 
+
+𝑇 is closed. Let (𝑡 𝑘 )𝑘 ⊆ 𝑇 converge to 𝑡 ∞, with ChYa (𝑡 𝑘 , 𝑓 𝑡 𝑘 ) = 0. We claim there exists 𝐶 > 0,depending only on 𝑋 , 𝜔 , and 𝜆 , such that ∥ 𝑓 𝑡 𝑘 ∥𝐿 ∞ ≤ 𝐶 for all 𝑘 . At a maximum point 𝑥 max of 𝑓 𝑡 𝑘 , we have ΔCh 𝑓 𝑡 𝑘 (𝑥 max ) ≥ 0, so 
+
+−𝜆 𝑒 𝑓𝑡 𝑘 ( 𝑥 max ) 
+
+> 𝑛
+
+≤ − 𝑡 𝑘 scal Ch (𝜔 )( 𝑥 max ) − 𝜆 (1 − 𝑡 𝑘 ) ≤ max  
+
+> 𝑋
+
+scal Ch (𝜔 ) − 𝜆, 
+
+giving a uniform upper bound for 𝑓 𝑡 𝑘 . Similarly, evaluating at a minimum point 𝑥 min gives a uniform lower bound as claimed. This uniform 𝐿 ∞ estimate implies that the right-hand side 𝜆 𝑒 𝑓𝑡 𝑘 𝑛 is uniformly bounded in 𝐿 ∞. Since 𝑓 𝑡 𝑘 satisfies the elliptic equation 
+
+ΔCh 𝑓 𝑡 𝑘 = 𝜆 𝑒 𝑓𝑡 𝑘 𝑛 − 𝑡 𝑘 scal Ch (𝜔 ) − 𝜆 (1 − 𝑡 𝑘 ),
+
+13 the Calderón-Zygmund inequality gives a uniform bound in 𝑊 2, 𝑝 for every 𝑝 < +∞ . Choosing 𝑝 > 2𝑛 ,the Sobolev embedding 𝑊 2, 𝑝 ↩→ C 1, 𝛼 then gives a uniform bound in C1, 𝛼 . Substituting back into the equation and applying the Schauder estimates, we obtain a uniform bound in C2, 𝛼 . Iterating this bootstrap argument yields a uniform bound in C3 (𝑋, R). By the Ascoli-Arzelà theorem, a subsequence converges in C2, 𝛼 (𝑋 ) to some 𝑓 ∞ ∈ C 2, 𝛼 (𝑋, R) satisfying ChYa (𝑡 ∞, 𝑓 ∞) = 0, so 𝑡 ∞ ∈ 𝑇 .Since 𝑇 is non-empty, open, and closed in [0, 1], we conclude 𝑇 = [0, 1]. In particular, ChYa (1, 𝑓 ) =
+
+0 has a solution 𝑓 ∈ C 2, 𝛼 (𝑋, R), which is smooth by a standard Schauder bootstrap argument. 
+
+Uniqueness. Suppose 𝜔 𝑖 = 𝑒 𝑓 𝑖 𝑛 𝜔 for 𝑖 = 1, 2 both have constant Chern scalar curvature 𝜆 𝑖 < 0. Then 
+
+𝑓 1 − 𝑓 2 satisfies 
+
+ΔCh ( 𝑓 1 − 𝑓 2) = 𝜆 1 𝑒 𝑓 1 
+
+> 𝑛
+
+− 𝜆 2 𝑒 𝑓 2 
+
+> 𝑛
+
+.
+
+Evaluating at a maximum and minimum point of 𝑓 1 − 𝑓 2 and arguing as above, one deduces that 𝑓 1 − 𝑓 2
+
+is constant, equal to 𝑛 log 𝜆 2 
+
+> 𝜆 1
+
+. Imposing the normalization condition then forces 𝑓 1 = 𝑓 2. □
+
+## 3.3 Positive curvature regime 
+
+The statement of Theorem 3.4 only covers the case of expected non-positive Chern scalar curvature. The same argument breaks down in the positive case, due to the failure of the maximum principle. Moreover, the problem is not variational in general (see Remark 3.6), so the classical techniques from the Yamabe problem do not apply. We will address this issue in Section 5, and collect here some remarks concerning the positive case. 
+
+Remark 3.5 . The Hopf surface provides a first example of a compact complex manifold admitting a Hermitian metric with positive constant Chern scalar curvature. It is defined as the quotient 𝑋 =
+
+(C2 \ { 0})/ Z, where Z acts by 𝑧 ↦ → 2𝑧 . As a smooth manifold, 𝑋 is diffeomorphic to 𝑆 1 × 𝑆 3, and as a complex manifold it has Kod (𝑋 ) = −∞ . As we will see in Remark 5.10, the standard metric 
+
+𝜔 := |𝑧 |−2𝜔 0, where 𝜔 0 is the flat Hermitian metric on C2, has constant positive Chern scalar curvature. 
+
+Remark 3.6 . A natural approach in the positive regime would be to interpret the Chern-Yamabe equation as the Euler-Lagrange equation of a suitable functional and apply variational methods. However, this fails in general: for a given representative 𝜔 in the conformal class, the Chern-Yamabe equation is variational with respect to the 𝐿 2-product induced by 𝜔 if and only if 𝜔 itself is balanced. Consequently, the equation admits a variational formulation (for a suitable choice of representative) if and only if the conformal class 
+
+{𝜔 } contains a balanced metric. As announced in Remark 2.4, the obstruction is the term 𝑔 (𝑑𝑓 , 𝜃 ) in (ChYa), which appears when expanding the Chern Laplacian as in (1). Consider the 1-form on C∞ (𝑋, R)
+
+given by 
+
+𝛼 𝑓 (ℎ) :=
+
+∫
+
+> 𝑋
+
+ℎ · 𝑔 (𝑑𝑓 , 𝜃 ) 𝜔 𝑛 
+
+𝑛 ! .
+
+We claim that 𝛼 𝑓 is closed if and only if it vanishes identically, which occurs precisely when 𝜔 is balanced. Indeed, 𝑑𝛼 𝑓 = 0 if and only if 
+
+∫
+
+> 𝑋
+
+ℎ 𝑔 (𝑑𝜓, 𝜃 ) 𝜔 𝑛 
+
+𝑛 ! =
+
+∫
+
+> 𝑋
+
+𝜓 𝑔 (𝑑ℎ, 𝜃 ) 𝜔 𝑛 
+
+𝑛 !
+
+for all ℎ, 𝜓 ∈ C ∞ (𝑋, R). Taking ℎ constant and 𝜓 arbitrary, integration by parts forces 𝑑 ∗𝜃 = 0, i.e., 𝜔 
+
+is Gauduchon. In this case, ∫ 
+
+> 𝑋
+
+𝑔 (𝑑 (𝜓ℎ ), 𝜃 ) 𝜔 𝑛  
+
+> 𝑛 !
+
+= 0, implying ∫ 
+
+> 𝑋
+
+𝜓 𝑔 (𝑑ℎ, 𝜃 ) 𝜔 𝑛  
+
+> 𝑛 !
+
+= 0 for all 𝜓, ℎ , hence 
+
+𝜃 = 0. When 𝜔 is balanced, the Chern-Yamabe equation is the Euler-Lagrange equation of 
+
+F ( 𝑓 ) := 12
+
+∫
+
+> 𝑋
+
+|𝑑𝑓 |2
+
+> 𝜔
+
+𝜔 𝑛 
+
+𝑛 ! +
+
+∫
+
+> 𝑋
+
+scal Ch (𝜔 ) 𝑓 𝜔 𝑛 
+
+𝑛 ! ,
+
+subject to ∫ 
+
+> 𝑋
+
+𝑒 𝑓 𝑛 𝜔 𝑛  
+
+> 𝑛 !
+
+= 1. However, it is unclear whether F is bounded below when Γ𝑋 ({ 𝜔 }) > 0.
+
+14 Remark 3.7 . Even when solutions exist in the positive regime, uniqueness generally fails. Following the strategy of [dLPZ12] for the classical Yamabe problem, one can apply the Krasnosel’skii bifurcation argument to show non-uniqueness on 𝑋 = C𝑃 1 × C𝑃 1 × C𝑃 1; see [ACS17, Theorem 5.4]. More precisely, normalize 𝜔 FS on C𝑃 1 so that Ric (𝑔 FS ) = 2𝑔 FS : the Gauss curvature of 𝑔 FS equals 
+
+2, whence scal (𝑔 FS ) = 4, the eigenvalues of Δ𝜔 FS are 2 𝑗 ( 𝑗 + 1) with multiplicity 2 𝑗 + 1, and, by the Gauss-Bonnet theorem, C𝑃 1 has area 2𝜋 . Consider the one-parameter family of Kähler metrics on 𝑋 𝜔 𝜆 := 𝑉 (𝜆 )−1/3  𝜋 ∗
+
+> 1
+
+𝜔 FS + 𝜋 ∗
+
+> 2
+
+𝜔 FS + 𝜆 𝜋 ∗
+
+> 3
+
+𝜔 FS 
+
+ , 𝜆 ∈ ( 0, +∞) ,
+
+where 𝜋 𝑖 : 𝑋 → C𝑃 1 are the natural projections on the corresponding factors, and 𝑉 (𝜆 ) := (2𝜋 )3𝜆 is chosen so that Vol (𝑋, 𝜔 𝜆 ) = 1. Each 𝜔 𝜆 is a cscK metric, with 
+
+scal Ch (𝜔 𝜆 ) = scal (𝑔 𝜔 𝜆 ) = 4 𝑉 (𝜆 )1/3 
+
+2 + 𝜆 −1
+
+= 8𝜋 
+
+
+
+2𝜆 1/3 + 𝜆 −2/3
+
+,
+
+hence a trivial solution of the Chern-Yamabe equation in its conformal class. Consistently with the rest of these notes, we parametrize the conformal class as 𝑒 𝑓 𝑛 𝜔 , where here 𝑛 = 3. We apply the Krasnosel’skii bifurcation theorem to the map 
+
+𝐹 ( 𝑓 , 𝜆 ) := scal Ch 
+
+𝑒 𝑓  
+
+> 3
+
+𝜔 𝜆 
+
+
+
+−
+
+∫
+
+> 𝑋
+
+scal Ch 
+
+𝑒 𝑓  
+
+> 3
+
+𝜔 𝜆 
+
+ 𝜔 3
+
+> 𝜆
+
+3! ,
+
+defined on suitable Banach spaces of Hölder functions with zero mean. (In [ACS17] the conformal class is parametrized as 𝑒 2 𝑓 𝑛 𝜔 instead; this explains the discrepancies between the constants below and those appearing there.) The Krasnosel’skii bifurcation theorem, see e.g. [Kie04, Theorem II.3.2], asserts the following: if 𝐹 (0, 𝜆 ) = 0 for all 𝜆 and the linearization 𝐴 (𝜆 ) := 𝐷 𝑓 𝐹 |(0,𝜆 ) is Fredholm of index zero, then 
+
+(0, 𝜆 0) is a bifurcation point, meaning that non-trivial solutions of 𝐹 ( 𝑓 , 𝜆 ) = 0 accumulate at (0, 𝜆 0),provided that dim ker 𝐴 (𝜆 0) is odd and the transversality condition 𝜕 𝜆 𝐴 (𝜆 0) [ 𝑣 ] ∉ im 𝐴 (𝜆 0) holds for every 𝑣 ∈ ker 𝐴 (𝜆 0) \ { 0}.The key point is a spectral computation. By (ChYa), linearizing at 𝑓 = 0 gives 
+
+𝐴 (𝜆 ) = Δ 𝜔 𝜆 − 13 scal Ch (𝜔 𝜆 ),
+
+where we used that 𝜔 𝜆 is Kähler, whence ΔCh  
+
+> 𝜔 𝜆
+
+= Δ 𝜔 𝜆 . Since 𝜔 𝜆 restricts to 𝑉 (𝜆 )−1/3𝜔 FS on the first two factors and to 𝑉 (𝜆 )−1/3𝜆 𝜔 FS on the third, 
+
+Δ𝜔 𝜆 = 𝑉 (𝜆 )1/3 
+
+Δ(1) + Δ(2) + 𝜆 −1Δ(3) 
+
+,
+
+where Δ(ℓ ) := 𝜋 ∗ 
+
+> ℓ
+
+ΔFS denotes the Laplacian of 𝑔 FS on the ℓ-th factor. Writing 𝑉 ( 𝑗 1 , 𝑗 2 , 𝑗 3 ) for the space spanned by the products 𝛽 1 𝛽 2 𝛽 3 with Δ(ℓ ) 𝛽 ℓ = 2 𝑗 ℓ ( 𝑗 ℓ + 1) 𝛽 ℓ , these are exactly the joint eigenspaces of 
+
+𝐴 (𝜆 ), since 𝐴 (𝜆 ) is a linear combination of the commuting operators Δ(1) , Δ(2) , Δ(3) ; hence the condition 
+
+𝑉 ( 𝑗 1 , 𝑗 2 , 𝑗 3 ) ⊆ ker 𝐴 (𝜆 ) reads, after dividing by the common factor 2𝑉 (𝜆 )1/3,
+
+𝑗 1 ( 𝑗 1 + 1) + 𝑗 2 ( 𝑗 2 + 1) + 𝜆 −1 𝑗 3 ( 𝑗 3 + 1) = 43 + 23 𝜆 −1;
+
+note that this is in fact independent of the normalization of 𝜔 FS . At 𝜆 0 = 14 the right-hand side equals 4,and, since the possible values of 𝑗 ( 𝑗 + 1) are 0, 2, 6, 12 , . . . , the only solution is ( 𝑗 1, 𝑗 2, 𝑗 3) = (1, 1, 0),whence 
+
+ker 𝐴 (𝜆 0) = 𝑉 (1,1,0) ,
+
+which has dimension 
+
+dim ker 𝐴 (𝜆 0) = 3 · 3 · 1 = 9,
+
+15 which is odd. Note that these eigenfunctions have zero mean, consistently with the choice of Banach spaces. As for transversality, 𝐴 (𝜆 ) acts on each 𝑉 ( 𝑗 1 , 𝑗 2 , 𝑗 3 ) as multiplication by the scalar 
+
+𝑎 (𝜆 ) = 4𝜋𝜆 1/3
+
+
+
+𝑗 1 ( 𝑗 1 + 1) + 𝑗 2 ( 𝑗 2 + 1) − 43
+
+
+
++ 4𝜋𝜆 −2/3
+
+
+
+𝑗 3 ( 𝑗 3 + 1) − 23
+
+
+
+.
+
+On ker 𝐴 (𝜆 0) = 𝑉 (1,1,0) this reads 𝑎 (𝜆 ) = 32 𝜋  
+
+> 3
+
+𝜆 1/3 − 8 𝜋  
+
+> 3
+
+𝜆 −2/3, whence 
+
+𝑎 ′ (𝜆 ) = 32 𝜋 
+
+9 𝜆 −2/3 + 16 𝜋 
+
+9 𝜆 −5/3, 𝑎 ′ (𝜆 0) = 32 𝜋 
+
+3 𝜆 −2/30 ≠ 0.
+
+Hence 𝜕 𝜆 𝐴 (𝜆 0) [ 𝑣 ] = 𝑎 ′ (𝜆 0) 𝑣 is a non-zero multiple of 𝑣 for every 𝑣 ∈ ker 𝐴 (𝜆 0) \ { 0}; since 𝐴 (𝜆 0) is self-adjoint, im 𝐴 (𝜆 0) = (ker 𝐴 (𝜆 0)) ⊥, and therefore 𝜕 𝜆 𝐴 (𝜆 0) [ 𝑣 ] ∉ im 𝐴 (𝜆 0).By the bifurcation theorem, for 𝜆 close to 𝜆 0 the equation 𝐹 ( 𝑓 , 𝜆 ) = 0 admits a non-trivial solution 
+
+𝑓 𝜆 . 0, and the metric 𝑒 𝑓 𝜆  
+
+> 3
+
+𝜔 𝜆 has constant Chern scalar curvature but is not equivalent to 𝜔 𝜆 under the action of Aut (𝑋, {𝜔 𝜆 }) × R>0.Despite the failure of uniqueness, compactness of CℎY𝑎 (𝑋, {𝜔 }) in the positive regime remains an open problem. 
+
+Remark 3.8 . The parabolic counterpart of the Chern-Yamabe equation is the Chern-Yamabe flow 
+
+𝜕 𝑓 𝜕𝑡 = −ΔCh  
+
+> 𝜔
+
+𝑓 − scal Ch (𝜔 ) + 𝜆 𝑒 𝑓 𝑛 ,
+
+where 𝜆 = Γ 𝑋 ({ 𝜔 }) is the expected constant Chern scalar curvature. Since the principal symbol of ΔCh 
+
+coincides with that of the Hodge-de Rham Laplacian, the flow is well-posed for any smooth initial datum. Short-time existence, long-time behaviour, and convergence in the negative Gauduchon degree case have been further studied in [LM18, CZ20, Yu25]. 
+
+Remark 3.9 . The Chern-Yamabe problem has a natural application to the existence of second Chern-Einstein metrics, i.e., Hermitian metrics 𝜔 satisfying 
+
+Ric (2) (𝜔 ) = 𝜆 𝜔 
+
+for some smooth function 𝜆 ; see [Gau81, ACS20]. Recall that the second Chern-Ricci form Ric (2) (𝜔 ) is the (1, 1)-form obtained by tracing the Chern curvature tensor in the first pair of indices, 
+
+Ric (2) (𝜔 ) loc 
+
+= ℎ ¯𝑗𝑖 Θ𝑖 ¯𝑗 𝑘 ¯ℓ
+
+√−1 𝑑𝑧 ℓ ∧ 𝑑 ¯𝑧 𝑘 ,
+
+in contrast with the first Chern-Ricci form Ric Ch (𝜔 ) recalled in Section 2. Under a conformal change 𝜔 ′ = 𝑒 𝑓 𝜔 , the second Chern-Ricci curvature transforms as 
+
+Ric (2) (𝑒 𝑓 𝜔 ) = Ric (2) (𝜔 ) + 12 (ΔCh 𝑓 ) 𝜔, 
+
+so the second Chern-Einstein condition is conformally invariant. Suppose 𝜔 is a weak second Chern-Einstein metric, meaning that 𝜆 is not necessarily constant. Solving the linear equation 
+
+ΔCh 𝑓 = −scal Ch (𝜂 ) + Γ𝑋 ({ 𝜔 }) 
+
+(where 𝜂 is the unit-volume Gauduchon representative) produces a conformal metric 𝑒 𝑓 𝑛 𝜂 that is weak second Chern-Einstein with Einstein factor of definite sign, equal to the sign of Γ𝑋 ({ 𝜔 }) .Recall that tr 𝜔 Ric (2) (𝜔 ) = 12 scal Ch (𝜔 ). Finding a strong second Chern-Einstein metric (i.e., with 𝜆 
+
+constant) in the same conformal class reduces to solving the Chern-Yamabe equation (ChYa), namely 
+
+ΔCh  
+
+> 𝜂
+
+𝑓 + scal Ch (𝜂 ) = 𝜆 𝑒 𝑓 𝑛 ,
+
+and the resulting metric 𝑒 𝑓 𝑛 𝜂 has constant second Chern-Einstein factor 𝜆  
+
+> 2𝑛
+
+. Therefore, a positive solution to the Chern-Yamabe problem in every conformal class would imply that every weak second Chern-Einstein metric is conformal to a strong one. 
+
+16 The positive curvature regime raises several open questions: whether CℎY𝑎 (𝑋, {𝜔 }) is non-empty for every conformal class with Γ𝑋 ({ 𝜔 }) > 0, whether it is compact, whether the Chern-Yamabe functional is bounded below in the balanced case, and whether the Chern-Yamabe flow converges. A deeper understanding of the Chern scalar curvature requires a more geometric perspective: in Section 4, we show that a deformation of scal Ch by torsion quantities arises as a momentum map in locally conformally Kähler geometry. This picture then suggests a natural deformation of the Chern-Yamabe problem that is both geometrically motivated and variational, which we study in Section 5. 
+
+# 4 Chern-scalar curvature in the momentum map picture 
+
+Constant scalar curvature metrics play a central role in Kähler geometry: by the foundational work of Fujiki [Fuj90] and Donaldson [Don97], the scalar curvature arises as a momentum map for an infinite-dimensional Hamiltonian action, so that constant scalar curvature Kähler metrics appear as its zeroes. Inspired by the Hilbert-Mumford criterion in Geometric Invariant Theory in finite dimension, this perspective leads to the notion of 𝐾 -stability. More precisely, let 𝑋 be a compact smooth manifold endowed with a symplectic form 𝜔 admitting Kähler structures. The space Jalm (𝜔 ) of 𝜔 -compatible almost-complex structures carries a natural infinite-dimensional Kähler structure (J, Ω), invariant under the symplectomorphism group Aut (𝑋, 𝜔 ),which preserves the subset J ( 𝜔 ) of integrable structures. See Section 4.1 for details. The scalar curvature map scal : Jalm (𝜔 ) → C ∞ (𝑋, R), assigning to 𝐽 the (Riemannian) scalar curvature of 𝑔 𝐽 := 𝜔 (· , 𝐽 ·) , is 
+
+Aut (𝑋, 𝜔 )-equivariant and satisfies the momentum map identity 
+
+∫
+
+> 𝑋
+
+𝑑 scal |𝐽 (𝑣 ) ℎ𝑌 
+
+𝜔 𝑛 
+
+𝑛 ! = − 12 Ω𝐽 (𝑌 ∗ 
+
+> 𝐽
+
+, 𝑣 )
+
+for all 𝐽 ∈ J ( 𝜔 ), 𝑣 ∈ 𝑇 𝐽 Jalm (𝜔 ), and 𝑌 ∈ 𝔥𝔞𝔪 (𝑋, 𝜔 ), where 𝔥𝔞𝔪 (𝑋, 𝜔 ) consists of vector fields 𝑌 
+
+satisfying 𝑌 ⌟𝜔 = 𝑑ℎ 𝑌 for some ℎ𝑌 ∈ C ∞ (𝑋, R), unique up to a constant, and 𝑌 ∗ denotes the fundamental vector field of the action. In this section, following [ACPS25], we describe how this picture extends to the locally conformally Kähler setting, and how the Chern scalar curvature naturally enters deformed by a tensor term. It is this extension that motivates the deformed scalar curvatures of Section 5. Throughout this section, 𝑋 denotes a compact, connected, smooth manifold of real dimension 2𝑛 ,endowed with a locally conformally symplectic form 𝜔 , namely a non-degenerate 2-form such that 
+
+𝑑𝜔 = 1
+
+𝑛 − 1 𝜃 ∧ 𝜔, 𝑑𝜃 = 0,
+
+for some closed 1-form 𝜃 . Thanks to the coefficient “ 1/( 𝑛 − 1)” chosen here, 𝜃 coincides exactly with the Lee form introduced before. We assume 𝜃 to be non-exact, a case sometimes referred to as strictly locally conformally symplectic. 
+
+## 4.1 The tautological Kähler structure on the space of locally conformally Kähler structures 
+
+We first construct a Kähler structure on the infinite-dimensional space of locally conformally Kähler structures. We stress that the construction of such structure, as in [Fuj90, Don97] for the Kähler setting, requires only that 𝜔 be non-degenerate, not that it be closed or locally conformally symplectic. Let 𝜔 be a non-degenerate 2-form on 𝑋 and set 
+
+Jalm (𝜔 ) :=
+
+ 𝐽 almost-complex structure on 𝑋 :
+
+𝜔 (𝐽 ·, 𝐽 ·) = 𝜔 and 𝑔 𝐽 := 𝜔 (· , 𝐽 ·) > 0
+
+
+
+.
+
+17 Following [Fuj90, Remark 4.3], Jalm (𝜔 ) has a natural structure of infinite-dimensional ILH (inverse limit of Hilbert) manifold in the sense of [Omo97], in particular Fréchet, being the space of smooth sections of a bundle with fibre Sp (2𝑛, R)/ U(𝑛 ).The tangent space of Jalm (𝜔 ) at 𝐽 is 
+
+𝑇 𝐽 Jalm (𝜔 ) = {𝐴 ∈ C ∞ (𝑋, 𝔰𝔭 (𝑇 𝑋, 𝜔 )) : 𝐽 𝐴 + 𝐴𝐽 = 0}
+
+= { ˆ𝑎 𝐽 := [𝐽, 𝑎 ] : 𝑎 ∈ C ∞ (𝑋, 𝔰𝔭 (𝑇 𝑋, 𝜔 ))} ,
+
+where 
+
+𝔰𝔭 (𝑇 𝑋, 𝜔 ) := {𝑎 ∈ End (𝑇 𝑋 ) : 𝜔 (𝑎 ·, ·) + 𝜔 (· , 𝑎 ·) = 0}
+
+denotes the bundle of infinitesimally 𝜔 -preserving endomorphisms. Moreover, each such 𝐴 is 𝑔 𝐽 -symmetric. Indeed, let (𝐽 𝑡 )𝑡 be a curve in Jalm (𝜔 ) with 𝐽 0 = 𝐽 and 𝐴 := ¤𝐽 0 := 𝑑 𝑑𝑡 𝑡 =0 𝐽 𝑡 . Differentiating 
+
+𝐽 2 
+
+> 𝑡
+
+= −id gives 𝐽 𝐴 + 𝐴𝐽 = 0, and differentiating 𝜔 (𝐽 𝑡 ·, 𝐽 𝑡 ·) = 𝜔 gives 𝜔 ( 𝐴 ·, 𝐽 ·) + 𝜔 (𝐽 ·, 𝐴 ·) = 0; using 
+
+𝐽 -compatibility, the latter is equivalent to 𝐴 ∈ 𝔰𝔭 (𝑇 𝑋, 𝜔 ). This proves the first inclusion. Given 𝐴 with 
+
+𝐽 𝐴 + 𝐴𝐽 = 0 and 𝐴 ∈ 𝔰𝔭 (𝑇 𝑋, 𝜔 ), set 𝑎 := − 12 𝐽 𝐴 . Then [𝐽, 𝑎 ] = 12 𝐴 + 12 𝐽 𝐴𝐽 = 𝐴 , since 𝐽 𝐴𝐽 = 𝐴 ;and 𝑎 ∈ 𝔰𝔭 (𝑇 𝑋, 𝜔 ). Conversely, for any 𝑎 ∈ C ∞ (𝑋, 𝔰𝔭 (𝑇 𝑋, 𝜔 )) , the curve 𝐽 𝑡 := exp (− 𝑡𝑎 ) 𝐽 exp (𝑡𝑎 )
+
+lies in Jalm (𝜔 ), as exp (𝑡𝑎 ) preserves 𝜔 , with 𝐽 0 = 𝐽 and ¤𝐽 0 = [𝐽, 𝑎 ]. Finally, 𝑔 ( 𝐴𝑋, 𝑌 ) = 𝜔 ( 𝐴𝑋, 𝐽𝑌 ) =
+
+−𝜔 (𝑋, 𝐴𝐽𝑌 ) = 𝜔 (𝑋, 𝐽 𝐴𝑌 ) = 𝑔 (𝑋, 𝐴𝑌 ), so 𝐴 is 𝑔 -symmetric. Any 𝑎 ∈ C ∞ (𝑋, 𝔰𝔭 (𝑇 𝑋, 𝜔 )) thus determines a vector field ˆ𝑎 on Jalm (𝜔 ), with ˆ𝑎 𝐽 := [𝐽, 𝑎 ]; we call such vector fields “basic”. Their flow is Θ ˆ𝑎 𝑡 (𝐽 ) = exp (− 𝑡𝑎 ) 𝐽 exp (𝑡𝑎 ). Since ˆ𝑎 𝐽 = [𝐽, 𝑎 ] depends linearly on 𝐽 , its differential at 𝐽 in the direction 𝑣 is simply 𝑑 𝐽 ˆ𝑎 (𝑣 ) = [𝑣, 𝑎 ]; the bracket of two basic vector fields is then [ ˆ𝑎, ˆ𝑏 ] 𝐽 = 𝑑 𝐽 ˆ𝑏 ( ˆ𝑎 𝐽 ) − 𝑑 𝐽 ˆ𝑎 ( ˆ𝑏 𝐽 ) = [[ 𝐽, 𝑎 ], 𝑏 ] − [[ 𝐽, 𝑏 ], 𝑎 ], which by the Jacobi identity equals [𝐽, [𝑎, 𝑏 ]] = [𝑎, 𝑏 ] 𝐽 .This gives the bracket identity 
+
+[ ˆ𝑎, ˆ𝑏 ] = [𝑎, 𝑏 ] = 𝑎𝑏 − 𝑏𝑎. (7) We now equip Jalm (𝜔 ) with the tautological triple (J, G, Ω), defined at 𝐽 by 
+
+J𝐽 ( 𝐴 ) := 𝐽 𝐴, 
+
+G𝐽 ( 𝐴, 𝐵 ) :=
+
+∫
+
+> 𝑋
+
+tr ( 𝐴𝐵 ) 𝜔 𝑛 
+
+𝑛 ! ,
+
+Ω𝐽 ( 𝐴, 𝐵 ) := G𝐽 (J𝐽 𝐴, 𝐵 ) =
+
+∫
+
+> 𝑋
+
+tr (𝐽 𝐴𝐵 ) 𝜔 𝑛 
+
+𝑛 ! .
+
+One checks directly that J𝐽 maps 𝑇 𝐽 Jalm (𝜔 ) to itself: if 𝐽 𝐴 + 𝐴𝐽 = 0, then 𝐽 (𝐽 𝐴 ) + ( 𝐽 𝐴 )𝐽 = −𝐴 + 𝐽 𝐴𝐽 =
+
+−𝐴 + (− 𝐴𝐽 )𝐽 = 0; and if moreover 𝐴 ∈ 𝔰𝔭 (𝑇 𝑋, 𝜔 ), then 𝜔 (𝐽 𝐴𝑋, 𝑌 ) + 𝜔 (𝑋, 𝐽 𝐴𝑌 ) = 𝜔 (𝑋, 𝐴𝐽𝑌 ) − 
+
+𝜔 (𝐽 𝑋, 𝐴𝑌 ) = −𝜔 (𝑋, 𝐽 𝐴𝑌 ) − 𝜔 (𝐽 𝑋, 𝐴𝑌 ) = 𝜔 (𝐽 𝑋, 𝐴𝑌 ) − 𝜔 (𝐽 𝑋, 𝐴𝑌 ) = 0, so 𝐽 𝐴 ∈ 𝔰𝔭 (𝑇 𝑋, 𝜔 ) as well; hence J2 
+
+> 𝐽
+
+= −id follows from 𝐽 2 = −id . Antisymmetry of Ω𝐽 , i.e. Ω𝐽 ( 𝐴, 𝐵 ) = −Ω𝐽 (𝐵, 𝐴 ), follows from 
+
+tr (𝐽 𝐴𝐵 ) = tr (( 𝐽 𝐴𝐵 )𝑡 ) = −tr (𝐵𝐴𝐽 ) = −tr (𝐽 𝐵𝐴 ), using 𝐴 𝑡 = 𝐴 , 𝐵 𝑡 = 𝐵 , 𝐽 𝑡 = −𝐽 .
+
+Proposition 4.1 ([Fuj90, Theorem 4.2]) . The triple (J, G, Ω) is a Kähler structure on Jalm (𝜔 ), with respect to which the basic vector fields are holomorphic and Killing. Proof. The key point of the proof is the pointwise trace identity 
+
+tr (𝐽 [𝐽, 𝑎 ] [ 𝐽, 𝑏 ]) = 2 tr (𝐽 [𝑎, 𝑏 ]) , (8) proved as follows. Writing 𝑋 := [𝐽, 𝑎 ], 𝑌 := [𝐽, 𝑏 ], one computes 𝐽 𝑋 = 𝐽 2𝑎 − 𝐽𝑎𝐽 = −𝑎 − 𝐽𝑎𝐽 ,whence 𝐽 𝑋𝑌 = −𝑎𝐽𝑏 + 𝑎𝑏𝐽 + 𝐽𝑎𝑏 + 𝐽𝑎𝐽𝑏𝐽 . Taking traces and using cyclicity, tr (𝑎𝑏𝐽 ) = tr (𝐽𝑎𝑏 ) and 
+
+tr (𝐽𝑎𝐽𝑏𝐽 ) = tr (𝐽 2𝑎𝐽𝑏 ) = −tr (𝑎𝐽𝑏 ) = −tr (𝐽𝑏𝑎 ); summing these gives tr (𝐽 𝑋𝑌 ) = 2 tr (𝐽𝑎𝑏 )− 2 tr (𝐽𝑏𝑎 ) =
+
+2 tr (𝐽 [𝑎, 𝑏 ]) , as claimed. 
+
+18 In particular, 
+
+Ω𝐽 ( ˆ𝑎 𝐽 , ˆ𝑏 𝐽 ) = 2
+
+∫
+
+> 𝑋
+
+tr (𝐽 [𝑎, 𝑏 ]) 𝜔 𝑛 
+
+𝑛 ! .
+
+We show that Ω is closed. Recall from the computation of 𝑇 𝐽 Jalm (𝜔 ) above that every 𝐴 ∈ 𝑇 𝐽 Jalm (𝜔 )
+
+is of the form ˆ𝑎 𝐽 for 𝑎 := − 12 𝐽 𝐴 ; hence the basic vector fields span each tangent space, and since 𝑑 Ω is 
+
+𝐶 ∞-tensorial, it suffices to evaluate it on basic vector fields, whose brackets are well-defined by (7): 
+
+𝑑 Ω( ˆ𝑎, ˆ𝑏, ˆ𝑐 ) =∑︁ 
+
+> cyc
+
+
+
+ˆ𝑎 Ω( ˆ𝑏, ˆ𝑐 ) − Ω([ ˆ𝑎, ˆ𝑏 ], ˆ𝑐 )
+
+
+
+.
+
+Differentiating Ω𝐽 𝑡 ( ˆ𝑏, ˆ𝑐 ) = 2 ∫ 
+
+> 𝑋
+
+tr (𝐽 𝑡 [𝑏, 𝑐 ]) 𝜔 𝑛  
+
+> 𝑛 !
+
+along the flow 𝐽 𝑡 = Θ ˆ𝑎 𝑡 (𝐽 ) of ˆ𝑎 gives 
+
+ˆ𝑎 Ω( ˆ𝑏, ˆ𝑐 ) 𝐽 = 2
+
+∫
+
+> 𝑋
+
+tr ([ 𝐽, 𝑎 ] [ 𝑏, 𝑐 ]) 𝜔 𝑛 
+
+𝑛 ! = 2
+
+∫
+
+> 𝑋
+
+tr (𝐽 [𝑎, [𝑏, 𝑐 ]]) 𝜔 𝑛 
+
+𝑛 ! ,
+
+where the second equality is a cyclic rearrangement under the trace. Summing cyclically, the first group vanishes by the Jacobi identity. By (7), we get Ω([ ˆ𝑎, ˆ𝑏 ], ˆ𝑐 )| 𝐽 = 2 ∫ 
+
+> 𝑋
+
+tr (𝐽 [[ 𝑎, 𝑏 ], 𝑐 ]) 𝜔 𝑛  
+
+> 𝑛 !
+
+, and the second group vanishes by the Jacobi identity as well. Hence 𝑑 Ω = 0.Integrability of J follows from an analogous computation, showing that the Nijenhuis tensor vanishes on basic vector fields, via [ ˆ𝑎, J ˆ𝑏 ] = J[ ˆ𝑎, ˆ𝑏 ]. Indeed, (J ˆ𝑏 )𝐽 = 𝐽 [𝐽, 𝑏 ] = −𝑏 − 𝐽𝑏𝐽 , so that 𝑑 𝐽 (J ˆ𝑏 )( 𝑣 ) =
+
+−( 𝑣𝑏𝐽 + 𝐽𝑏𝑣 ); substituting 𝑣 = ˆ𝑎 𝐽 = [𝐽, 𝑎 ] and 𝑑 𝐽 ˆ𝑎  (J ˆ𝑏 )𝐽 
+
+ = [( J ˆ𝑏 )𝐽 , 𝑎 ] into [ ˆ𝑎, J ˆ𝑏 ] 𝐽 = 𝑑 𝐽 (J ˆ𝑏 )( ˆ𝑎 𝐽 ) − 
+
+𝑑 𝐽 ˆ𝑎  (J ˆ𝑏 )𝐽 
+
+ and simplifying gives [ ˆ𝑎, J ˆ𝑏 ] 𝐽 = −[ 𝑎, 𝑏 ] − 𝐽 [𝑎, 𝑏 ]𝐽 = J𝐽 
+
+  [𝑎, 𝑏 ] 𝐽 
+
+ = J[ ˆ𝑎, ˆ𝑏 ] 𝐽 . Since basic vector fields span each tangent space, this shows that the Nijenhuis tensor of J vanishes identically on 
+
+Jalm (𝜔 ); by [Koi90, Proposition 1.4], in this infinite-dimensional setting the vanishing of the Nijenhuis tensor is in fact equivalent to the integrability of J, so this suffices to conclude. Compatibility is immediate: for 𝐴, 𝐵 ∈ 𝑇 𝐽 Jalm (𝜔 ) one has tr (𝐽 𝐴𝐽 𝐵 ) = tr ( 𝐴𝐵 ), hence G𝐽 (J𝐴, J𝐵 ) =
+
+G𝐽 ( 𝐴, 𝐵 ); and G𝐽 ( 𝐴, 𝐴 ) = ∫ 
+
+> 𝑋
+
+tr ( 𝐴 2) 𝜔 𝑛  
+
+> 𝑛 !
+
+≥ 0 since 𝐴 is 𝑔 -symmetric, with equality only for 𝐴 = 0. □
+
+Finally, we introduce the subset 
+
+J ( 𝜔 ) := {𝐽 ∈ J alm (𝜔 ) : 𝐽 is integrable } ,
+
+which is an analytic subset of Jalm (𝜔 ).
+
+## 4.2 Twisted Hamiltonian vector fields 
+
+We now bring in the locally conformally symplectic condition 𝑑𝜔 = 𝜃 ∧ 𝜔 , 𝑑𝜃 = 0. Introducing the twisted differential 
+
+𝑑 𝜃 := 𝑑 − 1
+
+𝑛 − 1 𝜃 ∧,
+
+the condition reads 𝑑 𝜃 𝜔 = 0; since 𝜃 is closed, 𝑑 𝜃 ◦𝑑 𝜃 = 0, so 𝑑 𝜃 defines the Morse-Novikov cohomology 
+
+𝐻 • 
+
+> 𝑑 𝜃
+
+(𝑋, R). We assume 𝜃 to be non-exact, which we call the strictly locally conformally symplectic case. Then 𝐻 0 
+
+> 𝑑 𝜃
+
+(𝑋, R) = {0}: indeed, if ℎ satisfies 𝑑ℎ = 1 
+
+> 𝑛 −1
+
+ℎ𝜃 and vanishes at some point 𝑝 , then along any path 𝛾 from 𝑝 the function ℎ ◦ 𝛾 solves a homogeneous linear ordinary differential equation with zero initial datum, forcing ℎ ◦ 𝛾 ≡ 0; since 𝑋 is connected, ℎ ≡ 0. Otherwise ℎ is nowhere zero, hence of constant sign by continuity on connected 𝑋 , and (replacing ℎ by −ℎ if necessary) log ℎ is a well-defined global smooth function with 𝑑 log ℎ = 𝜃 /( 𝑛 − 1), so that 𝜃 = (𝑛 − 1) 𝑑 log ℎ is exact, contradicting our assumption. Hence the only function ℎ with 𝑑ℎ = 1 
+
+> 𝑛 −1
+
+ℎ𝜃 is ℎ = 0. On the minimal covering 𝜋 : b𝑋 → 𝑋 ,the pullback 𝜋 ∗𝜔 is globally conformal to a symplectic form, and the deck group acts by homotheties. Any compatible complex structure 𝐽 ∈ J ( 𝜔 ) corresponds to a locally conformally Kähler structure 
+
+(𝐽, 𝑔 𝐽 := 𝜔 (· , 𝐽 ·)) .
+
+19 The natural symmetries are the special conformal vector fields and the twisted-Hamiltonian vector fields, 
+
+𝔞𝔲𝔱 ★(𝑋, {𝜔 }) := {𝑌 : 𝑑 𝜃 (𝑌 ⌟𝜔 ) = 0} ,
+
+𝔥𝔞𝔪 (𝑋, {𝜔 }) := {𝑌 : 𝑌 ⌟𝜔 = 𝑑 𝜃 ℎ for some ℎ ∈ C ∞ (𝑋, R)} .
+
+The reason for these definitions is explained by the Cartan formula: 
+
+L𝑌 𝜔 = 𝑑 (𝑌 ⌟𝜔 ) + 𝑌 ⌟(𝜃 ∧ 𝜔 ) = 𝑑 𝜃 (𝑌 ⌟𝜔 ) + 1
+
+𝑛 − 1 𝜃 (𝑌 ) 𝜔, (9) so that 𝑌 ∈ 𝔞𝔲𝔱 ★(𝑋, {𝜔 }) if and only if L𝑌 𝜔 = 1 
+
+> 𝑛 −1
+
+𝜃 (𝑌 ) 𝜔 . A computation with the twisted Car-tan formula shows that both are closed Lie subalgebras of the algebra 𝔛 (𝑋 ) of vector fields, with 
+
+[𝔞𝔲𝔱 ★, 𝔞𝔲𝔱 ★] ⊆ 𝔥𝔞𝔪 ⊆ 𝔞𝔲𝔱 ★. The inclusion 𝔥𝔞𝔪 ⊆ 𝔞𝔲𝔱 ★ is immediate from 𝑑 2 
+
+> 𝜃
+
+= 0. For the first inclusion, given 𝑌 1, 𝑌 2 ∈ 𝔞𝔲𝔱 ★, the identity 𝜄 [𝑌 1 ,𝑌 2 ] = [L 𝑌 1 , 𝜄 𝑌 2 ] gives 
+
+[𝑌 1, 𝑌 2]⌟𝜔 = L𝑌 1 (𝑌 2⌟𝜔 ) − 1
+
+𝑛 − 1 𝜃 (𝑌 1) · ( 𝑌 2⌟𝜔 )
+
+= 𝑑 (𝑌 1⌟(𝑌 2⌟𝜔 )) + 𝑌 1⌟𝑑 (𝑌 2⌟𝜔 ) − 1
+
+𝑛 − 1 𝜃 (𝑌 1) · ( 𝑌 2⌟𝜔 )
+
+= 𝑑 (𝜔 (𝑌 2, 𝑌 1)) + 1
+
+𝑛 − 1𝑌 1⌟ (𝜃 ∧ ( 𝑌 2⌟𝜔 )) − 1
+
+𝑛 − 1 𝜃 (𝑌 1) · ( 𝑌 2⌟𝜔 )
+
+= 𝑑 (𝜔 (𝑌 2, 𝑌 1)) + 1
+
+𝑛 − 1 𝜃 (𝑌 1) · ( 𝑌 2⌟𝜔 ) − 1
+
+𝑛 − 1 𝜔 (𝑌 2, 𝑌 1) · 𝜃 
+
+− 1
+
+𝑛 − 1 𝜃 (𝑌 1) · ( 𝑌 2⌟𝜔 )
+
+= 𝑑 (𝜔 (𝑌 2, 𝑌 1)) − 1
+
+𝑛 − 1 𝜔 (𝑌 2, 𝑌 1) · 𝜃 
+
+= 𝑑 𝜃 
+
+ 𝜔 (𝑌 2, 𝑌 1),
+
+which in particular shows [𝑌 1, 𝑌 2] ∈ 𝔥𝔞𝔪 (𝑋, {𝜔 }) .Crucially, since 𝐻 0 
+
+> 𝑑 𝜃
+
+(𝑋, R) = {0}, the twisted-Hamiltonian potential is unique: there is a linear isomorphism 
+
+𝜅 : 𝔥𝔞𝔪 (𝑋, {𝜔 }) ∼
+
+−−→ C ∞ (𝑋, R), 𝑌 ⌟𝜔 = 𝑑 𝜃 (𝜅 (𝑌 )) ,
+
+which satisfies 𝜅 ([ 𝑌 1, 𝑌 2]) = 𝜔 (𝑌 2, 𝑌 1). This is in sharp contrast with the symplectic case, where the potential is defined only up to constants. We denote by Aut ★(𝑋, {𝜔 }) and Ham (𝑋, {𝜔 }) the generalized Lie transformation groups generated by these algebras, in the sense of [Omo97]. The group Aut ★(𝑋, {𝜔 }) acts on Jalm (𝜔 ) by pullback, 
+
+𝜙 · 𝐽 := (𝑑𝜙 )−1 ◦ 𝐽 ◦ 𝑑𝜙 ; this preserves the integrable locus J ( 𝜔 ), since the Nijenhuis tensor transforms equivariantly, 𝑁 𝜙 ·𝐽 = 𝜙 ∗ 𝑁 𝐽 . The fundamental vector field of 𝑌 ∈ 𝔞𝔲𝔱 ★(𝑋, {𝜔 }) is given by 𝑌 ∗ = −L 𝑌 𝐽 ;the sign is the standard normalization ensuring 𝑌 ↦ → 𝑌 ∗ is a Lie algebra homomorphism. 
+
+## 4.3 The momentum map 
+
+We would like to mimic the Fujiki-Donaldson construction for the action of Ham (𝑋, {𝜔 }) on J ( 𝜔 ),using the Chern scalar curvature, which makes the Riemannian scalar curvature 𝐽 ↦ → scal (𝑔 𝐽 ) appear by (3). Two difficulties arise: 
+
+• the group Aut ★(𝑋, {𝜔 }) preserves only the conformal class {𝜔 }, since L𝑌 𝜔 = 1 
+
+> 𝑛 −1
+
+𝜃 (𝑌 ) 𝜔 for 
+
+𝑌 ∈ 𝔞𝔲𝔱 ★(𝑋, {𝜔 }) ; hence the map 𝐽 ↦ → scal (𝑔 𝐽 ) is not equivariant; 
+
+• as we will see below, the linearization of scal produces a term involving ∇( 𝜃 ♯), where ∇ denotes the Weyl connection, which cannot apparently be absorbed by corrections depending on 𝜃 .
+
+20 Both difficulties are overcome by imposing an extra symmetry. Consider the symplectic dual of the multiple of the Lee form, namely the vector field 𝑉 defined by 𝑉 ⌟𝜔 = 1 
+
+> 𝑛 −1
+
+𝜃 . Since 1 
+
+> 𝑛 −1
+
+𝜃 = 𝑑 𝜃 (− 1), the field 𝑉 is twisted-Hamiltonian with potential 𝜅 (𝑉 ) = −1, and L𝑉 𝜔 = 0. Note also that 𝜃 ♯ = (𝑛 − 1)𝐽𝑉 .We assume that there exists a compact, connected Lie group 𝐾 acting effectively on 𝑋 such that: 
+
+• the action preserves 𝜔 ;
+
+• the action is of Lee type, in the sense that 𝑉 ∈ 𝔷 (𝔨 ) belongs to the center of the Lie algebra 𝔨 of 𝐾 ;
+
+• the action is twisted-Hamiltonian, i.e., 𝔨 ⊆ 𝔥𝔞𝔪 (𝑋, {𝜔 }) .The model case is that of Vaisman metrics (namely, locally conformally Kähler metrics whose Lee form is parallel, 𝐷𝜃 = 0), where the closure of the flow of 𝑉 is a torus of Lee type. We restrict all objects to their 𝐾 -invariant counterparts, denoted with a superscript 𝐾 .The symmetry solves exactly the two issues we had before. First, equivariance is restored: for 
+
+𝑌 ∈ 𝔞𝔲𝔱 ★(𝑋, {𝜔 }) 𝐾 , the twisted Leibniz rule gives 
+
+𝑑 𝜃 
+
+ 𝜔 (𝑉, 𝑌 ) = 𝑉 ⌟ 𝑑 𝜃 (𝑌 ⌟𝜔 ) − 𝑌 ⌟ 𝑑 𝜃 (𝑉 ⌟𝜔 ) − [ 𝑉, 𝑌 ]⌟ 𝜔 = 0,
+
+since 𝑑 𝜃 (𝑌 ⌟𝜔 ) = 0, 𝑑 𝜃 (𝑉 ⌟𝜔 ) = 𝑑 𝜃 𝑑 𝜃 (− 1) = 0, and [𝑉, 𝑌 ] = 0 (as 𝑉 is central and 𝑌 is 𝐾 -invariant). Since 𝐻 0 
+
+> 𝑑 𝜃
+
+(𝑋, R) = {0}, this forces 𝜃 (𝑌 ) = 0, hence L𝑌 𝜔 = 0: the invariant group genuinely preserves 
+
+𝜔 . Second, for 𝐽 ∈ J ( 𝜔 )𝐾 we have L𝑉 𝐽 = 0, which is equivalent to [𝐽, ∇𝑉 ] = 0; since ∇𝐽 = 0 and 
+
+𝜃 ♯ = (𝑛 − 1)𝐽𝑉 , the endomorphism ∇( 𝜃 ♯) = (𝑛 − 1)𝐽 ◦ ∇ 𝑉 is 𝐽 -invariant, hence pointwise orthogonal to the 𝐽 -anti-invariant tangent directions of Jalm (𝜔 )𝐾 : the problematic term will drop out of all pairings. We can now state the main result. Recall that scal Ch denotes the Chern scalar curvature of the Hermitian metric 𝑔 𝐽 = 𝜔 (· , 𝐽 ·) .
+
+Theorem 4.2 ([ACPS25]) . Let (𝑋, 𝜔 ) be a compact, connected, locally conformally symplectic manifold of real dimension 2𝑛 with non-exact Lee form 𝜃 , and let 𝐾 be a compact, connected Lie group acting effectively on 𝑋 and satisfying the conditions above. Then the map 
+
+𝜇 : J ( 𝜔 )𝐾 → C ∞ (𝑋, R)𝐾 , 𝜇 := scal Ch + 𝑛 𝑛 − 1 𝑑 ∗𝜃, 
+
+is a momentum map for the action of Ham (𝑋, {𝜔 }) 𝐾 on J ( 𝜔 )𝐾 : more precisely, it admits a smooth extension to an Aut ★(𝑋, {𝜔 }) 𝐾 -equivariant map on the whole space Jalm (𝜔 )𝐾 such that, for every 
+
+𝐽 ∈ J ( 𝜔 )𝐾 , every ˆ𝑎 𝐽 ∈ 𝑇 𝐽 Jalm (𝜔 )𝐾 , and every 𝑌 ∈ 𝔥𝔞𝔪 (𝑋, {𝜔 }) 𝐾 with potential ℎ = 𝜅 (𝑌 ),
+
+∫
+
+> 𝑋
+
+𝑑𝜇 |𝐽 ( ˆ𝑎 𝐽 ) ℎ 𝜔 𝑛 
+
+𝑛 ! = − 12 Ω𝐽 (𝑌 ∗ 
+
+> 𝐽
+
+, ˆ𝑎 𝐽 ). (10) 
+
+Proof. When 𝐽 is integrable, the metric 𝑔 𝐽 is locally conformally Kähler, and the Chern scalar curvature is related to the Riemannian one by 
+
+scal Ch = scal − 𝑑 ∗𝜃 + 12(𝑛 − 1) |𝜃 |2.
+
+This follows from Proposition 2.2 above (i.e. [Gau84, Equation (33)]), specialized to the locally confor-mally Kähler case, where |𝑇 |2 = 2 
+
+> 𝑛 −1
+
+|𝜃 |2. Therefore 
+
+𝜇 = scal + 1
+
+𝑛 − 1 𝑑 ∗𝜃 + 12(𝑛 − 1) |𝜃 |2,
+
+and the right-hand side is defined for every 𝐽 ∈ J alm (𝜔 )𝐾 : this is the expression we linearize. Note that all three summands depend on 𝐽 through the metric 𝑔 𝐽 , while 𝜔 and 𝜃 are fixed. Recall from the discussion above that Aut ★(𝑋, {𝜔 }) 𝐾 preserves 𝜔 exactly (not merely the conformal class {𝜔 }, as a general special conformal vector field would): indeed, for 𝑌 ∈ 𝔞𝔲𝔱 ★(𝑋, {𝜔 }) 𝐾 we showed 𝜃 (𝑌 ) = 0,
+
+21 hence L𝑌 𝜔 = 0. Consequently 𝜑 ∗𝜔 = 𝜔 for every 𝜑 ∈ Aut ★(𝑋, {𝜔 }) 𝐾 ; since 𝜃 is itself determined by 
+
+𝜔 , this forces 𝜑 ∗𝜃 = 𝜃 as well. It follows that 𝑔 𝜑 ·𝐽 = 𝜑 ∗𝑔 𝐽 for any 𝐽 ∈ J alm (𝜔 )𝐾 , so that the extended map 𝜇 is Aut ★(𝑋, {𝜔 }) 𝐾 -equivariant. 
+
+Step 1. Linearization formula for the norm of the Lee form. Fix 𝐽 ∈ J ( 𝜔 )𝐾 and a direction ˆ𝑎 𝐽 = [𝐽, 𝑎 ] ∈ 
+
+𝑇 𝐽 Jalm (𝜔 )𝐾 , and set 
+
+˚𝑎 := −𝐽 ˆ𝑎 𝐽 ,
+
+which is 𝑔 -symmetric, 𝐽 -anti-invariant, and trace-free (these three properties follow directly from ˆ𝑎 𝐽 ∈
+
+𝑇 𝐽 Jalm (𝜔 )𝐾 ). Denote by a prime the derivative at 𝐽 along ˆ𝑎 𝐽 . Differentiating 𝑔 𝐽 = 𝜔 (· , 𝐽 ·) gives 
+
+𝑔 ′ = 𝜔 (· , ˆ𝑎 𝐽 ·) = 𝑔 ( ˚𝑎 ·, ·) .
+
+Since 𝜃 is fixed, differentiating 0 = 𝜃 ′ = (𝑔 (𝜃 ♯, ·)) ′ = 𝑔 ( ˚𝑎 𝜃 ♯, ·) + 𝑔 (( 𝜃 ♯)′, ·) gives (𝜃 ♯)′ = − ˚𝑎 (𝜃 ♯), and consequently, writing |𝜃 |2 = 𝜃 (𝜃 ♯) with 𝜃 itself independent of 𝐽 ,
+
+(| 𝜃 |2)′ = 𝜃  (𝜃 ♯)′ = −𝑔 ( ˚𝑎, 𝜃 ⊗ 𝜃 ♯).
+
+Step 2. Linearization formula for the scalar curvature. For the Riemannian scalar curvature, the general variation formula (see [Bes08, Theorem 1.174]) together with tr ( ˚𝑎 ) = 0 gives 
+
+scal ′ = 𝑑 ∗ (𝛿 ˚𝑎 ) − 𝑔 ( ˚𝑎, Ric ♯),
+
+where 𝛿 denotes the divergence on symmetric endomorphisms. This is where the symmetry intervenes. To make it clear, it is useful to introduce the Weyl connection. Recall that the Weyl connection associated to (𝑔, 𝜃 ) is the unique torsion-free connection preserving the conformal class of 𝑔 with Lee form 𝜃 ,explicitly 
+
+∇𝑊 𝑋 𝑌 := 𝐷 𝑋 𝑌 − 12(𝑛 − 1)
+
+
+
+𝜃 (𝑋 )𝑌 + 𝜃 (𝑌 ) 𝑋 − 𝑔 (𝑋, 𝑌 )𝜃 ♯ 
+
+;
+
+one checks directly that ∇𝑊 𝑔 = 1 
+
+> 𝑛 −1
+
+𝜃 ⊗ 𝑔 and, crucially, in the locally conformally Kähler setting one has ∇𝑊 𝐽 = 0. Writing the Riemannian Ricci tensor Ric in terms of the Weyl-Ricci tensor Ric 𝑊 (see e.g. [ACPS25, Proposition A.6]), one has 
+
+(Ric 𝑊 )♯ − Ric ♯ = ∇𝑊 (𝜃 ♯) + 12(𝑛 − 1) 𝜃 ⊗ 𝜃 ♯ − 12(𝑛 − 1) (𝑑 ∗𝜃 ) id .
+
+Now, (Ric 𝑊 )♯ is symmetric and 𝐽 -invariant (see e.g. [ACPS25, Corollary A.5]), and ∇𝑊 (𝜃 ♯) is 𝐽 -invariant: indeed, writing 𝜃 ♯ = (𝑛 − 1)𝐽𝑉 and using ∇𝑊 𝐽 = 0, one has ∇𝑊 (𝜃 ♯) = (𝑛 − 1)𝐽 ◦ ∇ 𝑊 𝑉 ;since 𝑉 is central in 𝔨 and 𝐽 is 𝐾 -invariant, [𝐽, ∇𝑊 𝑉 ] = 0 as established above, whence 𝐽 ◦ ∇ 𝑊 (𝜃 ♯) =
+
+−( 𝑛 − 1)∇ 𝑊 𝑉 = ∇𝑊 (𝜃 ♯) ◦ 𝐽 . Hence both terms are pointwise orthogonal to the 𝐽 -anti-invariant ˚𝑎 ; the 
+
+id -term pairs to tr ( ˚𝑎 ) = 0. Hence 
+
+scal ′ = 𝑑 ∗ (𝛿 ˚𝑎 ) + 12(𝑛 − 1) 𝑔 ( ˚𝑎, 𝜃 ⊗ 𝜃 ♯).
+
+Step 3. Linearization formula for the codifferential of the Lee form. Since 𝑑 ∗𝜃 = −tr 𝐷 (𝜃 ♯), we get 
+
+(𝑑 ∗𝜃 )′ = −tr  𝐷 ′ (𝜃 ♯) − tr  𝐷  (𝜃 ♯)′ .
+
+For the first term, a computation on a local 𝑔 -orthonormal frame ( ˜𝑒 𝛼 ), using [Bes08, Theorem 1.174] together with 𝑔 ′ = 𝑔 ( ˚𝑎 ·, ·) , gives 2 tr (𝐷 ′ (𝜃 ♯)) = tr (𝐷 𝜃 ♯ ˚𝑎 ) = L𝜃 ♯ (tr ˚ 𝑎 ) = 0, using tr ( ˚𝑎 ) = 0. For the second term, using (𝜃 ♯)′ = − ˚𝑎 (𝜃 ♯) from Step 1, 
+
+−tr  𝐷 (( 𝜃 ♯)′) = tr  𝐷 ( ˚𝑎 (𝜃 ♯))  = −( 𝛿 ˚𝑎 )( 𝜃 ♯) + 𝑔  𝐷 (𝜃 ♯), ˚𝑎 .
+
+22 A direct computation from the definition of the Weyl connection in Step 2 gives 𝐷 (𝜃 ♯) = ∇𝑊 (𝜃 ♯) +  
+
+> 12
+
+|𝜃 |2 id ; since ∇𝑊 (𝜃 ♯) is orthogonal to ˚𝑎 (Step 2) and tr ( ˚𝑎 ) = 0, we get 𝑔 (𝐷 (𝜃 ♯), ˚𝑎 ) = 0. Combining the three vanishing contributions, 
+
+(𝑑 ∗𝜃 )′ = −( 𝛿 ˚𝑎 )( 𝜃 ♯).
+
+Step 4. Summing up to get the linearization for the momentum map. Summing the three formulas with the coefficients of Step 1, the terms in 𝑔 ( ˚𝑎, 𝜃 ⊗ 𝜃 ♯) cancel: 
+
+𝜇 ′ = scal ′ + 1
+
+𝑛 − 1 (𝑑 ∗𝜃 )′ + 12(𝑛 − 1) (| 𝜃 |2)′
+
+= 𝑑 ∗ (𝛿 ˚𝑎 ) − 1
+
+𝑛 − 1 (𝛿 ˚𝑎 )( 𝜃 ♯).
+
+Pairing with the potential ℎ and integrating by parts (via ⟨ℎ, 𝑑 ∗ 𝛽 ⟩𝐿 2 = ⟨𝑑ℎ, 𝛽 ⟩𝐿 2 and ⟨𝛽, 𝛿 ˚𝑎 ⟩𝐿 2 =
+
+⟨𝛿 ∗ 𝛽, ˚𝑎 ⟩𝐿 2 ), 
+
+⟨ℎ, 𝜇 ′⟩𝐿 2 =
+
+D
+
+𝛿 ∗ 
+
+𝑑ℎ − ℎ𝑛 − 1 𝜃 
+
+
+
+, ˚𝑎 
+
+E 
+
+> 𝐿 2
+
+= ⟨𝛿 ∗ (𝑑 𝜃 ℎ), ˚𝑎 ⟩𝐿 2 .
+
+Step 5. Conclusion. Since 𝑑 𝜃 ℎ = 𝑌 ⌟𝜔 = 𝑔 (𝐽𝑌 , ·) , we have (𝑑 𝜃 ℎ)♯ = 𝐽𝑌 . A computation with the Weyl connection (see e.g. [ACPS25, Lemma 1.3], translated to the present normalization) shows that, for any 
+
+1-form 𝜁 ,
+
+𝛿 ∗ 𝜁 = ∇( 𝜁 ♯) − 12 (· ⌟ 𝑑 𝜃 𝜁 )♯ + 12(𝑛 − 1) 𝑔 (𝜁, 𝜃 ) id; 
+
+applying this to 𝜁 = 𝑑 𝜃 ℎ and using 𝑑 𝜃 ◦ 𝑑 𝜃 = 0 and ∇𝐽 = 0, we get 
+
+𝛿 ∗ (𝑑 𝜃 ℎ) = 𝐽 ◦ ∇ 𝑌 + 12(𝑛 − 1) 𝜃 (𝐽𝑌 ) id .
+
+Pairing with the trace-free ˚𝑎 kills the id -term. Finally, differentiating 𝑑 𝜃 (𝑌 ⌟𝜔 ) = 0 yields the identity 
+
+2 Sym 𝑔 (∇ 𝑊 𝑌 ) = −𝐽 ◦ L 𝑌 𝐽 , valid for special conformal vector fields (see e.g. [ACPS25, Lemmata 1.3-1.4]), and recalling that the fundamental vector field is 𝑌 ∗ = −L 𝑌 𝐽 , we conclude 
+
+⟨ℎ, 𝜇 ′⟩𝐿 2 = ⟨𝐽 ◦ ∇ 𝑊 𝑌 , ˚𝑎 ⟩𝐿 2 = −⟨∇ 𝑊 𝑌 , ˆ𝑎 𝐽 ⟩𝐿 2
+
+= − 12 ⟨L 𝑌 𝐽, J ˆ𝑎 𝐽 ⟩𝐿 2 = − 12 Ω𝐽 (𝑌 ∗ 
+
+> 𝐽
+
+, ˆ𝑎 𝐽 ),
+
+which is precisely (10). □
+
+As in the Kähler case, the momentum map picture produces an obstruction of Futaki type. This follows the classical Fujiki-Donaldson argument for the Futaki invariant, using that the constant function 
+
+1 is itself a twisted-Hamiltonian potential, 1 = 𝜅 (− 𝑉 ), for the central field −𝑉 ∈ 𝔷 (𝔨 ).
+
+Corollary 4.3 ([ACPS25]) . Under the assumptions of Theorem 4.2, the average 𝜇 := ∫ 
+
+> 𝑋
+
+𝜇 (𝐽 ) 𝜔 𝑛 
+
+> 𝑛 !
+
+ ∫ 
+
+> 𝑋 𝜔 𝑛
+> 𝑛 !
+
+and the linear map 
+
+F : 𝔷 (𝔨 ) → R, F ( 𝑌 ) :=
+
+∫
+
+> 𝑋
+
+ 𝜇 (𝐽 ) − 𝜇  𝜅 (𝑌 ) 𝜔 𝑛 
+
+𝑛 ! ,
+
+are independent of 𝐽 within each connected component of J ( 𝜔 )𝐾 . In particular, the non-vanishing of 
+
+F obstructs the existence of 𝐾 -invariant complex structures with 𝜇 (𝐽 ) constant. Remark 4.4 . Two comments on the equation 𝜇 (𝐽 ) = 𝜇 . First, it does not reduce to the constant scalar curvature Kähler equation on the minimal covering: the scalar curvature of the Kähler metric upstairs differs from the pullback of 𝜇 by terms involving 𝑑 ∗𝜃 and |𝜃 |2. Second, in the Vaisman case one has 
+
+𝐷 (𝜃 ♯) = 0, where 𝐷 is the Levi-Civita connection, hence 𝑑 ∗𝜃 = 0, and the condition reduces to the constant Chern scalar curvature equation on 𝑋 . In general, the above result suggests that the constancy of the momentum map, rather than of the Chern scalar curvature itself, is the natural notion of canonical metric in this setting: this motivates the deformed Yamabe problems of the next section. 
+
+23 Remark 4.5 . The momentum map picture developed in Theorem 4.2 naturally raises the question of defining a suitable notion of stability in the locally conformally Kähler setting, in the spirit of the Yau-Tian-Donaldson conjecture in Kähler geometry. For recent results in the Sasaki context, see [ACL21, AJL23, LLS25]. Compare also the work of Goto [Got26], who develops a momentum map framework in generalized Kähler geometry (in the sense of Hitchin and Gualtieri) using the pure spinor formalism. 
+
+# 5 Deformed Yamabe problems 
+
+Motivated by the results of the previous sections, we introduce and study a family of deformations of the Yamabe problem on compact complex manifolds. The deformation is defined by adding natural torsion terms to the Riemannian scalar curvature, and includes both the classical Yamabe equation (that we tried to extend in Section 3) and the scalar curvature equation arising in locally conformally Kähler geometry as a momentum map (as studied in Section 4). The results of this chapter are obtained in joint work with Francesco Pediconi, Carlo Scarpa, Cristiano Spotti, and Joshua Windare [APS +26]. 
+
+## 5.1 Deformed scalar curvatures 
+
+Let 𝑋 𝑛 be a compact complex manifold of complex dimension 𝑛 . For every Hermitian metric 𝜔 on 𝑋 
+
+and for every 𝑡 > 0, we consider the 𝑡 -deformed scalar curvature of 𝜔 , defined as 
+
+𝜇 𝑡 (𝜔 ) := scal Ch (𝜔 ) + 𝑡 − 𝑛 𝑛 − 1 𝑑 ∗𝜃 + 𝑡 − 2𝑛 
+
+4 |𝑇 |2 , (11) where scal Ch (𝜔 ) denotes the Chern scalar curvature, 𝑇 is the torsion of the Chern connection, and 𝜃 is the Lee form of 𝜔 .We explain here the choice of the coefficients. First, we note that some special values of the parameter recover interesting geometric situations: 
+
+• 𝑡 = 2𝑛 −1: the relation between the Chern scalar curvature scal Ch (𝜔 ) of 𝜔 and the Riemannian scalar curvature scal (𝑔 ) of the underlying Riemannian metric 𝑔 in (3) implies that the (2𝑛 − 1)-deformed scalar curvature coincides with the Riemannian scalar curvature; 
+
+• 𝑡 = 2𝑛 : the quantity appearing in Section 4 as a momentum map in the locally conformally Kähler setting, under the additional symmetry assumptions described there, coincides with the 
+
+2𝑛 -deformed scalar curvature, thus providing a geometric interpretation for the latter. Second, we recall that we are ultimately interested in studying the existence of metrics with constant deformed scalar curvature in a given conformal class, and hence in the behaviour of the deformed scalar curvature under conformal transformations. Consider more generally a quantity of the form 
+
+𝜓 𝑎,𝑏 (𝜔 ) := scal Ch (𝜔 ) + 𝑎 𝑑 ∗𝜃 + 𝑏 |𝑇 |2
+
+for parameters 𝑎, 𝑏 ∈ R. By (4), (5), (6) in Proposition 2.3, we get that 
+
+𝑒 𝑓 𝜓 𝑎,𝑏 (𝑒 𝑓 𝜔 ) = 𝜓 𝑎,𝑏 (𝜔 ) + ( 𝑛 + ( 𝑛 − 1)𝑎 )Δ 𝑓 (12) 
+
++( 𝑛 − ( 𝑛 − 1)𝑎 + 4𝑏 )𝑔 (∇ 𝑓 , 𝜃 ♯)−( 𝑛 − 1)(( 𝑛 − 1)𝑎 − 2𝑏 )|∇ 𝑓 |2.
+
+In particular, the choice in (11) is made so that the coefficient 𝑛 − ( 𝑛 − 1)𝑎 + 4𝑏 of the gradient term vanishes. As mentioned in Remark 2.4, see Remark 3.6 below, this coefficient is the obstruction to the equation being the Euler-Lagrange equation of a suitable functional. Third, we comment on the restriction 𝑡 > 0 rather than allowing general 𝑡 ∈ R. The value 𝑡 = 0 leads to a degenerate situation: the conformal transformation rule becomes 
+
+𝑒 𝑓 𝜇 0 (𝑒 𝑓 𝜔 ) = 𝜇 0 (𝜔 ), (13) 
+
+24 that is, 𝜇 0 is conformally equivariant. Consequently, the Yamabe-type equation 𝜇 0 (𝑒 𝑓 𝜔 ) = 𝑐 is solvable whenever 𝜇 0 (𝜔 ) has the same sign as 𝑐 . Note however that the sign of 𝜇 0 (𝜔 ) does play a role in the existence theory for constant 𝑡 -deformed scalar curvature metrics with 𝑡 > 0 (see Theorem 5.8). 
+
+## 5.2 Deformed Yamabe equations 
+
+We are interested in the Yamabe problem for the 𝑡 -deformed scalar curvature, that is, in finding Hermitian metrics with constant 𝑡 -deformed scalar curvature within a fixed conformal class. Given 𝜔 , we seek 𝑓 
+
+such that 𝜇 𝑡 (𝑒 𝑓 𝜔 ) = 𝑐 for some constant 𝑐 ∈ R.Setting 𝑎 = 𝑡 −𝑛 𝑛 −1 and 𝑏 = 𝑡 −2𝑛  
+
+> 4
+
+in (12), we obtain the conformal transformation rule for the deformed scalar curvature: 
+
+𝑒 𝑓 𝜇 𝑡 (𝑒 𝑓 𝜔 ) = 𝜇 𝑡 (𝜔 ) + 𝑡 Δ 𝑓 − 𝑡 (𝑛 − 1)
+
+2 |∇ 𝑓 |2. (14) It is useful to perform the following change of variables. We set 
+
+𝑓 = 2
+
+𝑛 − 1 log 𝑢, 𝑢 = 𝑒 𝑛 −12 𝑓 .
+
+A straightforward computation gives 
+
+Δ 𝑓 = 2
+
+𝑛 − 1
+
+ Δ𝑢 𝑢 + |∇ 𝑢 |2
+
+𝑢 2
+
+
+
+, |∇ 𝑓 |2 = 4
+
+(𝑛 − 1)2
+
+|∇ 𝑢 |2
+
+𝑢 2 .
+
+Substituting these identities into the conformal transformation formula, we obtain 
+
+𝑢 2 
+
+> 𝑛 −1
+
+𝜇 𝑡 
+
+𝑢 2 
+
+> 𝑛 −1
+
+𝜔 
+
+
+
+= 𝜇 𝑡 (𝜔 ) + 2𝑡 𝑛 − 1
+
+Δ𝑢 𝑢 
+
+and hence 𝜇 𝑡 (𝑒 𝑓 𝜔 ) = 𝑐 if and only if 𝑢 is a smooth positive solution of the semilinear equation 
+
+2𝑡 𝑛 − 1 Δ𝑢 + 𝜇 𝑡 (𝜔 ) 𝑢 = 𝑐 𝑢 𝑛 +1 
+
+> 𝑛 −1
+
+. (𝑡 -DY) We will refer to it as the 𝑡 -deformed Yamabe equation. The exponent 𝑛 +1 
+
+> 𝑛 −1
+
+of 𝑢 in ( 𝑡 -DY) plays a fundamental role. Recall that the Sobolev embedding theorem gives 𝑊 1, 𝑝 (R𝑚 ) ↩→ 𝐿 𝑝 ∗
+
+(R𝑚 ), where 1 
+
+> 𝑝 ∗
+
+= 1 
+
+> 𝑝
+
+− 1 
+
+> 𝑚
+
+, see e.g. [Aub78, Tal76]. In our setting, we have 𝑝 = 2 and 𝑚 = 2𝑛 , so the critical Sobolev exponent for 𝑊 1,2 (R2𝑛 ) ↩→ 𝐿 2∗
+
+(R2𝑛 ) is 
+
+2∗ = 2 · ( 2𝑛 )(2𝑛 ) − 2 = 2𝑛 𝑛 − 1 ,
+
+and one checks that 𝑛 +1 
+
+> 𝑛 −1
+
+= 2∗ − 1. Thus ( 𝑡 -DY) is a critical elliptic partial differential equation on a compact Riemannian manifold, in the sense of Aubin [Aub78, Chapter 5] and Hebey-Vaugon [HV01]. Moreover, for 𝑡 = 2𝑛 − 1, it reduces to the classical Yamabe equation [Yam60, LP87] 
+
+2(2𝑛 − 1)
+
+𝑛 − 1 Δ𝑢 + scal (𝑔 ) 𝑢 = 𝑐 𝑢 2∗ −1.
+
+As a consequence, we can readily adapt classical arguments from the Yamabe problem, for instance the following. 
+
+• The sign of the constant 𝑡 -deformed scalar curvature is a conformal invariant. Indeed, if 𝜔 and 
+
+𝜔 ′ = 𝑢 2 
+
+> 𝑛 −1
+
+𝜔 are conformal metrics with constant 𝑡 -deformed scalar curvature 𝑐 = 𝜇 𝑡 (𝜔 ) and 
+
+𝑐 ′ = 𝜇 𝑡 (𝜔 ′) respectively, then (14) gives 
+
+2𝑡 𝑛 − 1 Δ𝑢 + 𝑐𝑢 = 𝑐 ′𝑢 2∗ −1.
+
+25 Integrating over 𝑋 with respect to the volume form of 𝜔 , we get 
+
+𝑐 
+
+∫
+
+> 𝑋
+
+𝑢 𝜔 𝑛 
+
+𝑛 ! = 𝑐 ′
+
+∫
+
+> 𝑋
+
+𝑢 2∗ −1 𝜔 𝑛 
+
+𝑛 ! ,
+
+so that 𝑐 and 𝑐 ′ necessarily have the same sign (or are both zero). 
+
+• Moreover, uniqueness up to homothety holds when 𝑐, 𝑐 ′ ≤ 0. If 𝑐 = 𝑐 ′ = 0, this is immediate: the equation above reduces to Δ𝑢 = 0, which admits only constant solutions. If 𝑐, 𝑐 ′ < 0, this follows from the maximum principle. Up to rescaling the metrics, we may assume 𝑐 = 𝑐 ′ = −1, so that 
+
+2𝑡 𝑛 − 1 Δ𝑢 − 𝑢 = −𝑢 2∗ −1.
+
+At a minimum point 𝑥 min ∈ 𝑋 of 𝑢 , we get 
+
+𝑢 (𝑥 min )2∗ −1 = − 2𝑡 𝑛 − 1 Δ𝑢 (𝑥 min ) + 𝑢 (𝑥 min ) ≥ 𝑢 (𝑥 min ).
+
+Since 2∗ > 2, this implies 𝑢 (𝑥 min ) ≥ 1. Similarly, evaluating at a maximum point gives 𝑢 ≤ 1.Therefore 𝑢 ≡ 1, and 𝜔 ′ = 𝜔 .
+
+• On compact complex manifolds with non-negative Kodaira dimension, the Gauduchon degree provides an upper bound for the expected volume-normalized constant 𝑡 -deformed scalar curvature, in the regime 0 < 𝑡 ≤ 2𝑛 . Indeed, assume that 𝜔 = 𝑒 𝑓 𝜂 has constant 𝑡 -deformed scalar curvature 
+
+𝜇 𝑡 (𝜔 ) = 𝑐 , where 𝜂 is the Gauduchon representative of unit volume in the conformal class. The conformal rule (14), together with the sign of the torsion term for 0 < 𝑡 ≤ 2𝑛 , gives 
+
+𝑐 𝑒 𝑓 = 𝜇 𝑡 (𝜂 ) + 𝑡 Δ 𝑓 − 𝑡 (𝑛 − 1)
+
+2 |∇ 𝑓 |2
+
+= scal Ch (𝜂 ) + 𝑡 − 2𝑛 
+
+4 |𝑇 |2 + 𝑡 Δ 𝑓 − 𝑡 (𝑛 − 1)
+
+2 |∇ 𝑓 |2
+
+≤ scal Ch (𝜂 ) + 𝑡 Δ 𝑓 , 
+
+and integrating over 𝑋 with respect to the volume form of 𝜂 yields 
+
+𝑐 
+
+∫
+
+> 𝑋
+
+𝑒 𝑓 𝜂 𝑛 
+
+𝑛 ! ≤ Γ𝑋 ({ 𝜔 }) ,
+
+so that Γ𝑋 ({ 𝜔 }) ≤ 0 (a consequence of the assumption Kod (𝑋 ) ≥ 0) forces 𝑐 ≤ 0; the Hölder inequality then refines this to the bound 𝑐 Vol (𝑋, 𝑔 𝜔 ) 1 
+
+> 𝑛
+
+≤ Γ𝑋 ({ 𝜔 }) .
+
+## 5.3 Euler-Lagrange interpretation 
+
+The main motivation behind the definition of the 𝑡 -deformed scalar curvature is that the corresponding Yamabe-type equation arises as the Euler-Lagrange equation of a natural functional, which we call the 
+
+𝑡 -deformed Einstein-Hilbert functional. For a Hermitian metric 𝜔 , it is defined as 
+
+EH 𝑡 (𝜔 ) :=
+
+∫ 
+
+> 𝑋
+
+𝜇 𝑡 (𝜔 ) 𝜔 𝑛 
+
+> 𝑛 !
+
+∫ 
+
+> 𝑋 𝜔 𝑛
+> 𝑛 !
+
+ 𝑛 −1
+
+> 𝑛
+
+. (15) We consider this functional restricted to a conformal class {𝜔 }, parametrized as 𝑢 2 
+
+> 𝑛 −1
+
+𝜔 varying 𝑢 ∈C∞ (𝑋, R) smooth positive function. On this conformal class, we write 
+
+EH 𝑡 𝜔 (𝑢 ) := EH 𝑡 
+
+𝑢 2 
+
+> 𝑛 −1
+
+𝜔 
+
+
+
+= ∥𝑢 ∥−2
+
+> 𝐿 2∗
+
+∫
+
+> 𝑋
+
+
+
+𝑢 2 𝜇 𝑡 (𝜔 ) + 2𝑡 𝑛 − 1 |∇ 𝑢 |2
+
+ 𝜔 𝑛 
+
+𝑛 ! , (16) and we omit the reference metric 𝜔 from the notation whenever no confusion can arise. 
+
+26 Theorem 5.1. Let (𝑋 𝑛 , 𝜔 ) be a compact Hermitian manifold of complex dimension 𝑛 and fix 𝑡 > 0. The 
+
+𝑡 -deformed Yamabe equation (𝑡 -DY) is the Euler-Lagrange equation of the 𝑡 -deformed Einstein-Hilbert functional EH 𝑡 restricted to the conformal class of 𝜔 .Proof. Let 𝑢 𝜀 be a smooth path of smooth positive functions on 𝑋 , with 𝑢 := 𝑢 𝜀 =0 and ¤𝑢 := 𝑑 𝑑 𝜀 𝜀 =0𝑢 𝜀 .A direct computation gives 
+
+𝑑 𝑑𝜀 𝜀 =0 ∥𝑢 𝜀 ∥𝐿 2∗ = ∥𝑢 ∥1−2∗
+
+> 𝐿 2∗
+
+∫
+
+> 𝑋
+
+𝑢 2∗ −1 ¤𝑢 𝜔 𝑛 
+
+𝑛 ! ,
+
+and, writing 
+
+𝜇 𝑡  
+
+> tot
+
+(𝑢 ) :=
+
+∫
+
+> 𝑋
+
+
+
+𝑢 2 𝜇 𝑡 (𝜔 ) + 2𝑡 𝑛 − 1 |∇ 𝑢 |2
+
+ 𝜔 𝑛 
+
+𝑛 !
+
+for the numerator in (16), 
+
+𝑑 𝑑𝜀 𝜀 =0 𝜇 𝑡  
+
+> tot
+
+(𝑢 𝜀 ) = 2
+
+∫
+
+> 𝑋
+
+ 2𝑡 𝑛 − 1 Δ𝑢 + 𝜇 𝑡 (𝜔 ) 𝑢 
+
+
+
+¤𝑢 𝜔 𝑛 
+
+𝑛 ! .
+
+Combining these, the first variation of EH 𝑡 𝜔 (𝑢 ) = ∥𝑢 ∥−2 
+
+> 𝐿 2∗
+
+𝜇 𝑡  
+
+> tot
+
+(𝑢 ) is 
+
+𝑑 𝑑𝜀 𝜀 =0EH 𝑡 (𝑢 𝜀 ) = 2
+
+∥𝑢 ∥2
+
+> 𝐿 2∗
+
+∫
+
+> 𝑋
+
+2𝑡 𝑛 − 1 Δ𝑢 + 𝜇 𝑡 (𝜔 ) 𝑢 − 𝜇 𝑡  
+
+> tot
+
+(𝑢 )∥𝑢 ∥2∗
+
+> 𝐿 2∗
+
+𝑢 2∗ −1
+
+!
+
+¤𝑢 𝜔 𝑛 
+
+𝑛 ! .
+
+Hence 𝑑 𝑑 𝜀 𝜀 =0EH 𝑡 (𝑢 𝜀 ) = 0 for every ¤𝑢 if and only if 𝑢 satisfies ( 𝑡 -DY) with 𝑐 = 𝜇 𝑡  
+
+> tot (𝑢 )∥𝑢 ∥2∗
+> 𝐿 2∗
+
+. □
+
+## 5.4 Deformed Yamabe invariants 
+
+The functional EH 𝑡 in (16) is bounded below. Indeed, since 𝑡 > 0, the gradient term is non-negative, and the Hölder inequality gives 
+
+EH 𝑡 (𝑢 ) =
+
+∫
+
+> 𝑋
+
+
+
+𝑢 2 𝜇 𝑡 (𝜔 ) + 2𝑡 𝑛 −1 |∇ 𝑢 |2
+
+ 𝜔 𝑛 
+
+> 𝑛 !
+
+∥𝑢 ∥2
+
+> 𝐿 2∗
+
+≥
+
+∫ 
+
+> 𝑋
+
+𝑢 2 𝜇 𝑡 (𝜔 ) 𝜔 𝑛 
+
+> 𝑛 !
+
+∥𝑢 ∥2
+
+> 𝐿 2∗
+
+≥ −∥ 𝜇 𝑡 (𝜔 )∥ 𝐿 𝑘 · ∥𝑢 2 ∥𝐿 2∗/2
+
+∥𝑢 ∥2
+
+> 𝐿 2∗
+
+= −∥ 𝜇 𝑡 (𝜔 )∥ 𝐿 𝑘 ,
+
+where 𝑘 = (1 − 2/2∗)−1 is the conjugate exponent of 2∗/2.This allows us to define the 𝑡 -deformed Yamabe invariant of {𝜔 } as 
+
+𝜆 𝑡 𝑋 ({ 𝜔 }) := inf EH 𝑡 (𝜔 ′) : 𝜔 ′ ∈ { 𝜔 } ∈ R. (17) 
+
+Remark 5.2 . In the following section, we show that 𝜆 𝑡 𝑋 ({ 𝜔 }) is bounded above by a universal constant depending only on the complex dimension 𝑛 and the parameter 𝑡 , independent of {𝜔 }. More precisely, 
+
+𝜆 𝑡 𝑋 ({ 𝜔 }) ≤ 𝑡 Λ𝑛 , where Λ𝑛 := 2𝑛 Vol (𝑆 2𝑛 ) 1 
+
+> 𝑛
+
+,
+
+see Theorem 5.8 for more details. 
+
+Remark 5.3 . More generally, the same lower bound holds for the functional 
+
+EH 𝑡 𝑝 (𝑢 ) := 𝜇 𝑡  
+
+> tot
+
+(𝑢 )∥𝑢 ∥2 
+
+> 𝐿 𝑝
+
+(18) 
+
+27 for any 2 ≤ 𝑝 ≤ +∞ , where the 𝐿 2∗
+
+norm in the denominator is replaced by 𝐿 𝑝 . Similar computations give 
+
+EH 𝑡 𝑝 (𝑢 ) ≥ −∥ 𝜇 𝑡 (𝜔 )∥ 𝐿 𝑘 · ∥𝑢 2 ∥𝐿 𝑝 /2
+
+∥𝑢 ∥2 
+
+> 𝐿 𝑝
+
+= −∥ 𝜇 𝑡 (𝜔 )∥ 𝐿 𝑘 ,
+
+where 𝑘 = (1 − 2/𝑝 )−1 = 𝑝 𝑝 −2 is the conjugate exponent of 𝑝 /2. Here is where the value 2∗ plays a crucial role: for 2 ≤ 𝑝 < 2∗, the functional EH 𝑡 𝑝 admits a minimizer. To see this, take a minimizing sequence {𝑢 𝑗 } for EH 𝑡 𝑝 among positive smooth functions; by homogeneity of the functional, we may assume ∥𝑢 𝑗 ∥𝐿 𝑝 = 1. We claim that {𝑢 𝑗 } is bounded in 𝑊 1,2. Indeed, 
+
+2𝑡 𝑛 − 1 ∥𝑢 ∥2 
+
+> 𝑊 1,2
+
+= 2𝑡 𝑛 − 1
+
+∫
+
+> 𝑋
+
+(𝑢 2 + |∇ 𝑢 |2) 𝜔 𝑛 
+
+𝑛 !
+
+= EH 𝑡 𝑝 (𝑢 ) + 
+
+∫
+
+> 𝑋
+
+ 2𝑡 𝑛 − 1 − 𝜇 𝑡 (𝜔 )
+
+
+
+𝑢 2 𝜔 𝑛 
+
+𝑛 !
+
+≤ EH 𝑡 𝑝 (𝑢 ) + 2𝑡 𝑛 − 1 − 𝜇 𝑡 (𝜔 ) 𝐿 𝑘 
+
+,
+
+where 𝑘 = (1−2/𝑝 )−1 as above. For 𝑝 < 2∗, the Sobolev embedding 𝑊 1,2 ↩→ 𝐿 𝑝 is compact. Therefore, up to passing to a subsequence, 𝑢 𝑗 converges weakly in 𝑊 1,2 and strongly in 𝐿 𝑝 to some ˜𝑢 ∈ 𝑊 1,2, which minimizes EH 𝑡 𝑝 and satisfies ∥ ˜𝑢 ∥𝐿 𝑝 = 1. By adapting Theorem 5.1 with 2∗ replaced by 𝑝 , we get that ˜𝑢 
+
+is a weak solution of the semilinear equation 
+
+2𝑡 𝑛 − 1 Δ𝑢 + 𝜇 𝑡 (𝜔 ) 𝑢 = 𝜆 𝑢 𝑝 −1,
+
+for 𝜆 = inf EH 𝑡 𝑝 . By elliptic regularity, ˜𝑢 is smooth. Moreover, ˜𝑢 ≥ 0 as a limit of positive functions, and 
+
+˜𝑢 . 0 since ∥ ˜𝑢 ∥𝐿 𝑝 = 1. In fact, the maximum principle implies that ˜𝑢 > 0. Indeed, the equation can be rewritten as 2𝑡 𝑛 −1 Δ ˜𝑢 +  𝜇 𝑡 (𝜔 ) − 𝜆 ˜𝑢 𝑝 −2 ˜𝑢 = 0, so that ˜𝑢 ≥ 0 satisfies 2𝑡 𝑛 −1 Δ ˜𝑢 ≥ − 𝐶 ˜𝑢 for some constant 
+
+𝐶 > 0. By the strong maximum principle, either ˜𝑢 ≡ 0 or ˜𝑢 > 0 everywhere. 
+
+Remark 5.4 . We collect here some results comparing the deformed Yamabe invariants 𝜆 𝑡 𝑋 ({ 𝜔 }) with the Gauduchon degree Γ𝑋 ({ 𝜔 }) and with the classical Yamabe invariant 𝜆 Yam  
+
+> 𝑋
+
+(𝑔 ).
+
+• For 0 < 𝑡 ≤ 2𝑛 , we have 
+
+𝜆 𝑡 𝑋 ({ 𝜔 }) ≤ Γ𝑋 ({ 𝜔 }) .
+
+Indeed, taking the Gauduchon metric 𝜂 of unit volume in {𝜔 } as a test metric, we get 
+
+𝜆 𝑡 𝑋 ({ 𝜔 }) ≤ EH 𝑡 (𝜂 ) =
+
+∫
+
+> 𝑋
+
+𝜇 𝑡 (𝜂 ) 𝜂 𝑛 
+
+𝑛 !
+
+=
+
+∫
+
+> 𝑋
+
+scal Ch (𝜂 ) 𝜂 𝑛 
+
+𝑛 ! + 𝑡 − 2𝑛 
+
+4
+
+∫
+
+> 𝑋
+
+|𝑇 (𝜂 )| 2 𝜂 𝑛 
+
+𝑛 !
+
+≤
+
+∫
+
+> 𝑋
+
+scal Ch (𝜂 ) 𝜂 𝑛 
+
+𝑛 ! = Γ 𝑋 ({ 𝜔 }) .
+
+(Note that, for 𝑡 = 2𝑛 , i.e., in the momentum case, equality 𝜆 2𝑛 𝑋 ({ 𝜔 }) = Γ 𝑋 ({ 𝜔 }) implies that 𝜂 
+
+realizes the infimum of EH 2𝑛 and therefore scal Ch (𝜂 ) is constant. In the non-positive case, the converse also holds, by uniqueness up to homothety.) 
+
+• When the conformal class contains a Kähler metric 𝜔 𝐾 ∈ { 𝜔 }, then 
+
+𝜆 𝑡 𝑋 ({ 𝜔 }) ≤ 𝜆 Yam  
+
+> 𝑋
+
+({ 𝑔 }) for 0 < 𝑡 < 2𝑛 − 1,𝜆 𝑡 𝑋 ({ 𝜔 }) ≥ 𝜆 Yam  
+
+> 𝑋
+
+({ 𝑔 }) for 𝑡 ≥ 2𝑛 − 1.
+
+28 This follows directly by comparing with the classical Einstein-Hilbert functional 
+
+EH Yam (𝑢 ) =
+
+∫
+
+> 𝑋
+
+
+
+𝑢 2 scal (𝑔 𝐾 ) + 2(2𝑛 −1) 
+
+> 𝑛 −1
+
+|∇ 𝑢 |2
+
+ 𝜔 𝑛 
+
+> 𝑛 !
+
+∫  
+
+> 𝑋
+
+𝑢 2∗ 𝜔 𝑛 
+
+> 𝑛 !
+
+ 𝑛 −1
+
+> 𝑛
+
+with respect to 𝑔 𝐾 , for which 𝜇 𝑡 (𝜔 𝐾 ) = scal (𝑔 𝑘 ).
+
+• In particular, if the conformal class {𝜔 } contains a Kähler metric 𝜔 𝐾 that minimizes the classical Einstein-Hilbert functional, then 
+
+𝜆 𝑡 𝑋 ({ 𝜔 }) = 𝜆 Yam  
+
+> 𝑋
+
+({ 𝑔 }) for 2𝑛 − 1 ≤ 𝑡 ≤ 2𝑛. 
+
+Indeed, up to normalizing the volume, 𝜆 Yam  
+
+> 𝑋
+
+({ 𝜔 }) = ∫ 
+
+> 𝑋
+
+scal (𝑔 𝐾 ) 𝜔 𝑛 𝐾  
+
+> 𝑛 !
+
+= Γ 𝑋 ({ 𝜔 }) , and the conclu-sion follows by combining the previous two items. 
+
+• In particular, if the conformal class {𝜔 } contains a Kähler-Einstein metric 𝜔 KE , then 
+
+𝜆 𝑡 𝑋 ({ 𝜔 }) = scal (𝑔 KE ) · Vol (𝑋, 𝜔 KE ) 1 
+
+> 𝑛
+
+for 2𝑛 − 1 ≤ 𝑡 ≤ 2𝑛. 
+
+For example, for 𝑋 = C𝑃 𝑛 , endowed with the Fubini-Study metric 𝜔 FS , we get 
+
+𝜆 𝑡  
+
+> C𝑃 𝑛
+
+({ 𝜔 FS }) = 4𝑛 (𝑛 + 1) 𝜋 
+
+(𝑛 !) 1
+
+> 𝑛
+
+for 2𝑛 − 1 ≤ 𝑡 ≤ 2𝑛. 
+
+Note indeed that the quantity scal (𝑔 ) · Vol (𝑋, 𝑔 ) 1 
+
+> 𝑛
+
+is invariant under homotheties, so the value above does not depend on the normalization of 𝜔 FS ; for definiteness, it can be computed with the normalization in which the holomorphic sectional curvature equals 4, so that Ric (𝑔 FS ) =
+
+2(𝑛 + 1) 𝑔 FS , whence scal (𝑔 FS ) = 4𝑛 (𝑛 + 1) and Vol (C𝑃 𝑛 , 𝜔 FS ) = 𝜋 𝑛  
+
+> 𝑛 !
+
+. In particular, for 𝑛 = 1, we have 𝜆 𝑡  
+
+> C𝑃 1
+
+({ 𝜔 FS }) = 8𝜋 , for 1 ≤ 𝑡 ≤ 2.
+
+## 5.5 Existence results 
+
+In this section, we prove that the 𝑡 -deformed Yamabe invariant is bounded above by a universal constant depending only on the complex dimension 𝑛 and the parameter 𝑡 , and then we provide a pointwise cur-vature condition ensuring the existence of solutions to the 𝑡 -deformed Yamabe equation. The argument, following [Aub76], is based on evaluating the deformed Einstein-Hilbert functional on specific test func-tions arising from the classical Sobolev inequality (Theorem 5.5) and a canonical choice of holomorphic normal coordinates (Theorem 5.7). We start by recalling these two results. 
+
+Theorem 5.5 ([Aub78, Tal76]) . Let 𝑚 ≥ 3 and 2∗ = 2𝑚 𝑚 −2 . The Sobolev embedding 
+
+𝑊 1,2 (R𝑚 ) ↩→ 𝐿 2∗
+
+(R𝑚 )
+
+is continuous, and the sharp inequality 
+
+∥𝑢 ∥2   
+
+> 𝐿 2∗(R𝑚 )
+
+≤ 𝜎 𝑚 ∥∇ 𝑢 ∥2  
+
+> 𝐿 2(R𝑚 )
+
+holds for all 𝑢 ∈ 𝑊 1,2 (R𝑚 ), with optimal constant 
+
+𝜎 𝑚 = 4
+
+𝑚 (𝑚 − 2)Vol (𝑆 𝑚 ) 2
+
+> 𝑚
+
+,
+
+where Vol (𝑆 𝑚 ) is the volume of the unit 𝑚 -sphere with respect to the standard metric. Equality holds if and only if 𝑢 is a constant multiple or translate of 
+
+𝑢 𝜀 (𝑥 ) =
+
+ 𝜀 𝜀 2 + | 𝑥 |2
+
+ 𝑚 −22
+
+(19) 
+
+for some 𝜀 > 0.
+
+29 Remark 5.6 . For completeness, we recall that 
+
+Vol (𝑆 𝑚 ) = 2𝜋 𝑚 +12
+
+Γ
+
+ 𝑚 +12
+
+ ,
+
+although we will not need the explicit value in what follows. In particular, for 𝑚 = 2𝑛 , using Γ
+
+
+
+𝑛 + 12
+
+
+
+= 
+
+> (2𝑛 )!4𝑛 𝑛 !
+
+√𝜋 , we get 
+
+Vol (𝑆 2𝑛 ) = 22𝑛 +1 𝑛 !
+
+(2𝑛 )! 𝜋 𝑛 .
+
+Therefore, 
+
+𝜎 2𝑛 = 1
+
+𝑛 (𝑛 − 1) Vol (𝑆 2𝑛 ) 1
+
+> 𝑛
+
+= 1
+
+𝑛 (𝑛 − 1) · (( 2𝑛 )!) 1
+
+> 𝑛
+
+4 · 2 1 
+
+> 𝑛
+
+(𝑛 !) 1 
+
+> 𝑛
+
+𝜋 ,
+
+and we set 
+
+Λ𝑛 := 2
+
+𝑛 − 1 · 1
+
+𝜎 2𝑛 
+
+= 2𝑛 Vol (𝑆 2𝑛 ) 1 
+
+> 𝑛
+
+.
+
+For small values of 𝑛 , we have 
+
+𝑛 Vol (𝑆 2𝑛 ) Λ𝑛 
+
+1 4 𝜋 8 𝜋 ≈ 25 .133 2 83 𝜋 2 8√︂ 23 𝜋 ≈ 20 .521 3 16 15 𝜋 3 12 
+
+ 215 
+
+ 13
+
+𝜋 ≈ 19 .259 4 32 105 𝜋 4 16 
+
+ 2105 
+
+ 14
+
+𝜋 ≈ 18 .674 5 64 945 𝜋 5 20 
+
+ 2945 
+
+ 15
+
+𝜋 ≈ 18 .336 6 128 10395 𝜋 6 24 
+
+ 210395 
+
+ 16
+
+𝜋 ≈ 18 .116 
+
+One can show that the sequence Λ𝑛 is strictly decreasing. For large values of 𝑛 , we have: 
+
+𝑛 Λ𝑛 
+
+10 ≈ 17 .689 20 ≈ 17 .380 30 ≈ 17 .279 50 ≈ 17 .199 100 ≈ 17 .139 500 ≈ 17 .091 1000 ≈ 17 .085 10000 ≈ 17 .080 
+
+30 By Stirling’s formula, Γ(𝑧 ) ∼ √︁ 2𝜋 /𝑧 (𝑧 /𝑒 )𝑧 as 𝑧 → +∞ ; applying this with 𝑧 = 𝑛 + 12 gives 
+
+Vol (𝑆 2𝑛 ) ∼√︂ 2
+
+𝜋 ·√︂ 𝑛 + 12 · 𝜋 𝑛 + 12 · 𝑒 𝑛 + 12
+
+!𝑛 + 12
+
+= √2𝑒 · 𝜋𝑒 𝑛 + 12
+
+!𝑛 
+
+as 𝑛 → +∞ .
+
+Taking the 𝑛 -th root and letting 𝑛 → +∞ , one finds Vol (𝑆 2𝑛 )1/𝑛 ∼ 𝜋𝑒 /𝑛 , whence 
+
+Λ𝑛 = 2𝑛 Vol (𝑆 2𝑛 )1/𝑛 −→ 2𝜋𝑒 as 𝑛 → +∞ ,
+
+where 2𝜋𝑒 ≈ 17 .0795 is related to the entropy of the standard Gaussian. The second result we need concerns the existence of special coordinates in the non-Kähler setting (see also [LY17, Lemma 3.4]), extending the classical construction available in the Kähler case, where 
+
+𝑑𝜔 = 0 guarantees 𝜕 𝑖 ℎ 𝑗 ¯ℓ (0) = 𝜕 𝑗 ℎ𝑖 ¯ℓ (0) (see, e.g., [GH94, pp. 107-108]). 
+
+Theorem 5.7 (holomorphic normal coordinates) . Let 𝑋 be a complex manifold endowed with a Hermitian metric 𝜔 . For every point 𝑝 ∈ 𝑋 , there exist local holomorphic coordinates centred at 𝑝 such that the local components ℎ𝑖 ¯𝑗 of 𝜔 satisfy 
+
+ℎ𝑖 ¯𝑗 (0) = 𝛿 𝑗 𝑖 , 𝜕ℎ 𝑗 ¯ℓ
+
+𝜕𝑧 𝑖 (0) + 𝜕ℎ 𝑖 ¯ℓ
+
+𝜕𝑧 𝑗 (0) = 0. (20) 
+
+Proof. Let {𝑧 𝑖 } be holomorphic coordinates centred at 𝑝 with ℎ𝑖 ¯𝑗 (0) = 𝛿 𝑗 𝑖 , and set 
+
+𝑤 𝑘 := 𝑧 𝑘 + 14
+
+ 𝜕ℎ 𝑠 ¯𝑘 
+
+𝜕𝑧 𝑟 (0) + 𝜕ℎ 𝑟 ¯𝑘 
+
+𝜕𝑧 𝑠 (0)
+
+
+
+𝑧 𝑟 𝑧 𝑠 .
+
+By the holomorphic inverse function theorem, {𝑤 𝑘 } is a system of local holomorphic coordinates centred at 𝑝 (possibly after shrinking the neighbourhood). Denoting by ˜ℎ𝑖 ¯𝑗 the metric components in the new coordinates, the change of variables gives 
+
+𝑧 𝑘 = 𝑤 𝑘 − 14
+
+ 𝜕ℎ 𝑠 ¯𝑘 
+
+𝜕𝑧 𝑟 (0) + 𝜕ℎ 𝑟 ¯𝑘 
+
+𝜕𝑧 𝑠 (0)
+
+
+
+𝑤 𝑟 𝑤 𝑠 + 𝑂 (| 𝑤 |3)
+
+and 
+
+˜ℎ𝑖 ¯𝑗 = ℎ𝑘 ¯ℓ
+
+𝜕𝑧 𝑘 
+
+𝜕𝑤 𝑖 
+
+𝜕 ¯𝑧 ℓ
+
+𝜕 ¯𝑤 𝑗 .
+
+A direct computation then gives ˜ℎ𝑖 ¯𝑗 (0) = 𝛿 𝑗 𝑖 and 
+
+𝜕 ˜ℎ 𝑗 ¯ℓ
+
+𝜕𝑤 𝑖 (0) + 𝜕 ˜ℎ𝑖 ¯ℓ
+
+𝜕𝑤 𝑗 (0) = 𝜕ℎ 𝑗 ¯ℓ
+
+𝜕𝑧 𝑖 (0) + 𝜕ℎ 𝑖 ¯ℓ
+
+𝜕𝑧 𝑗 (0) + 2 𝜕 2𝑧 ℓ
+
+𝜕𝑤 𝑖 𝜕𝑤 𝑗 (0)
+
+= 𝜕ℎ 𝑗 ¯ℓ
+
+𝜕𝑧 𝑖 (0) + 𝜕ℎ 𝑖 ¯ℓ
+
+𝜕𝑧 𝑗 (0) + 4
+
+
+
+− 14
+
+𝜕ℎ 𝑗 ¯ℓ
+
+𝜕𝑧 𝑗 (0) + 𝜕ℎ 𝑖 ¯ℓ
+
+𝜕𝑧 𝑖 (0)
+
+
+
+= 0,
+
+which is precisely (20). □
+
+We are now ready to prove the following existence result, due to [Aub76, Théorème 1] and [Heb03, Theorem 2.1]. 
+
+31 Theorem 5.8 ([Aub76, Heb03]) . Let 𝑋 be a compact complex manifold of complex dimension 𝑛 ≥ 3,endowed with a Hermitian metric 𝜔 , and fix 𝑡 > 0. Then 
+
+𝜆 𝑡 𝑋 ({ 𝜔 }) ≤ 𝑡 Λ𝑛 .
+
+Moreover, if the strict inequality 
+
+𝜆 𝑡 𝑋 ({ 𝜔 }) < 𝑡 Λ𝑛 
+
+holds, then there exists a positive smooth solution to the 𝑡 -deformed Yamabe equation (𝑡 -DY) , which is a minimizer of the 𝑡 -deformed Einstein-Hilbert functional (16) restricted to the conformal class {𝜔 }.Finally, if there exists a point 𝑝 ∈ 𝑋 such that 
+
+(𝑡 − 2𝑛 + 1) 𝜇 0 (𝜔 )( 𝑝 ) > 0, where 𝜇 0 (𝜔 ) = scal Ch (𝜔 ) − 𝑛 𝑛 − 1 𝑑 ∗𝜃 − 𝑛 
+
+2 |𝑇 |2,
+
+then 𝜆 𝑡 𝑋 ({ 𝜔 }) < 𝑡 Λ𝑛 , and the previous conclusion applies. Proof. We split the proof into several steps, following the argument in [Aub76] as described in [APS +26]. 
+
+Step 0. Setup and notation. Choose a point 𝑝 ∈ 𝑋 and fix holomorphic normal coordinates {𝑧 𝑖 } centred at 𝑝 , as provided by Theorem 5.7. Write 𝑧 𝑖 = 𝑥 2𝑖 −1 + √−1 𝑥 2𝑖 and let 𝑑𝑥 = 𝑑𝑥 1 ∧ · · · ∧ 𝑑𝑥 2𝑛 denote the standard Lebesgue measure on R2𝑛 , so that 𝜔 𝑛  
+
+> 𝑛 !
+
+= 2𝑛 det (ℎ𝑖 ¯𝑗 ) 𝑑𝑥 . For ease of notation, we set 
+
+𝜈 2𝑛 −1 := Vol (𝑆 2𝑛 −1).For later use, we set, for 𝑘 < 𝑛 ,
+
+𝐼 𝑘 :=
+
+∫ +∞ 
+
+> 0
+
+𝑟 2𝑛 −1+2𝑘 
+
+(1 + 𝑟 2)2𝑛 𝑑𝑟, 
+
+and, for 𝑘 < 𝑛 − 2,
+
+𝐽 𝑘 :=
+
+∫ +∞ 
+
+> 0
+
+𝑟 2𝑛 −1+2𝑘 
+
+(1 + 𝑟 2)2𝑛 −2 𝑑𝑟 
+
+(see, e.g., [LP87, Lemma 3.5]). We will use the identities 
+
+𝐼 1
+
+𝐼 0
+
+= 𝑛 𝑛 − 1 , 𝐽 0
+
+𝐼 0
+
+= 2(2𝑛 − 1)
+
+𝑛 − 2 , 𝐼 2
+
+𝐼 0
+
+= 𝑛 (𝑛 + 1)(𝑛 − 1)( 𝑛 − 2) ,
+
+as well as the relation 1
+
+𝜎 2𝑛 
+
+= 4𝑛 (𝑛 − 1)( 𝜈 2𝑛 −1 𝐼 0)1/𝑛 . (21) 
+
+Step 1. Test functions. For 𝜀 > 0, let 𝑈 𝜀 denote the standard bubble 
+
+𝑈 𝜀 (𝑧 ) :=
+
+ 𝜀 𝜀 2 + | 𝑧 |2
+
+𝑛 −1
+
+as in Theorem 5.5, which satisfies 
+
+Λ𝑛 ∥𝑈 𝜀 ∥2   
+
+> 𝐿 2∗(R2𝑛 )
+
+= 2
+
+𝑛 − 1 ∥∇ 𝑈 𝜀 ∥2   
+
+> 𝐿 2(R2𝑛 )
+
+.
+
+Fix 𝛿 > 0 small enough so that the ball 𝐵 (0, 𝛿 ) is contained in the local chart, and set 𝑟 := |𝑧 | the radial coordinate. Let 𝜂 be a smooth radial cutoff function satisfying 
+
+
+
+0 ≤ 𝜂 ≤ 1,𝜂 (𝑧 ) = 1 for 𝑧 ∈ 𝐵 𝛿 /2,
+
+supp (𝜂 ) ⊂ 𝐵 𝛿 ,
+
+32 and consider the test function 
+
+𝑢 𝜀 (𝑧 ) := 𝜂 (| 𝑧 |) 𝑈 𝜀 (𝑧 ).
+
+The goal is to evaluate 
+
+EH 𝑡 (𝑢 𝜀 ) =
+
+∫
+
+> 𝑋
+
+
+
+𝑢 2 
+
+> 𝜀
+
+𝜇 𝑡 (𝜔 ) + 2𝑡 𝑛 −1 |∇ 𝑢 𝜀 |2
+
+ 𝜔 𝑛 
+
+> 𝑛 !
+
+∫ 
+
+> 𝑋
+
+𝑢 2𝑛 𝑛 −1 
+
+> 𝜀 𝜔 𝑛
+> 𝑛 !
+
+ 𝑛 −1
+
+> 𝑛
+
+and to study its behaviour as 𝜀 → 0.
+
+Step 2. Taylor expansion of the metric tensor. In holomorphic normal coordinates at 𝑝 , the metric coefficients admit the Taylor expansion 
+
+ℎ𝑖 ¯𝑗 (𝑧 ) = 𝛿 𝑗 𝑖 + 𝐴 𝑖 ¯𝑗 (𝑧 ),
+
+where 
+
+𝐴 𝑖 ¯𝑗 (𝑧 ) := 12𝑇 𝑗 𝑘𝑖 (0)𝑧 𝑘 + 12𝑇 𝑖 ℓ 𝑗 (0) ¯𝑧 ℓ
+
+−
+
+
+
+Θ𝑘 ¯ℓ𝑖 ¯𝑗 (0) − 14𝑇 𝑞 𝑘𝑖 (0)𝑇 𝑞 ℓ 𝑗 (0)
+
+
+
+𝑧 𝑘 ¯𝑧 ℓ
+
++( ch .t.) + 𝑜 (| 𝑧 |2)
+
+is 𝑂 (| 𝑧 |) . Here and after, “ (ch .t.)” denotes charged terms, of order 2 in this case, i.e., terms of bidegree 
+
+(2, 0) and (0, 2).For the inverse of the metric, we have 
+
+ℎ ¯𝑗𝑖 (𝑧 ) = 𝛿 𝑖 𝑗 − 𝐴 𝑗 ¯𝑖 (𝑧 ) + 𝐴 𝑗 ¯𝑝 (𝑧 ) 𝐴 𝑝 ¯𝑖 (𝑧 ) + 𝑜 (| 𝑧 |2)
+
+= 𝛿 𝑖 𝑗 − 12𝑇 𝑖 𝑘 𝑗 (0)𝑧 𝑘 − 12𝑇 𝑗 ℓ𝑖 (0) ¯𝑧 ℓ
+
++
+
+
+
+Θ𝑘 ¯ℓ 𝑗 ¯𝑖 (0) + 14𝑇 𝑖 𝑘 𝑝 (0)𝑇 𝑗 ℓ 𝑝 (0)
+
+
+
+𝑧 𝑘 ¯𝑧 ℓ
+
++( ch .t.) + 𝑜 (| 𝑧 |2).
+
+Finally, the Taylor expansion of the determinant of the metric is 
+
+det (ℎ𝑚 ¯𝑠 )( 𝑧 ) = 1 + 𝐴 𝑖 ¯𝑖 (𝑧 ) + 12
+
+
+
+𝐴 𝑖 ¯𝑖 (𝑧 )2 − 𝐴 𝑖 ¯𝑗 (𝑧 ) 𝐴 𝑗 ¯𝑖 (𝑧 )
+
+
+
++ 𝑜 (| 𝑧 |2)
+
+= 1 + 12 𝜃 𝑘 (0) 𝑧 𝑘 + 12 𝜃 ℓ (0) ¯𝑧 ℓ
+
+−
+
+
+
+Θ𝑘 ¯ℓ 𝑝 ¯𝑝 (0) − 14 𝜃 𝑘 (0)𝜃 ℓ (0)
+
+
+
+𝑧 𝑘 ¯𝑧 ℓ
+
++( ch .t.) + 𝑜 (| 𝑧 |2).
+
+Step 3. Angular averages of the volume form. Since we are working with radial test functions, some terms do not contribute to the integrals. Let 𝑆 2𝑛 −1 
+
+> 𝑟
+
+⊂ C𝑛 denote the sphere of radius 𝑟 centred at the origin, and let 𝑑𝜎 𝑟 denote the area element of 𝑆 2𝑛 −1 
+
+> 𝑟
+
+induced by the flat metric of C𝑛 . The relevant angular averages are 
+
+1
+
+𝜈 2𝑛 −1
+
+∫
+
+> 𝑆 2𝑛 −1
+> 𝑟
+
+𝑑𝜎 𝑟 = 𝑟 2𝑛 −1,
+
+1
+
+𝜈 2𝑛 −1
+
+∫
+
+> 𝑆 2𝑛 −1
+> 𝑟
+
+𝑧 𝑗 ¯𝑧 𝑖 𝑑𝜎 𝑟 = 𝑟 2𝑛 +1
+
+𝑛 𝛿 𝑗 𝑖 ,
+
+1
+
+𝜈 2𝑛 −1
+
+∫
+
+> 𝑆 2𝑛 −1
+> 𝑟
+
+𝑧 𝑗 ¯𝑧 𝑖 𝑧 𝑘 ¯𝑧 ℓ 𝑑𝜎 𝑟 = 𝑟 2𝑛 +3
+
+𝑛 (𝑛 + 1)
+
+
+
+𝛿 𝑗 𝑖 𝛿 𝑘 ℓ + 𝛿 𝑗 ℓ 𝛿 𝑘 𝑖 
+
+
+
+,
+
+33 while the angular average of charged terms vanishes. We compute the Taylor expansion of the angular average of the volume form as 𝑟 → 0:
+
+1
+
+𝜈 2𝑛 −1
+
+∫
+
+> 𝑆 2𝑛 −1
+> 𝑟
+
+det (ℎ𝑚 ¯𝑠 ) 𝑑𝜎 𝑟 
+
+= 𝑟 2𝑛 −1 − 1
+
+𝑛 
+
+
+
+Θ𝑖 ¯𝑖 𝑗 ¯𝑗 (0) − 14 𝜃 𝑖 (0)𝜃 𝑖 (0)
+
+
+
+𝑟 2𝑛 +1 + 𝑜 (𝑟 2𝑛 +1)
+
+= 𝑟 2𝑛 −1 + Φ( 𝑝 ) 𝑟 2𝑛 +1 + 𝑜 (𝑟 2𝑛 +1),
+
+where 
+
+Φ := − 12𝑛 
+
+
+
+scal Ch − 14 |𝜃 |2
+
+
+
+.
+
+We also need the following computation: 
+
+ℎ ¯𝑗𝑖 (𝑧 )𝑧 𝑗 ¯𝑧 𝑖 det (ℎ𝑚 ¯𝑠 (𝑧 )) 
+
+= 𝛿 𝑖 𝑗 𝑧 𝑗 ¯𝑧 𝑖 +
+
+
+
+−Θ𝑘 ¯ℓ 𝑝 ¯𝑝 (0)𝛿 𝑖 𝑗 + 14 𝜃 𝑘 (0)𝜃 ℓ (0)𝛿 𝑖 𝑗 + Θ𝑘 ¯ℓ 𝑗 ¯𝑖 (0) + 14𝑇 𝑖 𝑘 𝑝 (0)𝑇 𝑗 ℓ 𝑝 (0)− 14𝑇 𝑖 𝑘 𝑗 (0)𝜃 ℓ (0) − 14 𝜃 𝑘 (0)𝑇 𝑗 ℓ𝑖 (0)
+
+
+
+𝑧 𝑗 ¯𝑧 𝑖 𝑧 𝑘 ¯𝑧 ℓ + ( ch .t.) + 𝑜 (| 𝑧 |4),
+
+where (ch .t.) denotes charged terms of order ≤ 4. Therefore, 
+
+1
+
+𝜈 2𝑛 −1
+
+∫
+
+> 𝑆 2𝑛 −1
+> 𝑟
+
+ℎ ¯𝑗𝑖 (𝑧 )𝑧 𝑗 ¯𝑧 𝑖 det (ℎ𝑚 ¯𝑠 ) 𝑑𝜎 𝑟 
+
+= 𝑟 2𝑛 +1 + 1
+
+𝑛 (𝑛 + 1)
+
+
+
+−𝑛 Θ𝑖 ¯𝑖 𝑗 ¯𝑗 (0) + Θ𝑖 ¯𝑗 𝑗 ¯𝑖 (0) + 𝑛 + 24 𝜃 𝑖 (0)𝜃 𝑖 (0) + 14𝑇 𝑘 𝑖 𝑗 (0)𝑇 𝑘 𝑖 𝑗 (0)
+
+
+
+𝑟 2𝑛 +3 + 𝑜 (𝑟 2𝑛 +3)
+
+= 𝑟 2𝑛 +1 + Ψ( 𝑝 ) 𝑟 2𝑛 +3 + 𝑜 (𝑟 2𝑛 +3),
+
+where 
+
+Ψ := 12𝑛 (𝑛 + 1)
+
+
+
+−𝑛 scal Ch ( 𝑝 ) + gscal Ch ( 𝑝 ) + 𝑛 + 24 |𝜃 ( 𝑝 )| 2 + 14 |𝑇 ( 𝑝 )| 2
+
+
+
+= − 12𝑛 (𝑛 + 1)
+
+
+
+(𝑛 − 1) scal Ch + 𝑑 ∗𝜃 − 𝑛 − 24 |𝜃 |2 − 14 |𝑇 |2
+
+
+
+.
+
+Step 4. Taylor expansion of the denominator. We compute 
+
+∥𝑢 𝜀 ∥2∗ 
+
+> 𝐿 2∗
+
+= 2𝑛 
+
+∫
+
+> 𝐵 (0, 𝛿 )
+
+𝜂 (| 𝑧 |) 2∗
+
+𝑈 𝜀 (𝑧 )2∗
+
+det (ℎ𝑚 ¯𝑠 )( 𝑧 ) 𝑑𝑥 
+
+= 2𝑛 𝜈 2𝑛 −1
+
+∫ 𝛿 /𝜀 
+
+> 0
+
+1
+
+𝜀 2𝑛 𝜂 (𝑟𝜀 )2∗ 𝑟 2𝑛 −1
+
+(1 + 𝑟 2)2𝑛 ·
+
+
+
+(𝑟𝜀 )2𝑛 −1 + Φ( 𝑝 )( 𝑟𝜀 )2𝑛 +1 + 𝑜 (𝜀 2𝑛 +1)
+
+
+
+𝜀 𝑑𝑟 
+
+= 2𝑛 𝜈 2𝑛 −1
+
+∫ +∞ 
+
+> 0
+
+𝑟 2𝑛 −1
+
+(1 + 𝑟 2)2𝑛 𝑑𝑟 + 𝑂 (𝜀 2𝑛 )
+
+
+
++2𝑛 𝜈 2𝑛 −1Φ( 𝑝 )
+
+∫ +∞ 
+
+> 0
+
+𝑟 2𝑛 +1
+
+(1 + 𝑟 2)2𝑛 𝑑𝑟 + 𝑂 (𝜀 2𝑛 −2)
+
+
+
+𝜀 2 + 𝑜 (𝜀 2)
+
+= 2𝑛 𝜈 2𝑛 −1
+
+
+
+𝐼 0 + Φ( 𝑝 )𝐼 1𝜀 2 + 𝑜 (𝜀 2)
+
+
+
+.
+
+Raising to the power 22∗ = 𝑛 −1 
+
+> 𝑛
+
+, we obtain 
+
+∥𝑢 𝜀 ∥2 
+
+> 𝐿 2∗
+
+= 2𝑛 −1 (𝜈 2𝑛 −1 𝐼 0) 𝑛 −1
+
+> 𝑛
+
+
+
+1 + Φ( 𝑝 ) 𝜀 2 + 𝑜 (𝜀 2)
+
+
+
+.
+
+34 Step 5. Taylor expansion of the curvature term. We compute 
+
+∫
+
+> 𝑋
+
+𝑢 2 
+
+> 𝜀
+
+𝜇 𝑡 (𝜔 ) 𝜔 𝑛 
+
+𝑛 !
+
+= 2𝑛 
+
+∫
+
+> 𝐵 (0, 𝛿 )
+
+𝜂 (| 𝑧 |) 2𝑈 𝜀 (𝑧 )2 𝜇 𝑡 (𝜔 )( 𝑧 ) det (ℎ𝑚 ¯𝑠 )( 𝑧 ) 𝑑𝑥 
+
+= 2𝑛 𝜈 2𝑛 −1𝜀 3−2𝑛 
+
+∫ 𝛿 /𝜀 
+
+> 0
+
+𝜂 (𝑟𝜀 )2 1
+
+(1 + 𝑟 2)2𝑛 −2
+
+
+
+𝜇 𝑡 (𝜔 )( 𝑝 )𝑟 2𝑛 −1𝜀 2𝑛 −1 + 𝑜 (𝜀 2𝑛 −1)
+
+
+
+𝑑𝑟 
+
+= 2𝑛 𝜈 2𝑛 −1𝜀 3−2𝑛 
+
+
+
+𝜇 𝑡 (𝜔 )( 𝑝 )𝜀 2𝑛 −1
+
+∫ +∞ 
+
+> 0
+
+𝑟 2𝑛 −1
+
+(1 + 𝑟 2)2𝑛 −2 𝑑𝑟 + 𝑂 (𝜀 2𝑛 −4) + 𝑜 (𝜀 2𝑛 −1)
+
+
+
+= 2𝑛 𝜈 2𝑛 −1 𝜇 𝑡 (𝜔 )( 𝑝 ) 𝐽 0 𝜀 2 + 𝑜 (𝜀 2).
+
+Note that, for 𝑛 = 2, the integral 𝐽 0 diverges logarithmically, and the term 𝜇 𝑡 (𝜔 )( 𝑝 ) 𝐽 0 𝜀 2 here is replaced by a term of order 𝜀 2 log (1/𝜀 ).
+
+Step 6. Taylor expansion of the gradient term. We compute 
+
+∥∇ 𝑢 𝜀 ∥2
+
+> 𝐿 2
+
+= 2𝑛 
+
+∫
+
+> 𝐵 (0, 𝛿 )
+
+2ℎ ¯ℓ 𝑘 
+
+
+
+𝑢 ′ 
+
+> 𝜀
+
+(𝑧 ) ¯𝑧 𝑘 
+
+2|𝑧 |
+
+  
+
+𝑢 ′ 
+
+> 𝜀
+
+(𝑧 ) 𝑧 ℓ
+
+2|𝑧 |
+
+
+
+det (ℎ𝑚 ¯𝑠 )( 𝑧 ) 𝑑𝑥 
+
+= 2𝑛 −1𝜈 2𝑛 −1𝜀 2
+
+∫ 𝛿 /𝜀 
+
+> 0
+
+𝑟 2𝑛 −1
+
+ 𝜂 ′ (𝑟𝜀 )(1 + 𝑟 2)𝑛 −1 − 2(𝑛 − 1)
+
+𝜀 𝑟 𝜂 (𝑟𝜀 )(1 + 𝑟 2)𝑛 
+
+2
+
+(1 + Ψ( 𝑝 )𝑟 2𝜀 2 + 𝑜 (𝜀 2)) 𝑑𝑟 
+
+= 2𝑛 +1 (𝑛 − 1)2𝜈 2𝑛 −1
+
+∫ +∞ 
+
+> 0
+
+ 𝑟 2𝑛 −1
+
+(1 + 𝑟 2)2𝑛 + 𝑂 (𝜀 2𝑛 −2)
+
+
+
+(𝑟 2 + Ψ( 𝑝 )𝑟 4𝜀 2 + 𝑜 (𝜀 2)) 𝑑𝑟 
+
+= 2𝑛 +1 (𝑛 − 1)2𝜈 2𝑛 −1
+
+
+
+𝐼 1 + Ψ( 𝑝 ) 𝐼 2 𝜀 2 + 𝑜 (𝜀 2)
+
+
+
+.
+
+Step 7. Taylor expansion of the numerator. Combining Steps 5 and 6, we obtain 
+
+∫
+
+> 𝑋
+
+
+
+𝑢 2 
+
+> 𝜀
+
+𝜇 𝑡 (𝜔 ) + 2𝑡 𝑛 − 1 |∇ 𝑢 𝜀 |2
+
+ 𝜔 𝑛 
+
+𝑛 !
+
+= 2𝑛 𝜈 2𝑛 −1
+
+
+
+𝜇 𝑡 (𝜔 )( 𝑝 ) 𝐽 0 𝜀 2 + 2𝑡 𝑛 − 1 · 2(𝑛 − 1)2 
+
+𝐼 1 + Ψ( 𝑝 ) 𝐼 2 𝜀 2
+
++ 𝑜 (𝜀 2)
+
+
+
+= 2𝑛 𝜈 2𝑛 −1
+
+
+
+4𝑡 (𝑛 − 1)𝐼 1 +  𝜇 𝑡 (𝜔 )( 𝑝 ) 𝐽 0 + 4𝑡 (𝑛 − 1)Ψ( 𝑝 ) 𝐼 2
+
+ 𝜀 2 + 𝑜 (𝜀 2)
+
+
+
+.
+
+Step 8. Taylor expansion of the functional on the test functions. We now put everything together. We use the elementary identity 
+
+𝑛 0 + 𝑛 2𝜀 2 + 𝑜 (𝜀 2)
+
+𝑑 0 + 𝑑 2𝜀 2 + 𝑜 (𝜀 2) = 𝑛 0
+
+𝑑 0
+
++ 𝑛 2
+
+𝑑 0
+
+− 𝑛 0 𝑑 2
+
+𝑑 20
+
+!
+
+𝜀 2 + 𝑜 (𝜀 2).
+
+In our case, from Steps 4 and 7, we have 
+
+𝑛 0 := 2𝑛 𝜈 2𝑛 −1 · 4𝑡 (𝑛 − 1)𝐼 1,𝑛 2 := 2𝑛 𝜈 2𝑛 −1 ·  𝜇 𝑡 (𝜔 )( 𝑝 ) 𝐽 0 + 4𝑡 (𝑛 − 1)Ψ( 𝑝 ) 𝐼 2
+
+ ,𝑑 0 := 2𝑛 −1 (𝜈 2𝑛 −1 𝐼 0) 𝑛 −1 
+
+> 𝑛
+
+,𝑑 2 := 𝑑 0 Φ( 𝑝 ).
+
+35 Therefore, recalling also (21): 
+
+EH 𝑡 (𝑢 𝜀 )
+
+=
+
+∫
+
+> 𝑋
+
+
+
+𝑢 2 
+
+> 𝜀
+
+𝜇 𝑡 (𝜔 ) + 2𝑡 𝑛 −1 |∇ 𝑢 𝜀 |2
+
+ 𝜔 𝑛 
+
+> 𝑛 !
+
+∥𝑢 𝜀 ∥2
+
+> 𝐿 2∗
+
+= (𝜈 2𝑛 −1 𝐼 0) 1 
+
+> 𝑛
+
+·
+
+
+
+8𝑛𝑡 +
+
+
+
+4 · 2𝑛 − 1
+
+𝑛 − 2 𝜇 𝑡 (𝜔 )( 𝑝 ) + 8𝑡 · 𝑛 (𝑛 + 1)
+
+𝑛 − 2 Ψ( 𝑝 ) − 8𝑛𝑡 Φ( 𝑝 )
+
+
+
+𝜀 2 + 𝑜 (𝜀 2)
+
+
+
+= 2𝑡 
+
+(𝑛 − 1)𝜎 2𝑛 
+
++ 12𝑛 (𝑛 − 2)𝜎 2𝑛 
+
+
+
+2 · 2𝑛 − 1
+
+𝑛 − 1 𝜇 𝑡 (𝜔 )( 𝑝 ) − 2𝑡 𝑛 − 1 · 2𝑛 · (( 𝑛 − 2)Φ( 𝑝 ) − ( 𝑛 + 1)Ψ( 𝑝 )) 
+
+
+
+𝜀 2
+
++𝑜 (𝜀 2)
+
+= 𝑡 Λ𝑛 + 12𝑛 (𝑛 − 2)𝜎 2𝑛 
+
+
+
+2 · 2𝑛 − 1
+
+𝑛 − 1 𝜇 𝑡 (𝜔 )( 𝑝 ) − 2𝑡 𝑛 − 1 · scal (𝑔 𝜔 )
+
+
+
+𝜀 2 + 𝑜 (𝜀 2),
+
+where we used Λ𝑛 := 2  
+
+> (𝑛 −1)𝜎 2𝑛
+
+and 2𝑛  (𝑛 − 2)Φ − ( 𝑛 + 1)Ψ = scal (𝑔 𝜔 ).
+
+Step 9. Universal upper bound for the deformed Yamabe invariants. Letting 𝜀 → 0 in the previous expression, we get EH 𝑡 (𝑢 𝜀 ) → 𝑡 Λ𝑛 , and therefore 
+
+𝜆 𝑡 𝑋 ({ 𝜔 }) ≤ inf  
+
+> 𝜀> 0
+
+EH 𝑡 (𝑢 𝜀 ) ≤ 𝑡 Λ𝑛 .
+
+Note that this is not obvious a priori, since the test functions are constructed using specific holomorphic normal coordinates and do not coincide in general with those used by Aubin in [Aub76]. 
+
+Step 10. Curvature condition for strict inequality. We have the identity 
+
+2(2𝑛 − 1)
+
+𝑛 − 1 𝜇 𝑡 (𝜔 ) − 2𝑡 𝑛 − 1 scal (𝑔 𝜔 ) = − 2(𝑡 − 2𝑛 + 1)
+
+𝑛 − 1 𝜇 0 (𝜔 ),
+
+so that the condition (𝑡 − 2𝑛 + 1)𝜇 0 (𝜔 )( 𝑝 ) > 0 at some point 𝑝 ∈ 𝑋 ensures that the correction term in Step 8 is strictly negative, giving 
+
+𝜆 𝑡 𝑋 ({ 𝜔 }) < 𝑡 Λ𝑛 .
+
+Step 11. Subcritical existence. We now show that this condition is sufficient to guarantee the existence of a smooth solution. We follow the argument as in [LP87, Section 4]. Up to rescaling 𝜔 by a positive constant, which changes neither the sign nor the vanishing of 𝜇 𝑡 (𝜔 ), nor the validity of the hypothesis 
+
+𝜆 𝑡  
+
+> 2∗
+
+< 𝑡 Λ𝑛 , we may assume Vol (𝑋, 𝜔 ) = 1. For 2 < 𝑠 < 2∗, the functional EH 𝑡 𝑠 defined in (18) admits a minimizer by Remark 5.3. Let 𝑢 𝑠 be a smooth positive minimizer of EH 𝑡 𝑠 , normalized so that ∥𝑢 𝑠 ∥𝐿 𝑠 = 1.More precisely, 𝑢 𝑠 satisfies 2𝑡 𝑛 − 1 Δ𝑢 𝑠 + 𝜇 𝑡 (𝜔 ) 𝑢 𝑠 = 𝜆 𝑡 𝑠 𝑢 𝑠 −1 
+
+> 𝑠
+
+, (22) where 
+
+𝜆 𝑡 𝑠 := inf  
+
+> 𝑢> 0
+
+EH 𝑡 𝑠 (𝑢 ).
+
+We claim that one can extract a subsequence of {𝑢 𝑠 }𝑠 converging as 𝑠 → 2∗. The key point is to establish suitable a priori estimates for equation (22). Fix 𝛿 > 0. From (22), we obtain 
+
+𝜆 𝑡 𝑠 
+
+∫
+
+> 𝑋
+
+𝑢 𝑠 +2 𝛿 𝑠 
+
+𝜔 𝑛 
+
+𝑛 ! =
+
+∫
+
+> 𝑋
+
+𝑢 1+2 𝛿 𝑠 
+
+ 2𝑡 𝑛 − 1 Δ𝑢 𝑠 + 𝜇 𝑡 (𝜔 ) 𝑢 𝑠 
+
+ 𝜔 𝑛 
+
+𝑛 !
+
+= 2𝑡 𝑛 − 1
+
+∫
+
+> 𝑋
+
+𝑢 1+2 𝛿 𝑠 Δ𝑢 𝑠 
+
+𝜔 𝑛 
+
+𝑛 ! +
+
+∫
+
+> 𝑋
+
+𝜇 𝑡 (𝜔 )
+
+
+
+𝑢 1+ 𝛿 𝑠 
+
+2 𝜔 𝑛 
+
+𝑛 !
+
+= 2𝑡 𝑛 − 1 (1 + 2𝛿 )
+
+∫
+
+> 𝑋
+
+𝑢 2 𝛿 𝑠 |𝑑𝑢 𝑠 |2 𝜔 𝑛 
+
+𝑛 ! +
+
+∫
+
+> 𝑋
+
+𝜇 𝑡 (𝜔 )
+
+
+
+𝑢 1+ 𝛿 𝑠 
+
+2 𝜔 𝑛 
+
+𝑛 ! .
+
+36 Setting 
+
+𝑤 𝑠 := 𝑢 1+ 𝛿 𝑠 ,
+
+this gives ∫
+
+> 𝑋
+
+
+
+𝜆 𝑡 𝑠 𝑢 𝑠 −2 
+
+> 𝑠
+
+− 𝜇 𝑡 (𝜔 )
+
+
+
+𝑤 2
+
+> 𝑠
+
+𝜔 𝑛 
+
+𝑛 ! = 2𝑡 (1 + 2𝛿 )(1 + 𝛿 )2 (𝑛 − 1)
+
+∫
+
+> 𝑋
+
+|𝑑𝑤 𝑠 |2
+
+> 𝑔
+
+𝜔 𝑛 
+
+𝑛 ! .
+
+As a consequence of the Sobolev inequality, as stated for example in [LP87, Theorems 2.3 and 3.3], for any 𝜀 > 0, there exists 𝐶 𝜀 > 0 such that 
+
+∥𝑤 𝑠 ∥2 
+
+> 𝐿 2∗
+
+≤ (1 + 𝜀 ) 𝜎 2𝑛 ∥∇ 𝑤 𝑠 ∥2 
+
+> 𝐿 2
+
++ 𝐶 𝜀 ∥𝑤 𝑠 ∥2
+
+> 𝐿 2
+
+= (1 + 𝜀 ) 𝜎 2𝑛 
+
+(1 + 𝛿 )2 (𝑛 − 1)
+
+2𝑡 (1 + 2𝛿 )
+
+∫
+
+> 𝑋
+
+
+
+𝜆 𝑡 𝑠 𝑢 𝑠 −2 
+
+> 𝑠
+
+− 𝜇 𝑡 (𝜔 )
+
+
+
+𝑤 2
+
+> 𝑠
+
+𝜔 𝑛 
+
+𝑛 ! + 𝐶 𝜀 ∥𝑤 𝑠 ∥2 
+
+> 𝐿 2
+
+.
+
+When 𝜆 𝑠 ≤ 0, we immediately obtain the estimate 
+
+∥𝑤 𝑠 ∥2 
+
+> 𝐿 2∗
+
+≤ 𝐶 ′ 
+
+> 𝜀
+
+∥𝑤 𝑠 ∥2 
+
+> 𝐿 2
+
+,
+
+where the constant 𝐶 ′ 
+
+> 𝜀
+
+depends only on 𝜀 and (𝑋, 𝜔 ), but is independent of 𝑠 .We claim that the same uniform estimate holds also in the case 𝜆 𝑠 > 0, provided that 𝜆 𝑡  
+
+> 2∗
+
+< 𝑡 Λ𝑛 =  
+
+> 2𝑡
+> (𝑛 −1)𝜎 2𝑛
+
+. Indeed, by Hölder’s inequality we obtain 
+
+∫
+
+> 𝑋
+
+𝑢 𝑠 −2 
+
+> 𝑠
+
+𝑤 2
+
+> 𝑠
+
+𝜔 𝑛 
+
+𝑛 ! ≤ ∥ 𝑢 𝑠 −2 
+
+> 𝑠
+
+∥𝐿 2∗
+
+> 2∗ −2
+
+· ∥ 𝑤 2 
+
+> 𝑠
+
+∥𝐿 2∗ 
+
+> 2
+
+= ∥𝑢 𝑠 ∥𝑠 −2 
+
+> 𝐿 2∗ (𝑠 −2)
+> 2∗ −2
+
+· ∥ 𝑤 𝑠 ∥2 
+
+> 𝐿 2∗
+
+≤ ∥ 𝑤 𝑠 ∥2 
+
+> 𝐿 2∗
+
+.
+
+Here the last inequality follows from the fact that 𝑠 < 2∗, which implies 2∗ (𝑠 −2)  
+
+> 2∗−2
+
+< 𝑠 , together with the monotonicity of 𝐿 𝑠 norms on a compact manifold of unit volume. Therefore we obtain 
+
+∥𝑤 𝑠 ∥2 
+
+> 𝐿 2∗
+
+≤ (1 + 𝜀 ) 𝜎 2𝑛 
+
+(1 + 𝛿 )2 (𝑛 − 1)
+
+2𝑡 (1 + 2𝛿 ) 𝜆 𝑡 𝑠 ∥𝑤 𝑠 ∥2 
+
+> 𝐿 2∗
+
++ 𝐶 ′ 
+
+> 𝜀
+
+∥𝑤 𝑠 ∥2 
+
+> 𝐿 2
+
+,
+
+where 𝐶 ′ 
+
+> 𝜀
+
+denotes a possibly larger constant than 𝐶 𝜀 , depending only on (𝑋, 𝜔 ), 𝑛 , 𝑡 , 𝛿 , 𝜀 but independent of 𝑠 . The crucial observation is the following. First, note that the functionals EH 𝑡 𝑠 are related, for varying 
+
+𝑠 , by EH 𝑡 𝑠 ′ (𝑢 ) = ∥𝑢 ∥2 
+
+> 𝐿 𝑠
+
+· ∥ 𝑢 ∥−2 
+
+> 𝐿 𝑠 ′
+
+· EH 𝑡 𝑠 (𝑢 ). In particular, if 𝜆 𝑡 𝑠 < 0 for some 𝑠 ∈ [ 2, 2∗], then 𝜆 𝑡 𝑠 < 0 for every 𝑠 ∈ [ 2, 2∗]. This allows us to apply Aubin’s continuity argument [LP87, Lemma 4.3], which shows that |𝜆 𝑡 𝑠 | is non-increasing as a function of 𝑠 ∈ [ 2, 2∗]. Moreover, since 𝜆 𝑡  
+
+> 2∗
+
+≥ 0, the function 𝑠 ↦ → 𝜆 𝑡 𝑠 is continuous from the left. It is precisely here that the hypothesis 𝜆 𝑡  
+
+> 2∗
+
+< 𝑡 Λ𝑛 comes into play: it provides a strict margin in the coefficient inequality, which is what prevents the sequence 𝑢 𝑠 from concentrating like a bubble as 𝑠 → ( 2∗)− . Indeed, when 𝜆 𝑡  
+
+> 2∗
+
+< 2𝑡 /(( 𝑛 − 1)𝜎 2𝑛 ), for 𝑠 sufficiently close to 2∗ we also have 𝜆 𝑡 𝑠 < 2𝑡 /(( 𝑛 − 1)𝜎 2𝑛 ), and we can choose 𝜀 > 0 and 𝛿 0 > 0 sufficiently small such that 
+
+(1 + 𝜀 ) 𝜎 2𝑛 
+
+(1 + 𝛿 0)2 (𝑛 − 1)
+
+2𝑡 (1 + 2𝛿 0) 𝜆 𝑡 𝑠 < (1 + 𝜀 ) (1 + 𝛿 0)2
+
+1 + 2𝛿 0
+
+< 1.
+
+Then, shrinking 𝛿 0 further if necessary so that also 2(1 + 𝛿 0) < 𝑠 , and using Jensen’s inequality (recall 
+
+Vol (𝑋, 𝜔 ) = 1), we get 
+
+∥𝑤 𝑠 ∥2 
+
+> 𝐿 2∗
+
+≤ 𝐶 ′′ ∥𝑤 𝑠 ∥2 
+
+> 𝐿 2
+
+= 𝐶 ′′ ∥𝑢 1+ 𝛿 0 
+
+> 𝑠
+
+∥2 
+
+> 𝐿 2
+
+= 𝐶 ′′ ∥𝑢 𝑠 ∥2+2 𝛿 0  
+
+> 𝐿 2+2𝛿 0
+
+≤ 𝐶 ′′ ∥𝑢 𝑠 ∥2+2 𝛿 0 
+
+> 𝐿 𝑠
+
+= 𝐶 ′′ ,
+
+for some constant 𝐶 ′′ > 0 depending only on (𝑋, 𝜔 ), 𝑛 , 𝑡 , 𝜀 and 𝛿 0, but independent of 𝑠 . Therefore 𝑤 𝑠 
+
+is uniformly bounded in 𝐿 2∗
+
+.Now that we have a uniform bound on ∥𝑤 𝑠 ∥𝐿 2∗ , and recalling 𝑤 𝑠 = 𝑢 1+ 𝛿 0 
+
+> 𝑠
+
+, we get ∥𝑢 𝑠 ∥1+ 𝛿 0   
+
+> 𝐿 2∗ (1+𝛿 0)
+
+=
+
+∥𝑤 𝑠 ∥𝐿 2∗ ≤ √𝐶 ′′ , i.e. 𝑢 𝑠 is uniformly bounded in 𝐿 2∗ (1+ 𝛿 0 ) . This is an improvement over the a priori bound 𝑢 𝑠 ∈ 𝐿 2(1+ 𝛿 0 ) , coming from the normalization ∥𝑢 𝑠 ∥𝐿 𝑠 = 1 together with 2(1 + 𝛿 0) < 𝑠 and the monotonicity of 𝐿 𝑠 norms (recall Vol (𝑋, 𝜔 ) = 1). 
+
+37 We now conclude with a standard bootstrap argument, which no longer requires the small constant condition. We now regard (22) as a linear equation for 𝑢 𝑠 ,
+
+Δ𝑢 𝑠 = 𝑛 − 12𝑡 
+
+
+
+𝜆 𝑡 𝑠 𝑢 𝑠 −1 
+
+> 𝑠
+
+− 𝜇 𝑡 (𝜔 ) 𝑢 𝑠 
+
+
+
+,
+
+whose right-hand side we already control: since 𝑢 𝑠 is uniformly bounded in 𝐿 2∗ (1+ 𝛿 0 ) , the term 𝑢 𝑠 −1
+
+> 𝑠
+
+is uniformly bounded in 𝐿 2∗ (1+ 𝛿 0 )/( 𝑠 −1) , where the exponent 2∗ (1 + 𝛿 0)/( 𝑠 − 1) stays in a compact subset of (1, +∞) as 𝑠 ranges over (2, 2∗) (and hence so does every subsequent exponent produced by the bootstrap argument below). A standard elliptic bootstrap (Calderón-Zygmund estimates followed by Sobolev embedding, iterated finitely many times as the integrability exponent increases to reach 𝑛 , with Calderón-Zygmund constants that stay uniformly bounded for the integrability exponent ranging over any fixed compact subset of (1, +∞) ) then yields a uniform 𝐿 ∞ bound on {𝑢 𝑠 }2<𝑠< 2∗ . Coming back to (22) and applying Schauder estimates gives a uniform 𝐶 2, 𝛼 bound. By Ascoli-Arzelà, a subsequence 𝑢 𝑠 𝑘 → 𝑢 
+
+converges in 𝐶 2 as 𝑠 𝑘 → ( 2∗)− . Passing to the limit shows that 𝑢 ≥ 0 solves ( 𝑡 -DY) with 𝑐 = lim 𝑘 𝜆 𝑡 𝑠 𝑘 ,and 𝑢 . 0 since ∥𝑢 ∥𝐿 2∗ = lim 𝑘 ∥𝑢 𝑠 𝑘 ∥𝐿 2∗ > 0. Finally, the strong maximum principle upgrades this to 
+
+𝑢 > 0 everywhere, concluding the proof. □
+
+Remark 5.9 . As noted after (13), the sign of 𝜇 0 at a point 𝑝 ∈ 𝑋 is conformally invariant. 
+
+Remark 5.10 . The condition (𝑡 − 2𝑛 + 1) 𝜇 0 (𝜔 )( 𝑝 ) > 0 is far from necessary. For example, consider the Hopf manifold 
+
+𝑋 = (C𝑛 \ { 0})/ Z,
+
+where the action of Z is generated by 𝑧 ↦ → 𝛼𝑧 for some fixed 𝛼 ∈ C with 0 < |𝛼 | < 1. Endow 𝑋 with the Hermitian metric 
+
+𝜔 = |𝑧 |−2𝛿 𝑗 𝑖 
+
+√−1 𝑑𝑧 𝑖 ∧ 𝑑 ¯𝑧 𝑗 ,
+
+where {𝑧 𝑖 }𝑖 are the standard coordinates in C𝑛 and 𝜔 0 := 𝛿 𝑗 𝑖 
+
+√−1 𝑑𝑧 𝑖 ∧ 𝑑 ¯𝑧 𝑗 is the standard flat Hermitian structure on C𝑛 . Note that 𝑋 is diffeomorphic to 𝑆 1 × 𝑆 2𝑛 −1, the complex structure coincides with the transverse complex structure on 𝑆 2𝑛 −1 and sends the Reeb vector field of 𝑆 2𝑛 −1 to the generator of 𝑆 1, and the underlying Riemannian metric is the product of round metrics on 𝑆 1 and 𝑆 2𝑛 −1, whose radii depend on 𝛼 . More precisely, note that the underlying Riemannian metric of 𝜔 0 on C𝑛 is 𝑔 0 = 𝜔 0 (· , 𝐽 ·) = 2 |𝑑𝑧 |2,i.e. twice the Euclidean metric on R2𝑛 . Using polar coordinates, 𝑧 = 𝑡𝑢 with 𝑡 = |𝑧 | > 0 and 𝑢 ∈ 𝑆 2𝑛 −1
+
+the unit sphere in C𝑛 , we get 𝑔 = 2 |𝑑𝑧 |2   
+
+> |𝑧 |2
+
+= 2𝑑𝑡 2 + 2𝑔 𝑆 2𝑛 −1 , where 𝑔 𝑆 2𝑛 −1 denotes the round metric on 𝑆 2𝑛 −1
+
+of radius 1. Substituting 𝑠 := log 𝑡 , we get 𝑔 = 2𝑑𝑠 2 + 2𝑔 𝑆 2𝑛 −1 . The deck transformation 𝑧 ↦ → 𝛼𝑧 acts on 
+
+𝑠 by translation 𝑠 ↦ → 𝑠 + log |𝛼 |. Set 𝐿 := − log |𝛼 |. Therefore 𝑋 ≃ ( R/𝐿 Z) × 𝑆 2𝑛 −1 as a Riemannian product, where the 𝑆 2𝑛 −1 factor carries the metric 2 𝑔 𝑆 2𝑛 −1 , i.e. a round sphere of radius 𝑟 = √2, and the 
+
+𝑆 1 factor has length ∫ 𝐿 
+
+> 0
+
+√2 𝑑𝑠 = √2 𝐿 with respect to 𝑔 , hence radius 𝜌 =   
+
+> √2𝐿
+> 2𝜋
+
+=  
+
+> √22𝜋
+
+log |𝛼 | .The Hermitian structure is invariant under the transitive action of 𝑈 (1) × 𝑈 (𝑛 ), so 𝜇 𝑡 (𝜔 ) is constant. A direct computation gives 
+
+Θ𝑖 ¯𝑗 𝑘 ¯ℓ = |𝑧 |−6 
+
+|𝑧 |2𝛿 𝑗 𝑖 − ¯𝑧 𝑖 𝑧 𝑗 
+
+𝛿 ℓ𝑘 , 𝑇 𝑘 𝑖 𝑗 = −| 𝑧 |−2 
+
+¯𝑧 𝑖 𝛿 𝑘 𝑗 − ¯𝑧 𝑗 𝛿 𝑘 𝑖 
+
+
+
+,
+
+and therefore 
+
+scal Ch (𝜔 ) = 2𝑛 (𝑛 − 1), 𝑑 ∗𝜃 = 0, |𝑇 |2 = 4(𝑛 − 1),
+
+so that the 𝑡 -deformed scalar curvature is 
+
+𝜇 𝑡 (𝜔 ) = 𝑡 (𝑛 − 1).
+
+In particular, 𝜇 0 (𝜔 ) = 0 and 𝜇 𝑡 (𝜔 ) is constant for every 𝑡 , as already noticed, and positive for 𝑡 > 0. For completeness, we also compute 
+
+EH 𝑡 (𝜔 ) = 𝑡 Λ𝑛 
+
+𝑛 − 12𝑛 
+
+Vol (𝑆 1 
+
+> 𝜌
+
+× 𝑆 2𝑛 −1 
+
+> 𝑟
+
+) 1
+
+> 𝑛
+
+Vol (𝑆 2𝑛 ) 1
+
+> 𝑛
+
+,
+
+38 where we recall that the radius of the spheres 𝑟 = √2 and 𝜌 =  
+
+> √22𝜋
+
+log |𝛼 | depend on the parameter 𝛼 in the construction, while 𝑆 2𝑛 is the reference unit sphere used to normalize the sharp Sobolev constant Λ𝑛 .Recall also that 
+
+Vol (𝑆 𝑚 𝑅 ) = 2𝜋 𝑚 +12
+
+Γ( 𝑚 +12 ) · 𝑅 𝑚 ,
+
+Note that the coefficient 
+
+𝛾 𝑛, 𝛼 := 𝑛 − 12𝑛 
+
+©«
+
+Vol  𝑆 1√22 𝜋 log | 𝛼 | × 𝑆 2𝑛 −1√2
+
+
+
+Vol (𝑆 2𝑛 )
+
+ª®®¬
+
+> 1/𝑛
+
+= 𝑛 − 14𝑛 
+
+
+
+𝑛 
+
+2𝑛 𝑛 
+
+
+
+log |𝛼 |
+
+1/𝑛 
+
+is not necessarily less than 1. For example, for 𝑛 = 3 and 𝛼 = 12 , we get 𝛾 𝑛 =3, 𝛼 = 12
+
+≈ 0.57744 , but 
+
+𝛾 𝑛 =15 , 𝛼 = 14
+
+≈ 1.0044 . For fixed 𝛼 , the asymptotic behaviour of 𝛾 (𝑛, 𝛼 ) as 𝑛 → +∞ is 
+
+𝛾 (𝑛, 𝛼 ) = 1 + 1
+
+𝑛 
+
+ 12 ln 𝑛 𝜋 + ln log |𝛼 | − 1
+
+
+
++ 𝑜 
+
+ ln 𝑛 𝑛 
+
+
+
+, 𝑛 → ∞ .
+
+Remark 5.11 . When 𝑡 = 2𝑛 − 1, corresponding to the classical Yamabe problem, the quantity (𝑡 − 2𝑛 +
+
+1) 𝜇 0 (𝜔 ) vanishes identically, so this criterion gives no information. In the classical Yamabe problem, one instead examines the next coefficient in the Taylor expansion, which depends on the Weyl tensor. 
+
+Remark 5.12 . Beyond the case of C𝑃 1 ≃ 𝑆 2, it is still not clear whether the equality 𝜆 𝑡 𝑋 ({ 𝜔 }) = 𝑡 Λ𝑛 can ever be realized. (Note also that the existence of complex structures on 𝑆 6 is itself an open problem.) As a consequence of Theorem 5.8, the situation in the globally conformally Kähler setting is com-pletely understood. 
+
+Corollary 5.13. Let (𝑋, 𝜔 𝐾 ) be a compact Kähler manifold of complex dimension 𝑛 ≥ 3, and fix 
+
+𝑡 > 2𝑛 − 1. Then there exists a Hermitian metric conformal to 𝜔 𝐾 with constant 𝑡 -deformed scalar curvature. Proof. Up to homothety, assume that Vol (𝑋, 𝜔 𝐾 ) = 1. Since 𝜔 𝐾 is Kähler, we have 𝜃 = 𝑇 = 0, and therefore 
+
+𝜇 0 (𝜔 𝐾 ) = scal Ch (𝜔 𝐾 ) − 𝑛 𝑛 − 1 𝑑 ∗𝜃 − 𝑛 
+
+2 |𝑇 |2 = scal Ch (𝜔 𝐾 ).
+
+If there exists a point 𝑝 ∈ 𝑋 where scal Ch (𝜔 𝐾 )( 𝑝 ) > 0, then (𝑡 − 2𝑛 + 1)𝜇 0 (𝜔 𝐾 )( 𝑝 ) > 0 since 𝑡 > 2𝑛 − 1,and Theorem 5.8 applies. Otherwise, scal Ch (𝜔 𝐾 ) ≤ 0 everywhere, so 
+
+𝜆 𝑡 𝑋 ({ 𝜔 𝐾 }) ≤ EH 𝑡 (𝜔 𝐾 ) =
+
+∫
+
+> 𝑋
+
+scal Ch (𝜔 𝐾 ) 𝜔 𝑛 𝐾 
+
+𝑛 ! ≤ 0 < 𝑡 Λ𝑛 ,
+
+and Theorem 5.8 applies again. □
+
+Remark 5.14 . Several natural directions are not pursued here. One could study the critical points of the 𝑡 -deformed Einstein-Hilbert functional on the full space of Hermitian metrics on 𝑋 , rather than on a single conformal class. This leads to the 𝑡 -deformed Yamabe invariant 
+
+𝜎 𝑡  
+
+> C
+
+(𝑋 ) := sup  
+
+> 𝜔 Hermitian
+
+𝜆 𝑡 𝑋 ({ 𝜔 }) ,
+
+a function of the parameter 𝑡 . Note that, even for 𝑡 = 2𝑛 − 1, this does not recover the classical Yamabe invariant, since the supremum ranges only over Hermitian metrics on 𝑋 , and not over all Riemannian metrics. It would be interesting to investigate the relation between 𝜎 𝑡  
+
+> C
+
+(𝑋 ) and the underlying complex geometry, in the spirit of [LeB99, AL23]. One could also restrict the supremum to special classes of Hermitian metrics, Kähler or non Kähler, as done in the Sasakian setting in [LLS25], where a related invariant is linked to the 𝐾 -semistability of Kähler cones. 
+
+39 5.6 Examples: cohomogeneity one metrics on Hirzebruch surfaces 
+
+We conclude by showing a construction for metrics with positive constant deformed scalar curvature, beyond the locally homogeneous examples. The construction follows the cohomogeneity-one method that Page [Pag78] and Bérard Bergery [BB83] used to produce the first non-homogeneous Einstein metrics with positive scalar curvature, and that was adapted to the Hermitian non-Kähler setting in [AP23] to construct non-homogeneous metrics with constant Chern scalar curvature. We specialize to Hirzebruch surfaces and to the momentum case 𝑡 = 2𝑛 = 4.For an integer 𝑚 > 0, the 𝑚 -th Hirzebruch surface 𝑋 𝑚 is the total space of the C𝑃 1-bundle 𝜋 𝑚 : 𝑋 𝑚 →
+
+C𝑃 1 associated with the 𝑈 (1)-principal bundle 𝑠 𝑚 : Σ𝑚 = 𝑆 3/Z𝑚 → C𝑃 1 of Euler class − 𝑚   
+
+> 2𝜋
+
+[𝜔 FS ],where 𝜔 FS is normalized so that Ric (𝑔 FS ) = 2𝑔 FS . It is compact and simply connected, and carries a holomorphic action of 𝑈 (2) of cohomogeneity one, with regular part diffeomorphic to Σ𝑚 × ( 0, 𝐿 ) and two singular orbits, both biholomorphic to C𝑃 1.Fix a principal connection 𝜗 𝑚 on Σ𝑚 with 𝑑𝜗 𝑚 = −𝑚 𝑠 ∗
+
+> 𝑚
+
+𝜔 FS , and for 𝜈, 𝜅 > 0 let ˜𝑔 (𝜈, 𝜅 ) be the 
+
+𝑈 (2)-invariant metric on Σ𝑚 whose vertical part is the round circle of length 2 𝜋 𝑚 𝜈 , whose horizontal distribution is ker 𝜗 𝑚 , and which makes 𝑠 𝑚 : (Σ𝑚 , ˜𝑔 (𝜈, 𝜅 )) → ( C𝑃 1, 𝜅 2𝑔 FS ) a Riemannian submersion with totally geodesic fibres. Given smooth positive functions 𝑓 , 𝑝 : (0, 𝐿 ) → R, the formula 
+
+𝑔 ( 𝑓 , 𝑝 ) := 𝑑𝑟 2 + ˜𝑔 ( 𝑓 (𝑟 ), 𝑝 (𝑟 )) 
+
+defines a 𝑈 (2)-invariant Hermitian metric on the regular part, extending smoothly to 𝑋 𝑚 if and only if 𝑓 
+
+extends to a smooth odd function with 𝑓 (𝐿 + 𝑟 ) = − 𝑓 (𝐿 − 𝑟 ) and 𝑓 ′ (0) = 1 = − 𝑓 ′ (𝐿 ), and 𝑝 extends to a smooth even function with 𝑝 (𝐿 + 𝑟 ) = 𝑝 (𝐿 − 𝑟 ). By [AP23, Theorem A], the metric 𝑔 ( 𝑓 , 𝑝 ) is always globally conformally Kähler, and it is Kähler if and only if 2𝑝 𝑝 ′ + 𝑚 𝑓 = 0. Its Chern scalar curvature and the codifferential of its Lee form are computed in [AP23] to be 
+
+scal Ch (𝑟 ) = −2 𝑓 ′′ (𝑟 )
+
+𝑓 (𝑟 ) − 2 𝑝 ′′ (𝑟 )
+
+𝑝 (𝑟 ) + 2
+
+ 𝑝 ′ (𝑟 )
+
+𝑝 (𝑟 ) − 𝑓 ′ (𝑟 )
+
+𝑝 (𝑟 )
+
+ 𝑝 ′ (𝑟 )
+
+𝑝 (𝑟 )+ 4
+
+𝑝 (𝑟 )2 + 2𝑚 
+
+
+
+𝑓 ′ (𝑟 ) + 𝑓 (𝑟 ) 𝑝 ′ (𝑟 )
+
+𝑝 (𝑟 )
+
+ 1
+
+𝑝 (𝑟 )2 ,𝑑 ∗𝜃 (𝑟 ) = 1
+
+𝑝 (𝑟 )2
+
+ 2𝑝 (𝑟 ) 𝑝 ′ (𝑟 ) + 𝑚 𝑓 (𝑟 ) 𝑓 ′ (𝑟 )
+
+𝑓 (𝑟 ) + 2𝑝 (𝑟 ) 𝑝 ′′ (𝑟 ) + 2𝑝 ′ (𝑟 )2 + 𝑚 𝑓 ′ (𝑟 )
+
+
+
+.
+
+Theorem 5.15 ([APS +26]) . For every integer 𝑚 > 0, the Hirzebruch surface 𝑋 𝑚 admits a 𝑈 (2)-invariant, globally conformally Kähler, non-Kähler metric with positive constant momentum 𝜇 𝑡 =4.Sketch. Consider the ansatz 
+
+𝑓 𝜑 (𝑟 ) := − 1
+
+𝑚 𝜑 ′ (𝑟 ), 𝑝 𝜑 (𝑟 ) :=√︃ 52 𝜑 (𝑟 ),
+
+for a smooth, positive, decreasing function 𝜑 : (0, 𝐿 ) → R. Then 2𝑝 𝜑 𝑝 ′ 
+
+> 𝜑
+
++ 𝑚 𝑓 𝜑 = 32 𝜑 ′ < 0, so 𝑔 ( 𝑓 𝜑 , 𝑝 𝜑 )
+
+is never Kähler. Substituting the ansatz into the formulas above, the equation 𝜇 4 (𝑔 ( 𝑓 𝜑 , 𝑝 𝜑 )) = 𝑐 becomes the third-order ordinary differential equation 
+
+10 𝜑 2 𝜑 ′′′ 
+
+𝜑 ′ + 2 𝜑𝜑 ′′ − 3 (𝜑 ′)2 + 5𝑐 𝜑 2 − 8 𝜑 = 0,
+
+and the smoothness conditions translate into the boundary conditions 𝜑 (0) = 1, 𝜑 (𝐿 ) = 𝑘 , 𝜑 ′ (0) =
+
+𝜑 ′ (𝐿 ) = 0, 𝜑 ′′ (0) = −𝑞 = −𝜑 ′′ (𝐿 ), for some 0 < 𝑘 < 1 and 𝑞 > 0. The key trick is the substitution 
+
+𝜑 ′ (𝑟 ) = −√︁ 𝑢 (𝜑 (𝑟 )) : under the change of variable 𝑡 = 𝜑 (𝑟 ), the ordinary differential equation becomes linear, 
+
+5𝑡 2𝑢 ′′ (𝑡 ) + 𝑡𝑢 ′ (𝑡 ) − 3𝑢 (𝑡 ) + 5𝑐 𝑡 2 − 8𝑡 = 0,
+
+40 with general solution 
+
+𝑢 𝑎,𝑏,𝑐 (𝑡 ) = 𝑎 𝑡 2−√19 5 − 4𝑡 + 𝑏 𝑡 2+√19 5 − 5𝑐 
+
+9 𝑡 2, 𝑎, 𝑏, 𝑐 ∈ R,
+
+and the boundary conditions become 𝑢 (1) = 𝑢 (𝑘 ) = 0, 𝑢 ′ (1) = −2𝑚 , 𝑢 ′ (𝑘 ) = 2𝑚 . Imposing the first three determines 𝑎 (𝑘 ), 𝑏 (𝑘 ), 𝑐 (𝑘 ) explicitly; the fourth becomes an equation 𝛼 (𝑘 )/ 𝛽 (𝑘 ) = 0 in the remaining parameter 𝑘 . An asymptotic analysis at 𝑘 = 1 (where 𝛼 vanishes to third order with 
+
+𝛼 ′′′ (1) = − 36 √19 25 𝑚 < 0) and at 𝑘 = 0 (where 𝛼 (0) < 0) shows the existence of 𝑘 ∗ ∈ ( 0, 1) with 
+
+𝛼 (𝑘 ∗) = 0, while 𝛽 > 0 on (0, 1). Evaluating the linear ordinary differential equation at an interior maximum point 𝑡 0 of the resulting solution 𝑢 ∗ gives 5𝑐 ∗𝑡 20 = −5𝑡 20 𝑢 ′′ ∗ (𝑡 0) + 3𝑢 ∗ (𝑡 0) + 8𝑡 0 > 8𝑡 0, whence 
+
+𝑐 ∗ > 0; a similar maximum-principle argument at a hypothetical interior minimum shows 𝑢 ∗ > 0 on 
+
+(𝑘 ∗, 1). Inverting 𝜑 ∗ (𝑟 ) from 𝜑 ′∗ = −√︁ 𝑢 ∗ (𝜑 ∗) then produces a smooth solution of the original boundary value problem, and the metric 𝑔 ( 𝑓 𝜑 ∗ , 𝑝 𝜑 ∗ ) is the desired one, with 𝜇 4 = 𝑐 ∗ > 0. □
+
+Acknowledgements. These notes were prepared for the course delivered by the author at the CIME Summer School 
+
+Cohomological properties of almost complex manifolds and special structures , held in Cetraro (CS), July 13–17, 2026. The author warmly thanks the Scientific Directors of the School, Anna Maria Fino, Adriano Tomassini, and Scott O. Wilson, for the kind invitation and for planning such a stimulating and enjoyable event, and all the participants for contributing to a lively and positive atmosphere. The author is deeply grateful to his collaborators, Simone Calamai, Francesco Pediconi, Carlo Scarpa, Cristiano Spotti, and Joshua Windare, whose joint works are the subject of these notes, and with whom collaborating was always as joyful and caring as it was mathematically enriching, as well as to all other (past and future) collaborators for their continued support along the way. 
+
+Funding. The author is partially supported by GNSAGA of INdAM. 
+
+Competing interests. The author is a member of the Scientific Committee and serves as Scientific Secretary of CIME. 
+
+Tool and computational resource disclosure. Large language models were used to assist with English proofreading, notational consistency, and L ATEX transcription of results established by the author and collaborators. In some instances, they were also used to cross-check computations and gather results from the literature. All outputs were verified by the author, who takes full responsibility for the content. This disclosure is made in the spirit of the Leiden Declaration and the UNESCO Recommendation on Open Science. 
+
+# References 
+
+[AB96] Lucia Alessandrini and Giovanni Bassanelli. The class of compact balanced manifolds is invariant under modifications. In Complex analysis and geometry. Proceedings of the conference held in Trento, Italy, June 5-9, 1995 , pages 1–17. New York, NY: Marcel Dekker, 1996. [ACL21] Vestislav Apostolov, David M. J. Calderbank, and Eveline Legendre. Weighted K-stability of polarized varieties and extremality of Sasaki manifolds. Adv. Math. , 391:63, 2021. Id/No 107969. [ACPS25] Daniele Angella, Simone Calamai, Francesco Pediconi, and Cristiano Spotti. A moment map for twisted-Hamiltonian vector fields on locally conformally Kähler manifolds. Transform. Groups , 30(3):1035–1065, 2025. [ACS17] Daniele Angella, Simone Calamai, and Cristiano Spotti. On the Chern-Yamabe problem. 
+
+Math. Res. Lett. , 24(3):645–677, 2017. [ACS20] Daniele Angella, Simone Calamai, and Cristiano Spotti. Remarks on Chern-Einstein Hermi-tian metrics. Math. Z. , 295(3-4):1707–1722, 2020. [AJL23] Vestislav Apostolov, Simon Jubert, and Abdellah Lahdili. Weighted K-stability and coercivity with applications to extremal Kähler and Sasaki metrics. Geom. Topol. , 27(8):3229–3302, 2023. 
+
+41 [AL23] Michael Albanese and Claude LeBrun. Kodaira dimension and the Yamabe problem. II. 
+
+Commun. Anal. Geom. , 31(10):2387–2411, 2023. [AP22] Daniele Angella and Francesco Pediconi. On the linearization stability of the Chern-scalar curvature. Math. Z. , 301(2):1675–1693, 2022. [AP23] Daniele Angella and Francesco Pediconi. On cohomogeneity one Hermitian non-Kähler metrics. Proc. R. Soc. Edinb., Sect. A, Math. , 153(2):545–587, 2023. [APS +26] Daniele Angella, Francesco Pediconi, Carlo Scarpa, Cristiano Spotti, and Oluwag-benga Joshua Windare. Yamabe-type problems on compact Hermitian manifolds. Preprint, arXiv:2605.31028 [math.DG] (2026), 2026. [AT26] Daniele Angella and Nicoletta Tardini. Cohomological properties and Hermitian metrics of complex non-Kähler manifolds. Preprint, arXiv:2602.03653 [math.DG] (2026), 2026. [Aub76] Thierry Aubin. Nonlinear differential equations and Yamabe’s scalar curvature problem. J. Math. Pures Appl. (9) , 55:269–296, 1976. [Aub78] Thierry Aubin. Equations du type Monge-Ampère sur les variétés Kähleriennes compactes. 
+
+Bull. Sci. Math., II. Sér. , 102:63–95, 1978. [Bar23] Giuseppe Barbaro. On the curvature of the Bismut connection: Bismut-Yamabe problem and Calabi-Yau with torsion metrics. J. Geom. Anal. , 33(5):23, 2023. Id/No 153. [BB83] Lionel Bérard Bergery. Sur de nouvelles variétés riemanniennes d’Einstein. Inst. Élie Cartan, Univ. Nancy I , 6:1–60, 1983. [Bes08] Arthur L. Besse. Einstein manifolds . Class. Math. Berlin: Springer, reprint of the 1987 edition edition, 2008. [Bis89] Jean-Michel Bismut. A local index theorem for non-Kähler manifolds. Math. Ann. ,284(4):681–699, 1989. [BL23] Giuseppe Barbaro and Mehdi Lejmi. Second Chern-Einstein metrics on four-dimensional almost-Hermitian manifolds. Complex Manifolds , 10:24, 2023. Id/No 20220150. [CZ20] Simone Calamai and Fangyu Zou. A note on Chern-Yamabe problem. Differ. Geom. Appl. ,69:14, 2020. Id/No 101612. [Dem12] Jean-Pierre Demailly. Complex analytic and differential geometry. Online manuscript, 2012. Available at https://www-fourier.ujf-grenoble.fr/~demailly/manuscripts/ agbook.pdf .[dLPZ12] L. L. de Lima, P. Piccione, and M. Zedda. On bifurcation of solutions of the Yamabe problem in product manifolds. Ann. Inst. Henri Poincaré, Anal. Non Linéaire , 29(2):261–277, 2012. [Don97] Simon K. Donaldson. Remarks on gauge theory, complex geometry and 4-manifold topology. In M. F. Atiyah and D. Iagolnitzer, editors, Fields Medallists’ Lectures , pages 384–403. World Scientific, Singapore, 1997. [dRS03] Heberto del Rio and Santiago R. Simanca. The Yamabe problem for almost Hermitian manifolds. J. Geom. Anal. , 13(1):185–203, 2003. [Fuj90] Akira Fujiki. Moduli spaces of polarized algebraic manifolds and Kähler metrics. Sugaku Expo. , 5(2):173–191, 1990. [Fus22] Elia Fusi. The prescribed Chern scalar curvature problem. J. Geom. Anal. , 32(6):21, 2022. Id/No 187. [Gau77] Paul Gauduchon. Le théorème de l’excentricite nulle. C. R. Acad. Sci., Paris, Sér. A , 285:387– 390, 1977. [Gau81] Paul Gauduchon. Le théorème de dualité pluri-harmonique. C. R. Acad. Sci., Paris, Sér. I ,293:59–61, 1981. 
+
+42 [Gau84] Paul Gauduchon. La 1-forme de torsion d’une variété hermitienne compacte. Math. Ann. ,267:495–518, 1984. [Gau97] Paul Gauduchon. Hermitian connections and Dirac operators. Boll. Unione Mat. Ital., VII. Ser., B , 11(2):257–288, 1997. [Gau15] Paul Gauduchon. Calabi’s Extremal Kähler Metrics: An Elementary Introduction . 2015. [GH80] Alfred Gray and Luis M. Hervella. The sixteen classes of almost Hermitian manifolds and their linear invariants. Ann. Mat. Pura Appl. (4) , 123:35–58, 1980. [GH94] Phillip Griffiths and Joseph Harris. Principles of algebraic geometry. New York, NY: John Wiley & Sons Ltd., 2nd ed. edition, 1994. [Got26] Ryushi Goto. Generalized scalar curvature and modified moment map in generalized Kähler geometry. Preprint, arXiv:2105.13654 [math.DG] (2026), 2026. [Heb03] Emmanuel Hebey. Variational methods and elliptic equations in Riemannian geome-try. Notes from lectures at ICTP, Workshop on Recent Trends in Nonlinear Varia-tional Problems, 2003. smr1486/3, https://indico.ictp.it/event/a0254/session/ 9/contribution/6/material/0/0.pdf .[Ho21] Pak Tung Ho. Results related to the Chern-Yamabe flow. J. Geom. Anal. , 31(1):187–220, 2021. [HS21] Pak Tung Ho and Jinwoo Shin. Chern-Yamabe problem and Chern-Yamabe soliton. Internat. J. Math. , 32(3):Paper No. 2150016, 22, 2021. [Huy05] Daniel Huybrechts. Complex geometry. An introduction . Universitext. Berlin: Springer, 2005. [HV01] Emmanuel Hebey and Michel Vaugon. From best constants to critical functions. Math. Z. ,237(4):737–767, 2001. [Kie04] Hansjörg Kielhöfer. Bifurcation theory. An introduction with applications of PDEs , volume 156 of Appl. Math. Sci. New York, NY: Springer, 2004. [KL20] Caner Koca and Mehdi Lejmi. Hermitian metrics of constant Chern scalar curvature on ruled surfaces. Kodai Math. J. , 43(3):409–430, 2020. [Koi90] Norihito Koiso. On the complex structure of a manifold of sections. Osaka J. Math. ,27(1):175–183, 1990. [LeB99] Claude LeBrun. Kodaira dimension and the Yamabe problem. Commun. Anal. Geom. ,7(1):133–156, 1999. [LLS25] Abdellah Lahdili, Eveline Legendre, and Carlo Scarpa. The CR Yamabe invariant and constant scalar curvature Sasaki metrics. Preprint, arXiv:2509.00743 [math.DG] (2025), 2025. [LM18] Mehdi Lejmi and Ali Maalaoui. On the Chern-Yamabe flow. J. Geom. Anal. , 28(3):2692– 2706, 2018. [LP87] John M. Lee and Thomas H. Parker. The Yamabe problem. Bull. Am. Math. Soc., New Ser. ,17:37–91, 1987. [LU20] Mehdi Lejmi and Markus Upmeier. Integrability theorems and conformally constant Chern scalar curvature metrics in almost Hermitian geometry. Commun. Anal. Geom. , 28(7):1603– 1645, 2020. [LY17] Kefeng Liu and Xiaokui Yang. Ricci curvatures on Hermitian manifolds. Trans. Am. Math. Soc. , 369(7):5157–5196, 2017. [Omo97] Hideki Omori. Infinite-dimensional Lie groups. Transl. from the Japanese by the author ,volume 158 of Transl. Math. Monogr. Providence, RI: American Mathematical Society (AMS), 1997. [Pag78] Don N. Page. A compact rotating gravitational instanton. Phys. Lett. B , 79:235–238, 1978. 
+
+43 [Sch84] Richard Schoen. Conformal deformation of a Riemannian metric to constant scalar curvature. 
+
+J. Differ. Geom. , 20:479–495, 1984. [Sch07] Michel Schweitzer. Autour de la cohomologie de Bott-Chern. Preprint, arXiv:0709.3528 [math.AG] (2007), 2007. [She21] Xi Sisi Shen. Estimates for metrics of constant Chern scalar curvature. Math. Res. Lett. ,28(5):1525–1550, 2021. [Str86] Andrew Strominger. Superstrings with Torsion. Nucl. Phys. B , 274:253, 1986. [SY79] Richard Schoen and Shing-Tung Yau. On the proof of the positive mass conjecture in general relativity. Commun. Math. Phys. , 65:45–76, 1979. [Tal76] Giorgio Talenti. Best constant in Sobolev inequality. Ann. Mat. Pura Appl. (4) , 110:353–372, 1976. [Tru68] N. S. Trudinger. Remarks concerning the conformal deformation of Riemannian structures on compact manifolds. Ann. Sc. Norm. Super. Pisa, Sci. Fis. Mat., III. Ser. , 22:265–274, 1968. [Yam60] Hidehiko Yamabe. On a deformation of Riemannian structures on compact manifolds. Osaka Math. J. , 12:21–37, 1960. [Yu23] Weike Yu. Prescribed Chern scalar curvatures on compact Hermitian manifolds with negative Gauduchon degree. J. Funct. Anal. , 285(2):Paper No. 109948, 27, 2023. [Yu25] Weike Yu. Prescribed Chern scalar curvature flow on compact Hermitian manifolds with negative Gauduchon degree. Manuscripta Math. , 176(5):Paper No. 74, 14, 2025. 
+
+44

@@ -1,0 +1,1012 @@
+Title: Data-Driven Diffusion Processes on Differential Forms via the Projected Ambient Connection Laplacian
+
+URL Source: https://arxiv.org/pdf/2607.23192v1
+
+Published Time: Tue, 28 Jul 2026 00:35:47 GMT
+
+Number of Pages: 19
+
+Markdown Content:
+# Data-Driven Diffusion Processes on Differential Forms via the Projected Ambient Connection Laplacian 
+
+Alvaro Almeida Gomez Centro de Modelamiento Matemático (CNRS IRL 2807), Universidad de Chile, Beaucheff 851, Santiago, Chile 
+
+alvaroalmeidagomez182@gmail.com 
+
+Jorge Duque Franco Dirección de Investigación, Vicerrectoría Académica, Instituto de Matemáticas, Universidad de Talca, Casilla 721, Talca, Chile 
+
+jorge.duque@utalca.cl 
+
+July 28, 2026 
+
+Abstract 
+
+We develop a data-driven approximation of the projected ambient connection Laplacian act-ing on differential forms over smooth Riemannian manifolds sampled by point clouds. The proposed construction extends the classical framework of diffusion maps and Vector Diffusion Maps from scalar functions and tangent vector fields to differential forms of arbitrary degree. Our approach is based on a novel representation of differential forms as alternating differential arrays obtained through an extension of the classical musical isomorphism. This representation enables the construction of a matrix-valued diffusion operator that approximates the projected ambient connection Laplacian directly from point cloud data without requiring a mesh or sim-plicial complex. The proposed discretization admits the asymptotically optimal kernel bandwidth scaling inherited from diffusion maps, leading to sharper convergence guarantees than previous data-driven approximations of the Hodge Laplacian. Building upon this operator, we derive a fully data-driven explicit Euler scheme for the heat equation on differential forms and validate the proposed methodology through numerical experiments on the unit sphere. The experiments confirm the predicted decay of the analytical solution and demonstrate the effectiveness of the proposed discretization. The proposed framework provides a natural generalization of Vector Diffusion Maps to dif-ferential forms of arbitrary degree and establishes a practical foundation for the numerical ap-proximation of geometric partial differential equations directly from point cloud data. 
+
+Keywords: Diffusion Maps, Differential Forms, Connection Laplacian, Heat Equation, Point Clouds, Manifold Learning 
+
+Mathematics Subject Classification (2020): 58J35, 58J50, 53C21,65D18,35K08. 
+
+# 1 Introduction 
+
+Differential forms constitute one of the fundamental mathematical tools for describing geometric and physical phenomena on smooth manifolds. They provide a coordinate-free framework for formulating conservation laws, electromagnetism, fluid dynamics, and geometric partial differential equations. Among the most important differential operators acting on differential forms is the Hodge Lapla-cian, whose spectral and analytical properties encode both the topology and the geometry of the underlying manifold [Rosenberg, 1997, Jost, 2011]. 1arXiv:2607.23192v1 [math.NA] 25 Jul 2026 The numerical approximation of differential operators on manifolds has received considerable attention over the last two decades. Classical approaches rely on finite element exterior calculus, discrete exterior calculus (DEC), or finite difference methods defined over triangulated manifolds. Finite element exterior calculus provides a mathematically rigorous framework for discretizing the de Rham complex while preserving its cohomological structure [Arnold et al., 2006]. Similarly, dis-crete exterior calculus constructs discrete analogues of differential forms and exterior derivatives on simplicial complexes, preserving many geometric identities exactly [Desbrun et al., 2005, Hirani, 2003]. Although these approaches possess excellent theoretical properties, they require the avail-ability of a mesh or simplicial decomposition, which becomes increasingly difficult to construct for high-dimensional data or manifolds represented only through point clouds. The emergence of manifold learning has motivated the development of mesh-free approxima-tions of differential operators directly from sampled data. Among the most influential techniques are diffusion maps, introduced by Coifman and Lafon [Coifman and Lafon, 2006], which recover the Laplace–Beltrami operator through kernel integral operators. Subsequent convergence analy-ses established rigorous asymptotic error estimates for graph Laplacians constructed from random samples [Singer, 2006, Hein et al., 2007]. These developments have led to numerous data-driven numerical methods for approximating intrinsic geometric quantities without requiring an explicit triangulation of the manifold. Beyond scalar-valued functions, diffusion-based methods have also been extended to vector-valued data on manifolds. A prominent example is the framework of Vector Diffusion Maps (VDM), introduced by Singer and Wu [Singer and Wu, 2012], which provides a data-driven approxima-tion of the connection Laplacian acting on tangent vector fields. The key idea is to combine local diffusion with orthogonal alignments between neighboring tangent spaces, thereby capturing the intrinsic geometry of the underlying manifold. The resulting operator has become a fundamental tool in manifold learning, geometric data analysis, and shape processing, with notable applications including the reconstruction of three-dimensional molecular structures in cryo-electron microscopy (Cryo-EM) [Singer and Shkolnisky, 2011]. Nevertheless, existing VDM methodologies are funda-mentally restricted to vector fields, corresponding to differential 1-forms under the classical musical isomorphism. The numerical treatment of higher-order differential forms directly from point clouds remains considerably less developed. Although discrete exterior calculus naturally generalizes to arbitrary degrees, its dependence on simplicial complexes limits its applicability in many data-driven settings. Recently, several mesh-free approaches have been proposed for approximating the exterior derivative and Hodge Laplacian on differential forms using local kernel constructions and point cloud data [Belkin et al., 2008, Almeida Gomez and Duque Franco, 2026a]. These methods demonstrate that differential forms can be approximated directly from sampled manifolds while preserving important geometric properties. The objective of the present work is to extend the diffusion maps philosophy from vector fields to differential forms of arbitrary degree. Our starting point is a novel representation of differential forms through alternating differential arrays introduced in [Almeida Gomez and Duque Franco, 2026a]. Using an extension of the classical musical isomorphism, every differential k-form is identified with an alternating tensor-valued array embedded in the ambient Euclidean space. This representation allows differential forms to be manipulated using standard linear algebra while preserving their intrinsic geometric meaning. Building upon this representation, we introduce a data-driven approximation of the projected ambient connection Laplacian acting on differential forms. Unlike the intrinsic connection Laplacian, the ambient operator acts componentwise in the embedding space, making it particularly suitable for kernel-based approximations. By projecting this operator onto the bundle of alternating differential arrays, we obtain a well-defined operator on differential forms. By the Weitzenböck formula, this operator differs from the Hodge Laplacian only by explicit intrinsic and extrinsic zero-order curvature terms. An important advantage of the proposed projected ambient connection Laplacian over the data-driven approximation of the Hodge Laplacian introduced in [Almeida Gomez and Duque Franco, 22026a] is that our construction admits the asymptotically optimal bandwidth parameter 
+
+t = N −2/(d+6) ,
+
+where N denotes the number of sample points. This scaling is optimal for uniformly distributed samples, as established in [Singer, 2006], and enables a substantially sharper theoretical convergence analysis. In contrast, the approximation error obtained in [Almeida Gomez and Duque Franco, 2026a] is of order 
+
+O
+
+ 1
+
+√log log N
+
+
+
+.
+
+The optimal choice of the bandwidth therefore yields a significantly improved theoretical approxi-mation error while preserving the intrinsic geometric structure of the underlying manifold. The resulting discretization naturally extends the framework of Vector Diffusion Maps (VDM). For arbitrary degrees k, however, it defines a matrix-valued diffusion operator acting on alternat-ing differential arrays, thereby providing a unified data-driven framework for approximating the projected ambient connection Laplacian on differential forms of arbitrary degree. The main contributions of this paper are summarized as follows. 
+
+• We introduce a computational representation of differential forms as alternating differential arrays through an extension of the musical isomorphism. 
+
+• We construct a projected ambient connection Laplacian acting on differential arrays and es-tablish its relationship with the Hodge Laplacian. 
+
+• We derive a fully data-driven matrix approximation of this operator directly from point cloud data using diffusion kernels. 
+
+• We develop an explicit Euler scheme for the corresponding heat equation and validate the proposed discretization through numerical experiments on the unit sphere. The remainder of the paper is organized as follows. Section 2 introduces differential arrays and extends the musical isomorphism to arbitrary differential forms. Section 3 develops the projected ambient connection Laplacian and its data-driven matrix representation. Section 4 presents the numerical discretization of the associated heat equation together with computational experiments. Finally, Section 5 concludes the paper and discusses future research directions. 
+
+# 2 Differential Arrays 
+
+Throughout this section, we work in the following geometric setting: M is a compact, boundaryless Riemannian submanifold of Rn, where the inner product on each tangent space TxM is induced by the standard inner product of Rn.In this section, we introduce the notion of data-driven differential arrays . Concretely, given a differential k-form ω on M and a finite set of sample points x1, x 2, . . . , x N ∈ M , we address the following question: since differential forms are inherently abstract objects, how can one construct a concrete computational representation of ω at the sample points? To address this question, we introduce k-dimensional arrays over Rn, which generalize vectors (k = 1 ) and matrices ( k = 2 ). 
+
+Definition 2.1. A k-dimensional array in Rn is a function 
+
+f : In × In × · · · × In
+
+| {z } 
+
+> ktimes
+
+→ R,
+
+where In := {1, 2, . . . , n }. The set of all k-dimensional arrays in Rn forms a vector space under pointwise addition and scalar multiplication. 3Our goal is to associate with each differential k-form ω on M a data object, defined at the sample points, that faithfully encodes the action of ω. More precisely, for each sample point xi ∈ M , we seek a k-dimensional array Wi : Ikn → R that represents the action of ωxi on tangent vectors to M. Our approach extends the classical musical isomorphism from alternating 1-forms to alternating k-forms for arbitrary k ≥ 1.We recall that, for any linear subspace V ⊆ Rn and any linear functional ℓ ∈ V ∗, there exists a unique vector W ∈ V such that 
+
+ℓ(v) = ⟨W, v ⟩ for all v ∈ V, 
+
+where ⟨· , ·⟩ denotes the standard inner product on Rn. Applying this fiberwise to each tangent space 
+
+TxM ⊆ Rn, every differential 1-form on M is canonically identified with a vector field on M. This identification is the classical musical isomorphism for k = 1 , and our construction extends it to all 
+
+k ≥ 1.Given vectors v1, v 2, . . . , v k ∈ Rn, their tensor product v1 ⊗ v2 ⊗ · · · ⊗ vk is the k-dimensional array defined by 
+
+(v1 ⊗ v2 ⊗ · · · ⊗ vk)( i1, i 2, . . . , i k) := v1(i1) v2(i2) · · · vk(ik),
+
+for every (i1, . . . , i k) ∈ Ikn .For a linear subspace V ⊆ Rn, we denote by 
+
+V ⊗k := V ⊗ V ⊗ · · · ⊗ V
+
+| {z } 
+
+> ktimes
+
+the linear span of all elementary tensors v1 ⊗ v2 ⊗ · · · ⊗ vk with v1, . . . , v k ∈ V . We equip V ⊗k with the Frobenius inner product , defined by 
+
+⟨A, B ⟩F := X 
+
+> i1,...,i k∈In
+
+A(i1, . . . , i k) B(i1, . . . , i k),
+
+for all A, B ∈ V ⊗k. The subspace of alternating arrays , denoted by ΛkV ⊆ V ⊗k, is defined as follows. 
+
+Definition 2.2. A k-dimensional array W : Ikn → R is called alternating if 
+
+W (iσ(1) , i σ(2) , . . . , i σ(k)) = sgn( σ) W (i1, i 2, . . . , i k)
+
+for every permutation σ ∈ Sk and every choice of indices i1, . . . , i k ∈ In. The collection of all alternating k-dimensional arrays forms a linear subspace of V ⊗k, which we denote by ΛkV .The space ΛkV of alternating k-forms, endowed with the Frobenius inner product inherited from 
+
+V ⊗k, is an inner product space. Moreover, if {v1, v 2, . . . , v n} is an orthonormal basis of V , then the family 
+
+{vi1 ∧ vi2 ∧ · · · ∧ vik : 1 ≤ i1 < i 2 < · · · < i k ≤ n}
+
+is an orthonormal basis of ΛkV . Here, 
+
+vi1 ∧ vi2 ∧ · · · ∧ vik = 1
+
+√k!
+
+X
+
+> σ∈Sk
+
+(sgn σ) viσ(1) ⊗ viσ(2) ⊗ · · · ⊗ viσ(k) ,
+
+where the sum is taken over all permutations σ ∈ Sk. We now extend the musical isomorphisms to alternating k-forms. 
+
+Proposition 2.3. Let V ⊆ Rn be a linear subspace and let ω ∈ Λk(V ∗) be an alternating k-linear form on V . Then there exists a unique alternating array W ∈ ΛkV such that 
+
+ω(v1, . . . , v k) = ⟨W, v 1 ⊗ · · · ⊗ vk⟩F for all v1, . . . , v k ∈ V. (1) 4The proof is given in Appendix A. Applying Proposition 2.3 to V = TxM at each point x ∈ M 
+
+yields the following corollary. 
+
+Corollary 2.4. Let M ⊆ Rn be a Riemannian submanifold endowed with the metric induced by the Euclidean inner product, and let ω be a smooth differential k-form on M. For every point x ∈ M ,there exists a unique alternating array Wx ∈ ΛkTxM such that 
+
+ωx(v1, . . . , v k) = Wx, v 1 ⊗ · · · ⊗ vk F (2) 
+
+for all v1, . . . , v k ∈ TxM, where ⟨· , ·⟩ F is the Frobenius inner product on (TxM)⊗k induced by the Euclidean metric. Moreover, the section x 7 → Wx is smooth. 
+
+Definition 2.5 (k-differential array) . A k-differential array on M is a smooth section of the bundle 
+
+ΛkT M of alternating k-arrays, i.e. an element of Γ(Λ kT M).By Corollary 2.4, every differential k-form ω on M determines a unique k-differential array. This pointwise correspondence defines a map 
+
+♯ : Ω k(M) −→ Γ
+
+
+
+ΛkT M
+
+
+
+, ω 7 −→ W, (3) which we call the musical isomorphism between differential k-forms and k-differential arrays. Since Proposition 2.3 provides a fiberwise isomorphism at each x ∈ M , the map ♯ is a vector-bundle isomorphism. Throughout this paper, we identify differential k-forms with their associated k-differential ar-rays via the musical isomorphism ♯. This identification simplifies the notation and allows all local computations to be carried out directly in terms of differential arrays. Accordingly, all subsequent constructions are formulated for k-differential arrays while systematically exploiting this identifica-tion. The space ΛkT M of k-differential arrays is endowed with the L2 inner product 
+
+⟨W1, W 2⟩ =
+
+Z
+
+> M
+
+⟨W1(x), W 2(x)⟩F dVol( x),
+
+for any W1, W 2 ∈ ΛkT M, where ⟨· , ·⟩ F denotes the Frobenius inner product on the fiber and dVol( x)
+
+is the Riemannian volume form on M.
+
+# 3 Ambient Connection Laplacian 
+
+Recall from Section 2 that a differential k-array is a smooth map ω : M → Rnk
+
+such that, for every x ∈ M , the value ω(x) belongs to the tensor subspace (TxM)⊗k ⊂ (Rn)⊗k ∼= Rnk
+
+. Here, the inclusion is induced by the differential of the isometric embedding M ,→ Rn. Via the metric-induced musical isomorphisms introduced in Section 2, these arrays are naturally identified with differential 
+
+k-forms. To study these differential arrays within the ambient space Rnk
+
+, we introduce the ambient con-nection Laplacian . This operator acts on sections of the trivial bundle E = M × Rnk
+
+, which is equipped with the flat connection ¯∇ inherited from the standard Euclidean structure on Rnk
+
+. For a smooth section f ∈ Γ( E) ∼= C∞(M, Rnk
+
+), its ambient connection Laplacian is defined as the metric trace of its second covariant derivative: 
+
+∆ ¯∇f := tr g( ¯∇2f ). (4) Here, ¯∇2f ∈ Γ( T ∗M ⊗ T ∗M ⊗ E) is evaluated with respect to both the Levi-Civita connection ∇
+
+on M and the flat connection ¯∇ on E.Because the metric on M is induced by the ambient Euclidean inner product and ¯∇ is the flat Euclidean connection, this ambient connection Laplacian acts strictly componentwise. Consequently, for any smooth map f = ( f1, . . . , f nk ) : M → Rnk
+
+, we have 
+
+∆ ¯∇f = (∆ Mf1, . . . , ∆Mfnk ) ,
+
+5where ∆M denotes the scalar Laplace–Beltrami operator on M.This resulting Laplacian elegantly encodes both the intrinsic geometry of M and the extrinsic geometry of the embedding M ,→ Rn. Note that while f (x) may lie entirely within the tangent spaces (TxM)⊗k, the evaluation of ∆ ¯∇f will generally produce vectors with non-trivial normal components relative to the manifold, explicitly reflecting its extrinsic nature. We now derive an infinitesimal approximation of the ambient connection Laplacian acting on vector-valued functions. The construction is based on a diffusion-type integral operator associated with a smooth sampling density q on the manifold M. This formulation is particularly important because it naturally leads to a data-driven approximation of the ambient connection Laplacian acting on differential arrays. Let Gt : M × M → R denote the Gaussian kernel 
+
+Gt(x, y ) = exp 
+
+
+
+− |x − y|2
+
+2t2
+
+
+
+,
+
+where | · | denotes the Euclidean norm in the ambient space. Assume that q ∈ C∞(M) is a strictly positive probability density on M. We define the normalization function 
+
+dt(x) = 
+
+Z
+
+> M
+
+Gt(x, y )q(y) dVol( y), (5) where dVol denotes the Riemannian volume measure on M.Using this normalization, we define the integral operator Pt acting on smooth vector-valued functions f : M → Rnk
+
+by 
+
+Ptf (x) = 1
+
+dt(x)
+
+Z
+
+> M
+
+Gt(x, y )f (y)q(y) dVol( y), (6) where the integral is understood componentwise. The associated infinitesimal generator is defined as follows. 
+
+Definition 3.1 (Infinitesimal Generator) . Let Pt be the operator defined in (6). The infinitesimal generator Lt is given by 
+
+Ltf (x) := f (x) − Ptf (x)
+
+t2 ,
+
+for every smooth vector-valued function f : M → Rnk
+
+.The operator Lt can be viewed as a vector-valued extension of the infinitesimal generator arising in the diffusion maps framework. Indeed, since Pt acts componentwise on the coordinates of f , the asymptotic analysis developed for scalar diffusion operators applies independently to each compo-nent. Consequently, by the classical diffusion maps expansion of Coifman and Lafon [Coifman and Lafon, 2006], one obtains 
+
+lim  
+
+> t→0+
+
+Ltf (x) = 12 ∆∇f (x),
+
+where ∆∇ denotes the ambient connection Laplacian. Therefore, Pt provides a diffusion semigroup whose infinitesimal generator converges to the ambient connection Laplacian in the limit t → 0.This characterization immediately suggests a discrete approximation. Let {x1, . . . , x N } ⊂ M be independent samples drawn according to the density q. By the law of large numbers, the integral operator Pt can be approximated by the discrete operator 
+
+Pdis  
+
+> t
+
+f (xi) = 1
+
+ddis  
+
+> t
+
+(xi)
+
+> N
+
+X
+
+> j=1
+
+Gt(xi, x j )f (xj ),
+
+where 
+
+ddis  
+
+> t
+
+(xi) = 
+
+> N
+
+X
+
+> j=1
+
+Gt(xi, x j ).
+
+6The corresponding discrete infinitesimal generator is given by 
+
+Ldis  
+
+> t
+
+f (xi) = f (xi) − Pdis  
+
+> t
+
+f (xi)
+
+t2 . (7) A particularly important case arises when the samples are drawn from a uniform distribution on the manifold, that is, when q(x) = 1 /Vol( M). In this setting, Singer [Singer, 2006] established the pointwise convergence rate for the discrete generator. Letting d denote the intrinsic dimension of the manifold M, the convergence rate is given by 
+
+Ldis  
+
+> t
+
+f (xi) = 12 ∆∇f (xi) + O
+
+ 1
+
+√N t (d+2) /4
+
+
+
++ O(t). (8) Balancing the variance and bias error terms leads to the optimal choice for the bandwidth parameter t, as derived in [Singer, 2006]: 
+
+t = 1
+
+N 2/(d+6) . (9) 
+
+3.1 Projected Ambient Connection Laplacian on Differential Arrays 
+
+Recall that for a smooth differential k-array ω : M → Rnk
+
+, the ambient connection Laplacian defines a smooth map ∆∇ω : M → Rnk
+
+. In general, however, ∆∇ω does not preserve the space of differential 
+
+k-arrays, and hence it is not an endomorphism of this bundle. To overcome this difficulty, we project the ambient operator onto the bundle ΛkT M. More precisely, for every x ∈ M , we define the projected ambient connection Laplacian by 
+
+( ˜∆∇ω)( x) := PΛk TxM
+
+ ∆∇ω(x), (10) where PΛk TxM denotes the orthogonal projection onto ΛkTxM.By construction, ˜∆∇ is a well-defined operator on differential k-arrays. Nevertheless, it should not be identified with the intrinsic connection Laplacian ∇∗∇ acting on differential forms. Indeed, if 
+
+M d ,→ RN is an isometrically embedded Riemannian manifold, then differentiation in the ambient Euclidean space followed by orthogonal projection onto the tangent bundle introduces an additional zero-order operator determined by the second fundamental form of the embedding. More precisely, 
+
+˜∆∇ = ∇∗∇ − A ,
+
+where 
+
+A = 
+
+> N−d
+
+X
+
+> α=1
+
+S 2 
+
+> α
+
+,
+
+and Sα denotes the shape operator associated with the α-th unit normal vector field. Therefore, the projected ambient connection Laplacian differs from the intrinsic connection Laplacian only by an extrinsic zero-order curvature operator. This identity naturally relates ˜∆∇ to the Hodge–de Rham Laplacian. By the classical Weitzen-böck formula [Rosenberg, 1997, Jost, 2011], 
+
+∆H = ∇∗∇ + R,
+
+where R is the intrinsic Weitzenböck curvature endomorphism. Combining both identities yields the exact relation 
+
+∆H = ˜∆∇ + A + R,
+
+Hence, the projected ambient connection Laplacian and the Hodge Laplacian differ exclusively by explicit zero-order operators, namely the intrinsic curvature term R and the extrinsic contribution 
+
+A induced by the embedding. Consequently, combining the diffusion-map approximation developed in the previous section with the projected operator above yields a discrete operator whose orthogonal projection is well defined on differential arrays and, through the musical isomorphisms, approximates the Hodge Laplacian up to an explicit zero-order perturbation determined by the intrinsic and extrinsic geometry of the manifold. 74 Matrix-Based Computations 
+
+Building upon the discretization of the infinitesimal generator of the ambient connection Laplacian 
+
+∆∇ introduced in (7), together with the discussion in Section 3.1 concerning its action on differential forms, we now derive a matrix-based, data-driven representation of the projected ambient connection Laplacian. Recall that the ambient connection Laplacian is projected onto the space of differential 
+
+k-forms according to 
+
+( ˜∆∇ω)( x) := PΛk TxM
+
+ ∆∇ω(x), (11) where PΛk TxM denotes the orthogonal projection onto ΛkTxM. This projection is realized through the musical isomorphisms and defines a smooth linear operator on the space Ωk(M) of differential 
+
+k-forms. Furthermore, as discussed in Section 3.1, the projected ambient connection Laplacian ˜∆∇
+
+can be expressed as the Hodge Laplacian together with a perturbation term. The objective of this section is to construct a local, data-driven matrix representation of the projected operator ˜∆∇ using only point-cloud data. This matrix formulation provides a practical computational framework for approximating the action of the projected ambient connection Lapla-cian on differential forms from discrete samples of the underlying manifold. To this end, we first introduce a matrix representation of differential arrays, which, through the musical isomorphisms, are naturally identified with differential forms. This identification enables us to represent differential forms as matrix-valued objects while preserving their underlying geometric structure. Building upon this representation, we derive a corresponding matrix formulation of the projected ambient connection Laplacian ˜∆∇. Throughout, the equivalence between the matrix representation and the action of ˜∆∇ on differential forms is understood via the musical isomorphisms. The following data-driven construction of differential arrays was originally introduced in [Almeida Gomez and Duque Franco, 2026a]. For completeness, we briefly recall this construction, as it provides the foundation for the matrix-based representation and computation of the projected ambient connection Laplacian. 
+
+4.1 Matrix representation of differential arrays 
+
+We begin by constructing a data-driven representation of k-differential arrays Γ(Λ kT M) from a finite collection of N sample points X = {x1, x 2, . . . , x N }. These points are assumed to be realizations of 
+
+N independent and identically distributed (i.i.d.) random variables X1, X 2, . . . , X N , drawn from a smooth probability density q(·) supported on a d-dimensional compact Riemannian manifold M.For that, we begin with the local construction of k-differential arrays. Given a k-differential array W , its evaluation at a sample point xi can be written as 
+
+W (xi) = X
+
+> J
+
+fJ (xi) OJ (xi), (12) where the sum ranges over all ordered k-tuples J = ( j1, j 2, . . . , j k) with 1 ≤ j1 < j 2 < · · · < j k ≤ d.Here, fJ (xi) are real-valued coefficient functions, and OJ (xi) denotes an element of the orthonormal basis of ΛkTxi M (see Section 2), defined via the wedge product 
+
+OJ (xi) = Oj1 (xi) ∧ · · · ∧ Ojk (xi), (13) where {O1(xi), . . . , O d(xi)} is an orthonormal basis for the tangent space Txi M. In the proposed methodology, we assume that orthonormal bases for the tangent spaces {Txi M} Ni=1 and the intrinsic dimension d of the manifold M are either known a priori , or estimated via local principal component analysis (PCA). In the latter case, we follow the approach of [Singer and Wu, 2012, Singer and Wu, 2011], which constructs an orthonormal basis for each tangent space Txi M, together with the maximum likelihood estimator of [Levina and Bickel, 2004] for the intrinsic dimension d. We stress, however, that the contribution of the present section lies in exploiting these orthonormal bases to derive a matrix formulation that approximates the Ambient Connection Laplacian. The estimation of the tangent spaces themselves is a preprocessing step and is not the focus of this work. 8Using the local representation in (12), we discretize a k-differential array W ∈ Γ(Λ kT M) by representing it in matrix form as 
+
+Ok ∗ f ,
+
+where the product ∗ denotes the standard matrix multiplication. The matrices Ok and f are defined as follows. 
+
+Definition of f : The matrix f consists of N blocks, each of size  dk
+
+ × 1. The i-th block is given by 
+
+f (i) = 
+
+
+
+fJ1 (xi)
+
+fJ2 (xi)
+
+...
+
+fJ(dk)(xi)
+
+ ,
+
+where the multi-indices J1, J 2, . . . , J (dk) correspond to all possible k-tuples 
+
+Jl = ( jl
+
+> 1
+
+, . . . , j lk), 1 ≤ jl 
+
+> 1
+
+< · · · < j lk ≤ d. 
+
+Thus, the full matrix f has size  dk
+
+N × 1.
+
+Definition of Ok: The matrix Ok consists of N × N blocks, each of size nk ×  dk
+
+. The block at position (i, j ) is defined as 
+
+Ok(i, j ) = 
+
+(Ok(i) if i = j, 
+
+0nk ×(dk), if i̸ = j, (14) for i, j ∈ { 1, . . . , N }, so that Ok is block-diagonal. Here, Ok(i) is the matrix 
+
+Ok(i) = 
+
+hOJ1 (xi) OJ2 (xi) · · · OJ(dk)(xi)i
+
+,
+
+where each OJl (xi) is defined as in Equation (13) and is regarded as a column vector embedded in 
+
+Rnk
+
+. Overall, Ok has size nkN ×  dk
+
+N . The values of the k-differential array W (xi) correspond to the i-th block of the product Ok ∗ f .
+
+4.2 Matrix representation of the projected discrete infinitesimal generator 
+
+We now derive a matrix representation of the projected approximation of the ambient connection Laplacian ( ˜∆∇ω)( x) introduced in Equation (10), namely, 
+
+( ˜∆∇W )( x) := PΛk TxM
+
+ ∆∇W (x),
+
+where PΛk TxM denotes the orthogonal projection onto ΛkTxM. The construction is based on the observation that the projected infinitesimal generator 
+
+2 ∗ PΛk TxM
+
+ LtW (x),
+
+where Lt is the infinitesimal generator introduced in Definition 3.1, approximates the projected connection Laplacian 
+
+PΛk TxM
+
+ ∆∇W (x),
+
+as established in Section 3. Throughout this subsection, let {x1, . . . , x N } ⊂ M be independent samples drawn from a smooth probability density q on M. Our goal is to construct a matrix representation of the data-driven discrete infinitesimal generator Ldis  
+
+> t
+
+, of Ltt introduced in Equation (7), and subsequently obtain a matrix approximation of the projected ambient connection Laplacian defined over differential forms. First, we assume that W is a differential array described as equation (12), and we can write its evaluation at xi as 
+
+W (xi) = X
+
+> J
+
+fJ (xi) OJ (xi),
+
+9where the sum ranges over all ordered k-tuples J = ( j1, j 2, . . . , j k) with 1 ≤ j1 < j 2 < · · · < j k ≤ d.and, fJ (xi) are real-valued coefficient functions, and OJ (xi) denotes the wedge product via the wedge product 
+
+OJ (xi) = Oj1 (xi) ∧ · · · ∧ Ojk (xi), (15) where {O1(xi), . . . , O d(xi)} is an orthonormal basis for the tangent space Txi M.Using this notation, the discrete infinitesimal generator can be written as 
+
+Ldis  
+
+> t
+
+W (xi) = 1
+
+t2 ddis  
+
+> t
+
+(xi)
+
+> N
+
+X
+
+> j=1
+
+Gt(xi, x j ) W (xi) − W (xj ),
+
+where 
+
+ddis  
+
+> t
+
+(xi) := 
+
+> N
+
+X
+
+> j=1
+
+Gt(xi, x j ).
+
+Therefore, the projection of the discrete infinitesimal generator onto ΛkTxi M is given by 
+
+PΛk Txi M
+
+ Ldis  
+
+> t
+
+W (xi) = 1
+
+t2 ddis  
+
+> t
+
+(xi)
+
+> N
+
+X
+
+> j=1
+
+Gt(xi, x j ) PΛk Txi M
+
+ W (xi) − W (xj ). (16) Now suppose that W is represented locally as in Equation (12). Since {OL(xi)}L forms an orthonormal basis of ΛkTxi M, the orthogonal projection of W (xj ) onto ΛkTxi M is given by 
+
+PΛk Txi M
+
+ W (xj ) = X
+
+> L
+
+⟨W (xj ), O L(xi)⟩F OL(xi), (17) where the sum is taken over all multi-indices L = ( l1, l 2, . . . , l k) satisfying 
+
+1 ≤ l1 < l 2 < · · · < l k ≤ d. 
+
+On the other hand, using the local representation (12), we obtain 
+
+⟨W (xj ), O L(xi)⟩F = X
+
+> J
+
+fJ (xj ) ⟨OJ (xj ), O L(xi)⟩F ,
+
+where the sum is taken over all multi-indices 
+
+J = ( j1, . . . , j k), 1 ≤ j1 < · · · < j k ≤ d. 
+
+Furthermore, by the definition of the Frobenius inner product on alternating arrays, 
+
+⟨OJ (xj ), O L(xi)⟩F = 1
+
+k!
+
+X
+
+> α,β ∈Sk
+
+sgn( α) sgn( β)
+
+> k
+
+Y
+
+> r=1
+
+D
+
+Ojα(r) (xj ), O lβ(r) (xi)
+
+E
+
+,
+
+where Sk denotes the symmetric group on {1, . . . , k }. For convenience, define the matrix 
+
+AL,J (i, j ) =   Olp (xi), O jq (xj ) kp,q =1 .
+
+Then 
+
+⟨OJ (xj ), O L(xi)⟩F = 1
+
+k!
+
+X
+
+> α,β ∈Sk
+
+sgn( α) sgn( β)
+
+> k
+
+Y
+
+> r=1
+
+AL,J β(r),α (r)(i, j ).
+
+Introducing the permutation 
+
+γ = β ◦ α−1,
+
+and using the multiplicativity of the signature, 
+
+sgn( β) = sgn( γ) sgn( α),
+
+10 we obtain 
+
+⟨OJ (xj ), O L(xi)⟩F = 1
+
+k!
+
+X
+
+> α,γ ∈Sk
+
+sgn( γ)
+
+> k
+
+Y
+
+> r=1
+
+AL,J γ(r),r (i, j )= X
+
+> γ∈Sk
+
+sgn( γ)
+
+> k
+
+Y
+
+> r=1
+
+AL,J γ(r),r (i, j )= det  AL,J (i, j ).
+
+The second equality follows because the summand is independent of α, so the summation over α
+
+contributes a factor of k!, which cancels the prefactor 1/k !. The final equality is precisely the Leibniz formula for the determinant. Consequently, 
+
+⟨W (xj ), O L(xi)⟩F = X
+
+> J
+
+fJ (xj ) det  AL,J (i, j ). (18) Observe that 
+
+AL,J (i, j ) =  OL(xi)T OJ (xj ),
+
+where, for every multi-index 
+
+M = ( m1, . . . , m k),
+
+the matrix 
+
+OM (xl) ∈ Rd×k
+
+is the submatrix of 
+
+O(xl) = O1(xl), . . . , O d(xl)
+
+formed by the columns indexed by m1, . . . , m k, namely, 
+
+OM (xl) = Om1 (xl), O m2 (xl), . . . , O mk (xl).
+
+Combining (16), (17), and (18) yields 
+
+PΛk Txi M
+
+ Ldis  
+
+> t
+
+W (xi) = 1
+
+t2
+
+X
+
+> L
+
+
+
+> N
+
+X
+
+> j=1
+
+Gt(xi, x j )
+
+ddis  
+
+> t
+
+(xi)
+
+X
+
+> J
+
+fL(xi) − fJ (xj ) det  AL,J (i, j ) OL(xi). (19) To rewrite (19) in matrix form, we use the representation 
+
+W = Ok ∗ f
+
+introduced in Section 4.1, where ∗ denotes standard matrix multiplication. This observation moti-vates the following matrix representation of the projected discrete ambient connection Laplacian: 
+
+PΛk T M
+
+ Ldis  
+
+> t
+
+W  := 1
+
+t2 Ok ∗ (Id − CL ) ∗ f , (20) where CL and Id are block matrices of size N × N , whose blocks belong to R(dk)×(dk). Consequently, both matrices have overall dimension 
+
+N
+
+dk
+
+
+
+× N
+
+dk
+
+
+
+.
+
+Let 
+
+J1, . . . , J (dk)
+
+be the ordered collection of all multi-indices of length k. Then, for i, j = 1 , . . . , N , the (i, j )-th block of CL is 
+
+CL (i, j ) = Gt(xi, x j )
+
+ddis  
+
+> t
+
+(xi)
+
+det  AJp,J q (i, j ) (dk) 
+
+> p,q =1
+
+, (21) 11 that is, 
+
+CL (i, j )pq = Gt(xi, x j )
+
+ddis  
+
+> t
+
+(xi) det  AJp,J q (i, j ), 1 ≤ p, q ≤
+
+dk
+
+
+
+.
+
+Finally, let Id denote the identity matrix of size N  dk
+
+ × N  dk
+
+.Recall that Ok, defined in Equation (14), is a block-diagonal matrix whose diagonal blocks consist of the orthonormal bases of ΛkTxi M written as columns. Consequently, Ok is an orthogonal matrix, that is, 
+
+OTk Ok = Id .
+
+Therefore, if 
+
+W = Ok ∗ f ,
+
+then 
+
+OTk W = OTk Ok ∗ f = f .
+
+Substituting this identity into Equation (20), we obtain 
+
+PΛk T M
+
+ Ldis  
+
+> t
+
+W  = 1
+
+t2 Ok ∗ (Id − CL ) ∗ OTk W. (22) Hence, the matrix representation of the projected discrete ambient connection Laplacian is given by 
+
+1
+
+t2 Ok ∗ (Id − CL ) ∗ OTk .
+
+Observe that the spectrum of the matrix Id − CL differs from that of CL only by a uniform shift of −1 in each eigenvalue. Therefore, the spectral properties of the projected discrete ambient connection Laplacian are completely determined by the matrix CL . Consequently, CL is the matrix that encodes the intrinsic information of the projected ambient connection Laplacian acting on differential forms. Finally, we summarize the construction of the matrix CL , together with the selection of the infinitesimal parameter discussed in Equation (9), in Algorithm 1. 
+
+Algorithm 1 Construction of the matrix CL 
+
+Input: A data set 
+
+X = {x1, x 2, . . . , x N },
+
+the manifold dimension d, and an orthonormal basis of Txi M for each xi, i = 1 , . . . , N .1. Compute the infinitesimal parameter 
+
+t = 1
+
+N 2/(d+6) .
+
+2. Initialize CL as the zero block matrix of size N × N .3. For i = 1 , . . . , N :(a) For j = 1 , . . . , N :i. Compute the block CL (i, j ) according to Equation (21). 4. Return the matrix CL .Finally, we establish that the matrix representation of the proposed projected ambient connec-tion Laplacian is independent of the particular choice of local orthonormal bases up to orthogonal similarity. 12 Let 
+
+{O1(xi), . . . , O d(xi)} and { bO1(xi), . . . , bOd(xi)}
+
+be two orthonormal bases of Txi M for each sample point xi. Let CL and dCL denote the matrices constructed from these two choices of local bases through Equation (20), and let Ok and bOk be the corresponding block-diagonal matrices defined in Equation (14). Since both constructions represent the same projected discrete ambient connection Laplacian, we have 
+
+PΛk T M
+
+ Ldis  
+
+> t
+
+W  = 1
+
+t2 Ok(Id − CL )OTk W = 1
+
+t2 bOk(Id − dCL ) bOTk W. (23) Multiplying on the left by OTk and on the right by Ok, and using the orthogonality of Ok, gives 
+
+Id − CL = ( OTk bOk)( Id − dCL )( OTk bOk)T . (24) Define 
+
+Q := OTk bOk.
+
+Since both Ok and bOk are block-diagonal, Q is also block-diagonal. Moreover, for each i = 1 , . . . , N ,the corresponding diagonal blocks of Ok and bOk consist of orthonormal bases of the same vector space Λk(Txi M). Hence, each diagonal block of Q is the orthogonal change-of-basis matrix between these two bases. Therefore, every diagonal block of Q is orthogonal, and consequently Q itself is orthogonal. Substituting this identity into Equation (24) yields 
+
+Id − CL = Q(Id − dCL )QT .
+
+Since the identity matrix is invariant under orthogonal similarity, it follows that 
+
+CL = Q dCL Q T . (25) Therefore, the matrix CL is uniquely determined up to orthogonal similarity. Consequently, all quantities invariant under similarity transformations, including its spectrum, characteristic polyno-mial, trace, determinant, and eigenvalue multiplicities, are independent of the particular choice of local orthonormal bases. Although the matrix representation depends on the selected bases, these spectral invariants are intrinsic to the projected ambient connection Laplacian. In particular, the spectrum of CL is an intrinsic geometric invariant of the proposed discrete operator. 
+
+# 5 Numerical Approximation of the Heat Flow Generated by the Projected Ambient Connection Laplacian 
+
+In the previous section, we introduced a data-driven matrix representation of the projected ambient connection Laplacian acting on differential forms. We now employ this discrete operator to construct a numerical approximation of the corresponding heat flow on a smooth manifold. Throughout this section, differential forms are identified with differential arrays through the canonical correspondence induced by the musical isomorphism defined in (3). Accordingly, differ-ential forms are used for the theoretical analysis, whereas differential arrays are employed for the numerical implementation. Let ω0 be a smooth differential k-form on M . We consider the initial value problem 
+
+
+
+∂ω ∂t = − ˜∆∇ω, (x, t ) ∈ M × (0 , ∞),ω(x, 0) = ω0(x), x ∈ M, 
+
+(26) where the projected ambient connection Laplacian ˜∆∇, introduced in (10), is defined by 
+
+( ˜∆∇ω)( x) := PΛk TxM
+
+ ∆∇ω(x), (27) 13 where PΛk TxM denotes the orthogonal projection onto ΛkTxM . Under the differential-array repre-sentation, the time derivative is interpreted componentwise. Our objective is to approximate the solution of (26) directly from a finite point cloud sampling of the underlying manifold. To this end, we replace the continuous operator ˜∆∇ by the discrete matrix 
+
+ˆA = 2
+
+t2 Ok ∗ (Id − CL ) ∗ OTk , (28) where CL is the data-driven operator introduced in Section 4.2. By the consistency results es-tablished in Theorems (8), (7), and (22), the matrix ˆA provides a consistent approximation of the projected ambient connection Laplacian. Since ˆA is constructed entirely from the sampled data, it yields a fully data-driven discretization of the heat equation (26), enabling the numerical approxi-mation of the associated diffusion process directly on the point cloud. The kernel bandwidth parameter is chosen according to the asymptotic scaling introduced in (9), 
+
+t = N −2/(d+6) , (29) which is known to provide the optimal convergence rate for graph-based approximations of Laplace-type operators [Singer, 2006]. Given an initial discrete differential k-array ω(0) , we approximate the solution of (26) by the explicit (forward) Euler method. For s = 0 , 1, 2, . . . , we define 
+
+ω(s+1) = ω(s) − τs ˆA ω (s), (30) where τs > 0 denotes the time step at the s-th iteration. This yields a fully data-driven approx-imation of the heat flow generated by the projected ambient connection Laplacian on differential forms. Since the discrete operator ˆA is generally non-symmetric, the classical CFL condition based on the largest eigenvalue is no longer applicable. Instead, we employ the following norm-based sufficient stability criterion: 
+
+τs ≤ 1
+
+∥ ˆA∥2
+
+, (31) where ∥ ˆA∥2 denotes the spectral norm of ˆA. This condition follows from the bound ρ( ˆA) ≤ ∥ ˆA∥2
+
+and guarantees that the explicit Euler iteration remains contractive in the induced matrix norm. Although more conservative than the exact spectral stability restriction, this choice is inexpensive to evaluate and can be computed efficiently using standard numerical linear algebra routines, making it particularly suitable for large-scale data-driven problems [Higham, 2008, Trefethen and Embree, 2005, Moler and Loan, 2003]. 
+
+5.1 Numerical Experiment 
+
+We now present a numerical experiment illustrating the heat flow generated by the projected ambient connection Laplacian. All computations were performed in MATLAB R2017b on a laptop equipped with an Intel Core i5-1235U processor (1.30 GHz) and 8 GB of RAM. The implementation is publicly available in the GitHub repository [Almeida Gomez and Duque Franco, 2026b]. The experiment is conducted on the two-dimensional unit sphere 
+
+S2 = {x ∈ R3 : ∥x∥ = 1 },
+
+and considers the case k = 1 , where differential 1-forms are identified with tangent vector fields. Starting from a prescribed tangent vector field, we numerically approximate its evolution under the heat flow induced by the projected ambient connection Laplacian. For visualization purposes, the computed solution is displayed both on the embedded sphere and through the parametrization Φ : [0 , 1] × [0 , 1] → S2 given by 
+
+Φ( u, v ) =  sin( πu ) cos(2 πv ), sin( πu ) sin(2 πv ), cos( πu ), (u, v ) ∈ [0 , 1] × [0 , 1] , (32) 14 where u and v denote the polar and azimuthal coordinates, respectively. Each figure shows the pullback of the solution through Φ, together with its pointwise Euclidean norm evaluated at the sampled points. Throughout the experiment, we generate N = 2000 points independently and uniformly dis-tributed on S2. The numerical solution of the heat equation is computed using the iterative scheme introduced in Section 5, with time step 
+
+τs = 0.9
+
+∥ ˆA∥2
+
+, (33) which satisfies the stability condition established in Equation (31). Therefore, the numerical scheme is stable and convergent throughout the experiment. As the initial condition, we consider the tangent vector field 
+
+v01 (p) = (1 , 1, 1) − ⟨ (1 , 1, 1) , p ⟩ p, p ∈ S2, (34) illustrated in Figure 1. The vector field v01 is obtained by orthogonally projecting the constant ambient vector (1 , 1, 1) ∈ R3 onto the tangent space TpS2 at each point p ∈ S2. Consequently, 
+
+v01 (p) ∈ TpS2 for every p ∈ S2.
+
+Figure 1: Initial vector field v01 . The figure shows the normalized tangent vector field together with its pointwise magnitude, displayed on both the three-dimensional sphere and its two-dimensional polar-coordinate parametrization Φ.Figure 2 displays the pointwise magnitude of the tangent vector field obtained after s = 10 , 20 , 30 ,
+
+and 40 iterations of the proposed iterative scheme. The corresponding evolution of the discrete L2
+
+norm is shown in Figure 3. Both figures clearly indicate that the numerical solution converges to the zero vector field as the number of iterations increases. This behavior is in excellent agreement with the analytical solution of the continuous heat equation. Indeed, the initial tangent vector field v01 is an eigenvector of the projected ambient connection Laplacian. A straightforward componentwise computation of the ambient connection Laplacian gives 
+
+∆ ¯∇v01 = −2(1 , 1, 1) + 6 ⟨(1 , 1, 1) , p ⟩p. 
+
+Projecting this vector field onto the tangent space TpS2 yields 
+
+( e∆∇v01 )( p) := PTpS2
+
+ ∆ ¯∇v01 (p) = −2v01 (p),
+
+15 which shows that v01 is an eigenvector of the projected ambient connection Laplacian with eigenvalue 
+
+−2. Consequently, the solution of the vector heat equation 
+
+∂tv = − e∆∇v, v(·, 0) = v01 ,
+
+is given explicitly by (see, e.g., [Rosenberg, 1997]) 
+
+v(t) = e−2tv01 . (35) Hence, 
+
+lim  
+
+> t→∞
+
+v(t) = 0 ,
+
+that is, the solution converges to the zero vector field. Therefore, the numerical experiments confirm that the proposed explicit Euler scheme accurately reproduces the predicted exponential decay, thereby demonstrating its consistency with the analytical solution of the heat equation. 
+
+Figure 2: Pointwise magnitude of the numerical approximation of the heat flow obtained with the explicit Euler scheme (30) after s = 10 , 20 , 30 , and 40 iterations. The tangent vector field is visualized through the two-dimensional parametrization Φ of the unit sphere. The progressive decrease in the magnitude illustrates the convergence of the numerical solution toward the zero vector field. 
+
+# 6 Conclusions and Future Work 
+
+In this work, we introduced a data-driven discretization framework for differential forms on smooth manifolds. Through the musical isomorphism, differential forms are identified with alternating dif-ferential arrays, providing a representation that transforms these geometric objects into computa-tionally tractable quantities suitable for numerical analysis. From a computational perspective, we investigated the ambient connection Laplacian, which is defined by applying the Laplace–Beltrami operator componentwise to vector-valued functions. By projecting this operator onto the discrete bundle of differential forms, we obtain a linear operator that maps discrete differential forms into discrete differential forms. This projected ambient connection Laplacian is closely related to the Hodge Laplacian, differing only by lower-order perturbation terms determined by the geometry of the underlying manifold. A principal contribution of this work is the construction of a matrix-based, data-driven ap-proximation of the projected ambient connection Laplacian. Building upon the classical theory of 16 Figure 3: Evolution of the discrete L2 norm of the numerical solution corresponding to the initial vector field v01 during the first 100 Euler iterations. The vertical axis is displayed on a logarithmic scale, revealing the expected decay predicted by the analytical solution of the heat equation. diffusion maps, we derive a discrete operator that approximates the continuous projected ambient connection Laplacian directly from point cloud data. This approximation provides a practical nu-merical framework for simulating diffusion processes on differential forms without requiring a mesh or explicit knowledge of the manifold geometry. Based on the proposed discretization, we developed an explicit Euler scheme for the numerical approximation of the heat equation on differential forms. The numerical experiments demonstrate that the proposed method accurately reproduces the theoretical exponential decay predicted by the continuous model, thereby confirming the consistency of the discrete approximation and its effectiveness in capturing the diffusion dynamics of differential forms. Future research will focus on extending the proposed framework to more general geometric evolu-tion equations involving differential forms and vector fields. In particular, the proposed methodology provides a promising foundation for the numerical simulation of partial differential equations gov-erned by diffusion operators on manifolds, as well as for applications in computational differential geometry, geometric data analysis, and data-driven scientific computing. 
+
+Acknowledgements. The first author was supported by the Centro de Modelamiento Matemático (CMM) through the BASAL grant FB210005 for Centers of Excellence from ANID-Chile. The sec-ond author was supported by the ANID Fondecyt Postdoctoral Grant No. 3220631. 
+
+# References 
+
+[Almeida Gomez and Duque Franco, 2026a] Almeida Gomez, A. and Duque Franco, J. (2026a). Lo-cal data-driven exterior calculus and hodge laplacian approximations on point clouds. Available at SSRN 6959520 .[Almeida Gomez and Duque Franco, 2026b] Almeida Gomez, A. and Duque Franco, J. (2026b). Nu-merical implementation of the heat equation over vector fields in MATLAB r2017b. https: //github.com/alvaroalmeidagomez/PACL . Accessed: 2026-07-24. [Arnold et al., 2006] Arnold, D. N., Falk, R. S., and Winther, R. (2006). Finite element exterior calculus, homological techniques, and applications. Acta Numerica , 15:1–155. 17 [Belkin et al., 2008] Belkin, M., Sun, J., and Wang, Y. (2008). Discrete laplace operator on meshed surfaces. SCG .[Coifman and Lafon, 2006] Coifman, R. R. and Lafon, S. (2006). Diffusion maps. Applied and computational harmonic analysis , 21(1):5–30. [Desbrun et al., 2005] Desbrun, M., Hirani, A., Leok, M., and Marsden, J. (2005). Discrete exterior calculus. arXiv:math/0508341 .[Hein et al., 2007] Hein, M., Audibert, J.-Y., and von Luxburg, U. (2007). Graph laplacians and their convergence. Journal of Machine Learning Research .[Higham, 2008] Higham, N. J. (2008). Functions of Matrices: Theory and Computation . SIAM. [Hirani, 2003] Hirani, A. N. (2003). Discrete Exterior Calculus . PhD thesis, California Institute of Technology. [Jost, 2011] Jost, J. (2011). Riemannian Geometry and Geometric Analysis . Springer Science & Business Media, 6th edition. [Lee, 2012] Lee, J. (2012). Introduction to Smooth Manifolds . Graduate Texts in Mathematics. Springer New York. [Levina and Bickel, 2004] Levina, E. and Bickel, P. (2004). Maximum likelihood estimation of in-trinsic dimension. Advances in neural information processing systems , 17. [Moler and Loan, 2003] Moler, C. B. and Loan, C. F. V. (2003). Nineteen dubious ways to compute the exponential of a matrix, twenty-five years later. SIAM Review , 45(1):3–49. [Rosenberg, 1997] Rosenberg, S. (1997). The Laplacian on a Riemannian Manifold: An Introduction to Analysis on Manifolds , volume 31. Cambridge University Press. [Singer, 2006] Singer, A. (2006). From graph to manifold laplacian: The convergence rate. Applied and Computational Harmonic Analysis , 21(1):128–134. [Singer and Shkolnisky, 2011] Singer, A. and Shkolnisky, Y. (2011). Three-dimensional structure determination from common lines in cryo-em by eigenvectors and semidefinite programming. SIAM journal on imaging sciences , 4(2):543–572. [Singer and Wu, 2011] Singer, A. and Wu, H.-t. (2011). Orientability and diffusion maps. Applied and computational harmonic analysis , 31(1):44–58. [Singer and Wu, 2012] Singer, A. and Wu, H.-T. (2012). Vector diffusion maps and the connection laplacian. Communications on pure and applied mathematics , 65(8):1067–1144. [Trefethen and Embree, 2005] Trefethen, L. N. and Embree, M. (2005). Spectra and Pseudospectra: The Behavior of Nonnormal Matrices and Operators . Princeton University Press. 
+
+# Appendices 
+
+# A Proof of Proposition 2.3 
+
+Proof. Existence. Since ω : V k → R is multilinear, the universal property of the tensor product [Lee, 2012, Prop. 12.7] yields a unique linear functional 
+
+eω : V ⊗k → R
+
+18 such that 
+
+eω(v1 ⊗ · · · ⊗ vk) = ω(v1, . . . , v k)
+
+for all v1, . . . , v k ∈ V .Because V is finite dimensional, the tensor space V ⊗k is also finite dimensional. Endow V ⊗k
+
+with the Frobenius inner product ⟨· , ·⟩ F . By the Riesz representation theorem, there exists a unique tensor W ∈ V ⊗k such that 
+
+eω(T ) = ⟨W, T ⟩F
+
+for every T ∈ V ⊗k. In particular, 
+
+ω(v1, . . . , v k) = ⟨W, v 1 ⊗ · · · ⊗ vk⟩F .
+
+It remains to show that W is alternating. Let σ ∈ Sk, and define the permuted tensor W σ ∈ V ⊗k
+
+by 
+
+W σ(i1, . . . , i k) := W (iσ(1) , . . . , i σ(k)).
+
+Then, for arbitrary vectors v1, . . . , v k ∈ V , we have 
+
+⟨W σ, v 1 ⊗ · · · ⊗ vk⟩F = ⟨W, v σ(1) ⊗ · · · ⊗ vσ(k)⟩F
+
+= ω(vσ(1) , . . . , v σ(k))= sgn( σ) ω(v1, . . . , v k)= ⟨sgn( σ) W, v 1 ⊗ · · · ⊗ vk⟩F .
+
+Since decomposable tensors span V ⊗k, the above identity implies that 
+
+⟨W σ, T ⟩F = ⟨sgn( σ) W, T ⟩F
+
+for every T ∈ V ⊗k. By the uniqueness of the Riesz representative, we conclude that 
+
+W σ = sgn( σ) W. 
+
+Hence W is alternating. 
+
+Uniqueness. Suppose that W1, W 2 ∈ ΛkV satisfy 
+
+ω(v1, . . . , v k) = ⟨Wj , v 1 ⊗ · · · ⊗ vk⟩F , j = 1 , 2,
+
+for all v1, . . . , v k ∈ V . Then 
+
+⟨W1 − W2, v 1 ⊗ · · · ⊗ vk⟩F = 0 
+
+for all v1, . . . , v k ∈ V . Since decomposable tensors span V ⊗k, it follows that 
+
+⟨W1 − W2, T ⟩F = 0 
+
+for all T ∈ V ⊗k. Therefore W1 − W2 = 0 , and consequently W1 = W2.19

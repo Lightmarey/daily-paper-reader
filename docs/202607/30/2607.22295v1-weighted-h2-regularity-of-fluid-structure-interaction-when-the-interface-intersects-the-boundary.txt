@@ -1,0 +1,1899 @@
+Title: Weighted H^2 regularity of fluid-structure interaction when the interface intersects the boundary
+
+URL Source: https://arxiv.org/pdf/2607.22295v1
+
+Published Time: Mon, 27 Jul 2026 00:46:52 GMT
+
+Number of Pages: 28
+
+Markdown Content:
+# Weighted H 2 regularity of fluid-structure interaction when the interface intersects the boundary 
+
+Zhaonan Dong 1, Tiantian Huang 2, Buyang Li 3 
+
+> 1
+
+Inria Paris, 48 rue Barrault, 75647 Paris, France  
+
+> 1
+
+CERMICS, ´Ecole nationale des ponts et chauss´ ees, IP Paris, 77455 Marne-la-Vall´ ee, France 
+
+> 2
+
+Department of Applied Mathematics, The Hong Kong Polytechnic University, Hong Kong 
+
+> 3
+
+Department of Applied Mathematics, The Hong Kong Polytechnic University, Hong Kong 
+
+Abstract 
+
+This paper analyzes the regularity of solutions to a fluid-structure interaction (FSI) problem involving a Stokesian fluid and a linear elastic solid in a two-dimensional polyg-onal domain, seperated by an interface which intersects the boundary of the domain. The main challenges arise from the limited solution regularity caused by geometric sin-gularities at the domain corners. To address this, we introduce tailored weighted Sobolev spaces, denoted by Hk,l  
+
+> β
+
+, and a novel solution operator framework on these spaces. This framework provides the key insight for decoupling the coupled FSI system into tractable fluid and elastic solid subproblems in the regularity analysis. As our main result, we prove the existence and uniqueness of a solution in the weighted Sobolev space H2,2 
+
+> β
+
+.
+
+1 Introduction 
+
+Fluid-structure interaction (FSI) describes the multiphysics phenomenon wherein a fluid flow and a deformable structure exert mutual influence on each other. The coupling is bidirectional: the fluid’s pressure and shear stress load the structure, inducing its deformation or motion, which subsequently modifies the fluid domain and flow field. Such interactions arise in a wide range of applications, including biomechanics, aeroelasticity, and engineering design; see, for instance, [12, 14, 15, 24, 41, 45]. As a result, FSI problems have been the subject of extensive analytical and numerical investigation. A substantial body of literature is devoted to the well-posedness and regularity of solu-tions to FSI systems. Early analytical studies primarily focused on FSI models formulated on a fixed reference domain [1–5, 9, 10, 27, 28, 46]. Such models provide accurate approxi-mations when structural displacements and deformations remain small. When the structure undergoes large displacements, however, the resulting deformation has a significant impact on the fluid dynamics, and the fluid domain becomes time-dependent and fully coupled to the structural motion. This leads to geometrically nonlinear FSI models, which have been extensively studied; see, for example, [22, 23, 25, 26, 32–37, 43]. The geometric nonlinearities induced by the moving fluid domain substantially complicate the analysis of well-posedness and regularity when compared with FSI models posed on fixed domains. In the present work, we consider a two-dimensional FSI system consisting of a Stokes fluid coupled with a linearly elastic solid, posed on a fixed domain. The coupled parabolic-hyperbolic system formed by the Stokes and Lam´ e equations has been extensively studied, and a substantial body of literature is devoted to establishing well-posedness and regularity properties of its solutions. Existing results may be broadly classified according to the geometric setting and the type of coupling. Throughout this discussion, u and p denote the fluid velocity and pressure, respectively, while η represents the solid displacement. 1arXiv:2607.22295v1 [math.AP] 24 Jul 2026 • Lipschitz domains (where the interface may intersect the boundary). The existence and regularity of weak solutions for the Stokes-Lam´ e systems in Lipschitz domains were studied in [17]. For initial data ( η0, η1, u0) ∈ H1 × H1 × H1, the existence and uniqueness of a weak solution ( η, ηt, u) ∈ H1 × L2 × L2 with u ∈ L2(0 , T ; H1) was established in [17, Theorem 2.2]. For smoother initial data ( η0, η1, u0) ∈ H2 × H1 × H2
+
+and an associated initial pressure p0 ∈ H1, improved regularity ( η, ηt, u) ∈ H1×H1×L2
+
+was obtained in [17, Theorem 2.3]. 
+
+• Smooth domains (where the interface does not intersects the boundary). For FSI systems posed on smooth domains with non-intersecting interfaces, a series of regularity results was established in [1–5]. In particular, for the Stokes-Lam´ e coupling system, initial data ( η0, η1, u0) ∈ H1 × L2 × L2 yield a strong solution ( η, ηt, u) ∈ H1 × L2 × L2
+
+with u ∈ L2(0 , T ; H1), while initial data ( η0, η1, u0) ∈ H1 × H1 × H1 imply ( η, ηt, u) ∈
+
+H1 × H1 × H1; see [4, Theorem 4.1]. For the Navier-Stokes-wave equation coupling system, higher-regularity initial data ( η0, η1, u0) ∈ H2 ×H1 ×H1 yield a strong solution (η, ηt, u) ∈ H2 × H1 × H1 with u ∈ L2(0 , T ; H2); see [1, Theorem 2.1]. The analysis in [5] extends these results to FSI models within the fundamental H1 ×L2 ×L2 framework. 
+
+• Other settings. Fluid–structure interaction models coupling the Navier-Stokes or heat equations with dynamic elasticity–typically in configurations where the interface does not intersect the boundary–were studied in [9, 10, 27, 28]. In particuloar, local-in-time existence of strong solutions ( η, ηt, u) ∈ H2×H1×H1 for initial data ( η0, η1, u0) ∈
+
+H2×H1×H2 was proved in [10]. The long-time existence of strong solutions ( η, ηt, u) ∈
+
+H2 × H1 × H2 for initial data ( η0, η1, u0) ∈ H2 × H1 × H2 was shown in [46, Theorem 3]. Moreover, the local-in-time existence of solutions ( η, ηt, u) ∈ H3/2+ k ×H1/2+ k ×H1
+
+for initial data ( η0, η1, u0) ∈ H3/2+ k × H1/2+ k × H1, with 0 < k < (√2 − 1) /2, was shown in [28, Theorem 2.1]. Despite these advances, the analysis of FSI problems in the H2 × H1 × H2 framework has largely been restricted to smooth domains, flat geometries [27, 28], or configurations with C2 boundaries [46], where the fluid-structure interface does not intersect the boundary. This geometric assumption ensures the H2-regularity of η. This level of regularity—or, in the presence of geometric singularities, an appropriate weighted H2 regularity—holds not merely theoretical value: it is crucial for the design of finite element methods used in practical FSI computations, as it underpins optimal approximation properties and a priori error estimates, and it guides the choice of stabilization mechanisms and mesh refinement strategies (e.g., graded meshes near singular points) needed to recover accuracy and robustness. In particu-lar, a significant gap remains in the analysis of regularity of solutions in nonsmooth domains where fluid-structure interfaces intersect the boundary, leading to corner or edge singularities at the intersection points. Consequently, further investigation of complex geometrical config-urations is required, especially near corners and edges of polygonal and polyhedral domains, where solution behaviour, (weighted) H2 regularity, and their implications for reliable finite element discretisations remain poorly understood. In polygonal or polyhedral domains, geometric singularities such as corners and edges generally lead to a loss of classical Sobolev regularity. 
+
+Corner singularities and existing theory. Corner singularities for elliptic systems in polygonal domains have been studied in depth over the past decades [16, 19, 29, 30, 42]. For single equations or uncoupled systems, such as the Stokes equations or linear elasticity, solu-tions generally fail to belong to H2 near corner points. Instead, they admit local asymptotic expansions determined by the local geometry and boundary conditions (see [30, 42]): 2Figure 1: Geometry of the fluid-structure interaction problem: fluid domain Ω f , solid domain Ωs, and interface Γ. 
+
+u = ureg + X
+
+> j,k
+
+(ln r)krλj Uj,k (θ) (1) where: 
+
+• r, θ : Polar coordinates at the corner 
+
+• λj : Singularity exponents (Re( λj ) > 0), depending on the opening angle and the imposed boundary conditions 
+
+• ureg ∈ H2: Regular part While this theory provides a precise description of classical corner singularities, it is inher-ently limited to single-domain or uncoupled systems. In FSI problems, new singularities arise at the interface-boundary intersection points, where the fluid-structure interface meets the fixed external boundary. At such points, the governing equations, boundary conditions, and interface conditions change simultaneously. The resulting singular behavior cannot be attributed to either the fluid or the solid alone; it is induced by the coupling itself. Conse-quently, classical H2 theory is inapplicable, and any second-order regularity estimate must be derived for the fully coupled system. 
+
+Mathematic Model. In this paper, we study a two-dimensional FSI system consisting of a Stokes fluid coupled with a linear elastic solid in a polygonal domain Ω = int(Ω f ∪ Ωs). The fluid and solid occupy subdomains Ω f and Ω s, respectively, separated by an interface Γ = ∂Ωf ∩ ∂Ωs. The remaining external boundaries are denoted by Γ f = ∂Ωf \ Γ for the fluid and Γ s = ∂Ωs \ Γ for the solid; see Figure 1. Over a fixed time interval (0 , T ], the coupled system is governed by the following equa-tions: 
+
+∂tu − ∇ · (2 D(u) − pI) = f in Ω f × (0 , T ],
+
+∇ · u = 0 in Ω f × (0 , T ],∂tt η − ∇ · (2 μ1D(η) + μ2(∇ · η)I) = h in Ω s × (0 , T ],
+
+(2) where the fluid stress tensor is σf (u, p ) = 2 D(u) − pI, the solid stress tensor is σs(η) = 2μ1D(η) + μ2(∇ · η)I, and D(v) = 12 (∇v + ( ∇v)T) denotes the symmetric gradient. In these equations, u and p represent the fluid velocity and pressure, while η is the solid displacement. 3The system is driven by the body force per unit mass f in the fluid and h in the solid, and the solid’s elastic response is characterized by the positive Lam´ e parameters μ1 and μ2.The following interface conditions couple the subproblems on Γ × (0 , T ]: 
+
+(
+
+∂tη = u (kinematic condition) ,
+
+σf (u, p )n = σs(η)n (traction condition) , (3) where n is the unit outward normal to Ω f on Γ. Boundary and initial conditions complete the problem: 
+
+(
+
+u = uin on Γ f × (0 , T ],
+
+σs(η)n = 0 on Γ s × (0 , T ], (4) and 
+
+u = u0 on Ω f × { t = 0 },
+
+η = η0 on Ω s × { t = 0 },∂tη = η1 on Ω s × { t = 0 }.
+
+(5) A distinctive feature of this configuration is that the interface Γ has endpoints, where the fluid-structure interface Γ intersects the fixed external boundary of the domain. At each endpoint x0 ∈ Γ ∩ ∂Ω, the interface meets the external boundary and the type of boundary condition changes abruptly. At such points, the following conditions must be satisfied simultaneously: (i) prescribed boundary data on Γ f and Γ s,
+
+u(x0) = uin (x0), σs(η(x0)) n = 0;(ii) velocity continuity across the interface Γ, 
+
+u(x0) = ∂tη(x0); (iii) stress continuity across Γ, 
+
+σf (u(x0), p (x0)) n = σs(η(x0)) n.
+
+These conditions are generally incompatible in the classical sense, giving rise to singularities that are not simple superpositions of fluid and solid corner singularities. The fluid and solid singularities are coupled, and the behavior of one subsystem directly influences the other. Despite the extensive literature on corner singularities for single PDEs, a rigorous H2-type regularity theory for FSI systems in polygonal domains—particularly in the presence of interface-boundary corner singularities—has been lacking. In particular, it remains unclear how to obtain second-order spatial regularity estimates that are compatible with the coupled nature of the problem. 
+
+Main contribution and methodological novelty. The main objective of this work is to establish an H2,2 
+
+> β
+
+-regularity theory for fluid-structure interaction (FSI) problems posed in polygonal domains with interface-boundary corner singularities. Rather than deriving explicit asymptotic expansions such as (1)—which are prohibitively complex for coupled systems—we adopt a weighted Sobolev framework Hk,l  
+
+> βi
+
+(Ω i) ( k ≥ l ≥ 0, i = f, s ) following [6–8]. Within this setting, we identify critical weight exponents βi such that 
+
+∥u(t)∥H2,2   
+
+> βf(Ω f)
+
++ ∥η(t)∥H2,2  
+
+> βs(Ω s)
+
+⩽ C. (6) 4The weighted framework controls second derivatives near geometric singularities through the weight r(x)β, where r(x) denotes the distance to a corner. The exponent β compensates for the loss of regularity, yielding finite H2-type norms even when classical H2 estimates fail. In this way, weighted Sobolev spaces capture the essential singular behavior without requiring explicit asymptotic expansions–an approach particularly effective for coupled systems in non-smooth domains. A key structural feature of the analysis is that H2-regularity for the fluid and the solid cannot be established separately. The corner singularity intrinsically couples the Stokes and elasticity equations, and second-order estimates must therefore be derived for the fully coupled system. Our methodology is based on an operator framework that reformulates the coupled FSI system in terms of solution operators for the Stokes and elasticity subproblems. We introduce Neumann, Dirichlet, and force operators ( NΓ, ˜NΓ, DΓf , DΓ, F1 and F2) which map interface data, boundary data, and source terms to the corresponding fluid and solid solutions. This construction allows the coupled solution ( u, p, η) to be expressed implicitly through operator compositions acting on the interface variables. Specifically, 
+
+((u, p ) = NΓη + DΓf uin + F1(f − ∂tu),
+
+η = DΓ
+
+R t 
+
+> 0
+
+u(s)ds + η0
+
+
+
++ F2(h − ∂tt η). (7) Substituting the expression for η into the fluid equation yields a closed equation for u:(u, p ) = NΓDΓ
+
+Z t
+
+> 0
+
+u(s)d s + NΓDΓη0 + DΓf uin + NΓF2(h − ∂tt η) + F1(f − ∂tu),
+
+u = ( NΓ)1DΓ
+
+Z t
+
+> 0
+
+u(s)d s + ( NΓ)1DΓη0 + ( DΓf )1uin + ( NΓ)1F2(h − ∂tt η) + ( F1)1(f − ∂tu).
+
+(8) Introducing the auxiliary variable v(t) = R t 
+
+> 0
+
+u(s)d s transforms the integral equation into the evolution equation 
+
+∂tv = ( NΓ)1DΓv(t) + ( NΓ)1DΓη0 + ( DΓf )1uin + ( NΓ)1F2(h − ∂tt η) + ( F1)1(f − ∂tu). (9) By the weighted regularity theory for Stokes and elasticity systems [20, 21], the composition operator ( NΓ)1DΓ is bounded and linear on H2,2 
+
+> βf
+
+(Ω f ). Consequently, by standard semi-group theory [40, Theorem 1.2, Corollary 1.4], the operator ( NΓ)1DΓ generates a uniformly continuous semigroup {T (t)}t≥0 on H2,2 
+
+> βf
+
+(Ω f ). The full solution is then reconstructed in a manner that rigorously preserves the coupling conditions. In particular, there exists v ∈ H2,2 
+
+> βf
+
+(Ω f ) such that 
+
+(
+
+η = DΓ(v(t) + η0) + F2(h − ∂tt η),
+
+(u, p ) = NΓη + DΓf uin + F1(f − ∂tu). (10) 
+
+Organization of the paper. The remainder of this paper is organized as follows. Section 2 introduces the weighted Sobolev spaces and states the main regularity results. Section 3 de-velops the solution-operator framework and presents the proof of the main theorem. Section 4 concludes the paper and outlines directions for future research. 5Figure 2: Fluid-structure interaction configuration in a polygonal domain with interface-boundary corners. 
+
+2 Notations and Main Results 
+
+2.1 The weighted Sobolev spaces Hk,l β
+
+Throughout this paper, boldface symbols such as X are used to indicate spaces of vector-valued functions, while the plain symbol X refers to the corresponding scalar space. We use the notations and definitions for function spaces introduced in [7, 8, 20, 21, 38]. As pictured in Figure 2, let Ω = Ω f ∪ Ωs ∪ Γ ⊂ R2 be a polygon with vertices Ai and open edges Γ i connecting Ai and Ai+1 , 0 ≤ i ≤ M (AM +1 = A0). Assume there exists an index J ∈ { 2, 3, · · · , M − 1} such that the interface is Γ = A0AJ (a line segment), the fluid boundary is Γ f := S  
+
+> j∈{ 0,1,··· ,J −1}
+
+Γj , and the structure boundary is Γ s := S   
+
+> j∈{ J,J +1 ,··· ,M }
+
+Γj .Let {ωf,i ∈ (0 , 2π) : i = 0 , 1, · · · , J } denote the interior angles of Ω f at its vertices Ai.Similarly, let {ωs,i ∈ (0 , 2π) : i = 0 , 1, · · · , M + 1 − J} denote the interior angles of Ω s at its vertices AM +1 −i. For brevity, we set Jf = J, Js = M + 1 − J.Furthermore, let βf = ( βf, 0, . . . , β f,J f ) be an ( Jf + 1)-tuple of real numbers and βs =(βs, 0, . . . , β s,J s ) be an ( Js + 1)-tuple of real numbers, all satisfying βf,j , β s,j ∈ (0 , 1). We define the weight functions Φβf +k(x) := 
+
+> Jf
+
+Y
+
+> i=0
+
+ri(x)βf,i +k, (11) Φβs+k(x) := 
+
+> Js
+
+Y
+
+> i=0
+
+ri(x)βs,i +k, (12) where ri(x) = dist( x, A i) denotes the distance from point x to the vertex Ai, k is any integer. 
+
+Remark 2.1. To analyze the localization properties of the weight functions Φβf (x) and 
+
+Φβs (x), define local corner domains Di by 
+
+Di := {x ∈ Ω : |x − Ai| < R i}, 0 ≤ i ≤ M, (13) 6where 0 < R i < 12 min i̸=j |Ai − Aj |. This ensures the domains Di are mutually disjoint. If βf,i , β s,i ∈ (0 , 1) , then we have 
+
+C−1 
+
+> dc
+
+≤ri(x)βfi ≤ Cdc , x ∈ Ωf \ ∪ Mj=0 Dj ,C−1 
+
+> dc
+
+≤ri(x)βsi ≤ Cdc , x ∈ Ωs \ ∪ Mj=0 Dj ,C−1 
+
+> dc
+
+Φβf (x) ≤ri(x)βfi ≤ Cdc Φβf (x), x ∈ Ωf ∩ Di,C−1 
+
+> dc
+
+Φβs (x) ≤ri(x)βsi ≤ Cdc Φβs (x), x ∈ Ωs ∩ Di, (14) 
+
+for a constant Cdc > 0 depending on the radii Ri in (13) .
+
+Let Hk(Ω f ), Hk(Ω s) denote the standard Sobolev spaces. For integers k, ℓ with k ≥ ℓ ≥ 0, the weighted Sobolev spaces Hk,ℓ  
+
+> βf
+
+(Ω f ), Hk,ℓ  
+
+> βs
+
+(Ω s) are equipped with the norms 
+
+∥u∥2   
+
+> Hk,ℓ
+> βf(Ω f)
+
+:= ∥u∥2  
+
+> Hℓ−1(Ω f)
+
++
+
+> k
+
+X
+
+> |α|≥ ℓ
+
+∥Φβf +|α|− ℓDαu∥2 
+
+> L2(Ω f)
+
+, (15) 
+
+∥u∥2  
+
+> Hk,ℓ
+> βs(Ω s)
+
+:= ∥u∥2 
+
+> Hℓ−1(Ω s)
+
++
+
+> k
+
+X
+
+> |α|≥ ℓ
+
+∥Φβs+|α|− ℓDαu∥2
+
+> L2(Ω s)
+
+, (16) where the term ∥u∥Hℓ−1(Ω f ) or ∥u∥Hℓ−1(Ω s) is omitted if ℓ = 0. In the special case k = ℓ = 0, we use the notation L2 
+
+> βf
+
+(Ω f ) and L2 
+
+> βs
+
+(Ω s) for the spaces H0,0 
+
+> βf
+
+(Ω f ) and H0,0 
+
+> βs
+
+(Ω s), respectively. Here, we use standard multi-index notation for higher derivatives in Cartesian coordinates: 
+
+Dαu = ∂|α|u∂x α1 
+
+> 1
+
+∂x α2
+
+> 2
+
+, α = ( α1, α 2), |α| = α1 + α2. (17) Next,we define the trace of functions in the weighted Sobolev spaces Hk,ℓ  
+
+> βi
+
+(Ω i), i = f, s .Let γ be a subset (or the entirety) of the boundary ∂Ωi. For integers k ≥ l ≥ 1, the space 
+
+Hk−1/2,l −1/2 
+
+> βi
+
+(γ) is defined as the set of all functions φ on γ for which there exists a lifting 
+
+χ ∈ Hk,ℓ  
+
+> βi
+
+(Ω i) satisfying φ = χ|γ , and we set 
+
+∥φ∥Hk−1/2,l −1/2  
+
+> βi(γ)
+
+= inf   
+
+> χ∈Hk,l
+> βi(Ω i), χ |γ=φ
+
+∥χ∥Hk,l  
+
+> βi(Ω i)
+
+, (18) where the infimum is taken over all such liftings. We also introduce the subspace of traces that vanish on the complement of γH1/2,1/2 
+
+> βi,00
+
+(γ; Ω i) := {v ∈ H1/2,1/2 
+
+> βi
+
+(γ) : ∃w ∈ H1,1 
+
+> βi
+
+(Ω i) s .t w|γ = v and w|∂Ωi\γ = 0 }, (19) equipped with the norm inherited from H1/2,1/2 
+
+> βi
+
+(γ), see [8, Section 4]. For classical Sobolev spaces, we similarly define 
+
+H1/200 (γ; Ω i) = {u ∈ H1/2(γ) : ∃w ∈ H1(Ω i) s .t. w |γ = u and w|∂Ωi\γ = 0 }. (20) equipped with the norm inherited from H1/2(γ). 
+
+Remark 2.2. Although the space Hm−1/2,l −1/2 
+
+> βf
+
+(γ) (resp., Hm−1/2,l −1/2 
+
+> βs
+
+(γ)) is intrinsically characterized only by the weights βf,i (resp., βs,i ) associated with the vertices of the edges constituting γ, our definition constructs it based on the full weight parameter βf (resp., βs)of the domain Ωf (resp., Ωs). 
+
+72.2 Weak solutions 
+
+Throughout this paper, C denotes a positive constant, depending only on the domains Ω, Ωf and Ω s, whose value may change from line to line. We are now in a position to introduce a weak formulation of the system (2)–(5) . Assume that 
+
+
+
+f ∈ L2(0 , T : L2(Ω f )) , h ∈ L2(0 , T : L2(Ω s)) ,
+
+uin ∈ L∞(0 , T : H1/2(Γ f )) , ∂tuin ∈ L∞(0 , T : H1/2(Γ f )) ,
+
+u0 ∈ H1(Ω f ), η0 ∈ H1(Ω s), η1 ∈ H1(Ω s).
+
+(21) Moreover, assume that the following compatibility conditions hold at the initial time: 
+
+
+
+∇ · u0 = 0 on Ω f ,
+
+u0 = uin |t=0 on Γ f ,
+
+η1 = u0 on Γ ,
+
+(22) We denote by ( ·, ·)D the L2 inner product on a domain D. Define the bilinear forms 
+
+a1[u, v] = 2( D(u), D(v)) Ωf ∀u, v ∈ H1(Ω f ),b[v, q ] = −(∇ · v, q )Ωf ∀v ∈ H1(Ω f ), q ∈ L2(Ω f ),a2[u, v] = 2 μ1(D(u), D(v)) Ωs + μ2(∇ · u, ∇ · v)Ωs ∀u, v ∈ H1(Ω s).
+
+To derive the variational formulation of system (2)–(5), we introduce the space 
+
+H1Γf (Ω) = {v ∈ H1(Ω) : v|Γf = 0},
+
+which incorporates the boundary condition (4). We are now ready to define weak solutions. 
+
+Definition 2.3 (Weak solution) . We say that functions 
+
+u ∈ L2(0 , T ; H1(Ω f ) with ∂tu ∈ L2(0 , T ; L2(Ω f )) , p ∈ L2(0 , T ; L2(Ω f )) 
+
+and 
+
+η ∈ L2(0 , T ; H1(Ω s)) with ∂tη ∈ L2(0 , T ; H1(Ω s)) , ∂tt η ∈ L2(0 , T ; L2(Ω s)) 
+
+constitute a weak solution of (2) –(5) provided that the following conditions are satisfied: (i) For every v ∈ H1Γf (Ω) , ψ ∈ L2(Ω f ) and for a.e. time t ∈ (0 , T ],
+
+
+
+(∂tu, v)Ωf + a1[u, v] + b[v, p ] + ( ∂tt η, v)Ωs + a2[η, v] = ( f , v)Ωf + ( h, v)Ωs ,b[u, ψ ] = 0 ,
+
+u = uin on Γf .
+
+(23) 
+
+(ii) The initial conditions hold: 
+
+u(0) = u0, η(0) = η0, ∂tη(0) = η1.
+
+82.3 Main results 
+
+We begin by observing that, for each fixed t ∈ (0 , T ], the pressure p(t, x) formally satisfies the following elliptic problem in the spatial variable x:
+
+
+
+∆p = ∇· (−∇ · (2 D(u) − pI)) in Ω f × (0 , T ],p = [2 D(u)n − σs(η)n] · n on Γ × (0 , T ], 
+
+> ∂p ∂n
+
+= [ −∇ · (2 D(u) − pI)] · n + [ ∇ · 2D(u)] · n on Γ f × (0 , T ].
+
+(24) The boundary condition on Γ follows by taking the normal component of the traction con-tinuity relation in (3). We next decompose the pressure into p = r + q, where r and q solve the following boundary value problems: 
+
+
+
+∆r = ∇· (−∇ · (2 D(u) − pI)) in Ω f × (0 , T ],r = 0 on Γ × (0 , T ], 
+
+> ∂r ∂n
+
+= [ −∇ · (2 D(u) − pI)] · n on Γ f × (0 , T ],
+
+(25) 
+
+
+
+∆q = 0 in Ω f × (0 , T ],q = [2 D(u)n − σs(η)n] · n on Γ × (0 , T ], 
+
+> ∂q ∂n
+
+= [ ∇ · 2D(u)] · n on Γ f × (0 , T ],. (26) Assuming 
+
+−∇ · (2 D(u) − pI) ∈ L2(Ω f ), (27) the function r ∈ H1Γ(Ω f ) is the unique weak solution of (∇r, ∇ϕ)Ωf = ( −∇ · (2 D(u) − pI), ∇ϕ)Ωf , ∀ϕ ∈ H1Γ(Ω f ), (28) where 
+
+H1Γ(Ω f ) = {v ∈ H1(Ω f ) : v|Γ = 0 }. (29) Consequently, q = p − r can be expressed entirely in terms of u and η. Therefore, the full FSI solution( u, p, η) of (2) may be characterized solely through the velocity-displacement pair ( u, η). We shall show that ( u, η) belongs to the weighted Sobolev space 
+
+H2,2 
+
+> βf
+
+(Ω f ) × H2,2 
+
+> βs
+
+(Ω s),
+
+and that this regularity is inherited from the initial data ( u0, η0). To identify the appropriate weighted framework, note that the Stokes and elasticity operators formally satisfy 
+
+−∇ · (2 D(u) − pI) = f − ∂tu with f ∈ L2(0 , T ; L2(Ω f )) ,
+
+−∇ · (2 μ1D(η) + μ2(∇ · η)I) = h − ∂tt η with h ∈ L2(0 , T ; L2(Ω s)) .
+
+Motivated by these considerations, we introduce the solution space X βf ,βs , consisting of all pairs ( u, η) satisfying: 
+
+• Interior regularity: 
+
+(u ∈ H2,2 
+
+> βf
+
+(Ω f ), with ∇ · u = 0 ,
+
+η ∈ H2,2 
+
+> βs
+
+(Ω s), with − ∇ · (2 μ1D(η) + μ2(∇ · η)I) ∈ L2(Ω s). (30) 9• Existence of an associated pressure p: There exists p ∈ H1,1 
+
+> βf
+
+(Ω f ) such that 
+
+(
+
+−∇ · (2 D(u) − pI) ∈ L2(Ω f ),
+
+(2 D(u) − pI)n = σs(η)n on Γ . (31) 
+
+• Construction of a modified pressure q: Let r ∈ H1Γ(Ω f ) be the weak soultion of (28), and define 
+
+q = p − r. (32) Then ( u, q ) satisfies the Stokes system 
+
+
+
+−∇ · (2 D(u) − qI) = −∇ · (2 D(u) − pI) − ∇ r in Ω f ,
+
+∇ · u = 0 in Ω f ,
+
+(2 D(u) − qI)n = σs(η)n on Γ ,
+
+u = u|Γ on Γ f ,
+
+(33) together with the weak formulation 
+
+( a1[u, v] + b[v, q ] = ( σs(η)n, v)Γ + ( −∇ · (2 D(u) − pI), v)Ωf − (∇r, v)Ωf , ∀v ∈ H1Γf (Ω f ),b[u, ψ ] = 0 , ∀ψ ∈ L2(Ω f ),
+
+(34) where 
+
+H1Γf (Ω f ) = {v ∈ H1(Ω f ) : v|Γf = 0 }. (35) For the analysis that follows, we introduce the relevant function spaces. For i = f, s , we define the vector-valued space 
+
+H(div , Ωi) := {v ∈ L2(Ω i) : ∇ · v ∈ L2(Ω i)}
+
+equipped with the norm ∥v∥H(div ,Ωi) = ∥v∥L2(Ω i) + ∥∇ · v∥L2(Ω i). Of particular importance is its divergence-free subspace 
+
+H(div 0, Ωi) := {v ∈ L2(Ω i) : ∇ · v = 0 }.
+
+The corresponding matrix space H(div , Ωi) consists of all R2×2 matrices whose row vectors belong to H(div , Ωi). Its norm is taken as the sum of the H(div , Ωi)-norms of its row vectors. We now show that the modified pressure q = p − r defined in (32) is uniquely determined by ( u, η) and is independent of the particular choice of ( p, r ). Suppose that two triples ( p1, r 1, q 1) and ( p2, r 2, q 2) satisfy (31)–(34). By [39, Lemma,2.2], the space L2(Ω f ) admits the orthogonal decomposition 
+
+L2(Ω f ) = {z ∈ H(div 0, Ωf ) : z · n = 0 on Γ f } ⊕ ∇ H1Γ(Ω f ). (36) Consequently, for any v ∈ L2(Ω f ), there exist 
+
+v1 ∈ { z ∈ H(div 0, Ωf ) : z · n = 0 on Γ f }, v2 ∈ H1Γ(Ω f ), (37) such that v = v1 +∇v2. Substituting this decomposition into (34) and invoking the definition of r in (28), we obtain 
+
+b[v, q 1] − b[v, q 2] = 0 . (38) 10 By the inf-sup condition established in [11, Lemma 3.1] and [18, Lemma 4.1], this implies that q1 = q2. Furthermore, when ( u, η) = 0, one may choose p = 0, which consequently forces q = 0. Finally, we equip X βf ,βs with the norm: 
+
+∥(u, η)∥Xβf ,βs := ∥u∥H2,2   
+
+> βf(Ω f)
+
++ ∥ − ∇ · (2 D(u) − qI)∥L2(Ω f )
+
++ ∥η∥H2,2  
+
+> βs(Ω s)
+
++ ∥ − ∇ · (2 μ1D(η) + μ2(∇ · η)I)∥L2(Ω s). (39) where q actually depends only on ( u, η) ∈ Xβf ,βs .To determine suitable weight exponents βf , βs that compensate for the loss of regularity near corner singularities and ensure H2,2 
+
+> β
+
+-regularity, we introduce the following characteristic constants associated with the corner angles of the domain: 
+
+κf,j = min {| Im( λ)| : cos 2(zω f,j ) = z2 sin 2(ωf,j ), λ = iz, z̸ = 0 } for j = 0 , J f ,κf,j = min {| Im( λ)| : sin 2(zω f,j ) = z2 sin 2(ωf,j ), λ = iz, z̸ = 0 } for j = 1 , · · · , J f − 1,κs,j = min {| Im( λ)| : sin 2(zω s,j ) = 4(1 − ν)2
+
+3 − 4ν − z2
+
+3 − 4ν sin 2(ωs,j ), λ = iz, z̸ = 0 } for j = 0 , J s,κs,j = min {| Im( λ)| : sin 2(zω s,j ) = z2 sin 2(ωs,j ), λ = iz, z̸ = 0 } for j = 1 , · · · , J s − 1.
+
+Here the Lam´ e constants satisfy the relation μ2/μ 1 = 2 ν/ (1 − 2ν). The quantities κf,j and κs,j arise from the eigenvalue analysis of the Stokes and elasticity systems posed in an infinite sector of opening angle ω. They characterize the leading-order singular behavior of solutions near geometric corners. Details of this analysis are provided in Section 3.1. The principal theoretical results of this work are summarized in the following existence, uniqueness, and weighted regularity theorem. 
+
+Theorem 2.4 (Weighted H2 regularity) . Let the weight vectors βf = ( βf, 0, . . . , β f,J f ) and 
+
+βs = ( βs, 0, . . . , β s,J s ) be chosen such that: 
+
+0 < β f,j < 1, βf,j > 1 − κf,j , 0 < β s,j < 1, βs,j > 1 − κs,j ,
+
+with the compatibility conditions βf, 0 = βs, 0 and βf,J f = βs,J s . Assume that f , h, uin , u0, η0
+
+and η1 satisfy (21) –(22) and, in addition, 
+
+(u0, η0) ∈ Xβf ,βs , f ∈ L∞(0 , T ; L2(Ω f )) , ∂tf ∈ L2(0 , T ; L2(Ω f )) , ∂th ∈ L2(0 , T ; L2(Ω s)) ,
+
+uin ∈ L∞(0 , T ; H3/2,3/2 
+
+> βf
+
+(Γ f )) , ∂tuin ∈ L∞(0 , T ; H1/2(Γ f )) , ∂tt uin ∈ L2(0 , T ; H1/2,1/2  
+
+> βf,00
+
+(Γ f ; Ω f )′).
+
+Then, there exists a unique triplet (u, p, η) solving the coupled system (2) –(5) such that 
+
+u ∈ L∞(0 , T ; L2(Ω f )) ∩ L2(0 , T ; H1(Ω f )) , η ∈ L∞(0 , T ; H1(Ω s)) , p ∈ L2(0 , T ; L2(Ω f )) ,∂tu ∈ L∞(0 , T ; L2(Ω f )) ∩ L2(0 , T ; H1(Ω f )) , ∂tη ∈ L∞(0 , T ; H1(Ω s)) , ∂tt η ∈ L∞(0 , T ; L2(Ω s)) .
+
+Moreover, for almost every t ∈ [0 , T ], the solution enjoys higher regularity in the weighted spaces: 
+
+u(t) ∈ H2,2 
+
+> βf
+
+(Ω f ), p(t) ∈ H1,1 
+
+> βf
+
+(Ω f ), η(t) ∈ H2,2 
+
+> βs
+
+(Ω s). (40) 11 The following estimate holds: 
+
+∥(u(t), η(t)) ∥Xβf ,βs + ∥p(t)∥H1,1   
+
+> βf(Ω f)
+
++ ∥u(t)∥L2(Ω f ) + ∥u∥L2(0 ,T ;H1(Ω f ) + ∥η(t)∥H1(Ω s)
+
++ ∥p∥L2(0 ,T ;L2(Ω f )) + ∥∂tu(t)∥L2(Ω f ) + ∥∂tu∥L2(0 ,T ;H1(Ω f ) + ∥∂tη(t)∥H1(Ω s) + ∥∂tt η(t)∥L2(Ω s)
+
+⩽ Ce CT  ∥f ∥L∞(0 ,T ;L2(Ω f )) + ∥∂tf ∥L2(0 ,T ;L2(Ω f )) + ∥h∥H1(0 ,T ;L2(Ω s)) + ∥uin ∥L∞(0 ,T ;H3/2,3/2  
+
+> βf(Γ f))
+
++ ∥∂tuin ∥L∞(0 ,T ;H1/2(Γ f )) + ∥∂tt uin ∥L2(0 ,T ;H1/2,1/2    
+
+> βf ,00 (Γ f;Ω f)′)
+
++ ∥η1∥H1(Ω s) + ∥(u0, η0)∥Xβf ,βs
+
+.
+
+(41) 
+
+3 Proof of the Main Results 
+
+In this section, we establish H2,2 
+
+> β
+
+-regularity for the fluid-structure interaction system posed in polygonal domains with interface-boundary corner singularities. The proof is based on an operator framework that decouples the Stokes and elasticity subproblems while preserving their coupling through interface operators. This reformulation reduces the coupled system to an evolution equation in the weighted space H2,2 
+
+> β
+
+. The desired regularity then follows from semigroup theory together with the weighted elliptic estimates developed in [20, 21]. 
+
+3.1 Solution operators 
+
+We begin by introducing a collection of solution operators that map boundary data and source terms to the corresponding solutions of the Stokes problem in Ω f and the elasticity problem in Ω s. These operators constitute the core analytical tools used throughout the paper and provide the foundation for the operator-theoretic reformulation of the coupled system. 1. The Neumann Map NΓ, ˜NΓ: The operator NΓ maps a given displacement field w
+
+defined on Ω s to a solution ( v, q ) of the Stokes system in Ω f , subject to a Neumann boundary condition on Γ induced by w:(v, q ) = NΓw ⇐⇒ 
+
+
+
+−∇ · (2 D(v) − qI) = 0 in Ω f ;
+
+∇ · v = 0 in Ω f ;
+
+v = 0 on Γ f ;(2 D(v) − qI)n = (2 μ1D(w) + μ2(∇ · w)I)n on Γ; (42) We also introduce the modified Neumann Map ˜NΓ, defined by (v, q ) = ˜NΓg ⇐⇒ 
+
+
+
+−∇ · (2 D(v) − qI) = 0 in Ω f ;
+
+∇ · v = 0 in Ω f ;
+
+v = 0 on Γ f ;(2 D(v) − qI)n = g on Γ; (43) If g is defined throughout the solid domain Ω s, the operator is understood to act via its trace on the interface, i.e., ˜NΓg := ˜NΓ(g|Γ). 2. The Dirichlet Map (on Γ f ) DΓf : This operator maps a given velocity w on the bound-ary Γ f to the solution ( v, q ) of a homogeneous Stokes problem in Ω f with that Dirichlet 12 data: (v, q ) = DΓf w ⇐⇒ 
+
+
+
+−∇ · (2 D(v) − qI) = 0 in Ω f ;
+
+∇ · v = 0 in Ω f ;
+
+v = w on Γ f ;(2 D(v) − qI)n = 0 on Γ; (44) 3. The Force Map (for Stokes) F1: This operator maps a body force ψ in Ω f to the solution ( v, q ) of the resulting Stokes problem with homogeneous Dirichlet data on Γ f
+
+and homogeneous Neumann data on Γ: (v, q ) = F1ψ ⇐⇒ 
+
+
+
+−∇ · (2 D(v) − qI) = ψ in Ω f ;
+
+∇ · v = 0 in Ω f ;
+
+v = 0 on Γ f ;(2 D(v) − qI)n = 0 on Γ; (45) 4. The Dirichlet Map (on Γ) DΓ: This operator maps a given velocity v on the interface Γ to the solution w of a homogeneous elasticity problem in Ω s with that Dirichlet data on Γ and homogeneous Neumann data on Γ s:
+
+w = DΓv ⇐⇒ 
+
+
+
+−∇ · (2 μ1D(w) + μ2(∇ · w)I) = 0 in Ω s;
+
+w = v on Γ; (2 μ1D(w) + μ2(∇ · w)I)n = 0 on Γ s.
+
+(46) If the input v is defined throughout the fluid domain Ω f , the operator acts by taking its trace on the interface, i.e., DΓv := DΓ(v|Γ). 5. The Force Map (for Elasticity) F2:This operator maps a body force ϕ in Ω s to the solution w of the resulting elasticity problem with homogeneous Dirichlet data on Γ and homogeneous Neumann data on Γs:
+
+w = F2ϕ ⇐⇒ 
+
+
+
+−∇ · (2 μ1D(w) + μ2(∇ · w)I) = ϕ in Ω s;
+
+w = 0 on Γ; (2 μ1D(w) + μ2(∇ · w)I)n = 0 on Γ s.
+
+(47) Applying the standard Lax–Milgram argument for elliptic regularity along with Theorem 3.1 from [13] yields the following continuity results : ˜NΓ ∈ L (H1/200 (Γ; Ω f )′; H1(Ω f ) × L2(Ω f )); 
+
+DΓf ∈ L (H1/2(Γ f ); H1(Ω f ) × L2(Ω f )); 
+
+DΓ ∈ L (H1/2(Γ); H1(Ω s)) .
+
+(48) The spectral properties of the solution operators associated with the Stokes and elasticity systems are governed by specific transcendental equations. These equations, derived from an eigenvalue analysis of the corresponding boundary value problems in an infinite sector of angle ω, determine the singular behavior of solutions near geometric corners. According to the established theory [20, 21], the eigenvalue parameter λ = iz satisfies the following characteristic equations for a given angle ω ∈ (0 , 2π): (1) Stokes Equations with Dirichlet or Neumann Conditions [21, Eq. (4.33a)]: sin 2(zω ) = z2 sin 2(ω). (49) 13 (2) Stokes Equations with Mixed Boundary Conditions [21, Eq. (4.33b)]: cos 2(zω ) = z2 sin 2(ω). (50) (3) Elasticity Equations with Neumann Conditions [20, Eq. (4.13)]: sin 2(zω ) = z2 sin 2(ω). (51) (4) Elasticity Equations with Mixed Boundary Conditions [20, Eq. (4.14)]: sin 2(zω ) = 4(1 − ν)2
+
+3 − 4ν − z2
+
+3 − 4ν sin 2(ω) with μ2/μ 1 = 2 ν/ (1 − 2ν). (52) Let κ denote the smallest positive imaginary part among the non-zero eigenvalues λ = iz 
+
+with Im( λ) > 0. More precisely, for each corner of the domain we define the constants 
+
+κf,j = min {| Im( λ)| : cos 2(zω f,j ) = z2 sin 2(ωf,j ), λ = iz, z̸ = 0 } for j = 0 , J f ,κf,j = min {| Im( λ)| : sin 2(zω f,j ) = z2 sin 2(ωf,j ), λ = iz, z̸ = 0 } for j = 1 , · · · , J f − 1,κs,j = min {| Im( λ)| : sin 2(zω s,j ) = 4(1 − ν)2
+
+3 − 4ν − z2
+
+3 − 4ν sin 2(ωs,j ), λ = iz, z̸ = 0 } for j = 0 , J s,κs,j = min {| Im( λ)| : sin 2(zω s,j ) = z2 sin 2(ωs,j ), λ = iz, z̸ = 0 } for j = 1 , · · · , J s − 1.
+
+These quantities determine the admissible range of weight exponents in the weighted Sobolev spaces and thus control the corner regularity of the coupled FSI system. 
+
+Lemma 3.1. Let the weight vectors βf = ( βf, 0, . . . , β f,J f ) and βs = ( βs, 0, . . . , β s,J s ) be chosen such that: 
+
+0 < β f,j < 1, βf,j > 1 − κf,j , 0 < β s,j < 1, βs,j > 1 − κs,j ,
+
+with the compatibility conditions βf, 0 = βs, 0 and βf,J f = βs,J s . Then, the solution operators defined in (42) –(47) are bounded linear maps between the following weighted Sobolev spaces: 
+
+NΓ ∈ L (H2,2 
+
+> βs
+
+(Ω s); H2,2 
+
+> βf
+
+(Ω f ) × H1,1 
+
+> βf
+
+(Ω f )) ,DΓf ∈ L (H3/2,3/2 
+
+> βf
+
+(Γ f ); H2,2 
+
+> βf
+
+(Ω f ) × H1,1 
+
+> βf
+
+(Ω f )) ,F1 ∈ L (L2 
+
+> βf
+
+(Ω f ); H2,2 
+
+> βf
+
+(Ω f ) × H1,1 
+
+> βf
+
+(Ω f )) ,DΓ ∈ L (H2,2 
+
+> βf
+
+(Ω f ); H2,2 
+
+> βs
+
+(Ω s)) ,F2 ∈ L (L2 
+
+> βs
+
+(Ω s); H2,2 
+
+> βs
+
+(Ω s)) .
+
+Proof. The results follow directly by applying the regularity theory for the Stokes and elas-ticity systems in polygonal domains, as established in [21, Theorem 5.5] and [20, Theorem 5.2], to the boundary value problems associated with each solution operator. 
+
+Remark 3.2. The compatibility conditions βf, 0 = βs, 0 and βf,J f = βs,J s ensure the consis-tency of the weighted Sobolev spaces across the fluid-structure interface Γ. More precisely: 1. If a function v ∈ Hk,ℓ  
+
+> βf
+
+(Ω f ), then its trace on the interface satisfies 
+
+v|Γ ∈ Hk−1/2,ℓ −1/2 
+
+> βf
+
+(Γ) ,
+
+where the trace space is determined by the weights βf,i associated with the interface vertices. Under the compatibility conditions, this trace space coincides with the cor-responding weighted trace space induced from the solid side. Consequently, the trace admits an extension w ∈ Hk,ℓ  
+
+> βs
+
+(Ω s).
+
+14 2. Conversely, if w ∈ Hk,ℓ  
+
+> βs
+
+(Ω s), then its trace satisfies 
+
+w|Γ ∈ Hk−1/2,ℓ −1/2 
+
+> βs
+
+(Γ) ,
+
+and, owing to the matching of the weights at the interface vertices, this trace can be extended to a function v ∈ Hk,ℓ  
+
+> βf
+
+(Ω f ).Therefore, the matching of weights across the interface guarantees the mutual trace-extension property between the weighted Sobolev spaces on Ωf and Ωs, which is essential for the well-posed coupling of the fluid and structure variables. 
+
+Applying the transposition method (see, e.g., [31]) yields the following result. 
+
+Lemma 3.3. Let the weight vectors βf = ( βf, 0, . . . , β f,J f ) and βs = ( βs, 0, . . . , β s,J s ) be chosen such that: 
+
+0 < β f,j < 1, βf,j > 1 − κf,j , 0 < β s,j < 1, βs,j > 1 − κs,j ,
+
+with the compatibility conditions βf, 0 = βs, 0 and βf,J f = βs,J s . Here, the subscript (·)1
+
+denotes the first component of the solution pair returned by the respective operators. Then, the solution operators DΓf defined in (44) and DΓ defined in (46) satisfy the following mapping properties: 
+
+(DΓf )1 ∈ L (H1/2,1/2  
+
+> βf,00
+
+(Γ f ; Ω f )′; L2(Ω f )) , DΓ ∈ L (H1/2,1/2 
+
+> βs,00
+
+(Γ; Ω s)′; L2(Ω s)) . (53) 
+
+Proof. Let g ∈ H1/2,1/2  
+
+> βf,00
+
+(Γ f ; Ω f )′. For the Stokes problem ( v, q ) = DΓf g, consider the corre-sponding adjoint problem: 
+
+−∇ · (2 D(Ψ) − πI) = ϕ in Ω f ;
+
+∇ · Ψ = 0 in Ω f ;Ψ = 0 on Γ f ;(2 D(Ψ) − πI)n = 0 on Γ; (54) where ϕ ∈ L2(Ω f ) satisfies ∇ · ϕ = 0. Similarly, let h ∈ H1/2,1/2 
+
+> βs,00
+
+(Γ; Ω s)′. For the elasticity problem w = DΓh, consider the adjoint system: 
+
+−∇ · (2 μ1D(Φ) + μ2(∇ · Φ) I) = ξ in Ω s;Φ = 0 on Γ; (2 μ1D(Φ) + μ2(∇ · Φ) I)n = 0 on Γ s.
+
+(55) with ξ ∈ L2(Ω s). Since L2(Ω f ) ⊂ L2 
+
+> βf
+
+(Ω f ) and L2(Ω s) ⊂ L2 
+
+> βs
+
+(Ω s), Lemma 3.1 implies that the solution (Ψ , π ) = F1(ϕ) belongs to H2,2 
+
+> βf
+
+(Ω f ) × H1,1 
+
+> βf
+
+(Ω f ) and Φ = F2(ξ) belongs to H2,2 
+
+> βs
+
+(Ω s), with the estimate 
+
+∥Ψ∥H2,2   
+
+> βf(Ω f)
+
++ ∥π∥H1,1   
+
+> βf(Ω f)
+
+≤ C∥ϕ∥L2(Ω f ), (56) 
+
+∥Φ∥H2,2  
+
+> βs(Ω s)
+
+≤ C∥ξ∥L2(Ω s). (57) It follows that v = ( DΓf )1(g) satisfies (v, ϕ )Ωf = −
+
+Z
+
+> Ωf
+
+v · (∇ · (2 D(Ψ) − πI)) = −
+
+Z
+
+> Γf
+
+g · (2 D(Ψ) − πI)n =: L(ϕ), ∀ϕ ∈ L2(Ω f ), ∇ · ϕ = 0 , (58) 15 where (Ψ , π ) solves (54). By the trace theorem and (56), we have (2 D(Ψ) − πI)n|Γf ∈ H1/2,1/2  
+
+> βf,00
+
+(Γ f ; Ω f ) and there-fore, 
+
+|L(ϕ)| ≤ C∥g∥H1/2,1/2   
+
+> βf ,00 (Γ f;Ω f)′
+
+ ∥Ψ∥H2,2   
+
+> βf(Ω f)
+
++ ∥π∥H1,1  
+
+> βf(Ω f)
+
+
+
+≤ C∥g∥H1/2,1/2    
+
+> βf ,00 (Γ f;Ω f)′
+
+∥ϕ∥L2(Ω f ). (59) By the Riesz representation theorem, there exists a unique v ∈ L2(Ω f ), such that ( v, ϕ )Ωf =
+
+L(ϕ) and 
+
+∥v∥L2(Ω f ) ≤ ∥ L∥ ≤ C∥g∥H1/2,1/2    
+
+> βf ,00 (Γ f;Ω f)′
+
+. (60) Similarly, w = DΓh satisfies (w, ξ )Ωs = −
+
+Z
+
+> Ωs
+
+w · (∇ · (2 μ1D(Φ) + μ2(∇ · Φ) I)) = −
+
+Z
+
+> Γ
+
+h · (2 μ1D(Φ) + μ2(∇ · Φ) I)n =: L1(ξ), ∀ξ ∈ L2(Ω s), (61) where Φ solves (55). Repeating the same argument as in (59)–(60), we conclude that there exists a unique w ∈ L2(Ω s), such that ( w, ξ )Ωs = L1(ξ) and 
+
+∥w∥L2(Ω s) ≤ C∥h∥H1/2,1/2  
+
+> βs, 00 (Γ;Ω s)′
+
+. (62) Assume the conditions of Lemma 3.1. For any ϕ ∈ H1/2,1/2  
+
+> βf,00
+
+(Γ; Ω f ), let (Λ ϕ, π ϕ) denote the solution of the Stokes system: 
+
+
+
+−∇ · (2 D(Λ) − πI) = 0 in Ω f ;
+
+∇ · Λ = 0 in Ω f ;Λ = 0 on Γ f ;(2 D(Λ) − πI)n = ϕ on Γ .
+
+(63) By the result in [21, Theorem 5.5], it follows that (Λ ϕ, π ϕ) ∈ H2,2 
+
+> βf
+
+(Ω f ) × H1,1 
+
+> βf
+
+(Ω f ) with 
+
+∥Λϕ∥H2,2   
+
+> βf(Ω f)
+
++ ∥πϕ∥H1,1   
+
+> βf(Ω f)
+
+≤ C∥ϕ∥H1/2,1/2  
+
+> βf ,00 (Γ;Ω f)
+
+. (64) In fact, defining Σ ϕ := (2 D(Λ ϕ) − πϕI)n ∈ H1,1 
+
+> βf
+
+(Ω f ), we have Σ ϕ|Γf ∈ H1/2,1/2  
+
+> βf,00
+
+(Γ f ; Ω f )whenever ϕ ∈ H1/2,1/2  
+
+> βf,00
+
+(Γ; Ω f ). To see this, let χ be a cut off function such that χ = 1 on Γ f
+
+and χ = 0 on Γ. Then 
+
+χΣϕ = Σ ϕ(χ − 1) + Σ ϕ ∈ H1,1 
+
+> βf
+
+(Ω f ) (65) with χΣϕ = 0 on Γ and χΣϕ = Σ ϕ|Γf on Γ f .By Lemma 3.3, define X(DΓf ) := {(DΓf )1(g) ∈ L2(Ω f ) : g ∈ H1/2,1/2  
+
+> βf,00
+
+(Γ f ; Ω f )′}, endowed with the norm 
+
+∥v∥X(DΓf ) := ∥v∥L2(Ω f ) + ∥v|Γf ∥H1/2,1/2    
+
+> βf ,00 (Γ f;Ω f)′
+
+.
+
+For v ∈ X(DΓf ) we define its trace on Γ by transposition: 
+
+⟨v, ϕ ⟩H1/2,1/2     
+
+> βf ,00 (Γ;Ω f)′,H1/2,1/2
+> βf ,00 (Γ;Ω f)
+
+:= −⟨ v|Γf , (2 D(Λ ϕ) − πϕI)n⟩H1/2,1/2      
+
+> βf ,00 (Γ f;Ω f)′,H1/2,1/2
+> βf ,00 (Γ f;Ω f)
+
+(66) 16 for each ϕ ∈ H1/2,1/2  
+
+> βf,00
+
+(Γ; Ω f ). Consequently, the trace v|Γ ∈ H1/2,1/2  
+
+> βf,00
+
+(Γ; Ω f )′ is well defined. We denote this trace operator by γΓ(v) for v ∈ X(DΓf ). Based on this definition, we have the following result. 
+
+Lemma 3.4. Let the weight vectors βf = ( βf, 0, . . . , β f,J f ) and βs = ( βs, 0, . . . , β s,J s ) be chosen such that: 
+
+0 < β f,j < 1, βf,j > 1 − κf,j , 0 < β s,j < 1, βs,j > 1 − κs,j ,
+
+with the compatibility conditions βf, 0 = βs, 0 and βf,J f = βs,J s . Then, the linear operator 
+
+γΓ : X(DΓf ) → H1/2,1/2  
+
+> βf,00
+
+(Γ; Ω f )′ is bounded. Proof. Let v ∈ X(DΓf ). For any ϕ ∈ H1/2,1/2  
+
+> βf,00
+
+(Γ; Ω f ), we have 
+
+⟨v, ϕ ⟩H1/2,1/2     
+
+> βf ,00 (Γ;Ω f)′,H1/2,1/2
+> βf ,00 (Γ;Ω f)
+
+= −⟨ v|Γf , (2 D(Λ ϕ) − πϕI)n⟩H1/2,1/2      
+
+> βf ,00 (Γ f;Ω f)′,H1/2,1/2
+> βf ,00 (Γ f;Ω f)
+
+≤ ∥ v∥H1/2,1/2    
+
+> βf ,00 (Γ f;Ω f)′
+
+∥(2 D(Λ ϕ) − πϕI)n∥H1/2,1/2   
+
+> βf ,00 (Γ f;Ω f)
+
+≤ ∥ v∥X(DΓf )∥ϕ∥H1/2,1/2   
+
+> βf ,00 (Γ;Ω f)
+
+((64) is used) . (67) Hence, γΓ is a bounded linear operator. 
+
+3.2 Proof of Theorem 2.4 
+
+We first establish the existence of a weak solution to the fluid-structure interaction (FSI) problem (2). Our approach follows the strategy of [17, Theorem 2.3], where the case of homogeneous Dirichlet boundary data ( uin = 0) is treated. As a first step, we reduce the original problem with nonhomogeneous Dirichlet boundary data uin to an equivalent for-mulation with homogeneous Dirichlet conditions. Building on this reduction, we then apply standard semigroup theory to derive H2,2 
+
+> β
+
+-regularity for the FSI system posed in polygonal domains with interface-boundary corner singularities. To proceed, we first recall a preliminary result concerning normal traces. For a general L2-function, its trace on the boundary is not well defined. However, a normal trace can be rigorously defined for functions in H(div , Ωi). Let Γ e be a subset of ∂Ωi
+
+and n denote the unit outward normal vector. For any v ∈ H(div , Ωi), its normal trace v · n on Γ e is defined in the dual sense via Green’s formula: for all ψ ∈ H1/200 (Γ e; Ω i), 
+
+⟨v · n, ψ ⟩H1/200 (Γ e;Ω i)′,H 1/200 (Γ e;Ω i) := ( ∇ · v, w )Ωi + ( v, ∇w)Ωi , (68) where w ∈ H1(Ω i) is any lifting satisfying 
+
+w|Γe = ψ, w|∂Ωi\Γe = 0 , ∥w∥H1(Ω i) ≤ C∥ψ∥H1/200 (Γ e;Ω i). (69) This construction yields the following lemma. 
+
+Lemma 3.5. Let v ∈ H(div , Ωi). Then the normal trace operator γn;Γ e (v) := v · n ∈
+
+H1/200 (Γ e; Ω i)′ defined by (68) is well defined and bounded. In particular, 
+
+γn;Γ e : H(div , Ωi) → H1/200 (Γ e; Ω i)′
+
+is a continuous linear operator. 
+
+17 Proof. The well-definedness and boundedness of γn;Γ e follow by arguments identical to those in [44, Theorem 1.2]. We now turn to the proof of Theorem 2.4. 
+
+Proof. Step 1: Existence of a weak solution. 
+
+Let q0 be defined by (32) in terms of the initial data ( u0, η0), so that q0 depends only on (u0, η0) ∈ Xβf ,βs .Assume that ( u∗, p ∗, η∗) is a solution to the following system: PDEs 
+
+
+
+−∇ · (2 D(u∗) − p∗I) = f ∗ in Ω f × (0 , T ],
+
+∇ · u∗ = 0 in Ω f × (0 , T ],
+
+−∇ · (2 μ1D(η∗) + μ2(∇ · η∗)I) = h∗ in Ω s × (0 , T ],
+
+(70) B.C. 
+
+
+
+u∗ = uin on Γ f × (0 , T ],∂tη∗ = u∗ on Γ × (0 , T ],
+
+(2 D(u∗) − p∗I)n = (2 μ1D(η∗) + μ2(∇ · η∗)I)n on Γ × (0 , T ],
+
+(2 μ1D(η∗) + μ2(∇ · η∗)I)n = 0 on Γ s × (0 , T ],
+
+(71) I.C. η|t=0 = η0, (72) where (
+
+f ∗ = −∇ · (2 D(u0) − q0I) ∈ L2(Ω f ),
+
+h∗ = −∇ · (2 μ1D(η0) + μ2(∇ · η0)) ∈ L2(Ω s). (73) This system can be decoupled by viewing it as two sub-problems that are coupled through their interface conditions: 1. The Stokes sub-problem in Ω f :
+
+
+
+−∇ · (2 D(u∗) − p∗I) = f ∗ in Ω f × (0 , T ],
+
+∇ · u∗ = 0 in Ω f × (0 , T ],
+
+u∗ = uin on Γ f × (0 , T ],
+
+(2 D(u∗) − p∗I)n = (2 μ1D(η∗) + μ2(∇ · η∗)I)n on Γ × (0 , T ],
+
+(74) 2. The Elasticity sub-problem in Ω s:
+
+
+
+−∇ · (2 μ1D(η∗) + μs(∇ · η∗)I) = h∗ in Ω s × (0 , T ],
+
+η∗ = R t 
+
+> 0
+
+u∗(s)d s + η0 on Γ × (0 , T ],
+
+(2 μ1D(η∗) + μ2(∇ · η∗)I)n = 0 on Γ s × (0 , T ].. (75) Applying the solution operators defined in Section 3.1, we can express the solution to these sub-problems formally as: 
+
+(
+
+(u∗, p ∗) = NΓη∗ + DΓf uin + F1f ∗;
+
+η∗ = DΓ(R t 
+
+> 0
+
+u∗(s)d s + η0) + F2h∗. (76) Substituting the expression for η∗ from the second equation into the first, we obtain a closed equation for the fluid velocity u∗:(u∗, p ∗) = NΓDΓ
+
+Z t
+
+> 0
+
+u∗(s)d s + NΓDΓη0 + DΓf uin + NΓF2h∗ + F1f ∗,
+
+u∗ = ( NΓ)1DΓ
+
+Z t
+
+> 0
+
+u∗(s)d s + ( NΓ)1DΓη0 + ( DΓf )1uin + ( NΓ)1F2h∗ + ( F1)1f ∗.
+
+18 Here, the subscript ( ·)1 denotes the first component of the solution pair returned by the operators. Since, by Lemma 3.1, the operators satisfy NΓ ∈ L (H2,2 
+
+> βs
+
+(Ω s); H2,2 
+
+> βf
+
+(Ω f ) × H1,1 
+
+> βf
+
+(Ω f )) and 
+
+DΓ ∈ L (H2,2 
+
+> βf
+
+(Ω f ); H2,2 
+
+> βs
+
+(Ω s)), it follows that their composition ( NΓ)1DΓ is a bounded linear operator on H2,2 
+
+> βf
+
+(Ω f ). Consequently, by the standard theory of semigroups [40, Theorem 1.2, Corollary 1.4], the bounded linear operator ( NΓ)1DΓ generates a uniformly continuous (and hence analytic) semigroup T (t) on H2,2 
+
+> βf
+
+(Ω f ). This semigroup is given explicitly by the exponential series: 
+
+T (t) := et(NΓ)1DΓ =
+
+> ∞
+
+X
+
+> k=0
+
+(t(NΓ)1DΓ)k
+
+k! ∈ L (H2,2 
+
+> βf
+
+(Ω f )) , (77) and satisfies the norm bound 
+
+∥T (t)∥L(H2,2   
+
+> βf(Ω f))
+
+≤ eCt (78) for some constant C > 0 and all t ≥ 0. To utilize this structure, we define an auxiliary variable v∗(t) = R t 
+
+> 0
+
+u∗(s)ds . This defini-tion transforms the integral equation for u∗ into an evolution equation for v∗:
+
+∂tv∗ = ( NΓ)1DΓv∗(t) + ( NΓ)1DΓη0 + ( DΓf )1uin + ( NΓ)1F2h∗ + ( F1)1f ∗
+
+= ( NΓ)1DΓv∗(t) + w∗(t), (79) where the inhomogeneous source term is defined as w∗(t) := ( NΓ)1DΓη0 + ( DΓf )1uin +(NΓ)1F2h∗ + ( F1)1f ∗. By Lemma 3.1, we have w∗(t) ∈ H2,2 
+
+> βf
+
+(Ω f ) for all t ∈ [0 , T ], and it satisfies the estimate: 
+
+∥w(t)∗∥H2,2   
+
+> βf(Ω f)
+
+≤ C ∥η0∥H2,2  
+
+> βs(Ω s)
+
++ ∥uin ∥L∞(0 ,T ;H3/2,3/2   
+
+> βf(Γ f))
+
++ ∥ − ∇ · (2 D(u0) − q0I)∥L2  
+
+> βf(Ω f)
+
++ ∥ − ∇ · (2 μ1D(η0) + μ2(∇ · η0)I)∥L2 
+
+> βs(Ω s)
+
+
+
+≤ C ∥η0∥H2,2  
+
+> βs(Ω s)
+
++ ∥uin ∥L∞(0 ,T ;H3/2,3/2   
+
+> βf(Γ f))
+
++ ∥ − ∇ · (2 D(u0) − q0I)∥L2(Ω f )
+
++ ∥ − ∇ · (2 μ1D(η0) + μ2(∇ · η0)I)∥L2(Ω s)
+
+
+
+≤ C ∥uin ∥L∞(0 ,T ;H3/2,3/2   
+
+> βf(Γ f))
+
++ ∥(u0, η0)∥Xβf ,βs
+
+ (80) where we have used the embeddings L2(Ω f ) ⊂ L2 
+
+> βf
+
+(Ω f ) and L2(Ω s) ⊂ L2 
+
+> βs
+
+(Ω s). The unique solution to the evolution equation (79) is therefore given by the variation of constants formula: 
+
+v∗(t) = 
+
+Z t
+
+> 0
+
+T (t − s)w∗(s)d s with v∗ ∈ C(0 , T ; H2,2 
+
+> βf
+
+(Ω f )) Applying the semigroup bound (78) and estimate (80) yields the following: 
+
+∥v∗(t)∥H2,2  
+
+> βf(Ω 1)
+
+≤ C
+
+Z t
+
+> 0
+
+eC(t−s) ∥uin ∥L∞(0 ,T ;H3/2,3/2   
+
+> βf(Γ f))
+
++ ∥(u0, η0)∥Xβf ,βs
+
+ds
+
+≤ Ce CT  ∥uin ∥L∞(0 ,T ;H3/2,3/2   
+
+> βf(Γ f))
+
++ ∥(u0, η0)∥Xβf ,βs
+
+. (81) Thus, the solution to the original system (70)–(72) or equivalently, (76), is recovered via: 
+
+(
+
+η∗ = DΓ(v∗ + η0) + F2h∗,
+
+(u∗, p ∗) = NΓη∗ + DΓf uin + F1f ∗. (82) 19 Lemma 3.1 and the estimate (81) imply that ( u∗(t), p ∗(t), η∗(t)) ∈ H2,2
+
+βf (Ω f ) × H1,1
+
+βf (Ω f ) ×
+
+H2,2
+
+βs (Ω s) with the bound: 
+
+∥u∗(t)∥H2,2 
+
+> βf
+
+(Ω f ) + ∥p∗(t)∥H1,1 
+
+> βf
+
+(Ω f ) + ∥η∗(t)∥H2,2 
+
+> βs
+
+(Ω s)
+
+≤ Ce CT  ∥uin ∥L∞(0 ,T ;H3/2,3/2 
+
+> βf
+
+(Γ f )) + ∥(u0, η0)∥Xβf ,βs
+
+. (83) Given the additional regularity assumptions 
+
+∂tuin ∈ L∞(0 , T ; H1/2(Γ f )) and ∂tt uin ∈ L2(0 , T ; H1/2,1/2
+
+βf ,00 (Γ f ; Ω f )′),
+
+we can formally differentiate the system (82) with respect to time. This yields the following system for the time derivatives: 
+
+
+
+∂tη∗ = DΓu∗,∂tu∗ = ( NΓ)1∂tη∗ + ( DΓf )1∂tuin ,∂tt η∗ = DΓ∂tu∗,∂tt u∗ = ( NΓ)1∂tt η∗ + ( DΓf )1∂tt uin ,∂ttt η∗ = DΓ∂tt u∗.
+
+(84) By Lemma 3.1 and the estimate for u∗ from (83), we obtain ∂tη∗(t) ∈ H2,2
+
+βs (Ω s) for all 
+
+t ∈ [0 , T ] with 
+
+∥∂tη∗(t)∥H2,2 
+
+> βs
+
+(Ω s) ≤ Ce CT  ∥uin ∥L∞(0 ,T ;H3/2,3/2 
+
+> βf
+
+(Γ f )) + ∥(u0, η0)∥Xβf ,βs
+
+. (85) Since ∂tuin ∈ L∞(0 , T ; H1/2(Γ f )) and DΓf ∈ L (H1/2(Γ f ); H1(Ω f ) × L2(Ω f )) by (48), it follows that ( DΓf )1∂tuin (t) ∈ H1(Ω f ) for all t ∈ [0 , T ] with 
+
+∥(DΓf )1∂tuin (t)∥H1(Ω f ) ≤ C∥∂tuin ∥L∞(0 ,T ;H1/2(Γ f )) . (86) Combining Lemma 3.1 with (85), we deduce that ∂tu∗ ∈ L∞(0 , T ; H1(Ω f )) and 
+
+∥∂tu∗(t)∥H1(Ω f ) ≤ ∥ (NΓ)1∂tη∗(t)∥H2,2 
+
+> βf
+
+(Ω f ) + ∥(DΓf )1∂tuin (t)∥H1(Ω f )
+
+≤ C(∥∂tη∗(t)∥H2,2 
+
+> βs
+
+(Ω s) + ∥(DΓf )1∂tuin (t)∥H1(Ω f ))
+
+≤ Ce CT  ∥uin ∥L∞(0 ,T ;H3/2,3/2 
+
+> βf
+
+(Γ f )) + ∥∂tuin ∥L∞(0 ,T ;H1/2(Γ f )) + ∥(u0, η0)∥Xβf ,βs
+
+.
+
+(87) Since DΓ ∈ L (H1/2(Γ); H1(Ω s)) by (48), we obtain that 
+
+∥∂tt η∗(t)∥H1(Ω s) ≤ C∥∂tu∗(t)∥H1(Ω f )
+
+≤ Ce CT  ∥uin ∥L∞(0 ,T ;H3/2,3/2 
+
+> βf
+
+(Γ f )) + ∥∂tuin ∥L∞(0 ,T ;H1/2(Γ f )) + ∥(u0, η0)∥Xβf ,βs
+
+.
+
+(88) Since ∇ · σs(∂tt η∗) = −∂tt h∗ = 0 in Ω s, we have σs(∂tt η∗(t)) ∈ H(div , Ωs). Then, by Lemma 3.5, the normal trace σs(∂tt η∗(t)) n ∈ H1/200 (Γ; Ω s)′ satisfies 
+
+∥σs(∂tt η∗(t)) n∥H1/200 (Γ;Ω s)′ ≤ C∥σs(∂tt η∗(t)) ∥H(div ,Ωs) ≤ C∥∂tt η∗(t)∥H1(Ω s). (89) 20 Applying the operator ˜NΓ ∈ L (H1/200 (Γ; Ω f )′; H1(Ω f )×L2(Ω f )) by (48), we obtain ( NΓ)1∂tt η∗(t) = ( ˜NΓ)1(σs(∂tt η∗(t)) n) ∈ H1(Ω f ) with 
+
+∥(NΓ)1∂tt η∗(t)∥H1(Ω f )
+
+≤ C∥σs(∂tt η∗(t)) · n∥H1/200 (Γ;Ω s)′
+
+≤ Ce CT  ∥uin ∥L∞(0 ,T ;H3/2,3/2 
+
+> βf
+
+(Γ f )) + ∥∂tuin ∥L∞(0 ,T ;H1/2(Γ f )) + ∥(u0, η0)∥Xβf ,βs
+
+, (90) where we have used 
+
+H1/200 (Γ; Ω f )′ = H1/200 (Γ; Ω s)′. (91) Using ( DΓf )1 ∈ L (H1/2,1/2
+
+βf ,00 (Γ f ; Ω f )′; L2(Ω f )) from Lemma 3.3 and 
+
+∂tt uin ∈ L2(0 , T ; H1/2,1/2
+
+βf ,00 (Γ f ; Ω f )′),
+
+we derive the estimate: 
+
+∥∂tt u∗∥2
+
+L2(0 ,T ;L2(Ω f )) ≤ 2
+
+Z T
+
+0
+
+∥(NΓ)1∂tt η∗(t)∥2
+
+L2(Ω f ) + ∥(DΓf )1∂tt uin (t)∥2
+
+L2(Ω f )dt
+
+≤ C
+
+Z T
+
+0
+
+∥(NΓ)1∂tt η∗(t)∥2
+
+H1(Ω f ) + ∥∂tt uin (t)∥2
+
+H1/2,1/2 
+
+> βf ,00
+
+(Γ f ;Ω f )′ dt
+
+≤ Ce CT  ∥uin ∥2
+
+L∞(0 ,T ;H3/2,3/2 
+
+> βf
+
+(Γ f )) + ∥∂tuin ∥2
+
+L∞(0 ,T ;H1/2(Γ f )) 
+
++ ∥∂tt uin ∥2
+
+L2(0 ,T ;H1/2,1/2 
+
+> βf ,00
+
+(Γ f ;Ω f )′) + ∥(u0, η0)∥2Xβf ,βs
+
+ (using (90)) .
+
+(92) Using the relation in (84), we write ∂ttt η∗ = DΓ∂tt u∗ = DΓ(NΓ)1∂tt η∗ + DΓ(DΓf )1∂tt uin .Then 
+
+∥∂ttt η∗∥2
+
+L2(0 ,T ;L2(Ω s)) ≤ 2
+
+Z T
+
+0
+
+∥DΓ(NΓ)1∂tt η∗(t)∥2
+
+L2(Ω s) + ∥DΓ(DΓf )1∂tt uin (t)∥2
+
+L2(Ω s)dt
+
+=
+
+Z T
+
+0
+
+∥DΓ(NΓ)1∂tt η∗(t)∥2
+
+L2(Ω s) + ∥DΓγΓ[( DΓf )1∂tt uin (t)] ∥2
+
+L2(Ω s)dt
+
+(using Lemma 3.4) 
+
+≤ C
+
+Z T
+
+0
+
+∥(NΓ)1∂tt η∗(t)∥2
+
+H1(Ω s) + ∥∂tt uin (t)∥2
+
+H1/2,1/2 
+
+> βf ,00
+
+(Γ f ;Ω f )′ dt
+
+(using (48), Lemma 3.3 and Lemma 3.4) 
+
+≤ Ce CT  ∥uin ∥2
+
+L∞(0 ,T ;H3/2,3/2 
+
+> βf
+
+(Γ f )) + ∥∂tuin ∥2
+
+L∞(0 ,T ;H1/2(Γ f )) 
+
++ ∥∂tt uin ∥2
+
+L2(0 ,T ;H1/2,1/2 
+
+> βf ,00
+
+(Γ f ;Ω f )′) + ∥(u0, η0)∥2Xβf ,βs
+
+ (using (90)) .
+
+(93) From (87)–(93), we conclude that 
+
+∂tu∗ ∈ H1(0 , T ; L2(Ω f )) , ∂tt η∗ ∈ H1(0 , T ; L2(Ω s)) . (94) with the estimate 
+
+∥∂tu∗∥H1(0 ,T ;L2(Ω f )) + ∥∂tt η∗∥H1(0 ,T ;L2(Ω s)) 
+
+≤ Ce CT  ∥uin ∥L∞(0 ,T ;H3/2,3/2 
+
+> βf
+
+(Γ f )) + ∥∂tuin ∥L∞(0 ,T ;H1/2(Γ f )) 
+
++ ∥∂tt uin ∥L2(0 ,T ;H1/2,1/2 
+
+> βf ,00
+
+(Γ f ;Ω f )′) + ∥(u0, η0)∥Xβf ,βs
+
+. (95) 21 Finally, using the uniqueness of the solution and the initial compatibility conditions (22), we verify consistency at t = 0: (u∗(0) , p ∗(0)) = NΓη0 + DΓf uin (0) + F1f ∗(0) = ( u0, q 0) (96) Let (˜ u, ˜p, ˜η) = ( u − u∗, p − p∗, η − η∗) define the difference between the solution of the original problem (2)-(5) and the one constructed in the previous step. Subtracting the systems satisfied by ( u, p, η) and ( u∗, p ∗, η∗), we find that (˜ u, ˜p, ˜η) satisfies the following homogeneous system for t ∈ (0 , T ]: PDEs 
+
+
+
+∂t ˜u − ∇ · (2 D(˜ u) − ˜pI) = ˜f in Ω f × (0 , T ],
+
+∇ · ˜u = 0 in Ω f × (0 , T ],
+
+−∇ · (2 μ1D( ˜ η) + μ2(∇ · ˜η)I) = ˜h in Ω s × (0 , T ],
+
+(97) B.C. 
+
+
+
+˜u = 0 on Γ f × (0 , T ],∂t ˜η = ˜ u on Γ × (0 , T ],
+
+(2 D(˜ u) − ˜pI)n = (2 μ1D( ˜ η) + μ2(∇ · ˜η)I)n on Γ × (0 , T ],
+
+(2 μ1D( ˜ η) + μ2(∇ · ˜η)I)n = 0 on Γ s × (0 , T ],
+
+(98) I.C.(˜ u, ˜η, ∂ t ˜η)|t=0 = (˜ u0, ˜η0, ˜η1). (99) The new forcing terms and initial data are given by: 
+
+
+
+˜f = f − f ∗ − ∂tu∗ ∈ H1(0 , T ; L2(Ω f )) ,
+
+˜h = h − h∗ − ∂tt η∗ ∈ H1(0 , T ; L2(Ω s)) ,
+
+˜u0 = u0 − u∗(0) = 0,
+
+˜η0 = η0 − η∗(0) = 0,
+
+˜η1 = η1 − ∂tη∗(0) ∈ H1(Ω s).
+
+(100) Crucially, this reduced system enjoys homogeneous initial conditions (˜ u0, ˜η0) = (0 , 0), a homogeneous Dirichlet boundary condition on Γ f , and a homogeneous Neumann bound-ary condition on Γ s. Existence and uniqueness of a solution (˜ u, ˜p, ˜η) follow by arguments analogous to those in [17, Theorem 2.3]. Applying the same method yields the estimate 
+
+∥˜u(t)∥L2(Ω f ) + ∥˜u∥L2(0 ,T ;H1(Ω f ) + ∥ ˜η(t)∥H1(Ω s) + ∥˜p∥L2(0 ,T ;L2(Ω f )) 
+
++ ∥∂t ˜u(t)∥L2(Ω f ) + ∥∂t ˜u∥L2(0 ,T ;H1(Ω f ) + ∥∂t ˜η(t)∥H1(Ω s) + ∥∂tt ˜η(t)∥L2(Ω s)
+
+≤ Ce CT  ∥˜f ∥H1(0 ,T ;L2(Ω f )) + ∥˜h∥H1(0 ,T ;L2(Ω s)) + ∥ ˜η1∥H1(Ω s)
+
+
+
+≤ Ce CT  ∥f ∥H1(0 ,T ;L2(Ω f )) + ∥h∥H1(0 ,T ;L2(Ω s)) + ∥uin ∥L∞(0 ,T ;H3/2,3/2   
+
+> βf(Γ f))
+
++ ∥∂tuin ∥L∞(0 ,T ;H1/2(Γ f )) 
+
++ ∥∂tt uin ∥L2(0 ,T ;H1/2,1/2    
+
+> βf ,00 (Γ f;Ω f)′)
+
++ ∥η1∥H1(Ω s) + ∥(u0, η0)∥Xβf ,βs
+
+ ((85) and (95) are used ) 
+
+≤ Ce CT S, (101) where 
+
+S = ∥f ∥L∞(0 ,T ;L2(Ω f )) + ∥∂tf ∥L2(0 ,T ;L2(Ω f )) + ∥h∥H1(0 ,T ;L2(Ω s)) + ∥uin ∥L∞(0 ,T ;H3/2,3/2  
+
+> βf(Γ f))
+
++ ∥∂tuin ∥L∞(0 ,T ;H1/2(Γ f )) + ∥∂tt uin ∥L2(0 ,T ;H1/2,1/2    
+
+> βf ,00 (Γ f;Ω f)′)
+
++ ∥η1∥H1(Ω s) + ∥(u0, η0)∥Xβf ,βs .
+
+Combining this with the estimates (83), (85), (87), (88) for ( u∗, p ∗, η∗), we conclude that 
+
+∥u(t)∥L2(Ω f ) + ∥u∥L2(0 ,T ;H1(Ω f ) + ∥η(t)∥H1(Ω s) + ∥p∥L2(0 ,T ;L2(Ω f )) 
+
++ ∥∂tu(t)∥L2(Ω f ) + ∥∂tu∥L2(0 ,T ;H1(Ω f ) + ∥∂tη(t)∥H1(Ω s) + ∥∂tt η(t)∥L2(Ω s)
+
+≤ Ce CT S. (102) 22 Step 2: Derivation of H 2,2 
+
+> β
+
+-regularity estimates. 
+
+From the elasticity equation in (2) at t = 0, 
+
+h(0) = ∂tt η(0) − ∇ · (2 μ1D(η0) + μ2(∇ · η0)I). (103) Applying the triangle and Cauchy–Schwarz inequalities yields: 
+
+∥h(t)∥L2(Ω s) =∥h(0) + 
+
+Z t
+
+> 0
+
+∂th(s)d s∥L2(Ω s)
+
+≤∥ h(0) ∥L2(Ω s) + t1/2∥∂th∥L2(0 ,T ;L2(Ω s)
+
+≤∥ ∂tt η(0) ∥L2(Ω s) + ∥∇ · (2 μ1D(η0) + μ2(∇ · η0)∥L2(Ω s) + t1/2∥∂th∥L2(0 ,T ;L2(Ω s)
+
+≤Ce CT S. (104) Consequently, 
+
+f − ∂tu ∈ L∞(0 , T ; L2(Ω f )) , h − ∂tt η ∈ L∞(0 , T ; L2(Ω s)) , (105) and the following bound holds: 
+
+∥f − ∂tu∥L∞(0 ,T ;L2(Ω f )) + ∥h − ∂tt η∥L∞(0 ,T ;L2(Ω s)) ≤ Ce CT S. (106) We begin by reformulating the original problem (2)–(5). The solution ( u, p, η) satisfies the system: PDEs 
+
+
+
+−∇ · (2 D(u) − pI) = f − ∂tu in Ω f × (0 , T ],
+
+∇ · u = 0 in Ω f × (0 , T ],
+
+−∇ · (2 μ1D(η) + μ2(∇ · η)I) = h − ∂tt η in Ω s × (0 , T ],
+
+(107) B.C. 
+
+
+
+u = uin on Γ f × (0 , T ],∂tη = u on Γ × (0 , T ],
+
+(2 D(u) − pI)n = (2 μ1D(η) + μ2(∇ · η)I)n on Γ × (0 , T ],
+
+(2 μ1D(η) + μ2(∇ · η)I)n = 0 on Γ s × (0 , T ],
+
+(108) I.C.( u, η, ∂ tη)|t=0 = ( u0, η0, η1). (109) This system can be decoupled into two subproblems that are coupled through the interface conditions: (Fluid Subproblem) 
+
+
+
+−∇ · (2 D(u) − pI) = f − ∂tu in Ω f × (0 , T ],
+
+∇ · u = 0 in Ω f × (0 , T ],
+
+u = uin on Γ f × (0 , T ],
+
+(2 D(u) − pI)n = (2 μ1D(η) + μ2(∇ · η)I)n on Γ × (0 , T ],
+
+(110) (Elasticity Subproblem) 
+
+
+
+−∇ · (2 μ1D(η) + μ2(∇ · η)I) = h − ∂tt η in Ω s × (0 , T ],
+
+η = R t 
+
+> 0
+
+u(s)d s + η0 on Γ × (0 , T ],
+
+(2 μ1D(η) + μ2(∇ · η)I)n = 0 on Γ s × (0 , T ].
+
+(111) Applying the solution operators defined in Section 3.1, we decouple the FSI system into two interconnected subproblems: 
+
+(
+
+(u, p ) = NΓη + DΓf uin + F1(f − ∂tu); 
+
+η = DΓ(R t 
+
+> 0
+
+u(s)d s + η0) + F2(h − ∂tt η). (112) 23 Substituting the expression for η from the second equation into the first, we obtain a closed equation for the fluid velocity u:(u, p ) = NΓDΓ
+
+Z t
+
+> 0
+
+u(s)d s + NΓDΓη0 + DΓf uin + NΓF2(h − ∂tt η) + F1(f − ∂tu),
+
+u = ( NΓ)1DΓ
+
+Z t
+
+> 0
+
+u(s)d s + ( NΓ)1DΓη0 + ( DΓf )1uin + ( NΓ)1F2(h − ∂tt η) + ( F1)1(f − ∂tu).
+
+(113) To analyze this equation, we define the auxiliary variable v(t) = R t 
+
+> 0
+
+u(s)ds . This transfor-mation converts the integral equation for u into an evolution equation for v:
+
+∂tv = ( NΓ)1DΓv(t) + w#(t), (114) where w#(t) = ( NΓ)1DΓη0 + ( DΓf )1uin + ( NΓ)1F2(h − ∂tt η) + ( F1)1(f − ∂tu). By Lemma 3.1 and (106), we have w#(t) ∈ H2,2 
+
+> βf
+
+(Ω f ) for every t ∈ [0 , T ] and satisfies the estimate: 
+
+∥w#(t)∥H2,2   
+
+> βf(Ω f)
+
+≤ Ce CT S. (115) The unique solution to the evolution equation (114) is therefore given by the variation of constants formula: 
+
+v(t) = 
+
+Z t
+
+> 0
+
+T (t − s)w#(s)d s with v ∈ C(0 , T ; H2,2 
+
+> βf
+
+(Ω f )) ,
+
+where T (t) is the semigroup generated by ( NΓ)1DΓ which is bounded operator on H2,2 
+
+> βf
+
+(Ω f ). Applying the semigroup bound (78) and the estimate (115) yields: 
+
+∥v(t)∥H2,2   
+
+> βf(Ω f)
+
+≤ C
+
+Z t
+
+> 0
+
+eC(t−s)eCT S ≤ Ce CT S. (116) Thus, the solution to the original system (2)–(5) is recovered by: 
+
+(
+
+η = DΓ(v + η0) + F2(h − ∂tt η),
+
+(u, p ) = NΓη + DΓf uin + F1(f − ∂tu). (117) Combining Lemma 3.1 with the estimates (116) and (106), we obtain the higher regularity (u(t), p (t), η(t)) ∈ H2,2 
+
+> βf
+
+(Ω f ) × H1,1 
+
+> βf
+
+(Ω f ) × H2,2 
+
+> βs
+
+(Ω s), (118) with the quantitative bound: 
+
+∥u(t)∥H2,2   
+
+> βf(Ω f)
+
++ ∥p(t)∥H1,1   
+
+> βf(Ω f)
+
++ ∥η(t)∥H2,2  
+
+> βs(Ω s)
+
+≤ Ce CT S. (119) Using (107) and (106), we further obtain 
+
+∥ − ∇ · (2 D(u(t)) − p(t)I)∥L2(Ω f ) + ∥ − ∇ · (2 μ1D(η(t)) + μ2(∇ · η(t)) I)∥L2(Ω s)
+
+= ∥f (t) − ∂tu(t)∥L2(Ω f ) + ∥h(t) − ∂tt η(t)∥L2(Ω s)
+
+≤ Ce CT S. (120) Recall that q = p − r, where r defined via (28) and satisfies the estimate 
+
+∥∇ r(t)∥L2(Ω f ) ≤ C∥ − ∇ · (2 D(u(t)) − p(t)I)∥L2(Ω f ). (121) 24 Consequently, 
+
+∥ − ∇ · (2 D(u(t)) − q(t)I)∥L2(Ω f ) ≤ ∥ − ∇ · (2 D(u(t)) − p(t)I)∥L2(Ω f ) + ∥∇ r(t)∥L2(Ω f )
+
+≤ Ce CT S. (122) Finally, combining (119)–(122) with the definition of the norm on X βf ,βs , we obtain 
+
+∥(u(t), η(t)) ∥Xβf ,βs ≤ Ce CT S. (123) 
+
+4 Conclusion 
+
+In this work, we have established existence, uniqueness, and H2,2 
+
+> β
+
+-regularity of solutions for a fluid–structure interaction (FSI) problem posed on polygonal domains with non-homogeneous Dirichlet boundary conditions. We addressed the regularity challenges arising from geomet-ric singularities at corners where the interface meets the boundary by employing tailored weighted Sobolev spaces, Hk,l  
+
+> β
+
+(Ω). Our analysis is constructive: we developed specialized solution operators that decouple the coupled FSI system into manageable subsystems, allowing precise local estimates and a rigorous characterization of singular behavior. The theoretical results presented here provide a foundation for designing optimal mesh refinement strategies to achieve improved approx-imation accuracy, thereby enhancing computational performance. Overall, this work offers a robust framework with potential applications in scientific computing, numerical analysis, and the simulation of FSI phenomena in non-smooth domains. 
+
+Acknowledgement 
+
+This work was supported by the National Natural Science Foundation of China (Grant No. 12525111) and the Research Grants Council of Hong Kong (Grant No. PolyU/RFS2324-5S03). 
+
+References 
+
+[1] G. Avalos, I. Lasiecka, and R. Triggiani. Higher regularity of a coupled parabolic-hyperbolic fluid-structure interactive system. Georgian Math. J , 15(3):403–437, 2008. [2] G. Avalos and R. Triggiani. The coupled pde system arising in fluid/structure interac-tion. part i: Explicit semigroup, generator and its spectral properties. Contemporary Mathematics , 440:15–54, 2007. [3] G. Avalos and R. Triggiani. Uniform stabilization of a coupled pde system arising in fluid-structure interaction with boundary dissipation at the interface. Discrete and Continuous Dynamical Systems , 22(4):817–833, 2008. [4] G. Avalos and R. Triggiani. Semigroup well-posedness in the energy space of a parabolic-hyperbolic coupled stokes-lam´ e pde system of fluid-structure interaction. Discrete and Continuous Dynamical Systems-S , 2(3):417–447, 2009. [5] G. Avalos and R. Triggiani. Fluid-structure interaction with and without internal dissi-pation of the structure: A contrast study in stability. Evolution Equations and Control Theory , 2(4), 2013. 25 [6] I. Babuˇ ska and B. Q. Guo. The $h - p $ version of the finite element method for domains with curved boundaries. SIAM Journal on Numerical Analysis , 25(4):837–861, 1988. [7] I. Babuˇ ska and B. Q. Guo. Regularity of the solution of elliptic problems with piecewise analytic data. part i. boundary value problems for linear elliptic equation of second order. SIAM Journal on Mathematical Analysis , 19(1):172–203, 1988. [8] I. Babuˇ ska and B. Q. Guo. Regularity of the solution of elliptic problems with piecewise analytic data. ii: The trace spaces and application to the boundary value problems with nonhomogeneous boundary conditions. SIAM Journal on Mathematical Analysis ,20(4):763–781, 1989. [9] V. Barbu, Z. Grujic, I. Lasiecka, and A. Tuffaha. Existence of the energy-level weak solutions for a nonlinear fluid-structure interaction model. Contemporary Mathematics ,440:55–82, 2007. [10] V. Barbu, Z. Gruji´ c, I. Lasiecka, and A. Tuffaha. Smoothness of weak solutions to a nonlinear fluid-structure interaction model. Indiana University Mathematics Journal ,pages 1173–1207, 2008. [11] A. Berm´ udez, R. Dur´ an, and R. Rodr´ ıguez. Finite element analysis of compressible and incompressible fluid-solid systems. Mathematics of Computation , 67(221):111–136, 1998. [12] T. Bodn´ ar, G. P. Galdi, and ˇS. Neˇ casov´ a. Fluid-Structure Interaction and Biomedical Applications . Springer, 2014. [13] F. Boyer, M. Fourni´ e, D. Gajardo, and J.-P. Raymond. Study of the stationary Stokes system with mixed boundary conditions in non-convex curvilinear polygonal domains. working paper or preprint, May 2025. [14] M. Bukaˇ c, S. ˇCani´ c, J. Tambaˇ ca, and Y. Wang. Fluid–structure interaction between pulsatile blood flow and a curved stented coronary artery on a beating heart: A four stent computational study. Computer Methods in Applied Mechanics and Engineering ,350:679–700, 2019. [15] S. K. Chakrabarti. The Theory and Practice of Hydrodynamics and Vibration , vol-ume 20. World Scientific, 2002. [16] M. Dauge. Elliptic Boundary Value Problems on Corner Domains: Smoothness and Asymptotics of Solutions , volume 1341. Springer, 2006. [17] Q. Du, M. D. Gunzburger, L. S. Hou, and J. Lee. Semidiscrete finite element approx-imations of a linear fluid-structure interaction problem. SIAM Journal on Numerical Analysis , 42(1):1–29, 2004. [18] V. Girault and P.-A. Raviart. Finite Element Methods for Navier-Stokes Equations: Theory and Algorithms , volume 5. Springer Science & Business Media, 2012. [19] P. Grisvard. Elliptic Problems in Nonsmooth Domains . Society for Industrial and Applied Mathematics, 2011. [20] B. Guo and I. Babuska. On the regularity of elasticity problems with piecewise analytic data. Advances in Applied Mathematics , 14(3):307–347, 1993. 26 [21] B. Guo and C. Schwab. Analytic regularity of stokes flow on polygonal domains in countably weighted sobolev spaces. Journal of Computational and Applied Mathematics ,190(1-2):487–519, 2006. [22] M. Ignatova, I. Kukavica, I. Lasiecka, and A. Tuffaha. On well-posedness for a free boundary fluid-structure model. Journal of Mathematical Physics , 53:115624–115624, 2012. [23] M. Ignatova, I. Kukavica, I. Lasiecka, and A. Tuffaha. On well-posedness and small data global existence for an interface damped free boundary fluid–structure model. 
+
+Nonlinearity , 27:467 – 499, 2014. [24] R. Kamakoti and W. Shyy. Fluid–structure interaction for aeroelastic applications. 
+
+Progress in Aerospace Sciences , 40(8):535–558, 2004. [25] M. Kampschulte, S. Schwarzacher, and G. Sperone. Unrestricted deformations of thin elastic structures interacting with fluids. Journal de Math´ ematiques Pures et Appliqu´ ees ,2022. [26] I. Kukavica and A. Tuffaha. Solutions to a fluid-structure interaction free boundary problem. Discrete and Continuous Dynamical Systems , 32:1355–1389, 2011. [27] I. Kukavica, A. Tuffaha, and M. Ziane. Strong solutions to a nonlinear fluid structure interaction system. Journal of Differential Equations , 247:1452–1478, 2009. [28] I. Kukavica, A. Tuffaha, and M. Ziane. Strong solutions for a fluid structure interaction system. Advances in Differential Equations , 2010. [29] J. R. Kweon. Corner singularity dynamics and regularity of compressible viscous navier– stokes flows. SIAM Journal on Mathematical Analysis , 44(5):3127–3161, 2012. [30] B. Li. An explicit formula for corner singularity expansion of the solutions to the stokes equations in a polygon. International Journal of Numerical Analysis and Modeling ,17(6):900–928, 2020. [31] J. L. Lions and E. Magenes. Non-Homogeneous Boundary Value Problems and Appli-cations: Vol. 1 , volume 181. Springer Science & Business Media, 2012. [32] B. Muha and S. ˇCani´ c. Existence of a weak solution to a nonlinear fluid–structure interaction problem modeling the flow of an incompressible, viscous fluid in a cylinder with deformable walls. Archive for Rational Mechanics and Analysis , 207:919 – 968, 2012. [33] B. Muha and S. ˇCani´ c. A nonlinear, 3d fluid-structure interaction problem driven by the time-dependent dynamic pressure data: a constructive existence proof. Communications in Information and Systems , 13(3):357–397, 2013. [34] B. Muha and S. ˇCani´ c. Fluid-structure interaction between an incompressible, viscous 3d fluid and an elastic shell with nonlinear koiter membrane energy. Interfaces and Free Boundaries , 17:465–495, 2015. [35] B. Muha and S. Schwarzacher. Existence and regularity of weak solutions for a fluid interacting with a non-linear shell in three dimensions. Annales de l’Institut Henri Poincar´ e C, Analyse non lin´ eaire , 2019. 27 [36] B. Muha and S. ˇCani´ c. Existence of a solution to a fluid–multi-layered-structure inter-action problem. Journal of Differential Equations , 256(2):658–706, 2014. [37] B. Muha and S. ˇCani´ c. Existence of a weak solution to a fluid–elastic structure interac-tion problem with the navier slip boundary condition. Journal of Differential Equations ,260(12):8550–8589, 2016. [38] F. M¨ uller, D. Sch¨ otzau, and C. Schwab. Symmetric interior penalty discontinuous galerkin methods for elliptic problems in polygons. SIAM Journal on Numerical Anal-ysis , 55(5):2490–2521, 2017. [39] P. A. Nguyen and J.-P. Raymond. Boundary stabilization of the navier–stokes equations in the case of mixed boundary conditions. SIAM Journal on Control and Optimization ,53(5):3006–3039, 2015. [40] A. Pazy. Semigroups of Linear Operators and Applications to Partial Differential Equa-tions , volume 44. Springer Science & Business Media, 2012. [41] T. Richter. Fluid-Structure Interactions: Models, Analysis and Finite Elements , volume 118. Springer, 2017. [42] A. R¨ ossle. Corner singularities and regularity of weak solutions for the two-dimensional lam´ e equations on domains with angular corners. Journal of Elasticity and the Physical Science of Solids , 60:57–75, 2000. [43] S. Schwarzacher and M. Sroczinski. Weak-strong uniqueness for an elastic plate in-teracting with the navier-stokes equation. SIAM Journal on Mathematical Analysis ,54:4104–4138, 2020. [44] R. Temam. Navier–Stokes Equations: Theory and Numerical Analysis , volume 343. American Mathematical Society, 2024. [45] Y. Wang, S. ˇCani´ c, M. Bukaˇ c, C. Blaha, and S. Roy. Mathematical and computational modeling of poroelastic cell scaffolds used in the design of an implantable bioartificial pancreas. Fluids , 7(7):222, 2022. [46] X. Zhang and E. Zuazua. Long-time behavior of a coupled heat-wave system arising in fluid-structure interaction. Archive for Rational Mechanics and Analysis , 184(1):49–120, 2007. 28
