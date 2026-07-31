@@ -1,0 +1,3802 @@
+Title: Stability of local Riemannian Ricci curvature lower bounds
+
+URL Source: https://arxiv.org/pdf/2607.27008v1
+
+Published Time: Thu, 30 Jul 2026 01:03:31 GMT
+
+Number of Pages: 46
+
+Markdown Content:
+STABILITY OF LOCAL RIEMANNIAN RICCI CURVATURE LOWER BOUNDS  
+
+> LUIGI AMBROSIO, FRANCESCO NOBILI, FEDERICO RENZI, AND FEDERICO VITILLARO
+> Abstract. We establish the stability of local Riemannian Ricci curvature lower bounds along Gromov-Hausdorff convergence. A central part of our analysis is devoted to showing the stability of the par-allelogram identity for weak gradients, obtained implementing the Lagrangian approach developed in [70] in the local setting. As an application, we deduce the almost everywhere existence of Euclidean weak tangents. An important ingredient, of independent interest, is an effective local Evolution Vari-ational Inequality along the heat flow on sufficiently small balls, with a remainder term depending on the rate of decay of the flow. This has applications to strong displacement convexity of the Entropy functional along local Wasserstein interpolations and to local essential nonbranching properties.
+
+Contents 
+
+1. Introduction 12. Preliminaries 53. Local curvature dimension conditions: definitions, properties and stability 12 4. Local density estimates along transport geodesics 18 5. Stability of infinitesimal Hilbertianity: non-negative curvature 22 6. Properties of the heat kernel on John domains 25 7. From RCD loc to strong CD loc 31 8. Stability of infinitesimal Hilbertianity: the general case 37 Appendix A. Technical calculus results 40 References 43 1. Introduction 
+
+A central theme in analysis and geometry is the study of shapes and their degeneration under curvature bounds. A fundamental observation of Gromov ([52]) is that the manifolds ( M d, g ) with uniform Ricci curvature lower bounds form a pre-compact class with respect to Gromov-Hausdorff (GH) convergence. Understanding the resulting limit structures (Ricci limits) is therefore a natural problem with important geometric and analytic consequences. A systematic study of Ricci limits was initiated by Cheeger and Colding in [28, 29, 30, 31]. Among their contributions are the almost splitting theorem, extending the classical splitting theorem of Cheeger–Gromoll ([32]), and the continuity of Neumann eigenvalues along GH convergence, confirm-ing a conjecture of Fukaya ([41]). The latter result reveals in particular the stability of the first-order differential structure of manifolds under uniform Ricci curvature bounds. Motivated by the Cheeger-Colding theory, and by simultaneous developments in optimal transport [59, 66, 34, 87], Lott-Villani and Sturm introduced independently a synthetic notion of Ricci curvature lower bounds for metric measure spaces in [64, 82, 83]. A metric measure space is a triple (X , d, m), where (X , d) is a metric space endowed with a Borel measure m. The curvature-dimension condition 
+
+CD (K, N ) synthetically encodes Ricci curvature bounded below by K and dimension bounded above by N through convexity properties of entropy functionals along Wasserstein geodesics (see [86, 84]). A crucial feature of this notion is that, thanks to its optimal transport-based definition, it is stable under appropriate notions of GH convergence. As a byproduct, this nonsmooth class contains that of 
+
+> 1arXiv:2607.27008v1 [math.DG] 29 Jul 2026 2
+
+Ricci limit spaces, but this inclusion is strict, as it contains many more non-Riemannian geometries. This led the first-named author, together with Gigli and Savar´ e, to formulate in [9] a Riemannian curvature-dimension condition RCD (K, ∞) enforcing a Riemannian-like Ricci curvature lower bound (and no dimension upper bound) by looking at contractivity properties of the heat flow. Later, the finite-dimensional class of RCD (K, N ) spaces was proposed in [45] by coupling the CD (K, N )condition with infinitesimal Hilbertianity. The latter is defined by looking at the Sobolev calculus 
+
+H1,2(X) over a metric measure space ([78, 53, 27, 7], see also [14] for a detailed discussion) and requiring H1,2(X) to be Hilbert, equivalently that weak parallelogram identity holds (1.1) |∇ (f + g)|2 + |∇ (f − g)|2 = 2 |∇ f |2 + 2 |∇ g|2, m-a.e. ,
+
+for all f, g ∈ H1,2(X), where |∇ f | is the weak gradient. We also recall the works [19, 10, 5, 15, 39, 26] establishing crucial results in the RCD -theory (see [1] for a more complete introduction to the topic). Even though the CD (K, N ) condition is stable under GH convergence, proving the stability of the 
+
+RCD class required showing that infinitesimal Hilbertianity is stable as well within the class (and in general, this might be false [65]). This was deduced in [9] with an approach based on the stability of the Evolution Variational Inequalities (EVI) for the heat flow, and in [48] by looking alternatively at the parallelogram identity, together with a comprehensive study of the various (mostly equivalent) notions of GH convergence appearing in the aforementioned literature. We also recall the work [43] where a useful set-up was originally clarified (see also the recent [51]). Notice that these stability results are highly nontrivial, as (1.1) involves the first-order differential structure of a metric measure space through the concept of weak gradient. This breakthrough stimulated further stability results for central objects in geometric analysis, including heat kernels ([13]), regular Lagrangian flows ([16]), sharp geometric and functional constants (see, e.g. [55, 56, 11, 12, 57, 72, 73, 74, 68, 17, 18, 75]), and structural results in codimension one ([2, 22, 23]). We refer to [46] for a comprehensive overview. Turning to the goals of this work, we note that, unlike the local and extrinsic Cheeger-Colding theory, the synthetic conditions are intrinsically global. Even though local Riemannian curvature-dimension conditions can be easily formulated (see Section 3), establishing a corresponding stability theory is highly nontrivial. In this direction, [58] studied almost smooth RCD and locally RCD spaces, raising in [58, Question 7.5] the question of whether stability results analogous to [48] should hold under suitable local assumptions along the sequences. A major obstacle is that much of the modern 
+
+RCD theory relies on [48], whose arguments crucially exploit the stability of the heat flow under GH convergence, a tool that does not readily extend to the local setting as it is global in nature. Nevertheless, infinitesimal Hilbertianity is inherently local, being characterized by the identity (1.1). This suggests that its stability should be accessible under local Ricci lower bounds. In this work, we rigorously verify this heuristic. Our main objectives are: a) to introduce a local CD condition on open sets and establish the fundamental local Doubling, Poincar´ e, and GH-stability properties, in the spirit of [82, 83, 64]; b) to introduce a local RCD condition and investigate local contraction properties of the heat flow, in the spirit of [8, 9]; c) to prove the stability of the local RCD condition under GH convergence through a Lagrangian approach, substantially different from [48]. 
+
+Statements of the main results . Given a metric measure space (X , d, m) and an open set 
+
+∅̸ = Ω ⊂ X, we say that Ω satisfies CD loc (K(·), N (·)) if for all x ∈ Ω there is a radius r(x) ∈ (0 , +∞], called local radius of Ω, so that the usual convexity of entropies as originally formulated in [64, 82, 83] holds, with parameter K(x), N (x) and for every pair of probabilities μ0, μ 1 ∈ P(X) with supports in Br(x)/2(x). If (X , d) is locally complete, we shall further decrease r(x) so that ( Br(x), d) is a complete metric space. We again stress that K(x) ∈ R, N (x) ∈ [1 , ∞) depend on the point x,as opposed to the local notion already considered in [83, 19]. Additionally, we say that Ω satisfies 
+
+RCD loc (K(·), N (·)) if it is also infinitesimally Hilbertian (equivalently, (1.1) holds for every f, g with 3
+
+support well contained in Ω, see Theorem 2.14). Similar definitions are given for open sets satisfying the infinite dimensional analogues CD loc (K(·), ∞) and RCD loc (K(·), ∞). See Section 3 for the details. Our first main result is that the RCD loc (K(·), N (·)) condition is stable for the pointed measured Gromov convergence (pmG for short, see Definition 2.20 adopting the extrinsic approach of [48]), pro-vided the defining curvature dimension parameters K(·), N (·) and the local radius r(·) are uniformly bounded along the sequence. 
+
+Theorem 1.1. Let (X n, dn, mn, x n) be a sequence of pointed complete metric measure spaces that are pmG-converging to a pointed complete limit space (X ∞, d∞, m∞, x ∞), and let (Z , d) be a realization of the convergence. Let Ωn ⊆ Xn, Ω∞ ⊆ X∞ be non-empty open sets with supp( mn Ωn) = Ω n. Suppose that for all 1 ≤ n < ∞ it holds that Ωn satisfies RCD loc (Kn(·), N n(·)) and that for all x ∈ Ω∞ there are yn ∈ Ωn with d(yn, x ) → 0 such that, denoting rn(·) the local radius of Ωn, it holds 
+
+lim 
+
+> n→∞
+
+rn(yn) > 0, K∞(x) := lim 
+
+> n→∞
+
+Kn(yn) > −∞ , N∞(x) := lim  
+
+> n→∞
+
+Nn(yn) < +∞.
+
+Then Ω∞ satisfies RCD loc (K∞(·), N ∞(·)) with local radius r∞(x) = c · lim n rn(yn) for some universal constant c > 0. Finally, if r∞(x) = + ∞ for some x ∈ Ω∞, then X∞ satisfies RCD (K, N ) globally for K = K∞(x), N = N∞(x).
+
+This analysis, and in particular the last conclusion, has important application in the to study the regularity of weak tangents under local curvature bounds. Indeed, combining our methods (especially the content of Section 5 that is tailored for nonnegative curvature) with the work [47], we can deduce the following result, referring to Definition 5.3 for the relevant notation. 
+
+Theorem 1.2. Let (X , d, m) be a complete metric measure space, and let ∅̸ = Ω ⊆ X be an open set satisfying RCD loc (K(·), N (·)) . Then, for all x ∈ Ω ∩ supp( m) and all (Y, ρ, μ, y ) ∈ Tan(X , d, m, x ),we have that Y satisfies RCD (0 , N (x)) . Furthermore, at m-almost every x ∈ Ω there exists n ∈ N,
+
+n ≤ N (x), such that 
+
+(Rn, deu , Ln, 0) ∈ Tan(X , d, m, x ),
+
+where deu is the Euclidean distance, and Ln is the Lebesgue measure normalized so that ´
+
+> B1(0)
+
+(1 −|x|) d Ln(x) = 1 .
+
+In the rest of this Introduction, we shall focus on Theorem 1.1, that is obtained by combination of two steps: 
+
+• we generalize the celebrated stability results of [64, 80, 83] for the convexity of entropies to the local setting (cf. Theorem 3.14); 
+
+• we generalize the stability of the Riemannian curvature dimension condition of [9, 48], and especially of the infinitesimal Hilbertianity, to the local setting. We shall give emphasis on the second step that is the main challenge of our work and contains several ingredients of independent interest. First, to better highlight the main novelties, we briefly review the previously available strategy (see [1, 46] for a detailed discussion). One of the main results of [48] is the so-called Mosco convergence of the Cheeger energy functional Ch( f ) := inf 
+
+n
+
+lim 
+
+> n→∞
+
+ˆ
+
+(lip( fn)) 2 dm : fn ∈ L2(X) ∩ Lip(X) , f n → f in L2(X) 
+
+o
+
+,
+
+along Gromov converging spaces. This directly yields the stability of infinitesimal Hilbertianity by standard reasoning (see [48, Theorem 7.2]). As already remarked, the main ingredients in [48] seem difficult to generalize to local settings, as they rely on Eulerian and nonlocal arguments based on the stability of the heat flow. In the present work, we instead rely on a Lagrangian argument along converging spaces recently developed by the second-to-last named authors in [70]. This is effective in showing the Mosco convergence of Cheeger energies while avoiding, in its core argument, any Eulerian methods. If, on the one hand, this local result follows rather directly from [70] when one assumes nonnegative 4
+
+curvature (see Theorem 5.1), most of our efforts are devoted to handling the case of locally bounded and possibly negative curvature. Our second main result deal with the local Mosco convergence of the Cheeger energy under local Ricci lower bounds (see Definition 2.21 for the notions of L2 strong/weak convergences). 
+
+Theorem 1.3. Let (X n, dn, mn, x n) be a sequence of pointed complete metric measure spaces that are pmG-converging to a pointed complete limit space (X ∞, d∞, m∞, x ∞), and let (Z , d) be a realization of the convergence. Let Ωn ⊆ Xn, Ω∞ ⊆ X∞ be non-empty open sets with supp( mn Ωn) = Ω n.Suppose that Ωn satisfies RCD loc (Kn(·), N n(·)) for all 1 ≤ n < ∞. Furthermore, suppose that there is x ∈ Ω∞ and yn ∈ Ωn with d(yn, x ) → 0 such that 
+
+Nn(yn) < +∞, ∀n ∈ N, r(x) := lim 
+
+> n→∞
+
+rn(yn) > 0, lim 
+
+> n→∞
+
+Kn(yn) > −∞ .
+
+Let f∞ ∈ L2(X ∞) with supp( f∞) ⋐ B := Br(x) for some r < c · r(x) where c > 0 is a universal constant. Then, it holds: (i) there exists fn ∈ L2(X n) ∩ Lip(X n) with supp( fn) ⊂ B ∩ Xn that converges L2-strong to f∞
+
+such that 
+
+lim  
+
+> n→∞
+
+Ch( fn) ≤ Ch( f∞).
+
+(ii) for every sequence fn ∈ L2(mn) converging L2-weak to f∞ ∈ L2(m∞), it holds 
+
+Ch( f∞) ≤ lim 
+
+> n→∞
+
+Ch( fn).
+
+Finally, if r(x) = + ∞, then same conclusions hold for all f∞ ∈ L2(X ∞) with no restriction on the support. 
+
+This result is implied by the combination of Proposition 5.2, dealing with (i) under no curvature assumptions (evident from [48, 11], see also [46, Theorem 4.4]), and Theorem 8.2 which settles property (ii). Notice that, differently from Theorem 1.1, no asymptotic upper bounds on Nn(yn)are imposed. This is because Theorem 8.2 works in the infinite-dimensional setting, but assumes a locally (possibly non uniform) doubling property that is automatically satisfied under the finite dimensionality assumption (see Corollary 3.12). Hence lim n→∞ Nn(yn) = ∞ is covered as well. Let us discuss an important feature of the proof of Theorem 1.3, which is based on a Wasserstein polygonal approximation argument performed in [70] (in the spirit of [63], see also [49, 69]). For this strategy to work under possible negative curvature, a key obstacle is to deduce the uniqueness of Wasserstein interpolations between absolutely continuous probability measures, which is typically guaranteed by a nonbranching property [77] (see also [36]). If, on the one hand, the work [77] is based on local arguments, its applicability is, on the other hand, possible only after establishing that the Shannon entropy Ent m(μ) := 
+
+ˆ
+
+ρ log( ρ) d m, if μ = ρm,
+
+is strongly semiconvex in the Wasserstein space, namely semiconvex along all Wasserstein interpola-tions (enforcing this gives rise to the so-called strong curvature dimension bounds). Unfortunately, the latter property is based on nonlocal arguments and leverages infinitesimal Hilbertianity exploiting the EVI for the heat flow [9, 7], together with the abstract characterization results of strong geodesic convexity in [35] in terms of the EVI property. See [6, 67] for the gradient flow theory. A third main result of our work is, therefore, the validity of the following version of the EVI property for the localized heat flow on sufficiently small neighborhoods (see Section 2 for the relevant notation and concepts in optimal transport). 
+
+Theorem 1.4. Let (X , d, m) be a complete metric measure space, let ∅̸ = Ω ⊆ X be open, and assume that Ω satisfies RCD loc (K(·), ∞). Let B := Br(x) be a ball such that r < r(x)6 and dds m(Bs(x)) exists at s = r. Let η = f m ∈ P(B), with f ∈ L2 ∩ L∞(B), and let (ft) denote the L2(B)-gradient flow 5
+
+of the Cheeger energy on (B, d, m B) starting from f . Then, setting μt := ftm, we have for all 
+
+σ ∈ P(Br(x)) that 
+
+(1.2) Ent m(σ) − Ent m(μt) − K(x)2 W 22 (μt, σ ) ≥ 12ddt W 22 (μt, σ ) − C lim  
+
+> s↑r
+
+∥ft∥L∞(Br (x)\Bs(x)) ,
+
+for a.e. t > 0, where C = C(r) = 2 r ddr m(Br(x)) .
+
+In the above result, the heat flow ( ft) is the standard Hilbertian gradient flow of a convex and lower semicontinuous functional on the Hilbert space L2(B). However, it is also quadratic under the 
+
+RCD loc (K(·), ∞) assumption, and this guarantees that this localized heat flow is a linear semigroup. Notice that the radius r > 0 is sufficiently small depending on the local radius r(x) arising from the curvature-dimension condition. The proof is then obtained by carefully revisiting arguments from [9, 7, 5], and our localization produces an error term ∥ft∥L∞(Br (x)\Bs(x)) that depends on the rate of decay of the flow. This novel EVI, which to the best of our knowledge is the first attempt to localize Hilbertian properties of the heat flow under curvature-dimension bounds, has two essential applications: 
+
+• we deduce in Theorem 7.5 the strong displacement convexity of the Shannon entropy for local Wasserstein interpolations; 
+
+• we obtain in Corollary 7.6 the local essential nonbranching property of the RCD loc class. As previously discussed, these ingredients are crucial to implement the Lagrangian strategy of [70] and make it possible to achieve (ii) in Theorem 1.3. As a byproduct, we can thus show that Ω ∞ is infinitesimally Hilbertian in Theorem 1.1. 
+
+Remark 1.5. We can also consider locally complete metric measure spaces, and ask that the local radius r(x) > 0 arising from the CD loc condition is required to guarantee that Br(x)(x) is complete. We will comment in Remark 8.3 that both our main results Theorem 1.1 and Theorem 1.3 extend to this generality. ■
+
+We conclude this Introduction by remarking that a further crucial challenge in obtaining these localized results is to show that the term ∥ft∥L∞(Br (x)\Bs(x)) in (1.2) vanishes as t → 0 if the starting function f has support well contained in Bs(x) (cf. Proposition 7.4). For this result to hold, we need to further assume that m is locally doubling on Br(x) (recall Corollary 3.12 for our scope). This is the main reason why Theorem 1.1 and Theorem 1.3 were presented in a finite dimensional setting, even though they are directly implied by Theorem 8.1 and Theorem 8.2 stated in an infinitesimal Hilbertian strong CD loc (K(·), ∞) setting. The doubling assumptions precisely guarantee that the same holds on an infinitesimal Hilbertian CD loc (K(·), ∞) setting, using that small enough balls are John domains so to show that the error term appearing in (1.2) vanishes asymptotically. This last step uses Gaussian upper bounds (cf. Theorem 6.17) that have been systematically studied in connection with doubling and Poincar´ e assumptions in the abstract setting of Dirichlet forms starting from [80], and more recently in [33] under the validity of Nash-type Sobolev inequalities. The latter can be crucially proved to hold on the relevant sufficiently small balls in our proofs, as they are John domains supporting local Poincar´ e inequalities. 2. Preliminaries 
+
+2.1. General notation. We use ⊂ for the strict inclusion and ⊆ for the weak inclusion. In addition, given a metric space (X , d) and an open set ∅̸ = Ω ⊆ X, we write K ⋐ Ω provided dist( K, Ωc) > 0. When Ω = X, we canonically set dist( K, Ωc) = + ∞ so that K ⋐ X reduces to the standard weak inclusion. For each r > 0 and x ∈ X, we shall denote 
+
+Br(x) := {y ∈ X : d(x, y ) < r }, Br(x) := Br(x),
+
+where E is the topological closure of a set E ⊆ X. A metric space (X , d) is locally complete if for all x ∈ X there exists rC (x) ∈ (0 , +∞] such that BrC (x)(x) is complete (the case rC (x) = + ∞6
+
+corresponds to (X , d) being complete). A metric measure space is a triple (X , d, m), where (X , d) is a locally complete, separable metric space and m ≥ 0 is a nonnegative Borel measure. We will always assume the following growth condition, which is meaningful when (X , d) is unbounded, to handle infinite dimensional settings (2.1) 
+
+ˆ
+
+e−Cd(·,x 0)2
+
+dm < ∞ for some C > 0, x 0 ∈ X.
+
+Notice that this automatically guarantees that m is boundedly finite. Actually, in several parts of this note we shall deal with bounded metric spaces where the above is trivially satisfied: given a closed and bounded set C ⊆ X, we consider the (restricted) metric measure space ( C, d, m C). Here 
+
+d is the distance induced on a subset, and m C is the reference measure defined on the subspace 
+
+σ-algebra. For all p ∈ [1 , ∞), we denote as customary Lp(X) , L ploc (X) respectively the space of p-integrable functions and p-integrable functions on a neighbourhood of every point. Sometimes, to stress the measure we are considering, we shall write Lp(X , m) to avoid confusions when multiple measures are considered. If E ⊆ X is Borel with m(E) < ∞ and u ∈ L1
+
+> loc
+
+(X), we denote (u)E := E
+
+u dm.
+
+We denote by P(X) the family of Borel probability measures equipped with the weak topology in duality with continuous and bounded functions Cb(X). Given φ : X → Y where Y is a metric space, we define φ♯μ(B) := μ(φ−1(B)), for all B ⊆ Y Borel and μ ∈ P(X). We denote, respectively, the local Lipschitz constant and the asymptotic Lipschitz constant of f : X → R as lip( f )( x) := lim 
+
+> y→x
+
+|f (y) − f (x)|
+
+d(y, x ) , lip a f (x) := lim 
+
+> y,z →x
+
+|f (y) − f (z)|
+
+d(y, z ) ,
+
+set to 0 if x is isolated. We shall also consider the ascending and descending slopes, defined respec-tively as follows: 
+
+|D+f |(x) = lim 
+
+> y→x
+
+(f (y) − f (x)) +
+
+d(y, x ) , |D−f |(x) = lim 
+
+> y→x
+
+(f (y) − f (x)) −
+
+d(y, x ) .
+
+Given an open set Ω, we shall consider the sets Lip(Ω), Lip bs (Ω) of Lipschitz functions and Lipschitz functions with bounded support on Ω, where we recall that a function f is said to have bounded support in Ω provided supp( f ) ⋐ Ω. 2.2. Test plans. Denote by C([0 , 1] , X) the set of continuous curves valued in X endowed with the sup norm, and denote by AC 2([0 , 1] , X) the subset of curves γ ∈ C([0 , 1] , X) so that there is 
+
+g ∈ L2(0 , 1) non-negative satisfying (2.2) d(γt, γ s) ≤
+
+ˆ ts
+
+g(r) d r, ∀s, t ∈ [0 , 1] with s ≤ t. 
+
+We recall that, given γ ∈ AC 2([0 , 1] , X) there exists | ˙γt| := lim h→0 d(γt+h, γ t)/|h| for a.e. t ∈ (0 , 1) (see [6, Theorem 1.1.2]). We now turn our attention to the notion of test plan [8, 7]. 
+
+Definition 2.1. Let (X , d, m) be a metric measure space. A probability measure π ∈ P C([0 , 1] , X) 
+
+is a test plan, provided it is concentrated on AC 2([0 , 1] , X) and 
+
+∃ C > 0 : ∀t ∈ [0 , 1] , (et)♯π ≤ Cm,
+
+Ke( π) := 
+
+¨ 10
+
+| ˙γt|2 dtdπ < ∞.
+
+The minimal constant C ≥ 0 is called the compression constant of π and is denoted by Comp( π).7
+
+The notation Ke( π) stands for the kinetic energy of a plan, and it is canonically set to + ∞ if π is not concentrated on AC 2([0 , 1] , X). Furthermore, we define Lip( π) := ∥| ˙γt|∥ L∞(π⊗L 1).
+
+2.3. Optimal transport on metric spaces. We recall some useful facts on optimal transport on a metric space (X , d) (we refer to [85, 3] for a detail treatment). An admissible plan between two probability measures μ0, μ 1 ∈ P(X) is a probability measure α ∈ P(X × X) satisfying P 1 
+
+> ♯
+
+α = μ0
+
+and P 2 
+
+> ♯
+
+α = μ1, P 1, P 2 : X × X → X being the canonical projection maps. We denote by Adm( μ0, μ 1)the family of admissible plans between μ0 and μ1. We denote by P2(X) ⊆ P(X) the collection of probability measures with finite second moment, and we define the Wasserstein distance by (2.4) W 22 (μ0, μ 1) := inf 
+
+> α∈Adm( μ0,μ 1)
+
+ˆ
+
+d2(x, y ) d α(x, y ), ∀μ0, μ 1 ∈ P2(X) .
+
+We denote by Opt( μ0, μ 1) the set of all optimal plans between μ0 and μ1, i.e. of all minimisers of (2.4). We next introduce the so-called optimal dynamical plans. A geodesic in (X , d) is a curve 
+
+γ ∈ C([0 , 1] , X) satisfying d(γt, γ s) = |t − s| d(γ0, γ 1) for every t, s ∈ [0 , 1]. We denote by Geo (X) the set of all geodesics in C([0 , 1] , X). Given μ0, μ 1 ∈ P2(X), we set OptGeo( μ0, μ 1) := 
+
+n
+
+π ∈ P Geo(X)  : ( ei)♯π = μi ∀i = 0 , 1, (e0, e1)♯π ∈ Opt( μ0, μ 1)
+
+o
+
+.
+
+We next discuss the dual formulation of the optimal transport problem, and recall basic properties around the Kantorovich potentials for the cost c(x, y ) = d2(x, y ). The c-transform of φ : X →
+
+R ∪ {−∞} is defined by (2.5) φc(y) := inf 
+
+> x∈X
+
+ d2(x, y )2 − φ(x)
+
+
+
+.
+
+A function φ is said to be c-concave if φ = ψc for some ψ, in this case, it holds φ = ( φc)c.
+
+Definition 2.2. Let (X , d) be a Polish metric space, let μ, ν ∈ P2(X) , let φ ∈ L1(X , μ ) be a c-concave function. We say that φ is a Kantorovich potential for (μ, ν ) if (φ, φ c) is a maximizer of 
+
+sup 
+
+ˆ
+
+ϕ dμ +
+
+ˆ
+
+ψ dν : ϕ ∈ L1(X , μ ), ψ ∈ L1(X , ν ) and ϕ(x) + ψ(y) ≤ 12 d2(x, y )
+
+
+
+.
+
+We recall that if φ is a Kantorovich potential for ( μ, ν ), then the Kantorovich duality holds: 12 W 22 (μ, ν ) = 
+
+ˆ
+
+φ dμ +
+
+ˆ
+
+φc dν. 
+
+In particular, for any α ∈ Opt( μ, ν ), it holds φ(x) + φc(y) = d2(x,y )2 for α-a.e. (x, y ). We next recall some results on Kantorovich potentials. 
+
+Proposition 2.3. Let (X , d) be a Polish metric space and let μ, ν ∈ P2(X) . Then, fixed x0 ∈ X,there exists φ = ψc Kantorovich potential relative to (μ, ν ) s.t. ψ ≤ 12 d2(·, x 0) on X and ψ ≡ −∞ on 
+
+X \ supp( ν). In particular, 
+
+(2.6) φ = inf 
+
+> y∈supp( ν)
+
+ d2(·, y )2 − ψ(y)
+
+
+
+.
+
+Furthermore, if (X , d) is a bounded metric space, then φ ∈ Lip(X) with Lip( φ) ≤ sup 
+
+> (x,y )∈X×supp( ν)
+
+d(x, y ).Proof. The existence part of the result is well-known, we refer, for example, to [3, Corollary 3.18]. Up to respectively adding and subtracting the same constant to the two potentials in a maximizing pair ( ϕ, ψ ), we can assume that ϕ(x0) = 0, hence ψ ≤ 12 d2(·, x 0). Furthermore, we can modify ψ so that ψ ≡ −∞ on X \ supp( ν), and then take φ = ψc. In the bounded case, the lipschitzianity is implied by Equation (2.6) observing that 12 d2(·, y ) is L-Lipschitz with L := sup x d(x, y ). □8
+
+Remark 2.4. Notice that every φ of the form (2.6) enjoys the following property: if supp( ν) ⊆ C ⊆
+
+X, then the restriction φ |C is still c-concave in ( C, d). In particular, it is still a Kantorovich potential for ( μ, ν ) in C if also supp( μ) ⊆ C.
+
+Proposition 2.5. Let (X , d) be a Polish metric space, let μ, ν ∈ P(X) such that W2(μ, ν ) < ∞, and let α ∈ Opt( μ, ν ). Then, for all Kantorovich potentials φ : X → R ∪ {−∞} relative to (μ, ν ), it holds 
+
+(2.7) |D+φ|(x) ≤ d(x, y ) α-a.e. (x, y ).
+
+In particular, |D+φ| ∈ L2(X , μ ).
+
+We refer to [8, Proposition 3.9] for a proof of the above result. We shall also need the following result for the compactness of Kantorovich potentials (see [5, Lemma 2.3]). 
+
+Lemma 2.6. Let (X , d) be a Polish metric space, and let σ, η = f m, ηn = fnm ∈ P2(X) be probability measures satisfying 
+
+• σ has compact support; 
+
+• fn → f m-a.e. and sup n fn(x)(1 + d2(x, x 0)) ∈ L1(X) for some x0 ∈ X.Suppose that there exist C > 0 and Kantorovich potentials φn = ψcn relative to (ηn, σ ) satisfying 
+
+(2.8) |φn(x)| ≤ C(1 + d2(x, x 0)) ∀x ∈ X
+
+and 
+
+(2.9) ψn ≡ −∞ on X \ supp( σ) and ψn(x) ≤ C ∀x ∈ X.
+
+Then there exist a subsequence n(k) and a Kantorovich potential φ = ψc for (η, σ ) such that φn(k) → φ
+
+pointwise. In addition φ satisfies (2.8) and ψ satisfies (2.9) .
+
+2.4. Cheeger energy, heat flow and Entropy. We recall the definition of Sobolev space via relaxation, following [7] (we also refer to [27, 79] and to [14] for a complete discussion). For possibly non complete spaces, the Sobolev space theory was investigated in [40, 25]. 
+
+Definition 2.7 (Sobolev space) . Let (X , d, m) be a metric measure space. We define the Cheeger energy as the functional Ch : L2(X) → [0 , ∞] defined by 
+
+Ch( f ) := inf 
+
+n
+
+lim 
+
+> n→∞
+
+ˆ
+
+(lip( fn)) 2 dm : fn ∈ L2(X) ∩ Lip(X) , f n → f in L2(X) 
+
+o
+
+.
+
+The Sobolev space is defined as H1,2(X , d, m) := {f ∈ L2(X) : Ch( f ) < ∞} . When no confusion will arise on the reference measure, we shall shortly write H1,2(X) .
+
+Sometimes, we shall consider the Sobolev space and the Cheeger energy on the metric measure space ( C, d, m C) for some C ⊆ X closed. In this case, we shall write Ch C (f ) for the Cheeger energy of a Sobolev function f ∈ H1,2(C, d, m C). It follows that H1,2(X) is a Banach space equipped with the norm ∥f ∥2 
+
+> H1,2(X)
+
+= ∥f ∥2 
+
+> L2(X)
+
++ Ch( f ). We next report a key result on the Cheeger energy showing that it always admits an integral representation with a weak gradient satisfying the usual calculus rules of Sobolev functions (we refer to [14] and references therein). 
+
+Theorem 2.8. Let (X , d, m) be a complete metric measure space, and let f ∈ H1,2(X) . There exists 
+
+|∇ f | ∈ L2(X) , called weak gradient , such that 
+
+Ch( f ) = 
+
+ˆ
+
+|∇ f |2 dm.
+
+Moreover, if g ∈ H1,2(X) , the weak gradient satisfies the following properties: i) (Convexity) for all α, β ∈ R
+
+|∇ (αf + βg )| ≤ | α||∇ f | + |β||∇ g|, m-a.e.; 9
+
+ii) (Locality) for any L1-negligible Borel set N ⊂ R it holds 
+
+|∇ f |(x) = 0 m-a.e. x ∈ f −1(N ),
+
+so that, in particular, it holds 
+
+|∇ f | = |∇ g| m-a.e. on {f = g} ;
+
+iii) (Chain rule) for any ϕ ∈ Lip( R) with ϕ(0) = 0 , it holds that ϕ ◦ f ∈ H1,2(X) and 
+
+|∇ (ϕ ◦ f )| = (lip( ϕ) ◦ f )|∇ f | m-a.e. ;
+
+iv) (Leibniz rule) if f, g ∈ H1,2(X) ∩ L∞(X) , then f g ∈ H1,2(X) and 
+
+|∇ (f g )| ≤ | f ||∇ g| + |g||∇ f | m-a.e.. 
+
+In light of the equivalence results for Sobolev spaces [7], a Sobolev function f ∈ H1,2(X) is so that, for all test plans π and for π-a.e. γ ∈ C([0 , 1] , X), it holds that (2.10) f ◦ γ ∈ W 1,1(0 , 1) , (f ◦ γt)′ ≤ |∇ f |(γt)| ˙γt|, a.e. t ∈ (0 , 1) .
+
+We refer to [14] for a detailed discussions on the equivalent approaches to the metric Sobolev space theory. We shall also need an “integrated” version of (2.10), that essentially was observed to yield and equivalent notion of metric BV space in [4, 37] (see also [69] for further equivalent formulations). The following result, tailored for p = 2, is taken from [70, Theorem 3.1]. 
+
+Theorem 2.9. Let (X , d, m) be a complete metric measure space and let f ∈ L2(X) . The following are equivalent: (i) f ∈ H1,2(X) ;(ii) there exists C ≥ 0 so that 
+
+ˆ
+
+f (γ1) − f (γ0) d π ≤ Comp( π)1/2Ke 1/2(π)C, 
+
+for all test plans π.Moreover, denoting Cf the minimal constant C ≥ 0 for (ii) to hold, we have C2 
+
+> f
+
+= Ch( f ).
+
+We recall the definition of the Shannon entropy, that is well defined by (2.1) and [5, Eq. (2.5)]. 
+
+Definition 2.10. Let (X , d, m) be a metric measure space. We define the Shannon entropy functional 
+
+Ent m : P2(X) → R ∪ { +∞} by 
+
+(2.11) Ent m(μ) := 
+
+ˆ
+
+ρ log( ρ) d m, if μ = ρm, +∞ otherwise .
+
+We shall keep the same notation for the natural extension of the entropy to any finite non-negative measure, defined by the same integral formula. We shall consider gradient flows of convex and lower semicontinuous functionals on Hilbert spaces (see [6] for a complete discussion). An example is the heat flow generated as the L2-gradient flow of the Cheeger energy. Later on, in Section 6 we will consider such flow as a semigroup generated by a Dirichlet form. We report from [8] a result for comple metric measure spaces. 
+
+Proposition 2.11. Let (X , d, m) be a complete metric measure space satisfying (2.1) , and let f0 ∈
+
+L2(X) such that f0m ∈ P2(X) . Let (ft) be the L2-gradient flow of the Cheeger energy starting from 
+
+f0, and denote μt := ftm for any t ≥ 0. Assume also that μ0 ∈ D(Ent m). Then, for all T > 0 we have (μt) ∈ AC 2([0 , T ], P2(X)) and 
+
+(2.12) Ent m(μ0) ≥ Ent m(μT ) + 2 
+
+ˆ T
+
+> 0
+
+Ch( pft) d t + 12
+
+ˆ T
+
+> 0
+
+| ˙μt|2 dt. 
+
+Proof. The proof follows immediately by combining [8, Proposition 4.22 and Lemma 6.1]. □
+
+We next recall the notion of an infinitesimal Hilbertian space from [45]. 10 
+
+Definition 2.12. Let (X , d, m) be a metric measure space, and let ∅̸ = Ω ⊆ X be open. We say that 
+
+Ω is infinitesimally Hilbertian provided for every f, g ∈ H1,2(X) with supp( f ), supp( g) ⋐ Ω it holds 
+
+(2.13) Ch( f + g) + Ch( f − g) = 2Ch( f ) + 2Ch( g).
+
+If Ω = X , we say that (X , d, m) is an infinitesimally Hilbertian metric measure space. 
+
+Remark 2.13. If Ω is infinitesimally Hilbertian, then, for any open set Ω ′ ⊂ X with Ω ′ ⋐ Ωand m(∂Ω′) = 0, it holds that H1,2(Ω ′) is a Hilbert space equipped with the norm ∥f ∥2 
+
+> H1,2(Ω ′)
+
+=
+
+∥f ∥2 
+
+> L2(Ω ′)
+
++ Ch Ω′
+
+(f ). This follows from the same arguments used in [45, Proposition 4.22]. ■
+
+We recall a characterization of infinitesimally Hilbertian spaces, referring to [50, Theorem 4.3.3]. 
+
+Theorem 2.14. Let (X , d, m) be a complete metric measure space, and let ∅̸ = Ω ⊆ X be open. Then Ω is infinitesimally Hilbertian if and only if for all f, g ∈ H1,2(X) with supp( f ), supp( g) ⋐ Ω
+
+it holds 
+
+|∇ (f + g)|2 + |∇ (f − g)|2 = 2 |∇ f |2 + 2 |∇ g|2, m-a.e. on Ω.
+
+On an infinitesimally Hilbertian space, the parallelogram identity guarantees that the following is well-defined and bilinear in its entries 
+
+Em(f, g ) := lim 
+
+> ε→0
+
+ˆ |∇ (f + εg )|2 − |∇ f |2
+
+ε dm, ∀f, g ∈ H1,2(X) ,
+
+hence (see [45, 5]) it holds that Em(f, f ) is the canonical regular and Markovian Dirichlet form associated to the Cheeger energy, and we shall denote by ht(f ) the associated linear heat semigroup for f ∈ L2(X). When no confusion will arise on the chosen reference measure, we shall shortly write 
+
+E(f, f ). Notice that such linear semigroup is precisely the L2-gradient flow of the Cheeger energy, as the linearity is guaranteed by the fact that the Cheeger energy is assumed quadratic. Thanks to Proposition 2.11, we can show the following useful property. 
+
+Proposition 2.15. Let (X , d, m) be an infinitesimally Hilbertian complete metric measure space satisfying (2.1) . Let f0 ∈ L∞ ∩ L2(X) such that f0m ∈ P2(X) and let μt := ftm with ft := htf0.Assume also that μ0 ∈ D(Ent m). Let σ ∈ P(X) . Then for a.e. t > 0 the following property holds: for any Kantorovich potential φt ∈ H1,2(X) relative to (μt, σ ), one has 
+
+(2.14) 12ddt W 22 (μt, σ ) = −E (ft, φ t).
+
+Proof. We follow the proof of [5, Theorem 6.3]. By Proposition 2.11, for a.e. t > 0 the derivative of the left-hand side in (2.14) exists. Also, for a.e. t > 0 the derivative of s 7 → fs at s = t exists in L2(X) and coincides with the infinitesimal generator of the semigroup, namely the distributional Laplacian ∆ ft (cf. [45]). Then, for all g ∈ H1,2(X) we have (2.15) lim 
+
+> h→0
+
+ˆ
+
+g ft+h − ft
+
+h dm =
+
+ˆ
+
+g∆ft dm = −E (ft, g ).
+
+Now, since φt is a Kantorovich potential for ( μt, σ ), we get 12 W 22 (μt, σ ) = 
+
+ˆ
+
+φt dμt +
+
+ˆ
+
+φct dσ, 
+
+12 W 22 (μt+h, σ ) ≥
+
+ˆ
+
+φt dμt+h +
+
+ˆ
+
+φct dσ ∀h > −t. 
+
+Taking the difference between the two lines and using (2.15) gives 12 W 22 (μt+h, σ ) − 12 W 22 (μt, σ ) ≥ − hE(ft, φ t) + o(h).
+
+As the derivative of s 7 → W 22 (μs, σ ) exists at s = t, we conclude by sending h → 0. □11 
+
+We point out that, for our scope, the above results will be invoked in metric measure spaces where (2.1) is trivially satisfied. We also need to change the reference measure through certain weight functions. In [5, Theorem 3.6] it was shown that if ν = gm with g ∈ L∞(m), g ≥ 0 and E(√g, √g) < ∞, then every f ∈ H1,2(X , d, m)satisfying |∇ f | ∈ L2(ν) belongs to H1,2(X , d, ν ) and, denoting by |Df |g the weak gradient in the metric measure space (X , d, ν ), it holds (2.16) |∇ f | = |∇ f |g, ν-a.e. in X .
+
+In addition, we have the following useful chain rule result from [5, Theorem 3.9]. 
+
+Theorem 2.16. Let (X , d, m) be an infinitesimally Hilbertian complete metric measure space and let ν = gm ∈ P2(X) with g ∈ L∞(X) and E(√g, √g) < ∞. Then also (X , d, ν ) is infinitesimally Hilbertian and the associated Dirichlet form Eν satisfies 
+
+Eν (log( g), φ ) = Em(g, φ ), ∀φ ∈ Lip bs (X) .
+
+2.5. Doubling & Poincar´ e properties. We give next the definition of doubling and locally dou-bling measures on open sets. 
+
+Definition 2.17. Let (X , d, m) be a metric measure space and let ∅̸ = Ω ⊆ X be an open set. We say that m is doubling on Ω if there exists a constant CD > 0 such that 
+
+(2.17) m(B2r(x0)) ≤ CDm(Br(x0)) ,
+
+for all x0 ∈ Ω and r > 0 such that B2r(x0) ⊆ Ω. Furthermore, we say that m is locally doubling 
+
+on Ω if for all x ∈ Ω there exists a radius rD(x) ∈ (0 , +∞] such that m is doubling on BrD (x)(x), in which case we denote by CD(x) > 0 the constant appearing in (2.17) .
+
+A well known consequence of the doubling assumption is the following result. 
+
+Lemma 2.18. Let (X , d, m) be a metric measure space, and let ∅̸ = Ω ⊆ X be an open set. Assume that m is locally doubling on Ω. Then for every x ∈ Ω ∩ supp( m) and r < rD (x)2 the ball Br(x) is compact. In particular, if supp( m Ω) = Ω then Ω is locally compact. Proof. Fix x ∈ Ω and choose c > 0 such that r < rD (x)2+ c . Fix also ε = r(1+ c)2N for some N ∈ N. For any 
+
+x1, . . . , x k ∈ Br(x) such that d(xi, x j ) ≥ ε for all i̸ = j, we have that the balls Bε/ 2(xi) are disjoint and contained in Br+ ε 
+
+> 2
+
+(x). On the other hand, since Bcr (x) ⊂ Br(1+ c)(xi) ⊂ Br(2+ c)(x) ⊂ BrD (x)(x), the locally doubling condition gives that 
+
+m(Bε/ 2(xi)) ≥ CD(x)−(N +1) m(Bcr (x)) > 0,
+
+since x ∈ supp( m). Therefore 
+
+k ≤ CD(x)N +1 m(Br+ ε 
+
+> 2
+
+(x)) 
+
+m(Bcr (x)) < ∞,
+
+which implies that Br(x) is totally bounded, as ε is arbitrarily small. □
+
+We shall also need the concept of a Poincar´ e inequality on open sets that we recall next. We refer to [24] and references therein for a general treatment. 
+
+Definition 2.19. Let p, q ∈ [1 , ∞), let (X , d, m) be a metric measure space, and let u ∈ Lq(X) 
+
+and g ∈ Lp(X) with g non-negative. We say that the pair (u, g ) satisfies the weak (q, p )-Poincar´ einequality in ∅̸ = Ω ⊆ X open if there exists a finite constant CP > 0 such that 
+
+(2.18) ∥u − (u)Br (x0)∥Lq (Br (x0)) ≤ CP r∥g∥Lp(B2r (x0)) ,
+
+for any x0 ∈ Ω and r > 0 such that B2r(x0) ⊆ Ω. Furthermore, we say that Ω satisfies the weak 
+
+(q, p )-Poincar´ e inequality if (2.18) holds for all u ∈ Lip bs (X) with g = lip( u).12 
+
+Note that if (X , d) is complete and Ω satisfies the weak ( q, 2)-Poincar´ e inequality, then (2.18) holds for all u ∈ H1,2(Ω) with g = |∇ u|. This can be shown by appealing the energy-density of Lipschitz functions [7] and a truncation and monotone approximation argument (recall also [60]). 2.6. pmG-topology and convergence of functions. We recall the definition of Gromov conver-gence, originally due to [52]. We shall follow the extrinsic approach of [48] that, even if different from the original definition, will be better suited for our goals (we refer to [48] for the known equivalences results). To allow unbounded metric spaces, we shall consider pointed metric measure space, namely a quadruple (X , d, m, x ), where (X , d, m) is a metric measure space and x ∈ X. 
+
+Definition 2.20 (pmG-convergence) . Let (X n, dn, mn, x n) be a sequence of pointed metric measure spaces. We say that that (X n, dn, mn, x n) pointed measured Gromov-converges (pmG-converges) to some limit pointed metric measure space (X ∞, d∞, m∞, x ∞), provided there exist a complete and separable metric space (Z , d) and isometric embeddings 
+
+ιn : (X n, dn) → (Z , d),ι∞ : (X ∞, d∞) → (Z , d),
+
+such that (ιn)( xn) → ι∞(x∞) and (ιn)♯mn → (ι∞)♯m∞ in duality with Cbs (Z) .
+
+In what follows, we shall shortly write X npmG 
+
+→ X∞ and identify the spaces X n with their isomorphic images in Z following the extrinsic approach. We also recall the definition of convergence of functions along pmG-converging spaces ([48, 11]). 
+
+Definition 2.21. Let (X n, dn, mn, x n) be a sequence of pointed metric measure spaces satisfying 
+
+XnpmG 
+
+→ X∞ for some pointed limit space, and let us fix a realization (Z , d). We say that (i) fn ∈ L2(mn) converges L2-weak to f∞ ∈ L2(m∞), if sup n ∥fn∥L2(mn) < ∞ and fnmn ⇀ f∞m∞
+
+in duality with Cbs (Z) ,(ii) fn ∈ L2(mn) converges L2-strong to f∞ ∈ L2(m∞), if it converges L2-weak and 
+
+lim n ∥fn∥L2(mn) ≤ ∥f∞∥L2(m∞).
+
+We recall, see e.g. [71, Proposition 6.2], that if fn converges L2-strong to f∞ and gn converges 
+
+L2-weak to g∞, then (2.19) lim 
+
+> n→∞
+
+ˆ
+
+fngn dmn =
+
+ˆ
+
+f∞g∞ dm∞.
+
+3. Local curvature dimension conditions: definitions, properties and stability 
+
+3.1. Infinite dimensional setting. We will now introduce a definition of local curvature dimension condition in an open set Ω ⊆ X based on the displacement convexity of the Shannon entropy, thus localizing the celebrated notions of [82, 83] and [64]. 
+
+Definition 3.1. Let (X , d, m) be a metric measure space, and let ∅̸ = Ω ⊆ X be an open set. We say that Ω satisfies the local infinite dimensional curvature dimension condition if for all x ∈ Ω
+
+there exist K(x) ∈ R and r(x) ∈ (0 , +∞] with r(x) ≤ rC (x) such that, for all μ0, μ 1 ∈ P2(X) with 
+
+supp( μi) ⋐ B r(x)2
+
+(x) for i = 0 , 1, there exists π ∈ OptGeo( μ0, μ 1) such that, denoting μt := ( et)♯π, it holds 
+
+(3.1) Ent m(μt) ≤ (1 − t)Ent m(μ0) + tEnt m(μ1) − K(x)2 t(1 − t)W 22 (μ0, μ 1),
+
+for every t ∈ [0 , 1] . In this case, we will say that Ω satisfies CD loc (K(·), ∞). Finally, we say that Ω
+
+satisfies strong CD loc (K(·), ∞) if (3.1) holds for all π ∈ OptGeo( μ0, μ 1).
+
+The definition recovers the global CD (K, ∞) condition for complete metric measure spaces, if there is x such that r(x) = + ∞ and K(x) = K.We next show some useful results implied by the definition. 13 
+
+Lemma 3.2. Let (X , d, m) be a metric measure space, and let ∅̸ = Ω ⊆ X be an open set. Suppose that Ω satisfies CD loc (K(·), ∞). Fix x ∈ Ω, r ≤ r(x)4 and let μ0, μ 1 ∈ P2(X) with supp( μi) ⋐ Br(x)
+
+for i = 0 , 1 and π ∈ OptGeo( μ0, μ 1) be so that (3.1) holds. Then, for every t, s ∈ [0 , 1] , s < t , there exists η ∈ OptGeo(( es)♯π, (et)♯π) so that 
+
+Ent m(( eh)♯η) ≤ (1 − h)Ent m(( es)♯π) + hEnt m(( et)♯π) − K(x)2 h(1 − h)W 22 (( es)♯π, (et)♯π),
+
+for all h ∈ [0 , 1] . Moreover, if Ω satisfies strong CD loc (K(·), ∞), then it is possible to take η = rest ts
+
+ 
+
+> ♯
+
+π, where rest ts(γ)( h) := γ(1 −h)s+ht .Proof. Since supp( μi) ⊂ Br(x) for i = 0 , 1 and r ≤ r(x)4 we have that supp (( et)♯π) ⊂ B2r(x) for all 
+
+t ∈ [0 , 1]. Thus, the existence of η is granted again by Definition 3.1. The last conclusion is also straightforward. □
+
+Definition 3.3. Let (X , d) be a metric space, let t ∈ (0 , 1) and let μ0, μ 1 ∈ P2(X) . The class of 
+
+t-midpoints between μ0 and μ1 is defined by 
+
+It(μ0, μ 1) := μ ∈ P2(X) s.t. W2(μ0, μ ) = tW 2(μ0, μ 1) and W2(μ, μ 1) = (1 − t)W2(μ0, μ 1) .
+
+Lemma 3.4. Let (X , d) be a metric space, let t ∈ (0 , 1) and let μ0, μ 1 ∈ P2(X) . Consider 
+
+μt ∈ It(μ0, μ 1), let [0 , 1] ∋ s 7 → ˜μ1 
+
+> s
+
+, ˜μ2 
+
+> s
+
+be two W2-geodesics respectively from μ0 to μt and from 
+
+μt to μ1. Then, the curve 
+
+s 7 → μs := 
+
+
+
+˜μ1
+
+> st
+
+if 0 ≤ s ≤ t,
+
+˜μ2
+
+> s−t
+> 1−t
+
+if t < s ≤ 1.is a W2-geodesic from μ0 to μ1. Furthermore, if D := sup {Lip( π) | π ∈ OptGeo( μ0, μ 1)} then, for any 0 ≤ s < r ≤ 1 and ˜π ∈ OptGeo( μs, μ r) it holds Lip(˜ π) ≤ (r − s)D.Proof. To show that μs is a geodesic, we prove that 
+
+W2(μs, μ r) ≤ (r − s)W2(μ0, μ 1),
+
+for any 0 ≤ s < r ≤ 1. By triangular inequality, it is enough to check the cases 0 ≤ s < r ≤ t and 
+
+t ≤ s < r ≤ 1. In the first case, since s 7 → ˜μ1 
+
+> s
+
+is a W2-geodesic and μt ∈ I t(μ0, μ 1), we get 
+
+W2(μs, μ r) = W2(˜ μ1
+
+> s/t
+
+, ˜μ1
+
+> r/t
+
+) = 
+
+ rt − st
+
+
+
+W2(μ0, μ t) = ( r − s)W2(μ0, μ 1).
+
+The case t ≤ s < r ≤ 1 is analogous. Finally, the last conclusion is straightforward. □
+
+Proposition 3.5. Let (X , d, m) be a complete metric measure space, and let ∅̸ = Ω ⊆ X be an open set satisfying CD loc (K(·), ∞). Suppose that m is locally doubling on Ω. Then, for all x ∈ Ω and 
+
+z, y ∈ Bmin     
+
+> nr(x)2,rD(x)5
+> o
+
+(x) ∩ supp( m) there exists γ ∈ Geo (X) from y to z.Proof. Let R := max {d(x, y ), d(x, z )}. By Lemma 2.18 B2R(x) is compact. By Definition 3.1, for all n ∈ N sufficiently large, there exist πn ∈ OptGeo 
+
+ m B 1  
+
+> n
+> (y)
+> m(B1
+> n
+> (y))
+
+, m B 1 
+
+> n
+> (z)
+> m(B1
+> n
+> (z))
+
+
+
+. Let γn ∈ supp( πn)and observe that ( γn) is a 2 R-Lipschitz collection of geodesics supported in B2R(x) and satisfying lim n→∞ γn(0) = y and lim n→∞ γn(1) = z. By applying the Arzel` a-Ascoli theorem, it is possible to extract a uniform-limit γ ∈ C([0 , 1] , X). It is then straightforward to verify that γ is a geodesic joining y and z. □
+
+Remark 3.6. Let us comment about the optimal choice for the function K(·) given by Definition 3.1. Consider the function ˜K defined by (3.2) ˜K(x) := sup {K ∈ R | ∃ rK (x) > 0 s.t. (3.1) holds ∀ μ0, μ 1 ∈ P(X) supported in B rK (x)2
+
+(x)},14 
+
+for all x ∈ Ω. Even in the smooth case the supremum will not be in general a maximum, hence Ω will not always satisfy CD loc ( ˜K(·), ∞), although it will satisfy CD loc (K(·), ∞) for any K < ˜K.Furthermore, ˜K is admissible in the sense of [61], namely it is lower semicontinuous and locally bounded below. Indeed, by (3.2) the function ˜K is locally bounded below . Furthermore, it is simple to infer its lower semicontinuity by noting that, for any K < ˜K(x) and any y ∈ B rK (x)2
+
+(x), it holds that ˜K(y) ≥ K, since (3.1) holds for all μ0, μ 1 ∈ P(X) supported on B 12 rK (x)−d(x,y )(y). Finally, it is worth noting that ˜ rK (·) can also be shown to be lower semicontinuous, where ˜ rK (x) denotes the supremum among all admissible values of rK (x) in (3.2). ■
+
+We end this part by showing that the local curvature dimension bounds are stable in the pmG-topology. We follow closely the proof of [48, Theorem 4.9] and, to this aim, we first show a local Gamma-convergence result for the Entropy functionals in the spirit of [48, Proposition 4.7]. 
+
+Proposition 3.7. Let (X n, dn, mn, x n) be a sequence of pointed complete metric measure spaces that are pmG-converging to a pointed complete limit space (X ∞, d∞, m∞, x ∞). Then, it holds (i) for every μ∞ ∈ P2(X ∞) and μn ∈ P2(X n) with W2(μn, μ ∞) → 0, it holds 
+
+Ent m∞ (μ∞) ≤ lim 
+
+> n→∞
+
+Ent mn (μn); 
+
+(ii) for every ε > 0 and μ∞ ∈ P(X ∞) absolutely continuous with supp( μ∞) ⊆ Br(x∞), r > 0, there exists μn ∈ P(X n) with μn = ρnmn, ρ n ∈ L∞(X n), supp( ρn) ⊆ Br+ε(xn) such that it holds that 
+
+W2(μn, μ ∞) → 0 and 
+
+lim  
+
+> n→∞
+
+Ent mn (μn) ≤ Ent m∞ (μ∞).
+
+Proof. The first conclusion is directly implied by the first conclusion in [48, Proposition 4.7]. We next show the second conclusion. Let k ∈ N and let us define the family of truncated probability measures μk 
+
+> ∞
+
+:= ρkm∞ where ρk := min {ρ, k }/∥ min {ρ, k }∥ L1(X ∞) where we write μ∞ = ρm∞.Observe that Ent m∞ (μk
+
+> ∞
+
+) → Ent m∞ (μ∞) as k → ∞ and that supp( μk
+
+> ∞
+
+) ⊂ Br(x∞) for each k. By [70, Lemma 4.1], we infer that there exists a sequence μkn := ρknmn of probability measures such that 
+
+ρkn ∈ L∞(X n), supp( μkn) ⊂ Br+ε(xn), μkn → μk 
+
+> ∞
+
+weakly as n → ∞ and 
+
+ˆ
+
+φ(ρkn) d mn →
+
+ˆ
+
+φ(ρk
+
+> ∞
+
+) d m∞, ∀φ ∈ C(R), φ (0) = 0 .
+
+Actually, the latter is stated for φ(t) = |t|q, but the proof is achieved for any such φ exploiting the uniformly bounded supports. In particular, we can choose φ(t) = t log( t). Similarly, the weak convergence stated in [70, Lemma 4.1] turns into W2-convergence for the same reason. The proof is concluded as, by a diagonalization argument, we can find a sequence kn → ∞ such that μn := ρkn 
+
+> n
+
+mn
+
+satisfies all the listed conclusions. □
+
+Theorem 3.8. Let (X n, dn, mn, x n) be a sequence of pointed complete metric measure spaces that are pmG-converging to a pointed complete limit space (X ∞, d∞, m∞, x ∞), and let (Z , d) be a realization of the convergence. Let Ωn ⊆ Xn, Ω∞ ⊆ X∞ be non-empty open sets. Assume that Ωn satisfies 
+
+CD loc (Kn(·), ∞) for all 1 ≤ n < ∞. Furthermore, denoting by rn(·) the local radius of Ωn, suppose the following: for all x ∈ Ω∞ there are yn ∈ Ωn with d(yn, x ) → 0 satisfying r∞(x) := lim n rn(yn) > 0
+
+and K∞(x) := lim n Kn(yn) > −∞ . Then Ω∞ satisfies CD loc (K∞(·), ∞) with local radius r∞(x).Finally, if r∞(x) = + ∞ for some x ∈ Ω∞, then X∞ satisfies CD (K, ∞) globally with K = K∞(x).Proof. Fix x ∈ Ω∞ (without loss of generality, we also require x ∈ supp( m∞)) and μ0, μ 1 ∈ P2(X) absolutely continuous such that supp( μi) ⋐ Bδ/ 2(x) with δ > 0 to be specified depending on x, for 
+
+i = 0 , 1. Consider yn → x in the realization of the convergence satisfying the assumptions. Consider, by Proposition 3.7 and for all ε > 0, i = 0 , 1, the probability measures μi,n ∈ P(X n) with 
+
+μi,n = ρi,n mn, supp( ρi,n ) ⊆ Bδ/ 2+ ε(xn) satisfying the second conclusion. Let πn ∈ OptGeo( μ0,n , μ 1,n )15 
+
+be such that (3.1) holds. By arguing as in [48, Theorem 4.9], it is possible to show that there exists a W2-geodesic μt such that for all t ∈ [0 , 1] 
+
+W2(( et)♯πn, μ t) → 0, as n → ∞ ,
+
+so that by the first conclusion in Proposition 3.7, we deduce Ent m∞ (μt) ≤ lim 
+
+> n→∞
+
+Ent mn (( et)♯πn), ∀t ∈ [0 , 1] .
+
+Choose δ < lim n→∞ rn(yn). By recalling the properties of μi,n , we deduce (for ε small enough) Ent m∞ (μt) ≤ lim 
+
+> n→∞
+
+
+
+(1 − t)Ent mn (μ0,n ) + tEnt mn (μ1,n ) − Kn(yn)2 t(1 − t)W 22 (μ0,n , μ 1,n )
+
+
+
+≤ (1 − t)Ent m∞ (μ0) + tEnt m∞ (μ1) − K∞(x)2 t(1 − t)W 22 (μ0, μ 1),
+
+where K := lim n Kn(yn), and the desired conclusion is obtained by lifting the W2-geodesic ( μt) with [63] to obtain the desired plan π ∈ OptGeo( μ0, μ 1). The last conclusions also follows by noticing that, when r∞(x) = + ∞, then we can choose δ arbitrarily large. □
+
+3.2. Finite dimensional setting. We next consider a local notion of dimensional curvature dimen-sion condition, and we recall before some basic ingredients from [64, 82, 83]. The σ(t) 
+
+> K,N
+
+coefficient for K ∈ R, N ≥ 1, t ∈ [0 , 1], and θ ∈ [0 , ∞), are defined as 
+
+σ(t) 
+
+> K,N
+
+(θ) := 
+
+
+
+∞, if Kθ 2 ≥ N π 2,
+
+> sin( tθ
+
+√K/N )sin( θ√K/N ) , if 0 < Kθ 2 < N π 2,t, if Kθ 2 < 0 and N = 1 or if Kθ 2 = 0 ,
+
+> sinh( tθ
+
+√−K/N )sinh( θ√−K/N ) , if Kθ 2 < 0 and N > 1.
+
+We then set τ (t) 
+
+> K,N
+
+(θ) := t 1 
+
+> N
+
+σ(t) 
+
+> K,N −1
+
+(θ)1− 1 
+
+> N
+
+while τ (t)
+
+> K, 1
+
+(θ) = t if K ≤ 0 and τ (t)
+
+> K, 1
+
+(θ) = ∞ if K > 0. Given a metric measure space (X , d, m) and N > 1, we define the N -R´ enyi relative entropy functional UN : P(X) → [0 , ∞] as 
+
+UN (μ) := 
+
+ˆ
+
+ρ1− 1 
+
+> N
+
+dm, ∀μ ∈ P(X) , μ = ρm + μs with μs ⊥ m.
+
+In the borderline case N = 1, this reduces by convention to U1(μ) = m({ρ > 0}). 
+
+Definition 3.9. Let (X , d, m) be a metric measure space, and let ∅̸ = Ω ⊆ X be an open set. We say that Ω satisfies the local finite dimensional curvature dimension condition, if for all x ∈ Ω there exist 
+
+K(x) ∈ R, N (x) ≥ 1 and r(x) ∈ (0 , +∞] with r(x) ≤ rC (x) such that, for all μ0, μ 1 ∈ P2(X) with 
+
+supp( μi) ⋐ B r(x)2
+
+(x) for i = 0 , 1, there exists π ∈ OptGeo( μ0, μ 1) such that, denoting μt := ( et)♯π, it holds 
+
+(3.3) UN ′ (μt) ≥
+
+ˆ
+
+ρ0(γ0)− 1  
+
+> N′
+
+τ (1 −t) 
+
+> K(x),N ′
+
+ d(γ0, γ 1) + ρ1(γ1)− 1  
+
+> N′
+
+τ (t) 
+
+> K(x),N ′
+
+ d(γ0, γ 1) dπ(γ),
+
+for every N ′ ≥ N (x) and t ∈ [0 , 1] . In this case, we say that Ω satisfies CD loc (K(·), N (·)) . Finally, we say that Ω satisfies strong CD loc (K(·), N (·)) if (3.3) holds for all π ∈ OptGeo( μ0, μ 1).
+
+As previously discussed, the above definition recovers the original global notion of CD (K, N ) for complete metric measure spaces. Furthermore, if Ω satisfies the above, then it also satisfies Definition 3.1 by sending N ′ ↑ ∞ by similar arguments as in [64, 82, 83]. 16 
+
+Remark 3.10. We note that the notion of curvature dimension condition with variable Ricci cur-vature lower bound formulated by [61] implies Definition 3.9 in the case Ω = X. Indeed, in [61] the variable lower bound on the Ricci curvature is a lower semicontinuous and locally bounded below 
+
+function k : X → R. This guarantees that for every x, there is K(x) ∈ R such that k(x) ≥ K(x)on B1(x). Therefore, exploiting the monotonicity of the τ -coefficient (cf. [61, Theorem 1.1]), it is straightforward to see that Ketterer’s notion implies CD loc (K(·), N ) in Definition 3.9 with the choice of local radius r(x) = 1. We now discuss some basic properties implied by the above definition. First, we investigate the validity of a local Bishop-Gromov monotonicity property. To this aim, we introduce the following notation 
+
+"
+
+0, π 
+
+r N − 1
+
+K+
+
+#
+
+∋ t 7 → sin K/ (N −1) (t) = 
+
+
+
+sin 
+
+
+
+t
+
+q KN −1
+
+
+
+if K > 0,t if K = 0 ,
+
+sinh 
+
+
+
+t
+
+q −KN −1
+
+
+
+if K < 0,
+
+so that the volume of a ball of radius r ∈
+
+h
+
+0, π 
+
+q N −1
+
+> K+
+
+i
+
+in the model space of dimension N > 1 and constant curvature K ∈ R is given by vK,N (r) = ´ r 
+
+> 0
+
+sin N −1 
+
+> K/ (N−1)
+
+(t) d t. 
+
+Lemma 3.11. Let (X , d, m) be a metric measure space, and let ∅̸ = Ω ⊆ X be an open set satisfying CD loc (K(·), N (·)) . Then, for every x ∈ Ω, x 0 ∈ Br(x)/2(x) ∩ supp( m) and 0 < r ≤
+
+R < d  x0,  Br(x)/2(x)c, it holds that m(∂B r(x0)) = 0 . Furthermore, for all 0 < r ≤ R < 
+
+min 
+
+n
+
+d  x0,  Br(x)/2(x)c , π 
+
+q N (x)−1
+
+> K+(x)
+
+o
+
+, if N (x) > 1 we have 
+
+(3.4) m(Br(x0)) 
+
+m(BR(x0)) ≥ vK(x),N (x)(r)
+
+vK(x),N (x)(R) ,
+
+while if N (x) = 1 , K (x) ≤ 0 we have 
+
+m(Br(x0)) 
+
+m(BR(x0)) ≥ rR .
+
+Proof. Let x, x0 as in the statement and 0 < r ≤ R < d(x0, B r(x)/2(x)c) =: L. Define t = r/R and let ε, δ > 0 small enough so that max {ε, R + δR, r + δr + εt } < d(x0, B r(x)/2(x)c). Consider the sets 
+
+A0 := Bε(x0), A1 = BR+δR (x0) \ BR(x0), At := {γt : γ ∈ Geo(X) , γ 0 ∈ A0, γ 1 ∈ A1},
+
+and define Θ := 
+
+(
+
+inf y∈A0,z ∈A1 d(y, z ), if K(x) ≥ 0,
+
+sup y∈A0,z ∈A1 d(y, z ), if K(x) < 0.
+
+Assume for the moment that m(A1) > 0 (note that m(A0) > 0 is certainly true as x0 ∈ supp( m)). We point out that the generalized Brunn-Minkowski inequality proved in [82, Proposition 2.1] holds true in the current setting, with our choice of sets A0, A 1 and parameters t, Θ, K (x), N (x), since its proof only relies on the existence of a plan π ∈ OptGeo( m A0/m(A0), m A1/m(A1)) satisfying the convexity inequality (3.3) and that, by construction, A0, A 1 ⊂ B r(x)2
+
+(x)). In particular, noticing that 
+
+At ⊂ Br+δr +εt (x0) \ Br−εr (x0) and that R − ε ≤ Θ ≤ R + δR + ε, we deduce after manipulations and monotonicity of the τ -coefficients that 
+
+m(Br+δr +εt (x0) \ Br−εr (x0)) 1 
+
+> N
+
+≥ τ (1 −t) 
+
+> K(x),N (x)
+
+(R ∓ δR ∓ ε)m(A0) 1 
+
+> N
+
++ τ (t) 
+
+> K(x),N (x)
+
+(R ∓ δR ∓ ε)m(A1) 1 
+
+> N
+
+,
+
+where the choice ∓ coincides with the sign of K(x). Taking ε ↓ 0, we get after manipulations (3.5) m(B(1+ δ)r(x0)) − m(Br(x0)) ≥
+
+
+
+τ (t) 
+
+> K(x),N (x)
+
+(R ∓ δR )
+
+N  m(B(1+ δ)R(x0)) − m(BR(x0))  .17 
+
+Note that (3.5) is trivially true even in the case m(A1) = 0. Consider the function s 7 → v(s) := 
+
+m(Bs(x0)) that, by definition, is left-continuous and non-decreasing. Since it is possible to choose arbitrarily small radii r > 0 such that m(∂B r(x0)) = 0, the estimate (3.5) implies that v is continuous at each point s ∈ (0 , L ). In particular, we get that m(∂B s(x0)) = 0 for all s ∈ (0 , L ). From here, the Bishop-Gromov monotonicity (3.4) follows by the same arguments as in [83, Theorem 2.3]. □
+
+The next corollary is about a local doubling property of the reference measure and it immediately follows from the previous lemma (cf. [83, Corollary 2.4]). 
+
+Corollary 3.12. Let (X , d, m) be a metric measure space, and let ∅̸ = Ω ⊆ X be an open set satisfying CD loc (K(·), N (·)) . Then, for every x ∈ Ω there exists C(x) > 0 so that for all x0 ∈
+
+Br(x)/2(x) ∩ supp( m) we have 
+
+m(B2r(x0)) ≤ C(x)m(Br(x0)) , ∀r > 0 s.t. 2r < d(x0, B r(x)/2(x)c).
+
+Moreover, we can estimate 
+
+C(x) ≤
+
+
+
+2N (x), if K(x) ≥ 0 or N (x) = 1 ,
+
+2N (x) cosh 
+
+ r(x)2
+
+q −K(x) 
+
+> N(x)−1
+
+N (x)−1
+
+, otherwise .
+
+Furthermore, if supp( m Ω) = Ω , then m is locally doubling on Ω (in the sense of Definition 2.17) with the choice rD(x) = r(x)/2.
+
+Remark 3.13. We point out that if x, r (x), C (x) are as in the above corollary, there is C = C(x) > 0(depending only on C(x) above) such that for all r ≤ r(x)/10, it holds 
+
+m Br(x)( B2s(y)) ≤ C · m Br(x)( Bs(y)) , ∀s > 0, ∀y ∈ Br(x).
+
+In particular, we deduce that 
+
+ Br(x), d, m Br(x) , is uniformly doubling ,
+
+meaning that the doubling condition holds at every point and with every radius with uniform positive constant. This follows by standard arguments, using that Br(x)/10 (x) is geodesic (cf. Lemma 3.5), which implies the so-called corkscrew condition (see, e.g., [21, Definition 2.4 and Lemma 2.5]). ■
+
+We next show the stability of local curvature dimension bounds in the pmG-topology in the finite dimensional setting. The proof is similar in spirit to that already carried in Theorem 3.8. We shall refer to well established arguments contained in the monograph [85], limiting ourselves to note the main differences in the current local setting. 
+
+Theorem 3.14. Let (X n, dn, mn, x n) be a sequence of pointed complete metric measure spaces that are pmG-converging to a pointed complete limit space (X ∞, d∞, m∞, x ∞), and let (Z , d) be a realization of the convergence. Let Ωn ⊆ Xn, Ω∞ ⊆ X∞ be non-empty open sets. Assume that Ωn satisfies 
+
+CD loc (Kn(·), N n(·)) for all 1 ≤ n < ∞. Furthermore, denoting by rn(·) the local radius of Ωn,suppose the following: for all x ∈ Ω∞ there are yn ∈ Ωn with d(yn, x ) → 0 satisfying 
+
+lim 
+
+> n→∞
+
+rn(yn) > 0, K∞(x) := lim 
+
+> n→∞
+
+Kn(yn) > −∞ , N∞(x) := lim  
+
+> n→∞
+
+Nn(yn) < +∞.
+
+Then Ω∞ satisfies CD loc (K∞(·), N ∞(·)) with local radius r∞(x) = 110 ·lim n rn(yn). Finally, if r∞(x) = +∞ for some x ∈ Ω∞, then X∞ satisfies CD (K, N ) globally with K = K∞(x), N = N∞(x).Proof. We fix x ∈ Ω∞ as in the assumption (without loss of generality, we also require x ∈ supp( m∞)). The classical argument from [85, Chapter 29] that shows the stability of the global CD (K, N ) con-dition still works in our context (notice that [85, Theorem 29.25] is stated for fixed K, N along the sequence, but the same result indeed holds for variable sequences Kn, Nn for instance taking into account [85, Theorem 29.20]). Indeed, we observe that for a.e. r < 110 · lim n rn(yn) it holds (3.6) (Br(yn) ∩ supp( mn), mn Br(yn), y n) pmG 
+
+−−−→ (Br(x) ∩ supp( m∞), m∞ Br(x), x ).18 
+
+For any such r, we know that the sequence of spaces is uniformly doubling. Indeed, Proposition 3.5 guarantees the existence of geodesics from yn to any z ∈ Br(yn). By Remark 3.13, this allows us to localize the doubling property given by Corollary 3.12 to these spaces, at the cost of a fixed increase in the doubling constant. In light of the latter observation, [48, Proposition 3.33] and [48, Remark 3.29] guarantee that the convergence (3.6) in the sense of Definition 2.20 is equivalent to the one employed in [85], that is, the so-called pointed measured Gromov Hausdorff (pmGH) convergence . The setting is now identical to the one of [85, Theorem 29.25]: since we performed an analogous localization, the original proof carries over, yielding that (3.3) holds for all probabilities ρ0, ρ 1 supported in B r 
+
+> 2
+
+(x). Indeed, the convexity inequality (3.3) is only required on the balls B r 
+
+> 2
+
+(yn) (see also the proof of [85, Theorem 29.24]), a fact that is guaranteed in our local scenario. □
+
+3.3. The local Riemannian curvature dimension condition. We recall that coupling the infin-itesimal Hilbertianity with the curvature dimension condition leads to a subclass of metric measure spaces that is tailored to study limits of Riemannian structures. In the following definitions, we adopt the same combination for the local finite or infinite dimensional setting. 
+
+Definition 3.15. Let (X , d, m) be a metric measure space, and let ∅̸ = Ω ⊆ X be an open set. We say that Ω satisfies RCD loc (K(·), ∞), if it is infinitesimally Hilbertian and satisfies CD loc (K(·), ∞).
+
+Definition 3.16. Let (X , d, m) be a metric measure space, and let ∅̸ = Ω ⊆ X be an open set. We say that Ω satisfies RCD loc (K(·), N (·)) , if it is infinitesimally Hilbertian and satisfies CD loc (K(·), N (·)) .
+
+4. Local density estimates along transport geodesics 
+
+In the following theorem, we revisit the main result in [76] on open sets satisfying the CD loc 
+
+condition. We show that there is an abundance of test plans concentrated on geodesics between bounded marginals whose supports are sufficiently small. 
+
+Theorem 4.1. Let (X , d, m) be a complete metric measure space, and let ∅̸ = Ω ⊆ X be an open set satisfying CD loc (K(·), ∞). Let x ∈ Ω, and let ρ0, ρ 1 ∈ L∞(m) be boundedly supported probability densities satisfying 
+
+supp( ρ0) ∪ supp( ρ1) ⊆ Br(x)/6(x).
+
+Then, there exists π ∈ OptGeo( ρ0m, ρ 1m) with (et)♯π ≪ m and, writing (et)♯π := ρtm, we have 
+
+(4.1) ∥ρt∥L∞(X) ≤ e K−(x)6 D2
+
+max ∥ρ0∥L∞(X) , ∥ρ1∥L∞(X) , ∀t ∈ [0 , 1] ,
+
+where D := sup {Lip( π) | π ∈ OptGeo( ρ0m, ρ 1m)} ≤ r(x)3 .Proof. We closely follow the same arguments in [76]. We only highlight the main difference arising from the local framework while reporting the main steps for the sake of clarity. Without loss of generality, and upon replacing K(x) with K−(x), we may consider the case K(x) ≤
+
+0 only. Since Ω satisfies CD loc (K(·), ∞), we can find π ∈ OptGeo( ρ0m, ρ 1m) supported on curves of length at most D satisfying (3.1). By Jensen’s inequality and after manipulations in 3.1 (see [76] for details) following spreading of mass under the curvature dimension condition holds (4.2) m({ρ 12
+
+> 0}) ≥
+
+
+
+e K−(x)D28 max ∥ρ0∥L∞(X) , ∥ρ1∥L∞(X) 
+
+−1
+
+,
+
+where ( e 12
+
+)♯π = ρ 12
+
+m. Hereafter we will set M := e K−(x)D28 max ∥ρ0∥L∞(X) , ∥ρ1∥L∞(X) for brevity. Let us consider the excess functional FC : P2(X) → [0 , ∞] defined for C ≥ 0 as follows (4.3) FC (μ) = ∥(ρ − C)+∥L∞(X) + μs(X) , if μ = ρm + μs
+
+Note that FC (μ) = 0 encodes two pieces of information on μ, namely the fact that it is absolutely continuous, and that its density is bounded from above by C.19 
+
+Next, we recall from [76] that, given μ0 and μ1 with bounded supports, then It(μ0, μ 1) is closed in (P2(X) , W 2), and a minimizer of FC (·) exists in It(μ0, μ 1) by standard lower semicontinuity property of the excess functional. A key point is then to show that for C > M it holds (4.4) min   
+
+> ν∈I 12
+> (μ0,μ 1)
+
+FC (ν) = 0 .
+
+The proof of (4.4) consists of two parts. The first part aims at showing that if a minimizer ν = ρν m+νs
+
+satisfies ρν ≤ C, the second one that νs = 0. Let us see the proof of the first part. What we do is assuming by contradiction that m({ρν > C }) > 0 and using this information to create a new competitor ˜ ν ∈ I 12
+
+(μ0, μ 1) with FC (˜ ν) < FC (ν), which cannot be. To construct ˜ ν, one roughly redistributes some of the mass of ν which is over the threshold C, and so is penalized by the functional. To be precise, we choose the minimizer ν in such a way that (4.5) m({ρν > C }) ≥
+
+ MC
+
+ 14
+
+sup 
+
+> η∈I min
+
+m({ρη > C }),
+
+where Imin is the (non-empty) set of minimizers for FC in I 12
+
+(μ0, μ 1). Subsequently, denoted A := 
+
+{ρν > C }, we choose a set A′ := {ρν > C + δ} s.t. 
+
+m(A′) ≥
+
+ MC
+
+ 12
+
+m(A).
+
+Let α ∈ Opt( μ0, ν ), β ∈ Opt( ν, μ 1), and consider ˜π ∈ OptGeo 
+
+
+
+(P 0)♯
+
+α|X×A′
+
+ν(A′) , (P 1)♯
+
+β|A′×X
+
+ν(A′)
+
+
+
+,
+
+chosen in a way that (4.2) holds. Denote Γ t := ( et)♯ ˜π the corresponding W2-geodesic and consider its decomposition Γ 12
+
+= ρΓm + Γ s. Then it follows from (4.2) that (4.6) m({ρΓ > 0}) ≥ ν(A′)
+
+M ≥ CM m(A′) ≥
+
+ CM
+
+ 12
+
+m(A).
+
+Now we redistribute the mass of the measure ν via ˜ν := ν|X\A′ + CC + δ ν|A′ + δC + δ ν(A′)Γ 12
+
+.
+
+Applying [76, Lemma 3.5], one can check that ˜ ν ∈ I 12
+
+(μ0, μ 1) (i.e., ˜ ν is an admissible candidate). Also, a computation gives that 
+
+FC (ν) − F C (˜ ν) = 
+
+ˆ 
+
+> {ρν<C }
+
+min 
+
+
+
+C − ρν , δC + δ ν(A′)ρΓ
+
+
+
+dm ≥ 0.
+
+Hence, to avoid a contradiction, it must be FC (ν) = FC (˜ ν) (i.e. ˜ ν is also a minimizer). But then the integrand must vanish m-a.e., implying that m({ρν < C } ∩ { ρΓ > 0}) = 0. Moreover, by construction 
+
+ρ˜ν > C m-a.e. on the set {ρν ≥ C} ∩ { ρΓ > 0}, hence 
+
+m({ρ˜ν > C }) ≥ m({ρΓ > 0}) (4.6) 
+
+≥
+
+ CM
+
+ 12
+
+m({ρν > C }) (4.5) 
+
+≥
+
+ CM
+
+ 14
+
+sup 
+
+> η∈I min
+
+m({ρη > C }),
+
+which is still a contradiction (since C > M ), concluding the proof that any minimizer of FC (·) has density bounded from above by C. The proof that νs = 0 follows a similar argument, showing finally ((4.4)). We refer again to [76] for details on the aforementioned computations. Furthermore, by arbitrariness of C > M and by the definition of the functional, it holds min   
+
+> ν∈I 12
+> (μ0,μ 1)
+
+FM (ν) = 0 .20 
+
+In particular, we can find a midpoint μ 12
+
+∈ I 12
+
+(μ0, μ 1) such that FM (μ 12
+
+) = 0, which means that 
+
+μ 12
+
+= ρ 12
+
+m for some ρ 12
+
+∈ L∞(X) , ρ 12
+
+≤ M at m-a.e. point. The proof of the theorem then follows by iterating the construction above on dyadic time scales, obtaining the desired geodesic s 7 → Γs by completion. More precisely, we set Γ 0 = μ0, Γ 1 = μ1, and at the n-th step we produce Γ k 
+
+> 2n
+
+= ρ k 
+
+> 2n
+
+m,
+
+k = 1 , 3, . . . , 2n −1 as described, starting (inductively) from Γ k−12n and Γ k+1 2n . Note that by Lemma 3.4 all the measures involved in the construction are supported in B2r/ 3(x), which means that every step employing the curvature dimension condition can be carried out in our local setting. Furthermore, using again Lemma 3.4 to estimate Lip(˜ π) uniformly for all ˜ π ∈ OptGeo(Γ k−12n , Γ k+1 2n ) one can find by induction the following estimate for all n ∈ N, k = 1 , . . . , 2n
+
+(4.7) 
+
+∥ρ k 
+
+> 2n
+
+∥L∞(X) ≤
+
+> n
+
+Y
+
+> i=1
+
+e K−(x)D222i+1 max ∥ρ0∥L∞(X) , ∥ρ1∥L∞(X) ≤ e K−(x)D26 max ∥ρ0∥L∞(X) , ∥ρ1∥L∞(X) .
+
+Having defined Γ on a dense set in [0 , 1], it can be extended by continuity as a W2-geodesic [0 , 1] ∋ s 7 → Γs from μ0 to μ1, also taking into account Lemma 3.4. Finally, the sought geodesic plan π ∈ OptGeo( μ0, μ 1) is given by the optimal lifting (cf. [63]) and, thanks to the semicontinuity of FC and the estimate (4.7), the desired compression bounds (4.1) hold. □
+
+It is well known that the above compression estimates imply the validity of Poincar´ e inequalities (cf. [76]). We next include a short proof of this fact, as it is highly relevant for our goals. 
+
+Proposition 4.2. Let (X , d, m) be a complete metric measure space, and let ∅̸ = Ω ⊆ X be an open set. Suppose that Ω satisfies CD loc (K(·), ∞). Fix x0 ∈ Ω, r > 0 and a ball B2r(x) ⊂ B0 := 
+
+Br0(x)/6(x0). If u ∈ Lip( B0), then for all p ≥ 1 it holds 
+
+ˆ 
+
+> Br(x)
+
+|u − (u)Br (x)|pdm ≤ 22p+1 e K−(x)4 r26 rp
+
+ˆ 
+
+> B2r(x)
+
+lip( u)p dm.
+
+Proof. We follow the proof of [76, Theorem 4.1]. Abbreviate B = Br(x) and define M to be the median of u in the ball B, i.e. 
+
+M = min 
+
+
+
+a ∈ R : m({u > a }) ≤ m(B)2
+
+
+
+.
+
+Using the median M we cover the ball B with two Borel sets 
+
+B+ = {x ∈ B : u(x) ≥ M } and B− = {x ∈ B : u(x) ≤ M }.
+
+Notice that m(B+), m(B−) ≥ m(B)/2. Let 
+
+π ∈ OptGeo 
+
+ 1
+
+m(B+) m|B+ , 1
+
+m(B−) m|B−
+
+
+
+be the geodesic given by Theorem 4.1 and let ρt be the density of ( et)♯π with respect to m. By (4.1) we have (4.8) ρt(y) ≤ C(r) 2
+
+m(B) m-a.e. y
+
+for all t ∈ [0 , 1], with C(r) = e K−(x)4 r26 . Now observe that we have an equality 
+
+|u(γ0) − u(γ1)| = |u(γ0) − M | + |M − u(γ1)|21 
+
+for π-almost every γ ∈ Geo (X). Therefore 
+
+ˆ
+
+> Geo (X)
+
+|u(γ0) − u(γ1)|pdπ(γ)
+
+≥
+
+ˆ
+
+> Geo (X)
+
+|u(γ0) − M |pdπ(γ) + 
+
+ˆ
+
+> Geo (X)
+
+|M − u(γ1)|pdπ(γ)= 1
+
+m(B+)
+
+ˆ
+
+> B+
+
+|u(y) − M |pdm(y) + 1
+
+m(B−)
+
+ˆ
+
+> B−
+
+|M − u(y)|pdm(y)
+
+≥ 1
+
+m(B)
+
+ˆ
+
+> B
+
+|u(y) − M |pdm(y).
+
+Since π-almost every γ ∈ Geo (X) is contained in the ball B2r(x) we have 
+
+ˆ 
+
+> Br(x)
+
+|u − (u)Br (x)|pdm ≤ 1
+
+m(B)
+
+¨
+
+> B×B
+
+|u(y) − u(z)|pdm(y)d m(z)
+
+≤ 2p−1
+
+m(B)
+
+¨
+
+> B×B
+
+(|u(y) − M |p + |M − u(z)|p)d m(y)d m(z)= 2 p
+
+ˆ
+
+> B
+
+|u(y) − M |pdm(y) ≤ 2pm(B)
+
+ˆ
+
+|u(γ0) − u(γ1)|pdπ(γ)
+
+≤ 2p(2 r)pm(B)
+
+ˆ ˆ 10
+
+lip( u)p(γt)d tdπ(γ) = 2 2prpm(B)
+
+ˆ 10
+
+ˆ
+
+> X
+
+lip( u)p(y)ρt(y)d m(y)d t
+
+≤ 22p+1 rpC(r)
+
+ˆ 10
+
+ˆ 
+
+> B2r(x)
+
+lip( u)p(y)d m(y)d t = 2 2p+1 rpC(r)
+
+ˆ 
+
+> B2r(x)
+
+lip( u)pdm,
+
+having used (4.8) in the last inequality. □
+
+In the following part, we are going to see that assuming strong CD loc (K(·), ∞) implies a sharper 
+
+L∞ density estimate. The reason being that optimal geodesics are unique in this case. The following analysis essentially follows from the one carried out in [77], and we include a quick proof to reduce to their assumptions. 
+
+Theorem 4.3. Let (X , d, m) be a complete metric measure space, and let ∅̸ = Ω ⊆ X be an open set. Suppose that Ω satisfies strong CD loc (K(·), ∞). Fix x ∈ Ω, and let B := Br(x)/4(x). Then, B is an essentially non-branching locus, i.e. for every μ0, μ1 ∈ P2(B) which are absolutely continuous with respect to m, then any π ∈ OptGeo( μ0, μ 1) is concentrated on a set of non-branching geodesics. In particular, there is a unique π ∈ OptGeo( μ0, μ 1) and it is induced by a map. Proof. The thesis follows directly from [77, Remark 3.2] (which contains the most general form of the main result of the paper, where the global CD condition is dropped) and Corollary 1.4 therein (for the last conclusion). Indeed, we only have to check that Ent m is K(x)-convex along (rest ts)♯(f π ) ( x
+
+being the centre of the ball B), for every π ∈ OptGeo( μ0, μ 1), 0 ≤ s < t ≤ 1 and f : Geo(X) → [0 , ∞)with ´ 
+
+> Geo(X)
+
+f dπ = 1. This simply follows from the fact that supp(( et)♯(f π )) ⊂ 2B for all t ∈ [0 , 1] and by taking into account Lemma 3.2. □
+
+Thanks to the above uniqueness result of optimal geodesic plans, the next corollary directly follows from Theorem 4.1. 
+
+Corollary 4.4. Let (X , d, m) be a complete metric measure space, and let ∅̸ = Ω ⊆ X be an open set satisfying strong CD loc (K(·), ∞). Let x ∈ Ω, and let ρ0, ρ 1 ∈ L∞(X) be boundedly supported probability densities satisfying 
+
+supp( ρ0) ∪ supp( ρ1) ⊆ Br(x)/6(x).22 
+
+Then, the unique π ∈ OptGeo( ρ0m, ρ 1m) with (et)♯π ≪ m satisfies 
+
+(4.9) ∥ρt∥L∞ ≤ e K−(x)6 Lip( π)2
+
+max ∥ρ0∥L∞(X) , ∥ρ1∥L∞(X) , ∀t ∈ [0 , 1] ,
+
+having written (et)♯π := ρtm.
+
+We will also need the following variant of Theorem 4.1, where the uniform L∞ bound is only near 
+
+t = 0, but the gain is the convexity inequality (3.1). 
+
+Proposition 4.5. Let (X , d, m) be a complete metric measure space, and let ∅̸ = Ω ⊆ X be an open set satisfying CD loc (K(·), ∞). Let x ∈ Ω, and let ρ0, ρ 1 ∈ L∞(X) be boundedly supported probability densities satisfying 
+
+supp( ρ0) ∪ supp( ρ1) ⊆ Br(x)/6(x).
+
+Then, there exists π ∈ OptGeo( ρ0m, ρ 1m) s.t. μt := ( et)♯π ≪ m and, writing μt := ρtm, we have that 
+
+μt satisfies the convexity inequality (3.1) for all t ∈ [0 , 1] and there exists t0 > 0 such that 
+
+(4.10) sup 
+
+> t∈[0 ,t 0]
+
+∥ρt∥L∞ < ∞.
+
+Proof. The proof follows by the same lines of that in [5, Theorem 4.2] which is in turn similar to that of Theorem 4.1, and it exploits again the fact that supp( ρ0) ∪ supp( ρ1) ⊂ Br(x)/6(x) and the very definition of CD loc (K(·), ∞). We omit the details. □
+
+5. Stability of infinitesimal Hilbertianity: non-negative curvature 
+
+In this section we show that the local L∞-estimates along transport geodesic obtained in Theorem 4.1, coupled with the assumption of local non-negative curvature, are already effective to deduce related stability results as already noted in [70]. The proof in this simplified setting highlights the main steps of the strategy that will be carried out to show the main results. 
+
+Proposition 5.1. Let (X n, dn, mn, x n) be a sequence of pointed complete metric measure spaces that are pmG-converging to a pointed complete limit space (X ∞, d∞, m∞, x ∞), and let (Z , d) be a realization of the convergence. Let Ωn ⊆ Xn, Ω∞ ⊆ X∞ be non-empty open sets. Assume that Ωn
+
+satisfies RCD loc (Kn(·), ∞) for all 1 ≤ n < ∞. Furthermore, denoting by rn(·) the local radius of Ωn,suppose the following: for x ∈ Ω∞ there are yn ∈ Ωn with d(yn, x ) → 0 satisfying lim n rn(yn) > 0
+
+and lim n Kn(yn) ≥ 0. Then Ω∞ is infinitesimally Hilbertian. Proof. We divide the proof into two steps. First we show a lower semicontinuity result for the Cheeger energy, then we exploit the Proposition 5.2 below to conclude the proof. 
+
+Step 1 . We claim that, for any f∞ ∈ L2(X ∞) supported in a ball Br(x) small enough, and for any 
+
+fn → f∞ in L2-weak, it holds Ch( f∞) ≤ lim 
+
+> n↑∞
+
+Ch( fn).
+
+First, fixed ε > 0, notice that Ch( f∞) is the same as Ch H (f∞) with H := Br+ε(x), being f∞
+
+supported in Br(x). Recall also by Theorem 2.9 that we can characterize Ch 1/2(f∞) as the minimal constant C ≥ 0 such that (5.1) 
+
+ˆ
+
+f∞(γ1) − f∞(γ0) d π ≤ Comp( π)1/2Ke 1/2(π)C, 
+
+holds for all test plans π. Again, it is enough to check the above for all test plans π with γt ∈
+
+Br+ε(x) for all t ∈ [0 , 1] and π-a.e. γ, being f∞ supported in Br(x). We thus consider fixed any such test plan π and, in order to conclude, it suffices to show that (5.1) holds for the choice C =lim n Ch 1/2(fn). Without loss of generality, we shall also suppose that C = lim n Ch 1/2(fn) along a suitable subsequence. 23 
+
+Let now ρ0m∞ := ( e0)♯π, ρ1m∞ := ( e1)♯π and construct for i = 0 , 1 sequences of densities ρi,n s.t. 
+
+ρi,n mn ∈ P(X n) and 
+
+ρi,n → ρi in L2-strong, supp( ρi,n ) ⊆ Br+2 ε(x) ∩ Xn, lim  
+
+> n
+
+∥ρi,n ∥L∞(X n) ≤ ∥ ρi∥L∞(X ∞)
+
+(see [70, Lemma 4.1]). We may assume with no loss of generality that x ∈ supp( m∞) (otherwise the statement is trivial). Consider, by assumptions, a sequence yn ∈ Ωn with the properties that yn → x
+
+(in the realization) and that lim n rn(yn) > 0, lim n Kn(yn) ≥ 0. Hence, for n large enough we have supp( ρi,n ) ⊆ Br+3 ε(yn) ∩ Xn.
+
+Now, if r < r 0(x) = 16 lim n rn(yn) then (choosing ε > 0 small enough) the supports of the measures 
+
+ρi,n satisfy the hypothesis in Theorem 4.1 for all n. Let then πn ∈ OptGeo( ρ0,n , ρ 1,n ) the plan given by Theorem 4.1 and observe that lim n Kn(yn) ≥ 0 in (4.1) yields lim n Comp( πn) ≤ Comp( π). Also, lim n Ke( πn) = lim n W 22 (ρ0,n , ρ 1,n ) = W 22 (ρ0, ρ 1) ≤ Ke( π). Hence, using (2.19) at first, we get 
+
+ˆ
+
+f∞(γ1) − f∞(γ0) d π = lim 
+
+> n↑∞
+
+ˆ
+
+fn(γ1) − fn(γ0) d πn
+
+≤ lim  
+
+> n↑∞
+
+Comp ( πn)1/2 Ke 1/2 (πn) Ch 1/2(fn)
+
+≤ Comp( π)1/2Ke 1/2(π) lim  
+
+> n↑∞
+
+Ch 1/2(fn),
+
+thus showing the claim. 
+
+Step 2 . Fix f , g ∈ H1,2(X) with supports well-contained in Ω ∞. We claim that (5.2) 2|∇ f |2 + 2 |∇ g|2 = |∇ (f + g)|2 + |∇ (f − g)|2 m-a.e. in Ω ∞.
+
+Notice that, by separability and locality of weak gradients, the claim would follow if we can show that for every x ∈ Ω∞ there is a ball B ⊂ Ω∞ centred in x where (5.2) holds m-a.e. on B. Therefore, thanks to Theorem 2.14, it is enough to prove that 2Ch( f ) + 2Ch( g) = Ch( f + g) + Ch( f − g)holds for each f, g supported on B = Br(x), for some suitably small r. Choose r = r(x) and construct recovery sequences fn, g n converging in L2-strong to f, g as in Proposition 5.2 below. For n large enough, it holds that fn, g n are supported in Ω n. Thus, we deduce 2Ch( f ) + 2Ch( g) = lim 
+
+> n→∞
+
+(2Ch( fn) + 2Ch( gn)) = lim 
+
+> n→∞
+
+(Ch( fn + gn) + Ch( fn − gn)) 
+
+≥ Ch( f + g) + Ch( f − g).
+
+The other inequality simply follows by replacing f, g with ( f + g)/2, ( f − g)/2. By arbitrariness of 
+
+B, this shows (5.2) and thus concludes the proof. □
+
+Proposition 5.2. Let (X n, dn, mn, x n) be a sequence of pointed complete metric measure spaces that are pmG-converging to a pointed complete limit space (X ∞, d∞, m∞, x ∞). Let us fix (Z , d) a realization of the convergence, and let B ⊆ Z be a ball. For all f∞ ∈ L2(X ∞) with supp( f∞) ⋐ B, there exists a sequence fn ∈ L2(X n) ∩ Lip(X n) so that fn converges in L2-strong to f∞, with the property that 
+
+supp( fn) ⊆ B ∩ Xn and 
+
+Ch( f∞) ≥ lim  
+
+> n→∞
+
+Ch( fn).
+
+Finally, the same conclusion holds for all f∞ ∈ L2(X ∞) with no restriction on the support. Proof. The last conclusion is known, and shown for instance in [46, Theorem 4.4] (see also the arguments in [11, 48]). Here, we handle the case B ⊂ Z, being careful about the supports. Fix ε > 0s.t. supp( f∞) ⊆ (1 − ε)B. First, by definition of the Cheeger energy, we can find a sequence gk ∈
+
+L2(X ∞)∩Lip(X ∞) s.t. gk → f∞ in L2(X ∞) and ´ (lip agk)2dm∞ → Ch( f∞). We can also assume that supp( gk) ⊂ (1 − ε 
+
+> 2
+
+)B, since one can easily check that the sequence ηg k, where η ∈ Lip(X ∞), 0 ≤ η ≤ 124 
+
+is a suitable cut-off function, provides a better competitor. Now, exploiting the main result in [38] we extend gk to a function ˜ gk ∈ Lip(Z) such that (5.3) lip a(gk) = lip a(˜ gk) on X ∞.
+
+Notice that, if we take χ ∈ Lip(Z; [0 , 1]) s.t. χ ≡ 1 in (1 − ε 
+
+> 2
+
+)B, supp( χ) ⊂ B, then obviously χ˜gk =˜gk = gk on X ∞, and furthermore, thanks to the Leibniz rule lip a(χ˜gk) ≤ ∥ χ∥L∞ lip a(˜ gk) + Lip( χ)|˜gk|,we deduce lip a(χ˜gk) = 
+
+(
+
+lip a(˜ gk) on X ∞ ∩ (1 − ε 
+
+> 2
+
+)B, 
+
+0 on X ∞ ∩  (1 − ε 
+
+> 2
+
+)Bc .
+
+Hence, (5.3) continues to hold for χ˜gk. That is, we can assume that supp(˜ gk) ⊂ B. Now, set 
+
+fk,n := ˜ gk |Xn ∈ Lip bs (X n); it is immediate that, for any k ∈ N, fk,n → gk in L2-strong. Furthermore, using the upper semicontinuity of lip a(˜ gk) on Z, we obtain 
+
+ˆ
+
+> X∞
+
+
+
+lip a(gk)
+
+2
+
+dm∞ =
+
+ˆ
+
+> Z
+
+
+
+lip a(˜ gk)
+
+2
+
+dm∞ ≥ lim 
+
+> n→∞
+
+ˆ
+
+> Z
+
+
+
+lip a(˜ gk)
+
+2
+
+dmn
+
+≥ lim 
+
+> n→∞
+
+ˆ
+
+> Xn
+
+(lip a(fk,n )) 2 dmn ≥ lim  
+
+> n
+
+Ch( fk,n ).
+
+We can then conclude with a diagonalization argument, i.e. setting fn := fk(n),n for a suitable sequence k(n) → ∞ . This is justified as the L2-strong convergence is metrizable (cf. [48, 11]). □
+
+The rest of the manuscript is devoted to dealing with the general case with possibly negative local curvature lower bounds. We will implement the same strategy as in [70], but the local setting presents a key challenge in deducing local essential nonbranching properties. We will overcome these difficulties by first studying localized properties of the heat flow. Before passing to this analysis, we show an application of our methods in the presence of nonnegative curvature. 5.1. Application: Euclidean weak tangents. In this part, we shall exploit the scaling properties of Ricci curvature lower bounds along a blow-up sequence, and show that the weak tangents of spaces satisfy the (global) RCD condition. This easily implies the existence of Euclidean weak tangents thanks to [47]. 
+
+Definition 5.3 (Weak tangents) . Let (X , d, m) be a metric measure space and let x ∈ supp( m), a pointed metric measure space (Y, ρ, μ, y ) is a weak tangent to (X , d, m) at x if there exists a sequence of radii sn ↓ 0 such that 
+
+(X , dsn , msn 
+
+> x
+
+, x ) pmG 
+
+−−−→ (Y, ρ, μ, y ), as n → ∞ ,
+
+where 
+
+ds = d
+
+s and msx =
+
+ˆ
+
+> Bs(x)
+
+1 − d(·, x )
+
+s dm
+
+!−1
+
+m.
+
+The collection of weak tangents at the point x is denoted by Tan(X , d, m, x ).
+
+We are ready to show next our application. 
+
+Proof of Theorem 1.2. Let ( Y, ρ, μ, y ) ∈ Tan(X , d, m, x ) be a weak tangent arising from a pmG-convergent sequence (X , dsn , msn 
+
+> x
+
+, x ), as in Definition 5.3. It is straightforward to check Ω satisfies 
+
+CD loc (s2 
+
+> n
+
+K(·), N (·)), when regarded as an open subset of the metric measure space (X , dsn , msi 
+
+> x
+
+, x )with local radius rn(x) := r(x) 
+
+> sn
+
+, for all n ∈ N. Since, by the scaling, it holds that rn(x) → +∞, then by Theorem 3.14 and Proposition 5.1 (applied with Ω ∞ = Y ) we conclude that any weak tangent satisfies RCD (0 , N (x)) globally. This settles the first conclusion. The last conclusion, being local, will follow if we can show that for all x ∈ Ω, there are Euclidean weak tangents at m-a.e. x′ ∈ B r(x)10 
+
+(x). By [48, Theorem 3.15], and employing in particular the 25 
+
+so-called intrinsic approach ([48, Definition 3.8]), it follows that, for all x′ ∈ Bs(x), the weak tangent enjoys the following localization property: Tan(X , d, m, x ′) = Tan  Bs(x), d, m Bs(x), x ′ .
+
+By Remark 3.13, we know that 
+
+
+
+B r(x)10 
+
+(x), d, m B r(x)10 
+
+(x)
+
+
+
+is doubling. Therefore, for any sn ↓ 0, it holds that 
+
+
+
+B r(x)10 
+
+(x), dsn , (m B r(x)10 
+
+(x)) sn 
+
+> x′
+
+, x ′
+
+
+
+is a family of uniformly doubling pointed metric measure spaces. Then, by [47, Proposition 2.2] there exists, up to taking a subsequence, a weak tangent ( Y, ρ, μ, y ) ∈ Tan 
+
+
+
+B r(x)10 
+
+(x), d, m B r(x)10 
+
+(x), x ′
+
+
+
+and, by the previous discussion, this satisfies the RCD (0 , N (x′)) condition. Note that after the restriction to the ball B r(x)10 
+
+(x), thanks to the uniform doubling property, it is possible to work with the stronger notion of pmGH-convergence given by [47, Definition 2.1], hence, we can apply the results from [47]. In particular, by [47, Theorem 1.1], there exists a point y′ ∈ Y such that ( Rn, deu , Ln, 0) ∈ Tan( Y, ρ, μ, y ′) for some n ≤ N (x′). Finally, thanks to the metric version of Preiss’ theorem [47, Theorem 3.2] (which states that tangents of tangents are tangents), we can conclude that, for m-a.e. x′ ∈ B r(x)10 
+
+(x), (Rn, deu , Ln, 0) ∈ Tan( Y, ρ, μ, y ′) ⊆ Tan 
+
+
+
+B r(x)10 
+
+(x), d, m B r(x)10 
+
+(x), x ′
+
+= Tan(X , d, m, x ′).
+
+This concludes the proof. □
+
+6. Properties of the heat kernel on John domains 
+
+The goal of this section is to deduce both qualitative and quantitative properties of the kernel associated with the heat flow localized on suitable domains (namely, John domains) of metric measure spaces locally satisfying the doubling condition and Poincar´ e inequalities. The main result of the section will be Theorem 6.17. Since we will invoke results from the literature on general Dirichlet forms, we start with some basic preliminaries about them (though we will only be interested in the form induced by a quadratic Cheeger energy). 6.1. General Dirichlet forms. We only consider the classical case of symmetric Dirichlet forms in a σ-finite measure space (X , m), see for example [42] for a standard reference. For simplicity, we omit from the notation the σ-algebra where m is defined, which will always be the Borel σ-algebra. 
+
+Definition 6.1 (Dirichlet form) . A (symmetric) Dirichlet form on L2(X , m) is a pair (E, F), where 
+
+F is a dense linear subspace of L2(X , m) and E is a bilinear symmetric positive semidefinite form 
+
+E : F × F → R satisfying the following properties: 
+
+• (Closedness) F is a Hilbert space endowed with the inner product E1(f, g ) := E(f, g )+ ´ f g dm;
+
+• (Markovian property) for all f ∈ F , η : R → R 1-Lipschitz with η(0) = 0 , setting g := η ◦ f ,we have g ∈ F and E(g, g ) ≤ E (f, f ).
+
+Definition 6.2 (Heat semigroup) . Let (X , m) be a σ-finite measure space. Given a Dirichlet form 
+
+(E, F), we call heat semigroup induced by E the family of operators ht : L2(X , m) → F , t > 0, s.t. for every f0 ∈ L2(X , m) the family ft := ht(f0) represents the L2-gradient flow starting from f0 of the functional 
+
+E(f ) := 
+
+( 12 E(f, f ), if f ∈ F ,
+
++∞, if f ∈ L2(X , m) \ F .
+
+Notice that the gradient flow of E is well-defined as the closedness assumption guarantees that E
+
+is lower semicontinuous (besides being convex). Equivalently (see e.g. [42, Section 1.3]), ht could be defined as the semigroup generated by the unique (self-adjoint negative semidefinite) linear operator ∆E : D(∆ E ) ⊂ F → L2(X , m) s.t. E(f, g ) = − ´ ∆E f · g dm. This gives in particular that f 7 → ht(f )is linear (and thus we can use the notation htf ). As a consequence of the Markovian property, if 
+
+f ≥ 0 then htf ≥ 0 for all t > 0. 26 
+
+Definition 6.3. Let (X , τ ) be a locally compact, separable and Hausdorff space, and let m be a positive Radon measure on X s.t. supp( m) = X . We say that a Dirichlet form (E, F) on L2(X , m) is 
+
+• regular if F ∩ Cc(X) is dense both in (F, √E1) and in Cc(X) , endowed with the sup norm; 
+
+• strongly local if E(f, g ) = 0 for all f, g ∈ F s.t. f is constant on a neighbourhood of supp( g).
+
+The Dirichlet form associated to a quadratic Cheeger energy is always strongly local by locality of weak gradients (see Theorem 2.8). The regularity property is a bit more delicate, but it is at least satisfied if the ambient space is compact by the density in energy of Lipschitz functions (see e.g. [7, Theorem 4.3]). 
+
+Remark 6.4. If E is strongly local and 1 ∈ F (in particular m(X) < ∞), then it is easily seen that 
+
+ht1 = 1 for all t > 0 (i.e. ht is mass-preserving). ■
+
+Let ( E, F) be a symmetric regular Dirichlet form. Then, under the assumptions of Definition 6.3, we can write 
+
+E(f, g ) = 
+
+ˆ
+
+dΓ( f, g ),
+
+where Γ is measure-valued carr´ e du champ , i.e. a positive semidefinite symmetric bilinear form on F
+
+with values in the signed Radon measures on X, the so-called energy measure (see e.g. [42, Section 3.2]). The map f 7 → Γ( f, f ) can be canonically extended to 
+
+Floc := {f ∈ L2
+
+> loc
+
+(X , m) : ∀K ⊆ X compact ∃ g ∈ F s.t. f = g m-a.e. in K}.
+
+In the special case of quadratic Cheeger energies Γ( f, g ) can be represented by L1 functions, with Γ( f, f ) = |∇ f |2 for all f ∈ H1,2(X). 
+
+Definition 6.5. Let (X , τ ) be a locally compact and separable Hausdorff space, and let m be a positive Radon measure on X s.t. supp( m) = X . Let (E, F) be a symmetric regular Dirichlet form. For all 
+
+x, y ∈ X, we define the intrinsic (pseudo)distance induced by E by 
+
+dE (x, y ) := sup {f (x) − f (y) : f ∈ F loc ∩ C(X) , Γ( f, f ) ≤ m on X}.
+
+Notice that, even though dE is lower semicontinuous in X ×X, it might be degenerate (i.e. dE (x, y ) = 0 for some x̸ = y) or take the value + ∞. We will denote BE 
+
+> r
+
+(x) := {y ∈ X : dE (x, y ) < r }.
+
+Definition 6.6. Let (X , τ ) be a locally compact, separable and Hausdorff topological space, and let 
+
+∅̸ = U ⊂ X be open. We say that a symmetric regular Dirichlet form (E, F) is strongly regular on 
+
+U if dE is a (finite-valued) distance on U and it induces on U the original topology τ .
+
+6.2. Heat kernel: definitions and properties. We now recall some results about the existence of a continuous kernel for the heat semigroup of an abstract Dirichlet form, and pointwise upper Gaussian bounds on the kernel itself. We recall that our standing assumptions on the metric measure structure (X , d, m) is that (X , d) is a locally complete separable metric space and m is a nonnegative measure satisfying (2.1), in particular it is locally finite. According to the literature of Dirichlet forms, it is also standard to work with (X , d) that is locally compact, and this is often implied by the fact that m is locally doubling (see [80]). In our setting, we shall verify these assumptions by working on John domains of a PI space, which guarantee useful properties on the heat semigroup. 
+
+Definition 6.7 (Heat kernel) . Given a σ-finite measure space (X , m), and a symmetric Dirichlet form (E, F) on L2(X , m), we say that a measurable function p : (0 , ∞) × X × X → R+ is a heat kernel 
+
+for E if, denoted by (ht)t> 0 the L2 heat semigroup induced by E, there exist a m-negligible subset 
+
+N ⊆ X s.t. for all s, t > 0 and x, y ∈ X \ N we have 
+
+htf (x) = 
+
+ˆ
+
+pt(x, z )f (z) d m(z) ∀f ∈ L2(X); (6.1) 
+
+pt(x, y ) = pt(y, x ); (6.2) 
+
+p(s + t, x, y ) = 
+
+ˆ
+
+p(t, x, z )p(s, z, y )d m(z),(6.3) 27 
+
+where pt(x, y ) := p(t, x, y ).
+
+A natural question is whether the heat kernel of a Dirichlet form satisfies Gaussian decay estimates as in the Euclidean case. In the setting of general Dirichlet forms, a key contribution was given by the papers [80, 81]. In [81] it is shown that, if the doubling condition and a Poincar´ e inequality hold globally on (X , dE , m), and under the assumption that the form E is strongly local and strongly regular on the whole X, then p admits a H¨ older continuous representative, and it is possible to prove upper and lower Gaussian like bounds for pt(x, y ), i.e. estimates of the form 1
+
+tβ exp 
+
+
+
+−c1
+
+d2 
+
+> E
+
+(x, y )
+
+t + C1t
+
+
+
+≲ pt(x, y ) ≲ 1
+
+tβ exp 
+
+
+
+−c2
+
+d2 
+
+> E
+
+(x, y )
+
+t + C2t
+
+
+
+,
+
+for constants c1, c 2, C 1, C 2 > 0, β > 1. However, when working with open domains Ω of a metric measure space (as it will be in our case), matching this framework would require a really strong assumption which makes Ω a global PI space itself (for instance the fact that Ω is a uniform domain, see [21]). Luckily, (uniform) Gaussian upper bounds require less structure on the space than double-sided bounds and can be achieved with a weaker condition on (X , dE , m) than being globally a PI space. This was already clear from the paper [80], where it was not required a Poincar´ e inequality, but only a Sobolev inequality (on all balls BE 
+
+> r
+
+(x) ⊆ X). More recently, in [33] it has been shown that the presence of a global Nash-type inequality, which can be easily deduced from a global Sobolev inequality, is by itself sufficient to infer (and actually characterize) the validity of upper Gaussian bounds. Hence, we have the following (see [33, Theorem 1.2 and Corollary 1.3] and also [80, Theorem 2.4]). 
+
+Theorem 6.8 (Heat kernel upper bounds) . Let (X , d) be a locally compact, separable metric space, let m be a positive Radon measure with full support on X and let (E, F) be a symmetric, strongly local and regular Dirichlet form on L2(X , m), with associated heat semigroup ht. Let δ ≥ 0 and β > 0,then the following are equivalent. (1) The following Nash-type inequality holds: 
+
+(6.4) ∥f ∥2+2 /β L2 ≤ C(E(f, f ) + δ∥f ∥2 
+
+> L2
+
+),
+
+for some C > 0 and all f ∈ F with ∥f ∥L1 ≤ 1.(2) There exist a heat kernel p for the form E and a m-negligible set N ⊆ X such that for any 
+
+ε ∈ (0 , 1) there is a constant Cε > 0 satisfying 
+
+(6.5) pt(x, y ) ≤ Cε
+
+tβ exp 
+
+
+
+− d2 
+
+> E
+
+(x, y )4(1 + ε)t + δt 
+
+
+
+, ∀t > 0, ∀x, y ∈ X \ N. 
+
+Corollary 6.9. In the setting of Theorem 6.8, assume that m(X) < ∞ and that the following Sobolev inequality holds for some Q > 2 and all f ∈ F :(6.6) ∥f − (f )X∥2  
+
+> L2∗(X)
+
+≤ C · E (f, f ),
+
+where C > 0, (f )X := 1
+
+> m(X)
+
+´ f dm and 2∗ := 2QQ−2 . Then the upper Gaussian estimate (6.5) holds for all t > 0 and all x, y ∈ X \ N (with β = Q 
+
+> 2
+
+and δ = 1 
+
+> C
+
+m(X) − 2 
+
+> Q
+
+), for some m-negligible set N .Proof. We deduce the Nash-type inequality (6.4) just by combining (6.6) with the interpolation inequality ∥f ∥L2 ≤ ∥ f ∥ 
+
+> QQ+2
+> L2∗
+
+∥f ∥ 
+
+> 2
+> Q+2
+> L1
+
+and the inequality ∥f ∥L2∗ ≤ ∥ f − (f )X∥L2∗ + ∥f ∥L2 m(X) − 1 
+
+> Q
+
+. □
+
+We next directly invoke the results of [81] to show the following local estimate about the regularity of the heat kernel. 28 
+
+Theorem 6.10. Let (X , τ ) be a locally compact and separable Hausdorff space, let m be a positive Radon measure with full support on X and let (E, F) be a symmetric, strongly local and regular Dirichlet form on L2(X , m) which admits a heat kernel p. Furthermore, equip X with the distance 
+
+dE . Let U ⊆ X be an open set such that for every x ∈ U there exist an open neighbourhood Vx ∋ x
+
+and rx > 0 such that, if we set BE (x) := BE 
+
+> rx
+
+(x), then BE (x) ⊂ Vx and (i) E is strongly regular on Vx;(ii) m is doubling on BE (x);(iii) the following generalized weak (2 , 2) -Poincar´ e inequality holds on BE (x):
+
+(6.7) 
+
+ˆ 
+
+> BE
+> r(x0)
+
+|f − (f )BE 
+
+> r(x0)
+
+|2dm ≤ C2 
+
+> P
+
+r2
+
+ˆ 
+
+> BE
+> σr (x0)
+
+dΓ( f, f ), ∀f ∈ F ,
+
+for any x0 ∈ BE (x) and r > 0 such that {y ∈ X : dE (x0, y ) ≤ σr } ⊂ BE (x), where CP =
+
+CP (x) > 0 and σ = σ(x) > 1.Then the heat kernel p admits a pointwise representative which is locally H¨ older continuous on 
+
+(0 , ∞) × U × U with respect to dE .Proof. The key estimate is given by [81, Proposition 3.1], which (note that, up to decreasing the radius, we can assume that BE (x) is compact, recall that dE is lower semicontinuous) yields that every u : (0 , ∞) × X → R of the form u(t, ·) = htf for some f ∈ L2(X) admits a representative which satisfies the following: for all x ∈ U there exist CH (x) > 0 and 0 < α (x) < 1 s.t. for all t0 > 0(6.8) |u(t1, y 1) − u(t2, y 2)| ≤ CH (x) sup  
+
+> (t0−r2
+> x,t 0+r2
+> x)×BE(x)
+
+|u| (|t1 − t2|1/2 + dE (y1, y 2)) α(x),
+
+for all ( t1, y 1), (t2, y 2) ∈
+
+
+
+t0 − r2
+
+> x
+
+8 , t 0 + r2
+
+> x
+
+8
+
+
+
+×BE
+
+> rx/2
+
+(x). The estimate above follows from the fact that the doubling and Poincar´ e assumptions allow to prove a local Harnack inequality for u, see [81, Theo-rem 3.5]. The basic idea is now to apply (6.8) with u = p(·, y, ·) and u = p(·, ·, z ), with y, z close to x1,
+
+x2 ∈ U respectively, and to use the Harnack inequality to control the term sup (t0−r2  
+
+> x,t 0+r2
+> x)×BE(x)
+
+|u|,after we have chosen a canonical representative for p in (0 , ∞) × U × U (which requires again the Harnack inequality). For the details, we refer to [62, Proposition 6.3] or to [20, Section 4.3.3]. □
+
+Remark 6.11. Note that the setting of Theorem 6.10 differs from that in [81] only for two details: the fact that the radius 2 r is replaced by σr in (6.7) (as it is quite standard in the theory of PI spaces, see e.g. [54]), which only affects the value of the local constants, and the fact that E is required to be strongly regular on Vx only, which makes no difference due to the local nature of the results [81, Proposition 3.1 and Theorem 3.5]. ■
+
+Now, in the special case where E is induced by a quadratic Cheeger energy (under suitable doubling and Poincar´ e assumptions), we are essentially able to replace the intrinsic distance dE with the original distance d of the space in the statements of Theorem 6.8 and Theorem 6.10. 
+
+Lemma 6.12 (Local Lipschitz equivalence of d and dE ). Let (X , d, m) be an infinitesimally Hilbertian and compact metric measure space s.t. supp( m) = X , and let E be the Dirichlet form associated to the Cheeger energy on X. Then dE ≥ d on X × X.Moreover, let B ⊆ X be an open ball s.t. m is doubling on B and the weak (1 , 2) -Poincar´ e inequality holds on B. Then there exists a constant C > 0 s.t. dE ≤ Cd on 19 B × 19 B, i.e. d and dE are Lipschitz-equivalent on 19 B.Proof. Since Γ( f, f ) = |∇ f |2, the inequality dE ≥ d simply follows from testing Definition 6.5 with 
+
+f = d(·, y ). The converse inequality (on 19 B) is instead a consequence of the following Lusin-Lipschitz estimate. There exists C > 0 such that, for all f ∈ W 1,2(B)(6.9) |f (x) − f (y)| ≤ C
+
+2 d(x, y )
+
+q 
+
+M4d(x,y )|∇ f |2(x) + 
+
+q
+
+M4d(x,y )|∇ f |2(y)
+
+
+
+,29 
+
+for all x, y ∈ ( 19 B) \ N (for some m-negligible set N ), where MRg(x) := sup 0<r<R 
+
+ffl   
+
+> Br(x)
+
+|g| dm.Indeed, if (6.9) holds, then for every f ∈ W 1,2 
+
+> loc
+
+(X) ∩ C(X) s.t. |∇ f | ≤ 1 m-a.e. we have 
+
+|f (x) − f (y)| ≤ Cd(x, y ),
+
+for x, y ∈ ( 19 B) \ N , and then for all x, y ∈ 19 B by continuity. The validity of (6.9) follows by the same lines of the proof of [54, Theorem 3.2]. Namely, one fixes x, y which are Lebesgue points for f
+
+(recall the doubling assumption) and then, by applying the Poincar´ e inequality on balls of the form 
+
+Bi(x) = B2−id(x,y )(x), i ∈ N ∪ { 0}, one infers 
+
+|f (x) − fB0(x)| ≤ CP CD
+
+> ∞
+
+X
+
+> i=0
+
+2−id(x, y ) 2Bi(x)
+
+|∇ f |2dm
+
+!1/2
+
+≤ 2CP CDd(x, y )( M2d(x,y )|∇ f |2(x)) 1/2,
+
+and the analogous estimate for |f (y) − fB0(y)|, with CP > 0 as in (2.18) and CD > 0 as in (2.17). Moreover (notice that 4 B0(x) ⊂ B for all x, y ∈ 19 B), 
+
+|fB0(x) − fB0(y)| ≤ | fB0(x) − f2B0(x)| + |fB0(y) − f2B0(x)| ≤ 4CP CDd(x, y ) 4B0(x)
+
+|∇ f |2dm
+
+!1/2
+
+≤ 4CP CDd(x, y )( M4d(x,y )|∇ f |2(x)) 1/2,
+
+which completes the proof of (6.9). □
+
+Proposition 6.13. Let (X , d, m) be an infinitesimally Hilbertian and compact metric measure space s.t. supp( m) = X . Let E be the Dirichlet form associated to the Cheeger energy on X, let ht be the associated L2-heat flow, and assume that it admits a heat kernel p. Let U ⊆ X be an open set s.t. for every x ∈ U there exists rx > 0 such that m is doubling on Brx (x) and the weak (2 , 2) -Poincar´ einequality holds on Brx (x). Then the heat kernel p admits a representative which is locally H¨ older continuous on (0 , ∞) × U × U .Proof. We check the assumptions of Theorem 6.10. First, E is regular as X is compact. Thanks to Lemma 6.12, we have dE ≥ d, and for every x ∈ U we can find a radius rx > 0 such that, if we set B(x) := Brx (x), then B(x) is compact, m satisfies the doubling property and the weak (2 , 2)-Poincar´ e inequality on B(x) and dE ≤ C(x)d on B(x) × B(x) for some C(x) > 0. By combining these properties the validity of (ii) and (iii) in the ball BE 
+
+> rx
+
+(x) ⊆ B(x) follows easily. Finally, the equivalence of d and dE on B(x) also proves (i) with Vx = B(x). □
+
+6.3. Upper Gaussian estimates on John domains. The goal is to apply Corollary 6.9 and Proposition 6.13 on balls arising from local curvature dimension conditions. To this aim, we shall restrict the metric measure structure (X , d, m) to closed balls and check the validity of a global Sobolev inequality on the same balls. To this aim, a crucial property to point out is that, metric balls in geodesic spaces have sufficiently nice connectivity properties. Namely, they are John domains 
+
+according to the following notion. 
+
+Definition 6.14 (John domain) . Let (X , d) be a metric space and let ∅̸ = Ω ⊆ X be open. We say that Ω is a John domain if there exist a point x0 ∈ Ω and a constant c > 0 s.t. for every x ∈ Ω there exists a curve γ : [0 , L ] → Ω (parametrized by arclength) s.t. γ0 = x, γ(L) = x0 and 
+
+d(γt, Ωc) ≥ ct ∀t ∈ [0 , L ],
+
+where the length L depends on x.
+
+Remark 6.15. If (X , d) is geodesic, then any ball Ω = Br(y0) ⊂ X is trivially a John domain with 
+
+x0 = y0. Indeed, if we pick a geodesic γ from x ∈ Ω to the center y0 (parametrized by arclength) then 
+
+d(γt, Ωc) ≥ r − d(γt, y 0) = r − (d(x, y 0) − t) > t. 30 
+
+Note that it is actually enough to have geodesics from y0 to any point in Br(y0). Actually in the locally compact case it suffices that (X , d) is a length space, see [54, Corollary 9.5] (then c > 0 is a universal constant valid for all balls). ■
+
+We report from [54, Theorem 9.7] a useful result for our goals. 
+
+Theorem 6.16 (Sobolev inequality on John domains) . Let (X , d) be a metric space and let ∅̸ = Ω ⊆
+
+X be a bounded John domain. Let m be a Borel measure on X which satisfies the doubling property 
+
+m(B2r(x)) ≤ 2Qm(Br(x)) ,
+
+for some Q > 0, all x ∈ Ω and r ≤ 5diam(Ω) . Assume that the pair (u, g ) satisfies the weak (1 , p )-Poincar´ e inequality on Ω (with constant CP ), as well as the pair (vba, gχ {a<v ≤b}) for all 0 < a < b < 
+
+∞, c ∈ R and ε ∈ {− 1, 1}, where v := ε(u − c) and vba := max {0, min {(v − a), (b − a)}} . Then, if 
+
+1 ≤ p < Q 
+
+(6.10) ∥u − uΩ∥Lp∗ (Ω) ≤ C diam(Ω) ∥g∥Lp(Ω) ,
+
+where p∗ = Qp Q−p and C = C(Q, C P ).
+
+Theorem 6.17 (Local regularity of the heat kernel on John domains) . Let Ω be a bounded John domain in a metric space (X , d). Let m be a Borel measure on X s.t. m(∂Ω) = 0 and supp( m Ω) = Ω ,which satisfies the doubling property 
+
+m(B2r(x)) ≤ CDm(Br(x)) ,
+
+for some CD > 0 and all x ∈ Ω and r ≤ 5diam(Ω) . Assume also that the weak (2 , 2) -Poincar´ einequality holds in Ω. Assume further that Ω is infinitesimally Hilbertian, let E be the Dirichlet form associated to the Cheeger energy on (Ω , d, m Ω) and let ht be the associated L2-heat flow. Then, there exists a function p : (0 , ∞) × Ω × Ω → R+ s.t.: (1) p is locally H¨ older continuous in (0 , ∞) × Ω × Ω;(2) p is the integral kernel of ht (as in Definition 6.7); (3) we have the Gaussian estimate 
+
+pt(x, y ) ≤ Ctβ exp 
+
+
+
+−c d2(x, y )
+
+t + Ct 
+
+
+
+,
+
+for some β > 0, 0 < c, C < ∞ and all (t, x, y ) ∈ (0 , ∞) × Ω × Ω.Proof. By assumption, for every function u ∈ H1,2(Ω), the couple ( u, |∇ u|) satisfies the weak (1 , 2)-Poincar´ e inequality on Ω (as well as all the truncations ( vba, |∇ u|χ{a<v ≤b}) in the statement of Theorem 6.16, by locality of the weak gradient). Then, by Theorem 6.16, the couple ( u, |∇ u|) satisfies the Sobolev inequality (6.10). Hence, we can apply Corollary 6.9 with X = Ω (Ω can be shown to be compact with the very same arguments of Lemma 2.18) to deduce that ht is representable by a kernel 
+
+p satisfying, for example (recall that dE ≥ d), 
+
+pt(x, y ) ≤ Ctβ exp 
+
+
+
+− d2(x, y )5t + Ct 
+
+
+
+,
+
+for all t > 0 and x, y ∈ Ω \ N , for some constant C > 0 and some m-negligible set N , with 
+
+β = log 2(CD )2 > 0. To conclude, we apply Proposition 6.13 (with X = Ω and U = Ω) to infer that 
+
+p admits a representative which is (locally H¨ older) continuous on Ω, exploiting that for any x ∈ Ωdoubling and Poincar´ e hold on the neighbourhood Brx (x) with rx = d(x, Ωc). □
+
+The regularity of the heat kernel guaranteed by Theorem 6.17 allows us (for any Ω as in the state-ment) to define a dual heat flow h∗ 
+
+> t
+
+on Ω for measures concentrated on Ω (which include absolutely continuous measures). Indeed, the formula (6.11) ⟨h∗ 
+
+> t
+
+μ, ϕ ⟩ := ⟨μ, htϕ⟩, ϕ ∈ Cb(Ω) ,31 
+
+defines an operator h∗ 
+
+> t
+
+: P(Ω) → P(Ω) since htϕ = ´ 
+
+> Ω
+
+pt(·, y )ϕ(y)d m(y) is still an element of 
+
+Cb(Ω) (even for ϕ bounded Borel, i.e. ht satisfies the strong Feller property on Ω). The fact that 
+
+h∗ 
+
+> t
+
+μ has unitary mass follows from ht1 = 1 (which holds pointwise in Ω, since ht1 is continuous), recall Remark 6.4. The following result provides the standard representation formula and additional properties for h∗ 
+
+> t
+
+μ.
+
+Corollary 6.18 (Representation of the dual heat flow on interior measures) . Let μ ∈ P(Ω) , with 
+
+Ω ⊂ X and (X , d, m) as in Theorem 6.17, and let h∗ 
+
+> t
+
+be the dual heat flow on P(Ω) defined by (6.11) .Then h∗ 
+
+> t
+
+μ = ftm, for a function ft ∈ Cb(Ω) given by 
+
+(6.12) ft(x) = 
+
+ˆ
+
+pt(x, y )d μ(y).
+
+Furthermore, ftm is weakly convergent to μ as t → 0.Proof. The formula (6.12) is well-posed and defines a continuous bounded function (on the open domain Ω) by continuity and boundedness of pt. Moreover, for every ϕ ∈ Cb(Ω) 
+
+⟨h∗ 
+
+> t
+
+μ, ϕ ⟩ =
+
+ˆ
+
+ϕ(x)
+
+ˆ
+
+pt(x, y )d μ(y)
+
+
+
+dm(x).
+
+Now, recalling (6.11), in order to check the weak convergence of ftm to μ it suffices to show that 
+
+htϕ → ϕ pointwise (i.e. the statement for μ = δx, x ∈ Ω). This follows by the Gaussian estimates on pt, as for any x ∈ Ω and ε > 0 one infers 
+
+ˆ
+
+> Ω
+
+pt(x, y )|ϕ(y) − ϕ(x)| dm(y) ≤ Ctβ e−c ε2 
+
+> t
+
+eCt 2∥ϕ∥L∞ + sup 
+
+> d(x,y )≤ε
+
+|ϕ(y) − ϕ(x)|,
+
+which gives the claimed convergence by sending t → 0 and then ε → 0. □
+
+7. From RCD loc to strong CD loc 
+
+In this section, the setting will be an open subset Ω of a metric measure space (X , d, m) which satisfies the RCD loc (K(·), ∞) property. We shall also assume, without loss of generality since re-stricting to the support of the ambient measure has no impact on curvature dimension conditions, that supp( m Ω) = Ω. We will denote by r(x) and K(x) the parameters given by Definition 3.1. Our main goal will be to show that Ω also satisfies the strong CD loc (K(·), ∞) property. To achieve this result, we will eventually follow the argument of [5, Theorem 6.1]: thus, our strategy will consist in proving a local version of the EVI inequality along the heat flow. Before starting, we note that some important adaptations will be required: we will actually obtain a version of EVI modified by an error term. To control this term, we will have to assume that the reference measure m is locally doubling on Ω (so that we can exploit the results of Section 6). The main result of this section will be Theorem 7.5. 7.1. EVI with error term. The goal of this subsection is to prove Theorem 1.4. We shall first prove the following technical result and later use results from Appendix A, collected there as they are independent from curvature dimension conditions. 
+
+Theorem 7.1 (Derivative of the entropy) . Let (X , d, m) be a complete metric measure space, let 
+
+∅̸ = Ω ⊆ X be open, and let us assume that Ω satisfies RCD loc (K(·), ∞). Let Br(x) ⊆ Ω be a ball such that r < r(x)6 and dds m(Bs(x)) exists at s = r. Let E be the Dirichlet form associated to the Cheeger energy on L2(Br(x)) . Let η = f m ∈ P(Br(x)) , with f ∈ L2 ∩ L∞(Br(x)) , E(f, f ) < ∞
+
+and let also σ ∈ P(Br(x)) such that supp( σ) is compact. Then there exists a Lipschitz Kantorovich potential φ for (η, σ ) on B2r(x) such that 
+
+Ent m(σ) − Ent m(η) − K(x)2 W 22 (σ, η ) ≥ −E (f, φ ) − C lim  
+
+> s↑r
+
+∥f ∥L∞(Br (x)\Bs(x)) ,
+
+where C = C(r) = 2 r ddr m(Br(x)) .32 
+
+Proof. By Remark 2.13, and by the assumptions on Ω, we have that for any open ball B ⊆ Ω with 
+
+m(∂B ) = 0 it holds that ( B, d, m B) is an infinitesimally Hilbertian space. Consequently, we can consider the Dirichlet form E(f, f ) = Ch B (f ) associated to a quadratic Cheeger energy defined for every f ∈ L2(B). For any n ∈ N, let χn be a Lipschitz function such that supp( χn) ⊂ Br(x), 0 ≤ χn ≤ 1, χn ≡ 1 on 
+
+B(1 − 1 
+
+> n)r
+
+(x) and |∇ χn| ≤ n+1  
+
+> r
+
+. Set, for any n ∈ N and δ > 0, 
+
+fn := χnf
+
+´  
+
+> Br(x)
+
+χnf dm and fn,δ := 1Br (x)
+
+fn + δ
+
+1 + δm(Br(x)) .
+
+Note that both fnm and fn,δ m are probability measures supported on Br(x). To simplify the notation, from now on we set δ′ := δ  
+
+> 1+ δm(Br(x))
+
+(notice that fn,δ ≡ δ′ on Br(x) \ supp( χn)). Consider σ ∈ P(Br(x)), and let π ∈ OptGeo( fn,δ m, σ ) be the geodesic given by Proposition 4.5, which then satisfies the displacement convexity of the entropy (3.1) and the density bound (4.10) for some t0 > 0. Note that the curves in its support will be supported in B2r(x). Hereafter, we shall assume without loss of generality that m(∂B 2r(x)) = 0; if this is not the case, the construction can be still carried for a.e. R such that R > 2r. Let φn,δ ∈ Lip( B2r(x)) be a Kantorovich potential associated with (( e0)♯π, (e1)♯π) as in Proposition 2.3, so that Lip( φn,δ ) ≤ 3r.Since the properties given by Proposition 2.3 are invariant under additions of constants, we may assume that (7.1) |φn,δ (y)| ≤ 6r2 ∀y ∈ B2r(x).
+
+Let ρtm := μt := ( et)♯π for all t ∈ [0 , 1]. We set ˜ρt = ρt + δ′1B2r (x)\Br (x), ˜μt := ˜ ρtm.
+
+In particular, we denote ˜fn,δ := ˜ ρ0 = fn,δ + δ′1B2r (x)\Br (x).
+
+We have Ent m(σ) − Ent m(μ0) − K(x)2 W 22 (σ, μ 0) ≥ Ent m(μt) − Ent m(μ0)
+
+t = Ent m(μt) − Ent m(fn,δ m)
+
+t .
+
+We will now show that (7.2) lim 
+
+> t→0
+
+Ent m(μt) − Ent m(fn,δ m)
+
+t ≥ lim 
+
+> t→0
+
+Ent m(˜ μt) − Ent m( ˜fn,δ m)
+
+t + k(δ),
+
+where lim δ→0 k(δ) = 0. By construction, since π is concentrated on geodesics of length smaller than 2r, μt is concentrated on Br+2 tr (x), hence lim 
+
+> t→0
+
+Ent m(μt) − Ent m(fn,δ m)
+
+t − Ent m(˜ μt) − Ent m( ˜fn,δ m)
+
+t
+
+= lim 
+
+> t→0
+
+1
+
+t
+
+ˆ  
+
+> Br+2 tr (x)\Br(x)
+
+ρt log( ρt) − (ρt + δ′) log( ρt + δ′) + δ′ log( δ′)d m
+
+!
+
+≥ − 2ω(δ′) lim 
+
+> t→0
+
+m(Br+2 tr (x)) − m(Br(x)) 
+
+t = −4ω(δ′)r dds m(Bs(x)) |s=r,
+
+where ω is the modulus of uniform continuity of the function z 7 → z log z in the interval [0 , M ], with 
+
+M := sup t∈[0 ,t 0] ∥ρt∥L∞ + 1 < ∞. Now, by convexity Ent m(˜ μt) − Ent m( ˜fn,δ m)
+
+t ≥
+
+ˆ
+
+log( ˜fn,δ ) ˜ρt − ˜fn,δ 
+
+t dm =
+
+ˆ
+
+log( ˜fn,δ ) ρt − fn,δ 
+
+t dm
+
+=
+
+ˆ log( ˜fn,δ ◦ et) − log( ˜fn,δ ◦ e0)
+
+t dπ. 33 
+
+Define the functions Ft, G t : C([0 , 1] , X) → R as 
+
+Ft = log ( ˜fn,δ ◦ e0) − log ( ˜fn,δ ◦ et)
+
+d(γt, γ 0) and Gt = φn,δ ◦ e0 − φn,δ ◦ et
+
+d(γt, γ 0) ,
+
+with Ft, Gt set to 0 when γt = γ0. By the second part of Lemma A.2 (which we apply on B2r(x)), we have that (7.3) lim  
+
+> t→0
+
+Gt = lim 
+
+> t→0
+
+d(γt, γ 0)
+
+t = |∇ φn,δ |(γ0) in L2(C([0 , 1] , X) , π ).
+
+We now apply the first part of Lemma A.2 to h = log( ˜fn,δ ); note that |∇ h| ∈ L2(B2r(x)) as inf ˜fn,δ = δ′ > 0 (here we used the Leibniz rule and the chain rule for weak gradients from Theorem 2.8). Then, for some t0 > 0, we have (7.4) sup 
+
+> t≤t0
+
+ˆ
+
+|Ft|2dπ < ∞.
+
+Using (7.3) and (7.4) jointly we find lim 
+
+> t→0
+
+Ent m(˜ μt) − Ent m( ˜fn,δ m)
+
+t ≥ lim 
+
+> t→0
+
+ˆ
+
+−Ft(γ) d(γ0, γ t)
+
+t dπ = − lim 
+
+> t→0
+
+ˆ
+
+FtGtdπ. 
+
+Applying again Lemma A.2 with h = φn,δ + ε log( ˜fn,δ ) for ε > 0 we get (7.5) 
+
+ˆ
+
+|∇ (φn,δ + ε log( ˜fn,δ )) |2(γ0) d π ≥ lim 
+
+> t→0
+
+ˆ
+
+|Gt + εF t|2 dπ. 
+
+By subtracting (7.3) to (7.5), after a few computations and sending ε to 0, while accounting for (7.4), we find lim 
+
+> t→0
+
+ˆ
+
+FtGtdπ ≤ lim 
+
+> ε→0
+
+ˆ |∇ (φn,δ + ε log( ˜fn,δ )) |2 − |∇ φn,δ |2
+
+2ε fn,δ dm
+
+Notice furthermore that, by locality (since ˜fn,δ |supp( fn,δ )= fn,δ ), we get 
+
+ˆ |∇ (φn,δ + ε log( ˜fn,δ )) |2 − |∇ φn,δ |2
+
+2ε fn,δ dm =
+
+ˆ |∇ (φn,δ + ε log( fn,δ )) |2 − |∇ φn,δ |2
+
+2ε fn,δ dm
+
+= Efn,δ m(log( fn,δ ), φ n,δ ),
+
+having lastly used (2.16). All in all, we have proved that Ent m(σ) − Ent m(fn,δ m) − K(x)2 W 22 (σ, f n,δ m) ≥ −E fn,δ m(log( fn,δ ), φ n,δ ) + k(δ).
+
+Now, we can apply the chain rule given by Theorem 2.16, exploiting that (on Br(x)) φn,δ is Lipschitz and Ch( pfn,δ ) < ∞ (using fn,δ ≥ δ′ > 0). Therefore 
+
+Efn,δ m(log( fn,δ ), φ n,δ ) = E(fn,δ , φ n,δ ).
+
+We have then proved that (7.6) Ent m(σ) − Ent m(fn,δ m) − K(x)2 W 22 (σ, f n,δ m) ≥ −E (fn,δ , φ n,δ ) + k(δ).
+
+Sending δ → 0. We note that, by strong locality 
+
+E(fn,δ , φ n,δ ) = 11 + δm(Br(x)) E(fn, φ n,δ ).
+
+By Lemma 2.6 we can find a sequence δm ↓ 0 and a 3 r-Lipschitz Kantorovich potential φn relative to 
+
+fnm and σ in B2r(x) (still of the form (2.6)) such that φδm,n → φn pointwise. Note that, since by (7.1) 34 
+
+(φδm,n )m is bounded in H1,2(B2r(x)), this implies by reflexivity that φδm,n ⇀ φ n in H1,2(B2r(x)) (cf. Remark 2.13). Thus, by sending m → ∞ in (7.6) with δ = δm, we conclude that (7.7) Ent m(σ) − Ent m(fnm) − K(x)2 W 22 (σ, f nm) ≥ −E (fn, φ n).
+
+Sending n → ∞ . Using again Lemma 2.6 we can find a sequence nm ↑ ∞ and a 3 r-Lipschitz Kantorovich potential φ relative to f m and σ such that φnm → φ pointwise, and hence weakly in 
+
+H1,2(B2r(x)). We obtain lim  
+
+> m→∞
+
+E(f, φ nm ) = E(f, φ ).
+
+We note that |∇ φn| ≤ 2r on Br(x) by (2.6)) 
+
+|E (fn, φ n) − E (f, φ n )| ≤ 
+
+ˆ
+
+Γ( fn − f, φ n)d m ≤
+
+ˆ
+
+|∇ (fn − f )||∇ φn|dm
+
+≤ 2r
+
+ˆ
+
+|1 − cnχn||∇ f |dm + cn
+
+ˆ
+
+f |∇ χn|dm
+
+
+
+≤ 2r
+
+ˆ
+
+|1 − cnχn||∇ f |dm + cn
+
+n + 1 
+
+n ∥f ∥L∞(Br (x)\B(1 − 1  
+
+> n)r(x))
+
+m(Br(x)) − m(B(1 − 1 
+
+> n)r
+
+(x)) 
+
+r/n 
+
+!
+
+where cn = 1´ χnf dm → 1 as n → ∞ . All in all, we obtain, passing to the limit, that (7.8) lim  
+
+> n→∞
+
+|E (fn , φ n) − E (f , φ n)| ≤ C lim  
+
+> s↑r
+
+∥f ∥L∞(Br (x)\Bs(x)) .
+
+We are finally able to conclude the proof by sending m → ∞ in (7.7) (with n = nm) and obtaining Ent m(σ) − Ent m(f m) − K(x)2 W 22 (σ, f m) = lim  
+
+> m→∞
+
+Ent m(σ) − Ent m(fnm m) − K(x)2 W 22 (σ, f nm m)
+
+≥ lim  
+
+> m→∞
+
+−E (f, φ nm ) − |E (fnm , φ nm ) − E (f, φ nm )|≥ −E (f, φ ) − C lim  
+
+> s↑r
+
+∥f ∥L∞(Br (x)\Bs(x)) .
+
+□
+
+Proof of Theorem 1.4. By combining Theorem 7.1 with Proposition 2.15 we obtain that (7.9) Ent m(σ) − Ent m(μt) − K(x)2 W 22 (μt, σ ) ≥ 12ddt W 22 (μt, σ ) − C lim  
+
+> r′↑r
+
+∥ft∥L∞(Br (x)\Br′ (x)) 
+
+for a.e. t > 0, and any σ compactly supported in Br(x). To drop the assumption on σ we multiply both sides of (7.9) by eK(x)t and integrate to deduce, after manipulations 
+
+eK(x)t
+
+2 W 22 (μt, σ ) − eK(x)s
+
+2 W 22 (μs, σ ) ≤ (Ent m(σ) − Ent m(μt)) 
+
+ˆ ts
+
+eK(x)p dp(7.10) + C
+
+ˆ ts
+
+eK(x)p lim  
+
+> r′↑r
+
+∥fp∥L∞(Br (x)\Br′ (x)) dp, 
+
+having also used that the function t 7 → Ent m(μt) is nonincreasing by Proposition 2.11 . Since (7.10) holds for any σ compactly supported, it is possible to infer by density that it also holds for any 
+
+σ ∈ P(Br(x)). A differentiation provides the conclusion. □35 
+
+7.2. Local EVI implies strong CD loc under locally doubling. From now on, we additionally assume that m is locally doubling on an open set Ω, and we denote by rD(x) the radius given by Definition 2.17. 
+
+Lemma 7.2. Let (X , d, m) be a complete metric measure space, let ∅̸ = Ω ⊆ X be open, let us assume that Ω satisfies RCD loc (K(·), ∞) and that m is locally doubling on Ω. Then, for every x ∈ Ω, any ball B = Br(x) with r < min { rD (x)21 , r(x)6 } and m(∂B ) = 0 satisfies the hypotheses of Theorem 6.17. In particular, Corollary 6.18 holds on the domain B. Moreover, B is compact. Proof. First, recall that in our setting balls are John domains (see Remark 6.15 and Proposition 3.5). The condition r < r D(x)/21 guarantees that B2ρ(y) ⊂ BrD (x)(x) for every y ∈ B and ρ ≤
+
+5diam( B) = 10 r, so that the required doubling property holds. Notice that 2 r < r D(x) also implies the compactness of B by Lemma 2.18. Finally, since r < r(x)6 , Proposition 4.2 gives that the weak (2 , 2)-Poincar´ e inequality is also satisfied. □
+
+Thanks to Lemma 7.2, for sufficiently small balls B around x ∈ Ω we can extend the heat flow ht
+
+localized on B to every initial datum of the form μ0 ∈ P(B). The next lemma gives some properties of this flow. 
+
+Lemma 7.3. Let (X , d, m) be a complete metric measure space, let ∅̸ = Ω ⊆ X be open, and let us assume that Ω satisfies RCD loc (K(·), ∞) and that m is locally doubling on Ω. Fix x ∈ Ω and consider Br(x) with r < min { rD (x)21 , r(x)6 } and m(∂B r(x)) = 0 . Let ht be the heat semigroup on 
+
+(Br(x), d, m Br(x)) , let μ0 ∈ P(Br(x)) , and let μt := h∗ 
+
+> t
+
+μ0 = ftm. Then, for any t > t 0 > 0 we have (μs) ∈ AC 2([ t0, t ]; P2(X)) and 
+
+(7.11) Ent m(μt0 ) ≥ Ent m(μt) + 2 
+
+ˆ tt0
+
+Ch( pfs) d s + 12
+
+ˆ tt0
+
+| ˙μs|2 ds. 
+
+In particular, t 7 → Ent m(μt) is non-increasing in (0 , ∞). Finally, if σ ∈ P(Br(x)) , then for a.e. 
+
+t > 0 we have that any Lipschitz Kantorovich potential φt : B2r(x) → R for (μt, σ ) satisfies 
+
+12ddt W 22 (μt, σ ) = −E (ft, φ t),
+
+where E is the Dirichlet form associated to the Cheeger energy on L2(Br(x)) .Proof. Apply Proposition 2.11 and Proposition 2.15 using the semigroup property ft = ht−t0 ft0 for all t0 > 0 with ft0 ∈ Cb(B) (see Corollary 6.18). □
+
+Now, combining Lemma 7.3 with Theorem 7.1 in the case f = ft = h∗ 
+
+> t
+
+μ0 we finally deduce the following EVI inequality with an error term: Ent m(σ) − Ent m(μt) − K(x)2 W 22 (μt, σ ) ≥ 12ddt W 22 (μt, σ ) − C lim  
+
+> s↑r
+
+∥ft∥L∞(Br (x)\Bs(x)) .
+
+We are left with the estimate of the error ∥ft∥L∞(Br (x)\Bs(x)) for s < r . Our aim is to show that, if we pick an initial datum μ0 whose support is well-contained in Br(x), then the error term is infinitesimal as t → 0. The pointwise estimates on the heat kernel will be fundamental. 
+
+Proposition 7.4. Let (X , d, m) be a complete metric measure space, let ∅̸ = Ω ⊆ X be open, and let us assume that Ω satisfies RCD loc (K(·), ∞) and that m is locally doubling on Ω. Let Br(x) be such that r < min { rD (x)21 , r(x)6 } and m(∂B r(x)) = 0 . Then, for any μ0 ∈ P(Br′ (x)) for some r′ < r , for 
+
+ft := h∗ 
+
+> t
+
+μ0 one has 
+
+(7.12) lim  
+
+> t→0
+
+∥ft∥L∞(Br (x)\Bs(x)) = 0 , ∀s ∈ (r′, r ).36 
+
+Proof. As ft(y) = ´ pt(y, z )d μ0(z), a simple application of Theorem 6.17 (recall Lemma 7.2) gives 
+
+ft(y) ≤ Ctβ exp 
+
+
+
+−c (s − r′)2
+
+t + Ct 
+
+
+
+,
+
+for all y ∈ Br(x) \ Bs(x), thus concluding the proof. □
+
+We will now show how the local Riemannian curvature dimension condition implies the strong convexity of its defining entropy inequality. The proof follows the same strategy employed in [35] (see Proposition 3.1 and Theorem 3.2 therein). 
+
+Theorem 7.5. Let (X , d, m) be a complete metric measure space, let ∅̸ = Ω ⊆ X be open, and let us assume that Ω satisfies RCD loc (K(·), ∞) and that m is locally doubling on Ω. Fix x ∈ Ω, and let 
+
+˜r(x) := min { rD (x)21 , r(x)6 }. Then equation (3.1) holds for all μ0, μ 1 ∈ P2(X) with supp( μi) ⊆ B ˜r(x)2
+
+(x)
+
+for i = 0 , 1 and all π ∈ OptGeo( μ0, μ 1). In particular, Ω satisfies strong CD loc (K(·), ∞) with local radius ˜r(·).Proof. Clearly, it is enough to show the statement for boundedy supported probabilities μ0, μ 1 ≪ m.Given such μ0, μ1, fix r′ < ˜r(x)2 s.t. supp( μi) ⊂ Br′ (x) for i = 0 , 1, and fix r s.t. 2 r′ < r < ˜r(x) and  
+
+> dds
+
+m(Bs(x)) exists at s = r. Let then r0 := 2r′+r 
+
+> 2
+
+.Set K := K(x) for brevity and let σ ∈ P(Br(x)) be of the form σ = gm, g ∈ L∞(X), and combine Theorem 7.1 with Proposition 2.15 to obtain Ent m(σ) − Ent m(h∗ 
+
+> t
+
+(ν)) − K
+
+2 W 22 (h∗ 
+
+> t
+
+(ν), σ ) ≥ 12ddt W 22 (h∗ 
+
+> t
+
+(ν), σ ) − C∥ft∥L∞(Br (x)\Br0 (x)) ,
+
+where ν ∈ P(B2r′ (x)) is arbitrary, t > 0 and h∗ 
+
+> t
+
+(ν) = ftm denotes the heat flow of ν in Br(x). We now multiply both sides by eKt and integrate to deduce, after manipulations, the following 
+
+eKt 
+
+2 W 22 (h∗ 
+
+> t
+
+(ν), σ ) − 12 W 22 (ν, σ ) ≤ IK (t) (Ent m(σ) − Ent m(h∗ 
+
+> t
+
+(ν))) + C
+
+ˆ t
+
+> 0
+
+eKs ∥fs∥L∞(Br (x)\Br0 (x)) ds, 
+
+where IK (t) := ´ t 
+
+> 0
+
+eKs ds, having also used that t 7 → Ent m(μt) is nonincreasing (cf. (7.11)). Notice that the above holds in fact for any σ supported in Br′ (x), by approximation, as every term is weakly continuous in σ.By using the upper Gaussian estimate (cf. Proposition 7.4), we deduce 
+
+ˆ t
+
+> 0
+
+eKs ∥fs∥L∞(Br (x)\Br0 (x)) ds ≤ IK (t)ω(t),
+
+for some ω(t) → 0 as t ↓ 0. We can thus apply the above estimate twice, once with ν = ( es)♯π, σ = μ0, and then with ν =(es)♯π, σ = μ1 to deduce 
+
+IK (t) K
+
+2 s(1 − s)W 22 (μ0, μ 1) = eKt − 12 s(1 − s)W 22 (μ0, μ 1)
+
+≤ eKt 
+
+2 s(1 − s) ( W2(h∗ 
+
+> t
+
+(ν), μ 0) + W2(h∗ 
+
+> t
+
+(ν), μ 1)) 2 − 12
+
+ s(1 − s)2W 22 (μ0, μ 1) + s2(1 − s)W 22 (μ0, μ 1)
+
+≤ eKt 
+
+2
+
+ sW 22 (h∗ 
+
+> t
+
+(ν), μ 1) + (1 − s)W 22 (h∗ 
+
+> t
+
+(ν), μ 0) −
+
+ s
+
+2 W 22 (ν, μ 1) + 1 − s
+
+2 W 22 (ν, μ 0)
+
+
+
+≤ IK (t) ( sEnt m(μ1) + (1 − s)Ent m(μ0) − Ent m(h∗ 
+
+> t
+
+(ν))) + IK (t)ω(t).
+
+Finally, dividing by IK (t) and sending t ↓ 0, we achieve 
+
+K
+
+2 s(1 − s)W 22 (μ0, μ 1) ≤ sEnt m(μ1) + (1 − s)Ent m(μ0) − lim 
+
+> t↓0
+
+Ent m(h∗ 
+
+> t
+
+(ν)) ,37 
+
+which, after exploiting the weak lower semicontinuity of the relative entropy along with Corollary 6.18 (which guarantees that h∗ 
+
+> t
+
+(ν) ⇀ ν ), gives the desired conclusion after rearranging the inequality. □
+
+7.3. Local essential non-branching. We obtain the following improvement that will be crucial for the scope of our work. 
+
+Corollary 7.6. Under the hypotheses of Theorem 7.5, for every μ0, μ1 ∈ P2(Ω) which are absolutely continuous with respect to m and satisfy supp( μi) ⊆ B ˜r(x)4
+
+(x) for i = 0 , 1 and some x ∈ Ω, there is a unique π ∈ OptGeo( μ0, μ 1), which is concentrated on a set of non-branching geodesics and is induced by a map. Proof. Combine Theorem 7.5 and Theorem 4.3. □
+
+8. Stability of infinitesimal Hilbertianity: the general case 
+
+In this part, we prove our main results Theorem 1.1 and Theorem 1.3, as a byproduct of a more general analysis for infinite dimensional converging spaces. 
+
+Theorem 8.1. Let (X n, dn, mn, x n) be a sequence of pointed complete metric measure spaces that are pmG-converging to a pointed complete limit space (X ∞, d∞, m∞, x ∞), and let (Z , d) be a realization of the convergence. Let Ωn ⊆ Xn, Ω∞ ⊆ X∞ be non-empty open sets. Assume that Ωn is infinitesimally Hilbertian and satisfies strong CD loc (Kn(·), ∞) for all 1 ≤ n < ∞. Furthermore, denoting by rn(·)
+
+the local radius of Ωn, suppose the following: for all x ∈ Ω∞ there are yn ∈ Ωn with d(yn, x ) → 0
+
+satisfying lim n rn(yn) > 0 and lim n Kn(yn) > −∞ . Then Ω∞ is infinitesimally Hilbertian. 
+
+Notice that the above theorem implies our first main result Theorem 1.1. 
+
+Proof of Theorem 1.1. Since Ω n satisfies RCD loc (K(·), N (·)), with N (·) finite, then m is locally dou-bling on Ω n (see Corollary 3.12). Therefore, by Theorem 7.5, it holds that Ω n satisfies strong 
+
+CD loc (K(·), ∞), which implies that Ω ∞ is also infinitesimally Hilbertian by Theorem 8.1. Finally, the stability of the dimensional CD loc condition follows by Theorem 3.14. □
+
+The proof of Theorem 8.1 is postponed to the end of this section. We now carry out the main lower semicontinuity analysis for the Cheeger energy. 
+
+Theorem 8.2. Let (X n, dn, mn, x n) be a sequence of pointed complete metric measure spaces that are pmG-converging to a pointed complete limit space (X ∞, d∞, m∞, x ∞), and let (Z , d) be a realization of the convergence. Let Ωn ⊆ Xn, Ω∞ ⊆ X∞ be non-empty open sets. Assume that Ωn satisfies strong 
+
+CD loc (Kn(·), ∞) for all 1 ≤ n < ∞. Furthermore, denoting by rn(·) the local radius of Ωn, suppose there is x ∈ Ω∞ and yn ∈ Ωn with d(yn, x ) → 0 satisfying lim n rn(yn) > 0 and lim n Kn(yn) > −∞ .Let f∞ ∈ L2(X ∞) with supp( f∞) ⋐ Br(x) with r < r 0(x) := 16 · lim n rn(yn). Then, for every sequence 
+
+fn ∈ L2(mn) converging L2-weak to f∞ ∈ L2(m∞), we have 
+
+Ch( f∞) ≤ lim 
+
+> n→∞
+
+Ch( fn).
+
+Finally, if r0(x) = + ∞, the same conclusion holds for all f∞ ∈ L2(X ∞) with no restriction on the support. Proof. We follow the steps of the proof of [70, Theorem 5.1]. First, fixed ε > 0, notice that Ch( f∞)is the same as Ch H (f∞) with H := Br+ε(x), being f∞ supported in Br(x). Recall also by Theorem 2.9 that we can characterize Ch 1/2(f∞) as the minimal constant C ≥ 0 such that (8.1) 
+
+ˆ
+
+f∞(γ1) − f∞(γ0) d π ≤ Comp( π)1/2Ke 1/2(π)C, 
+
+holds for all 2-test plans π. Again, it is enough to check the above for all test plans π with γt ∈
+
+Br+ε(x) for all t ∈ [0 , 1] and π-a.e. γ, being f∞ supported in Br(x). We thus consider fixed any such test plan π and, in order to conclude, it suffices to show that (8.1) holds for the choice C =38 
+
+lim n Ch 1/2(fn). Without loss of generality, we shall also suppose that C = lim n Ch 1/2(fn) along a suitable subsequence. Fixed M ∈ N, we build a sequence of approximating test plans πMn ∈ P C([0 , 1] , Xn) as follows. Denoted ti := i/M and ρi := ( eti )♯π ∈ L∞(m∞) for i = 0 , . . . , M , we construct sequences of densities ˜ρi,n s.t. ˜ ρi,n mn ∈ P(X n) and ˜ρi,n → ρi in L2-strong, supp(˜ ρi,n ) ⊆ Br+2 ε(x) ∩ Xn, lim  
+
+> n
+
+∥˜ρi,n ∥L∞(mn) ≤ ∥ ρi∥L∞(m∞)
+
+for some fixed ε > 0 (see [70, Lemma 4.1]). Assuming with no loss of generality that x ∈ supp( m∞)(otherwise the statement is trivial), we can find a sequence yn ∈ Ωn, yn → x as in the hypotheses of Theorem 8.1. In particular, it holds that Kn(yn) ≥ K for some K > −∞ . Hence, for n large enough we have supp(˜ ρi,n ) ⊆ Br+3 ε(yn) ∩ Xn.
+
+Let ˜ ηi,n ∈ OptGeo(˜ ρi,n mn, ˜ρi+1 ,n mn). We would like to construct πMn as a polygonal geodesic by gluing the plans ˜ ηi,n , using Theorem 4.1 to control Comp( πMn ). However, in order to get a good estimate, some technical refinements are needed. Namely, denoted Γi,n := 
+
+n
+
+γ ∈ C([0 , 1] , Xn) : d2(γ0, γ 1) ≤ W2(˜ ρi,n mn, ˜ρi+1 ,n mn) 12
+
+o
+
+,
+
+we apply [70, Proposition 4.4] in order to replace ˜ ρi,n , ˜ηi,n with ρi,n , η i,n as in the statement of that result. In particular, supp( ρi,n ) ⊂ supp(˜ ρi,n ), (8.2) ηi,n (Γ ci,n ) = 0 ∀i = 0 , . . . , M − 1,
+
+and there exists δn,M with lim M lim n δn,M = 0 s.t. ∥ρi,n − ˜ρi,n ∥L1(mn) ≤ δn,M and ∥ρi,n ∥L∞ ≤
+
+(1 + δn,M )∥˜ρi,n ∥L∞ . The technical hypothesis PM −1 
+
+> i=0
+
+˜ηi,n (Γ ci,n ) ≤ 12 is satisfied for M ≥ M0 and 
+
+n ≥ n0(M ), see [70, Eq. (4.12)]. Now, if r < r 0(x) = 16 lim n rn(yn) then (choosing ε > 0 small enough) the supports of the measures 
+
+ρi,n satisfy the hypotheses in Theorem 4.1 for all n large enough. By Corollary 4.4 we know that the plan ηi,n is the unique element of OptGeo( ρi,n mn, ρ i+1 ,n mn), and so (4.1) holds for ηi,n , with the constant D being exactly Lip( ηi,n ) (recall (4.9)). Hence Comp( ηi,n ) ≤ e K− 
+
+> 6Lip( ηi,n )2
+
+max ∥ρi,n ∥L∞(mn), ∥ρi+1 ,n ∥L∞(mn)) ,
+
+which, using (8.2), yields Comp( ηi,n ) ≤ e K−   
+
+> 6W2(˜ ρi,n mn,˜ρi+1 ,n mn)12
+
+max  
+
+> j=0 ,...,M
+
+∥ρj,n ∥L∞(mn).
+
+Then, with a gluing argument (see, e.g., [44, Lemma 2.1.1]), we find πMn ∈ P(C[0 , 1] , Xn)) with the property 
+
+ηi,n =
+
+
+
+rest ti+1 
+
+> ti
+
+ 
+
+> ♯
+
+πMn , ∀i = 0 , 1, ..., M − 1.
+
+Arguing as in [70, Proposition 4.5], we can show that lim   
+
+> M→∞
+
+lim  
+
+> n→∞
+
+Comp( πMn ) ≤ Comp( π), lim   
+
+> M→∞
+
+lim  
+
+> n→∞
+
+Ke( πMn ) ≤ Ke( π).
+
+Furthermore, setting ξn = ˜ ρ0,n , ζ n = ˜ ρM,n (notice that the latter does not depend on M ), it holds 
+
+ξn → d( e0)♯π
+
+dm∞
+
+in L2-strong , ζn → d( e1)♯π
+
+dm∞
+
+in L2-strong ,
+
+lim   
+
+> M→∞
+
+lim  
+
+> n→∞
+
+ξn − d( e0)♯πMn
+
+dmn L2(mn)
+
+= 0 , lim   
+
+> M→∞
+
+lim  
+
+> n→∞
+
+ζn − d( e1)♯πMn
+
+dmn L2(mn)
+
+= 0 .
+
+Then, as in the proof of Theorem 5.1 in [70], we find sequences Mk → ∞ , and nk ≥ n0(Mk) → ∞ so that (a) Ke( πMk 
+
+> nk
+
+) ≤ Ke( π) + 2 
+
+> k
+
+for all k ∈ N;39 
+
+(b) Comp( πMk 
+
+> nk
+
+) ≤ Comp( π) + 2 
+
+> k
+
+for all k ∈ N;(c) it holds as k → ∞ that d( e0)♯πMk
+
+> nk
+
+dmnk
+
+→ d( e0)♯π
+
+dm∞
+
+, d( e1)♯πMk
+
+> nk
+
+dmnk
+
+→ d( e1)♯π
+
+dm∞
+
+, in L2-strong .
+
+We are now ready to conclude the proof. For all k ∈ N, using again Theorem 2.9, we have 
+
+ˆ
+
+fnk (γ1) − fnk (γ0) d πMk 
+
+> nk
+
+≤ Comp  πMk
+
+> nk
+
+1/2 Ke 1/2  πMk
+
+> nk
+
+ Ch 1/2(fnk ).
+
+By property (c), and using (2.19), we have (8.3) 
+
+ˆ
+
+fnk (γ1) − fnk (γ0) d πMk 
+
+> nk
+
+=
+
+ˆ
+
+fnk d( e1)♯πMk 
+
+> nk
+
+−
+
+ˆ
+
+fnk d( e0)♯πMk 
+
+> nk
+
+→
+
+ˆ
+
+f∞(γ1) − f∞(γ0) d π. 
+
+All in all, using the properties (a),(b), we have 
+
+ˆ
+
+f∞(γ1) − f∞(γ0) d π = lim 
+
+> k→∞
+
+ˆ
+
+fnk (γ1) − fnk (γ0) d πMk
+
+> nk
+
+≤ lim  
+
+> k→∞
+
+Comp  πMk
+
+> nk
+
+1/2 Ke 1/2  πMk
+
+> nk
+
+ Ch 1/2(fnk )
+
+≤ Comp( π)1/2Ke 1/22 (π) lim  
+
+> k→∞
+
+Ch 1/2(fnk ).
+
+Recalling that lim k Ch 1/2(fnk ) = lim n Ch 1/2(fn), the first conclusion is proven. Finally, if r(x) = + ∞, we argue by approximation as follows. Let ( ηk) ⊂ Lip bs (Z) with supp( ηk) ⊂
+
+B2k(x), η k ≡ 1 on Bk(x), 0 ≤ ηk ≤ 1 and Lip( ηk) ≤ 1/k . If fn converges L2-weak to f∞, then for each k ∈ N, we have that ηkfn converges L2-weak to ηkf∞. Then Ch 1/2(f∞) ≤ lim 
+
+> k→∞
+
+lim 
+
+> n→∞
+
+Ch 1/2(ηkfn) ≤ lim  
+
+> n→∞
+
+Ch 1/2(fn) + lim 
+
+> k→∞
+
+lim 
+
+> n→∞
+
+∥fn∥L2(X n)
+
+k = lim 
+
+> n→∞
+
+Ch 1/2(fn),
+
+having used the lower semicontinuity of the Cheeger energy, then a Leibniz rule argument followed by the triangular inequality, and lastly that lim n→∞ ∥fn∥L2(X n) < ∞. This concludes the proof. □
+
+Proof of Theorem 8.1. The proof is analogous to that of Step 2 in Proposition 5.1, here relying on the combination of Proposition 5.2 (requiring no curvature assumptions) and Theorem 8.2. □
+
+We next show our second main result of this work. 
+
+Proof of Theorem 1.3. The proof is directly implied by the combination of Proposition 5.2 and The-orem 8.2 for a suitable numerical constant, taking also into account Theorem 7.5 and Corollary 3.12. □
+
+Remark 8.3. Theorem 1.1 follows from the stability of the parallelogram identity and of the local curvature dimension condition on complete spaces, the former relying on the local Mosco conver-gence property established in Theorem 1.3. However, the proofs of these results remain valid if (X , d, m) is only assumed locally complete , taking into account the following considerations. Indeed, the assumption lim n rn(yn) > 0 implies lim n rn,C (yn) > 0, where rn,C (yn) denotes the local radius of completeness of Ω n. Thus, choosing 
+
+r∞(x) := min {c · lim 
+
+> n
+
+rn(yn), r C (x)},
+
+all arguments can be localized to sufficiently small complete balls along the pmG-converging sequence. More precisely: 
+
+• The optimal transport arguments proving the stability of the curvature-dimension conditions (Theorems 3.8 and Theorem 3.14) are local. 40 
+
+• Theorem 1.3 remains valid for sufficiently small balls with complete closure. Completeness is only used in the proof of the liminf inequality via Theorem 2.9 in conjunction with local optimal transport based arguments exploiting Corollary 4.4 and Corollary 7.6 (possible by Theorem 1.4). If the supports of fn and f are contained in such a small ball, the proof carries over taking into account the following comment. 
+
+• Theorem 1.4 is also formulated for complete metric measure spaces, but again this is guar-anteed for B small enough. 
+
+• The stability of infinitesimal Hilbertianity is also local and relies crucially on Theorem 1.3 and Theorem 2.14. The former has been discussed, while the latter is only invoked with H1,2(B)Hilbert for ( B, d, m B) complete metric measure space, which is the case for sufficiently small B.
+
+■
+
+Appendix A. Technical calculus results 
+
+In this appendix we show two known technical results, with a proof tailored for bounded spaces. First, we show a version of the Metric Brenier’s Theorem, whose proof is simpler thanks to the boundedness assumption (cf. [9]). 
+
+Theorem A.1. Let (X , d, m) be a bounded complete metric measure space, let μ ∈ P(X) with 
+
+μ = ρm for some ρ ∈ L∞(X , m), and let ν ∈ P(X) . Let π ∈ OptGeo( μ, ν ) and let φ ∈ Lip(X) be a Kantorovich potential for (( e0)♯π, (e1)♯π). Assume that for some 0 < s 0 ≤ 1 we have that 
+
+(A.1) sup 
+
+> s∈[0 ,s 0]
+
+∥ρs∥L∞ < ∞, where (es)♯π = ρsm.
+
+Then, it holds 
+
+(A.2) d(γ0, γ 1) = |∇ φ|(γ0) = |D+φ|(γ0) π-a.e. γ. 
+
+Proof. It will be enough to show that 
+
+ˆ
+
+ρ|∇ φ|2dm =
+
+ˆ
+
+|∇ φ|2(γ0) d π(γ) ≥
+
+ˆ
+
+d2(γ0, γ 1) d π(γ),
+
+since, by Proposition 2.5, we know that (A.3) |∇ φ|(γ0) ≤ | D+φ|(γ0) ≤ d(γ0, γ 1) π-a.e. γ. 
+
+Using that φ = ( φc)c, then for π-a.e. γ ∈ Geo (X), and for all t ∈ (0 , 1] we get 
+
+φ(γ0) − φ(γt) ≥
+
+ d2(γ0, γ 1)2 − φc(γ1)
+
+
+
+−
+
+ d2(γt, γ 1)2 − φc(γ1)
+
+
+
+= 2t − t2
+
+2 d2(γ0, γ 1).
+
+Since | ˙γt| = d(γ0, γ 1) for each γ ∈ Geo (X), then for t ≤ s0, we infer by Jensen’s inequality that 
+
+|φ(γ0) − φ(γt)|2 ≤
+
+ˆ t
+
+> 0
+
+|∇ φ|(γs)d(γ1, γ 0) d s
+
+2
+
+≤ td2(γ1, γ 0)
+
+ˆ t
+
+> 0
+
+|∇ φ|2(γs) d s. 
+
+All in all, dividing by d2(γt, γ 0) = t2d2(γ1, γ 0) and integrating with respect to π, we find 
+
+> t
+> 0
+
+ˆ
+
+|∇ φ|2(γs) d πds = 1
+
+t
+
+ˆ ˆ t
+
+> 0
+
+|∇ φ|2(γs) d sdπ ≥
+
+ˆ |φ(γ0) − φ(γt)|2
+
+d2(γt, γ 0) dπ ≥≥ (2 − t)2
+
+4
+
+ˆ
+
+d2(γ1, γ 0) d π. 
+
+In order to conclude, it is sufficient to show that lim 
+
+> s→0
+
+ˆ
+
+|∇ φ|2 d(( es)♯π) = lim 
+
+> s→0
+
+ˆ
+
+ρs|∇ φ|2 dm =
+
+ˆ
+
+ρ|∇ φ|2 dm.(A.4) 41 
+
+Indeed, for any f ∈ L1(X , m), t < s 0 and ε > 0, we can choose h ∈ Lip(X) such that ∥f −h∥L1(X) ≤ ε,then ˆ
+
+ρtf − ρf dm ≤ 2ε sup 
+
+> s∈[0 ,s 0]
+
+∥ρs∥L∞
+
+!
+
++
+
+ˆ
+
+ρth − ρh dm
+
+≤ 2ε sup 
+
+> s∈[0 ,s 0]
+
+∥ρs∥L∞
+
+!
+
++
+
+ˆ
+
+h(γ0) − h(γt) d π ≤ 2ε sup 
+
+> s∈[0 ,s 0]
+
+∥ρs∥L∞
+
+!
+
++ tLip( h)W2(μ, ν ).
+
+Taking the limit as t → 0, since ε is arbitrary, yields lim 
+
+> t→0
+
+ˆ
+
+ρtf − ρf dm = 0 , ∀ f ∈ L1(X) .
+
+Equation (A.4) follows immediately by choosing f = |∇ φ|2. □
+
+The next result revisits [5, Lemma 5.2] also for bounded metric spaces. 
+
+Lemma A.2. Let (X , d, m) be a bounded complete metric measure space. Let μ = f m, σ = gm ∈ P(X) 
+
+with f, g ∈ L∞(X) . Assume that there exists π ∈ OptGeo( μ, σ ) such that μt = ρtm = ( et)♯π satisfies the convexity inequality (3.1) and there exists t0 > 0 such that 
+
+C∗ := sup 
+
+> t∈[0 ,t 0]
+
+∥ρt∥L∞ < ∞.
+
+Then, we have: 
+
+• For h ∈ H1,2(X) , the following holds 
+
+(A.5) lim 
+
+> t↓0
+
+ˆ h(γt) − h(γ0)
+
+d(γt, γ 0)
+
+> 2
+
+dπ(γ) ≤
+
+ˆ
+
+|∇ h|2(γ0) d π(γ).
+
+• For all Kantorovich potentials φ relative to (μ, σ ) with |∇ φ| bounded one has 
+
+(A.6) lim 
+
+> t↓0
+
+φ(γ0) − φ(γt)
+
+d(γ0, γ t) = lim 
+
+> t↓0
+
+d(γ0, γ t)
+
+t = |∇ φ|(γ0) in L2(C([0 , 1]; X) , π ).
+
+Proof. We follow the proof of [5, Lemma 5.2] with some simplifications due to the fact that X is bounded. By (2.10) and applying Cauchy-Schwarz inequality, we find that, for any t ∈ (0 , t 0) and π-a.e. geodesic γ, it holds (A.7) h(γt) − h(γ0)
+
+d(γt, γ 0)
+
+> 2
+
+≤
+
+´ t 
+
+> 0
+
+|∇ h|(γs)| ˙γs|ds
+
+2
+
+d2(γt, γ 0) ≤ 1
+
+t
+
+ˆ t
+
+> 0
+
+|∇ h|2(γs)d s . 
+
+Therefore, applying twice Fubini’s theorem, we get 
+
+ˆ h(γt) − h(γ0)
+
+d(γt, γ 0)
+
+> 2
+
+dπ(γ) ≤
+
+ˆ  1
+
+t
+
+ˆ t
+
+> 0
+
+|∇ h|2(γs)d s
+
+
+
+dπ(γ) = 
+
+ˆ
+
+> X
+
+ 1
+
+t
+
+ˆ t
+
+> 0
+
+ρsds
+
+
+
+|∇ h|2 dm.
+
+We also note that lim 
+
+> t↓0
+
+ˆ
+
+> X
+
+ 1
+
+t
+
+ˆ t
+
+> 0
+
+ρsds
+
+
+
+|∇ h|2 dm =
+
+ˆ
+
+> X
+
+|∇ h|2f dm,
+
+since (A.8) 1
+
+t
+
+ˆ t
+
+> 0
+
+ρsds → f, in duality with L1(X) .
+
+This follows from the weak convergence ρtm → f m and the uniform L∞ bound 1
+
+t
+
+ˆ t
+
+> 0
+
+ρsds ≤ C∗, ∀t ≤ t0.42 
+
+This concludes the proof of the first statement. Let us now turn to the second statement. By the metric Brenier Theorem A.1, we infer the existence of a Borel function L satisfying L(γ0) := d(γ0, γ 1) for π-a.e. γ ∈ Geo (X) and, in addition, (A.9) |∇ φ|(x) = |D+φ|(x) = L(x) m-a.e. x.It follows that for π-a.e. γ ∈ Geo (X) 
+
+|∇ φ|(γ0) = d(γ0, γ 1) = d(γ0, γ t)
+
+t ∀t ∈ (0 , 1). It remains to show (A.6). By optimality, for π-a.e. γ,
+
+φ(γ0) + φc(γ1) = d2(γ0, γ 1)2 , φ(γt) + φc(γ1) ≤ d2(γt, γ 1)2 ,
+
+which gives 
+
+φ(γ0) − φ(γt) ≥ 1 − (1 − t)2
+
+2 d2(γ0, γ 1) = 2t − t2
+
+2 d2(γ0, γ 1).
+
+Dividing both sides by d(γt, γ 0) = td(γ1, γ 0), we find that for π-a.e. γ it holds (A.10) lim 
+
+> t↓0
+
+φ(γ0) − φ(γt)
+
+d(γ0, γ t) ≥ d(γ0, γ 1) = |∇ φ|(γ0).
+
+On the other hand, by definition of ascending slope (A.11) lim 
+
+> t↓0
+
+φ(γ0) − φ(γt)
+
+d(γ0, γ t) ≤ | D+φ|(γ0).
+
+So, combining (A.9) and (A.10) with (A.11) we get (A.12) lim 
+
+> t↓0
+
+φ(γ0) − φ(γt)
+
+d(γ0, γ t) = |∇ φ|(γ0) π-a.e. γ.Next we will show that (A.13) φ(γ0) − φ(γt)
+
+d(γ0, γ t) ⇀ |∇ φ| ◦ e0 weakly in L2(C([0 , 1]; X) , π ).
+
+Since by assumption |∇ φ| is bounded, by (A.5) we have (A.14) lim 
+
+> t↓0
+
+ˆ φ(γ0) − φ(γt)
+
+d(γ0, γ t)
+
+> 2
+
+dπ ≤
+
+ˆ
+
+|∇ φ|2(γ0) d π. 
+
+If Ψ is a limit point in the weak L2 topology of the left-hand side of (A.14) as t ↓ 0, by Mazur’s lemma there exists a sequence of convex combinations of these difference quotients strongly converging in L2(C([0 , 1]; X) to Ψ. Since a further subsequence converges π-a.e., from (A.12) we obtain that Ψ = |∇ φ|(γ0). By weak compactness, since the only possible weak limit is |∇ φ|(γ0), we obtain (A.13). Finally, we conclude by observing that (A.14) ensures the convergence of the L2(C([0 , 1]; X) , π ) norms. Combined with (A.13), this yields the desired strong convergence. □
+
+Acknowledgements . F.N., F.R. and F.V. are members of INDAM-GNAMPA. F.N acknowledges partial support by the European Union (ERC ConFine, 101078057), the INdAM-GNAMPA Project “Analisi e Gamma-convergenza per alcuni funzionali non locali” CUP E53C25002010001#, and the MIUR Excellence Department Project awarded to the Department of Mathematics, University of Pisa, CUP I57G22000700001. L.A., F.R. and F.V. acknowledge support by the Balzan Prize 2019. Part of this work was carried out when F.V. was visitor at TUM. F.V. wishes to thank G. Friesecke and the Department of Mathematics of TUM for the warm hospitality and the stimulating atmosphere, and the MIUR-PRIN 202244A7YL project “Gradient Flows and Non-Smooth Geometric Structures with Applications to Optimization and Machine Learning” for financially supporting his stay in Munich. 43 
+
+References 
+
+[1] L. Ambrosio , Calculus, heat flow and curvature-dimension bounds in metric measure spaces , in Proceedings of the International Congress of Mathematicians—Rio de Janeiro 2018. Vol. I. Plenary lectures, World Sci. Publ., Hackensack, NJ, 2018, pp. 301–340. [2] L. Ambrosio, E. Bru´ e, and D. Semola , Rigidity of the 1-Bakry- ´Emery inequality and sets of finite perimeter in RCD spaces , Geom. Funct. Anal., 29 (2019), pp. 949–1001. [3] L. Ambrosio, E. Bru´ e, and D. Semola , Lectures on optimal transport , vol. 169 of Unitext, Cham: Springer, 2nd edition ed., 2024. [4] L. Ambrosio and S. Di Marino , Equivalent definitions of BV space and of total variation on metric measure spaces , J. Funct. Anal., 266 (2014), pp. 4150–4188. [5] L. Ambrosio, N. Gigli, A. Mondino, and T. Rajala , Riemannian Ricci curvature lower bounds in metric measure spaces with σ-finite measure , Trans. Amer. Math. Soc., 367 (2012), pp. 4661–4701. [6] L. Ambrosio, N. Gigli, and G. Savar´ e, Gradient flows in metric spaces and in the space of probability measures ,Lectures in Mathematics ETH Z¨ urich, Birkh¨ auser Verlag, Basel, second ed., 2008. [7] L. Ambrosio, N. Gigli, and G. Savar´ e, Density of Lipschitz functions and equivalence of weak gradients in metric measure spaces , Rev. Mat. Iberoam., 29 (2013), pp. 969–996. [8] L. Ambrosio, N. Gigli, and G. Savar´ e, Calculus and heat flow in metric measure spaces and applications to spaces with Ricci bounds from below , Invent. Math., 195 (2014), pp. 289–391. [9] L. Ambrosio, N. Gigli, and G. Savar´ e, Metric measure spaces with Riemannian Ricci curvature bounded from below , Duke Math. J., 163 (2014), pp. 1405–1490. [10] L. Ambrosio, N. Gigli, and G. Savar´ e, Bakry- ´Emery curvature-dimension condition and Riemannian Ricci curvature bounds , The Annals of Probability, 43 (2015), pp. 339–404. [11] L. Ambrosio and S. Honda , New stability results for sequences of metric measure spaces with uniform Ricci bounds from below , in Measure theory in non-smooth spaces, Partial Differ. Equ. Meas. Theory, De Gruyter Open, Warsaw, 2017, pp. 1–51. [12] L. Ambrosio, S. Honda, and J. W. Portegies , Continuity of nonlinear eigenvalues in CD( K, ∞) spaces with respect to measured Gromov-Hausdorff convergence , Calc. Var. Partial Differential Equations, 57 (2018), pp. Paper No. 34, 23. [13] L. Ambrosio, S. Honda, and D. Tewodrose , Short-time behavior of the heat kernel and Weyl’s law on 
+
+RCD ∗(K, N ) spaces , Ann. Global Anal. Geom., 53 (2018), pp. 97–119. [14] L. Ambrosio, T. Ikonen, D. Luˇ ci´ c, and E. Pasqualetto , Metric Sobolev spaces. I: Equivalence of definitions ,Milan J. Math., 92 (2024), pp. 255–347. [15] L. Ambrosio, A. Mondino, and G. Savar´ e, On the Bakry- ´Emery condition, the gradient estimates and the Local-to-Global property of RCD ∗(K, N ) metric measure spaces , The Journal of Geometric Analysis, 26 (2014), pp. 1–33. [16] L. Ambrosio, F. Stra, and D. Trevisan , Weak and strong convergence of derivations and stability of flows with respect to MGH convergence , J. Funct. Anal., 272 (2017), pp. 1182–1229. [17] G. Antonelli, E. Bru` e, M. Fogagnolo, and M. Pozzetta , On the existence of isoperimetric regions in manifolds with nonnegative Ricci curvature and Euclidean volume growth , Calc. Var. Partial Differ. Equ., 61 (2022), p. 40. Id/No 77. [18] G. Antonelli, E. Pasqualetto, M. Pozzetta, and D. Semola , Sharp isoperimetric comparison on non-collapsed spaces with lower Ricci bounds , Ann. Sci. ´Ec. Norm. Sup´ er. (4), 58 (2025), pp. 1–52. [19] K. Bacher and K.-T. Sturm , Localization and tensorization properties of the curvature-dimension condition for metric measure spaces , J. Funct. Anal., 259 (2010), pp. 28–56. [20] M. T. Barlow, A. Grigor’yan, and T. Kumagai , On the equivalence of parabolic Harnack inequalities and heat kernel estimates , J. Math. Soc. Japan, 64 (2012), pp. 1091–1146. [21] J. Bj¨ orn and N. Shanmugalingam , Poincar´ e inequalities, uniform domains and extension properties for Newton-Sobolev functions in metric spaces , J. Math. Anal. Appl., 332 (2007), pp. 190–208. [22] E. Bru´ e, E. Pasqualetto, and D. Semola , Rectifiability of the reduced boundary for sets of finite perimeter over RCD (K, N ) spaces. , J. Eur. Math. Soc., 25 (2022), pp. 413–465. [23] E. Bru´ e, E. Pasqualetto, and D. Semola , Constancy of the dimension in codimension one and locality of the unit normal on RCD( K, N ) spaces , Ann. Sc. Norm. Super. Pisa, Cl. Sci. (5), 24 (2023), pp. 1765–1816. [24] E. Caputo , Geometric characterizations of PI spaces: an overview of some modern techniques , Indag. Math., New Ser., 37 (2026), pp. 934–959. [25] E. Caputo and N. Cavallucci , Sobolev spaces via chains in metric measure spaces . arXiv:2408.15071, 2024. [26] F. Cavalletti and E. Milman , The globalization theorem for the curvature-dimension condition , Invent. Math., 226 (2021), pp. 1–137. [27] J. Cheeger , Differentiability of Lipschitz functions on metric measure spaces , Geom. Funct. Anal., 9 (1999), pp. 428–517. 44 
+
+[28] J. Cheeger and T. H. Colding , Lower bounds on Ricci curvature and the almost rigidity of warped products ,Ann. of Math. (2), 144 (1996), pp. 189–237. [29] J. Cheeger and T. H. Colding , On the structure of spaces with Ricci curvature bounded below. I , J. Differential Geom., 46 (1997), pp. 406–480. [30] J. Cheeger and T. H. Colding , On the structure of spaces with Ricci curvature bounded below. II , J. Differential Geom., 54 (2000), pp. 13–35. [31] J. Cheeger and T. H. Colding , On the structure of spaces with Ricci curvature bounded below. III , J. Differential Geom., 54 (2000), pp. 37–74. [32] J. Cheeger and D. Gromoll , The splitting theorem for manifolds of nonnegative Ricci curvature , J. Differ. Geom., 6 (1971), pp. 119–128. [33] Z.-Q. Chen, P. Kim, T. Kumagai, and J. Wang , Heat kernel upper bounds for symmetric Markov semigroups ,J. Funct. Anal., 281 (2021), pp. Paper No. 109074, 40. [34] D. Cordero-Erausquin, R. J. McCann, and M. Schmuckenschl¨ ager , A Riemannian interpolation inequality `a la Borell, Brascamp and Lieb , Invent. Math., 146 (2001), pp. 219–257. [35] S. Daneri and G. Savar´ e, Eulerian calculus for the displacement convexity in the Wasserstein distance , SIAM J. Math. Anal., 40 (2008), pp. 1104–1122. [36] Q. Deng , H¨ older continuity of tangent cones in RCD( K, N ) spaces and applications to nonbranching , Geom. Topol., 29 (2025), pp. 1037–1114. [37] S. Di Marino , Recent advances on BV and Sobolev spaces in metric measure spaces . PhD Thesis, 2014. [38] S. Di Marino, N. Gigli, and A. Pratelli , Global lipschitz extension preserving local constants , Rendiconti Lincei - Matematica e Applicazioni, 31 (2021), pp. 757–765. [39] M. Erbar, K. Kuwada, and K.-T. Sturm , On the equivalence of the entropic curvature-dimension condition and Bochner’s inequality on metric measure spaces , Invent. Math., 201 (2015), pp. 993–1071. [40] S. Eriksson-Bique and P. Poggi-Corradini , Density of continuous functions in Sobolev spaces with applications to capacity , Trans. Am. Math. Soc., Ser. B, 11 (2024), pp. 901–944. [41] K. Fukaya , Collapsing of Riemannian manifolds and eigenvalues of Laplace operator , Invent. Math., 87 (1987), pp. 517–547. [42] M. Fukushima, Y. o. ¯Oshima, and M. Takeda , Dirichlet forms and symmetric Markov processes , vol. 19 of De Gruyter Studies in Mathematics, Walter de Gruyter & Co., Berlin, 1994. [43] N. Gigli , On the heat flow on metric measure spaces: existence, uniqueness and stability , Calc. Var. PDE, 39 (2010), pp. 101–120. [44] N. Gigli , Introduction to optimal transport: theory and applications , Publica¸ c˜ oes Matem´ aticas do IMPA. [IMPA Mathematical Publications], Instituto Nacional de Matem´ atica Pura e Aplicada (IMPA), Rio de Janeiro, 2011. 28o Col´ oquio Brasileiro de Matem´ atica. [28th Brazilian Mathematics Colloquium]. [45] N. Gigli , On the differential structure of metric measure spaces and applications , Mem. Amer. Math. Soc., 236 (2015), pp. vi+91. [46] N. Gigli , De Giorgi and Gromov working together . arXiv:2306.14604, 2023. [47] N. Gigli, A. Mondino, and T. Rajala , Euclidean spaces as weak tangents of infinitesimally Hilbertian metric measure spaces with Ricci curvature bounded below , J. Reine Angew. Math., 705 (2015), pp. 233–244. [48] N. Gigli, A. Mondino, and G. Savar´ e, Convergence of pointed non-compact metric measure spaces and stability of Ricci curvature bounds and heat flows , Proc. Lond. Math. Soc. (3), 111 (2015), pp. 1071–1129. [49] N. Gigli and F. Nobili , A first-order condition for the independence on p of weak gradients , J. Funct. Anal., 283 (2022), pp. Paper No. 109686, 52. [50] N. Gigli and E. Pasqualetto , Lectures on nonsmooth differential geometry , vol. 2 of SISSA Springer Ser., Cham: Springer, 2020. [51] N. Gigli and S. Vincini , Stability of the heat flow under convergence in concentration and consequences .arXiv:2410.05011, 2024. [52] M. Gromov , Metric structures for Riemannian and non-Riemannian spaces , Modern Birkh¨ auser Classics, Birkh¨ auser Boston Inc., Boston, MA, english ed., 2007. Based on the 1981 French original, With appendices by M. Katz, P. Pansu and S. Semmes, Translated from the French by Sean Michael Bates. [53] P. Hajlasz , Sobolev spaces on an arbitrary metric space , Potential Anal., 5 (1996), pp. 403–415. [54] P. Hajlasz and P. Koskela , Sobolev met Poincar´ e, vol. 688 of Mem. Am. Math. Soc., Providence, RI: American Mathematical Society (AMS), 2000. [55] S. Honda , Ricci curvature and Lp-convergence , J. Reine Angew. Math., 705 (2015), pp. 85–154. [56] S. Honda , Spectral convergence under bounded Ricci curvature , J. Funct. Anal., 273 (2017), pp. 1577–1662. [57] S. Honda, C. Ketterer, I. Mondello, R. Perales, and C. Rigoni , Gromov-hausdorff stability of tori under Ricci and integral scalar curvature bounds , Nonlinear Anal., Theory Methods Appl., Ser. A, Theory Methods, 249 (2024), p. 27. Id/No 113629. 45 
+
+[58] S. Honda and S. Sun , From almost smooth spaces to RCD spaces , Calc. Var. Partial Differ. Equ., 65 (2026), p. 45. Id/No 131. [59] R. Jordan, D. Kinderlehrer, and F. Otto , The variational formulation of the Fokker-Planck equation , SIAM J. Math. Anal., 29 (1998), pp. 1–17. [60] S. Keith , Modulus and the Poincar´ e inequality on metric measure spaces , Math. Z., 245 (2003), pp. 255–292. [61] C. Ketterer , On the geometry of metric measure spaces with variable curvature bounds , J. Geom. Anal., 27 (2017), pp. 1951–1994. [62] J. Lierl , Parabolic Harnack inequality on fractal-type metric measure Dirichlet spaces , Rev. Mat. Iberoam., 34 (2018), pp. 687–738. [63] S. Lisini , Characterization of absolutely continuous curves in Wasserstein spaces , Calc. Var. Partial Differential Equations, 28 (2007), pp. 85–120. [64] J. Lott and C. Villani , Ricci curvature for metric-measure spaces via optimal transport , Ann. of Math. (2), 169 (2009), pp. 903–991. [65] D. Luˇ ci´ c, E. Pasqualetto, and T. Rajala , Non-Hilbertian tangents to Hilbertian spaces , Proc. R. Soc. Edinb., Sect. A, Math., 153 (2023), pp. 811–832. [66] R. J. McCann , A convexity principle for interacting gases , Adv. Math., 128 (1997), pp. 153–179. [67] M. Muratori and G. Savar´ e, Gradient flows and evolution variational inequalities in metric spaces. I: structural properties , J. Funct. Anal., 278 (2020), p. 67. Id/No 108347. [68] F. Nobili , An overview of the stability of Sobolev inequalities on Riemannian manifolds with Ricci lower bounds ,Indag. Math., New Ser., 37 (2026), pp. 960–992. [69] F. Nobili, E. Pasqualetto, and T. Schultz , On master test plans for the space of BV functions , Adv. Calc. Var., 16 (2023), pp. 1061–1092. [70] F. Nobili, F. Renzi, and F. Vitillaro , Mosco-convergence of Cheeger energies on varying spaces satisfying curvature dimension conditions . arXiv:2511.13320, 2025. [71] F. Nobili and I. Y. Violo , Rigidity and almost rigidity of Sobolev inequalities on compact spaces with lower Ricci curvature bounds , Calc. Var. Partial Differential Equations, 61 (2022), p. Paper No. 180. [72] F. Nobili and I. Y. Violo , Stability of Sobolev inequalities on Riemannian manifolds with Ricci curvature lower bounds , Adv. Math., 440 (2024), p. Paper No. 109521. [73] F. Nobili and I. Y. Violo , Fine P´ olya-Szeg˝ o rearrangement inequalities in metric spaces and applications , Calc. Var. Partial Differ. Equ., 64 (2025), p. 56. Id/No 276. [74] F. Nobili and I. Y. Violo , Generalized existence of extremizers for the sharp p-Sobolev inequality on Riemannian manifolds with nonnegative curvature , Nonlinear Anal., Theory Methods Appl., Ser. A, Theory Methods, 266 (2026), p. 19. Id/No 114029. [75] M. Pozzetta , Isoperimetry on manifolds with Ricci bounded below: overview of recent results and methods , in Anisotropic isoperimetric problems and related topics, vol. 62 of Springer INdAM Ser., Springer, Singapore, [2024] 
+
+©2024, pp. 49–89. [76] T. Rajala , Interpolated measures with bounded density in metric spaces satisfying the curvature-dimension con-ditions of Sturm , J. Funct. Anal., 263 (2012), pp. 896–924. [77] T. Rajala and K.-T. Sturm , Non-branching geodesics and optimal maps in strong CD (K, ∞)-spaces , Calc. Var. Partial Differential Equations, 50 (2012), pp. 831–846. [78] N. Shanmugalingam , Newtonian spaces: an extension of Sobolev spaces to metric measure spaces , Rev. Mat. Iberoamericana, 16 (2000), pp. 243–279. [79] N. Shanmugalingam , Newtonian spaces: an extension of Sobolev spaces to metric measure spaces , Rev. Mat. Iberoamericana, 16 (2000), pp. 243–279. [80] K.-T. Sturm , Analysis on local Dirichlet spaces. II. Upper Gaussian estimates for the fundamental solutions of parabolic equations , Osaka J. Math., 32 (1995), pp. 275–312. [81] K.-T. Sturm , Analysis on local Dirichlet spaces. III. The parabolic Harnack inequality , J. Math. Pures Appl. (9), 75 (1996), pp. 273–297. [82] K.-T. Sturm , On the geometry of metric measure spaces. I , Acta Math., 196 (2006), pp. 65–131. [83] K.-T. Sturm , On the geometry of metric measure spaces. II , Acta Math., 196 (2006), pp. 133–177. [84] K.-T. Sturm , Metric measure spaces and synthetic Ricci bounds: fundamental concepts and recent developments ,in European Congress of Mathematics, 2023, pp. 125–159. [85] C. Villani , Optimal transport. Old and new , vol. 338 of Grundlehren der Mathematischen Wissenschaften, Springer-Verlag, Berlin, 2009. [86] C. Villani , Synthetic theory of ricci curvature bounds , Japanese Journal of Mathematics, 11 (2016), pp. 219–263. [87] M.-K. von Renesse and K.-T. Sturm , Entropic measure and Wasserstein diffusion , Ann. Probab., 37 (2009), pp. 1114–1191. 46 
+
+Scuola Normale Superiore, Piazza dei Cavalieri 7, 56126 Pisa, Italy 
+
+Email address : luigi.ambrosio@sns.it 
+
+Universit` a di Napoli Federico II, Dipartimento di Matematica e Applicazioni, Via Cintia, Monte S. Angelo, 80126 Napoli (NA), Italy 
+
+Email address : francesco.nobili@unina.it 
+
+Scuola Normale Superiore, Piazza dei Cavalieri 7, 56126 Pisa, Italy 
+
+Email address : federico.renzi@sns.it 
+
+Scuola Normale Superiore, Piazza dei Cavalieri 7, 56126 Pisa, Italy 
+
+Email address : federico.vitillaro@sns.it

@@ -1,0 +1,4687 @@
+Title: Existence and Regularity of Extremal Metrics for the Conformal Dirichlet-to-Robin Map
+
+URL Source: https://arxiv.org/pdf/2607.27489v1
+
+Published Time: Fri, 31 Jul 2026 00:15:24 GMT
+
+Number of Pages: 39
+
+Markdown Content:
+EXISTENCE AND REGULARITY OF EXTREMAL METRICS FOR THE CONFORMAL DIRICHLET-TO-ROBIN MAP 
+
+SAMUEL P ´EREZ-AYALA 
+
+Abstract. We study the variational properties of the spectrum of the Dirichlet-to-Robin map Dg on connected compact manifolds with boundary of dimension at least three. For the first eigenvalue, we show that Type II Yamabe metrics extremize the first normalized eigenvalue functional, and we characterize all extremals. If [ g] is a conformal class for which Dg has at least two negative eigenvalues, then we show the existence of a generalized metric that maximizes the second normalized eigenvalue of Dg in the conformal class. Moreover, we show that each such metric either defines a solution to an Escobar–Yamabe type equation on manifolds with boundary that changes sign along the bound-ary, or a weakly free-boundary harmonic map into the unit Euclidean ball. 
+
+Contents 
+
+1. Introduction 11.1. Statement of Results 31.2. Plan of the paper 72. Preliminaries 82.1. Hg under conformal transformation 82.2. Generalized Eigenvalues and Eigenfunctions 92.3. L∞ estimates for Generalized Eigenfunctions 16 3. First Eigenvalue: Proof of Theorem 1.1 19 3.1. The Q(M , Σ, [g]) < 0 case 19 3.2. The Q(M , Σ, [g]) > 0 case 20 3.3. The Q(M , Σ, [g]) = 0 case. 21 4. First Variation Formulas 21 5. Regularized Functional Fϵ 22 6. Uniform Estimates in ϵ 27 7. Taking the limit ϵ → 0+: Proof of Theorem 1.2 32 References 38 1. Introduction 
+
+Let M be a connected compact Riemannian manifold of dimension n ≥ 3 with smooth boundary Σ := ∂M and interior M , equipped with a conformal class [ g]. 
+
+2020 Mathematics Subject Classification. 58J50, 58J32, 35J25. 
+
+Key words and phrases. Conformal Dirichlet-to-Robin map, extremal eigenvalues, Type II Yamabe problem, free-boundary harmonic maps. This work was initiated during the author’s first period at Princeton University. While there, the author was supported by NSF grant RTG-DMS-1502424.  
+
+> 1arXiv:2607.27489v1 [math.DG] 29 Jul 2026 2SAMUEL P ´EREZ-AYALA
+
+Let Lg denote the conformal Laplacian , also known as the Yamabe operator , which is defined by (1.1) Lg := −∆g + cnRg .
+
+Here ∆ g := div g (∇g ) is defined as a negative operator, cn := n−24( n−1) , and Rg is the scalar curvature with respect to the metric g. This operator is elliptic and satisfies the following conformally covariant property: if gu = u 4 
+
+> n−2
+
+g ∈ [g], then for all ϕ ∈ C∞(M ) we have (1.2) Lgu (ϕ) = u− n+2  
+
+> n−2
+
+Lg (ϕu ).
+
+On a manifold with boundary there are many boundary eigenvalue problems as-sociated with Lg . For instance, we could consider the following Dirichlet eigenvalue problem: (1.3) 
+
+(
+
+Lg (ϕ) = λϕ (in M )
+
+ϕ = 0 (on Σ) .
+
+We will refer to those numbers λ ∈ R for which there is a nonzero solution of (1.3) as Dirichlet eigenvalues , and the collection of all such numbers will be denoted by Spec( LDg ). Notice that Spec( LDg ) is discrete, and that if Rg = 0, then its first element λ1(LDg ) is positive. We now proceed to introduce the eigenvalue boundary problem that will be of main interest to us. Denote by νg the outward unit normal vector along Σ, and by hg the (unnormalized) mean curvature of Σ. For every ϕ ∈ C∞(M ), the Robin boundary operator is defined as (1.4) Bg (ϕ) := ∂νg ϕ + 2 cnhg ϕ (on Σ) .Bg is conformally covariant in the sense that, if gu = u 4 
+
+> n−2
+
+g, then (1.5) Bgu (ϕ) = u− nn−2 Bg (uϕ ).
+
+Consider the numbers λ ∈ R for which there are nonzero solutions to the following system: (1.6) 
+
+(
+
+Lg (ϕ) = 0 (in M )
+
+Bg (ϕ) = λϕ (on Σ) .
+
+We refer to such numbers as Robin eigenvalues .Assume that 0 ̸ ∈ Spec( LDg ), and let ϕ ∈ C∞(Σ) be given. Then there exists a unique solution Hg (ϕ) ∈ C∞(M ) (see [7, 27]) of the system (1.7) 
+
+(
+
+Lg (Hg (ϕ)) = 0 (in M )
+
+Hg (ϕ) = ϕ (on Σ) .
+
+The conformal Dirichlet-to-Robin map Dg : C∞(Σ) → C∞(Σ) is defined by (1.8) Dg (ϕ) := Bg (Hg (ϕ)) .
+
+The operator Dg is an elliptic and self-adjoint pseudodifferential operator of order 1. Therefore, it has a discrete spectrum, which we can arrange in non-decreasing order as (1.9) λ1(Dg ) ≤ λ2(Dg ) ≤ · · · ≤ λk(Dg ) → ∞ .EXTREMAL METRICS FOR CONFORMAL DIRICHLET-TO-ROBIN MAP 3
+
+As usual, each eigenvalue in (1.9) is repeated according to its multiplicity. It is straightforward to verify that the spectrum of Dg and that of Bg , the collection of Robin eigenvalues, coincide. We would like to remark that if 0 ∈ Spec( LDg ), then there is a way to define the operator Dg by imposing an orthogonality condition on the domain functions C∞(Σ) (see [7]); this will not be used in this work. Due to the conformal properties (1.2) and (1.5), there are many spectrally-defined quantities that give rise to conformal invariants which are of importance to us: (i) The sign of λ1(Dg ) is an invariant of the conformal class [ g] (see Proposition 1.2 in [12]). In fact, it agrees with the sign of the boundary analog of the Yamabe invariant, often called Type II Yamabe invariant and defined by (1.10) Q(M , Σ, [g]) := inf 
+
+R 
+
+> M
+
+(|∇ g ϕ|2 + cnRg ϕ2) dv g + 2 cn
+
+R 
+
+> Σ
+
+hg ϕ2 dσ g
+
+R 
+
+> Σ
+
+ϕ 2( n−1) (n−2) dσ g
+
+ n−2
+
+> n−1
+
+,
+
+where the infimum is taken over all ϕ ∈ C∞(M ) for which ϕ̸ = 0 on Σ, and where dσ g is the induced volume element on Σ. That Q(M , Σ, [g]) is conformally invariant was proved in [11]. (ii) The dimension of Ker( LDg ) is conformally invariant. As a consequence, the condition 0 ̸ ∈ Spec( LDg ) is also conformally invariant. (iii) The number of negative eigenvalues of Dg , which we denote by N ([ g]), is also a conformal invariant. In fact, it is equal to the number of negative eigenvalues of Lg under the boundary condition Bg (ϕ) = 0 on Σ, minus the number of negative eigenvalues of Lg under Dirichlet conditions; see Theorem 6.1 in [7]. We remark that the Yamabe invariant Q(M n, Σ, [g]) can be −∞ , as it was first pointed out by J. Zhiren (see [13]). We assume that Q(M , Σ, [g]) is finite, that is, (1.11) Q(M , Σ, [g]) > −∞ .
+
+This is the case when the scalar curvature Rg is nonnegative; see introduction in [32]. Indeed, it is finite if and only if λ1(LDg ) > 0 [13]. On the other hand, it was proved in [12] that (1.12) Q(M , Σ, [g]) ≤ Q(Bn, Sn−1, [gE ]) ,
+
+where Bn denotes the closed unit ball in Rn endowed with the Euclidean metric 
+
+gE .1.1. Statement of Results. The main focus of our work will be finding extremals for the normalized eigenvalue functional Fk (k = 1 , 2) defined by (1.13) Fk(u) := λk(u)
+
+Z 
+
+> Σ
+
+u 2( n−1)  
+
+> n−2
+
+dσ g
+
+ 1
+
+> n−1
+
+,
+
+where λk(u) := λk(Dgu ) and gu = u 4 
+
+> n−2
+
+g ∈ [g]. We start with the case of k = 1. In Section 3, we will show that if −∞ <Q(M , Σ, [g]) < 0, then (1.14) sup 
+
+> gu∈[g]
+
+F1(u) = Q(M , Σ, [g]) .4 SAMUEL P ´EREZ-AYALA 
+
+In the case where Q(M , Σ, [g]) ≥ 0, we have (1.15) inf  
+
+> gu∈[g]
+
+F1(u) = Q(M , Σ, [g]) .
+
+In particular, smooth extremal metrics for F1 exist whenever smooth positive min-imizers for Q(M , Σ, [g]) can be found. Geometrically, these minimizers provide a conformal metric which is scalar flat in the interior and has constant mean curva-ture along the boundary ([12]). As discussed by Escobar in [12], such a minimizer always exists as long as (1.16) −∞ < Q (M , Σ, [g]) < Q (Bn, Sn−1, [gE ]) holds. Inequality (1.16) has been proved in multiple cases; see for instance [1, 4, 12, 32, 33]. In summary, (1.16) holds in the following cases: (1) 3 ≤ n ≤ 7; (2) n ≥ 8and M is spin; and (3) n ≥ 8 and M is locally conformally flat [5]. The reader should notice that if the Yamabe invariant Q(M , Σ, [g]) is finite and negative, then (1.16) trivially holds; thus a minimizer exists and it is scalar flat with constant mean curvature on the boundary. We summarize the previous discussion as our first theorem, which is proved in Section 3. 
+
+Theorem 1.1. Let M be a smooth Riemannian manifold of dimension n ≥ 3 with smooth boundary Σ := ∂M and interior M , equipped with a conformal class [g].(1) If Q(M , Σ, [g]) < 0, then (1.14) holds. (2) If Q(M , Σ, [g]) > 0 and (1.16) is satisfied, then (1.15) holds. (3) If Q(M , Σ, [g]) = 0 , then F1 ≡ 0 on [g].In either nonzero case, the extremal value is attained by a minimizer gY ∈ [g] of 
+
+Q(M , Σ, [g]) ; these metrics have zero scalar curvature in the interior and constant mean curvature at the boundary. In the negative case, after choosing as a back-ground metric gY , a metric gu = u 4 
+
+> n−2
+
+gY attains the maximal value for F1 if and only if u|Σ is constant, that is, if gu|T Σ is homothetic to gY |T Σ. In the positive case, after fixing the background metric gY , a metric gu = u 4 
+
+> n−2
+
+gY attains the minimal value of F1 if and only if there exists a positive first generalized eigenfunction ϕ1
+
+associated to gu such that u = Cϕ 1 on Σ for some C > 0, and ϕ 4 
+
+> n−2
+> 1
+
+gY is a Type II Yamabe minimizer. 
+
+Theorem 1.1 provides the geometric motivation to study existence of extremals for higher eigenvalues. We would like to make some brief remarks about the closed case, i.e. the conformal Laplacian on compact manifolds Xn without boundary. For the first eigenvalue, an analogous result to Theorem 1.1 holds, where Q(M , Σ, [g]) is replaced by the standard Yamabe invariant Y (X, [g]); see [2, 18] for a discussion. To motivate our second result, we make some further remarks on the closed case. We use X to denote closed manifolds and reserve M for our nonclosed setup. In the case of positive Yamabe invariant, Ammann and Humbert in [2], motivated by the equality (1.17) inf  
+
+> gu∈[g]
+
+λ1(Lgu )Vol( X, g u) 2 
+
+> n
+
+= Y (X, [g]) ,
+
+defined the second Yamabe invariant by setting (1.18) μ2(X, [g]) := inf  
+
+> gu∈[g]
+
+λ2(Lgu )Vol( X, dv gu ) 2 
+
+> n
+
+.EXTREMAL METRICS FOR CONFORMAL DIRICHLET-TO-ROBIN MAP 5
+
+Unlike the case of the first eigenvalue, smooth minimizers do not exist. Under certain assumptions on μ2(X, [g]), Ammann and Humbert proved the existence of a minimizer in the space of generalized conformal metrics ; see [2, 18] for definition in the closed case, or see Section 2 below for definition in our setup. Moreover, for any such minimizer u, there is a sign-changing solution w ∈ C3,α (X) to a Yamabe-type equation such that u = |w| holds (see Theorem 1.6 in [2]). A slight generalization of this result was obtained in [8] for the case where the Yamabe invariant could be negative, but λ2(Lg ) is still nonnegative. We conclude our discussion of the closed case by explaining what is known in the case where λ2(Lg ) < 0. In this case, it was proved in [8] that the infimum of the normalized second eigenvalue functional over generalized conformal metrics is 
+
+−∞ . Instead, and motivated by the equality (1.19) sup 
+
+> gu∈[g]
+
+λ1(Lgu )Vol( X, g u) 2 
+
+> n
+
+= Y (X, [g]) (if Y (X, [g]) < 0) ,
+
+the author and M.J. Gursky considered (1.20) μ2(X, [g]) := sup 
+
+> gu∈[g]
+
+λ2(Lgu )Vol( X, dv gu ) 2 
+
+> n
+
+.
+
+We proved the existence of maximizers in the space of generalized conformal metrics; see Theorem 1.1 in [18]. Moreover, associated with each such maximizer, there is either an associated nodal solution to a Yamabe-type equation, or a harmonic map into a sphere; see Corollary 1.2 in [18]. We also provide examples where both cases occur and where a maximizer is smooth. Our next result is a generalization of this to the case of compact manifolds with boundary. 
+
+Theorem 1.2. Let (M , g ) be a smooth connected Riemannian manifold of dimen-sion n ≥ 3 with smooth boundary Σ = ∂M and interior M , equipped with a confor-mal class [g] for which Q(M , Σ, [g]) is finite. Assume further that N ([ g]) ≥ 2 and 
+
+0̸ ∈ Spec (Dg ). Choose a Type II Yamabe representative g ∈ [g], normalized so that 
+
+Rg = 0 , hg < 0 is constant , Vol(Σ , dσ g ) = 1 .
+
+Then there is a nonnegative function u ∈ C0,β (Σ) ∩ C∞(Σ \ u−1(0)) with β ∈
+
+(0 , 1) , whose g-harmonic extension ˆu is smooth and positive in the interior M , that maximizes the normalized second eigenvalue functional 
+
+(1.21) F2 : u ∈ L 
+
+> 2( n−1)
+> n−2
+> >0
+
+(Σ) 7 −→ λ2(u)
+
+Z 
+
+> Σ
+
+u 2( n−1)  
+
+> n−2
+
+dσ g
+
+ 1
+
+> n−1
+
+Furthermore, u−1(0) has zero boundary measure – specifically, dim H(u−1(0)) ≤
+
+n − 2. Moreover, for this maximizer u, there exists a finite collection {ϕi}ki=1 ⊂
+
+C1,β (Σ) ∩ C∞(M ) of second generalized eigenfunctions satisfying 
+
+(1.22) 
+
+> k
+
+X
+
+> i=1
+
+ϕ2 
+
+> i
+
+= u2
+
+on Σ. Here 1 ≤ k ≤ dim (E2(u)) , where E2(u) is the space of second generalized eigenfunctions associated to u.
+
+Examples of smooth connected manifolds with smooth boundary for which our assumptions are satisfied are easy to construct. For instance, we can take a con-nected closed flat manifold, like a flat torus Tn, remove a small geodesic ball 6 SAMUEL P ´EREZ-AYALA 
+
+and equip the resulting manifold with the restricted flat metric and its bound-ary with the outward unit normal. The resulting manifold has finite and negative 
+
+Q(M , Σ, [g]), and so N ([ g]) ≥ 1. Removing finitely many pairwise disjoint geodesic balls gives examples with several boundary components, and if the balls have the same radius, then the boundary mean curvature has the same negative constant value on every component. To get higher N ([ g]), we can take a flat manifold Xn−1
+
+with constant and negative mean curvature, as described above, and consider the product manifold M n = Xn−1 × Sl equipped with the product metric gprod , where 
+
+Sl denotes the circle of radius l > 0. By testing in the Rayleigh quotient the span of 1, cos( s/l ) and sin( s/l ), the latter two defined on the circle factor, we obtain 
+
+N ([ gprod ]) ≥ 3 after taking l sufficiently large. We remark that (1.22), and consequently Corollary 1.3 below, holds for any maximizer of F2; see remark after Proposition 5.6. An important consequence of Theorem 1.2 is Corollary 1.3 below. Denote by gE the standard Euclidean metric on Rk. We say that a map Φ : ( M , g ) → (Bk, g E ) with Φ(Σ) ⊂ Sk−1 is a free-boundary harmonic map if ∆ g Φ = 0 in M and ∂ν Φ is parallel to Φ along Σ. We say that a map Φ : ( M , g ) → Bk is weakly free-boundary harmonic if Φ( x) ∈ Sk−1
+
+for a.e. x ∈ Σ and if for any V ∈ L∞ ∩ W 1,2(M , Rk) with V (x) ∈ TΦ( x)Sk−1 for a.e. x ∈ Σ, R 
+
+> M
+
+g(∇g Φ, ∇g V ) dv g = 0; see [23, 28] for a more general and formal definition. This definition can be generalized for metrics gu = u 4 
+
+> n−2
+
+g which possibly degenerate on a (boundary) zero measure set on Σ, with the additional feature that now the mentioned Sobolev spaces will depend on the metric gu; see discussion in Section 7. 
+
+Corollary 1.3. Let u ∈ C0,β (Σ) ∩ C∞(Σ \ u−1(0)) be a maximizer provided by Theorem 1.2. Then (1) If k = 1 , then u = |ϕ| along Σ, where ϕ ∈ C1,β (Σ) ∩ C∞(M ) is a sign-changing solution on Σ of 
+
+(1.23) 
+
+(
+
+∆g ϕ = 0 in M, Bg (ϕ) = λ2(u)ϕ|ϕ| 2 
+
+> n−2
+
+on Σ.
+
+(2) Assume k > 1 and set Σ∗ := Σ \ u−1(0) , and recall that dim H(u−1(0)) ≤
+
+n − 2. Then the map Φ = ( ϕ1 
+
+> ˆu
+
+, · · · , ϕk 
+
+> ˆu
+
+) : ( M n, g ˆu) → (Bk, g E ) satisfies 
+
+Φ(Σ ∗) ⊂ Sk−1 and it is a harmonic map with ∂νg ˆu Φ∥Φ on Σ∗. Here gˆu =ˆu 4 
+
+> n−2
+
+g is the conformal metric defined by the harmonic extension ˆu of u,positive in M , which agrees with u 4 
+
+> n−2
+
+g along Σ. Therefore, Φ is a gˆu-weakly free-boundary harmonic map. 
+
+An example where situation (2) occurs is not trivial and will be the focus of the author’s upcoming work. If N ([ g]) = 2, then (1) occurs and we have a sign-changing solution to 1.23. Positive solutions of this equation have been widely studied, but the problem of finding sign-changing solutions remains largely open. In [6], the existence of sign-changing solutions for equations that include (1.23) is proved on manifolds for which Q(M , Σ, [g]) > 0. Our manifolds, on the other hand, satisfy 
+
+−∞ < Q (M , Σ, [g]) < 0. Although Robin eigenvalue optimization has been studied, the standard Robin problem is not conformally invariant. To our knowledge, eigenvalue optimization for the eigenvalues of the conformal Dirichlet-to-Robin map is new. It would be EXTREMAL METRICS FOR CONFORMAL DIRICHLET-TO-ROBIN MAP 7
+
+interesting to study the cases where N ([ g]) = 1 or N ([ g]) = 0, and try to show existence of minimizers in the space of generalized conformal metrics as it was done in [2, 8] for closed manifolds. However, in such cases, based on variational properties of the eigenvalue functional, we do not expect any connection with existence of free-boundary harmonic maps into Euclidean balls; see Remark 6.1 in [18]. In the case of surfaces with boundary, a substantial theory has been developed for the maximization of Steklov eigenvalues; see for instance [15, 36, 40] and references therein. Under suitable assumptions, maximizing metrics are associated with free-boundary minimal immersions into Euclidean balls; see Theorem 1 in [36]. The connection with free-boundary harmonic maps into Euclidean balls in this case arises if we maximize the k-th Steklov eigenvalue in the space of conformal metrics with fixed boundary length; see Proposition 2.8 in [14]. For some existence and regularity results for maximization of Steklov eigenvalues in higher dimensions, see the work of Vinokurov in [41]. There, however, the free-boundary harmonic maps obtained are into the infinite-dimensional ball B∞, and it is only known to be finite dimensional when the domain manifold M is low-dimensional. In our case, due to a universal bound on the multiplicity, the target Euclidean ball is always finite dimensional. Related variational problems for other conformally covariant operators have been studied; some works include [17, 22, 37, 38]. 1.2. Plan of the paper. In the next section, we present some definitions, discuss important conformal properties (some introduced in [7]), and give a detailed treat-ment of generalized eigenvalues and eigenfunctions. We remark that Proposition 2.10 could be of independent interest; there we derive interior and boundary L∞
+
+estimates in a scenario where the potential function lies in Ln−1(Σ) but has a fixed sign. The proof of Theorem 1.1 is discussed in Section 3. In Section 4 we derive first variation type formulas for the normalized eigenvalue functional. The difficulty here comes from the non-differentiability of gu 7 −→ λ2(Dgu ), although its derivation is now standard in the literature. The proof of the main theorem, Theorem 1.2, is contained in Sections 5, 6, and 7. The techniques for its proof are motivated by those introduced by the author and M.J. Gursky in [18]. However, there are several new key features and complications. Here the generalized conformal factor is defined on the boundary, and so compact-ness is governed by the critical Sobolev trace embedding instead. Moreover, the conformal Dirichlet-to-Robin map is an elliptic pseudodifferential operator of order one on the boundary, so both the regularity theory and the analysis of boundary eigenfunctions require new arguments in many parts; see for instance Proposition 2.7 about boundary positivity (a.e.) of the first generalized eigenfunction or Propo-sition 6.8 for a uniform boundary estimate for the sequence of extremals. A partic-ularly delicate point is the possibility that the limiting conformal factor vanishes along the boundary. Unique continuation principles from sets of positive measure on the boundary are quite subtle; we rely on a recent result by Z. Li in [29] to discuss the size of the zero set of our extremal function u in Section 7. From there we obtain regularity and show the maximality of our limiting function. 8 SAMUEL P ´EREZ-AYALA 
+
+2. Preliminaries 
+
+Assumptions and conventions. We assume M is a compact connected Rie-mannian manifold of dimension n ≥ 3 with smooth boundary Σ := ∂M and inte-rior M , equipped with a conformal class [ g]. With the exception of Section 3, we always assume that the Type II Yamabe invariant Q(M , Σ, [g]) is finite and nega-tive. Therefore, and as a consequence of Proposition 1.4 in [12], up to a conformal change of metric, we can assume that the background metric g satisfies Rg = 0, hg
+
+is a negative constant, and Vol(Σ , dσ g ) = 1. As noticed in [13], the finiteness of 
+
+Q(M , Σ, [g]) is equivalent to λ1(LDg ) being positive; consequently, 0 ̸ ∈ Spec( LDg ). In particular, the Lg -harmonic extension discussed in (1.7) is unique. Finally, we assume that N ([ g]) ≥ 2 and 0 ̸ ∈ Spec( Dg ). We usually omit writing the Riemannian volume measure dv g or the Riemann-ian boundary measure dσ g when dealing with Sobolev spaces. That is, we write 
+
+W 1,2(M ), Lq (M ), and Lq (Σ) instead of W 1,2(M, dv g ), Lq (M, dv g ), and Lq (Σ , dσ g ), respectively. 2.1. Hg under conformal transformation. Let u ∈ C∞(M ) be a strictly posi-tive function and consider a conformal metric gu = u 4 
+
+> n−2
+
+g ∈ [g]. The outward unit normal derivative and the mean curvature on Σ transform according to (2.1) ∂νgu = u− 2 
+
+> n−2
+
+∂νg and hgu = u− 2
+
+> n−2
+
+
+
+hg + 2( n − 1) 
+
+n − 2 u−1∂νg u
+
+
+
+.
+
+In particular, νgu does not change direction. These imply that Bg is conformally covariant in the following sense: for any ϕ ∈ C∞(M ), (2.2) Bgu (ϕ) = u− nn−2 Bg (uϕ ).
+
+We proceed to explain the conformal properties of the operator Hg . As a con-sequence, we also derive the conformal transformation law for Dg . Suppose we are given a function ϕ ∈ C∞(Σ). Since 0 ̸ ∈ Spec( LDg ), there exists a unique function Hgu (ϕ) ∈ C∞(M ) such that Lgu (Hgu (ϕ)) = 0 ([7, 27]). Then we take 
+
+ψ := u|Σ ϕ ∈ C∞(Σ), and notice that uHgu (ϕ) is the correct extension with re-spect to Lg . Indeed, ( uHgu (ϕ)) |Σ = u|Σ ϕ = ψ on Σ and, due to the conformal transformation (1.2), (2.3) Lg (uHgu (ϕ)) = u n+2  
+
+> n−2
+
+Lgu (Hgu (ϕ)) = 0 .
+
+By uniqueness, we therefore have (2.4) Hg (ψ) = Hg (u|Σ ϕ) = uHgu (ϕ),
+
+thus 
+
+Dgu (ϕ) = Bgu (Hgu (ϕ)) = u− nn−2 Bg (uHgu (ϕ)) = u− nn−2 Bg (Hg (ψ)) = u− nn−2 Dg (ψ) = u− nn−2 Dg (( u|Σ )ϕ).
+
+(2.5) In summary, (2.6) Dgu (ϕ) = ( u|Σ )− nn−2 Dg (( u|Σ )ϕ).
+
+These properties are discussed in [7] and are only included here for the conve-nience of the reader. EXTREMAL METRICS FOR CONFORMAL DIRICHLET-TO-ROBIN MAP 9
+
+2.2. Generalized Eigenvalues and Eigenfunctions. Previous work on maxi-mizing eigenvalues on (closed) manifolds indicates that extremal metrics are ex-pected to possess singularities; see [2, 18, 24, 25, 35, 36] and references therein. Therefore, the class [ g] of smooth conformal Riemannian metrics is not appropriate for our purposes, and a different variational setting is needed (see [26] for a further discussion on this topic). We take the approach developed by Ammann-Humbert in [2] (see also [8]) and by M. J. Gursky and the author in [18] via generalized eigenvalues . The purpose of this section is to explain this approach. The variational characterization for λk(Dg ) is given by (2.7) λk(Dg ) = inf     
+
+> Sk⊂W1,2(M)
+
+sup   
+
+> ϕ∈Sk, ϕ |Σ̸≡0
+
+Rg (ϕ),
+
+where Sk is a k-dimensional subspace of functions on which the trace map is injec-tive, and (2.8) Rg (ϕ) := 
+
+R 
+
+> M
+
+|∇ g ϕ|2 dv g + 2 cn
+
+R 
+
+> Σ
+
+hg ϕ2 dσ g
+
+R 
+
+> Σ
+
+ϕ2 dσ g
+
+is the associated Rayleigh quotient. If we consider a conformal metric gu = u 4 
+
+> n−2
+
+g,then 
+
+Rgu (ϕ) = 
+
+R 
+
+> M
+
+(|∇ gu ϕ|2 + cnRgu ϕ2) dv gu + 2 cn
+
+R 
+
+> Σ
+
+hgu ϕ2 dσ gu
+
+R 
+
+> Σ
+
+ϕ2 dσ gu
+
+=
+
+R 
+
+> M
+
+ϕL gu (ϕ) dv gu + R 
+
+> Σ
+
+ϕ∂ νgu ϕ dσ gu + 2 cn
+
+R 
+
+> Σ
+
+hg ϕ2u2 dσ g + R 
+
+> Σ
+
+ϕ2u∂ νg u dσ g
+
+R 
+
+> Σ
+
+ϕ2u 2( n−1)  
+
+> n−2
+
+dσ g
+
+=
+
+R 
+
+> M
+
+(uϕ )Lg (uϕ ) dv g + 2 cn
+
+R 
+
+> Σ
+
+hg (uϕ )2 dσ g + R
+
+> Σ
+
+(uϕ )⟨∇ g (uϕ ), ν g ⟩ dσ g
+
+R
+
+> Σ
+
+(uϕ )2u 2 
+
+> n−2
+
+dσ g
+
+=
+
+R 
+
+> M
+
+|∇ g (uϕ )|2 dv g + 2 cn
+
+R 
+
+> Σ
+
+hg (uϕ )2 dσ g
+
+R
+
+> Σ
+
+(uϕ )2u 2 
+
+> n−2
+
+dσ g
+
+=
+
+R 
+
+> M
+
+|∇ g ψ|2 dv g + 2 cn
+
+R 
+
+> Σ
+
+hg ψ2 dσ g
+
+R 
+
+> Σ
+
+ψ2u 2 
+
+> n−2
+
+dσ g
+
+:= Rug (ψ),
+
+where ψ = uϕ . One of the advantages of working with Rug is that the conformal factor u appears only in the denominator, and so Rug only depends on u through its boundary values. Using Rug , we can write the variational characterization for 
+
+λk(u) := λk(Dgu ) as follows: (2.9) λk(u) = inf     
+
+> Sk⊂W1,2(M)
+
+sup   
+
+> ϕ∈Sk, ϕ |Σ̸≡0
+
+Rug (ϕ).
+
+In this convention, λk(1) is the k-th eigenvalue with respect to the background metric g. Studying extremal functions for Rug leads to the new system (2.10) 
+
+(
+
+Lg (ϕ) = 0 (in M )
+
+Bg (ϕ) = λϕu 2 
+
+> n−2
+
+(on Σ) ,
+
+which can also be viewed as (1.6) under conformal change. This motivates the following discussion. Let N = 2( n−1)  
+
+> n−2
+
+, and define (2.11) LN
+
+> ≥0
+
+(Σ) := {u ∈ LN (Σ) : u ≥ 0} \ { 0}.10 SAMUEL P ´EREZ-AYALA 
+
+We will refer to elements in LN
+
+> ≥0
+
+(Σ) as generalized conformal factors . Similarly, we define (2.12) LN>0(Σ) := {u ∈ LN (Σ) : u−1(0) has zero (boundary) measure }.
+
+The number N is the critical exponent in the Sobolev trace embedding (2.13) W 1,2(M ) ,→ Lq (Σ) ,
+
+meaning that (2.13) is compact for 1 < q < N and only continuous for q = N . We repeatedly use Friedrichs’s inequality (see Theorem 4.1.7 in [21]), which states that (2.14) 
+
+Z
+
+> M
+
+ϕ2 dv g ≤ C
+
+Z 
+
+> M
+
+|∇ g ϕ|2 dv g +
+
+Z
+
+> Σ
+
+ϕ2 dσ g
+
+
+
+for any ϕ ∈ W 1,2(M ). Also, we say that a k-dimensional subspace Sk = span {ϕ1, · · · , ϕ k}
+
+of W 1,2(M ) belongs to the k-th modified Grassmannian on the boundary, denoted by Gr uk (W 1,2(M )), if and only if the functions ϕ1u N −22 , · · · , ϕ ku N −22 are linearly independent on Σ. This linear independence is understood in L2(Σ). We can now define what generalized eigenvalues are in this context. 
+
+Definition 2.1. For u ∈ LN
+
+> ≥0
+
+(Σ), we define the k-th generalized eigenvalue λk(u)by (2.15) λk(u) := inf      
+
+> Sk∈Gr uk(W1,2(M))
+
+sup   
+
+> ϕ∈Sk, ϕ |Σ̸≡0
+
+Rug (ϕ).
+
+If λk(u) is finite, then a k-th generalized eigenfunction ϕk means a weak W 1,2(M )-solution of the following system: (2.16) 
+
+(
+
+Lg (ϕ) = 0 (in M )
+
+Bg (ϕ) = λk(u)ϕu N −2 (on Σ) .
+
+The collection of k-th generalized eigenfunctions associated to u ∈ LN
+
+> ≥0
+
+(Σ) is called the k-th generalized eigenspace and it is denoted by Ek(u). 
+
+Remark 2.2 . Any generalized k-th eigenfunction ϕ cannot vanish on Σ, i.e. ϕ|Σ̸ ≡ 0. Otherwise, we would have 0 ∈ Spec( LDg ), contradicting our assumption. Also, thanks to (2.13), any function ϕ ∈ W 1,2(M ) makes sense when restricted to the boundary, i.e. its trace is well defined. We abuse notation and write ϕ|Σ or “ ϕ on Σ” instead of T (ϕ), where T : W 1,2(M ) → Lq (Σ) is the trace operator. We start by discussing the number of negative generalized eigenvalues. In the smooth setting, the number N ([ g]) of negative eigenvalues for the Conformal Dirichlet-to-Robin map is a conformal invariant; see Section 1. We prove that this is still the case when working with generalized conformal factors if we require u−1(0) to have zero (boundary) measure. We will need the following observation made in [18]; see Lemma 2.2: 
+
+Lemma 2.3. Let u, w ∈ LN
+
+> ≥0
+
+(Σ) be generalized conformal factors. If {x ∈ Σ : 
+
+u(x) > 0} ⊆ { x ∈ Σ : w(x) > 0}, then Gr uk (W 1,2(M )) ⊆ Gr wk (W 1,2(M )) .
+
+We are now in a position to prove that the number of negative eigenvalues remains unchanged as long as our generalized conformal factors are in LN>0(Σ); see Proposition 2.5 in [18]. We include the argument here for completeness. 
+
+Proposition 2.4. If u ∈ LN>0(Σ) , then the number of negative generalized eigen-values associated to u is N ([ g]) .EXTREMAL METRICS FOR CONFORMAL DIRICHLET-TO-ROBIN MAP 11 
+
+Proof. We want to show that N (u) = N ([ g]), where N (u) denotes the number of negative generalized eigenvalues associated to u. Given any k ∈ N, it is enough to prove that λk(1) < 0 if and only if λk(u) < 0. If λk(1) ≥ 0, then (2.17) sup   
+
+> ϕ∈Sk, ϕ |Σ̸≡0
+
+R1 
+
+> g
+
+(ϕ) ≥ 0,
+
+for all Sk ∈ Gr 1
+
+> k
+
+(W 1,2). By Lemma 2.3, Gr uk (W 1,2(M )) ⊆ Gr 1
+
+> k
+
+(W 1,2(M )), and thus λk(u) ≥ 0. This shows that N ([ g]) ≥ N (u). To prove the opposite inequal-ity, just notice that, because u−1(0) has zero measure, we have Gr uk (W 1,2(M )) = 
+
+Gr 1
+
+> k
+
+(W 1,2(M )). A similar argument then shows that N (u) ≥ N ([ g]). □
+
+Our next goal is to discuss the existence of generalized eigenfunctions. In order to do so, it is necessary to first discuss the finiteness of u 7 → λ1(u). This is nontrivial as there are examples of smooth generalized conformal factors u ∈ LN
+
+> ≥0
+
+(Σ) for which 
+
+λ1(u) = −∞ ; this follows from an argument similar to the one used in Proposition 2.1 of [8], with the adjustment that the constructed ϵ-ball needs to be centered at a boundary point. 
+
+Proposition 2.5. If u ∈ LN>0(Σ) , then λ1(u) > −∞ . Moreover, any sequence 
+
+{ψj }∞ 
+
+> j=1
+
+⊂ W 1,2(M ), normalized so that R 
+
+> Σ
+
+ψ2 
+
+> j
+
+uN −2 dσ g = 1 , satisfying 
+
+(2.18) 
+
+Z
+
+> M
+
+|∇ g ψj |2 dv g + 2 cnhg
+
+Z
+
+> Σ
+
+ψ2 
+
+> j
+
+dσ g =: λj < 0,
+
+is bounded in W 1,2(M ).
+
+Notice that Proposition 2.5 implies that normalized minimizing sequences for 
+
+λ1(u), or for higher order negative eigenvalues, are bounded in W 1,2(M ). 
+
+Proof. Recall that, by assumption, N ([ g]) ≥ 2, and so λ1(u) ≤ λ2(u) < 0 by Proposition 2.4. Let {fj }∞ 
+
+> j=1
+
+⊂ W 1,2(M ) be a minimizing sequence for λ1(u): (2.19) 
+
+R 
+
+> M
+
+|∇ g fj |2 dv g + 2 cn
+
+R 
+
+> Σ
+
+hg f 2 
+
+> j
+
+dσ g
+
+R 
+
+> Σ
+
+f 2 
+
+> j
+
+uN −2 dσ g
+
+:= λj ≤ 0.
+
+By the homogeneity properties of the Rayleigh quotient, we can assume that the 
+
+fj ’s are normalized such that (2.20) 
+
+Z
+
+> Σ
+
+f 2 
+
+> j
+
+uN −2 dσ g = 1 .
+
+We claim that the sequence {fj }∞ 
+
+> j=1
+
+is bounded in W 1,2(M ). Note that this would be enough to prove boundedness of λ1(u) thanks to (2.13). Our argument is general and will also show the second part of the statement. Let us suppose on the contrary that ∥fj ∥W 1,2(M ) → ∞ as j → ∞ , and define ˜fj := fj ∥fj ∥−1  
+
+> W1,2(M)
+
+. The new sequence { ˜fj }∞ 
+
+> j=1
+
+is bounded in W 1,2(M ) with constant norm equal to 1. By standard compactness arguments, we deduce the existence of a function ˜f ∈ W 1,2(M ) such that (2.21) 
+
+( ˜fj ⇀ ˜f in W 1,2(M )˜fj → ˜f in L2(M ).
+
+Moreover, by the Sobolev trace embedding theorem (2.13), we have (2.22) ˜fj → ˜f in L2(Σ) .12 SAMUEL P ´EREZ-AYALA 
+
+First, it follows from Fatou’s lemma that (2.23) 0 ≤
+
+Z
+
+> Σ
+
+˜f 2uN −2 dσ g ≤ lim inf 
+
+> j→∞
+
+Z
+
+> Σ
+
+˜f 2 
+
+> j
+
+uN −2 dσ g = 0 ,
+
+and therefore, since u > 0 a.e. on Σ, (2.24) ˜f = 0 on Σ .
+
+On the other hand, from (2.19) we deduce (2.25) 
+
+Z
+
+> M
+
+|∇ g ˜fj |2 dv g + 2 cn
+
+Z
+
+> Σ
+
+hg ˜f 2 
+
+> j
+
+dσ g = λj
+
+Z
+
+> Σ
+
+˜f 2 
+
+> j
+
+uN −2 dσ g ≤ 0,
+
+and thus (2.26) 
+
+Z
+
+> M
+
+|∇ g ˜fj |2 dv g ≤ 2cn(−hg )
+
+Z
+
+> Σ
+
+˜f 2 
+
+> j
+
+dσ g .
+
+Using (2.21), (2.22), and the weak lower semicontinuity of the W 1,2(M )-norm, we obtain 0 ≤
+
+Z
+
+> M
+
+|∇ g ˜f |2 dv g ≤ lim inf 
+
+> j→∞
+
+Z
+
+> M
+
+|∇ g ˜fj |2 dv g ≤ 2cn∥hg ∥∞ lim 
+
+> j→∞
+
+Z
+
+> Σ
+
+˜f 2 
+
+> j
+
+dσ g = 0 This implies that ˜f is constant in M , and so ˜f ≡ 0 on M by (2.24). However, this is not possible: 1 = lim inf 
+
+> j→∞
+
+Z 
+
+> M
+
+|∇ g ˜fj |2 dv g +
+
+Z
+
+> M
+
+˜f 2 
+
+> j
+
+dv g
+
+
+
+= lim inf 
+
+> j→∞
+
+Z
+
+> M
+
+|∇ g ˜fj |2 dv g +
+
+Z
+
+> M
+
+˜f 2 dv g
+
+=
+
+Z
+
+> M
+
+˜f 2 dv g .
+
+Therefore, the original sequence is bounded. This concludes the proof. Notice that for normalized sequences such as in (2.18), we still have the correct sign as in (2.19), and so the argument applies without requiring the boundedness of λj . □
+
+Proposition 2.6. Let uj ∈ LN>0(Σ) be a sequence of generalized conformal factors with R 
+
+> Σ
+
+uNj dσ g = 1 . If {ψj }∞ 
+
+> j=1
+
+⊂ W 1,2(M ) with R 
+
+> Σ
+
+ψ2 
+
+> j
+
+uN −2 
+
+> j
+
+dσ g = 1 is a sequence of weak solutions of 
+
+(2.27) 
+
+(
+
+∆g (ψj ) = 0 ( in M )
+
+Bg (ψj ) = λj ψj uN −2 
+
+> j
+
+(on Σ) .
+
+and 0 > λ j → λ, then {ψj }∞ 
+
+> j=1
+
+is bounded in W 1,2(M ).Proof. Since (2.28) 
+
+Z
+
+> M
+
+|∇ g ψj |2 dv g + 2 cnhg
+
+Z
+
+> Σ
+
+ψ2 
+
+> j
+
+dσ g = λj < 0,
+
+we have R 
+
+> M
+
+|∇ g ψj |2 dv g < 2cn(−hg ) R 
+
+> Σ
+
+ψ2 
+
+> j
+
+dσ g , and so, by Friedrichs inequality 2.14, it is enough to show boundedness in L2(Σ). To this end, let us assume the contrary, that is, suppose ∥ψj ∥L2(Σ) → ∞ and set ˜ψj = ψj ∥ψj ∥−1
+
+> L2(Σ)
+
+. From rescaling (2.27) we now obtain R 
+
+> M
+
+|∇ g ˜ψj |2 dv g < 2cn(−hg ), and so { ˜ψj }∞ 
+
+> j=1
+
+is bounded in W 1,2(M ) thanks to (2.14). Denote by ˜ψ its limiting function obtained from standard compactness arguments. EXTREMAL METRICS FOR CONFORMAL DIRICHLET-TO-ROBIN MAP 13 
+
+Using that (2.29) 
+
+Z
+
+> M
+
+⟨∇ g ˜ψj , ∇g ψ⟩ dv g + 2 cnhg
+
+Z
+
+> Σ
+
+˜ψj ψ dσ g = λj
+
+Z
+
+> Σ
+
+˜ψj ψu N −2 
+
+> j
+
+dσ g
+
+holds for every ψ ∈ C∞(M ), weak convergence in W 1,2(M ) then implies that the left hand side of (2.29) converges to (2.30) 
+
+Z
+
+> M
+
+⟨∇ g ˜ψ, ∇g ψ⟩ dv g + 2 cnhg
+
+Z
+
+> Σ
+
+˜ψψ dσ g .
+
+On the other hand, we claim that the right hand side converges to zero. Indeed, since {λj }∞ 
+
+> j=1
+
+is bounded, we deduce 
+
+λj
+
+Z
+
+> Σ
+
+˜ψj ψu N −2 
+
+> j
+
+dσ g ≤ C∥ψ∥L∞(Σ) 
+
+Z
+
+> Σ
+
+| ˜ψj |uN −2 
+
+> j
+
+dσ g
+
+≤ C∥ψ∥L∞(Σ) 
+
+∥ψj ∥L2(Σ) 
+
+Z 
+
+> Σ
+
+ψ2 
+
+> j
+
+uN −2 
+
+> j
+
+dσ g
+
+ 12
+
+| {z }
+
+> =1
+
+Z 
+
+> Σ
+
+uN −2 
+
+> j
+
+dσ g
+
+ 12
+
+| {z }
+
+> ≤1
+
+→ 0.
+
+(2.31) Putting everything together, we have that for all ψ ∈ C∞(M ), (2.32) 
+
+Z
+
+> M
+
+⟨∇ g ˜ψ, ∇g ψ⟩ dv g + 2 cnhg
+
+Z
+
+> Σ
+
+˜ψψ dσ g = 0 .
+
+Since 0 ̸ ∈ Spec( Dg ), we conclude from (2.32) that ˜ψ|Σ = 0. However, since 
+
+∥ ˜ψj ∥L2(Σ) = 1, we then have R 
+
+> Σ
+
+˜ψ2 dσ g = 1 by strong convergence. This is a contradiction, thus {ψj }∞ 
+
+> j=1
+
+is bounded in L2(Σ) and the proof is completed. □
+
+We proceed with showing existence of generalized eigenfunctions and the sim-plicity of the first generalized eigenfunction. 
+
+Proposition 2.7. If u ∈ LN>0(Σ) , then (1) (Existence) There exist f1 and ϕ2 in W 1,2(M ) solving (2.16) in the sense of distributions with λ = λ1(u) and λ = λ2(u), respectively, and satisfying the following conditions: 
+
+(2.33) 
+
+Z
+
+> Σ
+
+f 21 uN −2 dσ g =
+
+Z
+
+> Σ
+
+ϕ22uN −2 dσ g = 1 ,
+
+Z
+
+> Σ
+
+f1ϕ2uN −2 dσ g = 0 .
+
+(2) (Simplicity) The zero set f −11 (0) ∩Σ of the first eigenfunction f1 restricted to 
+
+Σ has zero (boundary) measure, and so a second generalized eigenfunction 
+
+ϕ2 changes sign on Σ. Moreover, E1(u) is one dimensional. Proof. We start with the existence of f1. Let {fj }∞ 
+
+> j=1
+
+⊂ W 1,2(M ) be a minimizing sequence for λ1(u), and assume that for each j ≥ 1, fj ≥ 0 and R 
+
+> Σ
+
+f 2 
+
+> j
+
+uN −2 dσ g = 1. It follows from Proposition 2.5 that the sequence {fj }∞ 
+
+> j=1
+
+is bounded in W 1,2(M ). By standard compactness arguments, there exists a function f1 ∈ W 1,2(M ) such 14 SAMUEL P ´EREZ-AYALA 
+
+that fj ⇀ f 1 in W 1,2(M ), fj → f1 in L2(M ), and fj → f1 in L2(Σ). Therefore, 
+
+Z
+
+> M
+
+|∇ g f1|2 dv g + 2 cn
+
+Z
+
+> Σ
+
+hg f 21 dσ g ≤ lim inf 
+
+> j→∞
+
+Z 
+
+> M
+
+|∇ g fj |2 dv g + 2 cn
+
+Z
+
+> Σ
+
+hg f 2 
+
+> j
+
+dσ g
+
+
+
+= lim inf  
+
+> j→∞
+
+Rug (fj ) = lim inf  
+
+> j→∞
+
+λj
+
+= λ1(u).
+
+In order to finish the proof, we need to argue that Rug (f1) = λ1(u). Thus, what remains to be shown is (2.34) 
+
+Z
+
+> Σ
+
+f 21 uN −2 dσ g = 1 .
+
+Using R 
+
+> Σ
+
+f 2 
+
+> j
+
+uN −2 dσ g = 1 for all j ≥ 1, we estimate as follows: 
+
+Z
+
+> Σ
+
+f 21 uN −2 dσ g − 1 =
+
+Z
+
+> Σ
+
+(f 21 − f 2 
+
+> j
+
+)uN −2 dσ g
+
+≤
+
+Z
+
+> Σ
+
+|f 21 − f 2 
+
+> j
+
+|uN −2 dσ g
+
+| {z }
+
+> =Aj
+
+.
+
+(2.35) For any C > 0 sufficiently large, define uC := inf {C, u }. Then 
+
+Aj ≤
+
+Z
+
+> Σ
+
+|f 21 − f 2 
+
+> j
+
+|| uN −2 
+
+> C
+
+− uN −2| dσ g +
+
+Z
+
+> Σ
+
+|f 21 − f 2 
+
+> j
+
+|uN −2 
+
+> C
+
+dσ g
+
+≤
+
+Z 
+
+> Σ
+
+|f 21 − f 2 
+
+> j
+
+| N 
+
+> 2
+
+dσ g
+
+ 2 
+
+> N
+
+Z 
+
+> Σ
+
+|uN −2 
+
+> C
+
+− uN −2| NN −2 dσ g
+
+ N −2
+
+> N
+
++ CN −2
+
+Z
+
+> Σ
+
+|f 21 − f 2 
+
+> j
+
+| dσ g .
+
+(2.36) Since {fj }∞ 
+
+> j=1
+
+is bounded in W 1,2(M ), we conclude via the Sobolev trace embedding (2.13) that the first factor of the first term in the last two lines is bounded. The second factor goes to zero as C → ∞ by the Dominated Convergence Theorem, whereas the last term goes to zero by strong convergence in L2(Σ). This proves that 
+
+Aj goes to zero by first letting j → ∞ , and then C → ∞ . Hence, Rug (f1) = λ1(u)and we have the existence of a first generalized eigenfunction. To prove the existence of a second generalized eigenfunction ϕ2 satisfying (2.33), we start with a normalized minimizing sequence {ϕj }∞ 
+
+> j=1
+
+⊂ W 1,2(M ) for ˜λ2(u) := inf Rug (ϕ), where the infimum is being taken over all ϕ ∈ W 1,2(M ) satisfying (2.37) 
+
+Z
+
+> Σ
+
+f1ϕu N −2 dσ g = 0 .
+
+By Lemma 2.8 below, 0 > λ 2(u) = ˜λ2(u). With this, we conclude that this sequence is bounded in W 1,2(M ) thanks to Proposition 2.5. From standard compactness arguments, we get convergence properties as for the sequence {fj }∞
+
+> j=1
+
+. Denote the EXTREMAL METRICS FOR CONFORMAL DIRICHLET-TO-ROBIN MAP 15 
+
+limiting function by ϕ2. To prove the orthogonality condition, we compute 
+
+Z
+
+> Σ
+
+f1ϕ2uN −2 dσ g − 0
+
+> 2
+
+=
+
+Z
+
+> Σ
+
+f1ϕ2uN −2 dσ g −
+
+Z
+
+> Σ
+
+f1ϕj uN −2 dσ g
+
+> 2
+
+=
+
+Z
+
+> Σ
+
+
+
+f1u N −22
+
+
+
+(ϕ2 − ϕj )u N −22 dσ 
+
+> 2
+
+≤
+
+Z
+
+> Σ
+
+f 21 uN −2 dσ g ·
+
+Z
+
+> Σ
+
+|ϕ2 − ϕj |2uN −2 dσ g ,
+
+(2.38) and the estimate of the second factor is as before (see estimates for Aj ). Moreover, the same truncation argument used for f1 shows that R 
+
+> Σ
+
+ϕ22uN −2 dσ g = 1. This completes the proof of part (i). We now proceed with the proof of part (ii). Notice that, by construction, the function f1 is nonnegative in M . By continuity of the trace operator and approxi-mation, its restriction to Σ is also nonnegative. We want to show that it is positive almost everywhere on Σ, i.e. the zero set of its trace has zero boundary measure. Recall that the background metric g is scalar flat, and so f1 is a W 1,2(M )-solution of the system (2.39) 
+
+(
+
+∆g f1 = 0 (in M )
+
+Bg (f1) = λ1(u)f1uN −2 (on Σ) .
+
+By the Harnack inequality (see Corollary 8.21 in [16]), we conclude that f1 > 0almost everywhere in M . For each ϵ > 0, consider the function (2.40) ψϵ := 1
+
+f1 + ϵ .
+
+Since ψϵ ∈ W 1,2(M ), we can use it as a test function in (2.39) and get (2.41) λ1(u)
+
+Z
+
+> Σ
+
+f1
+
+f1 + ϵ uN −2 dσ g = −
+
+Z
+
+> M
+
+|∇ g f1|2
+
+(f1 + ϵ)2 dv g + 2 cn
+
+Z
+
+> Σ
+
+hg
+
+f1
+
+f1 + ϵ dσ g .
+
+Since hg < 0, we derive 
+
+Z
+
+> M
+
+|∇ g f1|2
+
+(f1 + ϵ)2 dv g ≤ (−λ1(u)) 
+
+Z
+
+> Σ
+
+f1
+
+f1 + ϵ uN −2 dσ g ≤ (−λ1(u)) 
+
+Z
+
+> Σ
+
+uN −2 dσ g ,(2.42) and an application of Fatou’s lemma gives |∇ g log f1| ∈ L2(M ). Finally, consider the function (2.43) fϵ = f1
+
+f1 + ϵ .
+
+Using that fϵ > 0 a.e. in M , it follows that fϵ → 1 in L2(M ). Also, ∇g fϵ → 0a.e. in M . Since |∇ g fϵ|2 ≤ |∇ g log f1|2 ∈ L1(M ), an application of the Dominated Convergence Theorem yields that fϵ → 1 in W 1,2(M ). Therefore, fϵ → 1 a.e. on Σ, thus f1 is positive a.e. on Σ. The simplicity of λ1(u) now follows from standard arguments; see proof of Proposition 2.4, (ii) in [18]. □
+
+Lemma 2.8. If u ∈ LN>0(Σ) , then 
+
+(2.44) λ2(u) = inf Rug (ϕ),
+
+where the infimum is being taken over all ϕ ∈ W 1,2(M ) with ϕ|Σ̸ ≡ 0 and satisfying R 
+
+> Σ
+
+ϕf 1uN −2 dσ g = 0 . Here f1 is the first eigenfunction associated to λ1(u) > −∞ .16 SAMUEL P ´EREZ-AYALA 
+
+Proof. As in the proof of Proposition 2.7, we denote the right hand side of (2.44) by ˜λ2(u). For any two dimensional subspace S2 ∈ Gr u 
+
+> 2
+
+(W 1,2(M )), there is always a function ˜ϕ ∈ S2 satisfying (2.45) 
+
+Z
+
+> Σ
+
+˜ϕf 1uN −2 dσ g = 0 .
+
+Therefore, (2.46) sup  
+
+> ϕ∈S2, ϕ |Σ̸≡0
+
+Rug (ϕ) ≥ R ug ( ˜ϕ) ≥ ˜λ2(u),
+
+and thus λ2(u) ≥ ˜λ2(u). On the other hand, let ˜ϕ be any test function for ˜λ2(u), and consider S2 := span { ˜ϕ, f 1}. The orthogonality condition and f1 > 0 a.e. on Σ imply that S2 ∈
+
+Gr u 
+
+> 2
+
+(W 1,2(M )). We claim that Rug ( ˜ϕ) = sup ϕ∈S2, ϕ |Σ̸ ≡0 Rug (ϕ). Indeed, for any 
+
+a, b ∈ R, R 
+
+> Σ
+
+˜f1uN −2 dσ g = 0 yields 
+
+Rug (a ˜ϕ + bf 1) = a2Rug ( ˜ϕ) R 
+
+> Σ
+
+˜ϕ2uN −2 dσ g + b2λ1(u) R 
+
+> Σ
+
+f 21 uN −2 dσ g
+
+a2 R 
+
+> Σ
+
+˜ϕ2uN −2 dσ g + b2 R 
+
+> Σ
+
+f 21 uN −2 dσ g
+
++ 2abλ 1(u) R 
+
+> Σ
+
+˜ϕf 1 uN −2 dσ g
+
+a2 R 
+
+> Σ
+
+˜ϕ2uN −2 dσ g + b2 R 
+
+> Σ
+
+f 21 uN −2 dσ g
+
+≤ a2Rug ( ˜ϕ) R 
+
+> Σ
+
+˜ϕ2uN −2 dσ g + b2Rug ( ˜ϕ) R 
+
+> Σ
+
+f 21 uN −2 dσ g
+
+a2 R 
+
+> Σ
+
+˜ϕ2uN −2 dσ g + b2 R 
+
+> Σ
+
+f 21 uN −2 dσ g
+
+= Rug ( ˜ϕ),
+
+(2.47) and the claim follows because ˜ϕ ∈ S2. Since sup ϕ∈S2, ϕ |Σ̸ ≡0 Rug (ϕ) ≥ λ2(u), after taking the infimum over all such ˜ϕ we conclude that ˜λ2(u) ≥ λ2(u). This completes the proof. □
+
+We finish this section with an important consequence of Proposition 2.4. For any generalized conformal factor u in LN>0(Σ), the associated second eigenspace 
+
+E2(u), which is nontrivial by Proposition 2.7, is finite dimensional. In fact, since dim E1(u) = 1 by Proposition 2.7, we have that dim E2(u) ≤ N ([ g]) − 1. More generally, this is the case for any eigenspace associated with any negative eigenvalue. We record this as a corollary: 
+
+Corollary 2.9. If u ∈ LN>0(Σ) , then the associated second eigenspace E2(u) is finite dimensional. More precisely, dim E2(u) ≤ N ([ g]) − 1.
+
+2.3. L∞ estimates for Generalized Eigenfunctions. Recall that, thanks to the Sobolev trace embedding theorem (2.13), if a function is in W 1,2(M ), then it is in LN (Σ). The following improvement for integrability along the boundary for weak solutions of (2.16) is a generalization of a result in [2]: let u ∈ LN
+
+> ≥0
+
+(Σ) and 
+
+ϕ ∈ W 1,2(M ). If ϕ solves (2.16) in the sense of distributions, then ϕ ∈ LN +ϵ(Σ) 
+
+for some ϵ > 0. The techniques for proving it are very similar although in this case it involves having to control boundary integrals. However, this is not enough for our purposes, thus we omit the proof. In the next proposition, we prove via Moser iteration techniques a stronger result in the case of generalized eigenfunctions associated with negative eigenvalues and a potential uN −2 which is not assumed to be in L∞(Σ). EXTREMAL METRICS FOR CONFORMAL DIRICHLET-TO-ROBIN MAP 17 
+
+Proposition 2.10. Let u ∈ LN
+
+> ≥0
+
+(Σ) and ϕ ∈ W 1,2(M ). Assume ϕ is a weak 
+
+W 1,2(M )-solution of 
+
+(2.48) 
+
+(
+
+Lg (ϕ) = 0 ( in M )
+
+Bg (ϕ) = −ϕu N −2 (on Σ) .
+
+Then (i) ϕ ∈ Lp(M ) ∩ Lp(Σ) for each finite p ≥ 1, and (ii) ϕ ∈ L∞(M ) ∩ L∞(Σ) .Proof. The weak formulation of (2.48) implies that (2.49) −
+
+Z
+
+> Σ
+
+ψϕu N −2 dσ g =
+
+Z
+
+> M
+
+⟨∇ g ψ, ∇g ϕ⟩ dv g + 2 cn
+
+Z
+
+> Σ
+
+hg ψϕ dσ g
+
+for all ψ ∈ W 1,2(M ). For h > 0, define ϕh := inf {| ϕ|, h }, and take as a test function 
+
+ψ = ϕϕ 2kh , where k > 0. Plugging ψ back into (2.49) and rearranging gives 
+
+Z
+
+> M
+
+ϕ2kh |∇ g ϕ|2 dv g + 2 k
+
+Z
+
+> M
+
+ϕ2k−1 
+
+> h
+
+ϕ⟨∇ g ϕh, ∇g ϕ⟩ dv g
+
+| {z }
+
+> := A1
+
+= −
+
+Z
+
+> Σ
+
+ϕ2kh ϕ2uN −2 dσ g − 2cn
+
+Z
+
+> Σ
+
+hg ϕ2kh ϕ2 dσ g .
+
+(2.50) The right-hand side of (2.50) can be estimated by (2.51) −
+
+Z
+
+> Σ
+
+ϕ2kh ϕ2uN −2 dσ g − 2cn
+
+Z
+
+> Σ
+
+hg ϕ2kh ϕ2 dσ g ≤ 2cn(−hg )
+
+Z
+
+> Σ
+
+ϕ2kh ϕ2 dσ g .
+
+Also, notice that A1 on the left-hand side equals (2.52) A1 = 2 k
+
+Z
+
+> {| ϕ|≤ h}
+
+ϕ2kh |∇ g ϕ|2 dv g ,
+
+where {| ϕ| ≤ h} := {x ∈ M : |ϕ(x)| ≤ h}. The set {| ϕ| > h } is defined similarly. From (2.51) and (2.52) we then obtain (2.53) 
+
+Z
+
+> M
+
+ϕ2kh |∇ g ϕ|2 dv g + 2 k
+
+Z
+
+> {| ϕ|≤ h}
+
+ϕ2kh |∇ g ϕ|2 dv g
+
+| {z }
+
+> := A2
+
+≤ C(g)
+
+Z
+
+> Σ
+
+ϕ2kh ϕ2 dσ g ,
+
+where C(g) = 2 cn(−hg ) > 0. To estimate A2, we proceed as follows: 
+
+A2 =
+
+Z
+
+> {| ϕ|>h }
+
+ϕ2kh |∇ g ϕ|2 dv g + (2 k + 1) 
+
+Z
+
+> {| ϕ|≤ h}
+
+ϕ2kh |∇ g ϕ|2 dv g
+
+≥ 2k + 1 (k + 1) 2
+
+Z
+
+> {| ϕ|>h }
+
+ϕ2kh |∇ g ϕ|2 dv g + (2 k + 1) 
+
+Z
+
+> {| ϕ|≤ h}
+
+ϕ2kh |∇ g ϕ|2 dv g
+
+(2.54) On the other hand, using (2.55) |∇ g (ϕϕ kh)|2 =
+
+(
+
+(k + 1) 2ϕ2kh |∇ g ϕ|2 {| ϕ| ≤ h}
+
+ϕ2kh |∇ g ϕ|2 {| ϕ| > h },
+
+we obtain 
+
+Z
+
+> M
+
+|∇ g (ϕϕ kh)|2 dv g =
+
+Z
+
+> {| ϕ|>h }
+
+ϕ2kh |∇ g ϕ|2 dv g + ( k + 1) 2
+
+Z
+
+> {| ϕ|≤ h}
+
+ϕ2kh |∇ g ϕ|2 dv g18 SAMUEL P ´EREZ-AYALA 
+
+Thus, (2.56) A2 ≥ 2k + 1 (k + 1) 2
+
+Z
+
+> M
+
+|∇ g (ϕϕ kh)|2 dv g .
+
+Putting together (2.53) and (2.56) gives (2.57) 2k + 1 (k + 1) 2
+
+Z
+
+> M
+
+|∇ g (ϕϕ kh)|2 dv g ≤ C(g)
+
+Z
+
+> Σ
+
+(ϕϕ kh)2 dσ g ,
+
+that is, (2.58) 2k + 1 (k + 1) 2 ∥ϕϕ kh∥2   
+
+> W1,2(M)
+
+≤ C(g)
+
+Z
+
+> Σ
+
+(ϕϕ kh)2 dσ g + 2k + 1 (k + 1) 2
+
+Z
+
+> M
+
+(ϕϕ kh)2 dv g .
+
+Interior Estimates: ϕ ∈ Lp(M ), 1 ≤ p ≤ ∞ . We focus on the right-hand side of (2.58). By a result of Winkert [30] (see also Proposition 2.1 in [31]), there exist constants c1 > 0 and c2 > 0 such that, for any ϵ > 01,(2.59) ∥ϕϕ kh∥2 
+
+> L2(Σ)
+
+≤ ϵ∥ϕϕ kh∥2   
+
+> W1,2(M)
+
++ c1ϵ−c2 ∥ϕϕ kh∥2 
+
+> L2(M)
+
+.
+
+Taking ϵ := C(g)−1(2 k + 1)( k + 1) −22−1, from (2.58) we deduce (2.60) ∥ϕϕ kh∥2   
+
+> W1,2(M)
+
+≤ C(g, k )∥ϕϕ kh∥2 
+
+> L2(M)
+
+,
+
+where (2.61) C(g, k ) = 2 + C(g)c2+1 c1
+
+ 2( k + 1) 2
+
+2k + 1 
+
+c2+1 
+
+.
+
+By enlarging C(g, k ) if necessary, we can assume without loss of generality that 
+
+C(g, k ) ≤ C(g)(1 + k1+ c2 ), for a possibly different constant C(g) independent of k.We use 2 ∗ to denote 2nn−2 . An application of the Sobolev embedding theorem implies 
+
+∥ϕϕ kh∥L2∗ (M ) ≤ C∥ϕϕ kh∥W 1,2(M ) ≤ C · C(g) 12 (1 + k1+ c2 ) 12 ∥ϕϕ kh∥L2(M )
+
+≤ C · C(g) 12 (1 + k1+ c2 ) 12 ∥ϕ∥k+1  
+
+> L2( k+1) (M)
+
+.
+
+(2.62) Letting h → ∞ and using Fatou’s Lemma gives (2.63) ∥ϕ∥Lp nn−2 (M ) ≤ C(g) 1 
+
+> p
+
+(1 + k1+ c2 ) 1 
+
+> p
+
+∥ϕ∥Lp(M ),
+
+where p = 2( k + 1). Select k0 > 0 such that 2( k0 + 1) = 2 ∗, and pick kj , j ∈ N,such that 2( kj + 1) = 
+
+ nn−2
+
+j
+
+2∗. A standard iteration scheme yields (2.64) ∥ϕ∥Lpj nn−2 (M ) ≤ C∥ϕ∥L2∗ (M ),
+
+where C = C(n, g, c 2). Since pj → ∞ , this also gives the L∞(M ) estimates. 
+
+Boundary Estimates: ϕ ∈ Lp(Σ) , 1 ≤ p ≤ ∞ . It is enough to show that 
+
+ϕ ∈ L∞(Σ). Since ϕ ∈ W 1,2(M ) ∩ L∞(M ) thanks to the previous discussion, this case is a consequence of Proposition 2.4 in [31]. □
+
+> 1
+
+We point out that the constants c1 and c2 from Proposition 2.1 in [31], which traces back to [30], are independent of ϵ. This is used here. EXTREMAL METRICS FOR CONFORMAL DIRICHLET-TO-ROBIN MAP 19 
+
+Remark 2.11 . Notice that Proposition 2.10 remains true if ϕ is any generalized eigenfunction associated to a negative eigenvalue. That is, Proposition 2.10 holds for any weak W 1,2(M ) solution of (2.65) 
+
+(
+
+Lg (ϕ) = 0 (in M )
+
+Bg (ϕ) = λk(u)ϕu N −2 (on Σ) with λk(u) < 0. 
+
+Remark 2.12 . Suppose {ϕi}∞ 
+
+> i=1
+
+is a sequence of weak solutions to (2.48) which is uniformly bounded in W 1,2(M ). By the Sobolev embedding theorem, the sequence is also uniformly bounded in L2∗
+
+(M ). From (2.64) we then conclude that the sequence is uniformly bounded in any Lp(M ). Furthermore, after taking limits in (2.64), we can also conclude that the sequence is uniformly bounded in L∞(M ). Finally, an application of Proposition 2.4 in [31] yields uniform bounds in L∞(Σ). 
+
+Remark 2.13 . The ideas for the proof of Proposition 2.10 follow closely the approach of Marino and Winkert in [31] (see Theorem 3.1). However, their result does not apply immediately since our weight function u is not a priori in L∞(Σ). 3. First Eigenvalue: Proof of Theorem 1.1 
+
+Assume that we are given a smooth conformal metric gu = u 4 
+
+> n−2
+
+g ∈ [g] ( u ∈
+
+C∞(M ), u > 0 on M ), and that [ g] is a conformal class for which inequality (1.16) holds. Thanks to Escobar’s work [12], a minimizer exists and the associated metric is scalar flat and has constant mean curvature on the boundary. Let us assume that our background metric g is such metric, and that it has been normalized to have unit boundary volume. Therefore, Q(M , Σ, [g]) = 2 cnhg . Denote by Eg (ϕ)the numerator in the Rayleigh Quotient Rug :
+
+Eg (ϕ) := 
+
+Z
+
+> M
+
+(|∇ g ϕ|2 + cnRg ϕ2) dv g + 2 cn
+
+Z
+
+> Σ
+
+hg ϕ2 dσ g
+
+=
+
+Z
+
+> M
+
+|∇ g ϕ|2 dv g + 2 cnhg
+
+Z
+
+> Σ
+
+ϕ2 dσ g .
+
+(3.1) The sign of hg is determined by the sign of Q(M , Σ, [g]). 3.1. The Q(M , Σ, [g]) < 0 case. We start by pointing out that, in this case, we have uniqueness of extremals for Q(M , Σ, [g]), and so a scalar flat metric with con-stant mean curvature on the boundary is automatically a minimizer. This follows from a maximum principle argument; see Proposition 2.6 in [19]. Recall that λ1(Dg ) < 0 as its sign agrees with that of Q(M , Σ, [g]). The varia-tional characterization (2.9) implies that we can find a function ϕ ∈ C∞(M ) such that Eg (ϕ) < 0 and ϕ̸ ≡ 0 on Σ. For these functions, H¨ older’s inequality implies (3.2) Rug (ϕ) = Eg (ϕ)
+
+R 
+
+> Σ
+
+ϕ2uN −2 dσ g
+
+≤ Eg (ϕ)
+
+ R  
+
+> Σ
+
+ϕN dσ g
+
+ 2 
+
+> N
+
+ R  
+
+> Σ
+
+uN dσ g
+
+ N −2
+
+> N
+
+.
+
+Therefore, (3.3) λ1(u)Vol(Σ , dσ gu ) N −2 
+
+> N
+
+≤ Q(M , Σ, [g]) follows after taking the infimum over all those ϕ’s. Notice that equality occurs for the metric g, i.e., u ≡ 1 maximizes the normalized first eigenvalue functional. 20 SAMUEL P ´EREZ-AYALA 
+
+Indeed, if we take ϕ ≡ 1 > 0, then Bg (1) = 2 cnhg , implying that λ1(1) = 2 cnhg =
+
+Q(M , Σ, [g]). We claim that equality in (3.3) occurs if and only if, up to a conformal change of metric in the interior, u is a positive constant on Σ. This means that gu|T Σ is homo-thetic to g|T Σ. First, let us assume that such u is given. By scale invariance, we can assume that Vol(Σ , dσ gu ) = 1, and so u ≡ 1 on Σ. Then Bgu (u−1) = u1−N Bg (1) = 2cnhg , thus u−1 is a first eigenfunction with λ1(u) = 2 cnhg = Q(M , Σ, [g]). On the other hand, assume that equality in (3.3) occurs for some conformal metric gu = u 4 
+
+> n−2
+
+g ∈ [g]. By scale invariance, we can assume that Vol(Σ , dσ gu ) = 1, thus λ1(u) = Q(M , Σ, [g]) = 2 cnhg . Moreover, using (3.2), we get (3.4) λ1(u) ≤ R ug (1) = Eg (1) 
+
+R 
+
+> Σ
+
+uN −2 dσ g
+
+≤ Eg (1) 
+
+ R  
+
+> Σ
+
+uN dσ g
+
+ N −2
+
+> N
+
+= 2 cnhg = λ1(u).
+
+The equality case in H¨ older’s inequality then implies that u is constant on Σ. This finishes the proof. As a concluding remark, we point out that (3.2) shows that if Q(M , Σ, [g]) = −∞ ,then so is λ1(u)Vol(Σ , dσ gu ) N −2 
+
+> N
+
+for any given smooth positive u.3.2. The Q(M , Σ, [g]) > 0 case. In this case, we have that λ1(Dg ) > 0, and we as-sume the background metric g is a unit boundary volume minimizer of Q(M , Σ, [g]). Since Eg (ϕ) > 0 for all ϕ ∈ C∞(M ) with ϕ̸ ≡ 0 on Σ, H¨ older’s inequality yields (3.5) Rug (ϕ) = Eg (ϕ)
+
+R 
+
+> Σ
+
+ϕ2uN −2 dσ g
+
+≥ Eg (ϕ)
+
+ R  
+
+> Σ
+
+ϕN dσ g
+
+ 2 
+
+> N
+
+ R  
+
+> Σ
+
+uN dσ g
+
+ N −2
+
+> N
+
+.
+
+and a similar analysis leads to (3.6) λ1(Dgu )Vol(Σ , dσ gu ) N −2 
+
+> N
+
+≥ Q(M , Σ, [g]) .
+
+As before, equality occurs if we take u ≡ 1. Assume equality holds in (3.6) for some conformal metric gu, and assume it has unit boundary volume. If ϕ1 > 0 is a first eigenfunction associated to λ1(u) = 2cnhg , then 
+
+λ1(u) = Eg (ϕ1)
+
+R 
+
+> Σ
+
+ϕ21uN −2 dσ g
+
+= Q(M , Σ, [g]) 
+
+≤ Eg (ϕ1)
+
+ R  
+
+> Σ
+
+ϕN 
+
+> 1
+
+dσ g
+
+ 2
+
+> N
+
+≤ Eg (ϕ1)
+
+R 
+
+> Σ
+
+ϕ21uN −2 dσ g
+
+= λ1(u).
+
+(3.7) This implies that ϕ1 > 0 minimizes Q(M , Σ, [g]), and so gϕ1 is a scalar flat metric with constant mean curvature, and it implies that u = Cϕ 1 on Σ, for some C > 0. Conversely, if ϕ1 is a positive first eigenfunction for gu, gϕ1 minimizes Q(M , Σ, [g]) and u = Cϕ 1 on Σ for some C > 0, then 
+
+λ1(u) = Eg (ϕ1)
+
+R 
+
+> Σ
+
+ϕ21uN −2 dσ g
+
+= C−2Eg (ϕ1)
+
+Z 
+
+> Σ
+
+uN dσ g
+
+−1
+
+= Q(M , Σ, [g])Vol(Σ , dσ gu ) 2−NN .
+
+(3.8) This finishes the proof. EXTREMAL METRICS FOR CONFORMAL DIRICHLET-TO-ROBIN MAP 21 
+
+3.3. The Q(M , Σ, [g]) = 0 case. In this case, our background metric g satisfies both Rg = 0 and hg = 0. If gu ∈ [g], then the conformal properties imply that 
+
+Bgu (u−1) = u1−N Bg (1) = 0 and so λ1(u) = 0. Since gu ∈ [g] is arbitrary, the result follows. 4. First Variation Formulas 
+
+One of the main issues in extremal eigenvalue problems arises from the non-differentiability of eigenvalue functionals of the form g ∈ A 7 −→ λ(g), where A is a subset of the space of Riemannian metrics on the manifold. However, the one-sided derivatives exist along certain deformations, and Euler–Lagrange equations can be obtained via classical Hahn–Banach separation theorems; see for instance [9, 10] for discussion involving Laplacian eigenvalues. The main purpose of this section is to introduce a suitable family of deformations, and to derive first variation formulas. We consider deformations of the form ut := 
+
+u(1 + th ), where h ∈ L∞(Σ). In light of Lemma 2.3, we require t ∈ (−δ, δ ), where 
+
+δ > 0 is small enough such that |1 + th | ≥ 1 − δ∥h∥L∞(Σ ,dσ ) > 0. With this, 
+
+Gr uk (W 1,2(M )) = Gr ut 
+
+> k
+
+(W 1,2(M )) for all t ∈ (−δ, δ ) since the positive sets of u and 
+
+ut agree. Under these assumptions, the function t 7 −→ λk(ut) is continuous at t = 0 for k = 1 , 2. 
+
+Proposition 4.1. Let u ∈ LN>0(Σ) . Then the following holds: 
+
+(4.1) lim  
+
+> t→0
+
+λ1(ut) = λ1(u),
+
+and 
+
+(4.2) lim  
+
+> t→0
+
+λ2(ut) = λ2(u).
+
+Proof. The proof follows from Proposition 2.4 (the zero sets of u and ut coincide), the inequality (1 − | t|∥ h∥∞)N −2
+
+Z
+
+> Σ
+
+ϕ2uN −2 dσ g ≤
+
+Z
+
+> Σ
+
+ϕ2uN −2 
+
+> t
+
+dσ g
+
+≤ (1 + |t|∥ h∥∞)N −2
+
+Z
+
+> Σ
+
+uN −2ϕ2 dσ g ,
+
+(4.3) and the variational characterization of generalized eigenvalues. □
+
+For any generating function h ∈ L∞(Σ), we define Lh(ϕ, u ) for a function ϕ in 
+
+E2(u) by (4.4) Lh(ϕ, u ) = −(N − 2) λ2(u)
+
+R 
+
+> Σ
+
+hϕ 2uN −2 dσ g
+
+R 
+
+> Σ
+
+ϕ2uN −2 dσ g
+
+.
+
+One of the key ingredients in our argument is Proposition 4.2 below. Its proof is omitted because the arguments are quite similar to those of the closed case discussed in [18], Section 3 (see also [26]). 
+
+Proposition 4.2. The one-sided derivatives of the function t 7 → λ2(ut) exist, and they are given by 
+
+(4.5) ddt λ2(ut)|t=0 + = inf  
+
+> ϕ∈E2(u)\{ 0}
+
+Lh(ϕ, u ),22 SAMUEL P ´EREZ-AYALA 
+
+(4.6) ddt λ2(ut)|t=0 − = sup 
+
+> ϕ∈E2(u)\{ 0}
+
+Lh(ϕ, u ).
+
+5. Regularized Functional Fϵ
+
+For each ϵ > 0, we set (5.1) Dϵ := {u ∈ LN 
+
+> ≥0
+
+: u−ϵ ∈ L1(Σ) } ⊆ LN>0(Σ) ,
+
+and define the scale-invariant functional F2,ϵ : Dϵ → R by (5.2) F2,ϵ (u) = λ2(u)
+
+Z 
+
+> Σ
+
+uN dσ g
+
+ N −2
+
+> N
+
+−
+
+Z 
+
+> Σ
+
+u−ϵ dσ g
+
+ Z 
+
+> Σ
+
+uN dσ g
+
+ ϵN
+
+.
+
+Note that, by Proposition 2.5, F2,ϵ is well-defined on all of Dϵ. Moreover, F2,ϵ (u) ≤
+
+0 for all u ∈ D ϵ. As a straightforward consequence of Proposition 4.2, we obtain: 
+
+Proposition 5.1. Suppose u ∈ D ϵ with 
+
+(5.3) 
+
+Z
+
+> Σ
+
+uN dσ g = 1 ,
+
+and for any h ∈ L∞(Σ) consider 
+
+(5.4) ut = u(1 + th )
+
+for t ∈ R small. Then the one-sided derivatives of the function t 7 −→ F2,ϵ (ut) at 
+
+t = 0 exist, and are given by 
+
+ddt F2,ϵ (ut)|t=0 + = ( N − 2) λ2(u)
+
+(
+
+γ1,ϵ 
+
+Z
+
+> Σ
+
+hu N dσ g
+
+− inf 
+
+> ϕ∈(E2(u)) 1
+
+Z
+
+> Σ
+
+hϕ 2uN −2 dσ g − γ2,ϵ 
+
+Z
+
+> Σ
+
+hu −ϵ dσ g
+
+)(5.5) 
+
+and 
+
+ddt F2,ϵ (ut)|t=0 − = ( N − 2) λ2(u)
+
+(
+
+γ1,ϵ 
+
+Z
+
+> Σ
+
+hu N dσ g
+
+− sup 
+
+> ϕ∈(E2(u)) 1
+
+Z
+
+> Σ
+
+hϕ 2uN −2 dσ g − γ2,ϵ 
+
+Z
+
+> Σ
+
+hu −ϵ dσ g
+
+)(5.6) 
+
+Here 
+
+(5.7) γ1,ϵ := 1 − (N − 2) −1 ϵλ2(u)
+
+Z
+
+> Σ
+
+u−ϵ dσ g > 1,
+
+(5.8) γ2,ϵ := ( N − 2) −1 ϵ
+
+|λ2(u)| > 0,
+
+and (E2(u)) 1 is the space of second generalized eigenfunctions with respect to u
+
+satisfying R 
+
+> Σ
+
+ϕ2uN −2 dσ g = 1 .
+
+Definition 5.2. We say that u ∈ D ϵ is extremal for the normalized functional F2,ϵ 
+
+if the one-sided derivatives of t 7 −→ F2,ϵ (ut) = F2,ϵ (u(1 + th )) at t = 0 satisfy (5.9) ddt F2,ϵ (ut)t=0 + × ddt F2,ϵ (ut)t=0 − ≤ 0EXTREMAL METRICS FOR CONFORMAL DIRICHLET-TO-ROBIN MAP 23 
+
+for all generating functions h ∈ L∞(Σ). If there is a uϵ ∈ D ϵ such that (5.10) F2,ϵ (uϵ) ≥ F2,ϵ (u)for all u ∈ D ϵ, then we say uϵ is maximal for F2,ϵ .Notice that if a function u ∈ D ϵ is maximal, then (5.11) ddt F2,ϵ (ut)t=0 + ≤ 0 ≤ ddt F2,ϵ (ut)t=0 −
+
+for all h ∈ L∞(Σ), thus any maximal conformal factor is extremal. Also, our definition of extremal coincides with the one given by El Soufi-Ilias in [9], which is equivalent to Nadirashvili’s one in [34]. In the next proposition, we show the existence of a maximizer uϵ ∈ D ϵ for F2,ϵ ,for each ϵ > 0. 
+
+Proposition 5.3. For each ϵ > 0, there is a uϵ ∈ D ϵ, normalized as in (5.3), that is maximal for F2,ϵ . Moreover, there is a constant C = C(g) independent of ϵ > 0
+
+such that 
+
+(5.12) 
+
+Z
+
+> Σ
+
+u−ϵϵ dσ g ≤ C. 
+
+Proof. Fix ϵ > 0, and let {uj }∞ 
+
+> j=1
+
+⊂ D ϵ be a maximizing sequence for F2,ϵ :(5.13) F2,ϵ (uj ) → α := sup 
+
+> u∈D ϵ
+
+F2,ϵ (u); and 
+
+Z
+
+> Σ
+
+uNj dσ g = 1 .
+
+If we set vj = uN −2 
+
+> j
+
+= u 2 
+
+> n−2
+> j
+
+, then (5.14) 
+
+Z
+
+> Σ
+
+vn−1 
+
+> j
+
+dσ g =
+
+Z
+
+> Σ
+
+uNj dσ g = 1 ,
+
+and thus {vj }∞ 
+
+> j=1
+
+is bounded in Ln−1(Σ). By weak compactness, up to the extrac-tion of a subsequence, there exists a v ∈ Ln−1(Σ) such that vj ⇀ v in Ln−1(Σ). Therefore, v ≥ 0 a.e. and R 
+
+> Σ
+
+vn−1 dσ g ≤ 1. We set uϵ := v 1  
+
+> N−2
+
+, thus (5.15) 
+
+Z
+
+> Σ
+
+uNϵ dσ g ≤ 1.
+
+We claim that uϵ is maximal for F2,ϵ and that it satisfies (5.12). First, for large 
+
+j, we may assume that (5.16) F2,ϵ (uj ) ≥ F2,ϵ (1) ⇐⇒ λ2(uj ) −
+
+Z
+
+> Σ
+
+u−ϵj dσ g ≥ λ2(Dg ) − 1,
+
+from which we deduce (5.17) 
+
+Z
+
+> Σ
+
+u−ϵj dσ g ≤ C(g).
+
+Now, the function t 7 → t− ϵN −2 is convex on R+, and so is the functional (5.18) φ 7 −→ 
+
+Z
+
+> Σ
+
+φ− ϵN −2 dσ g24 SAMUEL P ´EREZ-AYALA 
+
+on Ln−1 
+
+> ≥0
+
+(Σ). This functional is also strongly lower semicontinuous. Since Ln−1 
+
+> ≥0
+
+(Σ) is strongly closed in Ln−1(Σ), it follows that the functional in (5.18) is weak lower semicontinuous on Ln−1 
+
+> ≥0
+
+(Σ); see Chapter 3 in [3]. Therefore, 
+
+Z
+
+> Σ
+
+u−ϵϵ dσ g =
+
+Z
+
+> Σ
+
+v− ϵN −2 dσ g ≤ lim inf 
+
+Z
+
+> Σ
+
+v− ϵN −2 
+
+> j
+
+dσ g = lim inf 
+
+Z
+
+> Σ
+
+u−ϵj dσ g
+
+≤ C(g).
+
+(5.19) Hence, uϵ ∈ D ϵ.It remains to show that uϵ is maximal. By Lemma 5.5 below, up to the extraction of a subsequence, we have lim j→∞ λ2(uj ) = λ2(uϵ). Therefore, using (5.15), we get (5.20) lim sup 
+
+> j→∞
+
+λ2(uj ) = λ2(uϵ) ≤ λ2(uϵ)
+
+Z 
+
+> Σ
+
+uNϵ dσ 
+
+ N −2
+
+> N
+
+.
+
+Moreover, using the weak lower semicontinuity of (5.18), (5.21) 
+
+Z 
+
+> Σ
+
+u−ϵϵ dσ g
+
+ Z 
+
+> Σ
+
+uNϵ dσ g
+
+ ϵN
+
+≤ lim inf 
+
+> j→∞
+
+Z
+
+> Σ
+
+u−ϵj dσ g .
+
+Putting (5.20) and (5.21) together, we deduce α ≥ F2,ϵ (uϵ) ≥ lim sup j→∞ F2,ϵ (uj ) = 
+
+α, which shows that uϵ is a maximizer. Finally, by scale invariance, we can scale to get R 
+
+> Σ
+
+uNϵ dσ g = 1. □
+
+Lemma 5.4. In the notation of the proof of Proposition 5.3, we have 
+
+(5.22) λ1(uj ) ≥ − C > −∞ ,
+
+where C is independent of j.Proof. Assume on the contrary that along some subsequence, still denoted by 
+
+{uj }∞
+
+> j=1
+
+, we have lim j→∞ λ1(uj ) = −∞ . Since each u−1 
+
+> j
+
+(0) has zero (boundary) measure, by Proposition 2.7, there is an associated sequence {fj }∞ 
+
+> j=1
+
+of first gener-alized eigenfunctions with fj > 0 a.e. on Σ and R 
+
+> Σ
+
+f 2 
+
+> j
+
+uN −2 
+
+> j
+
+dσ g = 1. Since each of these satisfies (5.23) 
+
+Z
+
+> M
+
+|∇ g fj |2 dv g + 2 cnhg
+
+Z
+
+> Σ
+
+f 2 
+
+> j
+
+dσ = λ1(uj )and λ1(uj ) → −∞ , we conclude that lim j→∞ 
+
+R 
+
+> Σ
+
+f 2 
+
+> j
+
+dσ g = ∞ (hg < 0). Consider the new sequence ˜fj = fj ∥fj ∥−1
+
+> L2(Σ)
+
+. Due to linearity, each of these satisfies (5.24) 
+
+Z
+
+> M
+
+|∇ g ˜fj |2 dv g + 2 cnhg
+
+Z
+
+> Σ
+
+˜f 2 
+
+> j
+
+dσ g = λ1(uj )
+
+Z
+
+> Σ
+
+˜f 2 
+
+> j
+
+uN −2 
+
+> j
+
+dσ g .
+
+Therefore, R 
+
+> M
+
+|∇ g ˜fj |2 dv g ≤ 2cn(−hg ), and we conclude that { ˜fj }∞ 
+
+> j=1
+
+is bounded in W 1,2(M ) by (2.14). Standard compactness then yields a function f ∈ W 1,2(M )such that ˜fj ⇀ f in W 1,2(M ), ˜fj → f in L2(M ), ˜fj → f in Lq (Σ) for 1 < q < N .Since R 
+
+> Σ
+
+˜f 2 
+
+> j
+
+dσ g = 1 for all j, strong convergence gives R 
+
+> Σ
+
+f 2 dσ g = 1. On the other hand, (5.25) lim 
+
+> j→∞
+
+Z
+
+> Σ
+
+˜f 2 
+
+> j
+
+uN −2 
+
+> j
+
+dσ g = lim 
+
+> j→∞
+
+1
+
+∥fj ∥2
+
+> L2(Σ)
+
+= 0 ,EXTREMAL METRICS FOR CONFORMAL DIRICHLET-TO-ROBIN MAP 25 
+
+which implies 0 ≤ lim 
+
+> j→∞
+
+Z
+
+> Σ
+
+˜fj uN −2 
+
+> j
+
+dσ g ≤ lim 
+
+> j→∞
+
+Z 
+
+> Σ
+
+˜f 2 
+
+> j
+
+uN −2 
+
+> j
+
+dσ g
+
+ 12 Z 
+
+> Σ
+
+uN −2 
+
+> j
+
+dσ g
+
+ 12
+
+= 0 .
+
+Furthermore, 
+
+Z
+
+> Σ
+
+˜fj uN −2 
+
+> j
+
+− f u N −2 
+
+> ϵ
+
+dσ g ≤
+
+Z
+
+> Σ
+
+( ˜fj − f )uN −2 
+
+> j
+
+dσ g
+
++
+
+Z
+
+> Σ
+
+f (uN −2 
+
+> j
+
+− uN −2 
+
+> ϵ
+
+) dσ g ,
+
+(5.26) where the first term goes to zero by H¨ older’s inequality, while the second term goes to zero by weak convergence in Ln−1(Σ). This gives R 
+
+> Σ
+
+f u N −2 
+
+> ϵ
+
+dσ = 0, thus f = 0 on Σ since uϵ > 0 a.e. on Σ, contradicting R 
+
+> Σ
+
+f 2 dσ g = 1. Hence, {λ1(uj )}∞
+
+> j=1
+
+remains bounded. □
+
+Lemma 5.5. In the notation of the proof of Proposition 5.3, we show that, after possibly extracting a subsequence, 
+
+(5.27) lim  
+
+> j→∞
+
+λ1(uj ) = λ1(uϵ) and lim  
+
+> j→∞
+
+λ2(uj ) = λ2(uϵ).
+
+Proof. By Lemma 5.4, up to the extraction of a subsequence, both limits λ1 =lim j→∞ λ1(uj ) and λ2 = lim j→∞ λ2(uj ) exist. Our goal is to show that λ1 = λ1(uϵ)and λ2 = λ2(uϵ). We show first that both λ1 and λ2 are generalized eigenvalues. By Proposition 2.7, for each uj , there are corresponding sequences of first and second generalized eigenfunctions {fj }∞ 
+
+> j=1
+
+and {ϕj }∞ 
+
+> j=1
+
+satisfying (2.33). By Propo-sition 2.6, both sequences are bounded in W 1,2(M ). Moreover, these are bounded in L∞(Σ) by Remark 2.12 after Proposition 2.10. Let f ≥ 0 and ϕ be the cor-responding limit functions. Since each fj is a first generalized eigenfunction, we have (5.28) 
+
+Z
+
+> M
+
+⟨∇ g fj , ∇g ψ⟩ dv g + 2 cn
+
+Z
+
+> Σ
+
+hg fj ψ dσ g = λ1(uj )
+
+Z
+
+> Σ
+
+fj ψu N −2 
+
+> j
+
+dσ g
+
+for any test function ψ ∈ C∞(M ). By weak convergence in W 1,2(M ) and strong convergence in L2(Σ), the left hand side of (5.28) goes to (5.29) 
+
+Z
+
+> M
+
+⟨∇ g f, ∇g ψ⟩ dv g + 2 cn
+
+Z
+
+> Σ
+
+hg f ψ dσ g .
+
+On the other hand, 
+
+Z
+
+> Σ
+
+(fj ψu N −2 
+
+> j
+
+− f ψu N −2 
+
+> ϵ
+
+) dσ g ≤C
+
+Z
+
+> Σ
+
+(fj − f )uN −2 
+
+> j
+
+dσ g
+
++ C
+
+Z
+
+> Σ
+
+f (uN −2 
+
+> j
+
+− uN −2 
+
+> ϵ
+
+) dσ g ,
+
+(5.30) where C = ∥ψ∥L∞(Σ) . As in the proof of Lemma 5.4, the first term goes to zero by H¨ older’s inequality, while the second term goes to zero by weak convergence of the 
+
+uj ’s in Ln−1(Σ). Therefore, the right hand side of (5.28) goes to (5.31) λ1
+
+Z
+
+> Σ
+
+f ψu N −2 
+
+> ϵ
+
+dσ g .26 SAMUEL P ´EREZ-AYALA 
+
+Putting (5.29) and (5.31) together, we conclude that f is a weak solution of the system (5.32) 
+
+(
+
+∆g f = 0 (in M ); 
+
+Bg (f ) = λ1f u N −2 
+
+> ϵ
+
+(on Σ) .
+
+Hence, λ1 is a generalized eigenvalue. A similar argument shows that λ2 is a generalized eigenvalue as well. We claim that (5.33) 
+
+Z
+
+> Σ
+
+f 2uN −2 
+
+> ϵ
+
+dσ g =
+
+Z
+
+> Σ
+
+ϕ2uN −2 
+
+> ϵ
+
+dσ g = 1; 
+
+Z
+
+> Σ
+
+f ϕu N −2 
+
+> ϵ
+
+dσ g = 0 .
+
+We provide the arguments for the last equality as the details for all of them are similar. We estimate as follows: 
+
+Z
+
+> Σ
+
+f ϕu N −2 
+
+> ϵ
+
+dσ g =
+
+Z
+
+> Σ
+
+(f ϕu N −2 
+
+> ϵ
+
+− fj ϕj uN −2 
+
+> j
+
+) dσ g
+
+≤
+
+Z
+
+> Σ
+
+(f ϕ − fj ϕj )uN −2 
+
+> j
+
+dσ g
+
+| {z }
+
+> =Aj
+
++
+
+Z
+
+> Σ
+
+f ϕ (uN −2 
+
+> ϵ
+
+− uN −2 
+
+> j
+
+) dσ g .
+
+(5.34) Since |f ϕ − fj ϕj | ≤ | ϕ|| f − fj | + |fj || ϕ − ϕj | ≤ C(|f − fj | + |ϕ − ϕj |) by the uniform bound in L∞(Σ), fj ϕj → f ϕ in L N 
+
+> 2
+
+(Σ), which gives that Aj goes to zero by H¨ older’s inequality. The second term in (5.34) goes to zero by weak convergence of the uj ’s in Ln−1(Σ). Let us proceed now with the proof of λ1 = λ1(u). Let f1 be a first generalized eigenfunction, which we can assume to be positive a.e. on Σ by Proposition 2.7. From the variational formulation of the boundary eigenvalue problem, we have (5.35) (λ1(uϵ) − λ1)
+
+Z
+
+> Σ
+
+f1f u N −2 
+
+> ϵ
+
+dσ g = 0 .
+
+Since f1f ≥ 0 on Σ and u−1 
+
+> ϵ
+
+(0) has zero measure, if λ1̸ = λ1(uϵ), then f1f = 0 a.e. on Σ. However, by Proposition 2.7, f1|Σ can only vanish on a set of zero measure, thus f = 0 on Σ. This contradicts (5.33), hence λ1 = λ1(uϵ) (and f = f1 on Σ). To prove that λ2 = λ2(uϵ), we use Lemma 2.8. From the orthogonality condition in (5.33), we deduce (5.36) λ2(uϵ) ≤ λ2.
+
+To obtain the opposite inequality, let ϕϵ be an eigenfunction associated with λ2(uϵ)satisfying (5.37) 
+
+Z
+
+> Σ
+
+f 2uN −2 
+
+> ϵ
+
+dσ g =
+
+Z
+
+> Σ
+
+ϕ2 
+
+> ϵ
+
+uN −2 
+
+> ϵ
+
+dσ g = 1; 
+
+Z
+
+> Σ
+
+f ϕ ϵuN −2 
+
+> ϵ
+
+dσ g = 0 .EXTREMAL METRICS FOR CONFORMAL DIRICHLET-TO-ROBIN MAP 27 
+
+We apply Lemma 2.8 to each element of the sequence {uj }∞ 
+
+> j=1
+
+using as a test function the projection of ϕϵ onto E1(uj ), that is, 
+
+λ2(uj ) ≤ R uj 
+
+> g
+
+ϕϵ −
+
+Z 
+
+> Σ
+
+ϕϵfj uN −2 
+
+> j
+
+dσ g
+
+| {z }
+
+> =cj
+
+·fj
+
+!
+
+= λ2(uϵ) − c2 
+
+> j
+
+λ1(uj )
+
+R 
+
+> Σ
+
+ϕ2 
+
+> ϵ
+
+uN −2 
+
+> j
+
+dσ g − c2
+
+> j
+
+.
+
+(5.38) Since cj → 0 and R 
+
+> Σ
+
+ϕ2 
+
+> ϵ
+
+uN −2 
+
+> j
+
+dσ g → 1 as j → ∞ , we conclude (5.39) λ2 = lim  
+
+> j→∞
+
+λ2(uj ) ≤ λ2(uϵ),
+
+and the proof is complete. □
+
+In the next proposition, the Euler–Lagrange equation satisfied by each maximal function uϵ ∈ D ϵ for F2,ϵ is derived. The proof follows from a Hahn–Banach sepa-ration argument, which is now standard in eigenvalue optimization. For the proof in this specific context, see Proposition 4.3 in [18]. After replacing the interior Sobolev spaces by the corresponding boundary spaces, the argument is the same and thus we have decided to omit it here. 
+
+Proposition 5.6. Let uϵ ∈ D ϵ be a maximal function provided by Proposition 5.3. Then there is a set of generalized eigenfunctions {ϕi,ϵ }kϵ 
+
+> i=1
+
+⊂ E2(uϵ), normalized by 
+
+(5.40) 
+
+Z
+
+> Σ
+
+ϕ2
+
+> i,ϵ
+
+uN −2 
+
+> ϵ
+
+dσ g = 1 ,
+
+and a set of real numbers c1,ϵ , · · · , c kϵ,ϵ ≥ 0 with Pkϵ 
+
+> i=1
+
+ci,ϵ = 1 , such that 
+
+(5.41) γ1,ϵ uNϵ − uN −2
+
+> ϵkϵ
+
+X
+
+> i=1
+
+ci,ϵ ϕ2 
+
+> i,ϵ
+
+− γ2,ϵ u−ϵϵ = 0 .
+
+6. Uniform Estimates in ϵ
+
+The goal of this section is to establish ϵ-independent estimates. Take any se-quence of positive numbers ϵj → 0+. Notice that the sequence {kϵj }∞ 
+
+> j=1
+
+arising from Proposition 5.6 is a sequence of positive integers satisfying (6.1) 1 ≤ kϵj ≤ N ([ g]) − 1,
+
+and thus up to a subsequence we can assume that k = kϵj is constant. Indeed, from Carath´ eodory’s theorem we know that kϵj ≤ N ([ g])( N ([ g]) −1) 2 + 1. However, up to an appropriate change of basis of E2(uϵj ), we can assume without loss of generality that kϵj ≤ N ([ g]) −1. What is relevant for us is that {kϵj }∞ 
+
+> j=1
+
+is uniformly bounded. 
+
+Proposition 6.1. Let {uϵ}ϵ> 0 be the family of maximal functions provided by Proposition 5.3. There exists a constant C2̸ = C2(ϵ) such that 
+
+(6.2) |λ2(uϵ)| ≤ | λ2(Dg ) − 1|.
+
+Moreover, if along some subsequence ϵj → 0 we have that uϵj → u pointwise a.e. on 
+
+Σ and u−1(0) has zero boundary measure, then there exists a constant C1̸ = C1(ϵj )
+
+such that 
+
+(6.3) λ1(uϵj ) > −C1.28 SAMUEL P ´EREZ-AYALA 
+
+Proof. We start with the upper bound on {| λ2(uϵ)|} ϵ> 0. For each ϵ > 0, we have 
+
+Fϵ(uϵ) ≥ Fϵ(1) since uϵ maximizes Fϵ over Dϵ. Therefore, (6.4) 0 > λ 2(uϵ) ≥ λ2(uϵ) −
+
+Z
+
+> Σ
+
+u−ϵϵ dσ g ≥ λ2(Dg ) − 1.
+
+This gives the upper estimate on |λ2(uϵ)|.Let us now prove (6.3). Let {fj }∞ 
+
+> j=1
+
+be a sequence of associated first eigenfunc-tions given by Proposition 2.7, and normalize the sequence such that R 
+
+> Σ
+
+f 2 
+
+> j
+
+uN −2 
+
+> ϵj
+
+dσ g =1. Then (6.5) 0 > λ 1(uϵj ) = 
+
+Z
+
+> M
+
+|∇ g fj |2 dv g + 2 cnhg
+
+Z
+
+> Σ
+
+f 2 
+
+> j
+
+dσ g ,
+
+and so (6.6) 
+
+Z
+
+> M
+
+|∇ g fj |2 dv g < 2cn(−hg )
+
+Z
+
+> Σ
+
+f 2 
+
+> j
+
+dσ g .
+
+We claim that {fj }∞ 
+
+> j=1
+
+is bounded in W 1,2(M ). Notice that, by Friedrichs’s in-equality (2.14), it is enough to show boundedness in L2(Σ). Let us assume, on the contrary, that ∥fj ∥L2(Σ) → ∞ and set ˜fj = fj ∥fj ∥−1
+
+> L2(Σ)
+
+.From rescaling (6.5) we now obtain R 
+
+> M
+
+|∇ g ˜fj |2 dv g < 2cn(−hg ), and so { ˜fj }∞ 
+
+> j=1
+
+is bounded in W 1,2(M ) thanks to (2.14). Denote by ˜f its limiting function obtained by standard compactness arguments. Since R 
+
+> Σ
+
+˜f 2 
+
+> j
+
+dσ g = 1, we obtain R 
+
+> Σ
+
+˜f 2 dσ g = 1. However, Fatou’s Lemma implies (6.7) 0 ≤
+
+Z
+
+> Σ
+
+˜f 2uN −2 dσ g ≤ lim inf 
+
+> j→∞
+
+Z
+
+> Σ
+
+˜f 2 
+
+> j
+
+uN −2 
+
+> ϵj
+
+dσ g → 0.
+
+Since u−1(0) has zero (boundary) measure, we conclude that ˜f = 0 a.e. on Σ, contradicting that it has unit L2(Σ)-norm. Hence, ∥fj ∥L2(Σ) remains bounded and so {fj }∞ 
+
+> j=1
+
+is bounded in W 1,2(M ). Using (6.5) and the Sobolev trace embedding, 
+
+λ1(uϵj ) remains bounded. This finishes the proof. □
+
+Proposition 6.2. Let {uϵ}ϵ> 0 be the family of maximal functions provided by Proposition 5.3. Any sequence {ϕϵ}ϵ> 0 of generalized second eigenfunctions, nor-malized such that R 
+
+> Σ
+
+ϕ2 
+
+> ϵ
+
+uN −2 
+
+> ϵ
+
+dσ g = 1 , is uniformly bounded in W 1,2(M ) ∩ L∞(Σ) .In particular, the associated family of second generalized eigenfunctions ϕi,ϵ (aris-ing from Proposition 5.6) is uniformly bounded in W 1,2(M ) ∩ L∞(Σ) : for each 
+
+i ∈ { 1, · · · , k }, there is a C̸ = C(ϵ), such that 
+
+(6.8) ∥ϕi,ϵ ∥W 1,2(M ) + ∥ϕi,ϵ ∥L∞(Σ) ≤ C. 
+
+Proof. By boundedness of {ϕϵ}ϵ> 0 in W 1,2(M ) ∩ L∞(Σ) we mean that for any sequence ϵj → 0+, the associated sequence {ϕϵj }∞ 
+
+> j=1
+
+is bounded in W 1,2(M ) ∩
+
+L∞(Σ). Since R 
+
+> Σ
+
+uNϵj dσ g = 1 and because {λ2(uϵj )}∞ 
+
+> j=1
+
+is bounded by Proposition 6.1, the boundedness in W 1,2(M ) follows from Proposition 2.6. The uniform L∞-bounds are now a consequence of Proposition 2.10; see also remarks 2.11 and 2.12. 
+
+□
+
+We are now in a position to provide a positive lower bound for {| λ2(uϵ)|} ϵ.
+
+Proposition 6.3. Let {uϵ}ϵ> 0 be the family of maximal functions provided by Proposition 5.3. Then there exists a constant C2̸ = C2(ϵ) such that 
+
+(6.9) |λ2(uϵ)| ≥ C2 > 0.EXTREMAL METRICS FOR CONFORMAL DIRICHLET-TO-ROBIN MAP 29 
+
+Proof. Let us suppose, on the contrary, that we have a subsequence of {uϵj }∞
+
+> j=1
+
+,still denoted by {uϵj }∞
+
+> j=1
+
+, such that 0 > λ 2(uϵj ) → 0, where ϵj → 0+ as j → ∞ .Associated to it, there is a sequence of second generalized eigenfunctions {ϕϵj }∞
+
+> j=1
+
+,which we normalize to have unit L2(Σ , u N −2 
+
+> ϵj
+
+dσ g )-norm, such that (6.10) λ2(uϵj ) = Ruϵj 
+
+> g
+
+(ϕϵj ) = 
+
+Z
+
+> M
+
+|∇ g ϕϵj |2 dv g + 2 cn
+
+Z
+
+> Σ
+
+hg ϕ2 
+
+> ϵj
+
+dσ g → 0.
+
+Thanks to Proposition 6.2, {ϕϵj }∞ 
+
+> j=1
+
+is uniformly bounded in W 1,2(M ) ∩ L∞(Σ). Let ϕ ∈ W 1,2(M ) be the limiting function. After using the eigenvalue equation and taking limits appropriately, we obtain that ϕ|Σ is an eigenfunction of Dg with associated eigenvalue 0. Our assumptions on Spec( Dg ) then imply that ϕ|Σ = 0. On the other hand, since {vj }∞ 
+
+> j=1
+
+:= {uN −2 
+
+> ϵj
+
+}∞ 
+
+> j=1
+
+is bounded in Ln−1(Σ), it converges weakly in Ln−1(Σ). Denote the limiting function by v, and set u := v 1  
+
+> N−2
+
+. Then 
+
+Z
+
+> Σ
+
+ϕ2uN −2 dσ g − 1 =
+
+Z
+
+> Σ
+
+ϕ2uN −2 dσ g −
+
+Z
+
+> Σ
+
+ϕ2 
+
+> ϵj
+
+uN −2 
+
+> ϵj
+
+dσ g
+
+≤
+
+Z
+
+> Σ
+
+|ϕ2 − ϕ2 
+
+> ϵj
+
+|uN −2 
+
+> ϵj
+
+dσ g
+
++
+
+Z
+
+> Σ
+
+ϕ2(v − vj ) dσ g .
+
+(6.11) Notice that, thanks to the L∞(Σ)-estimates, |ϕ2 − ϕ2 
+
+> ϵj
+
+| ≤ C|ϕ − ϕϵj |, thus the first term goes to zero by H¨ older’s inequality and strong convergence of {ϕϵj } in L N 
+
+> 2
+
+(Σ). The second term goes to zero by weak convergence. Hence, R 
+
+> Σ
+
+ϕ2uN −2dσ g = 1, which contradicts ϕ|Σ = 0. This finishes the proof. □
+
+Corollary 6.4. Let γ1,ϵ and γ2,ϵ be the sequence provided by Proposition 5.6 (see also Proposition 5.3). Then 
+
+(6.12) 1 ≤ γ1,ϵ ≤ 1 + Cϵ, 
+
+and 
+
+(6.13) C−1ϵ ≤ γ2,ϵ ≤ Cϵ, 
+
+where C is a generic constant independent of ϵ.
+
+Proposition 6.5. There is a constant C, independent of ϵ, such that 
+
+(6.14) ∥uϵ∥L∞(Σ) ≤ C. 
+
+Proof. By Proposition 5.6, we know that (6.15) γ1,ϵ uNϵ = uN −2
+
+> ϵk
+
+X
+
+> i=1
+
+ci,ϵ ϕ2 
+
+> i,ϵ
+
++ γ2,ϵ u−ϵϵ .
+
+For any point x ∈ Σ at which uϵ(x) ≥ 1, we obtain 
+
+uϵ(x)N ≤ γ1,ϵ uϵ(x)N = uϵ(x)N −2
+
+> k
+
+X
+
+> i=1
+
+ci,ϵ ϕi,ϵ (x)2 + γ2,ϵ uϵ(x)−ϵ
+
+≤ uϵ(x)N −2
+
+> k
+
+X
+
+> i=1
+
+ci,ϵ ϕi,ϵ (x)2 + γ2,ϵ ≤ C(uϵ(x)N −2 + ϵ),
+
+(6.16) 30 SAMUEL P ´EREZ-AYALA 
+
+where the last inequality follows from Propositions 6.4 and 6.2. This implies 
+
+uϵ(x)2 ≤ C, and thus the proof is completed. □
+
+Proposition 6.6. For any α ∈ (0 , 1) and p ≥ 2, there is a constant C = C(α, p, g )
+
+such that 
+
+(6.17) ∥ϕi,ϵ ∥C0,α (Σ) + ∥ϕi,ϵ ∥W 1,p (Σ) ≤ C
+
+for each i.Proof. Since Dg is an elliptic pseudodifferential operator of order 1, elliptic regu-larity [39] implies 
+
+∥ϕi,ϵ ∥W 1,p (Σ) ≤ C(∥λ2(uϵ)ϕi,ϵ uN −2 
+
+> ϵ
+
+∥Lp(Σ) + ∥ϕi,ϵ ∥Lp(Σ) ) ≤ ˜C, (6.18) where the last inequality follows from Propositions 6.1, 6.2 and 6.5, and ˜C is a generic constant independent of ϵ. The preceding estimate holds for every finite 
+
+p ≥ 2. Given α ∈ (0 , 1), choose q > n−11−α . Morrey’s embedding W 1,q (Σ) ,→ C0,α (Σ) then gives the required uniform H¨ older estimate. □
+
+The following ϵ-dependent lower bound can be obtained for the sequence of extremals {uϵ}ϵ> 0.
+
+Proposition 6.7. There is a constant C such that 
+
+(6.19) ess inf uϵ ≥ (Cϵ ) 1 
+
+> ϵ+N
+
+.
+
+Proof. Pick a point x ∈ Σ such that uϵ(x) > 0. From (5.41), at x we have 
+
+γ1,ϵ uNϵ (x) = uN −2 
+
+> ϵ
+
+(x)
+
+> k
+
+X
+
+> i=1
+
+ci,ϵ ϕ2
+
+> i,ϵ
+
+(x) + γ2,ϵ u−ϵϵ (x) ≥ γ2,ϵ u−ϵϵ (x),(6.20) from which we obtain (6.21) γ1,ϵ uN +ϵϵ (x) ≥ γ2,ϵ .
+
+The result follows from Corollary 6.4. □
+
+Our next goal is to prove uniform estimates for the family {uϵ}ϵ> 0 of maximal generalized conformal factors in C0,μ (Σ), for some μ ∈ (0 , 1). To this end, let us rearrange (5.41) as follows: (6.22) γ1,ϵ u2 
+
+> ϵ
+
+− γ2,ϵ u−ϵ−N +2  
+
+> ϵ
+
+=
+
+> k
+
+X
+
+> i=1
+
+ci,ϵ ϕ2
+
+> i,ϵ
+
+.
+
+If we define fϵ : R+ → R by (6.23) fϵ(t) = γ1,ϵ t2 − γ2,ϵ t−ϵ−N +2 ,
+
+and Φ ϵ : Σ → R by (6.24) Φϵ(x) = 
+
+> k
+
+X
+
+> i=1
+
+ci,ϵ ϕ2
+
+> i,ϵ
+
+(x),
+
+then (6.22) reads as fϵ(uϵ) = Φ ϵ.The function fϵ is strictly increasing on R+. Indeed, direct computation shows (6.25) f ′
+
+> ϵ
+
+(t) = 2 γ1,ϵ t + γ2,ϵ (ϵ + N − 2) t−ϵ−N +1 ≥ min  
+
+> R+
+
+f ′ 
+
+> ϵ
+
+> 0.EXTREMAL METRICS FOR CONFORMAL DIRICHLET-TO-ROBIN MAP 31 
+
+Therefore, its inverse f −1 
+
+> ϵ
+
+: R → R+ exists and it is also strictly increasing. From the equality fϵ(uϵ) = Φ ϵ, we then deduce uϵ = f −1 
+
+> ϵ
+
+◦ Φϵ. Using (6.26) (f −1 
+
+> ϵ
+
+)′(t) = 1
+
+f ′
+
+> ϵ
+
+(f −1 
+
+> ϵ
+
+(t)) ≤ 1min R+ f ′
+
+> ϵ
+
+,
+
+we observe that ( f −1 
+
+> ϵ
+
+)′(t) remains bounded, thus f −1 
+
+> ϵ
+
+is Lipschitz for each fixed 
+
+ϵ > 0. As a consequence, we have the desired result: 
+
+Proposition 6.8. The family {uϵ}ϵ> 0 is uniformly bounded in both W 1,p (Σ) and 
+
+C0,μ (Σ) , for 2 ≤ p < ∞ and for some μ ∈ (0 , 1) .Proof. From the preamble, we have that uϵ = f −1 
+
+> ϵ
+
+◦ Φϵ and that f −1 
+
+> ϵ
+
+is Lips-chitz. Moreover, from Propositions 6.5 and 6.6, it follows that uϵ ∈ Lp(Σ) and Φϵ ∈ W 1,p (Σ). Hence, uϵ ∈ W 1,p (Σ) and |∇ Σuϵ| = |(f −1)′(Φ ϵ)| · |∇ ΣΦϵ| almost everywhere in Σ, where ∇Σ denotes the induced gradient on Σ (see Proposition 2.5 in [20]). It remains to show that the W 1,p (Σ)-bounds are uniform. Notice that by Propo-sition 6.5, we have already uniform estimates for the Lp-norm of uϵ. To show uniform estimates for the Lp-norm of |∇ Σuϵ| we proceed as follows. First, from (6.24) we obtain that (6.27) |∇ ΣΦϵ| = 2 
+
+> k
+
+X
+
+> i=1
+
+ci,ϵ ϕi,ϵ ∇Σϕi,ϵ 
+
+holds almost everywhere on Σ. Then, by the Cauchy-Schwarz inequality, (6.28) |∇ ΣΦϵ| ≤ 2Φ 12
+
+> ϵ
+> k
+
+X
+
+> i=1
+
+ci,ϵ |∇ Σϕi,ϵ |2
+
+! 12
+
+.
+
+Going back to (6.22), we deduce that (6.29) |∇ ΣΦϵ| ≤ Cu ϵ
+
+> k
+
+X
+
+> i=1
+
+ci,ϵ |∇ Σϕi,ϵ |2
+
+! 12
+
+.
+
+Using that f ′
+
+> ϵ
+
+(t) ≥ 2t on R+ and the convexity of R+ ∋ x 7 → x p 
+
+> 2
+
+for p ≥ 2, it then follows from (6.29) and from Jensen’s inequality that (6.30) |∇ Σuϵ|p = |∇ ΣΦϵ|p
+
+|f ′
+
+> ϵ
+
+(uϵ)|p ≤ C
+
+> k
+
+X
+
+> i=1
+
+|∇ Σϕi,ϵ |p
+
+almost everywhere on Σ. Therefore, for p ≥ 2, we have 
+
+∥∇ Σuϵ∥Lp(Σ) ≤ C
+
+> k
+
+X
+
+> i=1
+
+∥∇ Σϕi,ϵ ∥Lp(Σ) ≤ C
+
+due to Proposition 6.6. Together with Proposition 6.5, this shows the uniform boundedness of {uϵ}ϵ> 0 in W 1,p (Σ). The uniform estimates in the C0,μ -norm now follow by Morrey’s embedding, after choosing the exponent sufficiently large. □
+
+Proposition 6.9. There exists a constant C, independent of ϵ, such that 
+
+(6.31) ϵ
+
+Z
+
+> Σ
+
+u−ϵ−Nϵ dσ g ≤ C. 32 SAMUEL P ´EREZ-AYALA 
+
+Moreover, for any η ∈ C∞(Σ) , the following holds as ϵ → 0+:
+
+(6.32) 
+
+Z
+
+> Σ
+
+η
+
+(
+
+γ1,ϵ u2 
+
+> ϵ
+
+−
+
+> k
+
+X
+
+> i=1
+
+ci,ϵ ϕ2
+
+> i,ϵ
+
+)
+
+dσ g = O(ϵ 2  
+
+> N+ϵ
+
+)∥η∥L∞(Σ) .
+
+Proof. Multiply (5.41) by u−Nϵ and integrate to get (6.33) γ2,ϵ 
+
+Z
+
+> Σ
+
+u−ϵ−Nϵ dσ g = γ1,ϵ −
+
+Z
+
+> Σ
+
+u−2
+
+> ϵk
+
+X
+
+> i=1
+
+ci,ϵ ϕ2 
+
+> i,ϵ
+
+dσ g ≤ γ1,ϵ .
+
+Estimate (6.31) now follows from Corollary 6.4. For the proof of (6.32), let η ∈
+
+C∞(Σ) be arbitrary, and multiply (5.41) by ηu 2−Nϵ to get (6.34) 
+
+Z
+
+> Σ
+
+η
+
+(
+
+γ1,ϵ u2 
+
+> ϵ
+
+−
+
+> k
+
+X
+
+> i=1
+
+ci,ϵ ϕ2
+
+> i,ϵ
+
+)
+
+dσ g = γ2,ϵ 
+
+Z
+
+> Σ
+
+ηu 2−N −ϵϵ
+
+| {z }
+
+> := Aϵ
+
+dσ g .
+
+Applying H¨ older’s inequality on the right-hand side of (6.34) gives 
+
+Aϵ ≤ C∥η∥L∞(Σ) · ϵ
+
+Z 
+
+> Σ
+
+u−ϵ−Nϵ dσ g
+
+ 2−N −ϵ
+
+> −ϵ−N
+
+= C∥η∥L∞(Σ) · ϵ 2 
+
+> N+ϵ
+
+
+
+ϵ
+
+Z
+
+> Σ
+
+u−ϵ−Nϵ dσ g
+
+ N +ϵ−2 
+
+> N+ϵ
+
+,
+
+(6.35) where to get the inequality we have used Corollary 6.4. Estimate (6.31) then implies estimate (6.32). This completes the proof. □
+
+7. Taking the limit ϵ → 0+: Proof of Theorem 1.2 
+
+Let {uϵ}ϵ> 0 be the family of maximal functions for F2,ϵ provided by Proposition 5.3. Take any sequence ϵj > 0 such that ϵj → 0+ as j → ∞ , and set uj := uϵj . The associated sequence of generalized second eigenfunctions is denoted by {ϕi,ϵ j }∞
+
+> j=1
+
+,where i ∈ { 1, · · · , k } is fixed. We will keep the same notation for any subsequence. By Proposition 6.8 and the compact embedding of H¨ older spaces, the sequence 
+
+{uj }j≥1 is relatively compact in C0,β (Σ) for some 0 < β < μ . In particular, and up to the extraction of a subsequence, there exists a u ∈ C0,β (Σ) such that (7.1) uj → u in C0,β (Σ) .
+
+Since ∥uj ∥LN (Σ) = 1 and uj ≥ 0 on Σ for all j ≥ 1, we conclude that u is non-negative on Σ and (7.2) 
+
+Z
+
+> Σ
+
+uN dσ g = 1 .
+
+Another consequence of Proposition 6.8 is that u ∈ W 1,2(Σ). We now deal with the associated sequence of eigenfunctions {ϕi,ϵ j }∞
+
+> j=1
+
+. As these are generalized second eigenfunctions, they satisfy (7.3) 
+
+(
+
+∆g ϕi,ϵ j = 0 (in M ); 
+
+Bg (ϕi,ϵ j ) = λ2(uj )ϕi,ϵ j uN −2 
+
+> j
+
+(on Σ) .
+
+with the normalization (7.4) 
+
+Z
+
+> Σ
+
+ϕ2 
+
+> i,ϵ j
+
+uN −2 
+
+> j
+
+dσ g = 1 .EXTREMAL METRICS FOR CONFORMAL DIRICHLET-TO-ROBIN MAP 33 
+
+By Propositions 6.2 and 6.6, up to the extraction of a subsequence, for each i ∈{1, · · · , k }, there exists ϕi ∈ C0,β (Σ) ∩ W 1,2(M ) (with a possibly smaller β) such that 
+
+ϕi,ϵ j → ϕi in C0,β (Σ) ,ϕi,ϵ j ⇀ ϕ i in W 1,2(M ).
+
+(7.5) From (7.4), we deduce that (7.6) 
+
+Z
+
+> Σ
+
+ϕ2 
+
+> i
+
+uN −2dσ g = 1 .
+
+On the other hand, it follows from Proposition 6.1 that lim j→∞ λ2(uj ) exists after possibly extracting a subsequence. We denote this limit by λ2.We are now in a position to take limits. The variational characterization of (7.3) gives (7.7) 
+
+Z
+
+> M
+
+⟨∇ g ϕi,ϵ j , ∇g ψ⟩ dv g + 2 cn
+
+Z
+
+> Σ
+
+hg ϕi,ϵ j ψ dσ g = λ2(uϵj )
+
+Z
+
+> Σ
+
+ϕi,ϵ j ψu N −2 
+
+> j
+
+dσ g
+
+for all ψ ∈ W 1,2(M ). As a consequence of (7.5), we obtain (7.8) 
+
+Z
+
+> M
+
+⟨∇ g ϕi, ∇g ψ⟩ dv g + 2 cn
+
+Z
+
+> Σ
+
+hg ϕiψ dσ g = λ2
+
+Z
+
+> Σ
+
+ϕiψu N −2 dσ g .
+
+Since ψ ∈ W 1,2(M ) is arbitrary, each ϕi satisfies (7.9) 
+
+(
+
+∆g ϕi = 0 (in M ); 
+
+Bg (ϕi) = λ2ϕiuN −2 (on Σ) ,
+
+and thus elliptic regularity implies that ϕi ∈ C1,β (Σ) ∩ C2(M n). Furthermore, by (6.32) in Proposition 6.9, for any η ∈ C∞(Σ), the following limit holds: (7.10) lim 
+
+> j→∞
+
+Z
+
+> Σ
+
+η
+
+(
+
+γ1,ϵ j u2 
+
+> j
+
+−
+
+> k
+
+X
+
+> i=1
+
+ci,ϵ j ϕ2
+
+> i,ϵ j
+
+)
+
+dσ g =
+
+Z
+
+> Σ
+
+η
+
+(
+
+u2 −
+
+> k
+
+X
+
+> i=1
+
+ciϕ2
+
+> i
+
+)
+
+dσ g = 0 ,
+
+where ci = lim j→∞ ci,ϵ j (after possibly extracting a subsequence). Notice that for the convergence of γ1,ϵ j we have used Corollary 6.4. Also observe that not all ci
+
+are zero since Pki=1 ci,ϵ j = 1, and so we may assume that ci > 0 for all i after discarding those which are zero. From (7.10) we conclude that (7.11) 
+
+> k
+
+X
+
+> i=1
+
+ciϕ2 
+
+> i
+
+= u2
+
+holds on Σ. By rescaling, we could redefine each ϕi by √ciϕ and get (1.22) as claimed in Theorem 1.2. From now on, we assume this has been done. There are still a few remaining aspects to complete the proof of Theorem 1.2. We start with the following: 
+
+Claim 7.1. u−1(0) has zero (boundary) Riemannian measure. In particular, u ∈
+
+LN>0(Σ) .Proof. The result follows from Li’s work [29]; see Theorem 1.1, part (b). Indeed, by (7.11), u−1(0) = ∩ki=1 (ϕ−1 
+
+> i
+
+(0) ∩ Σ) ⊆ ϕ−1 
+
+> io
+
+(0) ∩ Σ for some io ∈ { 1, · · · , k }. Since 
+
+ϕio solves (7.9), it solves ∆ g ϕio = 0 (in M ), ∂νg ϕio = ( λ2uN −2 − 2cnhg )ϕio (on Σ) after rearranging. Moreover, since ϕio ∈ C0,β (Σ) ∩ W 1,2(M ) and u ∈ C0,β (Σ), 34 SAMUEL P ´EREZ-AYALA 
+
+the hypotheses of Theorem 1.1, part (b), in [29] are met, thus it follows that the Hausdorff dimension of ϕ−1 
+
+> io
+
+(0) ∩ Σ is at most n − 2. Hence, u−1(0) ⊆ ϕ−1 
+
+> io
+
+(0) ∩ Σhas zero (boundary) Riemannian measure. □
+
+Since the limiting function u is positive a.e. on Σ, we have the boundedness of 
+
+{λ1(uj )}∞ 
+
+> j=1
+
+thanks to Proposition 6.1. Set λ1 = lim j→∞ λ1(uj ), which is possible after passing to a further subsequence. 
+
+Claim 7.2. λ2 coincides with λ2(u). Hence, ϕi ∈ E2(u) for each i = 1 , · · · , k .Proof. The main ideas here are as in the proof of Lemma 5.5. Let {fj }∞ 
+
+> j=1
+
+be the sequence of first eigenfunctions associated to {uj }∞
+
+> j=1
+
+. By Proposition 2.7, we can assume that each fj is positive a.e. on Σ, and also we normalize such that R 
+
+> Σ
+
+f 2 
+
+> j
+
+uN −2 
+
+> j
+
+dσ g = 1. The boundedness of {fj }∞ 
+
+> j=1
+
+follows from Proposition 2.6. Denote by f ≥ 0 its limiting function, and recall that λ1 = lim j→∞ λ1(uj ). Repeating the argument from the proof of Lemma 5.5, the same equation (5.35) can be derived. This yields λ1 = λ1(u) and f is a first eigenfunction with f > 0a.e. on Σ. Observe that λ1(uj ) < λ 2(uj ) by Proposition 2.7, and so R 
+
+> Σ
+
+fj ϕi,j uN −2 
+
+> j
+
+dσ g = 0 for all j ∈ N and for all i ∈ { 1, · · · , k }. Therefore, R 
+
+> Σ
+
+f ϕ iuN −2 dσ g = 0 for every 
+
+i ∈ { 1, · · · , k }. Due to Lemma 2.8, it then follows that λ2(u) ≤ λ2. To prove the opposite inequality, let ψ2 be an eigenfunction associated to λ2(u), and set 
+
+cj = R 
+
+> Σ
+
+ψ2fj uN −2 
+
+> j
+
+dσ g . Then cj → R 
+
+> Σ
+
+ψ2f u N −2 dσ g = 0 and so (7.12) λ2(uj ) ≤ R uj 
+
+> g
+
+(ψ2 − cj fj ) .
+
+Taking limits yields λ2 ≤ λ2(u), as desired. This finishes the proof. 
+
+□
+
+Claim 7.3. u maximizes λ2 over LN>0(Σ) , that is, λ2(u) is maximal. Proof. Let u be as constructed, and assume on the contrary that there exists a generalized conformal factor w ∈ LN>0(Σ) with R 
+
+> Σ
+
+wN dσ g = 1 and with λ2(w) = 
+
+λ2(u) + η for some η > 0. Set wδ := sup {w, δ } for δ > 0 so that wδ ∈ D ϵ for ϵ > 0. We will show first that δ > 0 can be chosen such that (7.13) λ2(wδ )
+
+Z 
+
+> Σ
+
+wNδ dσ g
+
+ N −2
+
+> N
+
+> λ 2(u) + 12 η. 
+
+By Proposition 2.4, the number of generalized negative eigenvalues of wδ and w is still N ([ g]). In particular, both λ2(w) and λ2(wδ ) are negative. Since wδ ≥ w and since it is enough to consider those ϕ ∈ W 1,2(M ) for which (7.14) 
+
+Z
+
+> M
+
+|∇ g ϕ|2 dv g + 2 cnhg
+
+Z
+
+> Σ
+
+ϕ2 dσ g < 0,
+
+we deduce that λ2(wδ ) ≥ λ2(w). As for the volume, we obtain (7.15) 
+
+Z
+
+> Σ
+
+wNδ dσ g ≤ δN + 1 using that Vol(Σ , dσ g ) = 1 and R 
+
+> Σ
+
+wN dσ g = 1. Since N −2 
+
+> N
+
+< 1, we have that (δN + 1) N −2 
+
+> N
+
+≤ 1 + N −2 
+
+> N
+
+δN and so (7.16) 
+
+Z 
+
+> Σ
+
+wNδ dσ g
+
+ N −2
+
+> N
+
+≤ 1 + N − 2
+
+N δN .EXTREMAL METRICS FOR CONFORMAL DIRICHLET-TO-ROBIN MAP 35 
+
+Inequality (7.13) now follows after choosing δ > 0 small enough. Recall that uj = uϵj and that ϵj → 0 as j → ∞ , where uj maximizes F2,ϵ j over 
+
+Dϵj . As a consequence, 
+
+F2,ϵ j (uϵj ) ≥ F2,ϵ j (wδ )
+
+≥ λ2(u) + 12 η −
+
+Z 
+
+> Σ
+
+w−ϵj 
+
+> δ
+
+dσ g
+
+ Z 
+
+> Σ
+
+wNδ dσ g
+
+ ϵjN
+
+.
+
+(7.17) By Claim 7.2, we know that lim j→∞ λ2(uj ) = λ2 = λ2(u). On the other hand, thanks to Proposition 6.9, 
+
+Z
+
+> Σ
+
+u−ϵj 
+
+> j
+
+dσ g ≤
+
+Z 
+
+> Σ
+
+u−N −ϵj 
+
+> j
+
+dσ g
+
+ ϵjN +ϵj
+
+Vol(Σ) NN +ϵj ≤ C  
+
+> ϵjN+ϵj
+
+(ϵ−1 
+
+> j
+
+)  
+
+> ϵjN+ϵj
+
+→ 1(7.18) as j → ∞ . Moreover, 1 = 
+
+Z
+
+> Σ
+
+u 
+
+> −ϵj
+> 2
+> j
+
+u 
+
+> ϵj
+> 2
+> j
+
+dσ g ≤
+
+Z 
+
+> Σ
+
+u−ϵj 
+
+> j
+
+dσ g
+
+ 12 Z 
+
+> Σ
+
+uϵj 
+
+> j
+
+dσ g
+
+ 12
+
+≤ Cϵj
+
+Z 
+
+> Σ
+
+uϵj 
+
+> j
+
+dσ g
+
+ 12
+
+,
+
+(7.19) where we have used Proposition 6.8. Therefore, lim j→∞ 
+
+R 
+
+> Σ
+
+u−ϵj 
+
+> j
+
+dσ g = 1. Taking limits in (7.17) and using the fact that wδ ≥ δ > 0 then yields (7.20) λ2(u) − 1 ≥ λ2(u) + 12 η − 1.
+
+This is a contradiction. Hence, the proof is complete. □
+
+Claim 7.4. u is smooth outside its zero set, i.e. u ∈ C∞(Σ \ u−1(0)) .Proof. Recall that u ∈ C0,β (Σ), which implies that Σ \ u−1(0) is open. In open subsets of Σ \u−1(0), it follows from (7.11) that we have u =
+
+qPki=1 ϕ2 
+
+> i
+
+. Therefore, we can differentiate using that ϕi ∈ C1,β (Σ). A standard bootstrap argument using (7.9) finishes the proof of the claim. □
+
+Claim 7.5. The harmonic extension ˆu of u is smooth and positive in the interior 
+
+M . Moreover, ˆu ∈ W 1,2(M ).Proof. By standard existence results (see Chapter 2 in [16]), given u ∈ C(Σ) ∩
+
+W 1,2(Σ), there is a unique ˆ u ∈ C2(M ) ∩ W 1,2(M ) solution of (7.21) 
+
+(
+
+∆g ˆu = 0 (in M ); ˆu = u (on Σ) .
+
+Interior elliptic regularity then gives the smoothness of ˆ u in the interior of M . It follows from the classical maximum principle (Theorem 3.1 in [16], for instance) that the maximum and minimum of ˆ u are attained on Σ. Since u is nonnegative on Σ, ˆ u is nonnegative in M . Moreover, if there is an interior point xo ∈ M such that ˆ u(xo) = 0, then by connectedness we have that ˆ u ≡ 0 on M , contradicting that u > 0 a.e. on Σ. This finishes the proof. □36 SAMUEL P ´EREZ-AYALA 
+
+Claim 7.6. Assume k > 1 and set Σ∗ := Σ \ u−1(0) . Then the map 
+
+Φ = ( ϕ1 
+
+> ˆu
+
+, · · · , ϕk 
+
+> ˆu
+
+) : ( M, g ˆu) → (Bk, g E ) satisfies Φ(Σ ∗) ⊂ Sk−1 and it is a harmonic map with ∂νg ˆu Φ∥Φ on Σ∗. Here gˆu = ˆ u 4 
+
+> n−2
+
+g is the conformal metric defined by the harmonic extension ˆu of u, which agrees with u 4 
+
+> n−2
+
+g along Σ.Proof. Recall that Pki=1 ϕ2 
+
+> i
+
+= u2 on Σ. We set Ψ = ( ϕ1, · · · , ϕ k). Notice that, for any v ∈ Sk−1, the function gE (Ψ , v ) − ˆu is harmonic. On the other hand, 
+
+gE (Ψ , v ) ≤ | Ψ| = u = ˆ u on Σ, and so the maximum principle yields gE (Ψ , v ) ≤ ˆu
+
+on M . Since v ∈ Sk−1 is arbitrary, this yields |Ψ| ≤ ˆu in M .We now set ˆϕi = ϕi 
+
+> ˆu
+
+for each i ∈ { 1, · · · , k } and Φ = ( ˆϕ1, · · · , ˆϕk), which is well defined in M thanks to Claim 7.5. Then |Φ| ≤ 1 everywhere in M . Furthermore, because of (7.21), the metric gˆu is scalar flat in M , and thus (7.22) −∆gˆu ( ˆϕi) = Lgˆu ( ˆϕi) = ˆ u− n+2  
+
+> n−2
+
+Lg (ϕi) = −ˆu− n+2  
+
+> n−2
+
+∆g ϕi = 0 .
+
+This shows that Φ is gˆu-harmonic. On the other hand, from (7.11), we have that 
+
+Pki=1 ˆϕ2 
+
+> i
+
+= 1 along Σ ∗, that is, Φ( x) ∈ Sk−1(1) for a.e. x ∈ Σ. Thus Φ( M ) ⊂ Bk
+
+and Φ(Σ ∗) ⊂ Sk−1. Additionally, notice that as a consequence of the conformal invariance (2.2) and of (7.9), we obtain (7.23) Bgˆu ( ˆϕi) = u1−N Bg (ϕi) = u1−N λ2ϕiuN −2 = λ2 ˆϕi,
+
+on Σ ∗, and therefore (7.24) ∂νg ˆu
+
+ˆϕi = ( λ2 − 2cnhgˆu ) ˆϕi
+
+holds a.e. on Σ. Hence, ∂νg ˆu Φ is parallel to Φ on Σ ∗, that is, a.e. on Σ. □
+
+It remains to prove that Φ is a gˆu-weakly free-boundary harmonic map. Recall that gˆu may be degenerate on a zero measure set on Σ. Because of this, our testing space is L∞(M ) ∩ W 1,2(M, g ˆu; Rk): these are maps V : M → Rk bounded in M for which (7.25) 
+
+Z
+
+> M
+
+
+
+|V |2 ˆu 2nn−2 + |∇ g V |2 ˆu2
+
+dv g < ∞.
+
+Notice that the trace of a map in W 1,2(M, g ˆu; Rk) might not be well-defined globally. However, for V = ( V1, · · · , V k) ∈ L∞(M ) ∩ W 1,2(M, g ˆu; Rk), each Viϕi and each ˆuV i are in W 1,2(M ), and so their traces are well defined. This is all we need. 
+
+Claim 7.7. The map Φ constructed in Claim 7.6 is a gˆu-weakly free-boundary harmonic map. Proof. We show that Φ = ( ˆϕ1, · · · , ˆϕk) = Ψˆu ∈ W 1,2(M, g ˆu; Rk). First, notice that 
+
+R 
+
+> M
+
+|∇ gˆu Φ|2 dv gˆu = R 
+
+> M
+
+ˆu2|∇ g Φ|2 dv g . On the other hand, ∇g ˆϕi = ∇g ϕi 
+
+> ˆu
+
+− ϕi∇g ˆu 
+
+> ˆu2
+
+,and so (7.26) ˆu2|∇ g Φ|2 = |∇ g Ψ|2 + |Φ|2|∇ g ˆu|2 − 2
+
+> k
+
+X
+
+> i=1
+
+ˆϕig(∇g ϕi, ∇g ˆu).
+
+Therefore, (7.27) 
+
+Z
+
+> M
+
+|∇ gˆu Φ|2 dv gˆu ≤ 2
+
+Z
+
+> M
+
+ |∇ g Ψ|2 + |∇ g ˆu|2 dv g < ∞.EXTREMAL METRICS FOR CONFORMAL DIRICHLET-TO-ROBIN MAP 37 
+
+Finally, suppose we are given V ∈ L∞(M ) ∩ W 1,2(M, g ˆu; Rk) with gE (V, Φ) = 0 a.e. on Σ. We want to show that 
+
+Z
+
+> M
+
+gˆu(∇gˆu Φ, ∇gˆu V ) dv gˆu =
+
+> k
+
+X
+
+> i=1
+
+Z
+
+> M
+
+
+
+ˆug (∇g ϕi, ∇g Vi)
+
+− ϕig(∇g ˆu, ∇g Vi)
+
+
+
+dv g
+
+(7.28) is zero. Since Viϕi, ˆuV i ∈ W 1,2(M ) for each i = 1 , · · · , k , we can test (ˆ uV i) in ∆g ϕ = 0 and Viϕi in ∆ g ˆu = 0, to obtain (7.29) 
+
+> k
+
+X
+
+> i=1
+
+Z
+
+> M
+
+(Vig(∇g ϕi, ∇g ˆu) + ϕig(∇g Vi, ∇g ˆu)) dv g = 0 and (7.30) 
+
+> k
+
+X
+
+> i=1
+
+Z
+
+> M
+
+(Vig(∇g ϕi, ∇g ˆu) + ˆ ug (∇g Vi, ∇g ϕi)) dv g = 0 ,
+
+where we have used that both gE (V, Φ) = 0 and ∂νg ˆu Φ∥Φ a.e. on Σ. Subtracting (7.29) from (7.30) yields (7.28), which finishes the proof. □38 SAMUEL P ´EREZ-AYALA 
+
+References 
+
+[1] S. Almaraz, Convergence of scalar-flat metrics on manifolds with boundary under a Yamabe-type flow, J. Differential Equations 259 (2015), no. 6, 2626–2694. [2] B. Ammann and E. Humbert, The second Yamabe invariant, J. Funct. Anal. 235 (2006), no. 2, 377–412. [3] H. Brezis, Functional Analysis, Sobolev Spaces and Partial Differential Equations , Universi-text, Springer, New York, 2011. [4] S.-Y. S. Chen, Conformal deformation to scalar flat metrics with constant mean curvature on the boundary in higher dimensions, Geom. Funct. Anal. 19 (2009), 1029–1064. [5] X. Chen, M. Lai, and F. Wang, Escobar–Yamabe compactifications for Poincar´ e–Einstein manifolds and rigidity theorems, Adv. Math. 343 (2019), 16–35. [6] M. Clapp, B. Pellacci, and A. Pistoia, Sign-changing solutions to the Yamabe problem on manifolds with boundary, arXiv:2511.10553v2 [math.DG], 2026. [7] G. Cox, D. Jakobson, M. Karpukhin, and Y. Sire, Conformal invariants from nodal sets. II. Manifolds with boundary, J. Spectr. Theory 11 (2021), no. 2, 387–409. [8] S. El Sayed, Second eigenvalue of the Yamabe operator and applications, Calc. Var. Partial Differential Equations 50 (2014), no. 3–4, 665–692. [9] A. El Soufi and S. Ilias, Riemannian manifolds admitting isometric immersions by their first eigenfunctions, Pacific J. Math. 195 (2000), no. 1, 91–99. [10] A. El Soufi and S. Ilias, Laplacian eigenvalue functionals and metric deformations on compact manifolds, J. Geom. Phys. 58 (2008), no. 1, 89–104. [11] J. F. Escobar, Uniqueness theorems on conformal deformation of metrics, Sobolev inequalities, and an eigenvalue estimate, Comm. Pure Appl. Math. 43 (1990), no. 7, 857–883. [12] J. F. Escobar, Conformal deformation of a Riemannian metric to a scalar flat metric with constant mean curvature on the boundary, Ann. of Math. (2) 136 (1992), no. 1, 1–50. [13] J. F. Escobar, Addendum: conformal deformation of a Riemannian metric to a scalar flat metric with constant mean curvature on the boundary, Ann. of Math. (2) 139 (1994), no. 3, 749–750. [14] A. Fraser and R. Schoen, Minimal surfaces and eigenvalue problems, in Geometric Analysis ,Contemp. Math., vol. 599, Amer. Math. Soc., Providence, RI, 2013, pp. 105–121. [15] A. Fraser and R. Schoen, Sharp eigenvalue bounds and minimal surfaces in the ball, Invent. Math. 203 (2016), no. 3, 823–890. [16] D. Gilbarg and N. S. Trudinger, Elliptic Partial Differential Equations of Second Order , 2nd ed., Classics in Mathematics, Springer-Verlag, Berlin, 2001. [17] M. del Mar Gonz´ alez and M. S´ aez, Eigenvalue bounds for the Paneitz operator and its asso-ciated third-order boundary operator on locally conformally flat manifolds, Ann. Sc. Norm. Super. Pisa Cl. Sci. (5) 24 (2023), no. 4, 2047–2081. [18] M. J. Gursky and S. P´ erez-Ayala, Variational properties of the second eigenvalue of the conformal Laplacian, J. Funct. Anal. 282 (2022), no. 8, Paper No. 109371. [19] S. Hamanaka and P. T. Ho, Notes on the uniqueness of Type II Yamabe metrics, Nonlinear Differ. Equ. Appl. 32 (2025), Article No. 81. [20] E. Hebey, Nonlinear Analysis on Manifolds: Sobolev Spaces and Inequalities , Courant Lec-ture Notes in Mathematics, vol. 5, New York University, Courant Institute of Mathematical Sciences, New York; American Mathematical Society, Providence, RI, 2000. [21] G. C. Hsiao and W. L. Wendland, Boundary Integral Equations , Applied Mathematical Sci-ences, vol. 164, Springer-Verlag, Berlin, 2008. [22] E. Humbert, R. Petrides, and B. Premoselli, Extremising eigenvalues of the GJMS operators in a fixed conformal class, arXiv:2505.08280 [math.DG], 2025. [23] J. Jost, L. Liu, and M. Zhu, The qualitative behavior at the free boundary for approximate harmonic maps from surfaces, Math. Ann. 374 (2019), no. 1–2, 133–177. [24] M. Karpukhin, N. Nadirashvili, A. V. Penskoi, and I. Polterovich, Conformally maximal metrics for Laplace eigenvalues on surfaces, Surv. Differ. Geom. 24 (2019), 205–256. [25] M. Karpukhin and D. L. Stern, Min–max harmonic maps and a new characterization of conformal eigenvalues, J. Eur. Math. Soc. (JEMS) 26 (2024), no. 11, 4071–4129. [26] G. Kokarev, Variational aspects of Laplace eigenvalues on Riemannian surfaces, Adv. Math. 
+
+258 (2014), 191–239. EXTREMAL METRICS FOR CONFORMAL DIRICHLET-TO-ROBIN MAP 39 
+
+[27] M. Lassas, T. Liimatainen, and M. Salo, The Calder´ on problem for the conformal Laplacian, 
+
+Comm. Anal. Geom. 30 (2022), no. 5, 1121–1184. [28] P. Laurain and R. Petrides, Regularity and quantification for harmonic maps with free bound-ary, Adv. Calc. Var. 10 (2017), no. 1, 69–82. [29] Z. Li, Unique continuation for Robin problems with non-smooth potentials, J. Funct. Anal. 
+
+288 (2025), no. 6, Article No. 110811. [30] P. Winkert, On the boundedness of solutions to elliptic variational inequalities, Set-Valued Var. Anal. 22 (2014), no. 4, 763–781. [31] G. Marino and P. Winkert, Moser iteration applied to elliptic equations with critical growth on the boundary, Nonlinear Anal. 180 (2019), 154–169. [32] F. C. Marques, Conformal deformations to scalar-flat metrics with constant mean curvature on the boundary, Comm. Anal. Geom. 15 (2007), no. 2, 381–405. [33] F. C. Marques, Existence results for the Yamabe problem on manifolds with boundary, Indi-ana Univ. Math. J. 54 (2005), no. 6, 1599–1620. [34] N. Nadirashvili, Berger’s isoperimetric problem and minimal immersions of surfaces, Geom. Funct. Anal. 6 (1996), no. 5, 877–897. [35] R. Petrides, Existence and regularity of maximal metrics for the first Laplace eigenvalue on surfaces, Geom. Funct. Anal. 24 (2014), no. 4, 1336–1376. [36] R. Petrides, Maximizing Steklov eigenvalues on surfaces, J. Differential Geom. 113 (2019), no. 1, 95–188. [37] S. P´ erez-Ayala, Extremal eigenvalues of the conformal Laplacian under Sire–Xu normaliza-tion, Nonlinear Anal. 208 (2021), Article No. 112308. [38] S. P´ erez-Ayala, Extremal metrics for the Paneitz operator on closed four-manifolds, J. Geom. Phys. 182 (2022), Article No. 104666. [39] M. E. Taylor, Pseudodifferential Operators and Nonlinear PDE , Progress in Mathematics, vol. 100, Birkh¨ auser, Boston, 1991. [40] D. Vinokurov, Conformal optimization of eigenvalues on surfaces with symmetries, J. Lond. Math. Soc. (2) 112 (2025), no. 6, e70386. [41] D. Vinokurov, Maximizing higher eigenvalues in dimensions three and above, arXiv:2506.09328 [math.SP], 2025. 
+
+Department of Mathematics, Princeton University, Princeton, NJ 08544

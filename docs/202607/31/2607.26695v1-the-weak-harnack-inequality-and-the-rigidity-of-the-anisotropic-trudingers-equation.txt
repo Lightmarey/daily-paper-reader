@@ -1,0 +1,2031 @@
+Title: The weak Harnack inequality and the rigidity of the anisotropic Trudinger's equation
+
+URL Source: https://arxiv.org/pdf/2607.26695v1
+
+Published Time: Thu, 30 Jul 2026 00:40:48 GMT
+
+Number of Pages: 18
+
+Markdown Content:
+THE WEAK HARNACK INEQUALITY AND THE RIGIDITY OF THE ANISOTROPIC TRUDINGER’S EQUATION    
+
+> S. CIANI & M. GALEOTTI & I.I. SKRYPNIK
+> Abstract. We prove a local weak Harnack inequality for nonnegative weak super-solutions to the anisotropic Trudinger equation. As an application, we show a proof of the Harnack inequality that bypasses any sort of Krylov-Safonov covering argument. We further develop an analysis of global sub-potential lower bounds which ultimately leads to the identification of a Barenblatt-type profile.
+> MSC 2020: 35B53, 35K65, 35K92, 35B65.
+> Key Words : Anisotropic Trudinger equation, Parabolic Weak Harnack estimates, Upper Semicon-tinuity, Sub Potential Lower bounds, Barenblatt-type profile.
+
+Contents 
+
+1. Introduction 12. Notation 43. Functional Setting and Auxiliary Results 44. Weak Harnack inequality 75. Sub-Potential Lower Bounds and Time-Decay 14 6. More General Structures 16 Acknowledgements 16 References 17 
+
+1. Introduction 
+
+1.1. Heuristics and description of the problem. In the early twentieth century, L.S. Leibenson investigated the flow of oil and gas through porous media, motivated by problems arising in the oil fields surrounding the city of Baku. One of his most significant contributions concerns the mathematical description of turbulent gas filtration in porous media. In his pioneering work [24], he refers to the parabolic equation (1.1) ∂tum = c∆pu, for (x, y, z, t ) ∈ R3 × (0 , T ),
+
+which seems, to the extent of our knowledge, to be the first one to appear in the scientific literature. A detailed historical account of the origins of this equation, together with its physical motivation and subsequent mathematical development, can be found in [5]. In the particular model considered by Leibenson, the constitutive parameters satisfy 
+
+m + 1 = p = 3 /2 ,
+
+classifying in the modern literature the equation as a ( p−1)-homogeneous doubly nonlinear diffusion equation. This special kind of parabolic equations (with general exponent m = p − 1 > 0) has been addressed also as Trudinger’s equation, since the method of J. Moser (see [30]), refined by Neil Trudinger to the nonlinear case in [35], could be applied successfully in order to obtain a Harnack estimate. The problem has been then studied on the wider perspective of doubly nonlinear equations in [25], and since then has received a huge impetus in this research field. We refrain here from describing the subject as a whole, that would drive us out of the railway of our presentation. In the  
+
+> 1arXiv:2607.26695v1 [math.AP] 29 Jul 2026 2S. CIANI & M. GALEOTTI & I.I. SKRYPNIK
+
+model described by Leibenson, he prescribed the same diffusion along the three coordinates ( x, y, z ), while for some materials the diffusion should have different power-laws for different directions, that tangle in a competitive effort as a sum of monotone operators (see [1], [29]). The description of the regularity properties of solutions of such type of operators is precisely the scope of the present work. Here we continue the study of [12], addressing anisotropic operators that, similarly to (1.1), enjoy a special homogeneity that balances the energetic contributions in time and space as (1.2) ∂tu −
+
+> N
+
+X
+
+> i=1
+
+∂i
+
+
+
+u2−pi |∂iu|pi−2∂iu
+
+
+
+= 0 , u ⩾ 0.
+
+More precisely, let Ω ⊆ RN be open, T > 0 and consider numbers {pi}Ni=1 such that 1 < p 1 := min  
+
+> 1⩽i⩽N
+
+pi ≤ pi ≤ max  
+
+> 1⩽i⩽N
+
+pi =: pN .
+
+Let also p be the harmonic average of the {pi}Ni=1 , and let us assume 
+
+p := 
+
+ 1
+
+N
+
+> N
+
+X
+
+> i=1
+
+1
+
+pi
+
+−1
+
+< N . 
+
+Observe that when pi = X for all i = 1 , . . . , N then the harmonic average coincides with X, i.e. 
+
+p = X; but also that, equation (1.2) is not exactly fitting with (1.1), since it is orthotropic , i.e. 
+
+∂tu −
+
+> N
+
+X
+
+> i=1
+
+∂i
+
+
+
+u2−p|∂iu|p−2∂iu
+
+
+
+= 0 shows a modulus of ellipticity that blows up when p < 2 anytime that a single partial derivative of 
+
+u vanishes. Nevertheless, the contribute of u vanishing itself may lead to re-balance the anisotropic competition effect. An essential point in this framework would be to understand how to remove the parabolic zero set of the solution, see for instance [31], [32], [33]; or parabolic anisotropic rigidity properties as for instance Liouville-type properties (see [10]) or growth-constraints as in [17], [19], [20]. The crucial point of these being, nevertheless, a weak Harnack-type inequality. We refer to 
+
+the data as the set {N, p i}.1.2. Main Results. Our first result is a parabolic weak Harnack estimate, valid for nonnegative super-solutions to (1.2). For the geometric notation we refer to Section 2. 
+
+Theorem 1.1. Let us assume Qρ = K4ρ(y) × (s, s + (4 ρ)p] ⊂ ΩT for some ρ > 0. If u ⩾ 0 is a local weak super-solution of (1.2) in Qρ, then there exist numbers δo, q ∈ (0 , 1) and γ > 1 depending only on the data such that 
+
+(1.3) 
+
+
+
+−
+
+Z
+
+> Kρ(y)
+
+uq(x, s ) dx 
+
+1/q 
+
+≤ γ inf  
+
+> K2ρ(y)
+
+u(·, t ),
+
+for all times 
+
+(1.4) s + δo
+
+2 ρp < t < s + δoρp .
+
+As a first consequence, we show a proof of the full Harnack estimate that bypasses the Krylov-Safonov trick, see Section 4.1.3. Finally, we use the Harnack estimate to prove the following global sub-potential lower bounds. ANISOTROPIC TRUDINGER EQUATION 3
+
+Theorem 1.2. Let u be a positive local weak solution to (1.2) in RN +1 . There exists a constant 
+
+γ > 0 depending only on the data, such that for all (x, t ), (y, s ) ∈ RN +1 with t > s we have 
+
+(1.5) u(x, t ) ⩾ u(y, s ) γ−1B(x, t, y, s ),
+
+where B is the function 
+
+B(x, t, y, s ) = exp 
+
+
+
+− X
+
+> i
+
+ |xi − yi|pi
+
+t − s
+
+ 1 
+
+> pi−1
+
+
+
+.
+
+As a simple application, Theorem 1.2 suggests a natural guess for the construction of a special self-similar solution. Indeed, yet Trudinger’s equation (see [34]) (1.6) (|u|p−2u)t = div( |Du |p−2Du ), 1 < p < ∞ ,
+
+has a corresponding ”fundamental solution”, which is nowadays called Barenblatt’s solution since its discovery in [3], which is (1.7) Bp(x, t ) = 1
+
+tN/p exp −ξ
+
+ |x|
+
+t1/p 
+
+ pp−1
+
+!
+
+,
+
+with ξ = ( p − 1) 2p− pp−1 . Here we show that, similarly to the solutions to (1.6), positive local weak solutions to (1.2) are bounded from below by a function that reflects the anisotropic nature of the equation, and that indeed can be manipulated to be a subsolution, see (5.7). We believe that this strategy can be useful in order to construct subsolutions to more general anisotropic operators (see for instance [14], [15], [16]). 1.3. Novelty and Significance. In the isotropic framework ( pi ≡ p), a proof of the weak Harnack inequality can be found in [21], or adapted from [23] (see also [18] and [35]). On the other hand, the anisotropic context needs a careful analysis of the anisotropic energy (see (4.9)). For equations with non-standard growth, Theorem 1.1 seems to be new. For what concerns the point-wise estimates of Theorem 1.2, since for doubly nonlinear equations the Harnack inequality and the H¨ older continuity are two independent issues, it is not known if local weak solutions to (1.2) are continuous. In the isotropic case some answers have been given in [26], [27], [28] and in [7] for sign-changing solutions, since in the case where u > η > 0 the equation behaves, roughly speaking, as the p-Laplacean equation - whose solutions are nowadays known to be continuous. In the case of equation (1.2), only a partial answer is given in [12] through the technique of [14] that restricts qualitatively the sparseness of the exponents pis. The crucial point is that it is not known if bounded solutions to the anisotropic p-Laplacian 
+
+∂tu − X
+
+> i
+
+∂i(|∂iu|pi−2∂iu) = 0 are continuous. Hence, the trick does not apply. For this reason and other technical purposes, we show that local sub-solutions have an upper-semicontinuous representative, see Section 4.1.2. Finally, the kind of sub-potential lower bounds we establish here (Theorem 1.2) are derived through a Harnack chain procedure reminiscent of [8]. The difference lies on the fact that the procedure has to be performed on each separate direction at each step. 
+
+Structure of the paper. In Section 2 we collect the notation used throughout the paper, while Section 3 is devoted to set up the functional framework and to recall some measure-theoretical properties of the solutions which are necessary to our study, such as energy estimates, measure propagation in time, and expansion of positivity. In Section 4 we prove the weak Harnack inequality and its use for a new proof of the Harnack inequality. Finally, Section 5 is devoted to point-wise sub potential bounds and the construction of a model solution, while the brief Section 6 explains the extent of our method. 4 S. CIANI & M. GALEOTTI & I.I. SKRYPNIK 
+
+2. Notation 
+
+2.1. Indexes. We assume that the numbers {p1, p 2, . . . , p N } are fixed. In order to ease notation we further assume, without loss of generality, that 1 < p 1 ≤ p2 ≤ · · · ≤ pN < ∞
+
+and we set 1
+
+p := 1
+
+N
+
+> N
+
+X
+
+> i=1
+
+1
+
+pi
+
+.
+
+When index i is concerned, we will always reduce the set of indexes as in the previous formula, also for the product QNi=1 = Q
+
+> i
+
+. Given K1, K 2 by the structure conditions (6.2), we will refer to the set of parameters {N, p 1, . . . , p N , K 1, K 2} as the set of (structural) data , and by saying that a constant 
+
+γ depends only on the data we mean that it can be quantitatively determined a priori only in terms of the above quantities. As usual, the generic constant γ may change from line to line. 2.2. Geometry. For fixed r, η > 0 and a point (¯ x, ¯t) ∈ RN +1 , we define the standard cube 
+
+Kr(¯ x) = x ∈ RN : |xi − ¯xi| < r, i = 1 , . . . , N ,
+
+the anisotropic cubes 
+
+Kr(¯ x) := x ∈ RN : |xi − ¯xi| < r ppi , i = 1 , ..., N ,
+
+and the cylinders 
+
+Qr,η (¯ x, ¯t) := Kr(¯ x) × (¯ t − η, ¯t).
+
+Finally, for fixed k, r, η > 0, we define the intrinsic anisotropic cubes 
+
+Kkr (¯ x) := x ∈ RN : |xi − ¯xi| < r ppi k− pN −pipi , i = 1 , ..., N ,
+
+and cylinders 
+
+Qkr,η (¯ x, ¯t) := Kkr (¯ x) × (¯ t − η, ¯t).
+
+3. Functional Setting and Auxiliary Results 
+
+3.1. Functional Anisotropic Setting and Parabolic Embeddings. Equation (1.2) has to be understood in an appropriate variational setting. For this aim, we define the anisotropic spaces of locally integrable functions as 
+
+W 1,p(Ω) = u ∈ W 1,1(Ω) : Diu ∈ Lpi (Ω) , i = 1 , ..., N ,Lp(0 , T ; W 1,p(Ω)) = u ∈ L1(0 , T ; W 1,1(Ω)) : Diu ∈ Lpi (0 , T ; Lpi (Ω)) , i = 1 , ..., N ,
+
+and the respective spaces of functions with zero boundary data 
+
+W 1,p 
+
+> 0
+
+(Ω) = W 1,10 (Ω) ∩ W 1,p(Ω) ,Lp(0 , T ; W 1,p 
+
+> 0
+
+(Ω)) = L1(0 , T ; W 1,10 (Ω)) ∩ Lp(0 , T ; W 1,p(Ω)) .ANISOTROPIC TRUDINGER EQUATION 5
+
+3.2. Definition of weak solution. Here below we give the notion of local weak solution to equation (1.2). For the motivation lying behind this definition and an alternative definition that takes into account an approximated time-derivative, we refer to the Appendix of [12] and [2]. A measurable function u : Ω T → [0 , ∞) such that (3.1) 
+
+
+
+u ∈ Cloc (0 , T ; L  
+
+> pNpN−1
+> loc
+
+(Ω)) , u 1  
+
+> pN−1
+
+∈ Lp
+
+> loc
+
+(0 , T ; W 1,p 
+
+> loc
+
+(Ω)) ,Di(u 1 
+
+> pi−1
+
+) ∈ Lpi
+
+> loc
+
+(0 , T ; Lpi
+
+> loc
+
+(Ω)) , for all i = 1 , ..., N, 
+
+is a non-negative, local, weak sub(super)-solution to (1.2), if for every compact set E ⊂ Ω and every sub-interval [ t1, t 2] ⊂ (0 , T ] it satisfies the inequality (3.2) 
+
+Z
+
+> E
+
+u φ dx t2
+
+> t1
+
++
+
+> t2
+
+Z
+
+> t1
+
+Z
+
+> E
+
+h
+
+u φ t + X
+
+> i
+
+Ai(x, t, u, Du ) Diφ
+
+i
+
+dxdt ⩽ (⩾)0 ,
+
+for all non-negative testing functions 
+
+φ ∈ W 1,p N 
+
+> loc
+
+(0 , T ; LpN (E)) ∩ Lp
+
+> loc
+
+(0 , T ; W 1,p 
+
+> 0
+
+(E)) .
+
+As usual, we say that u is a non-negative, local weak solution to equation (1.2) if u is both a non-negative, local weak sub- and super-solution. 3.3. Local Energy Estimates. Lemma 3.1. Let u be a non-negative, local weak sub(super)-solution to (1.2) . Then there exists a constant γ > 0, depending only on the data, such that, for every cylinder Qr,η (y, τ ) ⊂ ΩT , every 
+
+k ∈ R+, and every piecewise smooth, cutoff function ζ vanishing on ∂K r(y) and such that 0 ⩽ ζ ⩽ 1,there holds 
+
+(3.3) sup  
+
+> τ−η⩽t⩽τ
+
+Z 
+
+> Kr(y)
+
+g±(u 1  
+
+> pN−1
+
+, k 1  
+
+> pN−1
+
+) ζpN dx ++ γ−1
+
+> N
+
+X
+
+> i=1
+
+Z Z   
+
+> Qr,η (y,τ )
+
+u pN −pipN −1 |Di(u 1  
+
+> pN−1
+
+− k 1  
+
+> pN−1
+
+)±|pi ζpN dx dt 
+
+⩽
+
+Z  
+
+> Kr(y)×{ τ−η}
+
+g±(u 1  
+
+> pN−1
+
+, k 1  
+
+> pN−1
+
+) ζpN dx + γ
+
+Z Z   
+
+> Qr,η (y,τ )
+
+g±(u 1  
+
+> pN−1
+
+, k 1  
+
+> pN−1
+
+) |ζt| dxdt ++ γ
+
+> N
+
+X
+
+> i=1
+
+Z Z   
+
+> Qr,η (y,τ )
+
+u pN −pipN −1 (u 1  
+
+> pN−1
+
+− k 1  
+
+> pN−1
+
+)pi 
+
+> ±
+
+|Diζ|pi dx dt . 
+
+where 
+
+g±(um, k m) := ± 1
+
+m
+
+> um
+
+Z
+
+> km
+
+s 1 
+
+> m−1
+
+(s − km)± ds, k, m > 0 .
+
+The doubly-nonlinear nature of (1.2) is embodied in the terms g±, that can be estimated through the following technical tool. 
+
+Lemma 3.2. There exists a constant γ > 0, depending only on m, such that 
+
+1
+
+γ (km + um) 1 
+
+> m−1
+
+(um − km)2 
+
+> ±
+
+⩽ g±(um, k m) ⩽ γ (km + um) 1 
+
+> m−1
+
+(um − km)2 
+
+> ±
+
+.6 S. CIANI & M. GALEOTTI & I.I. SKRYPNIK 
+
+Next Lemma states that, as a typical parabolic feature, the measure information can be transported forward in time. We traced the detailed proof of [12] in order to extrapolate the dependence on the data of the assumption. 
+
+Lemma 3.3. Let u ⩾ 0 be a local weak super-solution to (1.2) in Q = K8(0) × (0 , 1) and assume that 
+
+(3.4) |[u(·, 0) ⩾ k] ∩ K1(0) | ⩾ αo|K1| ,
+
+for some αo ∈ (0 , 1) and k ∈ R. Then there exist ε1, δ1 ∈ (0 , 1) depending only on the data and on 
+
+αo, such that 
+
+(3.5) |K1(0) ∩ [u(·, τ ) ⩾ ε1 k]| ⩾ αo
+
+4 |K1(0) |,
+
+for all times 
+
+0 ⩽ τ ⩽ δ1 .
+
+The dependence of ε1, δ 1 from αo is 
+
+δ1 ≈ αpN +1  
+
+> o
+
+(1 − αo)
+
+γ and ε1 ≈ αo
+
+γ ,
+
+for a constant γ > 0 depending only on the data {N, p i}.
+
+Finally, as a main Tool of the Trade for the Weak Harnack inequality, we recall the following 
+
+expansion of positivity Lemma, obtained through a refinement of the De Giorgi level set method. The latter, being based on the additivity properties of the measure, does not provide a power-like dependence on the data. 
+
+Lemma 3.4. Let u be a non-negative, local weak super-solution to (1.2) and let us assume that for some r, k > 0 and αp ∈ (0 , 1) there holds 
+
+(3.6) |[u(·, s ) ⩾ k] ∩ K r(y)| ⩾ αp|K r(y)|.
+
+Then, there exist numbers ηp, δp ∈ (0 , 1) depending only on the data and αp such that 
+
+(3.7) u(x, t ) ⩾ ηp k, 
+
+for all (x, t ) respecting 
+
+(3.8) x ∈ K 2r(y), s + δp
+
+2 rp ⩽ t ⩽ s + δprp,
+
+provided that 
+
+K8r(y) × (s, s + rp) ⊂ ΩT .
+
+Finally, the following classic iteration Lemma will be very useful. 
+
+Lemma 3.5. Let {Yn} be a sequence of bounded numbers such that, for constants S, b > 1 and 
+
+ε ∈ (0 , 1) (3.9) Yn ≤ εY n+1 + Sbn ,
+
+with εb < 1. Then, by a simple iteration, there exists γ > 0 such that 
+
+Y0 ≤ γ S.ANISOTROPIC TRUDINGER EQUATION 7
+
+4. Weak Harnack inequality 
+
+Lemma 4.1 (Local Clustering) . For y ∈ RN and r > 0, let u ∈ W 1,1(Kr(y)) be a function satisfying 
+
+(4.1) 
+
+Z 
+
+> Kr(y)
+
+|∇ (u − k)−| dx ≤ γckr N −1, and |[u ⩾ k] ∩ Kr(y)| ⩾ β|Kr| ,
+
+for some numbers β ∈ (0 , 1) , k ∈ R and γc > 0. Then, for any λ, ν ∈ (0 , 1) there exists a point 
+
+xc ∈ Kr(y) and a constant δc = δc(N ) ∈ (0 , 1) such that 
+
+(4.2) |[u ≤ λk ] ∩ Kρc (xc)| ≤ ν|Kρc (xc)| , for ρc = r
+
+ δcβ2(1 − λ)νγc
+
+
+
+.
+
+The next proposition lies at the heart of the parabolic Weak Harnack inequality; it has to be formulated in an appropriate anisotropic geometry. 
+
+Proposition 4.2 (Refined Expansion of Positivity) . Let u ⩾ 0 be a local weak solution of (1.2) 
+
+and let us assume that for some r, k > 0, αo ∈ (0 , 1) the following measure information is at stake, 
+
+(4.3) |[u(·, s ) > k ] ∩ K r(y)| ⩾ αo|K r| .
+
+Then, there exist constants ηo, δ o ∈ (0 , 1) , d > 1, depending only on the data {N, p i}, such that 
+
+(4.4) u(·, t ) ⩾ ηo αdo k a.e. in K2r(y) ,
+
+for all times 
+
+s + δo
+
+2 rp ≤ t ≤ s + δorp .
+
+Proof. Let us assume without loss of generality that ( y, s ) = (0 , 0). By Lemma 3.3, there exist 
+
+δ1(αo), ε 1(αo) ∈ (0 , 1) such that (4.5) |[u(·, t ) ⩾ ε1(αo)k] ∩ K r(0) | ⩾ αo
+
+4 |K r| ,
+
+for all 0 ≤ t ≤ δ1(αo). Now we set 
+
+Q′ = K2r(0) × (0 , δ 1rp], and Q = Kr(0) ×
+
+ δ1
+
+2 rp, r p
+
+
+
+.
+
+We apply Lemma 3.1 to ( u − k)− over the pair of cylinders Q′, Q, and manipulate the parabolic terms with Lemma 3.2 and with a function ζ ∈ Co(Q′) respecting the following conditions, 0 ≤ ζ ≤ 1, ζ|Q ≡ 1, |Diζ| ≤ γ/r ppi , |∂tζ| ≤ γ/δ 1.
+
+We obtain the following energy bound, (4.6) 
+
+X
+
+> i
+
+Z Z 
+
+> Q
+
+u pN −pipN −1 |Di(u 1  
+
+> pN−1
+
+− k  
+
+> 1
+> pN−1
+> 1
+
+)−|pi dxdt 
+
+≤
+
+Z Z 
+
+> Q′
+
+
+
+(k  
+
+> 1
+> pN−1
+> 1
+
++ u 1  
+
+> pN−1
+
+)( u 1  
+
+> pN−1
+
+− k  
+
+> 1
+> pN−1
+> 1
+
+)2 
+
+> −
+
++ X
+
+> i
+
+u pN −pipN −1 (u 1  
+
+> pN−1
+
+− k  
+
+> 1
+> pN−1
+> 1
+
+)pi 
+
+> −
+
+|Diζ|pi
+
+
+
+dxdt 
+
+≤ γk  
+
+> pNpN−1
+> 1
+
+δ1(αo) |K 2r| = γ(ε1 k) pNpN −1
+
+αpN +1 
+
+> o
+
+|K 2r| ,
+
+where k1 = ε1 k. Now we take into consideration the following change of variables (4.7) τ := tδ1rp , zi := xi
+
+rp/p i
+
+, and v(z, τ ) := u(x, t )
+
+ε1k .8 S. CIANI & M. GALEOTTI & I.I. SKRYPNIK 
+
+The measure information (4.5), transforms into (4.8) |[v(·, τ ) > 1] ∩ K1| ⩾ αo
+
+4 |K1| , ∀ 1/2 < τ < 1 ,
+
+and the energy bound (4.6), turns in the following inequality, which is independent of k,(4.9) X
+
+> i
+
+Z 11/2
+
+Z
+
+> K1
+
+v pN −pipN −1 Dzi (v 1  
+
+> pN−1
+
+− 1) −
+
+> pi
+
+dzdτ ≤ γαpN +1 
+
+> o
+
+.
+
+Our aim now is to bound (4.9) from below by the norm ∥ · ∥ W 1,1 of the function vα where 
+
+α = 1 + 1
+
+pN − 1 .
+
+Indeed, by H¨ older inequality and by setting ˆQ = K1 × (1 /2, 1), we get (4.10) 
+
+Z Z 
+
+> ˆQ
+
+|∇ (vα − 1) −| dzdτ 
+
+≤ X
+
+> i
+
+Z Z 
+
+> ˆQ∩[v≤1]
+
+vα−1|Div| dzdτ 
+
+≤ X
+
+> i
+
+Z Z 
+
+> ˆQ∩[v≤1]
+
+
+
+v 2−pipN −1 |Div|pi dzdτ 
+
+ 1
+
+> pi
+
+ Z Z 
+
+> ˆQ∩[v≤1]
+
+v( 2−pipN −1 )( 1   
+
+> pi−1)+ (α−1) pipi−1
+
+dzdτ 
+
+ pi−1
+
+> pi
+
+≤ X
+
+> i
+
+ Z Z 
+
+> ˆQ∩[v≤1]
+
+Di(v 1  
+
+> pN−1
+
+− 1) −
+
+> pi
+
+dzdτ 
+
+ 1 
+
+> pi
+
+ˆQ ∩ [v ≤ 1] 1− 1
+
+> pi
+
+≤ γ α −( pN +1   
+
+> p1)
+> o
+
+.
+
+Lemma 4.3. There exists a time ¯τ ∈ (1 /2, 1) such that 
+
+(4.11) 
+
+Z 
+
+> K1×{ ¯τ}
+
+|∇ (vα − 1) −| dx ≤ γ2N α− pN +1  
+
+> p1
+> o
+
+and |[v(·, ¯τ ) ⩾ 1] ∩ K1| ⩾ αo
+
+4 |K1| .
+
+Proof. The second inequality was already proved at (4.8). To prove the first inequality, we define the set 
+
+T1 := 
+
+
+
+τ ∈ (1 /2, 1) : 
+
+Z 
+
+> K1×{ τ}
+
+|∇ (vα − 1) −| dx > γ 2N α− pN +1 
+
+> p1
+> o
+
+
+
+,
+
+From the definition of T1 and (4.10), we have 2N γ|T1|α− pN +1  
+
+> p1
+> o
+
+≤
+
+Z Z 
+
+> ˆQ
+
+|∇ (vα − 1) −|(·, τ ) dz dτ ≤ γα − pN +1  
+
+> p1
+> o
+
+, ⇒ |T1| < 2−N .
+
+This proves the claim since we have 
+
+|T c 
+
+> 1
+
+| > 1 − 12N > 0.
+
+□
+
+The sliced information (4.11) now is perfect to apply the local clustering Lemma 4.1 to the function 
+
+vα with λ = 1 /2 and ν = 1 /2, obtaining that there exists a point xc ∈ K1 where the measure information clusters: (4.12) 
+
+
+
+vα(·, ¯τ ) > 12
+
+
+
+∩ Kσ(xc) > |Kσ|
+
+2 , σ = γ α 2+ pN +1  
+
+> p1
+> o
+
+,ANISOTROPIC TRUDINGER EQUATION 9
+
+for a constant γ > 0 that depends only on the data {N, p i}. We can now consider the inverse coordinate change with respect to (4.7), and get a point yc ∈ K r and a time ¯t ∈
+
+
+
+δ1
+
+rp
+
+2 , δ 1rp
+
+
+
+such that the following measure information is verified, (4.13) 
+
+h
+
+u(·, ¯t) > 2− 1 
+
+> α
+
+ε1k
+
+i
+
+∩ K σr (yc) ⩾ |K σr |
+
+2 ,
+
+with ε1 ≈ αo/γ as stated in Lemma 3.3. From here, we apply iteratively the expansion of positivity Lemma 3.4 with αp = 1 /2, to obtain, two constants ηp, δ p ∈ (0 , 1) depending only on the data 
+
+{N, p i}, such that (4.14) u(·, t ) ⩾ 2− 1 
+
+> α
+
+ε1k η np a.e. in K2nσr (yc),
+
+for n ∈ N and for all times ¯t + δp
+
+2 Rp < t < ¯t + δpRp
+
+with (4.15) Rp =
+
+> n−1
+
+X
+
+> j=0
+
+(2 j σr )p = σprp
+
+ 2pn − 12p − 1
+
+
+
+.
+
+Fix L > 3 a constant that will be made explicit later, and let n ∈ N be sufficiently big that 2 nσ ≥ L,
+
+i.e. , n ≥ log 2(L/σ ). Recall that yc ∈ K r(0), therefore we achieve the inclusion 
+
+K2r(0) ⊂ K Lr (yc) ⊂ K 2nσr (yc),
+
+and since 
+
+ε1kη np = ε1k2n log 2(ηp) = ε1k
+
+ Lσ
+
+log 2(ηp)
+
+= αo
+
+γ k
+
+ α2+( pN +1) /p 1
+
+> o
+
+γL 
+
+log 2(η−1 
+
+> p)
+
+we obtain from (4.14) the lower bound (4.16) u(·, t ) ⩾ ηf αdo k , 
+
+with 
+
+ηf = 2− 1
+
+> α
+
+γγ log 2(ηp) Llog 2(ηp) and d = 1 + 
+
+
+
+2 + 
+
+ pN + 1 
+
+p1
+
+
+
+log 2(η−1 
+
+> p
+
+)
+
+
+
+.
+
+Moreover, since ¯ t ∈  δ1 rp 
+
+> 2
+
+, δ 1rp, and because of (4.15), we get 
+
+δ1
+
+2 (rp + Rp) < t < δ 1(rp + Rp) ,
+
+therefore the proposition is proved after retransforming to the original coordinate system, with 
+
+δo = δ1
+
+
+
+1 + σp
+
+ 2np − 12p − 1
+
+ 
+
+,
+
+where δ1 is provided in Lemma 3.3. □
+
+Proof of Theorem 1.1. The proof is nowadays standard but we briefly sketch it here for the sake of completeness, and to trace the dependence on δo. Let ( y, s ) = (0 , 0) and let us define 
+
+I := inf  
+
+> K2ρ×(δoρp/2, δ oρp)
+
+u . 10 S. CIANI & M. GALEOTTI & I.I. SKRYPNIK 
+
+The layer-cake formula implies (4.17) 
+
+Z
+
+> Kρ
+
+uq(x, 0) dx = q
+
+Z ∞
+
+> 0
+
+|[u(·, 0) > M ] ∩ K ρ| M q−1 dM 
+
+≤ q
+
+Z ∞
+
+> I
+
+|[u(·, 0) > M ] ∩ K ρ| M q−1 dM + Iq |K ρ| .
+
+By Proposition 4.2 applied with 
+
+αo = |[u(·, 0) > M ] ∩ K ρ||K ρ| ,
+
+there exists a number ηo ∈ (0 , 1) such that 
+
+I ⩾ ηoM
+
+ |[u(·, 0) > M ] ∩ K ρ||K ρ|
+
+d
+
+therefore, if we choose q < 1/d , then the integral in (4.17) converges and gives the desired estimate 
+
+Z
+
+> Kρ
+
+uq(x, 0) dx ≤ q
+
+Z ∞
+
+> I
+
+ IηoM
+
+1/d 
+
+|K ρ|M q−1 dM + Iq|K ρ|≤ qη1/d 
+
+> 0
+
+Z ∞
+
+> I
+
+I1/d |K ρ|M q−1−1/d dM + |K ρ|Iq
+
+≤ |K ρ|   ¯C + 1  Iq .
+
+□
+
+4.1. Weak Harnack estimates imply the Harnack inequality. A consequence of the weak Harnack inequality is the Harnack inequality, when for subsolutions it is possible to obtain a refined 
+
+L∞-bound. Hence, first we prove the aforementioned refined L∞ estimate, and next we show that sub-solutions always have a well-defined upper-semicontinuous representative. The two considera-tions together with the weak Harnack inequality will provide the full Harnack inequality. 4.1.1. Refined L∞ bound. 
+
+Theorem 4.4. Let (xo, t o) ∈ ΩT and θ, ρ > 0 be such that (xo, t o) + Q4ρ,θ (4 ρ)p ⊂ ΩT . If u ⩾ 0 is a sub-solution to equation (1.2) , then 
+
+(4.18) γ−1 sup 
+
+> (xo,t o)+ Qρ,θρ p
+
+u ≤ θ Np ( 1−pNpN )
+
+
+
+sup 
+
+> to−θρ p<τ <t o
+
+−
+
+Z
+
+> xo+Kρ
+
+uq(x, τ ) dx 
+
+1/q 
+
+Proof. Let ( xo, t o) = (0 , 0) and let us refine the estimate of [12, Lemma 3.7], which states that there exist two constants γ, α > 0 depending only on the data {N, p i} such that for any σ ∈ (0 , 1) we can estimate (4.19) sup 
+
+> Qρ0, θ (ρ0)p
+
+u ≤ γ
+
+ 1
+
+θ |ρ1 − ρ0|p
+
+ N +pp Z Z 
+
+> Qρ1, θρ p
+> 1
+
+u pNpN −1 dxdt 
+
+ pN −1
+
+> pN
+
+.
+
+Let’s define, for every n ∈ N,
+
+Qn := Q(2 −2−n)ρ, θ ((2 −2−n)ρ)p , Mn := sup 
+
+> Qn
+
+u, S := sup 
+
+> −θρ p<τ < 0
+
+−
+
+Z
+
+> Kρ
+
+uq(x, τ ) dx . 
+
+Moreover we observe that 2 − 2−n−1 − (2 − 2−n) = 2 −n−1, and we set 
+
+μ := 
+
+ 12
+
+(N +p) pN −1
+
+> pN
+
+.ANISOTROPIC TRUDINGER EQUATION 11 
+
+Therefore, by (4.19) and Young’s inequality, we get (4.20) 
+
+Mn = sup 
+
+> Qn
+
+u ≤ γμn
+
+ 1
+
+θ N +pp
+
+1
+
+ρN +p
+
+Z Z 
+
+> Qn+1
+
+u pNpN −1 dxdt 
+
+ pN −1
+
+> pN
+
+≤ γμn
+
+
+
+θ− N +pp
+
+
+
+sup 
+
+> Qn+1
+
+u
+
+ pNpN −1 −q
+
+θ sup 
+
+> −θρ p<τ < 0
+
+−
+
+Z
+
+> Kρ
+
+uq(x, τ ) dx 
+
+ pN −1
+
+> pN
+
+= γμn θ− Np ( pN −1 
+
+> pN)
+
+M 1− q(pN −1)  
+
+> pN
+> n+1
+
+Sq( pN −1 
+
+> pN)
+
+≤ εM n+1 + γC (ε)
+
+μn S
+
+for eventually a different γ > 0. Here 
+
+μ = μ pNq(pN −1) =
+
+ 12
+
+ N +pq
+
+< 1,
+
+therefore we can iterate Lemma 3.5 with Yn = Mn, b = μ−1, and this finishes the job. □
+
+4.1.2. Semicontinuity. In this subsection we prove that a local weak subsolution u ⩾ 0 to equation (1.2) has an upper-semicontinuous representative. Observe that, if −u would have been a super-solution to (1.2), then our result would have been a consequence of Lemma (De Giorgi-Type) of [12] and [22]. Nevertheless, the structure of equation (1.2) does not allow this trick, so we need to adapt the reasoning of the latter to our specific case. The main tool needed is a De Giorgi type Lemma in whole cylinders, recalling that nonnegative local weak sub-solutions to (1.2) are locally bounded. This Lemma can be found in [14], Lemma 2.5, by setting m = 1 /(pN − 1). 
+
+Lemma 4.5 (De Giorgi-type Lemma) . Let a, ξ ∈ (0 , 1) and u ⩾ 0 a local weak sub-solution to (1.2) 
+
+in ΩT . Let (xo, t o) ∈ ΩT and ρ > 0 be a radius such that 
+
+Q4ρ(xo, t o) = K4ρ(xo) × (to − (4 ρ)p, t o + (4 ρ)p) ⊆ ΩT
+
+and let us define numbers 
+
+μ+ = sup 
+
+> Q4ρ(xo,t o)
+
+u , and ω = μ+ − inf  
+
+> Q4ρ(xo,t o)
+
+u . 
+
+Then, there exists a number ν ∈ (0 , 1) depending only on the data and a, ξ, μ +, ω , but not on ρ, such that if the measure information 
+
+(4.21) Qρ(xo, t o) ∩
+
+
+
+u 1  
+
+> pN−1
+
+⩾ [μ+] 1  
+
+> pN−1
+
+− [ξω ] 1 
+
+> pN−1
+
+
+
+≤ ν|Qρ|,
+
+is valid, then 
+
+(4.22) sup 
+
+> Qρ/ 2
+
+u 1  
+
+> pN−1
+
+≤ [μ+] 1  
+
+> pN−1
+
+− [aξω ] 1  
+
+> pN−1
+
+.
+
+Proposition 4.6. Local weak sub-solution u ⩾ 0 to equation (1.2) is upper-semicontinuous. Proof. The upper semicontinuous regularisation of u in Ω T can be defined as 
+
+u∗(x, t ) = ess lim sup 
+
+> (y,s )→(x,t )
+
+u(y, s ) = lim 
+
+> ρ↓0
+
+
+
+ess sup Qρ(x,t ) u
+
+
+
+, for all (x, t ) ∈ ΩT .12 S. CIANI & M. GALEOTTI & I.I. SKRYPNIK 
+
+Since u ⩾ 0 is a local weak sub-solution to (1.2) then u is locally bounded [13] and u∗ : Ω T → R is well-defined at every point. Since u ∈ L1
+
+> loc
+
+(Ω T ), we introduce the set of Lebesgue points of u in Ω T ,
+
+L(u, ΩT ) := 
+
+
+
+(x, t ) ∈ ΩT : lim  
+
+> ρ↓0
+
+−
+
+Z
+
+−
+
+Z
+
+> Qρ(x,t )
+
+|u(y, s ) − u(x, t )| dyds = 0 
+
+
+
+.
+
+Observe that Qρ is the ball in RN +1 of radius ρp with respect to the distance 
+
+d (( x, t ), (y, s )) = max 
+
+
+
+|t − s|, |xi − yi|pi : i = 1 , . . . , N 
+
+
+
+,
+
+and that Ω T with the Lebesgue measure and this metric is a metric measure space. Hence by [6] we have |L (u, ΩT )| = |ΩT |. We want to show that u = u∗ on a subset of full measure of Ω T , in particular we choose to prove the double inequality on L(u, ΩT ). It is obvious that u∗ ⩾ u in 
+
+L(u, ΩT ) since 
+
+u∗(x, t ) = lim 
+
+> ρ↓0
+
+
+
+sup 
+
+> Qρ(x,t )
+
+u
+
+
+
+⩾ lim  
+
+> ρ↓0
+
+−
+
+Z
+
+−
+
+Z
+
+> Qρ(x,t )
+
+u(y, s ) dyds = u(x, t ) .
+
+Let us suppose, by contradiction, that the converse inequality does not hold at ( xo, t o) ∈ ΩT , i.e. 
+
+u(xo, t o) < u ∗(xo, t o) .
+
+Let R > 0 be such that 
+
+QR(xo, t o) = KR(xo) × (to − Rp, t o + Rp) ⊂ ΩT ,
+
+and for 
+
+μ+ = sup 
+
+> QR(xo,t o)
+
+u , ω = μ+ − inf  
+
+> QR(xo,t o)
+
+u , 
+
+let ξ ∈ (0 , 1), be such that (4.23) u(xo, t o) 1  
+
+> pN−1
+
+< [μ+] 1  
+
+> pN−1
+
+− [ξω ] 1  
+
+> pN−1
+
+< u ∗(xo, t o) 1  
+
+> pN−1
+
+≤ [μ+] 1  
+
+> pN−1
+
+.
+
+We can now choose a ∈ (0 , 1) such that (4.24) [μ+] 1  
+
+> pN−1
+
+− [aξω ] 1  
+
+> pN−1
+
+< u ∗(xo, t o) 1  
+
+> pN−1
+
+.
+
+If ν ∈ (0 , 1) is that of Lemma 4.5, we claim that for some small radius ρ ∈ (0 , R/ 4), the condition (4.21) must hold. Indeed, if this is not the case, then 
+
+Z Z 
+
+> Qρ(xo,t o)
+
+|u(xo, t o) − u(y, s )| dyds 
+
+⩾
+
+Z Z      
+
+> 
+> u
+> 1
+> pN−1⩾[μ+]
+> 1
+> pN−1−[ξω ]
+> 1
+> pN−1
+> 
+
+ 
+
+[μ+] 1  
+
+> pN−1
+
+− [ξω ] 1 
+
+> pN−1
+
+pN −1
+
+− u(xo, t o)
+
+
+
+dyds 
+
+⩾ ν|Qρ|
+
+ 
+
+[μ+] 1  
+
+> pN−1
+
+− [ξω ] 1 
+
+> pN−1
+
+pN −1
+
+− u(xo, t o)
+
+
+
+> 0 ,
+
+and by letting ρ vanish we contradict the assumption ( xo, t o) ∈ L (u, ΩT ). We consider ρ0 ∈ (0 , R/ 4) such that (4.21) is valid. By applying Lemma 4.5 and considering the assumption (4.24), we obtain the estimate sup 
+
+> Qρ0/2
+
+u 1  
+
+> pN−1
+
+≤ [μ+] 1  
+
+> pN−1
+
+− [aξω ] 1  
+
+> pN−1
+
+< u ∗(xo, t o) 1  
+
+> pN−1
+
+,
+
+which contradicts the very definition of u∗(xo, t o). □
+
+Finally we can prove the Harnack inequality, without using any Krylov-Safonov covering argument. ANISOTROPIC TRUDINGER EQUATION 13 
+
+QI
+
+QS
+
+t
+
+x  
+
+> to−θ(4 ρ)p
+
+Figure 1. Representation of Harnack’s inequality in the form (4.27) 4.1.3. Proof of the Harnack’s inequality. Let us fix ( xo, t o) ∈ ΩT and ρ > 0 such that 
+
+K4ρ,θ (4 ρ)p (xo) × (to − θ(4 ρ)p, t o) ⊂ ΩT .
+
+By Theorem 4.4 we have that there exists a constant γ > 0 such that 
+
+γ−1 sup 
+
+> QS
+
+u ≤
+
+
+
+sup 
+
+> to−θρ p<t<t o
+
+−
+
+Z
+
+> Kρ(xo)
+
+uq(x, t ) dx 
+
+1/q 
+
+,
+
+for 
+
+QS = ( xo, t o) + Qρ,θρ p .
+
+Now, since u : Ω T → [0 , ∞) has an upper-semicontinuous representative u∗, there exists a time 
+
+τS ∈ [to − θρ p, t o] such that the supremum in time of the function t → ∥ u(·, t )∥q, Kρ is attained, (4.25) γ−1 sup 
+
+> QS
+
+u ≤
+
+
+
+−
+
+Z
+
+> Kρ(xo)
+
+uq(x, τ S ) dx 
+
+1/q 
+
+.
+
+Now we apply the weak Harnack inequality (1.3) to the right-hand side of (4.25), to obtain (4.26) sup 
+
+> QS
+
+u ≤ γ inf 
+
+> QI
+
+u , 
+
+with 
+
+QI = ( xo, τ S ) + K2ρ × (δoρp/2, δ oρp) .
+
+By choosing θ = δo 
+
+> 4
+
+, we get that necessarily (See Figure 1) 
+
+
+
+to + δo
+
+2 ρp, t o + 3δo
+
+4 ρp
+
+
+
+⊂
+
+
+
+τS + δo
+
+2 ρp, τ S + δoρp
+
+
+
+,
+
+hence, (4.27) sup  
+
+> (xo,t o)+ Qρ, δo
+> 4ρp
+
+u ≤ γ inf     
+
+> (xo,t o)+ Kρ×(δo
+> 2ρp,3δo
+> 4ρp)
+
+u . 14 S. CIANI & M. GALEOTTI & I.I. SKRYPNIK 
+
+Remark 4.7. Instead of selecting an upper semicontinuous representative u∗ of u we may, in principle, just choose a smaller q in Theorem 1.1, i.e. q < p N /(pN − 1). In this way, by the very definition of solution, one has u ∈ C(0 , T ; Lqloc (Ω)). The importance of selecting u∗ allows for the chaining procedure to be done for every 0 < q < 1/d . Moreover, we use u∗ to make sense of (5.1) and the point-wise estimates of Section 5. 5. Sub-Potential Lower Bounds and Time-Decay 
+
+If we set θ = 3 δo/4 we obtain from (4.27) the following version of the Harnack inequality (c.f. [12]), (5.1) u(x0, t 0) ⩽ C inf  
+
+> Kρ(x0)
+
+u(·, t 0 + θ ρ p),
+
+for nonnegative solutions to (1.2), provided that the following inclusion is satisfied 
+
+K8ρ(x0) × (t0 − θ(8 ρ)p, t 0 + θ(8 ρ)p) ⊂ ΩT .
+
+Lemma 5.1. Let u be a positive local weak solution of (1.2) in ΩT = Ω ×(0 , T ] with Ω open bounded set of RN . Let (x, t ), (y, s ) be points in ΩT satisfying s > t and let ρ be the biggest number such that 
+
+K8ρ(y) × (s, s + θ(8 ρ)p) ⊂ Ω × (0 , T ] .
+
+Then we have 
+
+(5.2) u(y, s ) ⩾ u(x, t ) γ−1 exp 
+
+
+
+−
+
+ (s − t)
+
+θρ p + X
+
+> i
+
+ |xi − yi|
+
+(8 ρ)1/p i
+
+
+
++
+
+ |xi − yi|pi
+
+(s − t)
+
+ 1 
+
+> pi−1
+
+ 
+
+.
+
+Proof. Given a generic point ( x, t ), the right-hand side of the Harnack estimate (5.1) is valid in the forward parabolids 
+
+P(x, t )+ =
+
+
+
+(z, τ ) ∈ RN +1 : |xi − zi|pi θ ≤ (τ − t), τ ⩾ t , ∀i = 1 , . . . N 
+
+
+
+.
+
+We assume ( x, t ) = (0 , 0) and join the origin to the point ( y, s ) by a straight line (see Figure 2) and set the following sequence of points for j = 1 , . . . n , with n ∈ N to be determined, 
+
+xn := y, tn := s, xj := jn xn, tj := jn tn.
+
+See Figure 2 for an illustration. We will determine conditions on number n ∈ N for each segment joining ( xj , t j ) to ( xj+1 , t j+1 ) to be contained in an appropriate paraboloid P(xj , t j ). Hence, the conditions will be (5.3) 
+
+
+
+|xj+1 ,i − xj,i | = |yi| 
+
+> n
+
+< (8 ρ) 1 
+
+> pi
+
+,tj+1 − tj = sn < θρ p, 
+
+> |yi|pi
+> npi
+
+= |xj+1 ,i − xj,i |pi ≤ tj+1 −tj 
+
+> θ
+
+= snθ ,
+
+⇒
+
+
+
+n > |yi|/(8 ρ)1/p i ,n > s/ (θρ p),n ⩾
+
+ θ|yi|pi
+
+> s
+
+ 1
+
+> pi−1
+
+, ∀i = 1 , . . . , N . 
+
+When the conditions on n are respected, the Harnack inequality (5.1) implies u(xj , t j ) ≤ Cu (xj+1 , t j+1 )and (5.4) u(0 , 0) 
+
+u(y, s ) = u(0 , 0) 
+
+u(x1, t 1)
+
+u(x1, t 1)
+
+u(x2, t 2) . . . u(xj , t j )
+
+u(xj+1 , t j+1 ) . . . u(xn−1, t n−1)
+
+u(y, s ) ≤ Cn .ANISOTROPIC TRUDINGER EQUATION 15 
+
+x
+
+t P(xo, t o)
+
+(x, t )
+
+(xo, t o)
+
+ℓ
+
+(x1, t 1)
+
+P(x1, t 1)
+
+Figure 2. Scheme of the proof of the sub-potential lower bound (1.5), by reaching a point ( x, t ) by repeated application of (5.1) in the paraboloids P(xj , t j ). Hence, by choosing (5.5) n = 1 + sθρ p + X
+
+> i
+
+|yi|
+
+(8 ρ) 1
+
+> pi
+
++
+
+ θ|yi|pi
+
+s
+
+ 1
+
+> pi−1
+
+,
+
+the conditions above are satisfied and, by taking the logarithm ln 
+
+ u(0 , 0) 
+
+u(y, s )
+
+
+
+≤ ln( C) n , 
+
+we finally obtain the claim. The use of the Harnack inequality in Ω T is justified by the choice of ρ
+
+while, in case u solves the equation in the whole RN +1 , we can choose ρ = ∞ in our estimate and recover (1.5). 
+
+□
+
+The above sub-potential lower-bound can be improved to a proper decay with respect to time. 
+
+Corollary 5.2. Consider u(x, t ) a solution of (1.2) and r > 0 a positive real. Then, there exists a number A, such that the following is respected. For every x0, x with x ∈ Kr(x0) ⊂ K8r(x0) ⊂ Ω
+
+and every t ≥ t0,
+
+(5.6) u(x, t ) ≥ γ−1
+
+ tt0
+
+A
+
+u(x0, t 0)B(x, t, x 0, t 0).
+
+Proof. We set r∗ := max {r : K8r(x0) ⊂ Ω}, and σ := θr p 
+
+> t0
+
+. Then, consider 
+
+k =
+
+
+
+log 1+ σ
+
+ tt0
+
+ 
+
+,
+
+in particular k is the only integer number such that (1 + σ)kt0 ≤ t < (1 + σ)k+1 t0. By (1.5), 
+
+u(x, t ) ≥ γ−1u(x0, τ )B(x, t, x 0, τ ), where τ := (1 + σ)k−1t0.16 S. CIANI & M. GALEOTTI & I.I. SKRYPNIK 
+
+Here we apply the Harnack inequality (5.1) iteratively to the right hand side. We set tj := (1+ σ)j t0
+
+for every j = 0 , 1, . . . , k − 1, thus giving τ = tk. Then, we have tj+1 = tj + σt j ≤ tj + θr p, we respect the hypothesis of the inequality and we can state, 
+
+u(x0, τ ) ≥
+
+ 1
+
+C
+
+k−1
+
+u(x0, t 0).
+
+We conclude by setting A := − log 1+ σ(C). Indeed, we observe that 
+
+B(x, t, x 0, τ ) ≥ η B(x, t, x 0, t 0) ≥ 0for an opportune constant η > 0, because t−τ ≥ t σ 
+
+> 1+ σ
+
+≥ (t−t0) σ 
+
+> 1+ σ
+
+, and moreover k ≤ log 1+ σ(t/t 0)by definition, thus implying 
+
+ 1
+
+C
+
+k−1
+
+≤ C (1 + σ)A·log 1+ σ (t/t 0) = C
+
+ tt0
+
+A
+
+.
+
+□
+
+5.1. Construction of a Barenblatt profile. We observe that the function B is self similar, hence its special form can be used to guess a good candidate for the expansion of positivity by comparison (see for instance [11], [11], [16] or the original [4]), if only it would be a (sub)solution to (1.2). This suggests a simple computation leading to the fact that the function (5.7) B(x, t ) = Dt α exp − X
+
+> i
+
+ci
+
+ |xi|pi
+
+t
+
+ 1
+
+> pi−1
+
+!
+
+,
+
+is a solution to (1.2) for opportune choices 
+
+ci := 
+
+
+
+(pi − 1) pi−1 · p−pi
+
+> i
+
+ 1
+
+> pi−1
+
+and α = − X
+
+> i
+
+δi .
+
+6. More General Structures 
+
+The weak Harnack and Harnack estimates(4.27) and (5.1) are a sole consequence of the energy inequalities of Lemma 3.1, and so are the sub-potential lower bounds (1.5). Hence Theorems 1.1 and 1.2 apply, with data = {N, p i, K 1, K 2} to parabolic operators of the kind of (6.1) ut −
+
+> N
+
+X
+
+> i=1
+
+DiAi(x, t, u, Du ) = 0 , locally weakly in ΩT := Ω × (0 , T ).
+
+where Ai(x, t, s, ξ ) : Ω T × R+ × RN → RN are Carath´ eodory functions, satisfying (6.2) 
+
+
+
+Ai(x, t, s, ξ ) ξi ⩾ K1 s2−pi |ξi|pi , ∀(s, ξ ) ∈ R+ × RN ,
+
+|Ai(x, t, s, ξ )| ⩽ K2 s2−pi |ξi|pi−1, ∀ i = 1 , ..., N, 
+
+for positive constants K1, K 2. Such operators do not necessarily satisfy the comparison principle. 
+
+Acknowledgements 
+
+The authors thank Eugenio Vecchi for suggestions on the construction of the Barenblatt profile. S.C. ac-knowledges GNAMPA (INdAM) fundings and the support of the department of Mathematics of Bologna. ANISOTROPIC TRUDINGER EQUATION 17 
+
+References 
+
+[1] S. Antontsev, S. Shmarev, Evolution PDEs with nonstandard growth conditions. Existence, uniqueness, localiza-tion, blow-up , Atlantis Studies in Differential Equations 4, Atlantis Press, Paris, 2015. [2] A. Nastasi, E.P. Ayala, M. Vestberg, Existence, comparison principle and uniqueness for fully nonlinear anisotropic evolution equations. Nonlinear Analysis, 271, 114141, (2026). [3] G. I. Barenblatt, On some unsteady motions of a fluid and a gas in a porous medium, Prikl. Mat. Makh. 16, 67-78, (1952). [4] G.I. Barenblatt, Scaling, self-similarity, and intermediate asymptotics: dimensional analysis and intermediate asymptotics. Cambridge University Press, vol 14, 1996. [5] J. Benedikt, P. Girg, L. Kotrla, P. Tak´ ac, Origin of the p-Laplacian and A. Missbach. Electronic Journal of Differential Equations, (16), 1-17, (2018). [6] A. Bj¨ orn, J. Bj¨ orn, Nonlinear potential theory on metric spaces. European Mathematical Society, vol 17, 2011. [7] V. B¨ ogelein, F. Duzaar, and N. Liao. On the H¨ older regularity of signed solutions to a doubly nonlinear equation. J. Funct. Anal. 281 , 9, 109173, 1-58, (2021). [8] E. DiBenedetto, U. Gianazza, V. Vespri, Harnack’s inequality for degenerate and singular parabolic equations ,Springer Monographs in Mathematics. Springer, New York, 2012. [9] V. B¨ ogelein, F. Duzaar,U. Gianazza, N. Liao, C. Scheven, Intrinsic Harnack estimates for singular doubly non-linear equations. Calculus of Variations and Partial Differential Equations, 65(2), 45, (2026). [10] S. Ciani, U. Guarnotta, Liouville rigidity and time-extrinsic Harnack estimates for an anisotropic slow diffusion. Proceedings of the American Mathematical Society, 151(10), 4371-4388, (2023). [11] S. Ciani, V. Vespri, An Introduction to Barenblatt Solutions for Anisotropic p-Laplace Equations. Anomalies in Partial Differential Equations. Springer INdAM Series, vol 43, (2021). [12] S. Ciani, E. Henriques, M.O. Savchenko, I.I. Skrypnik, Qualitative properties of solutions to parabolic anisotropic equations, part II-The anisotropic Trudinger’s equation. J. London Math. Soc., 114: e70643, (2026). [https://doi.org/10.1112/jlms.70643] [13] S. Ciani, E. Henriques, M.O. Savchenko, I.I. Skrypnik, Parabolic De Giorgi classes with doubly nonlinear, non-standard growth: local boundedness under exact integrability assumptions. Journal of Differential Equations, 462, 114235, (2026). [https://doi.org/10.1016/j.jde.2026.114235] [14] S. Ciani, E. Henriques, M.O. Savchenko, I.I. Skrypnik, Qualitative properties of solutions to para-bolic anisotropic equations: Part I - Expansion of positivity, Journal of Evolution Equations, 26, 1-42, (2026).[https://doi.org/10.1007/s00028-026-01232-8] [15] S. Ciani, E. Henriques, I.I. Skrypnik, The impact of intrinsic scaling on the rate of extinction for anisotropic non-Newtonian fast diffusion. Nonlinear Analysis, 242, 113497, (2024). [16] S. Ciani, S. Mosconi, V. Vespri, Parabolic Harnack estimates for anisotropic slow diffusion. Journal d’Analyse Math´ ematique, 149(2), 611-642, (2023). [17] A. Friedman, Liouville’s theorem for parabolic equations of the second order with constant coefficients, Proc. Amer. Math. Soc. 9 (1958), 272–277. [18] U. Gianazza, V. Vespri, A Harnack inequality for solutions of doubly nonlinear parabolic equations. Journal of Applied Functional Analysis, 1, 271-284, (2006). [19] R.Y. Glagoleva, Liouville theorems for the solution of a second-order linear parabolic equation with discontinuous coefficients , Mat. Zametki 5 (1969), 599–606. [20] R.Y. Glagoleva, Phragmen-Liouville-type theorems and Liouville theorems for a linear parabolic equation. Math-ematical notes of the Academy of Sciences of the USSR, 37(1), 67-70, (1985). [21] J. Kinnunen, T. Kuusi, T. Local behaviour of solutions to doubly nonlinear parabolic equations. Math. Ann. 337, 705–728, (2007). [22] N. Liao, Regularity of weak supersolutions to elliptic and parabolic equations: lower semicontinuity and pointwise behavior, J. Math. Pures Appl. (9) 147 , 179–204, (2021). [23] N. Liao, Remarks on parabolic De Giorgi classes. Annali di Matematica Pura ed Applicata (1923-), 200(6), 2361-2384, (2021). [24] L. S. Leibenson, Turbulent movement of gas in a porous medium, Bull. Acad. Sci. USSR. S´ er. G´ eograph. G´ eophys. [Izvestia Akad. Nauk SSSR], 9 (1945), 3–6 (in Russian). Reprinted in Ref. [40], 499–502 [25] A.S Kalashnikov, Some problems of the qualitative theory of non linear degenerate second order equations, Russian Math. Surveys, 42 , 169-222, (1987). [26] J. Kinnunen, T. Kuusi, Local behavior of solutions to doubly non linear parabolic equations, Math. Ann., 337 ,705-728, (2007). [27] T. Kuusi, R. Laleoglu, J. Siljander, M. Urbano, H¨ older Continuity for Trudinger’s equation in measure spaces, Calc. Var. 45 , 193–229, (2012). 18 S. CIANI & M. GALEOTTI & I.I. SKRYPNIK 
+
+[28] T. Kuusi, J. Siljander M. Urbano Local H¨ older continuity for doubly nonlinear parabolic equations, Indiana Univ. Math. J. , (1) 61 , 399–430, (2012). [29] J.L. Lions, Quelques m´ ethodes de r´ esolution des problemes aux limites non lin´ eaires. , Dunod, Gauthier-Villars, Paris, 1969. [30] J. Moser, A Harnack inequality for parabolic differential equations , Comm. Pure Appl. Math. 17 , 101–134, (1964). [31] P. Juutinen, P. Lindqvist, Removability of a level set for solutions of quasilinear equations. Communications in Partial Difference Equations, 30(3), 305-321, (2005). [32] P. Juutinen, P. Lindqvist,A theorem of Rad´ o’s type for the solutions of a quasi-linear equation. Mathematical Research Letters, 11(1), 31-34, (2004). [33] K. Takimoto, Rad´ o type removability result for fully nonlinear equations, 939-960, (2007). [34] P. S¨ urig, Sharp sub-Gaussian upper bounds for subsolutions of Trudinger’s equation on Riemannian manifolds, Nonlinear Analysis, 249, (2024) [35] N.S. Trudinger, Pointwise Estimates and Quasilinear Parabolic Equations, Communications on Pure and Applied Mathematics, XXI, 205-226, (1968). 
+
+Department of Mathematics of the University of Bologna, Piazza Porta San Donato, 5, 40126 Bologna, Italy 
+
+Email address : simone.ciani3@unibo.it & mattia.galeotti4@unibo.it 
+
+Institute of Applied Mathematics and Mechanics, National Academy of Sciences of Ukraine, Gen. Batiouk Str. 19, 84116 Sloviansk, Ukraine 
+
+Email address : ihor.skrypnik@gmail.com

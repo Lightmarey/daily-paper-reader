@@ -1,0 +1,3240 @@
+Title: On The Minkowski Problem With Respect To A Mixed Euclidean-Gaussian Density
+
+URL Source: https://arxiv.org/pdf/2607.27618v1
+
+Published Time: Fri, 31 Jul 2026 00:25:27 GMT
+
+Number of Pages: 24
+
+Markdown Content:
+ON THE MINKOWSKI PROBLEM WITH RESPECT TO A MIXED EUCLIDEAN-GAUSSIAN DENSITY 
+
+STEPHANIE MUI, LEI QIN, AND SINAN WANG Abstract . In this paper, we pose a new class of Minkowski problems corresponding to the mixed Euclidean-Gaussian volume. Using the flow method, we prove the existence of smooth normalized solutions for the corresponding Monge-Amp` ere-type equation in the symmetric case. Then, by ap-proximation, we obtain the existence of origin-symmetric solutions to the mixed Euclidean-Gaussian Minkowski problem. 
+
+1. I ntroduction 
+
+We consider a basic model given by the Cartesian product of two Euclidean spaces 
+
+Rn = Rs × Rk = {z = (x, y) : x ∈ Rs, y ∈ Rk}, n = s + k ≥ 1,
+
+equipped with the product-type density (1.1) dμ = e− |x|22
+
+(2 π) s
+
+> 2
+
+dxdy , (x, y) ∈ Rn.
+
+If K ⊂ Rn has C1-boundary, then the weighted volume of the mixed Euclidean-Gaussian type is given by (1.2) Vmix (K) = 1(2 π) s
+
+> 2
+
+Z
+
+> K
+
+e− |x|22 dz = 1(2 π) s
+
+> 2
+
+Z
+
+> K
+
+e− 12 
+
+> Psi=1|(z·ei)|2
+
+dz ,
+
+where {e1, . . . , en} is the standard orthonormal basis. The corresponding notion of perimeter is given by (1.3) Pmix (K) = 1(2 π) s
+
+> 2
+
+Z
+
+> ∂K
+
+e− |x|22 dHn−1(z) = 1(2 π) s
+
+> 2
+
+Z
+
+> ∂K
+
+e− 12 
+
+> Psi=1|(z·ei)|2
+
+dHn−1(z).
+
+The relevant isoperimetric problem was first posed by Fusco-Maggi-Pratelli in [21] , where they studied the existence, symmetry, and regularity of the minimizers. Inspired by the results in [21], we consider the Minkowski problem related to the mixed Euclidean-Gaussian volume. It is well-known that (1.2) is actually the Euclidean volume V(K) when s = 0. Variational calculations performed on this volume yields (1.4) lim 
+
+> t→0
+
+V(K + tL ) − V(K)
+
+t =
+
+Z
+
+> Sn−1
+
+hL(u)dS K (u),
+
+where hL : Sn−1 → R is the support function of L and S K is the surface area measure of K.
+
+Date : July 31, 2026. 2020 Mathematics Subject Classification. 35J60, 52A38, 52A40. 
+
+Key words and phrases. Mixed Euclidean-Gaussian Minkowski problem; Smooth solution; Monge-Amp` ere equa-tion.  
+
+> 1arXiv:2607.27618v1 [math.AP] 30 Jul 2026 2STEPHANIE MUI, LEI QIN, AND SINAN WANG
+
+Minkowski [43] first posed the classical Minkowski problem, read as following: given a finite Borel measure μ on Sn−1, what are the necessary and su ffi cient conditions on μ so that μ is the sur-face area measure S (K, ·) of a convex body K in Rn? The influence of this problem is widespread, with deep connections to functional analysis, di ff erential geometry, and nonlinear partial di ff eren-tial equations. In recent years, an increasing number of mathematicians have dedicated themselves to investigating these types of questions. In the case of the classical Minkowski problem, when the given measure is either discrete or has a continuous density, Minkowski [43, 44] proved the existence and uniqueness of solutions to this problem by utilizing the variational method. Several years later, based on the same technique, Aleksandrov [1,2] and Fenchel-Jessen [20] independently solved the problem for arbitrary measures. In the smooth case, from the perspective of partial dif-ferential equations, the classical Minkowski problem is equivalent to solving a degenerate fully nonlinear Monge-Amp` ere equation on Sn−1,det( hi j (u) + h(u)δi j ) = f (u).
+
+Over the past three decades, numerous Minkowski-type problems have been introduced, sim-ilar to the one mentioned above. Each problem arises from asking an analogous question to the classical one, with the surface area measure replaced by other geometric measures arising from the di ff erentiation of geometric invariants. In the context of smoothness, this problem is equiva-lent to other specific fully nonlinear elliptic PDEs of varying natures. Prominent Minkowski-type problems include the Lp Minkowski problem (see [11, 33, 35]), the logarithmic Minkowski prob-lem (see [4]), the dual Minkowski problem (see [27]), and so on. For more information on these Minkowski-type problems and the state of the art in this field, one can refer to the survey by Huang-Yang-Zhang [28]. In this paper, we consider a new class of Minkowski problems, which can be posed for the measure in (1.2) for 0 < s < n. In particular, the relevant geometric invariant is known as the mixed Euclidean-Gaussian volume Vmix (K) stated as in (1.2). When s = n in (1.2), the weighted volume becomes (1.5) γn(K) = 1(2 π)n
+
+> 2
+
+Z
+
+> K
+
+e− |x|22 dx ,
+
+which is known as Gaussian probability measure. Unlike Lebesgue measure, the Gaussian proba-bility measure is neither translation-invariant nor homogeneous, which is the main challenge when addressing the relevant Minkowski-type problem. Moreover, the density decays exponentially fast as |x| → ∞ . Similar to the classical case, “di ff erentiating” (1.5) on the set of convex bodies yields lim 
+
+> t→0
+
+γn(K + tL ) − γn(K)
+
+t =
+
+Z
+
+> Sn−1
+
+hL(u)dS γn,K (u),
+
+and this uniquely defines the Gaussian surface area measure S γn,K of K. When K ∈ K no has 
+
+C2 boundary with positive curvature, S γn,K is absolutely continuous with respect to the spherical Lebesgue measure and can be written as 
+
+dS γn,K (u) = (2 π)− n 
+
+> 2
+
+e− 12 (h2   
+
+> K(u)+|∇ hK(u)|2)
+
+det( ∇2hK (u) + hK (u)I) on Sn−1,
+
+where hK : Sn−1 → R is the support function of K, ∇ and ∇2 are gradient and Hessian operators with respect to an orthonormal frame on Sn−1, and I is the identity matrix. Therefore, the corresponding Gaussian Minkowski problem emerges in [30]: given a finite Borel measure μ on Sn−1, what are the su ffi cient and necessary conditions on μ such that μ is the Gaussian surface area measure 3
+
+S Vn,K of a convex body K? When the given measure μ has a density dμ = f du , then the Gaussian Minkowski problem is equivalent to solving the following Monge-Amp` ere type equation on Sn−1,(2 π)− n 
+
+> 2
+
+e− 12 (h2   
+
+> K(u)+|∇ hK(u)|2)
+
+det( hi j (u) + h(u)δi j ) = f (u).
+
+For further results on the existence, uniqueness, regularity, and generalizations of the Minkowski problem for the Gaussian measure, see for example [10, 15, 17–19, 24, 25, 29, 32, 42]. In this paper, we establish the variational formula of the mixed Euclidean-Gaussian volume 
+
+Vmix (K) in the class of convex bodies. In particular, we show that (1.6) lim 
+
+> t→0
+
+Vmix (K + tL ) − Vmix (K)
+
+t =
+
+Z
+
+> Sn−1
+
+hL(u)dS Vmix ,K (u),
+
+for any convex bodies K and L containing the origin in their interiors and where dS Vmix ,K is the mixed Euclidean-Gaussian surface area measure. The proof is presented in Theorem 3.1. From this, we pose the corresponding Minkowski problem. 
+
+The mixed Euclidean-Gaussian Minkowski problem. Given a finite Borel measure μ on Sn−1,what are the necessary and su ffi cient conditions on μ so that μ is the mixed Euclidean-Gaussian surface area measure S Vmix ,K of a convex body K with o ∈ intK? If K exists, to what extent is it unique? 
+
+When K is su ffi ciently smooth, its mixed Euclidean-Gaussian surface area measure is absolutely continuous with respect to the spherical Lebesgue measure: 
+
+dS Vmix ,K (u) = 1(2 π) s
+
+> 2
+
+e− 12   
+
+> Psi=1|(hK(u)u+∇hK(u)) ·ei)|2
+
+det( ∇2hK (u) + hK (u)I)du .
+
+When the given measure μ has a density dμ = f du , the mixed Euclidean-Gaussian Minkowski problem is equivalent to solving the following Monge-Amp` ere type equation on Sn−1,(1.7) (2 π)− s 
+
+> 2
+
+e− 12    
+
+> Psi=1|(hK(u)u+∇Sn−1hK(u)) ·ei|2
+
+det( ∇2hK (u) + hK (u)δi j ) = f (u).
+
+We use the flow method to show the existence of solutions to the PDE in Theorem 1.1, assuming su ffi cient smoothness of the given data. This result is stated as follows: 
+
+Theorem 1.1. Let f ∈ C2,α (Sn−1) be a positive even function on the sphere Sn−1, 0 < α < 1. Then there exists a C 4,α origin-symmetric convex body K ⊂ Rn such that 
+
+(1.8) 1(2 π) s
+
+> 2
+
+e− 12    
+
+> Psi=1|(hK(u)u+∇Sn−1hK(u)) ·ei|2
+
+det( ∇2hK (u) + hK (u)δi j ) = τ f (u),
+
+where 
+
+τ =
+
+R 
+
+> Sn−1
+
+e− 12 ρ2 Psi=1 |u·ei|2
+
+ρndu 
+
+(2 π) s
+
+> 2
+
+R 
+
+> Sn−1
+
+f −1hdx .
+
+The flow method transforms a static geometric or PDE problem directly into a dynamic evolu-tionary process. By studying the long-term behavior (existence, convergence, asymptotics) of this evolutionary process (geometric flow), one can prove the existence, uniqueness, and other prop-erties of the original static solution. The method can be traced back to 1974, when Firey [22] proposed a model: the rate of change of the shape of a convex body is determined by its surface area function. This can be regarded as an early application of “curvature flow” in geometry, al-though Firey primarily focused on the model itself rather than solving the Minkowski problem. Later in 1985, Tso [48] introduced a weak formulation of the Gaussian curvature flow. Although his primary focus was on the elliptic Monge-Amp` ere equation, his methods provided important insights for subsequent research. Several years later, Chou-Wang [11] developed the theory of the 4 STEPHANIE MUI, LEI QIN, AND SINAN WANG 
+
+inverse Gaussian curvature flow, proving that convex surfaces maintain their convexity and expand into spheres under this flow. This work laid a solid foundation for using flow methods to resolve Minkowski-type problems related to Gaussian curvature functions. In 2006, Chou-Wang [12] pi-oneered the use of flow methods to address various Minkowski problems. Since then, the flow method has been widely applied by mathematical researchers, see [3, 5, 9, 13, 14, 26, 37, 40, 42, 45] and so on. Consequently, we show the existence of normalized solutions to mixed Euclidean-Gaussian Minkowski problem. 
+
+Theorem 1.2. Suppose μ is a finite Borel measure not concentrated in any closed hemisphere. Then there exists a convex body K ∈ K ne and a constant τ such that S Vmix ,K = τμ, 
+
+where the normalization constant is 
+
+τ =
+
+R 
+
+> Sn−1
+
+e− 12 ρ2 Psi=1 |u·ei|2
+
+ρndu 
+
+(2 π) s
+
+> 2
+
+R 
+
+> Sn−1
+
+f −1hdu .
+
+Our proof proceeds by first proving Theorem 1.1 via the flow method, and then approximating by smooth positive densities to obtain Theorem 1.2. This results in an independent proof of the existence of solutions and additionally gives information about the regularity. This is a new ap-proach for this class of measures, and one can find further generalizations of this measure and their corresponding Minkowski problems in [32]. The subsequent sections of this article are organized as follows. In section 2, we present various essential preliminaries and the framework for the flow method. In section 3, we calculate the vari-ational formula of the mixed Euclidean-Gaussian volume. We demonstrate the a-priori estimates of solutions for the flow equation in Section 4. It is important to clarify that repeated indices in the main text signify summation. To simplify computations, the summation symbol will not be used henceforth. The constants in di ff erent lines may di ff er but will just denoted as C for simplification. 2. P reliminaries 
+
+In this section, we will provide notation, a brief introduction to the theory of convex bodies, and a framework to the theory of geometric flows. One can refer to the book by Schneider [46] for more details on convex bodies. 2.1. Convex body. Let Rn be the n-dimensional Euclidean space. The unit sphere in Rn is defined as Sn−1. C(Sn−1) represents the space of continuous functions on Sn−1 and will always be equipped with the max-norm metric 
+
+∥ f − g∥∞ = max 
+
+> x∈Sn−1
+
+| f (x) − g(x)|,
+
+for f, g ∈ C(Sn−1). The subspace of positive continuous functions from C(Sn−1) will be denoted as 
+
+C+(Sn−1). A convex body in Rn is a compact convex set with nonempty interior. Denote the class of convex bodies that contain the origin in their interiors in Rn and the class of origin-symmetric convex bodies in Rn by Kn 
+
+> 0
+
+and Kne respectively. Let K be a compact convex subset in Rn. Then its support function hK is defined by (2.1) hK (x) = max {x · y : y ∈ K}, x ∈ Rn.5
+
+The support function h = hK : Rn → R is a continuous function and is homogeneous of degree 1. Suppose K contains the origin in its interior, then the radial function ρ = ρK : Rn\{ 0} → R is defined by (2.2) ρK (x) = max {λ : λx ∈ K}, x ∈ Rn\{ 0}.
+
+The radial function ρK is a continuous function homogeneous of degree −1. For each f ∈ C+(Sn−1), the Wul ff shape [ f ] generated by f is the convex body defined by [ f ] = {x ∈ Rn : x · u ≤ f (u), for all u ∈ Sn−1}.
+
+It is obvious that h[ f ] ≤ f and [ hK ] = K for each K ∈ K n 
+
+> 0
+
+.Let Ki ∈ K n 
+
+> 0
+
+be a sequence of convex bodies in Rn. We say that Ki converges to a compact convex subset K ⊂ Rn with respect to the Hausdor ff metric provided that when i → ∞ ,
+
+∥hKi (u) − hK (u)∥∞ = max 
+
+> u∈Sn−1
+
+|hKi (u) − hK (u)| → 0.
+
+If K contains the origin in its interior, the above formula is equivalent to 
+
+∥ρKi (u) − ρK (u)∥∞ = max 
+
+> u∈Sn−1
+
+|ρKi (u) − ρK (u)| → 0,
+
+as i → ∞ .We use νK to denote the Gauss map that takes x ∈ ∂K to its unique outer unit normal, and due to the convexity of K, and the map νK is almost everywhere defined on ∂K. We use ν−1 
+
+> K
+
+to denote the inverse Gauss map. Since K is not assumed to be strictly convex, the map ν−1 
+
+> K
+
+is a set-valued map, and for each set η ⊂ Sn−1, we have 
+
+ν−1 
+
+> K
+
+(η) = {x ∈ ∂K : there exists ν ∈ η such that ν is an outer unit normal at x}.
+
+Occasionally, we will shorten the notation for the Gauss and inverse Gauss maps of singletons as follows. For u ∈ Sn−1, if νK is well-defined at ρK (u)u ∈ ∂K, then we write αK (u) for νK (ρK (u)u). We will be using the following well-known relationships between the support and radial functions of convex bodies. 
+
+Lemma 2.1 ( [9]) . Let K ∈ K n 
+
+> 0
+
+. Let h and ρ be the support function and radial function of K respectively. Let also x max and ξmin be two points such that h K (xmax ) = max Sn−1 h and ρ(ξmin ) =
+
+min Sn−1 ρ. Then 
+
+max 
+
+> Sn−1
+
+hK = max 
+
+> Sn−1
+
+ρK and min 
+
+> Sn−1
+
+hK = min 
+
+> Sn−1
+
+ρK ,
+
+hK (x) ≥ x · xmax hK (xmax ), ∀x ∈ Sn−1,ρK (ξ)ξ · ξmin ≤ ρK (ξmin ), ∀x ∈ Sn−1.
+
+2.2. Geometric flow. Let M be a smooth, closed, uniformly convex hypersurface in Rn enclosing the origin in its interior. M is parametrized by the inverse spherical image X = ν−1 
+
+> M
+
+: Sn−1 → M.The support function h of M can be computed by (2.3) h(x) = ⟨x, X(x)⟩,
+
+where x ∈ Sn−1 is the unit outer normal of M at X(x). Additionally, it is straightforward to verify that 
+
+X(x) = h(x)x + ∇h(x),
+
+where ∇ is the covariant derivative with respect to the standard metric ei j of Sn−1. The second fundamental form of M is given by 
+
+Πi j = ∇i j h + he i j ,6 STEPHANIE MUI, LEI QIN, AND SINAN WANG 
+
+where ∇i j = ∇2 denotes the second-order covariant derivative with respect to ei j . Based on a smooth local orthonormal frame on Sn−1, the principal radii of curvature of M are the eigenvalues of the matrix 
+
+bi j = ∇i j h + hδi j .
+
+Let u, x ∈ Sn−1 satisfy 
+
+ρ(u)u = X(x) = h(x)x + ∇h(x).
+
+It is well-known that 
+
+ρ2 = h2 + |∇ h|2, h = ρ2
+
+pρ2 + |∇ ρ|2 .
+
+Assume that 0 < f ∈ C∞(Sn−1). Let X0 : Sn−1 → Rn be a parametrization of a smooth, closed, and uniformly convex hypersurface M0 with the origin in its interior. In this paper, we will in-vestigate the long-time behavior of the family of convex hypersurfaces Mt parameterized by the smooth map X(·, t) : Sn−1 × [0 , T ) → Rn that satisfies the initial boundary equation (2.4) 
+
+®∂t X(x, t) = f (ν)e− 12 
+
+> Psi=1|(X·ei)|2
+
+det( hi j + hδi j )⟨X, ν ⟩ν − (2 π) s 
+
+> 2
+
+X(x, t)τ(t)
+
+X(x, 0) = X0(x).
+
+Here, ν is the unit outer normal vector of the hypersurface Mt at the point X(·, t), h(x, t) is the support function of Mt, T is the maximal time for which the solution exists, and (2.5) τ(t) =
+
+R 
+
+> Sn−1
+
+e− 12 
+
+> Psi=1|X·ei|2
+
+|X|ndx 
+
+(2 π) s
+
+> 2
+
+R 
+
+> Sn−1
+
+f −1⟨X, x⟩dx .
+
+It is worth noticing that the flow (2.4) can be reduced to a scalar PDE of the support function h of 
+
+Mt as follows (2.6) 
+
+®∂th(x, t) = f (x)h(x, t)e− 12 
+
+> Psi=1|X·ei|2
+
+det( hi j + hδi j ) − (2 π) s 
+
+> 2
+
+h(x, t)τ(t),
+
+h(x, 0) = h0(x),
+
+where h0 is the support function of M0.Note that for u ∈ Sn−1, ρ(u, t) is the radial function of the convex body enclosed by Mt with (2.7) ρ(u, t) = (h(x, t)2 + |∇ h(x, t)|2)12 .
+
+Moreover, if we substitute the identity 1
+
+ρ(u, t)
+
+∂ρ (u, t)
+
+∂t = 1
+
+h(x, t)
+
+∂h(x, t)
+
+∂t
+
+into (2.6), it follows that the evolution equation of the radial function ρ(u, t) is given by (2.8) 
+
+®∂tρ(u, t) = f (x)ρ(u, t)e− 12 ρ(u,t)2 Psi=1 |u·ei|2
+
+det( hi j + hδi j ) − (2 π) s 
+
+> 2
+
+ρ(u, t)τ(t),ρ(u, 0) = ρ0,
+
+where x = x(u, t) is the unit outer normal vector of Mt at the point ρ(u, t)u and ρ0 is the radial function of M0.Let Mt be the convex hypersurface with the support function h : Sn−1 × [0 , T ) → R. We define (2.9) G(t) = 1
+
+|μ|
+
+Z
+
+> Sn−1
+
+h(x, t)dμ(x),
+
+where dμ = f −1(x)dx and |μ| = μ(Sn−1) for a Borel measure μ on Sn−1. In the following, we prove that along the flow (2.6), G(t) in (2.9) stays constant. 7
+
+Lemma 2.2. Along the flow (2.6) , we have G (t) = G(0) , ∀t ∈ [0 , T ).Proof. Note that (2.10) h det( hi j + hδi j )dx = ρ(u)ndu .
+
+Combining the flow (2.6), the definition (2.5) of τ(t), and (2.10), we have 
+
+ddt G(t) = 1
+
+|μ|
+
+Z
+
+Sn−1
+
+f (x)−1∂th(x, t)dx 
+
+= 1
+
+|μ|
+
+Z
+
+Sn−1
+
+Ähe − 12
+
+Psi=1 |X·ei|2
+
+det( hi j + hδi j ) − (2 π) s 
+
+> 2
+
+hτ(t) f (x)−1ä dx 
+
+= 1
+
+|μ|
+
+"Z
+
+Sn−1
+
+he − 12
+
+Psi=1 |X·ei|2
+
+det( hi j + hδi j )dx − (2 π) s
+
+> 2
+
+Z
+
+Sn−1
+
+h ·
+
+R
+
+Sn−1 e− 12
+
+Psi=1 |X·ei|2
+
+|X|ndx 
+
+(2 π) s 
+
+> 2
+
+f (x) R
+
+Sn−1 f −1⟨X, x⟩dx dx 
+
+#
+
+= 1
+
+|μ|
+
+ïZ
+
+Sn−1
+
+e− 12 |ρ(u)|2 Psi=1 |u·ei|2
+
+ρ(u)ndu −
+
+Z
+
+Sn−1
+
+e− 12 ρ(u)2 Psi=1 |u·ei|2
+
+ρ(u)ndu 
+
+ò
+
+=0.
+
+□
+
+Let Kt be the convex body enclosed by Mt, then we show that the mixed Euclidean-Gaussian volume of this set is non-decreasing along the flow (2.6). 
+
+Lemma 2.3. The function V mix (Kt) is non-decreasing along the flow (2.6) , that is ddt Vmix (Kt) ≥ 0,
+
+and the equality holds if and only if K t satisfies f e − 12 ρ2 Psi=1 |(u·ei)|2
+
+det( hi j + hδi j ) = (2 π) s 
+
+> 2
+
+τ(t).
+
+Proof. Converting the definition of the mixed Euclidean-Gaussian volume to polar coordinates, we have (2.11) Vmix (t) : = Vmix (Kt) = (2 π)− s
+
+> 2
+
+Z
+
+Sn−1
+
+Z ρ[ht ](u)0
+
+e− 12 r2 Psi=1 |(u·ei)|2
+
+rn−1drdu .
+
+By (2.8), we deduce that (2 π) s 
+
+> 2
+
+ddt Vmix (Kt) =
+
+Z
+
+Sn−1
+
+e− 12 ρ2 Psi=1 |u·ei|2
+
+ρn−1∂tρdu 
+
+=
+
+Z
+
+Sn−1
+
+e− 12 ρ2 Psi=1 |u·ei|2
+
+ρn−1 î f ρe− 12 ρ2 Psi=1 |u·ei|2
+
+det( hi j + hδi j ) − (2 π) s 
+
+> 2
+
+ρτ (t)ó du 
+
+=
+
+Z
+
+Sn−1
+
+f e − 12 ρ2 Psi=1 |u·ei|2
+
+ρn det( hi j + hδi j )du − (2 π) s
+
+> 2
+
+Z
+
+Sn−1
+
+e− 12 ρ2 Psi=1 |u·ei|2
+
+ρnτ(t)du 
+
+=
+
+Z
+
+Sn−1
+
+f e − 12 ρ2 Psi=1 |u·ei|2
+
+ρn det( hi j + hδi j )du 
+
+−
+
+Z
+
+Sn−1
+
+e− 12 ρ2 Psi=1 |u·ei|2
+
+ρn
+
+R
+
+Sn−1 e− 12 ρ2 Psi=1 |u·ei|2
+
+ρndu 
+
+R
+
+Sn−1 f −1hdx du .8 STEPHANIE MUI, LEI QIN, AND SINAN WANG 
+
+By (2.10) and the H¨ older inequality, we get (2 π) s
+
+> 2
+
+ÅZ
+
+> Sn−1
+
+f −1hdx 
+
+ã ddt Vmix (Kt)
+
+=
+
+Z
+
+> Sn−1
+
+f −1hdx 
+
+Z
+
+> Sn−1
+
+f e − 12 ρ2 Psi=1 |u·ei|2
+
+ρn det( hi j + hδi j )du −
+
+ïZ
+
+> Sn−1
+
+e− 12 ρ2 Psi=1 |u·ei|2
+
+ρndu 
+
+ò2
+
+=
+
+Z
+
+> Sn−1
+
+f −1ρn
+
+det( hi j + hδi j )du 
+
+Z
+
+> Sn−1
+
+f e − 12 ρ2 Psi=1 |u·ei|2
+
+ρn det( hi j + hδi j )dν −
+
+ïZ
+
+> Sn−1
+
+e− 12 ρ2 Psi=1 |u·ei|2
+
+ρndu 
+
+ò2
+
+=
+
+Z
+
+> Sn−1
+
+Ç f −1ρn
+
+det( hi j + hδi j )
+
+å2
+
+du 
+
+Z
+
+> Sn−1
+
+ »
+
+f e − 12 ρ2 Psi=1 |u·ei|2
+
+ρn det( hi j + hδi j )
+
+2
+
+du 
+
+−
+
+ïZ
+
+> Sn−1
+
+e− 12 ρ2 Psi=1 |u·ei|2
+
+ρndu 
+
+ò2
+
+≥
+
+ïZ
+
+> Sn−1
+
+e− 12 ρ2 Psi=1 |u·ei|2
+
+ρndu 
+
+ò2
+
+−
+
+ïZ
+
+> Sn−1
+
+e− 12 ρ2 Psi=1 |u·ei|2
+
+ρndu 
+
+ò2
+
+=0.
+
+□
+
+Proposition 2.1. Let K , L ∈ K n 
+
+> 0
+
+, if K ⊂ L, then V mix (K) ≤ Vmix (L).Proof. The condition K ⊂ L implies that 0 < ρ K (u) ≤ ρL(u) for all u ∈ Sn−1. Hence we have 
+
+Vmix (L) − Vmix (K)
+
+= 1(2 π) s
+
+> 2
+
+Z
+
+> Sn−1
+
+Z ρL(u)0
+
+e− 12 r2 Psi=1 |u·ei|2
+
+rn−1drdu − 1(2 π) s
+
+> 2
+
+Z
+
+> Sn−1
+
+Z ρK (u)0
+
+e− 12 r2 Psi=1 |u·ei|2
+
+rn−1drdu 
+
+= 1(2 π) s
+
+> 2
+
+Z
+
+> Sn−1
+
+Z ρL(u) 
+
+> ρK(u)
+
+e− 12 r2 Psi=1 |u·ei|2
+
+rn−1drdu 
+
+≥0.
+
+□
+
+3. the mixed euclidean -gaussian measure 
+
+In this section, we introduce the mixed Euclidean-Gaussian surface area measure via a varia-tional formula and the corresponding mixed Euclidean-Gaussian Minkowski problem, as well as establish several fundamental properties. Before presenting the definition, we will first recall a relevant Lemma from [27]. 
+
+Lemma 3.1. Let K ∈ K n 
+
+> 0
+
+and f ∈ C(Sn−1). Suppose δ > 0 is small enough so that for each t ∈ (−δ, δ ), we have ht = hK + t f > 0.
+
+Then 
+
+lim 
+
+> t→0
+
+ρ[ht](u) − ρK (u)
+
+t = f (αK (u)) 
+
+hK (αK (u)) ρK (u)
+
+for almost every u ∈ Sn−1 with respect to the spherical Lebesgue measure. Moreover, there exists an M > 0, such that 
+
+|ρ[ht](u) − ρK (u)| < M|t|9
+
+for all u ∈ Sn−1 and t ∈ (−δ, δ ).
+
+With the help of Lemma 3.1, we deduce the variational formula of (1.2). 
+
+Theorem 3.1. Let K ∈ K n 
+
+> 0
+
+, and f ∈ C(Sn−1). Then 
+
+lim 
+
+> t→0
+
+Vmix ([ hK + t f ]) − Vmix (K)
+
+t =
+
+Z
+
+> Sn−1
+
+f (u)dS Vmix ,K (u).
+
+Proof. Denote hK + t f by ht. Using polar coordinates, we have 
+
+Vmix ([ ht]) = 1(2 π)h
+
+> 2
+
+Z
+
+> Sn−1
+
+Z ρ[ht ](u)0
+
+e− 12 r2 Psi=1 |u·ei|2
+
+rn−1drdu .
+
+Fix u ∈ Sn−1 and define (3.1) F(τ) =
+
+Z τ
+
+> 0
+
+e− 12 r2 Psi=1 |u·ei|2
+
+rn−1dr , τ ∈ [0 , ∞).
+
+By the mean value theorem and Lemma 3.1, we have 
+
+|F(ρ[ht](u)) − F(ρK (u)) | ≤ | F′
+
+(θ)|| ρ[ht](u) − ρK (u)| < M|t|| F′
+
+(θ)|,
+
+where θ is between ρK (u) and ρ[ht](u). Since K ∈ K n 
+
+> 0
+
+and f ∈ C(Sn−1), there exists M1 > 0 such that for t close to 0, [ ht] ⊂ M1 B holds. By the definition of F, we have that F′ is bounded. Therefore, there exists an M2 > 0 such that for all u ∈ Sn−1
+
+|F(ρ[ht](u)) − F(ρK (u)) | < M2|t|.
+
+Therefore, the dominated convergence theorem and Lemma 3.1 yield lim 
+
+> t→0
+
+Vmix ([ hK + t f ]) − Vmix (K)
+
+t = lim 
+
+> t→0
+
+1(2 π) s
+
+> 2
+
+R 
+
+> Sn−1
+
+F(ρ[ht](u)) du − R 
+
+> Sn−1
+
+F(ρK (u)) du t
+
+= 1(2 π) s
+
+> 2
+
+Z
+
+> Sn−1
+
+lim 
+
+> t→0
+
+F(ρ[ht](u)) − F(ρK (u)) 
+
+t du 
+
+= 1(2 π) s
+
+> 2
+
+Z
+
+> Sn−1
+
+f (αK (u)) e− 12   
+
+> Psi=1|ρK(u)( u·ei)|2
+
+ρnK (u)
+
+hK (αK (u)) du 
+
+= 1(2 π) s
+
+> 2
+
+Z
+
+> ∂K
+
+f (νK (x)) e− 12 
+
+> Psi=1|(x·ei)|2
+
+dS K (x)
+
+=
+
+Z
+
+> Sn−1
+
+f (u)dS Vmix ,K (u).
+
+□
+
+Below, we show that the mixed Euclidean-Gaussian surface area measure is weakly convergent with respect to the Hausdor ff metric. 
+
+Theorem 3.2. Let K j ∈ K n 
+
+> 0
+
+be a sequence of convex bodies such that K j converges to K 0 ∈ K n 
+
+> 0
+
+in the Hausdor ff metric. Then S Vmix ,K j converges to S Vmix ,K0 weakly. Proof. Since Ki ∈ K no with Ki → K0 ∈ K no , there exists a constant c1 > 0 such that 1 
+
+> c1
+
+B ⊆ Ki ⊆ c1 B
+
+for su ffi ciently large i. Thus, one has 
+
+e− 12  
+
+> Psi=1|ρKi(u)u·ei|2
+
+ρn−1 
+
+> Ki
+
+(u) → e− 12  
+
+> Psi=1|ρK0(u)u·ei|2
+
+ρn−1 
+
+> K0
+
+(u), uniformly on Sn−1.10 STEPHANIE MUI, LEI QIN, AND SINAN WANG 
+
+Let g ∈ C(Sn−1). Since νKi → νK0 almost everywhere on Sn−1 with respect to the spherical Lebesgue measure, then for almost every u ∈ Sn−1, one has 
+
+g(αKi (u)) 
+
+u · αKi (u)) → g(αK0 (u)) 
+
+u · αK0 (u).
+
+By the definition of S Vmix ,K j , we have 
+
+Z
+
+> Sn−1
+
+g(u)dS Vmix ,K j (u) = 1(2 π) s
+
+> 2
+
+Z
+
+> Sn−1
+
+g(αK j (u)) e− 12   
+
+> Psi=1|ρK j(u)u·ei|2
+
+ρnK j (u)
+
+hK j (αK j (u)) du 
+
+= 1(2 π) s
+
+> 2
+
+Z
+
+> Sn−1
+
+e− 12 ρK j (u)2 Psi=1 |u·ei|2 g(αK j (u)) 
+
+αK j (u) · uρn−1  
+
+> Kj
+
+(u)du 
+
+→ 1(2 π) s
+
+> 2
+
+Z
+
+> Sn−1
+
+e− 12 ρK0 (u)2 Psi=1 |u·ei|2 g(αK0 (u)) 
+
+αK0 (u) · uρn−1 
+
+> K0
+
+(u)du 
+
+=
+
+Z
+
+> Sn−1
+
+g(u)dS Vmix ,K0 (u).
+
+□
+
+Lemma 3.2. Let K ∈ K n 
+
+> 0
+
+. Then the mixed Euclidean-Gaussian surface area measure S Vmix ,K is ab-solutely continuous with respect to the surface area measure S K . Moreover, when K is su ffi ciently smooth, S Vmix ,K is also absolutely continuous with respect to the spherical Lebesgue measure. Proof. Let η ⊂ Sn−1 be such that S K (η) = 0, or equivalently, Hn−1(ν−1 
+
+> K
+
+(η)) = 0, then we conclude that 
+
+S Vmix ,K = 1(2 π) s
+
+> 2
+
+Z 
+
+> x∈ν−1
+> K(η)
+
+e− 12 
+
+> Psi=1|x·ei|2
+
+dHn−1(x) = 0.
+
+Similarly, let η ⊂ Sn−1 be such that Hn−1(η) = 0, then 
+
+S Vmix ,K = 1(2 π) s
+
+> 2
+
+Z
+
+> η
+
+e− 12   
+
+> Psi=1|(hK(u)u+∇hK(u)) ·ei|2
+
+det( ∇2hK + hK I)du = 0.
+
+□
+
+4. the mixed euclidean -gaussian minkowski problem 
+
+We obtain the following estimates to show the existence of solutions to the flow equation (2.6). 4.1. C0 and C1 estimates. Lemma 4.1. Suppose f ∈ C∞(Sn−1) and 0 < h0 ∈ C∞(Sn) are uniformly convex even functions. Let h (·, t) be a positive, smooth, and uniformly convex solution to (2.6) . Suppose μ is a nonzero finite even Borel measure not concentrated in any hemisphere with d μ = f dx. Then there exists a constant C > 0 independent of t such that for every t ∈ [0 , T ),
+
+1/C ≤ h(·, t) ≤ C on Sn−1,
+
+1/C ≤ ρ(·, t) ≤ C on Sn−1.
+
+Proof. By Lemma 2.1, it su ffi ces to establish the upper and lower bounds of h(·, t). Without loss of generality, we choose h0 to be the support function of Sn−1. By the definition (2.9) of G(t) and Lemma 2.2, we have that for each t ∈ [0 , T )(4.1) G(t) = 1
+
+|μ|
+
+Z
+
+> Sn−1
+
+h(u, t)dμ(u) = G(0) = 1 > 0.11 
+
+For each t ∈ [0 , T ), write 
+
+h(xt, t) = max 
+
+> u∈Sn−1
+
+h(u, t) = Rt
+
+for some xt ∈ Sn−1. Obviously, Rt > 0 is the maximal scaling factor for which Rt xt ∈ M t =
+
+X(Sn−1, t). By the definition of the support function, we have that (4.2) h(u, t) = sup 
+
+> ξ∈∂Kt
+
+⟨u, ξ ⟩ ≥ Rt⟨xt, u⟩+ = Rt max {⟨ xt, u⟩, 0}.
+
+Therefore, we have (4.3) 1 = 1
+
+|μ|
+
+Z
+
+> Sn−1
+
+h(u, t)dμ(u) ≥ 1
+
+|μ|Rt
+
+Z
+
+> Sn−1
+
+⟨u, xt⟩+dμ(u) ≥ 1
+
+|μ|Rt min 
+
+> x∈Sn−1
+
+Z
+
+> Sn−1
+
+⟨u, x⟩+dμ(u).
+
+Namely, 
+
+h(·, t) ≤ Rt ≤ |μ|
+
+min x∈Sn−1
+
+R 
+
+> Sn−1
+
+⟨u, x⟩+dμ(u).
+
+So now it su ffi ces to show that (4.4) F(u) B 1
+
+|μ| min 
+
+> x∈Sn−1
+
+Z
+
+> Sn−1
+
+⟨u, x⟩+dμ(u) ≥ C0 > 0,
+
+in order to obtain that h(·, t) has a uniform upper bound independent of t.The proof of (4.4) is very similar to [18, formula (3.19)], which only relies on the fact that the support of μ is not concentrated on any closed hemisphere of Sn−1. We include it below for convenience. Using the fact that μ is not contained in any closed hemisphere with Proposition 1.3 in [12], we have 
+
+F(u) > 0.
+
+Secondly, since the support function is continuous on Sn−1, if we take ui ∈ Sn−1 with ui → u ∈ Sn−1
+
+as i → +∞, then ⟨ui, x⟩+ → ⟨ u, x⟩+ uniformly on Sn−1. That is, 
+
+|F(ui) − F(u)| ≤ 1
+
+|μ|
+
+Z
+
+> Sn−1
+
+|⟨ ui, x⟩+ − ⟨ u, x⟩+|dμ(u) → 0as i → +∞. Therefore F(u) is continuous on a compact set Sn−1, and it follows that there exists a constant C0 > 0 such that (4.4) holds. For the lower bound of h(·, t), we prove it by contradiction. Suppose the contrary that there exists a sequence of times {ti ∈ (0 , T )} such that 
+
+h(ui, ti) = inf 
+
+> u∈Sn−1
+
+h(u, ti) → 0 as i → +∞,
+
+where ui ∈ Sn−1. By the compactness of the sphere, there exists θ ∈ Sn−1, such that ui → θ (if necessary, we can choose a subsequence of {ui j }). Let Ki be the Wul ff shape generated by h(·, t). Obviously, Ki ∈ K e. By the uniform upper bound of h(·, t), there exists an R > 0 such that Ki ⊂ BR
+
+for every i. Therefore, we have 
+
+Ki ⊂ BR ∩ { x ∈ Rn : |x · ui| ≤ h(ui, ti)} .
+
+By the continuity of Vmix (·), we have 
+
+Vmix (Ki) ≤ Vmix (BR ∩ { x ∈ Rn : |x · uk| ≤ h(uk, tk)}) → 0,
+
+which is a contradiction since Lemma 2.3 and the initial data imply that 
+
+Vmix (Kt) ≥ Vmix (BR) > 0.12 STEPHANIE MUI, LEI QIN, AND SINAN WANG 
+
+□
+
+Lemma 4.2. Under the same assumptions of Lemma 4.1, there exists a positive constant C inde-pendent of t such that for every t ∈ [0 , T ),
+
+|∇ h(·, t)| ≤ C on Sn−1,
+
+|∇ ρ(·, t)| ≤ C on Sn−1.
+
+Proof. The first inequality follows from Lemma 4.1 and smoothness. Let u, x ∈ Sn−1 satisfy 
+
+ρ(u, t)u = h(x, t)x + ∇h(x, t).
+
+Note that 
+
+ρ2 = h2 + |∇ h|2, h = ρ2
+
+pρ2 + |∇ ρ|2 .
+
+And so once again by Lemma 4.1, we complete the proof. □
+
+Lemma 4.3. Under the same assumptions of Lemma 4.1, there exists a positive constant C inde-pendent of t such that for every t ∈ [0 , T ),
+
+1/C ≤ τ(t) ≤ C.
+
+Proof. By the definition (2.5) of τ(t), Lemma 4.1, and Lemma 4.2, we immediately obtain the upper and lower bounds. □
+
+4.2. C2 estimates. We next derive an upper bound for the support function of the hypersurfaces 
+
+Mt evolved by (2.6). 
+
+Lemma 4.4. Assume the same assumptions as in Lemma 4.1. Then there exists a positive constant C independent of t such that for every t ∈ [0 , T ),
+
+det( h(·, t)i j + h(·, t)δi j ) ≤ C on Sn−1.
+
+Proof. Let 
+
+H := f e − 12 
+
+> Psi=1|(h(x,t)x+∇h(x,t)) ·ei|2
+
+h and S := det( hi j + hδi j ), ∀x ∈ Sn−1.
+
+Let also M := 12 ρ(u)2, where u and x are related by (2.7). For ε > 0 small enough, define the function (4.5) P := 11 − εMHS h .
+
+For every fixed t, we know that P(u, t) attains its maximum at some point in Sn−1. Hence, after taking a suitable rotation, we can take an orthonormal frame such that the cofactor matrix S i j of 
+
+hi j + hδi j is diagonal at this maximal point. We then compute the following (4.6) 
+
+
+
+0 = Pi = 11 − εM
+
+Å HS h
+
+ã
+
+> i
+
++ εMi
+
+(1 − εM)2
+
+Å HS h
+
+ã
+
+,
+
+0 ≥ Pi j =
+
+  HS h
+
+
+
+> i j
+
+1 − εM + ε   HS h
+
+ Mi j 
+
+(1 − εM)2 ,∂t P = ∂t
+
+  HS h
+
+
+
+(1 − εM) + ε   HS h
+
+ ∂t M
+
+(1 − εM)2 .13 
+
+Here, Pi j ≤ 0 means that it is a negative semi-definite matrix. Furthermore, we have (4.7) ∂t P − HS i j Pi j = 1(1 − εM)
+
+ñ
+
+∂t
+
+Å HS h
+
+ã
+
+− HS i j 
+
+Å HS h
+
+ã
+
+> i j
+
+ô
+
++ ε   HS h
+
+
+
+(1 − εM)2 (∂t M − HS i j Mi j ).
+
+To deduce the upper bound of (4.7). we estimate the terms ∂t
+
+  HS h
+
+ − HS i j   HS h
+
+ 
+
+> i j
+
+and ∂t M −
+
+HS i j Mi j .Recalling (2.6) and (2.7), we have 
+
+
+
+∂t M = HS h − 2(2 π) s 
+
+> 2
+
+τM +
+
+X
+
+> k
+
+HkhkS +
+
+X
+
+> k
+
+HS khk,
+
+Mi = hh i +
+
+X
+
+> k
+
+hkhki ,
+
+Mi j = hjhi + h(bi j − hδi j ) +
+
+X
+
+> k
+
+(bk j − hδk j )( bki − hδki ) +
+
+X
+
+> k
+
+hk(bki − hδki )j.
+
+By [16, Appendix A], we know that (4.8) 
+
+®S i j (hi j + hδi j ) = (n − 1) S ,
+
+[det bi j ]k = S i j bi jk .
+
+Then, we have 
+
+HS i j Mi j = HS i j X
+
+> k
+
+bk j bki − (n − 1) HS h +
+
+X
+
+> k
+
+Hh kS k.
+
+Consequently, 
+
+∂t M − HS i j Mi j = nHS h − 2(2 π) s 
+
+> 2
+
+τM +
+
+X
+
+> k
+
+HkhkS − HS i j X
+
+> k
+
+bk j bki .(4.9) Next, we will proceed with computing ∂t
+
+  HS h
+
+ − HS i j   HS h
+
+. Equations (2.6) and (4.8) yield 
+
+
+
+Å HS h
+
+ã
+
+> i
+
+= (HS )i
+
+h − (HS )hi
+
+h2 ,
+
+Å HS h
+
+ã
+
+> i j
+
+= (HS )i j 
+
+h − (HS )hi j 
+
+h2 − 2(log h)i
+
+Å HS h
+
+ã
+
+> j
+
+,∂t
+
+Å HS h
+
+ã
+
+= S ∂t Hh + HS i j 
+
+Å HS h
+
+ã
+
+> i j
+
++ (n − 2) 
+
+Å HS h
+
+ã2
+
++ 2HS i j (log h)i
+
+Å HS h
+
+ã
+
+> j
+
+− (n − 2)(2 π) s 
+
+> 2
+
+τ
+
+Å HS h
+
+ã
+
+Hence, we have 
+
+∂t
+
+Å HS h
+
+ã
+
+− HS i j 
+
+Å HS h
+
+ã
+
+> i j
+
+≤ (n − 1) 
+
+Å HS h
+
+ã2
+
+− (n − 1)(2 π) s 
+
+> 2
+
+τ
+
+Å HS h
+
+ã
+
+−
+
+Å HS h
+
+ã
+
+∂t M
+
+> s
+
+X
+
+> i=1
+
+|u · ei|2,
+
+(4.10) where we use the fact that 2HS i j (log h)i
+
+Å HS h
+
+ã
+
+> j
+
+= −2ε(n − 1) H2S 2|∇ h|2
+
+h2(1 − εM) ≤ 0,
+
+from (4.6) and (4.8). 14 STEPHANIE MUI, LEI QIN, AND SINAN WANG 
+
+Now we recall the following in [46], 
+
+
+
+> n−1
+
+X
+
+> i=1
+
+λi ≥ (n − 1) 
+
+> n−1
+
+Y
+
+> i=1
+
+λi
+
+! 1
+
+> n−1
+
+,
+
+S = det( hi j + hδi j ) =
+
+> n−1
+
+Y
+
+> i=1
+
+λi,
+
+S i j bk j bki = S tr bi j = S
+
+> n−1
+
+X
+
+> i=1
+
+λi.
+
+So we have 
+
+S i j bk j bki ≥ (n − 1) S 1+ 1 
+
+> n−1
+
+.
+
+Moreover, by the definition of H, we have (4.11) ε   HS h
+
+
+
+(1 − εM)2 HkhkS = ε   HS h
+
+2
+
+(1 − εM)2 h2 
+
+> k
+
++ ε   HS h
+
+2
+
+(1 − εM)2
+
+fk
+
+f hkh + ε   HS h
+
+2
+
+(1 − εM)2 ρρ khkh ≤ CP 2.
+
+Therefore, by (4.7), (4.9), (4.10) and (4.11), we have 
+
+∂t P − HS i j Pi j 
+
+≤ 1(1 − εM)
+
+ñ
+
+(n − 1) 
+
+Å HS h
+
+ã2
+
+− (n − 1)(2 π) s 
+
+> 2
+
+τ
+
+Å HS h
+
+ã
+
+−
+
+Å HS h
+
+ã
+
+∂t M
+
+> s
+
+X
+
+> i=1
+
+|u · ei|2
+
+ô
+
++ ε   HS h
+
+
+
+(1 − εM)2
+
+nHS h − 2(2 π) s 
+
+> 2
+
+τM + HkhkS − HS i j bk j bki 
+
+
+
+=(n − 1)   HS h
+
+2
+
+(1 − εM) − (n − 1)(2 π) s 
+
+> 2
+
+τ   HS h
+
+
+
+(1 − εM) −
+
+  HS h
+
+2
+
+(1 − εM)ρ2
+
+> s
+
+X
+
+> i=1
+
+|u · ei|2 +
+
+  HS h
+
+
+
+(1 − εM)(2 π) s 
+
+> 2
+
+τρ 2
+
+> s
+
+X
+
+> i=1
+
+|u · ei|2
+
++ nε   HS h
+
+2
+
+(1 − εM)2 h2 − (2 π) s 
+
+> 2
+
+ετ   HS h
+
+ ρ2
+
+(1 − εM)2 + ε   HS h
+
+
+
+(1 − εM)2 HkhkS − ε   HS h
+
+
+
+(1 − εM)2 HS i j bk j bki 
+
+= −
+
+ñ
+
+ρ2
+
+> s
+
+X
+
+> i=1
+
+|u · ei|2 − n + 1
+
+ô   HS h
+
+2
+
+(1 − εM) +
+
+  HS h
+
+
+
+(1 − εM)(2 π) s 
+
+> 2
+
+τ
+
+ñ
+
+ρ2
+
+> s
+
+X
+
+> i=1
+
+|u · ei|2 − n + 1
+
+ô
+
++ nε   HS h
+
+2
+
+(1 − εM)2 h2 − (2 π) s 
+
+> 2
+
+ετ   HS h
+
+ ρ2
+
+(1 − εM)2 + ε   HS h
+
+
+
+(1 − εM)2 HkhkS − ε   HS h
+
+
+
+(1 − εM)2 HS i j bk j bki 
+
+≤CP + C1P2 + ε   HS h
+
+
+
+(1 − εM)2 HkhkS − ε(n − 1)   HS h
+
+
+
+(1 − εM)2 HS 1+ 1
+
+> n−1
+
+≤CP + C2P2 −
+
+ñ   HS h
+
+
+
+1 − εM
+
+ô2+ 1
+
+> n−1
+
+H− 1 
+
+> n−1
+
+h1+ 1 
+
+> n−1
+
+(1 − εM) 1 
+
+> n−1
+
+ε(n − 1) 
+
+≤CP + C2P2 − C3P2+ 1 
+
+> n−1
+
+,
+
+for some positive constants C, C1, C2, C3. Since S i j is a positive definite diagonal matrix and Pi j is negative semi-definite at the maximal point, we have Pni, j=1 S i j Pi j ≤ 0. Consequently, by (4.6), we have 
+
+∂t P < 0,15 
+
+if we take P su ffi ciently large. Therefore, we obtain that for every t ∈ [0 , T ), 
+
+P(·, t) < P(·, 0) ≤ ˜C, on Sn−1.
+
+By (4.5) and Lemma 4.1, we have 1
+
+C S ≤ P ≤ CS 
+
+for a positive constant C. This implies that S has a uniform upper bound. □
+
+In the following, we prove that the eigenvalues of the matrix bi j are bounded by positive con-stants from both above and below. Let M∗ 
+
+> t
+
+be the polar set of Mt = X(Sn−1, ·) and h∗(·, t) be the support function of M∗ 
+
+> t
+
+. Since (4.12) ρ(·, t) = 1
+
+h∗(·, t)and (4.13) h(x, t)n+1h∗(u, t)n+1 det( hi j + hδi j ) det( h∗ 
+
+> i j
+
++ h∗δi j ) = 1,
+
+we could reformulate the flow (2.6) as (4.14) 
+
+(∂th∗(u, t) = − f e − 12    
+
+> Psi=1|(h∗(u,t)u+∇h∗)·ei|2ρ∗(x,t)n+1
+> (h∗)ndet( h∗
+> i j +h∗δi j )
+
++ (2 π) s 
+
+> 2
+
+h∗(u, t)τ(t),
+
+h(u, 0) = 1 
+
+> h0
+
+,
+
+where 
+
+ρ∗(x, t) =  h∗(u, t)2 + |∇ h∗(u, t)|212
+
+is the value of the radial function at 
+
+x = h∗u + ∇h∗
+
+ h∗(u, t)2 + |∇ h∗(u, t)|212
+
+∈ Sn−1.
+
+Notice also that function f takes its value at the point x.By Lemma 4.4, we deduce that there exists a positive constant C independent of t such that (4.15) det( h∗ 
+
+> i j
+
++ h∗δi j ) ≥ C on Sn−1.
+
+Therefore, by the above estimate, it is enough to establish the upper bound. In the proof of following lemma, we use the notation h instead of h∗ and b instead of b∗ for simplicity. 
+
+Lemma 4.5. There is a positive constant C independent of t such that for i = 1, · · · , n − 1, the principal radii of curvature λi of the hypersufaces M t satisfy 
+
+(4.16) 1
+
+C ≤ λi(·, t) ≤ C on Sn−1 × [0 , T ).
+
+Proof. Consider the auxiliary function with constants A and B to be determined later, 
+
+P(u, t) = λmax 
+
+ bi j 
+
+ hA exp  B|∇ h|2 , ∀(u, t) ∈ Sn−1 × [0 , T ).
+
+Here, −A, B are positive constants to be choosen later. For any fixed T ′ ∈ (0 , T ), assume P(u, t)attains its maximum at ( u0, t0) ∈ Sn−1 × [0 , T ′]. By choosing a suitable orthonormal frame, we may assume bi j (u0, t0) is diagonal and λmax 
+
+ bi j 
+
+ (u0, t0) = b11 (u0, t0). 16 STEPHANIE MUI, LEI QIN, AND SINAN WANG 
+
+Let e1, e2, · · · , en−1 be the aforementioned orthonormal frame at the point ( u0, t0) ∈ Sn−1 × [0 , T ′]. Then one has at ( u0, t0), (4.17) 
+
+®0 = (log P)i = b11 b11 i + Ahi 
+
+> h
+
++ 2B Pk hkhki ,
+
+0 ≤ ∂ log P 
+
+> ∂t
+
+= b11 (∂th11 + ∂th) + A∂thh + 2B Pk hk∂thk.
+
+Without loss of generality, we can assume t0 > 0. Moreover, bi j (log P)i j ≤ 0. A direct calculation yields 2Bb i j X
+
+> k
+
+hk j hki = 2Bb ii − 4B(n − 1) h + 2Bh 2bii .
+
+According to the Ricci identity [7], we have 
+
+bi j 11 = b11 i j − δi j b11 + δ11 bi j − δi1b1 j + δ1 jb1i.
+
+Then we have 
+
+bi j (log P)i j =b11 bi j b11 i j −  b11 2 bi j b11 ib11 j + A(n − 1) 
+
+h − Ah2 bi j hihj(4.18) 
+
+− (A + 2B|∇ h|2)bii + 2Bb i j X
+
+> k
+
+hk j hki + 2Bb i j X
+
+> k
+
+hkbi jk 
+
+=b11 bi j b11 i j −  b11 2 bi j b11 ib11 j + A(n − 1) 
+
+h − Ah2 bi j hihj
+
+− (A + 2B|∇ h|2 − 2Bh 2)bii − 4B(n − 1) h + 2Bb ii + 2Bb i j X
+
+> k
+
+hkbi jk .
+
+=b11 bi j [bi j 11 + δi j b11 − δ11 bi j + δi1b1 j − δ1 jb1i] −  b11 2 bi j b11 ib11 j
+
++ A(n − 1) 
+
+h − Ah2 bi j hihj − (A + 2B|∇ h|2 − 2Bh 2)bii 
+
+− 4B(n − 1) h + 2Bb ii + 2Bb i j X
+
+> k
+
+hkbi jk .
+
+By Lemma 4.1, at the maximal point ( u0, t0), we can select an A < 0 such that (4.19) 
+
+bi j (log P)i j ≥b11 bii bii 11 −  b11 2 bii b11 ib11 i + A(n − 1) 
+
+h − Ah2 bii h2
+
+> i
+
+− (A + 2B|∇ h|2 − 2Bh 2)bii − 4B(n − 1) h + 2Bb ii + 2Bb ii X
+
+> k
+
+hkbiik 
+
+≥b11 bii bii 11 −  b11 2 bii b11 ib11 i − (A + 2B|∇ h|2 − 2Bh 2)bii 
+
+− 2Bb ii + 2Bb ii X
+
+> k
+
+hkbiik − CB .
+
+Let 
+
+Λ(u, t) = log 
+
+Å
+
+f e − 12  
+
+> Psi=1|(h(u,t)u+∇h)·ei|2
+
+ρn+1
+
+hn
+
+ã
+
+= log 
+
+Å
+
+f e − 12 ρ2(x,t) Psi=1 |x·ei|2 ρn+1
+
+hn
+
+ã
+
+,
+
+where x, u ∈ Sn satisfy 
+
+ρ(x, t) =  h(u, t)2 + |∇ h(u, t)|212 .17 
+
+A direct calculation yields (4.20) 
+
+Λk = fk
+
+f + (n + 1) ρk
+
+ρ − nhk
+
+h −
+
+> s
+
+X
+
+> i=1
+
+(( h(u, t)u + ∇h) · ei) ( hku + h∇ku + ∇hk) · ei
+
+= fk
+
+f + (n + 1) ρk
+
+ρ − nhk
+
+h −
+
+> s
+
+X
+
+> i=1
+
+(( h(u, t)u + ∇h) · ei) ( hku + he k + ∇hk) · ei
+
+= fk
+
+f + (n + 1) hkbkk 
+
+ρ − nhk
+
+h −
+
+> s
+
+X
+
+> i=1
+
+(( h(u, t)u + ∇h) · ei) ( hku + he k + ∇hk) · ei
+
+Moreover, (4.21) 
+
+Λ11 = f11 f − f 21
+
+f 2 + (n + 1) (h11 b11 + h1b111 ) ρ − ρ1h1b11 
+
+ρ2 − nh11 h − h21
+
+h2 −
+
+> s
+
+X
+
+> i=1
+
+|(h1u + he 1 + ∇h1) · ei|2
+
+−
+
+> s
+
+X
+
+> i=1
+
+(( h(u, t)u + ∇h) · ei)  h11 u + 2h1e1 + h1∇e1 e1 + ∇h11 
+
+ · ei.
+
+= f11 f − f 21
+
+f 2 + (n + 1) (h11 b11 + h1b111 ) ρ − h21b211 
+
+ρ2 − nh11 h − h21
+
+h2 −
+
+> s
+
+X
+
+> i=1
+
+|(h1u + he 1 + ∇h1) · ei|2
+
+−
+
+> s
+
+X
+
+> i=1
+
+(( h(u, t)u + ∇h) · ei) ( h11 u + 2h1e1 + ∇h11 ) · ei
+
+≥ C1(1 + b11 + b211 ) +
+
+> s
+
+X
+
+> k=1
+
+C(k)b11 k.
+
+By (4.14), we have (4.22) log[(2 π) s 
+
+> 2
+
+hτ(t) − ∂th] = Λ − log S ,
+
+where S := det( hi j + hδi j ). Then di ff erentiating (4.22) at the point ( u0, t0) with respect to ek, we have (4.23) (2 π) s 
+
+> 2
+
+τhk − ∂thk
+
+(2 π) s 
+
+> 2
+
+hτ − ∂th = Λ k − bi j bi jk .
+
+And we di ff erentiate (4.22) with respect to e1 twice, (4.24) (2 π) s 
+
+> 2
+
+τh11 − ∂th11 
+
+(2 π) s 
+
+> 2
+
+hτ − ∂th =
+
+Å(2 π) s 
+
+> 2
+
+τh1 − ∂th1
+
+(2 π) s 
+
+> 2
+
+hτ − ∂th
+
+ã2
+
++ Λ 11 − bii bii 11 + bii bj j (bi j 1)2
+
+≥ Λ11 − bii bii 11 + bii bj j (bi j 1)2.
+
+At the point ( u0, t0), (4.23) yields (4.25) 
+
+Pk hk∂thk
+
+(2 π) s 
+
+> 2
+
+hτ − ∂th = (2 π) s 
+
+> 2
+
+τ Pk h2
+
+> k
+
+(2 π) s 
+
+> 2
+
+hτ − ∂th −
+
+X
+
+> k
+
+hkΛk + bii X
+
+> k
+
+hkbiik .18 STEPHANIE MUI, LEI QIN, AND SINAN WANG 
+
+Dividing (4.17) by (2 π) s 
+
+> 2
+
+hτ − ∂th, we have (4.26) 
+
+b11 (∂th11 + ∂th)(2 π) s 
+
+> 2
+
+hτ − ∂th + A ∂thh  (2 π) s 
+
+> 2
+
+hτ − ∂th + 2B
+
+Pk hk∂thk
+
+(2 π) s 
+
+> 2
+
+hτ − ∂th
+
+= b11  ∂th11 − (2 π) s 
+
+> 2
+
+τh11 + (2 π) s 
+
+> 2
+
+τb11 − (2 π) s 
+
+> 2
+
+τh + ∂th
+
+(2 π) s 
+
+> 2
+
+hτ − ∂th
+
++ A ∂thh  (2 π) s 
+
+> 2
+
+hτ − ∂th + 2B
+
+Pk hk∂thk
+
+(2 π) s 
+
+> 2
+
+hτ − ∂th
+
+= b11 (∂th11 − (2 π) s 
+
+> 2
+
+τh11 )(2 π) s 
+
+> 2
+
+hτ − ∂th + 2B
+
+Pk hk∂thk
+
+(2 π) s 
+
+> 2
+
+hτ − ∂th
+
+− Ah + τ(A + 1)(2 π) s
+
+> 2
+
+(2 π) s 
+
+> 2
+
+hτ − ∂th + b11 ≥ 0.
+
+By (4.19), (4.24), (4.23), (4.26) and (4.25) we have (4.27) 
+
+bi j (log P)i j ≥b11 
+
+Å
+
+−(2 π) s 
+
+> 2
+
+τh11 − ∂th11 
+
+(2 π) s 
+
+> 2
+
+hτ − ∂t
+
++ Λ 11 + bii bj j (bi j 1)2
+
+ã
+
+− bii 
+
+Ç
+
+Ahi
+
+h + 2B
+
+X
+
+> k
+
+hkhki 
+
+å
+
++ 2B
+
+ÇX
+
+> k
+
+hkΛk +
+
+Pk hk∂thk
+
+(2 π) s 
+
+> 2
+
+hτ − ∂th − (2 π) s 
+
+> 2
+
+τ Pk h2
+
+> k
+
+(2 π) s 
+
+> 2
+
+hτ − ∂th
+
+å
+
+− (A + 2B|∇ h|2 − 2Bh 2)bii + 2Bb ii − CB 
+
+≥b11  Λ11 + bii bj j (bi j 1)2 − bii 
+
+Ç
+
+Ahi
+
+h + 2B
+
+X
+
+> k
+
+hkhki 
+
+å
+
++ 2B
+
+X
+
+> k
+
+hkΛk − (2 π) s 
+
+> 2
+
+τ Pk h2
+
+> k
+
+(2 π) s 
+
+> 2
+
+hτ − ∂th + Ah − τ(A + 1)(2 π) s
+
+> 2
+
+(2 π) s 
+
+> 2
+
+hτ − ∂th − b11 .
+
+Since tr bi j 
+
+X
+
+> j,k
+
+bj j b2 
+
+> i jk
+
+≥
+
+ÇX
+
+> k
+
+bkk 
+
+å Ç X
+
+> k
+
+bkk b2
+
+> ikk
+
+å
+
+≥
+
+ÇX
+
+> k
+
+pbkk 
+
+»
+
+bkk b2
+
+> ikk
+
+å2
+
+=
+
+ÇX
+
+> k
+
+|bkki |
+
+å2
+
+≥
+
+ÇX
+
+> k
+
+b2
+
+> kki
+
+å2
+
+,19 
+
+it follows from (4.27) that (4.28) 0 ≥b11  Λ11 + bii bj j (bi j 1)2 − bii 
+
+Ç
+
+Ahi
+
+h + 2B
+
+X
+
+> k
+
+hkhki 
+
+å
+
++ 2B
+
+ÇX
+
+> k
+
+hkΛk − (2 π) s 
+
+> 2
+
+τ Pk h2
+
+> k
+
+(2 π) s 
+
+> 2
+
+hτ − ∂th
+
+å
+
++ Ah − τ(A + 1)(2 π) s
+
+> 2
+
+(2 π) s 
+
+> 2
+
+hτ − ∂th − b11 
+
+≥b11  Λ11 + bii bj j (bi j 1)2 + 2B
+
+X
+
+> k
+
+hkΛk − bii 
+
+Ç
+
+Ahi
+
+h + 2B
+
+X
+
+> k
+
+hkhki 
+
+å
+
+− (2 π) s 
+
+> 2
+
+τ(A + 1 − 2B Pk h2 
+
+> k
+
+)(2 π) s 
+
+> 2
+
+hτ − ∂th + Ah − b11 
+
+≥b11 Λ11 + 2B
+
+X
+
+> k
+
+hkΛk − bii 
+
+Å
+
+Ahi
+
+h + 2Bh ibii + 2Bh ih
+
+ã
+
+− (2 π) s 
+
+> 2
+
+τ(A + 1 − 2B Pk h2 
+
+> k
+
+)(2 π) s 
+
+> 2
+
+hτ − ∂th + Ah − b11 .
+
+By Lemma 4.2, we have 
+
+|∇ h| ≤ C,
+
+for a positive constant C independent of t. So, taking A = −n + 2BC 2, we conclude that 
+
+A + 1 − 2B
+
+X
+
+> k
+
+h2 
+
+> k
+
+< 0.
+
+It follows from (4.27) that (4.29) b11 Λ11 + 2B
+
+X
+
+> k
+
+hkΛk − bii 
+
+Ç
+
+Ahi
+
+h + 2B
+
+X
+
+> k
+
+hkhki 
+
+å
+
++ Ah − b11 ≤ 0.
+
+Note that 
+
+bii hii = bii (bii − h) = n − 1 − h tr b−1,
+
+X
+
+> k
+
+bii h2 
+
+> ki
+
+= bii (b2 
+
+> ii
+
+− 2hb ii + h2) = −2( n − 1) h + tr b + h2tr b−1,
+
+X
+
+> k
+
+bii hkhkii =
+
+X
+
+> k
+
+hkbii biik − bii h2 
+
+> i
+
+.
+
+By (4.20), (4.21) and (4.17), we have 
+
+b11 Λ11 + 2B
+
+X
+
+> k
+
+hkΛk
+
+= b11 
+
+Ç f11 f − f 21
+
+f 2 + (n + 1) ρ11 ρ − ρ21
+
+ρ2 − nh11 h − h21
+
+h2 −
+
+> s
+
+X
+
+> i=1
+
+|(h1u + he i + ∇h1) · ei|2
+
+å
+
+− b11 
+
+Ç sX
+
+> i=1
+
+(( h(u, t)u + ∇h) · ei) ( h11 u + 2h1e1 + ∇h11 ) · ei
+
+å
+
++ 2Bh k
+
+Ç fk
+
+f + (n + 1) hkbkk 
+
+ρ − nhk
+
+h −
+
+> s
+
+X
+
+> i=1
+
+(( h(u, t)u + ∇h) · ei) ( hku + he k + ∇hk) · ei
+
+å20 STEPHANIE MUI, LEI QIN, AND SINAN WANG 
+
+≥ b11 
+
+Ç
+
+C1(1 + b11 + b211 ) +
+
+X
+
+> k
+
+C(k)b11 k
+
+å
+
++ C3 B
+
+Ç
+
+1 +
+
+X
+
+> k
+
+bkk 
+
+å
+
+≥ C1(b11 + 1 + b11 ) +
+
+X
+
+> k
+
+C(k)
+
+Å
+
+−Ahk
+
+h − 2Bh kbkk + 2Bh 
+
+ã
+
++ C3 B
+
+Ç
+
+1 +
+
+X
+
+> k
+
+bkk 
+
+å
+
+≥ Cb 11 + Cb 11 + C(−A + B + 1) − CB 
+
+X
+
+> k
+
+bkk .
+
+Hence, by the above inequality and (4.29) we have 
+
+Å
+
+−hi
+
+h A
+
+ã
+
+bii + C2 Bb ii − CB − C(1 + b11 + Bb 11 ) ≤ 0,
+
+If we take 
+
+B > max 
+
+ß C
+
+2C2 , 1 + 2C
+
+2 − 3C
+
+™
+
+in the above inequality, then b11 (u0, t0) is bounded from above. Combining this with Lemma 4.1 and Lemma 4.2, it is clear that the principal radii of curvatures λ∗ 
+
+> i
+
+of M∗ 
+
+> t
+
+have a uniform upper bound. Together with (4.15), the proof is complete. □
+
+We finish this section with the higher order estimates and the existence for all times. 
+
+Lemma 4.6. The solutions to the flow equation (2.6) exist for all times t ∈ (0 , ∞) in the class C(Sn−1 × [0 , t]) with 
+
+∥h∥Cm+2(Sn−1×[0 ,∞)]) ≤ C ∀m ≥ 1.
+
+Proof. Since (2.6) is a parabolic equation, one obtains the short-time existence of its solutions via the implicit function theorem. Then Lemma 4.1, Lemma 4.2, Lemma 4.3, and Lemma 4.5 imply that the flow equation (2.6) is uniformly parabolic on the interval [0 , T ). Therefore, by standard parabolic theory and Krylov-Safonov estimates [34], the smooth solutions of the flow equation (2.6) exist for all time. □
+
+4.3. Proof of Main Theorem. First, we prove Theorem 1.1 below. 
+
+Proof of the Theorem 1.1. By Lemma 2.3, Lemma 4.1, and (2.11), we know that Vmix (t) is non-decreasing and is uniformly bounded above with respect to t. In particular, there exists a positive constant C independent of t such that for any t ≥ 0, 
+
+Vmix (t) ≤ C.
+
+Hence for any t ≥ 0, Z t
+
+> 0
+
+ddt Vmix (t)dt = Vmix (t) − Vmix (0) ≤ Vmix (t) ≤ C,
+
+which means that Z ∞
+
+> 0
+
+ddt Vmix (t)dt ≤ C.
+
+Combining this with ddt Vmix (t) ≥ 0 implies there exists a subsequence tj → ∞ such that 
+
+ddt Vmix (tj) → 0,
+
+which implies ∂∂t h(·, tj) → 0 in the flow equation (2.6) . Moreover, from Lemma 4.6, we deduce that h(·, tj) will converge to a smooth function h∞, which solves equation (1.8). □21 
+
+Proof of Theorem 1.2. Let 0 < fj ∈ C∞(Sn−1) be such that dμj = fjdu converges weakly to dμ as 
+
+j → ∞ , and dμ is not concentrated on a hemisphere. Let hj be a solution of the following PDE (4.30) 1(2 π) s
+
+> 2
+
+e− 12   
+
+> Psi=1|(hK(u)u+∇hK(u)) ·ei|2
+
+det( ∇2hK (u) + hK (u)δi j ) = f (u)τ, 
+
+where 
+
+τ =
+
+R 
+
+> Sn−1
+
+e− 12 ρ2 Psi=1 |u·ei|2
+
+ρndu 
+
+(2 π) s
+
+> 2
+
+R 
+
+> Sn−1
+
+f −1hdu 
+
+for f = fj, where each fj is positive and smooth. Then 
+
+Z
+
+> Sn−1
+
+dS Vmix ,K j =
+
+Z
+
+> Sn−1
+
+τjdμj,
+
+where 
+
+τj =
+
+R 
+
+> Sn−1
+
+e− 12 ρ2 
+
+> j
+> Psi=1|(ν·ei)|2
+
+ρnj dν
+
+(2 π) s
+
+> 2
+
+R 
+
+> Sn−1
+
+f −1 
+
+> j
+
+hjdu .
+
+Our goal is to prove (4.31) 
+
+Z
+
+> Sn−1
+
+dS Vmix ,K j →
+
+Z
+
+> Sn−1
+
+dS Vmix ,K .
+
+According to Theorem 3.2, it is su ffi cient to demonstrate that Kj → K in the Hausdor ff metric to establish (4.31). Hence, the Blaschke Selection Theorem plays a crucial role, which means the next step is to obtain an R independent of j such that Kj ⊂ BR.We claim that (4.32) Mj := 1
+
+|μj| min  
+
+> uj∈Sn−1
+
+Z
+
+> Sn−1
+
+⟨uj, ˆu⟩+dμj(ˆ u) ≥ C0 > 0.
+
+Proceeding by contradiction, suppose that there exists a subsequence of Mj, denoted by Mj′ , con-verging to 0. In particular, for some uj′ ∈ Sn−1,(4.33) Mj′ := 1
+
+|μj′ | min   
+
+> uj′∈Sn−1
+
+Z
+
+> Sn−1
+
+⟨uj′ , ˆu⟩+dμj′ (ˆ u) → 0.
+
+Since Sn−1 is compact, there exists a subsequence uj′′ of uj′ such that uj′′ → u. Take 
+
+Mj′′ := 1
+
+|μj′′ | min   
+
+> uj′′ ∈Sn−1
+
+Z
+
+> Sn−1
+
+⟨uj′′ , ˆu⟩+dμj′′ (ˆ u).
+
+On the one hand, Mj′′ → 0 by assumption (4.33). On the other hand, since the support function is continuous on Sn−1, the condition uj′′ → u implies ⟨uj′′ , ˆu⟩+ → ⟨ u, ˆu⟩+ uniformly on Sn−1.Therefore, 
+
+Mj′′ → 1
+
+|μ| min 
+
+> u∈Sn−1
+
+Z
+
+> Sn−1
+
+⟨u, ˆu⟩+dμ(ˆ u) = 0which contradicts 1
+
+|μ| min 
+
+> u∈Sn−1
+
+Z
+
+> Sn−1
+
+⟨u, ˆu⟩+dμ(ˆ u) ≥ C0 > 0by (4.4). Finally, (4.3) and (4.32) yield that hK j has a uniform upper bound, that is 
+
+hK j ≤ r |μj|
+
+min u j∈Sn−1
+
+R 
+
+> Sn−1
+
+⟨uj, ˆu⟩+dμj(ˆ u) ≤ rC0
+
+.22 STEPHANIE MUI, LEI QIN, AND SINAN WANG 
+
+Next, we fix our attention to the lower bound of hK j . Proceed by contradiction and assume that there exists some u0 ∈ Sn−1 such that hK j (u0) → 0. Lemma 2.3 implies 
+
+Vmix (Kt) = Vmix (t) ≥ Vmix (0) = 12.
+
+Hence, if K∞ is a solution of the equation (4.30) with Kt → K∞, then Lemma 4.1 and Lemma 4.2 allows us to apply the dominated convergence theorem. So we have lim  
+
+> t→∞
+
+Vmix (Kt) = Vmix (K∞) ≥ 12.
+
+Thus by the assumption that the sequence of Kj are the solutions of the equation (4.30), we also have (4.34) Vmix (Kj) ≥ 12.
+
+On the other hand, by the assumption, we have for some u0 ∈ Sn−1,lim  
+
+> j→∞
+
+hK j (u0) = 0.
+
+Hence, for any ε > 0 small and su ffi ciently large j, hK j (u0) < ε . This means that (4.35) Kj ⊂ { y ∈ Rn; ⟨y, u0⟩ ≤ ε}.
+
+We also know that Kj ⊂ BR for some R > 0 from the known upper bound of hK j . Combining this with (4.35), we get (4.36) Kj ⊂ BR ∩ { y ∈ Rn : ⟨y, u0⟩ ≤ ε}.
+
+From Proposition 2.1 and the assumption that Kj ∈ K ne , we obtain for any ε > 0 small enough, 
+
+Vmix (Kj) = 2Vmix (K+ 
+
+> j
+
+) < Vmix (B+ 
+
+> R
+
+∩ { y ∈ Rn; ⟨y, u0⟩+ ≤ ε}) ≤ Vmix ({y ∈ Rn; ⟨y, u0⟩+ ≤ ε}) → 0,
+
+which is a contradiction to (4.34). 
+
+□
+
+Funding Declarations 
+
+The first named author is supported by NSF DMS grant 2402038. Acknowledgments 
+
+We would like to express our sincere gratitude to Professor Yong Huang for his guidance, sup-port, and useful advice. We would also like to thank Jinrong Hu for the helpful discussions. References 
+
+[1] A.D. Aleksandrov, On the theory of mixed volumes. III. Extension of two theorems of Minkowski on convex polyhedra to arbitrary convex bodies, Mat. Sb. (N.S.) 3 (1938) 27-46. [2] A.D. Aleksandrov, On the surface area measure of convex bodies, Mat. Sb. (N.S.) 6 (1939) 167-174. [3] K. B¨ or¨ oczky Jr. and P. Guan, Anisotropic flow, entropy, and Lp-Minkowski problem, Canad. J. Math. 77 (2025), no. 1, 1–20. [4] K. B¨ or¨ oczky Jr Lutwak, Erwin; Yang, Deane; Zhang, Gaoyong. The logarithmic Minkowski problem. J. Amer. Math. Soc. 26 (2013), no. 3, 831–852. [5] P. Bryan, M.N. Ivaki, J. Scheuer, Orlicz-Minkowski flows, Calc. Var. Partial Di ff erential Equations, 60(2021), 25pp. [6] T. Bonnesen, W. Fenchel, Theory of convex bodies, Berichtigter reprint, 1974. 23 
+
+[7] A. L. Besse, L. Arthur, Einstein manifolds, Ergebnisse der Mathematik und ihrer Grenzgebiete (3). Berlin, 1987. 510 pp. [8] D. Cordero-Erausquin, L. Rotem, Improved log-concavity for rotationally invariant measures of symmetric con-vex sets, Ann. Probab., 51(2023), 987-1003. [9] H.D. Chen, Q.R. Li, The Lp dual Minkowski problem and related parabolic flows, J. Funct. Anal., 281(2021), 65pp. [10] S.B. Chen, S.N. Hu, W.R. Liu, Y.M. Zhao, On the planar Gaussian-Minkowski problem. Adv. Math., 435 (2023), part A, Paper No. 109351, 32 pp. [11] K.S. Chou, X.J. Wang, A logarithmic Gauss curvature flow and the Minkowski problem, Ann. Inst. H. Poincare C Anal. Non Lineaire 17 (2000), 733-751. [12] K. S. Chou, X.J. Wang, The Lp-Minkowski problem and the Minkowski problem in centroa ffi ne geometry, Adv. Math. 205 (2006) 33-83. [13] M.L. Cheng, L. Tang, A curvature flow approach to the Lp chord Minkowski problem, Nonlinear Anal., 258(2025), 17pp. [14] S.W. Ding, G.H. Li, A type of anisotropic flows and dual Orlicz Christo ff el-Minkowski type equations, J. Di ff er-ential Equations, 445(2025), 34pp. [15] J. Fan, H.J. Ju, Y.N. Liu, Existence and uniqueness of solutions to the even Lp Gaussian dual Minkowski problem. J. Di ff erential Equations 464 (2026), Paper No. 114191, 23 pp. [16] A. Figalli, The Monge-Amp` ere equation and its applications, Zurich Lectures in Advanced Mathematics, Euro-pean Mathematical Society (EMS), Z¨ urich, 2017. [17] Y.B. Feng, Y.Y. Li, The prescribed Lp curvature problem in Gaussian probability space. Potential Anal. 64 (2026), no. 1, Paper No. 15, 17 pp. [18] Y.B.Feng, W.R.Liu, L. Xu, Existence of non-symmetric solutions to the Gaussian Minkowski problem, J. Geom. Anal., 33(2023), 39pp. [19] Y.B. Feng, S.N. Hu, L. Xu, On the Lp Gaussian Minkowski problem, J. Di ff erential Equations, 363 (2023), 350–390. [20] W. Fenchel, B. Jessen, Mengenfunktionen und konvexe K¨ orper, Danske Vid. Selsk. Mat.-Fys. Medd. 16 (1938) 1-31. [21] N. Fusco, F. Maggi, A. Pratelli, On the isoperimetric problem with respect to a mixed Euclidean-Gaussian den-sity, Journal of Functional Analysis, 12(2011), 3678-3717. [22] W.J. Firey, Shapes of worn stones, Mathematika, 21(1974), 1-11. [23] D. Gilbarg and N. S. Trudinger, Elliptic partial di ff erential equations of second order , second edition, Grundlehren der mathematischen Wissenschaften, 224, Springer, Berlin, 1983. [24] J.R. Hu, Uniqueness of solutions to the isotropic Lp Gaussian Minkowski problem. Nonlinear Anal. 261 (2025), Paper No. 113901, 8 pp. [25] J.R. Hu, The generalized Gaussian log-Minkowski problem. Proc. Amer. Math. Soc. 153 (2025), no. 5, 2127– 2137. [26] J.R. Hu, Y. Huang, J. Lu, S.N. Wang, The chord Gauss curvature flow and its Lp chord Minkowski problem, Acta Math. Sci. Ser. B (Engl. Ed.), 45(2025), 161-179. [27] Y. Huang, E. Lutwak, D. Yang, G. Zhang, Geometric measures in the dual Brunn-Minkowski theory and their associated Minkowski problems, Acta Math. 216 (2) (2016) 325-388. [28] Y. Huang, D. Yang, G. Zhang, Minkowski problems for geometric measures, Bull. Amer. Math. Soc. 62(3) (2025) 359-426. [29] Y. Huang, L. Qin, The Gaussian chord Minkowski problem. Discrete Contin. Dyn. Syst. Ser. S 17 (2024), no. 2, 930–944. [30] Y. Huang, D.M. Xi, Y.M. Zhao, The Minkowski problem in Gaussian probability space, Adv. Math., 385(2021) 36pp. [31] A. V. Kolesnikov and G. V. Livshyts, On the Gardner-Zvavitch conjecture: symmetry in inequalities of Brunn-Minkowski type, Adv. Math. 384 (2021), Paper No. 107689, 23 pp. [32] L. Kryvonos and D. Langharst, Weighted Minkowski’s existence theorem and projection bodies, Trans. Amer. Math. Soc. 376 (2023), no. 12, 8447–8493. [33] D. Hug, E. Lutwak, D. Yang, G. Zhang, On the Lp Minkowski problem for polytopes, Discrete Comput. Geom. 33 (2005) 699-715. 24 STEPHANIE MUI, LEI QIN, AND SINAN WANG 
+
+[34] N.V. Krylov, M.V. Safonov, A property of the solutions of parabolic equations with measurable coe ffi cients, Math. USSR Izv. 16(1981), 151-164. [35] E. Lutwak, The Brunn-Minkowski-Firey theory. I. Mixed volumes and the Minkowski problem, J. Di ff er. Geom. 38 (1993) 131-150. [36] G. Livshyts, A. Marsiglietti, P. Nayar, A. Zvavitch, On the Brunn-Minkowski inequality for general measures with applications to new isoperimetric-type inequalities, Trans. Amer. Math. Soc., 369(2017), 8725-8742. [37] H.Z. Li, B.T. Xu, R.J. Zhang, Asymptotic convergence for a class of anisotropic curvature flows, J. Funct. Anal., 282(2022), 34pp. [38] R. Latala, On some inequalities for Gaussian measures, in: Proceedings of the International Congress of Mathe-maticians, Vol. II, Beijing, 2002, Higher Ed. Press, Beijing, 2002, pp. 813-822. [39] Q.R. Li, W.M. Sheng, D.P. Ye, C.H. Yi, A flow approach to the Musielak-Orlicz-Gauss image problem, Adv. Math., 403(2022), 40pp. [40] Y.N. Liu, J. Lu, A flow method for the dual Orlicz-Minkowski problem, Trans. Amer. Math. Soc., 373(2020), 5833-5853. [41] Y.Y. Li, Degree theory for second order nonlinear elliptic operators and its applications, Comm. Partial Di ff eren-tial Equations. 14(1989), 1541-1578. [42] J.Q. Liu, The Lp-Gaussian Minkowski problem. Calc. Var. Partial Di ff erential Equations 61 (2022), no. 1, Paper No. 28, 23 pp. [43] H. Minkowski, Allgemeine Lehrs¨ atze uber die konvexen Polyeder, Nachr. Ges. Wiss, Gottingen, 1897, pp. 198-219. [44] H. Minkowski, Volumen und oberfl¨ ache, Math. Ann. (1903) 447-495. [45] A. Stancu, V.M. Wheeler, A curvature flow for radially symmetric hypersurfaces in Rn+1 by non-symmetric speed of their principal curvatures, J. Geom. Anal., 35(2025), 21pp. [46] R. Schneider, Convex Bodies: The Brunn-Minkowski Theory[J]. 1993.DOI:10.1017 /CBO9780511526282. [47] L.R. Shenton, Inequalities for the normal integral including a new continued fraction. Biometrika 41, 177-189 (1954) [48] K. Tso, Deforming a hypersurface by its Gauss-Kronecker curvature. Comm. Pure Appl. Math. 38 (1985), no. 6, 867–882. Department of Mathematics , G eorgia Institute of Technology , 686 C herry ST NW, A tlanta , GA 30332, USA 
+
+Email address , S. Mui: smui3@gatech.edu 
+
+School of Mathematics , H unan University , C hangsha , 410082, C hina 
+
+Email address , L. Qin: qlhnumath@hnu.edu.cn 
+
+School of Mathematics , H unan University , C hangsha , 410082, C hina 
+
+Email address , S.N. Wang: wangsinan@hnu.edu.cn

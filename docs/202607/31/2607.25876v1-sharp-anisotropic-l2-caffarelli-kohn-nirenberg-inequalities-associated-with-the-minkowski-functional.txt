@@ -1,0 +1,4726 @@
+Title: Sharp anisotropic L^2-Caffarelli-Kohn-Nirenberg inequalities associated with the Minkowski functional
+
+URL Source: https://arxiv.org/pdf/2607.25876v1
+
+Published Time: Wed, 29 Jul 2026 01:10:54 GMT
+
+Number of Pages: 39
+
+Markdown Content:
+# Sharp anisotropic L2-Caffarelli-Kohn-Nirenberg inequalities associated with the Minkowski functional 
+
+## Zhenzhen Wei 
+
+Department of Mathematics and Statistics Memorial University of Newfoundland St. John’s, Newfoundland and Labrador A1C 5S7, Canada 
+
+Abstract 
+
+Let K ⊂ RN be a convex body containing the origin in its interior, and let ∥ · ∥ K
+
+be its Minkowski functional. In this paper, we develop an identity-based framework for sharp anisotropic L2-Caffarelli-Kohn-Nirenberg inequalities associated with the anisotropic radial derivative 
+
+RK (u)( x) = x · ∇ u(x)
+
+∥x∥K
+
+, x ∈ RN \ { o}.
+
+A key point of the present work is that K is not assumed to be origin-symmetric. Consequently, the Minkowski functional ∥ · ∥ K need not be even, and the usual norm-based anisotropic arguments do not apply directly. The main tools are anisotropic L2-Hardy and L2-Caffarelli-Kohn-Nirenberg identities with explicit nonnegative remainders. These identities yield sharp anisotropic L2-Caffarelli-Kohn-Nirenberg inequalities whose best constants depend on the parameter region of ( a, b ) ∈ R2. We also study the attainability of the sharp constants in a natural completion space and obtain the corresponding extremal functions. As further consequences, we derive sharp anisotropic Heisenberg-type uncertainty principles and max-type anisotropic gradient inequalities. When K is the Euclidean unit ball, our results recover the classical Euclidean L2 theory; when K is origin-symmetric, they are consistent with the usual norm-based anisotropic framework. In particular, the present results extend the sharp L2-Caffarelli-Kohn-Nirenberg theory to general convex bodies containing the origin in their interiors, for which the Minkowski functional may be non-even. 
+
+Keywords: Caffarelli-Kohn-Nirenberg inequalities; Minkowski functional; anisotropic Hardy identities; anisotropic radial derivative; extremal functions; Heisenberg uncertainty principle. 
+
+2020 Mathematics Subject Classification: 46E35, 26D10, 35A23, 52A40. 
+
+Email address: zhenzhenw@mun.ca 1arXiv:2607.25876v1 [math.AP] 28 Jul 2026 1 Introduction 
+
+The Caffarelli-Kohn-Nirenberg (CKN) inequalities, introduced in [8], constitute a fundamental class of weighted interpolation inequalities in RN . They unify and extend several cornerstone results in analysis, including the Hardy, Sobolev, and Gagliardo-Nirenberg inequalities, and play a significant role in the study of elliptic and parabolic equations, the calculus of variations, and mathematical physics. A central theme in the study of functional and geometric inequalities is the development of a sharp theory, encompassing the determination of optimal constants, the characterization of extremal functions, symmetry properties, and stability. Classical milestones include Talenti’s sharp Sobolev inequality [55] and Lieb’s sharp Hardy-Littlewood-Sobolev inequality [48]; see also [19, 23, 53] for related developments in Sobolev, Gagliardo-Nirenberg, and weighted inequalities. Within the CKN setting, these issues become considerably more intricate due to the strong dependence of optimal constants and extremals on the parameters. Extensive work has been devoted to sharp constants, existence and structure of optimizers, and symmetry-breaking phenomena; see e.g., [9, 10, 11, 12, 18, 20, 28, 29, 30, 35, 39, 45, 58]. More recently, refined CKN inequalities and remainder terms have also been investigated; see [1, 13, 21, 24, 25, 26, 31, 32, 43, 44, 58]. In particular, identity-based approaches have revealed precise formulas with nonnegative remainder terms, linking Hardy-type identities to sharp CKN inequalities. Related methodologies include Hardy identities and the Bessel-pair framework; see [33, 34, 41, 42]. The modern study of stability in functional inequalities originates from a question of Brezis and Lieb [7] concerning the sharp Sobolev inequality in W 1,2(RN ): whether the deficit—defined as the difference between the Dirichlet energy and the optimal Sobolev constant times the critical L2∗
+
+-norm—can be quantitatively controlled by the squared distance to the manifold of optimizers. This question was resolved by Bianchi and Egnell [6], who established the stability estimate 
+
+Z
+
+> RN
+
+|∇ u|2 dx − SN
+
+Z 
+
+> RN
+
+|u| 2NN −2 dx 
+
+N −2
+
+> N
+
+≥ cBE inf  
+
+> U∈ESob
+
+Z
+
+> RN
+
+|∇ (u − U )|2 dx, 
+
+where SN is the optimal Sobolev constant, ESob denotes the manifold of extremal functions, and cBE > 0 is a universal constant. This result shows that the Sobolev deficit controls the distance to the set of optimizers in the natural energy norm and is sharp with respect to both the metric and scaling. However, determining explicit values or bounds for stability constants has remained a challenging problem. Significant progress has been made recently by Dolbeault, Esteban, Figalli, Frank, and Loss [27], who developed a systematic approach to the Bianchi-Egnell constant, obtained sharp lower bounds as N → ∞ , and established global stability for the Gaussian logarithmic Sobolev inequality via gradient flow techniques. More recently, Chen, Lu, and Tang [14, 15, 16] derived explicit lower bounds for stability constants in Hardy-Littlewood-Sobolev and higher-order fractional Sobolev inequalities, leading to global stability results for Beckner’s logarithmic Sobolev inequality on the sphere. In a related direction, [17] established 2optimal stability for the Sobolev inequality on the Heisenberg group using the CR Yamabe flow to upgrade local stability to a global result. In this paper, we focus on the L2-subclass of the CKN inequalities: For u ∈ C∞ 
+
+> c
+
+(RN \ { o})and ( a, b ) ∈ R2, there exists a constant C(N, a, b ) ≥ 0 independent of u, such that 
+
+C2(N, a, b )
+
+ Z 
+
+> RN
+
+u2
+
+|x|a+b+1 dx 
+
+2
+
+≤
+
+ Z 
+
+> RN
+
+u2
+
+|x|2a dx 
+
+ Z 
+
+> RN
+
+|∇ u|2
+
+|x|2b dx 
+
+
+
+. (1.1) Here |x| is the Euclidean norm in RN , ∇u represents the gradient of u, and C∞ 
+
+> c
+
+(RN \{ o}) denotes the space of smooth compactly supported functions on RN \ { o}. This subclass is particularly significant as it contains several classical inequalities as special cases. Specifically, the choice 
+
+a = −1, b = 0 yields the Heisenberg uncertainty principle, while a = 1, b = 0 gives Hardy’s inequality, and a = 0, b = 0 recovers the Hydrogen uncertainty principle. Thus, the L2-CKN inequalities provide a unified framework that connects these fundamental results in modern analysis. The study of sharp constants and extremizers for these inequalities has received significant attention. Costa [20] provided elementary, concise proofs for certain subclasses of L2-CKN inequalities (1.1) using integration by parts and expanding-the-square techniques. Building on this, Catrina and Costa [10] (see also [12]) determined the sharp constants and completely characterized the extremal functions over the full parameter range via variational methods, spherical harmonic decomposition, and Kelvin-type transforms. We now recall the results from [10, 12], as they provide the Euclidean benchmark for the anisotropic results proved in this paper. 
+
+Theorem A. Depending on the location of the point (a, b ) in the plane, the following cases arise: 1. In the region C , the optimal constant C(N, a, b ) in the L2-CKN inequalities (1.1) is 
+
+C(N, a, b ) = |N − (a + b + 1) |
+
+2 ,
+
+and it is attained by functions of the form 
+
+u(x) = D exp 
+
+ t|x| b+1 −a
+
+b + 1 − a
+
+
+
+,
+
+where D̸ = 0 , with t < 0 in C1 and t > 0 in C2.2. In the region D, the optimal constant in (1.1) is 
+
+C(N, a, b ) = |N − (3 b − a + 3) |
+
+2 ,
+
+and it is attained by functions of the form 
+
+u(x) = D|x|2( b+1) −N exp 
+
+ t|x| b+1 −a
+
+b + 1 − a
+
+
+
+,
+
+where D̸ = 0 , with t > 0 in D1 and t < 0 in D2.
+
+33. Moreover, the optimal constant in (1.1) fails to be attained only along the line a = b + 1 ,in which case 
+
+C(N, b + 1 , b ) = |N − 2( b + 1) |
+
+2 .
+
+Here, 
+
+C1 := (a, b ) ∈ R2 b + 1 − a > 0, b ≤ n−22 ,
+
+C2 := (a, b ) ∈ R2 b + 1 − a < 0, b ≥ n−22 ,
+
+C := C1 ∪ C2,
+
+D1 := (a, b ) ∈ R2 b + 1 − a < 0, b ≤ n−22 ,
+
+D2 := (a, b ) ∈ R2 b + 1 − a > 0, b ≥ n−22 ,
+
+D := D1 ∪ D2.
+
+The main purpose of this paper is to study an anisotropic radial counterpart of the weighted 
+
+L2-CKN inequality (1.1), in which the Euclidean norm |x| is replaced by the Minkowski functional ∥x∥K of a convex body K containing the origin in its interior (see Section 2 for details), and the Euclidean gradient term ∇u is replaced by the anisotropic radial derivative 
+
+RK (u)( x) = x·∇ u(x) 
+
+> ∥x∥K
+
+(see Section 2 for details). When K is the Euclidean unit ball, ∥x∥K = |x|
+
+and RK (u) reduces to the usual Euclidean radial derivative. When K is origin-symmetric, ∥ · ∥ K
+
+is even, and this framework is closely related to Finsler geometry and the Wulff shape; see e.g., [4]. Anisotropic functional inequalities have been studied extensively in Finsler and convex-geometric settings. Let N ≥ 2. In the norm-based Finsler framework, one usually works with a convex, even, positively one-homogeneous function H : RN → [0 , ∞), called a Finsler norm. Its polar function is defined by 
+
+H◦(x) = sup  
+
+> ξ̸=0
+
+x · ξH(ξ), x ∈ RN , ξ ∈ RN \ { o}.
+
+Equivalently, H◦ is the Minkowski functional of an origin-symmetric convex body. This is the standard anisotropic setting for many Sobolev, isoperimetric, Trudinger-Moser and Hardy type inequalities. For instance, one has the following anisotropic Sobolev-type inequality: for u ∈ C∞ 
+
+> c
+
+(RN ), 
+
+Z 
+
+> RN
+
+|u|p∗
+
+dx 
+
+ 1
+
+> p∗
+
+≤ C
+
+Z 
+
+> RN
+
+H(∇u)pdx 
+
+ 1
+
+> p
+
+, 1 < p < N, p∗ = N p N − p,
+
+where C > 0 is independent of u. Such inequalities and the related convex symmetrization method were developed in [2, 57]. Sharp stability results for anisotropic Sobolev and log-Sobolev inequalities were obtained by Figalli, Maggi and Pratelli [38]; see also [5] for recent developments involving anisotropic symmetrization, convex bodies and isoperimetric inequalities. Related anisotropic Sobolev-space characterizations were studied by Lam, Maalaoui and Pinamonti [46]. 4The anisotropic perimeter associated with H is given, for a smooth set E ⊂ RN , by 
+
+PH (E) = 
+
+Z
+
+> ∂E
+
+H(νE )dH N −1,
+
+where νE is the outer unit normal to ∂E and H N −1 denotes the ( N − 1)-dimensional Hausdorff measure. The corresponding anisotropic isoperimetric inequality states that 
+
+PH (E) ≥ N κ 1 
+
+> N
+> N
+
+|E|N −1 
+
+> N
+
+,
+
+where κN = {x ∈ RN : H◦(x) ≤ 1} is the volume of the unit Wulff shape associated with H,and equality is attained by Wulff shapes; see e.g., [37, 38, 40, 56]. Related convex-geometric variational ideas have also appeared recently in nonlinear potential theory; see, for instance, [49]. Anisotropic critical exponential inequalities have also been investigated. Lu, Shen, Xue and Zhu [50] established weighted anisotropic isoperimetric inequalities and used them to prove the existence of extremals for singular anisotropic Trudinger-Moser inequalities in the Finsler setting. More precisely, using the notation above, for a bounded domain D ⊂ RN containing the origin in its interior and for 0 < β < N , one has the following singular anisotropic Trudinger-Moser inequality: sup     
+
+> u∈W1,N
+> 0(D),R
+> DH(∇u)Ndx ≤1
+
+Z
+
+> D
+
+exp 
+
+
+
+λN,β |u| NN −1
+
+
+
+H◦(x)−β dx < ∞,
+
+where W 1,N  
+
+> 0
+
+(D) is the usual Sobolev space with zero boundary trace, β is the singular weight parameter, and λN,β is the corresponding critical constant. Anisotropic Hardy inequalities can be viewed as special cases of anisotropic CKN-type inequalities, and sharp anisotropic Hardy inequalities have also been studied in several Finsler and convex-geometric settings. Della Pietra, di Blasio and Gavitone [22] studied Hardy-type inequalities involving a smooth Finsler norm and the anisotropic distance to the boundary. More precisely, let Ω ⊂ RN be a domain with nonempty boundary, the anisotropic distance from x ∈ Ω to the boundary is defined by dH (x) = inf y∈∂Ω H◦(x − y), and they considered the sharp anisotropic Hardy inequalities associated with H and dH :
+
+Z
+
+> Ω
+
+H(∇u)2dx ≥ CH (Ω) 
+
+Z
+
+> Ω
+
+u2
+
+d2
+
+> H
+
+dx, u ∈ H10 (Ω) ,
+
+where CH (Ω) > 0 denotes the best constant depending on H and Ω. Mercaldo, Sano and Takahashi [51] developed a unified approach to Finsler Hardy inequalities involving the Finsler distance from a point or from the boundary, including the sharp constants and non-attainability. In particular, if p ≥ 1, p̸ = N , and Ω ⊂ RN is a domain containing the origin, then the following Finsler Hardy inequality associated with H◦
+
+N − pp 
+
+> p
+
+Z
+
+> Ω
+
+|u|p
+
+H◦(x)p dx ≤
+
+Z
+
+> Ω
+
+xH◦(x) · ∇ u(x)
+
+> p
+
+dx 
+
+5holds for u ∈ C∞ 
+
+> c
+
+(Ω) if 1 ≤ p < N , and for u ∈ C∞ 
+
+> c
+
+(Ω \ { o}) if p > N .Anisotropic CKN-type inequalities have also been studied in several directions. Li and Yan [47] established the anisotropic weighted CKN inequalities with the coordinate-splitting weights involving both |x| and |x′|, where x = ( x′, x N ) and x′ = ( x1, . . . , x N −1). Bao and Chen [3] further investigated the Li-Yan anisotropic CKN-type inequalities in the case δ = 1 and 
+
+p = 2, including the existence of extremal functions, symmetry-breaking regions, and symmetry properties of the extremal functions. Shen [54] studied the sharp anisotropic CKN inequalities and weighted anisotropic Hardy-Sobolev type inequalities in the Finsler norm setting, including the sharp constants, existence results, and explicit forms of extremal functions. Convex symmetrization and anisotropic rearrangement are important tools in this anisotropic framework. The convex symmetrization associated with convex bodies and the corresponding P´ olya-Szeg¨ o principle were developed in [2, 36, 57]; see also [5, 52] for related developments on affine P´ olya-Szeg¨ o inequalities, anisotropic symmetrization, convex bodies and isoperimetric inequalities. These rearrangement and comparison tools will be used below to derive the max-type anisotropic gradient inequalities from the radial derivative inequalities. To the best of our knowledge, the existing norm-based anisotropic CKN-type inequalities in the convex body or Finsler setting are usually formulated under an origin-symmetry or norm assumption. This motivates us to study the anisotropic L2-CKN identities and inequalities associated with the Minkowski functional of a convex body containing the origin in its interior, and the Minkowski functional need not be even. There are two main difficulties to overcome. The first one comes from the lack of origin-symmetry of K. If K is not origin-symmetric, then the Minkowski functional ∥ · ∥ K is generally not even. Hence, the symmetric Cauchy-Schwarz inequality |x · y| ≤ ∥ x∥K · ∥ y∥K∗ is no longer available in this form. Instead, one only has the one-sided anisotropic cases: x · y ≤ ∥ x∥K · ∥ y∥K∗
+
+and −x·y ≤ ∥ x∥K ·∥− y∥K∗ . Thus the gradient formulation has to distinguish the two directions 
+
+∇u and −∇ u. Consequently, one cannot directly obtain a sharp anisotropic CKN inequality with the gradient term by the Cauchy-Schwarz inequality as in the usual norm-based formulation. This is why the anisotropic radial derivative 
+
+RK (u)( x) = x · ∇ u(x)
+
+∥x∥K
+
+is the natural object for the sharp anisotropic CKN inequality. The second one is related to the weighted L2-CKN inequalities. The sharp constants depend on the position of ( a, b ) ∈ R2.Hence, one has to choose the appropriate anisotropic identity in each parameter region and then study the attainability of the sharp constants in a natural completion space. Our method combines three ingredients: the anisotropic Hardy and CKN identities involving 
+
+RK (u), the anisotropic Cauchy-Schwarz inequality, and the anisotropic symmetrization. The identities identify the relevant constants and the corresponding equality equations; the sharpness of the constants is then obtained by analyzing the associated extremal functions in anatural completion space. The anisotropic Cauchy-Schwarz inequality and the anisotropic symmetrization are used to derive the anisotropic gradient inequalities from the anisotropic radial-derivative inequalities. 6With this strategy, we obtain three main results. The first one consists of two identities associated with the Minkowski functional. More precisely, let K ⊂ RN be a convex body containing the origin in its interior, 0 < R ≤ ∞, σK (x) = x 
+
+> ∥x∥K
+
+for x ∈ RN \ { o},
+
+BKR := {x ∈ RN : ∥x∥K < R } and A, B, H ∈ C1(0 , R ) with H = AB . One has the following Hardy-type identity for u ∈ C∞ 
+
+> c
+
+(BKR \{ o}), 
+
+Z
+
+> BKR
+
+A2 RK (u) 2dx =
+
+Z
+
+> BKR
+
+h
+
+div  σK (x)H(∥x∥K ) − B2
+
+i
+
+u2dx +
+
+Z
+
+> BKR
+
+ARK (u) + Bu 2dx, 
+
+and the following CKN-type identity for u ∈ C∞ 
+
+> c
+
+(BKR \{ o})\{ 0},
+
+ Z 
+
+> BKR
+
+ARK (u) 2dx 
+
+12  Z 
+
+> BKR
+
+B2u2dx 
+
+12
+
+= 12
+
+Z
+
+> BKR
+
+div 
+
+
+
+H(∥x∥K )σK (x)
+
+
+
+u2dx 
+
++ 12
+
+Z
+
+> BKR
+
+∥Bu ∥12 ARK (u)
+
+∥ARK (u)∥12
+
++ ∥ARK (u)∥12 Bu 
+
+∥Bu ∥12
+
+> 2
+
+dx. 
+
+These two identities reduce to the classical Euclidean identities when K is the Euclidean unit ball. Suitable choices of A and B yield the anisotropic Hardy identities, the anisotropic Heisenberg identity, and the weighted anisotropic L2-CKN identities used later to determine the sharp constants. The second one concerns the sharp anisotropic Heisenberg uncertainty principle. Let C = W 1,2(RN ) ∩ u : R 
+
+> RN
+
+∥x∥2 
+
+> K
+
+u2dx < ∞ , where W 1,2(RN ) is the usual Sobolev space. Using the Hardy-type and CKN-type identities together with anisotropic symmetrization, one has, for every u ∈ C ,
+
+Z
+
+> RN
+
+∥ − ∇ u∥2 
+
+> K∗
+
+dx +
+
+Z
+
+> RN
+
+∥x∥2 
+
+> K
+
+u2dx ≥ N
+
+Z
+
+> RN
+
+u2dx 
+
+and  Z 
+
+> RN
+
+∥ − ∇ u∥2 
+
+> K∗
+
+dx 
+
+12  Z 
+
+> RN
+
+∥x∥2 
+
+> K
+
+u2dx 
+
+12
+
+≥ N
+
+2
+
+Z
+
+> RN
+
+u2dx. 
+
+Both constants are sharp, and the optimizers are Gaussian-type functions generated by ∥x∥K .The third one gives the following sharp anisotropic L2-CKN inequalities: for a, b ∈ R,
+
+u ∈ C∞ 
+
+> c
+
+(RN \ { o})
+
+ Z 
+
+> RN
+
+|RK (u)|2
+
+∥x∥2bK
+
+dx 
+
+12  Z 
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx 
+
+12
+
+≥ eC(N, a, b )
+
+Z
+
+> RN
+
+u2
+
+∥x∥a+b+1 
+
+> K
+
+dx, (1.2) where eC(N, a, b ) is the sharp constant and depends on the position of ( a, b ) ∈ R2. In the corresponding regions of ( a, b ), the sharp constant is given by 
+
+eC(N, a, b ) = N − a − b − 12 or eC(N, a, b ) = N − 3b + a − 32 .
+
+7We also characterize the optimizers for (1.2) in the completion space CK,a,b , the completion of 
+
+C∞ 
+
+> c
+
+(RN \ { o}) under the norm 
+
+∥u∥CK,a,b =
+
+ Z 
+
+> RN
+
+|RK (u)|2
+
+∥x∥2bK
+
+dx +
+
+Z
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx 
+
+12
+
+.
+
+When K is the Euclidean unit ball, our results recover the classical Euclidean L2 identities and inequalities; when K is origin-symmetric, they are consistent with the usual norm-based anisotropic framework, while the present formulation also applies to general convex bodies containing the origin in their interiors, for which the Minkowski functional need not be even. The paper is organized as follows. In Section 2, we collect basic facts about convex bodies, polar bodies, Minkowski functionals, anisotropic radial derivatives, and anisotropic symmetrization. In Section 3, we establish anisotropic L2-Hardy and L2-CKN identities associated with the Minkowski functional. In Section 4, we combine these identities with anisotropic symmetrization to prove sharp anisotropic Heisenberg-type inequalities and exhibit Gaussian-type optimizers. In Section 5, we establish sharp anisotropic L2-CKN inequalities, determine their sharp constants in the relevant parameter regions, and characterize their extremal functions in the associated completion spaces. As direct consequences, we derive sharp radial Heisenberg-type inequalities and the corresponding max-type anisotropic gradient inequalities. 
+
+# 2 Preliminaries 
+
+Let N ≥ 2 be a positive integer. Denote by RN the N -dimensional Euclidean space. Let 
+
+BN 
+
+> 2
+
+= {x ∈ RN : |x| ≤ 1} and SN −1 = {x ∈ RN : |x| = 1 }
+
+be the origin-centered unit ball and unit sphere in RN , respectively, where |x| = √x · x is the Euclidean norm of x ∈ RN . We use x · y to represent the inner product of x, y ∈ RN .Let Ω be an open domain in RN , and let 
+
+C∞(Ω) = u : Ω → R : u has continuous derivatives of all orders on Ω .
+
+That is, for u ∈ C∞(Ω) and ν = ( ν1, ν 2, . . . , ν N ) with each νi being a nonnegative integer, 
+
+Dν u = ∂ν1+ν2+··· +νN u∂x ν1 
+
+> 1
+
+∂x ν2 
+
+> 2
+
+· · · ∂x νN
+
+> N
+
+exists and is continuous on Ω. Let 
+
+C∞ 
+
+> c
+
+(Ω) = u : u ∈ C∞(Ω) such that the support of u is a compact subset of Ω .
+
+8Let p ≥ 1. Denote by Lp(RN ) the space of real-valued functions on RN with finite Lp norms. Here, the Lp norm for u ∈ Lp(RN ) is defined by 
+
+∥u∥p =
+
+ Z 
+
+> RN
+
+|u(x)|pdx 
+
+ 1
+
+> p
+
+.
+
+For simplicity, let ∥·∥ := ∥·∥ 2. Denote by W 1,p (RN ) the (first-order) Lp-Sobolev space, meaning that, if u ∈ W 1,p (RN ), then u ∈ Lp(RN ) and its weak first-order derivative ∇u satisfies that 
+
+∥∇ u∥p =
+
+ Z 
+
+> RN
+
+|∇ u(x)|pdx 
+
+ 1
+
+> p
+
+< ∞
+
+where ∇u = ( ∂1u, . . . , ∂ N u) denotes the (weak) gradient of u. Hereafter, ∂iu, for i = 1 , . . . , N ,denotes the weak first-order partial derivative of u, which can be formulated by 
+
+Z
+
+> RN
+
+u∂ iφdx = −
+
+Z
+
+> RN
+
+φ∂ iudx for any φ ∈ C∞ 
+
+> c
+
+(RN ).
+
+By a convex body, we mean a set K ⊂ RN such that it is compact, has non-empty interior, and satisfies (1 − λ)y + λx ∈ K for every x, y ∈ K and λ ∈ [0 , 1] . Let K denote the class of all convex bodies in RN , K(o) the class of convex bodies containing the origin o in their interiors, and K c 
+
+> (o)
+
+the subclass of K(o) consisting of convex bodies that are origin-symmetric. For K ∈ K , define its support function hK : RN → R by 
+
+hK (x) = max y · x : y ∈ K for x ∈ RN .
+
+If ξ ∈ SN −1 and y ∈ ∂K such that hK (ξ) = ξ · y, then we say ξ is an outer unit normal vector of ∂K at y. Note that it can happen at some y ∈ ∂K , its outer unit normal vectors may not be unique. A convex body is said to be smooth if each boundary point y ∈ ∂K has unique outer normal vector. Clearly, hK (rx ) = rh K (x) for x ∈ RN and r ≥ 0. A compact convex subset in 
+
+RN is uniquely determined by its support function. Let K ∈ K(o). Define its radial function ρK : RN \ { o} → (0 , ∞) by 
+
+ρK (x) = max {λ ≥ 0 : λx ∈ K} for x ∈ RN \ { o}.
+
+Clearly, ρK (rx ) = r−1ρK (x) for x ∈ RN \ { o} and r > 0. The polar body K∗ of K ∈ K(o) is defined by 
+
+K∗ = x ∈ RN : x · y ≤ 1 for y ∈ K .
+
+It can be checked that ( K∗)∗ = K for each K ∈ K(o) and 
+
+ρK (x)hK∗ (x) = hK (x)ρK∗ (x) = 1 for any x ∈ RN \ { o}.
+
+Define ∥ · ∥ K , the Minkowski functional of K ∈ K(o), by 
+
+∥x∥K = inf λ ≥ 0 : x ∈ λK ,
+
+9where λK = λx : x ∈ K and λ ≥ 0. It is clear that, for K ∈ K(o) and for x ∈ RN ,
+
+∥x∥K∗ = hK (x) and ∥x∥K = hK∗ (x). (2.3) A function u : RN → R is said to be radially symmetric with respect to K ∈ K(o), if there exists a function, still denoted by u, such that u(x) = u(∥x∥K ) for any x ∈ RN . By ∂K we mean the boundary of K. Then, for K ∈ K(o), one has 
+
+K = x ∈ RN : ∥x∥K ≤ 1 and x
+
+∥x∥K
+
+∈ ∂K for x̸ = o. 
+
+Note that ∂K = {x ∈ RN : ∥x∥K = 1 }. Let L : (0 , ∞) × ∂K → RN \ { o} be the map given by 
+
+L (r, σ K (x)) = rσ K (x), where 
+
+r = ∥x∥K and σK (x) = x
+
+∥x∥K
+
+.
+
+Note that x = rσ K (x) and ∥σK (x)∥K = 1, due to the positive homogeneity of ∥ · ∥ K . Moreover, 
+
+∂x ∂r = σK (x) = x
+
+∥x∥K
+
+and ∂u ∂r =
+
+> N
+
+X
+
+> i=1
+
+∂u ∂x i
+
+∂x i
+
+∂r = ∇u · x
+
+∥x∥K
+
+= ∇u · σK (x),
+
+for u whose (weak) gradient ∇u exists. Let dμ K be the finite Borel measure on ∂K induced by the anisotropic polar formula 
+
+Z
+
+> RN
+
+u(x)dx =
+
+Z ∞
+
+> 0
+
+Z
+
+> ∂K
+
+u(rσ )rN −1dμ K (σ)dr 
+
+for every non-negative measurable function u. Denote by Lp(∂K, dμ K ) the corresponding Lp
+
+space on ∂K . The formula RK (u) = ∇u · σK (x) defines the anisotropic radial derivative of 
+
+u with respect to K ∈ K(o). On the other hand, for each x, y ∈ RN , one has σK (x) ∈ ∂K 
+
+and σK∗ (y) ∈ ∂K ∗. This further gives σK (x) · σK∗ (y) ≤ 1 and hence, the following anisotropic Cauchy-Schwarz inequality: for any x, y ∈ RN and K ∈ K(o),
+
+−∥ x∥K · ∥ − y∥K∗ ≤ x · y ≤ ∥ x∥K · ∥ y∥K∗ . (2.4) When K ∈ K c
+
+> (o)
+
+, i.e., K is an origin-symmetric convex body in RN , ∥x∥K is a norm induced, and hence, it holds that 
+
+|x · y| ≤ ∥ x∥K · ∥ y∥K∗ .
+
+We say that K ∈ K(o) is strictly convex if ∂K does not contain a line segment. Assume that 
+
+K ∈ K(o) is smooth and strictly convex. Then, K∗ is also smooth and strictly convex. By (2.3), one gets that ∇∥ x∥K = ∇hK∗ (x) is the unique point y ∈ ∂K ∗ such that, for any x̸ = o,
+
+x · y = ∥x∥K = x · ∇∥ x∥K and ∇∥ x∥K K∗ = 1 . (2.5) 10 Let K ss  
+
+> (o)
+
+⊂ K(o) be the set of convex bodies which are smooth and strictly convex. We next recall the anisotropic symmetrization associated with the convex body K. This symmetrization will be used in Section 4. The construction below is the convex symmetrization with respect to K (see [57]). For a measurable set E ⊂ RN with 0 < |E| < ∞, let |E| stand for Lebesgue measure of E,we can define K-symmetral of E by 
+
+EK := rE K, rE := 
+
+ |E||K|
+
+ 1
+
+> N
+
+.
+
+Equivalently, up to a set of Lebesgue measure zero, 
+
+EK = {x ∈ RN : ∥x∥K < r E }.
+
+Clearly, |EK | = |E|. Given a function u ∈ W 1,p (RN ), define its distribution function by 
+
+μu(t) := {x ∈ RN : |u(x)| > t } , t > 0,
+
+and its decreasing rearrangement by 
+
+u∗(s) := inf {t > 0 : μu(t) ≤ s}, s ∈  0, |supp u|,
+
+where supp u refers to the support of u. We define the rearrangement of u associated with K by 
+
+uK (x) := u∗ |K| · ∥ x∥NK
+
+, x ∈ RN .
+
+The following elementary properties follow directly from the definition of uK and will be used repeatedly below. 
+
+Proposition 2.1. Let K ∈ K(o), and let u be a measurable function on RN such that μu(t) < ∞
+
+for t > 0. Then the following properties hold. (i) |u| and uK are equimeasurable, i.e., {x ∈ RN : |u(x)| > t } = {x ∈ RN : uK (x) > t } for 
+
+t > 0.
+
+(ii) For t > 0, {x ∈ RN : uK (x) > t } = {x ∈ RN : |u(x)| > t }K , up to a set of Lebesgue measure zero. (iii) For p > 0, (|u|p)K = ( uK )p a.e. in RN .
+
+(iv) If E ⊂ RN is measurable and 0 < |E| < ∞, then (χE )K = χEK a.e. in RN .
+
+If, in addition, K is origin-symmetric, then ∥ · ∥ K is even and the above construction reduces to the usual convex symmetrization associated with K; see [2, 36]. We use the following anisotropic P´ olya-Szeg¨ o principle for convex rearrangements. 11 Lemma 2.1 ([36]) . Let p ∈ (1 , ∞), K ∈ K(o), and u ∈ W 1,p (RN ). Then 
+
+Z
+
+> RN
+
+∥ − ∇ u(x)∥pK∗ dx ≥
+
+Z
+
+> RN
+
+∥ − ∇ uK (x)∥pK∗ dx. (2.6) 
+
+Moreover, if u ≥ 0 and x : |∇ uK (x)| = 0 ∩ x : 0 < u K (x) < ess sup u = 0 , then the equality holds in (2.6) if and only if there exists x0 ∈ RN such that 
+
+u(x) = uK (x + x0) a.e. on RN .
+
+The following weighted anisotropic Hardy-Littlewood inequality is a straightforward consequence of the anisotropic Hardy-Littlewood inequality for convex symmetrization; see e.g., Van Schaftingen [57]. Since we need this weighted form later, we record it here and provide a proof for completeness. 
+
+Proposition 2.2. Let p > 0, K ∈ K(o), and u be a non-negative measurable function on RN .(i) If ω : [0 , ∞) → [0 , ∞) is non-increasing, then 
+
+Z
+
+> RN
+
+u(x)pω ∥x∥K
+
+dx ≤
+
+Z
+
+> RN
+
+ uK (x)pω ∥x∥K
+
+dx. (2.7) 
+
+If ω is strictly decreasing and the equality holds in (2.7) , then u = uK a.e. on RN .(ii) If v : [0 , ∞) → [0 , ∞) is non-decreasing, then 
+
+Z
+
+> RN
+
+u(x)pv ∥x∥K
+
+dx ≥
+
+Z
+
+> RN
+
+ uK (x)pv ∥x∥K
+
+dx. (2.8) 
+
+If v is strictly increasing and the equality holds in (2.8) , then u = uK a.e. on RN .Proof. (i) We start from the anisotropic Hardy-Littlewood inequality for convex symmetrization (see [57]): for any nonnegative measurable functions f and g on RN ,
+
+Z
+
+> RN
+
+f (x)g(x)dx ≤
+
+Z
+
+> RN
+
+f K (x)gK (x)dx. (2.9) For r > 0, let BKr := x ∈ RN : ∥x∥K < r , then  χBKr
+
+K = χBKr .
+
+Taking f = up and g = χBKr in (2.9), then the anisotropic Hardy-Littlewood inequality (2.9) gives 
+
+Z
+
+> BKr
+
+u(x)pdx ≤
+
+Z
+
+> BKr
+
+ u(x)pK dx =
+
+Z
+
+> BKr
+
+ uK (x)pdx (2.10) for r > 0. Indeed, for s > 0, one has uK > s = u > s K (see [57]). Then 
+
+  upK > s = up > s K = u > s 1  
+
+> pK
+
+= uK > s 1 
+
+> p
+
+=   uK p > s ,
+
+12 and hence,  upK =  uK p a.e. in RN .
+
+For t > 0, let r(t) = sup {r ≥ 0 : ω(r) > t }, with the convention that r(t) = 0 if the set is empty. As ω is non-increasing, one has 
+
+{x ∈ RN : ω(∥x∥K ) > t } = {x ∈ RN : ∥x∥K < r (t)} = BKr(t)
+
+up to a null set. By the layer-cake representation, one has 
+
+ω ∥x∥K
+
+ =
+
+Z ∞
+
+> 0
+
+χy∈RN :ω(∥y∥K )>t (x)dt =
+
+Z ∞
+
+> 0
+
+χBKr(t) (x)dt. (2.11) Therefore, by (2.10), (2.11) and Tonelli’s theorem, 
+
+Z
+
+> RN
+
+u(x)pω ∥x∥K
+
+dx =
+
+Z
+
+> RN
+
+u(x)p
+
+ Z ∞
+
+> 0
+
+χBKr(t) (x)dt 
+
+
+
+dx 
+
+=
+
+Z ∞
+
+> 0
+
+ Z 
+
+> BKr(t)
+
+u(x)pdx 
+
+
+
+dt 
+
+≤
+
+Z ∞
+
+> 0
+
+ Z 
+
+> BKr(t)
+
+ uK (x)pdx 
+
+
+
+dt 
+
+=
+
+Z
+
+> RN
+
+ uK (x)p
+
+ Z ∞
+
+> 0
+
+χBKr(t) (x)dt 
+
+
+
+dx 
+
+=
+
+Z
+
+> RN
+
+ uK (x)pω ∥x∥K
+
+dx. 
+
+This proves (2.7). Now we prove the equality case. Let K ∈ K(o), and let E ⊂ RN be measurable with |E| < ∞.Let ω : [0 , ∞) → [0 , ∞) be strictly decreasing. If 
+
+Z
+
+> E
+
+ω(∥x∥K )dx =
+
+Z
+
+> EK
+
+ω(∥x∥K )dx, (2.12) then E = EK a.e. in RN . Indeed, since |E| = |EK |, one has |E \ EK | = |EK \ E|. Hence, 
+
+Z
+
+> EK
+
+ω(∥x∥K )dx −
+
+Z
+
+> E
+
+ω(∥x∥K )dx =
+
+Z 
+
+> EK\E
+
+ω(∥x∥K )dx −
+
+Z
+
+> E\EK
+
+ω(∥x∥K )dx 
+
+=
+
+Z 
+
+> EK\E
+
+ ω(∥x∥K ) − ω(R)dx +
+
+Z
+
+> E\EK
+
+ ω(R) − ω(∥x∥K )dx. 
+
+Now, if x ∈ EK \ E, hence ∥x∥K < R and then ω(∥x∥K ) − ω(R) > 0. If x ∈ E \ EK , hence 
+
+∥x∥K ≥ R and thus ω(R) − ω(∥x∥K ) ≥ 0. Therefore, if 
+
+Z
+
+> E
+
+ω(∥x∥K )dx =
+
+Z
+
+> EK
+
+ω(∥x∥K )dx, 
+
+13 then both nonnegative integrals above must vanish. It follows that 
+
+Z 
+
+> EK\E
+
+ ω(∥x∥K ) − ω(R)dx = 0 implies |EK \ E| = 0. On the other hand, for x ∈ E \ EK , one has ω(R) − ω(∥x∥K ) ≥ 0, with strict inequality whenever ∥x∥K > R , i.e., for x ∈ (E \ EK ) \ ∂E K . Hence, one has 
+
+Z
+
+> E\EK
+
+ ω(R) − ω(∥x∥K )dx = 0 implies |(E \ EK ) \ ∂E K | = 0. Since ∂E K has Lebesgue measure zero, it follows that 
+
+|E \ EK | = 0. Since E∆EK := ( E \ EK ) ∪ (EK \ E) and ( E \ EK ) ∩ (EK \ E) = ∅, we have |E∆EK | = |E \ EK | + |EK \ E| = 0 . Therefore, E = EK a.e. in RN .
+
+Now we continue the proof of the equality case. Assume that ω is strictly decreasing and that equality holds in (2.7). For each t > 0, let Ft := {x ∈ RN : u(x) > t } and 
+
+F Kt := {x ∈ RN : uK (x) > t }. Then the layer-cake representation yields 
+
+Z
+
+> RN
+
+u(x)pω(∥x∥K )dx = p
+
+Z ∞
+
+> 0
+
+tp−1
+
+ Z 
+
+> Ft
+
+ω(∥x∥K )dx 
+
+
+
+dt, 
+
+Z
+
+> RN
+
+ uK (x)pω(∥x∥K )dx = p
+
+Z ∞
+
+> 0
+
+tp−1
+
+ Z  
+
+> FKt
+
+ω(∥x∥K )dx 
+
+
+
+dt. 
+
+Hence, the equality in (2.7) implies 
+
+Z
+
+> Ft
+
+ω(∥x∥K )dx =
+
+Z 
+
+> FKt
+
+ω(∥x∥K )dx for a.e. t > 0.
+
+By (2.12), one obtains Ft = F Kt a.e. in RN for a.e. t > 0. Equivalently, χFt (x) = χF Kt (x) and a.e. x ∈ RN and a.e. t > 0. Using the layer-cake representation, one has 
+
+u(x) = 
+
+Z ∞
+
+> 0
+
+χFt (x)dt and uK (x) = 
+
+Z ∞
+
+> 0
+
+χF Kt (x)dt. 
+
+Therefore, u(x) = uK (x) for a.e. x ∈ RN .
+
+(ii ) Let v : [0 , ∞) → [0 , ∞) be non-decreasing. For m > 0, let vm(r) = min v(r), m and 
+
+wm(r) = m − vm(r). Then vm ≥ 0, wm ≥ 0, and wm is non-increasing because vm is non-decreasing. Applying part ( i) to the non-increasing weight wm, then 
+
+Z
+
+> RN
+
+u(x)pwm
+
+ ∥x∥K
+
+dx ≤
+
+Z
+
+> RN
+
+ uK (x)pwm
+
+ ∥x∥K
+
+dx. 
+
+Since u and uK are equimeasurable, i.e., {x ∈ RN : u(x) > t } = {x ∈ RN : uK (x) > t } for 
+
+t > 0, in particular, Z
+
+> RN
+
+u(x)pdx =
+
+Z
+
+> RN
+
+ uK (x)pdx, 
+
+14 thus, Z
+
+> RN
+
+u(x)p
+
+
+
+m − vm
+
+ ∥x∥K
+
+
+
+dx ≤
+
+Z
+
+> RN
+
+ uK (x)p
+
+m − vm
+
+ ∥x∥K
+
+
+
+dx 
+
+implies 
+
+Z
+
+> RN
+
+u(x)pvm
+
+ ∥x∥K
+
+dx ≥
+
+Z
+
+> RN
+
+ uK (x)pvm
+
+ ∥x∥K
+
+dx. (2.13) For each fixed r ≥ 0, the sequence {vm(r)}∞ 
+
+> m=1
+
+is non-decreasing and converges to v(r) as 
+
+m → ∞ . Therefore, using the monotone convergence theorem for (2.13), one gets 
+
+Z
+
+> RN
+
+u(x)pv ∥x∥K
+
+dx ≥
+
+Z
+
+> RN
+
+ uK (x)pv ∥x∥K
+
+dx. 
+
+This proves (2.8). The equality statement in ( ii ) follows by applying the equality statement in ( i) to the strictly decreasing weights m − vm and then letting m → ∞ . We omit no essential details, as the argument is identical to the one above. 
+
+# 3 Anisotropic L2-Hardy and L2-CKN identities on RN
+
+In this section, we will study the anisotropic L2-Hardy and L2-CKN identities with respect to the Minkowski functional ∥x∥K for K ∈ K ss  
+
+> (o)
+
+.For 0 < R ≤ ∞ , let BKR := {x ∈ RN : ∥x∥K < R }. Let u ∈ C∞ 
+
+> c
+
+(BKR \ { o}) and H ∈ C1(0 , R ), where C1(0 , R ) denotes the space of functions whose first derivative exists and is continuous on (0 , R ). Assume H = AB with A, B ∈ C1(0 , R ). Then, for α > 0, one has 
+
+−
+
+Z
+
+> BKR
+
+div  H(∥x∥K )σK (x)u2dx =
+
+Z
+
+> BKR
+
+H(∥x∥K )σK (x) · 2u∇udx = 2 
+
+Z
+
+> BKR
+
+ αAσ K (x) · ∇ u · Bu α dx 
+
+= −α2
+
+Z
+
+> BKR
+
+A2 σK (x) · ∇ u 2dx − 1
+
+α2
+
+Z
+
+> BKR
+
+B2|u|2dx +
+
+Z
+
+> BKR
+
+αAσ K (x) · ∇ u + Bu α
+
+> 2
+
+dx. 
+
+Using the notation of the anisotropic radial derivative RK (u), one can rearrange the above identity as follows. 
+
+α2
+
+Z
+
+> BKR
+
+A2 RK(u) 2dx + 1
+
+α2
+
+Z
+
+> BKR
+
+B2u2dx =
+
+Z
+
+> BKR
+
+div  σK (x)H(∥x∥K )u2dx +
+
+Z
+
+> BKR
+
+αA RK (u)+ Bu α
+
+> 2
+
+dx. (3.14) When K = BN 
+
+> 2
+
+, identity (3.14) reduces to the Euclidean case [13]. 15 3.1 Anisotropic L2-Hardy identities on RN
+
+Taking α = 1 in (3.14), one gets the following basic anisotropic L2-Hardy identity adapted to 
+
+∥ · ∥ K .
+
+Theorem 3.1. Let K ∈ K ss  
+
+> (o)
+
+and 0 < R ≤ ∞ . Assume that A, B, H ∈ C1(0 , R ) and H = AB .Then, for u ∈ C∞ 
+
+> c
+
+(BKR \ { o}), one has 
+
+Z
+
+> BKR
+
+A2 RK (u) 2dx =
+
+Z
+
+> BKR
+
+
+
+div  H(∥x∥K )σK (x)−B2
+
+
+
+u2dx +
+
+Z
+
+> BKR
+
+ARK (u)+ Bu 2dx. 
+
+We first derive several Hardy-type consequences of Theorem 3.1 by choosing suitable functions A and B.
+
+Corollary 3.1. Let K ∈ K ss  
+
+> (o)
+
+. Then, for every u ∈ C∞ 
+
+> c
+
+(RN \ { o}), one has 
+
+Z
+
+> RN
+
+RK (u) 2dx =
+
+N − 22
+
+2 Z
+
+> RN
+
+u2
+
+∥x∥2
+
+> K
+
+dx +
+
+Z
+
+> RN
+
+RK (u) + 
+
+N − 22
+
+ u
+
+∥x∥K
+
+> 2
+
+dx. (3.15) 
+
+Proof. Taking A = 1 and B =  N −22
+
+ 1 
+
+> ∥x∥K
+
+in Theorem 3.1, one has div  H(∥x∥K )σK (x) − B(∥x∥K )2 =
+
+N − 22
+
+2 1
+
+∥x∥2
+
+> K
+
+.
+
+Hence, Theorem 3.1 gives (3.15). If K = BN 
+
+> 2
+
+, then (3.15) reduces to the classical L2-Hardy identity [13]. 
+
+Corollary 3.2. Let K ∈ K ss  
+
+> (o)
+
+and λ ∈ R. Then, for every u ∈ C∞ 
+
+> c
+
+(RN \ { o}), one has 
+
+Z
+
+> RN
+
+RK (u) 2
+
+∥x∥λK
+
+dx =
+
+N −λ−22
+
+2 Z
+
+> RN
+
+u2
+
+∥x∥2+ λK
+
+dx +
+
+Z
+
+> RN
+
+RK (u)
+
+∥x∥λ
+
+> 2
+> K
+
++
+
+N −λ−22
+
+ u
+
+∥x∥λ 
+
+> 2+1
+> K
+> 2
+
+dx. (3.16) 
+
+Proof. Taking A = ∥x∥− λ 
+
+> 2
+> K
+
+and B = N −λ−22 ∥x∥− λ  
+
+> 2−1
+> K
+
+in Theorem 3.1, one obtains div  H(∥x∥K )σK (x) − B(∥x∥K )2 =
+
+N − λ − 22
+
+2 1
+
+∥x∥λ+2 
+
+> K
+
+.
+
+Then Theorem 3.1 gives (3.16). Identity (3.16) depends on the parameter λ, where we can use it to derive the improved anisotropic Hardy and Heisenberg-type inequalities with the power-type weights. 
+
+Corollary 3.3. Let K ∈ K ss  
+
+> (o)
+
+. Then, for every u ∈ C∞ 
+
+> c
+
+(RN \ { o}), one has 
+
+Z
+
+> RN
+
+RK (u) 2dx =
+
+Z
+
+> RN
+
+(N − ∥ x∥2 
+
+> K
+
+)u2dx +
+
+Z
+
+> RN
+
+RK (u) + ∥x∥K u 2dx. (3.17) 16 Proof. Taking A = 1 and B = ∥x∥K in Theorem 3.1, one has div  H(∥x∥K )σK (x) − B(∥x∥K )2 = N − ∥ x∥2 
+
+> K
+
+.
+
+Then Theorem 3.1 gives (3.17). 
+
+Corollary 3.4. Let K ∈ K ss  
+
+> (o)
+
+. Assume that b + 1 − a > 0 and 2b ≤ N − 2. Then, for every 
+
+u ∈ C∞ 
+
+> c
+
+(RN \ { o}), one has 
+
+Z
+
+> RN
+
+RK (u)
+
+∥x∥bK
+
+> 2
+
+dx +
+
+Z
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx −(N −1−a−b)
+
+Z
+
+> RN
+
+u2
+
+∥x∥a+b+1 
+
+> K
+
+dx =
+
+Z
+
+> RN
+
+RK (u)
+
+∥x∥bK
+
++ u
+
+∥x∥aK
+
+> 2
+
+dx. (3.18) 
+
+Proof. Taking A = ∥x∥−bK and B = ∥x∥−aK in Theorem 3.1, one has div  H(∥x∥K )σK (x) = ( N − 1 − a − b)∥x∥−a−b−1 
+
+> K
+
+.
+
+Thus, Theorem 3.1 gives (3.18). 
+
+Corollary 3.5. Let K ∈ K ss  
+
+> (o)
+
+. Assume that b + 1 − a < 0 and 2b ≥ N − 2. Then, for every 
+
+u ∈ C∞ 
+
+> c
+
+(RN \ { o}), one has 
+
+Z
+
+> RN
+
+RK (u)
+
+∥x∥bK
+
+> 2
+
+dx +
+
+Z
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx −(a+b+1 −N )
+
+Z
+
+> RN
+
+u2
+
+∥x∥a+b+1 
+
+> K
+
+dx =
+
+Z
+
+> RN
+
+− RK (u)
+
+∥x∥bK
+
++ u
+
+∥x∥aK
+
+> 2
+
+dx. (3.19) 
+
+Proof. Taking A = −∥ x∥−bK and B = ∥x∥−aK in Theorem 3.1, one has div  H(∥x∥K )σK (x) = ( a + b + 1 − N )∥x∥−a−b−1 
+
+> K
+
+.
+
+Then Theorem 3.1 gives (3.19). 
+
+Corollary 3.6. Let K ∈ K ss  
+
+> (o)
+
+. Assume that b + 1 − a < 0 and 2b ≤ N − 2. Then, for every 
+
+u ∈ C∞ 
+
+> c
+
+(RN \ { o}), one has 
+
+Z
+
+> RN
+
+RK (u) 2
+
+∥x∥2bK
+
+dx +
+
+Z
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx − (N − 3b + a − 3) 
+
+Z
+
+> RN
+
+u2
+
+∥x∥a+b+1 
+
+> K
+
+dx 
+
+=
+
+Z
+
+> RN
+
+− RK (u)
+
+∥x∥bK
+
++
+
+ 1
+
+∥x∥aK
+
+− N − 2b − 2
+
+∥x∥b+1 
+
+> K
+
+
+
+u
+
+> 2
+
+dx. (3.20) 
+
+Proof. Taking A = −∥ x∥−bK and B = ∥x∥−aK − (N − 2b − 2) ∥x∥−b−1 
+
+> K
+
+in Theorem 3.1, one has div  H(∥x∥K )σK (x) = N − 3b + a − 3
+
+∥x∥a+b+1 
+
+> K
+
+.
+
+Then Theorem 3.1 gives (3.20). 17 Corollary 3.7. Let K ∈ K ss  
+
+> (o)
+
+. Assume that b + 1 − a > 0 and 2b ≥ N − 2. Then, for every 
+
+u ∈ C∞ 
+
+> c
+
+(RN \ { o}), one has 
+
+Z
+
+> RN
+
+RK (u) 2
+
+∥x∥2bK
+
+dx +
+
+Z
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx − (3 b − a + 3 − N )
+
+Z
+
+> RN
+
+u2
+
+∥x∥a+b+1 
+
+> K
+
+dx 
+
+=
+
+Z
+
+> RN
+
+− RK (u)
+
+∥x∥bK
+
++ u
+
+ −1
+
+∥x∥aK
+
++ 2b + 2 − N
+
+∥x∥b+1 
+
+> K
+
+ 2
+
+dx. (3.21) 
+
+Proof. Taking A = −∥ x∥−bK and B = −∥ x∥−aK + (2 b + 2 − N )∥x∥−b−1 
+
+> K
+
+in Theorem 3.1, one has div  H(∥x∥K )σK (x) = 3b + 3 − a − N
+
+∥x∥a+b+1 
+
+> K
+
+.
+
+Then Theorem 3.1 gives (3.21). 
+
+## 3.2 Anisotropic L2-CKN identities on RN
+
+In this subsection, we derive some anisotropic L2-CKN identities on RN . To this end, let us optimize the left hand side in (3.14) by letting α > 0 such that 
+
+α2∥ARK (u)∥2 = α2
+
+Z
+
+> BKR
+
+A2 RK (u) 2dx = 1
+
+α2
+
+Z
+
+> BKR
+
+B2u2dx = ∥Bu ∥2
+
+α2 .
+
+Hence, α =   ∥Bu ∥∥ARK (u)∥
+
+12 . Thus, one has the following anisotropic L2-CKN identities. 
+
+Theorem 3.2. Let K ∈ K ss  
+
+> (o)
+
+and 0 < R ≤ ∞ . Assume that A, B, H ∈ C1(0 , R ) and H = AB .Then, for u ∈ C∞ 
+
+> c
+
+(BKR \ { o}) \ { 0} such that 
+
+∥ARK (u)∥ > 0 and ∥Bu ∥ > 0,
+
+one has 
+
+ Z 
+
+> BKR
+
+ARK (u) 2dx 
+
+12  Z 
+
+> BKR
+
+B2u2dx 
+
+12
+
+= 12
+
+Z
+
+> BKR
+
+div 
+
+
+
+H(∥x∥K )σK (x)
+
+
+
+u2dx 
+
++ 12
+
+Z
+
+> BKR
+
+∥Bu ∥12 ARK (u)
+
+∥ARK (u)∥12
+
++ ∥ARK (u)∥12 Bu 
+
+∥Bu ∥12
+
+> 2
+
+dx. (3.22) We now derive several consequences of Theorem 3.2 by choosing suitable functions A and B.
+
+Corollary 3.8. Let K ∈ K ss  
+
+> (o)
+
+. Then, for every u ∈ C∞ 
+
+> c
+
+(RN \ { o}) \ { 0} such that 
+
+∥RK (u)∥ > 0 and ∥∥ x∥K u∥ > 0,
+
+18 one has 
+
+ Z 
+
+> RN
+
+RK (u) 2dx 
+
+12  Z 
+
+> RN
+
+∥x∥2 
+
+> K
+
+u2dx 
+
+12
+
+= N
+
+2
+
+Z
+
+> RN
+
+u2dx + 12
+
+Z
+
+> RN
+
+∥x∥K u 12 RK (u)
+
+∥RK (u)∥12
+
++ ∥RK (u)∥12 ∥x∥K u
+
+∥∥ x∥K u∥12
+
+> 2
+
+dx. (3.23) 
+
+Consequently, 
+
+ Z 
+
+> RN
+
+RK (u) 2dx 
+
+12  Z 
+
+> RN
+
+∥x∥2 
+
+> K
+
+u2dx 
+
+12
+
+≥ N
+
+2
+
+Z
+
+> RN
+
+u2dx. (3.24) 
+
+Proof. Taking A = 1 and B = ∥x∥K in Theorem 3.2, one has div  H(∥x∥K )σK (x) = N. 
+
+Thus, (3.23) follows directly from (3.22). Inequality (3.24) follows from the nonnegativity of the remainder term. For inequality (3.24), we will prove a similar inequality with |RK (u)| replaced by ∥ − ∇ u∥K∗ ,and in particular verify whether the constant N 
+
+> 2
+
+is a sharp constant in Section 4. 
+
+Corollary 3.9. Let K ∈ K ss  
+
+> (o)
+
+. Assume that b + 1 − a > 0 and 2b ≤ N − 2. Then, for every 
+
+u ∈ C∞ 
+
+> c
+
+(RN \ { o}) \ { 0} such that 
+
+RK (u)
+
+∥x∥bK
+
+> 0 and u
+
+∥x∥aK
+
+> 0,
+
+one has 
+
+ Z 
+
+> RN
+
+RK (u) 2
+
+∥x∥2bK
+
+dx 
+
+12  Z 
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx 
+
+12
+
+= N − a − b − 12
+
+Z
+
+> RN
+
+u2
+
+∥x∥a+b+1 
+
+> K
+
+dx 
+
++ 12
+
+Z 
+
+> RN
+> u
+> ∥x∥aK
+> 12
+
+RK (u)  
+
+> RK(u)
+> ∥x∥bK
+> 12
+
+∥x∥bK
+
++  
+
+> RK(u)
+> ∥x∥bK
+> 12
+
+u 
+
+> u
+> ∥x∥aK
+> 12
+
+∥x∥aK
+
+> 2
+
+dx. (3.25) 
+
+Consequently, 
+
+ Z 
+
+> RN
+
+RK (u) 2
+
+∥x∥2bK
+
+dx 
+
+12  Z 
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx 
+
+12
+
+≥ N − a − b − 12
+
+Z
+
+> RN
+
+u2
+
+∥x∥a+b+1 
+
+> K
+
+dx. (3.26) 
+
+Proof. Taking A = ∥x∥−bK and B = ∥x∥−aK in Theorem 3.2, one has div  H(∥x∥K )σK (x) = ( N − 1 − a − b)∥x∥−a−b−1 
+
+> K
+
+.
+
+Thus, (3.25) follows from (3.22). Since the last integral in (3.25) is nonnegative, hence, (3.26) follows. 19 Corollary 3.10. Let K ∈ K ss  
+
+> (o)
+
+. Assume that b + 1 − a < 0 and 2b ≥ N − 2. Then, for every 
+
+u ∈ C∞ 
+
+> c
+
+(RN \ { o}) \ { 0} such that 
+
+RK (u)
+
+∥x∥bK
+
+> 0 and u
+
+∥x∥aK
+
+> 0,
+
+one has 
+
+Z 
+
+> RN
+
+RK (u) 2
+
+∥x∥2bK
+
+dx 
+
+12 Z 
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx 
+
+12
+
+= a + b + 1 − N
+
+2
+
+Z
+
+> RN
+
+u2
+
+∥x∥a+b+1 
+
+> K
+
+dx 
+
++ 12
+
+Z
+
+> RN
+
+− 
+
+> u
+> ∥x∥aK
+> 12
+
+RK (u)  
+
+> RK(u)
+> ∥x∥bK
+> 12
+
+∥x∥bK
+
++  
+
+> RK(u)
+> ∥x∥bK
+> 12
+
+u 
+
+> u
+> ∥x∥aK
+> 12
+
+∥x∥aK
+
+> 2
+
+dx. (3.27) 
+
+Consequently, 
+
+ Z 
+
+> RN
+
+RK (u) 2
+
+∥x∥2bK
+
+dx 
+
+12  Z 
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx 
+
+12
+
+≥ a + b + 1 − N
+
+2
+
+Z
+
+> RN
+
+u2
+
+∥x∥a+b+1 
+
+> K
+
+dx. (3.28) 
+
+Proof. Taking A = −∥ x∥−bK and B = ∥x∥−aK in Theorem 3.2, one has div  H(∥x∥K )σK (x) = ( a + b + 1 − N )∥x∥−a−b−1 
+
+> K
+
+.
+
+Thus, equality (3.27) follows from (3.22). Since the last integral in (3.27) is nonnegative, then (3.28) follows. We revisit inequalities (3.26) and (3.28) in Section 5, and prove that the constant N −a−b−12
+
+is a sharp constant in the corresponding parameter region. 
+
+Corollary 3.11. Let K ∈ K ss  
+
+> (o)
+
+. Assume that b + 1 − a < 0 and 2b ≤ N − 2. Then, for every 
+
+u ∈ C∞ 
+
+> c
+
+(RN \ { o}) \ { 0} such that 
+
+RK (u)
+
+∥x∥bK
+
+> 0 and u
+
+∥x∥aK
+
+> 0,
+
+one has 
+
+ Z 
+
+> RN
+
+RK (u) 2
+
+∥x∥2bK
+
+dx 
+
+12  Z 
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx 
+
+12
+
+− N − 3b + a − 32
+
+Z
+
+> RN
+
+u2
+
+∥x∥a+b+1 
+
+> K
+
+dx 
+
+= 12
+
+Z 
+
+> RN
+> u
+> ∥x∥aK
+> 12
+
+RK (u)  
+
+> RK(u)
+> ∥x∥bK
+> 12
+
+∥x∥bK
+
++ 
+
+> u
+> ∥x∥aK
+> 12
+> RK(u)
+> ∥x∥bK
+> 12
+
+(N − 2b − 2) 
+
+∥x∥b+1 
+
+> K
+
+−  
+
+> RK(u)
+> ∥x∥bK
+> 12
+> u
+> ∥x∥aK
+> 12
+
+∥x∥aK
+
+!
+
+u
+
+> 2
+
+dx. (3.29) 
+
+Consequently, 
+
+ Z 
+
+> RN
+
+RK (u) 2
+
+∥x∥2bK
+
+dx 
+
+12  Z 
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx 
+
+12
+
+≥ N − 3b + a − 32
+
+Z
+
+> RN
+
+u2
+
+∥x∥a+b+1 
+
+> K
+
+dx. (3.30) 20 Proof. Taking A = −∥ x∥−bK and B = ∥x∥−aK − (N − 2b − 2) ∥x∥−b−1 
+
+> K
+
+in Theorem 3.2, one has div  H(∥x∥K )σK (x) = N − 3b + a − 3
+
+∥x∥a+b+1 
+
+> K
+
+.
+
+Thus, equality (3.29) follows from equality (3.22). Since the right hand side of equality (3.29) is nonnegative, then inequality (3.30) follows. 
+
+Corollary 3.12. Let K ∈ K ss  
+
+> (o)
+
+. Assume that b + 1 − a > 0 and 2b ≥ N − 2. Then, for every 
+
+u ∈ C∞ 
+
+> c
+
+(RN \ { o}) \ { 0} such that 
+
+RK (u)
+
+∥x∥bK
+
+> 0 and u
+
+∥x∥aK
+
+> 0,
+
+one has 
+
+ Z 
+
+> RN
+
+RK (u) 2
+
+∥x∥2bK
+
+dx 
+
+12  Z 
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx 
+
+12
+
+− 3b − a + 3 − N
+
+2
+
+Z
+
+> RN
+
+u2
+
+∥x∥a+b+1 
+
+> K
+
+dx 
+
+= 12
+
+Z 
+
+> RN
+> u
+> ∥x∥aK
+> 12
+
+RK (u)  
+
+> RK(u)
+> ∥x∥bK
+> 12
+
+∥x∥bK
+
++ 
+
+> u
+> ∥x∥aK
+> 12
+> RK(u)
+> ∥x∥bK
+> 12
+
+(N − 2b − 2) 
+
+∥x∥b+1 
+
+> K
+
++  
+
+> RK(u)
+> ∥x∥bK
+> 12
+> u
+> ∥x∥aK
+> 12
+
+∥x∥aK
+
+!
+
+u
+
+> 2
+
+dx. (3.31) 
+
+Consequently, 
+
+ Z 
+
+> RN
+
+RK (u) 2
+
+∥x∥2bK
+
+dx 
+
+12  Z 
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx 
+
+12
+
+≥ 3b − a + 3 − N
+
+2
+
+Z
+
+> RN
+
+u2
+
+∥x∥a+b+1 
+
+> K
+
+dx. (3.32) 
+
+Proof. Taking A = −∥ x∥−bK and B = −∥ x∥−aK + (2 b + 2 − N )∥x∥−b−1 
+
+> K
+
+in Theorem 3.2, one has div  H(∥x∥K )σK (x) = 3b + 3 − a − N
+
+∥x∥a+b+1 
+
+> K
+
+.
+
+Thus, equality (3.31) follows from equality (3.22). Since the right hand side of equality (3.31) is nonnegative, then inequality (3.32) follows. The following figure provides a clear view of the regions for ( a, b ) ∈ R2, where the above identities exhibit different formulas, and in fact the best constants of the inequalities depend on where ( a, b ) lies in. 21 Figure 1: The regions for ( a, b ) ∈ R2.
+
+# 4 Sharp constants and optimizers for the anisotropic Heisenberg Uncertainty Principle 
+
+This section is devoted to the sharp anisotropic Heisenberg uncertainty principle associated with the Minkowski functional. The proof combines the anisotropic Hardy-type identity in Section 3 with the anisotropic P´ olya-Szeg¨ o principle and the weighted anisotropic Hardy-Littlewood inequality. Let 
+
+u ∈ W := W 1,2(RN ) ∩
+
+
+
+u :
+
+Z
+
+> RN
+
+∥x∥2 
+
+> K
+
+|u|2dx < ∞
+
+
+
+.
+
+Theorem 4.1. Assume that K ∈ K ss  
+
+> (o)
+
+and N ≥ 2. For any function u ∈ W , we have (i) 
+
+Z
+
+> RN
+
+∥ − ∇ u∥2 
+
+> K∗
+
+dx +
+
+Z
+
+> RN
+
+∥x∥2 
+
+> K
+
+u2dx ≥ N
+
+Z
+
+> RN
+
+u2dx, (4.33) 
+
+where the constant N is sharp and is attained by u = κe − 12 ∥x∥2 
+
+> K
+
+with κ ≥ 0.(ii) 
+
+ Z 
+
+> RN
+
+∥ − ∇ u∥2 
+
+> K∗
+
+dx 
+
+12  Z 
+
+> RN
+
+∥x∥2 
+
+> K
+
+u2dx 
+
+12
+
+≥ N
+
+2
+
+Z
+
+> RN
+
+u2dx, (4.34) 
+
+where the constant N 
+
+> 2
+
+is sharp and is attained by u(x) = βe − 12λ2 ∥x∥2 
+
+> K
+
+with β ≥ 0 and λ > 0.
+
+22 Proof. (i) By the anisotropic P´ olya-Szeg¨ o principle (2.6), (3.17), using the equimeasurability of u2 and ( uK )2 and applying Proposition 2.2 ( ii ) to |u| with p = 2 and v(r) = r2 due to 
+
+uK = ( |u|)K , one has 
+
+Z
+
+> RN
+
+∥ − ∇ u(x)∥2 
+
+> K∗
+
+dx ≥
+
+Z
+
+> RN
+
+∥ − ∇ uK (x)∥2 
+
+> K∗
+
+dx (4.35) =
+
+Z
+
+> RN
+
+|RK
+
+ uK |2dx 
+
+≥ N
+
+Z
+
+> RN
+
+ uK (x)2dx −
+
+Z
+
+> RN
+
+∥x∥2
+
+> K
+
+ uK (x)2dx (4.36) 
+
+≥ N
+
+Z
+
+> RN
+
+u(x)2dx −
+
+Z
+
+> RN
+
+∥x∥2 
+
+> K
+
+u(x)2dx. (4.37) This proves inequality (4.33). Assume u(x) = κe − 12 ∥x∥2 
+
+> K
+
+for κ ≥ 0. Then u is radial, and hence u = uK up to a null set. Moreover, RK (u) + ∥x∥K u = 0 . Thus, the equality holds in (4.35) (4.36) and (4.37). Hence the equality holds in (4.33), and the constant N is sharp. (ii ) By (2.6), (2.8), (3.23) and u2 and ( uK )2 are equimeasurable, one has 
+
+ Z 
+
+> RN
+
+∥ − ∇ u(x)∥2 
+
+> K∗
+
+dx 
+
+12  Z 
+
+> RN
+
+∥x∥2 
+
+> K
+
+u2dx 
+
+12
+
+≥
+
+ Z 
+
+> RN
+
+∥ − ∇ uK (x)∥2 
+
+> K∗
+
+dx 
+
+12  Z 
+
+> RN
+
+∥x∥2 
+
+> K
+
+u2dx 
+
+12
+
+(4.38) 
+
+≥
+
+ Z 
+
+> RN
+
+RK (uK ) 2dx 
+
+12  Z 
+
+> RN
+
+∥x∥2
+
+> K
+
+ uK 2dx 
+
+12
+
+(4.39) 
+
+≥ N
+
+2
+
+Z
+
+> RN
+
+ uK 2dx (4.40) = N
+
+2
+
+Z
+
+> RN
+
+u2dx. 
+
+This proves inequality (4.34). When β = 0, the equality in (4.34) is immediate. Hence, it remains to consider the case 
+
+β > 0. Assume that 
+
+u(x) = β exp 
+
+
+
+− 12λ2 ∥x∥2
+
+> K
+
+
+
+for some constants β > 0 and λ > 0. Then u is radial, and hence u = uK up to a null set. Moreover, RK (u) = − 1 
+
+> λ2
+
+∥x∥K u(x). Hence, 
+
+∥RK (u)∥ = 1
+
+λ2 ∥x∥K u ,
+
+23 and then, 
+
+λ =
+
+ ∥x∥K u
+
+∥RK (u)∥
+
+12
+
+.
+
+It follows that 
+
+∥x∥K uK 12 RK (uK )
+
+∥RK (uK )∥12
+
++ ∥RK (uK )∥12 ∥x∥K uK
+
+∥x∥K uK 12
+
+= − 1
+
+λ∥x∥K uK + 1
+
+λ∥x∥K uK = 0 .
+
+Therefore, the equality holds in (4.38), (4.39) and (4.40). Hence, the equality holds in inequality (4.34), and the constant N 
+
+> 2
+
+is sharp. 
+
+# 5 Sharp constants and optimizers for the anisotropic CKN inequality 
+
+We now turn to the sharp anisotropic CKN inequalities. The anisotropic CKN identities (3.25), (3.27), (3.29) and (3.31) with remainders obtained in Section 3 give the following two constants, 
+
+C1(N, a, b ) = N − a − b − 12 and C2(N, a, b ) = N − 3b + a − 32 .
+
+The comparison of C1 and C2 determines which identity yields the stronger anisotropic CKN inequality in each part of the ( a, b )-parameter plane. Indeed, C1(N, a, b )2 − C2(N, a, b )2 = ( b −
+
+a+1)( N −2b−2) . Hence, C1(N, a, b ) > C 2(N, a, b ) in the region where ( b−a+1)( N −2b−2) > 0, 
+
+C2(N, a, b ) > C 1(N, a, b ) in the region where ( b − a + 1)( N − 2b − 2) < 0, and C2(N, a, b ) = 
+
+C1(N, a, b ) if b = a−1 or b = N −22 . Here the line b = a−1 is the critical line where the anisotropic CKN equality equations reduce to the Hardy case and where nonzero extremal functions are not attained in a completion space, and the line b = N −22 only corresponds to the coincidence of the two constants. Accordingly, we use the following disjoint decomposition of the noncritical part of the ( a, b )-parameter plane; (see Figure 1): 
+
+A1 : = 
+
+n
+
+(a, b ) ∈ R2 b > a − 1, b ≤ N − 22
+
+o
+
+;
+
+A2 : = 
+
+n
+
+(a, b ) ∈ R2 b < a − 1, b ≥ N − 22
+
+o
+
+;
+
+B1 : = 
+
+n
+
+(a, b ) ∈ R2 b < a − 1, b < N − 22
+
+o
+
+;
+
+B2 : = 
+
+n
+
+(a, b ) ∈ R2 b > a − 1, b > N − 22
+
+o
+
+.
+
+Let A := A1 ∪ A2 and B := B1 ∪ B2. Note that A ∪ B = (a, b ) ∈ R2 a̸ = b + 1 . The sharpness will be proved below by deriving the equality equations from the vanishing of the 24 corresponding remainders and by showing that the extremal functions belong to the completion space CK,a,b , the completion of C∞ 
+
+> c
+
+(RN \ { o}) under the norm 
+
+∥u∥CK,a,b =
+
+ Z 
+
+> RN
+
+|RK (u)|2
+
+∥x∥2bK
+
+dx +
+
+Z
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx 
+
+12
+
+.
+
+Theorem 5.1. Let K ∈ K ss  
+
+> (o)
+
+and a, b ∈ R. The anisotropic CKN inequality (1.2) holds for all u ∈ C∞ 
+
+> c
+
+(RN \ { o}), with the zero function giving only the trivial equality case. Its sharp constants are as follows. (i) In the region A , the sharp constant is eC(N, a, b ) = N −a−b−12 and it is achieved in CK,a,b 
+
+by the nonzero functions 
+
+u(x) = Φ  σK (x)e tb+1 −a ∥x∥b+1 −aK ,
+
+where t < 0 in A1, t > 0 in A2, and 0̸ ≡ Φ ∈ L2(∂K, dμ K ).(ii) In the region B, the sharp constant is eC(N, a, b ) = N −3b+a−32 and it is achieved in CK,a,b 
+
+by the nonzero functions 
+
+u(x) = Φ  σK (x)∥x∥2b+2 −NK e tb+1 −a ∥x∥b+1 −aK ,
+
+where t > 0 in B1, t < 0 in B2, and 0̸ ≡ Φ ∈ L2(∂K, dμ K ).(iii) When a = b + 1 , the sharp constant is eC(N, b + 1 , b ) = |N −2( b+1) | 
+
+> 2
+
+, and cannot be achieved by the nonzero functions in CK,a,b .Proof. Let r = ∥x∥K . The case u ≡ 0 is trivial. Without loss of generality, we assume that 
+
+u̸ ≡ 0. We first prove the inequality and derive the corresponding equality equations from the remainder identities established in Section 3. The sharpness will follow once the corresponding equality equations are solved and the extremal functions are shown to belong to the completion space CK,a,b .
+
+The region A . Let ( a, b ) ∈ A . Then C1(N, a, b ) ≥ C2(N, a, b ) for ( a, b ) ∈ A . Thus anisotropic CKN identities (3.25) and (3.27) give the following anisotropic CKN inequality 
+
+ Z
+
+> RN
+
+RK (u) 2
+
+∥x∥2bK
+
+dx 
+
+12  Z
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx 
+
+12
+
+≥ N − a − b − 12
+
+Z
+
+> RN
+
+u2
+
+∥x∥a+b+1 
+
+> K
+
+dx. 
+
+The equality holds if and only if the corresponding nonnegative remainder in (3.25) or (3.27) vanishes, namely sgn( N − a − b − 1) 
+
+  R  
+
+> RN
+
+u2r−2adx 14
+
+  R  
+
+> RN
+
+|RK (u)|2r−2bdx 14
+
+RK (u)
+
+rb +
+
+  R  
+
+> RN
+
+|RK (u)|2r−2bdx 14
+
+  R  
+
+> RN
+
+u2r−2adx 14
+
+ura = 0 25 almost everywhere, where sgn( t) is the sign of t ∈ R \ 0 and sgn(0) = 0. Equivalently, 
+
+RK (u) = tr b−au, where 
+
+t = −sgn( N − a − b − 1) 
+
+  R  
+
+> RN
+
+|RK (u)|2r−2bdx 12
+
+  R  
+
+> RN
+
+u2r−2adx 12
+
+.
+
+Since RK (u) = ∂ru, then ∂ru = tr b−au and hence, 
+
+u(x) = Φ( σK (x)) exp 
+
+t∥x∥b+1 −aK
+
+b + 1 − a
+
+
+
+,
+
+where t < 0 in A1 and t > 0 in A2. Therefore, once the above extremal functions are shown to belong to CK,a,b , the constant 
+
+C1(N, a, b ) = |N − a − b − 1|
+
+2is sharp in A .
+
+The region B. Let ( a, b ) ∈ B. Then C2(N, a, b ) > C 1(N, a, b ). If ( a, b ) ∈ B1, we use the identity (3.29); if ( a, b ) ∈ B2, we use the identity (3.31). In both cases, these identities yield 
+
+ Z 
+
+> RN
+
+|RK (u)|2
+
+∥x∥2bK
+
+dx 
+
+12  Z 
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx 
+
+12
+
+≥ |N − 3b + a − 3|
+
+2
+
+Z
+
+> RN
+
+u2
+
+∥x∥a+b+1 
+
+> K
+
+dx. (5.41) The equality in (5.41) is obtained from the vanishing of the nonnegative remainder in the corresponding identity. In both subregions, one has RK (u) = tr b−au − (N − 2b − 2) r−1u for some constant t ∈ R. Equivalently, ∂ru = tr b−au − (N − 2b − 2) r−1u. Hence, 
+
+u(x) = Φ( σK (x)) ∥x∥2b+2 −NK exp 
+
+t∥x∥b+1 −aK
+
+b + 1 − a
+
+
+
+,
+
+where t > 0 in B1 and t < 0 in B2. Hence, once the above extremal functions are checked to belong to CK,a,b , the constant 
+
+C2(N, a, b ) = |N − 3b + a − 3|
+
+2is sharp in B.
+
+The critical line a = b + 1 . Assume a = b + 1. Then 
+
+u(x)2
+
+∥x∥2aK
+
+= u(x)2
+
+∥x∥a+b+1 
+
+> K
+
+= u(x)2
+
+∥x∥2b+2 
+
+> K
+
+26 and hence the anisotropic CKN inequality reduces to a weighted anisotropic Hardy-type inequality. Taking λ = 2 b in the weighted anisotropic L2-Hardy identity (3.16), one has the following anisotropic Hardy identity 
+
+Z
+
+> RN
+
+|RK (u)|2
+
+∥x∥2bK
+
+dx =
+
+N − 2b − 22
+
+2Z
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx +
+
+Z
+
+> RN
+
+RK (u)
+
+∥x∥bK
+
++ N − 2b − 22
+
+u
+
+∥x∥b+1 
+
+> K
+> 2
+
+dx. (5.42) It follows that 
+
+Z
+
+> RN
+
+|RK (u)|2
+
+∥x∥2bK
+
+dx ≥
+
+N − 2b − 22
+
+2 Z
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx. (5.43) Hence, 
+
+eC(N, b + 1 , b ) ≥ |N − 2b − 2|
+
+2 . (5.44) If the equality in (5.43) was attained by a nonzero function u ∈ CK,b +1 ,b , then the Hardy remainder in (5.42) would vanish. Hence, one has 
+
+RK (u) + N − 2b − 22
+
+u
+
+∥x∥K
+
+= 0 ,
+
+and therefore, u(x) = Φ( σK (x)) ∥x∥− N −2b−22 
+
+> K
+
+. However, 
+
+Z
+
+> RN
+
+u2
+
+∥x∥2b+2 
+
+> K
+
+dx =
+
+Z
+
+> ∂K
+
+|Φ( σ)|2dμ K (σ)
+
+Z ∞
+
+> 0
+
+ds s ,
+
+which is finite only when Φ = 0 a.e. on ∂K . Thus, no nonzero function in CK,b +1 ,b attains the equality in (5.43). Let 0 < ε < 1. Define φε ∈ C∞ 
+
+> c
+
+(0 , ∞) such that 0 ≤ φε ≤ 1, 
+
+φε(r) = 
+
+(
+
+1, ε ≤ r ≤ ε−1,
+
+0, 0 < r ≤ ε2 or r ≥ ε−2,
+
+and 
+
+|φ′
+
+> ε
+
+(r)| ≤ Mr log(1 /ε ) on ( ε2, ε ) ∪ (ε−1, ε −2)where the constant M > 0 is independent of ε. Define uε(x) = φε(∥x∥K )∥x∥− N −2b−22 
+
+> K
+
+. Then 
+
+RK (uε)
+
+∥x∥bK
+
++ N − 2b − 22
+
+uε
+
+∥x∥b+1 
+
+> K
+
+= φ′
+
+> ε
+
+(∥x∥K )∥x∥− N −2b−22 −bK .
+
+27 By the anisotropic polar formula, one has 
+
+Z
+
+> RN
+
+u2
+
+> ε
+
+∥x∥2b+2 
+
+> K
+
+dx = μK (∂K )
+
+Z ∞
+
+> 0
+
+φε(r)2 dr r ≥ μK (∂K )
+
+Z ε−1
+
+> ε
+
+dr r = 2 μK (∂K ) log(1 /ε ),
+
+Z
+
+> RN
+
+RK (uε)
+
+∥x∥bK
+
++ N − 2b − 22
+
+uε
+
+∥x∥b+1 
+
+> K
+> 2
+
+dx = μK (∂K )
+
+Z ∞
+
+> 0
+
+|φ′
+
+> ε
+
+(r)|2rdr 
+
+≤ μK (∂K )M 2
+
+log(1 /ε )2
+
+ Z εε2
+
+dr r +
+
+Z ε−2
+
+> ε−1
+
+dr r
+
+
+
+= 2μK (∂K )M 2
+
+log(1 /ε ) .
+
+Therefore, R 
+
+> RN
+> RK(uε)
+> ∥x∥bK
+
++ N −2b−22
+
+> uε
+> ∥x∥b+1
+> K
+> 2
+
+dx 
+
+R
+
+> RN
+> u2
+> ε
+> ∥x∥2b+2
+> K
+
+dx → 0 as ε → 0.
+
+Using the anisotropic Hardy identity (5.42), one gets 
+
+ R 
+
+> RN
+> |RK(uε)|2
+> ∥x∥2bK
+
+dx 
+
+12  R
+
+> RN
+> u2
+> ε
+> ∥x∥2b+2
+> K
+
+dx 
+
+12
+
+R
+
+> RN
+> u2
+> ε
+> ∥x∥2b+2
+> K
+
+dx → |N − 2b − 2|
+
+2 as ε → 0.
+
+Thus, 
+
+eC(N, b + 1 , b ) ≤ |N − 2b − 2|
+
+2 . (5.45) Together with (5.44) and (5.45), one gets the sharp constant 
+
+eC(N, b + 1 , b ) = |N − 2( b + 1) |
+
+2 .
+
+Attainability in the completion space. It remains to prove that the extremal functions obtained above belong to CK,a,b . Assume that ( a, b ) ∈ A ∪ B. Let u(x) = Φ( σK (x)) F (∥x∥K ), Φ ∈
+
+L2(∂K, dμ K ), where F : (0 , ∞) → R is defined by 
+
+F (r) := 
+
+
+
+exp  tr b+1 −a
+
+> b+1 −a
+
+, if ( a, b ) ∈ A ,r2b+2 −N exp  tr b+1 −a
+
+> b+1 −a
+
+, if ( a, b ) ∈ B.
+
+The sign of t in the four regions A1, A2, B1 and B2 gives 
+
+Z ∞
+
+> 0
+
+|F (r)|2rN −1−2adr +
+
+Z ∞
+
+> 0
+
+|F ′(r)|2rN −1−2bdr < ∞.
+
+28 Since dμ K is a finite Borel measure on the compact set ∂K and the restrictions of C1 functions are dense in L2(∂K, dμ K ), there exists a sequence Φ j : ∂K → R such that x 7 → Φj (σK (x)) ∈
+
+C1(RN \ { o}) and Φ j → Φ in L2(∂K, dμ K ) as j → ∞ . Let uj (x) := Φ j
+
+ σK (x)F (∥x∥K ). Using the anisotropic polar formula and RK
+
+ Φj
+
+ σK (x)F (∥x∥K ) = Φ j
+
+ σK (x)F ′(∥x∥K ), one has 
+
+∥uj − u∥2 
+
+> CK,a,b
+
+=
+
+Z
+
+> RN
+
+|uj − u|2
+
+∥x∥2aK
+
+dx +
+
+Z
+
+> RN
+
+|RK (uj − u)|2
+
+∥x∥2bK
+
+dx 
+
+= ∥Φj − Φ∥2 
+
+> L2(∂K,dμ K)
+
+ Z ∞
+
+> 0
+
+|F (r)|2rN −1−2adr +
+
+Z ∞
+
+> 0
+
+|F ′(r)|2rN −1−2bdr 
+
+
+
+.
+
+It follows that uj → u as j → ∞ in CK,a,b .For each fixed j, define vj,ε (x) := φε(∥x∥K )uj (x) for x ∈ RN . We claim that, for each fixed 
+
+j, ∥vj,ε − uj ∥CK,a,b → 0 as ε → 0. In fact, one has vj,ε (x) − uj (x) =  φε(∥x∥K ) − 1uj (x). Since 0 ≤ φε ≤ 1 and φε → 1 a.e. as ε → 0, then the dominated convergence theorem gives 
+
+Z
+
+> RN
+
+|vj,ε − uj |2
+
+∥x∥2aK
+
+dx =
+
+Z
+
+> RN
+
+|1 − φε|2 |uj |2
+
+∥x∥2aK
+
+dx → 0.
+
+Since RK (vj,ε − uj ) = ( φε − 1) RK (uj ) + uj RK (φε) and RK
+
+ φε(∥x∥K ) = φ′
+
+> ε
+
+(∥x∥K )σK (x) ·∇∥ x∥K = φ′
+
+> ε
+
+(∥x∥K ), then 
+
+Z
+
+> RN
+
+|RK (vj,ε − uj )|2
+
+∥x∥2bK
+
+dx ≤ 2
+
+Z
+
+> RN
+
+|1 − φε|2 |RK (uj )|2
+
+∥x∥2bK
+
+dx + 2 
+
+Z
+
+> RN
+
+|uj |2|φ′
+
+> ε
+
+(∥x∥K )|2
+
+∥x∥2bK
+
+dx. 
+
+The first term tends to zero by the dominated convergence theorem. It remains to estimate the second term. By the definition of φε above, one has 
+
+Z
+
+> RN
+
+|uj |2|φ′
+
+> ε
+
+(∥x∥K )|2
+
+∥x∥2bK
+
+dx ≤ M
+
+log 2(1 /ε )
+
+Z  
+
+> {ε2<∥x∥K<ε }∪{ ε−1<∥x∥K<ε −2}
+
+|uj |2
+
+∥x∥2b+2 
+
+> K
+
+dx 
+
+= M ∥Φj ∥2 
+
+> L2(∂K,dμ K)
+
+log 2(1 /ε )
+
+Z
+
+> (ε2,ε )∪(ε−1,ε −2)
+
+|F (r)|2rN −2b−3dr. 
+
+We claim that Z
+
+> (ε2,ε )∪(ε−1,ε −2)
+
+|F (r)|2rN −2b−3dr ≤ M ′ log(1 /ε )for some constant M ′ > 0. Indeed, if ( a, b ) ∈ A1, then b + 1 − a > 0, N − 3 − 2b ≥ − 1 and t < 0. Hence, one has 
+
+Z
+
+> (ε2,ε )∪(ε−1,ε −2)
+
+|F (r)|2rN −2b−3dr =
+
+Z
+
+> (ε2,ε )∪(ε−1,ε −2)
+
+rN −2b−3 exp 
+
+ 2tb + 1 − arb+1 −a
+
+
+
+dr 
+
+≤
+
+Z εε2
+
+rN −2b−3dr +
+
+Z ∞
+
+> 1
+
+rN −2b−3 exp 
+
+ 2tb + 1 − arb+1 −a
+
+
+
+dr 
+
+29 ≤ MA1 log(1 /ε ) for some constant MA1 > 0.
+
+If ( a, b ) ∈ A2, then b + 1 − a < 0, N − 3 − 2b ≤ − 1 and t > 0. Hence, one has 
+
+Z
+
+> (ε2,ε )∪(ε−1,ε −2)
+
+|F (r)|2rN −2b−3dr =
+
+Z
+
+> (ε2,ε )∪(ε−1,ε −2)
+
+rN −2b−3 exp 
+
+
+
+− 2ta − b − 1r−(a−b−1) 
+
+
+
+dr 
+
+≤
+
+Z 10
+
+rN −2b−3 exp 
+
+
+
+− 2ta − b − 1r−(a−b−1) 
+
+
+
+dr +
+
+Z ε−2
+
+> ε−1
+
+rN −2b−3dr 
+
+≤ MA2 log(1 /ε ) for some constant MA2 > 0.
+
+If ( a, b ) ∈ B1, then b + 1 − a < 0, 2 b + 1 − N < −1 and t > 0. Hence, one has 
+
+Z
+
+> (ε2,ε )∪(ε−1,ε −2)
+
+|F (r)|2rN −2b−3dr =
+
+Z
+
+> (ε2,ε )∪(ε−1,ε −2)
+
+r2b+1 −N exp 
+
+
+
+− 2ta − b − 1r−(a−b−1) 
+
+
+
+dr 
+
+≤
+
+Z 10
+
+r2b+1 −N exp 
+
+
+
+− 2ta − b − 1r−(a−b−1) 
+
+
+
+dr +
+
+Z ε−2
+
+> ε−1
+
+r2b+1 −N dr 
+
+≤ MB1 log(1 /ε ) for some constant MB1 > 0.
+
+If ( a, b ) ∈ B2, then b + 1 − a > 0, 2 b + 1 − N > −1 and t < 0. Hence, one has 
+
+Z
+
+> (ε2,ε )∪(ε−1,ε −2)
+
+|F (r)|2rN −2b−3dr =
+
+Z
+
+> (ε2,ε )∪(ε−1,ε −2)
+
+r2b+1 −N exp 
+
+ 2tb + 1 − arb+1 −a
+
+
+
+dr 
+
+≤
+
+Z 10
+
+r2b+1 −N dr +
+
+Z ∞
+
+> 1
+
+r2b+1 −N exp 
+
+ 2tb + 1 − arb+1 −a
+
+
+
+dr 
+
+≤ MB2 log(1 /ε ) for some constant MB2 > 0.
+
+Consequently, Z
+
+> RN
+
+|uj |2|φ′
+
+> ε
+
+(∥x∥K )|2
+
+∥x∥2bK
+
+dx ≤ M ′′ 
+
+log(1 /ε ) → 0 as ε → 0for some constant M ′′ > 0. Therefore, 
+
+∥vj,ε − uj ∥CK,a,b → 0 as ε → 0.
+
+For fixed j and ε, let Ω ε = x ∈ RN : ε2 
+
+> 2
+
+< ∥x∥K < 2 
+
+> ε2
+
+. Then vj,ε has compact support in Ω ε, and Ω ε is chosen away from the origin. Since vj,ε ∈ W 1,2(Ω ε) has compact support in Ωε, it follows that vj,ε ∈ W 1,2 
+
+> c
+
+(Ω ε), where W 1,2 
+
+> c
+
+(Ω ε) denotes the closure of C∞ 
+
+> c
+
+(Ω ε) in the norm 
+
+∥ · ∥ W 1,2(Ω ε). By the density theorem, there exists a sequence wj,ε,n ∈ C∞ 
+
+> c
+
+(Ω ε) ⊂ C∞ 
+
+> c
+
+(RN \ { o})such that wj,ε,n → vj,ε as n → ∞ in W 1,2(Ω ε). As σK is bounded on Ω ε, then RK (wj,ε,n −vj,ε ) → 0as n → ∞ in L2(Ω ε). Note that ∥x∥−2aK and ∥x∥−2bK are bounded on Ω ε. Therefore, 
+
+∥wj,ε,n − vj,ε ∥CK,a,b → 0 as n → ∞ .
+
+30 Now for fixed j, we choose εj > 0 so small that 
+
+∥vj,ε j − uj ∥CK,a,b < 12j ,
+
+and then we choose nj so large that 
+
+∥wj,ε j ,n j − vj,ε j ∥CK,a,b < 12j .
+
+It follows that 
+
+∥wj,ε j ,n j − u∥CK,a,b ≤ ∥ wj,ε j ,n j − vj,ε j ∥CK,a,b +∥vj,ε j − uj ∥CK,a,b +∥uj −u∥CK,a,b ≤ 1
+
+j +∥uj −u∥CK,a,b .
+
+Since uj → u as j → ∞ in CK,a,b , one obtains 
+
+wj,ε j ,n j → u as j → ∞ 
+
+in CK,a,b . Hence, u ∈ CK,a,b , and then the corresponding constants C1 in A and C2 in B are sharp. This completes the proof. As a direct consequence of Theorem 5.1 and the anisotropic Heisenberg-type identity (3.17), we can obtain the following sharp anisotropic Heisenberg-type inequalities. 
+
+Corollary 5.1. Let K ∈ K ss  
+
+> (o)
+
+and N ≥ 2. Then, for u ∈ C∞ 
+
+> c
+
+(RN \ { o}), one has 
+
+Z
+
+> RN
+
+|RK (u)|2dx +
+
+Z
+
+> RN
+
+∥x∥2 
+
+> K
+
+u2dx ≥ N
+
+Z
+
+> RN
+
+u2dx, (5.46) 
+
+ Z 
+
+> RN
+
+|RK (u)|2dx 
+
+12  Z 
+
+> RN
+
+∥x∥2 
+
+> K
+
+u2dx 
+
+12
+
+≥ N
+
+2
+
+Z
+
+> RN
+
+u2dx. (5.47) 
+
+The sharp constants are N and N 
+
+> 2
+
+, respectively, and they are achieved in CK, −1,0. The equality in (5.46) is attained by 
+
+u(x) = Φ( σK (x)) exp 
+
+
+
+− 12∥x∥2
+
+> K
+
+
+
+,
+
+while the equality in (5.47) is attained by 
+
+u(x) = Φ( σK (x)) exp 
+
+
+
+− 12λ2 ∥x∥2
+
+> K
+
+
+
+, λ > 0,
+
+where Φ ∈ L2(∂K, dμ K ).
+
+31 Proof. From anisotropic Heisenberg-type identity (3.17), one has inequality (5.46). The equality in (5.46) holds when the remainder in (3.17) vanishes, that is, RK (u) + ∥x∥K u = 0 , it follows that 
+
+u(x) = Φ  σK (x) exp 
+
+
+
+− 12∥x∥2
+
+> K
+
+
+
+.
+
+Inequality (5.47) and its equality cases follow from Theorem 5.1 by taking a = −1 and b = 0. The above extremal functions in CK, −1,0 also follow from Theorem 5.1 with a = −1 and b = 0. Theorem 5.1 gives the sharp anisotropic CKN inequality in terms of the anisotropic radial derivative RK (u). We next derive a corresponding estimate involving the anisotropic gradient. The basic observation is that the identity ∥x∥K = ∥ − x∥K does not necessarily hold for 
+
+K ∈ K ss  
+
+> (o)
+
+\ K c
+
+> (o)
+
+.
+
+Theorem 5.2. Let K ∈ K ss  
+
+> (o)
+
+, u ∈ C∞ 
+
+> c
+
+(RN \{ o}) and a, b ∈ R. Then the following max-gradient anisotropic inequalities hold. 
+
+Z
+
+> RN
+
+max {∥∇ u∥2 
+
+> K∗
+
+, ∥ − ∇ u∥2 
+
+> K∗
+
+}∥x∥2bK
+
+dx +
+
+Z
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx ≥ Cckn 1(N, a, b )
+
+Z
+
+> RN
+
+u2
+
+∥x∥a+b+1 
+
+> K
+
+dx, (5.48) 
+
+where 
+
+Cckn 1(N, a, b ) = 
+
+(
+
+|N − a − b − 1|, (a, b ) ∈ A ,
+
+|N − 3b + a − 3|, (a, b ) ∈ B.
+
+When a = b + 1 , the corresponding constant is 
+
+Cckn 1(N, b + 1 , b ) = 1 + (N − 2b − 2) 2
+
+4 .
+
+And 
+
+Z 
+
+> RN
+
+max {∥∇ u∥2 
+
+> K∗
+
+, ∥ − ∇ u∥2 
+
+> K∗
+
+}∥x∥2bK
+
+dx 
+
+12 Z 
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx 
+
+12
+
+≥ Cckn 2(N, a, b )
+
+Z
+
+> RN
+
+u2
+
+∥x∥a+b+1 
+
+> K
+
+dx, (5.49) 
+
+where 
+
+Cckn 2(N, a, b ) = 
+
+( N −a−b−12 , (a, b ) ∈ A ,  
+
+> N−3b+a−32
+
+, (a, b ) ∈ B.
+
+When a = b + 1 , the corresponding constant is 
+
+Cckn 2(N, b + 1 , b ) = |N − 2( b + 1) |
+
+2 .
+
+Proof. By the anisotropic Cauchy-Schwarz inequality (2.4), for x ∈ RN \ { o},
+
+−∥ x∥K ∥ − ∇ u(x)∥K∗ ≤ x · ∇ u(x) ≤ ∥ x∥K ∥∇ u(x)∥K∗ .
+
+32 Therefore, |RK (u)( x)|2 ≤ max {∥∇ u(x)∥2 
+
+> K∗
+
+, ∥ − ∇ u(x)∥2 
+
+> K∗
+
+} for a.e. x ∈ RN . It follows that 
+
+Z
+
+> RN
+
+|RK (u)|2
+
+∥x∥2bK
+
+dx ≤
+
+Z
+
+> RN
+
+max {∥∇ u∥2 
+
+> K∗
+
+, ∥ − ∇ u∥2 
+
+> K∗
+
+}∥x∥2bK
+
+dx. (5.50) Combining (5.50) with the radial anisotropic Hardy-type identities (3.18), (3.19), (3.20) and (3.21) gives (5.48) when a̸ = b + 1. When a = b + 1, combining the anisotropic Hardy inequality (5.43) with (5.50), one obtains 
+
+Z
+
+> RN
+
+max {∥∇ u∥2 
+
+> K∗
+
+, ∥ − ∇ u∥2 
+
+> K∗
+
+}∥x∥2bK
+
+dx +
+
+Z
+
+> RN
+
+u2
+
+∥x∥2b+2 
+
+> K
+
+dx 
+
+≥
+
+
+
+1 + (N − 2b − 2) 2
+
+4
+
+ Z 
+
+> RN
+
+u2
+
+∥x∥2b+2 
+
+> K
+
+dx. 
+
+Similarly, combining (5.50) with the radial anisotropic CKN inequality (1.2) and Theorem 5.1 gives (5.49). In particular, when a = b + 1, Theorem 5.1 ( iii ) gives the constant |N −2b−2| 
+
+> 2
+
+.
+
+When K is origin-symmetric, the max-gradient formulation in Theorem 5.2 gives the following norm-based anisotropic gradient inequalities as a direct consequence. 
+
+Corollary 5.2. Let K ∈ K ss  
+
+> (o)
+
+∩ K c
+
+> (o)
+
+, u ∈ C∞ 
+
+> c
+
+(RN \ { o}) and a, b ∈ R. Then the following anisotropic gradient inequalities hold. 
+
+Z
+
+> RN
+
+∥∇ u∥2
+
+> K∗
+
+∥x∥2bK
+
+dx +
+
+Z
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx ≥ Cckn 1(N, a, b )
+
+Z
+
+> RN
+
+u2
+
+∥x∥a+b+1 
+
+> K
+
+dx, (5.51) 
+
+where 
+
+Cckn 1(N, a, b ) = 
+
+(
+
+|N − a − b − 1|, (a, b ) ∈ A ,
+
+|N − 3b + a − 3|, (a, b ) ∈ B.
+
+And 
+
+Z 
+
+> RN
+
+∥∇ u∥2
+
+> K∗
+
+∥x∥2bK
+
+dx 
+
+12 Z 
+
+> RN
+
+u2
+
+∥x∥2aK
+
+dx 
+
+12
+
+≥ Cckn 2(N, a, b )
+
+Z
+
+> RN
+
+u2
+
+∥x∥a+b+1 
+
+> K
+
+dx, (5.52) 
+
+where 
+
+Cckn 2(N, a, b ) = 
+
+( N −a−b−12 , (a, b ) ∈ A ,  
+
+> N−3b+a−32
+
+, (a, b ) ∈ B.
+
+When a = b + 1 , the corresponding constants are 
+
+Cckn 1(N, b + 1 , b ) = 1 + (N − 2b − 2) 2
+
+4
+
+and 
+
+Cckn 2(N, b + 1 , b ) = |N − 2b − 2|
+
+2 .
+
+Moreover, all the above constants are sharp. 
+
+33 Proof. Since K ∈ K c
+
+> (o)
+
+, the polar body K∗ is also origin-symmetric. Hence, for every ξ ∈ RN ,
+
+∥ξ∥K∗ = ∥ − ξ∥K∗ . Therefore, max {∥∇ u∥2 
+
+> K∗
+
+, ∥ − ∇ u∥2 
+
+> K∗
+
+} = ∥∇ u∥2 
+
+> K∗
+
+a.e. in RN .
+
+Applying Theorem 5.2 gives (5.51) and (5.52). It remains to prove the sharpness of the constants. We first consider the case a̸ = b + 1. Choosing Φ in the extremal functions from Theorem 5.1 to be a nonzero constant and taking 
+
+t = −1, t = 1, t = 1 and t = −1 in A1, A2, B1 and B2, respectively, then the extremal functions are radial with respect to K. By Theorem 5.1, they attain equality in the corresponding radial multiplicative inequalities. Moreover, direct substitution into the additive identities (3.18), (3.19), (3.20) and (3.21) shows that the corresponding square remainders vanish. Hence, they also attain equality in the corresponding radial additive inequalities. Indeed, let r = ∥x∥K and let v(x) = v(r) be radial. Then ∇v(x) = v′(r)∇∥ x∥K . Since 
+
+x · ∇∥ x∥K = ∥x∥K , one has 
+
+RK (v)( x) = x · ∇ v(x)
+
+∥x∥K
+
+= v′(r).
+
+Since ∥∇∥ x∥K ∥K∗ = 1 and ∥ · ∥ K∗ is even, one obtains 
+
+∥∇ v(x)∥K∗ = |v′(r)| = |RK (v)( x)|
+
+for a.e. x ∈ RN .By the same radial cut-off and density argument used in the proof of Theorem 5.1, these radial extremal functions can be approximated by functions in C∞ 
+
+> c
+
+(RN \{ o}) in the corresponding weighted full-gradient norm. Indeed, for the radial cut-offs, the weighted full-gradient term coincides with the weighted radial-derivative term by the identity above. For each fixed cut-off, the final smooth approximation follows from the W 1,2-density theorem on an annulus, where the weights are bounded and ∥ · ∥ K∗ is equivalent to the Euclidean norm. Hence, the constants in the gradient inequalities cannot be improved. This proves the sharpness when a̸ = b + 1. We next consider the case a = b+1. Let {uε} be the radial extremizing sequence constructed in the proof of Theorem 5.1, and let 
+
+Aε =
+
+Z
+
+> RN
+
+∥∇ uε∥2
+
+> K∗
+
+∥x∥2bK
+
+dx and Bε =
+
+Z
+
+> RN
+
+u2
+
+> ε
+
+∥x∥2b+2 
+
+> K
+
+dx. 
+
+Since uε is radial, one has 
+
+Aε =
+
+Z
+
+> RN
+
+|RK (uε)|2
+
+∥x∥2bK
+
+dx. 
+
+The construction in the proof of Theorem 5.1 gives 
+
+A12 
+
+> ε
+
+B 12
+
+> ε
+
+Bε
+
+→ |N − 2b − 2|
+
+2 as ε → 0.
+
+34 Consequently, 
+
+Aε
+
+Bε
+
+→ (N − 2b − 2) 2
+
+4 as ε → 0.
+
+Therefore, 
+
+Aε + Bε
+
+Bε
+
+→ 1 + (N − 2b − 2) 2
+
+4 and A12 
+
+> ε
+
+B 12
+
+> ε
+
+Bε
+
+→ |N − 2b − 2|
+
+2 as ε → 0.
+
+Choosing the smooth approximation sufficiently close for each ε and then taking a diagonal sequence, we obtain extremizing sequences in C∞ 
+
+> c
+
+(RN \ { o}). Hence, the constants are also sharp when a = b + 1. 
+
+Acknowledgments. The author is grateful to Professors Baocheng Zhu and Denghui Wu for their valuable comments and helpful suggestions. 
+
+# Statements and Declarations 
+
+The author declares no competing interests. 
+
+# References 
+
+[1] B. Abdellaoui, E. Colorado and I. Peral, Some improved Caffarelli-Kohn-Nirenberg inequalities , Calc. Var. Partial Differential Equations, 23 (2005), 327-345. 2 [2] A. Alvino, V. Ferone, G. Trombetti and P. L. Lions, Convex symmetrization and applications , Ann. Inst. H. Poincar´ e C Anal. Non Lin´ eaire, 14 (1997), 275-293. 4, 6, 11 [3] J. Bao and X. Chen, On the anisotropic Caffarelli-Kohn-Nirenberg type inequalities: Existence, symmetry breaking region and symmetry of extremal functions , Commun. Contemp. Math., 27 (2025), Paper No. 2550016, 25 pp. 6 [4] G. Bellettini and M. Paolini, Anisotropic motion by mean curvature in the context of Finsler geometry , Hokkaido Math. J., 25 (1996), 537-566. 4 [5] G. Bianchi, A. Cianchi and P. Gronchi, Anisotropic symmetrization, convex bodies, and isoperimetric inequalities , Adv. Math., 462 (2025), Paper No. 110085, 36. 4, 6 [6] G. Bianchi and H. Egnell, A note on the Sobolev inequality , J. Funct. Anal., 100 (1991), no. 1, 18-24. 2 [7] H. Brezis and E. H. Lieb, Sobolev inequalities with remainder terms , J. Funct. Anal., 62 
+
+(1985), no. 1, 73-86. 2 35 [8] L. Caffarelli, R. Kohn and L. Nirenberg, First order interpolation inequalities with weights ,Compositio Math., 53 (1984), 259-275. 2 [9] P. Caldiroli and R. Musina, Symmetry breaking of extremals for the Caffarelli-Kohn-Nirenberg inequalities in a non-Hilbertian setting , Milan J. Math., 81 (2013), 421-430. 2[10] F. Catrina and D. G. Costa, Sharp weighted-norm inequalities for functions with compact support in RN \ { 0}, J. Differential Equations, 246 (2009), 164-182. 2, 3 [11] F. Catrina and Z. Wang, On the Caffarelli-Kohn-Nirenberg inequalities: sharp constants, existence (and nonexistence), and symmetry of extremal functions , Comm. Pure Appl. Math., 54 (2001), 229-258. 2 [12] C. Cazacu, J. Flynn and N. Lam, Short proofs of refined sharp Caffarelli-Kohn-Nirenberg inequalities , J. Differential Equations, 302 (2021), 533-549. 2, 3 [13] C. Cazacu, J. Flynn, N. Lam and G. Lu, Caffarelli-Kohn-Nirenberg identities, inequalities and their stabilities , J. Math. Pures Appl. (9), 182 (2024), 253-284. 2, 15, 16 [14] L. Chen, G. Lu and H. Tang, Stability of Hardy-Littlewood-Sobolev inequalities with explicit lower bounds , Adv. Math., 450 (2024), Paper No. 109778. 2 [15] L. Chen, G. Lu and H. Tang, Optimal asymptotic lower bound for stability of fractional Sobolev inequality and the global stability of log-Sobolev inequality on the sphere , Adv. Math., 
+
+479 (2025), Part B, Paper No. 110438. 2 [16] L. Chen, G. Lu and H. Tang, Optimal stability of Hardy-Littlewood-Sobolev and Sobolev inequalities of arbitrary orders with dimension-dependent constants , Math. Ann., 394 
+
+(2026), 77. 2 [17] L. Chen, G. Lu, H. Tang and B. Wang, Asymptotically sharp stability of Sobolev inequalities on the Heisenberg group with dimension-dependent constants , J. Math. Pures Appl., 206 
+
+(2026), Paper No. 103832. 2 [18] G. Ciraolo and R. Corso, Symmetry for positive critical points of Caffarelli-Kohn-Nirenberg inequalities , Nonlinear Anal., 216 (2022), Paper No. 112683, 23 pp. 2 [19] D. Cordero-Erausquin, B. Nazaret and C. Villani, A mass-transportation approach to sharp Sobolev and Gagliardo-Nirenberg inequalities , Adv. Math., 182 (2004), 307-332. 2 [20] D. G. Costa, Some new and short proofs for a class of Caffarelli-Kohn-Nirenberg type inequalities , J. Math. Anal. Appl., 337 (2008), 311-317. 2, 3 [21] P. Dang and W. Mai, Improved Caffarelli-Kohn-Nirenberg inequalities and uncertainty principle , J. Geom. Anal., 34 (2024), Paper No. 70, 26. 2 36 [22] F. Della Pietra, G. di Blasio and N. Gavitone, Anisotropic Hardy inequalities , Proc. Roy. Soc. Edinburgh Sect. A, 148 (2018), 483-498. 5 [23] M. Del Pino and J. Dolbeault, Best constants for Gagliardo-Nirenberg inequalities and applications to nonlinear diffusions , J. Math. Pures Appl.(9), 81 (2002), 847-875. 2 [24] S. Deng and X. Tian, Gradient stability of Caffarelli-Kohn-Nirenberg inequality involving weighted p-Laplacian , arXiv:2401.04129, 2024. 2 [25] A. X. Do, J. Flynn, N. Lam and G. Lu, Lp-Caffarelli-Kohn-Nirenberg inequalities and their stabilities , arXiv:2310.07083, 2023. 2 [26] A. X. Do, N. Lam, G. Lu and V. H. Nguyen, Caffarelli-Kohn-Nirenberg and weighted Gaussian Poincar´ e inequalities: a complete characterization of sharp L2 stability and Lp
+
+extensions , arXiv:2606.08939, 2026. 2 [27] J. Dolbeault, M. J. Esteban, A. Figalli, R. L. Frank and M. Loss, Sharp stability for Sobolev and log-Sobolev inequalities, with optimal dimensional dependence , Cambridge J. Math., 13 
+
+(2025), no. 2, 359-430. 2 [28] J. Dolbeault, M. J. Esteban and M. Loss, Symmetry of extremals of functional inequalities via spectral estimates for linear operators , J. Math. Phys., 53 (2012), 095204, 18. 2 [29] J. Dolbeault, M. J. Esteban, M. Loss and G. Tarantello, On the symmetry of extremals for the Caffarelli-Kohn-Nirenberg inequalities , Adv. Nonlinear Stud., 9 (2009), 713-726. 2 [30] M. Dong, Existence of extremal functions for higher-order Caffarelli-Kohn-Nirenberg inequalities , Adv. Nonlinear Stud., 18 (2018), no. 3, 543-553. 2 [31] A. T. Duong and V. H. Nguyen, On the sharp second order Caffarelli-Kohn-Nirenberg inequality , Ann. Fenn. Math., 50 (2025), no. 1, 275-286. 2 [32] A. T. Duong and V. H. Nguyen, On the stability estimate for the sharp second order uncertainty principle , Calc. Var. Partial Differential Equations, 64 (2025), Paper No. 129. 2[33] N. T. Duy, N. Lam and G. Lu, p-Bessel pairs, Hardy’s identities and inequalities and Hardy-Sobolev inequalities with monomial weights , J. Geom. Anal., 32 (2022), Paper No. 109, 36 pp. 2 [34] N. T. Duy, N. V. Phong and P. T. T. Hien, Hardy inequalities with Bessel pair for Dunkl operator , Adv. Nonlinear Stud., 25 (2025), no. 4, 1127-1141. 2 [35] V. Felli and M. Schneider, Perturbation results of critical elliptic equations of Caffarelli-Kohn-Nirenberg type , J. Differential Equations, 191 (2003), 121-142. 2 37 [36] A. Ferone and R. Volpicelli, Convex rearrangement: equality cases in the P´ olya-Szeg¨ oinequality , Calc. Var. Partial Differential Equations, 21 (2004), 259-272. 6, 11, 12 [37] A. Figalli, F. Maggi and A. Pratelli, A mass transportation approach to quantitative isoperimetric inequalities , Invent. Math., 182 (2010), no. 1, 167-211. 5 [38] A. Figalli, F. Maggi and A. Pratelli, Sharp stability theorems for the anisotropic Sobolev and log-Sobolev inequalities on functions of bounded variation , Adv. Math., 242 (2013), 80-101. 4, 5 [39] J. Flynn, Sharp Caffarelli-Kohn-Nirenberg-type inequalities on Carnot groups , Adv. Nonlinear Stud., 20 (2020), no. 1, 95-111. 2 [40] I. Fonseca and S. M¨ uller, A uniqueness proof for the Wulff theorem , Proc. Roy. Soc. Edinburgh Sect. A, 119 (1991), no. 1-2, 125-136. 5 [41] N. Ghoussoub and A. Moradifam, Bessel pairs and optimal Hardy and Hardy-Rellich inequalities , Math. Ann., 349 (2011), 1-57. 2 [42] N. Ghoussoub and A. Moradifam, Functional inequalities: new perspectives and new applications , Math. Surveys Monogr., 187 (2013), xxiv+299. 2 [43] N. Lam, General sharp weighted Caffarelli-Kohn-Nirenberg inequalities , Proc. Roy. Soc. Edinburgh Sect. A, 149 (2019), 691-718. 2 [44] N. Lam, Sharp weighted isoperimetric and Caffarelli-Kohn-Nirenberg inequalities , Adv. Calc. Var., 14 (2021), 153-169. 2 [45] N. Lam and G. Lu, Sharp constants and optimizers for a class of Caffarelli-Kohn-Nirenberg inequalities , Adv. Nonlinear Stud., 17 (2017), 457-480. 2 [46] N. Lam, A. Maalaoui and A. Pinamonti, Characterizations of anisotropic high order Sobolev spaces , Asymptot. Anal., 113 (2019), no. 4, 239-260. 4 [47] Y. Li and X. Yan, Anisotropic Caffarelli-Kohn-Nirenberg type inequalities , Adv. Math., 419 
+
+(2023), Paper No. 108958, 44. 6 [48] E. H. Lieb, Sharp constants in the Hardy-Littlewood-Sobolev and related inequalities , Ann. of Math. (2), 118 (1983), 349-374. 2 [49] Q. Liu, J. Xiao, N. Zhang, R. Zhang and B. Zhu, A Minkowski theory for the exterior capacitary volumes and a resolution of the P´ olya-Szeg¨ o conjecture , arXiv:2607.02273, 2026. 5[50] G. Lu, Y. Shen, J. Xue and M. Zhu, Weighted anisotropic isoperimetric inequalities and existence of extremals for singular anisotropic Trudinger-Moser inequalities , Adv. Math., 
+
+458 (2024), Paper No. 109949, 51 pp. 5 38 [51] A. Mercaldo, M. Sano and F. Takahashi, Finsler Hardy inequalities , Math. Nachr., 293 
+
+(2020), 2370-2398. 5 [52] V. H. Nguyen, New approach to the affine P´ olya-Szeg¨ o principle and the stability version of the affine Sobolev inequality , Adv. Math., 302 (2016), 1080-1110. 6 [53] V. H. Nguyen, Sharp weighted Sobolev and Gagliardo-Nirenberg inequalities , Proc. Lond. Math. Soc., 111 (2015), 1276-1321. 2 [54] Y. Shen, On the anisotropic Caffarelli-Kohn-Nirenberg and weighted Hardy-Sobolev type inequalities: Sharp constants, existence and explicit form of extremal functions , Discrete Contin. Dyn. Syst., to appear, 2025. 6 [55] G. Talenti, Best constant in Sobolev inequality , Ann. Mat. Pura Appl.(4), 110 (1976), 353-372. 2 [56] J. E. Taylor, Crystalline variational problems , Bull. Amer. Math. Soc., 84 (1978), no. 4, 568-588. 5 [57] J. Van Schaftingen, Anisotropic symmetrization , Ann. Inst. H. Poincar´ e Anal. Non Lin´ eaire, 
+
+23 (2006), no. 4, 539-565. 4, 6, 11, 12 [58] Z.-Q. Wang and M. Willem, Caffarelli-Kohn-Nirenberg inequalities with remainder terms ,J. Funct. Anal., 203 (2003), 550-568. 2 39
