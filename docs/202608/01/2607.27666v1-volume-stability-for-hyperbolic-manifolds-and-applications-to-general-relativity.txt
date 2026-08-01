@@ -1,0 +1,5139 @@
+Title: Volume Stability for Hyperbolic Manifolds and Applications to General Relativity
+
+URL Source: https://arxiv.org/pdf/2607.27666v1
+
+Published Time: Fri, 31 Jul 2026 00:28:59 GMT
+
+Number of Pages: 36
+
+Markdown Content:
+> 1
+
+VOLUME STABILITY FOR HYPERBOLIC MANIFOLDS AND APPLICATIONS TO GENERAL RELATIVITY 
+
+PUSKAR MONDAL AND SHING-TUNG YAU 
+
+Abstract. We prove a sharp volume-stability theorem for closed hyperbolic three-manifolds. Let (M, h) be closed hyperbolic with Ric h = −2h, and let gi be smooth metrics on M satisfying R(gi ) ≥ − 6, Vol gi (M) −→ 
+
+Vol h(M). After passing to a subsequence, there exist Zi ⊂ M, smooth domains Ki ⊂ M, and diffeomorphisms 
+
+ψi : Ki −→ M \Zi such that Vol gi (Zi ) −→ 0, Vol h(M \Ki ) −→ 0, and ∥ψ∗ 
+
+> i
+
+gi −h∥C 0(Ki ,h) −→ 0. Thus near-equality in the sharp hyperbolic volume bound forces tensorial C 0-convergence to the hyperbolic metric outside regions of vanishing volume. As an application, we establish stability of the Fischer–Moncrief reduced Hamiltonian at the Lorentz-cone ground state: after CMC normalization, near-minimizing compact vacuum data in the hyperbolic topological class converge, modulo sets of vanishing volume, to the hyperbolic Lorentz-cone geometry in tensorial C 0. This provides a rigorous volume-dominance formulation of the Fischer–Moncrief asymptotic picture. 
+
+Contents 
+
+1. Introduction and the Main Result 11.1. Main ideas of the proof and the principal difficulties 21.2. Applications to general relativity 51.3. Interpretation for the reduced Einstein dynamics 71.4. Acknowledgements 82. Normalized Ricci Flow on Hyperbolizable Manifolds 83. Pulling Back to the Initial Slice 20 3.1. Proof of the main theorems 33 References 36 
+
+1. Introduction and the Main Result 
+
+Recall the hyperbolic volume rigidity problem posed by Schoen. Let (Mn, h) be a closed hyperbolic manifold, 
+
+n ≥ 3, normalized so that 
+
+sec h ≡ − 1, Rh = −n(n − 1). 
+
+Let g be another smooth Riemannian metric on M satisfying 
+
+Rg ≥ − n(n − 1). 
+
+Then 
+
+Vol g (M) ≥ Vol h(M). 
+
+Moreover, equality holds if and only if g is hyperbolic, equivalently there exists a diffeomorphism Φ : M → M
+
+such that 
+
+g = Φ∗h.
+
+Schoen’s conjecture is known to hold for 3-manifolds due to works of Hamilton on non-singular Ricci flow [10] and Perelman on geometrization of 3-manifolds [16, 17] (also see [1] for a generalization). For higher dimensions, Besson, Courtois and Gallot verified it for metrics C 2−close to the canonical metric [3]. They also proved that the volume comparison holds without assuming g is close to g , if one replace the assumption on scalar curvature by Ricci curvature [4], which can be viewed as evidence that Schoen’s conjecture holds for higher dimensions. In this article, we study a slight variant of the problem, namely quantification of the rigidity property in the regime of small data defined by the smallness of the volume deficit. More precisely we ask the following question: Let (M, gi ) be a sequence of smooth closed Riemannian 3 manifolds with scalar curvature bounds R(gi ) ≥ − 6 and Vol( M, gi ) − Vol( M, h) ≤ δi → 0. Then in which topology can there be a convergence of 
+
+(M, gi ) to (M, h)? This question is reminiscent of the stability of the positive mass theorem in general relativity [6] and in particular, can be considered to be an equivalent in the case of spatially compact spacetimes where a certain weak Lyapunov functional (re-scaled volume of the Cauchy slice) plays the role of “ mass ". The main point is that the volume is too weak to control any type of strong convergence. As it turns out, outside some 
+
+> 1
+
+e-mail:pushkarmondal@gmail.com 
+
+> 1arXiv:2607.27666v1 [math.DG] 30 Jul 2026
+
+bad sets of negligible volume, there is a C 0 convergence to the hyperbolic manifold (this can be improved under certain additional assumptions). We prove the following theorem by means of the normalized Ricci flow. 
+
+Theorem 1.1 (Main Theorem) . Let (M, h) be a closed hyperbolic three-manifold normalized by 
+
+Ric h = −2h, R(h) = −6. 
+
+Let gi be smooth metrics on M satisfying 
+
+R(gi ) ≥ − 6, 0 ≤ Vol gi (M) − Vol h(M) ≤ δi , δi → 0. 
+
+Then, after passing to a subsequence, there exist Zi ⊂ M, Gi := M \ Zi , smooth compact domains Ki ⊂ M, and maps Φi : Gi −→ Ki which are diffeomorphisms onto their images, such that Vol gi (Zi ) → 0, and Vol h(M \ Ki ) →
+
+0. Moreover, 
+
+sup 
+
+> x∈Gi
+
+gi − (Φi )∗(h|Ki ) (Φi )∗h (x) → 0, 
+
+that is, there exist εi → 0 such that 
+
+(1 − εi )Φ∗ 
+
+> i
+
+h ≤ gi ≤ (1 + εi )Φ∗ 
+
+> i
+
+h on Gi
+
+as quadratic forms. 
+
+Remark 1. Note we do not have an estimate on the H2 estimate of the boundary ∂Zi of the bad set Zi , and the C 0 convergence is a requirement for the technique used (see remark 2). 
+
+1.1. Main ideas of the proof and the principal difficulties. We now describe the main mechanism of the proof. The fundamental idea is to use the Ricci flow with Surgery introduced by Hamilton [9] and later by Perelman [16, 17] (note the expositions [5, 12]). The main result in this context is the global well-posedness result of Ricci flow with surgery. We explain precisely where long-time Ricci-flow convergence enters. We first fix the Ricci-flow continuation used in the argument. For each initial metric gi , let Gi (t), t ≥ 0, be a three-dimensional normalized Ricci flow with surgery in the sense of Hamilton-Perelman, starting from gi . Thus, on every smooth time interval, 
+
+∂t Gi = −2(Ric Gi +2 Gi ), 
+
+and the flow is continued through surgery times by the standard precise surgery procedure. We use the following properties of this flow: 
+
+R(Gi (t)) + 6 ≥ 0
+
+is preserved on every post-surgery time slice, 
+
+ddt Vol( Gi (t)) = −
+
+Z
+
+> M
+
+(R(Gi (t)) + 6) dμGi (t)
+
+on smooth time intervals, and therefore volume is nonincreasing across surgery times. The hyperbolic volume comparison theorem together with the scalar curvature bound gives only the lower barrier 
+
+Vol gi (t)(M) ≥ Vh.
+
+It does not by itself imply that gi (t) is close to h in any strong sense since volume is too weak to control any strong convergence. Ricci flow is used to turn near equality in volume into geometric convergence. To understand how Ricci flow can be utilized in this context, we first observe the rigid mechanism. If the volume equality holds with scalar curvature bound, then 
+
+Vol g (0) (M) = Vh, R(g (0)) ≥ − 6, 
+
+then along the normalized flow 
+
+∂t g = −2(Ric +2 g ), g (t = 0) = g (0) 
+
+we have 
+
+Vh ≤ Vol g (t)(M) ≤ Vol g (0) (M) = Vh,
+
+since the scalar curvature lower bound is preserved by the chosen normalized Ricci flow and by Schoen’s volume comparison result. Hence Vol g (t)(M) ≡ Vh. Since for t ∈ [0, T ] in every regular time interval 
+
+ddt Vol g (t)(M) = −
+
+Z
+
+> M
+
+(R(g (t)) + 6) dμg (t),
+
+since R(g (t)) + 6 ≥ 0 along the Ricci flow, we get 
+
+R(g (t)) + 6 ≡ 0. 
+
+But the following sourced heat type equations is verified by R(g (t)) + 6 (∂t − ∆ + 4)( R(g (t)) + 6) = 2 | Ric +2 g |2.
+
+> 2
+
+Therefore 
+
+Ric g (t) +2 g (t) ≡ 0. 
+
+Thus g (t) is hyperbolic. Since M is closed hyperbolic, Mostow rigidity identifies g (t) with h, up to diffeomor-phism. In the stability case, let gi (t) denote the distinguished hyperbolic component of the normalized Ricci flow with sufficiently precise surgery. On every regular time interval, 
+
+Qi := R(gi (t)) + 6 
+
+satisfies 
+
+(∂t − ∆gi (t) + 4) Qi = 2 Ric gi (t) +2 gi (t) 2
+
+≥ 0. 
+
+The standard surgery construction preserves Qi ≥ 0 across surgery times. Hence, by hyperbolic volume comparison, 
+
+Vh ≤ Vol gi (t)(M) ≤ Vol gi (0) (M) ≤ Vh + δi .
+
+Moreover, if ∆surg  
+
+> i
+
+(s) ≥ 0 denotes the volume lost at a surgery time s, then 
+
+Vol gi (0) (M) − Vol gi (T )(M) = 
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+Qi dμgi (t) dt + X
+
+> 0<s<T
+
+∆surg  
+
+> i
+
+(s). 
+
+Consequently, (1) 
+
+Z ∞
+
+> 0
+
+Z
+
+> M
+
+
+
+R(gi (t)) + 6 
+
+
+
+dμgi (t) dt ≤ δi ,
+
+and the total surgery volume loss is bounded by the same deficit. Similarly, let 
+
+λ[g ] := λ[g ] Vol g (M)2/3, Si := Ric gi +∇2fi − λ[gi ]3 gi ,
+
+where fi is the normalized minimizer for Perelman’s λ-functional. On every regular interval, 
+
+ddt λ[gi (t)] ≥ 2 Vol gi (t)(M)2/3
+
+Z
+
+> M
+
+|S i (t)|2e−fi (t) dμgi (t).
+
+Choosing the surgery parameters so that the total entropy loss at surgery is absorbed into C δi , and using 
+
+0 ≤ λ[h] − λ[gi (0)] ≤ Chδi ,
+
+we obtain (2) 
+
+Z ∞
+
+> 0
+
+Z
+
+> M
+
+|S i (t)|2e−fi (t) dμgi (t) dt ≤ Chδi .
+
+Here the spacetime integrals are taken over the regular portions of the surgical flow. Thus, after choosing a sequence of large times Ai → ∞ , there exist regular times ti ∈ [Ai , 2 Ai ] such that 
+
+Z
+
+> M
+
+
+
+R(gi (ti )) + 6 
+
+
+
+dμgi (ti ) → 0, 
+
+and Z
+
+> M
+
+|S i (ti )|2e−fi (ti ) dμgi (ti ) → 0. 
+
+Set 
+
+bgi := gi (ti ). 
+
+Now the long-time theorem is used. Perelman’s long-time geometrization says that the normalized metrics bgi
+
+have a thick-thin decomposition. On the thick part, after passing to a subsequence, one has smooth pointed Cheeger–Gromov convergence to finite-volume hyperbolic pieces. The thin part is collapsed with sectional curvature bounded from below. Because the underlying manifold is the fixed closed hyperbolic manifold M, its geometrization has a single hyperbolic piece, namely M itself. Hence the thick hyperbolic limit has volume 
+
+Vh = Vol h(M). 
+
+By Mostow rigidity, this limiting hyperbolic metric is isometric to h. Therefore, for every compact exhaustion 
+
+K j ⋐ (M, h), K j ↗ M,
+
+there exist diffeomorphisms onto their images 
+
+ψji : K j → Uji ⊂ M
+
+such that 
+
+(ψji )∗ bgi → h smoothly on K j .
+
+> 3
+
+The bad-volume estimate is then purely bookkeeping. Choose j = j(i) → ∞ slowly and set 
+
+K ti := K j(i), G ti := Uj(i) 
+
+> i
+
+, Z ti := M \ G ti .
+
+Then 
+
+∥(ψti )∗ bgi − h∥C 0(K ti ,h) → 0. 
+
+Moreover, 
+
+Vol bgi (Z ti ) = | Vol bgi (M) − Vol bgi (G ti )| = | Vol bgi (M) − Vol h(M) + Vol h(K ti ) − Vol bgi (G ti ) + Vol h(M) − Vol h(K ti )|≤ Vol bgi (M) − Vol h(M) + Vol bgi (G ti ) − Vol h(K ti ) + Vol h(M \ K ti ). 
+
+The first term tends to zero by the volume comparison and monotonicity. The second tends to zero by smooth convergence on K ti . The third tends to zero by the exhaustion. Hence 
+
+Vol bgi (Z ti ) → 0. 
+
+The remaining difficulty is to transfer this information back to the initial slice. This is the genuinely delicate part of the argument. The normalized Ricci flow deforms the metric by 
+
+∂t gi (t) = −2Ei (t), 
+
+so metric comparison along a worldline requires control of the accumulated quantity 
+
+Ai (x) := 
+
+Z ti
+
+> 0
+
+|Ei (s)|gi (s)(Ψi (s, x)) ds ,
+
+where Ψi (s, x) denotes the surviving worldline starting from x at time 0. The spacetime estimate (2) alone gives only L2 
+
+> t
+
+L2 
+
+> x
+
+-control of Ei , which is insufficient when the comparison time ti is large. Indeed, a naive Cauchy–Schwarz estimate produces a factor of ti , and therefore does not rule out large accumulated metric distortion. The correct replacement is an L1 
+
+> t
+
+L2 
+
+> x
+
+-path-length estimate: (3) Li := 
+
+Z ti
+
+> 0
+
+∥Ei (t)∥L2(Gi (t), gi (t)) dt −→ 0
+
+on the relevant good spacetime tube Gi . This estimate is proved using the gradient-flow structure of the normalized Ricci flow, the entropy monotonicity, and a Lojasiewicz inequality near the hyperbolic metric. We also need to control the change of volume measure along the same worldlines. Let G0 
+
+> i
+
+⊂ M be the initial trace of a regular spacetime tube saturated by worldlines, and write Ψi (t) : G0 
+
+> i
+
+→ G i (t). If 
+
+dμgi (t)(Ψi (t, x)) = Ji (t, x) dμgi (0) (x), 
+
+then ddt log Ji (t, x) = −Qi (t, Ψi (t, x)). 
+
+Thus 
+
+Ji (t, x) = exp −
+
+Z t
+
+> 0
+
+Qi (s, Ψi (s, x)) ds 
+
+!
+
+.
+
+For κi → 0 with δi /κ i → 0, define 
+
+BQi (0; κi ) := 
+
+(
+
+x ∈ G 0 
+
+> i
+
+:
+
+Z ti
+
+> 0
+
+Qi (s, Ψi (s, x)) ds > κ i
+
+)
+
+.
+
+Using (1), one obtains 
+
+Vol gi (0) 
+
+
+
+BQi (0; κi )
+
+
+
+≤ δi
+
+1 − e−κi → 0. 
+
+On the complement, the Jacobian satisfies (4) e−κi ≤ Ji (t, x) ≤ 1. 
+
+Combining (3) with (4) gives 
+
+∥A i ∥L2(G0, Qi ,gi (0)) ≤ eκi /2
+
+Z ti
+
+> 0
+
+∥Ei (t)∥L2(Gi (t), gi (t)) dt = eκi /2Li ,
+
+where 
+
+G0, Qi := G0 
+
+> i
+
+\ B Qi (0; κi ). 
+
+Now choose ηi → 0 with L2
+
+> i
+> η2
+> i
+
+→ 0, and remove the Einstein-distortion bad set 
+
+BEi (0; ηi ) := {x ∈ G 0, Qi : Ai (x) > η i }.
+
+> 4
+
+(M, h)
+
+Ki     
+
+> Vol h(M\Ki)→0
+
+ψi : Ki → Gi       
+
+> ∥ψ∗
+> i¯gi−h∥C0(Ki,h)→0
+
+Gi
+
+(M, ¯gi )    
+
+> thin fingers
+> Zi
+> Vol ¯gi(Zi)→0
+> no area/perimeter control
+
+Figure 1. The schematics of the main theorem 1.1. The exceptional set Zi consists of thin fingers and tiny bulbs, indicating regions with negligible ¯gi -volume. On the complement Gi =
+
+M \ Zi , the maps ψi : Ki → Gi identify ¯gi with h in tensorial C 0-topology. Chebyshev’s inequality gives 
+
+Vol gi (0) 
+
+
+
+BEi (0; ηi )
+
+
+
+≤ eκi L2
+
+> i
+
+η2
+
+> i
+
+→ 0. 
+
+Therefore, on the final initial good set 
+
+G0, ∗ 
+
+> i
+
+:= G0, Qi \ B Ei (0; ηi ), 
+
+the accumulated metric distortion satisfies 
+
+Ai (x) ≤ ηi .
+
+Integrating the evolution equation for the metric along worldlines gives the bilipschitz comparison (5) e−2ηi gi (0) ≤ Ψi (ti )∗gi (ti ) ≤ e2ηi gi (0) 
+
+as quadratic forms on G0, ∗ 
+
+> i
+
+.This comparison is the key point of the proof. It allows the convergence of the good time slices produced by the Ricci flow to be pulled back to the original sequence (M, gi ), after removing subsets whose gi -volume tends to zero. In this way the scalar-curvature lower bound and the sharp volume deficit yield C 0 convergence to the hyperbolic metric on the initial manifolds, up to negligible exceptional sets. 
+
+Remark 2. Note that while pulling back from the intermediate good slice (t = ti , ti → ∞ ), we can not control the higher order norm of the deformation tensor ∂t g even on the good part since such estimates are simply not available to us. Therefore, we can only obtain a C 0 type convergence result on the volume dominating good sets. 
+
+1.2. Applications to general relativity. We finally explain the relevance of the preceding volume stability theorem to the spatially compact vacuum Einstein equations. The analogy is with the stability problem for the positive mass theorem in the asymptotically flat setting [6] : in both cases, a sharp scalar invariant controls the geometry only after one removes a negligible exceptional region (Also note entropy stability result of [21]). In the present setting the role of the ADM mass is played by the Fischer-Moncrief reduced Hamiltonian, and the model geometry is the Lorentz cone over a closed hyperbolic three-manifold. Let M be a closed oriented three-manifold of negative Yamabe type, and let (M, g) be a globally hyperbolic vacuum spacetime with Cauchy slices diffeomorphic to M. On a constant mean curvature hypersurface, the induced initial data (g , k) satisfy the vacuum constraint equations 
+
+R(g ) − | k|2 
+
+> g
+
++ ( tr g k)2 = 0, (6) 
+
+div g
+
+
+
+k − (tr g k)g
+
+
+
+= 0. (7) Writing 
+
+k = Σ + τ
+
+3 g , τ := tr g k,
+
+the momentum constraint implies, in CMC gauge, that 
+
+tr g Σ = 0, div g Σ = 0. 
+
+Thus Σ is a transverse-traceless tensor with respect to g .Fischer and Moncrief introduced the reduced Hamiltonian (8) H(g , k) := ( −τ )3 Vol g (M), τ = tr g k < 0, 
+
+> 5
+
+which is a weak Lyapunov functional for the vacuum Einstein evolution in CMC gauge. More precisely, along every non-stationary CMC Einstein flow, H is monotone non-increasing, and equality occurs only on the Lorentz-cone solutions. These are the vacuum spacetimes foliated by homothetic compact hyperbolic slices. We recall the Fischer–Moncrief monotonicity formula for the reduced Hamiltonian. Let 
+
+g = −N2dt 2 + gab (dx a + X adt )( dx b + X b dt )
+
+be a vacuum spacetime foliated by compact CMC hypersurfaces (M, g (t), k(t)) , and set as usual 
+
+τ (t) := tr g (t) k(t) < 0, k = Σ + τ
+
+3 g .
+
+The lapse equation obtained by tracing the evolution equation for k is (9) −∆g N + |k|2 
+
+> g
+
+N = ˙τ .
+
+Since M is closed, integration of (9) gives (10) ˙τ Vol g (M) = 
+
+Z
+
+> M
+
+N|k|2 
+
+> g
+
+dμg =
+
+Z
+
+> M
+
+N |Σ |2 
+
+> g
+
++ τ 2
+
+3
+
+!
+
+dμg .
+
+On the other hand, from 
+
+∂t g = −2Nk + LX g
+
+one obtains ddt Vol g (M) = −τ
+
+Z
+
+> M
+
+N d μg ,
+
+since the divergence term arising from the shift integrates to zero. Therefore, for 
+
+H(g , k) := ( −τ )3 Vol g (M), 
+
+we compute 
+
+ddt H(g , k) = −3τ 2 ˙τ Vol g (M) + τ 4
+
+Z
+
+> M
+
+N d μg
+
+= −3τ 2
+
+Z
+
+> M
+
+N |Σ |2 
+
+> g
+
++ τ 2
+
+3
+
+!
+
+dμg + τ 4
+
+Z
+
+> M
+
+N d μg
+
+= −3τ 2
+
+Z
+
+> M
+
+N|Σ |2 
+
+> g
+
+dμg ≤ 0. (11) Thus H is nonincreasing along every expanding CMC vacuum evolution and is strictly decreasing at every time for which Σ̸ ≡ 0.Moreover, if H is constant on a time interval, then Σ ≡ 0 there. Equation (9) then gives 
+
+N = 3 ˙ττ 2 ,
+
+and the Einstein evolution equations imply 
+
+k = τ
+
+3 g , Ric g = − 2τ 2
+
+9 g .
+
+Consequently, 
+
+h := τ 2
+
+9 g satisfies Ric h = −2h.
+
+After introducing T = −3/τ , the corresponding spacetime metric is, up to diffeomorphism, 
+
+g = −dT 2 + T 2h,
+
+namely the Lorentz cone over (M, h). Hence the reduced Hamiltonian is constant along a solution curve precisely for the Lorentz-cone solutions. Finally, under the CMC normalization 
+
+¯g = τ 2
+
+9 g ,
+
+one has 
+
+H(g , k) = ( −τ )3 Vol g (M) = 27 Vol ¯g (M). 
+
+Thus the Fischer–Moncrief monotonicity is equivalently the monotonicity of the volume of the normalized spatial metric (conformal volume): 
+
+ddt Vol ¯g (M) = − τ 2
+
+9
+
+Z
+
+> M
+
+N|Σ |2 
+
+> g
+
+dμg ≤ 0. 
+
+> 6
+
+After this standard CMC normalization, the spatial metric and the transverse- traceless part of k may be rescaled so that the Hamiltonian constraint takes the normalized form (12) R(g ) + 6 = |Σ |2 
+
+> g
+
+, div g Σ = 0. 
+
+In particular, 
+
+R(g ) ≥ − 6, 
+
+with equality precisely when Σ = 0 . Under the same normalization, the reduced Hamiltonian is, up to a fixed dimensional constant depending only on the convention for τ , the volume of the normalized spatial metric. Thus near-minimizers of the Fischer–Moncrief Hamiltonian [7, 8] are exactly near-minimizers of the hyperbolic volume among metrics satisfying the sharp lower scalar curvature bound. For a closed hyperbolic three-manifold (M, h), normalized by 
+
+R(h) = −6, 
+
+the Lorentz cone over (M, h) is the expected ground state. Equivalently, the infimum of the Fischer-Moncrief Hamiltonian [7, 8] is determined by the Yamabe invariant of M. With the usual normalization, this infimum may be written as 
+
+Hinf =
+
+
+
+− 32 σ(M)
+
+3/2
+
+,
+
+up to the corresponding fixed convention in the definition of H. The essential point is that the minimizing configurations are exactly the hyperbolic CMC data 
+
+Σ = 0, Ric (g ) = −2g .
+
+This leads to the following stability question. Suppose a sequence of vacuum CMC data (gi , ki ) has reduced Hamiltonian converging to the value of the Lorentz-cone model. Since the Hamiltonian is only a scalar quantity, one cannot expect smooth convergence of (gi , ki ). This is exactly analogous to the positive mass stability prob-lem: a sharp scalar invariant can concentrate its defect on small regions and therefore cannot, by itself, control the geometry in a strong topology. The correct conclusion is a C 0 type convergence away from exceptional sets of vanishing volume, together with decay of the transverse-traceless part of the second fundamental form. The corresponding statement is the following. 
+
+Theorem 1.2 (Reduced-Hamiltonian stability) . Let (M, h) be a closed hyperbolic three-manifold with Ric h =
+
+−2h. Let (M, gi , ki ) be smooth vacuum CMC initial data with 
+
+τi := tr gi ki < 0, ki = Σi + τi
+
+3 gi ,
+
+and set 
+
+¯gi := τ 2
+
+> i
+
+9 gi , ¯Σi := |τi |
+
+3 Σi .
+
+Then the Hamiltonian constraint reduces to R(¯gi ) + 6 = | ¯Σi |2 
+
+> ¯gi
+
+≥ 0. Assume the reduced Hamiltonian closeness of the physical data and that corresponds to a slice of the Lorentz cone spacetime 
+
+H(gi , ki ) −→ H (h, k) = 27 Vol h(M). 
+
+Then, after passing to a subsequence, there exist Zi ⊂ M, Gi := M \ Zi , compact domains Ki ⊂ M, and diffeomorphisms ψi : Ki −→ Gi such that 
+
+Vol ¯gi (Zi ) → 0, Vol h(M \ Ki ) → 0, 
+
+and 
+
+∥ψ∗ 
+
+> i
+
+¯gi − h∥C 0(Ki ,h) → 0. 
+
+1.3. Interpretation for the reduced Einstein dynamics. The stability theorem gives a precise mathe-matical formulation of the asymptotic picture suggested by Fischer–Moncrief [7, 8]: on an expanding CMC branch over a compact hyperbolizable Cauchy slice, the Lorentz cone over the hyperbolic metric is the natural ground state of the reduced Einstein dynamics. Indeed, along a vacuum CMC solution one writes 
+
+k = Σ + τ
+
+3 g , τ < 0, tr g Σ = 0, div g Σ = 0. 
+
+After the CMC normalization 
+
+¯g = τ 2
+
+9 g , ¯Σ = |τ |
+
+3 Σ ,
+
+the constraint equations become 
+
+R(¯g ) + 6 = | ¯Σ |2 
+
+> ¯g
+
+, div ¯g ¯Σ = 0. 
+
+> 7
+
+Thus the deviation from the hyperbolic scalar-curvature lower bound is exactly measured by the normalized transverse-traceless part of the second fundamental form. The Fischer–Moncrief reduced Hamiltonian is, up to the dimensional normalization, 
+
+H(g , k) = ( −τ )3 Vol g (M) = 27 Vol ¯g (M). 
+
+It is monotone nonincreasing along the expanding CMC Einstein flow, and its formal minimum in the hyper-bolizable class is attained by the Lorentz cone solution 
+
+gLC = −dT 2 + T 2h, Ric h = −2h.
+
+Consequently, our theorem says the following: whenever a sequence of CMC times ti along such a solution satisfies 
+
+H(g (ti ), k(ti )) −→ H (h, kh), 
+
+the corresponding normalized data converge to the Lorentz-cone data outside sets of vanishing normalized volume. More precisely, according to the theorem 1.2, there exist good regions Gi ⊂ M, reference domains 
+
+Ki ⊂ M, and diffeomorphisms ψi : Ki → Gi such that 
+
+Vol ¯g (ti )(M \ Gi ) → 0, Vol h(M \ Ki ) → 0, 
+
+and 
+
+∥ψ∗ 
+
+> i
+
+¯g (ti ) − h∥C 0(Ki ,h) → 0. 
+
+Thus, at any sequence of times along which the reduced Hamiltonian approaches its ground-state value, the normalized spatial geometry is volume-dominated by the hyperbolic metric, and the non-hyperbolic part of the geometry is confined to regions of vanishing normalized volume. It is important, however, that this conclusion is conditional on the existence of such late-time slices. Mono-tonicity of the reduced Hamiltonian alone implies the existence of a limit 
+
+lim  
+
+> t→∞
+
+H(g (t), k(t)) ≥ H (h, kh), 
+
+provided the expanding CMC flow exists for all future time, but it does not by itself force this limit to equal the Lorentz-cone value. The theorem therefore proves a rigidity and compactness statement at the bottom of the reduced Hamiltonian, not a large-data global convergence theorem for the vacuum Einstein equations. The latter problem remains substantially harder. In large data, one cannot expect the expanding CMC foliation to persist without additional control. Concentration of the transverse-traceless part Σ may lead to strong curvature focusing and trapped-surface formation, and hence to causal geodesic incompleteness. This is consistent with the continuation criteria for the Cauchy problem: in the CMC framework, breakdown can occur only if the appropriate spacetime control norms, in particular the L∞ control of the second fundamental form and the gradient of the lapse, degenerate by the fundamental work of Klainerman-Rodnianski [13]. Thus the present theorem should be viewed as a sharp stability statement for near-minimizers of the reduced Hamiltonian. 1.4. Acknowledgements. This work is supported by Beijing Institute of Mathematical Sciences and Appli-cations of Yau Mathematical Science Center at Tsinghua University. 2. Normalized Ricci Flow on Hyperbolizable Manifolds 
+
+Let us consider a closed connected Riemannian 3−manifold (M, g ) in the same topological class as the closed connected hyperbolic manifold (M, h). In addition, we always assume the scalar curvature bound Scal (g ) ≥ − 6.We consider the normalized Ricci flow with the initial condition (M, g ) i.e., we aim to construct one parameter family of metrics t 7 → g (t) with g (0) = g such that 
+
+∂gij 
+
+∂t = −2( Ric [g ] + 2 g (t)), g (t = 0) = g .(13) Now define the obstruction tensor E [g ] := Ric [g ] + 2 g . First, we prove a well-known but crucial proposition about the preservation of the lower bound of the scalar curvature under the normalized Ricci flow. 
+
+Proposition 2.1. Let g (t), t ∈ [0, T ), be a smooth solution of the normalized Ricci flow 
+
+∂t g = −2 Ric g −4g
+
+on a closed three-manifold. Set 
+
+Q(t) := Scal g (t) +6, E (t) := Ric g (t) +2 g (t). 
+
+If Q(0) ≥ 0 on M, then 
+
+Q(t) ≥ 0 on M
+
+for every t ∈ [0, T ). More precisely, 
+
+min  
+
+> M
+
+Q(t) ≥ e−4t min  
+
+> M
+
+Q(0). 
+
+> 8
+
+Figure 2. Schematic representation of reduced-Hamiltonian stability for an expanding CMC Einstein development. Assuming global existence of the CMC evolution, for instance through verification of an appropriate Klainerman–Rodnianski continuation criterion, the normalized large-time slices decompose into good domains G 1 
+
+> i
+
+and G 2 
+
+> i
+
+and exceptional regions Z 1 
+
+> i
+
+and Z 2 
+
+> i
+
+.On the good domains, the normalized geometry converges in C 0 to the hyperbolic metric h. The exceptional regions may contain fingers, but their normalized volumes vanish asymptotically; their smaller size on the later slice is intended to illustrate this reduced Hamiltonian decay. The limiting ground-state spacetime is the Lorentz cone Ch = ((0, ∞) × M, −dT 2 + T 2h).
+
+Proof. For the normalized flow 
+
+∂t g = −2 Ric g −4g ,
+
+the scalar curvature satisfies 
+
+∂t Scal g = ∆g Scal g +2 | Ric g |2 
+
+> g
+
++ 4 Scal g .
+
+Since Q = Scal g +6 , this gives 
+
+(∂t − ∆g )Q = 2 | Ric g |2 
+
+> g
+
++ 4 Scal g .
+
+Writing 
+
+Ric g = E − 2g , tr g E = Scal g +6 = Q,
+
+and we compute | Ric g |2 
+
+> g
+
+= |E |2 
+
+> g
+
+− 4Q + 12. Because Scal g = Q − 6, it follows that 
+
+(∂t − ∆g )Q = 2 |E |2 
+
+> g
+
+− 4Q.
+
+Equivalently, 
+
+(∂t − ∆g + 4) Q = 2 |E |2 
+
+> g
+
+≥ 0. 
+
+Let 
+
+eQ(t, x) := e4t Q(t, x). 
+
+Then 
+
+(∂t − ∆g ) eQ = e4t 
+
+(∂t − ∆g )Q + 4 Q
+
+
+
+= 2 e4t |E |2 
+
+> g
+
+≥ 0. 
+
+By the parabolic maximum principle on the closed manifold M,
+
+min 
+
+> M
+
+eQ(t) ≥ min 
+
+> M
+
+eQ(0) = min  
+
+> M
+
+Q(0). 
+
+Hence 
+
+min  
+
+> M
+
+Q(t) ≥ e−4t min  
+
+> M
+
+Q(0). 
+
+In particular, if Q(0) ≥ 0, then Q(t) ≥ 0 for every t ∈ [0, T ). □
+
+This proposition 2.1 is vital and allows us to utilize the normalized Ricci flow technique to study the volume stability. In the following straightforward proposition, we study how the spacetime integral of the scalar curvature defect Q is controlled by means of the volume deficit. 
+
+Proposition 2.2. Let g (t), t ∈ [0, T ), be a smooth solution of the normalized Ricci flow 
+
+∂t g = −2 Ric g −4g
+
+on a closed three-manifold M. Set 
+
+Q(t) := Scal g (t) +6. 
+
+> 9
+
+Then, for every 0 ≤ τ < T , Z τ
+
+> 0
+
+Z
+
+> M
+
+Q(t) dμg (t) dt = Vol g (0) (M) − Vol g (τ )(M). 
+
+In particular, if g (t) extends smoothly to t = T , the same identity holds with τ = T .Proof. The first variation formula for the Riemannian volume form gives 
+
+∂t dμg (t) = 12 tr g (t)(∂t g ) dμg (t).
+
+Using the normalized Ricci flow equation, 
+
+tr g (t)(∂t g ) = −2Q(t). 
+
+Hence 
+
+∂t dμg (t) = −Q(t) dμg (t).
+
+Since M is closed and the solution is smooth, differentiation under the integral is justified, and therefore 
+
+ddt Vol g (t)(M) = 
+
+Z
+
+> M
+
+∂t dμg (t) = −
+
+Z
+
+> M
+
+Q(t) dμg (t).
+
+Integrating this identity from 0 to τ < T yields 
+
+Vol g (τ )(M) − Vol g (0) (M) = −
+
+Z τ
+
+> 0
+
+Z
+
+> M
+
+Q(t) dμg (t) dt ,
+
+which is the desired formula. □
+
+Now we introduce the most important entity in our context namely the Perelman entropy functional. For a closed Riemannian 3−manifold, define the Perelman’s entropy functional as 
+
+λ[g ] := inf R  
+
+> Mu2dμg=1
+
+Z
+
+> M
+
+
+
+4|∇ u|2 
+
+> g
+
++ Scal (g )u2
+
+dμg .(14) Notice that this function λ(g ) is not scale-invariant. We recall the following scale-invariant λ functional 
+
+λ[g ] := λ[g ]Vol (M, g ) 23(15) The first result that we prove is the smallness of the entropy deficit given the small volume deficit and the scalar curvature bound. In the next proposition, we prove that along the normalized Ricci flow, we have the following monotonicity property of the rescaled functional λ[g (t)] 
+
+Proposition 2.3. Let M3 be a closed hyperbolizable three-manifold, and let g (t), t ∈ [0, T ), be a smooth solution of the rescaled Ricci flow 
+
+(16) ∂t g = −2
+
+
+
+Ric g +2 g
+
+
+
+.
+
+Let 
+
+(17) λ[g ] := inf R   
+
+> Mu2dμg=1
+
+Z
+
+> M
+
+
+
+4|∇ u|2 
+
+> g
+
++ Rg u2
+
+dμg
+
+be Perelman’s λ-functional, and define the scale-invariant entropy 
+
+(18) λ[g ] := λ[g ] Vol( M, g )2/3.
+
+Then λ[g (t)] is monotonically non-decreasing along (16) . More precisely, if f = f (t) is the minimizer for 
+
+λ[g (t)] , normalized by 
+
+(19) 
+
+Z
+
+> M
+
+e−f dμg = 1, 
+
+then 
+
+(20) 
+
+ddt λ[g (t)] = 2 Vol( M, g )2/3
+
+Z
+
+> M
+
+Ric g +∇2f − λ[g ]3 g
+
+> 2
+> g
+
+e−f dμg
+
++ 23 Vol( M, g )2/3λ[g ]
+
+
+
+λ[g ] − ¯Rg
+
+
+
+,
+
+where 
+
+(21) ¯Rg := 1Vol( M, g )
+
+Z
+
+> M
+
+Rg dμg .
+
+In particular, 
+
+(22) ddt λ[g (t)] ≥ 2 Vol( M, g )2/3
+
+Z
+
+> M
+
+Ric g +∇2f − λ[g ]3 g
+
+> 2
+> g
+
+e−f dμg ≥ 0. 
+
+> 10
+
+Proof. Let 
+
+V (t) := Vol( M, g (t)) 
+
+denote the volume of (M, g (t)) . Since 
+
+∂t g = −2 Ric g −4g ,
+
+we have 
+
+tr g (∂t g ) = −2Rg − 12. 
+
+Therefore, direct computation yields (23) ∂t dμg = 12 tr g (∂t g )dμg = −(Rg + 6) dμg
+
+leading to (24) ddt V (t) = −
+
+Z
+
+> M
+
+(Rg + 6) dμg = −V (t)( ¯Rg + 6), 
+
+where denote the average scalar curvature over (M, g ) by Rg . Next we compute the evolution of λ[g (t)] . Instead of direct computation, we observe the following point regarding the scaling property of the λ(g ) functional. Along the ordinary unnormalized Ricci flow 
+
+∂t g = −2 Ric g ,
+
+Perelman’s monotonicity formula gives (25) ddt λ[g (t)] = 2 
+
+Z
+
+> M
+
+Ric g +∇2f 2
+
+> g
+
+e−f dμg .
+
+The present flow differs from the ordinary Ricci flow by the pure scaling term −4g . We use the scaling to obtain the time evolution of λ[g (t)] along the normalized Ricci flow Since 
+
+λ[cg ] = c−1λ[g ], 
+
+the pure scaling flow ∂t g = −4g contributes 4λ[g ] to ddt λ[g (t)] . Hence, along (16), one has (26) ddt λ[g (t)] = 2 
+
+Z
+
+> M
+
+Ric g +∇2f 2
+
+> g
+
+e−f dμg + 4 λ[g (t)]. 
+
+One can also see this by direct differentiation, using the normalized Ricci flow, and the fact that Ric + Hess (f )
+
+is divergence free with respect to the measure e−f dμg . In particular, one recalls the expression for λ in terms of f for which the infimum of R 
+
+> M
+
+(4 |∇ u|2 + Rg u2)dμg is attained with u = e−f /2 and R 
+
+> M
+
+u2dμg = 1 
+
+λ(g ) = 2 ∆g f − |∇ f |2 
+
+> g
+
++ Rg .(27) Clearly, λ(g ) is not monotonic along the normalized Ricci flow since for a hyperbolizable manifold λ(g ) is negative. Therefore, we turn our attention to the scale-invariant entropy functional, which is monotonic under the re-scaled Ricci flow. We now differentiate 
+
+λ[g (t)] = λ[g (t)] V (t)2/3.
+
+Using (24) and (26), we obtain 
+
+ddt λ[g (t)] = V 2/3 ddt λ[g (t)] + 23 λ[g (t)] V −1/3 dV dt 
+
+= V 2/3
+
+
+
+2
+
+Z
+
+> M
+
+Ric g +∇2f 2
+
+> g
+
+e−f dμg + 4 λ[g ]
+
+
+
+− 23 λ[g ]V 2/3(¯Rg + 6) (28) 
+
+= 2 V 2/3
+
+Z
+
+> M
+
+Ric g +∇2f 2
+
+> g
+
+e−f dμg − 23 V 2/3λ[g ]¯Rg .(29) It remains to rewrite this expression in a nonnegative form for the case of a hyperbolizable manifold that we are considering. The following series of computations yield the desired result. Since f realizes λ[g ], we have (30) λ[g ] = 
+
+Z
+
+> M
+
+
+
+Rg + |∇ f |2
+
+> g
+
+
+
+e−f dμg .
+
+Moreover, note the following integration by parts, (31) 
+
+Z
+
+> M
+
+∆f e −f dμg =
+
+Z
+
+> M
+
+|∇ f |2 
+
+> g
+
+e−f dμg .
+
+Therefore (32) 
+
+Z
+
+> M
+
+tr g
+
+
+
+Ric g +∇2f
+
+
+
+e−f dμg =
+
+Z
+
+> M
+
+(Rg + ∆f )e−f dμg = λ[g ]. 
+
+> 11
+
+Since dim M = 3 , we decompose 
+
+Ric g +∇2f =
+
+
+
+Ric g +∇2f − λ[g ]3 g
+
+
+
++ λ[g ]3 g .
+
+Using (32), we get (33) 
+
+Z
+
+> M
+
+Ric g +∇2f 2
+
+> g
+
+e−f dμg =
+
+Z
+
+> M
+
+Ric g +∇2f − λ[g ]3 g
+
+> 2
+> g
+
+e−f dμg
+
++ λ[g ]2
+
+3 .
+
+Substituting (33) into the time derivative of the rescaled entropy λ[g (t)] gives 
+
+ddt λ[g (t)] = 2 V 2/3
+
+Z
+
+> M
+
+Ric g +∇2f − λ[g ]3 g
+
+> 2
+> g
+
+e−f dμg + 23 V 2/3λ[g ]2 − 23 V 2/3λ[g ]¯Rg
+
+= 2 V 2/3
+
+Z
+
+> M
+
+Ric g +∇2f − λ[g ]3 g
+
+> 2
+> g
+
+e−f dμg + 23 V 2/3λ[g ]
+
+
+
+λ[g ] − ¯Rg
+
+
+
+.(34) This is precisely (20). Testing the definition of λ[g ] with the constant function u = V ol −1/2, we obtain (35) λ[g ] ≤ ¯Rg .
+
+Since M is closed and hyperbolizable, its Yamabe invariant is negative. In particular M admits no metric of positive scalar curvature, and hence (36) λ[g ] ≤ 0
+
+for every smooth metric g on M. Combining (35) and (36), we get 
+
+λ[g ]
+
+
+
+λ[g ] − ¯Rg
+
+
+
+≥ 0. 
+
+The first term in (20) is manifestly nonnegative. Therefore 
+
+ddt λ[g (t)] ≥ 0. 
+
+This proves the proposition. □
+
+Corollary 2.1. The volume normalized entropy λ(g (t)) is non-decreasing along the volume normalized Ricci flow as long as the latter exists. Moreover, it is constant if and only if (M, g ) is compact hyperbolic. Proof. Let n = 3 , and write 
+
+λ(g ) := λ(g ) Vol( g )2/3.
+
+Recall by the previous proposition 2.3 
+
+ddt λ(g (t)) = 2 V 2/3
+
+Z
+
+> M
+
+Ric + ∇2f − λ
+
+3 g
+
+> 2
+
+e−f dμg
+
++ 23 V 2/3λ
+
+
+
+λ − 1
+
+V
+
+Z
+
+> M
+
+R d μg
+
+
+
+,
+
+where V = Vol( M, g (t)) . Since the constant function is an admissible test function for λ(g ),
+
+λ(g ) ≤ 1
+
+V
+
+Z
+
+> M
+
+R d μg .
+
+On a negative Yamabe manifold one has λ(g ) ≤ 0 for every metric g . Hence 
+
+λ
+
+
+
+λ − 1
+
+V
+
+Z
+
+> M
+
+R d μg
+
+
+
+≥ 0. 
+
+Thus ddt λ(g (t)) ≥ 0. 
+
+Since λ is scale-invariant, the same monotonicity holds along the volume-normalized Ricci flow. If λ is constant on a time interval, then both nonnegative terms above vanish. Hence 
+
+Ric + ∇2f = λ
+
+3 g
+
+and, since λ < 0 in the negative Yamabe class, 
+
+λ = 1
+
+V
+
+Z
+
+> M
+
+R d μg .
+
+> 12
+
+The latter equality means that the constant test function realizes the minimum in the definition of λ(g ).Therefore f is constant. Consequently 
+
+Ric = λ
+
+3 g .
+
+Thus g is Einstein with negative Einstein constant. In dimension three, a negative Einstein metric has constant sectional curvature. Hence g is compact hyperbolic. Conversely, if g is compact hyperbolic, then it is Einstein and is fixed by the volume-normalized Ricci flow up to the chosen normalization. Hence λ(g (t)) is constant. □
+
+Remark 3. The scale-invariant Perelman entropy 
+
+λ[g ] := λ[g ] Vol( g )2/3
+
+is monotone along Ricci flow only on the branch where λ[g ] ≤ 0. In particular, on a negative Yamabe three-manifold one has λ[g ] ≤ 0 for every metric g , and hence λ[g (t)] is monotone along the flow. In the positive Yamabe case this sign condition may fail; when λ[g (t)] > 0, the monotonicity of λ is no longer guaranteed. Thus λ cannot be used as a global monotone quantity in the positive Yamabe setting. 
+
+In order to use the entropy monotonicity, we first need to prove how the entropy deficit is controlled by the volume deficit. We show it in the next proposition 
+
+Proposition 2.4. Let (M, g ) be a closed 3− manifold with R(g ) ≥ − 6 and let (M, h) be hyperbolic manifold with R(h) = −6. Suppose Vg = Vh + δ, then the following is verified by the scale-invariant entropy 
+
+0 ≤ λ(h) − λ(g ) ≤ Chδ(37) 
+
+for δ ≪ 1 and Ch depending on the hyperbolic metric h.Proof. First, recall the definition of the entropy λ(g ) with u = e−f
+
+λ(g ) = inf R  
+
+> Mu2dμg=1
+
+(Rg u2 + 4 |∇ u|2 
+
+> g
+
+)dμg(38) which in light of the scalar curvature estimate Rg yields 
+
+λ(g ) ≥ − 6(39) and therefore 
+
+¯λ(g ) ≥ − 6( Vg ) 23 = −6( Vh + δ) 23 .(40) Now since M is hyperbolic, its Yamabe invariant is negative, and the hyperbolic metric realizes the maximal value of ¯λ i.e., we have the upper bound 
+
+¯λ(g ) ≤ ¯λ(h) = −6( Vh) 23 .(41) Therefore we have 
+
+0 ≤ ¯λ(h) − ¯λ(g ) ≤ 6 (Vh + δ) 23 − (Vh) 23
+
+!
+
+≤ Chδ(42) for δ ≪ 1. □
+
+Proposition 2.5. Let the volume-normalized Ricci flow exist on [0, T ]. Then the following spacetime estimate holds on any regular interval [0, T )
+
+Z T
+
+> 0
+
+Vol (g (t)) 23
+
+Z
+
+> M
+
+Ric − λ
+
+3 g + ∇2f
+
+> 2
+
+e−f dμg
+
+ dt ≲ δ(43) 
+
+Proof. First recall that the entropy deficit D(t) = λ(h) − λ(g (t)) is non-increasing along the normalized Ricci flow t 7 → g (t) as long as the flow exists and therefore, 
+
+D(t) ≤ D (0) ≲ δ.(44) Now integration of the inequality 22 yields 
+
+Z T
+
+> 0
+
+Vol (g (t)) 23
+
+Z
+
+> M
+
+Ric − λ
+
+3 g + ∇2f
+
+> 2
+
+e−f dμg
+
+ dt ≤ 12 (λ(g (T )) − λ(g (0))) (45) 
+
+= 12 (D(0) − D (T )) ≤ 12 D(0) ≲ δ
+
+□
+
+> 13
+
+Now we recall the following elementary averaging lemma that will allow us to pick a good time slice (M, g (t)) 
+
+in the Ricci flow developement. 
+
+Lemma 2.1. Let I = [ a, b] ⊂ R be a compact interval of positive length, and let A : I −→ [0, ∞] be a measurable function. Suppose that R ba A(t) dt ≤ D for some D ≥ 0. Then, there exists a time t0 ∈ I such that A(t0) ≤ Db−a .More generally, for every α > 1, the set 
+
+(46) Gα := 
+
+
+
+t ∈ I : A(t) ≤ α Db − a
+
+
+
+satisfies 
+
+(47) |G α| ≥ 
+
+
+
+1 − 1
+
+α
+
+
+
+(b − a). 
+
+Proof. This lemma is a straightforward consequence of the Chebyshev’s inequality on L1 and contradiction argument. Since A ≥ 0, Chebyshev’s inequality gives 
+
+θ t ∈ I : A(t) > θ ≤
+
+Z
+
+> {A>θ }
+
+A(t) dt ≤
+
+Z ba
+
+A(t) dt ≤ D.
+
+Choosing θ = α Db−a with α > 1, we obtain 
+
+|I \ G α| =
+
+
+
+t ∈ I : A(t) > α Db − a
+
+
+
+≤ D
+
+αD/(b − a) = b − a
+
+α .
+
+Therefore 
+
+|G α| ≥ (b − a) − b − a
+
+α =
+
+
+
+1 − 1
+
+α
+
+
+
+(b − a), 
+
+which proves (47). Finally, letting α ↓ 1, or arguing directly by contradiction, gives the existence of t0 ∈ I
+
+satisfying A(t0) ≤ Db−a . Indeed, if A(t) > Db−a for almost every t ∈ I , then 
+
+Z ba
+
+A(t) dt > D,
+
+contradicting R ba A(t)dt ≤ D. This completes the proof. □
+
+Using this elementary lemma, we obtain the following corollary of the proposition 2.5 namely we can pick out a good time slice where the weighted L2 norm of the soliton defect Ric + ∇2f − λ(g )3 g is small. 
+
+Corollary 2.2. Let M3 be a closed hyperbolizable manifold and let 
+
+∂t gi = −2
+
+
+
+Ric gi +2 gi
+
+
+
+, t ∈ [0, T ], 
+
+be a sequence of smooth rescaled Ricci flows. Let fi (t) be the minimizer for Perelman’s λ-functional, normalized by R 
+
+> M
+
+e−fi (t) dμgi (t) = 1 . Whenever 
+
+(48) λ[h] − λ[gi (0)] ≲ δi , δi → 0, 
+
+where h is the hyperbolic metric normalized by 
+
+Ric h = −2h,
+
+for every fixed T > 0, there exists a time ti ∈
+
+h T 
+
+> 2
+
+, T
+
+i
+
+such that 
+
+(49) Vol( M, gi (ti )) 2/3
+
+Z
+
+> M
+
+Ric gi (ti ) +∇2fi (ti ) − λ[gi (ti )] 3 gi (ti )  
+
+> 2
+> gi(ti)
+
+e−fi (ti ) dμgi (ti ) ≲ 1
+
+T δi .
+
+Proof. The proof is a direct consequence of the monotonicity property of the scale-invariant entropy functional 
+
+λ as proven in proposition 22 and the integral estimate of corollary 2.5. Suppose for notational convenience, we denote the integrated soliton defect as follows 
+
+Ai := 
+
+Z
+
+> M
+
+Ric gi (ti ) +∇2fi (ti ) − λ[gi (ti )] 3 gi (ti )  
+
+> 2
+> gi(ti)
+
+e−fi (ti ) dμgi (ti )
+
+It follows from corollary 2.5 
+
+2
+
+Z TT /2
+
+Ai (t) dt ≤ λ[gi (T )] − λ[gi (T /2)] (50) 
+
+≤ λ[h] − λ[gi (0)] (51) 
+
+≲ δi .(52) 
+
+> 14
+
+Applying Lemma 2.1 to the interval I =
+
+h T 
+
+> 2
+
+, T
+
+i
+
+, gives a time ti ∈ [T /2, T ] satisfying 
+
+Ai (ti ) ≲ δi
+
+T .
+
+This proves the corollary. □
+
+Next, we recall the following vital theorem regarding the Ricci flow with Surgery (see [17], the exposition by [5] for the detailed account) 
+
+Theorem 2.1. Let (M; g) be a closed, 3- dimensional Riemannian manifold. If the surgery scales rsur g (Ti ) > 0
+
+are chosen sufficiently small (depending on (M, g ) and Ti ), then a Ricci flow with surgery with initial condition 
+
+(M1, g1 = M0, g (0)) can be constructed. 
+
+A central point in the construction of the three-dimensional Ricci flow with surgery is to exclude the possibility that the surgery times accumulate in a finite time interval. This is not merely a bookkeeping issue. At each surgery time, one replaces a sufficiently round neck with a pair of standard caps, and this operation introduces a small geometric error. If the surgery parameters were kept fixed, these errors could, in principle, accumulate and force a Zeno-type phenomenon, namely infinitely many surgeries before some finite time T .Perelman’s resolution is to choose the surgery parameters with increasing precision as time evolves. Thus the necks along which the cuts are made are required to be increasingly close, after scaling, to the standard round cylinder, and the caps inserted after the cut are correspondingly close to the standard solution. In particular, the surgery scale is chosen so small that, after rescaling about a region of controlled curvature, the actual surgery region is pushed arbitrarily far away in space. This allows one to recover, on compact subsets of the rescaled spacetime, a genuinely smooth Ricci flow rather than a flow interrupted by surgery. There is, however, a delicate analytic point. Hamilton’s compactness theorem is a theorem for smooth Ricci flows. A Ricci flow with surgery is only piecewise smooth in time, and therefore one cannot directly apply Hamilton compactness to a sequence of surgically modified flows. Moreover, a uniform C 0-bound for the curvature is not by itself sufficient: in order to pass to a smooth limit one also needs the higher derivative bounds supplied by Shi’s estimates [20], and these estimates require an honest smooth solution on a definite time interval. The required remedy has two components that we discuss here. First, Perelman’s choice of sufficiently fine necks and a sufficiently small cutoff scale ensure that, under the relevant parabolic rescalings, the regions altered by surgery escape every fixed compact subset. Second, one proves a local time-extension statement for the surgically modified solution: away from the newly inserted caps, and on compact subsets which remain at a definite distance from the surgery region, the post-surgery flow is smooth on a uniform short time interval. Consequently, Shi’s local derivative estimates [20] apply to these compact spacetime regions, and Hamilton’s compactness theorem may be used exactly as in the smooth case. Schematically, the argument is fine surgery → surgery region escapes under rescaling → local smooth time extension, and hence Shi estimates → Hamilton compactness → smooth canonical limit. If surgery times accumulate at a finite time, one could rescale about the corresponding high-curvature regions and extract a smooth limiting ancient solution. The canonical-neighborhood structure of this limit is then incompatible with the assumed accumulation of surgery times. This contradiction shows that the surgery times are discrete, and in particular that only finitely many surgeries occur on every compact time interval. A further subtlety concerns the evolution of the caps inserted at surgery. It is not enough to know that the caps are initially close to the standard cap; one must also know that this closeness persists for a uniform amount of time after the surgery. This is the role of the prolongation analysis of fine caps. Using the uniqueness theory for complete noncompact Ricci flows, one compares the short-time evolution of the inserted caps with the corresponding standard cap solution. This gives the necessary local smoothness and derivative control near the post-surgery region, and thereby completes the justification of the compactness argument for surgically modified flows. Now we need to prove that on the good time slice ti (ti → ∞ ), there is a good part that is C 0 close to the final hyperbolic development. This part is crucial. This is the second part of the proof. The following proposition accomplishes this result. We denote the the hyperbolic manifold normalized to have scalar curvature −6 by (M, h) and the corresponding volume is denoted by Vol h.
+
+Proposition 2.6. Let (M, h) be a closed hyperbolic three-manifold normalized by 
+
+Ric h = −2h, R(h) = −6. 
+
+For each i, let (Mi (t), gi (t)) , t ≥ 0, be the distinguished component of a normalized Ricci flow with sufficiently precise surgery starting from (M, gi ), and assume 
+
+R(gi ) ≥ − 6, 0 ≤ Vol gi (M) − Vol h(M) ≤ δi , δi → 0. 
+
+> 15
+
+Then, after passing to a subsequence, there exist Ai → ∞ , regular times ti ∈ [Ai , 2 Ai ], compact domains K ti ⊂ M
+
+and G ti ⊂ Mi (ti ), diffeomorphisms 
+
+ψti : K ti −→ G ti ,
+
+and bad sets Z ti := Mi (ti ) \ G ti such that 
+
+Vol gi (ti )(Z ti ) → 0, Vol h(M \ K ti ) → 0, 
+
+and 
+
+∥(ψti )∗gi (ti ) − h∥C 0(K ti ,h) → 0. 
+
+Moreover, Z 
+
+> Gti
+
+
+
+R(gi (ti )) + 6 
+
+
+
+dμgi (ti ) → 0. 
+
+Proof. First let us fix the notation. For each i, let 
+
+
+
+Mi (t), gi (t)
+
+
+
+, t ≥ 0, 
+
+denote the distinguished component of the normalized Ricci flow with sufficiently precise surgery starting from 
+
+(M, gi ). Thus Mi (t) is the component carrying the hyperbolic prime factor and is diffeomorphic to M at every regular time. Set 
+
+Vh := Vol h(M), Vi (t) := Vol gi (t)(Mi (t)), 
+
+and 
+
+Qi (t) := R(gi (t)) + 6, Ei (t) := Ric gi (t) +2 gi (t). 
+
+On every regular time interval, 
+
+(∂t − ∆gi (t) + 4) Qi = 2 |Ei |2 
+
+> gi(t)
+
+.
+
+Hence Proposition 2.1 and the parabolic maximum principle give 
+
+Qi (t) ≥ 0
+
+at every regular time. The standard sufficiently precise surgery construction preserves the same inequality across surgery times: the metric is unchanged outside the surgery regions, while the inserted caps have positive scalar curvature at the surgery scale. Consequently, 
+
+R(gi (t)) + 6 ≥ 0
+
+on every regular and every post-surgery time slice. Let Ti denote the discrete set of surgery times and set 
+
+∆surg  
+
+> i
+
+V (s) := Vi (s−) − Vi (s+) ≥ 0, s ∈ T i .
+
+On each regular time interval, 
+
+ddt Vi (t) = −
+
+Z 
+
+> Mi(t)
+
+Qi (t) dμgi (t).
+
+Since the distinguished component remains in the fixed hyperbolic topological class, the hyperbolic volume comparison theorem gives 
+
+Vh ≤ Vi (t) ≤ Vi (0) ≤ Vh + δi .
+
+Summing the volume identity over the regular time intervals, we obtain, for every regular T > 0,
+
+Vi (0) − Vi (T ) = 
+
+Z T
+
+> 0
+
+Z 
+
+> Mi(t)
+
+Qi (t) dμgi (t) dt + X
+
+> s∈T i
+> 0<s<T
+
+∆surg  
+
+> i
+
+V (s). 
+
+Here and below, spacetime integrals are understood to be taken over the regular portions of the surgical flow. Since all terms on the right-hand side are nonnegative and Vi (T ) ≥ Vh (by Schoen’s volume comparison result), it follows that (53) 
+
+Z ∞
+
+> 0
+
+Z 
+
+> Mi(t)
+
+Qi (t) dμgi (t) dt ≤ δi ,
+
+and, simultaneously, X
+
+> s∈T i
+
+∆surg  
+
+> i
+
+V (s) ≤ δi .
+
+We next record the corresponding entropy estimate. Let fi (t) be the normalized minimizer for Perelman’s 
+
+λ-functional on the regular slice (Mi (t), gi (t)) ,
+
+Z 
+
+> Mi(t)
+
+e−fi (t) dμgi (t) = 1, 
+
+> 16
+
+and define 
+
+Si (t) := Ric gi (t) +∇2 
+
+> gi(t)
+
+fi (t) − λ[gi (t)] 3 gi (t). 
+
+By Proposition 2.4, 
+
+0 ≤ λ[h] − λ[gi (0)] ≤ Chδi .
+
+On every regular interval, Proposition 2.3 gives 
+
+ddt λ[gi (t)] ≥ 2Vi (t)2/3
+
+Z 
+
+> Mi(t)
+
+|S i (t)|2 
+
+> gi(t)
+
+e−fi (t) dμgi (t).
+
+We choose the surgery parameters sufficiently precise so that the sum of the possible negative jumps of λ is bounded by δi . Since 
+
+λ[gi (t)] ≤ λ[h], 
+
+summing the preceding inequality over the regular time intervals gives (54) 
+
+Z ∞
+
+> 0
+
+Vi (t)2/3
+
+Z 
+
+> Mi(t)
+
+|S i (t)|2 
+
+> gi(t)
+
+e−fi (t) dμgi (t) dt ≤ Chδi .
+
+We now choose the required late regular time. By Perelman’s long-time analysis, we may choose Ai → ∞ so that the thick–thin compactness conclusions used below hold throughout the time interval [Ai , 2 Ai ]. From (53) and (54), Z 2Ai
+
+> Ai
+
+" Z 
+
+> Mi(t)
+
+Qi (t) dμgi (t) + Vi (t)2/3
+
+Z 
+
+> Mi(t)
+
+|S i (t)|2 
+
+> gi(t)
+
+e−fi (t) dμgi (t)
+
+#
+
+dt ≤ Chδi .
+
+The surgery times are discrete and hence have zero Lebesgue measure. Applying Lemma 2.1, we may therefore choose a regular time 
+
+ti ∈ [Ai , 2 Ai ]
+
+such that (55) 
+
+Z  
+
+> Mi(ti)
+
+Qi (ti ) dμgi (ti ) ≤ Chδi
+
+Ai
+
+−→ 0, 
+
+and (56) Vi (ti )2/3
+
+Z  
+
+> Mi(ti)
+
+|S i (ti )|2  
+
+> gi(ti)
+
+e−fi (ti ) dμgi (ti ) ≤ Chδi
+
+Ai
+
+−→ 0. 
+
+In particular, ti → ∞ . Now set 
+
+bMi := Mi (ti ), bgi := gi (ti ), bfi := fi (ti ), bλi := λ[bgi ]. 
+
+The volume bounds give 
+
+Vh ≤ Vol bgi ( bMi ) ≤ Vh + δi ,
+
+and hence 
+
+Vol bgi ( bMi ) −→ Vh.
+
+Moreover, entropy monotonicity, together with the controlled surgery errors, yields 
+
+0 ≤ λ[h] − λ[bgi ] ≤ Chδi .
+
+Therefore 
+
+λ[bgi ] −→ − 6V 2/3 
+
+> h
+
+, bλi −→ − 6. 
+
+Let 
+
+bui := e−bfi /2.
+
+Then 
+
+−4∆bgi bui + R(bgi )bui = bλi bui ,
+
+Z
+
+> bMi
+
+bu2 
+
+> i
+
+dμbgi = 1. 
+
+Testing the eigenvalue equation against bui gives 
+
+bλi + 6 = 4 
+
+Z
+
+> bMi
+
+|∇ bui |2 
+
+> bgi
+
+dμbgi +
+
+Z
+
+> bMi
+
+
+
+R(bgi ) + 6 
+
+bu2 
+
+> i
+
+dμbgi .
+
+Since both terms on the right-hand side are nonnegative and bλi → − 6, we obtain (57) 
+
+Z
+
+> bMi
+
+|∇ bui |2 
+
+> bgi
+
+dμbgi −→ 0, 
+
+as well as Z
+
+> bMi
+
+
+
+R(bgi ) + 6 
+
+bu2 
+
+> i
+
+dμbgi −→ 0. 
+
+> 17
+
+We now pass to the long-time thick part. Define the curvature scale of ( bMi , bgi ) by 
+
+ρi (x) := sup 
+
+n
+
+r ∈ (0, 1] : sec bgi ≥ − r −2 on Bbgi (x, r )
+
+o
+
+.
+
+For w > 0, set 
+
+bM+ 
+
+> i
+
+(w ) := 
+
+n
+
+x ∈ bMi : Vol bgi Bbgi (x, ρi (x)) ≥ w ρi (x)3o
+
+,
+
+and bM− 
+
+> i
+
+(w ) := bMi \ bM+ 
+
+> i
+
+(w ). 
+
+Since ti → ∞ , Perelman’s long-time thick-part estimates apply. For every fixed w > 0, there exist constants 
+
+r0(w ) > 0, ι0(w ) > 0, Cm(w ) < ∞, m = 0, 1, 2, . . . ,
+
+such that, for every xi ∈ bM+ 
+
+> i
+
+(w ),
+
+inj bgi (xi ) ≥ ι0(w ), 
+
+and 
+
+sup    
+
+> Bbgi(xi,r0(w))
+
+|∇ m Rm bgi |bgi ≤ Cm(w )
+
+for every m ≥ 0. The zeroth-order estimate is the thick-part curvature estimate in Perelman’s long-time analysis. Shi’s local derivative estimates give the higher-order bounds on a smaller concentric ball, while the injectivity-radius estimate follows from the curvature bound and the noncollapsing condition at the curvature scale. We do not describe the details here and refer the reader to the exposition of [5]. Now Hamilton compactness therefore applies. If xi ∈ bM+ 
+
+> i
+
+(w ), then, after passing to a subsequence, there exist a complete pointed smooth limit 
+
+(X , gX , x∞)
+
+and, for every compact set K ⋐ X , embeddings 
+
+ΨKi : K −→ bMi
+
+such that 
+
+(ΨKi )∗ bgi −→ gX
+
+smoothly on K . Equivalently, for every m ≥ 0,
+
+∥(ΨKi )∗ bgi − gX ∥C m (K ,gX ) −→ 0. 
+
+Perelman’s long-time existence theorem identifies every such regular thick limit as a complete finite-volume hyperbolic manifold. For completeness, the selected entropy estimates are consistent with the same identifi-cation. Indeed, on every compact thick-limit coordinate domain on which the pulled-back entropy minimizers have a nonzero limit, (57), the local Harnack inequality [22], and the interior Schauder estimates give smooth convergence of the normalized minimizers to a positive constant. Pulling back 
+
+bSi = Ric bgi +∇2
+
+> bgi
+
+bfi − bλi
+
+3 bgi
+
+and using (56), one obtains 
+
+Ric gX +2 gX = 0. 
+
+Since gX is smooth, this identity holds smoothly. In dimension three the Einstein condition implies constant sectional curvature −1. It remains to pass from pointed thick convergence to convergence on large domains and to prove that the complementary regions have vanishing volume. Perelman’s geometrization compactness theorem gives a complete finite-volume hyperbolic limit (H, hH ), an exhaustion by compact smooth domains 
+
+K j ⋐ H, K j ↗ H,
+
+and diffeomorphisms onto their images 
+
+ψji : K j −→ Uji ⊂ bMi
+
+such that, for every fixed j,
+
+(ψji )∗ bgi −→ hH
+
+smoothly on K j . In particular, 
+
+Vol bgi (Uji ) = Vol (ψji )∗bgi (K j ) −→ Vol hH (K j ). 
+
+The distinguished component bMi is diffeomorphic to the fixed closed hyperbolic manifold M. Its geometrization therefore contains precisely the hyperbolic piece determined by M; equivalently, the total hyperbolic volume is 
+
+Vol hH (H) = Vol h(M) = Vh.
+
+The topological identification of the hyperbolic piece with M, followed by Mostow rigidity, identifies 
+
+(H, hH ) ∼= ( M, h). 
+
+> 18
+
+We henceforth make this identification and choose the exhaustion so that 
+
+K j ⋐ M, K j ↗ M, Vol h(M \ K j ) −→ 0. 
+
+For instance, one may take 
+
+K j = M \ Bh(p, rj ), rj ↓ 0. 
+
+For each fixed j,
+
+(ψji )∗ bgi −→ h
+
+smoothly on K j . Consequently, 
+
+∥(ψji )∗ bgi − h∥C 0(K j ,h) −→ 0
+
+and 
+
+Vol bgi (Uji ) −→ Vol h(K j ). 
+
+Choose a diagonal sequence j = j(i) → ∞ sufficiently slowly that 
+
+∥(ψj(i) 
+
+> i
+
+)∗ bgi − h∥C 0(K j(i),h) −→ 0
+
+and 
+
+Vol bgi (Uj(i) 
+
+> i
+
+) − Vol h(K j(i)) −→ 0. 
+
+Set 
+
+K ti := K j(i), G ti := Uj(i) 
+
+> i
+
+, Z ti := bMi \ G ti , ψti := ψj(i) 
+
+> i
+
+.
+
+Then 
+
+∥(ψti )∗ bgi − h∥C 0(K ti ,h) −→ 0
+
+and 
+
+Vol h(M \ K ti ) −→ 0. 
+
+We finally verify directly that the bad region has vanishing bgi -volume. Since 
+
+Z ti = bMi \ G ti ,
+
+we have 
+
+Vol bgi (Z ti ) = | Vol bgi (M) − Vol bgi (G ti )| = | Vol bgi (M) − Vol h(M) + Vol h(K ti ) − Vol bgi (G ti ) + Vol h(M) − Vol h(K ti )|≤ Vol bgi (M) − Vol h(M) + Vol bgi (G ti ) − Vol h(K ti ) + Vol h(M \ K ti ). 
+
+The first term tends to zero by the volume bounds, the second by the diagonal smooth convergence, and the third by the exhaustion. Hence 
+
+Vol bgi (Z ti ) −→ 0. 
+
+If 
+
+Φti := ( ψti )−1 : G ti −→ K ti ,
+
+then the preceding C 0-convergence is equivalently written as 
+
+sup  
+
+> x∈Gti
+
+bgi − (Φti )∗h (Φti )∗h (x) −→ 0. 
+
+Finally, (55) and the nonnegativity of R(bgi ) + 6 give 
+
+0 ≤
+
+Z 
+
+> Gti
+
+
+
+R(bgi ) + 6 
+
+
+
+dμbgi
+
+≤
+
+Z
+
+> bMi
+
+
+
+R(bgi ) + 6 
+
+
+
+dμbgi −→ 0. 
+
+Since bgi = gi (ti ), all the asserted conclusions follow. □
+
+Remark 4. No assertion is made about the distance functions dgi (ti ). Thus short-circuit regions contained in 
+
+Zi (ti ) do not affect the conclusion. The result is a tensorial C 0-convergence statement on the good part, not a Gromov–Hausdorff statement. 
+
+> 19
+
+3. Pulling Back to the Initial Slice 
+
+In the previous section, we proved the existence of a time t = ti ∈ [Ai /2, Ai ] good slice for every Ai → ∞ by using the fact that the Ricci flow with surgery on a hyperbolizable manifold is globally well-posed. In the present work, by the volume constraint and the initial condition, the volume loss at each surgery is controlled. Proving the C 0 convergence of the good part of a good time slice (adapted to the sequence of chosen initial conditions with the volume budget) to that of the final slice the hyperbolic manifold is relatively easy and follows from the standard entropy control and the compactness theory of the Ricci flow. However, the main difficulty is to pull back the convergence to the initial slice (M, gi (0)) which what we want to prove ultimately. As discussed in the introduction, we face a significant difficulty in this part regarding the control of the appropriate norm of the metric deformation ∂t g along the Ricci flow. The first ingredient that we need is the so called “Łojasiewicz" inequality (see [11] for example) in the study of gradient flow. The crucial idea here is that we need to use the gradient flow structure of the normalized Ricci flow on the space of metrics modulo diffeomorphisms and scalings. The following proposition accomplishes it 
+
+Proposition 3.1. Let ( eM, h) be a closed hyperbolic three-manifold normalized by Ric h = −2h, R(h) = −6. 
+
+Fix s > 7/2. There exist a sufficiently small Hs -neighborhood U ⊂ Met s ( eM) of the hyperbolic orbit Diff s+1 ( eM)·h,
+
+constants CLS < ∞, θ ∈
+
+
+
+0, 12
+
+i
+
+, and a constant C < ∞, depending only on ( eM, h), s, and U, with the following property. Let g (t), t ∈ [a, b], be a smooth solution of the normalized Ricci flow 
+
+∂t g (t) = −2
+
+
+
+Ric g (t) + 2 g (t)
+
+
+
+on eM, and assume that g (t) ∈ U for every t ∈ [a, b]. Let f (t) be the minimizer of Perelman’s λ-functional, normalized by Z
+
+> eM
+
+e−f (t) dμg (t) = 1, 
+
+and set 
+
+λ(t) := λ[g (t)], S(t) := Ric g (t) + ∇2 
+
+> g(t)
+
+f (t) − λ(t)3 g (t). 
+
+Define the scale-invariant entropy λ[g ] := λ[g ] Vol g ( eM)2/3, the entropy deficit 
+
+D(t) := λ[h] − λ[g (t)], 
+
+and the scale-invariant weighted L2-norm of the soliton defect 
+
+N (t) := Vol g (t)( eM)1/3
+
+Z 
+
+> eM
+
+|S (t)|2 
+
+> g(t)
+
+e−f (t) dμg (t)
+
+1/2
+
+.
+
+Then 
+
+(58) D(t)1−θ ≤ CLS N (t)
+
+for every t ∈ [a, b]. Moreover, 
+
+(59) 
+
+Z ba
+
+N (t) dt ≤ CLS 
+
+2θ
+
+
+
+D(a)θ − D (b)θ 
+
+≤ CLS 
+
+2θ D(a)θ .
+
+Suppose, in addition, that R(g (t)) + 6 ≥ 0on eM for every t ∈ [a, b]. Let φt solve 
+
+ddt φt = −∇ g (t)f (t) ◦ φt , φa = Id ,
+
+and define bg (t) := φ∗ 
+
+> t
+
+g (t). Then 
+
+(60) ∂t bg (t) = −2φ∗
+
+> t
+
+
+
+S(t) + λ(t) + 6 3 g (t)
+
+
+
+.
+
+Consequently, 
+
+Z ba
+
+∥∂t bg (t)∥L2( eM,bg (t)) dt ≤ C D(a)θ + C
+
+Z ba
+
+Z
+
+> eM
+
+
+
+R(g (t)) + 6 
+
+
+
+dμg (t) dt .(61) 
+
+Remark 5. The principal conclusion of Proposition 3.1 is the L1 
+
+> t
+
+L2 
+
+> x
+
+-estimate (61) . The L1 
+
+> t
+
+L2 
+
+> x
+
+-estimate implies the L1 
+
+> t
+
+L1 
+
+> x
+
+-estimate due to the uniform boundedness of the volume 
+
+> 20
+
+Remark 6. We need to take caution about the following fact. In the application of Proposition 3.1, the manifold eM does not denote the entire, possibly singular or surgically modified, Ricci-flow time slice. It denotes the fixed closed hyperbolic model used to parametrize the backward-saturated good component obtained from the intermediate comparison proposition 2.6. More precisely, after pulling the terminal good region backward along the surviving spacetime tube and iden-tifying the resulting slices with a fixed reference manifold (which we will do in the next proposition 3.2), the corresponding pulled-back metrics are regarded as metrics on eM. All quantities appearing in Proposition 3.1, including f (t), λ[g (t)], D(t), N (t), and U, refer exclusively to this identified good component. The proposition is applied only on those connected time intervals for which the pulled-back good metric belongs to the hyperbolic neighborhood U. No Lojasiewicz–Simon estimate is imposed on the uncontrolled complement of the good component or on the full Ricci-flow slice since such an application does not make sense. On the complementary time intervals, the duration is controlled separately by the entropy-dissipation estimate and the uniform gradient gap away from U.Proof. Throughout the proof, all geometric quantities are defined on the fixed closed manifold eM parametrizing the good component. We write 
+
+V (t) := Vol g (t)( eM), λ(t) := λ[g (t)], 
+
+and 
+
+dνt := e−f (t) dμg (t),
+
+Z
+
+> eM
+
+dνt = 1. 
+
+Perelman’s monotonicity formula for the scale-invariant entropy gives 
+
+ddt λ[g (t)] = 2 V (t)2/3 R eM |S (t)|2 
+
+> g(t)
+
+e−f (t) dμg (t) + 23 V (t)2/3λ(t)
+
+
+
+λ(t) − R(t)
+
+
+
+,
+
+where 
+
+R(t) := 1
+
+V (t)
+
+Z
+
+> eM
+
+R(g (t)) dμg (t).
+
+Since eM is of negative Yamabe type, 
+
+λ(t) ≤ 0, 
+
+and the constant function is an admissible test function in the definition of λ, so that 
+
+λ(t) ≤ R(t). 
+
+The second term on the right-hand side of (62) is therefore nonnegative. Recalling the definition of N (t), we obtain (62) −D ′(t) = ddt λ[g (t)] ≥ 2N (t)2.
+
+We next place the Lojasiewicz–Simon inequality in the precise Hilbert space framework used here. Fix s > 72 .Let Ms ( eM) denote the Hilbert manifold of Hs -metrics on eM. We work modulo the action 
+
+(φ, c) · g := c φ∗g , (φ, c) ∈ Diff s+1 ( eM) × R+.
+
+Let δh denote the divergence with respect to h. A local slice transverse to the diffeomorphism and scaling orbit of h is given by 
+
+S sh (ε) := 
+
+ h + ℓℓ ∈ Hs (S2T ∗ eM), δhℓ = 0, 
+
+Z
+
+> eM
+
+tr hℓ dμh = 0, ∥ℓ∥Hs (h) < ε , h + ℓ > 0
+
+ .
+
+Accordingly, we define 
+
+U := 
+
+n
+
+g ∈ M s ( eM) : c φ∗g ∈ S sh (ε) for some φ ∈ Diff s+1 ( eM), c > 0
+
+o
+
+.
+
+After decreasing ε, the functional 
+
+g 7 −→ λ[g ] = λ[g ]Vol g ( eM)2/3
+
+is real analytic on the slice, and the Lojasiewicz–Simon inequality at the hyperbolic critical metric gives constants CLS < ∞, θ ∈
+
+
+
+0, 12
+
+i
+
+, such that (63) 
+
+
+
+λ[h] − λ[g ]
+
+1−θ
+
+≤ CLS ∇S λ(g ) Hg
+
+for every g ∈ U (see [14] for details. Here analyticity is of extreme importance). Here ∇S denotes the gradient restricted to the local slice and 
+
+(A, B)Hg := V 2/3
+
+Z
+
+> eM
+
+⟨A, B⟩g dν
+
+> 21
+
+is the scale-invariant weighted L2-inner product. We compare the gradient appearing in (63) with the soliton defect. For a variation 
+
+a = ddσ σ=0 
+
+gσ ,
+
+the first-variation formulas for λ and the volume give after straightforward computations 
+
+Dλg (a) = −V 2/3
+
+Z
+
+> eM
+
+D
+
+Ric g + ∇2 
+
+> g
+
+f , a
+
+E
+
+> g
+
+dν
+
++ λ[g ]3 V −1/3
+
+Z
+
+> eM
+
+tr g a d μg .(64) Since dμg = ef dν, this may be written as 
+
+Dλg (a) = −V 2/3
+
+Z
+
+> eM
+
+Gg , a g dν,
+
+where 
+
+Gg := Ric g + ∇2 
+
+> g
+
+f − λ[g ]3V ef g .
+
+Thus −Gg is the ambient gradient of λ with respect to Hg . Since the slice gradient is its orthogonal projection, (65) ∇S λ(g ) Hg
+
+≤ ∥ Gg ∥Hg .
+
+Recall that 
+
+Sg = Ric g + ∇2 
+
+> g
+
+f − λ[g ]3 g .
+
+Consequently, (66) Gg − S g = − λ[g ]3
+
+ef
+
+V − 1
+
+!
+
+g .
+
+We show that the difference on the right is controlled by Sg . First, set 
+
+ϕ := f − log V , dμ := V −1dμg .
+
+Then 
+
+dν = e−ϕ dμ,
+
+Z
+
+> eM
+
+e−ϕ dμ = 1. 
+
+The Euler–Lagrange equation for the entropy minimizer is 
+
+2∆g f − |∇ f |2 
+
+> g
+
++ R(g ) = λ[g ]. 
+
+Taking the trace of Sg and using this equation gives (67) ∆g ϕ = |∇ ϕ|2 
+
+> g
+
+− tr g Sg .
+
+Define the following 
+
+ϕ := 
+
+Z
+
+> eM
+
+ϕ dμ, ϕ0 := ϕ − ϕ.
+
+Because g ∈ U , the metrics are uniformly equivalent to h, their elliptic constants are uniformly controlled, and the first positive eigenvalue of −∆g is bounded uniformly away from zero. It follows that 
+
+∥ϕ0∥H2(g ) ≤ C ∥∆g ϕ∥L2(g ).
+
+Using (67), we obtain 
+
+∥ϕ0∥H2(g ) ≤ C ∥S g ∥L2(g ) + C |∇ ϕ|2  
+
+> gL2(g)
+
+≤ C ∥S g ∥L2(g ) + C ∥∇ ϕ∥L∞(g )∥∇ ϕ0∥L2(g ).
+
+The entropy minimizer depends smoothly on the metric in the Hs -neighborhood U, and at h it is constant. Shrinking U, if necessary, we may therefore assume that ∥∇ ϕ∥L∞(g ) is sufficiently small. The final term in (68) can then be absorbed, giving (68) ∥ϕ − ϕ∥H2(g ) ≤ C ∥S g ∥L2(g ).
+
+It remains to estimate the constant mode. Since 
+
+Z
+
+> eM
+
+e−ϕ dμ = 1 
+
+and ϕ is uniformly small in C 0, Taylor’s formula gives for small φ
+
+0 = 
+
+Z
+
+> eM
+
+
+
+e−ϕ − 1
+
+
+
+dμ = −ϕ + O
+
+
+
+∥ϕ∥2
+
+> L2(dμ)
+
+
+
+.
+
+> 22
+
+Hence 
+
+|ϕ| ≤ C ∥ϕ∥2
+
+> L2(dμ)
+
+.
+
+Combining this estimate with (68), and shrinking U once more, yields (69) ∥ϕ∥L2(dμ) ≤ C ∥S g ∥L2(g ).
+
+Since the measures 
+
+dν = e−ϕdμ, dμ, dμg
+
+are uniformly equivalent on U, and 
+
+ef
+
+V − 1 = eϕ − 1, 
+
+equation (69) implies (70) ef
+
+V − 1
+
+> L2(dν)
+
+≤ C ∥S g ∥L2(dν).
+
+The ordinary entropy λ[g ] and the volume V are uniformly bounded above and below on U. Therefore (66) and (70) give 
+
+∥Gg ∥Hg ≤ C V 1/3
+
+Z 
+
+> eM
+
+|S g |2 
+
+> g
+
+dν
+
+1/2
+
+.
+
+In the notation of the proposition, (71) ∥Gg (t)∥Hg (t) ≤ C N (t). 
+
+Combining (63), (65), and (71), we conclude that (72) D(t)1−θ ≤ CLS N (t). 
+
+We now derive the path estimate. At times for which N (t) > 0, equation (72) gives 
+
+1
+
+N (t) ≤ CLS D(t)θ−1.
+
+Using (62), we obtain 
+
+N (t) = N (t)2
+
+N (t) ≤ CLS N (t)2D(t)θ−1 ≤ − CLS 
+
+2 D(t)θ−1D′(t). 
+
+The same inequality holds at the remaining times by continuity. Integration over [a, b] therefore gives 
+
+Z ba
+
+N (t) dt ≤ CLS 
+
+2θ
+
+
+
+D(a)θ − D (b)θ 
+
+≤ CLS 
+
+2θ D(a)θ .
+
+We finally estimate the deformation in the entropy gauge. Let φt solve 
+
+˙φt = −∇ g (t)f (t) ◦ φt , φa = Id ,
+
+and set 
+
+bg (t) := φ∗ 
+
+> t
+
+g (t). 
+
+Then 
+
+∂t bg (t) = φ∗
+
+> t
+
+
+
+∂t g (t) + L−∇ f (t)g (t)
+
+
+
+= −2φ∗
+
+> t
+
+
+
+Ric g (t) + ∇2 
+
+> g(t)
+
+f (t) + 2 g (t)
+
+
+
+= −2φ∗
+
+> t
+
+
+
+S(t) + λ(t) + 6 3 g (t)
+
+
+
+.(73) By invariance of tensor norms and volume under pullback, 
+
+∥∂t bg (t)∥L2( eM,bg (t)) ≤ 2∥S (t)∥L2( eM,g (t)) + 2
+
+√3 V (t)1/2|λ(t) + 6 |.(74) Since g (t) ∈ U , the measures e−f (t)dμg (t) and dμg (t) are uniformly equivalent, and V (t) is uniformly bounded above and below. It follows that 
+
+∥S (t)∥L2( eM,g (t)) ≤ C N (t). 
+
+Suppose now that R(g (t)) + 6 ≥ 0. The Rayleigh quotient defining λ[g (t)] gives 
+
+λ(t) ≥ − 6. 
+
+> 23
+
+Testing the same quotient with the constant function gives 
+
+λ(t) ≤ 1
+
+V (t)
+
+Z
+
+> eM
+
+R(g (t)) dμg (t) = −6 + 1
+
+V (t)
+
+Z
+
+> eM
+
+
+
+R(g (t)) + 6 
+
+
+
+dμg (t).
+
+Consequently, (75) 0 ≤ λ(t) + 6 ≤ 1
+
+V (t)
+
+Z
+
+> eM
+
+
+
+R(g (t)) + 6 
+
+
+
+dμg (t).
+
+Combining (74) and (75), and using the uniform lower volume bound, we obtain 
+
+Z ba
+
+∥∂t bg (t)∥L2( eM,bg (t)) dt ≤ C D(a)θ + C
+
+Z ba
+
+Z
+
+> eM
+
+
+
+R(g (t)) + 6 
+
+
+
+dμg (t) dt .(76) This proves the asserted L1 
+
+> t
+
+L2 
+
+> x
+
+-estimate. Finally, the volumes of ( eM, bg (t)) are uniformly bounded, since pullback does not change volume and g (t) ∈ U .Therefore Hölder’s inequality gives 
+
+∥∂t bg (t)∥L1 ≤ C ∥∂t bg (t)∥L2 .
+
+Integration in time proves the corresponding L1 
+
+> t
+
+L1 
+
+> x
+
+-estimate and completes the proof. □
+
+Remark 7. In the application of Proposition 3.1, the good spacetime tube is not regarded merely as a family of compact domains with boundary. After discarding the surgery regions and the components whose total volume tends to zero, each regular time section of the surviving good tube is closed, if necessary, across its negligible boundary components by the standard post-surgery caps. The surgery parameters and the closing regions are chosen so that the total volume introduced or discarded in this procedure is o(1) .The resulting time sections are identified by the surviving spacetime diffeomorphisms, with a fixed closed mani-fold eM. Thus the metrics on the good tube may be viewed as a family egi (t), 0 ≤ t ≤ ti , of smooth metrics on eM.All applications of the Lojasiewicz–Simon inequality are made to this closed family and not to the uncontrolled complement of the good tube in the full Ricci-flow slice. In particular, the notation 
+
+efi (t), eλi (t), eSi (t), eDi (t)
+
+denotes respectively the Perelman minimizer, the entropy, the soliton defect, and the entropy deficit of ( eM, egi (t)) .Since the closing regions have vanishing volume and lie outside the inner buffered good region, they do not affect the limiting metric comparison or the volume-exhaustion conclusion as we will do in the final proposition 3.2. 
+
+Remark 8. Proposition 3.1 is used only on those time intervals for which the metric egi (t) on the closed good component lies in the fixed Sobolev neighborhood U of the hyperbolic orbit. Accordingly, the entropy deficit and the defect norm appearing in the Lojasiewicz–Simon inequality are 
+
+eDi (t) := λ[h] − λ[egi (t)] 
+
+and 
+
+eNi (t) := Vol egi (t)( eM)1/3
+
+Z 
+
+> eM
+
+| eSi (t)|2e−efi (t) dμegi (t)
+
+1/2
+
+.
+
+Thus both quantities are defined on the same closed good component, and Proposition 3.1 gives 
+
+eDi (t)1−θ ≤ CLS eNi (t)
+
+whenever 
+
+egi (t) ∈ U .
+
+No Lojasiewicz–Simon estimate is asserted for the full surgically modified time slice or for the discarded thin and high-curvature regions. On the complementary set of times, when egi (t) /∈ U , the duration of that time set is controlled by the entropy dissipation and the uniform gradient gap away from U.
+
+Remark 9. Let φi (t) be generated on the closed good component by the negative gradient of its Perelman minimizer, ddt φi (t) = −∇ egi (t)efi (t) ◦ φi (t), φi (0) = Id ,
+
+and set 
+
+bgi (t) := φi (t)∗ egi (t). 
+
+Then the diffeomorphism-modified flow satisfies 
+
+∂t bgi (t) = −2φi (t)∗ 
+
+Ric egi (t) + ∇2 
+
+> egi(t)
+
+efi (t) + 2 egi (t)
+
+
+
+.
+
+Writing 
+
+eSi (t) := Ric egi (t) + ∇2 
+
+> egi(t)
+
+efi (t) − eλi (t)3 egi (t), 
+
+> 24
+
+the deformation tensor is therefore 
+
+eEi (t) := Ric egi (t) + ∇2 
+
+> egi(t)
+
+efi (t) + 2 egi (t) = eSi (t) + eλi (t) + 6 3 egi (t). 
+
+Consequently, Proposition 3.1, together with the scalar-defect estimate, yields 
+
+Z ti
+
+> 0
+
+∥ eEi (t)∥L2( eM,egi (t)) dt −→ 0. 
+
+This is the path-length estimate used to pull the terminal hyperbolic comparison back to the initial slice. In particular, no separate estimate for ∇2efi is required: the Hessian term is incorporated into the exact diffeomorphism-modified deformation tensor. This is important. 
+
+Remark 10. All sets introduced in closing the surviving good component, as well as the regions removed at surgery times, are included in the exceptional sets. Their total volume is absorbed into an error 
+
+εcl  
+
+> i
+
+−→ 0. 
+
+Accordingly, replacing a time section of the good tube by its closed model changes the relevant volume estimates only by o(1) . The path-length and metric-comparison arguments are carried out on a smaller region disjoint from the closing collars, so the final tensorial C 0-comparison on the good set is unchanged. 
+
+Next we prove a crucial lemma regarding the gradient gap used in the final proposition 3.2. This proposition is vital in the sense that it helps to quantify the sets in the time interval [0, ti ] (ti → ∞ , and there are finitely many surgery times in this interval) that have large soliton defect in the appropriate norm. 
+
+Lemma 3.1. Let ( eM, h) be a closed hyperbolic three-manifold, and fix s > 7/2. Denote by 
+
+Hh := 
+
+n
+
+c ϕ∗h : c > 0, ϕ ∈ Diff s+1 ( eM)
+
+o
+
+the hyperbolic orbit under diffeomorphisms and constant rescalings, and let U ⊂ Met s ( eM) be an open Diff s+1 ( eM)×
+
+R+-invariant neighborhood of Hh.Let K ⊂ Met s ( eM) be a diffeomorphism-invariant class of smooth metrics satisfying the following two properties: (1) there exist 0 < v0 ≤ V0 < ∞ such that 
+
+v0 ≤ Vol g ( eM) ≤ V0 for every g ∈ K ;
+
+(2) K is relatively compact in Hs modulo Diff s+1 ( eM): for every sequence gj ∈ K , there exist a subsequence and ϕj ∈ Diff s+1 ( eM) such that 
+
+ϕ∗ 
+
+> j
+
+gj −→ g∞ in Hs
+
+for some Hs -metric g∞ on eM.For g ∈ K , let fg be the normalized minimizer of Perelman’s λ-functional, 
+
+Z
+
+> eM
+
+e−fg dμg = 1, 
+
+and set 
+
+Sg := Ric g +∇2 
+
+> g
+
+fg − λ[g ]3 g ,
+
+N (g ) := Vol g ( eM)1/3
+
+Z 
+
+> eM
+
+|Sg |2 
+
+> g
+
+e−fg dμg
+
+1/2
+
+.
+
+Then there exists a constant γU > 0 such that 
+
+(77) g ∈ K \ U =⇒ N (g ) ≥ γU .
+
+Proof. Suppose that (77) were false. Then there would exist gj ∈ K \ U such that 
+
+N (gj ) −→ 0. 
+
+By the compactness assumption, after passing to a subsequence and pulling back by diffeomorphisms, we may assume that 
+
+gj −→ g∞ in Hs .
+
+Since U is diffeomorphism invariant and open, 
+
+g∞ /∈ U .
+
+Now note that the lowest eigenvalue of 
+
+−4∆g + R(g )
+
+is simple. Hence standard elliptic perturbation theory, together with s > 7/2, gives 
+
+λ[gj ] −→ λ[g∞], fgj −→ fg∞
+
+> 25
+
+in the Sobolev topologies required to pass to the soliton-defect tensor. Consequently, 
+
+N (g∞) = 0, 
+
+and therefore (78) Ric g∞ +∇2 
+
+> g∞
+
+fg∞ = λ[g∞]3 g∞.
+
+Elliptic regularity implies that g∞ and fg∞ are smooth. Now taking the trace of (78) gives (79) R(g∞) + ∆g∞ fg∞ = λ[g∞]. 
+
+On the other hand, the Euler–Lagrange equation for the normalized λ-minimizer is (80) 2∆g∞ fg∞ − |∇ fg∞ |2 
+
+> g∞
+
++ R(g∞) = λ[g∞]. 
+
+Subtracting (79) from (80), we obtain 
+
+∆g∞ fg∞ = |∇ fg∞ |2 
+
+> g∞
+
+.
+
+Integration over the closed manifold eM yields 
+
+Z
+
+> eM
+
+|∇ fg∞ |2 
+
+> g∞
+
+dμg∞ = 0. 
+
+Thus fg∞ is constant, and (78) reduces to 
+
+Ric g∞ = λ[g∞]3 g∞.
+
+Hence g∞ is Einstein. In dimension three it has constant sectional curvature. Since eM is a closed hyperbolic manifold, the curvature is negative, and Mostow rigidity gives 
+
+g∞ = c ϕ∗h
+
+for some c > 0 and ϕ ∈ Diff s+1 ( eM). Therefore g∞ ∈ Hh ⊂ U , contradicting g∞ /∈ U . □
+
+Now we arrive at the final proposition, which will help complete the proof of the main theorem. 
+
+Proposition 3.2. Under the hypotheses of Proposition 2.6 and Remarks 6-9, let 
+
+
+
+Mi , t, gi (t)
+
+
+
+be the corresponding normalized Ricci-flow spacetimes with surgery. Let Mi (s) = t−1(s), and let gi (s) be the induced metric. Assume that there exist Ai → ∞ , with 2Ai ≤ Ti , and regular times ti ∈ [Ai , 2 Ai ]. Assume that on the good slice Mi (ti ) there exist G ti ⊂ Mi (ti ), Z ti := Mi (ti ) \ G ti , smooth compact domains K ti ⊂ M, and diffeomorphisms 
+
+ψti : K ti −→ G ti
+
+such that 
+
+Vol gi (ti )(Z ti ) ≤ bti , bti → 0, 
+
+and 
+
+Vol h(M \ K ti ) → 0. 
+
+Assume moreover that the terminal C 0-comparison holds: 
+
+(ψti )∗gi (ti ) − h C 0(K ti ,h)
+
+≤ εti , εti → 0. 
+
+Let S0 
+
+> i
+
+⊂ Mi (0) be the set of points whose worldlines survive until time ti , and let 
+
+Pi := P0, ti : S0 
+
+> i
+
+−→ Mi (ti )
+
+be the survival map. Assume that, after enlarging Z ti by a set of gi (ti )-volume at most r ti → 0, one has 
+
+G ti ⊂ Pi (S0 
+
+> i
+
+). Then there exist G 0 
+
+> i
+
+⊂ Mi (0), Z 0 
+
+> i
+
+:= Mi (0) \ G 0 
+
+> i
+
+, subsets K 0 
+
+> i
+
+⊂ K ti , and maps ψ0 
+
+> i
+
+: K 0 
+
+> i
+
+−→ G 0
+
+> i
+
+which are diffeomorphisms onto their images, such that 
+
+Vol gi (0) (Z 0 
+
+> i
+
+) → 0, Vol h(M \ K 0 
+
+> i
+
+) → 0, 
+
+and 
+
+(ψ0 
+
+> i
+
+)∗gi (0) − h C 0(K 0 
+
+> i,h)
+
+→ 0, 
+
+i.e., 
+
+e−2ηi (1 − εti )h ≤ (ψ0 
+
+> i
+
+)∗gi (0) ≤ e2ηi (1 + εti )h
+
+on K 0 
+
+> i
+
+.
+
+> 26
+
+Proof. Since Ai → ∞ and ti ∈ [Ai , 2 Ai ], one has ti → ∞ . All estimates below are uniform in the length of the interval [0, ti ]. This uniform estimate is the most difficult part of the proof. After replacing K ti by a slightly smaller smooth domain and enlarging Z ti by a set of gi (ti )-volume o(1) , choose smooth compact domains 
+
+K − 
+
+> i
+
+⋐ K + 
+
+> i
+
+⋐ K ti
+
+such that 
+
+Vol h(K ti \ K − 
+
+> i
+
+) → 0, 
+
+and set 
+
+G t,± 
+
+> i
+
+:= ψti (K ± 
+
+> i
+
+). 
+
+Enlarging the terminal bad set once more by a set of volume o(1) , we may assume that every point of G t,+  
+
+> i
+
+has a worldline surviving on [0, ti ], and that its backward saturation is disjoint from all surgery regions. Define the regular buffered tubes 
+
+G ± 
+
+> i
+
+(t) := P−1 
+
+> t,ti
+
+(G t,± 
+
+> i
+
+), G± 
+
+> i
+
+:= [
+
+> 0≤t≤ti
+
+G ± 
+
+> i
+
+(t). 
+
+The buffer between G− 
+
+> i
+
+and the lateral boundary of G+ 
+
+> i
+
+permits all diffeomorphism modifications to be performed on the outer tube while retaining the exact evolution equation on the inner tube. We use the closed good-component construction associated with G+ 
+
+> i
+
+. Denote the corresponding closed normal-ized flow by ( eMi , egi (t)), 0 ≤ t ≤ ti , which agrees with gi (t) on G + 
+
+> i
+
+(t).Choose a smooth cutoff on G+ 
+
+> i
+
+, equal to one on G− 
+
+> i
+
+and vanishing near the lateral boundary, and let Ψi (t) be the composition of the spacetime identification with the diffeomorphisms generated by the resulting cutoff of 
+
+−∇ efi (t). Thus 
+
+Ψi (t) : G + 
+
+> i
+
+(0) −→ G + 
+
+> i
+
+(t), Ψi (0) = Id, 
+
+and on G − 
+
+> i
+
+(0) ,(81) ∂t
+
+
+
+Ψi (t)∗gi (t)
+
+
+
+= −2Ψi (t)∗ eDi (t). 
+
+In particular, no separate estimate for ∇2efi is required. This is the main reason behind using the diffeomorphism-modified flow. This construction is extremely important. All entropy quantities below are computed on the closed completed flow 
+
+ eMi , egi (t)
+
+
+
+, 0 ≤ t ≤ ti .
+
+Let efi (t) be the minimizer of Perelman’s λ-functional, normalized by 
+
+Z
+
+> eMi
+
+e−efi (t) dμegi (t) = 1, 
+
+and set 
+
+eλi (t) := λ[egi (t)], eSi (t) := Ric egi (t) +∇2 
+
+> egi(t)
+
+efi (t) − eλi (t)3 egi (t). 
+
+Define 
+
+eei (t) := λ[h] − λ[egi (t)] 
+
+and 
+
+eNi (t) := Vol egi (t)( eMi )1/3
+
+Z
+
+> eMi
+
+|eSi (t)|2 
+
+> egi(t)
+
+e−efi (t) dμegi (t)
+
+!1/2
+
+.
+
+On every regular time interval, entropy monotonicity gives (82) − ddt eei (t) ≥ c0 eNi (t)2,
+
+where c0 > 0 is independent of i.Let Ti ⊂ (0, ti ) denote the surgery times. Choosing the surgery and closing parameters sufficiently precise, we may assume that 
+
+ρi := X
+
+> s∈T i
+
+heei (s+) − eei (s−)
+
+i
+
+> +
+
+−→ 0
+
+and 
+
+σi := X
+
+> s∈T i
+
+heei (s+)θ − eei (s−)θ i
+
+> +
+
+−→ 0. 
+
+By Proposition 2.4 and the closing-volume estimate, 
+
+εi := eei (0) + ρi −→ 0. 
+
+> 27
+
+Consequently, (83) sup 
+
+> 0≤t≤ti
+
+eei (t) ≤ εi ,
+
+Z ti
+
+> 0
+
+eNi (t)2 dt ≤ εi
+
+c0
+
+,
+
+where, here and below, time integrals are taken over the regular portions of the surgical flow. Let ϕi (t) be generated on eMi by 
+
+ddt ϕi (t) = −∇ egi (t)efi (t) ◦ ϕi (t), ϕi (0) = Id, 
+
+and define beg i (t) := ϕi (t)∗ egi (t). 
+
+By the terminal smooth convergence and the choice of the closed completion, beg i (ti ) ∈ U , where U is the Sobolev neighborhood of the hyperbolic orbit appearing in Proposition 3.1. Set 
+
+Ii := 
+
+n
+
+t ∈ [0, ti ] : beg i (t) ∈ U 
+
+o
+
+, Oi := [0, ti ] \ I i .
+
+For every regular t ∈ I i , Proposition 3.1 implies (84) eei (t)1−θ ≤ CLS eNi (t), 
+
+where CLS < ∞ and θ ∈ (0, 12 ] are independent of i.Fix ε0 > 0, and let 
+
+Kε0 := 
+
+nbeg i (t) : i ≥ i0, t ∈ [0, ti ] regular , eei (t) ≤ ε0
+
+o
+
+.
+
+By the uniform bounded-geometry estimates for the closed completed good components and the corresponding Cheeger–Gromov compactness theorem, after fixing the Hs -gauge used in Proposition 3.1, the class Kε0 is relatively compact in Hs modulo Diff s+1 ( eM). Its volumes are uniformly bounded above and below. Lemma 3.1 therefore gives a constant γU > 0, independent of i and t, such that (85) beg i (t) /∈ U , eei (t) ≤ ε0 =⇒ eNi (t) ≥ γU .
+
+For all sufficiently large i, one has εi < ε 0 by (83). Hence (85) applies at every regular time t ∈ O i . From (83), (86) |O i | ≤ εi
+
+c0γ 2
+
+> U
+
+,
+
+Z
+
+> Oi
+
+eNi (t) dt ≤ εi
+
+c0γU
+
+.
+
+On every regular connected component of Ii on which eei > 0, equations (82) and (84) yield 
+
+− ddt eei (t)θ ≥ c0θ
+
+CLS 
+
+eNi (t). 
+
+Summing over the regular components of Ii , and accounting for the entropy jumps at surgery times, gives (87) 
+
+Z
+
+> Ii
+
+eNi (t) dt ≤ CLS 
+
+c0θ
+
+eei (0) θ + σi
+
+
+
+.
+
+Combining (86) and (87), we obtain (88) 
+
+Z ti
+
+> 0
+
+eNi (t) dt ≤ CLS 
+
+c0θ
+
+eei (0) θ + σi
+
+
+
++ εi
+
+c0γU
+
+−→ 0. 
+
+In particular, the bound is independent of ti . This is the main reason we need these additional estimates so that the relevant norm of the deformation tensor is uniform in time. The uniform bounded-geometry estimates on the buffered completed flow, together with the ground-state equation 
+
+−4∆egi (t)e−efi (t)/2 + R(egi (t)) e−efi (t)/2 = eλi (t)e−efi (t)/2,
+
+and the elliptic Harnack and Schauder estimates, give (89) 0 < cf ≤ e−efi (t) ≤ Cf < ∞ on G − 
+
+> i
+
+(t), 0 ≤ t ≤ ti ,
+
+with constants independent of i and of the regular time t. Since the volumes of the completed components are uniformly bounded above and below, it follows that (90) ∥eSi (t)∥L2(G −    
+
+> i(t), egi(t))
+
+≤ C eNi (t). 
+
+We provide a detailed account of these estimates involving Harnack and Schauder estimates in the next lemma 3.2, proven separately. Moreover, since R(egi (t)) ≥ − 6,
+
+0 ≤ eλi (t) + 6 ≤ 1Vol egi (t)( eMi )
+
+Z
+
+> eMi
+
+
+
+R(egi (t)) + 6 
+
+
+
+dμegi (t).
+
+> 28
+
+The scalar-defect budget on the closed completed component therefore implies (91) 
+
+Z ti
+
+> 0
+
+eλi (t) + 6 
+
+
+
+dt −→ 0. 
+
+Finally, define 
+
+eDi (t) := Ric egi (t) +∇2 
+
+> egi(t)
+
+efi (t) + 2 egi (t). 
+
+Then 
+
+eDi = eSi + eλi + 6 3 egi .
+
+Since the volumes of G − 
+
+> i
+
+(t) are uniformly bounded, equations (88), (90), and (91) yield (92) 
+
+Li := 
+
+Z ti
+
+> 0
+
+∥ eDi (t)∥L2(G −    
+
+> i(t), egi(t))
+
+dt 
+
+≤ C
+
+Z ti
+
+> 0
+
+eNi (t) dt + C
+
+Z ti
+
+> 0
+
+eλi (t) + 6 
+
+
+
+dt −→ 0. 
+
+We now return to the cutoff flow Ψi (t) introduced above and use the path-length estimate (92). For 0 ≤ t ≤ ti ,set 
+
+Θi (t) := Ψi (t) ◦ Ψi (ti )−1 ◦ ψti : K + 
+
+> i
+
+−→ G + 
+
+> i
+
+(t). 
+
+Then 
+
+Θi (ti ) = ψti , bgi (t) := Θi (t)∗gi (t), 
+
+and the cutoff is identically one on the inner tube G − 
+
+> i
+
+(t), where the deformation tensor is precisely eDi (t). Since the volumes of the completed components are uniformly bounded, Hölder’s inequality gives 
+
+∥ eDi (t)∥L1(G −   
+
+> i(t), gi(t))
+
+≤ C ∥ eDi (t)∥L2(G −  
+
+> i(t), gi(t))
+
+.
+
+Thus the L1 
+
+> t
+
+L2 
+
+> x
+
+-estimate (92) implies the corresponding L1 
+
+> t
+
+L1 
+
+> x
+
+-estimate. We retain the L2-formulation, which is suited directly to the stopping-time argument below. We now pull the terminal comparison back to the initial slice. Set 
+
+ˇgi (t) := Ψi (t)∗gi (t) on G − 
+
+> i
+
+(0), 
+
+and define Ji (t, x) by 
+
+dμˇgi (t)(x) = Ji (t, x) dμgi (0) (x). 
+
+Taking the trace of (81), we obtain 
+
+ddt log Ji (t, x) = − tr gi (t) eDi (t)
+
+
+
+Ψi (t, x)
+
+
+
+.
+
+Consequently, (93) | log Ji (t, x)| ≤ √3
+
+Z t
+
+> 0
+
+| eDi (s)|gi (s)
+
+
+
+Ψi (s, x)
+
+
+
+ds .
+
+Let 
+
+ηi := L1/2 
+
+> i
+
++ i−1,
+
+and, for x ∈ G − 
+
+> i
+
+(0) , define 
+
+τi (x) := inf 
+
+(
+
+t ∈ [0, ti ] : 
+
+Z t
+
+> 0
+
+| eDi (s)|gi (s)
+
+
+
+Ψi (s, x)
+
+
+
+ds ≥ ηi
+
+)
+
+,
+
+with the convention τi (x) = ti when the threshold is not attained. Set 
+
+A♯ 
+
+> i
+
+(x) := 
+
+Z τi (x)0
+
+| eDi (s)|gi (s)
+
+
+
+Ψi (s, x)
+
+
+
+ds 
+
+and 
+
+Ei (t) := {x ∈ G − 
+
+> i
+
+(0) : t ≤ τi (x)}.
+
+For x ∈ Ei (t), equation (93) gives (94) e−√3ηi ≤ Ji (t, x) ≤ e√3ηi .
+
+> 29
+
+By Minkowski’s integral inequality, followed by (94) and change of variables under Ψi (t),
+
+∥A ♯ 
+
+> i
+
+∥L2(G −   
+
+> i(0), gi(0))
+
+≤
+
+Z ti
+
+> 0
+
+Z 
+
+> Ei(t)
+
+| eDi (t)|2 
+
+> gi(t)
+
+
+
+Ψi (t, x)
+
+
+
+dμgi (0) (x)
+
+!1/2
+
+dt 
+
+≤ e 
+
+> √32ηi
+
+Z ti
+
+> 0
+
+∥ eDi (t)∥L2(G −   
+
+> i(t), gi(t))
+
+dt 
+
+= e  
+
+> √32ηi
+
+Li .(95) Define 
+
+B0 
+
+> i
+
+:= 
+
+(
+
+x ∈ G − 
+
+> i
+
+(0) : 
+
+Z ti
+
+> 0
+
+| eDi (s)|gi (s)
+
+
+
+Ψi (s, x)
+
+
+
+ds ≥ ηi
+
+)
+
+.
+
+For x ∈ B0 
+
+> i
+
+, continuity in time gives A♯ 
+
+> i
+
+(x) = ηi . Hence (95) yields (96) Vol gi (0) (B0 
+
+> i
+
+) ≤ e√3ηi L2
+
+> i
+
+η2
+
+> i
+
+−→ 0. 
+
+Here we used ηi ≥ L1/2 
+
+> i
+
+, and therefore L2 
+
+> i
+
+/η 2 
+
+> i
+
+≤ Li .Set 
+
+Bti := Ψi (ti )( B0 
+
+> i
+
+) ⊂ G − 
+
+> i
+
+(ti ). 
+
+Equivalently, writing 
+
+Ψ ti 
+
+> i
+
+(s, y ) := Ψi (s) ◦ Ψi (ti )−1(y ), 
+
+one has 
+
+Bti =
+
+(
+
+y ∈ G − 
+
+> i
+
+(ti ) : 
+
+Z ti
+
+> 0
+
+| eDi (s)|gi (s)
+
+
+
+Ψ ti 
+
+> i
+
+(s, y )
+
+
+
+ds ≥ ηi
+
+)
+
+.
+
+Applying the preceding stopped argument to the reversed family s 7 → Ψ ti 
+
+> i
+
+(ti − s, ·) gives (97) Vol gi (ti )(Bti ) ≤ e√3ηi L2
+
+> i
+
+η2
+
+> i
+
+−→ 0. 
+
+We now also record the volume of the initial traces discarded before the stopped argument. Let βti → 0 denote the total gi (ti )-volume of the terminal bad set, the buffer G ti \ G t,− 
+
+> i
+
+, and the additional survival-removal set. Choose κi ↓ 0 so that δi
+
+κi
+
+→ 0. 
+
+The ordinary Ricci-flow Jacobian along surviving worldlines satisfies 
+
+JRF  
+
+> i
+
+(t, x) = exp −
+
+Z t
+
+> 0
+
+
+
+R(gi (s)) + 6 
+
+
+
+(P0, s (x)) ds 
+
+!
+
+.
+
+Using the scalar-defect budget and the total surgery volume-loss estimate, one obtains (98) Vol gi (0) 
+
+
+
+Mi (0) \ G − 
+
+> i
+
+(0) 
+
+
+
+≤ δi
+
+1 − e−κi + eκi
+
+
+
+βti + δi
+
+
+
+−→ 0. 
+
+The first term accounts for worldlines with accumulated scalar defect larger than κi , while the second accounts for terminally discarded regions and worldlines removed at surgery. Now set 
+
+G 0 
+
+> i
+
+:= G − 
+
+> i
+
+(0) \ B0 
+
+> i
+
+, Hti := Ψi (ti )( G 0 
+
+> i
+
+) = G t,− 
+
+> i
+
+\ Bti ,
+
+and 
+
+K 0 
+
+> i
+
+:= ( ψti )−1(Hti ) ⊂ K − 
+
+> i
+
+.
+
+Define 
+
+ψ0 
+
+> i
+
+:= Ψi (ti )−1 ◦ ψti K 0
+
+> i
+
+: K 0 
+
+> i
+
+−→ G 0 
+
+> i
+
+.
+
+These maps are restrictions of smooth diffeomorphisms and hence are diffeomorphisms onto their images. From (96) and (98), 
+
+Vol gi (0) (Mi (0) \ G 0 
+
+> i
+
+) → 0. 
+
+Moreover, the terminal C 0-comparison and (97) imply 
+
+Vol h(K − 
+
+> i
+
+\ K 0 
+
+> i
+
+) → 0. 
+
+Since 
+
+Vol h(M \ K − 
+
+> i
+
+) → 0, 
+
+it follows that 
+
+Vol h(M \ K 0 
+
+> i
+
+) → 0. 
+
+> 30
+
+Finally, for x ∈ G 0 
+
+> i
+
+and 0̸ = v ∈ Tx G 0 
+
+> i
+
+, (81) gives 
+
+ddt log 
+
+
+
+ˇgi (t)x (v , v )
+
+
+
+≤ 2| eDi (t)|gi (t)(Ψi (t, x)). 
+
+By the definition of G 0 
+
+> i
+
+, integration over [0, ti ] yields 
+
+e−2ηi gi (0) ≤ Ψi (ti )∗gi (ti ) ≤ e2ηi gi (0), 
+
+or equivalently, 
+
+e−2ηi Ψi (ti )∗gi (ti ) ≤ gi (0) ≤ e2ηi Ψi (ti )∗gi (ti )
+
+as quadratic forms. Pulling this inequality back by ψ0 
+
+> i
+
+, and using Ψi (ti ) ◦ ψ0 
+
+> i
+
+= ψti , we obtain 
+
+e−2ηi (ψti )∗gi (ti ) ≤ (ψ0 
+
+> i
+
+)∗gi (0) ≤ e2ηi (ψti )∗gi (ti ). 
+
+Combining this with 
+
+(1 − εti )h ≤ (ψti )∗gi (ti ) ≤ (1 + εti )h
+
+gives 
+
+e−2ηi (1 − εti )h ≤ (ψ0 
+
+> i
+
+)∗gi (0) ≤ e2ηi (1 + εti )h
+
+on K 0 
+
+> i
+
+. Since ηi → 0 and εti → 0,
+
+∥(ψ0 
+
+> i
+
+)∗gi (0) − h∥C 0(K 0  
+
+> i,h)
+
+−→ 0. 
+
+This completes the proof. □
+
+Now we state and prove the following lemma regarding limit space used in the proof of the proposition 3.2. 
+
+Lemma 3.2. Let  eMi , egi (t)
+
+
+
+, 0 ≤ t ≤ ti ,
+
+be the closed completed flows appearing in Proposition 3.2. Assume that there exist constants K < ∞, ι > 
+
+0, 0 < v0 ≤ V0 < ∞, independent of i and of the regular time t, such that 
+
+(99) Rm egi (t) L∞( eMi ,egi (t)) 
+
+≤ K , inj egi (t)( eMi ) ≥ ι,
+
+and 
+
+(100) v0 ≤ Vol egi (t)( eMi ) ≤ V0.
+
+Let efi (t) be the normalized minimizer of Perelman’s λ-functional, 
+
+Z
+
+> eMi
+
+e−efi (t) dμegi (t) = 1, 
+
+and write 
+
+eλi (t) := λ[egi (t)]. 
+
+Then there exist constants 0 < cf ≤ Cf < ∞, depending only on K , ι, v0, and V0, such that, for every i and every regular t ∈ [0, ti ],
+
+(101) cf ≤ e−efi (t) ≤ Cf on eMi .
+
+In particular, the same estimate holds on G − 
+
+> i
+
+(t). Moreover, if 
+
+eSi (t) := Ric egi (t) +∇2 
+
+> egi(t)
+
+efi (t) − eλi (t)3 egi (t)
+
+and 
+
+eNi (t) := Vol egi (t)( eMi )1/3
+
+Z
+
+> eMi
+
+|eSi (t)|2 
+
+> egi(t)
+
+e−efi (t) dμegi (t)
+
+!1/2
+
+,
+
+then 
+
+(102) ∥eSi (t)∥L2(G −   
+
+> i(t), egi(t))
+
+≤ C eNi (t), 
+
+where C is independent of i and t.
+
+> 31
+
+Proof. Set 
+
+eui (t) := e−efi (t)/2.
+
+Then eui (t) > 0, Z
+
+> eMi
+
+eui (t)2 dμegi (t) = 1, 
+
+and eui (t) satisfies the ground-state equation (103) −4∆egi (t)eui (t) + R(egi (t)) eui (t) = eλi (t)eui (t). 
+
+The curvature bound in (99) gives 
+
+∥R(egi (t)) ∥L∞ ≤ C (K ). 
+
+By the variational characterization of eλi (t),
+
+inf 
+
+> eMi
+
+R(egi (t)) ≤ eλi (t) ≤ 1Vol egi (t)( eMi )
+
+Z
+
+> eMi
+
+R(egi (t)) dμegi (t).
+
+Consequently, 
+
+|eλi (t)| ≤ C (K ), 
+
+and hence 
+
+∆egi (t)eui (t) = qi (t)eui (t), ∥qi (t)∥L∞ ≤ C (K ). 
+
+The curvature and injectivity-radius bounds provide a radius r0 = r0(K , ι) > 0 on which the local elliptic Harnack inequality is uniform. Thus, for every x ∈ eMi ,
+
+sup  
+
+> Begi(t)(x,r0)
+
+eui (t) ≤ CH inf  
+
+> Begi(t)(x,r0)
+
+eui (t), 
+
+where CH is independent of i, t, and x.The same geometric bounds give a uniform positive lower bound for the volume of every ball of radius r0/4.Together with the upper volume bound in (100), this implies that eMi admits a cover by at most N0 balls of radius r0, where N0 is independent of i and t. Since eMi is connected, iteration of the local Harnack inequality along an overlapping chain of these balls gives (104) sup 
+
+> eMi
+
+eui (t) ≤ H inf 
+
+> eMi
+
+eui (t), 
+
+for a uniform constant H < ∞ independent of i.Using the normalization and (100), we obtain 
+
+1 ≤ V0
+
+sup 
+
+> eMi
+
+eui (t)
+
+
+
+> 2
+
+≤ V0H2 inf 
+
+> eMi
+
+eui (t)
+
+!2
+
+,
+
+and hence 
+
+inf 
+
+> eMi
+
+eui (t) ≥ 1
+
+H√V0
+
+.
+
+Similarly, 
+
+1 ≥ v0 inf 
+
+> eMi
+
+eui (t)
+
+!2
+
+≥ v0
+
+H2
+
+sup 
+
+> eMi
+
+eui (t)
+
+
+
+> 2
+
+,
+
+so that 
+
+sup 
+
+> eMi
+
+eui (t) ≤ H
+
+√v0
+
+.
+
+Squaring these inequalities proves (101). Finally, using the lower bound in (101), we have 
+
+∥eSi (t)∥2    
+
+> L2(G−
+> i(t), egi(t))
+
+≤ c−1
+
+> f
+
+Z  
+
+> G−
+> i(t)
+
+|eSi (t)|2 
+
+> egi(t)
+
+e−efi (t) dμegi (t)
+
+≤ c−1 
+
+> f
+
+Vol egi (t)( eMi )−2/3 eNi (t)2
+
+≤ c−1 
+
+> f
+
+v −2/30 eNi (t)2.
+
+This proves (102). □
+
+> 32
+
+3.1. Proof of the main theorems. In this section we combine the propositions 2.6-3.2 proved in the previous two sections and provide the proof of the main theorems. We first prove the volume-stability theorem. We state the argument in the form needed below, namely as a tensorial convergence statement on large good sets. 
+
+Proof of Theorem 1.1. We give a complete proof and repeat some of the previous definitions for the sake of self-contained proof. First let (M, h) be the fixed closed hyperbolic three-manifold, normalized by 
+
+Ric h = −2h, R(h) = −6. 
+
+Let gi (0) be a sequence of smooth metrics on the same smooth manifold M satisfying 
+
+R(gi (0)) ≥ − 6, Vol gi (0) (M) = Vol h(M) + δi , δi → 0. 
+
+Let gi (t), t ∈ [0, T ], be the corresponding normalized Ricci flows 
+
+∂t gi = −2
+
+
+
+Ric gi +2 gi
+
+
+
+, gi (0) = gi .
+
+Set 
+
+Qi (t) := R(gi (t)) + 6, Ei (t) := Ric gi (t) +2 gi (t). 
+
+Then 
+
+(∂t − ∆gi + 4) Qi = 2 |Ei |2 
+
+> gi
+
+.
+
+Hence Qi (0) ≥ 0 implies 
+
+Qi (t) ≥ 0
+
+for every t ∈ [0, T ]. The volume satisfies 
+
+ddt Vol gi (t)(M) = −
+
+Z
+
+> M
+
+Qi (t) dμgi (t).
+
+Since Qi (t) ≥ 0, the volume is non-increasing. Moreover, since the underlying smooth manifold is the fixed hyperbolic topological manifold M, the hyperbolic volume comparison theorem gives 
+
+Vol gi (t)(M) ≥ Vol h(M)
+
+for all t ∈ [0, T ]. Therefore 
+
+Vol h(M) ≤ Vol gi (t)(M) ≤ Vol gi (0) (M) = Vol h(M) + δi .
+
+Consequently, 
+
+Vol gi (t)(M) → Vol h(M)
+
+uniformly on [0, T ], and 
+
+Z T
+
+> 0
+
+Z
+
+> M
+
+Qi (t) dμgi (t) dt = Vol gi (0) (M) − Vol gi (T )(M) ≤ δi .
+
+Let fi (t) be the minimizer for Perelman’s λ-functional, normalized by 
+
+Z
+
+> M
+
+e−fi (t) dμgi (t) = 1, 
+
+and define 
+
+Si (t) := Ric gi (t) +∇2fi (t) − λ[gi (t)] 3 gi (t). 
+
+By the entropy-deficit estimate and Perelman’s monotonicity formula as in the proposition 2.3, 
+
+Z T
+
+> 0
+
+Vol gi (t)(M)2/3
+
+Z
+
+> M
+
+|S i (t)|2 
+
+> gi(t)
+
+e−fi (t) dμgi (t) dt → 0. 
+
+Hence using propositions 2.6 one may choose ti ∈ [T /2, T ] with T → ∞ such that, with 
+
+bgi := gi (ti ), bfi := fi (ti ), bλi := λ[bgi ], 
+
+one has Z
+
+> M
+
+| bSi |2 
+
+> bgi
+
+e−bfi dμbgi → 0, Vol bgi (M) → Vol h(M), bλi → − 6. 
+
+By Proposition 2.6, after passing to a subsequence there exist bZi ⊂ M, bGi := M \ bZi , and maps 
+
+bΦi : bGi −→ M
+
+such that Vol bgi (bZi ) → 0, and 
+
+sup  
+
+> y∈bGi
+
+bgi − bΦ∗ 
+
+> i
+
+h bΦ∗ 
+
+> ih
+
+(y ) → 0. 
+
+> 33
+
+Equivalently, for some εi → 0,
+
+(1 − εi ) bΦ∗ 
+
+> i
+
+h ≤ bgi ≤ (1 + εi ) bΦ∗ 
+
+> i
+
+h
+
+as quadratic forms on bGi . It remains to pull this information back to the initial slice. Let 
+
+Ψi (t) : G 0 
+
+> i
+
+−→ Gi (t)
+
+be the spacetime tube map from Proposition 3.2. Thus Gi (ti ) ⊂ bGi , and on G 0 
+
+> i
+
+one has due to the result of proposition 3.2 
+
+e−2ηi gi (0) ≤ Ψi (ti )∗ bgi ≤ e2ηi gi (0), ηi → 0. 
+
+Moreover, if Z 0 
+
+> i
+
+:= M \ G 0 
+
+> i
+
+, then 
+
+Vol gi (0) (Z 0 
+
+> i
+
+) → 0. 
+
+Define Φ0 
+
+> i
+
+: G 0 
+
+> i
+
+−→ M by 
+
+Φ0 
+
+> i
+
+:= bΦi ◦ Ψi (ti ). 
+
+Combining the two quadratic-form estimates gives 
+
+e−2ηi (1 − εi )( Φ0 
+
+> i
+
+)∗h ≤ gi (0) ≤ e2ηi (1 + εi )( Φ0 
+
+> i
+
+)∗h
+
+on G 0 
+
+> i
+
+. Hence 
+
+sup  
+
+> x∈G0
+> i
+
+gi (0) − (Φ0 
+
+> i
+
+)∗h (Φ0 
+
+> i)∗h
+
+(x) → 0. 
+
+This proves the claimed C 0-convergence on the good part. □
+
+Remark 11. In addition, the no short-circuit (i.e., the distance between the two points on (M, gi ) is not realized by a rectifiable curve lying the bad set) condition is imposed on G 0 
+
+> i
+
+, then the intrinsic length distances on G 0
+
+> i
+
+are distorted by o(1) , and the preceding C 0-comparison implies the measured Gromov–Hausdorff statement in Theorem 1.1. Without this additional no short-circuit assumption, the conclusion is only the tensorial C 0-convergence above. 
+
+Lemma 3.3. Let (M, g , k) be a smooth vacuum CMC initial data set on a closed three-manifold. Write 
+
+τ := tr g k, σ := k − τ
+
+3 g .
+
+Assume 
+
+τ < 0, ∇τ = 0. 
+
+Then 
+
+tr g σ = 0, div g σ = 0, 
+
+and the Hamiltonian constraint is 
+
+R(g ) + 23 τ 2 = |σ|2 
+
+> g
+
+.
+
+Define 
+
+¯g := τ 2
+
+9 g , ¯Σ := |τ |
+
+3 σ.
+
+Then 
+
+R(¯g ) + 6 = | ¯Σ |2 
+
+> ¯g
+
+, div ¯g ¯Σ = 0, tr ¯g ¯Σ = 0. 
+
+Moreover, 
+
+Vol ¯g (M) = (−τ )3
+
+27 Vol g (M). 
+
+Proof. The proof is a straightforward scaling argument. The vacuum constraints are 
+
+R(g ) − | k|2 
+
+> g
+
++ τ 2 = 0, 
+
+and 
+
+∇j kij − ∇ i τ = 0. 
+
+Since ∇τ = 0 , the momentum constraint gives 
+
+∇j σij = 0. 
+
+Also, 
+
+tr g σ = tr g k − τ = 0. 
+
+Since 
+
+k = σ + τ
+
+3 g ,
+
+we have 
+
+|k|2 
+
+> g
+
+= |σ|2 
+
+> g
+
++ τ 2
+
+3 .
+
+> 34
+
+Substituting this into the Hamiltonian constraint gives 
+
+R(g ) + 23 τ 2 = |σ|2 
+
+> g
+
+.
+
+Now consider the following re-scaling 
+
+α := τ 2
+
+9 , ¯g = αg .
+
+Since α is constant, 
+
+R(¯g ) = α−1R(g ). 
+
+Moreover, for a covariant two-tensor T ,
+
+|T |2 
+
+> ¯g
+
+= α−2|T |2 
+
+> g
+
+.
+
+With 
+
+¯Σ = α1/2σ = |τ |
+
+3 σ,
+
+we obtain 
+
+| ¯Σ |2 
+
+> ¯g
+
+= α−1|σ|2 
+
+> g
+
+.
+
+Therefore 
+
+R(¯g ) + 6 = α−1R(g ) + 6 = α−1  R(g ) + 6 α = α−1
+
+
+
+R(g ) + 23 τ 2
+
+
+
+= α−1|σ|2 
+
+> g
+
+= | ¯Σ |2 
+
+> ¯g
+
+.
+
+The trace-free and divergence-free conditions are preserved under this constant rescaling. Finally, in dimension three, 
+
+dμ¯g = α3/2dμg = (−τ )3
+
+27 dμg ,
+
+because τ < 0. Hence 
+
+Vol ¯g (M) = (−τ )3
+
+27 Vol g (M). 
+
+□
+
+Lemma 3.4. Let (M, g , k) be a vacuum initial data set on a closed three-manifold of negative Yamabe type. If 
+
+M is CMC, then 
+
+τ := tr g k
+
+cannot vanish identically. In particular, an expanding CMC branch with τ < 0 cannot cross a maximal slice. Proof. Suppose, for contradiction, that τ = 0 . The Hamiltonian constraint then gives 
+
+R(g ) = |k|2 
+
+> g
+
+≥ 0. 
+
+Thus M admits a smooth metric of nonnegative scalar curvature. This contradicts the assumption that M is of negative Yamabe type. Therefore τ̸ = 0 . Since τ is constant on each CMC slice, an expanding branch with 
+
+τ < 0 cannot cross τ = 0 . □
+
+Proof of Theorem 1.2. Let (M, gi , ki ) be a sequence of smooth vacuum CMC initial data sets on a fixed closed hyperbolic three-manifold M. Write 
+
+τi := tr gi ki < 0, σi := ki − τi
+
+3 gi .
+
+Since the data are CMC, τi is constant on M. The vacuum constraints give 
+
+R(gi ) − | ki |2 
+
+> gi
+
++ τ 2 
+
+> i
+
+= 0, div gi σi = 0. 
+
+By Lemma 3.3, define 
+
+¯gi := τ 2
+
+> i
+
+9 gi , ¯Σi := |τi |
+
+3 σi .
+
+Then 
+
+R(¯gi ) + 6 = | ¯Σi |2 
+
+> ¯gi
+
+≥ 0, 
+
+and 
+
+div ¯gi
+
+¯Σi = 0, tr ¯gi
+
+¯Σi = 0. 
+
+In particular, R(¯gi ) ≥ − 6. With the convention 
+
+H(gi , ki ) := ( −τi )3 Vol gi (M), 
+
+Lemma 3.3 gives 
+
+H(gi , ki ) = 27 Vol ¯gi (M). 
+
+For the Lorentz-cone data over (M, h), the normalized spatial metric is h and the transverse-traceless part vanishes. Hence the Lorentz-cone Hamiltonian value is 
+
+HLC = 27 Vol h(M). 
+
+> 35
+
+The assumption 
+
+H(gi , ki ) → H LC 
+
+is therefore equivalent to Vol ¯gi (M) → Vol h(M).Thus the sequence (M, ¯gi ) satisfies precisely the hypotheses of Theorem 1.1. Applying Theorem 1.1 to ¯gi , we obtain 
+
+Zi ⊂ M, Gi := M \ Zi ,
+
+and maps 
+
+Φi : Gi −→ M
+
+such that Vol ¯gi (Zi ) → 0, and 
+
+sup 
+
+> x∈Gi
+
+¯gi − Φ∗ 
+
+> i
+
+h Φ∗  
+
+> ih
+
+(x) → 0. 
+
+Equivalently, for every ε > 0, for all sufficiently large i,
+
+(1 − ε)Φ∗ 
+
+> i
+
+h ≤ ¯gi ≤ (1 + ε)Φ∗ 
+
+> i
+
+h
+
+on Gi . This proves the reduced-Hamiltonian stability theorem. □
+
+References 
+
+[1] I. Agol, P. Storm, W. Thurston, Lower bounds on volumes of hyperbolic Haken 3-manifolds, Journal of the American Mathe-matical Society, Vol. 20, 1053-1077, 2007. [2] M.T. Anderson, On Long-Time Evolution in General Relativity and Geometrization of 3-Manifolds, Communications in Math-ematical Physics, vol. 222, 533-567, 2001. [3] G. Besson, G. Courtois, S. Gallot, Volume et entropie minimale des espaces localement sym’etriques, Inventiones mathematicae, Vol. 103, 417-445, 1991. [4] G. Besson, G. Courtois, S. Gallot, Entropies et rigidit’es des espaces localement sym’etriques de courbure strictement n’egative, Geometric & Functional Analysis, Vol. 5, 731-799, 1995. [5] H. Cao, X. Zhu, A complete proof of the Poincar’e and geometrization conjectures-application of the Hamilton-Perelman theory of the Ricci flow, Asian Journal of Mathematics, Vol. 10, 165-492, 2006. [6] C. Dong, A. Song, Stability of Euclidean 3-space for the positive mass theorem, Inventiones mathematicae, Vol. 239, 287-319, 2025. [7] A. Fischer, V. Moncrief, The reduced Hamiltonian of general relativity and the σ-constant of conformal geometry, Mathematical and Quantum Aspects of Relativity and Cosmology: Proceeding of the Second Samos Meeting on Cosmology, Geometry and Relativity Held at Pythagoreon, Samos, Greece, 31 August–4 September 1998, 70-101, 2000. [8] A. Fischer, V. Moncrief, The reduced Einstein equations and the conformal volume collapse of 3-manifolds, Classical and Quantum Gravity, vol. 18, 4493-4516, 2001. [9] R.S. Hamilton, Three-manifolds with positive Ricci curvature, Journal of Differential Geometry , vol. 17, 255-306, 1982. [10] R. Hamilton, Non-singular solutions of the Ricci flow on three-manifolds, Comm. Anal. Geom., Vol. 7, 695-729, 1999. [11] R. Haslhofer, Perelman’s lambda-functional and the stability of Ricci-flat metrics, Calc. Var. PDE , Vol. 45, 481-504, 2012. [12] B. Kleiner, J. Lott, Notes on Perelman’s papers, Geometry and Topology, Vol. 12, 2587-2855, 2008. [13] S. Klainerman, I. Rodnianski, On the breakdown criterion in general relativity, Journal of the American Mathematical Society, Vol. 23, 345-382, 2010. [14] K. Kr"oncke, Stability of Einstein metrics under Ricci flow, Comm. Anal. Geom. , Vol. 28, 351-394, 2020. [15] P. Li, S.-T. Yau, On the parabolic kernel of the Schr"odinger operator, Acta Mathematica, 1986. [16] G. Perelman, The entropy formula for the Ricci flow and its geometric applications, arXiv preprint math/0211159, 2002. [17] G. Perelman, Ricci flow with surgery on three-manifolds, arXiv preprint math/0303109, 2003. [18] R. Schoen, S.-T. Yau, On the Structure of Manifolds with Positive Scalar Curvature, Manuscripta Mathematica , vol. 28, 159–183, 1979. [19] R. Schoen, S.-T. Yau, Existence of incompressible minimal surfaces and the topology of three-dimensional manifolds with non-negative scalar curvature, Annals of Mathematics , vol. 110, 127-142, 1979. [20] W.-X. Shi, Deforming the metric on complete Riemannian manifolds, Vol. 30, 223-301, 1989. [21] A. Song, Entropy and stability of hyperbolic manifolds, Geom. Funct. Anal. , Vol. 35, 877-914. [22] S.-T. Yau, On the Harnack inequalities of partial differential equations, Comm. Anal. Geom., Vol. 2, 431-450, 1994.

@@ -1,0 +1,2693 @@
+Title: Inviscid Incompressible Limit for Degenerate Compressible Navier-Stokes Equations on Expanding Domains
+
+URL Source: https://arxiv.org/pdf/2607.25028v1
+
+Published Time: Wed, 29 Jul 2026 00:12:49 GMT
+
+Number of Pages: 18
+
+Markdown Content:
+# Inviscid Incompressible Limit for Degenerate Compressible Navier-Stokes Equations on Expanding Domains 
+
+Tong Tang ∗
+
+Emil Wiedemann †
+
+Lu Zhu ‡
+
+Abstract 
+
+We simultaneously investigate the inviscid and Low Mach number limits on expanding do-mains for the 3 D degenerate compressible Navier-Stokes equations, whose viscosity depends on density. Starting from ill-prepared data, we show the limit system is the incompressible Euler system. Our result extends a previous result of Feireisl et al. concerning the constant viscosity Navier-Stokes equations, and is the first to establish the inviscid and incompressible limits at the same time for density-dependent viscosity. 
+
+Key words: degenerate compressible Navier-Stokes equations, singular limits, low Mach number, expanding domains, relative energy 
+
+2010 Mathematics Subject Classifications : 35Q30, 35Q31, 35Q86, 76N10. 
+
+# 1 Introduction 
+
+Mathematical models of fluid flow often contain parameters that describe to what extent the fluid is, say, compressible, viscous, Newtonian, homogeneous, etc. One wishes that there be, on a metalevel, a certain kind of continuity with respect to such parameters: This would allow, for instance, to effectively describe a fluid with very small viscosity using a perfectly inviscid model, or a very slightly compressible fluid by means of an incompressible model. This is, generally speaking, the problem of singular limits, where the attribute ‘singular’ refers to situations where crucial quantities or estimates blow up as the parameters converge. This is most notably the case for the inviscid limit, where any information on the velocity gradient is lost as viscosity tends to zero. Here, we tackle three singular limits at once: We let viscosity and Mach number tend to zero and, at the same time, the space domain will exhaust the whole space R3. More precisely, we 
+
+> ∗
+
+School of Mathematical Science, Yangzhou University, Yangzhou, P. R. China. E-mail: tt0507010156@126.com 
+
+> †
+
+Department of Mathematics, Friedrich-Alexander-Universit¨ at Erlangen-N¨ urnberg, Erlangen, Germany. E-mail: emil.wiedemann@fau.de 
+
+> ‡
+
+School of Mathematics, Hohai University, Nanjing, P. R. China. E-mail: zhulu@hhu.edu.cn 
+
+1arXiv:2607.25028v1 [math.AP] 27 Jul 2026 consider the degenerate compressible Navier-Stokes equations with drag on a spatial domain Ω M :
+
+ ∂tρ + div x(ρu) = 0 ,∂t(ρu) + div x(ρu ⊗ u) + 1 
+
+> ε2
+
+∇xp(ρ) = εαdiv x(ρD x(u)) − r1(ε)ρ|u|u, (1.1) where u(t, x ) ∈ R3 and ρ(x, t ) represent the velocity and density, respectively. Moreover, the pressure is given constitutively as a function of density by p(ρ) = ργ for some γ > 1, α > 0 is given, and r1(ε) is the coefficient of friction of which we assume r1(ε) > 0 for each ε > 0 and 
+
+r1(ε) → 0 as ε → 0. The family of domains {ΩM } has the following properties: (H1): Ω M ⊂ R3 are simply connected, bounded C2 domains, (H2): There exists ω > 0 such that {x ∈ R3 : |x| < ωM } ⊂ ΩM ,(H3): There exists β > 0 such that |∂ΩM |2 ≤ βM 2,(H4): εM (ε) → ∞ as ε → 0, where | · | 2 denotes the two-dimensional Hausdorff measure. The boundary condition is 
+
+ρu|∂ΩM = 0 , ∇xρ × n|∂ΩM = 0 (1.2) and we consider so-called ill-prepared initial data 
+
+ρ|t=0 = ρ0,ε = 1 + ερ (1) 0,ε , u|t=0 = u0,ε , (1.3) 
+
+ρ(1) 0,ε → ρ(1) 0 in L2(R3), u0,ε → u0 in L2(R3), (1.4) where u0 is not necessarily divergence-free. Regarding the important question of well-posedness of compressible Navier-Stokes equations, smooth or classical solutions for the compressible Navier-Stokes equations are known to exist locally in time. For initial data representing small perturbations of equilibrium in a suitable sense, one can obtain global existence of strong solutions. Turning to weak solutions, P.-L. Lions [22] and Feireisl [10] showed global existence for the constant viscosity compressible Navier-Stokes equations for adiabatic exponents greater than 3/2. In contrast to the constant viscosity case, the equations become more complicated when the viscosity depends on density, because there is no sufficient information on ∇xu due to the degeneracy of the momentum equation, a problem that occurs near or at vacuum. Vasseur & Yu [24] and Li & Xin [21] independently proved the global existence of weak solutions for the compressible degenerate Navier-Stokes equations in T3 by virtue of the Bresch-Desjardins entropy introduced in [3], among other techniques. Previously, Bresch et al. [4] had already established existence results on a bounded domain under additional restrictions on the initial density. The literature on low Mach number and vanishing viscosity for compressible flows is vast. However, most results concern constant viscosity. To our knowledge, there are only a few results 2on the compressible degenerate Navier-Stokes system. Fanelli and Zatorska [9] and, more recently, Chaudhuri et al. [7] studied the anelastic incompressible limit for compressible degenerate Navier-Stokes equations with fixed positive viscosity coefficients. Bisconti and Caggio [1], on the other hand, proved the vanishing viscosity limit for compressible degenerate Navier-Stokes equations at fixed Mach number. Both [1, 7] utilized the revised relative entropy inequality for degenerate Navier-Stokes equations based on [5]. The relative entropy method, generally speaking, was introduced by Dafermos [8] for hyper-bolic systems. Germain [17] and then Feireisl et al. [12] adopted the idea and proved weak-strong uniqueness for the constant viscosity compressible Navier-Stokes equations. The relative en-tropy/energy method is a versatile and robust tool which is often applied to establish singular limits of weak to strong solutions. For details and applications, see for instance [11, 13, 14, 25]. Bisconti et al. [2] used the same relative energy functional as in the constant viscosity case [12] to prove the vanishing viscosity limit for compressible degenerate Navier-Stokes equations. In this paper, we consider the limit for (1.1) as ε → 0, M → ∞ , corresponding to the triple limit of vanishing viscosity, low Mach number, and expanding domains. The latter limit has been studied, for other equations, in [19, 15] as a way to rigorously show the independence of local interior behaviour of the flow from distant boundaries, which otherwise would considerably influence the dynamics. We thus obtain as our main result (Theorem 2.1) the convergences ρ → 1, 
+
+u → v, where v is a strong solution of the incompressible Euler system 
+
+∂tv + v · ∇ xv + ∇xΠ = 0 ,
+
+div xv = 0 , in R3, (1.5) as long as the latter exists. As is typical for the relative energy method, our result is thus of type ‘weak-to-strong convergence’. It is well known that the obstacle to the asymptotic limit ε → 0, as far as the Mach number is concerned, lies in the oscillations due to the acoustic velocity component, and, as far as the viscosity is concerned, in the possible formation of boundary layers. To avoid problems related to the latter, we consider the viscous equations in a large domain and the target system in the whole space. This is the above-mentioned expanding domain scenario. It comes with the technical difficulty that the solution v for the target incompressible Euler system is not an admissible test function in the relative entropy inequality. Motivated by [15], we introduce a corrector in the relative energy inequality to control the convergence of terms involving ϵ, M . Compared with [15], our principal obstacle is the convergence of the viscous term, whereas [15] considered the constant viscosity case. To this end, we follow [2], who gave a pure relative energy argument which does not rely on the Bresch-Desjardins structure. In this sense, our proof is conceptually simple, in comparison with [7]. Moreover, we treat some parts of the remainder R in an alternative and arguably simpler fashion. It should not come as a surprise that degeneracy of the viscosity, while posing substantial 3challenges to the existence theory, does not impede the applicability of relative energy arguments. In fact, the latter works particularly well for the Euler equations themselves, which somehow display the maximally degenerate viscosity (viz. zero). Our assumptions on (1.1) with shear viscosity ρ and bulk viscosity 0 are chosen, for simplicity, as the prototypic choice satisfying the Bresch-Desjardins relation; this choice and the inclusion of the drag term play, for our purposes, the mere role of ensuring the existence of weak solutions of (1.1) for any fixed ϵ, M thanks to [4]. One can easily imagine more general weak-strong con-vergence results under the conditional hypothesis that the approximate problems have a solution. Similarly, working on the whole space instead of expanding domains, one could remove the drag term, which is not required for existence of (1.1) on the whole space. In Section 2, we introduce the definition of weak solution and some necessary useful lemmas, then we state the main theorem. The key ingredient of the proof is the relative entropy inequality stated in Section 3. Section 4 is devoted to the proof of the main theorem. 
+
+# 2 Preliminaries 
+
+2.1 Definition of weak solutions 
+
+Definition 2.1. We say that (ρ, u) is a weak solution to (1.1) with initial data (ρ0, u0) if the following conditions are satisfied: 
+
+ρ ≥ 0, ρ |u|2 ∈ L∞(0 , T ; L1(Ω M )) , ρ ∈ L∞(0 , T ; Lγ (Ω M )) , ∇x
+
+√ρ ∈ L∞(0 , T ; L2(Ω M )); (2.1) 
+
+ρu|∂ΩM = 0 in L2((0 , T ); L1(∂ΩM )) , ∇xρ × n|∂ΩM = 0 , in L2((0 , T ); L∞(∂ΩM )); 
+
+• the continuity equation 
+
+Z
+
+> ΩM
+
+ρ0φ(0) dx +
+
+Z T
+
+> 0
+
+Z
+
+> ΩM
+
+ρ∂ tφ + ρu · ∇ xφdxdt = 0 (2.2) 
+
+holds for all φ ∈ C∞ 
+
+> c
+
+([0 , T ) × Ω) ;
+
+• the momentum equation 
+
+Z
+
+> ΩM
+
+ρ0u0φ(0) dx +
+
+Z T
+
+> 0
+
+Z
+
+> ΩM
+
+ρu∂tφ + √ρu ⊗ √ρu : ∇xφ + 1
+
+ε2 p(ρ) div x φdxdt 
+
+− εα
+
+Z T
+
+> 0
+
+Z
+
+> ΩM
+
+√ρSμ : ∇xφdxdt − r1(ε)
+
+Z T
+
+> 0
+
+Z
+
+> ΩM
+
+√ρ|u|√ρu · φdxdt = 0 (2.3) 
+
+holds for all φ ∈ C∞ 
+
+> c
+
+([0 , T ) × Ω) ;
+
+• the energy inequality 
+
+Z
+
+> ΩM
+
+12 ρ|u|2(τ ) + 1
+
+ε2 H(ρ(τ )) dx + εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|Sμ|2dxdt + r1(ε)
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ|u|3dxdt 
+
+≤
+
+Z
+
+> ΩM
+
+12 ρ0|u0|2 + 1
+
+ε2 H(ρ0)dx (2.4) 
+
+holds for a.e. τ ∈ (0 , T ), where H(ρ) = ρ R ρ 
+
+> 1
+> p(z)
+> z2
+
+dz .
+
+4Remark 2.1. Here we adopt the idea from Lacroix-Violet and Vasseur [20] and of Bresch et al. [6] to rewrite the viscous term as div x(ρD x(u)) = div x(√ρSμ)
+
+where Sμ is the symmetric part of Tμ as 
+
+√ρTμ = ∇x(ρu) − √ρu ⊗ √ρ∇x ln ρ, in D′.
+
+This definition is the one from [4]. There, it is shown that the boundary conditions in (2.1) actually make sense, that the energy inequality follows automatically (so we included it in the definition merely for convenience), and that weak solutions exist for any data that satisfy (2.1) initially. 
+
+2.2 Energy bounds 
+
+Here, we use the decomposition 
+
+h = [ h]ess + [ h]res , [h]ess = χ(ρ)h, [h]res = (1 − χ(ρ)) h, 
+
+where 
+
+χ ∈ C∞ 
+
+> c
+
+(0 , ∞), 0 ≤ χ(ρ) ≤ 1, χ(ρ) = 1 in a neighbourhood of ρ = 1 .
+
+Then we have, as in [14], esssup t∈[0 ,T ] ∥√ρu(t, ·)∥L2(Ω M ) ≤ C, ∥Sμ∥L2((0 ,T ),L 2(Ω M )) ≤ Cε α
+
+> 2
+
+, (2.5) esssup t∈[0 ,T ]
+
+ ∥1res ∥L1(Ω M ) + ∥[ργ ]res ∥L1(Ω M )
+
+ ≤ ε2C, (2.6) esssup t∈[0 ,T ]
+
+ ρ − 1
+
+ε
+
+  
+
+> ess L2(Ω M)
+
+≤ C. (2.7) 
+
+2.3 Solutions of the target system 
+
+We suppose the initial velocity u0 in (1.3) is sufficiently smooth and confined to a compact set, then the inviscid system (1.5) is known to possess a smooth solution at least on a short time interval, see [18]. More precisely, if 
+
+u0 ∈ Cmc (R3) for some m > 4,
+
+v(0 , ·) = v0 = H[u0],
+
+then the system (1.5) possesses a solution 
+
+v ∈ Ck([0 , T max ); W m−k, 2(R3)) , k = 1 , 2...m − 1, (2.8) where Tmax > 0. Here, for a vector field u ∈ L2, we denote by H[u] the standard Helmholtz projection onto the space of solenoidal functions. 52.4 Acoustic waves 
+
+Rewriting the Navier-Stokes equations as 
+
+
+
+ε∂ t ρ−1 
+
+> ε
+
++ div x(ρu) = 0 ,ε∂ t(ρu) + p′(1) ∇x
+
+  ρ−1
+
+> ε
+
+ = ε εαdiv x(√ρSμ) − div x(ρu ⊗ u)
+
+− 1 
+
+> ε2
+
+∇x(p(ρ) − p′(1)( ρ − 1) − p(1)) − r1(ε)|u|u,
+
+(2.9) motivates the corresponding acoustic system: 
+
+ ε∂ ts + ∆ xΦ = 0 
+
+ε∂ t∇xΦ + p′(1) ∇xs = 0 , (2.10) with initial data: 
+
+s(t = 0 , ·) = ρ(1) 0 , ∇xΦ( t = 0 , ·) = ∇xΦ0 = u0 − H[u0].
+
+From [23], we have the conservation laws 
+
+ ∥∇ xΦ( t, ·)∥W k, 2(R3) + ∥s(t, ·)∥W k, 2(R3)
+
+ |t=τt=0 = 0 , k = 0 , 1, . . . (2.11) for any τ > 0, as well as the Strichartz estimates 
+
+∥∇ xΦ( τ, ·)∥W k,p (R3) + ∥s(τ, ·)∥W k,p (R3) ≤ C
+
+
+
+1 + τε
+
+−( 1    
+
+> q−1
+> p)
+
+ ∥∇ xΦ0∥W k+d,q (R3) + ∥ρ(1) 0 ∥W k+d,q (R3)
+
+,
+
+(2.12) where 2 ≤ p ≤ ∞ , 1 
+
+> p
+
++ 1 
+
+> q
+
+= 1, k = 0 , 1, . . . , and d > 3
+
+ 1 
+
+> q
+
+− 1
+
+> p
+
+
+
+.
+
+Remark 2.2. From to the compact support assumption on the initial data of (2.15) and the hyperbolicity of (2.10) , we deduce that, for all t ≥ 0,
+
+s(t, x ) = 0 , ∆xΦ( t, x ) = 0 for |x| ≥ c + pp′(1) tε .
+
+Accordingly, due to hypothesis (H4), the waves emanating from a compact subset K of ΩM can never reach the boundary within a fixed timespan (0 , T ), for sufficiently small ϵ. This means that the behaviour of solutions of the acoustic system on 
+
+K(t) = 
+
+
+
+(t, x ) : 0 ≤ t ≤ T and |x − x0| ≤ pp′(1) tε for some x0 ∈ K
+
+
+
+is the same as in the expanding domain ΩM (see Fig.1). The expanding domain setup thus excludes the possibility of reflection of acoustic waves at the boundary. 
+
+2.5 Cut-off operators 
+
+From Remark 2.2, we deduce for given T and sufficiently small ϵ the identity 
+
+∇xΦ|∂ΩM = ∇xΦ0|∂ΩM , for all t ∈ (0 , T ).
+
+6Figure 1: K(t) ⊂⊂ ΩM
+
+Following [15], we introduce the cut-off function wM = −ηM v − ηM ∇xΦ, where ηM satisfies 
+
+ηM ∈ C∞ 
+
+> c
+
+(R3), 0 ≤ ηM ≤ 1, η M |∂ΩM = 1 , η M (x) = 0 , dist( x, ∂ ΩM ) > 1,
+
+and we have the estimate 
+
+∥∂twM (τ, ·)∥Lp(Ω M ) + ∥wM (τ, ·)∥W 2,p (Ω M ) ≤ CM 2( 1 
+
+> p−1
+
+) (2.13) for 1 ≤ p ≤ ∞ , τ ∈ (0 , T ). 
+
+2.6 Main result 
+
+Theorem 2.1. Let α > 0 and suppose the initial data (1.3) are chosen in such a way that 
+
+v0 ∈ Cm(R3), ρ (1) 0 ∈ Cm(R3), m > 4, (2.14) supp[ u0], supp[ ρ(1) 0 ] compact in R3. (2.15) 
+
+Let Tmax > 0 be the life-span of the smooth solution v of the Euler system (1.5) . Let 0 < T < Tmax , then for any weak solutions (ρ, u) of the Navier-Stokes equations (1.1) , under the stated hypotheses (H1)–(H4) we have 
+
+√ρu → v strongly in L2(0 , T ; L2(K)) ,ρ → 1 strongly in L∞(0 , T ; Lmin {2,γ }(K)) ,
+
+for any compact K ⊂ R3.
+
+Remark 2.3. The result remains valid with well-prepared initial data. We omit the details of the minor modifications. 
+
+Remark 2.4. Adding to [9, 7], our result exhibits another case where the limit system does not depend on whether a constant or a variable density approximation is chosen. 
+
+73 Relative entropy inequality and main theorem 
+
+Motivated by [11, 12], for any finite weak solution ( ρ, u) to the system (1.1), we introduce the relative energy functional 
+
+E(ρ, u|r, U) = 
+
+Z
+
+> ΩM
+
+ 12 ρ|u − U|2 + 1
+
+ε2
+
+ H(ρ) − H′(r)( ρ − r) − H(r)
+
+dx, (3.1) where r > 0, U| are smooth ‘test’ functions compactly supported in Ω M . Later, we will make the choice r = 1 + εs and U = v + ∇xΦ + wM .
+
+Lemma 3.1. Let (ρ, u) be a weak solution introduced in Definition 2.1. Then (ρ, u) satisfy the relative entropy inequality 
+
+E(ρ, u|r, U)|t=τt=0 + εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|Sμ|2 dxdt ≤
+
+Z τ
+
+> 0
+
+R(ρ, u, r, U)dt, (3.2) 
+
+where 
+
+R(ρ, u, r, U) = 
+
+Z
+
+> ΩM
+
+√ρ(√ρU − √ρu) · (∂tU + u · ∇ xU) dx 
+
++ 1
+
+ε2
+
+Z
+
+> ΩM
+
+ρ(U − u) · ∇ x(H′(r) − H′′ (1)( r − 1) − H′(1)) dx 
+
++ 1
+
+ε2
+
+Z
+
+> ΩM
+
+ p(r) − p′(r)( r − ρ) − p(ρ)) div x U dx 
+
++ 1
+
+ε2
+
+Z
+
+> ΩM
+
+(r − ρ)H′′ (r) div x wM dx + 1
+
+ε
+
+Z
+
+> ΩM
+
+(r − ρ)H′′ (r) div x(sU) dx 
+
+−
+
+Z
+
+> ΩM
+
+ρ∂ t∇xΦ · (U − u) dx + εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+√ρSμ : ∇xU dxdt 
+
++ r1(ε)
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|√ρu|√ρu · U dxdt. (3.3) 
+
+Proof: Using the relative energy (3.1) and energy inequality (2.4), we have 
+
+E(ρ, u|r, U)|t=τt=0 ≤
+
+Z
+
+> ΩM
+
+( 12 ρ|U|2 − ρu · U)|t=τt=0 dx − 1
+
+ε2
+
+Z
+
+> ΩM
+
+ H(r) + H′(r)( ρ − r)|t=τt=0 dx 
+
+− εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+√ρ|Sμ|2 dxdt. (3.4) From the weak formulation (2.2)–(2.3), we deduce 
+
+Z
+
+> ΩM
+
+12 ρ|U|2|t=τt=0 dx =
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρU · ∂tU dxdt +
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρu(U · ∇ xU) dxdt, (3.5) 
+
+−
+
+Z
+
+> ΩM
+
+ρu · U|t=τt=0 dx = −
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+(ρu · ∂tU + ρu ⊗ u : ∇xU) dxdt − 1
+
+ε2
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+p(ρ)div xU dxdt 
+
++ εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+√ρSμ : ∇xU dxdt + r1(ε)
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|√ρu|√ρu · U dxdt, (3.6) 8− 1
+
+ε2
+
+Z
+
+> ΩM
+
+ H(r) + H′(r)( ρ − r)|t=τt=0 dx = 1
+
+ε2
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+[∂t(H′(r)( r − ρ) − ρu · ∇ x(H′(r))] dxdt. 
+
+(3.7) Summing (3.4)-(3.5) together, we obtain 
+
+E(ρ, u|r, U)|t=τt=0 ≤
+
+Z τ
+
+> 0
+
+Z
+
+> Ω
+
+R(ρ, u, r, U) dxdt − εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+√ρ|Sμ|2 dxdt, 
+
+where 
+
+R(ρ, u, r, U) = 
+
+Z
+
+> ΩM
+
+ρ(U − u) · ∂tU dx +
+
+Z
+
+> ΩM
+
+√ρu(√ρU − √ρu) · ∇ xU dx 
+
++ 1
+
+ε2
+
+Z
+
+> ΩM
+
+[( r − ρ)∂tH′(r) − ρu · ∇ xH′(r)] dx − 1
+
+ε2
+
+Z
+
+> ΩM
+
+p(ρ)div xU dx 
+
++ εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+√ρSμ : ∇xU dxdt + r1(ε)
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|√ρu|√ρu · U dxdt 
+
+=
+
+Z
+
+> ΩM
+
+√ρ(√ρU − √ρu) · (∂tU + u · ∇ xU) dxdt 
+
++ 1
+
+ε2
+
+Z
+
+> ΩM
+
+[( r − ρ)∂tH′(r) + ∇xH′(r)( rU − ρu)] dx − 1
+
+ε2
+
+Z
+
+> ΩM
+
+(p(ρ) − p(r))div xU dx 
+
++ εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+√ρSμ : ∇xU dxdt + r1(ε)
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|√ρu|√ρu · U dxdt. (3.8) It is easy to calculate (r − ρ)∂tH′(r) + ∇xH′(r)( rU − ρu) − (p(ρ) − p(r))div xU
+
+=  p(r) − p′(r)( r − ρ) − p(ρ)div xU + ( r − ρ)∂tH′(r)+ ( r − ρ)p′(r)div xU + ( r − ρ)∇xH′(r) · U + ρ∇xH′(r)( U − u)=  p(r) − p′(r)( r − ρ) − p(ρ)div xU + ( r − ρ)H′′ (r)( ∂tr + div x(rU)) + ρ∇xH′(r)( U − u).
+
+(3.9) Setting now r = 1 + εs , U = v + ∇xΦ + wM and using div x v = 0, we have 
+
+∂tr + div x(rU) = ∂tr + div x[( r − εs )U] + εdiv x(sU)= ε∂ ts + div xv + div x(∇xΦ) + div xwM + εdiv x(sU)= div xwM + εdiv x(sU). (3.10) On the other hand, it is straightforward that 
+
+ρ∇xH′(r)( U − u) = ρ∇x
+
+ H′(r) − H′′ (1)( r − 1) − H′(1)  · (U − u) (3.11) + ρ∇x(H′′ (1)( r − 1)) · (U − u), (3.12) while we obtain, recalling the acoustic system (2.10), 
+
+ρ∇x(H′′ (1)( r − 1)) · (U − u) = ερ ∇x(H′′ (1) s) · (U − u)9= ε∇x(p′(1) s) · (U − u) = −ε2ρ∂ t∇xΦ · (U − u). (3.13) Plugging (3.9)–(3.13) into (3.8), we get, as desired, 
+
+R(ρ, u, r, U) = 
+
+Z
+
+> ΩM
+
+√ρ(√ρU − √ρu) · (∂tU + u · ∇ xU) dx 
+
++ 1
+
+ε2
+
+Z
+
+> ΩM
+
+ρ(U − u) · ∇ x(H′(r) − H′′ (1)( r − 1) − H′(1)) dx 
+
++ 1
+
+ε2
+
+Z
+
+> ΩM
+
+ p(r) − p′(r)( r − ρ) − p(ρ))div xU dx + 1
+
+ε2
+
+Z
+
+> ΩM
+
+(r − ρ)H′′ (r)div xwM dx 
+
++ 1
+
+ε
+
+Z
+
+> ΩM
+
+(r − ρ)H′′ (r)div x(sU) dx −
+
+Z
+
+> ΩM
+
+ρ∂ t∇xΦ · (U − u) dx 
+
++ εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+√ρSμ : ∇xU dxdt + r1(ε)
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|√ρu|√ρu · U dxdt. 
+
+# 4 Proof of Theorem 2.1 
+
+In this section, which constitutes the essential part of the proof of the main result, we will show that all the integrals in the remainder term R on the right-hand side of (3.3) can be absorbed into the left-hand side, which will enable us to conclude by Gr¨ onwall’s inequality. First, recalling 
+
+r = 1 + εs and U = v + ∇xΦ + wM , we rewrite (3.3) as 
+
+R(ρ, u, r, U) = 
+
+Z
+
+> ΩM
+
+√ρ(√ρU − √ρu) · (∂tv + ∂twM + u · ∇ xU) dx 
+
++ 1
+
+ε2
+
+Z
+
+> ΩM
+
+ρ(U − u) · ∇ x(H′(r) − H′′ (1)( r − 1) − H′(1)) dx 
+
++ 1
+
+ε2
+
+Z
+
+> ΩM
+
+ p(r) − p′(r)( r − ρ) − p(ρ))div xU dx 
+
++ 1
+
+ε2
+
+Z
+
+> ΩM
+
+(r − ρ)H′′ (r)div xwM dx + 1
+
+ε
+
+Z
+
+> ΩM
+
+(r − ρ)H′′ (r)div x(sU) dx 
+
++ εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+√ρSμ : ∇xU dxdt + r1(ε)
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|√ρu|√ρu · U dxdt 
+
+=
+
+> 7
+
+X
+
+> i=1
+
+Ri. (4.1) First, we deal with term R1 as: 
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+√ρ(√ρU − √ρu) · (∂tv + ∂twM + u · ∇ xU) dxdt 
+
+=
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+√ρ(√ρU − √ρu) · (∂tv + ∂twM + U · ∇ xU) dxdt 
+
+−
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ(U − u) ⊗ (U − u) : ∇xU dxdt, (4.2) 10 where 
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ(U − u) ⊗ (U − u) : ∇xU dxdt ≤ 2
+
+Z τ
+
+> 0
+
+∇xv + ∇xwM + ∇2
+
+> x
+
+Φ L∞(Ω M ) Edt. (4.3) We manipulate the first term on the right side of (4.2) as 
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+√ρ(√ρU − √ρu) · (∂tv + ∂twM + U · ∇ xU) dxdt 
+
+=
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ(U − u) · (∂tv + ∂twM + U · ∇ xU) dxdt 
+
+=
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ(U − u) · (∂tv + v · ∇ xv) dxdt +
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ(U − u)∂twM dxdt 
+
++
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ(U − u) ⊗ (∇xΦ + wM ) : ∇xv dxdt +
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ(U − u) 12 ∇x|∇ xΦ + wM |2 dxdt 
+
++
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ(U − u) ⊗ v : ( ∇2
+
+> x
+
+Φ + ∇xwM ) dxdt 
+
+=
+
+> 5
+
+X
+
+> j=1
+
+R1j . (4.4) By virtue of (2.6)–(2.7) and (2.12)–(2.13), we can control R13 as 
+
+|
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ(U − u) ⊗ (∇xΦ + wM ) : ∇xv dxdt |≤C
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ|U − u|2dxdt +
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|[ρ]ess + [ ρ]res ||∇ xΦ + wM |2|∇ xv|2dxdt 
+
+≤C
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ|U − u|2dxdt +
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ε
+
+ ρ − 1
+
+ε
+
+
+
+> ess
+
++ 1 + [ ρ]res ∇xΦ + wM |2|∇ xv|2dxdt 
+
+≤C
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ|U − u|2dxdt 
+
++ ε
+
+Z τ
+
+> 0
+
+ ρ − 1
+
+ε
+
+  
+
+> ess L2(Ω M)
+
+∥∇ xΦ + wM ∥2 
+
+> L∞(Ω M)
+
+∥∇ xv∥2 
+
+> L4(Ω M)
+
+dt 
+
++
+
+Z τ
+
+> 0
+
+∥∇ xΦ + wM ∥2 
+
+> L∞(Ω M)
+
+∥∇ xv∥2 
+
+> L2(Ω M)
+
+dt 
+
++
+
+Z τ
+
+> 0
+
+∥[ρ]res ∥Lγ (Ω M )∥∇ xΦ + wM ∥2 
+
+> L∞(Ω M)
+
+∥∇ xv∥2   
+
+> L2γγ−1(Ω M)
+
+dt. (4.5) By Sobolev’s inequality, for any p > 3 and some C = C(p), we get the estimate 
+
+∥∇ xΦ+ wM ∥L∞(Ω M ) ≤ C  ∥∇ xΦ∥W 1,p (Ω M ) + ∥wM ∥W 1,p (Ω M )
+
+ ≤ C
+
+"
+
+1 + tε
+
+−(1− 2 
+
+> p
+
+)+ M 2( 1 
+
+> p−1
+
+)
+
+#
+
+.
+
+Thus we can control (4.5) as 
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ(U − u) ⊗ (∇xΦ + wM ) : ∇xv dxdt ≤ C
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ|U − u|2dxdt + C
+
+
+
+ε2− 4 
+
+> p
+
++ M 4( 1 
+
+> p−1
+
+)
+
+.
+
+11 In a similar way we control the terms R τ
+
+> 0
+
+R 
+
+> ΩM
+
+ρ(U − u) 12 ∇x|∇ xΦ + wM |2dx and R τ
+
+> 0
+
+R 
+
+> ΩM
+
+ρ(U −
+
+u) ⊗ v : ( ∇2
+
+> x
+
+Φ + ∇xwM )dx .Next, we turn to R11 :
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ(U − u) · (∂tv + v · ∇ xv) dxdt 
+
+= −
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ(U − u) · ∇ xΠ dxdt 
+
+=
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρu · ∇ xΠ dxdt −
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρU · ∇ xΠ dxdt. (4.6) Now we follow Feireisl et al. [15]. For the readers’ convenience, we recall the calculation as 
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρu · ∇ xΠ dxdt = −
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ∂ tΠ dxdt +
+
+Z 
+
+> ΩM
+
+ρΠdx 
+
+t=τt=0 
+
+= −ε
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ − 1
+
+ε ∂tΠdx + ε
+
+Z 
+
+> ΩM
+
+ρ − 1
+
+ε Πdx 
+
+t=τt=0 
+
+. (4.7) Using (2.6)–(2.7), we see that these terms converge to zero. Now we turn to the second term on the right side of (4.6) as 
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρU · ∇ xΠ dxdt ≤ ε
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ − 1
+
+ε U · ∇ xΠ dxdt +
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+U · ∇ xΠ dxdt 
+
+≤ Cε +
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+Πdiv xU dxdt 
+
+≤ Cε + C
+
+Z τ
+
+> 0
+
+∥∆xΦ∥L∞(Ω M ) + ∥div xwM ∥L∞(Ω M ) dt 
+
+≤ Cε + 1
+
+M 2 . (4.8) For the term R12 , we have 
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ(U − u)∂twM dxdt 
+
+=
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+[ρ]ess (U − u)∂twM dxdt +
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+[ρ]res (U − u)∂twM dxdt 
+
+≤C
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ|U − u|2 dxdt +
+
+Z τ
+
+> 0
+
+∥∂twM ∥L2(Ω M ) dt 
+
++
+
+Z τ
+
+> 0
+
+∥p[ρ]res ∥L2γ (Ω M )∥∂twM ∥Lp(Ω M )∥√ρ(U − u)∥L2(Ω M ) dt 
+
+≤C
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ|U − u|2 dxdt + C(εm + 1
+
+M m ), (m = 1 − 1
+
+p > 2) . (4.9) Then we turn to the term R3:
+
+1
+
+ε2
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ p(r) − p′(r)( r − ρ) − p(ρ)div xU dxdt 
+
+12 = 1
+
+ε2
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ p(r) − p′(r)( r − ρ) − p(ρ)div x(∇xΦ + div xwM ) dxdt 
+
+≤
+
+Z τ
+
+> 0
+
+(∥∆xΦ∥L∞(Ω M ) + ∥div xwM ∥L∞(Ω M ))E dt. (4.10) It is easy to compute that 
+
+∇(H′(r) − H′′ (1)( r − 1) − H′(1)) = γ∇x
+
+ (1 + εs )γ−1 − 1
+
+γ − 1 − εs 
+
+
+
+= εγ  (1 + εs )γ−2 − 1 ∇xs
+
+and then we have 
+
+|∇ x(H′(r) − H′′ (1)( r − 1) − H′(1)) | ≤ Cε 2|s∇xs|. (4.11) Therefore, we can insert the above equality into R2:
+
+1
+
+ε2
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ(U − u)∇x
+
+ H′(r) − H′′ (1)( r − 1) − H′(1)  dxdt 
+
+≤
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|ρ(U − u)|| s∇xs| dxdt 
+
+≤ 12
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ |U − u|2 dxdt + 12
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ|s|2|∇ xs|2dxdt 
+
+≤ 12
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ |U − u|2 dxdt + 12
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+
+
+1 + ε
+
+ ρ − 1
+
+ε
+
+
+
+> ess
+
++ [ ρ]res 
+
+
+
+|s|2|∇ xs|2dxdt 
+
+≤ 12
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ |U − u|2 dxdt + 12 sup 
+
+> 0≤t≤τ
+
+∥s(·, t )∥2 
+
+> L2(Ω M)
+
+Z τ
+
+> 0
+
+∥∇ xs∥2 
+
+> L∞(Ω M)
+
+dt 
+
++ 12 ε sup 
+
+> 0≤t≤τ
+
+ ρ − 1
+
+ε
+
+  
+
+> ess L2(Ω M)
+
+Z τ
+
+> 0
+
+∥s∥2 
+
+> L4(Ω M)
+
+∥∇ xs∥2 
+
+> L∞(Ω M)
+
+dt 
+
++ 12 sup 
+
+> 0≤t≤τ
+
+∥[ρ]res ∥Lγ (Ω M )
+
+Z τ
+
+> 0
+
+∥s∥2   
+
+> L2γγ−1(Ω M)
+
+∥∇ xs∥2 
+
+> L∞(Ω M)
+
+dt 
+
+≤ 12
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ |U − u|2 dxdt + C
+
+2 sup 
+
+> 0≤t≤τ
+
+∥s(·, t )∥2 
+
+> L2(Ω M)
+
+Z τ
+
+> 0
+
+
+
+1 + tε
+
+−2
+
+dt 
+
++ 12 ε sup 
+
+> 0≤t≤τ
+
+ ρ − 1
+
+ε
+
+  
+
+> ess L2(Ω M)
+
+Z τ
+
+> 0
+
+
+
+1 + tε
+
+−1 
+
+1 + tε
+
+−2
+
+dt 
+
++ 12 sup 
+
+> 0≤t≤τ
+
+∥[ρ]res ∥Lγ (Ω M )
+
+Z τ
+
+> 0
+
+
+
+1 + tε
+
+− 2 
+
+> γ
+
+
+
+1 + tε
+
+−2
+
+dt 
+
+≤ 12
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ |U − u|2 dxdt + Cε, (4.12) where we used the fact that for β > 1, 
+
+Z τ
+
+> 0
+
+
+
+1 + tε
+
+−β
+
+dt = ε
+
+Z τε
+
+> 0
+
+(1 + u)−β du ≤ εβ − 1 .
+
+Next, we use (2.13) to estimate R4 as 
+
+1
+
+ε2
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+(r − ρ)H′′ (r)div xwM dxdt 
+
+13 = 1
+
+ε
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+1 − ρε H′′ (r)div xwM dxdt + 1
+
+ε
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+sH ′′ (r)div xwM dxdt 
+
+≤ 1
+
+ε
+
+Z τ
+
+> 0
+
+
+
+−
+
+ ρ − 1
+
+ε
+
+
+
+> ess
+
++ 1
+
+ε [1] res + 1
+
+ε [ρ]res 
+
+
+
+div xwM dt + 1
+
+ε
+
+Z τ
+
+> 0
+
+∥div xwM ∥L2(Ω M )∥s∥L2(Ω M ) dt 
+
+≤ 1
+
+ε
+
+Z τ
+
+> 0
+
+ ρ − 1
+
+ε
+
+  
+
+> ess L2(Ω M)
+
+∥div xwM ∥L2(Ω M )dt + 1
+
+ε2
+
+Z τ
+
+> 0
+
+∥[1] res ∥L1(Ω M ) ∥div xwM ∥L∞(Ω M )dt 
+
++ 1
+
+ε2
+
+Z τ
+
+> 0
+
+∥[ργ ]res ∥L1(Ω M ) ∥div xwM ∥L γγ−1 (Ω M )dt + 1
+
+ε
+
+Z τ
+
+> 0
+
+∥div xwM ∥L2(Ω M )∥s∥L2(Ω M ) dt 
+
+≤C
+
+ 1
+
+εM + 1
+
+M 2 + 1
+
+M 2
+
+> γ
+
+
+
+. (4.13) Similarly, we control R5 as 
+
+1
+
+ε
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+(r − ρ)H′′ (r)div x(sU) dxdt 
+
+=
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ 1 − ρε + s
+
+
+
+H′′ (r)[ ∇xs · (v + ∇xΦ + wM ) + s∆xΦ + sdiv xwM ] dxdt 
+
+≤C
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+
+
+| 1 − ρε | + |s|
+
+
+
+(|s| + |∇ xs|) |v| + |∇ xΦ| + |wM | + |∆xΦ| + |div xwM | dxdt 
+
+≤η(ϵ, M ), (4.14) where η(ϵ, M ) tends to zero by similar estimates as above; for instance, 
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|s||∇ xs|| div xwM |dxdt ≤
+
+Z τ
+
+> 0
+
+∥s∥L2(Ω M )∥∇ xs∥L2(Ω M )∥div xwM ∥L∞(Ω M )dt ≤ CM 2 . (4.15) Now, we consider the drag term R7. Recalling r1(ε) → 0 as ε → 0 and (2.5), the term R7 is controlled as 
+
+r1(ε)
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|√ρu|√ρu · U dxdt ≤ η(ϵ) → 0. (4.16) Finally, we turn to the most difficult term, the viscous one, using U = v + ∇xΦ + wM :
+
+εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+√ρSμ : ∇xU dxdt = εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ √ρSμ : ∇xv + √ρSμ : ∇2
+
+> x
+
+Φ + √ρSμ : ∇xwM
+
+ dxdt 
+
+=
+
+> 3
+
+X
+
+> i=1
+
+R6i. (4.17) Using the Cauchy-Schwarz inequality, we have 
+
+R61 ≤εα
+
+Z τ
+
+> 0
+
+Z 
+
+> ΩM
+
+ρ|∇ xv|2 dx 
+
+ 12 Z 
+
+> ΩM
+
+|Sμ|2 dx 
+
+ 12
+
+dt 
+
+≤εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ|∇ xv|2 dxdt + 18 εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|Sμ|2 dxdt 
+
+=R611 + R612 ,
+
+14 where R612 is under control. We divide R611 into two parts: 
+
+R611 =εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+[ρ]ess |∇ xv|2 dxdt + εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+[ρ]res |∇ xv|2 dxdt 
+
+≤εα+1 
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ ρ − 1
+
+ε
+
+
+
+> ess
+
+|∇ xv|2 dxdt + εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|∇ xv|2 dxdt 
+
++ εα
+
+Z τ
+
+> 0
+
+∥[ρ]res ∥Lγ (Ω M )
+
+Z 
+
+> ΩM
+
+|∇ xv| 2γγ−1 dx 
+
+ γγ−1
+
+dt 
+
+≤εα+1 
+
+Z τ
+
+> 0
+
+ ρ − 1
+
+ε
+
+  
+
+> ess L2(Ω M)
+
+∥∇ xv∥2  
+
+> L4(Ω M)
+
+dt + εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|∇ xv|2 dxdt 
+
++ εα+ 2
+
+> γ
+
+Z τ
+
+> 0
+
+Z 
+
+> ΩM
+
+|∇ xv| 2γγ−1 dx 
+
+ γγ−1
+
+dt 
+
+≤ εα+1 + εα + εα+ 2 
+
+> γ
+
+. (4.18) Similarly, one estimates R62 as 
+
+R62 ≤εα
+
+Z τ
+
+> 0
+
+Z 
+
+> ΩM
+
+ρ|∇ 2
+
+> x
+
+Φ|2 dx 
+
+ 12 Z 
+
+> ΩM
+
+|Sμ|2 dx 
+
+ 12
+
+dt 
+
+≤εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ|∇ 2
+
+> x
+
+Φ|2 dxdt + 18 εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|Sμ|2 dxdt 
+
+=R621 + εα
+
+8
+
+Z τ
+
+> 0
+
+∥Sμ∥2  
+
+> L2(Ω M)
+
+dt. 
+
+A similar analysis gives rise to the following: 
+
+R621 =εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+[ρ]ess |∇ 2
+
+> x
+
+Φ|2 dxdt + εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+[ρ]res |∇ 2
+
+> x
+
+Φ|2 dxdt 
+
+≤εα+1 
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+[ ρ − 1
+
+ε ]ess |∇ 2
+
+> x
+
+Φ|2 dxdt + εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|∇ 2
+
+> x
+
+Φ|2 dxdt 
+
++ εα
+
+Z τ
+
+> 0
+
+∥[ρ]res ∥Lγ (Ω M )∥∇ 2
+
+> x
+
+Φ∥2   
+
+> L2γγ−1(Ω M)
+
+dt 
+
+≤εα+1 
+
+Z τ
+
+> 0
+
+ ρ − 1
+
+ε
+
+  
+
+> ess L2(Ω M)
+
+∥∇ 2
+
+> x
+
+Φ∥2  
+
+> L4(Ω M)
+
+dt + εα
+
+Z τ
+
+> 0
+
+∥∇ 2
+
+> x
+
+Φ∥2  
+
+> L2(Ω M)
+
+dxdt 
+
++ εα+2 
+
+Z τ
+
+> 0
+
+∥∇ 2
+
+> x
+
+Φ∥2   
+
+> L2γγ−1(Ω M)
+
+dt. (4.19) Using the Strichartz estimate (2.12) for ∇xΦ, we have 
+
+∥∇ 2
+
+> x
+
+Φ∥L2(Ω M ), ∥∇ 2
+
+> x
+
+Φ∥L4(Ω M ), ∥∇ 2
+
+> x
+
+Φ∥L 2γγ−1 (Ω M ) ≤ C
+
+
+
+1 + tε
+
+−1
+
+,
+
+then we deduce for some m > 0
+
+R621 ≤ εm
+
+Z τ
+
+> 0
+
+
+
+1 + tε
+
+−1
+
+dt ≤ εm+1 ln(1 + ε−1τ ) → 0, as ε → 0. (4.20) Once more, we apply the Cauchy-Schwarz inequality to get 
+
+R63 ≤εα
+
+Z τ
+
+> 0
+
+Z 
+
+> ΩM
+
+ρ|∇ xwM |2 dx 
+
+ 12 Z 
+
+> ΩM
+
+|Sμ|2 dx 
+
+ 12
+
+dt 
+
+15 ≤εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ρ|∇ xwM |2 dxdt + 18 εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|Sμ|2 dxdt 
+
+=R631 + R632 , (4.21) then 
+
+R631 =εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+[ρ]ess |∇ xwM |2 dxdt + εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+[ρ]res |∇ xwM |2 dxdt 
+
+≤εα+1 
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+ ρ − 1
+
+ε
+
+
+
+> ess
+
+|∇ xwM |2 dxdt + εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|∇ xwM |2 dxdt 
+
++ εα
+
+Z τ
+
+> 0
+
+∥[ρ]res ∥Lγ (Ω M )
+
+Z 
+
+> ΩM
+
+|∇ xwM | 2γγ−1 dx 
+
+ γγ−1
+
+dt 
+
+≤εα+1 
+
+Z τ
+
+> 0
+
+ ρ − 1
+
+ε
+
+  
+
+> ess L2(Ω M)
+
+∥∇ xwM ∥2  
+
+> L4(Ω M)
+
+dt + εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|∇ xwM |2 dxdt 
+
++ εα+2 
+
+Z τ
+
+> 0
+
+Z 
+
+> ΩM
+
+|∇ xwM | 2γγ−1 dx 
+
+ γγ−1
+
+dt 
+
+≤η2(ϵ, M ), (4.22) where η2(ε, M ) → 0 by virtue of similar estimates. Putting (4.2)-(4.22) together, we conclude that 
+
+E(τ ) − E (0) + εα
+
+Z τ
+
+> 0
+
+Z
+
+> ΩM
+
+|S μ|2 dxdt ≤
+
+Z τ
+
+> 0
+
+(C + η1(ε)) E dt + η2(ε, M ),
+
+where η1(ε), η2(ε, M ) → 0, as ε → 0, M → +∞. Thus we have completed the proof of Theorem 2.1. 
+
+Acknowledgements 
+
+The authors thank Eduard Feireisl for helpful discussions and constructive suggestions. T. Tang is partially supported by NSFC No. 12371246 and Qing Lan Project of Jiangsu Province. E. Wiede-mann is supported by the DFG Priority Programme SPP 2410 (project number 525716336). T. Tang wishes to thank the University of Erlangen-N¨ urnberg for their hospitality during his stay in Germany, while E. Wiedemann gratefully acknowledges the support of Yangzhou University during his visit to China. 
+
+# References 
+
+[1] L. Bisconti and M. Caggio, Inviscid limit for the compressible Navier-Stokes equations with density dependent viscosity, J. Differential Equations, 390 (2024), 370-425. [2] L. Bisconti, M. Caggio and F. Dell’Oro, Vanishing viscosity limit for the compressible Navier-Stokes equations with non-linear density dependent viscosities, J. Math. Fluid Mech. 28:46 (2026), . 16 [3] D. Bresch and B. Desjardins, Stabilit´ e de solutions faibles globales pour les ´ equations de Navier-Stokes compressible avec temp´ erature, C. R. Acad. Sci. Paris, 343 (2006), 219-224. [4] D. Bresch, B. Desjardins and D. G´ erard-Varet, On compressible Navier-Stokes equations with density dependent viscosities in bounded domains, J. Math. Pures Appl., 87 (2007), 227-235. [5] D. Bresch, P. Noble and J. Vila, Relative entropy for compressible Navier-Stokes equations with density-dependent viscosities and applications, C. R. Math. Acad. Sci. Paris, 354 (2016), 45-49. [6] D. Bresch, A. Vasseur and C. Yu, Global existence of entropy-weak solutions to the compress-ible Navier-Stokes equations with non-linear density dependent viscosities, J. Eur. Math. Soc. (JEMS), 24 (2022), 1791-1837. [7] N. Chaudhuri, F. Fanelli, Y. Li and E. Zatorska, Anelastic approximation for the degenerate compressible Navier–Stokes equations revisited, arXiv:2511.22132, 2025. [8] C. M. Dafermos, The second law of thermodynamics and stability, Arch. Rational Mech. Anal., 70 (1979), 167-179. [9] F. Fanelli and E. Zatorska, Low Mach number limit for the degenerate Navier-Stokes equa-tions in presence of strong stratification. Commun. Math. Phys., 400 (2023), 1463-1506. [10] E. Feireisl, Dynamics of Viscous Compressible Fluids, Oxford University Press, Oxford, 2004. [11] E. Feireisl and A. Novotn´ y, Singular limits in thermodynamics of viscous fluids, Advances in Mathematical Fluid Mechanics, Birkh¨ auser, Basel, 2009. [12] E. Feireisl, J. B. Jin and A. Novotn´ y, Relative entropies, suitable weak solutions, and weak-strong uniqueness for the compressible Navier-Stokes system, J. Math. Fluid Mech., 14 (2012), 717-730. [13] E. Feireisl, Mathematical analysis of fluids in motion: from well-posedness to model reduc-tion, Rev. Mat. Complut., 26 (2013), 299-340. [14] E. Feireisl and A. Novotn´ y, Inviscid incompressible limits of the full Navier-Stokes-Fourier system, Comm. Math. Phys., 321 (2013), 605-628. [15] E. Feireisl, S. Neˇ casov´ a and Y. Sun, Inviscid incompressible limits on expanding domains, Nonlinearity, 27 (2014), 2465-2478. [16] E. Feireisl, C. Klingenberg and S. Markfelder, On the low Mach number limit for the com-pressible Euler system, SIAM J. Math. Anal., 51, 1496-1513 (2019). 17 [17] P. Germain, Weak-strong uniqueness for the isentropic compressible Navier-Stokes system, J. Math. Fluid Mech., 13 (2011), 137-146. [18] T. Kato and C. Y. Lai, Nonlinear evolution equations and the Euler flow, J. Funct. Anal., 56 (1984), 15-28. [19] J. Kelliher, M. C. Lopes Filho and J. Nussenzveig-Lopes, Vanishing viscosity limit for an expanding domain in space, Ann. Inst. H. Poincar´ e C Anal. Non Lin´ eaire, 26 (2009), 2521-2537. [20] I. Lacroix-Violet and A. Vasseur, Global weak solutions to the compressible quantum Navier-Stokes equation and its semi-classical limit, J. Math. Pures Appl., 114 (2018), 191-210. [21] J. Li and Z. P. Xin, Global existence of weak solutions to the barotropic compressible Navier-Stokes flows with degenerate viscosities, arXiv:1504.06826v2, 2015. [22] P.-L. Lions, Mathematical topics in fluid dynamics, Vol. 2, Compressible models, Oxford Science Publications, Oxford, 1998. [23] R. Strichartz, A priori estimates for the wave equation and some applicatons, J. Funct. Anal., 39 (1970), 218-235. [24] A. Vasseur and C. Yu, Existence of global weak solutions for 3D degenerate compressible Navier-Stokes equations, Invent. Math., 206 (2016), 935-974. [25] E. Wiedemann, Weak-strong uniqueness in fluid dynamics. Partial differential equations in fluid mechanics, 289-326, London Math. Soc. Lecture Note Ser., 452, Cambridge Univ. Press, Cambridge, 2018. 18

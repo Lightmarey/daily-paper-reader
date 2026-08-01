@@ -41,17 +41,17 @@
 <section class="dpr-home-dashboard-card dpr-home-report-card">
   <div class="dpr-home-dashboard-header">
     <div>
-      <span class="dpr-home-dashboard-kicker">2026-07-31</span>
+      <span class="dpr-home-dashboard-kicker">2026-08-01</span>
       <h3 class="dpr-home-dashboard-title">今日汇总</h3>
     </div>
-    <strong class="dpr-home-dashboard-count">共 10 篇</strong>
+    <strong class="dpr-home-dashboard-count">共 6 篇</strong>
   </div>
   <dl class="dpr-home-dashboard-stats">
     <div class="dpr-home-dashboard-stat"><dt>累计更新</dt><dd>1 次</dd></div>
-    <div class="dpr-home-dashboard-stat"><dt>精读</dt><dd>4</dd></div>
-    <div class="dpr-home-dashboard-stat"><dt>速读</dt><dd>6</dd></div>
+    <div class="dpr-home-dashboard-stat"><dt>精读</dt><dd>3</dd></div>
+    <div class="dpr-home-dashboard-stat"><dt>速读</dt><dd>3</dd></div>
   </dl>
-  <p class="dpr-home-dashboard-body">最近更新：2026-07-31 21:08:40 UTC<br>状态：成功</p>
+  <p class="dpr-home-dashboard-body">最近更新：2026-08-01 20:22:04 UTC<br>状态：成功</p>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-brief-card">
   <div class="dpr-home-dashboard-header">
@@ -62,7 +62,7 @@
     <strong class="dpr-home-dashboard-count">AI</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<p>今日精读聚焦几何分析两大高分解：toric CR Yamabe问题与共形Dirichlet-to-Robin极值度量，均达9.0分。最值得关注的是CR几何中的刚性构造与边界共形度量的正则性结果。下一步建议从速读的Ricci曲率稳定性入手，理解几何分析的现代工具。</p>
+<p>今日精读聚焦微分几何与调和分析，两篇8分论文分别给出曲率夹条件下共形 Killing 向量场的 Bochner-Yano 型定理及尖峰 curl-Sobolev 不等式；速读则涵盖退化椭圆方程、可压缩 Navier-Stokes 极限及球面分形 Remez 不等式。最值得关注的是曲率夹逼下的共形 Killing 场刚性结论与 curl-Sobolev 不等式的锐常数。普通读者可优先从这两篇8分精读入手，其余三篇作为扩展方向。</p>
   </div>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-deep-card">
@@ -71,12 +71,12 @@
       <span class="dpr-home-dashboard-kicker">今日累计</span>
       <h3 class="dpr-home-dashboard-title">精读推荐</h3>
     </div>
-    <strong class="dpr-home-dashboard-count">4 篇</strong>
+    <strong class="dpr-home-dashboard-count">3 篇</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="The toric CR Yamabe problem">The toric CR Yamabe problem</span></li><li><span class="dpr-home-dashboard-paper-title" title="Existence and Regularity of Extremal Metrics for the Conformal Dirichlet-to-Robin Map">Existence and Regularity of Extremal Metrics for the Conformal Dirichlet-to-Robin Map</span></li><li><span class="dpr-home-dashboard-paper-title" title="A degenerate free boundary minimal annulus and non-uniqueness in spherical caps beyond the hemisphere">A degenerate free boundary minimal annulus and non-uniqueness in spherical caps beyond the hemisphere</span></li></ul>
+<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Bochner-Yano Type Theorems for Conformal Killing Vector Fields under Curvature Pinching Conditions">Bochner-Yano Type Theorems for Conformal Killing Vector Fields under Curvature Pinching Conditions</span></li><li><span class="dpr-home-dashboard-paper-title" title="The sharp curl-Sobolev inequality">The sharp curl-Sobolev inequality</span></li><li><span class="dpr-home-dashboard-paper-title" title="Volume Stability for Hyperbolic Manifolds and Applications to General Relativity">Volume Stability for Hyperbolic Manifolds and Applications to General Relativity</span></li></ul>
   </div>
-  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>4</strong></span></div>
+  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>3</strong></span></div>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-skim-card">
   <div class="dpr-home-dashboard-header">
@@ -84,12 +84,12 @@
       <span class="dpr-home-dashboard-kicker">今日累计</span>
       <h3 class="dpr-home-dashboard-title">速读推荐</h3>
     </div>
-    <strong class="dpr-home-dashboard-count">6 篇</strong>
+    <strong class="dpr-home-dashboard-count">3 篇</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Stability of local Riemannian Ricci curvature lower bounds">Stability of local Riemannian Ricci curvature lower bounds</span></li><li><span class="dpr-home-dashboard-paper-title" title="On The Minkowski Problem With Respect To A Mixed Euclidean-Gaussian Density">On The Minkowski Problem With Respect To A Mixed Euclidean-Gaussian Density</span></li><li><span class="dpr-home-dashboard-paper-title" title="The primitive equations on curved surfaces">The primitive equations on curved surfaces</span></li></ul>
+<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Sharp gradient estimates for a class of singular/degenerate fully nonlinear elliptic equations with oblique boundary conditions and Hamiltonian terms">Sharp gradient estimates for a class of singular/degenerate fully nonlinear elliptic equations with oblique boundary conditions and Hamiltonian terms</span></li><li><span class="dpr-home-dashboard-paper-title" title="Inviscid Incompressible Limit for Degenerate Compressible Navier-Stokes Equations on Expanding Domains">Inviscid Incompressible Limit for Degenerate Compressible Navier-Stokes Equations on Expanding Domains</span></li><li><span class="dpr-home-dashboard-paper-title" title="Fractal Remez inequality on the sphere and observability of the heat equation">Fractal Remez inequality on the sphere and observability of the heat equation</span></li></ul>
   </div>
-  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>6</strong></span></div>
+  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>3</strong></span></div>
 </section>
 </div>
 

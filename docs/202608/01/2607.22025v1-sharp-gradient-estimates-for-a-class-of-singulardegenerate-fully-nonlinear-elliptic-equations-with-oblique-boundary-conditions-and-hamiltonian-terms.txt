@@ -1,0 +1,1707 @@
+Title: Sharp gradient estimates for a class of singular/degenerate fully nonlinear elliptic equations with oblique boundary conditions and Hamiltonian terms
+
+URL Source: https://arxiv.org/pdf/2607.22025v1
+
+Published Time: Mon, 27 Jul 2026 00:26:31 GMT
+
+Number of Pages: 22
+
+Markdown Content:
+# Sharp gradient estimates for a class of singular/degenerate fully nonlinear elliptic equations with oblique boundary conditions and Hamiltonian terms 
+
+Wentao Huo a
+
+> a
+
+School of Mathematical Sciences, Nankai University, Tianjin 300071, P.R. China 
+
+July 27, 2026 
+
+Abstract 
+
+This paper focus on a class of singular or degenerate fully nonlinear elliptic equations with Hamiltonian terms under oblique boundary conditions on C1 domains. Under quite general con-ditions on the singularity/degeneracy of the model, we establish the sharp C1,α regularity up to the boundary within a unified framework. Mathematics Subject classification (2020): 35B65; 35J60; 35J70; 35J75; 35D40. Keywords: Global regularity; fully nonlinear degenerate/singular equations; oblique boundary conditions; Hamiltonian terms; viscosity solution. 
+
+# 1 Introduction 
+
+Since the 1980s, the notion of the viscosity solution has been applied widely in the study of non-divergent equations especially of fully nonlinear elliptic equations, and a series of important interior regularity results and global results with Dirichlet/Neumann/Oblique boundary conditions have been obtained (see [23, 24, 41, 42, 46, 47] and references therein) . Despite of the profound importance of the aforementioned works, a large number of mathematical models involve operators whose diffusion properties (ellipticity) may degenerate or blow-up along an a priori unknown region, such as S(u) := {x : Du (x) = 0 }, which depends on the solution itself. From the mathematical view point, this fact impels less efficient diffusion features for the model near such a region and therefore the regularity theory for solutions to such equations become more sophisticated. In this paper, we examine the gradient regularity of viscosity solutions to the following degener-ate/singular fully nonlinear elliptic equations with Hamiltonian terms and oblique boundary condition 
+
+(
+
+Φ( |Du |, x )F (D2u, x ) + H(Du, x ) = f (x) in Ω,
+
+B(Du, u, x ) = g(x) on ∂Ω, (1.1) 
+
+> 1
+
+E-mail: huowentaoouc@163.com (W. Huo) 
+
+1arXiv:2607.22025v1 [math.AP] 24 Jul 2026 where 
+
+B(Du, u, x ) := β(x) · Du + γ(x)u (1.2) is the oblique boundary condition, Ω ⊂ Rd (d ≥ 2) is a bounded C1 domain, F is a uniformly elliptic operator, Φ : [0 , ∞) × Ω → [0 , ∞) is a continuous map possessing degeneracy/singularity as the gradient vanishes, the Hamiltonian term H(Du, x ) and data f, β, γ, g fulfill appropriate conditions (to be clarified soon). We remark that the word oblique means "having a sloping direction". In (1.2), β
+
+plays a role of slope. When β makes an angle more than some fixed level on ∂Ω, the condition (1.2) is said to be regular and otherwise it is said to be nonregular. By way of illustration, the simplest example of the regular oblique boundary condition is the Neumann boundary condition, that is, the case of β = n and γ = 0 where n is the outward normal vector of ∂Ω. Therefore, we can view the condition (1.2) as a sort of generalization of the Neumann boundary condition. The study of equations like (1.1) arises naturally in the optimal stochastic control problems [13, 27, 34, 40], in image enhancements [14, 26], and as a generalization of Hamilton-Jacobi equations [2, 38]. On the other hand, problems involving oblique tangential derivative conditions are naturally motivated by the modeling of several phenomena, such as reflected shocks in transonic flow [25], the theory of capillary problems [31, 33], Brownian motion [32, 44]. Over the last two decades, the theory of equations like (1.1) has experienced remarkable progress. In the pioneering works [5– 8], existence and uniqueness, maximum principles, Harnack inequality and Hölder regularity were obtained. The graident Hölder regularity of solutions is the subject of groundbreaking work [37], where they established interior C1,α regularity of viscosity solutions to |Du |pF (D2u) = f with p ≥ 0;the optimality of its Hölder exponent for the same problem is shown in [1]. Subsequently, this type of local regularity result has been extended to various kinds of degenerate/singular fully nonlinear equations, please refer to [4, 14, 16, 17, 29, 30, 35] and the references therein. It is noteworthy to mention that the recent paper [36] derived local optimal C1,α regularity of solutions to (1.1). As for the Dirichlet problem in the purely degenerate/singular setting, i.e., H ≡ 0, there has been much progress in the regularity of solutions. For instance, if Φ( t, x ) = tp with p ≥ 0, Araújo and Sirakov [3] obtained sharp boundary and global C1,α regularity in the presence of sufficiently regular domain and boundary datum. More or less simultaneously, Bezerra J ´unior et al. [16] considered the variable-exponent nonhomogeneous scenario, i.e., Φ( t, x ) = tp(x) + a(x)tq(x) with 0 ≤ p(·) ≤ q(·), and proved that solutions are C1,α regularity up to the boundary for some α > 0 depending additionally on the regularity of the boundary ∂Ω, as well as on the boundary data. Afterwards, these results were extended to the Dirichlet problem exhibiting more general degeneracy/singularity in [18]. On the other hand, with regard to the Dirichlet problem for the singular or degenerate fully nonlinear equations involving Hamiltonian terms, Birindelli-Demengel’s seminal works [9–12] investigated the Dirichlet problem (1.1) with Φ( t, x ) = tp, H(t, x ) = h(x)|t|m and B = u on a C2 domain. Based on an improvement-of-flatness approach, they obtained global C1,α regularity for some unspecified exponent α ∈ (0 , 1) in [9–11] for the sublinear/linear cases 0 < m ≤ p + 1 , and in [12] for the superlinear/subquadratic cases p + 1 < m ≤ p + 2 .Within the framework of Neumann boundary conditions, Patrizi [43] proved a global C1,α reg-ularity for the singular case under the homogeneous Neumann condition and on a C2 domain. Sub-sequently, Banerjee and Verma [15] considered the Neumann problem (1.1) with Φ( t, x ) = tp (p ≥ 0), 
+
+H = 0 , β = n and γ = 0 , and established C1,α regularity up to the boundary on a C2 domain. In this setting, the optimal gradient Hölder regularity was derived in [45]. 2In the context of oblique boundary conditions, Byun et al. [19] investigated (1.1) with Φ( t, x ) = 
+
+tp (p ≥ 0) and H = 0 . Based on perturbation and compactness arguments, they proved sharp 
+
+C1,α estimate up to the boundary. Concerning this problem, Bessa et al. [20] extended this result for the optimal gradient regularity theory to the degenerate oblique setting under relaxed convexity assumptions. Afterwards, Byun et al. [21] studied the problem (1.1) with H = 0 and Φ exhibiting general degeneracy/singularity (see condition ( A2) described below), and established global C1,α 
+
+regularity. However, with regard to this type of regularity result for singular or degenerate fully nonlinear equations with Hamiltonian terms under oblique boundary conditions, there are very few results. To the best of our knowledge, the only study in this direction was was carried out by [22], which extended the estimates to the following degenerate fully nonlinear elliptic equation with Hamiltonian terms (
+
+|Du |pF (D2u) + h(x)|Du |m = f (x) in Ω,β(x) · Du + γ(x)u = g(x) on ∂Ω,
+
+with p ≥ 0 and 0 < m ≤ 1 + p.Inspired by the work mentioned above, we naturally consider degenerate/singular fully nonlinear elliptic equation with variable coefficient and Hamiltonian terms under oblique boundary condition. Our primary focus is on establishing sharp global C1,α regularity estimate for viscosity solutions to (1.1) in a unified way, provided that Φ( |Du |, ·) satisfies the quite general degeneracy/singularity ( A2) below. 
+
+1.1 Assumptions and main results 
+
+We begin by introducing some notations here. 
+
+• Sd denotes the set of all real d × d symmetric matrices. 
+
+• For r > 0, Br (x0) denotes the open ball with radius r and centred at x0 ∈ Rd. In particular, we shall simply denote Br := Br (0) .
+
+• We write B+ 
+
+> r
+
+:= Br ∩ { xd > 0} and Tr := Br ∩ { xd = 0 }.
+
+• For a domain Ω ⊂ Rd and x0 ∈ Rd we write Ωr := Ω ∩ Br , ∂Ωr := ∂Ω ∩ Br and Ωr (x0) := Ω ∩ Br (x0), ∂Ωr (x0) := ∂Ω ∩ Br (x0).
+
+• For any measurable set A with |A| = 0 and measurable function ϕ, we write 
+
+> A
+
+ϕdx := 1
+
+|A|
+
+ˆ
+
+> A
+
+ϕdx. 
+
+We proceed by presenting the assumptions to be employed throughout this article. (A1) (Uniformly ellipticity) The fully nonlinear operator F : Sd × Ω → R is uniformly (λ, Λ) -elliptic, that is, there exist constants 0 < λ ≤ Λ such that, for any M, N ∈ Sd and x ∈ Ω,
+
+P−
+
+> λ, Λ
+
+(N ) ≤ F (M + N, x ) − F (M, x ) ≤ P +
+
+> λ, Λ
+
+(N ).
+
+Here, P ± 
+
+> λ, Λ
+
+are the usual Pucci extremal operators, defined for each M ∈ Sd by 
+
+P+
+
+> λ, Λ
+
+(M ) := Λ X
+
+> ei>0
+
+ei + λ X
+
+> ei<0
+
+ei, P−
+
+> λ, Λ
+
+(M ) := λ X
+
+> ei>0
+
+ei + Λ X
+
+> ei<0
+
+ei,
+
+3where {ei}di=1 are the eigenvalues of the matrix M . For normalization purposes, we assume that 
+
+F (0 , ·) = 0 .(A2) (Singularity/Degeneracy) The function Φ : [0 , ∞)×Ω → [0 , ∞) is a continuous map satisfying the following properties: (i) there exist constants s(Φ) ≥ i(Φ) > −1 such that for every x ∈ Ω, the map t 7 → Φ( t,x ) 
+
+> ti(Φ)
+
+is almost non-decreasing and the map t 7 → Φ( t,x ) 
+
+> ti(Φ)
+
+is almost non-increasing with constant L ≥ 1 in 
+
+(0 , ∞);(ii) there exist constants 0 < ν 0 ≤ ν1 such that ν0 ≤ Φ(1 , x ) ≤ ν1 for all x ∈ Ω.(A3) (Assumption on Hamiltonian term) The function H : Rd × Ω → R is continuous and there exist constants K, M > 0 and 0 < m ≤ 1 + i(Φ) such that 
+
+|H (t, x )| ≤ K + M| t|m
+
+for every t ∈ Rd and x ∈ Ω.(A4) (Assumptions on data) The source term f ∈ C(Ω) ∩ L∞(Ω) , β ∈ Cα′
+
+(∂Ω; Rd) and γ, g ∈
+
+Cα′
+
+(∂Ω) for some α′ ∈ (0 , 1) . In addition, there exists a constant μ0 > 0 such that 
+
+β · n ≥ μ0 and ∥β∥L∞(∂Ω) ≤ 1, (1.3) where n denotes the inner unit normal vector to ∂Ω.(A5) (Assumptions on domain) Ω ⊂ Rd is a bounded C1 domain. Here a function ϱ : (0 , ∞) → R is almost non-decreasing or almost non-increasing with constant 
+
+L ≥ 1 if ϱ(s) ≤ Lϱ (t) or ϱ(t) ≤ Lϱ (s) respectively for 0 < s ≤ t.Since the model in (1.1) depends on x, it is necessary to introduce the function osc F in order to measure the oscillation of F in x0. To this end, we define 
+
+Ω ∋ x, x 0 7 → osc F (x, x 0) := sup  
+
+> M∈Sd\{ 0}
+
+|F (M, x ) − F (M, x 0)|∥M ∥ .
+
+For simplicity purposes, denote osc F (x) := osc F (x, 0) .We emphasize that the singularity/degeneracy function Φ( ·, ·) considered in ( A2) is quite general, which encompasses a broad class of growth conditions. Some important examples are given by (1) p-growth: Φ( t, x ) = tp with p > −1;(2) Variable p(x)-growth: Φ( t, x ) = tp(x) with p(x) > −1;(3) Double phase growth: Φ( t, x ) = tp + a(x)tq with −1 < p ≤ q and 0 ≤ a(·) ∈ C(Ω) ;(4) Variable exponent double phase: Φ( t, x ) = tp(x) + a(x)tq(x) with −1 < p (x) ≤ q(x) and 
+
+0 ≤ a(·) ∈ C(Ω) ;(5) Borderline double phase case: Φ( t, x ) = tp + tq log( t + 1) with −1 < p ≤ q and 0 ≤ a(·) ∈
+
+C(Ω) ;(6) Multi-phase growth: Φ( t, x ) = tp + a(x)tq + b(x)tγ with −1 < p ≤ q, γ and 0 ≤ a(·), b (·) ∈
+
+C(Ω) .4Furthermore, condition ( A3) on Hamiltonian term includes some typical examples, such as 
+
+• H (t, x ) = h(x)|t|m for m > 0 and function h ∈ C(Ω) ∩ L∞(Ω) ;
+
+• H (t, x ) = ⟨h(x), t ⟩ | t|m−1 for m > 0 and the vector field h ∈ C(Ω , Rd) ∩ L∞(Ω , Rd);
+
+• H (t, x ) = NP
+
+> i=1
+
+hi(x)|t|mi for mi > 0, function hi ∈ C(Ω) ∩ L∞(Ω) , i = 1 , 2, · · · , N , and m =max {m1, m 2, · · · , m N } .
+
+Finally, the assumption ( A5) was motivated by the approach developed in [38]. More precisely, we assume that 0 ∈ ∂Ω1 and that the boundary ∂Ω1 can be locally described as the graph of a C1
+
+function ψ = ψΩ : T1 → R. Namely, 
+
+∂Ω1 = {(x′, x d) ∈ B1 : xd = ψ(x′)} and {(x′, x d) ∈ B1 : xd > ψ (x′)} ⊂ Ω1.
+
+We also write β ∈ Cα′
+
+(T1) and identify β(x) with β(x′, ψ (x′)) .We are now in a position to state the global C1,α regularity estimate of solutions to the Dirichlet problem (1.1). 
+
+Theorem 1.1. Let Ω ⊂ Rd is a bounded C1 domain with 0 ∈ ∂Ω1. Let u be a bounded viscosity solution of (
+
+Φ( |Du |, x )F (D2u, x ) + H(Du, x ) = f (x) in Ω1,
+
+B(Du, u, x ) = g(x) on ∂Ω1, (1.4) 
+
+under the assumptions (A1) -(A4) . Then, there exists a universal constant η0 > 0 such that if  
+
+> Br(x0)∩Ω1
+
+|osc F (x, x 0)|d dx
+
+!1/d 
+
+≤ η0
+
+for all x0 ∈ Ω1/2 ∪ ∂Ω1/2 and r ∈  0, 12
+
+, then u ∈ C1,α (Ω 1/2) with 
+
+α ∈
+
+
+
+(0 , α 0) ∩ (0 , α ′) ∩
+
+
+
+0, 11+ s(Φ) 
+
+i
+
+if i(Φ) ≥ 0,
+
+(0 , α 0) ∩ (0 , α ′) ∩
+
+
+
+0, 11+ s(Φ) −i(Φ) 
+
+i
+
+if −1 < i (Φ) < 0. (1.5) 
+
+In addition, the following estimates hold: 
+
+(i) if m < 1 + i(Φ) , then 
+
+∥u∥C1,α (Ω 1/2) ≤ C
+
+
+
+1 + ∥u∥L∞(Ω 1) + ∥g∥Cα′ (∂Ω1) +  ∥f ∥L∞(Ω 1)+ K
+
+ 11+ i(Φ) + M 11+ i(Φ) −m
+
+
+
+,
+
+where the constant C depends on d, λ, Λ, α, m, L, i (Φ) , μ 0, ν 0, [β]Cα′ (∂Ω1), ∥γ∥Cα′ (∂Ω1) and C1
+
+modulus of ∂Ω1;
+
+(ii) if m = 1 + i(Φ) , then 
+
+∥u∥C1,α (Ω 1/2) ≤ C
+
+
+
+1 + ∥u∥L∞(Ω 1) + ∥g∥Cα′ (∂Ω1) +  ∥f ∥L∞(Ω 1)+ K
+
+ 11+ i(Φ) 
+
+
+
+,
+
+where the constant C depends in addition on M.
+
+5Remark 1.2 . The constant α0 = α0(n, λ, Λ, δ 0) ∈ (0 , 1] in the statement of the theorem denotes the optimal exponent of regularity theory for a homogeneous equation with a constant oblique boundary condition. More precisely, any viscosity solution v of 
+
+(F (D2v) = 0 in B+1 ,β0 · Dv = 0 on T1,
+
+where β0 is a constant vector satisfying (1.3), belongs to the class C1,α 0 
+
+> loc
+
+(B+1 ) for some α0 ∈ (0 , 1] and satisfies the estimate 
+
+∥v∥C1,α 0 (B+3/4) ≤ Ce∥v∥L∞(B+1 ),
+
+for some constant Ce = Ce(n, λ, Λ, δ 0) > 1. More precisely, Li and Zhang [41, Theorems 1.2 and 1.3] proved that there exists a universal constant α0 ∈ (0 , 1) for any uniformly elliptic F and that 
+
+α0 = 1 for any convex/concave operator F . In addition, Bessa, Ricarte, and Silva [20, Proposition 5.1] showed that α0 = 1 also holds for a quasiconvex/quasiconcave operator F .
+
+Remark 1.3 . Due to the generality of degeneracy/singularity and Hamiltonian terms, our main result Theorem 1.1 covers the regularity results previously obtained in [15, 19–22]. Notably, our finding is new even for the singular case. An immediate consequence of Theorem 1.1 is following optimal regularity result under the qua-siconvexity/quasiconcavity regime of the governing operator. 
+
+Corollary 1.4. Under the assumptions of Theorem 1.1, suppose further that operator F is quasiconvex (or quasiconcave). Then 
+
+(i) if i(Φ) ≥ 0, then u ∈ C1, 11+ s(Φ) (Ω 1/2);
+
+(ii) if −1 < i (Φ) < 0, then u ∈ C1, 11+ s(Φ) −i(Φ) (Ω 1/2).
+
+The remainder of this paper is organized as follows. In Section 2, we introduce the notions and some preliminaries. In Section 3, we establish the pointwise boundary C1, ˜α estimate and complete the proof of Theorem 1.1 regarding global Hölder regularity of the gradient. 
+
+# 2 Preliminaries 
+
+In this section, we briefly present some background knowledge for our discussion. In the entire paper, the symbol C denotes a positive constant whose value may vary from line to line, and only the relevant dependencies are specified in parentheses. Besides, a constant is said to be universal if it depends at most upon the structure constants in ( A1)-( A5). We start off by denoting 
+
+L+
+
+> λ, Λ
+
+(D2u, Du ) := P+
+
+> λ, Λ
+
+(D2u) + Λ |Du |,
+
+L−
+
+> λ, Λ
+
+(D2u, Du ) := P−
+
+> λ, Λ
+
+(D2u) − Λ|Du |.
+
+To proceed, we recall a result on the boundary Hölder regularity for uniformly elliptic equations on C1 domains that hold only where the gradient is far from some point. 6Lemma 2.1. [19, Theorem 3.1] Let Ω be a bounded C1 domain. Then there exists a small ι = ι(μ0) ∈
+
+(0 , μ 0/2] such that, if [ψ]C1 ≤ μ, for any u ∈ C(Ω 1) satisfying 
+
+
+
+L+
+
+> λ, Λ
+
+(D2u, Du ) ≥ − C0 in {| Du − q| > θ } ∩ Ω1,
+
+L−
+
+> λ, Λ
+
+(D2u, Du ) ≤ C0 in {| Du − q| > θ } ∩ Ω1,β · Du = g on ∂Ω1,
+
+∥u∥L∞(Ω 1) ≤ 1,
+
+∥g∥L∞(T1) ≤ C0,
+
+for some q ∈ Rn and 0 < θ ≤ 1, then u ∈ Cα(Ω 1/2) for some α = α(d, λ, Λ, μ 0) ∈ (0 , 1) with the estimate 
+
+∥u∥Cα(Ω 1/2) ≤ C, 
+
+where C = C(d, λ, Λ, μ 0, C 0) > 0 does not depend on q.
+
+In the sequel, for the reader’s convenience, we shall present the notion of viscosity solution for (1.1). Denote 
+
+G(D2u, Du, x ) := Φ( |Du |, x )F (D2u, x ) + H(Du, x ). (2.1) 
+
+Definition 2.2. A function u ∈ LSC (Ω) (resp. u ∈ U SC (Ω) ) is a viscosity supersolution (resp. subsolution) to (G(D2u, Du, x ) = f in Ω,
+
+B(Du, u, x ) = g on ∂Ω, (2.2) 
+
+if the following conditions hold: (i) If for all x0 ∈ Ω:
+
+• either there exists δ > 0 such that u is constant in Bδ (x0) and f (x) ≥ 0 (resp. f (x) ≤ 0)for all x ∈ Bδ (x0);
+
+• or for all φ ∈ C2 (Ω) such that u − φ attains a local minimum (resp. local maximum) at 
+
+x0 and Dφ (x0)̸ = 0 , it holds 
+
+G(D2φ(x0), Dφ (x0), x 0) ≥ 0 (resp . G (D2φ(x0), Dφ (x0), x 0) ≤ 0) .
+
+(ii) If for any x0 ∈ ∂Ω, for all φ ∈ C2(Ω) such that u − φ has a local maximum (resp., minimum) at x0, then 
+
+B(Dφ (x0), φ (x0), x 0) ≤ g(x0) (resp., B(Dφ (x0), φ (x0), x 0) ≥ g(x0)) .
+
+Finally, a function u ∈ C(Ω) is said to be a viscosity solution of (2.1) if it is simultaneously a viscosity supersolution and a viscosity subsolution. 
+
+This definition of viscosity solution was proposed by Birindelli and Demengel in [5, 6, 8] for the singular operators. Note that in the case i(Φ) ≥ 0, Definition 2.2 is equivalent to the classical definition of viscosity solution (cf. [28, Lemma 2.1]). In addition, the notion of viscosity solutions for oblique derivative problems was introduced first by P.-L. Lions [39]. We next give a known result that converts the equation from the singular case to the degenerate case. 7Lemma 2.3. (cf. [36, Proposition 2.1] Assume (A1) -(A3) hold with −1 < i (Φ) < 0, and f ∈
+
+C(Ω) ∩ L∞(Ω) . Let u be a viscosity solution to 
+
+Φ( |Du |, x )F (D2u, x ) + H(Du, x ) = f in Ω.
+
+Then u solves 
+
+ˆΦ( |Du |, x )F (D2u, x ) + |Du |−i(Φ) H(Du, x ) = f |Du |−i(Φ) in Ω
+
+in the viscosity sense, where ˆΦ( t, x ) := Φ( t,x ) 
+
+> ti(Φ)
+
+satisfies (A2) with the parameters 
+
+i( ˆΦ) = 0 , s( ˆΦ) = s(Φ) − i(Φ) ≥ 0, ˆL = L, ˆν0 = ν0, ˆν1 = ν1.
+
+With the aid of Lemma 2.3, we can treat the singular and degenerate regimes within a unified framework. Specifically, we will consider the following modified problem 
+
+( ˆΦ( |Du |, x )F (D2u, x ) + |Du |ϑH(Du, x ) = f |Du |ϑ in Ω1,
+
+B(Du, u, x ) = g on ∂Ω1, (2.3) where ˆΦ satisfies ( A3) with the constants (i( ˆΦ) , s ( ˆΦ) , L, ν 0, ν 1) and ϑ ∈ [0 , 1) . More precisely, 
+
+(i( ˆΦ) , s ( ˆΦ) , ϑ ) := 
+
+
+
+(i(Φ) , s (Φ) , 0) for i(Φ) ≥ 0,
+
+(0 , s (Φ) − i(Φ) , −i(Φ)) for − 1 < i (Φ) < 0. (2.4) Observe that ϑ − i( ˆΦ) = −i(Φ) .
+
+Proposition 2.4. In order to prove Theorem 1.1, it is enough to prove that u ∈ C1,α (Ω 1/2) with 
+
+α ∈ (0 , α 0) ∩ (0 , α ′) ∩ 0, 11 + s( ˆΦ) 
+
+#
+
+. (2.5) 
+
+# 3 C1,α regularity up to the boundary 
+
+This section is dedicated to prove our main result concerning the global C1,α regularity. 
+
+3.1 Hölder regularity up to the boundary 
+
+In this subsection, with the aid of Lemma 2.1, we establish the following boundary Hölder regularity. 
+
+Lemma 3.1. Let Ω be a bounded C1 domain and 0 ∈ ∂Ω. Assume (A1) –(A3) , f ∈ C(Ω) ∩ L∞(Ω) ,
+
+g ∈ C(∂Ω) and β ∈ C(∂Ω; Rn). Let u be a viscosity solution to 
+
+( ˆΦ ( |Du − q| , x ) F (D2u, x ) + |Du − q|ϑH(Du − q, x ) = f |Du − q|ϑ in Ω1,β · Du = g on ∂Ω1, (3.1) 
+
+with ∥u∥L∞(Ω 1) ≤ 1 and ∥g∥L∞(T1) ≤ 1. Assume that 
+
+max 
+
+
+
+(K + ∥f ∥L∞(Ω 1))
+
+
+
+1 + |q|(ϑ−i( ˆΦ)) +
+
+
+
+, M
+
+
+
+1 + |q|(m−i(Φ)) +
+
+
+
+≤ A 0 (3.2) 8for a universal constant A0 ≤ 2Λ ν0 
+
+> L
+
+. Then there exists ι = ι(μ0) ∈ (0 , μ 0/2] such that, if [ψ]C1 ≤ ι,then u ∈ Cα′
+
+(Ω 1/2) for some α′ = α′(d, λ, Λ, μ 0) ∈ (0 , 1) with the estimate 
+
+∥u∥Cα′ (Ω 1/2) ≤ C, 
+
+where C is a universal positive constant independent of q.Proof. In order to apply Lemma 2.1, it is enough to show that u satisfies 
+
+L+
+
+> λ, Λ
+
+(D2u, Du ) ≥ − C0 in {| Du − q| > 1} ∩ Ω1 (3.3) and 
+
+L−
+
+> λ, Λ
+
+(D2u, Du ) ≤ C0 in {| Du − q| > 1} ∩ Ω1 (3.4) in the viscosity sense for some positive constant C0 to be determined later. We first prove (3.3). Let 
+
+φ ∈ C2 be a test function such that u − φ attains a local maximum at x0 ∈ Ω1 and |Dφ (x0) − q| > 1.By the definition of viscosity subsolution, we have 
+
+ˆΦ ( |Dφ (x0) − q| , x 0) F (D2φ(x0), x 0) + |Dφ (x0) − q|ϑH(Dφ (x0) − q, x 0) ≥ f (x0)|Dφ (x0) − q|ϑ.
+
+Then it follows from ( A1) and F (0 , x 0) = 0 that 
+
+L+
+
+> λ, Λ
+
+(D2φ(x0), Dφ (x0)) = P+
+
+> λ, Λ
+
+(D2φ(x0)) + Λ |Dφ (x0)|≥ F (D2φ(x0), x 0) − F (0 , x 0) + Λ |Dφ (x0)|≥ |Dφ (x0) − q|ϑ (f (x0) − H (Dφ (x0) − q, x 0)) ˆΦ ( |Dφ (x0) − q| , x 0) + Λ |Dφ (x0)|
+
+=: J1 + Λ |Dφ (x0)|.
+
+(3.5) Since |Dφ (x0) − q| > 1, applying ( A2) and ( A3) to deduce 
+
+|J 1| ≤ Lν0
+
+ K + ∥f ∥L∞(Ω 1)
+
+ |Dφ (x0) − q|ϑ−i( ˆΦ) + Lν0
+
+M| Dφ (x0) − q|m+ϑ−i( ˆΦ) 
+
+= Lν0
+
+ K + ∥f ∥L∞(Ω 1)
+
+ |Dφ (x0) − q|−i(Φ) + Lν0
+
+M| Dφ (x0) − q|m−i(Φ) 
+
+=: J11 + J12 ,
+
+(3.6) where the fact ϑ − i( ˆΦ) = −i(Φ) is used. 
+
+Estimate of J11 . If i(Φ) ≥ 0, then applying |Dφ (x0) − q| > 1 and (3.2) to obtain 
+
+J11 ≤ Lν0
+
+ K + ∥f ∥L∞(Ω 1)
+
+ ≤ Lν0
+
+A0.
+
+If −1 < i (Φ) < 0, for the case |Dφ (x0)| < 1, then it follows from the basic inequality 
+
+(a1 + a2)κ ≤ aκ 
+
+> 1
+
++ aκ 
+
+> 2
+
+for any a1, a 2 > 0, 0 < κ ≤ 1 (3.7) and (3.2) that 
+
+J11 ≤ Lν0
+
+ K + ∥f ∥L∞(Ω 1)
+
+ 
+
+|Dφ (x0)|−i(Φ) + |q|−i(Φ) 
+
+≤ Lν0
+
+ K + ∥f ∥L∞(Ω 1)
+
+ 
+
+1 + |q|−i(Φ) 
+
+≤ Lν0
+
+A0.
+
+9For the case |Dφ (x0)| ≥ 1, then it follows from (3.2) that 
+
+J11 ≤ Lν0
+
+A0 + Lν0
+
+ K + ∥f ∥L∞(Ω 1)
+
+ |Dφ (x0)|−i(Φ) 
+
+≤ Lν0
+
+A0 + Lν0
+
+ K + ∥f ∥L∞(Ω 1)
+
+ |Dφ (x0)|.
+
+In summary, we deduce 
+
+J11 ≤
+
+ 
+
+> Lν0
+
+A0 + Lν0
+
+ K + ∥f ∥L∞(Ω 1)
+
+ |Dφ (x0)| for |Dφ (x0)| ≥ 1, 
+
+> Lν0
+
+A0 for |Dφ (x0)| < 1.
+
+Estimate of J12 . If 0 < m ≤ i(Φ) , then it follows from |Dφ (x0) − q| > 1 and (3.2) that 
+
+J12 ≤ Lν0
+
+M.
+
+If i(Φ) < m ≤ 1 + i(Φ) , for the case |Dφ (x0)| < 1, a combination of (3.7) and (3.2) yields 
+
+J12 ≤ Lν0
+
+M
+
+
+
+|Dφ (x0)|m−i(Φ) + |q|m−i(Φ) 
+
+≤ Lν0
+
+M
+
+
+
+1 + |q|m−i(Φ) 
+
+≤ Lν0
+
+A0.
+
+For the case |Dφ (x0)| ≥ 1, it is easy to deduce that 
+
+J12 ≤ Lν0
+
+A0 + Lν0
+
+M| Dφ (x0)|m−i(Φ) ≤ Lν0
+
+A0 + Lν0
+
+M| Dφ (x0)|.
+
+In summary, we have 
+
+J12 ≤
+
+ 
+
+> Lν0
+
+A0 + Lν0 M| Dφ (x0)| for |Dφ (x0)| ≥ 1, 
+
+> Lν0
+
+A0 for |Dφ (x0)| < 1.
+
+Consequently, for the case |Dφ (x0)| < 1, substituting the estimates of J11 and J12 into (3.5), we derive 
+
+L+
+
+> λ, Λ
+
+(D2φ(x0), Dφ (x0)) ≥ −J 11 − J 12 + Λ |Dφ (x0)|≥ − 2Lν0
+
+A0.
+
+On the other hand, for the case |Dφ (x0)| ≥ 1, we can get 
+
+L+
+
+> λ, Λ
+
+(D2φ(x0), Dφ (x0)) ≥ − 2Lν0
+
+A0 +
+
+
+
+Λ − Lν0
+
+ K + ∥f ∥L∞(Ω 1) + M
+
+|Dφ (x0)|≥ − 2Lν0
+
+A0.
+
+Combining both cases, we take C0 = max {4Λ , 1} and conclude that 
+
+L+
+
+> λ, Λ
+
+(D2u, Du ) ≥ − C0 in {| Du − q| > 1} ∩ Ω1.
+
+By an analogous argument, we can also show that (3.4) holds. Therefore, the desired conclusion immediately follows from Lemma 2.1. 10 3.2 Approximation lemma 
+
+This subsection is devoted to proving a key approximation lemma, which plays a paramount role in our forthcoming geometric argument. 
+
+Lemma 3.2. Assume (A1) -(A5) hold and u is a viscosity solution to (3.1) with ∥u∥L∞(Ω 1) ≤ 1.Given ε > 0, there exists σ = σ(d, λ, Λ, i (Φ) , L, ν 0, μ 0, ε ) > 0 such that if 
+
+max 
+
+( 
+
+> Ω1
+
+|osc F (x)|d dx
+
+1/d 
+
+, (1 + |q|(ϑ−i( ˆΦ)) + )  ∥f ∥L∞(Ω 1) + K ,
+
+M
+
+
+
+1 + |q|(m−i(Φ)) +
+
+
+
+, ∥g∥L∞(T1), [β − β0]Cα′ (T1), ∥ψ∥C1(T1)
+
+)
+
+≤ σ, 
+
+then there exists a function v ∈ C1,α 0
+
+
+
+B+3/4
+
+
+
+satisfying 
+
+( F (D2v, 0) = 0 in B+3/4,β0 · Dv = 0 on T3/4, (3.8) 
+
+where β0 := β(0) , such that 
+
+∥u − v∥L∞(Ω1/2) ≤ ε. 
+
+Proof. The proof is based on a contradiction argument. Suppose the thesis of the lemma fails to hold. Then there exist ε0 > 0 and sequences {Fj }j∈N, { ˆΦj }j∈N, {fj }j∈N, {uj }j∈N, {H j }j∈N, {gj }j∈N,
+
+{qj }j∈N, {βj }j∈N, {Ωj }j∈N such that 
+
+(i) Fj : Sd × (Ω j )1 → R is uniformly (λ, Λ) -elliptic; 
+
+(ii) ˆΦj ∈ C ([0 , ∞) × (Ω j )1) such that the map t 7 → ˆΦj (t,y ) 
+
+> ti( ˆ Φ)
+
+is almost non-decreasing and the map 
+
+t 7 → ˆΦj (t,y ) 
+
+> ts( ˆ Φ)
+
+is almost non-increasing with the same constant L ≥ 1 in (0 , ∞);
+
+(iii) Hj : Rd × (Ω j )1 is continuous and there exist constants Kj , Mj > 0 such that 
+
+|H j (t, x )| ≤ K j + Mj |t|m for every ( t, x ) ∈ Rd × (Ω j )1 ;(iv) uj is a viscosity solution of 
+
+( ˆΦj (|Du j − qj | , x ) Fj (D2uj , x ) + |Du j − qj |ϑHj (Du j − qj , x ) = fj |Du j − qj |ϑ in (Ω j )1,βj · Du j = gj on ∂(Ω j )1,
+
+with ∥uj ∥L∞((Ω j )1) ≤ 1, where Ωj is a C1 domain; 
+
+(v) and 
+
+max 
+
+( 
+
+> (Ω j)1
+
+osc Fj (x) d dx
+
+!1/d 
+
+, (1 + |qj |(ϑ−i( ˆΦ)) + )  ∥fj ∥L∞((Ω j )1) + Kj
+
+ ,
+
+Mj
+
+
+
+1 + |qj |(m−i(Φ)) +
+
+
+
+, ∥gj ∥L∞(T1), [βj − β0]Cα′ (T1), ∥ψj ∥C1(T1)
+
+)
+
+≤ 1
+
+j .
+
+11 However, it holds 
+
+∥uj − vj ∥L∞((Ω j )1/2) > ε 0 (3.9) for any vj satisfying the corresponding conditions. By the uniform ellipticity assumption on the operator Fj and (v), we may assume (after passing to a subsequence if necessary)that Fj (M, x ) → F∞(M, 0) locally uniformly in Sd × B+1 , where F∞
+
+is a uniformly (λ, Λ) -elliptic operator. Moreover, by the boundary Hölder estimates in Lemma 3.1 and the Arzelà–Ascoli theorem, there exists a function u∞ ∈ C(B+1 ) such that uj converges to u∞
+
+locally uniformly up to a subsequence. Additionally, βj → β∞ for some constant vector β∞ ∈ Rd and 
+
+(Ω j )1 → B+1 . Now, by arguing as [36, Lemma 4.1], we conclude that u∞ is a viscosity solution to 
+
+(F∞(D2u∞, 0) = 0 in B+1 ,β∞ · Du ∞ = 0 on T1.
+
+To proceed, let vj is a viscosity solution of 
+
+
+
+Fk(D2vj , 0) = 0 in B+
+
+> 34
+
+,βj (0) · Dv j = 0 on T 34 ,vj = uj on ∂B +
+
+> 34
+
+\ T 34 .
+
+Existence and uniqueness follow from [41, Theorem 3.3]. By stability, vj → v∞ locally uniformly, where v∞ satisfies 
+
+F∞(D2v∞, 0) = 0 in B+
+
+> 34
+
+,β0 · Dv ∞ = 0 on T 34
+
+v∞ = u∞ on ∂B +
+
+> 34
+
+\ T 34 .
+
+Since the solution of the above equation is unique, we get u∞ = v∞, which contradicts with (3.9) for 
+
+j sufficiently large. This completes the proof of the desired result. 
+
+Lemma 3.3. Assume (A1) -(A5) hold. Let u be a viscosity solution to (3.1) with ∥u∥L∞(Ω 1) ≤ 1. For every α ∈ (0 , α 0), there exists constant σ > 0 such that if 
+
+max 
+
+( 
+
+> Ω1
+
+|osc F (x)|d dx
+
+1/d 
+
+, (1 + |q|(ϑ−i( ˆΦ)) + )  ∥f ∥L∞(Ω 1) + K ,
+
+M
+
+
+
+1 + |q|(m−i(Φ)) +
+
+
+
+, ∥g∥L∞(T1), [β − β0]Cα′ (T1), ∥ψ∥C1(T1)
+
+)
+
+≤ σ, 
+
+(3.10) 
+
+then there exist a universal constant 0 < ρ < 12 and an affine function ℓ1(x) = u(0) + b1 · x such that 
+
+∥u − ℓ1∥L∞(Ω ρ) ≤ ρ1+ α, β0 · b1 = 0 , |b1| ≤ Ce, (3.11) 
+
+where constant Ce = Ce(d, λ, Λ, μ 0) > 0.Proof. Let ε > 0 be a fixed number to be chosen later and σ be the corresponding constant in Lemma 3.2. From Lemma 3.2, there exists a function v ∈ C1,α 0 (B+3/4) satisfying (3.8) such that 
+
+∥u − v∥L∞(Ω 1/2) ≤ ε. (3.12) 12 By virtue of the C1,α 0 estimate of v at 0, there exists a universal positive constant Ce such that 
+
+|v(x) − l(x)| ≤ Ce|x|1+ α0 , (3.13) 
+
+β0 · Dv (0) = 0 |Dv (0) | ≤ Ce. (3.14) where l(x) := v(0)+ Dv (0) ·x. Next, let us denote b1 := Dv (0) and ℓ(x) := u(0)+ b1 ·x. A combination of the triangle inequality with (3.12) and (3.13) yields that 
+
+∥u − ℓ∥L∞(Ω r ) ≤ ∥ u − v∥L∞(Ω r ) + ∥v − l∥L∞(Ω r ) + |u(0) − v(0) |≤ 2ε + Ceρ1+ α0
+
+≤ ρ1+ α.
+
+(3.15) as long as we make the following universal choices 
+
+ρ ∈ 0, min 
+
+(
+
+12 ,
+
+ 13Ce
+
+α0−α)! 
+
+and ε ∈
+
+
+
+0, 13 ρ1+ α
+
+
+
+,
+
+Consequently, combining (3.14) with (3.15), we obtain the desired result (3.11). This completes the proof of the desired result. 
+
+3.3 Pointwise boundary C1,α regularity 
+
+With the help of Lemma 3.3, we establish the following pointwise boundary C1,α regularity estimate. 
+
+Proposition 3.4. Assume (A1) –(A5) hold with ν0 = ν1 = 1 and u is a viscosity solution to (3.1) 
+
+with ∥u∥L∞(Ω 1) ≤ 1 and |q| ≤ Ce 
+
+> 1−ρα
+
+. Given α as in (2.5) , there exist a universal constant δ > 0 such that if 
+
+max 
+
+( 
+
+> Ω1
+
+|osc F (x)|d dx
+
+1/d 
+
+, ∥f ∥L∞(Ω 1) + K,
+
+M, ∥g∥Cα′ (T1), [β − β0]Cα′ (T1), ∥ψ∥C1(T1)
+
+)
+
+≤ δ, 
+
+(3.16) 
+
+then u ∈ C1,α (0) with the estimate 
+
+sup 
+
+> x∈Ωr
+
+|u(x) − (u(0) + Du (0) · x)| ≤ Cr 1+ α for all r ∈ (0 , ρ ],
+
+where constant ρ ∈ (0 , 12 ) coming from Lemma 3.3 and C is a universal positive constant. Proof. To prove that u is C1,α at 0, we only need to prove that there exist constants ρ ∈ (0 , 12 ) and 
+
+Ce > 0, and a sequence of affine functions 
+
+ℓj (x) = aj + bj · x
+
+with {aj }j∈N ⊂ R and {bj }j∈N ⊂ Rd, such that for all j ∈ N, the following estimates hold: 
+
+∥u − ℓj ∥L∞(Ω ρj ) ≤ ρj(1+ α), (3.17) 
+
+aj = u(0) , β0 · bj = 0 , |bj − bj−1| ≤ Ceρ(j−1) α. (3.18) 13 As usual, we prove this by means of an induction argument. For clarity of presentation, we divide the proof into three steps. 
+
+Step 1. Basis of induction. Initially, we choose δ > 0 small enough such that 
+
+δ < 2Ce
+
+1 − ρα , δ
+
+
+
+1 + Ce
+
+1 − ρα
+
+
+
+≤ σ, (3.19) 
+
+Lδ 1 + max 
+
+( 2Ce
+
+1 − ρα
+
+(ϑ−i( ˆΦ)) +
+
+,
+
+ 2Ce
+
+1 − ρα
+
+(m−i(Φ)) +
+
+)! 
+
+≤ σ (3.20) with σ coming from Lemma 3.3. With such choice, it follows from (3.16) and |q| ≤ Ce 
+
+> 1−ρα
+
+that the assumption (3.10) holds. Hence, the conclusion (3.11) holds. Let b0 = 0 , the case j = 1 follows at once from Lemma 3.3. 
+
+Step 2. Induction process. Suppose that the conclusion holds for j = 1 , 2, ..., k ; we examine the claim also holds for j = k + 1 . To this end, we introduce an auxiliary function uk as 
+
+uk(x) := u  ρkx − ℓk
+
+ ρkx
+
+ρk(1+ α) .
+
+Then uk is a viscosity of 
+
+
+
+ˆΦk(|Du k − qk| , x )Fk(D2uk, x ) + |Du k − qk|ϑ Hk(Du k − qk, x ) = fk |Du k − qk|ϑ in 
+
+ 1
+
+ρk Ω
+
+
+
+∩ B1,βk · Du k = gk on ∂
+
+ 1
+
+ρk Ω
+
+
+
+∩ B1,
+
+where 
+
+Fk(X, x ) := ρk(1 −α)F
+
+
+
+ρk(α−1) X, ρ kx
+
+
+
+, ˆΦk(t, x ) := ˆΦ  ρkα t, ρ kx
+
+ˆΦ ( ρkα , ρ kx) ,
+
+Hk(t, y ) := ρk(1 −α(1 −ϑ))) 
+
+ˆΦ ( ρkα , ρ kx) H(ρkα t, ρ kx), fk(y) := ρk(1 −α(1 −ϑ)) 
+
+ˆΦ ( ρkα , ρ kx) f (ρkx),βk(x) := β(ρkx), gk(x) := g  ρkx − β  ρkx · bk
+
+ρkα ,ψk(x) := ψ 1 
+
+> ρkΩ
+
+(x) = ψ(ρkx)
+
+ρk , qk := q − bk
+
+ρkα .
+
+It is obvious that Fk is a uniformly (λ, Λ) -elliptic operator and 
+
+osc Fk (x) = sup  
+
+> M∈Sd\{ 0}
+
+F  ρk(α−1) M, ρ kx − F  ρk(α−1) M, 0
+
+ρk(α−1) ∥M ∥ = osc F (ρkx),
+
+which immediately yields that   
+
+> 1
+> ρkΩ
+> 
+> ∩B1
+
+|osc Fk (x)|d dx
+
+!1/d 
+
+=
+
+
+
+> Ω1
+
+|osc F (x)|d dx
+
+1/d 
+
+≤ δ ≤ σ. 
+
+By induction assumption (3.17), we have 
+
+∥uk∥L∞   
+
+>  1
+> ρkΩ
+> 
+> ∩B1
+> 
+
+≤ 1.
+
+14 It is clear that ∥ψk∥C1(Tρ−k ) ≤ ∥ ψ∥C1(T1) ≤ δ ≤ σ and 
+
+[βk − β0]Cα′ (Tρ−k ) ≤ ρkα ′
+
+[β − β0]Cα′ (T1) ≤ δ ≤ σ. 
+
+Notice that ˆΦk still satisfies ( A2) with the same constants (i( ˆΦ) , s ( ˆΦ)) and ˆΦk(1 , ·) = 1 . Applying the properties of ˆΦk, in combination with ( A3) and ρ ∈ (0 , 12 ), we deduce that 
+
+∥fk∥L∞   
+
+>  1
+> ρkΩ
+> 
+> ∩B1
+> 
+
+≤ Lρ k(1 −α(1 −ϑ)) ∥f ∥L∞(Ω 1)
+
+ρkαs ( ˆΦ) , (3.21) 
+
+|H k(t, x )| ≤ Lρ k(1 −α(1 −ϑ)) 
+
+ρkαs ( ˆΦ) 
+
+ K + Mρkαm |t|m =: Kk + Mk|t|m. (3.22) It follows from the induction hypothesis (3.18) that 
+
+|bk| ≤ | b0| +
+
+> k
+
+X
+
+> j=1
+
+|bj − bj−1| ≤ CekX
+
+> j=1
+
+ρα(j−1) ≤ Ce
+
+1 − ρα .
+
+This together with |q| ≤ Ce 
+
+> 1−ρα
+
+yields that 
+
+|qk| ≤ |q| + |bk|
+
+ρkα ≤ 2Ce
+
+ρkα (1 − ρα) . (3.23) Utilizing (3.16) and (3.21)-(3.23), in combination with α ∈
+
+
+
+0, 11+ s( ˆΦ) 
+
+i
+
+and (3.20), we arrive at 
+
+(1 + |qk|(ϑ−i( ˆΦ)) + )  ∥fk∥L∞(Ω 1) + Kk
+
+
+
+≤Lδρ k(1−α(1+ s( ˆΦ) −ϑ)) 1 + ρ−kα (ϑ−i( ˆΦ)) +
+
+ 2Ce
+
+1 − ρα
+
+(ϑ−i( ˆΦ)) +
+
+!
+
+≤Lδρ k(1−α(1+ s( ˆΦ) −ϑ+( ϑ−i( ˆΦ)) +)) 1 + 
+
+ 2Ce
+
+1 − ρα
+
+(ϑ−i( ˆΦ)) +
+
+!
+
+=Lδρ k(1−α(1+ s( ˆΦ) −min {ϑ,i ( ˆΦ) })) 1 + 
+
+ 2Ce
+
+1 − ρα
+
+(ϑ−i( ˆΦ)) +
+
+!
+
+=Lδρ k(1−α(1+ s( ˆΦ)) ) 1 + 
+
+ 2Ce
+
+1 − ρα
+
+(ϑ−i( ˆΦ)) +
+
+!
+
+≤Lδ 1 + 
+
+ 2Ce
+
+1 − ρα
+
+(ϑ−i( ˆΦ)) +
+
+!
+
+≤ σ
+
+(1 + |qk|(ϑ−i( ˆΦ)) + )Mk
+
+≤Lδρ k(1−α(1+ s( ˆΦ) −ϑ−m+( m−i(Φ)) +)) 1 + 
+
+ 2Ce
+
+1 − ρα
+
+(m−i(Φ)) +
+
+!
+
+=
+
+
+
+Lδρ k(1−α(1+ s( ˆΦ) −m))
+
+
+
+1 + 
+
+ 2Ce
+
+> 1−ρα
+
+(m−i(Φ)) +
+
+
+
+for 0 < m ≤ i(Φ) 
+
+Lδρ k(1−α(1+ s( ˆΦ) −max {0,i (Φ) }))
+
+
+
+1 + 
+
+ 2Ce
+
+> 1−ρα
+
+(m−i(Φ)) +
+
+
+
+for i(Φ) < m ≤ 1 + i(Φ) 
+
+≤Lδ 1 + 
+
+ 2Ce
+
+1 − ρα
+
+(m−i(Φ)) +
+
+!
+
+≤ σ. 
+
+15 In addition, by virtue of β0 · bk = 0 and g(0) = 0 , we have 
+
+|gk| = g  ρkx − g(0) −  β  ρkx − β0
+
+ · bk
+
+ρkα 
+
+≤ [g]Cα′ (T1)ρkα ′
+
+|x|α′
+
++ [ β − β0]Cα′ (T1)ρkα ′
+
+|x|α′
+
+|bk|
+
+ρkα 
+
+Then it follows from α ≤ α′, ∥g∥Cα′ (T1) ≤ δ, |bk| ≤ Ce 
+
+> 1−ρα
+
+, and (3.19) that 
+
+∥gk∥L∞(Tρ−k ) ≤ [g]Cα′ (T1) + [ β − β0]Cα′ (T1)|bk|≤ [g]Cα′ (T1) + [ β − β0]Cα′ (T1)
+
+Ce
+
+1 − ρα
+
+≤ δ
+
+
+
+1 + Ce
+
+1 − ρα
+
+
+
+≤ σ. 
+
+At this moment, the assumptions in Lemma 3.3 are satisfied. Thus, there is an affine function 
+
+˜ℓ(x) = ˜ a + ˜b · x with ˜a = uk(0) = 0 and |˜b| ≤ Ce such that 
+
+∥uk − ˜ℓ∥L∞   
+
+>  1
+> ρkΩ
+> 
+> ∩Bρ
+> 
+
+≤ ρ1+ α, β0 · ˜b = 0 . (3.24) To proceed, we define the (k + 1) -th approximating affine function ℓk+1 as 
+
+ℓk+1 (x) := ak+1 + bk+1 · x, 
+
+where ak+1 := ak + ρk(1+ α)˜a = u(0) and bk+1 := bk + ρkα ˜b. Scaling (3.24) back, we reach that 
+
+∥u − ℓk+1 ∥L∞(Ω∩Bρk+1 ) = ρk(1+ α)∥uk − ˜ℓ∥L∞(Bρk (x)∩{ yd>ϕ k (y′)}) ≤ ρ(k+1)(1+ α).
+
+Also, 
+
+β0 · bk+1 = 0 , |bk+1 − bk| = ρkα |˜b| ≤ Ceρkα .
+
+Step 3. Convergence analysis . From Step 2, we know that {bj }j∈N ⊂ Rd is Cauchy sequence, hence, they converge, that is 
+
+bj → b
+
+with 
+
+|bj − b| ≤ Cρ jα 
+
+1 − ρα . (3.25) Finally, given any 0 < r ≤ ρ, we can find j ∈ N such that ρj+1 < r ≤ ρj . Then, for ℓ(x) := a+b·x
+
+with a := u(0) , we arrive at 
+
+∥u − ℓ∥L∞(Ω r ) ≤ ∥ u − ℓ∥L∞(Ω ρj )
+
+≤ ∥ u − ℓj ∥L∞(Ω ρj ) + ∥ℓj − ℓ∥L∞(Ω ρj )
+
+≤ ρj(1+ α) + |aj − a| + ρj |bj − b|≤ ρj(1+ α)
+
+
+
+1 + C
+
+1 − ρα
+
+
+
+≤ 1
+
+ρ1+ α
+
+
+
+1 + C
+
+1 − ρα
+
+
+
+r1+ α
+
+≤ Cr 1+ α.
+
+This implies that u is C1,α at 0. This completes the proof of the desired result. 16 3.4 Proof of Theorem 1.1 
+
+In this section, we conplete the proof of Theorem 1.1. To achieve this, we discuss the scaling properties and small regime of the equation that allow us to reduce the proof of Theorem 1.1 to the hypotheses of Proposition 3.4. 
+
+Proof of Theorem 1.1. Initially, by a suitable rotation and translation of the coordinates, we may assume that 0 ∈ ∂Ω and the domain Ω1 is given by {x ∈ B1 : xd > ψ Ω(x′)} for some C1 function 
+
+ψ = ψΩ with ψ(0) = 0 and Dψ (0) = 0 . Let δ, ρ and Ce be the constants given in Proposition 3.4. Next, arguing as in [19, Section 5], we may assume that u satisfies 
+
+( ˆΦ( |Du − q|, x )F (D2u, x ) + |Du − q|ϑH(Du − q, x ) = f |Du − q|ϑ in Ω1,β · Du = g on ∂Ω1,
+
+for some vector q ∈ Rd, and ν0 = ν1 = 1 . Additionally, we may assume u(0) = 0 , ∥u∥L∞(Ω 1) ≤ 1,
+
+g(0) = 0 , and the smallness condition (3.21) hold and 
+
+|q| ≤ Ce
+
+1 − ρα .
+
+In fact, let u be a viscosity solution to 
+
+( ˆΦ( |Du |, x )F (D2u, x ) + |Du |ϑH(Du, x ) = f |Du |ϑ in Ω1,β · Du = g on ∂Ω1.
+
+Let us define ˜u by 
+
+˜u(x) = u(τ x )
+
+K
+
+for constants K > 1 > τ > 0 to be determined later. It is immediate to verify that ˜u is a viscosity solution of 
+
+
+
+˜ˆΦ( |D˜u| , x ) ˜F (D2 ˜u, x ) + |D˜u|ϑ ˜H(D˜u, x ) = ˜f |D˜u|ϑ in 
+
+ 1
+
+τ Ω
+
+
+
+∩ B1,
+
+˜β · D˜u = g1 on ∂
+
+ 1
+
+τ Ω
+
+
+
+∩ B1,
+
+where 
+
+˜F (X, x ) := τ 2
+
+K F
+
+ Kτ 2 X, τ x 
+
+
+
+, ˜ˆΦ( t, x ) := Φ   Kτ t, τ x 
+
+Φ   Kτ , τ x  ,
+
+˜H(t, x ) := τ 2−ϑ
+
+K1−ϑΦ   Kτ , τ x  H
+
+ Kτ t, τ x 
+
+
+
+, ˜f (x) := τ 2−ϑ
+
+K1−ϑΦ   Kτ , τ x  f (τ x ),
+
+˜β(x) := β(τ x ), g1(x) := τK g(τ x ).
+
+Note that ˜F is still a uniformly (λ, Λ) -elliptic operator, ˜ˆΦ satisfies ( A3) with the same constants 
+
+(i( ˆΦ) , s ( ˆΦ)) , and ˜ˆΦ(1 , ·) = 1 . A direct calculation yields 
+
+osc ˜F (x) = sup  
+
+> M∈Sd\{ 0}
+
+F   Kτ 2 M, τ x  − F   Kτ 2 M, 0  
+
+> Kτ2
+
+∥M ∥ = osc F (τ x ).
+
+17 which immediately leads to 
+
+( 1 
+
+> τΩ
+
+)∩B1/2
+
+|osc ˜F (x)|d dx
+
+!1/d 
+
+=
+
+ˆ
+
+> Ω1/2
+
+|osc F (x)|d dx
+
+!1/d 
+
+≤ η0 ≤ δ. 
+
+provided η0 is chosen sufficiently small. Since ψΩ ∈ C1, there exists 0 < ˜τ ≪ 1, depending only on the C1 modulus of ψΩ, such that 
+
+|Dψ Ω(x)| ≤ δ for all |x| ≤ ˜τ . 
+
+Set 
+
+˜ψ(x) := ψ 1˜τ Ω(x) = ψ(τ x )
+
+τ
+
+for τ ≤ ˜τ . Then, we choose τ ∈ (0 , 1) such that ∥ ˜ψ∥C1(T τ −1 ) ≤ δ and 
+
+[ ˜β − β0]Cα′ (T τ −1 ) ≤ τ α′
+
+[β − β0]Cα′ (T 1) ≤ 1 − ρα
+
+2Ce
+
+δ. 
+
+Combining ( A2) with ( A3) and Kτ ≥ 1, we get 
+
+| ˜H(t, x )| ≤ Lτ 2+ i( ˆΦ) −ϑ
+
+ν0K1+ i( ˆΦ) −ϑ
+
+
+
+K + M
+
+ Kτ
+
+m
+
+|t|m
+
+
+
+=: ˜K + ˜M| t|m,
+
+∥ ˜f ∥L∞( 1 
+
+> τΩ∩B1
+
+) ≤ Lτ 2+ i( ˆΦ) −ϑ
+
+ν0K1+ i( ˆΦ) −ϑ ∥f ∥L∞(Ω 1).
+
+Next, for 0 < m < 1 + i(Φ) , we select 
+
+K := 1 + 4 ∥u∥L∞(Ω) + 2∥g∥Cα′ (T1)
+
+μ0δ + L  ∥f ∥L∞(Ω) + K
+
+ν0δ
+
+! 11+ i( ˆ Φ) −ϑ
+
++
+
+ LM
+
+ν0δ
+
+ 11+ i( ˆ Φ) −m−ϑ
+
+.
+
+For m = 1 + i(Φ) , we choose τ ∈ (0 , 1) fulfilling the conditions stated above and, in addition, such that 
+
+τ ≤ ν0δLM ,
+
+and 
+
+K := 1 + 4 ∥u∥L∞(Ω) + 2∥g∥Cα′ (T1)
+
+μ0δ + L  ∥f ∥L∞(Ω) + K
+
+ν0δ
+
+! 11+ i( ˆ Φ) −ϑ
+
+.
+
+With these choices, we see that 
+
+∥˜u∥L∞( 1 
+
+> τΩ∩B1
+
+) ≤ 14 , ∥g1∥Cα′ (Tτ −1 ) ≤ μ0
+
+2 δ, 
+
+∥ ˜f ∥L∞( 1 
+
+> τΩ∩B1
+
+) + ˜K ≤ δ, ˜M ≤ δ. 
+
+To proceed, denote 
+
+˜v(x) := ˜ u(x) − g1(0) ˜βd(0) xd − ˜u(0) 
+
+and 
+
+˜q := − g1(0) ˜βd(0) ed
+
+18 Then ˜v is a viscosity solution of 
+
+
+
+˜ˆΦ( |D˜v − ˜q| , x ) ˜F (D2 ˜v, x ) + |D˜v − ˜q|ϑ ˜H(D˜v − ˜q, x ) = ˜f |D˜v − ˜q|ϑ in 
+
+ 1
+
+τ Ω
+
+
+
+∩ B1,
+
+˜β · D˜v = ˜ g on ∂
+
+ 1
+
+τ Ω
+
+
+
+∩ B1,
+
+where ˜g = g1 − g1(0) ˜βn(0) 
+
+˜βn. It follows from βd(0) ≥ μ0 and δ ≤ Ce 
+
+> 1−ρα
+
+that 
+
+|˜q| ≤ g1(0) ˜βd(0) ≤ |g1(0) |
+
+μ0
+
+≤ δ
+
+2 ≤ Ce
+
+1 − ρα .
+
+Note that ˜v(0) = 0 , ˜g(0) = 0 , and 
+
+∥˜v∥L∞( 1 
+
+> τΩ∩B1
+
+) ≤ 2∥˜u∥L∞( 1 
+
+> τΩ∩B1
+
+) + |g1(0) |
+
+μ0
+
+≤ 12 + δ
+
+2 ≤ 1.
+
+Moreover, we have 
+
+∥˜g∥Cα′ (T τ −1 ) ≤ ∥ g1∥Cα′ (T τ −1 ) + |g1(0) |
+
+μ0
+
+∥ ˜βd∥Cα′ (T τ −1 ) ≤ μ0
+
+2 δ + Ce
+
+1 − ρα
+
+1 − ρα
+
+2Ce
+
+δ ≤ δ. (3.26) At this point, the assumptions in Proposition 3.4 have been fulfilled, and hence we obtain that u ∈ C1,α (0) . Finally, by combining the interior C1,α 1 regularity [36, Theorem 1.1] and boundary regularity with standard covering arguments, we can obtain the global C1,α regularity with α satisfying (1.5). Thus, the proof of Theorem 1.1 for the case γ = 0 is complete. For the general case, let u be a viscosity solution to (2.3). Then, u also solves the following problem: ( ˆΦ( |Du |, x )F (D2u, x ) + |Du |ϑH(Du, x ) = f |Du |ϑ in Ω1,β · Du = ˆ g on ∂Ω1, (3.27) where ˆg = g − γu . By Lemma 3.1, we know u ∈ C0,α ′
+
+up to the boundary, which implies that 
+
+ˆg ∈ C0,α ′
+
+(∂Ω1). Consequently, we can apply Proposition 3.4 to the problem (3.27) and obtain the desired regularity result. The proof is complete. 
+
+# Data availability 
+
+Data sharing is not applicable to this article as obviously no datasets were generated or analyzed during the current study. 
+
+# Conflict of interest 
+
+Author states no conflict of interest. 19 References 
+
+[1] D.J. Ara ´ujo, G.C. Ricarte, E.V. Teixeira, Geometric gradient estimates for solutions to degenerate elliptic equations, Calc. Var. Partial Differ. Equ. 53(3–4) (2015), 605–625. [2] S.N. Armstrong, H.V. Tran, Viscosity solutions of general viscous Hamilton-Jacobi equations, Math. Ann. 361 (2015), 647–687. [3] D.J. Ara ´ujo, B. Sirakov, Sharp boundary and global regularity for degenerate fully nonlinear elliptic equations, J. Math. Pure. Appl. 169 (2023), 138-154. [4] P. Andrade, T. Nascimento, Optimal regularity for degenerate elliptic equations with Hamiltonian terms, arXiv:2508.03924 (2025). [5] I. Birindelli, F. Demengel, Comparison principle and Liouville type results for singular fully nonlinear operators, Ann. Fac. Sci. Toulouse Math. 13(6) (2004), 261–287. [6] I. Birindelli, F. Demengel, First eigenvalue and maximum principle for fully nonlinear singular operators. Adv. Differential Equations 11(1) (2006), 91–119. [7] I. Birindelli, F. Demengel, Eigenvalue, maximum principle and regularity for fully nonlinear homogeneous operators, Commun. Pure Appl. Anal. 6 (2007), 335–366. [8] I. Birindelli, F. Demengel, Regularity and uniqueness of the first eigenfunction for singular fully nonlinear operators, J. Differential Equations 249 (2010), 1089–1110. [9] I. Birindelli, F. Demengel, C1,β regularity for Dirichlet problems associated to fully nonlinear degenerate elliptic equations, ESAIM Control Optim. Calc. Var. 20 (2014), 1009-1024. [10] I. Birindelli, F. Demengel, Hölder regularity of the gradient for solutions of fully nonlinear equa-tions with sublinear first order term. In Geometric methods in PDE’s, pp. 257-268, Springer INdAM Ser. 13, Springer, Cham, 2015 [11] I. Birindelli, F. Demengel, Fully nonlinear operators with Hamiltonian: Hölder regularity of the gradient, NoDEA Nonlinear Differ. Equ. Appl. 23 (4) (2016), Paper No.41, 17 pp. [12] I. Birindelli, F. Demengel, F. Leoni, C1,γ regularity for singular or degenerate fully nonlinear equations and applications, NoDEA Nonlinear Differ. Equ. Appl. 26(5) (2019), Paper No. 40, 13 pp. [13] I. Birindelli, F. Demengel, F. Leoni, Ergodic pairs for singular or degenerate fully nonlinear operators, ESAIM Control Optim. Calc. Var. 25 (2019), Paper No. 75, 28 pp. [14] A.C. Bronzi, E.A. Pimentel, G.C. Rampasso, E.V. Teixeira, Regularity of solutions to a class of variable exponent fully nonlinear elliptic equations. J. Funct. Anal. 279(12) (2020), Paper No. 108781, 31 pp. [15] A. Banerjee and R. B. Verma, C1,α regularity for degenerate fully nonlinear elliptic equations with Neumann boundary conditions, Potential Anal. 57 (2022), 327-365. 20 [16] E.C. Bezerra J ´unior, J.V. da Silva, G.C. Rampasso, G.C. Ricarte, Global regularity for a class of fully nonlinear PDEs with unbalanced variable degeneracy, J. Lond. Math. Soc. 108(2) (2023), 622–665. [17] S. Baasandorj, S.-S. Byun, K.-A. Lee, S.-C. Lee, C1,α -regularity for a class of degenerate/singular fully nonlinear elliptic equations, Interfaces Free Bound. 26(2) (2024), 189–215. [18] S. Baasandorj, S.-S. Byun, K.-A Lee, S.-C Lee, Global regularity results for a class of singu-lar/degenerate fully nonlinear elliptic equations, Math. Z. 306 (2024), Paper No. 1, 26 pp. [19] S.-S. Byun, H. Kim and J. Oh, C1,α regularity for degenerate fully nonlinear elliptic equations with oblique boundary conditions on C1 domains, Calc. Var. Partial Differential Equations 64 (2025), Paper No. 174, 20 pp. [20] J. da S. Bessa, G. C. Ricarte and P. H. C. Silva, Optimal gradient regularity to degenerate fully nonlinear elliptic models with oblique boundary condition, Nonlinear Anal. 262 (2026), Paper No. 113919, 16 pp. [21] S.-S. Byun, H. Kim and S. Kim, C1,α regularity for a class of singular/degenerate fully nonlinear elliptic equations with oblique boundary conditions, arXiv:2604.06030, (2026). [22] J. da S. Bessa, G. C. Ricarte, Sharp regularity for degenerate fully nonlinear equations with oblique boundary conditions and Hamiltonian terms, arXiv:2605.02855, (2026). [23] L.A. Caffarelli, Interior a priori estimates for solutions of fully nonlinear equations, Ann. Math. 130(1) (1989), 189–213. [24] L.A. Caffarelli, X. Cabr ´e, Fully Nonlinear Elliptic Equations, Colloquium Publications, 43. Amer-ican Mathematical Society, Providence, R.I. (1995). [25] S. Čanić, B. L. Keyfitz and G. M. Lieberman, A proof of existence of perturbed steady transonic shocks via a free boundary problem, Comm. Pure Appl. Math. 53 (2000), 484-511. [26] Y. Chen, S. Levine, M. Rao, Variable exponent, linear growth functionals in image restoration, SIAM J. Appl. Math. 66 (2006), 1383–1406. [27] I. Capuzzo Dolcetta, F. Leoni, A. Porretta, Hölder estimates for degenerate elliptic equations with coercive Hamiltonians, Trans. Am. Math. Soc. 362(9) (2010), 4511–4536. [28] J. Davil ´a, P. Felmer, A. Quaas, Harnack inequality for singular fully nonlinear operators and some existence results, Calc. Var. Partial Differ. Equ. 39 (2010), 557–578. [29] J.V. da Silva, G.C. Ricarte, Geometric gradient estimates for fully nonlinear models with nonho-mogeneous degeneracy and applications, Calc. Var. Partial Differ. Equ. 59(5) (2020), Paper No. 161, 33 pp. [30] C. De Filippis, Regularity for solutions of fully nonlinear elliptic equations with nonhomogeneous degeneracy, Proc. R. Soc. Edinb. Sect. A 151(1) (2021), 110–132. [31] S.-I. Ei, M.-H. Sato and E. Yanagida, Stability of stationary interfaces with contact angle in a generalized mean curvature flow, Amer. J. Math. 118 (1996), 653-687. 21 [32] P. A. Ernst, S. Franceschi and D. Huang, Escape and absorption probabilities for obliquely reflected Brownian motion in a quadrant, Stochastic Process. Appl. 142 (2021), 634-670. [33] R. S. Finn and G. K. Luli, On the capillary problem for compressible fluids, J. Math. Fluid Mech. 9 (2007), 87-103. [34] W. Fleming, H.M. Soner, Controlled Markov Processes and Viscosity Solutions, Applications of Mathematics 25, Springer-Verlag, (1991). [35] Y. Fang, V.D. R ˘adulescu, C. Zhang, Regularity of solutions to degenerate fully nonlinear elliptic equations with variable exponent, Bull. Lond. Math. Soc. 53(6) (2021), 1863–1878. [36] W. Huo, X. Jin, L. Ma, Z. Zhang, Sharp regularity for a class of degenerate/singular fully nonlinear elliptic equations with Hamiltonian terms, arXiv:2605.02345 (2026). [37] C. Imbert, L. Silvestre, C1,α regularity of solutions of some degenerate fully non-linear elliptic equations, Adv. Math. 233 (2013), 196–206. [38] D. Jesus, E.A. Pimentel, J.M. Urbano, Fully nonlinear Hamilton-Jacobi equations of degenerate type, Nonlinear Anal. 227 (2023), Paper No. 113181, 15 pp. [39] P.-L. Lions, Neumann type boundary conditions for Hamilton–Jacobi equations, Duke Math. J. 52 (1985), 793–820. [40] J.M. Lasry, P.-L. Lions, Nonlinear elliptic equations with singular boundary conditions and stochastic control with state constraints. I. The model problem, Math. Ann. 283(4) (1989), 583–630. [41] D. S. Li, K. Zhang, Regularity for fully nonlinear elliptic equations with oblique boundary con-ditions, Arch. Ration. Mech. Anal. 228 (2018), 923-967. [42] E. Milakis, L. Silvestre, Regularity for fully nonlinear elliptic equations with Neumann boundary data, Commun. Partial Differ. Equ. 31 (2006), 1227–1252. [43] S. Patrizi, The Neumann problem for singular fully nonlinear operators, J. Math. Pures Appl. (9)90 (2008), 286–311. [44] M. I. Reiman and R. J. Williams, A boundary property of semimartingale reflecting Brownian motions, Probab. Theory Related Fields 77 (1988), 87-97. [45] G. C. Ricarte, Optimal C1,α regularity for degenerate fully nonlinear elliptic equations with Neumann boundary condition, Nonlinear Anal. 198 (2020), Paper No. 111867, 13 pp. [46] L. Silvestre, B. Sirakov, Boundary regularity for viscosity solutions of fully nonlinear elliptic equations, Commun. Partial Differ. Equ. 39(9) (2014), 1694–1717. [47] N. Winter, W 2,p and W 1,p -estimates at the boundary for solutions of fully nonlinear, uniformly elliptic equations, Z. Anal. Anwend. 28(2) (2009), 129–164. 22

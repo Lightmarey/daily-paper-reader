@@ -1,0 +1,2499 @@
+Title: Fractal Remez inequality on the sphere and observability of the heat equation
+
+URL Source: https://arxiv.org/pdf/2607.26904v1
+
+Published Time: Thu, 30 Jul 2026 00:56:42 GMT
+
+Number of Pages: 26
+
+Markdown Content:
+FRACTAL REMEZ INEQUALITY ON THE SPHERE AND OBSERVABILITY OF THE HEAT EQUATION 
+
+XINYI CHEN, SHANLIN HUANG Abstract . This paper is concerned with Remez-type inequalities and their ap-plications in observability inequality. Our aim is twofold. First, we establish the following fractal Remez’s inequality on the unit sphere Sn−1
+
+sup 
+
+> Sn−1
+
+|p| ≤ C(M, N, n, δ ) sup 
+
+> M
+
+|p|,
+
+where M ⊂ Sn−1 (n ≥ 2) is a fractal set of positive ( n − 2 + δ)-Hausdor ff 
+
+content for arbitrary δ ∈ (0 , 1), and p is a spherical polynomial of degree at most N ∈ Z+. Second, building upon this fractal framework, we establish sharp observability inequalities for the heat equation on the sphere, again valid for all 
+
+δ ∈ (0 , 1), which improve the result of Burq and Moyano [J. Eur. Math. Soc. (JEMS), 25 (4) (2023)] in the spherical setting. Furthermore, as an additional application, we prove a lower-dimensional observability inequality for the heat equation with super-quadratic potentials V(x) = |x|2m (m ∈ Z+, m ≥ 2) on the whole space Rn.
+
+Contents 
+
+1. Introduction and main results 21.1. Background and motivation 21.2. Main results 32. Proof of Theorem 1.1 52.1. Preliminaries 52.2. Auxiliary set W and slicing arguments 72.3. Reduction to spherical line segments 11 3. Applications to observability inequalities 14 3.1. Proof of Theorem 1.2 14 3.2. Proof of Theorem 1.3 15 Appendix A. Proof of (3.6) 19 Acknowledgements 24 
+
+2020 Mathematics Subject Classification. 35P99, 35Q93, 35K05. 
+
+Key words and phrases. Remez’s inequality, spectral inequality, observability. 
+
+1arXiv:2607.26904v1 [math.AP] 29 Jul 2026 2 XINYI CHEN, SHANLIN HUANG 
+
+References 24 1. I ntroduction and main results 
+
+1.1. Background and motivation. Remez-type inequalities bound a polyno-mial’s maximum on a set by its values on a smaller subset. The classical re-sult [36] states that if p is a polynomial of degree at most N, and Ω ⊂ [−1, 1] is a measurable set with measure |Ω|, then sup 
+
+> [−1,1]
+
+|p| ≤ TN
+
+4 − | Ω||Ω|
+
+!
+
+sup 
+
+> Ω
+
+|p|, (1.1) where TN is the Chebyshev polynomial of degree N defined by 
+
+TN (x) : = cos( N arccos x), x ∈ [−1, 1] .
+
+This inequality is a foundational tool in approximation theory (see, e.g., [5, 6]) and has been widely generalized. For instance, [15] extends it to sets Ω with positive δ-Hausdor ff content, where δ > 0, and further extensions are discussed in [20]. Additionally, multidimensional versions for convex domains in Rn have been obtained in [7, 18, 22]. Recently, Dicke and Veseli´ c [11] extended (1.1) to the unit sphere Sn−1 for spherical polynomials – that is, the restrictions of polynomials to the sphere (see also the earlier work [18]). Specifically, let p be a spherical polynomial of degree at most N ∈ Z+ and let M ⊂ Sn−1 be any measurable subset satisfying |M∩K| > 0, where K = K(x, a) = {y ∈ Sn−1 : ds(x, y) = arccos( x · y) ≤ πa, x ∈ Sn−1} is a spherical cap with radius a > 0, then sup 
+
+> K
+
+|p| ≤ c · |K||K ∩ M|
+
+!2N
+
+sup 
+
+> M∩K
+
+|p|. (1.2) Furthermore, Dicke and Veseli´ c applied inequality (1.2) to establish the follow-ing observability inequality for the heat equation on the sphere: there exists a constant Cobs > 0 such that, for any initial data u0 ∈ L2(Sn−1) and any T > 0, 
+
+∥eT ∆Sn−1 u0∥L2(Sn−1) ≤ Cobs 
+
+Z T
+
+> 0
+
+Z
+
+> E
+
+|(et∆Sn−1 u0)( x)|2 dx dt 
+
+!1/2
+
+, (1.3) holds provided that E ⊂ Sn−1 is γ-thick, i.e., there exists some radius a > 0such that |E ∩ K| ≥ γ|K| for all spherical caps K of radius a. In particular, any measurable set E ⊂ Sn−1 with positive Lebesgue measure is γ-thick with 
+
+γ = |E|/|Sn−1|.As a form of quantitative unique continuation, the observability inequality is instrumental in control theory and inverse problems and has been extensively studied in the literature . Owing to the vast body of literature on this subject, we only refer to [13, 16, 17, 23, 34, 41, 42] that are most relevant to our study. 3
+
+In a recent contrasting development, Burq and Moyano [8] established a new observability inequality on compact manifolds, where the observation region E
+
+is allowed to have zero measure. More precisely, it was shown that for a W2,∞
+
+compact manifold ( Ω, g) of dimension d ≥ 1, if E is a subset of positive ( d−1+δ)-Hausdor ff content for some δ ∈ (0 , 1) close to 1, then for any u0 ∈ L2(Ω) and any 
+
+T > 0, there is a positive constant Cobs = C(T, d, Ω, δ ) > 0 such that 
+
+∥eT ∆g u0∥L2(Ω) ≤ Cobs 
+
+Z T
+
+> 0
+
+sup 
+
+> x∈E
+
+|(et∆g u0)( x)| dt . (1.4) However, the result does not cover the scenario where δ is near 0 for some tech-nical reasons (see Remark 1.5 (ii)). More recently, [19, 20] studied bounded domains Ω ⊂ Rn with δ arbitrarily chosen in (0 , 1). 
+
+Aim and Motivation. Motivated by the above results, the aim of this paper is twofold: (i) We investigate the validity of (1.2) when M ⊂ Sn−1 (n ≥ 2) is a fractal set of positive ( n − 2 + δ)-Hausdor ff content, where δ ∈ (0 , 1) can be chosen arbitrarily. (ii ) By applying the fractal version of (1.2), we establish sharp observability inequalities of the form (1.4) on the sphere, again with δ ∈ (0 , 1) arbitrarily. Moreover, we prove a lower dimensional observability inequality for the heat equation with confining potentials V(x) = |x|2m (m ∈ Z+, m ≥ 2) on the whole space Rn.1.2. Main results. Our first result is stated as follows. 
+
+Theorem 1.1. Let δ ∈ (0 , 1) and let M ⊂ Sn−1 (n ≥ 2) be a closed subset satisfying C n−2+δ 
+
+> H
+
+(M) > 0. Then there exist absolute constants C 1 > 0 and C 2 =
+
+C2(M, n, δ ) > 0 such that, for every spherical polynomial p of degree at most N ∈ Z+, the following inequality holds 
+
+sup 
+
+> Sn−1
+
+|p| ≤ C1
+
+ C2
+
+Cn−2+δ 
+
+> H
+
+(M)
+
+
+
+> 2
+> δ
+
+N 4 
+
+> δ−1
+
+
+
+> 2N
+
+sup 
+
+> M
+
+|p|. (1.5) As applications of Theorem 1.1, we derive the observability inequalities for the parabolic equation 
+
+
+
+∂tu(t, x) + Hu (t, x) = 0, t > 0, x ∈ Ω,
+
+u(0 , ·) ∈ L2(Ω), (1.6) in the following two settings: 
+
+• Case 1: Ω = Sn−1 and H = −∆Sn−1 .
+
+• Case 2: Ω = Rn and H = −∆ + |x|2m, where m ∈ Z+, m ≥ 2. More precisely, in the compact setting ( Case 1 ), we establish the following result. 4 XINYI CHEN, SHANLIN HUANG 
+
+Theorem 1.2. In Case 1, fix any δ ∈ (0 , 1) and let M ⊂ Sn−1 be a closed subset satisfying C n−2+δ 
+
+> H
+
+(M) > 0. Then there exists a constant C obs = C(T, n, δ, M) > 0
+
+such that for every u 0 ∈ L2(Sn−1) and T > 0,
+
+eT ∆Sn−1 u0 L2(Sn−1) ≤ Cobs 
+
+Z T
+
+> 0
+
+sup 
+
+> x∈M
+
+|(et∆Sn−1 u0)( x)|dt . (1.7) Next, we turn to the non-compact setting Case 2 , we need the following geo-metric setup. Let 
+
+Γ1 := {x ∈ Rn : r0 ≤ | x| ≤ r1, x/|x| ∈ Θ1}, 0 < r0 < r1, (1.8) where 
+
+Θ1 ⊂ Sn−1 is a closed subset and Cn−2+δ 
+
+> H
+
+(Θ1) > 0. (1.9) 
+
+Theorem 1.3. In Case 2, fix any δ ∈ (0 , 1) in (1.9) . Then there exists a constant Cobs = C(T, n, m, δ, Θ1) > 0 such that for every u 0 ∈ L2(Rn) and T > 0,
+
+e−T H u0 L2(Rn) ≤ Cobs 
+
+Z T
+
+> 0
+
+Z r1
+
+> r0
+
+sup 
+
+> ω∈Θ1
+
+|(e−tH u0)( r, ω )|
+
+!2
+
+dr 
+
+
+
+> 12
+
+dt . (1.10) The following remarks related to Theorems 1.1–1.3 are given, respectively. 
+
+Remark 1.4. (i) Theorem 1.1 can be viewed as a fractal analogue of (1.2) . We mention that (1.2) yields the following Logvinenko-Sereda-Kovrijkine type in-equality on Sn−1: for every γ-thick set E ⊂ Sn−1 with γ ∈ (0 , 1] , every λ ≥ 1, and every f ∈ Ran P −∆Sn−1 (( −∞ , λ ]) , we have 
+
+∥ f ∥L2(Sn−1) ≤ c1
+
+γ
+
+!Rλ1/2+1/2
+
+∥ f ∥L2(E). (1.11) 
+
+A closely related problem was previously investigated in [30, 33]. However, the primary objective in those works was to establish uniform estimates with con-stants independent of the spectral parameter λ, a goal achieved at the cost of imposing stronger assumptions on the sets E. In contrast, our approach here does not pursue such uniformity; instead, we derive explicit quantitative bounds that track the precise dependence on λ. It plays a crucial role in the applica-tion of the well-known Lebeau–Robbiano strategy [23], where such precision is essential for the iteration scheme. (ii) In the spherical setting, Theorem 1.2 improves the result of Burq and Moy-ano [8, Theorem 3]. Moreover, the condition C n−2+δ 
+
+> H
+
+(M) > 0 is optimal. To see this, consider E := {x ∈ Sn−1 : ϕλ(x) = 0},
+
+where ϕλ is an eigenfunction of ∆Sn−1 on Sn−1 associated with the eigenvalue λ > 
+
+0. It is well known that C n−2 
+
+> H
+
+(E) > 0, yet inequality (1.7) fails for this choice of E. Whether Theorem 1.2 extends to arbitrary compact W 2,∞ manifolds (Ω, g)
+
+remains an open question. 5
+
+(iii) To the best of the authors’ knowledge, Theorem 1.3 provides the first ob-servability inequality for heat equations with potentials that allows the observa-tion region to be lower-dimensional. In the setting of Case 2, it was established in [12, 29] that the conical set 
+
+Γ0 := {x ∈ Rn : |x| ≥ r0, x/|x| ∈ Θ0} (1.12) 
+
+is an observable set for (1.6) , where r 0 > 0 and Θ0 ⊂ Sn−1 is a nonempty and open. Recently, Martin [26] proved that any measurable set with positive measure is an observable set for (1.6) . It is worth noting that the situation is quite di ff erent for the case m = 1, corresponding to Hermite operators, we refer to [1, 2, 10, 27] for further details. 
+
+Remark 1.5. (i) Both the proofs of Theorem 1.2 and 1.3 rely crucially on Theo-rem 1.1. To prove Theorem 1.1, we employ the following key technical ingredi-ents: (a) we apply a fractal version of the Tur´ an’s lemma established in [43]; (b) we use a slicing theorem related to Riesz capacity, which is inspired by [20, 25]. (ii) Our proof of Theorem 1.2 di ff ers from the approach in [8], which is based on the following propagation of smallness estimate for gradients of solutions to 
+
+div( A(x)∇u) = 0 obtained in [24] 
+
+sup 
+
+> B1
+
+|∇ u| ≤ sup 
+
+> E
+
+|∇ u|
+
+!β
+
+sup 
+
+> B2
+
+|∇ u|
+
+!1−β
+
+, (1.13) 
+
+where β ∈ (0 , 1) , and E ⊂ B2 is a set with positive (n − 2 + δ)-Hausdor ff content for some δ ∈ (0 , 1) close to 1. Here B 1 ⊂ B2 ⊂ Rn are balls of given radii. However, whether (1.13) remains valid for δ arbitrarily close to 0 is currently unknown. (iii) Theorem 1.3 constitutes a further refinement of [26, Theorem 2.1], achieved with the aid of Theorem 1.1. The key observation is that for the operator H =
+
+−∆+ V with a radial potential V satisfying lim r→+∞ V(r) = + ∞, its eigenfunctions can be expressed as a linear combination of spherical harmonics. This allows us to apply Theorem 1.1, see Subsection 3.2 for details. 
+
+The remainder of this paper is organized as follows. Section 2 is devoted to the proof of Theorem 1.1. In Section 3, we provide the proofs of Theorems 1.2–1.3. Finally, in Appendix A, we supply the proof of the asymptotic formula (3.6) in Lemma 3.2. 2. P roof of Theorem 1.1 2.1. Preliminaries. 
+
+This section collects the key concepts and tools that will be used in the proof of Theorem 1.1. We first recall the definitions of Hausdor ff content and Hausdor ff 
+
+measure, which are standard in geometric measure theory (see, e.g., in [14, 28]). Then we introduce the Riesz s-energy and the associated s-capacity. Finally, 6 XINYI CHEN, SHANLIN HUANG 
+
+we present slicing theorems for capacity, which enable us to reduce higher-dimensional problems to lower-dimensional ones. 
+
+Definition 2.1 (Hausdor ff content and measure) . For α > 0, the α-Hausdor ff 
+
+content of a set E ⊂ Rn is defined as Cα 
+
+> H
+
+(E) : = inf 
+
+
+
+> ∞
+
+X
+
+> j=1
+
+d(Bj)α : E ⊂
+
+> ∞
+
+[
+
+> j=1
+
+Bj
+
+ , E ⊂ Rn, (2.1) 
+
+where B j ⊂ Rn ( j = 1, 2, . . . ) are open balls with the diameter d (Bj) : = diam (Bj).The α-Hausdor ff measure of a set E ⊂ Rn is defined as 
+
+Hα(E) : = lim  
+
+> δ→0+
+
+inf 
+
+
+
+> ∞
+
+X
+
+> j=1
+
+d(Bj)α : E ⊂
+
+> ∞
+
+[
+
+> j=1
+
+Bj, d(Bj) ≤ δ
+
+ , E ⊂ Rn. (2.2) It is well-known that the Hausdor ff dimension of a set A ⊂ X is characterized by the following identities dim H A := sup {s : H s(A) > 0} = sup {s : H s(A) = ∞} 
+
+= inf {t : Ht(A) < ∞} = inf {t : Ht(A) = 0}.
+
+Moreover, it satisfies the monotonicity property dim A ≤ dim B for A ⊂ B ⊂ X, (2.3) and the countable stability property dim 
+
+> ∞
+
+[
+
+> i=1
+
+Ai = sup 
+
+> i
+
+dim Ai for Ai ⊂ X, i = 1, 2, . . . . (2.4) A basic object in fractal geometry is the s-energy of a Borel measure μ: for 
+
+s > 0, 
+
+Is(μ) =
+
+"
+
+|x − y|−s dμx d μy =
+
+Z
+
+ks ∗ μ dμ, 
+
+where ks(x) = |x|−s is the Riesz kernel. The following definition of s-capacity, formulated in terms of the s-energy, will play a crucial role in the subsequent discussion. 
+
+Definition 2.2 (Riesz s-capacity) . Let s > 0. The (Riesz) s-capacity of a set A ⊂ Rn is defined by Cs(A) = sup nIs(μ)−1 : μ ∈ M (A) with μ(Rn) = 1o , (2.5) 
+
+with the interpretation C s(∅) = 0, where 
+
+M(A) = {μ : μ is a Radon measure with compact support, supp μ ⊂ A and 0 < μ (Rn) < ∞} . (2.6) In order to state the slicing theorems, we first recall the notion of the Grass-mannian manifold and introduce a natural probability measure on it. 7
+
+Definition 2.3 (Grassmannian manifold and Radon probability measure) . Let 1 ≤
+
+m < n. (i) The Grassmannian G (n, m) consists of all m-dimensional linear subspaces of Rn. For V ∈ G(n, m), we denote by V ⊥ ∈ G(n, n − m) its orthogonal complement. For a ∈ V⊥, set V a := V + a (the m-plane parallel to V through a). (ii) The Radon probability measure γn,m on G (n, m) is defined by 
+
+γn,m(A) : = θn
+
+ {g ∈ O(n) : gV ∈ A} (A ⊂ G(n, m)) ,
+
+where O (n) is the orthogonal group consisting of all orthogonal transfor-mations on Rn. θn is the Haar measure on O (n) such that θn(O(n)) = 1.
+
+The following slicing lemmas allow us to estimate the capacity of a set in Rn
+
+by integrating the capacities of its intersections with lower-dimensional planes. 
+
+Lemma 2.4. ( [28, Chapter 10]) There is a constant c, depending only on n and m, such that for m < s < n and for any compact subset E ⊂ Rn,c(n, m)Cs(E) ≤
+
+Z Z
+
+> V⊥
+
+Cs−m(E ∩ Va) dHma d γn,n−mV, (2.7) 
+
+where V ∈ G(n, n − m).
+
+Lemma 2.5. ( [28, Chapter 10]) For m < s < n and A ⊂ Rn, if C s(A) > 0, then for γn,n−m almost all W ∈ G(n, n − m),
+
+Hm {a ∈ W⊥ : Cs−m(A ∩ Wa) > 0} > 0. (2.8) 2.2. Auxiliary set W and slicing arguments. 
+
+In this subsection, we construct an auxiliary subset W ⊂ Sn−1, which will be used later in the application of the slicing lemmas. The motivation for intro-ducing W is explained in Remark 2.12. By applying the slicing lemma to W in Lemma 2.10, we obtain a distinguished spherical segment ˜ Ia satisfying several specific properties. This segment will play a key role in the proof of Theorem 1.1. 
+
+Lemma 2.6. Let δ ∈ (0 , 1) . For any spherical polynomial p of degree at most N ∈ Z+ and any closed subset M ⊂ Sn−1 with C n−2+δ 
+
+> H
+
+(M) > 0, there exist a set 
+
+eM satisfying C n−2+δ 
+
+> H
+
+( eM) = 0, a point m ∈ M \ eM and a constant ˜r > 0 such that, upon defining W := M ∩ K(m, ˜r), (2.9) 
+
+the following two estimates hold: 
+
+|p(x)| ≥ c0
+
+2 ∥p∥L∞(Sn−1) , ∀x ∈ W, (2.10) 
+
+and Cn−2+δ 
+
+> H
+
+(W) ≥ ˜rn−2+δ. (2.11) 8 XINYI CHEN, SHANLIN HUANG 
+
+Proof. We first establish the existence of a set eM with Cn−2+δ 
+
+> H
+
+( eM) = 0 and a point 
+
+m ∈ M \ eM together with a constant c0 > 0 (independent of p) such that 
+
+|p(m)| ≥ c0 ∥p∥L∞(Sn−1) , (2.12) and lim sup 
+
+> r↓0
+
+r−n+2−δCn−2+δ 
+
+> H
+
+(M ∩ K(m, r)) ≥ 1. (2.13) To this end, we recall the definition of the upper s-densities of M at a point a:
+
+Θs∗(M, a) = lim sup 
+
+> r↓0
+
+(2 r)−sCs 
+
+> H
+
+(M ∩ K(a, r)) ,
+
+It is known (see, e.g., [28, pp. 89-91]) that 
+
+Θs∗(M, x) ≥ 2−s,
+
+for Cs 
+
+> H
+
+-almost all x ∈ M. Consequently, there exists a set eM with Cn−2+δ 
+
+> H
+
+( eM) = 0such that, for all a ∈ M \ eM,lim sup 
+
+> r↓0
+
+r−n+2−δCn−2+δ 
+
+> H
+
+(M ∩ K(a, r)) ≥ 1.
+
+This yields (2.13) whenever m ∈ M \ eM.We now prove (2.12) by contradiction. Suppose, for the sake of contradiction, that (2.12) fails. Then there exists a sequence {pk}k with pk , 0, such that sup 
+
+> M′
+
+|pk| < 1
+
+k ∥pk∥L∞(Sn−1) .
+
+where M′ = M \ eM. Set 
+
+qk := pk
+
+∥pk∥L∞(Sn−1)
+
+,
+
+then we have 
+
+∥qk∥L∞(Sn−1) = 1, sup 
+
+> M′
+
+|qk| < 1
+
+k . (2.14) Let PN (Sn−1) denote the space of all functions p = P|Sn−1 has degree at most 
+
+N ∈ Z+. This space is finite-dimensional, and hence the unit sphere in the 
+
+L∞(Sn−1)-norm is compact. Consequently, the sequence {qk} admits a conver-gent subsequence, still denoted by qk, whose limit we denote by q∗ ∈ PN (Sn−1), satisfying 
+
+∥q∗∥L∞(Sn−1) = 1, lim  
+
+> k→∞
+
+qk = q∗.
+
+Furthermore, for every x ∈ M′, we have 
+
+|q∗(x)| = lim  
+
+> k→∞
+
+|qk(x)| ≤ lim 
+
+> k→∞
+
+1
+
+k = 0, (2.15) which implies q∗|M′ = 0. 9
+
+Now observe that, by our assumption Cn−2+δ 
+
+> H
+
+(M) > 0 and the fact that Cn−2+δ 
+
+> H
+
+( eM) =
+
+0, it follows that 
+
+Cn−2+δ 
+
+> H
+
+(M′) = Cn−2+δ 
+
+> H
+
+(M \ eM) > 0,
+
+and therefore dim H M′ ≥ n − 2 + δ. 
+
+However, this contradicts to the well-known fact that dim H
+
+nx ∈ Sn−1 p(x) = 0o ≤ n − 2 (2.16) for any nontrivial spherical polynomial. Therefore, (2.12) holds. Now we are in the position to prove (2.10) and (2.11). On the one hand, by (2.13), there exists a sequence {rk}k satisfying lim k→+∞ rk = 0 such that lim  
+
+> k→+∞
+
+r−n+2−δ 
+
+> k
+
+Cn−2+δ 
+
+> H
+
+(M ∩ K(m, rk)) ≥ 1.
+
+Moreover, there exists N ∈ N such that when k > N,
+
+Cn−2+δ 
+
+> H
+
+(M ∩ K(m, rk)) ≥ rn−2+δ 
+
+> k
+
+. (2.17) On the other hand, since m ∈ M \ eM satisfies (2.12), p is a spherical polynomial, there exists ˜ r ∈ { rk}k≥N such that 
+
+|p(x)| ≥ c0
+
+2 ∥p∥L∞(Sn−1) , ∀x ∈ M ∩ K(m, ˜r). (2.18) Combining (2.17) and (2.18), there exists ˜ r ∈ { rk}k≥N such that (2.10) and (2.11) hold. Defining W as (2.9), we complete the proof. 
+
+□
+
+Remark 2.7. For later use in the proof of Lemma 2.10, we choose a constant r0 > 0 such that r0
+
+2
+
+diam (M)
+
+diam (Sn−1)
+
+!n−2+ δ
+
+> 2
+> n−2+δ
+
+≤ ˜r < r0. (2.19) Note that the subset W in Lemma 2.6 is measured in terms of Hausdor ff con-tent, whereas the slicing Lemma 2.4 is formulated in terms of Riesz capacity. In order to justify the applicability of the slicing theorem to W, we employ the following lemma, which quantifies the relationship between Hausdor ff contents and Riesz capacities. This lemma has been established in [9, p.28], [21, p.234], see also [20, Lemma 5.11]. 
+
+Lemma 2.8. Let s > 0, the following conclusions are true: (i) For every bounded Borel set E ⊂ Rn,Cs 
+
+> H
+
+(E) ≥ 12Cs(E). (2.20) 10 XINYI CHEN, SHANLIN HUANG 
+
+(ii) Assume s > s′ > 0, then there exists a constant A > 0, depending on n, s, E, such that when E ⊂ Rn is a compact set, Cs′ (E) ≥ AC s 
+
+> H
+
+(E). (2.21) Next, by applying the slicing lemma to W, we prove the existence of a spher-ical segment ˜ Ia that satisfies certain specific properties. This segment will be essential for the proof of Theorem 1.1. We begin by recalling the notion of a spherical line segment, which serves as the spherical analogue of a straight line segment in Rn.
+
+Definition 2.9. Given a starting point p ∈ Sn−1 and a direction v ∈ Sn−1 such that p · v = 0, the spherical curve is defined as 
+
+κ = κv : [0 , 2π] → Sn−1, t 7 → cos( t)p + sin( t)v. (2.22) 
+
+The spherical line segment starting at p in the direction v is I = image( κ|[0 ,l]), l > 0.
+
+Lemma 2.10. Let δ ∈ (0 , 1) . Suppose M ⊂ Sn−1 with C n−2+δ 
+
+> H
+
+(M) > 0 is a closed subset, then there exist a spherical line segment ˜Ia ⊂ Sn−1 and a constant C 2 =
+
+C2(M, n, δ ) > 0 such that C δ 
+
+> 2
+
+(M ∩ ˜Ia) > 0, ˜Ia ∩ W , ∅, (2.23) 
+
+and Cn−2+ δ 
+
+> 2
+
+(M) ≤ C2C δ 
+
+> 2
+
+(M ∩ ˜Ia). (2.24) 
+
+Proof. By (2.21) and (2.11), it follows that 
+
+Cn−2+ δ 
+
+> 2
+
+(W) ≥ A(M, n, δ )Cn−2+δ 
+
+> H
+
+(W) > 0, (2.25) then, applying Lemma 2.4 to W with s = n − 2 + δ 
+
+> 2
+
+, m = n − 2, we derive that 
+
+c(n, m)Cn−2+ δ 
+
+> 2
+
+(W) ≤
+
+Z Z
+
+> V⊥
+
+C δ 
+
+> 2
+
+(W ∩ Va) dHn−2a d γn,2V,
+
+where V ∈ G(n, 2). Thus, there exists some two-dimensional plane ˜ Va such that 0 < c(n, m)Cn−2+ δ 
+
+> 2
+
+(W) ≤ C δ 
+
+> 2
+
+(W ∩ ˜Va),
+
+this yields 
+
+C δ 
+
+> 2
+
+(M ∩ ˜Va) ≥ c(n, m)Cn−2+ δ 
+
+> 2
+
+(W) > 0 and W ∩ ˜Va , ∅. (2.26) Observe that the intersection ˜ κa := Sn−1 ∩ ˜Va is a spherical curve on Sn−1. Choose a spherical cap K such that M ⊂ K and define the spherical line segment as ˜Ia = ˜κa ∩ K ⊂ K,
+
+then it follows from the fact W ⊂ M ⊂ Sn−1 that 
+
+M ∩ ˜Va = M ∩ ˜Ia and W ∩ ˜Va = W ∩ ˜Ia,11 
+
+this, together with (2.26), implies (2.23) and the following 
+
+C δ 
+
+> 2
+
+(M ∩ ˜Ia) ≥ c(n, m)Cn−2+ δ 
+
+> 2
+
+(W). (2.27) It remains to prove (2.24). From (2.24) and (2.27), it su ffi ces to establish a quantitative relation between Cn−2+ δ 
+
+> 2
+
+(W) and Cn−2+ δ 
+
+> 2
+
+(M). Indeed, we have 
+
+Cn−2+ δ 
+
+> 2
+
+(W) ≥ A(M, n, δ )Cn−2+δ 
+
+> H
+
+(W)
+
+≥ A(M, n, δ ) · ˜rn−2+δ
+
+> A(M, n, δ ) · rn−2+δ 
+
+> 0
+
+· diam (M)
+
+diam (Sn−1)
+
+!n−2+ δ
+
+> 2
+
+≥ A(M, n, δ ) · rn−2+δ
+
+> 0
+
+(diam (Sn−1)) n−2+ δ
+
+> 2
+
+· Cn−2+ δ 
+
+> 2
+
+(M), (2.28) where the first inequality follows from (2.25), the second from (2.11) and the third from (2.19). The last inequality is a consequence of the standard Riesz capacity estimate 
+
+Cs(B(a, r)) ∼ rs, ∀a ∈ Rn, r > 0, 0 < s < n.
+
+Substituting (2.28) into (2.27) yields (2.24), thereby completing the proof of Lemma 2.10. □
+
+2.3. Reduction to spherical line segments. 
+
+Theorem 1.1 follows immediately by combining Lemma 2.10 and the follow-ing 
+
+Lemma 2.11. Let δ ∈ (0 , 1) . Let p be a spherical polynomial of degree at most N ∈ Z+. Suppose M ⊂ Sn−1 with C n−2+δ 
+
+> H
+
+(M) > 0 is a closed subset, then for every spherical line segment I ⊂ Sn−1 satisfying C δ 
+
+> 2
+
+(M ∩ I) > 0 and I ∩ W , ∅, (2.29) 
+
+there exists an absolute constant C 0 > 0 such that 
+
+sup 
+
+> Sn−1
+
+|p| ≤ 2
+
+c0
+
+C0 · C1(δ) · 2NC δ 
+
+> 2
+
+(M ∩ I)
+
+
+
+> 2
+> δ
+
+(2 N)2 
+
+> δ−1
+
+
+
+> 2N
+
+sup 
+
+> M∩I
+
+|p|, δ ∈ (0 , 1) , (2.30) 
+
+where c 0 > 0 is a constant defined in (2.10) .Proof of Theorem 1.1. By Lemma 2.10 and Lemma 2.11, we have sup 
+
+> Sn−1
+
+|p| ≤ 2
+
+c0
+
+ C2NCn−2+ δ 
+
+> 2
+
+(M)
+
+
+
+> 2
+> δ
+
+N 2 
+
+> δ−1
+
+
+
+> 2N
+
+sup 
+
+> M∩I
+
+|p|. (2.31) Furthermore, Lemma 2.8 yields 
+
+Cn−2+ δ 
+
+> 2
+
+(M) ≥ A(M, n, δ )Cn−2+δ 
+
+> H
+
+(M) > 0,12 XINYI CHEN, SHANLIN HUANG 
+
+substituting this inequality into (2.31) gives (1.5). This completes the proof of Theorem 1.1. □
+
+Proof of Lemma 2.11. We divide the proof of (2.30) into three steps. 
+
+Step 1: Existence of I satisfying (2.29) . It follows from Lemma 2.8 (ii) that 0 < Cn−2+δ 
+
+> H
+
+(M) ≲M,n,δ Cn−2+ δ 
+
+> 2
+
+(M).
+
+Then, applying Lemma 2.5 to M with parameters s = n − 2 + δ 
+
+> 2
+
+, m = n − 2 yields that for γn,2-almost all V ∈ G(n, 2), 
+
+Hn−2(A) = Hn−2 {a ∈ V⊥ : C δ 
+
+> 2
+
+(M ∩ Va) > 0} > 0.
+
+For any a ∈ A, Va is a two-dimensional plane, thus the intersection Ia := Sn−1 ∩Va
+
+is a spherical line segment on Sn−1. Then, it follows that 
+
+M ∩ Va = M ∩ Ia,
+
+moreover, 
+
+Hn−2 {a ∈ V⊥ : C δ 
+
+> 2
+
+(M ∩ Ia) > 0} > 0.
+
+Note that W ⊂ M satisfies Cn−2+ δ 
+
+> 2
+
+(W) > 0, thus there exists some a ∈ A such that 
+
+C δ 
+
+> 2
+
+(M ∩ Ia) = C δ 
+
+> 2
+
+(M ∩ Va) > 0 and Ia ∩ W , ∅.
+
+Step 2: Reduction to a spherical line segment. Let I ⊂ Sn−1 be a spherical line segment satisfying 
+
+C δ 
+
+> 2
+
+(M ∩ I) > 0 and I ∩ W , ∅.
+
+Pick a point w ∈ I ∩ W. Denote by v the direction vector of I such that w · v = 0, then the curve 
+
+κ(t) = cos (σ(I)t)w + sin (σ(I)t)v, t ∈ [0 , 1] ,
+
+parameterizes I, where σ(I) denotes the arc length of I.On the one hand, since w ∈ I, there exists α ∈ [0 , 1] such that w = κ(α). Moreover, 
+
+∥p ◦ κ∥L∞([0 ,1]) ≥ | (p ◦ κ)( a)| = |p(w)| ≥ c0
+
+2 ∥p∥L∞(Sn−1) , (2.32) where the last inequality follows from the fact that w ∈ W and the property (2.10). On the other hand, set 
+
+A := {t ∈ [0 , 1] : κ(t) ∈ M}, (2.33) i.e., A = κ−1(M ∩ I). Consequently, sup 
+
+> M∩I
+
+|p| = ∥p ◦ κ∥L∞(A). (2.34) In view of (2.32) and (2.34), we see that to prove (2.30), it su ffi ces to bound 
+
+∥p ◦ κ∥L∞([0 ,1]) by ∥p ◦ κ∥L∞(A), where p ◦ κ is a one-dimensional function defined on the spherical line segment I.13 
+
+Step 3: Application of Tur´ an’s inequality to (p ◦ κ)( t). We first claim that there are finite sequences {βk} ⊂ C and integers {λk} such that (p ◦ κ)( t) =
+
+> 2N+1
+
+X
+
+> k=1
+
+βke2πic λkt, (2.35) where 
+
+c = 12πσ(I) and − N ≤ λ1 ≤ · · · ≤ λ2N+1 ≤ N. (2.36) Indeed, it follows from (2.22) that there exist multi-indices w, v, α such that (p ◦ κ)( t) =
+
+X
+
+> |α|≤ N
+
+cα
+
+> n
+
+Y
+
+> j=1
+
+wj cos( σ(I)t) + vj sin( σ(I)t)α j .
+
+Note that 
+
+wj cos( σ(I)t) + vj sin( σ(I)t) = wjRe (eiσ(I)t) + vjIm (eiσ(I)t),
+
+thus (2.35) and (2.36) follow from the binomial theorem. To proceed, we need the following Tur´ an type inequality on fractal sets, which was recently established in [43]: Let α ∈ (0 , 1) be given. For any E ⊂ [0 , 1] with Cα 
+
+> H
+
+(E) > 0, and for every trigonometric polynomial 
+
+¯p(t) =
+
+> q
+
+X
+
+> k=1
+
+cke2πim kt, ck ∈ C,
+
+with distinct frequencies m1 < · · · < mq, mk ∈ Z, 1 ≤ k ≤ q.
+
+There exists some absolute constant C 0 > 0 such that 
+
+sup 
+
+> t∈[0 ,1]
+
+| ¯p(t)| ≤ 
+
+ C0(q − 1) 
+
+Cα 
+
+> H
+
+(E)
+
+!1/α 
+
+(mq − m1)1/α −1
+
+
+
+> q−1
+
+sup 
+
+> t∈E
+
+| ¯p(t)|. (2.37) To use the above result, we shall further verify that 
+
+C δ 
+
+> 2
+> H
+
+(A) > 0, (2.38) where A is given by (2.33). Indeed, we have 
+
+C δ 
+
+> 2
+
+(A) = C δ 
+
+> 2
+
+(κ−1(M ∩ I)) ≳δ C δ 
+
+> 2
+
+[( κ ◦ κ−1)( M ∩ I)] = C δ 
+
+> 2
+
+(M ∩ I) > 0, (2.39) where we used the fact that κ(t) is a Lipschitz function and the known fact that if f : A → Rm, where A ⊂ Rn, is a Lipschitz map with the constant Lip( f ), then (see [28, Theorem 9.1]) 
+
+Cs( f A ) ≤ Lip( f )s Cs(A) for s > 0.
+
+Combining (2.39) with (2.20) in Lemma 2.8 yields (2.38). 14 XINYI CHEN, SHANLIN HUANG 
+
+Now we apply (2.37) with ¯ p = p ◦ κ, E = A, |mq − m1| = 2N, and obtain 
+
+∥p ◦ κ∥L∞([0 ,1]) ≤
+
+
+
+C0 · 2NC δ 
+
+> 2
+> H
+
+(A)
+
+
+
+> 2
+> δ
+
+(2 N)2 
+
+> δ−1
+
+
+
+> 2N
+
+∥p ◦ κ∥L∞(A).
+
+This, together with (2.32), (2.34), (2.20), and (2.39), yields (2.30). Therefore, the proof is complete. □
+
+Remark 2.12. We point out that a direct slicing argument applied to M gives a spherical line segment I b with C δ/ 2(M ∩ Ib) > 0, but it may not intersect W. The requirement I b ∩ W , ∅ is essential for the later estimate (2.32) , which motivates the construction of W and the choice I = ˜Ia in Lemma 2.11. 
+
+3. A pplications to observability inequalities 
+
+In this section we apply Theorem 1.1 to prove Theorems 1.2 and 1.3. The proofs are presented in Subsections 3.1 and 3.2, respectively. 3.1. Proof of Theorem 1.2. 
+
+The key ingredient is to establish the following spectral inequality associated for ∆Sn−1 : Let f ∈ Ran P−∆Sn−1 (( −∞ , λ ]), where λ > 0, then there exist constants 
+
+d0, d1, d2 > 0 (depending on n, δ, M) such that 
+
+∥ f ∥L2(Sn−1) ≤ d0 · exp d1 · √λ + d2 · √λ · log λ sup 
+
+> M
+
+| f |. (3.1) To prove (3.1), we first recall that the eigenfunctions of ∆Sn−1 are given by the spherical harmonics Yℓ, k, where ℓ ∈ N denotes the degree and k = 1, . . . , nℓ the multiplicity. More precisely, we have 
+
+−∆Sn−1 Yℓ, k = λℓYℓ, k, λℓ = ℓ(ℓ + n − 2) , (3.2) for all ℓ ∈ N and k = 1, . . . , nℓ. Moreover, the system ( Yℓ, k)ℓ, k forms an orthonor-mal basis of L2(Sn−1). If f ∈ Ran P−∆Sn−1 (( −∞ , λ ]), then by (3.2), f is a finite linear combination of 
+
+Yℓ, k with ℓ ≤ λ1/2. Applying (1.5) in Theorem 1.1 with N = λ1/2 and p = f , we deduce 
+
+∥ f ∥L2(Sn−1) ≤ Cspec sup 
+
+> M
+
+| f |,
+
+with Cspec given by 
+
+Cspec = d0 · exp d1 · √λ + d2 · √λ · log λ ,
+
+where 
+
+d0 = |Sn−1|12 · 2
+
+c0
+
+, d1 = 4
+
+δ · log 
+
+ C(M, n, δ )
+
+Cn−2+δ 
+
+> H
+
+(M)
+
+ , d2 = 4 − δδ .
+
+Then (3.1) follows. 15 
+
+Once the spectral inequality (3.1) is established, the observability inequality (1.7) follows by applying the same arguments as in [8, Section 4], which in turn rely on the adapted Lebeau–Robiano strategy from [12]. We therefore omit the details, and the proof of Theorem 1.2 is complete. □
+
+As a consequence, Theorem 1.2 implies the null-controllability for the heat equation on the sphere (see [8, Section 5]). Let M(Sn−1) denote the space of all Borel measures on Sn−1.
+
+Corollary 3.1. Let T > 0. Then for each u 0 ∈ L2(Sn−1), there is a control 
+
+μ ∈ L∞((0 , T ); M(Sn−1)) , supp μ ⊂ [0 , T ] × M,
+
+with 
+
+∥μ∥L∞((0 ,T ); M(Sn−1)) ≤ Cobs ∥u0∥L2(Sn−1) ,
+
+such that the solution u of the controlled equation 
+
+
+
+∂tu(t, x) − ∆Sn−1 u(t, x) = μ(t, x), t > 0, x ∈ Sn−1,
+
+u(0 , ·) = u0 ∈ L2(Sn−1),
+
+satisfies u (T ) = 0 over Sn−1.
+
+3.2. Proof of Theorem 1.3. 
+
+The main step is to establish the following spectral inequality for the operator 
+
+H := −∆ + |x|2m (m ∈ Z+, m ≥ 2). 
+
+Lemma 3.2. Let Γ1 and Θ1 be given by (1.8) and (1.9) , respectively. If v ∈
+
+Ran PH (( −∞ , μ 2]) with μ > 0, then there exists a constant C > 0, depending on 
+
+Θ1, n, δ, m, such that 
+
+Z
+
+> Rn
+
+|v(x)|2dx ≤ Ce Cμ1+1/m(1 +| log μ|)
+
+Z r1
+
+> r0
+
+sup 
+
+> ω∈Θ1
+
+|v(r, ω )|
+
+!2
+
+dr . (3.3) 
+
+Proof. Let 0 < μ 1 < · · · < μ k −→ ∞ ,
+
+be the distinct eigenvalues for the operator H := −∆ + |x|2m. Since the potential is radial, the standard separation of variables arguments yield that for each v ∈
+
+1H<μ 2 L2(Rn), it admits the expansion (see, e.g., in [3, pp. 188-189] or [35, p. 90]) 
+
+v =
+
+> ℓmax
+
+X
+
+> ℓ=0
+
+r− n−12 f (r)Yℓ, kℓ (ω), ω ∈ Sn−1, (3.4) where Yℓ, kℓ denote the spherical harmonics, R ∞ 
+
+> 0
+
+| f (r)|2 dr < ∞, and ℓmax ∈ N is determined by μ. Moreover, for each eigenvalue μk, the radial function satisfies 
+
+d2 f (r)
+
+dr 2 +
+
+μk − r2m − ℓ(ℓ + n − 2) + (n−1)( n−3) 4
+
+r2
+
+ f (r) = 0 (3.5) 16 XINYI CHEN, SHANLIN HUANG 
+
+for certain values of ℓ ∈ N, where r ∈ (0 , +∞). The key ingredient is to establish an upper bound for ℓmax , which enables the application of Theorem 1.1. This is achieved through the following claim. 
+
+Claim: Let μk, ℓ satisfy the equation (3.5), then 
+
+μk ∼ cm
+
+12 ℓ + n − 32
+
+!
+
++ k + 34
+
+! 2mm+1
+
+, k → +∞, (3.6) where 
+
+cm =
+
+4m √π · Γ( 12m + 32 )
+
+Γ( 12m )
+
+
+
+> 2mm+1
+
+.
+
+We point out that in three dimension, (3.6) was established in [37]. The higher-dimensional case follows by a similar argument; we provide a proof for n > 3 in the appendix (see Section A) for the sake of completeness. By (3.6) and the assumption μk ≤ μ2, we obtain that 
+
+ℓmax ≤ 2( c−1 
+
+> m
+
+)m+12m μ1+ 1 
+
+> m
+
+.
+
+Applying the Remez type inequality (1.5) with N = 2( c−1 
+
+> m
+
+)m+12m μ1+ 1 
+
+> m
+
+, we derive that sup 
+
+> ω∈Sn−1
+> ℓmax
+
+X
+
+> ℓ=1
+
+r− n−12 f (r)Yℓ, kℓ (ω) ≤ Ce Cμ1+1/m(1 +log μ) sup 
+
+> ω∈Θ1
+> ℓmax
+
+X
+
+> ℓ
+
+r− n−12 f (r)Yℓ, kℓ (ω) , (3.7) where C > 0 depends on Θ1, n, δ, m. Set 
+
+Γ2 := {x ∈ Rn : r0 ≤ | x| ≤ r1, x/|x| ∈ Sn−1}.
+
+Clearly, we have |Γ2| > 0, then it follows from [26, Theorem 2.1] that for each 
+
+v ∈ 1H<μ 2 L2(Rn), 
+
+Z
+
+> Rn
+
+|v(x)|2 dx ≤ Ce Cμ1+1/m| log μ|
+
+Z
+
+> Γ2
+
+|v(x)|2 dx 
+
+= Ce Cμ1+1/m| log μ|
+
+Z r1
+
+> r0
+
+Z
+
+> Sn−1
+
+|v(r, ω )|2drd ω. (3.8) Combining (3.4), (3.7) and (3.8), we have 
+
+Z
+
+> Rn
+
+|v(x)|2 dx ≤Ce Cμ1+1/m(1 +| log μ|)
+
+Z r1
+
+> r0
+
+sup 
+
+> ω∈Θ1
+> ℓmax
+
+X
+
+> ℓ
+
+r− n−12 f (r)Yℓ, kℓ (ω)
+
+
+
+> 2
+
+dr 
+
+=Ce Cμ1+1/m(1 +| log μ|)
+
+Z r1
+
+> r0
+
+sup 
+
+> ω∈Θ1
+
+|v(r, ω )|
+
+!2
+
+dr . (3.9) Therefore, the proof of Lemma 3.2 is complete. □
+
+Once the spectral inequality (3.3) is established, the proof of Theorem 1.3 follows from the adapted Lebeau-Robbiano strategy in [12]. For the reader’s convenience, we show how (3.3) is applied to obtain the following recurrence 17 
+
+inequality: there exist T0 > 0 and λ1 > 0, such that for all λ ≥ λ1, τ ∈ (0 , T0] and 
+
+u0 ∈ L2(Rn), 
+
+f (λ) e−τ(λ)H u0 L2(Rn) − f 54 λ ∥u0∥L2(Rn) ≤
+
+Z τ(λ)0
+
+Z r1
+
+> r0
+
+sup 
+
+> ω∈Θ1
+
+e−tH u0(r, ω ) 2
+
+dr 
+
+!12
+
+dt ,
+
+(3.10) where f is defined by (3.16). The observability inequality (1.10) then follows from (3.10) by a standard telescoping series argument, which is exactly the same as in [20, Section 4.3], therefore, we omit the details. To prove (3.10), we first define the orthogonal projection 
+
+πλ : L2(Rn) → E λ := Ran PH (( −∞ , λ ]) .
+
+By (3.3), there exist C > 0 and a numerical constant λ0 ≫ 1 such that 
+
+e−tH πλu0 L2(Rn) ≤ eCλ 12 + 12m (1 +| log λ|)
+
+Z r1
+
+> r0
+
+sup 
+
+> ω∈Θ1
+
+|e−tH πλu0(r, ω )|
+
+!2
+
+dr 
+
+
+
+> 12
+
+≤ eCλ(log λ)−2
+
+Z r1
+
+> r0
+
+sup 
+
+> ω∈Θ1
+
+|e−tH πλu0(r, ω )|
+
+!2
+
+dr 
+
+
+
+> 12
+
+,
+
+holds for λ ≥ λ0 and u0 ∈ L2(Rn). Then 
+
+∥e−τH πλu0∥L2(Rn) ≤ 2
+
+τ
+
+Z τ
+
+> τ
+> 2
+
+∥e−tH πλu0∥L2(Rn)dt 
+
+≤ 2
+
+τ eCλ(log λ)−2
+
+Z τ
+
+> τ
+> 2
+
+Z r1
+
+> r0
+
+sup 
+
+> ω∈Θ1
+
+|e−tH πλu0(r, ω )|
+
+!2
+
+dr 
+
+
+
+> 12
+
+dt .
+
+Next, we define two functions φ and ψ as follows: 
+
+ψ(t) : = t log t, t > 0; φ(λ) : = (log λ)2, λ ≫ 1.
+
+Since lim  
+
+> τ→0+
+
+τψ (1
+
+τ ) = + ∞ and lim 
+
+> λ→+∞
+
+Cλφ(λ) = + ∞,
+
+there exists T0 > 0 such that when τ ∈ (0 , T0], λ ≥ λ0,1
+
+τ eCλ(log λ)−2
+
+= eτψ ( 1   
+
+> τ)+Cλφ(λ)
+
+≤ eτψ ( 1   
+
+> τ)Cλφ(λ)
+
+,
+
+furthermore, 
+
+∥e−τH πλu0∥L2(Rn) ≤ 2eτψ ( 1  
+
+> τ)Cλφ(λ)
+
+Z τ
+
+> τ
+> 2
+
+Z r1
+
+> r0
+
+sup 
+
+> ω∈Θ1
+
+|e−tH πλu0(r, ω )|
+
+!2
+
+dr 
+
+
+
+> 12
+
+dt .
+
+It follows from the triangle inequality that when τ ∈ (0 , T0], λ ≥ λ0,
+
+e−τH u0 L2(Rn) ≤ e−τH πλu0 L2(Rn) + e−τH (1 − πλ)u0 L2(Rn)18 XINYI CHEN, SHANLIN HUANG 
+
+≤ 2eτψ ( 1  
+
+> τ)Cλφ(λ)
+
+Z τ
+
+> τ
+> 2
+
+Z r1
+
+> r0
+
+sup 
+
+> ω∈Θ1
+
+|e−tH πλu0(r, ω )|
+
+!2
+
+dr 
+
+
+
+> 12
+
+dt 
+
++ e−τH (1 − πλ)u0 L2(Rn)
+
+≤ 2eτψ ( 1  
+
+> τ)Cλφ(λ)
+
+Z τ
+
+> τ
+> 2
+
+Z r1
+
+> r0
+
+sup 
+
+> ω∈Θ1
+
+|e−tH u0(r, ω )|
+
+!2
+
+dr 
+
+
+
+> 12
+
+dt 
+
++ 2eτψ ( 1  
+
+> τ)Cλφ(λ)
+
+Z τ
+
+> τ
+> 2
+
+Z r1
+
+> r0
+
+sup 
+
+> ω∈Θ1
+
+|e−tH (1 − πλ)u0(r, ω )|
+
+!2
+
+dr 
+
+
+
+> 12
+
+dt 
+
++ e−τH (1 − πλ)u0 L2(Rn) . (3.11) For the last term on the right hand side of (3.11), it follows that 
+
+e−τH (1 − πλ)u0 L2(Rn) ≤ e−τλ ∥u0∥L2(Rn) . (3.12) For the second term on the right hand side of (3.11), note that 
+
+Z r1
+
+> r0
+
+sup 
+
+> ω∈Θ1
+
+|e−tH (1 − πλ)u0(r, ω )|
+
+!2
+
+dr 
+
+≤
+
+Z r1
+
+> r0
+
+sup 
+
+> ω∈Sn−1
+
+|e−tH (1 − πλ)u0(r, ω )|
+
+!2
+
+dr ≤ (r1 − r0)
+
+ sup 
+
+> ω∈Sn−1
+> r∈(r0,r1)
+
+e−tH (1 − πλ)u0(r, ω )
+
+
+
+> 2
+
+≤ (r1 − r0)
+
+
+
+a0(t − τ
+
+3)− n 
+
+> 4
+
+e− τ  
+
+> 3H
+
+(1 − πλ)u0 L2(( r0,r1)×Sn−1)
+
+2
+
+,
+
+in the last inequality, we have used the standard L2 → L∞ estimate: 
+
+e−tH  
+
+> L2(( r0,r1)×Sn−1)→L∞(( r0,r1)×Sn−1)
+
+≤ a0t− n 
+
+> 4
+
+, t > 0.
+
+Thus 
+
+Z τ
+
+> τ
+> 2
+
+Z r1
+
+> r0
+
+sup 
+
+> ω∈Θ1
+
+|e−tH (1 − πλ)u0(r, ω )|
+
+!2
+
+dr 
+
+
+
+> 12
+
+dt 
+
+≤
+
+Z τ
+
+> τ
+> 2
+
+(r1 − r0)12 a0(t − τ
+
+3)− n 
+
+> 4
+
+e− τ  
+
+> 3H
+
+(1 − πλ)u0 L2(( r0,r1)×Sn−1) dt 
+
+≤ (r1 − r0)12 (6
+
+τ )n 
+
+> 4
+
+e− λτ  
+
+> 3
+
+∥u0∥L2(Rn) . (3.13) Letting g(τ, λ ) : = 12 e−Cτψ ( 1   
+
+> τ)λφ(λ)
+
+, with τ ∈ (0 , T0] and λ ≥ λ0, plugging (3.12) and (3.13) into (3.11), we deduce that when τ ∈ (0 , T0] and λ ≥ λ0,
+
+g(τ, λ )∥e−τH u0∥L2(Rn) ≤
+
+Z τ
+
+> τ
+> 2
+
+Z r1
+
+> r0
+
+sup 
+
+> ω∈Θ1
+
+|e−tH u0(r, ω )|
+
+!2
+
+dr 
+
+
+
+> 12
+
+dt 
+
++ (r1 − r0)12 a0(6
+
+τ )n 
+
+> 4
+
+e− λτ  
+
+> 3
+
++ g(τ, λ )e−λτ 
+
+!
+
+∥u0∥L2(Rn). (3.14) 19 
+
+We now proceed to estimate the last term in (3.14). Let τ be defined by 1
+
+τ(λ) := ψ[−1] φ(λ)4C
+
+, λ ≥ λ0, (3.15) and then define f by 
+
+f (λ) : = g(τ(λ), λ ) = 12e− τ(λ)λ 
+
+> 4
+
+, λ ≥ λ0. (3.16) A direct calculation yields ψ[−1] (λ) ∼ λ  
+
+> log λ
+
+for λ ≫ 1. Consequently, from (3.15) we deduce 
+
+τ(λ) ∼ log log λ
+
+(log λ)2 , λ ≫ 1. (3.17) By (3.15) and (3.17), we see that for su ffi ciently small ε > 0, there is a constant 
+
+Cε > 0 depending only on ε > 0 such that 
+
+τ(λ)− 14 e− λτ (λ)3 ≤ Cεe−( 13 −ε)λτ (λ), λ ≥ λ0.
+
+This, along with (3.16) and the fact that τ(λ) ≥ τ(54 λ) for λ ≫ 1, yields that there is λ1 > 0, depending only on a0 and L, such that 
+
+(r1 − r0)12 a0
+
+6
+
+τ
+
+14
+
+e− λτ (λ)3 + g(τ(λ), λ )e−λτ (λ)∥u0∥L2(Rn) ≤ f 54λ∥u0∥L2(Rn), λ ≥ λ1.
+
+(3.18) Therefore, the recurrence inequality (3.10) follows by (3.14) and (3.18). □
+
+Remark 3.3. Let {λk}k denote the eigenvalues of H = −∆ + |x|2m on L 2(Rn)
+
+counted with multiplicity. It is well known that (see [4, Chapter 2]) 
+
+λk ∼ 
+
+> k→+∞
+
+cmk 2mn(m+1) .
+
+This di ff ers from the asymptotic behavior of μk in (3.6) . Nevertheless, the follow-ing identity holds (see, e.g., [35, 38]): N(λ) =
+
+X
+
+> ℓ
+
+alNℓ(λ), al = (2 ℓ + n − 2)( ℓ + n − 3)! 
+
+ℓ!( n − 2)! , n ≥ 3,
+
+where N (λ) denotes the number of λk that do not exceed λ, and N ℓ(λ) denotes the number of μk that do not exceed λ with angular momentum ℓ ∈ N.
+
+Appendix A. P roof of (3.6) The goal of this section is to prove the asymptotic formula (3.6) in Subsection 3.2. In fact, we can prove a slightly more general version. Assume that q(r) is radial and satisfies (a) q(r) ∈ C3(R+). Both q(r) and q′(r) are non-decreasing functions of r,(b) q′(r)/q(r) = q′′ (r)/q′(r) = q′′′ (r)/q′′ (r) = O(1 /r), as r → ∞ .20 XINYI CHEN, SHANLIN HUANG 
+
+Proposition A.1. Let μk and ℓ (k , ℓ ∈ N) satisfy d2 f (r)
+
+dr 2 +
+
+μk − q(r) − ℓ(ℓ + n − 2) + (n−1)( n−3) 4
+
+r2
+
+ f (r) = 0, 0 < r < +∞, (A.1) 
+
+then Z R
+
+> 0
+
+{μk − q(r)}12 dr = 12 ℓ + n − 32
+
+!
+
++ k + 34
+
+!
+
+π + δk, (A.2) 
+
+where lim k→∞ δk = 0, and R obeys q (R) = μk.
+
+In the particular case q(r) = r2m (m ≥ 2), we have R = μ 12m 
+
+> k
+
+and 
+
+Z R
+
+> 0
+
+{μk − q(r)}12 dr =
+
+√π
+
+4m
+
+Γ( 12m )
+
+Γ( 12m + 32 )μm+12m 
+
+> k
+
+,
+
+this, together with (A.2), yields (3.6). 
+
+Proof of Proposition A.1. For n = 3, (A.2) was proved in [37]. For odd n > 4, we have 
+
+ℓ(ℓ + n − 2) + (n − 1)( n − 3) 4 = L(L + 1) ,
+
+where L = ℓ + n−32 ∈ Z+. Thus, (A.2) follows directly from the n = 3 case in [37]. It remains to prove (A.2) when n > 4 is an even integer. To this end, we adapt the proof in [37], [39, pp. 160-163]. The function 
+
+F(r) = q(r) + ℓ(ℓ + n − 2) + (n−1)( n−3) 4
+
+r2 , 0 < r < +∞,
+
+attains a unique positive minimum at some point r = a > 0, with lim  
+
+> r→0+
+
+F(r) = lim  
+
+> r→∞
+
+F(r) = + ∞.
+
+Moreover, F is strictly decreasing on (0 , a) and strictly increasing on ( a, ∞). Hence, we consider the intervals (0 , a) and ( a, ∞) separately. Let ψ(r, μ k) and 
+
+ϕ(r, μ k) be the solutions of (A.1) belonging to L2(a, ∞) and L2(0 , a), respectively. Then any solution f (r) to (A.1) must be a constant multiple of ϕ(r, μ k) in (0 , a)and of ψ(r, μ k) in ( a, ∞); thus, 
+
+ψ(r, μ k) = A f (r) (a ≤ r),ϕ(r, μ k) = B f (r) (r ≤ a),
+
+it follows that 
+
+ϕ(a, μ k)ψ′(a, μ k) = AB f (a) f ′(a) = ϕ′(a, μ k)ψ(a, μ k). (A.3) To establish (A.2), we solve (A.3). Following the arguments in [37, 39], we derive representations for ψ(a, μ k), ψ′(a, μ k), ϕ(a, μ k), ϕ′(a, μ k), respectively. Un-like the settings in [37] and [39], which treat the three dimensional case, here the 21 
+
+Bessel function order ℓ + n−22 is an integer, so its asymptotic expansion takes a di ff erent form. More precisely, by the Langer method (see [40]), we have 
+
+ψ(a, μ k) = 2e− 23 iπ
+
+μk − q(a) − ℓ(ℓ + n − 2) + (n−1)( n−3) 4
+
+a2
+
+ 
+
+> −14
+
+·
+
+(
+
+cos z − 14π
+
+!
+
++ O 1
+
+z
+
+!) 
+
+, (A.4) where 
+
+z =
+
+Z Ta
+
+μk − q(t) − ℓ(ℓ + n − 2) + (n−1)( n−3) 4
+
+t2
+
+
+
+> 1/2
+
+dt := Fa(μk), (A.5) with the assumption that μk > q(a) + ℓ(ℓ+n−2) + (n−1)( n−3) 4 
+
+> a2
+
+and that T > a is the zero of the integrand. Moreover, 
+
+ψ′(a, μ k) = 2e− 23 iπ
+
+μk − q(a) − ℓ(ℓ + n − 2) + (n−1)( n−3) 4
+
+a2
+
+
+
+> 14
+
+·
+
+(
+
+sin z − 14π
+
+!
+
++ O 1
+
+z
+
+!) 
+
+. (A.6) For ϕ(a, μ k) and ϕ′(a, μ k), if q(r) = 0, (A.1) is a form of the Bessel equation of order ℓ + n−22 . Hence ϕ(r, μ k) satisfies the integral equation 
+
+ϕ(r, μ k) = r 12 Jℓ+ n−22 (r √μk) + 2
+
+π
+
+Z r
+
+> 0
+
+nJℓ+ n−22 (r √μk)Yℓ+ n−22 (t √μk)
+
+− Jℓ+ n−22 (t √μk)Yℓ+ n−22 (r √μk)or 12 t 12 q(t)ϕ(t, μ k) dt . (A.7) Subsequently, we first estimate the function ϕ(t, μ k) appearing in the integrand. Then, we estimate the integral in (A.7) by using the asymptotic expansion of Bessel functions [32, p.133, p.242] and the estimate of ϕ(t, μ k). The details are as follows. Let 
+
+ω(r, μ k) =
+
+
+
+rℓ+ n−12 μ  
+
+> ℓ+n−222
+> k
+
+, r ≤ μ− 12 
+
+> k
+
+,μ− 14 
+
+> k
+
+, r > μ − 12 
+
+> k
+
+.
+
+Then 
+
+|r 12 Jℓ+ n−22 (r √μk)| < Aω(r, μ k),
+
+where A denotes various positive constants. It follows that 
+
+|ϕ(r, μ k)| < Aω(r, μ k), (A.8) if μk is large enough. Indeed, let max 
+
+> 0≤r≤a
+
+|ϕ(r, μ k)|
+
+ω(r, μ k) = M.22 XINYI CHEN, SHANLIN HUANG 
+
+Then, if r ≤ μ− 12 
+
+> k
+
+, (A.7) gives 
+
+M < A + AM 
+
+Z r
+
+> 0
+
+rt
+
+ℓ+12
+
+r 12 t 12 ω(t, λ )
+
+ω(r, μ k) dt = A + AMr 2,
+
+while if r > μ − 12 
+
+> k
+
+,
+
+M < A + AM 
+
+Z μ− 12
+
+> k
+> 0
+
+t dt + AM μ− 12
+
+> k
+
+Z r 
+
+> μ−12
+> k
+
+dt < A + AM μ− 12 
+
+> k
+
+.
+
+Combining the above two estimates gives (A.8). Substituting (A.8) with r = t into the right-hand side of (A.7), we obtain 
+
+ϕ(r, μ k) = r 12 Jℓ+ n−22 (r √μk) + O(rℓ+2+ n−12 μ12 (ℓ+ n−22 ) 
+
+> k
+
+), r < μ − 12 
+
+> k
+
+, (A.9) and 
+
+ϕ(r, μ k) = r 12 Jℓ+ 12 (r √μk) + O(μ− 34 
+
+> k
+
+), r ≥ μ− 12 
+
+> k
+
+. (A.10) Now we are in the position to estimate the integral in (A.7) and then derive the representations for ϕ(r, μ k) and ϕ′(r, μ k). Substituting (A.9) and (A.10) with r = t
+
+into the right of (A.7), we obtain if μ− 12 
+
+> k
+
+≤ r ≤ a,
+
+ϕ(r, μ k) = r 12 Jℓ+ n−22 (r √μk) + 2
+
+πr 12 Jℓ+ n−22 (r √μk)
+
+Z r
+
+> 0
+
+Jℓ+ n−22 (t √μk)Yℓ+ n−22 (t √μk)tq (t) dt 
+
+− 2
+
+πr 12 Yℓ+ n−22 (r √μk)
+
+Z r
+
+> 0
+
+J2 
+
+> ℓ+n−22
+
+(t √μk)tq (t) dt + O(μ− 54 
+
+> k
+
+).
+
+(A.11) The case r < μ − 12 
+
+> k
+
+can be treated similarly and thus we omit the details. By the following asymptotic formulas [32, p.133, p.242] 
+
+Jℓ+ n−22 (x) = 2
+
+πx
+
+!12 "
+
+sin x − 12 ℓ + n − 32
+
+!
+
+π
+
+!
+
++ A1
+
+x cos x − 12 ℓ + n − 32
+
+!
+
+π
+
+!
+
++ O 1
+
+x2
+
+! # 
+
+,
+
+Yℓ+ n−22 (x) = (−1) 2
+
+πx
+
+!12 "
+
+cos x − 12 ℓ + n − 32
+
+!
+
+π
+
+!
+
++ O 1
+
+x
+
+!# 
+
+,
+
+where 
+
+A1 = 18(2 ℓ + n − 1)(2 ℓ + n − 3) ,23 
+
+a direct calculation yields that if r ≥ μ− 12 
+
+> k
+
+,
+
+Z r
+
+> 0
+
+J2 
+
+> ℓ+n−22
+
+(t √μk)tq (t) d t = 1
+
+πμ 12
+
+> k
+
+Z r
+
+> 0
+
+q(t) d t + O 1
+
+μk
+
+!
+
+.
+
+and Z r
+
+> 0
+
+Jℓ+ n−22 (t √μk)Yℓ+ n−22 (t √μk)tq (t) d t = O 1
+
+μk
+
+!
+
+.
+
+Substituting these results into (A.11) we obtain 
+
+ϕ(r, μ k) =r 12 Jℓ+ n−22 (r √μk) − r 12
+
+2 √μk
+
+Yℓ+ n−22 (r √μk)
+
+Z r
+
+> 0
+
+q(t) d t + O
+
+
+
+1
+
+μ54
+
+> k
+
+
+
+= 212
+
+π12 μ14
+
+> k
+
+(
+
+sin r √μk − 12(ℓ + n − 32 )π
+
+!
+
+− h(r)
+
+√μk
+
+cos r √μk − 12(ℓ + n − 32 )π
+
+!
+
++ O 1
+
+μk
+
+!) 
+
+, (A.12) where 
+
+h(r) = 12
+
+Z r
+
+> 0
+
+q(t) d t − A1
+
+r .
+
+For ϕ′(r, μ k), we di ff erentiate (A.7) with respect to r and then, following the same process as (A.7)-(A.12). This gives 
+
+ϕ′(r, μ k) = 212 μ14
+
+> k
+
+π12
+
+(
+
+cos r √μk − 12(ℓ + n − 32 )π
+
+!
+
++ h(r)
+
+√μk
+
+sin r √μk − 12(ℓ + n − 32 )π
+
+!
+
++ O 1
+
+μk
+
+!) 
+
+. (A.13) Substituting (A.4), (A.6), (A.12) and (A.13) into (A.3), it follows that cos z + a √μk − 12(ℓ + n − 32 )π − 14π
+
+!
+
++ h(a)
+
+√μk
+
+sin z + a √μk − 12(ℓ + n − 32 )π − 14π
+
+!
+
+= O 1
+
+μk
+
+!
+
++ O 1
+
+z
+
+!
+
+. (A.14) Here z + a √μk is a steadily increasing function of μk, hence, as this quantity ranges over any interval of the form 
+
+ 12 (ℓ + n − 32 ) + k + 14
+
+π,  12 (ℓ + n − 32 ) + k + 54
+
+π
+
+!
+
+, k su ffi ciently large ,
+
+the left-hand side of (A.14) changes sign. Therefore, each such interval contains at least one root and we define this root by setting 
+
+z + a √μk = 12 (ℓ + n − 32 ) + k + 34
+
+!
+
+π + δ, (A.15) 24 XINYI CHEN, SHANLIN HUANG 
+
+this, together with (A.14), implies sin δ − h(a)
+
+√μk
+
+cos δ = O(μ−1 
+
+> k
+
+) + O(z−1),
+
+furthermore, we deduce that 
+
+δ = h(a)
+
+√μk
+
++ O(μ−1 
+
+> k
+
+) + O(z−1). (A.16) It follows from (A.5), (A.15) and (A.16) that 
+
+Fa(μk) + a √μk = 12 (ℓ + n − 32 ) + k + 34
+
+!
+
+π + h(a)
+
+√μk
+
++ O(μ−1 
+
+> k
+
+) + O(z−1). (A.17) Following the same arguments in [37] and [39, pp. 160-163], a direct calculation yields 
+
+z > AR μ12 
+
+> k
+
+,
+
+and 
+
+Fa(μk) =
+
+Z R
+
+> 0
+
+{μk − q(r)}12 dr − a √μk + h(a)
+
+√μk
+
++ δk,
+
+inserting these estimates into (A.17) yields (A.2). The proof of Proposition A.1 is complete. □
+
+Acknowledgements 
+
+S. Huang was supported by the National Natural Science Foundation of China (12171178) and the Guangdong Basic and Applied Basic Research Foundation (2026B1515020075). References 
+
+[1] P. Alphonse, A. Seelmann. Quantitative spectral inequalities for the anisotropic Shu-bin operators and applications to null-controllability. C. R. Math. Acad. Sci. Paris , 362 (2024), 1635–1659. 5 [2] K. Beauchard, P. Jaming, K. Pravda-Starov. Spectral estimates for finite combinations of Hermite functions and null-controllability of hypoelliptic quadratic equations. Studia Math. , 260 (1) (2021), 1-43. 5 [3] F. A. Berezin, M. A. Shubin. The Schr¨ odinger equation. Mathematics and its Applications (Soviet Series), 66, Kluwer Acad. Publ., Dordrecht, 1991. 15 [4] P. Boggiatto, E. Buzano, L. Rodino. Global hypoellipticity and spectral theory, Mathe-matical Research, vol. 92, Akademie Verlag, 1996. 19 [5] P. B. Borwein, T. Erd´ elyi. Polynomials and polynomial inequalities. Graduate Texts in Mathematics, 161, Springer, New York, 1995. 2 [6] P. B. Borwein, T. Erd´ elyi. M¨ untz spaces and Remez inequalities. Bull. Amer. Math. Soc. (N.S.) , 32 (1) (1995), 38–42. 2 [7] Y. Brudnyi, M. I. Ganzburg. A certain extremal problem for polynomials in n variables. 
+
+Izv. Akad. Nauk SSSR Ser. Mat. , 37 (1973), 344–355. 2 25 
+
+[8] N. Burq, I. Moyano. Propagation of smallness and control for heat equations. J. Eur. Math. Soc. (JEMS) , 25 (4) (2023), 1349–1377. 3, 4, 5, 15 [9] L. A. E. Carleson. Selected problems on exceptional sets. Van Nostrand Mathematical Studies, No. 13, D. Van Nostrand Co., Inc., Princeton, N.J.-Toronto, Ont.-London, 1967. 9[10] A. Dicke, A. Seelmann, I. Veseli´ c. Uncertainty principle for Hermite functions and null-controllability with sensor sets of decaying density. J. Fourier Anal. Appl. , 29 (1) (2023) 11–19. 5 [11] A. Dicke, I. Veseli´ c. Spherical Logvinenko-Sereda-Kovrijkine type inequality and null-controllability of the heat equation on the sphere. Arch. Math. (Basel) , 123 (5) (2024), 543-556. 2 [12] T. Duyckaerts, L. Miller. Resolvent conditions for the control of parabolic equations. J. Funct. Anal. , 263 (11) (2012), 3641–3673. 5, 15, 16 [13] M. Egidi, I. Veseli´ c. Sharp geometric condition for null-controllability of the heat equa-tion on Rd and consistent estimates on the control cost. Arch. Math. (Basel) , 111 (1) (2018), 85–99. 2 [14] K. J. Falconer. Fractal geometry, third edition, Wiley, Chichester, 2014. 5 [15] O. Friedland, Y. Yomdin. ( s, p)-valent functions. In Geometric aspects of functional anal-ysis , volume 2169 of Lecture Notes in Math. , pages 123–136. Springer, Cham, 2017. 2 [16] X. Fu, Q. L¨ u, X. Zhang. Carleman estimates for second order partial di ff erential operators and applications. Springer, A unified approach. SpringerBriefs Math. Cham (2019). 2 [17] A. V. Fursikov, O. Yu. Imanuvilov. Controllability of evolution equations, volume 34 of Lect. Notes Ser., Seoul. Seoul: Seoul National Univ., (1996). 2 [18] M. I. Ganzburg. Polynomial inequalities on measurable sets and their applications. Con-str. Approx. , 17 (2) (2001), 275–306. 2 [19] A. W. Green, K. Le Balc’h, J. Martin, M.-A. Orsoni. On the dimension of observable sets for the heat equation. Pure Appl. Anal. , 7 (3) (2025), 639–660. 3 [20] S. Huang, G. Wang, M. Ming. Observability inequality, log-type Hausdor ff content and heat equations. Comm. Math. Phys. , 407 (2) (2026), Paper No. 33, 60 pp. 2, 3, 5, 9, 17 [21] S. Kametani. On Hausdor ff ’s measures and generalized capacities with some of their applications to the theory of functions. Jpn. J. Math. , 19 (1945), 217–257. 9 [22] A. Kro´ o, D. Schmidt. Some extremal problems for multivariate polynomials on convex bodies. J. Approx. Theory , 90 (3) (1997), 415–434. 2 [23] G. Lebeau, L. Robbiano. Contrˆ ole exact de l’´ equation de la chaleur. Commun. Partial Di ff er. Equ. , 20 (1–2) (1995), 335–356. 2, 4 [24] A. Logunov, E. Malinnikova. Quantitative propagation of smallness for solutions of el-liptic equations, pp. 2391–2411 in Proceedings of the International Congress of Mathe-maticians (Rio de Janeiro, 2018), edited by B. Sirakov et al., World Sci., 2018. 5 [25] E. Malinnikova. Propagation of smallness for solutions of generalized Cauchy-Riemann systems. Proc. Edinb. Math. Soc. , 47 (2) (2004), 191–204. 5 [26] J. Martin. Spectral inequalities for anisotropic Shubin operators. arxiv:2205.11868. 2022. 5, 16 [27] J. Martin, K. Pravda-Starov. Spectral inequalities for combinations of Hermite functions and null-controllability for evolution equations enjoying Gelfand– Shilov smoothing ef-fects. J. Inst. Math. Jussieu , 22 (6) (2023), 2533–2582. 5 [28] P. Mattila. Geometry of sets and measures in Euclidean spaces, Cambridge Studies in Advanced Mathematics, 44, Cambridge Univ. Press, Cambridge. 5, 7, 8, 13 [29] L. Miller. Unique continuation estimates for sums of semiclassical eigenfunctions and null-controllability from cones. Preprint (2008) http: // hal.archives-ouvertes.fr /hal-00411840. 5 26 XINYI CHEN, SHANLIN HUANG 
+
+[30] J. Marzo, J. Ortega-Cerd` a. Equivalent norms for polynomials on the sphere. Int. Math. Res. Not. IMRN , 2008(5) Art. ID rnm 154, 18 pp. 4 [31] F. L. Nazarov. Local estimates for exponential polynomials and their applications to in-equalities of the uncertainty principle type. Algebra i Analiz , 5 (4) (1993), 3–66; transla-tion in St. Petersburg Math. J. , 5 (4) (1994), 663–717. [32] F. W. J. Olver. Asymptotics and special functions. reprint of the 1974 original [Academic Press, New York], AKP Classics, A K Peters, Wellesley, MA, 1997. 21, 22 [33] J. Ortega-Cerd` a, B. Pridhnani. Carleson measures and Logvinenko–Sereda sets on com-pact manifolds. Forum Math. 25 (2013), 151 – 172. 4 [34] K.D. Phung, G. Wang. An observability estimate for parabolic equations from a measur-able set in time and its applications. J. Eur. Math. Soc. (JEMS) , 15 (2) (2013), 681–703. 2[35] M. C. Reed, B. Simon. Methods of modern mathematical physics. IV. Analysis of opera-tors. Academic Press, New York-London, 1978. 15, 19 [36] E. J. Remez. Sur une propri´ et´ e des polynˆ omes de Tchebysche ff . Comm. Inst. Sci. Kharkow , 13 (1936), 93–95. 2 [37] E. C. Titchmarsh. On the eigenvalues in problems with spherical symmetry. Proc. Roy. Soc. London Ser. A , 245 (1958), 147–155. 16, 20, 24 [38] E. C. Titchmarsh. On the eigenvalues in problems with spherical symmetry, III. Proc. Roy. Soc. London Ser. A , 252 (1959), 436–444. 19 [39] E. C. Titchmarsh. Eigenfunction expansions associated with second-order di ff erential equations. Part I, second Edition, Clarendon Press, Oxford, 1962. 20, 24 [40] E. C. Titchmarsh. On the asymptotic distribution of eigenvalues. Quart. J. Math. Oxford Ser. , 2 (5) (1954), 228–240. 21 [41] G. Wang, M. Wang, C. Zhang, Y. Zhang. Observable set, observability, interpolation inequality and spectral inequality for the heat equation in Rn. J. Math. Pures Appl. , 126 (9) (2019), 144–194. 2 [42] G. Wang. Geometric characteristics of observable regions, pp. 249–266 in Proceedings of the International Congress of Mathematicians (Philadelphia, 2026), edited by S. Fried-lander and Y. Tschinkel, 2026. 2 [43] J. Yu, S. Huang. Fractal Turan-Nazarov inequality and observability for Schr¨ odinger equations. Preprint, arXiv:2607.17505. 5, 13 Xinyi Chen , S chool of Mathematics (Z huhai ), S un Yat -sen University , Z huhai 519082, G uang -
+
+dong , C hina 
+
+Email address : chenxy2288@mail2.sysu.edu.cn 
+
+Shanlin Huang (corresponding author ), S chool of Mathematics (Z huhai ), S un Yat -sen Uni -
+
+versity , Z huhai 519082, G uangdong , C hina 
+
+Email address : huangshlin6@mail.sysu.edu.cn

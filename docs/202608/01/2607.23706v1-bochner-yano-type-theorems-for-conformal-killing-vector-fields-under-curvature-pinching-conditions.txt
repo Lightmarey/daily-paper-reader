@@ -1,0 +1,3770 @@
+Title: Bochner-Yano Type Theorems for Conformal Killing Vector Fields under Curvature Pinching Conditions
+
+URL Source: https://arxiv.org/pdf/2607.23706v1
+
+Published Time: Tue, 28 Jul 2026 01:10:45 GMT
+
+Number of Pages: 32
+
+Markdown Content:
+# Bochner–Yano Type Theorems for Conformal Killing Vector Fields under Curvature Pinching Conditions 
+
+## Teng Huang, Qiang Tan and Weiwei Wang 
+
+Abstract 
+
+In this article, we investigate conformal Killing vector fields on closed Riemannian manifolds un-der a curvature pinching condition. By establishing a new Bochner-type identity for the 1-form dual to a conformal Killing vector field, we derive a sharp gradient estimate via a Moser iteration procedure. Based on this estimate, we prove that, under a suitable upper bound on the Ricci curvature, every non-trivial conformal Killing vector field must be nowhere vanishing. Consequently, on even-dimensional manifolds with non-zero Euler characteristic, every conformal Killing vector field vanishes identically, which in turn implies that the conformal transformation group of such a manifold is finite. Our results extend the classical rigidity theorems of Yano and Bochner from the setting of non-positive Ricci cur-vature to that of small positive Ricci curvature, and generalize the recent results of Chen and Han from Killing vector fields to conformal Killing vector fields. 
+
+Keywords. Conformal Killing vector field, Bochner technique, Moser iteration, Gradient estimate, Ricci curvature. 
+
+# 1 Introduction 
+
+Let (M, g ) be a connected, closed n-dimensional smooth Riemannian manifold. A smooth vector field X
+
+is called a conformal Killing vector field if the Lie derivative of the metric g with respect to X satisfies 
+
+LX g = hg 
+
+for some smooth function h ∈ C∞(M). Taking the trace on both sides, it follows that 
+
+h = 2
+
+n div X. 
+
+Teng Huang: School of Mathematical Sciences, CAS Key Laboratory of Wu Wen-Tsun Mathematics, University of Science and Technology of China, Hefei, Anhui, 230026, People’s Republic of China; e-mail: htmath@ustc.edu.cn; htustc@gmail.com Qiang Tan: School of Mathematical Sciences, Jiangsu University, Zhenjiang, Jiangsu, 212013, People’s Republic of China; e-mail: tanqiang@ujs.edu.cn Weiwei Wang: School of Mathematical Sciences, University of Electronic Science and Technology of China, Chengdu, Sichuan, 611731, People’s Republic of China; e-mail: wawnwg123@163.com; wangweiwei123@uestc.edu.cn 
+
+Mathematics Subject Classification (2020): 53C20;53C21;53C24;58A10 
+
+1arXiv:2607.23706v1 [math.DG] 26 Jul 2026 2
+
+Teng Huang, Qiang Tan and Weiwei Wang 
+
+In the special case h = 0 , X is a Killing vector field . The conformal Killing vector field and the induced conformal Killing operator, which were already studied in the context of Stein–Weiss operators [6, 27], play a fundamental role in the analysis of the Einstein–Lichnerowicz constraint system in general relativity (see [24, 14]). A classical theorem of Yano [29] states that if the Ricci curvature is non-positive ( Ric ≤ 0), then every conformal Killing vector field is parallel. Furthermore, when Ric < 0, every conformal Killing vector field on M is identically zero. Yano’s result extends the earlier work of Bochner [4], who proved the corresponding rigidity for Killing vector fields under the same curvature assumptions. Thus, Yano’s theorem can be viewed as a natural generalization of Bochner’s theorem to the conformal setting. The main purpose of this article is to generalize these classical rigidity results by allowing the Ricci curvature to be bounded above by a small, explicitly determined positive constant. More precisely, we prove the following theorem. 
+
+Theorem 1.1. Let (M, g ) be a connected, closed smooth Riemannian manifold of dimension n ≥ 2. Let 
+
+κ, K, D, p be positive constants with p > n/ 2. Define λ := λ(n, p, κ, K, D ) by 
+
+√λD 2 = min 
+
+( ˜C(n, p )
+
+1 + √KD e−(n−1) √κD 2
+
+) 2pn 
+
+> 2p−n
+
+, e −(n−1) √κD 2
+
+ ,
+
+where ˜C(n, p ) is a constant depending only on n and p.Suppose that 
+
+−(n − 1) κ ≤ Ric ≤ λ, ‖R‖2p ≤ K, diam( M) ≤ D. 
+
+Then every conformal Killing vector field on M is either identically zero or nowhere vanishing. 
+
+Since Yano’s work [29], rigidity theorems of this type for conformal Killing vector fields have been ex-tensively studied under different curvature conditions. Tanno and Weber [28] established that a connected compact Riemannian manifold with positive constant scalar curvature is globally isometric to a sphere if the Euler characteristic χ(M) 6 = 0 and admits a closed conformal Killing vector field. Ejiri [10] proved that for any n > 2, there exists a closed Riemannian n-manifold of constant scalar curvature admitting a nowhere vanishing conformal Killing vector field. Gursky [15] showed that a 4-manifold with negative Yamabe invariant admits no nontrivial conformal Killing vector field, provided an integral condition on the Weyl curvature is satisfied. We refer the reader to [9, 26, 30] and the references therein for a more comprehensive overview of related results. In odd dimensions, we always have the Euler characteristic χ(M) = 0 , so nowhere vanishing confor-mal Killing vector fields are topologically possible. However, in even dimensions, χ(M) 6 = 0 is permitted. By the Poincar´ e–Hopf theorem, if χ(M) 6 = 0 , then every vector field on M must have at least one zero. Consequently, Theorem 1.1 immediately yields the following result: 
+
+Theorem 1.2. Let (M, g ) be a connected, closed 2n-dimensional smooth Riemannian manifold with non-vanishing Euler characteristic. Under the conditions of Theorem 1.1, every conformal Killing vector field on M is identically zero. Bochner–Yano Type Theorems for Conformal Killing Vector Fields 3For a closed Riemannian manifold (M, g ) with dimension n ≥ 2, let Con( M, g ) and Iso( M, g ) denote the group of conformal transformations and the group of isometries, respectively. Both are finite dimen-sional Lie groups, and Iso( M, g ) is a closed subgroup of Con( M, g ). The Lie algebra of Con( M, g ) is spanned by conformal Killing vector fields, while the Lie algebra of Iso( M, g ) is spanned by Killing vec-tor fields. The relationship between Con( M, g ) and Iso( M, g ) has been extensively studied in [12, 13, 21]. In the language of conformal transformation groups, Theorem 1.2 can be restated as follows. 
+
+Corollary 1.3. Let (M, g ) be a connected, closed 2n-dimensional smooth Riemannian manifold with nonvanishing Euler characteristic. Under the conditions of Theorem 1.1, the conformal transformation group Con( M, g ) is finite. 
+
+Results of this type for the isometry group Iso( M, g ) are obtained in [8]. Corollary 1.3 extends them to the conformal transformation group Con( M, g ).To analyze the group action of Con( M, g ), we recall that a smooth action of a Lie group G on a manifold M is said to be locally free if the stabilizer subgroup 
+
+Gp = {x ∈ G | x · p = p}
+
+is discrete for every point p ∈ M. Since M is closed, Con (M, g ) is a finite dimensional Lie group acting smoothly on M. Examining its stabilizer subgroups Con p, we obtain the following consequence. 
+
+Corollary 1.4. Let (M, g ) be a connected, closed smooth Riemannian manifold of dimension n ≥ 2.Under the conditions of Theorem 1.1, the action of conformal transformation group Con( M, g ) on M is locally free. 
+
+In the special case h = 0 , the vector field X reduces to a Killing vector field. We now revisit this case. Bott proved in [5] that the existence of a non vanishing Killing vector field implies that all Pontryagin numbers of M vanish. For further rigidity theorems for Killing vector fields under different curvature conditions, see [11, 18, 19] and the references therein. Combining Bott’s result with Theorem 1.1 yields the following corollary. 
+
+Corollary 1.5. Let (M, g ) be a connected, closed n-dimensional smooth Riemannian manifold. Suppose that M satisfies one of the following topological conditions: (1) n ≡ 0 (mod 2) , and the Euler characteristic χ(M) 6 = 0 ;(2) n ≡ 0 (mod 4) , and at least one Pontryagin number is non-zero. Then, under the conditions of Theorem 1.1, the isometry group of the Riemannian metric g on M is finite. 
+
+Remark 1.6. In [8], Chen and Han proved that if (M, g ) is a closed Riemannian manifold satisfying one of the following topological assumptions: (1) the Euler characteristic χ(M) 6 = 0 ;(2) the signature σ(M) 6 = 0 ;(3) or, in the spin case, the elliptic genus is nonzero, 4
+
+Teng Huang, Qiang Tan and Weiwei Wang 
+
+and if the Ricci curvature satisfies a “small” positive upper bound of the form 
+
+−λ1 ≤ Ric( g) ≤ ε, diam( g) ≤ 1,
+
+with an additional integral curvature bound ‖R‖p ≤ λ2 in the non-K¨ ahler settings (see [8, Theorems 1.1–1.3] for details), then the isometry group Iso( M, g ) is finite. Their proof relies on the Atiyah–Singer index theorem and the rigidity of certain Dirac operators, showing that no nontrivial Killing vector field can exist under these assumptions. Furthermore, in the case n ≡ 0 (mod 4) , Corollary 1.5 improves their Theorem 1.2: the latter requires the signature σ(M) 6 = 0 , while our result only requires that at least one Pontryagin number be non-zero. Our main results, Theorems 1.1 and 1.2, extend those of Bochner [4] and Yano [29] in two directions: generalizing Killing vector fields to conformal Killing vector fields (i.e. from the isometry group Iso( M, g )
+
+to the conformal transformation group Con( M, g )); and relaxing the curvature assumption from negative Ricci curvature to Ricci curvature with small positive upper bounds. Specifically, under these curvature assumptions, the non-vanishing of the Euler characteristic forces every conformal Killing vector field to vanish identically, which implies the finiteness of Con( M, g ).Similar extension results, such as [8, 19], are restricted to Killing vector fields and do not consider the conformal setting. In Chen and Han’s approach [8], their proof relies on the index theorem or Dirac operators; instead, we use a purely analytic method here. Moreover, the upper bound on the Ricci curvature in our results is explicitly given (see Theorem 1.1), whereas their corresponding bound is obtained via an existence argument. Our analytic method goes back to Le Couturier and Robert [19], but their Harnack inequality cannot be directly applied to conformal Killing vector fields. We extend their approach by using a new Bochner technique and a modified Moser iteration procedure to establish a Harnack inequality suitable for the conformal setting. 
+
+Outline of the proof . In what follows, our main purpose is to prove Theorem 1.1. Throughout, the di-mension of the manifold is assumed to be at least 2. We outline our proof strategy in two parts: First, following the strategy developed in [19, 23], we apply a Bochner technique to compute ∆|∇ θ|2
+
+for the dual 1-form θ, in contrast to the approach which computes ∆d|θ|2. The resulting Bochner identity for θ is given in Lemma 2.5, whose proof relies on the preliminaries established in Section 2.1. Second, in Proposition 3.4, we modify the Moser iteration procedure from Aubry [1, Proposition 4.2] (see also [2, 17]) to establish an L∞ bound for ∇θ. The main difference from Aubry’s argument lies in the derivation of the integral inequality in Lemma 3.2. This L∞ bound for ∇θ yields the Harnack inequality stated in Theorem 3.6. Based on this, we prove Theorem 1.1 and all other results in Section 4. 
+
+Notations 
+
+Throughout this article, 〈· , ·〉 stands for the inner product induced by the Riemannian metric g. Let X(M)
+
+be the set of all smooth vector fields on M. We denote by R the curvature tensors of M, and by Ric the Ricci curvature of M. The symbol Ric − denotes the lowest eigenvalue of the Ricci curvature Ric , i.e., for each p ∈ M,
+
+Ric −(p) := min  
+
+> v∈TpM, |v|=1
+
+Ric( v, v ),Bochner–Yano Type Theorems for Conformal Killing Vector Fields 5and we set 
+
+Ric − := max {− Ric −, 0}.
+
+The normalized Lp-norms are defined by 
+
+‖f ‖p =
+
+( 1
+
+Vol( g)
+
+∫
+
+> M
+
+|f |p
+
+) 1
+
+> p
+
+.
+
+and for a 1-form θ, ‖θ‖p = ‖| θ|‖ p. We also let H1(M) be the Sobolev space of functions on M with square integrable weak derivatives. 
+
+# 2 Analytic Preliminaries for Conformal Killing Vector Fields 
+
+## 2.1 Fundamental Identities for the Dual 1-Form 
+
+Let (M, g ) be a closed n-dimensional smooth Riemannian manifold. A smooth vector field X is called a conformal Killing vector field if its Lie derivative satisfies 
+
+LX g = hg 
+
+for some smooth function h ∈ C∞(M). Contracting both sides with gij , and using the identity tr g(LX g) = 2 div X, we obtain 
+
+h = 2
+
+n div X. 
+
+Denote by θ = X♭ the dual 1-form of the conformal Killing vector field X. In this section, our goal is to derive several fundamental identities involving θ, which will serve as the analytic basis for the subsequent Bochner-type estimates. We begin with the Bochner-Weitzenb¨ ock formula for the rough Laplacian acting on θ. It is well known (cf. [25, Section 2]) that for the dual form of a conformal Killing vector field, the following identity holds: 
+
+∇∗∇θ = Ric( θ) + n − 2
+
+2 dh 
+
+= Ric( θ) + n − 2
+
+n d(div X)= Ric( θ) − n − 2
+
+n dδθ. (2.1) Recall also the classical Bochner formula for the Hodge Laplacian ∆d = dδ + δd :
+
+∆dθ = ∇∗∇θ + Ric( θ).
+
+Substituting (2.1) into the Bochner formula, we obtain 
+
+dδθ + δdθ = 2Ric( θ) − n − 2
+
+n dδθ. 6
+
+Teng Huang, Qiang Tan and Weiwei Wang 
+
+After rearranging terms, this gives the following useful relation: 
+
+2n − 2
+
+n dδθ + δdθ = 2Ric( θ). (2.2) These identities allow us to derive a global integral estimate for θ.
+
+Lemma 2.1. Let (M, g ) be a closed n-dimensional smooth Riemannian manifold, and let θ be the 1-form dual to a conformal Killing vector field. Then the following integral inequality holds: 
+
+∫
+
+> M
+
+|∇ θ|2 ≤
+
+∫
+
+> M
+
+〈Ric( θ), θ 〉 .
+
+Proof. Taking the inner product of (2.1) with θ and integrating over M, we get 
+
+∫
+
+> M
+
+|∇ θ|2 =
+
+∫
+
+> M
+
+〈Ric( θ), θ 〉 − n − 2
+
+n
+
+∫
+
+> M
+
+|δθ |2.
+
+When n ≥ 2, the second term on the right-hand side is non-positive (and vanishes identically when 
+
+n = 2 ), which proves the desired inequality. 
+
+Next, we recall a pointwise structural identity for ∇θ, which can be found in Semmelmann [25]. 
+
+Lemma 2.2 ([25]) . Let (M, g ) be a closed n-dimensional smooth Riemannian manifold, and let θ be the 
+
+1-form dual to a conformal Killing vector field X. Then, for any vector field Y ∈ X(M), the following pointwise equalities hold: 
+
+∇Y θ = 1
+
+2 ιY dθ − 1
+
+n δθ · ωY , (2.3) 
+
+and consequently, 
+
+|∇ θ|2 = 1
+
+2 |dθ |2 + 1
+
+n (δθ )2,
+
+where ωY = Y ♭ denotes the dual 1-form of Y .Proof. For arbitrary vector fields Y, Z ∈ X(M), the exterior derivative and the Lie derivative satisfy the pointwise relations 
+
+dθ (Y, Z ) = 〈∇ Y X, Z 〉 − 〈∇ Z X, Y 〉,
+
+LX g(Y, Z ) = 〈∇ Y X, Z 〉 + 〈∇ Z X, Y 〉.
+
+Adding these two identities gives 
+
+dθ (Y, Z ) + LX g(Y, Z ) = 2 〈∇ Y X, Z 〉.
+
+Since LX g = hg and h = 2 
+
+> n
+
+div X = − 2 
+
+> n
+
+δθ , it follows that 
+
+(∇Y θ)( Z) = 〈∇ Y X, Z 〉
+
+= 1
+
+2 dθ (Y, Z ) + 1
+
+2 LX g(Y, Z )= 1
+
+2 ιY dθ (Z) − 1
+
+n δθ · 〈 Y, Z 〉,Bochner–Yano Type Theorems for Conformal Killing Vector Fields 7which is exactly (2.3). To obtain the second identity, we choose a local orthonormal frame {ei}ni=1 . Then, using (2.3), we compute 
+
+|∇ θ|2 =
+
+> n
+
+∑
+
+> i=1
+
+〈∇ ei θ, ∇ei θ〉 =
+
+> n
+
+∑
+
+> i,j =1
+
+| (∇ei θ) ( ej )|2
+
+=
+
+> n
+
+∑
+
+> i,j =1
+
+[1
+
+2 dθ (ei, e j ) − 1
+
+nδθ · 〈 ei, e j 〉
+
+]2
+
+=
+
+> n
+
+∑ 
+
+> i,j =1
+> i6=j
+
+(1
+
+2 dθ (ei, e j )
+
+)2
+
++
+
+> n
+
+∑
+
+> i=1
+
+( 1
+
+nδθ · 〈 ei, e i〉
+
+)2
+
+= 1
+
+2 |dθ |2 + 1
+
+n(δθ )2,
+
+where the last equality uses dθ (ei, e i) = 0 and 
+
+|dθ |2 = ∑
+
+> 1≤i<j ≤n
+
+(dθ (ei, e j )) 2 =
+
+> n
+
+∑
+
+> i,j =1
+
+1
+
+2 (dθ (ei, e j )) 2 .
+
+As a consequence of Lemma 2.2, we obtain the following inner product identity involving the Hessian of δθ .
+
+Lemma 2.3. Let (M, g ) be a closed n-dimensional smooth Riemannian manifold, and let θ be the 1-form dual to a conformal Killing vector field. The following pointwise identity holds: 
+
+〈Hess δθ, ∇θ〉 = 1
+
+nδθ · ∆dδθ. 
+
+Proof. Fix a point p ∈ M and choose a local orthonormal frame {ei}ni=1 in a neighborhood of p such that 
+
+∇ei ej |p = 0 for all 1 ≤ i, j ≤ n. At p, Lemma 2.2 gives 
+
+〈Hess δθ, ∇θ〉 =
+
+> n
+
+∑
+
+> i,j =1
+
+Hess δθ (ei, e j ) · (∇ei θ) ( ej )=
+
+> n
+
+∑
+
+> i,j =1
+
+Hess δθ (ei, e j ) ·
+
+[ 1
+
+2dθ (ei, e j ) − 1
+
+n〈ei, e j 〉 · δθ 
+
+]
+
+= − 1
+
+n
+
+> n
+
+∑
+
+> i=1
+
+Hess δθ (ei, e i) · δθ 
+
+= 1
+
+nδθ · ∆dδθ, 
+
+where the second last equality follows from the fact that Hess δθ is symmetric while dθ is skew-symmetric. 8
+
+Teng Huang, Qiang Tan and Weiwei Wang 
+
+Finally, we derive a differential inequality for |θ|, which will be essential for the Moser iteration in later sections. 
+
+Lemma 2.4. Let (M, g ) be a closed n-dimensional smooth Riemannian manifold, and let θ be the 1-form dual to a conformal Killing vector field. Then the following pointwise inequality holds: 
+
+|θ| · ∆d|θ| ≤ 
+
+〈
+
+Ric( θ) − n − 2
+
+n dδθ, θ 
+
+〉
+
+.
+
+Proof. We first recall the identity 
+
+1
+
+2 ∆d|θ|2 = −|∇ θ|2 + 〈∇ ∗∇θ, θ 〉.
+
+On the other hand, the Hodge Laplacian acting on the function |θ|2 yields: 
+
+1
+
+2 ∆d|θ|2 = |θ| · ∆d|θ| − |∇| θ|| 2 .
+
+Combining these two relations, using the Kato inequality |∇| θ|| ≤ |∇ θ| and (2.1), we obtain 
+
+|θ| · ∆d|θ| = |∇| θ|| 2 − |∇ θ|2 + 〈∇ ∗∇θ, θ 〉≤〈∇ ∗∇θ, θ 〉
+
+=
+
+〈
+
+Ric( θ) − n − 2
+
+n dδθ, θ 
+
+〉
+
+.
+
+## 2.2 A Higher-Order Bochner Identity 
+
+In this subsection, we develop a refined Bochner-type identity for the 1-form θ dual to a conformal Killing vector field. More precisely, instead of applying the classical Bochner formula to |θ|2, we apply it to |∇ θ|2,which yields a higher-order estimate essential for the Moser iteration in Section 3. To this end, we shall work in the framework of T ∗M-valued differential forms. Let Λp(T ∗M) ⊗ T ∗M denote the bundle of T ∗M-valued p-forms. Its sections are smooth tensor fields that take values in the cotangent bundle. We refer to [23, Section 2] for a comprehensive treatment in the more general setting of forms valued in an arbitrary vector bundle; here we recall only the necessary definitions. Let ∇ be the connection on Λp(T ∗M) ⊗ T ∗M induced by the Levi-Civita connection of (M, g ). For any section T of this bundle, the second covariant derivative is defined by 
+
+∇2 
+
+> X,Y
+
+T = ∇X ∇Y T − ∇ ∇X Y T, X, Y ∈ X(M).
+
+Choosing a local orthonormal frame {ei}ni=1 , the rough Laplacian (or connection Laplacian) ∆ = ∇∗∇ is given by 
+
+∇∗∇T = −
+
+> n
+
+∑
+
+> i=1
+
+∇2 
+
+> ei,e i
+
+T. Bochner–Yano Type Theorems for Conformal Killing Vector Fields 9The curvature operator R(X, Y ) acting on T ∗M-valued p-forms is defined as the commutator of second covariant derivatives: 
+
+R(X, Y )T = ∇2 
+
+> X,Y
+
+T − ∇ 2 
+
+> Y,X
+
+T. 
+
+We also recall the exterior covariant derivative d∇, which maps T ∗M-valued p-forms to T ∗M-valued 
+
+(p + 1) -forms. For X0, . . . , X p ∈ X(M), it is defined by 
+
+(d∇T ) ( X0, . . . , X p) = 
+
+> p
+
+∑
+
+> i=0
+
+(−1) i (∇Xi T )
+
+(
+
+X0, . . . , ˆXi, . . . , X p
+
+)
+
+. (2.4) The codifferential δ∇ is the formal L2-adjoint of d∇, acting on a T ∗M-valued (p + 1) -form S by negative contraction (cf. [23, Page 76]): 
+
+(δ∇S)( X1, . . . , X p) = −
+
+> n
+
+∑
+
+> i=1
+
+(∇ei S)( ei, X 1, . . . , X p). (2.5) For the case p = 1 , i.e., for T ∗M-valued 1-forms, the generalized Bochner-Weitzenb¨ ock formula (cf. [23, (2.8)]) states that (d∇δ∇ + δ∇d∇) T = ∇∗∇T + Ric( T ),
+
+where Ric( T ) is a T ∗M-valued 1-form. In a local orthonormal frame {ei}ni=1 , it is given explicitly by 
+
+Ric( T )( Y ) = 
+
+> n
+
+∑
+
+> i=1
+
+(R(ei, Y )T ) ( ei) = 
+
+> n
+
+∑
+
+> i=1
+
+[R(ei, Y ) ( T (ei)) − T (R(ei, Y )ei)] (2.6) for any Y ∈ X(M).We now apply this machinery to the T ∗M-valued 1-form ∇θ, where θ is the 1-form dual to a conformal Killing vector field. Following the computation in [23, Page 81], we derive the pointwise identity below for ∆d(|∇ θ|2).
+
+Lemma 2.5. Let (M, g ) be a closed n-dimensional smooth Riemannian manifold, and let θ be the 1-form dual to a conformal Killing vector field. Then the following pointwise identity holds: 
+
+1
+
+2 ∆d(|∇ θ|2) + ∣∣∇2θ∣∣2 = 〈∇ Ric( θ), ∇θ〉 − n − 2
+
+n(n − 1) δθ · δ [Ric( θ)] + 〈∇ ∗ [R(·, ·)θ] , ∇θ〉 − 〈 Ric( ∇θ), ∇θ〉 , (2.7) 
+
+where the local coordinate expressions for ∇∗[R(·, ·)θ] and 〈Ric( ∇θ), ∇θ〉 are given in (2.11) and (2.12) ,respectively. Proof. We begin with the standard pointwise identity 
+
+1
+
+2 ∆d(|∇ θ|2) = 〈∇ ∗∇∇ θ, ∇θ〉 − ∣∣∇2θ∣∣2 ,10 
+
+Teng Huang, Qiang Tan and Weiwei Wang 
+
+Thus, it suffices to compute the term 〈∇ ∗∇∇ θ, ∇θ〉. To this end, we view ∇θ as a T ∗M-values 1-form. The generalized Bochner-Weitzenb¨ ock formula gives 
+
+〈∇ ∗∇∇ θ, ∇θ〉 = 〈d∇δ∇∇θ, ∇θ〉 + 〈δ∇d∇∇θ, ∇θ〉 − 〈 Ric( ∇θ), ∇θ〉. (2.8) We now evaluate the two terms on the right-hand side separately. 
+
+First term 〈d∇δ∇∇θ, ∇θ〉. When the operator d∇ acts, the 1-forms Ric( θ) and dδθ are viewed as T ∗M-valued 0-forms. Recalling the definition of d∇ in (2.4) and the equation (2.1), it follows that 
+
+d∇δ∇∇θ = d∇(∇∗∇θ) = d∇
+
+[
+
+Ric( θ) − n − 2
+
+n dδθ 
+
+]
+
+= ∇Ric( θ) − n − 2
+
+n d∇dδθ. 
+
+Note that d∇dδθ = ∇dδθ = Hess δθ . From Lemma 2.3, we arrive at 
+
+〈d∇dδθ, ∇θ〉 =〈Hess δθ, ∇θ〉 = 1
+
+nδθ · ∆dδθ. 
+
+On the other hand, applying the codifferential δ to both sides of the identity (2.2) yields 
+
+n − 1
+
+n ∆d(δθ ) = δ [Ric( θ)] .
+
+Combining these, we get 
+
+〈d∇δ∇∇θ, ∇θ〉 =〈∇ Ric( θ), ∇θ〉 − n − 2
+
+n2 δθ · ∆dδθ 
+
+=〈∇ Ric( θ), ∇θ〉 − n − 2
+
+n(n − 1) δθ · δ [Ric( θ)] . (2.9) 
+
+Second term 〈δ∇d∇∇θ, ∇θ〉. For arbitrary vector fields Y, Z ∈ X(M), a direct computation gives 
+
+d∇∇θ(Y, Z ) = [ ∇Y (∇θ)] ( Z) − [∇Z (∇θ)] ( Y )=∇Y ∇Z θ − ∇ ∇Y Z θ − ∇ Z ∇Y θ + ∇∇Z Y θ
+
+=R(Y, Z )θ. 
+
+Thus, R(·, ·)θ, which may be viewed as a T ∗M-valued 2-form. Applying the codifferential δ∇ as defined in (2.5), and noting that δ∇ coincides with the standard divergence operator ∇∗ on such forms (cf. [23, Page 76]), we obtain 
+
+〈δ∇d∇∇θ, ∇θ〉 = 〈∇ ∗ [R(·, ·)θ] , ∇θ〉. (2.10) Substituting (2.9) and (2.10) into (2.8) yields the (2.7). It remains only to provide the local coordinate expressions for the curvature terms, which we do below for completeness. Fix a point p ∈ M and choose a local orthonormal frame {ei}ni=1 in a neighborhood of p such that Bochner–Yano Type Theorems for Conformal Killing Vector Fields 11 
+
+∇ei ej |p = 0 for all 1 ≤ i, j ≤ n. At p, the term ∇∗[R(·, ·)θ] in (2.7) is given by 
+
+∇∗ [R(·, ·)θ] ( Y ) = −
+
+> n
+
+∑
+
+> i=1
+
+(∇ei [R(·, ·)θ])( ei, Y )=
+
+> n
+
+∑
+
+> i=1
+
+−∇ ei [R(ei, Y )θ] + R(∇ei ei, Y )θ + R(ei, ∇ei Y )θ
+
+=
+
+> n
+
+∑
+
+> i=1
+
+−∇ ei [R(ei, Y )θ] + R(ei, ∇ei Y )θ, (2.11) for any vector field Y ∈ X(M). Similarly, by (2.6), the term 〈Ric( ∇θ), ∇θ〉 in (2.7) can be expressed as 
+
+〈Ric( ∇θ), ∇θ〉 =
+
+> n
+
+∑
+
+> j=1
+
+〈[Ric( ∇θ)] ( ej ), ∇ej θ〉
+
+=
+
+> n
+
+∑
+
+> i,j =1
+
+〈R(ei, e j )( ∇ei θ) − ∇ R(ei,e j )ei θ, ∇ej θ〉
+
+=
+
+> n
+
+∑
+
+> i,j =1
+
+〈R(ei, e j )( ∇ei θ), ∇ej θ〉 +
+
+> n
+
+∑
+
+> i,j =1
+
+〈∇Ric( ej )θ, ∇ej θ〉 . (2.12) This completes the proof. 
+
+Remark 2.6. We point out that 
+
+〈d∇δ∇∇θ, ∇θ〉 = 〈∇∇ ∗∇θ, ∇θ〉.
+
+Combining this with (2.9), we obtain the identity 
+
+〈∇ Ric( θ), ∇θ〉 − n − 2
+
+n(n − 1) δθ · δ [Ric( θ)] = 〈∇∇ ∗∇θ, ∇θ〉.
+
+Consequently, for any general 1-form θ, the formula (2.7) reduces to 
+
+1
+
+2 ∆d(|∇ θ|2) + ∣∣∇2θ∣∣2 = 〈∇∇ ∗∇θ, ∇θ〉 + 〈∇ ∗ [R(·, ·)θ] , ∇θ〉 − 〈 Ric( ∇θ), ∇θ〉 .
+
+Using the local coordinate expressions for the terms 〈∇ ∗ [R(·, ·)θ] , ∇θ〉 and 〈Ric( ∇θ), ∇θ〉 in Lemma 2.5, the above formula coincides with that in [1, 2, 19]. 
+
+# 3 Estimates for the Dual 1-Form 
+
+## 3.1 L∞ Estimate for the Dual 1-form 
+
+In this subsection, we establish an L∞ estimate for the 1-form θ dual to a conformal Killing vector field. The argument is a Moser iteration procedure, adapted from [23, Lemma 4.1]. 12 
+
+Teng Huang, Qiang Tan and Weiwei Wang 
+
+We assume throughout that the manifold satisfies the following Sobolev inequality: 
+
+‖f ‖ 2n
+
+> n−2
+
+≤ ‖ f ‖2 + Cs‖df ‖2, for all f ∈ H1(M). (3.1) where Cs > 0 is the Sobolev constant. 
+
+Lemma 3.1. Let (M, g ) be a closed n-dimensional smooth Riemannian manifold satisfying the Sobolev inequality (3.1) . Suppose that θ is the 1-form dual to a conformal Killing vector field X, and assume that the Ricci curvature satisfies 
+
+Ric < λ, 
+
+for some positive constant λ. Then 
+
+‖θ‖∞ ≤ exp 
+
+{
+
+C(n)√λC s
+
+}
+
+‖θ‖2. (3.2) 
+
+Proof. Let f = |θ|. Since Ric < λ , for k > 0, we have 
+
+∫
+
+> M
+
+|df k|2 =k2
+
+∫
+
+> M
+
+f 2k−2|∇ f |2
+
+= k2
+
+2k − 1
+
+∫
+
+> M
+
+f 2k−1∆df
+
+≤ k2
+
+2k − 1
+
+∫
+
+> M
+
+|θ|2k−2〈Ric( θ) − n − 2
+
+n dδθ, θ 〉≤ k2
+
+2k − 1
+
+∫
+
+> M
+
+λf 2k − k2(n − 2) 
+
+n(2 k − 1) 
+
+∫
+
+> M
+
+|θ|2k−2 〈dδθ, θ 〉 . (3.3) It remains to handle the last term. Note that 
+
+∫
+
+> M
+
+|θ|2k−2〈dδθ, θ 〉 =
+
+∫
+
+> M
+
+〈dδθ, |θ|2k−2θ〉 =
+
+∫
+
+> M
+
+(δθ )δ(|θ|2k−2θ),
+
+where δθ and δ(|θ|2k−2θ) are two functions. Now, since θ is the dual form of the vector field X, we have |θ|2 = |X|2. Observe that 
+
+〈d|θ|2k−2, θ 〉 = 2( k − 1) |θ|2k−3〈d|θ|, θ 〉
+
+= 2( k − 1) |θ|2k−3∇X |θ|
+
+= 2( k − 1) |θ|2k−3∇X |X|
+
+= ( k − 1) |θ|2k−4∇X |X|2
+
+= ( k − 1) |θ|2k−4∇X 〈X, X 〉
+
+= ( k − 1) |θ|2k−42〈∇ X X, X 〉.Bochner–Yano Type Theorems for Conformal Killing Vector Fields 13 Hence, 
+
+δ(|θ|2k−2θ) = |θ|2k−2δθ − 〈 d|θ|2k−2, θ 〉
+
+=|θ|2k−2δθ − (k − 1) |θ|2k−42〈∇ X X, X 〉
+
+=
+
+(
+
+1 + 2k − 2
+
+n
+
+)
+
+|θ|2k−2δθ, 
+
+where the last equality is due to X is a conformal Killing vector field and so satisfies 
+
+2〈∇ X X, X 〉 = LX g(X, X ) = h〈X, X 〉 = 2
+
+ndiv X|X|2 = − 2
+
+n (δθ )|θ|2.
+
+Substituting this back, we obtain 
+
+∫
+
+> M
+
+|θ|2k−2〈dδθ, θ 〉 =
+
+∫
+
+> M
+
+(δθ )δ(|θ|2k−2θ) = 
+
+(
+
+1 + 2k − 2
+
+n
+
+) ∫ 
+
+> M
+
+|θ|2k−2|δθ |2
+
+is a positive term. Thus, the last term in (3.3) is non-positive, and we can drop it to obtain the simpler estimate ∫
+
+> M
+
+|df k|2 ≤ λ k2
+
+2k − 1
+
+∫
+
+> M
+
+f 2k.
+
+Then the result will follow from a standard Moser iteration, for instance [22, Theorem 9.2.7]. For com-pleteness, we include the details here. Substitute f k into the Sobolev inequality, we obtain 
+
+‖f k‖ 2n
+
+> n−2
+
+≤ ‖ f k‖2 + Cs‖df k‖2 ≤
+
+(
+
+1 + Csk
+
+( λ
+
+2k − 1
+
+)1
+
+> 2
+
+)
+
+‖f k‖2,
+
+and so 
+
+‖f ‖ 2nk 
+
+> n−2
+
+≤
+
+(
+
+1 + Csk
+
+( λ
+
+2k − 1
+
+)1
+
+> 2
+
+) 1
+
+> k
+
+‖f ‖2k.
+
+Letting k = νi = ( n
+
+> n−2
+
+)i gives 
+
+‖f ‖2νi+1 ≤
+
+[
+
+1 + Csνi
+
+( λ
+
+2νi − 1
+
+)1
+
+> 2
+
+] 1
+
+> νi
+
+‖f ‖2νi ≤
+
+(
+
+1 + Cs
+
+√λν i
+
+) 1
+
+> νi
+
+‖f ‖2νi
+
+Applying Theorem C.1 with 
+
+ν = n
+
+n − 2 , A(i) = ‖f ‖2νi , r = Cs
+
+√λ, 
+
+we obtain 
+
+‖θ‖∞ = ‖f ‖∞ = lim  
+
+> i→+∞
+
+‖f ‖2νi
+
+≤ exp 
+
+(
+
+Cs
+
+√λ√ν
+
+√ν − 1
+
+)
+
+‖f ‖2
+
+≤ exp 
+
+{
+
+C(n)√λC s
+
+}
+
+‖θ‖2.
+
+where C(n) = √ν 
+
+> √ν−1
+
+= √n 
+
+> √n−√n−2
+
+. This completes the proof. 14 
+
+Teng Huang, Qiang Tan and Weiwei Wang 
+
+## 3.2 L∞ Estimate for the Gradient of Dual 1-form 
+
+In this subsection, we establish an L∞ estimate for |∇ θ|, where θ is the 1-form dual to a conformal Killing vector field. This estimate is significantly more delicate than the previous one for θ, as it requires controlling the second-order derivatives of θ via the curvature terms. The argument follows the Moser iteration strategy developed by Aubry [1, Proposition 4.2] (see also [2, 19]), with the key difference lying in the derivation of the integral inequality in Lemma 3.2 below. Unlike the approach in [23], our estimate does not require bounds on the covariant derivative ∇R of the curvature tensor. 
+
+Lemma 3.2. Let (M, g ) be a closed n-dimensional smooth Riemannian manifold, and let θ be the 1-form dual to a conformal Killing vector field. Set u = |∇ θ|. Then for any k > 1, the following integral inequality holds: 
+
+1
+
+2
+
+∫
+
+> M
+
+∆d(u2)u2k−2 +
+
+∫
+
+> M
+
+∣∣∇2θ∣∣2 u2k−2 ≤9k
+
+∫
+
+> M
+
+|Rθ |2 · u2( k−1) + 20 nk 
+
+∫
+
+> M
+
+|Ric( θ)|2 · u2( k−1) 
+
++ 2 
+
+∫
+
+> M
+
+Ric −u2k + 2 
+
+∫
+
+> M
+
+|R|u2k + 3( k − 1) 
+
+4
+
+∫
+
+> M
+
+|∇ u|2u2( k−1) .
+
+Remark 3.3. The proof of Lemma 3.2 is technically involved and relies on the Bochner-type identity (2.7) established in Lemma 2.5. The detailed derivation is deferred to Appendix B, where all auxiliary integral identities are provided. With Lemma 3.2 at hand, we can now prove the main L∞ estimate for ∇θ. The following proposition is the central result of this subsection. 
+
+Proposition 3.4. Let (M, g ) be a closed n-dimensional smooth Riemannian manifold satisfying the Sobolev inequality (3.1) . Assume that there exist positive constants κ, λ, K, p with p > n/ 2 such that 
+
+−(n − 1) κ ≤ Ric ≤ λ, ‖R‖2p ≤ K, and diam( M) ≤ D. 
+
+Let θ be the 1-form dual of a conformal Killing vector field. Then there exists a constant C(n, p ) > 0 such that 
+
+D‖∇ θ‖∞ ≤ max 
+
+{
+
+C(n, p )(1 + √t)α√λD 2‖θ‖2,C(n, p )(1 + √t)β (√λD 2) β 
+
+> α
+
+exp 
+
+[
+
+C(n, p )√λC s
+
+]
+
+‖θ‖2
+
+}
+
+, (3.4) 
+
+where 
+
+α = 2pn 
+
+2p − n, β = 2pn 
+
+2p − n + pn , t = 4 Cs
+
+√B√1 + BD 2 and B = 5 n(κ + λ + K).Bochner–Yano Type Theorems for Conformal Killing Vector Fields 15 
+
+Proof. Let u = |∇ θ|. First, by Kato’s inequality |∇ u| ≤ |∇ 2θ|. Consequently, 
+
+u∆du =|∇ θ| · ∆d|∇ θ| = 1
+
+2 ∆d|∇ θ|2 + |∇|∇ θ|| 2
+
+≤1
+
+2 ∆d
+
+(|∇ θ|2) + ∣∣∇2θ∣∣2 .
+
+Hence, from Lemma 3.2, we can get for any k > 1,
+
+∫
+
+> M
+
+|d(uk)|2 =k2
+
+∫
+
+> M
+
+|∇ u|2u2( k−1) = k2
+
+2k − 1
+
+∫
+
+> M
+
+〈u2k−1, ∆du〉≤ k2
+
+2k − 1
+
+∫
+
+> M
+
+( 1
+
+2∆d
+
+(|∇ θ|2) + ∣∣∇2θ∣∣2
+
+)
+
+u2( k−1) 
+
+≤ k2
+
+2k − 1
+
+(
+
+2
+
+∫
+
+> M
+
+Ric −u2k + 2 
+
+∫
+
+> M
+
+|R|u2k + 20 nk 
+
+∫
+
+> M
+
+|Ric( θ)|2u2( k−1) 
+
++ 9 k
+
+∫
+
+> M
+
+|Rθ |2 · u2( k−1) + 3( k − 1) 
+
+4
+
+∫
+
+> M
+
+|∇ u|2u2( k−1) 
+
+)
+
+.
+
+Rearranging the term involving |∇ u|2 to the left-hand side, we obtain 
+
+∫
+
+> M
+
+|d(uk)|2 ≤ 4k2
+
+5k − 1
+
+(
+
+2
+
+∫
+
+> M
+
+Ric −u2k + 2 
+
+∫
+
+> M
+
+|R|u2k + 20 nk 
+
+∫
+
+> M
+
+(|Rθ |2 + |Ric( θ)|2) · u2( k−1) 
+
+)
+
+≤ 2k
+
+∫
+
+> M
+
+(Ric − + |R|) u2k + 20 nk 2
+
+∫
+
+> M
+
+(|Rθ |2 + |Ric( θ)|2) · u2( k−1) . (3.5) Here we use the inequality 4k2 
+
+> 5k−1
+
+≤ k for k ≥ 1.We now estimate the right-hand side of (3.5) using H¨ older’s inequality. For the first term, we have 
+
+∫
+
+> M
+
+(Ric − + |R|) u2k ≤ (‖Ric −‖p + ‖R‖p
+
+) ‖u‖2k
+
+> 2kp
+> p−1
+
+.
+
+For the second term, we apply H¨ older’s inequality with exponents p and p 
+
+> p−1
+
+,
+
+∫
+
+> M
+
+(|Rθ |2 + |Ric( θ)|2) · u2( k−1) ≤ (‖R‖22p + ‖Ric ‖22p)‖θ‖2
+
+> ∞
+
+‖u‖2( k−1) 
+
+> 2( k−1) p
+> p−1
+
+and similarly for the Ricci term. Since −(n − 1) κ ≤ Ric ≤ λ, we have 
+
+‖Ric −‖p + ‖R‖p ≤ (n − 1) κ + K ≤ B, 
+
+and 
+
+20 n(‖Ric ‖22p + ‖R‖22p) ≤ 20 n(λ2 + K2) ≤ B2,
+
+where B := 5 n(κ + λ + K). Substituting these estimates into (3.5), we obtain 
+
+∫
+
+> M
+
+|d(uk)|2 ≤ 4k2B‖u‖2k
+
+> 2kp
+> p−1
+
++ 4 k2B2‖θ‖2
+
+> ∞
+
+‖u‖2( k−1) 
+
+> 2( k−1) p
+> p−1
+
+. (3.6) 16 
+
+Teng Huang, Qiang Tan and Weiwei Wang 
+
+Substitute uk into the Sobolev inequality (3.1). Based on the estimate (3.6) for ∫ 
+
+> X
+
+|d(uk)|2, using the interpolation inequality 
+
+‖u‖2k ≤ ‖ u‖ 2kp 
+
+> p−1
+
+≤ ‖ u‖ 1
+
+> k
+> ∞
+
+‖u‖1− 1
+
+> k
+> 2( k−1) p
+> p−1
+
+,
+
+we conclude that 
+
+‖u‖k
+
+> 2nk
+> n−2
+
+= ‖uk‖ 2n
+
+> n−2
+
+≤ ‖ uk‖2 + Cs‖d(uk)‖2
+
+≤ ‖ uk‖2 + 2 Csk
+
+√
+
+B‖u‖2k
+
+> 2kp
+> p−1
+
++ B2‖θ‖2
+
+> ∞
+
+‖u‖2( k−1) 
+
+> 2( k−1) p
+> p−1
+
+≤
+
+(
+
+‖u‖ 1
+
+> k
+> ∞
+
+‖u‖1− 1
+
+> k
+> 2( k−1) p
+> p−1
+
+)k
+
++ 2 Csk
+
+√
+
+B
+
+(
+
+‖u‖ 1
+
+> k
+> ∞
+
+‖u‖1− 1
+
+> k
+> 2( k−1) p
+> p−1
+
+)2k
+
++ B2‖θ‖2
+
+> ∞
+
+‖u‖2( k−1) 
+
+> 2( k−1) p
+> p−1
+
+=
+
+(
+
+‖u‖∞ + 2 Csk√B‖u‖2 
+
+> ∞
+
++ B2‖θ‖2
+
+> ∞
+
+)
+
+‖u‖k−1
+
+> 2( k−1) p
+> p−1
+
+.
+
+Dividing both sides by ‖u‖∞ and raising both sides to the power of 2n 
+
+> n−2
+
+yields the recurrence relation: 
+
+(‖u‖ 2nk 
+
+> n−2
+
+‖u‖∞
+
+) 2nk 
+
+> n−2
+
+≤
+
+(
+
+1 + 2 Csk√B
+
+√
+
+1 + B‖θ‖2
+
+> ∞
+
+‖u‖2
+
+> ∞
+
+) 2n 
+
+> n−2
+
+( ‖u‖ 2( k−1) p
+
+> p−1
+
+‖u‖∞
+
+)γ 2( k−1) p
+
+> p−1
+
+, (3.7) where γ = n(p−1)  
+
+> p(n−2)
+
+> 1.Now, define the sequence {ai}i≥0 by setting a0 = 2p 
+
+> p−1
+
+and imposing the recursion formula 
+
+ai+1 = γa i + 2n
+
+n − 2.
+
+Then, solving this recurrence relation gives 
+
+ai = γi(a0 + γ0) − γ0,
+
+where γ0 = 2n 
+
+> (n−2)( γ−1)
+
+= 2pn  
+
+> 2p−n
+
+. Let {ki} be the sequence of powers defined by 
+
+ki = p − 1
+
+2p ai + 1 = γi+1 + γi − γ + 1 < 2γi+1 ,
+
+which satisfies 2n
+
+n − 2 ki = n(p − 1) 
+
+p(n − 2) ai + 2n
+
+n − 2 = ai+1 .
+
+Substituting the power k = ki into (3.7), we can rewrite it as 
+
+( ‖u‖ai+1 
+
+‖u‖∞
+
+) ai+1 
+
+> γi+1
+
+≤
+
+(
+
+1 + 2 Cski
+
+√B
+
+√
+
+1 + B‖θ‖2
+
+> ∞
+
+‖u‖2
+
+> ∞
+
+) 2n 
+
+> (n−2) γi+1
+
+( ‖u‖ai
+
+‖u‖∞
+
+) ai
+
+> γi
+
+≤
+
+(
+
+1 + 4 Csγi+1 √B
+
+√
+
+1 + B‖θ‖2
+
+> ∞
+
+‖u‖2
+
+> ∞
+
+) 2n 
+
+> (n−2) γi+1
+
+( ‖u‖ai
+
+‖u‖∞
+
+) ai
+
+> γi
+
+.Bochner–Yano Type Theorems for Conformal Killing Vector Fields 17 Applying Theorem C.3 with 
+
+γ = n(p − 1) 
+
+p(n − 2) , A(i) = 
+
+( ‖u‖ai
+
+‖u‖∞
+
+) ai
+
+> γi
+
+, s = 2n
+
+n − 2, r = 4 Cs
+
+√B
+
+√
+
+1 + B‖θ‖2
+
+> ∞
+
+‖u‖2
+
+> ∞
+
+,
+
+we obtain 
+
+1 = lim 
+
+> i→∞
+
+(‖u‖ai+1 
+
+‖u‖∞
+
+) ai+1 
+
+> γi+1
+
+≤ exp 
+
+{ 4n√γ
+
+(n − 2)( γ − 1) 
+
+} (
+
+1 + √4CsB 1
+
+> 4
+
+(
+
+1 + B‖θ‖2
+
+> ∞
+
+‖u‖2
+
+> ∞
+
+)1
+
+> 4
+
+) 4n 
+
+> (n−2)( γ−1)
+
+(‖u‖a0
+
+‖u‖∞
+
+)a0
+
+. (3.8) Now observe that 4n
+
+(n − 2)( γ − 1) = 2 γ0 = 4pn 
+
+2p − n.
+
+Also, from Lemma 2.1, the L2-norm of u = |∇ θ| satisfies 
+
+‖u‖22 = ‖∇ θ‖22 ≤ λ‖θ‖22. (3.9) Furthermore, by interpolation, 
+
+‖u‖a0 ≤ ‖ u‖1− 1 
+
+> p
+> 2
+
+‖u‖ 1
+
+> p
+> ∞
+
+.
+
+Substituting this and (3.9) into (3.8), we finally deduce that 
+
+‖u‖2 
+
+> ∞
+
+≤ exp 
+
+{ 4n√γ
+
+(n − 2)( γ − 1) 
+
+} (
+
+1 + √4CsB 1
+
+> 4
+
+(
+
+1 + B‖θ‖2
+
+> ∞
+
+‖u‖2
+
+> ∞
+
+)1
+
+> 4
+
+) 4pn 
+
+> 2p−n
+
+λ‖θ‖22. (3.10) We now convert (3.10) into the desired estimate (3.4). Let 
+
+t = 4 Cs
+
+√B√1 + BD 2, C(n, p ) = exp 
+
+{ 4n√γ
+
+(n − 2)( γ − 1) 
+
+}
+
+.
+
+We distinguish two cases. 
+
+Case 1: D2‖u‖2 
+
+> ∞
+
+≥ ‖ θ‖2
+
+> ∞
+
+. Then ‖θ‖2
+
+> ∞
+> ‖u‖2
+> ∞
+
+≤ D2. Substituting this into (3.10) directly gives: 
+
+‖u‖2 
+
+> ∞
+
+≤ C(n, p )(1 + √t) 4pn  
+
+> 2p−n
+
+λ‖θ‖22.
+
+Case 2: D2‖u‖2 
+
+> ∞
+
+≤ ‖ θ‖2
+
+> ∞
+
+. Then ‖u‖2
+
+> ∞
+> ‖θ‖2
+> ∞
+
+≤ 1 
+
+> D2
+
+. Multiplying both sides of (3.10) by ‖u‖ 
+
+> 2pn
+> 2p−n
+> ∞
+
+‖θ‖− 2pn  
+
+> 2p−n
+> ∞
+
+and substituting the estimate for ‖θ‖∞ from Lemma 3.1 yields: 
+
+‖u‖2
+
+> ∞
+
+‖u‖ 
+
+> 2pn
+> 2p−n
+> ∞
+
+≤ C(n, p )
+
+(√ 
+
+‖u‖∞
+
+‖θ‖∞
+
++ √4CsB 1
+
+> 4
+
+(‖u‖2
+
+> ∞
+
+‖θ‖2
+
+> ∞
+
++ B
+
+) 1
+
+> 4
+
+) 4pn 
+
+> 2p−n
+
+λ‖θ‖22‖θ‖
+
+> 2pn
+> 2p−n
+> ∞
+
+≤ C(n, p )
+
+(
+
+1
+
+√D + √4CsB 1
+
+> 4
+
+( 1
+
+D2 + B
+
+)1
+
+> 4
+
+) 4pn 
+
+> 2p−n
+
+λ‖θ‖22‖θ‖
+
+> 2pn
+> 2p−n
+> ∞
+
+= C(n, p )(1 + √t) 4pn  
+
+> 2p−n
+
+D− 2pn  
+
+> 2p−n
+
+λ‖θ‖22‖θ‖
+
+> 2pn
+> 2p−n
+> ∞
+
+≤ C(n, p )(1 + √t) 4pn  
+
+> 2p−n
+
+D− 2pn  
+
+> 2p−n
+
+λ exp 
+
+[
+
+C(n) 2pn 
+
+2p − n
+
+√λC s
+
+]
+
+‖θ‖2+ 2pn  
+
+> 2p−n
+> 2
+
+.18 
+
+Teng Huang, Qiang Tan and Weiwei Wang 
+
+Combining the above two cases, we arrive at the estimate (3.4). Here, the constant C(n, p ) > 0 has been appropriately redefined to a slightly larger universal constant. This completes the proof. 
+
+## 3.3 Harnack Inequality for the Dual 1-form 
+
+In this subsection, we establish a Harnack-type inequality for the 1-form θ dual to a conformal Killing vector field. This inequality is the key analytic tool that allows us to compare the infimum and supremum of |θ|2, thereby proving that any nontrivial conformal Killing vector field is nowhere vanishing under the curvature assumptions of Theorem 1.1. The argument is a modification of the approach in [17, Section 3.3], adapted to the present setting of 
+
+1-forms dual to conformal Killing vector fields. We first recall a classical mean value theorem for smooth functions on closed Riemannian manifolds. 
+
+Theorem 3.5. (cf.[16]) Let (M, g ) be a connected, closed Riemannian manifold with diameter D, and let 
+
+f : M → R be a smooth function. Then for any p, q ∈ M,
+
+|f (p) − f (q)| ≤ D‖∇ f ‖∞. (3.11) We now introduce the constant that will appear in the Harnack inequality. To simplify notation, define 
+
+I = C(n, p )(1 + √t)α√λD 2, II = C(n, p )(1 + √t)β (√λD 2) β 
+
+> α
+
+e[C(n,p )√λC s]. (3.12) and set 
+
+ε(n, p, κ, λ, K, D ) = max {I, II }.
+
+This constant ε(n, p, κ, λ, K, D ) is precisely the quantity (up to the factor D) on the right-hand side of Proposition 3.4, which asserts that 
+
+D‖∇ θ‖∞ ≤ ε(n, p, κ, λ, K, D )‖θ‖2. (3.13) With these preparations, we can now prove the main result of this subsection. 
+
+Theorem 3.6. Let (M, g ) be a closed n-dimensional smooth Riemannian manifold satisfying the Sobolev inequality (3.1) . Assume the same curvature conditions as in Proposition 3.4. Suppose that θ is the 1-form dual to a conformal Killing vector field, normalized by ‖θ‖2 = 1 . Then the following Harnack inequality holds: inf |θ|
+
+sup |θ| ≥ 1 − ε(n, p, κ, λ, K, D ). (3.14) 
+
+Proof. Let f = |θ|. Then f is a smooth nonnegative function on M. Since ∇f = ∇| θ|, and Kato’s inequality gives |∇| θ|| ≤ |∇ θ|, it follows that 
+
+|∇ f | ≤ |∇ θ|.Bochner–Yano Type Theorems for Conformal Killing Vector Fields 19 Applying the mean value inequality (Theorem 3.5) to the function f , we obtain 
+
+sup f − inf f ≤ D‖∇ θ‖∞. (3.15) Now, since ‖θ‖2 = 1 , we have 
+
+sup f ≥ ‖ θ‖2 = 1 (3.16) Combining (3.15) and (3.16), and applying Proposition 3.4, we finally deduce 
+
+inf f ≥ sup f · (1 − D‖∇ θ‖∞)
+
+≥ sup f · [1 − ε(n, p, κ, λ, K, D )] ,
+
+which completes the proof. 
+
+# 4 Proof of the Main Results 
+
+In this final section, we combine the Harnack inequality established in Theorem 3.6 with an estimate for the Sobolev constant to prove the main rigidity theorem (Theorem 1.1). We begin by recalling a Sobolev–Poincar´ e inequality with an explicit dependence on the curvature and diameter bounds. This result is standard; we refer to [3, 7] for proofs, and to [7, Lemma 5.6] and [17, Proposition 2.4] for detailed discussions of the Sobolev constant. 
+
+Proposition 4.1. Let (M, g ) be a closed n-dimensional smooth Riemannian manifold satisfying 
+
+Ric ≥ − (n − 1) κ and diam( M) ≤ D. 
+
+Then for every f ∈ H1(M), the following Sobolev inequality holds: 
+
+‖f ‖ 2n
+
+> n−2
+
+≤ ‖ f ‖2 + C(n)De (n−1) √κD 2
+
+‖df ‖2.
+
+where C(n) is a positive constant depends only on n.
+
+Proposition 4.1 provides an explicit form for the Sobolev constant Cs in (3.1): 
+
+Cs = C(n)De (n−1) √κD 2
+
+.
+
+We are now in a position to prove our main theorem. 
+
+Proof of Theorem 1.1 . Suppose that X 6 ≡ 0 is a nontrivial conformal Killing vector field on M. Let 
+
+θ = X♭ be its dual 1-form. Without loss of generality, we may normalize so that ‖θ‖2 = 1 .We begin with the Harnack inequality (3.14) from Theorem 3.6. It remains to show that, for the choice of λ in Theorem 1.1, both I and II (defined in (3.12)) are bounded above by 1 
+
+> 4
+
+.Using the Sobolev inequality with explicit constant from Proposition 4.1, we recall 
+
+t = 4 Cs
+
+√B√1 + BD 2 ≤ 4C(n)e(n−1) √κD 2 √BD 2√1 + BD 2. (4.1) 20 
+
+Teng Huang, Qiang Tan and Weiwei Wang 
+
+Since √λD 2 ≤ e−(n−1) √κD 2
+
+, there exists a positive constant C1(n, p ) such that 
+
+e[C(n,p )√λC s] ≤ eC(n,p )C(n) := C1(n, p ).
+
+Moreover, for B = 5 n(κ + λ + K),
+
+e(n−1) √κD 2
+
+(1 + BD 2) = e(n−1) √κD 2 [1 + 5 n(κ + λ + K)D2]
+
+≤e(n−1) √κD 2
+
+[
+
+1 + 5 n(κD 2 + e−2( n−1) √κD 2
+
++ KD 2)
+
+]
+
+≤20 ne 2( n−1) √κD 2 (1 + KD 2) .
+
+Hence, applying (4.1) and setting C2(n, p ) := 1 + 2 √20 nC (n), we have 
+
+1 + √t ≤ 1 + 
+
+[
+
+4C(n)e(n−1) √κD 2
+
+(1 + BD 2)
+
+]1
+
+> 2
+
+≤ 1 + 2 √20 nC (n)e(n−1) √κD 2
+
+(1 + KD 2)1
+
+> 2
+
+≤ C2(n, p )e(n−1) √κD 2
+
+(
+
+1 + √KD 
+
+)
+
+.
+
+Take 
+
+˜C(n, p ) = min 
+
+{
+
+1
+
+[4 C(n, p )] 1/α C2(n, p ), 1
+
+[4 C(n, p )C1(n, p )] 1/β C2(n, p )
+
+}
+
+and note that 
+
+√λD 2 = min 
+
+( ˜C(n, p )
+
+1 + √KD e−(n−1) √κD 2
+
+) 2pn 
+
+> 2p−n
+
+, e −(n−1) √κD 2
+
+ .
+
+Then we can estimate the terms I and II as follows: • For I, substituting the bounds for (1 + √t) and √λD 2:
+
+I ≤C(n, p ) ·
+
+(
+
+C2(n, p )e(n−1) √κD 2
+
+(1 + √KD )
+
+)α
+
+·
+
+( ˜C(n, p )
+
+1 + √KD e−(n−1) √κD 
+
+) 2pn 
+
+> 2p−n
+
+≤C(n, p )C2(n, p )α
+
+( 1
+
+4C(n, p )C2(n, p )α
+
+)
+
+= 1
+
+4.
+
+where the last inequality we use ˜C(n, p ) ≤ 1 
+
+> [4 C(n,p )] 1/α C2(n,p )
+
+and α = 2pn  
+
+> 2p−n
+
+.• For II , substituting the bounds for (1 + √t), √λD 2 and e[C(n,p )√λC s]:
+
+II ≤C(n, p )C1(n, p )
+
+(
+
+C2(n, p )e(n−1) √κD 2
+
+(1 + √KD )
+
+)β
+
+·
+
+( ˜C(n, p )
+
+1 + √KD e−(n−1) √κD 
+
+) 2pn   
+
+> 2p−n·β
+> α
+
+≤C(n, p )C1(n, p )C2(n, p )β ·
+
+{
+
+1
+
+[4 C(n, p )C1(n, p )] 1/β C2(n, p )
+
+}β
+
+= 1
+
+4 .
+
+where the last inequality we use ˜C(n, p ) ≤ 1  
+
+> [4 C(n,p )C1(n,p )] 1/β C2(n,p )
+
+and α = 2pn  
+
+> 2p−n
+
+.Bochner–Yano Type Theorems for Conformal Killing Vector Fields 21 Combining the estimates for I and II , we finally obtain 
+
+ε(n, p, κ, λ, K, D ) = max {I, II } ≤ 1
+
+4,
+
+which together with (3.14) yields 
+
+inf |θ|
+
+sup |θ| ≥ 1 − ε(n, p, κ, λ, K, D ) ≥ 3
+
+4 .
+
+This Harnack inequality implies that if X 6 ≡ 0, then X is nowhere vanishing. 
+
+Proof of Theorem 1.2 . This follows immediately from Theorem 1.1 together with the Poincar´ e–Hopf theorem. Indeed, if M is a closed even-dimensional manifold with nonvanishing Euler characteristic 
+
+χ(M) 6 = 0 , then the Poincar´ e–Hopf theorem implies that every vector field on M must have at least one zero. By Theorem 1.1, any conformal Killing vector field on M is either identically zero or nowhere vanishing. Since a nowhere vanishing vector field cannot exist when χ(M) 6 = 0 , we conclude that every conformal Killing vector field on M must vanish identically. 
+
+Proof of Corollary 1.3 . From Theorem 1.2, we conclude that the Lie algebra of Con( M, g ) is trivial, which implies that Con( M, g ) is a discrete group. By the theorems of Lelong-Ferrand [20] and Obata [21], Con( M, g ) is compact unless the manifold M
+
+is conformally equivalent to the standard round sphere S2n. However, Con( S2n, g round ) admits a nontrivial Lie algebra, so this exceptional case cannot occur under the assumptions of Theorem 1.1. Therefore, 
+
+Con( M, g ) is a compact discrete group, and hence finite. 
+
+Proof of Corollary 1.4 . Fix a point p ∈ M, and consider the stabilizer subgroup 
+
+Con p = {x ∈ Con( M, g ) | x · p = p}
+
+This is a closed Lie subgroup of Con( M, g ). By the infinitesimal action, each element in the Lie algebra of Con p corresponds to a conformal Killing vector field that vanishes at p.By Theorem 1.1, any such vector field must vanish identically on M. Hence, the Lie algebra of Con p
+
+is trivial, which implies that the stabilizer subgroup Con p is discrete. Since Con( M, g ) is compact (by Corollary 1.3), every discrete subgroup is finite. Thus, the action of Con( M, g ) on M is locally free. 
+
+Proof of Corollary 1.5 . This follows from Bott’s result [5] (see also Corollary A.2), which states that if a closed oriented Riemannian manifold admits a nowhere vanishing Killing vector field, then all its Pontryagin numbers vanish. Under the topological assumptions of Corollary 1.5 (either χ(M) 6 = 0 in even dimensions, or at least one Pontryagin number is nonzero in dimensions divisible by 4), a nowhere vanishing Killing vector field cannot exist. By Theorem 1.1, every Killing vector field must be identically zero. Hence, the isometry group Iso( M, g ) has a trivial Lie algebra and is therefore finite. 22 
+
+Teng Huang, Qiang Tan and Weiwei Wang 
+
+# A Pontryagin Numbers and Bott’s Theorem 
+
+We first recall some basic facts about Pontryagin numbers. Let M be a closed, oriented smooth manifold of dimension 4m. The real tangent bundle T M admits Pontryagin classes 
+
+pk(T M ) := ( −1) kc2k(T M ⊗R C) ∈ H4k(M; Z), k = 1 , . . . , m. 
+
+For any sequence of non-negative integers (i1, . . . , i r) such that 
+
+i1 + · · · + ir = m, 
+
+the corresponding Pontryagin number is defined by 
+
+pi1i2··· ir (M) := 〈pi1 (T M ) ∪ pi2 (T M ) ∪ · · · ∪ pir (T M ), [M]〉 ∈ Z,
+
+where [M] denotes the fundamental class of M. These numbers are diffeomorphism invariants and, via the Chern–Weil theory, can be expressed as integrals of polynomials in the curvature forms of any Riemannian metric on M. For example: (1) By the Hirzebruch signature theorem, the signature σ(M) of a 4m-dimensional manifold is a linear combination of its Pontryagin numbers: 
+
+σ(M) = 〈L(T M ), [M]〉,
+
+where L(T M ) is the Hirzebruch L-genus, a polynomial in the Pontryagin classes. (2) The ˆA-genus ˆA(M) is also a polynomial in the Pontryagin classes. By the Lichnerowicz theorem, if a closed spin manifold admits a metric of positive scalar curvature, then its ˆA-genus vanishes. We now recall a classical result of Bott [5] that relates Pontryagin numbers to the existence of nowhere vanishing Killing vector fields. In the Riemannian setting, Bott proved the following theorem: 
+
+Theorem A.1. ([5, Theorem 2]) Let (M, g ) be a closed, oriented even-dimensional Riemannian manifold, and let X be a non-degenerate Killing vector field on M. Then for every polynomial Φ in the Chern classes of the complexified tangent bundle of weight at most dim M/ 2, one has 
+
+∑ 
+
+> P∈Zero( X)
+
+Φ( LP )
+
+det 1/2(LP ) = Φ( M),
+
+where P ranges over the zeros of X, LP denotes the linearization of X at P , det 1/2(LP ) is the square root determined by the orientation, and Φ( M) is the characteristic number of M defined by Φ.
+
+In particular, if X is nowhere vanishing , then the left-hand side is an empty sum and hence Φ( M) = 0 
+
+for all such Φ. Therefore, we obtain the following fundamental corollary: 
+
+Corollary A.2 ([5]) . If a closed Riemannian manifold (M, g ) admits a nowhere vanishing Killing vector field, then all Pontryagin numbers of M vanish. Bochner–Yano Type Theorems for Conformal Killing Vector Fields 23 
+
+# B Proof of the Integral Inequality for ∇θ
+
+In this appendix, we provide the detailed proof of Lemma 3.2, which is the key integral inequality used in the Moser iteration for |∇ θ|.We first establish two divergence identities that will be used repeatedly in the proof. Set u := |∇ θ|.Since the computations are pointwise, It suffices to work at a fixed point a point p ∈ M and choose a local orthonormal frame {ei}ni=1 in a neighborhood of p such that 
+
+∇ei ej |p = 0 ∀1 ≤ i, j ≤ n. 
+
+Lemma B.1. Suppose that Y1 ∈ X(M) is a vector field on M defined by 
+
+Y1 := 
+
+> n
+
+∑
+
+> i=1
+
+u2k−2〈R(ei, ·)θ, ∇ei θ〉♭.
+
+Then the divergence of Y1 is 
+
+div Y1 = (2 k − 2) u2k−3〈R(·, ∇u)θ, ∇θ〉 + u2k−2〈∇ ∗[R(·, ·)θ], ∇θ〉 − 1
+
+2 u2k−2|Rθ |2. (B.1) 
+
+Proof. Denote ˜Y1 = n∑
+
+> i=1
+
+〈R(ei, ·)θ, ∇ei θ〉♭, so that Y1 = u2k−2 ˜Y1. For any vector field Z ∈ X(M), we have 
+
+〈 ˜Y1, Z 〉 = 〈R(ei, Z )θ, ∇ei θ〉.
+
+Then, using the product rule for divergence, 
+
+div Y1 =
+
+> n
+
+∑
+
+> j=1
+
+〈
+
+∇ej
+
+(
+
+u2k−2 ˜Y1
+
+)
+
+, e j
+
+〉
+
+=
+
+> n
+
+∑
+
+> j=1
+
+(2 k − 2) u2k−3
+
+〈 ˜Y1∇ej u, e j
+
+〉
+
++
+
+> n
+
+∑
+
+> j=1
+
+u2k−2
+
+〈
+
+∇ej
+
+˜Y1, e j
+
+〉
+
+=
+
+> n
+
+∑
+
+> j=1
+
+(2 k − 2) u2k−3
+
+〈 ˜Y1, (∇ej u)ej
+
+〉
+
++
+
+> n
+
+∑
+
+> j=1
+
+u2k−2
+
+〈
+
+∇ej
+
+˜Y1, e j
+
+〉
+
+=(2 k − 2) u2k−3
+
+〈 ˜Y1, ∇u
+
+〉
+
++
+
+> n
+
+∑
+
+> j=1
+
+u2k−2∇ej
+
+〈 ˜Y1, e j
+
+〉
+
+Then the lemma follow from the relation 
+
+(2 k − 2) u2k−3
+
+〈 ˜Y1, ∇u
+
+〉
+
+=(2 k − 2) u2k−3
+
+> n
+
+∑
+
+> i=1
+
+〈R(ei, ∇u)θ, ∇ei θ〉
+
+=(2 k − 2) u2k−3〈R(·, ∇u)θ, ∇θ〉24 
+
+Teng Huang, Qiang Tan and Weiwei Wang 
+
+and 
+
+> n
+
+∑
+
+> j=1
+
+u2k−2∇ej
+
+〈 ˜Y1, e j
+
+〉
+
+=
+
+> n
+
+∑
+
+> i,j =1
+
+u2k−2∇ej 〈R(ei, e j )θ, ∇ei θ〉
+
+=
+
+> n
+
+∑
+
+> i=1
+
+u2k−2〈∇ ej [R(ei, e j )θ], ∇ei θ〉 +
+
+> n
+
+∑
+
+> i,j =1
+
+u2k−2〈R(ei, e j )θ, ∇ej ∇ei θ〉
+
+= −
+
+> n
+
+∑
+
+> i=1
+
+u2k−2〈∇ ej [R(ej , e i)θ], ∇ei θ〉
+
++ 1
+
+2
+
+( n∑
+
+> i,j =1
+
+u2k−2〈R(ei, e j )θ, ∇ej ∇ei θ〉 +
+
+> n
+
+∑
+
+> i,j =1
+
+u2k−2〈R(ej , e i)θ, ∇ei ∇ej θ〉
+
+)
+
+=u2k−2〈∇ ∗[R(·, ·)θ], ∇θ〉 + 1
+
+2
+
+> n
+
+∑
+
+> i,j =1
+
+u2k−2〈R(ei, e j )θ, (∇ej ∇ei − ∇ ei ∇ej )θ〉
+
+=u2k−2〈∇ ∗[R(·, ·)θ], ∇θ〉 + 1
+
+2
+
+> n
+
+∑
+
+> i,j =1
+
+u2k−2〈R(ei, e j )θ, R (ej , e i)θ〉
+
+=u2k−2〈∇ ∗[R(·, ·)θ], ∇θ〉 − u2k−2 1
+
+2|Rθ |2.
+
+Here we have used the curvature definition R(ei, e j )θ = ∇ei ∇ej θ − ∇ ej ∇ei θ, and the identity |Rθ |2 =
+
+> n
+
+∑
+
+> i,j =1
+
+〈R(ei, e j )θ, R (ei, e j )θ〉.
+
+Lemma B.2. Suppose that Y2 ∈ X(M) is a vector field on M defined by 
+
+Y2 := u2k−2 〈Ric( θ), ∇(·)θ〉♭
+
+Then the divergence of Y2 is 
+
+div Y2 = u2k−2〈∇ Ric( θ), ∇θ〉 − u2k−2〈Ric( θ), ∇∗∇θ〉 + (2 k − 2) u2k−3 〈Ric( θ), ∇∇uθ〉 . (B.2) 
+
+Proof. Denote ˜Y2 = 〈Ric( θ), ∇(·)θ〉♭, so that Y2 = u2k−2 ˜Y2. For any vector field Z ∈ X(M), we have 
+
+〈 ˜Y2, Z 〉 = 〈Ric( θ), ∇Z θ〉.
+
+Then, similar to Lemma B.1, 
+
+div Y2 =(2 k − 2) u2k−3
+
+〈 ˜Y2, ∇u
+
+〉
+
++
+
+> n
+
+∑
+
+> j=1
+
+u2k−2∇ej
+
+〈 ˜Y2, e j
+
+〉
+
+Then the lemma follow from the relation 
+
+(2 k − 2) u2k−3
+
+〈 ˜Y2, ∇u
+
+〉
+
+= (2 k − 2) u2k−3 〈Ric( θ), ∇∇uθ〉Bochner–Yano Type Theorems for Conformal Killing Vector Fields 25 and 
+
+> n
+
+∑
+
+> j=1
+
+u2k−2∇ej
+
+〈 ˜Y2, e j
+
+〉
+
+=
+
+> n
+
+∑
+
+> j=1
+
+u2k−2∇ej
+
+〈Ric( θ), ∇ej θ〉
+
+=
+
+> n
+
+∑
+
+> j=1
+
+u2k−2〈∇ ej [Ric( θ)] , ∇ej θ〉 +
+
+> n
+
+∑
+
+> j=1
+
+u2k−2〈Ric( θ), ∇ej ∇ej θ〉
+
+=u2k−2〈∇ Ric( θ), ∇θ〉 − u2k−2〈Ric( θ), ∇∗∇θ〉.
+
+Integrating the divergence identities (B.1) over M yields the following integral identities. 
+
+Proposition B.3. Let (M, g ) be a closed n-dimensional smooth Riemannian manifold and u = |∇ θ|.Then for k > 1, the following integral inequality holds: 
+
+∫
+
+> M
+
+〈∇ ∗ [R(·, ·)θ] , u 2( k−1) ∇θ〉 = −(2 k − 2) 
+
+∫
+
+> M
+
+u2k−3〈R(·, ∇u)θ, ∇θ〉 + 1
+
+2
+
+∫
+
+> M
+
+u2k−2|Rθ |2.
+
+From the the divergence identities (B.1), we then have 
+
+Proposition B.4. Let (M, g ) be a closed n-dimensional smooth Riemannian manifold and u = |∇ θ|.Then for k > 1, the following integral inequality holds: 
+
+∫
+
+> M
+
+〈∇ Ric( θ), ∇θ〉 u2k−2 =
+
+∫
+
+> M
+
+|Ric( θ)|2 u2k−2 + (2 k − 2) · n − 2
+
+n
+
+∫
+
+> M
+
+〈Ric( θ), du 〉 δθ · u2k−3
+
+− n − 2
+
+n
+
+∫
+
+> M
+
+δθ · δ [Ric( θ)] u2k−2 − (2 k − 2) 
+
+∫
+
+> M
+
+〈Ric( θ), ∇∇uθ〉 u2k−3.
+
+Proof. Integrating both sides of (B.2) in Lemma B.2 and applying divergence theorem yields 
+
+∫
+
+> M
+
+〈∇ [Ric( θ)] , u 2k−2∇θ〉 =
+
+∫
+
+> M
+
+u2k−2〈Ric( θ), ∇∗∇θ〉 − (2 k − 2) 
+
+∫
+
+> M
+
+u2k−3〈Ric( θ), ∇∇uθ〉.
+
+Substituting (2.1), i.e., ∇∗∇θ = Ric( θ) − n−2 
+
+> n
+
+dδθ , the integral becomes 
+
+∫
+
+> M
+
+〈∇ Ric( θ), ∇θ〉 u2k−2 =
+
+∫
+
+> M
+
+〈Ric( θ), Ric( θ)〉 u2k−2 −
+
+∫
+
+> M
+
+n − 2
+
+n 〈Ric( θ), dδθ 〉 u2k−2
+
+− (2 k − 2) 
+
+∫
+
+> M
+
+〈Ric( θ), ∇∇uθ〉 u2k−3
+
+=
+
+∫
+
+> M
+
+|Ric( θ)|2 u2k−2 + (2 k − 2) · n − 2
+
+n
+
+∫
+
+> M
+
+〈Ric( θ), du 〉 δθ · u2k−3
+
+− n − 2
+
+n
+
+∫
+
+> M
+
+δθ · δ [Ric( θ)] u2k−2 − (2 k − 2) 
+
+∫
+
+> M
+
+〈Ric( θ), ∇∇uθ〉 u2k−3
+
+where we use the relation δ [u2k−2Ric( θ)] = u2k−2δ [Ric( θ)] − (2 k − 2) u2k−3 〈Ric( θ), du 〉.
+
+Based on these integral identities in Propositions B.3 and B.4, we now prove the Lemma 3.2. 26 
+
+Teng Huang, Qiang Tan and Weiwei Wang 
+
+The proof of Lemma 3.2 . Multiplying both sides of (2.7) by the function u2k−2 and then integrating yields 
+
+1
+
+2
+
+∫
+
+> M
+
+∆d(u2)u2k−2 +
+
+∫
+
+> M
+
+∣∣∇2θ∣∣2 u2k−2 + n − 2
+
+n(n − 1) 
+
+∫
+
+> M
+
+δθ · δ [Ric( θ)] u2k−2
+
+=
+
+∫
+
+> M
+
+〈∇ Ric( θ), ∇θ〉 u2k−2 +
+
+∫
+
+> M
+
+〈∇ ∗ [R(·, ·)θ] , ∇θ〉 u2k−2 −
+
+∫
+
+> M
+
+〈Ric( ∇θ), ∇θ〉 u2k−2. (B.3) Noting that 
+
+> n
+
+∑
+
+> i,j =1
+
+〈∇Ric( ej )θ, ∇ej θ〉 =
+
+> n
+
+∑
+
+> i,j =1
+
+Ric( ei, e j )〈∇ ei θ, ∇ej θ〉 ≥ Ric −|∇ θ|2,
+
+by (2.12), we first obtain 
+
+−
+
+∫
+
+> M
+
+〈Ric( ∇θ), ∇θ〉 u2k−2 ≤
+
+∫
+
+> M
+
+Ric −u2k +
+
+∫
+
+> M
+
+|R|u2k. (B.4) Denote 
+
+F (θ) = 
+
+∫
+
+> M
+
+〈∇ ∗ [R(·, ·)θ] , ∇θ〉 u2k−2 +
+
+∫
+
+> M
+
+Ric −u2k +
+
+∫
+
+> M
+
+|R|u2k +
+
+∫
+
+> M
+
+|Ric( θ)|2 u2k−2
+
++ (2 k − 2) · n − 2
+
+n
+
+∫
+
+> M
+
+〈Ric( θ), du 〉 δθ · u2k−3 − (2 k − 2) 
+
+∫
+
+> M
+
+〈Ric( θ), ∇∇uθ〉 u2k−3. (B.5) Simplifying (B.3) by Proposition B.4 and inequality (B.4) yields 
+
+1
+
+2
+
+∫
+
+> M
+
+∆d(u2)u2k−2 +
+
+∫
+
+> M
+
+∣∣∇2θ∣∣2 u2k−2 ≤ − n − 2
+
+n − 1
+
+∫
+
+> M
+
+δθ · δ [Ric( θ)] u2k−2 + F (θ). (B.6) Note that 
+
+1
+
+2
+
+∫
+
+> M
+
+∆d(u2)u2k−2 = (2 k − 2) 
+
+∫
+
+> M
+
+|∇ u|2u2k−2.
+
+Hence, the inequlity (B.6) can be rewritten as 
+
+(2 k − 2) 
+
+∫
+
+> M
+
+|∇ u|2u2k−2 +
+
+∫
+
+> M
+
+∣∣∇2θ∣∣2 u2k−2 ≤ − n − 2
+
+n − 1
+
+∫
+
+> M
+
+δθ · δ [Ric( θ)] u2k−2 + F (θ).
+
+With this, using the relation (cf. [25, Lemma 2.3]) 
+
+|dδθ | ≤ √n|∇ 2θ|, |δθ | ≤ √n|∇ θ|
+
+and 
+
+|ab | ≤ 4n|a|2 + |b|2
+
+16 n (B.7) Bochner–Yano Type Theorems for Conformal Killing Vector Fields 27 for real constants a, b , then we have for any k > 1,
+
+−
+
+∫
+
+> M
+
+δθ · δ [Ric( θ)] · u2( k−1) = −
+
+∫
+
+> M
+
+〈Ric( θ), d [δθ · u2( k−1) ]〉 
+
+= −
+
+∫
+
+> M
+
+〈Ric( θ), dδθ 〉 u2( k−1) − (2 k − 2) 
+
+∫
+
+> M
+
+〈Ric( θ), du 〉 δθ · u2k−3
+
+≤
+
+∫
+
+> M
+
+|Ric( θ)|√n|∇ 2θ|u2( k−1) + (2 k − 2) 
+
+∫
+
+> M
+
+|Ric( θ)|√n|δθ |u2( k−1) 
+
+≤4n
+
+∫
+
+> M
+
+|Ric( θ)|2u2( k−1) + 1
+
+16 
+
+∫
+
+> M
+
+∣∣∇2θ∣∣2 u2( k−1) 
+
++ 8 n(k − 1) 
+
+∫
+
+> M
+
+|Ric( θ)|2 · u2( k−1) + (k − 1) 
+
+8
+
+∫
+
+> M
+
+|∇ u|2u2( k−1) 
+
+≤4n(2 k − 1) 
+
+∫
+
+> M
+
+|Ric( θ)|2u2( k−1) 
+
++ 1
+
+16 
+
+(
+
+(2 k − 2) 
+
+∫
+
+> M
+
+|∇ u|2u2k−2 +
+
+∫
+
+> M
+
+∣∣∇2θ∣∣2 u2k−2
+
+)
+
+≤ − n − 2
+
+16( n − 1) 
+
+∫
+
+> M
+
+δθ · δ [Ric( θ)] u2k−2 + 1
+
+16 F (θ)+ 4 n(2 k − 1) 
+
+∫
+
+> M
+
+|Ric( θ)|2 · u2( k−1) .
+
+which gives 
+
+−n − 2
+
+n − 1
+
+∫
+
+> M
+
+δθ · δ [Ric( θ)] · u2( k−1) ≤ 16( n − 2) 
+
+15 n − 14 
+
+(
+
+4n(2 k − 1) 
+
+∫
+
+> M
+
+|Ric( θ)|2u2( k−1) + 1
+
+16 F (θ)
+
+)
+
+. (B.8) Since 16( n−2)  
+
+> 15 n−14
+
+≤ 16  
+
+> 15
+
+for any n ≥ 2, substituting (B.8) into (B.6) and taking the absolute value, it follows that 
+
+1
+
+2
+
+∫
+
+> M
+
+∆d(u2)u2k−2 +
+
+∫
+
+> M
+
+∣∣∇2θ∣∣2 u2k−2 ≤ 16 
+
+15 · 4n(2 k − 1) 
+
+∫
+
+> M
+
+|Ric( θ)|2u2( k−1) + 16 
+
+15 |F (θ)|.
+
+The following lemma provides an estimate for F (θ); its proof is included below. 
+
+Lemma B.5. Under the same assumptions as above, for k > 1, we have 
+
+|F (θ)| ≤ 8k
+
+∫
+
+> M
+
+|Rθ |2 · u2( k−1) +
+
+∫
+
+> M
+
+Ric −u2k +
+
+∫
+
+> M
+
+|R|u2k
+
++ 10 nk 
+
+∫
+
+> M
+
+|Ric( θ)|2 · u2( k−1) + (k − 1) 
+
+2
+
+∫
+
+> M
+
+|∇ u|2u2( k−1) . (B.9) 
+
+Proof. From the definition of F (θ) in (B.5), we estimate each term separately. 
+
+Term 1 : ∫ 
+
+> M
+
+〈∇ ∗ [R(·, ·)θ] , ∇θ〉 u2k−2. Using Proposition B.3 and the relation 
+
+|ab | ≤ 4|a|2 + |b|2
+
+16 28 
+
+Teng Huang, Qiang Tan and Weiwei Wang 
+
+for real constants a, b , we observe that for any k > 1,
+
+∣∣∣∣∫
+
+> M
+
+〈∇ ∗ [R(·, ·)θ] , ∇θ〉u2( k−1) 
+
+∣∣∣∣ =
+
+∣∣∣∣−(2 k − 2) 
+
+∫
+
+> M
+
+u2k−3〈R(·, ∇u)θ, ∇θ〉 + 1
+
+2
+
+∫
+
+> M
+
+u2k−2|Rθ |2
+
+∣∣∣∣
+
+≤(2 k − 2) 
+
+∫
+
+> M
+
+|Rθ | · |∇ u| · u2( k−1) + 1
+
+2
+
+∫
+
+> M
+
+|Rθ |2 · u2( k−1) 
+
+≤
+
+∫
+
+> M
+
+|Rθ |2 · u2( k−1) 
+
++ (2 k − 2) 
+
+(
+
+4
+
+∫
+
+> M
+
+|Rθ |2 · u2( k−1) + 1
+
+16 
+
+∫
+
+> M
+
+|∇ u|2u2( k−1) 
+
+)
+
+≤8k
+
+∫
+
+> M
+
+|Rθ |2 · u2( k−1) + (k − 1) 
+
+8
+
+∫
+
+> M
+
+|∇ u|2u2( k−1) . (B.10) 
+
+Term 2 : −(2 k − 2) ∫ 
+
+> M
+
+〈Ric( θ), ∇∇uθ〉 u2k−3. Similarly, using the relation 
+
+|ab | ≤ 2|a|2 + |b|2
+
+8
+
+for real constants a, b , we deduce that for any k > 1,
+
+∣∣∣∣−(2 k − 2) 
+
+∫
+
+> M
+
+〈Ric( θ), ∇∇uθ〉 u2k−3
+
+∣∣∣∣ ≤(2 k − 2) 
+
+∫
+
+> M
+
+|Ric( θ)||∇ u|u2( k−1) 
+
+≤4k
+
+∫
+
+> M
+
+|Ric( θ)|2 · u2( k−1) + (k − 1) 
+
+4
+
+∫
+
+> M
+
+|∇ u|2u2( k−1) 
+
+≤2nk 
+
+∫
+
+> M
+
+|Ric( θ)|2 · u2( k−1) + (k − 1) 
+
+4
+
+∫
+
+> M
+
+|∇ u|2u2( k−1) . (B.11) 
+
+Term 3 : −(2 k − 2) · n−2
+
+> n
+
+∫ 
+
+> M
+
+〈Ric( θ), du 〉 δθ · u2k−3. Using |δθ | ≤ √n|∇ θ| and the Peter-Paul inequality (B.7), we have for any k > 1,
+
+∣∣∣∣−(2 k − 2) · n − 2
+
+n
+
+∫
+
+> M
+
+〈Ric( θ), du 〉 δθ · u2k−3
+
+∣∣∣∣
+
+≤(2 k − 2) 
+
+∫
+
+> M
+
+∣∣〈Ric( θ), du 〉 δθ · u2k−3∣∣
+
+≤8n(k − 1) 
+
+∫
+
+> M
+
+|Ric( θ)|2 · u2( k−1) + (k − 1) 
+
+8
+
+∫
+
+> M
+
+|∇ u|2u2( k−1) . (B.12) Combining (B.10), (B.12) and (B.11), and then taking absolute values, yields (B.7). 
+
+Finally, substituting the estimate for F (θ) from (B.9) into (B.8), we obtain exactly the integral inequal-ity stated in Lemma 3.2. This completes the proof of Lemma 3.2. 
+
+# C Technical Lemmas for Moser Iteration 
+
+We first recall the following Lemma, which is used in the proof of Lemma 3.1. Bochner–Yano Type Theorems for Conformal Killing Vector Fields 29 
+
+Theorem C.1. Let r > 0, ν > 1. Let {A(i)}i≥0 be a nonnegative and increasing sequence. If 
+
+A(i + 1) ≤ (1 + r√νi) 1 
+
+> νi
+
+A(i), ∀i ≥ 0,
+
+then 
+
+lim  
+
+> i→+∞
+
+A(i) ≤ exp 
+
+( r√ν
+
+√ν − 1
+
+)
+
+A(0) .
+
+Proof. For any non-negaitive integer i, iterating we find that 
+
+A(i + 1) ≤(1 + r√νi) 1 
+
+> νi
+
+A(i) ≤ (1 + r√νi) 1 
+
+> νi
+
+(1 + r√νi−1) 1 
+
+> νi−1
+
+A(i − 1) 
+
+≤
+
+( i∏
+
+> l=0
+
+(1 + r√νl) 1
+
+> νl
+
+)
+
+A(0) = 
+
+( i∏
+
+> l=0
+
+exp 
+
+( 1
+
+νl ln(1 + r√νl
+
+))
+
+A(0) 
+
+≤ exp 
+
+( i∑
+
+> l=0
+
+r
+
+√νl
+
+)
+
+A(0) .
+
+Here we used the inequality ln(1 + x) ≤ x for x > 0. Taking the limit as i → +∞, we have 
+
+lim  
+
+> i→+∞
+
+A(i) ≤ exp 
+
+(+∞∑
+
+> l=0
+
+r
+
+√νl
+
+)
+
+A(0) = exp 
+
+( r√ν
+
+√ν − 1
+
+)
+
+A(0) .
+
+This completes the proof. 
+
+We next estimate the following infinite product. 
+
+Lemma C.2. Let r > 0, γ > 1. Then 
+
+P := 
+
+> ∞
+
+∏
+
+> i=0
+
+(1 + rγ i+1 ) 1 
+
+> γi+1
+
+≤ exp 
+
+{ 2√γ
+
+γ − 1
+
+}
+
+(1 + √r) 2 
+
+> γ−1
+
+.
+
+Proof. For any x > 0, we have 
+
+ln(1 + rx ) ≤ 2 ln(1 + √rx )= 2 ln(1 + √r) + 2 ln 
+
+(
+
+1 + ( √x − 1) 
+
+√r
+
+1 + √r
+
+)
+
+≤ 2 ln(1 + √r) + 2( √x − 1) .
+
+Hence, 
+
+ln P =
+
+> ∞
+
+∑
+
+> i=0
+
+ln(1 + rγ i+1 )
+
+γi+1 
+
+≤
+
+> ∞
+
+∑
+
+> i=0
+
+2 ln(1 + √r)
+
+γi+1 +
+
+> ∞
+
+∑
+
+> i=0
+
+2γ i+1  
+
+> 2
+
+− 2
+
+γi+1 
+
+≤ 2 ln(1 + √r)
+
+γ − 1 + 2
+
+√γ − 1 − 2
+
+γ − 1= 2 ln(1 + √r)
+
+γ − 1 + 2√γ
+
+γ − 1 .
+
+Therefore, we complete the proof of this lemma. 30 
+
+Teng Huang, Qiang Tan and Weiwei Wang 
+
+Based on Lemma C.2, we prove the following technical lemma, which is used in Moser iteration procedure in Proposition 3.4. 
+
+Theorem C.3. Let r, s > 0, γ > 1. Let {A(i)}i≥0 be a nonnegative and increasing sequence. If 
+
+A(i + 1) ≤ (1 + rγ i+1 ) s 
+
+> γi+1
+
+A(i), ∀i ≥ 0,
+
+then 
+
+lim  
+
+> i→+∞
+
+A(i) ≤ exp 
+
+{2s√γ
+
+γ − 1
+
+}
+
+(1 + √r) 2s 
+
+> γ−1
+
+A(0) .
+
+Proof. For any non-negaitive integer i, iterating we find that 
+
+A(i + 1) ≤(1 + rγ i+1 ) s 
+
+> γi+1
+
+A(i) ≤ (1 + rγ i+1 ) s 
+
+> γi+1
+
+(1 + rγ i) s 
+
+> γi
+
+A(i − 1) 
+
+≤
+
+(i+1 ∏
+
+> l=1
+
+(1 + rγ l) 1
+
+> γl
+
+)s
+
+A(0) .
+
+Taking the limit as i → +∞ and applying the index shift l = k + 1 , we can apply Lemma C.2 to get 
+
+lim  
+
+> i→+∞
+
+A(i) ≤
+
+(+∞∏
+
+> l=1
+
+(1 + rγ l) 1
+
+> γl
+
+)s
+
+A(0) 
+
+≤ exp 
+
+{ 2s√γ
+
+γ − 1
+
+}
+
+(1 + √r) 2s 
+
+> γ−1
+
+A(0) .
+
+This completes the proof. 
+
+## Acknowledgements 
+
+This work is supported by the National Natural Science Foundation of China Nos. 12271496 and the Youth Innovation Promotion Association CAS. 
+
+## Data Availability 
+
+This manuscript has no associated data. 
+
+## Declarations 
+
+Conflict of interest The author states that there is no conflict of interest. Bochner–Yano Type Theorems for Conformal Killing Vector Fields 31 
+
+# References 
+
+[1] Aubry, E., Diameter pinching in almost positive Ricci curvature. Comment. Math. Helv. 84 (2009), no. 2, 223–233. [2] Aubry, E., Colbois, B., Ghanaat, P., Ruh, E., Curvature, Harnack’s inequality, and a spectral characterization of nil-manifolds. Ann. Glob. Anal. Geom. 23 (2003), 227–246. [3] B´ erard, P.H., From vanishing theorems to estimating theorems: the Bochner technique revisited. Bull. Amer. Math. Soc. 
+
+19 (2) (1988), 371–406. [4] Bochner, S., Vector fields and Ricci curvature. Bull. Amer. Math. Soc. 52 (1946), 776–797. [5] Bott, R., Vector fields and characteristic numbers. Michigan Math. J. 14 (1967), 231–244. [6] Branson, T., Stein-Weiss operators and ellipticity. J. Funct. Anal. 151 (1997), no. 2, 334–383. [7] Chen, X.Y., Morse-Novikov cohomology of almost nonnegatively curved manifolds. Adv. Math. 371 (2020), 107249, 23 pp. [8] Chen, X.Y., Han, F., New Bochner type theorems. Math. Ann. 388 (2024), no. 4, 3757–3783. [9] Deshmukh, S., Geometry of conformal vector fields. Arab J. Math. Sci. 23 (2017), no. 1, 44–73. [10] Ejiri, N., A negative answer to a conjecture of conformal transformations of Riemannian manifolds. J. Math. Soc. Japan 
+
+33 (1981), no. 2, 261–266. [11] Fu, H.P., Dan, P.P., Peng, X.Y., Killing vector fields on compact Riemannian manifolds with negative scalar curvature. 
+
+J. of Math. (PRC), 37 (2017) no. 6, 1118–1124. [12] Goldberg, S.I., Kobayashi, S., The conformal transformation group of a compact homogeneous Riemannian manifold. 
+
+Bull. Amer. Math. Soc. 68 1(962), 378–381. [13] Goldberg, S.I., Kobayashi, S., The conformal transformation group of a compact Riemannian manifold. Amer. J. Math. 
+
+84 (1962), 170–174. [14] Gourgoulhon, ´ E., 3 + 1 formalism in general relativity. Lecture Notes in Phys., 846 , Springer, Heidelberg, 2012. [15] Gursky, M.J., Conformal vector fields on four-manifolds with negative scalar curvature. Math. Z. 232 (1999), no. 2, 265–273. [16] Hebey, B., Nonlinear analysis on manifolds: Sobolev spaces and inequalities. Courant Lecture Notes in Mathematics, vol. 5, New York University, Courant Institute of Mathematical Sciences, New York; American Mathematical Society, Providence, RI, 1999. [17] Huang, T., Wang, W., Eigenvalue Estimate for the Rough Laplacianon 1-Forms and its Applications. arXiv:2512.04740 (2025). [18] Katsuda, A., Nakamura, T., A rigidity theorem for Killing vector fields on compact manifolds with almost nonpositive Ricci curvature. Proc. Amer. Math. Soc. 149 (2021), no. 3, 1215–1224. [19] Le Couturier, M., Robert, G., Lp-pinching and the geometry of compact Riemannian manifolds. Comment. Math. Helv. 
+
+69 (1994), 249—271. [20] Lelong-Ferrand, J., Transformations conformes et quasi-conformes des vari´ et´ es riemanniennes compactes (d´ emonstration de la conjecture de A. Lichnerowicz). Acad. Roy. Belg. Cl. Sci. M´ em. Collect. 8o (2) 39 (1971), no. 5, 44 pp. [21] Obata, M., The conjectures on conformal transformations of Riemannian manifolds. J. Differential Geometry 6
+
+(1971/72), 247–258. [22] Petersen, P., Riemannian geometry. Graduate Texts in Mathematics, 171. Springer-Verlag, New York, 1998. xvi+432 pp. [23] Petersen, P., Sprouse, C., Eigenvalue pinching for Riemannian vector bundles. J. Reine Angew. Math. 511 (1999), 73–86. [24] Premoselli, B., Stability and instability of the Einstein-Lichnerowicz constraint system. Int. Math. Res. Not. IMRN (2016), no. 7, 1951–2025. 32 
+
+Teng Huang, Qiang Tan and Weiwei Wang 
+
+[25] Semmelmann, U., Conformal Killing forms on Riemannian Manifolds. Math. Z. 245 , no. 3, (2003), 503–527. [26] Sharma, R., Deshmukh, S., Conformal vector fields, Ricci solitons and related topics Infosys Sci. Found. Ser. Math. Sci. Springer, Singapore, 2024, xi+158 pp. [27] Stein, E., Weiss, G., Generalization of the Cauchy–Riemann equations and representations of the rotation group. Amer. J. Math. 90 (1968), 163–196. [28] Tanno, S., Weber, W.C., Closed conformal vector fields. J. Differential Geom. 3 (1969), 361–366. [29] Yano, K., On Harmonic and Killing Vector Fields. Ann. of Math. 55 (1952), 38–45. [30] Yano, K. Integral formulas in Riemannian geometry. Pure Appl. Math., No. 1 Marcel Dekker, Inc., New York, 1970, ix+156 pp.
