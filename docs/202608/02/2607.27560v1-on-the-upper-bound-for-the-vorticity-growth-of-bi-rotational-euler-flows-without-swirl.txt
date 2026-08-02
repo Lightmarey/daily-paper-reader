@@ -1,0 +1,3588 @@
+Title: On the upper bound for the vorticity growth of bi-rotational Euler flows without swirl
+
+URL Source: https://arxiv.org/pdf/2607.27560v1
+
+Published Time: Fri, 31 Jul 2026 00:20:38 GMT
+
+Number of Pages: 22
+
+Markdown Content:
+ON THE UPPER BOUND FOR THE VORTICITY GROWTH OF BI-ROTATIONAL EULER FLOWS WITHOUT SWIRL 
+
+KHAKIM EGAMBERGANOV AND DEOKWOO LIM 
+
+Abstract. For d ≥ 4, we consider incompressible Euler flows in Rd with bi-rotational symmetry and without swirl. Our first result gives the local wellposedness of the Yudovich-type solution. The second result provides global wellposedness up to d ≤ 6. In particular, it shows that the rate of growth of the vorticity maximum coincides with the rate from axisymmetric flows without swirl, which was obtained in the paper by the second author and Jeong (Arch. Ration. Mech. Anal. 249(3):32, 2025) and Shao–Wei–Zhang (Acta Math. Sin. (Engl. Ser.), 42(3):663-679, 2026). 
+
+1. Introduction 
+
+The incompressible Euler equations in Rd are given by (1.1) 
+
+∂tv + v · ∇ v + ∇p = 0 ,
+
+∇ · v = 0 ,
+
+where v = ( v1, · · · , v d) : [0 , T ) × Rd → Rd and p : [0 , T ) × Rd → R. The coordinates that we are going to consider is the bi-polar coordinates, which is given as 
+
+r2 =
+
+> n+1
+
+X
+
+> i=1
+
+x2 
+
+> i
+
+, s2 =
+
+> n+m+2
+
+X
+
+> i=n+2
+
+x2 
+
+> i
+
+.
+
+Under this bi-polar coordinates, we say that a solution v of (1.1) has bi-rotational symmetry without swirl if it has the form (1.2) v(t, x) = ur(t, r, s )er + us(t, r, s )es, x = ( x1, ..., x d),
+
+where ur, u s are scalar-valued. Recall that in Rd, the vorticity ω is a two-tensor of the form 
+
+ω = ( ωi,j )1≤i,j ≤d, ωi,j = ∂j vi − ∂ivj .
+
+Similarly, the stream function (Ψ i,j )1≤i,j ≤d is defined as Ψi,j = ∆ −1ωi,j 
+
+Under the bi-rotational symmetry and no-swirl assumption (1.2), the vorticity and the stream function have the expression 
+
+ωi,j (x) = − xixj
+
+rs w(r, s ), w = ∂rus − ∂sur, Ψi,j (x) = − xixj
+
+rs ψ(r, s ),
+
+2020 AMS Mathematics Subject Classification: 76B47, 35Q35 
+
+Key words: Vortex stretching; Bi-rotational symmetry; Vorticity; Biot–Savart law Date : July 31, 2026. 
+
+> 1arXiv:2607.27560v1 [math.AP] 30 Jul 2026
+
+for some scalar functions w and ψ, and for any 1 ≤ i ≤ n + 1, n + 2 ≤ j ≤ n + m + 2, and 
+
+x ∈ Rd. From now on, we refer to w and ψ as the scalar vorticity and the scalar stream function, respectively. Then, the scalar vorticity w satisfies the following evolution equation: (1.3) ∂tw + ( ur∂r + us∂s)w =
+
+
+
+n ur
+
+r + m us
+
+s
+
+
+
+w, 
+
+Alternatively, this can be written as the transport equation of the quantity w/ (rnsm) in Rd:
+
+∂t
+
+ wrnsm
+
+
+
++ ( ur∂r + us∂s)
+
+ wrnsm
+
+
+
+= 0 ,
+
+Also, from the divergence-free condition (1.4) ∂rur + nr ur + ∂sus + ms us = 0 and the relation between w and the scalar stream function ψ
+
+(1.5) 
+
+
+
+∂2 
+
+> r
+
++ nr ∂r − nr2 + ∂2 
+
+> s
+
++ ms ∂s − ms2
+
+
+
+ψ = w in Π,ψ = 0 on ∂Π = {(r, s ) : r = 0 or s = 0 } ,
+
+we can get the bi-rotational velocity u := ( ur, u s) from ψ as (1.6) ur = − ∂s(smψ)
+
+sm = −
+
+ ms ψ + ∂sψ
+
+
+
+, us = ∂r(rnψ)
+
+rn = nr ψ + ∂rψ. 
+
+In particular, ψ can be recovered from the relation (1.5) as (1.7) ψ = rs ∆−1
+
+> Rn+3 ×Rm+3
+
+ wrs 
+
+
+
+,
+
+where ∆ Rn+3 ×Rm+3 is the Laplacian in Rd+4 = Rn+3 × Rm+3 .1.1. Main results. The first result is about the local wellposedness of the Yudovich-type solutions. 
+
+Theorem 1.1. Let w0 ∈ (Ld, 1 ∩ L∞)( Rd) satisfy 
+
+(1 + rn−1sm + rnsm−1) w0
+
+rnsm ∈ Ld, 1(Rd).
+
+Then there exists T > 0 and a corresponding unique solution w ∈ L∞(0 , T ; ( Ld, 1 ∩ L∞)( Rd)) of 
+
+(1.1) that satisfies 
+
+(1 + rn−1sm + rnsm−1) wrnsm ∈ L∞(0 , T ; Ld, 1(Rd)) .
+
+The second result says that for d ≤ 6, under some additional conditions on the above initial data 
+
+w0, we have global wellposedness. Moreover, it shows that the L∞-norm of w has the same the rate of growth with that from the axisymmetric flow without swirl ([18, 24]). 
+
+Theorem 1.2. Let w0 ∈ (Ld, 1 ∩ L∞)( Rd) also satisfy v0 ∈ L2(Rd) and 
+
+(1.8) (1 + rn + sm) w0
+
+rnsm ∈ L∞(Rd), (1 + rn+m + sn+m) w0
+
+rnsm ∈ L1(Rd).
+
+Then there exists a unique global-in-time solution w ∈ L∞
+
+> loc
+
+(0 , ∞; ( Ld, 1 ∩ L∞)( Rd)) of (1.1) with the initial data w0, and for any t ≥ 0, it satisfies 
+
+(1.9) ∥w(t)∥L∞(Rd) ≤
+
+(
+
+C1(1 + t)4( d−2) /(6 −d), if d = 4 , 5,C2eC3t, if d = 6 ,
+
+for some constants C1 = C1(n, m, w 0) > 0, C2 = C2(n, m, w 0) > 0, and C3 = C3(n, m, w 0) > 0.
+
+> 2
+
+Remark 1.1 . The assumptions on w0 in Theorem 1.2 can equivalently be stated as 
+
+w0 ∈ (Ld, 1 ∩ L∞)( Rd), w0
+
+rnsm ∈ (L1 ∩ L∞)( Rd),
+
+together with 
+
+w0
+
+rn , w0
+
+sm ∈ L∞(Rd), rmw0
+
+sm , snw0
+
+rn ∈ L1(Rd).
+
+By interpolation, these assumptions imply those of Theorem 1.1. 
+
+Remark 1.2 . For the case d = 4, the first condition from (1.8) is guaranteed if we assume w0 ∈
+
+C2(R4) ([6, Prop. A.1]). However, for cases d = 5 , 6, smoothness of w0 does not necessarily imply the L∞ condition in (1.8). 1.2. Literatures review. 
+
+Axisymmetric solutions in 3D. Bi-rotational solutions were motivated by axisymmetric solutions of 3D Euler equations. In R3, under the cylindrical coordinates ( r, θ, z ), axisymmetric solutions without swirl are defined as 
+
+u = ur(r, z )er + uz (r, z )ez ,
+
+where the vorticity becomes 
+
+ω = ωθ(r, z )eθ, ωθ(r, z ) = ∂ruz − ∂z ur,
+
+and the Euler equations reduce to 
+
+∂t
+
+ωθ
+
+r + ( ur∂r + uz ∂z ) ωθ
+
+r = 0 .
+
+The global wellposedness of the solution for this equation is well-known from various works ([26, 23, 25, 8, 1]). For such globally wellposed solutions, a natural question one can ask is whether the vorticity can grow as time t goes to infinity. As the term ωθ/r is conserved along the flow, the growth of vorticity occurs when the radial distance of fluid particles from the rotation axis increases. The simplest model where such growth can be observed is the anti-parallel vortex rings ,which satisfy the following conditions: (1.10) ωθ(r, −z) = −ωθ(r, z ), ωθ(r, z ) ≤ 0, r, z ≥ 0.
+
+This model was considered by Childress, Gilbert, and Valiant ([3, 4, 5]). There are several works regarding the upper bound and the lower bound of the growth of the vorticity maximum ∥ωθ∥L∞ . For the upper bound, the exponential growth results can be found in Majda–Bertozzi [20] and Danchin [8]. The t2-upper bound was established by Childress [3], and this can be derived by using an estimate for the velocity maximum from Feng–Sverak [11]. Recently, the t4/3-upper bound was obtained by Jeong and the author [18] for compactly supported initial vorticity with ωθ 
+
+> 0
+
+/r ∈ L∞, and the compact support assumption was relaxed by Shao–Wei–Zhang [24] and Egamberganov–Yao [10]. In addition, for single-signed vorticity, Maffei–Marchioro [19] provides t1/4 ln( e + t)-upper bound using the conservation of the fluid impulse ∥rω θ∥L1 . For lower bounds, Choi–Jeong established a patch-type solution satisfying (1.10) and t1/15 −-lower bound. This was enhanced by Gustafson–Miller–Tsai [12] obtaining t3/8−-lower bound. Also, [10] recently improved the lower bound up to t1/2−.
+
+> 3
+
+## R
+
+## R
+
+## a
+
+## a
+
+## r
+
+## s
+
+## OFigure 1. A diagram of Childress’ dipole model centered at the point ( R, R ) with radius a.
+
+High dimension. There are several works which analyzed axisymmetric Euler equations in high dimensions d ≥ 3 ([7, 17, 12]). Although such cases are not physical, there are several works suggesting that there is a good chance that finite-time singularity formation of a solution with some smooth initial data can occur when the dimension is large ([9, 22, 13, 14]). Recently, Miller [21] proved that when d = 4, the global wellposedness holds for the initial data that satisfies 
+
+w0/r 2 ∈ L2,1(R4). The bi-rotational equation can be considered as a special case of the lake equation with the depth function d(r, s ) = rnsm for any n, m ≥ 1. This appears in the work of Khesin–Yang [16] and Yang [27]. Previously, Choi, Jeong, and the author [6] proved the global wellposedness of the bi-rotational solutions with the Yudovich-type regularity and decay near the axes r = 0, s = 0, and at infinity for the 4D case n = m = 1. In particular, they showed that ∥w∥L∞ has an exponential upper bound in time. As a recent work, Jeong and the author [15] proved that for patch-type vorticity, the support diameter grows infinitely large. 1.3. Key ideas. 
+
+The extension of Childress’ dipole model. We begin by considering Childress’ dipole model([4, 5]). This is a circular vortex dipole on the first quadrant {(r, s ) ∈ R2 : r, s ≥ 0} which is centered on the point ( R, R ) for a given R > 0 and a radius a ≪ R. Additionally, w is odd symmetric with respect to the axis {r = s} (i.e., w(s, r ) = −w(r, s )) and non-positive on the region {r ≤ s} (i.e., 
+
+w(r, s ) ≤ 0 when r ≤ s). This is depicted in Figure 1. Then note that the velocity maximum is achieved on the center ( R, R ) and the kinetic energy is scaled as 
+
+∥u∥2 
+
+> L2
+
+∼ (Rd−2a)2(Rd−2a2) ∼ R3d−6a4.
+
+Then using the conservation of the kinetic energy, the radius a is scaled as a ∼ R−(3 d−6) /4. Then using that the vorticity maximum w is scaled as w ∼ Rd−2 and the velocity maximum is scaled as 
+
+u ∼ wa ∼ Rd−2a, we obtain the following ODE: ˙R ∼ u ∼ Rd−2a ∼ R(d−2) /4,
+
+> 4
+
+which gives us 
+
+R ∼
+
+
+
+1 + t2, if d = 4 ,
+
+1 + t4, if d = 5 ,ect , if d = 6 .
+
+This leads to the rate 
+
+w ∼ Rd−2 ∼
+
+
+
+1 + t4, if d = 4 ,
+
+1 + t12 , if d = 5 ,ect , if d = 6 .
+
+Such structure is similar with the anti-parallel vortex rings on the half plane {r ≥ 0, z ∈ R}. In fact, this rate coincides with the upper bound for axisymmetric solutions without swirl in Rd, which was obtained in [24]. 
+
+Conservation of the relative vorticity w/ (rnsm) and the vorticity maximum. The first idea is to use the fact that the relative vorticity w/ (rnsm) is conserved along the flow: 
+
+|w(t, Φrt (r, s ), Φst (r, s )) |
+
+[Φ rt (r, s )] n[Φ st (r, s )] m = |w0(r, s )|
+
+rnsm ,
+
+where Φ t = (Φ rt , Φst ) is the flow map that uniquely satisfies the ODE 
+
+ddt Φrt (r, s ) = ur(t, Φrt (r, s ), Φst (r, s )) , Φr
+
+> 0
+
+(r, s ) = r, ddt Φst (r, s ) = us(t, Φrt (r, s ), Φst (r, s )) , Φs
+
+> 0
+
+(r, s ) = s. 
+
+Such conservation allows us to estimate the vorticity maximum by the time integral of the velocity maximum: (1.11) ∥w(t)∥L∞(Rd) ≤ C(n, m, w 0)
+
+
+
+1 + 
+
+Z t
+
+> 0
+
+∥u(τ )∥L∞(Rd)dτ 
+
+n+m
+
+,
+
+where C(n, m, w 0) > 0 is a constant that depends only on the norms ∥w0∥L∞(Rd), ∥w0/r n∥L∞(Rd),
+
+∥w0/s m∥L∞(Rd), and ∥w0/(rnsm)∥L∞(Rd). This naturally leads us to consider an estimate of the velocity maximum. 
+
+The Biot–Savart law and the Feng– ˇSver´ ak-type estimate. Next, the velocity maximum is bouneded by the following Feng– ˇSver´ ak-type estimate (4.8) from Proposition 4.4: 
+
+∥u∥L∞(Rd) ≲
+
+"
+
+rmwsm L1(Rd)
+
++ snwrn L1(Rd)
+
+#1/2
+
+wrnsm
+
+> 1/2
+> L∞(Rd)
+
+.
+
+We have bounded the L∞-norm of the velocity u by the L∞-norm of the relative velocity w/ (rnsm)and two radial moments ∥rmw/s m∥L1 and ∥snw/r n∥L1 . Thanks to the scale-invariance of the Biot–Savart law, the range of the estimate narrows down to the unit circle on the first quadrant (Inequality (4.9)): sup 
+
+> r,s ≥0,r2+s2=1
+
+|ur(r, s )|, sup 
+
+> r,s ≥0,r2+s2=1
+
+|us(r, s )| ≲
+
+"
+
+rmwsm L1(Rd)
+
++ snwrn L1(Rd)
+
+#1/2
+
+wrnsm
+
+> 1/2
+> L∞(Rd)
+
+.
+
+In the previous work of the second author with Choi and Jeong([6]), we obtained an exponential upper bound of the vorticity maximum. Back then, we weren’t able to find a way to simplify the bi-rotational Biot–Savart kernel similarly as in the axisymmetric case ([11]). But now, we managed 
+
+> 5
+
+to express the kernel by using a single variable function twice, in some sense. This helps us in obtaining appropriate decay rates of the kernel. Due to this, the derivation of the estimate (4.9) on the first quadrang becomes much simpler than the proof of the corresponding estimate from [6]. 
+
+Radial moments. The last key idea is to estimate the time derivative of the radial moments 
+
+∥rmw/s m∥L1 and ∥snw/r n∥L1 in Lemma 4.6: 
+
+ddt 
+
+rmw(t)
+
+sm L1(Rd)
+
+≤ w0
+
+rnsm
+
+> 1/(d−2)
+> L∞(Rd)
+
+∥v0∥2/(d−2)  
+
+> L2(Rd)
+
+∥ur(t)∥(d−4) /(d−2) 
+
+> L∞(Rd)
+
+rmw(t)
+
+sm
+
+> (d−3) /(d−2)
+> L1(Rd)
+
+,ddt 
+
+snw(t)
+
+rn L1(Rd)
+
+≤ w0
+
+rnsm
+
+> 1/(d−2)
+> L∞(Rd)
+
+∥v0∥2/(d−2)  
+
+> L2(Rd)
+
+∥us(t)∥(d−4) /(d−2) 
+
+> L∞(Rd)
+
+snw(t)
+
+rn
+
+> (d−3) /(d−2)
+> L1(Rd)
+
+.
+
+Then combining this with the Feng– ˇSver´ ak-type estimate (4.8), we can obtain the differential inequality of the radial moments in Lemma 4.7: 
+
+ddt 
+
+"
+
+rmw(t)
+
+sm L1(Rd)
+
++ snw(t)
+
+rn L1(Rd)
+
+#
+
+≲n,m,w 0
+
+"
+
+rmw(t)
+
+sm L1(Rd)
+
++ snw(t)
+
+rn L1(Rd)
+
+#(3 d−10) /(2 d−4) 
+
+.
+
+Solving this differential inequality and plugging the rate obtained back into the estimate (4.8), we can get the rate of growth of ∥u∥L∞ . Finally, inserting this rate in the estimate (1.11) finishes the proof of Theorem 1.2. 1.4. Organization. In Section 2, we recall the derivation of the Biot–Savart law for bi-rotational flows without swirl. In Section 3, we establish the local wellposedness of Yudovich-type solutions for any n, m ≥ 1 by showing that the Biot–Savart kernel is a function in the dual space of Ld, 1(Rd). In Section 4, we prove the global wellposedness of the local-in-time solutions for d ≤ 6 from the previous section with additional conditions assuming finite kinetic energy and some decays near the rotationa axes and at infinity. 2. The Biot–Savart law 
+
+In this section, we present the derivation of the Biot–Savart formula under bi-rotational symmetry and no-swirl condition (1.2). In Rd, the Biot–Savart law is given as 
+
+vi =
+
+> d
+
+X
+
+> j=1
+
+∂xj ψi,j =
+
+> d
+
+X
+
+> j=1
+
+∂j ∆−1ωi,j =
+
+> d
+
+X
+
+> j=1
+
+∆−1∂j ωi,j .
+
+We refer the readers to the book by Chemin [2] for details. We denote Π := {(r, s ) ∈ R2 : r, s ≥ 0},X±± := ( r − r)2 + 2 rr (1 ± cos θ1) + ( s − s)2 + 2 ss (1 ± cos ϕ1),X±∓ := ( r − r)2 + 2 rr (1 ± cos θ1) + ( s − s)2 + 2 ss (1 ∓ cos ϕ1).
+
+The explicit Biot–Savart formula is introduced in the following proposition. 
+
+Proposition 2.1. Let (r, s ) ∈ Π. Then we have 
+
+ur(r, s ) = −
+
+Z Z 
+
+> Π
+
+F rn,m (r, s, r, s )w(r, s )drds, F rn,m (r, s, r, s ) = cd
+
+Z π
+
+> 0
+
+Z π
+
+> 0
+
+rnsm sin n−1 θ1 cos θ1 sin m−1 ϕ1(s − s cos ϕ1)
+
+Xd/ 2
+
+> −−
+
+dθ 1dϕ 1,
+
+> 6
+
+and 
+
+us(r, s ) = 
+
+Z Z 
+
+> Π
+
+F sn,m (r, s, r, s )w(r, s )drds, F sn,m (r, s, r, s ) = cd
+
+Z π
+
+> 0
+
+Z π
+
+> 0
+
+rnsm sin n−1 θ1(r − r cos θ1) sin m−1 ϕ1 cos ϕ1
+
+Xd/ 2
+
+> −−
+
+dθ 1dϕ 1.
+
+Proof of Proposition 2.1. First, we use the change of coordinates to obtain the relation (cf. [15]) 
+
+ur
+
+r = v1
+
+x1
+
+= − 1
+
+x1
+
+∆−1
+
+ x1
+
+r
+
+
+
+∂sw + ms w
+
+ 
+
+.
+
+Computing this, we have 
+
+ v1
+
+x1
+
+
+
+(x) = − cd
+
+x1
+
+Z
+
+> Rd
+
+1
+
+|x − x|d−2
+
+x1
+
+r
+
+
+
+∂sw(x) + ms w(x)
+
+
+
+dx
+
+= − cd
+
+r cos θ1
+
+Z Z 
+
+> Π
+
+Z 2π
+
+> 0
+
+Z
+
+> [0 ,π ]m−1
+
+Z 2π
+
+> 0
+
+Z
+
+> [0 ,π ]n−1
+
+rnsm cos θ1
+
+|x − x|d−2
+
+
+
+∂sw(r, s ) + ms w(r, s )
+
+
+
+·
+
+
+
+rnsmn−1Y
+
+> i=1
+
+sin n−i θim−1Y
+
+> j=1
+
+sin m−j ϕj
+
+
+
+dθ 1 · · · dθ n−1dθ ndϕ 1 · · · dϕ m−1dϕ mdrds. 
+
+Then due to the rotational invariance of the Laplacian operator ∆ Rn+3 ×Rm+3 and relations (1.6) and (1.7), we have 
+
+ v1
+
+x1
+
+
+
+(x) = 
+
+ v1
+
+x1
+
+
+
+(rer + ses)= − cd
+
+r
+
+Z Z 
+
+> Π
+
+Z π
+
+> 0
+
+Z π
+
+> 0
+
+rnsm sin n−1 θ1 cos θ1 sin m−1 ϕ1
+
+Xd/ 2−1
+
+> −−
+
+
+
+∂sw(r, s ) + ms w(r, s )
+
+
+
+dθ 1dϕ 1drds 
+
+= − cd
+
+r
+
+Z Z 
+
+> Π
+
+Z π
+
+> 0
+
+Z π
+
+> 0
+
+sin n−1 θ1 cos θ1 sin m−1 ϕ1
+
+
+
+− ∂s
+
+ rnsm
+
+Xd/ 2−1
+
+> −−
+
+
+
++ mr nsm−1
+
+Xd/ 2−1
+
+> −−
+
+
+
+w(r, s )dθ 1dϕ 1drds 
+
+= − cd
+
+r
+
+Z Z 
+
+> Π
+
+Z π
+
+> 0
+
+Z π
+
+> 0
+
+rnsm sin n−1 θ1 cos θ1 sin m−1 ϕ1(s − s cos ϕ1)
+
+Xd/ 2
+
+> −−
+
+w(r, s )dθ 1dϕ 1drds. 
+
+Thus, we obtain 
+
+ur(r, s ) = r
+
+ v1
+
+x1
+
+
+
+(rer + ses)= −cd
+
+Z Z 
+
+> Π
+
+Z π
+
+> 0
+
+Z π
+
+> 0
+
+rnsm sin n−1 θ1 cos θ1 sin m−1 ϕ1(s − s cos ϕ1)
+
+Xd/ 2
+
+> −−
+
+w(r, s )dθ 1dϕ 1drds. 
+
+We can derive us in the same way by using the equation 
+
+us
+
+s = vn+2 
+
+xn+2 
+
+= 1
+
+xn+2 
+
+∆−1
+
+ xn+2 
+
+s
+
+
+
+∂rw + nr w
+
+ 
+
+.
+
+□
+
+3. Local wellposedness of the Yudovich-type solution 
+
+In this section, we show that the Yudovich-type solution of (1.3), where the initial data w0 is in (Ld, 1 ∩ L∞)( Rd) and other terms w0/(rnsm), w0/r , and w0/s are in Ld, 1(Rd), is locally wellposed. 
+
+> 7
+
+The following lemma shows that L∞-norms of the velocity with or without some weight is bounded by Ld, 1-norms of the vorticity with or without the same weight. 
+
+Lemma 3.1. We have 
+
+∥v∥L∞(Rd) ≤ Cd∥w∥Ld, 1(Rd),(3.1) 
+
+ur
+
+r L∞(Rd)
+
+≤ Cd
+
+wr Ld, 1(Rd)
+
+,(3.2) 
+
+us
+
+s L∞(Rd)
+
+≤ Cd
+
+ws Ld, 1(Rd)
+
+.(3.3) 
+
+Proof of Lemma 3.1. To prove (3.1), we first use (s − s cos ϕ1)2 ≤ X−− 
+
+to get that 
+
+|F rn,m (r, s, r, s )| ≲d
+
+Z π
+
+> 0
+
+Z π
+
+> 0
+
+rnsm sin n−1 θ1 sin m−1 ϕ1
+
+X(d−1) /2
+
+> −−
+
+dθ 1dϕ 1.
+
+This gives us 
+
+|ur(r, s )| ≲d
+
+Z Z 
+
+> Π
+
+Z π
+
+> 0
+
+Z π
+
+> 0
+
+rnsm sin n−1 θ1 sin m−1 ϕ1
+
+X(d−1) /2
+
+> −−
+
+|w(r, s )|dθ 1dϕ 1drds 
+
+≃d
+
+Z
+
+> Rd
+
+1
+
+|x − x|d−1 |w(x)|dx ≲d ∥w∥Ld, 1(Rd),
+
+where the last line follows from H¨ older’s inequality in Lorentz spaces, since |x|−(d−1) ∈ Ld/ (d−1) ,∞(Rd), the dual space of Ld, 1(Rd). In the same way, we can also prove 
+
+|us(r, s )| ≲d ∥w∥Ld, 1(Rd).
+
+Now to show (3.2), observe that we have 
+
+F rn,m (r, s, r, s ) = cd
+
+Z π
+
+> 0
+
+Z π/ 20
+
+rnsm sin n−1 θ1 cos θ1 sin m−1 ϕ1(s − s cos ϕ1)
+
+ 1
+
+Xd/ 2
+
+> −−
+
+− 1
+
+Xd/ 2+−
+
+
+
+dθ 1dϕ 1.
+
+Since 1
+
+Xd/ 2
+
+> −−
+
+− 1
+
+Xd/ 2+−
+
+= Xd 
+
+> +−
+
+− Xd
+
+> −−
+
+Xd/ 2 
+
+> −−
+
+Xd/ 2+− (Xd/ 2+− + Xd/ 2 
+
+> −−
+
+)= (X+− − X−− )( Xd−1+− + Xd−2+− X−− + · · · + X+−Xd−2 
+
+> −−
+
++ Xd−1 
+
+> −−
+
+)
+
+Xd/ 2 
+
+> −−
+
+Xd/ 2+− (Xd/ 2+− + Xd/ 2 
+
+> −−
+
+)= 4rr cos θ1(Xd−1+− + Xd−2+− X−− + · · · + X+−Xd−2 
+
+> −−
+
++ Xd−1 
+
+> −−
+
+)
+
+Xd/ 2 
+
+> −−
+
+Xd/ 2+− (Xd/ 2+− + Xd/ 2 
+
+> −−
+
+)
+
+≲d
+
+rr cos θ1Xd−1+−
+
+Xd/ 2 
+
+> −−
+
+Xd
+
+> +−
+
+= rr cos θ1
+
+Xd/ 2 
+
+> −−
+
+X+−
+
+,
+
+> 8
+
+we deduce that 
+
+|F rn,m (r, s, r, s )| ≲d
+
+Z π
+
+> 0
+
+Z π/ 20
+
+rr n+1 sm sin n−1 θ1 cos 2 θ1 sin m−1 ϕ1|s − s cos ϕ1|
+
+Xd/ 2 
+
+> −−
+
+X+−
+
+dθ 1dϕ 1
+
+≤
+
+Z π
+
+> 0
+
+Z π/ 20
+
+rr n+1 sm sin n−1 θ1 sin m−1 ϕ1
+
+X(d−1) /2 
+
+> −−
+
+X+−
+
+dθ 1dϕ 1.
+
+Next we use the inequality 
+
+r2 ≤ 4X+−.
+
+Indeed, this holds because if r2 ≤ X−− , then 
+
+r = ( r − r) + r ≤ 2X1/2 
+
+> −−
+
+,
+
+and if r2 > X −− , then r ≤ 2r cos θ1, which gives us 
+
+r2 ≤ 2rr cos θ1 ≤ X+−.
+
+So, using this inequality, we obtain 
+
+|F rn,m (r, s, r, s )| ≲d
+
+Z π
+
+> 0
+
+Z π/ 20
+
+rr n−1sm sin n−1 θ1 sin m−1 ϕ1
+
+X(d−1) /2
+
+> −−
+
+dθ 1dϕ 1
+
+≤
+
+Z π
+
+> 0
+
+Z π
+
+> 0
+
+rr n−1sm sin n−1 θ1 sin m−1 ϕ1
+
+X(d−1) /2
+
+> −−
+
+dθ 1dϕ 1.
+
+Thus, we arrive at 
+
+1
+
+r ur(r, s ) ≤ 1
+
+r
+
+Z Z 
+
+> Π
+
+|F rn,m (r, s, r, s )|| w(r, s )|drds 
+
+≲d
+
+Z Z 
+
+> Π
+
+Z π
+
+> 0
+
+Z π
+
+> 0
+
+rnsm sin n−1 θ1 sin m−1 ϕ1
+
+X(d−1) /2
+
+> −−
+
+|w(r, s )|
+
+r dθ 1dϕ 1drds 
+
+≃d
+
+Z
+
+> Rd
+
+1
+
+|x − x|d−1
+
+|w(x)|
+
+r dx ≲d
+
+wr Ld, 1(Rd)
+
+.
+
+The estimate (3.3) follows by analogous computations. □
+
+Now we prove Theorem 1.1. 
+
+Proof of Theorem 1.1. It suffices to derive a priori estimates, as the existence of solutions follows by a standard smoothing argument, while uniqueness in the stated class can be proved as in [8]. Hence, the local well-posedness reduces to establishing a priori estimates. Applying (3.2) and (3.3) to the equation (1.3), we obtain 
+
+ddt ∥w∥L∞ ≤
+
+
+
+n ur
+
+r L∞
+
++ m us
+
+s L∞
+
+
+
+∥w∥L∞ ≲m,n 
+
+ wr Ld, 1 + ws Ld, 1
+
+
+
+∥w∥L∞
+
+and 
+
+ddt ∥w∥Ld, 1 ≤
+
+
+
+n ur
+
+r L∞
+
++ m us
+
+s L∞
+
+
+
+∥w∥Ld, 1 ≲m,n 
+
+ wr Ld, 1 + ws Ld, 1
+
+
+
+∥w∥Ld, 1 .
+
+By Gr¨ onwall’s inequality, both ∥w∥L∞ and ∥w∥Ld, 1 remain finite on every finite time interval [0 , T ], provided that (3.4) 
+
+Z T
+
+> 0
+
+ w(t)
+
+r Ld, 1
+
++ w(t)
+
+s Ld, 1
+
+
+
+dt < ∞.
+
+> 9
+
+Moreover, since w/ (rnsm) is conserved along particle trajectories, we also have 
+
+w(t)
+
+rnsm Ld, 1
+
+= w0
+
+rnsm Ld, 1 .
+
+It therefore remains to study the evolution of w/r , w/s , and show (3.4) at least for a short time. Observe that, for any integers k, l ≥ 0, the quantity w/ (rksl) satisfies (∂t + ur∂r + us∂s) wrksl =
+
+
+
+(n − k) ur
+
+r + ( m − l) us
+
+s
+
+ wrksl .
+
+In particular, for w/r and w/s , we have 
+
+∂t
+
+wr + ( ur∂r + us∂s) wr =
+
+
+
+(n − 1) ur
+
+r + m us
+
+s
+
+ wr ,∂t
+
+ws + ( ur∂r + us∂s) ws =
+
+
+
+n ur
+
+r + ( m − 1) us
+
+s
+
+ ws .
+
+Combining these equations with (3.2) and (3.3) yields 
+
+ddt 
+
+wr Ld, 1 ≤
+
+
+
+(n − 1) ur
+
+r L∞
+
++ m us
+
+s L∞
+
+ wr Ld, 1 ≲m,n 
+
+ wr Ld, 1 + ws Ld, 1
+
+ wr Ld, 1 ,ddt 
+
+ws Ld, 1 ≤
+
+
+
+n ur
+
+r L∞
+
++ ( m − 1) us
+
+s L∞
+
+ ws Ld, 1 ≲m,n 
+
+ wr Ld, 1 + ws Ld, 1
+
+ ws Ld, 1 .
+
+Consequently, we get 
+
+ddt 
+
+ wr Ld, 1 + ws Ld, 1
+
+
+
+≲m,n 
+
+ wr Ld, 1 + ws Ld, 1
+
+2
+
+,
+
+ensuring the boundedness of ∥w/r ∥Ld, 1 + ∥w/s ∥Ld, 1 for some time interval [0 , T ], where T depends only on ∥w0/r ∥Ld, 1 + ∥w0/s ∥Ld, 1 . This implies (3.4) on [0 , T ] and finishes our proof. 
+
+□
+
+4. Global well-posedness of the Yudovich-type solution when d ≤ 6In this section, we prove the global wellposedness of the local-in-time solution w from the previous section with some additional decay conditions on the initial data w0 when the dimension is less than or equal to 6. 4.1. Global velocity bound. In this subsection, our goal is to prove a global bound of the velocity 
+
+v of Feng–Sverak-type ([11]). To do this, we introduce some technical lemmas on the decay property of the Biot–Savart kernel. First, the following lemma is about the decay rate of some elliptic integral, which is going to be used many times in the proof of the next lemma. 
+
+Lemma 4.1. Let α ∈ { 0, 1}, β ≥ 0, γ > (β + 1) /2, and define 
+
+Aα,β,γ (τ ) := 
+
+Z π
+
+> 0
+
+cos α θ sin β θ
+
+[τ + 2(1 − cos θ)] γ dθ, τ > 0.
+
+Then for any τ > 0, we have 
+
+(4.1) 0 ≤ A α,β,γ (τ ) ≲α,β,γ min {τ −(γ−(β+1) /2) , τ −(γ+α)}.
+
+> 10
+
+Proof of Lemma 4.1. The non-negativity of Aα,β,γ (τ ) follows from 
+
+Aα,β,γ (τ ) = 
+
+Z π/ 20
+
+ cos α θ sin β θ
+
+[τ + 2(1 − cos θ)] γ + ( −1) α cos α θ sin β θ
+
+[τ + 2(1 + cos θ)] γ
+
+
+
+dθ ≥ 0.
+
+We want to show that we have 
+
+Aα,β,γ (τ ) ≲β,γ τ −(γ−(β+1) /2) for any 0 < τ < 1,(4.2) 
+
+Aα,β,γ (τ ) ≲α,γ τ −(γ+α) for any τ ≥ 1.(4.3) To prove (4.2), note that we have sin θ = θ + O(θ2), 1 − cos θ = θ2
+
+2 + O(θ4) as θ → 0+.
+
+That is, we can choose a sufficiently small ε > 0 that satisfies sin θ ≤ θ, 1 − cos θ ≥ θ2
+
+2 for any θ ∈ [0 , ε ].
+
+Also, we can choose a constant c > 0 satisfying 1 − cos θ ≥ c
+
+2 for any θ ∈ [ε, π ].
+
+Then for any 0 < τ < 1, we have 
+
+Aα,β,γ (τ ) = 
+
+Z ε
+
+> 0
+
++
+
+Z πε
+
+ cos α θ sin β θ
+
+[τ + 2(1 − cos θ)] γ dθ 
+
+≤
+
+Z ε
+
+> 0
+
+θβ
+
+(τ + θ2)γ dθ +
+
+Z πε
+
+cos α θ sin β θ
+
+[τ + 2(1 − cos θ)] γ dθ 
+
+=
+
+Z ε/ √τ
+
+> 0
+
+τ β/ 2ϕβ
+
+τ γ (1 + ϕ2)γ
+
+√τ dϕ + τ γ−(β+1) /2
+
+τ γ−(β+1) /2
+
+Z πε
+
+cos α θ sin β θ
+
+[τ + 2(1 − cos θ)] γ dθ. 
+
+Aα,β,γ (τ ) ≤ 1
+
+τ γ−(β+1) /2
+
+Z ∞
+
+> 0
+
+ϕβ
+
+(1 + ϕ2)γ dϕ + 1
+
+τ γ−(β+1) /2
+
+Z πε
+
+1
+
+cγ dθ 
+
+≲β,γ 
+
+1
+
+τ γ−(β+1) /2 .
+
+Now to prove (4.3), we define z := 1 /τ and 
+
+g(z) := Aα,β,γ (1 /z ) = 
+
+Z π
+
+> 0
+
+cos α θ sin β θ
+
+[1 /z + 2(1 − cos θ)] γ dθ = zγ
+
+Z π
+
+> 0
+
+cos α θ sin β θ
+
+[1 + 2(1 − cos θ)z]γ dθ 
+
+Then we use the expansion 1(1 + a)γ = 1 − γa + O(a2) as a → 0+
+
+to get 
+
+g(z) = zγ
+
+Z π
+
+> 0
+
+cos α θ sin β θθ − γ2z
+
+Z π
+
+> 0
+
+cos α θ sin β θ(1 − cos θ)dθ + O(z2)
+
+
+
+= Cβ,γ zγ+α + O(zγ+α+1 ),
+
+as z → 0+. Thus, we obtain (4.3). □
+
+> 11
+
+Now we let ( r, s ), (r, s ) ∈ Π and denote D2 := ( r − r)2 + ( s − s)2. Then we can rewrite the kernels 
+
+F rn,m and F sn,m as 
+
+F rn,m (r, s, r, s ) = cd
+
+Z π
+
+> 0
+
+Z π
+
+> 0
+
+rnsm sin n−1 θ1 cos θ1 sin m−1 ϕ1(s − s cos ϕ1)
+
+Xd/ 2
+
+> −−
+
+dθ 1dϕ 1
+
+≃d
+
+Z π
+
+> 0
+
+rnsm sin m−1 ϕ1(s − s cos ϕ1)
+
+Z π
+
+> 0
+
+sin n−1 θ1 cos θ1
+
+(rr )d/ 2
+
+h D2+2 ss (1 −cos ϕ1) 
+
+> rr
+
++ 2(1 − cos θ1)
+
+id/ 2 dθ 1dϕ 1
+
+=
+
+Z π
+
+> 0
+
+rnsm sin m−1 ϕ1(s − s cos ϕ1)(rr )d/ 2 A1,n −1,d/ 2
+
+ D2 + 2 ss (1 − cos ϕ1)
+
+rr 
+
+
+
+dϕ 1,
+
+and 
+
+F sn,m (r, s, r, s ) = cd
+
+Z π
+
+> 0
+
+Z π
+
+> 0
+
+rnsm sin n−1 θ1(r − r cos θ1) sin m−1 ϕ1 cos ϕ1
+
+Xd/ 2
+
+> −−
+
+dθ 1dϕ 1
+
+≃d
+
+Z π
+
+> 0
+
+rnsm sin n−1 θ1(r − r cos θ1)
+
+Z π
+
+> 0
+
+sin m−1 ϕ1 cos ϕ1
+
+(ss )d/ 2
+
+h D2+2 rr (1 −cos θ1) 
+
+> ss
+
++ 2(1 − cos ϕ1)
+
+id/ 2 dϕ 1dθ 1
+
+=
+
+Z π
+
+> 0
+
+rnsm sin n−1 θ1(r − r cos θ1)(ss )d/ 2 A1,m −1,d/ 2
+
+ D2 + 2 rr (1 − cos θ1)
+
+ss 
+
+
+
+dθ 1.
+
+Moreover, they satisfy the following decay property. 
+
+Lemma 4.2. For any (r, s ), (r, s ) ∈ Π, the kernels F rn,m and F sn,m satisfy 
+
+(4.4) |F rn,m (r, s, r, s )|, |F sn,m (r, s, r, s )| ≲n,m 
+
+1
+
+D .
+
+Proof of Lemma 4.2. Throughout the proof, we often use the following inequality (4.5) r, r ≲ |r − r| + ( rr )1/2, s, s ≲ |s − s| + ( ss )1/2,
+
+which is obtained by 
+
+r ≤ r1/2[|r − r| + r]1/2 ≲ r1/2|r − r|1/2 + ( rr )1/2 ≤ r
+
+2 + |r − r|
+
+2 + ( rr )1/2,r ≤ r1/2[|r − r| + r]1/2 ≲ r
+
+2 + |r − r|
+
+2 + ( rr )1/2.
+
+First, we use the inequality (4.5) to get 
+
+|F rn,m (r, s, r, s )| ≲
+
+Z π
+
+> 0
+
+rnsm sin m−1 ϕ1|s − s cos ϕ1|
+
+(rr )d/ 2 A1,n −1,d/ 2
+
+ D2 + 2 ss (1 − cos ϕ1)
+
+rr 
+
+
+
+dϕ 1
+
+=
+
+Z π
+
+> 0
+
+rr n+1 sm sin m−1 ϕ1|s − s cos ϕ1|
+
+rd/ 2+1 rd/ 2+1 A1,n −1,d/ 2
+
+ D2 + 2 ss (1 − cos ϕ1)
+
+rr 
+
+
+
+dϕ 1
+
+≲
+
+Z π
+
+> 0
+
+[|r − r|n+2 + ( rr )n/ 2+1 ]sm sin m−1 ϕ1|s − s cos ϕ1|
+
+rd/ 2+1 rd/ 2+1 A1,n −1,d/ 2
+
+ D2 + 2 ss (1 − cos ϕ1)
+
+rr 
+
+
+
+dϕ 1.
+
+Then using the decay property 
+
+A1,n −1,d/ 2(τ ) ≲n,m min {τ −(m/ 2+1) , τ −(d/ 2+1) }
+
+> 12
+
+of the integral A1,n −1,d/ 2 from (4.1) in Lemma 4.1, we have 
+
+|F rn,m (r, s, r, s )|
+
+≲n,m 
+
+Z π
+
+> 0
+
+sm sin m−1 ϕ1|s − s cos ϕ1|
+
+rd/ 2+1 rd/ 2+1 
+
+·
+
+"
+
+|r − r|n+2 
+
+ rr D2 + 2 ss (1 − cos ϕ1)
+
+d/ 2+1 
+
++ ( rr )n/ 2+1 
+
+ rr D2 + 2 ss (1 − cos ϕ1)
+
+m/ 2+1 #
+
+dϕ 1
+
+≲
+
+Z π
+
+> 0
+
+sm sin m−1 ϕ1
+
+[D2 + 2 ss (1 − cos ϕ1)] (m+1) /2 dϕ 1 = sm
+
+(ss )(m+1) /2 A0,m −1,(m+1) /2
+
+ D2
+
+ss 
+
+
+
+.
+
+Then we use the inequality (4.5) and the decay 
+
+A0,m −1,(m+1) /2(τ ) ≲m min {τ −(m+1) /2, τ −1/2}
+
+from Lemma 4.1 to obtain 
+
+|F rn,m (r, s, r, s )| ≲ [|s − s|m + ( ss )m/ 2](ss )(m+1) /2 A0,m −1,(m+1) /2
+
+ D2
+
+ss 
+
+
+
+≲m
+
+1(ss )(m+1) /2
+
+"
+
+|s − s|m
+
+ ss D2
+
+(m+1) /2
+
++ ( ss )m/ 2
+
+ ss D2
+
+1/2#
+
+≲ 1
+
+D .
+
+Similarly, we use the inequality (4.5) to get 
+
+|F sn,m (r, s, r, s )| ≲
+
+Z π
+
+> 0
+
+rnsm sin n−1 θ1|r − r cos θ1|
+
+(ss )d/ 2 A1,m −1,d/ 2
+
+ D2 + 2 rr (1 − cos θ1)
+
+ss 
+
+
+
+dθ 1
+
+=
+
+Z π
+
+> 0
+
+rnss m+1 sin n−1 θ1|r − r cos θ1|
+
+sd/ 2+1 sd/ 2+1 A1,m −1,d/ 2
+
+ D2 + 2 rr (1 − cos θ1)
+
+ss 
+
+
+
+dθ 1
+
+≲
+
+Z π
+
+> 0
+
+rn[|s − s|m+2 + ( ss )m/ 2+1 ] sin n−1 θ1|r − r cos θ1|
+
+sd/ 2+1 sd/ 2+1 A1,m −1,d/ 2
+
+ D2 + 2 rr (1 − cos θ1)
+
+ss 
+
+
+
+dθ 1.
+
+Then we use the decay property 
+
+A1,m −1,d/ 2(τ ) ≲n,m min {τ −(n/ 2+1) , τ −(d/ 2+1) },
+
+which gives us 
+
+|F sn,m (r, s, r, s )|
+
+≲
+
+Z π
+
+> 0
+
+rn sin n−1 θ1|r − r cos θ1|
+
+sd/ 2+1 sd/ 2+1 
+
+·
+
+"
+
+|s − s|m+2 
+
+ ss D2 + 2 rr (1 − cos θ1)
+
+d/ 2+1 
+
++ ( ss )m/ 2+1 
+
+ ss D2 + 2 rr (1 − cos θ1)
+
+n/ 2+1 #
+
+dθ 1
+
+≲
+
+Z π
+
+> 0
+
+rn sin n−1 θ1
+
+[D2 + 2 rr (1 − cos θ1)] (n+1) /2 dθ 1 = rn
+
+(rr )(n+1) /2 A0,n −1,(n+1) /2
+
+ D2
+
+rr 
+
+
+
+.
+
+Finally, we use the decay 
+
+A0,n −1,(n+1) /2(τ ) ≲n min {τ −(n+1) /2, τ −1/2}
+
+> 13
+
+to obtain 
+
+|F sn,m (r, s, r, s )| ≲ [|r − r|n + ( rr )n/ 2](rr )(n+1) /2 A0,n −1,(n+1) /2
+
+ D2
+
+rr 
+
+
+
+≲n
+
+1(rr )(n+1) /2
+
+"
+
+|r − r|n
+
+ rr D2
+
+(n+1) /2
+
++ ( rr )n/ 2
+
+ rr D2
+
+1/2#
+
+≲ 1
+
+D .
+
+□
+
+Similarly, the kernels also have the following decay rate. 
+
+Lemma 4.3. For any (r, s ), (r, s ) ∈ Π, the kernels F rn,m and F sn,m satisfy 
+
+|F rn,m (r, s, r, s )| ≲ rD2 ,(4.6) 
+
+|F sn,m (r, s, r, s )| ≲ sD2 .(4.7) 
+
+Proof of Lemma 4.3. We slightly change the proof of Lemma 4.2. To begin with, we use the elementary inequality (4.5); 
+
+r, r ≲ |r − r| + ( rr )1/2, s, s ≲ |s − s| + ( ss )1/2,
+
+to get 
+
+|F rn,m (r, s, r, s )| ≲
+
+Z π
+
+> 0
+
+rr n+1 sm sin m−1 ϕ1|s − s cos ϕ1|
+
+rd/ 2+1 rd/ 2+1 A1,n −1,d/ 2
+
+ D2 + 2 ss (1 − cos ϕ1)
+
+rr 
+
+
+
+dϕ 1
+
+≲
+
+Z π
+
+> 0
+
+r[|r − r|n+1 + ( rr )(n+1) /2]sm sin m−1 ϕ1|s − s cos ϕ1|
+
+rd/ 2+1 rd/ 2+1 A1,n −1,d/ 2
+
+ D2 + 2 ss (1 − cos ϕ1)
+
+rr 
+
+
+
+dϕ 1.
+
+In the above, note that we left the term r on the numerator unchanged. Then we use the decay 
+
+A1,n −1,d/ 2(τ ) ≲n,m min {τ −(m/ 2+1) , τ −(d/ 2+1) }.
+
+This gives us 
+
+|F rn,m (r, s, r, s )|
+
+≲
+
+Z π
+
+> 0
+
+rs m sin m−1 ϕ1|s − s cos ϕ1|
+
+rd/ 2+1 rd/ 2+1 
+
+·
+
+"
+
+|r − r|n+1 
+
+ rr D2 + 2 ss (1 − cos ϕ1)
+
+d/ 2+1 
+
++ ( rr )(n+1) /2
+
+ rr D2 + 2 ss (1 − cos ϕ1)
+
+(m+3) /2#
+
+dϕ 1
+
+≲
+
+Z π
+
+> 0
+
+rs m sin m−1 ϕ1
+
+[D2 + 2 ss (1 − cos ϕ1)] m/ 2+1 dϕ 1 = rs m
+
+(ss )m/ 2+1 A0,m −1,m/ 2+1 
+
+ D2
+
+ss 
+
+
+
+.
+
+Note that we used the decay rate −(m + 3) /2 in the computation above. Then we use the decay 
+
+A0,m −1,m/ 2+1 (τ ) ≲m min {τ −(m/ 2+1) , τ −1},
+
+which leads to 
+
+|F rn,m (r, s, r, s )| ≲ r[|s − s|m + ( ss )m/ 2](ss )m/ 2+1 A0,m −1,m/ 2+1 
+
+ D2
+
+ss 
+
+
+
+≲ r
+
+(ss )m/ 2+1 
+
+"
+
+|s − s|m
+
+ ss D2
+
+m/ 2+1 
+
++ ( ss )m/ 2
+
+ ss D2
+
+#
+
+≲ rD2 .
+
+> 14
+
+In a similar way, we use the elementary inequality to get 
+
+|F sn,m (r, s, r, s )| ≲
+
+Z π
+
+> 0
+
+rnss m+1 sin n−1 θ1|r − r cos θ1|
+
+sd/ 2+1 sd/ 2+1 A1,m −1,d/ 2
+
+ D2 + 2 rr (1 − cos θ1)
+
+ss 
+
+
+
+dθ 1
+
+≲
+
+Z π
+
+> 0
+
+rns[|s − s|m+1 + ( ss )(m+1) /2] sin n−1 θ1|r − r cos θ1|
+
+sd/ 2+1 sd/ 2+1 A1,m −1,d/ 2
+
+ D2 + 2 rr (1 − cos θ1)
+
+ss 
+
+
+
+dθ 1,
+
+where the term s in the numerator above stays the same. Then using the decay 
+
+A1,m −1,d/ 2(τ ) ≲n,m min {τ −(n/ 2+1) , τ −(d/ 2+1) },
+
+we have 
+
+|F sn,m (r, s, r, s )|
+
+≲
+
+Z π
+
+> 0
+
+rns sin n−1 θ1|r − r cos θ1|
+
+sd/ 2+1 sd/ 2+1 
+
+·
+
+"
+
+|s − s|m+1 
+
+ ss D2 + 2 rr (1 − cos θ1)
+
+d/ 2+1 
+
++ ( ss )(m+1) /2
+
+ ss D2 + 2 rr (1 − cos θ1)
+
+(n+3) /2#
+
+dθ 1
+
+≲
+
+Z π
+
+> 0
+
+rns sin n−1 θ1
+
+[D2 + 2 rr (1 − cos θ1)] n/ 2+1 dθ 1 = rns
+
+(rr )n/ 2+1 A0,n −1,n/ 2+1 
+
+ D2
+
+rr 
+
+
+
+.
+
+In the above, we used the decay rate −(n + 3) /2. Then we use the decay 
+
+A0,n −1,n/ 2+1 (τ ) ≲n min {τ −(n/ 2+1) , τ −1},
+
+which gives us 
+
+|F sn,m (r, s, r, s )| ≲ [|r − r|n + ( rr )n/ 2]s
+
+(rr )n/ 2+1 A0,n −1,n/ 2+1 
+
+ D2
+
+rr 
+
+
+
+≲ s
+
+(rr )n/ 2+1 
+
+"
+
+|r − r|n
+
+ rr D2
+
+n/ 2+1 
+
++ ( rr )n/ 2
+
+ rr D2
+
+#
+
+≲ sD2 .
+
+□
+
+Now we introduce a proposition about time-independent global bound of the velocity v. This is going to be one of the main idea in the proof of Theorem 1.2. 
+
+Proposition 4.4. We have 
+
+(4.8) ∥v∥L∞(Rd) ≲
+
+"
+
+rmwsm L1(Rd)
+
++ snwrn L1(Rd)
+
+#1/2
+
+wrnsm
+
+> 1/2
+> L∞(Rd)
+
+.
+
+Proof of Proposition 4.4. It suffices to show that for any r, s ≥ 0 satisfying r2 + s2 = 1, we have (4.9) |ur(r, s )|, |us(r, s )| ≲
+
+"
+
+rmwsm L1(Rd)
+
++ snwrn L1(Rd)
+
+#1/2
+
+wrnsm
+
+> 1/2
+> L∞(Rd)
+
+.
+
+We start by splitting the integral range of ur and us into 
+
+ur(r, s ) = 
+
+"Z Z 
+
+> B1/4(r,s )c
+
++
+
+Z Z 
+
+> B1/4(r,s )
+
+#
+
+F rn,m (r, s, r, s )w(r, s )drds =: ( I1) + ( I2),us(r, s ) = 
+
+"Z Z 
+
+> B1/4(r,s )c
+
++
+
+Z Z 
+
+> B1/4(r,s )
+
+#
+
+F sn,m (r, s, r, s )w(r, s )drds =: ( I′
+
+> 1
+
+) + ( I′
+
+> 2
+
+),
+
+> 15
+
+where B1/4(r, s ) := {(r, s ) ∈ Π : D < 1/4} and B1/4(r, s )c := Π \B1/4(r, s ) = {(r, s ) ∈ Π : D ≥ 1/4}.On B1/4(r, s )c, we use (4.6) and (4.7) from Lemma 4.3, and the estimates r2 + s2 ≤ 1, D ≳ 1, and 
+
+r2 + s2 ≤ D2 + [ r2 + s2] ≲ D2 + 1 ≲ D2.
+
+Then we have 
+
+|(I1)| ≲
+
+Z Z 
+
+> B1/4(r,s )c
+
+rD2 |w(r, s )|drds ≲
+
+Z Z 
+
+> B1/4(r,s )c
+
+ rnsm
+
+rnsm
+
+1/2 |w(r, s )|
+
+D2 drds 
+
+≲
+
+Z Z 
+
+> B1/4(r,s )c
+
+(rnsm|w(r, s )|)1/2
+
+D2 drds wrnsm
+
+> 1/2
+> L∞(B1/4(r,s )c)
+
+≲
+
+Z Z 
+
+> B1/4(r,s )c
+
+1
+
+D4 drds 
+
+!1/2 Z Z 
+
+> B1/4(r,s )c
+
+rnsm|w(r, s )|drds 
+
+!1/2
+
+wrnsm
+
+> 1/2
+> L∞(B1/4(r,s )c)
+
+.
+
+Then we use the Young’s inequality rnsm ≤ (nr n+m + ms n+m)/(n + m) to get 
+
+|(I1)| ≲
+
+Z Z 
+
+> B1/4(r,s )c
+
+(rn+m + sn+m)|w(r, s )|drds 
+
+!1/2
+
+wrnsm
+
+> 1/2
+> L∞(B1/4(r,s )c)
+
+≲
+
+h
+
+rn+mw L1(B1/4(r,s )c) + sn+mw L1(B1/4(r,s )c)
+
+i1/2 wrnsm
+
+> 1/2
+> L∞(B1/4(r,s )c)
+
+≲
+
+"
+
+rmwsm L1(Rd)
+
++ snwrn L1(Rd)
+
+#1/2
+
+wrnsm
+
+> 1/2
+> L∞(Rd)
+
+.
+
+Similarly, we have 
+
+|(I′
+
+> 1
+
+)| ≲
+
+Z Z 
+
+> B1/4(r,s )c
+
+sD2 |w(r, s )|drds ≲
+
+Z Z 
+
+> B1/4(r,s )c
+
+ rnsm
+
+rnsm
+
+1/2 |w(r, s )|
+
+D2 drds 
+
+≲
+
+"
+
+rmwsm L1(Rd)
+
++ snwrn L1(Rd)
+
+#1/2
+
+wrnsm
+
+> 1/2
+> L∞(Rd)
+
+.
+
+On B1/4(r, s ), we can use (4.4) from Lemma 4.2 and the estimates rn+m + sn+m ∼ 1 and rnsm ≲ 1to get 
+
+|(I2)|, |(I′
+
+> 2
+
+)| ≲
+
+Z Z 
+
+> B1/4(r,s )
+
+|w(r, s )|
+
+D drds ≲ ∥w∥1/2
+
+> L1(B1/4(r,s ))
+
+∥w∥1/2
+
+> L∞(B1/4(r,s ))
+
+≲ ∥(rn+m + sn+m)w∥1/2
+
+> L1(B1/4(r,s ))
+
+wrnsm
+
+> 1/2
+> L∞(B1/4(r,s ))
+
+≲
+
+"
+
+rmwsm L1(Rd)
+
++ snwrn L1(Rd)
+
+#1/2
+
+wrnsm
+
+> 1/2
+> L∞(Rd)
+
+.
+
+□
+
+4.2. Radial moments. In this subsection, we consider the radial moments and their behavior in time. Let k ≥ 1 be an integer. Then we respectively define r-radial moment and s-radial moment as 
+
+P rk (t) := 
+
+Z Z 
+
+> Π
+
+rk|w(t, r, s )|drds, P sk (t) := 
+
+Z Z 
+
+> Π
+
+sk|w(t, r, s )|drds. 
+
+> 16
+
+Also, we define 
+
+Lk(t) := P rk (t) + P sk (t).
+
+We recall the initial data assumptions as u0 ∈ L2(Rd) and 
+
+w0 ∈ (Ld, 1 ∩ L∞)( Rd), w0
+
+rnsm ∈ (L1 ∩ L∞)( Rd),
+
+together with 
+
+w0
+
+rn , w0
+
+sm ∈ L∞(Rd), rmw0
+
+sm , snw0
+
+rn ∈ L1(Rd).
+
+These assumptions imply of those in Theorem 1.1, and therefore, the local existence of a unique solution to (1.3) is guaranteed. Let [0 , T ∗ 
+
+> d
+
+) be the maximal existence interval of the local solution w from Theorem 1.1. For every finite T < T ∗ 
+
+> d
+
+, we have 
+
+Z T
+
+> 0
+
+ur(t)
+
+r L∞(Rd)
+
++ us(t)
+
+s L∞(Rd)
+
+!
+
+dt < +∞.(4.10) In particular, since (∂t + ur∂r + us∂s) wrn−ksm = k ur
+
+rwrn−ksm ,
+
+and 
+
+P rk (t) ≃d
+
+wrn−ksm L1(Rd)
+
+,
+
+Gronwall’s inequality yields 
+
+P rk (t) ≲d P rk (0) exp k
+
+Z t
+
+> 0
+
+ur(τ )
+
+r L∞(Rd)
+
+dτ 
+
+!
+
+, 0 ≤ t < T ∗ 
+
+> d
+
+.(4.11) Consequently, the finiteness of the moment P rk (t) propagates throughout the interval [0 , T ∗ 
+
+> d
+
+). Asimilar conclusion can be said for the finiteness of P sk (t) on the interval [0 , T ∗ 
+
+> d
+
+). 
+
+Lemma 4.5. For k ≥ 1, assuming the finiteness of the initial moment P rk (0) < +∞, we have 
+
+ddt P rk (t) ≤ k
+
+Z Z 
+
+> Π
+
+rk−1|ur(t, r, s )|| w(t, r, s )|drds, 0 ≤ t < T ∗ 
+
+> d
+
+.(4.12) 
+
+Similarly, assuming P sk (0) < +∞, we have 
+
+ddt P sk (t) ≤ k
+
+Z Z 
+
+> Π
+
+sk−1|us(t, r, s )|| w(t, r, s )|drds, 0 ≤ t < T ∗ 
+
+> d
+
+.(4.13) 
+
+Proof of Lemma 4.5. We only provide the proof of (4.12), and (4.13) follows similarly. Following the approach of Lemma 3.1 in [10], we first regularize P rk by introducing 
+
+P r,ε k (t) := 
+
+Z Z 
+
+> Π
+
+rk p w2 + ε2 − ε
+
+
+
+drds, ε > 0,
+
+> 17
+
+where t ∈ [0 , T ∗ 
+
+> d
+
+). By the monotone convergence theorem, it is clear that P r,ε k ↗ P rk as ε → 0. Differentiating P r,ε k and applying the vorticity equation along with integration by parts, we obtain 
+
+ddt P r,ε k (t) = 
+
+Z Z 
+
+> Π
+
+rk w
+
+√w2 + ε2 ∂tw drds = −
+
+Z Z 
+
+> Π
+
+rk w
+
+√w2 + ε2 ∇(r,s ) · (vw) drds 
+
+= k
+
+Z Z 
+
+> Π
+
+rk−1 urw2
+
+√w2 + ε2 drds +
+
+Z Z 
+
+> Π
+
+rkwv · ∇ (r,s )
+
+ w
+
+√w2 + ε2
+
+
+
+drds 
+
+= k
+
+Z Z 
+
+> Π
+
+rk−1 urw2
+
+√w2 + ε2 drds +
+
+Z Z 
+
+> Π
+
+rkv · ∇ (r,s )
+
+
+
+− ε2
+
+√w2 + ε2
+
+
+
+drds. 
+
+(4.14) Using the incompressibility condition (1.4), the last integral can be written as 
+
+Z Z 
+
+> Π
+
+rkv · ∇ (r,s )
+
+
+
+ε − ε2
+
+√w2 + ε2
+
+
+
+drds =
+
+Z Z 
+
+> Π
+
+
+
+ε − ε2
+
+√w2 + ε2
+
+
+
+∇(r,s ) · (rkv) drds 
+
+=
+
+Z Z 
+
+> Π
+
+
+
+ε − ε2
+
+√w2 + ε2
+
+ 
+
+(k − n)rk−1ur − rk ms us
+
+drds. 
+
+Substituting this into (4.14) gives 
+
+ddt P r,ε k (t) = k
+
+Z Z 
+
+> Π
+
+rk−1 urw2
+
+√w2 + ε2 drds +
+
+Z Z 
+
+> Π
+
+
+
+ε − ε2
+
+√w2 + ε2
+
+ 
+
+(k − n)rk−1ur − rk ms us
+
+drds. 
+
+Denoting φε(z) := ε − ε2 
+
+> √z2+ε2
+
+and integrating over time 0 ≤ t1 < t 2 < T ∗, we obtain 
+
+P r,ε k (t2) − P r,ε k (t1) ≤
+
+Z t2
+
+> t1
+
+k
+
+Z Z 
+
+> Π
+
+rk−1|ur|| w| drdsdt +
+
+Z t2
+
+> t1
+
+Z Z 
+
+> Π
+
+rkφε(w)
+
+ (k − n)ur
+
+r + mu s
+
+s
+
+
+
+drdsdt. 
+
+Noting that 0 ≤ φε(z) ≤ min {ε, |z|} ,
+
+we first observe 
+
+rkφε(w)
+
+ (k − n)ur
+
+r + mu s
+
+s
+
+
+
+≤ rk|w| |k − n| ur
+
+r L∞(Rd)
+
++ m us
+
+s L∞(Rd)
+
+!
+
+.
+
+When combined with (4.10) and (4.11), the above expression becomes integrable on [ t1, t 2] × Π, uniformly in ε. Moreover, it converges to 0 as ε → 0. So, applying the dominated convergence theorem, we obtain lim 
+
+> ε→0
+
+Z t2
+
+> t1
+
+Z Z 
+
+> Π
+
+rkφε(w)
+
+ (k − n)ur
+
+r + mu s
+
+s
+
+
+
+drdsdt = 0 .
+
+Finally, using this and the monotone convergence theorem for the left-hand side, we pass to the limit ε → 0 to conclude that 
+
+P rk (t2) − P rk (t1) ≤ k
+
+Z t2
+
+> t1
+
+Z Z 
+
+> Π
+
+rk−1|ur|| w| drds dt, 
+
+for all 0 ≤ t1 < t 2 < T ∗ 
+
+> d
+
+. This completes the proof of (4.12). □
+
+Note that 
+
+P rd−2(t) ≃d
+
+rmwsm L1(Rd)
+
+, P sd−2(t) ≃d
+
+snwrn L1(Rd)
+
+.
+
+Since these quantities are finite initially by our assumptions, Lemma 4.5 can be applied for k = d−2. 
+
+> 18
+
+Lemma 4.6. Under the assumptions of Theorem 1.2, we have 
+
+ddt P rd−2(t) ≲d,w 0 ∥ur(t)∥(d−4) /(d−2) 
+
+L∞(Rd) P rd−2(t)(d−3) /(d−2) ,ddt P sd−2(t) ≲d,w 0 ∥us(t)∥(d−4) /(d−2) 
+
+L∞(Rd) P sd−2(t)(d−3) /(d−2) ,
+
+for all 0 ≤ t < T ∗
+
+d .Proof of Lemma 4.6. As noted above, we can apply Lemma 4.5 with k = d − 2 on the maximal existence interval [0 , T ∗
+
+d ). In particular, from (4.12), we have 
+
+ddt P rd−2(t) ≤ (d − 2) 
+
+Z Z 
+
+Π
+
+rd−3|ur(t, r, s )|| w(t, r, s )| drds 
+
+≤ (d − 2) w(t)
+
+rnsm
+
+> 1
+> d−2
+
+L∞
+
+∥ur(t)∥
+
+> d−4
+> d−2
+
+L∞
+
+Z Z 
+
+Π
+
+rd−3r nd−2 s md−2 |ur(t, r, s )| 2 
+
+> d−2
+
+|w(t, r, s )| d−3 
+
+> d−2
+
+drds 
+
+= ( d − 2) w0
+
+rnsm
+
+> 1
+> d−2
+
+L∞ ∥ur(t)∥
+
+> d−4
+> d−2
+
+L∞
+
+Z Z 
+
+Π
+
+ rnsm|ur(t, r, s )|2 1
+
+> d−2
+
+
+
+rd−2|w(t, r, s )|
+
+ d−3
+
+> d−2
+
+drds. 
+
+Here, we recall d ≥ 4 and the fact that w/ (rnsm) is transported by the flow. Then, applying H¨ older’s inequality gives 
+
+ddt P rd−2(t) ≤ (d − 2) w0
+
+rnsm
+
+> 1
+> d−2
+
+L∞ ∥ur(t)∥
+
+> d−4
+> d−2
+
+L∞
+
+Z Z 
+
+Π
+
+rnsm|ur(t, r, s )|2drds 
+
+ 1
+
+> d−2
+
+Z Z 
+
+Π
+
+rd−2|w(t, r, s )|drds 
+
+ d−3
+
+> d−2
+
+≤ (d − 2) w0
+
+rnsm
+
+> 1
+> d−2
+
+L∞ ∥ur(t)∥
+
+> d−4
+> d−2
+
+L∞ rn/ 2sm/ 2v(t)
+
+> 2
+> d−2
+
+L2(Π) P rd−2(t) d−3
+
+> d−2
+
+≃d
+
+w0
+
+rnsm
+
+> 1
+> d−2
+
+L∞(Rd)
+
+∥ur(t)∥
+
+> d−4
+> d−2
+
+L∞(Rd) ∥v0∥
+
+> 2
+> d−2
+
+L2(Rd) P rd−2(t) d−3 
+
+> d−2
+
+,
+
+where, in the last line, we also used the conservation of the kinetic energy. The estimate for P sd−2(t) follows analogously. Indeed, using (4.13), we first obtain 
+
+ddt P sd−2(t) ≤ (d − 2) 
+
+Z Z 
+
+Π
+
+sd−3|us(t, r, s )|| w(t, r, s )|drds 
+
+≤ (d − 2) w(t)
+
+rnsm
+
+> 1
+> d−2
+
+L∞
+
+∥us(t)∥
+
+> d−4
+> d−2
+
+L∞
+
+Z Z 
+
+Π
+
+sd−3r nd−2 s md−2 |us(t, r, s )| 2 
+
+> d−2
+
+|w(t, r, s )| d−3 
+
+> d−2
+
+drds 
+
+= ( d − 2) w0
+
+rnsm
+
+> 1
+> d−2
+
+L∞ ∥us(t)∥
+
+> d−4
+> d−2
+
+L∞
+
+Z Z 
+
+Π
+
+ rnsm|us(t, r, s )|2 1
+
+> d−2
+
+
+
+sd−2|w(t, r, s )|
+
+ d−3
+
+> d−2
+
+drds. 
+
+Consequently, applying H¨ older’s inequality along with the conservation of the kinetic energy, we conclude 
+
+ddt P sd−2(t) ≤ (d − 2) w0
+
+rnsm
+
+> 1
+> d−2
+
+L∞ ∥us(t)∥
+
+> d−4
+> d−2
+
+L∞
+
+Z Z 
+
+Π
+
+rnsm|us(t, r, s )|2drds 
+
+ 1
+
+> d−2
+
+Z Z 
+
+Π
+
+sd−2|w(t, r, s )|drds 
+
+ d−3
+
+> d−2
+
+= ( d − 2) w0
+
+rnsm
+
+> 1
+> d−2
+
+L∞ ∥us(t)∥
+
+> d−4
+> d−2
+
+L∞ rn/ 2sm/ 2v(t)
+
+> 2
+> d−2
+
+L2(Π) P sd−2(t) d−3
+
+> d−2
+
+≃d
+
+w0
+
+rnsm
+
+> 1
+> d−2
+
+L∞(Rd)
+
+∥us(t)∥
+
+> d−4
+> d−2
+
+L∞(Rd) ∥v0∥
+
+> 2
+> d−2
+
+L2(Rd) P sd−2(t) d−3 
+
+> d−2
+
+.
+
+□
+
+19 The above lemma yields the following upper bounds for Ld−2(t) = P rd−2(t) + P sd−2(t), and, in turn, for ∥v∥L∞ on the maximal existence interval [0 , T ∗ 
+
+> d
+
+). 
+
+Lemma 4.7. Under the assumptions of Theorem 1.2, for all 0 ≤ t < T ∗ 
+
+> d
+
+, we have 
+
+(4.15) Ld−2(t) ≲d,w 0
+
+
+
+(1 + t)2, if d = 4 ,
+
+(1 + t)6, if d = 5 ,ect , if d = 6 ,
+
+and moreover, 
+
+(4.16) ∥v(t)∥L∞(Rd) ≲d,w 0
+
+
+
+1 + t, if d = 4 ,
+
+(1 + t)3, if d = 5 ,ect , if d = 6 .
+
+Proof of Lemma 4.7. First, for every 0 ≤ t < T ∗ 
+
+> d
+
+, summing up the estimates in Lemma 4.6, we get 
+
+ddt Ld−2(t) = ddt 
+
+P rd−2(t) + P sd−2(t) ≲d,w 0 ∥v(t)∥(d−4) /(d−2)  
+
+> L∞(Rd)
+
+Ld−2(t)(d−3) /(d−2) .
+
+On the other hand, from the estimate (4.8) in Proposition 4.4, we have (4.17) ∥v(t)∥L∞(Rd) ≲d
+
+P rd−2(t) + P sd−2(t)1/2 w(t)
+
+rnsm
+
+> 1/2
+> L∞(Rd)
+
+= Ld−2(t)1/2 w0
+
+rnsm
+
+> 1/2
+> L∞(Rd)
+
+.
+
+Plugging this into the previous estimate gives 
+
+ddt Ld−2(t) ≲d,w 0 Ld−2(t)(3 d−10) /(2 d−4) .
+
+Solving this differential inequality for 4 ≤ d ≤ 6 yields (4.15). To prove the estimate (4.16), one simply needs to substitute (4.15) into the inequality (4.17). □
+
+We are now ready to prove Theorem 1.2. Before proceeding, let us briefly explain the continuation argument. By Lemma 4.7, the estimate (4.16) for ∥v(t)∥L∞ is already available throughout the maximal existence interval [0 , T ∗ 
+
+> d
+
+). Therefore, it remains to establish the estimate (1.9) for ∥ω(t)∥L∞
+
+on [0 , T ∗ 
+
+> d
+
+). Once this is achieved, the BKM criterion ensures that the solution can be continued beyond T ∗ 
+
+> d
+
+, contradicting the maximality of T ∗ 
+
+> d
+
+unless T ∗ 
+
+> d
+
+= ∞. Consequently, the local solution extends uniquely to a global-in-time solution; the estimates (4.15), (4.16), and (1.9) also hold globally in time. 
+
+Proof of Theorem 1.2. Consider the flow map Φ t = (Φ rt , Φst ) as the unique solution of the ODE 
+
+ddt Φrt (r, s ) = ur(t, Φrt (r, s ), Φst (r, s )) , Φr
+
+> 0
+
+(r, s ) = r, ddt Φst (r, s ) = us(t, Φrt (r, s ), Φst (r, s )) , Φs
+
+> 0
+
+(r, s ) = s. 
+
+Then, we can write Φrt (r, s ) = r +
+
+Z t
+
+> 0
+
+ur(τ, Φrτ (r, s ), Φsτ (r, s )) dτ, Φst (r, s ) = s +
+
+Z t
+
+> 0
+
+us(τ, Φrτ (r, s ), Φsτ (r, s )) dτ. 
+
+Since w/ (rnsm) is conserved along particle trajectories, we have 
+
+|w(t, Φrt (r, s ), Φst (r, s )) |
+
+[Φ rt (r, s )] n[Φ st (r, s )] m = |w0(r, s )|
+
+rnsm ,
+
+> 20
+
+and therefore, 
+
+|w(t, Φrt (r, s ), Φst (r, s )) | = |w0(r, s )|
+
+rnsm [Φ rt (r, s )] n[Φ st (r, s )] m
+
+= |w0(r, s )|
+
+rnsm
+
+
+
+r +
+
+Z t
+
+> 0
+
+ur(τ, Φrτ (r, s ), Φsτ (r, s )) dτ 
+
+n 
+
+s +
+
+Z t
+
+> 0
+
+us(τ, Φrτ (r, s ), Φsτ (r, s )) dτ 
+
+m
+
+≤ |w0(r, s )|
+
+rnsm
+
+
+
+r +
+
+Z t
+
+> 0
+
+∥ur(τ )∥L∞(Rd)dτ 
+
+n 
+
+s +
+
+Z t
+
+> 0
+
+∥us(τ )∥L∞(Rd)dτ 
+
+m
+
+.
+
+Then, using the estimate (4.16) for ∥u∥L∞ in Lemma 4.7, for 0 ≤ t < T ∗ 
+
+> d
+
+we obtain 
+
+|w(t, Φrt (r, s ), Φst (r, s )) | ≤ |w0(r, s )|
+
+rnsm (r + C(d, w 0)f (t)) n (s + C(d, w 0)f (t)) m ,
+
+with 
+
+f (t) := 
+
+
+
+(1 + t)2, if d = 4 ,
+
+(1 + t)4, if d = 5 ,ect , if d = 6 .
+
+From the elementary inequality ( a + b)k ≤ 2k−1(ak + bk) that holds for all nonnegative a, b and integer k ≥ 1, we get 
+
+|w(t, Φrt (r, s ), Φst (r, s )) | ≤ 2d−4 |w0(r, s )|
+
+rnsm (rn + C(d, ω 0)nf (t)n) ( sm + C(d, ω 0)mf (t)m)
+
+≲d |w0(r, s )| + C(d, ω 0)m |w0(r, s )|
+
+sm f (t)m + C(d, ω 0)n |w0(r, s )|
+
+rn f (t)n
+
++ C(d, ω 0)m+n |w0(r, s )|
+
+rnsm f (t)m+n.
+
+By assumptions, we have w0, w 0/s m, w 0/r n, w 0/(rnsm) ∈ L∞(Rd), and therefore, 
+
+|w(t, Φrt (r, s ), Φst (r, s )) | ≤ C(d, w 0)  1 + f (t)m + f (t)n + f (t)m+n .
+
+Noting that 1 ≤ f (t), we arrive at the desired estimate 
+
+∥w(t)∥L∞(Rd) ≲d,ω 0 f (t)m+n = f (t)d−2.
+
+for all 0 ≤ t < T ∗ 
+
+> d
+
+. As it was noted earlier, by the BKM criterion, we conclude T ∗ 
+
+> d
+
+= ∞ and the solution becomes global-in-time as well as the above estimate holds for all 0 ≤ t < ∞.This finishes the proof of Theorem 1.2. □
+
+Acknowledgements. D. Lim was supported by the National Research Foundation of Korea grant RS-2024-00350427. The authors would like to thank Professor In-Jee Jeong (KIAS) and Professor Yao Yao (NUS) for helpful discussions and comments. 
+
+References 
+
+[1] Hammadi Abidi, Taoufik Hmidi, and Sahbi Keraani. On the global well-posedness for the axisymmetric Euler equations. Math. Ann. , 347(1):15–41, 2010. [2] Jean-Yves Chemin. Fluides parfaits incompressibles. Ast´ erisque , (230):177, 1995. [3] Stephen Childress. Models of vorticity growth in Euler flows I, Axisymmetric flow without swirl and II, Almost 2-D dynamics. AML reports 05-07 and 06-07, Courant institute of mathematical sciences , 2007. [4] Stephen Childress. Growth of anti-parallel vorticity in Euler flows. Phys. D , 237(14-17):1921–1925, 2008. [5] Stephen Childress, Andrew D. Gilbert, and Paul Valiant. Eroding dipoles and vorticity growth for Euler flows in R3: axisymmetric flow without swirl. J. Fluid Mech. , 805:1–30, 2016. [6] Kyudong Choi, In-Jee Jeong, and Deokwoo Lim. On global regularity of some bi-rotational Euler flows in R4. J. Differential Equations , 425:627–660, 2025. 
+
+> 21
+
+[7] Kyudong Choi, In-Jee Jeong, and Deokwoo Lim. Global regularity for some axisymmetric Euler flows in Rd.
+
+Proc. Amer. Math. Soc. , 154(6):2605–2616, 2026. [8] Rapha¨ el Danchin. Axisymmetric incompressible flows with bounded vorticity. Uspekhi Mat. Nauk , 62(3(375)):73– 94, 2007. [9] Theodore D. Drivas and Tarek M. Elgindi. Singularity formation in the incompressible Euler equation in finite and infinite time. EMS Surv. Math. Sci. , 10(1):1–100, 2023. [10] Khakim Egamberganov and Yao Yao. Growth estimates for axisymmetric euler equations without swirl. preprint, arXiv:2512.13456 .[11] Hao Feng and Vladim´ ır ˇSver´ ak. On the Cauchy problem for axi-symmetric vortex rings. Arch. Ration. Mech. Anal. , 215:89–123, 2015. [12] Stephen Gustafson, Evan Miller, and Tai-Peng Tsai. Growth rates for anti-parallel vortex tube Euler flows in three and higher dimensions. J. Math. Fluid Mech. , 28(1):Paper No. 19, 16, 2026. [13] Thomas Y. Hou and Shumao Zhang. Potential singularity of the axisymmetric euler equations with cα initial vorticity for a large range of α. part i: the 3-dimensional case. 2022. [14] Thomas Y. Hou and Shumao Zhang. Potential singularity of the axisymmetric euler equations with cα initial vorticity for a large range of α. part ii: the n-dimensional case. 2022. [15] In-Jee Jeong and Deokwoo Lim. Support growth of vorticity for bi-rotational euler flows in high dimensions. 
+
+Rev. Mat. Iberoam., to appear, arXiv:2510.18335 .[16] Boris Khesin and Cheng Yang. Higher-dimensional Euler fluids and Hasimoto transform: counterexamples and generalizations. Nonlinearity , 34(3):1525–1542, 2021. [17] Deokwoo Lim. Global regularity of some axisymmetric, single-signed vorticity in any dimension. Commun. Math. Sci. , 23(1):279–298, 2025. [18] Deokwoo Lim and In-Jee Jeong. On the optimal rate of vortex stretching for axisymmetric Euler flows without swirl. Arch. Ration. Mech. Anal. , 249(3):Paper No. 32, 31, 2025. [19] Carlotta Maffei and Carlo Marchioro. A confinement result for axisymmetric fluids. Rend. Sem. Mat. Univ. Padova , 105:125–137, 2001. [20] Andrew J. Majda and Andrea L. Bertozzi. Vorticity and incompressible flow , volume 27 of Cambridge Texts in Applied Mathematics . Cambridge University Press, Cambridge, 2002. [21] Evan Miller. Global regularity for axisymmetric, swirl-free solutions of the euler equation in four dimensions. 
+
+preprint, arXiv:2602.13963 .[22] Evan Miller and Tai-Peng Tsai. On the regularity of axisymmetric, swirl-free solutions of the euler equation in four and higher dimensions. Rev. Mat. Iberoam., to appear, arXiv:2204.13406 .[23] X. Saint Raymond. Remarks on axisymmetric solutions of the incompressible Euler system. Comm. Partial Differential Equations , 19(1-2):321–334, 1994. [24] Feng Shao, Dongyi Wei, and Zhifei Zhang. Global regularity of axisymmetric Euler equations without swirl in higher dimensions. Acta Math. Sin. (Engl. Ser.) , 42(3):663–679, 2026. [25] Taira Shirota and Taku Yanagisawa. Note on global existence for axially symmetric solutions of the Euler system. 
+
+Proc. Japan Acad. Ser. A Math. Sci. , 70(10):299–304, 1994. [26] M. R. Ukhovskii and V. I. Yudovich. Axially symmetric flows of ideal and viscous fluids filling the whole space. 
+
+J. Appl. Math. Mech. , 32:52–61, 1968. [27] Cheng Yang. Vortex motion of the Euler and lake equations. J. Nonlinear Sci. , 31(3):Paper No. 48, 21, 2021. 
+
+Department of Mathematics, National University of Singapore, Block S17, 10 Lower Kent Ridge Road, Singapore, 119076, Singapore 
+
+Email address : k.egamberganov@u.nus.edu 
+
+School of Mathematics, Korea Institute for Advanced Study, 85 Hoegi-ro, Dongdaemun-gu, Seoul, 02455, Republic of Korea. 
+
+Email address : dwlim95@kias.re.kr

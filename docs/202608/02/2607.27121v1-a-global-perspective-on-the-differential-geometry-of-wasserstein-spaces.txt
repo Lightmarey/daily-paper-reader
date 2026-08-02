@@ -1,0 +1,3857 @@
+Title: A 'global' Perspective on the Differential Geometry of Wasserstein Spaces
+
+URL Source: https://arxiv.org/pdf/2607.27121v1
+
+Published Time: Thu, 30 Jul 2026 01:10:49 GMT
+
+Number of Pages: 21
+
+Markdown Content:
+A ‘GLOBAL’ PERSPECTIVE ON THE DIFFERENTIAL GEOMETRY OF WASSERSTEIN SPACES ‡
+
+LORENZO DELLO SCHIAVO ∗ AND ANDREA PINAMONTI §
+
+Abstract. We develop a global differential calculus on the L2-Wasserstein space over a closed Riemannian manifold, based on derivations of cylinder functions rather than on the standard pointwise approach. Within this framework we define some fundamental geometric tools. In particular, we show that the Levi-Civita connection on the base manifold lifts to the unique torsion-free connection compatible with the ‘extended’ Otto metric. The corresponding Riemann tensor is exactly the lift of the base Riemann tensor, which shows that — in this framework — the correction terms of the classical gradient formalism are not intrinsic curvature terms, but arise from the projection onto the measure-dependent gradient distribution. This allows us to revisit with a global and purely differential approach the smooth computations by J. Lott, Comm. Math. Phys. , 277(2):423–437, 2007, reaching partially different conclusions. 
+
+1. Introduction 
+
+Let P be the space of probability measures on a closed Riemannian manifold M , endowed with the L2-Kantorovich–Rubinstein distance (2.1) . The resulting metric space P2 is called the Wasserstein space over M . Since the foundational works [ 3, 4, 19 , 20 , 21 ], and many others, suitable infinite-dimensional analogues on P2 of standard geometric objects have been introduced, including: 
+
+tangent spaces and a metric tensor [ 21 ], the Levi-Civita connection [ 16 ], the exponential map [ 10 ], etc. Indeed, it is often said that P2 admits a formal structure of ‘infinite-dimensional Riemannian manifold’ inherited from the underlying manifold M .In this paper we offer a ‘global’ perspective on smooth computations on L2-Wasserstein spaces which is in a sense alternative to the seminal one by J. Lott, [ 16 ], and reaches partially different conclusions. For this reason, before stating our results, we first provide a heuristic justification of our approach. 1.1. Heuristics. On a differential manifold M , (smooth, tangent) vector fields can be defined in several equivalent ways. In a ‘pointwise’ fashion, the tangent space at each point is identified with the linear space of derivations acting on germs of smooth functions at that point; a vector field is then a section of the tangent bundle. In a ‘global’ fashion, a vector field is a derivation acting on the space of smooth functions. Both are equivalent to a ‘local’ approach, defining vector fields in charts: since derivations form a sheaf, the locality property (relating to the notion of germ) gives compatibility between the pointwise definition and the local one, while the gluing property (relating to the notion of chart) gives compatibility between the local definition and the global one. It was noted in [ 6, §6.1] that here the formal analogy between Wasserstein spaces and Riemannian manifolds breaks down, and this globalization phenomenon does not hold. Indeed, consider as a natural class of ‘smooth’ functions on P the algebra F C ∞ 
+
+> b
+
+of cylinder functions induced by smooth potential energies, see (2.3) . While the usual tangent space to each point μ in P is (the 
+
+2020 Mathematics Subject Classification. Primary: 58B20; Secondary: 53C20. 
+
+Key words and phrases. Wasserstein space; Levi-Civita connection; Lie brackets. 
+
+> ∗
+
+Università degli Studi di Roma “Tor Vergata”, e-mail: delloschiavo@mat.uniroma2.it. Orcid: 0000-0002-9881-6870. 
+
+> §
+
+Università di Trento, e-mail: andrea.pinamonti@unitn.it. Orcid: 0000-0003-1000-8607. 
+
+> ‡
+
+This project was initiated during a visit of LDS at the University of Trento, sponsored by a Research in Pairs project of FBK-CIRM (Trento), whose excellent working conditions are warmly acknowledged. LDS gratefully acknowledges funding from the Austrian Science Fund (FWF) through project 10.55776/ESP208, and from the PRIN Department of Excellence MatMod@TOV (CUP: E83C23000330006). AP was partially supported by the GNAMPA project Variational, Geometric, and Analytic Perspectives on Regularity (CUP: E53C25002010001); further support was provided by MUR and by the University of Trento through the PRIN project Regularity problems in Sub-Riemannian structures (MUR-PRIN 2022, Project code: 2022F4F2LH). LDS is also grateful to Masha Gordina and Karl-Theodor Sturm for useful conversations on the geometry of Wasserstein spaces.  
+
+> 1arXiv:2607.27121v1 [math.DG] 29 Jul 2026 2L. DELLO SCHIAVO AND A. PINAMONTI
+
+L2
+
+> μ
+
+-closure of) the space X∞ 
+
+> grad
+
+of smooth gradient vector fields on M , the space of derivations acting on F C ∞ 
+
+> b
+
+contains the space X∞ of all smooth vector fields on M , and in particular vector fields which are not the gradient of any function. Thus, the ‘pointwise’ perspective —the mainstream one in optimal transportation— and the ‘global’ perspective —which has occasionally transpired for P,e.g. [ 6 , 9 ], and is the standard one on configuration spaces, e.g. [ 1, 23 ]— diverge: They cannot be bridged in view of the known lack of local charts on P.Here, we take this ‘global’ point of view and we introduce vector fields directly as a module of derivations over F C ∞ 
+
+> b
+
+. (Incidentally, this is the modern approach also in metric measure geometry; cf., e.g., [ 12 ].) A conceptual strength of our approach is that it neatly separates differential objects from Riemannian ones, as we now explain. A natural differential structure on P (vector fields, Lie bracket, etc.) ought to be inherited from the differential structure of M alone, independently of any reference Riemannian metric g on M . This is indeed the case for the differential calculus we propose here, since we only rely on X∞. By contrast, any differential calculus on P based on X∞ 
+
+> grad
+
+—as in the ‘pointwise’ approach [ 7, 11 , 16 , 18 ]— depends on the Riemannian metric g,since so does X∞
+
+> grad
+
+. Indeed, it follows from [ 15 , Thm. 22] that the standard differential structure of P is not even invariant under a conformal change of the reference metric g on M .In order to use vector fields induced by X∞, we consider the natural extension Gder of Otto’s metric tensor Ggrad to the pseudo -tangent space T der  
+
+> μ
+
+P [9], into which the usual tangent space T grad  
+
+> μ
+
+P
+
+naturally embeds. (Here and elsewhere, the superscript ‘der’ stands for ‘derivation’.) This prompts us to define differential operators and tensors which naturally extend those considered in [ 16 ] to the pseudo-tangent bundle. 1.2. Main results. Let P∞ be the subspace of all measures in P with smooth density with respect to the Riemannian volume bounded away from zero (and infinity). Similarly to [ 16 ], we compute the Lie bracket, the Levi-Civita connection, and the Riemann tensor of P. As a first important distinction, while [ 16 ] performs formal computations only at points μ in P∞, we perform rigorous computations at every μ in P. In contrast to [ 16 ] (and to its recent reinterpretations [ 7, 18 ]), the most of our computations is purely algebraic in nature, and independent of the regularity of the application point μ.As a second crucial distinction, [ 16 ] performs computations only on constant vector fields. (This restriction appears already in the operative definition of bracket of vector fields [ 16 , Eqn. (4.1)].) Here, we perform computations on a larger linear space V C ∞ 
+
+> b
+
+:= F C ∞ 
+
+> b
+
+⊗ X∞ of ‘smooth’ cylinder vector fields . This choice is both relevant and necessary to our ‘global’ understanding, for it allows us to verify whether operators on vector fields are tensorial 1, which is not possible when working only with constant vector fields. 
+
+Lie brackets . We revisit the Lie bracket in [ 16 ] and prove that —beyond being a commutator— it makes V C ∞ 
+
+> b
+
+into a Lie algebroid with identical anchor on F C ∞ 
+
+> b
+
+(Cor. 2.13), in complete analogy with the case of manifolds. 
+
+Connections . In §2.4 we define an intrinsic affine connection ∇int on P, acting on V C ∞ 
+
+> b
+
+, which is independent of any holonomy on M . Furthermore, we show (see Thm. 2.19 and Fig. 1) 
+
+Theorem 1.1. The following assertions hold: 
+
+• each affine connection ∇ on M lifts to an End( V C ∞ 
+
+> b
+
+)-valued 1-form Ω∇;
+
+• ∇∇ := ∇int + Ω∇ is an affine connection acting on V C ∞ 
+
+> b
+
+;
+
+• the association ∇ 7 → ∇∇ preserves metric compatibility and torsion-freeness; 
+
+• the connection ∇∇lc 
+
+induced on P by the Levi–Civita connection ∇lc on M is the (unique) 
+
+Gder -metric-compatible torsion-free connection on P, i.e., it is the Levi-Civita connection of 
+
+(V C ∞ 
+
+> b
+
+, Gder ).                    
+
+> 1Recall that an operator acting on a vector bundle on Mis tensorial if and only if it is C∞-linear — thus, in particular invariant under change of coordinates. Since no differential charts exist on Pin the usual sense, we say that an operator acting on V C ∞
+> bis tensorial if it is F C ∞
+> b-linear. Again, this fits our ‘global’ point of view. It is not possible to verify whether an operator acting only on constant vector fields is tensorial, since the product of a ‘smooth’ function in F C ∞
+> bwith a constant vector field is not a constant vector field, and therefore the operator is not defined on it. A ‘GLOBAL’ PERSPECTIVE ON WASSERSTEIN DIFFERENTIAL GEOMETRY 3
+
+Notably, the intrinsic connection ∇int identically vanishes on constant vector fields, and therefore it does not show up in the computations in [ 16 ], which effectively deals with Ω∇. In our language, the latter is however not a connection, since it is tensorial (being a differential form) and therefore it does not satisfy the product rule (2.9) . On the contrary, we verify the product rule for both ∇int 
+
+and ∇∇ for every connection ∇ on M .
+
+Curvature . Again with our coordinate-free algebraic approach, we compute the Riemann curvature tensor acting on V C ∞ 
+
+> b
+
+, and show that it is simply the lift of the Riemann curvature tensor on M ,
+
+without the additional correction terms appearing in [ 16 ]; see Thm. 2.21. We further prove all natural symmetries and Bianchi identities for the Riemann tensor; see Prop. 2.24. The absence of correction terms in our curvature formula, cf. (2.31) , should not be regarded as a merely computational simplification. Rather, it allows to identify the source of the correction terms appearing in the usual Wasserstein calculus. In the global differential calculus developed here, the curvature of the Wasserstein space is exactly the lift of the curvature of the underlying manifold. Thus the Riemann tensor does not depend on the regularity of the base measure, nor on the discontinuous variation of the projection Πμ : T der  
+
+> μ
+
+P → T grad  
+
+> μ
+
+P.The additional terms found in the pointwise/gradient formalism arise only after restricting the global calculus to the gradient distribution T grad P. From our perspective they are instead extrinsic terms, measuring the failure of the gradient distribution to be preserved by the global Levi-Civita connection and, equivalently, its non-integrability inside the larger derivation bundle T der P. This distinction is one of the main conceptual points of the paper: the global curvature is intrinsic, whereas the correction terms belong to the reduced geometry obtained after projection onto T grad P.1.3. Comparison with [ 7, 18 ]. It will be apparent in the following that some of the expressions we compute for operators acting on V C ∞ 
+
+> b
+
+are simpler than the corresponding expressions in the literature for operators acting on sections of the usual tangent bundle T grad P. In particular, under our ‘global’ point of view, the bracket of constant vector fields is again a constant vector field in the pseudo-tangent bundle T der P, which is not true in the ‘pointwise’ approach for the bracket of two gradient-type vector fields regarded as an element of T grad P. (Why the latter is not a constant vector field on P is carefully explained in [7, §3].) This is no contradiction, since the ‘global’ bracket we consider is an extension to T der P of the ‘pointwise’ bracket in T grad P: while the ‘global’ bracket (of constant vector fields) remains constant, the ‘pointwise’ bracket varies (in fact, not in a continuous way) as a function of μ, simply being the L2
+
+> μ
+
+-orthogonal projection of the ‘global’ one onto T grad  
+
+> μ
+
+P = ( ker div μ)⊥. (See Fig. 2 for a pictorial representation.) In particular, while in order to define the ‘pointwise’ bracket at μ it is necessary for μ to induce a proper divergence, (see [ 7, §3 and Dfn. 1.2]) the ‘global’ bracket is naturally defined at every point μ in P. In fact, this simplification is not limited to the bracket, but also applies to the Levi-Civita connection and to the Riemann tensor. 2. Preliminaries 
+
+Let M be a closed (i.e., compact boundaryless) smooth connected oriented differential manifold of dimension n. We denote by T M , resp. T ∗M , the tangent, resp. cotangent bundle to M . We denote by X∞ the vector space of (smooth) vector fields (i.e., smooth sections of T M ), and, for k ∈ N0,by Ω∞ 
+
+> k
+
+the alternating algebra (with ∧) of (smooth) differential k-forms (i.e., smooth sections of the k-th exterior power of T ∗M ). For a differential form ω ∈ Ω∞ 
+
+> k
+
+, we let dω ∈ Ω∞ 
+
+> k+1
+
+be the exterior differential of ω. Evaluation at a point is often denoted by a subscript and contracted over operators. For example, dxf = (d f )x denotes the differential of a function f at a point x in M .
+
+Flows . When endowed with the standard Lie bracket [ · , · ], the space X∞ is a Lie algebra. For a vector field w ∈ X∞ we denote by ψw,t : M → M the flow of w, defined pointwise as the unique solution to the ode 
+
+dt
+
+ ψw,t (x) = w ψw,t (x), ψw, 0(x) = x . 
+
+Since M is closed, ψw,t exists for each t ∈ R and (ψw,t )t is a one-parameter subgroup of 
+
+Diff ∞(M )0 := {f ∈ Diff ∞(M ) : f is smoothly isotopic to the identity } .4 L. DELLO SCHIAVO AND A. PINAMONTI 
+
+p
+
+εw p
+
+εv p
+
+∥εw (εv p)
+
+∥εv (εw p)
+
+ε2T ∇(v, w )
+
+ε∇w (εv )
+
+ε∇v (εw )
+
+εv p+εw 
+
+εw p+εv 
+
+−ε2[v, w ]
+
+μ
+
+εV wμ
+
+εV vμ
+
+ε2T∇(V v , V w )
+
+ε2Ω∇(V v )V w
+
+ε2Ω∇(V w )V v
+
+εV vμ+εV w
+
+εV wμ+εV v
+
+−ε2 ⟨V v , V w ⟩ =
+
+ε2Tint (V v , V w )
+
+Figure 1. (left ) A graphical representation on vector fields v, w at a point p of a connection ∇
+
+on M , of its torsion T ∇, and of its parallel transport ∥, to be compared with their counterparts on P (right). (right ) A graphical representation on constant vector fields V v , V w at a point μ of the connection ∇∇ on P induced by a connection ∇ on M , to be compared with their counterparts on M (left). (We denote by T∇ the torsion of the connection ∇∇ on P.) Since ∇int vanishes on constant fields, the connection coincides with the End -valued one-form, viz. ∇∇  
+
+> Vw
+
+V v =
+
+Ω∇(V v )V w and analogously when exchanging v and w. The torsion Tint of the intrinsic connection coincides with the negative pseudo-bracket of vector fields (Prop. 2.16), which, for constant fields, coincides in turn with the full bracket (Rmk. 2.14). 
+
+T der  
+
+> μt0
+
+P
+
+w
+
+Πμt0w
+
+T grad  
+
+> μt0
+
+P
+
+T der  
+
+> μt1
+
+P
+
+w
+
+Πμt1w
+
+T grad  
+
+> μt1
+
+P
+
+T der  
+
+> μt2
+
+P
+
+w
+
+Πμt2w
+
+T grad  
+
+> μt2
+
+P
+
+T der  
+
+> μt3
+
+P
+
+w
+
+Πμt3w
+
+T grad  
+
+> μt3
+
+P
+
+T der  
+
+> μt4
+
+P
+
+w
+
+Πμt4w
+
+T grad  
+
+> μt4
+
+P
+
+Figure 2. A graphical representation of the projection Πμ onto the usual tangent space T grad  
+
+> μ
+
+P =(ker div μ)⊥ (rendered as a line), a subspace of the pseudo-tangent space T der  
+
+> μ
+
+P (rendered as a plane). For a vector field V w = w constant along a curve (μt) (dashed), its div μt -free part Πμt w
+
+changes along the curve, since so does the way in which T grad  
+
+> μt
+
+P lies inside T der  
+
+> μt
+
+P.
+
+Riemannian structure . In the following, let g be any Riemannian metric on M . We denote by dg
+
+the intrinsic distance and by vol g the Riemannian volume measure induced on M by g. Since M
+
+is compact, we may and will always assume that g is normalized in such a way that vol g M = 1 .Further, let g♯ : T ∗M → T M be the musical isomorphism induced by g on T ∗M . With a standard abuse of notation we also denote by g♯ the induced map on sections g♯ : Ω∞ 
+
+> 1
+
+→ X∞. Finally, we A ‘GLOBAL’ PERSPECTIVE ON WASSERSTEIN DIFFERENTIAL GEOMETRY 5
+
+denote by X∞ 
+
+> grad
+
+= g♯ dC ∞ the space of gradient-type vector fields. Note that X∞ 
+
+> grad
+
+depends on g.This dependence is omitted from the notation for simplicity. 2.1. The W2-metric structure of P. Let P be the space of all Borel probability measures on M . The L2-Kantorovich–Rubinstein distance W2 on P is defined by (2.1) W2(μ, ν )2 = inf 
+
+Z
+
+dg (x, y )2 dπ(x, y ) , μ, ν ∈ P ,
+
+where the infimum is taken over all couplings π of μ and ν. Since M is a compact manifold, the L2-Wasserstein space P2 := (P, W 2) on M is a complete separable geodesic metric space, see e.g. [25, Ch. 6] and [2]. 2.2. The W2-geometry of P. For each continuous real-valued function f on M , denote by f ⋆
+
+the linear functional on P induced by integration w.r.t. f , viz. 
+
+f ⋆ : μ 7 −→ μf := 
+
+Z
+
+f dμ . 
+
+Each μ ∈ P induces a pre-Hilbert semi-norm on X∞ by setting 
+
+∥w∥2 
+
+> μ
+
+:= μ g(w, w ) , w ∈ X∞ .
+
+We denote by [X∞]μ the quotient space of (X∞, ∥ · ∥ μ) obtained by identifying elements with vanishing semi-norm ∥ · ∥ , and again by ∥ · ∥ μ the pre-Hilbert norm on [X∞]μ. Finally, let Xμ be the Hilbert completion of ([X∞]μ , ∥ · ∥ μ), and denote again by ∥ · ∥ μ the Hilbert norm on Xμ. We define similarly   X∞
+
+> grad
+
+
+
+> μ
+
+, ∥ · ∥ μ
+
+.
+
+Divergences . Denote by D′ the space of distributions on M . Each μ ∈ P induces a divergence operator div μ : X∞ → D′ defined by 
+
+w 7 −→ 
+
+
+
+⟨div μw | · ⟩ : f 7 → μ (d f )w
+
+Since ⟨div μw | f ⟩ ≤ ∥∇ f ∥μ ∥w∥μ, then div μ has a non-relabeled extension div μ : Xμ → D′. We note that our sign convention for the divergence div μ may differ from the convention used elsewhere in the literature. 
+
+Tangent spaces . At each μ ∈ P we have three different tangent spaces: 
+
+• the (Hilbert) tangent space T grad  
+
+> μ
+
+P := cl Xμ
+
+ [X∞
+
+> grad
+
+]μ
+
+;
+
+• the (Banach) geometric tangent space , T geo  
+
+> μ
+
+P, introduced in [10, Dfn. 5.4]; 
+
+• the (Hilbert) pseudo-tangent space T der  
+
+> μ
+
+P := Xμ, considered as an auxiliary space in [ 5, 9]. N. Gigli introduced T geo  
+
+> μ
+
+P by showing that it coincides with an abstract completion of the space of germs of W2-geodesics emanating from μ. Furthermore, he completely characterized the relations between the spaces T grad  
+
+> μ
+
+P and T geo  
+
+> μ
+
+P in terms of transport-regularity . Recall that μ
+
+is transport-regular if, for every real-valued semiconvex function ϕ on M , μ does not charge the singular set of ϕ; see [10, Dfn. 2.8]. 
+
+Proposition 2.1 (Gigli, [ 10 , §6]) . T grad  
+
+> μ
+
+P embeds isometrically into T geo  
+
+> μ
+
+P for every μ ∈ P.Furthermore, the following are equivalent: 
+
+• μ is transport-regular; 
+
+• T grad  
+
+> μ
+
+P = T geo  
+
+> μ
+
+P;
+
+• T geo  
+
+> μ
+
+P is a Hilbert space. 
+
+While T geo  
+
+> μ
+
+P carries all the geometric information on (directions of) geodesics emanating from μ,the simpler space T grad  
+
+> μ
+
+P only carries information on those geodesics emanating from μ that are induced by transport maps. The pseudo-tangent space T der  
+
+> μ
+
+P contains additional lines which do not correspond to geodesics emanating from μ, constituting the subspace ker div μ in the Helmholtz decomposition (e.g. [9, Rmk. 2.7]) 
+
+T der  
+
+> μ
+
+= T grad  
+
+> μ
+
+P ⊕⊥ ker div μ ,
+
+where ⊕⊥ denotes the orthogonal direct sum of Hilbert spaces. In the following we will denote by Πμ the orthogonal projection onto T grad  
+
+> μ
+
+P, viz. (2.2) Πμ : T der  
+
+> μ
+
+−→ T grad  
+
+> μ
+
+P .6 L. DELLO SCHIAVO AND A. PINAMONTI 
+
+Lack of smooth charts . We stress that none of the above objects varies continuously in μ on the whole of P. For instance, whenever μ = P 
+
+> i
+
+siδxi is a finite convex combination of Dirac masses, we have (e.g. [9, Ex. 2.8]) 
+
+ T grad  
+
+> μ
+
+, ∥ · ∥ μ
+
+ =  T der  
+
+> μ
+
+, ∥ · ∥ μ
+
+ ∼=
+
+M
+
+> i
+
+ Txi M, s i
+
+√gxi
+
+ , ker div μ = {0} .
+
+In particular, when μ is supported on k points, dim T grad  
+
+> μ
+
+P = k dim M , whereas when μ ≪ vol g
+
+we have dim T grad  
+
+> μ
+
+P = ∞. Since the set of finite convex combinations of Dirac masses is dense in P, it follows that the dimension of T grad  
+
+> μ
+
+P is not constant in any neighborhood of every point. In particular, P is not a manifold modelled on any Hilbert, Banach, or Fréchet space. It is nonetheless possible, as noted by J. Lott in [ 16 ], to give a Fréchet manifold structure in the sense of [13] to the subset 
+
+P∞ := {μ ∈ P : μ = ρ vol g , ρ ∈ C ∞ , ρ > 0}
+
+of all absolutely continuous measures with smooth nowhere vanishing density. 2.3. Cylinder functions and vector fields. Cylinder functions . Denote by F C ∞ 
+
+> b
+
+the set of 
+
+cylinder functions on P induced by C ∞, viz. (2.3) F C ∞ 
+
+> b
+
+:= 
+
+(
+
+u : P → R : u = F ◦ f ⋆, k ∈ N0, F ∈ C ∞(Rk),
+
+f = ( fi)i≤k , f i ∈ C ∞ i ≤ k
+
+)
+
+.
+
+Remark 2.2 (See e.g. [ 6]) . (a) The representation of u ∈ F C ∞ 
+
+> b
+
+by F and f is in general not unique; 
+
+(b) F C ∞ 
+
+> b
+
+is an algebra; (c) Choosing k = 0 in (2.3) shows that F C ∞ 
+
+> b
+
+is unital. (d) Since f ⋆ is bounded on P for every f ∈ Cb, in the definition of F C ∞ 
+
+> b
+
+we may equivalently choose F ∈ C ∞ 
+
+> c
+
+(Rk)
+
+or F ∈ C ∞(Rk).By the next lemma, cylinder functions are sufficient for all topological purposes. 
+
+Lemma 2.3. F C ∞ 
+
+> b
+
+is dense in Cb(P).Proof. Since M is compact, P is compact too. The proof follows by the Stone–Weierstraß Theorem. ■
+
+Definition 2.4 (Differential of cylinder functions) . We define the ( exterior ) differential Du of a cylinder function u ∈ F C ∞ 
+
+> b
+
+as the ( μ-class of the) 1-form 
+
+Dμu = ( Du)μ : x 7 −→ X
+
+> i
+
+(∂iF )( f ⋆μ) d xfi , μ ∈ P .
+
+Proof. We need to show that the definition is well-posed, i.e. that Dμu is independent of the choice of representatives u = F ◦f ⋆. This is the case since, for every w ∈ X∞, we have (cf. e.g. [ 6, Eqn. (2.5) and Lem. 6.2]) 
+
+μ (Dμu)w =
+
+Z
+
+(Dμu)xwx dμ(x) = d t t=0 u ψw,t ♯ μ , μ ∈ P . ■
+
+Cylinder differential forms and cylinder vector fields . Denote by ⊗ the algebraic R-tensor product. 
+
+Definition 2.5. We define the following linear spaces 
+
+• ΩkC ∞ 
+
+> b
+
+:= F C ∞ 
+
+> b
+
+⊗ Ω∞ 
+
+> k
+
+, the space of cylinder k-forms , for every k ∈ N0;
+
+• V C ∞ 
+
+> b
+
+:= F C ∞ 
+
+> b
+
+⊗ X∞, the space of cylinder vector fields ;
+
+• V C ∞ 
+
+> b, grad
+
+:= F C ∞ 
+
+> b
+
+⊗ ∇ g C ∞, the space of cylinder gradient-type vector fields .The first definition is motivated by the fact that (2.4) DF C ∞ 
+
+> b
+
+⊂ F C ∞ 
+
+> b
+
+⊗ dC ∞ .
+
+As for the second definition, let g♯ : Ω1C ∞ 
+
+> b
+
+→ V C ∞ 
+
+> b
+
+be the F C ∞ 
+
+> b
+
+-linear extension of g♯ : Ω∞ 
+
+> 1
+
+→
+
+X∞ to Ω1C ∞ 
+
+> b
+
+. Applying g♯ on both sides of (2.4) , and noting that g♯D = ∇g coincides on F C ∞
+
+> b
+
+with the Wasserstein gradient on P2(M, dg ), while g♯ d = ∇g is the g-induced gradient on M ,
+
+∇g F C ∞ 
+
+> b
+
+⊂ F C ∞ 
+
+> b
+
+⊗ ∇ g C ∞ .A ‘GLOBAL’ PERSPECTIVE ON WASSERSTEIN DIFFERENTIAL GEOMETRY 7
+
+The application of ΩkC ∞ 
+
+> b
+
+to V C ∞ 
+
+> b
+> ⊗k
+
+is defined as the F C ∞ 
+
+> b
+
+-multilinear extension of the application of Ω∞ 
+
+> k
+
+to X∞⊗k . Explicitly, for a cylinder k-form Ω = P 
+
+> i
+
+ui ⊗ ωi ∈ ΩkC ∞ 
+
+> b
+
+and cylinder vector fields V j := P 
+
+> ij
+
+ujij ⊗ wjij ∈ V C ∞ 
+
+> b
+
+, with j ≤ k, we have (2.5) Ω( V 1, . . . , V k) := X
+
+> i
+
+X
+
+> i1,...,i k
+
+uiui1 · · · uik ·  ωi(w1 
+
+> i1
+
+, . . . , w kik )⋆ .
+
+Definition 2.6 (Vector fields on functions, covariant derivatives) . Let V ∈ V C ∞ 
+
+> b
+
+and u ∈ F C ∞ 
+
+> b
+
+.We define the application of V to u as the application to V of the 1-form Du, that is, as the cylinder function (2.6) V u : μ 7 −→ μ (Dμu)Vμ
+
+ =
+
+Z
+
+(Dμu)x(Vμ)x dμ(x) .
+
+By analogy with the case of standard differential manifolds, we may also interpret V u as the 
+
+covariant derivative ∇V u.
+
+Remark 2.7 (Identification modulo μ). Properly speaking, no V ∈ V C ∞ 
+
+> b
+
+is a section of T der P,since in fact we always ought to regard V at μ as its class modulo μ-negligible sets. Already for constant vector fields V w := 1 ⊗w, with w ∈ X∞, this may cause a substantial reduction of the information carried by the vector field. For example, in the extreme case when μ = δx0 , the information carried by V w at μ —that is, the whole vector field x 7 → wx— trivializes to the single vector wx0 ∈ Tx0 M .In what follows, we will always disregard this issue, never introducing a notation for classes modulo μ-negligible sets. Our computations remain nonetheless rigorous at every point μ ∈ P,since the very definition of the action (2.5) of a k-form on a k-tuple of vector fields contains an integration w.r.t. the application point μ. The same applies to the action (2.6) of vector fields on functions, which is a particular case of (2.5) . In other words, the integration w.r.t. μ in (2.6) automatically takes care of the fact that x 7 → (Vμ)x must be regarded modulo μ-negligible sets. 
+
+Remark 2.8 (Identification modulo ker div μ). By the very definition (2.6) of the action of V C ∞
+
+> b
+
+on F C ∞ 
+
+> b
+
+, we may equivalently regard every V ∈ V C ∞ 
+
+> b
+
+as a section of the tangent bundle T grad P,rather than of a section of the pseudo-tangent bundle T der P. Indeed, since Du is a section of T grad P for every u ∈ F C ∞ 
+
+> b
+
+by definition of D,
+
+(V u )μ = μ (Dμu)Vμ
+
+ = μ    Πμ(Dμu)Vμ
+
+ = μ (Dμu)(Π μVμ) =  (Π V )u 
+
+> μ
+
+,
+
+and therefore (2.7) V u = (Π V )u , V ∈ V C ∞ 
+
+> b
+
+, u ∈ F C ∞ 
+
+> b
+
+.
+
+Remark 2.9 (Vector fields as ‘global’ derivations) . It is shown in [ 6, Prop. 6.3] that the map ∂ : V 7 →
+
+∇V is a linear injection of V C ∞ 
+
+> b
+
+into the space of derivations Der (F C ∞ 
+
+> b
+
+). In particular, the image via ∂ of V C ∞ 
+
+> b, grad
+
+is a proper subspace of Der (F C ∞ 
+
+> b
+
+). This does not contradict (2.7) , since for at least some μ ∈ P we have ker div μ = {0}. In particular, it is not true that V · = Π μo V · for some fixed μo, not even for μo = vol g .2.4. Intrinsic connection and brackets. We define an operator ∇int as the X∞-linear extension to V C ∞ 
+
+> b
+
+of the differential D : F C ∞ 
+
+> b
+
+→ Ω1C ∞ 
+
+> b
+
+. Precisely, ∇int is the linear extension of the operator on elementary tensors u ⊗ v defined as 
+
+∇int : V C ∞ 
+
+> b
+
+−→ F C ∞ 
+
+> b
+
+⊗ (Ω ∞ 
+
+> 1
+
+× X∞)
+
+satisfying, for every (V, Ω) ∈ V C ∞ 
+
+> b
+
+⊗ Ω1C ∞ 
+
+> b
+
+and every u ∈ F C ∞ 
+
+> b
+
+,(2.8)    ∇int  
+
+> μ
+
+(u ⊗ w)(V, Ω)  
+
+> μ
+
+:= 
+
+Z Z  (Dμu)Vμ
+
+ 
+
+> x
+
+· (Ω μw)y dμ⊗2(x, y ) .
+
+Proposition 2.10 (Intrinsic connection) . The operator ∇int is a connection on V C ∞ 
+
+> b
+
+, that is, it is R-linear and satisfies the product rule 
+
+∇int (vZ ) = v∇int Z + Dv ⊗ Z , v ∈ F C ∞ 
+
+> b
+
+, Z ∈ V C ∞ 
+
+> b
+
+.(2.9) 8 L. DELLO SCHIAVO AND A. PINAMONTI 
+
+Proof. R-linearity is straightforward, so we only verify the product rule (2.9) . We need to show that, for every V, Z ∈ V C ∞ 
+
+> b
+
+, every Ω ∈ Ω1C ∞ 
+
+> b
+
+, and every v ∈ F C ∞ 
+
+> b
+
+,
+
+   ∇int  
+
+> μ
+
+(vZ )(V, Ω)  
+
+> μ
+
+= vμ ·    ∇int  
+
+> μ
+
+Z(V, Ω)  
+
+> μ
+
++ ( V v )μ · (Ω Z)μ .
+
+By R-linearity of Z 7 →    ∇int  
+
+> μ
+
+Z(V, Ω)  
+
+> μ
+
+it suffices to prove the above equality on elementary tensors Z = u ⊗ w with u ∈ F C ∞ 
+
+> b
+
+. We have 
+
+   ∇int  
+
+> μ
+
+(uv ⊗ w)(V, Ω) 
+
+> μ
+
+=
+
+Z Z  (Dμu)vμVμ
+
+ 
+
+> x
+
+· (Ω μw)y dμ⊗2(x, y ) + 
+
+Z Z  uμ (Dμv)Vμ
+
+ 
+
+> x
+
+· (Ω μw)y dμ⊗2(x, y )= vμ
+
+Z Z  (Dμu)Vμ
+
+ 
+
+> x
+
+· (Ω μw)y dμ⊗2(x, y ) + 
+
+Z  (Dμv)Vμ
+
+ 
+
+> x
+
+dμ(x) ·
+
+Z
+
+uμ (Ω μw)y dμ(y)=  v ∇int  
+
+> μ
+
+(u ⊗ w)(V, Ω)  
+
+> μ
+
++ ( V v )μ ·  Ω( u ⊗ w) 
+
+> μ
+
+. ■
+
+It follows from the proposition that setting 
+
+ (∇int  
+
+> V
+
+Z)u 
+
+> μ
+
+:=  (∇int  
+
+> μ
+
+Z)( V, D · u)
+
+> μ
+
+defines a covariant derivative of Z along V computed on a function u at the point μ.We call ∇int the intrinsic connection on P. Indeed, ∇int ‘does not see’ the base space M , in the sense that, for every lifted vector field V w := 1 ⊗w, with w ∈ X∞,(2.10) ∇int V w ≡ 0 .
+
+Remark 2.11 (Identification modulo ker div μ). For every pair of cylinder vector fields V, Z ∈ V C ∞
+
+> b
+
+and every cylinder function v ∈ F C ∞ 
+
+> b
+
+we have (2.11) (∇int  
+
+> V
+
+Z)v =  ∇int ΠV (Π Z)v . 
+
+Proof. By R-bilinearity of ∇int and R-linearity of Π, it suffices to verify the assertion when V, Z 
+
+are elementary-tensor vector fields. Letting Z = u ⊗ w and applying (2.8), 
+
+ ∇int  
+
+> V
+
+(u ⊗ w)v =  ∇int (u ⊗ w)(V, Dv)=
+
+Z Z  (Dμu)Vμ
+
+ 
+
+> x
+
+·  (Dμv)w 
+
+> y
+
+dμ⊗2(x, y )=
+
+Z  (Dμu)(Π μVμ) 
+
+> x
+
+dμ(x)
+
+Z  (Dμv)(Π μw) 
+
+> y
+
+dμ(y)=  ∇int (u ⊗ Π · w)(Π V, Dv)=  ∇int ΠV (Π Z)v . ■
+
+2.4.1. Brackets. Since the linear structure of V C ∞ 
+
+> b
+
+is inherited from that of X∞ by taking an 
+
+F C ∞ 
+
+> b
+
+-linear extension, one is tempted to define a Lie bracket of vector fields 
+
+⟨ · , · ⟩ : V C ∞ 
+
+> b
+
+× V C ∞ 
+
+> b
+
+→ V C ∞
+
+> b
+
+as the F C ∞ 
+
+> b
+
+-bilinear extension to V C ∞ 
+
+> b
+
+of the Lie bracket [ · , · ] on X∞. It is readily verified that this definition is well-posed and gives rise to a Lie algebra structure on V C ∞ 
+
+> b
+
+. The symbol ⟨ · , · ⟩ is introduced for simplicity of notation: indeed, we might write ⟨ · , · ⟩ in a more suggestive way as the pullback to V C ∞ 
+
+> b
+
+of the bracket [ · , · ] on X∞ via the evaluation map ev μ : V C ∞ 
+
+> b
+
+→ X∞, viz. 
+
+⟨V, Z ⟩μ =  ev μ∗[ · , · ](V, Z ) = [ Vμ, Z μ] .
+
+However, this is not the right definition in the spirit of differential geometry, since (by definition) (2.12) ⟨V, uZ ⟩ = u ⟨V, Z ⟩ , V, Z ∈ V C ∞ 
+
+> b
+
+, u ∈ F C ∞ 
+
+> b
+
+,
+
+which means that  V C ∞ 
+
+> b
+
+, ⟨ · , · ⟩  is not a Lie algebroid with identical anchor in the sense of e.g. [ 17 ,Dfn. III.2.1, p. 100]. Thus, we call ⟨ · , · ⟩ the pseudo-bracket on V C ∞ 
+
+> b
+
+.Another natural definition of bracket is the following. For cylinder vector fields V, Z ∈ V C ∞ 
+
+> b
+
+we set, for every u ∈ F C ∞ 
+
+> b
+
+,
+
+ JV, Z K u 
+
+> μ
+
+:=  V (Zu ) 
+
+> μ
+
+−  Z(V u ) 
+
+> μ
+
+.(2.13) A ‘GLOBAL’ PERSPECTIVE ON WASSERSTEIN DIFFERENTIAL GEOMETRY 9
+
+Proposition 2.12 (Bracket of vector fields) . The quantity JV, Z K defines a bracket on cylinder vector fields V, Z ∈ V C ∞ 
+
+> b
+
+.Proof. Let us first compute JV, Z K explicitly in order to show that it is a cylinder vector field. By 
+
+R-linearity of V 7 → V u in (2.6) , by R-linearity of ∇int in both variables, and by R-linearity of J · , · K
+
+in both variables, it suffices to show the assertion when V 1, V 2 are elementary tensors. Thus, let V j = uj ⊗ wj , j = 1 , 2, and u = F ◦ f ⋆. Then, 
+
+ V 1V 2u 
+
+> μ
+
+= μ
+
+ 
+
+Dμ
+
+ (D · u)V 2
+
+> ·
+
+⋆
+
+V 1
+
+> μ
+
+
+
+= μ Dμ u2
+
+> k
+
+X
+
+> i
+
+(∂iF ) ◦ f ⋆ ·  (d fi)w2⋆
+
+!! 
+
+V 1
+
+> μ
+
+!
+
+= μ
+
+> k
+
+X
+
+> i
+
+(∂iF )( f ⋆μ) ·  (d fi)w2⋆μ · (Dμu2)V 1
+
+> μ
+
+!
+
++ μ u2
+
+> μ
+
+X
+
+> i
+
+ Dμ
+
+ (∂iF ) ◦ f ⋆ V 1 
+
+> μ
+
+·  (d fi)w2⋆μ
+
+!
+
++ μ u2
+
+> μ
+
+X
+
+> i
+
+(∂iF )( f ⋆μ) ·  Dμ
+
+ (d fi)w2⋆V 1
+
+> μ
+
+!
+
+= μ (Dμu)w2 · μ  (Dμu2)V 1
+
+> μ
+
+
+
++ u2
+
+> μk
+
+X
+
+> i
+
+ (d fi)w2⋆μ · μ    Dμ
+
+ (∂iF ) ◦ f ⋆ V 1
+
+> μ
+
+
+
++ u2
+
+> μk
+
+X
+
+> i
+
+(∂iF )( f ⋆μ) · μ
+
+ Dμ
+
+ (d fi)w2⋆V 1
+
+> μ
+
+
+
+= μ (Dμu)w2 · μ  (Dμu2)V 1
+
+> μ
+
+
+
++ u2
+
+> μk
+
+X
+
+> i
+
+ (d fi)w2⋆μ · μ
+
+
+
+> k
+
+X
+
+> j
+
+(∂2 
+
+> ij
+
+F )( f ⋆μ) · (d fj )V 1
+
+> μ
+
+
+
++ u2
+
+> μk
+
+X
+
+> i
+
+(∂iF )( f ⋆μ) · μ  d (d fi)w2V 1
+
+> μ
+
+
+
+= μ (Dμu)w2 · μ  (Dμu2)V 1
+
+> μ
+
+
+
++ u2
+
+> μ
+
+u1
+
+> μ
+
+X
+
+> i,j
+
+ (d fi)w2⋆μ ·  (d fj )w1⋆μ · (∂2 
+
+> ij
+
+F )( f ⋆μ)+ u2
+
+> μ
+
+u1
+
+> μ
+
+X
+
+> i
+
+(∂iF )( f ⋆μ) · μ  w1 (d fi)w2 .
+
+For a 1-form ω ∈ Ω∞ 
+
+> 1
+
+and vector fields w1, w 2 ∈ X∞ we have, by definition of the exterior differential on M ,
+
+dω(w1, w 2) = w1(ωw 2) − w2(ωw 1) − ω[w1, w 2] .
+
+Substituting ω = d fi, we see that (2.14) w1 (d fi)w2 − w2 (d fi)w1 = (d fi)[ w1, w 2] .
+
+Thus, we conclude that 
+
+ qV 1, V 2y u 
+
+> μ
+
+:=  V 1V 2u 
+
+> μ
+
+−  V 2V 1u
+
+> μ
+
+= μ (Dμu)w2 · μ  (Dμu2)V 1
+
+> μ
+
+ − μ (Dμu)w1 · μ  (Dμu1)V 2
+
+> μ
+
+
+
++ u1
+
+> μ
+
+u2 
+
+> μ
+
+· μ (Dμu) w1, w 2 
+
+= μ (Dμu)w2 · μ  (Dμu2)V 1
+
+> μ
+
+ − μ (Dμu)w1 · μ  (Dμu1)V 2
+
+> μ
+
+
+
+(2.15) 
+
++   V 1, V 2 u 
+
+> μ
+
+.10 L. DELLO SCHIAVO AND A. PINAMONTI 
+
+This shows that qV 1, V 2y acts as the derivation induced by a cylinder vector field in V C ∞ 
+
+> b
+
+, and thus that it can be identified with an element of V C ∞ 
+
+> b
+
+.The R-bilinearity follows from (2.6) . The alternating property, anticommutativity, and the Jacobi identity hold since J · , · K is a commutator by definition. ■
+
+We are now in the position to easily check that the bracket J · , · K is the right one according to our differential-geometric understanding. 
+
+Corollary 2.13. The space  V C ∞ 
+
+> b
+
+, J · , · K is a Lie algebroid on F C ∞ 
+
+> b
+
+with identical anchor, that is, for every V, Z ∈ V C ∞ 
+
+> b
+
+and every v ∈ F C ∞ 
+
+> b
+
+,
+
+(2.16) JV, vZ K = v JV, Z K + ( V v )Z . 
+
+Proof. Since J · , · K is a commutator,  V C ∞ 
+
+> b
+
+, J · , · K is a Lie algebra. As for (2.16) , by (2.9) we have  (∇int  
+
+> μ
+
+vZ )( V, D · u) 
+
+> μ
+
+−  (∇int  
+
+> μ
+
+V )( vZ, D · u)
+
+> μ
+
+= vμ ·  (∇int  
+
+> μ
+
+Z)( V, D · u) 
+
+> μ
+
++ ( V v )μ ·  (Dμu)Z 
+
+> μ
+
+− vμ ·  (∇int  
+
+> μ
+
+V )( Z, D · u)
+
+> μ
+
+= vμ
+
+ (∇int  
+
+> μ
+
+Z)( V, D · u) 
+
+> μ
+
+−  (∇int  
+
+> μ
+
+V )( Z, D · u)
+
+> μ
+
+
+
++ ( V v )μ · (Zu )μ .
+
+and the conclusion follows by combining the above equality with (2.12). ■
+
+Remark 2.14 (Constant fields) . The definition of the bracket is the first instance of the fact that it is not sufficient, in order to tackle the differential geometry of P2-spaces, to work with constant fields. Indeed, for constant cylinder vector fields V j := 1 ⊗wj , with wj ∈ X∞ for j = 1 , 2,
+
+JV w1 , V w2 K = ⟨V w1 , V w2 ⟩ ,
+
+that is, on constant fields the bracket reduces to the pseudo-bracket. 
+
+Remark 2.15 (Comparison with [ 16 ]) . Our definition of bracket extends the one of [ 16 ], i.e. the former coincides with the latter when restricted to constant gradient-type vector fields and to measures μ ∈ P∞.
+
+Proof. Let F = f ⋆ and μ = ρvol g . For every ϕ1, ϕ 2 ∈ C ∞, and setting for simplicity of nota-tion wk := ∇ϕk for k = 1 , 2, we have, in the notation of [16], 
+
+ [Vϕ1 , V ϕ2 ]F (ρ vol g )
+
+[16, (4.2)] 
+
+= d ε ε=0 F  ρ vol g + ε∇j  ∇i(ρ ∇iϕ1)∇j ϕ2
+
+ − ε∇j  ∇i(ρ ∇iϕ2)∇j ϕ1
+
+ 
+
+=
+
+Z
+
+f  ∇j  ∇i(ρ ∇iϕ1)∇j ϕ2
+
+ − ∇ j  ∇i(ρ ∇iϕ2)∇j ϕ1
+
+ dvol g
+
+=
+
+Z
+
+f  div g
+
+ div g (ρw 1)w2 − div g
+
+ div g (ρw 2)w1 dvol g
+
+= −
+
+Z
+
+df  div g (ρw 1)w2 − div g (ρw 2)w1 dvol g
+
+= −
+
+Z
+
+df  (d ρ w 1)w2 + ρ(div g w1)w2 − (d ρ w 2)w1 − ρ(div g w2)w1dvol g
+
+= −
+
+Z  (d ρ w 1)(d f w 2) − (d ρ w 2)(d f w 1) + ρ(div g w1)(d f w 2) − ρ(div g w2)(d f w 1)dvol g
+
+= −
+
+Z
+
+dρ (d f w 2)w1 − (d f w 1)w2dvol g −
+
+Z  (div g w1)(d f w 2) − (div g w2)(d f w 1)ρ dvol g
+
+=
+
+Z  d df w 2w1 − d df w 1w2ρ dvol g
+
++
+
+Z  (d f w 2)(div g w1) − (d f w 1)(div g w2)ρ dvol g
+
+−
+
+Z  (div g w1)(d f w 2) − (div g w2)(d f w 1)ρ dvol gA ‘GLOBAL’ PERSPECTIVE ON WASSERSTEIN DIFFERENTIAL GEOMETRY 11 
+
+=
+
+Z  w1(d f w 2) − w2(d f w 1)ρ dvol g
+
+=
+
+Z  df [w1, w 2]ρ dvol g .
+
+(2.17) by (2.14). By the chain rule, (2.17) extends to all F ∈ F C ∞ 
+
+> b
+
+and we thus have 
+
+ [Vϕ1 , V ϕ2 ]F (ρ vol g ) = ⟨Vϕ1 , V ϕ2 ⟩ρvol g . ■
+
+2.4.2. Torsion. We proceed to compute the torsion of ∇int , i.e. the operator 
+
+Tint : V C ∞ 
+
+> b
+> ×2
+
+→ V C ∞
+
+> b
+
+satisfying, for every (V, Z ) ∈ V C ∞ 
+
+> b
+> ×2
+
+and every u ∈ F C ∞ 
+
+> b
+
+,
+
+ Tint (V, Z )u 
+
+> μ
+
+:=  (∇int  
+
+> μ
+
+Z)( V, D · u) 
+
+> μ
+
+−  (∇int  
+
+> μ
+
+V )( Z, D · u) 
+
+> μ
+
+−  JV, Z K u 
+
+> μ
+
+.
+
+Proposition 2.16 (Torsion) . The torsion Tint satisfies, for every (V, Z ) ∈ V C ∞
+
+> b
+> ×2
+
+,
+
+(2.18) Tint (V, Z ) = − ⟨ V, Z ⟩ .
+
+Proof. Immediate consequence of the computation of the bracket in (2.15). ■
+
+2.4.3. Levi-Civita connection. Our next objective is to define the Levi-Civita connection on P. We start by recalling that an affine connection ∇ on M is called metric-compatible if ∇g = 0 , that is, for every w1, w 2, w 3 ∈ X∞,(2.19) w1g(w2, w 3) = g(∇w1 w2, w 3) + g(w2, ∇w1 w3) .
+
+The Fundamental Theorem of Riemannian geometry states that there exists a unique metric-compatible torsion-free connection on (M, g ), called the Levi-Civita connection and denoted by ∇lc .
+
+Definition 2.17 (Connection pullback) . Let ∇ be any affine connection on M . We define its 
+
+pullback via the evaluation map as the F C ∞ 
+
+> b
+
+-linear extension Ω∇ : V C ∞ 
+
+> b
+
+→ Ω1C ∞ 
+
+> b
+
+⊗ V C ∞
+
+> b
+
+of ∇ : X∞ → Ω∞ 
+
+> 1
+
+⊗ X∞, satisfying 
+
+ (Ω∇Z)( V, Ω)  
+
+> μ
+
+:= μ Ωμ(∇Vμ Zμ) .
+
+Note that, since Ω1C ∞ 
+
+> b
+
+⊗ V C ∞ 
+
+> b
+
+and End (V C ∞ 
+
+> b
+
+) are canonically isomorphic, we may equivalently regard Ω∇ as a End( V C ∞ 
+
+> b
+
+)-valued 1-form Ω : V C ∞ 
+
+> b
+
+→ End( V C ∞ 
+
+> b
+
+).We call Ω∇ the connection pullback , since for every pair of lifted vector fields V j := 1 ⊗wj ,with wj ∈ X∞ for j = 1 , 2, we have (2.20) (Ω∇V 1)V 2 = 1 ⊗∇ w2 w1 .
+
+Remark 2.18 . Note that Ω∇ is not an affine connection on P. Indeed, since vμ is a scalar on M ,(2.21)  Ω∇(vZ )( V, Ω)  
+
+> μ
+
+= μ Ωμ∇Vμ (vμZμ) = vμ μ Ωμ(∇Vμ Zμ) .
+
+Thus Ω∇ is tensorial, and does not verify the product rule (2.9) (with Ω∇ in place of ∇int ). 
+
+Metric on P and metric-compatibility . A Riemannian metric g on M lifts to a ‘Riemannian metric’ Gder on T der P by setting (2.22) Gder  
+
+> μ
+
+(V, Z ) =  Gder (V, Z ) 
+
+> μ
+
+:= μ g(Vμ, Z μ) ,
+
+and to a ‘semi-definite Riemannian metric’ Ggrad on T der P by setting (2.23) Ggrad  
+
+> μ
+
+(V, Z ) =  Gder (Π V, ΠZ) 
+
+> μ
+
+:= μ g(Π μVμ, ΠμZμ) .
+
+The non-relabeled restriction of Ggrad to T grad P is a ‘Riemannian metric’ on T grad P, namely Otto’s formal Riemannian metric [21], and we have 
+
+Ggrad ≡ Gder on V C ∞ 
+
+> b, grad
+
+.
+
+By analogy with the case of (M, g ), we say that an affine connection ∇ on P is Gder -metric-compatible if and only if, for every V 1, V 2, V 3 ∈ V C ∞ 
+
+> b
+
+,(2.24) V 1Gder (V 2, V 3) = Gder (∇V 1 V 2, V 3) + Gder (V 2, ∇V 1 V 3) ,12 L. DELLO SCHIAVO AND A. PINAMONTI 
+
+and analogously that ∇ is Ggrad -metric-compatible if (2.24) holds with Ggrad in place of Gder for every V 1, V 2, V 3 ∈ V C ∞
+
+> b, grad
+
+.In the next result, let Ωlc := Ω∇lc 
+
+, and, for any affine connection ∇ on M , set (2.25) ∇∇ := ∇int + Ω∇ .
+
+In light of the product rule for ∇int in Proposition 2.10 and since Ω∇ is a End  V C ∞
+
+> b
+
+-valued 
+
+1-form (in particular, since Ω∇ is tensorial, i.e. satisfying (2.21) ), the operator ∇∇ also satisfies the product rule (2.9) and is therefore a connection. 
+
+Theorem 2.19 (Levi-Civita connection) . For each connection ∇ on (M, g ),
+
+(i) ∇∇ is torsion-free if and only if ∇ is torsion-free; 
+
+(ii ) ∇∇ is Gder -metric-compatible if and only if ∇ is g-metric-compatible; 
+
+(iii ) ∇∇ is Gder -metric-compatible and torsion-free if and only if ∇ = ∇lc is the Levi-Civita connection on (M, g );and ∇lc := ∇∇lc 
+
+is the unique Gder -metric-compatible torsion-free affine connection on P.Proof. By R-multilinearity of all the tensors involved, it suffices to show the statement for elementary-tensor cylinder vector fields. Thus, everywhere in the following let V j := uj ⊗ wj ∈ V C ∞ 
+
+> b
+
+for j =1, 2, 3 be arbitrary if not otherwise specified. 
+
+Proof of (i). Assume T ∇ = 0 . By definition of ∇∇, (2.18) and (2.20) , for every V, Z ∈ V C ∞
+
+> b
+
+and every elementary-tensor 1-form Ω = u ⊗ ω ∈ Ω1C ∞ 
+
+> b
+
+,
+
+ Ω T∇(V 1, V 2) 
+
+> μ
+
+=  ΩTint (V 1, V 2) + ( Ω∇V 2)( V 1, Ω) − (Ω∇V 1)( V 2, Ω) 
+
+> μ
+
+= μ −Ωμ V 1 
+
+> μ
+
+, V 2 
+
+> μ
+
++ Ω μ(∇V 1 
+
+> μ
+
+V 2 
+
+> μ
+
+) − Ωμ(∇V 2 
+
+> μ
+
+V 1 
+
+> μ
+
+)
+
+= ( u1u2u)μ · μ −ω[w1, w 2] + ω(∇w1 w2) − ω(∇w2 w1)
+
+= ( u1u2u)μ · μ  ω T ∇(w1, w 2) 
+
+= 0 
+
+by the assumption. Vice versa, assume T∇ = 0 . Let wj ∈ X∞ with j = 1 , 2 and set V j := 1 ⊗wj . By (2.10) , (2.20) ,and (2.18) we have 
+
+T∇(V 1, V 2) = ( Ω∇V 2)( V 1) − (Ω∇V 1)( V 2) − V 1, V 2 = T ∇(w1, w 2) ,
+
+and the conclusion follows by the assumption. 
+
+Proof of (ii ). Assume ∇g = 0 . Unraveling the definitions of the objects in (2.24) , we need to show (2.26)    D Gder  
+
+> ·
+
+(V 2 
+
+> ·
+
+, V 3 
+
+> ·
+
+) V 1
+
+> ·
+
+
+
+> μ
+> ?
+
+= μ g (∇V 1 V 2)μ, V 3
+
+> μ
+
+ + μ g V 2 
+
+> μ
+
+, (∇V 1 V 3)μ
+
+ .
+
+For the left-hand side of (2.26), 
+
+   Dμ
+
+ Gder  
+
+> ·
+
+(V 2, V 3) V 1
+
+> μ
+
+= μ  Dμ
+
+ g(V 2 
+
+> ·
+
+, V 3 
+
+> ·
+
+)⋆V 1
+
+> μ
+
+
+
+= μ  Dμ
+
+ u2u3 g(w2, w 3)⋆V 1
+
+> μ
+
+
+
+= u3 
+
+> μ
+
+· μ g(w2, w 3) · μ (Dμu2)V 1
+
+> μ
+
+ + u2 
+
+> μ
+
+· μ g(w2, w 3) · μ (Dμu3)V 1
+
+> μ
+
+
+
++ u1
+
+> μ
+
+u2
+
+> μ
+
+u3 
+
+> μ
+
+· μ  d g(w2, w 3)w1
+
+= u3 
+
+> μ
+
+· μ g(w2, w 3) · μ (Dμu2)V 1
+
+> μ
+
+ + u2 
+
+> μ
+
+· μ g(w2, w 3) · μ (Dμu3)V 1
+
+> μ
+
+
+
++ ( u1u2u3)μ · μ  w1g(w2, w 3) ,
+
+whence, by the assumption in the form (2.19), we conclude (2.27) 
+
+   Dμ
+
+ Gder  
+
+> ·
+
+(V 2, V 3) V 1
+
+> μ
+
+= u3 
+
+> μ
+
+· μ g(w2, w 3) · μ (Dμu2)V 1
+
+> μ
+
+ + u2 
+
+> μ
+
+· μ g(w2, w 3) · μ (Dμu3)V 1
+
+> μ
+
+
+
++ ( u1u2u3)μ · μ  g(∇w1 w2, w 3) + ( u1u2u3)μ · μ  g(w2, ∇w1 w3) .A ‘GLOBAL’ PERSPECTIVE ON WASSERSTEIN DIFFERENTIAL GEOMETRY 13 
+
+For the right-hand side of (2.26), 
+
+μ  g (∇V 1 V 2)μ, V 3
+
+> μ
+
+ = u3 
+
+> μ
+
+· μ (Dμu2)V 1
+
+> μ
+
+ · μ  g  w2, w 3 + u3
+
+> μ
+
+(u1u2)μ · μ g(∇w1 w2, w 3) ,μ  g (∇V 1 V 3)μ, V 2
+
+> μ
+
+ = u2 
+
+> μ
+
+· μ (Dμu3)V 1
+
+> μ
+
+ · μ  g  w3, w 2 + u2
+
+> μ
+
+(u1u3)μ · μ g(w2, ∇w1 w3) ,
+
+and the conclusion follows by comparison with (2.27). Vice versa, assume ∇∇Gder = 0 , i.e. (2.24) holds. Let wj ∈ X∞ with j = 1 , 2 and set V j := 1 ⊗wj .Applying (2.10), (2.20), and (2.22) to (2.24) we have, for every μ ∈ P,
+
+μ V 1g(w2, w 3)⋆ = μ g(∇w1 w2, w 3) + μ g(w2, ∇w1 w3) .
+
+Since 
+
+μ V 1g(w2, w 3)⋆ = μ  D g(w2, w 3)⋆V 1 = μ d g(w2, w 3)w1 = μ w1g(w2, w 3) ,
+
+we have 
+
+0 = μ w1g(w2, w 3) − g(∇w1 w2, w 3) − g(w2, ∇w1 w3) ,
+
+and the conclusion follows since μ ∈ P is arbitrary. 
+
+Proof of (iii ). Follows by combining (i) and (ii ).
+
+Proof of uniqueness . The proof of uniqueness of the Levi-Civita connection on a finite-dimensional Riemannian manifold in [ 14 , Thm. 5.10, p. 122] is purely algebraic, thus it also applies to our setting mutatis mutandis in light of the non-degeneracy of Gder on V C ∞ 
+
+> b
+
+. ■
+
+Remark 2.20 (Comparison with [ 16 ]) . Our definition of the Levi-Civita connection extends the one of [ 16 ], i.e. the former coincides with the latter when restricted to constant gradient-type vector fields and to measures μ ∈ P∞.
+
+Proof. Let F = f ⋆ and μ = ρvol g . For every ϕ1, ϕ 2 ∈ C ∞, and setting for notational simplic-ity wk := ∇ϕk for k = 1 , 2, we have, in the notation of [16], 
+
+ ∇Vϕ1 Vϕ2 F 
+
+> ρvol g
+
+[16, (4.4)] 
+
+= d ε ε=0 F  ρ vol g − ε∇i
+
+ ρ∇j ϕ1 ∇i∇j ϕ2
+
+ vol g
+
+
+
+= −
+
+Z
+
+f ∇i
+
+ ρ∇j ϕ1 ∇i∇j ϕ2
+
+ dvol g
+
+=
+
+Z
+
+∇if ∇j ϕ1 ∇i∇j ϕ2 ρ dvol g
+
+=
+
+Z
+
+Hess g (ϕ2)( ∇f, w 1) ρ dvol g
+
+=
+
+Z  w1 ∇f (ϕ2) −  ∇lc  
+
+> w1
+
+∇f (ϕ2) ρ dvol g
+
+=
+
+Z  w1g ∇f, w 2 − g ∇ϕ2, ∇lc  
+
+> w1
+
+∇f  ρ dvol g
+
+=
+
+Z  g ∇lc  
+
+> w1
+
+∇f, w 2 + g ∇f, ∇lc  
+
+> w1
+
+w2 − g w2, ∇lc  
+
+> w1
+
+∇f  ρ dvol g
+
+=
+
+Z  (∇lc  
+
+> w1
+
+w2)f  ρ dvol g ,
+
+where we used (2.19) . By the chain rule, the above computation extends to every F ∈ F C ∞ 
+
+> b
+
+. Thus, Lott’s connection ∇ satisfies, for every ϕ1, ϕ 2 ∈ C ∞ and F ∈ F C ∞
+
+> b
+
+ ∇Vϕ1 Vϕ2 F  
+
+> ρvol g
+
+=    (Ω∇Vϕ2 )Vϕ1
+
+F  
+
+> ρvol g
+
+.(2.28) We conclude that (2.29) ∇Vϕ1 Vϕ2 = ( Ω∇Vϕ2 )Vϕ1 ,
+
+and the assertion follows from (2.10). ■14 L. DELLO SCHIAVO AND A. PINAMONTI 
+
+We note that (2.29) greatly simplifies the expression for the connection on constant fields given in [ 16 , Lem. 4], especially in that it makes the resulting constant field explicitly independent from the application point ρvol g . This does not contradict the fact that ΠV C ∞ 
+
+> b
+
+-valued Lie brackets of constant vector fields are non-constant [ 8, p. 3, after Eqn. (7)], since the equality above is always interpreted for vector fields acting on cylinder functions, and therefore modulo ker div μ.2.4.4. Riemann tensor. We proceed to compute the Riemann tensor (2.30) Rder (V 1, V 2)V 3 := ∇lc   
+
+> V1
+
+∇lc   
+
+> V2
+
+V 3 − ∇lc   
+
+> V2
+
+∇lc   
+
+> V1
+
+V 3 − ∇lc   
+
+> JV1,V 2K
+
+V 3 .
+
+In light of the product rule for ∇lc (cfr. Proposition 2.10) and of the anchor property for the Lie bracket of vector fields (see Corollary 2.13), that the expression in (2.30) is indeed tensorial follows from the algebraic proof for the standard Riemann tensor, e.g. [14, Prop. 7.3, p. 196]. 
+
+Theorem 2.21. The Riemann tensor (2.30) satisfies 
+
+(2.31) Rder (V 1, V 2)V 3 = R(V 1 
+
+> ·
+
+, V 2 
+
+> ·
+
+)V 3 
+
+> ·
+
+.
+
+Proof. We have 
+
+Rder (V 1, V 2)V 3
+
+(2.32) 
+
+= ∇int   
+
+> V1
+
+∇int   
+
+> V2
+
+V 3 − ∇int   
+
+> V2
+
+∇int   
+
+> V1
+
+V 3 − ∇int   
+
+> JV1,V 2K
+
+V 3
+
+(2.33) 
+
++  Ωlc  (Ωlc V 3)V 2 V 1 −  Ωlc  (Ωlc V 3)V 1 V 2
+
+−  Ωlc V 3 qV 1, V 2y(2.34) 
+
++ ∇int  
+
+> V1
+
+ (Ωlc V 3)V 2 − ∇int  
+
+> V2
+
+ (Ωlc V 3)V 1
+
+(2.35) 
+
++  Ωlc  ∇int   
+
+> V2
+
+V 3 V 1 −  Ωlc  ∇int   
+
+> V1
+
+V 3 V 2 .(2.36) By R-multilinearity of all the operators involved, it suffices to compute the Riemann tensor on arbitrary elementary-tensor cylinder vector fields V j := uj ⊗ wj ∈ V C ∞ 
+
+> b
+
+, with j = 1 , 2, 3.
+
+Intrinsic terms . Letting u3 = F 3 ◦ f 3⋆ ∈ F C ∞ 
+
+> b
+
+,
+
+∇int   
+
+> V1
+
+∇int   
+
+> V2
+
+V 3
+
+=
+
+
+
+D
+
+ (D · u3)V 2
+
+> ·
+
+⋆
+
+V 1
+
+> ·
+
+
+
+⊗ w3
+
+=  (Du2)V 1⋆ ·  (Du3)w2⋆ ⊗ w3
+
++ X
+
+> i,k
+
+(∂2
+
+> ik
+
+F 3) ◦ f 3⋆ ·  (d fk)V 1
+
+> ·
+
+⋆ ·  (d fi)V 2
+
+> ·
+
+⋆ ⊗ w3
+
++ X
+
+> i
+
+(∂iF 3) ◦ f 3⋆ ·    d (d f 3 
+
+> i
+
+)V 2
+
+> ·
+
+ (V 1 
+
+> ·
+
+)⋆ ⊗ w3
+
+=
+
+ (Du2)V 1⋆ ·  (Du3)w2⋆ + ( D(2) u3)( V 1 
+
+> ·
+
+, V 2 
+
+> ·
+
+) +  V 1
+
+> ·
+
+ (D · u3)V 2
+
+> ·
+
+ ⋆
+
+⊗ w3 .
+
+Thus, on the one hand, 
+
+∇int   
+
+> V1
+
+∇int   
+
+> V2
+
+V 3 − ∇int   
+
+> V2
+
+∇int   
+
+> V1
+
+V 3
+
+=
+
+ (Du2)V 1⋆ ·  (Du3)w2⋆ −  (Du1)V 2⋆ ·  (Du3)w1⋆
+
+⊗ w3
+
++
+
+ V 1
+
+> ·
+
+ (D · u3)V 2
+
+> ·
+
+ ⋆ −  V 2
+
+> ·
+
+ (D · u3)V 1
+
+> ·
+
+ ⋆
+
+⊗ w3
+
+=
+
+ (Du2)V 1⋆ ·  (Du3)w2⋆ −  (Du1)V 2⋆ ·  (Du3)w1⋆
+
+⊗ w3
+
++ u1u2  w1 (D · u3)w2 ⋆ −  w2 (D · u3)w1 ⋆
+
+⊗ w3
+
+=
+
+ (Du2)V 1⋆ ·  (Du3)w2⋆ −  (Du1)V 2⋆ ·  (Du3)w1⋆
+
+⊗ w3
+
++ u1u2  w1 (D · u3)w2 − w2 (D · u3)w1 ⋆
+
+⊗ w3
+
+=
+
+ (Du2)V 1⋆ ·  (Du3)w2⋆ −  (Du1)V 2⋆ ·  (Du3)w1⋆
+
+⊗ w3
+
++ u1u2  (D · u3)[ w1, w 2]⋆
+
+⊗ w3A ‘GLOBAL’ PERSPECTIVE ON WASSERSTEIN DIFFERENTIAL GEOMETRY 15 
+
+=
+
+ (Du2)V 1⋆ ·  (Du3)w2⋆ −  (Du1)V 2⋆ ·  (Du3)w1⋆
+
+⊗ w3
+
++  (D · u3) V 1, V 2
+
+> ·
+
+⋆ ⊗ w3
+
+=
+
+ (Du2)V 1⋆ ·  (Du3)w2⋆ −  (Du1)V 2⋆ ·  (Du3)w1⋆
+
+⊗ w3
+
++   V 1, V 2 u3 ⊗ w3
+
+=  qV 1, V 2y u3 ⊗ w3
+
+by (2.14) and (2.15). On the other hand, 
+
+∇int   
+
+> JV1,V 2K
+
+V 3 =  (D · u3) qV 1, V 2y
+
+> ·
+
+⋆ ⊗ w3 =  qV 1, V 2y u3 ⊗ w3 .
+
+Comparing the two expressions we see that (2.33) vanishes. 
+
+Pullback terms . As for the terms in (2.34), by (2.15) we have 
+
+ Ωlc  (Ωlc V 3)V 2 V 1 −  Ωlc  (Ωlc V 3)V 1 V 2 −  Ωlc V 3 qV 1, V 2y
+
+= ∇lc   
+
+> V1
+> ·
+
+∇lc   
+
+> V2
+> ·
+
+V 3 
+
+> ·
+
+− ∇ lc   
+
+> V2
+> ·
+
+∇lc   
+
+> V1
+> ·
+
+V 3 
+
+> ·
+
+− ∇ lc   
+
+> JV1,V 2K·
+
+V 3
+
+> ·
+
+= u1u2u3 ⊗ ∇ lc  
+
+> w1
+
+∇lc  
+
+> w2
+
+w3 − u1u2u3 ⊗ ∇ lc  
+
+> w2
+
+∇lc  
+
+> w1
+
+w3
+
+− ∇ lc              
+
+> (∇int
+> V1V2)·−(∇int
+> V2V1)·+⟨V1,V 2⟩·
+
+V 3
+
+> ·
+
+= u1u2u3 ⊗  ∇lc  
+
+> w1
+
+∇lc  
+
+> w2
+
+w3 − ∇ lc  
+
+> w2
+
+∇lc  
+
+> w1
+
+w3
+
+− ∇ lc      
+
+> (∇int
+> V1V2)·
+
+V 3 + ∇lc      
+
+> (∇int
+> V2V1)·
+
+V 3 − ∇ lc     
+
+> ⟨V1,V 2⟩·
+
+V 3
+
+> ·
+
+= u1u2u3 ⊗  ∇lc  
+
+> w1
+
+∇lc  
+
+> w2
+
+w3 − ∇ lc  
+
+> w2
+
+∇lc  
+
+> w1
+
+w3
+
+− u3 ⊗ ∇ lc     
+
+> (V1u2)·w2
+
+w3 + u3 ⊗ ∇ lc     
+
+> (V2u1)·w1
+
+w3 − u3 ⊗ ∇ lc     
+
+> [V1
+> ·,V 2
+> ·]
+
+w3
+
+= u1u2u3 ⊗  ∇lc  
+
+> w1
+
+∇lc  
+
+> w2
+
+w3 − ∇ lc  
+
+> w2
+
+∇lc  
+
+> w1
+
+w3 − u3 ⊗ ∇ lc   
+
+> u1
+> ·u2
+> ·[w1,w 2]
+
+w3
+
+− u3 ⊗ ∇ lc     
+
+> u1
+> ·(( D·u2)w1)⋆w2
+
+w3 + u3 ⊗ ∇ lc     
+
+> u2
+> ·(( D·u1)w2)⋆w1
+
+w3
+
+= u1u2u3 ⊗  ∇lc  
+
+> w1
+
+∇lc  
+
+> w2
+
+w3 − ∇ lc  
+
+> w2
+
+∇lc  
+
+> w1
+
+w3 − ∇ lc 
+
+> [w1,w 2]
+
+w3
+
+− u1u3 (D · u2)w1⋆ ⊗ ∇ lc  
+
+> w2
+
+w3 + u2u3 (D · u1)w2⋆ ⊗ ∇ lc  
+
+> w1
+
+w3
+
+= u1u2u3 ⊗  R(w1, w 2)w3
+
+− u1u3 (D · u2)w1⋆ ⊗ ∇ lc  
+
+> w2
+
+w3 + u2u3 (D · u1)w2⋆ ⊗ ∇ lc  
+
+> w1
+
+w3 .(2.37) 
+
+Mixed terms . For the first term in (2.35), we have 
+
+∇int  
+
+> V1
+
+ (Ωlc V 3)V 2 = ∇int   
+
+> V1
+
+(u2u3 ⊗ ∇ lc  
+
+> w2
+
+w3) =    D · (u2u3)V 1
+
+> ·
+
+⋆ ⊗ ∇ lc  
+
+> w2
+
+w3
+
+= u1u2    D · u3w1⋆ ⊗ ∇ lc  
+
+> w2
+
+w3
+
++ u1u3    D · u2w1⋆ ⊗ ∇ lc  
+
+> w2
+
+w3 .
+
+For the first term in (2.36), we have 
+
+ Ωlc (∇int   
+
+> V2
+
+V 3)V 1 =
+
+
+
+Ωlc    (D · u3)V 2
+
+> ·
+
+⋆ ⊗ w3
+
+V 1 =  (D · u3)V 2
+
+> ·
+
+⋆ ⊗ ∇ lc   
+
+> V1
+> ·
+
+w3
+
+= u1u2 (D · u3)w2
+
+> ·
+
+⋆ ⊗ ∇ lc  
+
+> w1
+
+w3 .
+
+Thus, combining all the necessary terms mutatis mutandis we have (2.35) + (2.36) + (2.37) = 0 ,
+
+and the conclusion follows. ■
+
+Using the expression (2.31) for the Riemann tensor we may compute the sectional curvature at every pair of Gder  
+
+> μ
+
+-orthogonal unit tangent vectors. 
+
+Corollary 2.22. Fix μ ∈ P. Let w1, w 2 ∈ X∞ with ∥w1∥μ = ∥w2∥μ = 1 and ⟨w1 | w2⟩μ = 0 , and set V j := 1 ⊗wj for j = 1 , 2. Then, the sectional curvature Kder  
+
+> μ
+
+of P at μ in the plane spanned by V 1, V 2 satisfies 
+
+Kder  
+
+> μ
+
+(V 1, V 2) = 
+
+Z
+
+> M
+
+K(w1, w 2)  |w1|2 
+
+> g
+
+|w2|2 
+
+> g
+
+− g(w1, w 2)2 dμ . 16 L. DELLO SCHIAVO AND A. PINAMONTI 
+
+The corollary shows that if M has non-negative sectional curvature, then so does P. Furthermore, all considerations in [ 16 , §5, Rmk. 3, p. 434] concerning lower bounds for the sectional curvature of P remain valid. 
+
+Remark 2.23 (Comparison with [ 16 , 24 ]) . The corollary should be compared with the analogous statement [ 16 , Cor. 1], very recently rederived in a rigorous metric way in [ 24 ]. In both these references, an additional correction term appears, accounting for the correction terms in the ‘reduced Riemann tensor’ Rgrad which we address thoroughly in the next section, §2.5. We denote again by ∇lc the connection on every bundle associated to V C ∞ 
+
+> b
+
+induced by the Levi-Civita connection ∇lc on V C ∞ 
+
+> b
+
+.
+
+Proposition 2.24 (Symmetries and Bianchi identities) . The Riemann tensor satisfies the symmetry conditions 
+
+Rder (V 1, V 2) = −Rder (V 2, V 1) ,(2.38) 
+
+Gder  Rder (V 1, V 2)V 3, V 4 = −Gder  Rder (V 1, V 2)V 4, V 3 ,(2.39) 
+
+Gder  Rder (V 1, V 2)V 3, V 4 = Gder  Rder (V 3, V 4)V 1, V 2 ,(2.40) 
+
+and the Bianchi identities 
+
+Rder (V 1, V 2)V 3 + Rder (V 2, V 3)V 1 + Rder (V 3, V 1)V 2 = 0 ,(2.41) 
+
+(∇lc   
+
+> V1
+
+Rder )( V 2, V 3) + ( ∇lc   
+
+> V2
+
+Rder )( V 3, V 1) + ( ∇lc   
+
+> V3
+
+Rder )( V 1, V 2) = 0 .(2.42) 
+
+Proof. The proofs of (2.38) -(2.41) follow from the analogous properties of the Riemann tensor R
+
+on M . The differential Bianchi identity may be proved by adapting an algebraic proof of the same identity for R, see e.g. [22, §2.3.1, Prop. 4, pp. 33f.]. ■
+
+2.5. Reduced Riemann tensor. Here, we compute the ‘reduced’ Riemann tensor Rgrad and show that it coincides with the one derived in [ 16 ]. Throughout it will be convenient to (heuristically) regard V C ∞ 
+
+> b, grad
+
+as an isometrically embedded subbundle of V C ∞ 
+
+> b
+
+with orthogonal projection Π
+
+onto the gradient-type subbundle . While our computations are rigorous, the understanding of some operators as the infinite-dimensional counterparts to standard ones in Riemannian geometry is heuristic in that they do not take values in the right spaces; in particular, they do not preserve smoothness. We comment precisely on this fact in Remarks 2.26 and 2.27. 2.5.1. Levi-Civita connection of the gradient-type subbundle. Denote by ∇grad := Π∇lc the projec-tion to V C ∞ 
+
+> b, grad
+
+of the Levi-Civita connection ∇lc for Gder .
+
+Lemma 2.25. ∇grad can be heuristically regarded as the Levi-Civita connection for Ggrad on V C ∞
+
+> b, grad
+
+.Remark 2.26 . We stress that ∇grad is not, in general, V C ∞
+
+> b, grad
+
+-valued, due to the discontinuity of Π⊥ 
+
+> μ
+
+and to the fact that Π⊥ 
+
+> μ
+
+does not preserve smoothness unless μ ∈ P∞. In the following, we will therefore interpret ∇grad pointwise. This interpretation is sufficient for our purposes since: 
+
+• the metric tensor Gder  
+
+> μ
+
+naturally extends from X∞ to Xμ;
+
+• the metric tensor Ggrad  
+
+> μ
+
+naturally extends from X∞ 
+
+> grad
+
+to its Xμ-closure T grad  
+
+> μ
+
+P;
+
+• before taking the projection, the connection ∇lc is a true connection since ∇int is so by Proposition 2.10 and by tensoriality of Ωlc . Thus, since the projection Π is reabsorbed whenever ∇grad is paired under Gder with a gradient-type vector field, ∇grad behaves as the connection ∇lc everywhere on V C ∞
+
+> b, grad
+
+.
+
+Proof of Lemma 2.25. According to the heuristic understanding of Π∇lc as a connection on V C ∞
+
+> b, grad
+
+,it suffices to verify Ggrad -metric compatibility and torsion-freeness. These are pointwise properties, which can be verified pointwise for ∇lc and subsequently projected, as we now show. 
+
+Ggrad -metric compatibility . Fix V 1, . . . , V 3 ∈ V C ∞
+
+> b, grad
+
+. From (2.24) , and recalling that ΠV = V
+
+for every V ∈ V C ∞
+
+> b, grad
+
+, we have 
+
+V 1Gder (Π V 2, ΠV 3) = Gder (∇lc   
+
+> V1
+
+V 2, ΠV 3) + Gder (Π V 2, ∇lc   
+
+> V1
+
+V 3) ,A ‘GLOBAL’ PERSPECTIVE ON WASSERSTEIN DIFFERENTIAL GEOMETRY 17 
+
+and therefore, since Π is an orthogonal projection, and by definition of Ggrad ,
+
+V 1Ggrad (V 2, V 3) = Ggrad (Π ∇lc   
+
+> V1
+
+V 2, V 3) + Ggrad (V 2, Π∇lc   
+
+> V1
+
+V 3) .
+
+Torsion-freeness . By (2.11) we have, for every V 1, V 2 ∈ V C ∞
+
+> b, grad
+
+,
+
+ΠTint (V 1, V 2) = Tint (Π V 1, ΠV 2) = Tint (V 1, V 2) .
+
+Combining this with the definition of ∇lc , (2.18) and (2.20) , we have, for every V, Z ∈ V C ∞
+
+> b, grad
+
+and every elementary-tensor 1-form Ω = u ⊗ ω ∈ dΩ 0C ∞ 
+
+> b
+
+,
+
+ Ω TΠ∇lc 
+
+(V 1, V 2) 
+
+> μ
+
+=  ΩΠ Tint (V 1, V 2) + ΩΠ  (Ωlc V 2)V 1 − ΩΠ  (Ωlc V 1)V 2 
+
+> μ
+
+= μ ΩμΠμ
+
+ − V 1 
+
+> μ
+
+, V 2 
+
+> μ
+
++ ( ∇lc   
+
+> V1
+> μ
+
+V 2 
+
+> μ
+
+) − (∇lc   
+
+> V2
+> μ
+
+V 1 
+
+> μ
+
+) 
+
+= ( u1u2u)μ · μ ωΠμ
+
+ −[w1, w 2] + ( ∇lc  
+
+> w1
+
+w2) − (∇lc  
+
+> w2
+
+w1) 
+
+= ( u1u2u)μ · μ
+
+
+
+ωΠμ
+
+ T ∇lc 
+
+(w1, w 2)
+
+= 0 
+
+since ∇lc is torsion-free. ■
+
+2.5.2. Second fundamental form of the gradient-type subbundle. By analogy with the case of Euclidean submanifolds, we define the second fundamental form of V C ∞ 
+
+> b, grad
+
+in V C ∞ 
+
+> b
+
+as the bilinear form 
+
+II( V, Z ) := Π ⊥∇lc  
+
+> V
+
+Z , V, Z ∈ V C ∞ 
+
+> b, grad
+
+,
+
+where Π⊥ 
+
+> μ
+
+:= Id μ − Πμ and Πμ is the projection operator (2.2). 
+
+Remark 2.27 . We stress that μ 7 → II (V, Z ) is not, in general, an element of V C ∞ 
+
+> b
+
+, due to the discontinuity of Π⊥ 
+
+> μ
+
+and to the fact that Π⊥ 
+
+> μ
+
+does not preserve smoothness unless μ ∈ P∞. We only have II (V, Z )μ ∈ ker div μ pointwise on P. In the following, we will therefore interpret II pointwise. This interpretation is sufficient for our purposes since: 
+
+• the metric tensor Gder  
+
+> μ
+
+naturally extends from X∞ to Xμ;
+
+• the metric tensor Ggrad  
+
+> μ
+
+naturally extends from X∞ 
+
+> grad
+
+to its Xμ-closure T grad  
+
+> μ
+
+P;
+
+• the value at μ of every connection ∇V Z involved in the computations depends only on the value of V at μ rather than on its values in a neighborhood of μ.
+
+Lemma 2.28 (Properties of II ). The second fundamental form is an F C ∞ 
+
+> b
+
+-bilinear form, satisfying 
+
+(2.43) II( V, Z ) = Π ⊥ (Ωlc Z)V  , V, Z ∈ V C ∞ 
+
+> b, grad
+
+,
+
+and its antisymmetric part is the non-integrability of V C ∞ 
+
+> b, grad
+
+in V C ∞ 
+
+> b
+
+, viz. 
+
+(2.44) A(V, Z ) := II( V, Z ) − II( Z, V ) = Π ⊥ JV, Z K = Π ⊥ ⟨V, Z ⟩ , V, Z ∈ V C ∞ 
+
+> b, grad
+
+.
+
+Proof. Throughout, let V, Z ∈ V C ∞ 
+
+> b, grad
+
+be arbitrary gradient-type vector fields. The F C ∞ 
+
+> b
+
+-linearity of II in the first entry follows directly from that of ∇lc in the first entry. In the second entry, for every v ∈ F C ∞ 
+
+> b
+
+, we have ∇lc  
+
+> V
+
+(vZ ) = v∇lc  
+
+> V
+
+Z + ( V v )Z. Since Z ∈ V C ∞
+
+> b, grad
+
+, we also have Π⊥Z = 0 
+
+pointwise, and therefore II( V, vZ ) = Π ⊥∇lc  
+
+> V
+
+(vZ ) = vΠ⊥∇lc  
+
+> V
+
+Z = vII( V, Z ).Note that ∇int  
+
+> V
+
+Z ∈ V C ∞ 
+
+> b, grad
+
+by (2.11) , so that Π⊥∇int  
+
+> V
+
+Z ≡ 0. Thus, Equation (2.43) follows by definition (2.25) of ∇lc = ∇int + Ωlc .Since ∇lc is torsion-free by Theorem 2.19 (i), we have ∇lc  
+
+> V
+
+Z − ∇lc  
+
+> Z
+
+V = JV, Z K. Applying Π⊥ on both sides, and replacing the intrinsic torsion with the right-hand side of (2.18), we get 
+
+Π⊥ JV, Z K = Π ⊥∇int  
+
+> V
+
+Z − Π⊥∇int  
+
+> Z
+
+V + Π ⊥ ⟨V, Z ⟩ = Π ⊥ ⟨V, Z ⟩ ,
+
+again since Π⊥∇int  
+
+> V
+
+Z ≡ 0. ■18 L. DELLO SCHIAVO AND A. PINAMONTI 
+
+2.5.3. Computation of the ‘reduced’ Riemann tensor. Let us now compute the Riemann tensor Rgrad 
+
+of V C ∞
+
+> b, grad
+
+. Again, our terminology ‘Riemann tensor’ ought to be understood heuristically, in the same sense as in [16]. 
+
+Theorem 2.29. For all V i ∈ V C ∞ 
+
+> b, grad
+
+with i = 1 , . . . , 4, we have 
+
+Ggrad  Π Rder (V 1, V 2)V 3, V 4 = V 1Ggrad  ∇grad   
+
+> V2
+
+V 3, V 4 − Ggrad  ∇grad   
+
+> V2
+
+V 3, ∇grad   
+
+> V1
+
+V 4
+
+(2.45) 
+
+− V 2Ggrad  ∇grad   
+
+> V1
+
+V 3, V 4 + Ggrad  ∇grad   
+
+> V1
+
+V 3, ∇grad   
+
+> V2
+
+V 4
+
+− Ggrad  ∇grad ΠJV 1,V 2KV 3, V 4
+
+− Gder  II( V 2, V 3), II( V 1, V 4) + Gder  II( V 1, V 3), II( V 2, V 4)
+
+− Ggrad  (Ωlc V 3) A(V 1, V 2), V 4 .
+
+In particular, the Riemann tensor Rgrad satisfies 
+
+Rgrad (V 1, V 2)V 3 = Π  Rder (V 1, V 2)V 3
+
++ Gder ,♯  Gder  II( V 2, V 3), II( V 1, · ) − Gder  II( V 1, V 3), II( V 2, · ) 
+
++ ( Ωlc V 3) A(V 1, V 2) .
+
+Proof. Note that, since Rder satisfies all formal identities of a Riemann tensor, we have, for every V 1, . . . , V 4 ∈ V C ∞ 
+
+> b
+
+,
+
+Gder  Rder (V 1, V 2)V 3, V 4 = V 1Gder (∇lc   
+
+> V2
+
+V 3, V 4) − Gder (∇lc   
+
+> V2
+
+V 3, ∇lc   
+
+> V1
+
+V 4)
+
+− V 2Gder (∇lc   
+
+> V1
+
+V 3, V 4) + Gder (∇lc   
+
+> V1
+
+V 3, ∇lc   
+
+> V2
+
+V 4)
+
+− Gder (∇lc   
+
+> JV1,V 2K
+
+V 3, V 4) .
+
+Specializing the expression above to V 1, . . . , V 4 ∈ V C ∞
+
+> b, grad
+
+, and recalling that ΠV = V for every V ∈ V C ∞
+
+> b, grad
+
+, we have 
+
+Gder  Rder (V 1, V 2)V 3, ΠV 4
+
+= V 1Gder (∇lc   
+
+> V2
+
+V 3, ΠV 4)
+
+− Gder  Π( ∇lc   
+
+> V2
+
+V 3), Π( ∇lc   
+
+> V1
+
+V 4) − Gder  Π⊥(∇lc   
+
+> V2
+
+V 3), Π⊥(∇lc   
+
+> V1
+
+V 4)
+
+− V 2Gder (∇lc   
+
+> V1
+
+V 3, ΠV 4)+ Gder  Π( ∇lc   
+
+> V1
+
+V 3), Π( ∇lc   
+
+> V2
+
+V 4) + Gder  Π⊥(∇lc   
+
+> V1
+
+V 3), Π⊥(∇lc   
+
+> V2
+
+V 4)
+
+− Gder (∇lc   
+
+> JV1,V 2K
+
+V 3, V 4) .
+
+Using that Π is an orthogonal projection, 
+
+Ggrad  Π Rder (V 1, V 2)V 3, V 4
+
+= V 1Ggrad  Π( ∇lc   
+
+> V2
+
+V 3), V 4
+
+− Ggrad  Π( ∇lc   
+
+> V2
+
+V 3), Π( ∇lc   
+
+> V1
+
+V 4) − Gder  Π⊥(∇lc   
+
+> V2
+
+V 3), Π⊥(∇lc   
+
+> V1
+
+V 4)
+
+− V 2Ggrad  Π( ∇lc   
+
+> V1
+
+V 3), V 4
+
++ Ggrad  Π( ∇lc   
+
+> V1
+
+V 3), Π( ∇lc   
+
+> V2
+
+V 4) + Gder  Π⊥(∇lc   
+
+> V1
+
+V 3), Π⊥(∇lc   
+
+> V2
+
+V 4)
+
+− Gder (∇lc   
+
+> JV1,V 2K
+
+V 3, V 4) ,
+
+whence, applying (2.25) (with ∇ = ∇lc ), (2.11), and again that ΠV = V for every V ∈ V C ∞
+
+> b, grad
+
+,
+
+Ggrad  Π Rder (V 1, V 2)V 3, V 4
+
+= V 1Ggrad  Π( ∇lc   
+
+> V2
+
+V 3), V 4
+
+− Ggrad  Π( ∇lc   
+
+> V2
+
+V 3), Π( ∇lc   
+
+> V1
+
+V 4)
+
+− Gder  II( V 2, V 3), II( V 1, V 4)
+
+− V 2Ggrad  ∇int   
+
+> V1
+
+V 3 + Π  (Ωlc V 3)V 1, V 4A ‘GLOBAL’ PERSPECTIVE ON WASSERSTEIN DIFFERENTIAL GEOMETRY 19 
+
++ Ggrad  Π( ∇lc   
+
+> V1
+
+V 3), Π( ∇lc   
+
+> V2
+
+V 4)
+
++ Gder  II( V 1, V 3), II( V 2, V 4)
+
+− Gder (∇lc   
+
+> JV1,V 2K
+
+V 3, V 4)= V 1Ggrad  ∇grad   
+
+> V2
+
+V 3, V 4 − Ggrad  ∇grad   
+
+> V2
+
+V 3, ∇grad   
+
+> V1
+
+V 4
+
+− V 2Ggrad  ∇grad   
+
+> V1
+
+V 3, V 4 + Ggrad  ∇grad   
+
+> V1
+
+V 3, ∇grad   
+
+> V2
+
+V 4
+
+− Gder  II( V 2, V 3), II( V 1, V 4) + Gder  II( V 1, V 3), II( V 2, V 4)
+
+− Ggrad  Π∇lc   
+
+> JV1,V 2K
+
+V 3, V 4 .
+
+Let us proceed and compute the last term, Ggrad  Π∇lc   
+
+> JV1,V 2K
+
+V 3, V 4. We have 
+
+Gder (∇lc   
+
+> JV1,V 2K
+
+V 3, V 4) = Gder (∇lc   
+
+> ΠJV1,V 2K
+
+V 3, V 4) + Gder (∇lc   
+
+> Π⊥JV1,V 2K
+
+V 3, V 4)= Ggrad  Π( ∇lc   
+
+> ΠJV1,V 2K
+
+V 3), V 4 + Gder  Π( ∇lc   
+
+> Π⊥⟨V1,V 2⟩
+
+V 3), V 4
+
+by (2.44). Since Π⊥ V 1, V 2 is purely T grad  
+
+> μ
+
+P-orthogonal, we have ∇int Π⊥⟨V 1,V 2⟩V 3 ≡ 0 and thus 
+
+Gder  Π( ∇lc   
+
+> Π⊥⟨V1,V 2⟩
+
+V 3), V 4 = Gder  Π (Ωlc V 3) Π ⊥ V 1, V 2 , V 4 .
+
+Combining the above equalities, we finally conclude that 
+
+Ggrad  Π Rder (V 1, V 2)V 3, V 4 = V 1Ggrad  ∇grad   
+
+> V2
+
+V 3, V 4 − Ggrad  ∇grad   
+
+> V2
+
+V 3, ∇grad   
+
+> V1
+
+V 4
+
+− V 2Ggrad  ∇grad   
+
+> V1
+
+V 3, V 4 + Ggrad  ∇grad   
+
+> V1
+
+V 3, ∇grad   
+
+> V2
+
+V 4
+
+− Ggrad  ∇grad ΠJV 1,V 2KV 3, V 4
+
+− Gder  II( V 2, V 3), II( V 1, V 4) + Gder  II( V 1, V 3), II( V 2, V 4)
+
+− Ggrad  (Ωlc V 3) A(V 1, V 2), V 4 ,
+
+which is precisely (2.45). ■
+
+Remark 2.30 (Comparison with [ 16 ]) . Our definition of the ‘reduced’ Riemann tensor Rgrad 
+
+on V C ∞ 
+
+> b, grad
+
+extends that of [ 16 ], i.e. the former coincides with the latter when restricted to constant vector fields of gradient type, at least at every point μ = ρdvol g with a C ∞ density ρ > 0.
+
+Proof. Note that, for every V i ∈ V C ∞
+
+> b, grad
+
+, with i = 1 , . . . , 4,
+
+Gder  II( V 2, V 3), II( V 1, V 4) = g Π⊥ 
+
+> ·
+
+∇lc   
+
+> V2
+> ·
+
+V 3 
+
+> ·
+
+, Π⊥ 
+
+> ·
+
+∇lc   
+
+> V1
+> ·
+
+V 4
+
+> ·
+
+⋆ ,(2.46) 
+
+Gder  II( V 1, V 3), II( V 2, V 4) = g Π⊥ 
+
+> ·
+
+∇lc   
+
+> V1
+> ·
+
+V 3 
+
+> ·
+
+, Π⊥ 
+
+> ·
+
+∇lc   
+
+> V2
+> ·
+
+V 4
+
+> ·
+
+⋆ ,(2.47) 
+
+Ggrad  (Ωlc V 3) A(V 1, V 2), V 4 = g ∇lc      
+
+> Π⊥·[V1
+> ·,V 2
+> ·]
+
+V 3 
+
+> ·
+
+, V 4
+
+> ·
+
+⋆ .(2.48) Let us first address the terms in (2.46) - (2.47) . For i = 1 , . . . , 4, let ϕi ∈ C ∞, and choose μ =
+
+ρdvol g with ρ ∈ C ∞ and ρ > 0. Recall from [16, Eqn. (5.1)] the definition of the operator (2.49) Tϕϕ ′ :=(1 − Πρ) ∇iϕ∇i∇j ϕ′ dxj  ,
+
+where Πρ is the L2
+
+> μ
+
+-orthogonal projection operator onto (the closure of) im (d) , the image of the exterior differential d, and thus it acts on 1-forms; cf. [ 16 , p. 430, after Lem. 3]. (The left-hand side in (2.49) depends on ρ, but we suppress this dependence for simplicity of notation.) Letting V i := Vϕi
+
+and wi := ∇ϕi, with i = 1 , . . . , 4, be as in [16], we need to show that (2.50) Tϕ1ϕ2 = g♭ Π⊥ 
+
+> μ
+
+∇lc  
+
+> w1
+
+w2 ,
+
+where g♭ := (g♯)−1 : X∞ → Ω∞ 
+
+> 1
+
+is the standard dual musical isomorphism. By definition of 1 − Πρ,we are left with showing that g♭(∇lc  
+
+> w1
+
+w2) = ∇iϕ1∇i∇j ϕ2 dxj which, in fact, we have already shown in the proof of Remark 2.20. The equality in (2.50) settles the last two terms in [16, Eqn. (5.3)]. Let us now address the term in (2.48). Since V 1, V 2 are constant vector fields, we have 
+
+Π⊥ 
+
+> μ
+
+[w1, w 2] = Π ⊥
+
+> μ
+
+ ∇lc  
+
+> w1
+
+w2 − ∇ lc  
+
+> w2
+
+w1 = g♯ Tϕ2ϕ1 − Tϕ1ϕ2
+
+
+
+and therefore, since Tϕϕ ′ is antisymmetric by [16, Lem. 6, p. 432], 
+
+Π⊥ 
+
+> μ
+
+[w1, w 2] = −2 g♯(Tϕ1ϕ2 ) .20 L. DELLO SCHIAVO AND A. PINAMONTI 
+
+Note that Z := g♯(Tϕ1ϕ2 ) ∈ ker div μ, since Tϕϕ ′ ∈ im(d) ⊥.Now, set h := g(w3, w 4) ∈ C ∞. By metric compatibility of ∇lc ,
+
+Zh = Zg (w3, w 4) = g(∇lc  
+
+> Z
+
+w3, w 4) + g(w3, ∇lc  
+
+> Z
+
+w4) .(2.51) For the last term, we have, by symmetry of Hess g (ϕ4),
+
+g(w3, ∇lc  
+
+> Z
+
+w4) = Hess g (ϕ4)( Z, w 3) = Hess g (ϕ4)( w3, Z ) = g(∇lc  
+
+> w3
+
+w4, Z ) .(2.52) Combining (2.51) and (2.52) we thus obtain 
+
+g(Z, ∇h) = Zh = g(∇lc  
+
+> Z
+
+w3, w 4) + g(Z, ∇lc  
+
+> w3
+
+w4) .
+
+Integrating w.r.t. μ, and since Z ∈ ker div μ, we conclude that the integral of the left-hand side above vanishes, and therefore, 
+
+Z
+
+g(∇lc  
+
+> Z
+
+w3, w 4) d μ = −
+
+Z
+
+g(Z, ∇lc  
+
+> w3
+
+w4) d μ = −
+
+Z
+
+g(Tϕ1ϕ2 Tϕ3ϕ4 ) d μ . 
+
+Substituting the definition of Z then shows that the term in (2.48) satisfies 
+
+Ggrad  (Ωlc V 3) A(V 1, V 2), V 4 = −2 Gder (Tϕ1ϕ2 , T ϕ3ϕ4 ) .
+
+Replacing all terms in (2.45) finally proves the assertion. ■
+
+References 
+
+[1] S. A. Albeverio, Yu. G. Kondratiev, and M. Röckner. Analysis and Geometry on Configuration Spaces. 
+
+J. Funct. Anal. , 154(2):444–500, 1998. [2] L. Ambrosio and N. Gigli. A User’s Guide to Optimal Transport. In Ambrosio, L., Bressan, A., Helbing, D., Klar, A., and Zuazua, E., editors, Modelling and Optimisation of Flows on Networks – Cetraro, Italy 2009, Editors: Benedetto Piccoli, Michel Rascle , volume 2062 of Lecture Notes in Mathematics ,pages 1–155. Springer, 2013. Throughout the present work, we refer to (the numbering of) results in the extended version, available at http://cvgmt.sns.it/media/doc/paper/195/ .[3] J.-D. Benamou and Y. Brenier. A computational fluid mechanics solution to the Monge-Kantorovich mass transfer problem. Num. Math. , 84:375–393, 2000. [4] Y. Brenier. Polar Factorization and Monotone Rearrangement of Vector-Valued Functions. Comm. Pure Appl. Math. , 44:375–417, 1991. [5] Y. T. Chow and W. Gangbo. A partial Laplacian as an infinitesimal generator on the Wasserstein space. J. Differ. Equat. , 267(10):6065–6117, 2019. [6] L. Dello Schiavo. A Rademacher-type theorem on L2-Wasserstein spaces over closed Riemannian manifolds. J. Funct. Anal. , 278(6):108397, 2020. 51 pp. [7] H. Ding and S. Fang. Geometry on the Wasserstein Space Over a Compact Riemannian Manifold. 
+
+Acta Math. Sci. , 41(6):1959–1984, November 2021. [8] H. Ding, S. Fang, and X.-D. Li. Stochastic parallel translations and diffusions on the Wasserstein space over T. Stoch. Proc. Appl. , 184:104602, June 2025. [9] W. Gangbo, H. K. Kim, and T. Pacini. Differential Forms on Wasserstein Space and Infinite-dimensional Hamiltonian Systems. Mem. Am. Math. Soc. , 211(995), 2010. [10] N. Gigli. On the inverse implication of Brenier–McCann theorems and the structure of  P2(M ), W 2
+
+.
+
+Methods and Applications of Analysis , 18(2):127–158, 2011. [11] N. Gigli. Second Order Analysis on  P2(M ), W 2
+
+. Mem. Am. Math. Soc. , 216(1018), 2012. [12] N. Gigli. Nonsmooth Differential Geometry – An Approach Tailored for Spaces with Ricci Curvature Bounded from Below. Mem. Am. Math. Soc. , 251(1196), 2018. [13] A. Kriegl and P. W. Michor. The Convenient Setting of Global Analysis , volume 53 of Mathematical Surveys and Monographs . American Mathematical Society, 1997. [14] J. M. Lee. Introduction to Riemannian Manifolds . Graduate Texts in Mathematics. Springer Interna-tional Publishing AG, Second edition, 2018. [15] B. Lessel and T. Schick. Differentiable maps between Wasserstein spaces. arXiv:2010.02131 , 2020. [16] J. Lott. Some Geometric Calculations on Wasserstein Space. Comm. Math. Phys. , 277(2):423–437, 2007. [17] K. Mackenzie. Lie Groupoids and Lie Algebroids in Differential Geometry , volume 124 of London Mathematical Society Lecture Note Series . Cambridge University Press, 1987. [18] A. Magalhães de Sá Gomes, C. S. Rodrigues, and L. A. B. San Martin. On Differential and Riemannian Calculus on Wasserstein Spaces. 2024. [19] R. J. McCann. A Convexity Principle for Interacting Gases. Adv. Math. , 128, 1997. [20] R. J. McCann. Polar factorization of maps on Riemannian manifolds. Geom. Funct. Anal. , 11(3):589– 608, 2001. A ‘GLOBAL’ PERSPECTIVE ON WASSERSTEIN DIFFERENTIAL GEOMETRY 21 
+
+[21] F. Otto. The Geometry of Dissipative Evolution Equations: The Porous Medium Equation. Comm. Part. Diff. Eq. , 26(1-2):101–174, 2001. [22] P. Petersen. Riemannian Geometry , volume 171 of Graduate Texts in Mathematics . Springer-Verlag New York, 2006. [23] M. Röckner and A. Schied. Rademacher’s Theorem on Configuration Spaces and Applications. J. Funct. Anal. , 169(2):325–356, 1999. [24] K.-T. Sturm. Sectional Curvature for Kantorovich-Wasserstein and Hellinger-Kantorovich Geometries. 
+
+arXiv:2606.14318 , 06 2026. [25] C. Villani. Optimal transport, old and new , volume 338 of Grundlehren der mathematischen Wis-senschaften . Springer-Verlag, 2009. 
+
+Università degli Studi di Roma “Tor Vergata” — Dipartimento di Matematica, Viale della Ricerca Scientifica 1, 00133 Rome, Italy 
+
+Email address : delloschiavo@mat.uniroma2.it 
+
+Università di Trento — Dipartimento di Matematica. Via Sommarive, 14 - 38123 Povo, Italy 
+
+Email address : andrea.pinamonti@unitn.it

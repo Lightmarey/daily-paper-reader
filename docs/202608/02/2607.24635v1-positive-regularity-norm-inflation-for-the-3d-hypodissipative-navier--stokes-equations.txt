@@ -1,0 +1,1690 @@
+Title: Positive-regularity norm inflation for the 3D hypodissipative Navier–Stokes equations
+
+URL Source: https://arxiv.org/pdf/2607.24635v1
+
+Published Time: Tue, 28 Jul 2026 02:15:52 GMT
+
+Number of Pages: 21
+
+Markdown Content:
+POSITIVE-REGULARITY NORM INFLATION FOR THE 3D HYPODISSIPATIVE NAVIER–STOKES EQUATIONS 
+
+GUIRONG TANG AND SHIYANG XIONG 
+
+Abstract. We prove same-space norm inflation for the three-dimensional hypodissipative Navier– Stokes equations with dissipation (−∆) α, 0 < α < 1. Let 2 ≤ p < ∞ and 
+
+0 < s < 1 − 2α + 3
+
+p .
+
+In the Besov case, let also 1 ≤ q ≤ ∞ . There exist divergence-free C∞ 
+
+> c
+
+(R3) initial data that are arbitrarily small in W s,p , respectively in Bsp,q , while the corresponding unique local smooth solution becomes arbitrarily large in the same space in arbitrarily short time. The proof adapts the anisotropic vortex-ring mixing mechanism to fractional dissipation; the strict scaling-supercritical gap makes both the curvature error and the nonlocal dissipative error perturbative. 
+
+1. Introduction 
+
+We consider the three-dimensional hypodissipative Navier–Stokes equations (1.1) 
+
+
+
+∂tu + u · ∇ u + ∇π + ( −∆) αu = 0 ,
+
+div u = 0 ,u|t=0 = u0,
+
+(t, x ) ∈ [0 , T ] × R3,
+
+where 0 < α < 1. The scaling (1.2) u(t, x ) 7 −→ uλ(t, x ) := λ2α−1u(λ2αt, λx )
+
+gives (1.3) ∥u0,λ ∥ ˙W s,p = λs+2 α−1−3/p ∥u0∥ ˙W s,p .
+
+Thus the scaling-critical index is (1.4) sc(p, α ) := 1 − 2α + 3
+
+p .
+
+The range 0 < s < s c(p, α ) is positive-regularity and strictly scaling-supercritical. For the classical equations, Luo [ 11 , 12 ] showed that a thin vortex ring can generate norm inflation through physical-space mixing. This raises a natural question for (1.1) : does the same mechanism survive the nonlocal dissipation (−∆) α, and does it reach the full positive strictly supercritical range? The following theorem gives an affirmative answer. 
+
+Theorem 1.1 (Norm inflation) . Let 
+
+0 < α < 1, 2 ≤ p < ∞, 0 < s < 1 − 2α + 3
+
+p .
+
+2020 Mathematics Subject Classification. 35Q30, 35Q35, 76D05, 35B30. 
+
+Key words and phrases. Hypodissipative Navier–Stokes equations, norm inflation, strong ill-posedness, vortex-ring mixing.  
+
+> 1arXiv:2607.24635v1 [math.AP] 27 Jul 2026 2GUIRONG TANG AND SHIYANG XIONG
+
+Let X = W s,p , or let X = Bsp,q for a fixed 1 ≤ q ≤ ∞ . For every ε > 0, there exist a divergence-free vector field u0 ∈ C∞ 
+
+> c
+
+(R3) and a time 0 < t ε ≤ ε such that the unique smooth solution of (1.1) 
+
+exists on [0 , t ε] and satisfies 
+
+∥u0∥X ≤ ε, ∥u(tε)∥X ≥ ε−1.
+
+Remark 1.2 (Interpretation and scope) . Throughout the paper, W s,p denotes the Bessel-potential Sobolev space defined by Jsu ∈ Lp, where J = (1 − ∆) 1/2. Theorem 1.1 is a same-space statement: the initial and inflated norms have the same regularity and, in the Besov case, the same fixed summability index q. The data are smooth and compactly supported, and the inflation occurs along the unique local smooth solution; in particular, the smooth solution map cannot be locally bounded at the origin in any of the stated spaces. The upper boundary s = sc(p, α ) is the scaling line. The proof uses the strict gap 
+
+δ := 1 − 2α + 3
+
+p − s > 0
+
+twice: to separate the inflation time from the dissipative time scale and to make the full-space fractional residual perturbative. At δ = 0 the present parameter balance loses both gains. This identifies a limitation of the construction, not a conclusion about endpoint well-posedness or ill-posedness. The same geometric construction formally includes α = 1 , where the corresponding positive-regularity Sobolev and Besov results are already contained in [11, 12]. 1.1. Background and related work. Norm inflation for the classical Navier–Stokes equations was first developed in negative-regularity spaces through Fourier-space high-to-low cascades; see, among others, [ 4 , 17 , 16 ]. Cheskidov and Dai [ 6 ] extended this type of construction to generalized Navier–Stokes equations with dissipation powers α ≥ 1. These arguments transfer energy between separated Fourier scales and are distinct from the physical-space mechanism used below. The positive-regularity theory has a different geometry. Luo [ 11 ] introduced an anisotropic vortex-ring construction for the Euler and classical Navier–Stokes equations: a nearly two-dimensional meridional flow transports a swirl and creates rapid oscillations across a thin torus. The later work [ 12 ] developed the corresponding Besov picture and separated the positive-regularity mixing regime from the negative-regularity un-mixing regime. The present paper follows the positive branch of that construction. The new issue is not the production of oscillations itself, but the stability of the mechanism under the nonlocal operator (−∆) α throughout the range 0 < α < 1.For fractional Navier–Stokes equations, critical-space well-posedness and weak- or mild-solution nonuniqueness have been studied from several perspectives; representative references include [13 , 19 , 18 , 8 , 9, 1 ]. Those results concern different regularity regimes or different solution classes. Here the data are C∞ 
+
+> c
+
+, the solution is the unique smooth one, and the growth is measured in the same positive supercritical space as the initial datum. The vortex-ring geometry and the transport mechanism are adapted from [ 11 , 12 ]. The principal new point is the treatment of the fractional dissipative error on the whole space. We show that the same strict supercritical gap simultaneously makes the cumulative dissipation negligible on the inflation time and places (−∆) α ¯u below the curvature error. This is the mechanism that extends positive-regularity norm inflation from the classical equation to the full hypodissipative range. 1.2. Outline of the construction. The proof has three steps. 
+
+Step 1: fractional Navier–Stokes versus Euler dynamics. We construct a compactly supported approximate solution ¯u on a thin torus of transverse thickness μ−1 and radius ν−1, with μ ≫ ν.The geometric error gains the aspect ratio ν/μ . The nonlocal term (−∆) α ¯u is estimated globally by Fourier multipliers. With a suitable amplitude and inflation time, the strict gap δ > 0 yields 
+
+t∗μ2α −→ 0, μ2α
+
+Aν −→ 0 (μ → ∞ ),NORM INFLATION FOR HYPODISSIPATIVE NAVIER–STOKES 3
+
+after the structural parameter is fixed. 
+
+Step 2: three-dimensional Euler versus steady two-dimensional transport. In toroidal coordinates, the meridional velocity is generated by a two-dimensional steady Euler flow, while the swirl solves a linear transport equation. Its phase develops a frequency K∗ that is a prescribed large multiple of the original transverse frequency. A weighted non-cancellation argument gives integer derivative growth. A one-scale finite-difference estimate yields the Besov lower bound, and homogeneous interpolation yields the Sobolev lower bound. 
+
+Step 3: stability of the approximation. Let w = u − ¯u. Under a Lipschitz bootstrap, finite-exponent Sobolev norms of the exact solution propagate with a coefficient depending only on ∥∇ u∥L∞ . These estimates provide the endpoint bounds needed in an anisotropic Hk induction for w. Interpolation then shows that the target-space error is negligible compared with the growth of ¯u.1.3. Organization of the paper. Section 2 records the function-space estimates and the smooth local theory. Section 3 constructs the approximate solution and proves its residual bounds. Section 4 establishes norm growth of the transported swirl. Section 5 proves the projected commutator estimate and the stability of the approximation up to the inflation time. Section 6 completes the parameter choice and proves Theorem 1.1. 2. Preliminaries 
+
+2.1. Function spaces. Set Λ = ( −∆) 1/2 and J = (1 − ∆) 1/2. We use the Bessel-potential Sobolev spaces W σ,p , the Besov spaces Bσp,q , and their homogeneous counterparts ˙W σ,p and ˙Bσp,q . All spaces are over R3 unless otherwise stated. Standard facts used below may be found in [2, 3, 15]. For 1 < p < ∞ and σ ≥ 0,
+
+∥f ∥W σ,p ≃ ∥ Jσf ∥Lp , ∥f ∥ ˙W σ,p ≃ ∥ Λσf ∥Lp .
+
+For s > 0 and an integer m > s , a directional finite-difference characterization gives (2.1) ∥f ∥ ˙Bsp,q ≳
+
+(∫ ∞
+
+> 0
+
+[h−s ∥∥∆mhe 3 f ∥∥Lp
+
+]q dhh
+
+)1/q 
+
+,
+
+with the usual supremum when q = ∞. Here ∆hf (x) = f (x + h) − f (x). We also use the homogeneous Sobolev interpolation inequality (2.2) ∥f ∥ ˙W σ1,p ≲ ∥f ∥1−θ  
+
+> ˙Wσ0,p
+
+∥f ∥θ˙W σ2,p , σ1 = (1 − θ)σ0 + θσ 2.
+
+For 2 ≤ p < ∞, let (2.3) dp := 3 
+
+( 12 − 1
+
+p
+
+)
+
+.
+
+Then (2.4) ∥f ∥ ˙W s,p ≲ ∥f ∥ ˙Hs+dp .
+
+Moreover, for every η > 0 and 1 ≤ q ≤ ∞ ,(2.5) ∥f ∥Bsp,q ≲s,p,q,η ∥f ∥Hs+dp +η .
+
+The arbitrarily small loss η in (2.5) permits all values of q.4 GUIRONG TANG AND SHIYANG XIONG 
+
+2.2. Smooth local theory. We use the following standard local theory and continuation criterion. 
+
+Proposition 2.1 (Smooth local theory) . Let 0 < α ≤ 1 and let m > 5/2 be an integer. For every divergence-free u0 ∈ Hm(R3), there exists T > 0 and a unique solution 
+
+u ∈ C([0 , T ]; Hm) ∩ L2(0 , T ; Hm+α)
+
+of (1.1) . If u0 ∈ C∞ 
+
+> c
+
+, the solution remains smooth as long as 
+
+(2.6) 
+
+∫ T
+
+> 0
+
+∥∇ u(t)∥L∞ dt < ∞.
+
+Proof. Apply a smooth Friedrichs cutoff JM to the projected equation and set vM = JM uM .Choosing JM self-adjoint, the nonlinear energy term reduces to 
+
+〈
+
+Dβ JM P(vM · ∇ vM ), D β uM
+
+〉
+
+=
+
+〈
+
+Dβ (vM · ∇ vM ), D β vM
+
+〉
+
+.
+
+The divergence-free cancellation and the standard Moser estimate give, uniformly in M ,
+
+12ddt ∥uM ∥2 
+
+> Hm
+
++ ∥ΛαuM ∥2 
+
+> Hm
+
+≤ Cm ∥∇ uM ∥L∞ ∥uM ∥2 
+
+> Hm
+
+.
+
+Since m > 5/2, this yields an M -independent local interval. Compactness gives existence, and the 
+
+L2 difference estimate gives uniqueness. The same inequality, followed by the usual higher-order bootstrap, proves the continuation criterion (2.6) . This is the standard Friedrichs construction; see also [2]. □
+
+3. The approximate solution 
+
+3.1. Parameters. Fix 0 < α < 1, 2 ≤ p < ∞, and 
+
+0 < s < 1 − 2α + 3
+
+p .
+
+Set (3.1) δ := 1 − 2α + 3
+
+p − s > 0, b := δ
+
+100 ,
+
+and choose an integer N such that (3.2) N ≥ 100 + 10 
+
+s .
+
+Throughout Sections 3–5, the structural parameter 0 < ζ ≤ 1 is fixed first and the large parameter 
+
+μ is then taken sufficiently large depending on ζ. Constants denoted by Cζ may depend on the fixed exponents, profiles, and ζ, but not on μ or ν.Set (3.3) ν := μ1−b, ϑ := νμ = μ−b,
+
+and define (3.4) A := ζ2μ−s+2 /p ν1/p , Vj := μ−2/j ν−1/j , Sσ,j := Aμ σVj , L := Aμ. 
+
+For j = ∞, we use V∞ = 1 . The target scale is (3.5) Ss,p = Aμ sVp = ζ2.
+
+Finally, let (3.6) t∗ := ζ−N L−1, K∗ := t∗Aμ 2 = ζ−N μ. 
+
+Thus K∗/μ = ζ−N is a prescribed large frequency separation once ζ is chosen. NORM INFLATION FOR HYPODISSIPATIVE NAVIER–STOKES 5
+
+3.2. Toroidal coordinates and profile estimates. Use cylindrical coordinates (r, θ, z ) in R3.For positive parameters μ ≫ ν, define (3.7) ρ := 
+
+√
+
+(r − ν−1)2 + z2, r − ν−1 = ρ cos φ, z = ρ sin φ. 
+
+On the region ρ ≃ μ−1 one has (3.8) r ≃ ν−1,
+
+∣∣∣∇j r−1∣∣∣ ≲j νj+1 ,
+
+∣∣∣∇j ρ
+
+∣∣∣ ≲j μj−1,
+
+∣∣∣∇j φ
+
+∣∣∣ ≲j μj .
+
+The volume of a fixed-width toroidal profile supported there is comparable to μ−2ν−1, so the Lℓ
+
+volume factor is precisely Vℓ from (3.4). 
+
+Lemma 3.1 (Toroidal profile estimates) . Let H ∈ C∞ 
+
+> c
+
+((0 , ∞) × S1) be supported where its first variable belongs to a fixed compact subset of (0 , ∞). Let e be any one of the cylindrical unit vectors 
+
+er, e θ, e z , and let 
+
+F (x) = aH (μρ, φ )e. 
+
+If μ/ν is sufficiently large, then, for every integer k ≥ 0 and 1 ≤ ℓ ≤ ∞ ,
+
+(3.9) 
+
+∥∥∥∇kF
+
+∥∥∥Lℓ ≤ Ck,ℓ,H |a| μkVℓ.
+
+For every real σ ≥ 0 and 1 < ℓ < ∞,
+
+(3.10) ∥ΛσF ∥Lℓ ≤ Cσ,ℓ,H |a| μσVℓ.
+
+The same bounds hold for finite sums of profiles containing factors (μr )−j , with the additional gain 
+
+(ν/μ )j .Proof. In the support of H(μρ, φ ), (3.8) holds and the cylindrical basis derivatives cost powers of 
+
+r−1 ≃ ν, which are no larger than the transverse scale μ. Repeated use of the chain rule therefore gives the pointwise bound 
+
+∣∣∣∇kF
+
+∣∣∣ ≲ |a| μk. Integration over a set of volume comparable to μ−2ν−1
+
+yields (3.9) . The fractional estimate follows by interpolation between two neighboring integer orders and the boundedness of Riesz transforms on Lℓ; see, for example, [ 14 ]. Every factor (μr )−1
+
+is O(ν/μ ), proving the final assertion. □
+
+Lemma 3.2 (Derivatives of the transported phase) . Let 
+
+(3.11) Φ( t, ρ, φ ) := φ − tA ρ , K(t) := μ + tAμ 2.
+
+On ρ ≃ μ−1, for every integer j ≥ 1,
+
+(3.12) 
+
+∣∣∣∇j Φ( t)
+
+∣∣∣ ≲j K(t)μj−1.
+
+Consequently, if 0 ≤ t ≤ t∗ and t∗Aμ 2 = ζ−N μ, then K(t) ≤ (1 + ζ−N )μ and all profile estimates remain valid with constants depending on the fixed ζ but not on μ or ν.Proof. The estimate follows from (3.8) and repeated differentiation of ρ−1. The last statement is immediate from the definition of t∗. □
+
+3.3. The vortex-ring ansatz. Choose f, g ∈ C∞ 
+
+> c
+
+(R) such that (3.13) f ′ = 1 on a neighborhood of [1 , 3/2] , supp f ⊂ (1 /2, 2) ,
+
+0 ≤ g ∈ C∞ 
+
+> c
+
+((1 , 3/2)) , g̸ ≡ 0.
+
+Fix an interval (3.14) Ig ⋐ (1 , 3/2) such that g ≥ cg > 0 on Ig.6 GUIRONG TANG AND SHIYANG XIONG 
+
+In the toroidal coordinates (3.7), define (3.15) 
+
+u0,θ := Ag (μρ ) sin φ, u0,r := −Af ′(μρ )∂z ρ, u0,z := Af ′(μρ )∂rρ, uc := Aμ −1 f (μρ )
+
+r ,
+
+and set (3.16) u0 := u0,θ eθ + u0,r er + ( u0,z + uc)ez .
+
+For μ/ν large, the support is contained in a torus separated from the symmetry axis. Hence 
+
+u0 ∈ C∞ 
+
+> c
+
+(R3).3.4. The transported swirl and the approximate equation. Define (3.17) ¯uθ(t) := Ag (μρ ) sin Φ( t, ρ, φ ), Φ( t, ρ, φ ) := φ − tA ρ ,
+
+and (3.18) ¯u(t) := u0,r er + ¯ uθ(t)eθ + ( u0,z + uc)ez .
+
+Then ¯u(0) = u0 and div ¯ u(t) = 0 for all t.On the support of g(μρ ), one has f ′(μρ ) = 1 . Since (3.19) u0,r ∂r + u0,z ∂z = Aρ ∂φ,
+
+the swirl satisfies (3.20) ∂t ¯uθ + ( u0,r ∂r + u0,z ∂z )¯ uθ = 0 .
+
+We next isolate the pressure generated by the meridional field. Let 
+
+v := ( u0,r , u 0,z ) = ∇⊥ 
+
+> r,z
+
+ψ, ψ = Aμ −1f (μρ ).
+
+Its scalar vorticity ω = ∂ru0,z − ∂z u0,r is a function of ρ alone. Hence v · ∇ r,z ω = 0 and (3.21) curl r,z 
+
+((v · ∇ r,z )v) = v · ∇ r,z ω = 0 .
+
+Because R2 is simply connected, there exists a smooth scalar πE(r, z ) such that (3.22) (v · ∇ r,z )v + ∇r,z πE = 0 .
+
+The convective field (v · ∇ r,z )v = −∇ r,z πE in (3.22) is compactly supported, so ∇πE is compactly supported and πE is constant on each component of its complement. The torus is separated from 
+
+r = 0 , and πE is constant near the axis. Its axisymmetric lift is therefore smooth on R3.Using the cylindrical form of the nonlinear term and (3.20)–(3.22), one obtains (3.23) ∂t ¯u + ¯ u · ∇ ¯u + ∇πE + ( −∆) α ¯u = E, div ¯ u = 0 ,
+
+where (3.24) E = Egeom + Ediss , Ediss := ( −∆) α ¯u, 
+
+and the cylindrical components of the geometric residual are (3.25) 
+
+(Egeom )θ := uc∂z ¯uθ + u0,r 
+
+r ¯uθ,
+
+(Egeom )r := uc∂z u0,r − ¯u2
+
+> θ
+
+r ,
+
+(Egeom )z := u0,r ∂ruc + u0,z ∂z uc + uc∂z u0,z + uc∂z uc.
+
+Thus the centrifugal term, the cylindrical swirl term, and all cross terms involving uc are explicitly retained. NORM INFLATION FOR HYPODISSIPATIVE NAVIER–STOKES 7
+
+Proposition 3.3 (Approximate solution estimates) . Fix a target space 
+
+X = W s,p or X = Bsp,q with q fixed .
+
+For every fixed σ ≥ 0, integer k ≥ 0, and 1 < j < ∞, there exists μ0(ζ, σ, k, j ) such that, for 
+
+μ ≥ μ0, the following statements hold on [0 , t ∗]:
+
+(i) u0, ¯u(t) ∈ C∞ 
+
+> c
+
+(R3) are divergence free and ¯u(0) = u0;
+
+(ii) for a constant Cin (X) > 0 independent of ζ and μ,
+
+(3.26) ∥u0∥X ≤ Cin (X)ζ2;
+
+(iii) the profile estimate 
+
+(3.27) ∥¯u(t)∥W σ,j ≲ζ,σ,j Sσ,j 
+
+holds uniformly for 0 ≤ t ≤ t∗;
+
+(iv) ¯u solves (3.23) , and its residual satisfies 
+
+(3.28) 
+
+∥∥∥∇kE(t)
+
+∥∥∥Lj ≲ζ,k,j Sk,j Aν ;
+
+(v) as μ → ∞ with ζ fixed, 
+
+(3.29) t∗μ2α → 0, μ2α
+
+Aν → 0, t∗ → 0.
+
+In the Besov case, Cin (X) may depend on the fixed index q.
+
+3.5. Proof of Proposition 3.3. Lemma 3.4 (Divergence-free correction) . The field u0 in (3.16) is divergence free. Proof. Set ψ = Aμ −1f (μρ ). Then 
+
+(u0,r , u 0,z ) = ( −∂z ψ, ∂ rψ),
+
+so 
+
+∂ru0,r + ∂z u0,z = 0 .
+
+Moreover, 
+
+u0,r 
+
+r = −A f ′(μρ )∂z ρr , ∂z uc = A f ′(μρ )∂z ρr .
+
+Since the field is axisymmetric, 
+
+div u0 = ∂ru0,r + u0,r 
+
+r + ∂z (u0,z + uc) = 0 .
+
+□
+
+Lemma 3.5 (Initial profile bounds and smallness) . For every σ ≥ 0 and 1 < j < ∞,
+
+(3.30) ∥u0∥W σ,j ≲σ,j Sσ,j .
+
+For every σ > 0, 1 < j < ∞, and 1 ≤ q ≤ ∞ ,
+
+(3.31) ∥u0∥Bσj,q 
+
+≲σ,j,q Sσ,j .
+
+In particular, for either fixed target space 
+
+X = W s,p or X = Bsp,q with q fixed ,
+
+there is a constant Cin (X) > 0 such that 
+
+(3.32) ∥u0∥X ≤ Cin (X)ζ2.
+
+The constant Cin (X) depends only on the fixed exponents and profiles; in the Besov case it is allowed to depend on the already fixed index q.8 GUIRONG TANG AND SHIYANG XIONG 
+
+Proof. The three principal components in (3.15) are toroidal profiles of amplitude A. The correction 
+
+uc has amplitude Aν/μ = Aϑ and is therefore smaller. Lemma 3.1 gives, at every integer order 
+
+M ≥ 0,
+
+∥u0∥W M,j ≲M,j Aμ M Vj .
+
+Interpolation between two neighboring integer orders proves (3.30) , including σ = 0 , where 
+
+W 0,j = Lj . If σ > 0, choose an integer M > σ . Real interpolation between Lj and W M,j ,equivalently the standard finite-difference profile estimate, gives 
+
+∥u0∥Bσj,q 
+
+≲σ,j,q ∥u0∥1−σ/M Lj ∥u0∥σ/M W M,j ≲σ,j,q Aμ σVj ,
+
+which proves (3.31) . Taking σ = s and j = p, and then using (3.5) , proves (3.26) . No B0 
+
+> j,q
+
+estimate for arbitrary q is asserted. □
+
+Lemma 3.6 (Scale separation) . For fixed ζ and μ → ∞ ,
+
+(3.33) t∗μ2α = ζ−N −2μ−δ+b/p −→ 0,
+
+and 
+
+(3.34) μ2α
+
+Aν = ζ−2μ−δ+b(1+1 /p ) −→ 0.
+
+Moreover, t∗ → 0 as μ → ∞ .Proof. The first two identities follow directly from (3.1) , (3.4) , and (3.6) . Since b = δ/ 100 , both exponents of μ are strictly negative. Finally, 
+
+L = ζ2μ2α+δ−b/p ,
+
+whose exponent is positive, and hence t∗ = ζ−N L−1 → 0. □
+
+Lemma 3.7 (Uniform approximate-profile bounds) . For every σ ≥ 0, 1 < j < ∞, and 0 ≤ t ≤ t∗,
+
+(3.35) ∥¯u(t)∥W σ,j ≲ζ,σ,j Sσ,j .
+
+In particular, 
+
+(3.36) ∥∇ ¯u(t)∥L∞ ≤ Capp (ζ)L, 0 ≤ t ≤ t∗.
+
+Proof. By Lemma 3.2, the derivatives of the phase on [0 , t ∗] cost at most Cζ μ per derivative. Lemma 3.1 then yields (3.27) . The Lipschitz estimate follows either directly or by taking an integer order above 1 + 3 /j and applying Sobolev embedding. □
+
+Lemma 3.8 (Geometric residual) . For every integer k ≥ 0, every 1 < j < ∞, and 0 ≤ t ≤ t∗,
+
+(3.37) 
+
+∥∥∥∇kEgeom (t)
+
+∥∥∥Lj ≲ζ,k,j Sk,j Aν. 
+
+Proof. Each term in (3.25) contains either a factor r−1 or the correction uc. The former contributes 
+
+ν, while the latter has size Aν/μ = Aϑ . A derivative of a principal profile costs at most Cζ μ on 
+
+[0 , t ∗]. Thus every Leibniz term has size at most Cζ A2νμ k on a torus of volume ≃ μ−2ν−1. This is exactly (3.37). □
+
+Lemma 3.9 (Full-space fractional dissipative residual) . For every integer k ≥ 0, every 1 < j < ∞,and 0 ≤ t ≤ t∗,
+
+(3.38) 
+
+∥∥∥∇kEdiss (t)
+
+∥∥∥Lj ≲ζ,k,j Sk,j μ2α.
+
+Consequently, for fixed ζ,
+
+(3.39) 
+
+∥∥∥∇kEdiss (t)
+
+∥∥∥Lj ≤ oμ→∞ (1) Sk,j Aν. 
+
+The estimates are over all of R3; no compact-support assertion is made for Ediss .NORM INFLATION FOR HYPODISSIPATIVE NAVIER–STOKES 9
+
+Proof. Since Ediss = Λ 2α ¯u and ∇kΛ−k is a finite combination of zero-order Riesz multipliers, (3.40) 
+
+∥∥∥∇kEdiss 
+
+∥∥∥Lj ≲k,j 
+
+∥∥∥Λk+2 α ¯u
+
+∥∥∥Lj .
+
+Choose any integer m > k + 2 α. Interpolation between order 0 and order m, followed by Lemma 3.7, gives (3.41) 
+
+∥∥∥Λk+2 α ¯u
+
+∥∥∥Lj ≲ ∥¯u∥1−(k+2 α)/m Lj ∥¯u∥(k+2 α)/m W m,j 
+
+≲ζ,k,j (AV j )1−(k+2 α)/m (Aμ mVj )(k+2 α)/m 
+
+= Aμ k+2 αVj = Sk,j μ2α.
+
+This proves (3.38) . Dividing by Sk,j Aν and using (3.34) proves (3.39) . The use of the global multiplier Λ2α in (3.40) explicitly controls the nonlocal tail throughout R3. □
+
+Proof of Proposition 3.3. The divergence-free property follows from Lemma 3.4, and the initial estimate follows from Lemma 3.5. Lemma 3.7 gives (3.27). Combining Lemmas 3.8 and 3.9, and then taking μ large enough that the relative factor in (3.39) is at most one, gives (3.28) . The remaining assertions follow from Lemma 3.6. □
+
+4. Norm growth of the approximate solution 
+
+The main result of this section is Proposition 4.1. We first identify a fixed region on which the transported phase is nondegenerate. The phase at the inflation time is (4.1) Φ∗ := Φ( t∗, ρ, φ ) = φ − t∗Aρ .
+
+A direct calculation gives (4.2) ∂z Φ∗ = cos φρ + t∗Aρ2 sin φ. 
+
+Choose a closed interval Jφ ⋐ (0 , π ) on which sin φ ≥ cφ > 0. On the set (4.3) R∗ := {μρ ∈ Ig, φ ∈ Jφ},
+
+if K∗/μ = ζ−N exceeds a fixed threshold, then (4.4) cK ∗ ≤ | ∂z Φ∗| ≤ CK ∗.
+
+Moreover, by Lemma 3.2, (4.5) 
+
+∣∣∣∇j Φ∗
+
+∣∣∣ ≲j K∗μj−1, j ≥ 1.
+
+Proposition 4.1 (Growth of the approximate solution) . Let s > 0 and 1 < p < ∞.
+
+(i) For every 1 ≤ q ≤ ∞ , there exists CB
+
+> osc
+
+(s, p, q ) ≥ 1 such that, if ζ−N ≥ CB
+
+> osc
+
+(s, p, q ), then 
+
+∥¯u(t∗)∥ ˙Bsp,q ≥ c ˙B (s, p, q )AK s 
+
+> ∗
+
+Vp,(4.6) 
+
+∥¯u(t∗)∥Bsp,q ≥ cB (s, p, q )AK s 
+
+> ∗
+
+Vp.(4.7) (ii) There exists CW
+
+> osc
+
+(s, p ) ≥ 1 such that, if ζ−N ≥ CW
+
+> osc
+
+(s, p ), then 
+
+∥¯u(t∗)∥ ˙W s,p ≥ c ˙W (s, p )AK s 
+
+> ∗
+
+Vp,(4.8) 
+
+∥¯u(t∗)∥W s,p ≥ cW (s, p )AK s 
+
+> ∗
+
+Vp.(4.9) 
+
+In every case, 
+
+(4.10) AK s 
+
+> ∗
+
+Vp = ζ2−N s .10 GUIRONG TANG AND SHIYANG XIONG 
+
+4.1. A weighted non-cancellation lemma. Lemma 4.2 (Oscillatory non-cancellation) . Let 1 ≤ p < ∞ and let β ∈ R be fixed. Set 
+
+mp := 12π
+
+∫ 2π
+
+> 0
+
+|sin τ |p dτ > 0.
+
+There is a constant Cp,C 0 > 0 with the following property. Let I be a bounded interval, let 
+
+a ∈ W 1,1(I) be nonnegative, and let ϕ ∈ C2(I) be strictly monotone with 
+
+inf 
+
+> I
+
+∣∣ϕ′∣∣ ≥ λ, sup 
+
+> I
+
+∣∣ϕ′′ ∣∣ ≤ C0λ |I|−1 .
+
+Then 
+
+(4.11) 
+
+∫
+
+> I
+
+a(y) |sin( ϕ(y) + β)|p dy ≥ mp
+
+∫
+
+> I
+
+a(y) d y
+
+− Cp,C 0
+
+λ
+
+(∥∥a′∥∥L1(I) + |I|−1 ∥a∥L1(I)
+
+)
+
+.
+
+The same conclusion holds with sine replaced by cosine. Proof. Let J := ϕ(I), viewed as an unoriented interval, let y = y(τ ) be the inverse map, and put 
+
+b(τ ) := a(y(τ )) 
+
+|ϕ′(y(τ )) | .
+
+Then b ≥ 0, b ∈ W 1,1(J), and the change of variables gives (4.12) 
+
+∫
+
+> I
+
+a(y) |sin( ϕ(y) + β)|p dy =
+
+∫
+
+> J
+
+b(τ ) |sin( τ + β)|p dτ, 
+
+∫
+
+> J
+
+b =
+
+∫
+
+> I
+
+a. 
+
+Let Gp,β be the bounded 2π-periodic primitive of 
+
+|sin( τ + β)|p − mp
+
+with zero mean. Integration by parts on J and the one-dimensional estimate 
+
+∥b∥L∞(J) ≤ | J|−1 ∥b∥L1(J) + ∥∥b′∥∥L1(J)
+
+yield (4.13) 
+
+∣∣∣∣∫
+
+> J
+
+b(τ )(|sin( τ + β)|p − mp
+
+) dτ
+
+∣∣∣∣ ≤ Cp
+
+(∥∥b′∥∥L1(J) + |J|−1 ∥b∥L1(J)
+
+)
+
+.
+
+Writing gϕ(y) := |ϕ′(y)|, differentiating b = a/g ϕ, and using dτ = gϕ(y) d y, we obtain 
+
+∥∥b′∥∥L1(J) =
+
+∫
+
+> I
+
+∣∣∣∣∣
+
+ddy
+
+( agϕ
+
+)∣ ∣∣∣∣ dy
+
+≤ 1
+
+λ
+
+∥∥a′∥∥L1(I) + sup I |ϕ′′ |
+
+λ2 ∥a∥L1(I)
+
+≤ 1
+
+λ
+
+∥∥a′∥∥L1(I) + C0
+
+λ |I| ∥a∥L1(I) .(4.14) Moreover, |J| ≥ λ |I| and ∥b∥L1(J) = ∥a∥L1(I). Substituting these bounds into (4.13) and then using (4.12) proves (4.11). The cosine case is a fixed phase shift. □NORM INFLATION FOR HYPODISSIPATIVE NAVIER–STOKES 11 
+
+4.2. Oscillatory derivative growth. Lemma 4.3 (Integer derivative bounds) . Let m ≥ 1 be a fixed integer and 1 < p < ∞. There exists Cosc (m, p ) ≥ 1, depending only on m, p and the fixed profiles, such that if 
+
+(4.15) ζ−N ≥ Cosc (m, p ),
+
+then 
+
+(4.16) ∥∂mz ¯uθ(t∗)∥Lp ≥ cm,p AK m 
+
+> ∗
+
+Vp.
+
+For every 1 < j < ∞,
+
+(4.17) ∥∇ m ¯u(t∗)∥Lj ≤ Cm,j A(μ + K∗)mVj .
+
+In particular, when K∗/μ ≥ 1, the right-hand side is bounded by Cm,j AK m 
+
+> ∗
+
+Vj .Proof. Step 1: derivative expansion. Repeated differentiation of the swirl gives (4.18) ∂mz ¯uθ(t∗) = Ag (μρ )( ∂z Φ∗)m sin 
+
+(
+
+Φ∗ + mπ 
+
+2
+
+)
+
++ Em.
+
+Every term in Em either contains a derivative of g(μρ ) or contains at least one phase derivative of order at least two. Using (4.5) and the product rule, one obtains (4.19) ∥E m∥Lp ≤ Cm,p AK m−1 
+
+> ∗
+
+μV p.
+
+Step 2: a fixed toroidal box. We now prove the lower bound for the principal term without suppressing the fibre geometry. Choose 
+
+ϱ0 ∈ int Ig, φ0 ∈ int Jφ,
+
+and set ξ0 = ϱ0 cos φ0, y0 = ϱ0 sin φ0. Since y0 > 0 and the set 
+
+{
+
+(ξ, y ) : 
+
+√
+
+ξ2 + y2 ∈ int Ig, arg( ξ + iy ) ∈ int Jφ
+
+}
+
+is open, there are fixed compact intervals Iξ and Iy, of positive length and containing ξ0 and y0,such that (4.20) Q := Iξ × Iy ⋐
+
+{
+
+(ξ, y ) : 
+
+√
+
+ξ2 + y2 ∈ Ig, arg( ξ + iy ) ∈ Jφ
+
+}
+
+.
+
+In particular, y ≥ cQ > 0 and ϱ(ξ, y ) := √ξ2 + y2 is bounded above and below on Q.Put (4.21) R := ν−1, ξ := μ(r − R), y := μz, λ∗ := ζ−N = K∗
+
+μ .
+
+Then μρ = ϱ(ξ, y ) and, on Q,(4.22) Φ∗(r, z ) = ˜Φλ∗ (ξ, y ) := arg( ξ + iy ) − λ∗
+
+ϱ(ξ, y ) .
+
+A direct differentiation gives 
+
+∂y ˜Φλ∗ = ξϱ2 + λ∗
+
+yϱ3 ,(4.23) 
+
+∂2 
+
+> y
+
+˜Φλ∗ = − 2ξy ϱ4 + λ∗
+
+ξ2 − 2y2
+
+ϱ5 .(4.24) Consequently, there are constants cQ, C Q > 0 and a threshold λ0 ≥ 1, depending only on the fixed rectangle, such that whenever λ∗ ≥ λ0,(4.25) cQλ∗ ≤ ∂y ˜Φλ∗ (ξ, y ) ≤ CQλ∗,
+
+∣∣∣∂2 
+
+> y
+
+˜Φλ∗ (ξ, y )
+
+∣∣∣ ≤ CQλ∗12 GUIRONG TANG AND SHIYANG XIONG 
+
+uniformly on Q. Notice also that (4.26) ∂z Φ∗ = μ∂ y ˜Φλ∗ .
+
+Step 3: fibrewise non-cancellation. For each fixed ξ ∈ Iξ, define the nonnegative weight (4.27) aξ,λ ∗ (y) := g(ϱ(ξ, y )) p ∣∣∣∂y ˜Φλ∗ (ξ, y )
+
+∣∣∣mp 
+
+, y ∈ Iy.
+
+Because g ≥ cg > 0 on Ig, and because of (4.25), (4.28) cλ mp  
+
+> ∗
+
+≤ aξ,λ ∗ (y) ≤ Cλ mp  
+
+> ∗
+
+, |∂yaξ,λ ∗ (y)| ≤ Ca ξ,λ ∗ (y),
+
+with constants uniform in ξ, y, and λ∗ ≥ λ0. Indeed, after taking a logarithmic derivative, the only factors are g′(ϱ)/g (ϱ), ∂yϱ, and ∂2 
+
+> y
+
+˜Φλ∗ /∂ y ˜Φλ∗ , all uniformly bounded on Q.Apply Lemma 4.2 on the fixed interval Iy with phase ˜Φλ∗ (ξ, ·) and shift mπ/ 2. By (4.25) – (4.28) ,its error is at most Cλ −1 
+
+> ∗
+
+times the weight mass. Enlarging λ0 if necessary therefore gives, uniformly for ξ ∈ Iξ,(4.29) 
+
+∫
+
+> Iy
+
+aξ,λ ∗ (y)
+
+∣∣∣∣sin 
+
+(˜Φλ∗ (ξ, y ) + mπ 
+
+2
+
+)∣ ∣∣∣
+
+> p
+
+dy
+
+≥ cm,p, Qλmp  
+
+> ∗
+
+.
+
+Step 4: the three-dimensional measure. It remains to restore the three-dimensional Jacobian. On the physical sub-torus corresponding to θ ∈ [0 , 2π) and (ξ, y ) ∈ Q ,
+
+r = R + ξμ , dx = r dr dθ dz =
+
+(
+
+R + ξμ
+
+)
+
+μ−2 dξ dy dθ. 
+
+Since μ/ν → ∞ , for all sufficiently large μ one has R + ξ/μ ≥ 12 ν−1 on Iξ. Combining this fact with (4.26) and (4.29), we obtain 
+
+∥∥∥∥Ag (μρ )( ∂z Φ∗)m sin 
+
+(
+
+Φ∗ + mπ 
+
+2
+
+)∥ ∥∥∥
+
+> pLp
+
+≥ cA pμmp −2ν−1
+
+∫
+
+> Iξ
+
+∫
+
+> Iy
+
+aξ,λ ∗ (y)
+
+∣∣∣∣sin 
+
+(˜Φλ∗ (ξ, y ) + mπ 
+
+2
+
+)∣ ∣∣∣
+
+> p
+
+dy dξ
+
+≥ cm,p Ap(λ∗μ)mp μ−2ν−1 = cm,p ApKmp  
+
+> ∗
+
+V pp .(4.30) Taking the pth root proves (4.31) 
+
+∥∥∥∥Ag (μρ )( ∂z Φ∗)m sin 
+
+(
+
+Φ∗ + mπ 
+
+2
+
+)∥ ∥∥∥Lp
+
+≥ cm,p AK m 
+
+> ∗
+
+Vp.
+
+The ratio of (4.19) to the right-hand side of (4.31) is O(μ/K ∗) = O(λ−1 
+
+> ∗
+
+). Increasing the fixed threshold Cosc (m, p ) proves (4.16). Finally, the chain rule, (4.5), and Lemma 3.1 give directly 
+
+∥∇ m ¯u(t∗)∥Lj ≤ Cm,j A(μ + K∗)mVj ,
+
+which proves (4.17). □
+
+Proof of Proposition 4.1. Step 1: the Besov lower bound. Let m = ⌊s⌋ + 1 , so m > s . Iterating the fundamental theorem of calculus gives (4.32) ∆mhe z f (x) = 
+
+∫
+
+> [0 ,h ]m
+
+∂mz f (x + ( t1 + · · · + tm)ez
+
+) dt1 · · · dtm.
+
+Subtracting hm∂mz f (x) and applying the fundamental theorem once more yields (4.33) ∆mhe z ¯uθ(t∗) = hm∂mz ¯uθ(t∗) + Rh, ∥Rh∥Lp ≤ Cmhm+1 ∥∥∥∂m+1  
+
+> z
+
+¯uθ(t∗)
+
+∥∥∥Lp .NORM INFLATION FOR HYPODISSIPATIVE NAVIER–STOKES 13 
+
+Take 
+
+h ∈ [c0K−1 
+
+> ∗
+
+, 2c0K−1 
+
+> ∗
+
+],
+
+where c0 > 0 is fixed and small. Lemma 4.3 at orders m and m + 1 gives 
+
+hm ∥∂mz ¯uθ(t∗)∥Lp ≥ cmcm 
+
+> 0
+
+AV p, ∥Rh∥Lp ≤ C′
+
+> m
+
+cm+1 0 AV p.
+
+Choose c0 so that the second term is at most one half of the first. Then (4.34) ∥∥∆mhe z ¯uθ(t∗)∥∥Lp ≳ AV p
+
+throughout this interval of h.Translations in the z direction leave er, e θ, e z unchanged. The cylindrical components of ∆mhe z ¯u
+
+are therefore pointwise orthogonal, and 
+
+∣∣∆mhe z ¯u∣∣ ≥ ∣∣∆mhe z ¯uθ
+
+∣∣ .
+
+Restricting (2.1) to h ≃ K−1 
+
+> ∗
+
+gives 
+
+∥¯u(t∗)∥ ˙Bsp,q ≥ c ˙B (s, p, q )Ks 
+
+> ∗
+
+AV p.
+
+For q = ∞, use any single h in the chosen interval. For s > 0, the standard comparison 
+
+∥f ∥ ˙Bsp,q ≲s,p,q ∥f ∥Bsp,q follows by controlling the negative dyadic blocks with ∥f ∥Lp . Consequently, 
+
+∥¯u(t∗)∥Bsp,q ≥ cB (s, p, q )Ks 
+
+> ∗
+
+AV p.
+
+This proves the two Besov estimates. Finally, 
+
+AK s 
+
+> ∗
+
+Vp = A(ζ−N μ)sμ−2/p ν−1/p = ζ2−N s .
+
+Step 2: the Sobolev lower bound. Let m = ⌊s⌋ + 1 and n = m + 1 . Since 
+
+∂mz = Rm 
+
+> 3
+
+Λm
+
+and Riesz transforms are bounded on Lp, Lemma 4.3 gives (4.35) ∥¯u(t∗)∥ ˙W m,p ≳ ∥∂mz ¯uθ(t∗)∥Lp ≳ AK m 
+
+> ∗
+
+Vp.
+
+The upper estimate at order n is (4.36) ∥¯u(t∗)∥ ˙W n,p ≲ AK n 
+
+> ∗
+
+Vp,
+
+where the constant is uniform once the prescribed separation threshold is fixed. Choose θ ∈ (0 , 1) 
+
+so that 
+
+m = (1 − θ)s + θn, θ = m − sn − s .
+
+By (2.2), 
+
+∥¯u∥ ˙W m,p ≲ ∥¯u∥1−θ  
+
+> ˙Ws,p
+
+∥¯u∥θ˙W n,p .
+
+Combining this with (4.35)–(4.36) and solving for the order-s norm gives 
+
+∥¯u(t∗)∥ ˙W s,p ≥ c ˙W (s, p )AK s 
+
+> ∗
+
+Vp.
+
+The zero-order multiplier ΛsJ−s is bounded on Lp, so ∥f ∥ ˙W s,p ≲s,p ∥f ∥W s,p . Hence 
+
+∥¯u(t∗)∥W s,p ≥ cW (s, p )AK s 
+
+> ∗
+
+Vp.
+
+This proves the two Sobolev estimates. □14 GUIRONG TANG AND SHIYANG XIONG 
+
+5. Stability of the approximation 
+
+Fix the target exponents from Theorem 1.1. Choose an integer (5.1) Kb ≥ max {6, ⌈s + dp⌉ + 6 } ,
+
+and set (5.2) γk := 1 − k
+
+4( Kb + 1) , 0 ≤ k ≤ Kb, γ∗ := γKb , κ := 18( Kb + 1) .
+
+Then γ∗ > 3/4. Fix ℓ > max {p, 2} and η > 0 so that (5.3) 1
+
+ℓ < κ
+
+4 , 0 < η < bκ 
+
+4 .
+
+Finally, define (5.4) βp := γ∗ −
+
+( 12 − 1
+
+p
+
+)
+
+> 0.
+
+Let u be the smooth solution issued from u0 on its maximal interval and set (5.5) w := u − ¯u. 
+
+Subtracting (3.23) from (1.1) gives (5.6) 
+
+
+
+∂tw + ( −∆) αw + u · ∇ w + w · ∇ ¯u + ∇πw = −E, 
+
+div w = 0 ,w|t=0 = 0 .
+
+Proposition 5.1 (Stability of the approximation) . For each fixed sufficiently small ζ, there exists 
+
+μstab (ζ) such that, for μ ≥ μstab (ζ), the exact solution exists smoothly on [0 , t ∗] and 
+
+∥u(t∗) − ¯u(t∗)∥W s,p ≲ζ Ss,p ϑβp ,(5.7) 
+
+∥u(t∗) − ¯u(t∗)∥Bsp,q ≲ζ,s,p,q,η Ss,p μηϑβp
+
+(5.8) 
+
+for every fixed 1 ≤ q ≤ ∞ ; the implicit constant in the Besov estimate may depend on that fixed q.In particular, each right-hand side is oμ→∞ (Ss,p ) with ζ fixed. 
+
+We prove the proposition through a Lipschitz bootstrap. Let Capp (ζ) be the constant in (3.36) .Define Tboot to be the supremum of all T ≤ min {t∗, T max } such that (5.9) ∥∇ u(t)∥L∞ ≤ 2Capp (ζ)L, 0 ≤ t ≤ T. 
+
+By continuity and the initial profile bounds, Tboot > 0 after increasing Capp (ζ) if necessary. 5.1. Bootstrap and finite-exponent estimates. For a divergence-free vector field v, define (5.10) Cσ(v) := PJσ∇ · (v ⊗ v) − v · ∇ Jσv. 
+
+Lemma 5.2 (Projected commutator) . Let 1 < j < ∞ and σ ≥ 1. For every smooth divergence-free 
+
+v,
+
+(5.11) ∥C σ(v)∥Lj ≤ Cσ,j ∥∇ v∥L∞ ∥v∥W σ,j .
+
+Proof. Since v is divergence free and Jσ commutes with the Leray projector, (5.12) Cσ(v) = P[Jσ, v · ∇ ]v + [ P, v · ∇ ]Jσv. 
+
+The Kato–Ponce commutator estimate [10] gives (5.13) ∥[Jσ, v · ∇ ]v∥Lj ≲σ,j ∥∇ v∥L∞ ∥v∥W σ,j .NORM INFLATION FOR HYPODISSIPATIVE NAVIER–STOKES 15 
+
+For the second term, write Pab = δab + RaRb and set F = Jσv. Componentwise, [P, v · ∇ ]F is a finite sum of terms of the form 
+
+[RaRb, v c]∂cFb.
+
+The first Calderón commutator estimate [5, 7] therefore yields (5.14) ∥[RaRb, v c]∂cFb∥Lj ≲j ∥∇ v∥L∞ ∥F ∥Lj .
+
+Combining (5.12)–(5.14) with the Lj boundedness of P proves (5.11). □
+
+Proposition 5.3 (Finite-Lj propagation) . Assume that a smooth solution u of (1.1) satisfies 
+
+(5.15) ∥∇ u(t)∥L∞ ≤ M, 0 ≤ t ≤ T. 
+
+Then, for every 1 < j < ∞ and every real σ ≥ 1,
+
+(5.16) ∥u(t)∥W σ,j ≤ Cσ,j ∥u0∥W σ,j exp( Cσ,j M t ), 0 ≤ t ≤ T. 
+
+Consequently, under the bootstrap (5.9) , for every fixed real σ ≥ 1,
+
+(5.17) ∥u(t)∥W σ,ℓ + ∥¯u(t)∥W σ,ℓ ≲ζ,σ,ℓ Sσ,ℓ , 0 ≤ t ≤ Tboot .
+
+Proof. Write the exact equation in projected form and set F := Jσu:(5.18) ∂tF + u · ∇ F + Λ 2αF = −C σ(u).
+
+For j ≥ 2, test (5.18) against 
+
+Ψj (F ) := |F |j−2 F. 
+
+The transport term vanishes because 
+
+∫
+
+> R3
+
+u · ∇ F · Ψj (F ) d x = 1
+
+j
+
+∫
+
+> R3
+
+u · ∇ | F |j dx = 0 .
+
+The fractional dissipative term is nonnegative. Indeed, the singular-integral representation of Λ2α
+
+gives (5.19) 
+
+∫
+
+> R3
+
+Ψj (F (x)) · Λ2αF (x) d x
+
+= cα
+
+2
+
+∫∫ 
+
+> R3×R3
+
+(F (x) − F (y)) · (Ψj (F (x)) − Ψj (F (y)) )
+
+|x − y|3+2 α dx dy ≥ 0,
+
+because z 7 → | z|j−2 z is monotone. For 1 < j < 2, introduce the regularized convex primitive (5.20) 
+
+Φj,τ (z) := 
+
+∫ |z|
+
+> 0
+
+r(r2 + τ 2)(j−2) /2 dr
+
+= (|z|2 + τ 2)j/ 2 − τ j
+
+j , τ > 0,
+
+and its gradient (5.21) Ψj,τ (z) := ∇z Φj,τ (z) = ( |z|2 + τ 2)(j−2) /2z. 
+
+The tangential eigenvalues of DΨj,τ (z) are (|z|2 + τ 2)(j−2) /2, while the radial eigenvalue is 
+
+(|z|2 + τ 2)(j−4) /2(τ 2 + ( j − 1) |z|2).
+
+They are positive, so Ψj,τ is monotone. Testing (5.18) against Ψj,τ (F ) gives (5.22) 
+
+ddt
+
+∫
+
+> R3
+
+Φj,τ (F ) d x +
+
+∫
+
+> R3
+
+Ψj,τ (F ) · Λ2αF dx
+
+= −
+
+∫
+
+> R3
+
+Cσ(u) · Ψj,τ (F ) d x. 16 GUIRONG TANG AND SHIYANG XIONG 
+
+The transport contribution is ∫ u · ∇ Φj,τ (F ) d x = 0 , and the dissipative contribution is nonnegative by the same double-integral formula and the monotonicity of Ψj,τ . Since j − 2 < 0,(5.23) |Ψj,τ (F )| ≤ | F |j−1 .
+
+After integrating (5.22) over [0 , t ] and discarding the nonnegative dissipative term, we obtain 
+
+∫
+
+> R3
+
+Φj,τ (F (t)) d x ≤
+
+∫
+
+> R3
+
+Φj,τ (F (0)) d x
+
++
+
+∫ t
+
+> 0
+
+∥C σ(u)( s)∥Lj ∥F (s)∥j−1 
+
+> Lj
+
+ds. 
+
+As τ ↓ 0, one has 
+
+Φj,τ (z) ↑ 1
+
+j |z|j .
+
+Monotone convergence therefore yields (5.24) 1
+
+j ∥F (t)∥jLj ≤ 1
+
+j ∥F (0) ∥jLj +
+
+∫ t
+
+> 0
+
+∥C σ(u)( s)∥Lj ∥F (s)∥j−1 
+
+> Lj
+
+ds. 
+
+Applying the standard scalar regularization (∥F ∥jLj + ε)1/j and then letting ε ↓ 0 gives, for almost every t,(5.25) ddt ∥F ∥Lj ≤ ∥C σ(u)∥Lj .
+
+For j ≥ 2, the same differential inequality follows directly from (5.19). Lemma 5.2 now gives 
+
+ddt ∥F ∥Lj ≤ Cσ,j ∥∇ u∥L∞ ∥F ∥Lj .
+
+Gronwall’s inequality proves (5.16). Under (5.9) , one has M t ∗ ≤ Cζ Lt ∗ = Cζ ζ−N , which is independent of μ and ν. Lemma 3.5 gives the initial W σ,ℓ scale, and Lemma 3.7 gives the corresponding bound for ¯u. This proves (5.17). □
+
+5.2. Endpoint bounds. Corollary 5.4 (Endpoint bounds with anisotropic loss) . Under (5.9) , for every integer 1 ≤ m ≤
+
+Kb + 1 ,
+
+(5.26) ∥∇ mu(t)∥L∞ + ∥∇ m ¯u(t)∥L∞ ≲ζ,m Aμ mϑ−κ, 0 ≤ t ≤ Tboot .
+
+Proof. Sobolev embedding at the fixed finite exponent ℓ and Proposition 5.3 give 
+
+∥∇ mu∥L∞ ≲ ∥u∥W m+3 /ℓ +η,ℓ ≲ζ Sm+3 /ℓ +η,ℓ 
+
+= Aμ mμη+1 /ℓ ν−1/ℓ = Aμ mμηϑ−1/ℓ .
+
+By (5.3), 
+
+μηϑ−1/ℓ = μη+b/ℓ ≤ μbκ = ϑ−κ
+
+for μ ≥ 1. The same argument applies to ¯u, or one may use Lemma 3.7 directly. □NORM INFLATION FOR HYPODISSIPATIVE NAVIER–STOKES 17 
+
+5.3. Higher-order energy estimates. Set (5.27) Bk := Sk, 2 = Aμ k−1ν−1/2, 0 ≤ k ≤ Kb.
+
+By Proposition 3.3, (5.28) 
+
+∥∥∥∇kE(t)
+
+∥∥∥L2 ≲ζ,k BkAν = BkLϑ, 0 ≤ k ≤ Kb.
+
+Proposition 5.5 (Anisotropic Hk stability) . For every integer 0 ≤ k ≤ Kb and every 0 ≤ t ≤
+
+Tboot ,
+
+(5.29) 
+
+∥∥∥∇kw(t)
+
+∥∥∥L2 ≤ Cζ,k Bkϑγk .
+
+Proof. We proceed by induction on k.
+
+Step 1: the L2 estimate. For k = 0 , take the L2 inner product of (5.6) with w. The u · ∇ w term and the pressure term vanish. Hence 
+
+12ddt ∥w∥2 
+
+> L2
+
++ ∥Λαw∥2 
+
+> L2
+
+≤ ∥∇ ¯u∥L∞ ∥w∥2 
+
+> L2
+
++ ∥E∥L2 ∥w∥L2 .
+
+Using (3.36), (5.28), and w(0) = 0 , Gronwall gives 
+
+∥w(t)∥L2 ≤ Cζ t∗B0Lϑ = Cζ B0ϑ. 
+
+Since γ0 = 1 , this is (5.29) at order zero. 
+
+Step 2: the higher-order induction. Assume (5.29) holds for all orders below an integer 1 ≤ k ≤ Kb.Let β be a multi-index with |β| = k. The high-order transport term expands as (5.30) Dβ (u · ∇ w) = u · ∇ Dβ w + ∑
+
+> 0<γ ≤β
+
+(βγ
+
+)
+
+Dγ u · ∇ Dβ−γ w. 
+
+The first term cancels after pairing with Dβ w. In the sum, the terms with |γ| = 1 satisfy (5.31) 
+
+∣∣∣∣∫
+
+Dγ u · ∇ Dβ−γ w · Dβ w dx
+
+∣∣∣∣ ≲ ∥∇ u∥L∞
+
+∥∥∥∇kw
+
+∥∥∥2 
+
+> L2
+
+.
+
+If |γ| ≥ 2, then |β − γ| + 1 ≤ k − 1. Putting the derivative of u in L∞ and the strictly lower derivative of w in L2 gives (5.32) 
+
+∣∣∣∣∫
+
+Dγ u · ∇ Dβ−γ w · Dβ w dx
+
+∣∣∣∣ ≲
+
+∥∥∥∇|γ|u
+
+∥∥∥L∞
+
+∥∥∥∇k−| γ|+1 w
+
+∥∥∥L2
+
+∥∥∥∇kw
+
+∥∥∥L2 .
+
+Thus no derivative of w above order k is present. Similarly, (5.33) Dβ (w · ∇ ¯u) = Dβ w · ∇ ¯u + ∑
+
+> γ<β
+
+(βγ
+
+)
+
+Dγ w · ∇ Dβ−γ ¯u. 
+
+The first term is bounded by (5.34) ∥∇ ¯u∥L∞
+
+∥∥∥∇kw
+
+∥∥∥2 
+
+> L2
+
+,
+
+and every term in the sum contains at most k − 1 derivatives on w:(5.35) 
+
+∣∣∣∣∫
+
+Dγ w · ∇ Dβ−γ ¯u · Dβ w dx
+
+∣∣∣∣ ≲
+
+∥∥∥∇|γ|w
+
+∥∥∥L2
+
+∥∥∥∇k−| γ|+1 ¯u
+
+∥∥∥L∞
+
+∥∥∥∇kw
+
+∥∥∥L2 .
+
+The pressure again vanishes because Dβ w is divergence free, while the dissipative term is ∥∥∥ΛαDβ w
+
+∥∥∥2 
+
+> L2
+
+≥ 0.18 GUIRONG TANG AND SHIYANG XIONG 
+
+Summing over |β| = k, using Corollary 5.4, and dividing by 
+
+∥∥∥∇kw
+
+∥∥∥L2 through a standard regularization if necessary, we obtain (5.36) 
+
+ddt
+
+∥∥∥∇kw
+
+∥∥∥L2 ≤ Cζ L
+
+∥∥∥∇kw
+
+∥∥∥L2
+
++ Cζk−1∑
+
+> m=0
+
+Aμ k+1 −mϑ−κ ∥∇ mw∥L2 + Cζ BkLϑ. 
+
+By the induction hypothesis and the exact scale identity (5.37) Aμ k+1 −mBm = LB k,
+
+the lower-order sum in (5.36) is bounded by 
+
+Cζ BkLϑ γk−1−κ.
+
+The exponent design gives (5.38) γk−1 − κ = γk + κ > γ k.
+
+Integrating over 0 ≤ t ≤ t∗, using Lt ∗ = ζ−N and absorbing the fixed exponential into Cζ , yields 
+
+∥∥∥∇kw(t)
+
+∥∥∥L2 ≤ Cζ Bk
+
+(
+
+ϑγk +κ + ϑ
+
+)
+
+≤ Cζ Bkϑγk .
+
+This closes the induction. □
+
+Corollary 5.6 (Real-order stability) . For every real 0 ≤ σ ≤ Kb and 0 ≤ t ≤ Tboot ,
+
+(5.39) ∥w(t)∥ ˙Hσ ≲ζ,σ Aμ σ−1ν−1/2ϑγ∗ .
+
+The same estimate with Hσ in place of ˙Hσ holds after adding the lower-order L2 contribution. Proof. Interpolate between the two neighboring integer estimates in Proposition 5.5. The scale 
+
+Bk = Aμ k−1ν−1/2 interpolates exactly to Aμ σ−1ν−1/2. Since γk ≥ γ∗ for every k ≤ Kb and 
+
+0 < ϑ < 1, the interpolated smallness factor is bounded by ϑγ∗ . □
+
+5.4. Target-space stability and closure. Lemma 5.7 (Closure of the Lipschitz bootstrap) . For each fixed sufficiently small ζ, there exists 
+
+μ1(ζ) such that, whenever μ ≥ μ1(ζ), the exact solution exists smoothly on [0 , t ∗] and 
+
+(5.40) ∥∇ u(t)∥L∞ < 2Capp (ζ)L, 0 ≤ t ≤ t∗.
+
+All estimates above therefore hold on the entire interval [0 , t ∗].Proof. Because Kb > 5/2 + η, Corollary 5.6 and Sobolev embedding imply 
+
+∥∇ w(t)∥L∞ ≲ ∥w(t)∥H5/2+ η
+
+≲ζ Aμ 3/2+ ην−1/2ϑγ∗
+
+= Lμ ηϑγ∗−1/2.(5.41) Now 
+
+μηϑγ∗−1/2 = μη−b(γ∗−1/2) −→ 0,
+
+because γ∗ − 1/2 > 1/4 and (5.3) gives η < bκ/ 4 < b/ 4. Hence, after increasing μ1(ζ),
+
+∥∇ w(t)∥L∞ ≤ 12 Capp (ζ)L on [0 , T boot ].
+
+Together with (3.36) , this strictly improves the bootstrap bound. The continuation criterion in Proposition 2.1 prevents termination before t∗, so Tboot = t∗ and (5.40) follows. □NORM INFLATION FOR HYPODISSIPATIVE NAVIER–STOKES 19 
+
+Lemma 5.8 (Target-space perturbation) . At the inflation time t∗,
+
+(5.42) ∥w(t∗)∥W s,p ≲ζ Ss,p ϑβp ,
+
+and, for every 1 ≤ q ≤ ∞ ,
+
+(5.43) ∥w(t∗)∥Bsp,q ≲ζ,s,p,q,η Ss,p μηϑβp .
+
+Both right-hand sides tend to zero relative to Ss,p = ζ2 as μ → ∞ with ζ fixed. Proof. By (2.4) and Corollary 5.6, 
+
+∥w(t∗)∥ ˙W s,p ≲ ∥w(t∗)∥ ˙Hs+dp 
+
+≲ζ Aμ s+dp−1ν−1/2ϑγ∗ .
+
+The scales satisfy (5.44) Aμ s+dp−1ν−1/2 = Ss,p 
+
+( μν
+
+)1/2−1/p 
+
+= Ss,p ϑ−(1 /2−1/p ).
+
+This proves the homogeneous part of (5.7) . For the lower-order term, (2.4) with s = 0 and Corollary 5.6 give 
+
+∥w(t∗)∥Lp ≲ ∥w(t∗)∥Hdp 
+
+≲ζ Aμ dp−1ν−1/2ϑγ∗
+
+= Ss,p μ−sϑ−(1 /2−1/p )ϑγ∗
+
+= Ss,p μ−sϑβp ≤ Ss,p ϑβp ,(5.45) where the last inequality uses s > 0 and μ ≥ 1. Thus the inhomogeneous W s,p norm satisfies (5.7) .For the Besov estimate, (2.5) gives 
+
+∥w(t∗)∥Bsp,q ≲ ∥w(t∗)∥Hs+dp +η
+
+≲ζ Aμ s+dp+η−1ν−1/2ϑγ∗
+
+= Ss,p μηϑβp .
+
+All required real orders are below Kb by (5.1). Finally, 
+
+μηϑβp = μη−bβ p −→ 0,
+
+because βp > 1/4 and η < bκ/ 4 < b/ 4. □
+
+Proof of Proposition 5.1. Lemma 5.7 gives smooth existence on [0 , t ∗]. Lemma 5.8 then gives (5.7) and (5.8). The decay relative to Ss,p follows from ϑ = μ−b and η < bβ p. □
+
+6. Proof of the main theorem 
+
+Fix (6.1) X = W s,p or X = Bsp,q with q fixed .
+
+By Proposition 4.1, there are constants cgrow (X) > 0 and Cosc (X) ≥ 1 such that (6.2) ∥¯u(t∗)∥X ≥ cgrow (X)ζ2−N s 
+
+whenever ζ−N ≥ Cosc (X). In the Besov case these constants may depend on the fixed q.Let Cin (X) be the constant in Proposition 3.3, and set 
+
+cout (X) := 12 cgrow (X).20 GUIRONG TANG AND SHIYANG XIONG 
+
+Choose 0 < ζ 0(X) < 1 so small that (6.3) Cin (X)ζ0(X) ≤ 1, cout (X)ζ0(X)3−N s ≥ 1, ζ0(X)−N ≥ Cosc (X).
+
+This is possible because N s > 10 by (3.2). 
+
+Proof of Theorem 1.1. Given ε > 0, set (6.4) ζ := min {ε, ζ 0(X)}.
+
+After fixing ζ, take μ sufficiently large so that Proposition 3.3 and Proposition 5.1 hold, t∗ ≤ ζ,and (6.5) ∥u(t∗) − ¯u(t∗)∥X ≤ cout (X)ζ2−N s .
+
+The last condition is possible because the error in Proposition 5.1 is oμ→∞ (ζ2), while 0 < ζ ≤ 1 is fixed. The initial estimate and the first condition in (6.3) give 
+
+∥u0∥X ≤ Cin (X)ζ2 ≤ ζ ≤ ε. 
+
+The exact solution is smooth on [0 , t ∗] and 0 < t ∗ ≤ ζ ≤ ε. By (6.2) , (6.5) , and the triangle inequality, 
+
+∥u(t∗)∥X ≥ cout (X)ζ2−N s ≥ ζ−1 ≥ ε−1,
+
+where the second inequality follows from (6.3) . This proves the theorem for either choice of X. □
+
+References 
+
+[1] D. Albritton and M. Colombo, Non-uniqueness of Leray solutions to the hypodissipative Navier–Stokes equations in two dimensions, Comm. Math. Phys. 402 (2023), no. 1, 429–446. [2] H. Bahouri, J.-Y. Chemin, and R. Danchin, Fourier Analysis and Nonlinear Partial Differential Equations ,Grundlehren Math. Wiss., vol. 343, Springer, Heidelberg, 2011. [3] J. Bergh and J. Löfström, Interpolation Spaces: An Introduction , Grundlehren Math. Wiss., vol. 223, Springer, Berlin, 1976. [4] J. Bourgain and N. Pavlović, Ill-posedness of the Navier–Stokes equations in a critical space in 3D, J. Funct. Anal. 255 (2008), no. 9, 2233–2247. [5] A.-P. Calderón, Commutators of singular integral operators, Proc. Natl. Acad. Sci. USA 53 (1965), 1092–1099. [6] A. Cheskidov and M. Dai, Norm inflation for generalized Navier–Stokes equations, Indiana Univ. Math. J. 63 
+
+(2014), no. 3, 869–884. [7] R. R. Coifman and Y. Meyer, Commutateurs d’intégrales singulières et opérateurs multilinéaires, Ann. Inst. Fourier (Grenoble) 28 (1978), no. 3, 177–202. [8] M. Colombo, C. De Lellis, and L. De Rosa, Ill-posedness of Leray solutions for the hypodissipative Navier–Stokes equations, Comm. Math. Phys. 362 (2018), no. 2, 659–688. [9] L. De Rosa, Infinitely many Leray–Hopf solutions for the fractional Navier–Stokes equations, Comm. Partial Differential Equations 44 (2019), no. 4, 335–365. [10] T. Kato and G. Ponce, Commutator estimates and the Euler and Navier–Stokes equations, Comm. Pure Appl. Math. 41 (1988), no. 7, 891–907. [11] X. Luo, Illposedness of incompressible fluids in supercritical Sobolev spaces, Duke Math. J. , accepted for publication; arXiv:2404.07813v2, 2024. [12] X. Luo, Sharp norm inflation for 3D Navier–Stokes equations in supercritical spaces, arXiv:2504.08288v1, 2025. [13] C. Miao, B. Yuan, and B. Zhang, Well-posedness of the Cauchy problem for the fractional power dissipative equations, Nonlinear Anal. 68 (2008), no. 3, 461–484. [14] E. M. Stein, Singular Integrals and Differentiability Properties of Functions , Princeton Math. Ser., vol. 30, Princeton Univ. Press, Princeton, NJ, 1970. [15] H. Triebel, Theory of Function Spaces , Monogr. Math., vol. 78, Birkhäuser, Basel, 1983. [16] B. Wang, Ill-posedness for the Navier–Stokes equations in critical Besov spaces ˙B−1 
+
+> ∞,q
+
+, Adv. Math. 268 (2015), 350–372. [17] T. Yoneda, Ill-posedness of the 3D Navier–Stokes equations in a generalized Besov space near BM O −1, J. Funct. Anal. 258 (2010), no. 10, 3376–3387. NORM INFLATION FOR HYPODISSIPATIVE NAVIER–STOKES 21 
+
+[18] X. Yu and Z. Zhai, Well-posedness for fractional Navier–Stokes equations in the largest critical spaces ˙B1−2α 
+
+> ∞,∞
+
+,
+
+Math. Methods Appl. Sci. 35 (2012), no. 6, 676–683. [19] Z. Zhai, Well-posedness for fractional Navier–Stokes equations in critical spaces close to ˙B−(2 α−1)  
+
+> ∞,∞
+
+, Dyn. Partial Differ. Equ. 7 (2010), no. 1, 25–44. 
+
+Guirong Tang, School of Mathematical Sciences, Capital Normal University, Beijing 100048, China 
+
+Email address : tangguirong@amss.ac.cn 
+
+Shiyang Xiong, Institute of Mathematics, Academy of Mathematics and Systems Science, Chinese Academy of Sciences, Beijing 100190, China 
+
+Email address : xiongshiyang@amss.ac.cn

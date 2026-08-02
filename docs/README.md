@@ -41,7 +41,7 @@
 <section class="dpr-home-dashboard-card dpr-home-report-card">
   <div class="dpr-home-dashboard-header">
     <div>
-      <span class="dpr-home-dashboard-kicker">2026-08-01</span>
+      <span class="dpr-home-dashboard-kicker">2026-08-02</span>
       <h3 class="dpr-home-dashboard-title">今日汇总</h3>
     </div>
     <strong class="dpr-home-dashboard-count">共 6 篇</strong>
@@ -51,7 +51,7 @@
     <div class="dpr-home-dashboard-stat"><dt>精读</dt><dd>3</dd></div>
     <div class="dpr-home-dashboard-stat"><dt>速读</dt><dd>3</dd></div>
   </dl>
-  <p class="dpr-home-dashboard-body">最近更新：2026-08-01 20:22:04 UTC<br>状态：成功</p>
+  <p class="dpr-home-dashboard-body">最近更新：2026-08-02 20:07:09 UTC<br>状态：成功</p>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-brief-card">
   <div class="dpr-home-dashboard-header">
@@ -62,7 +62,7 @@
     <strong class="dpr-home-dashboard-count">AI</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<p>今日精读聚焦微分几何与调和分析，两篇8分论文分别给出曲率夹条件下共形 Killing 向量场的 Bochner-Yano 型定理及尖峰 curl-Sobolev 不等式；速读则涵盖退化椭圆方程、可压缩 Navier-Stokes 极限及球面分形 Remez 不等式。最值得关注的是曲率夹逼下的共形 Killing 场刚性结论与 curl-Sobolev 不等式的锐常数。普通读者可优先从这两篇8分精读入手，其余三篇作为扩展方向。</p>
+<p>今日共读6篇几何与PDE论文，精读聚焦Kähler-Ricci孤立子唯一性与度量空间Willmore不等式。最值得关注两篇9分工作：Kähler锥分辨上的收缩孤立子唯一性，以及度量空间中的平均曲率与Willmore不等式，均属前沿突破。建议普通读者先浏览精读摘要，再按兴趣速读Navier-Stokes正则性等应用型结论。</p>
   </div>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-deep-card">
@@ -74,7 +74,7 @@
     <strong class="dpr-home-dashboard-count">3 篇</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Bochner-Yano Type Theorems for Conformal Killing Vector Fields under Curvature Pinching Conditions">Bochner-Yano Type Theorems for Conformal Killing Vector Fields under Curvature Pinching Conditions</span></li><li><span class="dpr-home-dashboard-paper-title" title="The sharp curl-Sobolev inequality">The sharp curl-Sobolev inequality</span></li><li><span class="dpr-home-dashboard-paper-title" title="Volume Stability for Hyperbolic Manifolds and Applications to General Relativity">Volume Stability for Hyperbolic Manifolds and Applications to General Relativity</span></li></ul>
+<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Uniqueness of shrinking Kähler-Ricci solitons on resolutions of Kähler cones">Uniqueness of shrinking Kähler-Ricci solitons on resolutions of Kähler cones</span></li><li><span class="dpr-home-dashboard-paper-title" title="Mean curvature and sharp Willmore inequalities in metric spaces">Mean curvature and sharp Willmore inequalities in metric spaces</span></li><li><span class="dpr-home-dashboard-paper-title" title="Inviscid Incompressible Limit for Degenerate Compressible Navier-Stokes Equations on Expanding Domains">Inviscid Incompressible Limit for Degenerate Compressible Navier-Stokes Equations on Expanding Domains</span></li></ul>
   </div>
   <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>3</strong></span></div>
 </section>
@@ -87,7 +87,7 @@
     <strong class="dpr-home-dashboard-count">3 篇</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Sharp gradient estimates for a class of singular/degenerate fully nonlinear elliptic equations with oblique boundary conditions and Hamiltonian terms">Sharp gradient estimates for a class of singular/degenerate fully nonlinear elliptic equations with oblique boundary conditions and Hamiltonian terms</span></li><li><span class="dpr-home-dashboard-paper-title" title="Inviscid Incompressible Limit for Degenerate Compressible Navier-Stokes Equations on Expanding Domains">Inviscid Incompressible Limit for Degenerate Compressible Navier-Stokes Equations on Expanding Domains</span></li><li><span class="dpr-home-dashboard-paper-title" title="Fractal Remez inequality on the sphere and observability of the heat equation">Fractal Remez inequality on the sphere and observability of the heat equation</span></li></ul>
+<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Positive-regularity norm inflation for the 3D hypodissipative Navier--Stokes equations">Positive-regularity norm inflation for the 3D hypodissipative Navier--Stokes equations</span></li><li><span class="dpr-home-dashboard-paper-title" title="A &#x27;global&#x27; Perspective on the Differential Geometry of Wasserstein Spaces">A &#x27;global&#x27; Perspective on the Differential Geometry of Wasserstein Spaces</span></li><li><span class="dpr-home-dashboard-paper-title" title="On the upper bound for the vorticity growth of bi-rotational Euler flows without swirl">On the upper bound for the vorticity growth of bi-rotational Euler flows without swirl</span></li></ul>
   </div>
   <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>3</strong></span></div>
 </section>

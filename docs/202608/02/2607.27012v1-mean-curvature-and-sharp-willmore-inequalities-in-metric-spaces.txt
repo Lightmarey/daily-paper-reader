@@ -1,0 +1,3121 @@
+Title: Mean curvature and sharp Willmore inequalities in metric spaces
+
+URL Source: https://arxiv.org/pdf/2607.27012v1
+
+Published Time: Thu, 30 Jul 2026 01:03:45 GMT
+
+Number of Pages: 30
+
+Markdown Content:
+MEAN CURVATURE AND SHARP WILLMORE INEQUALITIES IN METRIC SPACES 
+
+NICOLA GIGLI AND IVAN YURI VIOLO 
+
+Abstract. The goal of this work is to introduce a notion of mean curvature for level sets of functions in non-smooth spaces with Ricci curvature bounded below, and to prove that it satisfies sharp geometric inequalities. More precisely, we define a suitable Willmore functional W on Sobolev functions, whose domain of finiteness is dense in Lp for any 1 ≤ p < ∞. For any function with finite Willmore energy, we show that almost all of its level sets admit a mean curvature vector satisfying the natural integration by parts formula with respect to the tangential divergence. As a main application, we show that in RCD(0 , N ) spaces with Euclidean volume growth, almost every level set of the electrostatic potential possesses a mean curvature vector in the above sense. Furthermore, we prove that this vector satisfies the same sharp Willmore inequality as in the smooth setting, alongside rigidity and almost-rigidity statements. Finally, as a technical tool, we generalize the sharp isocapacitary inequality to the non-smooth setting. 
+
+Contents 
+
+1. Introduction 12. Preliminaries 53. Willmore functional and mean curvature 93.1. Definition of tangential divergence 93.2. The Willmore functional 10 3.3. Mean curvature 10 3.4. Localizing the construction to open sets 14 3.5. Existence of many functions with finite Willmore energy 15 4. Lower semicontinuity of the Willmore functional 17 5. Regularity of Willmore energy on level sets of harmonic functions 20 6. Isocapacitary inequality and Willmore inequality 23 6.1. The isocapacitary inequality via rearrangement 23 6.2. Willmore inequality and rigidity 25 References 29 1. Introduction 
+
+The goal of this paper is to understand whether a meaningful notion of mean curvature exists within the framework of metric measure spaces satisfying the curvature-dimension condition. In recent years, a robust theory of first- and second-order calculus has been successfully developed on these spaces (see e.g. [11,19,22,25] and references therein) where objects are typically defined almost everywhere with respect to the reference measure. Regarding codimension-one objects, there is also a well-established and satisfactory theory for perimeter and isoperimetric sets (see e.g. [3,8,12,32]). However, understanding second-order objects localized on codimension-one sets, such as mean curvature, remains a significant challenge. A robust notion of mean curvature is needed in connection with geometric measure theory, minimal surfaces, isoperimetric sets, and functional inequalities. In the existing literature, there have already appeared notions of weak bounds for the mean curvature  
+
+> 1arXiv:2607.27012v1 [math.DG] 29 Jul 2026 2N. GIGLI AND I. Y. VIOLO
+
+in non-smooth spaces with Ricci curvature bounded below relying primarily on 1D localization techniques [14, 27] or weak Laplacian bounds [34]. Our goal is to provide a pointwise definition of the mean curvature vector that is more directly linked to the framework of second-order calculus. Our construction does not provide a notion of mean curvature for arbitrary sets. Instead, it applies to almost every level set of a rich class of sufficiently regular functions, which effectively fiber the space. Our strategy to bypass the lack of a priori smoothness of these level sets relies on a duality argument. We first introduce, for a class of ‘smooth enough’ vector fields, a weak notion of tangential divergence with respect to the level sets of a given function u ∈ W 1,2(X). Specifically, we define the tangential divergence as (1.1) TD( v) := div( v) − ∇ v
+
+ du
+
+|du| , du
+
+|du|
+
+
+
+,
+
+which is well-defined m-a.e. on the regular set {| du| > 0}, see Definition 3.1. Note that this is precisely the usual tangential divergence in the smooth setting and corresponds to removing from the divergence the normal component of the covariant derivative. With this tool at hand, we can introduce the Willmore functional, denoted by W(u). Formally, this functional represents half the integrated L2-norm of the mean curvature across all level sets of u. Since we do not yet have a notion of mean curvature, we define W(u) rigorously by formal integration by parts against the tangential divergence: (1.2) W(u) := sup 
+
+> v∈TestV(X)
+
+ˆ
+
+> X
+
+
+
+TD( v) − |v|2
+
+2
+
+
+
+|du|dm.
+
+To see formally how this formula relates to the norm of the mean curvature on level sets see the beginning of Section 3.2. Related operators, involving the integration of the Lp-norm of the mean curvature over the level sets of smooth functions, have been previously studied in the Euclidean setting particularly in image processing; see, e.g. [7, 30, 31]. Assuming the finiteness of W, we can exploit the Riesz representation theorem to extract an L2-integrable vector field that acts precisely as the mean curvature. This leads to our main existence result: 
+
+Theorem 1.1. Let (X , d, m) be an RCD( K, ∞) space. For all u ∈ W 1,2(X) such that W(u) < ∞
+
+there exists a |du|m-a.e. unique vector field −→
+
+H (u) ∈ L0(T X) with |−→
+
+H (u)| ∈ L2(|du|m), called mean curvature vector, such that for all v ∈ TestV(X) (1.3) 
+
+ˆ
+
+⟨−→
+
+H (u), v ⟩ dPer( {u < t }) = 
+
+ˆ
+
+TD( v) dPer( {u < t }), for a.e. t ∈ R.Moreover 
+
+(1.4) W(u) = 12
+
+ˆ
+
+> R
+
+ˆ
+
+|−→
+
+H (u)|2dPer( {u < t }) d t. 
+
+Finally, if u ∈ D(∆) ∩ LIP (X) , then W(u) < ∞ if and only if 
+
+(1.5) H(u) := 
+
+ ∆u
+
+|du| − ⟨∇| du|, ∇u⟩|du|2
+
+
+
+∈ L2(|du|m),
+
+in which case −→
+
+H (u) = H(u)χ|du|>0 du 
+
+> |du|
+
+.
+
+The notion of mean curvature given in the above statement is meaningful because it satisfies the expected integration by parts formula (1.3) with respect to the tangential divergence directly on the level sets. In particular it coincides with the classical notion of distributional mean curvature in the smooth setting for regular level sets, whenever it is also L2-integrable on that level set. MEAN CURVATURE IN METRIC SPACES 3
+
+Identity (1.4), on the other hand, says that a posteriori the Willmore functional indeed coincides with half the total L2-norm of the mean curvature on the level sets of u. 
+
+Finally, the last part of the statement provides the link with the second order calculus: if the function u is smooth enough we deduce that our notion of mean curvature coincides with the usual formula in the smooth setting. Indeed, note that the right-hand side of (1.5) corresponds formally to div( |∇ u|−1∇u). Recall that D(∆) denotes the space of W 1,2(X)-functions with Laplacian in L2(m).
+
+Remark 1.2 (Existence of many functions having finite Willmore functional) . It is a priori not obvious whether there exist non-trivial functions u ∈ W 1,2(X) with W(u) < ∞, not even in the subclass u ∈ D(∆) ∩ LIP (X). Crucially, we will show that in RCD( K, N ) spaces with N < ∞
+
+such functions constitute a rich class. In particular, we prove that the domain of finiteness of the Willmore functional W is dense in Lp(m) for all p ∈ [1 , ∞); see Theorem 3.12 for the precise statement. ■
+
+Remark 1.3 (Comparison with previous notions of mean curvature) . Several notions of mean cur-vature in non-smooth metric spaces have already appeared in the literature. While these approaches share some of our motivation, they differ substantially from ours, with complementary strengths and limitations. For instance, [27] and [14] (see also [13, Appendix B]) introduced lower and upper bounds for the mean curvature of a set using 1D-localization techniques in non-smooth spaces with curvature bounds. In the RCD setting, [34] showed that locally perimeter-minimizing sets have vanishing mean curvature in a weak sense by means of bounds on the Laplacian of the distance function. See also [28] for weak mean curvature bounds in PI spaces. The defining feature of the present work is that we provide an explicit definition of the mean curvature vector itself, whereas previous approaches mainly establish scalar upper and lower bounds. (The only partial exception is [27], where a pointwise notion is introduced, but only for the inner and outer mean curvatures.) The main limitation of our approach is that it applies only to almost every level set of a rich class of sufficiently regular functions, rather than to an arbitrary prescribed set. By contrast, the above-mentioned works apply directly to individual sets, although typically under additional assumptions such as inner or outer ball conditions, perimeter minimization, or regularity of the surface measure. Another distinctive feature of our definition is its direct connection with second-order calculus. Indeed, the mean curvature vector is characterized by the integration-by-parts identity with re-spect to the tangential divergence (1.3) and, whenever the underlying function is smooth enough, it admits the explicit representation (1.5). This analytic structure is largely absent from previous distributional approaches and is the key ingredient allowing us to derive the sharp geometric in-equalities of Theorem 1.4, which would be difficult to obtain using previous frameworks (compare with the different inequalities established in [27] and [13]). ■
+
+Since Theorem 1.1 is formulated for globally defined functions, we also prove a local version of it for functions defined only in an open set Ω ⊂ X, with the only requirement of having level sets relatively compact in Ω. The statement is essentially identical and can be obtained with the same argument localized, see Proposition 3.10. Thanks to the local version of the existence result for the mean curvature vector, we are able to show that harmonic functions with relatively compact level sets admit an L2-mean curvature for almost every level set in the above sense, see Corollary 3.11 for the precise version. This fact not only provides an important and explicit large class of examples of functions to which our theory applies in a non-trivial way, but also has important geometric consequences as we shall see below. A particularly relevant class of examples satisfying these assumptions is provided by electrostatic potentials . These are harmonic functions defined on some outer domain X \ K, equal to one in K
+
+and vanishing at infinity, see Definition 2.4 for the precise notion in our setting. 4 N. GIGLI AND I. Y. VIOLO 
+
+Electrostatic potentials play an important role in recent geometric analysis because their level sets naturally foliate the exterior domain, providing a powerful alternative to geometric flows. It was discovered in [15] that on Riemannian manifolds with non-negative Ricci curvature there are important monotone quantities along the level sets of the Green function of the Laplacian. Later in [1] this was generalized to the case of electrostatic potentials. More importantly for us, in [1] these monotonicity properties were used to obtain sharp Willmore-type inequalities for the mean curvature of hypersurfaces (see also the previous [2] in the Euclidean setting). For more recent advances and generalizations of this approach see [9, 10, 17] and references therein. These same monotonicity formulas for the electrostatic potential were generalized to the setting of metric measure spaces with non-negative Ricci curvature by the authors in [24]. Combining these results with the notion of mean curvature developed in this note and described above, we are finally able to deduce sharp Willmore inequalities in this more general setting. 
+
+Theorem 1.4 (Sharp Willmore-type inequality) . Let X be an RCD(0 , N ) space, N > 2, with Euclidean volume growth, and let u be an electrostatic potential for a compact set K. Let −→
+
+H (u) be the mean curvature given in Proposition 3.10 and for all β ∈  N −2  
+
+> N−1
+
+, 1 define the Willmore energy 
+
+(0 , 1) ∋ t 7 → Wβ+1 (t) := 
+
+ˆ
+
+|−→
+
+H (u)|1+ β dPer( {u < t }).
+
+Then Wβ+1 (t) admits a (maximal) lower semicontinuous representative in (0 , 1) . Moreover, for this choice of representative it holds 
+
+(1.6) Wβ+1 (t)(N − 1) β+1 ≥ (AVR (X) σN ) βN −2 t βN −2 −1
+
+ Cap( K)
+
+N − 2
+
+1− βN −2
+
+, for all t ∈ (0 , 1) .
+
+Finally, if equality holds for some t0 ∈ (0 , 1) and β > N −2  
+
+> N−1
+
+, then {u < t 0} is locally isometric to 
+
+Y \ BR(OY ), where Y is an N -Euclidean cone with tip OY over an RCD( N − 2, N − 1) space. 
+
+Note that the first part of the result gives a mild but non-trivial extra regularity for the Willmore energy along the level sets. Indeed, even though the vector −→
+
+H (u) is defined a priori only m-a.e. and thus Wβ+1 (t) is well defined only up to a.e.-equivalence classes, Wβ+1 admits a natural pointwise defined value. An almost-rigidity result for the Willmore inequality is also established, which we believe to be new even in the smooth setting, stating that if almost equality is achieved in (1.6), then the space is close to a truncated cone in the pointed measure Gromov-Hausdorff (pmGH) sense, see Theorem 6.7 for the rigorous statement. As an intermediate tool for inequality (1.6) we will also obtain the sharp isocapacitary inequality for RCD(0 , N ) spaces with Euclidean volume growth, stating that (1.7) Cap( E) ≥ (N − 2) N ω 2 
+
+> N
+> N
+
+AVR (X) 2 
+
+> N
+
+m(E) N −2 
+
+> N
+
+,
+
+for every bounded Borel set E ⊂ X. This inequality generalizes the one for p = 2 in [9, Section 4.1] for smooth manifolds and we believe it to be of independent interest. We also prove that equality in (1.7) is achieved if and only if E is m-a.e. equal to a ball and X is a cone, see Theorem 6.1 for the precise statement. Alongside the geometric inequalities discussed above, a further crucial contribution of this paper concerns the stability of the Willmore functional. Specifically, we establish its lower semicontinuity under pmGH-convergence. 
+
+Theorem 1.5 (Γ − lim of the Willmore functional) . Let Xn, n ∈ N ∪ {∞} be a pmGH-converging sequence of RCD( K, ∞) spaces, let Wn denote the Willmore functional in Xn. Then, for any W 1,2-converging sequence un → u∞ it holds 
+
+W∞(u∞) ≤ lim 
+
+> n
+
+Wn(un).MEAN CURVATURE IN METRIC SPACES 5
+
+This paper is organized as follows. Section 2 recalls the necessary preliminaries. Section 3 introduces the Willmore functional and the mean curvature vector. Section 4 establishes the lower semicontinuity of the Willmore functional, while Section 5 studies the regularity of the Willmore energy on level sets of harmonic functions. Finally, Section 6 is devoted to the proofs of the sharp isocapacitary and Willmore inequalities, including rigidity and almost-rigidity results. 2. Preliminaries 
+
+Throughout this paper, (X , d, m) will denote a metric measure space. We will denote by LIP bs (X) the space of Lipschitz functions in X with bounded support. For a given open set Ω ⊂ X we denote by LIP (Ω) , LIP loc (Ω) and LIP c(Ω) respectively the spaces of Lipschitz functions in Ω, locally Lipschitz functions in Ω and Lipschitz functions with compact support in Ω. We assume the reader to be familiar with the foundational theory of calculus on metric measure spaces. In particular, we take for granted the definition and properties of the Sobolev spaces W 1,2(Ω), W 1,2 
+
+> loc
+
+(Ω), of functions of (locally) bounded variation BV (X) , BV loc (X), the first order differential structure including tangent and cotangent modules and the theory of normed modules. We also assume the reader to be familiar with the definition of RCD spaces and second order calculus including the notions of covariant derivative and tensor calculus. For a comprehensive overview and detailed proofs concerning these topics, we refer the reader to the existing literature (see, e.g., [4, 11, 19, 20, 22]). In this section, we only briefly recall specific notations, definitions, and a few preliminary results that are tailored to our exposition and necessary for the upcoming proofs. We start with the notion of capacity. 
+
+Definition 2.1 (Capacity) . Let (X , d, m) be a metric measure space and E ⊂ X be a Borel subset. We define Cap( E) ∈ [0 , ∞] as Cap( E) = inf 
+
+ˆ
+
+> X
+
+|du|2 dm : u ∈ W 1,2(X) and u ≥ 1 m-a.e. in a neighborhood of E
+
+
+
+.
+
+The function Cap( ·) is an outer measure and any function u ∈ W 1,2 
+
+> loc
+
+(X) has a Cap-a.e. unique quasi-continuous representative denoted by QCR (u) (see [16]). Recall that a function is said to be quasi-continuous if it is continuous outside a set of arbitrarily small capacity. 
+
+Lemma 2.2 (Equivalent definitions of capacity) . Let E ⊂ X be a bounded Borel set. Then the infi-mum in Cap( E) can be taken equivalently among all functions in any one of the following families: i) u ∈ W 1,2(X) non-negative such that u ≥ 1 m-a.e. in a neighborhood of E (or QCR (u) ≥ 1Cap -a.e. in E). ii) u ∈ W 1,2(X) non-negative with bounded support such that u ≥ 1 m-a.e. in a neighborhood of E (or QCR (u) ≥ 1 Cap -a.e. in E); iii) u ∈ W 1,2 
+
+> loc
+
+(X) non-negative and vanishing at infinity 1 such that u ≥ 1 m-a.e. in a neighbor-hood of E (or QCR (u) ≥ 1 Cap -a.e. in E). Proof. It is sufficient to show the result in the cases when u ≥ 1 m-a.e. in a neighborhood of E,then the version where we replace it with QCR (u) ≥ 1 Cap-a.e. in E follows by standard arguments (see [11, Theorem 5.31]). i) Immediate from the definition of Cap( E), since taking the positive part decreases the energy. ii) Fix x ∈ X and fix any R > 0 big enough so that E ⊂ BR(x). Take φR ∈ LIP bs (X) such that, 0 ≤ φR ≤ 1, φR = 1 in BR(x), φR = 0 in X \ B2R(x) and Lip( φR) ≤ 1/R . For any δ > 0 there exists 
+
+u ∈ W 1,2(X) non-negative with u ≥ 1 m-a.e. in a neighborhood of E and ´ 
+
+> X
+
+|du|2 dm ≤ Cap( E) + δ.Then φRu ∈ W 1,2(X) has bounded support, φRu ≥ 1 m-a.e. in a neighborhood of E and 
+
+∥| d( uφ R)|∥ L2(m) ≤ ∥| du|∥ L2(m) + R−1∥u∥L2(m) ≤ pCap( E) + δ + R−1∥u∥L2(m).     
+
+> 1By vanishing at infinity for an m-a.e. defined function we mean that lim R→+∞ess sup X\BR(x0)|u|= 0 .6N. GIGLI AND I. Y. VIOLO
+
+Sending R → +∞ and by the arbitrariness of δ we conclude. Item iii) follows noting that for any u as in the family and for all δ ∈ (0 , 1) it holds that 
+
+uδ := (1 − δ)−1(u − δ)+ ∈ W 1,2(X) and that uδ ≥ 1 m-a.e. in a neighborhood of E and then taking 
+
+δ → 0+. □
+
+Next we recall the definition of Laplacian following [18, Section 4] (see also [22]). 
+
+Definition 2.3 (Laplacian) . Let (X , d, m) be an infinitesimally Hilbertian 2 m.m.s. and Ω ⊂ X be open. We say that u ∈ W 1,2 
+
+> loc
+
+(Ω) belongs to the domain of the Laplacian D(∆ , Ω) if there exists 
+
+h ∈ L2
+
+> loc
+
+(Ω) such that (2.1) −
+
+ˆ
+
+> Ω
+
+⟨∇ f, ∇u⟩dm =
+
+ˆ
+
+> Ω
+
+f h dm, for every f ∈ LIP c(Ω) .
+
+Moreover the unique function h with this property is called the Laplacian of u in Ω and is denoted by ∆ |Ωu.As shorthand we will often omit writing u ∈ D(∆ , Ω) and write directly ∆ |Ωu = h for some function h ∈ L2
+
+> loc
+
+(Ω) or ∆ |Ωu ∈ L2
+
+> loc
+
+(Ω) . We will also write as usual D(∆) := {u ∈ D(∆ , X) ∩
+
+W 1,2(X) : ∆u ∈ L2(m)}, see e.g. [19, 22]. We say that a function u ∈ W 1,2 
+
+> loc
+
+(Ω) is harmonic if ∆ |Ωu = 0. It is known that harmonic functions are continuous in any RCD( K, N ) space with N < ∞ and in fact locally Lipschitz (see [26, 40]). 
+
+Definition 2.4 (Electrostatic potential) . Let (X , d, m) be a metric measure space and K ⊂ X be compact. An electrostatic potential for K is a function u ∈ C(X \ K) that solves 
+
+
+
+u(x) → 1, as x → ∂K , u(x) → 0, as d(x, K ) → +∞ ,
+
+∆|X\K u = 0 .
+
+The following result links the electrostatic potential and the capacity. 
+
+Proposition 2.5. Let (X , d, m) be an RCD(0 , N ) space with N > 2 and 3 AVR (X) > 0. Let E ⊂ X
+
+be a bounded Borel set. Then there exists u ∈ W 1,2 
+
+> loc
+
+(X) ∩ C(X \ ¯E), harmonic in X \ ¯E such that 
+
+0 ≤ u ≤ 1, u ≥ 1 m-a.e. in E, u(x) → 0 as d(x, E ) → +∞ and 
+
+(2.2) Cap( E) = 
+
+ˆ
+
+> X
+
+|du|2dm.
+
+Moreover if E is compact and admits an electrostatic potential ¯u, we have u = ¯ u in X \ E. 
+
+Proof. The proof is very similar to [24, Theorem 8.4]. Let Cap( E, B n(x0)) denote the relative capacity, i.e. the infimum of ´ |dv|2dm among all v ∈ W 1,20 (Bn(x0)) with v ≥ 1 m-a.e. in a neigh-borhood of E. As in Lemma 2.2, Cap( E, B n(x0)) is also realized by taking the infimum among all v ∈ W 1,20 (Bn(x0)) with QCR (v) ≥ 1 Cap-a.e. in E. Since this set of competitors is convex and weakly closed in W 1,2(X) there exists a minimizer un with 0 ≤ un ≤ 1. Moreover un ≤ v m-a.e. in 
+
+Bn(x0) for any v ∈ W 1,2(Bn(x0)) superharmonic and such that v ≥ 1 Cap-a.e. in E (the proof of this is the same as in [24, Lemma B.9] replacing m-a.e. with Cap-a.e.). In particular un ≤ G m-a.e. in Bn(x0) for a function G independent of n and vanishing at infinity (see the end of the proof of [24, Theorem 8.4]). Additionally un is harmonic in Bn(x0) \ ¯E. It is clear that Cap( E, B n(x0)) is non-increasing and by Lemma 2.2 lim  
+
+> n→+∞
+
+Cap( E, B n(x0)) = Cap( E).          
+
+> 2(X ,d,m) is said to be inf. Hilbertian if W1,2(X) is a Hilbert space [18]
+> 3AVR (X) := lim r→+∞m(Br(x0))
+> ωNrN, which is independent of x0.MEAN CURVATURE IN METRIC SPACES 7
+
+Since ( un)n is bounded in W 1,2(BR(x0)) for all R > 0 and each un harmonic in Bn(x0) \ ¯E, up to a subsequence, un converges weakly in W 1,2 
+
+> loc
+
+(X) and locally uniformly in X \ ¯E to some u ≤ G. By lower semicontinuity ´ 
+
+> X
+
+|du|2dm ≤ lim n
+
+´ 
+
+> X
+
+|dun|2dm = Cap( E). In particular u ∈ C(X \ ¯E) and vanishes at infinity and QCR (u) ≥ 1 Cap-a.e. in E. Hence by Lemma 2.2 we conclude ´ 
+
+> X
+
+|du|2dm = Cap( E).
+
+Suppose now that E = K is compact and admits an electrostatic potential ¯ u. For any ε > 0 set 
+
+Kε to be the ε-open tubular neighborhood of K. From [24, Theorem 8.4], which can be applied because Kε has cap-fat boundary (see the end of page 80 in [24]), we know that the electrostatic potential uε of Kε exists and 
+
+ˆ
+
+> X\Kε
+
+|duε|2dm ≤ lim  
+
+> R→+∞
+
+Cap( Kε, B R(x0)) ,
+
+for any choice x0 ∈ X. We also have uε ∈ W 1,2 
+
+> loc
+
+(X) by setting uε = 1 in Kε. Take any δ > 0.
+
+By Lemma 2.2 there exists v ∈ W 1,2(X) with bounded support such that v ≥ 1 m-a.e. in a neighborhood of K such that ´ |dv|2dm ≤ Cap( K) + δ. Hence v ∈ W 1,20 (BR(x0)) for any R big enough and v ≥ 1 m-a.e. in Kε for any ε small enough (independently of R) and thus v is admissible for Cap( Kε, B R(x0)). We obtain lim 
+
+> ε→0+
+
+lim  
+
+> R→+∞
+
+Cap( Kε, B R(x0)) ≤ Cap( K) + δ. 
+
+Since ¯ u(x) → 1 as x → ∂K we have that sup ∂K ε |¯u − 1| → 0 as ε → 0. On the other hand uε = 1 in 
+
+Kε. Moreover both ¯ u and uε vanish at infinity. Therefore by the comparison principle sup 
+
+> X\Kε
+
+|¯u − uε| ≤ sup 
+
+> ∂K ε
+
+|¯u − 1| → 0.
+
+Therefore by lower semicontinuity of the energy 
+
+ˆ
+
+> U
+
+|d¯ u|2dm ≤ lim 
+
+> ε→0+
+
+ˆ
+
+> U
+
+|duε|2dm ≤ lim 
+
+> ε→0+
+
+ˆ
+
+> X\Kε
+
+|duε|2dm
+
+≤ lim 
+
+> ε→0+
+
+lim  
+
+> R→+∞
+
+Cap( Kε, B R(x0)) ≤ Cap( K) + δ, 
+
+for all U ⊂⊂ X \ K. By the arbitrariness of U and δ we obtain 
+
+ˆ
+
+> X\K
+
+|d¯ u|2dm ≤ Cap( K).
+
+Moreover ¯ u ∈ W 1,2 
+
+> loc
+
+(X) by setting ¯ u = 1 in K, because uε ∈ W 1,2 
+
+> loc
+
+(X) and again by lower semicon-tinuity. Hence by Lemma 2.2 we conclude ´ 
+
+> X
+
+|d¯ u|2dm = Cap( K). The fact that ¯ u = u in X \ K
+
+follows from the fact that the function u+¯ u 
+
+> 2
+
+is an admissible competitor for Cap( K) (see Lemma 2.2) combined with strict convexity. □
+
+The following regularity result for harmonic functions was shown in [24, Section 4]. 
+
+Theorem 2.6. Let (X , d, m) be an RCD (K, N ) space, N ∈ [2 , ∞), and let u be harmonic in Ω ⊂ X
+
+open. Then for all β ≥ N −2  
+
+> N−1
+
+it holds |du| β 
+
+> 2
+
+∈ W 1,2 
+
+> loc
+
+(Ω) and |du|β ∈ D(∆, Ω) . In particular 
+
+(2.3) χ{| du|>0}
+
+|d|du|| 2
+
+|du| ∈ L1
+
+> loc
+
+(Ω) .
+
+Recall the class of test functions Test (X) := f ∈ L∞ ∩ LIP (X) ∩ D(∆) : ∆f ∈ W 1,2 ∩ L∞(X) 
+
+and test vector fields TestV(X) := {Pmi=1 fi∇gi : fi, g i ∈ Test (X) } (see [19, 38]). In the sequel we will use the following approximation lemma which we could not find in the literature. 
+
+Lemma 2.7. Let (X , d, m) be an RCD( K, ∞) space and v ∈ L2(T X) with |v| ≤ 1. Then for all 
+
+δ > 0 there exists vn ∈ TestV(X) with |vn| ≤ 1 + δ and such that vn → v in L2(T X) .8 N. GIGLI AND I. Y. VIOLO 
+
+Proof. Step 1 : v = Pmi=1 χBi ∇fi with fi ∈ Test (X) , Lip( fi) ≤ 1 and Bi ⊂ X disjoint compact sets. 
+
+For all n ∈ N and for all i = 1 , . . . , m set αi,n := H1/n (χBi ) ∈ Test (X), where Hε(·) denotes the mollified heat flow Hε(u) = ´ ∞ 
+
+> 0
+
+ηε(s)hs(u)d s with η ∈ C∞ 
+
+> c
+
+(0 , ∞) (see e.g. [23, Prop. 5.2.18]). Then 0 < α i,n ≤ 1 and αi,n → χBi in L2(m) as n → ∞ . Up to a subsequence, we can assume that 
+
+αi,n → χBi m-a.e. as well. For all n ∈ N consider a function gn ∈ C∞(R) such that gn(t) ≥ max( t, 1) for all t ≥ 0 and gn(t) → max( t, 1) as n → +∞ for all t ∈ R (e.g. gn(t) := (1+ t+p(1 − t)2 + 1 /n )/2). Define ˜ αi,n := αi,n   
+
+> gn(Pmi=1 αi,n )
+
+which belongs to Test (X). Note that, since Bi are pairwise disjoint, 
+
+gn(Pmi=1 αi,n ) → 1 m-a.e. in Bi as n → +∞, for all i = 1 , . . . , m. Hence, by the dominated convergence theorem, ˜ αi,n → χBi in L2(m) for all i = 1 , . . . , m. Therefore vn := Pmi=1 ˜αi,n ∇fi ∈
+
+TestV(X) and vn → v in L2(T X). Finally |vn| ≤ Pmi=1 ˜αi,n =   
+
+> Pmi=1 αi,n
+> gn(Pmi=1 αi,n )
+
+≤ 1 m-a.e. 
+
+Step 2 : v = PNk=1 χKk ∇fk with fk ∈ W 1,2(X) and pairwise disjoint compact sets Kk ⊂ X. Note that |dfk| ≤ 1 m-a.e. in Kk. We first approximate each term χKk ∇fk separately. Fix k ∈ { 1, . . . , N }
+
+and set K := Kk and f := fk. Consider fn ∈ LIP bs (X) such that lip afn → | df | in L2(m) (and fn → f
+
+in W 1,2(X)). We have that lim n→+∞ m({lip afn > 1 + δ} ∩ K) = 0 . Hence, by inner regularity, we can find compact sets Kn ⊂ K such that lip afn ≤ 1 + δ in Kn and m(K \ Kn) → 0. Since Kn
+
+is compact and by the definition of lip a(fn), for each n we can find finitely many disjoint subsets 
+
+Bjn ⊂ Kn, j = 1 , . . . , m (n), such that Lip( fn|Bjn
+
+) ≤ 1 + 2 δ. We can then extend fn|Bjn
+
+to a function 
+
+gjn ∈ LIP bs (X) with Lip( gjn) ≤ 1 + 3 δ (see [29]). Therefore the sequence vn := Pm(n) 
+
+> j=1
+
+χBjn ∇Hεj,n gjn
+
+satisfies vn → χK ∇f in L2(T X) provided we choose each εj,n small enough. Additionally Hεj,n gjn ∈
+
+Test (X) and by the Bakry-´Emery gradient inequality (see [5]) it holds Lip( Hεj,n gjn) ≤ (1 + 4 δ) if 
+
+εj,n are chosen small enough. Hence (1 + 4 δ)−1vn satisfies the assumption of Step 1. Repeating this construction for all Kk we find a sequence (1 + 4 δ)−1vkn, satisfying the assumption of Step 1, and such that vkn → χKk ∇fk in L2(T X). Moreover, all the Borel sets appearing in the definition of all the {vkn}n,k are pairwise disjoint. Hence (1 + 4 δ)−1wn := (1 + 4 δ)−1 PNk=1 vkn also satisfies the assumption of Step 1 and wn → v in L2(T X). Thus, for all n, (1 + 4 δ)−1wn can be approximated by a sequence ( wnh )h ⊂ TestV(X) with |wnh | ≤ 1 + δ. By a diagonal argument v is in L2(T X)-closure of {(1 + δ)wnh }h,n . This concludes the proof (up to decreasing δ). 
+
+Step 3 : v ∈ L2(T X) arbitrarily chosen. Since L2(T X) is generated by {∇ f : f ∈ W 1,2(X) }, v can be approximated in L2(T X) by elements of the form vn = PNn 
+
+> k=1
+
+χBnk ∇f nk with f nk ∈ W 1,2(X) and 
+
+Bnk ⊂ X pairwise disjoint Borel sets. Fix δ > 0. For all n we have PNn 
+
+> k=1
+
+m({|∇ f nk | ≥ 1 + δ} ∩ Bnk ) ≤
+
+δ−2∥v − vn∥2 
+
+> L2(TX)
+
+. Hence, up to restricting the sets Bnk , we can assume that |∇ f nk | ≤ 1 + δ in Bnk for all n. Finally by inner regularity and up to further restricting the sets Bnk , we can assume that Bnk
+
+is compact for all k and n. Hence (1 + δ)−1vn satisfies the assumption of Step 2 for all n and thus can be approximated by a sequence wnk ∈ TestV(X) with |wnk | ≤ 1 + δ. By a diagonal argument v
+
+is in L2(T X)-closure of {(1 + δ)wnk }k,n . This concludes the proof (up to decreasing δ). □
+
+Throughout the paper we will need the following version of the coarea formula (cf. [32]). 
+
+Theorem 2.8 (Coarea formula) . Let (X , d, m) be an RCD( K, ∞) metric measure space and let 
+
+u ∈ W 1,2 
+
+> loc
+
+(X) . Then {u < t } is of locally finite perimeter for a.e. t ∈ R and for every Borel function 
+
+f : X → [−∞ , ∞] such that f ∈ L1(|du|m) and all bounded Borel functions φ : R → R it holds 
+
+(2.4) 
+
+ˆ
+
+φ(u)f |du| dm =
+
+ˆ
+
+> R
+
+φ(t)
+
+ˆ
+
+f dPer( {u < t })d t. 
+
+Proof. Since W 1,2 
+
+> loc
+
+(X) ⊂ BV loc (X) we have that {u < t } is of locally finite perimeter for a.e. t ∈ R.We prove the statement for φ ≥ 0 and f ≥ 0, the general case follows taking the positive and negative parts. We can also assume that f has bounded support, otherwise we take fn := f χ Bn(x0) and then pass to the limit by monotone convergence. Finally we can assume that u ∈ BV (X) by replacing uMEAN CURVATURE IN METRIC SPACES 9
+
+by ηu with η ∈ LIP bs (X) with η = 1 in the support of f. The coarea formula in [41, Theorem 2.5] then asserts that (2.5) 
+
+ˆ
+
+> {u>s }
+
+f |du|dm =
+
+ˆ ∞
+
+> s
+
+ˆ
+
+f dPer( {u < t }) d t
+
+Hence, since f |du| ∈ L1(m) by assumption, (2.6) 
+
+ˆ
+
+> {s1<u<s 2}
+
+f |du|dm =
+
+ˆ s2
+
+> s1
+
+ˆ
+
+f dPer( {u < t }) d t, for all s1 < s 2.
+
+In other words (2.4) holds with φ = χ[s1,s 2]. In particular it holds when φ is a linear combination of such functions. The statement for a general bounded φ follows by density using the dominated convergence theorem. □
+
+3. Willmore functional and mean curvature 
+
+Throughout this section (X , d, m) is an RCD( K, ∞) space. 3.1. Definition of tangential divergence. For all u ∈ W 1,2(X) we define the co-vector field 
+
+eu ∈ L0(T ∗X) as 
+
+eu := χ{| du|>0}
+
+du
+
+|du| .
+
+Clearly |eu| ≤ 1 m-a.e. 
+
+Definition 3.1 (Tangential divergence) . For all u ∈ W 1,2(X) and v ∈ W 1,2 
+
+> C
+
+∩ L∞(T X) ∩ D(div) we define the tangential divergence function TD( v) ∈ L1(|du|m) as TD( v) := div( v) − ∇ v (eu, e u) .
+
+In particular TD( v) is defined for all v ∈ TestV(X) . The dependence on u is omitted as it always will be clear from context. Note that TD( v) ∈ L1(|du|m) because {div( v), |∇ v|, |du|} ⊂ L2(m) and 
+
+|eu| ≤ 1.
+
+In the smooth setting TD( v) coincides pointwise on every regular level set {u = t} with the usual tangential divergence of v with respect to {u = t}.
+
+Heuristically, the tangential divergence should depend only on the restriction of the vector field 
+
+v on the level set {u = t}. The following simple but crucial result makes this precise in our setting. 
+
+Proposition 3.2. For all v ∈ W 1,2 
+
+> C
+
+∩ L∞(T X) ∩ D(div) , u ∈ W 1,2(X) and all φ ∈ LIP ∩ L∞(R) it holds that φ(u)v ∈ W 1,2 
+
+> C
+
+∩ L∞(T X) ∩ D(div) and 
+
+(3.1) TD( φ(u)v) = φ(u)TD( v).
+
+Proof. The fact that φ(u)v ∈ W 1,2 
+
+> C
+
+∩ L∞(T X) ∩ D(div) follows by the Leibniz rule for the divergence and the covariant derivative, which also provide the following identities: div( φ(u)v) = φ′(u)d u(v) + φ(u)div( v)
+
+∇(φ(u)v) = φ′(u)∇u ⊗ v + φ(u)∇v. 
+
+Therefore TD( φ(u)v) = div( φ(u)v) − ∇ (φ(u)v)( eu, e u)= φ′(u)d u(v) + φ(u)div( v) − φ′(u)( ∇u ⊗ v)( eu, e u) − φ(u)∇v(eu, e u).
+
+The conclusion follows observing that the terms with φ′ simplify because (∇u ⊗ v)( eu, e u) = ⟨∇ u, eu⟩⟨ v, e u⟩ = |du|⟨ v, e u⟩ = ⟨v, ∇u⟩ = d u(v).
+
+□10 N. GIGLI AND I. Y. VIOLO 
+
+3.2. The Willmore functional. Our goal is to give a meaning to the quantity (3.2) W(u) = 12
+
+ˆ
+
+> R
+
+ˆ
+
+> {u=t}
+
+|Ht|2dσdt, 
+
+where Ht is the mean curvature of the level set {u = t}. However, we have yet to introduce the concept of mean curvature, in fact this is one of our main objectives. Our strategy instead is to argue via duality with the tangential divergence, which we defined in the previous section. To explain our approach, recall that in the smooth setting for all sufficiently regular level sets and all sufficiently smooth vector fields v it holds (3.3) 
+
+ˆ
+
+> {u=t}
+
+⟨Ht, v ⟩dσ =
+
+ˆ
+
+> {u=t}
+
+div T (v)d σ, 
+
+where div T (v) is the tangential divergence in the classical sense. This yields the following (formal) identity (3.4) 12
+
+ˆ
+
+> {u=t}
+
+|Ht|2dσ = sup 
+
+> v
+
+ˆ
+
+> {u=t}
+
+⟨Ht, v ⟩ − 12 |v|2dσ = sup 
+
+> v
+
+ˆ
+
+> {u=t}
+
+div T (v) − 12 |v|2dσ. 
+
+Integrating the above identity motivates the following definition. 
+
+Definition 3.3 (Willmore functional) . For all E ⊂ R Borel we define the map WE : W 1,2(X) →
+
+[0 , +∞] as (3.5) WE (u) := sup 
+
+> v∈TestV(X)
+
+ˆ
+
+> u−1(E)
+
+
+
+TD( v) − |v|2
+
+2
+
+
+
+|du|dm ≥ 0.
+
+We also set W(u) := WR(u).
+
+The integral in (3.5) makes sense and it is finite since TD( v) ∈ L1(|du|m) and |v| ∈ L∞ ∩ L2(m).
+
+Observe that this definition depends only on the tangential divergence and therefore makes sense even if we have not yet introduced any notion of mean curvature. We also denote by D(WE ) the domain of finiteness of WE , that is (3.6) D(WE ) := {u ∈ W 1,2(X) : WE (u) < +∞} 
+
+and for brevity we set D(W) := D(WR). At this stage it is not clear whether D(W) contains non-trivial functions, however we will prove later that D(W) is in fact dense in L1(m) (see Theorem 3.12). Additionally we will prove that a version of identities (3.2) and (3.3) hold also in our setting. 3.3. Mean curvature. In this part we will show that for functions satisfying W(u) < ∞, there is a meaningful notion of mean curvature vector −→
+
+H (u) for a.e. level set {u = t}. By meaningful we mean that it satisfies the expected integration by parts formula with respect to the tangential divergence and represents the Willmore functional via integration. As before, throughout this section (X , d, m) is an RCD( K, ∞) space. First, we need to introduce a suitable space where the mean curvature vector will live. 
+
+L2(T X; |du|m) := v ∈ L0(T X) : |v| ∈ L2(|du|m) / ∼,
+
+where ∼ denotes the equivalence |du|m-a.e. We endow L2(T X; |du|m) with the norm ∥v∥L2(T X; |du|m) := 
+
+∥| v|∥ L2(|du|m). Taking the quotient |du|m-a.e. is the natural choice because we formally expect to define the mean curvature only on regular level sets, that is where |du|̸ = 0. In particular this set should be interpreted as vector fields defined only along the regular part of the level sets. 
+
+Proposition 3.4.  L2(T X; |du|m), ∥ · ∥ L2(T X; |du|m)
+
+ is a separable Hilbert space and (the equivalence classes of ) vector fields in TestV(X) form a dense set. MEAN CURVATURE IN METRIC SPACES 11 
+
+Proof. From the definitions it follows that L2(T X; |du|m) is a vector space and ∥ · ∥ L2(T X; |du|m) is a norm. Moreover ∥ · ∥ L2(T X; |du|m) satisfies the parallelogram identity because the pointwise norm | · | 
+
+in L0(T X) does. We show completeness. Suppose that vn is a Cauchy sequence for ∥ · ∥ L2(T X; |du|m)
+
+(where vn denotes also a choice of representative in L0(T X)). Then for all k ∈ Z the sequence 
+
+vkn := χ{| du|>1/2k }vn is Cauchy in L0(T X) and thus converges to some vk ∈ L0(T X) as n → +∞.
+
+We define v := P 
+
+> k∈Z
+
+χ{1/2k−1≥| du|>1/2k }vk ∈ L0(T X). Up to passing to a subsequence, we have 
+
+|v − vn| → 0 m-a.e. Then by Fatou’s lemma 
+
+ˆ
+
+|vn − v|2|du|dm ≤ lim 
+
+> m→+∞
+
+ˆ
+
+|vn − vm|2|du|dm ≤ ε, 
+
+for all n big enough. This shows both |v| ∈ L2(|du|m) and vn → v in L2(T X; |du|m). We pass to the density part. Fix v ∈ L2(T X; |du|m). Since vχ {| v|≤ k}χ{| du|>1/k } → v in L2(T X; |du|m) as k → +∞
+
+we can assume that |v| ∈ L∞ ∩ L2(m) and in particular that |v| ≤ 1. By Lemma 2.7 there exists a sequence vn ∈ TestV(X) such that vn → v in L2(T X) and |vn| ≤ 2. Since |vn − v| → 0 in L2(m) and 
+
+|vn − v| ≤ 3, by the dominated convergence theorem we deduce 
+
+ˆ
+
+|vn − v|2|du|dm ≤ ∥| vn − v|∥ L∞(m)∥| vn − v|∥ L2(m)∥| du|∥ L2(m) → 0,
+
+which is what we wanted. The separability follows from the separability of L0(T X) (see e.g. [19, (1.3.4)]). □
+
+Below we restate our main result Theorem 1.1 on the mean curvature. The existence will be given by an application of the Riesz representation theorem, while some work will be required to obtain (3.7) on level sets and the explicit expression (3.9). 
+
+Proposition 3.5. For all u ∈ D(W) there exists a unique −→
+
+H (u) ∈ L2(T X; |du|m), called mean curvature vector, such that for all v ∈ TestV(X) (3.7) 
+
+ˆ
+
+⟨−→
+
+H (u), v ⟩ dPer( {u < t }) = 
+
+ˆ
+
+TD( v) dPer( {u < t }), for a.e. t ∈ R.Moreover for all E ⊂ R Borel it holds 
+
+(3.8) WE (u) = 12
+
+ˆ
+
+> u−1(E)
+
+|−→
+
+H (u)|2|du|dm = 12
+
+ˆ
+
+> E
+
+ˆ
+
+|−→
+
+H (u)|2dPer( {u < t }) d t. 
+
+Finally, if u ∈ D(∆) ∩ LIP (X) , then u ∈ D(W) if and only if 
+
+(3.9) H(u) := 
+
+ ∆u
+
+|du| − ⟨∇| du|, ∇u⟩|du|2
+
+
+
+∈ L2(|du|m),
+
+in which case −→
+
+H (u) = H(u)eu.
+
+Let us stress that in the second part of the statement the function H(u) represents the signed scalar part of the mean curvature, while −→
+
+H (u) is the vector-valued mean curvature, indeed recall that |eu| = 1 |du|m-a.e.. We do not know however whether −→
+
+H (u) is parallel to eu, that is −→
+
+H (u) = H(u)eu holds for some function H(u), without the assumption that u ∈ D(∆) .
+
+For the proof of Proposition 3.5 we will need some preliminary results. We start introducing an auxiliary integral of the tangential divergence functional. For all u ∈
+
+W 1,2(X) we define the linear map IT V : TestV(X) → R by (3.10) IT V (v) := 
+
+ˆ
+
+TD( v)|du| dm,
+
+which is well defined because TD( v) ∈ L1(|du|m) by definition. 12 N. GIGLI AND I. Y. VIOLO 
+
+Lemma 3.6 (Boundedness of IT V ). For all u ∈ W 1,2(X) it holds 
+
+(3.11) |I T V (v)| ≤ ∥ v∥L2(T X; |du|m)
+
+p2W(u), ∀ v ∈ TestV(X) .
+
+Proof. If W(u) = + ∞ there is nothing to prove, hence we assume that W(u) < +∞. By the definition of W(u), for all t > 0 it holds 1
+
+t W(u) ≥ 1
+
+t
+
+ˆ 
+
+TD( tv ) − |tv |2
+
+2
+
+
+
+|du|dm =
+
+ˆ 
+
+TD( v) − t |v|2
+
+2
+
+
+
+|du|dm.
+
+Repeating the same for −v, we obtain that for all t > 0
+
+|I T V (v)| ≤ 1
+
+t W(u) + t
+
+ˆ |v|2
+
+2 |du|dm,
+
+from which the result follows by optimizing in t. □
+
+Proposition 3.7. If u ∈ D(W) then IT V extends to a linear and continuous functional IT V ∈
+
+(L2(T X; |du|m)) ∗ satisfying 
+
+(3.12) ∥I T V ∥ ≤ p2W(u).
+
+In particular there exists a (unique) −→
+
+H (u) ∈ L2(T X; |du|m), called mean curvature vector, such that 
+
+(3.13) 
+
+ˆ
+
+⟨−→
+
+H (u), v ⟩ | du|dm = IT V (v), ∀v ∈ L2(T X; |du|m).
+
+Proof. Immediate consequence of Lemma 3.6 and the Riesz representation theorem recalling that (L2(T X; |du|m), ∥ · ∥ L2(T X; |du|m)) is a Hilbert space and TestV(X) is a dense subset by Proposition 3.4. □
+
+For the second part of Proposition 3.5 we will need the following technical result. For later use we will state it also in local form. 
+
+Lemma 3.8. Let Ω ⊂ X be open. Let v ∈ W 1,2 
+
+> C
+
+∩ L∞(T X) ∩ D(div) and let u ∈ LIP loc (Ω) be such that ∆u ∈ L2
+
+> loc
+
+(Ω) and u−1(0 , 1) ⊂⊂ Ω. Then 
+
+(3.14) 
+
+ˆ
+
+> {0<u< 1}
+
+TD( v)|du|dm =
+
+ˆ
+
+> {0<u< 1}
+
+⟨v, e u⟩
+
+ ∆u
+
+|du| − ⟨∇| du|, ∇u⟩|du|2
+
+
+
+|du|dm,
+
+where the right integrand is taken to be 0 whenever |du| = 0 . Moreover the same holds if u ∈
+
+D(∆) ∩ LIP (X) , without the assumption u−1(0 , 1) ⊂⊂ Ω.Proof. Note first that both the integrals in (3.14) make sense because ∆ u, |∇| du|| , |du| ∈ L2
+
+> loc
+
+(Ω) and 
+
+u−1(0 , 1) ⊂⊂ Ω and |v|, TD( v) ∈ L2(m). Thanks to ∆ u ∈ L2
+
+> loc
+
+(Ω) we have that ⟨v, ∇u⟩ ∈ W 1,2 
+
+> loc
+
+(Ω) and 
+
+∇v(∇u, ∇u) = ⟨∇⟨ v, ∇u⟩, ∇u⟩ − | du|⟨∇| du|, v ⟩, m-a.e. in Ω .
+
+Fix φ ∈ C∞ 
+
+> c
+
+(0 , 1). In particular φ(u) ∈ D(∆) ∩ LIP c(X) . Using the above identity, integrating by parts and rearranging the terms we obtain 
+
+ˆ
+
+> Ω
+
+φ(u)|du|div( v) − φ(u)
+
+|du| + ε ∇v(∇u, ∇u) d m =
+
+ˆ
+
+> Ω
+
+ |du||du| + ε − 1
+
+  ⟨∇ u, v ⟩φ′(u)|du| + ⟨v, ∇| du|φ(u)⟩ + ⟨v, ∇u⟩
+
+ ∆u
+
+|du| + ε − ⟨∇| du|, ∇u⟩
+
+(|du| + ε)2
+
+
+
+φ(u) d m.MEAN CURVATURE IN METRIC SPACES 13 
+
+We have the following m-a.e. bounds: 
+
+∇v(∇u, ∇u)
+
+|du| + ε ≤ |∇ v|HS |du|,
+
+ |du||du| + ε − 1
+
+
+
+⟨∇ u, v ⟩| du| ≤ ε|du|| v|,
+
+ |du||du| + ε − 1
+
+
+
+⟨v, ∇| du|⟩ ≤ |∇| du||| v|, ⟨v, ∇u⟩ ∆u
+
+|du| + ε ≤ | v|| ∆u|,
+
+⟨v, ∇u⟩ ⟨∇| du|, ∇u⟩
+
+(|du| + ε)2 ≤ |∇| du|| | v|,
+
+where all the functions on the right-hand sides are in L1
+
+> loc
+
+(Ω). Since supp( φ(u)) ⊂⊂ Ω we can apply the dominated convergence theorem sending ε → 0+ to obtain 
+
+ˆ
+
+φ(u)|du|
+
+
+
+div( v) − ∇ v
+
+ ∇u
+
+|du| , ∇u
+
+|du|
+
+ 
+
+dm =
+
+ˆ
+
+φ(u)⟨v, ∇u⟩
+
+ ∆u
+
+|du| − ⟨∇| du|, ∇u⟩|du|2
+
+
+
+dm,
+
+where both integrands are taken to be 0 whenever |du| = 0 . Finally, taking a sequence φn ∈ C∞ 
+
+> c
+
+(R), uniformly bounded in L∞ and such that φn → χ(0 ,1) pointwise, plugging φn in the above identity, sending n → +∞ and applying dominated convergence we reach (3.14). The second part of the statement is proved exactly in the same way, observing that all integration by parts still make sense. □
+
+We can now proceed with the proof of the existence of the mean curvature vector. 
+
+Proof of Proposition 3.5. Fix u ∈ D(W). We take −→
+
+H (u) as the one given by Proposition 3.7. By identity (3.13) and the definition of IT V , it holds (3.15) 
+
+ˆ
+
+⟨−→
+
+H (u), v ⟩ | du|dm =
+
+ˆ
+
+TD( v) |du|dm, ∀v ∈ TestV(X) .
+
+Fix any φ ∈ LIP c ∩ L∞(R) with φ(0) = 0 . We would like to take φ(u)v as test vector in the above identity and apply Proposition 3.2, however φ(u)v does not necessarily belong to TestV(X). Instead, we take a sequence fn ∈ Test (X) uniformly bounded and such that fn → φ(u) in W 1,2(X). We claim that ´ TD( fnv)|du|dm → ´ TD( φ(u)v)|du|dm. Indeed by the Leibniz rule TD( fnv) = fnTD( v) + ⟨∇ fn, v − ⟨ v, e u⟩eu⟩
+
+and, since ⟨∇ φ(u), v − ⟨ v, e u⟩eu⟩ = 0 m-a.e., 
+
+ˆ
+
+|⟨∇ fn, v − ⟨ v, e u⟩eu⟩| | du| dm =
+
+ˆ
+
+|⟨∇ (fn − φ(u)) , v − ⟨ v, e u⟩eu⟩| | du| dm
+
+≤ 2∥| v|∥ L∞(m)∥| d( fn − φ(u)) |∥ L2(m)∥| du|∥ L2(m) → 0.
+
+Moreover ´ fnTD( v)|du|dm → ´ φ(u)TD( v)|du|dm by the dominated convergence theorem. This shows the claim because TD( φ(u)v) = φ(u)TD( v) by Proposition 3.2. Taking fnv ∈ TestV(X) in (3.15) and passing to the limit we obtain (3.16) 
+
+ˆ
+
+φ(u)⟨−→
+
+H (u), v ⟩ | du|dm =
+
+ˆ
+
+φ(u)TD( v) |du|dm, ∀v ∈ TestV(X) .
+
+By the coarea formula in Theorem 2.8 we can rewrite (3.16) as (3.17) 
+
+ˆ
+
+> R
+
+φ(t)
+
+ˆ
+
+⟨−→
+
+H (u), v ⟩dPer( {u < t }) d t =
+
+ˆ
+
+> R
+
+φ(t)
+
+ˆ
+
+TD( v)dPer( {u < t }) d t, ∀v ∈ TestV(X) .
+
+From (3.15) we obtain that the above holds in fact for all φ ∈ LIP c ∩ L∞(R) (not necessarily with 
+
+φ(0) = 0). This gives (3.7). Conversely given any −→
+
+H (u) ∈ L2(T X; |du|m) satisfying (3.7), by integrating over R, using again the coarea formula and the density of TestV(X), we see that −→
+
+H (u)must satisfy (3.13) as well and thus it is unique by Proposition 3.7. 14 N. GIGLI AND I. Y. VIOLO 
+
+For the proof of (3.8) take any E ⊂ R Borel. Then 
+
+WE (u) = sup 
+
+> v∈TestV(X)
+
+ˆ
+
+> u−1(E)
+
+
+
+TD( v) − |v|2
+
+2
+
+
+
+|du|dm
+
+(by (3.7)) = sup 
+
+> v∈TestV(X)
+
+ˆ
+
+> u−1(E)
+
+
+
+⟨−→
+
+H (u), v ⟩ − |v|2
+
+2
+
+
+
+|du|dm = 12
+
+ˆ
+
+> u−1(E)
+
+|−→
+
+H (u)|2|du|dm,
+
+where in the last step we used the density of TestV(X) in L2(T X; |du|m).
+
+We pass to the second part of the statement. Take any u ∈ D(∆) ∩ LIP (X). Suppose first that 
+
+u ∈ D(W). Then by Lemma 3.8 applied with Ω = X and the uniqueness of −→
+
+H (u) it follows that 
+
+−→
+
+H (u) = H(u)eu and therefore also H(u) ∈ L2(|du|m). Conversely assume that H(u) ∈ L2(|du|m).
+
+Then, again by Lemma 3.8 it follows that for all v ∈ TestV(X) 
+
+ˆ 
+
+TD( v) − |v|2
+
+2
+
+
+
+|du|dm ≤
+
+ˆ 
+
+|H(u)|| v| − |v|2
+
+2
+
+
+
+|du|dm ≤ 12
+
+ˆ
+
+|H(u)|2|du|dm < ∞.
+
+Hence W(u) < ∞ and the proof is concluded. □
+
+Remark 3.9. In fact identity (3.7) holds for any v ∈ W 1,2 
+
+> C
+
+∩ L∞(T X) ∩ D(div) for which there exists a sequence vn ∈ TestV(X) such that vn → v in W 1,2 
+
+> C
+
+(T X) and div( vn) → div( v) in L2(m).
+
+Indeed in this case we would have IT V (v) = ´ TD( v)|du|m, which implies that (3.15) holds for v,and the exact same argument would yield (3.7). ■
+
+3.4. Localizing the construction to open sets. Here we adapt the definitions and results of the previous sections to functions not necessarily globally defined. This will be useful, for example, to deal with the electrostatic potential later in the note. Let Ω ⊂ X be open and let u ∈ W 1,2(Ω). We define eu ∈ L0(T ∗X) |Ω and TD( v) ∈ L1(Ω; |du|m)exactly as we did in Section 3 but restricting to Ω . Similarly we define the Willmore energy: 
+
+WE (u) := sup 
+
+> v∈TestV(X)
+
+ˆ
+
+> u−1(E)
+
+
+
+TD( v) − |v|2
+
+2
+
+
+
+|du|dm ≥ 0.
+
+To avoid dealing with ∂Ω we assume that u ∈ C(Ω) and (3.18) u−1 (0 , 1)  ⊂⊂ Ω.
+
+We can also define L2(T X; |du|m|Ω) := L2(T X) |Ω/ ∼, where ∼ is the |du|m-a.e. equivalence in Ω .
+
+The interval (0 , 1) is taken for simplicity, but can obviously be replaced by any interval ( a, b ).
+
+The following is the local counterpart of Proposition 3.5. 
+
+Proposition 3.10. Let u ∈ W 1,2 ∩ C(Ω) be such that (3.18) holds. Suppose that W(0 ,1) (u) < ∞.Then there exists −→
+
+H (u) ∈ L2(T X; |du|m|Ω), called mean curvature vector, such that for all v ∈
+
+TestV(X) (3.19) 
+
+ˆ
+
+⟨−→
+
+H (u), v ⟩ dPer( {u < t }, Ω) = 
+
+ˆ
+
+TD( v) dPer( {u < t }, Ω) , for a.e. t ∈ (0 , 1) .Moreover −→
+
+H (u) is unique |du|m-a.e. in u−1(0 , 1) .
+
+If in addition u ∈ D(∆ , Ω) ∩ LIP loc (Ω) , it holds W(0 ,1) (u) < ∞ if and only if 
+
+(3.20) H(u) := ∆u
+
+|du| − ⟨∇| du|, ∇u⟩|du|2 ∈ L2(u−1(0 , 1); |du|m),
+
+in which case −→
+
+H (u) = H(u)eu m-a.e. in u−1(0 , 1) .MEAN CURVATURE IN METRIC SPACES 15 
+
+Proof. We will in fact find −→
+
+H (u) ∈ L2(T X; |du|m|A) := L2(T X) |A/ ∼, where A := u−1((0 , 1)) and ∼
+
+is the |du|m-a.e. equivalence in A. The required −→
+
+H (u) ∈ L2(T X; |du|m|Ω) then follows by extension to zero. Exactly as in Proposition 3.4 we can show that L2(T X; |du|m|A) is a separable Hilbert space and (the restriction to A) of TestV(X) is dense. The proof of the statement is then almost identical to the one of Proposition 3.5. We define the functional TestV(X) 7 → I AT V (v) := 
+
+ˆ
+
+> A
+
+TD( v)|du| dm.
+
+The boundedness argument of Lemma 3.6 applies verbatim thanks to the assumption W(0 ,1) (u) < ∞,yielding by the Riesz representation theorem a unique −→
+
+H (u) ∈ L2(T X; |du|m|A) which represents 
+
+IAT V (v). To obtain identity (3.19) on level sets we note that for all φ ∈ LIP c(0 , 1) the local analogue of Proposition 3.2 still applies. Then, the same density and coarea argument of Proposition 3.5 gives (3.19). Finally, when u ∈ D(∆ , Ω) ∩ LIP loc (Ω) the last assertion follows exactly as in Proposition 3.5, using the local version of Lemma 3.8. □
+
+It turns out that harmonic functions have finite Willmore energy. 
+
+Corollary 3.11. Let (X , d, m) be an RCD( K, N ) space with N ∈ (2 , ∞). Let u be harmonic in Ω
+
+and such that u−1(0 , 1) ⊂⊂ Ω. Then W(0 ,1) (u) < ∞ and 
+
+−→
+
+H (u) = − ⟨∇| du|, ∇u⟩|du|2 eu, m-a.e. in u−1(0 , 1) .
+
+Proof. By Theorem 2.6 we have that χ{| du|>0} |d|du|| 2 
+
+> |du|
+
+∈ L1
+
+> loc
+
+(Ω) , which implies precisely that (3.20) is satisfied. □
+
+In the next section, building upon the above result and cut-off arguments, we will construct many functions that have finite Willmore energy in the global sense. 3.5. Existence of many functions with finite Willmore energy. Our goal is to prove the following density result. 
+
+Theorem 3.12. Let (X , d, m) be an RCD( K, N ) space with N ∈ [2 , ∞). Then D(W) ∩ LIP c(X) ∩
+
+D(∆) is dense in Lp(m) for all p ∈ [1 , ∞).
+
+For the proof we need the following existence result for harmonic functions. The proof can be done using [24, Theorem B.1] and a barrier argument, for details see [39, Corollary 2.2.4]. 
+
+Theorem 3.13 (Existence of harmonic cut-off functions) . Let (X , d, m) be an RCD (K, N ) space with N < +∞. For every compact set P ⊂ X and any open set U ⊂ X containing P there exists a continuous function u ∈ C(X) ∩ W 1,20 (U ) such that 0 ≤ u ≤ 1 and 
+
+
+
+∆u = 0 , in {0 < u < 1},u = 1 , in P , u = 0 , in X \ U . 
+
+For the proof of Theorem 3.12 we need a further technical lemma. 
+
+Lemma 3.14. Let u be harmonic in Ω. Then for every φ ∈ C2(R) with φ′, φ ′′ bounded it holds that 
+
+φ(u) ∈ LIP loc (Ω) ∩ D(∆ , Ω) , |dφ(u)| ∈ W 1,2 
+
+> loc
+
+(Ω) and 
+
+ˆ
+
+> Ω′
+
+∆φ(u)
+
+|dφ(u)| − ⟨∇| dφ(u)|, ∇φ(u)⟩|dφ(u)|2
+
+> 2
+
+|dφ(u)|dm < +∞,
+
+for every Ω′ ⊂⊂ Ω, where the whole integrand is taken to be 0 whenever |dφ(u)| = 0 .16 N. GIGLI AND I. Y. VIOLO 
+
+Proof. We first prove the regularity claims on φ(u). Recall that being harmonic u is locally Lipschitz (see [26]), hence φ(u) ∈ LIP loc (Ω) and from the chain rule for the Laplacian we have that φ(u) ∈
+
+D(∆ , Ω) with ∆( φ(u)) = φ′′ (u)|du|2 ∈ L2
+
+> loc
+
+(Ω) . From the chain rule for the gradient we have 
+
+|dφ(u)| = |φ′(u)|| du| m-a.e. in Ω . Moreover, since φ′(u) ∈ LIP loc (Ω), again from the chain rule for the gradient we have |φ′(u)| ∈ LIP loc (Ω) with d |φ′(u)| = sgn (φ′(u)) φ′′ (u)d u. Recall also that from Theorem 2.6 we have that |du| ∈ W 1,2 
+
+> loc
+
+(Ω). Combining these observations with the Leibniz rule for the gradient we obtain that |dφ(u)| ∈ W 1,2 
+
+> loc
+
+(Ω) with d|dφ(u)| = sgn (φ′(u))  φ′′ (u)d u|du| + φ′(u)d |du|, m-a.e. in Ω. Therefore ∆φ(u)
+
+|dφ(u)| − ⟨d|dφ(u)|, dφ(u)⟩|dφ(u)|2 = −sgn (φ′(u)) ⟨d|du|, du⟩|du|2 , m-a.e. in Ω where both sides are taken to be 0 whenever |du| = 0 or |dφ(u)| = 0 . Combining this with (2.3) gives the desired conclusion. □
+
+We now proceed with the main density result. 
+
+Proof of Theorem 3.12. For any set K ⊂ X and number ε > 0 we define the open tubular neigh-borhood Kε := {x : d(x, K ) < ε }.
+
+Step 1 : We show that for every compact set K ⊂ X and every ε > 0 there exists uεK ∈
+
+D(W) ∩ LIP c(X) ∩ D(∆) such that uεK = 1 in K, 0 ≤ uεK ≤ 1 and supp( uεK ) ⊂ Kε.Fix any such K ⊂ X and ε > 0. From Theorem 3.13 we know that there exists a function 
+
+u = uε ∈ C(X) ∩ W 1,20 (Kε) with 0 ≤ u ≤ 1, u = 1 in K, supp( u) ⊂ Kε and which is harmonic in Ω := {0 < u < 1}. Choose a function φ ∈ C2(R) so that 0 ≤ φ ≤ 1, φ ≡ 0 in ( −∞ , 1/3) and φ ≡ 1in (2 /3, +∞). It holds 0 ≤ φ(u) ≤ 1, φ(u) = 1 in K and supp( φ(u)) ⊂ Kε. It remains to show that 
+
+φ(u) ∈ D(W) ∩ LIP c(X) ∩ D(∆). From the properties of u it follows that u−1([1 /3, 2/3]) ⊂⊂ Ω, since it is a closed set and ∂Ω ⊂ { u = 1 } ∪ { u = 0 } (because u is continuous in X). In particular, since 
+
+u ∈ LIP loc (Ω), we have φ(u) ∈ LIP c(X). Moreover from Lemma 3.14 we have that φ(u) ∈ D(∆ , Ω) and |dφ(u)| ∈ W 1,2 
+
+> loc
+
+(Ω). Additionally from the locality property of the gradient and Laplacian we have that 
+
+|∇| dφ(u)|| = 0 = ∆ |Ωφ(u), m-a.e. in Ω \ { 1/3 ≤ u ≤ 2/3}.
+
+In particular, again because u−1([1 /3, 2/3]) ⊂⊂ Ω, from Lemma 3.14 we obtain that 
+
+ˆ
+
+> Ω
+
+∆|Ωφ(u)
+
+|dφ(u)| − ⟨∇| dφ(u)|, ∇φ(u)⟩|dφ(u)|2
+
+> 2
+
+|dφ(u)|dm < +∞.
+
+Thanks to the second part of Proposition 3.5 it suffices to show that φ(u) ∈ D(∆). Indeed this would imply also that φ(u) ∈ D(W). To show this let η ∈ LIP c(X) be arbitrary and let η′ ∈ LIP c(Ω) be such that η′ ≡ 1 in supp η ∩ { 1/3 ≤ u ≤ 2/3}. From the linearity of the gradient operator 
+
+ˆ
+
+⟨∇ φ(u), ∇η⟩ dm =
+
+ˆ
+
+⟨∇ φ(u), ∇(ηη ′)⟩ dm +
+
+ˆ
+
+> X\{ 1/3≤u≤2/3}
+
+⟨∇ φ(u), ∇(η(1 − η′)) ⟩ dm
+
+=
+
+ˆ
+
+⟨∇ φ(u), ∇(ηη ′)⟩ dm,
+
+where in the second equality we used that |dφ(u)| = 0 m-a.e. in X \ { 1/3 ≤ u ≤ 2/3}. Moreover since now ηη ′ ∈ LIP c(Ω) we can use that φ(u) ∈ D(∆ , Ω) to deduce that 
+
+ˆ
+
+⟨∇ φ(u), ∇η⟩ dm = −
+
+ˆ
+
+η′η∆φ(u)d m = −
+
+ˆ
+
+> Ω
+
+η′η∆|Ωφ(u) d m,
+
+which implies that φ(u) ∈ D(∆ , X) with ∆ φ(u) = χΩ∆|Ωφ(u). However, since ∆ |Ωφ(u) = 0 in Ω \ { 1/3 ≤ u ≤ 2/3} we also deduce that ∆ φ(u) ∈ L2(X), which is what we wanted. MEAN CURVATURE IN METRIC SPACES 17 
+
+Step 2 : We prove that given {Ki}ni=1 disjoint compact subsets of X, then Pni=1 αiχKi is in the 
+
+Lp(m)-closure of D(W) ∩ LIP c(X) ∩ D(∆) for every αi ∈ R. Indeed take a sequence εk ↓ 0 so that the open sets Kεk 
+
+> i
+
+are still disjoint for all k and i = 1 , . . . n, and let uεk 
+
+> Ki
+
+∈ D(W) ∩ LIP c(X) ∩ D(∆) be the functions given in Step 1. Then 
+
+fk := X
+
+> i=1
+
+αiuεk 
+
+> Ki
+
+∈ D(W) ∩ LIP c(X) ∩ D(∆) .
+
+Note that D(W) is not in general closed by linear combinations, however in this case the supports of uεk 
+
+> Ki
+
+are pairwise disjoint, hence it is immediately checked that fk ∈ D(W). Clearly uεk 
+
+> Ki
+
+→ χKi
+
+as εk → 0 in Lp(m), hence 
+
+fk →
+
+> n
+
+X
+
+> i=1
+
+αiχKi , in Lp(m).
+
+Step 3 : Given {Ei}ni=1 disjoint Borel subsets of X with m(Ei) < ∞, then Pni=1 αiχEi is in the 
+
+Lp(m)-closure of D(W) ∩ LIP c(X) ∩ D(∆) for every αi ∈ R. By inner regularity we have that for every i = 1 , . . . , n there exists a sequence of compact sets Kki ⊂ Ei , k ∈ N, such that χKki → χEi
+
+in Lp(m) as k → +∞. Hence 
+
+> n
+
+X
+
+> i=1
+
+αiχKki →
+
+> n
+
+X
+
+> i=1
+
+αiχEi , in Lp(m).
+
+Hence we conclude by Step 2. 
+
+Step 4 : Every f ∈ Lp(m) is in the Lp(m)-closure of D(W) ∩ LIP c(X) ∩ D(∆). This is immediate from Step 3, since the functions Pni=1 αiχEi with {Ei}ni=1 disjoint Borel subsets of X and αi ∈ R
+
+are dense in Lp(m). □
+
+4. Lower semicontinuity of the Willmore functional 
+
+Here we show Theorem 1.5 saying that the Willmore functional W is lower- semicontinuous under pmGH-convergence of ambient spaces and strong W 1,2-convergence of the functions. This result was announced in [20, Section 6.6]. In the rest of this section we assume to have fixed a sequence of pmGH-converging RCD( K, ∞)(pointed) spaces ( Xn, dn, mn, x n), n ∈ N ∪ {∞} via extrinsic approach, that is by assuming each (X n, dn) isometrically embedded in a common metric space ( Y, d) such that xn → x∞ and mn ⇀ m∞
+
+in duality with Cbs (Y ) (see [6, 21] for additional details). We also assume the reader to be familiar with the notion of L2-convergence and W 1,2-convergence of functions under pmGH convergence (see [6, 20]). We will denote by Wn the Willmore functional in the space X n and rewrite Theorem 1.5 below for the convenience of the reader. 
+
+Theorem 4.1 (Γ − lim of the Willmore functional) . Suppose that un → u∞ in W 1,2. Then 
+
+W∞(u∞) ≤ lim 
+
+> n
+
+Wn(un).
+
+For the proof we need the notion of test sequences introduced in [20] (see also [6, Section 19]). 
+
+Definition 4.2 (Test sequences of functions and tensors) . We say that n 7 → fn ∈ Test( Xn), 
+
+n ∈ N ∪ {∞} , is a test sequence if sup n ∥fn∥L∞(mn) + Lip( fn) + ∥∆fn∥L∞(mn) < ∞ and (4.1) fn L2
+
+−→ f∞
+
+∆fn L2
+
+−→ ∆f∞
+
+and Ch n(fn) → Ch ∞(f∞)sup n Ch n(∆ fn) < ∞.
+
+Then, n 7 → zn ∈ L2(T X n) is a test sequence of vectors if it is of the form zn = Pmi=1 fi,n ∇gi,n for (fi,n ), ( gi,n ) test sequences. 18 N. GIGLI AND I. Y. VIOLO 
+
+More generally, for d > 1 and n 7 → zn ∈ L2(T ⊗dXn), n ∈ N ∪ {∞} we say that ( zn) is a test sequence of tensors if it is of the form zn = Pmi=1 fi,n ∇g1,i,n ⊗ · · · ⊗ ∇ gd,i,n for ( gj,i,n ) and ( fi,n ) test sequences. 
+
+Definition 4.3 (L2-convergence of tensors) . We say that n 7 → vn ∈ L2(T ⊗dXn) converges weakly in L2 to v∞ ∈ L2(T ⊗dX∞), vn ⇀ v ∞ in L2 for short, provided sup 
+
+> n
+
+∥vn∥L2(T ⊗dXn) < ∞ and lim 
+
+> n
+
+ˆ
+
+⟨vn, z n⟩ dmn =
+
+ˆ
+
+⟨v∞, z ∞⟩ dm∞
+
+for any test sequence ( zn) of d-tensors. The convergence is strong , vn → v∞ in L2 for short, if moreover ∥vn∥L2(T ⊗dXn) → ∥ v∞∥L2(T ⊗dX∞).It is observed in [20, d) p. 78] that zn → z∞ in L2 for any test sequence of tensors zn.
+
+Lemma 4.4. For any v ∈ TestV(X ∞) there exist test sequences of vectors (zkn)n such that zk 
+
+> ∞
+
+→ v
+
+in W 1,2 
+
+> C
+
+(T X) and div( zkn) → div( v) in L2(m∞) as k → +∞.
+
+Proof. Let v = Pmi=1 fi∇gi ∈ TestV(X ∞). Since fi, g i ∈ LIP (X ∞), we can extend both to bounded functions in LIP (Y ). Then zkn := Pmi=1 ˜hn, 1/k (fi)∇˜hn, 1/k (gi) are test sequences of vectors as shown in [20, f) pag. 78] ( ˜hn, 1/k denotes the mollified heat flow in the space X n). The fact that zk 
+
+> ∞
+
+→
+
+v in W 1,2 
+
+> C
+
+(T X) and div( zkn) → div( v) in L2(m∞) can be checked using that ∆ ˜h∞,1/k fi → ∆fi,∆˜h∞,1/k gi → ∆gi in L2(m∞) and that ˜h∞,1/k fi → fi, ˜h∞,1/k gi → gi in W 1,2(X ∞). □
+
+We collect in the following result several properties of convergence of tensors that we will need in the sequel. 
+
+Proposition 4.5 (Convergence properties of tensors) . Let vn, w n ∈ L2(T ⊗dXn), fn ∈ L2(mn),
+
+n ∈ N ∪ {∞} . Then the following hold: i) if vn → v∞ in L2 and fn → f∞ in L2, |fn| ≤ C < ∞, then fnvn → f∞v∞ in L2;
+
+ii) if vn → v∞ in L2 then |vn| → | v∞| in L2;iii) if sup n ∥| vn|∥ L2(mn) < ∞ then, up to a subsequence, vn ⇀ v in L2;iv) if vn → v∞ in L2, wn → w∞ in L2 and |wn| ≤ C, then vn ⊗ wn → v∞ ⊗ w∞ in L2;v) if vn ⇀ v ∞ in L2 and wn → w∞ in L2 then ⟨vn, w n⟩mn ⇀ ⟨v∞, w ∞⟩m∞ as measures; if also 
+
+|vn| ≤ C, then ⟨vn, w n⟩ ⇀ ⟨v∞, w ∞⟩ in L2 and if additionally vn → v∞ and |wn| ≤ C then 
+
+⟨vn, w n⟩ → ⟨ v∞, w ∞⟩ in L2;vi) if fn → f∞ in W 1,2 then ∇fn → ∇ f∞ in L2.
+
+Proof. ii), iii), vi), and the first part of v) are proved in [20, Section 6.1]. For the second part of v) note that if |vn| ≤ C then sup n ∥⟨ vn, w n⟩∥ L2(mn) < ∞ which combined with the first part of v) implies weak L2-convergence by definition. If also vn → v∞ and |wn| ≤ C we have 
+
+⟨vn, w n⟩ = 14 (|vn + wn|2 − | vn − wn|2)and the right-hand side converges strongly in L2. Indeed |vn ± wn| converge in L2 by linearity and ii) and are bounded in L∞, hence |vn ± wn|2 converge in L2 (see [35, Prop. 2.18-viii)]). To prove i) fix any test sequence of vectors zn. By item v) ⟨vn, z n⟩ converges weakly in L2 to ⟨v∞, z ∞⟩. Hence ´ fn⟨vn, z n⟩dmn converges to ´ f∞⟨v∞, z ∞⟩dm∞. By iii) and thanks to |fn| ≤ C, up to passing to a subsequence, fnvn converges weakly in L2 to some w, which by the previous observation must coincide with f∞v∞. Moreover by ii), |vn| → | v∞| strongly in L2. Hence fn|vn| → f∞|v∞|
+
+strongly in L2. Indeed the product of two L2-strongly converging sequences of functions, one uniformly bounded in L∞, converges strongly in L2 as well (it follows from the properties of L2-convergence with fixed measure which carry to this setting as explained in [20, page 28]). Therefore 
+
+∥fn|vn|∥ L2(mn) → ∥ f∞|v∞|∥ L2(m∞ ), which yields the required strong L2-convergence. MEAN CURVATURE IN METRIC SPACES 19 
+
+To prove iv) fix a test sequence of tensors zn = Pmi=1 fi,n ∇g1,i,n ⊗ · · · ⊗ ∇ g2d,i,n . Then 
+
+⟨vn ⊗ wn, z n⟩ =
+
+> m
+
+X
+
+> i=1
+
+⟨vn, f i,n ∇g1,i,n ⊗ · · · ⊗ ∇ gd,i,n ⟩⟨ wn, ∇gd+1 ,i,n ⊗ · · · ⊗ ∇ g2d,i,n ⟩
+
+for all n ∈ N ∪ {∞} . The sequences ⟨vn, f i,n ∇g1,i,n ⊗ · · · ⊗ ∇ gd,i,n ⟩ and ⟨wn, ∇gd+1 ,i,n ⊗ · · · ⊗ ∇ g2d,i,n ⟩
+
+converge respectively weakly in L2 and strongly in L2 to the corresponding expressions for n = ∞,by item v) for all i. Hence 
+
+ˆ
+
+⟨vn ⊗ wn, z n⟩dmn →
+
+ˆ
+
+⟨v∞ ⊗ w∞, z ∞⟩dm∞.
+
+This shows that vn ⊗ wn ⇀ v ∞ ⊗ w∞ in L2. On the other hand |vn ⊗ wn| = |vn|| wn| which converge strongly in L2 to |w∞|| v∞| = |v∞ ⊗w∞| because of ii) and |wn| ≤ C. This proves vn ⊗wn → v∞ ⊗w∞
+
+in L2. □
+
+Lemma 4.6. Let vn ∈ L2(T Xn), n ∈ N ∪ {∞} be a test sequence of vectors. Then, up to passing to a subsequence, |vn| → | v∞| in L2, div( vn) → div( v∞) in L2 and ∇vn ⇀ ∇v∞ in L2.Proof. The fact that |vn| → | v∞| in L2 follows from Proposition 4.5-ii). Instead div( vn) → div( v∞)in L2 is proved in [20, e) pag. 78]. It remains to show that ∇vn ⇀ ∇v∞ in L2 up to passing to a subsequence. We have vn = Pmi=1 f ni ∇gni with f ni , g ni as in Definition 4.2. Hence by the Leibniz rule for the covariant derivative ∇vn = Pmi=1 ∇f ni ⊗ ∇ gni + f ni Hess( gni ). Moreover by the assumptions on the sequence gni
+
+sup 
+
+> n
+
+ˆ
+
+|Hess( gni )|2dmn ≤
+
+ˆ
+
+|∆gni |2 − K|∇ gni |2dmn < ∞.
+
+This shows that sup n ∥|∇ vn|∥ L2(mn) < ∞ and the result follows from [20, (ix) in p. 79]. □
+
+Lemma 4.7. Let vn ∈ L2(T ⊗2Xn) be such that vn ⇀ v ∞ in L2 and suppose un → u∞ in W 1,2.
+
+Then 
+
+(4.2) 
+
+ˆ
+
+⟨vn, ∇un ⊗ ∇un 
+
+> |dun|
+
+⟩dmn →
+
+ˆ
+
+⟨v∞, ∇u∞ ⊗ ∇u∞ 
+
+> |du∞|
+
+⟩dm∞,
+
+where both integrands are taken to be zero respectively when |dun| = 0 and |du∞| = 0 .Proof. Let us first show that for all δ > 0 and φ ∈ LIP bs (Y ) it holds (4.3) 
+
+ˆ
+
+φ⟨vn, ∇un ⊗ ∇un 
+
+> |dun|+δ
+
+⟩dmn →
+
+ˆ
+
+φ⟨v∞, ∇u∞ ⊗ ∇u∞ 
+
+> |du∞|+δ
+
+⟩dm∞.
+
+It is sufficient to show that φ 
+
+> |dun|+δ
+
+→ φ 
+
+> |du∞|+δ
+
+in L2. Indeed combining i)-iv)-vi) in Proposition 4.5 would imply that φ∇un ⊗ ∇un 
+
+> |dun|+δ
+
+→ φ∇u∞ ⊗ ∇u∞ 
+
+> |du∞|+δ
+
+and then (4.3) would follow by v) in Proposition 4.5. The L2-convergence follows observing that 1 
+
+> |dun|+δ
+
+− 1 
+
+> δ
+
+→ 1 
+
+> |du∞|+δ
+
+− 1 
+
+> δ
+
+in L2, indeed 
+
+ψ(t) := 1 
+
+> t+δ
+
+− 1 
+
+> δ
+
+∈ LIP (R) and ψ(0) = 0 (apply e.g. [6, Prop. 3.3-a)]). Since L2-convergence is linear and stable under multiplication by functions in LIP bs (Y ) (see [6, Prop. 3.3-c)]) we conclude that (4.3) holds. Next observe that for all n ∈ N ∪ {∞} we have 
+
+∇un ⊗ ∇un 
+
+> |dun|+δ
+
+− χ{| dun|>0}∇un ⊗ ∇un 
+
+> |dun|
+
+≤ δ|dun||dun|+δ ≤ δ, mn-a.e. Since sup n ∥| vn|∥ L2(mn) < ∞ and supp( φ) is bounded, we conclude that (4.3) holds also with δ = 0 .
+
+To remove φ take any ε > 0 and choose φ so that ∥(1 − φ)|du∞|∥ L2(m∞) < ε. Since |dun| → | du∞|20 N. GIGLI AND I. Y. VIOLO 
+
+in L2 we have (1 − φ)|dun| → (1 − φ)|du∞| in L2 as well. Therefore by (4.3) for δ = 0 we get 
+
+ˆ
+
+⟨vn, ∇un ⊗ ∇un
+
+|dun| ⟩dmn −
+
+ˆ
+
+⟨v∞, ∇u∞ ⊗ ∇u∞
+
+|du∞| ⟩dm∞
+
+≤ lim 
+
+> n
+
+ˆ
+
+(1 − φ)⟨vn, ∇un ⊗ ∇un
+
+|dun| ⟩ dmn +
+
+ˆ
+
+(1 − φ)⟨v∞, ∇u∞ ⊗ ∇u∞
+
+|du∞| ⟩ dm∞
+
+≤ lim  
+
+> n
+
+∥| vn|∥ L2(mn)∥(1 − φ)|dun|∥ L2(mn) + ∥| v∞|∥ L2(m∞)∥(1 − φ)|du∞|∥ L2(m∞) ≤ Cε, 
+
+where C does not depend on ε. By the arbitrariness of ε we conclude. 
+
+□
+
+Proof of Theorem 4.1. Thanks to Lemma 4.4 it is sufficient to show that for any test sequence of vector fields vn (as in Definition 4.2), up to passing to a subsequence, we have 
+
+ˆ 
+
+div( vn) − ∇ vn(eun , e un ) − |vn|2
+
+> 2
+
+
+
+|dun|dmn
+
+→
+
+ˆ 
+
+div( v∞) − ∇ v∞(eu∞ , e u∞ ) − |v∞|2
+
+> 2
+
+
+
+|du∞|dm∞,
+
+(4.4) where eun = ∇un 
+
+> |dun|
+
+χ{| dun|>0}. Since |vn| → | v∞| in L2 and |vn| ≤ C we have |vn|2 → | v∞|2 in 
+
+L2. Moreover |dun| → | du∞| in L2. Hence ´ |vn|2|dun|dmn → ´ |v∞|2|du∞|dm∞. By Lemma 4.6, up to passing to a subsequence, we have div( vn) → div( v∞) in L2 and similarly we get ´ div( vn)|dun|dmn → ´ div( v∞)|du∞|dm∞. Finally, again by Lemma 4.6, ∇vn ⇀ ∇v∞ in L2. Hence applying Lemma 4.7 we get precisely that ´ ∇vn(eun , e un )|dun|dmn → ´ ∇v∞(eu∞ , e u∞ )|du∞|dm∞.
+
+□
+
+5. Regularity of Willmore energy on level sets of harmonic functions 
+
+The main objective of this part is to prove the following regularity result for the Willmore energy. 
+
+Proposition 5.1 (Regularity of the Willmore energy) . Let (X , d, m) be an RCD( K, N ) space, N ∈
+
+(2 , ∞). Let u be harmonic in Ω such that u−1(0 , 1) ⊂⊂ Ω. Then for all β ∈ [ N −2  
+
+> N−1
+
+, 1] the function 
+
+(5.1) t 7 →
+
+ˆ
+
+|−→
+
+H (u)|1+ β Per( {u < t }, Ω) , a.e. t ∈ (0 , 1) 
+
+admits a lower semicontinuous representative. 
+
+Note that the function (5.1) is well defined up to taking a.e. equivalence classes. Throughout this section (X , d, m) is an RCD( K, N ) space, N ∈ (2 , ∞).
+
+For the proof we need two preliminary lemmas. 
+
+Lemma 5.2 (Continuity of weighted gradient) . Let u be harmonic in Ω and satisfying (3.18) . For all g ∈ W 1,2 
+
+> loc
+
+∩ L∞
+
+> loc
+
+(Ω) and all α ≥ 1 + N −2  
+
+> N−1
+
+the function 
+
+(0 , 1) ∋ t 7 →
+
+ˆ
+
+|du|αg dPer( {u < t }, Ω) ,
+
+belongs to W 1,1 
+
+> loc
+
+(0 , 1) and thus has a continuous representative. Proof. Fix φ ∈ C1 
+
+> c
+
+(0 , 1) with 0 ≤ φ ≤ 1. We can extend u to a function in D(∆) ∩ LIP (X) agreeing with u in supp( φ(u)) (see e.g. the proof of Theorem 3.12). Similarly we extend g to a function in W 1,2 ∩ L∞(X) with supp( g) compact in Ω and agreeing with g in supp( φ(u)). Then MEAN CURVATURE IN METRIC SPACES 21 
+
+g|du|α ∈ L1(|du|m). Hence by the coarea formula in Theorem 2.8 and integrating by parts 
+
+−
+
+ˆ
+
+φ′(t)
+
+ˆ
+
+|du|αg dPer( {u < t }, Ω)d t = −
+
+ˆ
+
+φ′(u)|du|α+1 gdm
+
+= −
+
+ˆ
+
+φ′(u)⟨∇ u, ∇u⟩| du|α−1gdm = −
+
+ˆ
+
+⟨∇ φ(u), ∇u⟩| du|α−1gdm
+
+=
+
+ˆ
+
+φ(u)div( g|du|α−1∇u) d m.
+
+Since u is harmonic, by Theorem 2.6 we have that |du|α−1 ∈ W 1,2 
+
+> loc
+
+(Ω) and so g|du|α−1 ∈ W 1,2(X) .
+
+By the Leibniz rule for the divergence we have div( g|du|α−1∇u) = g|du|α−1∆u + ⟨∇ (g|du|α−1), ∇u⟩ ∈ L1(m).
+
+Hence div( g|du|α−1∇u) = h|du| for some h ∈ L1(|du|m). Hence, again by the coarea formula we have both 
+
+−
+
+ˆ
+
+φ′(t)
+
+ˆ
+
+|du|αg dPer( {u < t }, Ω)d t =
+
+ˆ
+
+φ(t)
+
+ˆ
+
+hdPer( {u < t }, Ω)d t
+
+and ´ hdPer( {u < t })d t ∈ L1(R). Since both sides of the above identity do not depend on the extension of u and g, we conclude. □
+
+Lemma 5.3 (BV regularity of mean curvature) . Let u be harmonic in Ω and satisfying (3.18) .Then for all g ∈ W 1,2 
+
+> loc
+
+∩ L∞
+
+> loc
+
+(Ω) and all β ≥ N −2  
+
+> N−1
+
+the function 
+
+f (t) := 
+
+ˆ
+
+H(u)|du|β gdPer( {u < t }, Ω) ,
+
+belongs to BV loc (0 , 1) and its jump points are contained in the countable set 
+
+(5.2) Su,β := {t ∈ R : |∆|du|β |({u = t}) > 0}.
+
+Proof. Set Pt := Per( {u < t }, Ω) as measure. Fix φ ∈ C1 
+
+> c
+
+(R) with supp( φ) ⊂ K with K ⊂ (0 , 1) compact. By the assumptions φ(u) ∈ LIP c(Ω) . Recall that |du|β ∈ D(∆, Ω) for all β ≥ N −2  
+
+> N−1
+
+(see Theorem 2.6). By the coarea formula in Theorem 2.8 (applied after an extension of u outside K to a function in LIP c(X)) and integrating by parts 
+
+− β
+
+ˆ 10
+
+φ′(t)
+
+ˆ
+
+H(u)|du|β gdPtdt = −β
+
+ˆ
+
+φ′(u)H(u)|du|β+1 gdm
+
+= β
+
+ˆ
+
+φ′(u)⟨∇ u, ∇| du|⟩| du|β−1gdm =
+
+ˆ
+
+⟨∇ φ(u), ∇| du|β ⟩gdm
+
+= −
+
+ˆ
+
+φ(u)g∆|du|β dm −
+
+ˆ
+
+φ(u)⟨∇ g, ∇| du|β ⟩dm.
+
+Therefore 
+
+−
+
+ˆ 10
+
+βφ ′(t)
+
+ˆ
+
+H(u)|du|β gdPtdt ≤ ∥ φ∥∞
+
+
+
+∥g∥∞ |∆|du|β |(u−1(K)) + ∥g∥W 1,2(X) ∥|∇| du|β |∥ L2(u−1(K)) 
+
+
+
+= CΩ,g,K,u ∥φ∥∞.
+
+This shows f ∈ BV loc (0 , 1). Let now Df be its distributional derivative. Let ¯ t ∈ (0 , 1) be a jump point, i.e. such that |Df ({¯t})| > 0. Let φn ∈ C1 
+
+> c
+
+(0 , 1) be such that φn(¯ t) = 1, 0 ≤ φn ≤ 1 and 22 N. GIGLI AND I. Y. VIOLO 
+
+supp( φn) ⊂ (¯ t − 1/n, ¯t + 1 /n ). Then 0 < |Df ({¯t})| = lim 
+
+> n
+
+ˆ 10
+
+φ′
+
+> n
+
+f dt
+
+≤ β−1 lim 
+
+> n
+
+ˆ
+
+φn(u)g∆|du|β dm + β−1
+
+ˆ
+
+> {¯t−1/n ≤u≤¯t+1 /n }
+
+|⟨∇ g, ∇| du|β ⟩| dm =
+
+≤ β−1 lim 
+
+> n
+
+ˆ
+
+φn(u)g∆|du|β dm ≤ β−1∥g∥∞|∆(|du|β )|({u = ¯ t}).
+
+This completes the proof of the second part. □
+
+For all g ∈ W 1,2 
+
+> loc
+
+∩ L∞
+
+> loc
+
+(Ω) and all q ≥ 2 define the functions Rgq , R Hg (t) : (0 , 1) → R as the continuous (resp. minimal upper semicontinuous) a.e. representative of 
+
+Rgq (t) := 
+
+ˆ
+
+|du|q|g|q dPer( {u < t }, Ω) 
+
+
+
+resp. RHg (t) := 
+
+ˆ
+
+H(u)|du|g dPer( {u < t }, Ω) 
+
+
+
+,
+
+which exist by Lemma 5.2 and Lemma 5.3. 
+
+Proof of Proposition 5.1. Set p := 1 + β ∈ (1 , 2] and q := pp−1 ≥ 2. Let H(u) ∈ L2(Ω; |du|m) be the function such that −→
+
+H (u) = H(u)eu as in Proposition 3.10. Consider hn ∈ LIP c(X) such that 
+
+hn → −| H(u)|p−2H(u) both in Lq(|du|m) and ( |du|m)-a.e. and such that |hn| ≤ G ∈ Lq(|du|m)(where |du| and H(u) are extended to zero outside Ω). Set gn := (1 /n + |du|)−1hn ∈ W 1,2 
+
+> loc
+
+∩ L∞
+
+> loc
+
+(Ω). Define the lower semicontinuous function fWp(t) : (0 , 1) → R as 
+
+fWp := sup 
+
+> n
+
+
+
+−pR Hg n − pq Rgqn
+
+
+
+.
+
+By Young’s inequality for all n it holds (5.3) −pR Hg n − pq Rgqn ≤
+
+ˆ
+
+|H(u)|p dPer( {u < t }, Ω) , for a.e. t ∈ (0 , 1) .
+
+In particular (5.4) fWp ≤
+
+ˆ
+
+|H(u)|p dPer( {u < t }, Ω) , for a.e. t ∈ (0 , 1) .
+
+By the dominated convergence theorem we can check that 
+
+ˆ
+
+> u−1(a,b )
+
+ 1
+
+p |−→
+
+H (u)|p + H(u)|du|gn + 1
+
+q |du|q|gn|q
+
+
+
+|du|m → 0,
+
+for all ( a, b ) ⊂⊂ (0 , 1). Note also that the functions |du|q|gn|q, |−→
+
+H (u)|p and H(u)gn, all belong to 
+
+L1
+
+> loc
+
+(Ω; |du|m). Hence (after an extension of u to X) we can apply the coarea formula in Theorem 2.8 to rewrite the above as 
+
+ˆ ba
+
+ˆ
+
+|−→
+
+H (u)|p dPer( {u < t }) + pR Hg n (t) + pq Rgqn (t) dt → 0,
+
+where the modulus comes from (5.3). Hence, up to passing to a subsequence, the integrand converges pointwise to zero in ( a, b ) \ N , for some N null set. Therefore, up to enlarging N, thanks to (5.4) 
+
+fWp(t) = sup 
+
+> n
+
+
+
+−pR Hg n (t) − pq Rgqn (t)
+
+
+
+= lim 
+
+> n
+
+
+
+−pR Hg n (t) − pq Rgqn (t)
+
+
+
+=
+
+ˆ
+
+|−→
+
+H (u)|p dPer( {u < t }, Ω) , ∀t ∈ (a, b ) \ N. 
+
+This shows that ´ |−→
+
+H (u)|p dPer( {u < t }, Ω) coincides a.e. in ( a, b ) with fWp. □MEAN CURVATURE IN METRIC SPACES 23 
+
+From now on we denote by Wp the (pointwise) maximal lower semicontinuous representative 4 of 
+
+´ |−→
+
+H (u)|pdPer( {u < t }) in (0 , 1) .
+
+6. Isocapacitary inequality and Willmore inequality 
+
+6.1. The isocapacitary inequality via rearrangement. The goal of this section is to prove the following isocapacitary inequality. 
+
+Theorem 6.1 (Sharp isocapacitary inequality) . Let (X , d, m) be a CD(0 , N ) space with N ∈ (2 , ∞)
+
+and AVR (X) > 0. Then for every bounded Borel set E ⊂ X it holds 
+
+(6.1) Cap( E) ≥ (N − 2) N ω 2 
+
+> N
+> N
+
+AVR (X) 2 
+
+> N
+
+m(E) N −2 
+
+> N
+
+.
+
+Moreover if equality holds for some E with m(E) > 0 and (X , d, m) is an RCD(0 , N ) space, then E
+
+coincides m-a.e. with a ball centred at x0 and X is an N -Euclidean cone with tip x0.
+
+We will prove this inequality via symmetrization, using a P´ olya-Szeg˝ o-type inequality proved in [36] (which is a variant of the one proved in [33]). To state it we first recall the notion of distribution function and rearrangement using the termi-nology from [36] (see also [37]). Let (X , d, m) be a metric measure space and u : X → [0 , ∞] be a Borel function such that 
+
+m({u > t }) < ∞ for all t > 0. We define μ : [0 , +∞) → [0 , ∞), the distribution function of u
+
+as μ(t) := m({u > t }). For u and μ as above, we consider the generalized inverse u# : [0 , ∞) →
+
+[0 , ess sup u] of μ defined by 
+
+u#(s) := 
+
+ess sup u if s = 0, inf {t > 0 : μ(t) < s } if s > 0. Note that u# is monotone non-increasing, left-continuous. The monotone non-increasing rearrangement u∗ : [0 , ∞) → R+ is defined by 
+
+u∗(t) := u#(ωN tN ), ∀ t ∈ [0 , ∞).
+
+In particular u∗ is monotone non-increasing. The functions u and u∗ are equimeasurable: (6.2) m({u > t }) = mN ({u∗ > t }), ∀ t > 0,
+
+where mN := N ω N tN −1dt. 
+
+Theorem 6.2 (Euclidean P´ olya-Szeg˝ o inequality and rigidity) . Let (X , d, m) be a CD(0 , N ) space with N ∈ (1 , ∞) and AVR (X) > 0. Let u ∈ W 1,2 
+
+> loc
+
+(X) be non-negative with |du| ∈ L2(m) and such that m({u > t }) < ∞ for all t > 0. Then u∗ ∈ AC loc (0 , ∞) and 
+
+(6.3) 
+
+ˆ
+
+|du|2 dm ≥ AVR (X) 2
+
+> N
+
+ˆ
+
+|u′|2 dmN (t).
+
+Moreover if (X , d, m) is an RCD(0 , N ) space and equality holds in (6.3) with both sides non-zero and (u∗)′̸ = 0 a.e. in {ess inf u < u ∗ < ess sup u}, then there exists x0 such that 
+
+(6.4) u = u∗ ◦ (AVR (X) 1 
+
+> N
+
+dx0 ), m − a.e. 
+
+and X is an N -Euclidean cone with tip x0.
+
+The last ingredient for the proof of the isocapacitary inequality is the following computation relative to the capacity in the model one-dimensional space.                             
+
+> 4Recall that for any f: (0 ,1) →R, the l.s.c. envelope f∗(x) := sup δ> 0ess inf Bδ(x)fis l.s.c., f∗≤fa.e. and it is the (pointwise) maximal with these properties. In particular if fadmits a l.s.c. a.e. representative ˜f, then ˜f≤f∗,
+> f∗=fa.e. and so f∗is the (pointwise) maximal with this property. 24 N. GIGLI AND I. Y. VIOLO
+
+Lemma 6.3. Consider the one-dimensional metric measure space (X , d, m) = ([0 , ∞), deu , mN ) for 
+
+N > 2. Then 
+
+Cap([0 , r )) = ( N − 2) N ω 2 
+
+> N
+> N
+
+mN ([0 , r )) N −2 
+
+> N
+
+, ∀ r > 0.
+
+Proof. We only consider r = 1, as the general case follows by rescaling. It can be checked using the definitions that the function u(x) := min( x2−N , 1) is the electrostatic potential for [0 , 1] . Since ([0 , ∞), deu , mN ) is an RCD(0 , N ) space with Euclidean volume growth, from Proposition 2.5 we have Cap([0 , 1]) = N ω N
+
+ˆ ∞
+
+> 1
+
+|u′|2(t)tN −1dt = N ω N (N − 2) 2
+
+ˆ ∞
+
+> 1
+
+t1−N dt = N ω N (N − 2) .
+
+□
+
+We can now prove the isocapacitary inequality. 
+
+Proof of Theorem 6.1. We can assume that m(E) > 0, otherwise there is nothing to prove. For the moment we consider the case that (X , d, m) is an RCD(0 , N ) space. Since E is bounded it holds Cap( E) < ∞. By Proposition 2.5 there exists u ∈ W 1,2 
+
+> loc
+
+(X) such that 0 ≤ u ≤ 1, u ≥ 1 Cap-a.e. in 
+
+E, vanishing at infinity and such that Cap( E) = 
+
+ˆ
+
+> X
+
+|du|2dm.
+
+Since u vanishes at infinity we have m({u > t }) < ∞ for all t > 0. Hence we can apply the P´ olya-Szeg˝ o inequality given in Theorem 6.2 to obtain that u∗ ∈ AC loc (0 , ∞) and (6.5) 
+
+ˆ
+
+|du|2 dm ≥ AVR (X) 2
+
+> N
+
+ˆ
+
+|(u∗)′|2 dmN .
+
+By equimeasurability, 
+
+mN ({u∗ ≥ 1}) = lim  
+
+> t↑1
+
+mN ({u∗ > t }) = lim  
+
+> t↑1
+
+m({u > t })= m({u ≥ 1}) ≥ m(E),
+
+where the last inequality follows from u ≥ 1 in E m-a.e. Since u∗ is continuous and monotone non-increasing, {u∗ ≥ 1} = [0 , ¯r] for some ¯ r > 0. Therefore, by Lemma 6.3 for all r < ¯r it holds (6.6) 
+
+ˆ
+
+|(u∗)′|2 dmN ≥ Cap([0 , r ]) = ( N − 2) N ω 2 
+
+> N
+> N
+
+mN ([0 , r )) N −2 
+
+> N
+
+.
+
+Combining (6.6) with (6.5) and sending r ↑ ¯r we conclude recalling that mN ([0 , ¯r]) ≥ m(E). Suppose now that equality holds in (6.1). Then equality holds in (6.5) and also in (6.6) with r = ¯ r. From the latter and Proposition 2.5 we deduce that u∗ must be the electrostatic potential of [0 , ¯r] and thus ( u∗)′̸ = 0 in {0 < u ∗ < 1}. Hence we can apply the second part of Theorem 6.2 and deduce that u is m-a.e. equal to a radial function around a point x0. Moreover we must have the equality 
+
+mN ([0 , ¯r]) = m(E), which implies m({u ≥ 1}) = m(E). Since E ⊂ { u ≥ 1} up to m-null sets we deduce that E = {u ≥ 1} up to m-null sets. Since u is m-a.e. equal to a radial function we conclude that {u ≥ 1} is a ball up to m-null sets which concludes the proof. If (X , d, m) is only a CD(0 , N ) space we can not use Proposition 2.5. Instead, we apply the rearrangement procedure to all non-negative functions u ∈ W 1,2(X) with bounded support that are 
+
+≥ 1 m-a.e. in a neighborhood of E. Passing to the infimum, recalling ii) in Lemma 2.2 and using again Lemma 6.3 we obtain (6.1). This procedure, however, does not lead to a rigidity statement as above. □MEAN CURVATURE IN METRIC SPACES 25 
+
+6.2. Willmore inequality and rigidity. In this part we consider (X , d, m) an RCD(0 , N ) space, 
+
+N ∈ (2 , ∞), with AVR (X) > 0 and u the electrostatic potential of a compact set K ⊂ X (as in Definition 2.4). For any β ≥ N −2  
+
+> N−1
+
+we define (6.7) Uβ (t) := 1
+
+tβ N −1 
+
+> N−2
+
+ˆ
+
+|du|β+1 dPer( {u < t }) ∈ L1
+
+> loc
+
+(0 , 1) ,
+
+which by Lemma 5.2 admits a locally absolutely continuous representative, still denoted by Uβ .Note that under the current assumptions, Per( {u < t }) = Per( {u < t }, X \ K) as measures for all 
+
+t ∈ (0 , 1), hence we will use Per( {u < t }) for brevity. It turns out that Uβ is monotone non-decreasing. For Riemannian manifolds this fact was dis-covered by Colding [15] in the case of the Green function and later proved in [1] in general form. This monotonicity was generalized to the setting of RCD spaces in [24], which we state here in a simplified and weaker form although sufficient for our purposes. 
+
+Theorem 6.4 (Monotonicity of Uβ ). Let X be an RCD(0 , N ) space, N > 2, with Euclidean volume growth and let u be the electrostatic potential of a compact set K. Let Uβ be the function defined in 
+
+(6.7) , with β ≥ N −2  
+
+> N−1
+
+. Then Uβ is monotone non-decreasing in (0 , 1) .Moreover U ′ 
+
+> β
+
+∈ BV loc (0 , 1) ,
+
+(6.8) U ′ 
+
+> β
+
+(t) = βt − β(N −1)  
+
+> N−2
+
+ˆ
+
+−H(u)|du|β − N − 1
+
+N − 21
+
+t |du|β+1 dPer( {u < t })
+
+
+
+, a.e. t ∈ (0 , 1) 
+
+and the maximal lower semicontinuous representative of U ′ 
+
+> β
+
+satisfies 
+
+(6.9) t2U ′ 
+
+> β
+
+(t) ≥ Cβ,N 
+
+ˆ
+
+> {u<t }
+
+u2|d|du 12−N | β 
+
+> 2
+
+|2dm, for all t ∈ (0 , 1) ,
+
+where Cβ,N = 4
+
+> β
+
+
+
+β − N −2 
+
+> N−1
+
+
+
+and the right-hand side is taken to be zero when β = N −2  
+
+> N−1
+
+.
+
+Proof. The monotonicity of Uβ and (6.9) are proved in [24, Theorem 5.4]. Moreover in [24, Propo-sition 5.5] it is shown that 
+
+U ′ 
+
+> β
+
+(t) = 
+
+ˆ
+
+⟨ ∇u
+
+|du| , ∇
+
+ |du|β
+
+uβ N −1 
+
+> N−2
+
+
+
+⟩dPer( {u < t }), a.e. t ∈ (0 , 1) .
+
+Formula (6.8) then follows developing the gradient term, recalling both that |du|β ∈ W 1,2 
+
+> loc
+
+(Ω) by Theorem 2.6 where Ω = X \ K, and that H(u) = − ⟨∇| du|,∇u⟩|du|2 (as defined in Corollary 3.11). Finally (6.9) appears in [24, Theorem 5.4] for the left-continuous representative of t2U ′ 
+
+> β
+
+(t). However, from [24, Prop. 5.6] we know that the distributional derivative of t2U ′ 
+
+> β
+
+(t) is non-negative, hence this left-continuous representative coincides with the maximal lower semicontinuous representative. □
+
+In the following, σN := N ω N .
+
+Proposition 6.5 (Lower bound for Uβ ). Let X be an RCD(0 , N ) space, N > 2, with Euclidean volume growth, u be an electrostatic potential for a compact set K and Uβ be the continuous repre-sentative of the function defined in (6.7) , with β ≥ N −2  
+
+> N−1
+
+.Then 
+
+(6.10) Uβ (t) ≥ (N − 2) β N −1  
+
+> N−2
+
+(AVR (X) σN ) βN −2 Cap( K) N −2−βN −2 , ∀t ∈ (0 , 1) .
+
+Proof. We argue by contradiction and we assume that for some θ < AVR (X) and some ¯ t ∈ (0 , 1) (6.11) Uβ (¯ t) ≤ (N − 2) β N −1  
+
+> N−2
+
+(θσ N ) βN −2 Cap( K) N −2−βN −2
+
+Before starting the proof we fix once and for all a Borel representative of |du|.26 N. GIGLI AND I. Y. VIOLO 
+
+We now make the preliminary observation that for all ε > 0, by the coarea formula (Theorem 2.8) applied after an extension of u gives 
+
+ˆ 1−εε
+
+ˆ 1
+
+|du| dPer( {u < s })d s =
+
+ˆ
+
+> {ε<u< 1−ε}
+
+χ{| du|>0}dm ≤ m({u > ε }) < +∞,
+
+where 1 /|du| is defined to be zero whenever |du| = 0. Hence ´ 1 
+
+> |du|
+
+dPer( {u < s }) < +∞ for a.e. 
+
+s ∈ (0 , 1) . Thus there exists at least one t0 ∈ (0 , ¯t) such that ´ 1 
+
+> |du|
+
+dPer( {u < t 0}) < +∞ and 
+
+Uβ (t0) = ( t0)−β N −1 
+
+> N−2
+
+´ |du|β+1 dPer( {u < t 0}). Moreover 
+
+t−β N −1 
+
+> N−2
+> 0
+
+ˆ
+
+|du|β+1 dPer( {u < t 0}) = Uβ (t0) ≤ Uβ (¯ t)
+
+> (6.11)
+
+≤ (N − 2) β N −1  
+
+> N−2
+
+(θσ N ) βN −2 Cap( K) N −2−βN −2 ,
+
+(6.12) where in the first inequality we used the monotonicity of Uβ .For convenience of notation, for every t ∈ (0 , 1) we set 
+
+ut := t−1u, Kt := X \ { u < t }.
+
+Observe that ut is the electrostatic potential for Kt. Since the map (0 , 1) ∋ t 7 → ´ |du|dPer( {u < t })is a.e.-equal to a constant (see [24, Proposition 5.7]), by Proposition 2.5 we have Cap( Kt) = 
+
+ˆ
+
+> {u<t }
+
+|dut|2dm = 1
+
+t2
+
+ˆ t
+
+> 0
+
+ˆ
+
+|du|dPer( {u < s })d s
+
+= 1
+
+t
+
+ˆ
+
+> {u< 1}
+
+|du|2dm = 1
+
+t Cap( K), for all t ∈ (0 , 1). Therefore 
+
+Uβ (t) = 1
+
+tβ N −1 
+
+> N−2
+
+ˆ
+
+|du|β+1 dPer( {u < t }) = 1
+
+tβ N −1  
+
+> N−2−(β+1)
+
+ˆ
+
+|dut|β+1 dPer( {u < t }) = =
+
+ Cap( Kt)Cap( K)
+
+−α ˆ
+
+|dut|β+1 dPer( {u < t }), for a.e. t ∈ (0 , 1), (6.13) where α := −(β N −1  
+
+> N−2
+
+− (β + 1)) = N −2−βN −2 .
+
+Moreover from H¨ older’s inequality with exponents p = β+2 2 , p ′ = β+2  
+
+> β
+
+we get Cap( Kt) = 
+
+ˆ
+
+|dut|dPer( {u < t }) = 
+
+ˆ
+
+|dut|1+ ββ+2 |dut|− ββ+2 dPer( {u < t })
+
+≤
+
+ˆ
+
+|dut|β+1 dPer( {u < t })
+
+2/(β+2) ˆ 1
+
+|dut| dPer( {u < t })
+
+β/ (β+2) 
+
+,
+
+for a.e. t ∈ (0 , 1) such that also ´ 1 
+
+> |dut|
+
+dPer( {u < t }) < +∞ (recall that almost every t has this property). The above can be rewritten as (6.14) 
+
+ˆ
+
+|dut|β+1 dPer( {u < t })
+
+2/β 
+
+≥ Cap( Kt)β+2 /β 
+
+ˆ 1
+
+|dut| dPer( {u < t })
+
+−1
+
+.
+
+Independently, from the monotonicity of Uβ coupled with the expression of Uβ given in (6.13) we have (Cap( Kt0 )) −α
+
+ˆ
+
+|dut0 |β+1 dPer( {u < t 0}) ≥ (Cap( Kt)) −α
+
+ˆ
+
+|dut|β+1 dPer( {u < t }),MEAN CURVATURE IN METRIC SPACES 27 
+
+for a.e. t < t 0. Raising to the power 2 /β the above inequality and combining it with (6.14) we reach (Cap( Kt0 )) −2α/β 
+
+ˆ
+
+|dut0 |β+1 dPer( {u < t 0})
+
+2/β 
+
+≥ Cap( Kt) NN −2
+
+ˆ 1
+
+|dut| dPer( {u < t })
+
+−1
+
+,
+
+for a.e. t < t 0, where we have used that −2α/β + ( β + 2) /β = NN −2 . Plugging in (6.12) and simplifying, recalling the value of α, we obtain (N − 2) 2 N −1  
+
+> N−2
+
+(θσ N ) 2 
+
+> N−2
+
+ˆ 1
+
+|du| dPer( {u < t }) ≥ 1
+
+t Cap( Kt) NN −2 = (Cap( K)) NN −2 t− NN −2 −1,
+
+for a.e. t < t 0. Integrating between ( τ, t 0) we get (N − 2) 2 N −1  
+
+> N−2
+
+(θσ N ) 2  
+
+> N−2
+
+m({| du| > 0} ∩ { u > τ }} ) ≥
+
+ N − 2
+
+N
+
+
+
+(Cap( Kτ ) NN −2 − Cap( Kt0 ) NN −2 ).
+
+Applying the sharp isocapacitary inequality (6.1) (N − 2) 2 N −1  
+
+> N−2
+
+(θσ N ) 2  
+
+> N−2
+
+m(Kτ ) ≥
+
+ N − 2
+
+N
+
+
+
+(( N (N − 2)) NN −2 (AVR (X) ωN ) 2  
+
+> N−2
+
+m(Kτ ) − Cap( Kt0 ) NN −2 ).
+
+Dividing by m(Kτ ) on both sides and sending τ → 0+, since m(Kτ ) → +∞, we finally reach (N − 2) 2 N −1  
+
+> N−2
+
+(θσ N ) 2  
+
+> N−2
+
+≥ (N − 2) 2 N −1  
+
+> N−2
+
+(AVR (X) σN ) 2  
+
+> N−2
+
+,
+
+which contradicts the assumption that θ < AVR (X) . □
+
+Remark 6.6. A stronger statement than (6.10) actually holds, meaning that the right-hand side of (6.10) actually coincides with lim t→0+ Uβ (t) (from which the inequality follows by monotonicity). The proof of this fact is much more involved than the one for (6.10) and requires careful integral-asymptotic expansion for both u and |du|. In the smooth setting this was done in [1] and later extended to the RCD-setting in [39, Theorem 3.7.9]. Our proof of (6.10) was more direct without using the expression for lim t→0+ Uβ (t). This argument first appeared in [9], where it is used in the smooth setting to prove an analogous inequality related to the p-electrostatic potential. We are now ready to prove the sharp Willmore inequality stated in the introduction. 
+
+Proof of Theorem 1.4. Set p := β + 1 . By Lemma 5.2 ´ |du|β+1 dPer( {u < t }) has a continu-ous representative in (0 , 1) that we denote by R|du|β+1 . Moreover by Lemma 5.3 the function 
+
+´ H(u)|du|β dPer( {u < t }) is in BV loc (0 , 1) and so has a (pointwise) minimal upper semicontinuous representative that we denote by RH|du|β (i.e. the one obtained by choosing the larger value in the jump points). From Theorem 6.4 we know that U ′ 
+
+> β
+
+∈ BV loc (0 , 1) and 
+
+U ′ 
+
+> β
+
+(t) = βt − β(N −1)  
+
+> N−2
+
+
+
+−RH|du|β − N − 1
+
+N − 21
+
+t R|du|β+1 
+
+
+
+, a.e. t ∈ (0 , 1) .
+
+By our choice of RH|du|β we can then check that the right-hand side must coincide with the maximal lower semicontinuous representative of U ′ 
+
+> β
+
+. Hence, again by Theorem 6.4, (6.15) −RH|du|β (t) ≥ N − 1
+
+N − 21
+
+t R|du|β+1 + 1
+
+β t β(N −1)   
+
+> N−2−2
+
+R(t), for all t ∈ (0 , 1) ,
+
+where R(t) := Cβ,N 
+
+´ 
+
+> {u<t }
+
+u2|d|du 12−N | β 
+
+> 2
+
+|2dm ≥ 0. On the other hand by Young’s inequality for all 
+
+s > 0 it holds 
+
+−RH|du|β − sβ ββ + 1 R|du|β+1 ≤ 1
+
+sβ2
+
+1
+
+β + 1 Wβ+1 , a.e. in (0 , 1) .
+
+Since the left-hand side is lower semicontinuous, by the maximality of Wβ+1 we deduce that the inequality holds pointwise in (0 , 1) . Optimizing in s we obtain (6.16) −RH|du|β ≤ (Wβ+1 ) 1 
+
+> β+1
+
+(R|du|β+1 ) ββ+1 , pointwise in (0 , 1) .28 N. GIGLI AND I. Y. VIOLO 
+
+Combining (6.16) with (6.15) we obtain (Wβ+1 ) 1 
+
+> β+1
+
+≥ N − 1
+
+N − 21
+
+t R 
+
+> 1
+> β+1
+> |du|β+1
+
++ ( R|du|β+1 ) −ββ+1 1
+
+β t β(N −1)   
+
+> N−2−2
+
+R(t)(6.17) = N − 1
+
+N − 2
+
+
+
+t βN −2 −1Uβ (t)
+
+ 1
+
+> β+1
+
++ ( R|du|β+1 ) −ββ+1 1
+
+β t β(N −1)   
+
+> N−2−2
+
+R(t)Since R(t) ≥ 0 and recalling the lower bound for Uβ given in (6.10), we obtain (1.6). Suppose now that equality holds in (1.6) for some t = t0. Then from (6.17) we obtain R(t0) = 0 which implies that |d|dv| β 
+
+> 2
+
+| = 0 in {u < t 0}, where v := u 12−N . From this we conclude exactly as in [24, Theorem 7.1]. □
+
+In the following stability result we show that almost equality in the Willmore inequality implies that the space is almost a cone. 
+
+Theorem 6.7 (Almost rigidity of the Willmore-type inequality) . For all positive constants ε, C, θ, ρ, ε 0,all N > 2 and β ∈ ( N −2  
+
+> N−1
+
+, 1] there exists δ = δ(ε, C, ρ, θ, N, β, ε 0) > 0 such that the following holds. Let X be an RCD(0 , N ) space with AVR (X) ≥ θ > 0 and suppose u is an electrostatic potential for a compact set K ⊂ X. Suppose that Bρ(x0) ⊂ K, m(B1(x0)) ≤ C, diam (K) ≤ C, Cap( K) ≤ C and 
+
+∥| du|∥ L∞({u<t 0}) ≤ C for some t0 ∈ (ε0, 1) .
+
+Suppose finally that 
+
+(6.18) W 
+
+> 1
+> β+1
+> β+1
+
+(t0)
+
+N − 1 ≤ (AVR (X) σN ) β 
+
+> (β+1)( N−2)
+
+ 1
+
+t0
+
+Cap( K)
+
+N − 2
+
+ N −2−β 
+
+> (β+1)( N−2)
+
++ δ. 
+
+Then 
+
+dpmGH ((X , d, m, x 0), (X ′, d′, m′, x ′)) < ε, 
+
+where (X ′, d′, m′, x ′) is a pointed RCD(0 , N ) space which is a truncated cone outside a compact set 
+
+K′ ⊂ BR0 (x′) with R0 depending only on ρ, N, θ, β, ε 0 and C (but not ε). Proof. We can assume ε < 1. Combining (6.18) with (6.17) we have (6.19) R(t0) ≤ (N − 1) δ(R|du|β+1 (t0)) ββ+1 βt 2− β(N −1)   
+
+> N−2
+
+≲ε0,N δ(R|du|β+1 (t0)) ββ+1 ,
+
+since β ≤ 1 and t0 ∈ (ε0, 1) . To get an upper bound for R|du|β+1 we write 
+
+R|du|β+1 (t) = 
+
+ˆ
+
+|du|β+1 dPer( {u < t }) ≤ Cβ
+
+ˆ
+
+|du| dPer( {u < t }) = Cβ Cap( K),
+
+for a.e. t ∈ (0 , t 0). In the last equality we used the fact that ´ |du|Per( {u < t }) is a.e. equal to a constant (see e.g. [24, pag. 37]) combined with Proposition 2.5. Since R|du|β+1 and rightmost term are both continuous, the final bound holds in fact also at t = t0. Recalling the expression for R(t)we obtain ˆ
+
+> {u<t 0}
+
+v2−N |d|d√v| β 
+
+> 2
+
+|2dm ≤ δC β2 
+
+> β+1
+
+Cap( K) ββ+1 ≲C,N,β δ, 
+
+where v := u 22−N . Hence the result follows by applying [24, Theorem 6.7], once we check that 
+
+∥| d√v|∥ L∞({u<t 0}) ≤ L and v ≥ 1 + ε in X \ BR0 (x0), where L and R0 are constants depending only on ρ, N, θ and C (but not ε). To this aim we can apply decay bounds for u in [24, Proposition 5.2] to obtain that (6.20) c−1d(x0, x )2−N ≤ u(x) ≤ cd(x0, x )2−N , for all x ∈ X \ Br0 (x0),
+
+where c ≥ 1 and r0 depend only on ρ, N, θ and C. We can also assume that r0 > C so that 
+
+K ⊂ Br0 (x0). The second bound in (6.20) gives that v ≥ 2 ≥ 1 + ε in X \ BR0 (x0) choosing R0
+
+sufficiently big depending only on r0, c and N. To show the bound on |d√v| we use the assumption MEAN CURVATURE IN METRIC SPACES 29 
+
+∥| du|∥ L∞({u<t 0}) ≤ C and the fact that u ≥ min( c−1r2−N 
+
+> 0
+
+, 1) in Br0 (x0) \ K, by the first in (6.20) and the maximum principle, to obtain 
+
+∥| d√v|∥ L∞({u<t 0}∩ Br0 (x0)) ≤ 1
+
+N − 2 Cmin( c−1r2−N 
+
+> 0
+
+, 1) 1−NN −2 .
+
+On the other hand combining the first inequality in (6.20) with the gradient estimate for harmonic functions (see [26, Theorem 1.1]) we have 
+
+|d√v|(x) ≤ C(N )
+
+d(x, ∂K )u(x) 1 
+
+> N−2
+
+≤ C(N )c 1  
+
+> N−2
+
+d(x, x 0)
+
+d(x, ∂K ) ≤ C(N )c 1  
+
+> N−2
+
+d(x, x 0)
+
+d(x, x 0) − C ≤ C(N )c 1  
+
+> N−2
+
+r0
+
+r0 − C
+
+m-a.e. in {u < t 0} \ Br0 (x0). Combining the last two inequalities we obtain the desired upper bound for ∥| d√v|∥ L∞({u<t 0}) and conclude the proof. □
+
+Let us stress that the assumption ∥| du|∥ L∞({u<t 0}) ≤ C in the above statement is not too restric-tive. For example if K is the closure of an open set with smooth boundary in a smooth Riemannian manifold, then |du| is bounded even in the whole X \ K. In the case of non-smooth spaces see instead the discussion before Proposition 7.5 in [24]. 
+
+Acknowledgments. The second author is funded by the European Union (ERC, ConFine, 101078057). The present work originated during the writing of the PhD thesis of the second author [39]. 
+
+References 
+
+[1] V. Agostiniani, M. Fogagnolo, and L. Mazzieri , Sharp geometric inequalities for closed hypersurfaces in manifolds with nonnegative Ricci curvature , Invent. Math., 222 (2020), pp. 1033–1101. [2] V. Agostiniani and L. Mazzieri , Monotonicity formulas in potential theory , Calc. Var. Partial Differential Equations, 59 (2020), pp. Paper No. 6, 32. [3] L. Ambrosio , Some fine properties of sets of finite perimeter in Ahlfors regular metric measure spaces , Adv. Math., 159 (2001), pp. 51–67. [4] L. Ambrosio and S. Di Marino , Equivalent definitions of BV space and of total variation on metric measure spaces , J. Funct. Anal., 266 (2014), pp. 4150–4188. [5] L. Ambrosio, N. Gigli, and G. Savar´ e, Metric measure spaces with Riemannian Ricci curvature bounded from below , Duke Math. J., 163 (2014), pp. 1405–1490. [6] L. Ambrosio and S. Honda , New stability results for sequences of metric measure spaces with uniform Ricci bounds from below , in Measure theory in non-smooth spaces, Partial Differ. Equ. Meas. Theory, De Gruyter Open, Warsaw, 2017, pp. 1–51. [7] L. Ambrosio and S. Masnou , A direct variational approach to a problem arising in image reconstruction ,Interfaces and Free Boundaries, 5 (2003), pp. 63–81. [8] G. Antonelli, E. Pasqualetto, M. Pozzetta, and I. Y. Violo , Topological regularity of isoperimetric sets in PI spaces having a deformation property , Proc. Roy. Soc. Edinburgh Sect. A, 155 (2025), pp. 611–633. [9] L. Benatti, M. Fogagnolo, and L. Mazzieri , Minkowski inequality on complete Riemannian manifolds with nonnegative Ricci curvature , Analysis & PDE, 17 (2024), pp. 3039–3077. [10] L. Benatti, A. Pluda, and M. Pozzetta , Fine properties of nonlinear potentials and a unified perspective on monotonicity formulas , arXiv preprint arXiv:2411.06462, (2024). [11] A. Bj¨ orn and J. Bj¨ orn , Nonlinear potential theory on metric spaces , vol. 17 of EMS Tracts in Mathematics, European Mathematical Society (EMS), Z¨ urich, 2011. [12] E. Bru` e, E. Pasqualetto, and D. Semola , Rectifiability of the reduced boundary for sets of finite perimeter over RCD( K, N ) spaces , J. Eur. Math. Soc., 25 (2023), pp. 413–465. [13] A. Burtscher, C. Ketterer, R. J. McCann, and E. Woolgar , Inscribed radius bounds for lower Ricci bounded metric measure spaces with mean convex boundary , SIGMA Symmetry Integrability Geom. Methods Appl., 16 (2020), pp. Paper No. 131, 29. [14] F. Cavalletti and A. Mondino , Optimal transport in Lorentzian synthetic spaces, synthetic timelike Ricci curvature lower bounds and applications , Camb. J. Math., 12 (2024), pp. 417–534. [15] T. H. Colding , New monotonicity formulas for Ricci curvature and applications. I , Acta Mathematica, 209 (2012), pp. 229 – 263. 30 N. GIGLI AND I. Y. VIOLO 
+
+[16] C. Debin, N. Gigli, and E. Pasqualetto , Quasi-continuous vector fields on RCD spaces , Potential Anal., 54 (2021), pp. 183–211. [17] M. Fogagnolo, L. Mazzieri, and A. Pinamonti , Geometric aspects of p-capacitary potentials , Annales de l’Institut Henri Poincar´ e C, Analyse non lin´ eaire, 36 (2019), pp. 1151–1179. [18] N. Gigli , On the differential structure of metric measure spaces and applications , Mem. Amer. Math. Soc., 236 (2015), pp. vi+91. [19] , Nonsmooth differential geometry - an approach tailored for spaces with Ricci curvature bounded from below ,Mem. Amer. Math. Soc., 251 (2018), p. 161. [20] N. Gigli , De Giorgi and Gromov working together . arXiv:2306.14604, 2023. [21] N. Gigli, A. Mondino, and G. Savar´ e, Convergence of pointed non-compact metric measure spaces and stability of Ricci curvature bounds and heat flows , Proc. Lond. Math. Soc. (3), 111 (2015), pp. 1071–1129. [22] N. Gigli and E. Pasqualetto , Lectures on Nonsmooth Differential Geometry , SISSA Springer Series 2, 2020. [23] , Lectures on Nonsmooth Differential Geometry , SISSA Springer Series 2, 2020. [24] N. Gigli and I. Y. Violo , Monotonicity formulas for harmonic functions in RCD(0 , N ) spaces , J. Geom. Anal., 33 (2023), pp. Paper No. 100, 89. [25] J. Heinonen, P. Koskela, N. Shanmugalingam, and J. T. Tyson , Sobolev Spaces on Metric Measure Spaces: An Approach Based on Upper Gradients , New Mathematical Monographs, Cambridge University Press, 2015. [26] R. Jiang , Cheeger-harmonic functions in metric measure spaces revisited , J. Funct. Anal., 266 (2014). [27] C. Ketterer , The Heintze-Karcher inequality for metric measure spaces , Proc. Amer. Math. Soc., 148 (2020), pp. 4041–4056. [28] P. Lahti, L. s. Mal´ y, N. Shanmugalingam, and G. Speight , Domains in metric measure spaces with boundary of positive mean curvature, and the Dirichlet problem for functions of least gradient , J. Geom. Anal., 29 (2019), pp. 3176–3220. [29] S. D. Marino, N. Gigli, and A. Pratelli , Global lipschitz extension preserving local constants , Atti della Accademia Nazionale dei Lincei. Classe di Scienze Fisiche, Matematiche e Naturali. Rendiconti Lincei. Matematica e Applicazioni, 31 (2020), pp. 757–765. [30] S. Masnou and G. Nardi , A coarea-type formula for the relaxation of a generalized elastica functional , J. Convex Anal., 20 (2013), pp. 617–653. [31] S. Masnou and G. Nardi , Gradient Young measures, varifolds, and a generalized Willmore functional , Advances in Calculus of Variations, 6 (2013), pp. 433–482. [32] M. Miranda , Functions of bounded variation on “good” metric spaces , Journal de Math´ ematiques Pures et Appliqu´ ees, 82 (2003), pp. 975–1004. [33] A. Mondino and D. Semola , Polya-Szego inequality and Dirichlet p-spectral gap for non-smooth spaces with Ricci curvature bounded below , J. Math. Pures Appl. (9), 137 (2020), pp. 238–274. [34] A. Mondino and D. Semola , Weak laplacian bounds and minimal boundaries in non-smooth spaces with Ricci curvature lower bounds , Mem. Amer. Math. Soc., 310 (2025), pp. 1–117. [35] F. Nobili and I. Y. Violo , Rigidity and almost rigidity of Sobolev inequalities on compact spaces with lower Ricci curvature bounds , Calculus of Variations and Partial Differential Equations, 61 (2022). [36] F. Nobili and I. Y. Violo , Stability of Sobolev inequalities on Riemannian manifolds with Ricci curvature lower bounds , Advances in Mathematics, 440 (2024), p. 109521. [37] F. Nobili and I. Y. Violo , Fine P´ olya–Szeg˝ o rearrangement inequalities in metric spaces and applications ,Calculus of Variations and Partial Differential Equations, 64 (2025), p. 276. [38] G. Savar´ e, Self-improvement of the Bakry- ´Emery condition and Wasserstein contraction of the heat flow in 
+
+RCD( K, ∞) metric measure spaces , Discrete Contin. Dyn. Syst., 34 (2014), pp. 1641–1661. [39] I. Y. Violo , Functional and geometric rigidities of RCD spaces and bi-Lipschitz Reifenberg’s theorem in metric spaces , PhD thesis, SISSA, Trieste, 2021. [40] , An overview of regularity results for the Laplacian and p-Laplacian in metric spaces , Indag. Math. (N.S.), 37 (2026), pp. 799–827. [41] W. Wu , Almost rigidity of the Talenti-type comparison theorem on RCD(0 , N ) space , arXiv preprint arXiv:2506.07100, (2025). (N. Gigli) Scuola Internazionale Superiore di Studi Avanzati (SISSA), Via Bonomea 265, 34136, Tri-este, Italy 
+
+Email address : ngigli@sissa.it 
+
+(I. Y. Violo) Universit` a di Pisa, Dipartimento di Matematica, Largo Bruno Pontecorvo, 5, 56127 Pisa, Italy 
+
+Email address : ivanyuri.violo@dm.unipi.it
