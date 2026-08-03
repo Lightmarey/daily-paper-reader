@@ -1,0 +1,2238 @@
+Title: Odd behaviour of even geometries: an explanation for superconvergent geometric consistency errors
+
+URL Source: https://arxiv.org/pdf/2607.29466v1
+
+Published Time: Mon, 03 Aug 2026 01:12:02 GMT
+
+Number of Pages: 40
+
+Markdown Content:
+# Odd behaviour of even geometries 
+
+An explanation for superconvergent geometric consistency errors 
+
+# Hanne Hardering ∗ and Simon Praetorius † and Gentian Zavalani ‡
+
+Abstract. Piecewise polynomial surface approximations used in surface finite element methods of-ten seem to behave better than their standard approximation properties suggest if their polynomial order is even. We explain this superconvergence through cancellation of leading interpolation errors on suitably structured meshes that naturally arise in some refinement processes. This cancellation improves weighted integral estimates for functions, derivatives, and geometric quantities. Applications include estimates for surface normals, the Weingarten map, and Gaussian curvature. Numerical ex-periments reproduce the predicted parity-dependent behaviour and support the proposed explanation of superconvergent geometric consistency errors, while the corresponding pointwise errors retain their standard orders. 
+
+Keywords. surface finite element methods; higher order surface approximation; superconvergence; geometric consistency errors; symmetric triangulations; curvature. 
+
+# 1. Introduction 
+
+Higher order surface finite element methods approximate a smooth surface by a piecewise polynomial parametrization and then solve the discrete problem on this approximate geometry. The standard geometric estimates for such parametrizations are well understood and usually predict hm+1 for the position error, hm for the error in the normal vector, and then one order less for each derivative, with m the polynomial order of the parametrization (see, for example, Demlow, 2009; Kov´ acs, 2018). In computations, however, this is not always the whole story. For several surface finite element discretizations one observes convergence orders that are better than the standard analysis suggests, especially when even-order geometry approximations or even polynomial degrees are used (see, for example, Bonito et al., 2018; Hardering and Praetorius, 2025). Related superconvergence phenomena on special meshes are also known in other finite element settings (Bank and Xu, 2003). 
+
+> ∗Technische Universit¨ at Dresden, Institute of Numerical Mathematics, 01062 Dresden, Germany ( hanne.hardering@ tu-dresden.de ).
+> †Technische Universit¨ at Dresden, Institute of Scientific Computing, 01062 Dresden, Germany ( simon.praetorius@ tu-dresden.de ). Corresponding author.
+> ‡Technische Universit¨ at Dresden, Institute of Numerical Mathematics, 01062 Dresden, Germany ( gentian.zavalani@ tu-dresden.de ).
+
+1arXiv:2607.29466v1 [math.NA] 31 Jul 2026 The aim of this paper is to explain a class of these improvements. The essential point is not only the polynomial degree, but also the local structure of the refined triangulation. On symmetric pairs of elements, i.e., grid elements that are mirror images of each other, the leading contributions in certain interpolation and geometry errors cancel. This produces the characteristic odd-even pattern: even approximation orders gain an extra order in weighted integral quantities, while odd orders do not. Results of this type were proved in the context of surface collocation and surface integration errors in Chien (1993); Atkinson and Chien (1995); Chien (1995); Zavalani et al. (2024). We extend this idea to interpolation errors for functions and their derivatives, and then use these estimates to improve bounds for geometric quantities such as the normal vector, the Weingarten map, and curvature. Our analysis is formulated for grid sequences obtained from an initial macro-triangulation by struc-tured refinement. The main examples are red refinement and related refinement patterns that preserve a symmetric pair-structure on each macro element. The initial grid itself is only required to satisfy the usual finite element assumptions, such as shape regularity. The additional symmetry enters on the refined macro-elements and is used only for the improved estimates. This setup is very common in con-vergence studies of surface finite element discretization. The numerical experiments also indicate that some of these structural requirements may be relaxed, for instance for certain newest-vertex-bisection refinements (Rivara, 1984), but the proofs in this paper use the explicit symmetric structure. A second point of emphasis is the choice of lifting. We primarily work with the lifting induced by the surface parametrization, in the spirit of Nedelec (1976), and distinguish it from the closest-point lifting used, for example, by Heine (2004); Demlow (2009). This distinction matters when derivatives and geometry-dependent quantities are compared on the smooth and discrete surfaces. We show that the improved interpolation estimates already hold for the parametrization lifting, and we also record how the closest-point projection enters some of the geometric applications. The main technical contribution is an interpolation theory for weighted integrals on symmetric macro-elements and its transfer to curved surfaces. For function values and for first derivatives with sufficiently regular weights, the cancellation yields the same improved order. The higher-order deriva-tive case is more technical and less common in finite-element computations, so the corresponding notation, estimates, and numerical verification are collected in the appendix. There the improvement depends on the interplay between the geometry order m, the function interpolation order r, and the derivative order r. This derivative-order dependence is one of the features that is not visible in the classical surface approximation estimates. The improved estimates for normal vectors and curvature are relevant whenever geometric consis-tency terms enter a surface finite element error analysis. This occurs, for example, in vector- and tensor-valued surface PDEs, surface Stokes discretizations, and problems involving curvature terms (Hansbo et al., 2020; Hardering and Praetorius, 2023, 2025; Hansbo et al., 2015; Cenanovic et al., 2020). The improvement is not automatically sufficient to improve the convergence order of every full discretization: in geometric evolution problems, for instance, separate evolution equations for normal vectors or curvature can still be essential for optimal schemes (Kov´ acs et al., 2019). Nevertheless, the estimates identify which geometric error terms are genuinely smaller on structured even geometries. The paper is organized as follows. In Section 2 we introduce the surface parametrizations, discrete surfaces, liftings, and mesh assumptions, including the symmetric macro-triangulations used later. In Section 3 we prove the improved flat macro-element estimates and lift them to curved surfaces. In Section 4 we apply the interpolation theory to geometric quantities. Finally, Section 5 verifies the 2predicted orders numerically and documents additional observations about the role of the refinement structure. The higher-order lifted derivative interpolation estimates and their numerical tests are given in Section A and some additional numerical tests in Section B show observations beyond the proved results. 
+
+# 2. Surface and discrete surface approximation 
+
+In this section we collect the geometric notation used throughout the paper. Let m ≥ 1 denote the polynomial order used for the geometry approximation. We assume that Γ is a connected, oriented, closed, two-dimensional Cm+2 hypersurface in R3.
+
+2.1. Surface parametrization and discrete geometry 
+
+Let Γ be a fixed two-dimensional reference surface given by a conforming triangulation T = T h0 ,called macro grid, consisting of finitely many nondegenerate planar triangles, called macro elements. On each macro element Ω, we use its flat affine structure. After choosing an orthonormal basis 
+
+{¯ej }2 
+
+> j=1
+
+of its tangent plane, we define, for a vector-valued map f : Ω → R3,¯Df (¯ x) := ( ∂j fi)ij (¯ x) ∈ R3×2.
+
+Flat Sobolev norms on Ω and on elements T ⊂ Ω are defined with respect to these derivatives. Since the macro grid is fixed and finite, all choices of orthonormal bases are equivalent. Whenever the inverse of a rectangular Jacobian is used, it is understood in the Moore–Penrose sense and denoted by ( ¯Df )+.
+
+Assumption 1 (Admissible macro parametrization) . For every macro element Ω ∈ T , there exists a map ΦΩ ∈ Cm+2 (Ω; R3) whose restriction to the relative interior of Ω is an embedding. We define the corresponding surface patch by ΓΩ := Φ Ω(Ω) ⊂ Γ. The patch images form a conforming partition of 
+
+Γ. Whenever two macro elements share an edge, the corresponding parametrizations coincide on that edge, so that the local maps glue to a continuous map Φ : Γ → Γ, Φ|Ω = Φ Ω. We assume that Φ is a homeomorphism from Γ onto Γ. The parametrizations are uniformly regular: for every Ω ∈ T , we assume that ¯DΦΩ has full column rank and bounded smallest singular values. 
+
+We assume this parametrization throughout the paper. We refer to Assumption 1 explicitly only when a particular property, such as uniform regularity or compatibility across macro-element inter-faces, is used in the argument. 
+
+Assumption 2 (Admissible triangulation) . For every h ≤ h0, let T h denote a conforming refinement of the macro grid, and let Γh be the reference surface equipped with this refined triangulation. As sets the domains coincide, i.e., Γh = Γ . For every macro element Ω ∈ T , we write T h, Ω ⊂ T h for the induced triangulation of Ω. We assume that the refined triangulations are uniformly shape regular and quasi-uniform with grid size h = max T ∈T h diam( T ).
+
+Throughout the paper, generic constants may depend on the uniform regularity bounds of the parametrizations, and the fixed macro grid, but are independent of the refinement level h. Further assumptions on the refined triangulations will be stated separately when they are needed. 3On each element T ∈ T h, Ω let FT : Tref → T be the affine map from the reference triangle. The degree-m geometry approximation is the elementwise Lagrange interpolation of the smooth patch map: (Φ mT ◦ FT )( ξ) := I m 
+
+> ref
+
+(Φ Ω ◦ FT )( ξ) := 
+
+> nm
+
+X
+
+> i=1
+
+ΦΩ
+
+ FT (ξmi )ϕmi (ξ), ξ ∈ Tref . (2.1) Here {ξmi }nm 
+
+> i=1
+
+are the degree-m Lagrange nodes on Tref with basis functions ϕmi . We define Φ mh, Ω|T := ΦmT and Γ mh, Ω := Φ mh, Ω(Ω). Since the exact macro maps agree on common macro edges and the same Lagrange interpolation is used from both sides, the maps Φ mh, Ω glue to a continuous global piecewise polynomial map Φ mh ∈ C0(Γ , R3) with Φ mh |Ω = Φ mh, Ω and Γmh := Φ mh (Γ) = [
+
+> Ω∈T
+
+Γmh, Ω.
+
+Coordinates in the domain Ω are denoted by ¯ x, coordinates in Γ by x, and coordinates in Γ mh by ˆ x.If the active macro element is clear from context, we write Φ and Φ mh instead of Φ Ω and Φ mh, Ω.Let Uδ ⊂ R3 be a δ-neighbourhood of Γ such that the signed distance function ρΓ is of class Cm+2 
+
+in Uδ and the closest-point projection π : Uδ → Γ is unique. See Dziuk and Elliott (2013, Lemma 2.8). It is given by 
+
+π(x) := x − ρΓ(x)n(π(x)) , (2.2) with ρΓ(x) < 0 for x in the interior of Γ and n := Dρ Γ the outer surface normal field. The latter is extended constant in normal direction, n(x) .
+
+= n(π(x)). 
+
+Lemma 2.1 (Regularity of the interpolated geometry) . Under Assumption 1, for h sufficiently small each Φmh, Ω is elementwise regular and is a homeomorphism from Ω onto Γmh, Ω. Moreover, ¯DΦmh, Ω has full column rank on each element, with rank constants independent of h. The global map Φmh : Γ → Γmh
+
+is a homeomorphism. In addition, π|Γmh : Γ mh → Γ is a homeomorphism. Proof. The interpolation estimates for curved finite elements (see, e.g. Nedelec, 1976, Lemma 1) imply 
+
+∥ΦΩ − Φmh, Ω∥W 1,∞(Ω) → 0 on every macro element. Hence, the uniform lower bound for the singular values of ¯DΦΩ is inherited by ¯DΦmh, Ω for all sufficiently small h, with constants independent of h. The standard perturbation argument for regular isoparametric mappings then shows that the element maps are regular and that the glued map Φ mh : Γ → Γmh is a homeomorphism, because Φ is a homeomorphism and Φ mh is uniformly close to Φ. The same argument applied on a single macro element gives that Φmh, Ω : Ω → Γmh, Ω is a homeomorphism. Finally, ∥Φ − Φmh ∥L∞(Γ) → 0 implies Γ mh ⊂ Uδ, and the C1
+
+closest-point projection satisfies π ◦ Φmh → Φ in the same piecewise W 1,∞ sense. Thus, π ◦ Φmh is again a homeomorphism from Γ onto Γ, and π|Γmh = ( π ◦ Φmh ) ◦ Φmh −1 is a homeomorphism. By Lemma 2.1, for h sufficiently small the discrete elements are regular and Γ mh ⊂ Uδ. We denote by nmh the elementwise normal vector on Γ mh , choosing the orientation consistent with n.Surface derivatives are defined by first differentiating on the flat domain Ω and then lifting these derivatives to Γ and Γ mh through the parametrizations Φ and Φ mh , respectively. Let f : Γ → R be a scalar function and denote derivatives on Ω by ∇ = ( ∂j )2
+
+> j=1
+
+. For the pullback ¯f := f ◦Φ, the tangential gradient satisfies (∇Γf ) ◦ Φ = ∇ ¯f · ( ¯DΦ) +.
+
+4The analogous formula with Φ mh defines ∇Γmh elementwise on Γ mh . We use ∇ for covariant derivatives on surfaces and ¯D and D for Jacobians of mappings on Ω and R3, respectively. If f ∈ C1(Uδ, R) is defined in a neighbourhood of the surface, then ∇Γ f |Γ = ( P Df )|Γ, with P := I − n ⊗ n. For vector fields v ∈ C1(Uδ, R3) we write ∇Γv = P DvP for the surface Jacobian and ∇Γ · v = tr( P Dv) for the surface divergence. The corresponding discrete definitions use Ph := I − nmh ⊗ nmh elementwise. All derivatives, normals, and conormals on Γ mh are understood elementwise unless stated otherwise. Jumps across interelement edges are allowed and are used later. We also introduce curvature terms on the continuous and discrete surface. The Weingarten map on Γ is denoted by H := −∇ Γn. Its trace defines the mean curvature H := tr H = −∇ Γ · n. For two-dimensional surfaces we also use the Gaussian curvature K := 12
+
+ (tr H)2 − tr( H2). On Γ mh the quantities are defined elementwise in the same fashion. In the following lemma we collect approximation results for these geometric quantities. 
+
+Lemma 2.2. The surface approximation Γmh, Ω of ΓΩ fulfills standard geometric estimates. 
+
+∥ρΓ∥L∞(Γ mh, Ω) ≤ ∥ Φ − Φmh ∥L∞(Ω) ≤ Ch m+1 , (2.3) max   
+
+> T∈T h, Ω
+
+∥Φ − Φmh ∥W l, ∞(T ) ≤ Ch m+1 −l, 0 ≤ l ≤ m + 1 , (2.4) 
+
+∥n ◦ π − nmh ∥L∞(Γ mh, Ω) ≤ Ch m. (2.5) max   
+
+> T∈T h, Ω
+
+∥H ◦ π − Hh∥L∞(Γ mh, Ω) ≤ Ch m−1. (2.6) 
+
+Proof. The estimates (2.3) and (2.4) follow from the standard interpolation estimates for the patch maps and the definition of the surface distance function ρΓ (cf. Nedelec, 1976, Lemma 1). The normal vector estimate (2.5) and Weingarten map estimate (2.6) follow by arguments similar to those in Demlow (2009, Proposition 2.3). In order to compare derivatives on Γ and Γ mh we need the following lemma. 
+
+Lemma 2.3. Let ΦΩ and Φmh, Ω be defined as above on a fixed macro element Ω, and let h be sufficiently small. Then the following elementwise estimate holds: 
+
+max   
+
+> T∈T h, Ω
+
+∥( ¯DΦ) + − ( ¯DΦmh )+∥L∞(T ) ≤ Ch m, (2.7) 
+
+with constant C depending on ¯DΦ.Proof. By the uniform regularity in Assumption 1, σmin ( ¯DΦ) is bounded away from 0 on Ω. By (2.4), ¯DΦmh converges uniformly to ¯DΦ. Hence, for h sufficiently small, both ¯DΦ and ¯DΦmh have uniformly bounded norms and uniformly bounded inverse Gram matrices. We set 
+
+A := ¯DΦ, B := ¯DΦmh , GA := A⊤A, GB := B⊤B. 
+
+Since A+ = G−1 
+
+> A
+
+A⊤ and B+ = G−1 
+
+> B
+
+B⊤, the identity 
+
+A+ − B+ = G−1 
+
+> A
+
+(A − B)⊤ + G−1 
+
+> A
+
+(GB − GA)G−1 
+
+> B
+
+B⊤
+
+5holds pointwise. Moreover, GB − GA = B⊤(B − A) + ( B − A)⊤A. The uniformly bounded factors in these two identities give 
+
+∥( ¯DΦ) + − ( ¯DΦmh )+∥ ≤ C∥ ¯DΦ − ¯DΦmh ∥.
+
+Taking the L∞ norm on each element T ⊂ Ω and using Lemma 2.2 (2.4) gives (2.7). By Lemma 2.1, the surfaces Γ Ω and Γ mh, Ω parametrized over Ω induce the area elements d σ = μd¯ σ
+
+and d σh = μmh d¯ σ, where μ = μ[Φ] and μmh = μ[Φ mh ] with 
+
+μ[f ](¯ x) := 
+
+q
+
+det  ( ¯Df (¯ x)) ⊤ ¯Df (¯ x).
+
+Lemma 2.4. The area elements fulfill the estimates 
+
+max   
+
+> T∈T h, Ω
+
+sup 
+
+> ¯x∈T
+
+|μ(¯ x) − μmh (¯ x)| ≤ Ch m, (2.8) max   
+
+> T∈T h, Ω
+
+sup 
+
+> ¯x∈T
+
+|μ[π ◦ Φmh ](¯ x) − μmh (¯ x)| ≤ Ch m+1 . (2.9) 
+
+Proof. The first estimate follows from the W 1,∞ geometry estimate (2.4), Lemma 2.1, and the Lips-chitz continuity of A 7 → pdet( A⊤A) on uniformly full-rank 3 × 2 matrices. By Lemma 2.1 and the interpolation estimate, Φ mh defines a uniformly regular polynomial surface in Uδ. Hence the projected area estimate of Nedelec (1976, Lemma 3) applies and gives the second estimate. 
+
+2.2. Functions, interpolation, and liftings 
+
+Sobolev norms on Γ and on macro patches Γ Ω are the usual surface Sobolev norms. On individual curved exact or discrete elements, these norms are equivalently defined by pullback, with constants uniform in h. For discrete functions on Γ mh , derivatives are evaluated elementwise on the surface elements Φ mh (T ). Interpolation of functions is also defined by pullback to the flat macro element or the reference element. 
+
+Definition 2.5. The flat Lagrange interpolation Irh : C0(Γ) → C0(Γ) and the induced surface interpo-lation Irh,m : C0(Γ) → C0(Γ mh ) are defined elementwise by 
+
+Irh,m (f ) ◦ Φmh := I rh(f ◦ Φ) := I r 
+
+> ref
+
+(f ◦ Φ ◦ FT ) ◦ F −1 
+
+> T
+
+, T ∈ T h, Ω, Ω ∈ T .
+
+Here Ir 
+
+> ref
+
+denotes polynomial interpolation of order r on the reference element Tref .
+
+By Lemma 2.1, for h sufficiently small the parametrization lifting is well defined by 
+
+L := Φ ◦ (Φ mh )−1 : Γ mh, Ω → ΓΩ (2.10) on each macro patch. It is tied to the construction of Γ mh and to the interpolation operator because exact and discrete functions are pulled back to the same flat macro element. The closest-point projec-tion π : Γ mh → Γ is the standard geometric lifting in surface finite element analysis. The same lemma states that π|Γmh is a homeomorphism onto Γ. Thus π−1 below means the inverse of this restricted projection. The following estimate compares the two liftings. 6Lemma 2.6. Let T ∈ T h, Ω and set Th := Φ mh (T ) ⊂ Γmh, Ω. There exists an element neighbourhood 
+
+ωT,h ⊂ Γmh, Ω of Th with diam( ωT,h ) ≤ Ch such that L(ωT,h ) ⊃ π(Th) and π(ωT,h ) ⊃ L(Th). Let 
+
+f ∈ W l+1 ,∞(D) with D either L(ωT,h ) or π(ωT,h ) for some l ≤ m. Then 
+
+∥f ◦ L − f ◦ π∥W l, ∞(Th) ≤ Ch m+1 −l∥f ∥W l+1 ,∞(D). (2.11) 
+
+Proof. Pulling back to T gives (L − π) ◦ Φmh = Φ − π ◦ Φmh .
+
+Since π ◦ Φ = Φ, the smoothness of π on Uδ, Lemma 2.1, and (2.4) imply ∥L − π∥W l, ∞(Th) ≤ Ch m+1 −l
+
+for l ≤ m. The neighbourhood ωT,h is chosen as a uniformly bounded element patch around Th that contains the images required by L and π. The chain rule then gives 
+
+∥f ◦ L − f ◦ π∥W l, ∞(Th) ≤ C∥f ∥W l+1 ,∞(D)∥L − π∥W l, ∞(Th)
+
+≤ Ch m+1 −l∥f ∥W l+1 ,∞(D).
+
+2.3. Symmetric macro triangulation 
+
+The refinement procedure for obtaining Γ h from the macro parameter surface Γ = Γ h0 can produce additional symmetric structure. By “symmetric structure” we mean that, after some initial refinement, pairs of elements appear that are mirror images of each other and meet in a single point. More precisely: 
+
+Definition 2.7. We call a pair T1, T 2 ∈ T h, Ω symmetric if both elements meet in a single point ¯x0,i.e., T1 ∩ T2 = {¯x0}, and there are affine reference mappings FT1 : Tref → T1 and FT2 : Tref → T2 such that 
+
+FT1 (ξ) − ¯x0 = ¯ x0 − FT2 (ξ),
+
+with FT1 (0) = FT2 (0) = ¯ x0. See Figure 1 for an illustration. 
+
+We first record one refinement strategy that produces this structure. In red refinement (Bank et al., 1983), each triangle is subdivided into four congruent subtriangles by connecting the edge midpoints. This refinement strategy is very common in finite element grid implementations (e.g., Sander et al., 2017). 
+
+Lemma 2.8 (Symmetric pair decomposition for red refinement) . Assume that T h, Ω is obtained from the macro triangle Ω by sufficiently many uniform red refinements. Then there is a disjoint decompo-sition 
+
+T h, Ω = Ah, Ω ˙∪B h, Ω,
+
+where Ah, Ω can be partitioned into disjoint symmetric pairs in the sense of Definition 2.7 and Bh, Ω =
+
+T h, Ω \ A h, Ω is the remainder. Moreover, since h = max T ∈T h diam( T ),
+
+[ 
+
+> T∈B h, Ω
+
+T ⊂ { ¯x ∈ Ω : dist(¯ x, ∂ Ω) ≤ h},
+
+and consequently 
+
+|B h, Ω| ≤ C∂Ωh−1.
+
+The constant C∂Ω depends only on the fixed macro element Ω and the uniform shape-regularity and quasi-uniformity constants. 
+
+7Proof. After two uniform red refinements, the refined macro element is a triangular lattice. Its vertices admit a periodic colouring with three colours such that each fine triangle has exactly one vertex of each colour. We choose one colour class. If ¯ x0 is a chosen interior vertex, then the six fine triangles incident to ¯ x0 form a hexagonal patch. The patches associated with the chosen interior vertices are pairwise disjoint, since every fine triangle has only one vertex of the chosen colour. This decomposition into hexagonal patches is not unique, but we only need the existence of such a pattern. Opposite triangles in each hexagonal patch are reflections of one another with respect to the com-mon vertex ¯ x0. Hence, their affine reference maps can be chosen so that the reflection relation in Definition 2.7 holds. Thus, every interior patch splits into three symmetric pairs. Let Ah, Ω be the union of all triangles belonging to these symmetric pairs, and let Bh, Ω := T h, Ω \A h, Ω.Every fine triangle whose chosen-colour vertex is an interior vertex belongs to exactly one of the patches above. The remaining triangles have their chosen-colour vertex on ∂Ω. Since finite element cells are treated as closed cells and diam( T ) ≤ h, every point of such a triangle has distance at most h from 
+
+∂Ω. This proves the asserted boundary strip inclusion. It remains to count the remainder. The area of the strip {¯x ∈ Ω : dist(¯ x, ∂ Ω) ≤ h} is bounded by C|∂Ω|h for h sufficiently small, with C depending only on the shape of the fixed macro element. Uniform shape regularity and quasi-uniformity give |T | ≥ ch 2 for each fine triangle, with some c > 0independent of h. Hence the number of fine triangles contained in the strip is bounded by C|∂Ω|/c h −1.See Figure 1 for an illustration. 
+
+> ¯x0
+> T2
+> T1
+
+Figure 1: Red refinement of a triangular macro element. Hexagonal groups of six triangles are shaded. Boundary triangles are still white. In the second figure included is a sketch of a symmetric pair of triangles ( T1, T 2) connected in the vertex ¯ x0.
+
+Remark 2.9. Since red refinement is based on dividing all edges of the triangles in half, the boundary 
+
+∂Ω of a macro element refined in that way is composed of equal length line segments in each boundary patch. Whenever this property holds on all macro-element edges, we say that the refined triangulation has a uniform induced boundary triangulation. Consecutive boundary intervals can then be paired on each macro edge, with at most one unpaired interval per macro edge. This is an additional boundary condition and is not part of the definition of a symmetric triangulation. 
+
+Definition 2.10. We call a triangulation T h, Ω symmetric if it admits a decomposition into symmetric pairs and unpaired boundary elements as in Lemma 2.8. A global triangulation T h is also called 
+
+symmetric if all its sub-triangulations T h, Ω for Ω ∈ T are symmetric. 
+
+In the red refinement strategy with global refinement of all elements simultaneously, the global pattern can directly be extracted from the macro element pattern, since neighbouring macro elements have the refinement points in common. 8Figure 2: Newest vertex bisection of a triangular macro element. Quadrilateral groups of four or eight triangles are shaded. 
+
+Remark 2.11 (Newest-vertex bisection) . Newest-vertex bisection (Sewell, 1972; B¨ ansch, 1991) is another common refinement strategy (see also Schmidt and Siebert, 2005; Alk¨ amper et al., 2016). It can produce local symmetric pair structures on a single triangular macro element when the initial marked edge and the inherited newest vertices are fixed in a compatible way. For example, in Figure 2 after three uniform refinement steps one observes groups of four triangles sharing the midpoint of the initial refinement edge. These four triangles form a quadrilateral that can be partitioned into two symmetric pairs. Subsequent uniform bisections generate related local quadrilateral groups among the finitely many similarity classes of newest-vertex bisection refinements (cf. B¨ ansch, 1991). We do not use this observation as a general construction of symmetric triangulations. In a global conforming triangulation, the initial markings, node numbering, and closure refinements near macro-element interfaces can disrupt the simple macro-element-wise pattern. In particular, unpaired elements may occur away from ∂Ω. Although such elements are often expected to form a small set in structured implementations, no general bound is needed for the results below and none is claimed here. 
+
+Remark 2.12. An alternative refinement strategy is the longest-edge bisection (Rivara, 1984). Unlike uniform red refinement, it generally does not yield a symmetric pattern of element pairs covering the interior of each macro element, since the refinement direction depends dynamically on the geometry and aspect ratio of the macro triangle. As a consequence, no global symmetry comparable to that of red refinement arises directly from this strategy. 
+
+# 3. Interpolation errors 
+
+Following Chien (1993, 1995), the symmetric structure of the triangulation can be exploited to obtain sharper integral approximation estimates, compared to Lemma 2.2 and standard interpolation esti-mates. We will present this argument in more detail and extend the findings to a more general setting of geometric quantities in the following subsections. Throughout this section we use the parametrization from Assumption 1 and the shape-regular, quasi-uniform refinements from Assumption 2. The standard interpolation estimates do not require any further mesh structure. The improved integral estimates assume symmetric triangulations in the sense of Definition 2.10. For the estimates in which boundary terms from first derivatives have to cancel, we also assume the uniform induced boundary triangulation described in Remark 2.9. These hypotheses are stated in the local estimates where they are used. 93.1. Interpolation errors over a single macro element 
+
+In this subsection we study interpolation errors on a single flat macro element (macro patch) Ω with symmetric triangulation. Our main goal is to show that, for even interpolation order, symmetry-induced cancellation in Taylor expansions improves the standard interpolation estimates by one order, and in some cases by two orders. We also extend these improved bounds to derivatives of the interpo-lated functions. Throughout this subsection, C denotes a generic constant independent of the mesh size h.We begin by recalling standard interpolation estimates. 
+
+Lemma 3.1. Let Ω ∈ T h0 be a macro element, let ¯f ∈ Ck+2 (Ω; R) with k ≥ 1, and let T h, Ω be a triangulation of Ω with h < h 0 sufficiently small. Consider the piecewise Lagrange interpolation 
+
+¯fh = I kh( ¯f ) ∈ C0(Ω; R). Then, for every multi-index ⃗ β ∈ N20 with 0 ≤ | ⃗ β| ≤ k + 1 , the standard interpolation estimates hold: 
+
+∥ ¯D⃗ β ¯fh − ¯D⃗ β ¯f ∥Lp(Ω) ≤ Ch k+1 −| ⃗β|| ¯f |W k+1 ,p (Ω) , 1 ≤ p < ∞, (3.1) max   
+
+> T∈T h, Ω
+
+∥ ¯D⃗ β ¯fh − ¯D⃗ β ¯f ∥L∞(T ) ≤ Ch k+1 −| ⃗β|| ¯f |Ck+1 (Ω) . (3.2) 
+
+Proof. See, e.g., Ern and Guermond (2021, Corollary 19.8). If one is interested in the integrals of differences instead of norms, and the triangulation is symmetric, the estimates can be improved, whenever the interpolation order minus the derivative order is an even number: 
+
+Theorem 3.2. Let Ω ∈ T h0 be a macro element, let ¯f ∈ Ck+2 (Ω; R) with k ≥ 1, and let T h, Ω be a symmetric triangulation of Ω with h < h 0 in the sense of Definition 2.10. Consider the piecewise Lagrange interpolation ¯fh = I kh( ¯f ) ∈ C0(Ω; R). If ⃗ β ∈ N20 satisfies 0 ≤ | ⃗ β| ≤ k + 2 and k + 2 − | ⃗β| is 
+
+even , then the following improved estimate holds: 
+
+X  
+
+> T∈T h, Ω
+
+Z
+
+> T
+
+( ¯D⃗ β ¯fh − ¯D⃗ β ¯f ) d¯ σ ≤ Ch k+2 −| ⃗β|∥ ¯f ∥Ck+2 (Ω) . (3.3) 
+
+Proof. If |⃗β| = k + 2, then ¯D⃗ β ¯fh = 0 on each element and the estimate follows immediately, since the right-hand side has order h0. We therefore consider |⃗ β| ≤ k + 1 below. We start with |⃗ β| = 0. In each element T ∈ T h, Ω, we use a nodal basis expression for ¯fh and a Taylor expansion for ¯f to obtain the pointwise representation of the error ¯fh(¯ x) − ¯f (¯ x) = 
+
+> nk
+
+X
+
+> i=1
+
+¯ϕi(¯ x)
+
+ X
+
+> |⃗α|=k+1
+
+1⃗α! (¯ xi − ¯x)⃗α ¯D⃗α ¯f (¯ x) + X
+
+> |⃗α|=k+2
+
+1⃗α! (¯ xi − ¯x)⃗α ¯D⃗α ¯f (¯ y(i))
+
+ ,
+
+where ¯ϕi = ϕki ◦ F −1 
+
+> T
+
+is the ith Lagrange basis function on T associated to the Lagrange node ¯ xi =
+
+FT (ξi,k ), and ¯ y(i) ∈ T .10 Now we consider symmetric pairs of triangles, i.e., we assume that there is a mirrored triangle 
+
+T ′ ∈ T h, Ω associated with T as in Definition 2.7. Without loss of generality, the common point is ¯ x0.We write ¯D⃗α ¯f (¯ x) = ¯D⃗α ¯f (¯ x0) + 
+
+> d
+
+X
+
+> β=1
+
+(¯ x − ¯x0)(β) ¯D⃗α,β ¯f (¯ y)for some ¯ y ∈ T ∪ T ′, by another linear Taylor expansion around ¯ x0. For |⃗α| = k + 1 (which is odd), employing the symmetry property of Definition 2.7, we observe that 
+
+Z
+
+> T
+
+¯ϕi(¯ x)(¯ xi − ¯x)⃗α d¯ σ = −
+
+Z 
+
+> T′
+
+¯ϕ′
+
+> i
+
+(¯ x′)(¯ x′ 
+
+> i
+
+− ¯x′)⃗α d¯ σ′,
+
+with ¯ϕ′ 
+
+> i
+
+= ϕki ◦ F −1  
+
+> T′
+
+and ¯ x′ 
+
+> i
+
+= FT ′ (ξki ), since the triangles are symmetric, the basis functions ¯ϕi
+
+(considered on the pair of elements) are even functions, while the Taylor monomial (¯ xi − ¯x)⃗α is odd. The sign flip comes from the mirrored coordinates. Thus, the |⃗α| = k + 1 terms cancel in the integral over the union of the two triangles, and we obtain the estimate from the remainder term 
+
+Z  
+
+> T∪T′
+
+( ¯fh(¯ x) − ¯f (¯ x)) d¯ σ ≤ Ch k+2 ∥ ¯f ∥Ck+2 (T ∪T ′)(|T | + |T ′|).
+
+For a single triangle, the k + 1 term remains, and we obtain the weaker estimate 
+
+Z
+
+> T
+
+( ¯fh(¯ x) − ¯f (¯ x)) d¯ σ ≤ Ch k+1 ∥ ¯f ∥Ck+1 (T )|T |.
+
+As the unpaired triangles in Ω are located only at the boundary ∂Ω, their number is of order h−1,the number of symmetric pairs is of order h−2, and the area scales like |T | ≤ ch 2, compare Lemma 2.8, we indeed obtain order hk+2 for the integral over Ω. For derivatives, we apply the same argument to the differentiated leading term. On a symmetric pair let R¯x := 2¯ x0 − ¯x, so that RT = T ′. For mirrored Lagrange nodes and basis functions, ¯ x′ 
+
+> i
+
+= R¯xi
+
+and ¯ϕ′
+
+> i
+
+(R¯x) = ¯ϕi(¯ x). Hence, for |⃗α| = k + 1, 
+
+D⃗ βy
+
+  ¯ϕ′
+
+> i
+
+(y)(¯ x′ 
+
+> i
+
+− y)⃗α  
+
+> y=R¯x
+
+= ( −1) |⃗α|−| ⃗ β| ¯D⃗ β   ¯ϕi(¯ x)(¯ xi − ¯x)⃗α .
+
+Thus, the differentiated leading terms cancel over T ∪ T ′ whenever k + 2 − | ⃗ β| is even. Taylor’s formula with integral remainder and affine scaling give ¯D⃗ β ( ¯fh − ¯f ) = 
+
+> nk
+
+X
+
+> i=1
+
+X
+
+> |⃗α|=k+1
+
+¯D⃗α ¯f (¯ x0)⃗α! ¯D⃗ β  ¯ϕi(¯ x)(¯ xi − ¯x)⃗α 
+
++ Rk+2 −| ⃗β|,
+
+where 
+
+∥R k+2 −| ⃗β|∥L∞(T ∪T ′) ≤ Ch k+2 −| ⃗β|∥ ¯f ∥Ck+2 (T ∪T ′).
+
+The paired elements are therefore estimated using this cancellation, while the unpaired boundary elements are estimated by the standard interpolation bound. Summing them as above proves the assertion. 11 We can generalize Theorem 3.2 by introducing a weight function in the integrals: 
+
+Corollary 3.3. Let the assumptions of Theorem 3.2 hold, let ¯g ∈ W 1,1(Ω) , and let ⃗ β ∈ N20 satisfy 
+
+0 ≤ | ⃗β| ≤ k + 2 with k + 2 − | ⃗ β| even. Then 
+
+X  
+
+> T∈T h, Ω
+
+Z
+
+> T
+
+¯g · ( ¯D⃗ β ¯fh − ¯D⃗ β ¯f ) d¯ σ ≤ Ch k+2 −| ⃗β|∥¯g∥W 1,1(Ω) ∥ ¯f ∥Ck+2 (Ω) . (3.4) 
+
+Proof. If |⃗ β| = k + 2, then ¯D⃗ β ¯fh = 0 on each element and the asserted estimate is the immediate bound Z
+
+> Ω
+
+¯g ¯D⃗ β ¯f d¯ σ ≤ C∥¯g∥L1(Ω) ∥ ¯f ∥Ck+2 (Ω) .
+
+We may therefore assume |⃗β| ≤ k + 1. Let T be either the union of a pair of symmetric triangles, 
+
+T = T1 ∪ T2, or an unpaired triangle, T = T , and set QT := conv( T). Since Ω is convex, QT ⊆ Ω, and shape regularity gives diam( QT) ≤ Ch . Thus, the Poincar´ e inequality on the convex hull implies 
+
+∥¯g − ⟨ ¯g⟩QT ∥L1(T) ≤ Ch ∥¯g∥W 1,1(QT),
+
+where ⟨¯g⟩QT = |QT|−1 R 
+
+> QT
+
+¯g d¯ σ. We decompose 
+
+Z
+
+> T
+
+¯g · ( ¯D⃗ β ¯fh − ¯D⃗ β ¯f ) d¯ σ = ⟨¯g⟩QT
+
+Z
+
+> T
+
+( ¯D⃗ β ¯fh − ¯D⃗ β ¯f ) d¯ σ +
+
+Z
+
+> T
+
+(¯ g − ⟨ ¯g⟩QT )( ¯D⃗ β ¯fh − ¯D⃗ β ¯f ) d¯ σ. 
+
+If T is a paired union, we estimate using the arguments from Theorem 3.2 together with the Poincar´ einequality: 
+
+Z
+
+> T
+
+¯g · ( ¯D⃗ β ¯fh − ¯D⃗ β ¯f ) d¯ σ ≤ Ch k+2 −| ⃗β|∥ ¯f ∥Ck+2 (T) |⟨ ¯g⟩QT | | T| + Ch k+1 −| ⃗β|∥ ¯f ∥Ck+1 (T)∥¯g − ⟨ ¯g⟩QT ∥L1(T)
+
+≤ Ch k+2 −| ⃗β|∥ ¯f ∥Ck+2 (T)∥¯g∥W 1,1(QT).
+
+If T = T is unpaired, we estimate: 
+
+Z
+
+> T
+
+¯g · ( ¯D⃗ β ¯fh − ¯D⃗ β ¯f ) d¯ σ ≤ Ch k+1 −| ⃗β|∥ ¯f ∥Ck+1 (T )∥¯g∥L1(T ).
+
+As all unpaired triangles are contained in a boundary strip ωh ⊂ Ω of width h, we estimate 
+
+X  
+
+> T∈T h,ω h
+
+∥¯g∥L1(T ) ≤ ∥ ¯g∥L1(ωh) ≤ Ch ∥¯g∥W 1,1(Ω) ,
+
+with T h,ω h ⊂ T h, Ω (cf. Mittelmann, 1977, Lemma 2). It remains to sum the estimates over all paired unions. The sets QT have uniformly bounded overlap. Indeed, each QT is contained in a ball of radius 
+
+Ch around the vertex shared by the symmetric pair. By the quasi-uniformity and shape regularity in Assumption 2, only uniformly many such vertices and incident pairs can occur in any ball of radius 
+
+Ch . Hence any point of Ω belongs to at most uniformly many such convex hulls. Therefore 
+
+X 
+
+> Tpaired
+
+∥¯g∥W 1,1(QT) ≤ C∥¯g∥W 1,1(Ω) .
+
+Summing over all paired unions and unpaired triangles yields the claimed bound. 12 Remark 3.4. Without the parity condition in Corollary 3.3, or without a symmetric triangulation, the preceding cancellation argument is not available. In that case one still has the standard integral estimate for every 0 ≤ | ⃗β| ≤ k + 1 :
+
+X  
+
+> T∈T h, Ω
+
+Z
+
+> T
+
+¯g · ( ¯D⃗ β ¯fh − ¯D⃗ β ¯f ) d¯ σ ≤ Ch k+1 −| ⃗β|∥¯g∥L1(Ω) ∥ ¯f ∥Ck+1 (Ω) .
+
+In particular, the estimate above is the fallback bound when k + 2 − | ⃗ β| is odd. 
+
+For the special case of Corollary 3.3 with |⃗ β| = 1, we obtain a further improvement if the weight function has higher regularity: 
+
+Lemma 3.5. Let the assumptions of Theorem 3.2 hold, and in addition assume that the boundary of the macro element has a uniform induced boundary triangulation as in Remark 2.9. Let ¯g ∈ W ℓ, 1(Ω) ,
+
+ℓ ∈ { 1, 2}. Then, for |⃗β| = 1 , we have 
+
+Z
+
+> Ω
+
+¯g · ( ¯D⃗ β ¯fh − ¯D⃗ β ¯f ) d¯ σ ≤
+
+(
+
+Ch k+ℓ∥¯g∥W ℓ, 1(Ω) ∥ ¯f ∥Ck+ℓ(Ω) , for k even ,Ch k+1 ∥¯g∥W 1,1(Ω) ∥ ¯f ∥Ck+1 (Ω) , for k odd . (3.5) 
+
+Proof. We use integration by parts and write 
+
+Z
+
+> Ω
+
+¯g · (∂i ¯fh − ∂i ¯f ) d¯ σ = −
+
+Z
+
+> Ω
+
+∂i ¯g · ( ¯fh − ¯f ) d¯ σ +
+
+Z
+
+> ∂Ω
+
+¯g · ( ¯fh − ¯f )νi d¯s, i = 1 , 2,
+
+where ν denotes the outer conormal to the macro element Ω. For k odd or ℓ = 1, (3.5) follows from the standard estimate in Remark 3.4 with ⃗ β = 0 for the volume term, and from the corresponding one-dimensional standard interpolation estimate on each macro edge for the boundary term. For k
+
+even and ℓ = 2, we use Corollary 3.3 to estimate 
+
+Z
+
+> Ω
+
+¯D⃗ β ¯g · ( ¯fh − ¯f ) d¯ σ ≤ Ch k+2 ∥¯g∥W 2,1(Ω) ∥ ¯f ∥Ck+2 (Ω) .
+
+On each macro edge, νi is constant and the induced boundary subdivision is uniform. Note that the paired equal-length boundary intervals yield the same parity cancellation as in the two-dimensional argument. Thus, we get 
+
+Z
+
+> ∂Ω
+
+¯g · ( ¯fh − ¯f )νi d¯s ≤ Ch k+2 ∥¯g∥W 1,1(∂Ω) ∥ ¯f ∥Ck+2 (Ω) ≤ Ch k+2 ∥¯g∥W 2,1(Ω) ∥ ¯f ∥Ck+2 (Ω) ,
+
+where the last estimate follows from the trace theorem for Sobolev functions. 
+
+3.2. Interpolation errors over approximated surface patches 
+
+In this section, we assume that we have a surface Γ Ω parametrized over a single macro element, and a discrete approximation Γ mh, Ω as described in Section 2.1. We will consistently write m for the interpolation order in the geometry, and in some later theorems use r for the interpolation order of 13 functions on that discrete surface. The symmetry assumptions below always refer to the flat induced triangulation T h, Ω of the macro element Ω. No separate symmetry condition is imposed on the curved surface elements. Throughout the improved estimates of this subsection we assume that Ω ∈ T h0 , that the induced flat triangulation T h, Ω is symmetric in the sense of Definition 2.10, that Φ Ω ∈ Cm+2 (Ω; R3), that Φmh, Ω is the elementwise degree-m Lagrange interpolation of Φ Ω, and that h is sufficiently small. In estimates that use Lemma 3.5, we further assume that the boundary of Ω has a uniform induced boundary triangulation as in Remark 2.9. Without these symmetry hypotheses, the corresponding arguments give the standard estimates from Lemma 3.1 and Remark 3.4. In the following estimates, the constant C might depend on up to m + 2 derivatives of the surface parametrization Φ and on the coarse grid size h0, but not on the refined grid size h.In order to compare Γ Ω and Γ mh, Ω, we first estimate the integral over the signed-distance function. 
+
+Lemma 3.6. Under the hypotheses of this subsection, let m be even. If fh ∈ W 1,1(Γ mh, Ω), then 
+
+Z
+
+> Γmh, Ω
+
+ρΓfh dσh ≤ Ch m+2 ∥fh∥W 1,1(Γ mh, Ω), (3.6) 
+
+with ρΓ : Uδ(Γ) → R the surface signed-distance function. Proof. We lift the integral over Γ mh, Ω to the macro element Ω using the abbreviation Φ h := Φ mh, Ω, apply Lemmas 2.2 and 2.4, and estimate 
+
+Z
+
+> Γmh, Ω
+
+ρΓfh dσh =
+
+Z
+
+> Ω
+
+ρΓ(Φ h(¯ x)) fh(Φ h(¯ x)) μmh (¯ x)d¯ σ
+
+≤
+
+Z
+
+> Ω
+
+ρΓ(Φ h(¯ x)) fh(Φ h(¯ x)) μ(¯ x)d¯ σ + ∥ρΓ∥L∞(Γ mh, Ω)
+
+| {z }
+
+> ≤Ch m+1
+
+∥fh ◦ Φh∥L1(Ω) ∥μ − μmh ∥L∞(Ω) 
+
+| {z }
+
+> ≤Ch m
+
+.
+
+We now set ¯f := ( fh ◦ Φh) · μ ∈ W 1,1(Ω), and consider the integral R 
+
+> Ω
+
+ρΓ(Φ h(¯ x)) ¯f (¯ x) d¯ σ.Let ¯ x ∈ Ω be a point in the macro element. In order to rewrite ρΓ(Φ h(¯ x)) in terms of an interpolation error, we introduce symbols for the difference in the discrete and smooth parametrization and lifted normal vectors, 
+
+e(¯ x) := Φ h(¯ x) − Φ(¯ x), ¯n(¯ x) := n(Φ(¯ x)) , ¯nh(¯ x) := n(Φ h(¯ x)) .
+
+From the closest-point projection formula (2.2), we have 
+
+ρΓ(Φ h(¯ x)) ¯ nh(¯ x) = Φ h(¯ x) − π(Φ h(¯ x)) = e(¯ x) + Φ(¯ x) − π(Φ h(¯ x)) .
+
+A Taylor expansion of π at Φ(¯ x) ∈ Γ gives 
+
+π(Φ h(¯ x)) = π(Φ(¯ x)) + Dπ (Φ(¯ x)) · e(¯ x) + O(∥e(¯ x)∥2)= Φ(¯ x) + (Id − ¯n(¯ x) ⊗ ¯n(¯ x)) e(¯ x) + O(∥e(¯ x)∥2).
+
+14 Thus we obtain 
+
+ρΓ(Φ h(¯ x)) = ρΓ(Φ h(¯ x))( ¯ nh(¯ x) · ¯n(¯ x) + 12 ∥ ¯nh(¯ x) − ¯n(¯ x)∥2)= ¯ n(¯ x) · e(¯ x) + O(∥e(¯ x)∥2).
+
+For the function ¯f ∈ W 1,1(Ω), with ∥ ¯f ∥W 1,1(Ω) ≤ C∥fh∥W 1,1(Γ mh, Ω) by the uniform pullback norm equivalences, we rewrite the integral as 
+
+Z
+
+> Ω
+
+ρΓ(Φ h(¯ x)) ¯f (¯ x) d¯ σ =
+
+Z
+
+> Ω
+
+( ¯ n · e) ¯f d¯ σ +
+
+Z
+
+> Ω
+
+O(∥e∥2) ¯f d¯ σ. 
+
+For the first term, we apply Corollary 3.3 (with ⃗ β = 0 and k = m) componentwise to the geometry interpolation error, using weights ¯ gj := ¯f ¯nj ∈ W 1,1(Ω). For the second term, we use the standard interpolation estimate from Lemma 3.1, namely ∥e∥L∞(Ω) ≤ Ch m+1 , to get 
+
+Z
+
+> Ω
+
+O(∥e∥2) ¯f d¯ σ ≤ Ch 2m+2 ∥ ¯f ∥L1(Ω) ≤ Ch m+2 ∥ ¯f ∥W 1,1(Ω) .
+
+Hence, 
+
+Z
+
+> Ω
+
+ρΓ(Φ h(¯ x)) ¯f (¯ x) d¯ σ ≤ Ch m+2 ∥ ¯f ∥W 1,1(Ω) ,
+
+from which the assertion follows. In the following assertions we consider functions on Γ lifted to the discrete surface by either using the closest-point projection π or the lifting L. By Lemma 2.1, both maps are well defined on Γ mh
+
+for h sufficiently small. On a single macro patch, however, they need not have the same image: 
+
+L(Γ mh, Ω) = Γ Ω, while π(Γ mh, Ω) is a possibly different subsurface of Γ. Thus, we consider functions on ΓΩ in the case of the lifting L, and functions on π(Γ mh, Ω) in the case of the closest-point projection. 
+
+Corollary 3.7. Under the hypotheses of this subsection, let m be even. For every g1 ∈ W 1,1(π(Γ mh, Ω)) ,
+
+Z
+
+> π(Γ mh, Ω)
+
+g1 dσ −
+
+Z
+
+> Γmh, Ω
+
+g1 ◦ π dσh ≤ Ch m+2 ∥g1∥W 1,1(π(Γ mh, Ω)) . (3.7) 
+
+If, in addition, the boundary hypothesis of this subsection holds, then for g2 ∈ W ℓ, 1(Γ Ω), ℓ ∈ { 1, 2},
+
+Z
+
+> ΓΩ
+
+g2 dσ −
+
+Z
+
+> Γmh, Ω
+
+g2 ◦ L dσh ≤ Ch m+ℓ∥g2∥W ℓ, 1(Γ Ω). (3.8) 
+
+Proof. Set L1 = π and L2 = L. Then Γ Ω = L2(Γ mh, Ω), and we write for i = 1 , 2
+
+Z
+
+> Li(Γ mh, Ω)
+
+gi dσ −
+
+Z
+
+> Γmh, Ω
+
+gi ◦ Li dσh =
+
+Z
+
+> Ω
+
+gi ◦ Li ◦ Φmh (μ[Li ◦ Φmh ] − μmh )d¯ σ .
+
+15 As in the proof of Nedelec (1976, Lemma 3), we write pointwise 
+
+μ[Li ◦ Φmh ]2 − (μmh )2 = ∥∂1(Li ◦ Φmh ) × ∂2(Li ◦ Φmh )∥2 − ∥ ∂1Φmh × ∂2Φmh ∥2
+
+= 2 ⟨∂1(Li ◦ Φmh − Φmh ), ∂ 2(Li ◦ Φmh ) × (∂1(Li ◦ Φmh ) × ∂2(Li ◦ Φmh )) ⟩− 2⟨∂2(( Li ◦ Φmh ) − Φmh ), ∂ 1(Li ◦ Φmh ) × (∂1(Li ◦ Φmh ) × ∂2(Li ◦ Φmh )) ⟩ + O(h2m).
+
+For i = 1, we have L1 ◦ Φmh = π ◦ Φmh . By definition of π, we have pointwise 
+
+π(Φ mh (¯ x)) − Φmh (¯ x) = −ρΓ(Φ mh (¯ x)) n(Φ mh (¯ x)) ,
+
+and the vectors ∂k(π ◦ Φmh ) × (∂1(π ◦ Φmh ) × ∂2(π ◦ Φmh )), k = 1 , 2, are tangent to Γ at π(Φ mh (¯ x)) and thus orthogonal to n(Φ mh (¯ x)). Hence, we can write pointwise for j, k = 1 , 2
+
+⟨∂j (π ◦ Φmh − Φmh ), ∂ k(π ◦ Φmh ) × (∂1(π ◦ Φmh ) × ∂2(π ◦ Φmh )) ⟩
+
+= ρΓ(Φ mh (¯ x)) ⟨n ◦ Φmh , ∂ j (∂k(π ◦ Φmh ) × (∂1(π ◦ Φmh ) × ∂2(π ◦ Φmh ))) ⟩.
+
+Inserting this into the integral, and applying Lemma 3.6 yields the assertion (3.7). For i = 2, we have L2 ◦ Φmh = Φ. Inserting this into the integral, 
+
+Z
+
+> Ω
+
+g2 ◦ Φ ( μ[Φ] − μmh )d¯ σ =
+
+Z
+
+> Ω
+
+g2 ◦ Φ
+
+μ[Φ] + μmh
+
+(μ[Φ] 2 − (μmh )2)d¯ σ
+
+=
+
+Z
+
+> Ω
+
+g2 ◦ Φ2μ[Φ] (μ[Φ] 2 − (μmh )2)d¯ σ + O(h2m),
+
+and applying Lemma 3.5 for either ℓ = 1 or ℓ = 2, leads to the assertion (3.8). The following estimate improves the order in the difference between the two liftings L and π from Lemma 2.6. For ℓ = 2, the improvement again comes from the symmetric triangulation through Corollary 3.3. 
+
+Lemma 3.8. Under the hypotheses of this subsection, let m be even. Let p ∈ [1 , ∞] and f ∈ W ℓ,p (Γ) ,
+
+ℓ ∈ { 1, 2}, ¯g ∈ W ℓ−1,¯p(Ω) , with 1 
+
+> p
+
++ 1¯p = 1 . Then we have the estimate 
+
+Z
+
+> Ω
+
+(f ◦ π ◦ Φmh − f ◦ Φ) · ¯g d¯ σ ≤ Ch m+ℓ∥f ∥W ℓ,p (Γ) ∥¯g∥W ℓ−1, ¯p(Ω) . (3.9) 
+
+Proof. Note that for 1 ≤ p < ∞, by density it is enough to show the estimates for f ∈ C∞(Γ). For 
+
+ℓ = 1, we use H¨ older’s inequality to estimate 
+
+Z
+
+> Ω
+
+(f ◦ π ◦ Φmh − f ◦ Φ) · ¯g d¯ σ ≤ ∥ f ◦ π ◦ Φmh − f ◦ Φ∥Lp ∥¯g∥L¯p(Ω) .
+
+For any ¯ x ∈ Ω, we define the projected straight-line homotopy Γt(¯ x) := π Φ(¯ x) + t(π ◦ Φmh (¯ x) − Φ(¯ x)) , 0 ≤ t ≤ 1.
+
+16 By Lemma 2.2, we have ∥π ◦ Φmh − Φ∥L∞(Ω) ≤ Ch m+1 , and thus Γ t is indeed well-defined for h small enough, and 
+
+|∂tΓt(¯ x)| ≤ Ch m+1 ∀¯x ∈ Ω, t ∈ [0 , 1] .
+
+Note that for each t ∈ [0 , 1] the mapping Γ t : Ω → Γ is a uniformly regular parametrization of a patch of Γ. In particular its area element μ[Γ t] is bounded above and below independently of h and 
+
+t. Consequently, for every v ∈ Lp(Γ), 
+
+∥v ◦ Γt∥Lp(Ω) ≤ C∥v∥Lp(Γ) , 0 ≤ t ≤ 1,
+
+where v ◦ Γt is the usual pullback of v from the surface to the macro element. Below we use this bound with v = ∇Γf . By the fundamental theorem of calculus, we can thus estimate pointwise 
+
+|f (π(Φ mh (¯ x))) − f (Φ(¯ x)) | =
+
+Z 10
+
+ddt f (Γ t(¯ x)) d t ≤ Ch m+1 
+
+Z 10
+
+|∇ Γf (Γ t(¯ x)) | dt. 
+
+Taking the Lp-norm, we indeed obtain 
+
+∥f ◦ π ◦ Φmh − f ◦ Φ∥Lp ≤ Ch m+1 sup 
+
+> t∈[0 ,1]
+
+∥∇ Γf ◦ Γt∥Lp(Ω) ≤ Ch m+1 ∥∇ Γf ∥Lp(Γ) .
+
+For p = ∞ the same estimate follows from the Lipschitz representative of f ∈ W 1,∞(Γ). For ℓ = 2 and 1 ≤ p < ∞, we again use a density argument and a Taylor expansion of the smooth function f ◦ π to write 
+
+f (π(Φ mh (¯ x))) = f (Φ(¯ x)) + D(f ◦ π)(Φ(¯ x)) · e(¯ x) + 12 eT (¯ x)D2(f ◦ π)( ξ)e(¯ x),
+
+where e(¯ x) = Φ mh (¯ x) − Φ(¯ x), and ξ ∈ R3 with |ξ − Φ(¯ x)| ≤ Ch m+1 . Thus, by elementwise integration we obtain 
+
+Z
+
+> Ω
+
+(f ◦ π ◦ Φmh − f ◦ Φ) · g d¯ σ =
+
+Z
+
+> Ω
+
+(D(f ◦ π) ◦ Φ · e + 12 eT D2(f ◦ π)( ξ)e) · ¯g d¯ σ
+
+≤ Ch m+2 ∥Φ∥Cm+2 (Ω) ∥G∥W 1,1(Ω) + Ch 2m+2 ∥Φ∥2
+
+> Cm+1 (Ω)
+
+∥f ∥W 2,p (Γ) ∥¯g∥L¯p(Ω) ,
+
+where we used Corollary 3.3 component-wise with the weight functions Gj = ¯ gD (f ◦ π)j ◦ Φ for the first term, and standard interpolation error estimates for the second term. The assertion then follows from estimating ∥G∥W 1,1(Ω) . For p = ∞, the same argument is interpreted with a C1,1-representative and the one-dimensional Taylor formula along almost every path t 7 → Φ(¯ x) + te(¯ x). The following theorems characterize the interpolation error of discrete functions on the discrete surface and their derivatives. These results extend the classical findings of Chien (1993, 1995) for quadrature errors on discrete surfaces and are partially reproduced in Zavalani et al. (2024). Our proofs build on the estimates on the macro elements and use the parametrization as an additional weight function. The assumptions needed for these applications are the hypotheses of this subsection. In the assertions of the theorems, we combine even and odd polynomial order statements, by intro-ducing the following notation: for an integer k ≥ 1, set 
+
+bk := 
+
+(
+
+k + 1 if k is odd ,k + 2 if k is even ,
+
+bk(ℓ) := 
+
+(
+
+k + 1 if k is odd ,k + ℓ if k is even . (3.10) 17 Theorem 3.9. Assume the hypotheses of this subsection, including the boundary hypothesis. Let 
+
+f ∈ Cr+2 (Γ Ω; R) be a scalar function. Let fh := Irh,m f ∈ C0(Γ mh, Ω; R) be the interpolation of f , and 
+
+g ∈ W ℓ, 1(Γ Ω), ℓ ∈ { 1, 2}. Then 
+
+Z
+
+> ΓΩ
+
+f · g dσ −
+
+Z
+
+> Γmh, Ω
+
+fh · (g ◦ L) d σh ≤ Ch min {br, bm(ℓ)}∥f ∥C br (Γ Ω)∥g∥W ℓ, 1(Γ Ω), (3.11) 
+
+with br and bm(ℓ) as in (3.10) .Proof. We set ¯ g := g ◦ Φ and ¯f := f ◦ Φ. Then fh ◦ L−1 = ¯fh ◦ Φ−1 with ¯fh := I rh( ¯f ). We estimate 
+
+Z
+
+> ΓΩ
+
+f · g dσ −
+
+Z
+
+> Γmh, Ω
+
+fh · (g ◦ L) d σh
+
+≤
+
+Z
+
+> ΓΩ
+
+(f − fh ◦ L−1) · g dσ +
+
+Z
+
+> ΓΩ
+
+(fh ◦ L−1) · g dσ −
+
+Z
+
+> Γmh, Ω
+
+fh · (g ◦ L) d σh
+
+=
+
+Z
+
+> Ω
+
+(f − fh ◦ L−1) ◦ Φ · ¯g μ d¯ σ +
+
+Z
+
+> Ω
+
+fh ◦ Φmh, Ω · ¯g (μ − μmh )d¯ σ .
+
+Note that fh ◦ L−1 ◦ Φ = ¯fh = fh ◦ Φmh, Ω. As ¯ gμ ∈ W 1,1(Ω), for even r we estimate the first term using Corollary 3.3, while for odd r we use the standard weighted estimate from Remark 3.4: 
+
+Z
+
+> Ω
+
+( ¯f − ¯fh) · ¯gμ d¯ σ ≤ Ch br∥ ¯f ∥C br (Ω) ∥¯g∥W 1,1(Ω) ≤ Ch br∥f ∥C br (Γ Ω)∥g∥W 1,1(Γ Ω)
+
+with br as above. We add and subtract a smooth term f ◦Φ = ¯f , split up the integral, and use standard interpolation error estimates, Remark 3.4, 
+
+Z
+
+> Ω
+
+¯fh · ¯g (μ − μmh ) d¯ σ ≤
+
+Z
+
+> Ω
+
+¯f · ¯g (μ − μmh ) d¯ σ +
+
+Z
+
+> Ω
+
+( ¯fh − ¯f ) · ¯g (μ − μmh ) d¯ σ
+
+| {z } 
+
+> ≤Ch r+m+1 ∥f∥Cr+1 (Γ Ω)∥g∥L1(Γ Ω)
+
+.
+
+For even m, the first term is estimated using Corollary 3.7. For odd m, we use the same area-element expansion as in the proof of that corollary and apply Lemma 3.5 with interpolation order m. Since 
+
+f · g ∈ W ℓ, 1(Γ Ω), both cases give 
+
+Z
+
+> Ω
+
+¯f · ¯g (μ − μmh ) d¯ σ =
+
+Z
+
+> ΓΩ
+
+f · g dσ −
+
+Z
+
+> Γmh, Ω
+
+(f · g) ◦ L dσh
+
+≤ Ch bm(ℓ)
+
+∥f · g∥W ℓ, 1(Γ Ω)
+
+≤ Ch bm(ℓ)
+
+∥f ∥Cℓ(Γ Ω)∥g∥W ℓ, 1(Γ Ω),
+
+with bm(ℓ) as above. Since r, m ≥ 1 we have r + m + 1 ≥ min {br, bm(ℓ)} and the assertion follows. 18 If we lift with π instead of L, we get a slightly better estimate, but have to assume that the functions are smooth on a larger subsurface of Γ than Γ Ω.
+
+Theorem 3.10. Assume the hypotheses of this subsection. Let f ∈ Cr+2 (Γ; R) be a scalar function. Let fh := Irh,m f ∈ C0(Γ mh ; R) be the interpolation of f , and g ∈ W 1,1(Γ) . Then 
+
+Z
+
+> π(Γ mh, Ω)
+
+f · g dσ −
+
+Z
+
+> Γmh, Ω
+
+fh · (g ◦ π) d σh ≤ Ch min {br, bm}∥f ∥C br (Γ) ∥g∥W 1,1(Γ) , (3.12) 
+
+with br and bm as in (3.10) .Proof. We set ¯ g := g ◦ π ◦ Φmh and ¯f := f ◦ Φ. Then fh ◦ Φmh = ¯fh with ¯fh := I rh( ¯f ). By Lemma 2.1, the map π ◦ Φmh : Ω → π(Γ mh, Ω) is uniformly regular for h sufficiently small. We estimate 
+
+Z
+
+> π(Γ mh, Ω)
+
+f · g dσ −
+
+Z
+
+> Γmh, Ω
+
+fh · (g ◦ π) d σh =
+
+Z
+
+> Ω
+
+f ◦ π ◦ Φmh · ¯g μ [π ◦ Φmh ] d¯ σ −
+
+Z
+
+> Ω
+
+¯fh · ¯g μ mh d¯ σ
+
+≤
+
+Z
+
+> Ω
+
+(f ◦ π ◦ Φmh − ¯f ) · ¯g μ [π ◦ Φmh ] d¯ σ
+
+| {z }
+
+> (i)
+
++
+
+Z
+
+> Ω
+
+¯f · ¯g (μ[π ◦ Φmh ] − μmh ) d¯ σ
+
+| {z }
+
+> (ii )
+
++
+
+Z
+
+> Ω
+
+( ¯f − ¯fh) · ¯g μ mh d¯ σ
+
+| {z }
+
+> (iii )
+
+.
+
+The third term ( iii ) can be further estimated as 
+
+Z
+
+> Ω
+
+( ¯f − ¯fh) · ¯g μ mh d¯ σ ≤
+
+Z
+
+> Ω
+
+( ¯f − ¯fh) · ¯g μ d¯ σ +
+
+Z
+
+> Ω
+
+( ¯f − ¯fh) · ¯g (μ − μmh ) d¯ σ .
+
+As ¯ gμ ∈ W 1,1(Ω), for even r we use Corollary 3.3, while for odd r we use the standard weighted estimate from Remark 3.4: 
+
+Z
+
+> Ω
+
+( ¯f − ¯fh) · ¯gμ mh d¯ σ ≤ Ch br∥ ¯f ∥C br (Ω) ∥¯g∥W 1,1(Ω) + Ch r+m+1 ∥ ¯f ∥Cr+1 (Ω) ∥¯g∥L1(Ω) 
+
+≤ Ch br∥f ∥C br (Γ) ∥g∥W 1,1(Γ) .
+
+For the second term ( ii ), define g3 := ¯f ◦ (π ◦ Φmh )−1 · g on π(Γ mh, Ω). Then g3 ◦ π ◦ Φmh = ¯f ¯g, and the uniform regularity of π ◦ Φmh gives 
+
+∥g3∥W 1,1(π(Γ mh, Ω)) ≤ C∥f ∥C1(Γ) ∥g∥W 1,1(Γ) .
+
+We apply Corollary 3.7 for even m and the standard estimate (2.9) for odd m, to estimate 
+
+Z
+
+> Ω
+
+¯f · ¯g (μ[π ◦ Φmh ] − μmh ) d¯ σ ≤ Ch bm∥g3∥W 1,1(π(Γ mh, Ω)) ≤ Ch bm∥f ∥C1(Γ) ∥g∥W 1,1(Γ) .
+
+19 For the first term ( i) we estimate 
+
+Z
+
+> Ω
+
+(f ◦ π ◦ Φmh − ¯f ) · ¯g μ [π ◦ Φmh ] d¯ σ
+
+≤
+
+Z
+
+> Ω
+
+(f ◦ π ◦ Φmh − ¯f ) · ¯g μ d¯ σ +
+
+Z
+
+> Ω
+
+(f ◦ π ◦ Φmh − ¯f ) · ¯g (μ[π ◦ Φmh ] − μ) d¯ σ .
+
+The first term is estimated using either the standard lifting estimate (2.11) for odd m, or Lemma 3.8 for even m. The second term is estimated with Lemma 2.4 and (2.11). Thus, we obtain 
+
+Z
+
+> Ω
+
+(f ◦ π ◦ Φmh − ¯f ) · ¯g μ [π ◦ Φmh ] d¯ σ ≤ Ch bm∥f ∥C2(Γ) ∥¯g∥W 1,1(Ω) + Ch 2m+1 ∥f ∥C1(Γ) ∥¯g∥L1(Ω) .
+
+Combining all the estimates yields the assertion. In the following two estimates, ∇Γf · g and ∇Γmh fh · (g ◦ L) denote multiplication of the vector-valued gradients by the scalar weight, and the norm is the Euclidean norm of the resulting vector-valued integral. 
+
+Theorem 3.11. Assume the hypotheses of this subsection, including the boundary hypothesis. Let 
+
+f ∈ Cr+1 (Γ Ω; R) be a scalar function. Let fh := Irh,m (f ) be the interpolation of f , and g ∈ W 1,1(Γ Ω).Then 
+
+Z
+
+> ΓΩ
+
+∇Γf · g dσ −
+
+Z
+
+> Γmh, Ω
+
+∇Γmh fh · (g ◦ L)d σh ≤ Ch min {r+1 ,m +1 }∥f ∥Cr+1 (Γ Ω)∥g∥W 1,1(Γ Ω), (3.13) 
+
+Proof. We estimate 
+
+Z
+
+> ΓΩ
+
+∇Γf · g dσ −
+
+Z
+
+> Γmh, Ω
+
+∇Γmh fh · (g ◦ L) d σh
+
+≤
+
+Z
+
+> ΓΩ
+
+∇Γ(f − fh ◦ L−1) · g dσ +
+
+Z
+
+> ΓΩ
+
+∇Γ(fh ◦ L−1) · g dσ −
+
+Z
+
+> Γmh, Ω
+
+∇Γmh fh · (g ◦ L) d σh
+
+=
+
+Z
+
+> Ω
+
+∇Γ(f − fh ◦ L−1) ◦ Φ · ¯gμ d¯ σ +
+
+Z
+
+> Ω
+
+ ∇Γ(fh ◦ L−1) ◦ Φμ − ∇ Γmh fh ◦ Φmh, Ωμmh
+
+ ¯gd¯ σ .
+
+We set ¯ g := g ◦ Φ and ¯f := f ◦ Φ and write with ¯fh := I rh( ¯f )
+
+∇Γ(f − fh ◦ L−1) ◦ Φ = ∇( ¯f − ¯fh) · ( ¯DΦ) +
+
+and proceed as in Theorem 3.9 with the estimate 
+
+Z
+
+> Ω
+
+∇( ¯f − ¯fh) · ( ¯DΦ) + · ¯gμ d¯ σ ≤ Ch r+1 ∥f ∥Cr+1 (Γ Ω)∥g∥W 1,1(Γ Ω), (3.14) 20 where we used Lemma 3.5 with ℓ = 1 and the weight function ( ¯DΦ) + · ¯gμ componentwise. For the remaining terms, we write analogously 
+
+∇Γ(fh ◦ L−1) ◦ Φ = ∇ ¯fh · ( ¯DΦ) + and ∇Γmh fh ◦ Φmh, Ω = ∇ ¯fh · ( ¯DΦmh, Ω)+.
+
+For the difference we obtain 
+
+Z
+
+> Ω
+
+ ∇Γ(fh ◦ L−1) ◦ Φμ − ∇ Γmh fh ◦ Φmh, Ωμmh
+
+ ¯gd¯ σ
+
+=
+
+Z
+
+> Ω
+
+∇ ¯fh · ( ¯DΦ) +(μ − μmh )¯ g d¯ σ +
+
+Z
+
+> Ω
+
+∇ ¯fh ·  ( ¯DΦ) + − ( ¯DΦmh, Ω)+ · ¯gμ mh d¯ σ. (3.15) To apply Corollary 3.7 or Lemma 3.5, respectively, the weights must be sufficiently smooth. We therefore replace the discrete factor ∇ ¯fh by ∇ ¯f and, where needed, replace μmh by μ. The errors are controlled by Lemmas 2.3, 2.4 and 3.1: 
+
+∥∇ ( ¯fh − ¯f )∥L∞(Ω) ≤ Ch r∥f ∥Cr+1 (Γ Ω), ∥μmh − μ∥L∞(Ω) + ∥( ¯DΦ) + − ( ¯DΦmh, Ω)+∥L∞(Ω) ≤ Ch m.
+
+For example, the second term in (3.15) is written as 
+
+Z
+
+> Ω
+
+∇ ¯fh ·  ( ¯DΦ) + − ( ¯DΦmh, Ω)+ ¯gμ mh d¯ σ =
+
+Z
+
+> Ω
+
+∇ ¯f ·  ( ¯DΦ) + − ( ¯DΦmh, Ω)+ ¯gμ d¯ σ + O(hm+min {r,m }).
+
+The estimate of the first term follows by expressing the pseudo-inverse difference in terms of differ-ences in the Jacobians, ¯DΦ − ¯DΦmh , with a smooth enough prefactor to apply Lemma 3.5 with ℓ = 1 componentwise and standard estimates Lemmas 2.2 and 2.3 for the remaining products of differences. This yields an order m + 1. The term in (3.15) containing μ − μmh is treated in the same way. After replacing ∇ ¯fh by ∇ ¯f , Corollary 3.7 for even m and the standard estimate from Lemma 2.4 for odd 
+
+m give order m + 1. The replacement error is of order r + m by Lemma 3.1. Since r, m ≥ 1, these bounds are of order min {r + 1 , m + 1 }.Similar to the improved estimates for first derivatives on the macro element Lemma 3.5, we can look at the surface gradients multiplied with a weight function of higher regularity, and obtain an improved estimate: 
+
+Theorem 3.12. Assume the hypotheses of this subsection, including the boundary hypothesis. Let 
+
+f ∈ Cr+2 (Γ Ω; R) be a scalar function. Let fh := Irh,m (f ) be the interpolation of f , and g ∈ W 2,1(Γ Ω).Then 
+
+Z
+
+> ΓΩ
+
+∇Γf · g dσ −
+
+Z
+
+> Γmh, Ω
+
+∇Γmh fh · (g ◦ L)d σh ≤ Ch min {br, bm}∥f ∥Cr+2 (Γ Ω)∥g∥W 2,1(Γ Ω), (3.16) 
+
+with br and bm as in (3.10) .Proof. The proof follows mostly the one of Theorem 3.11. We only highlight the differences: We replace the estimate (3.14) by 
+
+Z
+
+> Ω
+
+∇( ¯f − ¯fh) · ( ¯DΦ) + · ¯gμ d¯ σ ≤ Ch br∥f ∥Cr+2 (Γ Ω)∥g∥W 2,1(Γ Ω), (3.17) 21 where we used Lemma 3.5 with the weight function ( ¯DΦ) + · ¯gμ componentwise. For the estimate of the integration element difference and Jacobian pseudo-inverse difference in (3.15), we use the same decompositions as in the preceding proof. For even m, the smooth-weight terms are estimated by Corollary 3.7 and Lemma 3.5 with ℓ = 2. For odd m, the standard estimates from Lemmas 2.3 and 2.4 give order m + 1 = bm. The replacement errors again have orders r + m or 2m by Lemmas 2.3, 2.4 and 3.1, and these are at least of order min {br, bm}.
+
+Remark 3.13. One may formulate analogues of Theorems 3.11 and 3.12 with the lifting L replaced by the closest-point projection π. In this case ΓΩ is replaced by π(Γ mh, Ω), and the functions have to have the corresponding regularity on this subsurface. By Lemma 2.1, the map π ◦ Φmh : Ω → π(Γ mh, Ω)
+
+is uniformly regular for h sufficiently small, so the same pullback arguments are available. However, the leading interpolation term corresponding to (3.17) has the same estimate as in the case of L.The additional terms caused by replacing L by π are controlled by the lifting estimate (2.11) and by Lemma 3.8. Thus the final order is the same as for the estimates with L, and no analogue of the extra improvement in Theorem 3.10 is obtained. We therefore keep the statements with L only. 
+
+3.3. Global interpolation errors over approximated surfaces 
+
+So far, all estimates have been derived on a single macro patch, i.e., on subsets Γ Ω or Γ mh, Ω associated with one macro element Ω. We now assume that Γ is represented by finitely many continuously glued macro-element parametrizations Φ Ω and that Γ mh is obtained by the corresponding elementwise poly-nomial parametrizations Φ mh, Ω. Whenever a global estimate uses one of the improved local estimates, the hypotheses of the preceding subsection are imposed on every macro element. For estimates in-volving Lemma 3.5, the additional boundary hypothesis is imposed on every macro element as well. The global estimates follow by summing the local estimates over the fixed set of macro patches. If a local estimate already uses a norm on the whole surface Γ, this norm also controls the sum, since the number of macro patches is fixed and the relevant closest-point neighbourhoods have uniformly finite overlap. For Sobolev norms of scalar, vector, or tensor fields on Γ, derivatives are understood as covariant derivatives. For instance, ∥g∥W 2,1(Γ) contains the L1-norms of g, ∇Γg, and ∇(2) Γ g.The first estimate is a global version of the local distance estimate Lemma 3.6. 
+
+Corollary 3.14. Let f ∈ W 1,1(Γ) , and let Φ : Γ → Γ be a continuous and patchwise Cm+2 parametriza-tion of Γ. Let Φmh be its elementwise polynomial approximation. Assume that m is even and that the hypotheses of the preceding subsection hold on every local patch Ω ∈ T h0 . Let L := L or L := π. Then 
+
+Z
+
+> Γmh
+
+ρΓ(f ◦ L) d σh ≤ Ch m+2 ∥f ∥W 1,1(Γ) , (3.18) 
+
+with ρΓ : Uδ(Γ) → R the surface signed-distance function. Proof. For each macro element Ω ∈ T h0 , the uniform regularity of L|Γmh, Ω gives f ◦ L ∈ W 1,1(Γ mh, Ω) and 
+
+∥f ◦ L∥W 1,1(Γ mh, Ω) ≤ CΩ∥f ∥W 1,1(L(Γ mh, Ω)) .
+
+22 Thus, we can apply Lemma 3.6 on each macro element, and obtain 
+
+Z
+
+> Γmh
+
+ρΓ(f ◦ L) d σh = X 
+
+> Ω∈T h0
+
+Z
+
+> Γmh, Ω
+
+ρΓ(f ◦ L) d σh ≤ X 
+
+> Ω∈T h0
+
+CΩhm+2 ∥f ◦ L∥W 1,1(Γ mh, Ω).
+
+For L = L, the sets L(Γ mh, Ω) = Γ Ω form the exact macro patches. For L = π, the sets π(Γ mh, Ω) cover Γ with uniformly finite overlap. Since the number of macro elements is fixed, the local constants are bounded uniformly and the sum of the local norms is controlled by ∥f ∥W 1,1(Γ) .
+
+Corollary 3.15. Let Φ : Γ → Γ be continuous and patchwise sufficiently smooth, and let Γmh be parametrized elementwise over T ∈ T h. Let f ∈ Cr+2 (Γ; R) be a scalar function and let fh := Irh,m f ∈
+
+C0(Γ mh ; R) be the interpolation of f . Assume that the local hypotheses of the corresponding macro-patch estimates hold on every macro element, including the boundary hypothesis where it is required. Then the following global estimates hold, with br, bm, and bm(ℓ) as in (3.10) . Let gℓ ∈ W ℓ, 1(Γ) , ℓ ∈ { 1, 2},then 
+
+Z
+
+> Γ
+
+f · gℓ dσ −
+
+Z
+
+> Γmh
+
+fh · (gℓ ◦ L) d σh ≤ Ch min {br, bm(ℓ)}∥f ∥C br (Γ) ∥gℓ∥W ℓ, 1(Γ) , (3.19) 
+
+Z
+
+> Γ
+
+f · g1 dσ −
+
+Z
+
+> Γmh
+
+fh · (g1 ◦ π) d σh ≤ Ch min {br, bm}∥f ∥C br (Γ) ∥g1∥W 1,1(Γ) , (3.20) 
+
+Z
+
+> Γ
+
+∇Γf · g1 dσ −
+
+Z
+
+> Γmh
+
+∇Γmh fh · (g1 ◦ L) d σh ≤ Ch min {r+1 ,m +1 }∥f ∥Cr+1 (Γ) ∥g1∥W 1,1(Γ) , (3.21) 
+
+Z
+
+> Γ
+
+∇Γf · g2 dσ −
+
+Z
+
+> Γmh
+
+∇Γmh fh · (g2 ◦ L) d σh ≤ Ch min {br, bm}∥f ∥Cr+2 (Γ) ∥g2∥W 2,1(Γ) . (3.22) 
+
+The constant C may depend on the macro parametrizations but it is independent of h.Proof. The continuity of Φ and the matching Lagrange nodes on macro-element interfaces imply that Γ and Γ mh decompose into macro patches up to codimension-one interfaces. Therefore each global integral with the lifting L is the sum of the corresponding local integrals over Γ Ω and Γ mh, Ω. For the estimate with π, the local exact patches are π(Γ mh, Ω). These patches cover Γ with uniformly finite overlap by the regularity of the closest-point projection on Γ mh . Applying Theorems 3.9 to 3.12 patchwise gives the estimates on every macro patch. It remains only to collect constants. Since the number of macro elements is fixed, the local con-stants can be replaced by their maximum. The sums of the local Sobolev norms are bounded by the corresponding global norms on Γ, and the estimates that already use norms on the whole sur-face are controlled directly by the finite number of patches and the finite overlap of the closest-point neighbourhoods. This proves all assertions. In Section A we have extended these results to higher-order lifted derivative estimates, including a derivative-order dependent parity. The arguments in the proofs follow the same structure as for the first derivative estimates, but include a lot more extra differences that all must be handled by the improved or standard estimates. 23 4. Application to geometric quantities 
+
+In surface finite element discretizations and their a priori error estimates, a crucial step is usually to estimate the gap between the geometric quantities of the discrete surface Γ mh and those of the continuous surface Γ. In this section we show that, on even geometries, some of these estimates can be improved using the techniques described in Section 3. Although not always reported in articles, it seems to be a common observation among researchers working with higher order surface finite elements that even geometries can produce better discretization errors than expected from the theory. We comment on one of these cases below. We use the notation for normals, projections, surface derivatives, divergence, and curvatures in-troduced in Section 2. The estimates below concern the improved bounds for even geometry order. Therefore, on every macro element Ω, we assume the local hypotheses from Section 3: the induced flat triangulation T h, Ω is symmetric in the sense of Definition 2.10, the discrete geometry is the element-wise degree-m interpolation of the exact parametrization, and h is sufficiently small. The symmetry assumption always refers to the flat triangulation over the macro element. No separate symmetry condition is imposed on the curved surface elements. The following so-called non-standard estimate improves the estimates in Hansbo et al. (2020, Lemma 4.2), which are used in the a priori estimates for surface finite element discretizations of the vector Laplace equation. 
+
+Lemma 4.1 (Non-standard estimates for even m). Let v ∈ W 2,1(Γ; R3) be a vector field and m ≥ 2
+
+even. For L := L or L := π we have the estimates 
+
+ Ph(n ◦ π) , v ◦ L
+
+> Γmh
+
+≤ Ch m+2 ∥v∥W 2,1(Γ; R3), (4.1) 
+
+ n ◦ π − nmh , v ◦ L
+
+> Γmh
+
+≤ Ch m+2 ∥v∥W 2,1(Γ; R3). (4.2) 
+
+Proof. For the first estimate (4.1), we follow Hansbo et al. (2020, Lemma 4.2) by representing n .
+
+= n◦π
+
+as the gradient of a distance function and then performing integration by parts to obtain 
+
+ Phn , v ◦ L
+
+> Γmh
+
+=  ∇Γmh ρΓ , v ◦ L
+
+> Γmh
+
+= − X  
+
+> T∈T h
+
+ ρΓ , g h
+
+   
+
+> Φmh(T)
+
++  ρΓ[ν] , v ◦ L 
+
+> Eh
+
+,
+
+where gh := Hhnmh · v ◦ L + ∇Γmh · v ◦ L, Eh denotes the union of interior edges of the surface triangulation, and [ ν] the jumps of the conormals of adjacent surface elements over the common edge. In order to apply Corollary 3.14 to estimate the first term, we replace gh by g ◦ L, where 
+
+g := H n · v + ∇Γ · v ∈ W 1,1(Γ), i.e., we write 
+
+ Phn , v ◦ L
+
+> Γmh
+
+= − X  
+
+> T∈T h
+
+ ρΓ , g ◦ L  
+
+> Φmh(T)
+
+| {z }
+
+> (i)
+
++ X  
+
+> T∈T h
+
+ ρΓ , g ◦ L − gh
+
+  
+
+> Φmh(T)
+
+| {z }
+
+> (ii )
+
++  ρΓ[ν] , v ◦ L
+
+> Eh
+
+| {z }
+
+> (iii )
+
+.
+
+As ∥g∥W 1,1(Γ) ≤ C∥v∥W 2,1(Γ; R3), we apply Corollary 3.14 to estimate ( i) by 
+
+ ρΓ , g 
+
+> Γmh
+
+≤ Ch m+2 ∥g∥W 1,1(Γ) ≤ Ch m+2 ∥v∥W 2,1(Γ; R3).
+
+24 For ( ii ) we note that the difference g ◦ L − gh can be expressed in differences of the form n ◦ L − nmh
+
+and H ◦ L − Hh. Thus, using standard geometric estimates and Lemma 2.6, we can estimate ( ii ) by 
+
+X  
+
+> T∈T h
+
+ ρΓ , g ◦ L − gh
+
+   
+
+> Φmh(T)
+
+≤ ∥ ρΓ∥L∞(Γ mh )∥g ◦ L − gh∥L1(Γ mh ) ≤ Ch 2m∥v∥W 1,1(Γ; R3).
+
+As the jumps satisfy the estimate ∥[ν]∥L∞(Eh) ≤ Ch m, by the trace inequality, the term ( iii ) satisfies 
+
+ ρΓ[ν] , v ◦ L 
+
+> Eh
+
+≤ ∥ [ν]∥L∞(Eh)∥ρΓ∥L∞(Eh)∥v ◦ L∥L1(Eh)
+
+≤ Ch 2m+1 
+
+h−1∥v ◦ L∥L1(Γ mh ) + ∥∇ Γmh (v ◦ L)∥L1(Γ mh )
+
+
+
+≤ Ch 2m∥v∥W 1,1(Γ; R3).
+
+As 2 m ≥ m + 2 for m ≥ 2, we obtain (4.1). For the second estimate (4.2), we write 
+
+ n − nmh , v ◦ L
+
+> Γmh
+
+=  n − nmh , Ph(v ◦ L) + ( v ◦ L · nmh ) nmh
+
+
+
+> Γmh
+
+=  Phn , v ◦ L
+
+> Γmh
+
+−   12 |n − nmh |2nmh , v ◦ L
+
+> Γmh
+
+.
+
+Thus, we obtain the assertion using ∥n − nmh ∥2  
+
+> L∞(Γ mh)
+
+≤ Ch 2m ≤ Ch m+2 and (4.1). 
+
+Remark 4.2. Lifting the normal vector n by L instead of π in Lemma 4.1 results in the same estimates, by employing Lemma 3.8. 
+
+Although these estimates are of higher order in h than those in Hansbo et al. (2020, Lemma 4.2), they cannot be used directly to infer higher order discretization error estimates for the vector Laplace equation. The main obstruction is that the higher order derivatives required of the vector field v
+
+cannot be handled appropriately in the existing proofs. 
+
+Lemma 4.3. For 2-tensor fields A ∈ W 1,1(Γ; R3×3) and even m ≥ 2, with L := L or L := π, we have the estimate 
+
+ ∇Γn , A 
+
+> Γ
+
+−  ∇Γmh nmh , A ◦ L
+
+> Γmh
+
+≤ Ch m∥A∥W 1,1(Γ; R3×3). (4.3) 
+
+Proof. Note that H = −∇ Γn is a representation of the Weingarten map. We use the local parametriza-tions Φ to express this. For ¯ x ∈ Ω and x = Φ(¯ x) ∈ Γ, we write the second fundamental form as 
+
+II (¯ x) = 
+
+ ∂21 Φ(¯ x) · n(Φ(¯ x)) ∂1∂2Φ(¯ x) · n(Φ(¯ x)) 
+
+∂1∂2Φ(¯ x) · n(Φ(¯ x)) ∂22 Φ(¯ x) · n(Φ(¯ x)) 
+
+
+
+.
+
+The Weingarten map is then given by 
+
+∇Γn(Φ(¯ x)) = −( ¯DΦ(¯ x)+)⊤II ¯DΦ(¯ x)+,
+
+where ¯DΦ(¯ x)+ denotes the left pseudo-inverse of ¯DΦ, as before. 25 Replacing all occurrences of Φ by Φ mh , we obtain the discrete second fundamental form II h, and the Weingarten map Hh at the point Φ mh (¯ x). Now we can write patchwise 
+
+ ∇Γmh nmh , A ◦ L
+
+> Γmh, Ω
+
+−  ∇Γn , A
+
+> ΓΩ
+
+=  ( ¯DΦ(¯ x)+)⊤II ¯DΦ(¯ x)+ , A ◦ Φ μ 
+
+> Ω
+
+−  (( ¯DΦmh )+)⊤II h( ¯DΦmh )+ , A ◦ Φ μmh
+
+
+
+> Ω
+
+=  ( ¯DΦ+)⊤(II − II h) ¯DΦ+ , A ◦ Φ μ
+
+> Ω
+
+| {z }
+
+> (i)
+
++  ( ¯DΦ+)⊤II h ¯DΦ+ , A ◦ Φ μ 
+
+> Ω
+
+−  (( ¯DΦmh )+)⊤II h( ¯DΦmh )+ , A ◦ Φ μmh
+
+
+
+> Ω
+
+| {z }
+
+> (ii )
+
+(4.4) The second term ( ii ) is of order hm by standard estimates. More explicitly, the differences of area elements and pseudo-inverses are controlled by Lemmas 2.3 and 2.4, and all remaining factors are uniformly bounded. The first term ( i) is dominated by the difference in the second fundamental form. We write 
+
+II − II h = n(Φ(¯ x)) i ¯D2Φi(¯ x) − nmh (Φ mh (¯ x)) i ¯D2(Φ mh )i(¯ x)= n(Φ(¯ x)) i   ¯D2Φi(¯ x) − ¯D2(Φ mh )i(¯ x) +  n(Φ(¯ x)) i − nmh (Φ mh (¯ x)) i ¯D2(Φ mh )i(¯ x).
+
+Again, the second term is of order hm, using Lemma 2.2 together with the uniform boundedness of ¯D2Φmh . The first term contains the difference of second order derivatives of Φ and Φ mh with the smooth weight function n ◦ Φ ∈ W 1,1(Ω). If we insert these representations and estimates back into (4.4), we can apply Corollary 3.3 to obtain the estimate on each macro element. We then sum over all macro elements. This gives the assertion for L = L.For L = π, we use a triangle inequality argument and estimate 
+
+ ∇Γmh nmh , A ◦ L − A ◦ π
+
+> Γmh
+
+≤ Ch m+1 ∥A∥W 1,1(Γ; R3×3)
+
+using Lemma 3.8. 
+
+Corollary 4.4. For v, w ∈ W 1,2(Γ; R3) and even m ≥ 2, with L := L or L := π, we have 
+
+ Kv , w 
+
+> Γ
+
+−  Khv ◦ L , w ◦ L
+
+> Γmh
+
+≤ Ch m∥v∥W 1,2(Γ; R3)∥w∥W 1,2(Γ; R3), (4.5) 
+
+where K and Kh denote the Gaussian curvatures of Γ and Γmh , respectively. Proof. This is a direct consequence of Lemma 4.3 using the identity K = 12 (tr( ∇Γn)2 − tr(( ∇Γn)2)) and its discrete analogue. After expanding the difference of the quadratic terms, the part that is linear in ∇Γn − ∇ Γmh nmh is tested with tensor weights of the form v ⊗ w multiplied by smooth factors depending on ∇Γn. These weights belong to W 1,1(Γ; R3×3) by H¨ older’s inequality. The remaining part is quadratic in the standard L∞ error for ∇Γn − ∇ Γmh nmh and is therefore of order h2m−2, which is bounded by hm for m ≥ 2. 
+
+Remark 4.5. In the analysis of discretization schemes for the surface Stokes equations, Hardering and Praetorius (2025, Remark 2.4) state the estimate (4.5) as an observation. For certain schemes in that work, this new proof improves the a priori error theory to the observed orders of the investigated schemes. 
+
+26 5. Numerical experiments 
+
+We now compare the convergence orders predicted in the preceding sections with numerical experi-ments. The main tests use the macro-element construction from the analysis together with symmetric red refinements of the reference mesh. Additional tests outside the scope of the main theorems are collected in Section B. All numerical experiments are implemented in the Dune framework (Bastian et al., 2008b,a, 2021; Blatt et al., 2025; Engwer et al., 2025). The discrete surfaces Γ mh are represented with Dune-CurvedGrid (Praetorius and Stenger, 2022), using Dune-FoamGrid (Sander et al., 2017) for the reference grid and red refinement. The newest-vertex bisection tests in Section B use Dune-ALUGrid 
+
+(Alk¨ amper et al., 2016; Alk¨ amper and Kl¨ ofkorn, 2017). Integrals are computed with Gauss quadrature rules of sufficiently high degree. For L∞ norms, we use evaluation points combining the points from a Gauss quadrature rule and additional points on the boundary of the elements. All numerical tests perform 6 levels of uniform refinement steps of the grid and approximate the stepwise experimental order of convergence of the error quantities specified below. The code and data needed to reproduce the results are available from Zenodo (Praetorius, 2026). 
+
+5.1. Test surface 
+
+The test surface is a deformed sphere surface, see Figure 3. It is given as the zero level set of an implicit function ϕ : R3 → R. Let ( r, θ, φ ) be the spherical coordinates associated with x(r, θ, φ ) = (r sin θ cos φ, r sin θ sin φ, r cos θ) ∈ R3. We introduce a variation of a unit radius, 
+
+R(θ, φ ) := 1 − 0.1 cos(2 θ) − 0.2 sin( θ)3 sin(3 φ).
+
+This perturbation is related to low-order real spherical-harmonic modes. With this radius, we define an implicit representation of the deformed sphere surface, by 
+
+ϕ(x(r, θ, φ )) := r2 − R(θ, φ )2, Γ := {x ∈ R3 : ϕ(x) = 0 }.
+
+The normal vector, Weingarten map, and curvatures used in the computations are obtained from the first and second derivatives of ϕ. As reference surface Γ, we use a polytopal approximation of the sphere in the proximity Uδ of Γ, which is generated with the gmsh meshing tool (Geuzaine and Remacle, 2009). From the points ¯ x ∈ Γ on the reference surface, we construct a smooth parametrization Φ : Γ → R3; Φ(¯ x) = Φ(¯ x(r, θ, φ )) := x(R(θ, φ ), θ, φ )in terms of the spherical coordinates associated to ¯ x with the explicit projection of the radius r 7 → R.The closest-point projection π(ˆ x) for points ˆ x ∈ Γmh is defined by an iterative solution process for equation (2.2), see, e.g., Demlow and Dziuk (2007). 
+
+5.2. Interpolation estimates 
+
+We first test the interpolation estimates from Section 3. On the flat macro element Ω, let ¯f := f |Ω
+
+and ¯fh := I mh ¯f . Rather than selecting one derivative associated with a fixed multi-index, we compute 27 Figure 3: Deformed sphere used as the test surface. Left: reference coarse sphere grid Γ. Centre: piecewise linear discrete surfaces Γ 1 
+
+> h
+
+with refinement levels 1 and 3. Right: visualization of the smooth surface Γ. the full derivative tensor ¯D(b)( ¯fh − ¯f ) and contract it with a tensor field V (b) of the same rank. More precisely, the measured quantities are 
+
+Eflat  
+
+> b
+
+:= X  
+
+> T∈T h, Ω
+
+Z
+
+> T
+
+V (b) : ¯D(b)( ¯fh − ¯f ) d¯ σ , b = 0 , 1, 2, 3,
+
+where : denotes the full Frobenius contraction, including ordinary multiplication for b = 0. Each contraction is a finite sum of the multi-index quantities estimated in Corollary 3.3, Remark 3.4, and Lemma 3.5, and hence has the same predicted order. We use 
+
+V (0) (x) = sin( x1x2x3), V (1) (x)i = sin( xi),V (2) (x)ij = sin( xi) cos( xj ), V (3) (x)ijk = sin( xi) cos( xj )exk .
+
+The function being interpolated, restricted to Ω in the flat test and to Γ in the surface test below, is 
+
+f (x) = sin( x1) + cos(2 x2)e3x3 .
+
+Table 1 reports the observed orders on one macro element. The first derivative behaves like the function-value case, as expected from Lemma 3.5 with a sufficiently smooth weight. The second-and third-derivative cases exhibit the derivative-dependent parity predicted by Corollary 3.3 and Re-mark 3.4. For the lifted surface test, let fh := Irh,m f . We measure 
+
+Esurf 0 := 
+
+Z
+
+> Γ
+
+f dσ −
+
+Z
+
+> Γmh
+
+fh dσh , Esurf 1 := 
+
+Z
+
+> Γ
+
+∇Γf dσ −
+
+Z
+
+> Γmh
+
+∇Γmh fh dσh .
+
+Thus, the scalar absolute value is used for b = 0, while for b = 1 all components of the surface-gradient error are integrated and the Euclidean, equivalently Frobenius, norm is taken afterwards. These are the global estimates in Corollary 3.15 with constant weight g1 = g2 = 1. Table 2 reports the function-value and first-derivative cases. The corresponding higher-order tensor errors are collected in Section A.2. 28 Derivative k = 1 k = 2 k = 3 k = 4 k = 5 k = 6 k odd k even 
+
+b = 0 2.00 4.01 4.00 6.01 6.00 7.93 k + 1 k + 2 
+
+b = 1 1.99 4.00 3.99 6.00 5.99 8.00 k + 1 k + 2 
+
+b = 2 0.00 1.99 1.84 3.97 3.91 5.87 k − 1 kb = 3 0.00 0.00 2.00 1.97 3.44 3.82 k − 1 k − 2Table 1: Asymptotic experimental orders of convergence for weighted interpolation-error integrals Eflat 
+
+> b
+
+on the macro element patch Ω. Compare Corollary 3.3, Remark 3.4, and Lemma 3.5. 
+
+rm 1 2 3 4 5 61 1.9 2.0 2.0 2.0 2.0 2.02 2.0 3.9 4.0 4.0 4.0 4.03 2.0 4.0 4.0 4.0 4.0 3.94 2.0 4.0 4.0 6.0 6.0 6.05 2.0 4.0 4.0 6.0 6.0 5.66 2.0 4.0 4.0 6.0 6.0 8.0  
+
+> (a) b= 0
+
+rm 1 2 3 4 5 61 2.0 2.0 2.0 2.0 2.0 2.02 2.0 4.0 4.0 4.0 4.0 4.03 2.0 4.0 4.0 4.0 4.0 4.04 2.0 4.0 4.0 6.0 6.0 6.05 2.0 4.0 4.0 6.0 6.0 6.06 2.0 4.0 4.0 6.0 6.0 8.0  
+
+> (b) b= 1
+
+Table 2: Experimental orders of convergence for lifted interpolation integrals Esurf 0 with b = 0 and 
+
+Esurf 1 with b = 1 on the deformed sphere under red refinement. Rows give r and columns give 
+
+m. Compare Corollary 3.15. 
+
+5.3. Application to geometric quantities 
+
+The following numerical tests compare geometric quantities on Γ mh with their smooth counterparts on Γ. We use one smooth scalar test function f as before, two smooth vector fields v(x) = V (1) (x) and 
+
+w(x)i = cos( xi)exi , and one smooth tensor field A(x) = V (2) (x). The quantities most directly related to the estimates proved in the previous sections are 
+
+Eρ := 
+
+Z
+
+> Γmh
+
+(f ◦ L) ρ dσh , EH := 
+
+Z
+
+> Γmh
+
+(H ◦ L − Hh) : ( A ◦ L) d σh ,EPhn := 
+
+Z
+
+> Γmh
+
+(v ◦ L) · Ph(n ◦ L) d σh , EK := 
+
+Z
+
+> Γmh
+
+(K ◦ L − Kh)( v ◦ L) · (w ◦ L) d σh ,En−nmh := 
+
+Z
+
+> Γmh
+
+(v ◦ L) · (n ◦ L − nmh ) d σh , EK, Ph := 
+
+Z
+
+> Γmh
+
+(K ◦ L − Kh)Ph(v ◦ L) · Ph(w ◦ L) d σh ,
+
+with lifting L = L or L = π. The first column contains the distance integral from Corollary 3.14 and the two normal-vector quantities from (4.1) and (4.2). The second column corresponds to the Weingarten estimate (4.3), the Gaussian curvature estimate (4.5), and the projected curvature inner product used in the analysis of a surface Stokes equation by Hardering and Praetorius (2025). All quantities above are written as integrals on Γ mh . For the Weingarten and Gaussian curvature errors, this differs from the difference between the exact- and discrete-surface integrals in the cited estimates 29 by the integration error for a smooth quantity. This additional term is of higher order and does not change the rates being tested. The quantity EK, Ph differs from EK only by the additional discrete tangential projections on the test fields. We first consider surface parametrizations from refined macro-elements as used in the analysis. Since the parametrization lifting L is tied directly to this construction and is used in the main interpolation arguments, we report the complete set of integral quantities for L = L in Table 3. For m = 6, the last refinement level is already affected by roundoff in some integral quantities, and we therefore use the last stable refinement step. Quantity m = 1 m = 2 m = 3 m = 4 m = 5 m = 6 m odd m even 
+
+Eρ 2.00 4.03 4.00 7.27 5.99 9.66 m + 1 m + 2 
+
+EPhn 2.00 3.99 4.00 6.00 5.99 7.98 m + 1 m + 2 
+
+En−nmh 2.04 4.00 4.00 6.00 5.99 7.98 m + 1 m + 2 
+
+EH 0.00 2.13 2.01 3.95 4.05 5.88 m − 1 mEK 0.00 2.00 2.00 4.00 4.00 5.98 m − 1 mEK, Ph 0.01 2.00 2.00 3.99 3.99 5.95 m − 1 m
+
+Table 3: Asymptotic experimental orders of convergence for the integral quantities on the deformed sphere surface using the macro-element parametrization Φ mh with red refinement and lifting 
+
+L = L. The last two columns give the expected odd and even rates. For the distance and normal-vector integrals the odd orders show the standard rate m + 1, while the even orders show the improved rate m + 2 predicted by the analysis. For the Weingarten and Gaussian curvature terms the same odd-even structure appears shifted by two derivatives: the observed rates are approximately m − 1 for odd m and m for even m.In addition to these integral quantities, we approximate the following L∞-norms by taking maxima over the evaluation points used in the numerical computations: 
+
+Nρ := ∥(f ◦ L)ρ∥L∞(Γ mh ), Nn := ∥n ◦ L − nmh ∥L∞(Γ mh ),NH := ∥H ◦ L − Hh∥L∞(Γ mh ), NK := ∥K ◦ L − Kh∥L∞(Γ mh ).
+
+These norm errors are not expected to show the same cancellation as the integrals. The approximate 
+
+L∞-norms in Table 4 show the standard pointwise behaviour. This separates the cancellation in the integral quantities from ordinary pointwise approximation of the geometry. Quantity m = 1 m = 2 m = 3 m = 4 m = 5 m = 6 expected 
+
+Nρ 2.00 3.00 4.02 5.00 6.02 6.93 m + 1 
+
+Nn 1.00 2.01 2.99 4.00 5.00 6.03 mNH 0.00 1.02 2.02 3.00 4.02 4.92 m − 1
+
+NK 0.00 0.98 2.00 3.00 4.00 4.96 m − 1Table 4: Asymptotic experimental orders of convergence for the approximate L∞-norms on the de-formed sphere surface using the macro-element parametrization Φ mh with red refinement and lifting L = L. The last column gives the expected pointwise rate. 30 The estimates for the geometric quantities allow both liftings L and π, see Corollaries 3.14 and 4.4 and Lemmas 4.1 and 4.3. The two liftings also give virtually identical experimental orders. It is therefore enough to retain one representative quantity from each of the two integral regimes and one pointwise quantity for L = π. Table 5 verifies the same rates without duplicating the complete tables for L = L.Quantity m = 1 m = 2 m = 3 m = 4 m = 5 m = 6 m odd m even 
+
+Eρ 2.00 4.00 4.00 6.00 6.00 8.06 m + 1 m + 2 
+
+EH 0.00 2.11 2.01 3.95 4.05 5.88 m − 1 mNn 1.00 2.01 2.99 4.00 5.00 6.03 m m
+
+Table 5: Representative asymptotic experimental orders on the deformed sphere using the macro-element parametrization Φ mh , red refinement, and lifting L = π. The rows represent the distance integral, a curvature integral, and a pointwise geometric error. 
+
+5.4. Scope and summary 
+
+The experiments in this section test the flat interpolation estimates from Theorem 3.2, Corollary 3.3, and Lemma 3.5, the lifted interpolation estimates from Theorems 3.9 to 3.12 and Corollary 3.15, the distance estimate from Corollary 3.14, the normal-vector estimates (4.1) and (4.2), the Weingarten estimate (4.3), and the Gaussian curvature estimate (4.5). Additional numerical tests outside the scope of the main theorems are collected in Section B. Within this scope, the experiments support the main message of the analysis. On the deformed sphere surface, the integral quantities show the predicted odd-even split. Odd geometry orders show the standard rates, while even geometry orders gain one order. The approximate L∞-norms do not show this improvement, which confirms that the effect is caused by cancellation in the integrals rather than by better pointwise approximation of the geometry. 
+
+# Funding 
+
+This work was supported by the Deutsche Forschungsgemeinschaft (DFG, German Research Founda-tion) through FOR 3013, project TP06, project number 417223351, to H.H. and S.P., and through project number 386450667 to G.Z. 
+
+# Acknowledgements 
+
+The authors used AI-assisted tools in a limited capacity to support code development and the writing process, including editorial revisions, reformulations, and language-level cleanups of proofs. All math-ematical content, numerical results, and final text were reviewed and validated by the authors, who take full responsibility for the manuscript. 31 Data availability 
+
+The code and data underlying this article are available from Zenodo (Praetorius, 2026). 
+
+# Conflict of interest 
+
+None declared. 
+
+# References 
+
+M. Alk¨ amper and R. Kl¨ ofkorn. Distributed newest vertex bisection. Journal of Parallel and Distributed Computing , 104:1–11, 2017. ISSN 0743-7315. doi: 10.1016/j.jpdc.2016.12.003. M. Alk¨ amper, A. Dedner, R. Kl¨ ofkorn, and M. Nolte. The dune-alugrid module. Archive of Numerical Software , 4(1), 2016. doi: 10.11588/ans.2016.1.23252. K. E. Atkinson and D. Chien. Piecewise polynomial collocation for boundary integral equations. SIAM Journal of Scientific Computing , 16(3):651–681, 1995. doi: 10.1137/0916040. R. E. Bank and J. Xu. Asymptotically exact a posteriori error estimators, Part I: Grids with super-convergence. SIAM J. Numer. Anal. , 41(6):2294–2312, 2003. doi: 10.1137/S003614290139874X. R. E. Bank, A. Sherman, and A. Weiser. Some refinement algorithms and data structures for regular local mesh refinement. In Scientific Computing , pages 3–17, Amsterdam, 1983. North-Holland. E. B¨ ansch. Local mesh refinement in 2 and 3 dimensions. Impact of Computing in Science and Engineering , 3:181–191, 1991. doi: 10.1016/0899-8248(91)90006-G. P. Bastian, M. Blatt, A. Dedner, C. Engwer, R. Kl¨ ofkorn, R. Kornhuber, M. Ohlberger, and O. Sander. A generic grid interface for parallel and adaptive scientific computing. part ii: implementation and tests in dune. Computing , 82:121–138, 2008a. doi: 10.1007/s00607-008-0004-9. P. Bastian, M. Blatt, A. Dedner, C. Engwer, R. Kl¨ ofkorn, M. Ohlberger, and O. Sander. A generic grid interface for parallel and adaptive scientific computing. part i: abstract framework. Computing ,82:103–119, 2008b. doi: 10.1007/s00607-008-0003-x. P. Bastian, M. Blatt, A. Dedner, N.-A. Dreier, C. Engwer, R. Fritze, C. Gr¨ aser, D. Kempf, R. Kl¨ ofkorn, M. Ohlberger, and O. Sander. The Dune framework: Basic concepts and recent developments. 
+
+Computers & Mathematics with Applications , 81:75–112, 2021. doi: 10.1016/j.camwa.2020.06.007. URL https://dune-project.org .M. Blatt, S. Burbulla, A. Burchardt, A. Dedner, C. Engwer, C. Gr¨ aser, C. Gr¨ uninger, R. Kl¨ ofkorn, T. Koch, S. O. D. L. R´ ıos, S. Praetorius, and O. Sander. The Distributed and Unified Numerics Environment (DUNE), version 2.10. arXiv e-prints , art. arXiv:2506.23558, June 2025. 32 A. Bonito, A. Demlow, and J. Owen. A priori estimates for finite element approximations to eigenvalues and eigenfunctions of the Laplace–Beltrami operator. SIAM J. Numer. Anal. , 56(5):2963–2988, 2018. doi: 10.1137/17M1163311. M. Cenanovic, P. Hansbo, and M. G. Larson. Finite element procedures for computing normals and mean curvature on triangulated surfaces and their use for mesh refinement. Computer Methods in Applied Mechanics and Engineering , 372:113445, 2020. doi: 10.1016/j.cma.2020.113445. D. Chien. Piecewise polynomial collocation for integral equations with a smooth kernel on surfaces in three dimensions. The Journal of Integral Equations and Applications , 5(3):315–344, 1993. doi: 10.1216/jiea/1181075759. D. Chien. Numerical evaluation of surface integrals in three dimensions. Mathematics of Computation ,64(210):727–743, 1995. doi: 10.2307/2153448. A. Demlow. Higher-order finite element methods and pointwise error estimates for elliptic problems on surfaces. SIAM Journal on Numerical Analysis , 47(2):805–827, 2009. doi: 10.1137/070708135. A. Demlow and G. Dziuk. An adaptive finite element method for the Laplace–Beltrami operator on implicitly defined surfaces. SIAM Journal on Numerical Analysis , 45(1):421–442, 2007. doi: 10.1137/050642873. G. Dziuk and C. M. Elliott. Finite element methods for surface PDEs. Acta Numerica , 22:289–396, 2013. doi: 10.1017/S0962492913000056. C. Engwer, C. Gr¨ aser, S. M¨ uthing, S. Praetorius, and O. Sander. Concepts for composing finite element function space bases. arXiv e-prints , art. arXiv:2508.10125, 2025. A. Ern and J.-L. Guermond. Finite Elements I: Approximation and Interpolation . Springer Nature, Switzerland, 2021. C. Geuzaine and J.-F. Remacle. Gmsh: A 3-d finite element mesh generator with built-in pre- and post-processing facilities. International Journal for Numerical Methods in Engineering , 79(11): 1309–1331, 2009. doi: 10.1002/nme.2579. URL https://gmsh.info .P. Hansbo, M. G. Larson, and S. Zahedi. Stabilized finite element approximation of the mean curvature vector on closed surfaces. SIAM Journal on Numerical Analysis , 53(4):1806–1832, Jan. 2015. doi: 10.1137/140982696. P. Hansbo, M. G. Larson, and K. Larsson. Analysis of finite element methods for vector Laplacians on surfaces. IMA Journal of Numerical Analysis , 40(3):1652–1701, 2020. doi: 10.1093/imanum/drz018. H. Hardering and S. Praetorius. Tangential errors of tensor surface finite elements. IMA Journal of Numerical Analysis , 43(3):1543–1585, May 2023. doi: 10.1093/imanum/drac015. H. Hardering and S. Praetorius. Parametric finite-element discretization of the surface stokes equa-tions: inf-sup stability and discretization error analysis. IMA Journal of Numerical Analysis , 45: 2948–2987, Sept. 2025. doi: 10.1093/imanum/drae080. 33 C. J. Heine. Isoparametric finite element approximation of curvature on hypersurfaces. Technical report, Abteilung f¨ ur Angewandte Mathematik, Universit¨ at Freiburg, Hermann-Herder-Straße 10, 79104 Freiburg i.Br., Germany, 2004. B. Kov´ acs. High-order evolving surface finite element method for parabolic problems on evolving surfaces. IMA Journal of Numerical Analysis , 38(1):430–459, 2018. doi: 10.1093/imanum/drx013. B. Kov´ acs, B. Li, and C. Lubich. A convergent evolving finite element algorithm for mean curvature flow of closed surfaces. Numer. Math. , 143:797–853, 2019. doi: 10.1007/s00211-019-01074-2. H. D. Mittelmann. On the approximation of capillary surfaces in a gravitational field. Computing , 18: 141–148, 1977. doi: 10.1007/BF02243623. J. C. Nedelec. Curved finite element methods for the solution of singular integral equations on surfaces in R3. Computer methods in applied mechanics and engineering , 8:61–80, 1976. doi: 10.1016/ 0045-7825(76)90053-0. S. Praetorius. Odd-geometries: a dune module for studying even-odd convergence behavior. [dataset] Zenodo, https://doi.org/10.5281/zenodo.21718994 , July 2026. S. Praetorius and F. Stenger. Dune-CurvedGrid – A Dune module for surface parametrization. Archive of Numerical Software , 6(1):1–27, Feb. 2022. doi: 10.11588/ans.2022.1.75917. M.-C. Rivara. Mesh refinement processes based on the generalized bisection of simplices. SIAM Journal on Numerical Analysis , 21(3), 1984. doi: 10.1137/0721042. O. Sander, T. Koch, N. Schr¨ oder, and B. Flemisch. The Dune-FoamGrid implementation for surface and network grids. Archive of Numerical Software , 5(1):217–244, 2017. doi: 10.11588/ans.2017.1. 28490. A. Schmidt and K. G. Siebert. Design of Adaptive Finite Element Software: The Finite Element Toolbox ALBERTA , volume 42 of Lecture Notes in Computational Science and Engineering . Springer Berlin, Heidelberg, 2005. doi: 10.1007/b138692. G. E. Sewell. Automatic generation of triangulations for piecewise polynomial approximation . PhD thesis, Purdue University, West Lafayette, IN, 1972. G. Zavalani, E. Shehu, and M. Hecht. A note on the rate of convergence of integration schemes for closed surfaces. Computational and Applied Mathematics , 43(2):92, 2024. doi: 10.1007/ s40314-024-02611-y. 
+
+# Appendices 
+
+# A. Higher-order derivatives 
+
+This appendix contains the notation, estimates, and numerical tests for lifted interpolation estimates involving derivatives of order at least two. We use the geometric setting, interpolation operators, 34 liftings, and symmetry assumptions introduced in Sections 2 and 3. The estimates are included for completeness, while the main text only uses the function-value and first-derivative cases. Higher-order surface derivatives are written as iterated covariant derivatives, 
+
+∇(b)f := ∇(∇(b−1) f ), ∇(1) f := ∇f. 
+
+Here ∇ denotes the Levi-Civita covariant derivative, extended componentwise to tensor-valued quan-tities. Let τi ∈ TxΓ, x ∈ Γ, and define the lifted tangential directions ¯ τi := ¯DΦ+(τi ◦ Φ) ∈ T¯xΩ with 
+
+x = Φ(¯ x). Then 
+
+∇(b)Γ f (x)[ τ1, τ2, . . . , τb] = ∇(b) ¯f (¯ x)[ ¯ τ1, ¯τ2, . . . , ¯τb] + 
+
+> b−1
+
+X
+
+> s=1
+
+∇(s) ¯f ⊙ A(b,s )(Φ , { ¯τi}i). (A.1) The first term is the highest-order chain-rule contribution. The lower-order terms contain derivatives of ¯f multiplied by derivatives of Φ and its inverse. These factors are collected in A(b,s ). In particular, 
+
+A(b,s )(Φ , { ¯τi}i) contains up to b − s + 1 derivatives of Φ, and ⊙ denotes the corresponding tensor contraction. For b = 2, the lower-order term in (A.1) is the usual Christoffel-symbol contribution: 
+
+A(2 ,1) (Φ , ¯ei, ¯ej ) = ( −Γkij )2
+
+> k=1
+
+.
+
+A.1. Interpolation errors 
+
+We now state the higher-order analogue of the lifted interpolation estimates. We use the notation of higher-order derivatives from (A.1) in tangential directions τ .The parity improvement depends on the derivative order. For integers k ≥ 1 and b ≥ 0, set 
+
+bkb := 
+
+(
+
+k + 2 , if k + 2 − b is even ,k + 1 , if k + 2 − b is odd . (A.2) This is exactly the parity condition in Corollary 3.3. 
+
+Theorem A.1. Let ΓΩ, Γmh, Ω be parametrized over Ω ∈ T . Assume the local hypotheses of Sections 2.1 and 2.3, including the boundary hypothesis from Remark 2.9 where first-derivative boundary cancella-tion is used. Let f ∈ Cr+2 (Γ Ω; R) be a scalar function, let fh := Irh,m (f ) be the interpolation of f , and let g ∈ W 1,1(Γ Ω). Fix an integer b with 2 ≤ b ≤ r and let vj ∈ W b+1 ,∞(Uδ(Γ); R3), j = 1 , . . . , b , be ambient direction fields. Then, 
+
+Z
+
+> ΓΩ
+
+∇(b)Γ f [P v 1, . . . , P v b] g dσ −
+
+Z
+
+> Γmh, Ω
+
+∇(b)Γmh
+
+fh[Phv1, . . . , Phvb] ( g ◦ L) d σh
+
+≤ Ch min {brb, bmb}− b∥f ∥Cr+2 (Γ Ω)∥g∥W 1,1(Γ Ω) (A.3) 
+
+with brb and bmb as in (A.2) . The constant C may depend on the W b+1 ,∞-norms of the direction fields, but is independent of h.
+
+35 Proof. We denote by τj := P v j , and τh,j := Phvj tangential directions on Γ Ω and Γ mh, Ω, respectively, and define ¯ τj := ¯DΦ+(τj ◦Φ) and ¯ τh,j := ( ¯DΦmh )+(τh,j ◦Φmh ), j = 1 , . . . , b , as the associated tangential vectors in Ω. For simplicity we denote by τ··· := ( τ1, . . . , τb) the sequence of tangential vectors. We estimate similar to the proof of Theorem 3.11, 
+
+Z
+
+> ΓΩ
+
+∇(b)Γ f [τ··· ] g dσ −
+
+Z
+
+> Γmh, Ω
+
+∇(b)Γmh
+
+fh[τh··· ] ( g ◦ L) d σh ≤
+
+Z
+
+> Ω
+
+∇(b)Γ (f − fh ◦ L−1)[ τ··· ] ◦ Φ ¯ gμ d¯ σ (A.4) +
+
+Z
+
+> Ω
+
+
+
+∇(b)Γ (fh ◦ L−1)[ τ··· ] ◦ Φ μ − ∇ (b)Γmh
+
+fh[τh··· ] ◦ Φmh μmh
+
+
+
+¯g d¯ σ .
+
+We write for ¯f := f ◦ Φ and ¯fh := I rh( ¯f )
+
+∇(b)Γ (f − fh ◦ L−1)[ τ··· ] ◦ Φ = ∇(b)( ¯f − ¯fh)[ ¯DΦ+(τ ◦ Φ) ··· 
+
+| {z }
+
+> ¯τ···
+
+] + R( ¯f − ¯fh, Φ) with a remainder R depending on up to b − 1 derivatives of ¯f − ¯fh and b derivatives of Φ. The assumption vj ∈ W b+1 ,∞(Uδ(Γ) , R3) ensures that every direction-dependent coefficient of ¯ g := 
+
+g ◦ Φ ∈ W 1,1(Ω) produced by (A.1) yields a weight function ω( ¯ τ··· ) that can be estimated in the 
+
+W 1,1(Ω)-norm by ∥g∥W 1,1(Γ Ω). Thus, by using Corollary 3.3 or standard estimates, we obtain 
+
+Z
+
+> Ω
+
+∇(b)( ¯f − ¯fh)[ ¯ τ··· ] ¯ gμ d¯ σ ≤ Ch brb−b∥f ∥Cr+2 (Γ Ω)∥g∥W 1,1(Γ Ω). (A.5) The remainder has the form 
+
+R( ¯f − ¯fh, Φ) = 
+
+> b−1
+
+X
+
+> s=1
+
+∇(s)( ¯f − ¯fh)[ ¯ τ (s) 
+
+> ···
+
+]where the directions ¯ τ (s) 
+
+> ···
+
+depend on ¯ τ··· and up to b − s + 1 derivatives of Φ and Φ +. In particular a weight function ω(s)( ¯ τ (s) 
+
+> ···
+
+, ¯g, μ ) composed of products of components of its arguments has regularity 
+
+ω(s) ¯gμ ∈ W 1,1(Ω). By Corollary 3.3, Lemma 3.5, or standard estimates, we find that each addend of the remainder is of order hbrs−s. Since s ≤ b − 1, this is at least of order hbrb−b, and hence 
+
+Z
+
+> Ω
+
+R( ¯f − ¯fh, Φ)¯ gμ d¯ σ ≤ Ch brb−b∥f ∥Cr+2 (Γ Ω)∥g∥W 1,1(Γ Ω).
+
+For the second term in (A.4), we express the derivatives on Ω, 
+
+∇(b)Γ (fh ◦ L−1)[ τ··· ] ◦ Φ = ∇(b) ¯fh[ ¯DΦ+(P v ◦ Φ) ··· 
+
+| {z }
+
+> ¯τ···
+
+] + R( ¯fh, Φ) and 
+
+∇(b)Γmh
+
+fh[τh··· ] ◦ Φmh = ∇(b) ¯fh[( ¯DΦmh )+(Phv ◦ Φmh )··· 
+
+| {z }
+
+> ¯τh···
+
+] + R( ¯fh, Φmh ).
+
+36 For the difference we add and subtract zeros to obtain due to the multi-linearity of the derivative 
+
+Z
+
+> Ω
+
+
+
+∇(b)Γ (fh ◦ L−1)[ τ··· ] ◦ Φ μ − ∇ (b)Γmh
+
+fh[τh··· ] ◦ Φmh μmh
+
+
+
+¯g d¯ σ
+
+=
+
+Z
+
+> Ω
+
+∇(b) ¯fh[ ¯ τ··· ] ¯ gμ d¯ σ −
+
+Z
+
+> Ω
+
+∇(b) ¯fh[ ¯ τh··· ] ¯ gμ mh d¯ σ +
+
+Z
+
+> Ω
+
+R( ¯fh, Φ)¯ gμ d¯ σ −
+
+Z
+
+> Ω
+
+R( ¯fh, Φmh )¯ gμ mh d¯ σ
+
+=
+
+Z
+
+> Ω
+
+
+
+∇(b) ¯f [ ¯ τ··· ] + R( ¯f , Φ) 
+
+
+
+¯g(μ − μmh ) d¯ σ
+
++
+
+Z
+
+> Ω
+
+ 
+
+∇(b) ¯fh − ∇ (b) ¯f
+
+
+
+[ ¯ τ··· ] + R( ¯fh − ¯f , Φ) 
+
+
+
+¯g(μ − μmh ) d¯ σ
+
++
+
+Z
+
+> Ω
+
+∇(b) ¯fh[( ¯ τ − ¯τh)··· ] ¯ gμ mh d¯ σ +
+
+Z
+
+> Ω
+
+(R( ¯fh, Φ) − R ( ¯fh, Φmh ))¯ gμ mh d¯ σ. 
+
+Note that the differences always have the structure of first-order derivatives of interpolation errors, or products of interpolation errors. The first term can be estimated by Corollary 3.7. The second term produces by standard inter-polation error estimates a term of order hr+1 −b+m. For the third term, the multilinearity of ∇(b) ¯fh
+
+produces terms with one or more direction differences. For each direction, ¯τj − ¯τh,j = ¯DΦ+(P v j ◦ Φ) − ( ¯DΦmh )+(Phvj ◦ Φmh )= ( ¯DΦ+ − ( ¯DΦmh )+)( P v j ◦ Φ) + ¯DΦ+(P v j ◦ Φ − Phvj ◦ Φmh )
+
+− ( ¯DΦ+ − ( ¯DΦmh )+)( P v j ◦ Φ − Phvj ◦ Φmh ).
+
+Terms containing two or more such differences are estimated directly with L∞ geometry bounds. Terms containing exactly one difference are reduced, by adding and subtracting the smooth counterparts of the remaining factors, to the weighted flat interpolation estimates for first derivatives of Φ − Φmh , the pseudo-inverse estimate Lemma 2.3, and the projection estimate ∥P − Ph∥L∞ ≤ Ch m. Finally, the difference R( ¯fh, Φ) − R ( ¯fh, Φmh ) contains the additional higher-order terms. These are derivatives of the geometric interpolation error up to order b, multiplied by smooth coefficients coming from the chain rule. They are again estimated componentwise by Corollary 3.3, Lemma 3.5, or the standard estimate, depending on derivative order and parity. This yields the asserted order hmin {brb, bmb}− b.
+
+Corollary A.2. Let Φ : Γ → Γ be continuous and patchwise sufficiently smooth, and let Γmh be parametrized elementwise over T ∈ T h. Let f ∈ Cr+2  Γ; R be a scalar function and let fh := Irh,m f ∈
+
+C0 Γmh ; R be the interpolation of f . Assume that the local hypotheses of Theorem A.1 hold on every macro element. Fix an integer b with 2 ≤ b ≤ r, let g ∈ W 1,1(Γ) , and let vj ∈ W b+1 ,∞(Uδ(Γ); R3),
+
+j = 1 , . . . , b , be ambient direction fields. Then, with brb and bmb as in (A.2) ,
+
+Z
+
+> Γ
+
+∇(b)Γ f [P v 1, . . . , P v b] g dσ −
+
+Z
+
+> Γmh
+
+∇(b)Γmh
+
+fh[Phv1, . . . , Phvb] ( g ◦ L) d σh
+
+≤ Ch min {brb, bmb}− b∥f ∥Cr+2 (Γ) ∥g∥W 1,1(Γ) . (A.6) 
+
+The constant C may depend on the macro parametrizations and on the W b+1 ,∞-norms of the direction fields, but it is independent of h.Proof. This follows by summing Theorem A.1 over the finitely many macro elements, exactly as in the proof of Corollary 3.15. 37 A.2. Numerical experiments 
+
+The flat macro-element interpolation experiments and the lifted surface tests for b = 0 and b = 1 are reported in Section 5. Here we collect the higher-order lifted surface tests for b = 2 and b = 3, which correspond to the estimates above. As in the lower-order tests, we compare the tensor-valued integrals of D(b)f over Γ and D(b) 
+
+> h
+
+fh over Γ mh , and take the Frobenius norm after integration. This is a finite sum of scalar directional estimates and therefore has the same expected order. 
+
+rm 1 2 3 4 5 61 0.0 0.0 0.0 0.0 0.0 0.02 −0.0 2.0 2.0 2.0 2.0 2.03 0.0 2.0 2.0 2.0 2.0 2.04 0.0 2.0 2.0 4.0 4.0 4.05 0.0 2.0 1.9 4.0 4.0 5.46 0.0 2.0 1.9 4.0 4.0 6.0  
+
+> (a) b= 2
+
+rm 1 2 3 4 5 61 0.0 0.0 0.0 0.0 0.0 0.02 0.0 0.0 0.0 0.0 0.0 0.03 0.0 0.0 2.0 2.0 2.0 2.04 0.0 0.0 2.0 2.0 2.0 2.05 0.0 0.0 2.0 2.0 4.0 4.16 0.0 0.0 2.0 2.0 4.0 4.1  
+
+> (b) b= 3
+
+Table 6: Experimental orders of convergence for lifted interpolation integrals with b = 2 and b = 3 on the deformed sphere under red refinement. For each derivative order b, rows give r and columns give m. Compare Corollary A.2. 
+
+# B. Additional numerical experiments 
+
+This appendix contains numerical results for two settings that are not covered directly by the main theorems. The first setting is projected refinement, a standard construction in surface finite element computations that differs from the direct macro-element parametrization used in the analysis. The second setting is newest-vertex bisection, where the refinement pattern is not covered by the symmetric red-refinement argument. 
+
+B.1. Projected refinement 
+
+Starting from a piecewise linear interpolating surface, newly generated vertices during refinement are projected to the smooth surface. The higher order geometry is then described by an interpolation of the closest-point projection π over the elements of this piecewise linear surface (cf. Heine, 2004; Demlow, 2009). This construction differs from the direct macro-element parametrization used in the analysis above. In particular, the composition of a piecewise affine parametrization with the closest-point projection is only piecewise smooth and is therefore not directly covered by the assumptions of Section 3. Projected refinements are standard in higher-order surface finite element methods, and the corre-sponding geometry approximation estimates are classical (see Heine, 2004; Demlow, 2009). For the quantities considered here, however, the improved integral orders come from the symmetry cancella-tion studied in the preceding sections. The numerical results in Table 7 indicate that this cancellation 38 is still present when the projected refinement is generated from a structured refinement of a coarse reference grid. Quantity m = 1 m = 2 m = 3 m = 4 m = 5 m = 6 
+
+EPhn 2.00 4.00 4.01 6.01 6.00 8.04 
+
+En−nmh 1.97 4.00 4.01 6.01 6.00 8.04 
+
+EH 0.00 2.00 2.01 4.01 4.01 6.06 
+
+EK 0.00 2.00 2.00 4.00 4.00 6.03 
+
+EK, Ph 0.01 2.00 2.00 4.00 4.00 6.02 Table 7: Experimental orders of convergence for projected refinement on the deformed sphere surface with red refinement. The m = 6 values are taken from the last stable refinement level. The approximate L∞-norms on the deformed sphere surface in Table 8 follow the standard pointwise rates. Thus, also for projected refinements, the improved rates appear in the integral quantities and not in the pointwise geometric errors. Quantity m = 1 m = 2 m = 3 m = 4 m = 5 m = 6 
+
+Nρ 2.00 2.97 3.97 4.93 5.98 6.80 
+
+Nn 0.98 2.00 3.01 4.00 5.00 6.02 
+
+NH 0.00 1.01 2.01 3.01 4.00 5.03 
+
+NK 0.00 1.01 1.98 3.01 4.01 5.05 Table 8: Experimental orders of convergence for approximate L∞-norms on projected refinements of the deformed sphere surface. The projected construction is not identical to the interpolation of a globally smooth macro-element parametrization over the flat reference domain. The arguments of the preceding sections would ap-ply if there were smooth parametrizations over the reference patches Ω whose Lagrange interpolation preserves the projected Lagrange nodes and the associated discrete function spaces. Such parametriza-tions need not coincide with the piecewise affine parametrization followed by closest-point projection. Their existence is not shown here, but the computations are consistent with this interpretation for projected refinements generated from structured refinements of a coarse reference grid. 
+
+B.2. Newest-vertex bisection 
+
+The proof of the improved estimates uses the patchwise symmetry of the refined triangulation. Red refinement has this structure in a transparent way: inside each macro element the refined triangles can be grouped into symmetric pairs, while unmatched triangles occur only at macro-element boundaries. Newest-vertex bisection, as generated by Dune-Alugrid , is visually more subtle. The refinement closure near vertices where several macro elements meet creates regions with a different refinement level, see Figure 4. These regions still appear to contain local symmetric pairs of triangles, but the boundary between paired and unpaired regions is no longer confined to the macro-element boundary in the same simple way as for red refinement. 39 Figure 4: Newest-vertex bisection refinement of a triangular reference surface Γ. The refinement clo-sure creates local regions with different refinement levels near macro-element vertices, so the symmetric-pair structure is less visible than for red refinement. The numerical evidence nevertheless shows the same odd-even behaviour for both refinement strate-gies. Table 9 compares representative integral quantities on the deformed sphere surface for red re-finement and newest-vertex bisection. For m = 6, the values are taken from the last stable refinement step, since the finest level is affected by roundoff in some integral quantities. Refinement Quantity m = 1 m = 2 m = 3 m = 4 m = 5 m = 6 red EPhn 2.00 3.99 4.00 6.00 5.99 7.98 NVB EPhn 2.01 3.93 4.05 6.06 6.05 8.08 red EH 0.00 2.11 2.01 3.95 4.05 5.88 NVB EH 0.00 2.02 2.06 3.89 4.08 4.36 red EK 0.00 2.00 2.00 4.00 4.00 5.99 NVB EK 0.00 2.02 2.02 4.04 4.04 6.06 Table 9: Experimental orders of convergence for representative integral quantities on the deformed sphere surface. The table compares red refinement (red) with newest-vertex bisection (NVB) on the same surface. These data suggest that newest-vertex bisection preserves enough cancellation structure to obtain the same improved integral estimates. A precise characterization of the necessary symmetric-pair structure for newest-vertex bisection, and more generally for bisection-type refinement strategies with closure, is not part of the present analysis and remains open. 40

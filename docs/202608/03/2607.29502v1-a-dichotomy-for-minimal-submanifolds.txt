@@ -1,0 +1,362 @@
+Title: A dichotomy for minimal submanifolds
+
+URL Source: https://arxiv.org/pdf/2607.29502v1
+
+Published Time: Mon, 03 Aug 2026 01:01:57 GMT
+
+Number of Pages: 12
+
+Markdown Content:
+A DICHOTOMY FOR MINIMAL SUBMANIFOLDS 
+
+TOBIAS HOLCK COLDING AND WILLIAM P. MINICOZZI II 
+
+Abstract. We survey a circle of recent results showing that a minimal submanifold obeys a dichotomy: either it fills up space , spreading out like a space–filling curve, or it is confined , and confinement forces quantitative restrictions. On the confined side these restrictions are both geometric and function–theoretic: Euclidean volume growth, an optimal rate of convergence of the density, complex–curve rigidity for stable surfaces in R4, and a Liouville theorem forcing slowly growing harmonic functions on minimal disks to be constant. A prototypical restriction is Euclidean volume growth, which in these results is forced by the geometry rather than assumed. The mechanism is a volume doubling theorem that converts geometric confinement into quanti-tative rigidity: a stationary integral varifold trapped in a thin slab at a given scale cannot double its volume by more than a universal factor. We explain how this principle, and the height–excess bounds behind it, produce Euclidean volume growth for submanifolds of sublinearly growing height in every dimension and codimension, the optimal density rate in a slab, the complex– curve and Liouville rigidity above, a higher–codimension Bernstein theorem for disks, one–sided volume bounds, and an optimal stable Bernstein theorem in all dimensions generalizing Moser, Bombieri–De Giorgi–Miranda, Caffarelli–Nirenberg–Spruck and Ecker–Huisken. We also explain how this entire picture emerges from the structure theory of embedded minimal disks in R3, built on the one–sided curvature estimate and reflected globally in the half–space theorem, and how it extends as a weak analogue of that theory to all dimensions. 
+
+1. From global rigidity to local estimates 
+
+A minimal surface is a critical point of the area functional, or equivalently a surface whose mean curvature vanishes identically. Physically, minimal surfaces model soap films spanning wire frames, while mathematically they provide some of the simplest nonlinear geometric objects. Their study lies at the intersection of the calculus of variations, geometric analysis, and geometric measure theory, and has long driven the development of each of these subjects. Beginning with the pioneering work of Euler and Lagrange in the eighteenth century, which gave birth to the calculus of variations, the theory of minimal surfaces has time and again generated ideas and techniques that later became fundamental throughout regularity theory, geometric measure theory, differential geometry, and the analysis of nonlinear elliptic partial differential equations. One of the central themes in elliptic PDEs is that rigidity often has a hidden origin. Strong conclusions are initially obtained under seemingly indispensable hypotheses, only to be dis-covered later to follow from substantially weaker assumptions. Much of the history of elliptic regularity can be viewed as a search for the geometric or analytic mechanism behind rigidity. The classical example comes from the theory of harmonic functions. Liouville’s theorem asserts that a bounded harmonic function on all of Euclidean space is constant, and more generally that harmonic functions with sufficiently slow growth must be affine or polynomial. These are striking global rigidity theorems, but they only apply to solutions defined on all of Euclidean space. The real breakthrough came when the focus shifted from proving global rigidity to understand-ing local behaviour. Interior gradient estimates, Harnack inequalities, and Schauder estimates apply on arbitrary balls and make no reference to the behaviour of the solution at infinity. In 
+
+The authors were partially supported by NSF DMS Grants 2405393 and 2304684.  
+
+> 1arXiv:2607.29502v1 [math.DG] 31 Jul 2026 2TOBIAS HOLCK COLDING AND WILLIAM P. MINICOZZI II
+
+practice, these local estimates almost always imply the corresponding Liouville theorems, while simultaneously providing much more detailed information about arbitrary solutions. The global rigidity theorems remain true, but they are no longer the main story; they become consequences of a more powerful local theory. The same philosophy reappeared in a different guise in the resolution of Hilbert’s nineteenth problem by De Giorgi and Nash. Their work established the regularity of weak solutions of uniformly elliptic equations and transformed modern regularity theory. A central ingredient in De Giorgi’s proof is the control of a scale–invariant measure of how far the graph of a solution deviates from an affine plane, commonly known as De Giorgi’s height–excess. This geometric quantity measures the height of the graph above its best approximating plane. The subsequent work of Almgren and Allard extended this philosophy from graphs to arbitrary sets satisfying elliptic equations in a weak sense. Their theory replaced graphs by stationary varifolds. In contrast to De Giorgi’s approach, however, the regularity theory of stationary varifolds is formulated in terms of the tilt–excess, measuring the deviation of tangent planes from a fixed plane, rather than the weaker height–excess. This distinction is fundamental. The tilt–excess is a substantially stronger quantity: it im-plicitly contains a scale–invariant volume bound, and essentially all of the classical regularity theory relies upon such a bound. By contrast, the height–excess merely measures how closely a set lies inside a thin slab and contains no obvious information about its volume. From this perspective, the natural question is whether the passage from height–excess to tilt– excess is genuinely unavoidable. Does one really need to assume measure–theoretic information in order to obtain regularity, or can it itself be recovered from weaker geometric information? For minimal submanifolds, the stronger measure-theoretic information can be recovered from weaker geometric information. The central ingredient is the volume doubling theorem, which shows that confinement inside a sufficiently thin slab automatically generates the missing volume bound: it converts the weak geometric information encoded by the height–excess into the measure–theoretic information required by the classical regularity theory. The new mechanism may be summarized as height–excess = ⇒ volume bound = ⇒ tilt–excess .
+
+Thus the role played by De Giorgi’s height-excess in the theory of graphs extends, after the volume bound, to arbitrary stationary varifolds and hence the stronger tilt–excess is no longer the fundamental hypothesis. The weaker geometric information encoded by the height–excess already generates the measure–theoretic information required by the classical regularity theory. This observation has several consequences. Most notably, it shows that Euclidean volume growth is produced by the geometry rather than assumed. This leads to the optimal rate of convergence of the density, Liouville theorems in arbitrary codimension, rigidity theorems for stable minimal submanifolds, and higher-dimensional analogues of phenomena previously understood only in three dimensions. The remainder of this article develops this philosophy by showing that minimal submanifolds naturally divide into two sharply contrasting classes. Either they spread throughout the ambient space with essentially unrestricted complexity, or they remain confined, and confinement forces strong quantitative rigidity. The volume doubling theorem is the mechanism that connects these two worlds. 2. The dichotomy 
+
+Taken together, the results surveyed here point to a remarkably simple organizing principle for minimal submanifolds. We first state it informally. A DICHOTOMY FOR MINIMAL SUBMANIFOLDS 3
+
+Dichotomy. A minimal submanifold either fills up space —in the sense that it wanders all over Rn+k, much as a space–filling curve does—or it is confined in space , in which case it must satisfy strong quantitative restrictions. The point is that confinement is expensive. Minimality is a maximally spread–out condition— the mean curvature vanishes, so the submanifold cannot bend toward any preferred direction— and so if one nonetheless traps it in a bounded region of the ambient space, one pays for this with rigidity. Even in high dimension and high codimension, where minimal submanifolds are otherwise essentially unrestricted, confinement produces sharp structure. This dichotomy is already implicit in several classical results in three dimensions, and much of what follows can be viewed as a unification and extension of these ideas: 
+
+• The half–space theorem (Hoffman–Meeks [22], [15]): a properly immersed nonplanar minimal surface in R3 cannot lie in a half–space. A minimal surface that is confined to one side of a plane is forced to be a plane. 
+
+• Embedded minimal disks in R3 (Colding–Minicozzi [9, 10, 11, 12]): a sequence of embed-ded minimal disks that does not stay confined near a point degenerates into a foliation by parallel planes away from a singular axis, with the disks spiraling like a helicoid; those that do stay confined are graphical and controlled. 
+
+• The one–sided curvature estimate (Colding–Minicozzi [12]): an embedded minimal disk in R3 that lies on one side of a plane, close to it, is uniformly graphical—confinement to one side of a plane forces curvature bounds. In this survey we describe how the same dichotomy operates in all dimensions and codimen-sions. The unifying restriction that confinement forces is Euclidean volume growth , and the unifying mechanism is a volume doubling theorem [16]. We then survey the consequences: control of density, the equivalence of the natural notions of closeness to a plane, an optimal rate of convergence of the density in a slab, complex–curve rigidity in R4, one–sided bounds, a Liouville theorem for minimal disks [17], and Bernstein–type theorems. In the opposite direc-tion, the examples of Colding–Mart´ ın–Minicozzi [18] show that without confinement the area can grow arbitrarily fast, so the confinement hypotheses cannot be dropped. Throughout, the single most important quantity is the scale–invariant density 
+
+Θ( x, r ) = Vol  Br(x) ∩ Σ
+
+ωn rn , Σn ⊂ Rn+k,
+
+where ωn is the volume of the unit ball in Rn. By the monotonicity formula Θ( x, r ) is monotone nondecreasing in r for a minimal Σ; see [33, 14]. Density controls both the local regularity theory and the global structure of a minimal submanifold. A bound on the density is almost always assumed—often implicitly. A central message here is that such a bound need not be assumed: for confined minimal submanifolds it is implied by the geometry .3. The volume doubling theorem 
+
+To make this dichotomy quantitative one needs a mechanism converting confinement into volume control. The following volume doubling theorem converts geometric confinement into volume control and underlies many of the results discussed below. 
+
+Theorem 3.1 (Volume doubling, Colding–Minicozzi [16]) . There exist δ0 > 0 and C depending only on n so that if Σn ⊂ Rn+k is a proper stationary integral varifold and B4 r ∩ Σ is contained in a slab of height δ0 r, then 
+
+Vol  B2 r ∩ Σ ≤ C Vol  Br ∩ Σ.4 TOBIAS HOLCK COLDING AND WILLIAM P. MINICOZZI II 
+
+The theorem says that geometric confinement forces quantitative control of volume. More precisely, a stationary integral varifold confined inside a sufficiently thin slab cannot more than double its volume by a universal factor. It assumes only geometric confinement–closely related to De Giorgi’s height–excess–and produces the scale–invariant volume bound that had previously been assumed rather than proved. Two features are essential: (1) The doubling constant C is universal (it depends only on n), not on the submanifold, and in particular is independent of the codimension k.(2) Nothing is assumed about the density a priori; the volume bound is produced, not im-posed. The slab hypothesis may vary from scale to scale, which permits fractal behavior. 3.1. Iteration and Euclidean volume growth. Once confinement has been shown to produce volume control, the first natural question is whether it produces the correct asymptotic growth. When the slab condition holds at all large scales, one may iterate. This is exactly the case of 
+
+sublinearly growing height : after a rigid motion there are α < 1 and r0 > 0 with Σ \ Br0 ⊂
+
+n
+
+x2 
+
+> n+1
+
++ · · · + x2 
+
+> n+k
+
+<  x21 + · · · + x2
+
+> n
+
+α o
+
+.
+
+Iteration alone yields only a polynomial bound on the volume growth. With additional ideas and a more refined analysis, one obtains Euclidean volume growth: 
+
+Theorem 3.2 (Euclidean volume growth, Colding–Minicozzi [16]) . A complete proper stationary integral varifold of any dimension and codimension whose height grows sublinearly has Euclidean volume growth: there is C with 
+
+Vol  Br ∩ Σ ≤ C r n for all r ≥ 1.
+
+Moreover the constant C is determined by the volume of a single sufficiently large ball, of radius depending only on r0, α, n .
+
+The exponent is exactly n: the confined minimal submanifold has Euclidean volume growth , and this is the sharp quantitative restriction promised by the dichotomy. The gener-alized Enneper surfaces and examples of Kapouleas, [24], show that the multiplicative constant can be arbitrarily large. What does Euclidean volume growth buy us? Before answering that question, let us first see why it is the right growth condition. 3.2. Why Euclidean volume growth is the right invariant. There are several ways to see that Euclidean volume growth is not merely a technical convenience; it is the natural global condition governing the theory. A useful analogy: for a smooth f : Rn → R with negative gradient flow Xx(0) = x, ddt Xx(t) = −∇ f (Xx(t)), the most basic qualitative question is whether 
+
+f is bounded below; boundedness below prevents the flow from running off to −∞ and organizes the dynamics. In the minimal–surface setting, Euclidean volume growth plays exactly this role: it is the global condition that rules out the degenerate, space–filling behavior and makes structure possible. Two classical instances make this concrete. 
+
+• Surfaces in R3. For a minimal surface in R3 of finite genus, Euclidean area growth is equivalent to finite total curvature , and such surfaces have been completely understood for decades (Jorge-Meeks [23], Osserman [28], Schoen [31], and others). 
+
+• Complex submanifolds and algebraic geometry. Wirtinger [36] observed in 1936 that every complex submanifold of CN is area minimizing. Over more than fifteen years in the 1950s–60s, using value distribution theory (a complex analogue of Hadamard’s three–circles theorem) together with work of Hermann Weyl, the combined efforts of Rutishauser, Stoll and Bishop [30, 34, 4] established that a complex submanifold of CNA DICHOTOMY FOR MINIMAL SUBMANIFOLDS 5
+
+with Euclidean volume growth is algebraic , i.e. the zero set of finitely many polynomials. Euclidean volume growth is exactly the dividing line between transcendental wandering and algebraic rigidity. Once Euclidean volume growth is available, the next natural question is how it changes our notion of closeness to a plane. 4. From geometric to measure-theoretic closeness 
+
+Because density plays a central role in both the local and global theory, it is worth isolating what the doubling theorem buys us at the level of closeness to a plane. Consider three natural notions that a set Σ is close, on Br, to a ball in an n–plane: (1) Hausdorff close: Σ ∩ Br is Hausdorff–close to a disk in the plane; (2) Measure–theoretically close: Σ ∩ Br is close in measure to a disk in the plane; (3) Varifold close: Σ together with its tangent planes is close, as a varifold, to the plane with multiplicity one (roughly a W 1,2 condition). For a stationary varifold with a fixed volume bound , these three notions are all equivalent [1, 33]. The natural question is what happens without an a priori volume bound. 
+
+Question 4.1. Without assuming a volume bound, are these notions still comparable? Does the weakest of them—Hausdorff closeness—control the others? The answer, which is the conceptual content of Theorem 3.1, is yes: Hausdorff closeness places Σ in a thin slab, doubling then produces the missing volume bound, and once one has a volume bound the classical equivalences [1, 33] apply. Thus the weakest and most flexible hypothesis turns out to imply them all. 4.1. Height–excess versus tilt–excess. This distinction has a long history in elliptic PDE and geometric measure theory. De Giorgi [19] and Nash [27] independently resolved Hilbert’s nineteenth problem in the late 1950s, establishing H¨ older continuity of derivatives of solutions of nonlinear elliptic equations. A key ingredient in De Giorgi’s approach was control of a scale– invariant L2 deviation of the graph of a function from an affine plane—the height–excess —and its decay at smaller scales. Almgren [2] and Allard [1], [20], recast this in a coordinate–free, varifold setting valid for general sets solving an elliptic equation weakly, using instead a stronger, tangent–plane based quantity—the tilt–excess —which for graphs corresponds roughly to a W 1,2
+
+bound. The tilt–excess implicitly carries a scale–invariant volume bound , and all existing arguments in this circle rely on such a bound—yet many applications only supply control closer in spirit to De Giorgi’s original height –excess. The doubling theorem removes the gap: for confined minimal submanifolds the weaker height–excess bound already implies a volume bound, and hence a tilt–excess bound. This is the technical source of the applications that follow. 5. The picture in three dimensions 
+
+5.1. Building blocks. The volume doubling theorem is the mechanism underlying the higher-dimensional theory. In three dimensions, however, an even more detailed picture is available. There the same dichotomy is expressed not through volume doubling but through the structure theory of embedded minimal disks, built on the one-sided curvature estimate and reflected globally in the half-space theorem. In three dimensions the structure theory of Colding–Minicozzi [9, 10, 11, 12, 13], [29] shows that, locally, there are exactly three essential building blocks: (1) planes and, more generally, graphs; (2) double spirals (pieces of the helicoid); 6 TOBIAS HOLCK COLDING AND WILLIAM P. MINICOZZI II 
+
+(3) catenoid necks. A soap film is a stable minimal surface found in nature. Its geometry consists precisely of the three basic pieces discussed here: a flat or graphical sheet, one half of the double–spiral staircase of a helicoid, and not too large portion of the neck of a catenoid. 5.2. The one–sided curvature estimate. The technical heart of the 3–dimensional theory is the one–sided curvature estimate [12]: an embedded minimal disk in a ball that lies on one side of a plane and comes close to that plane is graphical over the plane with uniformly bounded curvature on a definite smaller ball. 
+
+Theorem 5.1 (One–sided curvature estimate, Colding–Minicozzi [12]) . There are ε0 > 0 and 
+
+C so that the following holds. If Σ2 ⊂ B2 r ∩ { x3 > 0} ⊂ R3 is an embedded minimal disk with 
+
+∂Σ ⊂ ∂B 2r, then each component of Br ∩ Σ that comes within ε0 r of the plane {x3 = 0 } is a graph over that plane with 
+
+sup  
+
+> Br∩Σ
+
+|A|2 ≤ Cr2 .
+
+This is a direct manifestation of the dichotomy: a minimal disk that is confined to one side of a plane is forced to be graphical and flat. If it were not confined—if it wandered to both sides—it would spiral like a helicoid and have large curvature. 5.3. The half–space theorem. At the global level, the Hoffman–Meeks half–space theorem [22] captures the first manifestation of this picture. 
+
+Theorem 5.2 (Half–space theorem [22]) . A connected, properly immersed minimal surface in 
+
+R3 contained in a half–space is a plane. 
+
+The original proof of the half–space theorem, due to Hoffman and Meeks, [22], combines the strong maximum principle with a sliding catenoid argument. More recently, a conceptually different proof was found, [15]. It is based on the distance to the minimal surface from points in the boundary of the half–space, together with the observation that suitably chosen functions of this distance are viscosity subsolutions. The argument is then completed by exploiting the parabolicity of the flat two-dimensional plane. Again, confinement to a half–space is so restrictive for a minimal surface that only the flat ones survive. This striking rigidity is special to dimension three. In higher dimensions, the half–space theorem is known to fail: higher-dimensional catenoids lie in slabs, and many other minimal hypersurfaces are likewise slab-contained. The results described below may be regarded as quantitative, volume-theoretic refinements of this dichotomy. The structure theory for embedded minimal disks in R3 developed in [9, 10, 11, 12, 13] is not merely a local analogue of the half–space theorem, but a fundamentally stronger theory. Whereas the half–space theorem is a global rigidity result that applies only to complete minimal surfaces extending to infinity, the one–sided curvature estimate applies to an arbitrary local piece of a minimal surface and leads to a detailed geometric description of its structure. At a high level, this is analogous to the distinction between a Liouville theorem for entire solutions and a local gradient estimate. In the absence of a sufficiently strong compactness theorem, estimates of the latter type are dramatically more powerful. In fact, the one–sided curvature estimate and the structure theorems of [9, 10, 11, 12, 13] provide substantially more information than a local version of the half–space theorem could hope to provide. A DICHOTOMY FOR MINIMAL SUBMANIFOLDS 7
+
+6. Without constraints, chaos: rapid area growth 
+
+Even for surfaces without spatial constraints minimal surfaces can behave wildly. The ex-amples of Colding–Mart´ ın–Minicozzi [18] make this precise, and show that the confinement hypotheses in the theorems above cannot be removed. 
+
+Theorem 6.1 (Colding–Mart´ ın–Minicozzi [18]) . The graph Σ = {(z, f (z)) : z ∈ C} ⊂ C2 = R4
+
+of the holomorphic function f (z) = sin( ez ) is a smooth, properly embedded, area–minimizing (in particular stable) minimal surface, and there are c, r 0 > 0 with 
+
+Area  Br ∩ Σ ≥ ec r (r ≥ r0).
+
+Taking f (z) = sin( ez2
+
+) gives instead Area( Br ∩ Σ) ≥ ec r 2
+
+.
+
+Theorem 6.2 (Colding–Mart´ ın–Minicozzi [18]) . There is a complete proper conformal minimal immersion X : Ω → R3 of a simply connected surface with 
+
+Z
+
+> X−1(BR)
+
+dA X ≥ C e c R 
+
+for all large R; the radii can be chosen so that the growth is instead Gaussian, ≥ C e c R 2
+
+.
+
+These examples—even in R3 and R4—spread out and fill up space: their density ratios blow up, so they violate volume doubling on every large scale and are not confined to slabs across scales. This is the “fills up space” side of the dichotomy. Everything below is about the other side. 6.1. Examples: how dimension changes confinement. The sublinear–height hypothesis is satisfied by many natural minimal submanifolds, and it is instructive that raising the dimension tends to make confinement easier , not harder. 
+
+• Catenoids. In R3 the height of the catenoid grows at the logarithmic rate, so it is not contained in any half–space, though it does have Euclidean area growth. In higher dimensions the situation is strikingly different—the height of the higher–dimensional catenoid is bounded [5], so it lies in a slab. This is a first sign that the half–space theorem must fail for n > 2: there really are minimal hypersurfaces trapped in a slab, and they fall squarely within the scope of Theorems 3.1 and 3.2. 
+
+• Enneper surfaces. Enneper’s surface in R3 has polynomial height growth of order  
+
+> 23
+
+—sublinear, hence confined in the sense of Theorem 3.2, though not contained in any slab. Its higher–dimensional generalizations are conjectured to lie within a slab [8], which would again place them among the confined examples with bounded height rather than merely sublinear height. Thus the passage from n = 2 to n > 2 converts the two borderline 3–dimensional examples— the catenoid and Enneper’s surface—from “sublinearly confined” to (conjecturally, for Enneper) “slab confined,” exactly the regime where the sharper slab results of the next sections apply. 7. An optimal rate of convergence in a slab 
+
+When the submanifold lies in a fixed slab, one gets not only Euclidean volume growth but an optimal rate at which the density approaches its limit, together with integrality of that limit. 
+
+Theorem 7.1 (Colding–Minicozzi [16]) . There exist C and R0 depending only on n so that if 
+
+Σn ⊂ { x2 
+
+> n+1
+
++ · · · + x2 
+
+> n+k
+
+≤ 1 } is a complete proper stationary integral varifold, then there is 8 TOBIAS HOLCK COLDING AND WILLIAM P. MINICOZZI II 
+
+an integer N so that for all r ≥ R0 and all p in the axis {xn+1 = · · · = xn+k = 0 },
+
+ 1 − C r −2 N ≤ Vol  Br(p) ∩ Σ
+
+Vol  Br ⊂ Rn ≤ N. 
+
+The r−2 rate is sharp, as the example of a slightly tilted n–plane in the slab shows, and the inte-grality of N follows from Allard’s integrality theorem once the density and excess are controlled. The proof rests on a weighted integrability of the tilt–excess, P
+
+> j
+
+R 
+
+> Σ
+
+|∇ T xn+j |2 |x|2−n < ∞,which improves the naive logarithmic bound that follows once one has shown Euclidean volume growth. One of the first consequences of Euclidean volume growth is function-theoretic rigidity. 8. A Liouville theorem and a Bernstein theorem for disks 
+
+Euclidean (here quadratic) area growth is exactly the condition under which a function– theoretic Liouville phenomenon appears. For minimal disks in any codimension this takes the following sharp form [17]. 
+
+Theorem 8.1 (Liouville theorem, Colding–Minicozzi [17]) . Let Σ2 ⊂ RN be a properly immersed minimal surface that is topologically a disk, with quadratic area growth Area( Br ∩ Σ) ≤ Ca r2.If u is a harmonic function on Σ whose negative part grows slowly, 
+
+−C 1 + |x|α ≤ u(x) for some constant C and some α < − log  1 − e−24 Ca 
+
+log 2 ,
+
+then u is constant. 
+
+Since the coordinate functions are harmonic, one must have α < 1 for any such statement, and the admissible range above is indeed < 1. Combining Theorem 8.1 with the volume growth estimates of [16] gives a Bernstein theorem for minimal disks of slowly growing height in any codimension. 
+
+Corollary 8.2 (Bernstein theorem for disks, Colding–Minicozzi [17]) . Given N , there is α > 0
+
+so that if Σ is a properly immersed minimal disk in RN contained in {x ∈ RN : PNi=3 |xi| ≤ 
+
+C(|x1|α + |x2|α + 1) } for some constant C, then Σ is the x1 − x2 plane. 
+
+The result is optimal, and the three classical surfaces calibrate it exactly: 
+
+• Enneper’s surface has quadratic area growth with Ca = 3 π, tangent cone at infinity a plane of multiplicity three, and a nonconstant harmonic coordinate growing at rate 23 ;higher–order Enneper surfaces make α → 0 as Ca → ∞ . So some sub–linear restriction is genuinely needed. 
+
+• The catenoid shows that the topological (disk) hypothesis cannot be dropped even in 
+
+R3: its logarithmically growing vertical coordinate is a nonconstant harmonic function. 
+
+• The helicoid has cubic area growth and a logarithmically growing harmonic function, showing the quadratic area bound is necessary. The same oscillation estimate yields an effective, quantitative version. 
+
+Theorem 8.3 (Uniform H¨ older regularity, Colding–Minicozzi [17]) . If Σ ⊂ B2 r ⊂ RN is a compact immersed minimal disk with ∂Σ ⊂ ∂B 2 r and Area(Σ) ≤ 4 Ca r2, then there is α =
+
+α(Ca) > 0 so that any harmonic u on Σ satisfies for x, y in the same component of Bs ∩ Σ with 
+
+0 < s < r ,
+
+|u(x) − u(y)| ≤ C ∥u∥L1(Σ) 
+
+ sr
+
+α
+
+.
+
+A point of interest is that the Gauss–Bonnet theorem is never used, so the techniques are available in higher dimensions as well. A DICHOTOMY FOR MINIMAL SUBMANIFOLDS 9
+
+9. Stable minimal submanifolds 
+
+Stable minimal surfaces—those that locally minimize area to second order—are the soap films one sees in nature: minimal graphs, part (but not all) of the catenoid, half of the helicoid, half of Enneper’s surface. For this class the dichotomy takes an especially clean form. The strongest rigidity appears for stable minimal submanifolds. 9.1. An optimal stable Bernstein theorem in all dimensions. Theorem 9.1 (Stable Bernstein, Colding–Minicozzi [16]) . Let Σn ⊂ Rn+1 be a complete, prop-erly immersed, two–sided stable minimal hypersurface. If Σ has sublinearly growing height, then 
+
+Σ is a hyperplane. 
+
+The proof uses the volume bound of Theorem 3.2 to make the scale–invariant tilt–excess small enough to apply Bellettini’s ε– regularity [3, 32], and then a reverse Poincar´ e argument. The sublinear growth is necessary: stable minimal cones, such as the Simons cone in R8, have exactly linear height growth. This generalizes the classical Bernstein theorems for minimal graphs, where stability and Euclidean volume growth hold automatically: 
+
+• Moser (1961) [26]: bounded |∇ u|;
+
+• Bombieri–De Giorgi–Miranda (1969) [6]: sublinear growth of u;
+
+• Trudinger (1972) [35]: a new proof of Moser’s theorem; 
+
+• Caffarelli–Nirenberg–Spruck (1988) [7]: a generalization of Moser’s theorem; 
+
+• Ecker–Huisken (1990) [21]: sublinear growth of ∇u.There is also a version with compact boundary, giving an asymptotic description (disjoint graphs converging to constants) and the improved curvature decay |A|2 ≤ C |x|2 α−4 outside a compact set [16]. 9.2. Stable surfaces in R4 are complex curves. In higher codimension, Micallef [25] proved that a complete oriented parabolic stable minimal surface in R4 is holomorphic for some orthog-onal complex structure. Combined with the volume bounds above, this gives: 
+
+Theorem 9.2 (Colding–Minicozzi [16]) . Let Σ2 ⊂ R4 be an oriented stable stationary integral varifold with at most finitely many singular points. If Σ is contained in a sublinearly growing tubular neighborhood of some two–plane, then it is a complex curve for some orthogonal complex structure on R4 and indeed algebraic. 
+
+The sublinear growth gives quadratic area growth (Theorem 3.2), hence parabolicity by the logarithmic cutoff argument, so Micallef’s theorem applies. Many holomorphic curves satisfy the hypotheses, e.g. zp 
+
+> 1
+
+= zq 
+
+> 2
+
+with p̸ = q in C2 = R4.10. One–sided volume bounds 
+
+The results above assume a two–sided (slab or tube) bound. Confinement to one side of a hyperplane still yields a doubling, but—as tilted planes show—one must decrease the height of the slab as the radius grows. 
+
+Theorem 10.1 (Colding–Minicozzi [16]) . There are C1, C 2, C 3 > 0 depending on n and k so that if z0 > 0 satisfies r > C 1z0 and C4r ∩ Σ ⊂ { xn+j > 0, j = 1 , . . . , k }, then 
+
+Vol  C2r, C 2z0 ∩ Σ ≤ C3 Vol  Cr, z 0 ∩ Σ,
+
+where Cr,b = {x21 + · · · + x2 
+
+> n
+
+< r 2} ∩ { xn+j < b }.
+
+Thus one gains volume doubling as one goes further out, at the necessary cost of looking closer to the bounding hyperplane. 10 TOBIAS HOLCK COLDING AND WILLIAM P. MINICOZZI II 
+
+11. Sketch of the proof of doubling 
+
+Finally, we indicate the proof of Theorem 3.1 when Σ n ⊂ Rn+1 , n > 2, is a smooth minimal hypersurface, contained in a narrow slab {| xn+1 | ≤ δR } with δ > 0 small. The argument illustrates how confinement (thinness of the slab) is converted into a volume bound. 
+
+Step 1: the cylindrical distance. Let s > 0 be the distance to the xn+1 –axis, 
+
+s2 = x21 + · · · + x2 
+
+> n
+
+,
+
+and set V (r) = Vol( {s ≤ r} ∩ Σ) ≈ Vol( Br ∩ Σ). We want V (2 r) ≤ C V (r). 
+
+Step 2: tilt–excess as flatness. The quantity |∇ T xn+1 |2 is the squared deviation of TxΣfrom {xn+1 = 0 }; its average is the tilt–excess. 
+
+Step 3: comparing s with a harmonic model. On Σ one has 
+
+−(n − 1) ( n − 2) |∇ T xn+1 |2 ≤ sn ∆Σ
+
+ s2−n ≤ (n − 2) |∇ T xn+1 |2,
+
+and integrating this bounds R 
+
+> Σ2R
+
+|∇ T s|2 by 
+
+n2 22n−1V (R) + ( n − 1) 2 n−1
+
+Z
+
+> ΣR, 2R
+
+|∇ T xn+1 |2 .
+
+Step 4: the normal derivative is small. Since Σ is nearly horizontal, |∇ ⊥s|2 ≤ |∇ T xn+1 |2.
+
+Step 5: a subharmonic barrier. Set h = s2−n + 2 n−1 n (n − 2) x2
+
+> n+1
+
+/r n. If the slab is thin enough, then on { r 
+
+> 2
+
+≤ s ≤ 4 r},
+
+ε s 2−n ≥ | s2−n − h| ,
+
+∆Σ h ≥ 2 n (n − 2) |∇ T xn+1 |2
+
+rn .
+
+Step 6: bounding the tilt–excess by V (r). Using h as a barrier and integrating ∆ Σ h
+
+bounds R  
+
+> {r≤s≤2r}
+
+|∇ T xn+1 |2 in terms of V (r). Thinness of the slab is used decisively here to control the boundary terms. 
+
+Step 7: Pythagoras and conclusion. Since s has unit gradient, 1 = |∇ T s|2 + |∇ ⊥s|2, so 
+
+V (2 r) = R  
+
+> Σ2r
+
+(|∇ T s|2 + |∇ ⊥s|2). By Steps 3–6 both terms are bounded by the tilt–excess, which is bounded by V (r). Hence V (2 r) ≤ C V (r). □
+
+12. Concluding remarks 
+
+The results surveyed here all reflect the same underlying principle. A minimal submanifold has two options. It may spread out and fill space—and the examples of Colding–Mart´ ın–Minicozzi [18] show that, without constraints, it really can do so, even in R3 and R4. Or it may be confined, and confinement is expensive: it forces Euclidean volume growth, a density bound, an optimal rate of convergence of the density, complex–curve rigidity in R4, Liouville and Bernstein rigidity, and one–sided volume bounds. In three dimensions this dichotomy is the familiar one between graphs, helicoids and catenoids, controlled by the one–sided curvature estimate and expressed globally by the half–space theo-rem. In higher dimensions and codimensions the same dichotomy persists, organized now by volume doubling and Euclidean volume growth—produced from the weak height–excess. The scale–invariant density remains the quantity that underlies both sides of the dichotomy: on the confined side it is bounded by the geometry itself, and this fact underlies the applications described above. It is natural to ask to what extent the mechanism of volume doubling generated by geometric confinement extends beyond minimal submanifolds. A DICHOTOMY FOR MINIMAL SUBMANIFOLDS 11 
+
+References 
+
+[1] W. K. Allard, On the first variation of a varifold , Ann. of Math. (2) 95 (1972), 417–491. [2] F. J. Almgren, Jr., Existence and regularity almost everywhere of solutions to elliptic variational problems among surfaces of varying topological type and singularity structure , Ann. of Math. (2) 87 (1968), 321–391. [3] C. Bellettini, Extensions of Schoen–Simon–Yau and Schoen–Simon theorems via iteration ` a la De Giorgi ,Invent. Math. 240 (2025), no. 1, 1–34. [4] E. Bishop, Conditions for the analyticity of certain sets , Michigan Math. J. 11 (1964), 289–304. [5] D. Blair, A generalization of the catenoid , Canad. J. Math. 27 (1975), 231–236. [6] E. Bombieri, E. De Giorgi, and M. Miranda, Una maggiorazione a priori relativa alle ipersuperfici minimali non parametriche , Arch. Rational Mech. Anal. 32 (1969), 255–267. [7] L. Caffarelli, L. Nirenberg, and J. Spruck, On a form of Bernstein’s theorem , in Analyse math´ ematique et applications , Gauthier-Villars, Paris, 1988, 55–66. [8] J. Choe, On the existence of higher-dimensional Enneper’s surface , Comment. Math. Helv. 71 (1996), no. 4, 556–569. [9] T. H. Colding and W. P. Minicozzi II, The space of embedded minimal surfaces of fixed genus in a 3-manifold I: Estimates off the axis for disks , Ann. of Math. (2) 160 (2004), 27–68. [10] T. H. Colding and W. P. Minicozzi II, The space of embedded minimal surfaces of fixed genus in a 3-manifold II: Multi-valued graphs in disks , Ann. of Math. (2) 160 (2004), 69–92. [11] T. H. Colding and W. P. Minicozzi II, The space of embedded minimal surfaces of fixed genus in a 3-manifold III: Planar domains , Ann. of Math. (2) 160 (2004), 523–572. [12] T. H. Colding and W. P. Minicozzi II, The space of embedded minimal surfaces of fixed genus in a 3-manifold IV: Locally simply connected , Ann. of Math. (2) 160 (2004), 573–615. [13] T. H. Colding and W. P. Minicozzi II, The space of embedded minimal surfaces of fixed genus in a 3-manifold. V. Fixed genus , Ann. of Math. (2) 181 (2015), 1–153. [14] T. H. Colding and W. P. Minicozzi II, A Course in Minimal Surfaces , Graduate Studies in Mathematics 121 ,Amer. Math. Soc., Providence, RI, 2011. [15] T. H. Colding and W. P. Minicozzi II, Distance between minimal surfaces and flows , preprint (2026) arXiv:2605.10589. [16] T. H. Colding and W. P. Minicozzi II, Minimal submanifolds confined in space , preprint (2026), arXiv:2605.15031. [17] T. H. Colding and W. P. Minicozzi II, Liouville theorem for immersed minimal surfaces in any codimension ,preprint (2026), arXiv:2605.15038. [18] T. H. Colding, F. Mart´ ın, and W. P. Minicozzi II, Minimal surfaces with rapid area growth , preprint (2026), arXiv:2605.28504. [19] E. De Giorgi, Sulla differenziabilit` a e l’analiticit` a delle estremali degli integrali multipli regolari , Mem. Accad. Sci. Torino Cl. Sci. Fis. Mat. Natur. (3) 3 (1957), 25–43. [20] C. De Lellis, Allard’s interior regularity theorem: an invitation to stationary varifolds , Nonlinear analysis in geometry and applied mathematics. Part 2, 2349, Harv. Univ. Cent. Math. Sci. Appl. Ser. Math., 2, Int. Press, Somerville, MA, 2018. [21] K. Ecker and G. Huisken, A Bernstein result for minimal graphs of controlled growth , J. Differential Geom. 
+
+31 (1990), 397–400. [22] D. Hoffman and W. H. Meeks III, The strong halfspace theorem for minimal surfaces , Invent. Math. 101 
+
+(1990), 373–377. [23] L.P. Jorge and W.H. Meeks III, The topology of complete minimal surfaces of finite total Gaussian curvature ,Topology 22 (1983), no. 2, 203–221. [24] N. Kapouleas, Complete embedded minimal surfaces of finite total curvature , J. Differential Geom. 47 (1997), no. 1, 95–169. [25] M. J. Micallef, Stable minimal surfaces in Euclidean space , J. Differential Geom. 19 (1984), 57–84. [26] J. Moser, On Harnack’s theorem for elliptic differential equations , Comm. Pure Appl. Math. 14 (1961), 577–591. [27] J. Nash, Continuity of solutions of parabolic and elliptic equations , Amer. J. Math. 80 (1958), 931–954. [28] R. Osserman, A Survey of Minimal Surfaces , 2nd ed., Dover, New York, 1986. [29] J. P´ erez, A new golden age of minimal surfaces , Notices Amer. Math. Soc. 64 (2017), no. 4, 347–358. [30] H. Rutishauser, ¨Uber Folgen und Scharen von analytischen und meromorphen Funktionen mehrerer Variabeln, sowie von analytischen Abbildungen , Acta Math. 83 (1950), 249–325. [31] R. Schoen, Uniqueness, symmetry, and embeddedness of minimal surfaces , J. Differential Geom. 18 (1983), 791–809. 12 TOBIAS HOLCK COLDING AND WILLIAM P. MINICOZZI II 
+
+[32] R. Schoen and L. Simon, Regularity of stable minimal hypersurfaces , Commun. Pure Appl. Math. 34, 741–797 (1981). [33] L. Simon, Lectures on Geometric Measure Theory , Proc. Centre Math. Anal. 3, Australian National Univ., Canberra, 1983. [34] W. Stoll, The growth of the area of a transcendental analytic set. I, II , Math. Ann. 156 (1964), 144–170. [35] N. S. Trudinger, A new proof of the interior gradient bound for the minimal surface equation in n dimensions ,Proc. Nat. Acad. Sci. U.S.A. 69 (1972), 821–823. [36] W. Wirtinger, Eine Determinantenidentit¨ at und ihre Anwendung auf analytische Gebilde in euklidischer und Hermitescher Maßbestimmung , Monatsh. Math. Phys. 44 (1936), 343–365. 
+
+Department of Mathematics, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, MA 02139 
+
+Email address : colding@math.mit.edu and minicozz@math.mit.edu

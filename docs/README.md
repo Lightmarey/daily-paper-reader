@@ -41,17 +41,17 @@
 <section class="dpr-home-dashboard-card dpr-home-report-card">
   <div class="dpr-home-dashboard-header">
     <div>
-      <span class="dpr-home-dashboard-kicker">2026-08-02</span>
+      <span class="dpr-home-dashboard-kicker">2026-08-03</span>
       <h3 class="dpr-home-dashboard-title">今日汇总</h3>
     </div>
-    <strong class="dpr-home-dashboard-count">共 6 篇</strong>
+    <strong class="dpr-home-dashboard-count">共 11 篇</strong>
   </div>
   <dl class="dpr-home-dashboard-stats">
     <div class="dpr-home-dashboard-stat"><dt>累计更新</dt><dd>1 次</dd></div>
-    <div class="dpr-home-dashboard-stat"><dt>精读</dt><dd>3</dd></div>
-    <div class="dpr-home-dashboard-stat"><dt>速读</dt><dd>3</dd></div>
+    <div class="dpr-home-dashboard-stat"><dt>精读</dt><dd>6</dd></div>
+    <div class="dpr-home-dashboard-stat"><dt>速读</dt><dd>5</dd></div>
   </dl>
-  <p class="dpr-home-dashboard-body">最近更新：2026-08-02 20:07:09 UTC<br>状态：成功</p>
+  <p class="dpr-home-dashboard-body">最近更新：2026-08-03 21:26:41 UTC<br>状态：成功</p>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-brief-card">
   <div class="dpr-home-dashboard-header">
@@ -62,7 +62,9 @@
     <strong class="dpr-home-dashboard-count">AI</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<p>今日共读6篇几何与PDE论文，精读聚焦Kähler-Ricci孤立子唯一性与度量空间Willmore不等式。最值得关注两篇9分工作：Kähler锥分辨上的收缩孤立子唯一性，以及度量空间中的平均曲率与Willmore不等式，均属前沿突破。建议普通读者先浏览精读摘要，再按兴趣速读Navier-Stokes正则性等应用型结论。</p>
+<p>今日共阅读11篇论文，精读6篇、速读5篇，核心聚焦流体力学极限与几何分析中的极小曲面问题。</p>
+<p>最值得关注的两篇精读：退化可压缩Navier-Stokes方程在扩张域上的无粘不可压极限（8.0分），以及度量-测度几何与全息极值曲面的几何类比（8.0分）。</p>
+<p>普通读者可从速读中的PINNs应用指南（7.0分）或极小曲面二分法（7.0分）入手，快速了解当前几何分析的前沿方法。</p>
   </div>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-deep-card">
@@ -71,12 +73,12 @@
       <span class="dpr-home-dashboard-kicker">今日累计</span>
       <h3 class="dpr-home-dashboard-title">精读推荐</h3>
     </div>
-    <strong class="dpr-home-dashboard-count">3 篇</strong>
+    <strong class="dpr-home-dashboard-count">6 篇</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Uniqueness of shrinking Kähler-Ricci solitons on resolutions of Kähler cones">Uniqueness of shrinking Kähler-Ricci solitons on resolutions of Kähler cones</span></li><li><span class="dpr-home-dashboard-paper-title" title="Mean curvature and sharp Willmore inequalities in metric spaces">Mean curvature and sharp Willmore inequalities in metric spaces</span></li><li><span class="dpr-home-dashboard-paper-title" title="Inviscid Incompressible Limit for Degenerate Compressible Navier-Stokes Equations on Expanding Domains">Inviscid Incompressible Limit for Degenerate Compressible Navier-Stokes Equations on Expanding Domains</span></li></ul>
+<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Inviscid Incompressible Limit for Degenerate Compressible Navier-Stokes Equations on Expanding Domains">Inviscid Incompressible Limit for Degenerate Compressible Navier-Stokes Equations on Expanding Domains</span></li><li><span class="dpr-home-dashboard-paper-title" title="Metric--Measure Geometry and Geometric Analogues of Holographic Extremal Surfaces">Metric--Measure Geometry and Geometric Analogues of Holographic Extremal Surfaces</span></li><li><span class="dpr-home-dashboard-paper-title" title="Nonconcentration of eigenfunctions in Microlocal Kakeya-Nikodym norms: a phase space approach">Nonconcentration of eigenfunctions in Microlocal Kakeya-Nikodym norms: a phase space approach</span></li></ul>
   </div>
-  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>3</strong></span></div>
+  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>6</strong></span></div>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-skim-card">
   <div class="dpr-home-dashboard-header">
@@ -84,12 +86,12 @@
       <span class="dpr-home-dashboard-kicker">今日累计</span>
       <h3 class="dpr-home-dashboard-title">速读推荐</h3>
     </div>
-    <strong class="dpr-home-dashboard-count">3 篇</strong>
+    <strong class="dpr-home-dashboard-count">5 篇</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Positive-regularity norm inflation for the 3D hypodissipative Navier--Stokes equations">Positive-regularity norm inflation for the 3D hypodissipative Navier--Stokes equations</span></li><li><span class="dpr-home-dashboard-paper-title" title="A &#x27;global&#x27; Perspective on the Differential Geometry of Wasserstein Spaces">A &#x27;global&#x27; Perspective on the Differential Geometry of Wasserstein Spaces</span></li><li><span class="dpr-home-dashboard-paper-title" title="On the upper bound for the vorticity growth of bi-rotational Euler flows without swirl">On the upper bound for the vorticity growth of bi-rotational Euler flows without swirl</span></li></ul>
+<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="A user&#x27;s guide to PINNs in geometric analysis: lessons from the asymptotic Plateau problem">A user&#x27;s guide to PINNs in geometric analysis: lessons from the asymptotic Plateau problem</span></li><li><span class="dpr-home-dashboard-paper-title" title="A dichotomy for minimal submanifolds">A dichotomy for minimal submanifolds</span></li><li><span class="dpr-home-dashboard-paper-title" title="Area-minimizing submanifolds are not generically smooth, except for geodesics, minimal surfaces, and minimal hypersurfaces">Area-minimizing submanifolds are not generically smooth, except for geodesics, minimal surfaces, and minimal hypersurfaces</span></li></ul>
   </div>
-  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>3</strong></span></div>
+  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>5</strong></span></div>
 </section>
 </div>
 

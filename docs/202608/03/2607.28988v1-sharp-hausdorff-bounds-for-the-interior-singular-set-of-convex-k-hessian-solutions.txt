@@ -1,0 +1,1923 @@
+Title: Sharp Hausdorff Bounds for the Interior Singular Set of Convex k-Hessian Solutions
+
+URL Source: https://arxiv.org/pdf/2607.28988v1
+
+Published Time: Mon, 03 Aug 2026 00:23:17 GMT
+
+Number of Pages: 34
+
+Markdown Content:
+SHARP HAUSDORFF BOUNDS FOR THE INTERIOR SINGULAR SET OF CONVEX k-HESSIAN SOLUTIONS 
+
+XIYU HU 
+
+Abstract. Let 2 ≤ k ≤ n, let Ω ⊂ Rn be open and convex, and let u be a convex viscosity solution of 
+
+σk (D2u) = 1 in Ω.
+
+We prove that the set on which u fails to be locally C2 has vanishing (n − 1) -dimensional Hausdorff measure. In the intermediate range 3 ≤ k < n , this gives a codimension-one refinement of the known almost-everywhere partial regularity, and the exponent is sharp. More generally, for a convex viscosity subsolution of σk (D2u) ≥ λ > 0, we obtain Hausdorff bounds for strata defined by the affine dimension of all supporting contact sets. The proof combines a support-dependent Chou–Wang barrier argument, an estimate for the product of the smallest k semiaxes of a John ellipsoid, and Mooney’s convex section-covering theorem. As a direct analytical consequence, the full distributional Hessian is absolutely continuous and u ∈ W 2,1loc (Ω) , yielding a k-Hessian counterpart of the W 2,1 regularity known for singular Monge–Ampère solutions. In a logically separate structural part, we characterize the distinguished number of flat directions, n − k + 1 , by an asymptotic infimum mean-value formula over affine sections, and explain how this mean-value heuristic leads to the supporting-contact geometry used in the proof. 
+
+1. Introduction 
+
+For A ∈ Sym( n), let 
+
+σk(A) = ∑ 
+
+> 1≤i1<··· <i k≤n
+
+λi1 (A) · · · λik (A)
+
+denote the kth elementary symmetric polynomial of the eigenvalues of A. The associated Gårding cone is 
+
+Γk := {A ∈ Sym( n) : σj (A) > 0 for 1 ≤ j ≤ k}.
+
+We use the standard admissible viscosity interpretation of the equation, recalled in Section 2. The regularity theory of the k-Hessian equation interpolates between the Laplace equation, 
+
+k = 1 , and the Monge–Ampère equation, k = n. The classical Dirichlet theory, nonclassical solution theory, and weak Hessian-measure framework were developed in foundational work including [ CNS85 , Urb90 , Tru95 , Tru97 , TW99 ]. Singular convex solutions occur for k ≥ 3, while positive right-hand side forces substantial geometric nondegeneracy. For the Monge–Ampère equation, Mooney proved that the non-strictly-convex set has vanishing Hn−1 measure and constructed examples showing that the exponent is optimal [ Moo15a ]. The convexity and rank structure of Hessian equations has also been developed through full-rank and constant-rank results, including [ GM03 , CGM07 ]; a strong maximum principle for generalized Monge–Ampère-type solutions at strictly convex points was proved in [ JT25 ]. For the quadratic Hessian equation, convex viscosity solutions of the constant-right-hand-side equation are smooth [ Moo21 , Moo25 ], and a recent result gives C2 regularity for positive Lipschitz right-hand side [ CJTZ26 ]. In contrast, for general k, Fan proved that a k-convex viscosity solution with positive Lipschitz 
+
+2020 Mathematics Subject Classification. 35J60, 35B65, 35D40, 28A78, 52A20. 
+
+Key words and phrases. k-Hessian equation, convex viscosity solution, singular set, sharp Hausdorff bound, partial regularity, Sobolev regularity, sectional mean value.  
+
+> 1arXiv:2607.28988v1 [math.AP] 31 Jul 2026 2XIYU HU
+
+right-hand side is C2,α outside a closed Lebesgue-null set, using a nonhomogeneous extension of Savin’s small-perturbation theorem [Fan26, Sav07]. The purpose of this paper is to obtain the sharp codimension-one Hausdorff estimate for convex solutions throughout the nonlinear range 2 ≤ k ≤ n. The new range is 3 ≤ k < n .
+
+Theorem 1.1 (Codimension-one partial regularity) . Let 2 ≤ k ≤ n, let Ω ⊂ Rn be open and convex, and let u ∈ C(Ω) be a convex viscosity solution of 
+
+σk(D2u) = 1 (1.1) 
+
+in the viscosity sense. Define 
+
+Reg( u) := {x ∈ Ω : u is C2 in a neighborhood of x}, Sing( u) := Ω \ Reg( u).
+
+Then 
+
+Hn−1loc 
+
+> (
+
+Sing( u)) = 0 . (1.2) 
+
+At every point of Reg( u), the solution is in fact smooth. 
+
+For k = n, Theorem 1.1 recovers the Hausdorff conclusion in [ Moo15a ]; for k = 2 , it is weaker than full regularity. To the best of the author’s knowledge, the conclusion is new for 3 ≤ k < n .The exponent cannot be replaced by n − 1 − δ(n, k ): cylindrical extensions of Mooney’s singular Monge–Ampère examples have singular sets of Hausdorff dimension arbitrarily close to n − 1;see Section 9. A significant analytical consequence of Theorem 1.1 is Sobolev regularity of the full distribu-tional Hessian. For strictly convex Alexandrov solutions of the Monge–Ampère equation with density bounded above and below, De Philippis and Figalli proved that D2u ∈ L log m Lloc for every finite m, and hence u ∈ W 2,1loc [ DPF13 ]. De Philippis, Figalli, and Savin, and independently Schmidt, subsequently obtained W 2,1+ ε 
+
+> loc
+
+estimates [ DPFS13 , Sch13 ]. These advances build on Caffarelli’s localization and section-normalization theory [ Caf90b , Caf90a ] and exploit the full co-variance of the Monge–Ampère equation under volume-preserving affine transformations. Mooney developed a complementary geometric route for singular Monge–Ampère solutions, obtaining 
+
+W 2,1 estimates from the geometry and size of the non-strictly-convex set [Moo15b, Moo15a]. For 2 ≤ k < n , the k-Hessian operator is not invariant under general volume-preserving affine changes of variables, so the affine normalization underlying the Monge–Ampère theory does not transfer directly. Our approach follows and extends Mooney’s geometric mechanism. Once Theorem 1.1 gives Hn−1loc (Sing (u)) = 0 , a codimension-one growth bound for the positive matrix-valued Hessian measure rules out concentration on the singular set and yields the following corollary. This provides a k-Hessian counterpart of the W 2,1 conclusion without using full affine invariance. The argument is qualitative, however: it does not presently yield L log L or W 2,1+ ε
+
+estimates. 
+
+Corollary 1.2 (W 2,1 regularity) . Under the assumptions of Theorem 1.1, 
+
+u ∈ W 2,1loc (Ω) .
+
+1.1. Supporting contact strata. The proof is organized by the geometry of supporting affine functions. We use the convex-analytic subdifferential 
+
+∂u (x) := {p ∈ Rn : u(y) ≥ u(x) + p · (y − x) for every y ∈ Ω}.
+
+For x ∈ Ω and p ∈ ∂u (x), write 
+
+ℓx,p (y) := u(x) + p · (y − x)
+
+and, whenever Br(x) ⋐ Ω, define the local contact set 
+
+Kx,p (r) := {y ∈ Br(x) : u(y) = ℓx,p (y)}. (1.3) SHARP HAUSDORFF BOUNDS FOR INTERIOR SINGULAR SETS 3
+
+The sets Kx,p (r) are convex and nested as r ↓ 0. Consequently, the integer-valued function 
+
+r 7 −→ dim aff Kx,p (r)
+
+is nonincreasing and eventually constant. We define the local contact dimension by 
+
+du(x, p ) := lim  
+
+> r↓0
+
+dim aff Kx,p (r). (1.4) For m ∈ { 0, . . . , n }, let 
+
+Cm(u) := {x ∈ Ω : du(x, p ) ≥ m for every p ∈ ∂u (x)}. (1.5) The quantifier “for every supporting slope” is essential because the convex covering theorem used below is formulated for all sections at a point. The convexity of Ω is used here only to make this global subdifferential convenient; by Lemma 2.6 below, a slope supporting on any neighborhood of an interior point automatically supports throughout Ω.The geometric part of the argument only requires a positive viscosity lower bound. 
+
+Theorem 1.3 (Contact stratification) . Let 2 ≤ k ≤ n, and let u ∈ C(Ω) be convex and a viscosity subsolution of 
+
+σk(D2u) ≥ λ > 0. (1.6) 
+
+Set 
+
+q := n − k + 1 . (1.7) 
+
+For each integer m with q ≤ m ≤ n − 1,
+
+H2n−m−k
+
+> loc
+> (
+
+Cm(u)) = 0 . (1.8) 
+
+Moreover, Cn(u) = ∅.
+
+The PDE input connecting Theorem 1.3 to Theorem 1.1 is the following local criterion. 
+
+Theorem 1.4 (Small supporting contact sets are regular) . Let u be a convex viscosity solution of (1.1) . If there exist x0 ∈ Ω and p0 ∈ ∂u (x0) such that 
+
+du(x0, p 0) ≤ n − k, (1.9) 
+
+then u is smooth in a neighborhood of x0. Consequently, 
+
+Sing( u) ⊂ C n−k+1 (u). (1.10) Taking m = q in Theorem 1.3 and using 
+
+2n − q − k = n − 1
+
+proves Theorem 1.1. 1.2. Main mechanism. After subtracting a supporting affine function, suppose that u(0) = 0 
+
+and u ≥ 0. The proof has three main ingredients. (i) If the local contact set {u = 0 } is contained in a subspace of dimension at most n − k, one can build a k-admissible saddle quadratic with k strongly positive directions and n − k
+
+negative directions. Smooth Dirichlet approximation, the interior gradient estimate, and the Chou–Wang Pogorelov estimate then yield a local Hessian bound and smoothness. (ii) Let 
+
+Kh := {u ≤ h} ∩ BR
+
+and let 
+
+a1(h) ≥ · · · ≥ an(h) > 04 XIYU HU 
+
+be the semiaxes of a John ellipsoid of Kh. An ellipsoidal paraboloid touches u from above at an interior point. The viscosity inequality gives 
+
+aq(h) · · · an(h) ≤ C(n, k )λ−1/2hk/ 2. (1.11) Thus positive k-Hessian density controls precisely the smallest k John axes. (iii) If a supporting contact set contains an m-dimensional simplex, then am(h) is bounded below independently of h. For the strictly convex perturbation 
+
+v(x) := u(x) + 12 |x|2,
+
+the corresponding sections satisfy 
+
+|Svh,p +x(x)| ≤ Cx,p h(m+k)/2. (1.12) Mooney’s convex section-covering theorem converts (1.12) into (1.8). The proof of Theorem 1.1 is therefore entirely finite-scale and convex-geometric after the support-dependent regularity criterion has been established. It does not use the sectional mean-value formula stated below. The qualitative loss occurs when the limiting condition “the supporting contact set has affine dimension at least m” is converted into a finite-scale simplex: its inradius may depend on the point and on the supporting slope. Once a relative contact ball of radius ρ is prescribed, however, the section estimate is quantitative; see (5.4) and Proposition 5.1. The absence of a uniform lower bound for ρ, together with possible rotation and redistribution among the smallest John axes, is the obstruction to a scale-by-scale packing estimate; see Section 10.2. 1.3. A companion sectional viewpoint. The search for a nonlinear mean-value principle is not used as a lemma in the proof above, but it identifies the same threshold 
+
+q = n − k + 1 
+
+from the homogeneous equation itself. This provides a conceptual explanation for why q is the critical number of supporting flat directions in Theorems 1.3 and 1.4. For E ∈ Gr( q, n ), let BEr (x) be the q-dimensional ball of radius r in x + E, and define 
+
+Mq,r u(x) := inf   
+
+> E∈Gr( q,n )BEr(x)
+
+u d Hq. (1.13) If the eigenvalues of A ∈ Sym( n) are ordered increasingly, set 
+
+P− 
+
+> q
+
+(A) := λ1(A) + · · · + λq(A).
+
+For K ⋐ Ω, let ωK,ϕ (r) denote the operator-norm modulus of continuity of D2ϕ between points of distance at most r in a fixed compact neighborhood of K. In Section 8 we prove the quantitative expansion ∣∣∣∣∣Mq,r ϕ(x) − ϕ(x) − r2
+
+2( q + 2) P− 
+
+> q
+
+(D2ϕ(x))  
+
+> ∣∣∣∣∣
+
+≤ q
+
+2( q + 2) ωK,ϕ (r)r2 (1.14) uniformly on compact subsets for ϕ ∈ C2. The infimum is 1-Lipschitz with respect to the uniform norm. Thus minimizing planes may jump at eigenvalue crossings, but the optimized value and the remainder remain stable. On the convex branch, 
+
+σk(D2ϕ) = 0 ⇐⇒ P− 
+
+> q
+
+(D2ϕ) = 0 , (1.15) so the zero-level equation has an asymptotic infimum mean-value property on q-dimensional affine sections. SHARP HAUSDORFF BOUNDS FOR INTERIOR SINGULAR SETS 5
+
+Writing γk,n for normalized Haar probability measure on Gr (k, n ), we also record the comple-mentary identity 
+
+σk(A) = 
+
+> (
+
+nk 
+
+> )
+
+ˆ
+
+> Gr( k,n )
+
+det( A|V ) dγ k,n (V ), (1.16) which realizes the positive k-Hessian density as the Grassmannian average of the Monge–Ampère densities of its k-dimensional restrictions. Neither (1.14) nor (1.16) enters the proof of Theorem 1.1. They are placed after the proof, in Section 8, together with an explanation of how the Newton-tensor/mean-value heuristic leads to the supporting-contact and John-ellipsoid mechanism used here. 1.4. Organization. In Section 2 we fix the viscosity convention and state the external estimates used in the proof. The proof of the main theorem then proceeds without interruption: small supporting contact sets imply regularity in Section 3; the John-axis estimate is established in Section 4; section-volume decay and Hausdorff stratification are proved in Sections 5 and 6; and Section 7 contains the W 2,1 consequence. The logically independent sectional formulas are deliberately postponed to Section 8, where we also explain how the mean-value heuristic suggests the finite-scale contact-set proof. Sharpness is discussed in Section 9, and Section 10 records limitations and further directions. For completeness, Section A proves the higher-codimension section-covering criterion recorded in Mooney’s remark, while Section B verifies the localized Chou–Wang estimate used in the regularity argument. 
+
+Acknowledgments. The author thanks Terry Tao for pointing out Reilly’s Hessian identity [Rei77 ] in response to an earlier MathOverflow question [ Tao17 ]. That observation was the starting point for the Newton-tensor and mean-value viewpoint developed in Section 8. The author is grateful to Xushan Tu for carefully checking Sections 3–6 and for suggestions that improved the presentation and writing, and to Xi-Nan Ma for reading an early draft and offering helpful comments. 
+
+Statement on the use of artificial intelligence. During the preparation of this manuscript, the author used large language models as auxiliary technical tools for literature discovery, brainstorming conceptual frameworks, and improving the presentation of mathematical arguments and English prose. All mathematical claims and proofs were rigorously verified by the author. The author directed the conceptual development and final presentation and assumes full responsibility for all results and for the contents of the manuscript. 2. Preliminaries and external estimates 
+
+2.1. Algebraic facts. The function 
+
+F (A) := σk(A)1/k 
+
+is concave, positively one-homogeneous, and elliptic on Γk; see, for example, [ Wan09 ]. If A ∈ Γk,then the matrix 
+
+σij k (A) := ∂σ k
+
+∂a ij 
+
+(A)
+
+is positive definite. Euler’s identity gives 
+
+DF (A) : A = F (A), σij k (A)aij = kσ k(A). (2.1) Concavity and one-homogeneity also imply that, for A, B ∈ Γk,
+
+DF (A) : B ≥ F (B). (2.2) 6 XIYU HU 
+
+Indeed, 
+
+F (B) ≤ F (A) + DF (A) : ( B − A) = DF (A) : B. 
+
+We shall use a simple family of admissible saddle quadratics. 
+
+Lemma 2.1 (Admissible saddle quadratic) . Let Rn = Y ⊕ Z be an orthogonal decomposition with 
+
+dim Y = k, dim Z = n − k. 
+
+There exists A0 = A0(n, k ) such that for every A ≥ A0,
+
+Q(y, z ) := A|y|2 − | z|2 (2.3) 
+
+satisfies D2Q ∈ Γk.Proof. For 1 ≤ j ≤ k,
+
+2−j σj (D2Q) = 
+
+> j∑
+> ℓ=0
+
+(−1) ℓ
+
+> (
+
+n − kℓ 
+
+> )(
+
+kj − ℓ
+
+> )
+
+Aj−ℓ.
+
+This is a polynomial in A whose leading coefficient is (kj 
+
+> )
+
+> 0. Since there are only finitely many 
+
+j ≤ k, all these quantities are positive for A sufficiently large. □
+
+Lemma 2.2 (Compactness inside the Gårding cone) . For every C0 < ∞, the set 
+
+{A ∈ Γk : σk(A) = 1 , |A| ≤ C0}
+
+is contained in a compact subset of Γk. Consequently, F = σ1/k k is uniformly elliptic on this set, with constants depending only on n, k, C 0.Proof. Maclaurin’s inequalities give positive lower bounds for σj (A), 1 ≤ j < k , in terms of n, k 
+
+and σk(A) = 1 . Together with the norm bound, this prevents convergence to the boundary of 
+
+Γk. The uniform ellipticity follows from continuity and positivity of DF on compact subsets of 
+
+Γk. □
+
+2.2. Viscosity convention. A C2 function is called k-admissible if its Hessian belongs to Γk.A continuous function u is a viscosity subsolution of 
+
+σk(D2u) ≥ f
+
+if every k-admissible C2 function ϕ touching u from above at x satisfies 
+
+σk(D2ϕ(x)) ≥ f (x).
+
+A viscosity supersolution is defined using k-admissible tests touching from below and the reversed inequality. A viscosity solution is both a subsolution and a supersolution. This is the convention used in [ Moo25 ]; the subsolution definition is unchanged if arbitrary C2 upper tests are allowed [Moo25, Remark 2.2]. We use the standard comparison and local-uniform stability properties of this admissible viscosity theory. In particular, solutions on a ball can be approximated locally uniformly by smooth admissible solutions obtained from smooth approximations of the boundary values; see [Moo25, Theorem 2.1 and Remark 2.3] and the original Dirichlet theory [CNS85]. SHARP HAUSDORFF BOUNDS FOR INTERIOR SINGULAR SETS 7
+
+2.3. Classical solvability, gradient bounds, and the Chou–Wang estimate. We record the precise inputs needed for the regularity criterion. 
+
+Theorem 2.3 (Caffarelli–Nirenberg–Spruck) . Let BR ⊂ Rn, let g ∈ C∞(∂B R), and let 1 ≤ k ≤ n.There exists a unique solution 
+
+v ∈ C∞(BR), D2v ∈ Γk,
+
+of 
+
+σk(D2v) = 1 in BR, v = g on ∂B R.
+
+This is the ball case of [CNS85]; the same formulation is stated in [Moo25, Theorem 2.1]. 
+
+Theorem 2.4 (Trudinger’s interior gradient estimate) . If v is a smooth k-admissible solution of 
+
+σk(D2v) = 1 in BR, then 
+
+∥Dv ∥L∞(BR/ 2) ≤ C(n, k )R−1∥v∥L∞(BR). (2.4) See [Tru97] and [Moo25, Theorem 2.4]. 
+
+Theorem 2.5 (Localized Chou–Wang estimate) . Let D ⊂ Rn be bounded and open. Suppose that 
+
+v, w ∈ C∞(D) ∩ C(D), D2v ∈ Γk, σk(D2v) = 1 in D. 
+
+Let 
+
+Lvϕ := σij k (D2v)ϕij ,
+
+and assume that 
+
+w > v in D, w = v on ∂D, Lvw ≥ 0 in D. 
+
+If Dv, Dw ∈ L∞(D), then 
+
+sup 
+
+> D
+
+(w − v)4|D2v| ≤ C(n, k, ∥Dv ∥L∞(D), ∥Dw ∥L∞(D)
+
+> )
+
+. (2.5) Chou and Wang prove the estimate with a k-admissible comparison function [ CW01 , The-orem 4.1]. Mooney records the bounded-domain form above and observes that the weaker condition Lvw ≥ 0 suffices [ Moo25 , Theorem 2.5 and Remark 2.6]. Since those localization and weakening steps are stated there without proof, we verify them in Section B. The comparison function used in the main argument is itself k-admissible, so the proof also falls within the original admissible-barrier formulation. 2.4. Mooney’s convex section-covering theorem. For a convex function v : Ω → R, a point 
+
+x ∈ Ω, and p ∈ ∂v (x), define the section 
+
+Svh,p (x) := {y ∈ Ω : v(y) < v (x) + p · (y − x) + h}. (2.6) 
+
+Lemma 2.6 (Local supporting slopes are global) . Let Ω be convex, let v : Ω → R be convex, and let x ∈ Ω. If an affine function with slope p supports v at x on some neighborhood of x, then 
+
+p ∈ ∂v (x) relative to all of Ω.Proof. Let z ∈ Ω. For all sufficiently small t > 0, the point yt = x + t(z − x) lies in the neighborhood on which the supporting inequality holds. Hence 
+
+v(x) + tp · (z − x) ≤ v(yt) ≤ (1 − t)v(x) + tv (z),
+
+where the second inequality is convexity. Dividing by t gives v(z) ≥ v(x) + p · (z − x). □8 XIYU HU 
+
+Lemma 2.7 (Quadratic shift of subgradients) . Let Ω ⊂ Rn be open and convex, let u : Ω → R
+
+be convex, and set 
+
+v(y) := u(y) + 12 |y|2.
+
+Then, for every x ∈ Ω,
+
+∂v (x) = ∂u (x) + x. (2.7) 
+
+Equivalently, pv ∈ ∂v (x) if and only if pv − x ∈ ∂u (x).Proof. If p ∈ ∂u (x), then for every y ∈ Ω,
+
+v(y) − v(x) − (p + x) · (y − x) = u(y) − u(x) − p · (y − x) + 12 |y − x|2 ≥ 0,
+
+so p + x ∈ ∂v (x).Conversely, let pv ∈ ∂v (x), fix y ∈ Ω, and put d = y − x. For 0 < t ≤ 1, convexity of Ω and the supporting inequality for v give 
+
+u(x + td ) − u(x)
+
+t ≥ (pv − x) · d − t
+
+2 |d|2.
+
+Letting t ↓ 0 yields 
+
+u′(x; d) ≥ (pv − x) · d, 
+
+where u′(x; d) is the one-sided directional derivative. Convexity on the segment [x, y ] gives 
+
+u(y) − u(x) ≥ u′(x; d), and hence 
+
+u(y) ≥ u(x) + ( pv − x) · (y − x).
+
+Thus pv − x ∈ ∂u (x). □
+
+Theorem 2.8 (Higher-codimension section-covering criterion) . Let v be convex in B1 ⊂ Rn, let 
+
+1 ≤ s ≤ n − 1 be an integer, and let E ⊂ B1. Suppose that for every x ∈ E and every p ∈ ∂v (x)
+
+there are constants Cx,p < ∞ and hx,p > 0 such that 
+
+|Svh,p (x)| ≤ Cx,p h(n+s)/2 (0 < h < h x,p ). (2.8) 
+
+Then 
+
+Hn−s(E) = 0 . (2.9) The case s = 1 is [ Moo15a , Theorem 3.1]; the higher-codimension statement is recorded in [Moo15a , Remark 3.4]. Because the latter is stated there without proof, a complete argument is included in Section A. The constants and height thresholds may depend on both the point and the supporting slope. 3. Small contact sets imply regularity 
+
+We first make explicit the stabilization implicit in (1.4). 
+
+Lemma 3.1 (Stabilization of the local affine hull) . Let u be convex, x ∈ Ω, and p ∈ ∂u (x).There exist r0 > 0 and an affine subspace Zx,p through x such that 
+
+aff Kx,p (r) = Zx,p (0 < r < r 0),
+
+and dim Zx,p = du(x, p ).Proof. The sets Kx,p (r) are nested, contain x, and their affine dimensions are nonincreasing integers. Once the dimensions stabilize, the affine hulls form a nested family of affine subspaces through x of equal dimension, hence are equal. □SHARP HAUSDORFF BOUNDS FOR INTERIOR SINGULAR SETS 9
+
+Lemma 3.2 (Smooth approximation on an interior ball) . Let B2R ⋐ Ω, and let u ∈ C(Ω) be a viscosity solution of (1.1) in a neighborhood of B2R. There exist smooth k-admissible solutions 
+
+uj ∈ C∞(B2R) of 
+
+σk(D2uj ) = 1 in B2R
+
+such that uj → u uniformly on B2R. Moreover, for every R′ < 2R,
+
+sup 
+
+> j
+
+∥Du j ∥L∞(BR′ ) < ∞. (3.1) 
+
+Proof. Choose gj ∈ C∞(∂B 2R) with gj → u|∂B 2R uniformly, and set 
+
+εj := ∥gj − u∥L∞(∂B 2R) −→ 0.
+
+Let uj be the solutions furnished by Theorem 2.3. Since vertical translations do not change the equation, u − εj and u + εj are respectively a viscosity subsolution and supersolution with 
+
+u − εj ≤ gj ≤ u + εj on ∂B 2R.
+
+The comparison principle therefore gives 
+
+∥uj − u∥L∞(B2R) ≤ εj .
+
+This is also the approximation asserted in [ Moo25 , Remark 2.3]. In particular, the L∞ norms of 
+
+uj are uniformly bounded. Fix R′ < 2R and put d = 2 R − R′ > 0. Every point of BR′ is the center of a ball of radius d/ 2
+
+contained in B2R. Applying Theorem 2.4, after translation, on these balls yields 
+
+∥Du j ∥L∞(BR′ ) ≤ C(n, k )d−1∥uj ∥L∞(B2R),
+
+which is uniform in j. □
+
+Remark 3.3. For k < n , the Caffarelli–Nirenberg–Spruck approximants need not be convex; they are only k-admissible. This is sufficient here. The localized Chou–Wang estimate is formulated for k-admissible solutions. In our application the barrier is itself k-admissible (and therefore also satisfies the required linearized inequality), so no convexity of the approximating sequence is needed. 
+
+Remark 3.4 (Where the constant right-hand side is used) . The proof of Lemma 3.2 uses the constant right-hand side in two separate ways. First, uj and u solve the same equation, so vertical shifts of u are still solutions and comparison immediately converts convergence of the boundary data into uniform convergence on the closed ball. Second, the interior gradient estimate used for the approximants has a constant depending only on n, k, the radius, and the L∞ norm. For a variable right-hand side fj (x), neither simplification is automatic: vertical shifts do not compare solutions with different fj , and the known gradient estimates involve derivatives of f 1/k j . The precise consequences for rough data are discussed in Section 10.1. 
+
+Lemma 3.5 (Barrier regularity) . Let u be a convex viscosity solution of (1.1) in a neighborhood of 0. Suppose 
+
+u(0) = 0 , u ≥ 0, (3.2) 
+
+and that for some r > 0 with B2r ⋐ Ω,
+
+{u = 0 } ∩ B2r ⊂ Z (3.3) 
+
+for a linear subspace Z of dimension at most n − k. Then u is smooth in a neighborhood of 0.10 XIYU HU 
+
+Proof. Enlarge Z if necessary so that dim Z = n − k, and put Y = Z⊥, so that dim Y = k. Write 
+
+x = y + z according to the orthogonal splitting Y ⊕ Z. Choose A ≥ A0(n, k ) as in Lemma 2.1, fix α ∈ (0 , 1) , and set 
+
+Q(y, z ) := A|y|2 − | z|2 + αr 2. (3.4) By Lemma 2.1, D2Q ∈ Γk.On ∂B r, the inequality Q ≥ 0 implies 
+
+(A + 1) |y|2 ≥ (1 − α)r2.
+
+Consequently, the compact set 
+
+F := {x ∈ ∂B r : Q(x) ≥ 0}
+
+has positive distance from Z. By (3.3) , u > 0 on F . We may therefore choose δ > 0 sufficiently small that the k-admissible function 
+
+w := δQ (3.5) satisfies 
+
+w < u on ∂B r, w(0) > u (0) = 0 . (3.6) Indeed, on ∂B r \ F one has w < 0 ≤ u, while compactness gives a positive lower bound for u on 
+
+F .Let uj be the smooth approximations of u furnished by Lemma 3.2 on B2r. Uniform convergence and (3.6) give constants c0, η, ρ > 0 such that, for every sufficiently large j,
+
+w − uj ≥ c0 on Bρ, w − uj ≤ − η on ∂B r. (3.7) Choose a regular value tj ∈ (0 , c 0/2) of w − uj , and let Dj be the connected component containing 
+
+0 of 
+
+{w − uj > t j } ∩ Br.
+
+The boundary gap in (3.7) prevents Dj from meeting ∂B r. Since tj is a regular value, ∂D j is a smooth compact level hypersurface. Moreover, Bρ is connected, contains 0, and lies in the same superlevel set; hence Bρ ⊂ Dj . Thus Dj ⋐ Br is a bounded smooth domain and 
+
+uj < w − tj in Dj , uj = w − tj on ∂D j . (3.8) The function w − tj has the same Hessian as the k-admissible quadratic w, and hence it is an admissible Chou–Wang barrier on Dj . Thus Theorem 2.5 applies directly. The gradients of uj
+
+are uniformly bounded on Br by Lemma 3.2, and w is fixed. Since 
+
+w − tj − uj ≥ c0/2 on Bρ,
+
+we obtain 
+
+sup 
+
+> Bρ
+
+|D2uj | ≤ C. (3.9) By Lemma 2.2, the matrices D2uj (Bρ) lie in a fixed compact subset of Γk. Since Γk is convex, the convex hull of this compact set is still compactly contained in Γk; hence F is concave and uniformly elliptic on a fixed neighborhood of all Hessian values under consideration. The local Evans–Krylov theorem (equivalently, after a standard concave uniformly elliptic extension of F )and Schauder estimates [ CC95 , Chapter 6] give uniform higher-derivative bounds on a smaller ball. Passing to the limit proves that u is smooth near 0. □
+
+Proof of Theorem 1.4. Subtract the supporting affine function with slope p0 and translate x0 to the origin. Then u(0) = 0 and u ≥ 0. By Lemma 3.1 and (1.9) , for some sufficiently small r the contact set in B2r is contained in an affine subspace through the origin of dimension at most 
+
+n − k. Apply Lemma 3.5. SHARP HAUSDORFF BOUNDS FOR INTERIOR SINGULAR SETS 11 
+
+For the final assertion, if x ∈ Sing (u) and there were a slope p ∈ ∂u (x) with du(x, p ) ≤ n − k,the first part would make x regular. Thus du(x, p ) ≥ n − k + 1 for every supporting slope, proving (1.10). □
+
+4. Positive k-Hessian density and John axes 
+
+The central finite-scale estimate controls the smallest k semiaxes of a sublevel body. We use John’s theorem in the form: if K ⊂ Rn is a compact convex body with nonempty interior, then there exist z ∈ Rn and a positive definite symmetric matrix A such that 
+
+z + AB 1 ⊂ K ⊂ z + nAB 1. (4.1) 
+
+Lemma 4.1 (Product of the smallest k John axes) . Let U ⊂ Rn be open with BR ⋐ U , and let 
+
+u ∈ C(U ) be convex in U and satisfy 
+
+u(0) = 0 , u ≥ 0 in U. (4.2) 
+
+Assume in the viscosity sense in U that 
+
+σk(D2u) ≥ λ > 0. (4.3) 
+
+For sufficiently small h > 0, set 
+
+Kh := {u ≤ h} ∩ BR,
+
+and choose a John ellipsoid 
+
+Eh = zh + AhB1, Eh ⊂ Kh ⊂ zh + nA hB1,
+
+where Ah is symmetric and positive definite. Denote its semiaxes by 
+
+a1(h) ≥ · · · ≥ an(h) > 0.
+
+If q = n − k + 1 , then 
+
+aq(h)aq+1 (h) · · · an(h) ≤ 2k/ 2
+
+(nk
+
+)1/2
+
+λ−1/2hk/ 2. (4.4) 
+
+Proof. Continuity on a neighborhood of BR makes Kh closed in the compact ball, while convexity makes it convex. Since u(0) = 0 < h , continuity also gives a Euclidean neighborhood of 0
+
+contained in Kh. Thus Kh is a compact convex body with nonempty interior. Consider the ellipsoidal paraboloid 
+
+Ph(x) := h |A−1 
+
+> h
+
+(x − zh)|2. (4.5) Every point of ∂K h lies outside the interior of Eh, and hence 
+
+Ph ≥ h ≥ u on ∂K h.
+
+At the center, Ph(zh) = 0 ≤ u(zh). Therefore 
+
+μh := min 
+
+> Kh
+
+(Ph − u) ≤ 0.
+
+On ∂K h one has Ph − u ≥ 0. If μh < 0, every minimizer is consequently in int Kh. If μh = 0 ,then 0 = Ph(zh) − u(zh) = −u(zh), so the center zh itself is a minimizer; since zh ∈ Eh ⊂ int Kh,it is again an interior contact point. In either case this point lies in BR ⋐ U , and Ph − μh touches 
+
+u from above there. Since D2Ph = 2 hA −2 
+
+> h
+
+> 0, this is an admissible upper test. The viscosity inequality yields 
+
+λ ≤ σk(D2Ph) = (2 h)kσk(A−2 
+
+> h
+
+). (4.6) The eigenvalues of A−2 
+
+> h
+
+are a−2 
+
+> i
+
+. Since a1 ≥ · · · ≥ an, every k-fold product occurring in σk(A−2 
+
+> h
+
+)
+
+is bounded above by 
+
+(aq · · · an)−2.12 XIYU HU (a) Supporting contact         
+
+> contact set {u=ℓ}
+> x0(singular point)
+> convex graph z=u(x)
+> supporting plane ℓ
+
+(b) Lift the support by h         
+
+> height h
+> lifted plane ℓ+h
+> flat section Kh× { h}
+> cap between the graph and ℓ+h
+
+(c) Project the section and choose Eh   
+
+> Kh× { h}
+> Kh(dashed projection)
+> John ellipsoid Eh
+> vertical projection
+
+(d) Slide the test paraboloid                 
+
+> φh=Ph−μh
+> upper contact yh
+> Eh
+> base point x0
+> λ≤σk(D2Ph)=⇒aq(h)· · · an(h)≲λ−1/2hk/ 2.
+
+Figure 1. The four geometric steps in the interior viscosity test of Lemma 4.1, shown in one fixed three-dimensional projection. (a) A supporting plane ℓ meets the graph along a nontrivial contact piece. (b) Lifting ℓ by h exposes a graph cap whose projection is the variable-space section Kh. (c) In the variable space, John’s theorem gives Eh = zh + AhB1 ⊂ Kh ⊂ zh + nA hB1. (d) The ellipsoidal paraboloid determined by Eh is translated until Ph − μh touches u from above at an interior point yh. The viscosity inequality then controls the product of the smallest k semiaxes. Thus 
+
+σk(A−2 
+
+> h
+
+) ≤
+
+(nk
+
+)
+
+(aq · · · an)−2.
+
+Combining this estimate with (4.6) gives (4.4). □
+
+The four stages of the argument are summarized in Figure 1. We need two elementary geometric consequences of ellipsoidal containment. 
+
+Lemma 4.2 (A relative ball controls a John axis) . Let 1 ≤ d ≤ n. Let K ⊂ Rn be convex and suppose 
+
+K ⊂ z + CAB 1,
+
+where C ≥ 1, A is symmetric positive definite, and the semiaxes of A are ordered as a1 ≥ · · · ≥ an.If K contains a d-dimensional Euclidean ball of radius ρ in an affine d-plane, then 
+
+ad ≥ ρ/C. (4.7) SHARP HAUSDORFF BOUNDS FOR INTERIOR SINGULAR SETS 13 
+
+Proof. Let L be the direction space of the affine d-plane. The width of the relative ball in every unit direction e ∈ L equals 2ρ, whereas the width of z + CAB 1 in direction e equals 2C|Ae |.Hence 
+
+min   
+
+> e∈L, |e|=1
+
+|Ae | ≥ ρ/C. 
+
+The min–max characterization of the singular values gives 
+
+ad = max    
+
+> dim W=d
+
+min   
+
+> e∈W, |e|=1
+
+|Ae |,
+
+which proves the claim. □
+
+Lemma 4.3 (Ellipsoid–ball intersection) . Let A be symmetric positive definite with semiaxes 
+
+a1 ≥ · · · ≥ an. For all z, x ∈ Rn, C ≥ 1, and r > 0,
+
+|(z + CAB 1) ∩ Br(x)| ≤ CnCnn∏
+
+> i=1
+
+min {ai, r }. (4.8) 
+
+Proof. Rotate to principal-axis coordinates for A. The ellipsoid is contained in a rectangular box with side lengths 2Ca i, while the ball is contained in an axis-parallel box with side lengths 
+
+2r. Their intersection is contained in a box whose ith side has length at most 2 min {Ca i, r } ≤ 
+
+2C min {ai, r }. Taking volumes proves the estimate. □
+
+5. Section-volume decay at flat supporting contacts 
+
+We now turn contact dimension into a quantitative section-volume bound. First observe that a supporting contact set is convex: if u ≥ ℓ and equality holds at two points, convexity forces equality on the segment joining them. 
+
+Proposition 5.1 (Quantitative section decay at a flat contact) . Let u be convex in Ω and satisfy 
+
+(1.6) . Fix x0 ∈ Ω, p0 ∈ ∂u (x0), and an integer 
+
+q = n − k + 1 ≤ m ≤ n − 1.
+
+Assume that, after translating x0 to the origin and subtracting the supporting affine function with slope p0, there are numbers R > 0, ρ > 0, an affine m-plane a + L, and a relative ball 
+
+a + BLρ (0) ⊂ { u = 0 } ∩ BR/ 2, BR ⋐ Ω. (5.1) 
+
+Define 
+
+v(x) := u(x) + 12 |x|2, pv 
+
+> 0
+
+:= p0 + x0 ∈ ∂v (x0). (5.2) 
+
+Then there is cn > 0 such that, for 
+
+0 < h < c n min {R2, ρ 2}, (5.3) 
+
+one has 
+
+|Svh,p v 
+
+> 0
+
+(x0)| ≤ C(n, k, m )λ−1/2ρ−(m−q+1) h(m+k)/2. (5.4) 
+
+Consequently, if 
+
+du(x0, p 0) ≥ m, (5.5) 
+
+then there exist constants Cx0,p 0 < ∞ and hx0,p 0 > 0 such that 
+
+|Svh,p v 
+
+> 0
+
+(x0)| ≤ Cx0,p 0 λ−1/2h(m+k)/2 (0 < h < h x0,p 0 ). (5.6) 14 XIYU HU 
+
+Proof. It suffices to prove the quantitative assertion under the normalization 
+
+x0 = 0 , p0 = 0 , u(0) = 0 , u ≥ 0. (5.7) For h > 0, apply Lemma 4.1 to 
+
+Kh = {u ≤ h} ∩ BR
+
+and write the John inclusions as 
+
+zh + AhB1 ⊂ Kh ⊂ zh + nA hB1,
+
+with semiaxes 
+
+a1(h) ≥ · · · ≥ an(h) > 0.
+
+The contact ball in (5.1) is contained in Kh. By Lemma 4.2, applied to the upper John inclusion, 
+
+am(h) ≥ ρ/n. (5.8) Since m ≥ q and the axes are decreasing, 
+
+aq(h) · · · am(h) ≥ (ρ/n )m−q+1 .
+
+Dividing the smallest-axis product estimate (4.4) by this lower bound gives 
+
+am+1 (h) · · · an(h) ≤ C(n, k, m )λ−1/2ρ−(m−q+1) hk/ 2. (5.9) Under the normalization (5.7), the relevant section is 
+
+Svh, 0(0) = {y : u(y) + 12 |y|2 < h }. (5.10) If h < R 2/8, then 
+
+Svh, 0(0) ⊂ { u < h } ∩ B√2h(0) ⊂ (zh + nA hB1) ∩ B√2h(0) . (5.11) Choose cn small enough that (5.3) implies 
+
+√2h ≤ ρ
+
+2n ≤ 12 am(h).
+
+Then ai(h) > √2h for 1 ≤ i ≤ m. Applying Lemma 4.3 and then (5.9), 
+
+|Svh, 0(0) | ≤ Cnn∏
+
+> i=1
+
+min {ai(h), √2h}≤ C(n, m )hm/ 2am+1 (h) · · · an(h)
+
+≤ C(n, k, m )λ−1/2ρ−(m−q+1) h(m+k)/2.
+
+This proves (5.4). Undoing the translation and affine subtraction is justified by the identity 
+
+v(y) − v(x0) − pv 
+
+> 0
+
+· (y − x0) = u(y) − u(x0) − p0 · (y − x0) + 12 |y − x0|2.
+
+If (5.5) holds, then for some sufficiently small R the local contact set has affine dimension at least m. Since it is convex, it contains an m-dimensional relative ball of some radius ρx0,p 0 > 0
+
+in BR/ 2. Applying the quantitative assertion with this radius yields (5.6). □
+
+The geometric inputs and the two sources of the exponent in (5.4) are displayed in Figure 2. 
+
+Remark 5.2 (What is uniform in the preceding estimate) . For fixed R and ρ, the constant and the height range in (5.4) are uniform over all points and supporting slopes whose contact sets contain an m-dimensional relative ball of radius ρ inside BR/ 2. More precisely, on any class of point–slope pairs (x, p ) for which 
+
+BR(x) ⋐ Ω and {u = ℓx,p } ∩ BR/ 2(x) contains an m-ball of radius at least ρ, SHARP HAUSDORFF BOUNDS FOR INTERIOR SINGULAR SETS 15 (a) Contact point       
+
+> x0
+> 2D slice of the higher-dimensional contact patch supporting plane ℓ= 0
+> convex graph z=u(x)
+
+(b) Small height h       
+
+> height h
+> lifted plane ℓ+h
+> solid section Kh× { h}
+> Kh(dashed projection)
+
+(c) John axes      
+
+> Kh(dashed)
+> John ellipsoid Eh
+> x0
+> contact directions give am(h)≳ρ
+
+(d) Quadratic localization          
+
+> Kh
+> Svh(x0)
+> dashed ball B√2h(x0)Eh
+> Svh(x0)⊂Kh∩B√2h(x0),hm/ 2hk/ 2=h(m+k)/2.
+
+Figure 2. The four geometric stages of the localization mechanism in Propo-sition 5.1, shown in one fixed three-dimensional projection. (a) The supporting plane contains a contact piece of fixed width ρ in m directions. (b) At height h, its sublevel body is Kh. (c) Width comparison and the singular-value min–max princi-ple give am(h) ≳ ρ for a John ellipsoid Eh; the contact directions need not coincide with its principal axes. (d) For v = u + 12 |x|2, one has Svh(x0) ⊂ Kh ∩ B√2h(x0),which yields the factor hm/ 2 · hk/ 2 = h(m+k)/2.the estimate 
+
+|Su+|·| 2/2 
+
+> h,p +x
+
+(x)| ≤ C(n, k, m )λ−1/2ρ−(m−q+1) h(m+k)/2
+
+holds with the same constant for every 0 < h < c n min {R2, ρ 2}. Thus the proof supplies a genuinely quantitative estimate on each uniformly nondegenerate contact class. The passage from contact dimension to such a class is not uniform: the radius ρx,p may tend to zero arbitrarily fast along a singular sequence or as the supporting slope varies. 6. Hausdorff stratification and proof of the main theorem 
+
+Proof of Theorem 1.3. After a translation, fix concentric balls BR ⋐ B2R ⋐ Ω and set 
+
+v(x) := u(x) + 12 |x|2.
+
+We apply Theorem 2.8 to the restriction of v to B2R. If x ∈ BR and pv is a supporting slope for this restriction at x, then Lemma 2.6 shows that pv ∈ ∂v (x) relative to all of Ω. By Lemma 2.7, 
+
+p := pv − x ∈ ∂u (x).16 XIYU HU 
+
+For x ∈ C m(u) ∩ BR one has du(x, p ) ≥ m, and Proposition 5.1 gives 
+
+|Svh,p v (x)| ≤ Cx,p v h(m+k)/2
+
+for all sufficiently small h. Moreover, 
+
+v(y) − v(x) − pv · (y − x) ≥ 12 |y − x|2,
+
+so Svh,p v (x) ⊂ B√2h(x). Thus, after decreasing the point-dependent height threshold, the section is contained in B2R and agrees with the section of the restricted function. Put 
+
+s := m + k − n. (6.1) The assumption m ≥ n − k + 1 gives s ≥ 1, while m ≤ n − 1 gives s ≤ k − 1 ≤ n − 1. Since 
+
+m + k
+
+2 = n + s
+
+2 ,
+
+translating B2R to the unit ball and rescaling space multiplies section volumes and Hausdorff measures only by fixed powers of R; it does not change the exponent. Hence Theorem 2.8 gives 
+
+Hn−s(Cm(u) ∩ BR 
+
+> )
+
+= 0 .
+
+Because n − s = 2 n − m − k, this is (1.8) . Exhausting Ω by interior balls proves the local assertion. Finally, suppose x ∈ C n(u). For any p ∈ ∂u (x), the stabilized local contact set has full affine dimension and therefore contains an open ball on which u agrees with ℓx,p . At an interior point 
+
+y of that ball, the function 
+
+ℓx,p (z) + ε|z − y|2
+
+touches u from above. Choosing ε > 0 so small that σk(2 εI ) < λ contradicts (1.6) . Hence 
+
+Cn(u) = ∅. □
+
+Proof of Theorem 1.1. By Theorem 1.4, 
+
+Sing( u) ⊂ C q(u), q = n − k + 1 .
+
+Applying Theorem 1.3 with m = q and using 2n − q − k = n − 1 gives 
+
+Hn−1loc (Sing( u)) = 0 .
+
+At every point of Reg (u), the equation is uniformly elliptic in a sufficiently small neighborhood after the local Hessian bound, and the standard Evans–Krylov and Schauder estimates [ CC95 ,Chapter 6] imply smoothness. □
+
+7. Consequences 
+
+We prove the Sobolev consequence stated in the introduction. The argument is the same measure-theoretic mechanism used by Mooney for singular Monge–Ampère solutions: the distri-butional Hessian of a convex function cannot concentrate on a set of vanishing Hn−1 measure [ Moo15a ]. This is a qualitative absolute-continuity argument, rather than an affine-normalized higher-integrability estimate of the type developed in [ DPF13 , DPFS13 , Sch13 ]; in particular, it supplies no quantitative L log L modulus and no L1+ ε gain for the Hessian density. 
+
+Lemma 7.1 (A codimension-one growth bound for the Hessian measure) . Let U ⊂ Rn be open and convex, and let u be convex in U . Then u is locally Lipschitz and its distributional Hessian D2u is a positive semidefinite symmetric matrix-valued Radon measure. Indeed, for every ξ ∈ Rn, convexity on lines implies that the distribution ∂ξξ u is positive, hence is a Radon measure; polarization then shows that every ∂ij u is a signed Radon measure. This is also a SHARP HAUSDORFF BOUNDS FOR INTERIOR SINGULAR SETS 17 
+
+standard consequence of the distributional characterization of convexity; see, for example, [ EG15 ,Chapter 6] . If B2r(x) ⋐ U , then 
+
+∆u(Br(x)) ≤ Cn Lip( u; B2r(x)) rn−1. (7.1) 
+
+Consequently, |D2u| vanishes on every Borel set of zero Hn−1 measure. Proof. For completeness, if φ ∈ C∞ 
+
+> c
+
+(U ) is nonnegative and ξ ∈ Rn is a unit vector, set 
+
+Iy := {t ∈ R : y + tξ ∈ U }, y ∈ ξ⊥.
+
+Because U is convex, each nonempty Iy is an interval. The restriction t 7 → u(y + tξ ) is convex on 
+
+Iy, while t 7 → φ(y + tξ ) has compact support in Iy. Fubini’s theorem and the one-dimensional distributional characterization of convexity therefore give 
+
+⟨∂ξξ u, φ ⟩ =
+
+ˆ
+
+> ξ⊥
+> (
+
+ˆ
+
+> Iy
+
+u(y + tξ ) d2
+
+dt 2 φ(y + tξ ) dt 
+
+> )
+
+dHn−1(y) ≥ 0,
+
+where empty fibers contribute zero. Thus ∂ξξ u is a positive distribution and hence a Radon measure. Taking ξ = ei and ξ = ( ei + ej )/√2 and using polarization produces all matrix entries; positivity for every ξ gives positive semidefiniteness of the matrix measure. Choose η ∈ C∞ 
+
+> c
+
+(B2r(x)) with 0 ≤ η ≤ 1, η = 1 on Br(x), and |D2η| ≤ Cnr−2. Since ∆u is a positive measure, 
+
+∆u(Br(x)) ≤
+
+ˆ
+
+η d (∆ u) = 
+
+ˆ
+
+u ∆η
+
+=
+
+ˆ
+
+(u − u(x))∆ η ≤
+
+> ∣∣∣∣
+
+ˆ
+
+(u − u(x))∆ η 
+
+> ∣∣∣∣
+
+≤ Cn Lip( u; B2r(x)) rn−1.
+
+Here we used ´ ∆η = 0 . Let K ⋐ U and choose K′ ⋐ U with K ⊂ int K′. Convexity gives a finite Lipschitz constant L for u on K′. If E ⊂ K and Hn−1(E) = 0 , then for every ε > 0 one may cover E by balls Bri (xi) with B2ri (xi) ⊂ K′ and ∑ 
+
+> i
+
+rn−1 
+
+> i
+
+< ε . Applying (7.1) and countable subadditivity gives 
+
+∆u(E) ≤ CnL ∑
+
+> i
+
+rn−1 
+
+> i
+
+≤ CnLε, 
+
+so ∆u(E) = 0 .Finally, if M = D2u and A is Borel, positivity means that the matrix M (A) is positive semidefinite. For the Frobenius norm, |M (A)| ≤ tr M (A) = ∆ u(A). Taking sums over Borel partitions shows that the total variation measure satisfies |D2u| ≤ ∆u (and hence also the displayed estimate with a dimensional constant for any fixed matrix norm). This completes the proof. □
+
+Proof of Corollary 1.2. Fix K ⋐ Ω. Convexity makes u Lipschitz on a neighborhood of K. On 
+
+Reg (u), the distributional Hessian agrees with the smooth Hessian and is absolutely continuous. Therefore the singular part of the Hessian measure is supported on Sing( u). By Theorem 1.1, 
+
+Hn−1(Sing( u) ∩ K) = 0 ,
+
+and by Lemma 7.1 the Hessian measure does not charge this set. Hence D2u has no singular part on K, and its density belongs to L1(K). Since K was arbitrary, u ∈ W 2,1loc (Ω) . □
+
+8. Sectional mean values and the geometric origin of the argument 
+
+This section is logically independent of the proof of Theorem 1.1. It may be read after Sections 3 to 6. We first prove two companion Grassmannian formulas and then explain why the first of them nevertheless points toward the contact-set threshold and the finite-scale proof architecture. 18 XIYU HU 
+
+8.1. The null-sectional asymptotic mean value. Let the eigenvalues of A ∈ Sym (n) be ordered as 
+
+λ1(A) ≤ · · · ≤ λn(A),
+
+and define 
+
+P− 
+
+> q
+
+(A) := λ1(A) + · · · + λq(A).
+
+Ky Fan’s minimum principle gives 
+
+P− 
+
+> q
+
+(A) = min  
+
+> E∈Gr( q,n )
+
+tr( PE A), (8.1) where PE is orthogonal projection onto E. For completeness, if e1, . . . , e q is an orthonormal basis of E and v1, . . . , v n is an eigenbasis of A, then 
+
+tr( PE A) = 
+
+> q
+
+∑
+
+> i=1
+
+⟨Ae i, e i⟩ =
+
+> n
+
+∑
+
+> j=1
+
+λj (A)cj , cj := 
+
+> q
+
+∑
+
+> i=1
+
+|⟨ ei, v j ⟩| 2,
+
+where 0 ≤ cj ≤ 1 and ∑ 
+
+> j
+
+cj = q. The last linear expression is minimized by taking cj = 1 for 
+
+j ≤ q and cj = 0 otherwise, and equality is attained for the span of the first q eigenvectors. In particular, the minimum value is Lipschitz even when its minimizing planes are not: 
+
+∣∣P− 
+
+> q
+
+(A) − P − 
+
+> q
+
+(B)∣∣ ≤ q∥A − B∥op . (8.2) Indeed, apply (8.7) below to E 7 → tr (PE A) and E 7 → tr (PE B), and use | tr (PE (A − B)) | ≤ 
+
+q∥A − B∥op .
+
+Proposition 8.1 (Quantitative sectional mean-value expansion) . Let 1 ≤ q ≤ n, let ϕ ∈ C2(Ω) ,and let K ⋐ Ω. For 
+
+0 < r < d K := dist( K, ∂ Ω) ,
+
+define 
+
+ωK,ϕ (r) := sup {∥D2ϕ(y) − D2ϕ(x)∥op : x ∈ K, y ∈ Ω, |y − x| ≤ r}. (8.3) 
+
+Then the following assertions hold. 
+
+(i) For every x ∈ K, the map 
+
+E 7 −→ BEr (x)
+
+ϕ d Hq
+
+is continuous on Gr( q, n ), and hence its infimum is attained. 
+
+(ii) Whenever u, v are bounded Borel functions on Br(x),
+
+∣∣∣∣∣ inf   
+
+> E∈Gr( q,n )BEr(x)
+
+u − inf   
+
+> E∈Gr( q,n )BEr(x)
+
+v
+
+∣∣∣∣∣ ≤ ∥ u − v∥L∞(Br (x)) . (8.4) (iii) Uniformly for x ∈ K,
+
+∣∣∣∣∣ inf   
+
+> E∈Gr( q,n )BEr(x)
+
+ϕ(y) dHq(y) − ϕ(x) − r2
+
+2( q + 2) P− 
+
+> q
+
+(D2ϕ(x)) 
+
+∣∣∣∣∣ ≤ q
+
+2( q + 2) ωK,ϕ (r)r2. (8.5) 
+
+In particular, the left-hand side is oK (r2) as r ↓ 0.Proof. Choose an orthonormal frame U : Rq → Rn with image E. Then  
+
+> BEr(x)
+
+ϕ d Hq = Bqr (0) 
+
+ϕ(x + U z ) dz. (8.6) The right-hand side depends continuously on U . It is invariant under replacing U by U O ,
+
+O ∈ O(q), and therefore descends to a continuous function on the Grassmannian. Since Gr (q, n )
+
+is compact, the minimum is attained. This proves (i). SHARP HAUSDORFF BOUNDS FOR INTERIOR SINGULAR SETS 19 
+
+For arbitrary families of real numbers {aE } and {bE } indexed by the same set, 
+
+∣∣∣∣inf  
+
+> E
+
+aE − inf  
+
+> E
+
+bE
+
+∣∣∣∣ ≤ sup 
+
+> E
+
+|aE − bE |. (8.7) Applying this to the sectional averages of u and v proves (ii). Notice that this estimate does not require a continuous choice of a minimizing plane. For x ∈ K and |z| < r , the integral form of Taylor’s theorem gives 
+
+ϕ(x + z) = ϕ(x) + Dϕ (x) · z + 12 ⟨D2ϕ(x)z, z ⟩ + Rx(z), (8.8) 
+
+Rx(z) = 
+
+ˆ 10
+
+(1 − t)⟨(D2ϕ(x + tz ) − D2ϕ(x))z, z ⟩ dt. (8.9) Thus 
+
+|Rx(z)| ≤ 12 ωK,ϕ (r)|z|2 (8.10) for every x ∈ K, every E ∈ Gr (q, n ), and every z ∈ E with |z| < r . The point is that the modulus in (8.3) is taken in the ambient space and is independent of E.The linear term has zero sectional average. In an orthonormal basis of E, 
+
+> BEr(0)
+
+zizj dHq(z) = r2
+
+q + 2 δij , BEr (0) 
+
+|z|2 dHq(z) = qq + 2 r2.
+
+Consequently, if 
+
+AE (x, r ) := BEr (x)
+
+ϕ d Hq,
+
+then 
+
+AE (x, r ) = ϕ(x) + r2
+
+2( q + 2) tr( PE D2ϕ(x)) + RE (x, r ), (8.11) where 
+
+sup 
+
+> x∈K, E ∈Gr( q,n )
+
+|R E (x, r )| ≤ q
+
+2( q + 2) ωK,ϕ (r)r2. (8.12) Applying (8.7) to (8.11) and using Ky Fan’s identity (8.1) proves (8.5). Finally, D2ϕ is uniformly continuous on a fixed compact neighborhood of K, so ωK,ϕ (r) → 0.No continuity of the minimizing eigenspace is used. Indeed, even if the set of minimizers jumps at an eigenvalue crossing, both the minimum in (8.1) and the error estimate (8.12) remain stable. □
+
+Remark 8.2 (Jumping minimizing planes) . The map u 7 → M q,r u(x) is nonlinear, but (8.4) shows that it is 1-Lipschitz for the uniform norm. Degeneracy of D2ϕ(x) may cause the set of minimizing planes in (8.1) to be nonunique and may make a chosen minimizer discontinuous under perturbation. This affects only the choice of an argmin. The value of the infimum is protected by (8.7) , while the Taylor error is bounded before optimization by (8.12) . Hence no spectral gap and no continuous selection of minimizing eigenspaces is required. 
+
+Corollary 8.3 (Homogeneous convex k-Hessian equation) . Let q = n − k + 1 and let ϕ ∈ C2 be convex. At every point x,
+
+σk(D2ϕ(x)) = 0 ⇐⇒ P− 
+
+> q
+
+(D2ϕ(x)) = 0 . (8.13) 
+
+Consequently, at such a point, 
+
+ϕ(x) = inf   
+
+> E∈Gr( q,n )BEr(x)
+
+ϕ d Hq + o(r2). (8.14) 20 XIYU HU 
+
+Proof. For a positive semidefinite matrix, σk = 0 if and only if the rank is at most k − 1, which is equivalent to having at least n − k + 1 = q zero eigenvalues. Apply Proposition 8.1. □
+
+Remark 8.4. The formula is an infinitesimal characterization of flat directions, not a regular-ization theorem for the homogeneous equation. If F ⊂ Rn has dimension at most k − 1 and 
+
+g : F → R is convex, then u(x) = g(PF x) is affine on every affine q-plane parallel to a subspace of F ⊥. Such a function can be singular on a large set. 8.2. A complementary Grassmannian identity. The Grassmannian is the compact homoge-neous space O(n)/(O(k) × O(n − k)) and therefore carries a unique normalized O(n)-invariant probability measure, denoted by γk,n . If V ∈ Gr (k, n ) and U : Rk → Rn is an orthonormal frame for V , set 
+
+A|V := U T AU. 
+
+Proposition 8.5 (Grassmannian average of sectional determinants) . For every A ∈ Sym( n),
+
+σk(A) = 
+
+> (
+
+nk 
+
+> )
+
+ˆ
+
+> Gr( k,n )
+
+det( A|V ) dγ k,n (V ). (8.15) 
+
+Proof. By orthogonal invariance, assume that A = diag (λ1, . . . , λ n). If U is an n × k matrix with orthonormal columns spanning V , Cauchy–Binet gives 
+
+det( U T AU ) = ∑
+
+> |I|=k
+
+λI det( UI )2, λI := ∏
+
+> i∈I
+
+λi.
+
+Haar symmetry makes the averages of det (UI )2 independent of I. A second application of Cauchy–Binet to U T U = Ik gives ∑
+
+> |I|=k
+
+det( UI )2 = 1 .
+
+Thus each of the (nk 
+
+> )
+
+equal averages is (nk
+
+> )−1
+
+, and integration yields (8.15). □
+
+For convex u, (8.15) identifies the k-Hessian density with the Grassmannian average of the Monge–Ampère densities of the restrictions u|x+V .
+
+Corollary 8.6 (A positive proportion of nondegenerate sections) . Let A ≥ 0, let N = (nk
+
+> )
+
+, and suppose σk(A) > 0. Then 
+
+γk,n 
+
+> ({
+
+V ∈ Gr( k, n ) : det( A|V ) ≥ σk(A)2N
+
+> })
+
+≥ 12N − 1 . (8.16) 
+
+Proof. By the Cauchy–Binet representation in the proof of Proposition 8.5, 0 ≤ det (A|V ) ≤ σk(A).If the set in (8.16) has measure θ, then (8.15) implies 
+
+σk(A)
+
+N ≤ (1 − θ) σk(A)2N + θσ k(A).
+
+Solving for θ gives the claim. □
+
+The identity and Corollary 8.6 are not used in the proof of Theorem 1.1; they clarify how the positive equation and the homogeneous flat-direction equation are seen on two complementary Grassmannians. SHARP HAUSDORFF BOUNDS FOR INTERIOR SINGULAR SETS 21 
+
+8.3. From Newton-tensor flux to supporting contact geometry. We now explain the route from the original mean-value question to the proof above. The point is not that the sectional formula supplies a missing estimate in Sections 3 to 5; it does not. Rather, it singles out the correct degeneracy and suggests its nonsmooth finite-scale replacement. For a smooth function u in Euclidean space, let 
+
+T ij k−1(D2u) := ∂σ k
+
+∂u ij 
+
+(D2u)
+
+be the (k − 1) st Newton tensor. Symmetry of third derivatives gives the standard identities 
+
+∂iT ij k−1(D2u) = 0 , T ij k−1(D2u)uij = kσ k(D2u), (8.17) and hence 
+
+kσ k(D2u) = ∂i
+
+> (
+
+T ij k−1(D2u)uj
+
+> )
+
+. (8.18) For k = 1 , T0 = I, so (8.18) is the ordinary Laplace flux identity whose integration on balls differentiates the spherical mean. For k = 2 , its flat form is the Newton-tensor identity underlying Reilly’s Hessian formula; on a curved manifold, commutation of covariant derivatives produces curvature terms [ Rei77 ]. For k ≥ 2, however, the flux weight Tk−1(D2u) depends on the unknown Hessian. Thus (8.18) does not differentiate any fixed linear average of u over Euclidean spheres. This failure suggests replacing a fixed average by an adaptive one. On the convex branch, 
+
+σk(D2u) = 0 ⇐⇒ rank D2u ≤ k − 1 ⇐⇒ dim ker D2u ≥ q = n − k + 1 .
+
+The second-order term of the average over a q-plane E is 
+
+r2
+
+2( q + 2) tr( PE D2u),
+
+and minimizing over E produces P− 
+
+> q
+
+(D2u). This is exactly the content of Proposition 8.1 and corollary 8.3. In this sense, the null-sectional mean-value operator is the adaptive average naturally selected by the homogeneous convex equation. Two obstructions prevent this observation from proving partial regularity directly. First, it is a C2 infinitesimal statement, whereas the points under investigation need not possess a Hessian. Second, even for smooth convex solutions of σk(D2u) = 1 , the equation gives no universal positive lower bound for P− 
+
+> q
+
+(D2u): the eigenvalues may be arbitrarily anisotropic while their 
+
+kth elementary symmetric function remains fixed. The homogeneous mean-value property itself is not regularizing, as Remark 8.4 shows. The finite-scale replacement of a null eigenspace is a supporting contact set. After subtracting a supporting affine function, an m-dimensional contact set records exact affine flatness in 
+
+m directions without assuming differentiability. The threshold predicted by the mean-value calculation is precisely m = q:
+
+• if one supporting contact set has dimension at most q − 1 = n − k, its orthogonal complement contains k directions; the admissible saddle of Lemma 2.1 and the Chou–Wang estimate then give regularity; 
+
+• hence every supporting contact set at a singular point has at least q directions; 
+
+• the positive right-hand side, tested by a John ellipsoidal paraboloid, controls the product of the remaining smallest k axes as in (4.4); 
+
+• the q contact directions keep the large axes from collapsing, which yields the section-volume deficit needed by Mooney’s covering theorem. Thus the conceptual passage is null-sectional mean value ⇝ q-dimensional supporting flatness 
+
+⇝ John-axis volume decay ⇝ Hausdorff control . (8.19) 22 XIYU HU 
+
+The first arrow is heuristic at a singular point, but the middle two arrows are the rigorous finite-scale mechanism of Sections 3 to 5. This also explains why the sectional formulas are best placed after the proof: they reveal the origin and possible future use of the geometry, while the theorem itself rests on supporting contacts, barriers, and convex sections. The same viewpoint may become operational in a future blow-up or quantitative theory. Height-normalized singular blow-ups can drive the right-hand side toward zero, so the optimized 
+
+q-planes in Proposition 8.1 are natural candidates for approximate flat directions. Turning that observation into packing estimates requires coherence of these planes across points and scales, precisely the missing issue described in Section 10.2. 9. Sharpness 
+
+The exponent in Theorem 1.1 is optimal in the intermediate range. We first record the elementary extension mechanism. 
+
+Proposition 9.1 (Cylindrical extension) . Let 1 ≤ k ≤ n, let U ⊂ Rk be open and convex, and let w be a convex viscosity solution of 
+
+det D2w = 1 in U, 
+
+and define 
+
+u(x, z ) := w(x), (x, z ) ∈ U × Rn−k.
+
+Then u is a convex viscosity solution of 
+
+σk(D2u) = 1 in U × Rn−k.
+
+Proof. It suffices to argue locally. On a ball compactly contained in U , approximate w uniformly by smooth convex solutions wj of det D2wj = 1 using Theorem 2.3 in dimension k. Set 
+
+uj (x, z ) = wj (x). Then 
+
+D2uj =
+
+> (
+
+D2wj 00 0
+
+> )
+
+∈ Γk, σk(D2uj ) = det D2wj = 1 .
+
+The functions uj converge locally uniformly to u, and viscosity stability gives the conclusion. □
+
+Mooney constructed, in every dimension k ≥ 3, convex Alexandrov solutions of det D2w = 1 
+
+containing compact subsets of the non-strictly-convex set with Hausdorff dimension arbitrarily close to k − 1 [Moo15a , Section 4, especially Remark 4.2]. For continuous positive densities, convex Alexandrov and viscosity solutions of the Monge–Ampère equation coincide; see [ Gut16 ,Chapter 1]. Thus these examples belong to the viscosity class used here. Moreover, every point of the non-strictly-convex set is in Sing (w): if w were C2 in a neighborhood of such a point, then D2w ≥ 0 and det D2w = 1 would make D2w positive definite there; by continuity it would remain uniformly positive definite on a smaller ball, forcing strict convexity. If w is not C2 near x, then the cylindrical extension cannot be C2 near any (x, z ), because restriction to the affine slice Rk × { z} would make w locally C2. Hence 
+
+Sing( w) × Rn−k ⊂ Sing( u).
+
+For completeness, the required product estimate follows directly from Frostman’s lemma. If 
+
+s < dim H K, choose a finite measure μ supported on K with μ(Br) ≤ Csrs. Lebesgue measure ν
+
+on [0 , 1] n−k satisfies ν(Br) ≤ Cnrn−k. Therefore the product measure obeys 
+
+(μ × ν)( Br(x, z )) ≤ Cr s+n−k,
+
+so another application of Frostman’s lemma yields 
+
+dim H
+
+> (
+
+K × [0 , 1] n−k) ≥ s + n − k. SHARP HAUSDORFF BOUNDS FOR INTERIOR SINGULAR SETS 23 
+
+Letting s ↑ dim H K gives the standard product lower bound; see also [ Mat95 , Chapter 8]. Consequently, for every δ > 0 and every 3 ≤ k < n , there are convex viscosity solutions of 
+
+σk(D2u) = 1 whose singular sets have Hausdorff dimension at least n − 1 − δ. Thus no estimate of the form 
+
+dim H Sing( u) ≤ n − 1 − δ(n, k )
+
+can hold uniformly. 10. Further directions 
+
+10.1. Variable right-hand sides. The geometric portion of the argument is insensitive to roughness of the right-hand side: Theorem 1.3, lemma 4.1, and proposition 5.1 use only the viscosity lower bound 
+
+σk(D2u) ≥ λ > 0.
+
+For an equation 
+
+σk(D2u) = f (x), 0 < λ ≤ f ≤ Λ, (10.1) the obstruction enters only when one tries to prove the support-dependent regularity criterion, and it enters at two logically separate stages. 
+
+Approximation and stability. For constant right-hand side, Lemma 3.2 uses smooth Dirichlet solutions of the same equation, direct comparison with the limiting viscosity solution, and a gradient estimate whose constants are uniform along the approximation. If f is continuous, one can choose smooth positive fj → f uniformly, but the approximating equations now vary with j.The constant-right-hand-side Dirichlet theorem quoted in Theorem 2.3 does not by itself furnish the required classical solutions for the pairs (fj , g j ): one must separately verify the admissible subsolution and boundary-barrier hypotheses in the variable-data and degenerate Dirichlet theory, with estimates uniform in j; see, for example, [ ITW05 ]. Even when these classical solutions exist, viscosity stability and uniqueness identify a locally uniform subsequential limit only after one has obtained uniform compactness estimates for them. If f is merely discontinuous or belongs only to Lp, no sequence of smooth functions converges to f uniformly in general. The standard local-uniform stability theorem for viscosity solutions then sees only upper and lower relaxed limits of the right-hand sides and does not, by itself, select a prescribed solution of (10.1) ; see, for example, [ CIL92 ]. One would need an Lp-viscosity or Hessian-measure formulation together with a matching comparison and approximation theorem. Thus the direct analogue of Lemma 3.2 is already nonautomatic at the discontinuous level. 
+
+Loss of uniform a priori estimates. The decisive obstruction is the variable-right-hand-side Pogorelov estimate. Chou–Wang’s estimate assumes C1,1 control of the right-hand side and its constant depends on that norm and on a positive lower bound; see [ CW01 , Theorem 4.1] and [Wan09 , Theorem 4.3]. Their proof differentiates the equation twice. Written for F = σ1/k k , it contains a term involving D2(f 1/k ). If fε is a standard mollification of a positive f ∈ C0,α , then 
+
+∥Df ε∥L∞ ≲ εα−1[f ]C0,α , ∥D2fε∥L∞ ≲ εα−2[f ]C0,α . (10.2) Because fε ≥ λ/ 2 after a harmless adjustment, the chain rule gives the same leading loss for 
+
+D2(f 1/k ε ). Thus, for Lipschitz f , the first derivatives can remain uniformly bounded but the second derivatives typically grow like ε−1; for 0 < α < 1, even the first-derivative bound generally diverges. The Chou–Wang constants therefore blow up along the smooth approximation, so the uniform Hessian bound (3.9) cannot be passed to the limit. Convexity of the limiting solution does not repair this step, since the Caffarelli–Nirenberg–Spruck approximants for k < n are 
+
+k-admissible but need not be convex. 24 XIYU HU 
+
+The fixed saddle quadratic is not the source of the failure. For a smooth positive fj , concavity and homogeneity still imply Luj w > 0 for the same barrier. What is missing is a gradient and Hessian estimate uniform in j. A positive C1,1 right-hand side is compatible with the known Chou–Wang estimate if the approximation preserves a uniform C1,1 bound, and the present method should extend to that regime after a separate variable-right-hand-side approximation lemma is supplied. We do not claim that extension here. For Hölder, merely continuous, or Lp
+
+right-hand sides, one needs either a Pogorelov estimate that avoids differentiating f twice or a different regularity mechanism. The high-contact portion of the singular set, however, is already controlled by Theorem 1.3 under the sole lower bound in (10.1). 10.2. Quantitative stratification. The mean-value side is quantitatively stable: (8.5) gives an explicit modulus-of-continuity remainder, and (5.4) gives a point-independent section-volume estimate once a contact inradius ρ is prescribed. The unresolved issue is to produce such a normalized inradius from a finite-scale failure of regularity. The qualitative condition du(x, p ) ≥ q
+
+says only that the exact limiting contact set contains some nondegenerate q-simplex. Its inradius may tend to zero arbitrarily rapidly as (x, p ) varies, and exact contact may disappear under perturbation, leaving only an approximate contact set. In addition, (4.4) controls only the product of the smallest k John axes. It gives no uniform lower bound for any prescribed individual axis and no coherence of the associated principal planes between neighboring points or consecutive scales. A quantitative theory would require a normalized dichotomy with universal parameters. Schematically, on each ball and at each scale one would need either an effective Hessian bound on a smaller concentric ball, or a q-dimensional approximate contact simplex with a fixed normalized inradius and a controlled height error. To convert this into a packing or tubular-neighborhood estimate, one would also need a cone-splitting or Reifenberg-type statement forcing the approximate flat directions to be coherent across nearby bad points and adjacent scales, in the spirit of quantitative stratification methods such as [ CN13 ]. Neither assertion follows from the present exact-contact argument. Thus (5.4) is a useful weak quantitative substitute, but the current paper deliberately claims Hausdorff-nullity rather than a Minkowski-content bound. 10.3. Higher integrability beyond W 2,1. Corollary 1.2 removes the singular part of the distributional Hessian, but it is an endpoint qualitative statement: the proof does not bound the distribution function of the absolutely continuous density. This is substantially weaker than the Monge–Ampère higher-integrability theory. In that setting, De Philippis–Figalli obtain L log m L
+
+control for every finite m, and De Philippis–Figalli–Savin and Schmidt obtain an L1+ ε gain [ DPF13 , DPFS13 , Sch13 ]. Their arguments use normalized sections and the volume-preserving affine covariance of the determinant, together with the localization geometry initiated by Caffarelli [Caf90b, Caf90a]. For k < n , a general determinant-one affine change does not preserve σk(D2u). The present proof retains only an anisotropic product estimate for the smallest k John axes, namely (4.4) ; it gives neither a canonical normalization of all sections nor a scale-by-scale distributional estimate for |D2u|. A plausible route to L log L, weak-L1+ ε, or W 2,1+ ε bounds would therefore require genuinely quantitative versions of both parts of the proof: a finite-scale regularity/contact dichotomy and a packing estimate that is coherent across neighboring points and adjacent scales. The quantitative stratification problem described above is thus not only a refinement of the Hausdorff theorem, but also the natural obstruction to stronger Sobolev integrability. 10.4. A measure-level sectional formula. For smooth convex functions, (8.15) can be inte-grated and disintegrated over affine k-planes. A measure-level version for Hessian measures should relate the k-Hessian measure to averaged Monge–Ampère measures of restrictions. The weak SHARP HAUSDORFF BOUNDS FOR INTERIOR SINGULAR SETS 25 
+
+continuity theory of Hessian measures in [ TW99 ] provides a natural approximation framework. Such a formula is not needed for the present proof, but it may be useful for quantitative slicing arguments. 10.5. Removable and isolated singularities. The singular set studied here should be distin-guished from a removable singularity set: throughout the paper, the viscosity solution is already defined on all of Ω, and the issue is failure of local C2 regularity. For punctured-domain problems, Labutin obtained sharp removability criteria and a classification of isolated singularities for fully nonlinear uniformly elliptic equations [ Lab00 , Lab01 ]; his nonlinear potential theory for 
+
+k-subharmonic functions gives capacity and Hausdorff-measure criteria that are specific to the 
+
+k-Hessian operator [Lab02]. For the homogeneous k-Hessian equation, exterior and punctured Dirichlet problems with fundamental asymptotics have been studied by Ma–Zhang and Gao–Ma–Zhang [ MZ22 , GMZ23 ]. In the Monge–Ampère setting, Jian–Tu’s strong maximum principle identifies strict convexity as the natural locus for comparison of generalized solutions [ JT25 ], while recent sharp global Alexandrov estimates of Jin–Tu–Xiong yield rigidity and applications to entire solutions with isolated singularities [ JTX26 ]. It would be interesting to understand whether the supporting-contact stratification developed here can interact with these punctured-domain and capacity theories, especially for the homogeneous blow-up equation σk(D2u) = 0 .26 XIYU HU 
+
+Appendix A. The higher-codimension section-covering criterion 
+
+The case s = 1 of the criterion below is Mooney’s section-covering theorem [ Moo15a , Theo-rem 3.1]. The higher-codimension statement is recorded in [ Moo15a , Remark 3.4] without the details of the argument. We give a complete proof, following the same two mechanisms as in the codimension-one case: degeneration of John axes and concentration of Monge–Ampère measure. For a convex function v, we write 
+
+Mv(A) := |∂v (A)|
+
+for its Alexandrov Monge–Ampère measure. 
+
+Theorem A.1 (Higher-codimension section covering) . Let v be convex in B1 ⊂ Rn, let 1 ≤ s ≤
+
+n − 1 be an integer, and let E ⊂ B1. Assume that for every x ∈ E and every p ∈ ∂v (x) there exist constants Cx,p < ∞ and hx,p > 0 such that 
+
+|Svh,p (x)| ≤ Cx,p h(n+s)/2 (0 < h < h x,p ). (A.1) 
+
+Then 
+
+Hn−s(E) = 0 .
+
+We first record two elementary convex facts used in the proof. 
+
+Lemma A.2 (Sublevel normals and convex-hull volume) . Let f be finite and convex on a neighborhood of the compact convex body K = {f ≤ h}. If y ∈ ∂K and ν is an outward unit normal to K at y, then 
+
+aν ∈ ∂f (y) (A.2) 
+
+for some a > 0.Moreover, if E = z + AB 1 is an ellipsoid and |A−1(y − z)| ≥ 2, then 
+
+| co( E ∪ { y})| ≥ cn|A−1(y − z)| |E| . (A.3) 
+
+Proof. The first assertion is the normal-cone formula for a convex sublevel set, 
+
+NK (y) = {tq : t ≥ 0, q ∈ ∂f (y)}.
+
+It applies because K has a strict interior point. For completeness, this formula follows from the convex multiplier rule applied to the minimization of −ν · x subject to f (x) ≤ h; the multiplier is positive because ν̸ = 0 .For the second assertion, apply the affine map x 7 → A−1(x − z). We are reduced to the convex hull of B1 and a point Y with |Y | ≥ 2. That hull contains a cone of height at least |Y |/2 whose base is an (n − 1) -ball of dimensional radius. Its volume is at least cn|Y || B1|. Transforming back proves (A.3). □
+
+Lemma A.3 (Alexandrov maximum estimate) . Let D ⊂ Rd be a bounded convex domain and let f ∈ C(D) be convex, with f = 0 on ∂D . Then 
+
+Mf (D) |D| ≥ cd
+
+> ∣∣
+
+min  
+
+> D
+
+f ∣∣d. (A.4) This is the standard affine-invariant Alexandrov maximum estimate; see [ Moo15a , Lemma 2.5]. We state it here to make explicit the only previous section-geometry estimate used below. 
+
+Lemma A.4 (Restriction and lifting of Monge–Ampère mass) . Assume that 
+
+v(z) ≥ v(y) + p · (z − y) + 12 |z − y|2 (p ∈ ∂v (y)) . (A.5) 
+
+Let V ⊂ Rn be a linear subspace of dimension d, let w = v|V , and let D ⊂ V ∩ Br/ 4. Then 
+
+Mv(Br) ≥ cnrn−dMw(D). (A.6) SHARP HAUSDORFF BOUNDS FOR INTERIOR SINGULAR SETS 27 
+
+Proof. For y ∈ V , the standard subdifferential rule for restriction gives 
+
+∂V w(y) = PV ∂v (y). (A.7) Indeed, one inclusion follows by projection. Conversely, if q ∈ ∂V w(y), then y minimizes 
+
+v(z) − q · PV z under the affine constraint z ∈ V . The convex optimality condition for an affine constraint gives a vector ζ ∈ V ⊥ such that q + ζ ∈ ∂v (y), proving the reverse inclusion. Fix y ∈ Br/ 4 and p ∈ ∂v (y). We claim that 
+
+Br/ 8(p) ⊂ ∂v (Br). (A.8) If |q − p| < r/ 8, minimize v(z) − q · z on Br/ 2(y). On its boundary, (A.5) gives 
+
+[v(z) − q · z] − [v(y) − q · y] ≥ 12 |z − y|2 − | q − p| | z − y| > 0.
+
+The minimum is therefore attained in the interior of Br/ 2(y) ⊂ Br, which proves (A.8). Let Q = ∂V w(D). By (A.7) , for every q0 ∈ Q there are y ∈ D and p ∈ ∂v (y) with PV p = q0.Equation (A.8) shows that the fiber of ∂v (Br) over q0 contains an (n − d)-dimensional ball of radius r/ 8 in V ⊥. Fubini’s theorem in the orthogonal decomposition Rn = V ⊕ V ⊥ yields 
+
+|∂v (Br)| ≥ cnrn−d|Q|,
+
+which is (A.6). □
+
+Proof of Theorem A.1. Set 
+
+˜v(y) := v(y) + 12 |y|2.
+
+For ˜p = p + x one has 
+
+˜v(y) − ˜v(x) − ˜p · (y − x) = v(y) − v(x) − p · (y − x) + 12 |y − x|2.
+
+Thus S˜vh, ˜p(x) ⊂ Svh,p (x), and it is enough to prove the theorem for a function of the form 
+
+v = v0 + 12 |x|2, v0 convex . (A.9) Such a function satisfies (A.5). 
+
+Step 1: at least s + 1 John axes degenerate faster than √h. Fix x ∈ E and p ∈ ∂v (x). Translate 
+
+x to the origin and subtract the supporting affine function, so that 
+
+x = 0 , p = 0 , v(0) = 0 , v ≥ 12 |x|2.
+
+For small h > 0, let Kh = Svh, 0(0) and choose a John ellipsoid 
+
+Eh = zh + AhB1, Eh ⊂ Kh ⊂ zh + CnAhB1.
+
+Write its semiaxes as 
+
+d1(h) ≥ · · · ≥ dn(h) > 0.
+
+We claim that dn−s(h)
+
+√h −→ 0 (h ↓ 0) . (A.10) Local Lipschitz continuity gives Bch (0) ⊂ Svh, 0(0) for all small h, with c = c(x, p ) > 0.Comparing widths in the upper John inclusion, 
+
+dn(h) ≥ ch. (A.11) 28 XIYU HU 
+
+The lower John inclusion and (A.1) give 
+
+> n
+
+∏
+
+> i=1
+
+di(h) ≤ Ch (n+s)/2. (A.12) Suppose that (A.10) fails. Then for some δ > 0 and a sequence hj ↓ 0,
+
+dn−s(hj ) ≥ δ
+
+√
+
+hj . (A.13) Equations (A.11)–(A.13) imply 
+
+ch j ≤ di(hj ) ≤ Ch j (n − s + 1 ≤ i ≤ n). (A.14) Indeed, 
+
+dn−s+1 (hj )( ch j )s−1(δ
+
+√
+
+hj )n−s ≤
+
+> n
+
+∏
+
+> i=1
+
+di(hj ) ≤ Ch (n+s)/2 
+
+> j
+
+.
+
+The same bounds give 
+
+|E hj | ≥ ch (n+s)/2 
+
+> j
+
+. (A.15) Let ej be a shortest principal direction of Ehj . The upper John inclusion and (A.14) show that Khj has width O(hj ) in direction ej . At the two supporting points of Khj with outward normals ej and −ej , respectively, Lemma A.2 gives subgradients a+ 
+
+> j
+
+ej and −a− 
+
+> j
+
+ej , where a± 
+
+> j
+
+> 0.Since the points lie on {v = hj } and 0 ∈ Khj , the subgradient inequality and the width bound imply a± 
+
+> j
+
+≥ c > 0. Local Lipschitz continuity bounds these subgradients from above. Since 
+
+Khj ⊂ B√2hj , the supporting points tend to the origin. Passing to a subsequence and using the closedness of the subdifferential graph, 
+
+ej → e, a+e, −a−e ∈ ∂v (0) 
+
+for some a± > 0. Consequently, for all sufficiently small h,
+
+Svh, 0(0) ⊂ {| e · x| ≤ Ch }. (A.16) Let 
+
+a := max {t ∈ R : te ∈ ∂v (0) }.
+
+The maximum is finite and attained because the local subdifferential is compact. Choose 
+
+Λ > 1 + C|a|, with C as in (A.16). Then 
+
+Svhj ,0(0) ⊂ Sv 
+
+> Λhj,ae
+
+(0) . (A.17) We claim that 
+
+Rj := h−1 
+
+> j
+
+sup {e · x : x ∈ Sv 
+
+> Λhj,ae
+
+(0) } −→ ∞ . (A.18) If Rj ≤ R along a subsequence, set bj = ( R + 1) hj . No point of the hyperplane {e · x = bj }
+
+belongs to the larger section, so 
+
+v(x) ≥ ab j + Λ hj =
+
+(
+
+a + Λ
+
+R + 1 
+
+)
+
+bj
+
+there. Applying this inequality at bj x/ (e · x) and using convexity shows, after j → ∞ , that 
+
+v(x) ≥
+
+(
+
+a + Λ
+
+R + 1 
+
+)
+
+e · x (e · x > 0) .
+
+For e · x ≤ 0 the same inequality follows from the supporting plane with slope ae . This contradicts the maximality of a and proves (A.18). Choose xj in the closure of the larger section with e · xj ≥ 12 Rj hj . By convexity and (A.17), 
+
+co( Ehj ∪ { xj }) ⊂ Sv 
+
+> Λhj,ae
+
+(0) .SHARP HAUSDORFF BOUNDS FOR INTERIOR SINGULAR SETS 29 
+
+Writing Ehj = zj + Aj B1, the strip (A.16) gives 
+
+|Aj e| ≤ Ch j , |e · zj | ≤ Ch j .
+
+Hence, for large j,
+
+|A−1 
+
+> j
+
+(xj − zj )| ≥ |e · (xj − zj )||Aj e| ≥ cR j .
+
+By (A.15) and Lemma A.2, 
+
+|Sv 
+
+> Λhj,ae
+
+(0) | ≥ cR j h(n+s)/2 
+
+> j
+
+.
+
+This contradicts (A.1) for the fixed supporting slope ae , because Rj → ∞ . Thus (A.10) holds. 
+
+Step 2: arbitrarily large lower (n − s)-density of Mv. We show that for every x ∈ E and every 
+
+ε > 0 there are arbitrarily small radii r > 0 such that 
+
+Mv(Br(x)) > ε −1rn−s. (A.19) Fix a supporting slope at x, translate x to the origin, and subtract its supporting affine function. Let d1(h) ≥ · · · ≥ dn(h) be the John semiaxes of Svh, 0(0) and define 
+
+I := min 
+
+{
+
+i : lim inf 
+
+> h↓0
+
+di(h)
+
+√h = 0 
+
+}
+
+.
+
+Step 1 gives I ≤ n − s. Given δ > 0, choose hj ↓ 0 so that 
+
+dI (hj ) < δ 
+
+√
+
+hj , di(hj ) ≥ η
+
+√
+
+hj (i < I ), (A.20) where η > 0 is independent of j.Use principal-axis coordinates for the John ellipsoid, let Vj be the span of the last n − I + 1 
+
+directions, put wj = v|Vj , and set 
+
+Dj = Swj 
+
+> hj,0
+
+(0) = Svhj ,0(0) ∩ Vj .
+
+Projection of the upper John ellipsoid onto Vj , together with (A.12) and (A.20), gives 
+
+|Dj |Vj ≤ C
+
+> n
+
+∏
+
+> i=I
+
+di(hj ) ≤ Cη −(I−1) h(n+s−I+1) /2 
+
+> j
+
+. (A.21) The Alexandrov maximum estimate, Lemma A.3, in the (n − I + 1) -dimensional space Vj , applied to wj − hj on Dj , yields 
+
+Mwj (Dj )|Dj |Vj ≥ ch n−I+1  
+
+> j
+
+.
+
+Therefore 
+
+Mwj (Dj ) ≥ cη I−1h(n−s−I+1) /2 
+
+> j
+
+. (A.22) The upper John inclusion and 0 ∈ Svhj ,0(0) imply Dj ⊂ BCndI (hj )(0) . Set rj = 4 CndI (hj ). For large j, the ball Brj is compactly contained in B1, and Lemma A.4 with d = n − I + 1 gives 
+
+Mv(Brj ) ≥ cr I−1 
+
+> j
+
+h(n−s−I+1) /2
+
+> j
+
+= c
+
+( √ hj
+
+rj
+
+)n−s−I+1 
+
+rn−sj
+
+≥ cδ −(n−s−I+1) rn−sj . (A.23) Since n − s − I + 1 ≥ 1 and δ > 0 is arbitrary, (A.23) proves (A.19). 
+
+Step 3: covering. Fix β > 0 and ε > 0. By (A.19) , every point of E ∩ B1−β is the center of arbitrarily small balls Br(x) ⊂ B1−β/ 2 satisfying 
+
+rn−s < εM v(Br(x)) .30 XIYU HU 
+
+Vitali’s theorem gives a pairwise disjoint countable family {Bri (xi)} whose fivefold enlargements cover E ∩ B1−β . Since v is locally Lipschitz, Mv(B1−β/ 2) < ∞, and hence 
+
+∑
+
+> i
+
+(10 ri)n−s ≤ Cnε ∑
+
+> i
+
+Mv(Bri (xi)) ≤ CnεM v(B1−β/ 2).
+
+The radii can be required to be smaller than any prescribed number. Letting ε ↓ 0 gives 
+
+Hn−s(E ∩ B1−β ) = 0 .
+
+Finally let β ↓ 0 through a countable sequence. □
+
+Remark A.5. When s = 1 , the argument is Mooney’s proof. The additional observation for 
+
+s > 1 is the lower bound di(h) ≳ h for every John axis, obtained from local Lipschitz continuity. If dn−s(h) ≳ √h, this forces the John ellipsoid to have the critical volume ≳ h(n+s)/2; tilting to an extremal supporting slope then enlarges that volume by an unbounded factor. SHARP HAUSDORFF BOUNDS FOR INTERIOR SINGULAR SETS 31 
+
+Appendix B. A local form of the Chou–Wang Pogorelov estimate 
+
+The regularity argument uses the bounded-domain form of the Pogorelov estimate recorded by Mooney in [ Moo25 , Theorem 2.5 and Remark 2.6]. Chou and Wang state their estimate with a k-admissible comparison function [ CW01 , Theorem 4.1]. The two points that are not written out in Mooney’s note are that the calculation localizes to arbitrary bounded domains and that the comparison-function hypothesis may be weakened to a linearized inequality. We verify both points here. The long maximum-principle calculation itself remains the published calculation of Chou and Wang. For a smooth k-admissible function u, write 
+
+Luϕ := σij k (D2u)ϕij , F (A) := σk(A)1/k .
+
+Lemma B.1 (The analytic input from Chou–Wang) . Let G ⊂ Rn be a bounded smooth domain. Suppose that u, ρ ∈ C∞(G), that D2u ∈ Γk, and that 
+
+σk(D2u) = 1 in G, ρ > 0 in G, ρ = 0 on ∂G. 
+
+Assume further that 
+
+F ij (D2u)ρij ≥ − 1 in G. (B.1) 
+
+Then 
+
+sup 
+
+> G
+
+ρ4|D2u| ≤ C
+
+> (
+
+n, k, ∥Du ∥L∞(G), ∥Dρ ∥L∞(G)
+
+> )
+
+. (B.2) 
+
+No boundary curvature enters this estimate. Proof. Chou and Wang maximize 
+
+ρ4 ϕ 
+
+> (
+
+|Du |2
+
+2
+
+> )
+
+uξξ 
+
+and derive their equations (4.4)–(4.14) in the proof of [ CW01 , Theorem 4.1]. The factor ρ4 makes every positive maximum interior. Equations (4.4)–(4.8) use only ρ and Dρ , the differentiated equation, concavity of F , and the symmetric-function inequalities established earlier in that paper. The only occurrence of the second derivatives of the comparison function is equation (4.9), whose precise input is 
+
+F ij ρij ≥ − F ij uij = −1.
+
+After this inequality, equations (4.10)–(4.14) use no further property of the comparison function. Replacing their equation (4.9) by (B.1) therefore gives (B.2) with the same calculation. Since the maximum is interior, no second fundamental form or other geometric datum of ∂G is used. □
+
+Proposition B.2 (Localized Chou–Wang estimate) . Let D ⊂ Rn be bounded and open. Let 
+
+u, w ∈ C∞(D) ∩ C(D), D2u ∈ Γk, σk(D2u) = 1 in D. 
+
+Assume that 
+
+w > u in D, w = u on ∂D, Luw ≥ 0 in D, 
+
+and that Du, Dw ∈ L∞(D). Then 
+
+sup 
+
+> D
+
+(w − u)4|D2u| ≤ C
+
+> (
+
+n, k, ∥Du ∥L∞(D), ∥Dw ∥L∞(D)
+
+> )
+
+. (B.3) 
+
+In particular, no smoothness, convexity, or curvature assumption on ∂D is required. 32 XIYU HU 
+
+Proof. Put ρ = w − u. Along the solution σk(D2u) = 1 ,
+
+F ij (D2u) = 1
+
+k σij k (D2u). (B.4) Thus Luw ≥ 0 gives F ij wij ≥ 0. Euler’s identity for the one-homogeneous function F gives 
+
+F ij (D2u)uij = F (D2u) = 1 ,
+
+and hence 
+
+F ij (D2u)ρij ≥ − 1. (B.5) Equivalently, 
+
+Luρ ≥ − k, Luu = k. 
+
+This proves the weakening observed in [ Moo25 , Remark 2.6]: in the Chou–Wang proof, admissi-bility of w is used only to obtain the nonnegative contraction F ij wij .It remains to localize. Let ε > 0 be a regular value of ρ and set 
+
+Dε := {x ∈ D : ρ(x) > ε }.
+
+Because ρ ∈ C(D) and ρ = 0 on ∂D ,
+
+Dε ⋐ D. 
+
+Every connected component G of Dε is a bounded smooth domain. On G, the function ρε := ρ−ε
+
+is positive, vanishes on ∂G , has the same first and second derivatives as ρ, and satisfies (B.5) .The restrictions of u and ρε are smooth on a neighborhood of G. Lemma B.1 therefore applies on every component with the same constant, giving 
+
+sup 
+
+> Dε
+
+(ρ − ε)4|D2u| ≤ C
+
+> (
+
+n, k, ∥Du ∥L∞(D), ∥Dw ∥L∞(D)
+
+> )
+
+.
+
+By Sard’s theorem, choose positive regular values εj ↓ 0. For each fixed x ∈ D, one has x ∈ Dεj
+
+for all large j. Letting j → ∞ and then taking the supremum over x proves (B.3). □
+
+Corollary B.3 (Admissible-barrier form) . In Proposition B.2, the hypothesis Luw ≥ 0 is automatic if D2w ∈ Γk.Proof. The function F = σ1/k k is concave and one-homogeneous on Γk. For A, B ∈ Γk,
+
+F (B) ≤ F (A) + DF (A) : ( B − A) = DF (A) : B. 
+
+Taking A = D2u and B = D2w yields F ij (D2u)wij ≥ F (D2w) > 0. By (B.4), this is equivalent to Luw > 0. □
+
+Remark B.4 (Use in the main proof) . On the regular level-set domains Dj in Lemma 3.5, the comparison function is the quadratic barrier w − tj . Its Hessian belongs to Γk, so Corollary B.3 applies directly. Thus the regularity proof uses the admissible-barrier form of the published Chou–Wang estimate; the linearized formulation above is included to justify the stronger localized theorem recorded by Mooney. SHARP HAUSDORFF BOUNDS FOR INTERIOR SINGULAR SETS 33 
+
+References 
+
+[Caf90a] Luis A. Caffarelli, Interior W 2,p estimates for solutions of the Monge–Ampère equation , Ann. of Math. (2) 131 (1990), no. 1, 135–150. [Caf90b] , A localization property of viscosity solutions to the Monge–Ampère equation and their strict convexity , Ann. of Math. (2) 131 (1990), no. 1, 129–134. [CC95] Luis A. Caffarelli and Xavier Cabré, Fully nonlinear elliptic equations , American Mathematical Society Colloquium Publications, vol. 43, American Mathematical Society, Providence, RI, 1995. [CGM07] Luis A. Caffarelli, Pengfei Guan, and Xi-Nan Ma, A constant rank theorem for solutions of fully nonlinear elliptic equations , Comm. Pure Appl. Math. 60 (2007), no. 12, 1769–1791. [CIL92] Michael G. Crandall, Hitoshi Ishii, and Pierre-Louis Lions, User’s guide to viscosity solutions of second order partial differential equations , Bull. Amer. Math. Soc. (N.S.) 27 (1992), no. 1, 1–67. [CJTZ26] Ruosi Chen, Huaiyu Jian, Xushan Tu, and Xingchen Zhou, Regularity for convex viscosity solutions of the σ2 equation , arXiv:2605.30823, 2026. [CN13] Jeff Cheeger and Aaron Naber, Quantitative stratification and the regularity of harmonic maps and minimal currents , Comm. Pure Appl. Math. 66 (2013), no. 6, 965–990. [CNS85] Luis Caffarelli, Louis Nirenberg, and Joel Spruck, The Dirichlet problem for nonlinear second-order elliptic equations. III. functions of the eigenvalues of the Hessian , Acta Math. 155 (1985), no. 3–4, 261–301. [CW01] Kai-Seng Chou and Xu-Jia Wang, A variational theory of the Hessian equation , Comm. Pure Appl. Math. 54 (2001), no. 9, 1029–1064. [DPF13] Guido De Philippis and Alessio Figalli, W 2,1 regularity for solutions of the Monge–Ampère equation ,Invent. Math. 192 (2013), no. 1, 55–69. [DPFS13] Guido De Philippis, Alessio Figalli, and Ovidiu Savin, A note on interior W 2,1+ ε estimates for the Monge–Ampère equation , Math. Ann. 357 (2013), no. 1, 11–22. [EG15] Lawrence C. Evans and Ronald F. Gariepy, Measure theory and fine properties of functions , revised edition ed., CRC Press, Boca Raton, FL, 2015. [Fan26] Zhenyu Fan, A generalization of Savin’s small perturbation theorem for fully nonlinear elliptic equations and applications , Calc. Var. Partial Differential Equations 65 (2026), Paper No. 182, arXiv:2509.01138. [GM03] Pengfei Guan and Xi-Nan Ma, The Christoffel–Minkowski problem. I. convexity of solutions of a Hessian equation , Invent. Math. 151 (2003), no. 3, 553–577. [GMZ23] Zhenghuan Gao, Xi-Nan Ma, and Dekai Zhang, The Dirichlet problem of the homogeneous k-Hessian equation in a punctured domain , arXiv:2303.07976, 2023. [Gut16] Cristian E. Gutiérrez, The monge–ampère equation , second edition ed., Progress in Nonlinear Differential Equations and Their Applications, vol. 89, Birkhäuser/Springer, Cham, 2016. [ITW05] Nina M. Ivochkina, Neil S. Trudinger, and Xu-Jia Wang, The Dirichlet problem for degenerate Hessian equations , Comm. Partial Differential Equations 29 (2005), no. 1–2, 219–235. [JT25] Huaiyu Jian and Xushan Tu, Strong maximum principle for generalized solutions to equations of the Monge–Ampère type , Adv. Math. 463 (2025), 110116. [JTX26] Tianling Jin, Xushan Tu, and Jingang Xiong, Sharp global Alexandrov estimates and entire solutions of Monge–Ampère equations , Math. Ann. 395 (2026), Paper No. 41. [Lab00] Denis A. Labutin, Removable singularities for fully nonlinear elliptic equations , Arch. Ration. Mech. Anal. 155 (2000), no. 3, 201–214. [Lab01] , Isolated singularities for fully nonlinear elliptic equations , J. Differential Equations 177 (2001), no. 1, 49–76. [Lab02] , Potential estimates for a class of fully nonlinear elliptic equations , Duke Math. J. 111 (2002), no. 1, 1–49. [Mat95] Pertti Mattila, Geometry of sets and measures in Euclidean spaces: Fractals and rectifiability , Cambridge Studies in Advanced Mathematics, vol. 44, Cambridge University Press, Cambridge, 1995. [Moo15a] Connor Mooney, Partial regularity for singular solutions to the Monge–Ampère equation , Comm. Pure Appl. Math. 68 (2015), no. 6, 1066–1084. [Moo15b] , W 2,1 estimate for singular solutions to the Monge–Ampère equation , Ann. Sc. Norm. Super. Pisa Cl. Sci. (5) 14 (2015), no. 4, 1283–1303. [Moo21] , Strict 2-convexity of convex solutions to the quadratic Hessian equation , Proc. Amer. Math. Soc. 149 (2021), no. 6, 2473–2477. [Moo25] , Remarks on the quadratic Hessian equation , J. Math. Study, to appear; arXiv:2505.14586, 2025. [MZ22] Xi-Nan Ma and Dekai Zhang, The exterior Dirichlet problem for the homogeneous k-Hessian equation ,arXiv:2207.13504, 2022. 34 XIYU HU 
+
+[Rei77] Robert C. Reilly, Applications of the Hessian operator in a Riemannian manifold , Indiana Univ. Math. J. 26 (1977), no. 3, 459–472. [Sav07] Ovidiu Savin, Small perturbation solutions for elliptic equations , Comm. Partial Differential Equations 
+
+32 (2007), no. 4–6, 557–578. [Sch13] Thomas Schmidt, W 2,1+ ε estimates for the Monge–Ampère equation , Adv. Math. 240 (2013), 672–689. [Tao17] Terence Tao, Answer to “how to understand the integral?” , MathOverflow, 2017, Available at https: //mathoverflow.net/q/288332 ; posted December 12, 2017. [Tru95] Neil S. Trudinger, On the Dirichlet problem for Hessian equations , Acta Math. 175 (1995), no. 2, 151–164. [Tru97] , Weak solutions of Hessian equations , Comm. Partial Differential Equations 22 (1997), no. 7–8, 1251–1261. [TW99] Neil S. Trudinger and Xu-Jia Wang, Hessian measures. II , Ann. of Math. (2) 150 (1999), no. 2, 579–604. [Urb90] John I. E. Urbas, On the existence of nonclassical solutions for two classes of fully nonlinear elliptic equations , Indiana Univ. Math. J. 39 (1990), no. 2, 355–382. [Wan09] Xu-Jia Wang, The k-Hessian equation , Lecture Notes in Mathematics, vol. 1977, Springer-Verlag, Berlin, 2009, In: Geometric Analysis and PDEs, pp. 177–252.

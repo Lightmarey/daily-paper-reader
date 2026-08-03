@@ -1,0 +1,6827 @@
+Title: Edge asymptotics for weighted Robin equations on cylinders with applications to spectral fractional Laplacians
+
+URL Source: https://arxiv.org/pdf/2607.29547v1
+
+Published Time: Mon, 03 Aug 2026 01:04:48 GMT
+
+Number of Pages: 41
+
+Markdown Content:
+EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS ON CYLINDERS WITH APPLICATIONS TO SPECTRAL FRACTIONAL LAPLACIANS 
+
+ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+Abstract. For a class of weighted degenerate or singular problems on a cylinder, Almgren-type monotonicity methods are employed to derive asymptotic estimates of solutions near the edge between the base and the lateral surface, where a Robin boundary condition is imposed. As a relevant application, local asymptotics and unique continuation from the boundary are obtained for the Robin and Neumann spectral fractional Laplacians. The local decay rates of the solutions are the same for both the Neumann and the Robin problems and are explicitly quantized by a weighted spherical spectral problem with some symmetry. 
+
+1. Introduction 
+
+Let s ∈ (0 , 1) and n > 2s. Let Ω ⊂ Rn be an open domain of class C1,1 and T > 0. Let us consider the cylinder in Rn+1 with cross-section Ω and height T and its lateral boundary: (1.1) CΩ := Ω × (0 , T ), ∂LCΩ := ∂Ω × [0 , T ).
+
+We denote the variable in Rn+1 by z = ( x, t ) ∈ Rn × R and introduce the space H1(CΩ, t 1−2sdz ),defined as the completion of C∞(CΩ) with respect to the weighted norm (1.2) ∥φ∥H1(CΩ,t 1−2sdz ) := 
+
+Z 
+
+> CΩ
+
+t1−2s(φ2 + |∇ φ|2) dz 
+
+1/2
+
+.
+
+Let α ≥ 0. We focus on weak solutions v ∈ H1(CΩ, t 1−2sdz ) to (1.3) 
+
+
+
+− div( t1−2s∇v) = 0 in CΩ,
+
+∇xv · ν + αv = 0 on ∂LCΩ,
+
+− lim t→0+ t1−2s∂tv = h(x) Tr v on Ω,
+
+where ν is the outer normal vector to ∂LCΩ and Tr denotes the linear and continuous trace operator (1.4) Tr : H1(CΩ, t 1−2sdz ) → Hs(Ω) ,
+
+being Hs(Ω) the usual fractional Sobolev space (see [14]). We also assume that (1.5) h ∈ W 1,p (Ω) for some p > n
+
+2s .
+
+By a weak solution to (1.3) we mean a function v ∈ H1(CΩ, t 1−2sdz ) such that (1.6) 
+
+Z
+
+> CΩ
+
+t1−2s∇v · ∇ φ dz + α
+
+Z
+
+> ∂LCΩ
+
+t1−2svφ dS =
+
+Z
+
+> Ω
+
+h Tr v Tr φ dx 
+
+for every φ ∈ C∞ 
+
+> c
+
+(Ω × [0 , T )) , where dS denotes the volume element on the n-dimensional lateral surface ∂Ω × (0 , +∞). We observe that there exists a natural linear and continuous trace operator 
+
+γL : H1(CΩ, t 1−2sdz ) → L2(∂LCΩ, t 1−2sdS ); 
+
+therefore, the second integral in (1.6) is well-defined for all v, φ ∈ H1(CΩ, t 1−2sdz ). For notational simplicity, in (1.6) we are writing v, φ instead of γL(v), γ L(φ).
+
+Date : August 3, 2026. 2020 Mathematics Subject Classification. 35C20,35R11,35B60,35J70. 
+
+Key words and phrases. Unique continuation; Spectral fractional Laplacian; Robin boundary condition.  
+
+> 1arXiv:2607.29547v1 [math.AP] 31 Jul 2026 2ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA
+
+In this context, we are interested in proving the validity of the strong unique continuation principle for solutions to (1.3) at any edge point (1.7) z0 = ( x0, 0) , with x0 ∈ ∂Ω.
+
+The study of unique continuation properties at boundary points has attracted considerable atten-tion in recent years. This is largely because it proves more challenging than the corresponding analysis at interior points, due to both the effect of the boundary geometry and a possible lack of regularity of solutions. In this regard, we mention [1, 2, 4, 5, 11, 15, 24]. In our setting, the matter is particularly subtle because z0 is located on a boundary edge of the cylindrical domain, specifically on the corner where the base and the lateral surface meet. Our approach relies on the Almgren monotonicity argument, pioneered by Garofalo and Lin in [13] to derive doubling estimates and, consequently, the strong unique continuation property for perturbed second-order elliptic equations, with possibly very singular potentials. Adapting these techniques to prove unique continuation from the boundary poses several technical challenges, also depending on the type of boundary conditions being considered; in particular, in the case of the Neumann problem, the ability to perform domain transformations that ensure the vanishing of the conormal boundary derivative is crucial for deriving monotonicity formulas. For this reason, in the study of Robin problems carried out in [16, 17, 28], it proved useful to construct an auxiliary function that simplifies Robin problems into homogeneous conormal ones. In the present work, we draw inspiration from this strategy, reducing our problem to one with homogeneous conormal boundary conditions, thus enabling an even reflection through the lateral surface of the cylinder. To this aim, in Section 2 we introduce a suitable change of variables, involving the distance function from ∂Ω. This transformation maps problem (1.3), which features a Robin boundary condition on the lateral surface of the cylinder, into a boundary value problem with a homogeneous Neumann condition on the same surface (see problem (2.2)), at the cost of generating additional terms within the equation. The monotonicity formula we aim to develop investigates the behavior of the frequency (local energy divided by the mass) of solutions near the point z0 = ( x0, 0) lying on the boundary of the base Ω × { 0} of the cylinder; therefore, the geometry of ∂Ω may significantly interfere with the argument. To overcome such a difficulty, before carrying out the aforementioned even reflection, we apply a local diffeomorphism that straightens ∂Ω in a neighborhood of x0. As a result, we are led to deal with a differential operator involving a non-identity coefficient matrix, whose regularity is closely tied to the regularity of the domain Ω, see problem (2.14). After an even reflection through the straightened lateral surface of the cylinder, the derivation of a Pohozaev-type identity becomes quite straightforward, since the resulting problem falls within the assumptions considered in [12]. Subsequently, we prove that the Almgren frequency function 
+
+N (r) defined in (2.73) is bounded and has a finite limit as r → 0+. Typically, this would be enough to deduce the strong unique continuation principle via suitable doubling conditions; however, we go further and in Section 4 we provide a classification of all possible vanishing orders of nontrivial solutions, by means of a blow-up analysis. We emphasize that the limit profiles turn out to be nontrivial homogeneous polynomials, which can be described in terms of the eigenfunctions of a related spherical eigenvalue problem, whose properties are discussed in Section 3. The following theorem is the first main result of the present paper. 
+
+Theorem 1.1. Let s ∈ (0 , 1) , n > 2s, and Ω ⊂ Rn be an open domain of class C1,1. For some 
+
+α ≥ 0 and h satisfying (1.5) , let v ∈ H1(CΩ, t 1−2sdz ) be a nontrivial weak solution to (1.3) in the sense clarified in (1.6) . For every z0 = ( x0, 0) ∈ ∂Ω × { 0}, there exist m0 ∈ N (which is necessarily even if n = 1 ) and a nontrivial homogeneous polynomial P of degree m0 such that 
+
+div( |t|1−2s∇P ) = 0 in Rn+1 ,
+
+P (x, t ) is invariant under reflections across both the hyperplanes 
+
+{(x, t ) ∈ Rn+1 : x · N0 = 0 } and {(x, t ) ∈ Rn+1 : t = 0 }
+
+and, for any δ > 0,
+
+v(z0 + λz )
+
+λm0 → P (z) as λ → 0+EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 3
+
+in H1(( Cδ × (0 , T )) ∩ B1, t 1−2sdz ) and in C0,τ  
+
+> loc
+
+(( Cδ \ { 0}) × [0 , ∞)) for some τ ∈ (0 , 1) , where 
+
+B1 := {z ∈ Rn+1 : |z| < 1},
+
+(1.8) Cδ := x ∈ Rn : x · N0 < −δ|x − (x · N0)N0|
+
+and N0 = ν(x0) is the outer normal vector to ∂Ω at x0.
+
+We observe that the sets x0+Cδ are circular semi-cones with axes passing through x0, orthogonal to ∂Ω and pointing toward the interior of Ω, see Figure 1. In particular, the result established in Theorem 1.1 describes the asymptotic behavior of solutions along all directions transversal to the boundary. 
+
+> z0
+> Ω
+
+Figure 1. The set on which the convergence stated in Theorem 1.1 holds. The most relevant application of Theorem 1.1 is an asymptotic expansion at the origin for weak nontrivial solutions to the following class of nonlocal equations (1.9) (−∆R,α )su = ξu in Ω,
+
+where the operator (−∆R,α )s is the Robin spectral fractional Laplacian of order s ∈ (0 , 1) and coefficient α (see Section 5 for a precise definition), and the potential ξ satisfies assumption (1.5). 
+
+Theorem 1.2. Let s ∈ (0 , 1) , n > 2s, and Ω ⊂ Rn be a bounded open domain of class C1,1. For some α ≥ 0 and ξ ∈ W 1,p (Ω) , with p > n 
+
+> 2s
+
+, let u be a nontrivial weak solution to (1.9) (in the sense specified in (5.3) for α = 0 and in (5.7) for α > 0). For every x0 ∈ ∂Ω, there exist m0 ∈ N
+
+(which is necessarily even if n = 1 ) and a nontrivial homogeneous polynomial ˜P in n variables of degree m0 such that ˜P is invariant under reflection across the hyperplane {x ∈ Rn : x · N0 = 0 }
+
+and, for any δ > 0,
+
+(1.10) u(x0 + λx )
+
+λm0 → ˜P (x) as λ → 0+ in Hs(Cδ ∩ B′
+
+> 1
+
+) and in C0,τ  
+
+> loc
+
+(Cδ \ { 0}),
+
+for some τ ∈ (0 , 1) , where B′ 
+
+> 1
+
+:= {x ∈ Rn : |x| < 1} and Cδ is defined in (1.8) .
+
+An immediate consequence of the previous results is the validity of the following strong unique continuation principles from the boundary. 
+
+Corollary 1.3. Let s ∈ (0 , 1) , n > 2s, and Ω ⊂ Rn be an open domain of class C1,1. The following statements hold true. 
+
+(i) For some α ≥ 0 and h satisfying (1.5) , let v ∈ H1(CΩ, t 1−2sdz ) be a weak solution to (1.3) 
+
+such that, for some z0 ∈ ∂Ω × { 0}, v(z) = O(|z − z0|k) as |z − z0| → 0+ for every k ∈ N.Then v ≡ 0 in CΩ.
+
+(ii) For some α ≥ 0 and ξ satisfying (1.5) , let u be a weak solution to (1.9) such that, for some x0 ∈ ∂Ω, u(x) = O(|x − x0|k) as |x − x0| → 0+ for every k ∈ N. Then u ≡ 0 in Ω.
+
+The present paper – particularly regarding the results related to problem (1.9) – falls within the research line initiated in [6, 7, 8], where the authors investigate the problem of unique continuation from the boundary in the nonlocal setting, adapting frequency and monotonicity methods to scenarios where the nonlocality of fractional operators, combined with boundary interference, raises significant difficulties. To be more precise, [6] deals with the Dirichlet spectral fractional 4 ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+Laplacian, whereas [7, 8] treat the fractional Laplacian (−∆) s defined via the Fourier transform 
+
+F as 
+
+F(( −∆) su)( ω) = |ω|2sF(u)( ω) for any u ∈ S (Rn),
+
+where S(Rn) denotes the Schwartz space on Rn. We also highlight that, consistently with [6] and unlike the results in [7], the homogeneity degrees of limit profiles are integers as a direct consequence of the regularity of eigenfunctions of the spherical eigenvalue problem (3.1): indeed, after an even reflection through {θn+1 = 0 }, they are smooth by [22, Theorem 1.1], whereas the eigenfunctions of the corresponding spherical eigenvalue problem studied in [7] exhibit lower regularity due to the occurrence of mixed boundary conditions. As far as unique continuation principles from interior points for fractional problems are concerned, we refer to [9, 10, 20, 27]. We finally observe that our approach actually applies to the more general class of equations (4.59), see Remark 4.8. 
+
+Notation. We adopt the convention that 0 ∈ N. For every r > 0 we denote 
+
+• B′ 
+
+> r
+
+:= {x ∈ Rn : |x| < r };
+
+• Sr := {x ∈ Rn : |x| = r} = ∂B ′ 
+
+> r
+
+;
+
+• Br := {z ∈ Rn+1 : |z| < r };
+
+• B+ 
+
+> r
+
+:= {(x, t ) ∈ Br : t > 0};
+
+• ∂+B+ 
+
+> r
+
+:= {(x, t ) ∈ ∂B r : t > 0};
+
+• S := ∂B 1, S+ := ∂+B+1 , S′ := S1 = ∂B ′
+
+> 1
+
+.2. Pohozaev-type identity and the Almgren frequency function 
+
+2.1. Reduction to homogeneous Neumann condition on the lateral boundary. In the present subsection, a suitable change of variables transforms (1.3) into an equivalent boundary value problem, resulting in a homogeneous Neumann condition on the lateral surface of the cylinder and incorporating additional terms in the equation. By translation, it is not restrictive to assume that the point x0 in (1.7) is the origin. Henceforth, we shall assume that 
+
+x0 = 0 ∈ ∂Ω; 
+
+we will then focus on studying the behavior of the solutions to (1.3) near the point z0 = (0 , 0) ,which therefore lies on the edge of the cylinder. We introduce the distance function d(x) := dist( x, ∂ Ω) , which is of class C1,1(Ω ∩ B′
+
+> R
+
+) for some small R > 0, see e.g. [19] (without loss of generality, up to a further dilation, we can assume that 
+
+R = 1 < T ). If v ∈ H1(CΩ, t 1−2sdz ) is a weak solution to problem (1.3), we consider the function (2.1) ˜v(x, t ) := e−αd (x)v(x, t ) for all (x, t ) ∈ C Ω ∩ B1.
+
+Therefore, ˜v ∈ H1(CΩ ∩ B1, t 1−2sdz ) and, since ∇d(x) = −ν(x) for every x ∈ ∂Ω ∩ B1, ˜v weakly solves (2.2) 
+
+
+
+− div( t1−2s∇˜v) + t1−2sb(x) · ∇ x ˜v + t1−2sa(x)˜ v = 0 in CΩ ∩ B1,
+
+∇x ˜v · ν = 0 on ∂LCΩ ∩ B1,
+
+− lim t→0+ t1−2s∂t ˜v = h(x) Tr ˜ v on Ω ∩ B′
+
+> 1
+
+,
+
+where 
+
+b(x) := −2α∇d(x) and a(x) := −α∆d − α2|∇ d|2 for every x ∈ Ω ∩ B′
+
+> 1
+
+.
+
+The weak validity of (2.2) is to be understood as follows: for every φ ∈ C∞ 
+
+> c
+
+(CΩ ∩ B1) there holds 
+
+Z
+
+> CΩ∩B1
+
+t1−2s ∇˜v · ∇ φ + ( b(x) · ∇ x ˜v)φ + a(x)˜ vφ  dz =
+
+Z
+
+> Ω∩B′
+> 1
+
+h(x) Tr ˜ v Tr φ dx. 
+
+From the regularity of the distance function d, we immediately deduce that (2.3) b ∈ C0,1(Ω ∩ B′
+
+> 1
+
+, Rn) and a ∈ L∞(Ω ∩ B′
+
+> 1
+
+).EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 5
+
+2.2. A diffeomorphic deformation of the boundary and an even reflection. In this sub-section, we first straighten ∂Ω ∩ B′
+
+> 1
+
+, using the local diffeomorphism employed in [7], which is, in turn, inspired by [1]. Afterwards, denoting by x = ( x′, x n) ∈ Rn−1 × R the variable in Rn, we apply an even reflection through the hyperplane {xn = 0 } in order to extend the equation to the exterior of the cylinder in a neighbourhood of the origin. First, we observe that, due to the regularity of ∂Ω, up to rigid motions, without loss of generality we may assume that there exists a function g ∈ C1,1(Rn−1, R) such that 
+
+Ω ∩ B′ 
+
+> 1
+
+= {(x′, x n) ∈ B′ 
+
+> 1
+
+: xn < g (x′)},(2.4) 
+
+∂Ω ∩ B′ 
+
+> 1
+
+= {(x′, x n) ∈ B′ 
+
+> 1
+
+: xn = g(x′)},(2.5) (2.6) and (2.7) g(0) = 0 and ∇g(0) = 0 .
+
+We outline the main properties of the aforementioned diffeomorphism in the following proposition, referring the reader to [7, Section 2] for the proofs and further details. 
+
+Proposition 2.1. There exist F = ( F1, . . . , F n, F n+1 ) : Rn+1 → Rn+1 of class C1,1 and r0 > 0
+
+such that 
+
+(i) 0 ∈ F (Br0 ) ⊂ B1 and F |Br0 : Br0 → F (Br0 ) is a diffeomorphism of class C1,1,
+
+(ii) for every j = 1 , . . . , n , Fj (x′, x n, t ) = Ψ j (x′, x n) for some Ψj ∈ C1,1(Rn),
+
+(iii) F (x′, 0, 0) = ( x′, g (x′), 0) for every x′ ∈ Rn−1,
+
+Fn(x′, x n, t ) = xn + g(x′) for every (x′, x n, t ) ∈ Rn+1 ,
+
+Fn+1 (x, t ) = t for every (x, t ) ∈ Rn × R;
+
+(iv) F (Qr0 ) = CΩ ∩ F (B+ 
+
+> r0
+
+), where Qr0 := {(x′, x n, t ) ∈ B+ 
+
+> r0
+
+: xn < 0},
+
+F (∂V Qr0 ) = ∂LCΩ ∩ F (B+ 
+
+> r0
+
+), where ∂V Qr0 = {(x′, x n, t ) ∈ B+ 
+
+> r0
+
+: xn = 0 };
+
+(v) F and F −1 admit the following expansions: 
+
+(2.8) F (z) = z + O(|z|2) as |z| → 0+, F −1(y) = y + O(|y|2) as |y| → 0+;
+
+(vi) the Jacobian matrix of F , denoted by JF , depends only on the variable x = ( x′, x n) ∈ Rn,takes the form 
+
+JF (x′, x n) = 
+
+ JΨ(x′, x n) 00T 1
+
+ ,
+
+where Ψ = (Ψ 1, . . . , Ψn), and satisfies 
+
+det JF (x′, x n) = 1 + O(|x′|2) + O(xn) as |x′| → 0 and xn → 0,(2.9) 
+
+det JF (x) > 0 in B′ 
+
+> r0
+
+,(2.10) 
+
+JF (x) = Id n+1 + O(|x|) and JF −1 (x) = Id n+1 + O(|x|) as |x| → 0+,(2.11) 
+
+where Id n+1 denotes the identity (n + 1) × (n + 1) matrix and O(|x|) denotes matrices with all entries being O(|x|) as |x| → 0+;
+
+(vii) the (n + 1) × (n + 1) matrix-valued function A defined, for every (x′, x n) ∈ B′ 
+
+> r0
+
+, as 
+
+A(x′, x n) :=   det JF (x′, x n)(JF (x′, x n)) −1(( JF (x′, x n)) −1)T ,
+
+has Lipschitz continuous entries and can be written as the block matrix 
+
+(2.12) A(x′, x n) = 
+
+ D(x′, x n) 00T det JF (x′, x n)
+
+ ,6 ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+with 
+
+(2.13) D(x′, x n) = 
+
+ Id n−1 + O(|x′|2) + O(xn) O(xn)
+
+O(xn) 1 + O(|x′|2) + O(xn)
+
+ ,
+
+where Id n−1 is the identity (n − 1) × (n − 1) matrix, O(xn) and O(|x′|2) denote blocks of matrices with all elements being O(xn) as xn → 0 and O(|x′|2) as |x′| → 0, respectively. 
+
+Let v ∈ H1(CΩ, t 1−2sdz ) be a weak solution of problem (1.3), so that the function ˜v defined in (2.1) weakly solves (2.2). Let us consider the diffeomorphism introduced in Proposition 2.1 and the function 
+
+ˆv := ˜ v ◦ F ∈ H1(Qr0 , t 1−2sdz ).
+
+From (2.2) it follows that ˆv is a weak solution to (2.14) 
+
+
+
+− div( t1−2sA∇ ˆv) + t1−2s ˆb(x) · ∇ x ˆv + t1−2sˆa(x)ˆ v = 0 in Qr0 ,
+
+D∇ x ˆv · ν = 0 on ∂V Qr0 ,
+
+lim t→0+ (t1−2sA∇ ˆv · e) = ˆh(x) Tr ˆ v on Q′ 
+
+> r0
+
+,
+
+where e = (0 , · · · , 0, −1) , Q′ 
+
+> r0
+
+:= {(x′, x n) ∈ B′ 
+
+> r0
+
+: xn < 0},(2.15) ˆb(x) =   det JF (x))( JΨ(x)) −1b(Ψ( x)) , ˆa(x) =   det JF (x)) a(Ψ( x)) ,
+
+and (2.16) ˆh(x) =   det JF (x)) h(Ψ( x)) ∈ W 1,p (Q′ 
+
+> r0
+
+),
+
+as a consequence of (1.5). Now we perform an even reflection through the hyperplane {xn = 0 }, in order to extend the equation in the whole half ball B+ 
+
+> r0
+
+. Let (2.17) w(x′, x n, t ) := 
+
+(
+
+ˆv(x′, x n, t ) if (x′, x n, t ) ∈ Q r0 ,
+
+ˆv(x′, −xn, t ) if (x′, x n, t ) ∈ B+ 
+
+> r0
+
+\ Q r0 ,
+
+and 
+
+B := 
+
+ B′ 00T 1
+
+ , where B′ := 
+
+ Id n−1 00T −1
+
+ .
+
+Thus w ∈ H1(B+ 
+
+> r0
+
+, t 1−2sdz ) is a weak solution to (2.18) 
+
+(
+
+− div( t1−2sA∇w) + t1−2s eb · ∇ xw + t1−2s˜a(x)w = 0 in B+ 
+
+> r0
+
+,
+
+− lim t→0+ t1−2sζ∂ tw = ˜h Tr w on B′ 
+
+> r0
+
+,
+
+where 
+
+A(x′, x n) = 
+
+(
+
+A(x′, x n) if xn > 0,BA(x′, −xn)B if xn < 0,
+
+(2.19) 
+
+eb(x′, x n) = 
+
+( ˆb(x′, x n) if xn > 0,
+
+ˆb(x′, −xn)B′ if xn < 0,
+
+˜a(x′, x n) = 
+
+(
+
+ˆa(x′, x n) if xn > 0,
+
+ˆa(x′, −xn) in xn < 0,
+
+and (2.20) ζ(x′, x n) = 
+
+(
+
+det JF (x′, x n) if xn > 0,
+
+det JF (x′, −xn) if xn < 0.
+
+Moreover 
+
+˜h(x′, x n) = 
+
+( ˆh(x′, x n) if xn > 0,
+
+ˆh(x′, −xn) if xn < 0,EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 7
+
+so that ˜h ∈ W 1,p (B′ 
+
+> r0
+
+), thanks to (2.16). We note that the boundary condition on B′ 
+
+> r0
+
+in (2.18) is in fact a weighted Neumann condition, since 
+
+A∇w · e = ∇w · A(0 , . . . , 0, −1) = −ζ∂ tw on B′ 
+
+> r0
+
+.
+
+By (2.3) and (2.15), recalling that F |Br0 : Br0 → F (Br0 ) is a diffeomorphism of class C1,1, we thus have that (2.21) eb ∈ L∞(B′ 
+
+> r0
+
+) and ˜a ∈ L∞(B′ 
+
+> r0
+
+).
+
+Furthermore (2.10) and (2.20) imply that (2.22) ζ(x′, x n) = 1 + O(|x′|2) + O(xn) as |x′| → 0 and xn → 0.
+
+Also, defining (2.23) D(x′, x n) := 
+
+(
+
+D(x′, x n) if xn > 0,B′D(x′, −xn)B′ if xn < 0,
+
+from (2.12), (2.19) and (2.20), it follows that (2.24) A =
+
+ D 00T ζ
+
+ .
+
+In particular, (2.25) A has Lipschitz coefficients because A does so and 
+
+B′D(x′, 0) B′ = D(x′, 0) 
+
+thanks to (2.13), so that no discontinuities appear in the matrix as a result of the even reflection across the axis xn = 0 . Thanks to (2.9), (2.12) (2.13), (2.20), (2.23), and (2.24), we can conclude that (2.26) A(x) − Id n+1 = O(|x|) as |x| → 0.
+
+Accordingly, A is uniformly elliptic if r0 is chosen sufficiently small from the beginning; provided 
+
+r0 is chosen sufficiently small, there is no loss of generality in assuming, for example, that for every 
+
+z ∈ Rn+1 and x ∈ B′
+
+> r0
+
+(2.27) 12 |z|2 ≤ A(x)z · z ≤ 2|z|2.
+
+For every x ∈ B′ 
+
+> r0
+
+and z ∈ Rn+1 , we define dA (x)zz ∈ Rn+1 as (2.28) dA (x)zz := 
+
+
+
+> n+1
+
+X
+
+> j,k =1
+
+∂a jk 
+
+∂x 1
+
+zj zk, . . . , 
+
+> n+1
+
+X
+
+> j,k =1
+
+∂a jk 
+
+∂x n
+
+zj zk, 0
+
+ ,
+
+with ajk denoting the entries of A. Furthermore, we consider the functions (2.29) μ(z) = μ(x, t ) := 
+
+(
+
+(A(x)z · z)/|z|2 if z ∈ Br0 \ { 0},
+
+1 if z = 0 ,
+
+(2.30) β(z) = β(x, t ) := A(x)zμ(z) =
+
+ D(x)xμ(z) , ζ(x)tμ(z)
+
+
+
+for every z ∈ Br0 ,
+
+(2.24) has been used, and 
+
+β′(x) := D(x)xμ(x, 0) for every x ∈ B′ 
+
+> r0
+
+.8 ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+Proposition 2.2. The following expansions hold 
+
+(2.31) μ(z) = 1 + O(|z|) and ∇μ(z) = O(1) as |z| → 0.
+
+Furthermore, 
+
+(2.32) μ(z) ≥ 14 for every z ∈ Br0 ,
+
+(2.33) 
+
+
+
+β(z) = z + O(|z|2) = O(|z|) as |z| → 0,Jβ (z) = Id n+1 + O(|z|) as |z| → 0,
+
+div β(z) = n + 1 + O(|z|) as |z| → 0,
+
+and 
+
+(2.34) 
+
+(
+
+β′(x) = x + O(|x|2) = O(|x|) as |x| → 0,
+
+div β′(x) = n + O(|x|) as |x| → 0.
+
+Proof. See [7, Section 2]. □
+
+2.3. A Pohozaev-type identity. We derive a Pohozaev-type identity, representing the integral counterpart of a Rellich-Nečas identity; this will be a key tool for establishing a lower bound on the derivative of the Almgren frequency function in the next subsection. 
+
+Proposition 2.3 (Pohozaev-type identity) . Let w ∈ H1(B+ 
+
+> r0
+
+, t 1−2sdz ) be a weak solution to prob-lem (2.18) . Then, for a.e. r ∈ (0 , r 0) we have 
+
+r
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sA∇w · ∇ w dS − 2r
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s (A∇w · ν)2
+
+μ dS − r
+
+Z
+
+> Sr
+
+˜h| Tr w|2 dS ′
+
+(2.35) 
+
++
+
+Z
+
+> B′
+> r
+
+| Tr w|2 (∇x˜h · β′ + ˜h div x β′) dx =
+
+Z
+
+> B+
+> r
+
+(t1−2sA∇w · ∇ w) div β dz 
+
+− 2
+
+Z
+
+> B+
+> r
+
+t1−2s(β · ∇ w)( eb · ∇ xw + ˜ aw ) dz − 2
+
+Z
+
+> B+
+> r
+
+t1−2sJβ (A∇w) · ∇ w dz 
+
++
+
+Z
+
+> B+
+> r
+
+t1−2s(dA ∇w∇w) · β dz + (1 − 2s)
+
+Z
+
+> B+
+> r
+
+t1−2s ζμ A∇w · ∇ w dz, 
+
+where dS and dS ′ denote the volume elements on the N -dimensional surface ∂+B+ 
+
+> r
+
+and the (N −1) -dimensional surface Sr , respectively, and ν is the outer normal vector to ∂+B+ 
+
+> r
+
+. Moreover, for every r ∈ (0 , r 0),
+
+Z
+
+> B+
+> r
+
+t1−2s A∇w · ∇ w + ( eb · ∇ xw)w + ˜ aw 2 dz (2.36) 
+
+=
+
+Z
+
+> B′
+> r
+
+˜h| Tr w|2 dx +
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s(A∇w · ν)w dS. 
+
+Proof. The identity (2.35) follows directly from [12, Proposition 2.3] with 
+
+c = eb · ∇ xw + ˜ aw ∈ L2(B+ 
+
+> r0
+
+, t 1−2sdz ),
+
+taking into account (2.21). As for (2.36), it suffices to apply [12, Proposition 3.7] by choosing the solution w ∈ H1(B+ 
+
+> r0
+
+, t 1−2sdz ) as the test function ϕ. The proof is thereby complete. □
+
+Remark 2.4. The integrals on the first line of (2.35) can be understood for a.e. r ∈ (0 , r 0) as 
+
+L1-functions given by the weak derivatives of the W 1,1(0 , r 0)-functions r 7 → R 
+
+> B+
+> r
+
+t1−2sA∇w·∇ w dz ,
+
+r 7 → R 
+
+> B+
+> r
+
+t1−2s (A∇w·ν)2 
+
+> μ
+
+dz , and r 7 → R
+
+> B′
+> r
+
+˜h| Tr w|2 dx .
+
+We conclude this subsection with an estimate of the term 
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sA∇w · ∇ w dS −
+
+Z
+
+> Sr
+
+˜h(x)| Tr w|2 dS ′
+
+by means of (2.35). For this, we recall from [9, Lemma 2.6] the following result. EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 9
+
+Lemma 2.5. There exists Sn,s > 0 such that, for all r > 0 and w ∈ H1(B+ 
+
+> r
+
+, t 1−2sdz ),
+
+(2.37) 
+
+Z
+
+> B′
+> r
+
+| Tr w|2∗ 
+
+> s
+
+dx 
+
+! 22∗
+
+> s
+
+≤ Sn,s 
+
+ n − 2s
+
+2r
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sw2 dS +
+
+Z
+
+> B+
+> r
+
+t1−2s|∇ w|2 dz 
+
+
+
+,
+
+being 2∗ 
+
+> s
+
+:= 2 n/ (n − 2s).
+
+The right hand side of (2.37) is well defined for every r > 0 and w ∈ H1(B+ 
+
+> r
+
+, t 1−2sdz ), thanks to the existence of a natural linear and continuous trace operator (2.38) γr : H1(B+ 
+
+> r
+
+, t 1−2sdz ) → L2(∂+B+ 
+
+> r
+
+, t 1−2sdS ),
+
+which also happens to be compact. For notational simplicity, in the sequel we will write w instead of γr (w).
+
+Proposition 2.6. Let w ∈ H1(B+ 
+
+> r0
+
+, t 1−2sdz ) be a weak solution to problem (2.18) . Then 
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sA∇w · ∇ w dS −
+
+Z
+
+> Sr
+
+˜h| Tr w|2 dS ′ = 2 
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s (A∇w · ν)2
+
+μ dS (2.39) 
+
+− 2
+
+r
+
+Z
+
+> B+
+> r
+
+t1−2s(β · ∇ w)( eb · ∇ xw + ˜ aw ) dz + n − 2sr
+
+Z
+
+> B+
+> r
+
+t1−2sA∇w · ∇ w dz 
+
++ O(r−1+ 2sp −np )
+
+Z
+
+> B′
+> r
+
+| Tr w|2∗ 
+
+> s
+
+dx 
+
+! 22∗
+
+> s
+
++ O(1) 
+
+Z
+
+> B+
+> r
+
+t1−2s|∇ w|2 dz 
+
+for a.e. r ∈ (0 , r 0) as r → 0+.Proof. We start by reframing (2.35) as follows: 
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sA∇w · ∇ w dS −
+
+Z
+
+> Sr
+
+˜h| Tr w|2 dS ′ = 2 
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s (A∇w · ν)2
+
+μ dS (2.40) 
+
+− 1
+
+r
+
+Z
+
+> B′
+> r
+
+(Tr w)2 (∇x˜h · β′ + ˜h div x β′) dx + 1
+
+r
+
+Z
+
+> B+
+> r
+
+(t1−2sA∇w · ∇ w) div β dz 
+
+− 2
+
+r
+
+Z
+
+> B+
+> r
+
+t1−2s(β · ∇ w)( eb · ∇ xw + ˜ aw ) dz − 2
+
+r
+
+Z
+
+> B+
+> r
+
+t1−2sJβ (A∇w) · ∇ w dz 
+
++ 1
+
+r
+
+Z
+
+> B+
+> r
+
+t1−2s(dA ∇w∇w) · β dz + 1 − 2sr
+
+Z
+
+> B+
+> r
+
+t1−2s ζμ A∇w · ∇ w dz 
+
+for a.e. r ∈ (0 , r 0). Now we take advantage of (2.22), (2.26), (2.31) and (2.33) to deduce that 
+
+1
+
+r
+
+Z
+
+> B+
+> r
+
+(t1−2sA∇w · ∇ w) div β dz − 2
+
+r
+
+Z
+
+> B+
+> r
+
+Jβ (t1−2sA∇w) · ∇ w dz (2.41) 
+
++ 1
+
+r
+
+Z
+
+> B+
+> r
+
+t1−2s(dA ∇w∇w) · β dz + 1 − 2sr
+
+Z
+
+> B+
+> r
+
+t1−2s ζμ A∇w · ∇ w dz 
+
+= n − 2sr
+
+Z
+
+> B+
+> r
+
+t1−2sA∇w · ∇ w dz + O(1) 
+
+Z
+
+> B+
+> r
+
+t1−2s|∇ w|2 dz 
+
+as r → 0+, being dA ∇w∇w = O(1) |∇ w|2 as r → 0+ thanks to (2.25) and (2.28). In addition, using (2.34), the fact that ˜h ∈ W 1,p (B′ 
+
+> r0
+
+) and | Tr w|2 ∈ L2∗ 
+
+> s/2
+
+(B′ 
+
+> r
+
+) by Lemma 2.5, we can apply the Hölder inequality to conclude that (2.42) − 1
+
+r
+
+Z
+
+> B′
+> r
+
+| Tr w|2 (∇x˜h · β′ + ˜h div  
+
+> x
+
+β′) dx = O(r−1+ 2sp −np )
+
+Z
+
+> B′
+> r
+
+| Tr w|2∗ 
+
+> s
+
+dx 
+
+! 22∗
+
+> s
+
+as r → 0+. The combination of (2.40), (2.41) and (2.42) leads us to (2.39). □10 ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+2.4. The Almgren frequency function. In this subsection we introduce the Almgren frequency function N ; then we prove its boundedness close to the origin via the monotonicity of an appro-priate perturbation of it and show the existence of lim r→0+ N (r). In particular, the former infor-mation yields certain doubling conditions which, in turn, are the main ingredients for establishing a strong unique continuation property; the latter will come into play in the local asymptotics provided in Section 4. To begin with, we fix a non-trivial weak solution w ∈ H1(B+ 
+
+> r0
+
+, t 1−2sdz ) to problem (2.18). For every r ∈ (0 , r 0), we define the energy function (2.43) E(r) := r2s−n
+
+Z 
+
+> B+
+> r
+
+t1−2s(A∇w · ∇ w + ( eb · ∇ xw)w + ˜ aw 2) dz −
+
+Z
+
+> B′
+> r
+
+˜h| Tr w|2 dx 
+
+
+
+and the weighted mass (2.44) H(r) := r2s−n−1
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sμw 2 dS. 
+
+Henceforth, we simply write w for its trace on ∂+B+ 
+
+> r
+
+for notational simplicity. Our first goal is to provide an estimate for the derivative of E via the Pohozaev identity (2.35); to this end, we first establish some preliminary results. 
+
+Lemma 2.7. For all r > 0 and w ∈ H1(B+ 
+
+> r
+
+, t 1−2sdz ) we have 
+
+Z
+
+> B+
+> r
+
+t1−2s |w|2
+
+|z|2 dz ≤ 16 (n − 2s)2
+
+Z 
+
+> B+
+> r
+
+t1−2s|∇ w|2 dz + n − 2s
+
+2r
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sμ|w|2 dS 
+
+
+
+.
+
+Proof. The stated inequality directly follows from [9, Lemma 2.4] and (2.32). □
+
+Let us define H1(S+, θ 1−2sn+1 dS ) as the completion of C∞(S+) with respect to the norm 
+
+∥ψ∥H1(S+,θ 1−2sn+1 dS ) =
+
+ Z 
+
+> S+
+
+θ1−2sn+1 
+
+ |∇ Sψ(θ)|2 + ψ2(θ) dS 
+
+1/2
+
+,
+
+where ∇S denotes the Riemannian gradient on the unit sphere S endowed with the standard metric. The next lemma provides a trace operator (again denoted as Tr )
+
+Tr : H1(S+, θ 1−2sn+1 dS ) → L2∗ 
+
+> s
+
+(S′)
+
+from H1(S+, θ 1−2sn+1 dS ) into L2∗ 
+
+> s
+
+(S′), which is not only linear and continuous, but also compact, due to the validity of an Ehrling-type inequality. To this aim, it is useful to recall the following Sobolev trace inequality: (2.45) cn,s ∥ Tr v∥2  
+
+> L2∗
+> s(Rn)
+
+≤
+
+Z
+
+> Rn+1 +
+
+t1−2s|∇ v|2 dz for every v ∈ C∞ 
+
+> c
+
+(Rn+1 + ),for some positive constant cn,s > 0 depending only on n and s, see e.g. [9, Equation (21)]. 
+
+Lemma 2.8 (Ehrling-type inequality for traces) . There exists a linear and bounded trace operator 
+
+Tr : H1(S+, θ 1−2sn+1 dS ) → L2∗ 
+
+> s
+
+(S′) satisfying the following Ehrling-type inequality: for every ε > 0,there exists Cε,n,s > 0 depending only on ε, n and s such that 
+
+(2.46) 
+
+Z 
+
+> S′
+
+| Tr ψ|2∗ 
+
+> s
+
+dS ′
+
+ 22∗
+
+> s
+
+≤ Cε,n,s 
+
+Z
+
+> S+
+
+θ1−2sn+1 |ψ(θ)|2 dS + ε
+
+Z
+
+> S+
+
+θ1−2sn+1 |∇ Sψ(θ)|2 dS 
+
+for every ψ ∈ H1(S+, θ 1−2sn+1 dS ). Furthermore, Tr : H1(S+, θ 1−2sn+1 dS ) → L2∗ 
+
+> s
+
+(S′) is compact. Proof. By density, it is sufficient to prove inequality (2.46) for every ψ ∈ C∞(S+). For this, let 
+
+ψ ∈ C∞(S+) and f ∈ C∞ 
+
+> c
+
+(0 , +∞), f̸ ≡ 0. We define fk(·) = f (· − k), with k ≥ 1 large, to be chosen later depending on ε. We introduce the polar coordinates 
+
+r = |z| > 0 and θ = z
+
+|z| ∈ S+ for every z ∈ Rn+1 + ,EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 11 
+
+and plug the function fk(r)ψ(θ) into (2.45), thus obtaining 
+
+cn,s 
+
+Z +∞
+
+> 0
+
+rn−1|fk(r)|2∗ 
+
+> s
+
+dr 
+
+ 22∗
+
+> s
+
+Z 
+
+> S′
+
+|ψ(θ′, θ n, 0) |2∗ 
+
+> s
+
+dS ′
+
+ 22∗
+
+> s
+
+≤
+
+Z +∞
+
+> 0
+
+rn+1 −2s|f ′
+
+> k
+
+(r)|2 dr 
+
+ Z 
+
+> S+
+
+θ1−2sn+1 |ψ(θ)|2 dS 
+
+
+
++
+
+Z +∞
+
+> 0
+
+rn−1−2s|fk(r)|2 dr 
+
+ Z 
+
+> S+
+
+θ1−2sn+1 |∇ Sψ(θ)|2 dS 
+
+
+
+.
+
+We observe that, if k ≥ 1 is sufficiently large, then (2.47) 
+
+R +∞ 
+
+> 0
+
+rn−1−2s|fk(r)|2 dr 
+
+R +∞ 
+
+> 0
+
+rn−1|fk(r)|2∗ 
+
+> s
+
+dr 
+
+ 22∗
+
+> s
+
+≤ const k− 2sn ,
+
+for some const > 0 independent of k. Therefore, to prove the desired trace inequality, given ε > 0,it is sufficient to choose k large enough such that the right-hand side of (2.47) is smaller than ε.Finally, we observe that the compactness of the trace map is a direct and standard consequence of the validity of the Ehrling-type inequality (2.46). □
+
+As an immediate corollary of the previous lemma we obtain a Sobolev-type inequality with boundary terms on the half-spheres ∂+B+ 
+
+> r
+
+. To state this result precisely, we introduce the following definition. 
+
+Definition 2.9. For every r > 0, we define the Sobolev space H1(∂+B+ 
+
+> r
+
+, t 1−2sdS ) as the comple-tion of C∞(∂+B+ 
+
+> r
+
+) with respect to the norm 
+
+∥v∥H1(∂+B+  
+
+> r,t 1−2sdS )
+
+:= 
+
+Z 
+
+> ∂+B+
+> r
+
+t1−2s(v2 + |∇ ∂B r v|2) dS 
+
+1/2
+
+,
+
+where ∇∂B r v is the Riemannian gradient of v on ∂B r .
+
+We recall that, if v ∈ C∞(∂+B+ 
+
+> r
+
+) is the restriction to ∂+B+ 
+
+> r
+
+of some function ˜v which is smooth in a neighbouhood of ∂+B+ 
+
+> r
+
+, then 
+
+∇∂B r v(z) = ∇˜v(z) − 1
+
+r2 (∇˜v(z) · z)z for every z ∈ ∂+B+ 
+
+> r
+
+,
+
+i.e. ∇∂B r v(z) is the orthogonal projection of ∇˜v(z) on the tangent space to ∂B r at z. In particular 
+
+|∇ ∂B r v(z)|2 ≤ |∇ ∂B r v(z)|2 + 1
+
+r2 (∇˜v(z) · z)2 = |∇ ˜v(z)|2 for every z ∈ ∂+B+ 
+
+> r
+
+.
+
+Moreover, for every v ∈ C∞(∂+B+ 
+
+> r
+
+),(2.48) ∇∂B r v(z) = 1
+
+r ∇Svr
+
+ zr
+
+
+
+for all z ∈ ∂+B+ 
+
+> r
+
+,
+
+where vr ∈ C∞(S+) is defined as vr (θ) := v(rθ ) for every θ ∈ S+.We also observe that, if w ∈ H1(B+ 
+
+> R
+
+, t 1−2sdz ) for some R > 0, the coarea formula and a density argument imply that, for a.e. r ∈ (0 , R ), w ∂+B+
+
+> r
+
+∈ H1(∂+B+ 
+
+> r
+
+, t 1−2sdS ) with (2.49) ∇∂B r
+
+ w ∂+B+
+
+> r
+
+ = ∇w − 1
+
+r2 (∇w · z)z and ∇∂+B+
+
+> r
+
+ w ∂B r
+
+ ≤ |∇ w| a.e. in ∂+B+ 
+
+> r
+
+.
+
+Lemma 2.10. There exists a positive constant ¯Sn,s > 0 depending only on n and s such that, for every r > 0 and v ∈ H1(∂+B+ 
+
+> r
+
+, t 1−2sdS ),
+
+r n
+
+> 2s
+
+Z 
+
+> Sr
+
+| Tr v|2∗ 
+
+> s
+
+dS ′
+
+ 22∗
+
+> s
+
+≤ ¯Sn,s 
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s(r−2|v|2 + |∇ ∂B r v|2) dS. 12 ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+Proof. We apply Lemma 2.8 with ε = 1 to the function vr := v(r ·) ∈ H1(S+, θ 1−2sn+1 dS ) and, in view of (2.48), we obtain 
+
+Z 
+
+> S′
+
+| Tr vr (θ′, θ n)|2∗ 
+
+> s
+
+dS ′
+
+ 22∗
+
+> s
+
+≤ C1,n,s 
+
+Z
+
+> S+
+
+θ1−2sn+1 |vr (θ)|2 dS +
+
+Z
+
+> S+
+
+θ1−2sn+1 |∇ Svr (θ)|2 dS 
+
+= C1,n,s 
+
+Z
+
+> S+
+
+θ1−2sn+1 |v(rθ )|2 dS +
+
+Z
+
+> S+
+
+θ1−2sn+1 r2|∇ ∂B r v(rθ )|2 dS 
+
+= C1,n,s r2s−n−1
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s|v|2 dS + r2s−n+1 
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s|∇ ∂B r v|2 dS 
+
+≤ ¯Sn,s r2s−n+1 
+
+
+
+r−2
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s|v|2 dS +
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s|∇ ∂B r v|2 dS 
+
+
+
+,
+
+with ¯Sn,s := max {1, C 1,n,s }. From this we deduce that 
+
+Z 
+
+> Sr
+
+| Tr v|2∗ 
+
+> s
+
+dS ′
+
+ 22∗
+
+> s
+
+=
+
+
+
+rn−1
+
+Z
+
+> S′
+
+| Tr v(rθ ′, rθ n)|2∗ 
+
+> s
+
+dS ′
+
+ 22∗
+
+> s
+
+≤ ¯Sn,s r (n−1)( n−2s) 
+
+> n+2 s−n+1
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s(r−2|v|2 + |∇ ∂B r v|2) dS 
+
+= ¯Sn,s r 2sn
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s(r−2|v|2 + |∇ ∂B r v|2) dS, 
+
+and the proof is thereby complete. □
+
+Lemma 2.11. Let g ∈ Lp(B′ 
+
+> r0
+
+) for some p > n 
+
+> 2s
+
+. Then, possibly choosing r0 smaller from the beginning, for every r ∈ (0 , r 0) and v ∈ H1(B+ 
+
+> r
+
+, t 1−2sdz )
+
+Z
+
+> B+
+> r
+
+t1−2s|∇ v|2 dz + n − 2s
+
+2r
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sμ|v|2 dS +
+
+Z 
+
+> B′
+> r
+
+| Tr v|2∗ 
+
+> s
+
+dx 
+
+ 22∗
+
+> s
+
+≤ Cn,s 
+
+ Z 
+
+> B+
+> r
+
+t1−2s A∇v · ∇ v + ( eb · ∇ xv)v + ˜ a(x)v2 dz 
+
+−
+
+Z
+
+> B′
+> r
+
+g(x)| Tr v|2 dx + n − 2s
+
+2r
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sμ|v|2 dS 
+
+
+
+for some positive constant Cn,s > 0 depending only on n and s.Proof. We start by observing that by (2.27) (2.50) 
+
+Z
+
+> B+
+> r
+
+t1−2sA∇v · ∇ v dz ≥ 12
+
+Z
+
+> B+
+> r
+
+t1−2s|∇ v|2 dz for every r ∈ (0 , r 0).
+
+Moreover, by Hölder’s inequality, the summability of g and the fact that | Tr v|2 ∈ L2∗ 
+
+> s/2
+
+(B′ 
+
+> r
+
+) (as a result of Lemma 2.5), we deduce that (2.51) 
+
+Z
+
+> B′
+> r
+
+g(x)| Tr v|2 dx ≤ ˜Cr 2sp −np ∥g∥Lp(B′ 
+
+> r0)
+
+Z
+
+> B′
+> r
+
+| Tr v|2∗ 
+
+> s
+
+dx 
+
+! 22∗
+
+> s
+
+where ˜C = ˜C(n, s, p ) = ω 
+
+> 2sp −nnp
+> n
+
+> 0, being ωn the n-dimensional Lebesgue measure of B′
+
+> 1
+
+.On the other hand, by (2.21), Young’s inequality, and Lemma 2.7, we obtain 
+
+Z
+
+> B+
+> r
+
+t1−2s(eb · ∇ xv)v dz ≤ ∥ eb∥L∞(B′ 
+
+> r0)
+
+r
+
+Z
+
+> B+
+> r
+
+t1−2s|∇ xv| |v|
+
+r dz (2.52) 
+
+≤ ∥ eb∥L∞(B′ 
+
+> r0)
+
+r
+
+2
+
+Z 
+
+> B+
+> r
+
+t1−2s|∇ xv|2 dz +
+
+Z
+
+> B+
+> r
+
+t1−2s v2
+
+|z|2 dz 
+
+
+
+≤ C1r
+
+Z 
+
+> B+
+> r
+
+t1−2s|∇ v|2 dz + n − 2s
+
+2r
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sμ|v|2 dS 
+
+
+
+,EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 13 
+
+being C1 := 12 ∥eb∥L∞(B′ 
+
+> r0)
+
+  16 (n−2s)2 + 1  > 0 independent of r, and 
+
+Z
+
+> B+
+> r
+
+t1−2s˜av 2 dz ≤ ∥ ˜a∥L∞(B′ 
+
+> r0)
+
+r2
+
+Z
+
+> B+
+> r
+
+t1−2s v2
+
+|z|2 dz (2.53) 
+
+≤ C2r2
+
+Z 
+
+> B+
+> r
+
+t1−2s|∇ v|2 dz + n − 2s
+
+2r
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sμ|v|2 dS 
+
+
+
+,
+
+being C2 := ∥˜a∥L∞(B′   
+
+> r0)16 (n−2s)2
+
+> 0 independent of r.Combining (2.50), (2.51), (2.52), and (2.53) finally yields 
+
+ Z 
+
+> B+
+> r
+
+t1−2s A∇v · ∇ v + ( eb · ∇ xv)v + ˜ a(x)v2 dz −
+
+Z
+
+> B′
+> r
+
+g(x)| Tr v|2 dx (2.54) 
+
++ n − 2s
+
+2r
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sμ|v|2 dS 
+
+
+
+≥
+
+ 12 − C1r − C2r2
+
+ Z 
+
+> B+
+> r
+
+t1−2s|∇ v|2 dz − ˜Cr 2sp −np ∥g∥Lp(B′ 
+
+> r0)
+
+Z
+
+> B′
+> r
+
+| Tr v|2∗ 
+
+> s
+
+dx 
+
+! 22∗
+
+> s
+
++  1 − C1r − C2r2 n − 2s
+
+2r
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sμ|v|2 dS 
+
+≥ 316 
+
+Z 
+
+> B+
+> r
+
+t1−2s|∇ v|2 dz + n − 2s
+
+2r
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sμ|v|2 dS 
+
+
+
++
+
+ 164 Sn,s 
+
+− ˜Cr 2sp −np ∥g∥Lp(B′ 
+
+> r0)
+
+ Z
+
+> B′
+> r
+
+| Tr v|2∗ 
+
+> s
+
+dx 
+
+! 22∗
+
+> s
+
+,
+
+where we used Lemma 2.5 and (2.32), together with the fact that, possibly choosing r0 smaller from the beginning, 
+
+12 − C1r − C2r2 ≥ 14 for all r ∈ (0 , r 0).
+
+Possibly taking r0 even smaller from the beginning so that 
+
+164 Sn,s 
+
+− ˜Cr 2sp −np ∥g∥Lp(B′  
+
+> r0)
+
+≥ 165 Sn,s 
+
+for all r ∈ (0 , r 0),
+
+the conclusion follows from (2.54). □
+
+Lemma 2.12. For some fixed w ∈ H1(B+ 
+
+> r0
+
+, t 1−2sdz )\{ 0} weakly solving (2.18) , let E : (0 , r 0) → R
+
+be the function defined in (2.43) . Then E ∈ W 1,1loc (0 , r 0]. Furthermore, its distributional derivative 
+
+E′ ∈ L1loc (0 , r 0] satisfies a.e. in (0 , r 0)
+
+E′(r) = r2s−n
+
+
+
+2
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s (A∇w · ν)2
+
+μ dS +
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s (eb · ∇ xw)w + ˜ aw 2 dS 
+
+
+
+(2.55) 
+
++ O(r−1+ ε)
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+
+
+as r → 0+, with 
+
+(2.56) ε := min 
+
+
+
+1, 2sp − np
+
+
+
+> 0.
+
+Proof. By definition, E is the product between the W 1,∞ 
+
+> loc
+
+(0 , r 0]-function r 7 → r2s−n and the 
+
+W 1,1(0 , r 0)-function 
+
+r 7 →
+
+Z
+
+> B+
+> r
+
+t1−2s A∇w · ∇ w + ( eb · ∇ xw)w + ˜ aw 2 dz −
+
+Z
+
+> B′
+> r
+
+˜h| Tr w|2 dx, 14 ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+as a result of the coarea formula combined with (2.27), (2.21), the Young inequality and Lemma 2.7 as for the first integral, together with the fact that ˜h ∈ W 1,p (B′ 
+
+> r0
+
+), w2 ∈ L2∗ 
+
+> s/2
+
+(B′ 
+
+> r
+
+) by Lemma 2.5 and the Hölder inequality with regard to the second integral. Hence E ∈ W 1,1loc (0 , r 0] and 
+
+E′(r) = (2 s − n)r2s−n−1
+
+Z 
+
+> B+
+> r
+
+t1−2s A∇w · ∇ w + ( eb · ∇ xw)w + ˜ aw 2 dz (2.57) 
+
+−
+
+Z
+
+> B′
+> r
+
+˜h| Tr w|2 dx 
+
+
+
++ r2s−n
+
+Z 
+
+> ∂+B+
+> r
+
+t1−2s A∇w · ∇ w + ( eb · ∇ xw)w + ˜ aw 2 dS −
+
+Z
+
+> Sr
+
+˜hw 2 dS ′
+
+
+
+kMin a distributional sense and a.e. in (0 , r 0).By Proposition 2.6 we have 
+
+r2s−n
+
+Z 
+
+> ∂+B+
+> r
+
+t1−2sA∇w · ∇ w dS −
+
+Z
+
+> Sr
+
+˜hw 2 dS ′
+
+
+
+= 2 r2s−n
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s (A∇w · ν)2
+
+μ dS − 2r2s−n−1
+
+Z
+
+> B+
+> r
+
+t1−2s(β · ∇ w)( eb · ∇ xw + ˜ aw ) dz 
+
++ ( n − 2s)r2s−n−1
+
+Z
+
+> B+
+> r
+
+t1−2sA∇w · ∇ w dz 
+
++ O(r 2sp −np +2 s−n−1)
+
+Z
+
+> B′
+> r
+
+| Tr w|2∗ 
+
+> s
+
+dx 
+
+! 22∗
+
+> s
+
++ O(r2s−n)
+
+Z
+
+> B+
+> r
+
+t1−2s|∇ w|2 dz 
+
+a.e. in (0 , r 0) as r → 0+. We now plug the last identity into (2.57) and observe that, similarly to (2.42), 
+
+−(2 s − n)r2s−n−1
+
+Z
+
+> B′
+> r
+
+˜h| Tr w|2 dx = O(r 2sp −np +2 s−n−1)
+
+Z
+
+> B′
+> r
+
+| Tr w|2∗ 
+
+> s
+
+dx 
+
+! 22∗
+
+> s
+
+as r → 0+, thus obtaining 
+
+E′(r) = r2s−n
+
+
+
+2
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s (A∇w · ν)2
+
+μ dS +
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s (eb · ∇ xw)w + ˜ aw 2 dS 
+
+
+
+(2.58) 
+
++ (2 s − n)r2s−n−1
+
+Z 
+
+> B+
+> r
+
+t1−2s (eb · ∇ xw)w + ˜ aw 2 dz 
+
+
+
+− 2r2s−n−1
+
+Z
+
+> B+
+> r
+
+t1−2s(β · ∇ w)( eb · ∇ xw + ˜ aw ) dz 
+
++ O(r 2sp −np +2 s−n−1)
+
+Z
+
+> B′
+> r
+
+| Tr w|2∗ 
+
+> s
+
+dx 
+
+! 22∗
+
+> s
+
++ O(r2s−n)
+
+Z
+
+> B+
+> r
+
+t1−2s|∇ w|2 dz 
+
+a.e. in (0 , r 0) as r → 0+. To complete the proof, it remains only to show that the last four terms in (2.58) are O(r−1+ ε)  E(r) + n−2s 
+
+> 2
+
+H(r) as r → 0+ with ε > 0 as in (2.56). To this end, we observe that Lemma 2.11, (2.43), and (2.44) imply 
+
+Z
+
+> B+
+> r
+
+t1−2s|∇ w|2 dz ≤
+
+Z
+
+> B+
+> r
+
+t1−2s|∇ w|2 dz + n − 2s
+
+2r
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sμ|v|2 dS (2.59) 
+
+≤ Cn,s rn−2s
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+
+
+,
+
+and consequently, in view of Lemma 2.7, (2.60) 
+
+Z
+
+> B+
+> r
+
+t1−2s |w|2
+
+|z|2 dz ≤ 16 Cn,s 
+
+(n − 2s)2 rn−2s
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+
+
+.EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 15 
+
+From (2.59), it immediately follows that (2.61) r2s−n
+
+Z
+
+> B+
+> r
+
+t1−2s|∇ w|2 dz = O(1) 
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+
+
+as r → 0+.
+
+Moreover, combining Lemma 2.5, (2.32), and (2.59) yields (2.62) r 2sp −np +2 s−n−1
+
+Z
+
+> B′
+> r
+
+| Tr w|2∗ 
+
+> s
+
+dx 
+
+! 22∗
+
+> s
+
+= O(r−1+ 2sp −np )
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+
+
+as r → 0+. In addition, by (2.52), (2.53), and (2.59), we have (2.63) (2 s − n)r2s−n−1
+
+Z 
+
+> B+
+> r
+
+t1−2s (eb · ∇ xw)w + ˜ aw 2 dz 
+
+
+
+= O(1) 
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+
+
+as r → 0+. Finally, we claim that (2.64) r2s−n−1
+
+Z
+
+> B+
+> r
+
+t1−2s(β · ∇ w)( eb · ∇ xw + ˜ aw ) dz = O(1) 
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+
+
+as r → 0+. Indeed, from thanks to (2.21), (2.33), (2.59), (2.60), and Young’s inequality, we have 
+
+Z
+
+> B+
+> r
+
+t1−2s(β · ∇ w)( eb · ∇ xw + ˜ aw ) dz ≤ const · r
+
+Z 
+
+> B+
+> r
+
+t1−2s|∇ w|2 dz +
+
+Z
+
+> B+
+> r
+
+t1−2s |w|2
+
+|z|2 dz 
+
+
+
+≤ const · rn−2s+1 
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+
+
+for some const > 0 (independent of r, and whose value may change from line to line), taking if necessary r0 smaller from the beginning. Claim (2.64) is thereby proved. By combining (2.58), (2.61), (2.62), (2.63) and (2.64), the proof of (2.55) is complete. □
+
+Lemma 2.13. For some fixed w ∈ H1(B+ 
+
+> r0
+
+, t 1−2sdz )\{ 0} weakly solving (2.18) , let H : (0 , r 0) → R
+
+be the function defined in (2.44) . Then 
+
+(i) H(r) > 0 for every r ∈ (0 , r 0);
+
+(ii) H ∈ W 1,1loc (0 , r 0] and, for a.e. r ∈ (0 , r 0),
+
+(2.65) H′(r) = 2 r2s−n−1
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s(A∇w · ν)w dS + O(H(r)) as r → 0+;(iii) for a.e. r ∈ (0 , r 0)
+
+(2.66) H′(r) = 2
+
+r E(r) + O(H(r)) as r → 0+.
+
+Proof. To prove (i) we argue by contradiction assuming that H(¯ r) = 0 for some ¯r ∈ (0 , r 0). Due to (2.32), this in particular yields (2.67) w ≡ 0 on ∂+B+¯r .
+
+Hence, from (2.36) and Lemma 2.11 we deduce 
+
+0 = 
+
+Z
+
+> B+¯r
+
+t1−2s A∇w · ∇ w + ( eb · ∇ xw)w + ˜ a(x)w2 dz −
+
+Z
+
+> B′
+> ¯r
+
+˜h| Tr w|2 dx 
+
+≥ 1
+
+Cn,s 
+
+Z
+
+> B+¯r
+
+t1−2s|∇ w|2 dz. 
+
+From this and (2.67), it follows that w ≡ 0 on the whole B+¯r . By invoking classical unique continuation principles for second order elliptic operators with locally bounded coefficients (see, e.g., [26]), we conclude that w ≡ 0 on B+ 
+
+> r0
+
+∩ { t > δ } for any δ > 0, so that w ≡ 0 on B+ 
+
+> r0
+
+. This leads to the desired contradiction. We now proceed to the proof of (ii). We observe that H ∈ L1loc (0 , r 0], being H the product between the L∞
+
+> loc
+
+(0 , r 0]-function r 7 → r2s−n−1 and the function r 7 → R 
+
+> ∂+B+
+> r
+
+t1−2sμ(z)w2 dS which 16 ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+belongs to L1(0 , r 0) by (2.31). In order to prove (2.65), we first show that, in a distributional sense and a.e. in (0 , r 0),(2.68) H′(r) = 2 r2s−n−1
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sμw ∂w ∂ν dS + O(H(r)) as r → 0+.
+
+Indeed, for every φ ∈ C∞ 
+
+> c
+
+(0 , r 0), by the Divergence Theorem 
+
+Z r0
+
+> 0
+
+H(r)φ′(r) dr =
+
+Z
+
+> B+
+> r0
+
+t1−2s|z|2s−n−1μ(z)w2(z)φ′(|z|) dz 
+
+=
+
+Z
+
+> B+
+> r0
+
+t1−2s|z|2s−n−2μ(z)w2(z)∇ ˜φ(z) · z dz 
+
+= −
+
+Z
+
+> B+
+> r0
+
+t1−2s ˜φ(z)|z|2s−n−2(2 μ(z)w(z)∇w(z) + w2(z)∇μ(z)) · z dz 
+
+= −
+
+Z r0
+
+> 0
+
+r2s−n−1
+
+Z 
+
+> ∂+B+
+> r
+
+t1−2s 2μw∂ ν w + w2∇μ · ν dS 
+
+
+
+φ(r) dr, 
+
+where ˜φ(z) := φ(|z|). We conclude that (2.69) H′(r) = r2s−n−1
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s 2μw∂ ν w + w2∇μ · ν dS 
+
+in a distributional sense. Since w ∈ H1(B+ 
+
+> r
+
+, t 1−2sdz ), by (2.31) we have 
+
+r 7 →
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s 2μw∂ ν w + w2∇μ · ν dS 
+
+is a L1(0 , r 0)-function, so that H ∈ W 1,1loc (0 , r 0] as a consequence of (2.69). In particular, (2.69) also holds a.e. in (0 , r 0). From (2.31) it follows that 
+
+r2s−n−1
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sw2∇μ · ν dS = O(H(r)) as r → 0+,
+
+thus implying (2.68) in a distributional sense and a.e. in (0 , r 0) in view of (2.69). To prove (2.65), we first observe that, by (2.30), (2.70) 2r2s−n−1
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sμw ∂w ∂ν dS = 2 r2s−n−1
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sμw ∇w · z
+
+|z| dS 
+
+= 2 r2s−n−1
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s(A∇w · ν)w dS − r2s−n−1
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sμ∇(w2) · β − z
+
+|z| dS, 
+
+for a.e. r ∈ (0 , r 0).In particular (2.29) and (2.30) imply that (β − z) · z = 0 . Thus, by applying the Divergence Theorem followed by the coarea formula, we deduce that, for a.e. r ∈ (0 , r 0),(2.71) 0 = 
+
+Z
+
+> ∂+B+
+> r
+
+div 
+
+
+
+t1−2s μ(β − z)
+
+|z|
+
+
+
+w2 dS +
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sμ∇(w2) · β − z
+
+|z| dS. 
+
+We observe that 
+
+div 
+
+
+
+t1−2s μ(β − z)
+
+|z|
+
+
+
+= (1 − 2s) ζ − μ
+
+|z| t1−2s + t1−2s∇μ · β − z
+
+|z|
+
++ t1−2sμ div( β − z)
+
+|z| − t1−2sμ(β − z) · z
+
+|z|3 ,
+
+so that div( t1−2s μ (β−z) 
+
+> |z|
+
+) = t1−2sO(1) as |z| → 0, in view of (2.22), (2.31), and (2.33). Inserting this into (2.71), we obtain (2.72) 
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sμ∇(w2) · β − z
+
+|z| dS = rn+1 −2sO(H(r)) as r → 0+.
+
+By combining (2.72) and (2.70) with (2.68), we obtain (2.65). EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 17 
+
+Finally, by (2.36) and (2.65) 
+
+Z
+
+> B+
+> r
+
+t1−2s A∇w · ∇ w + ( eb · ∇ xw)w + ˜ aw 2 dz −
+
+Z
+
+> B′
+> r
+
+˜h| Tr w|2 dx = H′(r)2r2s−n−1 + O
+
+ H(r)
+
+r2s−n−1
+
+
+
+as r → 0+. The above estimate directly yields (2.66), because the left-hand side is equal to 
+
+rn−2sE(r), see (2.43). □
+
+Thanks to Lemma 2.13, the Almgren frequency function (2.73) N : (0 , r 0) → R, N (r) := E(r)
+
+H(r) ,
+
+is well-defined. Furthermore, N ∈ W 1,1loc (0 , r 0] as a consequence of Lemma 2.12 and Lemma 2.13. In the following lemma, we prove that N is bounded from below. 
+
+Lemma 2.14. For every r ∈ (0 , r 0)
+
+(2.74) N (r) + n − 2s
+
+2 ≥ n − 2s
+
+2Cn,s 
+
+> 0.
+
+Proof. From Lemma 2.11, the definitions of E and H (see (2.43) and (2.44), respectively), and Lemma 2.13, it follows that (2.75) 0 < H (r) ≤ 2Cn,s 
+
+n − 2s
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+
+
+for every r ∈ (0 , r 0).
+
+Hence, the definition of N given in (2.73) directly implies (2.74). □
+
+Let us consider now the set 
+
+Ξ := {r ∈ (0 , r 0) : N ′(r) ≤ 0}.
+
+Lemma 2.15. If 0 is a limit point of Ξ, then we have, for a.e. r ∈ (0 , r 0),
+
+(2.76) N ′(r) ≥ O(r−1+ ε)
+
+
+
+N (r) + N − 2s
+
+2
+
+
+
+as r → 0+, being ε > 0 defined as in (2.56) .Proof. We observe that (2.76) is trivially satisfied a.e. in (0 , r 0) \ Ξ, since N ′ ≥ 0 there. Hence, we just need to prove (2.76) a.e. in Ξ. To this aim, we preliminarily show that (2.77) E′(r) = 2 r2s−n
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s (A∇w · ν)2
+
+μ dS + O(r−1+ ε)
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+
+
+as r → 0+, r ∈ Ξ. In light of (2.55), proving (2.77) reduces to showing that (2.78) r2s−n
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s (eb · ∇ xw)w + ˜ aw 2 dS = O(1) 
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+
+
+as r → 0+, r ∈ Ξ. We define 
+
+D(r) := 2 r2s−n
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s (A∇w · ν)2
+
+μ dS, 
+
+so that, by (2.39), 
+
+r2s−n+1 
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sA∇w · ∇ w dS 
+
+=r2s−n+1 
+
+Z
+
+> Sr
+
+˜h| Tr w|2 dS ′ + rD (r) − 2r2s−n
+
+Z
+
+> B+
+> r
+
+t1−2s(β · ∇ w)( eb · ∇ xw + ˜ aw ) dz 
+
++ ( n − 2s)r2s−n
+
+Z
+
+> B+
+> r
+
+t1−2sA∇w · ∇ w dz + O(r 2sp −np +2 s−n)
+
+Z
+
+> B′
+> r
+
+| Tr w|2∗ 
+
+> s
+
+dx 
+
+! 22∗
+
+> s
+
++ O(r2s−n+1 )
+
+Z
+
+> B+
+> r
+
+t1−2s|∇ w|2 dz 18 ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+as r → 0+. In view of (2.27), (2.61), (2.62) and (2.64), this implies (2.79) r2s−n+1 
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sA∇w · ∇ w dS 
+
+= r2s−n+1 
+
+Z
+
+> Sr
+
+˜h| Tr w|2 dS ′ + rD (r) + O(1) 
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+
+
+,
+
+as r → 0+. By a scaling argument and classical trace theorems, we have that, for every r ∈ (0 , r 0),
+
+∥˜h∥Lp(Sr ) ≤ const r−1/p ∥˜h∥W 1,p (B′ 
+
+> r0)
+
+for some const > 0 independent of r. Hence, by the Hölder inequality, (2.49), and Lemma 2.10, we have, for a.e. r ∈ (0 , r 0),
+
+r2s−n+1 
+
+Z
+
+> Sr
+
+˜h| Tr w|2 dS ′
+
+(2.80) 
+
+≤  nω n
+
+ 2sp −nnp r2s−n+1+ (2 sp −n)( n−1)  
+
+> pn
+
+∥˜h∥Lp(Sr )
+
+Z 
+
+> Sr
+
+| Tr w|2∗ 
+
+> s
+
+ds ′
+
+ 22∗
+
+> s
+
+≤  nω n
+
+ 2sp −nnp ¯Sn,s r2s−n+1+ (2 sp −n)( n−1)    
+
+> pn +2sn
+
+∥˜h∥Lp(Sr )
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s(r−2|w|2 + |∇ w|2) dS 
+
+≤ const 
+
+
+
+r 2sp −np H(r) + r 2sp −np +2 s−n+1 
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sA∇w · ∇ w dS 
+
+
+
+,
+
+for some const > 0, where we also used (2.32) and (2.50), being ωn the n-dimensional Lebesgue measure of B′
+
+> 1
+
+. Assembling (2.79) with (2.80), and if necessary choosing r0 smaller from the beginning in order to ensure that 
+
+1 − const r 2sp −np ≥ 12 for every r ∈ (0 , r 0),
+
+we obtain, for a.e. r ∈ (0 , r 0),(2.81) r2s−n+1 
+
+2
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sA∇w · ∇ w dS ≤ rD (r) + O(1) 
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+
+
+as r → 0+, where also estimate (2.75) was used. From (2.21), (2.27), (2.32), (2.75), and (2.81), it therefore follows that 
+
+r2s−n
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s (eb · ∇ xw)w + ˜ a(x)w2 dS (2.82) 
+
+= O(1) 
+
+
+
+r2s−n+1 
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s|∇ w|2 dS 
+
+ 12 pH(r) + O(r)H(r)= O(1) 
+
+
+
+r2s−n+1 
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sA∇w · ∇ w dS 
+
+ 12 pH(r) + O(r)H(r)= O(1) 
+
+prD (r)H(r) + E(r) + n − 2s
+
+2 H(r)
+
+
+
+as r → 0+. We insert estimate (2.82) into (2.55), thus obtaining, also in view of (2.75), 
+
+D(r) = E′(r) + O(1) prD (r)H(r) + O(r−1+ ε)
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+
+
+≤ E′(r) + D(r)2 + O(r−1+ ε)
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+
+
+,
+
+so that (2.83) D(r) ≤ 2E′(r) + O(r−1+ ε)
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 19 
+
+as r → 0+. Since E′(r)H(r) ≤ E(r)H′(r) for every r ∈ Ξ, from (2.75), (2.66), and (2.83), it follows that, as r → 0+, r ∈ Ξ,
+
+rD (r)H(r) ≤ 2rE ′(r)H(r) + O(rε)
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+2
+
+≤ 2rE (r)H′(r) + O(rε)
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+2
+
+= 2 rE (r)
+
+ 2
+
+r E(r) + O(H(r)) 
+
+
+
++ O(rε)
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+2
+
+= 4 E(r)2 + O(r)E(r)H(r) + O(rε)
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+2
+
+= O(1) 
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+2
+
+which, in view of (2.75), yields 
+
+prD (r)H(r) = O(1) 
+
+
+
+E(r) + n − 2s
+
+2 H(r)
+
+
+
+as r → 0+, r ∈ Ξ.
+
+Substituting this into (2.82) yields the desired estimate (2.78) and, consequently, (2.77). We are now ready to prove (2.76). By direct computations and thanks to (2.44), (2.65), (2.66), (2.73), and (2.77), we have, as r → 0+, r ∈ Ξ,(2.84) N ′(r) = E′(r)H(r) − r 
+
+> 2
+
+(H′(r)) 2 + O(r)H(r)H′(r)
+
+H2(r)= 2 r4s−2n−1
+
+R 
+
+> ∂+B+
+> r
+
+t1−2s (A∇w·ν)2 
+
+> μ
+
+dS 
+
+  R 
+
+> ∂+B+
+> r
+
+t1−2sμw 2 dS 
+
+
+
+−
+
+R 
+
+> ∂+B+
+> r
+
+t1−2s(A∇w · ν)w dS 
+
+2
+
+H2(r)+ O(r) + O(r2s−n)
+
+H(r)
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s(A∇w · ν)w dS + O(r−1+ ε)
+
+
+
+N (r) + n − 2s
+
+2
+
+
+
+.
+
+The Cauchy-Schwarz inequality applied to vectors in L2(∂+B+ 
+
+> r
+
+, t 1−2sdS ) implies that (2.85) 
+
+Z 
+
+> ∂+B+
+> r
+
+t1−2s (A∇w · ν)2
+
+μ dS 
+
+ Z 
+
+> ∂+B+
+> r
+
+t1−2sμw 2 dS 
+
+
+
+−
+
+Z 
+
+> ∂+B+
+> r
+
+t1−2s(A∇w · ν)w dS 
+
+2
+
+≥ 0
+
+for a.e. r ∈ (0 , r 0); furthermore, as a consequence of (2.65) and (2.66), we have (2.86) r2s−n
+
+H(r)
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s(A∇w · ν)w dS = N (r) + O(r) as r → 0+.
+
+Combining (2.84) with (2.85) and (2.86), and recalling (2.74), we finally obtain (2.76). □
+
+Lemma 2.16. There exists a positive constant C3 > 0 such that 
+
+(2.87) N (r) ≤ C3 for every r ∈ (0 , r 0).
+
+Moreover, 
+
+(2.88) the limit of N as r → 0+ exists and is finite .
+
+Proof. To establish (2.87) and (2.88), we distinguish two cases. 
+
+Case 1. If 0 is not a limit point of Ξ then N ′(r) ≥ 0 in a right neighbourhood of 0, where N
+
+is therefore increasing and bounded from above. The continuity of N in (0 , r 0] then implies its boundedness on the whole interval (0 , r 0), thus yielding (2.87). Moreover, the monotonicity of N
+
+in a right neighbourhood of 0 and (2.74) imply (2.88). 20 ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+Case 2. If 0 is a limit point of Ξ, then we are under assumptions of Lemma 2.15 and thus (2.89) 
+
+
+
+N (τ ) + n − 2s
+
+2
+
+′
+
+≥ − cτ −1+ ε
+
+
+
+N (τ ) + n − 2s
+
+2
+
+
+
+for some positive constant c > 0 and for every τ in a sufficiently small right neighbourhood of 0.Estimate (2.89) directly implies that the function 
+
+r 7 → e cr εε
+
+
+
+N (r) + n − 2s
+
+2
+
+
+
+is increasing in a right neighbourhood of 0. Since it is positive by (2.74), it has a finite limit as 
+
+r → 0+. This directly implies (2.88); hence, by the continuity of N in (0 , r 0], (2.87) also holds. □
+
+Henceforth, we adopt the following notation: (2.90) γ := lim  
+
+> r→0+
+
+N (r).
+
+We observe that (2.91) γ ≥ − n − 2s
+
+2
+
+in view of (2.74). As a consequence of (2.87) and the relation between H′ and E provided in Lemma 2.13, the following results follow. 
+
+Lemma 2.17. There exists K1 > 0 such that 
+
+(2.92) H(r) ≤ K1r2γ for all r ∈ (0 , r 0).
+
+For every fixed δ > 0 there exists K2 = K2(δ) > 0 such that 
+
+(2.93) H(r) ≥ K2r2γ+δ for all r ∈ (0 , r 0).
+
+Proof. To prove (2.92), we first observe that there exists some r1 ∈ (0 , r 0) such that, for all 
+
+ρ ∈ (0 , r 1),
+
+N (ρ) − γ =
+
+Z ρ
+
+> 0
+
+N ′(τ ) dτ ≥ − c
+
+
+
+C3 + n − 2s
+
+2
+
+ ρε
+
+ε ,
+
+where we have used N ∈ W 1,1loc (0 , r 0] along with (2.88) and (2.90) to obtain the first identity, and (2.87) and (2.89) to derive the second inequality (we note that (2.89) trivially holds also in Case 1 of Lemma 2.16). Combined with (2.66) and the strict positivity of H (Lemma 2.13-(i)), this yields 
+
+H′(ρ)
+
+H(ρ) = 2N (ρ)
+
+ρ + O(1) ≥ 2γρ −1 − 2c
+
+
+
+C3 + n − 2s
+
+2
+
+ ρ−1+ ε
+
+ε − c1
+
+for some c1 > 0 and for all ρ ∈ (0 , r 1) (possibly after taking a smaller r1). Integrating the above estimate between r and r1 and recalling that H is continuous on (0 , r 0], we directly obtain (2.92). To prove (2.93), we note from (2.88) and (2.90) that, for each fixed δ > 0,
+
+N (ρ) − γ ≤ δ
+
+2 for all ρ ∈ (0 , ρ δ ),
+
+for some ρδ > 0. In view of (2.66) and the strict positivity of H (Lemma 2.13-(i)), this implies that there exist some c2 > 0 and r2 ≤ ρδ such that 
+
+H′(ρ)
+
+H(ρ) = 2N (ρ)
+
+ρ + O(1) ≤ 2γ + δρ + c2
+
+for all ρ ∈ (0 , r 2). An integration with respect to ρ of the above inequality over (r, r 2) and the continuity of H yield (2.93). □
+
+Lemma 2.18. The limit lim r→0+ H(r)r−2γ exists and is finite. EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 21 
+
+Proof. By (2.92), the proof of the lemma reduces to establishing the existence of the limit. By (2.66) and (2.73), for a.e. ρ ∈ (0 , r 0) we have 
+
+ddρ 
+
+ H(ρ)ρ−2γ  = 2 E(ρ)ρ−2γ−1 + O(H(ρ)) ρ−2γ − 2γH (ρ)ρ−2γ−1
+
+= 2 H(ρ)ρ−2γ−1(N (ρ) + O(ρ) − γ)= 2 H(ρ)ρ−2γ−1
+
+Z ρ
+
+> 0
+
+ N ′(τ ) + cτ −1+ ε  C3 + n−2s
+
+> 2
+
+ dτ 
+
+− 2cH (ρ)ρ−2γ−1
+
+Z ρ
+
+> 0
+
+τ −1+ ε  C3 + n−2s
+
+> 2
+
+ dτ + 2 H(ρ)ρ−2γ O(1) 
+
+as ρ → 0+. Letting σ ∈ (0 , r 0), we integrate with respect to ρ between r ∈ (0 , σ ) and σ, thus obtaining (2.94) H(σ)
+
+σ2γ − H(r)
+
+r2γ = 2 
+
+Z σr
+
+H(ρ)ρ−2γ−1G(ρ) dρ 
+
+− 2c ε −1  C3 + n−2s
+
+> 2
+
+ Z σr
+
+H(ρ)ρ−2γ−1+ ε dρ + 2 
+
+Z σr
+
+H(ρ)ρ−2γ O(1) dρ. 
+
+where G(ρ) := R ρ
+
+> 0
+
+ N ′(τ ) + cτ −1+ ε  C3 + n−2s
+
+> 2
+
+ dτ . From (2.89) and (2.87) it follows that, if 
+
+σ is chosen sufficiently small, G(ρ) ≥ 0 for every ρ ∈ (0 , σ ). Hence the limit as r → 0+ of the first integral on the right-hand side of (2.94) exists. Moreover, in view of (2.92), the functions 
+
+ρ 7 → H(ρ)ρ−2γ−1+ ε and ρ 7 → H(ρ)ρ−2γ O(1) are integrable in (0 , σ ), so that both the second and third integrals have finite limits as r → 0+. Hence, by (2.94), we can conclude that the limit of 
+
+H(r)r−2γ as r → 0+ exists, as desired. □
+
+3. Neumann eigenvalues on the half-sphere under a symmetry condition 
+
+In this section we are interested in characterizing the eigenvalues of the spherical eigenvalue problem (3.1) 
+
+
+
+− div S(θ1−2sn+1 ∇SY ) = μ θ 1−2sn+1 Y in S+,
+
+lim θn+1 →0+ θ1−2sn+1 ∇SY · e = 0 on S′,Y ∈ H1even (S+, θ 1−2sn+1 dS ),
+
+where e = (0 , . . . , 0, −1) is the outer normal vector to S+ on S′ and 
+
+H1even (S+, θ 1−2sn+1 dS ) := {Ψ ∈ H1(S+, θ 1−2sn+1 dS ) : Ψ( θ′, θ n, θ n+1 ) = Ψ( θ′, −θn, θ n+1 )},
+
+with H1(S+, θ 1−2sn+1 dS ) denoting the space introduced in Definition 2.9 (for r = 1 ). It is easy to verify that H1even (S+, θ 1−2sn+1 dS ) is a closed subspace of H1(S+, θ 1−2sn+1 dS ).
+
+Definition 3.1. We say that a function Y ∈ H1even (S+, θ 1−2sn+1 dS ) is an eigenfunction of (3.1) if 
+
+Y̸ ≡ 0 and there exists μ ∈ R (called eigenvalue) such that, for all Ψ ∈ H1even (S+, θ 1−2sn+1 dS ),
+
+(3.2) 
+
+Z
+
+> S+
+
+θ1−2sn+1 ∇SY · ∇ SΨ dS = μ
+
+Z
+
+> S+
+
+θ1−2sn+1 Y Ψ dS. 
+
+By classical spectral theory, the eigenvalues of problem (3.1) form an increasing sequence of nonnegative real numbers {μm}m∈N that diverges to +∞. We explicitly characterize the sequence 
+
+{μm}m∈N, showing that, for all m ∈ N,(3.3) μm =
+
+(
+
+m(m + n − 2s), if n ≥ 2,
+
+2m(2 m + n − 2s), if n = 1 .
+
+Proposition 3.2. The following statements hold true. 
+
+(i) All eigenvalues of problem (3.1) are given by (3.3) .
+
+(ii) If Y is an eigenfunction associated to the eigenvalue μm, then there exists a homogeneous polynomial P : Rn+1 → R of degree m, such that 22 ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+a) P is even with respect to both variables xn and t, i.e. 
+
+P (x′, x n, t ) = P (x′, −xn, t ) = P (x′, x n, −t)
+
+for every (x′, x n, t ) ∈ Rn+1 ;
+
+b) P (z) = P (x′, x n, t ) = |z|mY   z
+
+> |z|
+
+ for every z ∈ Rn × (0 , +∞);
+
+c) P solves 
+
+(3.4) div( |t|1−2s∇P ) = 0 in Rn+1 .
+
+Proof. We assume that μ is an eigenvalue of (3.1). Hence there exists an eigenfunction Y of (3.1) associated with μ, that is a nontrivial solution of (3.1) in the sense specified in Definition 3.1. A straightforward computation shows that this is equivalent to the function (3.5) U (z) := |z|γ Y
+
+ z
+
+|z|
+
+
+
+, z ∈ Rn+1 ,
+
+with (3.6) γ := − n − 2s
+
+2 +
+
+s n − 2s
+
+2
+
+2
+
++ μ, 
+
+belonging to H1loc (Rn+1 + , t 1−2sdz ), being even with respect to xn, and weakly solving (3.7) 
+
+(
+
+div( t1−2s∇U ) = 0 in Rn+1 + ,
+
+lim t→0+ t1−2s∂tU = 0 on Rn.
+
+Therefore, there exists a nontrivial solution U of (3.7), which is even with respect to xn and homogeneous of degree γ; in addition U ∈ C∞(B+1 ) as a consequence of the regularity result in [22, Theorem 1.1]. Then there exists m ∈ N such that γ = m; thus we have that μ = m(m+n−2s)
+
+by virtue of (3.6). We notice that the case m = 0 is included here since, in that case, μ = 0 and 0 is an eigenvalue with associated constant (and nontrivial) eigenfunctions. If n = 1 , we may also prove that the odd integer homogeneities are not allowed; that is, if 
+
+m ∈ N, then (2 m + 1)(2 m + 1 + n − 2s) is not an eigenvalue of (3.1). To this goal, we argue by contradiction assuming that (2 m + 1)(2 m + 1 + n − 2s) is an eigenvalue of (3.1). If Ψ is an eigenfunction of (3.1) associated with (2 m + 1)(2 m + 1 + n − 2s), then the function defined as 
+
+U (z) = |z|γ Ψ
+
+ z
+
+|z|
+
+
+
+, z = ( x, t ) ∈ R2+,
+
+with 
+
+γ = − n − 2s
+
+2 +
+
+s n − 2s
+
+2
+
+2
+
++ (2 m + 1)(2 m + 1 + n − 2s) = 2 m + 1 
+
+is a nontrivial solution to (3.7), even with respect to x. Hence, the even reflection eU of U with respect to t, given by eU (x, t ) := U (x, |t|), is a solution of div( |t|1−2s∇ eU ) = 0 in R2, and in addition 
+
+eU ∈ C∞(R2) thanks to [22, Theorem 1.1]. Moreover, from [6, Lemma A.1] it follows that eU is a homogeneous polynomial of degree 2m + 1 , namely 
+
+eU (x, t ) = 
+
+> 2m+1
+
+X
+
+> k=0
+
+akxkt2m+1 −k.
+
+We have that ak = 0 if k is odd since eU is even with respect to x. Furthermore, ak = 0 when k is even, since eU is also even with respect to t. Consequently, ˜U is trivial, leading to a contradiction. Now we prove that the numbers given in (3.3) are eigenvalues of (3.1): to this end, we need to show that, for any fixed m ∈ N, there exists an eigenfunction of (3.1) associated with m(m+n−2s)
+
+if n ≥ 2, and an eigenfunction associated with 2m(2 m + n − 2s) if n = 1 . This is equivalent to find, for any fixed m ∈ N, a nontrivial solution to (3.7) which is even with respect to xn and EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 23 
+
+homogeneous of degree m if n ≥ 2, and of degree 2m if n = 1 . To this purpose, we observe that the equation in (3.7) can be written as (3.8) ∆U + 1 − 2st ∂tU = 0 .
+
+We first focus on the case n = 1 . Let m ∈ N, and consider the following homogeneous polynomial of degree 2m, even with respect to xn = x,
+
+U (x, t ) := 
+
+> m
+
+X
+
+> k=0
+
+akx2kt2m−2k,
+
+with a0, . . . , a m ∈ R. One can directly verify that U is a solution of (3.8) if and only if 
+
+ak+1 = − 2( m − k)( m − k − s)(k + 1)(2 k + 1) ak for all k ∈ { 0, . . . , m − 1}.
+
+Thus, choosing a0 = 1 , we obtain a nontrivial solution to (3.7) which is even with respect to 
+
+xn = x and homogeneous of degree 2m.If n ≥ 2, we first observe that, for any m ∈ N, there exists a nontrivial homogeneous harmonic polynomial P of degree m in the variables x1, . . . , x n,, which is even with respect to xn. Indeed, in dimension n = 2 , we consider the polynomial Q(y1, y 2) = Re(( y1 +iy 2)m), which is a homogeneous harmonic polynomial of degree m. Moreover, Q is even with respect to the variable y2, since 
+
+Q(y1, −y2) = Re(( y1 − iy 2)m) = Re(( y1 − iy 2)m) = Re(( y1 + iy 2)m) = Q(y1, y 2).
+
+Then, in any dimension n ≥ 2, one can consider P (x1, . . . , x n) = Q(xn−1, x n), which is a nontrivial homogeneous harmonic polynomial of degree m, even with respect to xn. We conclude that the function U (x1, . . . , x n, t ) := P (x1, . . . , x n) is a nontrivial solution to (3.7), which is even with respect to xn and homogeneous of degree m. Statement (i) is thereby proved. We finally observe that [7, Lemma B.2], see also [6, Lemma A.1], together with the above analysis, implies that any function U constructed as in (3.5) from an eigenfunction Y is necessarily a polynomial solving (3.4), thus proving (ii). □
+
+4. Local Asymptotics and strong unique continuation property 
+
+4.1. The blow-up analysis. In the present subsection, we perform a blow-up analysis in order to classify the limit profiles of suitably normalized rescaled solutions. Let us fix a non-trivial weak solution w ∈ H1(B+ 
+
+> r0
+
+, t 1−2sdz ) to problem (2.18), which is even with respect to the variable xn,i.e. (4.1) w(x′, x n, t ) = w(x′, −xn, t ) for a.e. (x′, x n, t ) ∈ B+ 
+
+> r0
+
+.
+
+We recall that the solution w to (2.18), constructed in Section 2 from a solution v ∈ H1(CΩ, t 1−2sdz )
+
+to (1.3) via a change of variables, a diffeomorphic transformation, and an even reflection, satisfies (4.1), see (2.17). We consider the family {wλ}λ∈(0 ,r 0] defined by (4.2) wλ(z) := w(λz )
+
+pH(λ) , z ∈ B+
+
+> r0/λ
+
+.
+
+In view of (2.18), for every λ ∈ (0 , r 0], wλ weakly solves (4.3) 
+
+( − div  t1−2sA(λ ·)∇wλ + t1−2sλeb(λ·) · ∇ xwλ + t1−2sλ2˜a(λ·)wλ = 0 in B+
+
+> r0/λ
+
+,
+
+− lim t→0+ t1−2sζ(λ·)∂twλ = λ2s˜h(λ·) Tr wλ on B′
+
+> r0/λ
+
+,24 ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+that is, for every φ ∈ C∞ 
+
+> c
+
+(B+ 
+
+> r0/λ
+
+∪ B′
+
+> r0/λ
+
+),(4.4) 
+
+Z
+
+> B+
+> r0/λ
+
+t1−2sA(λz )∇wλ(z) · ∇ φ(z) dz + λ
+
+Z
+
+> B+
+> r0/λ
+
+t1−2s(eb(λx ) · ∇ xwλ(z)) φ(z) dz 
+
++ λ2
+
+Z
+
+> B+
+> r0/λ
+
+t1−2s˜a(λx )wλ(z)φ(z) dz = λ2s
+
+Z
+
+> B′
+> r0/λ
+
+˜h(λx ) Tr wλ(x) Tr φ(x) dx. 
+
+We first observe that the family {wλ}λ∈(0 ,r 0] is uniformly bounded in H1(B+1 , t 1−2sdz ).
+
+Lemma 4.1. There exists L > 0 such that ∥wλ∥H1(B+1 ,t 1−2sdz ) ≤ L for every λ ∈ (0 , r 0].Proof. By (4.2), a change of variable, and Lemma 2.11, we have (4.5) 
+
+Z
+
+> B+1
+
+t1−2s|∇ wλ|2 dz = λ2s−n
+
+H(λ)
+
+Z
+
+> B+
+> λ
+
+t1−2s|∇ w|2 dz ≤ Cn,s 
+
+
+
+N (λ) + n − 2s
+
+2
+
+
+
+,
+
+which yields the uniform boundedness of {∇ wλ}λ∈(0 ,r 0] in L2(B+1 , t 1−2sdz ) in view of (2.87). In order to prove the uniform boundedness of {wλ}λ∈(0 ,r 0] in L2(B+1 , t 1−2sdz ), we observe that (4.6) 
+
+Z
+
+> S+
+
+θ1−2sn+1 μ(λ·)|wλ|2 dS = λ2s−n−1
+
+H(λ)
+
+Z
+
+> ∂+B+
+> λ
+
+t1−2sμ|w|2 dS = 1 .
+
+Then the thesis follows from (4.5), (4.6), (2.32), and [9, Lemma 2.4]. □
+
+Lemma 4.2. For every sequence λℓ → 0+, there exist a subsequence λℓk → 0+ and a function 
+
+g ∈ L2(S+, θ 1−2sn+1 dS ) such that 
+
+(4.7) A(λℓk ·)∇wλℓk · ν ⇀ g weakly in L2(S+, θ 1−2sn+1 dS ) as k → ∞ .
+
+Proof. We first claim that (4.8) {∇ wλ}λ∈(0 ,r 0] is bounded in L2(S+, θ 1−2sn+1 dS ).In order to prove (4.8), we observe that {∇ xwλ}λ∈(0 ,r 0] is bounded in H1(B+1 , t 1−2sdz ) and 
+
+{t1−2s∂twλ}λ∈(0 ,r 0] is bounded in H1(B+1 , t 2s−1dz ) by the regularity result in [12, Theorem 2.1] and Lemma 4.1. Therefore, claim (4.8) is a consequence of the continuity of the trace operators in (2.38) with r = 1 and 
+
+Z
+
+> S+
+
+θ1−2sn+1 |∇ wλ|2 dS =
+
+Z
+
+> S+
+
+θ1−2sn+1 |∇ xwλ|2 dS +
+
+Z
+
+> S+
+
+θ2s−1 
+
+> n+1
+
+θ1−2sn+1 ∂twλ 2 dS. 
+
+In view of (2.27), (4.8) implies that also {A(λ·)∇wλ · ν}λ∈(0 ,r 0] is bounded in L2(S+, θ 1−2sn+1 dS ).This directly yields the conclusion. □
+
+Lemma 4.3. Let γ be as in (2.90) . For any sequence λℓ → 0+, there exist a subsequence λℓk → 0+
+
+and a homogeneous function ¯w ∈ H1(B+1 , t 1−2sdz ) of degree γ, i.e. satisfying 
+
+¯w(z) = |z|γ ¯w
+
+ z
+
+|z|
+
+
+
+for all z ∈ B+1 ,
+
+such that 
+
+(4.9) wλℓk → ¯w in H1(B+1 , t 1−2sdz ) as k → ∞ .
+
+In addition, γ(γ + n − 2s) is an eigenvalue of problem (3.1) and ψ := ¯w|S+ is an associated 
+
+L2(S+, θ 1−2sn+1 dS )-normalized eigenfunction. Proof. Thanks to Lemma 4.1, for any sequence λℓ → 0+, there exist a subsequence λℓk → 0+ and a function ¯w ∈ H1(B+1 , t 1−2sdz ) such that (4.10) wλℓk ⇀ ¯w in H1(B+1 , t 1−2sdz ) as k → ∞ .
+
+We first observe that ¯w̸ ≡ 0: indeed by the compactness of the trace operator (2.38) with r = 1 
+
+and (4.10), we have (4.11) wλℓk → ¯w strongly in L2(S+, θ 1−2sn+1 dS ) as k → ∞ ;EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 25 
+
+combining (2.31), (4.6), and (4.11), we conclude that (4.12) 
+
+Z
+
+> S+
+
+θ1−2sn+1 | ¯w|2 dS = 1 ,
+
+hence ¯w̸ ≡ 0.We now prove that ¯w weakly solves (4.13) 
+
+(
+
+− div( t1−2s∇ ¯w) = 0 in B+1 ,
+
+lim t→0+ t1−2s∂t ¯w = 0 on B′
+
+> 1
+
+,
+
+i.e. (4.14) 
+
+Z
+
+> B+1
+
+t1−2s∇ ¯w · ∇ φ dz = 0 
+
+for every φ ∈ C∞ 
+
+> c
+
+(B+1 ∪ B′
+
+> 1
+
+). To this aim, we first notice that, if φ ∈ C∞ 
+
+> c
+
+(B+1 ∪ B′
+
+> 1
+
+), then 
+
+φ ∈ C∞ 
+
+> c
+
+(B+
+
+> r0/λ ℓk
+
+∪ B′
+
+> r0/λ ℓk
+
+) for sufficiently large k. Hence (4.4) is satisfied for sufficiently large k,i.e. (4.15) 
+
+Z
+
+> B+1
+
+t1−2sA(λℓk z)∇wλℓk (z) · ∇ φ(z) dz + λℓk
+
+Z
+
+> B+1
+
+t1−2s(eb(λℓk x) · ∇ xwλℓk (z)) φ(z) dz 
+
++ λ2
+
+> ℓk
+
+Z
+
+> B+1
+
+t1−2s˜a(λℓk x)wλℓk (z)φ(z) dz = λ2sℓk
+
+Z
+
+> B′
+> 1
+
+˜h(λℓk x) Tr wλnℓ k (x) Tr φ(x) dx 
+
+for sufficiently large k. By (2.26) and the Cauchy–Schwarz inequality, we have 
+
+Z
+
+> B+1
+
+t1−2sA(λℓk z)∇wλℓk (z) · ∇ φ(z) dz =
+
+Z
+
+> B+1
+
+t1−2s∇wλℓk (z) · ∇ φ(z) dz 
+
++ O(λℓk )
+
+Z
+
+> B+1
+
+t1−2s|∇ wλℓk (z)|2 dz 
+
+! 12 Z
+
+> B+1
+
+t1−2s|∇ φ(z)|2 dz 
+
+! 12
+
+,
+
+hence, by Lemma 4.1 and (4.10) we conclude that (4.16) 
+
+Z
+
+> B+1
+
+t1−2sA(λℓk z)∇wλℓk (z) · ∇ φ(z) dz →
+
+Z
+
+> B+1
+
+t1−2s∇ ¯w(z) · ∇ φ(z) dz as k → ∞ .Moreover, by (2.21) and Lemma 4.1, 
+
+λℓk
+
+Z
+
+> B+1
+
+t1−2s(eb(λℓk x) · ∇ xwλℓk (z)) φ(z) dz + λ2
+
+> ℓk
+
+Z
+
+> B+1
+
+t1−2s˜a(λℓk x)wλℓk (z)φ(z) dz (4.17) 
+
+= O(λℓk )
+
+Z
+
+> B+1
+
+t1−2s|φ|2 dz 
+
+! 12  Z 
+
+> B+1
+
+t1−2s|∇ wλℓk |2 dz 
+
+ 12
+
++
+
+ Z 
+
+> B+1
+
+t1−2s|wλℓk |2 dz 
+
+ 12 
+
+= o(1) as k → ∞ .26 ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+Finally, applying the Hölder inequality to ˜h(λℓk ·) ∈ Lp(B′
+
+> 1
+
+) and Tr wλℓk , Tr φ ∈ L2∗ 
+
+> s
+
+(B′
+
+> 1
+
+), and using Lemma 2.5, (2.32), and (4.6), we obtain 
+
+λ2sℓk
+
+Z
+
+> B′
+> 1
+
+˜h(λℓk x) Tr wλℓk (x) Tr φ(x) dx ≤ Sn,s λ2sℓk ω 
+
+> 2sp −nnp
+> n
+
+∥˜h(λℓk ·)∥Lp(B′
+
+> 1)
+
+× 2( n − 2s)
+
+Z
+
+> S+
+
+θ1−2sn+1 μ(λℓk ·)|wλℓk |2 dS +
+
+Z
+
+> B+1
+
+t1−2s|∇ wλℓk |2 dz 
+
+! 12
+
+× n − 2s
+
+2
+
+Z
+
+> ∂+B+1
+
+t1−2sφ2 dS +
+
+Z
+
+> B+1
+
+t1−2s|∇ φ|2 dz 
+
+! 12
+
+= Sn,s λ2s− np 
+
+> ℓk
+
+ω 
+
+> 2sp −nnp
+> n
+
+∥˜h∥Lp(B′ 
+
+> λℓk
+> )
+
+2( n − 2s) + 
+
+Z
+
+> B+1
+
+t1−2s|∇ wλℓk |2 dz 
+
+! 12
+
+× n − 2s
+
+2
+
+Z
+
+> ∂+B+1
+
+t1−2sφ2 dS +
+
+Z
+
+> B+1
+
+t1−2s|∇ φ|2 dz 
+
+! 12
+
+,ωn being the n-dimensional Lebesgue measure of B′
+
+> 1
+
+; hence, Lemma 4.1 and the fact that 2s− np > 0
+
+yield (4.18) lim  
+
+> k→∞
+
+λ2sℓk
+
+Z
+
+> B′
+> 1
+
+˜h(λℓk x) Tr wλℓk (x) Tr φ(x) dx = 0 
+
+Combining (4.16), (4.17), and (4.18), and taking the limit as k → ∞ in (4.15), we obtain (4.14). The next step is to show that the convergence in (4.10) is actually strong, meaning that (4.9) holds. Multiplying (4.3) by any fixed φ ∈ H1(B+1 , t 1−2sdz ) and integrating by parts (see [12, Proposition 3.7]), we obtain that, for sufficiently large k,(4.19) 
+
+Z
+
+> B+1
+
+t1−2sA(λℓk z)∇wλℓk (z) · ∇ φ(z) dz + λℓk
+
+Z
+
+> B+1
+
+t1−2s(eb(λℓk x) · ∇ xwλℓk (z)) φ(z) dz 
+
++ λ2
+
+> ℓk
+
+Z
+
+> B+1
+
+t1−2s˜a(λℓk x)wλℓk (z)φ(z) dz 
+
+= λ2sℓk
+
+Z
+
+> B′
+> 1
+
+˜h(λℓk x) Tr wλℓk (x) Tr φ(x) dx +
+
+Z
+
+> S+
+
+θ1−2sn+1 (A(λℓk z)∇wλℓk · ν)φ ds. 
+
+We observe that the limits in (4.16)–(4.18) still hold for any φ ∈ H1(B+1 , t 1−2sdz ). Thus, also invoking Lemma 4.2, we find that, up to a further subsequence still denoted by λℓk , taking the limit as k → ∞ in (4.19) yields (4.20) 
+
+Z
+
+> B+1
+
+t1−2s∇ ¯w · ∇ φ dz =
+
+Z
+
+> S+
+
+θ1−2sn+1 gφ dS, 
+
+for some function g ∈ L2(S+, θ 1−2sn+1 dS ) satisfying (4.7). On the other hand, choosing φ = wλℓk in (4.19), for sufficiently large k we have (4.21) 
+
+Z
+
+> B+1
+
+t1−2sA(λℓk ·)∇wλℓk · ∇ wλℓk dz + λℓk
+
+Z
+
+> B+1
+
+t1−2s(eb(λℓk ·) · ∇ xwλℓk )wλℓk dz 
+
++ λ2
+
+> ℓk
+
+Z
+
+> B+1
+
+t1−2s˜a(λℓk ·)|wλℓk |2 dz 
+
+= λ2sℓk
+
+Z
+
+> B′
+> 1
+
+˜h(λℓk ·)| Tr wλℓk |2 dx +
+
+Z
+
+> S+
+
+θ1−2sn+1 (A(λℓk ·)∇wλℓk · ν)wλℓk dS. EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 27 
+
+By proceeding as in the proof of (4.17) and (4.18) with φ = wλℓk and taking Lemma 4.1 into account, we can show that (4.22) lim 
+
+> k→∞
+
+
+
+λℓk
+
+Z
+
+> B+1
+
+t1−2s(eb(λℓk ·) · ∇ xwλℓk )wλℓk dz + λ2
+
+> ℓk
+
+Z
+
+> B+1
+
+t1−2s˜a(λℓk ·)|wλℓk |2 dz 
+
+
+
+= 0 
+
+and (4.23) lim 
+
+> k→∞
+
+
+
+λ2sℓk
+
+Z
+
+> B′
+> 1
+
+˜h(λℓk ·)| Tr wλℓk |2 dx 
+
+
+
+= 0 .
+
+Hence, from (4.21) and (4.7) it follows that 
+
+lim 
+
+> k→∞
+
+Z
+
+> B+1
+
+t1−2sA(λℓk ·)∇wλℓk · ∇ wλℓk dz = lim 
+
+> k→∞
+
+Z
+
+> S+
+
+θ1−2sn+1 (A(λℓk ·)∇wλℓk · ν)wλℓk dS (4.24) 
+
+=
+
+Z
+
+> S+
+
+θ1−2sn+1 g ¯w dS, 
+
+where we also used (4.11). Therefore, by combining (2.26), Lemma 4.1, (4.24), and (4.20) with 
+
+φ = ¯ w, we finally obtain that 
+
+lim 
+
+> k→∞
+
+Z
+
+> B+1
+
+t1−2s|∇ wλℓk |2 dz 
+
+= lim 
+
+> k→∞
+
+Z 
+
+> B+1
+
+t1−2sA(λℓk ·)∇wλℓk · ∇ wλℓk dz + O(λℓk )
+
+Z
+
+> B+1
+
+t1−2s|∇ wλℓk |2 dz 
+
+
+
+=
+
+Z
+
+> S+
+
+θ1−2sn+1 g ¯w dS =
+
+Z
+
+> B+1
+
+t1−2s|∇ ¯w|2 dz. 
+
+This, together with the weak convergence of ∇wλℓk to ∇ ¯w in L2(B+1 , t 1−2sdz ) by virtue of (4.10), implies that ∇wλℓk → ∇ ¯w strongly in L2(B+1 , t 1−2sdz ). By [9, Lemma 2.4] and (4.11), this also yields the convergence wλℓk → ¯w in L2(B+1 , t 1−2sdz ). Statement (4.9) is thereby proved. To complete the proof of lemma, it remains to show that ¯w is homogeneous of degree γ. For this purpose, we consider its Almgren frequency function, which is defined as follows in view of (4.13). For every r ∈ (0 , 1] , let 
+
+E ¯w(r) := r2s−n
+
+Z
+
+> B+
+> r
+
+t1−2s|∇ ¯w|2 dz, 
+
+and 
+
+H ¯w(r) := r2s−n−1
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s ¯w2 dS. 
+
+By arguing as in the proof of Lemma 2.13-(i) with A = Id n+1 , ˜b = 0, ˜a = 0 , ˜h = 0 , and μ = 1 ,one can show that H ¯w(r) > 0 for every r ∈ (0 , 1] . Thus the function (4.25) N ¯w(r) := E ¯w(r)
+
+H ¯w(r) for all r ∈ (0 , 1] 
+
+is well-defined. For each fixed k, we also consider the Almgren frequency function associated with 
+
+wλℓk : for every r ∈ (0 , 1] , let 
+
+Ek(r):= r2s−n
+
+Z
+
+> B+
+> r
+
+t1−2s
+
+
+
+A(λℓk ·)∇wλℓk ·∇ wλℓk +
+
+
+
+λℓk
+
+˜b(λℓk ·)·∇ xwλℓk + λ2 
+
+> ℓk
+
+˜a(λℓk ·)wλℓk
+
+
+
+wλℓk
+
+
+
+dz 
+
+− λ2sℓk
+
+Z
+
+> B′
+> r
+
+˜h(λℓk ·)| Tr wλℓk |2 dx 
+
+and 
+
+Hk(r) := r2s−n−1
+
+Z
+
+> ∂+B+
+> r
+
+t1−2sμ(λℓk ·)|wλℓk |2 dS. 28 ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+For k sufficiently large, Hk(r) > 0 by Lemma 2.13-(i). Then, the frequency 
+
+Nk(r) := Ek(r)
+
+Hk(r) , r ∈ (0 , 1] ,
+
+is well defined. Moreover, by direct computation, 
+
+Ek(r) = E(λℓk r)
+
+H(λℓk ) , Hk(r) = H(λℓk r)
+
+H(λℓk ) ,
+
+and hence (4.26) Nk(r) = N (λℓk r).
+
+From (2.26), Lemma 4.1, (4.9), (4.22), and (4.23) it follows that (4.27) lim  
+
+> k→∞
+
+Ek(r) = E ¯w(r).
+
+Furthermore, combining (2.31) and (4.11) yields (4.28) lim  
+
+> k→∞
+
+Hk(r) = H ¯w(r).
+
+Thus, from (2.90), (4.26), (4.27), and (4.28), it follows that N ¯w is constant; more precisely, for every r ∈ (0 , 1] ,(4.29) N ¯w(r) = lim  
+
+> k→∞
+
+Nk(r) = lim  
+
+> k→∞
+
+N (λℓk r) = γ. 
+
+Consequently, N ′
+
+> ¯w
+
+(r) = 0 for a.e. r ∈ (0 , 1] . On the other hand, arguing as in the proof of Lemma 2.15 with A = Id n+1 , ˜b = 0, ˜a = 0 , and μ = 1 , we can prove that 
+
+N ′
+
+> ¯w
+
+(r) = 2 r
+
+R 
+
+> ∂+B+
+> r
+
+t1−2s|∂ν ¯w|2 dS 
+
+  R 
+
+> ∂+B+
+> r
+
+t1−2s ¯w2 dS 
+
+
+
+−
+
+R 
+
+> ∂+B+
+> r
+
+t1−2s∂ν ¯w ¯w dS 
+
+2
+
+R 
+
+> ∂+B+
+> r
+
+t1−2s ¯w2 dS 
+
+2 .
+
+Hence 
+
+Z 
+
+> ∂+B+
+> r
+
+t1−2s|∂ν ¯w|2 dS 
+
+Z 
+
+> ∂+B+
+> r
+
+t1−2s ¯w2 dS 
+
+
+
+−
+
+Z 
+
+> ∂+B+
+> r
+
+t1−2s∂ν ¯w ¯w dS 
+
+2
+
+= 0 for a.e. r ∈ (0 , 1) .
+
+In the Hilbert space L2(∂+B+ 
+
+> r
+
+, t 1−2sds ), equality in the Cauchy-Schwarz inequality holds only if the vectors are linearly dependent. Therefore, for a.e. r ∈ (0 , 1) and each θ ∈ S+,(4.30) ∂ν ¯w(rθ ) = η(r) ¯ w(rθ ),
+
+for some function η = η(r) defined a.e. in (0 , 1) . Multiplying the above identity by t1−2s ¯w(z) and integrating over ∂+B+ 
+
+> r
+
+, we obtain (4.31) 
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s ¯w∂ ν ¯w dS = η(r)
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s ¯w2 dS = η(r)rn+1 −2sH ¯w(r)
+
+for a.e. r ∈ (0 , 1) . Moreover, by (2.69) applied to ¯w (hence, with μ ≡ 1 and ∇μ ≡ 0), we have (4.32) H′
+
+> ¯w
+
+(r) = 2 r2s−n−1
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s ¯w∂ ν ¯w dS, 
+
+whereas (2.36) applied to ¯w (hence, with A = Id n+1 , ˜b = 0, ˜a = 0 , and ˜h = 0 ) yields (4.33) 
+
+Z
+
+> ∂+B+
+> r
+
+t1−2s ¯w∂ ν ¯w dS = rn−2sE ¯w(r)
+
+for a.e. r ∈ (0 , 1) . Combining (4.31), (4.32), and (4.33) with (4.25) and (4.29), we conclude that 
+
+η(r) = H′
+
+> ¯w
+
+(r)2H ¯w(r) = N ¯w(r)
+
+r = γr for a.e. r ∈ (0 , 1) .
+
+Substituting this into (4.30) and integrating over (r, 1) for any r ∈ (0 , 1) , we obtain that (4.34) ¯w(rθ ) = rγ ψ(θ)EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 29 
+
+being ψ := ¯ w|S+ . By (4.12) it follows that (4.35) 
+
+Z
+
+> S+
+
+θ1−2sn+1 |ψ|2 dS = 1 ,
+
+hence ψ̸ ≡ 0 on S+. We observe that ψ ∈ H1even (S+, θ 1−2sn+1 dS ), since wλnk is even with respect to the variable xn by (4.1) and (4.2). Thus, substituting (4.34) into (4.13), we find that γ(γ + n − 2s)
+
+is an eigenvalue of problem (3.1) with ψ as an associated eigenfunction. □
+
+Corollary 4.4. Let γ be as in (2.90) . Then there exists m0 ∈ N (even if n = 1 ) such that 
+
+γ = m0.
+
+Proof. By Lemma 4.3, γ(γ + n − 2s) is an eigenvalue of (3.1) in the sense of Definition 3.1. Hence, by Proposition 3.2, there exists m0 ∈ N (which is even if n = 1 ) such that 
+
+γ(γ + n − 2s) = m0(m0 + n − 2s).
+
+The conclusion follows from (2.91) and the fact that the function t 7 → t(t + n − 2s) is injective on  − n−2s 
+
+> 2
+
+, +∞. □
+
+The next step is to show that lim r→0+ r−2γ H(r) = lim r→0+ r−2m0 is strictly positive (it is already known to be finite thanks to Lemma 2.18). To this end, we derive an asymptotic expansion of the Fourier coefficients of w ∈ H1(B+ 
+
+> r0
+
+, t 1−2sdz ).Let {μm}m∈N be the eigenvalues of problem (3.1), explicity characterized in (3.3) by Propo-sition 3.2. For every m ∈ N, let Mm be the multiplicity of the eigenvalue μm. By the Spectral Theorem, there exists an orthonormal basis {Ym,k }m∈N, k =1 ,2,...,M m of 
+
+L2even (S+, θ 1−2sn+1 dS ) := {Ψ ∈ L2(S+, θ 1−2sn+1 dS ) : Ψ( θ′, θ n, θ n+1 ) = Ψ( θ′, −θn, θ n+1 )},
+
+such that, for every m ∈ N, {Ym,k }k=1 ,2,...,M m is a basis of the eigenspace associated with the eigenvalue μm.For every m ∈ N, k = 1 , 2, . . . , M m, and λ ∈ (0 , r 0], we define (4.36) φm,k (λ) := 
+
+Z
+
+> S+
+
+θ1−2sn+1 w(λθ )Ym,k (θ) dS. 
+
+For future reference, we also introduce, for every m ∈ N, k = 1 , 2, . . . , M m, and λ ∈ (0 , r 0),
+
+Υm,k (λ) := −
+
+Z
+
+> B+
+> λ
+
+t1−2s(A − Id n+1 )∇w · ∇SYm,k 
+
+  z
+
+> |z|
+
+
+
+|z| dz (4.37) 
+
+−
+
+Z
+
+> B+
+> λ
+
+t1−2s eb(x) · ∇ xw + ˜ a(x)wYm,k 
+
+  z
+
+> |z|
+
+ dz 
+
++
+
+Z
+
+> ∂+B+
+> λ
+
+t1−2s(A − Id n+1 )∇w · z
+
+|z| Ym,k 
+
+  z
+
+> |z|
+
+ dS +
+
+Z
+
+> B′
+> λ
+
+˜h(x) Tr w(x) Tr Ym,k 
+
+  x
+
+> |x|
+
+ dx. 
+
+It is straightforward to verify that Υm,k ∈ L1(0 , r 0).
+
+Proposition 4.5. Let m0 ∈ N be given by Corollary 4.4 and ε > 0 by (2.56) . Let φm0,k be defined in (4.36) for every k = 1 , 2, . . . , M m0 . Then, for every r ∈ (0 , r 0],
+
+(4.38) φm0,k (λ) = λm0
+
+ φm0,k (r)
+
+rm0 + m0r−2m0−n+2 s
+
+2m0 + n − 2s
+
+Z r
+
+> 0
+
+τ m0−1Υm0,k (τ )dτ 
+
+
+
++ m0 + n − 2s
+
+2m0 + n − 2s λm0
+
+Z rλ
+
+τ −m0−n−1+2 sΥm0,k (τ )dτ + O(λm0+ε)
+
+as λ → 0+.Proof. Let 1 ≤ k ≤ Mm0 . Testing (2.18) by ϕ(|z|)|z|−n−1+2 sYm0,k 
+
+  z
+
+> |z|
+
+ for any ϕ ∈ D (0 , r 0), and recalling that Ym0,k satisfies (3.2) with μ = μm0 = m0(m0 + n − 2s), we obtain that φm0,k satisfies (4.39) −φ′′  
+
+> m0,k
+
+− n + 1 − 2sλ φ′ 
+
+> m0,k
+
++ μm0
+
+λ2 φm0,k = Zm0,k ,30 ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+in a distributional sense on (0 , r 0), where Zm0,k is the distribution on (0 , r 0) defined as 
+
+> D′(0 ,r 0)
+
+⟨Zm0,k , ϕ ⟩D(0 ,r 0) := −
+
+Z
+
+> B+
+> r0
+
+t1−2s(A − Id n+1 )∇w · ∇ 
+
+
+
+ϕ(|z|)|z|−n−1+2 sYm0,k 
+
+  z
+
+> |z|
+
+
+
+dz 
+
+−
+
+Z
+
+> B+
+> r0
+
+t1−2s(eb · ∇ xw + ˜ aw )ϕ(|z|)|z|−n−1+2 sYm0,k 
+
+  z
+
+> |z|
+
+ dz 
+
++
+
+Z
+
+> B′
+> r0
+
+˜h(x) Tr w(x) Tr Ym0,k 
+
+  x
+
+> |x|
+
+ϕ(|x|)|x|−n−1+2 s dx 
+
+for every ϕ ∈ D (0 , r 0), i.e. 
+
+> D′(0 ,r 0)
+
+⟨Zm0,k , ϕ ⟩D(0 ,r 0)(4.40) 
+
+:= −
+
+Z r0
+
+> 0
+
+(r−n−1+2 sϕ)′(r)
+
+Z 
+
+> ∂+B+
+> r
+
+t1−2s(A − Id n+1 )∇w · z
+
+|z| Ym0,k 
+
+  z
+
+> |z|
+
+ dS 
+
+
+
+dr 
+
+−
+
+Z r0
+
+> 0
+
+r−n−1+2 sϕ(r)
+
+Z 
+
+> ∂+B+
+> r
+
+t1−2s(A − Id n+1 )∇w · ∇SYm0,k 
+
+|z| dS 
+
+
+
+dr 
+
+−
+
+Z r0
+
+> 0
+
+Z 
+
+> ∂+B+
+> r
+
+t1−2s(eb · ∇ xw + ˜ aw )Ym0,k 
+
+  z
+
+> |z|
+
+ dS 
+
+
+
+r−n−1+2 sϕ(r) dr 
+
++
+
+Z r0
+
+> 0
+
+Z 
+
+> Sr
+
+˜h(x) Tr w(x) Tr Ym0,k 
+
+  x
+
+> |x|
+
+ dS ′
+
+
+
+r−n−1+2 sϕ(r) dr 
+
+for every ϕ ∈ D (0 , r 0). From (4.40) it directly follows that, in a distributional sense on (0 , r 0),
+
+Zm0,k (λ) = λ−n−1+2 sΥ′
+
+> m0,k
+
+(λ),
+
+being Υm0,k defined as in (4.37). This allows us to rewrite (4.39) as 
+
+−(λ2m0+n+1 −2s(λ−m0 φm0,k (λ)) ′)′ = λm0 Υ′
+
+> m0,k
+
+(λ).
+
+For any r ∈ (0 , r 0], an integration over (λ, r ) yields 
+
+(λ−m0 φm0,k (λ)) ′ = −λ−m0−n−1+2 sΥm0,k (λ)
+
+− m0λ−2m0−n−1+2 s
+
+
+
+cm0,k (r) + 
+
+Z rλ
+
+τ m0−1Υm0,k (τ ) dτ 
+
+
+
+for some constant cm0,k (r) ∈ R depending only on m0, k and r. Integrating again over (λ, r ), we obtain 
+
+φm0,k (λ) = λm0 φm0,k (r)
+
+rm0 − λm0 cm0,k (r) m0r−2m0−n+2 s
+
+2m0 + n − 2s
+
+(4.41) 
+
++ m0
+
+λ−m0−n+2 s
+
+2m0 + n − 2s
+
+
+
+cm0,k (r) + 
+
+Z rλ
+
+τ m0−1Υm0,k (τ ) dτ 
+
+
+
++ λm0 (m0 + n − 2s)2m0 + n − 2s
+
+Z rλ
+
+τ −m0−n−1+2 sΥm0,k (τ ) dτ. 
+
+We claim that (4.42) 
+
+Z r0
+
+> 0
+
+τ −m0−n−1+2 s|Υm0,k (τ )| dτ < +∞.EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 31 
+
+To prove (4.42), we first notice that 
+
+τ −m0−n−1+2 s
+
+Z
+
+> B+
+> τ
+
+t1−2s(A − Id n+1 )∇w · ∇SYm0,k 
+
+  z
+
+> |z|
+
+
+
+|z| dz (4.43) 
+
+= O(τ −m0−n+2 s)
+
+Z 
+
+> B+
+> τ
+
+t1−2s|∇ w|2 dz 
+
+1/2 Z
+
+> B+
+> τ
+
+t1−2s |∇ SYm0,k ( z 
+
+> |z|
+
+)|2
+
+|z|2 dz 
+
+!1/2
+
+= O(τ −m0 )pH(τ )
+
+Z
+
+> B+1
+
+t1−2s|∇ wτ |2 dz 
+
+!1/2 Z
+
+> B+1
+
+t1−2s |∇ SYm0,k ( z 
+
+> |z|
+
+)|2
+
+|z|2 dz 
+
+!1/2
+
+= O(1) as τ → 0+,
+
+where we used (2.26), Hölder’s inequality, (4.5), (2.92), and Lemma 4.1, as well as the facts that 
+
+n > 2s and Ym0,k ∈ H1(S+, θ 1−2sn+1 dS ).Furthermore, by (2.21), Hölder’s inequality, the fact that Ym0,k ∈ L2(S+, θ 1−2sn+1 dS ), (4.5), Lemma 4.1, and (2.92), 
+
+τ −m0−n−1+2 s
+
+Z
+
+> B+
+> τ
+
+t1−2s eb(x) · ∇ xw + ˜ a(x)wYm0,k 
+
+  z
+
+> |z|
+
+ dz (4.44) 
+
+= O(τ −m0−n−1+2 s)
+
+Z 
+
+> B+
+> τ
+
+t1−2s Ym0,k 
+
+  z
+
+> |z|
+
+ 2
+
+dz 
+
+1/2
+
+××
+
+Z 
+
+> B+
+> τ
+
+t1−2s|∇ w|2 dz 
+
+1/2
+
++
+
+Z 
+
+> B+
+> τ
+
+t1−2s|w|2 dz 
+
+1/2!
+
+= O(τ −m0 )pH(τ )
+
+Z
+
+> B+1
+
+t1−2s|∇ wτ |2 dz 
+
+!1/2
+
++ τ
+
+Z
+
+> B+1
+
+t1−2s|wτ |2 dz 
+
+!1/2
+
+= O(1) as τ → 0+.By (2.26), an integration by parts, Hölder’s inequality, Lemma 4.1 and (2.92), we have that, for every r ∈ (0 , r 0],
+
+Z r
+
+> 0
+
+τ −m0−n−1+2 s
+
+Z
+
+> ∂+B+
+> τ
+
+t1−2s(A − Id n+1 )∇w · z
+
+|z| Ym0,k 
+
+  z
+
+> |z|
+
+ dS dτ (4.45) 
+
+≤ const 
+
+Z r
+
+> 0
+
+τ −m0−n+2 s
+
+Z 
+
+> ∂+B+
+> τ
+
+t1−2s|∇ w| Ym0,k 
+
+  z
+
+> |z|
+
+ dS 
+
+
+
+dτ 
+
+= const 
+
+
+
+r−m0−n+2 s
+
+Z
+
+> B+
+> r
+
+t1−2s|∇ w| Ym0,k 
+
+  z
+
+> |z|
+
+ dz 
+
++ ( m0 + n − 2s)
+
+Z r
+
+> 0
+
+τ −m0−n−1+2 s
+
+Z 
+
+> B+
+> τ
+
+t1−2s|∇ w| Ym0,k 
+
+  z
+
+> |z|
+
+ dz 
+
+
+
+dτ 
+
+
+
+≤ const 
+
+
+
+r−m0+1 pH(τ ) + 
+
+Z r
+
+> 0
+
+τ −m0
+
+pH(τ ) dτ 
+
+
+
+≤ const r, 
+
+for some constants const > 0 that may vary from line to line and are independent of r.Finally, after a change of variables, we apply Hölder’s inequality to ˜h(τ ·) ∈ Lp(B′
+
+> 1
+
+) and 
+
+Tr wτ , Tr Ym0,k ∈ L2∗ 
+
+> s
+
+(B′
+
+> 1
+
+); then, in view of (2.92), Lemma 2.5, (2.32), (4.6), and Lemma 4.1, 32 ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+we obtain that 
+
+τ −m0−n−1+2 s
+
+Z
+
+> B′
+> τ
+
+˜h(x) Tr w Tr Ym0,k 
+
+  x
+
+> |x|
+
+ dx (4.46) 
+
+= τ −m0−1+2 spH(τ )
+
+Z
+
+> B′
+> 1
+
+˜h(τ x ) Tr wτ (x) Tr Ym0,k 
+
+  x
+
+> |x|
+
+ dx 
+
+≤ const 
+
+τ 1−2s ∥˜h(τ ·)∥Lp(B′ 
+
+> 1)
+
+2( n − 2s)
+
+Z
+
+> S+
+
+θ1−2sn+1 μ(τ ·)|wτ |2 dS +
+
+Z
+
+> B+1
+
+t1−2s|∇ wτ |2 dz 
+
+! 12
+
+= const τ −1+2 s− np ∥˜h∥Lp(B′ 
+
+> τ)
+
+
+
+2( n − 2s) + 
+
+Z
+
+> B+1
+
+t1−2s|∇ wτ |2 dz 
+
+12
+
+≤ const τ −1+ 2sp −np .
+
+Combining (4.43), (4.44), (4.45), and(4.46) yields, for every r ∈ (0 , r 0],(4.47) 
+
+Z r
+
+> 0
+
+τ −m0−n−1+2 s|Υm0,k (τ )| dτ ≤ const 
+
+
+
+r +
+
+Z r
+
+> 0
+
+τ −1+ 2sp −np dτ 
+
+
+
+≤ const rε,
+
+for some constants const > 0 independent of r, where ε is defined in (2.56). In particular, estimate (4.47) implies (4.42). We next prove that, for every r ∈ (0 , r 0],(4.48) cm0,k (r) + 
+
+Z r
+
+> 0
+
+τ m0−1Υm0,k (τ ) dτ = 0 .
+
+To this aim, we argue by contradiction: if (4.48) is not true, then (4.41) and (4.42) imply that 
+
+φm0,k (λ) ∼ m0
+
+λ−m0−n+2 s
+
+2m0 + n − 2s
+
+
+
+cm0,k (r) + 
+
+Z r
+
+> 0
+
+τ m0−1Υm0,k (τ ) dτ 
+
+
+
+as λ → 0+. This, combined with the Parseval identity, yields 
+
+Z
+
+> B+
+> r0
+
+t1−2s w2
+
+|z|2 dz =
+
+Z r0
+
+> 0
+
+λn−1−2s
+
+Z 
+
+> S+
+
+θ1−2sn+1 |w(λθ )|2 dS 
+
+
+
+dλ 
+
+≥
+
+Z r0
+
+> 0
+
+λn−1−2s|φm0,k (λ)|2 dλ = + ∞,
+
+thus giving rise to a contradiction, because the left-hand side is finite as a result of [9, Lemma 2.4], see also Lemma 2.7. Claim (4.48) is thereby proved. To complete the proof, in view of (4.41) and (4.48) it is enough to observe that 
+
+λ−m0−n+2 s cm0,k (r) + 
+
+Z rλ
+
+τ m0−1Υm0,k (τ ) dτ = λ−m0−n+2 s
+
+Z λ
+
+> 0
+
+τ m0−1Υm0,k (τ ) dτ 
+
+= O(λm0+ε) as λ → 0+,
+
+as a consequence of (4.47). □
+
+The following result finally allows us to identify the exact order of vanishing of H(λ) as λ → 0+.
+
+Proposition 4.6. Let m0 ∈ N be as in Corollary 4.4. Then 
+
+lim 
+
+> λ→0+
+
+H(λ)
+
+λ2m0 > 0.
+
+Proof. By (4.36), the Parseval identity, (2.31), and (2.44), we have that 
+
+> ∞
+
+X
+
+> m=0
+> Mm
+
+X
+
+> k=1
+
+|φm,k (λ)|2 =
+
+Z
+
+> S+
+
+θ1−2sn+1 |w(λθ )|2 dS = (1 + O(λ)) 
+
+Z
+
+> S+
+
+θ1−2sn+1 μ(λθ )|w(λθ )|2 dS 
+
+= (1 + O(λ)) H(λ) as λ → 0+.EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 33 
+
+If we assume by contradiction that lim λ→0+ H(λ) 
+
+> λ2m0
+
+= 0 , this implies 
+
+lim 
+
+> λ→0+
+
+φm0,k (λ)
+
+λm0 = 0 for every k = 1 , 2, . . . , M m0 ,
+
+which, in view of (4.38) and (4.47), yields 
+
+φm0,k (r)
+
+rm0 + m0r−2m0−n+2 s
+
+2m0 + n − 2s
+
+Z r
+
+> 0
+
+τ m0−1Υm0,k (τ )dτ 
+
++ m0 + n − 2s
+
+2m0 + n − 2s
+
+Z r
+
+> 0
+
+τ −m0−n−1+2 sΥm0,k (τ )dτ = 0 
+
+for every k = 1 , 2, . . . , M m0 and r ∈ (0 , r 0]. Plugging the above identity into (4.38) yields, for every k = 1 , 2, . . . , M m0 ,
+
+φm0,k (λ) = − m0 + n − 2s
+
+2m0 + n − 2s λm0
+
+Z λ
+
+> 0
+
+τ −m0−n−1+2 sΥm0,k (τ )dτ + O(λm0+ε)
+
+as λ → 0+. From this and (4.47) it follows that φm0,k (λ) = O(λm0+ε) as λ → 0+, i.e., by (4.36), 
+
+Z
+
+> S+
+
+θ1−2sn+1 w(λθ )Ym0,k (θ) dS = O(λm0+ε) as λ → 0+
+
+for every k = 1 , 2, . . . , M m0 . The above estimate, together with (4.2) and (2.93) for δ = ε, implies that (4.49) 
+
+Z
+
+> S+
+
+θ1−2sn+1 wλ(θ)Ym0,k (θ) dS = O(λε/ 2) as λ → 0+,
+
+for every k = 1 , 2, . . . , M m0 .By Lemma 4.3 and the continuity of the trace map (2.38), for any sequence λℓ → 0+, there exist a subsequence λℓk → 0+ and an L2-normalized eigenfunction ψ of problem (3.1) associated with the eigenvalue μm0 such that wλℓk → ψ in L2(S+, θ 1−2sn+1 ds ) as k → ∞ . Thus, together with (4.35), we obtain that 
+
+Z
+
+> S+
+
+θ1−2sn+1 wλℓk (θ)ψ(θ) dS →
+
+Z
+
+> S+
+
+θ1−2sn+1 |ψ(θ)|2 dS = 1 as k → ∞ ,
+
+as {Ym0,k }k=1 ,2,...,M m0 is a basis for the eigenspace corresponding to the eigenvalue μm0 . This contradicts (4.49), thereby completing the proof. □
+
+4.2. Local asymptotics and strong unique continuation principle. In view of Proposition 4.6, the preliminary blow-up result obtained in Lemma 4.3 takes the following sharper form. 
+
+Theorem 4.7. Let w ∈ H1(B+ 
+
+> r0
+
+, t 1−2sdz ) be a non-trivial weak solution to problem (2.18) . Let 
+
+m0 ∈ N be as in Corollary 4.4, let Mm0 be the multiplicity of the eigenvalue μm0 , and let 
+
+{Ym0,k }k=1 ,2,...,M m0 be an associated orthonormal eigenbasis. Then there exists a nonzero vec-tor (β1, . . . , β Mm0 ) ∈ RMm0 such that 
+
+w(λz )
+
+λm0 → | z|m0
+
+> Mm0
+
+X
+
+> k=1
+
+βkYm0,k 
+
+ z
+
+|z|
+
+
+
+in H1(B+1 , t 1−2sdz ) as λ → 0+.
+
+Proof. By (2.18), Lemma 4.3, and Proposition 4.6, for any sequence λℓ → 0+ there exist a subse-quence λℓj → 0+ and a nonzero vector (β1, . . . , β Mm0 ) ∈ RMm0 such that (4.50) w(λℓj z)
+
+λm0
+
+> ℓj
+
+→ | z|m0
+
+> Mm0
+
+X
+
+> k=1
+
+βkYm0,k 
+
+ z
+
+|z|
+
+
+
+in H1(B+1 , t 1−2sdz ) as j → ∞ .
+
+To prove that the above convergence holds as λ → 0+, we will show that the real numbers 
+
+β1, . . . , β Mm0 , and consequently the entire limit profile, depend on neither λℓ nor λℓj . Indeed, 34 ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+from (4.38) and (4.42) it follows that, for every k = 1 , 2, . . . , M m0 and r ∈ (0 , r 0],
+
+lim 
+
+> j→∞
+
+φm0,k (λℓj )
+
+λm0
+
+> ℓj
+
+= φm0,k (r)
+
+rm0 + m0r−2m0−n+2 s
+
+2m0 + n − 2s
+
+Z r
+
+> 0
+
+τ m0−1Υm0,k (τ ) dτ (4.51) 
+
++ m0 + n − 2s
+
+2m0 + n − 2s
+
+Z r
+
+> 0
+
+τ −m0−n−1+2 sΥm0,k (τ ) dτ. 
+
+On the other hand, by the definition of φm0,k given in (4.36), we have 
+
+lim 
+
+> j→∞
+
+φm0,k (λℓj )
+
+λm0
+
+> ℓj
+
+= lim 
+
+> j→∞
+
+Z
+
+> S+
+
+θ1−2sn+1 
+
+w(λℓj θ)
+
+λm0
+
+> ℓj
+
+Ym0,k (θ) dS (4.52) 
+
+=
+
+> Mm0
+
+X
+
+> i=1
+
+βi
+
+Z
+
+> S+
+
+θ1−2sn+1 Ym0,i (θ)Ym0,k (θ) dS = βk,
+
+where we have used (4.50) and the continuity of the trace map (2.38). Combining (4.51) and (4.52), we complete the proof. □
+
+We are finally ready to prove Theorem 1.1. 
+
+Proof of Theorem 1.1. Up to rigid motions, it is not restrictive to assume that x0 = 0 ∈ ∂Ω and (2.4), (2.5), and (2.7) are satisfied. In this case, the outer normal vector to ∂Ω at x0 = 0 is 
+
+N0 = ν(x0) = (0 , . . . , 0, 1) ∈ Rn, so that, for any δ > 0, Cδ := {x ∈ Rn : xn < −δ|x′|} .Let v ∈ H1(CΩ, t 1−2sdz ) be a nontrivial weak solution to problem (1.3). Then the function 
+
+˜v(x, t ) := e−αd (x)v(x, t ) ∈ H1(CΩ ∩ B1, t 1−2sdz ) is a nontrivial weak solution to (2.2). Let us fix δ > 0. We observe that 
+
+(( Cδ × (0 , T )) ∩ B1 ⊂ C Ω
+
+> λ
+
+∩ B1 for sufficiently small λ > 0.
+
+As a result, the function ˜vλ := ˜ v(λ·) ∈ H1(( Cδ × (0 , T )) ∩ B1, t 1−2sdz ) for sufficiently small λ > 0.Let F be the diffeomorphism introduced in Proposition 2.1, ˆv := ˜ v ◦ F , and let w be defined as in (2.17). Then, for every z ∈ (Cδ × (0 , T )) ∩ B1,(4.53) ˜vλ(z) = wλ
+
+ F −1(λz )
+
+λ
+
+
+
+,
+
+being wλ := w(λ·), and consequently (4.54) ∇˜vλ(z) = ∇wλ
+
+ F −1(λz )
+
+λ
+
+
+
+JF −1 (λz ).
+
+At this point, we exploit the asymptotics in (2.8) and (2.11) to deduce that 
+
+F −1(λz )
+
+λ − z → 0 and ∥JF −1 (λz ) − Id n+1 ∥ → 0
+
+as λ → 0+, uniformly with respect to z. By Theorem 4.7 and Proposition 3.2-(ii) there exist 
+
+m0 ∈ N and a nontrivial homogeneous polynomial P (z) = P (x′, x n, t ) of degree m0 (even with respect to both xn and t) such that div( |t|1−2s∇P ) = 0 in Rn+1 and (4.55) w(λz )
+
+λm0 → P (z) as λ → 0+ in H1(B+ 
+
+> R
+
+, t 1−2sdz ) for every R > 0.
+
+Combining (4.53), (4.54), and (4.55), we deduce that (4.56) ˜v(λz )
+
+λm0 → P (z) as λ → 0+ in H1(( Cδ × (0 , T )) ∩ B1, t 1−2sdz ).EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 35 
+
+To complete the proof, we observe that, since 0 ∈ ∂Ω, d(λx ) ≤ | λx | ≤ λ for every x ∈ B′ 
+
+> 1
+
+and 
+
+λ > 0, so that (eαd (λx ) − 1) 2 ≤ (eαλ − 1) 2; moreover, |∇ d| ≤ 1. Hence, by (4.56) 
+
+Z  
+
+> (Cδ×(0 ,T )) ∩B1
+
+t1−2s ˜v(λz )
+
+λm0 − v(λz )
+
+λm0
+
+> 2
+
+dz (4.57) 
+
+=
+
+Z  
+
+> (Cδ×(0 ,T )) ∩B1
+
+t1−2s(eαd (λx ) − 1) 2 ˜v(λz )
+
+λm0
+
+> 2
+
+dz 
+
+≤ (eαλ − 1) 2
+
+Z  
+
+> (Cδ×(0 ,T )) ∩B1
+
+t1−2s ˜v(λz )
+
+λm0
+
+> 2
+
+dz → 0
+
+and 
+
+Z  
+
+> (Cδ×(0 ,T )) ∩B1
+
+t1−2s ∇
+
+ ˜v(λz )
+
+λm0
+
+
+
+− ∇ 
+
+ v(λz )
+
+λm0
+
+ 2
+
+dz (4.58) 
+
+≤ 2
+
+Z  
+
+> (Cδ×(0 ,T )) ∩B1
+
+t1−2s(eαd (λx ) − 1) 2 ∇
+
+ ˜v(λz )
+
+λm0
+
+ 2
+
+dz 
+
++ 2 λ2α2
+
+Z  
+
+> (Cδ×(0 ,T )) ∩B1
+
+t1−2se2αd (λx )|∇ d(λx )|2 ˜v(λz )
+
+λm0
+
+> 2
+
+dz 
+
+≤ 2( eαλ − 1) 2
+
+Z  
+
+> (Cδ×(0 ,T )) ∩B1
+
+t1−2s ∇
+
+ ˜v(λz )
+
+λm0
+
+ 2
+
+dz 
+
++ 2 λ2α2e2αλ 
+
+Z  
+
+> (Cδ×(0 ,T )) ∩B1
+
+t1−2s ˜v(λz )
+
+λm0
+
+> 2
+
+dz → 0
+
+as λ → 0+. The convergence of λ−m0 v(λ·) to P in H1(( Cδ × (0 , T )) ∩ B1, t 1−2sdz ) then follows from (4.56), (4.57), and (4.58). To prove the convergence in C0,τ  
+
+> loc
+
+(( Cδ \ { 0}) × [0 , ∞)) for some τ > 0, we first observe that, letting ˆvλ := λ−m0 v(λ·), for every R, δ > 0, there exists ¯λδ > 0 such that the family of functions 
+
+{ˆvλ}λ∈(0 ,¯λδ ) is bounded in H1(( Cδ/ 3 × (0 , ∞)) ∩ B3R, t 1−2sdz ). Moreover, each ˆvλ weakly solves 
+
+( − div( t1−2s∇ˆvλ) = 0 in C 1 
+
+> λΩ
+
+,
+
+− lim t→0+ t1−2s∂t ˆvλ = λ2sh(λx ) Tr ˆ vλ on 1 
+
+> λ
+
+Ω.
+
+By (1.5), the family {λ2sh(λ·)}λ∈(0 ,¯λδ ) is bounded in Lp(Cδ/ 3 ∩ B′
+
+> 3R
+
+). By [14, Proposition 2.6, (i)] we have that {ˆvλ}λ∈(0 ,¯λδ ) is bounded in L∞((( Cδ/ 2 \ B′
+
+> r/ 2
+
+) × (0 , ∞)) ∩ B2R) for any r ∈ (0 , R ). In this regard, we point out that [14, Proposition 2.6, (i)] would yield an estimate with a constant depending on the Lp norm of λ2sh(λ·); however, by analyzing the proof, one can easily see that in our case such a constant is uniformly bounded in λ since {λ2sh(λ·)}λ∈(0 ,¯λδ ) is bounded in 
+
+Lp(Cδ/ 3 ∩ B′
+
+> 3R
+
+). Hence, {λ2sh(λx ) Tr ˆ vλ}λ∈(0 ,¯λδ ) is bounded in Lp(( Cδ/ 2 \ B′
+
+> r/ 2
+
+) ∩ B′
+
+> 2R
+
+), so that from part (iii) of [14, Proposition 2.6] we deduce that {ˆvλ}λ∈(0 ,¯λδ ) is bounded in C0,ρ ((( Cδ \ Br ) ×
+
+[0 , ∞)) ∩ BR) for any r ∈ (0 , R ) and some ρ ∈ (0 , 1) . This yields the conclusion in view of the compact embedding of C0,ρ into C0,τ for all 0 < τ < ρ . □
+
+Remark 4.8. Since the analysis conducted so far has in fact been based on equation (2.2) and works for any equation of that form provided that a and b are in L∞, we can allow a drift term and a zero-order term in equation (1.3) right from the start, meaning that Theorem 1.1 and Corollary 1.3-(i) hold for any equation of form 
+
+(4.59) − div( t1−2s∇v) + t1−2sb(x) · ∇ xv + t1−2sa(x)v = 0 ,
+
+with 
+
+b ∈ L∞(Ω , Rn) and a ∈ L∞(Ω) .36 ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+5. Application to the Neumann and Robin spectral fractional Laplacians 
+
+In this section we provide a rigorous definition of the Robin spectral fractional Laplacian 
+
+(−∆R,α )s of order s ∈ (0 , 1) and coefficient α ≥ 0, appearing in (1.9). In particular, Subsec-tion 5.1 is devoted to the case α = 0 , corresponding to the Neumann spectral fractional Laplacian, while Subsection 5.2 addresses the case α > 0. For the sake of simplicity, we denote (−∆R, 0)s by 
+
+(−∆N )s.5.1. Extension for the Neumann spectral fractional Laplacian. Let us consider the clas-sical eigenvalue problem for the Neumann Laplacian in a bounded open domain Ω ⊂ Rn of class 
+
+C1,1, i.e. (5.1) 
+
+(
+
+−∆ϕ = λϕ in Ω ,∂ν ϕ = 0 on ∂Ω.
+
+Classic spectral theory ensures the existence of a diverging sequence {λk}k≥0 of nonnegative eigenvalues of problem (5.1), with 0 = λ0 < λ 1 ≤ λ2 ≤ · · · ≤ λk → +∞ counted with their multiplicities. For each k ≥ 0, we can choose an eigenfunction ϕk associated with the eigenvalue 
+
+λk such that {ϕk}k≥0 forms an orthonormal basis for L2(Ω) . Note that the multiplicity of λ0 is 1, with ϕ0 ≡ 1√|Ω| . For a given s ∈ (0 , 1) , let us define the following linear space: 
+
+Hs(Ω) = 
+
+(
+
+v ∈ L2(Ω) : 
+
+Z
+
+> Ω
+
+v(x) dx = 0 and 
+
+> ∞
+
+X
+
+> k=1
+
+λsk⟨v, ϕ k⟩2 
+
+> L2(Ω)
+
+< +∞
+
+)
+
+,
+
+endowed with the scalar product 
+
+⟨v, w ⟩Hs(Ω) =
+
+> ∞
+
+X
+
+> k=1
+
+λsk⟨v, ϕ k⟩L2(Ω) ⟨w, ϕ k⟩L2(Ω) .
+
+We observe that ⟨· , ·⟩ Hs(Ω) is indeed a scalar on Hs(Ω) due to the zero–mean condition imposed on Hs(Ω) , which implies orthogonality to the eigenfunctions {ϕk}k≥1. Furthermore, Hs(Ω) with the scalar product ⟨· , ·⟩ Hs(Ω) is a Hilbert space. We consider the operator 
+
+Ls : Hs(Ω) → (Hs(Ω)) ∗,
+
+mapping each v ∈ H s(Ω) to Lsv, where Lsv belongs to the dual space (Hs(Ω)) ∗ and acts as  
+
+> (Hs(Ω)) ∗
+
+⟨L sv, w ⟩Hs(Ω) = ⟨v, w ⟩Hs(Ω) for all w ∈ H s(Ω) .
+
+Following [3, 21], see also [18, 25], given v ∈ H s(Ω) , we define its extension on the semi-infinite cylinder C∞ 
+
+> Ω
+
+= Ω × (0 , +∞) as (5.2) EN (v) : C∞ 
+
+> Ω
+
+→ R, EN (v)( x, t ) := V (x, t ) = 
+
+> ∞
+
+X
+
+> k=1
+
+vkhk(t)ϕk(x),
+
+where vk = ⟨v, ϕ k⟩L2(Ω) and hk is the unique solution of the ODE 
+
+
+
+h′′ + 1−2st h′ − λkh = 0 in (0 , +∞),h(0) = 1 ,h(t) → 0 as t → +∞.
+
+As observed in [3], for every k ≥ 1 hk satisfies 
+
+− lim 
+
+> t→0+
+
+t1−2sh′
+
+> k
+
+(t) = κsλsk,
+
+where κs > 0 is a positive constant depending only on s.The extended function V defined in (5.2) belongs to the space 
+
+H1(C∞ 
+
+> Ω
+
+, t 1−2sdz ) := 
+
+
+
+W ∈ H1(C∞ 
+
+> Ω
+
+, t 1−2sdz ) : 
+
+Z
+
+> Ω
+
+W (x, t )dx = 0 for every t > 0
+
+
+
+,EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 37 
+
+satisfies Z
+
+> C∞
+> Ω
+
+t1−2s|∇ V |2 dz = κs ⟨v, v ⟩Hs(Ω) 
+
+and 
+
+Tr V = v
+
+where Tr is the trace map in (1.4). This in particular implies that Hs(Ω) ⊆ Hs(Ω) with continuous embedding. Furthermore, for every Φ ∈ H1(C∞ 
+
+> Ω
+
+, t 1−2sdz )Tr Φ − −
+
+R 
+
+> Ω
+
+Tr Φ ∈ H s(Ω) 
+
+and 
+
+κs Tr Φ − −
+
+R 
+
+> Ω
+
+Tr Φ , Tr Φ − −
+
+R 
+
+> Ω
+
+Tr Φ Hs(Ω) ≤
+
+Z
+
+> C∞
+> Ω
+
+t1−2s|∇ Φ|2 dz. 
+
+In particular, we have 
+
+Hs(Ω) =  Tr Φ − −
+
+R 
+
+> Ω
+
+Tr Φ : Φ ∈ H1(C∞ 
+
+> Ω
+
+, t 1−2sdz ) .
+
+It is possible to show that, if v ∈ H s(Ω) and V = EN (v) is its extension as in (5.2), then 
+
+Z
+
+> C∞
+> Ω
+
+t1−2s∇V · ∇ Φ = κs v, Tr Φ − −
+
+R 
+
+> Ω
+
+Tr Φ Hs(Ω) for all Φ ∈ H1(C∞ 
+
+> Ω
+
+, t 1−2sdz ),
+
+so that V weakly solves 
+
+
+
+− div( t1−2s∇V ) = 0 in C∞ 
+
+> Ω
+
+,
+
+∇xV · ν = 0 on ∂LC∞ 
+
+> Ω
+
+:= ∂Ω × [0 , +∞),
+
+Tr V = v on Ω,
+
+− lim t→0+ t1−2s∂tV = κs Lsv on Ω.
+
+Let us now consider the Hilbert space 
+
+HsN (Ω) := 
+
+(
+
+v ∈ L2(Ω) : 
+
+> ∞
+
+X
+
+> k=1
+
+λsk⟨v, ϕ k⟩2 
+
+> L2(Ω)
+
+< +∞
+
+)
+
+,
+
+equipped with the scalar product 
+
+⟨v, w ⟩HsN (Ω) = ⟨v, w ⟩L2(Ω) + ⟨v, w ⟩Hs(Ω) .
+
+We define the Neumann spectral fractional Laplacian as the operator 
+
+(−∆N )s : HsN (Ω) → (HsN (Ω)) ∗
+
+acting on any v ∈ HsN (Ω) as   
+
+> (HsN(Ω)) ∗
+
+⟨(−∆N )sv, w ⟩HsN (Ω) =
+
+> ∞
+
+X
+
+> k=1
+
+λsk⟨v, ϕ k⟩L2(Ω) ⟨w, ϕ k⟩L2(Ω) 
+
+= v − −
+
+R
+
+> Ω
+
+v, w − −
+
+R
+
+> Ω
+
+w Hs(Ω) for all w ∈ HsN (Ω) .
+
+By a weak solution to problem (1.9) with α = 0 we mean a function u ∈ HsN (Ω) such that (5.3) (HsN (Ω)) ∗ ⟨(−∆N )su, ψ ⟩HsN (Ω) =
+
+Z
+
+> Ω
+
+ξ(x)u(x)ψ(x) dx for all ψ ∈ HsN (Ω) .
+
+Notice that, given u ∈ HsN (Ω) , the function v = u − −
+
+R 
+
+> Ω
+
+u belongs to Hs(Ω) . Moreover, 
+
+(−∆N )su = Ls
+
+
+
+u − − 
+
+Z
+
+> Ω
+
+u
+
+
+
+,
+
+with the equality understood in (Hs(Ω)) ∗, since all the eigenfunctions ϕk with k ≥ 1 are orthogonal to constant functions. We define an extension for u ∈ HsN (Ω) as (5.4) U (x, t ) := −
+
+Z
+
+> Ω
+
+u + EN
+
+
+
+u − − 
+
+Z
+
+> Ω
+
+u
+
+
+
+(x, t ).38 ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+We observe that U − −
+
+R 
+
+> Ω
+
+u ∈ H1(C∞ 
+
+> Ω
+
+, t 1−2sdz ), so that U ∈ H1(Ω × (0 , R ), t 1−2sdz ) for every R > 0;moreover, it weakly solves 
+
+
+
+− div( t1−2s∇U ) = 0 in C∞ 
+
+> Ω
+
+,
+
+∇xU · ν = 0 on ∂LC∞ 
+
+> Ω
+
+,
+
+Tr U = u on Ω ,
+
+− lim t→0+ t1−2s∂tU = κs(−∆N )su on Ω .
+
+This means that 
+
+Z
+
+> C∞
+> Ω
+
+t1−2s∇U · ∇ Ψ dz = κs u − −
+
+R
+
+> Ω
+
+u, Tr Ψ − −
+
+R 
+
+> Ω
+
+Tr Ψ Hs(Ω) 
+
+= κs (HsN (Ω)) ∗ ⟨(−∆N )su, Tr Ψ ⟩HsN (Ω) for all Ψ ∈ H1(C∞ 
+
+> Ω
+
+, t 1−2sdz ).
+
+In particular, if u ∈ HsN (Ω) is a weak solution to problem (1.9) with α = 0 , then its extension U
+
+defined in (5.4) satisfes (5.5) 
+
+Z
+
+> C∞
+> Ω
+
+t1−2s∇U · ∇ Ψ dz = κs
+
+Z
+
+> Ω
+
+ξ(x)u(x) Tr Ψ( x) dx for all Ψ ∈ H1(C∞ 
+
+> Ω
+
+, t 1−2sdz ).
+
+5.2. Extension for the Robin spectral fractional Laplacian. Let us consider the following eigenvalue problem for the Laplacian subject to Robin boundary condition with parameter α > 0:
+
+(
+
+−∆ϕ = λϕ in Ω ,∂ν ϕ + α ϕ = 0 on ∂Ω.
+
+Here Ω is a bounded domain in Rn of class C1,1. Classic spectral theory ensures the existence of a diverging sequence of positive eigenvalues {λk,α }k≥1 with 
+
+0 < λ 1,α < λ 2,α ≤ λ3,α ≤ · · · ≤ λk,α → +∞
+
+counted with their multiplicities. For every k ≥ 1, we can select an eigenfunction ϕk,α correspond-ing to the eigenvalue λk,α so that {ϕk,α }k≥1 forms an orthonormal basis for L2(Ω) . Note that the eigenvalue λ1,α is simple. For some given s ∈ (0 , 1) , we consider the following Hilbert space: 
+
+HsR,α (Ω) = 
+
+(
+
+v ∈ L2(Ω) : 
+
+> ∞
+
+X
+
+> k=1
+
+λsk,α ⟨v, ϕ k,α ⟩2 
+
+> L2(Ω)
+
+< ∞
+
+)
+
+,
+
+endowed with the scalar product 
+
+⟨v, w ⟩HsR,α (Ω) =
+
+> ∞
+
+X
+
+> k=1
+
+λsk,α ⟨v, ϕ k,α ⟩L2(Ω) ⟨w, ϕ k,α ⟩L2(Ω) .
+
+The Robin spectral fractional Laplacian is defined as the operator 
+
+(−∆R,α )s : HsR,α (Ω) → (HsR,α (Ω)) ∗
+
+acting on any v ∈ HsR,α (Ω) as  
+
+> (HsR,α (Ω)) ∗
+
+⟨(−∆R,α )sv, w ⟩HsR,α (Ω) = ⟨v, w ⟩HsR,α (Ω) for every w ∈ HsR,α (Ω) .
+
+Following [3, 21], given u ∈ HsR,α (Ω) , one can define its extension (5.6) U (x, t ) = ER,α (u)( x, t ) = 
+
+> ∞
+
+X
+
+> k=1
+
+uk,α hk,α (t)ϕk,α (x),
+
+where uk,α = ⟨u, ϕ k,α ⟩L2(Ω) and hk,α is the unique solution of the ODE 
+
+
+
+h′′ + 1−2st h′ − λk,α h = 0 in (0 , +∞),h(0) = 1 ,h(t) → 0 as t → +∞.EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 39 
+
+By [3], for every k ≥ 1 we have 
+
+− lim  
+
+> t→0+
+
+t1−2sh′
+
+> k,α
+
+(t) = κsλsk,α ,
+
+where κs > 0 is the same positive constant depending only on s appearing in Subsection 5.1. After observing that 
+
+W 7 →
+
+ Z 
+
+> C∞
+> Ω
+
+t1−2s|∇ W |2 dz + α
+
+Z
+
+> ∂LC∞
+> Ω
+
+t1−2sW 2 dS 
+
+1/2
+
+is a norm on H1(C∞ 
+
+> Ω
+
+, t 1−2sdz ) equivalent to the standard weighted norm (1.2), direct calculations show that 
+
+U ∈ H1(C∞ 
+
+> Ω
+
+, t 1−2sdz ); 
+
+furthermore, Z
+
+> C∞
+> Ω
+
+t1−2s|∇ U |2 dz + α
+
+Z
+
+> ∂LC∞
+> Ω
+
+t1−2sU 2 dS = κs⟨u, u ⟩HsR,α (Ω) 
+
+and, letting Tr be the trace map in (1.4), 
+
+Tr U = u. 
+
+In particular, this shows that HsR,α (Ω) is continuously embedded in Hs(Ω) .One can also show that, for every Φ ∈ H1(C∞ 
+
+> Ω
+
+, t 1−2sdz ),
+
+Tr Φ ∈ HsR,α (Ω) 
+
+and 
+
+κs ⟨Tr Φ , Tr Φ ⟩HsR,α (Ω) ≤
+
+Z
+
+> C∞
+> Ω
+
+t1−2s|∇ Φ|2 dz + α
+
+Z
+
+> ∂LC∞
+> Ω
+
+t1−2sΦ2 dS. 
+
+In particular, HsR,α (Ω) =  Tr Φ : Φ ∈ H1(C∞ 
+
+> Ω
+
+, t 1−2sdz ) .Finally, we observe that, if u ∈ HsR,α (Ω) and U = ER,α (u) is its extension as in (5.6), then U
+
+is a weak solution to 
+
+
+
+− div( t1−2s∇U ) = 0 in C∞ 
+
+> Ω
+
+,
+
+∇xU · ν + αU = 0 on ∂LC∞ 
+
+> Ω
+
+,
+
+Tr U = u on Ω,
+
+− lim t→0+ t1−2s∂tU = κs( − ∆R,α )su on Ω.
+
+This means that Z
+
+> C∞
+> Ω
+
+t1−2s∇U · ∇ Φ + α
+
+Z
+
+> ∂LC∞
+> Ω
+
+t1−2sU Φ dS = κs ⟨u, Tr Φ ⟩HsR,α (Ω) ,
+
+for all Φ ∈ H1(C∞ 
+
+> Ω
+
+, t 1−2sdz ).By a weak solution to problem (1.9) with α > 0 we mean a function u ∈ HsR,α (Ω) such that (5.7) ⟨u, ψ ⟩HsR,α (Ω) =
+
+Z
+
+> Ω
+
+ξ(x)u(x)ψ(x) dx for all ψ ∈ HsR,α (Ω) .
+
+Hence, if u ∈ HsR,α (Ω) is a weak solution to problem (1.9) with α > 0, then its extension U defined in (5.6) satisfes (5.8) 
+
+Z
+
+> C∞
+> Ω
+
+t1−2s∇U · ∇ Φ dz + α
+
+Z
+
+> ∂LC∞
+> Ω
+
+t1−2sU Φ dS 
+
+= κs
+
+Z
+
+> Ω
+
+ξ(x)u(x) Tr Ψ( x) dx for all Ψ ∈ H1(C∞ 
+
+> Ω
+
+, t 1−2sdz ).40 ALESSANDRA DE LUCA, VERONICA FELLI, AND STEFANO VITA 
+
+5.3. Local Asymptotics and strong unique continuation principle for solutions to the spectral fractional Laplacian. 
+
+Proof of Theorem 1.2. The proof strongly relies on the continuity of the trace map in (1.4). Indeed, let x0 ∈ ∂Ω and u be a nontrivial weak solution to (1.9) in the sense clarified in (5.3) and (5.7). We then consider its extension U , as defined in (5.2) and (5.6). Letting CΩ be as in (1.1) for any fixed T > 0, we have that U belongs to H1(CΩ, t 1−2sdz ) and weakly solves 
+
+
+
+− div( t1−2s∇U ) = 0 in CΩ,
+
+∇U · ν + αU = 0 on ∂LCΩ,
+
+Tr U = u on Ω,
+
+− lim t→0+ t1−2s∂tU = κsξu on Ω,
+
+because U satisfies (5.5) if α = 0 and (5.8) if α > 0, respectively. In any case, U is a solution to problem (1.3), in the weak formulation given in (1.6), with h = κsξ. We observe that U̸ ≡ 0,because Tr U = u̸ ≡ 0. This allows us to apply Theorem 1.1 to U and deduce that there exist 
+
+m0 ∈ N (even if n = 1 ) and a nontrivial homogeneous polynomial P of degree m0 (which is invariant under reflection across the hyperplane {(x, t ) ∈ Rn+1 : x · N0 = 0 }) such that div( |t|1−2s∇P ) = 0 
+
+in Rn+1 , and, for any δ > 0,
+
+U (z0 + λz )
+
+λm0 → P (z) as λ → 0+,
+
+in H1(( Cδ × (0 , T )) ∩ B1, t 1−2sdz ) and in C0,τ  
+
+> loc
+
+(( Cδ \ { 0}) × [0 , ∞)) for some τ ∈ (0 , 1) , where 
+
+z0 = ( x0, 0) and Cδ is defined in (1.8). From this and the continuity of the trace map in (1.4), we conclude that (1.10) holds with (5.9) ˜P (x) = P (x, 0) .
+
+To complete the proof, it remains to show that ˜P is nontrivial. If, by contradiction, ˜P vanishes identically in Rn, then the function 
+
+ˆP (x, t ) = 
+
+(
+
+P (x, t ) if t ≥ 0,
+
+0 if t < 0,
+
+solves the equation div( |t|1−2s∇ ˆP ) = 0 in Rn+1 , being non-zero yet vanishing on an entire half-space Rn+1 + . This contradicts well-known unique continuation principles for elliptic equations with Muckenhoupt weights, see [13] and [23]. The proof is now complete. □
+
+Acknowledgments 
+
+The authors are members of the GNAMPA research group of INdAM-Istituto Nazionale di Alta Matematica. The first and the third authors are partially supported by the INdAM– GNAMPA 2026 project “Struttura fine e regolarità in problemi variazionali non-lineari” (CUP E53C25002010001). The second author is partially supported by the INdAM–GNAMPA 2026 project “Asymptotic analysis of variational problems” (CUP E53C25002010001). 
+
+References                     
+
+> [1] V. Adolfsson, L. Escauriaza, C1,α domains and unique continuation at the boundary , Comm. Pure Appl. Math. 50 (1997), 935–969. [2] W. Adolfsson, L. Escauriaza, C.E. Kenig, Convex domains and unique continuation at the boundary , Rev. Mat. Iberoam. 11 (1995), 513-525. [3] A. Capella, J. Dávila, L. Dupaigne, Y. Sire, Regularity of radial extremal solutions for some non-local semilinear equations , Comm. Partial Differential Equations 36 (2011), 1353–1384. [4] A. De Luca, A note on unique continuation from the edge of a crack with no star-shapedness condition ,Nonlinear Analysis 264 (2026), Paper No. 114006. [5] A. De Luca, V. Felli, Unique continuation from the edge of a crack , Mathematics in Engineering 3(2021), 1–40. [6] A. De Luca, V. Felli, G. Siclari, Strong unique continuation from the boundary for the spectral fractional Laplacian , ESAIM Control Optim. Calc. Var. 29 (2023), 1–37. EDGE ASYMPTOTICS FOR WEIGHTED ROBIN EQUATIONS 41
+
+[7] A. De Luca, V. Felli, S. Vita, Strong unique continuation and local asymptotic at the boundary for fractional elliptic equations , Adv. Math. 400 (2022), 1–67. [8] A. De Luca, V. Felli, S. Vita, Unique continuation from conical boundary points for fractional equations , SIAM J. Math. Anal. 57 (2025), 907–950. [9] M. M. Fall, V. Felli, Unique continuation property and local asymptotics of solutions to fractional elliptic equations , Comm. Partial Differential Equations. 39 (2014), 354–397. [10] M. M. Fall, V. Felli, Unique continuation properties for relativistic Schrödinger operators with a singular potential , Discrete Contin. Dyn. Syst. A 35 (2015), 5827–5867. [11] V. Felli, A. Ferrero, Almgren-type monotonicity methods for the classification of behaviour at corners of solutions to semilinear elliptic equations , Proc. Roy. Soc. Edinburgh Sect. A 143 (2013), 957–1019. [12] V. Felli, G. Siclari, Sobolev-type regularity and Pohozaev-type identities for some degenerate and singular problems , Rend. Lincei Mat. Appl. 33 (2022), 553–574. [13] N. Garofalo, F. Lin, Monotonicity properties of variational integrals, Ap weights and unique continuation ,Indiana Univ. Math. J. 35 (1986), 245–268. [14] T. Jin, Y. Li, J. Xiong, On a fractional Nirenberg problem, part I: blow up analysis and compactness of solutions , J. Eur. Math. Soc. 16 (2014), 1111–1171. [15] I. Kukavica, K. Nyström, Unique continuation on the boundary for Dini domains , Proc. Amer. Math. Soc. 126 
+
+(1998), 441–446. [16] Z. Li, Unique continuation for Robin problems with non-smooth potentials , J. Funct. Anal. 288 (2025), Paper No. 110811. [17] Z. Li, W. Wang, Quantitative unique continuation for Robin boundary value problems on C1,1 domains ,Indiana Univ. Math. J. 72 (2023), 1429–1460. [18] E. Montefusco, B. Pellacci, G. Verzini, Fractional diffusion with Neumann boundary conditions: the logistic equation , Discrete Contin. Dyn. Syst. Ser. B 18 (2013), 2175–2202. [19] N. Nikolov, P.J. Thomas, Boundary regularity for the distance functions, and the eikonal equation , J. Geom. Anal. 35 (2025), Paper No. 230. [20] A. Rüland, Unique continuation for fractional Schrödinger equations with rough potentials , Commun. Part. Differ. Equ. 40 (2015), 77–114. [21] G. Siclari, On the fractional powers of a Schrödinger operator with a Hardy-type potential , Proc. Edinb. Math. Soc. 67 (2024), 460–507. [22] Y. Sire, S. Terracini, S. Vita, Liouville type theorems and regularity of solutions to degenerate or singular problems part I: even solutions , Comm. Partial Differential Equations 46 (2021), 310–361. [23] X. Tao, S. Zhang, Weighted doubling properties and unique continuation theorems for the degenerate Schrödinger equations with singular potentials , J. Math. Anal. Appl. 339 (2008), 70–84. [24] X. Tolsa, Unique continuation at the boundary for harmonic functions in C1 domains and Lipschitz domains with small constant , Comm. Pure Appl. Math. 76 (2023), 305–336. [25] B. Volzone, Symmetrization for fractional Neumann problems , Nonlinear Anal. 147 (2016), 1–25. [26] T.H. Wolff, A Property of Measures in Rn and an Application to Unique Continuation , Geometric and Func-tional Analysis 2 (1992), 225-284. [27] H. Yu, Unique continuation for fractional orders of elliptic equations , Ann. PDE 3 (2017), 1–21. [28] J. Zhu, Doubling property and vanishing order of Steklov eigenfunctions , Comm. Partial Differential Equations 
+
+40 (2015), 1498–1520. 
+
+Alessandra De Luca Dipartimento di Matematica e Applicazioni Università degli Studi di Milano-Bicocca Via Cozzi 55, 20125, Milano, Italy 
+
+Email address : alessandra.deluca@unimib.it 
+
+Veronica Felli Dipartimento di Matematica e Applicazioni Università degli Studi di Milano-Bicocca Via Cozzi 55, 20125, Milano, Italy 
+
+Email address : veronica.felli@unimib.it 
+
+Stefano Vita Dipartimento di Matematica “Felice Casorati” Università degli Studi di Pavia Via Ferrata 5, 27100, Pavia, Italy 
+
+Email address : stefano.vita@unipv.it
