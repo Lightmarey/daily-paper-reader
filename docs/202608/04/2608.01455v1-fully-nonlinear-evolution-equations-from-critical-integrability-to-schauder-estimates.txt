@@ -1,0 +1,3975 @@
+Title: Fully Nonlinear Evolution equations: From Critical Integrability to Schauder Estimates
+
+URL Source: https://arxiv.org/pdf/2608.01455v1
+
+Published Time: Tue, 04 Aug 2026 01:33:35 GMT
+
+Number of Pages: 30
+
+Markdown Content:
+FULLY NONLINEAR EVOLUTION EQUATIONS: FROM CRITICAL INTEGRABILITY TO SCHAUDER ESTIMATES 
+
+JUNIOR DA SILVA BESSA, JOS ´E ERIVAMBERTO L. OLIVEIRA, AND PATR ´ICIA RENATA PEREIRA REGIS 
+
+Abstract. We investigate the sharp regularity up to the boundary for viscosity solutions of fully nonlinear parabolic equations with oblique derivative boundary conditions given by 
+
+ F (D2u, x, t ) − ut = f (x, t ) in Q+1 ,β(x, t ) · Du = g(x, t ) on Q∗ 
+
+> 1
+
+.
+
+The regularity theory is developed according to the integrability of the source term, the smoothness of the boundary data, and the oscillation of the coefficients of the operator F , using a compactness method combined with polynomial approximation. In the borderline case f ∈ Ln+2 , we obtain Log-Lipschitz continuity of solutions up to the boundary. Under stronger integrability, specifically when f ∈ Lp for some 
+
+p > n + 2, we establish optimal C1+ α′, 1+ α′ 
+
+> 2
+
+boundary estimates. At a higher regularity level, we prove Schauder-type estimates under appropriate assumptions on the operator F and the boundary data. As a byproduct, we obtain parabolic C1,Log-Lip regularity in the critical borderline case where the source term belongs to BMO space. 
+
+Contents 
+
+1. Introduction 12. Preliminaries 42.1. Some functional spaces 63. The first borderline case: Log-Lipschitz regularity 84. Optimal H¨ older Regularity of the gradient 13 5. Higher Order Regularity: Schauder Estimates 16 6. The second borderline case: Log-Lipschitz regularity of the gradient 21 7. Final conclusions: Compatibility of the functional spaces 28 References 29 1. Introduction 
+
+In this paper, we establish a sharp regularity theory for viscosity solutions of fully nonlinear evolution equations with oblique derivative boundary conditions of the form (1.1) 
+
+ F (D2u, x, t ) − ut = f (x, t ) in Q+1 ,β(x, t ) · Du = g(x, t ) on Q∗
+
+> 1
+
+,
+
+where F is a uniformly parabolic operator (see (A1) ), f , g are continuous functions and β : Q∗ 
+
+> 1
+
+→ Rn is a continuous vector field satisfying the oblique and normalization conditions, namely, there exists a positive constant μ0 such that (1.2) βn ≥ μ0 > 0 and ∥β∥L∞(Q∗  
+
+> 1)
+
+≤ 1,
+
+where β = ( β1, . . . , β n). Here Q+1 and Q∗ 
+
+> 1
+
+denote, respectively, the half and the thin parabolic cylinders of radius 1 (see Section 2 for the precise definitions). The model (1.1) concerns a class of fully nonlinear 
+
+2020 Mathematics Subject Classification. 35B65, 35K10, 35K55, 35D40. 
+
+Key words and phrases. Fully nonlinear parabolic equations, Oblique boundary conditions, Sharp regularity, Schauder estimates. Acknowledgements. Junior da Silva Bessa has been supported by FAPESP-Brazil under Grant No. 2023/18447-3.  
+
+> 1arXiv:2608.01455v1 [math.AP] 2 Aug 2026 2BESSA, OLIVEIRA, AND REGIS
+
+parabolic problems endowed with oblique boundary conditions, a setting that has received little attention in the regularity theory literature. In this context, a natural question concerns the continuity properties of solutions and the corresponding regularity theory. Focusing specifically on fully nonlinear parabolic equations, significant progress has been made in understanding the moduli of continuity of their solutions. Initially, we highlight the pioneering works of Krylov and Safonov [30, 31], which initiated the regularity theory for viscosity solutions to fully nonlinear parabolic equations, where the authors considered non-divergence form parabolic equations. Two years later, Krylov [28, 29] studied elliptic and parabolic classes of fully nonlinear equations and developed, in particular, C2+ α, 2+ α 
+
+> 2
+
+estimates for solutions to 
+
+ut − F (D2u) = 0 in the convex case; see also Goffi [23, 24] and Da Silva and Santos [19] for related results without the convexity assumption. Subsequently, Wang, in a series of four papers [41, 42, 43, 44], developed a regularity theory for viscosity solutions to fully nonlinear parabolic equations with variable coefficients. In particular, in [42, 43] he proved the estimates Cα, α 
+
+> 2
+
+, C1+ α, 1+ α 
+
+> 2
+
+, and C2+ α, 2+ α 
+
+> 2
+
+. For a non-exhaustive list of results in this direction, we refer the reader to [1, 4, 13, 15, 16, 18, 27]. Finally, we highlight the seminal work of Da Silva and Teixeira [20] (see also [3] and [40] for the elliptic scenario), who established a classification of the moduli of continuity of viscosity solutions for 
+
+ut − F (D2u, x, t ) = f (x, t ) in Q1.
+
+More specifically, under suitable integrability assumptions on the source term f within the framework of anisotropic Lebesgue spaces, the authors obtained optimal regularity results in Cα, α 
+
+> 2
+
+, parabolic C0,Log-Lip ,
+
+C1+ α, 1+ α 
+
+> 2
+
+, and parabolic C1,Log-Lip , by means of polynomial approximation arguments combined with geo-metric tangential methods. On the other hand, when considering such parabolic models under an oblique boundary condition (1.1), the literature becomes rather limited. This scarcity is due to the difficulty of addressing the problem in the interior of the domain simultaneously with the boundary condition, which is not merely a boundary datum as in problems with Dirichlet boundary conditions. Important developments have been obtained in this direction. For example, Lieberman [33] showed H¨ older continuity of the gradient of solutions to the homogeneous version of problem (1.1), assuming suitable regularity conditions on the operator F . Two years later, Nazarov and Ural’tseva [38] established C1,α regularity for solutions to the following quasilinear parabolic problem with an oblique boundary condition: 
+
+
+
+ut − tr( A(Du, u, x, t )D2u) = f (Du, u, x, t ) in ΩT = Ω × (0 , T) ,β · Du + u = g(x, t ) on ST = ∂Ω × (0 , T ),u(x, 0) = u0(x) on Ω,
+
+where T > 0 and Ω is a bounded domain of Rn with boundary ∂Ω ∈ C1,1.In the same direction, Chatzigeorgiou and Milakis [14] obtained a counterpart of the results of Wang cited above for viscosity solutions to (1.1) when the operator F has constant coefficients. We also cite some related results in this parabolic setting with oblique boundary conditions, such as [8, 10, 21, 34, 45]. Regarding sharp estimates in the elliptic framework with oblique boundary conditions, Bessa, Da Silva, and Ricarte [7] investigated the classification of the modulus of continuity for viscosity solutions of 
+
+ F (D2u, x ) = f (x) in Ω,β(x) · Du + γ(x)u = g(x) on ∂Ω,
+
+(1.3) where F is a uniformly elliptic operator. Under suitable integrability assumptions in Lebesgue spaces, the authors derived optimal regularity results in C0,α , C0,Log-Lip , C1,α , and C1,Log-Lip for viscosity solutions to (1.3). Despite all the advances mentioned above, there remains a gap in the study of optimal regularity associated with the model (1.1). With this in mind, the present work aims to fill this gap by investigating the boundary regularity of viscosity solutions to (1.1) under different assumptions on the source term f and on the boundary data β and g.First, under the assumption of H¨ older regularity of the boundary data β and g, we establish Log-Lipschitz regularity (Theorem 3.2) and optimal C1+ α, 1+ α 
+
+> 2
+
+regularity (Theorem 4.2) when the source term f belongs to FULLY NONLINEAR EVOLUTION EQUATIONS: FROM CRITICAL INTEGRABILITY TO SCHAUDER ESTIMATES 3
+
+Ln+2 and Lp (n + 2 < p < ∞), respectively. Then, under stronger regularity assumptions on the boundary data, namely C1+ α, 1+ α 
+
+> 2
+
+, we establish Schauder-type estimates (Theorem 5.3) when the source term enjoys H¨ older regularity. Finally, under the same regularity assumptions on the boundary data, assuming that the source term is unbounded but satisfies a Bounded Mean Oscillation (BMO) condition (see Definition 2.10), and relying on suitable estimates for the homogeneous problem with constant coefficients, we establish 
+
+C1,Log-Lip regularity (Theorem 6.3). Table 1 provides a concise summary of the main results of this work. Source term f Boundary data Regularity of uf ∈ Ln+2 (Q+1 ) β, g ∈ Cα, α 
+
+> 2
+
+(Q∗
+
+> 1
+
+) u ∈ C0,Log-Lip loc (Q+1 )
+
+f ∈ Lp(Q+1 ), p > n + 2 β, g ∈ Cα, α 
+
+> 2
+
+(Q∗
+
+> 1
+
+) u ∈ C1,min {α−, 1− n+2   
+
+> p}
+> loc
+
+(Q+1 )
+
+f ∈ Cα, α 
+
+> 2
+
+(Q+1 ) β, g ∈ C1+ α, 1+ α 
+
+> 2
+
+(Q∗
+
+> 1
+
+) u ∈ C2+ α−, 2+ α− 
+
+> 2
+> loc
+
+(Q+1 )
+
+f ∈ BMO( Q+1 ) β, g ∈ C1+ α, 1+ α 
+
+> 2
+
+(Q∗
+
+> 1
+
+) u ∈ C1,Log-Lip loc (Q+1 )
+
+Table 1. Summary of the main results In view of the previously described setting, our results can be regarded as a generalization of [14, 20], a counterpart of [7], and as being directly connected to [3, 9, 32, 40] with respect to moduli of continuity. 
+
+Sharp Moduli of Continuity: Challenges and Strategiae. We conclude the introduction by presenting the key guiding ideas behind the study of universal moduli of continuity, the main difficulties that arise, and the strategy underlying our proofs. Let u be a viscosity solution to (1.1). Three aspects are of fundamental importance in determining the regularity of u, namely: the integrability level of the forcing term f , the regularity of the boundary data β
+
+and g, and the regularity theory available for the associated homogeneous frozen-coefficient problem. In light of this setting, and invoking the classical Dini–Campanato embedding (see [26, Main Theorem]), our approach is to employ geometric tangential analysis to construct a polynomial that approximates the solution (cf. [11, 43]), assuming small oscillation of the coefficients of the operator F and small Lp-norm of the source term f .Afterward, using an iterative argument, we construct a sequence of polynomials that approximate u at a geometric rate, according to the modulus of continuity described in Table 2 below in each case. Regularity of f Regularity of β, g Polynomial Geometric Rate 
+
+Ln+2 Cα, α 
+
+> 2
+
+a · x + b rLp, p > n + 2 Cα, α 
+
+> 2
+
+a · x + b r1+min {α−, 1− n+2  
+
+> p}
+
+Cα, α 
+
+> 2
+
+C1+ α, 1+ α  
+
+> 212
+
+xT Mx + a · x + bt + c r2+ γ (0 < γ < α )BMO C1+ α, 1+ α  
+
+> 212
+
+xT Mx + a · x + bt + c r2
+
+Table 2. Polynomial approximation. However, one of the main difficulties of our problem, in comparison with those discussed in the literature above, lies precisely in the equation satisfied by u on the boundary. To illustrate this point, given a quadratic polynomial P , we note that the function v(x, t ) := ( u − P )( x, t ) is a viscosity solution to 
+
+ F (D2v + D2P, x, t ) − vt = f (x, t ) + ( P )t(x, t ) in Q+1 ,β(x, t ) · Dv = g(x, t ) − β(x, t ) · DP (x, t ) on Q∗
+
+> 1
+
+.
+
+Unlike the interior theory in [40, 20] and the Dirichlet boundary setting in [3], in addition to the perturbation affecting the equation in the interior, the model undergoes a considerably worse penalization on the flat boundary. In view of this challenging scenario, our strategy is to construct a sequence of polynomials that satisfies a suitable compatibility relation with the boundary data. This parabolic approach, aimed at establishing optimal regularity, constitutes one of the main novelties of this work. Another key contribution is the analysis within the Lebesgue scale, which presents additional challenges due to the lack of a scaling structure naturally compatible with the underlying parabolic model. 4 BESSA, OLIVEIRA, AND REGIS 
+
+Finally, it is important to stress that this approach is flexible enough to handle regularity at branching points for other parabolic problems without oblique boundary conditions, to obtain higher regularity results for problems with oblique derivatives on the boundary, and also to treat obstacle-type problems within the same general framework. Beyond these theoretical extensions, it is worth noting that the interest in model (1.1) is also motivated by its natural applications. A prominent example arises in stochastic optimal control for diffusion pro-cesses with boundary reflection. In this setting, the optimal cost function solves a fully nonlinear parabolic Hamilton-Jacobi-Bellman (HJB) equation, while the reflection vector field at the boundary dictates the oblique derivative condition (see, for instance, [22, 35, 36, 37]). Similar configurations also appear in geo-metric analysis, such as in mean curvature flows for dynamic capillary surfaces, where the oblique condition models the contact angle between a moving fluid interface and a solid boundary [2, 25, 39]. 
+
+Outline of the paper. The remainder of the paper is organized as follows. Section 2 is devoted to the assumptions and preliminary results needed for the main theorems. Next, in Section 3, we establish parabolic 
+
+C0,Log-Lip regularity for solutions when the source term belongs to the critical space Ln+2 . In Section 4, we prove the optimal C1+ α, 1+ α 
+
+> 2
+
+regularity. Section 5 is devoted to the Schauder regularity result. Section 6 is dedicated to deriving parabolic C1,Log-Lip estimates for our model. Finally, in Section 7 we present several remarks on the approach developed in this paper and examine possible extensions of our results to other functional spaces. 2. Preliminaries 
+
+We begin by collecting some basic notation that will be used throughout the paper. - Br (x) ⊂ Rn denotes the open ball of radius r centered at x. In particular, when x = 0 we simply write Br ;- B+ 
+
+> r
+
+:= Br ∩ Rn
+
+> +
+
+, where Rn 
+
+> +
+
+:= {(x, y ) ∈ Rn−1 × R : y > 0};- Tr (x) := {(z, x n) ∈ Rn−1 × R : |z − x| < r } = Br (x) ∩ { yn = xn} and, when x = 0, we write 
+
+Tr = {(z, 0) : |z| < r } = Br ∩ { yn = 0 };- Qr (x, t ) := Br (x) × (t − r2, t ] denotes a parabolic cylinder. In particular, we write Qr when ( x, t ) = (0 , 0); - Q+ 
+
+> r
+
+(x, t ) := B+ 
+
+> r
+
+(x) × (t − r2, t ] and Q∗ 
+
+> r
+
+(x, t ) := Tr (x) × (t − r2, t ] denote, respectively, a half-cylinder and a thin-cylinder based on the flat boundary {y = 0 };- The parabolic distance between points P1 = ( x, t ) and P2 = ( y, s ) in Rn+1 is defined by 
+
+dpar (P1, P 2) := max 
+
+n
+
+|x − y|, |t − s|1/2o
+
+.
+
+- Given a function u = u(x, t ), we denote its time derivative by ut, its spatial gradient by Du =(ux1 , . . . , u xn ), and its spatial Hessian matrix by D2u = ( uxixj )n×n.- Given u a integrable function on Rn+1 we set for any E ⊂ Rn+1 mensurable set (u)E =
+
+ˆ
+
+> E
+
+u(x, t ) dxdt. 
+
+Next, throughout this paper, we will assume the following structural conditions on the problem (1.1): 
+
+(A1) (Uniform parabolicity ) We assume that F : Sym( n)×Q+1 −→ R is a uniformly parabolic operator, i.e., there exist two constants 0 < λ ≤ Λ such that 
+
+λ∥Y∥ ≤ F (X + Y , x, t ) − F (Y , x, t ) ≤ Λ∥Y∥
+
+for all ( x, t ) ∈ Q+1 and X , Y ∈ Sym( n) with Y ≥ 0. Moreover, for normalization purposes, we shall always assume that F (0 , x, t ) = 0 for any ( x, t ) ∈ Q+1 , which is not restrictive. 
+
+(A2) (Regularity of the data ) The data satisfy f ∈ C0(Q+1 ) ∩ Lp(Q+1 ) for n + 2 ≤ p < ∞ g ∈ C0(Q∗
+
+> 1
+
+), and β ∈ C0(Q∗
+
+> 1
+
+; Rn) and satisfy (1.2). Next, we introduce the primordial notion of viscosity solutions to equation (1.1) (cf. [14]). First, in the interior of half-cylinder we have the following definition: 
+
+Definition 2.1. Let u ∈ C0(Ω) is a viscosity subsolution (resp. supersolution) to (2.1) F (D2u, x, t ) − ut = f (x, t ) in Ω ,FULLY NONLINEAR EVOLUTION EQUATIONS: FROM CRITICAL INTEGRABILITY TO SCHAUDER ESTIMATES 5
+
+if, for every ϕ ∈ C2(Ω) that touches u from above (resp. below) at a point ( x0, t 0) ∈ Ω, we have that 
+
+F (D2ϕ(x0, t 0), x 0, t 0) − ϕt(x0, t 0) ≥ (≤) f (x0, t 0).
+
+Moreover, we say that u is a viscosity solution of (2.1) if it is both a subsolution and a supersolution. In the thin part of the cylinder we use the following definition. 
+
+Definition 2.2. We say that β · Du ≥ (≤) g on Q∗ 
+
+> r
+
+in the viscosity sense if, for every point ( x0, t 0) ∈ Q∗ 
+
+> r
+
+and every C2 test function ϕ that touches u from above (below) at ( x0, t 0) in some half-cylinder Q+ 
+
+> ρ
+
+(x0, t 0) ⊂ Q+ 
+
+> r
+
+,one has 
+
+β(x0, t 0) · Dϕ (x0, t 0) ≥ (≤) g(x0, t 0).
+
+If both inequalities hold, we say that β · Du = g on Q∗ 
+
+> r
+
+in the viscosity sense. Regarding the coefficients of the operator F , we introduce the following definition. 
+
+Definition 2.3. Let F : Sym( n) × Q+1 → R be a parabolic operator. For a fixed point ( x0, t 0) ∈ Q+1 , we define ΦF (( x, t ), (x0, t 0)) := sup 
+
+> M∈Sym( n)\{ 0}
+
+F (M , x, t ) − F (M , x 0, t 0)
+
+∥M∥ ,
+
+which measures the oscillation of the coefficients of F around ( x0, t 0) (cf. [15]). When ( x0, t 0) = (0 , 0), we simply write Φ F (x, t ). For the higher-order regularity estimates, we shall require the following definition of the coefficient oscil-lation around the point ( x0, t 0), namely, ˜ΦF (( x, t ), (x0, t 0)) := sup 
+
+> M∈Sym( n)
+
+F (M , x, t ) − F (M , x 0, t 0)
+
+1 + ∥M∥ .
+
+Again, when( x0, t 0) = (0 , 0), we simply write ˜ΦF (x, t ). For what follows, we shall adopt the following notation: 
+
+L±
+
+> λ, Λ
+
+[u] =: M±
+
+> λ, Λ
+
+(D2u) − ut.
+
+Here, M± 
+
+> λ, Λ
+
+are the Pucci extremal operators, defined by 
+
+M+
+
+> λ, Λ
+
+(X) = Λ X
+
+> ei>0
+
+ei + λ X
+
+> ei<0
+
+ei and M−
+
+> λ, Λ
+
+(X) = λ X
+
+> ei>0
+
+ei + Λ X
+
+> ei<0
+
+ei
+
+where ei = ei(X) (1 ≤ i ≤ n) are the eigenvalues of the matrix X. Now we can define the fundamental classes of parabolic equations (cf. [14]). 
+
+Definition 2.4. We say that u ∈ S p(λ, Λ, f ) in Ω if u satisfies in the viscosity sense, 
+
+L+
+
+> λ, Λ
+
+[u] ≤ f (x, t ) in Ω .
+
+Similarly, we say that u ∈ S p(λ, Λ, f ) in Ω if, in the viscosity sense, u satisfies 
+
+L−
+
+> λ, Λ
+
+[u] ≥ f (x, t ) in Ω .
+
+Moreover, we define Sp(λ, Λ, f ) = Sp(λ, Λ, f ) ∩ S p(λ, Λ, f ). Later on, we will need Aleksandrov-Bakel’man-Pucci-Tso (A.B.P.T) type estimates, which is a direct consequence of [14, Theorem 2.5]. 
+
+Theorem 2.5 (A.B.P.T.-estimates). Let f ∈ C0(Q+ 
+
+> r
+
+), f ∈ C0(Q∗ 
+
+> r
+
+) and u ∈ C0(Q+ 
+
+> r
+
+) satisfying 
+
+ u ∈ S p(λ, Λ, f ) in Q+ 
+
+> r
+
+,β · Du + γu = g(x, t ) on Q∗ 
+
+> r
+
+.
+
+Then, 
+
+∥u∥L∞(Q+  
+
+> r)
+
+≤ ∥ u∥L∞(∂Q +   
+
+> r\Q∗
+> r)
+
++ C( ∥f ∥Ln+1 (Q+  
+
+> r)
+
++ ∥g∥L∞(Q∗ 
+
+> r)
+
+),
+
+for some universal constant. 6 BESSA, OLIVEIRA, AND REGIS 
+
+2.1. Some functional spaces. Now we introduce the functional spaces that will be used throughout this manuscript. 
+
+Definition 2.6. Let α ∈ (0 , 1] and Q be a domain of Rn+1 . We say that u ∈ Cα, α 
+
+> 2
+
+(Q) if 
+
+∥u∥Cα, α  
+
+> 2(Q)
+
+:= ∥u∥L∞(Q) + [ u]α,Q < +∞,
+
+where [u]α,Q := sup 
+
+> (x,t ),(y,s )∈Q
+> (x,t )̸=( y,s )
+
+|u(x, t ) − u(y, s )|
+
+dpar (( x, t ), (y, s )) α .
+
+Remark 2.7 . We observe that if u ∈ Cα, α 
+
+> 2
+
+(Q), then u is α-H¨ older continuous with respect to the spatial variable x and α 
+
+> 2
+
+-H¨ older continuous with respect to the temporal variable t.Next, we introduce the definition of the space of parabolic Log–Lipschitz continuous functions. 
+
+Definition 2.8. Let Q be a domain of Rn+1 . We say a function u is parabolically Log-Lipschitz continuous in Q if [u]par −C0,Log-Lip (Q) = sup 
+
+> (x,t ),(y,s )∈Q
+> (x,t )̸=( y,s )
+
+|u(x, t ) − u(y, s )|
+
+dpar (( x, t ), (y, s )) |ln( dpar (( x, t ), (y, s ))) | < +∞.
+
+Moreover, we denote by par − C0,Log-Lip (Q), the space of all parabolically Log-Lipschitz functions in Q and adopt the following norm 
+
+∥u∥par −C0,Log-Lip (Q) = ∥u∥L∞(Q) + [ u]par −C0,Log-Lip (Q).
+
+Now, for the next definition, given a function u defined in a domain Q ⊂ Rn+1 , we set, [u]1+ α,Q =: sup 
+
+> (x,t ),(x,s )∈Qt̸=s
+
+|u(x, t ) − u(x, s )||t − s| 1+ α
+
+> 2
+
+.
+
+With this observation, we can define the H¨ older spaces of the higher order. 
+
+Definition 2.9. We define the H¨ older spaces C1+ α, 1+ α 
+
+> 2
+
+(Q) and C2+ α, 2+ α 
+
+> 2
+
+(Q) for α ∈ (0 , 1], respectively, by set of all functions such that 
+
+∥u∥C1+ α, 1+ α  
+
+> 2(Q)
+
+= ∥u∥L∞(Q) + ∥Du ∥L∞(Q) + [ Du ]α,Q + [ u]1+ α,Q < +∞,
+
+∥u∥C2+ α, 2+ α  
+
+> 2(Q)
+
+= ∥u∥L∞(Q) + ∥Du ∥L∞(Q) + ∥ut∥L∞(Q) + ∥D2u∥L∞(Q)
+
++ [ut]α,Q + [ D2u]α,Q + [ Du ]1+ α,Q < +∞,
+
+respectively. 
+
+Definition 2.10. Let Q be a domain of Rn+1 . We say a function u is parabolically C1,Log-Lip continuous in Q if [u]par −C1,Log-Lip (Q) = sup 
+
+> (x,t ),(y,s )∈Q
+> (x,t )̸=( y,s )
+
+|u(x, t ) − [u(y, s ) + D(y, s ) · (x − y)] |
+
+d2par (( x, t ), (y, s )) |ln( dpar (( x, t ), (y, s ))) | < +∞.
+
+Moreover, we denote by par − C1,Log-Lip (Q), the space of all parabolically Log-Lipschitz functions in Q and adopt the following norm 
+
+∥u∥par −C1,Log-Lip (Q) = ∥u∥L∞(Q) + ∥Du ∥L∞(Q) + [ u]par −C1,Log-Lip (Q).
+
+Another class of functions that we need to introduce is that of functions with Bounded Mean Oscillation .
+
+Definition 2.11. Let Q ⊂ Rn+1 a Lipschitz domain, the space BMO( Q) is defined as the set of all functions 
+
+f ∈ L1
+
+> loc
+
+(Q) such that [u]BMO( Q) = sup 
+
+> (x0,t 0)∈Q,r> 0
+
+ˆ 
+
+> Q∩Qr(x0,t 0)
+
+|u(x, t ) − uQ∩Qr (x0,t 0)| dx dt < ∞FULLY NONLINEAR EVOLUTION EQUATIONS: FROM CRITICAL INTEGRABILITY TO SCHAUDER ESTIMATES 7
+
+In our approach, we require a tool to approximate solutions of problem (1.1) by those of the homogeneous problem with constant coefficients. In summary, we have the following result. 
+
+Lemma 2.12 (F -Caloric Approximation). Consider n + 1 ≤ p < ∞, and assume that conditions 
+
+(A1) − (A2) are satisfied. Given ε > 0, assume that g ∈ Cα, α 
+
+> 2
+
+(Q∗
+
+> 1
+
+) with 0 < α < 1 and ∥g∥Cα, α   
+
+> 2(Q∗
+> 1)
+
+≤ c1 for some c1 > 0. Then, there exist positive constants δ = δ(ε, n, ζ 0, p, λ, Λ, c1) < 1 such that, if 
+
+max 
+
+
+
+ˆ
+
+> Q+1
+
+ΦF (x, t )pdxdt 
+
+! 1
+
+> p
+
+, ∥f ∥Lp(Q+1 )
+
+ ≤ δ, 
+
+then any two viscosity solutions u (normalized 1) and v to 
+
+ F (D2u, x, t ) − ut = f (x, t ) in Q+1 ,β · Du = g(x, t ) on Q∗
+
+> 1
+
+,
+
+and 
+
+F (D2v, 0, 0) − vt = 0 in Q+
+
+> 34
+
+,β · Dv = g(x, t ) on Q∗
+
+> 34
+
+,
+
+v = u on ∂pQ+
+
+> 34
+
+\ Q∗
+
+> 34
+
+satisfy the following estimate 
+
+∥u − v∥L∞ 
+
+> 
+> Q+34
+> 
+
+≤ ε. 
+
+Proof. The proof follows along the same lines as in [10, Lemma 5.3] and [8, Lemma 3.3], so we omit it here. □
+
+Remark 2.13 . The previous approximation result remains valid if the smallness assumption on the oscillation of the coefficients is formulated in terms of ˜ΦF instead. In the context of the parabolic C1,Log -Lip estimates, we shall require the following approximation result in the BMO setting. 
+
+Lemma 2.14 (F -Caloric Approximation-BMO). Let n + 1 ≤ p < ∞, and assume that conditions 
+
+(A1) − (A2) are satisfied. Given ε > 0, assume that g ∈ Cα, α 
+
+> 2
+
+(Q∗
+
+> 1
+
+) with 0 < α < 1 and ∥g∥Cα, α   
+
+> 2(Q∗
+> 1)
+
+≤ c1 for some c1 > 0. Then, there exist positive constants δ = δ(ε, n, p, λ, Λ, c1) < 1 such that, if 
+
+max 
+
+
+
+ˆ
+
+> Q+1
+
+˜ΦF (x, t )pdxdt 
+
+! 1
+
+> p
+
+, [f ]BMO( Q+1 )
+
+ ≤ δ, 
+
+then any two viscosity solutions u (normalized) and v to 
+
+(2.2) 
+
+ F (D2u, x, t ) − ut = f (x, t ) in Q+1 ,β · Du = g(x, t ) on Q∗
+
+> 1
+
+,
+
+and 
+
+(2.3) 
+
+
+
+F (D2v, 0, 0) − vt = (f )Q+1
+
+in Q+
+
+> 34
+
+,β · Dv = g(x, t ) on Q∗
+
+> 34
+
+,
+
+v = u on ∂pQ+
+
+> 34
+
+\ Q∗
+
+> 34
+
+satisfy the following estimate 
+
+∥u − v∥L∞ 
+
+> 
+> Q+34
+> 
+
+≤ ε.      
+
+> 1A normalized solution means that ∥u∥L∞(Q+1)≤1. 8BESSA, OLIVEIRA, AND REGIS
+
+Proof. Let u be a normalized viscosity solution of (2.2) where f ∈ BMO( Q+1 ) with [ f ]BMO( Q+1 ) ≤ ˜δ (where ˜δ > 0 will be chosen later) . Let ( f )Q+1
+
+be the integral average of f over the cylinder Q+1 and define ˜F : Sym( n) × Q+1 → R and the ˜f : Q+1 → R as follows: ˜F (M, x, t ) := F (M, x, t ) − (f )Q+1
+
+and ˜f (x, t ) := f (x, t ) − (f )Q+1
+
+.
+
+It is easy to see that u still a viscosity solution of ˜F (D2u, x, t ) − ut = ˜f (x, t ) in Q+1
+
+with same boundary condition of (2.2). Moreover, by the definition of ˜F , we immediately obtain ˜Φ ˜F = ˜ΦF .
+
+Consequently, for p > n + 1 
+
+ˆ
+
+> Q+1
+
+˜Φ ˜F (x, t )pdxdt 
+
+! 1
+
+> p
+
+=
+
+ˆ
+
+> Q+1
+
+˜ΦF (x, t )pdxdt 
+
+! 1
+
+> p
+
+≤ δ. 
+
+Furthermore, by John-Nirenberg inequality, 
+
+∥ ˜f ∥Lp(Q+1 ) =
+
+ˆ
+
+> Q+1
+
+|f (x, t ) − (f )Q+1
+
+|p dx dt 
+
+! 1
+
+> p
+
+≤ | Q+1 | 1 
+
+> p
+
+C( n, p )[ f ]BMO( Q+1 ).
+
+To ensure that ∥ ˜f ∥Lp(Q+1 ) ≤ δ, it suffices to require in our initial hypothesis that the BMO seminorm is suitably small, specifically [ f ]BMO( Q+1 ) ≤ ˜δ := δ   
+
+> |Q+1|1
+> pC( n,p )
+
+.Since both hypotheses are perfectly satisfied (i.e., max[ ∥Φ ˜F ∥Lp , ∥ ˜f ∥Lp ] ≤ δ), we apply Lemma 2.12 to obtain that existence of a function v such that sup 
+
+> Q+3/4
+
+|u − v| ≤ ε, 
+
+where v solves the limit equation with the coefficients frozen at the origin: 
+
+
+
+F (D2v, 0, 0) − vt = 0 in Q+
+
+> 34
+
+,β · Dv = g(x, t ) on Q∗
+
+> 34
+
+,
+
+v = u on ∂pQ+
+
+> 34
+
+\ Q∗
+
+> 34
+
+.
+
+By the definition of ˜F , it follows that v is a viscosity solution of (2.3). This completes the proof. □
+
+3. The first borderline case: Log-Lipschitz regularity 
+
+In this section we present our first main result, namely the Log–Lipschitz regularity of solutions to problem (1.1). Under the assumption that the boundary data β and g are H¨ older continuous, and that the source term f belongs to the borderline Lebesgue space Ln+2 , we obtain the optimal modulus of continuity. The key ingredient is the following lemma, which, under suitable smallness conditions, provides an approximation of normalized solutions to problem (1.1) by affine profiles with decay rate of order ρ1.
+
+Lemma 3.1. Let u be a normalized solution to (1.1) with β, g ∈ Cα, α 
+
+> 2
+
+(Q∗
+
+> 1
+
+). There exists a universal constant 
+
+δ > 0 and a radius 0 < ρ ≤ e−1 such that, if 
+
+max 
+
+
+
+ˆ
+
+> Q+1
+
+ΦF (x, t )n+2 dxdt 
+
+! 1
+
+> n+2
+
+, ∥f ∥Ln+2 (Q+1 )
+
+ ≤ δ, 
+
+then we can find an affine profile ℓ(x) = a · x + b such that: 
+
+(i) sup 
+
+> Q+
+> ρ
+
+|u − ℓ| ≤ ρ;
+
+(ii) β(0 , 0) · a = g(0 , 0) ;
+
+(iii) |a| + |b| ≤ C, for some universal constant C > 0.FULLY NONLINEAR EVOLUTION EQUATIONS: FROM CRITICAL INTEGRABILITY TO SCHAUDER ESTIMATES 9
+
+Proof. Fix ε > 0, to be determined later. By applying Lemma 2.12, we obtain the existence of a function v
+
+solving 
+
+F (D2v, 0, 0) − vt = 0 in Q+
+
+> 34
+
+,β · Dv = g(x, t ) on Q∗
+
+> 34
+
+,
+
+v = u on ∂pQ+
+
+> 34
+
+\ Q∗
+
+> 34
+
+and satisfy (3.1) ∥u − v∥L∞ 
+
+> 
+> Q+34
+> 
+
+≤ ε. 
+
+By the structural assumptions on the governing operator F and on the boundary data β and g, the available regularity theory yields that v ∈ C1+ α, 1+ α
+
+> 2
+
+ Q+
+
+> 23
+
+ (cf. [14, Theorem 4.10]), together with the estimate (3.2) ∥v∥C1+ α, 1+ α  
+
+> 2(Q+23
+> )
+
+≤ C( μ0, n, α, λ, Λ, ∥β∥Cα, α 
+
+> 2(Q∗
+> 23
+> )
+
+, ∥g∥Cα, α 
+
+> 2(Q∗
+> 23
+> )
+
+).
+
+Then the affine profile ℓ(x) = a · x + b, with a = Dv(0 , 0) and b = v(0 , 0), is well defined. Moreover, for every (x, t ) ∈ Q+
+
+> 23
+
+one has 
+
+|v( x, t ) − ℓ(x)| ≤ |v( x, t ) − v(0 , t ) − Dv(0 , t ) · x| + |v(0 , t ) − v(0 , 0) | + |Dv(0 , t ) − Dv(0 , 0) || x|≤ [Dv] α,Q +23
+
+|x|1+ α + [v] 1+ α,Q +23
+
+|t| 1+ α 
+
+> 2
+
++ [ Dv] α,Q +23
+
+|x|| t| α
+
+> 2
+> (3.2)
+
+≤ C( |x|1+ α + |t| 1+ α 
+
+> 2
+
++ |x|| t| α 
+
+> 2
+
+)
+
+≤ C0dpar (( x, t ), (0 , 0)) 1+ α.
+
+Hence, (3.3) sup 
+
+> Q+
+> r
+
+|v − ℓ| ≤ C0r1+ α, ∀r ∈
+
+
+
+0, 23
+
+
+
+.
+
+Now, we can define the constants ε and ρ as follows 
+
+ρ = min 
+
+(
+
+e−1,
+
+ 12C 0
+
+ 1
+
+> α
+
+)
+
+and ε = 12 ρ. 
+
+With this choice, the constant δ > 0 provided by Lemma 2.12 is well defined. Moreover, by construction, the affine function ℓ immediately satisfies conditions (ii) and (iii). Finally, using (3.1) and (3.3), we obtain sup 
+
+> Q+
+> ρ
+
+|u − ℓ| ≤ sup 
+
+> Q+34
+
+|u − v| + sup 
+
+> Q+
+> ρ
+
+|v − ℓ| ≤ ε + C 0ρ1+ α = ρ, 
+
+which completes the proof. □
+
+We are now in a position to prove our first main result. 
+
+Theorem 3.2 (Log-Lipschitz regularity). Let u be a viscosity solution to (1.1) , where β, g ∈ Cα, α 
+
+> 2
+
+(Q∗
+
+> 1
+
+)
+
+and f ∈ Ln+2 (Q+1 ) ∩ C0(Q+1 ). There exists a constant ζ0 > 0 and r0 > 0, which depends only on n, p, λ, Λ,
+
+μ0, α, and ∥β∥Cα, α   
+
+> 2(Q∗
+> 1)
+
+such that, if 
+
+sup 
+
+> (x,t )∈Q+1/2
+
+ˆ 
+
+> Qr(x,t)∩Q+1
+
+ΦF (( y, s ); ( x, t )) n+2 dyds 
+
+! 1
+
+> n+2
+
+≤ ζ0,
+
+holds for all r ≤ r0, then u ∈ par − C0,Log -Lip 
+
+
+
+Q+
+
+> 12
+
+
+
+and the following estimate holds 
+
+(3.4) ∥u∥par-C0,Log -Lip (Q+12 
+
+> )
+
+≤ C
+
+
+
+∥u∥L∞(Q+1 ) + ∥f ∥Ln+2 (Q+1 ) + ∥g∥Cα, α  
+
+> 2(Q∗
+> 1)
+
+
+
+,
+
+where C is a positive constant depending only on n, λ, Λ, μ0, α, and ∥β∥Cα, α  
+
+> 2(Q∗
+> 1)
+
+.10 BESSA, OLIVEIRA, AND REGIS 
+
+Proof. First, by the normalization argument, we can suppose without loss of generality that (3.5) ∥u∥L∞(Q+1 ) ≤ 1, ∥f ∥Ln+2 (Q+1 ) ≤ δ, ∥g∥Cα, α   
+
+> 2(Q∗
+> 1)
+
+≤ 1 and g(0 , 0) = 0 ,
+
+where δ > 0 is the constant from Lemma 3.1. In this case, we first establish regularity at points in the closure of the thin cylinder Q∗
+
+> 12
+
+. By a standard localization and translation argument, it suffices to verify this regularity at (0 , 0) ∈ Q∗
+
+> 12
+
+.Assuming that the problem satisfies these conditions, let ζ0 = δ and r0 = ρ be as in Lemma 3.1. Our goal is to construct a sequence of affine functions ( ℓk)k≥0, ℓ k(x) = ak · x + bk, satisfying: (i) sup 
+
+> Q+
+> ρk
+
+|u − ℓk| ≤ ρk;(ii) ρk|ak+1 − ak| + |bk+1 − bk| ≤ Cρk;(iii) β(0 , 0) · ak = 0, where ρ > 0 denotes the radius of the half-cylinder introduced in Lemma 3.1 and C > 0 is the universal boundedness constant from the same lemma. Indeed, we proceed by induction on k.For k = 0, consider the affine function ℓ0 with a0 = 0 and b0 = 0 satisfying sup 
+
+> Q+
+> ρ0
+
+|u − ℓ0| = ∥u∥Q∗ 
+
+> 1
+
+≤ 1 = ρ0 and β(0 , 0) · a0 = 0 .
+
+Now, assuming the existence of ℓ0, ..., ℓ k satisfying (i)-(iii), consider the auxiliary function 
+
+uk(x) = u(ρkx, ρ 2kt) − ℓk(ρkx)
+
+ρk , (x, t ) ∈ Q+1 ∪ Q∗
+
+> 1
+
+,
+
+in order to obtain the affine function ℓk+1 . It is possible to check that uk is a viscosity solution to 
+
+ Fk(D2uk, x, t ) − (uk)t = fk(x, t ) in Q+1 ,βk · Du k = gk(x, t ) on Q∗
+
+> 1
+
+,
+
+where 
+
+Fk(X, x, t ) := ρkF
+
+ 1 
+
+> ρk
+
+X, ρ kx, ρ 2kt
+
+
+
+fk(x, t ) := ρkf (ρkx, ρ 2kt)
+
+βk(x, t ) := β(ρkx, ρ 2kt)
+
+gk(x, t ) := g(ρkx, ρ 2kt) − β(ρkx, ρ 2kt) · ak.
+
+Now, we note that Fk is a ( λ, Λ) −elliptic operator and 
+
+ˆ
+
+> Q+1
+
+|ΦFk (x, t )|n+2 dxdt 
+
+! 1
+
+> n+2
+
+=
+
+ˆ
+
+> Q+
+> ρk
+
+|ΦF (x, t )|n+2 dxdt 
+
+! 1
+
+> n+2
+
+≤ δ. 
+
+Additionally, by the induction hypothesis, we also see that 
+
+∥uk∥L∞(Q+1 ) = 1
+
+ρk sup 
+
+> Q+
+> ρk
+
+|u − ℓk| ≤ 1and 
+
+∥fk∥Ln+2 (Q+1 ) = ρk
+
+ˆ
+
+> Q+1
+
+|f (ρkx, ρ 2kt)|n+2 dxdt 
+
+! 1
+
+> n+2
+
+= ∥f ∥Ln+2 (Q+  
+
+> ρk)
+
+≤ ∥ f ∥Ln+2 (Q+1 ) ≤ δ. FULLY NONLINEAR EVOLUTION EQUATIONS: FROM CRITICAL INTEGRABILITY TO SCHAUDER ESTIMATES 11 
+
+Now, turning to the boundary data, we can verify that 
+
+∥βk∥Cα, α   
+
+> 2(Q∗
+> 1)
+
+= ∥βk∥L∞(Q+1 ) + sup 
+
+> (x,t ),(y,s )∈Q∗
+> 1
+> (x,t )̸=( y,s )
+
+|β(ρkx, ρ 2kt) − β(ρky, ρ 2ks)|
+
+dpar (( x, t ), (y, s )) α
+
+≤ ∥β∥L∞(Q∗  
+
+> 1)
+
++ sup 
+
+> (x,t ),(y,s )∈Q∗
+> ρk
+> (x,t )̸=( y,s )
+
+|β(x, t ) − β(y, s )|
+
+max 
+
+ 
+
+> xρk
+
+− yρk , tρ2k − sρ2k
+
+> 12
+
+α
+
+= ∥β∥L∞(Q∗  
+
+> 1)
+
++ ρk[β]α,Q ∗
+
+> ρk
+
+≤ ∥β∥L∞(Q∗  
+
+> 1)
+
++ ρk[β]α,Q ∗
+
+> 1
+
+< ∞
+
+Next, for the boundary source term gk, observe that since g(0 , 0) = 0 and, by the induction hypothesis, 
+
+β(0 , 0) · ak = 0, it follows that gk(0 , 0) = 0. Hence, 
+
+∥gk∥L∞(Q∗  
+
+> 1)
+
+≤ [gk]α, α 
+
+> 2,Q ∗
+> 1
+
+.
+
+Therefore, in analogy with the estimate for the boundary term βk, we obtain that 
+
+∥gk∥Cα, α   
+
+> 2(Q∗
+> 1)
+
+= ∥gk∥L∞(Q∗  
+
+> 1)
+
++ sup 
+
+> (x,t ),(y,s )∈Q∗
+> 1
+> (x,t )̸=( y,s )
+
+|gk(x, t ) − gk(y, s )|
+
+dpar (( x, t ), (y, s )) α
+
+≤ ∥g∥L∞(Q∗  
+
+> 1)
+
++ |ak|∥ β∥L∞(Q∗  
+
+> 1)
+
++ ρk[g]α,Q ∗
+
+> ρk
+
++ ρk|ak|[β]α,Q ∗
+
+> ρk
+
+< ∞.
+
+Then, we fall into the hypotheses of Lemma 3.1. Thus, we can find an ˜ℓ(x) = ˜ a · x + ˜b affine function such that (3.6) sup 
+
+> Q+
+> ρ
+
+|uk − ˜ℓ| ≤ ρ, 
+
+where |˜a| + |˜b| ≤ C and βk(0 , 0) · ˜a = gk(0 , 0) = 0 .
+
+Now, by defining ℓk+1 = ak+1 · x + bk+1 , where ak+1 = ak + ˜ a and bk+1 = bk + ρk˜b, we verify that (a) sup 
+
+> Q+
+> ρk+1
+
+|u − ℓk+1 | = ρk sup 
+
+> Q+
+> ρ
+
+|uk − ˜ℓ| ≤ ρk+1 ,(b) ρk|ak+1 − ak| + |bk+1 − bk| = ρk(|˜a| + |˜b|) ≤ Cρk,(c) β(0 , 0) · ak+1 = βk(0 , 0) · ak+1 = β(0 , 0) · ak + ρkβk(0 , 0) · ˜a = 0. We conclude that there exists a sequence of affine functions satisfying (i)-(iii). Now, observe the following growth controls for the sequences (3.7) |ak| ≤ 
+
+> k−1
+
+X
+
+> i=0
+
+|ai+1 − ai| ≤ Ck
+
+and by hypothesis (i) it follows that (3.8) |u(0 , 0) − bk| = |u(0 , 0) − ℓk(0) | ≤ sup 
+
+> Q+
+> ρk
+
+|u − ℓk| ≤ ρk.12 BESSA, OLIVEIRA, AND REGIS 
+
+In particular, u(0 , 0) = lim  
+
+> k→∞
+
+bk. Before estimating [ u]par −C0,Log-Lip (Q+1/2), note that for every r ∈ (0 , ρ ) we can find k ∈ N such that ρk+1 ≤ r < ρ k, with k ≥ 1. Thus, sup 
+
+> (x,t )∈Q+
+> r
+
+|u(x, t ) − u(0 , 0) | = sup 
+
+> (x,t )∈Q+
+> r
+
+|u(x, t ) − ℓk(x) + ℓk(x) − u(0 , 0) |≤ sup 
+
+> (x,t )∈Q+
+> r
+
+|u(x, t ) − ℓk(x)| + |ak|| x| + |bk − u(0 , 0) |≤ ρk + kCr + ρk
+
+< kCρk + 2 ρk = ρk+1 
+
+ Ckρ + 2
+
+ρ
+
+
+
+< rk C1, (C 1 > 0 universal) 
+
+≤ r − log r
+
+− log ρ C1
+
+≤ C1r log( r−1).
+
+This shows the Log-Lipschitz continuity at the origin. By the initial observation and continuity of u, we conclude that u is Log-Lipschitz continuous on Q∗
+
+> 12
+
+.Finally, we prove that u ∈ par − C0,Log-Lip (Q+
+
+> 12
+
+). In effect, given ( x, t ) ∈ Q+
+
+> 12
+
+and ( y, s ) ∈ Q∗
+
+> 12
+
+, we have two cases to analyze: Case 1: dpar (( x, t ), (y, s )) < ρ 
+
+For r = dpar (( x, t ), (y, s )), we have 
+
+|u(x, t ) − u(y, s )|
+
+dpar (( x, t ), (y, s )) log( dpar (( x, t ), (y, s )) −1) ≤ C1r log( r−1)
+
+r log( r−1) = C 1.
+
+Case 2: ρ ≤ dpar (( x, t ), (y, s )) ≤ 1
+
+e
+
+For r = dpar (( x, t ), (y, s )), we have log( r−1) ≥ log e = 1 and 
+
+|u(x, t ) − u(y, s )|
+
+dpar (( x, t ), (y, s )) log( dpar (( x, t ), (y, s )) −1) ≤
+
+2∥u∥L∞(Q+1/2)
+
+ρ ≤ 2
+
+ρ := C 2.
+
+Using C := max {C1, C2} we obtain [u]par −C0,Log-Lip (Q+12 
+
+> )
+
+= sup 
+
+> Q+12
+
+|u(x, t ) − u(y, s )|
+
+dpar (( x, t ), (y, s )) log( dpar (( x, t ), (y, s )) −1) ≤ C.
+
+Combining with interior estimates [20, Theorem 4.2], the estimate (3.4) follows. This ends the proof. □
+
+As a byproduct of the Log-Lipschitz regularity estimates, we obtain Cα, α 
+
+> 2
+
+regularity for every α ∈ (0 , 1), as summarized in the following result. 
+
+Corollary 3.3. Assume that the hypotheses of Theorem 3.2 are satisfied. Then every viscosity solution to 
+
+(1.1) belongs to Cα, α 
+
+> 2
+
+(Q+
+
+> 12
+
+) for every α ∈ (0 , 1) .Proof. By Theorem 3.2, for any α ∈ (0 , 1) and X = ( x, t ), Y = ( y, s ) ∈ Q+
+
+> 12
+
+, we have 
+
+|u(X) − u(Y )|
+
+dpar (X, Y )α = |u(X) − u(Y )|
+
+dpar (X, Y ) log( dpar (X, Y )−1) dpar (X, Y )1−α log( dpar (X, Y )−1)
+
+≤ [u]par −C0,Log-Lip (Q+12
+
+> )
+
+dpar (X, Y )1−α log( dpar (X, Y )−1)
+
+≤ Cα[u]par −C0,Log-Lip (Q+12
+
+> )
+
+,
+
+where the last inequality follows from the boundedness of the function t 7 −→ t1−α log t−1 in (0 , 1). This completes the proof. □FULLY NONLINEAR EVOLUTION EQUATIONS: FROM CRITICAL INTEGRABILITY TO SCHAUDER ESTIMATES 13 
+
+4. Optimal H¨ older Regularity of the gradient 
+
+In this part, we establish the sharp asymptotic C1+ α, 1+ α 
+
+> 2
+
+regularity for viscosity solutions to the model (1.1) when the source term f is p-integrable for values of p larger than n + 2. In this setting, we obtain that such solutions enjoy C1+ α′, 1+ α′ 
+
+> 2
+
+estimates, where α′ ∈ (0 , 1) is given by (4.1) α′ = min 
+
+
+
+α−, 1 − n + 2 
+
+p
+
+
+
+.
+
+where this constant should be understood in the following sense, 
+
+(
+
+u ∈ C2− n+2    
+
+> p,1−n+2 2p
+
+, if 1 − n+2  
+
+> p
+
+< α, u ∈ C1+ ν, 1+ ν 
+
+> 2
+
+for any 0 < ν < α, if 1 − n+2  
+
+> p
+
+≥ α, 
+
+To prove this result, revisiting Lemma 3.1 we obtain the following adaptation. 
+
+Lemma 4.1. Fix n + 2 < p < ∞ and 0 < ˜α < α . Let u be a normalized solution to (1.1) with β, g ∈
+
+Cα, α 
+
+> 2
+
+(Q+1 ). There exist a universal constant δ > 0 and a radius 0 < ρ ≤ 12 such that, if 
+
+max 
+
+
+
+ˆ
+
+> Q+1
+
+ΦF (x, t )pdxdt 
+
+! 1
+
+> p
+
+, ∥f ∥Lp(Q+1 )
+
+ ≤ δ, 
+
+then we can find an affine profile ℓ(x) = a · x + b such that: 
+
+(i) sup 
+
+> Q+
+> ρ
+
+|u − ℓ| ≤ ρ1+ ˜ α;
+
+(ii) β(0 , 0) · a = g(0 , 0) ;
+
+(iii) |a| + |b| ≤ C, for some universal constant C > 0.Proof. The proof follows exactly as in Lemma 3.1, with the following modifications. We adjust the choice of 
+
+ρ and ε to 
+
+ρ = min 
+
+(
+
+12 ,
+
+ 12C 0
+
+ 1 
+
+> α−˜α
+
+)
+
+and ε = 12 ρ1+ ˜ α.
+
+In this case, the desired conclusion follows. □
+
+With this approximation by an affine function, we are now in a position to prove the main result of this section. 
+
+Theorem 4.2 (Optimal regularity of the gradient). Let u be a viscosity solution to (1.1) , where 
+
+β, g ∈ Cα, α 
+
+> 2
+
+(Q∗
+
+> 1
+
+) and f ∈ Lp(Q+1 ) ∩ C0(Q+1 ) for n + 2 < p < ∞. There exists constants r0 > 0 and ζ0 > 0
+
+depending only on where C is a positive constant depending only on n, λ, Λ, μ0, p, α, and ∥β∥Cα, α  
+
+> 2(Q∗
+> 1)
+
+,such that if 
+
+(4.2) sup 
+
+> 0<r ≤r0
+
+sup 
+
+> (x,t )∈Q+1/2
+
+ˆ 
+
+> Qr(x,t)∩Q+1
+
+ΦF (( y, s ); ( x, t )) pdyds 
+
+! 1
+
+> p
+
+≤ ζ0,
+
+then u ∈ C1+ α′, 1+ α′ 
+
+> 2
+
+(Q+
+
+> 12
+
+) with the following estimate 
+
+∥u∥C1+ α′, 1+ α′  
+
+> 2(Q+12
+> )
+
+≤ C
+
+
+
+∥u∥L∞(Q+1 ) + ∥f ∥Lp(Q+1 ) + ∥g∥Cα, α  
+
+> 2(Q∗
+> 1)
+
+
+
+,
+
+where C is a positive constant depending only on n, λ, Λ, μ0, p, α, and ∥β∥Cα, α  
+
+> 2(Q∗
+> 1)
+
+.
+
+Proof. By normalization, we may assume without loss of generality that 
+
+∥u∥L∞(Q+1 ) ≤ 1, ∥f ∥Lp(Q+1 ) ≤ δ, g(0 , 0) = 0 , and ∥g∥Cα, α   
+
+> 2(Q∗
+> 1)
+
+≤ 1,
+
+where δ > 0 is the constant from Lemma 4.1, and we set ζ0 = δ in (4.2). We first establish regularity at points on the boundary of the flat portion of the boundary of the half-cylinder Q+
+
+> 12
+
+. By a translation 14 BESSA, OLIVEIRA, AND REGIS 
+
+argument, it suffices to establish the result at the origin (0 , 0). In this case, we claim that there exists a sequence of affine functions ( ℓk)k≥0 of the form 
+
+ℓk(x) = ak · x + bk,
+
+satisfying (4.3) sup 
+
+> Q+
+> ρk
+
+|u − ℓk| ≤ ρk(1+ α′).
+
+Moreover, the coefficients of the affine functions ℓk satisfy for all k ≥ 0(i) β(0 , 0) · ak = 0; (ii) ρk|ak+1 − ak| + |bk+1 − bk| ≤ Cρk(1+ α′),where ρ and C are the constants for Lemma 4.1 when we chosen ˜ α = α′. The proof of the claim follows by induction on k. Indeed, the base case k = 0 holds by setting ℓ0 = 0 and using the fact that u is a normalized solution. Now, assuming that the result holds for some k ≥ 0, we have that the function 
+
+uk(x, t ) = u(ρkx, ρ 2kt) − ℓk(ρkx)
+
+ρk(1+ α′)
+
+is a normalized solution (from (4.3)) to the following problem 
+
+ Fk(D2uk, x, t ) − (uk)t = fk(x, t ) in Q+1 ,βk · Du k = gk(x, t ) on Q∗
+
+> 1
+
+,
+
+where 
+
+Fk(M , x, t ) := ρk(1 −α′)F
+
+ 1 
+
+> ρk(1 −α′)
+
+X, ρ kx, ρ 2kt
+
+
+
+fk(x, t ) := ρk(1 −α′)f (ρkx, ρ 2kt)
+
+βk(x, t ) := β(ρkx, ρ 2kt)
+
+gk(x, t ) := ρ−kα ′
+
+(g(ρkx, ρ 2kt) − β(ρkx, ρ 2kt) · ak).
+
+We claim that uk satisfies the hypotheses of Lemma 4.1. Indeed, clearly Fk ∈ E (λ, Λ), and by condition (4.2) we have that ˆ
+
+> Q+1
+
+ΦFk (x, t )pdxdt 
+
+! 1
+
+> p
+
+=
+
+ˆ
+
+> Q+
+> ρk
+
+ΦF (y, s )pdyds 
+
+! 1
+
+> p
+
+≤ ζ0 = δ. 
+
+Moreover, by the definition of α′ we have that 
+
+∥fk∥Lp(Q+1 ) = ρk((1 −α′)− n+2  
+
+> p
+
+)∥f ∥Lp(Q+  
+
+> ρk)
+
+≤ ∥ f ∥Lp(Q+1 ) ≤ δ. 
+
+Now, regarding the boundary data, it is not difficult to verify that βk ∈ Cα, α 
+
+> 2
+
+(Q∗
+
+> 1
+
+) and 
+
+∥βk∥Cα, α   
+
+> 2(Q∗
+> 1)
+
+= ∥β∥L∞(Q∗  
+
+> ρk)
+
++ ρkα [β]α,Q ∗
+
+> ρk
+
+≤ ∥ β∥Cα, α  
+
+> 2(Q∗
+> 1)
+
+.
+
+Concerning the boundary source term gk, note that gk(0 , 0) = 0, due to the induction hypothesis and the fact that g(0 , 0) = 0. Therefore, in this case we have (4.4) ∥gk∥L∞(Q∗  
+
+> 1)
+
+≤ [gk]α,Q ∗
+
+> 1
+
+.
+
+Thus, in order to obtain a universal control of the H¨ older norm of gk, it suffices to control its seminorm. To this end, one can verify that (4.5) [gk]α,Q ∗
+
+> 1
+
+≤ ρk(α−α′)
+
+
+
+[g]α,Q ∗
+
+> ρk
+
++ [ β]α,Q ∗
+
+> ρk
+
+|ak|
+
+
+
+≤ [g]α,Q ∗
+
+> 1
+
++ C
+
+1 − ρα′ [β]α,Q ∗
+
+> 1
+
+,
+
+since ρ < 1 and by the induction hypothesis, 
+
+|ak| ≤ 
+
+> k−1
+
+X
+
+> j=0
+
+|aj+1 − aj | ≤ C
+
+> k−1
+
+X
+
+> j=0
+
+ρα′j ≤ C
+
+1 − ρα′ .
+
+Therefore, from (4.4) and (4.5) we conclude that gk ∈ Cα, α 
+
+> 2
+
+(Q∗
+
+> 1
+
+) with the following estimate, 
+
+∥gk∥Cα, α   
+
+> 2(Q∗
+> 1)
+
+≤ C( α′, C, ρ )∥g∥Cα, α  
+
+> 2(Q∗
+> 1)
+
+,FULLY NONLINEAR EVOLUTION EQUATIONS: FROM CRITICAL INTEGRABILITY TO SCHAUDER ESTIMATES 15 
+
+and in this case the bound is universal, due to its dependence only on universal constants.Thus, we are under the assumptions of Lemma 4.1, and by applying this result we obtain that there exists an affine function ¯ℓ(x) = ¯ a · x + ¯b such that (4.6) sup 
+
+> Q+
+> ρ
+
+|uk − ¯ℓ| ≤ ρ1+ α′
+
+,
+
+and the coefficients ¯ a and ¯b satisfy, (4.7) βk(0 , 0) · ¯a = 0 (since gk(0 , 0) = 0) and |¯a| + |¯b| ≤ C.
+
+Thus, defining ak+1 = ak +ρkα ′
+
+¯a and bk+1 = bk +ρk(1+ α′)¯b, the affine profile ℓk+1 is such that, upon rescaling estimate (4.6), we obtain that sup 
+
+> Q+
+> ρk+1
+
+|u − ℓk+1 | ≤ ρ(k+1)(1+ α′).
+
+Moreover, the boundedness of the coefficients of ¯ℓ in (4.7) implies that 
+
+ρk|ak+1 − ak| + |bk+1 − bk| = ρk(1+ α′)(|¯a| + |¯b|) ≤ Cρk(1+ α′)
+
+and by the definition of βk and the induction hypothesis implies that 
+
+β(0 , 0) · ak+1 = βk(0 , 0) · ak + ρkα ′
+
+βk(0 , 0) · a = 0 .
+
+This proves the case k + 1, thereby establishing the claim by induction. Now, concerning this sequence of affine functions, we observe that it is convergent, since the sequences of coefficients ( ak)k∈N and ( bk)k∈N are Cauchy sequences and, by construction, they converge to vectors a∞
+
+and b∞ with the following rate of convergence (4.8) |ak − a∞| ≤ C
+
+1 − ρα′ ρkα ′
+
+and |bk − b∞| ≤ C
+
+1 − ρ1+ α′ ρk(1+ α′).
+
+Therefore, defining the affine function ℓ∞(x) = a∞ · x + b∞, given r ∈ (0 , ρ ) there exists k ∈ N such that 
+
+ρk+1 < r ≤ ρk and, in this case, using (4.3) and (4.8) it follows that sup 
+
+> Q+
+> r
+
+|u − ℓ∞| ≤ sup 
+
+> Q+
+> ρk
+
+|u − ℓk| + sup 
+
+> Q+
+> ρk
+
+|ℓk − ℓ∞|≤ ρk(1+ α′) +
+
+ 11 − ρα′ + 11 − ρ1+ α′
+
+
+
+Cρk(1+ α′)
+
+≤ C0r1+ α′
+
+,
+
+where C 0 =
+
+ 11−ρα′ + 11−ρ1+ α′
+
+ C 
+
+> ρ1+ α′
+
+. Therefore, u is of class C1+ α′, 1+ α′ 
+
+> 2
+
+at (0 , 0) with Du (0 , 0) = a∞ and 
+
+u(0 , 0) = b∞, which proves the initial claim. Finally, combining this with optimal interior estimates (cf. [20, Section 5]) it follows that u ∈ C1+ α′, 1+ α′ 
+
+> 2
+
+(Q+1/2), thus completing the proof. □
+
+As a consequence of the optimal regularity of the gradient, we obtain the following corollary, which classifies the regularity of the model (1.1) under different perspectives on the boundary data and the source term. 
+
+Corollary 4.3. Let u be a viscosity solution to (1.1) . The following assertions hold: 
+
+(a) Assume that β, g ∈ Cα, α 
+
+> 2
+
+(Q∗
+
+> 1
+
+) for some 0 < α < 1 and f ∈ L n+2 1−α (Q+1 ) ∩ C0(Q+1 ). There exists a universal constants r0 and ζ0 > 0 such that if (4.2) holds,then u ∈ C1+ α−, 1+ α− 
+
+> 2
+
+(Q+
+
+> 12
+
+). Precisely, 
+
+u ∈ C1+ ν, 1+ ν 
+
+> 2
+
+(Q+
+
+> 12
+
+) for any 0 < ν < α .
+
+(b) Assume that β, g ∈ C1, 12 (Q∗
+
+> 1
+
+) and f ∈ Lp(Q+1 ) ∩ C0(Q+1 ) for some n + 2 < p < ∞. There exists a universal constants r0 and ζ0 > 0 such that if (4.2) holds, then u ∈ C2− n+2    
+
+> p,1−n+2 2p
+
+(Q+
+
+> 12
+
+).16 BESSA, OLIVEIRA, AND REGIS 
+
+Proof. For item (a), it suffices to observe that p = n+2 1−α > n + 2 since 0 < α < 1, and thus the result follows from Theorem 4.2, because in this configuration 1 − n+2  
+
+> p
+
+= α.On the other hand, for item (b), note that in the case α = 1, for every n + 2 < p < ∞ one has 1 − n+2  
+
+> p
+
+< 1, and the conclusion follows by applying Theorem 4.2. □
+
+5. Higher Order Regularity: Schauder Estimates 
+
+In this part, we are interested in establishing higher regularity for viscosity solutions of (1.1) within the framework of H¨ older spaces, namely Schauder-type estimates. Following the polynomial approach developed in the previous sections, we aim to establish estimates when the source term and the oscillation of the coefficients of the governing operator enjoy a H¨ older modulus of continuity, at least in a weaker (integral) sense. More precisely, throughout this section we assume the following structural conditions: 
+
+(H1) (Regularity of source term ) We assume that the source term f belongs to C0,α (Q+1 ) in the Ln+2 
+
+sense; that is, there exists a constant C f > 0 such that 
+
+ˆ  
+
+> Q+1∩Qr(x0,t 0)
+
+|f (x, t ) − f (x0, t 0)|n+2 dxdt 
+
+! 1
+
+> n+2
+
+≤ Cf rα, ∀(x0, t 0) ∈ Q+1 , r ∈ (0 , 1) .
+
+(H2) (Oscillation of the coefficients ) We assume that the oscillation of the coefficients ˜ΦF (·, x 0) ∈
+
+C0,α (Q+1 ) in the Ln+2 sense; i.e., there exists C F > 0 such that 
+
+ˆ  
+
+> Q+1∩Qr(x0,t 0)
+
+˜ΦF (( x, t ); ( x0, t 0)) n+2 dxdt 
+
+! 1
+
+> n+2
+
+≤ CF rα, ∀(x0, t 0) ∈ Q+1 , r ∈ (0 , 1) .
+
+(H3) (C2+ α, 1+ α 
+
+> 2
+
+-type estimates for translated problems ) For each ( x0, t 0) ∈ Q+1/2, consider the auxiliary problem 
+
+( F (D2h + M , x 0, t 0) − ht = 0 in Q+
+
+> 78
+
+,β ·Dh = g(x, t ) on Q∗
+
+> 78
+
+.
+
+We assume that this problem admits a solution h ∈ C2+ α, 2+ α 
+
+> 2
+
+(Q+
+
+> 23
+
+) ∩ C0(Q+
+
+> 78
+
+∪ Q∗
+
+> 78
+
+) whenever β, , g ∈
+
+C1+ α, 1+ α 
+
+> 2
+
+(Q∗
+
+> 78
+
+), and that the following estimate holds: 
+
+∥h∥C2+ α, 2+ α  
+
+> 2(Q+23
+> )
+
+≤ C⋆ ∥h∥L∞(Q+78 
+
+> )
+
++ ∥g∥C1+ α, 1+ α 
+
+> 2(Q∗
+> 78
+> )
+
+!
+
+,
+
+for a universal constant C ⋆ > 0. 
+
+Remark 5.1 . On the previous conditions: 
+
+✓ Concerning the oscillation function ˜ΦF appearing in assumption (H2) , we note that it controls the oscillation Φ F introduced in Section 2. More precisely, one has Φ F ≤ ˜ΦF .
+
+✓ As examples of operators satisfying condition (H3) , we may mention concave or convex operators (cf. [14, Theorem 5.8]). Moreover, by suitably adapting the arguments therein, it is possible to show that the class of quasiconvex and quasiconcave operators also satisfies (H3) (cf. [23, Theorem 7.1] and [9, Theorem 1.2]). In this setting, we can state the key lemma ensuring quadratic approximations. 
+
+Lemma 5.2. Let u be a normalized solution to (1.1) with β, g ∈ C1+ α, 1+ α 
+
+> 2
+
+(Q∗
+
+> 1
+
+) and ¯α ∈ (0 , α ). There exist universal constants δ > 0 and 0 < ρ ≤ 12 such that, if 
+
+max 
+
+
+
+ˆ
+
+> Q+1
+
+˜ΦF (x, t )n+2 dxdt 
+
+! 1
+
+> n+2
+
+, ∥f ∥Ln+2 (Q+1 )
+
+ ≤ δ, FULLY NONLINEAR EVOLUTION EQUATIONS: FROM CRITICAL INTEGRABILITY TO SCHAUDER ESTIMATES 17 
+
+then there exists a quadratic polynomial P (x, t ) = 12 xT Mx + a · x + bt + c such that 
+
+sup 
+
+> Q+
+> ρ
+
+|u − P| ≤ ρ2+ ¯ α.
+
+Moreover, the coefficients of the polynomial P satisfies 
+
+(i) F (M , 0, 0) = b;
+
+(ii) β(0 , 0) · a = g(0 , 0) ;
+
+(iii) For 1 ≤ i ≤ n − 1 nX
+
+> j=1
+
+(Diβj (0 , 0) aj + βj (0 , 0)M ij ) = Dig(0 , 0); iv. |a| + |b| + |c| + ∥M∥ ≤ C, for some universal constant C > 0.Proof. The proof follows the same lines as that of Lemma 3.1; therefore, we detail only the necessary modifications. Fix ε > 0, to be chosen later. By applying Lemma 2.12, we obtain the existence of a function 
+
+v solving (5.1) 
+
+
+
+F (D2v, 0, 0) − vt = 0 in Q+
+
+> 34
+
+,β · Dv = g(x, t ) on Q∗
+
+> 34
+
+,
+
+v = u on ∂pQ+
+
+> 34
+
+\ Q∗
+
+> 34
+
+and satisfy (5.2) ∥u − v∥L∞ 
+
+> 
+> Q+34
+> 
+
+≤ ε. 
+
+Invoking hypothesis (H3) , we have v ∈ C2+ α, 2+ α
+
+> 2
+
+ Q+
+
+> 23
+
+, and the following estimate holds 
+
+∥v∥C2+ α, 2+ α  
+
+> 2(Q+23
+> )
+
+≤ C⋆ ∥v∥L∞(Q+78 
+
+> )
+
++ ∥g∥C1+ α, 1+ α 
+
+> 2(Q∗
+> 78
+> )
+
+!
+
+.
+
+Consequently, by the A.B.P.T estimate 2.5, (5.3) ∥v∥C2+ α, 2+ α  
+
+> 2(Q+23
+> )
+
+≤ C′ C⋆, n, λ, Λ, μ 0, ∥β∥C1+ α, 1+ α 
+
+> 2(Q+23
+> )
+
+, ∥g∥C1+ α, 1+ α 
+
+> 2(Q+23
+> )
+
+!
+
+.
+
+Now, setting M = D2v(0 , 0), a = Dv(0 , 0), b = v t(0 , 0), and c = v(0 , 0), the quadratic polynomial P is well defined, and for every ( x, t ) ∈ Q+
+
+> 34
+
+we have that 
+
+|v( x, t ) − P (x, t )| ≤ v( x, t ) − v(0 , t ) − Dv(0 , t ) · x − 12 xT D2v(0 , t )x
+
++ 12 |xT (D2v(0 , t ) − D2v(0 , 0)) x| + |v(0 , t ) − v(0 , 0) − vt(0 , 0) t|
+
++ |Dv(0 , t ) − Dv(0 , 0) || x|≤ [D2v] α,Q +23
+
+|x|2(|x|α + |t| α 
+
+> 2
+
+) + [v t]α,Q +23
+
+|t|1+ α 
+
+> 2
+
++ [ Dv] 1+ α,Q +23
+
+|x|| t| 1+ α
+
+> 2
+
+(5.4) 
+
+≤ C( |x|2+ α + |t|1+ +α 
+
+> 2
+
++ |x|| t| 1+ α 
+
+> 2
+
++ |x|2|t| α 
+
+> 2
+
+)
+
+≤ C1dpar (( x, t ), (0 , 0)) 2+ α,(5.5) where in (5.4) we use the estimate (5.3). Thus, the estimate (5.5) implies (5.6) sup 
+
+> Q+
+> r
+
+|v − P | ≤ C1r2+ α, ∀r ∈
+
+
+
+0, 23
+
+
+
+.
+
+We are now in a position to choose ρ and ε such that by setting 
+
+ρ = min 
+
+(
+
+12 ,
+
+ 12C 1
+
+ 1 
+
+> α−¯α
+
+)
+
+and ε = 12 ρ2+ ¯ α.18 BESSA, OLIVEIRA, AND REGIS 
+
+Consequently, the constant δ > 0 is well determined by the Approximation Lemma 2.12. As a consequence of these choices, together with (5.2) and (5.6), it follows that sup 
+
+> Q+
+> ρ
+
+|u − P | ≤ ρ2+ ¯ α.
+
+Moreover, by the choice of the coefficients of the quadratic polynomial P , it follows directly from (5.1) that conditions (i) and (ii) are satisfied, and by estimate (5.3) we obtain the universal boundedness condition for the coefficients, namely (iv). Finally, using the boundary equation on the flat boundary T 78 and the fact that v ∈ C2+ α, 2+ α
+
+> 2
+
+ Q+
+
+> 23
+
+, it follows that 
+
+β(x, t ) · Dv = g(x, t ), ∀(x, t ) ∈ Q∗
+
+> 23
+
+.
+
+By differentiating both sides in the i-th direction ( i = 1 , . . . , n − 1) and evaluating at ( x, t ) = (0 , 0), the compatibility condition (iv) follows. □
+
+We are now in a position to prove the main theorem of this section. 
+
+Theorem 5.3 (Schauder estimates). Let u be a solution to the problem (1.1) . Assume that the structural conditions (H1)-(H3) hold. Then, there exist universal constants r0 > 0 and ζ0 > 0 such that if 
+
+sup 
+
+> 0<r ≤r0
+
+sup 
+
+> (x,t )∈Q+1/2
+
+ˆ 
+
+> Qr(x,t)∩Q+1
+
+˜ΦF (( y, s ); ( x, t )) n+2 dyds 
+
+! 1
+
+> n+2
+
+≤ ζ0
+
+then u ∈ C2+ α−, 2+ α− 
+
+> 2
+
+(Q+
+
+> 12
+
+). Precisely, for any γ ∈ (0 , α ), we have u ∈ C2+ γ, 2+ γ 
+
+> 2
+
+(Q+
+
+> 12
+
+) and the following estimate holds 
+
+∥u∥C2+ γ, 2+ γ  
+
+> 2(Q+12
+> )
+
+≤ C
+
+
+
+∥u∥L∞(Q+1 ) + ∥f ∥C0,α (Q+1 ) + ∥g∥C1+ α, 1+ α  
+
+> 2(Q∗
+> 1)
+
+
+
+.
+
+Proof. For convenience, by normalization and scaling arguments, we assume that ∥u∥L∞(Q+1 ) ≤ 1, g(0 , 0) = 
+
+f (0 , 0) = 0 and Dg (0 , 0) = 0 (cf. [14, Theorem 5.8]). Fix γ ∈ (0 , α ) and the constants δ > 0 and ρ from the Lemma 5.2. We first establish the desired regularity at points on the flat boundary Q∗
+
+> 12
+
+. By a standard localization argument, it is enough to establish the result at the origin (0 , 0). More precisely, we claim that there exists a sequence of quadratic polynomials ( Pk)k≥− 1 of the form 
+
+Pk(x, t ) = 12 xT Mkx + ak · x + bkt + ck,
+
+satisfying (5.7) sup 
+
+> Qkρ
+
+|u − Pk| ≤ ρ2+ γ .
+
+Moreover, the coefficients of the quadratic polynomials Pk satisfy for all k ≥ 0(a) F (M k, 0, 0) = bk;(b) β(0 , 0) · ak = 0; (c) For any 1 ≤ i ≤ n − 1
+
+> n
+
+X
+
+> j=1
+
+
+
+Diβj (0 , 0) a(k) 
+
+> j
+
++ βj (0 , 0)M (k)
+
+> ij
+
+
+
+= 0 ,
+
+where a(k) 
+
+> j
+
+denotes the j-th component of the vector ak and M (k) 
+
+> ij
+
+denotes the ( i, j )-th entry of the matrix M k;(d) |ck −ck−1|+ρ(k−1) |ak −ak−1|+ρ2( k−1) (|bk −bk−1|+∥Mk −Mk−1∥) ≤ Cρ(2+ γ)( k−1) , for some universal constant C > 0. By a scaling argument (cf. [12, Theorem 8.1]), we may assume that (5.8) Cf ≤ δ
+
+2 n+3  
+
+> n+2
+
+|Q+1 | 1
+
+> n+2
+
+and CF ≤ (1 − ργ )δ
+
+4(1 + 2 n+1  
+
+> n+2
+
+|Q+1 | 1 
+
+> n+2
+
+)(1 + C − ργ ) .FULLY NONLINEAR EVOLUTION EQUATIONS: FROM CRITICAL INTEGRABILITY TO SCHAUDER ESTIMATES 19 
+
+The proof of the result is carried out by induction on k. Setting P0 = P−1 = 0, the case k = 0 follows immediately. Assume by induction that the statement holds up to some k ≥ 0. Then the rescaled profile 
+
+uk(x, t ) = (u − Pk)( ρkx, ρ 2kt)
+
+ρk(2+ γ)
+
+satisfies ∥uk∥L∞(Q+1 ) ≤ 1 (by (5.7)) and solves 
+
+ Fk(D2uk, x, t ) − (uk)t = fk(x, t ) in Q+1 ,βk · Du k = gk(x, t ) on Q∗
+
+> 1
+
+,
+
+where 
+
+Fk(X , x, t ) := 1
+
+ρkγ [F  ρkγ X + M k, ρ kx, ρ 2kt − F (M k, ρ kx, ρ 2kt)] 
+
+fk(x, t ) := 1
+
+ρkγ [f (ρkx, ρ 2kt) − F (M k, ρ kx, ρ 2kt) + bk]
+
+βk(x, t ) := β(ρkx, ρ 2kt)
+
+gk(x, t ) := 1
+
+ρ−k(1+ γ) [g(ρkx, ρ 2kt) − β(ρkx, ρ 2kt) · DP k(ρkx, ρ 2kt)] .
+
+We will show that this problem satisfies the assumptions of Lemma 6.1. In effect, first note that ΦFk (x, t ) = sup 
+
+> X∈Sym( n)
+
+|Fk(X , x, t ) − Fk(X , 0, 0) |
+
+1 + ∥X∥≤ sup 
+
+> X∈Sym( n)
+
+F (ρkγ X + M k, ρ kx, ρ 2kt) − F (M k, ρ kx, ρ 2kt)
+
+ρkγ (1 + ∥X∥)
+
+− F (ρkγ X + M k, 0, 0) − F (M k, 0, 0) 
+
+ρkγ )(1 + ∥X∥)
+
+≤ ΦF (ρkx, ρ 2kt)
+
+ρkγ sup 
+
+> X∈Sym( n)
+
+ ρkγ ∥X∥
+
+1 + ∥X∥ + 2 1 + ∥Mk∥
+
+1 + ∥X∥
+
+
+
+≤ 2 ΦF (ρkx, ρ 2kt)
+
+ρkγ (1 + ∥Mk∥).
+
+In this case, we obtain that 
+
+ˆ
+
+> Q+1
+
+ΦFk (x, t )n+2 dxdt 
+
+! 1
+
+> n+2
+
+≤ 2(1 + ∥Mk∥)C F ρk(α−γ) ≤ δ
+
+2 < δ, (5.9) This estimate follows from (5.8) and assumption (H3), together with item (d) of the induction hypothesis, which yields 
+
+∥Mk∥ ≤ 
+
+> k
+
+X
+
+> j=1
+
+∥Mj − Mj−1∥ ≤ C
+
+> ∞
+
+X
+
+> j=1
+
+ρ(j−1) γ = C
+
+1 − ργ .
+
+Now, regarding the source term fk, by item (a) of the induction hypothesis, we have that 
+
+∥fk∥Ln+2 (Q+1 ) ≤ 2 n+1  
+
+> n+2
+
+|Q+1 | 1
+
+> n+2
+
+ρkγ 
+
+" ˆ
+
+> Q+
+> ρk
+
+|f (x, t ) − f (0 , 0) |n+2 dxdt 
+
+! 1
+
+> n+2
+
++
+
+ˆ
+
+> Q+1
+
+ΦFk (x, t )n+2 dxdt 
+
+! 1 
+
+> n+2
+
+#
+
+> (5.9)
+
+≤ 2 n+1  
+
+> n+2
+
+|Q+1 | 1 
+
+> n+2
+
+ρk(α−γ) [C f + 2(1 + ∥Mk∥)C F ]
+
+≤ δ, 
+
+since assumptions (H1)–(H2) are satisfied and (5.8) holds. 20 BESSA, OLIVEIRA, AND REGIS 
+
+Now, it remains to analyze the regularity of the boundary data βk and gk, as well as the dependence of their norms. Concerning the vector field βk, it is clearly of class C1+ α, 1+ α 
+
+> 2
+
+in Q∗
+
+> 1
+
+, since β is and 0 < ρ < 1, and moreover we have the following estimate: 
+
+∥βk∥C1+ α, 1+ α   
+
+> 2(Q∗
+> 1)
+
+≤ ∥ β∥C1+ α, 1+ α  
+
+> 2(Q∗
+> 1)
+
+.
+
+On the other hand, since g(0 , 0) = 0 and Dg (0 , 0) = 0, it follows from this fact and items (b) and (c) of the induction hypothesis that the same holds for gk(0 , 0) and Dg k(0 , 0), respectively. In this case, it is sufficient to ensure k-independent bounds for [ Dg k]α,Q ∗
+
+> 1
+
+, and [ gk]1+ α,Q ∗
+
+> 1
+
+, since once these bounds are established we have that 
+
+∥Dg k∥L∞(Q∗  
+
+> 1)
+
+≤ 2[ Dg k]α,Q ∗
+
+> 1
+
+and 
+
+∥gk∥L∞(Q∗  
+
+> 1)
+
+≤ ρk(1+ α) 
+
+2[ Dg k]α,Q ∗
+
+> 1
+
++ [ gk]1+ α,Q ∗
+
+> 1
+
+
+
+≤ C
+
+
+
+[Dg k]α,Q ∗
+
+> 1
+
++ [ gk]1+ α,Q ∗
+
+> 1
+
+
+
+,
+
+since 0 < ρ < 1. Having made this observation, we proceed to estimate each of the aforementioned terms: (I) Estimate for [gk]1+ α,Q ∗
+
+> 1
+
+.Note that DP k(x, t ) = M kx + ak and therefore it does not depend on the time variable t. Hence, [gk]1+ α,Q ∗
+
+> 1
+
+≤ ρk(α−γ)
+
+
+
+[g]1+ α,Q ∗
+
+> ρk
+
++ [ β]1+ α,Q ∗
+
+> ρk
+
+(ρk∥Mk∥ + |ak|)
+
+
+
+≤ [g]1+ α,Q ∗
+
+> ρ1
+
++ C( C, γ, ρ )[ β]1+ α,Q ∗
+
+> ρ1
+
+,
+
+since by the item (d) of the induction hypothesis, 
+
+|ak| ≤
+
+> k
+
+X
+
+> j=1
+
+|aj − aj−1| ≤ C
+
+> ∞
+
+X
+
+> j=1
+
+ρ(1+ γ)( j−1) = C
+
+1 − ρ1+ γ ,(5.10) 
+
+∥Mk∥ ≤
+
+> k
+
+X
+
+> j=1
+
+∥Mj − Mj−1∥ ≤ 
+
+> ∞
+
+X
+
+> j=1
+
+ργ(j−1) = C
+
+1 − ργ .(5.11) In this case, ρk∥Mk∥ = o(k) as k → ∞ , consequently, bounded. (II) Estimate for [Dg k]α,Q ∗
+
+> 1
+
+.For each 1 ≤ i ≤ n − 1 we have that [Digk]α,Q ∗
+
+> 1
+
+≤ ρk(α−γ)
+
+
+
+[Dig]α,Q ∗
+
+> ρk
+
++ [ Diβ]α,Q ∗
+
+> ρk
+
+(ρk∥Mk∥ + |ak|)
+
+
+
++ 21−α∥Diβ∥L∞(Q∗ 
+
+> ρk)
+
+ρk(1 −γ)∥Mk∥ + ρk(α−γ)[β]α,Q ∗
+
+> ρk
+
+C( n)∥Mk∥
+
++ 21−α∥β∥L∞(Q∗ 
+
+> ρk)
+
+ρk(1 −γ)C( n)∥Mk∥≤ C( n, ρ, γ, C, ∥β∥L∞(Q∗ 
+
+> 1)
+
+, [β]α,Q ∗
+
+> 1
+
+, [Diβ]α,Q ∗
+
+> 1
+
+[Dig]α,Q ∗
+
+> 1
+
+),
+
+where we used the estimates (5.10)–(5.11) above, as well as the regularity of the boundary data β
+
+and g. In particular, this yields the desired bound for Dg k.Thus, we conclude that the C1+ α, 1+ α 
+
+> 2
+
+-norm of gk is bounded independently of k. Therefore, we may invoke Lemma 5.2 and conclude the existence of a quadratic polynomial ¯P (x, t ) = 12 xT ¯Mx + ¯ a · x + ¯bt + ¯ c
+
+such that (5.12) sup 
+
+> Q+
+> ρ
+
+|uk − ¯P | ≤ ρ2+ γ .
+
+Moreover, the coefficients satisfy: (i) Fk( ¯M, 0, 0) = ¯b
+
+(ii) βk(0 , 0) · ¯a = gk(0 .0) FULLY NONLINEAR EVOLUTION EQUATIONS: FROM CRITICAL INTEGRABILITY TO SCHAUDER ESTIMATES 21 
+
+(iii) For each 1 ≤ i ≤ n − 1
+
+> n
+
+X
+
+> j=1
+
+(Di(βk)j (0 , 0)¯ aj + ( βk)j (0 , 0) ¯Mij ) = Digk(0 , 0) .
+
+(iv) |¯a| + |¯b| + |¯c| + ∥ ¯M∥ ≤ C
+
+Now we define 
+
+Pk+1 (x, t ) = Pk(x, t ) + ρk(2+ γ) ¯P (ρ−kx, ρ −2kt).
+
+In this case, by rescaling (5.12) we obtain estimate (5.7) for k + 1. Moreover, using the items (a)-(d) (from the induction hypothesis) and (i)-(iv) it follows the properties for the quadratic profile Pk+1 . This proves the claim by induction. Now, from the properties of this sequence, we see that the sequences of coefficients (ck)k, ( bk)k, ( ak)k, and (M k)k are Cauchy sequences and converge, respectively, to u(0 , 0), ut(0 , 0), Du (0 , 0), and D2u(0 , 0), with the following rate of convergence: 
+
+|ck − u(0 , 0) | ≤ Cρk(2+ γ)
+
+1 − ρ2+ γ , |bk − ut(0 , 0) | ≤ Cρkγ 
+
+1 − ργ , |ak − Du (0 , 0) | ≤ Cρk(1+ γ)
+
+1 − ρ1+ γ
+
+(5.13) and (5.14) ∥Mk − D2u(0 , 0) ∥ ≤ Cρkγ 
+
+1 − ργ .
+
+Now, let 
+
+Pu(x, t ) = 12 xT D2u(0 , 0) x + Du (0 , 0) · x + ut(0 , 0) t + u(0 , 0) .
+
+Given 0 < r < ρ , choose k ∈ N such that ρk+1 < r ≤ ρk. Using the coefficient estimates (5.13)–(5.14), together with the approximation control (5.7), it follows that sup 
+
+> (x,t )∈Q+
+> r
+
+|u(x, t ) − Pu(x, t )| ≤ sup 
+
+> (x,t )∈Q+
+> ρk
+
+|u(x, t ) − Pk(x, t )| + sup 
+
+> (x,t )∈Q+
+> ρk
+
+|Pk(x, t ) − Pu(x, t )|≤ ρk(2+ γ) + Cρk(2+ γ)
+
+ 21 − ργ + 11 − ρ1+ γ + 11 − ρ2+ γ
+
+
+
+≤ C0r2+ γ ,
+
+where 
+
+C0 = 1
+
+ρ2+ γ
+
+
+
+1 + 
+
+ 21 − ργ + 11 − ρ1+ γ + 11 − ρ2+ γ
+
+ 
+
+.
+
+This proves the desired estimate on the flat boundary of the cylinder. For interior points, we invoke [43, Theorem 1.1] and thus complete the proof. □
+
+Remark 5.4 . It seems plausible that the techniques developed to derive the estimates in Theorem 5.3 can be adapted to obtain regularity results in the setting of more general moduli of continuity, such as the Dini case. For basic properties, characterizations of these spaces, and interior estimates in this framework, we refer the reader to [5, 6, 17, 46]. 6. The second borderline case: Log-Lipschitz regularity of the gradient 
+
+In this section, we will deal with the limiting integrability case, i.e., when the source term f has bounded mean oscillation (see the Definition 2.11). In contrast to the preceding sections, we begin by examining the case in which the governing operator is independent of the coefficients. More specifically, we focus on solutions to the following problem (6.1) 
+
+ F (D2u) − ut = f (x, t ) in Q+1 ,β(x, t ) · Du (x, t ) = g(x, t ) on Q∗
+
+> 1
+
+.
+
+where we will assume the following regularity assumption: 22 BESSA, OLIVEIRA, AND REGIS 
+
+(A⋆) For each pair (M , K ) ∈ Sym( n) × R such that F (M) = K, the auxiliary problem 
+
+( F (D2h + M) − ht = K in Q+
+
+> 78
+
+,β ·Dh = g(x, t ) on Q∗
+
+> 78
+
+.
+
+fulfills that C2+ α, 2+ α 
+
+> 2
+
+-estimates, that is, h ∈ C2+ α, 2+ α 
+
+> 2
+
+(Q+
+
+> 23
+
+) ∩ C0(Q+
+
+> 78
+
+∪ Q∗
+
+> 78
+
+) whenever β, , g ∈
+
+C1+ α, 1+ α 
+
+> 2
+
+(Q∗
+
+> 78
+
+), and that the following estimate holds 
+
+∥h∥C2+ α, 2+ α  
+
+> 2(Q+23
+> )
+
+≤ C⋆⋆ ∥h∥L∞(Q+78 
+
+> )
+
++ ∥g∥C1+ α, 1+ α 
+
+> 2(Q∗
+> 78
+> )
+
+!
+
+,
+
+for a universal constant C ⋆⋆ > 0. The class of operators F satisfying condition ( A⋆) is nonempty, as illustrated in Remark 5.1. As emphasized in the introduction, the idea behind proving the parabolic C1,Log-Lip estimates in this setting is to employ a second-degree polynomial approximation with a decay rate of order two for the perturbed problem associated with a matrix ˜M satisfying F ( ˜M) = ( f )Q+1
+
+. This is made possible by the following key lemma. 
+
+Lemma 6.1. Let u be a normalized viscosity solution of 
+
+ F (D2u + ˜M) − ut = f (x, t ) in Q+1 ,β · Du = g(x, t ) on Q∗
+
+> 1
+
+,
+
+where β, g ∈ C1+ α, 1+ α 
+
+> 2
+
+(Q∗
+
+> 1
+
+) for some constant α ∈ (0 , 1) , ˜M ∈ Sym (n) is such that F ( ˜M) = ( f )Q+1
+
+and assume that the hypothesis (A⋆) holds. There exist δ > 0 and ρ ∈ (0 , 12 ] depending only on n, λ, Λ, μ0, C⋆⋆ ,
+
+∥β∥C1,α (Q∗ 
+
+> 1)
+
+, and ∥g∥C1,α (Q∗  
+
+> 1)
+
+such that, if 
+
+[f ]BMO( Q+1 ) ≤ δ. 
+
+Then, there exists a quadratic polynomial P (x, t ) = 12 xtMx+a·x+bt +c with universally bounded coefficients, in the following sense 
+
+|a| + |b| + |c| + ∥M∥ ≤ C(n, λ, Λ, μ 0, α, ∥β∥C1+ α, 1+ α  
+
+> 2(Q∗
+> 1)
+
+, ∥g∥C1+ α, 1+ α  
+
+> 2(Q∗
+> 1)
+
+),
+
+such that 
+
+sup 
+
+> Q+
+> ρ
+
+|u − P | ≤ ρ2.
+
+Moreover, the coefficients a = ( a1, . . . , a n), b, and M = (M ij )n×n satisfy 
+
+F (M + ˜M) − b = ( f )1, β(0 , 0) · a = g(0 , 0) ,
+
+and 
+
+(6.2) 
+
+> n
+
+X
+
+> j=1
+
+(Diβj (0 , 0) aj + βj (0 , 0)M ij ) = Dig(0 , 0) , for all 1 ≤ i ≤ n − 1.
+
+Here, β1, . . . , β n denote the coordinate functions of the vector field β.Proof. First, we set ε > 0, which we will choose later. By Lemma 2.14, there exists δ = δ(n, λ, Λ, μ 0, ε ) > 0such that if ∥f ∥BMO( Q+1 ) ≤ δ, then the viscosity solution h of (6.3) 
+
+
+
+F (D2h + ˜M) − ht = (f )Q+1
+
+in Q+
+
+> 78
+
+,β · Dh = g(x, t ) on Q∗
+
+> 78
+
+,h = u on ∂pQ+
+
+> 78
+
+\ Q∗
+
+> 78
+
+such that (6.4) sup 
+
+> Q+78
+
+|u − h| ≤ ε. FULLY NONLINEAR EVOLUTION EQUATIONS: FROM CRITICAL INTEGRABILITY TO SCHAUDER ESTIMATES 23 
+
+Thus, combining hypothesis ( A⋆) with the condition F ( ˜M) = ( f )Q+1
+
+, we conclude that 
+
+h ∈ C2+ α, 2+ α 
+
+> 2
+
+(Q+
+
+> 23
+
+)and the following estimate is valid 
+
+∥h∥C2+ α, 2+ α  
+
+> 2(Q+23
+> )
+
+≤ C⋆⋆ ∥h∥L∞(Q+78 
+
+> )
+
++ ∥g∥C1+ α, 1+ α 
+
+> 2(Q∗
+> 78
+> )
+
+!
+
+,
+
+for a universal constant C ⋆⋆ > 0. Invoking the A.B.P.T. estimate 2.5, we obtain (6.5) ∥h∥C2+ ˜ α, 2+ ˜ α  
+
+> 2(Q+23
+> )
+
+≤ C = C 
+
+
+
+n, λ, Λ, μ 0, α, ∥β∥C1+ α, 1+ α  
+
+> 2(Q∗
+> 1)
+
+, ∥g∥C1+ α, 1+ α  
+
+> 2(Q∗
+> 1)
+
+
+
+.
+
+Thus, defining c = h(0 , 0), b = ht(0 , 0), a = Dh (0 , 0), and M = D2h(0 , 0), the quadratic polynomial 
+
+P (x, t ) = c + bt + a · x + 12 xtMx
+
+is well defined. Moreover, it follows immediately that 
+
+F (M + ˜M) = ( f )Q+1
+
+.
+
+As in the Lemma 5.2, by (6.5), it follows that (6.6) sup 
+
+> Q+
+> r
+
+|h − P | ≤ C2r2+ α.
+
+for a universal constant C 2 > 0. In this point, we make the following universal choices of the constants (6.7) ρ := min 
+
+(
+
+12 ,
+
+ 12C 2
+
+ 1
+
+> α
+
+)
+
+and ε := 12 ρ2.
+
+With these choices, the constant δ > 0 is determined by Lemma 2.14. Moreover, the universal bounds for the constants a, b, and M follow directly from (6.5). Finally, combining (6.4), (6.7), and (6.6), we obtain sup 
+
+> Q+
+> ρ
+
+|u − P | ≤ ρ2,
+
+thereby obtaining the desired estimate. For the remaining conditions on the coefficients a, b, and M, the 
+
+C2,α -regularity of the solution h to (6.3) yields the pointwise identity (6.8) β(x, t ) · Dh (x, t ) = g(x, t ) on Q∗
+
+> 12
+
+.
+
+Evaluating at (0 , 0) gives β(0 , 0) · a = g(0 , 0). For any 1 ≤ i < n , differentiating (6.8) in the i-th direction and evaluating at (0 , 0) yields condition (6.2), completing the proof. □
+
+Now, we are in a position to present the first main result of this section. 
+
+Theorem 6.2 (Regularity C1,Log −Lip ). Let u be a viscosity solution for (6.1) , where β, g ∈ C1+ α, 1+ α 
+
+> 2
+
+(Q∗
+
+> 1
+
+)
+
+and f ∈ BMO( Q+1 ). Assume that the hyphotesis (A⋆) holds. Then, u ∈ C1,Log -Lip 
+
+
+
+Q+
+
+> 12
+
+
+
+. Moreover, the following estimate holds 
+
+sup 
+
+> x,y ∈Q+12
+> x̸=y
+
+|u(x, t ) − u(y, t ) − Du (y, t ) · (( x, t ) − (y, t )) |
+
+(dpar (( x, t ), (y, t ))) 2 ln |(dpar (( x, t ), (y, t )) |−1 ≤ C
+
+
+
+∥u∥L∞(Q+1 ) + [ f ]BMO( Q+1 ) + ∥g∥C1+ α, 1+ α  
+
+> 2(Q∗
+> 1)
+
+
+
+,
+
+where C > 0 is a constant depending only on n, λ, Λ, μ0, α, C⋆⋆ , and ∥β∥C1+ α, 1+ α  
+
+> 2(Q∗
+> 1)
+
+.Proof. Up to scaling, we may assume g(0) = 0, Dg (0) = 0, and 
+
+∥u∥L∞(Q+1 ) ≤ 1, [f ]BMO( Q+1 ) ≤ δ and ∥g∥C1,α (Q∗  
+
+> 1)
+
+≤ 1,24 BESSA, OLIVEIRA, AND REGIS 
+
+where δ > 0 is the constant from Lemma 6.1. To establish regularity at points ( x, t ) ∈ Q∗
+
+> 12
+
+, a localization and translation argument reduces the problem to the origin (0 , 0). We claim there exists a sequence of quadratic polynomials ( Pk)k≥− 1 of the form 
+
+Pk(x, t ) = 12 xT Mkx + ak · x + bkt + ck,
+
+satisfying: (i) F (M k) − bk = ( f )Q+1
+
+;(ii) sup 
+
+> Q+
+> ρk
+
+|u − Pk| ≤ ρ2k;(iii) |ck−1 − ck| + ρ2( k−1) |bk−1 − bk| + ρk−1|ak−1 − ak| + ρ2( k−1) ∥Mk−1 − Mk∥ ≤ Cρ2( k−1) ;(iv) β(0 , 0) · ak = 0; (v) For each 1 ≤ i ≤ n − 1, 
+
+> n
+
+X
+
+> j=1
+
+(Diβj (0 , 0)( ak)j + βj (0 , 0)(M k)ij ) = 0 ,
+
+for all k ≥ 0, where ρ and C are, respectively, the radius and the universal boundedness constant from Lemma 6.1, ( ak)1, ..., (ak)n denote the components of ak, and (M k)ij the entries of M k.For the base case k = 0, select a symmetric matrix M 0 solving the linear system in (v) with F (M 0) = ( f )Q+1
+
+.Taking P0 = P−1 = 12 xT M0x then establishes the case k = 0. Now, we assume that the statement holds for some k, and we define the following auxiliary function 
+
+uk(x) := (u − Pk)( ρkx, ρ 2kt)
+
+ρ2k , x ∈ Q+1 ∪ Q∗
+
+> 1
+
+.
+
+which is a viscosity solution to 
+
+ F (D2vk + M k) − (vk)t = fk(x, t ) in Q+1 ,βk · Du k = gk(x, t ) on Q∗
+
+> 1
+
+,
+
+where 
+
+
+
+fk(x, t ) := f (ρkx, ρ 2kt)
+
+βk(x, t ) := β(ρkx, ρ 2kt)
+
+gk(x, t ) := ρ−k(g(ρkx, ρ 2kt) − β(ρkx, ρ 2kt) · DP k(ρkx, ρ 2kt)) 
+
+.
+
+Now, note that, by the induction hypothesis, it follows from (ii) that ∥uk∥L∞(Q+1 ) ≤ 1. Moreover, by the definition of fk we have [fk]BMO( Q+1 ) = sup  
+
+> (x0,t 0)∈Q+1,r> 0
+
+ˆ 
+
+> Qr(x0,t 0)∩Q+1
+
+|fk(x, t ) − (f )(x0,t 0),r | dxdt 
+
+!
+
+= sup  
+
+> (x0,t 0)∈Q+1,r> 0
+
+ˆ   
+
+> Qρk r(ρkx0,ρ 2kt0)∩Q+1
+
+|f (z, s ) − (f )(ρk x0,ρ 2k t0),rρ k | dzds 
+
+!
+
+.
+
+Consequently, [fk]BMO( Q+1 ) ≤ [f ]BMO( Q+1 ) ≤ δ. FULLY NONLINEAR EVOLUTION EQUATIONS: FROM CRITICAL INTEGRABILITY TO SCHAUDER ESTIMATES 25 
+
+Additionally, we observe that βk, ∈ C1+ α, 1+ α 
+
+> 2
+
+(Q∗
+
+> 1
+
+), since β ∈ C1+ α, 1+ α 
+
+> 2
+
+(Q∗
+
+> 1
+
+) and ρ ∈ (0 , 12 ]. On the other hand, for each i = 1 , ..., n − 1, item (v) of the induction hypothesis yields 
+
+|Digk(x, t )| ≤ |Dig(ρkx, ρ 2kt) − Dig(0 , 0) |
+
++
+
+> n
+
+X
+
+> j=1
+
+[( Diβj (( ρkx, ρ 2kt) − Diβj (0 , 0))( ak)j + Diβj (0 , 0) ρk((M k)ij xj )] 
+
++
+
+> n
+
+X
+
+> j=1
+
+[( βj (( ρkx, ρ 2kt) − βj (0 , 0))(M k)ij ]
+
+≤ [Dig]α,Q ∗
+
+> 1
+
++ [ Diβ]α,Q ∗
+
+> 1
+
+C( n)( ρkα |ak| + ρkα ∥Mk∥) + C( n)∥Diβ∥L∞(Q∗ 
+
+> 1)
+
+ρk∥Mk∥
+
+for all( x, t ) ∈ Q∗
+
+> 1
+
+.From item (iii) of the induction hypothesis, (6.9) ρkα ∥Mk∥ = o(1) , ρkα |ak| = o(1) , and ρk|bk| = o(1) as k → ∞ ,
+
+which together with β, g ∈ C1+ α, 1+ α 
+
+> 2
+
+(Q∗
+
+> 1
+
+) implies ∥Digk∥L∞(Q∗  
+
+> 1)
+
+≤ C for some constant C > 0 independent of k. Thus Dg k is uniformly bounded in L∞.As in the Section 5, DP k = M kx + ak then [gk]1+ α,Q ∗
+
+> 1
+
+≤ ρkα 
+
+
+
+[g]1+ α,Q ∗
+
+> ρk
+
++ [ β]1+ α,Q ∗
+
+> ρk
+
+(ρk∥Mk∥ + |ak|)
+
+
+
+≤ [g]1+ α,Q ∗
+
+> ρ
+
++ C( C, ρ )[ β]1+ α,Q ∗
+
+> ρ
+
+,
+
+and [Digk]α,Q ∗
+
+> 1
+
+≤ [Dig]α,Q ∗
+
+> ρk
+
++ [ Diβ(ρk·, ρ 2k·) · DP k(ρk·, ρ 2k·)] α,Q ∗
+
+> 1
+
++[ β(ρk·, ρ 2k·) · Di(DP k(ρk·, ρ 2k·))] α,Q ∗
+
+> 1
+
+(6.10) Next, we will analyze each term in the right-hand side of (6.10) separately. In effect, by g ∈ C1+ α, 1+ α 
+
+> 2
+
+(Q∗
+
+> 1
+
+), it follows that [Dig]α,Q ∗
+
+> ρk
+
+≤ ∥ g∥C1+ α, 1+ α   
+
+> 2(Q∗
+> 1)
+
+< ∞.
+
+Now, condition (6.9) and the preceding remark yield [Diβ(ρk·, ρ 2k·) · DP k(ρk·, ρ 2k·)] α,Q ∗
+
+> 1
+
+≤ [Diβ]α,Q ∗
+
+> ρk
+
+(ρkα ∥DP k∥L∞(Q∗ 
+
+> ρk)
+
+) + 2 ∥Diβ∥L∞(Q∗ 
+
+> ρk)
+
+ρk∥Mk∥≤ [Diβ]α,Q ∗
+
+> 1
+
+(ρkα ∥DP k∥L∞(Q∗ 
+
+> ρk)
+
+)+ 2∥Diβ∥L∞(Q∗ 
+
+> 1)
+
+ρk(Ck + ∥M0∥) < ∞
+
+since, by induction hypothesis, see item (iii), 
+
+∥DP k∥L∞(Q∗  
+
+> ρk)
+
+≤ 11 − ρ C + C · o(1) as k → ∞ .
+
+Similarly, we obtain [β(ρk·, ρ 2k·) · Di(DP k(ρk·, ρ 2k·))] α,Q ∗
+
+> 1
+
+≤ ρkα [β]α,Q ∗
+
+> 1
+
+∥Mk∥ + C( n)∥β∥L∞(Q∗ 
+
+> 1)
+
+ρk∥Mk∥ = o(1) , as k → ∞ ,
+
+where again we use item (iii). Now, combining the estimates for ∥Dg k∥L∞(Q∗  
+
+> 1)
+
+and [ Dg k]α,Q ∗
+
+> 1
+
+with continuity and the Mean Value In-equality yields gk ∈ C1+ α, 1+ α 
+
+> 2
+
+(Q∗
+
+> 1
+
+). We are therefore in the setting of Lemma 6.1, which provides a quadratic polynomial ˜P (x) = ˜ c + ˜bt + ˜ a · x + 12 xT ˜Mx satisfying: (a) |˜c| + |˜b| + |˜a| + ∥ ˜M∥ ≤ C;(b) βk(0 , 0) · ˜a = gk(0 , 0); 26 BESSA, OLIVEIRA, AND REGIS 
+
+(c) For each 1 ≤ i < n ,
+
+> n
+
+X
+
+> j=1
+
+(Di(βk)j (0 , 0)˜ aj + ( βk)j (0 , 0) ˜Mij ); (d) F ( ˜M + M k) − ˜b = ( f )Q+1
+
+;(e) sup 
+
+> Q+
+> ρ
+
+|uk − ˜P | ≤ ρ2.Define 
+
+ak+1 = ak + ρ2k ˜a, bk+1 = bk + ρk˜b ck+1 = ck + ρ2k ˜c and Mk+1 = M k + ˜M,
+
+and set 
+
+Pk+1 (x) := ck+1 + bkt + ak+1 · x + 12 xtMk+1 x. 
+
+Then (e) implies sup 
+
+> Q+
+> ρk+1
+
+|u − Pk+1 | ≤ ρ2( k+1) ,
+
+establishing condition (ii) for k + 1. Condition (i) follows from Lemma 6.1. Moreover, 
+
+|ck − ck+1 | + ρ2k|bk − bk+1 | + ρk|ak − ak+1 | + ρ2k∥Mk − Mk+1 ∥ ≤ ρ2k(|˜c| + |˜b| + |˜a| + ∥ ˜M∥) ≤ Cρ2k,
+
+which verifies condition (iii) for k + 1. Conditions (b), (c) and the induction hypotheses (iv)-(v) imply the corresponding statements for k + 1. This completes the induction process. Now, note that condition (iii) ensures that the sequences ( ak)k∈N and ( ck)k∈N are Cauchy. Thus, we may consider 
+
+a∞ = lim  
+
+> k→∞
+
+ak and c∞ = lim  
+
+> k→∞
+
+ck.
+
+Moreover, it is easy to see c∞ = u(0 , 0). On the other hand, from condition (iii), we have the following rate of convergence of the sequences ( ak) and ( ck): (6.11) |u(0 , 0) − ck| ≤ C
+
+1 − ρ2 ρ2k and |Du (0 , 0) − ak| ≤ C
+
+1 − ρ ρk
+
+for all k ∈ N. Furthermore, although we have no guarantee of convergence of the sequences ( bk)k∈N and (M k)k∈N, observe that condition (iii) still ensures that (6.12) max {| bk|, ∥Mk∥} ≤ Ck
+
+for all k ∈ N.Therefore, fixing r ∈ (0 , ρ ) (thus ρ ≤ 1/2 < p1/e ), we can choose k ∈ N in such a way that ρk+1 < r ≤ ρk.Thus, by (ii), (6.11) and (6.12), we get that sup 
+
+> Q+
+> r
+
+|u(x, t ) − u(0 , 0) − a∞ · (x, t )| ≤ sup 
+
+> Q+
+> r
+
+|u − Pk| + |u(0 , 0) − ck| + sup 
+
+> x∈Q+
+> r
+
+|(ak − a∞) · (x, t )|
+
++ sup 
+
+> Q+
+> r
+
+|bkt| + sup 
+
+> x∈Q+
+> r
+
+|Mkx · x|≤ sup 
+
+> Q+
+> ρk
+
+|u − Pk| + C
+
+1 − ρ2 ρ2k + |ak − a∞|r + ( |bk| + ∥Mk∥)r2
+
+≤ ρ2k + C
+
+1 − ρ2 ρ2k + C
+
+1 − ρ ρkr + 2 Ckr 2.FULLY NONLINEAR EVOLUTION EQUATIONS: FROM CRITICAL INTEGRABILITY TO SCHAUDER ESTIMATES 27 
+
+Finally, by using r ≤ ρk, it follows that sup 
+
+> Q+
+> r
+
+|u(x, t ) − u(0 , 0) − a∞ · (x, t )| ≤ ρ2k + C
+
+1 − ρ2 ρ2k + C
+
+1 − ρ ρ2k + 2 Ckρ 2k
+
+≤
+
+
+
+1 + C
+
+1 − ρ2 + C
+
+1 − ρ
+
+
+
+ρ2k + 2 Ckρ 2k
+
+≤ C( ρ2k + kρ 2k) = C
+
+ρ2
+
+ 1
+
+k + 1 
+
+
+
+kρ 2( k+1) 
+
+≤ Ckρ 2( k+1) ≤ − Cr2 ln( r).
+
+This establishes the initial statement. By a localization and translation argument, for every ( x, t ) ∈ Q∗
+
+> 12
+
+and 0 < r < ρ , one has (6.13) sup  
+
+> (y,s )∈Q+
+> r(x,t )
+
+|u(y, s ) − u(x, t ) − a∞(x, t ) · (( y, s ) − (x, t )) | ≤ Cr2| ln r−1|.
+
+By the definition of differentiability, condition (6.13) implies that a∞(x, t ) = Du (x, t ), and therefore, com-bining with interior estimates [20, Theorem 6.1], u ∈ par − C1,Log-Lip (Q+
+
+> 12
+
+) with the desired estimate. □
+
+Having completed this analysis for operators with constant coefficients, we now obtain the corresponding regularity result for viscosity solutions to (1.1) under suitable assumptions on the coefficients. This is summarized in the following theorem. 
+
+Theorem 6.3 (Regularity C1,Log −Lip -General Case). Let u be a viscosity solution to (6.1) , where β, g ∈
+
+C1+ α, 1+ α 
+
+> 2
+
+(Q∗
+
+> 1
+
+), f ∈ BMO( Q+1 ) and (A⋆) holds. Assume that the oscillation of coefficients ˜ΦF satisfies 
+
+sup 
+
+> (y,s )∈Q1
+
+∥ ˜ΦF (( ·, ·); ( y, s )) ∥Cα, α 
+
+> 2
+
+:= K < ∞.
+
+Then, there exists C > 0 that depends only on C2+ α, 2+ α 
+
+> 2
+
+a priori regularity estimates available for 
+
+(6.14) 
+
+ F (D2u) − ut = 0 in Q+1 ,β · Du = g(x, t ) on Q∗
+
+> 1
+
+,
+
+K, and universal constants, such that the following estimate holds 
+
+sup  
+
+> (x,t )∈Q+
+> r(y,s )
+
+|u(x, t ) − [u(y, s ) + Du (y, s ) · (( x, t ) − (y, s ))] | ≤ CD(u, f, g )r2 log r−1,
+
+where 
+
+D(u, f, g ) := ∥u∥L∞(Q+1 ) + [ f ]BMO( Q+1 ) + ∥g∥C1+ α, 1+ α  
+
+> 2(Q∗
+> 1)
+
+.
+
+Proof. To establish this result, it is sufficient to demonstrate the asymptotic decay of the rescaled operator’s oscillation in the Lp norm. Revisiting the proof of Theorem 6.2, in the k-th iterative step, the normalized residual function is governed by the operator: 
+
+Fk(X, x, t ) := F (X + M k, ρ kx, ρ 2kt) − F (M k, ρ kx, ρ 2kt).
+
+By similar estimates in Section 5, it’s easy to see, ˜ΦFk (x, t ) ≤ 2 ˜ΦF (( ρkx, ρ 2kt), (0 , 0))(1 + ∥Mk∥).
+
+As ˜ΦF is Cα, α 
+
+> 2
+
+class, we get ˜ΦF ≤ K ρkα . Additionally, we have ∥Mk∥ ≤ Ck. Consequently, the Lp norm of the oscillation in the normalized half-cylinder strictly obeys: 
+
+ˆ
+
+> Q+1
+
+˜ΦFk (x, t )p dxdt 
+
+! 1
+
+> p
+
+≤ Cρkα (1 + Ck) ≤ ˜Cρkα k. 
+
+This decay estimate legitimizes the direct application of the Lemma 2.14. The collapse of the spatial heterogeneity allows us to approximate the solution uniformly by an auxiliary profile h associated with the perfectly frozen operator at the origin, Fk(X, 0, 0). In practice, this readapts the mechanics of Lemma 6.1 directly. □28 BESSA, OLIVEIRA, AND REGIS 
+
+We conclude the manuscript by establishing, as a consequence of Theorem 6.3 and in the spirit of Corollary 3.3, that viscosity solutions to (1.1) belong to C1+ α, 1+ α 
+
+> 2
+
+for every α ∈ (0 , 1). 
+
+Corollary 6.4. Assume that the hypotheses of Theorem 6.3 are satisfied. Then every viscosity solution to 
+
+(1.1) belongs to C1+ α, 1+ α 
+
+> 2
+
+(Q+
+
+> 12
+
+) for every α ∈ (0 , 1) .Proof. By Theorem 6.3, u ∈ par-C1,Log-Lip (Q+1/2), in particular, the partial derivatives Diu, i = 1 , . . . , n 
+
+belong to par-C0,Log-Lip (Q+1/2) and by the same computations from the Corollary 3.3 it follows that [Diu]α,Q 12+ < ∞,
+
+for any i = 1 , . . . , n and α ∈ (0 , 1). On the other hand, evaluating the parabolic C1,Log-Lip estimate at x = y, the linear gradient term vanishes. The parabolic distance becomes dpar = |t − s|1/2, leaving: 
+
+|u(x, t ) − u(x, s )| ≤ C|t − s| log |t − s|−1.
+
+Dividing this by the temporal H¨ older weight |t − s| 1+ α 
+
+> 2
+
+gives: 
+
+|u(x, t ) − u(x, s )||t − s| 1+ α
+
+> 2
+
+≤ C|t − s| 1−α 
+
+> 2
+
+log |t − s|−1.
+
+Again, the function t → tα log t−1 is bounded for 0 < α < 1. 
+
+□
+
+7. Final conclusions: Compatibility of the functional spaces 
+
+The regularity theory established in this work demonstrates a fundamental compatibility between the intrinsic parabolic geometry of the equation and the functional space associated with the source term. More precisely, the parabolic scaling (x, t ) 7 → (ρx, ρ 2t)induces the degree of homogeneity ι = n + 2, which completely determines the natural hierarchy of function spaces associated with the problem. This phenomenon becomes apparent when one considers the blow-up scaling associated with problem (1.1), (7.1) uρ(x, t ) =: u(ρx, ρ 2t)
+
+ρ ,
+
+whose corresponding source term is given by fρ(x, t ) = ρ f (ρx, ρ 2t). Examining the Lp(Q+1 )-norm, one obtains the following relation 
+
+∥fρ∥Lp(Q+1 ) = ρ1− ιp ∥f ∥Lp(Q+  
+
+> ρ)
+
+≤ ρ1− ιp ∥f ∥Lp(Q+1 ),
+
+which, for ρ ≪ 1, remains uniform provided that p ≥ n + 2. This scaling argument justifies the analysis carried out above, ranging from the critical Log-Lipschitz case discussed in Section 3 to the gradient H¨ older regularity regime in Section 4. In view of this analysis, and inspired by the work [20], our previous discussion is also consistent within the framework of anisotropic Lebesgue spaces . Recall that a function f belongs to the anisotropic Lebesgue space Lp,q (Q+1 ), for 1 ≤ p ≤ q < +∞, if 
+
+∥f ∥Lp,q (Q+1 ) := 
+
+
+
+ˆ 0
+
+> −1
+
+ˆ
+
+> B+1
+
+|f (x, t )|p dx 
+
+! qp
+
+dt 
+
+
+
+> 1
+> q
+
+< ∞
+
+which is a Banach space endowed with the norm ∥ · ∥ Lp,q (Q+1 ), and generalizes the classical Lebesgue space 
+
+Lp(Q+1 ) when p = q. The fundamental feature of these spaces, in connection with our analysis, is that they precisely capture the parabolic scaling of the equation. Indeed, considering the rescaled function uρ defined in (7.1) and the corresponding source term fρ, we have 
+
+∥fρ∥Lp,q (Q+1 ) ≤ ρ1− np − 2 
+
+> q
+
+∥f ∥Lp,q (Q+1 ),FULLY NONLINEAR EVOLUTION EQUATIONS: FROM CRITICAL INTEGRABILITY TO SCHAUDER ESTIMATES 29 
+
+for ρ ≪ 1, whenever 
+
+σ(n, p, q ) := np + 2
+
+q ≤ 1.
+
+Under suitable modifications of our approach, one can extend the regularity theory developed in Sections 3, 4, and 6 to this anisotropic setting. More precisely, by replacing the assumption on the source term in the F -caloric approximation Lemma 2.12 with the corresponding Lp,q -condition, the arguments presented in those sections remain essentially unchanged and yield the analogous regularity results in this framework, according of the values of σ(n, p, q ). We summarize these conclusions in Table 3 below. In the table, the case σ(n, p, q ) = 0 should be understood as corresponding to the space BMO. 
+
+σ(n, p, q ) Boundary data Regularity of uσ(n, p, q ) = 1 β, g ∈ Cα, α 
+
+> 2
+
+(Q∗
+
+> 1
+
+) u ∈ C0,Log-Lip loc (Q+1 )0 < σ (n, p, q ) < 1 β, g ∈ Cα, α 
+
+> 2
+
+(Q∗
+
+> 1
+
+) u ∈ C1,min {α−, 1−σ(n,p,q )} 
+
+> loc
+
+(Q+1 )
+
+σ(n, p, q ) = 0 β, g ∈ C1+ α, 1+ α 
+
+> 2
+
+(Q∗
+
+> 1
+
+) u ∈ C1,Log-Lip loc (Q+1 )
+
+Table 3. Regularity results in the framework of anisotropic Lebesgue spaces This demonstrates that the approach developed in this work is sufficiently flexible to accommodate other functional spaces, a direction that will be explored in future work. 
+
+References 
+
+[1] K. Adimurthi, A. Banerjee and R. B. Verma, Twice differentiability of solutions to fully nonlinear parabolic equations near the boundary, Nonlinear Anal. 197 (2020), 111830, 16 pp. [2] S. Altschuler and L.-F. Wu, Translating surfaces of the non-parametric mean curvature flow with prescribed contact angle, Calc. Var. Partial Differential Equations 2 (1994), no. 1, 101–111. [3] M. D. Amaral and D. S. dos Prazeres, Optimal boundary regularity for viscosity solutions of fully nonlinear elliptic equations, J. Differential Equations 338 (2022), 46–75. [4] D. J. Ara´ ujo, G. S. S´ a and J. M. Urbano, Sharp regularity for a singular fully nonlinear parabolic free boundary problem, J. Differential Equations 389 (2024), 90–113 [5] J. Bao, Fully nonlinear elliptic equations on general domains, Canad. J. Math. 54 (2002), no. 6, 1121–1141. [6] J. da S. Bessa, J. V. da Silva and L. Ospina, Schauder Estimates for Flat Solutions to a Class of Fully Nonlinear Elliptic PDEs with Dini Continuous Data: A Geometric Tangential Approach, Bull Braz Math Soc, New Series 57 , 14 (2026). [7] J. da S. Bessa, J. V. da Silva and G. C. Ricarte, Sharp moduli of continuity for solutions to fully nonlinear elliptic equations with oblique boundary conditions, J. Differential Equations 455 (2026), Paper No. 113961, 42 pp. [8] J. da S. Bessa, J. V. da Silva, M. N. B. Frederico and G. C. Ricarte, Weighted Orlicz-Sobolev and variable exponent Morrey regularity for fully nonlinear parabolic PDEs with oblique boundary conditions and applications, Nonlinear Anal. 
+
+264 (2026), Paper No. 114017, 34 pp. [9] J. da S. Bessa, G. C. Ricarte and P. H. C. Silva, Optimal gradient regularity to degenerate fully nonlinear elliptic models with oblique boundary condition, Nonlinear Anal. 262 (2026), Paper No. 113919, 16 pp. [10] S.-S. Byun and J. Han, Lp-estimates for the Hessians of solutions to fully nonlinear parabolic equations with oblique boundary conditions, J. Math. Anal. Appl. 505 (2022), no. 1, Paper No. 125461, 34 pp. [11] L. ´A. Caffarelli, Interior a priori estimates for solutions of fully nonlinear equations, Ann. of Math. (2) 130 (1989), no. 1, 189–213. [12] L. A. Caffarelli and X. Cabr´ e, Fully Nonlinear Elliptic Equations. Colloquium Publications 43, American Mathematical Society, Providence, RI, 1995. [13] R. Castillo and E. A. Pimentel, Interior Sobolev regularity for fully nonlinear parabolic equations, Calc. Var. Partial Differential Equations 56 (2017), no. 5, Paper No. 127, 26 pp. [14] G. Chatzigeorgiou and E. Milakis, Regularity for fully nonlinear parabolic equations with oblique boundary data, Rev. Mat. Iberoam. 37 (2021), no. 2, 775–820. [15] M. G. Crandall, M. Kocan and A. ´Swi¸ ech, Lp-theory for fully nonlinear uniformly parabolic equations, Comm. Partial Differential Equations 25 (2000), no. 11-12, 1997–2053. [16] J. V. da Silva, Geometric C1+ α regularity estimates for nonlinear evolution models, Nonlinear Anal. 184 (2019), 95–115. [17] J. V. da Silva and D. S. dos Prazeres, Schauder type estimates for “flat” viscosity solutions to non-convex fully nonlinear parabolic equations and applications, Potential Anal. 50 (2019), no. 2, 149–170. [18] J. V. da Silva and P. D. Ochoa, Fully nonlinear parabolic dead core problems, Pacific J. Math. 300 (2019), no. 1, 179–213. [19] J. V. da Silva and M. S. Santos, Schauder and Calder´ on-Zygmund type estimates for fully nonlinear parabolic equations under “small ellipticity aperture” and applications, Nonlinear Anal. 246 (2024), Paper No. 113578, 17 pp. [20] J. V. da Silva and E. V. O. Teixeira, Sharp regularity estimates for second order fully nonlinear parabolic equations, Math. Ann. 369 (2017), no. 3-4, 1623–1648. 30 BESSA, OLIVEIRA, AND REGIS 
+
+[21] H. Dong and X. Pan, On conormal derivative problem for parabolic equations with Dini mean oscillation coefficients, Discrete Contin. Dyn. Syst. 41 (2021), no. 10, 4567–4592. [22] W. H. Fleming and H. M. Soner, Controlled Markov Processes and Viscosity Solutions, Stochastic Modelling and Applied Probability 25 , Springer-Verlag, New York, 2006. [23] A. Goffi, High-order estimates for fully nonlinear equations under weak concavity assumptions, J. Math. Pures Appl. (9) 
+
+182 (2024), 223–252. [24] A. Goffi, Interpolated time-H¨ older regularity of solutions of fully nonlinear parabolic equations, Bull. Sci. Math. 210 (2026), Paper No. 103807. [25] G. Huisken, Non-parametric mean curvature evolution with boundary conditions, J. Differential Equations 77 (1989), no. 2, 369–378. [26] J. Kovats, Dini-Campanato spaces and applications to nonlinear elliptic equations, Electron. J. Differential Equations 
+
+1999 , No. 37, 20 pp. [27] N. V. Krylov, C1+ α-regularity of viscosity solutions of general nonlinear parabolic equations, J. Math. Sci. (N.Y.) 232 
+
+(2018), no. 4, Problems in mathematical analysis. No. 93 (Russian), 403–427. [28] N. V. Krylov, Boundedly inhomogeneous elliptic and parabolic equations, Izv. Akad. Nauk SSSR Ser. Mat. 46 (1982), no. 3, 487–523, 670. [29] N. V. Krylov, Boundedly inhomogeneous elliptic and parabolic equations in a domain, Izv. Akad. Nauk SSSR Ser. Mat. 
+
+47 (1983), no. 1, 75–108. [30] N. V. Krylov and M. V. Safonov, An estimate for the probability of a diffusion process hitting a set of positive measure, Dokl. Akad. Nauk SSSR 245 (1979), no. 1, 18–20. [31] N. V. Krylov and M. V. Safonov, A property of the solutions of parabolic equations with measurable coefficients, Izv. Akad. Nauk SSSR Ser. Mat. 44 (1980), no. 1, 161–175, 239. [32] D. S. Li and K. Zhang, Regularity for fully nonlinear elliptic equations with oblique boundary conditions, Arch. Ration. Mech. Anal. 228 (2018), no. 3, 923–967. [33] G. M. Lieberman, On the H¨ older gradient estimate for solutions of nonlinear elliptic and parabolic oblique boundary value problems, Comm. Partial Differential Equations 15 (1990), no. 4, 515–523. [34] G. M. Lieberman, Second order parabolic differential equations , World Sci. Publ., River Edge, NJ, 1996. [35] P.-L. Lions, Neumann type boundary conditions for Hamilton-Jacobi equations, Duke Math. J. 52 (1985), no. 4, 793–820. [36] P.-L. Lions and A.-S. Sznitman, Stochastic differential equations with reflecting boundary conditions, Comm. Pure Appl. Math. 37 (1984), no. 4, 511–537. [37] P.-L. Lions and N. S. Trudinger, Linear oblique derivative problems for the uniformly elliptic Hamilton-Jacobi-Bellman equation, Math. Z. 191 (1986), no. 1, 1–16. [38] A. I. Nazarov and N. N. Ural’tseva, J. Math. Sci. 77 (1995), no. 3, 3212–3220; translated from Zap. Nauchn. Sem. S.-Peterburg. Otdel. Mat. Inst. Steklov. (POMI) 200 (1992), 118–131, 189. [39] A. Stahl, Convergence of solutions to the mean curvature flow with a Neumann boundary condition, Calc. Var. Partial Differential Equations 4 (1996), no. 5, 421–441. [40] E. V. O. Teixeira, Universal Moduli of Continuity for Solutions to Fully Nonlinear Elliptic Equations, Arch Rational Mech. Analysis. 211 (2014), 911–927. [41] L. Wang, On the regularity theory of fully nonlinear parabolic equations, Bull. Amer. Math. Soc. (N.S.) 22 (1990), no. 1, 107–114. [42] L. Wang, On the regularity theory of fully nonlinear parabolic equations. I, Comm. Pure Appl. Math. 45 (1992), no. 1, 27–76. [43] L. Wang, On the regularity theory of fully nonlinear parabolic equations. II, Comm. Pure Appl. Math. 45 (1992), no. 2, 141–178. [44] L. Wang, On the regularity theory of fully nonlinear parabolic equations. III, Comm. Pure Appl. Math. 45 (1992), no. 3, 255–262. [45] J. Zhang, S. Zheng and C. Zuo, W 2,p -regularity for asymptotically regular fully nonlinear elliptic and parabolic equations with oblique boundary values, Discrete Contin. Dyn. Syst. Ser. S 14 (2021), no. 9, 3305–3318. [46] X. Zou and Y. Z. Chen, Fully nonlinear parabolic equations and the Dini condition, Acta Math. Sin. (Engl. Ser.) 18 (2002), no. 3, 473–480. 
+
+Universidade Estadual de Campinas (UNICAMP), Instituto de Matem´ atica, Estat´ ıstica e Computac ¸˜ ao Cient´ ıfica (IMECC), Departamento de Matem´ atica, Bar˜ ao Geraldo, Campinas, SP, Brazil 
+
+Email address : jbessa@unicamp.br 
+
+Universidade Estadual do Cear´ a - UECE, Faculdade de Filosofia Dom Aureliano Matos - FAFIDAM, Departa-mento de Matem´ atica, Limoeiro do Norte - CE, Brazil 
+
+Email address : erivamberto.oliveira@uece.br 
+
+Universidade Estadual do Cear´ a - UECE, Faculdade de Filosofia Dom Aureliano Matos - FAFIDAM, Departa-mento de Matem´ atica, Limoeiro do Norte - CE, Brazil 
+
+Email address : patricia.renata@uece.br

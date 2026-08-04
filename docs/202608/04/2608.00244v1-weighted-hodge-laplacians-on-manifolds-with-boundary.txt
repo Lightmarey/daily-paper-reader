@@ -1,0 +1,535 @@
+Title: Weighted Hodge Laplacians on Manifolds with Boundary
+
+URL Source: https://arxiv.org/pdf/2608.00244v1
+
+Published Time: Tue, 04 Aug 2026 00:12:19 GMT
+
+Number of Pages: 29
+
+Markdown Content:
+# Weighted Hodge Laplacians on Manifolds with Boundary 
+
+## Zhe Su 1* , Yiying Tong 2 and Guo-Wei Wei 3,4 
+
+> 1
+
+Department of Mathematics and Statistics, Auburn University, AL 36849, USA. 
+
+> 2
+
+Department of Computer Science and Engineering, Michigan State University, MI 48824, USA. 
+
+> 3
+
+Department of Mathematics, University of Georgia, GA 30602, USA. 
+
+> 4
+
+Department of Biochemistry and Molecular Biology, University of Georgia, MI 30602, USA. *Corresponding author(s). E-mail(s): zhs0011@auburn.edu; 
+
+Abstract 
+
+The spectrum of the Hodge Laplacian on differential manifolds encodes rich topological and geometric information and thus provides a pow-erful tool for analyzing data on manifolds. However, the classical unweighted formulation is restricted in its ability to study data with varying local features. To address this limitation, we propose a weighted Hodge Laplacian framework for manifolds with boundary, both in the-ory and in computation, by incorporating a weight function on the manifold. Under appropriate boundary conditions, we formulate the cor-responding weighted de Rham–Hodge theory, in which the kernel of the weighted Hodge Laplacian coincides with the weighted harmonic space, and remains isomorphic to the de Rham cohomology of the underlying manifold. The harmonic spectrum of the weighted Hodge Laplacian captures the global topological information, while its non-harmonic spectrum encodes the local geometric property induced by the weight. The proposed framework therefore enables the study of topological and geometric features of data on manifolds across vary-ing weights, and in addition, allows local structure to be highlighted by choosing weights that emphasize regions of interest. We demonstrate the effectiveness of the proposed method through proof-of-principle exper-iments in protein flexibility analysis, and the results show its promise. 
+
+1arXiv:2608.00244v1 [math.DG] 31 Jul 2026 2 CONTENTS   
+
+> Keywords: Weighted Hodge Laplacians; Manifolds with Boundary; Discrete Exterior Calculus; Topological Data Analysis; Protein Flexibility Analysis.
+> MSC Classification: 58A14 , 55N31
+
+# Contents 
+
+1 Introduction 32 De Rham Hodge Theory 5
+
+2.1 de Rham cohomology . . . . . . . . . . . . . . . . . . . . . . . . 72.2 Hodge Laplacians . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+
+3 Weighted de Rham-Hodge Theory 9
+
+3.1 Weighted de Rham cohomology . . . . . . . . . . . . . . . . . . 93.2 Weighted Hodge Laplacians . . . . . . . . . . . . . . . . . . . . 10 
+
+4 Discretization of the Laplacians 12 
+
+4.1 Discretization on the entire grid . . . . . . . . . . . . . . . . . . 13 4.2 Discretization on 𝑀 . . . . . . . . . . . . . . . . . . . . . . . . 14 4.3 Discrete spectral analysis of Laplacians . . . . . . . . . . . . . . 16 
+
+5 Protein Flexibility Analysis 17 
+
+5.1 Manifold generation . . . . . . . . . . . . . . . . . . . . . . . . 18 5.2 Atom-specific weight construction . . . . . . . . . . . . . . . . . 20 5.3 Feature extraction . . . . . . . . . . . . . . . . . . . . . . . . . 20 5.4 Machine learning algorithm . . . . . . . . . . . . . . . . . . . . 21 5.5 Experimental results . . . . . . . . . . . . . . . . . . . . . . . . 21 
+
+6 Conclusions 22 CONTENTS 3
+
+# 1 Introduction 
+
+The Hodge Laplacian on differential manifolds, which arises from the de Rham-Hodge theory, allows one to study the topological and geometric structures in a unified analytic framework through differential forms. Its spectrum carries rich information about the underlying manifold. When acting on differential 
+
+𝑘 -forms, its kernel is equal to the space of harmonic 𝑘 -forms (under cer-tain boundary conditions with the presence of a boundary), which, through the Hodge isomorphism, also represents the de Rham cohomology. The ker-nel dimension is given by the 𝑘 -Betti number, which counts independent 
+
+𝑘 -dimensional holes. Its non-harmonic part, i.e., the sequence of non-zero eigenvalues, reflects geometric and algebraic features of the underlying mani-fold. These connections make the Hodge Laplacian useful in many fields. The spectrum of the Laplacian-Beltrami operator, i.e., the Hodge Laplacian on functions, in particular, has been widely used in spectral shape analysis for shape retrieval [35], shape representation and matching [56, 59], mesh segmen-tation [21, 55], and surface parameterization [47]. The operator has been used to study problems such as steady state, heat diffusion, and wave propagation. Parallel to the study of Hodge Laplacians, combinatorial Laplacians [24, 31, 37] extend the graph Laplacian [33] to simplicial complexes and also provide a connection between their kernels and the homologies of the under-lying simplicial complex. The combinatorial Laplacians have been effective in areas such as signal processing [58], biomolecule analysis [20, 45, 53, 70], etc. Note that the term “Hodge Laplacians” is sometimes used in this combina-torial context. However, this use of the term can be misleading. Although combinatorial Laplacians admit discrete “Hodge decompositions”, only Hodge Laplacians on differential manifolds lead to physically/geometrically relevant components, such as curl-free, divergence-free, and harmonic parts as in vector calculus. For manifolds with boundary, Hodge Laplacians admit meaningful boundary conditions, such as the normal (Dirichlet) and tangential (Neumann) boundary conditions, which are of significance in applications such as electro-magnetism and fluid dynamics, where the boundary has physical or geometric implications. In addition, Hodge Laplacians encode the Riemannian metric and thus reflect the intrinsic geometry of the underlying manifold. These rich notions, however, do not emerge from relatively simple combinatorial Lapla-cians defined on point clouds. For readers interested in the similarities and differences between Hodge Laplacians and combinatorial Laplacians, see [57]. Recently in topological data analysis (TDA), both combinatorial and Hodge Laplacians have been extended to the persistent setting to address limitations of persistent homology [1, 25, 80], a fundamental tool in TDA, which fails to capture the homotopic geometric shape changes in the filtra-tion, leading to persistent combinatorial Laplacians [36, 70] and persistent Hodge Laplacians [19, 62], respectively. In combination with machine learning, particularly deep neural networks [13], these persistent Laplacians have been shown to be powerful in characterizing complex data in biological problems [45, 53, 62, 70, 71, 79]. In particular, persistent combinatorial Laplacians have 4 CONTENTS successfully predicted the emerging dominant SARS-CoV-2 variants BA4 and BA5 [20], which is one of the most impressive achievements of persistent Lapla-cians and TDA. The achievement has motivated the development of a variety of persistent Laplacians for other topological domains [18, 32, 38, 69, 72]. A survey of these persistent topological Laplacians is available [73]. For TDA frameworks beyond persistent homology, we refer the reader to the review paper [65]. The proposed weighted Hodge Laplacians provide another refinement of the standard Hodge Laplacian. Motivated by the study of diffusion processes on manifolds, the drifting Laplacian for functions, also called the Bakry-Emery Laplacian [9], is obtained by incorporating a smooth weight function on the manifold via a modified codifferential, and has been studied in [40–43, 75] for its spectral properties. Its extension to differential forms is the drifting Hodge Laplacian. For non-compact manifolds, a de Rham-Hodge theory for drifting Hodge Laplacians is established in [12], where the results also apply to compact complete manifolds. The eigenvalue estimates of drifting Hodge Laplacians appeared in [10]. The study of drifting Hodge Laplacians has since become fun-damental in the analysis of manifolds with density, diffusion process, and the study of Ricci flow. A related generalization of the standard Hodge Laplacian is the Witten Laplacian [74], which was introduced in the context of super-symmetric quantum mechanics and Morse theory, and is closely connected to the topological quantum field theory [6] and recent developments in quan-tum topological data analysis (qTDA) [23]. In contrast to the drifting Hodge Laplacians, it modifies both the differential and codifferential operators. The Witten-Hodge theory for manifolds with boundary and the equivariant coho-mology has been discussed in [2]. These approaches enable the local analysis of data on manifolds, which is very useful in mathematical modeling of generative artificial intelligence (AI). Computationally, the discretization of Hodge Laplacians can be realized by the discrete exterior calculus (DEC) [22] and the finite element exterior cal-culus (FEEC) [4]. These methods are consistent with the continuous theory and thus preserve the correct cohomology of the underlying manifold, lead-ing to accurate eigenvalue computation of the Hodge Laplacians. Based on these approaches, several computational frameworks have been developed for Hodge Laplacians and Hodge decompositions [3, 57, 63, 78], where the under-lying manifolds are represented either as simplicial meshes or as sublevel sets of level-set functions on regular Cartesian grids. In the latter case, a compu-tational algorithm for persistent Hodge Laplacians is given in [62]. Despite the progress, these developments are unweighted, i.e., they do not incorporate weight functions. The goal of this work is to develop a framework for weighted Hodge Lapla-cians on manifolds with boundary, both in theory and in computation. We work with the drifting Hodge Laplacian, which modifies only the codifferential. We formulate the corresponding weighted de Rham Hodge theory, in which, the kernels of the weighted Hodge Laplacians coincide with the (weighted) CONTENTS 5harmonic spaces under boundary conditions, and with the cohomology of the manifold. The computational framework is implemented using DEC on a reg-ular Cartesian grid with built-in boundary conditions. The weighted Hodge Laplacian can extract both the topological and geometric information from data across varying weights or densities, and in particular, allows one to highlight and differentiate local features by choosing weight functions that emphasize regions of interest. To demonstrate the effectiveness of our frame-work, we build blind machine learning prediction models for the prediction of protein B-factors, which reflect the local flexibility of protein atoms, and compare them with the previous models. Experimental results show that our models achieve better performance, highlighting the promise of the proposed weighted Hodge Laplacian framework. The rest of this article is organized as follows: In Sec. 2, we recall the de Rham-Hodge theory on manifolds with boundary, including the de Rham cohomology and the standard Hodge Laplacians. In Sec. 3, we explore the weighted setting by incorporating a smooth weight function on the manifold. We present the weighted de Rham cohomology and also introduce the weighted Hodge Laplacians. We also discuss how the kernels of Laplacians relate to the spaces of harmonic fields, and to the cohomology in this context. In Sec. 4, we provide a discretization framework for computing the weighted Hodge Lapla-cians on a regular Cartesian grid. Finally, we present experiments on protein flexibility analysis in Sec. 5, and conclude the paper in Sec. 6. 
+
+# 2 De Rham Hodge Theory 
+
+In this section, we present the de Rham-Hodge theory on manifolds with boundary. The theory connects algebraic topology, differential geometry and analysis via differential forms, and it provides an intrinsic description of the global structure of differential manifolds through local differential operators. Under certain boundary conditions such as the normal (Dirichlet) or tangen-tial (Neumann) boundary conditions, the kernel of Hodge Laplacian identifies with the space of harmonic forms and is naturally isomorphic to the relative or absolute cohomology of the underlying manifold. The Hodge Laplacian, there-fore, is crucial in understanding the topological and geometric structure of a differential manifold. We denote by Ω 𝑘 the space of all differential 𝑘 -forms on 𝑀 , where 𝑀 is a smooth, orientable and compact 𝑚 -dimensional Riemannian manifold with boundary 𝜕𝑀 . The differential 𝑑 , also called the exterior derivative, is a funda-mental differential operator that maps 𝑘 -forms to ( 𝑘 +1)-forms. It satisfies the Leibniz rule with respect to the wedge product ∧ and the nilpotent property 
+
+𝑑𝑑 = 0. A form 𝜔 is called closed if 𝑑𝜔 = 0, and exact if there is an 𝜂 ∈ Ω𝑘 −1
+
+such that 𝑑𝜂 = 𝜔 .A Riemannian metric 𝑔 on 𝑀 induces the Hodge star operator ⋆, which provides a canonical isomorphism between the space of 𝑘 -forms and the space of ( 𝑚 −𝑘 )-forms. Using the Hodge star, one can then define the Hodge 𝐿 2-inner 6 CONTENTS product as follows: (𝜔, 𝜂 ) = ∫︁ 𝑀 
+
+⟨𝜔, 𝜂 ⟩𝑔 𝑑𝜇 =∫︁ 𝑀 
+
+𝜔 ∧ ⋆𝜂, (1) where ⟨· , ·⟩ 𝑔 is the pointwise inner product metric on Ω 𝑘 induced by 𝑔 and 𝑑𝜇 
+
+denotes the volume form induced by 𝑔 .The codifferential 𝛿 = ( −1) 𝑚 (𝑘 −1)+1 ⋆ 𝑑⋆ maps ( 𝑘 +1)-forms to 𝑘 -forms and also has the nilpotent property 𝛿𝛿 = 0. We then call a 𝑘 -form 𝜔 coclosed if 
+
+𝛿𝜔 = 0 and coexact if there is an 𝜂 ∈ Ω𝑘 +1 such that 𝜔 = 𝛿𝜂 . In the case of closed manifolds, i.e., manifolds without boundary, the codifferential 𝛿 can also be defined as the adjoint of the differential with respect to the Hodge 
+
+𝐿 2-inner product. However, in the presence of a boundary, this is no longer the case since the boundary term in general does not vanish, as shown in the formula below through integration by parts (𝑑𝜔, 𝜂 ) = ( 𝜔, 𝛿𝜂 ) + ∫︁ 𝜕𝑀 
+
+𝜔 ∧ ⋆𝜂. 
+
+The adjointness of the codifferential 𝛿 and the differential 𝑑 , however, is crucial, as it ensures the self-adjointness of the Hodge Laplacians, which guarantees real eigenvalues and the orthogonality of the eigenspaces, and additionally the connection between the kernels of Hodge Laplacians and the de Rham cohomology classes. These form the basis of the de Rham-Hodge theory.                           
+
+> Remark 1 The differential 𝑑 and the codifferential 𝛿 both generalize and unify the classical operators in vector calculus. For instance, in R3, a 0-form or a 3-form can be identified with a scalar field, while a 1-form or a 2-form can be identified with a vector field. In this case, the differential 𝑑 applied to 0-, 1-, and 2-forms yields the gradient operator ∇, the curl operator ∇× , and the divergence operator ∇· , respectively. The codiffernetial 𝛿 corresponds to −∇· ,∇× and −∇ when applied to 1-forms, 2-forms, and 3-forms, respectively. The nilpotent property 𝑑𝑑 = 0 (equivalently 𝛿𝛿 = 0) leads to the vector calculus identities ∇ × ∇ = 0 and ∇ · ∇× = 0. See [22] for a detailed correspondence.
+
+To restore the adjointness of the differential 𝑑 and the codifferential 𝛿 in the presence of a boundary, one must impose certain boundary conditions. The most common choices are the normal (Dirichlet) and tangential (Neumann) boundary conditions. A differential form 𝜔 is normal if it vanishes on tangent vectors to the boundary, or tangential if the same condition holds for its Hodge dual ⋆𝜔 . Denote by Ω 𝑘 𝑛 the set of normal differential 𝑘 -forms and by Ω 𝑘 𝑡 the set of tangential differential forms. We then have Ω𝑘 𝑛 = {𝜔 ∈ Ω𝑘 | 𝜔 |𝜕𝑀 = 0 };Ω𝑘 𝑡 = {𝜔 ∈ Ω𝑘 | ⋆ 𝜔 |𝜕𝑀 = 0 }.CONTENTS 7The spaces Ω 𝑘 𝑛 and Ω 𝑚 −𝑘 𝑡 (𝑀 ) are isomorphic under the Hodge star operator 
+
+⋆ by their definitions, which is known as the Hodge duality. In addition, the differential 𝑑 preserves the normal boundary conditions, while the codifferential 
+
+𝛿 preserves the tangential boundary conditions. This finally ensures that the de Rham cohomology is well-defined when restricting to the space of normal forms or the space of tangential forms. In the boundaryless case, both spaces Ω𝑘 𝑛 and Ω 𝑘 𝑡 simplify to the entire space of differential forms Ω 𝑘 .
+
+## 2.1 de Rham cohomology 
+
+By restricting to the space of normal forms and the space of tangential forms, respectively, one can define the de Rham complex and its dual complex, which are sequences of the spaces of differential forms linked by 𝑑 and 𝛿 as follows: 
+
+· · · −→ Ω𝑘 −1
+
+> 𝑛 𝑑 𝑘 −1
+
+−→ Ω𝑘 𝑛 𝑑 𝑘 
+
+−→ Ω𝑘 +1  
+
+> 𝑛
+
+−→ · · · · · · ←− Ω𝑘 −1
+
+> 𝑡 𝛿 𝑘
+
+←− Ω𝑘 𝑡 𝛿 𝑘 +1 
+
+←− Ω𝑘 +1  
+
+> 𝑡
+
+←− · · · .
+
+Their cohomology modules then correspond to the relative de Rham cohomol-ogy 𝐻 𝑘 𝑑𝑅 (𝑀, 𝜕𝑀 ) and the absolute de Rham cohomology 𝐻 𝑘 𝑑𝑅 (𝑀 ), i.e., 
+
+𝐻 𝑘 𝑑𝑅 (𝑀, 𝜕𝑀 ) = ker 𝑑 𝑘 / Im 𝑑 𝑘 −1 (2) 
+
+𝐻 𝑘 𝑑𝑅 (𝑀 ) = ker 𝛿 𝑘 / Im 𝛿 𝑘 +1 .
+
+Through Hodge duality and Lefschetz duality, the ranks of 𝐻 𝑘 𝑑𝑅 (𝑀, 𝜕𝑀 ) and 
+
+𝐻 𝑘 𝑑𝑅 (𝑀 ) are given by the ( 𝑚 −𝑘 )-th Betti number 𝛽 𝑚 −𝑘 and the 𝑘 -th Betti number 𝛽 𝑘 respectively. Note that here the domains of 𝑑 and 𝛿 in the definition of cohomology are restricted to the space of normal forms Ω 𝑘 𝑛 (𝑀 ) and the space of tangential forms Ω 𝑘 𝑡 , respectively. However, one can also equivalently define them by considering sequences of the entire space of forms Ω 𝑘 linked by 𝑑 or 𝛿 . More details can be found in [60]. These de Rham cohomology groups, by the de Rham theorem, are naturally isomorphic to the singular homology groups, and thus depend only on the topology of the underlying manifold and its boundary. 
+
+## 2.2 Hodge Laplacians 
+
+The 𝑘 -th Hodge Laplacian Δ 𝑘 : Ω 𝑘 → Ω𝑘 is defined to be Δ𝑘 = 𝑑 𝑘 −1𝛿 𝑘 + 𝛿 𝑘 +1 𝑑 𝑘 . (3) For 0-forms, Δ 0 = 𝛿 1𝑑 0 coincides with the usual Laplace-Beltrami operator for functions on the manifold. Its kernel ker Δ 𝑘 is called the space of harmonic 
+
+𝑘 -forms, which consists of all differential forms satisfying Δ 𝑘 𝜔 = 0. The boundary constraint on the space of normal forms and tangential forms, however, is not enough to make the Hodge Laplacian self-adjoint and 8 CONTENTS well-defined when its domain and codomain are restricted to these spaces. The issue can be addressed by imposing additional constraints. We thus restrict the Hodge Laplacian Δ to the following subspaces ¯Ω𝑘 𝑛 = {𝜔 ∈ Ω𝑘 | 𝜔 |𝜕𝑀 = 0 , 𝛿𝜔 |𝜕𝑀 = 0 };¯Ω𝑘 𝑡 = {𝜔 ∈ Ω𝑘 | ⋆ 𝜔 |𝜕𝑀 = 0 , ⋆𝑑𝜔 |𝜕𝑀 = 0 }.
+
+Through Hodge duality, these subspaces are pairwise isomorphic, i.e., ¯Ω𝑘 𝑛 ⋆
+
+∼=¯Ω𝑚 −𝑘 𝑡 . In addition, the following identity can be obtained after imposing these boundary conditions (Δ 𝜔, 𝜔 ) = ( 𝑑𝜔, 𝑑𝜔 ) + ( 𝛿𝜔, 𝛿𝜔 ). (4) Let ℋ𝑘 = ker 𝑑 𝑘 ∩ ker 𝛿 𝑘 be the space of differential forms that are both closed and coclosed, also known as the space of harmonic fields. Denote by Δ 𝑘 𝑛 and Δ𝑘 𝑡 the restrictions of the Hodge Laplacian Δ 𝑘 to ¯Ω𝑘 𝑛 and ¯Ω𝑘 𝑡 , respectively. The following identifications are then a direct result of (4) ker Δ 𝑘 𝑛 = ℋ𝑘 𝑛 , ker Δ 𝑘 𝑡 = ℋ𝑘 𝑡 ,
+
+where ℋ𝑘 𝑛 = ℋ𝑘 ∩ ¯Ω𝑘 𝑛 and ℋ𝑘 𝑡 = ℋ𝑘 ∩ ¯Ω𝑘 𝑡 are restrictions of the space of harmonic fields to normal and tangential differential forms, respectively. In addition, these two subspaces are isomorphic to the relative and the absolute de Rham cohomology groups [27], i.e., ℋ𝑘 𝑛 ∼= 𝐻 𝑘 𝑑𝑅 (𝑀, 𝜕𝑀 ) and ℋ𝑘 𝑡 ∼= 𝐻 𝑘 𝑑𝑅 (𝑀 ). Under Lefschetz duality 𝐻 𝑘 𝑑𝑅 (𝑀 ) ∼= 𝐻 𝑘 (𝑀, 𝜕𝑀 ) and Hodge duality 𝐻 𝑘 𝑛 ∼=
+
+⋆𝐻 𝑘 𝑛 = 𝐻 𝑚 −𝑘 𝑡 , dim 𝐻 𝑘 𝑛 and dim 𝐻 𝑘 𝑡 are therefore finite and given by the Betti numbers 𝛽 𝑚 −𝑘 and 𝛽 𝑘 , respectively. Note that in general, the space of harmonic fields is only a subset of the space of harmonic forms in the presence of a boundary, i.e., ℋ𝑘 ⊂ ker Δ 𝑘 , and is infinite dimensional [60]. Thus, it does not provide accurate information about the manifold topology. The situation becomes simpler when the boundary vanishes. In this case, the subspaces ℋ𝑘 𝑛 
+
+and ℋ𝑘 𝑡 both coincide with ℋ𝑘 , which is then equal to the space of harmonic forms ker Δ and is isomorphic to the de Rham cohomology group 𝐻 𝑘 𝑑𝑅 (𝑀 ). 
+
+Remark 2 A central component in de Rham Hodge theory is the Hodge decom-position. In the case of manifolds with boundary, there is a Hodge-Morrey decomposition [46] given as: Ω𝑘 = 𝑑 Ω𝑘 −1 
+
+> 𝑛
+
+⊕ 𝛿 Ω𝑘 +1  
+
+> 𝑡
+
+(𝑀 ) ⊕ ℋ 𝑘 .
+
+This 𝐿 2-orthogonal decomposition reduces to the classical Hodge decomposition in the boundaryless case that 𝑀 is a closed manifold. Its counterpart in vector calculus is often referred to as the Helmholtz-Hodge decomposition on compact domains in 
+
+R2 or R3. In addition, there are 4-component Hodge-Morrey-Friedrichs orthogonal decompositions [27], and in particular, for compact domains in Euclidean spaces, one obtains a 5-component Hodge decomposition [61] as follows Ω𝑘 = 𝑑 Ω𝑘 −1 
+
+> 𝑛
+
+⊕ 𝛿 Ω𝑘 +1  
+
+> 𝑡
+
+⊕ ℋ 𝑘 𝑛 ⊕ ℋ 𝑘 𝑡 ⊕ (𝑑 Ω𝑘 −1 ∩ 𝛿 Ω𝑘 +1 ).CONTENTS 9      
+
+> Due to the correspondence between one-forms and vector fields in Euclidean spaces, this 5-component Hodge decomposition has been implemented for analyzing vec-tor fields on surface triangle meshes, tetrahedral meshes [51, 52, 54, 78], and Cartesian grids [63, 64]. For an elementary exposition of this 5-component Hodge decomposition in R3in terms of vector and scalar fields, see [15].
+
+# 3 Weighted de Rham-Hodge Theory 
+
+We now present the weighted de Rham-Hodge theory for manifolds with boundary, which generalizes the standard de Rham-Hodge theory by incor-porating a smooth function 𝑓 ∈ 𝐶 ∞(𝑀 ) defined on the manifold. There are several ways to define weighted Hodge Laplacians. Here we adopt the formulation of drifting Hodge Laplacians [10], obtained by modifying only the codifferential operator. Specifically, we set the weighted codifferential 
+
+𝛿 𝑓 := 𝑒 𝑓 𝛿𝑒 −𝑓 , which still maps ( 𝑘 +1)-forms to 𝑘 -forms. It is straightforward to verify that 𝛿 𝑓 is nilpotent, i.e., 𝛿 𝑓 𝛿 𝑓 = 0, and it preserves the tangential bound-ary conditions. A form 𝜔 is then called 𝑓 -coclosed if 𝛿 𝑓 𝜔 = 0, or 𝑓 -coexact if there is 𝜂 ∈ Ω𝑘 +1 (𝑀 ) such that 𝜔 = 𝛿 𝑓 𝜂 .A corresponding weighted measure on 𝑀 can be defined as 𝑑𝜇 𝑓 = 𝑒 −𝑓 𝑑𝜇 ,where 𝑑𝜇 is the volume form induced by 𝑔 . The manifold ( 𝑀, 𝑔, 𝑑𝜇 𝑓 = 𝑒 −𝑓 𝑑𝜇 )in this case is often referred to as a Bakry-´Emery manifold [9]. One can then define a generalized 𝐿 2-inner product on the space of differential forms Ω 𝑘 by introducing the weighted measure, given as follows (𝜔, 𝜂 )𝑓 =∫︁ 𝑀 
+
+⟨𝜔, 𝜂 ⟩𝑔 𝑒 −𝑓 𝑑𝜇. (5) It coincides with a scalar multiple of the standard Hodge 𝐿 2-inner product (1) when 𝑓 is constant. In the case of closed manifolds, one can easily verify that the weighted codifferential 𝛿 𝑓 is adjoint to the differential 𝑑 with respect to the generalized 
+
+𝐿 2-inner product (5). The adjointness of 𝛿 𝑓 and 𝑑 can be generalized to the case of manifolds with boundary by imposing the normal and tangential boundary conditions. To be specific, 𝛿 𝑓 is adjoint to 𝑑 with respect to (5) when restricted to the space of ( 𝑓 -modified) normal forms and the space of tangential forms in the presence of a boundary, as detailed below. 
+
+## 3.1 Weighted de Rham cohomology 
+
+Note that in our weighted setting, the differential 𝑑 remains unchanged, only the codifferential is modified to incorporate the (log) weight 𝑓 . Therefore, the de Rham complex and the associated relative de Rham cohomology are the same as in the unweighted case. Without loss of generality, we focus only on the dual complex defined by the weighted codifferential 𝛿 𝑓 and the corresponding absolute de Rham cohomology. Since multiplying a differential form by a scalar function does not alter the (homogeneous) boundary conditions, the weighted 10 CONTENTS codifferential 𝛿 𝑓 preserves the tangential boundary conditions. The following dual complex is thus well-defined 
+
+· · · ←− Ω𝑘 −1
+
+> 𝑡 𝛿 𝑘 𝑓
+
+←− Ω𝑘 𝑡 𝛿 𝑘 +1 
+
+> 𝑓
+
+←− Ω𝑘 +1  
+
+> 𝑡
+
+←− · · · .
+
+We can then define a weighted version of the absolute de Rham cohomology 
+
+𝐻 𝑘 𝑑𝑅 (𝑀, 𝑓 ) = ker 𝛿 𝑘 𝑓 / Im 𝛿 𝑘 +1  
+
+> 𝑓
+
+, (6) where the domain of 𝛿 𝑘 𝑓 is restricted to the space of tangential forms. Although the weight 𝑓 appears in the definition of the weighted absolute de Rham coho-mology (6), this cohomology is isomorphic to the standard absolute de Rham cohomology in the unweighted case (2), i.e., 
+
+𝐻 𝑘 𝑑𝑅 (𝑀, 𝑓 ) ∼= 𝐻 𝑘 𝑑𝑅 (𝑀 ),
+
+and thus is independent of the choice of 𝑓 , and its dimension is given by the 𝑘 -th Betti number 𝛽 𝑘 . This is an immediate result of the chain map 𝑇 : (Ω * 
+
+> 𝑡
+
+, 𝛿 𝑓 ) →
+
+(Ω * 
+
+> 𝑡
+
+, 𝛿 ), 𝑇 (𝜔 ) = 𝑒 −𝑓 𝜔 between the two complexes. The cohomology group (6) is therefore fully determined by the topology of the underlying manifold. 
+
+## 3.2 Weighted Hodge Laplacians 
+
+Using the weighted codifferential 𝛿 𝑓 , one can define a weighted Hodge Laplacian (drifting Hodge Laplacian) Δ 𝑓 : Ω 𝑘 → Ω𝑘 as follows Δ𝑘 𝑓 := 𝑑 𝑘 −1𝛿 𝑘 𝑓 + 𝛿 𝑘 +1  
+
+> 𝑓
+
+𝑑 𝑘 . (7) When 𝑓 is constant, the weighted Hodge Laplacian (7) coincides with the standard Hodge Laplacian (3). The kernel of Δ 𝑘 𝑓 , denoted by ker Δ 𝑘 𝑓 , is the space of weighted harmonic forms on 𝑀 .The de Rham-Hodge theory for the drifting Hodge Laplacian (7) on non-compact manifolds has been established in [12]. Their results also apply to compact complete manifolds. A characterization of the eigenvalues of the drifting Hodge Laplacian on manifolds immersed in R𝑛 can be found in [10]. 
+
+Remark 3 In the case of degree 𝑘 = 0, the weighted Hodge Laplacian Δ 𝑘 𝑓 is known as the Bakry-´Emery Laplacian [9] given by Δ0 
+
+> 𝑓
+
+𝜑 = Δ 0𝜑 − 𝑔 (∇𝑓 , ∇𝜑 ),
+
+where 𝜑 is a function defined on 𝑀 . It reduces to the Laplace-Beltrami operator when 𝑓 is constant. 
+
+Remark 4 In addition to the drifting Hodge Laplacian (7), another weighted Hodge Laplacian, called Witten Laplacian [74], can be obtained by modifying both the CONTENTS 11 
+
+differential and codifferential given by ¯Δ𝑘 𝑓 := 𝑑 𝑘 −1 
+
+> 𝑓
+
+𝛿 𝑘 𝑓 + 𝛿 𝑘 +1  
+
+> 𝑓
+
+𝑑 𝑘 𝑓 ,
+
+which was first introduced in the study of supersymmetry and Morse theory. Here the weighted differential and codifferential are defined by 𝑑 𝑓 = 𝑒 −𝑓 𝑑𝑒 𝑓 and 𝛿 𝑓 = 𝑒 𝑓 𝛿𝑒 −𝑓 ,respectively. Note that Witten Laplacian remains in the same analytic framework as the standard Hodge Laplacian. All standard results, such as the adjointness of 𝑑 𝑓 
+
+and 𝛿 𝑓 , the self-adjointness of Laplacian, and Hodge decomposition, are with respect to the standard Hodge inner product (1). There is no need to redefine the 𝐿 2-inner product (5) in this context. The Witten-Hodge theory for manifolds with boundary and equivariant cohomology has been studied in [2]. 
+
+Before establishing the identifications between the kernels of the weighted Hodge Laplacians, the corresponding harmonic spaces, and the cohomology groups, we introduce the following subspace of normal forms adapted to 𝛿 𝑓 :¯Ω𝑘 𝑛,𝑓 = {𝜔 ∈ Ω𝑘 | 𝜔 |𝜕𝑀 = 0 , 𝛿 𝑓 𝜔 |𝜕𝑀 = 0 }.
+
+The map ⋆𝑓 = 𝑒 −𝑓 ⋆, called the weighted Hodge star, provides an isomorphism between this space of weighted normal forms ¯Ω𝑘 𝑛,𝑓 and the space of tangen-tial forms ¯Ω𝑚 −𝑘 𝑡 , i.e., ¯Ω𝑘 𝑛,𝑓 ⋆𝑓 
+
+∼= ¯Ω𝑚 −𝑘 𝑡 . The claim follows from the fact that the Hodge star ⋆ is an isomorphism between 𝑘 -forms and ( 𝑚 −𝑘 )-forms, and the functional multiple 𝑒 −𝑓 > 0 never vanishes, and, in addition, the weighted Hodge star provides a bijection between the two subspaces. Through integra-tion by parts, the following identity can then be obtained when restricting Δ 𝑘 𝑓 
+
+to the subspaces ¯Ω𝑘 𝑛,𝑓 and ¯Ω𝑘 𝑡 :(Δ 𝑓 𝜔, 𝜔 )𝑓 = ( 𝑑𝜔, 𝑑𝜔 )𝑓 + ( 𝛿 𝑓 𝜔, 𝛿 𝑓 𝜔 )𝑓 . (8) Note that 𝛿 𝑓 = 𝑒 𝑓 𝛿𝑒 −𝑓 = 𝑒 𝑓 [( −1) 𝑘 ⋆−1 𝑑⋆ ]𝑒 −𝑓 = ( −1) 𝑘 ⋆−1 
+
+> 𝑓
+
+𝑑 ⋆ 𝑓 .
+
+Let ℋ𝑘 𝑓 = ker 𝑑 ∩ ker 𝛿 𝑓 be the space of weighted harmonic fields, consisting of the differential forms that are both closed and 𝑓 -coclosed. This space is infinite-dimensional and is only a subspace of weighted harmonic forms ker Δ 𝑓 ,analogous to the unweighted case. We thus focus on its subspaces ℋ𝑘 𝑛,𝑓 =
+
+ℋ𝑘 𝑓 ∩ ¯Ω𝑘 𝑛,𝑓 and ℋ𝑘 𝑡 = ℋ𝑘 𝑓 ∩ ¯Ω𝑘 𝑡 . Denote by Δ 𝑘 𝑛,𝑓 and Δ 𝑘 𝑡,𝑓 the restrictions of the weighted Hodge Laplacian Δ 𝑘 𝑓 to ¯Ω𝑘 𝑛,𝑓 and ¯Ω𝑘 𝑡 . It follows directly from the identity (8) that ker Δ 𝑘 𝑛,𝑓 = ℋ𝑘 𝑛,𝑓 , ker Δ 𝑘 𝑡,𝑓 = ℋ𝑘 𝑡,𝑓 .
+
+In addition, there is an isomorphism given by the weighted Hodge star: 
+
+ℋ𝑘 𝑛,𝑓 ⋆𝑓 
+
+∼= ℋ𝑚 −𝑘 𝑡, −𝑓 .12 CONTENTS These two subspaces are also isomorphic to the relative and the absolute de Rham cohomology groups, i.e., ℋ𝑘 𝑛,𝑓 ∼= 𝐻 𝑘 𝑑𝑅 (𝑀, 𝜕𝑀 ) and ℋ𝑘 𝑡,𝑓 ∼= 𝐻 𝑘 𝑑𝑅 (𝑀 ), which follows by adapting the classical Hodge-theoretical arguments to the weighted setting under the respective boundary conditions. Therefore, they are finite-dimensional with dimensions given by the Betti numbers 𝛽 𝑚 −𝑘 and 𝛽 𝑘 ,respectively. The spaces ℋ𝑘 𝑛,𝑓 and ℋ𝑘 𝑡,𝑓 are fully determined by the manifold topology. These identifications allow us to study the manifold topology through the weighted Hodge Laplacians on weighted normal and tangential differential forms. Note that while the standard Hodge Laplacians encode both the global topology and the local geometry of the manifold determined by the metric, introducing the weight 𝑓 , in addition, allows us to study features that vary across weights and, in particular, highlight and differentiate the local geomet-ric features in a uniform setting by selecting weights that emphasize regions of interest. 
+
+Remark 5 A direct consequence of the adjointness of 𝑑 and 𝛿 𝑓 with respect to the 
+
+𝐿 2-inner product (5) establishes a weighted Hodge decomposition. It thus provides a data-driven approach to encode the local geometric information in the decomposi-tion. In this context, the space of differential forms can be orthogonally decomposed with respect to (5) as follows Ω𝑘 = 𝑑 ¯Ω𝑘 −1 
+
+> 𝑛,𝑓
+
+⊕𝑓 𝛿 𝑓 ¯Ω𝑘 +1  
+
+> 𝑡
+
+⊕𝑓 ℋ𝑘 𝑓 .
+
+In addition, one naturally expects a weighted 4-component Hodge-Morrey-Friedrichs decompositions with respect to the inner product (5) in analogy with the unweighted case, and a weighted 5-component Hodge decomposition when 𝑀 is a compact domain in a Euclidean space: Ω𝑘 = 𝑑 ¯Ω𝑘 −1 
+
+> 𝑛,𝑓
+
+⊕𝑓 𝛿 𝑓 ¯Ω𝑘 +1  
+
+> 𝑡
+
+⊕𝑓 ℋ𝑘 𝑛,𝑓 ⊕𝑓 ℋ𝑘 𝑡,𝑓 ⊕ (𝑑 Ω𝑘 −1 ∩ 𝛿 𝑓 Ω𝑘 +1 ). (9) A proof of these decompositions is beyond the scope of this paper, and we will not address it further. 
+
+# 4 Discretization of the Laplacians 
+
+We now present a discretization of the weighted Hodge Laplacian for compact domains in low-dimensional Euclidean spaces, and also propose a weighted version of the boundary-induced graph (BIG) Laplacian [57] to facilitate computations. This framework builds on the discretization developed for the standard Hodge Laplacians [62] for regular Cartesian grids, where discrete exterior calculus (DEC) is used to discretize all differential operators and differential forms. The DEC-based approach enables efficient and accurate numerical algorithms that rely solely on matrix algebra and are consistent with the smooth case, preserving the topology of the manifold. As in [62], we model the underlying manifold as a sublevel set of a level set function defined on a regular Cartesian grid, which is also referred to as the Eulerian formulation of a manifold. In this setting, all vertices, edges, faces, and CONTENTS 13 cells are fixed, which greatly simplifies the data structure and discrete differ-ential operators compared to the Lagrangian formulation, where the manifold is discretized by a triangular or a tetrahedral mesh. The Eulerian formulation enables the construction of the BIG Laplacians, which avoid the use of Hodge star operators while still capturing the correct cohomology. This simplification makes the computation highly efficient. 
+
+## 4.1 Discretization on the entire grid 
+
+Denote by 𝐼 𝑚 an 𝑚 -dimensional regular Cartesian grid with grid spacing 𝑙 ,whose cells are oriented consistently with the coordinate axes. We refer to this as the primal grid. Its dual, called the dual grid, is the staggered grid with grid points being the centers of the primal 𝑚 -cells of 𝐼 𝑚 . For each primal 𝑘 -cell 𝜎 𝑘 , the dual ( 𝑚 −𝑘 )-cell is formed by the dual grid points associated with the primal 𝑚 -cells incident to 𝜎 𝑘 .A discretization of a differential 𝑘 -form 𝜔 on 𝐼 𝑚 , following the de Rham map, is simply a list of values with each given by its integral over the corre-sponding oriented primal 𝑘 -cell. The discrete differential 𝐷 𝐼 𝑘 on 𝐼 𝑚 encodes the signed incidence between the primal ( 𝑘 +1)-cells and 𝑘 -cells. Specifically, it is the transpose of the cell boundary operator 𝜕 𝑘 +1 on ( 𝑘 +1)-cells following Stokes’ theorem ∫︀ 𝜎 𝑑𝜔 =∫︀ 𝜕𝜎 𝜔 . The nilpotent property 𝐷 𝐼 𝑘 +1 𝐷 𝐼 𝑘 = 0 follows directly from the fact that the boundary of a boundary always vanishes, i.e., 
+
+𝜕𝜕 = 0. The discrete Hodge star 𝑆 𝐼 𝑘 is a diagonal matrix with each diagonal entry given by the ratio between the volume of the dual ( 𝑚 −𝑘 )-cell and a primal 
+
+𝑘 -cell 𝜎 𝑘 , that is, 𝑙 𝑚 −𝑘 /𝑙 𝑘 = 𝑙 𝑚 −2𝑘 . It is induced by the Hodge star operator 
+
+⋆ through local averaging 1
+
+|𝜎 𝑘 |∫︁ 𝜎 𝑘 
+
+𝜔 ≈ 1
+
+|⋆𝜎 𝑘 |∫︁ ⋆𝜎 𝑘 
+
+⋆𝜔, 
+
+which establishes a one-to-one correspondence between the primal 𝑘 -forms on 
+
+𝐼 𝑚 and their dual ( 𝑚 −𝑘 )-forms on the dual grid. The discrete codifferential is assembled from the discrete differential and Hodge star operators as 𝛿 𝐼 𝑘 =(𝑆 𝐼 𝑘 −1)−1(𝐷 𝐼 𝑘 −1)𝑇 𝑆 𝐼 𝑘 , following its smooth counterpart. To construct the discrete weighted differential operators, we let 𝑓 be a function defined on the entire grid 𝐼 𝑚 and discretize it using the following strategy: for each degree 𝑘 , we let 𝑓 𝐼 𝑘 be the diagonal matrix with each diagonal entry computed as the average of 𝑓 over the vertices of the corresponding primal 𝑘 -cell. Denote by 𝑊 𝐼 𝑘 = exp( 𝑓 𝐼 𝑘 ) its exponential. The discrete weighted Hodge star is then given as 𝑆 𝐼 𝑘,𝑓 = ( 𝑊 𝐼 𝑘 )−1𝑆 𝐼 𝑘 = 𝑆 𝐼 𝑘 (𝑊 𝐼 𝑘 )−1, where 𝑆 𝑘 and 
+
+𝑊 𝐼 𝑘 are both diagonal and therefore commute. By computation, we obtain a discretization of the weighted codifferential 𝛿 𝑓 = 𝑒 𝑓 𝛿𝑒 −𝑓 as follows: 
+
+𝛿 𝐼 𝑘,𝑓 = ( 𝑆 𝐼 𝑘 −1,𝑓 )−1(𝐷 𝐼 𝑘 −1)𝑇 𝑆 𝐼 𝑘,𝑓 .14 CONTENTS The corresponding weighted 𝐿 2 inner product for two discrete differential forms is then given by: (𝐴 𝑘 , 𝐵 𝑘 )𝐼 𝑓 = 𝐴 𝑇 𝑘 𝑆 𝐼 𝑘,𝑓 𝐵 𝑘 . (10) Note that discretizing the weighted Hodge Laplacian Δ 𝑘 𝑓 leads to a nonsym-metric matrix. Analogous to the unweighted case [78], we instead consider the discrete counterpart of ⋆𝑓 Δ𝑓 , which is of the form 
+
+𝐿 𝐼 𝑘,𝑓 = ( 𝐷 𝐼 𝑘 )𝑇 𝑆 𝐼 𝑘 +1 ,𝑓 𝐷 𝐼 𝑘 + 𝑆 𝐼 𝑘,𝑓 𝐷 𝐼 𝑘 −1(𝑆 𝐼 𝑘 −1,𝑓 )−1(𝐷 𝐼 𝑘 −1)𝑇 𝑆 𝐼 𝑘,𝑓 .
+
+Here all operators are taken to be null for 𝑘 < 0 and 𝑘 > 𝑚 . The discrete weighted Hodge Laplacian 𝐿 𝑘,𝑓 is positive semidefinite symmetric, and thus its eigenvalues are non-negative. 
+
+## 4.2 Discretization on 𝑀 
+
+We now construct discrete differential operators on 𝑀 , which is represented as a sublevel set of a level set function on a regular Cartesian grid. Note that the Hodge duality identifies the two types of boundary conditions. Here we present only the discretization of the weighted framework under normal boundary conditions. The tangential case follows similarly. Unless stated otherwise, all operators are understood to be under normal boundary conditions. To restrict all computations to relevant cells and impose normal boundary conditions, we use projection matrices through the inclusion or exclusion of the entire 𝑘 -cells. We consider the normal support, which is defined to be the set of all primal cells with at least one vertex inside 𝑀 , following [62]. Denote by 𝑃 𝑘 the projection matrix that maps all 𝑘 -cells of the entire grid 𝐼 𝑚 to the normal support. The matrix 𝑃 𝑘 can be obtained from the identity matrix by eliminating the rows corresponding to 𝑘 -cells outside the support. The discretization of the Hodge star operators on 𝑀 also requires incorpo-rating the normal boundary conditions. For each diagonal entry in the discrete Hodge star matrix, we replace the full volume of the primal 𝑘 -cell by the 𝑘 -volume of its intersection with 𝑀 and keep the dual cell volumes unchanged. In addition, we apply a small numerical perturbation to the level set function evaluated at primal/dual grid points to have an absolute value above 𝜖 = 10 −5𝑙 ,which ensures the fractional 𝑘 -volumes are well-behaved. Denote by ˜𝑆 𝐼 𝑘 the resulting diagonal Hodge star matrix on the entire grid 𝐼 𝑚 . Then we have the following set of differential operators defined on the normal support of 𝑀 :
+
+𝐷 𝑘 = 𝑃 𝑘 +1 𝐷 𝐼 𝑘 𝑃 𝑇 𝑘 , 𝑆 𝑘 = 𝑃 𝑘 ˜𝑆 𝐼 𝑘 𝑃 𝑇 𝑘 .
+
+The nilpotent property 𝐷 𝑘 +1 𝐷 𝑘 = 0 remains valid [62]. To incorporate weights in the discrete operators, we let 𝑓 be a function on 𝑀 . Denote by 𝑓 𝑘 its discretization on the normal support for degree 𝑘 ,which is diagonal. We compute the diagonal entry of 𝑓 𝑘 simply by taking the CONTENTS 15 average of 𝑓 evaluated at the associated grid points of the corresponding primal 
+
+𝑘 -cell inside 𝑀 , along with the intersection points if the cell intersects the boundary. Let 𝑊 𝑘 = exp( 𝑓 𝑘 ). The discrete weighted Hodge star on 𝑀 is then 
+
+𝑆 𝑘,𝑓 = 𝑊 −1 
+
+> 𝑘
+
+𝑆 𝑘 = 𝑆 𝑘 𝑊 −1 
+
+> 𝑘
+
+and the discrete weighted codifferential is 𝛿 𝑘,𝑓 =(𝑆 𝑘 −1,𝑓 )−1(𝐷 𝑘 −1)𝑇 𝑆 𝑘,𝑓 . Note that we omitted the potential sign change ( −1) 𝑘 
+
+in the continuous counterpart as it does not affect the Laplacian construction. In addition, we have the weighted 𝐿 2-inner product for two discrete differential forms on the normal support as follows (𝐴 𝑘 , 𝐵 𝑘 )𝑓 = 𝐴 𝑇 𝑘 𝑆 𝑘,𝑓 𝐵 𝑘 .
+
+The discrete weighted Hodge Laplacian on 𝑀 can be assembled as 
+
+𝐿 𝑘,𝑓 = 𝐷 𝑇 𝑘 𝑆 𝑘 +1 ,𝑓 𝐷 𝑘 + 𝑆 𝑘,𝑓 𝐷 𝑘 −1(𝑆 𝑘 −1,𝑓 )−1(𝐷 𝑘 −1)𝑇 𝑆 𝑘,𝑓 .
+
+Consistent with the smooth theory, the kernel of the discrete weighted Hodge Laplacian 𝐿 𝑘,𝑓 is fully determined by the manifold topology, and its kernel dimension is given by the Betti number 𝛽 𝑚 −𝑘 , independent of 𝑓 . Note that the statement is for normal boundary conditions. The kernel of the discrete tangential weighted Hodge Laplacian (not discussed here) in degree k has dimension 𝛽 𝑘 .The spectra of 𝑆 −1 
+
+> 𝑘,𝑓
+
+𝐿 𝑘,𝑓 carry rich information about the topological and geometric information about the underlying manifold. Besides the null space that captures the manifold topology, the nonzero part reflects geometry. It is known that the first non-zero eigenvalue, called the Fiedler value, describes connectivity, and eigenvalue multiplicities often reflect symmetries of the shape of data. In addition, the weighted setting allows the study of features across different weights. In particular, one is able to highlight and differentiate the local geometry by selecting weights 𝑓 that emphasize regions of interest. 
+
+Remark 6 In the case that 𝑓 is constant, the matrix 𝑓 𝑘 is proportional to the iden-tity matrix with the same scaling factor across all degrees, and so is the matrix 
+
+𝑊 𝑘 . The discrete weighted codifferential 𝛿 𝑘,𝑓 then reduces to the standard codif-ferential 𝛿 𝑘 , and the discrete weighted Hodge star 𝑆 𝑘,𝑓 is identical to the standard discrete Hodge 𝑆 𝑘 up to a constant. It follows that the discrete weighted 𝐿 2-inner product (10) coincides with the discrete Hodge 𝐿 2-inner product. In addition, the discrete weighted Laplacian 𝐿 𝑘,𝑓 is identical to the standard discrete Hodge Lapla-cian, obtained by replacing 𝑆 𝑘,𝑓 with 𝑆 𝑘 . Thus, 𝑆 −1 
+
+> 𝑘,𝑓
+
+𝐿 𝑘,𝑓 = 𝑆 −1 
+
+> 𝑘
+
+𝐿 𝑘 , and the discrete weighted framework recovers the unweighted case when 𝑓 is constant, analogous to the smooth setting. 
+
+Remark 7 The discrete weighted Hodge Laplacians on normal support and tangential support play a crucial role in the implementation of the Hodge decomposition (9) for compact domains on Cartesian grids in 2D and 3D. They can be used to compute the potentials associated with the decomposed components. Furthermore, the associated eigenvectors of 0 eigenvalues of the Laplacian for each 𝑘 on a chosen support form 16 CONTENTS 
+
+> a basis of the space of discrete harmonic fields with the corresponding boundary conditions.
+
+Note that the discrete Hodge star defined on a Cartesian grid is almost identical to a rescaled identity matrix. One may therefore replace the Hodge star with the identity matrix to simplify the computations. This leads to the BIG Laplacians [57], which were introduced to facilitate the comparison and contrast between Hodge Laplacians and combinatorial Laplacians. The BIG Laplacians have the same rank deficiencies as the corresponding discrete Hodge Laplacians, and thus capture the correct cohomology. In addition, their spectra converge to those of Hodge Laplacians up to a scaling value. Analogous to the unweighted case, we define the weighted BIG Laplacian by replacing the Hodge star 𝑆 𝑘 with the identity matrix. The weighted Hodge star is then given as the inverse of the exponential weight matrix 𝑆 𝑘,𝑓 = ( 𝑊 𝑘 )−1.This finally leads to the weighted BIG Laplacian as follows: 
+
+𝐿 𝐵 𝑘,𝑓 = 𝐷 𝑇 𝑘 𝑊 −1
+
+> 𝑘 +1
+
+𝐷 𝑘 + ( 𝑊 𝑘 )−1𝐷 𝑘 −1𝑊 𝑘 −1𝐷 𝑇 𝑘 −1(𝑊 𝑘 )−1.
+
+In the case that 𝑓 is constant, the weighted BIG Laplacian reduces to the BIG Laplacian up to a constant. Note that the rank deficiency of the discrete Laplacian depends on the differential and projection matrices. The kernel size of the weighted BIG Laplacian is unchanged as in the unweighted setting, given by the same Betti number. In practice, the weighted BIG Laplacians can be used in the same way as the weighted Hodge Laplacians to study the topological and geometric information of the underlying manifold. 
+
+## 4.3 Discrete spectral analysis of Laplacians 
+
+The eigenvalue analysis of discrete Laplacians in the unweighted setting has been discussed in detail in [62]. The situation for the weighted framework remains the same, as incorporating the weight function modifies only the diag-onal entries of the discrete Hodge stars and does not change the boundary conditions. Therefore, we omit the details and refer the reader to [62] for the unweighted case. The eigenvalues and eigenvectors of a discrete Laplacian 𝐿 𝑘,𝑓 can be solved by considering the generalized eigenvalue problem 
+
+𝐿 𝑘,𝑓 𝑉 = 𝜆𝑆 𝑘,𝑓 𝑉, (11) where 𝐿 𝑘,𝑓 can be interpreted as either the weighted Hodge Laplacian or the weighted BIG Laplacian (with 𝑆 𝑘,𝑓 set to identity) under one type of the boundary conditions, 𝜆 is an eigenvalue and 𝑉 is the associated eigenvector, both depending on 𝑓 . Let ¯𝐿 𝑘,𝑓 = 𝑆 −1/2 
+
+> 𝑘,𝑓
+
+𝐿 𝑘,𝑓 𝑆 −1/2 
+
+> 𝑘,𝑓
+
+, and ¯𝑉 = 𝑆 1/2 
+
+> 𝑘,𝑓
+
+𝑉 . The formulas (11) can then be written as a regular eigenvalue problem: ¯𝐿 𝑘,𝑓 ¯𝑉 = 𝜆 ¯𝑉 . CONTENTS 17 For our implementation, 𝑆 𝑘,𝑓 is diagonal, and thus its square root and inverse square root are also diagonal and efficient to evaluate. So the spectral analysis of the modified Laplacian ¯𝐿 𝑘,𝑓 can be efficiently converted to the study of the singular spectrum of the discrete operator ¯𝐷 𝑘,𝑓 = 𝑆 1/2 
+
+> 𝑘 +1 ,𝑓
+
+𝐷 𝑘 𝑆 −1/2 
+
+> 𝑘,𝑓
+
+. Specifically, the spectrum of ¯𝐿 𝑘,𝑓 on the normal support is given by the union of the squared nonzero singular values of ¯𝐷 𝑘 −1,𝑓 and ¯𝐷 𝑘,𝑓 , together with 0 of multiplicity 
+
+𝛽 𝑚 −𝑘 , i.e., the ( 𝑚 −𝑘 )-th Betti number. In the case that dim( 𝑀 ) = 3, there are eight discrete weighted Hodge Laplacians for 𝑘 = 0 , 1, 2, 3 under the normal and tangential boundary condi-tions. Due to the duality of these two types of boundary conditions, the study of the spectra of these Laplacians, as noted above, can finally be reduced to the study of the singular values of the three discrete differentials ¯𝐷 0,𝑓 , ¯𝐷 1,𝑓 
+
+and ¯𝐷 2,𝑓 with one type of the boundary conditions. 
+
+# 5 Protein Flexibility Analysis 
+
+To validate the effectiveness of our framework for extracting the topological and geometric features of data, and in particular for highlighting and differ-entiating local features, we apply it to protein flexibility analysis, also called B-factor analysis. The protein flexibility characterizes the dynamic behavior of atoms or amino acids within a protein structure, and is quantified by the B-factor (also known as the Debye-Waller factor or temperature factor), which measures an atom’s displacement from its mean position. It provides valuable information about protein’s structural and thermal stability, activity of the region, and other protein functions, and has important applications such as docking and structure-based drug design [16, 17, 67]. Many frameworks have been developed for protein flexibility analysis, including molecular dynamics (MD) [44], normal-mode analysis (NMA) [11, 28, 34, 66], elastic network models (ENMs) [68] with their variants Gaussian network model (GNM) [7, 8] and anisotropic network model (ANM) [5], the flexibility and rigidity index (FRI) methods [49, 76] and more recently, blind prediction machine learning models that utilize topological and geometric fea-tures of data, such as multiscale differential geometry learning (mDGL) model [26], persistent sheaf Laplacian (PSL) model [29] and commutative algebra learning (CAL) model [77]. These machine learning models mDG, PSL and CAL have been reported to achieve higher accuracy than previous models. To demonstrate the performance of our framework, we follow the same evaluation protocols used by the mDG, PSL and CAL models, including the same 10-fold cross-validation and data splitting strategy on the same dataset, and compare our results with theirs. We built two models, one using only fea-tures extracted from the weighted Hodge Laplacians, and a consensus model that incorporates additional features from PDB files and those generated using STRIDE, a software that generates protein secondary structure assignment from atomic coordinates. The dataset is from Opron et al. [49, 50], which con-tains a total of 364 proteins. In the experiments, several proteins are excluded 18 CONTENTS due to nonphysical issues (0 B-factor values) and inconsistencies with STRIDE, see [26] for the list of excluded PDB IDs. Finally, we consider only a total of 346 proteins. Data is available at https://github.com/fenghon1/MDG bfactor. Utilizing the 3D coordinates of atoms in proteins, we generate a manifold with boundary for each protein based on a discrete-to-continuum mapping. We then compute for each atom in the protein the weighted Hodge Lapla-cian with an atom-specific weight function defined on the resulting manifold. The eigenvalues of the weighted Hodge Laplacian, termed WHL features, are then used as a descriptor of the atom, which includes the global topological feature of the manifold coming from the number of 0 eigenvalues, i.e., the 0th Betti number 𝛽 0, and also the atom-specific geometric features from the non-zero eigenvalues. The associated B-factor serves as the label for an atom. The 3d coordinates and B-factors of atoms are both recorded in PDB files. As analyzing B-factors of 𝐶 𝛼 atoms is standard for describing backbone mobility and dynamics resulting from protein dynamics, we consider only 𝐶 𝛼 atoms in the experiments. The feature extraction procedure of our proposed weighted Hodge Laplacian learning (WHLL) framework is illustrated in Fig. 1. In the following, we present details of the feature extraction algorithm for the protein data, including the generation of manifolds, the construc-tion of atom-specific weight functions, and details of our blind prediction machine learning algorithms. Finally, we report our results to demonstrate the effectiveness of our models. The computation of eigenvalues of Laplacians is implemented in MATLAB, while the machine learning models are employed using a gradient boosting regressor (GBR) module from Scikit-learn. 
+
+## 5.1 Manifold generation 
+
+Note that the original data are point clouds given as 3D coordinates of atoms for each protein. We need to generate a manifold representation for each protein so that the data are compatible with our weighted Hodge Laplacian framework. This process can be realized by a discrete-to-continuum mapping using the flexibility and rigidity index [48]. Denote by {x1, x2 . . . , xs} the 3D coordinates of all 𝐶 𝛼 atoms in a protein. We define a discrete-to-continuum mapping as follows, given by the negative sum of Gaussian densities at all positions of these atoms: 
+
+𝜌 (x, 𝜏 ) = −
+
+> 𝑠
+
+∑︁ 
+
+> 𝑖 =1
+
+exp (︃ −(︂ ‖x − xi‖
+
+𝜏 𝑟 )︂ 
+
+> 2
+
+)︃ 
+
+, (12) where ‖x − xi‖ is the Euclidean distance from x to the position xi of the 𝑖 -th atom, 𝜏 is a scalar value, and 𝑟 = 1 .7 is the van der Waals radius of the 𝐶 𝛼 
+
+atom. Given an isovalue 𝑐 , the sublevel set 
+
+𝑀 = {x | 𝜌 (x, 𝜏 ) ≤ 𝑐 }CONTENTS 19 
+
+Fig. 1 Schematic illustration of the weighted Hodge Laplacian learning (WHLL) framework for atom-wise B-factor prediction. First row, first column: Protein 1IDP and its 𝐶 𝛼 -atoms col-ored by a rainbow colormap (blue -> cyan -> green -> yellow -> orange -> red), where blue denotes the lowest B-factors and red the highest. First row, second column: Three selected 𝐶 𝛼 -atoms. First row, third column: Manifolds generated from (12) with atom-specific weights (13) that emphasize local regions of the 𝐶 𝛼 atoms shown in the second column. Red indicates higher weights, and dark blue represents near-zero weights. First row, fourth column: The resulting features for these atoms consisting of the 0-th Betti number 𝛽 0 and the first 𝑘 nonzero eigen-values, which are used as inputs for the machine learning models (with 𝑘 = 50 for illustration). Second row: Machine learning model for predicting atom-wise B-factors. 
+
+then leads to a compact manifold in R3 with its boundary given by the iso-surface 𝜕𝑀 = {x | 𝜌 (x, 𝜏 ) = 𝑐 } for the protein. In our experiments, we set 
+
+𝜏 = 1 , 𝑐 = −0.1 to generate manifolds for all proteins. These values are cho-sen to produce smooth manifolds with stable topology and to avoid numerical issues. In Fig. 1, we present an example of the resulting manifolds for three selected 𝐶 𝛼 atoms in protein 1IDP using (12). Note that the level set function (12) is a special case of the flexibility and rigidity index (FRI) density function [48], which is known to be stable for converting point clouds into continuous embeddings and has been used to generate protein boundary surfaces and interactive manifolds [19, 48]. Other choices of FRI density functions can also be employed to generate the manifold for each protein. 20 CONTENTS 
+
+## 5.2 Atom-specific weight construction 
+
+Notice that the B-factor of an atom is influenced by the local packing and interactions of nearby atoms. To characterize and differentiate its local feature with position ¯x in a protein, we consider only atoms within its neighborhood with a cutoff distance 𝑑 = 11 from ¯x, and use them to construct the atom-specific weight function for the atom. This choice of cutoff distance has been confirmed by our experiments that the local atomic structures can be captured in the weight functions, and the resulting spectra of Laplacians distinguish between atoms. Given an atom in a protein with position ¯x, let 𝑁 be the number of atoms in the neighborhood within the cutoff distance 𝑑 of ¯x. We define a weight function for this atom by the following distance-weighted sum of densities 
+
+𝑓 (x) = 
+
+> 𝑁
+
+∑︁ 
+
+> 𝑗 =1
+
+𝜔 𝑗 exp (︃ −(︂ ‖x − xj‖
+
+𝜏 𝑟 )︂ 
+
+> 2
+
+)︃ 
+
+, 𝜔 𝑗 = exp (︃ − ‖ xj − ¯x‖2
+
+2𝜂 2)︃ , (13) where 𝑟 = 1 .7 is the van der Waals radius of the 𝐶 𝛼 atom, 𝜏 = 5 and 𝜂 = 4 are chosen in our experiments to include wider local interactions of the atom and to avoid overemphasizing its very near neighbors. Examples of weight functions that emphasize local regions of three different 𝐶 𝛼 atoms in protein 1IDP are shown in Fig. 1. The formulation of the weight function (13) ensures a decay of influence with distance, which is consistent with the nature of atomic interactions in a molecular system. The parameters 𝜏 and 𝜂 control the locality and the decay rate, allowing our model to emphasize atom-specific local structures while limiting the influence of distant atoms. For all 𝐶 𝛼 atoms in each protein, we compute the atom-specific weight (13), and then their weighted Hodge Laplacians on the manifold of the protein, gen-erated following Sec. 5.1. Their kernels are of the same dimension, independent of the choice of 𝑓 and determined by the manifold topology. Their non-zero spectra vary with weights for different atoms, highlighting and differentiating their local geometric features. 
+
+## 5.3 Feature extraction 
+
+With the manifold representation and the atom-specific weight functions at hand, we implement our framework on a regular Cartesian grid with the chosen normal boundary conditions. For all atoms across proteins, we fix a Cartesian grid with grid length 1. This pre-chosen Cartesian grid ensures that all computation is consistent and the resulting features are comparable for all atoms regardless of the protein IDs, as they are obtained following the same discretization scheme. The choice of grid length 1 provides sufficient grid resolution for accurate computation of Laplacians so that no topological infor-mation is lost due to numerical errors caused by low resolution. All discrete operators are assembled following Sec. 4. CONTENTS 21 In our experiments, we compute only the weighted BIG Laplacian 𝐿 𝐵 
+
+> 3,𝑓
+
+under normal boundary conditions for each atom due to the computational efficiency. The spectra of 𝐿 𝐵  
+
+> 3,𝑓
+
+serve the same role as the 0-th Laplacian in the combinatorial setting and have proven effective and successful in many machine learning tasks [14, 39, 45, 62, 70]. The number of the 0 eigenvalues of the Laplacian provides the 0-th Betti number 𝛽 0, i.e., the number of connected components of the manifold, while the non-zero eigenvalues encode the local geometric structures induced by the atom-specific weights. We take the 0-th Betti number 𝛽 0, together with the first 𝑘 non-zero eigenvalues. This leads to a total of 𝑘 +1 features for each atom, which are then fed into our machine learning models. As demonstrated in our experiments, these features are sufficient to validate our frameworks in capturing the topological and geometric features and differentiating atoms. In addition to the WHL features, we incorporate 3 global and 9 local protein features to build consensus machine learning models. The 3 global features are the R-value, protein resolution, and the number of heavy atoms extracted from the PDB files. The 9 local features are obtained using STRIDE [30]. These features include three packing density values with cutoff distances (short 𝑑 < 3, medium 3 ≤ 𝑑 < 5, and long-ranged 𝑑 ≥ 5), amino acid type, occupancy, and secondary structure type, 𝜑 and 𝜓 angles, and residue solvent-accessible area. For the consensus model, each atom has ( 𝑘 +1)+12 features with 𝑘 +1 being the WHL features and 12 the additional global and local features. 
+
+## 5.4 Machine learning algorithm 
+
+To evaluate the performance of our models, we carry out the 10-fold cross-validation under two setups: protein-level and atom-level. At the protein level, we split in each fold the set of 346 proteins into training and test subsets so that all 𝐶 𝛼 atoms from a given protein are in the same subset. At the atom level, we split the set of all 𝐶 𝛼 atoms (more than 74,000 atoms) across proteins into training and test subsets. For each setup, the process is repeated over all 10 folds, and we report the average performance. For both the WHL and consensus models, we employ the GBR mod-ule from Scikit-learn 1.4.2 for the blind prediction of B-factors of atoms, with the following GBR parameters: n estimators = 1,000 , max depth = 7,
+
+min samples split = 5, learning rate = 0.002 , loss = squared error ,
+
+subsample = 0.8 , and max features = sqrt . The Pearson correlation coefficient (PCC) is used as the evaluation metric in our models. 
+
+## 5.5 Experimental results 
+
+As presented in Sec. 5.3, the number of WHL features for each atom is given by 
+
+𝑘 +1, consisting of the 0-th Betti number 𝛽 0 and the first 𝑘 non-zero eigenvalues of the weighted Hodge Laplacian defined on the corresponding manifold. To find the optimal 𝑘 that leads to the best performance of our predictive modules, we vary 𝑘 with an increment of 10, i.e, 𝑘 = 10 , 20 , . . . and perform the 10-fold 22 CONTENTS                  
+
+> Table 1 Average Pearson correlation coefficients (PCC) for the WHL model and the consensus model, computed via 10-fold cross-validation at the protein and atom levels on 346 proteins with more than 74,000 𝐶 𝛼 atoms using the gradient boosting regressor (GBR) module in scikit-learn. Results are compared with mDGL, PSL and CAL. mDGL PSL CAL WHL WHL consensus Protein-level 0.407 0.452 0.456 0.480 0.524
+> Atom-level 0.859 0.840 0.855 0.842 0.862
+> mDGL: Multiscale Differential Geometry Learning [26] PSL: Persistent Sheaf Laplacians [29] CAL: Commutative Algebra Learning [77] WHL: Weighted Hodge Laplacians
+
+cross-validation for each value of 𝑘 . The results suggest that at the protein level, the optimal PCC value can be achieved by the WHL model when 𝑘 = 120 (PCC = 0.480), and by the consensus model when 𝑘 = 90 (PCC = 0.524). At the atom level, the WHL model is optimal when 𝑘 = 150 (PCC = 0.842), while the consensus model is optimal when 𝑘 = 70 (PCC = 0.862). In Table 1, we report these average PCC values for the WHL and consensus models at both the protein level and the atom level, along with the performance of mDG, PSL and CAL. The best performance is achieved when using the consensus model, leading to a PCC value of 0 .524 at the protein-level and a PCC value of 0 .862 at the atom level, both higher than previous models. The results demonstrate the effectiveness and also the promise of our models in capturing the topological and geometric features of data, and their capability to highlight and differentiate local features. 
+
+# 6 Conclusions 
+
+In this work, we develop a weighted de Rham-Hodge Laplacian framework for manifolds with boundary. The theory extends the classical setting by incor-porating a smooth function on the manifold and is obtained by modifying only the codifferential operator. Under appropriate boundary conditions, the kernels of the resulting weighted Hodge Laplacians (or drifting Hodge Lapla-cians) coincide with the weighted harmonic spaces, and are isomorphic to the corresponding manifold cohomology groups, as in the unweighted case. Their harmonic spectra therefore capture the global topological information about the underlying manifolds, while the non-harmonic spectra encode geometric structure with respect to a chosen weight. In addition, this method allows one to highlight and differentiate the local geometric features that are inaccessible in the unweighted case. Numerically, we provide a DEC-based computational framework for the weighted Hodge Laplacians on regular Cartesian grids and also introduce the weighted boundary-induced graph (BIG) Laplacians with-out Hodge star to facilitate computations. We validate the effectiveness of our framework by building blind prediction machine learning models for pro-tein flexibility analysis, which requires localized information. Results show CONTENTS 23 the promise of our framework for analyzing the local properties of data on manifolds. Several directions remain open for further investigation. For example, it is natural to establish a 5-component Hodge decomposition in the weighted setting for manifolds with boundary, and to develop the corresponding dis-cretization framework. In addition, one can also modify both the differential and codifferential and use the resulting Witten Laplacian for extracting the topological and geometric features. In this context, all standard results, including the adjointness of the modified differential and codifferential, the self-adjointness of the Witten Laplacian, and the corresponding Hodge decom-positions, are preserved with respect to the standard Hodge 𝐿 2-inner product. Therefore, one no longer needs to redefine the 𝐿 2-inner product, which makes the framework theoretically simple. By introducing weights, these methods are well-suited for data-driven analysis of data with local features. Finally, the proposed method has potential applications to manifold topological learning [62], partial differential equation (PDE)-based learning models, and generative AI with weighted Hodge diffusion. 
+
+# Acknowledgements 
+
+The work of Wei was supported in part by NIH grant R35GM148196, the Uni-versity of Georgia, and Georgia Research Alliance. The authors thank Professor Shmuel Weinberger for useful discussions. 
+
+# References 
+
+[1] Adler, R.J., Bobrowski, O., Borman, M.S., Subag, E., Weinberger, S.: Persistent homology for random fields and complexes. In: Borrowing Strength: Theory Powering Applications–a Festschrift for Lawrence D. Brown vol. 6, pp. 124–144. Institute of Mathematical Statistics, (2010) [2] Al-Zamil, Q.S., Montaldi, J.: Witten–Hodge theory for manifolds with boundary and equivariant cohomology. Differential Geometry and its Applications 30 (2), 179–194 (2012) [3] Arnold, D., Falk, R., Winther, R.: Finite element exterior calculus: from hodge theory to numerical stability. Bulletin of the American mathematical society 47 (2), 281–354 (2010) [4] Arnold, D.N.: Finite Element Exterior Calculus. SIAM, (2018) [5] Atilgan, A.R., Durell, S., Jernigan, R.L., Demirel, M.C., Keskin, O., Bahar, I.: Anisotropy of fluctuation dynamics of proteins with an elastic network model. Biophysical journal 80 (1), 505–515 (2001) 24 CONTENTS [6] Atiyah, M.F.: Topological quantum field theory. Publications Math´ ematiques de l’IH ´ES 68 , 175–186 (1988) [7] Bahar, I., Atilgan, A.R., Erman, B.: Direct evaluation of thermal fluctu-ations in proteins using a single-parameter harmonic potential. Folding and Design 2(3), 173–181 (1997) [8] Bahar, I., Atilgan, A.R., Demirel, M.C., Erman, B.: Vibrational dynamics of folded proteins: significance of slow and fast motions in relation to function and stability. Physical review letters 80 (12), 2733 (1998) [9] Bakry, D., ´Emery, M.: Diffusions hypercontractives. In: S´ eminaire de Probabilit´ es XIX 1983/84: Proceedings, pp. 177–206. Springer, (2006) [10] Branding, V., Habib, G.: Eigenvalue estimates on weighted manifolds. Results in Mathematics 79 (5), 187 (2024) [11] Brooks, B.R., Bruccoleri, R.E., Olafson, B.D., States, D.J., Swaminathan, S.a., Karplus, M.: Charmm: a program for macromolecular energy, mini-mization, and dynamics calculations. Journal of computational chemistry 
+
+4(2), 187–217 (1983) [12] Bueler, E.: The heat kernel weighted Hodge Laplacian on noncompact manifolds. Transactions of the American Mathematical Society 351 (2), 683–713 (1999) [13] Cang, Z., Wei, G.-W.: Topologynet: Topology based deep convolutional and multi-task neural networks for biomolecular property predictions. PLoS computational biology 13 (7), 1005690 (2017) [14] Cang, Z., Wei, G.-W.: Integration of element specific persistent homology and machine learning for protein-ligand binding affinity prediction. Inter-national journal for numerical methods in biomedical engineering 34 (2), 2914 (2018) [15] Cantarella, J., DeTurck, D., Gluck, H.: Vector calculus and the topology of domains in 3-space. The American Mathematical Monthly 109 (5), 409– 442 (2002) [16] Carlson, H.A., McCammon, J.A.: Accommodating protein flexibility in computational drug design1, 2. Molecular pharmacology 57 (2), 213–218 (2000) [17] Chandrika, B.-R., Subramanian, J., Sharma, S.D.: Managing protein flex-ibility in docking and its applications. Drug discovery today 14 (7-8), 394–400 (2009) CONTENTS 25 [18] Chen, D., Liu, J., Wu, J., Wei, G.-W.: Persistent hyperdigraph homology and persistent hyperdigraph Laplacians. Foundations of Data Science 5,558–588 (2023) [19] Chen, J., Zhao, R., Tong, Y., Wei, G.-W.: Evolutionary de Rham-Hodge method. Discrete and continuous dynamical systems. Series B 26 (7), 3785 (2021) [20] Chen, J., Qiu, Y., Wang, R., Wei, G.-W.: Persistent Laplacian projected Omicron BA. 4 and BA. 5 to become new dominating variants. Computers in Biology and Medicine 151 , 106262 (2022) [21] De Goes, F., Goldenstein, S., Velho, L.: A hierarchical segmentation of articulated bodies. In: Computer Graphics Forum, vol. 27, pp. 1349–1356 (2008). Wiley Online Library [22] Desbrun, M., Kanso, E., Tong, Y.: Discrete differential forms for com-putational modeling. In: ACM SIGGRAPH 2006 Courses, pp. 39–54 (2006) [23] Di Meglio, A., Jansen, K., Tavernelli, I., Alexandrou, C., Arunachalam, S., Bauer, C.W., Borras, K., Carrazza, S., Crippa, A., Croft, V., et al. : Quan-tum computing for high-energy physics: State of the art and challenges. Prx quantum 5(3), 037001 (2024) [24] Eckmann, B.: Harmonische funktionen und randwertaufgaben in einem komplex. Commentarii Mathematici Helvetici 17 (1), 240–255 (1944) [25] Edelsbrunner, Letscher, Zomorodian: Topological persistence and simpli-fication. Discrete & computational geometry 28 , 511–533 (2002) [26] Feng, H., Zhao, J.Y., Wei, G.-W.: Multiscale differential geometry learning for protein flexibility analysis. Journal of Computational Chemistry 46 (7), 70073 (2025) [27] Friedrichs, K.O.: Differential forms on Riemannian manifolds. Communi-cations on Pure and Applied Mathematics 8(4), 551–590 (1955) [28] Go, N., Noguti, T., Nishikawa, T.: Dynamics of a small globular protein in terms of low-frequency vibrational modes. Proceedings of the National Academy of Sciences 80 (12), 3696–3700 (1983) [29] Hayes, N., Wei, X., Feng, H., Merkurjev, E., Wei, G.-W.: Persistent sheaf Laplacian analysis of protein flexibility. The Journal of Physical Chemistry B 129 (17), 4169–4178 (2025) 26 CONTENTS [30] Heinig, M., Frishman, D.: STRIDE: a web server for secondary struc-ture assignment from known atomic coordinates of proteins. Nucleic acids research 32 (suppl 2), 500–502 (2004) [31] Horak, D., Jost, J.: Interlacing inequalities for eigenvalues of discrete Laplace operators. Annals of Global Analysis and Geometry 43 (2), 177–207 (2013) [32] Jones, B., Wei, G.-W.: Persistent directed flag Laplacian. Foundations of data science (Springfield, Mo.) 7(3), 737 (2025) [33] Kirchhoff, G.: Ueber die Aufl¨ osung der Gleichungen, auf welche man bei der Untersuchung der linearen Vertheilung galvanischer Str¨ ome gef¨ uhrt wird. Annalen der Physik 148 (12), 497–508 (1847) [34] Levitt, M., Sander, C., Stern, P.S.: Protein normal-mode dynamics: trypsin inhibitor, crambin, ribonuclease and lysozyme. Journal of molec-ular biology 181 (3), 423–447 (1985) [35] Lian, Z., Godil, A., Bustos, B., Daoudi, M., Hermans, J., Kawamura, S., Kurita, Y., Lavoua, G., Suetens, P.D., et al. : Shape retrieval on non-rigid 3D watertight meshes. In: Eurographics Workshop on 3d Object Retrieval (3DOR) (2011) [36] Lieutier, A.: Talk: Persistent harmonic forms (2014). https://project.inria. fr/gudhi/files/2014/10/Persistent-Harmonic-Forms.pdf [37] Lim, L.-H.: Hodge Laplacians on graphs. Siam Review 62 (3), 685–715 (2020) [38] Liu, X., Feng, H., Wu, J., Xia, K.: Persistent spectral hypergraph based machine learning (PSH-ML) for protein-ligand binding affinity prediction. Briefings in Bioinformatics 22 (5), 127 (2021) [39] Liu, Z., Su, M., Han, L., Liu, J., Yang, Q., Li, Y., Wang, R.: Forging the basis for developing protein–ligand interaction scoring functions. Accounts of chemical research 50 (2), 302–309 (2017) [40] Lu, Z., Rowlett, J.: Eigenvalues of collapsing domains and drift Lapla-cians. Mathematical Research Letters 19 (3), 627–648 (2012) [41] Ma, L., Du, S.-H.: Extension of Reilly formula with applications to eigen-value estimates for drifting Laplacians. Comptes Rendus. Math´ ematique 
+
+348 (21-22), 1203–1206 (2010) [42] Ma, L., Liu, B.: Convex eigenfunction of a drifting Laplacian operator and the fundamental gap. Pacific journal of mathematics 240 (2), 343–361 CONTENTS 27 (2009) [43] Ma, L., Liu, B.: Convexity of the first eigenfunction of the drifting Lapla-cian operator and its applications. New York J. Math 14 (2008), 393–401 (2008) [44] McCammon, J.A., Gelin, B.R., Karplus, M.: Dynamics of folded proteins. nature 267 (5612), 585–590 (1977) [45] Meng, Z., Xia, K.: Persistent spectral–based machine learning (PerSpect ML) for protein-ligand binding affinity prediction. Science advances 7(19), 5329 (2021) [46] Morrey, C.B.: A variational method in the theory of harmonic integrals, ii. American Journal of Mathematics 78 (1), 137–170 (1956) [47] Mullen, P., Tong, Y., Alliez, P., Desbrun, M.: Spectral conformal parame-terization. In: Computer Graphics Forum, vol. 27, pp. 1487–1494 (2008). Wiley Online Library [48] Nguyen, D.D., Wei, G.-W.: Dg-gl: Differential geometry-based geomet-ric learning of molecular datasets. International journal for numerical methods in biomedical engineering 35 (3), 3179 (2019) [49] Opron, K., Xia, K., Wei, G.-W.: Fast and anisotropic flexibility-rigidity index for protein flexibility and fluctuation analysis. The Journal of chemical physics 140 (23) (2014) [50] Opron, K., Xia, K., Wei, G.-W.: Communication: Capturing protein mul-tiscale thermal fluctuations. The Journal of chemical physics 142 (21) (2015) [51] Poelke, K.: Hodge-type decompositions for piecewise constant vector fields on simplicial surfaces and solids with boundary. PhD thesis (2017) [52] Poelke, K., Polthier, K.: Boundary-aware hodge decompositions for piecewise constant vector fields. Computer-Aided Design 78 , 126–136 (2016) [53] Qiu, Y., Wei, G.-W.: Persistent spectral theory-guided protein engineer-ing. Nature Computational Science 3(2), 149–163 (2023) [54] Razafindrazaka, F.H., Poelke, K., Polthier, K., Goubergrits, L.: A consis-tent discrete 3D Hodge-type decomposition: implementation and practical evaluation. arXiv preprint arXiv:1911.12173 (2019) [55] Reuter, M.: Hierarchical shape segmentation and registration via topo-logical features of Laplace-Beltrami eigenfunctions. International Journal 28 CONTENTS of Computer Vision 89 (2), 287–308 (2010) [56] Reuter, M., Wolter, F.-E., Peinecke, N.: Laplace-Beltrami spectra as ‘Shape-DNA’ of surfaces and solids. Computer-Aided Design 38 (4), 342–366 (2006) [57] Ribando-Gros, E., Wang, R., Chen, J., Tong, Y., Wei, G.-W.: Combina-torial and Hodge Laplacians: similarities and differences. SIAM Review 
+
+66 (3), 575–601 (2024) [58] Roddenberry, T.M., Schaub, M.T., Hajij, M.: Signal processing on cell complexes. In: ICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pp. 8852–8856 (2022). IEEE [59] Rustamov, R.M.: Laplace-Beltrami eigenfunctions for deformation invari-ant shape representation. In: Symposium on Geometry Processing, vol. 257, pp. 225–233 (2007) [60] Schwarz, G.: Hodge decomposition - A method for solving boundary value problems. Springer (2006) [61] Shonkwiler, C.: Poincar´ e duality angles on Riemannian manifolds with boundary. PhD thesis, University of Pennsylvania (2009) [62] Su, Z., Tong, Y., Wei, G.-W.: Persistent de Rham-Hodge Laplacians in Eulerian representation for manifold topological learning. AIMS mathe-matics 9(10), 27438 (2024) [63] Su, Z., Tong, Y., Wei, G.-W.: Topology-preserving Hodge decomposi-tion in the Eulerian representation. Beijing Journal of Pure and Applied Mathematics 2(2), 619–657 (2025) [64] Su, Z., Tong, Y., Wei, G.: Hodge decomposition of vector fields in Cartesian grids. In: SIGGRAPH Asia 2024 Conference Papers, pp. 1–10 (2024) [65] Su, Z., Liu, X., Hamdan, L.B., Maroulas, V., Wu, J., Carlsson, G., Wei, G.-W.: Topological data analysis and topological deep learning beyond persistent homology: a review. Artificial Intelligence Review (2025) [66] Tasumi, M., Takeuchi, H., Ataka, S., Dwivedi, A.M., Krimm, S.: Nor-mal vibrations of proteins: Glucagon. Biopolymers: Original Research on Biomolecules 21 (3), 711–714 (1982) [67] Teague, S.J.: Implications of protein flexibility for drug discovery. Nature reviews Drug discovery 2(7), 527–541 (2003) CONTENTS 29 [68] Tirion, M.M.: Large amplitude elastic motions in proteins from a single-parameter, atomic analysis. Physical review letters 77 (9), 1905 (1996) [69] Wang, R., Wei, G.-W.: Persistent path Laplacian. Foundations of Data Science 5(1), 26–55 (2023) [70] Wang, R., Nguyen, D.D., Wei, G.-W.: Persistent spectral graph. Interna-tional Journal for Numerical Methods in Biomedical Engineering 36 (9), 3376 (2020) [71] Wee, J., Xia, K.: Persistent spectral based ensemble learning (perspect-el) for protein–protein binding affinity prediction. Briefings in Bioinformatics 
+
+23 (2) (2022) [72] Wei, X., Wei, G.: Persistent sheaf Laplacians. Foundations of Data Science (Springfield, Mo.) 7(2), 446–463 (2025) [73] Wei, X., Wei, G.-W.: Persistent topological laplacians—a survey. Mathe-matics 13 (2), 208 (2025) [74] Witten, E.: Supersymmetry and Morse theory. Journal of differential geometry 17 (4), 661–692 (1982) [75] Xia, C., Xu, H.: Inequalities for eigenvalues of the drifting Laplacian on Riemannian manifolds. Annals of Global Analysis and Geometry 45 (3), 155–166 (2014) [76] Xia, K., Opron, K., Wei, G.-W.: Multiscale multiphysics and multidomain models—flexibility and rigidity. The Journal of chemical physics 139 (19) (2013) [77] Zhang, H., Feng, H.: Commutative algebra learning for protein flexibility analysis. arXiv preprint arXiv:2607.00879 (2026) [78] Zhao, R., Desbrun, M., Wei, G.-W., Tong, Y.: 3D Hodge decompositions of edge-and face-based vector fields. ACM Transactions on Graphics (TOG) 
+
+38 (6), 1–13 (2019) [79] Zhao, R., Wang, M., Chen, J., Tong, Y., Wei, G.-W.: The de Rham–Hodge analysis and modeling of biomolecules. Bulletin of mathematical biology 
+
+82 (8), 1–38 (2020) [80] Zomorodian, A., Carlsson, G.: Computing persistent homology. Discrete & Computational Geometry 33 (2), 249–274 (2005)

@@ -1,0 +1,2621 @@
+Title: Sharp Boundary Recession Criteria for the Special Lagrangian Curvature Potential Equation
+
+URL Source: https://arxiv.org/pdf/2608.01065v1
+
+Published Time: Tue, 04 Aug 2026 01:10:32 GMT
+
+Number of Pages: 32
+
+Markdown Content:
+SHARP BOUNDARY RECESSION CRITERIA FOR THE SPECIAL LAGRANGIAN CURVATURE POTENTIAL EQUATION 
+
+RONGLI HUANG AND QINFENG JIANG 
+
+Abstract. We establish boundary second derivative estimates for convex graphical solutions of the special Lagrangian curvature potential equation. Since the curvature matrix depends on both Du and D2u, a phase subsolution alone does not provide the full linearized separation needed for the mixed derivative estimate. We introduce a mixed recession compatibility condition imposed only on doubly degenerate level jets. It yields a uniform mixed derivative bound and is sharp within the class of fixed smooth zero-order barriers considered here. For the double-normal derivative, an exact complex Schur-complement identity gives 
+
+uνν = β + α cot δ, 1 ≤ α ≤ C, |β| ≤ C, 
+
+where α and β are explicit Schur-complement coefficients, δ is the actual boundary limiting-phase gap, and C depends only on uniform bounds for the gradient and the mixed boundary derivatives. Thus curvature blows up if and only if this gap collapses, with optimal rate δ−1. Smooth radial solutions attain the rate, while a rank-loss model shows that a strict lower subsolution need not force strict convexity. 
+
+1. Introduction and main results 
+
+Let Ω ⊂ Rn, n ≥ 2, be a bounded smooth domain and let 
+
+Γu = {(x, u (x)) : x ∈ Ω} ⊂ Rn+1 
+
+be the graph of a function u. We denote by κ1[u], . . . , κ n[u] the principal curvatures of Γu
+
+with respect to the upward unit normal. The constant phase special Lagrangian curvature potential equation is (1.1) 
+
+> n
+
+∑
+
+> i=1
+
+arctan κi[u] = θ, 0 < θ < nπ 
+
+2 .
+
+The equation is the graph-curvature analogue of the classical special Lagrangian equation 
+
+> n
+
+∑
+
+> i=1
+
+arctan λi(D2u) = Θ .
+
+The latter originates in calibrated geometry [ 8], and the geometric notion of special Lagrangian curvature was developed by Smith [ 19 ]. The analytical distinction between the two equations is important here: the principal curvatures of a graph depend on both 
+
+D2u and Du .Let 
+
+w(p) = 
+
+√
+
+1 + |p|2, B(p) = ( I + p ⊗ p)−1/2, A[u] = 1
+
+w(Du )B(Du )D2uB (Du ).
+
+2020 Mathematics Subject Classification. 35J60, 35B45, 53A10. 
+
+Key words and phrases. Special Lagrangian curvature potential equation; mixed recession compatibility; boundary Hessian estimate; tangent cone at infinity; curvature blow-up. The first author was supported by Guangxi Natural Science Foundation (No.2026GXNSFDA00640012).  
+
+> 1arXiv:2608.01065v1 [math.AP] 2 Aug 2026 2R. HUANG AND Q. JIANG
+
+The principal curvatures of Γu are the eigenvalues of A[u]. With 
+
+F (M ) = 
+
+> n∑
+> i=1
+
+arctan λi(M ),
+
+equation (1.1) becomes F (A[u]) = θ. Throughout the paper we work on the convex branch 
+
+D2u ≥ 0. On the positive cone F is elliptic and concave in the curvature matrix A, but the composite map 
+
+(p, X ) 7 −→ F 
+
+> (
+
+1
+
+w(p)B(p)XB (p)
+
+> )
+
+is not jointly concave. Consequently, concavity in the Hessian variable alone does not yield the mixed boundary estimate for this gradient-dependent equation. The Dirichlet theory for graph curvature equations goes back to the Caffarelli–Nirenberg– Spruck program [ 2]; related boundary and curvature estimates appear in [ 21 , 10 , 18 , 7]. For Hessian equations, subsolutions and tangent cones at infinity yield nearly optimal second derivative hypotheses [ 5, 6, 20 ]. Trudinger’s finite asymptotic limit, obtained by sending the normal Hessian eigenvalue to +∞ [ 22 ], is a precursor of the limiting-phase gap used below. The Dirichlet problem for the Hessian Lagrangian phase equation was studied in [1, 4]. The classical special Lagrangian equation provides the closest Hessian counterpart to (1.1) . Chen–Yuan–Warren [ 3] proved an interior Hessian estimate on the convex branch. In dimension three, Warren–Yuan [ 25 ] obtained Hessian and gradient estimates for large phase; they also established the gradient estimate in the critical and supercritical regimes in general dimensions. Wang–Yuan [ 24 ] subsequently proved the corresponding Hessian estimate in all dimensions. At the global level, Yuan’s Bernstein theorems [ 27 , 28 ] show that convex entire solutions, and more generally entire solutions with supercritical phase, are quadratic. These results identify phase and convexity as two basic sources of regularity. The restrictions are essential. In the subcritical regime, singular solutions were con-structed by Nadirashvili–Vlăduţ [ 15 ] and Wang–Yuan [ 23 ]; Mooney–Savin [ 14 ] later produced Lipschitz viscosity solutions which are not C1.The dependence of A[u] on Du creates a first-order drift in the linearization. Such terms are treated in augmented-Hessian theory [ 12 , 11 ] and in the graph-curvature boundary estimates of Jiao–Sun [ 13 ]. Harvey–Lawson [ 9] computed the asymptotic interior and the optimal viscosity pseudoconvexity for a special Lagrangian theory that includes the graph-curvature operator; Xiang–Xiong [ 26 ] studied a generalized curvature version in the critical and supercritical ranges. The mixed recession condition used here couples subsolution separation with the drift-corrected boundary curvature only when both standard quadratic terms degenerate. An analogous interior theory holds for the special Lagrangian curvature equation. Qiu– Zhou [ 17 ] obtained interior Hessian estimates at the critical phase and for convex graphical solutions, as well as interior gradient estimates for arbitrary constant phase. Qiu–Tao [16 ] constructed Lipschitz non-C1 viscosity solutions in dimensions two and three and a smooth two-dimensional nonconvex curvature blow-up family. These results show that phase and convexity continue to govern regularity in the curvature setting, although the operator now depends on the gradient. The examples in [ 16 ] concern interior degeneration on nonconvex or subcritical branches. We work instead on the convex branch and study two boundary phenomena: failure of the mixed derivative estimate and collapse of the limiting-phase gap as uνν → +∞. They require separate arguments. Throughout the paper, ν is the inward unit normal and II ∂Ω is normalized so that a convex boundary has positive second fundamental form. The symbol C denotes a positive constant whose dependence is displayed when it matters; unless stated otherwise, it is SHARP BOUNDARY RECESSION CRITERIA 3
+
+independent of the solution, the homotopy parameter t, and the recession size. All matrix norms are operator norms, and X : Y = tr (XY ) for symmetric matrices, while x · y
+
+denotes the Euclidean inner product. The subscript T denotes tangential restriction to 
+
+T ∂ Ω; D2 
+
+> ∂Ω
+
+is the intrinsic boundary Hessian, and IT is the identity on T ∂ Ω. We write 
+
+Sym( n) for the space of real symmetric n × n matrices. We begin by placing the equation in the vertical graph homotopy. For t ∈ [0 , 1] set (1.2) wt(p) = 
+
+> √
+
+1 + t2|p|2, Bt(p) = ( I + t2p ⊗ p)−1/2,
+
+and 
+
+At(p, X ) = 1
+
+wt(p)Bt(p)XB t(p), Gt(p, X ) = F (At(p, X )) .
+
+We abbreviate At[u] = At(Du, D 2u). Thus A0[u] = D2u and A1[u] = A[u].Let K ⊂ Rn be a fixed compact convex set containing the gradients of the solutions under consideration. On a level jet (1.3) (t, p, X ) ∈ [0 , 1] × K × Sym( n), X ≥ 0, Gt(p, X ) = θ, 
+
+write 
+
+a = ( aij ) = Gt,X (p, X ), b = ( bk) = Gt,p (p, X ),
+
+that is, 
+
+aij = ∂G t
+
+∂X ij 
+
+(p, X ), bk = ∂G t
+
+∂p k
+
+(p, X ).
+
+Let u ∈ C3(Ω) be a fixed convex function with the same boundary value as u. We define the full linearized separation 
+
+J (x; t, p, X ) = a : (
+
+D2u(x) − X)
+
++ b · (
+
+Du (x) − p)
+
+.
+
+Let d be the inward boundary distance in a fixed collar of ∂Ω and set 
+
+ℓ(x; t, p, X ) = a : D2d(x) + b · Dd (x),Q(x; t, p, X ) = ( p − Du )T a(p − Du ) = aij (pi − ui)( pj − uj ) ≥ 0.
+
+On ∂Ω, the distance function satisfies D2d(ν, ·) = 0 and D2 
+
+> T
+
+d = −II ∂Ω. Hence, writing aT
+
+for the restriction of a to T ∂ Ω, we have (1.4) −ℓ = aT : II ∂Ω − b · ν. 
+
+Here aT : II ∂Ω is the ellipticity-weighted boundary curvature, while −b · ν is the normal contribution of the gradient drift. Their sum is the effective boundary curvature seen by the full linearized operator. We first isolate the recession sequences on which both quadratic terms lose coercivity. 
+
+Definition 1.1. Fix x0 ∈ ∂Ω. A sequence (xm, t m, p m, X m) of level jets, with xm in the fixed boundary collar, is called a doubly degenerate recession sequence based at x0 if 
+
+xm → x0, |Xm| → ∞ ,a(m)(Dd (xm), Dd (xm)) → 0, Q(m) → 0.(1.5) Here a(m), b(m), J (m), ℓ(m), and Q(m) denote the corresponding quantities evaluated at 
+
+(xm, t m, p m, X m) and we regard a as a bilinear form and write a(ξ, η ) = aij ξiηj . A recession limit pair is a subsequential limit 
+
+(j, g ) = lim 
+
+> m→∞
+
+(J (m), −ℓ(m)).
+
+We denote the set of all such pairs by R∗ 
+
+> x0
+
+. If no such sequence exists, we put R∗ 
+
+> x0
+
+= ∅.4 R. HUANG AND Q. JIANG 
+
+Lemma 2.3 shows that J and ℓ are uniformly bounded on level jets; a diagonal argument then shows that R∗ 
+
+> x0
+
+is compact. The two limits in (1.5) mean that the normal distance-square term and the square generated by concavifying u − u have simultaneously lost coercivity. This leads to the compatibility condition used in the mixed estimate. 
+
+Definition 1.2. We say that u satisfies the mixed recession compatibility condition at 
+
+x0 ∈ ∂Ω if there is a number τx0 > 0 such that (1.6) inf 
+
+> (j,g )∈R ∗
+> x0
+
+(j + τx0 g) > 0,
+
+where the infimum over the empty set is +∞. We say that (MRC) holds on ∂Ω if it holds at every boundary point. Equivalently, along every doubly degenerate recession sequence based at x0,(1.7) lim inf 
+
+> m→∞
+> (
+
+J (m) − τx0 ℓ(m))
+
+> 0
+
+with a common positive margin. Since xm → x0 and the coefficients are bounded, 
+
+−ℓ(m) − (
+
+(a(m))Tx0 : II ∂Ω(x0) − b(m) · ν(x0))
+
+−→ 0.
+
+Thus (MRC) allows subsolution separation and the drift-corrected boundary curvature in (1.4) to compensate one another precisely on the doubly degenerate recession set. 
+
+Remark 1.3 . Condition (MRC) is imposed only on recession jets for which both quadratic coercive terms in the standard boundary barrier vanish. Appendix A records four elemen-tary situations in which (MRC) follows from familiar analytic or geometric hypotheses. These examples also show that the condition reduces to standard strict-subsolution or boundary-convexity criteria when one of the two mechanisms is already coercive. Our first result is the mixed derivative estimate. 
+
+Theorem 1.4. Let Ω be a bounded C4 domain, let u ∈ C3(Ω) be convex, and let K ⊂ Rn
+
+be compact and convex. Suppose that u ∈ C4(Ω) is a convex solution of 
+
+(1.8) Gt(Du, D 2u) = θ in Ω, u = u on ∂Ω
+
+for an arbitrary t ∈ [0 , 1] , and assume 
+
+Du (Ω) ⊂ K, u ≥ u in Ω.
+
+If (MRC) holds on ∂Ω, then 
+
+(1.9) sup 
+
+> x∈∂Ω
+
+sup 
+
+> ξ∈Tx∂Ω
+> |ξ|=1
+
+|D2u(ξ, ν )| ≤ C. 
+
+The same constant works for every t ∈ [0 , 1] and every solution with fixed Ω, θ, u, and K,provided the positive margins in (MRC) are uniform on ∂Ω.
+
+The proof uses the concavified barrier 
+
+v = Φ μ(u − u) + τ d − N d 2, Φμ(s) = 1 − e−μs 
+
+μ .
+
+Writing w = u − u and L = aij Dij + bkDk, the two relevant negative terms in Lv are 
+
+−Φ′
+
+> μ
+
+(w)( J + μQ ) − 2N a (Dd, Dd ).
+
+The two negative quadratic terms control every recession mode except those in Definition 1.1; (MRC) supplies the missing sign there. Theorem 3.3 shows that this condition is SHARP BOUNDARY RECESSION CRITERIA 5
+
+necessary and sufficient at the recession level for the fixed smooth zero-order barriers considered in Section 3. We next describe the second, independent recession mechanism. Write φ = u|∂Ω. At 
+
+x ∈ ∂Ω, decompose 
+
+Du = q + sν, q = DT φ, s = uν .
+
+The boundary identity is (1.10) M (x, s ) := D2 
+
+> T
+
+u = D2
+
+> ∂Ω
+
+φ − sII ∂Ω.
+
+For t ∈ [0 , 1] , put 
+
+Ct = wt(Du )( I + t2Du ⊗ Du ).
+
+Its tangential block is Ct,T = wt(Du )( IT + t2q ⊗ q). When M (x, s ) ≥ 0, define 
+
+Lt(x, s ) = π
+
+2 +
+
+> n−1∑
+> α=1
+
+arctan λα
+
+> (
+
+C−1/2 
+
+> t,T
+
+M (x, s )C−1/2
+
+> t,T
+> )
+
+.
+
+For t = 1 we write B(x, s ) = L1(x, s ). This is the phase obtained by sending the double-normal Hessian entry to +∞ while keeping the tangential and mixed blocks fixed. Our second result is an exact identity rather than an asymptotic formula. Its full derivation is given in Section 4. At a boundary point write 
+
+D2u =
+
+> (
+
+M zzT rν
+
+> )
+
+, Ct =
+
+> (
+
+Ct,T ct
+
+cTt ct, 0
+
+> )
+
+,
+
+where z is the mixed tangential-normal block, z(ξ) = D2u(ξ, ν ) for ξ ∈ Tx∂Ω, and rν = uνν .The remaining blocks are 
+
+ct = wt(Du )t2sq, ct, 0 = wt(Du )(1 + t2s2).
+
+To shorten the formulas, set 
+
+Dt = Ct,T + √−1M, et = ct + √−1z, St = eTt D−1 
+
+> t
+
+et,αt = ct, 0 − Re St, βt = Im St, δt = Lt − F (At[u]) .
+
+Thus Dt and et are the complex tangential block and mixed vector, respectively, while St
+
+is their Schur-complement contribution. The Schur complement gives the following exact identity. 
+
+Theorem 1.5. If D2u ≥ 0, then 
+
+δt = arctan αt
+
+rν − βt
+
+, αt > 0, rν − βt ≥ 0.
+
+If |Du | ≤ P and |z| ≤ Z, then 
+
+rν = βt + αt cot δt, 1 ≤ αt ≤ C(P, Z ), |βt| ≤ C(P, Z ).
+
+The lower bound αt ≥ 1 is uniform even when the tangential block is only positive semidefinite. A consequence is the quantitative double-normal estimate. 
+
+Corollary 1.6. Under the assumptions of Theorem 1.4, suppose in addition that 
+
+B(x, u ν (x)) ≥ θ + σ on ∂Ω
+
+for some 0 < σ < π/ 2. Then 
+
+sup 
+
+> ∂Ω
+
+|D2u| ≤ C0 + C1 cot σ. 
+
+The same upper bound is uniform along the homotopy if the gap is imposed on a normal-derivative window containing every uν . The constants are independent of both t and 
+
+σ.6 R. HUANG AND Q. JIANG 
+
+For the original graph equation t = 1 , put 
+
+δ(x) = B(x, u ν (x)) − θ
+
+and define the actual boundary gap (1.11) δ∗(u) = min  
+
+> x∈∂Ω
+
+δ(x).
+
+Every smooth convex solution with finite boundary Hessian has δ∗(u) > 0. The exact boundary identity first controls the double-normal derivative in terms of the actual phase gap. A maximum principle for the mean curvature of a convex constant-phase graph then propagates this boundary control to the whole graph, yielding the following global statement. For nonnegative constants P, K φ, Z , we say that a convex solution u with boundary value φ is (P, K φ, Z )-controlled if it satisfies (1.12) ∥u∥C1(Ω) ≤ P, ∥φ∥C2(∂Ω) ≤ Kφ, sup 
+
+> x∈∂Ω
+
+sup 
+
+> ξ∈Tx∂Ω
+> |ξ|=1
+
+|D2u(ξ, ν )| ≤ Z. 
+
+With this terminology, the global estimate takes the following form. 
+
+Theorem 1.7. Every (P, K φ, Z )-controlled convex solution of F (A[u]) = θ satisfies 
+
+(1.13) sup 
+
+> Ω
+
+|D2u| + sup 
+
+> Ω
+
+|A[u]| ≤ C(
+
+1 + cot δ∗(u))
+
+,
+
+and 
+
+(1.14) sup 
+
+> Ω
+
+|D2u| ≥ cot δ∗(u) − C. 
+
+Here C depends only on n, P, K φ, Z and the fixed boundary geometry. Consequently, for any family satisfying (1.12) uniformly, 
+
+(1.15) sup 
+
+> Ω
+
+|D2uj | −→ ∞ ⇐⇒ δ∗(uj ) −→ 0.
+
+The same equivalence holds with |D2uj | replaced by the curvature norm |A[uj ]|.
+
+The gap in (1.11) is evaluated at the realized normal derivative. If a larger prescribed normal window contains slopes that the solution never reaches, the infimum over that window may vanish without curvature blow-up. Thus (1.15) concerns the realized gap rather than an auxiliary window. Finally, the cotangent rate in Theorems 1.5 and 1.7 is optimal. We have the following smooth sharpness family. 
+
+Theorem 1.8. Let π/ 2 ≤ θ < nπ/ 2. There exist a fixed ball Ω ⊂ Rn, a constant δ0 > 0,and a family of smooth strictly convex solutions 
+
+uδ ∈ C∞(Ω) , 0 < δ < δ 0,
+
+of F (A[uδ]) = θ such that δ∗(uδ) = δ,
+
+sup 
+
+> 0<δ<δ 0
+> 
+
+∥uδ∥C1(Ω) + ∥uδ∥C3(∂Ω) + sup 
+
+> x∈∂Ω
+
+sup 
+
+> ξ∈Tx∂Ω
+> |ξ|=1
+
+|D2uδ(ξ, ν )| 
+
+> 
+
+< ∞,
+
+where the C3(∂Ω) norm is the intrinsic norm of the boundary trace. Nevertheless, 
+
+sup 
+
+> x∈∂Ω
+
+(uδ)νν (x) ≍ δ−1.
+
+Moreover, the C4 norm of the boundary trace diverges at order δ−1.SHARP BOUNDARY RECESSION CRITERIA 7
+
+For 0 < θ < π/ 2, convexity gives B ≥ π/ 2, so the boundary gap is at least π/ 2 − θ.Hence gap collapse on the convex branch is a genuinely high-phase phenomenon. The paper is organized as follows. Section 2 records the homotopy, the coefficient bounds, gradient localization, and the failure of joint jet concavity. Section 3 proves the mixed estimate and the recession sharpness of (MRC), and gives stronger but easier-to-check sufficient conditions. Section 4 proves the exact Schur-complement identity and the quantitative double-normal estimate. Section 5 establishes the mean-curvature maximum principle and the global compactness alternative. Section 6 contains two sharpness models: a radial family attaining the optimal boundary-gap rate and a rank-loss example showing that a strict lower subsolution does not force strict convexity. 2. The homotopy and its linearization 
+
+In this section we record the operator identities used throughout the paper. They are stated on the closed convex branch whenever possible; approximation gives the same formulas from the strictly convex branch. The homotopy (1.2) is obtained by applying the graph operator to the vertically scaled graph of tu and then dividing its principal curvatures by t. Its first useful property is monotonicity. 
+
+Lemma 2.1. If X ≥ 0 and 0 ≤ s ≤ t ≤ 1, then 
+
+(2.1) Gt(p, X ) ≤ Gs(p, X ).
+
+Proof. After an orthogonal change of coordinates, assume p = |p|e1. Then 
+
+Bt = diag( w−1 
+
+> t
+
+, 1, . . . , 1) .
+
+Set 
+
+Cs,t = diag( ws/w t, 1, . . . , 1) .
+
+Since Bt = Cs,t Bs, we have 
+
+At(p, X ) = ws
+
+wt
+
+Cs,t As(p, X )Cs,t .
+
+Both the scalar factor and the symmetric contraction Cs,t lie between 0 and 1. The min–max principle therefore gives λj (At) ≤ λj (As) for every j. Since arctan is increasing, (2.1) follows. □
+
+In particular, a convex strict lower subsolution for t = 1 remains a strict lower subsolution for the whole homotopy. The comparison consequence does not require any joint concavity. 
+
+Lemma 2.2. Let u solve (1.8) . Suppose that 
+
+Gt(Du, D 2u) ≥ θ + η in Ω, u = u on ∂Ω
+
+for some η > 0. Then u ≥ u in Ω.Proof. If u − u had a positive interior maximum at x0, then 
+
+Du (x0) = Du (x0), D2u(x0) ≤ D2u(x0).
+
+The gradients agree, so ellipticity in the Hessian variable gives 
+
+θ + η ≤ Gt(Du, D 2u) ≤ Gt(Du, D 2u) = θ, 
+
+a contradiction. □8 R. HUANG AND Q. JIANG 
+
+We next record the coefficient bounds on the level set. Let (t, p, X ) be a level jet as in (1.3), and abbreviate 
+
+A = At(p, X ), FA = ( I + A2)−1.
+
+Differentiation in the Hessian variable gives (2.2) a = Gt,X (p, X ) = 1
+
+wt
+
+BtFABt.
+
+In particular, a > 0 at every finite jet. 
+
+Lemma 2.3. Suppose p ∈ K and X ≥ 0 with Gt(p, X ) = θ. There are constants c0 > 0
+
+and C0 < ∞, depending only on n, θ and K, such that 
+
+c0 ≤ tr a ≤ n, (2.3) 
+
+|b| ≤ C0,(2.4) 
+
+0 ≤ a : X = tr (
+
+A(I + A2)−1)
+
+=
+
+> n∑
+> i=1
+
+κi
+
+1 + κ2
+
+> i
+
+≤ n
+
+2 .(2.5) 
+
+Consequently, in a fixed boundary collar, we have 
+
+(2.6) |J | + |ℓ| + Q ≤ C1
+
+where C1 depends only on n, θ, K, the geometry of the fixed boundary collar, and ∥u∥C2 .Proof. The upper trace bound follows at once from (2.2) , since 0 < B t ≤ I, wt ≥ 1, and 
+
+0 < F A ≤ I. For the lower bound, write 
+
+γi = arctan κi ∈ [0 , π/ 2) , ∑
+
+> i
+
+γi = θ. 
+
+At least one γi is no larger than θ/n , and therefore 
+
+tr FA = ∑
+
+> i
+
+cos 2 γi ≥ cos 2(θ/n ).
+
+Moreover, B2 
+
+> t
+
+≥ w−2 
+
+> t
+
+I. Hence (2.7) tr a ≥ cos 2(θ/n )
+
+w3
+
+> t
+
+≥ cos 2(θ/n )(1 + sup K |p|2)3/2 =: c0.
+
+We next estimate the gradient coefficient. Write p = ( p1, . . . , p n) and, for r = 1 , . . . , n ,put 
+
+Er = ( ∂pr Bt)B−1 
+
+> t
+
+, ωr = ∂pr log( w−1 
+
+> t
+
+).
+
+On [0 , 1] × K these matrices and scalars are uniformly bounded. A direct differentiation gives 
+
+∂pr A = ωrA + ErA + AE Tr .
+
+Since br = ∂pr Gt = FA : ∂pr A, we obtain 
+
+br = ωr(FA : A) + FA : ( ErA) + FA : ( AE Tr ).
+
+The matrix FA commutes with A, and ∥AF A∥ ≤ 12 , while Er and ωr are uniformly bounded on [0 , 1] × K. Moreover, 0 ≤ FA : A ≤ n/ 2. Hence every component br is uniformly bounded, and summing over r proves (2.4) . Finally, At is linear in X, so Euler’s identity gives 
+
+a : X = FA : A, 
+
+which is (2.5) . The definitions of J , ℓ, Q , the compactness of K, and 0 < a ≤ I now imply (2.6). □
+
+The coefficient matrix can lose ellipticity in a particular direction only at infinity. SHARP BOUNDARY RECESSION CRITERIA 9
+
+Lemma 2.4. Fix R < ∞ and a boundary collar. On the compact set of level jets satisfying 
+
+|X| ≤ R there exists λR > 0 such that 
+
+a(Dd, Dd ) ≥ λR.
+
+Proof. The closure of the indicated jet set allows X ≥ 0, but a remains positive definite at every finite X by (2.2) . Since |Dd | = 1 and all remaining parameters range in compact sets, the conclusion follows by continuity. □
+
+For a family of convex solutions, the compact set K in Definition 1.1 can be determined from a boundary normal window. Suppose (2.8) p(x) ≤ uν (x) ≤ p(x) (x ∈ ∂Ω) .
+
+Since the tangential gradient equals DT φ, set 
+
+K∂ = {
+
+DT φ(x) + sν (x) : x ∈ ∂Ω, s ∈ [p(x), p (x)] }
+
+, K = co K∂ .
+
+Here co K∂ denotes the convex hull of K∂ , so K is its closed convex hull. 
+
+Lemma 2.5. If u ∈ C1(Ω) and D2u ≥ 0 in Ω, then the boundary window (2.8) implies 
+
+(2.9) Du (Ω) ⊂ K. 
+
+Proof. Fix an interior point x and a unit vector e. Let I = ( a, b ) be the connected component of 
+
+{s ∈ R : x + se ∈ Ω}
+
+which contains 0, and put y = x+be ∈ ∂Ω. Convexity of u implies that the one-dimensional function s 7 → e · Du (x + se ) is nondecreasing on I. Therefore 
+
+e · Du (x) ≤ e · Du (y) ≤ sup 
+
+> q∈K∂
+
+e · q = hK∂ (e).
+
+Here hE (e) := sup q∈E e · q denotes the support function of a set E ⊂ Rn. The geometric meaning of this argument is illustrated in Figure 2.1. This holds for every unit vector 
+
+e. Since hK∂ = hco K∂ , the support-function characterization of a closed convex set gives 
+
+Du (x) ∈ K. Continuity extends the inclusion to Ω, proving (2.9). □
+
+Figure 2.1. The support-function proof of Du (x) ∈ K.For example, a strict lower subsolution gives the lower normal bound directly: Lemma 2.2 yields w = u − u ≥ 0, and w = 0 on the boundary implies the one-sided inequality 
+
+wν ≥ 0. An upper bound may come from a fixed supersolution or from any independent first-order estimate. The mixed recession condition then depends only on this localized set, not on an unspecified global gradient ball. 10 R. HUANG AND Q. JIANG 
+
+We finish the section by explaining why a constant-phase subsolution alone is insufficient. For fixed p, the map X 7 → Gt(p, X ) is concave on X ≥ 0. It is tempting to apply this concavity while both Du and D2u vary between a solution and a lower subsolution. The following elementary calculation shows why this is not valid. 
+
+Proposition 2.6. For n = 2 , t = 1 , and X = I, the function 
+
+(2.10) ψ(r) = G1(( r, 0) , I ) = arctan(1 + r2)−3/2 + arctan(1 + r2)−1/2
+
+is strictly convex for every r ≥ 1. In particular, the map (p, X ) 7 → Gt(p, X ) is not jointly concave in general, already for t = 1 .Proof. For a > 0 let ya(r) = (1 + r2)−a. A direct differentiation gives 
+
+d2
+
+dr 2 arctan ya = 2a(1 + r2)−a−2
+
+(1 + y2
+
+> a
+
+)2
+
+> (
+
+Aa + (1 + r2)−2aBa
+
+> )
+
+,
+
+where 
+
+Aa = (2 a + 1) r2 − 1, Ba = (1 − 2a)r2 − 1.
+
+For a = 1 /2, the bracket equals 2r2 − 1 − (1 + r2)−1 > 0 when r ≥ 1. For a = 3 /2, it equals 
+
+4r2 − 1 − (2 r2 + 1)(1 + r2)−3 > 0 (r ≥ 1) .
+
+Thus both summands in (2.10) have positive second derivative. □
+
+Remark 2.7 . The strict phase inequality 
+
+Gt(Du, D 2u) > G t(Du, D 2u)
+
+does not imply J > 0. Here is an explicit jet calculation. For t = 1 , take 
+
+p = (3 , 0) , X = diag(1 /5, 2) , q = (1 , 0) , Y = diag(2 , 1/10) .
+
+Direct evaluation gives 
+
+G1(q, Y ) = arctan 1
+
+√2 + arctan 110 √2, G1(p, X ) = arctan 150 √10 + arctan 2
+
+√10 .
+
+Both sums lie in (0 , π/ 2) , and their tangents are respectively 22 19 √2 and 505 249 √10 . The first is larger, so G1(q, Y ) > G 1(p, X ), whereas the full linearized separation at (p, X ) is 
+
+G1,X (p, X ) : ( Y − X) + G1,p (p, X ) · (q − p) = − 14201 50002 √10 < 0.
+
+Thus even strict phase separation has the wrong supporting sign at this pair of convex jets. Lemma 2.2 remains valid because the gradients agree at a contact point, but a boundary barrier evaluates the full linearization at points where Du and Du need not agree. The role of (MRC) is to impose only the part of that full linearized separation which is not supplied by the two available quadratic terms. 3. Mixed recession compatibility 
+
+We now prove Theorem 1.4. The proof separates finite or normally elliptic jets from the doubly degenerate recession set; the additional hypothesis is used only in the latter regime. For later use, we first record the compact form of (MRC). The following elementary observation also justifies the phrase “common positive margin” in (1.7). SHARP BOUNDARY RECESSION CRITERIA 11 
+
+Lemma 3.1. Assume (MRC) at x0, and fix a corresponding τ > 0. There exist a neighborhood U of x0 and constants 
+
+R < ∞, η > 0, ζ > 0, ε > 0,
+
+such that every level jet with 
+
+(3.1) x ∈ U, |X| ≥ R, a(Dd, Dd ) ≤ η, Q ≤ ζ
+
+satisfies 
+
+(3.2) J − τ ℓ ≥ 4ε. 
+
+Proof. Suppose that the conclusion is false. Choose a decreasing sequence of neighborhoods 
+
+Um of x0 and positive numbers 
+
+Um ↓ { x0}, Rm ↑ ∞ , ηm, ζ m ↓ 0.
+
+Since no uniform positive lower bound is available in any of these regions, for every m
+
+there is a level jet (xm, t m, p m, X m) such that 
+
+xm ∈ Um, |Xm| ≥ Rm, a(m)(Dd, Dd ) ≤ ηm, Q(m) ≤ ζm,
+
+and 
+
+J (m) − τ ℓ (m) ≤ 1
+
+m.
+
+Consequently, 
+
+xm → x0, |Xm| → ∞ , a(m)(Dd, Dd ) → 0, Q(m) → 0,
+
+so this is a doubly degenerate recession sequence based at x0.By Lemma 2.3, the sequence (J (m), −ℓ(m)) is bounded. After passing to a subsequence, 
+
+(J (m), −ℓ(m)) −→ (j, g ) ∈ R ∗ 
+
+> x0
+
+.
+
+Taking the limit in the preceding inequality gives 
+
+j + τ g = lim m→∞ 
+
+> (
+
+J (m) − τ ℓ (m))
+
+≤ 0,
+
+contradicting (1.6) . Hence there is a positive uniform margin c∗ on some region of the form (3.1). Taking ε = c∗/4 yields (3.2). □
+
+We next construct the concavified local barrier. Let u be as in Theorem 1.4 and put 
+
+w = u − u ≥ 0.
+
+Since w = 0 on the boundary and |Dw | is uniformly bounded, integration along the inward normal segment from the nearest boundary point gives (3.3) 0 ≤ w ≤ Cd 
+
+in a fixed collar. For μ ≥ 0, define 
+
+Φμ(s) = 
+
+> 
+
+(1 − e−μs )/μ, μ > 0,s, μ = 0 .
+
+Thus 
+
+Φ′
+
+> μ
+
+(s) = e−μs > 0, Φ′′ 
+
+> μ
+
+(s) = −μe −μs ≤ 0.
+
+Along a solution, let 
+
+L = aij ∂ij + bk∂k
+
+be the linearized operator. At the solution jet, 
+
+Lw = −J , a(Dw, Dw ) = Q. 12 R. HUANG AND Q. JIANG 
+
+Lemma 3.2. Fix x0 ∈ ∂Ω and suppose (MRC) holds there. There are positive constants 
+
+μ, N, δ, c and a neighborhood U of x0 such that 
+
+(3.4) v = Φ μ(w) + τ d − N d 2
+
+satisfies 
+
+(3.5) Lv ≤ − c in U ∩ { 0 < d < δ },
+
+and 
+
+v = 0 on U ∩ ∂Ω, v ≥ 0 when d = δ, 
+
+The same constants may be used for any family with fixed data bounds and fixed constants in Lemma 3.1. Proof. Let τ be supplied by (MRC), and take U, R, η, ζ, ε from Lemma 3.1. Put 
+
+w = u − u, E = e−μw .
+
+Since Lw = −J , a(Dw, Dw ) = Q, and Φ′′  
+
+> μ
+
+= −μΦ′
+
+> μ
+
+, differentiating (3.4) gives 
+
+Lv = −E(J + μQ ) + τ ℓ − 2N d ℓ − 2N a (Dd, Dd )= −E(
+
+J − τ ℓ + μQ )
+
++ τ (1 − E)ℓ − 2N d ℓ − 2N a (Dd, Dd ).(3.6) We first choose μ. By Lemma 2.3, there is C2 > 0 such that J − τ ℓ ≥ − C2 on all relevant level jets. Since ζ > 0, we may fix μ so large that (3.7) −C2 + μζ ≥ 4ε. 
+
+We divide the level jets in the local collar into three regions. First, suppose that 
+
+|X| ≥ R, a(Dd, Dd ) ≤ η, Q ≤ ζ. 
+
+Then Lemma 3.1 gives 
+
+J − τ ℓ + μQ ≥ J − τ ℓ ≥ 4ε. 
+
+Second, if Q ≥ ζ, then (3.7) gives 
+
+J − τ ℓ + μQ ≥ − C2 + μζ ≥ 4ε. 
+
+Thus the first term on the second line of (3.6) is strictly negative in both regions. It remains to consider the region in which Q < ζ and either |X| < R or a(Dd, Dd ) > η .In the first case, Lemma 2.4 gives a(Dd, Dd ) ≥ λR; in the second case it is already larger than η. Hence throughout this region, (3.8) a(Dd, Dd ) ≥ λ∗ := min {λR, η } > 0.
+
+Since ℓ is uniformly bounded, shrink the collar, independently of N , so that 2d|ℓ| ≤ λ∗.The two terms involving N then satisfy 
+
+−2N d ℓ − 2N a (Dd, Dd ) ≤ 2N d |ℓ| − 2N λ ∗ ≤ − N λ ∗.
+
+Once μ is fixed, all the remaining terms in (3.6) are uniformly bounded. We may therefore choose N sufficiently large so that 
+
+Lv ≤ − 1
+
+throughout the region (3.8). We now return to the first two regions. By (3.3) , after shrinking the collar to {0 < d < δ },we have 
+
+E ≥ 12, 0 ≤ 1 − E ≤ μw ≤ Cμd. 
+
+Since the principal bracket is at least 4ε,
+
+−E(
+
+J − τ ℓ + μQ )
+
+≤ − 2ε. SHARP BOUNDARY RECESSION CRITERIA 13 
+
+After N has been fixed, decrease δ further so that 
+
+|τ (1 − E)ℓ − 2N d ℓ | ≤ ε. 
+
+The remaining term −2N a (Dd, Dd ) is nonpositive, and hence 
+
+Lv ≤ − ε
+
+in the first two regions. Taking c = min {1, ε } proves (3.5) throughout the local collar. Finally, require δ ≤ τ /N . On the true boundary, w = d = 0 , so v = 0 . On the artificial boundary d = δ,
+
+v = Φ μ(w) + τ δ − N δ 2 ≥ δ(τ − N δ ) ≥ 0.
+
+This completes the proof. □
+
+We complete the proof of Theorem 1.4. The use of a Euclidean Killing field is convenient because it avoids third derivatives of the unknown solution. 
+
+Proof of Theorem 1.4. Fix x0 ∈ ∂Ω, translate it to the origin, and choose coordinates so that en = ν(x0). Locally write 
+
+∂Ω = {xn = ρ(x′)}, ρ(0) = |Dρ (0) | = 0 .
+
+For 1 ≤ α < n , define the affine vector field (3.9) Tα = ∂α + ∑
+
+> β<n
+
+ραβ (0) (
+
+xβ ∂n − xn∂β
+
+> )
+
+.
+
+It is the sum of a translation and infinitesimal Euclidean rotations. Since Gt is invariant under rigid motions of the base variables, differentiating this invariance gives 
+
+L(Tαu) = 0 .
+
+Consequently, (3.10) ∣∣∣L(
+
+Tα(u − u))∣ ∣∣ = |L (Tαu)| ≤ C. 
+
+Indeed, Tα has affine coefficients, u is fixed in C3, and (2.3) –(2.4) control the contraction. The vector field (3.9) is tangent to the quadratic osculating graph of ∂Ω at the origin. Since u − u = 0 on the true boundary and both gradients are bounded, (3.11) ∣∣∣Tα(u − u)∣∣∣ ≤ C|x|2 on ∂Ω
+
+after reducing the coordinate neighborhood. Let v be the barrier from Lemma 3.2. In a small local collar set, consider 
+
+W± = Av + B|x|2 ± Tα(u − u).
+
+The linearization of |x|2 is uniformly bounded. First choose B so that (3.11) , the artificial face d = δ, and the lateral boundary of the coordinate neighborhood are controlled. Then choose A ≫ B + 1 . Equations (3.5) and (3.10) give 
+
+LW± ≤ 0, W± ≥ 0 on the boundary of the local collar .
+
+The minimum principle yields W± ≥ 0 inside. Both functions vanish at x0. Taking their inward normal derivatives gives 
+
+|∂ν Tα(u − u)( x0)| ≤ A ∂ ν v(x0) = A(
+
+(u − u)ν (x0) + τ )
+
+≤ C. 
+
+At x0, differentiating the coefficients of Tα shows 
+
+∂ν Tα(u − u) = D2(u − u)( eα, ν ) + O(|D(u − u)|).
+
+All lower-order terms are bounded. Hence |D2u(eα, ν )( x0)| ≤ C. The strict MRC margin is stable in a neighborhood of each boundary point; compactness of ∂Ω provides a finite cover and a uniform constant. □14 R. HUANG AND Q. JIANG 
+
+We next ask how much of (MRC) is forced by the barrier argument. Consider a fixed smooth local barrier near x0 of the form (3.12) V(w, x ) = Ψ (
+
+w, d (x))
+
++ χ(x),
+
+where w = u − u, Ψ is smooth near (0 , 0) , and 
+
+Ψ(0 , 0) = 0 , cw := Ψ w(0 , 0) > 0, cd := Ψ d(0 , 0) ≥ 0.
+
+We assume that χ is smooth in a full neighborhood of x0 and has an ambient local minimum there. After subtracting a constant, we may arrange that 
+
+χ(x0) = 0 , Dχ (x0) = 0 , D2χ(x0) ≥ 0.
+
+This class contains the standard tangential correction χ(x) = B|x − x0|2, with B ≥ 0.At a solution jet, the chain rule and the identities 
+
+Lw = −J , Ld = ℓ, Dw = p − Du 
+
+give 
+
+LV (w, x ) = − Ψw(w, d )J + Ψ d(w, d )ℓ + Ψ ww (w, d )Q
+
++ 2Ψ wd (w, d )a(p − Du, Dd ) + Ψ dd (w, d )a(Dd, Dd )+ a : D2χ + b · Dχ. 
+
+To study this expression independently of a particular solution, let s represent a possible value of w(x). For a level jet (t, p, X ) at x, define its algebraic action on the barrier by 
+
+L(t,p,X )V[s] := − Ψw(s, d )J + Ψ d(s, d )ℓ + Ψ ww (s, d )Q
+
++ 2Ψ wd (s, d )a(p − Du, Dd ) + Ψ dd (s, d )a(Dd, Dd )+ a : D2χ + b · Dχ. (3.13) Here d = d(x), and every derivative of Ψ on the right hand side is evaluated at (s, d (x)) .Fix Ccol > 0 such that 
+
+0 ≤ w(x) ≤ Ccol d(x)
+
+in the boundary collar for the family under consideration. We say that V has uniform recession negativity at x0 if there exist a neighborhood U of x0 and constants 
+
+R < ∞, η, ζ, c > 0,
+
+such that 
+
+L(t,p,X )V[s] ≤ − c
+
+whenever 0 ≤ s ≤ Ccol d(x) and 
+
+x ∈ U, |X| ≥ R, a(Dd, Dd ) ≤ η, Q ≤ ζ. 
+
+Thus the barrier remains uniformly strict on all sufficiently large level jets for which both available quadratic coercive terms are small. The preceding barrier class characterizes (MRC) at the recession level. 
+
+Theorem 3.3. There exists a core barrier of the form (3.12) with uniform recession negativity at x0 if and only if (MRC) holds at x0. Any such barrier forces 
+
+(3.14) inf 
+
+> (j,g )∈R ∗
+> x0
+> (
+
+j + cd
+
+cw
+
+g
+
+> )
+
+> 0
+
+when cd > 0; if cd = 0 , the same conclusion holds with a sufficiently small positive slope. Conversely, the barrier (3.4) realizes any slope supplied by (MRC). SHARP BOUNDARY RECESSION CRITERIA 15 
+
+Proof. At the solution jet, the chain rule gives 
+
+LΨ( w, d ) = − ΨwJ + Ψ dℓ + Ψ ww a(Dw, Dw )+ 2Ψ wd a(Dw, Dd ) + Ψ dd a(Dd, Dd ).(3.15) Along a doubly degenerate recession sequence, choose any sm ∈ [0 , C col d(xm)] . Then 
+
+sm → 0, and the quadratic terms in (3.13) satisfy 
+
+a(p − Du, p − Du ) = Q → 0, a(Dd, Dd ) → 0.
+
+Since a ≥ 0, Cauchy–Schwarz gives 
+
+|a(p − Du, Dd )|2 ≤ Q a (Dd, Dd ) → 0.
+
+Since x0 is an ambient local minimum of χ, we have Dχ (x0) = 0 and D2χ(x0) ≥ 0.The coefficient bounds, together with a(Dd, Dd ) → 0, show that the normal and mixed contractions vanish; the surviving tangential contraction is nonnegative. Thus χ cannot improve a required negative upper bound. Passing to a recession limit pair (j, g ) in (3.15) ,or equivalently in (3.13), gives 
+
+lim inf m→∞ L(tm,p m,X m)V[sm] ≥ − cwj − cdg. 
+
+On the other hand, uniform recession negativity gives 
+
+−c ≥ lim sup 
+
+> m→∞
+
+L(tm,p m,X m)V[sm].
+
+Combining the last two inequalities yields 
+
+cwj + cdg ≥ c, j + cd
+
+cw
+
+g ≥ ccw
+
+> 0,
+
+uniformly over all recession limit pairs. This is (3.14) . If cd = 0 , the same argument gives a uniform positive lower bound for j; boundedness of g then permits a sufficiently small positive slope. This proves necessity. For sufficiency, take χ ≡ 0 and use the barrier from Lemma 3.2. □
+
+Remark 3.4 . Theorem 3.3 does not assert that failure of (MRC) produces an actual sequence of solutions with unbounded mixed derivatives. The bad level jets may not be dynamically reachable, and a higher-order or equation-specific construction may lie outside the fixed zero-order class (3.12) . The theorem concerns only the standard maximum-principle barrier argument. The abstract recession condition has several more concrete sufficient criteria. They are useful when verifying a theorem in examples. 
+
+Proposition 3.5. Each of the following conditions implies (MRC) at x0.
+
+(i) There is ε0 > 0 such that J ≥ ε0 on all level jets near x0.
+
+(ii) There is ε0 > 0 such that j ≥ ε0 for all (j, g ) ∈ R ∗ 
+
+> x0
+
+.
+
+(iii) There is γ0 > 0 such that g ≥ γ0 for all (j, g ) ∈ R ∗ 
+
+> x0
+
+.Condition (i) is the full jet-subsolution condition; (ii) is its asymptotic version; and (iii) 
+
+is the pure drift-curvature condition. Proof. The quantity g = −ℓ is uniformly bounded. Thus (i) or (ii) implies (MRC) after choosing τ > 0 sufficiently small. The quantity j = J has a uniform lower bound, so (iii) implies (MRC) after choosing τ sufficiently large. □
+
+The first criterion follows from a familiar phase separation if the drift loss is quantitatively dominated. This is stronger than (MRC), because it is imposed on every level jet rather than only on doubly degenerate recession jets, but it is often easier to verify directly. 16 R. HUANG AND Q. JIANG 
+
+Corollary 3.6. Let 
+
+Cb = sup 
+
+> [0 ,1] ×K×{ Gt=θ}
+
+|Gt,p |, D0 = sup 
+
+> x∈Ω, p ∈K
+
+|Du (x) − p|.
+
+Suppose 
+
+inf  
+
+> x,t,p ∈K
+
+Gt(p, D 2u(x)) ≥ θ + η0, η0 > C bD0.
+
+Then J ≥ η0 − CbD0 > 0 on every level jet, and hence (MRC) holds. Proof. For fixed p, concavity in X gives 
+
+Gt,X (p, X ) : ( D2u − X) ≥ Gt(p, D 2u) − Gt(p, X ) ≥ η0.
+
+The drift term satisfies 
+
+b · (Du − p) ≥ −| b| | Du − p| ≥ − CbD0.
+
+Adding this to the Hessian estimate gives J ≥ η0 − CbD0 > 0, as claimed. □
+
+There is also a simple purely geometric condition which avoids a lower subsolution in the mixed estimate. 
+
+Corollary 3.7. Assume |Du | ≤ P , and let c0 be the lower trace bound in (2.7) . Let Cb
+
+be the supremum of |b| over the corresponding level jets. If 
+
+(3.16) II ∂Ω ≥ κ0I, κ0 > 2Cb
+
+c0
+
+,
+
+then the mixed derivative estimate (1.9) follows from a pure distance barrier and a fixed extension of the boundary data. Proof. Choose first 2Cb
+
+c0
+
+< κ 1 < κ 0.
+
+By continuity of the second fundamental forms of the parallel hypersurfaces, the collar can then be shrunk so that every level set of d has second fundamental form at least κ1I.At every point of this collar, 
+
+ℓ ≤ − κ1 tr aT + Cb.
+
+If tr aT ≥ c0/2, then 
+
+ℓ ≤ − κ1c0
+
+2 + Cb < 0.
+
+If tr aT < c 0/2, then, because tr a = tr aT + a(Dd, Dd ) in the tangential-normal splitting, (2.3) gives 
+
+a(Dd, Dd ) ≥ c0
+
+2 ,
+
+and the term −2N a (Dd, Dd ) is coercive. For v = τ d − N d 2, we have 
+
+Lv = ( τ − 2N d )ℓ − 2N a (Dd, Dd ).
+
+Choose N large enough to dominate the bounded term τ ℓ , and then shrink the collar so that the term 2N dℓ is negligible. The two cases above then give Lv ≤ − c < 0. Since 
+
+v = 0 on ∂Ω and v ≥ 0 on the artificial boundary, the Killing-field comparison applied with a fixed smooth extension of φ yields the mixed derivative estimate. □
+
+Remark 3.8 . The coarse criterion (3.16) is not expected to be sharp because it estimates the drift by its absolute supremum. Definition 1.2 retains the actual coupling between the limiting coefficient matrix, the boundary second fundamental form, the drift, and the subsolution separation. It may hold even when neither the asymptotic jet-subsolution condition nor the pure geometric condition holds by itself. SHARP BOUNDARY RECESSION CRITERIA 17 
+
+4. The exact boundary-gap identity 
+
+We turn to the double-normal direction. The phase difference admits an exact formula, which gives the optimal dependence on the gap without a contradiction sequence. We first derive the boundary identity by a complex Schur complement. Fix a boundary point and use the Euclidean orthogonal splitting 
+
+Tx∂Ω ⊕ Rν. 
+
+Write the Euclidean Hessian in tangential-normal blocks as 
+
+D2u =
+
+> (
+
+M zzT rν
+
+> )
+
+, rν = uνν .
+
+Here M = D2 
+
+> T
+
+u, z = D2u( · , ν )|T ∂ Ω is the mixed block, and rν is the double-normal entry. Let Du = q + sν , where q = DT φ and s = uν . Using the shorthand wt = wt(Du ), we have 
+
+At[u] = C−1/2 
+
+> t
+
+D2u C −1/2 
+
+> t
+
+, Ct = wt(I + t2Du ⊗ Du ).
+
+The corresponding block decomposition is 
+
+Ct =
+
+> (
+
+Ct,T ct
+
+cTt ct, 0
+
+> )
+
+,
+
+where (4.1) Ct,T = wt(IT + t2q ⊗ q), ct = wtt2sq, ct, 0 = wt(1 + t2s2).
+
+Recall that 
+
+Dt = Ct,T + √−1M, et = ct + √−1z, St = eTt D−1 
+
+> t
+
+et.
+
+The transpose in the last expression is the complex bilinear transpose, as required by the determinant formula; it is not a Hermitian product. Let 
+
+Φt(M ) = 
+
+> n−1∑
+> α=1
+
+arctan λα(C−1/2 
+
+> t,T
+
+M C −1/2 
+
+> t,T
+
+), Lt = π
+
+2 + Φ t(M ).
+
+Lemma 4.1. If D2u ≥ 0, then 
+
+(4.2) Lt − F (At[u]) = arctan ct, 0 − Re St
+
+rν − Im St
+
+.
+
+The quotient is interpreted as +∞ if the denominator vanishes. Moreover, 
+
+(4.3) ct, 0 − Re St > 0, rν − Im St ≥ 0,
+
+and the second inequality is strict if D2u > 0.Proof. Since (4.4) I + √−1At = C−1/2 
+
+> t
+
+(Ct + √−1D2u)C−1/2 
+
+> t
+
+,
+
+the two determinants have the same phase. The block determinant formula gives (4.5) det( Ct + √−1D2u) = det( Ct,T + √−1M ) st,
+
+where 
+
+st = ct, 0 + √−1rν − (ct + √−1z)T (Ct,T + √−1M )−1(ct + √−1z)= ( ct, 0 − Re St) + √−1( rν − Im St).
+
+We first locate st. The lower-right entry in the inverse block formula is s−1 
+
+> t
+
+. Let 
+
+y = ( Ct + √−1D2u)−1en.18 R. HUANG AND Q. JIANG 
+
+As en is real, 
+
+s−1 
+
+> t
+
+= e∗
+
+> n
+
+y = (( Ct + √−1D2u)y)∗y = y∗Cty − √−1y∗D2u y. 
+
+Thus Re s−1 
+
+> t
+
+> 0 and Im s−1 
+
+> t
+
+≤ 0. Therefore st lies in the closed first quadrant, with strictly positive real part. If D2u > 0, its imaginary part is also positive. This proves (4.3). For a positive semidefinite matrix N , write Arg 0 det (I + √−1N ) for the continuous lift of the determinant phase along εN , 0 ≤ ε ≤ 1, starting from zero. Then 
+
+Arg 0 det( I + √−1N ) = ∑
+
+> j
+
+arctan λj (N )
+
+on this lifted branch. Applying the same lift to (4.4) and (4.5) gives 
+
+F (At[u]) = Φ t(M ) + arg st.
+
+Indeed, after replacing D2u by εD 2u, all determinant phases in the block identity start from zero at ε = 0 ; hence their lifted phases add exactly, with no 2π ambiguity. Since st
+
+is in the first quadrant, 
+
+Lt − F (At[u]) = π
+
+2 − arg st = arctan Re st
+
+Im st
+
+,
+
+which is (4.2). □
+
+Retain the notation αt and βt introduced in the statement of Theorem 1.5. The positivity in Lemma 4.1 has a quantitative form. 
+
+Lemma 4.2. Assume D2u ≥ 0, |Du | ≤ P , and |z| ≤ Z. Let 
+
+w∗ = (1 + P 2)1/2, Ξ( P, Z ) = w∗P 4
+
+4 + Z2.
+
+Then 
+
+(4.6) 1 ≤ αt ≤ w∗(1 + P 2) + Ξ( P, Z ), |βt| ≤ Ξ( P, Z ).
+
+Proof. Put ̂
+
+M = C−1/2 
+
+> t,T
+
+M C −1/2 
+
+> t,T
+
+,̂ c = C−1/2 
+
+> t,T
+
+ct,̂ z = C−1/2 
+
+> t,T
+
+z. 
+
+Here ̂ M is a real symmetric nonnegative (n − 1) × (n − 1) matrix and ̂ c, ̂ z ∈ Rn−1. Since 
+
+Dt = C1/2 
+
+> t,T
+
+(I + √−1̂ M )C1/2 
+
+> t,T
+
+and et = C1/2 
+
+> t,T
+
+(̂c + √−1̂z), the identity St = eTt D−1 
+
+> t
+
+et becomes 
+
+St = ( ̂c + √−1̂z)T (I + √−1̂M )−1(̂ c + √−1̂z).
+
+Diagonalize ̂ M . If ka ≥ 0 are its eigenvalues, then for each component 
+
+Re (̂ca + √−1̂za)2
+
+1 + √−1ka
+
+=̂ c2 
+
+> a
+
+− (̂za − kâ ca)2
+
+1 + k2
+
+> a
+
+≤̂ c2
+
+> a
+
+.
+
+Therefore 
+
+Re St ≤ cTt C−1 
+
+> t,T
+
+ct.
+
+Using (4.1), a direct computation yields 
+
+αt ≥ ct, 0 − cTt C−1 
+
+> t,T
+
+ct
+
+= wt
+
+> (
+
+1 + t2s2
+
+1 + t2|q|2
+
+> )
+
+= w3
+
+> t
+
+1 + t2|q|2 ≥ 1.
+
+The complex matrix Dt = Ct,T + √−1M has real part bounded below by wtI. More precisely, for every complex vector x,
+
+wt|x|2 ≤ x∗Ct,T x = Re (
+
+x∗Dtx)
+
+≤ | Dtx| | x|.SHARP BOUNDARY RECESSION CRITERIA 19 
+
+Hence 
+
+∥D−1 
+
+> t
+
+∥ ≤ w−1 
+
+> t
+
+.
+
+It follows that 
+
+|St| ≤ |ct + √−1z|2
+
+wt
+
+= wtt4s2|q|2 + |z|2
+
+wt
+
+≤ w∗P 4
+
+4 + Z2 = Ξ( P, Z ).(4.7) Finally, ct, 0 ≤ w∗(1 + P 2). Combining this with (4.7) proves (4.6). □
+
+Proof of Theorem 1.5. Set δt = Lt − F (At[u]) . Lemma 4.1 gives 
+
+δt = arctan αt
+
+rν − βt
+
+, αt > 0, rν − βt ≥ 0.
+
+Thus 0 < δ t ≤ π/ 2. If δt < π/ 2, taking the tangent and solving for the double-normal entry gives the exact pointwise relation (4.8) rν = βt + αt cot δt.
+
+If δt = π/ 2, the denominator in the quotient vanishes, so rν = βt and the same formula remains valid because cot( π/ 2) = 0 . Finally, Lemma 4.2 yields 
+
+1 ≤ αt ≤ C(P, Z ), |βt| ≤ C(P, Z ),
+
+which proves every assertion of the theorem. □
+
+The limiting phase for t ≤ 1 is no smaller than the original one. 
+
+Lemma 4.3. If M ≥ 0, then 
+
+Lt(x, s ) ≥ L1(x, s ) = B(x, s ) (0 ≤ t ≤ 1) .
+
+Proof. From (4.1), 
+
+Ct,T = wt(IT + t2q ⊗ q)
+
+is nondecreasing in the Loewner order as a function of t. Therefore Ct,T ≤ C1,T . The generalized min–max principle for the pair (M, C t,T ) gives 
+
+λα(C−1/2 
+
+> t,T
+
+M C −1/2 
+
+> t,T
+
+) ≥ λα(C−1/21,T M C −1/21,T ).
+
+Summing the increasing function arctan proves the claim. □
+
+Proposition 4.4. Suppose 
+
+D2u ≥ 0, F (At[u]) = θ, B(x, s ) ≥ θ + σ, 
+
+where s = uν (x) and 0 < σ < π/ 2. If |Du | ≤ P and |z| ≤ Z, then 
+
+rν ≤ Ξ( P, Z ) + [
+
+w∗(1 + P 2) + Ξ( P, Z )]
+
+cot σ. 
+
+In particular, rν ≤ C(P, Z )(1 + σ−1).Proof. By Lemma 4.3, 
+
+δt = Lt − θ ≥ B − θ ≥ σ. 
+
+Apply (4.8) , the upper bounds in Lemma 4.2, and the monotonicity of cot on (0 , π/ 2) . At the endpoint δt = π/ 2, formula (4.8) gives rν = βt directly. □20 R. HUANG AND Q. JIANG 
+
+At t = 1 , let 
+
+δ(x) = B(x, u ν (x)) − θ. 
+
+The exact formula also gives the lower bound (4.9) cot δ(x) − Ξ( P, Z ) ≤ uνν (x) ≤ Ξ( P, Z ) + [
+
+w∗(1 + P 2) + Ξ( P, Z )]
+
+cot δ(x).
+
+Indeed, α1 ≥ 1, |β1| ≤ Ξ, and cot δ ≥ 0.
+
+Proof of Corollary 1.6. The boundary identity (1.10) , the bounds for uν and φ, and the fixed boundary geometry control the tangential block M . Theorem 1.4 controls the mixed block z by a constant Z independent of t. Proposition 4.4 then gives 
+
+uνν ≤ C0 + C1 cot σ. 
+
+Combining the estimates for the tangential, mixed, and double-normal blocks yields the asserted boundary Hessian bound. The displayed dependencies in Theorem 1.4 and Lemma 4.2 show that C0 and C1 are independent of both t and σ. □
+
+The dependence on Z in Proposition 4.4 is essential. A fixed positive limiting gap does not control the double-normal entry if the mixed block is allowed to grow. 
+
+Example 4.5. In dimension two, at Du = 0 , consider 
+
+XR =
+
+> (
+
+1 √R − 1√R − 1 R
+
+> )
+
+, R > 1.
+
+Then XR > 0 and det XR = 1 . If λ1, λ 2 are its eigenvalues, the positive-branch identity for the tangent of a sum gives 
+
+arctan λ1 + arctan λ2 = π
+
+2 .
+
+On the other hand, keeping the tangential entry M = 1 fixed and sending the normal entry to infinity gives the limiting phase 
+
+L = π
+
+2 + arctan 1 = 3π
+
+4 .
+
+Thus the gap is the fixed number π/ 4, while 
+
+R → ∞ , |z| = √R − 1 → ∞ .
+
+This is why the mixed estimate and the normal limiting-phase condition are logically separate parts of the boundary argument. 5. From the boundary to global curvature control 
+
+For convex constant-phase graphs, the boundary Hessian estimate propagates globally by a direct maximum principle for the mean curvature. We include the calculation because it is short and keeps the compactness theorem independent of any interior estimate from the literature. Let hij be the second fundamental form of Γu, let 
+
+H = ∑
+
+> i
+
+κi
+
+be its mean curvature, and let ∇ denote the induced covariant derivative. We use an orthonormal frame on the graph. The mean curvature satisfies the following boundary maximum principle. SHARP BOUNDARY RECESSION CRITERIA 21 
+
+Proposition 5.1. Let Γu be a smooth convex graph satisfying 
+
+(5.1) F (h) = ∑
+
+> i
+
+arctan κi = θ. 
+
+Then 
+
+(5.2) sup 
+
+> Γu
+
+H ≤ sup 
+
+> ∂Γu
+
+H. 
+
+Proof. Differentiating (5.1) once and twice gives (5.3) F ij ∇khij = 0 , F ij ∆hij = −F ij,rs ∇khij ∇khrs .
+
+The Euclidean Simons identity is (5.4) ∇i∇j H = ∆ hij − Hh im hmj + tr( h2)hij .
+
+Contracting (5.3) and (5.4), we obtain 
+
+F ij ∇i∇j H = − F ij,rs ∇khij ∇khrs 
+
++ F ij hij tr( h2) − HF ij him hmj .(5.5) The first term is nonnegative because F is concave on the positive cone. To determine the remaining algebraic term, choose an orthonormal frame in which h is diagonal and put 
+
+fi = 11 + κ2
+
+> i
+
+.
+
+Then F ij = fiδij , and the last two terms in (5.5) equal 
+
+> (∑
+> i
+
+fiκi
+
+> ) ∑
+> j
+
+κ2 
+
+> j
+> 
+
+−
+
+> ∑
+> j
+
+κj
+
+> (∑
+> i
+
+fiκ2
+
+> i
+> )
+
+= ∑
+
+> i,j
+
+fiκiκj (κj − κi)= 12
+
+> ∑
+> i,j
+
+(fj − fi)( κi − κj )κiκj .
+
+Since 
+
+(fj − fi)( κi − κj ) = (κi + κj )( κi − κj )2
+
+(1 + κ2 
+
+> i
+
+)(1 + κ2 
+
+> j
+
+) ≥ 0,
+
+we have F ij ∇i∇j H ≥ 0. Since F ij is positive definite at every finite curvature matrix, the maximum principle proves (5.2) . The calculation already allows zero principal curvatures: all displayed expressions are continuous for κi ≥ 0, so the semidefinite case follows directly by continuity and requires no perturbed solution. □
+
+The same argument controls the vertical homotopy uniformly. 
+
+Proposition 5.2. Let u be a convex solution of Gt(Du, D 2u) = θ. If |Du | ≤ P , then 
+
+(5.6) sup 
+
+> Ω
+
+|D2u| ≤ C(n, P )
+
+> (
+
+1 + sup 
+
+> ∂Ω
+
+|D2u|
+
+> )
+
+uniformly for t ∈ [0 , 1] .Proof. For t > 0, consider the graph of U = tu . Its principal curvatures are 
+
+κti = tλ i(At[u]) ,
+
+and denote its mean curvature by Ht = ∑ 
+
+> i
+
+κti. Its equation is 
+
+ft(κt) = ∑
+
+> i
+
+arctan( κti/t ) = θ. 22 R. HUANG AND Q. JIANG 
+
+The function ft is elliptic and concave for κt ≥ 0. In fact, 
+
+(ft)i = tt2 + ( κti)2 ,
+
+and the algebraic term in the mean-curvature calculation has the required sign because 
+
+> (
+
+(ft)j − (ft)i
+
+> )
+
+(κti − κtj ) = t(κti + κtj )( κti − κtj )2
+
+[t2 + ( κti)2][ t2 + ( κtj )2] ≥ 0.
+
+Repeating Proposition 5.1 therefore gives 
+
+sup 
+
+> Γtu
+
+Ht ≤ sup 
+
+> ∂Γtu
+
+Ht.
+
+Moreover, 
+
+Ht = t tr At[u] = twt
+
+tr (
+
+B2 
+
+> t
+
+D2u)
+
+,
+
+and, since D2u ≥ 0 and w−2 
+
+> t
+
+I ≤ B2 
+
+> t
+
+≤ I,
+
+tw3
+
+> t
+
+tr D2u ≤ Ht ≤ twt
+
+tr D2u. 
+
+Together with |D2u| ≤ tr D2u ≤ n|D2u| and wt ≤ (1 + P 2)1/2, the boundary maximum principle for Ht, followed by division by t, proves (5.6) uniformly for t > 0.When t = 0 , the equation is F (D2u) = θ. For a fixed unit vector ξ, twice differentiating in the ξ direction gives 
+
+F ij (uξξ )ij = −F ij,rs uijξ ursξ ≥ 0.
+
+The maximum principle bounds uξξ by its boundary maximum. Taking the supremum over ξ proves the result at t = 0 . □
+
+We now prove Theorem 1.7. First observe that the actual gap is always positive for a smooth finite-curvature solution. Indeed, Lemma 4.1 gives 
+
+δ(x) = arctan α1(x)
+
+uνν (x) − β1(x) > 0.
+
+The convention at a zero denominator gives δ = π/ 2. Continuity and compactness of the boundary imply δ∗(u) > 0.
+
+Proof of Theorem 1.7. On the boundary, 
+
+M = D2
+
+> ∂Ω
+
+φ − uν II ∂Ω.
+
+Thus the first two bounds in (1.12) control the tangential block of D2u, while the third controls the mixed block. Under the hypotheses of Theorem 1.4, this third bound is supplied by the mixed boundary estimate; in the present theorem it is included in the definition of controlled data. At every boundary point, (4.9) gives 
+
+uνν ≤ C(1 + cot δ∗(u)) .
+
+Therefore (5.7) sup 
+
+> ∂Ω
+
+|D2u| ≤ C(1 + cot δ∗(u)) .
+
+The graph matrix relation 
+
+D2u = wB (Du )−1A[u]B(Du )−1
+
+and |Du | ≤ P give (5.8) |A[u]| ≤ | D2u| ≤ (1 + P 2)3/2|A[u]|.SHARP BOUNDARY RECESSION CRITERIA 23 
+
+Because all principal curvatures are nonnegative, |A[u]| ≤ H. Proposition 5.1, (5.7) , and (5.8) prove (1.13). Choose x∗ ∈ ∂Ω where the minimum in (1.11) is attained. The lower half of (4.9) gives 
+
+uνν (x∗) ≥ cot δ∗(u) − C, 
+
+which proves (1.14) . The equivalences in (1.15) follow immediately from the upper and lower bounds and the norm comparison. □
+
+Combining the mixed estimate, a normal-window gap, and Proposition 5.2 gives the following a priori estimate. 
+
+Corollary 5.3. Assume the hypotheses of Theorem 1.4. Suppose that every boundary normal derivative lies in a fixed compact window Jx and that 
+
+(5.9) inf  
+
+> x∈∂Ω, s ∈Jx
+> M(x,s )≥0
+> (
+
+B(x, s ) − θ)
+
+≥ σ > 0.
+
+Then every convex solution of the homotopy satisfies 
+
+∥u∥C2(Ω) ≤ C0 + C1 cot σ, 
+
+where the constants are independent of t ∈ [0 , 1] and σ.Remark 5.4 . (MRC) is used only to control uξν for tangential unit vectors ξ. The limiting-phase gap (5.9) is used only after that estimate, to control uνν . Example 4.5 shows that the normal gap cannot replace (MRC), while the formula (4.8) shows that (MRC) cannot prevent double-normal blow-up if the actual gap collapses. 6. Sharpness models 
+
+This section gives two sharpness examples. A radial family attains the optimal boundary-gap blow-up rate while all lower-order boundary data remain controlled. A rank-loss model then shows that a strict lower subsolution does not by itself preserve strict convexity. We now prove Theorem 1.8 by constructing a family of solutions on one fixed ball. 
+
+Proof of Theorem 1.8. Step 1: the radial equation. 
+
+Let u(x) = f (r), where r = |x|, and put 
+
+q(r) = f ′(r), s(r) = q(r)
+
+> √
+
+1 + q(r)2 , ζ(r) = s(r)
+
+r .
+
+The radial and tangential principal curvatures are (6.1) κr = s′(r) = ζ + rζ ′, κT = s(r)
+
+r = ζ, 
+
+where κT has multiplicity n − 1. Thus the equation becomes 
+
+arctan( ζ + rζ ′) + ( n − 1) arctan ζ = θ. 
+
+Assume π
+
+2 ≤ θ < nπ 
+
+2
+
+and define the endpoint angle and the two corresponding slopes by 
+
+ϑ∗ = θ − π/ 2
+
+n − 1 , ζ∗ = tan ϑ∗, ζ0 = tan( θ/n ).
+
+Since θn − ϑ∗ = nπ/ 2 − θn(n − 1) > 0,24 R. HUANG AND Q. JIANG 
+
+we have 0 ≤ ζ∗ < ζ 0.Fix 0 < R 0 < R 1 so small that (6.2) R1ζ0 < 1.
+
+For 
+
+0 < δ < δ 0 < π
+
+2 − θn,
+
+let ζδ solve (6.3) rζ ′ 
+
+> δ
+
+= tan (
+
+θ − (n − 1) arctan ζδ
+
+> )
+
+− ζδ,
+
+with initial value 
+
+ζδ(R0) = tan 
+
+> (
+
+ϑ∗ + δn − 1
+
+> )
+
+.
+
+The right hand side of (6.3) , viewed as a function of ζ, is positive on (ζ∗, ζ 0) and vanishes at ζ0. Uniqueness for the autonomous equation in logarithmic time gives 
+
+ζδ(R0) < ζ δ(r) < ζ 0, ζ′
+
+> δ
+
+(r) > 0 (R0 ≤ r ≤ R1).
+
+Set 
+
+f ′
+
+> δ
+
+(r) = rζ δ(r)
+
+> √
+
+1 − r2ζδ(r)2 , fδ(R0) = 0 .
+
+Condition (6.2) makes the first derivatives uniformly bounded. Equations (6.3) and (6.1) give 
+
+κr = tan (
+
+θ − (n − 1) arctan ζδ
+
+> )
+
+, κT = ζδ.
+
+Hence uδ(x) = fδ(|x|) is a smooth strictly convex solution of F (A[uδ]) = θ on R0 < |x| <R1. At r = R0,
+
+κr(R0) = cot δ. 
+
+Moreover, since 
+
+f ′′  
+
+> δ
+
+= κr
+
+(1 − r2ζ2 
+
+> δ
+
+)3/2 ,
+
+we have (6.4) f ′′  
+
+> δ
+
+(R0) ≍ cot δ ≍ δ−1.
+
+Step 2: the boundary gap under a rank-one escape. 
+
+We shall restrict the radial solutions to a fixed ball tangent to the sphere {| x| = R0}.The following rank-one formula identifies the limiting gap at an arbitrary boundary point. 
+
+Lemma 6.1. Let A > 0 and v̸ = 0 . Put 
+
+Nv = 〈
+
+(I + A2)−1v, v 〉
+
+, Dv = 〈
+
+A(I + A2)−1v, v 〉
+
+.
+
+Then 
+
+(6.5) lim  
+
+> T→∞
+> (
+
+F (A + T v ⊗ v) − F (A))
+
+= arctan Nv
+
+Dv
+
+.
+
+If κmin and κmax are the extreme eigenvalues of A, then 
+
+1
+
+κmax 
+
+≤ Nv
+
+Dv
+
+≤ 1
+
+κmin 
+
+.SHARP BOUNDARY RECESSION CRITERIA 25 
+
+Proof. The matrix determinant lemma gives (6.6) det( I + √−1( A + T v ⊗ v)) = det( I + √−1A) (
+
+1 + √−1T v T (I + √−1A)−1v)
+
+.
+
+Since 
+
+(I + √−1A)−1 = ( I − √−1A)( I + A2)−1,
+
+take the continuous lift of the determinant phase along T ≥ 0, starting at T = 0 . The last factor in (6.6) lies in the open first quadrant and has limiting argument arctan (Nv/Dv).This proves (6.5). In an eigenbasis of A,
+
+Dv
+
+Nv
+
+=
+
+> ∑
+> i
+
+v2 
+
+> i
+
+κi
+
+1 + κ2
+
+> i
+> ∑
+> i
+
+v2
+
+> i
+
+1 + κ2
+
+> i
+
+,
+
+which is a weighted average of the κi. The bounds follow. □
+
+Increasing the Euclidean double-normal Hessian entry changes the curvature matrix by a positive rank-one term. Thus Lemma 6.1 computes exactly B − F (A) for any chosen boundary normal. 
+
+Step 3: restriction to a fixed ball. 
+
+Choose ρ > 0 so that 
+
+R0 + 2 ρ < R 1,
+
+and set 
+
+Ω = Bρ
+
+> (
+
+(R0 + ρ)e1
+
+> )
+
+.
+
+The geometry is summarized in Figure 6.1. 
+
+e1
+
+|x| = R0
+
+ρ
+
+Ω0 x0 = R0e1
+
+Figure 6.1. The fixed ball tangent to the sphere |x| = R0 at x0.Then Ω ⊂ { R0 ≤ | x| ≤ R1}, and 
+
+x0 = R0e1
+
+is the unique point of Ω with radius R0. The inward unit normal of ∂Ω at x0 is e1, the radial direction. The radial curvature κr is decreasing in r, because ζδ is increasing and 
+
+ddζ tan (
+
+θ − (n − 1) arctan ζ)
+
+= −(n − 1) 1 + κ2
+
+> r
+
+1 + ζ2 < 0.
+
+By Step 1, κT = ζδ < ζ 0. After reducing δ0 if necessary, 
+
+ζ0 < cot δ. 
+
+Moreover, the monotonicity of κr gives κr(r) ≤ κr(R0) = cot δ. Combining the radial and tangential estimates yields (6.7) max  
+
+> i
+
+κi(x) ≤ cot δ (x ∈ Ω) ,26 R. HUANG AND Q. JIANG 
+
+with equality at x0 in the radial direction. At any boundary point, Lemma 6.1 and (6.7) give 
+
+Nv
+
+Dv
+
+≥ 1
+
+κmax 
+
+≥ tan δ. 
+
+Hence (6.8) B(x, u δ,ν (x)) − θ ≥ arctan(tan δ) = δ. 
+
+At x0, the escaping rank-one direction is the radial principal direction and κr(x0) = cot δ.Equality holds in (6.8). Hence (6.9) δ∗(uδ) = δ. 
+
+Since we use the operator norm for symmetric matrices, (6.7) also gives (6.10) sup 
+
+> Ω
+
+|A[uδ]| = cot δ. 
+
+Step 4: uniform boundary data and mixed derivatives. 
+
+It remains to verify that the quantities other than the double-normal derivative stay uniformly bounded. Define 
+
+η(r) = π
+
+2 + ( n − 1) arctan ζδ(r) − θ. 
+
+Then η(R0) = δ, κr = cot η, and the ODE gives (6.11) rη ′ = n − 11 + ζ2
+
+> δ
+
+(cot η − ζδ).
+
+Choose ¯η > 0 so small that, whenever 0 < η ≤ ¯η and ζ ∈ [ζ∗, ζ 0], the right hand side of (6.11) is bounded above and below by fixed positive multiples of 1/η . Take δ0 < ¯η/ 2 and then decrease R1 − R0 so that 
+
+δ20 + 2 C(R1 − R0) < ¯η2,
+
+where C is the upper comparison constant. A first-exit argument, applied to (η2)′ = 2 ηη ′,shows that η cannot reach ¯η on [R0, R 1]. Consequently all remaining factors stay in fixed compact intervals and 
+
+cη ≤ η′ ≤ Cη .
+
+Integration yields 
+
+c(δ2 + r − R0) ≤ η(r)2 ≤ C(δ2 + r − R0).
+
+Differentiating (6.11) once and using η′ ≍ η−1 gives |η′′ | ≤ Cη −3. The ζ-equation also gives |ζ′
+
+> δ
+
+| ≤ Cη −1 and |ζ′′  
+
+> δ
+
+| ≤ Cη −3. To make the derivative calculation explicit, put 
+
+Π( r, ζ ) = (1 − r2ζ2)−3/2.
+
+Condition (6.2) keeps Π and its first two derivatives uniformly bounded on the relevant compact set. Since f ′′  
+
+> δ
+
+= Π( r, ζ δ) cot η, differentiation gives 
+
+f ′′′  
+
+> δ
+
+= (Π r + Π ζ ζ′
+
+> δ
+
+) cot η − Π csc 2 η η ′.
+
+Using cot η ≤ Cη −1, csc 2 η ≤ Cη −2, and the preceding estimates yields |f ′′′  
+
+> δ
+
+| ≤ Cη −3.Differentiating once more produces only terms containing bounded derivatives of Π
+
+multiplied by ζ′
+
+> δ
+
+, ζ′′  
+
+> δ
+
+, η′, and η′′ ; the worst terms have order η−5. Together with η2 ≍
+
+δ2 + r − R0, this proves 
+
+|f ′′  
+
+> δ
+
+(r)| ≤ C
+
+√δ2 + r − R0
+
+, |f ′′′  
+
+> δ
+
+(r)| ≤ C
+
+(δ2 + r − R0)3/2 ,SHARP BOUNDARY RECESSION CRITERIA 27 
+
+|f (4)  
+
+> δ
+
+(r)| ≤ C
+
+(δ2 + r − R0)5/2 .(6.12) Use local tangential coordinates y ∈ Rn−1 on ∂Ω near x0. The radius r = r(y) satisfies (6.13) r(y) − R0 ≍ | y|2, |Dyr(y)| ≤ C|y|.
+
+For completeness, the first three tangential derivatives of the boundary trace are 
+
+φδ(y) = fδ(r(y)) 
+
+and 
+
+Dφ δ = f ′
+
+> δ
+
+Dr, D2φδ = f ′′  
+
+> δ
+
+Dr ⊗ Dr + f ′
+
+> δ
+
+D2r, D3φδ = f ′′′  
+
+> δ
+
+Dr ⊗3 + 3 f ′′  
+
+> δ
+
+sym( D2r ⊗ Dr ) + f ′
+
+> δ
+
+D3r. 
+
+Here sym denotes full symmetrization of the tensor product. The derivatives of r(y) of order at least two are uniformly bounded. Using (6.12) , the only potentially singular terms are bounded by 
+
+|f ′′  
+
+> δ
+
+| | Dyr| ≤ C |y|
+
+> √
+
+δ2 + |y|2 ≤ C, 
+
+and 
+
+|f ′′′  
+
+> δ
+
+| | Dyr|3 ≤ C |y|3
+
+(δ2 + |y|2)3/2 ≤ C. 
+
+All other terms are easier, and points away from x0 are uniformly regular. Thus 
+
+sup 
+
+> 0<δ<δ 0
+
+∥uδ|∂Ω∥C3(∂Ω) < ∞.
+
+Let er = x/ |x| be the radial unit vector. The Euclidean radial Hessian is 
+
+D2uδ = f ′′  
+
+> δ
+
+er ⊗ er + f ′
+
+> δ
+
+r (I − er ⊗ er).
+
+For a unit tangent vector ξ and the inward normal ν of the fixed ball, 
+
+D2uδ(ξ, ν ) = 
+
+> (
+
+f ′′  
+
+> δ
+
+− f ′
+
+> δ
+
+r
+
+> )
+
+(ξ · er)( ν · er).
+
+Near x0, |ξ · er| ≤ C|y|. Equations (6.12) and (6.13) imply 
+
+sup 
+
+> 0<δ<δ 0
+
+sup 
+
+> x∈∂Ω
+
+sup 
+
+> ξ∈Tx∂Ω
+> |ξ|=1
+
+|D2uδ(ξ, ν )| < ∞.
+
+The C1 bound follows directly from rζ δ(r) ≤ R1ζ0 < 1.
+
+Step 5: the sharp C4 growth. Restrict to any tangential coordinate axis through y = 0 . In the ball geometry one has 
+
+ry(0) = 0 , ryy (0) = 1
+
+ρ + 1
+
+R0
+
+> 0.
+
+The fourth derivative satisfies 
+
+∂4 
+
+> y
+
+φδ(0) = 3 f ′′  
+
+> δ
+
+(R0)ryy (0) 2 + f ′
+
+> δ
+
+(R0)ryyyy (0) ,
+
+and hence is bounded below by a positive multiple of δ−1. Conversely, the fourth-order chain rule and (6.13) reduce all possibly singular terms to 
+
+|f (4)  
+
+> δ
+
+| | Dyr|4, |f ′′′  
+
+> δ
+
+| | Dyr|2, |f ′′  
+
+> δ
+
+|(
+
+1 + |Dyr|)
+
+,28 R. HUANG AND Q. JIANG 
+
+each of which is bounded by Cδ −1 using (6.12) . Thus the boundary C4 norm has exact order δ−1. Equations (6.4) , (6.9) , and (6.10) , together with the uniform C1, boundary C3,and mixed derivative bounds proved above, establish all assertions of Theorem 1.8. □
+
+Remark 6.2 . The same functions on the fixed annulus {R0 < |x| < R 1} have constant boundary traces on each component, and therefore uniformly bounded boundary data in every Cm norm. The curvature and gap still satisfy max |A| = cot δ and min (B − θ) = δ at the inner boundary. This gives a simple geometric sharpness model, although the annulus is not a convex domain. 
+
+Remark 6.3 . If 0 < θ < π/ 2 and u is convex, then M ≥ 0 on the boundary and 
+
+B(x, u ν ) ≥ π
+
+2 .
+
+Therefore 
+
+δ∗(u) ≥ π
+
+2 − θ > 0.
+
+The convex double-normal gap cannot collapse in this range. The high-phase radial family above begins exactly at θ = π/ 2.The closed convex branch is essential here: a strict convex lower subsolution does not force every solution with the same boundary data to be strictly convex. The following model gives an explicit obstruction. (6.14) F (A[u]) = θ in Ω, u = φ on ∂Ω.
+
+For this problem, a strict lower subsolution is a strictly convex function u satisfying u = φ
+
+on ∂Ω and F (A[u]) > θ on Ω.
+
+Proposition 6.4. There are smooth data (Ω , φ, θ ), with Ω ⊂ R2 uniformly convex and 
+
+0 < θ < π/ 2, for which a strict lower subsolution exists but the unique smooth convex solution of (6.14) is not strictly convex. Proof. Let Ω = B1(0) ⊂ R2, choose R > 2, and define 
+
+u0(x1, x 2) = −
+
+> √
+
+R2 − x21.
+
+Put s = ( R2 − x21)1/2. Then 
+
+Du 0 = ( x1/s, 0) , D2u0 = diag( R2/s 3, 0) .
+
+The graph is a piece of a circular cylinder. Its principal curvatures are 
+
+κ1 = 1
+
+R , κ2 = 0 .
+
+Thus u0 is a smooth convex solution of (6.14) with 
+
+θ = arctan(1 /R ), φ = u0|∂B 1 .
+
+For ε > 0, set 
+
+uε = u0 + ε(|x|2 − 1) .
+
+It has the same boundary value, satisfies uε < u 0 in B1, and has D2uε > 0. A direct differentiation of the graph phase at ε = 0 gives 
+
+ddε F (A[uε]) 
+
+> ∣∣∣∣∣ε=0
+
+= 2sR(R2 + 1) 
+
+> (
+
+2R2 + 1 − 4x21
+
+> )
+
+> 0 on B1.SHARP BOUNDARY RECESSION CRITERIA 29 
+
+The positivity is uniform. Consequently, for every sufficiently small ε > 0, the function uε
+
+is smooth and strictly convex, and it is a strict lower subsolution because 
+
+F (A[uε]) > θ on B1.
+
+It remains to note uniqueness on the convex branch. If v is another smooth convex solution with the same boundary value, integrate the full linearization of G1 along 
+
+us = (1 − s)u0 + sv . With 
+
+¯aij = 
+
+> ∫10
+
+G1,X ij (Du s, D 2us) ds, ¯bk = 
+
+> ∫10
+
+G1,p k (Du s, D 2us) ds, 
+
+the difference v − u0 satisfies the linear equation 
+
+¯aij (v − u0)ij + ¯bk(v − u0)k = 0 
+
+with a uniformly positive definite coefficient matrix ¯a; smoothness and compactness supply uniform ellipticity. The maximum principle and the zero boundary value give v = u0.Since D2u0 has rank one, the unique convex solution is not strictly convex. □
+
+Remark 6.5 . Proposition 6.4 is independent of the boundary recession estimates. It shows that an existence theorem which insists on strict convexity needs a separate rank-preservation or quantitative lower-curvature argument. A uniform upper Hessian estimate, even together with a strict lower subsolution, does not provide such a lower bound. 
+
+Appendix A. Four model situations satisfying (MRC) 
+
+We record four simple mechanisms which imply the mixed recession condition. They are intended to illustrate the meaning of (MRC), rather than to provide the most general verification criteria. 
+
+Example A.1. Consider the fixed operator 
+
+G0(p, X ) = F (X) = 
+
+> n∑
+> i=1
+
+arctan λi(X)
+
+on the unit ball Ω = B1(0) , with zero boundary value. Let 
+
+u(x) = A
+
+2
+
+> (
+
+|x|2 − 1)
+
+, A > tan θn.
+
+Then 
+
+F (D2u) = n arctan A > θ. 
+
+At t = 0 one has b = 0 . If X ≥ 0 and F (X) = θ, the concavity of F gives 
+
+J = FX (X) : ( AI − X) ≥ F (AI ) − F (X) = n arctan A − θ =: ε0 > 0.
+
+Moreover, II ∂B 1 = IT , and hence 
+
+g = −ℓ = aT : II ∂B 1 = tr aT ≥ 0.
+
+Thus every recession pair satisfies 
+
+j + τ g ≥ ε0
+
+for every τ > 0. Hence the fixed-operator form of (MRC) holds. This is the usual strict-subsolution mechanism without any gradient drift. 
+
+Example A.2. Suppose that, on the relevant level jets, 
+
+tr a ≥ c0 > 0, |b| ≤ Cb,
+
+and assume that near x0,
+
+II ∂Ω ≥ κ0IT , κ0c0 > C b.30 R. HUANG AND Q. JIANG 
+
+Along a doubly degenerate recession sequence, a(m)(Dd, Dd ) → 0. Since Dd (xm) → ν(x0)
+
+and a(m) is uniformly bounded, 
+
+tr( a(m))Tx0 = tr a(m) − a(m)(ν(x0), ν (x0)) ≥ c0 − o(1) .
+
+Consequently, 
+
+g(m) = ( a(m))Tx0 : II ∂Ω(x0) − b(m) · ν(x0) + o(1) 
+
+≥ κ0c0 − Cb − o(1) .
+
+Hence every (j, g ) ∈ R ∗ 
+
+> x0
+
+satisfies g ≥ γ0 for some γ0 > 0. Since j is uniformly bounded below, choosing τ > 0 sufficiently large proves (MRC). In particular, for Ω = BR(0) one has κ0 = R−1. Thus, for a fixed compact gradient set, every sufficiently small ball satisfying 
+
+c0
+
+R > C b
+
+has the required drift-corrected boundary convexity. 
+
+Example A.3. Assume that there is η > 0 such that 
+
+Gt
+
+> (
+
+p, D 2u(x))
+
+≥ θ + η
+
+for all x near x0, t ∈ [0 , 1] , and p ∈ K. Put 
+
+Cb = sup {
+
+|Gt,p (p, X )| : ( t, p, X ) is a level jet with p ∈ K}
+
+,D0 = sup   
+
+> xnear x0
+> p∈K
+
+|Du (x) − p|.
+
+and suppose that 
+
+η > C bD0.
+
+For every level jet, concavity in the Hessian variable gives 
+
+J = a : ( D2u − X) + b · (Du − p)
+
+≥ Gt(p, D 2u) − Gt(p, X ) − CbD0
+
+≥ η − CbD0 =: ε0 > 0.
+
+The quantity g = −ℓ is uniformly bounded on the recession set. Therefore, after choosing 
+
+τ > 0 sufficiently small, 
+
+j + τ g ≥ ε0
+
+2 for every (j, g ) ∈ R ∗ 
+
+> x0
+
+.
+
+Thus (MRC) holds. This example shows that a sufficiently strong phase subsolution absorbs the possible loss caused by the gradient drift. 
+
+Example A.4. Suppose that there are R < ∞ and c > 0 such that every level jet near 
+
+x0 with |X| ≥ R satisfies at least one of 
+
+a(Dd, Dd ) ≥ c, Q ≥ c. 
+
+Then no sequence can satisfy simultaneously 
+
+|Xm| −→ ∞ , a(m)(Dd, Dd ) −→ 0, Q(m) −→ 0.
+
+Hence 
+
+R∗ 
+
+> x0
+
+= ∅.
+
+By the convention that the infimum over the empty set is +∞, condition (MRC) holds automatically. In this situation one of the two standard quadratic terms remains coercive, so no additional recession compatibility is needed. SHARP BOUNDARY RECESSION CRITERIA 31 
+
+Declarations 
+
+Data availability: Data availability is not applicable to this article as no new data were created or analyzed in this study. 
+
+Conflict of interest: The authors declare that they have no conflicts of interests. 
+
+References 
+
+[1] A. Bhattacharya, The Dirichlet problem for the Lagrangian mean curvature equation , Anal. PDE 17 
+
+(2024), no. 8, 2719–2736. [2] L. Caffarelli, L. Nirenberg, and J. Spruck, Nonlinear second-order elliptic equations V. The Dirichlet problem for Weingarten hypersurfaces , Comm. Pure Appl. Math. 41 (1988), 47–70. [3] J. Chen, Y. Yuan, and M. Warren, A priori estimate for convex solutions to special Lagrangian equations and its application , Comm. Pure Appl. Math. 62 (2009), no. 4, 583–595. [4] T. C. Collins, S. Picard, and X. Wu, Concavity of the Lagrangian phase operator and applications ,Calc. Var. Partial Differential Equations 56 (2017), Paper No. 89. [5] B. Guan, The Dirichlet problem for a class of fully nonlinear elliptic equations , Comm. Partial Differential Equations 19 (1994), 399–416. [6] B. Guan, Second-order estimates and regularity for fully nonlinear elliptic equations on Riemannian manifolds , Duke Math. J. 163 (2014), 1491–1524. [7] P. Guan, C. Ren, and Z. Wang, Global C2-estimates for convex solutions of curvature equations ,Comm. Pure Appl. Math. 68 (2015), 1287–1325. [8] R. Harvey and H. B. Lawson, Jr., Calibrated geometries , Acta Math. 148 (1982), 47–157. [9] F. R. Harvey and H. B. Lawson, Jr., Pseudoconvexity for the special Lagrangian potential equation ,Calc. Var. Partial Differential Equations 60 (2021), Paper No. 6, 37 pp. [10] N. M. Ivochkina, The Dirichlet problem for the equations of curvature of order m, Leningrad Math. J. 2 (1991), 631–654. [11] F. Jiang and N. S. Trudinger, On the Dirichlet problem for general augmented Hessian equations , J. Differential Equations 269 (2020), 5204–5227. [12] F. Jiang, N. S. Trudinger, and X.-P. Yang, On the Dirichlet problem for a class of augmented Hessian equations , J. Differential Equations 258 (2015), 1548–1576. [13] H. Jiao and Z. Sun, The Dirichlet problem for a class of prescribed curvature equations , J. Geom. Anal. 32 (2022), Paper No. 261. [14] C. Mooney and O. Savin, Non-C1 solutions to the special Lagrangian equation , Duke Math. J. 173 
+
+(2024), no. 15, 2929–2945. [15] N. Nadirashvili and S. Vlăduţ, Singular solution to special Lagrangian equations , Ann. Inst. H. Poincaré C Anal. Non Linéaire 27 (2010), no. 5, 1179–1188. [16] G. Qiu and G. Tao, Some counterexamples for the special Lagrangian curvature equation , preprint, arXiv:2607.23592, 2026. [17] G. Qiu and X. Zhou, A priori interior estimates for special Lagrangian curvature equations , preprint, arXiv:2407.15159, 2024. [18] W. Sheng, J. Urbas, and X.-J. Wang, Interior curvature bounds for a class of curvature equations ,Duke Math. J. 123 (2004), 235–264. [19] G. Smith, Special Lagrangian curvature , Math. Ann. 355 (2013), 57–95. [20] G. Székelyhidi, Fully non-linear elliptic equations on compact Hermitian manifolds , J. Differential Geom. 109 (2018), 337–378. [21] N. S. Trudinger, The Dirichlet problem for the prescribed curvature equations , Arch. Rational Mech. Anal. 111 (1990), 153–179. [22] N. S. Trudinger, On the Dirichlet problem for Hessian equations , Acta Math. 175 (1995), 151–164. [23] D. Wang and Y. Yuan, Singular solutions to special Lagrangian equations with subcritical phases and minimal surface systems , Amer. J. Math. 135 (2013), no. 5, 1157–1177. [24] D. Wang and Y. Yuan, Hessian estimates for special Lagrangian equations with critical and super-critical phases in general dimensions , Amer. J. Math. 136 (2014), no. 2, 481–499. [25] M. Warren and Y. Yuan, Hessian and gradient estimates for three dimensional special Lagrangian equations with large phase , Amer. J. Math. 132 (2010), no. 3, 751–770. [26] N. Xiang and Y. Xiong, The Dirichlet problem of generalized special Lagrangian type equations and curvature version , Canad. J. Math., First View (2025), 1–27, doi: 10.4153/S0008414X25000252. 32 R. HUANG AND Q. JIANG 
+
+[27] Y. Yuan, A Bernstein problem for special Lagrangian equations , Invent. Math. 150 (2002), no. 1, 117–125. [28] Y. Yuan, Global solutions to special Lagrangian equations , Proc. Amer. Math. Soc. 134 (2006), no. 5, 1355–1358. 
+
+School of Mathematics and Statistics, Guangxi Normal University, Guilin, Guangxi, 541004, China 
+
+Email address : ronglihuangmath@gxnu.edu.cn 
+
+School of Mathematical Sciences, Beijing Normal University, Beijing 100875, China 
+
+Email address : 202531130031@mail.bnu.edu.cn

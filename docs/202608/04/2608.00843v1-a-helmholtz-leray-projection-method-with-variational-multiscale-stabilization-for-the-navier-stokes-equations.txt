@@ -1,0 +1,1989 @@
+Title: A Helmholtz-Leray projection method with variational multiscale stabilization for the Navier-Stokes equations
+
+URL Source: https://arxiv.org/pdf/2608.00843v1
+
+Published Time: Tue, 04 Aug 2026 01:03:05 GMT
+
+Number of Pages: 33
+
+Markdown Content:
+# A Helmholtz-Leray projection method with variational multiscale stabilization for the Navier-Stokes equations 
+
+Biswajit Khara 1,*, †, Suresh Murugaiyan 1,* , Makrand Khanwale 3, and Baskar Ganapathysubramanian 1,2, †
+
+> 1
+
+Translational AI Center, Iowa State University, Ames, IA, 50011 USA 
+
+> 2
+
+Department of Mechanical Engineering, Iowa State University, Ames, IA, 50011 USA 
+
+> 3
+
+Technical University of Munich, School of Engineering and Design, Professorship for Computational Fluid Dynamics, Boltzmannstr. 15, Garching, 85748, Germany 
+
+> *
+
+These authors contributed equally to this work. 
+
+> †
+
+Corresponding authors: bkhara@iastate.edu; baskarg@iastate.edu 
+
+Abstract 
+
+The Galerkin finite element formulation of the incompressible Navier-Stokes equations presents two principal challenges: maintaining stable velocity-pressure coupling and controlling instabil-ity in advection-dominated regimes. Moreover, the monolithic formulation produces a coupled nonlinear saddle-point problem. In this work, we present a residual-based variational multiscale (VMS) stabilization of an incremental Helmholtz-Leray projection method that replaces this cou-pled saddle-point problem with a nonlinear velocity predictor, a pressure Poisson equation, and a velocity projection. The multiscale decomposition is applied only to the predicted velocity; neither the pressure nor the corrected, weakly divergence-free velocity is decomposed into coarse and fine scales. The modeled velocity fine scale contributes consistently to all three subproblems, introduc-ing SUPG-like stabilization in the momentum predictor and a PSPG-like residual contribution in the pressure Poisson equation. We provide a formal error decomposition that separates the BDF2 time-discretization, projection-splitting, and spatial-VMS errors and, under stated stability and spatial-approximation assumptions, yields a combined velocity error estimate with second-order temporal accuracy. Numerical results for manufactured solutions, lid-driven cavity flow, flow past a cylinder, and the Taylor-Green vortex agree closely with established reference data. Comparisons with monolithic VMS indicate that omitting the pressure fine scale reduces drag overprediction and excess modeled dissipation, at the cost of increased divergence error. In the Taylor-Green tests, the projection formulation also reduces the average solution time per step by factors ranging from approximately 1.3× to 2.7× under identical solver settings. 
+
+# 1 Introduction 
+
+It is well known that a Galerkin formulation of the Navier-Stokes equations (NSE) can lose stability primarily in two ways: (i) violation of the inf-sup condition, and (ii) a dominant advective term in the momentum equations [2, 6, 18, 7, 30]. The first is associated with the saddle-point structure of the velocity-pressure formulation: the pressure acts as a Lagrange multiplier enforcing incompressibility, and stable discretizations must satisfy the Ladyzhenskaya-Babuška-Brezzi (LBB) condition or the inf-sup condition. This requirement excludes convenient equal-order approximation of velocity and pressure unless additional stabilization is introduced. The second difficulty arises from the advective term, which can make the system unstable at moderate to high Reynolds numbers if the mesh is not resolved enough to capture the small features of the flow. This leads to spurious oscillations and loss of robustness in the standard Galerkin method. Stabilized finite element methods address these difficulties by augmenting the Galerkin formula-tion with additional terms. A large class of such methods has been developed, including streamline-upwind/Petrov-Galerkin (SUPG) [9], pressure-stabilized/Petrov-Galerkin (PSPG) [27], Galerkin/least-squares (GLS) [28], the Douglas-Wang method [20], subgrid-scales [15], among others. In this work, 1arXiv:2608.00843v1 [math.NA] 1 Aug 2026 our focus will be on the variational multiscale method (VMS) [26]. As the name suggests, VMS for-mulates the trial and test functions as direct sums of coarse and fine-scale quantities. The coarse-scale quantities are represented directly by the finite element space. The fine scales are unresolved by the mesh, but their effect on the NSE is still incorporated in the discrete equations by modeling the fine scales using the residuals of the coarse scales. Most importantly, the VMS methodology results in both advective and pressure stability in the NSE [16, 4]. Finally, due to its multiscale interpretation of stabilization, VMS can also be considered as a turbulence model [29]. Many VMS formulations are written and solved in a fully coupled, monolithic form, in which the velocity and pressure unknowns are solved simultaneously [31, 4]. Such formulations lead to nonlinear algebraic systems with a saddle-point structure that are more expensive to solve. This motivates the development of splitting strategies that retain the stabilizing advantages of VMS while reducing the complexity of the monolithic velocity-pressure formulation. To this end, we build on the Chorin-Temam-type splitting [12, 44] of the NSE, which transforms the saddle-point system into a series of elliptic problems. The Chorin-Temam splitting relies on the Helmholtz-Leray (HL) projection [21, 24] to enforce the incompressibility constraint, which is why these schemes are also known as “projection schemes.” In a general projection scheme, the momentum equation is solved without the continuity constraint to obtain an intermediate velocity, which is then used to calculate the pressure. Finally, a divergence-free velocity is obtained using Helmholtz decomposition and the associated Leray projection. The original scheme of Chorin uses a first-order time discretization and drops the pressure from the momentum predictor completely, which results in a O(∆t ) error in velocity and a O(∆t 1/2) error in pressure (where ∆t is the stepsize). But since then, projection methods have evolved into a broad family of fractional-step schemes that differ chiefly in how the pressure is treated in the momentum predictor. Prominent among these are the incremental pressure correction methods [23, 48, 47]. These schemes use the pressure from the previous step in the momentum predictor, and then compute a correction to the pressure using the predicted velocity. These schemes generally improve the pressure accuracy as compared to that obtained in the original Chorin-Temam splitting. Systematic analyses and classifications of these variants are surveyed in [24, 37]. In this work, we combine these two prominent ideas, namely, projection scheme and multiscale stabilization, to obtain a more efficient method. We first apply the projection splitting to the time-discrete NSE, and then stabilize the split system of equations using VMS. The main contributions of this paper are therefore threefold. First, we derive a VMS-stabilized incremental projection method in which the fine scales of the predicted velocity, modeled through the residual-based multiscale frame-work, supply both advective and pressure stability, thereby enabling equal-order velocity-pressure interpolation without the need to satisfy the inf-sup condition. Second, we carry out a formal error analysis of the resulting scheme and provide a systematic comparison against the monolithic VMS formulation, clarifying the accuracy and stability implications of the splitting. Third, we assess the method on a set of benchmark problems, demonstrating its accuracy, its robustness at moderate-to-high Reynolds numbers, and its computational advantages over the fully coupled formulation. The benchmark problems include the lid-driven cavity flow (2D), the flow past a cylinder (2D) and the Taylor-Green vortex (3D). The remainder of this paper is organized as follows. In Section 2, we first review the preliminar-ies (Section 2.2 and Section 2.3), and then present the VMS-stabilized Helmholtz-Leray projection method for the incompressible NSE (Section 2.4). In Section 3, we provide a formal error analysis of the approach. Next, in Section 4, we provide a series of numerical examples, and finally draw our conclusions in Section 5. 
+
+# 2 Formulations 
+
+In this section, we give a brief overview of the fully implicit VMS formulation of the NSE, and then present the proposed VMS-stabilized projection method. We begin with the notations and terminologies. 22.1 Notation 
+
+Table 1: Notation for the velocity fields used in the monolithic and projection formulations. All quantities are at time-step n.Symbol Description Note Formulation 
+
+u Exact solution of the NSE – –
+
+un Total velocity solution 
+
+un = uc + uf
+
+≈ uh + u′ VMS in Monolithic 
+
+uc, uf Coarse and fine-scale components of un
+
+uh Coarse-scale approximation 
+
+u′ Fine-scale approximation 
+
+˜un Total predicted velocity 
+
+˜un = ˜ uc + ˜ uf
+
+≈ ˜u + ˜ u′ VMS in HL projection 
+
+˜uc, ˜uf Coarse and fine-scale components of ˜un
+
+˜uh Coarse-scale approximation 
+
+˜u′ Fine-scale approximation 
+
+ˆun, ˆuh Corrected velocity after the projection step In the next subsection and thereafter, we introduce several velocity fields associated with two stabilized formulations of the NSE. The notation is summarized in Table 1 for quick reference, and each quantity is explained when it is first encountered in the text. Among other frequently used notations, we denote vector-valued quantities by boldface letters. For example, x given by 
+
+x = [ x1, x 2, . . . , x d]⊤ =
+
+> 
+
+x1
+
+x2
+
+...
+
+xd
+
+> 
+
+denotes the spatial coordinates where each xi, i = 1, 2, . . . , d are scalars. Similarly, u(t, x) =[u1, u 2, . . . , u n]⊤ denotes a vector-valued function where each {ui}ni=1 is a function of both time and space, i.e., ui = ui(t, x).Given two scalar-valued functions a(x) and b(x) on a domain Ω ⊂ Rd, we denote the inner-product between them as 
+
+(a, b ) := 
+
+> ∫
+> Ω
+
+a(x) b(x)dx.
+
+For two vector-valued functions a(x) and b(x), we denote the inner-product in a similar manner as 
+
+(a, b) := 
+
+> ∫
+> Ω
+
+a(x) · b(x)dx =
+
+> ∫
+> Ω
+
+a(x)⊤b(x)dx = 
+
+> ∫
+> Ω
+> [n∑
+> i=1
+
+ai(x) bi(x)
+
+> ]
+
+dx =
+
+> n∑
+> i=1
+
+(ai, b i) .
+
+For two vector-valued functions a and b, we also define the outer product C as 
+
+C = a ⊗ b = ab ⊤.
+
+Here, C is a second order tensor whose (i, j )-th component is given as 
+
+Cij = aibj .
+
+For matrices, we will use a double underbar, e.g., C.3Ω
+
+ΓD
+
+ΓN ˆn
+
+Figure 1: Sketch of a general domain with different conditions applied at different boundaries. Neu-mann conditions are prescribed on ΓN , and Dirichlet conditions on the velocities are prescribed on 
+
+ΓD.
+
+2.2 Implicit Galerkin formulation of the Navier-Stokes equations 
+
+Suppose Ω is a spatial domain (see Figure 1). The incompressible Navier-Stokes equations in non-dimensional form on Ω are 
+
+∂tu + ( u · ∇ )u − ν∆ u + ∇p − f = 0, (1a) 
+
+∇ · u = 0 , (1b) along with the boundary conditions 
+
+u = uD on ΓD, (2a) 
+
+n · (−pI + ν∇u) = h on ΓN , (2b) and initial conditions 
+
+u(t = 0 , ·) = u0(·). (3) Here, u, p and f are the velocity, pressure, and forcing, respectively. The parameter ν is the dimen-sionless viscosity ( ν = Re −1). For unique solvability of equations (1)–(3), we assume ΓD̸ = ∅.
+
+2.2.1 Discrete in time formulation 
+
+To numerically solve (1)–(3), we must prescribe the temporal and spatial discretization schemes. We employ implicit time stepping (using backward difference formula (BDF) methods) and a continuous Galerkin finite element method in space. An r-th order BDF approximation of ∂u/∂t at time step n
+
+is 
+
+∂u
+
+∂t  
+
+> ∣∣∣n
+
+= 1
+
+∆t β0un + 1
+
+∆t 
+
+> r∑
+> i=1
+
+β−iun−i
+
+= σun + 1
+
+∆t 
+
+> r∑
+> i=1
+
+β−iun−i, (4) where β0, {β−i}ri=1 are the standard coefficients of the BDF-r scheme; and σ = β0/∆t . In a time-marching setting, un is unknown, while un−1, . . . , un−r are known. The BDF-r discretization of (1) is given as 
+
+σun + ( un · ∇ )un − ν∆ un + ∇pn − gn = 0, (5a) 
+
+∇ · un = 0 , (5b) 4where 
+
+gn := f n − 1
+
+∆t 
+
+> r∑
+> i=1
+
+β−iun−i. (6) 
+
+2.2.2 Galerkin formulation 
+
+We now derive a Galerkin formulation of (5). Define the trial and test spaces 
+
+V D := 
+
+> {
+
+v ∈ H1(U ) : v = uD on ΓD
+
+> }
+
+, (7a) 
+
+V := 
+
+> {
+
+v ∈ H1(U ) : v = 0 on ΓD
+
+> }
+
+, (7b) 
+
+Q := H1(U ). (7c) We seek (un, p n) ∈ V D × Q such that, for all (v, q ) ∈ V × Q,
+
+> ∫
+> Ω
+
+v · [σun + ( un · ∇ )un − ν∆ un + ∇pn − gn] d x +
+
+> ∫
+> Ω
+
+q ∇ · un dx = 0 . (8) Performing an integration-by-parts on the “stress” terms, i.e., the Laplacian ∆un and the pressure gradient ∇pn as follows: 
+
+> ∫
+> Ω
+
+v · [−ν∆ un + ∇pn] d x =
+
+> ∫
+> Ω
+
+ν∇v : ∇undx −
+
+> ∫
+> Ω
+
+(∇ · v) pn dx −
+
+> ∫
+> ∂Ω
+
+v · (n · [−pnI + ν∇un]) d x
+
+(9) 
+
+=
+
+> ∫
+> Ω
+
+ν∇v : ∇undx −
+
+> ∫
+> Ω
+
+(∇ · v) pn dx −
+
+> ∫
+> ΓN
+
+v · hn dx. (10) Collating all terms, and using the inner product notation described in Section 2.1, the Galerkin formulation of (5) is to find (un, p n) ∈ V D × Q such that 
+
+> {
+
+Rm(un, p n; v) = 0 ∀v ∈ V ,
+
+Rc(un; q) = 0 ∀q ∈ Q, 
+
+(11a) (11b) where Rm and Rc are the weak momentum and continuity residuals defined as 
+
+Rm(un, p n; v) := ( σun, v) + (( un · ∇ )un, v) + ν (∇un, ∇v) − (pn, ∇ · v)
+
+− (gn, v) − (hn, v)ΓN , (12a) 
+
+Rc(un; q) := ( ∇ · un, q ) . (12b) 
+
+Rm is nonlinear in un, whereas Rc is linear. 
+
+Matrix structure of the coupled monolithic problem. The velocity un and the pressure pn
+
+are coupled in the Galerkin formulation (11), just like in the original NSE (1). To make the coupled structure explicit, we first write (11) in its nonlinear algebraic form. Suppose 
+
+U = [ u1, . . . , unb ]⊤, and P = [ p1, . . . , p nb ]⊤ (13) are the nodal unknowns of un and pn respectively, and nb denotes the number of basis functions in the finite element mesh. The nonlinear algebraic system arising from the spatial discretization of (11) can then be written as 
+
+N (U ) + GP = 0,
+
+DU = 0.
+
+(14a) (14b) Here, N is a nonlinear (vector) function of U . The matrix G is the discrete pressure-gradient operator, and D is the discrete divergence operator. 5A standard approach for solving (11) is Newton’s method. The Newton system at the kth -step (k ≥ 0) for the increments (δU , δ P ) can be written as 
+
+> [
+
+K(Uk) GD 0
+
+> ] [
+
+δU
+
+δP
+
+> ]
+
+= −
+
+> [
+
+RM,k 
+
+RC,k 
+
+> ]
+
+. (15) Here, K := ∂N 
+
+> ∂U
+
+is the tangent stiffness matrix acting on U . K(Uk) contains the transient mass contribution, the linearized advective contribution, and the viscous contribution. On the right hand side, RM,k := N (Uk) + GP k and RC,k := DU k are the discrete momentum and continuity residuals evaluated at the kth iterates. Once (15) is solved for the increments, we then have the next iterates 
+
+U nk+1 = U nk + δU , (16a) 
+
+P nk+1 = P nk + δP . (16b) Both (14) or (15) have the structure of a saddle-point problem with a zero diagonal block, which is typical of a Galerkin formulation of the NSE without any stabilization. 
+
+2.2.3 Lack of stability of the continuous Galerkin method 
+
+Equation (11) represents the weak form of the time-discrete incompressible Navier-Stokes equations. However, a discretization of (11) using standard C0(Ω) finite element basis functions is not automati-cally stable, and runs into two main challenges. The first is associated with the saddle-point character of the coupled velocity-pressure formulation. And the second is associated with the advective term in the momentum equation. 
+
+The saddle-point problem. The first issue arises from the incompressibility constraint and result-ing saddle-point structure in (14b) and (15). For such a system, the discrete velocity and pressure spaces cannot be chosen independently. If Vh ⊂ V and Qh ⊂ Q denote the discrete velocity and pressure spaces, then the pair (Vh, Q h) must satisfy a discrete inf-sup condition of the form 
+
+inf 
+
+> qh∈Qh
+
+sup 
+
+> vh∈Vh
+
+(∇ · vh, q h)
+
+∥vh∥Vh ∥qh∥Qh
+
+≥ βh > 0, (17) for some βh ∈ R. This condition ensures that the discrete pressure is sufficiently controlled by the discrete divergence operator. If this compatibility condition is violated, the pressure approximation may develop nonphysical oscillations or checkerboard modes, and stability of the formulation cannot be guaranteed [2, 6, 30]. A pair of finite element spaces that satisfies (17) is called an inf-sup-stable or LBB-stable pair [2, 6, 30]. Examples of such pairs include the Taylor–Hood pairs ( [Pm]d/P m−1 and [Qm]d/Q m−1, m ≥ 2) [43], the mini element ( [P1⊕B]d/P 1) [1], the Crouzeix–Raviart pair ( [P CR 1 ]d/P 0) [17], and the Scott–Vogelius pairs ( [Pm]d/P disc 
+
+> m−1
+
+, for sufficiently large m under suitable assumptions on the mesh topology) [39]. Standard equal-order pairs, such as [P1]d/P 1 or [Q1]d/Q 1, are not inf-sup stable, and require additional stabilization such as the pressure stabilized Petrov Galerkin method (PSPG) [27, 20, 46], the Galerkin/least-squares (GLS) method [28], subgrid-scale methods [15] and the variational multiscale (VMS) method [26], among others. In these stabilized schemes, the zero diagonal block of the original problem is regularized with a negative definite block matrix. In this work, we focus on the variational multiscale methods, which fall under this umbrella. 
+
+The advective operator. The second issue is associated with the advective term (u · ∇ )u in the momentum equation. When advection dominates diffusion (i.e., the Reynolds number becomes large) or the mesh is not sufficiently fine relative to the flow features, the standard continuous Galerkin discretization of the advective term may produce spurious oscillations [9, 28, 14]. There are several ways to resolve these difficulties, typically by introducing some form of up-wind, residual-based, or fluctuation-control stabilization. Classical approaches include streamline-upwind/Petrov–Galerkin (SUPG) method [9], GLS [28], residual-free bubbles [8, 3], and VMS [26]. 6Additional finite element strategies include discontinuous Galerkin methods with upwind numerical fluxes [13], local projection stabilization [5], continuous interior penalty or edge-stabilization meth-ods [19, 10], and algebraic flux-correction or shock-capturing techniques for strongly underresolved flows [34, 45]. As discussed above, we note that both GLS and VMS, along with various sub-grid scale theories, can provide stability against both issues. Moreover, in addition to being a method, VMS also acts as a multiscale model, and provides a general framework for formulating stabilized methods for various applications. Therefore, in the sequel, we will only focus on VMS for deriving stabilized schemes. We provide a brief description of the VMS methodology with respect to the Galerkin formulation (18). 
+
+2.3 A review of the variational multiscale stabilization 
+
+The variational multiscale (VMS) framework provides a unified way of deriving both advective and pressure stabilizations by decomposing the solution into multiple scales and by modeling the unresolved scales [26, 28, 4]. The core idea of VMS is to write the continuous velocity and pressure fields as the sum of a coarse and a fine component: 
+
+un = unc + unf , (18a) 
+
+pn = pnc + pnf . (18b) The coarse scales represent the part of the solution that can be resolved by the discretization. And the fine scales represent features that remain unresolved. Therefore, we can approximate the coarse scales (unc , p nc ) by the discrete functions (uh, p h) ∈ Vh × Qh directly. The fine scales unf and pnf cannot be directly represented on the mesh. And yet, they cannot simply be discarded. Rather, their effect must be considered in the finite dimensional Galerkin formulation. The defining feature of any VMS method is precisely how this fine scale effect is approximated, and several closures have been proposed (for instance, those based on bubble functions, on the solution of local fine scale problems, or on algebraic models of the fine scale operator). Here we adopt the 
+
+residual-based VMS formulation, in which the fine scale quantities are modeled by the residuals of the coarse scale quantities as 
+
+unf ≈ u′ := −τmrhm, (19a) 
+
+pnf ≈ p′ := −τcrhc . (19b) where the element-wise strong-form residuals are 
+
+rhm := σuh + ( uh · ∇ )uh − ν∆ uh + ∇ph − gn, (20a) 
+
+rhc := ∇ · uh, (20b) and τm and τc are elementwise stabilization parameters. These parameters encode the local temporal, advective, and diffusive scales of the problem. These parameters can be calculated as [40, 4] 
+
+τm = 
+
+> [
+
+4
+
+∆t 2 + uh · Guh + CI ν2(G : G)
+
+> ]−1/2
+
+, (21a) 
+
+τc = 1
+
+τm(g · g) , (21b) where G and g are element metric quantities and CI is a dimensionless constant. Their construction from the element map is given in Appendix A. Now, substituting the decomposition (18) in (12), we have {RVMS  
+
+> m
+
+(un, p n; v) = 0 ∀v ∈ Vh,
+
+RVMS  
+
+> c
+
+(un; q) = 0 ∀q ∈ Qh,
+
+(22a) (22b) 7where 
+
+RVMS  
+
+> m
+
+(un, p n; v) := ( σuh, v)h + ((( uh + u′) · ∇ )( uh + u′), v)
+
+> h
+
++ ν (∇uh, ∇v)h − ((ph + p′), ∇ · v)
+
+> h
+
+− (gn, v)h − (hn, v)ΓN ,h , (23a) 
+
+RVMS  
+
+> c
+
+(un; q) := (∇ · (uh + u′), q ) 
+
+> h
+
+, (23b) where all the inner products are now understood to be sums of elementwise inner products since the fine scale quantities u′ and p′ are only defined in element interiors. Equation (23), together with the fine scale model given by (19) and the definitions in (20) complete the description of the method. Expanding the advective term, we have 
+
+((uh + u′) · ∇ (uh + u′), v) 
+
+> h
+
+= ((uh + u′) · ∇ uh, v) 
+
+> h
+
++ ((uh + u′) · ∇ u′, v) 
+
+> h
+
+.
+
+To avoid a differentiation of u′ (which appears in the second inner product), we write 
+
+((uh + u′) · ∇ u′, v) 
+
+> h
+
+=
+
+(
+
+∇ · 
+
+[
+
+u′(uh + u′)T ]
+
+, vh
+
+)
+
+− ((∇ · (uh + u′)) u′, vh
+
+)
+
+≈
+
+(
+
+∇ · 
+
+[
+
+u′(uh + u′)T ]
+
+, vh
+
+)
+
+= −
+
+(
+
+u′(uh + u′)T , ∇vh
+
+)
+
++
+
+(
+
+n ·
+
+[
+
+u′(uh + u′)T ]
+
+, vh
+
+)
+
+> ∂Ω
+
+= − (u′, uh · ∇ vh
+
+) − (u′, u′ · ∇ vh
+
+) +
+
+(
+
+n ·
+
+[
+
+u′(uh + u′)T ]
+
+, vh
+
+) 
+
+> ∂Ω
+
+,
+
+where in the second step, we have assumed that the total velocity u = uh + u′ is divergence free; and in the third step, we have performed an integration by parts. The inner product − (u′, uh · ∇ vh) is the so-called SUPG term since it introduces the streamline derivative of the test function against the full residual, 
+
+− (u′, uh · ∇ v) 
+
+> h
+
+= −
+
+(
+
+−τmrhm, uh · ∇ v
+
+) 
+
+> h
+
+=
+
+(
+
+τmrhm, uh · ∇ v
+
+) 
+
+> h
+
+.
+
+Similarly, focusing on the continuity term, we have 
+
+(∇ · (uh + u′), q ) 
+
+> h
+
+= ( ∇ · uh, q ) + (∇ · u′, q )
+
+> h
+
+= ( ∇ · uh, q ) − (u′, ∇q) 
+
+> h
+
++ (n · u′, q )  
+
+> ΓN,h
+
+(integ.-by-parts) 
+
+= ( ∇ · uh, q ) + 
+
+(
+
+τmrhm, ∇q
+
+) 
+
+> h
+
++ (n · u′, q )  
+
+> ΓN,h
+
+(24) where, in the second step, we have used the assumption that un = uh on ΓD and therefore u′ = 0 .The second term in the last line, i.e., 
+
+(
+
+τmrhm, ∇q
+
+) 
+
+> h
+
+is exactly the stabilization term applied in the PSPG method. And finally, the pressure terms are given by 
+
+− ((ph + p′), ∇ · v) 
+
+> h
+
+= − (ph, ∇ · v) − (p′, ∇ · v)
+
+> h
+
+= − (ph, ∇ · v) + 
+
+(
+
+τcrhc , ∇ · v
+
+) 
+
+> h
+
+,
+
+where, we can identify the second inner product as the “grad-div” stabilization term. A broader discussion on both fully-implicit and semi-implicit formulations of VMS can be found in [33]. 
+
+Remark 2.1 (Underlying assumptions) . The implicit assumptions in (23a) are: 1. In the discrete time-derivative term, we have only considered the coarse-scale uh. This follows from the underlying assumption 
+
+(∂tu′, v) = 0 or (∂tuh + u′, v) = ( ∂tuh, v) . (25) In the discretized form, this term enters (23a) through both (σuh, v) and (gn, v).82. We also make a similar simplification in the viscous term: 
+
+> (
+
+∇u′, ∇v) = 0 or (∇(uh + u′), ∇v) = ( ∇uh, ∇v) . (26) 3. We neglect the fine scales u′ on the boundaries, i.e., 
+
+u′ = 0 on ∂Ω. (27) These simplifications follow the assumptions made in [4]. 
+
+Matrix equations. At the algebraic level, the stabilization changes the structure of the Newton system (15) as 
+
+> [
+
+Ks Gs
+
+Ds −Ss
+
+> ] [
+
+δU
+
+δP
+
+> ]
+
+= −
+
+> [
+
+Rs
+
+> M
+
+Rs
+
+> C
+> ]
+
+. (28) Here, the superscript “s” stands for “stabilized.” Note that the zero pressure diagonal block is replaced by a discrete negative Laplacian operator −Ss. Similarly the other block matrices K, G and D, along with the residuals are replaced by their stabilized counterparts. Note that both Ks and Ss are positive definite (accounting for appropriate boundary conditions), and therefore the system in (28) is still a saddle-point system. The preceding discussion shows that residual-based VMS stabilization provides a systematic way to regularize the fully coupled Galerkin formulation: the SUPG-like terms control advective instabilities, while the PSPG- and grad-div-like terms relax the strict inf-sup requirement and modify the alge-braic saddle-point structure. However, the resulting monolithic stabilized system remains a nonlinear saddle-point problem with velocity-pressure coupling. This motivates an alternative strategy in which the stabilizing effect of VMS is retained, but the velocity-pressure coupling is relaxed by a splitting approach. We discuss this below. 
+
+2.4 A VMS-stabilized projection scheme 
+
+In this section, we introduce a VMS-stabilized projection method for the incompressible Navier-Stokes equations. The core idea is to use a second order splitting method based on a Helmholtz-Leray-type projection method (inspired by the classical Chorin-Temam-type schemes), but stabilize the momentum equations using a VMS-style coarse-fine decomposition of the velocities. 
+
+2.4.1 The Chorin-Temam family of projection methods 
+
+The classical projection method of Chorin and Temam [12, 44] has inspired a large family of fractional-step schemes, including the incremental [23] and rotational incremental pressure-correction vari-ants [47]. In this work we begin with the incremental pressure-correction scheme due to van Kan [48], which retains the previous pressure ∇pn in the viscous step. For the time-discrete equations (5), this scheme can be written as 
+
+σ ˜un + ( ˜ un · ∇ ) ˜ un − ν∆ ˜un + ∇p∗ − gn = 0 in Ω, (29a) 
+
+˜un = uD on ΓD, (29b) where ˜un is an intermediate velocity solution, and p∗ is an extrapolation of pressure from the previous steps, i.e., p∗ is a known quantity at time-step n. The solenoidality constraint is ignored in the solution of (29), thus ˜un is not generally solenoidal. A divergence-free velocity ˆun and the pressure ˆp n are then obtained from 
+
+σ( ˆ un − ˜un) + ∇ˆp n − ∇ p∗ = 0 in Ω, (30a) 
+
+∇ · ˆun = 0 in Ω, (30b) 
+
+ˆun · n = ˜ un · n on ΓD. (30c) 9Eq. (30) is still a coupled set of equations between velocity and pressure. However, they can be split further into two new subproblems. Applying −∇· to Eq (30a), 
+
+−∆ˆp n = −∆p ∗ − σ∇ · ˜un in Ω (31a) 
+
+∇(ˆ p n − p∗) · n = 0 on ΓD. (31b) Eq. (31) can be solved solely for ˆp n, and is known as the pressure Poisson equation. Finally, the solenoidal velocity ˆun is given by 
+
+ˆun = ˜ un − 1/σ∇(ˆ p n − p∗) in Ω. (32) Eq. (32) is often called the velocity update equation. Note that ˆun is divergence-free but may not respect the Dirichlet boundary conditions since they are not imposed on ˆun.
+
+Choice of p∗. Popular choices for p∗ are 
+
+p∗ =
+
+> {
+
+0 (Chorin-Temam) ,pn−1 (1 st order extrapolation-rule ). (33) In this work, we use the first order extrapolation rule, which yields the “incremental pressure correc-tion” method [23, 48]. A broader overview of projection-based methods can be found in [24]. 
+
+Galerkin formulation. The Galerkin formulation of (29) mirrors the presentation in Section 2.2.2. We seek ˜un ∈ V D such that, for all v ∈ V ,
+
+(σ ˜un, v) + (( ˜ un · ∇ ) ˜ un, v) + ν (∇ ˜un, ∇v) + ( ∇p∗, v) + ( n · [−ν∇ ˜un] , v)ΓN = (gn, v) (34) holds for any v ∈ V . For the Galerkin formulation of (31), let us define 
+
+φ = ˆ p n − p∗. (35) Then, for a test function q ∈ Q, we can write 
+
+−
+
+> ∫
+> Ω
+
+∆φ q dx =
+
+> ∫
+> Ω
+
+∇φ · ∇ q dx +
+
+> ∫
+> ∂Ω
+
+(n · ∇ φ)q ds. (36) Now, ∂Ω = Γ pD ∪ Γ pN , and we have n · ∇ φ = 0 on Γ pN , and q = 0 on Γ pD, therefore, the boundary term vanishes. So, we have 
+
+(∇ˆp n, ∇q) = ( ∇p∗, ∇q) − σ (∇ · ˜un, q ) (37) for all q ∈ Q. Finally, the velocity update is given by 
+
+( ˆ un, w) = ( ˜ un, w) − 1/σ (∇(ˆ p n − p∗), w) ∀w ∈ H1(Ω). (38) Therefore, in summary, we seek ˜un ∈ V D, ˆp n ∈ Q and ˆun ∈ H1(Ω) such that, 
+
+> 
+
+Momentum : (σ ˜un, v) + ( ˜ un · ∇ ˜un, v) + ν (∇ ˜un, ∇v) + ( ∇p∗, v)+ ( n · [−ν∇ ˜un] , v)ΓN = ( gn, v) ∀v ∈ V ,
+
+Pressure Poisson : (∇ˆp n, ∇q) = ( ∇p∗, ∇q) − σ (∇ · ˜un, q ) ∀q ∈ Q, 
+
+Velocity update : ( ˆ un, w) = ( ˜ un, w) − 1/σ (∇(ˆ p n − p∗), w) ∀w ∈ H1(Ω).
+
+(39a) (39b) (39c) 10 2.4.2 The projection method with VMS stabilization 
+
+Eq. (39a), (39b) and (39c) are solved sequentially in each time step. Thus, this system of equations no longer have the saddle-point nature of the fully coupled formulation given in (11). However, (39) still needs to be provided with advective and pressure stability, both of which the VMS treatment confers on the resulting scheme, as discussed below. To this end, we adapt the VMS methodology in the projection scheme framework. In the classical VMS framework of Section 2.3, both the velocity and the pressure are decomposed into coarse and fine scales, because the monolithic formulation must be stabilized against both sources of instability identified in Section 2.2: the inf–sup deficiency of the velocity-pressure saddle point, and the dominance of advection in the momentum equation. The projection splitting changes this picture fundamentally, because it dismantles the saddle point itself. It is therefore worth examining the three subproblems (39a)–(39c) in turn to decide which of them still requires a fine-scale model. Consider first the pressure. In the monolithic formulation the pressure carries a fine scale p′—and with it the parameter τc—precisely to relax the inf–sup condition for equal-order spaces. Here the pressure is no longer the Lagrange multiplier of an indefinite saddle point: the projection has recast it as the unknown of the pressure Poisson equation (39b), whose bilinear form (∇ˆp n, ∇q) is coercive on Q ∩ L20(Ω) by the Poincaré inequality. By the Lax–Milgram theorem this problem is well-posed for equal-order velocity-pressure spaces with no inf–sup condition. The structural reason for decomposing the pressure has thus disappeared, and ˆp n may be approximated directly by ˆph without any scale separation. The same holds for the corrected velocity. The update (39c) is an L2-projection onto the weakly divergence-free subspace; its bilinear form is the L2 inner product, coercive with constant one and unconditionally stable, and it involves neither an advective operator nor a constraint. There is conse-quently nothing to stabilize, and the divergence-free velocity ˆun is not decomposed either. What the splitting does not remove is the advective instability, and that instability is now confined to a single subproblem. The momentum predictor (39a) is an advection–diffusion–reaction problem in which the pressure has been demoted to known data; at moderate-to-high Reynolds number its standard Galerkin discretization suffers exactly the spurious oscillations described in Section 2.2. This is the only subproblem whose well-posedness genuinely requires stabilization, and it is therefore the only one in which a fine scale must be introduced. We accordingly decompose only the intermediate velocity ˜un and model its fine part by the momentum residual, which furnishes the streamline (SUPG-type) control familiar from residual-based stabilized methods [9, 26]. Finally, although only the predictor requires a fine scale, the unresolved part ˜u′ that it generates is a genuine component of the intermediate velocity and must be retained wherever that velocity subsequently reappears: it sources the pressure through the divergence ∇ · ( ˜ uh + ˜ u′) on the right-hand side of (39b), and it is part of the field projected in (39c). In this sense all three subproblems “see” the fine scale. Its appearance in the pressure Poisson equation is moreover what recovers a consistent PSPG-like term (cf. (47)). We emphasize, however, that carrying ˜u′ into (39b) and (39c) is a matter of consistency with the stabilized momentum balance, not of stability: both subproblems are independently well-posed whether or not ˜u′ is retained. Only the predictor needs the fine scale to be stable; the remaining two subproblems merely inherit it. We therefore apply the VMS decomposition to ˜un as 
+
+˜un(x) = ˜ uh(x) + ˜ uf (x), (40) where ˜uh and ˜uf denote the usual coarse and fine scales. Just like in (19), the fine scales of ˜un are modeled element-wise in terms of the coarse-scale residuals of the momentum equations, i.e., 
+
+˜uf ≈ ˜u′ := −τm ˜rhm (41) where ˜rhm is the elementwise strong-form residual of the momentum equation given by 
+
+> ˜
+
+rhm := σ ˜uh + ( ˜ uh · ∇ ) ˜ uh − ν∆ ˜uh + ∇p∗ 
+
+> h
+
+− gn. (42) 11 The stabilization parameter τm is evaluated using the same formula in (21a), with uh replaced by ˜uh.Finally, substituting (40) in (39) and replacing ˜uf by ˜u′, we have 
+
+> 
+
+Momentum (VMS) : (σ ˜uh, vh) + (( ˜ uh + ˜ u′) · ∇ ( ˜ uh + ˜ u′), vh
+
+> )
+
++ ν (∇ ˜uh, ∇vh) + ( ∇p∗
+
+> h
+
+, vh)+ ( n · [−ν∇ ˜uh] , vh)ΓN = ( gn, vh) ∀vh ∈ Vh,
+
+Pressure Poisson (VMS) : (∇ˆph, ∇q) = ( ∇p∗
+
+> h
+
+, ∇q) − σ (∇ · ( ˜ uh + ˜ u′), q ) ∀q ∈ Q, 
+
+Velocity update (VMS) : ( ˆ uh, w) = (( ˜ uh + ˜ u′), w) − 1 
+
+> σ
+
+(∇(ˆ ph − p∗
+
+> h
+
+), w) ∀w ∈ H1(Ω).
+
+(43a) (43b) (43c) Eq. (43), along with (41) and (42) specifies the stabilized projection method. Note that the simplifi-cations discussed in Remark 2.1 are also applied to ˜uh in (43a). Since u′ is defined element-wise, all inner products involving u′ in (43) are to be interpreted as elementwise. Once (41)–(42) are substituted in (43a), it can be solved for ˜uh. Next, (43b) can be solved for ˆph since p∗, ˜uh and ˜u′ are known at this point. Finally, (43c) can be solved for ˆuh since all the quantities in the right hand side are known. The full algorithm is provided in Algorithm 1. The fully expanded forms of these equations in terms of ˜uh (after substituting the fine-scale model from (41) and (42)) are also given in Algorithm 1. In the VMS-stabilized projection method discussed above, the monolithic problem (28) is replaced by a sequence of elliptic subproblems given in (43). The intermediate velocity problem is a nonlinear advection-diffusion-type equation, whereas the pressure Poisson and the velocity update equations are linear elliptic problems. 
+
+Remark 2.2. In (43b), the spatial derivatives of ˜u′ are not computable, therefore one must perform an integration-by-parts to keep it derivative-free, i.e., 
+
+− (∇ · ( ˜ uh + ˜ u′), q ) 
+
+> h
+
+= − (∇ · ˜uh, q ) + ( ˜u′, ∇q) 
+
+> h
+
+− (n · ˜u′, q )  
+
+> ΓN,h
+
+. (44) The second inner product on the right hand side is  
+
+> (
+
+˜u′, ∇q) 
+
+> h
+
+= −
+
+> (
+
+τm ˜rhm, ∇q 
+
+> )
+> h
+
+, (45) which is immediately recognized to be very similar to the classical PSPG stabilization term (cf. (24)). 
+
+Remark 2.3. Note that, due to the fact that pressure is not decomposed into coarse and fine scales, the second stabilization parameter τc does not appear in (43). 
+
+Remark 2.4 (Linearization of the momentum predictor) . The momentum predictor in Step 1 of Algo-rithm 1 is a fully nonlinear system in ˜uh. We solve it with Newton’s method (PETSc SNES), reassem-bling the residual and Jacobian at each Newton iterate. The fine-scale closure ˜u′ = −τm( ˜ uh) ˜rhm( ˜ uh, p ∗
+
+> h
+
+)
+
+depends on the current iterate of ˜uh and is recomputed consistently at every Newton step; no lagging or extrapolation is applied to ˜u′ or to the advecting velocity inside the step. The resulting fully implicit treatment converges in one or two Newton iterations per time step for the cases reported in Section 4, with the inner linear systems solved by BiCGStab with additive Schwarz preconditioning. 
+
+2.4.3 Discussion on the proposed method 
+
+The VMS-stabilized projection scheme given by (43) is both similar to and different from the monolithic VMS formulation given by (22) in multiple ways. Below we provide a comparative discussion. 
+
+Logical sequence of discretization. The two formulations and the steps relating them are sum-marized in Figure 2. Beginning from the continuous solution (u(tn), p (tn)) , a time discretization gives the coupled time-discrete problem (un, p n). From there, The dashed path applies the VMS discretiza-tion directly to the coupled problem, yielding the monolithic solution (uh, p h) of (22). Whereas, the solid path applies the projection splitting to obtain the fractional-step quantities ( ˜ un, ˆun, ˆp n), and then the VMS spatial discretization of the split problem to obtain the proposed solution ( ˜ uh, ˆuh, ˆph)
+
+of (43). The two routes share the common starting point (un, p n).12 Algorithm 1 VMS-stabilized projection scheme (one time step tn → tn+1 )
+
+Require: Previous-time solution fields and boundary data; forcing gn; extrapolated pressure p∗
+
+> h
+
+;coefficient σ from the BDF scheme. 
+
+Ensure: Updated velocity ˆuh and pressure ˆph.
+
+Step 1: Momentum predictor (nonlinear) 
+
+Find ˜uh ∈ V Dh such that, for all vh ∈ Vh,
+
+σ ( ˜ uh, vh) + (( ˜ uh · ∇ ) ˜ uh, vh
+
+) + ν (∇ ˜uh, ∇vh) + ( ∇p∗
+
+> h
+
+, vh) + (n · [−ν ∇ ˜uh], vh
+
+)
+
+> ΓN
+
+− ∑
+
+> K∈Kh
+
+(τm [σ ˜uh + ( ˜ uh · ∇ ) ˜ uh − ν∆ ˜uh + ∇p∗ 
+
+> h
+
+− gn] · ∇ ˜uh, vh
+
+)
+
+> K
+
++ ∑
+
+> K∈Kh
+
+(τm [σ ˜uh + ( ˜ uh · ∇ ) ˜ uh − ν∆ ˜uh + ∇p∗ 
+
+> h
+
+− gn] , ( ˜ uh · ∇ )vh
+
+)
+
+> K
+
+− ∑
+
+> K∈Kh
+
+(τm [σ ˜uh + ( ˜ uh · ∇ ) ˜ uh − ν∆ ˜uh + ∇p∗ 
+
+> h
+
+− gn] , τ m [σ ˜uh + ( ˜ uh · ∇ ) ˜ uh − ν∆ ˜uh + ∇p∗ 
+
+> h
+
+− gn]·∇ vh
+
+)
+
+> K
+
+− (gn, vh) = 0 .
+
+Here, ˜u′ = −τm ˜rhm, and the boundary integral in the penultimate line arises from the integration by parts of the fine-scale advection; it vanishes when the fine scales are neglected on ∂Ω (Remark 2.1). This nonlinear system is solved with Newton’s method. 
+
+Step 2: Pressure Poisson equation (linear) 
+
+With ˜uh given from Step 1, find ˆph ∈ Qh such that, for all q ∈ Qh,
+
+(∇ˆph, ∇q) = ( ∇p∗
+
+> h
+
+, ∇q) − σ (∇ · ˜uh, q ) − σ ∑
+
+> K∈Kh
+
+(τm [σ ˜uh + ( ˜ uh · ∇ ) ˜ uh − ν∆ ˜uh + ∇p∗ 
+
+> h
+
+− gn] , ∇q) 
+
+> K
+
+.
+
+Step 3: Velocity projection (linear) 
+
+Given ˜uh (from Step 1) and ˆph (from Step 2), find the corrected velocity ˆuh ∈ H1(Ω) such that, for all w ∈ H1(Ω),
+
+( ˆ uh, w) = ( ˜ uh, w) − ∑
+
+> K∈Kh
+
+(τm [σ ˜uh + ( ˜ uh · ∇ ) ˜ uh − ν∆ ˜uh + ∇p∗ 
+
+> h
+
+− gn] , w) 
+
+> K
+
+− 1
+
+> σ
+
+(∇(ˆ ph − p∗
+
+> h
+
+), w).
+
+Step 4: Pressure update 
+
+Set p∗ 
+
+> h
+
+← ˆph for the next time step. 
+
+Momentum equation / velocity prediction. In the VMS-stabilized projection scheme (43), the momentum equation (or the velocity predictor) is nonlinear in uh, just like the monolithic VMS formulation (22). In fact, the left hand side of (43a) looks very close to the monolithic momentum residual (23a), except the pressure, which is a known quantity in (43a), but a coupled unknown in (23a). 
+
+Pressure Poisson equation. The monolithic formulation (22) does not comprise a separate pres-sure Poisson equation. However, we can still draw parallels between the continuity equation in (22b) and the PPE (43b). For the discussion below, let us assume that ΓN = φ.From (44), we can write 
+
+(∇ · ˜u′, q ) 
+
+> h
+
+= − ( ˜u′, ∇q) 
+
+> h
+
++ (n · ˜u′, q )  
+
+> ΓN,h
+
+= − ( ˜u′, ∇q) 
+
+> h
+
+=
+
+(
+
+τm ˜rhm, ∇q
+
+) 
+
+> h
+
+. (46) 13 (u(tn), p (tn)) 
+
+(un, p n)
+
+( ˜ un, ˆun, ˆp n)
+
+( ˜ uh, ˆuh, ˆph)(uh, p h)
+
+time discretization projection splitting 
+
+VMS (split) 
+
+VMS (monolithic) 
+
+Figure 2: A schematic diagram of the path to the VMS-stabilized projection method (43). For reference, the path to the monolithic VMS problem (22) is shown with a dashed line. From the projection method PPE (43b), we have 
+
+0 = ( ∇ˆph, ∇q) − (∇p∗
+
+> h
+
+, ∇q) + σ (∇ · ( ˜ uh + ˜ u′), q )
+
+= ( ∇ˆph, ∇q) − (∇p∗
+
+> h
+
+, ∇q) + σ (∇ · ˜uh, q )+ ( στ m [σ ˜uh + ( ˜ uh · ∇ ) ˜ uh − ν∆ ˜uh + ∇p∗ 
+
+> h
+
+− gn] , ∇q)h . (47) Similarly for the monolithic case, multiplying (22b) by σ, we have 
+
+0 = σ (∇ · (uh + u′), q )
+
+> h
+
+= σ (∇ · uh, q ) + σ (τm [σuh + ( uh · ∇ )uh − ν∆ uh + ∇ˆph − gn] , ∇q)h
+
+= ( στ m∇ˆph, ∇q) − (στ m∇p∗∗ , ∇q) + σ (∇ · uh, q )+ ( στ m [σuh + ( uh · ∇ )uh − ν∆ uh + ∇p∗∗ − gn] , ∇q)h , (48) where we have introduced a new quantity p∗∗ in the third line to make the comparison clearer, even though p∗∗ is not the same as p∗. However, p∗∗ can be chosen in a similar way, e.g., p∗∗ could be set to 
+
+pn−1 
+
+> h
+
+, i.e., p∗∗ ← pn−1 
+
+> h
+
+. Written this way, we can see that the equations given by (47) and (48) are very similar to each other. Both formulations result in a Poisson operator on the pressure with different coefficients. A major difference however, is that (47) is a linear equation in ˆp nh since ˜unh is known (see Algorithm 1). Whereas, (48) is linear in ˆph but nonlinear in ˜unh. Note that the expressions in (47) and (48) are dimensionally consistent since τm has units of time (see (21a)). 
+
+Velocity update equation. Define the solenoidal space 
+
+Vdiv (Ω) := 
+
+{
+
+w ∈ H1(Ω) : ∇ · w = 0 in Ω, w · n = 0 on ∂Ω 
+
+}
+
+, (49) For the Galerkin method, it is well known that the corrected velocity ˆun is weakly divergence-free (by design), and is the L2(Ω)-projection of ˜un into Vdiv (Ω). These properties also hold for the VMS-stabilized method presented above. In (43c), if we choose the test function w from Vdiv (Ω) instead of 
+
+H1(Ω), we have 
+
+0 = ( ˆun − ( ˜ uh + ˜ u′), w) − 1 
+
+> σ
+
+(∇(ˆ ph − p∗
+
+> h
+
+), w) (50) 
+
+= ( ˆun − ( ˜ uh + ˜ u′), w) + 1 
+
+> σ
+
+(ˆ ph − p∗
+
+> h
+
+, ∇ · w) (51) 
+
+= ( ˆun − ( ˜ unh + u′), w) (52) 14 since ∇ · w = 0 in Ω.
+
+Difference between the end of step velocity solutions. The monolithic formulation solves for 
+
+uh which is a coarse scale quantity. It has a fine scale counterpart that must be accounted for when the total velocity is needed in a calculation. The intermediate velocity in the VMS/projection formulation (43) is of the same characteristic, i.e., it has a fine-scale counterpart as seen in (43). However, the corrected velocity ˆun does not have this interpretation since it is an L2(Ω)-projection of the total intermediate velocity. 
+
+# 3 Error analysis 
+
+In this section, we provide a formal analysis of the VMS-stabilized projection scheme derived above. The scheme involves two distinct approximations of the continuous, coupled Navier-Stokes equa-tions (1): a temporal splitting , in which the Helmholtz-Leray projection replaces the coupled momentum– continuity system by the sequence (29)–(32), and the spatial discretization of the split equations by the variational multiscale method, yielding (43). We quantify the errors of these two approximations in a single time step—the splitting error and the VMS spatial error, together with the underlying BDF time-discretization error—in Section 3.1, and combine them into a full a priori estimate in Section 3.2. Throughout, we assume that the exact solution is sufficiently regular and that the scheme is run in a stable regime, so that per-step errors are not amplified during time marching. 
+
+3.1 Error in a single step 
+
+We now analyze the errors in a single time-step. At a fixed time tn, we have the following solution tuples (see also Table 1 and Figure 2): 
+
+• u(tn), the exact solution of the coupled NSE (1), 
+
+• (un, p n), the solution of the time-discrete coupled problem (5) (BDF-r in time, continuous in space), 
+
+• (uh, p h), the solution of the monolithic VMS problem (22), 
+
+• ( ˜ un, ˆun, ˆp n), the solution of the time-discrete projection problem (29)–(32), with predictor ˜un,corrected velocity ˆun, and pressure ˆp n,
+
+• ( ˜ uh, ˆuh, ˆph), the solution of the VMS stabilized projection problem (43). Here, u(tn) is continuous in both time and space; quantities with a superscript n alone (e.g., un, ˜un,
+
+ˆun) are discrete in time but continuous in space; and uh, ˜uh, ˆuh are discrete in both. The total errors in the VMS-stabilized projection scheme (43) are given by ∥ ˆuh − u(tn)∥ and 
+
+∥ˆph − p(tn)∥. Using the triangle inequality, we can decompose the velocity error as 
+
+∥u(tn) − ˆuh∥ ≤ ∥u(tn) − un∥  
+
+> ︸︷︷ ︸
+> time discretization
+
++ ∥un − ˆun∥  
+
+> ︸︷︷ ︸
+> splitting error
+
++ ∥ ˆun − ˆuh∥  
+
+> ︸︷︷ ︸
+> spatial VMS error
+
+. (53) We quantify the three contributions in turn. 
+
+3.1.1 Time discretization error 
+
+The first term in (53) is the standard BDF-r time-discretization error of the coupled problem, which is of order O(∆t r) for sufficiently smooth solutions. For the BDF2 scheme used in this work, the standard consistency estimate [11] gives 
+
+∥u(tn) − un∥ ≤ C ∆t 2. (54) 15 3.1.2 The splitting error 
+
+The second term in (53), ∥un − ˆun∥, is the error introduced by the projection splitting. This splitting acts on the time-discrete coupled problem (5) before any spatial discretization: with σ = β0/∆t and 
+
+N (u) := ( u · ∇ )u, the incremental pressure-correction step computes a predictor 
+
+1
+
+∆t 
+
+> (
+
+β0 ˜un +
+
+> r∑
+> i=1
+
+β−i ˆu n−i)
+
++ N ( ˜ un) − ν∆ ˜un + ∇p∗ = f n, p∗ = ˆ p n−1, (55) where ˆu n−i denotes the corrected projection velocity from a previous time step, which for the BDF2 scheme used in this work reads 
+
+3 ˜ un − 4 ˆ u n−1 + ˆ u n−2
+
+2∆t + N ( ˜ un) − ν∆ ˜un + ∇p∗ = f n, (56) followed by the projection 
+
+ˆun = ˜ un − 1 
+
+> σ
+
+∇φ n, φ n := ˆ p n − ˆp n−1, ∇ · ˆun = 0 . (57) Because the VMS model enters only at the spatial-discretization stage (Section 3.1.3), the split velocity 
+
+ˆun defined by (55)–(57) is precisely the solution of the classical incremental (non-rotational) pressure-correction scheme [23, 48], whose splitting error is established, in the continuous-in-space setting, by Shen [41] and reviewed by Guermond et al. [24]; the equivalent algebraic approximate-factorization viewpoint is due to Perot [35]. 
+
+Lemma 3.1 (Splitting error of the incremental scheme) . Let ( ˜ un, ˆun, ˆp n) solve the incremental pressure-correction problem (55)–(57), and (un, p n) the coupled time-discrete problem (5), with the same data and sufficient regularity. Then 
+
+> (
+
+∆t ∑
+
+> n
+
+∥un − ˆun∥2)1/2
+
+= O(∆t 2),
+
+> (
+
+∆t ∑
+
+> n
+
+∥pn − ˆp n∥2)1/2
+
+= O(∆t ). (58) The first-order pressure rate is intrinsic to the non-rotational incremental scheme: the projec-tion (57) imposes the artificial homogeneous-Neumann condition ∇φ n · ˆn = 0 on the pressure incre-ment, whose boundary layer limits the pressure accuracy; the rotational variant recovers O(∆t 3/2) [24]. Combining Theorem 3.1 with the O(∆t 2) BDF2 time-discretization error of the coupled problem gives (
+
+∆t ∑
+
+> n
+
+∥u(tn) − ˆun∥2
+
+> )1/2
+
+= O(∆t 2)
+
+for the velocity, consistent with the temporal convergence reported in Section 4. 
+
+Remark 3.2 (Role of the pressure increment) . The splitting defect carries one factor σ−1 = O(∆t )
+
+from the projection (57) and a second factor from the pressure increment φ n. The incremental choice 
+
+p∗ = ˆ p n−1 renders φ n = O(∆t ), so the two combine to O(∆t 2), whereas the non-incremental choice leaves φ n = O(1) and only O(∆t ) remains. This is the continuous counterpart of the algebraic state-ment that the projection replaces the momentum-operator inverse by a scaled mass-matrix inverse [35]. 
+
+3.1.3 The spatial discretization error 
+
+The third term in (53), ∥ ˆun − ˆuh∥, is the error incurred by the VMS spatial discretization of the split problem; both ˆun and ˆuh correspond to the same time level and the same fractional-step equations, so this term contains no temporal contribution. Because the projection replaces the velocity-pressure sad-dle point by the sequence (43)—a nonlinear advection–diffusion–reaction predictor, a pressure Poisson equation, and an L2 projection—the spatial error depends on the discretization of each subproblem and on the propagation of errors through the sequence. 16 Assumption 3.1 (Spatial approximation of the fractional subproblems) . Let q denote the spatial convergence order attained by the stabilized discretization in the L2 norm; its value depends on the approximation spaces, solution regularity, stabilization model, and boundary conditions. We assume that the VMS discretizations of the three fractional subproblems are stable and consistent and that the total predicted velocity and pressure correction satisfy  
+
+> ∥∥
+
+˜un − ( ˜ uh + ˜ u′)∥∥ + 1
+
+σ ∥∇ (ˆ p n − ˆph)∥ ≤ Ch q. (59) This assumption includes the effects of the modeled velocity fine scale, the approximation of the extrapolated pressure, and the boundary contributions. Subtracting the continuous and discrete velocity-update equations and applying the triangle in-equality together with Assumption 3.1 gives 
+
+∥ ˆun − ˆuh∥ ≤ Ch q. (60) 
+
+3.2 The full error estimate 
+
+Combining the estimates of Sections 3.1.2 and 3.1.3 through the decomposition (53) yields the total error of the scheme. 
+
+Proposition 1 (Formal error estimate of the VMS-stabilized projection scheme) . Under the regularity, stability, and spatial-approximation assumptions above, the fully discrete incremental VMS-stabilized projection solution (43) obtained with BDF2 satisfies 
+
+> (
+
+∆t ∑
+
+> n
+
+∥u(tn) − ˆuh∥2)1/2
+
+= O
+
+> (
+
+∆t 2 + hq)
+
+. (61) 
+
+Proof. The decomposition (53) bounds the velocity error by its three contributions. The time-discretization term ∥u(tn) − un∥ is the O(∆t 2) BDF2 error of the coupled problem; the splitting term ∥un − ˆun∥ is O(∆t 2) by Theorem 3.1; and the spatial VMS term ∥ ˆun − ˆuh∥ is O(hq) by (60). Under the standing stability assumption—the discrete energy of the scheme is controlled by its data, so that per-step consistency errors accumulate without amplification in order (a discrete Grönwall argument [25])—summation of the per-step contributions gives (61). ■
+
+Remark 3.3 (Pressure and the role of each ingredient) . For the pressure, the non-rotational incre-mental splitting gives the general temporal estimate O(∆t ) in the discrete L2-in-time norm; a complete spatial pressure estimate is not pursued here. The rotational variant would improve the temporal pres-sure estimate to O(∆t 3/2) [24]. The estimate (61) also makes explicit that the second-order temporal rate of the velocity requires both BDF2 and the incremental pressure correction of Theorem 3.2; with the non-incremental variant, the splitting error is only O(∆t ).
+
+# 4 Results 
+
+We now examine the proposed formulation through a set of increasingly challenging numerical exam-ples. These include – (i) convergence tests with a manufactured solution, (ii) lid-driven cavity problem in 2D, (iii) flow past a cylinder in 2D and (iv) Taylor-Green flows in 3D. 
+
+4.1 Method of Manufactured solutions 
+
+We begin by testing the convergence of the proposed method as the time-step size ∆t is reduced. We take the exact solution (u, p ) to be 
+
+u =
+
+> [
+
+sin( πx ) cos( πy ) sin(2 πt )
+
+− cos( πx ) sin( πy ) sin(2 πt )
+
+> ]
+
+, (62a) 
+
+p = sin( πx ) sin( πy ) cos(2 πt ), (62b) 17 2−7 2−6 2−5 2−4
+
+10 −2
+
+10 −1
+
+1
+
+2
+
+> dt
+
+/T    
+
+> Re = 10 3
+> Re = 10 4
+> Re = 10 5
+> Re = 10 6
+
+(a) eu(T ).
+
+2−7 2−6 2−5 2−4
+
+10 −2
+
+10 −1
+
+1
+
+2
+
+> dt
+
+/T    
+
+> Re = 10 3
+> Re = 10 4
+> Re = 10 5
+> Re = 10 6
+
+(b) ep(T ).
+
+Figure 3: Convergence of velocity and pressure errors, T = 2 .25 .in a unit square domain, i.e., Ω = [0 , 1] 2 and time interval IT = [0 , T ]. We set T = 2 .25 , since the velocities reach a peak at t = n + 14 for n ∈ { 0, 1, 2, . . . }. The velocity u is chosen such that it satisfies 
+
+∇ · u = 0 exactly pointwise. We obtain the analytical expression for the forcing f by substituting the exact solutions (u, p ) in (1). We also analytically obtain the initial condition u0 by setting t = 0 
+
+in (62), and the boundary condition ud on all sides by setting x = ( x, y ) appropriately. To uniquely determine the pressure in the discrete system, we apply a Dirichlet condition given by 
+
+ph = 0 at (0 , 0) . (63) We solve the incompressible Navier-Stokes equations (1) using the proposed VMS-stabilized projec-tion scheme (43), with the manufactured forcing, initial condition, and boundary data derived above. To assess the robustness of the temporal convergence across flow regimes, the test is repeated for a range of Reynolds numbers, Re ∈ { 10 3, 10 4, 10 5, 10 6}. We measure the error in ( ˆ uh, p h) with respect to the exact solution (u, p ) using 
+
+eu(t) = 
+
+[∫ 
+
+> Ω
+
+∣∣ ˆuh(t) − u(t)∣∣2 dx
+
+]1/2
+
+, (64) 
+
+ep(t) = 
+
+[∫ 
+
+> Ω
+
+(ˆ ph − p)2 dx
+
+]1/2
+
+. (65) Figure 3 shows the convergence of these errors with respect to the step size ∆t . Across all the tested Reynolds numbers, both errors exhibit approximately second-order temporal convergence. For the pressure, this observed rate is higher than the general first-order estimate for the non-rotational scheme, which need not be sharp for this smooth manufactured problem and its boundary conditions. 
+
+4.2 Lid driven cavity 
+
+Figure 4 shows a schematic of the lid-driven cavity problem in 2D. The computational domain is 
+
+Ω = [0 , 1] 2. The boundary conditions are static (do not change with time) and are given by 
+
+u = 0, y = 0 , (66a) 
+
+u = [1 , 0] T , y = 1 , (66b) 
+
+u = 0 x ∈ { 0, 1}. (66c) The boundary condition comprise a “lid” at the top moving with horizontal velocity = 1 , and no-slip walls on the rest of the three sides. The forcing f = 0, and the initial condition is given by a zero function 
+
+u0 = 0. (67) 18 y = 0 : u = 0,
+
+∇(p − p∗) · ˆn = 0 
+
+y = 1 : u = (1 , 0) T ,
+
+∇(p − p∗) · ˆn = 0 
+
+x = 0 : u = 0,
+
+∇(p − p∗) · ˆn = 0 
+
+x = 1 : u = 0,
+
+∇(p − p∗) · ˆn = 0 
+
+A
+
+BΩ = [0 , 1] 2
+
+x = 0,
+
+p = 0 
+
+x
+
+y
+
+Figure 4: Boundary conditions for the lid-driven cavity problem. The blue dashed lines are the midlines where velocities will be evaluated and plotted (see Figure 5) 
+
+0 0.2 0.4 0.6 0.8 1
+
+−2
+
+−1.5
+
+−1
+
+−0.5
+
+0
+
+0.5
+
+1
+
+1.5
+
+2
+
+2.5
+
+Re = 100 
+
+Re = 1000 
+
+Re = 5000 
+
+Re = 10000 
+
+y
+
+> ux
+> VMS/projection
+> VMS/monolithic
+> Q2/Q 1/SUPG
+> reference
+
+(a) x-constant line 
+
+0 0.2 0.4 0.6 0.8 1
+
+−2
+
+−1.5
+
+−1
+
+−0.5
+
+0
+
+0.5
+
+1
+
+1.5
+
+2
+
+2.5
+
+Re = 100 
+
+Re = 1000 
+
+Re = 5000 
+
+Re = 10000 
+
+x
+
+> uy
+> VMS/projection
+> VMS/monolithic
+> Q2/Q 1/SUPG
+> reference
+
+(b) y-constant line 
+
+Figure 5: Midline velocity profiles for the lid-driven cavity problem. Left column shows ux(x =0.5, y, t = T ) against y, whereas right column shows uy(x, y = 0 .5, t = T ) against x. Curves for different Re are shifted successively by one unit in the vertical direction for clarity. Results from other solvers and data from Ghia et al. [22] are shown for reference. We solve this problem for a series of Reynolds numbers Re = 100, 1000, 5000 and 10000. The 19 benchmark results for this problem generally comprise of steady-state solutions. Here, we choose 
+
+T = 5 × 10 3 for all cases, such that a steady-state is achieved. We discretize the domain with a 
+
+128 × 128 axis-aligned mesh of equal-order Q1/Q 1 elements, graded to refine toward the boundaries. Figure 5 shows the line cuts of the velocities at steady state. Figure 5a shows the x-component of velocity along the vertical midline ( x = 0 .5, line A in Figure 4), and Figure 5b shows the y-component along the horizontal midline ( y = 0 .5, line B in Figure 4). For comparison, we also include results from the monolithic VMS solver ( Q1/Q 1) and from an inf-sup-stable Q2/Q 1 Taylor–Hood pair with SUPG stabilization, both run on the same mesh. Reference values from Ghia et al. are overlaid as well. The match between the projection-based and monolithic VMS solvers at all Reynolds numbers confirms that the projection-based splitting does not degrade steady-state accuracy.               
+
+> (a) ∇ · uh(b) ∇ · ˜uh(c) ∇ · ˆuh
+> −0.07 −0.04 −0.02 0.00 0.02 0.04 0.07
+
+Figure 6: An example of divergence fields at steady state for the lid-driven cavity at Re = 1000 : (a) VMS monolithic, (b) VMS/projection: after prediction (intermediate velocity), (c) VMS/projection: after projection (updated velocity). Dashed boxes mark the region of interest near the top-right corner singularity.               
+
+> (a) ( ˜ uh−ˆuh)x(b) ( ˜ uh−ˆuh)y
+> −0.003 −0.002 −0.001 0.000 0.001 0.002 0.003 0.004
+
+Figure 7: Velocity correction applied by the projection step for the lid-driven cavity at Re = 1000 
+
+at steady state. (a) x-component, ( ˜ un − ˆun)x. (b) y-component, ( ˜ un − ˆun)y. Both components are largest near the singular top corners of the cavity. 20 Figure 6 compares the divergence of the three discrete velocities — (i) the monolithic velocity solution uh, (ii) the projection-based intermediate velocity ˜uh and (iii) the projection-based updated velocity ˆuh — at Re = 10 3. The divergence of uh is small throughout the cavity, with higher magnitudes prominent near the singular top corners where the moving lid meets the no-slip walls, and smaller magnitudes along the walls and inside the recirculation regions. The divergence of the intermediate velocity ˜uh from the projection scheme exhibits a similar pattern but there are some visible differences, since solenoidality is not enforced at the predictor stage. After the L2-projection step, the corrected velocity ˆuh has a divergence that is comparable in pattern to that of the monolithic velocity, confirming that the projection step recovers weak incompressibility at the same level as the monolithic formulation. Figure 7 shows the components of the velocity correction ( ˜ uh − ˆuh) for this case. The corrections are seen to be the most pronounced near the corner singularities but also exhibit smaller, distributed contributions along the cavity walls and within the primary vortex. 
+
+4.3 Flow past cylinder 
+
+y = 0 :
+
+u = 0,
+
+∇(p − p∗) · ˆn = 0 
+
+y = H:
+
+u = 0,
+
+∇(p − p∗) · ˆn = 0 
+
+> x = 0 :
+> u = [ γ(y), 0] T ,
+> ∇(p − p∗) · ˆn = 0
+> x = L:
+> ˆn · ∇ u = 0,
+> p − p∗ = 0
+
+(0 , 0) 
+
+cylinder: 
+
+u = 0,
+
+∇(p − p∗) · ˆn = 0 
+
+d = 1 
+
+γ(y)
+
+x
+
+y
+
+Figure 8: Schematic diagram of the flow past a circular cylinder in 2D. The inlet velocity profile γ(y)
+
+is shown in blue curves and text.                      
+
+> (a) t= 50 (b) t= 70
+> (c) t= 75 (d) t= 150
+> −5−4−3−2−1012345
+> Vorticity ωz
+
+Figure 9: Instantaneous vorticity contours for two-dimensional flow past a circular cylinder at Reynolds number Re = 300 . The evolution of the wake shows the onset and development of periodic vortex shedding and the formation of a von Kármán vortex street. Next, we test our method on the problem of two-dimensional flow past a circular cylinder. The 21 setup is taken from Schäfer et al. [38], Kanaris et al. [32], Zovatto and Pedrizzetti [50]. The schematic of the problem is shown in Figure 8. The spatial domain is Ω = (( Ix × Iy)\C), where Ix = [0 , L ], I y =[0 , H ] and C denotes a circle of diameter d = 1 with center at (xc, y c). The length and width of the channel are given by L = 20 , H = 5 . The blockage ratio is d/H = 0 .2. The cylinder center is located at 
+
+xc = 3 and yc = H 
+
+> 2
+
++ d 
+
+> 10
+
+= 2 .6, placing it slightly above the channel centerline and thus asymmetrically between the bottom and top walls. The boundary and initial conditions are given as: 
+
+u = [ γ(y), 0] T on x = 0 , (68a) 
+
+u = [0 , 0] T on y = 0 , H, (68b) 
+
+u = [0 , 0] T on cylinder C, (68c) 
+
+p − p∗ = 0 on x = L, (68d) 
+
+n · ∇ u = 0 on x = L. (68e) where the inlet flow profile γ(y) is given by 
+
+γ(y) = 4 ucy(H − y)/H 2, (69) which is a parabolic profile with γ(0) = γ(H) = 0 and γm := γ(H/2) = uc. The average inlet velocity is given by ¯γ = 2/3uc. The Reynolds number for this problem is defined as Re = Uref dν . Uref = γm = uc.The force on the cylinder in the direction w is expressed as 
+
+Fw =
+
+> ∫
+> ΓC
+> [(
+
+−pI + ν[∇u + ∇uT ]
+
+> )
+
+· n
+
+> ]
+
+· w dS. (70) We set w = (1 , 0) to extract the drag force, and w = (0 , 1) to extract the lift force. The drag coefficient 
+
+Cd and the lift coefficient Cl are then calculated as 
+
+Cd = 2Fdrag 
+
+AU 2 = 2 Fdrag , (71) 
+
+Cl = 2Flift 
+
+AU 2 = 2 Flift (72) where A = 1 and U = 1 are the reference area and speed respectively. After a sufficient time is passed, the solution of this example is known to reach either a steady state or a periodic state depending on whether the Reynolds number is below or above a critical value. When the solution achieves a periodic state, so do the drag and lift forces calculated above. Suppose Tp is the time period of the lift coefficient Cl obtained from the numerical simulation. Then the corresponding Strouhal number is calculated as 
+
+St = LU T p
+
+= 1
+
+Tp
+
+(73) where L = 1 and U = 1 are the reference length and the speed respectively. We solve this problem numerically on an unstructured triangular mesh of equal-order P1/P 1 el-ements (with 57,170 triangles, denoted ‘M1’) for various Reynolds numbers between Re = 100 to 
+
+Re = 300 . Figure 9 shows the wake evolution at Re = 300 . At t = 50 the wake is symmetric. By 
+
+t = 70 the symmetry breaks and alternating vortices begin forming near the cylinder. At t = 75 these vortices detach and advect downstream, and by t = 150 the flow has reached a periodic von Kármán vortex street. We also compute the drag coefficient Cd and the Strouhal number St for each Re = 100, 150, 200, 250, 300. These values are plotted against Re in Figure 10. Also shown are results from an inf-sup stable solver ( P2/P 1 with SUPG stabilization), and reference values from the literature [32, 50, 42]. The results from the proposed VMS-stabilized projection method match well with these values. 22 100 150 200 250 300 
+
+1.2
+
+1.4
+
+1.6
+
+1.8
+
+2
+
+Re 
+
+> Cd
+
+100 150 200 250 300 
+
+0.16 
+
+0.17 
+
+0.18 
+
+0.19 
+
+0.2
+
+0.21 
+
+Re         
+
+> St
+> VMS/projection (M1) P2/P 1/SUPG (M1)
+> Zovatto and Pedrizzetti Singha and Sinhamahapatra Kanaris et al.
+> VMS/monolithic (M1) VMS/monolithic (M2) VMS/monolithic, p′= 0 (M1)
+
+Figure 10: Results for flow past a circular cylinder in 2D: drag coefficient Cd (left) and Strouhal number 
+
+St (right). Mesh M1 has 57,170 triangles, and M2 has 282,812 triangles. The VMS/projection and VMS/monolithic results are obtained on P1/P 1 elements. The reference values are taken from Zovatto and Pedrizzetti [50], Singha and Sinhamahapatra [42], Kanaris et al. [32]. 
+
+Monolithic vs. projection. It can be noted that in Figure 10, the Cd values from the standard monolithic VMS solver are higher (by about 25%) compared to the projection solver. These values can be improved by considering a more refined mesh (denoted ‘M2’, with 282,812 triangles), as shown in the plots. Finally, the major difference between these two methods (apart from the splitting) is that the pro-posed VMS/projection scheme only decomposes ˜u, whereas the general monolithic solver decomposes both u and p. When decomposed, the small scales of pressure are approximated by p′ ≈ τc∇ · uh,which introduces the “least-squares” (also, grad-div)-like term (τc∇ · uh, ∇ · vh) in the momentum equations (see (19b) and (20b)). Now, if p is left undecomposed (i.e., p′ = 0 ) in the monolithic solver, one obtains Cd values that are closer to that from the VMS/projection solver (shown in the plot). This is also shown in Figure 10. In conclusion, the pressure decomposition in the monolithic solver leads to a overprediction of Cd
+
+on the same mesh, which can be improved by considering a mesh with a higher resolution. Discarding the pressure fine scale also leads to more accurate Cd and St values, however, this may result in poorer divergence errors, as shown in the next example. 
+
+4.4 Taylor-Green vortex 
+
+The Taylor-Green vortex is a canonical problem used to study the decay of vortical structures in incompressible viscous flows. The computational domain is a cubic box defined as Ω = [ −π, π ]3 with periodic boundary conditions in all directions. The initial velocity and pressure fields are prescribed as 
+
+ux = sin( x) cos( y) cos( z), uy = − cos( x) sin( y) cos( z), uz = 0 ,p = 116 [cos(2 x) + cos(2 y)] [cos(2 z) + 2] .
+
+These fields satisfy the incompressibility condition ∇· u = 0 . The flow evolves under the incompressible Navier-Stokes equations, leading to the gradual dissipation of kinetic energy due to viscous effects while maintaining the symmetry of the initial vortex structures. The Reynolds number is set to 1600. The volume-averaged kinetic energy is 
+
+Ek(t) = 1
+
+|Ω|
+
+∫
+
+> Ω
+
+u · u
+
+2 dΩ, 
+
+23 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+
+> ∥u∥
+
+Figure 11: Taylor-Green vortex at Re = 1600 from the projection-based RBVMS scheme on the 128 3
+
+mesh, visualized using Q-criterion iso-surfaces at Q = 0 .3, 0.5, 0.8, coloured by velocity magnitude. (Left) Initial condition at t = 0 , showing the organized cellular structure. (Centre) Developed turbu-lent state at t = 15 , after the breakdown of the initial vortex sheets. (Right) Decaying turbulent state at t = 20 , showing the small-scale structures that persist late in the simulation. and the volume-averaged enstrophy is 
+
+E(t) = 1
+
+|Ω|
+
+> ∫
+> Ω
+
+ω · ω
+
+2 dΩ, ω = ∇ × u.
+
+From these, we define two diagnostics of the kinetic-energy decay rate. The energy-based dissipation 
+
+εk(t) := − dE k
+
+dt ,
+
+measures the instantaneous loss of resolved kinetic energy. And the enstrophy-based dissipation 
+
+εΩ (t) := 2Re E(t),
+
+is the viscous dissipation rate computed directly from the resolved vorticity field. For an incompress-ible flow in a periodic domain, the energy balance applied to the Navier-Stokes equations yields the identity [36] 
+
+εk(t) = εΩ (t). (74) In an under-resolved simulation the two diverge: εk captures the total kinetic-energy loss, including the contribution of the unresolved scales, while εΩ accounts only for the resolved viscous part. The gap 
+
+εk − εΩ therefore quantifies the dissipation supplied by the subgrid model and the numerical scheme. The simulation is run on uniform Cartesian meshes of 64 3, 128 3, and 256 3 elements with a constant time step of ∆t = 0 .001 , integrated to t = 20 . The proposed VMS-stabilized projection scheme and the monolithic VMS scheme are both run on the same meshes with identical Krylov solver settings. The kinetic energy Ek(t), the energy-based dissipation rate εk(t), and the enstrophy-based dissipation rate εΩ (t) are computed at every time step and compared with the pseudo-spectral DNS reference of Wang et al. [49] on a 512 3 grid. The flow structure is visualized in Figure 11 using Q-criterion iso-surfaces coloured by velocity magnitude. At t = 0 , the flow exhibits the organized cellular vortex structure prescribed by the initial condition. By t = 15 , the initial vortex sheets have broken down into a dense network of small-scale vortical structures, marking the developed turbulent regime. At t = 20 , the small-scale structures persist but have decayed in intensity, consistent with the monotonic energy decay observed in Figure 12(c). 24 0 2 4 6 8 10 12 14 16 18 20 
+
+> 0.000
+> 0.020
+> 0.040
+> 0.060
+> 0.080
+> 0.100
+> 0.120
+> 0.140
+
+t
+
+> Kinetic energy  Ek(t)
+
+(a) Monolithic: Ek(t)          
+
+> 0246810 12 14 16 18 20
+> 0.000
+> 0.004
+> 0.008
+> 0.012
+> 0.016
+
+t
+
+> Dissipation rate  εk(t)
+
+(b) Monolithic: εk(t)          
+
+> 0246810 12 14 16 18 20
+> 0.000
+> 0.020
+> 0.040
+> 0.060
+> 0.080
+> 0.100
+> 0.120
+> 0.140
+
+t
+
+> Kinetic energy  Ek(t)
+
+(c) Projection: Ek(t)          
+
+> 0246810 12 14 16 18 20
+> 0.000
+> 0.004
+> 0.008
+> 0.012
+> 0.016
+
+t
+
+> Dissipation rate  εk(t)
+
+(d) Projection: εk(t)
+
+Wang et al., 2013 ( 512 3) 256 3 128 3 64 3
+
+Figure 12: Taylor–Green vortex at Re = 1600 on three mesh resolutions ( 64 3, 128 3, 256 3), compared against the pseudo-spectral DNS of Wang et al. [49] on a 512 3 grid. Top row: monolithic VMS scheme. Bottom row: VMS-stabilized projection scheme. Left column: volume-averaged kinetic energy Ek(t).Right column: energy-based dissipation rate εk(t).Figure 12 presents the kinetic-energy decay Ek(t) and the energy-based dissipation rate εk(t) for both schemes on the three meshes, alongside the spectral reference. For both formulations the curves approach the DNS reference under refinement and track it closely on the finer grids. The kinetic-energy spectrum E(k) at t = 8 on the 256 3 mesh (Figure 13) follows the k−5/3 reference slope and decays to the Nyquist wavenumber without high-wavenumber accumulation, indicating that the VMS closure dissipates small-scale energy at the rate set by the resolved cascade and that the velocity-pressure splitting does not introduce spurious small-scale content. 
+
+Solution accuracy: monolithic vs. projection. The projection scheme tracks the pseudo-spectral DNS of Wang et al. [49] closely once the mesh reaches 128 3, with both the kinetic energy and the dissipation rate in close agreement with the reference (Figure 12(c,d)). The monolithic VMS formu-lation, run on the same meshes with identical time step and Krylov solver settings, also converges toward DNS, but more slowly: at 64 3 and 128 3 its kinetic energy decays faster than the reference and lies below the DNS curve through the mid-range, and only at 256 3 does Ek(t) track DNS closely (Figure 12(a)). It also continues to over-dissipate relative to the reference even at 256 3.25 2 10 128 
+
+> 10 −7
+> 10 −6
+> 10 −5
+> 10 −4
+> 10 −3
+> 10 −2
+> 10 −1
+> Nyquist
+
+k 
+
+> E(k)
+> Wang 2013
+> Projection ( 256 3)
+> k−5/3(reference)
+
+Figure 13: Three-dimensional kinetic-energy spectrum E(k) at t = 8 on the 256 3 mesh for the VMS-stabilized projection scheme. The dashed line indicates a k−5/3 slope for reference. The spectrum is compared against the pseudo-spectral DNS of Wang et al. [49] at t = 8 on a 512 3 grid.     
+
+> 0510 15 20
+> 0.000
+> 0.004
+> 0.008
+> 0.012
+> 0.016
+> t
+> ε(t)
+> εk
+> εΩ
+> Wang 2013
+
+(a) Monolithic, 64 3    
+
+> 0510 15 20
+> t
+
+(b) Monolithic, 128 3    
+
+> 0510 15 20
+> t
+
+(c) Monolithic, 256 3    
+
+> 0510 15 20
+> 0.000
+> 0.004
+> 0.008
+> 0.012
+> 0.016
+> t
+> ε(t)
+> εk
+> εΩ
+> Wang 2013
+
+(d) Projection, 64 3    
+
+> 0510 15 20
+> t
+
+(e) Projection, 128 3    
+
+> 0510 15 20
+> t
+
+(f) Projection, 256 3
+
+Figure 14: Energy-based ( εk, solid) and enstrophy-based ( εΩ , dashed) dissipation rates for the Taylor– Green vortex at Re = 1600 . Top row: monolithic VMS solver. Bottom row: VMS/projection solver. Columns correspond to the 64 3, 128 3, and 256 3 meshes. The shaded region indicates the gap εk − εΩ ,representing the contribution of unresolved scales (model and numerical dissipation) to the total kinetic-energy decay. Open circles are the pseudo-spectral DNS reference of Wang et al. [49] on a 512 3
+
+grid. The mechanism is exposed by the gap between the energy-based dissipation εk(t) = −dE k/dt and the enstrophy-based dissipation εΩ (t) = (2 /Re) E(t), shown as the shaded region in Figure 14. This gap measures the dissipation supplied by the modeled subgrid stresses rather than by viscosity acting 26 on the resolved vorticity. For the projection scheme (bottom row) the gap is visible at 64 3 but closes almost entirely by 128 3 and is imperceptible at 256 3, so the resolved enstrophy accounts for essentially all of the energy decay. For the monolithic scheme (top row) the gap is wide at 64 3 and narrows under refinement, but remains clearly open at 256 3, where a substantial share of the dissipation is still supplied by the model rather than the resolved vorticity. Like in the previous example, we attribute this difference to the “grad-div”-like term present in the monolithic VMS scheme (see (19b) and (20b)), which dissipates kinetic energy through the divergence error and damps the velocity gradients that drive vortex stretching. The projection scheme does not have this term, since the pressure is not decomposed into multiple scales. The results across the three meshes indicate that this behavior is structural rather than a resolution artifact: the monolithic dissipation gap does not close under refinement, so even at 256 3—where Ek(t) matches DNS—a large part of the energy decay is carried by the modeled term rather than the resolved enstrophy. The projection scheme, by contrast, matches DNS with an essentially closed gap already at 128 3. The ablation in Figure 15 confirms this attribution directly. Setting p′ = 0 in the monolithic scheme brings a good match with the DNS reference of Wang et al. [49] (Figure 15a). However, the downside is that the divergence can suffer greatly. Figure 15b plots the L2-norm of the divergence of the velocity ( uh for monolithic, ˆuh for projection) with time. The curve for projection is very close to that of monolithic with p′ = 0 , whereas the standard monolithic solver yields the lowest divergence. The grad-div term suppresses the divergence, and is also responsible for the excess dissipation of the kinetic energy.                
+
+> 0510 15 20
+> 0.000
+> 0.020
+> 0.040
+> 0.060
+> 0.080
+> 0.100
+> 0.120
+> 0.140
+> t
+> Kinetic energy  Ek (t)
+> Monolithic
+> Monolithic, p′= 0
+> Wang et al., 2013 ( 512 3)
+> (a) Kinetic energy Ek(t)
+> 0510 15 20
+> 0
+> 5
+> 10
+> 15
+> t
+> ∥∇ ·  u∥L2
+> Projection
+> Monolithic
+> Monolithic, p′= 0
+> (b) Velocity divergence ∥∇ · u∥L2
+
+Figure 15: Effect of the continuity (grad–div) stabilization on the Taylor–Green vortex at Re = 1600 
+
+(monolithic VMS scheme, 128 3). Left: volume-averaged kinetic energy Ek(t), both with and without the τC term. Right: L2 norm of the divergence of velocity over time. 
+
+Computational cost. Figure 16 reports the average wall-clock solve time per time step for both schemes on the three meshes, measured over 20 ,000 steps under identical BiCGStab and additive-Schwarz settings. The projection scheme is cheaper than the monolithic scheme at every resolution tested. On the 128 3 and 256 3 meshes, which use the same number of elements per processor, the projection solve takes 1.37 and 1.52 s per step against 2.30 and 4.06 s for the monolithic scheme. 
+
+# 5 Conclusion 
+
+In this work, we presented a VMS-stabilized projection method based on the Chorin-Temam family of fractional-step schemes. The method replaces the coupled velocity-pressure saddle-point system with three subproblems: (i) a stabilized nonlinear advection–diffusion–reaction problem for an intermediate velocity, (ii) a Poisson equation for the pressure, and (iii) a Helmholtz-Leray projection of the inter-mediate velocity onto a weakly divergence-free subspace. Because the Galerkin discretization of the momentum predictor can become unstable in advection-dominated regimes, we applied a multiscale decomposition to the predicted velocity. However, unlike in the monolithic VMS formulation, the 27 64 3 128 3 256 3
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5 
+
+> 1.06
+> 2.3
+> 4.06
+> 0.82
+> 1.37 1.52
+
+Mesh resolution 
+
+> T w
+> solve  (s)
+> Monolithic
+> Projection
+
+Figure 16: Average wall-clock solve time per time step for the Taylor-Green vortex at Re = 1600 on three mesh resolutions, measured over 20 ,000 time steps. Both solvers use BiCGStab with additive Schwarz preconditioning (rtol = 10 −8). pressure is not decomposed into coarse and fine scales. The resulting formulation introduces SUPG-like stabilization in the momentum predictor and a PSPG-like residual contribution in the pressure Poisson equation. We also provided a formal error analysis that separates the time-discretization, projection-splitting, and spatial-VMS errors, recovering second-order temporal accuracy for the ve-locity with BDF2 and the established first-order pressure accuracy of the non-rotational pressure-correction scheme. We tested the method on four benchmark problems of increasing difficulty. The method of man-ufactured solutions confirms the predicted second-order temporal convergence of the velocity for 
+
+Re ∈ { 10 3, 10 4, 10 5, 10 6}. For the lid-driven cavity at Re ∈ { 100 , 1000 , 5000 , 10000 }, the computed velocity profiles agree closely with both the monolithic VMS results and the reference data of Ghia et al. [22]. The flow-past-a-cylinder results demonstrate the treatment of outlet boundary conditions and unstructured meshes, producing drag coefficients and Strouhal numbers in close agreement with published values [32]. Finally, for the Taylor-Green vortex at Re = 1600 , the projection scheme ap-proaches the pseudo-spectral DNS of Wang et al. [49] under mesh refinement and agrees closely with it on the finer resolutions. Comparisons with the monolithic VMS formulation reveal a consistent effect of the pressure fine scale, which is retained in the monolithic scheme but omitted from the proposed projection scheme. In the cylinder problem, the monolithic formulation overpredicts the drag coefficient by approximately 
+
+25% relative to the literature values and the projection result on the same mesh; this discrepancy decreases under mesh refinement and when the pressure fine scale is suppressed. In the Taylor-Green vortex, the monolithic formulation exhibits greater modeled dissipation than the projection scheme, and this excess persists even on the finest mesh considered. Setting the pressure fine scale to zero in the monolithic formulation brings both its cylinder drag and Taylor-Green kinetic-energy predictions closer to the corresponding references, supporting the attribution of these differences to the associated grad–div-like term. This improvement comes with a tradeoff: suppressing the pressure fine scale increases the velocity-divergence error to approximately the level observed in the projection scheme. Finally, the projection formulation was also less expensive in the 3D Taylor-Green tests, reducing the average solution time per step by factors ranging from approximately 1.3 on the 64 3 mesh to 2.7 on the 256 3 mesh under identical solver and preconditioner settings. Several directions remain open. A rigorous energy-stability analysis of the fully stabilized scheme remains to be completed; in that setting a skew-symmetric (Temam) convection form is expected to 28 improve the stability behaviour in under-resolved regimes, at no added cost. The first-order pressure rate and the associated near-boundary accuracy loss are inherited from the non-rotational pressure-correction step and could be improved to O(∆t 3/2) with a rotational variant. The elliptic sub-solves are also naturally amenable to algebraic multigrid, making the scheme an attractive backbone for large-scale, GPU-deployable solvers. 
+
+# Acknowledgments 
+
+This work was partly supported by the National Science Foundation under the grants NSF LEAP-HI 2053760, NSF Advanced Simulation of Multiphase Electrochemical Systems (Award No. 2513871) and by the AI Research Institutes program through NSF and USDA–NIFA under the AI Institute for Resilient Agriculture (Award No. 2021-67021-35329). 
+
+# References 
+
+[1] Douglas N Arnold, Franco Brezzi, and Michel Fortin. A stable finite element for the stokes equations. Calcolo , 21(4):337–344, 1984. [2] Ivo Babuška. The finite element method with lagrangian multipliers. Numerische Mathematik ,20(3):179–192, 1973. [3] Claudio Baiocchi, Franco Brezzi, and Leopoldo P. Franca. Virtual bubbles and galerkin-least-squares type methods. Computer Methods in Applied Mechanics and Engineering , 105(1):125–141, 1993. [4] Y Bazilevs, VM Calo, JA Cottrell, TJR Hughes, A Reali, and G Scovazzi. Variational multiscale residual-based turbulence modeling for large eddy simulation of incompressible flows. Computer methods in applied mechanics and engineering , 197(1-4):173–201, 2007. [5] Malte Braack and Erik Burman. Local projection stabilization for the Oseen problem and its interpretation as a variational multiscale method. SIAM Journal on Numerical Analysis , 43(6): 2544–2566, 2006. doi: 10.1137/050631227. [6] Franco Brezzi. On the existence, uniqueness and approximation of saddle-point problems arising from lagrangian multipliers. Publications mathématiques et informatique de Rennes , S4:1–26, 1974. [7] Franco Brezzi and Michel Fortin. Mixed and hybrid finite element methods , volume 15. Springer Science & Business Media, 2012. [8] Franco Brezzi and Alessandro Russo. Choosing bubbles for advection-diffusion problems. Math-ematical Models and Methods in Applied Sciences , 4(4):571–587, 1994. [9] Alexander N Brooks and Thomas JR Hughes. Streamline upwind/petrov-galerkin formulations for convection dominated flows with particular emphasis on the incompressible navier-stokes equations. Computer methods in applied mechanics and engineering , 32(1-3):199–259, 1982. [10] Erik Burman and Peter Hansbo. Edge stabilization for Galerkin approximations of convection– diffusion–reaction problems. Computer Methods in Applied Mechanics and Engineering , 193(15– 16):1437–1453, 2004. doi: 10.1016/j.cma.2004.01.030. [11] John Charles Butcher. Numerical methods for ordinary differential equations . John Wiley & Sons, 2016. [12] Alexandre J. Chorin. Numerical solution of the navier–stokes equations. Mathematics of Com-putation , 22(104):745–762, 1968. 29 [13] Bernardo Cockburn and Chi-Wang Shu. Runge–Kutta discontinuous Galerkin methods for convection-dominated problems. Journal of Scientific Computing , 16(3):173–261, 2001. doi: 10.1023/A:1012873910884. [14] Ramon Codina. Comparison of some finite element methods for solving the diffusion-convection-reaction equation. Computer methods in applied mechanics and engineering , 156(1-4):185–210, 1998. [15] Ramon Codina. Stabilization of incompressibility and convection through orthogonal sub-scales in finite element methods. Computer methods in applied mechanics and engineering , 190(13-14): 1579–1599, 2000. [16] Ramon Codina. Stabilized finite element approximation of transient incompressible flows using orthogonal subscales. Computer methods in applied mechanics and engineering , 191(39-40):4295– 4321, 2002. [17] Michel Crouzeix and P-A Raviart. Conforming and nonconforming finite element methods for solving the stationary stokes equations i. Revue française d’automatique informatique recherche opérationnelle. Mathématique , 7(R3):33–75, 1973. [18] Jean Donea and Antonio Huerta. Finite element methods for flow problems . John Wiley & Sons, 2003. [19] Jim Douglas and Todd Dupont. Interior penalty procedures for elliptic and parabolic Galerkin methods. In R. Glowinski and J.-L. Lions, editors, Computing Methods in Applied Sciences ,volume 58 of Lecture Notes in Physics , pages 207–216. Springer, Berlin, Heidelberg, 1976. doi: 10.1007/BFb0120591. [20] Jim Douglas and Jun Ping Wang. An absolutely stabilized finite element method for the stokes problem. Mathematics of computation , 52(186):495–508, 1989. [21] Ciprian Foias, Oscar Manley, Ricardo Rosa, and Roger Temam. Navier–Stokes Equations and Turbulence . Cambridge University Press, 2001. [22] UKNG Ghia, Kirti N Ghia, and CT Shin. High-re solutions for incompressible flow using the navier-stokes equations and a multigrid method. Journal of computational physics , 48(3):387–411, 1982. [23] Katuhiko Goda. A multistep technique with implicit difference schemes for calculating two- or three-dimensional cavity flows. Journal of Computational Physics , 30(1):76–95, 1979. [24] Jean-Luc Guermond, Peter Minev, and Jie Shen. An overview of projection methods for incom-pressible flows. Computer Methods in Applied Mechanics and Engineering , 195(44–47):6011–6045, 2006. [25] John G. Heywood and Rolf Rannacher. Finite element approximation of the nonstationary Navier–Stokes problem. IV. error analysis for second-order time discretization. SIAM Journal on Numerical Analysis , 27(2):353–384, 1990. doi: 10.1137/0727022. [26] Thomas JR Hughes. Multiscale phenomena: Green’s functions, the dirichlet-to-neumann formu-lation, subgrid scale models, bubbles and the origins of stabilized methods. Computer methods in applied mechanics and engineering , 127(1-4):387–401, 1995. [27] Thomas JR Hughes, Leopoldo P Franca, and Marc Balestra. A new finite element formulation for computational fluid dynamics: V. circumventing the babuška-brezzi condition: A stable petrov-galerkin formulation of the stokes problem accommodating equal-order interpolations. Computer Methods in Applied Mechanics and Engineering , 59(1):85–99, 1986. 30 [28] Thomas JR Hughes, Leopoldo P Franca, and Gregory M Hulbert. A new finite element formu-lation for computational fluid dynamics: Viii. the galerkin/least-squares method for advective-diffusive equations. Computer methods in applied mechanics and engineering , 73(2):173–189, 1989. [29] Thomas JR Hughes, Luca Mazzei, and Kenneth E Jansen. Large eddy simulation and the varia-tional multiscale method. Computing and visualization in science , 3(1):47–59, 2000. [30] Volker John. Finite element methods for incompressible flow problems . Springer, 2016. [31] Volker John and Songul Kaya. A finite element variational multiscale method for the navier–stokes equations. SIAM Journal on Scientific Computing , 26(5):1485–1503, 2005. [32] Nicolas Kanaris, Dimokratis Grigoriadis, and Stavros Kassinos. Three dimensional flow around a circular cylinder confined in a plane channel. Physics of fluids , 23(6), 2011. [33] Biswajit Khara, Suresh Murugaiyan, Suriya Dhakshinamoorthy, Makrand Khanwale, Ming-Chen Hsu, and Baskar Ganapathysubramanian. A semi-implicit variational multiscale formulation for the incompressible navier-stokes equations via exact adjoint linearization. arXiv preprint arXiv:2512.21773 , 2025. [34] Dmitri Kuzmin and Stefan Turek. Flux correction tools for finite elements. Journal of Compu-tational Physics , 175(2):525–558, 2002. doi: 10.1006/jcph.2001.6955. [35] J. Blair Perot. An analysis of the fractional step method. Journal of Computational Physics , 108 (1):51–58, 1993. doi: 10.1006/jcph.1993.1162. [36] Stephen B. Pope. Turbulent Flows . Cambridge University Press, Cambridge, 2000. ISBN 9780521598866. doi: 10.1017/CBO9780511840531. [37] Alfio Quarteroni, Fausto Saleri, and Alessandro Veneziani. Factorization methods for the nu-merical approximation of Navier–Stokes equations. Computer Methods in Applied Mechanics and Engineering , 188(1–3):505–526, 2000. doi: 10.1016/S0045-7825(99)00192-9. [38] Michael Schäfer, Stefan Turek, Franz Durst, Egon Krause, and Rolf Rannacher. Benchmark computations of laminar flow around a cylinder . Springer, 1996. [39] L. Ridgway Scott and Michael Vogelius. Norm estimates for a maximal right inverse of the divergence operator in spaces of piecewise polynomials. ESAIM: Mathematical Modelling and Numerical Analysis , 19(1):111–143, 1985. URL http://eudml.org/doc/193439 .[40] Farzin Shakib, Thomas JR Hughes, and Zdeněk Johan. A new finite element formulation for computational fluid dynamics: X. the compressible euler and navier-stokes equations. Computer Methods in Applied Mechanics and Engineering , 89(1-3):141–219, 1991. [41] Jie Shen. On error estimates of the projection methods for the navier-stokes equations: second-order schemes. Mathematics of computation , 65(215):1039–1065, 1996. [42] Sintu Singha and KP Sinhamahapatra. Flow past a circular cylinder between parallel walls at low reynolds numbers. Ocean Engineering , 37(8-9):757–769, 2010. [43] Cedric Taylor and Paul Hood. A numerical solution of the navier-stokes equations using the finite element technique. Computers & Fluids , 1(1):73–100, 1973. [44] Roger Temam. Sur l’approximation de la solution des équations de navier–stokes par la méthode des pas fractionnaires. Archive for Rational Mechanics and Analysis , 32:135–153, 1969. [45] Tayfun E. Tezduyar and Yong J. Park. Discontinuity-capturing finite element formulations for nonlinear convection-diffusion-reaction equations. Computer Methods in Applied Mechanics and Engineering , 59(3):307–325, 1986. doi: 10.1016/0045-7825(86)90003-4. 31 [46] Tayfun E Tezduyar, Sanjay Mittal, SE Ray, and R Shih. Incompressible flow computations with stabilized bilinear and linear equal-order-interpolation velocity-pressure elements. Computer Methods in Applied Mechanics and Engineering , 95(2):221–242, 1992. [47] L. J. P. Timmermans, P. D. Minev, and F. N. van de Vosse. An approximate projection scheme for incompressible flow using spectral elements. International Journal for Numerical Methods in Fluids , 22(7):673–688, 1996. [48] J. van Kan. A second-order accurate pressure-correction scheme for viscous incompressible flow. 
+
+SIAM Journal on Scientific and Statistical Computing , 7(3):870–891, 1986. [49] Zhijian J Wang, Krzysztof Fidkowski, Rémi Abgrall, Francesco Bassi, Doru Caraeni, Andrew Cary, Herman Deconinck, Ralf Hartmann, Koen Hillewaert, Hung T Huynh, et al. High-order cfd methods: current status and perspective. International Journal for Numerical Methods in Fluids , 72(8):811–845, 2013. [50] Luigino Zovatto and Gianni Pedrizzetti. Flow about a circular cylinder between parallel walls. 
+
+Journal of Fluid Mechanics , 440:1–25, 2001. 32 A Element metric quantities for the VMS parameters 
+
+Let x = x(ξ) denote the map from the reference element, with coordinates ξ, to a physical element, with coordinates x. Define the inverse-Jacobian components by 
+
+Kij = ∂ξ i
+
+∂x j
+
+. (75) The element metric tensor G and vector g used in (21) are computed as 
+
+Gij =
+
+> nsd
+
+∑
+
+> k=1
+
+Kki Kkj , (76a) 
+
+gi =
+
+> nsd
+
+∑
+
+> j=1
+
+Kji , (76b) where nsd is the number of spatial dimensions. Consequently, 
+
+G : G =
+
+> nsd
+
+∑
+
+> i,j =1
+
+G2 
+
+> ij
+
+, g · g =
+
+> nsd
+
+∑
+
+> i=1
+
+g2 
+
+> i
+
+. (77) Thus, on each element, the implemented stabilization parameters are 
+
+τm =
+
+ 4
+
+∆t 2 +
+
+> nsd
+
+∑
+
+> i,j =1
+
+(uh)iGij (uh)j + CI ν2
+
+> nsd
+
+∑
+
+> i,j =1
+
+G2
+
+> ij
+
+
+
+> −1/2
+
+, τc =
+
+(
+
+τmnsd ∑
+
+> i=1
+
+g2
+
+> i
+
+)−1
+
+. (78) For the projection formulation, (uh)i in the expression for τm is replaced by (˜uh)i.33

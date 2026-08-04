@@ -1,0 +1,3166 @@
+Title: Exponential decay for the 3D Boussinesq equations with Navier boundary conditions
+
+URL Source: https://arxiv.org/pdf/2608.00972v1
+
+Published Time: Tue, 04 Aug 2026 01:03:27 GMT
+
+Number of Pages: 22
+
+Markdown Content:
+EXPONENTIAL DECAY FOR THE 3D BOUSSINESQ EQUATIONS WITH NAVIER BOUNDARY CONDITIONS 
+
+WEN FENG 1, WEINAN WANG 2 AND XIANG XU 3
+
+Abstract. We study the three-dimensional incompressible Boussinesq equations on a bounded domain with smooth boundary and Navier boundary conditions. We construct global weak solutions by a Galerkin approximation and establish the associated Leray–Hopf energy inequalities. For nonnegative boundary friction, the total energy decays exponen-tially when the friction coefficient is positive on a boundary subset of positive surface measure. In the frictionless case, the scalar field and the velocity component orthogonal to the rigid-motion kernel decay exponentially; when the kernel is trivial, this is exponen-tial decay of the total energy. When the scalar initial datum vanishes, this also proves exponential decay for the Navier–Stokes system on solids of revolution for every friction coefficient α ∈ L∞(∂Ω) such that α ≥ 0 almost everywhere and α̸ ≡ 0, resolving the corresponding case left open in [10]. The proof uses a weighted Korn–Poincar´ e inequality and a two-time Gronwall-type inequality with an exponentially decaying forcing term. 
+
+1. Introduction 
+
+The long-time behavior of solutions is a fundamental question in the analysis of viscous incompressible fluids. For the Navier–Stokes equations (NSE) on a bounded domain with the classical no-slip condition ( u = 0 on ∂Ω), exponential decay to the rest state follows from the energy inequality and the Poincar´ e inequality. The zero trace excludes undamped rigid motions and controls the kinetic energy by the viscous dissipation, yielding a uniform decay rate. The Boussinesq system couples the NSE with a transport–diffusion equation for density or temperature. It is widely used in the analysis of atmospheric and oceanic circulation, as well as heat transfer problems. The literature includes global regularity and well-posedness results for partially dissipative and fractional models [6, 9, 11, 19–21]; stability, instability, decay, and long-time behavior near equilibria [2, 4, 5, 12, 13, 15, 16]; and bounded-domain or boundary-condition problems [1, 3, 8, 18, 22, 23]. Related Rayleigh–Taylor instability for an inhomogeneous incompressible geophysical-fluid model is studied in [7]. Related mild-solution theories on non-Euclidean spaces appear in [24,25], while norm-inflation phenomena are studied in [14]. Navier proposed the classical slip law in a memoir presented to the Acad´ emie Royale des Sciences in 1822 and later published in volume 6 of its M´ emoires 
+
+[17]. Such conditions allow the fluid to slip at the boundary, with tangential velocity proportional to tangential stress. They are used to model, for example, flow over rough surfaces, microfluidic flows, and motion near contact lines. Mathematically, they create a subtle dependence of the decay properties on the geometry of the domain and the friction coefficient α.
+
+Date : August 4, 2026. 2020 Mathematics Subject Classification. 35Q30, 35Q35, 35B40, 76D05, 76R50. 
+
+Key words and phrases. Decay rates; 3D Boussinesq equations; Navier boundary conditions; Weak solutions.  
+
+> 1arXiv:2608.00972v1 [math.AP] 2 Aug 2026 2WEN FENG, WEINAN WANG AND XIANG XU
+
+In a recent paper [10], the authors gave a comprehensive analysis of the three-dimensional Navier–Stokes equations with Navier boundary conditions in smooth bounded domains, with continuous nonnegative friction. They proved exponential decay when the friction is positive at every boundary point, and also when the friction is nonnegative and the kernel of the symmetric-gradient operator is trivial. In the frictionless case with nontrivial kernel, they proved convergence to a rigid rotation. Here and throughout the paper, we denote the symmetric gradient by 
+
+S(u) := ∇u + ( ∇u)T
+
+2 ,
+
+and define Ker S := w ∈ H1
+
+> σ, tan
+
+(Ω) : S(w) = 0 .
+
+Thus, Ker S consists of the rigid motions that are tangent to ∂Ω. Here H1
+
+> σ, tan
+
+(Ω) denotes the space of vector fields in H1(Ω; R3) that are divergence-free in Ω and have vanishing normal trace on ∂Ω. In this paper, we extend this theory to the Boussinesq system. At the L2-energy level, incompressibility and the impermeability boundary condition eliminate the transport con-tribution. Consequently, the scalar L2-norm decays independently of the velocity estimate, while the buoyancy term ρe 3 acts as an exponentially decaying forcing term in the velocity equation. Our weighted Korn–Poincar´ e inequality controls the full velocity whenever the nonnega-tive friction coefficient is positive on a boundary subset of positive surface measure, with-out requiring triviality of Ker S or an additional geometric restriction on the domain. This strictly weakens the positive-friction hypothesis in [10]; it also lowers the regularity required of the friction coefficient from continuity to essential boundedness. With zero scalar initial data, it yields a Navier–Stokes decay result that resolves the nontrivial-friction portion of the solid-of-revolution case identified as open in Section 8 of [10]. Let 
+
+A∂Ω := {x ∈ ∂Ω : α(x) > 0}.
+
+Here and below, H2(A∂Ω) > 0 means positive surface measure. This condition is indepen-dent of the representative of α ∈ L∞(∂Ω). Since α ≥ 0, either α = 0 almost everywhere or 
+
+H2(A∂Ω) > 0. Thus Sections 5 and 6 cover every nonnegative friction coefficient in L∞(∂Ω), and no smallness assumption is imposed on the initial data. Related work established local existence of strong solutions and global stability of large strong solutions under a suitable integral condition [22]. In Appendix A, we prove a two-time Gronwall-type inequality in-spired by [10, Appendix A]. No sign condition on the unknown function is needed, because the proof passes through a shifted quantity that need not have a fixed sign. The remainder of the work is organized as follows. In Section 2, we introduce the neces-sary background. In Section 3, we construct global weak solutions by a Galerkin approxima-tion adapted to the Navier boundary condition. In Section 4, we derive the corresponding Leray–Hopf energy inequalities and the weighted Korn–Poincar´ e inequality. Appendix A contains the two-time Gronwall inequality used in the decay argument. In Section 5, we prove exponential decay of the total energy when H2(A∂Ω) > 0. In Section 6, we treat the frictionless case and prove exponential decay of the scalar variable together with the velocity component orthogonal to Ker S; when the kernel is trivial, this gives decay of the full energy. 1.1. The Boussinesq System with Navier Boundary Conditions. Let Ω ⊂ R3 be a bounded, connected domain with smooth boundary ∂Ω. Let ν, κ > 0 be the viscosity and DECAY OF THE 3D BOUSSINESQ SYSTEM 3
+
+thermal diffusivity, and let e3 = (0 , 0, 1). For an arbitrary finite T > 0, we consider the system: 
+
+∂tu − ν∆u + ( u · ∇ )u + ∇p = ρe 3 in (0 , T ) × Ω, (1.1) 
+
+∂tρ − κ∆ρ + u · ∇ ρ = 0 in (0 , T ) × Ω, (1.2) 
+
+∇ · u = 0 in (0 , T ) × Ω, (1.3) with the initial conditions 
+
+u(0 , ·) = u0 and ρ(0 , ·) = ρ0,
+
+and the Navier boundary conditions 
+
+u · n = 0 , [(2 S(u)) n + αu ]tan = 0 , and ρ = 0 on (0 , T ) × ∂Ω. (1.4) Above, α ∈ L∞(∂Ω) is a nonnegative friction coefficient, n is the outward unit normal to ∂Ω, and the subscript “tan” denotes orthogonal projection onto the tangent space. The homogeneous Dirichlet condition on ρ is essential for decay to zero; under a homogeneous Neumann condition, one must additionally impose zero mean or subtract the conserved mean. 2. Preliminaries 
+
+We begin by defining the spaces used in the weak formulation: 
+
+C∞
+
+> σ, tan
+
+(Ω) := {u ∈ C∞(Ω; R3) : ∇ · u = 0 , u · n = 0 on ∂Ω},L2
+
+> σ, tan
+
+(Ω):= C∞
+
+> σ, tan
+
+(Ω) L2(Ω; R3)
+
+,H1
+
+> σ, tan
+
+(Ω) := H1(Ω; R3) ∩ L2
+
+> σ, tan
+
+(Ω) .
+
+If un ∈ C∞
+
+> σ, tan
+
+(Ω) and un → u in L2(Ω; R3), then ∇ · u = 0 in D′(Ω). Here, D′(Ω) denotes the space of distributions on Ω. We use 
+
+H(div; Ω) := {v ∈ L2(Ω; R3) : ∇ · v ∈ L2(Ω) },
+
+endowed with its graph norm. Moreover, un → u in H(div; Ω) because ∇ · un = ∇ · u = 0. Continuity of the weak normal-trace map from H(div; Ω) to H−1/2(∂Ω) therefore gives 
+
+u · n = 0 on ∂Ω in the weak normal-trace sense. Since C∞
+
+> σ, tan
+
+(Ω) ⊂ H1
+
+> σ, tan
+
+(Ω) ⊂ L2
+
+> σ, tan
+
+(Ω), 
+
+H1
+
+> σ, tan
+
+(Ω) L2(Ω; R3) = L2
+
+> σ, tan
+
+(Ω) .
+
+Thus the form domain is dense in the phase space used in the spectral construction below. Here “form domain” refers to H1
+
+> σ, tan
+
+(Ω), the domain of the velocity bilinear form, whereas “phase space” refers to L2
+
+> σ, tan
+
+(Ω). Let 
+
+H := L2
+
+> σ, tan
+
+(Ω) × L2(Ω) , V := H1
+
+> σ, tan
+
+(Ω) × H10 (Ω) .
+
+We denote by V′ the continuous dual of V; with H identified with its dual, we use the Gelfand triple 
+
+V ,→ H ∼= H′ ,→ V ′.
+
+They are endowed with the natural inner products 
+
+⟨(u, ρ ), (v, ϕ )⟩H =
+
+Z
+
+> Ω
+
+u · v dx +
+
+Z
+
+> Ω
+
+ρϕ dx, 
+
+⟨(u, ρ ), (v, ϕ )⟩V =
+
+Z
+
+> Ω
+
+∇u : ∇v dx +
+
+Z
+
+> Ω
+
+∇ρ · ∇ ϕ dx. 4 WEN FENG, WEINAN WANG AND XIANG XU 
+
+For u ∈ H1
+
+> σ, tan
+
+(Ω), each component has zero mean, since 
+
+Z
+
+> Ω
+
+uj dx =
+
+Z
+
+> Ω
+
+u · ∇ xj dx =
+
+Z
+
+> ∂Ω
+
+xj u · n dS −
+
+Z
+
+> Ω
+
+xj ∇ · u dx = 0 .
+
+The Poincar´ e inequality therefore gives 
+
+∥u∥L2(Ω) ≤ CΩ∥∇ u∥L2(Ω) ,
+
+so the gradient norm is equivalent to the usual H1 norm on H1
+
+> σ, tan
+
+(Ω). We next verify the density of C∞
+
+> σ, tan
+
+(Ω) in H1
+
+> σ, tan
+
+(Ω). Let u ∈ H1
+
+> σ, tan
+
+(Ω). By the characterization above, 
+
+∇ · u = 0 in Ω and u · n = 0 on ∂Ω in the normal-trace sense. Choose eun ∈ C∞(Ω; R3) with 
+
+eun → u in H1. Continuity of the divergence and trace maps gives 
+
+∇ · eun → 0 in L2(Ω) , eun · n → 0 in H1/2(∂Ω) .
+
+The divergence theorem gives the compatibility condition for the Neumann problems ∆ψn = ∇ · eun in Ω , ∂nψn = eun · n on ∂Ω,
+
+Z
+
+> Ω
+
+ψn dx = 0 .
+
+Elliptic regularity gives ψn ∈ C∞(Ω), and we set un := eun − ∇ ψn. The Neumann estimate 
+
+∥ψn∥H2(Ω) ≤ C
+
+
+
+∥∇ · eun∥L2(Ω) + ∥eun · n∥H1/2(∂Ω) 
+
+
+
+−→ 0gives un → u in H1. The defining equations for ψn give 
+
+∇ · un = ∇ · eun − ∆ψn = 0 , un · n = eun · n − ∂nψn = 0 .
+
+Thus un ∈ C∞
+
+> σ, tan
+
+(Ω) and un → u in H1(Ω; R3), which proves the asserted density. The following geometric boundary identity from [10] uses dnx : Tx(∂Ω) → Tx(∂Ω), the differential of the outward unit normal (the Gauss map) at x; with our sign convention, 
+
+−dnx is the shape operator. 
+
+Lemma 2.1 ( [10], Lemma 2.1) . Let u, v ∈ C∞
+
+> σ, tan
+
+(Ω) . If u satisfies [(2 S(u)) n + αu ]tan = 0 ,then on ∂Ω we have 
+
+v · (∇(u)n) = v · [dn (u) − αu ].
+
+The weak formulation is defined directly through the bilinear form and therefore does not require a pointwise interpretation of the Navier condition for α ∈ L∞(∂Ω). For each 
+
+x ∈ ∂Ω, the map dnx is self-adjoint on the tangent space, and the eigenvalues of −dnx are the principal curvatures k1(x) and k2(x). We set ΛΩ := sup 
+
+> x∈∂Ω
+
+max {| k1(x)|, |k2(x)|} .
+
+The associated dissipation form B : V × V → R is defined by 
+
+B(( u, ρ ), (v, ϕ )) := ν
+
+Z
+
+> Ω
+
+∇u : ∇v dx + κ
+
+Z
+
+> Ω
+
+∇ρ · ∇ ϕ dx 
+
++ ν
+
+Z
+
+> ∂Ω
+
+α u tan · vtan dS − ν
+
+Z
+
+> ∂Ω
+
+v · dn (u) dS. 
+
+Using Lemma 2.1, an integration by parts shows that for smooth functions satisfying the boundary conditions, this form is equivalent to 
+
+B(( u, ρ ), (v, ϕ )) = −ν
+
+Z
+
+> Ω
+
+v · ∆u dx − κ
+
+Z
+
+> Ω
+
+ϕ∆ρ dx. DECAY OF THE 3D BOUSSINESQ SYSTEM 5
+
+We now define the Boussinesq-Stokes operator B : V → V ′ by 
+
+⟨B(u, ρ ), (v, ϕ )⟩ := B(( u, ρ ), (v, ϕ )) .
+
+Proposition 2.2 (Properties of B and B). The bilinear form B is bounded and symmetric. Moreover, there exist constants C1, C 2 > 0 and β0 ≥ 0 such that, for all (u, ρ ), (v, ϕ ) ∈ V :
+
+|B(( u, ρ ), (v, ϕ )) | ≤ C1∥(u, ρ )∥V ∥(v, ϕ )∥V ,
+
+B(( u, ρ ), (v, ϕ )) = B(( v, ϕ ), (u, ρ )) ,
+
+B(( u, ρ ), (u, ρ )) ≥ C2∥(u, ρ )∥2 
+
+> V
+
+− β0∥(u, ρ )∥2
+
+> H
+
+.
+
+For any β > β 0, define 
+
+⟨eBβ U, V ⟩ := B(U, V ) + β(U, V )H.
+
+Then eBβ is an isomorphism from V to V′.Proof. Boundedness follows from the trace theorem, α ∈ L∞(∂Ω), and ∥dn ∥L∞(∂Ω) ≤ ΛΩ.Symmetry follows from self-adjointness of the shape operator on each tangent space. Finally, by the trace interpolation inequality and Young’s inequality, we have 
+
+B(( u, ρ ), (u, ρ )) ≥ ν
+
+2 ∥∇ u∥2 
+
+> L2
+
++ κ∥∇ ρ∥2 
+
+> L2
+
+− C∥u∥2 
+
+> L2
+
+.
+
+Thus the stated estimate holds with C2 = min {ν/ 2, κ } and β0 = C. For any β > β 0, the shifted form is coercive, and the conclusion follows from the Lax–Milgram theorem. □
+
+The final part of this section gives an equivalent form of the viscous term used in the energy inequalities. 
+
+Proposition 2.3 (Extension of the viscous identity) . Let u, Φ ∈ H1
+
+> σ, tan
+
+(Ω) . Then 
+
+Z
+
+> Ω
+
+∇Φ : ∇u dx +
+
+Z
+
+> ∂Ω
+
+Φ · [αu − dn(u)] dS 
+
+= 2 
+
+Z
+
+> Ω
+
+S(Φ) : S(u) dx +
+
+Z
+
+> ∂Ω
+
+αΦ · u dS. 
+
+Proof. Apply [10, Proposition 4.3] with zero friction coefficient. For Φ ∈ C∞
+
+> σ, tan
+
+(Ω), this gives Z
+
+> Ω
+
+∇Φ : ∇u dx −
+
+Z
+
+> ∂Ω
+
+Φ · dn(u) dS = 2 
+
+Z
+
+> Ω
+
+S(Φ) : S(u) dx. 
+
+Adding R 
+
+> ∂Ω
+
+α Φ · u dS to both sides yields the claimed identity for smooth Φ. Since 
+
+α ∈ L∞(∂Ω), the added boundary pairing is continuous on H1(Ω) × H1(Ω) by the trace theorem. The result for arbitrary Φ ∈ H1
+
+> σ, tan
+
+(Ω) follows from the H1-density of C∞
+
+> σ, tan
+
+(Ω). No approximation of α is required. □
+
+3. Global Existence of Weak Solutions 
+
+We now define a weak solution. 
+
+Definition 3.1 (Weak Solution) . A pair (u, ρ ) is a weak solution to (1.1)-(1.4) with initial data (u0, ρ 0) ∈ H if: 
+
+• (u, ρ ) ∈ L2(0 , T ; V)∩Cw([0 , T ]; H), where Cw([0 , T ]; H) denotes functions continuous from [0 , T ] to H with the weak topology, 
+
+• ∂t(u, ρ ) ∈ L4/3(0 , T ; V′),6 WEN FENG, WEINAN WANG AND XIANG XU 
+
+• For every test pair (v, ϕ ) ∈ C1 
+
+> c
+
+([0 , T ); V), the following identity holds: 
+
+−
+
+Z T
+
+> 0
+
+(u, ∂ tv)L2 dt −
+
+Z T
+
+> 0
+
+(ρ, ∂ tϕ)L2 dt 
+
++
+
+Z T
+
+> 0
+
+B(( u, ρ ), (v, ϕ )) dt +
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+(u · ∇ )u · v dx dt +
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+(u · ∇ ρ)ϕ dx dt 
+
+=
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+ρe 3 · v dx dt + ( u0, v (0)) L2 + ( ρ0, ϕ (0)) L2 .
+
+(3.1) 
+
+Theorem 3.2 (Global existence of weak solutions) . For any initial data (u0, ρ 0) ∈ H , there exists a global weak solution (u, ρ ) in the sense of Definition 3.1. Proof. The proof follows the classical Galerkin–Hopf construction; see also [10] for a closely related argument. Define 
+
+a0(W, Z ) := 
+
+Z
+
+> Ω
+
+∇W : ∇Z dx +
+
+Z
+
+> ∂Ω
+
+Z · [αW − dn (W )] dS, W, Z ∈ H1
+
+> σ, tan
+
+(Ω) ,
+
+and, for a fixed β > β 0/ν , set 
+
+aβ (W, Z ) := a0(W, Z ) + β(W, Z )L2(Ω) .
+
+By Proposition 2.2, aβ is coercive and defines an inner product equivalent to the H1 inner product on H1
+
+> σ, tan
+
+(Ω). The compact embedding H1
+
+> σ, tan
+
+(Ω) ,→ L2
+
+> σ, tan
+
+(Ω) and the spectral theorem give eigenvalues {λj }∞ 
+
+> j=1
+
+and an L2-orthonormal basis {vj }∞ 
+
+> j=1
+
+⊂ H1
+
+> σ, tan
+
+(Ω) such that 
+
+aβ (vj , Z ) = λj (vj , Z )L2(Ω) for every Z ∈ H1
+
+> σ, tan
+
+(Ω) .
+
+Writing μj := λj − β, we equivalently have 
+
+a0(vj , Z ) = μj (vj , Z )L2(Ω) .
+
+This construction uses only α ∈ L∞(∂Ω). Similarly, let {θj }∞ 
+
+> j=1
+
+⊂ H10 (Ω) be an L2-orthonormal basis of L2(Ω) consisting of eigenfunctions of the Dirichlet Laplacian. For each m, set 
+
+Xm := span {v1, . . . , v m}, Y m := span {θ1, . . . , θ m}.
+
+We seek approximate solutions of the form 
+
+um(t, x ) = 
+
+> m
+
+X
+
+> j=1
+
+gmj (t)vj (x), ρm(t, x ) = 
+
+> m
+
+X
+
+> j=1
+
+hmj (t)θj (x),
+
+with initial condition 
+
+um(0) = P mu0, ρm(0) = Qmρ0.
+
+Here P m and Qm denote the L2-orthogonal projections onto Xm and Y m, respectively. Hence, (um(0) , ρ m(0)) → (u0, ρ 0) strongly in H.
+
+For j = 1 , . . . , m , testing the Galerkin formulation against vj and θj , we obtain 
+
+Z
+
+> Ω
+
+∂tum · vj dx +
+
+Z
+
+> Ω
+
+(um · ∇ )um · vj dx 
+
+= −ν
+
+ Z 
+
+> Ω
+
+∇um : ∇vj dx +
+
+Z
+
+> ∂Ω
+
+[αu m 
+
+> tan
+
+− dn (um)] · vj dS 
+
+
+
++
+
+Z
+
+> Ω
+
+ρme3 · vj dx, 
+
+(3.2) DECAY OF THE 3D BOUSSINESQ SYSTEM 7
+
+and Z
+
+> Ω
+
+∂tρm θj dx +
+
+Z
+
+> Ω
+
+(um · ∇ ρm)θj dx = −κ
+
+Z
+
+> Ω
+
+∇ρm · ∇ θj dx. (3.3) These equations yield a finite-dimensional system of ODEs for the unknown variables 
+
+{gmj (t)}mj=1 and {hmj (t)}mj=1 . Since the right-hand sides are continuous and locally Lips-chitz, the classical ODE theory gives a local-in-time solution. Let t ∈ [0 , T m) on the maximal interval of existence for each m. A standard energy argument for (3.2) and (3.3) gives the following estimate. Indeed, multiply (3.2) by gmj (t), multiply (3.3) by hmj (t), and sum over j = 1 , . . . , m . The transport terms vanish because 
+
+∇ · um = 0, um · n = 0, and ρm = 0 on ∂Ω, while Young’s inequality gives 
+
+Z
+
+> Ω
+
+ρme3 · um dx ≤ 12 ∥ρm∥2 
+
+> L2
+
++ 12 ∥um∥2 
+
+> L2
+
+.
+
+Consequently, 12
+
+ddt 
+
+ ∥um∥2 
+
+> L2
+
++ ∥ρm∥2
+
+> L2
+
+ + ν∥∇ (um)∥2 
+
+> L2
+
++ κ∥∇ ρm∥2
+
+> L2
+
++ ν
+
+Z
+
+> ∂Ω
+
+α|um
+
+> tan
+
+|2 dS − ν
+
+Z
+
+> ∂Ω
+
+um · dn (um) dS ≤ 12 ∥ρm∥2 
+
+> L2
+
++ 12 ∥um∥2
+
+> L2
+
+Since Λ Ω = sup x∈∂Ω max i |ki(x)|, we have 
+
+Z
+
+> ∂Ω
+
+ um · dn (um) − α|um
+
+> tan
+
+|2 dS ≤
+
+Z
+
+> ∂Ω
+
+(Λ Ω − α(x)) |um|2 dS 
+
+≤ ϵ∥∇ um∥2 
+
+> L2(Ω)
+
++ Cϵ∥um∥2
+
+> L2(Ω)
+
+,
+
+where we applied the trace and Young’s inequality. Choosing ϵ > 0 small enough and absorbing into dissipation yields 
+
+ddt Em(t) + c0(∥∇ um∥2 
+
+> L2
+
++ ∥∇ ρm∥2 
+
+> L2
+
+) ≤ C0Em(t)where 
+
+Em(t) := ∥um(t)∥2 
+
+> L2
+
++ ∥ρm(t)∥2 
+
+> L2
+
+, c0 := 2 min {ν(1 − ϵ), κ }.
+
+By the Gronwall inequality, 
+
+Em(t) ≤ Em(0) eC0T (3.4) for any t ≤ T . Since 
+
+∥um(t)∥2 
+
+> L2(Ω)
+
+=
+
+> m
+
+X
+
+> j=1
+
+|gmj (t)|2, ∥ρm(t)∥2 
+
+> L2(Ω)
+
+=
+
+> m
+
+X
+
+> j=1
+
+|hmj (t)|2,
+
+(3.4) gives a uniform bound on any finite time interval for Em(t). Hence finite-time blow-up cannot occur, and the solution exists globally in time for each fixed m. Moreover, by integrating the differential inequality from 0 to t, we obtain 
+
+Em(t) + c0
+
+Z t
+
+> 0
+
+ ∥∇ um(s)∥2 
+
+> L2
+
++ ∥∇ ρm(s)∥2
+
+> L2
+
+ ds ≤ C0
+
+Z t
+
+> 0
+
+Em(s) ds + Em(0) 
+
+≤ Em(0) eC0t ≤ E(0) eC0T ,
+
+(3.5) for every t ≤ T . Here we used the fact P m and Qm are L2-orthogonal projections so 
+
+Em(0) = ∥P mu0∥2 
+
+> L2
+
++ ∥Qmρ0∥2 
+
+> L2
+
+≤ ∥ u0∥2 
+
+> L2
+
++ ∥ρ0∥2 
+
+> L2
+
+= E(0) .
+
+This implies (um, ρ m) ∈ L∞(0 , T ; H) ∩ L2(0 , T ; V)8 WEN FENG, WEINAN WANG AND XIANG XU 
+
+for any T > 0 uniformly in m.The following estimates provide the uniform time-derivative bounds in L4/3(0 , T ; V′) re-quired by the Aubin–Lions lemma. Let ( W, V ) ∈ H1
+
+> σ, tan
+
+(Ω) × H10 (Ω). Since ∂tum ∈ Xm
+
+and ∂tρm ∈ Y m, we have 
+
+Z
+
+> Ω
+
+∂tum · W dx =
+
+Z
+
+> Ω
+
+∂tum · P mW dx, 
+
+Z
+
+> Ω
+
+∂tρmV dx =
+
+Z
+
+> Ω
+
+∂tρmQmV dx. 
+
+For the shifted form defined above, the eigenvalue relation for a0 gives 
+
+aβ (vi, v j ) = ( μj + β)δij , aβ (W, v j ) = ( μj + β)( W, v j )L2(Ω) .
+
+Consequently, the L2 projection P m is also the aβ -orthogonal projection onto Xm. Since the vj are complete in L2
+
+> σ, tan
+
+(Ω), their span has trivial aβ -orthogonal complement and is therefore dense in the aβ -norm. Hence 
+
+∥P mW ∥H1(Ω) ≤ C∥W ∥H1(Ω) , P mW → W strongly in H1
+
+> σ, tan
+
+(Ω) .
+
+Similarly, the Dirichlet eigenfunctions are orthogonal for the H10 inner product, so 
+
+∥QmV ∥H1(Ω) ≤ C∥V ∥H1(Ω) , QmV → V strongly in H10 (Ω) .
+
+Using P mW ∈ Xm as a test function in (3.2), we obtain 
+
+Z
+
+> Ω
+
+∂tum · W dx =
+
+Z
+
+> Ω
+
+∂tum · P mW dx 
+
+≤
+
+Z
+
+> Ω
+
+[( um · ∇ )um] · P mW dx + ν
+
+Z
+
+> Ω
+
+∇um : ∇P mW dx 
+
++ ν
+
+Z
+
+> ∂Ω
+
+[αu m − dn (um)] · P mW dS +
+
+Z
+
+> Ω
+
+ρme3 · P mW dx ,
+
+Similarly, testing (3.3) with QmV ∈ Y m gives 
+
+Z
+
+> Ω
+
+∂tρmV dx =
+
+Z
+
+> Ω
+
+∂tρmQmV dx 
+
+≤
+
+Z
+
+> Ω
+
+[( um · ∇ )ρm]QmV dx + κ
+
+Z
+
+> Ω
+
+∇ρm · ∇ QmV dx .
+
+Using the uniform H1-stability of P m, the velocity diffusion term satisfies 
+
+ν
+
+Z
+
+> Ω
+
+∇um : ∇P mW dx ≤ Cν ∥∇ um∥L2(Ω) ∥W ∥H1(Ω) .
+
+For the velocity convection term, by H¨ older’s inequality, interpolation, and H1(Ω) ,→ L6(Ω), we have Z
+
+> Ω
+
+[( um · ∇ )um] · P mW dx ≤ ∥ um∥L3 ∥∇ um∥L2 ∥P mW ∥L6
+
+≤ C∥um∥1/2 
+
+> L2
+
+∥∇ um∥3/2 
+
+> L2
+
+∥W ∥H1 .
+
+By the trace theorem, the estimate |dn(z)| ≤ ΛΩ|z| on ∂Ω, and the uniform H1-stability of 
+
+P m, the boundary term satisfies 
+
+ν
+
+Z
+
+> ∂Ω
+
+[αu m − dn(um)] · P mW dS ≤ Cν  ∥α∥L∞(∂Ω) + Λ Ω
+
+∥um∥H1(Ω) ∥W ∥H1(Ω) .DECAY OF THE 3D BOUSSINESQ SYSTEM 9
+
+By the Cauchy–Schwarz inequality and the uniform H1-boundedness of P m, the buoyancy term is bounded by Z
+
+> Ω
+
+ρme3 · P mW dx ≤ C∥ρm∥L2(Ω) ∥W ∥H1(Ω) .
+
+For the scalar convection term, integration by parts, followed by H¨ older’s inequality and Sobolev embedding, gives 
+
+Z
+
+> Ω
+
+(um · ∇ )ρm QmV dx =
+
+Z
+
+> Ω
+
+ρmum · ∇ QmV dx 
+
+≤ C∥um∥1/2 
+
+> L2
+
+∥um∥1/2 
+
+> H1
+
+∥ρm∥H1 ∥V ∥H1 .
+
+Consequently, 
+
+∥∂tum∥(H1 
+
+> σ, tan (Ω)) ′
+
+≤ C
+
+
+
+∥um∥1/2 
+
+> L2
+
+∥um∥3/2 
+
+> H1
+
++ ∥um∥H1 + ∥ρm∥L2
+
+
+
+,
+
+and 
+
+∥∂tρm∥(H10 (Ω)) ′ ≤ C
+
+
+
+∥um∥1/2 
+
+> L2
+
+∥um∥1/2 
+
+> H1
+
+∥ρm∥H1 + ∥ρm∥H1
+
+
+
+.
+
+It follows that 
+
+Z T
+
+> 0
+
+∥∂tum∥4/3(H1 
+
+> σ, tan (Ω)) ′
+
+ds ≤ C∥um∥2/3 
+
+> L∞(0 ,T ;L2(Ω))
+
+∥um∥2 
+
+> L2(0 ,T ;H1(Ω))
+
++ CT 1/3∥um∥4/3  
+
+> L2(0 ,T ;H1(Ω))
+
++ CT 1/3∥ρm∥4/3 
+
+> L2(0 ,T ;L2(Ω))
+
+≤ C(E(0) eC0T )4/3 + CT 1/3(E(0) eC0T )2/3,
+
+where constants have been enlarged in the final line. Similarly, 
+
+Z T
+
+> 0
+
+∥∂tρm∥4/3(H10 (Ω)) ′ ds ≤ C∥um∥2/3 
+
+> L∞(0 ,T ;L2(Ω))
+
+∥um∥2/3 
+
+> L2(0 ,T ;H1(Ω))
+
+∥ρm∥4/3  
+
+> L2(0 ,T ;H10(Ω))
+
++ CT 1/3∥ρm∥4/3  
+
+> L2(0 ,T ;H10(Ω))
+
+≤ C(E(0) eC0T )4/3 + CT 1/3(E(0) eC0T )2/3.
+
+Therefore, 
+
+∥∂tum∥L4/3(0 ,T ;( H1 
+
+> σ, tan (Ω)) ′)
+
++ ∥∂tρm∥L4/3(0 ,T ;( H10 (Ω)) ′) ≤ CT
+
+for every T > 0 and every m ∈ N.These estimates allow us to apply the Aubin–Lions lemma, which gives strong convergence of a subsequence of ( um, ρ m) to ( u, ρ ) in L2(0 , T ; H). Combining this with the Banach– Alaoglu theorem and passing to a further subsequence, still indexed by m, we have 
+
+um → u strongly in L2(0 , T ; L2(Ω; R3)) ,um ∗
+
+⇀ u weakly-* in L∞(0 , T ; L2
+
+> σ, tan
+
+(Ω)) ,
+
+∇um ⇀ ∇u weakly in L2(0 , T ; L2(Ω; R3×3)) ,ρm → ρ strongly in L2(0 , T ; L2),ρm ∗
+
+⇀ ρ weakly-* in L∞(0 , T ; L2),
+
+∇ρm ⇀ ∇ρ weakly in L2(0 , T ; L2(Ω; R3)) .
+
+A diagonal extraction in M = 1 , 2, . . . gives a subsequence, not relabeled, along which all of these convergences hold on every finite time interval. 10 WEN FENG, WEINAN WANG AND XIANG XU 
+
+For each M ∈ N, the uniform time-derivative bounds and reflexivity give, after a further diagonal extraction, 
+
+∂t(um, ρ m) ⇀ G M weakly in L4/3(0 , M ; V′)for some GM ∈ L4/3(0 , M ; V′). For every Ψ ∈ C∞ 
+
+> c
+
+(0 , M ; V), 
+
+Z M
+
+> 0
+
+⟨GM , Ψ⟩ dt = lim 
+
+> m→∞
+
+Z M
+
+> 0
+
+⟨∂t(um, ρ m), Ψ⟩ dt = −
+
+Z M
+
+> 0
+
+(( u, ρ ), ∂ tΨ) H dt. 
+
+Hence GM = ∂t(u, ρ ) distributionally on (0 , M ). Since M is arbitrary, 
+
+∂t(u, ρ ) ∈ L4/3loc ([0 , ∞); V′).
+
+Here the derivative is understood through the preceding V′-valued integration-by-parts iden-tity. After a further diagonal extraction, still along a subsequence not relabeled, we also have (um(t), ρ m(t)) −→ (u(t), ρ (t)) strongly in H
+
+for almost every t > 0, while all the preceding convergences remain valid on every finite time interval. Now fix ( v, ϕ ) ∈ C∞ 
+
+> c
+
+([0 , T ); C∞
+
+> σ, tan
+
+(Ω)) × C∞ 
+
+> c
+
+([0 , T ); C∞ 
+
+> 0
+
+(Ω)). In the Galerkin equations we use the admissible test pair ( P mv, Q mϕ). Since the projections are uniformly bounded and converge strongly in the corresponding H1 spaces, their convergence is uniform on the compact ranges of v, ∂tv, ϕ, and ∂tϕ. Therefore 
+
+P mv → v strongly in C1([0 , T ]; H1
+
+> σ, tan
+
+(Ω)) , Qmϕ → ϕ strongly in C1([0 , T ]; H10 (Ω)) .
+
+Moreover, the uniform H1 bounds on the projections and the standard trilinear estimates show that replacing ( P mv, Q mϕ) by ( v, ϕ ) in each limit introduces an error tending to zero. The strong L2 convergence gives the limits of the time-derivative terms: 
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+um ·∂tv dx dt →
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+u·∂tv dx dt and 
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+ρm∂tϕ dx dt →
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+ρ∂ tϕ dx dt. 
+
+The buoyancy term converges by the strong L2 convergence of ρm, whereas the two diffusion terms converge by the weak L2 convergence of ∇um and ∇ρm, respectively: 
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+ρme3 · v dx dt →
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+ρe 3 · v dx dt, 
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+∇um : ∇v dx dt →
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+∇u : ∇v dx dt, 
+
+and Z T
+
+> 0
+
+Z
+
+> Ω
+
+∇ρm · ∇ ϕ dx dt →
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+∇ρ · ∇ ϕ dx dt. 
+
+Using incompressibility and the tangency condition, we write 
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+[( um · ∇ )um] · v dx dt = −
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+(um ⊗ um) : ∇v dx dt. 
+
+Since um → u strongly in L2(0 , T ; L2(Ω)), we have um ⊗ um → u ⊗ u strongly in L1((0 , T ) ×
+
+Ω), and hence 
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+[( um · ∇ )um] · v dx dt −→ 
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+[( u · ∇ )u] · v dx dt. DECAY OF THE 3D BOUSSINESQ SYSTEM 11 
+
+Likewise, Z T
+
+> 0
+
+Z
+
+> Ω
+
+(um · ∇ ρm)ϕ dx dt = −
+
+Z T
+
+> 0
+
+Z
+
+> Ω
+
+ρmum · ∇ ϕ dx dt, 
+
+and the strong L2 convergence of both factors gives convergence to the corresponding limit term. For the boundary terms, H¨ older’s inequality on (0 , T ) × ∂Ω, the bound |dn(z)| ≤ 
+
+ΛΩ|z|, and the trace interpolation inequality give 
+
+Z T
+
+> 0
+
+Z
+
+> ∂Ω
+
+(αu m 
+
+> tan
+
+· vtan − dn (um) · v) − (αu tan · vtan − dn (u) · v) dS dt 
+
+≤∥ α∥L∞(∂Ω) 
+
+Z T
+
+> 0
+
+Z
+
+> ∂Ω
+
+|um 
+
+> tan
+
+− utan | · | v| dS dt +
+
+Z T
+
+> 0
+
+Z
+
+> ∂Ω
+
+|dn (um − u)|| v| dS dt 
+
+≤∥ α∥L∞(∂Ω) ∥um − u∥L2(0 ,T ;L2(∂Ω)) ∥v∥L2(0 ,T ;L2(∂Ω)) 
+
++ Λ Ω∥um − u∥L2(0 ,T ;L2(∂Ω)) ∥v∥L2(0 ,T ;L2(∂Ω)) 
+
+≲∥α∥L∞(∂Ω) ∥um − u∥ 12 
+
+> L2(0 ,T ;H1(Ω))
+
+∥um − u∥ 12 
+
+> L2(0 ,T ;L2(Ω))
+
+∥v∥L2(0 ,T ;H1(Ω)) 
+
++ Λ Ω∥um − u∥ 12 
+
+> L2(0 ,T ;H1(Ω))
+
+∥um − u∥ 12 
+
+> L2(0 ,T ;L2(Ω))
+
+∥v∥L2(0 ,T ;H1(Ω)) 
+
+≲(∥α∥L∞(∂Ω) + Λ Ω)( ∥um∥L2(0 ,T ;H1(Ω)) + ∥u∥L2(0 ,T ;H1(Ω)) ) 12 ∥um − u∥ 12 
+
+> L2(0 ,T ;L2(Ω))
+
+× ∥ v∥L2(0 ,T ;H1(Ω)) −→ 0.
+
+(3.6) Passing to the limit in the Galerkin formulation, we first obtain the weak formulation for all smooth test pairs (v, ϕ ) ∈ C∞ 
+
+> c
+
+([0 , T ); C∞
+
+> σ, tan
+
+(Ω)) × C∞ 
+
+> c
+
+([0 , T ); C∞ 
+
+> 0
+
+(Ω)) .
+
+By the density of C∞
+
+> σ, tan
+
+(Ω) × C∞ 
+
+> c
+
+(Ω) in V, together with standard approximation in time, this identity extends to every ( v, ϕ ) ∈ C1 
+
+> c
+
+([0 , T ); V). Therefore the weak formulation holds for every test pair required in Definition 3.1. Since the bounds obtained above also give (u, ρ ) ∈ L∞(0 , T ; H) ∩ L2(0 , T ; V), ∂t(u, ρ ) ∈ L4/3(0 , T ; V′),
+
+the standard Lions–Magenes weak-continuity theorem yields ( u, ρ ) ∈ Cw([0 , T ]; H). We conclude that ( u, ρ ) is a weak solution in the sense of Definition 3.1. 
+
+□
+
+4. Energy and Korn–Poincar´ e inequalities 
+
+The Galerkin-limit solution constructed in Theorem 3.2 satisfies the following energy inequalities. 
+
+Lemma 4.1 (Energy inequalities) . Let (u, ρ ) be the weak solution constructed in Theo-rem 3.2. There exists a full-measure set T ⊂ [0 , ∞) with 0 ∈ T such that, for every s ∈ T 
+
+and every t ≥ s, the following inequalities hold: 
+
+12 ∥u(t)∥2 
+
+> L2
+
++ ν
+
+Z ts
+
+∥∇ u∥2 
+
+> L2
+
+dτ 
+
+≤ 12 ∥u(s)∥2 
+
+> L2
+
++ ν
+
+Z ts
+
+Z
+
+> ∂Ω
+
+ ΛΩ − α|utan |2 dS dτ +
+
+Z ts
+
+Z
+
+> Ω
+
+ρe 3 · u dx dτ, (4.1) 12 WEN FENG, WEINAN WANG AND XIANG XU 
+
+12 ∥u(t)∥2 
+
+> L2
+
++ 2 ν
+
+Z ts
+
+∥S(u)∥2 
+
+> L2
+
+dτ 
+
+≤ 12 ∥u(s)∥2 
+
+> L2
+
+− ν
+
+Z ts
+
+Z
+
+> ∂Ω
+
+α|utan |2 dS dτ +
+
+Z ts
+
+Z
+
+> Ω
+
+ρe 3 · u dx dτ, (4.2) 12 ∥ρ(t)∥2 
+
+> L2
+
++ κ
+
+Z ts
+
+∥∇ ρ∥2 
+
+> L2
+
+dτ ≤ 12 ∥ρ(s)∥2 
+
+> L2
+
+. (4.3) 
+
+Proof. Testing the Galerkin momentum equation with um gives the exact identity 12
+
+ddt ∥um∥2 
+
+> L2(Ω)
+
++ ν
+
+
+
+∥∇ um∥2 
+
+> L2(Ω)
+
++
+
+Z
+
+> ∂Ω
+
+um · (αu m − dn (um)) dS 
+
+
+
+=
+
+Z
+
+> Ω
+
+ρme3 · um dx. (4.4) Bounding only the shape-operator term gives 12
+
+ddt ∥um∥2 
+
+> L2(Ω)
+
++ ν∥∇ um∥2 
+
+> L2(Ω)
+
+≤ ν
+
+Z
+
+> ∂Ω
+
+(Λ Ω − α)|um|2 dS +
+
+Z
+
+> Ω
+
+ρme3 · um dx. (4.5) On the other hand, Proposition 2.3 applied directly to (4.4) gives 12
+
+ddt ∥um∥2 
+
+> L2(Ω)
+
++ 2 ν∥S(um)∥2 
+
+> L2(Ω)
+
++ ν
+
+Z
+
+> ∂Ω
+
+α|um|2 dS =
+
+Z
+
+> Ω
+
+ρme3 · um dx. (4.6) We use the one-sided time-mollification and lower-semicontinuity argument of [10, Theo-rem 4.4] to pass from (4.5) to (4.1). Applied to (4.6), the same argument yields (4.2). Let 
+
+r ≥ s and integrate in time from s to r in τ to obtain 12 ∥um(r, ·)∥2 
+
+> L2(Ω)
+
++ ν
+
+Z rs
+
+∥∇ um(τ, ·)∥2 
+
+> L2(Ω)
+
+dτ 
+
+≤ ν
+
+Z rs
+
+Z
+
+> ∂Ω
+
+(Λ Ω − α)|um|2 dS dτ +
+
+Z rs
+
+Z
+
+> Ω
+
+ρme3 · um dx dτ + 12 ∥um(s, ·)∥2
+
+> L2(Ω)
+
+.
+
+(4.7) Fix t > s and choose a finite horizon T > t + 1. First suppose that t is a Lebesgue point of the map r 7 → ∥ u(r)∥2
+
+> L2(Ω)
+
+, and choose ψ ∈ C∞ 
+
+> c
+
+(R+) with R 
+
+> R+
+
+|ψ|2 dr = 1 and supp ψ ⊂ (0 , 1). Let 0 < ϵ < 1 and set 
+
+ψϵ(r) := 1
+
+√ϵ ψ
+
+ r − tϵ
+
+
+
+, r ∈ R+.
+
+We multiply (4.7) by |ψϵ(r)|2. Since t > s , the function ψϵ vanishes for r ≤ s, and hence we may integrate over R+ in r to obtain 12
+
+Z ∞
+
+> 0
+
+|ψϵ(r)|2∥um(r, ·)∥2 
+
+> L2(Ω)
+
+dr + ν
+
+Z ∞
+
+> 0
+
+|ψϵ(r)|2
+
+Z rs
+
+∥∇ um(τ, ·)∥2 
+
+> L2(Ω)
+
+dτ dr 
+
+≤ ν
+
+Z ∞
+
+> 0
+
+|ψϵ(r)|2
+
+Z rs
+
+Z
+
+> ∂Ω
+
+(Λ Ω − α)|um|2 dS dτ dr 
+
++
+
+Z ∞
+
+> 0
+
+|ψϵ(r)|2
+
+Z rs
+
+Z
+
+> Ω
+
+ρme3 · um dx dτ dr + 12 ∥um(s, ·)∥2
+
+> L2(Ω)
+
+.
+
+From Theorem 3.2, we know that um converges to u weakly in L2(0 , T ; H1
+
+> σ, tan
+
+(Ω)) and strongly in L2(0 , T ; L2(Ω)). Moreover, by the trace interpolation inequality, boundedness of um in L2(0 , T ; H1(Ω)) and strong convergence of um → u in L2(0 , T ; L2(Ω)), it follows that um → u strongly in L2(0 , T ; L2(∂Ω)), as in (3.6). Using Fubini’s theorem and passing DECAY OF THE 3D BOUSSINESQ SYSTEM 13 
+
+to the lim inf m→∞ , we obtain 12
+
+Z ∞
+
+> 0
+
+|ψϵ(r)|2∥u(r, ·)∥2 
+
+> L2(Ω)
+
+dr + ν
+
+Z ∞
+
+> 0
+
+|ψϵ(r)|2
+
+Z rs
+
+∥∇ u(τ, ·)∥2 
+
+> L2(Ω)
+
+dτ dr 
+
+≤ ν
+
+Z ∞
+
+> 0
+
+|ψϵ(r)|2
+
+Z rs
+
+Z
+
+> ∂Ω
+
+(Λ Ω − α)|u|2 dS dτ dr 
+
++
+
+Z ∞
+
+> 0
+
+|ψϵ(r)|2
+
+Z rs
+
+Z
+
+> Ω
+
+ρe 3 · u dx dτ dr + 12 lim inf  
+
+> m→∞
+
+∥um(s, ·)∥2
+
+> L2(Ω)
+
+.
+
+(4.8) Indeed, |ψϵ(r)|2 dr has unit mass and is supported in ( t, t +ϵ), so it is a one-sided approximate identity at t. The functions 
+
+r 7 −→ 
+
+Z rs
+
+∥∇ u(τ )∥2 
+
+> L2(Ω)
+
+dτ, r 7 −→ 
+
+Z rs
+
+Z
+
+> ∂Ω
+
+(Λ Ω − α)|u|2 dS dτ, r 7 −→ 
+
+Z rs
+
+Z
+
+> Ω
+
+ρe 3 · u dx dτ 
+
+are absolutely continuous because their integrands belong to L1(s, T ). Hence their averages converge to their values at r = t, while the averaged kinetic term converges to ∥u(t)∥2
+
+> L2(Ω)
+
+by the Lebesgue-point assumption. 12 ∥u(t, ·)∥2 
+
+> L2(Ω)
+
++ ν
+
+Z ts
+
+∥∇ u(τ, ·)∥2 
+
+> L2(Ω)
+
+dτ 
+
+≤ ν
+
+Z ts
+
+Z
+
+> ∂Ω
+
+(Λ Ω − α)|u|2 dS dτ +
+
+Z ts
+
+Z
+
+> Ω
+
+ρe 3 · u dx dτ 
+
++ 12 lim inf  
+
+> m→∞
+
+∥um(s, ·)∥2
+
+> L2(Ω)
+
+.
+
+(4.9) The case t = s is tautological. For an arbitrary t > s , choose Lebesgue points tn ↓ t. Weak continuity gives u(tn) ⇀ u (t) in L2(Ω), so the kinetic-energy term is lower semicontinuous, while all time-integral terms converge as tn ↓ t. The inequality therefore holds for every 
+
+t ≥ s. For almost every s ∈ (0 , T ), the pointwise strong convergence gives lim inf  
+
+> m→∞
+
+∥um(s)∥2 
+
+> L2(Ω)
+
+≤ ∥ u(s)∥2
+
+> L2(Ω)
+
+.
+
+Thus the desired energy inequality holds for almost every s ∈ (0 , T ) and every t ∈ [s, T ]. Applying the same limiting argument to (4.6) gives (4.2). Testing the scalar Galerkin equation with ρm gives (4.3). The transport term vanishes by incompressibility and um ·n =0. For each integer M ≥ 1, let TM ⊂ [0 , M ] be the intersection of the three full-measure sets of initial times for which the corresponding inequalities hold for every t ∈ [s, M ]. Set 
+
+T := {0} ∪ 
+
+> ∞
+
+\ 
+
+> M=1
+
+ TM ∪ (M, ∞).
+
+Then T has full measure in [0 , ∞). The union with ( M, ∞) makes the condition from TM
+
+automatic when s > M , so the countable intersection retains full measure on every finite interval. For s = 0, the same mollifier argument applies, and the initial terms pass to the limit because 
+
+um(0) → u0 strongly in L2(Ω) , ρm(0) → ρ0 strongly in L2(Ω) .14 WEN FENG, WEINAN WANG AND XIANG XU 
+
+Hence all three inequalities also hold at s = 0. If s ∈ T and s > 0, choose an integer M ≥ t.Since s ≤ M , membership in TM ∪ (M, ∞) implies s ∈ T M , and the inequalities hold at (s, t ). Thus the same set T is admissible for all three energy inequalities. □
+
+We now define the corresponding energy class. 
+
+Definition 4.2 (Leray–Hopf weak solution) . A weak solution (u, ρ ) in the sense of Defini-tion 3.1 is called a Leray–Hopf weak solution if there exists a full-measure set T ⊂ [0 , ∞),with 0 ∈ T , such that the energy inequalities in Lemma 4.1 hold for every s ∈ T and every 
+
+t ≥ s.
+
+Consequently, Theorem 3.2 and Lemma 4.1 provide a global Leray–Hopf weak solution for every initial datum in H.We next state the Korn–Poincar´ e inequality needed for the proof of exponential decay. 
+
+Proposition 4.3 (Weighted Korn–Poincar´ e inequality) . Let Ω ⊂ R3 be a bounded, con-nected domain with smooth boundary, and let α ∈ L∞(∂Ω) satisfy α ≥ 0 almost everywhere. Set A∂Ω := {x ∈ ∂Ω : α(x) > 0} and assume that H2(A∂Ω) > 0. Then there exists a con-stant C(KP,α ) = C(KP,α )(Ω , α ) > 0 such that 
+
+∥u∥2 
+
+> L2(Ω)
+
+≤ C(KP,α )
+
+
+
+∥S(u)∥2 
+
+> L2(Ω)
+
++
+
+Z
+
+> ∂Ω
+
+α|u|2 dS 
+
+
+
+(4.10) 
+
+for every u ∈ H1
+
+> σ, tan
+
+(Ω) . In particular, taking α ≡ 1, there exists CKP = CKP (Ω) > 0 such that 
+
+∥u∥2 
+
+> L2(Ω)
+
+≤ CKP 
+
+
+
+∥S(u)∥2 
+
+> L2(Ω)
+
++
+
+Z
+
+> ∂Ω
+
+|u|2 dS 
+
+
+
+. (4.11) 
+
+Proof. By Proposition 2.3, taking Φ = u, we obtain 
+
+Z
+
+> Ω
+
+|∇ u|2 dx = 2 
+
+Z
+
+> Ω
+
+|S(u)|2 dx +
+
+Z
+
+> ∂Ω
+
+u · dn (u) dS. (4.12) Since ∥dn∥L∞(∂Ω) ≤ ΛΩ, by H¨ older inequality, 
+
+Z
+
+> ∂Ω
+
+u · dn(u) dS ≤ ΛΩ∥u∥2
+
+> L2(∂Ω)
+
+.
+
+By the trace interpolation inequality, for every δ > 0, 
+
+∥u∥2 
+
+> L2(∂Ω)
+
+≤ δ∥∇ u∥2 
+
+> L2(Ω)
+
++ Cδ∥u∥2
+
+> L2(Ω)
+
+.
+
+Combining this with (4.12) and choosing δ sufficiently small gives 
+
+∥∇ u∥2 
+
+> L2(Ω)
+
+≤ 4∥S(u)∥2 
+
+> L2(Ω)
+
++ CΩ,ΛΩ ∥u∥2
+
+> L2(Ω)
+
+. (4.13) Estimate (4.13) also appears in [10, Proposition 5.1, Step 1]. Now, we prove (4.10) by contradiction: suppose that no such constant exists. Then, for any N ∈ N, there is uN ∈ H1
+
+> σ, tan
+
+(Ω) such that 
+
+∥uN ∥2 
+
+> L2(Ω)
+
+> N 
+
+
+
+∥S(uN )∥2 
+
+> L2(Ω)
+
++
+
+Z
+
+> ∂Ω
+
+α|uN |2 dS 
+
+
+
+. (4.14) Without loss of generality, we assume ∥uN ∥L2(Ω) = 1 for every N . Therefore, 1
+
+N > ∥S(uN )∥2 
+
+> L2(Ω)
+
++
+
+Z
+
+> ∂Ω
+
+α|uN |2 dS. (4.15) DECAY OF THE 3D BOUSSINESQ SYSTEM 15 
+
+Combining with (4.13), we obtain the uniform bound of ∥∇ uN ∥2
+
+> L2(Ω)
+
+. Hence, after passing to a subsequence, uN ⇀ u ′ weakly in H1(Ω) and uN → u′ strongly in L2(Ω) by the Rellich– Kondrachov theorem. The divergence operator and the normal trace are continuous linear maps on H1(Ω; R3), therefore H1
+
+> σ, tan
+
+(Ω) is weakly closed in H1(Ω; R3), and u′ ∈ H1
+
+> σ, tan
+
+(Ω). We also get ∥u′∥L2(Ω) = 1. By compactness of the trace map, we also have uN → u′ strongly in L2(∂Ω). Moreover, since S is a bounded linear operator, S(uN ) ⇀ S (u′) weakly in L2(Ω). On the other hand, (4.15) gives ∥S(uN )∥2 
+
+> L2(Ω)
+
++ R 
+
+> ∂Ω
+
+α|uN |2 dS → 0. Hence S(u′) = 0, and strong convergence of the traces, together with α ∈ L∞(∂Ω), yields R 
+
+> ∂Ω
+
+α|u′|2 dS = 0. Since 
+
+α ≥ 0, it follows that u′ = 0 almost everywhere on A∂Ω.We now use the standard characterization that every w ∈ Ker S has the form w = a+b×x
+
+for some fixed a, b ∈ R3, by applying Section 7 in [10]. If b = 0, then w = 0 on a set of positive surface measure implies a = 0. If b̸ = 0, the zero set of a + b × x is either empty or an affine line parallel to b, and therefore has zero two-dimensional surface measure. Since 
+
+u′ = 0 a.e. on A∂Ω, which has positive surface measure, we conclude that a = b = 0. Hence 
+
+u′ = 0 in Ω, contradicting ∥u′∥L2(Ω) = 1. Taking α ≡ 1 gives the unweighted estimate. □
+
+Remark 4.4. For comparison, [10, Proposition 5.1] proves that, for u ∈ (Ker S)⊥ := {u ∈
+
+H1
+
+> σ, tan
+
+(Ω) : R 
+
+> Ω
+
+u · v dx = 0 for all v ∈ Ker S},
+
+∥u∥2 
+
+> L2(Ω)
+
+≤ C⊥∥S(u)∥2
+
+> L2(Ω)
+
+. (4.16) 
+
+Writing u = w + u⊥, where w = Proj Ker S u and u⊥ ∈ (Ker S)⊥, we have ∥u∥2 
+
+> L2
+
+= ∥w∥2 
+
+> L2
+
++
+
+∥u⊥∥2 
+
+> L2
+
+and S(u) = S(u⊥). Thus (4.16) controls the component orthogonal to the entire kernel. Proposition 4.3 additionally controls the kernel component through the weighted boundary term whenever H2(A∂Ω) > 0. When α ≡ 0 almost everywhere, that boundary control disappears. 
+
+5. Exponential decay when α is positive on a set of positive surface measure 
+
+We now prove exponential decay when the nonnegative friction coefficient is positive on a boundary set of positive surface measure. 
+
+Theorem 5.1 (Exponential decay) . Let (u, ρ ) be a global Leray–Hopf weak solution to the Boussinesq system (1.1) –(1.4) with initial data (u0, ρ 0) ∈ H . Set A∂Ω := {x ∈ ∂Ω : α(x) >
+
+0} and assume that H2(A∂Ω) > 0. Then there exist constants K, D > 0, depending only on 
+
+ν, κ, Ω, and α, such that 
+
+∥u(t)∥2 
+
+> L2
+
++ ∥ρ(t)∥2 
+
+> L2
+
+≤ D  ∥u0∥2 
+
+> L2
+
++ ∥ρ0∥2
+
+> L2
+
+ e−Kt .
+
+Proof. Let T be the full-measure set in the Leray–Hopf energy inequalities. The Poincar´ einequality gives a constant CP = CP (Ω) > 0 such that, for almost every time, 
+
+∥ρ∥2 
+
+> L2(Ω)
+
+≤ CP ∥∇ ρ∥2
+
+> L2(Ω)
+
+. (5.1) Applying it to (4.3), we obtain 
+
+∥ρ(t)∥2 
+
+> L2
+
++ 2κCP
+
+Z ts
+
+∥ρ(τ )∥2 
+
+> L2
+
+dτ ≤ ∥ ρ(s)∥2 
+
+> L2
+
+(5.2) for every s ∈ T and every t ≥ s. Applying Corollary A.2 on this same set T , we obtain 
+
+∥ρ(t)∥2 
+
+> L2(Ω)
+
+≤ ∥ ρ(s)∥2
+
+> L2(Ω)
+
+e− 2κCP (t−s). (5.3) 16 WEN FENG, WEINAN WANG AND XIANG XU 
+
+In particular, taking s = 0 gives 
+
+∥ρ(t)∥2 
+
+> L2(Ω)
+
+≤ ∥ ρ(0) ∥2
+
+> L2(Ω)
+
+e− 2κCP t. (5.4) We next estimate the velocity. Applying (4.2) for every s ∈ T and every t ≥ s, (4.10), Young’s inequality, and (5.3), we obtain 
+
+∥u(t)∥2
+
+> L2(Ω)
+
++( 2νC(KP,α )
+
+− ϵ)
+
+Z ts
+
+∥u(τ )∥2 
+
+> L2(Ω)
+
+dτ 
+
+≤ 1
+
+ϵ
+
+Z ts
+
+∥ρ(τ )∥2 
+
+> L2(Ω)
+
+dτ + ∥u(s)∥2
+
+> L2(Ω)
+
+≤ 1
+
+ϵ ∥ρ(s)∥2
+
+> L2(Ω)
+
+Z ts
+
+e− 2κCP (τ −s) dτ + ∥u(s)∥2
+
+> L2(Ω)
+
+.
+
+(5.5) Choose ϵ > 0 such that 2νC(KP,α ) −ϵ > 0 and 2νC(KP,α ) −ϵ̸ = 2κCP . Equations (5.3) and (5.5) verify, on the common set T , the two hypotheses of Proposition A.1. Applying that proposition yields 
+
+∥u(t)∥2 
+
+> L2(Ω)
+
+≤ e−( 2νC(KP,α ) −ϵ)( t−s)
+
+∥u(s)∥2
+
+> L2(Ω)
+
++ 1
+
+ϵ ∥ρ(s)∥2
+
+> L2(Ω)
+
+ e− 2κCP (t−s) − e−( 2νC(KP,α ) −ϵ)( t−s)2νC(KP,α ) − ϵ − 2κCP
+
+,
+
+(5.6) and 
+
+∥u(t)∥2 
+
+> L2(Ω)
+
+≤ e−( 2νC(KP,α ) −ϵ)t
+
+∥u(0) ∥2 
+
+> L2(Ω)
+
++ 1
+
+ϵ ∥ρ(0) ∥2
+
+> L2(Ω)
+
+ e− 2κCP t − e−( 2νC(KP,α ) −ϵ)t 
+
+> 2νC(KP,α )
+
+− ϵ − 2κCP
+
+ (5.7) when s = 0. Set 
+
+K := min 
+
+ 2νC(KP,α )
+
+− ϵ, 2κCP
+
+
+
+, D := 1 + 1
+
+ϵ 2νC(KP,α ) − ϵ − 2κCP
+
+.
+
+Combining (5.4) and (5.7), we obtain 
+
+∥u(t)∥2 
+
+> L2(Ω)
+
++ ∥ρ(t)∥2 
+
+> L2(Ω)
+
+≤ D ∥u0∥2 
+
+> L2(Ω)
+
++ ∥ρ0∥2
+
+> L2(Ω)
+
+e−Kt .
+
+This proves the result. □
+
+For the following corollary, a Leray–Hopf weak solution of the Navier–Stokes equations with Navier boundary conditions means a velocity field u such that ( u, 0) is a Leray–Hopf weak solution in the sense of Definition 4.2. 
+
+Corollary 5.2 (Navier–Stokes decay under localized positive friction) . Let Ω ⊂ R3 be bounded and connected with smooth boundary, and let α ∈ L∞(∂Ω) satisfy α ≥ 0 almost everywhere and 
+
+H2 {x ∈ ∂Ω : α(x) > 0} > 0.
+
+Let u be a Leray–Hopf weak solution of the three-dimensional incompressible Navier–Stokes equations with Navier boundary conditions and initial datum u0 ∈ L2
+
+> σ, tan
+
+(Ω) . Then 
+
+∥u(t)∥2 
+
+> L2(Ω)
+
+≤ ∥ u0∥2 
+
+> L2(Ω)
+
+exp 
+
+
+
+− 2νC(KP,α )
+
+t
+
+
+
+, t ≥ 0.DECAY OF THE 3D BOUSSINESQ SYSTEM 17 
+
+Proof. By Definition 4.2, there exists a full-measure set T ⊂ [0 , ∞) with 0 ∈ T such that the second velocity energy inequality with ρ ≡ 0, together with (4.10), gives 
+
+∥u(t)∥2 
+
+> L2
+
++ 2νC(KP,α )
+
+Z ts
+
+∥u(τ )∥2 
+
+> L2
+
+dτ ≤ ∥ u(s)∥2
+
+> L2
+
+for every s ∈ T and every t ≥ s. Corollary A.2 gives the conclusion. □
+
+6. Exponential decay when α ≡ 0In this section, we address the decay of solutions when the friction coefficient α ≡ 0 a.e. on the boundary. Let Proj Ker S denote the L2(Ω)-orthogonal projection onto Ker S.
+
+Theorem 6.1 (Exponential decay for α ≡ 0) . Let (u, ρ ) be a Leray–Hopf weak solution of 
+
+(1.1) –(1.4) with α ≡ 0 almost everywhere on ∂Ω and initial data (u0, ρ 0) ∈ H . Then there exist constants K, D > 0, depending only on ν, κ, and Ω, such that 
+
+∥u(t) − Proj Ker S u(t)∥2 
+
+> L2
+
++ ∥ρ(t)∥2 
+
+> L2
+
+≤ D  ∥u0 − Proj Ker S u0∥2 
+
+> L2
+
++ ∥ρ0∥2
+
+> L2
+
+ e−Kt .
+
+In particular, if Ker S = {0}, the same estimate holds for the full velocity u.Proof. Let T be the full-measure set in the Leray–Hopf energy inequalities, and let CP =
+
+CP (Ω) be the Poincar´ e constant for H10 (Ω). Since S(w) = 0 implies that w is a rigid motion, and since the tangency condition w · n = 0 restricts such rigid motions to the rotational symmetries of Ω, it follows from [10, Lemma 7.1, Proposition 7.2, and Corollary 7.3] that Ker S is finite-dimensional and every element of Ker S is a smooth rigid motion. Let N := dim Ker S, possibly N = 0. Choose an L2-orthonormal basis {wj }Nj=1 of Ker S; when N = 0, the sums below are empty. For j = 1 , . . . , N , define 
+
+aj (t) := ( u(t), w j )L2(Ω) .
+
+Since u ∈ Cw([0 , ∞); L2
+
+> σ, tan
+
+(Ω)), each aj is continuous. We write 
+
+u(t, x ) = w(t, x ) + u⊥(t, x ), w(t, x ) = 
+
+> N
+
+X
+
+> j=1
+
+aj (t)wj (x),
+
+where w ∈ Ker S and u⊥ ∈ (Ker S)⊥. By letting η ∈ C1 
+
+> c
+
+((0 , ∞)) and using the test function (v, ϕ ) = ( η(τ )wj , 0) in the weak formulation, we obtain the following: 
+
+−
+
+Z ∞
+
+> 0
+
+aj (t)η′(t) dt +
+
+Z ∞
+
+> 0
+
+η(t)B(( u, ρ ), (wj , 0)) dt +
+
+Z ∞
+
+> 0
+
+η(t)
+
+Z
+
+> Ω
+
+(u · ∇ )u · wj dx dt 
+
+=
+
+Z ∞
+
+> 0
+
+η(t)
+
+Z
+
+> Ω
+
+ρe 3 · wj dx dt. 
+
+We claim that the two middle terms vanish. Since α = 0 and S(wj ) = 0, Proposition 2.3 gives 
+
+B(( u, ρ ), (wj , 0)) = 2 ν
+
+Z
+
+> Ω
+
+S(u) : S(wj ) dx = 0 .
+
+By using ∇ · u = 0 and u · n = 0 on ∂Ω, we have 
+
+Z
+
+> Ω
+
+[( u · ∇ )u] · wj dx = −
+
+Z
+
+> Ω
+
+[( u · ∇ )wj ] · u dx = −
+
+Z
+
+> Ω
+
+uiuk∂i(wj )k dx. 
+
+Since uiuk is symmetric in the indices i, k , while S(wj ) = 0 implies that ∂i(wj )k is skew-symmetric in i, k , we have 
+
+uiuk ∂i(wj )k = 12 uiuk (∂i(wj )k + ∂k(wj )i) = 0 .18 WEN FENG, WEINAN WANG AND XIANG XU 
+
+Therefore Z
+
+> Ω
+
+[( u · ∇ )u] · wj dx = 0 .
+
+Hence, in the sense of distributions in time, 
+
+ddτ aj (τ ) = 
+
+Z
+
+> Ω
+
+ρ(τ, x ) e3 · wj (x) dx, j = 1 , . . . , N. (6.1) The right-hand side is locally bounded in time by the scalar energy inequality. Hence aj
+
+agrees on (0 , T ) with an absolutely continuous function. This function has a finite limit as 
+
+t ↓ 0, and the continuity of aj (t) = ( u(t), w j )L2 at t = 0 identifies that limit with aj (0). Therefore 
+
+aj (t) = aj (0) + 
+
+Z t
+
+> 0
+
+Z
+
+> Ω
+
+ρ(τ, x )e3 · wj (x) dx dτ. 
+
+The chain rule therefore gives, for every 0 ≤ s ≤ t,
+
+aj (t)2 − aj (s)2 = 2 
+
+Z ts
+
+Z
+
+> Ω
+
+aj (τ )ρ(τ, x )e3 · wj (x) dx dτ. 
+
+Therefore 
+
+∥w(t)∥2 
+
+> L2(Ω)
+
+=
+
+> N
+
+X
+
+> j=1
+
+aj (t)2
+
+=
+
+> N
+
+X
+
+> j=1
+
+aj (s)2 + 2 
+
+> N
+
+X
+
+> j=1
+
+Z ts
+
+aj (τ )
+
+Z
+
+> Ω
+
+ρ(τ, x )e3 · wj (x) dx dτ 
+
+= ∥w(s)∥2 
+
+> L2(Ω)
+
++ 2 
+
+Z ts
+
+Z
+
+> Ω
+
+ρ(τ, x )e3 · w(τ, x ) dx dτ. (6.2) For every s ∈ T and t ≥ s, (4.2) with α = 0 gives 
+
+∥u(t)∥2 
+
+> L2(Ω)
+
++ 4 ν
+
+Z ts
+
+∥S(u(τ )) ∥2 
+
+> L2(Ω)
+
+dτ ≤ ∥ u(s)∥2 
+
+> L2(Ω)
+
++ 2 
+
+Z ts
+
+Z
+
+> Ω
+
+ρe 3 · u dx dτ. 
+
+Since u = u⊥ + w, and S(w) = 0, we have 
+
+∥S(u(t)) ∥2 
+
+> L2(Ω)
+
+= ∥S(u⊥(t)) ∥2
+
+> L2(Ω)
+
+and 
+
+∥u⊥(t)∥2 
+
+> L2(Ω)
+
++ ∥w(t)∥2 
+
+> L2(Ω)
+
++ 4 ν
+
+Z ts
+
+∥S(u⊥(τ )) ∥2 
+
+> L2(Ω)
+
+dτ 
+
+≤ ∥ u⊥(s)∥2 
+
+> L2(Ω)
+
++ ∥w(s)∥2 
+
+> L2(Ω)
+
++ 2 
+
+Z ts
+
+Z
+
+> Ω
+
+ρ(τ, x )e3 · u⊥(τ, x ) dx dτ 
+
++ 2 
+
+Z ts
+
+Z
+
+> Ω
+
+ρ(τ, x )e3 · w(τ, x ) dx dτ. 
+
+(6.3) Subtracting the identity (6.2) from (6.3), we obtain 
+
+∥u⊥(t)∥2 
+
+> L2(Ω)
+
++ 4 ν
+
+Z ts
+
+∥S(u⊥(τ )) ∥2 
+
+> L2(Ω)
+
+dτ ≤ ∥ u⊥(s)∥2 
+
+> L2(Ω)
+
++ 2 
+
+Z ts
+
+Z
+
+> Ω
+
+ρ(τ, x )e3 · u⊥(τ, x ) dx dτ. 
+
+(6.4) Since u⊥ ∈ (Ker S)⊥, by (4.16) and Young’s inequality, we obtain 
+
+∥u⊥(t)∥2 
+
+> L2(Ω)
+
++
+
+ 4νC⊥
+
+− ϵ
+
+ Z ts
+
+∥u⊥(τ )∥2 
+
+> L2(Ω)
+
+dτ ≤ ∥ u⊥(s)∥2 
+
+> L2(Ω)
+
++ 1
+
+ϵ
+
+Z ts
+
+∥ρ(τ )∥2 
+
+> L2(Ω)
+
+dτ. (6.5) DECAY OF THE 3D BOUSSINESQ SYSTEM 19 
+
+The scalar energy estimate and the Poincar´ e inequality give 
+
+∥ρ(t)∥2 
+
+> L2(Ω)
+
+≤ ∥ ρ(s)∥2
+
+> L2(Ω)
+
+e− 2κCP (t−s).
+
+The scalar estimate and (6.5) hold on the same full-measure set T ; hence they verify the hypotheses of Proposition A.1. Choose ϵ > 0 so that 4νC⊥ −ϵ > 0 and 4νC⊥ −ϵ̸ = 2κCP . Applying the proposition gives 
+
+∥u⊥(t)∥2 
+
+> L2(Ω)
+
+≤ e−( 4νC⊥ −ϵ)( t−s)∥u⊥(s)∥2
+
+> L2(Ω)
+
++ 1
+
+ϵ ∥ρ(s)∥2
+
+> L2(Ω)
+
+ e− 2κCP (t−s) − e−( 4νC⊥ −ϵ)( t−s)4νC⊥ − ϵ − 2κCP
+
+,
+
+(6.6) and 
+
+∥u⊥(t)∥2 
+
+> L2(Ω)
+
+≤ e−( 4νC⊥ −ϵ)t∥u⊥(0) ∥2 
+
+> L2(Ω)
+
++ 1
+
+ϵ ∥ρ(0) ∥2
+
+> L2(Ω)
+
+ e− 2κCP t − e−( 4νC⊥ −ϵ)t 
+
+> 4νC⊥
+
+− ϵ − 2κCP
+
+ (6.7) when s = 0. Therefore there exist constants D > 0 and K > 0 such that 
+
+∥u⊥(t)∥2 
+
+> L2(Ω)
+
++ ∥ρ(t)∥2 
+
+> L2(Ω)
+
+≤ D(∥u0 − Proj Ker S u0∥2 
+
+> L2(Ω)
+
++ ∥ρ0∥2
+
+> L2(Ω)
+
+)e−Kt , t ≥ 0.
+
+This completes the proof. □
+
+Remark 6.2. When α ≡ 0 and Ker S̸ = {0}, the dissipation does not control the kernel component w, because the weighted boundary term vanishes identically. Therefore, the full velocity need not decay to zero. More precisely, recall 
+
+w(t, x ) = 
+
+> N
+
+X
+
+> j=1
+
+aj (t)wj (x),
+
+and ddt aj (t) = 
+
+Z
+
+> Ω
+
+ρ(t, x ) e3 · wj (x) dx, j = 1 , . . . , N. 
+
+The scalar decay estimate implies that 
+
+aj, ∞ := aj (0) + 
+
+Z ∞
+
+> 0
+
+Z
+
+> Ω
+
+ρ(τ, x ) e3 · wj (x) dx dτ 
+
+is well defined and that aj (t) → aj, ∞. Moreover, 
+
+|aj (t) − aj, ∞| ≤ Cj
+
+Z ∞
+
+> t
+
+∥ρ(τ )∥L2 dτ ≤ C′ 
+
+> j
+
+e−κt/C P ,
+
+so the convergence of the kernel component is exponential. The limit aj, ∞ need not vanish. For example, if ρ0 = 0 , then ρ ≡ 0 and aj, ∞ = aj (0) for every j; in particular, at least one limiting coefficient is nonzero whenever Proj Ker S u0̸ = 0 . This recovers the Navier–Stokes behavior described in [10, Proposition 7.4 and Theorem 7.5]; the identity for a′ 
+
+> j
+
+above shows precisely how buoyancy breaks conservation of the kernel projection. Thus the orthogonal component decays exponentially to zero, while the full velocity converges exponentially to 
+
+u(t) → w∞ := 
+
+> N
+
+X
+
+> j=1
+
+aj, ∞wj
+
+strongly in L2(Ω) as t → ∞ .20 WEN FENG, WEINAN WANG AND XIANG XU 
+
+Acknowledgments 
+
+WF was partially supported by the AMS-Simons Research Enhancement Grant for PUI Faculty. WW was partially supported by a Simons Foundation grant (No. 0007730). 
+
+Appendix A. A Two-Time Gronwall-Type Inequality 
+
+In this appendix, we prove a two-time Gronwall-type inequality with exponentially de-caying forcing, inspired by Appendix A of [10]. We do not impose a sign condition on y,because the proof uses a shifted quantity that need not have a fixed sign. 
+
+Proposition A.1. Let y be a fixed measurable representative of an element of L1loc ([0 , ∞)) ,let q : [0 , ∞) → [0 , ∞), and let K, D ′, C ′ > 0 with K̸ = D′. All pointwise inequalities below are understood for this fixed representative. Assume that there exists a full-measure set T ⊂ [0 , ∞) with 0 ∈ T such that, for every s ∈ T and every t ≥ s,
+
+q(t) ≤ q(s)e−D′(t−s) (A.1) 
+
+and 
+
+y(t) + K
+
+Z ts
+
+y(τ ) dτ ≤ y(s) + C′q(s)
+
+Z ts
+
+e−D′(τ −s) dτ. (A.2) 
+
+Then, for every s ∈ T and every t ≥ s,
+
+y(t) ≤ y(s)e−K(t−s) + C′q(s)
+
+K − D′
+
+
+
+e−D′(t−s) − e−K(t−s)
+
+. (A.3) 
+
+No sign assumption on y is required. Proof. Fix s ∈ T and define 
+
+Bs := C′q(s)
+
+K − D′ , zs(t) := y(t) − Bse−D′(t−s), t ≥ s. 
+
+The constant Bs may be negative. Let r ∈ T ∩ [s, t ]. Applying (A.2) with initial time r and using (A.1), we obtain 
+
+y(t) + K
+
+Z tr
+
+y(τ ) dτ ≤ y(r) + C′q(r)
+
+Z tr
+
+e−D′(τ −r) dτ 
+
+≤ y(r) + C′q(s)
+
+Z tr
+
+e−D′(τ −s) dτ. 
+
+A direct calculation, using 
+
+Bs + C′q(s) − KB s
+
+D′ = 0 ,
+
+gives 
+
+zs(t) + K
+
+Z tr
+
+zs(τ ) dτ ≤ zs(r). (A.4) Set 
+
+Zs(t) := 
+
+Z ts
+
+zs(τ ) dτ, gs(t) := zs(t) + KZ s(t).
+
+For almost every r ∈ [s, t ], (A.4) gives gs(t) ≤ gs(r), and taking r = s gives gs(t) ≤ gs(s) = 
+
+zs(s). Since Z′
+
+> s
+
+(t) = zs(t) almost everywhere, 
+
+Z′
+
+> s
+
+(t) + KZ s(t) = gs(t), Zs(s) = 0 ,DECAY OF THE 3D BOUSSINESQ SYSTEM 21 
+
+so 
+
+Zs(t) = 
+
+Z ts
+
+e−K(t−r)gs(r) dr. 
+
+Because gs(r) ≥ gs(t) for almost every r ∈ [s, t ], 
+
+zs(t) = gs(t) − KZ s(t)
+
+≤ gs(t) − Kg s(t)
+
+Z ts
+
+e−K(t−r) dr 
+
+= e−K(t−s)gs(t) ≤ e−K(t−s)zs(s).
+
+Returning to y yields (A.3). □
+
+Corollary A.2. Let y be a fixed measurable representative of an element of L1loc ([0 , ∞)) 
+
+and let K > 0. All pointwise inequalities below are understood for this fixed representative. Assume that there exists a full-measure set T ⊂ [0 , ∞) with 0 ∈ T such that, for every 
+
+s ∈ T and every t ≥ s,
+
+y(t) + K
+
+Z ts
+
+y(τ ) dτ ≤ y(s).
+
+Then 
+
+y(t) ≤ y(s)e−K(t−s)
+
+for every s ∈ T and every t ≥ s.
+
+This extends [10, Proposition A.1] by removing the nonnegativity assumption on y.
+
+Proof. Choose any D′ > 0 with D′̸ = K and any C′ > 0, and apply Proposition A.1 with 
+
+q ≡ 0. □
+
+References 
+
+[1] Fabian Bleitner, Elizabeth Carlson, and Camilla Nobili. Large-time behavior of the 2D thermally non-diffusive Boussinesq equations with Navier-slip boundary conditions. Zeitschrift f¨ ur Angewandte Math-ematik und Physik , 76:58, 2025. Article 58. [2] Jianfeng Cheng, Ruihong Ji, Ling Tian, and Jiahong Wu. Stability and enhanced decay rate for 3D anisotropic Boussinesq equations near the hydrostatic balance. Journal of Differential Equations ,425:300–341, 2025. [3] Huafei Di, Liang Li, Xiaoming Peng, and Quan Wang. Global existence and Rayleigh–Taylor insta-bility for the semi-dissipative Boussinesq system with Navier boundary conditions. arXiv preprint arXiv:2405.16074, 2024. [4] Lihua Dong. The optimal decay rates for solutions to the 3D Boussinesq equations with a velocity damping term in R3. Nonlinear Analysis , 255:113775, 2025. Article 113775, 17 pp. [5] Lihua Dong and Yongzhong Sun. On asymptotic stability of the 3D Boussinesq equations without heat conduction. Science China Mathematics , 67(2):253–280, 2024. [6] Durga Jang K.C., Dipendra Regmi, Lizheng Tao, and Jiahong Wu. The 2D Boussinesq–Navier–Stokes equations with logarithmically supercritical dissipation. Journal of Mathematical Study , 57(1):101–132, 2024. [7] Yanlong Fan, Daozhi Han, Quan Wang, and Chao Xing. Nonlinear Rayleigh–Taylor instability of inho-mogeneous incompressible geophysical fluids with partial dissipation. Nonlinearity , 38(5):055016, 2025. Article 055016, 41 pp. [8] Weiwei Hu, Yanzhen Wang, Jiahong Wu, Bei Xiao, and Jia Yuan. Partially dissipative 2D Boussinesq equations with Navier type boundary conditions. Physica D: Nonlinear Phenomena , 376:39–48, 2018. Combined volumes 376–377. [9] Ruihong Ji, Dan Li, and Jiahong Wu. Uniqueness of weak solutions to the Boussinesq equations with fractional dissipation. Communications in Mathematical Sciences , 21(6):1531–1548, 2023. 22 WEN FENG, WEINAN WANG AND XIANG XU 
+
+[10] James P. Kelliher, Christophe Lacave, Milton C. Lopes Filho, Helena J. Nussenzveig Lopes, and Edriss S. Titi. Large time behavior for the 3D Navier–Stokes with Navier boundary conditions. Journal of Math-ematical Fluid Mechanics , 27(3):48, 2025. Article 48, 23 pp. [11] Igor Kukavica and Weinan Wang. Global Sobolev persistence for the fractional Boussinesq equations with zero diffusivity. Pure and Applied Functional Analysis , 5(1):27–45, 2020. [12] Igor Kukavica and Weinan Wang. Long time behavior of solutions to the 2D Boussinesq equations with zero diffusivity. Journal of Dynamics and Differential Equations , 32(4):2061–2077, 2020. [13] Suhua Lai, Jiahong Wu, and Yueyuan Zhong. Stability and large-time behavior of the 2D Boussinesq equations with partial dissipation. Journal of Differential Equations , 271:764–796, 2021. [14] Zongyuan Li and Weinan Wang. Norm inflation for the Boussinesq system. Discrete and Continuous Dynamical Systems – Series B , 26(10):5449–5463, 2021. [15] Hongxia Lin, Sabana, Qing Sun, Ruiqi You, and Xiaochuan Guo. The stability and decay of 2D in-compressible Boussinesq equation with partial vertical dissipation. Communications in Analysis and Mechanics , 17(1):100–127, 2025. [16] Liangliang Ma, Jiahong Wu, and Qian Zhang. Stability of 3D perturbations near a special 2D solution to the rotating Boussinesq equations. Studies in Applied Mathematics , 148(4):1624–1655, 2022. [17] Claude-Louis-Marie-Henri Navier. M´ emoire sur les lois du mouvement des fluides. M´ emoires de l’Acad´ emie Royale des Sciences de l’Institut de France , 6:389–440, 1827. Read to the Acad´ emie Royale des Sciences on 18 March 1822; volume for the year 1823. [18] Maria Alessandra Ragusa and Fan Wu. Global regularity and stability of solutions to the 3D double-diffusive convection system with Navier boundary conditions. Advances in Differential Equations , 26(7– 8):281–304, 2021. [19] Atanas Stefanov and Jiahong Wu. A global regularity result for the 2D Boussinesq equations with critical dissipation. Journal d’Analyse Math´ ematique , 137(1):269–290, 2019. [20] Atanas Stefanov, Jiahong Wu, Xiaojing Xu, and Zhuan Ye. Global regularity results of the 2D fractional Boussinesq equations. Mathematische Annalen , 391(4):5965–6012, 2025. [21] Weinan Wang. On the global regularity for a 3D Boussinesq model without thermal diffusion. Zeitschrift f¨ ur Angewandte Mathematik und Physik , 70(6):174, 2019. Article 174, 6 pp. [22] Weinan Wang. On the global stability of large solutions for the Boussinesq equations with Navier boundary conditions. Archiv der Mathematik , 116(4):445–456, 2021. [23] Jiahong Wu and Kun Zhao. On 2D incompressible Boussinesq systems: global stabilization under dynamic boundary conditions. Journal of Differential Equations , 367:246–289, 2023. [24] Pham Truong Xuan and Tran Thi Ngoc. Well-posedness and exponential stability for Boussinesq sys-tems on real hyperbolic manifolds and application. Asymptotic Analysis , 148(3):803–824, 2026. First published online 16 October 2025. [25] Pham Truong Xuan, Nguyen Thi Van, and Tran Thi Ngoc. On certain classes of mild solutions for Boussinesq systems: a framework of curved spaces. Zeitschrift f¨ ur Angewandte Mathematik und Physik ,76(5):214, 2025. Article 214, 32 pp.  
+
+> 1
+
+Department of Mathematics and Statistics, Sam Houston State University, Huntsville, Texas, 77340, United States 
+
+Email address : wxf008@shsu.edu  
+
+> 2
+
+Department of Mathematics, University of Oklahoma, Norman, OK 73019, United States 
+
+Email address : ww@ou.edu  
+
+> 3
+
+Department of Mathematics, University of Oklahoma, Norman, OK 73019, United States 
+
+Email address : xiang.xu-1@ou.edu
