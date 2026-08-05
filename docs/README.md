@@ -41,17 +41,17 @@
 <section class="dpr-home-dashboard-card dpr-home-report-card">
   <div class="dpr-home-dashboard-header">
     <div>
-      <span class="dpr-home-dashboard-kicker">2026-08-04</span>
+      <span class="dpr-home-dashboard-kicker">2026-08-05</span>
       <h3 class="dpr-home-dashboard-title">今日汇总</h3>
     </div>
-    <strong class="dpr-home-dashboard-count">共 12 篇</strong>
+    <strong class="dpr-home-dashboard-count">共 9 篇</strong>
   </div>
   <dl class="dpr-home-dashboard-stats">
     <div class="dpr-home-dashboard-stat"><dt>累计更新</dt><dd>1 次</dd></div>
-    <div class="dpr-home-dashboard-stat"><dt>精读</dt><dd>6</dd></div>
+    <div class="dpr-home-dashboard-stat"><dt>精读</dt><dd>3</dd></div>
     <div class="dpr-home-dashboard-stat"><dt>速读</dt><dd>6</dd></div>
   </dl>
-  <p class="dpr-home-dashboard-body">最近更新：2026-08-04 22:01:19 UTC<br>状态：成功</p>
+  <p class="dpr-home-dashboard-body">最近更新：2026-08-05 21:56:49 UTC<br>状态：成功</p>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-brief-card">
   <div class="dpr-home-dashboard-header">
@@ -62,7 +62,7 @@
     <strong class="dpr-home-dashboard-count">AI</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<p>今日精读聚焦可压缩Navier-Stokes方程与SQG方程非径向稳态解，分别获10分与9分高分。最值得关注的是可压缩流体力学的全局适定性与最优衰减率，以及SQG方程与半Yamabe方程的联系。建议普通读者优先浏览精读摘要，速读可关注特殊拉格朗日曲率势方程及Muskat问题的自相似解。</p>
+<p>今日聚焦9篇论文，精读3篇、速读6篇，重点在几何分析中的调和映照热流正则性与管道内Navier-Stokes方程稳态问题。最值得关注的是两项8.0分工作：RCD空间到CAT(0)空间的调和映照热流Lipschitz正则性，以及带指定流量或压降的多孔管道Brinkman项分析。建议普通读者优先浏览这两篇的引言与主要定理，可快速抓住当前分析几何与流体力学交叉前沿的核心进展。</p>
   </div>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-deep-card">
@@ -71,12 +71,12 @@
       <span class="dpr-home-dashboard-kicker">今日累计</span>
       <h3 class="dpr-home-dashboard-title">精读推荐</h3>
     </div>
-    <strong class="dpr-home-dashboard-count">6 篇</strong>
+    <strong class="dpr-home-dashboard-count">3 篇</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Compressible Navier--Stokes equations with a potential force: global well-posedness and optimal time-decay rates for arbitrarily large $L^2$ initial data">Compressible Navier--Stokes equations with a potential force: global well-posedness and optimal time-decay rates for arbitrarily large $L^2$ initial data</span></li><li><span class="dpr-home-dashboard-paper-title" title="Smooth nonradial stationary solutions to SQG via the half-Yamabe equation">Smooth nonradial stationary solutions to SQG via the half-Yamabe equation</span></li><li><span class="dpr-home-dashboard-paper-title" title="Weighted Hodge Laplacians on Manifolds with Boundary">Weighted Hodge Laplacians on Manifolds with Boundary</span></li></ul>
+<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Lipschitz regularity of harmonic map heat flows from $\mathrm{RCD}$ spaces into $\mathrm{CAT}(0)$ spaces">Lipschitz regularity of harmonic map heat flows from $\mathrm{RCD}$ spaces into $\mathrm{CAT}(0)$ spaces</span></li><li><span class="dpr-home-dashboard-paper-title" title="Brinkman&#x27;s term for the steady-state Navier-Stokes equations with prescribed flux rate or pressure drop in perforated pipes">Brinkman&#x27;s term for the steady-state Navier-Stokes equations with prescribed flux rate or pressure drop in perforated pipes</span></li><li><span class="dpr-home-dashboard-paper-title" title="A numerical criterion for complex Hessian type equations on projective manifolds">A numerical criterion for complex Hessian type equations on projective manifolds</span></li></ul>
   </div>
-  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>6</strong></span></div>
+  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>3</strong></span></div>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-skim-card">
   <div class="dpr-home-dashboard-header">
@@ -87,7 +87,7 @@
     <strong class="dpr-home-dashboard-count">6 篇</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Sharp Boundary Recession Criteria for the Special Lagrangian Curvature Potential Equation">Sharp Boundary Recession Criteria for the Special Lagrangian Curvature Potential Equation</span></li><li><span class="dpr-home-dashboard-paper-title" title="Self-similar solutions of the three-dimensional Muskat problem with surface tension">Self-similar solutions of the three-dimensional Muskat problem with surface tension</span></li><li><span class="dpr-home-dashboard-paper-title" title="Complete Spectrum and Sharp Local Stability for the Critical Exponential Biharmonic Choquard Equation in \(\mathbb R^{4}\)">Complete Spectrum and Sharp Local Stability for the Critical Exponential Biharmonic Choquard Equation in \(\mathbb R^{4}\)</span></li></ul>
+<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Spectral theory of frame flows on closed hyperbolic manifolds">Spectral theory of frame flows on closed hyperbolic manifolds</span></li><li><span class="dpr-home-dashboard-paper-title" title="Regularity results for elliptic equations on cones">Regularity results for elliptic equations on cones</span></li><li><span class="dpr-home-dashboard-paper-title" title="Unified theory for regularity persistence of vortex patch boundaries">Unified theory for regularity persistence of vortex patch boundaries</span></li></ul>
   </div>
   <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>6</strong></span></div>
 </section>

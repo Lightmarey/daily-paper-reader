@@ -1,0 +1,4543 @@
+Title: Unified theory for regularity persistence of vortex patch boundaries
+
+URL Source: https://arxiv.org/pdf/2608.02033v1
+
+Published Time: Tue, 04 Aug 2026 02:47:15 GMT
+
+Number of Pages: 32
+
+Markdown Content:
+UNIFIED THEORY FOR REGULARITY PERSISTENCE OF VORTEX PATCH BOUNDARIES 
+
+MARC MAGA ˜NA 
+
+Abstract. We establish a unified local theory for the persistence of Sobolev regularity of vortex patch boundaries in a family of two-dimensional active scalar equations with radial convolution kernels K(|x − y|). The class includes the 2D Euler equation, the generalized SQG equation in the locally integrable range 0 < β < 1, and the quasi-geostrophic shallow water equation. Under natural assumptions on K (smoothness, integrability near the origin, monotonicity, and polynomial growth), we prove that if the initial boundary belongs to H3(T)and satisfies the arc-chord condition, then the contour dynamics equation admits a unique local solution in C([0 , T ]; H3(T)). Under a stronger integrability condition on the kernel, we also obtain local existence of H2 solutions. The proof combines Sobolev energy estimates for the contour equation with quantitative control of the arc-chord quantity. 
+
+1. Introduction 
+
+We consider the Cauchy problem of the following 2D active scalar equation: (1) 
+
+
+
+∂tω + v · ∇ ω = 0 , (t, x ) ∈ R+ × R2
+
+v = ∇⊥ψ, ω(0 , ·) = ω0(x), x ∈ R2,
+
+where ∇⊥ = ( −∂2, ∂ 1)t, v = ( v1, v 2) is the divergence free velocity field, ω is a scalar function (referred to as the active scalar) and the stream function ψ is prescribed through a kernel K:(2) ψ(x) = 
+
+Z
+
+> R2
+
+K(x, y )ω(y)dy. 
+
+The system (1)-(2) provides a unified framework that includes several classical hydrodynamic models, depending on the kernel K. Some important examples are given below. 
+
+• 2D Euler equation. If 
+
+K(x, y ) = − 12π log |x − y|, that is, ψ(x) = ( −∆) −1ω(x),
+
+then (1)–(2) reduces to the 2D Euler equations in vorticity formulation. In this case, ω
+
+represents the fluid vorticity, and the system describes the evolution of an incompressible inviscid flow in two dimensions, one of the fundamental models in fluid dynamics. 
+
+• Generalized surface quasi-geostrophic (gSQG) equation. For 
+
+K(x, y ) = cβ |x − y|−β , β ∈ (0 , 2) , that is, ψ(x) = ( −∆) −1+ β 
+
+> 2
+
+ω(x), 
+
+> 1arXiv:2608.02033v1 [math.AP] 3 Aug 2026 2MARC MAGA ˜NA
+
+where cβ = Γ( β/ 2) 22−β πΓ(1 −β/ 2) , the system (1)–(2) corresponds to the inviscid gSQG. In particular, for β = 1, one recovers the classical surface quasi-geostrophic (SQG) equation, introduced as a model for atmospheric circulation near the tropopause [18] and for ocean dynamics in the upper layers [27]. For 0 < β < 1, the model was proposed in [10] as an interpolation between the 2D Euler and the SQG equations. 
+
+• Quasi-geostrophic shallow water (QGSW) equation. If 
+
+K(x, y ) = 12π K0(ε|x − y|), ε > 0, that is, ψ(x) = ( −∆ + ε2)−1ω(x),
+
+where K0 denotes the modified Bessel function of the second kind, then the system (1)–(2) becomes the QGSW equation. This model can be derived asymptotically from the rotating shallow water equations in regimes of rapid rotation and small surface variations [34]. The parameter ε is known as the inverse Rossby deformation length ,and the regime ε ≪ 1 corresponds physically to a nearly rigid free surface. Each of these models has been extensively studied, and many fundamental results are known regarding well-posedness, regularity, and long-time behavior. In particular, for the 2D Euler equation, Yudovich [37] proved that the vorticity equation is well-posed in L∞ 
+
+> c
+
+. A vortex patch is a special weak solution of this equation when the initial condition is the characteristic function of a bounded domain Ω 0. Since the vorticity equation is a transport equation, vorticity is conserved along trajectories, meaning that at any time t, it remains the characteristic function of some domain Ω( t). More generally, for the family of active scalar equations (1)–(2), we are interested in solutions of the same form, namely (3) ω(x, t ) = 
+
+ 1, x ∈ Ω( t),
+
+0, R2 \ Ω( t),
+
+where Ω( t) is a bounded domain whose boundary is parametrized as a closed curve 
+
+∂Ω( t) = {γ(x, t ) = ( γ1(x, t ), γ 2(x, t )) : x ∈ T},
+
+where T = R/(2 πZ) denotes the one-dimensional torus, identified with [ −π, π ] with periodic boundary conditions. As in the Euler case, the transport structure of (1) guarantees that if the initial datum is a characteristic function, the solution remains a characteristic function of some evolving domain for all times. A fundamental question in the study of vortex patches is whether the initial regularity of the boundary persists over time. More precisely, if the boundary of the initial domain ∂Ω0 belongs to a given regularity class (for instance, a H¨ older space Ck,σ or a Sobolev space W s,p ), one seeks to determine whether ∂Ω( t) remains in the same class for all times, or at least locally in time. For the 2D Euler equation in the plane, this problem was raised in the 1980s and resolved in the H¨ older setting by Chemin [7], who proved global persistence of C1,σ regularity (0 < σ < 1) using paradifferential calculus. Shortly thereafter, Bertozzi and Constantin [2] obtained an alternative proof based on geometric methods in classical analysis. Related propagation results for singular vortex patches were later obtained, for instance, in [11]. These results were later extended to UNIFIED THEORY FOR REGULARITY PERSISTENCE OF VORTEX PATCH BOUNDARIES 3
+
+other domains, such as bounded domains and the half-plane [12, 21]. On the other hand, it has recently been shown by Kiselev and Luo that the Euler vortex patch problem is ill-posed in C2
+
+[22], highlighting the delicate nature of the regularity threshold. For the active scalar models introduced above, the persistence of boundary regularity has also been extensively studied. In the case of the SQG equation ( β = 1), Rodrigo [31] proved local existence and uniqueness of C∞ patches via a Nash–Moser implicit function theorem. For the generalized SQG equations (0 < β < 2), local-in-time persistence of Sobolev regularity for the patch boundary is by now well understood. Gancedo [14] established local existence and uniqueness for patch boundaries parametrized in Hk(T), k ≥ 3, for 0 < β < 1, and existence in the same class for β = 1. Uniqueness in the latter case was later proved by C´ ordoba, C´ ordoba, and Gancedo [9]. These results were subsequently extended by Chae, Constantin, C´ ordoba, Gancedo, and Wu [6] to the full range 0 < β < 2, with k ≥ 4. More recently, Gancedo and Patel [16] obtained local existence for patch boundaries in H2(T)for 0 < β < 1 and in H3(T) for 1 < β < 2. In the critical case β = 1, Gancedo, Nguyen, and Patel [15] proved local well-posedness in H2+ s for arbitrarily small s > 0. Several ill-posedness results are known for these models. Kiselev and Luo [24] proved strong ill-posedness of C2,σ and W 2,p (p̸ = 2) patch solutions for gSQG in the range 0 < β < 1. The formation of splash singularities, that is, configurations where the boundary self-intersects at a point while remaining otherwise smooth, has been ruled out for the full range of β in [17, 23, 20]. In the half-plane with a rigid boundary, finite-time singularity formation has been established for 0 < β < 13 (see [25, 26, 16]; see also [38] for further improvements). For the quasi-geostrophic shallow water (QGSW) equation, Yudovich theory and global well-posedness of vortex patches in C1,σ was recently established in [28]. More generally, for the 2D loglog-Euler type equation, Tan, Xue, and Xue [33] revisited Elgindi’s result [13] and proved global propagation of patch boundary regularity with a loss of H¨ older exponent, namely from 
+
+C1,σ to C1,σ −ε. They also pointed out that, under additional assumptions on the multiplier, this loss can be avoided. In the complementary regime, where the Osgood condition fails, Miao, Tan, Xue, and Xue [30] showed that finite-time singularities may occur for patch solutions in the half-plane. Finally, persistence of boundary regularity has also been studied for a broader class of nonlinear transport equations in which the velocity field is given directly by convolution, v = K ∗ω, without imposing the divergence-free condition. This includes, for instance, the aggregation equation in 
+
+Rn with Newtonian kernel, K = ∇N , studied in [4, 3]. Another important contribution is due to Cantero, Mateu, Orobitg, and Verdera [5], who consider odd kernels in Rn, homogeneous of degree −(n − 1) and smooth away from the origin, and prove global-in-time existence and uniqueness of patch solutions with C1,σ boundary, together with persistence of this regularity. Their uniqueness result is formulated within the class of characteristic functions of C1,σ domains, rather than as a general Yudovich-type theory for arbitrary bounded compactly supported data. Their framework allows for velocity fields with nontrivial divergence and includes, among other examples, kernels of the form L(∇N ) where L is a linear mapping from Rn into itself, such as the 3D quasi-geostrophic equation and the Cauchy transport equation in the plane. The planar case was later revisited by Verdera [35], where the same global patch regularity result is obtained by different methods. For the Cauchy kernel, a particular case of the class in [5], Clop and Sengupta [8] proved existence of solutions for bounded, compactly supported initial data, even though the associated velocity field may have unbounded divergence, using compactness 4 MARC MAGA ˜NA 
+
+properties of quasiconformal mappings. In this setting, the main difficulty is that the velocity field may have non-zero, and in some cases unbounded, divergence. In this paper, we propose a unified framework encompassing a broad class of kernels K (including the examples above), and establish local-in-time persistence of Sobolev regularity for the patch boundary under explicit and verifiable assumptions on K. Our approach is inspired by the work of Hmidi, Xue, and Xue [19], who developed a unified theory for V-state structures in active scalar equations. More precisely, we consider radial kernels K : (0 , ∞) → R, namely kernels of the form 
+
+K(x, y ) = K(|x − y|),
+
+satisfying the following assumptions: (A1) K(r) ∈ C∞(R \ { 0}),
+
+(A2) R 10 |K(r)|dr < ∞,
+
+(A3) There exists δ > 0 such that |K(r)| is decreasing on (0 , δ ]. Moreover, for r > δ, there exists constants C > 0 and M ≥ 0 with |K(r)| ≤ C(1 + rM ).
+
+(A4) For n = 1 , 2, 3, |K(n)(r)| is decreasing for all r > 0. The examples mentioned above (2D Euler, gSQG for 0 < β < 1, QGSW) are all covered by our hypotheses. Further admissible kernels, including screened gSQG kernels and completely monotone radial kernels, are discussed in Appendix A. The evolution of the boundary ∂Ω( t) is determined by the fact that the interface is transported by the flow. Let γ(·, t ) be a parametrization of ∂Ω( t). Then the normal velocity of the boundary coincides with the normal component of the fluid velocity, namely (∂tγ − v(γ, t )) · n = 0 ,
+
+where n denotes the unit normal vector to the curve. This identity determines only the normal component of ∂tγ, and therefore does not uniquely specify the evolution of the parametrization. Indeed, it is well known (see, for instance, [14]) that the tangential component of the velocity does not affect the shape of the interface, but only its parametrization. Consequently, the evolution of the curve is determined up to the addition of an arbitrary tangential term. Using a Biot-Savart type law, the velocity field can be expressed in terms of the boundary parametrization as 
+
+v(γ, t ) = 
+
+Z
+
+> T
+
+K(|γ(x, t ) − γ(x − x′, t )|) ∂xγ(x − x′, t ) dx ′,
+
+Since only the normal component is relevant, we may exploit this freedom to rewrite the evolution equation in a more convenient form. Following [14, 16], we consider the contour dynamics equation (CDE) 
+
+∂tγ(x, t ) = −
+
+Z
+
+> T
+
+K(|γ(x, t ) − γ(x − x′, t )|) ( ∂xγ(x, t ) − ∂xγ(x − x′, t )) dx ′ + λ(x, t )∂xγ(x, t ),γ(x, 0) = γ0(x).UNIFIED THEORY FOR REGULARITY PERSISTENCE OF VORTEX PATCH BOUNDARIES 5
+
+where λ(x, t ) is a scalar function chosen so that the parametrization satisfies a convenient condition (e.g., constant speed or a specific gauge). To ensure that the curve remains well-behaved and does not self-intersect, we impose the arc-chord condition (4) |γ(x, t ) − γ(x − x′, t )||x′| ≥ c > 0, ∀x, x ′ ∈ T, ∀t ≥ 0,
+
+which rules out self-intersections and prevents the degeneration of the parametrization, in particular cusp-type collapses. Associated to this condition, one defines the quantity (5) F (γ)( x, x ′, t ) = |x′||γ(x, t ) − γ(x − x′, t )| ,
+
+with the convention F (γ)( x, 0, t ) = |∂xγ(x, t )|−1. We denote its supremum over the spatial variables by 
+
+∥F (γ)∥L∞ (t) := sup 
+
+> x,x ′∈T
+
+F (γ)( x, x ′, t ).
+
+The boundedness of F (γ), or equivalently the finiteness of ∥F (γ)∥L∞ , will be a crucial control in the energy estimates. Under these assumptions, we prove the following local well-posedness result. 
+
+Theorem 1.1 (Local well-posedness in H3). Let γ0 ∈ H3(T) be an initial curve such that 
+
+F (γ0) is bounded. Assume the radial kernel K satisfies hypotheses (A1)-(A4). Then there exists a time T > 0 so that there is a unique solution to the contour dynamics equation (CDE) in 
+
+C([0 , T ]; H3(T)) with γ(x, 0) = γ0(x) and λ(x, t ) = 0 .
+
+If the integrability condition (A2) is strengthened, the required regularity can be lowered, although uniqueness at this level of regularity is currently unknown. 
+
+Theorem 1.2 (Local existence in H2). Let γ0 ∈ H2(T) be an initial curve such that F (γ0) is bounded. Assume the radial kernel K satisfies (A1), (A3) and (A4) (only required for n = 1 , 2)and the following stronger integrability condition: 
+
+(A2’) 
+
+Z 10
+
+r|K(r)| 1 
+
+> α
+
+dr < ∞ for some α ∈
+
+
+
+0, 12
+
+
+
+.
+
+Then there exists a time T > 0 and a solution γ ∈ C([0 , T ]; H2(T)) to the contour dynamics equation (CDE) with λ as defined in (17) .
+
+Remark. For the specific family of gSQG kernels with 0 < β < 13 , Gancedo and Patel [16] proved uniqueness of H2 patches in the half-plane setting. Their proof crucially exploits an extra cancellation coming from the reflected (mirror) terms that appear due to the fixed boundary condition. In the whole space, the same cancellation is absent, and uniqueness of H2 patches for the gSQG equation (or for the general kernels covered by Theorem 1.2) remains open to the best of our knowledge. 6 MARC MAGA ˜NA 
+
+Remark. The assumptions on the kernel have been stated in a form that keeps the energy estimates as transparent as possible. The smoothness assumption (A1) can be relaxed: it suffices that K ∈ C3(R \ { 0}) for Theorem 1.1, and K ∈ C2(R \ { 0}) for Theorem 1.2. In a similar way, the global monotonicity assumption in (A4) is used mainly to avoid repeated decompositions between small and large scales. One expects the same arguments to work under a weaker condition in which, for the relevant derivatives, |K(n)| is required to be decreasing only near the origin, while away from the origin the derivatives satisfy polynomial growth bounds analogous to (A3). Indeed, the singular part of the estimates only uses monotonicity at small scales, whereas the contribution from the region |γ(x)−γ(x−x′)| ≳ 1 can be controlled by Sobolev bounds on the curve and polynomial growth of the kernel. We keep the stronger formulation in order to avoid additional technical decompositions. The analytical framework developed in this paper follows closely the approach introduced by Gancedo in [14] and further developed in [16]. The argument is based on the contour-dynamics energy method introduced in the aforementioned works, but it is implemented here at the level of a general radial kernel K. This requires isolating the precise kernel properties needed in the estimates and replacing the explicit computations available for the gSQG kernels by structural bounds valid for the whole class considered. This work is organized as follows: Section 2 introduces the function spaces and notation used throughout the paper. Section 3 is devoted to the proof of Theorem 1.1, and Section 4 to the proof of Theorem 1.2. Finally, Appendix A discusses further examples of admissible kernels. 2. Preliminaries 
+
+In this section we introduce the function spaces and notation that will be used throughout the paper. We also recall the assumptions on the kernel and prove two key estimates that are fundamental for the energy arguments in the following sections. 2.1. Function spaces and notation. Let T = [ −π, π ] be the one-dimensional torus. Functions 
+
+γ : T → R2 are always assumed to be 2 π-periodic. For such functions we will use the standard Lebesgue and Sobolev spaces. For an integer k ≥ 0, we define the Sobolev space Hk(T) as the set of functions whose derivatives up to order k belong to L2(T). A standard norm is ∥γ∥2 
+
+> Hk
+
+= Pkj=0 ∥∂jxγ∥2 
+
+> L2
+
+. However, for our energy estimates it will be convenient to use an equivalent norm that only involves the L2 norm of the function and its highest derivative. More precisely, on the torus we have the equivalence 
+
+∥γ∥2  
+
+> Hk(T)
+
+∼ ∥ γ∥2 
+
+> L2(T)
+
++ ∂kx γ 2 
+
+> L2(T)
+
+,
+
+which follows from the Poincar´ e inequality: on the torus, any function can be decomposed into its constant part (controlled by ∥f ∥L2(T)) and a zero-mean part whose lower-order derivatives are bounded by ∂kx f L2(T). This equivalence allows us to focus our estimates on the highest-order derivative, since the lower-order terms can be controlled by interpolation or by the conservation laws. UNIFIED THEORY FOR REGULARITY PERSISTENCE OF VORTEX PATCH BOUNDARIES 7
+
+For the geometric estimates we will also need to control lower-order derivatives in the supremum norm. We define the C2 norm as 
+
+∥γ∥C2(T) = sup 
+
+> x∈T
+
+|γ(x)| + sup 
+
+> x∈T
+
+|∂xγ(x)| + sup 
+
+> x∈T
+
+|∂2
+
+> x
+
+γ(x)|.
+
+By the Sobolev embedding H3(T) ,→ C2(T) (in one dimension this embedding is continuous), there exists an absolute constant C > 0 such that 
+
+∥γ∥C2(T) ≤ C ∥γ∥H3(T) for all γ ∈ H3(T).
+
+In the lower regularity setting of Theorem 1.2 we will need H¨ older spaces. For σ ∈ (0 , 1), define 
+
+Cσ as the space of functions f : T → R2 such that 
+
+∥f ∥σ := sup 
+
+> x∈T
+
+|f (x)| + sup 
+
+> x̸=y∈T
+
+|f (x) − f (y)||x − y|σ < ∞.
+
+By Sobolev embedding, we have the continuous inclusion H2(T) ,→ C 1, 12 . Here C1, 12 denotes the space of bounded functions whose first derivative belongs to C 12 . More generally, H2(T) ,→
+
+C1,σ (T) for every 0 < σ ≤ 12 . These embeddings will allow us to control the quantity F (γ)defined below, which involves differences of γ at nearby points. To simplify notation, throughout the paper we will occasionally use the shorthand ∆x′ f (x) = f (x) − f (x − x′).
+
+2.2. Kernel estimates. We consider a radial kernel K, satisfying the conditions (A1)–(A4) stated in the introduction. 
+
+Lemma 2.1. If K satisfies (A1)–(A4), then (1) lim  
+
+> r→0
+
+rn+1 K(n)(r) = 0 for n = 0 , 1, 2,(2) 
+
+Z 10
+
+rn |K(n)(r)| dr < ∞ for n = 1 , 2, 3.Proof. It is enough to prove the estimates near the origin, since the contribution away from the origin is finite by the smoothness of K. Hence, without loss of generality, we assume that the monotonicity interval in (A3) is (0 , 1]. Since |K| is monotone near the origin by (A3), and |K(m)| is monotone for m = 1 , 2, 3 by (A4), each K(m) has a fixed sign near the origin, up to the trivial case where it vanishes identically on a subinterval. We shall use the analogous observation for K′, K′′ , and K′′′ without further comment. For any r ∈ (0 , 1], the monotonicity of |K| on (0 , 1] gives 
+
+Z r
+
+> 0
+
+|K(t)| dt ≥
+
+Z rr/ 2
+
+|K(t)| dt ≥ r
+
+2 |K(r)| ≥ 0.
+
+Since R r 
+
+> 0
+
+|K(t)| dt → 0 as r → 0, we obtain lim  
+
+> r→0
+
+rK (r) = 0 ,
+
+which proves 1 for n = 0. 8 MARC MAGA ˜NA 
+
+To treat K′, integrate by parts on [ ε, 1]: 
+
+Z 1
+
+> ε
+
+tK ′(t) dt = tK (t) 1
+
+> ε
+
+−
+
+Z 1
+
+> ε
+
+K(t) dt. 
+
+Since εK (ε) → 0 and R 10 K(t) dt converges, passing ε → 0 shows that R 10 tK ′(t) dt converges. As 
+
+K′ has fixed sign near the origin, this convergence is absolute near the origin; hence 
+
+Z 10
+
+t|K′(t)| dt < ∞.
+
+Using again the monotonicity of |K′|,
+
+Z r
+
+> 0
+
+t|K′(t)| dt ≥
+
+Z rr/ 2
+
+t|K′(t)| dt ≥ r
+
+2
+
+Z rr/ 2
+
+|K′(t)| dt ≥ r2
+
+4 |K′(r)| ≥ 0.
+
+The left-hand side tends to zero as r → 0, and therefore lim  
+
+> r→0
+
+r2K′(r) = 0 .
+
+This proves 1 for n = 1, and also gives 
+
+Z 10
+
+r|K′(r)| dr < ∞.
+
+The same argument, applied successively to K′ and K′′ , gives 
+
+Z 10
+
+r2|K′′ (r)| dr < ∞, lim  
+
+> r→0
+
+r3K′′ (r) = 0 ,
+
+and Z 10
+
+r3|K′′′ (r)| dr < ∞.
+
+Indeed, the integrations by parts are 
+
+Z 1
+
+> ε
+
+t2K′′ (t) dt = t2K′(t) 1
+
+> ε
+
+− 2
+
+Z 1
+
+> ε
+
+tK ′(t) dt, 
+
+and Z 1
+
+> ε
+
+t3K′′′ (t) dt = t3K′′ (t) 1
+
+> ε
+
+− 3
+
+Z 1
+
+> ε
+
+t2K′′ (t) dt. 
+
+The boundary terms vanish because of the limits already proved, and the fixed-sign property near the origin turns convergence into absolute convergence. The pointwise limit for K′′ follows, as above, from Z r
+
+> 0
+
+t2|K′′ (t)| dt ≥
+
+Z rr/ 2
+
+t2|K′′ (t)| dt ≥ r3
+
+8 |K′′ (r)|.
+
+This completes the proof. □
+
+The following integral structure will appear repeatedly in what follows. For this reason we introduce a general bound, stated in the next lemma. 
+
+Lemma 2.2. Let j ≥ n with n = 1 , 2, 3. If K satisfies (A1)-(A4) then for all S > 0 we have 
+
+Z S
+
+> 0
+
+νj |K(n)(ν)|dν ≤
+
+Z 10
+
+νj |K(n)(ν)|dν + |K(n)(1) |
+
+j + 1 (Sj+1 − 1) + ≤ C1 + C2(Sj+1 − 1) +,
+
+where (x)+ = max {x, 0}, and the constants C1, C 2 depend on K, n and j.UNIFIED THEORY FOR REGULARITY PERSISTENCE OF VORTEX PATCH BOUNDARIES 9
+
+Proof. If S ≤ 1 then ( Sj+1 − 1) + = 0 so the result is clear. For S ≥ 1 we split the integral into two parts and use the monotonicity assumption (A4) to get 
+
+Z S
+
+> 0
+
+νj |K(n)(ν)|dν ≤
+
+Z 10
+
+νj |K(n)(ν)|dν + |K(n)(1) |
+
+Z S
+
+> 1
+
+νj dν 
+
+≤
+
+Z 10
+
+νj |K(n)(ν)|dν + |K(n)(1) |
+
+j + 1 (Sj+1 − 1) .
+
+Finally, by Lemma 2.1 we have that the first term is bounded. □
+
+We shall also use that, since |K(n)| is nonincreasing on (0 , ∞) for n = 1 , 2, 3, each K(n) has a fixed sign on (0 , ∞), up to the harmless case where it vanishes identically on a tail interval. Hence, for j ≥ n, Z S
+
+> 0
+
+νj K(n)(ν) dν =
+
+Z S
+
+> 0
+
+νj |K(n)(ν)| dν. 
+
+3. Local well-posedness in H3
+
+In this section we prove Theorem 1.1. As discussed in the introduction, the tangential component of the velocity does not affect the shape of the domain, only its parametrization. Exploiting this gauge freedom, we may take λ = 0 in the contour dynamics equation (CDE), which fixes the contour patch equations as follows (6) 
+
+
+
+∂tγ(x, t ) = −
+
+Z
+
+> T
+
+K(|γ(x) − γ(x − x′)|)( ∂xγ(x) − ∂xγ(x − x′)) dx ′,γ(x, 0) = γ0(x),
+
+where γ0 ∈ H3(T) with F (γ0)( x, x ′) < ∞. We look at the time evolution of the H3 norm 
+
+∥γ∥2 
+
+> H3(T)
+
+= ∥γ∥2 
+
+> L2(T)
+
++ ∂3
+
+> x
+
+γ 2 
+
+> L2(T)
+
+.
+
+First, define ˜K : [0 , ∞) → R by ˜K(u) = R u 
+
+> 0
+
+K(√t)dt which is well-defined for u ≥ 0 because the change of variables t = r2 gives R u 
+
+> 0
+
+K(√t)dt = 2 R √u 
+
+> 0
+
+rK (r)dr and (A2) guarantees convergence near zero. Then, by the Fundamental Theorem of Calculus, ˜K′(u) = K(√u) for u > 0. In particular, K(r) = ˜K′(r2) . Using the symmetry x ↔ x − x′ (which leaves the torus invariant) we obtain (7) 
+
+−
+
+Z
+
+> T
+
+γ(x) · γt(x)dx =
+
+Z
+
+> T
+
+Z
+
+> T
+
+γ(x) · (∂xγ(x) − ∂xγ(x − x′)) K(|∆x′ γ(x)|)dx ′dx 
+
+= −
+
+Z
+
+> T
+
+Z
+
+> T
+
+γ(x − x′) · (∂xγ(x) − ∂xγ(x − x′)) K(|∆x′ γ(x)|)dx ′dx 
+
+= 12
+
+Z
+
+> T
+
+Z
+
+> T
+
+∆x′ γ(x) · (∂xγ(x) − ∂xγ(x − x′)) K(|∆x′ γ(x)|)dx ′dx 
+
+= 14
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂x[|γ(x) − γ(x − x′)|2]K(|γ(x) − γ(x − x′)|)dx ′dx 
+
+= 14
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂x ˜K(|γ(x) − γ(x − x′)|2)dx ′dx = 0 .10 MARC MAGA ˜NA 
+
+The final equality follows from Fubini’s theorem and the fact that γ is a closed curve, so the integral of a total derivative over T vanishes. Therefore ∂t ∥γ∥L2(T) (t) = 0 .
+
+We control now the quantity 
+
+−
+
+Z
+
+> T
+
+∂3
+
+> x
+
+γ(x) · ∂3
+
+> x
+
+γt(x)dx = I1 + I2 + I3 + I4,
+
+where 
+
+I1 =
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂3
+
+> x
+
+γ(x) · (∂4
+
+> x
+
+γ(x) − ∂4
+
+> x
+
+γ(x − x′)) K(|γ(x) − γ(x − x′)|)dx ′dx, I2 = 3 
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂3
+
+> x
+
+γ(x) · (∂3
+
+> x
+
+γ(x) − ∂3
+
+> x
+
+γ(x − x′)) ∂x[K(|γ(x) − γ(x − x′)|)] dx ′dx, I3 = 3 
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂3
+
+> x
+
+γ(x) · (∂2
+
+> x
+
+γ(x) − ∂2
+
+> x
+
+γ(x − x′)) ∂2
+
+> x
+
+[K(|γ(x) − γ(x − x′)|)] dx ′dx, I4 =
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂3
+
+> x
+
+γ(x) · (∂xγ(x) − ∂xγ(x − x′)) ∂3
+
+> x
+
+[K(|γ(x) − γ(x − x′)|)] dx ′dx. 
+
+For I1 we proceed as in (7) to obtain 
+
+I1 = 12
+
+Z
+
+> T
+
+Z
+
+> T
+
+(∂3
+
+> x
+
+γ(x) − ∂3
+
+> x
+
+γ(x − x′)) · (∂4
+
+> x
+
+γ(x) − ∂4
+
+> x
+
+γ(x − x′)) K(|∆x′ γ(x)|)dx ′dx 
+
+= 14
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂x[|∂3
+
+> x
+
+γ(x) − ∂3
+
+> x
+
+γ(x − x′)|2]K(|∆x′ γ(x)|)dx ′dx 
+
+= − 14
+
+Z
+
+> T
+
+Z
+
+> T
+
+|∂3
+
+> x
+
+γ(x) − ∂3
+
+> x
+
+γ(x − x′)|2∂x[K(|∆x′ γ(x)|)] dx ′dx 
+
+= − 14
+
+Z
+
+> T
+
+Z
+
+> T
+
+|∆x′ ∂3
+
+> x
+
+γ(x)|2 ∆x′ γ(x) · ∆x′ ∂xγ(x)
+
+|∆x′ γ(x)| K′(|∆x′ γ(x)|)dx ′dx. 
+
+Due to the inequality |∂xγ(x) − ∂xγ(x − x′)|| x′|−1 ≤ ∥ γ∥C2(T), and the monotonicity assumption, it follows that 
+
+|I1| ≤ C ∥γ∥C2(T)
+
+Z
+
+> T
+
+Z
+
+> T
+
+|∂3
+
+> x
+
+γ(x) − ∂3
+
+> x
+
+γ(x − x′)|2|x′|| K′(|γ(x) − γ(x − x′)|)|dx ′dx 
+
+= C ∥γ∥C2(T)
+
+Z
+
+> T
+
+Z
+
+> T
+
+|∂3
+
+> x
+
+γ(x) − ∂3
+
+> x
+
+γ(x − x′)|2|x′| K′
+
+ |x′|
+
+F (γ)
+
+
+
+dx ′dx 
+
+≤ C ∥γ∥C2(T)
+
+Z
+
+> T
+
+Z
+
+> T
+
+|∂3
+
+> x
+
+γ(x) − ∂3
+
+> x
+
+γ(x − x′)|2|x′| K′
+
+ |x′|∥F (γ)∥L∞
+
+
+
+dx ′dx 
+
+= C ∥γ∥C2(T)
+
+Z
+
+> T
+
+|x′| K′
+
+ |x′|∥F (γ)∥L∞
+
+ Z 
+
+> T
+
+|∂3
+
+> x
+
+γ(x) − ∂3
+
+> x
+
+γ(x − x′)|2dxdx ′
+
+≤ C ∥γ∥C2(T)
+
+Z
+
+> T
+
+|x′| K′
+
+ |x′|∥F (γ)∥L∞
+
+ Z 
+
+> T
+
+|∂3
+
+> x
+
+γ(x)|2 + |∂3
+
+> x
+
+γ(x − x′)|2dxdx ′
+
+≤ C ∥F (γ)∥L∞ ∥γ∥C2(T) ∂3
+
+> x
+
+γ 2
+
+> L2(T)
+
+Z
+
+> T
+
+|x′|∥F (γ)∥L∞
+
+K′
+
+ |x′|∥F (γ)∥L∞
+
+
+
+dx ′
+
+≤ C ∥F (γ)∥2 
+
+> L∞
+
+∥γ∥C2(T) ∂3
+
+> x
+
+γ 2
+
+> L2(T)
+
+Z π 
+
+> ∥F(γ)∥L∞
+> 0
+
+νK ′ (ν) dν .UNIFIED THEORY FOR REGULARITY PERSISTENCE OF VORTEX PATCH BOUNDARIES 11 
+
+Using lemma 2.2 with S = π  
+
+> ∥F(γ)∥L∞
+
+finally gives 
+
+|I1| ≤ C(∥F (γ)∥2 
+
+> L∞
+
++ 1) ∥γ∥C2(T) ∂3
+
+> x
+
+γ 2 
+
+> L2(T)
+
+.
+
+By proceeding as before it is easy to see that I2 = −6I1, so the same bound holds for I2. We now estimate 13 I3 = J1 + J2 + J3 + J4 where 
+
+J1 =
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂3
+
+> x
+
+γ(x) · ∆x′ ∂2
+
+> x
+
+γ(x)K′′ (|∆x′ γ(x)|) (∆ x′ γ(x) · ∆x′ ∂xγ(x)) 2
+
+|∆x′ γ(x)|2 dx ′ dx, J2 =
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂3
+
+> x
+
+γ(x) · ∆x′ ∂2
+
+> x
+
+γ(x) K′(|∆x′ γ(x)|) ∆x′ γ(x) · ∆x′ ∂2
+
+> x
+
+γ(x)
+
+|∆x′ γ(x)| dx ′ dx, J3 =
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂3
+
+> x
+
+γ(x) · ∆x′ ∂2
+
+> x
+
+γ(x) K′(|∆x′ γ(x)|) |∆x′ ∂xγ(x)|2
+
+|∆x′ γ(x)| dx ′ dx, J4 = −
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂3
+
+> x
+
+γ(x) · ∆x′ ∂2
+
+> x
+
+γ(x) K′(|∆x′ γ(x)|) (∆ x′ γ(x) · ∆x′ ∂xγ(x)) 2
+
+|∆x′ γ(x)|3 dx ′ dx. 
+
+Notice that by the mean value inequality (8) ∆x′ ∂2
+
+> x
+
+γ(x) = ∂2
+
+> x
+
+γ(x) − ∂2
+
+> x
+
+γ(x − x′) = x′
+
+Z 10
+
+∂3
+
+> x
+
+γ(x + ( s − 1) x′)ds, 
+
+thus 
+
+|J1| ≤ ∥ γ∥2
+
+> C2(T)
+
+Z
+
+> T
+
+Z
+
+> T
+
+|x′|3|K′′ (|∆x′ γ(x)|)|
+
+Z 10
+
+|∂3
+
+> x
+
+γ(x)|| ∂3
+
+> x
+
+γ(x + ( s − 1) x′)|dsdx ′dx 
+
+≤ ∥ γ∥2
+
+> C2(T)
+
+Z
+
+> T
+
+Z
+
+> T
+
+|x′|3|K′′ (|∆x′ γ(x)|)|
+
+Z 10
+
+|∂3
+
+> x
+
+γ(x)|2 + |∂3
+
+> x
+
+γ(x + ( s − 1) x′)|2dsdx ′dx 
+
+≤ 2 ∥γ∥2 
+
+> C2(T)
+
+∂3
+
+> x
+
+γ 2
+
+> L2(T)
+
+Z
+
+> T
+
+Z
+
+> T
+
+|x′|3|K′′ (|γ(x) − γ(x − x′)|)|dx ′dx 
+
+= 2 ∥γ∥2 
+
+> C2(T)
+
+∂3
+
+> x
+
+γ 2
+
+> L2(T)
+
+Z
+
+> T
+
+Z
+
+> T
+
+|x′|3 K′′ 
+
+ |x′|
+
+F (γ)
+
+
+
+dx ′dx 
+
+≤ 2 ∥γ∥2 
+
+> C2(T)
+
+∂3
+
+> x
+
+γ 2 
+
+> L2(T)
+
+∥F (γ)∥3
+
+> L∞
+
+Z
+
+> T
+
+Z
+
+> T
+
+|x′|3
+
+∥F (γ)∥3
+
+> L∞
+
+K′′ 
+
+ |x′|∥F (γ)∥L∞
+
+
+
+dx ′dx 
+
+≤ C ∥γ∥2 
+
+> C2(T)
+
+∂3
+
+> x
+
+γ 2 
+
+> L2(T)
+
+∥F (γ)∥4
+
+> L∞
+
+Z
+
+> T
+
+Z π 
+
+> ∥F(γ)∥L∞
+> 0
+
+ν3K′′ (ν)dνdx ,
+
+and by Lemma 2.2 
+
+|J1| ≤ C ∥γ∥2 
+
+> C2(T)
+
+∂3
+
+> x
+
+γ 2 
+
+> L2(T)
+
+(∥F (γ)∥4 
+
+> L∞
+
++ 1) .12 MARC MAGA ˜NA 
+
+And proceeding in the same way 
+
+|J2| ≤ 
+
+Z
+
+> T
+
+Z
+
+> T
+
+|∆x′ ∂2
+
+> x
+
+γ(x)|| K′(|∆x′ γ(x)|)|x′|
+
+Z 10
+
+|∂3
+
+> x
+
+γ(x)|| ∂3
+
+> x
+
+γ(x + ( s − 1) x′)|dsdx ′dx 
+
+≤ C ∂3
+
+> x
+
+γ 2
+
+> L2(T)
+
+Z
+
+> T
+
+Z
+
+> T
+
+(|∂2
+
+> x
+
+γ(x)| + |∂2
+
+> x
+
+γ(x − x′)|)|K′(|γ(x) − γ(x − x′)|)|x′|dx ′dx 
+
+≤ C ∂3
+
+> x
+
+γ 2 
+
+> L2(T)
+
+∥F (γ)∥2 
+
+> L∞
+
+∥γ∥C2(T)
+
+Z
+
+> T
+
+Z π 
+
+> ∥F(γ)∥L∞
+> 0
+
+νK ′(ν)dνdx 
+
+≤ C ∂3
+
+> x
+
+γ 2 
+
+> L2(T)
+
+∥γ∥C2(T) (∥F (γ)∥2 
+
+> L∞
+
++ 1) ,
+
+and 
+
+|J3| ≤ ∥ γ∥2 
+
+> C2(T)
+
+∥F (γ)∥L∞
+
+Z
+
+> T
+
+Z
+
+> T
+
+|K′(|∆x′ γ(x)|)|x′|2
+
+Z 10
+
+|∂3
+
+> x
+
+γ(x)|| ∂3
+
+> x
+
+γ(x + ( s − 1) x′)|dsdx ′dx 
+
+≤ C ∂3
+
+> x
+
+γ 2 
+
+> L2(T)
+
+∥F (γ)∥3 
+
+> L∞
+
+∥γ∥2
+
+> C2(T)
+
+Z
+
+> T
+
+Z π 
+
+> ∥F(γ)∥L∞
+> 0
+
+ν2K′(ν)dνdx 
+
+≤ C ∂3
+
+> x
+
+γ 2 
+
+> L2(T)
+
+∥γ∥2 
+
+> C2(T)
+
+(∥F (γ)∥3 
+
+> L∞
+
++ 1) ,
+
+for J4 one gets the same bound as for J3, so one gets 
+
+|I3| ≤ C ∥γ∥C2(T) ∂3
+
+> x
+
+γ 2
+
+> L2(T)
+
+
+
+(1 + ∥γ∥C2(T) ∥F (γ)∥L∞ + ∥γ∥C2(T) ∥F (γ)∥2 
+
+> L∞
+
+)
+
+· (∥F (γ)∥2 
+
+> L∞
+
++ 1 + ∥γ∥C2(T))
+
+
+
+.
+
+Finally we write I4 = P13  
+
+> i=5
+
+Ji where 
+
+J5 =
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂3
+
+> x
+
+γ(x) · ∆x′ ∂xγ(x) K′′′ (|∆x′ γ(x)|) (∆ x′ γ(x) · ∆x′ ∂xγ(x)) 3
+
+|∆x′ γ(x)|3 dx ′dx, J6 = 3 
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂3
+
+> x
+
+γ(x) · ∆x′ ∂xγ(x) K′′ (|∆x′ γ(x)|) (∆ x′ γ(x) · ∆x′ ∂xγ(x)) |∆x′ ∂xγ(x)|2
+
+|∆x′ γ(x)|2 dx ′dx, J7 = 3 
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂3
+
+> x
+
+γ(x) · ∆x′ ∂xγ(x)K′′ (|∆x′ γ(x)|) (∆ x′ γ(x) · ∆x′ ∂xγ(x))(∆ x′ γ(x) · ∆x′ ∂2
+
+> x
+
+γ(x)) 
+
+|∆x′ γ(x)|2 dx ′dx, J8 = −3
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂3
+
+> x
+
+γ(x) · ∆x′ ∂xγ(x) K′′ (|∆x′ γ(x)|) (∆ x′ γ(x) · ∆x′ ∂xγ(x)) 3
+
+|∆x′ γ(x)|4 dx ′dx, J9 = 3 
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂3
+
+> x
+
+γ(x) · ∆x′ ∂xγ(x) K′(|∆x′ γ(x)|) ∆x′ ∂xγ(x) · ∆x′ ∂2
+
+> x
+
+γ(x)
+
+|∆x′ γ(x)| dx ′dx, J10 = −3
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂3
+
+> x
+
+γ(x) · ∆x′ ∂xγ(x) K′(|∆x′ γ(x)|) |∆x′ ∂xγ(x)|2 (∆ x′ γ(x) · ∆x′ ∂xγ(x)) 
+
+|∆x′ γ(x)|3 dx ′dx, J11 =
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂3
+
+> x
+
+γ(x) · ∆x′ ∂xγ(x) K′(|∆x′ γ(x)|) ∆x′ γ(x) · ∆x′ ∂3
+
+> x
+
+γ(x)
+
+|∆x′ γ(x)| dx ′dx, UNIFIED THEORY FOR REGULARITY PERSISTENCE OF VORTEX PATCH BOUNDARIES 13 
+
+J12 = −3
+
+Z
+
+T
+
+Z
+
+T
+
+∂3
+
+xγ(x) · ∆x′ ∂xγ(x)K′(|∆x′ γ(x)|) (∆ x′ γ(x) · ∆x′ ∂xγ(x))(∆ x′ γ(x) · ∆x′ ∂2
+
+xγ(x)) 
+
+|∆x′ γ(x)|3 dx ′dx, J13 = 3 
+
+Z
+
+T
+
+Z
+
+T
+
+∂3
+
+xγ(x) · ∆x′ ∂xγ(x) K′(|∆x′ γ(x)|) (∆ x′ γ(x) · ∆x′ ∂xγ(x)) 3
+
+|∆x′ γ(x)|5 dx ′dx. 
+
+By proceeding as in the previous cases we have 
+
+|J5| ≤ C ∥γ∥3
+
+C2(T)
+
+Z
+
+T
+
+|x′|3 K(3) 
+
+ |x′|
+
+F (γ)
+
+ Z 
+
+T
+
+|∂3
+
+xγ(x)|| ∂xγ(x) − ∂xγ(x − x′)|dxdx ′
+
+≤ C ∥γ∥3
+
+C2(T) ∥∂xγ∥2
+
+L2(T) ∂3
+
+xγ 2
+
+L2(T) ∥F (γ)∥4
+
+L∞
+
+Z π 
+
+> ∥F(γ)∥L∞
+
+0
+
+ν3K(3) (ν)dν ,
+
+|J6| ≤ C ∥γ∥3
+
+C2(T) ∥F (γ)∥L∞
+
+Z
+
+T
+
+|x′|2 K′′ 
+
+ |x′|
+
+F (γ)
+
+ Z 
+
+T
+
+|∂3
+
+xγ(x)|| ∂xγ(x) − ∂xγ(x − x′)|dxdx ′
+
+≤ C ∥γ∥3
+
+C2(T) ∥∂xγ∥2
+
+L2(T) ∂3
+
+xγ 2
+
+L2(T) ∥F (γ)∥4
+
+L∞
+
+Z π 
+
+> ∥F(γ)∥L∞
+
+0
+
+ν2K′′ (ν)dν ,
+
+the same bound holds for |J8|.
+
+|J7| ≤ C ∥γ∥2
+
+C2(T)
+
+Z
+
+T
+
+Z
+
+T
+
+|x′|3 K′′ 
+
+ |x′|
+
+F (γ)
+
+ Z 10
+
+|∂3
+
+xγ(x)|| ∂3
+
+xγ(x + ( s − 1) x′)|dsdx ′dx 
+
+≤ C ∥γ∥2
+
+C2(T) ∂3
+
+xγ 2
+
+L2(T) ∥F (γ)∥4
+
+L∞
+
+Z
+
+T
+
+Z π 
+
+> ∥F(γ)∥L∞
+
+0
+
+ν3K′′ (ν)dνdx ,
+
+|J9| ≤ C ∥γ∥2
+
+C2(T) ∥F (γ)∥L∞
+
+Z
+
+T
+
+Z
+
+T
+
+|x′|2 K′
+
+ |x′|
+
+F (γ)
+
+ Z 10
+
+|∂3
+
+xγ(x)|| ∂3
+
+xγ(x + ( s − 1) x′)|dsdx ′dx 
+
+≤ C ∥γ∥2
+
+C2(T) ∂3
+
+xγ 2
+
+L2(T) ∥F (γ)∥4
+
+L∞
+
+Z
+
+T
+
+Z π 
+
+> ∥F(γ)∥L∞
+
+0
+
+ν2K′(ν)dνdx ,
+
+the same bound holds for |J12 |.
+
+|J10 | ≤ C ∥γ∥3
+
+C2(T) ∥F (γ)∥2
+
+L∞
+
+Z
+
+T
+
+|x′| K′
+
+ |x′|
+
+F (γ)
+
+ Z 
+
+T
+
+|∂3
+
+xγ(x)|| ∂xγ(x) − ∂xγ(x − x′)|dxdx ′
+
+≤ C ∥γ∥3
+
+C2(T) ∥∂xγ∥2
+
+L2(T) ∂3
+
+xγ 2
+
+L2(T) ∥F (γ)∥4
+
+L∞
+
+Z π 
+
+> ∥F(γ)∥L∞
+
+0
+
+νK ′(ν)dν ,
+
+the same bound holds for |J13 |.14 MARC MAGA ˜NA 
+
+|J11 | ≤ ∥ γ∥C2(T)
+
+Z
+
+> T
+
+|x′| K′
+
+ |x′|∥F (γ)∥L∞
+
+ Z 
+
+> T
+
+|∂3
+
+> x
+
+γ(x)|2 + |∂3
+
+> x
+
+γ(x)|| ∂3
+
+> x
+
+γ(x − x′)|dxdx ′
+
+≤ C ∥γ∥C2(T) ∂3
+
+> x
+
+γ 2 
+
+> L2(T)
+
+∥F (γ)∥2
+
+> L∞
+
+Z π 
+
+> ∥F(γ)∥L∞
+> 0
+
+νK ′(ν)dν .
+
+So 
+
+|I4| ≤ C ∥γ∥C2(T) ∂3
+
+> x
+
+γ 2
+
+> L2(T)
+
+
+
+∥F (γ)∥4
+
+> L∞
+
+  ∥γ∥2 
+
+> C2(T)
+
+∥∂xγ∥2 
+
+> L2(T)
+
++ ∥γ∥C2(T)
+
+
+
++ ∥F (γ)∥2
+
+> L∞
+
+  ∥γ∥2 
+
+> C2(T)
+
+∥∂xγ∥2 
+
+> L2(T)
+
++ 1  + ∥F (γ)∥L∞
+
+  ∥γ∥2 
+
+> C2(T)
+
+∥∂xγ∥2 
+
+> L2(T)
+
++ ∥γ∥C2(T)
+
+
+
++   ∥γ∥2 
+
+> C2(T)
+
+∥∂xγ∥2 
+
+> L2(T)
+
++ ∥γ∥C2(T) + 1 
+
+.
+
+Combining all of the above expressions one gets that 
+
+ddt ∂3
+
+> x
+
+γ 2 
+
+> L2(T)
+
+(t) ≤ C(1 + ∥F (γ)∥4 
+
+> L∞
+
+(t)) ∥γ∥3 
+
+> C2(T)
+
+(t) ∥γ∥2 
+
+> H3(T)
+
+(t),
+
+and by definition of the Sobolev space norm also 
+
+ddt ∥γ∥H3(T) (t) ≤ C(1 + ∥F (γ)∥L∞ (t)) 4 ∥γ∥3 
+
+> C2(T)
+
+(t) ∥γ∥H3(T) (t).
+
+Finally, using Sobolev inequalities, we obtain (9) ddt ∥γ∥H3(T) (t) ≤ C(1 + ∥F (γ)∥L∞ (t)) 4 ∥γ∥4 
+
+> H3(T)
+
+(t).
+
+Following [14], we regularize equation (6) in order to apply energy methods (see [29] for a comprehensive treatment): (10) 
+
+
+
+∂tγε(x, t ) = −ϕε ∗
+
+Z
+
+> T
+
+K(|γε(x) − γε(x − x′)|)( ∂x(ϕε ∗ γε(x) − ϕε ∗ γε(x − x′))) dx ′,γε(x, 0) = γ0(x),
+
+where ϕε is a regular approximation to the identity. If the inequality (4) holds initially, due to the properties of the regular approximations to the identity, we get a Picard system as follows 
+
+γεt (x, t ) = Gε(γε(x, t )) ,γε(x, 0) = γ0(x),
+
+where Gε is Lipschitz. Therefore, for any ε > 0, we obtain a time of existence tε where (4) is fulfilled. To obtain a time of existence for (10) that is independent of ε, one needs energy estimates with bounds uniform in ε. Passing then to the limit ε → 0 yields solutions of the original equation. In this particular case, we obtain 
+
+ddt ∥γε∥H3(T) (t) ≤ C(1 + ∥F (γε)∥4 
+
+> L∞
+
+(t)) ∥γε∥4 
+
+> H3(T)
+
+(t),
+
+and it may happen that ∥F (γε)∥L∞ → ∞ as ε → 0. The energy estimate depends on ε, and the argument breaks down. In particular, even if the initial data satisfy (4), we cannot guarantee the existence of a time t > 0 independent of ε for which (4) continues to hold. At this stage of the proof, the limiting system as ε → 0 is not yet well-posed, since the Lipschitz constant of Gε
+
+may diverge as ε → 0. UNIFIED THEORY FOR REGULARITY PERSISTENCE OF VORTEX PATCH BOUNDARIES 15 
+
+To overcome this difficulty, we consider the evolution of the quantity ∥F (γ)∥L∞ .
+
+Taking p > 2 it follows 
+
+ddt ∥F (γ)∥pLp = ddt 
+
+Z
+
+> T
+
+Z
+
+> T
+
+ |x′||γ(x, t ) − γ(x − x′, t )|
+
+p
+
+dxdx ′
+
+≤ p
+
+Z
+
+> T
+
+Z
+
+> T
+
+ |x′||γ(x, t ) − γ(x − x′, t )|
+
+p+1 |γt(x, t ) − γt(x − x′, t )||x′| dxdx ′.
+
+From (6), we have 
+
+γt(x) − γt(x − x′) = 
+
+Z
+
+> T
+
+K |∆ξ γ(x)| ∆ξ ∂xγ(x) dξ −
+
+Z
+
+> T
+
+K |∆ξ γ(x − x′)| ∆ξ ∂xγ(x − x′) dξ 
+
+=
+
+Z
+
+> T
+
+h
+
+K |∆ξ γ(x)| − K |∆ξ γ(x − x′)|i
+
+∆ξ ∂xγ(x) dξ 
+
+−
+
+Z
+
+> T
+
+K |∆ξ γ(x − x′)| h
+
+∆ξ ∂xγ(x) − ∆ξ ∂xγ(x − x′)
+
+i
+
+dξ 
+
+= I5 + I6.
+
+Notice that (11) |K(r) − K(r′)| ≤ | r − r′|
+
+Z 10
+
+|K′(sr + (1 − s)r′)|ds ≤ | r − r′|(|K′(r)| + |K′(r′)|),
+
+thus, taking r = |γ(x) − γ(x − ξ)|, r′ = |γ(x − x′) − γ(x − x′ − ξ)| and using reverse triangular inequality ( || x| − | y|| ≤ | x − y|) one gets 
+
+|I5| ≤ C ∥γ∥C2(T)
+
+Z
+
+> T
+
+|ξ| K(|γ(x) − γ(x − ξ)|) − K(|γ(x − x′) − γ(x − x′ − ξ)|) dξ 
+
+≤ C ∥γ∥C2(T)
+
+Z
+
+> T
+
+|ξ|(|γ(x) − γ(x − x′)| + |γ(x − ξ) − γ(x − x′ − ξ)) |· [|K′(|γ(x) − γ(x − ξ)|)| + |K′(|γ(x − x′) − γ(x − x′ − ξ)|)|]dξ 
+
+≤ C ∥γ∥2 
+
+> C2(T)
+
+|x′|
+
+Z
+
+> T
+
+|ξ|[|K′(|∆ξ γ(x)|)| + |K′(|∆ξ γ(x − x′)|)|]dξ 
+
+≤ C ∥γ∥2 
+
+> C2(T)
+
+|x′| ∥ F (γ)∥L∞
+
+Z
+
+> T
+
+|ξ|∥F (γ)∥L∞
+
+K′
+
+ |ξ|∥F (γ)∥L∞
+
+
+
+dξ 
+
+≤ C ∥γ∥2 
+
+> C2(T)
+
+|x′| ∥ F (γ)∥2
+
+> L∞
+
+Z π 
+
+> ∥F(γ)∥L∞
+> 0
+
+νK ′(ν)dν 
+
+≤ C ∥γ∥2 
+
+> C2(T)
+
+|x′|(∥F (γ)∥2 
+
+> L∞
+
++ 1) .
+
+Finally, for I6 we have 
+
+|I6| ≤ 
+
+Z
+
+> T
+
+|K(|γ(x − x′) − γ(x − x′ − ξ)|)|· [|∂xγ(x) − ∂xγ(x − x′)| + |∂xγ(x − x′ − ξ) − ∂xγ(x − ξ)|]dξ 
+
+≤ C ∥γ∥C2(T) |x′|
+
+Z
+
+> T
+
+|K(|γ(x − x′) − γ(x − x′ − ξ)|)|dξ. 16 MARC MAGA ˜NA 
+
+Let d = |γ(x − x′) − γ(x − x′ − ξ)|. From the chord-arc condition and the mean-value inequality, 1
+
+∥F (γ)∥L∞
+
+|ξ| ≤ d ≤ ∥ ∂xγ∥L∞ |ξ|, and ∥F (γ)∥L∞ ∥∂xγ∥L∞ ≥ 1.
+
+We split the ξ-integral into three regions based on the size of |ξ|:(12) 
+
+Z
+
+> T
+
+|K(|γ(x − x′) − γ(x − x′ − ξ)|)|dξ = I + II + III. 
+
+Empty integration regions are understood to give zero contribution. Then 
+
+I =
+
+Z
+
+> |ξ|≤ δ/ ∥∂xγ∥L∞
+
+|K(d)|dξ ≤
+
+Z
+
+> |ξ|≤ δ/ ∥∂xγ∥L∞
+
+|K
+
+ |ξ|∥F (γ)∥L∞
+
+
+
+| dξ 
+
+= 2 
+
+Z δ/ ∥∂xγ∥L∞
+
+> 0
+
+|K
+
+ |ξ|∥F (γ)∥L∞
+
+
+
+| dξ = 2 ∥F (γ)∥L∞
+
+Z δ 
+
+> ∥F(γ)∥L∞ ∥ ∂xγ ∥L∞
+> 0
+
+|K(ν)| dν 
+
+≤ 2 ∥F (γ)∥L∞
+
+Z δ
+
+> 0
+
+|K(ν)| dν = C ∥F (γ)∥L∞ ,
+
+since in this region d ≤ ∥ ∂xγ∥L∞ |ξ| ≤ δ, so d ∈ (0 , δ ] and therefore we can use monotonicity of 
+
+|K| up to δ.
+
+II =
+
+Z δ∥F (γ)∥L∞
+
+> δ/ ∥∂xγ∥L∞
+
+|K(d)| dξ 
+
+≤
+
+Z δ∥F (γ)∥L∞
+
+> δ/ ∥∂xγ∥L∞
+
+K
+
+ |ξ|∥F (γ)∥L∞
+
+
+
+dξ + C
+
+Z δ∥F (γ)∥L∞
+
+> δ/ ∥∂xγ∥L∞
+
+ 1 + ∥∂xγ∥ML∞ |ξ|M  dξ. 
+
+The first term is treated like in I
+
+Z δ∥F (γ)∥L∞
+
+> δ/ ∥∂xγ∥L∞
+
+K
+
+ |ξ|∥F (γ)∥L∞
+
+
+
+dξ ≤ 2∥F (γ)∥L∞
+
+Z δ 
+
+> δ
+> ∥F(γ)∥L∞ ∥ ∂xγ ∥L∞
+
+|K(ν)| dν 
+
+≤ 2∥F (γ)∥L∞
+
+Z δ
+
+> 0
+
+|K(ν)| dν = C∥F (γ)∥L∞ .
+
+The second term is bounded by 
+
+C
+
+Z π
+
+> 0
+
+dξ + C∥∂xγ∥ML∞
+
+Z π
+
+> 0
+
+|ξ|M dξ ≤ C(1 + ∥∂xγ∥ML∞ ),
+
+since the integration interval is contained in [0 , π ]. Finally, 
+
+III =
+
+Z 
+
+> |ξ|>δ ∥F(γ)∥L∞
+
+|K(d)| dξ ≤ C
+
+Z πδ∥F (γ)∥L∞
+
+ 1 + ∥∂xγ∥ML∞ |ξ|M  dξ 
+
+≤ C
+
+Z π
+
+> 0
+
+dξ + C∥∂xγ∥ML∞
+
+Z π
+
+> 0
+
+|ξ|M dξ ≤ C(1 + ∥∂xγ∥ML∞ ),UNIFIED THEORY FOR REGULARITY PERSISTENCE OF VORTEX PATCH BOUNDARIES 17 
+
+since |ξ|/∥F (γ)∥L∞ > δ , so d ≥ | ξ|/∥F (γ)∥L∞ > δ and the polynomial growth can be applied. Therefore (13) 
+
+Z
+
+> T
+
+|K(|γ(x − x′) − γ(x − x′ − ξ)|)| dξ ≤ C
+
+
+
+∥F (γ)∥L∞ + 1 + ∥∂xγ∥ML∞
+
+
+
+,
+
+and 
+
+|I6| ≤ C ∥γ∥C2(T) |x′| ∥F (γ)∥L∞ + 1 + ∥∂xγ∥ML∞
+
+.
+
+The estimates for I5 and I6 obtained above yield 
+
+|γt(x) − γt(x − x′)||x′| ≤ C
+
+
+
+∥γ∥2 
+
+> C2
+
+(t)∥F ∥2 
+
+> L∞
+
+(t) + ∥γ∥C2 (t)∥F ∥L∞ (t) + ∥γ∥M +1  
+
+> C2
+
+(t)
+
+
+
+=: CP0(∥γ∥C2(T) (t), ∥F (γ)∥L∞ (t)) ,
+
+where M is the exponent from the polynomial growth condition (A3) and P0 a polynomial. Consequently, 
+
+ddt ∥F ∥pLp (t) ≤ pC P0(∥γ∥C2(T) (t), ∥F (γ)∥L∞ (t)) 
+
+Z
+
+> T2
+
+F p+1 (x, x ′, t ) dx dx ′
+
+≤ pC P0(∥γ∥C2(T) (t), ∥F (γ)∥L∞ (t)) ∥F ∥L∞ (t)∥F ∥pLp (t).
+
+Thus, 
+
+ddt ∥F ∥Lp (t) ≤ C P0(∥γ∥C2(T) (t), ∥F (γ)∥L∞ (t)) ∥F ∥L∞ (t)∥F ∥Lp (t).
+
+Integrating in time and then letting p → ∞ (see [14] for the limiting argument) we obtain 
+
+∥F ∥L∞ (t + h) ≤ ∥ F ∥L∞ (t) exp 
+
+
+
+C
+
+Z t+ht
+
+ ∥γ∥2 
+
+> C2
+
+(s)∥F ∥3 
+
+> L∞
+
+(s) + ∥γ∥C2 (s)∥F ∥2 
+
+> L∞
+
+(s)+ ∥γ∥M +1  
+
+> C2
+
+(s)∥F ∥L∞ (s)ds 
+
+
+
+.
+
+Differentiating at h = 0 yields 
+
+ddt ∥F ∥L∞ (t) ≤ C
+
+
+
+∥γ∥2 
+
+> C2
+
+(t)∥F ∥4 
+
+> L∞
+
+(t) + ∥γ∥C2 (t)∥F ∥3 
+
+> L∞
+
+(t) + ∥γ∥M +1  
+
+> C2
+
+(t)∥F ∥2 
+
+> L∞
+
+(t)
+
+
+
+.
+
+Applying Sobolev inequalities ∥γ∥C2 (t) ≤ C∥γ∥H3 (t) we obtain 
+
+ddt ∥F ∥L∞ (t) ≤ C
+
+
+
+∥γ∥2 
+
+> H3
+
+(t)∥F ∥4 
+
+> L∞
+
+(t) + ∥γ∥H3 (t)∥F ∥3 
+
+> L∞
+
+(t) + ∥γ∥M +1  
+
+> H3
+
+(t)∥F ∥2 
+
+> L∞
+
+(t)
+
+
+
+.
+
+All terms on the right-hand side are of polynomial order in ∥γ∥H3 and ∥F ∥L∞ . Adding this estimate to the energy inequality (9) we obtain 
+
+ddt 
+
+ ∥γ∥H3 (t) + ∥F ∥L∞ (t) ≤ C ∥γ∥H3 (t) + ∥F ∥L∞ (t)M ′
+
+,
+
+for some sufficiently large M ′ (for instance, M ′ = max {8, M + 4 }). Integrating the differential inequality we obtain for sufficiently small t
+
+(14) ∥γ∥H3(T) (t) + ∥F (γ)∥L∞ (t) ≤ ∥γ0∥H3(T)+∥F (γ0)∥L∞
+
+ 1−tC (M ′−1) 
+
+ ∥γ0∥H3(T)+∥F (γ0)∥L∞
+
+M ′−1  1 
+
+> M′−1
+
+.18 MARC MAGA ˜NA 
+
+The estimates just obtained are uniform in ε, since the constants depend only on the kernel quantities in Lemmas 2.1–2.2, on ∥γε∥H3 , and on ∥F (γε)∥L∞ , but not on the mollification parameter. The same bounds hold for the regularized solutions γε. Therefore, one gets a time of existence which is independent of ε. The existence result now follows from the standard regularization and compactness argument for contour dynamics; see [14, 15]. We briefly note that the passage to the limit applies to the present kernel class: after splitting the contour integral into |x′| ≥ ρ and |x′| < ρ , convergence on the first region follows from the smoothness of K away from the origin, while the uniform arc-chord bound, the monotonicity of |K| near the origin, and assumption (A2) provide a uniform integrable majorant on the second region. The usual compactness and energy arguments then yield γ ∈ C([0 , T ]; H3(T)). It remains to show that the solution is unique. Let γ1 and γ2 be two solutions of equation (6) with γ1(x, 0) = γ2(x, 0) , and γ = γ1 − γ2. Then 
+
+Z
+
+> T
+
+γ(x) · γt(x)dx =
+
+Z
+
+> T
+
+Z
+
+> T
+
+γ(x) · (∂xγ1(x) − ∂xγ1(x − x′)) 
+
+· (K(|γ1(x) − γ1(x − x′)|) − K(|γ2(x) − γ2(x − x′)|)) dx ′dx 
+
++
+
+Z
+
+> T
+
+Z
+
+> T
+
+γ(x) · (∂xγ(x) − ∂xγ(x − x′)) K(|γ2(x) − γ2(x − x′)|)dx ′dx 
+
+= I7 + I8.
+
+Now for I7 we do as for I5 and use (11): 
+
+|I7| ≤ C ∥γ1∥C2(T)
+
+Z
+
+> T
+
+Z
+
+> T
+
+|γ(x)|| γ(x) − γ(x − x′)|| x′|· (|K′(|γ1(x) − γ1(x − x′)|)| + |K′(|γ2(x) − γ2(x − x′)|)|)dx ′dx 
+
+≤ C ∥γ1∥C2(T) (∥F (γ1)∥L∞ + ∥F (γ2)∥L∞ )
+
+·
+
+Z
+
+> T
+
+|x′|∥F (γ1)∥L∞
+
+K′
+
+ |x′|∥F (γ1)∥L∞
+
+
+
++ |x′|∥F (γ2)∥L∞
+
+K′
+
+ |x′|∥F (γ2)∥L∞
+
+
+
+·
+
+Z
+
+> T
+
+|γ(x)|| γ(x) − γ(x − x′)|dxdx ′
+
+≤ C ∥γ1∥C2(T) (1 + ∥F (γ1)∥2 
+
+> L∞
+
++ ∥F (γ2)∥2 
+
+> L∞
+
+) ∥γ∥2 
+
+> L2(T)
+
+,
+
+where in the last inequality we used Cauchy–Schwarz and Lemma 2.2. Finally, for I8 we proceed as for I1:
+
+I8 = 12
+
+Z
+
+> T
+
+Z
+
+> T
+
+(γ(x) − γ(x − x′)) · (∂xγ(x) − ∂xγ(x − x′)) K(|∆x′ γ2(x)|)dx ′dx 
+
+= 14
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂x[|γ(x) − γ(x − x′)|2]K(|∆x′ γ2(x)|)dx ′dx 
+
+= − 14
+
+Z
+
+> T
+
+Z
+
+> T
+
+|γ(x) − γ(x − x′)|2K′(|∆x′ γ2(x)|) ∆x′ γ2(x) · ∆x′ ∂xγ2(x)
+
+|∆x′ γ2(x)| dx ′dx, 
+
+so 
+
+|I8| ≤ C ∥γ2∥C2(T)
+
+Z
+
+> T
+
+Z
+
+> T
+
+|γ(x) − γ(x − x′)|2 K′
+
+ |x′|
+
+F (γ2)
+
+
+
+|x′|dx ′dx 
+
+≤ C ∥γ2∥C2(T) ∥F (γ2)∥L∞
+
+Z
+
+> T
+
+|x′|∥F (γ2)∥L∞
+
+K′
+
+ |x′|∥F (γ2)∥L∞
+
+ Z 
+
+> T
+
+|γ(x) − γ(x − x′)|2dxdx ′
+
+≤ C ∥γ2∥C2(T) (1 + ∥F (γ2)∥2 
+
+> L∞
+
+) ∥γ∥2 
+
+> L2(T)
+
+.UNIFIED THEORY FOR REGULARITY PERSISTENCE OF VORTEX PATCH BOUNDARIES 19 
+
+Combining both estimates we obtain 
+
+ddt ∥γ∥2 
+
+> L2(T)
+
+(t) ≤ C ∥γ∥2 
+
+> L2(T)
+
+(t),
+
+and using Gr¨ onwall inequality we conclude that γ = 0 .
+
+4. Local existence in H2
+
+In this section we prove Theorem 1.2. That is, under the stronger integrability assumption (A2’) on the kernel K, we show that for an initial data γ0 ∈ H2(T) with F (γ0)( x, x ′) bounded, there exists a local solution to the contour dynamics equation (CDE). First, notice that (A2’) implies (A2) since by H¨ older inequality 
+
+Z 10
+
+|K(r)| dr =
+
+Z 10
+
+rα|K(r)| r−α dr ≤
+
+Z 10
+
+r|K(r)|1/α dr 
+
+α Z 10
+
+r− α 
+
+> 1−α
+
+dr 
+
+1−α
+
+,
+
+where the first term is bounded by the integrability condition and the second is finite because 
+
+α ∈ (0 , 1/2) guarantees the convergence of the integral. To obtain the desired energy estimate in H2, we choose the parameter λ(x, t ) from (CDE) to get an extra cancellation. The presence of a non-zero λ adds several nontrivial terms to the estimates, but they can be managed with the help of the stronger integrability assumption (A2’) and the geometric bounds on the curve. The lower regularity in H2 requires a finer control of the tangential motion, which is achieved by fixing the parametrization so that the tangent vector satisfies (15) ∂xγ(x, t ) · ∂2
+
+> x
+
+γ(x, t ) = 0 .
+
+Given an initial curve satisfying (4), we can reparametrize it obtaining that |∂xγ(x, 0) |2 = 1 , and therefore (15) is fulfilled at t = 0 . In general, the condition |∂xγ(x, t )|2 = 1 may not be preserved for all time; instead, we have (16) |∂xγ(x, t )|2 = A(t).
+
+Write 
+
+N L (x, t ) := −
+
+Z
+
+> T
+
+K(|γ(x) − γ(x − x′)|)( ∂xγ(x) − ∂xγ(x − x′)) dx ′.
+
+Taking ∂x on (CDE), and not writing the time dependence in order to ease the notation, gives 
+
+∂x∂tγ(x) = ∂xN L (x) + λ(x)∂2
+
+> x
+
+γ(x) + ∂xλ(x)∂xγ(x).
+
+By taking now inner product with ∂xγ(x) we have 
+
+∂xγ(x) · ∂x∂tγ(x) = ∂xγ(x) · ∂xN L (x) + ∂xγ(x) · λ(x)∂2
+
+> x
+
+γ(x) + ∂xγ(x) · ∂xλ(x)∂xγ(x),
+
+where the second term vanishes since by (16) 
+
+∂xγ(x) · λ(x)∂2
+
+> x
+
+γ(x) = 12 λ(x)∂x(|∂xγ(x)|2) = 12 λ(x)∂x(A(t)) .20 MARC MAGA ˜NA 
+
+Therefore, 
+
+∂xγ(x) · ∂x∂tγ(x) = ∂xγ(x) · ∂xN L (x) + ∂xλ(x)|∂xγ(x)|2,
+
+and integrating on the torus we get for the left hand side 
+
+Z
+
+> T
+
+∂xγ(x) · ∂x∂tγ(x)dx = 12
+
+Z
+
+> T
+
+∂t(|∂xγ(x)|2)dx 
+
+= 12
+
+Z
+
+> T
+
+∂t(A(t)) dx = π∂ t(A(t)) = 2 π∂ xγ(x) · ∂x∂tγ(x),
+
+and due to the fact that λ has to be periodic we have for the right hand side 
+
+Z
+
+> T
+
+∂xγ(x) · ∂xN L (x)dx +
+
+Z
+
+> T
+
+∂xλ(x)A(t)dx =
+
+Z
+
+> T
+
+∂xγ(x) · ∂xN L (x)dx. 
+
+So combining both with (CDE) yields 2π∂ xγ(x) · ∂x∂tγ(x) = 2 π∂ xγ(x) · ∂xN L (x) + 2 π∂ xλ(x)A(t) = 
+
+Z π
+
+> −π
+
+∂y γ(y) · ∂y N L (y)dy, 
+
+so (17) λ(x) = x + π
+
+2π
+
+Z
+
+> T
+
+∂y γ(y) · ∂y N L (y)
+
+A(t) dy −
+
+Z x
+
+> −π
+
+∂y γ(y) · ∂y N L (y)
+
+A(t) dy. 
+
+With the above parametrization in place, we are now prepared to investigate the temporal evolution of the quantity ∥γ∥2 
+
+> H2(T)
+
+= ∥γ∥2 
+
+> L2(T)
+
++ ∂2
+
+> x
+
+γ 2 
+
+> L2(T)
+
+. Consider first (18) 
+
+Z
+
+> T
+
+γ(x) · γt(x)dx =
+
+Z
+
+> T
+
+γ(x) · N L (x)dx +
+
+Z
+
+> T
+
+λ(x)γ(x) · ∂xγ(x)dx, 
+
+and proceeding as for the H3 case (see (7)) one gets that the first term vanishes. Therefore, by integration by parts (19) ∂t ∥γ∥2 
+
+> L2(T)
+
+(t) ≤ ∥ ∂xλ∥L∞ (t) ∥γ∥2 
+
+> L2(T)
+
+(t).
+
+We aim now to bound ∥∂xλ∥L∞ (t). To that end, by product rule and the Fundamental Theorem of Calculus we have 
+
+∂xλ = 12π
+
+Z
+
+> T
+
+∂xγ(x)
+
+|∂xγ(x)|2 · ∂x
+
+Z 
+
+> T
+
+−K(|∆x′ γ(x)|)∆ x′ ∂xγ(x)dx ′
+
+
+
+dx 
+
++ ∂xγ(x)
+
+|∂xγ(x)|2 ·
+
+Z
+
+> T
+
+∆x′ ∂2
+
+> x
+
+γ(x)K(|∆x′ γ(x)|)dx ′
+
+− ∂xγ(x)
+
+|∂xγ(x)|2 ·
+
+Z
+
+> T
+
+∆x′ ∂xγ(x) ∆x′ γ(x) · ∆x′ ∂xγ(x)
+
+|∆x′ γ(x)| K′(|∆x′ γ(x)|)dx ′ =: A0 + A1 + A2.
+
+Notice that by (15) we have 
+
+−∂xγ(x) · (∂2
+
+> x
+
+γ(x) − ∂2
+
+> x
+
+γ(x − x′)) = ( ∂xγ(x) − ∂xγ(x − x′)) · ∂2
+
+> x
+
+γ(x − x′),
+
+thus, UNIFIED THEORY FOR REGULARITY PERSISTENCE OF VORTEX PATCH BOUNDARIES 21 
+
+A1 =
+
+Z
+
+> T
+
+∆x′ ∂xγ(x) · ∂2
+
+> x
+
+γ(x − x′)
+
+|∂xγ(x)|2 K(|∆x′ γ(x)|)dx ′.
+
+So, for any α ∈  0, 12
+
+ we have 
+
+|A1| ≤ 
+
+Z
+
+> T
+
+|∆x′ ∂xγ(x)|| ∂2
+
+> x
+
+γ(x − x′)||∂xγ(x)|2 |K(|∆x′ γ(x)|)|dx ′
+
+≤ ∥ F (γ)∥2
+
+> L∞
+
+Z
+
+> T
+
+|∆x′ ∂xγ(x)|| ∂2
+
+> x
+
+γ(x − x′)|| ∆x′ γ(x)|2
+
+|∂xγ(x)|2|x′|2 |K(|∆x′ γ(x)|)|dx ′
+
+≤ ∥ F (γ)∥2 
+
+> L∞
+
+|∂xγ|α
+
+Z
+
+> T
+
+|x′|α|∂2
+
+> x
+
+γ(x − x′)|| K(|∆x′ γ(x)|)|dx ′,
+
+where in the third inequality we use once more (16), i.e. |∂xγ(x, t )|2 = A(t), and Sobolev embeddings. To finish the bound we fix α so that the extra integrability (A2’) holds and then we split as in I6 above (see (12)) and bound each region separately 
+
+Z
+
+> |ξ|≤ δ/ ∥∂xγ∥L∞
+
+|x′|α|∂2
+
+> x
+
+γ(x − x′)|K (|∆x′ γ(x)|) dx ′
+
+≤ ∥ F (γ)∥αL∞
+
+Z
+
+> |ξ|≤ δ/ ∥∂xγ∥L∞
+
+ |x′|∥F (γ)∥L∞
+
+α
+
+|∂2
+
+> x
+
+γ(x − x′)| K
+
+ |x′|∥F (γ)∥L∞
+
+
+
+dx ′
+
+≤ ∥ F (γ)∥αL∞
+
+Z
+
+> |ξ|≤ δ/ ∥∂xγ∥L∞
+
+ |x′|∥F (γ)∥L∞
+
+
+
+K
+
+ |x′|∥F (γ)∥L∞
+
+ 1
+
+> α
+
+dx ′
+
+!α
+
+∂2
+
+> x
+
+γ Lp(T)
+
+≤ C ∥F (γ)∥1+ αL∞ ∂2
+
+> x
+
+γ Lp(T)
+
+Z δ
+
+> 0
+
+ν|K(ν)| 1 
+
+> α
+
+dν 
+
+!α
+
+≤ C ∥F (γ)∥1+ αL∞ ∂2
+
+> x
+
+γ Lp(T) ,
+
+where in the second step we used H¨ older inequality with p = 11−α ∈ (1 , 2) and in the last step assumption (A2’). For the other two regions we proceed analogously 
+
+Z δ∥F (γ)∥L∞
+
+> δ/ ∥∂xγ∥L∞
+
+|x′|α|∂2
+
+> x
+
+γ(x − x′)| | K (|∆x′ γ(x)|)| dx ′
+
+≤
+
+Z δ∥F (γ)∥L∞
+
+> δ/ ∥∂xγ∥L∞
+
+|x′|α|∂2
+
+> x
+
+γ(x − x′)|
+
+
+
+K
+
+ |x′|∥F (γ)∥L∞
+
+
+
++ C(1 + ∥∂xγ∥ML∞ |x′|M )
+
+
+
+dx ′,
+
+where the first part is bounded by the same argument and for the second part we also use H¨ older to get 
+
+C
+
+Z δ∥F (γ)∥L∞
+
+> δ/ ∥∂xγ∥L∞
+
+|x′|α|∂2
+
+> x
+
+γ(x − x′)|(1 + ∥∂xγ∥ML∞ |x′|M )dx ′
+
+≤ C
+
+Z π
+
+> 0
+
+|x′|α|∂2
+
+> x
+
+γ(x − x′)|(1 + ∥∂xγ∥ML∞ |x′|M )dx ′ ≤ C ∂2
+
+> x
+
+γ Lp(T) (1 + ∥∂xγ∥ML∞ ).
+
+The last region is treated as the second term of the above estimate. Therefore, 
+
+|A1| ≤ ∥ F (γ)∥2 
+
+> L∞
+
+∥∂xγ∥α ∂2
+
+> x
+
+γ Lp(T) (∥F (γ)∥1+ αL∞ + 1 + ∥∂xγ∥ML∞ ).22 MARC MAGA ˜NA 
+
+For A2, we proceed as follows 
+
+|A2| ≤ ∥ ∂xγ∥2
+
+> σ
+
+Z
+
+> T
+
+|x′|2σ |x′||∆x′ γ(x)| |K′(|∆x′ γ(x)|)|dx ′
+
+≤ ∥ ∂xγ∥2 
+
+> σ
+
+∥F (γ)∥1+2 σL∞
+
+Z
+
+> T
+
+ |x′|∥F (γ)∥L∞
+
+2σ
+
+K′
+
+ |x′|∥F (γ)∥L∞
+
+
+
+dx ′
+
+≤ C ∥∂xγ∥2 
+
+> σ
+
+∥F (γ)∥2+2 σL∞
+
+Z π 
+
+> ∥F(γ)∥L∞
+> 0
+
+ν2σ |K′(ν)|dν, 
+
+taking σ = 12 gives that by lemma 2.2 the last integral is bounded and 
+
+|A2| ≤ C ∥∂xγ∥21/2 ∥F (γ)∥L∞ (1 + ∥F (γ)∥2 
+
+> L∞
+
+).
+
+A routine computation shows that A0 behaves like the combination of the A1 and A2 terms and therefore (20) ∥∂xλ∥L∞ ≤ C(∥F (γ)∥2 
+
+> L∞
+
+∥∂xγ∥α ∂2
+
+> x
+
+γ Lp(T) (∥F (γ)∥1+ αL∞ + 1 + ∥∂xγ∥ML∞ )+ ∥∂xγ∥21/2 ∥F (γ)∥L∞ (1 + ∥F (γ)∥2 
+
+> L∞
+
+)) .
+
+The bound on ∥∂xλ∥L∞ derives the bound for (19). We control now the quantity 
+
+−
+
+Z
+
+> T
+
+∂2
+
+> x
+
+γ(x) · ∂2
+
+> x
+
+γt(x)dx = I1 + I2 + I3 + I4,
+
+where 
+
+I1 =
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂2
+
+> x
+
+γ(x) · (∂3
+
+> x
+
+γ(x) − ∂3
+
+> x
+
+γ(x − x′)) K(|γ(x) − γ(x − x′)|)dx ′dx, I2 = 2 
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂2
+
+> x
+
+γ(x) · (∂2
+
+> x
+
+γ(x) − ∂2
+
+> x
+
+γ(x − x′)) ∂x[K(|γ(x) − γ(x − x′)|)] dx ′dx, I3 =
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂2
+
+> x
+
+γ(x) · (∂xγ(x) − ∂xγ(x − x′)) ∂2
+
+> x
+
+[K(|γ(x) − γ(x − x′)|)] dx ′dx, I4 = 32
+
+Z
+
+> T
+
+|∂2
+
+> x
+
+γ(x)|2∂xλ(x)dx. 
+
+In the above, I4 follows from the extra cancellation (15) and integration by parts. To bound I1 we start by symmetrizing and integrating by parts, which yields 
+
+I1 = 12
+
+Z
+
+> T
+
+Z
+
+> T
+
+∆x′ ∂2
+
+> x
+
+γ(x) · ∆x′ ∂3
+
+> x
+
+γ(x)K(|∆x′ γ(x)|)dx ′dx 
+
+= 14
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂x[|∆x′ ∂2
+
+> x
+
+γ(x)|2]K(|∆x′ γ(x)|)dx ′dx 
+
+= − 14
+
+Z
+
+> T
+
+Z
+
+> T
+
+|∆x′ ∂2
+
+> x
+
+γ(x)|2 ∆x′ γ(x) · ∆x′ ∂xγ(x)
+
+|∆x′ γ(x)| K′(|∆x′ γ(x)|)dx ′dx. 
+
+We now decompose (21) ∆x′ γ(x) · ∆x′ ∂xγ(x) = (∆ x′ γ(x) − ∂xγ(x)x′) · ∆x′ ∂xγ(x) + ∂xγ(x)x′ · ∆x′ ∂xγ(x),UNIFIED THEORY FOR REGULARITY PERSISTENCE OF VORTEX PATCH BOUNDARIES 23 
+
+and notice that by the extra cancellation (16) once more (22) ∂xγ(x) · ∆x′ ∂xγ(x) = 12 |∆x′ ∂xγ(x)|2.
+
+Indeed, 
+
+|∆x′ ∂xγ(x)|2 = |∂xγ(x)|2 + |∂xγ(x − x′)|2 − 2|∂xγ(x) · ∂xγ(x − x′)= 2 |∂xγ(x)|2 − 2|∂xγ(x) · ∂xγ(x − x′) = 2 ∂xγ(x) · ∆x′ ∂xγ(x).
+
+Combining (21) and (22) with the fundamental theorem of calculus one gets the following bound for all σ ∈  0, 12
+
+
+
+(23) |∆x′ γ(x) · ∆x′ ∂xγ(x)| ≤ 32 |x′|1+2 σ |∂xγ|2 
+
+> σ
+
+.
+
+Using this bound we get 
+
+|I1| ≤ C
+
+Z
+
+> T
+
+Z
+
+> T
+
+|∆x′ ∂2
+
+> x
+
+γ(x)|2 |x′|1+2 σ |∂xγ|2
+
+> σ
+
+|∆x′ γ(x)| |K′(|∆x′ γ(x)|)|dx ′dx. 
+
+= C |∂xγ|2
+
+> σ
+
+Z
+
+> T
+
+Z
+
+> T
+
+|∆x′ ∂2
+
+> x
+
+γ(x)|2|F (γ)|1+2 σ
+
+ |x′||F (γ)|
+
+2σ
+
+K′
+
+ |x′||F (γ)|
+
+
+
+dx ′dx 
+
+≤ C |∂xγ|2 
+
+> σ
+
+∥F (γ)∥1+2 σL∞
+
+Z
+
+> T
+
+ |x′|∥F (γ)∥L∞
+
+2σ
+
+K′
+
+ |x′|∥F (γ)∥L∞
+
+ Z 
+
+> T
+
+|∆x′ ∂2
+
+> x
+
+γ(x)|2dxdx ′
+
+≤ C |∂xγ|2 
+
+> σ
+
+∥F (γ)∥1+2 σL∞ ∂2
+
+> x
+
+γ 2
+
+> L2(T)
+
+Z
+
+> T
+
+ |x′|∥F (γ)∥L∞
+
+2σ
+
+K′
+
+ |x′|∥F (γ)∥L∞
+
+
+
+dx ′,
+
+where we have used the monotonicity assumption of K′. Finally, taking for instance σ = 12 we get an integral which we already bounded using Lemma 2.2 on I1 from the H3 case, so we have 
+
+|I1| ≤ | ∂xγ|21/2 ∂2
+
+> x
+
+γ 2 
+
+> L2(T)
+
+(∥F (γ)∥3 
+
+> L∞
+
++ ∥F (γ)∥L∞ ).
+
+After symmetrizing on I2 it is clear that I2 = −4I1 so a similar bound holds. We focus now on I3 = J1 + J2 + J3 + J4 where 
+
+J1 =
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂2
+
+> x
+
+γ(x) · ∆x′ ∂xγ(x)K′′ (|∆x′ γ(x)|) (∆ x′ ∂xγ(x) · ∆x′ γ(x)) 2
+
+|∆x′ γ(x)|2 dx ′dx, J2 =
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂2
+
+> x
+
+γ(x) · ∆x′ ∂xγ(x)K′(|∆x′ γ(x)|) ∆x′ ∂2
+
+> x
+
+γ(x) · ∆x′ γ(x)
+
+|∆x′ γ(x)| dx ′dx, J3 =
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂2
+
+> x
+
+γ(x) · ∆x′ ∂xγ(x)K′(|∆x′ γ(x)|) |∆x′ ∂xγ(x)|2
+
+|∆x′ γ(x)| dx ′dx, J4 = −
+
+Z
+
+> T
+
+Z
+
+> T
+
+∂2
+
+> x
+
+γ(x) · ∆x′ ∂xγ(x)K′(|∆x′ γ(x)|) (∆ x′ ∂xγ(x) · ∆x′ γ(x)) 2
+
+|∆x′ γ(x)|3 dx ′dx. 
+
+The following identity, analogous to (8) used in the previous section is key (24) ∆x′ ∂xγ(x) = x′
+
+Z 10
+
+∂2
+
+> x
+
+γ(x − sx ′)ds, 24 MARC MAGA ˜NA 
+
+with this and recalling that |K′′ | is decreasing we have 
+
+|J1| ≤ ∥ ∂xγ∥2
+
+> σ
+
+Z
+
+> T
+
+|x′|1+2 σ K′′ 
+
+ |x′|∥F (γ)∥L∞
+
+ Z 
+
+> T
+
+Z 10
+
+∂2
+
+> x
+
+γ(x) · ∂2
+
+> x
+
+γ(x − sx ′)dsdx 
+
+
+
+dx ′
+
+≤ ∥ ∂xγ∥2 
+
+> σ
+
+∂2
+
+> x
+
+γ 2 
+
+> L2(T)
+
+∥F (γ)∥1+2 σL∞
+
+Z
+
+> T
+
+ |x′|∥F (γ)∥L∞
+
+1+2 σ
+
+K′′ 
+
+ |x′|∥F (γ)∥L∞
+
+
+
+dx ′ ,
+
+and, choosing again σ = 12 and applying Lemma 2.2, we obtain 
+
+|J1| ≤ ∥ ∂xγ∥21/2 ∂2
+
+> x
+
+γ 2 
+
+> L2(T)
+
+(∥F (γ)∥3 
+
+> L∞
+
++ 1) .
+
+By the same reasoning, we derive analogous estimates for J3 and J4. Namely, 
+
+|Ji| ≤ ∥ ∂xγ∥21/2 ∂2
+
+> x
+
+γ 2 
+
+> L2(T)
+
+(∥F (γ)∥3 
+
+> L∞
+
++ ∥F (γ)∥L∞ ), i = 3 , 4.
+
+For J2, Notice that by (15) we have ∆x′ γ(x) · ∆x′ ∂2
+
+> x
+
+γ(x) = (∆ x′ γ(x) − ∂xγ(x)x′) · ∆x′ ∂2
+
+> x
+
+γ(x) − x′∆x′ ∂xγ(x) · ∂2
+
+> x
+
+γ(x − x′)therefore 
+
+∆x′ γ(x) · ∆x′ ∂2
+
+> x
+
+γ(x) ≤ C |∂xγ|σ |x′|1+ σ   ∆x′ ∂2
+
+> x
+
+γ(x) + ∂2
+
+> x
+
+γ(x − x′)  .
+
+and 
+
+|J2| ≤ ∥ F (γ)∥L∞ |∂xγ|2
+
+> σ
+
+Z
+
+> T
+
+Z
+
+> T
+
+|∂2
+
+> x
+
+γ(x)| |x′|σ
+
+|x′| |K′(|∆x′ γ(x)|)|| ∆x′ ∂2
+
+> x
+
+γ(x) · ∆x′ γ(x)|dx ′dx 
+
+≤ ∥ F (γ)∥L∞ |∂xγ|2
+
+> σ
+
+Z
+
+> T
+
+Z
+
+> T
+
+|∂2
+
+> x
+
+γ(x)|| x′|2σ |K′(|∆x′ γ(x)|)|   ∆x′ ∂2
+
+> x
+
+γ(x) + ∂2
+
+> x
+
+γ(x − x′)  dx ′dx 
+
+≤ ∥ F (γ)∥L∞ |∂xγ|2
+
+> σ
+
+Z
+
+> T
+
+|x′|2σ K′
+
+ |x′|∥F (γ)∥L∞
+
+
+
+dx ′
+
+·
+
+Z
+
+> T
+
+|∂2
+
+> x
+
+γ(x)| ·   ∆x′ ∂2
+
+> x
+
+γ(x) + ∂2
+
+> x
+
+γ(x − x′)  dx 
+
+≤ ∥ F (γ)∥1+2 σL∞ |∂xγ|2 
+
+> σ
+
+∂2
+
+> x
+
+γ 2
+
+> L2(T)
+
+Z
+
+> T
+
+ |x′|∥F (γ)∥L∞
+
+2σ
+
+K′
+
+ |x′|∥F (γ)∥L∞
+
+
+
+dx ′.
+
+Finally, proceeding as before one gets 
+
+|J2| ≤ | ∂xγ|21/2 ∂2
+
+> x
+
+γ 2 
+
+> L2(T)
+
+(∥F (γ)∥3 
+
+> L∞
+
++ ∥F (γ)∥L∞ ),
+
+and 
+
+|I3| ≤ C |∂xγ|21/2 ∂2
+
+> x
+
+γ 2 
+
+> L2(T)
+
+(∥F (γ)∥3 
+
+> L∞
+
++ ∥F (γ)∥L∞ + 1) .
+
+For I4 we use Cauchy–Schwarz to get |I4| ≤ C ∥∂xλ∥L∞ ∂2
+
+> x
+
+γ 2 
+
+> L2(T)
+
+, finally by means of (20) one gets a desired bound. UNIFIED THEORY FOR REGULARITY PERSISTENCE OF VORTEX PATCH BOUNDARIES 25 
+
+Gathering all the Ij estimates and using Sobolev embeddings we obtain 
+
+ddt ∂2
+
+> x
+
+γ 2 
+
+> L2(T)
+
+≤ P (∥γ∥H2(T) , ∥F (γ)∥L∞ )
+
+
+
+1 + ∂2
+
+> x
+
+γ 2
+
+> L2(T)
+
+
+
+,
+
+where P is a polynomial with positive coefficients. It remains to deal with the arc-chord condition in this case. To do so, consider its evolution 
+
+∂tF (γ) = − |x′|(γ(x) − γ(x − x′)) 
+
+|γ(x) − γ(x − x′)|3 · (∂tγ(x) − ∂tγ(x − x′)) = B1 + B2 + B3 + B4 + B5,
+
+where the terms Bi come from inserting the right-hand side of (CDE) for ∂tγ:
+
+B1 = − |x′|∆x′ γ(x)
+
+|∆x′ γ(x)|3 · (∂xγ(x) − ∂xγ(x − x′)) 
+
+Z
+
+> T
+
+K(|γ(x) − γ(x − ξ)|)dξ, B2 = − |x′|∆x′ γ(x)
+
+|∆x′ γ(x)|3 ·
+
+Z
+
+> T
+
+(∂xγ(x − ξ) − ∂xγ(x − x′ − ξ)) K(|γ(x) − γ(x − ξ)|)dξ, B3 = − |x′|∆x′ γ(x)
+
+|∆x′ γ(x)|3 ·
+
+Z
+
+> T
+
+∆x′ ∂xγ(x − ξ)( K(|∆ξ γ(x)|) − K(|∆ξ γ(x − x′)|)) dξ, B4 = − |x′|∆x′ γ(x)
+
+|∆x′ γ(x)|3 · (λ(x) − λ(x − x′)) ∂xγ(x),B5 = − |x′|∆x′ γ(x)
+
+|∆x′ γ(x)|3 · λ(x − x′)( ∂xγ(x) − ∂xγ(x − x′)) .
+
+We now bound each term separately. To that end, we proceed as in the previous estimates. By (23) and (13) one gets 
+
+|B1| ≤ C |x′|3
+
+|γ(x) − γ(x − x′)|3 |∂xγ|21/2
+
+Z
+
+> T
+
+|K(|γ(x) − γ(x − ξ)|)|dξ 
+
+≤ CF (γ) ∥F (γ)∥2 
+
+> L∞
+
+|∂xγ|21/2
+
+Z
+
+> T
+
+|K(|γ(x) − γ(x − ξ)|)|dξ 
+
+≤ CF (γ) ∥F (γ)∥2 
+
+> L∞
+
+|∂xγ|21/2
+
+
+
+∥F (γ)∥L∞ + 1 + ∥∂xγ∥ML∞
+
+
+
+.
+
+We further split B2 = B21 + B22 + B23 where 
+
+B21 = |x′|(∆ x′ γ(x) − ∂xγ(x)x′)
+
+|∆x′ γ(x)|3 ·
+
+Z
+
+> T
+
+(∂xγ(x − ξ) − ∂xγ(x − x′ − ξ)) K(|∆ξ γ(x)|)dξ, B22 = |x′|x′
+
+|∆x′ γ(x)|3
+
+Z
+
+> T
+
+∆ξ ∂xγ(x) · (∂xγ(x − ξ) − ∂xγ(x − x′ − ξ)) K(|∆ξ γ(x)|)dξ, B23 = |x′|x′
+
+|∆x′ γ(x)|3
+
+Z
+
+> T
+
+∂xγ(x − ξ) · (∂xγ(x − ξ) − ∂xγ(x − x′ − ξ)) K(|∆ξ γ(x)|)dξ. 
+
+For B21 we proceed as before to get 
+
+|B21 | ≤ CF (γ) ∥F (γ)∥2 
+
+> L∞
+
+|∂xγ|21/2
+
+Z
+
+> T
+
+|K(|γ(x) − γ(x − ξ)|)|dξ 
+
+≤ CF (γ) ∥F (γ)∥2 
+
+> L∞
+
+|∂xγ|21/2
+
+
+
+∥F (γ)∥L∞ + 1 + ∥∂xγ∥ML∞
+
+
+
+.26 MARC MAGA ˜NA 
+
+For B22 we first use (24) to get 
+
+|B22 | ≤ CF (γ) ∥F (γ)∥2 
+
+> L∞
+
+|∂xγ|α
+
+Z 10
+
+Z
+
+> T
+
+|ξ|α|∂2
+
+> x
+
+γ(x − ξ − sx ′)|| K(|∆ξ γ(x)|)|dξ, 
+
+where α is the one from the extra integrability (A2’). Observe now that the remaining integral to be estimated is the same as the one we found for A1, so carrying out the argument in the same way yields 
+
+|B22 | ≤ CF (γ) ∥F (γ)∥2 
+
+> L∞
+
+|∂xγ|α ∂2
+
+> x
+
+γ Lp(T) (∥F (γ)∥1+ αL∞ + 1 + ∥∂xγ∥ML∞ ),
+
+Finally, using (22) one gets 
+
+|B23 | ≤ CF (γ) ∥F (γ)∥2 
+
+> L∞
+
+|∂xγ|21/2
+
+
+
+∥F (γ)∥L∞ + 1 + ∥∂xγ∥ML∞
+
+
+
+.
+
+To bound B3 we do as for I5 from section 3. That is, we use (11) and the reverse triangular inequality to get 
+
+|B3| ≤ CF (γ) ∥F (γ)∥L∞ |∂xγ|21/2
+
+·
+
+Z
+
+> T
+
+|ξ|(|K′(|γ(x) − γ(x − ξ)|)| + |K′(|γ(x − x′) − γ(x − x′ − ξ)|)|)dξ 
+
+≤ CF (γ) ∥F (γ)∥L∞ |∂xγ|21/2 (∥F (γ)∥2 
+
+> L∞
+
++ 1) .
+
+In B4 the mean value inequality yields 
+
+|B4| ≤ F (γ) ∥F (γ)∥L∞ ∥∂xλ∥L∞ ∥∂xγ∥L∞ ,
+
+and by means of (20) one gets a bound of the form F (γ) times a polynomial. Using (23) in B5 with σ = 1 /2 one gets 
+
+|B5| ≤ CF (γ) ∥F (γ)∥2 
+
+> L∞
+
+∥λ∥L∞ |∂xγ|21/2 ,
+
+so it remains to bound ∥λ∥L∞ . To that end see that from (17) we have 
+
+|λ(γ)| ≤ 2
+
+Z
+
+> T
+
+∂xγ(x)
+
+|∂xγ(x)|2 ·
+
+Z
+
+> T
+
+∆x′ ∂2
+
+> x
+
+γ(x)K(|∆x′ γ(x)|)dx ′ dx 
+
++ 2 
+
+Z
+
+> T
+
+∂xγ(x)
+
+|∂xγ(x)|2 ·
+
+Z
+
+> T
+
+∆x′ ∂xγ(x)∆ x′ γ(x) · ∆x′ ∂xγ(x)
+
+|∆x′ γ(x)| K′(|∆x′ γ(x)|)dx ′ dx, 
+
+where the first term is as A1 and the second one as A2, therefore a similar bound to (20) holds for ∥λ∥L∞ .
+
+Gathering the previous estimates and by means of Sobolev embeddings (and recalling that p < 2) we obtain ddt (∥γ∥H2(T) + ∥F (γ)∥L∞ ) ≤ P 2(∥γ∥H2(T) + ∥F (γ)∥L∞ ),
+
+with P2 a polynomial with positive coefficients. Thus, it is possible to integrate the estimate to get a uniform bound for ∥γ∥H2(T) + ∥F (γ)∥L∞ for a time T > 0 sufficiently small depending only on ∥γ0∥H2(T) + ∥F (γ0)∥L∞ , as done for the H3 case in (14). By an approximation argument, as in section 3, those a priori energy estimates provide the existence result, which concludes the proof of Theorem 1.2. UNIFIED THEORY FOR REGULARITY PERSISTENCE OF VORTEX PATCH BOUNDARIES 27 
+
+Appendix A. Further examples of admissible kernels 
+
+In this appendix we discuss some additional examples of radial kernels satisfying the assumptions used in the paper. We first recall a useful criterion based on complete monotonicity, which makes the monotonicity assumptions on the derivatives essentially automatic. This criterion is inspired by the approach of [19], where complete monotonicity is assumed. Here we observe that this hypothesis automatically implies the monotonicity assumptions in our framework, allowing it to serve as a convenient tool for verifying our hypotheses for a broader class of kernels. We then apply this criterion to a screened version of the gSQG kernel. A.1. Completely monotone kernels. We recall that a function f : (0 , ∞) → R is said to be completely monotone if f ∈ C∞((0 , ∞)) and (−1) mf (m)(r) ≥ 0, r > 0, m = 0 , 1, 2, . . . . 
+
+By Bernstein’s theorem, this is equivalent to the existence of a unique nonnegative Borel measure 
+
+μ on [0 , ∞) such that 
+
+f (r) = 
+
+Z
+
+> [0 ,∞)
+
+e−rs dμ (s), r > 0.
+
+We refer to [32, Chapter 1] for a systematic account of completely monotone and Bernstein functions. Complete monotonicity provides a convenient criterion for verifying our assumptions. If −K′ is completely monotone, then (−1) j K(j)(r) ≥ 0, r > 0, j ≥ 1.
+
+Consequently, 
+
+|K(j)(r)| = ( −1) j K(j)(r), ddr |K(j)(r)| = ( −1) j K(j+1) (r) ≤ 0,
+
+so r 7 → | K(j)(r)| is nonincreasing for every j ≥ 1. Thus the monotonicity assumption (A4) is automatically satisfied. If, in addition, K itself is completely monotone, then K is nonnegative and nonincreasing, and the growth condition in (A3) is automatic: for any fixed δ > 0, one has 
+
+K(r) ≤ K(δ) for r ≥ δ. Hence, for completely monotone kernels, the only remaining condition to check is the local integrability near the origin. The classical kernels discussed in the introduction fit naturally into this framework. For the Euler kernel, K(r) = −(2 π)−1 log r, the function −K′(r) = (2 πr )−1 is completely monotone. For the gSQG kernel K(r) = cβ r−β , 0 < β < 1, the kernel itself is completely monotone and is locally integrable at the origin. For the QGSW kernel, complete monotonicity follows from the standard integral representation of the modified Bessel function K0. See [19] for a detailed treatment of the classical models. We now list some further admissible examples. In the first three cases, the stronger integrability condition of Theorem 1.2 is also satisfied, and therefore both Theorem 1.1 and Theorem 1.2 apply. The last example satisfies the assumptions of Theorem 1.1, but not the stronger condition required in Theorem 1.2. 
+
+• Let 0 < a < 1 and b > 0. The kernels 
+
+K(r) = r−ae−r , K(r) = r−a(1 + r)−b28 MARC MAGA ˜NA 
+
+are completely monotone. Indeed, r−a, e−r , and (1 + r)−b are completely monotone, and products of completely monotone functions are completely monotone. In both cases, 
+
+K(r) ∼ r−a as r → 0+.
+
+Hence K ∈ L1(0 , 1) precisely when a < 1. Moreover, the stronger condition in Theorem 1.2 also holds, since one can choose 
+
+α ∈
+
+ a
+
+2 , 12
+
+
+
+.
+
+• Let 0 ≤ ν < 1. The kernel 
+
+K(r) = Kν (r),
+
+where Kν denotes the modified Bessel function of the second kind, is completely monotone on (0 , ∞). Moreover, 
+
+K0(r) ∼ − log r, Kν (r) ∼ Cν r−ν if 0 < ν < 1, r → 0+.
+
+Hence Kν ∈ L1(0 , 1) for 0 ≤ ν < 1. The stronger condition in Theorem 1.2 is also satisfied: for 0 < ν < 1, choose 
+
+α ∈
+
+ ν
+
+2 , 12
+
+
+
+,
+
+while the case ν = 0 follows from the logarithmic singularity. 
+
+• Let 0 ≤ b ≤ 1, b ≤ a < b + 1 .
+
+Then 
+
+K(r) = r−a log(1 + r)b
+
+is completely monotone. To see this, write 
+
+K(r) = r−(a−b)
+
+ log(1 + r)
+
+r
+
+b
+
+.
+
+The factor r−(a−b) is completely monotone because a − b ≥ 0. On the other hand, log(1 + r)
+
+r =
+
+Z 10
+
+11 + rs ds, 
+
+and hence it is completely monotone. Since 0 ≤ b ≤ 1, its power 
+
+ log(1 + r)
+
+r
+
+b
+
+is also completely monotone. Therefore K is completely monotone as a product of completely monotone functions. Finally, since log(1 + r) ∼ r as r → 0+,
+
+one has 
+
+K(r) ∼ rb−a as r → 0+.
+
+Thus Z 10
+
+K(r) dr < ∞UNIFIED THEORY FOR REGULARITY PERSISTENCE OF VORTEX PATCH BOUNDARIES 29 
+
+if and only if b − a > −1, that is, a < b + 1, which is exactly the upper restriction above. The stronger condition in Theorem 1.2 also holds. Indeed, if a ≤ b, the kernel is bounded near the origin; if a > b , one can choose 
+
+α ∈
+
+ a − b
+
+2 , 12
+
+
+
+,
+
+which is possible because a − b < 1. 
+
+• Let p > 1 and define 
+
+Kp(r) = 
+
+Z ∞
+
+> e
+
+e−rt dt 
+
+(log t)p .
+
+Then Kp is completely monotone by Bernstein’s theorem. Moreover, 
+
+Kp(r) ∼ 1
+
+r(log(1 /r )) p , r → 0+.
+
+Hence Kp ∈ L1(0 , 1) if and only if p > 1, so the basic integrability assumption holds. On the other hand, for every α ∈ (0 , 1/2), 
+
+rK p(r)1/α ∼ r1− 1 
+
+> α
+
+(log(1 /r )) − pα , r → 0+.
+
+Since α < 1/2, one has 1 − 1 
+
+> α
+
+< −1, and the last expression is not integrable at zero. Therefore Kp satisfies the assumptions of Theorem 1.1, but not the stronger integrability condition required in Theorem 1.2. A.2. A screened gSQG kernel. Let 0 < β < 1 and ε > 0. Consider the active scalar equation 
+
+∂tω + v · ∇ ω = 0 , v = ∇⊥(ε2 − ∆) −1+ β 
+
+> 2
+
+ω. 
+
+Equivalently, the stream function is given by 
+
+ψ = ( ε2 − ∆) −1+ β 
+
+> 2
+
+ω. 
+
+This may be viewed as a screened version of the gSQG equation, in the same spirit in which the QGSW equation is obtained from the Euler kernel by replacing ( −∆) −1 with ( ε2 − ∆) −1. Here, the replacement of −∆ by ε2 − ∆ preserves the gSQG-type singularity at small scales, while introducing exponential decay at large distances. We now identify the corresponding radial kernel. We use the Fourier convention 
+
+bf (ξ) = 
+
+Z
+
+> R2
+
+e−ix ·ξ f (x) dx, f (x) = 1(2 π)2
+
+Z
+
+> R2
+
+eix ·ξ bf (ξ) dξ. 
+
+The operator (ε2 − ∆) −1+ β
+
+> 2
+
+has multiplier (ε2 + |ξ|2)−1+ β 
+
+> 2
+
+.
+
+Setting 
+
+ν = 1 − β
+
+2 ,
+
+the associated kernel is the inverse Fourier transform of (ε2 + |ξ|2)−ν .
+
+Since the multiplier is radial, the kernel is radial as well. Using polar coordinates in Fourier space and the standard Hankel transform formula for Bessel potentials, one obtains 
+
+Gε,β (r) = cβ ε β 
+
+> 2
+
+r− β 
+
+> 2
+
+K β
+
+> 2
+
+(εr ), r > 0,30 MARC MAGA ˜NA 
+
+where Kα denotes the modified Bessel function of the second kind and, with the above convention, 
+
+cβ = 2 β
+
+> 2
+
+2π Γ(1 − β 
+
+> 2
+
+) .
+
+Thus the stream kernel has the form 
+
+K(x, y ) = Gε,β (|x − y|).
+
+We refer to [1, Chapter 9] for the classical identities for modified Bessel functions; see also [36]. The standard asymptotics of Kα imply 
+
+Gε,β (r) ∼ Cβ r−β , r → 0+,
+
+and 
+
+Gε,β (r) = O
+
+
+
+r− β+1 2 e−εr 
+
+, r → +∞.
+
+Hence the screened kernel has the same local singularity as the usual gSQG kernel with parameter 
+
+β, but it is exponentially screened at infinity. It follows immediately that Z 10
+
+Gε,β (r) dr < ∞
+
+precisely in the range 0 < β < 1. Moreover, the stronger integrability condition in Theorem 1.2 is also satisfied: near the origin, 
+
+r G ε,β (r)1/α ∼ Cr 1− βα ,
+
+which is integrable at zero whenever 
+
+α > β
+
+2 .
+
+Since 0 < β < 1, one can choose 
+
+α ∈
+
+ β
+
+2 , 12
+
+
+
+.
+
+Finally, this kernel is completely monotone since it is the product of completely monotone functions. Therefore Gε,β satisfies the monotonicity and growth assumptions by the criterion of the previous subsection. Consequently, the screened gSQG kernels are covered by both Theorem 1.1 and Theorem 1.2. 
+
+Funding and Acknowledgments 
+
+The author is deeply grateful to Professor Taoufik Hmidi for his hospitality during a research visit to NYU Abu Dhabi. The problem studied in this paper originated during that visit, and many valuable discussions with him shaped the formulation of the problem, the assumptions on the kernel, and the verification of several technical estimates. The author also wishes to thank Professors Joan Mateu and Joan Orobitg for their invaluable support, encouragement, and insightful guidance throughout this research. This research is supported by the projects “An´ alisis y Ecuaciones en Derivadas Parciales” (Refs. PID2020-112881GB-I00 and PID2024-155320NB-I00) of the Spanish Ministry of Science, Innovation and Universities. UNIFIED THEORY FOR REGULARITY PERSISTENCE OF VORTEX PATCH BOUNDARIES 31 
+
+References 
+
+[1] Milton Abramowitz and Irene A. Stegun, editors. Handbook of mathematical functions with formulas, graphs, and mathematical tables . Dover Publications, Inc., New York, 1992. Reprint of the 1972 edition. [2] Andrea L. Bertozzi and Peter Constantin. Global regularity for vortex patches. Comm. Math. Phys. ,152(1):19–28, 1993. [3] Andrea L. Bertozzi, John B. Garnett, Thomas Laurent, and Joan Verdera. The regularity of the boundary of a multidimensional aggregation patch. SIAM Journal on Mathematical Analysis , 48(6):3789–3819, 2016. [4] Andrea L. Bertozzi, Thomas Laurent, and Flavien L´ eger. Aggregation and spreading via the Newtonian potential: the dynamics of patch solutions. Math. Models Methods Appl. Sci. , 22:1140005, 39, 2012. [5] Juan Carlos Cantero, Joan Mateu, Joan Orobitg, and Joan Verdera. The regularity of the boundary of vortex patches for some nonlinear transport equations. Analysis & PDE , 16(7):1621–1650, 2023. [6] Dongho Chae, Peter Constantin, Diego C´ ordoba, Francisco Gancedo, and Jiahong Wu. Generalized surface quasi-geostrophic equations with singular velocities. Comm. Pure Appl. Math. , 65(8):1037–1066, 2012. [7] Jean-Yves Chemin. Persistance de structures g´ eom´ etriques dans les fluides incompressibles bidimensionnels. 
+
+Ann. Sci. ´Ecole Norm. Sup. (4) , 26(4):517–542, 1993. [8] Albert Clop and Banhirup Sengupta. Nonlinear transport equations and quasiconformal maps. Ann. Fenn. Math. , 48(1):375–387, 2023. [9] Antonio C´ ordoba, Diego C´ ordoba, and Francisco Gancedo. Uniqueness for SQG patch solutions. Trans. Amer. Math. Soc. Ser. B , 5:1–31, 2018. [10] Diego C´ ordoba, Marco A. Fontelos, Ana M. Mancho, and Jose L. Rodrigo. Evidence of singularities for a family of contour dynamics equations. Proc. Natl. Acad. Sci. USA , 102(17):5949–5952, 2005. [11] Rapha¨ el Danchin. ´ evolution temporelle d’une poche de tourbillon singuli` ere. Comm. Partial Differential Equations , 22(5-6):685–721, 1997. [12] Nicolas Depauw. Poche de tourbillon pour Euler 2D dans un ouvert ` a bord. J. Math. Pures Appl. (9) ,78(3):313–351, 1999. [13] Tarek Mohamed Elgindi. Osgood’s lemma and some results for the slightly supercritical 2D Euler equations for incompressible flow. Arch. Ration. Mech. Anal. , 211(3):965–990, 2014. [14] Francisco Gancedo. Existence for the α-patch model and the QG sharp front in Sobolev spaces. Adv. Math. ,217(6):2569–2598, 2008. [15] Francisco Gancedo, Huy Q. Nguyen, and Neel Patel. Well-posedness for SQG sharp fronts with unbounded curvature. Math. Models Methods Appl. Sci. , 32(13):2551–2599, 2022. [16] Francisco Gancedo and Neel Patel. On the local existence and blow-up for generalized SQG patches. Ann. PDE , 7(1):Paper No. 4, 63, 2021. [17] Francisco Gancedo and Robert M. Strain. Absence of splash singularities for surface quasi-geostrophic sharp fronts and the Muskat problem. Proc. Natl. Acad. Sci. USA , 111(2):635–639, 2014. [18] Isaac M. Held, Raymond T. Pierrehumbert, Stephen T. Garner, and Kyle L. Swanson. Surface quasi-geostrophic dynamics. J. Fluid Mech. , 282:1–20, 1995. [19] Taoufik Hmidi, Liutang Xue, and Zhilong Xue. Unified theory on V-states structures for active scalar equations. Adv. Math. , 486:Paper No. 110750, 77, 2026. [20] Junekey Jeon and Andrej Zlatoˇ s. An improved regularity criterion and absence of splash-like singularities for g-SQG patches. Anal. PDE , 17(3):1005–1018, 2024. [21] Alexander Kiselev and Chao Li. Global regularity and fast small-scale formation for Euler patch equation in a smooth domain. Comm. Partial Differential Equations , 44(4):279–308, 2019. [22] Alexander Kiselev and Xiaoyutao Luo. Illposedness of C2 vortex patches. Archive for Rational Mechanics and Analysis , 247(3):57, 2023. [23] Alexander Kiselev and Xiaoyutao Luo. On nonexistence of splash singularities for the α-SQG patches. J. Nonlinear Sci. , 33(2):Paper No. 37, 16, 2023. [24] Alexander Kiselev and Xiaoyutao Luo. The α-SQG patch problem is illposed in C2,β and W 2,p . Comm. Pure Appl. Math. , 78(4):742–820, 2025. [25] Alexander Kiselev, Lenya Ryzhik, Yao Yao, and Andrej Zlatoˇ s. Finite time singularity for the modified SQG patch equation. Ann. of Math. (2) , 184(3):909–948, 2016. [26] Alexander Kiselev, Yao Yao, and Andrej Zlatoˇ s. Local regularity for the modified SQG patch equation. 
+
+Comm. Pure Appl. Math. , 70(7):1253–1315, 2017. [27] Guillaume Lapeyre and Patrice Klein. Dynamics of the upper oceanic layers in terms of surface quasigeostrophy theory. J. Phys. Oceanogr. , 36(2):165–176, 2006. [28] Marc Maga˜ na, Joan Mateu, and Joan Orobitg. The regularity of the boundary of vortex patches for the quasi-geostrophic shallow-water equations. arXiv preprint arXiv:2602.22767 , 2026. 32 MARC MAGA ˜NA 
+
+[29] Andrew J. Majda and Andrea L. Bertozzi. Vorticity and incompressible flow , volume 27 of Cambridge Texts in Applied Mathematics . Cambridge University Press, Cambridge, 2002. [30] Qianyun Miao, Changhui Tan, Liutang Xue, and Zhilong Xue. Local regularity and finite-time singularity for a class of generalized SQG patches on the half plane. arXiv preprint arXiv:2410.19273 , 2024. [31] Jos´ e L. Rodrigo. On the evolution of sharp fronts for the quasi-geostrophic equation. Comm. Pure Appl. Math. , 58(6):821–866, 2005. [32] Ren´ e L. Schilling, Renming Song, and Zoran Vondraˇ cek. Bernstein Functions: Theory and Applications ,volume 37 of De Gruyter Studies in Mathematics . De Gruyter, Berlin, 2010. [33] Changhui Tan, Liutang Xue, and Zhilong Xue. A revisit of patch solutions for the 2D Loglog-Euler type equation. arXiv preprint arXiv:2510.18759 , 2025. [34] Geoffrey K. Vallis. Atmospheric and oceanic fluid dynamics: fundamentals and Large-Scale Circulation .Cambridge University Press, 2017. [35] Joan Verdera. The global regularity of vortex patches revisited. Adv. Math. , 416:Paper No. 108917, 15, 2023. [36] George N. Watson. A Treatise on the Theory of Bessel Functions . Cambridge University Press, Cambridge; The Macmillan Company, New York, 1944. [37] Viktor I. Yudovich. Some bounds for solutions of elliptic equations. Translations. Series 2. American Mathematical Society. , 56, 01 1963. [38] Andrej Zlatoˇ s. Local regularity and finite time singularity for the generalized SQG equation on the half-plane. 
+
+Duke Math. J. , 174(17):3493–3533, 2025. 
+
+Departament de Matem` atiques – Universitat Aut` onoma de Barcelona, 08193 Bellaterra, Barcelona, Spain 
+
+Email address : marc.magana@uab.cat

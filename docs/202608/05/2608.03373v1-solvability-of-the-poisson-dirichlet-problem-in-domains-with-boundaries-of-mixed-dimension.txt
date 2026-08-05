@@ -1,0 +1,4937 @@
+Title: Solvability of the Poisson-Dirichlet problem in domains with boundaries of mixed dimension
+
+URL Source: https://arxiv.org/pdf/2608.03373v1
+
+Published Time: Wed, 05 Aug 2026 00:58:38 GMT
+
+Number of Pages: 41
+
+Markdown Content:
+# Solvability of the Poisson-Dirichlet problem in domains with boundaries of mixed dimension 
+
+Léo Mandô ∗
+
+Abstract 
+
+We extend several characterizations of the Lp-solvability of the homogeneous Dirichlet prob-lem to (possibly degenerate) elliptic operators L = −div (wA ∇) defined on a large class of open sets Ω in Rn. This framework encompasses not only uniformly elliptic operators in Lips-chitz domains, but also Caffarelli-Sylvestre-type operators, and boundaries ∂Ω that are not 
+
+(n − 1) -dimensional, for instance. We prove that, for 1 < p < ∞, the Lp-solvability of the homogeneous Dirichlet problem is equivalent to the solvability of the Poisson-Dirichlet problem 
+
+Lu = wf −div (wF ), i.e. to the existence of a solution u satisfying a Lp non-tangential estimate whenever f and F belong to suitable weighted Lp tent spaces. Furthermore, it is also equivalent to the solvability of the Poisson-Regularity problem for data in appropriate weighted Lp′
+
+tent spaces, where estimates are obtained for ∇u rather than u.
+
+Keywords: Degenerate elliptic operators, Boundary value problems, Dirichlet problem, Poisson-Dirichlet problem, tent spaces. 
+
+# Contents 
+
+1 Introduction 2
+
+1.1 Background . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21.2 General setting . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41.3 Definitions an main result . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+
+2 Preliminaries 8
+
+2.1 Sobolev spaces adapted to our setting . . . . . . . . . . . . . . . . . . . . . . . . . 82.2 The Poisson-Dirichlet problem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12 2.2.1 Weak solutions and their first properties . . . . . . . . . . . . . . . . . . . . 12 2.2.2 Green function . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14 2.2.3 Non-homogeneous boundary conditions and elliptic measure . . . . . . . . . 15 2.3 Tent spaces . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18 
+
+3 Characterization of (Dp) 19 
+
+3.1 Characterization using the elliptic measure . . . . . . . . . . . . . . . . . . . . . . . 19 3.2 Characterization using the Green function . . . . . . . . . . . . . . . . . . . . . . . 22 
+
+4 Solvability of the Poisson-Dirichlet problem 24 
+
+4.1 Proof of Theorem 1.5 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24 4.2 Existence of solutions with general data . . . . . . . . . . . . . . . . . . . . . . . . 28 
+
+A Appendix: results on tent spaces 30 Acknowledgements 38 
+
+> ∗Laboratoire de mathématiques d’Orsay, Université Paris-Saclay, 307 rue Michel Magat, 91400 Orsay, France. Email: leo.mando@universite-paris-saclay.fr
+
+1arXiv:2608.03373v1 [math.AP] 4 Aug 2026 References 39 
+
+# 1 Introduction 
+
+1.1 Background 
+
+In recent decades, the study of the (homogeneous) Dirichlet problem 
+
+(
+
+Lu = 0 in Ω
+
+u = g on ∂Ω, (1.1) where Ω is an open set of Rn and L = − div( A∇) is a uniformly elliptic operator in divergence form, has been an area of extensive research in harmonic analysis, pushing towards more general conditions: non-smooth coefficients A, rough boundaries ∂Ω, non-continuous boundary data g. Our interest in this paper will lie in the solvability of the Dirichlet problem with Lp data; that is to say, to find solutions of (1.1) that satisfy the estimate 
+
+∥N u∥Lp(∂Ω) ≤ C∥g∥Lp(∂Ω) , (1.2) where N u is the non-tangential maximal function of u, see (1.19) below for the definition. When L is the Laplacian and Ω is a Lipschitz domain, Dahlberg showed in [Dah77] that the harmonic measure is absolutely continuous with respect to the surface measure, and that the corresponding Radon derivative (called the Poisson kernel) belongs to the reverse Hölder class B2.Putting this in our context, it means that in Lipschitz domains, the Dirichlet problem for the Laplacian is L2-solvable. Even 50 years after Dahlberg’s paper, we do not know what is the geometric characterization of domains that ensures the L2-solvability of the Dirichlet problem for the Laplacian. What we know is that in Chord-Arc Domains (CAD) - a natural extension of Lipschitz domains - the harmonic measure is A∞-absolutely continuous 1 with respect to the surface measure, which translates to the fact that the Dirichlet problem for the Laplacian is solvable only in Lp for a large p ∈ (1 , ∞)
+
+depending of the CAD constants; indeed, the A∞-absolute continuity for CAD was tackled by David and Jerison in [DJ90], while in [Jer83] Jerison provided, for each p ∈ (1 , ∞), a CAD where the Lp-solvability of the Dirichlet problem fails. Chord Arc-Domains appears to be almost optimal for the existence of a p ∈ (1 , ∞) that gives the Lp solvability of the Dirichlet problem for the Laplacian: assuming boundaries of Hausdorff dimension n − 1 and ample access to the boundary (all in a quantitative manner), the converse was studied in [Hof+17], [Azz21] and [Azz+20]. Beyond the Laplacian, the Lp-solvability of the Dirichlet problem was widely studied. Early on, Caffarelli, Fabes, and Kenig in [CFK81], and by Modica and Mortola in [MM80] exhibited some uniformly elliptic operators on smooth domains for which the Lp-solvability of the Dirichlet problem fails for every 1 < p < ∞. Positive results were subsequently obtained under additional assumptions on the coefficients: for symmetric coefficients in Lipschitz domains in [JK81a], for 
+
+t-independent operators in Rn 
+
+> +
+
+:= {(x, t ) ∈ Rn | t > 0} in [Hof+15], for Dahlberg-Kenig-Pipher (DKP) operators - that are operators whose oscillations are controlled in terms of Carleson measures - in Lipschitz domains in [KP01] and [DPP07]. For DKP operators, the equivalence between CAD and the existence of some p ∈ (1 , ∞) that ensures the Lp-solvability of the Dirichlet was achieved in [Hof+21]. Let us also mention here a related boundary value problem: the Lp regularity problem (or ˙W 1,p 
+
+Dirichlet problem). Instead of asking for (1.2), we demand the bound 
+
+∥ ˜N (∇Rn u)∥Lp(∂Ω) ≤ C∥∇ ∂Ωg∥Lp (∂Ω) , (1.3) where the meaning of ∇∂Ω, when the boundary is irregular, is part of the problem. The key point to understand is that there is a duality between the Dirichlet and the regularity problem: if the 
+
+> 1a quantitative and scale invariant version of absolute continuity, that will not be presented here but can be found in [Ste93], Chapter V, 5.1.
+
+2regularity problem is Lp-solvable for an operator L in Ω (with an appropriate choice of gradient 
+
+∇∂Ω), then the Dirichlet problem is Lp′
+
+-solvable for the adjoint operator L∗, where p′ is the Hölder conjugate of p. The other implication - that is the Dirichlet problem implies the regularity problem -is false in general (see Proposition 1.9 in [Gal25]) and require extra assumptions. It was established for the Laplacian in Lipschitz domains ([JK81b], [Ver84]), and recently for the Laplacian and DKP operators in domains with uniformly rectifiable boundaries ([MT24] and [MPT22]). To obtain those results on the Dirichlet and regularity problem, one relies on a large variety of characterization of the Lp-solvability of the Dirichlet problem. Let us mention one in particular, that will be the focus of our article and was a key ingredient of [MPT22], which is the characterization of the Lp (homogeneous) Dirichlet problem by its “inhomogeneous” counterpart. The inhomogeneous Dirichlet problem is the study of the existence of a well-controlled solution to 
+
+(
+
+Lu = f − div F in Ω
+
+u = g on ∂Ω, (1.4) for g ∈ Lp(∂Ω) and an appropriate range of interior data f and F . Roughly speaking - the missing definitions will be given later when we present our own results - Mourgoglou, Poggi and Tolsa proved in [MPT22] that for domains Ω with boundaries of dimension n − 1, quantitatively, the 
+
+Lp solvability of the (homogeneous) Dirichlet problem for an uniformly elliptic operator L in Ω is equivalent to the solvability of the Poisson-Dirichlet problem 
+
+(
+
+Lu = f − div F in Ω
+
+u = 0 on ∂Ω, (1.5) in appropriate tent spaces, with a bound on u defined as 
+
+∥ ˜N u∥Lp(∂Ω) ≤ C
+
+h
+
+∥ ˜A(δ2f )∥Lp(∂Ω) + ∥ ˜A(δF )∥Lp(∂Ω) 
+
+i
+
+, (1.6) where ˜A is a modified L1 area function defined in (1.21). By duality, the Lp-solvability of the (ho-mogeneous) Dirichlet problem is also equivalent to the solvability of the Poisson-Dirichlet problem (1.5) for the adjoint operator L∗ with a bound on the gradient: 
+
+∥ ˜N (∇u)∥Lp′ (∂Ω) ≤ C
+
+h
+
+∥ ˜A(δf )∥Lp′ (∂Ω) + ∥ ˜A(F )∥Lp′ (∂Ω) 
+
+i
+
+, (1.7) which was named "solvability of the Poisson-regularity problem" by the authors of [MPT22]. Note that in the case of the unit ball, a slightly stronger version of the fact that the solvability of the Dirichlet problem implies the solvability of the Poisson-Dirichlet problem was already proven as an intermediate step of the main result in [KP95]. Finally, one should note that similar results have recently been established for inhomogeneous elliptic equations with other boundary condi-tions, in the context of Chord-Arc Domains: for Neumann boundary conditions, Feneuil and Li proved in [FL24] that the solvability of the Lp- Poisson-Neumann problem implies the solvability of the (homogeneous) Lp′
+
+-Neumann problem for the adjoint, and that the converse holds under the additional assumption that the Lp′
+
+-Dirichlet problem is solvable. In [FYY25], Fu, Yang and Yang established the same result when replacing Neumann boundary conditions with Robin boundary conditions. In this paper, we generalize the equivalence between Dirichlet and Poisson-Dirichlet problem to a broader geometric setting. Indeed, most results concerning Lp solvability have been restricted to domains with Ahlfors regular 2 boundary of dimension n − 1 and uniformly elliptic operators, leaving out degenerate operators as studied by Fabes, Jerison, Kenig, and Serapioni in [FJK83a], [FJK83b] and [FKS82], the operators from the elliptic theory adapted to high co-dimensional boundaries developed by David, Feneuil, and Mayboroda in [DFM21] and [DFM23], and even the Caffarelli-Silvestre operator from [CS07]. We choose to study the equivalence in a setting even more 
+
+> 2a notion that characterizes the dimension of a set in a quantitative way, see (1.8).
+
+3general that the one in [DFM23], because we intends - as in [MPT22] - to remove the connectedness condition from our hypotheses on the domain, leading to many pitfalls due to the lack of comparison principle or change of pole for the elliptic measure. For uniformly elliptic operators with degenerate coefficients, characterizations the Lp-solvability of the Dirichlet problem and the A∞-absolute continuity of the elliptic measure with respect to the surface measure are obtained in [FP22] and [CY25]. However, we will need to prove our new characterizations of the Dirichlet problem by adapting the characterizations of [MT24] to our setting, since the characterizations of [CY25] and [FP22] relies on connectedness of the domain, which add an extra layer of difficulty to our article. 
+
+1.2 General setting 
+
+We consider an open set Ω ⊂ Rn, with n ≥ 2, a Borel measure m on Rn, and a Borel measure μ
+
+supported on ∂Ω (both non-negative, non identically zero and locally finite). Our geometric setting is based on the one found in [DFM23], although we do not assume the Harnack Chain condition like [DFM23] does, and instead we consider a measure m on the whole space Rn (instead of a measure supported in Ω) satisfying a Poincaré-Sobolev inequality on every ball centered in ¯Ω.Since our hypotheses on Ω are weaker than the ones from [DFM23], our settings encompasses a large variety of domains and operators. The classical case, i.e. domains with (n − 1) -Ahlfors regular boundaries and uniformly elliptic operators, is of course included. Let us recall for the sake of completeness that a set E ⊂ Rn is said to be d-Ahlfors regular when there exists C > 0 such that 
+
+C−1rd ≤ H d(E ∩ B(x, r )) ≤ Cr d for x ∈ E, 0 < r < diam( E), (1.8) where Hd is the d-dimensional Hausdorff measure. If Ω = Rn \ E is the complement of a d-Ahlfors regular set E of dimension d ≤ n − 2, functions in W 1,2(Ω) do not have a trace, and one must consider degenerate operators like L = − div( δd−(n−1) ∇), with δ(x) := dist (x, ∂ Ω) , to be able to study the Lp-Dirichlet problem (see [DFM19], [MZ19], [Fen22] or [DM23] for examples of the study of the A∞-absolute continuity of the elliptic measure and the Lp solvability of the Dirichlet problem in such settings). For an explanation of how our hypotheses encompasses the aforementioned cases, as well as others examples where our assumptions hold, see Chapter 3 in [DFM23]. 
+
+Assumption (H1) . There exists Ccrk ≥ 1 such that for any open ball B = B(ξ, r ) centered on 
+
+∂Ω, we can find x ∈ B such that 
+
+B(x, C −1
+
+> crk
+
+r) ⊂ Ω. (1.9) This assumption is commonly known as the corkscrew point condition. 
+
+Assumption (H2) . The measure μ is doubling , i.e. there exists Cμ > 1 such that 
+
+μ(2 B) ≤ Cμμ(B) (1.10) for any ball B centered on ∂Ω.
+
+Assumption (H3) . m|Ω is mutually absolutely continuous with respect to the Lebesgue measure: there exists a weight w ∈ L1
+
+> loc
+
+(Ω) such that w > 0 and 
+
+dm (x) = w(x)dx. 
+
+In addition, m is also doubling: there exists Cm ≥ 1 such that 
+
+m(2 B) ≤ Cmm(B) (1.11) for any ball B in Rn.4Lemma 1.1. Assume (H1) and (H3). There exists C > 0, depending only on Ccrk and Cm, such that 
+
+m(B ∩ Ω) ≤ m(B) ≤ Cm (B ∩ Ω) for any B = B(x, r ) centered in ¯Ω; (1.12) 
+
+consequently, m|Ω is also doubling: there exists C′ 
+
+> m
+
+> 0, depending only on Ccrk and Cm, such that 
+
+m(2 B ∩ Ω) ≤ C′
+
+> m
+
+m(B ∩ Ω) . (1.13) 
+
+Proof. The first inequality in (1.12) is obvious; let us prove the second one. If B/ 2 ⊂ Ω, then by (H3) m(B) ≤ Cmm(B/ 2) ≤ Cmm(B ∩ Ω) . If B/ 2 is not included in Ω, then there exists ξ ∈ B/ 2 ∩
+
+∂Ω. The corkscrew condition (H1) give us x′ ∈ B(ξ, r/ 2) such that B′ := B  x′, (2 Ccrk )−1r ⊂ Ω.Then B′ ⊂ B ⊂ 4Ccrk B′, and by (H3) there exists C > C m, depending on Ccrk and Cm, such that 
+
+m(4 Ccrk B′) ≤ Cm (B′). Altogether, this give us m(B) ≤ m(4 Ccrk B′) ≤ Cm (B′) ≤ Cm (B ∩ Ω) .Finally, (1.13) is a direct consequence of (H3) and (1.12). For any ball B = B(x, r ) centered in ¯Ω we define 
+
+ρ(B) := m(B ∩ Ω) 
+
+rμ (B ∩ ∂Ω) .
+
+We will also write ρ(x) := ρ(B(x, 2δ(x))) , for any x ∈ Ω. When considering balls B = B(ξ, r )
+
+centered on ∂Ω, the quantity ρ quantifies the deviation between two measures of B ∩ Ω, seen in one hand as a subset of Ω by using m(B ∩ Ω) , and in the other hand as a tent set over B ∩ ∂Ω by using rμ (B ∩ ∂Ω) . “Standard” deviations correspond to the case where C−1 ≤ ρ(B) ≤ C for some 
+
+C > 0 whenever B is a ball centered on ∂Ω.If we assume (H1), (H2) and (H3), then there exists C depending only on Ccrk , Cμ and Cm
+
+such that for any ball B centered on ∂Ω,
+
+C−1ρ(B) ≤ ρ(2 B) ≤ Cρ (B). (1.14) However, these bounds are not enough to guarantee some classic result of our theory, like the boundary Poincaré theorem, and we will need to assume a more precise bound on the growth of ρ.
+
+Assumption (H4) . There exists Cρ ≥ 1 such that for any B = B(ξ, r ) centered on ∂Ω, ρ satisfies 
+
+ρ(Λ B) ≤ CρΛ1−ερ(B) for Λ > 1, (1.15) where ε = Cρ−1.
+
+Assumption (H5) .
+
+• If D is an open subset of Rn and (φk) is a sequence in C∞(D) such that φk → 0 in L1(D, m ),
+
+∇φk ∈ L2(D, m )n for k ∈ N and ∇φk → V in L2(D, m )n for some V ∈ L2(D, m )n, then 
+
+V = 0 .
+
+• There exists Cpc > 0 such that for any ball B = B(x, r ) centered in ¯Ω,
+
+> B
+
+|φ − φB | dm ≤ Cpc r
+
+
+
+> 2B
+
+|∇ φ|2 dm 
+
+1/2
+
+, (1.16) for any function φ ∈ C ∞(2 B) such that ∇φ ∈ L2(2 B, m ), where φB := ffl  
+
+> B
+
+φ dm .Compared to the assumptions of [DFM23], we removed the Harnack Chain condition, but as-sumed that m is a doubling measure on the whole space Rn and that it satisfies a Poincaré inequality for all balls centered in ¯Ω, instead of only assuming it for ball well contained in Ω as in [DFM23]. We adopt these stronger conditions mostly so that we can recover a boundary Poincaré inequality (Theorem 2.5), but it is possible that we could relax our hypotheses by only assuming an interior Poincaré inequality. However, since the article do not plan to dwell on capacity conditions and 5Poincaré inequalities, we decided to leave the answer to this question for a future project. Finally, we consider uniformly elliptic operators “with respect to the weight w”, that are oper-ators in divergence form L = − div( wA ∇), with A : Ω → Mn(R) satisfying classical conditions of boundedness and ellipticity, i.e. there exists CA > 0 such that 
+
+A(x)V · W ≤ CA|V || W | for x ∈ Ω and V, W ∈ Rn, (1.17) and 
+
+A(x)V · V ≥ CA−1|V |2 for x ∈ Ω, V ∈ Rn. (1.18) We will write L∗ = − div( wA T ∇) the adjoint operator of L, where AT is the transpose of A.The assumptions (H1), (H2), (H3), (H4) and (H5) are enough to have an elliptic theory (Hölder continuity of solutions, construction of Green functions and elliptic measure, and non-degeneracy of the elliptic measure) for uniformly elliptic operators with respect to w. The elliptic theory that we need is presented in Subsection 2.2, and is proved in the book by Feneuil and Mayboroda currently in preparation ([FM] ). 
+
+1.3 Definitions an main result 
+
+First, let us introduce some notation. In the rest of this work, we will write a ≲ b if there exists a constant C > 0 such that a ≤ Cb , and a ≃ b if a ≲ b ≲ a. For x ∈ Ω, we use δ(x) := dist (x, ∂ Ω) 
+
+and Bx := B (x, δ (x)) . For a given aperture α > 0 and a vertex ξ ∈ ∂Ω, we define the cone 
+
+γα(ξ) := {x ∈ Ω | | x − ξ| < (1 + α)δ(x)} .
+
+We will use the non-tangential maximal function N (α) defined as 
+
+N (α)u(ξ) := sup 
+
+> x∈γ(ξ)
+
+|u(x)|, (1.19) for u m -measurable and ξ ∈ ∂Ω. For functions that are not necessarily well defined everywhere, but only L2
+
+> loc
+
+, we need a modified version of the non-tangential maximal function: 
+
+˜N (α,λ )u(ξ) := sup 
+
+> x∈γα(ξ)
+
+
+
+> λB x
+
+|u|2 dm 
+
+1/2
+
+, (1.20) for α > 0, 0 < λ ≤ 1/2, u ∈ L2
+
+> loc
+
+(Ω , m ) and ξ ∈ ∂Ω. We also introduce the modified area function 
+
+˜A(α,λ ):
+
+˜A(α,λ )f (ξ) := 
+
+ˆ
+
+> γα(ξ)
+
+
+
+> λB x
+
+|f |2 dm 
+
+1/2 dm (x)
+
+m(Bx) , (1.21) for α > 0, 0 < λ ≤ 1/2, f ∈ L2
+
+> loc
+
+(Ω , m ) and ξ ∈ ∂Ω. Note that the Lp norms of these functions are equivalent for the different values of α > 0 and 0 < λ ≤ 1/2, see Lemma 2.25. Hence we write N
+
+for N (1) , ˜N for ˜N (1 ,1/2) and ˜A for ˜A(1 ,1/2) to lighten the notation. By Theorem 2.20 below, there exists a family of probability measures (ωx)x∈Ω on ∂Ω - called elliptic measures associated to L - such that for each g ∈ C0 
+
+> c
+
+(∂Ω) the function u defined by 
+
+u(x) = 
+
+ˆ
+
+> ∂Ω
+
+g dω x for x ∈ Ω (1.22) is a continuous weak solution to Lu = 0 in Ω that extends continuously to ∂Ω by u = g on ∂Ω. We can now define what we mean by solvability of the Dirichlet problem with Lp data - or Lp solvability. 6Definition 1.2. Let 1 < p < ∞. We say that the Dirichlet problem for the operator L with Lp
+
+boundary data is solvable - abridged in (Dp) - if there exists C > 0 such that for every g ∈ C c(∂Ω) 
+
+the solution u to the Dirichlet problem 
+
+(
+
+Lu = 0 in Ω
+
+u = g on ∂Ω, (1.23) given by (1.22) satisfies the estimate 
+
+∥N u∥Lp(∂Ω,μ ) ≤ C∥g∥Lp(∂Ω,μ ). (1.24) In Subsection 2.1 we define W0(Ω) as the completion of C∞ 
+
+> c
+
+(Ω) for the norm ∥∇ u∥L2(Ω ,m ). For each f ∈ L∞ 
+
+> c
+
+(Ω , m ) and F ∈ L∞ 
+
+> c
+
+(Ω , m )n, the Lax-Milgram theorem give us a unique weak solution in W0(Ω) of Lu = wf − div( wF ) (see Theorem 2.10). We will use this notion of solution to define de solvability of the Poisson-Dirichlet problem .
+
+Definition 1.3. Let 1 < p < ∞. We say that (P D p) holds if there exists C > 0 such that for each 
+
+f ∈ L∞ 
+
+> c
+
+(Ω , m ) and F ∈ L∞ 
+
+> c
+
+(Ω , m )n, the solution u in W0(Ω) to the Poisson-Dirichlet problem 
+
+(
+
+Lu = wf − div( wF ) in Ω
+
+u = 0 on ∂Ω, (1.25) satisfies the estimate 
+
+∥ ˜N u∥Lp(∂Ω,μ ) ≤ C
+
+h
+
+∥ ˜A(δ2f )∥Lp(∂Ω,μ ) + ∥ ˜A(δF )∥Lp(∂Ω,μ )
+
+i
+
+. (1.26) We will also study the solvability of the Poisson-regularity problem for the adjoint operator, defined as follows. 
+
+Definition 1.4 (Solvability of the Poisson-regularity problem) . Let 1 < p < ∞. We say that 
+
+(P R ∗ 
+
+> p′
+
+) holds if there exists C > 0 such that for each f ∈ L∞ 
+
+> c
+
+(Ω , m ) and F ∈ L∞ 
+
+> c
+
+(Ω , m )n, the solution u in W0(Ω) to the Poisson-Dirichlet problem 
+
+(
+
+L∗u = wf − div( wF ) in Ω
+
+u = 0 on ∂Ω, (1.27) which satisfies the estimate 
+
+∥ ˜N (ρ∇u)∥Lp′ (∂Ω,μ ) ≤ C
+
+h
+
+∥ ˜A(ρδf )∥Lp′ (∂Ω,μ ) + ∥ ˜A(ρF )∥Lp′ (∂Ω,μ )
+
+i
+
+(1.28) Note that we could also define the solvability estimates (1.26) and (1.28) using a modified Carleson functional (like in [MPT22]), which in our setting would be defined as 
+
+˜C(λ)f (ξ) := sup 
+
+> r> 0
+
+1
+
+μ(B(x, r )) 
+
+ˆ
+
+> B(x,r )∩Ω
+
+
+
+> λB x
+
+|f |2 dm 
+
+1/2 dm (x)
+
+ρ(x)δ(x) (1.29) for 0 < λ ≤ 1/2, f ∈ L2
+
+> loc
+
+(Ω , m ) and ξ ∈ ∂Ω. This is in fact equivalent, since ∥ ˜C(λ)f ∥Lp(∂Ω,μ ) ≃∥ ˜Af ∥Lp(∂Ω,μ ) when 1 < p < ∞ (see Theorem A.12 in the appendix). We can now state our main result. 
+
+Theorem 1.5. Assume (H1)-(H5) are satisfied, and take 1 < p < ∞. The following are equivalent. (i) (Dp) holds. (ii) (P D p) holds. (iii) (P D p) holds whenever F = 0 .
+
+7(iv) (P D p) holds whenever f = 0 .(v) (P R ∗ 
+
+> p′
+
+) holds. (vi) (P R ∗ 
+
+> p′
+
+) holds whenever F = 0 .
+
+Theorem 1.5 shows the equivalence between the solvability of the (homogeneous) Dirichlet prob-lem, the solvability of the Poisson-Dirichlet problem, and the solvability of the Poisson-regularity for the adjoint. Note that this result aligns for the most part with Theorem 1.22 in [MPT22], except for the characterization (iii) which is new even in the setting of [MPT22]. The article is divided as follows. In Section 2, we give the other definitions that are needed for our proofs, we provide basic elliptic theory results for our settings, and we finish by presenting results on tents spaces (that are proved in Appendix - Section A - for completeness). In Section 3, we gave characterizations of the Lp solvability of the Dirichlet problem in terms of either the elliptic measure or the Green function, that we shall rely on to prove Theorem 1.5. Section 4 finishes the proof of Theorem 1.5, and extends the existence of solutions controlled as in (1.24), (1.26) or (1.28) for general boundary and interior data. 
+
+# 2 Preliminaries 
+
+2.1 Sobolev spaces adapted to our setting 
+
+We present the spaces where the solutions lie. We follow the strategy and presentation [DFM23]. 
+
+Definition 2.1 (Section 4 in [DFM23]) . Let us assume (H5), and let D be an open subset of Rn.We say that u is in W (D) if u ∈ L1
+
+> loc
+
+(D, m ) and there exists V ∈ L2(D, m )n and a sequence (φk)
+
+in C∞(D) such that: (i) φk → u in L1
+
+> loc
+
+(D, m ),(ii) ∇φk is in L2(D, m ) for any k ∈ N,(iii) ∇φk → V in L2(D, m ).Observe that if u ∈ W (D) the function V in the definition is unique, thanks to (H5). We will write 
+
+∇u this function. Then, we can equip the space W (D) with the semi-norm ∥u∥W (D) = ∥∇ u∥L2(D,m ).It is unclear whether (H5) is enough to guarantee that ∇u corresponds to the distributional gradient of u. However, the two notion of gradient coincide on compactly supported Lipschitz functions (see Lemma 1.11 in [HKM18]). We will also use a localized version of W (D):
+
+Wloc (D) = {u ∈ L1
+
+> loc
+
+(D, m ) | u ∈ W ( ˚K) for any compact set K ⊂ D}
+
+The space W (D) satisfies the following "completedness" property: 
+
+Proposition 2.2. Let us assume (H5) , and let D be an open subset of Rn. If a sequence (uk) in 
+
+W (D) satisfies: (i) uk is a Cauchy sequence in L1
+
+> loc
+
+(D, m ),(ii) (∇uk) is a Cauchy sequence in L2(D, m ),then there exists u ∈ W (D, m ) such that uk → u in L1
+
+> loc
+
+(D, m ) and ∇uk → ∇ u in L2(D, m )n.Proof. Take (uk) in W (D) satisfying (i) and (ii ), and j ∈ N. By completeness, there exists 
+
+u ∈ L1
+
+> loc
+
+(D, m ) and V ∈ L2(D, m )n such that uk → u in L1
+
+> loc
+
+(D, m ) and ∇uk → V in L2(D, m ).Thus, there exists kj ∈ N such that 
+
+∥u − ukj ∥L1(K,m ) < 2−j and ∥V − ∇ ukj ∥L2(D,m ) < 2−j for any compact set K ⊂ D;
+
+8by definition of W (D), there exists φj ∈ C ∞(D) such that ∇φj ∈ L2(D, m ) and 
+
+∥ukj − φj ∥L1(K,m ) < 2−j and ∥∇ ukj − ∇ φj ∥L2(D,m ) < 2−j for any compact set K ⊂ D. 
+
+Then we have that φj → u in L1
+
+> loc
+
+(D, m ) and ∇φj → V in L2(D, m ), wich implies that u ∈ W (D)
+
+with ∇u = V . This proves the result. The Poincaré-Sobolev inequality (1.16) can be extended to all functions in W (B), and self-improves to a better exponent in the left-hand side thanks to Theorem 1 in [HK95]. 
+
+Theorem 2.3 (Poincaré-Sobolev inequality) . Assume (H3) and (H5) . There exists an exponent 
+
+2∗ > 2 such that for any ball B = B(x, r ) in Rn, any 0 < κ ≤ 1 and any u ∈ W (B), u ∈ L2∗
+
+(B, m )
+
+and 
+
+> B
+
+|u − uE |2∗
+
+dm 
+
+1/2∗
+
+≤ Cκr
+
+
+
+> B
+
+|∇ u|2 dm 
+
+1/2
+
+, (2.30) 
+
+with uE := ffl  
+
+> E
+
+u dm , where E is any Borel set in B such that m(E) > κm (B) , and where Cκ
+
+depends only on Cm, Cpc and κ.Proof. Take a ball B in Rn and u ∈ W (B). By definition we can approximate u by smooth functions and use (H5) to obtain 
+
+> B′
+
+|u − uB′ | dm ≤ Cpc r′
+
+
+
+> 2B′
+
+|∇ u|2 dm 
+
+1/2
+
+,
+
+for any ball B′ = B(x′, r ′) such that 2B′ ⊂ B. Then, Theorem 1 in [HK95] give us that u ∈
+
+L2∗
+
+(B, m ) and (2.30) with E = B. Now, take 0 < κ ≤ 1 and a Borel set E in B such that 
+
+m(E) > κm (B). We have 
+
+
+
+> B
+
+|u − uE |2∗
+
+dm 
+
+1/2∗
+
+≤
+
+
+
+> B
+
+|u − uB |2∗
+
+dm 
+
+1/2∗
+
++ |uB − uE |≤
+
+
+
+> B
+
+|u − uB |2∗
+
+dm 
+
+1/2∗
+
++ E
+
+|u − uB | dm 
+
+≲
+
+
+
+> B
+
+|u − uB |2∗
+
+dm 
+
+1/2∗
+
+≲ r
+
+
+
+> B
+
+|∇ u|2 dm 
+
+1/2
+
+,
+
+where we used the fact that E ⊂ B with m(E) ≃ m(B) and the Hölder inequality for the third estimate, and (2.30) with E = B for the last one. We will now define a set of function u ∈ W (D ∩ Ω) such that, in some sense, " u is null on 
+
+D ∩ ∂Ω". 
+
+Definition 2.4 (W0(D ∩ Ω) ). Let us assume (H5), and let D be an open subset of Rn. We say that u is in W0(D ∩ Ω) if u ∈ L1
+
+> loc
+
+(D ∩ Ω, m ) and there exists V ∈ L2(D ∩ Ω, m )n and a sequence 
+
+(φk) in C∞(D ∩ Ω) such that: (i) supp φk ⊂ Ω for any k ∈ N,(ii) φk → u in L1
+
+> loc
+
+(D ∩ Ω, m ),(iii) ∇φk is in L2(D ∩ Ω, m ) for any k ∈ N,(iv) ∇φk → V in L2(D ∩ Ω, m ).We highlight the fact that the notation W0(D ∩ Ω) denote a space of functions that are null on 
+
+D ∩ ∂Ω, and not on ∂(D ∩ Ω) . These functions satisfy a Poincaré inequality: 9Theorem 2.5 (Boundary Poincaré inequality) . Assume (H1)-(H5) . For any ball B = B(ξ, r )
+
+centered on ∂Ω, we have: 
+
+
+
+> B∩Ω
+
+|u|2∗
+
+dm 
+
+1/2∗
+
+≤ Cr 
+
+
+
+> B∩Ω
+
+|∇ u|2 dm 
+
+1/2
+
+, (2.31) 
+
+whenever u ∈ W0(B ∩ Ω) , where C depends only on Ccrk , Cμ, Cm, Cρ, and Cpc .
+
+Before beginning the proof of the boundary Poincaré inequality, let us state a small technical lemma. 
+
+Lemma 2.6. Assume (H1)-(H4) . For any ball B = B(ξ0, r ) centered on ∂Ω and any g ∈ L2(2 B, m )
+
+such that g ≥ 0, 
+
+> B∩∂ΩB(ξ,λr )∩Ω
+
+g2 dm 
+
+!1/2
+
+dμ (ξ) ≤ Cλ ε/ 2−1
+
+
+
+> 2B∩Ω
+
+g2 dm 
+
+1/2
+
+, for 0 < λ ≤ 1, (2.32) 
+
+where ε = C−1 
+
+> ρ
+
+as in assumption (H4) , and where C depends only on Ccrk , Cμ, Cm and Cρ.Proof. Take a ball B = B(x0, r ) centered on ∂Ω, g ∈ Lp(2 B) and 0 < λ ≤ 1. For any ξ ∈ B ∩ ∂Ω,
+
+> B(ξ,λr )∩Ω
+
+g2 dm 
+
+!1/2
+
+= ( λrρ (B(ξ, λr ))) −1/2 1
+
+μ(B(ξ, λr )) 
+
+ˆ
+
+> B(ξ,λr )∩Ω
+
+g2 dm 
+
+!1/2
+
+≲ λε/ 2−1(rρ (B)) −1/2 1
+
+μ(B(ξ, λr )) 
+
+ˆ
+
+> B(ξ,λr )∩Ω
+
+g2 dm 
+
+!1/2
+
+, (2.33) using (1.14) and (1.15), where ε > 0 is given in assumption (H4). Furthermore, 
+
+> B∩∂Ω
+
+1
+
+μ(B(ξ, λr )) 
+
+ˆ
+
+> B(ξ,λr )
+
+g2 dm 
+
+!1/2
+
+dμ (ξ) ≤ B∩∂Ω
+
+1
+
+μ(B(ξ, λr )) 
+
+ˆ
+
+> B(ξ,λr )
+
+g2 dm dμ (ξ)
+
+!1/2
+
+≤ 1
+
+μ(B)
+
+ˆ
+
+> 2B∩Ω
+
+g(x)2
+
+ˆ
+
+> B(x,λr )∩∂Ω
+
+dμ (ξ)
+
+μ(B(ξ, λr )) dm (x)
+
+!1/2
+
+≲
+
+ 1
+
+μ(B)
+
+ˆ
+
+> 2B
+
+g2 dm 
+
+1/2
+
+, (2.34) where we used Hölder for the first estimate, Fubini and the fact that B(ξ, λr ) ⊂ 2B for the second one, and the fact that B(x, λr ) ⊂ B(ξ, 2λr ) and the doubling property of μ for the third one. Piecing together (2.33) and (2.34), we obtain that  
+
+> B∩∂ΩB(ξ,λr )∩Ω
+
+g2 dm 
+
+!1/2
+
+dμ (ξ) ≲ λε/ 2−1 (rρ (B)μ(B)) −1/2
+
+ˆ
+
+> 2B
+
+g2 dm 
+
+1/2
+
+≲ λε/ 2−1
+
+
+
+> 2B
+
+g2 dm 
+
+1/2
+
+,
+
+which is the desired result. Now let us prove the boundary Poincaré inequality. 
+
+Proof of Theorem 2.5. Take a ball B = B(ξ0, r ) centered on ∂Ω and a function u ∈ W0(B ∩ Ω) . By definition of W0(B ∩ Ω) , it suffices to prove the theorem assuming that u ∈ C ∞(B ∩ Ω) and that 
+
+supp u ⊂ Ω to finish the proof. Then, we can extend u by 0 to B \ Ω, giving us a function in C∞(B)
+
+that we will still write u in order to lighten the notation. Observe that the gradient of the extension 10 satisfies ∇u = 0 in B\Ω. Now, let us write Bξk := B(ξ, 2−kr) and Bξ 
+
+> 0
+
+= B, for any ξ ∈ B and k ∈ N∗.First, we have that 
+
+
+
+> B∩Ω
+
+|u|2∗
+
+dm 
+
+1/2∗
+
+≤
+
+
+
+> B
+
+|u − uB |2∗
+
+dm 
+
+1/2∗
+
++ |uB | ≲ r
+
+
+
+> B
+
+|∇ u|2 dm 
+
+1/2
+
++ |uB |,
+
+using the Poincaré-Sobolev inequality (2.30). Thus, it suffices to prove that 
+
+|uB | ≲ r
+
+
+
+> B
+
+|∇ u|2 dm 
+
+1/2
+
+. (2.35) Since supp u ⊂ Ω, we have that uBξk
+
+→ 0 for all ξ ∈ B/ 2 ∩ ∂Ω; thus, 
+
+|uB | ≤ X
+
+> k∈N
+
+uBξk
+
+− uBξk+1 
+
+≤ X 
+
+> k∈NBξk
+
+u − uBξk+1 
+
+dm ≲ X
+
+> k∈N
+
+2−kr Bξk
+
+|∇ u|2 dm 
+
+!1/2
+
+,
+
+using the Poincaré-Sobolev inequality (2.30). Then, averaging in ξ over B/ 2:
+
+|uB | ≲ B/ 2
+
+X
+
+> k∈N
+
+2−kr Bξk
+
+|∇ u|2 dm 
+
+!1/2
+
+dμ (ξ) = r X
+
+> k∈N
+
+2−k 
+
+> B/ 2Bξk
+
+|∇ u|2 dm 
+
+!1/2
+
+dμ (ξ)
+
+≲ r X
+
+> k∈N
+
+2−εk/ 2
+
+
+
+> B
+
+|∇ u|2 dm 
+
+1/2
+
+≲ r
+
+
+
+> B
+
+|∇ u|2 dm 
+
+1/2
+
+,
+
+where we used Fubini for the second estimate and (2.32) for the third one. We have proven (2.35), which concludes the proof. As a consequence, we have the following convergence result for functions in W0(D ∩ Ω) :
+
+Corollary 2.7. Assume (H1)-(H5) , and let D be an open subset of Rn. Any function u ∈ W0(D∩Ω) 
+
+satisfy 
+
+> B(ξ,r )∩D∩Ω
+
+|u|2∗
+
+dm 
+
+!1/2∗
+
+−−−→ 
+
+> r→0
+
+0 for μ -a.e. ξ ∈ D ∩ ∂Ω; (2.36) 
+
+in particular, we have the non-tangential convergence 
+
+> Bx/2∩D
+
+u dm −−−−→
+
+> x→ξx∈γ(ξ)
+
+0 for μ -a.e. ξ ∈ D ∩ ∂Ω. (2.37) 
+
+Proof. Take u ∈ W0(D) and B = B(ξ0, r ) centered on D ∩ ∂Ω such that 2B ⊂ D. Then for any 
+
+0 < λ < 1 and any ξ ∈ B ∩ ∂Ω, B(ξ, λr ) ⊂ D and  
+
+> BB(ξ,λr )∩Ω
+
+|u|2∗
+
+dm 
+
+!1/2∗
+
+dμ (ξ) ≲ λr B B(ξ,λr )∩Ω
+
+|∇ u|2 dm 
+
+!1/2
+
+dμ (ξ)
+
+≲ rλ ε/ 2
+
+
+
+> 2B
+
+|∇ u|2 dm 
+
+1/2
+
+,
+
+where we used the boundary Poincaré inequality (2.31) for the first estimate and (2.32) for the second one. In particular, 
+
+> B(ξ,λr )∩D∩Ω
+
+|u|2∗
+
+dm 
+
+!1/2∗
+
+= B(ξ,λr )∩Ω
+
+|u|2∗
+
+dm 
+
+!1/2∗
+
+−−−→ 
+
+> λ→0
+
+0 for μ -a.e. ξ ∈ B. 
+
+11 Since D ∩ Ω can be covered by a countable number of such balls B, we obtain (2.36). The non-tangential convergence is weaker, and is a direct consequence of (2.36): indeed, for any ξ ∈ D ∩ ∂Ω
+
+and x ∈ γ(ξ), if δ(x) is small enough then B(ξ, 4δ(x)) ⊂ D, and Bx/2 ⊂ B(ξ, 4δ(x)) ⊂ 8Bx; using these facts and the doubling property of m|Ω (see (1.13)), we can deduce (2.37) from (2.36). The boundary Poincare inequality implies that W0(Ω) is complete. 
+
+Theorem 2.8. Let us assume (H1)-(H5) . Then ∥ · ∥ W (Ω) defines a norm on W0, and W0 equipped with the associated scalar product ⟨u, v ⟩W (Ω) := ´ 
+
+> Ω
+
+∇u · ∇ v dm is a Hilbert space. Proof. First, let us prove that the semi-norm ∥ · ∥ W (Ω) is a norm on W0. If u ∈ W0(Ω) satisfies 
+
+∥u∥W (Ω) = 0 , then for any B = B(ξ, r ) centered on ∂Ω the boundary Poincaré inequality (2.31) give us 
+
+> B∩Ω
+
+|u| dm ≲ r
+
+
+
+> B∩Ω
+
+|∇ u|2 dm 
+
+1/2
+
+= 0 ,
+
+which implies that u = 0 a.e. in B ∩ Ω. Since Ω can be covered by a countable number of such balls, we have u = 0 a.e. on Ω.Now, let us prove that W0(Ω) is a Hilbert space, and take a Cauchy sequence (uk) in W0(Ω) .By the boundary Poincaré inequality, for any B = B(ξ, r ) centered on ∂Ω:
+
+> B∩Ω
+
+|uk − uℓ| dm ≲ r
+
+
+
+> B∩Ω
+
+|∇ (uk − uℓ)|2 dm 
+
+1/2
+
+for k, ℓ ∈ N,
+
+implying that (uk) is a Cauchy sequence in L1
+
+> loc
+
+(Ω , m ). Since (∇uk) is a Cauchy sequence in 
+
+L2(Ω , m ) by assumption, we can use the definition of W0 and reproduce the proof of Proposition 2.2 to show that there exists u ∈ W0(Ω) such that uk → u in L1
+
+> loc
+
+(Ω , m ) and ∇uk → ∇ u in 
+
+L2(Ω , m )n, which proves the completeness of W0(Ω) .
+
+2.2 The Poisson-Dirichlet problem 
+
+In this subsection, we always assume that (H1)-(H5) hold. 
+
+2.2.1 Weak solutions and their first properties Definition 2.9. Take D an open set in Ω, f ∈ L1
+
+> loc
+
+(D) and F ∈ L1
+
+> loc
+
+(D, m )n. We say that 
+
+u ∈ Wloc (D) is a (weak) solution to Lu = wf − div( wF ) in D when 
+
+ˆ
+
+> D
+
+A∇u · ∇ φ dm =
+
+ˆ
+
+> D
+
+f φ dm +
+
+ˆ
+
+> D
+
+F · ∇ φ dm for φ ∈ C ∞ 
+
+> c
+
+(D) (2.38) In the case of homogeneous boundary condition, we have existence and uniqueness of the solu-tions of the Poisson-Dirichlet problem 
+
+(
+
+Lu = wf − div( wF ) in Ω
+
+u = 0 on ∂Ω
+
+in the following sense. 
+
+Theorem 2.10. Let us write W0(Ω) ′ the vector space of continuous linear forms on W0(Ω) ,equipped with its usual norm. For any ℓ ∈ W0(Ω) ′, there exists a unique u ∈ W0(Ω) such that 
+
+ˆ
+
+> Ω
+
+A∇u · ∇ v dm = ℓ(v), for v ∈ W0. (2.39) 
+
+In particular, there exists a unique solution in W0(Ω) of Lu = wf − div( wF ) whenever f ∈
+
+L2∗ 
+
+> c
+
+( ¯Ω, m ) and F ∈ L2(Ω , m )n, where we write 2∗ the dual exponent of the sobolev exponent 2∗ from Theorem 2.3. 
+
+12 Proof. The first statement is a classic result: it relies on the Lax-Milgram theorem, using the fact that W0(Ω) is complete (Theorem 2.8). The second statement is a direct application of the first one to the linear form defined by 
+
+ℓ(v) := 
+
+ˆ
+
+> Ω
+
+f v dm +
+
+ˆ
+
+> Ω
+
+F · ∇ v dm for v ∈ W0,
+
+which is continuous thanks to Hölder’s inequality and the boundary Poincaré inequality 2.31. We will now present some classical a priori results for solutions associated to the elliptic operator 
+
+L. Let us begin with interior results: these are proven in a way that matches our setting in [DFM23]. 
+
+Proposition 2.11 (Interior Caccioppoli inequality) . For every ball B = B(x, r ) satisfying 2B ⊂ Ω
+
+and every u ∈ W (2 B) weak solution of Lu = wf − div( wF ) in 2B with f ∈ L2∗ (2 B) and F ∈
+
+L2(2 B)n,
+
+
+
+> B
+
+|∇ u|2 dm 
+
+1/2
+
+≤ Cr
+
+
+
+> 2B
+
+|u|2 dm 
+
+1/2
+
++Cr 
+
+
+
+> 2B
+
+|f |2∗ dm 
+
+1/2∗
+
++C
+
+
+
+> 2B
+
+|F |2 dm 
+
+1/2
+
+, (2.40) 
+
+where C > 0 depends only on Cm, Cpc and CA.Proof. Let us consider χ ∈ C ∞ 
+
+> c
+
+(Rn) such that 1B ≤ χ ≤ 12B and ∥∇ χ∥∞ ≲ 1 
+
+> r
+
+. Let us write 
+
+v = χ2u; by definition v is in W , and its support is in 2B, so in particular v ∈ W0. Since u is a weak solution of Lu = wf − div( wF ), we have 
+
+ˆ
+
+> Ω
+
+A∇u · ∇ v dm =
+
+ˆ
+
+> Ω
+
+f v dm +
+
+ˆ
+
+> Ω
+
+F · ∇ v dm 
+
+≤
+
+ˆ
+
+> 2B
+
+|f |2∗ dm 
+
+1/2∗ ˆ
+
+> 2B
+
+|v|2∗
+
+dm 
+
+1/2∗
+
++
+
+ˆ
+
+> 2B
+
+|F |2 dm 
+
+1/2 ˆ
+
+> 2B
+
+|∇ v|2 dm 
+
+1/2
+
+≤ N (B, f, F )
+
+ˆ
+
+> Ω
+
+|∇ v|2 dm 
+
+1/2
+
+,
+
+using the Poincaré-Sobolev inequality (2.30) together with the fact that supp v ⊂ 2B, and where 
+
+N (B, f, F ) ≃ rm (B)1/2
+
+
+
+> 2B
+
+|f |2∗ dm 
+
+1/2∗
+
++
+
+ˆ
+
+> 2B
+
+|F |2 dm 
+
+1/2
+
+.
+
+Since ∇v = χ2∇u + 2 u∇χ, we obtain 
+
+ˆ
+
+> Ω
+
+χ2A∇u·∇ u dm ≤ − 2
+
+ˆ
+
+> Ω
+
+χuA ∇u∇χ dm +N (B, f, F )
+
+"ˆ
+
+> Ω
+
+|χ∇u|2 dm 
+
+1/2
+
++
+
+ˆ
+
+> Ω
+
+|χu ∇χ dm |2
+
+1/2#
+
+.
+
+Then, using the boundedness (1.17) and ellipticity (1.18) of A,
+
+ˆ
+
+> Ω
+
+|χ∇u|2 dm ≲
+
+ˆ
+
+> Ω
+
+|u∇χ|| χ∇u| dm + N (B, f, F )
+
+"ˆ
+
+> Ω
+
+|χ∇u|2 dm 
+
+1/2
+
++
+
+ˆ
+
+> Ω
+
+|u∇χ|2 dm 
+
+1/2#
+
+≲
+
+ˆ
+
+> Ω
+
+|u∇χ|2 dm 
+
+1/2 ˆ
+
+> Ω
+
+|χ∇u|2 dm 
+
+1/2
+
++ N (B, f, F )
+
+"ˆ
+
+> Ω
+
+|χ∇u|2 dm 
+
+1/2
+
++
+
+ˆ
+
+> Ω
+
+|u∇χ|2 dm 
+
+1/2#
+
+≤ 12
+
+ˆ
+
+> Ω
+
+|χ∇u|2 dm + C
+
+ˆ
+
+> Ω
+
+|u∇χ|2 dm + CN (B, f, F )2,
+
+where we used (three times) that for any ε > 0 there exists C > 0 such that for any a, b in R,
+
+ab ≤ εa 2 + Cb 2. We finally get that 
+
+ˆ
+
+> B
+
+|∇ u|2 dm ≤
+
+ˆ
+
+> Ω
+
+|χ∇u|2 dm ≲
+
+ˆ
+
+> 2B
+
+|u∇χ|2 dm + N (B, f, F )2 ≲ 1
+
+r2
+
+ˆ
+
+> 2B
+
+|u|2 dm + N (B, f, F )2,
+
+which implies the desired result. 13 Proposition 2.12 (Interior Moser estimate, Lemma 11.18 in [DFM23]) . Take 0 < p < ∞. For every ball B = B(x, r ) satisfying 2B ⊂ Ω and every u ∈ W (2 B) weak solution of Lu = 0 in 2B,
+
+sup 
+
+> B
+
+|u| ≤ C
+
+
+
+> 2B
+
+|u|p dm 
+
+1/p 
+
+, (2.41) 
+
+where C > 0 depends only on n, C m, C pc , C A and p.
+
+Proposition 2.13 (Harnack inequality, Lemma 11.35 in [DFM23]) . For every ball B = B(x, r )
+
+satisfying 2B ⊂ Ω and every u ≥ 0 weak solution of Lu = 0 in 2B,
+
+sup 
+
+> B
+
+u ≤ C inf  
+
+> B
+
+u. (2.42) 
+
+where C > 0 depends only on n, C m, C pc and CA.
+
+Boundary results are more delicate, and to the best of our knowledge, there is no work in the literature that perfectly matches our setting. The article [DFM23] assumes a quantitative connectedness condition on the domain (the Harnack chain condition). Yet, for the Hölder conti-nuity of solutions and the properties of the Green function, their arguments rely only on a boundary Poincaré inequality, which in our case is provided by Theorem 2.5 above. As for the book [HKM06], the authors assume that bounded domains. Nonetheless, we shall cite our results by refering to either [DFM23] or [HKM06], and the reader will be able to find the results in our exact in the book [FM] under preparation. The following result can be found either in [DFM23], Lemma 11.28, or in [HKM06], Theorem 6.44. 
+
+Proposition 2.14 (Boundary oscillation estimate) . For any function f defined on a set E of Rn,we define its oscillation on E as 
+
+osc  
+
+> E
+
+f = sup 
+
+> x,y ∈E
+
+|f (x) − f (y)|.
+
+There exists 0 < ε < 1 such that for every ball B centered on ∂Ω and every u ∈ W0(2 B ∩ Ω) 
+
+solution of Lu = 0 on 2B ∩ Ω,
+
+osc  
+
+> B∩Ω
+
+u ≤ (1 − ε) osc 
+
+> 2B∩Ω
+
+u. (2.43) 
+
+The constant ε depends only on n, C crk , C μ, C m, C ρ, C pc and CA.
+
+Proposition 2.15 (Boundary Hölder continuity, Lemma 11.32 in [DFM23]) . There exists 0 < η ≤ 1
+
+such that for every ball B = B(ξ, r ), centered on ∂Ω and every u ∈ W0(B ∩ Ω) solution of Lu = 0 
+
+in B ∩ Ω, u is η-Hölder continuous in B ∩ ¯Ω and 
+
+sup 
+
+> λB ∩Ω
+
+|u| ≤ Cλ η
+
+
+
+> B∩Ω
+
+|u|2 dm 
+
+1/2
+
+for 0 < λ < 1/2. (2.44) 
+
+The constants η and C depend only on n, C crk , C μ, C m, C ρ, C pc and CA.
+
+2.2.2 Green function 
+
+The solution to the Poisson-Dirichlet problem 
+
+(
+
+Lu = wf − div( wF ) in Ω
+
+u = 0 on ∂Ω
+
+can be represented thanks to an integral kernel: the Green function (see Theorem 2.18). A con-struction can be found in Chapter 14 of [DFM23]. 14 Theorem 2.16 (Theorem 14.60 in [DFM23]) . There exists a function G : Ω × Ω → [0 , ∞] with the following properties: (i) For any y ∈ Ω and any χ ∈ C ∞ 
+
+> c
+
+(Rn) such that χ = 1 in a neighborhood of y, (1 − χ)G(·, y ) ∈
+
+W0(Ω) ; in particular, G(·, y ) ∈ W0(Ω \ λB y) for any 0 < λ ≤ 1/2.(ii) For φ ∈ C ∞ 
+
+> c
+
+(Ω) and y ∈ Ω,
+
+ˆ
+
+> Ω
+
+A∇xG(x, y )∇φ(x) dm (x) = φ(y).
+
+In particular, G(·, y ) is a solution of Lu = 0 in Ω \ { y}, and G is locally Hölder continuous in Ω \ { y}.(iii) For any 0 < λ ≤ 1/2 and any x, y ∈ Ω satisfying |x − y| ≥ λδ (x),
+
+G(x, y ) ≤ Cλ
+
+|x − y|2
+
+m(B(x, |x − y|) ∩ Ω) , (2.45) 
+
+where Cλ depends only on n, C crk , C μ, C m, C ρ, C pc , C A and λ.
+
+Let us write L∗ = − div( wA T ∇), where AT is the transpose of A. Since AT shares the same properties as A, there exists G∗ given by Theorem 2.16 with the same properties as G, but with 
+
+AT instead of A.
+
+Proposition 2.17 (Lemma 14.78 in [DFM23]) . With the notation above: 
+
+G∗(x, y ) = G(y, x ) for x, y ∈ Ω.
+
+In particular, the functions G(y, ·) for y ∈ Ω satisfies estimate (iii ) of Theorem 2.16. 
+
+We have the following representation theorem. 
+
+Theorem 2.18. G is the unique function from Ω × Ω to [0 , ∞] such that G(x, ·) is in L1
+
+> loc
+
+(Ω , m )
+
+for every x ∈ Ω, and such that for any f ∈ L∞ 
+
+> c
+
+(Ω , m ) and F ∈ L∞(Ω , m )n the function u given by 
+
+u(x) = 
+
+ˆ
+
+> Ω
+
+G(x, y )f (y) dm (y) + 
+
+ˆ
+
+> Ω
+
+∇yG(x, y ) · F (y) dm (y) for x ∈ Ω,
+
+is the solution in W0(Ω) of Lu = wf − div( wF ) in Ω given by Theorem 2.10. Proof. The proof is like Lemma 10.7 in [DFM21] once we can prove that a weak solution to Lu =
+
+wf − div( wF ) in Ω is continuous inside the domain. The later can be proved with Moser iterations, see the book [FM] in preparation. 
+
+2.2.3 Non-homogeneous boundary conditions and elliptic measure 
+
+We now turn to the study of the Dirichlet problem 
+
+(
+
+Lu = 0 in Ω
+
+u = g on ∂Ω. (2.46) If g is regular enough, Theorem 2.10 a unique solution to (2.46) in the following sense. 
+
+Proposition 2.19. For any χ ∈ C ∞ 
+
+> c
+
+(Rn) there exists a unique solution in W (Ω) of Lu = 0 
+
+satisfying u − χ ∈ W0(Ω) .
+
+We restricted ourselves to smooth boundary data, as it will be enough to construct the harmonic measure. There is no doubt that it would be possible to obtain the same result for much less regular functions g.15 Proof. If u ∈ W (Ω) is solution to Lu = 0 and satisfies u − χ ∈ W0(Ω) , then u − χ is the solution in W0(Ω) of Lv = − div( −wA ∇χ) given by Theorem 2.10. Conversely, v + χ satisfies L(v + χ) = 0 
+
+and (v + χ) − χ ∈ W0(Ω) .This result will allow us to find solutions of (2.46) for boundary data in Cc(∂Ω) . It is well known that such solutions can be represented through the elliptic measure. Let us give a definition of this object, as well as some fundamental properties. 
+
+Theorem 2.20. For every x ∈ Ω, there exists a positive Borel probability measure ωx on ∂Ω such that for any g ∈ C c(∂Ω) , if we write 
+
+u(x) := 
+
+ˆ
+
+> ∂Ω
+
+g dω x for x ∈ Ω,
+
+then u can be extended into a continuous bounded function on ¯Ω satisfying u = g on ∂Ω, and is a weak solution in Wloc (Ω) of Lu = 0 . Furthermore: (i) if g is in C∞ 
+
+> c
+
+(Rn), then u is the solution given by Proposition 2.19; (ii) if B is a ball centered on ∂Ω such that g = 0 on 2B, then u ∈ W0(B ∩ Ω) .Proof. These results are included in the statement of Lemmas 12.13 and 12.15 in [DFM23]; see also Lemmas 9.4 and 9.6 in [DFM21]. We will not give a full proof, and will only explain how to adapt the proof given in these references to our setting. First, for any g ∈ C ∞ 
+
+> c
+
+(Rn), Lemma 11.32 in [DFM23] implies that the solution to (2.46) given by Proposition 2.19 can be extended into a continuous function in ¯Ω: let us write it U g . This defines a continuous linear operator 
+
+U : C∞ 
+
+> c
+
+(Rn) −→ C b( ¯Ω) ,
+
+where Cb( ¯Ω) is the space of bounded continuous functions on ¯Ω. Indeed, for any g ∈ C ∞ 
+
+> c
+
+(Rn), the maximum principle (Lemma 12.8 in [DFM23]) tell us that 
+
+sup 
+
+> Ω
+
+|U g | ≤ sup 
+
+> ∂Ω
+
+|g|.
+
+Note that since U g − g ∈ W0(Ω) , (2.36) and the continuity of U g implies that 
+
+U g = g on ∂Ω. (2.47) Moreover, C∞ 
+
+> c
+
+(Rn) (or, more precisely, the restrictions of functions in C∞ 
+
+> c
+
+(Rn) to ∂Ω) is dense in Cc(∂Ω) for the norm ∥ · ∥ ∞. Indeed, we know that any function in Cc(∂Ω) can be extended into a function of Cc(Rn) (see Proposition VI.2.2 in [Ste70] for instance), and that C∞ 
+
+> c
+
+(Rn) is dense in Cc(Rn) for ∥ · ∥ ∞. This allow us to uniquely extend U into a continuous linear operator 
+
+U : Cc(∂Ω) → C b( ¯Ω) . Then, for any x ∈ Ω, the Riesz representation theorem give us the existence of a bounded Borel measure on ∂Ω such that 
+
+U g (x) = 
+
+ˆ
+
+> ∂Ω
+
+g dω x.
+
+Now that the elliptic measure is constructed, its properties can be proven in the exact same way as in Lemmas 12.13 and 12.15 in [DFM23]. For any Borel set E ⊂ ∂Ω, the function x 7 → ωx(E) satisfies the following properties: 
+
+Proposition 2.21 (Lemma 12.19 in [DFM23]) . Let E ⊂ ∂Ω be a Borel set, and define uE on Ω
+
+by uE (x) = ωx(E). Then uE belongs to Wloc (Ω) and is a solution of Lu E = 0 in Ω. Furthermore, if B is a ball centered on ∂Ω such that 2B ∩ E = ∅, then uE ∈ W0(B ∩ Ω) .
+
+We then present a classical result of non-degeneracy of the elliptic measure. For completeness, we will give a proof that works in our setting. 16 Proposition 2.22. There exists c > 0 such that for any ball B centered on ∂Ω,
+
+ωx(4 B ∩ ∂Ω) ≥ c for x ∈ B. (2.48) 
+
+Proof. Take B = B(ξ, r ) centered on ∂Ω. Let us define u(x) := 1 − ωx(4 B) = ωx(∂Ω \ 4B) for 
+
+x ∈ Ω. According to Proposition 2.21, u is a solution in W0(2 B ∩ Ω) of Lu = 0 . Then, for any 
+
+x ∈ B:
+
+u(x) = lim 
+
+> y→ξy∈γ(ξ)
+
+u(x) − By /2
+
+u dm ≤ lim   
+
+> y→ξy∈γ(ξ)By/2
+
+|u(x) − u(z)| dm (z) ≤ osc 
+
+> B∩Ω
+
+u;
+
+we can then use (2.43) together with the fact that 0 ≤ u ≤ 1 to obtain 
+
+u(x) ≤ (1 − ε) osc 
+
+> 2B∩Ω
+
+u ≤ 1 − ε, 
+
+i.e. ωx(4 B) ≥ ε, which is the desired result. 
+
+Proposition 2.23. For any 0 < κ < 1 and any 0 < λ ≤ 1/2, any ball B = B(ξ, r ) centered on the boundary and any y ∈ B such that δ(y) > κr ,
+
+G(x, y ) ≤ Cκ,λ 
+
+r2
+
+m(B ∩ Ω) ωx(8 B) for x ∈ Ω \ λB y, (2.49) 
+
+where Cκ,λ > 0 depends only on n, C crk , C μ, C m, C ρ, C pc , C A, λ and κ.Proof. We will closely follow the first part of the proof of Lemma 15.28 in [DFM23]. We will use the following version of the maximum principle (Lemma 14.33 in [DFM23], proven in [DFM21], Lemma 11.3): 
+
+Lemma 2.24. Let D be an open set in Rn and F a closed set in Rn such that F ⊂ D and 
+
+dist (F, Rn \ D) > 0. Let u ∈ W (D ∩ Ω) be a solution of Lu = 0 in D ∩ Ω such that (i) there exists a function χ ∈ C ∞ 
+
+> c
+
+(Rn) such that χ ≥ 0 μ-a.e. and u − χ ∈ W0(D ∩ Ω) ,(ii) u ≥ 0 a.e. in D \ F ∩ Ω.Then, u ≥ 0 a.e. in D ∩ Ω.
+
+Assumption (i) is a way to impose that u ≥ 0 on D ∩ ∂Ω, while assumption (ii ) imposes that 
+
+u ≥ 0 in a neighborhood of ∂D ∩ Ω.Let us begin the proof of Proposition 2.23. take B = B(ξ, r ) centered on the boundary and 
+
+y ∈ B such that δ(y) > κr . First, note that 
+
+G(x, y ) ≲ |x − y|2
+
+m(B(y, |x − y|) ∩ Ω) ≲ r2
+
+m(B ∩ Ω) for x ∈ λB y \ λ
+
+2 By, (2.50) using 2.45 (on G∗) for the first estimate and the doubling properties of m for the second one. Next, we take χ ∈ C ∞ 
+
+> c
+
+(Rn) such that 16B ≤ χ ≤ 18B . Let us write u(x) = ´ 
+
+> ∂Ω
+
+χ dω x for x ∈ Ω. By non-degeneracy of the harmonic measure (2.48), we have 
+
+u(x) ≥ ωx(6 B) ≳ 1 for x ∈ 32 B. 
+
+Together with (2.50), this implies the existence of a constant Cκ,λ > 0 such that 
+
+v(x) := Cκ,λ 
+
+r2
+
+m(B ∩ Ω) u(x) − G(x, y ) ≥ 0 for x ∈ λB y \ λ
+
+2 By. (2.51) By Theorem 2.16 and Theorem 2.20, v is a solution in W (Ω \ λ 
+
+> 2
+
+¯By) of Lu = 0 , and v − Ext χ|∂Ω ∈
+
+W0(Ω \ λ 
+
+> 2
+
+¯By), so we can use Lemma 2.24 with D = Rn \ λ 
+
+> 2
+
+¯By and F = Rn \ λB y, extending (2.51) to all x ∈ Ω \ λ 
+
+> 2
+
+¯By. Since u(x) ≤ ωx(8 B) for x ∈ Ω, we obtain the desired result. 17 2.3 Tent spaces 
+
+Take 1 ≤ p ≤ ∞ . From now on, ∥ · ∥ p will always refer to ∥ · ∥ Lp(∂Ω,μ ). The functionals ˜N and ˜A
+
+introduced in (1.20) and (1.21) can be used to define the spaces 
+
+˜Np(Ω) = 
+
+n
+
+u ∈ L2
+
+> loc
+
+(Ω , m ) | ∥ ˜N u∥p < ∞
+
+o
+
+and ˜Ap(Ω) = 
+
+n
+
+f ∈ L2
+
+> loc
+
+(Ω , m ) | ∥ ˜Af ∥p < ∞
+
+o
+
+, (2.52) equipped with the obvious norm. These are a modified version of the tent spaces introduced in the case of Ω = Rn 
+
+> +
+
+by Coifman, Meyer and Stein in [CMS85]. We have equivalence under changes of parameters for N , ˜N and ˜A (lemmas A.2 and A.9 in the appendix). 
+
+Lemma 2.25. Take 1 ≤ p ≤ ∞ . The Lp norms of N (α), ˜N (α,λ ) and ˜Aα,λ ) are equivalent under change of α and λ, i.e. for any α, α ′ > 0, any 0 < λ, λ ′ ≤ 1/2 and any u ∈ L2
+
+> loc
+
+(Ω , m ):
+
+∥N (α)u∥p ≤ Cα,α ′ ∥N (α′)u∥p,
+
+where Cα,α ′ depends only on Cμ, α, α ′ (and only on Cμ and α/α ′ if we further impose α′ > α ≥ 1),and 
+
+∥ ˜N (α,λ )u∥p ≤ Cα,α ′,λ/λ ′ ∥ ˜N (α′,λ ′)u∥p,
+
+∥ ˜A(α,λ )u∥p ≤ Cα,α ′,λ/λ ′ ∥ ˜A(α′,λ ′)u∥p,
+
+where Cα,α ′,λ/λ ′ depends only on Ccrk , C m, C μ, α, α ′, and λ/λ ′.
+
+Lemma 2.26. Take 1 < p < ∞. ˜Np(Ω) and ˜Ap(Ω) are Banach spaces. Proof. See Theorem A.4 in the Appendix. Then, we present a theorem encompassing all the results on duality between ˜N p(Ω) and ˜Ap(Ω) 
+
+which are established in the appendix (Theorems A.5, A.7 and A.8). 
+
+Theorem 2.27. Take 1 < p < ∞. The dual space of ˜Ap(Ω) is homeomorphic to ˜Np′
+
+(Ω) . Further-more, we have the following estimates: 
+
+ˆ
+
+> Ω
+
+uf dm ρδ ≤ C
+
+ˆ
+
+> ∂Ω
+
+( ˜N u)( ˜Af ) dμ ≤ C∥ ˜N u∥p∥ ˜Af ∥p′ for u ∈ ˜Np(Ω) , f ∈ ˜Ap(Ω) , (2.53) 
+
+∥ ˜N u∥p′ ≤ C sup   
+
+> ∥˜Af∥p≤1
+
+ˆ
+
+> Ω
+
+uf dm ρδ for u ∈ ˜Np(Ω) , (2.54) 
+
+∥ ˜Af ∥p′ ≤ C sup   
+
+> ∥˜Nu∥p≤1
+
+ˆ
+
+> Ω
+
+uf dm ρδ for f ∈ ˜Ap(Ω) , (2.55) 
+
+where C > 0 depends only on Ccrk , C m and Cμ.
+
+Finally, we will also make use of the following density result: 
+
+Theorem 2.28. The subspace of Lipschitz continuous, compactly supported functions on Ω is dense in ˜Ap(Ω) .Proof. It is easy to see that L2 
+
+> c
+
+(Ω , m ) is dense in ˜Ap(Ω) , using Lebesgue’s dominated convergence theorem, so it is enough to prove that functions of L2 
+
+> c
+
+(Ω , m ) can be approximated in ˜Ap(Ω) by Lipschitz continuous, compactly supported functions. But this is proven in [MPT22] (lemma 2.6), in a way that can be generalized to our geometric setting with no difficulties. 18 3 Characterization of (Dp)
+
+3.1 Characterization using the elliptic measure 
+
+It is well known that the solvability of (Dp) for some 1 < p < ∞ is equivalent to the fact that the elliptic measure ω satisfies a (weak) Lp′
+
+-L1 reverse Hölder inequality with respect to the boundary measure (see for example [Dah77]). Our aim in this subsection is to prove this result in our geometric setting. First, let us give a precise statement. 
+
+Theorem 3.1. If (Dp) is solvable for some 1 < p < ∞, then ω is absolutely continuous with respect to μ (noted ω ≪ μ), i.e. 
+
+μ(E) = 0 = ⇒ ωx(E) = 0 for any Borel set E ⊂ ∂Ω and any x ∈ Ω.
+
+This implies that for any x ∈ Ω there exists a positive measurable function on ∂Ω, the Radon-Nikodym derivative of ωx with respect to μ, noted dω x 
+
+> dμ
+
+, such that dω x = dω x 
+
+> dμ
+
+dμ . Furthermore, for any 0 < κ < 1, any ball B = B(ξ, r ) centered on ∂Ω and any x ∈ B satisfying δ(x) > κr ,
+
+> B∩∂Ω
+
+dω x
+
+dμ 
+
+> p′
+
+dμ 
+
+!1/p ′
+
+≤ Cκ
+
+μ(B ∩ ∂Ω) , (3.56) 
+
+Where Cκ > 0 depends only on Cμ, κ and the solvability constant in (Dp). Conversely, there exists 
+
+0 < κ 0 < 1 such that if ω ≪ μ and (3.56) holds for κ0 and some 1 < p < ∞, then (Dp) is solvable. 
+
+As stated, this is a characterization of the solvability of (Dp) by a weak reverse Hölder inequality on the elliptic measure: indeed, thanks to the non-degeneracy of ω, (3.56) is equivalent to 
+
+> B∩∂Ω
+
+dω x
+
+dμ 
+
+> p′
+
+dμ 
+
+!1/p ′
+
+≤ Cκ
+
+ωx(8 B ∩ ∂Ω) 
+
+μ(8 B ∩ ∂Ω) = Cκ
+
+> 8B∩∂Ω
+
+dω x
+
+dμ dμ. (3.57) It is well known that if the reverse Hölder inequality (3.57) holds for p′, then it also holds for some 
+
+q′ > p ′ close to p′ (see [Gia83], Chapter 5, Proposition 1.1). In particular, we have that if (Dp) is solvable, then there exists some q < p such that (Dq) is solvable. Before proving the theorem, let us give a useful lemma. 
+
+Lemma 3.2. For any ball B centered on ∂Ω and any u ∈ W0(2 B ∩ Ω) solution of Lu = 0 in 
+
+2B ∩ Ω, we have 
+
+sup 
+
+> B∩Ω
+
+|u| ≤ C 8B∩∂Ω
+
+N (u1B ) dμ, (3.58) 
+
+where C > 0 depends only on n, C crk , C μ, C m, C ρ, C pc and CA.Proof. Let us make two remarks before beginning the proof. 
+
+• since we do not have (quantitative) connectedness of ∂Ω, we cannot prove a change of pole theorem such as Lemma 15.14 of [DFM23]. Nevertheless, this weaker statement holds, and can be proven in a similar fashion. 
+
+• This result is far easier to prove in the case of, for instance, (n−1) -Ahlfors regular boundaries. Indeed, in this case the estimate 
+
+> B∩Ω
+
+u dm ≲ 8B∩∂Ω
+
+N (u1B ) dμ 
+
+holds for any measurable u, using N -A duality; then using some Moser estimate on the boundary we obtain the result. If we had imposed a lower bound in (H4), say 
+
+ρ(Λ B) ≥ C4−1Λε−1ρ(B),
+
+we could proceed in the same way; but we do not assume such bound, thus more work is required. 19 Let us start the proof. First, recall that the Hölder regularity of u at the boundary (2.44) gives us 0 < ε < 1/2 such that 
+
+sup 
+
+> εB ′∩Ω
+
+|u| ≤ 12 sup 
+
+> B′∩Ω
+
+|u|, (3.59) for any ball B′ ⊂ 2B centered on ∂Ω.Now, we will prove that there exists M > 0 such that for any integer k and any x ∈ 2B,
+
+δ(x) ≥ εkr =⇒ | u(x)| ≤ M k
+
+> 8B∩∂Ω
+
+N (u1B ) dμ. (3.60) In order to do so, we will use the fact that for any v measurable and any α > 0,
+
+ˆ
+
+> ∂Ω
+
+N (2 α)v dμ ≤ C
+
+ˆ
+
+> ∂Ω
+
+N (α)v dμ, (3.61) with a constant C > 0 independent from α (see Lemma 2.25). Fix an integer a such that 2a ≥ 4/ε ,and consider x ∈ 2B satisfying δ(x) ≥ εkr for some integer k. Then x ∈ γ(2 ak )(ζ) for any ζ ∈ B,implying that 
+
+|u(x)| ≤ N (2 ak )(u1B )( ζ) for ζ ∈ B, 
+
+which in turn gives us 
+
+|u(x)| ≤ B∩∂Ω
+
+N (2 ak )(u1B ) dμ ≤ 1
+
+μ(B)
+
+ˆ
+
+> ∂Ω
+
+N (2 ak )(u1B ) dμ ≤ Cak 
+
+μ(B)
+
+ˆ
+
+> ∂Ω
+
+N (u1B ) dμ 
+
+≲ Cak 
+
+> 8B∩∂Ω
+
+N (u1B ) dμ, 
+
+by the doubling property of μ (assumption (H2)). The bound (3.60) follows. With this result proven, we can conclude in exactly the same manner as in Lemma 4.4 of [JK82] or Lemma 15.14 of [DFM23]. Nonetheless, we will reproduce it for completeness. Consider an integer i such that 2i > M , and set M ′ = M i+3 . We can rescale u and assume that ffl  
+
+> 8B
+
+N (u1B ) dμ = 1 . We will prove by contradiction that 
+
+sup 
+
+> B∩Ω
+
+|u| ≤ M ′;
+
+thus, let us assume that there exists x1 ∈ B ∩ Ω such that |u(x1)| > M ′. We will prove by induction that for any integer k ≥ 1,there exists xk ∈ Ω such that |u(xk)| > M i+2+ k and xk ∈ ( 32 − 2−k)B (3.62) The first step is given by our assumption, so let us prove the induction. Take an integer k ≥ 1 and assume (3.62) true. From the contraposition of (3.60), we deduce that δ(xk) < ε i+2+ kr. Choose 
+
+ξk ∈ ∂Ω such that |xk − ξk| = δ(xk). Using the induction hypothesis and the fact that ε ≤ 1/2, we have 
+
+|ξk − ξ| ≤ δ(xk) + |xk − ξ| ≤ 
+
+ 32 − 2−k + 2 −2−k
+
+
+
+r, 
+
+which implies that 
+
+B(ξk, ε 2+ kr) ⊂ ( 32 − 2−k−1)B; (3.63) in particular B(ξk, ε 2+ kr) ⊂ 2B. By iterating (3.59), we have that 
+
+sup   
+
+> B(ξk,ε 2+ kr)∩Ω
+
+|u| ≥ 2i sup   
+
+> B(ξk,ε i+2+ kr)∩Ω
+
+|u|,
+
+20 and since xk ∈ B(ξk, ε i+2+ kr),
+
+sup   
+
+> B(ξk,ε 2+ kr)∩Ω
+
+|u| ≥ 2i|u(xk)| > 2iM i+2+ k > M i+2+ k+1 .
+
+We can thus find xk+1 ∈ B(ξk, ε 2+ kr) ∩ Ω such that |u(xk+1 )| > M i+2+ k+1 . Furthermore, (3.63) implies that xk+1 ∈ ( 32 − 2−k−1)B. This complete the induction step. To sum up, we have proven that if there exists x1 ∈ B such that |u(x1)| > M ′, then there exists a sequence (xk) in 32 B ∩ Ω such that |u(xk)| goes to infinity. In this case, we can extract a subsequence to find a point in 32 ¯B ∩ ¯Ω ⊂ 2B ∩ ¯Ω where u is not continuous, which contradicts the (Hölder) continuity of the solution. Hence the desired result. Now we return to the proof of the main theorem. 
+
+Proof of Theorem 3.1. Our proof is inspired by Theorem 9.2 in [MT24]; see also Theorem 1.3 in [CY25]. We begin by proving the first statement: let us take 0 < κ < 1, a ball B = B(ξ, r ) centered on ∂Ω and x ∈ B such that δ(x) > κr . We also fix g ∈ C c(∂Ω) such that supp g ⊂ B. We will first show that 
+
+ˆ
+
+> ∂Ω
+
+g dω x ≲ 1
+
+μ(B)1/p ∥g∥Lp(∂Ω,μ ). (3.64) Write u(x) = ´ 
+
+> ∂Ω
+
+g dω x. We fix α = 2 /κ , so that B ⊂ (1 + α)Bx; since u(x) ≤ N (α)u(ζ) for 
+
+ζ ∈ (1 + α)Bx, we have 
+
+u(x) ≤ (1+ α)Bx
+
+N (α)u dμ ≲ 1
+
+μ(B)1/p ∥N u∥p ≲ 1
+
+μ(B)1/p ∥g∥p,
+
+where we used the equivalence under change of parameter (Lemma 2.25) for the second estimate and the solvability of (Dp) for the third one. This gives us (3.64). Next, let us prove that ω ≪ μ. Fix x ∈ Ω, ξ ∈ 2Bx ∩ ∂Ω and write B = B(ξ, 2δ(x)) . Take a Borel set E ⊂ ∂Ω such that μ(E) = 0 ; we will prove that ωx(E) = 0 . Since μ and ωx are Borel measures on the separable complete metric space ∂Ω, they are regular. This means that if we take ε > 0, there exists K ⊂ E ⊂ U ⊂ ∂Ω with K compact, U open in ∂Ω such that 
+
+μ(U \ K) + ωx(U \ K) < ε . By Urysohn’s lemma, there exists g ∈ C c(∂Ω) such that 1K ≤ g ≤ 1U .Then, using (3.64): 
+
+ωx(E) ≤ ε + ωx(K) ≤ ε +
+
+ˆ
+
+> Ω
+
+g dω x ≲ ε + μ(B)−1/p ∥g∥p ≲ ε + μ(B)−1/p μ(U )1/p 
+
+≲ ε + μ(B)−1/p ε1/p ;
+
+since the constant is independent of ε, we obtain that ωx(E) = 0 .Finally, now that we know that ω ≪ μ, (3.64) gives us 
+
+ˆ
+
+> ∂Ω
+
+dω x
+
+dμ 
+
+> p′
+
+dμ 
+
+!1/p ′
+
+= sup 
+
+> ∥g∥p≤1
+
+ˆ
+
+> ∂Ω
+
+dω x
+
+dμ g dμ = sup 
+
+> ∥g∥p≤1
+
+ˆ
+
+> ∂Ω
+
+g dω x ≲ 1
+
+μ(B)1/p ,
+
+since the supremum can be taken by density on the set of functions g ∈ C c(∂Ω) satisfying ∥g∥p ≤ 1.This implies (3.56). Now, let us prove the converse statement. Take 0 < κ 0 < 1 to be fixed later, and let us assume that ω ≪ μ and that the reverse Hölder inequality (3.56) holds for κ0 and some 1 < p < ∞.Then, Proposition 1.1 in Chapter 5 of [Gia83] tells us that it also holds for some q < p , which 21 only depends on p. Fix g ∈ C c(∂Ω) , and consider u the solution given by Theorem 2.20. We can assume that g ≥ 0: indeed, by the triangular inequality and the decomposition of g in positive and negative parts, if we show that ∥N u∥p ≲ ∥g∥p then (Dp) will be solvable. Take ξ ∈ ∂Ω and 
+
+x ∈ γ(ξ), and write B = B(ξ, δ (x)) . Consider K > 1 to be fixed later, and take χ ∈ C ∞ 
+
+> c
+
+(Rn) such that 14KB ≤ χ ≤ 18KB . We will then decompose g = χg + (1 − χ)g =: g0 + g1, and consider the corresponding solutions u0 and u1; we have u = u0 + u1, u0 ≥ 0, and u1 ≥ 0. First, let us estimate 
+
+u0(x): using the Hölder inequality, 
+
+0 ≤ u0(x) = 
+
+ˆ
+
+> 8KB
+
+g0
+
+dω x
+
+dμ dμ ≤
+
+ˆ
+
+> 8KB
+
+|g|q dμ 
+
+1/q ˆ
+
+> 8KB
+
+dω x
+
+dμ 
+
+> q′
+
+dμ 
+
+!1/q ′
+
+≲
+
+
+
+> 8KB
+
+|g|q dμ 
+
+1/q 
+
+≤ M μ,q g(ξ), (3.65) if we assume that (3.56) holds for κ0 = 116 K , and where Mμ,q g is the centered Lq Hardy-Littlewood maximal function, defined by 
+
+Mμ,q g(ξ) := sup  
+
+> r> 0B(ξ,r )
+
+|g|q dμ 
+
+!1/q 
+
+for ξ ∈ ∂Ω.
+
+Then, let us estimate u1(x): if we write Mμ := Mμ, 1 the centered Hardy-Littlewood maximal function on L1
+
+> loc
+
+(∂Ω, μ ),
+
+0 ≤ u1(x) ≲ K−η
+
+
+
+> KB
+
+u1 dm 
+
+1/2
+
+≲ K−η
+
+> 8KB
+
+N (u11KB ) dμ ≲ K−ηMμN (u11KB )( ξ), (3.66) where we used the fact that u1 ∈ W0(2 KB ∩ Ω) (Theorem 2.20) to apply the Hölder regularity estimate (2.44) for the first estimate, and Lemma 3.2 for the second. Piecing together (3.65) and (3.66), we obtain that 
+
+N u(ξ) ≤ CK Mμ,q g(ξ) + CKη MμN (u11KB )( ξ) for ξ ∈ ∂Ω, (3.67) which implies, using the Lp-boundedness of Mμ,q when p > q :
+
+∥N u∥p ≤ C′ 
+
+> K
+
+∥g∥p + C′
+
+Kη ∥N (u11KB )∥p. (3.68) Thanks to the Hölder regularity estimate 2.44, we have that u11KB ∈ L∞ 
+
+> c
+
+(Ω , m ). This implies by a simple estimate that N (u11KB ) ∈ L∞ 
+
+> c
+
+(∂Ω, μ ) ⊂ Lp(∂Ω, μ ). Then, (3.68) give us that ∥N u∥p is finite and 
+
+∥N u∥p ≤ C′ 
+
+> K
+
+∥g∥p + C′
+
+Kη ∥N u∥p,
+
+since 0 ≤ u1 ≤ u. Thus, we can choose K big enough with respect to C′ so that ∥N u∥p ≲ ∥g∥p,which proves the result with κ0 = 116 K .
+
+3.2 Characterization using the Green function 
+
+Now, we will use Theorem 3.1 to prove another characterization of the solvability of (Dp), this time using estimates on the Green function. This is a generalized version of the end of Theorem 1.22 in [MPT22]. 
+
+Lemma 3.3. Take 1 < p < ∞. If (Dp) is solvable, then for any 0 < κ < 1, any ball B = B(ξ, r )
+
+centered on ∂Ω and any x ∈ B satisfying δ(x) > κr , we have these two estimates: 
+
+∥ ˜N  ρ∇G(x, ·)1B\Bx/2
+
+∥Lp(∂Ω,μ ) ≲ Cκ
+
+μ(B ∩ ∂Ω) 1/p , (3.69) 22 ∥ ˜N
+
+ ρδ G(x, ·)1B\Bx/8
+
+
+
+∥Lp(∂Ω,μ ) ≲ Cκ
+
+μ(B ∩ ∂Ω) 1/p , (3.70) 
+
+where Cκ > 0 depends only on n, C crk , C μ, C m, C ρ, C pc , C A, κ and the solvability constant in (Dp).Conversely, if either one of these estimates holds for κ1 := κ0/4 (where κ0 is given in Theorem 3.1), then (Dp) is solvable. Proof. First step. We begin by proving that if (3.70) holds for some 0 < κ < 1/4, then (3.69) holds for 4κ. Fix 0 < κ < 1 and write λ = κ/ 32 . Take B = B(ξ, r ) centered on ∂Ω and x ∈ B such that δ(x) > 4κr ; for any ζ ∈ ∂Ω and z ∈ γ(ζ),
+
+
+
+> λB z
+
+|ρ(y)∇yG(x, y )1B\Bx/2(y)|2 dm (y)
+
+1/2
+
+≲ ρ(z)12B\Bx/4(z)
+
+
+
+> λB z
+
+|∇ yG(x, y )|2 dm (y)
+
+1/2
+
+≲ ρ(z)12B\Bx/4(z) 1
+
+δ(z)
+
+
+
+> 2λB z
+
+|G(x, y )|2 dm (y)
+
+1/2
+
+≲ 2λB z
+
+ρ(y)
+
+δ(y) G(x, y )14B\Bx/8(y)
+
+> 2
+
+dm (y)
+
+!1/2
+
+,
+
+Which directly implies the desired result. For the first estimate, we use that ρ(y) ≃ ρ(z) and 
+
+δ(y) ≃ δ(z) for y ∈ λ2Bz . We also use that if y ∈ λB z ∩ B \ Bx/2, then z ∈ 2B \ Bx/4 since 
+
+r > |x − ξ| > δ (x) > 4κr . For the second estimate, we use that x / ∈ λB z if z ∈ 2B \ Bx/4, since 
+
+δ(x) > 4κr ; thanks to Theorem 2.16, this allow us to use the Caccioppoli inequality (2.40). The third estimate uses computations analogous to the ones needed for the first estimate. 
+
+Second step . Now, let us assume that (Dp) is solvable, and prove (3.70). By the result of the first step, this will also imply (3.69). Fix 0 < κ < 1 and write λ = κ/ 32 . Take B = B(ξ, r )
+
+centered on ∂Ω, x ∈ B such that δ(x) > κr , ζ ∈ ∂Ω and z ∈ γ(ζ).First, we can assume that z ∈ 2B \ Bx/16 , since the integral below is null otherwise. Using the Harnack inequality (2.42), 
+
+> λB z
+
+ρ(y)
+
+δ(y) G(x, y )1B\Bx/8(y)
+
+> 2
+
+dm (y)
+
+!1/2
+
+≲ ρ(z)
+
+δ(z) G(x, z ).
+
+Then, since x / ∈ λB z , we can use (2.49) with the ball Bζ = B(ζ, 16 δ(z)) , giving us 
+
+ρ(z)
+
+δ(z) G(x, z ) ≲ ρ(z)δ(z)
+
+m(Bζ ) ωx(Bζ ) ≲ ωx(Bζ )
+
+μ(Bζ ) ≲ Mμωx 
+
+> |16 B
+
+(ζ),
+
+where in the last estimate we used the fact that Bζ ⊂ 16 B. Finally, since (Dp) is solvable: 
+
+∥ ˜N
+
+ ρδ G(x, ·)1B\Bx/8
+
+
+
+∥p′ ≲ ∥M μωx 
+
+> |16 B
+
+∥p′ ≲
+
+ˆ
+
+> 16 B
+
+dω x
+
+dμ 
+
+> p′
+
+dμ 
+
+!1/p ′
+
+≲ 1
+
+μ(B)1/p ,
+
+which is the desired estimate. 
+
+Third step. Finally, we prove the converse statement. Thanks to the first step, it is enough to prove that (3.69) with κ = κ0 implies (Dp) is solvable. Take B = B(ξ, r ) centered on ∂Ω and 
+
+x ∈ B satisfying δ(x) > κ 0r. Thanks to Theorem 3.1, it is enough to prove that 
+
+∥M xμωx∥Lp′ (B,μ ) ≲ 1
+
+μ(B)1/p , (3.71) where Mxμωx is the restricted maximal function of ωx defined by 
+
+Mxμωx(ζ) = sup 
+
+> 0<s<δ (x)/4
+
+ωx(B(ζ, s )) 
+
+μ(B(ζ, s )) for ζ ∈ ∂Ω.
+
+23 Indeed, if Mxμωx is finite almost everywhere, then ωx ≪ μ (see [Mat95], Theorem 2.12), and (3.71) implies (3.56), since dω x 
+
+> dμ
+
+≤ M xμ
+
+ dω x
+
+> dμ
+
+
+
+= Mxμωx by Lebesgue’s differentiation theorem. Thus, we consider ζ ∈ B ∩ ∂Ω, 0 < s < δ (x)/4 and write Bζ = B(ζ, s ). Then, we can take 
+
+χ ∈ C ∞ 
+
+> c
+
+(Rn) such that χ = 1 in Bζ , χ = 0 outside of 2Bζ , and ∥∇ χ∥∞ ≲ 1 
+
+> s
+
+. We first have: 
+
+ωx(Bζ ) ≤
+
+ˆ
+
+> ∂Ω
+
+χ dω x =: u(x),
+
+and if we set 
+
+v(x) := 
+
+ˆ
+
+> Ω
+
+A(y)T ∇yG(x, y ) · ∇ χ(y) dm (y) = 
+
+ˆ
+
+> Ω
+
+∇yG(x, y ) · A(y)∇χ(y) dm (y),
+
+we have that v = χ − u. Indeed, by theorem 2.18, v is in W0(Ω) and is solution of Lv =
+
+− div( wA ∇χ). On the other hand, by Theorem 2.20 and Proposition 2.19, χ − u is also in W0(Ω) 
+
+and solution of Lu = − div( wA ∇χ). By uniqueness in Theorem 2.10, we have the equality. In particular, since x / ∈ 4Bζ , v(x) = −u(x); hence 
+
+ωx(Bζ ) ≤ − 
+
+ˆ
+
+> Ω
+
+A(y)T ∇yG(x, y ) · ∇ χ(y) dm (y)
+
+≲ 1
+
+s
+
+ˆ
+
+> 2Bζ
+
+|∇ yG(x, y )| dm (y)
+
+≲ 1
+
+s
+
+ˆ
+
+> 2Bζ
+
+ρ(y)|∇ yG(x, y )|12B\Bx/2(y)δ(y) dm (y)
+
+ρ(y)δ(y)
+
+≲
+
+ˆ
+
+> 16 Bζ
+
+˜N  ρ∇yG(x, ·)12B\Bx/2
+
+ dμ, 
+
+where for the last estimate we used duality from (2.53) and the fact that ˜A(δ12B ) ≲ s on ∂Ω. This yields: 
+
+Mxμωx(ζ) ≲ Mμ
+
+ ˜N  ρ∇yG(x, ·)12B\Bx/2
+
+
+
+(ζ) for ζ ∈ B ∩ ∂Ω; 
+
+passing to the Lp′
+
+norm, we can finally use (3.69) to obtain 
+
+∥M xμωx∥Lp′ (Λ B,μ ) ≲ ∥ ˜N  ρ∇yG(x, ·)12B\Bx/2
+
+ ∥p′ ≲ 1
+
+μ(B)1/p ,
+
+which is the desired estimate (3.71). 
+
+# 4 Solvability of the Poisson-Dirichlet problem 
+
+We will now turn to our main subject and study the solvability of (P D p). Our main goal here is to give a proof of Theorem 1.5. As a corollary, if the equivalent conditions of this theorem are satisfied, we will obtain the existence of solutions with general boundary data g ∈ Lp(∂Ω, dμ ) and general interior data f and F belonging to suitable tent spaces. 
+
+4.1 Proof of Theorem 1.5 
+
+We now have enough elements to tackle the proof of the main theorem. Notice that the implica-tions (ii ) ⇒ (iii ), (ii ) ⇒ (iv ), and (v) ⇒ (vi ) are automatic. We will prove (i) ⇔ (iii ), (i) ⇔ (iv )
+
+(giving us (i) ⇔ (ii ) by linearity), (vi ) ⇒ (iv ) and (iv ) ⇒ (v).
+
+Proof of (i) ⇒ (iii ). The principle of this proof is similar to the one of the converse statement in Theorem 3.1 : we decompose our solution to estimate it near the pole of the Green function, 24 then near the vertex of a cone on the boundary, and finally far from this vertex. Fix f ∈ L∞ 
+
+> c
+
+(Ω , m ), and consider the solution u of 
+
+(
+
+Lu = wf in Ω
+
+u = 0 on ∂Ω (4.72) given by Theorem 2.10. We can assume that f ≥ 0: indeed, by the triangular inequality and the decomposition of f in positive and negative parts, if we show that ∥ ˜N u∥p ≲ ∥ ˜A(δ2f )∥p then (P D p)
+
+will be solvable. We will estimate ˜N (1 ,1/16) u(ξ) = sup x∈γ(ξ)
+
+ffl  
+
+> Bx/16
+
+|u|2 dm 
+
+1/2
+
+for ξ ∈ ∂Ω.Take K ≥ 2 to be fixed later. Fix ξ ∈ ∂Ω and x ∈ γ(ξ), and write B = B(ξ, 4δ(x)) . Next, decompose f into f = f 1Bx/8 + f 1KB \Bx/8 + f 1Ω\KB =: f0 + f1 + f2, and write u0, u 1, u 2 the corresponding solutions: u = u0 + u1 + u2. We will estimate each term independently. First, let us estimate 
+
+ffl  
+
+> Bx/8
+
+|u0|2 dm 
+
+1/2
+
+. Remark that 
+
+ˆ
+
+> Bx/8
+
+|u0|2 dm ≤
+
+ˆ
+
+> B
+
+|u0|2 dm ≲ δ(x)2
+
+ˆ
+
+> Ω
+
+|∇ u0|2 dm 
+
+≲ δ(x)2
+
+ˆ
+
+> Ω
+
+A∇u0 · ∇ u0 dm 
+
+≲ δ(x)2
+
+ˆ
+
+> Bx/8
+
+f u 0 dm 
+
+≲
+
+ˆ
+
+> Bx/8
+
+|δ2f |2 dm 
+
+!1/2 ˆ
+
+> Bx/8
+
+|u0|2 dm 
+
+!1/2
+
+,
+
+using the boundary Poincaré inequality (2.31); hence 
+
+> Bx/16
+
+|u0|2 dm 
+
+!1/2
+
+≲ Bx/8
+
+|u0|2 dm 
+
+!1/2
+
+≲ Bx/8
+
+|δ2f |2 dm 
+
+!1/2
+
+≲
+
+ˆ 
+
+> Bx/8Bx/8
+
+|δ2f |2 dm 
+
+!1/2
+
+dm (y)
+
+m(By)
+
+≲
+
+ˆ  
+
+> Bx/8By/2
+
+|δ2f |2 dm 
+
+!1/2
+
+dm (y)
+
+m(By)
+
+≲ ˜A(2 ,1/2) (δ2f )( ξ).
+
+Then we estimate u1 on Bx/16 . Take q < p such that (Dq) is solvable. For any z ∈ Bx/16 :
+
+|u1(z)| =
+
+ˆ
+
+> KB \Bx/8
+
+G(z, y )f (y) dm (y) ≲
+
+ˆ 
+
+> KB \Bz/32
+
+ρ(y)
+
+δ(y) G(z, y ) |δ(y)2f (y)| dm (y)
+
+ρ(y)δ(y)
+
+≲ ∥ ˜N
+
+ ρδ G(z, ·)1KB \Bz /32 
+
+
+
+∥q′ ∥ ˜A(δ2f 1KB )∥q
+
+≲ 1
+
+μ(KB )1/q 
+
+ˆ
+
+> 8KB
+
+˜A(δ2f )q dμ 
+
+1/q 
+
+≲
+
+
+
+> 8KB
+
+˜A(δ2f )q dμ 
+
+1/q 
+
+≤ M μ,q ˜A(δ2f )( ξ),
+
+where we used Theorem 2.18 for the first equality, duality from (2.53) for the second estimate, and Lemma 3.3 for the third one. Here, the constant depends on K.25 Finally, we estimate u2 on Bx/16 : for any z ∈ Bx/16 ,
+
+|u2(z)| ≲ K−η
+
+> KB
+
+|u2| dm ≲ K−η
+
+> 8KB
+
+˜N (u1KB ) dμ ≲ K−ηMμ ˜N (u1KB )( ξ),
+
+where we used the Hölder regularity estimate (2.44) and Lemma 3.2, and the fact that u2 ≤ u.Now, we can piece together our three estimates, which yields 
+
+˜N (1 ,1/16) u(ξ) ≤ CK
+
+ ˜A(2 ,1/2) (δ2f )( ξ) + Mμ,q ˜A(δ2f )( ξ)
+
+
+
++ CKη M ˜N (u1KB )( ξ) for ξ ∈ ∂Ω.
+
+This implies, using the Lp-boundedness of Mμ,q when p > q and the equivalence under change of parameters (Lemma 2.25): 
+
+∥ ˜N u∥p ≤ C′ 
+
+> K
+
+∥ ˜A(δ2f )∥p + C′
+
+Kη ∥ ˜N (u1KB )∥p. (4.73) Thanks to the boundary Hölder estimate 2.44, we have that u1KB ⊂ L∞ 
+
+> c
+
+( ¯Ω, m ). This implies by a simple estimate that u ∈ L∞ 
+
+> c
+
+(∂Ω, μ ) ⊂ Lp(∂Ω, μ ). Then, (4.73) give us that ∥ ˜N u∥p is finite and 
+
+∥ ˜N u∥p ≤ C′ 
+
+> K
+
+∥ ˜A(δ2f )∥p + C′
+
+Kη ∥ ˜N u∥p.
+
+Thus, we can choose K big enough with respect to C′ so that ∥ ˜N u∥p ≲ ∥ ˜A(δ2f )∥p, which is the desired estimate. 
+
+Proof of (i) ⇒ (iv ). The proof for − div( wF ) is strongly analogous to the one for wf ; we will only highlight the small adjustments required. Keeping the same notations, we decompose 
+
+F := F0 + F1 + F2 in exactly the same way, giving us a corresponding decomposition of the solution 
+
+u = u0 + u1 + u2.For the estimate on u0, we only need to notice that 
+
+ˆ
+
+> Bx/8
+
+|∇ u0|2 dm ≲
+
+ˆ
+
+> Ω
+
+A∇u0 · ∇ u0 dm =
+
+ˆ
+
+> Bx/8
+
+F · ∇ u0 dm 
+
+implies ˆ
+
+> Bx/8
+
+|∇ u0|2 dm 
+
+!1/2
+
+≲
+
+ˆ
+
+> Bx/8
+
+|F |2 dm 
+
+!1/2
+
+.
+
+We can now use the boundary Poincaré inequality and conclude with the same calculation. For 
+
+u1, the only change is that we now use (3.69) instead of (3.70). Finally, no change is needed to estimate u2, and we can conclude in the exact same manner to finish the proof. 
+
+Proof of (iii ) ⇒ (i). To obtain the result, it is enough to prove the estimate (3.70) for κ1.Consider B = B(ξ, r ) centered on ∂Ω and x ∈ B satisfying δ(x) > κ 1r. Using the duality estimate (2.54), 
+
+∥ ˜N
+
+ ρδ G(x, ·)1B\Bx/2
+
+
+
+∥p′ ≲ sup   
+
+> ∥˜A( ˜f)∥p≤1
+
+ˆ
+
+> Ω
+
+1
+
+δ(y)2 G(x, y )1B\Bx/2(y) ˜f (y) dm (y)
+
+≲ sup   
+
+> ∥˜A(δ2f)∥p≤1
+
+ˆ
+
+> Ω
+
+G(x, y )1B\Bx/2(y)f (y) dm (y),
+
+We know thanks to Theorem 2.28 that L∞ 
+
+> c
+
+(Ω) is dense in ˜Ap(Ω) , and G ≥ 0, so the inequality is still true if the supremum on the right hand side only runs over functions f ≥ 0 in L∞ 
+
+> c
+
+(Ω) such that ∥ ˜A(δ2f )∥p ≤ 1; take one of these functions f . Then 26 ˆ
+
+> Ω
+
+G(x, y )1B\Bx/2(y)f (y) dm (y) = u(x),
+
+where u is the solution in Ω of 
+
+(
+
+Lu = wf 1B\Bx/2 in Ω
+
+u = 0 on ∂Ω.
+
+Since Lu = 0 in Bx/2, we can use the Moser estimate (2.41) and obtain 
+
+u(x) ≲ Bx/2
+
+u dm ≤ Bx/2
+
+u2 dm 
+
+!1/2
+
+≤ ˜N u(ζ) for ζ ∈ 2Bx ∩ ∂Ω,
+
+and since (P D p) is solvable when F = 0 ,
+
+u(x) ≲ 2Bx∩∂Ω
+
+˜N u dμ ≤ 1
+
+μ(2 Bx)1/p ∥ ˜N u∥p ≲ 1
+
+μ(B)1/p ∥ ˜A(δ2f )∥p ≤ 1
+
+μ(B)1/p ,
+
+which is the desired estimate. 
+
+Proof of (iv ) ⇒ (i). The proof is the same as the proof of (iii ) ⇒ (i) except the fact that we use (3.69) instead of (3.70) to obtain that (Dp) is solvable. 
+
+Proof of (vi ) ⇒ (iv ). This proof and the following ones are the same as in Theorem 1.22 in [MPT22]. Take F ∈ L∞ 
+
+> c
+
+(Ω , m ), and consider u ∈ W0 solution to Lu = − div( wF ). using the duality estimate (2.54), 
+
+∥ ˜N u∥p ≲ sup   
+
+> ∥˜A˜h∥p′≤1
+
+ˆ
+
+> Ω
+
+u˜h dm ρδ = sup   
+
+> ∥˜A(ρδh )∥p′≤1
+
+ˆ
+
+> Ω
+
+uh dm. 
+
+By density (Theorem 2.28), it is enough to estimate the term in the supremum for any h ∈ L∞ 
+
+> c
+
+(Ω , m )
+
+such that ∥ ˜A(ρδh )∥p′ ≤ 1. Take one such h, and consider u∗ ∈ W0 solution to L∗u∗ = wh . Using the definition of weak solutions: 
+
+ˆ
+
+> Ω
+
+uh dm =
+
+ˆ
+
+> Ω
+
+AT ∇u∗ · ∇ u dm =
+
+ˆ
+
+> Ω
+
+A∇u · ∇ u∗ dm =
+
+ˆ
+
+> Ω
+
+F · ∇ u∗ dm, 
+
+and we can estimate: 
+
+ˆ
+
+> Ω
+
+F · ∇ u∗ dm ≲ ∥ ˜A(δF )∥p∥ ˜N (ρ∇u∗)∥p′ ≲ ∥ ˜A(δF )∥p∥ ˜A(ρδh )∥p′ ≲ ∥ ˜A(δF )∥p,
+
+where we used the solvability of (P D ∗ 
+
+> p′
+
+) for wf . This gives us that ∥ ˜N u∥p ≲ ∥ ˜A(δF )∥p.
+
+Proof of (iv ) ⇒ (v). If we take f ∈ L∞ 
+
+> c
+
+(Ω , m ) and u∗ ∈ W0 solution to L∗u∗ = wf , we can again use duality: 
+
+∥ ˜N (ρ∇u∗)∥p′ ≲ sup  
+
+> ∥˜A(δH )∥p≤1
+
+ˆ
+
+> Ω
+
+∇u∗ · H dm. 
+
+If we take H ∈ L∞ 
+
+> c
+
+(Ω , m ) such that ∥ ˜A(δH )∥p ≤ 1 and consider u ∈ W0 solution to Lu =
+
+− div( wH ), we can estimate in the same way to obtain 
+
+ˆ
+
+> Ω
+
+∇u∗ · H dm =
+
+ˆ
+
+> Ω
+
+f u dm ≲ ∥ ˜A(ρδf )∥p′ ∥ ˜N u∥p ≲ ∥ ˜A(ρδf )∥p′ ∥ ˜A(δH )∥p ≲ ∥ ˜A(ρδf )∥p′ .
+
+From this we conclude that (P R ∗ 
+
+> p′
+
+) is solvable with F = 0 .27 Now, let us prove that (P R ∗ 
+
+> p′
+
+) is solvable for − div( wF ). Take F ∈ L∞ 
+
+> c
+
+(Ω , m ), and consider 
+
+u∗ ∈ W0 solution to L∗u∗ = − div( wF ). Again, by duality, 
+
+∥ ˜N (ρ∇u∗)∥p′ ≲ sup  
+
+> ∥˜A(δH )∥p≤1
+
+ˆ
+
+> Ω
+
+∇u∗ · H dm. 
+
+Let us take H ∈ L∞ 
+
+> c
+
+(Ω , m ) such that ∥ ˜A(δH )∥p ≤ 1 and consider u ∈ W0 solution to Lu =
+
+− div( wH ). Then: 
+
+ˆ
+
+> Ω
+
+∇u∗ · H dm =
+
+ˆ
+
+> Ω
+
+F · ∇ u dm ≲ ∥ ˜A(ρF )∥p′ ∥ ˜N (δ∇u)∥p.
+
+Let us show that ∥ ˜N (δ∇u)∥p ≲ 1; then we will have our result. Take ξ ∈ ∂Ω and x ∈ γ(ξ).Using the Caccioppoli estimate (2.40), we can obtain 
+
+> Bx/16
+
+|δ∇u|2 dm 
+
+!1/2
+
+≲ δ(x) Bx/16 
+
+|∇ u|2 dm 
+
+!1/2
+
+≲ Bx/8
+
+|u|2 dm 
+
+!1/2
+
++ δ(x) Bx/8
+
+|H|2 dm 
+
+!1/2
+
+.
+
+We estimate the second term: 
+
+δ(x) Bx/8
+
+|H|2 dm 
+
+!1/2
+
+≲ Bx/8
+
+|δH |2 dm 
+
+!1/2
+
+≲
+
+ˆ 
+
+> Bx/8Bx/8
+
+|δH |2 dm 
+
+!1/2
+
+dm (y)
+
+m(By)
+
+≲
+
+ˆ  
+
+> Bx/8By/2
+
+|δH |2 dm 
+
+!1/2
+
+dm (y)
+
+m(By)
+
+≲ ˜A(2 ,1/2) (δH )( ξ).
+
+This give us the estimate 
+
+˜N (1 ,1/16) (δ∇u)( ξ) ≲ ˜N (1 ,1/8) u(ξ) + ˜A(2 ,1/2) (δH )( ξ) for ξ ∈ ∂Ω; 
+
+thus, since (P D p) is solvable with f = 0 ,
+
+∥ ˜N (δ∇u)∥p ≲ ∥ ˜N u∥p + ∥ ˜A(δH )∥p ≲ ∥ ˜A(δH )∥p ≤ 1,
+
+which concludes the proof. 
+
+4.2 Existence of solutions with general data 
+
+We conclude this paper by proving the existence of solutions with general boundary data g ∈
+
+Lp(∂Ω, dμ ) and general interior data f and F belonging to suitable tent spaces. 
+
+Corollary 4.1. Assume that (H1)-(H6) are satisfied. Let 1 < p < ∞. If any of the equivalent conditions of Theorem 1.5 holds, then there exists C > 0 such that for any functions g ∈ Lp(∂Ω, μ ),
+
+f ∈ L2
+
+> loc
+
+(Ω , m ) satisfying ∥ ˜A(δ2f )∥p < ∞ and F ∈ L2
+
+> loc
+
+(Ω , m )n satisfying ∥ ˜A(δF )∥p < ∞, there exists a weak solution u ∈ Wloc (Ω) to 
+
+(
+
+Lu = wf − div( wF ) in Ω
+
+u = g on ∂Ω (4.74) 
+
+satisfying the estimate 
+
+∥ ˜N u∥Lp(∂Ω,μ ) ≤ C
+
+h
+
+∥g∥Lp(∂Ω,μ ) + ∥ ˜A(δ2f )∥Lp(∂Ω,μ ) + ∥ ˜A(δF )∥Lp(∂Ω,μ )
+
+i
+
+. (4.75) 28 Proof. The proof follows from Theorem 1.5 and a density argument. By linearity it suffices to prove the result in the cases f = F = 0 and g = 0 . Let us begin with the first case and consider 
+
+g ∈ Lp(∂Ω, μ ). By density of Cc(∂Ω) in Lp(Ω , μ ), there is a sequence (gk) in Cc(∂Ω) such that 
+
+gk → g in Lp(∂Ω) . For each k, let uk be the corresponding solution given by Theorem 2.20; we then have 
+
+uk(x) − uℓ(x) = 
+
+ˆ
+
+> ∂Ω
+
+(gk − gℓ)dω x for x ∈ Ω and k, l ∈ N.
+
+Any of the equivalent conditions of Theorem 1.5 holds, so (Dp) is solvable; hence 
+
+∥ ˜N (uk − uℓ)∥p ≲ ∥gk − gℓ∥p, (4.76) which implies that (uk) is a Cauchy sequence in ˜Np(Ω) , which is complete by Lemma 2.26, so it has a limit u in ˜Np(Ω) . Since ˜Np(Ω) ⊂ L2
+
+> loc
+
+(Ω , m ) is a continuous injection, (uk) is a Cauchy sequence in 
+
+L2
+
+> loc
+
+(Ω , m ) converging to u in L2
+
+> loc
+
+(Ω , m ), which implies thanks to the Caccioppoli inequality (2.40) that (∇uk) is a Cauchy sequence in L2
+
+> loc
+
+(Ω , m ). Using Proposition 2.2, we obtain that u ∈ Wloc (Ω) 
+
+with uk → u in L1
+
+> loc
+
+(Ω , m ) and ∇uk → u ∈ L2
+
+> loc
+
+(Ω , m ); it is then easy to check that Lu = 0 
+
+weakly. Finally, the fact that uk → u in Np(Ω) and that (gk → g in Lp(∂Ω, μ ) implies that, up to a subsequence and μ-a.e., 
+
+sup   
+
+> y∈γ2(ξ)By/2
+
+|uk − u|2 dm 
+
+!1/2
+
+−→ 0 and gk −→ g for μ -a.e. ξ ∈ ∂Ω, (4.77) and for any ξ ∈ ∂Ω and x ∈ γ(ξ),
+
+> Bx/2
+
+|u − g(ξ)| dm ≤ sup   
+
+> y∈γ2(ξ)By/2
+
+|uk − u|2 dm 
+
+!1/2
+
++ Bx/2
+
+|uk − gk(ξ)| dm 
+
++ |gk − g|(ξ).
+
+using (4.77) and the fact that uk(y) → gk(ξ) when y → ξ thanks to Theorem 2.20, we deduce that 
+
+> Bx/2
+
+|u − g(ξ)| dm −−−−→
+
+> x→ξx∈γ(ξ)
+
+0 for μ -a.e. ξ ∈ ∂Ω.
+
+This give us the result for f = F = 0 .To prove the result for g = 0 , consider f ∈ L2
+
+> loc
+
+(Ω , m ) such that δ2f ∈ ˜Ap(Ω) and F ∈
+
+L2
+
+> loc
+
+(Ω , m )n such that δF ∈ ˜Ap(Ω) n. By Theorem 2.28, we can take sequences (fk) in L∞ 
+
+> c
+
+(Ω , m )
+
+and (Fk) in L∞ 
+
+> c
+
+(Ω) n such that δ2fk → δ2f in ˜Ap(Ω) and δF → δF in ˜Ap(Ω) n, which implies in particular that fk → f in L2
+
+> loc
+
+(Ω , m ) and Fk → F in L2
+
+> loc
+
+(Ω , m )n. For each k, let uk be the corresponding solution in W of 4.74 given by Theorem 2.10. We have 
+
+(
+
+L(uk − uℓ) = w(fk − fℓ) − div ( w(Fk − Fℓ)) in Ω
+
+uk − uℓ = 0 on ∂Ω for k, l ∈ N.
+
+Any of the equivalent conditions of Theorem 1.5 holds, so (P D p) is solvable; hence 
+
+‘∥ ˜N (uk − uℓ)∥p ≲ ∥ ˜A(δ2fk − δ2fℓ)∥p + ∥ ˜A(δF k − δF ℓ)∥p for k, ℓ ∈ N, (4.78) implying that (uk) is a Cauchy sequence in ˜Np(Ω) . Using the same reasoning as for the previous case, the fact that fk → f in L2
+
+> loc
+
+(Ω , m ) and Fk → F in L2
+
+> loc
+
+(Ω , m )n and the Caccioppoli inequality with source terms (2.40), we get that (uk) has a limit u ∈ Wloc (Ω) that is a weak solution of 
+
+Lu = f − div( wF ). Finally, for any ξ ∈ ∂Ω and x ∈ γ(ξ),
+
+> Bx/2
+
+|u| dm ≤ sup   
+
+> y∈γ2(ξ)By/2
+
+|uk − u|2 dm 
+
+!1/2
+
++ Bx/2
+
+|uk| dm, 
+
+29 uk ∈ W0(Ω) and up to extraction 
+
+sup   
+
+> y∈γ2(ξ)By/2
+
+|uk − u|2 dm 
+
+!1/2
+
+−→ 0 for μ -a.e. ξ ∈ ∂Ω,
+
+so 
+
+> Bx/2
+
+|u| dm −−−−→
+
+> x→ξx∈γ(ξ)
+
+0 for μ -a.e. ξ ∈ ∂Ω.
+
+Of course, we have the same result for the Poisson-regularity problem. 
+
+Corollary 4.2. Assume that (H1)-(H6) are satisfied. Let 1 < p < ∞. If any of the equivalent conditions of Theorem 1.5 holds, then there exists C > 0 such that for any functions f ∈ L2
+
+> loc
+
+(Ω , m )
+
+satisfying ∥ ˜A(ρδf )∥p′ < ∞ and F ∈ L2
+
+> loc
+
+(Ω , m )n satisfying ∥ ˜A(ρF )∥p′ < ∞, there exists a weak solution u ∈ Wloc (Ω) to (
+
+Lu = wf − div( wF ) in Ω
+
+u = 0 on ∂Ω (4.79) 
+
+satisfying the estimate 
+
+∥ ˜N (ρ∇u)∥Lp′ (∂Ω,μ ) ≤ C
+
+h
+
+∥ ˜A(ρδf )∥Lp′ (∂Ω,μ ) + ∥ ˜A(ρF )∥Lp′ (∂Ω,μ )
+
+i
+
+. (4.80) 
+
+Proof. The proof is completely analogous to the proof of Corollary 4.1. 
+
+# A Appendix: results on tent spaces 
+
+We detail here some fundamental results on tent spaces. All of the proofs below are an adaptation to our needs of arguments found in [CMS85]. We feel the need to rewrite the arguments due our setting is getting far from the case Ω = Rn × (0 , ∞) that was considered in [CMS85]. In this appendix, we only need to assume that m|Ω and μ are doubling (with constants C′
+
+> m
+
+and Cμ); in particular, we do not assume the corkscrew point condition in Ω.
+
+Definition A.1. Take α > 0 and 0 < λ ≤ 1/2. Let us define: 
+
+• for any measurable function f : Ω → R,
+
+N (α)f (ξ) := sup 
+
+> γα(ξ)
+
+|f |, for ξ ∈ ∂Ω.
+
+• for any function f ∈ L2
+
+> loc
+
+(Ω , m ),
+
+˜N (α,λ )f (ξ) := sup 
+
+> γα(ξ)
+
+
+
+> λB x
+
+|f |2 dm 
+
+1/2
+
+, for ξ ∈ ∂Ω.
+
+• for any measurable function g : Ω → R,
+
+A(α)g(ξ) := 
+
+ˆ
+
+> γα(ξ)
+
+|g(x)| dm (x)
+
+m(Bx) , for ξ ∈ ∂Ω.
+
+• for any function g ∈ L2
+
+> loc
+
+(Ω , m ),
+
+˜A(α,λ )g(ξ) := 
+
+ˆ
+
+> γα(ξ)
+
+
+
+> λB x
+
+|f |2 dm 
+
+1/2 dm (x)
+
+m(Bx) , for ξ ∈ ∂Ω.
+
+30 For any φ ∈ L1
+
+> loc
+
+(∂Ω, μ ), recall that we write 
+
+Mμf (ξ) := sup  
+
+> r> 0B(x,r )
+
+f dμ for ξ ∈ ∂Ω,
+
+the centered Hardy-Littlewood maximal function. 
+
+Lemma A.2. Let 1 ≤ p ≤ ∞ . The Lp norms of N (α) and are equivalent under change of α, i.e. for any α, α ′ > 0,
+
+∥N (α)f ∥p ≤ Cα,α ′ ∥N (α′)f ∥p,
+
+for any f measurable, where Cα,α ′ > 0 depends only on Cμ, α and α′; furthermore, if 1 ≤ α′ < α ,
+
+C depends only on Cμ and α/α ′. Likewise, the Lp norms of ˜N (α,λ ) are equivalent under change of 
+
+α and λ, i.e. for any α, α ′ > 0 and any 0 < λ, λ ′ ≤ 1/2,
+
+∥ ˜N (α,λ )f ∥p ≤ Cα,α ′,λ/λ ′ ∥ ˜N (α′,λ ′)f ∥p
+
+for any f ∈ L2
+
+> loc
+
+(Ω , m ), where Cα,α ′,λ/λ ′ > 0 depends only on Cμ, C ′
+
+> m
+
+, α, α ′ and λ/λ ′.
+
+The same result holds for A and ˜A, but it will be easier to prove it later from this lemma and duality (Lemma A.9). 
+
+Proof. Let us prove the first estimate. Take f ≥ 0 measurable, and t > 0; we write Eαt := {ξ ∈
+
+∂Ω | N (α)f (ξ) > t }. to prove the lemma, it is enough to show that μ(Eαt ) ≲ μ(Eα′ 
+
+> t
+
+), with a constant independent from f and t.Take ξ ∈ Eαt : sup γα(ξ) f > t . There exists x ∈ γα(ξ) such that f (x) > t , so if ζ ∈ (1+ α′)Bx ∩∂Ω,we have x ∈ γα′ (ζ), or 
+
+N (α′)f (ζ) > t for ζ ∈ (1 + α′)Bx ∩ ∂Ω.
+
+Take B = Bξ,t := B(ξ, (2 + α + α′)δ(x)) so that B ⊂ (1 + α′)Bx, and we get 
+
+> B∩∂Ω
+
+1Eα′
+
+> t
+
+dμ = μ(Eα′ 
+
+> t
+
+∩ B)
+
+μ(B ∩ ∂Ω) ≥ μ((1 + α′)Bx)
+
+μ(B ∩ ∂Ω) > ε, 
+
+with a constant ε > 0 depending only α, α′ (α/α ′ if we further assume 1 ≤ α′ < α ) and Cμ. This implies that Mμ1Eα′
+
+> t
+
+> ε , and finally by the Hardy–Littlewood maximal inequality 
+
+μ(Eαt ) ≤ μ
+
+
+
+{ξ ∈ ∂Ω | M μ1Eα′
+
+> t
+
+(ξ) > ε }
+
+
+
+≲ 1
+
+ε μ(Eα′ 
+
+> t
+
+) for t > 0,
+
+which is enough to obtain the first estimate. Now, Let us prove the equivalence for ˜N . By the first estimate, the equivalence holds under change of α when λ is fixed, hence it is enough to prove the equivalence for some fixed α, α ′; we will take α = 1 . Take 0 < λ, λ ′ ≤ 1/2, ξ ∈ ∂Ω and x ∈ γ(ξ). There exists an integer N ≥ 1
+
+independent from x (but dependent on λ/λ ′) and y1, . . . , y N in λB x such that λB x ⊂ SNi=1 λ′B(yi).Then for any f ∈ L2
+
+> loc
+
+(Ω) ,
+
+
+
+> λB x
+
+f 2 dm 
+
+1/2
+
+≲
+
+> N
+
+X 
+
+> i=1 λ′B(yi)
+
+f 2 dm 
+
+!1/2
+
+≲ sup  
+
+> y∈γ4(ξ)λ′By
+
+f 2 dm 
+
+!1/2
+
+,
+
+hence ˜N (1 ,λ )f ≲ ˜N (4 ,λ ′)f , which is enough to conclude. We will note N := N (1) , ˜N = ˜N (1 ,1/2) , A := A(1) and ˜A = ˜A(1 ,1/2) . For 1 < p < ∞, define 
+
+Np(Ω) (resp. Ap(Ω) ) as the vector space of measurable function f : Ω → R (resp. g : Ω → R) such that ∥N f ∥p is finite (resp. ∥A g∥p is finite), equipped with the obvious norms. Likewise, define 
+
+˜Np(Ω) (resp. ˜Ap(Ω) ) as the vector space of function f ∈ L2
+
+> loc
+
+(Ω , m ) (resp. g ∈ L2
+
+> loc
+
+(Ω , m )) such that ∥ ˜N f ∥p is finite (resp. ∥ ˜Ag∥p is finite). First, let us observe that these norms satisfy a version of Fatou’s lemma: 31 Lemma A.3 (Fatou’s lemma for tent spaces) . Take 1 ≤ p ≤ ∞ and a sequence (fk) of measurable non-negative functions. then 
+
+∥T (lim inf fk)∥p ≤ lim inf ∥T f k∥p,
+
+whenever T = N , ˜N , A or ˜A.Proof. This is a direct consequence of Fatou’s lemma and of the fact that 
+
+sup 
+
+> A
+
+lim inf fk ≤ lim inf sup 
+
+> A
+
+fk (A.81) for any set A ⊂ Rn.
+
+Theorem A.4. Take 1 < p < ∞. All tent spaces Np(Ω) , ˜Np(Ω) , Ap(Ω) and ˜Ap(Ω) are Banach spaces. Proof. We will only prove the theorem for ˜Np(Ω) since it is the result that we use in the main article, but the proofs for the other spaces use the same ideas. Take a Cauchy sequence (fk) in 
+
+˜Np(Ω) . First, for any x ∈ Ω, ξ ∈ 2Bx ∩ ∂Ω and k, ℓ ∈ N:
+
+> Bx/2
+
+|fk − fℓ|2 dm 
+
+!1/2
+
+≤ ˜N (fk − fℓ)( ξ); 
+
+averaging over ξ ∈ 2Bx ∩ ∂Ω, we obtain 
+
+> Bx/2
+
+|fk − fℓ|2 dm 
+
+!1/2
+
+≤
+
+
+
+> 2Bx
+
+˜N (fk − fℓ)p dμ 
+
+1/p 
+
+.
+
+Thus, (fk) is a Cauchy sequence in L2
+
+> loc
+
+(Ω , m ): there exists f ∈ L2
+
+> loc
+
+(Ω , m ) such that fk → f in 
+
+L2
+
+> loc
+
+(Ω , m ), and we can extract a subsequence ( ˜fk) such that ˜fk → f a.e. on Ω. Then, for any 
+
+k ∈ N Fatou’s lemma (A.81) applied to |fk − ˜fℓ| give us that 
+
+∥ ˜N (fk − f )∥p ≤ lim inf  
+
+> ℓ
+
+∥ ˜N (fk − ˜fℓ)∥p,
+
+which implies that f ∈ ˜Np(Ω) and, passing to the limit as k goes to infinity, that fk → f in 
+
+˜Np(Ω) .
+
+Theorem A.5. Let α > 0 and 0 < λ ≤ 1/2. For any f, g measurable, 
+
+ˆ
+
+> Ω
+
+f g dm ρδ ≤ Cα
+
+ˆ
+
+> ∂Ω
+
+(N (α)f )( A(α)g) dμ, (A.82) 
+
+where Cα > 0 depends only on C′
+
+> m
+
+, C μ and α. Likewise, for any f, g ∈ L2
+
+> loc
+
+(Ω , m ),
+
+ˆ
+
+> Ω
+
+f g dm ρδ ≤ Cα,λ 
+
+ˆ
+
+> ∂Ω
+
+( ˜N (α,λ )f )( ˜A(α,λ )g) dμ, (A.83) 
+
+where Cα,λ > 0 depends only on C′
+
+> m
+
+, C μ, α and λ.Proof. To prove the first estimate, notice that for any h ≥ 0 measurable, 
+
+ˆ
+
+> Ω
+
+h dm ρδ ≃
+
+ˆ
+
+> ∂Ω
+
+A(α)h dμ ; (A.84) indeed, 
+
+ˆ
+
+> ∂Ω
+
+A(α)h dμ =
+
+ˆ
+
+> ∂Ω
+
+ˆ
+
+> γα(ξ)
+
+h(x) dm (x)
+
+m(Bx) dμ (ξ)
+
+≃
+
+ˆ
+
+> Ω
+
+ˆ
+
+> (1+ α)Bx∩∂Ω
+
+dμ (ξ) 1
+
+μ(2 Bx)1
+
+ρ(x)δ(x) h(x) dm (x)
+
+≃
+
+ˆ
+
+> Ω
+
+h dm ρδ ,
+
+32 where we used Fubini’s theorem and the doubling property of m in the second line, and the dou-bling property of μ in the third one. Then, (A.84) applied to |f g | easily give us the result. Next, to prove the second estimate, notice that for any h ≥ 0 in L1
+
+> loc
+
+(Ω , m ),
+
+ˆ 
+
+> ΩλB x
+
+h(y) dm (y) dm (x)
+
+ρ(x)δ(x) ≥
+
+ˆ
+
+> Ω
+
+h(y)
+
+ˆ 
+
+> λ
+> 1+ λBy
+
+1
+
+m(λB x)ρ(x)δ(x) dm (x) dm (y) ≃
+
+ˆ
+
+> Ω
+
+h(y) dm (y)
+
+ρ(y)δ(y) ,
+
+where we used Fubini’s theorem and the fact that x ∈ λ 
+
+> 1+ λ
+
+By implies y ∈ λB x for the first estimate, and the doubling property of m and ρ for the second one. Then, for any f, g ∈ L2
+
+> loc
+
+(Ω , m ),
+
+ˆ
+
+> Ω
+
+|f g | dm ρδ ≲
+
+ˆ 
+
+> ΩλB x
+
+|f g | dm dm (x)
+
+ρ(x)δ(x) ≤
+
+ˆ
+
+> Ω
+
+
+
+> λB x
+
+f 2 dm 
+
+1/2 
+
+> λB x
+
+g2 dm 
+
+1/2 dm (x)
+
+ρ(x)δ(x)
+
+≲
+
+ˆ
+
+> ∂Ω
+
+( ˜N (α,λ )f )( ˜A(α,λ )g) dμ, 
+
+using (A.82). This give us the second estimate. Thanks to the Hölder inequality, we obtain the following corollary. 
+
+Corollary A.6. Let 1 < p < ∞. We have 
+
+ˆ
+
+> Ω
+
+f g dm ρδ ≤ C∥N f ∥p∥A g∥p′ for f ∈ Np(Ω) , g ∈ Ap′
+
+(Ω) (A.85) 
+
+and ˆ
+
+> Ω
+
+f g dm ρδ ≤ C∥ ˜N f ∥p∥ ˜Ag∥p′ for f ∈ ˜Np(Ω) , g ∈ ˜Ap′
+
+(Ω) , (A.86) 
+
+where C > 0 depends only on C′ 
+
+> m
+
+and Cμ.
+
+Theorem A.7. Let 1 < p < ∞. The dual space of Ap(Ω) is homeomorphic to Np′
+
+(Ω) via 
+
+f 7 →
+
+
+
+g 7 → ´ 
+
+> Ω
+
+f g dm ρδ 
+
+
+
+. Likewise, the dual space of ˜Ap(Ω) is homeomorphic to ˜Np′
+
+(Ω) via the same homeomorphism. In particular, 
+
+∥N f ∥p′ ≤ C sup 
+
+> ∥A g∥p≤1
+
+ˆ
+
+> Ω
+
+f g dm ρδ for f ∈ Np′
+
+(Ω) (A.87) 
+
+and 
+
+∥ ˜N f ∥p′ ≤ C sup  
+
+> ∥˜Ag∥p≤1
+
+ˆ
+
+> Ω
+
+f g dm ρδ for f ∈ Np′
+
+(Ω) , (A.88) 
+
+where C > 0 depends only on p, C ′ 
+
+> m
+
+and Cμ.Proof. We begin by proving (A.87). Note that it is enough to prove it only for f ≥ 0, and take 
+
+f ≥ 0 in Np′
+
+(Ω) . By duality, 
+
+∥N f ∥p′ = sup 
+
+> ∥φ∥p≤1
+
+ˆ
+
+> ∂Ω
+
+(N f )φ dμ. (A.89) We thus take φ ∈ Lp(∂Ω, μ ) such that ∥φ∥p ≤ 1; since N f ≥ 0, we can also assume that φ ≥ 0.Furthermore, also by duality: 
+
+N f (ξ) = sup 
+
+> γ(ξ)
+
+f = sup 
+
+> ∥K (ξ, ·)∥L1(γ(ξ)) ≤1
+
+ˆ
+
+> Ω
+
+f (x)K(ξ, x ) dm (x) for ξ ∈ ∂Ω, (A.90) so there exists K : ∂Ω × Ω → R such that K ≥ 0, K(ξ, ·) = 0 outside of γ(ξ), ∥K (ξ, ·)∥1 ≤ 1, and 
+
+12 N f (ξ) ≤
+
+ˆ
+
+> Ω
+
+f (x)K(ξ, x ) dm (x) ≤ N f (ξ), for ξ ∈ ∂Ω.
+
+33 Then, using Fubini’s theorem, 
+
+ˆ
+
+> ∂Ω
+
+(N f )φ dμ ≲
+
+ˆ
+
+> ∂Ω
+
+φ(ξ)
+
+ˆ
+
+> γ(ξ)
+
+f (x)K(ξ, x ) dm (x) dμ (ξ)
+
+≲
+
+ˆ
+
+> Ω
+
+f (x)
+
+ˆ
+
+> 2Bx∩∂Ω
+
+φ(ξ)K(ξ, x ) dμ (ξ) dm (x)
+
+≲
+
+ˆ
+
+> Ω
+
+f g dm ρδ ,
+
+where g(x) = ρ(x)δ(x) ´ 
+
+> 2Bx∩∂Ω
+
+φ(ξ)K(ξ, x ) dμ (ξ), for x ∈ Ω. Next, we prove that ∥A g∥p ≲ 1. For any k ∈ Z, note Ωk = {x ∈ Ω | 2k−1 ≤ δ(x) < 2k}. Then, for any ζ ∈ ∂Ω,
+
+Ag(ζ) = 
+
+ˆ
+
+> γ(ζ)
+
+ρ(x)δ(x)
+
+ˆ
+
+> 2Bx∩∂Ω
+
+φ(ξ)K(ξ, x ) dμ (ξ) dm (x)
+
+m(Bx)
+
+≲ X
+
+> k∈Z
+
+ˆ 
+
+> Ωk∩γ(ζ)
+
+1
+
+μ(2 Bx)
+
+ˆ
+
+> 2Bx∩∂Ω
+
+φ(ξ)K(ξ, x ) dμ (ξ) dm (x)
+
+≲ X
+
+> k∈Z
+
+1
+
+μ(B(ζ, 2k)) 
+
+ˆ 
+
+> Ωk∩γ(ζ)
+
+ˆ
+
+> 2Bx∩∂Ω
+
+φ(ξ)K(ξ, x ) dμ (ξ) dm (x)
+
+≲ X
+
+> k∈Z
+
+1
+
+μ(B(ζ, 2k)) 
+
+ˆ
+
+> B(ζ, 2k+2 )∩∂Ω
+
+φ(ξ)κk(ξ) dμ (ξ),
+
+with κk(ξ) = ´ 
+
+> Ωk
+
+K(ξ, ·) dm for ξ ∈ ∂Ω, where we used the doubling properties of μ for the second estimate and Fubini for the third one. Note that P 
+
+> k∈Z
+
+κk = 1 . In order to estimate ∥A g∥p, we use duality once again: for any ψ ≥ 0 in Lp′
+
+(∂Ω, μ ) such that ∥ψ∥p′ ≤ 1,
+
+ˆ
+
+> ∂Ω
+
+(Ag)ψ dμ ≲
+
+ˆ
+
+> ∂Ω
+
+ψ(ζ) X
+
+> k∈Z
+
+1
+
+μ(B(ζ, 2k)) 
+
+ˆ
+
+> B(ζ, 2k+2 )∩∂Ω
+
+φ(ξ)κk(ξ) dμ (ξ) dμ (ζ)
+
+≲
+
+ˆ
+
+> ∂Ω
+
+φ(ξ) X
+
+> k∈Z
+
+κk(ξ) 1
+
+μ(B(ξ, 2k)) 
+
+ˆ
+
+> B(ξ, 2k+2 )∩∂Ω
+
+ψ(ζ) dμ (ζ) dμ (ξ)
+
+≲
+
+ˆ
+
+> ∂Ω
+
+φ(ξ) X
+
+> k∈Z
+
+κk(ξ)Mμψ(ξ) dμ (ξ)
+
+≲
+
+ˆ
+
+> ∂Ω
+
+φMμψ dμ ≲ ∥φ∥p∥M μψ∥p′ ≲ ∥φ∥p∥ψ∥p′ = 1 ,
+
+where we used Fubini and the doubling properties of μ for the second estimate, and the Lp-boundedness of Mμ for the last one. This implies that ∥A g∥p ≲ 1, as we desired, and proves (A.87). Now, let us prove (A.88). It is enough to prove it for f ≥ 0 in ˜Np′
+
+(Ω) . By (A.87), 
+
+∥ ˜N f ∥p′ ≲ sup 
+
+> ∥A g∥p≤1
+
+ˆ 
+
+> ΩBx/2
+
+f 2 dm 
+
+!1/2
+
+g(x) dm (x)
+
+ρ(x)δ(x) . (A.91) Take g ≥ 0 in Ap(Ω) such that ∥A g∥p ≤ 1. Furthermore, also by duality, 
+
+ˆ
+
+> Bx/2
+
+f 2 dm 
+
+!1/2
+
+= sup 
+
+> ∥H(x, ·)∥L2(Bx/ 8) ≤1
+
+ˆ
+
+> Bx/2
+
+f (y)H(x, y ) dm (y) for x ∈ Ω, (A.92) so there exists H : Ω × Ω → R such that H ≥ 0, H(x, ·) = 0 outside of Bx/2, ∥H(x, ·)∥2 ≤ 1 and 34 12
+
+ˆ
+
+f 2 dm 
+
+1/2
+
+≤
+
+ˆ
+
+> Bx/2
+
+f (y)H(x, y ) dm (y) ≤
+
+ˆ
+
+f 2 dm 
+
+1/2
+
+for x ∈ Ω. (A.93) Then, 
+
+ˆ 
+
+> ΩBx/2
+
+f 2 dm 
+
+!1/2
+
+g(x) dm (x)
+
+ρ(x)δ(x) ≲
+
+ˆ
+
+> Ω
+
+g(x) 1
+
+m(Bx)1/2
+
+ˆ
+
+> Bx/2
+
+f (y)H(x, y ) dm (y) dm (x)
+
+ρ(x)δ(x)
+
+≲
+
+ˆ
+
+> Ω
+
+f (y)
+
+ˆ
+
+> Ω
+
+g(x)H(x, y ) dm (x)
+
+m(Bx)1/2
+
+dm (y)
+
+ρ(y)δ(y) =
+
+ˆ
+
+> Ω
+
+f ˜g dm ρδ ,
+
+with ˜g(y) := ´ 
+
+> Ω
+
+g(x)H(x, y ) dm (x) 
+
+> m(Bx)1/2
+
+for y ∈ Ω, where we used Fubini’s theorem and the doubling properties of ρ for the second estimate. Now, let us show that ∥ ˜A˜g∥p ≲ 1. Just as above, there exists K : Ω × Ω → R such that K ≥ 0, K(z, ·) = 0 outside of Bz /2, ∥K(z, ·)∥2 ≤ 1 and 
+
+ˆ 
+
+> Bz/2
+
+ˆ
+
+> Ω
+
+g(x)H(x, y ) dm (x)
+
+m(Bx)2
+
+2
+
+dm (y)
+
+!1/2
+
+≃
+
+ˆ 
+
+> Bz/2
+
+K(z, y )
+
+ˆ
+
+> Ω
+
+g(x)H(x, y ) dm (x)
+
+m(Bx)2 dm (y)
+
+for z ∈ Ω. Then, for ξ ∈ ∂Ω,
+
+˜A˜g(ξ) = 
+
+ˆ  
+
+> γ(ξ)Bz/2
+
+ˆ
+
+> Ω
+
+g(x)H(x, y ) dm (x)
+
+m(Bx)1/2
+
+2
+
+dm (y)
+
+!1/2
+
+dm (z)
+
+m(Bz )
+
+≲
+
+ˆ
+
+> γ(ξ)
+
+ˆ 
+
+> Bz/2
+
+ˆ
+
+> Ω
+
+g(x)H(x, y ) dm (x)
+
+m(Bx)2
+
+2
+
+dm (y)
+
+!1/2
+
+dm (z)
+
+≲
+
+ˆ
+
+> z∈γ(ξ)
+
+ˆ 
+
+> y∈Bz/2
+
+K(z, y )
+
+ˆ
+
+> x∈Ω
+
+g(x)H(x, y ) dm (x)
+
+m(Bx)2 dm (y) dm (z)
+
+≲
+
+ˆ
+
+> x∈γ16 (ξ)
+
+g(x)
+
+ˆ
+
+> z∈4Bx∩Ω
+
+ˆ
+
+> y∈Ω
+
+K(z, y )H(x, y ) dm (y) dm (z) dm (x)
+
+m(Bx)2
+
+≲
+
+ˆ
+
+> γ16 (ξ)
+
+g(x)
+
+ˆ
+
+> 4Bx∩Ω
+
+∥K(z, ·)∥2∥H(x, ·)∥2 dm (z) dm (x)
+
+m(Bx)2
+
+≲
+
+ˆ
+
+> γ16 (ξ)
+
+g(x) dm (x)
+
+m(Bx) = A(10) g(ξ); 
+
+Where we used the fact that H(x, y ) = 0 if |x − y| > δ (x) and the doubling properties of m for the first estimate, the same property of H and Fubini for the third one, and Hölder’s inequality for the fourth one. This implies that ∥ ˜A˜g∥p ≲ ∥A g∥p ≤ 1, and proves (A.88). Finally, let us prove that Ap(Ω) ′ is homeomorphic to Np′
+
+(Ω) ; the characterization of ˜Ap(Ω) ′ can be proven using the exact same arguments. First, remark that (A.85) gives us that 
+
+Np′
+
+(Ω) −→ Ap(Ω) ′
+
+f 7 −→ 
+
+
+
+g 7 →
+
+ˆ
+
+f g dm ρδ 
+
+
+
+Is well-defined. Next, take ℓ ∈ Ap(Ω) ′; for any compact set K of Ω, there exists CK > 0 such that 
+
+∥A g∥p ≤ CK ∥g∥L1(K), for g ∈ L1(K, m ).
+
+35 By Riesz’s theorem, there exists a unique FK ∈ Lp(K, m ) such that ℓ(g) = ´ 
+
+> K
+
+FK g dm for any 
+
+g ∈ L1(K, m ). By taking f = ρδF K on any compact K of Ω, we then obtain a well-defined and unique function f ∈ L∞
+
+> loc
+
+(Ω , m ) such that 
+
+ℓ(g) = 
+
+ˆ
+
+> Ω
+
+f g dm ρδ , for g ∈ L1 
+
+> c
+
+(Ω , m ). (A.94) Let us prove that ∥N f ∥p′ ≲ ∥ℓ∥. Take a compact K in Ω, and write fK := f 1K . Then fK ∈
+
+L∞ 
+
+> c
+
+(Ω , m ) ⊂ N p′
+
+(Ω) , and 
+
+∥N fK ∥p′ ≲ sup 
+
+> ∥A g∥p≤1
+
+ˆ
+
+> Ω
+
+fK g dm ρδ = sup 
+
+> ∥A g∥p≤1
+
+ℓ(g1K ) ≤ ∥ ℓ∥, (A.95) where we used (A.87) and (A.94), and where the constant is independent from K. By Fatou’s lemma, we obtain ∥N f ∥p′ ≲ ∥ℓ∥. Finally, now that we know that f ∈ Np′
+
+(Ω) , we can extend (A.94) to all g ∈ Ap(Ω) ; indeed, it is easy to prove that L1 
+
+> c
+
+(Ω , m ) is dense in Ap(Ω) , and the continuity of the right hand sign is given by (A.85). This implies simultaneously that our identification is in fact a bijection, and that ∥ℓ∥ ≲ ∥N f ∥p′ . Piecing together all that information, we obtain that Ap(Ω) ′
+
+is homeomorphic to Np′
+
+(Ω) .
+
+Theorem A.8. Let 1 < p < ∞. We have 
+
+∥A g∥p′ ≤ C sup   
+
+> ∥N f∥p≤1
+
+ˆ
+
+> Ω
+
+f g dm ρδ for g ∈ Ap′
+
+(Ω) (A.96) 
+
+and 
+
+∥ ˜Ag∥p′ ≤ C sup    
+
+> ∥˜Nf∥p≤1
+
+ˆ
+
+> Ω
+
+f g dm ρδ for g ∈ ˜Ap′
+
+(Ω) , (A.97) 
+
+where C > 0 depends only on p, C′ 
+
+> m
+
+and Cμ.Proof. Let us begin by proving (A.96). As before, it is enough to consider g ≥ 0 in Ap′
+
+(Ω) . The proof uses the same ideas as in the one of (A.87), although being much easier. By duality, 
+
+∥A g∥p′ = sup 
+
+> ∥φ∥p≤1
+
+ˆ
+
+> ∂Ω
+
+(Ag)φ dμ. (A.98) Take φ ≥ 0 in Lp(∂Ω, μ ) such that ∥φ∥p ≤ 1. Using Fubini’s theorem, 
+
+ˆ
+
+> ∂Ω
+
+(Ag)φ dμ =
+
+ˆ
+
+> ∂Ω
+
+φ(ξ)
+
+ˆ
+
+> γ(ξ)
+
+g(x) dm (x)
+
+m(Bx) dμ (ξ)=
+
+ˆ
+
+> Ω
+
+g(x) 1
+
+m(Bx)
+
+ˆ
+
+> 2Bx∩∂Ω
+
+φ(ξ) dμ (ξ) dm (x)=
+
+ˆ
+
+> Ω
+
+f g dm ρδ ,
+
+where f (x) := ffl  
+
+> 2Bx∩∂Ω
+
+φ dμ for x ∈ Ω. Since 
+
+N f (ξ) = sup  
+
+> x∈γ(ξ)2Bx∩∂Ω
+
+φ dμ ≲ Mμφ(ξ) for ξ ∈ ∂Ω,
+
+using the doubling properties of μ, we have that ∥N f ∥p ≲ ∥M μφ∥p ≲ ∥φ∥p ≤ 1, giving us (A.96). As for (A.97), it is deduced from (A.96) in the exact same way that we deduced (A.88) from (A.87) in Theorem A.7. At last, we can prove the equivalence of norms under change of parameters for A:36 Lemma A.9. Let 1 < p < ∞. The Lp norms of A(α) are equivalent under change of α, i.e. for any α, α ′ > 0,
+
+∥A (α)g∥p ≤ Cα,α ′ ∥A (α′)g∥p,
+
+for any g measurable, where Cα,α ′ > 0 depends only on p, Cμ, C′
+
+> m
+
+, α and α′. Likewise, the Lp norms of ˜A(α,λ ) are equivalent under change of α and λ, i.e. for any α, α ′ > 0 and any 0 < λ, λ ′ ≤ 1/2,
+
+∥ ˜A(α,λ )g∥p ≤ Cα,α ′,λ/λ ′ ∥ ˜A(α′,λ ′)g∥p
+
+for any g ∈ L2
+
+> loc
+
+(Ω , m ) ,where Cα,α ′,λ/λ ′ > 0 depends only on p, Cμ, C′
+
+> m
+
+, α, α′ and λ/λ ′.Proof. this is a direct consequence of (A.96), (A.82) and Lemma A.2 for A, and (A.97), (A.83) and Lemma A.2 for ˜A.
+
+Definition A.10. Take 0 < λ ≤ 1/2. For any measurable function g : Ω −→ R, we define the Carleson function as 
+
+Cg(ξ) := sup 
+
+> r> 0
+
+1
+
+μ(B(ξ, r )) 
+
+ˆ
+
+> B(ξ,r )∩Ω
+
+|g| dm ρδ .
+
+For any g ∈ L2
+
+> loc
+
+(Ω , m ), we define the modified Carleson function as 
+
+˜C(λ)g(ξ) = sup 
+
+> r> 0
+
+1
+
+μ(B(ξ, r )) 
+
+ˆ 
+
+> B(ξ,r )∩ΩBx/2
+
+|g|2 dm 
+
+!1/2
+
+dm (x)
+
+ρ(x)δ(x) .
+
+We will note ˜C = ˜C(1) .Carleson’s duality theorem holds in our setting: 
+
+Theorem A.11. For any f, g ≥ 0 measurable, 
+
+ˆ
+
+> Ω
+
+f g dm ρδ ≤ C
+
+ˆ
+
+> ∂Ω
+
+(N f )( Cg) dm, (A.99) 
+
+where C > 0 depends only on Cμ.Proof. Take f, g ≥ 0 measurable. Thanks to Cavalieri’s principle, it is enough to show that 
+
+ν{x ∈ Ω | f (x) > t } ≲
+
+ˆ  
+
+> {ξ∈∂Ω| N f >t }
+
+Cg dμ, (A.100) for any t > 0, where dν := g dm ρδ . Let us also observe that for any B = B(ξ, r ) centered on ∂Ω,
+
+ν(16 B ∩ Ω) ≲
+
+ˆ
+
+> B
+
+Cg dμ. (A.101) Indeed, for any ζ ∈ B,
+
+ν(16 B ∩ Ω) ≤ ν (B(ζ, 32 r) ∩ Ω) = 
+
+ˆ
+
+> B(ζ, 32 r)∩Ω
+
+g dm ρδ ≲ μ(B)
+
+μ(B(ζ, 32 r)) 
+
+ˆ
+
+> B(ζ, 32 r)∩Ω
+
+g dm ρδ ≤ μ(B)Cg(ζ),
+
+using the doubling property of μ, which give us the estimate by averaging over ζ ∈ B.Let us prove (A.100). Fix some t > 0, and write Et := {ξ ∈ ∂Ω | N f > t }. If Et = ∂Ω,then taking ξ0 ∈ ∂Ω and r > 0, applying (A.101) to B(ξ0, r ) and letting r grow to infinity give us that ν(Ω) ≤ ´ 
+
+> ∂Ω
+
+Cg dμ , implying (A.100). Let us assume that Et ⊊ ∂Ω. Et is open in ∂Ω:indeed, if ξ ∈ ∂Ω satisfies N f (ξ) > t , then there exists x ∈ γ(ξ) such that f (x) > t ; let us note 
+
+rx = 2 δ(x) − | x − ξ| > 0. Since x ∈ γ(ζ) for any ζ ∈ B(ξ, r x) ∩ ∂Ω, we have B(ξ, r x) ∩ ∂Ω ⊂ Et.Since Et is open and different from ∂Ω, we can apply the Whitney Covering Theorem (see for example [CW77]) which give us a countable family of balls Bk = B(ξk, r k), for k ∈ N, centered on 
+
+∂Ω, and a constant C > 0 such that 37 (i) P 
+
+> k∈N
+
+1Bk ∩∂Ω ≤ C,(ii) Et = S 
+
+> k∈N
+
+Bk ∩ ∂Ω,(iii) 4Bk ∩ ∂Ω \ Et̸ = ∅.Now we will prove that 
+
+{x ∈ Ω | f (x) > t } ⊂ [
+
+> k∈N
+
+16 Bk. (A.102) Take x ∈ Ω such that f (x) > t , and ξ ∈ ∂Ω such that |x − ξ| = δ(x). Then ξ ∈ Et, so there exists 
+
+k ∈ N such that ξ ∈ Bk; thanks to (iii ), we can take ζ ∈ 4Bk ∩ ∂Ω \ Et. By choice of x we have that 2Bx ∩ ∂Ω ⊂ Et, so ζ / ∈ 2Bx; thus, 
+
+2δ(x) ≤ | ζ − ξ| ≤ | ζ − ξk| + |ξk − ξ| < 8rk,
+
+so |x − ξk| < δ (x) + rk < 16 rk, proving (A.102). Then, 
+
+ν{x ∈ Ω | f (x) > t } ≤ X
+
+> k∈N
+
+ν(16 Bk) ≲ X
+
+> k∈N
+
+ˆ
+
+> Bk
+
+Cg dμ ≲
+
+ˆ
+
+> Et
+
+Cg dμ, 
+
+using the inclusion (A.102) for the first estimate, (A.101) for the second one and properties (i) and 
+
+(ii ) of the Whitney decomposition for the last one. This concludes the proof. 
+
+Theorem A.12. Take 1 < p < ∞. We have 
+
+C−1∥A g∥p ≤ ∥C g∥p ≤ C∥A g∥p, (A.103) 
+
+for any g : Ω → R measurable, and 
+
+C−1∥ ˜Ag∥p ≤ ∥ ˜Cg∥p ≤ C∥ ˜Ag∥p, (A.104) 
+
+for any g ∈ L2
+
+> loc
+
+(Ω , m ), where C > 0 depends only on p, Cμ and C′
+
+> m
+
+.Proof. Let us begin by proving (A.103). By definition of A and C, it is enough to prove the result for g ≥ 0.First let’s prove that ∥A g∥p ≲ ∥C g∥p. Take g ≥ 0 measurable such that ∥C g∥p is finite. This implies that g ∈ L1
+
+> loc
+
+(Ω , m ); take a compact K in Ω, and note gK := g1K . Then gK ∈ Ap(Ω) and 
+
+∥A gK ∥p ≲ sup    
+
+> ∥N f∥p′≤1
+
+ˆ
+
+> Ω
+
+f g K
+
+dm ρδ 
+
+≲ sup    
+
+> ∥N f∥p′≤1
+
+∥N f ∥p′ ∥C g∥p ≲ ∥C g∥p,
+
+where we used (A.96) and Carleson’s duality theorem (A.99), and where the constants are inde-pendent from K. By Fatou’s lemma, we obtain the result. Now let’s show the converse estimate. Take g ≥ 0 measurable such that ∥A g∥p is finite. For any ball B centered on ∂Ω, we compute similarly as in the proof of (A.84) and get 
+
+ˆ
+
+> B
+
+g dm ρδ ≃
+
+ˆ
+
+> 2B∩∂Ω
+
+Ag dμ, 
+
+which implies that Cg(ξ) ≲ MμAg(ξ) for any ξ ∈ ∂Ω. Thus ∥C g∥p ≲ ∥M μAg∥p ≲ ∥A g∥p, which give us (A.103). As for (A.104), it is a direct consequence of (A.103). Obviously, the equivalence holds for ˜C(λ) as well; as a direct consequence, the Lp norms of C(λ)
+
+are equivalent under change of λ.38 Acknowledgements 
+
+This work has been carried out thanks to the grant "Programme blanc GS Mathématiques" of the École doctorale Mathématiques Hadamard, at Université Paris-Saclay. The author would like to thank his advisor, Joseph Feneuil, for his help while establishing these results, and during the writing and proofreading of this article. 
+
+# References 
+
+[Azz+20] Jonas Azzam, Steve Hofmann, José María Martell, Mihalis Mourgoglou, and Xavier Tolsa. “Harmonic measure and quantitative connectivity: geometric characterization of the Lp-solvability of the Dirichlet problem”. Invent. Math. 222.3 (2020), pp. 881–993. [Azz21] Jonas Azzam. “Semi-uniform domains and the A∞ property for harmonic measure”. 
+
+Int. Math. Res. Not. 2021.9 (2021), pp. 6717–6771. [CFK81] Luis A. Caffarelli, Eugene B. Fabes, and Carlos E. Kenig. “Completely singular elliptic-harmonic measures”. Indiana Univ. Math. J. 30 (1981), pp. 917–924. [CMS85] R. R. Coifman, Yves Meyer, and Elias M. Stein. “Some new function spaces and their applications to harmonic analysis.” J. Funct. Anal. 62 (1985), pp. 304–335. [CS07] Luis Caffarelli and Luis Silvestre. “An extension problem related to the fractional Lapla-cian”. Commun. Partial Differ. Equations 32.8 (2007), pp. 1245–1260. [CW77] Ronald R. Coifman and Guido Weiss. “Extensions of Hardy spaces and their use in analysis”. Bull. Am. Math. Soc. 83 (1977), pp. 569–645. [CY25] Mingming Cao and Kôzô Yabuta. “Absolute continuity of degenerate elliptic measure”. 
+
+J. Funct. Anal. 288.1 (2025), p. 65. [Dah77] Björn E. J. Dahlberg. “Estimates of harmonic measure”. Arch. Ration. Mech. Anal. 65 (1977), pp. 275–288. [DFM19] Guy David, Joseph Feneuil, and Svitlana Mayboroda. “Dahlberg’s theorem in higher co-dimension”. J. Funct. Anal. 276.9 (2019), pp. 2731–2820. [DFM21] G. David, J. Feneuil, and S. Mayboroda. Elliptic theory for sets with higher co-dimensional boundaries . Vol. 1346. Mem. Am. Math. Soc. Providence, RI: American Mathematical Society (AMS), 2021. [DFM23] Guy David, Joseph Feneuil, and Svitlana Mayboroda. Elliptic theory in domains with boundaries of mixed dimension . Vol. 442. Astérisque. Société Mathématique de France (SMF), 2023. [DJ90] Guy David and D. Jerison. “Lipschitz approximation to hypersurfaces, harmonic mea-sure, and singular integrals”. Indiana Univ. Math. J. 39.3 (1990), pp. 831–845. [DM23] G. David and S. Mayboroda. “Harmonic measure is absolutely continuous with respect to the Hausdorff measure on all low-dimensional uniformly rectifiable sets”. Int. Math. Res. Not. 2023.11 (2023), pp. 9319–9426. [DPP07] Martin Dindos, Stefanie Petermichl, and Jill Pipher. “The Lp Dirichlet problem for second order elliptic operators and a p-adapted square function”. J. Funct. Anal. 249.2 (2007), pp. 372–392. [Fen22] Joseph Feneuil. “Absolute continuity of the harmonic measure on low dimensional rec-tifiable sets”. J. Geom. Anal. 32.10 (2022), p. 36. [FJK83a] E. B. Fabes, D. S. Jerison, and C. E. Kenig. “Boundary behavior of solutions to degen-erate elliptic equations”. Vol. 2. 1983, pp. 577–589. [FJK83b] E. B. Fabes, D. S. Jerison, and C. E. Kenig. “The Wiener test for degenerate elliptic equations”. Ann. Inst. Fourier 32.3 (1983), pp. 151–182. 39 [FKS82] Eugene B. Fabes, Carlos E. Kenig, and Raul P. Serapioni. “The local regularity of solutions of degenerate elliptic equations”. Commun. Partial Differ. Equations 7 (1982), pp. 77–116. [FL24] Joseph Feneuil and Linhan Li. The Lp Poisson-Neumann problem and its relation to the Neumann problem . Preprint, arXiv:2406.16735. 2024. [FM] Joseph Feneuil and Svitlana Mayboroda. Analysis, Geometry, and PDE in a lower dimensional world . In preparation. [FP22] Joseph Feneuil and Bruno Poggi. “Generalized Carleson perturbations of elliptic oper-ators and applications”. Trans. Am. Math. Soc. 375.11 (2022), pp. 7553–7599. [FYY25] Xuelian Fu, Dachun Yang, and Sibei Yang. Equivalent Characterizations and Their Ap-plications of Solvability of Lp Poisson–Robin(-Regularity) Problems on Rough Domains .Preprint, arXiv:2507.11103. 2025. [Gal25] Josep M. Gallegos. One-sided Rellich inequalities, Regularity problem and uniform rec-tifiability . Preprint, arXiv:2506.03431. 2025. [Gia83] Mariano Giaquinta. Multiple integrals in the calculus of variations and nonlinear elliptic systems . Vol. 105. Ann. Math. Stud. Princeton University Press, Princeton, NJ, 1983. [HK95] Piotr Hajłasz and Pekka Koskela. “Sobolev meets Poincaré”. C. R. Acad. Sci., Paris, Sér. I 320.10 (1995), pp. 1211–1215. [HKM06] Juha Heinonen, Tero Kilpeläinen, and Olli Martio. Nonlinear potential theory of degen-erate elliptic equations . Unabridged republication of the 1993 original. Mineola, NY: Dover Publications, 2006. [HKM18] Juha Heinonen, Tero Kilpeläinen, and Olli Martio. Nonlinear potential theory of de-generate elliptic equations. With a new preface, corrigenda, and epilogue consisting of other new material . Reprint of the 2006 edition. Dover Books Math. Mineola, NY: Dover Publications, 2018. [Hof+15] Steve Hofmann, Carlos Kenig, Svitlana Mayboroda, and Jill Pipher. “Square function/non-tangential maximal function estimates and the Dirichlet problem for non-symmetric elliptic operators”. J. Am. Math. Soc. 28.2 (2015), pp. 483–529. [Hof+17] Steve Hofmann, Phi Le, José María Martell, and Kaj Nyström. “The weak-A∞ property of harmonic and p-harmonic measures implies uniform rectifiability”. Anal. PDE 10.3 (2017), pp. 513–558. [Hof+21] Steve Hofmann, José María Martell, Svitlana Mayboroda, Tatiana Toro, and Zihui Zhao. “Uniform rectifiability and elliptic operators satisfying a Carleson measure condition”. 
+
+Geom. Funct. Anal. 31.2 (2021), pp. 325–401. [Jer83] David Jerison. “The failure of Lp estimates for harmonic measure in chord-arc domains”. 
+
+Mich. Math. J. 30 (1983), pp. 191–198. [JK81a] David S. Jerison and Carlos E. Kenig. “The Dirichlet problem in non-smooth domains”. 
+
+Ann. Math. (2) 113 (1981), pp. 367–382. [JK81b] David S. Jerison and Carlos E. Kenig. “The Neumann problem on Lipschitz domains”. 
+
+Bull. Am. Math. Soc., New Ser. 4 (1981), pp. 203–207. [JK82] David S. Jerison and Carlos E. Kenig. “Boundary behavior of harmonic functions in non-tangentially accessible domains”. Adv. Math. 46 (1982), pp. 80–147. [KP01] Carlos E. Kenig and Jill Pipher. “The Dirichlet problem for elliptic equations with drift terms”. Publ. Mat., Barc. 45.1 (2001), pp. 199–217. [KP95] Carlos E. Kenig and Jill Phipher. “The Neumann problem for elliptic equations with nonsmooth coefficients. II”. Duke Math. J. 81.1 (1995), pp. 227–250. [Mat95] Pertti Mattila. Geometry of sets and measures in Euclidean spaces. Fractals and recti-fiability . Vol. 44. Camb. Stud. Adv. Math. Cambridge: Univ. Press, 1995. 40 [MM80] Luciano Modica and Stefano Mortola. “Construction of a singular elliptic-harmonic measure”. Manuscr. Math. 33 (1980), pp. 81–98. [MPT22] Mihalis Mourgoglou, Bruno Poggi, and Xavier Tolsa. Solvability of the Poisson-Dirichlet problem with interior data in Lp′
+
+-Carleson spaces and its applications to the Lp-regularity problem . Preprint, arXiv:2207.10554. 2022. [MT24] Mihalis Mourgoglou and Xavier Tolsa. “The regularity problem for the Laplace equation in rough domains”. Duke Math. J. 173.9 (2024), pp. 1731–1837. [MZ19] Svitlana Mayboroda and Zihui Zhao. “Square function estimates, the BMO Dirichlet problem, and absolute continuity of harmonic measure on lower-dimensional sets”. Anal. PDE 12.7 (2019), pp. 1843–1890. [Ste70] Elias M. Stein. Singular integrals and differentiability properties of functions . Vol. 30. Princeton Math. Ser. Princeton University Press, Princeton, NJ, 1970. [Ste93] Elias M. Stein. Harmonic analysis: Real-variable methods, orthogonality, and oscillatory integrals. With the assistance of Timothy S. Murphy . Vol. 43. Princeton Math. Ser. Princeton, NJ: Princeton University Press, 1993. [Ver84] Gregory Verchota. “Layer potentials and regularity for the Dirichlet problem for Laplace’s equation in Lipschitz domains”. J. Funct. Anal. 59 (1984), pp. 572–611. 41

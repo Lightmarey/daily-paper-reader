@@ -1,0 +1,5079 @@
+Title: Brinkman's term for the steady-state Navier-Stokes equations with prescribed flux rate or pressure drop in perforated pipes
+
+URL Source: https://arxiv.org/pdf/2608.03672v1
+
+Published Time: Wed, 05 Aug 2026 01:07:17 GMT
+
+Number of Pages: 43
+
+Markdown Content:
+# Brinkman’s term for the steady-state Navier-Stokes equations with prescribed flux rate or pressure drop in perforated pipes 
+
+Richard H¨ ofer ∗ Amina Mecherbet † Gianmarco Sperone ‡
+
+Abstract 
+
+The steady motion of a viscous incompressible fluid in a distorted pipe, containing several small particles of diameter ε3 and mutual distance ε, is modeled through the Navier-Stokes equations with mixed boundary conditions. Apart from inhomogeneous Dirichlet boundary conditions on the particles, these involve the Bernoulli pressure and the tangential velocity on the inlet and outlet of the tube, while either the transversal flux rate or the pressure drop is prescribed along the pipe. Applying the energy method in homogenization theory, we study the asymptotic behavior of the solutions to these systems as ε → 0, without any restriction on the magnitude of the data, and show that the effective equations display an additional Brinkman term. An important feature of the present work concerns the required uniform bounds, which are achieved (in the case of the prescribed flux problem) by a contradiction argument based on Bernoulli’s law for solutions of the stationary Euler equations. 
+
+AMS Subject Classification: 76M50, 76D05, 35B27, 35M32, 35Q31. 
+
+Keywords: incompressible fluids, mixed boundary conditions, homogenization, perforated domain. 
+
+# Contents 
+
+1 Introduction 22 Presentation of the problem and main results 4
+
+2.1 The geometry of the pipe . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42.2 The perforated domain . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 52.3 The fluid flow equations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 62.4 Assumptions and main results . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+
+3 Preliminary results 10 
+
+3.1 Capacity potential, divergence operator and construction of a flux carrier . . . . . . . . . 10 3.2 Stokes correctors and the restriction operator . . . . . . . . . . . . . . . . . . . . . . . . . 16 
+
+4 Uniform bounds and proof of the homogenization result 22 
+
+4.1 Boundary-value problems at the ε-level: uniform bounds . . . . . . . . . . . . . . . . . . . 22 4.2 Proof of Theorem 2.4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30 
+
+A Appendix 31 
+
+A.1 The Stokes problem in the exterior of a single particle . . . . . . . . . . . . . . . . . . . . 31 A.2 Limits of capacity densities . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 36 
+
+References 39 
+
+> ∗
+
+Fakult¨ at f¨ ur Mathematik, Universit¨ at Regensburg, Universit¨ atsstraße 31, 93053 Regensburg, Germany. Email: 
+
+richard.hoefer@ur.de .
+
+> †
+
+Institut de Math´ ematiques de Jussieu - Paris Rive Gauche, Universit´ e Paris Cit´ e, 8 Place Aur´ elie Nemours, 75013 Paris, France. Email: mecherbet@imj-prg.fr .
+
+> ‡
+
+Facultad de Matem´ aticas, Pontificia Universidad Cat´ olica de Chile, Avenida Vicu˜ na Mackenna 4860, 7820436 Santiago, Chile. Email: gianmarco.sperone@uc.cl .
+
+1arXiv:2608.03672v1 [math.AP] 4 Aug 2026 1 Introduction 
+
+The study of the laminar motion of a viscous incompressible fluid in a junction of pipes Ω ⊂ R3, whose bounding walls are rigid and impermeable, constitutes a fundamental theme in Fluid Mechanics [47] due to its applications in a variety of fields such as aerodynamics [64], hemodynamics [25] and petroleum engineering [9]. In all these disciplines, an essential investigation involves the fluid motion through an array of solid particles or perforations contained in the junction of pipes [7, 39]. More precisely, for an arbitrarily small parameter ε > 0, the fluid flow equations are set in a new domain Ω ε ⊂ R3, obtained by placing inside Ω a large quantity N (ε) of particles, each one of diameter εα (α ≥ 1), at a mutual distance ε from each other. The goal is then to derive an effective description of the system dynamics when ε → 0; mathematically, this can be achieved within the context of homogenization theory [63]. In the seminal works of Marchenko & Khruslov [48, Chapter IV], S´ anchez-Palencia [20, 57], Tartar [62] and Allaire [2, 3], three different regimes have been identified concerning the homogenization of the stationary Stokes or Navier-Stokes equations: 
+
+• In the subcritical regime α > 3, the particles have a vanishing effect as ε → 0, resulting in the original Stokes or Navier-Stokes system in Ω. 
+
+• In the critical regime α = 3, the particles give rise to an additional zero-order term – the Brinkman force – in the homogenized equation. This effective system is governed by the Brinkman equation [11]. 
+
+• In the supercritical regime α < 3, the Brinkman force dominates the viscous forces (and inertial forces in the case of the Navier-Stokes system), resulting in Darcy’s law [17] as the effective limit equation. Since then, homogenization methods in the context of Fluid Mechanics have attracted the interest of several authors. This includes, for instance, the study of convergence rates [31, 40, 58], the evolutionary incompressible and compressible Navier-Stokes equations [23, 33, 36, 50], the study of non-zero boundary data [12, 18, 30, 32], relaxation of the separation assumptions between the particles towards random configurations [12, 27, 28, 30, 34], among various others. Traditionally, the homogenization result for the stationary Navier-Stokes equations is obtained as a by-product of the corresponding result for the Stokes problem via a compact perturbation argument [2, 3, 15]. This approach is unfeasible in fluid flow models where a-priori bounds cannot be derived by simply testing the momentum equation by the solution itself, or else, without imposing a smallness condition on the data of the underlying system. One example is given by the celebrated Leray flux problem for the stationary Navier-Stokes equations in multiply-connected domains, under non-homogeneous Dirichlet boundary conditions [43]. A similar situation arises in the study of pipe flows with mixed boundary conditions, where the pressure drop ought to be calculated from a given velocity net flux [29, 44]. In fact, the unrestricted solvability of these problems, at the ε-level, is guaranteed by the Leray-Schauder Principle, reaching the required a-priori bounds through a reductio ad absurdum argument that employs Bernoulli’s law [42] for solutions of the stationary Euler equations. Application of homogenization techniques in such models becomes a delicate matter because, if one intends to deploy this contradiction argument for the obtainment of ε-uniform bounds, the complex structure of the perforations must be taken into account. Indeed, this approach was implemented in [54] for the homogenization of Leray’s flux problem in two dimensions, as well as in [59] for the homogenization of the prescribed net flux/prescribed pressure drop problem in a perforated pipe in the subcritical case α > 3. The present paper investigates the homogenization of the steady-state, incompressible Navier-Stokes equations in obstructed pipes in a polydisperse regime with mixed boundary conditions involving the Bernoulli pressure and the tangential velocity on the inlet and outlet of the tube, while either the transversal flux rate or the pressure drop is prescribed along the pipe. Our main contribution is the extension of the results contained in [59] to the critical case α = 3. Moreover, we consider distorted pipes (of finite length) with cylindrical outlets, and we allow non-zero constant Dirichlet boundary conditions at individual particles contained inside the pipes. This feature is relevant for applications, and a first step towards a more complete description that includes the particle evolution. Unfortunately, the rigorous mathematical treatment of the asymptotic behavior of such fully-coupled, dynamical many-particle-fluid problems is extremely challenging and there are only few works in related simplified settings [10, 37, 35]. 2The most significant results of this manuscript, Theorems 2.4 and 2.5, dictate that the homogenization process furnishes Brinkman’s equation in the limit, without any smallness assumption on the data (external force, flux rate or pressure drop). This is achieved by applying the energy method of Tartar [57, Appendix] which, broadly speaking, consists of three steps: (a) Proof of ε-uniform bounds for the solutions of the ε-dependent Navier-Stokes model. (b) Modification (correction) of the test functions in the homogenized domain (without perforations), turning them into admissible test functions at the ε-level. (c) Passage to the limit, as ε → 0, in the Navier-Stokes equations at the ε-level. We emphasize once more that, in most related homogenization results for the (in)-stationary Navier-Stokes equations in perforated domains, step (a) is just a consequence of a simple energy estimate (and a Poincar´ e inequality in the supercritical regime). In contrast, here we exploit the fact that we already anticipate the behavior of the ε-dependent fluid velocity as ε → 0, and therefore incorporate this feature in the aforementioned contradiction argument. This is also in distinction to [59], where the precise way in which the particles influence the fluid flow was irrelevant, since their effect is negligible in the limit as 
+
+ε → 0, in the subcritical case α > 3. More precisely, a scalar capacitary corrector was sufficient in [59] to complete all three steps (a)-(b)-(c), because the relative capacity of the swarm of particles vanishes in the homogenization limit, whereas it just remains uniformly bounded when α = 3, see Lemma 3.1. Therefore, in the current framework, this fundamental role is played by Stokes correctors which, in turn, allow for the construction of a suitable restriction operator in this polydisperse setting. Once step (a) is fulfilled, the same restriction operator allows us to complete phases (b)-(c). Con-trary to the classical procedure due to Allaire [2, Theorem 1.1.8], we pass to the limit by applying the restriction operator to test functions rather than multiplying the momentum equation by an oscillating 
+
+test function. In this regard, here we proceed similarly as in [28], but extending the method to a poly-disperse setting with non-zero particle velocities, and including the convergence of the pressure term in the homogenization limit. Moreover, in contrast to [28, Lemma 2.5], we build a genuine restriction operator, in the sense that it does not modify test functions that already vanish on the particles. Since the discoveries of Brinkman [11], it is well understood nowadays that the spatial distribution of the particles in the critical regime causes the appearance of an additional (friction) force in the fluid equations, originated from the collective reaction of the particles to the drag forces exerted on them by the viscous incompressible flow. Since the critical regime is dilute, the total drag force on the fluid is effectively given by the sum of the individual drag forces of the particles, which are determined by Stokes’ law: they are proportional to the resistance of the particle and the difference between the particle and the fluid velocity in the vicinity of the particle. Mathematically, this phenomenon has been properly identified in the case of zero particle velocities [2, 23], and in [12, 18, 30, 32] for non-zero particle velocities; accordingly, the Brinkman term (2.15)-(2.16) produced by our homogenization process is the sum of a friction term Gu and a source term J that arises from the limiting particle flux. This paper is organized as follows. In Section 2, we first define the precise geometric setting of the pipes and the perforations, as well as the fluid equations under investigation. We then present the main results of our paper, and the necessary assumptions to reach them. We gather, in Section 3, several preliminary lemmas involving classical tools such as the capacity potential, the divergence equation and the construction of a flux carrier adapted to a perforated domain with non-homogeneous Dirichlet boundary conditions. The Stokes correctors and the restriction operator are also assembled in this section, see Theorem 3.6. Section 4 is devoted to the definition of the functional spaces, the weak formulation of the problems under study, together with the proofs of Theorems 4.3-4.5 concerning the obtainment of ε-uniform bounds. We furnish the proof of our main result, Theorem 2.4, at the end of Section 4. Finally, the Appendix A is devoted to a detailed description of three essential topics which, even though are recurrent in the homogenization literature, are included here for the sake of completeness: the Stokes problem in the exterior of a single particle, the Stokes resistance matrix and the limits of the capacity densities treated in this manuscript. 32 Presentation of the problem and main results 
+
+2.1 The geometry of the pipe 
+
+Definition 2.1. An open bounded set Ω ⊂ R3 will be called admissible if ∂Ω is piecewise of class C2,
+
+Ω is simply connected and Ω is the union of three disjoint subsets as follows: (1) In some coordinate system, Ω1 .
+
+= Θ 1 × (0 , ℓ 1), for some ℓ1 > 0 and some open, bounded and planar domain Θ1 ⊂ R2 having boundary of class C2. Therefore, Ω1 is a cylinder of length ℓ1 and fixed cross-section, given by the planar set Θ1;(2) In some coordinate system, Ω2 .
+
+= Θ 2 × (0 , ℓ 2), for some ℓ2 > 0 and some open, bounded and planar domain Θ2 ⊂ R2 having boundary of class C2. Therefore, Ω2 is a cylinder of length ℓ2 and fixed cross-section, given by the planar set Θ2;(3) Ω0 .
+
+= Ω \ (Ω 1 ∪ Ω2) (note that Ω0 is not open). The boundary of Ω is decomposed as ∂Ω = Γ I ∪ ΓW ∪ ΓO, where 
+
+ΓI .
+
+= Θ 1 × { 0} (in the coordinate system defining Ω1) ,
+
+ΓO .
+
+= Θ 2 × { ℓ2} (in the coordinate system defining Ω2) , (2.1) 
+
+and ΓW ⊂ R3 represents the C2-surface connecting ΓI with ΓO.
+
+Let Ω ⊂ R3 be an admissible domain in the sense of Definition 2.1. The outward unit normal to ∂Ωis denoted by ν ∈ R3. Henceforth we will refer to Γ I and Γ O in (2.1) as the inlet and outlet of Ω, respectively, while Γ W includes all the physical walls of Ω. In few words, an admissible domain Ω ⊂ R3, in the sense of Definition 2.1, is a truncation (orthogonal to the symmetry axis of the inlet and outlet) of the domain considered in the celebrated Leray problem ,as described in [5, Definition 1.1] or [56, Chapter III]. Figure 2.1 illustrates an example of such admissible three-dimensional pipe. 
+
+Figure 2.1: Representation of an admissible domain Ω ⊂ R3.The reason behind the choice of domains with cylindrical ends is motivated by the existence of fully developed flows in these outlets, such as the Hagen-Poiseuille flow [47, Chapter II], characterized by the fact that the only nonzero component of the associated velocity field is directed along the axis of the tubes, see formula (3.17) below. This allows us to construct, in Lemma 3.4, sufficiently smooth flux carriers , i.e., vector fields satisfying the boundary conditions of the prescribed net flux problem. 4Remark 2.2. We emphasize that we do not assume that ∂Ω is connected. This allows us to treat “pipe networks” as long as there is one inlet and one outlet. Furthermore, all the results presented in this manuscript can be extended to the case when the admissible domain Ω ⊂ R3 has several cylindrical inlets and outlets, as depicted in Figure 2.2. 
+
+Figure 2.2: Representation of an admissible domain Ω ⊂ R3 with several inlets and outlets. 
+
+2.2 The perforated domain 
+
+For any ξ ∈ R3 and r > 0 we denote by B(ξ, r ) ⊂ R3 the open ball of radius r with center at ξ. Let (Kn)n∈N be a sequence of open, bounded and simply connected C2-sets with a uniform John constant [1, Definition 2.2.1] such that 
+
+0 ∈ Kn and Kn ⊂ B(0, δ 0) ∀n ∈ N , (2.2) for some δ0 > 0 independent of n ∈ N. Following [19, 22], given ε∗ > 0, we assume that for all ε ∈ (0 , ε ∗)there exist an integer N (ε) ≥ 1 and a collection of points ξε
+
+> 1
+
+, ..., ξεN (ε) ∈ R3 such that 
+
+ξεn + ε3 Kn ⊂ B(ξεn, δ 0ε3) ⊂ B(ξεn, δ 1ε) ⊂ B(ξεn, δ 2ε) ⊂ Ω ∀n ∈ { 1, ..., N (ε)} ,∂B (ξεn, δ 2ε) ∩ ∂B (ξεm, δ 2ε) = ∅ ∀n, m ∈ { 1, ..., N (ε)} , n ̸ = m , ∂B (ξεn, δ 2ε) ∩ ∂Ω = ∅ ∀n ∈ { 1, ..., N (ε)} ,
+
+(2.3) for some constants δ2 > δ 1 > 0 that are independent of ε ∈ (0 , ε ∗). Setting Kεn
+
+.
+
+= ξεn + ε3Kn for every 
+
+n ∈ { 1, ..., N (ε)}, we refer to the family {Kεn}N (ε) 
+
+> n=1
+
+satisfying (2.3) as the particles , while Ωε .
+
+= Ω \ Kε .
+
+= Ω \ 
+
+> N(ε)
+
+[
+
+> n=1
+
+Kεn ,
+
+represents the perforated fluid domain at the ε-level. We emphasize that, given ε ∈ (0 , ε ∗), the family of particles {Kεn}N (ε) 
+
+> n=1
+
+is built in such a way that the size of each solid is proportional to ε3, while the mutual distance between any two consecutive particles is proportional to ε. Moreover, since we only consider those particles that are strictly contained in Ω (in the sense of (2.3) 3), the following bound on the number N (ε) holds: 
+
+N (ε) ≤ 3|Ω|
+
+4πδ 32 ε3 . (2.4) Notice, however, that the solids {Kεn}N (ε) 
+
+> n=1
+
+may have different shapes and that they are not necessarily periodically distributed in Ω. 5Figure 2.3: Representation of the perforated domain Ω ε.
+
+2.3 The fluid flow equations 
+
+We decompose the boundary of Ω ε as ∂Ωε = Γ I ∪ ΓW ∪ ∂K ε ∪ ΓO, where 
+
+∂K ε .
+
+= 
+
+> N(ε)
+
+[
+
+> n=1
+
+∂K εn .
+
+The outward unit normal to ∂Ωε is still denoted by ν (with some abuse of notation, as such vector also depends on ε). Given ε ∈ (0 , ε ∗) and a collection of constant vectors με
+
+> 1
+
+, ..., μεN (ε) ∈ R3, we analyze the steady motion of a viscous incompressible fluid (having unit kinematic viscosity) along Ω ε, which is characterized by its velocity vector field uε : Ω ε −→ R3 and its scalar pressure pε : Ω ε −→ R, under the action of an external force f : Ω −→ R3. Such stationary motion will be modeled through two different boundary-value problems (with mixed boundary conditions) associated to the steady-state Navier-Stokes equations in Ω ε. We firstly consider the prescribed net flux problem , which reads 
+
+
+
+− ∆uε + ( uε · ∇ )uε + ∇pε = f , ∇ · uε = 0 in Ωε ;
+
+uε = 0 on ΓW ; uε = μεn on ∂K εn ∀n ∈ { 1, ..., N (ε)} ;
+
+uε × ν = 0 , − ∂∂ν (uε · ν) + pε + 12 |uε|2 = p− 
+
+> ε
+
+on ΓI ;
+
+uε × ν = 0 , − ∂∂ν (uε · ν) + pε + 12 |uε|2 = p+ 
+
+> ε
+
+on ΓO ;
+
+Z
+
+> ΓO
+
+uε · ν = F . 
+
+(2.5) While the first equality in (2.5) 2 corresponds to the usual no-slip boundary condition on the physical walls Γ W , the second identity in (2.5) 2 determines the motion of the particle Kεn with constant velocity 
+
+μεn, for every n ∈ { 1, ..., N (ε)}. On the other hand, the first equality in (2.5) 3-(2.5) 4 dictates that the fluid flow must enter and leave the domain Ω orthogonal to the inlet and outlet walls. Introducing the 
+
+Bernoulli pressure as Φε .
+
+= pε + 12 |uε|2 in Ωε ,
+
+the second identity in (2.5) 3-(2.5) 4 imposes that, on both Γ I and Γ O, the sum between the normal derivative of uε · ν and the Bernoulli pressure must equal some constants p∓ 
+
+> ε
+
+∈ R that represent the 
+
+unknown pressure drop p+ 
+
+> ε
+
+− p− 
+
+> ε
+
+along the perforated pipe (therefore, p∓ 
+
+> ε
+
+are unknown, not prescribed, 6constants that depend on the solution). Finally, (2.5) 5 dictates that the transversal flow rate of the velocity field, at the outlet Γ O, is given by a quantity F ∈ R. Owing to the Divergence Theorem and the boundary conditions (2.5) 2, it can be easily seen that (2.5) 5 is equivalent to the requirement 
+
+Z
+
+> ΓI
+
+uε · ν = −F . 
+
+Secondly, we analyze the prescribed pressure drop problem , which reads 
+
+
+
+− ∆uε + ( uε · ∇ )uε + ∇pε = f , ∇ · uε = 0 in Ωε ;
+
+uε = 0 on ΓW , uε = μεn on ∂K εn ∀n ∈ { 1, ..., N (ε)} ;
+
+uε × ν = 0 , − ∂∂ν (uε · ν) + pε + 12 |uε|2 = p− on ΓI ;
+
+uε × ν = 0 , − ∂∂ν (uε · ν) + pε + 12 |uε|2 = p+ on ΓO ,
+
+(2.6) where now the constants p∓ ∈ R are given and prescribe the pressure drop p+ − p− along the obstructed pipe. Consider a strong solution ( uε, p ε) ∈ W 2,2(Ω ε; R3) × W 1,2(Ω ε; R) to system (2.6). In view of the Divergence Theorem and the boundary conditions (2.6) 2, we observe that the transversal flux rate 
+
+Fε .
+
+= −
+
+Z
+
+> ΓI
+
+uε · ν ,
+
+is constant along the pipe, but depends on the solution, meaning that 
+
+Fε =
+
+Z
+
+> ΓO
+
+uε · ν .
+
+Since the scalar pressure can be determined up to an additive constant, without loss of generality we may take p− 
+
+> ε
+
+= 0 in (2.5) 3 (as a consequence, we can no longer assume that the scalar pressure has zero mean value over Ω ε). Moreover, in view of the identity 
+
+∇
+
+ 12 |uε|2
+
+
+
+= ( uε · ∇ )uε − (∇ × uε) × uε in Ωε , (2.7) it is customary (see, for example, [29, 44]) to formulate systems (2.5)-(2.6) in terms of the Bernoulli pressure, thereby resulting in the following equivalent problems: 
+
+
+
+− ∆uε + ( ∇ × uε) × uε + ∇Φε = f , ∇ · uε = 0 in Ωε ;
+
+uε = 0 on ΓW ; uε = μεn on ∂K εn ∀n ∈ { 1, ..., N (ε)} ;
+
+uε × ν = 0 , − ∂∂ν (uε · ν) + Φ ε = 0 on ΓI ;
+
+uε × ν = 0 , − ∂∂ν (uε · ν) + Φ ε = p+ 
+
+> ε
+
+on ΓO ;
+
+Z
+
+> ΓO
+
+uε · ν = F
+
+(2.8) and 
+
+− ∆uε + ( ∇ × uε) × uε + ∇Φε = f , ∇ · uε = 0 in Ωε ;
+
+uε = 0 on ΓW ; uε = μεn on ∂K εn ∀n ∈ { 1, ..., N (ε)} ;
+
+uε × ν = 0 , − ∂∂ν (uε · ν) + Φ ε = p− on ΓI ;
+
+uε × ν = 0 , − ∂∂ν (uε · ν) + Φ ε = p+ on ΓO .
+
+(2.9) 7Remark 2.3. Let Ω ⊂ R3 be an admissible domain in the sense of Definition 2.1. Given two vector fields u, φ ∈ W 2,2(Ω ε; R3) such that 
+
+u × ν = φ × ν = 0 on ΓI ∪ ΓO ,
+
+a straightforward computation shows 
+
+φ · ∂u
+
+∂ν = ( φ · ν) ∂∂ν (u · ν) on ΓI ∪ ΓO . (2.10) 
+
+2.4 Assumptions and main results 
+
+The weak formulation of the prescribed net flux (2.8) and pressure drop (2.9) problems can be found in Definitions 4.1-4.2, respectively. In Theorem 4.3 we provide uniform bounds with respect to ε ∈ I∗, with 
+
+I∗ .
+
+= (0 , ε ∗), for weak solutions of the prescribed net flux problem (2.8) under two additional assumptions: - the constant vectors με
+
+> 1
+
+, ..., μεN (ε) ∈ R3 satisfy the following uniform bound on the kinetic energy: 
+
+S∗ .
+
+=
+
+vuut sup 
+
+> ε∈(0 ,ε ∗)
+
+1
+
+N (ε) 
+
+> N(ε)
+
+X
+
+> n=1
+
+|μεn|2 < +∞ , (2.11) see also [30, Assumption (A1)] or [31, Hypothesis (H3)]. - there are no particles in the vicinity of the inlet Γ I and outlet Γ O walls, see condition (4.3). We refer to Remark 4.4 for more details. Accordingly, ε-uniform bounds for the weak solutions of the prescribed pressure drop problem (2.9) are furnished, under the sole assumption (2.11), in Theorem 4.5. These uniform bounds justify the main goal of the present article: the investigation of the asymptotic behavior of the solutions of problems (2.8)-(2.9) as ε → 0+. The derivation of such effective equations is ensured provided that the Stokes capacity densities admit a limit, which, in turn, enables to define the Brinkman force. For that, given ε ∈ I∗ and n ∈ { 1, . . . , N (ε)}, denote by Gn ∈ R3×3 the Stokes resistance matrix associated to the Stokes problem in the exterior of Kn. For V ∈ R3, GnV is the drag force exerted on the fluid by the particle Kn when moving with velocity V relative to the fluid speed at infinity, in an otherwise unperturbed Stokes flow; we refer to (A.26) in Appendix A.1 for the precise definition. Then, since the drag force is proportional to the difference of the given particle velocity and the unknown surrounding fluid velocity, we are naturally led to the study of the limiting behavior of 
+
+
+
+Gε(M ) .
+
+= ε3 
+
+> N(ε)
+
+X
+
+> n=1
+
+Gn M (ξεn) ∀M ∈ W 1,∞(Ω; R3×3) ; 
+
+Jε(φ) .
+
+= ε3 
+
+> N(ε)
+
+X
+
+> n=1
+
+Gnμεn · φ(ξεn) ∀φ ∈ W 1,∞(Ω; R3) ,
+
+(2.12) where the scaling factor ε3 arises from the fact that the Stokes capacity is linear in the diameter of the particles. We consequently assume the existence of G ∈ L2(Ω; R3×3) and J ∈ L2(Ω; R3) such that 
+
+
+
+Gε → G in the strong operator topology of L(W 1,∞(Ω; R3×3), R3×3) as ε → 0+ ;
+
+Jε → J ∗ − weakly in ( W 1,∞(Ω; R3)) ∗ as ε → 0+ ,
+
+(2.13) 8or equivalently, that 
+
+lim  
+
+> ε→0+
+
+Gε(M ) = 
+
+Z
+
+> Ω
+
+GM ∀M ∈ W 1,∞(Ω; R3×3) ; lim  
+
+> ε→0+
+
+Jε(φ) = 
+
+Z
+
+> Ω
+
+J · φ ∀φ ∈ W 1,∞(Ω; R3) .
+
+(2.14) As we will see in Section A.2, assumption (2.13) is always satisfied along a subsequence due to our hypothesis (2.3) on the separation the particles. For the prescribed net flux problem, our homogenization result reads: 
+
+Theorem 2.4. Let Ω ⊂ R3 be an admissible domain. Given F ∈ R, f ∈ L2(Ω; R3) and (μεn)N (ε) 
+
+> n=1
+
+⊂ R3,let (uε, Φε) ∈ W 1,2(Ω ε; R3) × L2(Ω ε; R) be a weak solution of the prescribed net flux problem (2.8) as described in Theorem 4.3. Define the extensions {(euε, eΦε)}ε∈I∗ ⊂ W 1,2(Ω; R3) × L2(Ω; R) by 
+
+euε .
+
+=
+
+
+
+uε in Ωε
+
+μεn in Kεn ∀n ∈ { 1, . . . , N (ε)} ,
+
+and eΦε .
+
+=
+
+
+
+Φε in Ωε
+
+0 in Kε .
+
+Suppose that (u, Φ) ∈ W 1,2(Ω; R3)×L2(Ω; R) is a weak accumulation point of the sequence {(euε, eΦε)}ε∈I∗
+
+in W 1,2(Ω; R3) × L2(Ω; R). Then, under assumptions (2.11) -(2.13) , (u, Φ) is a weak solution to the following prescribed net flux problem in Ω:
+
+
+
+− ∆u + ( ∇ × u) × u + ∇Φ + Gu − J = f , ∇ · u = 0 in Ω ; 
+
+u = 0 on ΓW ;
+
+u × ν = 0 , − ∂∂ν (u · ν) + Φ = 0 on ΓI ;
+
+u × ν = 0 , − ∂∂ν (u · ν) + Φ = p+ on ΓO ;
+
+Z
+
+> ΓO
+
+u · ν = F , 
+
+(2.15) 
+
+for some constant p+ ∈ R.
+
+Similarly, for the prescribed pressure drop problem, our homogenization result reads: 
+
+Theorem 2.5. Let Ω ⊂ R3 be an admissible domain. Given p± ∈ R, f ∈ L2(Ω; R3) and (μεn)N (ε) 
+
+> n=1
+
+⊂ R3,let (uε, Φε) ∈ W 1,2(Ω ε; R3) × L2(Ω ε; R) be a weak solution of the prescribed pressure drop problem (2.9) 
+
+as described in Theorem 4.5. Define the extensions {(euε, eΦε)}ε∈I∗ ⊂ W 1,2(Ω; R3) × L2(Ω; R) by 
+
+euε .
+
+=
+
+
+
+uε in Ωε
+
+μεn in Kεn ∀n ∈ { 1, . . . , N (ε)} ,
+
+and eΦε .
+
+=
+
+
+
+Φε in Ωε
+
+0 in Kε .
+
+Suppose that (u, Φ) ∈ W 1,2(Ω; R3)×L2(Ω; R) is a weak accumulation point of the sequence {(euε, eΦε)}ε∈I∗
+
+in W 1,2(Ω; R3) × L2(Ω; R). Then, under assumptions (2.11) -(2.13) , (u, Φ) is a weak solution to the following prescribed pressure drop problem in Ω:
+
+
+
+− ∆u + ( ∇ × u) × u + ∇Φ + Gu − J = f , ∇ · u = 0 in Ω ; 
+
+u = 0 on ΓW ;
+
+u × ν = 0 , − ∂∂ν (u · ν) + Φ = p− on ΓI ;
+
+u × ν = 0 , − ∂∂ν (u · ν) + Φ = p+ on ΓO .
+
+(2.16) 9Remark 2.6. Theorem 2.4 dictates that any weak accumulation point of a sequence of solutions to the prescribed net flux problem (2.8) obeys the Brinkman law (2.15) under assumptions (2.11) -(2.13) . The existence of (at least) one such accumulation point follows directly from Theorem 4.3, supposing the further condition (4.3) . Similarly, Theorem 4.5 ensures that the sequence of solutions to the prescribed pressure drop problem (2.9) admits a weak accumulation point. 
+
+# 3 Preliminary results 
+
+3.1 Capacity potential, divergence operator and construction of a flux carrier 
+
+Let Ω ⊂ R3 be an admissible domain in the sense of Definition 2.1, and let ε ∈ I∗ be a fixed parameter. Many of the results contained in the present article exploit the concept of relative capacity of Kε with respect to Ω, defined as Cap Ω(Kε) .
+
+= min   
+
+> v∈W1,20(Ω; R)
+
+Z 
+
+> Ω
+
+|∇ v|2 v = 1 in Kε
+
+
+
+. (3.1) The relative capacity potential of Kε with respect to Ω, that is, the scalar function ϕε ∈ W 1,20 (Ω; R)achieving the minimum in (3.1), satisfies ∆ϕε = 0 in Ωε , ϕε = 0 on ∂Ω , ϕε = 1 in Kε , Cap Ω(Kε) = ∥∇ ϕε∥2 
+
+> L2(Ω)
+
+, (3.2) see [51, Chapter 2] for more details. Further essential properties of the relative capacity potential are collected in the following result, in the spirit of [4, Proposition 4.3] and the examples of [14, Section 2]: 
+
+Lemma 3.1. Let Ω ⊂ R3 be an admissible domain and ϕε ∈ W 1,20 (Ω; R) be the function satisfying (3.2) .Then, ϕε ∈ W 2,2(Ω ε; R) and the following estimate holds: 
+
+∥ϕε∥L∞(Ω ε) + ∥∇ ϕε∥L2(Ω ε) ≤ C∗ , (3.3) 
+
+for some constant C∗ > 0 that depends on Ω and {δi}2
+
+> i=0
+
+, but is independent of ε ∈ I∗.
+
+Proof. In what follows, C > 0 will always denote a generic constant that depends on Ω and {δi}2
+
+> i=0
+
+(independently of ε ∈ I∗), but that may change from line to line. Since Kεn has a boundary of class C2 for every n ∈ { 1, ..., N (ε)}, the domains Ω 1 and Ω 2 are cylinders, and the lateral boundary Γ W is smooth, standard elliptic regularity arguments show that 
+
+ϕε ∈ W 2,2(Ω ε; R). The first estimate in (3.3) follows directly from the Maximum Principle. Concerning the second estimate in (3.3), choose λ > δ 0 (independent of ε ∈ I∗) such that 
+
+Kεn ⊂ B(ξεn, δ 0ε3) ⊂ B(ξεn, λε 3) ⊂ B(ξεn, δ 1ε) ∀n ∈ { 1, ..., N (ε)} .
+
+Given n ∈ { 1, ..., N (ε)}, take a cutoff function φεn ∈ C ∞ 
+
+> 0
+
+(B(ξεn, λε 3); [0 , 1]) such that 
+
+φεn ≡ 1 in B(ξεn, δ 0ε3) ; |∇ φεn(ξ)| ≤ Cε3 and |∇ 2φεn(ξ)| ≤ Cε6 ∀ξ ∈ B(ξεn, λε 3) , (3.4) see [38, Chapter I, Section 1.4]. Since the relative capacity is an outer measure and is increasing with respect to domain inclusion (see [51, Section 2.2]), from (2.3)-(2.4)-(3.4) we get 
+
+∥∇ ϕε∥2 
+
+> L2(Ω)
+
+= Cap Ω(Kε) ≤ 
+
+> N(ε)
+
+X
+
+> n=1
+
+Cap Ω(Kεn) ≤ 
+
+> N(ε)
+
+X
+
+> n=1
+
+Cap Ω(B(ξεn, δ 0ε3)) ≤ 
+
+> N(ε)
+
+X
+
+> n=1
+
+Z 
+
+> Ω
+
+|∇ φεn|2
+
+
+
+≤ C . 
+
+This concludes the proof. 2
+
+In the sequel, an important role will be played by a suitably small divergence-free vector field having a localized support around each of the particles Kεn, for n ∈ { 1, ..., N (ε)}. More precisely, following the ideas contained in [32, Lemma 6] , we prove: 10 Lemma 3.2. Let Ω ⊂ R3 be an admissible domain and με
+
+> 1
+
+, ..., μεN (ε) ∈ R3. There exists a vector field 
+
+Aε ∈ C ∞(Ω; R3) such that 
+
+∇ · Aε = 0 in Ω ; Aε = 0 on ∂Ω ; Aε = μεn in Kεn ∀n ∈ { 1, ..., N (ε)} .
+
+Moreover, under assumption (2.11) , there hold the bounds 
+
+∥∇ Aε∥L2(Ω) ≤ C∗S∗ and ∥Aε∥L4(Ω) ≤ C∗S∗ ε3/4 , (3.5) 
+
+for some constant C∗ > 0 that depends on Ω and {δi}2
+
+> i=0
+
+, but is independent of ε ∈ I∗.
+
+Proof. In what follows, C > 0 will always denote a generic constant that depends on Ω and {δi}2
+
+> i=0
+
+(independently of ε ∈ I∗), but that may change from line to line. Let φεn ∈ C ∞ 
+
+> 0
+
+(B(ξεn, λε 3); [0 , 1]) be the cutoff function observing (3.4), for any n ∈ { 1, ..., N (ε)}.Define 
+
+Aε(ξ) .
+
+= 12 
+
+> N(ε)
+
+X
+
+> n=1
+
+∇ × (φεn(ξ)( μεn × (ξ − ξεn))) ∀ξ ∈ Ω .
+
+Clearly, Aε ∈ C ∞(Ω; R3) is a divergence-free vector field such that, due to (2.3)-(3.4), vanishes on ∂Ω. Given any j ∈ { 1, ..., N (ε)} and ξ ∈ B(ξεj , δ 0ε3), from (3.4) 1 we infer 
+
+Aε(ξ) = 12 ∇ × (μεj × (ξ − ξεj )) = μεj ∀ξ ∈ B(ξεj , δ 0ε3) ,
+
+and therefore, Aε = μεj in Kεj , for every j ∈ { 1, ..., N (ε)}. Concerning the estimates in (3.5), recall that 
+
+φεj ∈ C ∞ 
+
+> 0
+
+(B(ξεj , λε 3); [0 , 1]) for every j ∈ { 1, ..., N (ε)}, and thus 
+
+Z
+
+> Ω
+
+|∇ Aε|2 = 
+
+> N(ε)
+
+X
+
+> j=1
+
+Z 
+
+> B(ξεj,λε 3)
+
+|∇ Aε|2
+
+!
+
+,
+
+Z
+
+> Ω
+
+|Aε|4 = 
+
+> N(ε)
+
+X
+
+> j=1
+
+Z 
+
+> B(ξεj,λε 3)
+
+|Aε|4
+
+!
+
+. (3.6) Given any j ∈ { 1, ..., N (ε)}, we have 
+
+Aε(ξ) = 12 ∇ × (φεj (ξ)( μεj × (ξ − ξεj ))) = φεj (ξ)μεj + 12 ∇φεj (ξ) × (μεj × (ξ − ξεj )) ∀ξ ∈ B(ξεj , λε 3) ,
+
+thereby implying, in virtue of (3.4) 2-(3.4) 3,
+
+|∇ Aε(ξ)| ≤ Cε3 |μεj | and |Aε(ξ)| ≤ C|μεj | ∀ξ ∈ B(ξεj , λε 3) , ∀j ∈ { 1, ..., N (ε)} . (3.7) Inserting (3.7) into the right-hand side of both identities (3.6), and then enforcing (2.4)-(2.11), entails 
+
+Z
+
+> Ω
+
+|∇ Aε|2 ≤ Cε 3 
+
+> N(ε)
+
+X
+
+> n=1
+
+|μεn|2 ≤ CS∗ ,
+
+as well as Z
+
+> Ω
+
+|Aε|4 ≤ Cε 9 
+
+> N(ε)
+
+X
+
+> n=1
+
+|μεn|4 ≤ Cε 3
+
+ε3 
+
+> N(ε)
+
+X
+
+> n=1
+
+|μεn|2
+
+
+
+> 2
+
+≤ CS4 
+
+> ∗
+
+ε3 ,
+
+from where we directly obtain (3.5). This concludes the proof. 2
+
+Let D ⊂ R3 be any bounded Lipschitz domain, and consider the space of square-integrable functions in D having zero mean value: 
+
+L20(D; R) .
+
+=
+
+
+
+g ∈ L2(D; R)
+
+Z
+
+> Q
+
+g = 0 
+
+
+
+. (3.8) 11 It is well-known (see [24, Section III.3] and Lemma 3.3 below) that this space plays a fundamental role in the inversion of the divergence operator on L20(D; R), and therefore, also for the obtainment of pressure estimates in the equations of hydrodynamics in general. Recall that, in (2.5), the scalar pressure was modified by a suitable additive constant, in order to yield the homogeneous boundary condition (2.8) 3.As a consequence, in contrast with the standard case of Dirichlet boundary conditions, we can no longer assume that the Bernoulli pressure is an element of L20(Ω ε; R), see (3.8). Another essential preliminary result concerns, therefore, the construction of an ε-uniform inverse of the divergence operator on the space L2(Ω ε; R), which exploits the corresponding uniform operator on L20(Ω ε; R), built in [19], and the particular geometry of our setting. Inspired by [44, Lemma 4.2], we prove: 
+
+Lemma 3.3. Let Ω ⊂ R3 be an admissible domain and q ∈ L2(Ω ε; R). There exists a vector field 
+
+Jε ∈ W 1,2(Ω ε; R3) such that 
+
+
+
+∇ · Jε = q in Ωε ; Jε × ν = 0 on ΓI ; Jε = 0 on ΓW ∪ ∂K ε ∪ ΓO ;
+
+∥∇ Jε∥L2(Ω ε) ≤ C∗∥q∥L2(Ω ε) ,
+
+(3.9) 
+
+for some constant C∗ > 0 that depends on Ω and {δi}2
+
+> i=0
+
+, but is independent of ε ∈ I∗.
+
+Proof. In what follows, C > 0 will always denote a generic constant that depends on Ω and {δi}2
+
+> i=0
+
+(independently of ε ∈ I∗), but that may change from line to line. For j ∈ { 1, 2}, let V (j)1 ∈ W 2,2(Ω j ; R3) be as in (3.18), with F = 1, so that V (1) 1 × ν = 0 on Γ I .Alongside, consider the unique weak solution ( Z, Π) ∈ W 1,2(Ω; R3) × L20(Ω; R) to the following Stokes system in Ω: 
+
+− ∆Z + ∇Π = 0 , ∇ · Z = 0 in Ω ,
+
+Z = V (1) 1 on ΓI , Z = V (2) 1 on ΓO ,
+
+Z = 0 on ΓW .
+
+(3.10) Therefore, 
+
+−
+
+Z
+
+> ΓI
+
+Z · ν = 1 and Z × ν = 0 on ΓI . (3.11) Now, let B ⊂ R3 be an open ball such that Ω2 ⊊ B and Ω1 ⊊ R 3 \ B . 
+
+Accordingly, take a cutoff function ζ ∈ C ∞ 
+
+> 0
+
+(B; [0 , 1]) such that ζ ≡ 1 in Ω 2; in particular, 
+
+ζ = 0 on ΓI and ζ = 1 on ΓO . (3.12) Additionally, as in the proof of Lemma 3.1, let ϕε ∈ W 2,2(Ω ε; R) ∩ W 1,20 (Ω; R) be the relative capacity potential of Kε with respect to Ω. Then, introduce the vector field 
+
+Qε
+
+.
+
+= −
+
+Z 
+
+> Ωε
+
+q
+
+
+
+(1 − ϕε)(1 − ζ)Z in Ωε ,
+
+which, owing to (3.2)-(3.10)-(3.11)-(3.12), is an element of W 1,2(Ω ε; R3) such that 
+
+Qε × ν = 0 on ΓI ; Qε = 0 on ΓW ∪ ∂K ε ∪ ΓO . (3.13) Moreover, from (3.3) we readily infer the estimate 
+
+∥∇ Qε∥L2(Ω ε) ≤ C∥q∥L2(Ω ε) . (3.14) 12 On the other hand, from the Divergence Theorem and (3.11)-(3.13) we obtain 
+
+Z
+
+> Ωε
+
+∇ · Qε =
+
+Z
+
+> ΓI
+
+Qε · ν = −
+
+Z 
+
+> Ωε
+
+q
+
+ Z 
+
+> ΓI
+
+Z · ν
+
+
+
+=
+
+Z
+
+> Ωε
+
+q , 
+
+so that q − ∇ · Qε ∈ L20(Ω ε; R), see (3.8). Then, standard results such as [55, Lemma 1] (consult also [45, Lemma 1.8.13]) ensure the existence of another vector field Yε ∈ W 1,20 (Ω ε; R3) such that 
+
+∇ · Yε = q − ∇ · Qε in Ωε and ∥∇ Yε∥L2(Ω ε) ≤ C(Ω ε)∥q − ∇ · Qε∥L2(Ω ε) . (3.15) From [19, Theorem 2.3] we know that C(Ω ε) (the continuity constant of the inverse of the divergence operator in Ω ε) admits the uniform bound 
+
+C(Ω ε) ≤ C . (3.16) We emphasize that our assumption on the uniform John constant of the sets ( Kn)n∈N (see Section 2.2) is essential for (3.16) to hold, as it ensures the validity of [19, Lemma 3.1], in light of [1, Theorem 2.6]. We set Jε .
+
+= Qε + Yε which, in view of (3.13)-(3.14)-(3.15)-(3.16), is an element of W 1,2(Ω ε; R3)observing the properties stated in (3.9). 2
+
+Let Ω ⊂ R3 be an admissible domain. For j ∈ { 1, 2}, define the horizontal cylinder Pj .
+
+= Θ j × (0 , ℓ j ), and denote by ν ∈ R3 its outward unit normal. Let uj ∈ C 2(Θ j ; R) be the unique classical solution to the following torsion problem in Θ j :
+
+−∆uj = 1 in Θj , uj = 0 on ∂Θj ,
+
+and put 
+
+ϱj .
+
+=
+
+Z
+
+> Θj
+
+uj =
+
+Z
+
+> Θj
+
+|∇ uj |2 > 0 .
+
+The steady-state Hagen-Poiseuille flow in Pj , having unit kinematic viscosity and flow rate F ∈ R, is characterized by the velocity field U (j) 
+
+> F
+
+: Pj −→ R3 and scalar pressure Q(j) 
+
+> F
+
+: Pj −→ R given by 
+
+U (j) 
+
+> F
+
+(x, y, z ) .
+
+= Fϱj
+
+(0 , 0, u j (x, y )) and Q(j) 
+
+> F
+
+(x, y, z ) .
+
+= − Fϱj
+
+(z − ℓj ) ∀(x, y, z ) ∈ P j . (3.17) Now, given the geometry of Ω j , there exists a point ( xj , y j , z j ) ∈ R3 and a rotation matrix Qj ∈ SO(3) such that the set Ω j can be mapped onto Pj through the following rigid transformation: 
+
+Tj (x, y, z ) = ( xj , y j , z j ) + Qj (x, y, z ) ∀(x, y, z ) ∈ Ωj .
+
+Then, the steady-state Hagen-Poiseuille flow associated to Ω j , having unit kinematic viscosity and flow rate F , can be defined as 
+
+V (j) 
+
+> F
+
+(x, y, z ) .
+
+= Q⊤ 
+
+> j
+
+U (j) 
+
+> F
+
+(Tj (x, y, z )) and P (j) 
+
+> F
+
+(x, y, z ) .
+
+= Q(j) 
+
+> F
+
+(Tj (x, y, z )) ∀(x, y, z ) ∈ Ωj , (3.18) so that ( V (j) 
+
+> F
+
+, Q (j) 
+
+> F
+
+) ∈ C 2(Ω j ; R3) × C 1(Ω j ; R) solve the following Stokes system in Ω j :
+
+
+
+− ∆V (j) 
+
+> F
+
++ ∇P (j) 
+
+> F
+
+= 0 , ∇ · V (j) 
+
+> F
+
+= 0 in Ωj ,
+
+V (j) 
+
+> F
+
+= 0 on ΓW ∩ ∂Ωj ,
+
+Z
+
+> Σ
+
+V (j) 
+
+> F
+
+· ν = F for any inner cross-section Σ ⊂ Ωj of Ω j .
+
+With respect to the boundary-value problem (2.8), as an extension of [60, Theorem 3.1], in the next lemma we build a sufficiently smooth flux carrier .13 Lemma 3.4. Let Ω ⊂ R3 be an admissible domain, F ∈ R and με
+
+> 1
+
+, ..., μεN (ε) ∈ R3. There exists a vector field Ψε ∈ W 2,2(Ω ε; R3) such that 
+
+
+
+∇ · Ψε = 0 in Ωε ; Ψε × ν = 0 on ΓI ∪ ΓO ; Ψε = 0 on ΓW ;
+
+Ψε = μεn on ∂K εn ∀n ∈ { 1, ..., N (ε)} ;
+
+Z
+
+> ΓO
+
+Ψε · ν = F . (3.19) 
+
+Moreover, under assumption (2.11) , there holds the bound 
+
+∥∇ Ψε∥L2(Ω ε) ≤ C∗ (|F | + S∗) , (3.20) 
+
+for some constant C∗ > 0 that depends on Ω and {δi}2
+
+> i=0
+
+, but is independent of ε ∈ I∗.
+
+Proof. In what follows, C > 0 will always denote a generic constant that depends on Ω and {δi}2
+
+> i=0
+
+(independently of ε ∈ I∗), but that may change from line to line. For j ∈ { 1, 2}, let V (j) 
+
+> F
+
+∈ W 2,2(Ω j ; R3) be as in (3.18), so that V (1)  
+
+> F
+
+× ν = 0 on Γ I and V (2)  
+
+> F
+
+× ν = 0
+
+on Γ O. Also, consider the unique weak solution ( ZF , ΠF ) ∈ W 1,2(Ω; R3) × L20(Ω; R) to the following Stokes system in Ω: 
+
+− ∆ZF + ∇ΠF = 0 , ∇ · ZF = 0 in Ω ,
+
+ZF = V (1)  
+
+> F
+
+on ΓI , ZF = V (2)  
+
+> F
+
+on ΓO ,
+
+ZF = 0 on ΓW .
+
+(3.21) Therefore, Z
+
+> ΓI
+
+ZF · ν = −F , 
+
+Z
+
+> ΓO
+
+ZF · ν = F , ZF × ν = 0 on ΓI ∪ ΓO . (3.22) Since the domains Ω 1 and Ω 2 are cylinders, and the lateral boundary Γ W is smooth, by merging the well-known regularity results for the solutions of the steady-state Stokes equations under non-homogeneous Dirichlet boundary conditions (see [13, Teorema, page 311]) with a localization argument through a partition of unity (as in [16, Theorem A.1]), we can establish that ( ZF , ΠF ) ∈ W 2,2(Ω; R3) × W 1,2(Ω; R)together with the estimate 
+
+∥ZF ∥W 2,2(Ω) + ∥ΠF ∥W 1,2(Ω) ≤ C
+
+
+
+∥V (1)  
+
+> F
+
+∥W 3/2,2(Γ I ) + ∥V (2)  
+
+> F
+
+∥W 3/2,2(Γ O )
+
+
+
+≤ C|F | , (3.23) where the last inequality in (3.23) follows directly by the explicit formula (3.18). On the other hand, as in the proof of Lemma 3.1, let ϕε ∈ W 2,2(Ω ε; R) ∩ W 1,20 (Ω; R) be the relative capacity potential of Kε with respect to Ω, and φεn ∈ C ∞ 
+
+> 0
+
+(B(ξεn, λε 3); [0 , 1]) the cutoff function observing (3.4), for every n ∈ { 1, ..., N (ε)}. Then, introduce the vector field 
+
+Xε .
+
+= (1 − ϕε)ZF + 
+
+> N(ε)
+
+X
+
+> n=1
+
+φεn μεn in Ωε ,
+
+which, due to (3.2)-(3.4)-(3.21)-(3.22), is an element of W 2,2(Ω ε; R3) such that 
+
+Xε × ν = 0 on ΓI ∪ ΓO ; Xε = 0 on ΓW ; Xε = μεn on ∂K εn ∀n ∈ { 1, ..., N (ε)} ;
+
+Z
+
+> ΓI
+
+Xε · ν = −F ;
+
+Z
+
+> ΓO
+
+Xε · ν = F . (3.24) Owing to (3.24) and the Divergence Theorem, the restriction of Xε to ∂Ωε is in W 3/2,2(∂Ωε; R3) with zero total flux across ∂Ωε, that is, 
+
+Z
+
+> ∂Ωε
+
+Xε · ν =
+
+Z
+
+> ΓI
+
+Xε · ν + 
+
+> N(ε)
+
+X
+
+> n=1
+
+Z
+
+> ∂K εn
+
+Xε · ν
+
+!
+
++
+
+Z
+
+> ΓO
+
+Xε · ν = −F + 0 + F = 0 . (3.25) 14 In view of the zero flux condition (3.25), [24, Theorem IV.1.1] ensures the existence of a unique weak solution ( Ψε, Πε) ∈ W 1,2(Ω ε; R3) × L20(Ω ε; R) to the following Stokes problem in Ω ε:
+
+( − ∆Ψε + ∇Πε = 0 , ∇ · Ψε = 0 in Ωε ,
+
+Ψε = Xε on ∂Ωε , (3.26) that is, Z
+
+> Ωε
+
+∇Ψε : ∇φ −
+
+Z
+
+> Ωε
+
+Πε(∇ · φ) = 0 ∀φ ∈ W 1,20 (Ω ε; R3) . (3.27) Since Kεn has a boundary of class C2 for every n ∈ { 1, ..., N (ε)} and Xε ∈ W 3/2,2(∂Ωε; R3), we can invoke the previous elliptic regularity argument to infer that ( Ψε, Π∗) ∈ W 2,2(Ω ε; R3) × W 1,2(Ω ε; R). Therefore, in virtue of (3.24)-(3.26) the vector field Ψε ∈ W 2,2(Ω ε; R3) satisfies the properties stated in (3.19). In order to obtain the bound (3.20), define the vector fields X(1)  
+
+> ε
+
+, X(2)  
+
+> ε
+
+∈ W 2,2(Ω ε; R3) by 
+
+X(1) 
+
+> ε
+
+.
+
+= (1 − ϕε)ZF and X(2) 
+
+> ε
+
+.
+
+= 
+
+> N(ε)
+
+X
+
+> n=1
+
+φεn μεn in Ωε .
+
+From (3.3)-(3.23) we readily infer the estimate 
+
+∥∇ X(1)  
+
+> ε
+
+∥L2(Ω ε) ≤ C|F | . (3.28) Instead, from (2.4)-(2.11)-(3.4) we deduce the bound 
+
+∥∇ X(2)  
+
+> ε
+
+∥2 
+
+> L2(Ω ε)
+
+=
+
+Z 
+
+> Ωε
+> N(ε)
+
+X
+
+> n=1
+
+∇φεn ⊗ μεn
+
+> 2
+
+= 
+
+> N(ε)
+
+X
+
+> n=1
+
+Z 
+
+> Ω
+
+|∇ φεn ⊗ μεn|2
+
+
+
+≤ 
+
+> N(ε)
+
+X
+
+> n=1
+
+Z 
+
+> Ω
+
+|∇ φεn|2
+
+
+
+|μεn|2 ≤ Cε 3 
+
+> N(ε)
+
+X
+
+> n=1
+
+|μεn|2 ≤ CS2 
+
+> ∗
+
+.
+
+(3.29) Combining (3.28)-(3.29) gives us 
+
+∥∇ Xε∥L2(Ω ε) ≤ C (|F | + S∗) . (3.30) Recall that Π ε ∈ L20(Ω ε; R), thereby implying the existence of a vector field Yε ∈ W 1,20 (Ω ε; R3) such that 
+
+∇ · Yε = Π ε in Ωε and ∥∇ Yε∥L2(Ω ε) ≤ C∥Πε∥L2(Ω ε) , (3.31) see again (3.15)-(3.16). Taking φ = Yε as a test function in (3.27) entails, due to (3.31) and to the H¨ older inequality, 
+
+Z
+
+> Ωε
+
+|Πε|2 =
+
+Z
+
+> Ωε
+
+∇Ψε : ∇Yε ≤ ∥∇ Ψε∥L2(Ω ε)∥∇ Yε∥L2(Ω ε) ≤ C∥∇ Ψε∥L2(Ω ε)∥Πε∥L2(Ω ε) ,
+
+that is, 
+
+∥Πε∥L2(Ω ε) ≤ C∥∇ Ψε∥L2(Ω ε) . (3.32) In the same fashion, taking φ = Ψε − Xε as a test function in (3.27) gives us, as a consequence of (3.32) and the H¨ older inequality, 
+
+Z
+
+> Ωε
+
+|∇ Ψε|2 =
+
+Z
+
+> Ωε
+
+∇Ψε : ∇Xε −
+
+Z
+
+> Ωε
+
+Πε(∇ · Xε) ≤ C∥∇ Ψε∥L2(Ω ε)∥∇ Xε∥L2(Ω ε) ,
+
+that is, 
+
+∥∇ Ψε∥L2(Ω ε) ≤ C∥∇ Xε∥L2(Ω ε) . (3.33) The estimate (3.20) follows directly from (3.30)-(3.33). This concludes the proof. 2
+
+15 Remark 3.5. In the proof of Lemma 3.4 one might wonder why, instead of solving the Stokes system 
+
+(3.26) , we do not employ an inverse divergence operator to annihilate the divergence of Xε in Ωε. The reason is that, due to the corners of the pipes, such operator does not necessarily provide the needed 
+
+W 2,2(Ω ε)-regularity. As far as we know, this han been proved only for C1,1-domains in [21]. 
+
+3.2 Stokes correctors and the restriction operator 
+
+Let Ω ⊂ R3 be an admissible domain. Given ε ∈ I∗ and n ∈ { 1, . . . , N (ε)}, we introduce the sets 
+
+Cεn
+
+.
+
+= B(ξεn, δ 1ε) \ Kεn , Dεn
+
+.
+
+= B(ξεn, δ 2ε) \ B(ξεn, δ 1ε) , eΩε .
+
+= Ω ε \ 
+
+> N(ε)
+
+[
+
+> n=1
+
+B(ξεn, δ 2ε) ,
+
+so that Ωε = eΩε ∪ 
+
+> N(ε)
+
+[
+
+> n=1
+
+ Cεn ∪ Dεn
+
+ .
+
+For any vector field φ ∈ W 1,2(Ω; R3), let ( ωεn, 1, p εn, 1) ∈ D1,2(R3 \ Kεn; R3) × L2(R3 \ Kεn; R) be the unique generalized solution to the following Stokes problem in the exterior of Kεn:
+
+
+
+− ∆ωεn, 1 + ∇pεn, 1 = 0 , ∇ · ωεn, 1 = 0 in R3 \ Kεn ,
+
+ωεn, 1 = φ on ∂K εn ,
+
+ωεn, 1 → 0 as |ξ| → +∞ ,
+
+(3.34) see the Appendix A.1. Here, for any open Lipschitz set U ⊂ R3, D1,2(U ; R3) represents the homogeneous Sobolev space 
+
+D1,2(U ; R3) .
+
+= {φ ∈ L2loc (U ; R3) | ∇ φ ∈ L2(U ; R3×3) } . (3.35) The equality Z 
+
+> ∂B (ξnε,δ 1ε)
+
+ωεn, 1 · ν =
+
+Z
+
+> Kεn
+
+∇ · φ ,
+
+enables us to define the unique weak solution ( ωεn, 2, p εn, 2) ∈ W 1,2(Dεn; R3) × L20(Dεn; R) to the following Stokes problem in the annulus Dεn:
+
+
+
+− ∆ωεn, 2 + ∇pεn, 2 = 0 , ∇ · ωεn, 2 = − 1
+
+|Dεn|
+
+Z
+
+> Kεn
+
+∇ · φ in Dεn ,
+
+ωεn, 2 = ωεn, 1 on ∂B (ξεn, δ 1ε) ,
+
+ωεn, 2 = 0 on ∂B (ξεn, δ 2ε) .
+
+(3.36) Henceforth, we will refer to the pair ( ωεn, 1, ωεn, 2) ∈ D1,2(R3 \ Kεn; R3) × W 1,2(Dεn; R3) as the Stokes correctors . We then introduce the restriction operator Rε(φ) : W 1,2(Ω; R3) −→ W 1,2(Ω; R3) as the following linear application: 
+
+Rε(φ) .
+
+=
+
+
+
+0 in Kεn ∀n ∈ { 1, . . . , N (ε)} ,
+
+φ − ωεn, 1 in Cεn ∀n ∈ { 1, . . . , N (ε)} ,
+
+φ − ωεn, 2 in Dεn ∀n ∈ { 1, . . . , N (ε)} ,
+
+φ in eΩε .
+
+(3.37) The most relevant properties of the restriction operator (3.37) are collected in the next result: 16 Theorem 3.6. Let Ω ⊂ R3 be an admissible domain. There exists ε⋆ ∈ I∗ such that, for any ε ∈ (0 , ε ⋆)
+
+and any φ ∈ W 1,2(Ω; R3) ∩ L∞(Ω; R3), the vector field Rε(φ) ∈ W 1,2(Ω; R3), defined in (3.37) , satisfies the following properties: 
+
+
+
+Rε(φ) = 0 in Kε ; Rε(φ) = φ if φ = 0 in Kε ;
+
+∇ · R ε(φ) = 0 in Ω , if φ is divergence-free in Ω ; 
+
+∥∇R ε(φ)∥L2(Ω) ≤ C∗
+
+ ∥φ∥L∞(Ω) + ∥∇ φ∥L2(Ω) 
+
+ ;
+
+∥R ε(φ) − φ∥L4(Ω) ≤ C∗ε1/4  ∥φ∥L∞(Ω) + ∥∇ φ∥L2(Ω) 
+
+ ;(3.38) 
+
+for some constant C∗ > 0 that depends on Ω and {δi}2
+
+> i=0
+
+, but is independent of ε ∈ (0 , ε ⋆).Moreover, consider με
+
+> 1
+
+, ..., μεN (ε) ∈ R3 and a sequence {(vε, Λε)}ε∈I∗ ⊂ W 1,2(Ω; R3) × L2(Ω; R) such that 
+
+
+
+∇ · vε = 0 in Ω ; vε = μεn and Λε = 0 in Kεn ∀n ∈ { 1, . . . , N (ε)} ;(∃v ∈ W 1,2(Ω; R3)) vε ⇀ v weakly in W 1,2(Ω; R3) as ε → 0+ ;(∃Λ ∈ L2(Ω; R)) Λ ε ⇀ Λ weakly in L2(Ω; R) as ε → 0+ .
+
+(3.39) 
+
+Then, under assumptions (2.11) -(2.13) , for every vector field φ ∈ W 1,∞(Ω; R3) there holds 
+
+lim 
+
+> ε→0+
+
+Z 
+
+> Ω
+
+∇vε : ∇R ε(φ) −
+
+Z
+
+> Ω
+
+Λε(∇ · R ε(φ)) 
+
+
+
+=
+
+Z
+
+> Ω
+
+∇v : ∇φ +
+
+Z
+
+> Ω
+
+(Gv − J ) · φ −
+
+Z
+
+> Ω
+
+Λ( ∇ · φ) . (3.40) 
+
+Proof. In what follows, C > 0 will always denote a generic constant that depends on Ω and {δi}2
+
+> i=0
+
+(independently of ε ∈ I∗), but that may change from line to line. Let ε ∈ I∗ and φ ∈ W 1,2(Ω; R3) ∩ L∞(Ω; R3). Proof of (3.38) 1-(3.38) 2. Properties (3.38) 1-(3.38) 2 readily follow from the definition (3.37). In fact, if 
+
+φ = 0 in Kε, it clearly follows from (3.34)-(3.36) that ωεn, 1 = ωεn, 2 ≡ 0.Proof of (3.38) 3. According to (3.37), we have 
+
+φ − R ε(φ) = 
+
+
+
+φ in Kεn ∀n ∈ { 1, . . . , N (ε)} ,
+
+ωεn, 1 in Cεn ∀n ∈ { 1, . . . , N (ε)} ,
+
+ωεn, 2 in Dεn ∀n ∈ { 1, . . . , N (ε)} ,
+
+0 in eΩε .
+
+(3.41) It follows, from (3.41), 
+
+∥∇ (Rε(φ) − φ)∥2 
+
+> L2(Ω)
+
+= 
+
+> N(ε)
+
+X
+
+> n=1
+
+
+
+∥∇ ωεn, 1∥2 
+
+> L2(Cεn)
+
++ ∥∇ ωεn, 2∥2 
+
+> L2(Dεn)
+
++ ∥∇ φ∥2
+
+> L2(Kεn)
+
+
+
+. (3.42) We estimate, separately, each of the three addends appearing on the right-hand side of (3.42). Firstly, from the energy bound (A.3) we readily derive 
+
+∥∇ ωεn, 1∥2 
+
+> L2(Cεn)
+
+≤ C
+
+
+
+ε3∥φ∥2 
+
+> L∞(Ω)
+
++ ∥∇ φ∥2
+
+> L2(B(ξεn,δ 0ε3))
+
+
+
+∀n ∈ { 1, . . . , N (ε)} ,
+
+thereby yielding, recalling (2.4),  
+
+> N(ε)
+
+X
+
+> n=1
+
+∥∇ ωεn, 1∥2 
+
+> L2(Cεn)
+
+≤ C
+
+∥φ∥2 
+
+> L∞(Ω)
+
++ 
+
+> N(ε)
+
+X
+
+> n=1
+
+∥∇ φ∥2
+
+> L2(B(ξεn,δ 0ε3))
+
+ ≤ C
+
+
+
+∥φ∥2 
+
+> L∞(Ω)
+
++ ∥∇ φ∥2
+
+> L2(Ω)
+
+
+
+. (3.43) 17 Secondly, let us put λ .
+
+= δ2 
+
+> δ1
+
+> 1, 
+
+ωn, 2(ξ) .
+
+= ωεn, 2(ξεn + δ1εξ) and pn, 2(ξ) .
+
+= δ1ε p εn, 2(ξεn + δ1εξ) ∀ξ ∈ B(0, λ ) \ B(0, 1) ,
+
+so that, in view of (3.36), ( ωn, 2, p n, 2) ∈ W 1,2(B(0, λ ) \ B(0, 1); R3) × L20(B(0, λ ) \ B(0, 1); R) is the unique weak solution to the following Stokes problem in B(0, λ ) \ B(0, 1): 
+
+
+
+− ∆ωn, 2 + ∇pn, 2 = 0 , ∇ · ωn, 2 = − δ1ε
+
+|Dεn|
+
+Z
+
+> Kεn
+
+∇ · φ in B(0, λ ) \ B(0, 1) ,
+
+ωn, 2 = ωn, 1 on ∂B (0, 1) ,
+
+ωn, 2 = 0 on ∂B (0, λ ) ,
+
+where ωn, 1 ∈ D1,2(R3; R3) is given by 
+
+ωn, 1(ξ) .
+
+= ωεn, 1(ξεn + δ1εξ) ∀ξ ∈ R3 .
+
+We appeal then to [24, Theorem IV.1.1] (see also [28, Lemma B.1]), to the Poincar´ e and trace inequalities (both applied in B(0, λ ) \ B(0, 1)) in order to derive the bound 
+
+∥∇ ωn, 2∥2 
+
+> L2(B(0,λ )\B(0,1))
+
+≤ C
+
+
+
+∥ωn, 1∥2  
+
+> W1,2(B(0,λ )\B(0,1))
+
++ ε2∥∇ φ∥2
+
+> L2(Kεn)
+
+
+
+. (3.44) Applying the change of variables 
+
+ξ ∈ B(0, λ ) \ B(0, 1) ←→ ξεn + δ1εξ ∈ Dεn ,
+
+we deduce, as in the proof of Lemma A.1 (see (A.13)), 
+
+∥∇ ωn, 2∥2 
+
+> L2(B(0,λ )\B(0,1))
+
+= 1
+
+δ1ε ∥∇ ωεn, 2∥2 
+
+> L2(Dεn)
+
+,
+
+∥ωn, 1∥2 
+
+> L2(B(0,λ )\B(0,1)))
+
+= 1
+
+δ31 ε3 ∥ωεn, 1∥2 
+
+> L2(Dεn)
+
+, ∥∇ ωn, 1∥2 
+
+> L2(B(0,λ )\B(0,1))
+
+= 1
+
+δ1ε ∥∇ ωεn, 1∥2 
+
+> L2(Dεn)
+
+.
+
+(3.45) Upon insertion of (3.45) into (3.44) we get 
+
+∥∇ ωεn, 2∥2 
+
+> L2(Dεn)
+
+≤ C
+
+ 1
+
+ε2 ∥ωεn, 1∥2 
+
+> L2(Dεn)
+
++ ∥∇ ωεn, 1∥2 
+
+> L2(Dεn)
+
++ ε2∥∇ φ∥2
+
+> L2(Kεn)
+
+
+
+. (3.46) Then, select a sufficiently small ε⋆ ∈ I∗ such that Dεn ⊂ R3 \ B(ξεn, 2δ0ε3) for every ε ∈ (0 , ε ⋆). The decay estimate (A.4) can be invoked to infer that 
+
+
+
+∥ωεn, 1∥2 
+
+> L2(Dεn)
+
+≤ Cε 4 
+
+ε3∥φ∥2 
+
+> L∞(Ω)
+
++ ∥∇ φ∥2
+
+> L2(B(ξεn,δ 0ε3))
+
+
+
+,
+
+∥∇ ωεn, 1∥2 
+
+> L2(Dεn)
+
+≤ Cε 2 
+
+ε3∥φ∥2 
+
+> L∞(Ω)
+
++ ∥∇ φ∥2
+
+> L2(B(ξεn,δ 0ε3))
+
+
+
+,
+
+which, once inserted into the right-hand side of (3.46), furnishes 
+
+∥∇ ωεn, 2∥2 
+
+> L2(Dεn)
+
+≤ Cε 2 
+
+ε3∥φ∥2 
+
+> L∞(Ω)
+
++ ∥∇ φ∥2
+
+> L2(B(ξεn,δ 0ε3))
+
+
+
+∀n ∈ { 1, . . . , N (ε)} . (3.47) Exactly as in (3.43), from (3.47) we then derive  
+
+> N(ε)
+
+X
+
+> n=1
+
+∥∇ ωεn, 2∥2 
+
+> L2(Dεn)
+
+≤ Cε 2 
+
+∥φ∥2 
+
+> L∞(Ω)
+
++ ∥∇ φ∥2
+
+> L2(Ω)
+
+
+
+. (3.48) 18 Thirdly, since N (ε)
+
+X
+
+> n=1
+
+∥∇ φ∥2 
+
+> L2(Kεn)
+
+≤ ∥∇ φ∥2 
+
+> L2(Ω)
+
+, (3.49) we can insert (3.43)-(3.48)-(3.49) into the right-hand side of (3.42), establishing the bound 
+
+∥∇ (Rε(φ) − φ)∥L2(Ω) ≤ C  ∥φ∥L∞(Ω) + ∥∇ φ∥L2(Ω) 
+
+ , (3.50) from where (3.38) 3 is easily obtained. Proof of (3.38) 4. As a consequence of (3.41), there holds φ − R ε(φ) ∈ W 1,20 (B(ξεn, δ 2ε); R3) for every 
+
+n ∈ { 1, . . . , N (ε)}, so that the following (explicit) Poincar´ e inequality holds: 
+
+∥R ε(φ) − φ∥L2(B(ξεn,δ 2ε)) ≤ δ2επ ∥∇ (Rε(φ) − φ)∥L2(B(ξεn,δ 2ε)) . (3.51) Combining (3.51) with the Ladyzhenskaya inequality [46, Chapter 1, Lemma 2], which reads 
+
+∥g∥4 
+
+> L4(R3)
+
+≤ 4 ∥g∥L2(R3)∥∇ g∥3 
+
+> L2(R3)
+
+∀g ∈ C ∞ 
+
+> 0
+
+(R3; R) ,
+
+we then deduce 
+
+∥R ε(φ) − φ∥4 
+
+> L4(B(ξεn,δ 2ε))
+
+≤ 4δ2επ ∥∇ (Rε(φ) − φ)∥4 
+
+> L2(B(ξεn,δ 2ε))
+
+. (3.52) The bounds in (3.50)-(3.52) allow us to write 
+
+∥R ε(φ) − φ∥4 
+
+> L4(Ω)
+
+= 
+
+> N(ε)
+
+X
+
+> n=1
+
+∥R ε(φ) − φ∥4 
+
+> L4(B(ξεn,δ 2ε))
+
+≤ Cε  
+
+> N(ε)
+
+X
+
+> n=1
+
+∥∇ (Rε(φ) − φ)∥4
+
+> L2(B(ξεn,δ 2ε))
+
+≤ Cε 
+
+ 
+
+> N(ε)
+
+X
+
+> n=1
+
+∥∇ (Rε(φ) − φ)∥2
+
+> L2(B(ξεn,δ 2ε))
+
+
+
+> 2
+
+≤ Cε  ∥φ∥L∞(Ω) + ∥∇ φ∥L2(Ω) 
+
+4 ,
+
+thereby yielding (3.38) 4.Proof of (3.40). Consider με
+
+> 1
+
+, ..., μεN (ε) ∈ R3 satisfying (2.11), and a sequence ( vε)ε∈I∗ ⊂ W 1,2(Ω; R3)satisfying the properties in (3.39). Choose a sufficiently small ε▽ ∈ I∗ such that Aεn ⊂ R3 \ B(ξεn, 2δ0ε3)for every ε ∈ (0 , ε ▽), with 
+
+Aεn
+
+.
+
+= B(ξεn, δ 1ε) \ B
+
+
+
+ξεn, δ1ε
+
+2
+
+
+
+. (3.53) Given a vector field φ ∈ W 1,∞(Ω; R3) and ε ∈ (0 , min {ε⋆, ε ▽}), from (3.41) we deduce 
+
+Z
+
+> Ω
+
+∇R ε(φ) : ∇vε −
+
+Z
+
+> Ω
+
+Λε(∇ · R ε(φ)) =
+
+Z
+
+> Ω
+
+∇φ : ∇vε −
+
+Z
+
+> Ω
+
+∇(φ − R ε(φ)) : ∇vε −
+
+Z
+
+> Ω
+
+Λε(∇ · φ) + 
+
+Z
+
+> Ω
+
+Λε(∇ · (φ − R ε(φ))) =
+
+Z
+
+> Ω
+
+∇φ : ∇vε −
+
+Z
+
+> Ω
+
+Λε(∇ · φ)
+
+− 
+
+> N(ε)
+
+X
+
+> n=1
+
+"Z
+
+> Dεn
+
+∇ωεn, 2 : ∇vε +
+
+Z
+
+> Cεn
+
+∇ωεn, 1 : ∇vε − 1
+
+|Dεn|
+
+Z
+
+> Kεn
+
+∇ · φ
+
+! Z
+
+> Dεn
+
+Λε
+
+!# 
+
+,
+
+(3.54) where we have used that Λ ε = 0 in Kεn for all 1 ≤ n ≤ N (ε). We estimate, separately, each of the five addends appearing on the right-hand side of (3.54). 19 Firstly, owing to (3.39) 2-(3.39) 3, there holds lim 
+
+> ε→0+
+
+Z 
+
+> Ω
+
+∇φ : ∇vε −
+
+Z
+
+> Ω
+
+Λε(∇ · φ)
+
+
+
+=
+
+Z
+
+> Ω
+
+∇φ : ∇v −
+
+Z
+
+> Ω
+
+Λ( ∇ · φ) . (3.55) Secondly, recalling that the sequence ( vε)ε∈I∗ is uniformly bounded in W 1,2(Ω; R3), an application of the H¨ older and Cauchy-Schwarz inequalities, together with (3.48), entails  
+
+> N(ε)
+
+X
+
+> n=1
+
+Z
+
+> Dεn
+
+∇ωεn, 2 : ∇vε ≤ 
+
+> N(ε)
+
+X
+
+> n=1
+
+∥∇ ωεn, 2∥L2(Dεn)∥∇ vε∥L2(Dεn)
+
+≤
+
+vuutN (ε)
+
+X
+
+> n=1
+
+∥∇ ωεn, 2∥2
+
+> L2(Dεn)
+
+vuutN (ε)
+
+X
+
+> n=1
+
+∥∇ vε∥2
+
+> L2(B(ξεn,δ 2ε))
+
+≤ Cε 
+
+q
+
+∥φ∥2 
+
+> L∞(Ω)
+
++ ∥∇ φ∥2 
+
+> L2(Ω)
+
+,
+
+(3.56) thus, lim  
+
+> ε→0+
+> N(ε)
+
+X
+
+> n=1
+
+Z
+
+> Dεn
+
+∇ωεn, 2 : ∇vε
+
+!
+
+= 0 . (3.57) Thirdly, let ( zεn, 1, π εn, 1) ∈ D1,2(R3 \ Kεn; R3) × L2(R3 \ Kεn; R) be the unique generalized solution to the following Stokes problem in the exterior of Kεn:
+
+
+
+− ∆zεn, 1 + ∇πεn, 1 = 0 , ∇ · zεn, 1 = 0 in R3 \ Kεn ,
+
+zεn, 1 = φ(ξεn) on ∂K εn ,
+
+zεn, 1 → 0 as |ξ| → +∞ ,
+
+(3.58) so that ( zεn, 1, π εn, 1) ∈ C 2(R3 \ Kεn; R3) × C 1(R3 \ Kεn; R) (see (A.25) in the Appendix A.1) and 
+
+Z
+
+> Cεn
+
+∇ωεn, 1 : ∇vε =
+
+Z
+
+> Cεn
+
+∇  ωεn, 1 − zεn, 1
+
+ : ∇vε +
+
+Z
+
+> Cεn
+
+∇zεn, 1 : ∇vε ∀n ∈ { 1, . . . , N (ε)} . (3.59) Since φ ∈ W 1,∞(Ω; R3) is Lipschitz-continuous, it can be easily seen that 
+
+∥φ − φ(ξεn)∥2 
+
+> L2(B(ξεn,δ 0ε3))
+
+≤ Cε 15 ∥∇ φ∥2 
+
+> L∞(Ω)
+
+∀n ∈ { 1, . . . , N (ε)} . (3.60) Therefore, we can invoke the energy estimate (A.3), as well as (3.60), in order to infer 
+
+∥∇  ωεn, 1 − zεn, 1
+
+ ∥2 
+
+> L2(Cεn)
+
+≤ Cε 9∥∇ φ∥2 
+
+> L∞(Ω)
+
+∀n ∈ { 1, . . . , N (ε)} ,
+
+and subsequently, by arguing as in (3.56)-(3.57), that lim  
+
+> ε→0+
+> N(ε)
+
+X
+
+> n=1
+
+Z
+
+> Cεn
+
+∇  ωεn, 1 − zεn, 1
+
+!
+
+= 0 . (3.61) Now, multiplying the Stokes equation (3.58) 1 by a constant vector V ∈ R3, and then integrating by parts in Cεn, we readily notice that, for every n ∈ { 1, . . . , N (ε)},
+
+Z
+
+> ∂B (ξεn,δ 1ε)
+
+ ∂zεn, 1
+
+∂ν − πεn, 1ν
+
+
+
+· V = −
+
+Z
+
+> ∂K εn
+
+ ∂zεn, 1
+
+∂ν − πεn, 1ν
+
+
+
+· V = −ε3Gnφ(ξεn) · V ∀V ∈ R3 , (3.62) 20 where Gn ∈ R3×3 is the Stokes resistance matrix of Kn (see (A.26)), and ν ∈ R3 is the outward unit normal to Cεn, which is directed towards the interior of Kεn. Similarly, multiplying the Stokes equation (3.58) 1 by vε and integrating by parts in Cεn (recalling (3.39) 1-(3.62)), we deduce, for every 
+
+n ∈ { 1, . . . , N (ε)},
+
+Z
+
+> Cεn
+
+∇zεn, 1 : ∇vε =
+
+Z
+
+> ∂K εn
+
+ ∂zεn, 1
+
+∂ν − πεn, 1ν
+
+
+
+· μεn +
+
+Z
+
+> ∂B (ξεn,δ 1ε)
+
+ ∂zεn, 1
+
+∂ν − πεn, 1ν
+
+
+
+· vε
+
+= ε3Gnφ(ξεn) · μεn − ε3Gnφ(ξεn) · ¯vεn +
+
+Z
+
+> ∂B (ξεn,δ 1ε)
+
+ ∂zεn, 1
+
+∂ν − πεn, 1ν
+
+
+
+· (vε − ¯vεn) ,
+
+(3.63) where ¯vεn
+
+.
+
+= 1
+
+|Aεn|
+
+Z
+
+> Aεn
+
+vε ∀n ∈ { 1, . . . , N (ε)} ,
+
+see (3.53). In virtue of [24, Exercise III.3.5], by a translation argument we can build a divergence-free vector field Xεn ∈ W 1,2(Aεn; R3) such that 
+
+
+
+Xεn = 0 on ∂B 
+
+
+
+ξεn, δ1ε
+
+2
+
+
+
+; Xεn = vε − ¯vεn on ∂B (ξεn, δ 1ε) ; 
+
+∥∇ Xεn∥L2(Aεn) ≤ C∥vε − ¯vεn∥W 1/2,2(∂A εn) ≤ C∥∇ vε∥L2(Aεn) ,
+
+(3.64) where the trace and Poincar´ e inequalities (in Aεn) have been employed in (3.64) 3. As before, multiplying (3.58) 1 by Xεn and integrating by parts in Aεn (recalling (3.64)), entails 
+
+Z
+
+> ∂B (ξεn,δ 1ε)
+
+ ∂zεn, 1
+
+∂ν − πεn, 1ν
+
+
+
+· (vε − ¯vεn) = 
+
+Z
+
+> Aεn
+
+∇zεn, 1 : ∇Xεn ∀n ∈ { 1, . . . , N (ε)} . (3.65) The decay estimate (A.4) can be again applied to deduce 
+
+∥∇ zεn, 1∥2 
+
+> L2(Aεn)
+
+≤ Cε 5∥φ∥2 
+
+> L∞(Ω)
+
+∀n ∈ { 1, . . . , N (ε)} , (3.66) Arguing as in (3.56), we then invoke (3.64) 3- (3.65)-(3.66) to obtain the bound  
+
+> N(ε)
+
+X
+
+> n=1
+
+Z
+
+> ∂B (ξεn,δ 1ε)
+
+ ∂zεn, 1
+
+∂ν − πεn, 1ν
+
+
+
+· (vε − ¯vεn) ≤ Cε ∥φ∥L∞(Ω) . (3.67) We then sum, over n ∈ { 1, . . . , N (ε)}, on both sides of identity (3.63); owing to (2.13) 2-(3.59)-(3.61)-(3.67)-(A.36), this leads to lim  
+
+> ε→0+
+> N(ε)
+
+X
+
+> n=1
+
+Z
+
+> Cεn
+
+∇ωεn, 1 : ∇vε
+
+!
+
+=
+
+Z
+
+> Ω
+
+(J − G v) · φ . (3.68) Fourthly, since the sequence (Λ ε)ε∈I∗ is uniformly bounded in L1(Ω; R), an application of the H¨ older inequality furnishes  
+
+> N(ε)
+
+X
+
+> n=1
+
+1
+
+|Dεn|
+
+Z
+
+> Kεn
+
+∇ · φ
+
+! Z
+
+> Dεn
+
+Λε
+
+!
+
+≤ 3∥∇ φ∥L∞(Ω)  
+
+> N(ε)
+
+X
+
+> n=1
+
+|Kεn||Dεn| ∥Λε∥L1(Dεn) ≤ Cε 6∥∇ φ∥L∞(Ω) ∥Λε∥L1(Ω) ,
+
+thus, lim  
+
+> ε→0+
+> N(ε)
+
+X
+
+> n=1
+
+1
+
+|Dεn|
+
+Z
+
+> Kεn
+
+∇ · φ
+
+! Z
+
+> Dεn
+
+Λε
+
+!
+
+= 0 . (3.69) The limit in (3.40) then follows from (3.54)-(3.55)-(3.57)-(3.68)-(3.69). 2
+
+21 4 Uniform bounds and proof of the homogenization result 
+
+4.1 Boundary-value problems at the ε-level: uniform bounds 
+
+Let Ω ⊂ R3 be an admissible domain. As in [59, Section 2], we introduce the following functional spaces: 
+
+U(Ω ε) .
+
+=
+
+v ∈ W 1,2(Ω ε; R3)
+
+∇ · v = 0 in Ωε ; v × ν = 0 on ΓI ∪ ΓO ;
+
+v = 0 on ΓW ∪ ∂K ε ;
+
+Z
+
+> ΓO
+
+v · ν = 0 
+
+
+
+and 
+
+W(Ω ε) .
+
+= v ∈ W 1,2(Ω ε; R3) | ∇ · v = 0 in Ωε ; v × ν = 0 on ΓI ∪ ΓO ; v = 0 on ΓW ∪ ∂K ε ,
+
+V(Ω ε) .
+
+= v ∈ W 1,2(Ω ε; R3) | ∇ · v = 0 in Ωε ; v × ν = 0 on ΓI ∪ ΓO ; v = 0 on ΓW .
+
+Since the Poincar´ e inequality holds in U(Ω ε), W(Ω ε) and V(Ω ε), they all constitute Hilbert spaces under the Dirichlet scalar product of the gradients. We are now in position to give the following definition for the weak solutions of problems (2.8)-(2.9) (equivalently, of problems (2.5)-(2.6)): 
+
+Definition 4.1. Let Ω ⊂ R3 be an admissible domain, F ∈ R, f ∈ L2(Ω; R3), με
+
+> 1
+
+, ..., μεN (ε) ∈ R3 and 
+
+Ψε ∈ W 2,2(Ω ε; R3) the vector field arising from Lemma 3.4. A vector field u ∈ V (Ω ε) is called a weak solution of the prescribed net flux problem (2.8) if u − Ψε ∈ U (Ω ε) and 
+
+Z
+
+> Ωε
+
+∇u : ∇φ +
+
+Z
+
+> Ωε
+
+(( ∇ × u) × u) · φ =
+
+Z
+
+> Ωε
+
+f · φ ∀φ ∈ U (Ω ε) . (4.1) 
+
+Definition 4.2. Let Ω ⊂ R3 be an admissible domain, p± ∈ R, f ∈ L2(Ω; R3), με
+
+> 1
+
+, ..., μεN (ε) ∈ R3 and 
+
+Aε ∈ C ∞(Ω; R3) the vector field arising from Lemma 3.2. A vector field u ∈ V (Ω ε) is called a weak solution of the prescribed pressure drop problem (2.9) if u − Aε ∈ W (Ω ε) and 
+
+Z
+
+> Ωε
+
+∇u : ∇φ +
+
+Z
+
+> Ωε
+
+(( ∇ × u) × u) · φ + ( p+ − p−)
+
+Z
+
+> ΓO
+
+φ · ν =
+
+Z
+
+> Ωε
+
+f · φ ∀φ ∈ W (Ω ε) . (4.2) We refer to [29, Section 4] and [44, Section 2] for an explanation of the fact that the boundary conditions involving the Bernoulli pressure in (2.8)-(2.9) are implicitly contained in the variational for-mulations (4.1)-(4.2) of Definitions 4.1-4.2. The first main result of this section provides uniform bounds (with respect to ε ∈ I∗) for the solutions of the prescribed flux problem (2.8). 
+
+Theorem 4.3. Let Ω ⊂ R3 be an admissible domain, F ∈ R, f ∈ L2(Ω; R3) and με
+
+> 1
+
+, ..., μεN (ε) ∈ R3.There exists (at least) one weak solution uε ∈ W 2,2(Ω ε; R3) ∩ V (Ω ε) of the prescribed net flux problem 
+
+(2.8) and an associated Bernoulli pressure Φε ∈ W 1,2(Ω ε; R) such that the pair (uε, Φε) satisfies (2.8) in strong form for some constant p+ 
+
+> ε
+
+∈ R.Furthermore, suppose there exists δ3 ∈ (0 , min {ℓ1, ℓ 2}) such that, for every ε ∈ I∗,
+
+∂B (ξεn, δ 2 ε) ∩ ξ ∈ Ω1 | dist( ξ, ΓI ) ≤ δ3 = ∅ ∀n ∈ { 1, ..., N (ε)} ,∂B (ξεn, δ 2 ε) ∩ ξ ∈ Ω2 | dist( ξ, ΓO) ≤ δ3 = ∅ ∀n ∈ { 1, ..., N (ε)} .
+
+(4.3) 
+
+Then, under assumption (2.11) , the uniform bound 
+
+sup 
+
+> ε∈I∗
+
+ ∥∇ uε∥L2(Ω ε) + ∥Φε∥L2(Ω ε) + |p+ 
+
+> ε
+
+| ≤ C∗ ,
+
+holds for some constant C∗ > 0 that depends on Ω, f , F , S∗ and {δi}3
+
+> i=0
+
+.
+
+22 Proof. In what follows, C > 0 will always denote a generic constant that depends on Ω, F , S∗ and 
+
+{δi}2 
+
+> i=0
+
+(independently of ε ∈ I∗), but that may change from line to line. Given any F ∈ R, f ∈ L2(Ω; R3), με
+
+> 1
+
+, ..., μεN (ε) ∈ R3 and ε ∈ I∗, a direct extension of [60, Theorem 3.3] ensures the existence of at least one weak solution uε ∈ V (Ω ε) of problem (2.8). Afterwards, [60, Theorem 3.2] guarantees that uε ∈ W 2,2(Ω ε; R3) and the existence of an associated Bernoulli pressure Φε ∈ W 1,2(Ω ε; R) satisfying 
+
+
+
+− ∆uε + ( ∇ × uε) × uε + ∇Φε = f , ∇ · uε = 0 in Ωε ;
+
+uε = 0 on ΓW ; uε = μεn on ∂K εn ∀n ∈ { 1, ..., N (ε)} ;
+
+uε × ν = 0 , − ∂∂ν (uε · ν) + Φ ε = 0 on ΓI ;
+
+uε × ν = 0 , − ∂∂ν (uε · ν) + Φ ε = p+ 
+
+> ε
+
+on ΓO ;
+
+Z
+
+> ΓO
+
+uε · ν = F
+
+(4.4) in strong form, for some (unknown) constant p+ 
+
+> ε
+
+∈ R. We now extend these functions to the interior of the perforations according to the expressions 
+
+euε .
+
+=
+
+(uε in Ωε ,
+
+μεn in Kεn ∀n ∈ { 1, ..., N (ε)} , and eΦε .
+
+=
+
+(Φε in Ωε ,
+
+0 in Kε . (4.5) Notice, therefore, that eΦε ∈ L2(Ω; R) and euε ∈ V (Ω), where we have introduced 
+
+V(Ω) .
+
+= v ∈ W 1,2(Ω; R3) | ∇ · v = 0 in Ω ; v × ν = 0 on ΓI ∪ ΓO ; v = 0 on ΓW , (4.6) which is a closed subspace of W 1,2(Ω; R3) under the Dirichlet scalar product of the gradients. Moreover, 
+
+∥∇ euε∥L2(Ω) = ∥∇ uε∥L2(Ω ε) and ∥eΦε∥L2(Ω) = ∥Φε∥L2(Ω ε) . (4.7) Firstly, we must estimate the constant p+ 
+
+> ε
+
+∈ R in terms of the Dirichlet norm of uε in Ω ε. For this, in virtue of Lemma 3.4, consider a flux carrier Υε ∈ W 2,2(Ω ε; R3) such that 
+
+
+
+∇ · Υε = 0 in Ωε ; Υε × ν = 0 on ΓI ∪ ΓO ; Υε = 0 on ΓW ∪ ∂K ε ;
+
+Z
+
+> ΓO
+
+Υε · ν = 1 ; ∥∇ Υε∥L2(Ω ε) ≤ C . (4.8) Multiply the first identity in (4.4) 1 by Υε and integrate by parts in Ω ε, each term separately, to obtain 
+
+−
+
+Z
+
+> Ωε
+
+∆uε · Υε =
+
+Z
+
+> Ωε
+
+∇uε : ∇Υε −
+
+Z
+
+> ΓI
+
+∂uε
+
+∂ν · Υε −
+
+Z
+
+> ΓO
+
+∂uε
+
+∂ν · Υε . (4.9) Regarding the pressure term, from (4.4) 3-(4.4) 4-(4.8) we infer 
+
+Z
+
+> Ωε
+
+∇Φε · Υε =
+
+Z
+
+> ∂Ωε
+
+Φε(Υε · ν) = 
+
+Z
+
+> ΓI
+
+(Υε · ν) ∂∂ν (uε · ν) + 
+
+Z
+
+> ΓO
+
+(Υε · ν) ∂∂ν (uε · ν) + p+ 
+
+> ε
+
+. (4.10) By adding the identities (4.9)-(4.10), and recalling (2.10) in Remark 2.3, we get 
+
+Z
+
+> Ωε
+
+∇uε : ∇Υε +
+
+Z
+
+> Ωε
+
+(( ∇ × uε) × uε) · Υε + p+ 
+
+> ε
+
+=
+
+Z
+
+> Ωε
+
+f · Υε . (4.11) 23 Define eΥε ∈ W 1,2(Ω; R3) as in (4.5) 2, and observe that ∥∇ eΥε∥L2(Ω) = ∥∇ Υε∥L2(Ω ε). Applying the H¨ older, Sobolev and Poincar´ e inequalities (in Ω) in (4.11), as well as (4.7)-(4.8), entails 
+
+|p+ 
+
+> ε
+
+| =
+
+Z
+
+> Ω
+
+∇uε : ∇Υε +
+
+Z
+
+> Ω
+
+(( ∇ × euε) × euε) · eΥε −
+
+Z
+
+> Ω
+
+f · eΥε
+
+≤ ∥∇ uε∥L2(Ω ε)∥∇ Υε∥L2(Ω ε) + ∥∇ euε∥L2(Ω) ∥euε∥L4(Ω) ∥ eΥε∥L4(Ω) + ∥f ∥L2(Ω) ∥ eΥε∥L2(Ω) 
+
+≤ ∥∇ uε∥L2(Ω ε)∥∇ Υε∥L2(Ω ε) + C∥∇ euε∥2
+
+> L2(Ω)
+
+∥∇ eΥε∥L2(Ω) + C∥f ∥L2(Ω) ∥∇ eΥε∥L2(Ω) 
+
+≤ C
+
+
+
+∥∇ uε∥2 
+
+> L2(Ω ε)
+
++ ∥∇ uε∥L2(Ω ε) + ∥f ∥L2(Ω) 
+
+
+
+.
+
+(4.12) Secondly, our goal is to derive an analogous estimate to (4.12) for the L2(Ω ε)-norm of the Bernoulli pressure. In order to do so, owing to Lemma 3.3, consider a vector field Jε ∈ W 1,2(Ω ε; R3) such that 
+
+
+
+∇ · Jε = Φ ε in Ωε ; Jε × ν = 0 on ΓI ; Jε = 0 on ΓW ∪ ∂K ε ∪ ΓO ;
+
+∥∇ Jε∥L2(Ω ε) ≤ C∥Φε∥L2(Ω ε) .
+
+(4.13) Multiplying the first identity in (4.4) 1 by Jε, integrating by parts in Ω ε as in (4.9)-(4.10) and enforcing (4.13), yields Z
+
+> Ωε
+
+∇uε : ∇Jε +
+
+Z
+
+> Ωε
+
+(( ∇ × uε) × uε) · Jε − ∥ Φε∥2 
+
+> L2(Ω ε)
+
+=
+
+Z
+
+> Ωε
+
+f · Jε . (4.14) Define eJε ∈ W 1,2(Ω; R3) as in (4.5) 2, and observe that ∥∇ eJε∥L2(Ω) = ∥∇ Jε∥L2(Ω ε). We subsequently apply the H¨ older, Sobolev and Poincar´ e inequalities (in Ω) in (4.14), as well as (4.7)-(4.13), to write 
+
+∥Φε∥2 
+
+> L2(Ω ε)
+
+=
+
+Z
+
+> Ωε
+
+∇uε : ∇Jε +
+
+Z
+
+> Ω
+
+(( ∇ × euε) × euε) · eJε −
+
+Z
+
+> Ω
+
+f · eJε
+
+≤ ∥∇ uε∥L2(Ω ε)∥∇ Jε∥L2(Ω ε) + ∥∇ euε∥L2(Ω) ∥euε∥L4(Ω) ∥ eJε∥L4(Ω) + ∥f ∥L2(Ω) ∥ eJε∥L2(Ω) 
+
+≤ ∥∇ uε∥L2(Ω ε)∥∇ Jε∥L2(Ω ε) + C∥∇ euε∥2
+
+> L2(Ω)
+
+∥∇ eJε∥L2(Ω) + C∥f ∥L2(Ω) ∥∇ eJε∥L2(Ω) 
+
+≤ C
+
+
+
+∥∇ uε∥2 
+
+> L2(Ω ε)
+
++ ∥∇ uε∥L2(Ω ε) + ∥f ∥L2(Ω) 
+
+
+
+∥Φε∥L2(Ω ε) ,
+
+(4.15) thereby yielding 
+
+∥Φε∥L2(Ω ε) ≤ C
+
+
+
+∥∇ uε∥2 
+
+> L2(Ω ε)
+
++ ∥∇ uε∥L2(Ω ε) + ∥f ∥L2(Ω) 
+
+
+
+. (4.16) By contradiction, suppose now that the norms ∥∇ uε∥L2(Ω ε) are not uniformly bounded with respect to ε ∈ I∗. Then, there must exists a sub-sequence (not being relabeled) such that lim  
+
+> ε→0+
+
+Zε = + ∞ with Zε .
+
+= ∥∇ uε∥L2(Ω ε) ∀ε ∈ I∗ . (4.17) The estimates in (4.12)-(4.16) (see also (4.7)) enable us to establish that, along this divergent sub-sequence (4.17), the following sequences are all uniformly bounded with respect to ε ∈ I∗:(buε)ε∈I∗
+
+.
+
+=
+
+ euε
+
+Zε
+
+
+
+> ε∈I∗
+
+⊂ V (Ω) ; (bΦε)ε∈I∗
+
+.
+
+= eΦε
+
+Z2
+
+> ε
+
+!
+
+> ε∈I∗
+
+⊂ L2(Ω; R) ; (bpε)ε∈I∗
+
+.
+
+=
+
+ p+
+
+> ε
+
+Z2
+
+> ε
+
+
+
+> ε∈I∗
+
+⊂ R .
+
+There exist bu ∈ V (Ω), bΦ ∈ L2(Ω; R) and bp ∈ R such that the following convergences hold as ε → 0+:
+
+buε ⇀ bu weakly in W 1,2(Ω; R3) ; buε → bu strongly in L4(Ω; R3) ; 
+
+bΦε ⇀ bΦ weakly in L2(Ω; R) ; bpε → bp in R , (4.18) 24 along sub-sequences that are not being relabeled. Let Aε ∈ C ∞(Ω; R3) the vector field arising from Lemma 3.2. Multiplying the first identity in (4.4) 1
+
+by uε − Aε, integrating by parts in Ω ε and dividing the resulting identity by Z2 
+
+> ε
+
+, furnishes 1 − 1
+
+Zε
+
+Z
+
+> Ω
+
+∇buε : ∇Aε +
+
+Z
+
+> Ω
+
+(( ∇ × buε) × buε) · Aε + F bpε = 1
+
+Zε
+
+Z
+
+> Ω
+
+f ·
+
+buε − Aε
+
+Zε
+
+
+
+. (4.19) Applying the H¨ older, Sobolev and Poincar´ e inequalities (in Ω), as well as (3.5), we can estimate: 
+
+1
+
+Zε
+
+Z
+
+> Ω
+
+∇buε : ∇Aε ≤ 1
+
+Zε
+
+∥∇ buε∥L2(Ω) ∥∇ Aε∥L2(Ω) ≤ C
+
+Zε
+
+,
+
+Z
+
+> Ω
+
+(( ∇ × buε) × buε) · Aε ≤ ∥∇ × buε∥L2(Ω) ∥buε∥L4(Ω) ∥Aε∥L4(Ω) ≤ Cε 3/4 ,
+
+1
+
+Zε
+
+Z
+
+> Ω
+
+f ·
+
+buε − Aε
+
+Zε
+
+
+
+≤ C
+
+Zε
+
+∥f ∥L2(Ω) ∇
+
+buε − Aε
+
+Zε
+
+
+
+> L2(Ω)
+
+≤ C
+
+Zε
+
+∥f ∥L2(Ω) .
+
+(4.20) Consequently, owing to (4.20), we let ε → 0+ in (4.19) (along the sub-sequences (4.18)) to deduce 1 = −F bp . (4.21) A contradiction will be reached in (4.21) after proving that bp = 0. Let ϕ ∈ C ∞ 
+
+> 0
+
+(Ω; R) be a scalar function. Denoting by {be1, be2, be3} the canonical basis in R3, we put 
+
+ωεj
+
+.
+
+= Rε(bej ) ∈ W 1,2(Ω; R3) ∀j ∈ { 1, 2, 3} .
+
+Theorem 3.6 entails that the following properties hold: 
+
+∇ · ωεj = 0 in Ω ; ωεj = 0 in Kεn ∀n ∈ { 1, ..., N (ε)} ;sup 
+
+> ε∈(0 ,ε ⋆)
+
+∥∇ ωεj ∥L2(Ω) ≤ C ; ωεj → bej strongly in L4(Ω; R3) as ε → 0+ . (4.22) We multiply both sides of the first identity in (4.4) 1 by ϕ ωεj ∈ W 1,20 (Ω ε; R3), and integrate by parts in Ωε, each term separately, in the following way: 
+
+−
+
+Z
+
+> Ωε
+
+∆uε · ϕ ωεj =
+
+Z
+
+> Ωε
+
+∇uε · (∇ϕ ⊗ ωεj + ϕ∇ωεj ) = 
+
+Z
+
+> Ω
+
+∇euε · (∇ϕ ⊗ ωεj + ϕ∇ωεj ) . (4.23) Concerning the nonlinear term, we simply put 
+
+Z
+
+> Ωε
+
+(( ∇ × uε) × uε) · ϕ ωεj =
+
+Z
+
+> Ω
+
+(( ∇ × euε) × euε) · ϕ ωεj . (4.24) Regarding the pressure term, from (4.22) 1 we infer 
+
+Z
+
+> Ωε
+
+∇Φε · ϕ ωεj = −
+
+Z
+
+> Ωε
+
+Φε(∇ϕ · ωεj ) = −
+
+Z
+
+> Ω
+
+eΦε(∇ϕ · ωεj ) . (4.25) By adding the identities (4.23)-(4.24)-(4.25), and then dividing the result by Z2 
+
+> ε
+
+, we obtain 1
+
+Zε
+
+Z
+
+> Ω
+
+∇buε · (∇ϕ ⊗ ωεj + ϕ∇ωεj ) + 
+
+Z
+
+> Ω
+
+(( ∇ × buε) × buε) · ϕ ωεj −
+
+Z
+
+> Ω
+
+bΦε(∇ϕ · ωεj ) = 1
+
+Z2
+
+> ε
+
+Z
+
+> Ωε
+
+f · ϕ ωεj , (4.26) for every ε ∈ I∗, along the sub-sequences (4.18). From the properties stated in (4.22) we deduce lim 
+
+> ε→0+
+
+1
+
+Zε
+
+Z
+
+> Ω
+
+∇buε · (∇ϕ ⊗ ωεj + ϕ∇ωεj ) = lim 
+
+> ε→0+
+
+1
+
+Z2
+
+> ε
+
+Z
+
+> Ωε
+
+f · ϕ ωεj = 0 . (4.27) 25 In order to handle the remaining integrals appearing in (4.26), we write 
+
+Z
+
+> Ω
+
+(( ∇ × buε) × buε) · ϕ ωεj =
+
+Z
+
+> Ω
+
+(( ∇ × buε) × bu) · ϕ bej +
+
+Z
+
+> Ω
+
+(( ∇ × buε) × bu) · ϕ(ωεj − bej )+
+
+Z
+
+> Ω
+
+(( ∇ × buε) × (buε − bu)) · ϕ ωεj ,
+
+(4.28) alongside with Z
+
+> Ω
+
+bΦε(∇ϕ · ωεj ) = 
+
+Z
+
+> Ω
+
+bΦε(∇ϕ · bej ) + 
+
+Z
+
+> Ω
+
+bΦε(∇ϕ · (ωεj − bej )) ,
+
+for every ε ∈ I∗. Consequently, the convergences in (4.18)-(4.22) 2, entail lim 
+
+> ε→0+
+
+Z
+
+> Ω
+
+(( ∇ × buε) × buε) · ϕ ωεj =
+
+Z
+
+> Ω
+
+(( ∇ × bu) × bu) · ϕ bej ,
+
+lim 
+
+> ε→0+
+
+Z
+
+> Ω
+
+bΦε(∇ϕ · ωεj ) = 
+
+Z
+
+> Ω
+
+bΦ( ∇ϕ · bej ) = 
+
+Z
+
+> Ω
+
+bΦ( ∇ · (ϕ bej )) .
+
+(4.29) Observing (4.27)-(4.29), one can take the limit as ε → 0+ in (4.26) to deduce that 
+
+Z
+
+> Ω
+
+(( ∇ × bu) × bu) · ϕ bej −
+
+Z
+
+> Ω
+
+bΦ( ∇ · (ϕ bej )) = 0 ∀ϕ ∈ C ∞ 
+
+> 0
+
+(Ω; R) , ∀j ∈ { 1, 2, 3} ;this last equality shows that the pair ( bu, bΦ) ∈ V (Ω) × L2(Ω; R) satisfies, in distributional form, the following Euler-type equation in Ω: (∇ × bu) × bu + ∇bΦ = 0 , ∇ · bu = 0 in Ω . (4.30) Since ( ∇ × bu) × bu ∈ L3/2(Ω; R3) (due to the Sobolev embedding W 1,2(Ω; R3) ⊂ L6(Ω; R3)), identity (4.30) proves that actually bΦ ∈ W 1,3/2(Ω; R). Recalling (2.7), we set 
+
+bΦ∗ .
+
+= bΦ − 12 |bu|2 in Ω ,
+
+and thus the pair ( bu, bΦ∗) ∈ V (Ω) × W 1,3/2(Ω; R) satisfies, in strong form, the Euler equation in Ω: (bu · ∇ )bu + ∇bΦ∗ = 0 , ∇ · bu = 0 in Ω .
+
+Since bu = 0 on Γ W , the Bernoulli Law [41, Lemma 4] (see [6, Theorem 2.2] and [42, Theorem 1] as well) states that bΦ∗ must be constant on Γ W . Then, there exists bp∗ ∈ R such that 
+
+bΦ = bp∗ almost everywhere on ΓW . (4.31) Now, the embedding W 1,2(Ω ε; R3) ⊂ L6(Ω ε; R3) implies f − (∇ × uε) × uε ∈ L3/2(Ω ε; R3), so from the H¨ older and Sobolev inequalities (applied in Ω) we estimate 
+
+∥f − (∇ × uε) × uε∥L3/2(Ω ε) ≤ ∥ f ∥L3/2(Ω) + ∥(∇ × euε) × euε∥L3/2(Ω) 
+
+≤ ∥ f ∥L3/2(Ω) + ∥∇ × euε∥L2(Ω) ∥euε∥L6(Ω) 
+
+≤ C
+
+
+
+∥f ∥L3/2(Ω) + ∥∇ uε∥2
+
+> L2(Ω ε)
+
+
+
+.
+
+(4.32) We introduce the following subdomains of Ω: ΩI .
+
+= {ξ ∈ Ω1 | dist( ξ, ΓI ) < δ 3} and ΩO .
+
+= {ξ ∈ Ω2 | dist( ξ, ΓO) < δ 3} .
+
+26 Observe that the pair ( uε, Φε) ∈ W 2,3/2(Ω ε; R3) × W 1,3/2(Ω ε; R) is also a strong solution to the Stokes system (4.4) 1 in Ω ε, with a right-hand side given by f − (∇ × uε) × uε. If we apply the same extension argument of [60, Theorem 3.2] (see also [53, Remark 5.4.1]), we can then invoke the usual local regularity results for the Stokes equations (see [13, Teorema, page 311] or [24, Theorem IV.4.1]) and the estimates (4.16)-(4.32) to furnish 
+
+∥uε∥W 2,3/2(Ω I ) + ∥Φε∥W 1,3/2(Ω I )
+
+≤ C
+
+
+
+∥f − (∇ × uε) × uε∥L3/2(Ω ε) + ∥∇ uε∥L3/2(Ω ε) + ∥Φε∥L3/2(Ω ε)
+
+
+
+≤ C
+
+
+
+1 + ∥f ∥L2(Ω) + ∥∇ uε∥2 
+
+> L2(Ω ε)
+
++ ∥∇ uε∥L2(Ω ε)
+
+
+
+.
+
+(4.33) In the same way we derive 
+
+∥uε∥W 2,3/2(Ω O ) + ∥Φε∥W 1,3/2(Ω O ) ≤ C
+
+
+
+1 + ∥f ∥L2(Ω) + ∥∇ uε∥2 
+
+> L2(Ω ε)
+
++ ∥∇ uε∥L2(Ω ε)
+
+
+
+. (4.34) We emphasize that, in view of assumption (4.3), the constant C > 0 entering (4.33)-(4.34) is independent of ε ∈ I∗, since the strips Ω I and Ω O do not contain any particles. Along the weakly convergent sub-sequence (4.18) 2, and in the light of (4.33)-(4.34), we infer that the following sequences are uniformly bounded with respect to ε ∈ I∗:(bvε)ε∈I∗
+
+.
+
+=
+
+ euε
+
+Z2
+
+> ε
+
+
+
+> ε∈I∗
+
+⊂ W 2,3/2(Ω I ; R3) ; (bvε)ε∈I∗
+
+.
+
+=
+
+ euε
+
+Z2
+
+> ε
+
+
+
+> ε∈I∗
+
+⊂ W 2,3/2(Ω O; R3) ; (bΦε)ε∈I∗ ⊂ W 1,3/2(Ω I ; R) ; (bΦε)ε∈I∗ ⊂ W 1,3/2(Ω O; R) .
+
+Thus, there exist bvI ∈ W 2,3/2(Ω I ; R3), bvO ∈ W 2,3/2(Ω O; R3), bΦI ∈ W 1,3/2(Ω I ; R) and bΦO ∈ W 1,3/2(Ω O; R)such that the following convergences hold as ε → 0+:
+
+bvε → bvI strongly in W 1,3/2(Ω I ; R3) ; ∂bvε
+
+∂ν → ∂bvI
+
+∂ν strongly in L1(∂ΩI ; R3) ; 
+
+bvε → bvO strongly in W 1,3/2(Ω O; R3) ; ∂bvε
+
+∂ν → ∂bvO
+
+∂ν strongly in L1(∂ΩO; R3) ; 
+
+bΦε ⇀ bΦI weakly in W 1,3/2(Ω I ; R) ; bΦε ⇀ bΦO weakly in W 1,3/2(Ω O; R) ; 
+
+bΦε → bΦI strongly in L2(Ω I ; R) ; bΦε → bΦO strongly in L2(Ω O; R) ; 
+
+bΦε → bΦI strongly in L1(∂ΩI ; R) ; bΦε → bΦO strongly in L1(∂ΩO; R) ,
+
+(4.35) along sub-sequences that are not being relabeled, see also [52, Theorem 6.2]. An application of the H¨ older inequality (in Ω I and Ω O) readily implies that 
+
+bvI ≡ 0 in ΩI ; bvO ≡ 0 in ΩO , (4.36) since, in virtue of (4.18) 1, ∥∇ bvε∥L2(Ω) → 0 as ε → 0+. Furthermore, in view of (4.4) 3-(4.4) 4-(4.36), the strong convergences in (4.35) 4- (4.35) 5 imply that bΦI = 0 on Γ I and bΦO = bp on Γ O. But, given that 
+
+bΦε ⇀ bΦI weakly in L2(Ω I ; R) and bΦε ⇀ bΦO weakly in L2(Ω O; R) as ε → 0+, by uniqueness of the weak limit there must hold bΦ = bΦI in Ω I and bΦ = bΦO in Ω O. Consequently, since bΦ ∈ W 1,3/2(Ω; R), 
+
+bΦ = 0 on ΓI ; bΦ = bp on ΓO .
+
+Now, since bΦ ∈ W 1,3/2(Ω; R), its restriction to ∂Ω belongs to W 13 , 32 (∂Ω; R), meaning that 
+
+Z
+
+> ∂Ω
+
+Z
+
+> ∂Ω
+
+|bΦ( ξ1) − bΦ( ξ2)|3/2
+
+|ξ1 − ξ2|5/2 dξ1 dξ2 < ∞ . (4.37) 27 We return to (4.31). If, by contradiction, we would have bp∗̸ = 0, then 
+
+Z
+
+> ∂Ω
+
+Z
+
+> ∂Ω
+
+|bΦ( ξ1) − bΦ( ξ2)|3/2
+
+|ξ1 − ξ2|5/2 dξ1 dξ2 ≥ | bp∗|3/2
+
+Z
+
+> ΓI
+
+Z
+
+> ΓW
+
+1
+
+|ξ1 − ξ2|5/2 dξ1 dξ2 = + ∞ ,
+
+which obviously disputes (4.37). Thus, bp∗ = 0, and since there also holds 
+
+Z
+
+> ∂Ω
+
+Z
+
+> ∂Ω
+
+|bΦ( ξ1) − bΦ( ξ2)|3/2
+
+|ξ1 − ξ2|5/2 dξ1 dξ2 ≥ | bp |3/2
+
+Z
+
+> ΓO
+
+Z
+
+> ΓW
+
+1
+
+|ξ1 − ξ2|5/2 dξ1 dξ2 ,
+
+by the exact same argument we deduce that 
+
+bp = 0 . (4.38) A contradiction is reached between (4.21)-(4.38), and consequently, the norms ∥∇ uε∥L2(Ω ε) must be uniformly bounded with respect to ε ∈ I∗. Combined with (4.12)-(4.16), this concludes the proof. 2
+
+Remark 4.4. The additional assumption (4.3) , which requires the existence of thin strips near ΓI and 
+
+ΓO that are never perforated in the process as ε → 0+, is only invoked to specify the boundary values of the limit Bernoulli pressure bΦ ∈ W 1,3/2(Ω) on ΓI and ΓO. Such information cannot be directly extracted from the weak convergence bΦε ⇀ bΦ in L2(Ω; R) as ε → 0+, while it does not seem straightforward to build a W 1,3/2(Ω; R)-uniform extension for the Bernoulli pressure Φε inside the holes; in fact, following the approach of [50, Lemma 1.7] (based on local regularity estimates for the Stokes problem) one obtains 
+
+∥uε∥W 2,3/2(Ω ε) + ∥Φε∥W 1,3/2(Ω ε) ≤ C
+
+√ε
+
+
+
+1 + ∥f ∥L2(Ω) + ∥∇ uε∥2 
+
+> L2(Ω ε)
+
++ ∥∇ uε∥L2(Ω ε)
+
+
+
+∀ε ∈ I∗ ,
+
+for some constant C > 0 independent of ε ∈ I∗. It is left open the possibility of recovering the result of Theorem 4.3 without hypothesis (4.3) .
+
+The second main result of this section provides uniform bounds (with respect to ε ∈ I∗) for the solutions of the prescribed pressure drop problem (2.9). Compared to Theorem 4.3, in this case the additional assumption (4.3) is not required and the corresponding proof is considerably simpler. 
+
+Theorem 4.5. Let Ω ⊂ R3 be an admissible domain, p± ∈ R, f ∈ L2(Ω; R3) and με
+
+> 1
+
+, ..., μεN (ε) ∈ R3.There exists (at least) one weak solution uε ∈ W 2,2(Ω ε; R3) ∩ V (Ω ε) of the prescribed pressure drop problem (2.9) and an associated Bernoulli pressure Φε ∈ W 1,2(Ω ε; R) ∩ L20(Ω ε; R) such that the pair 
+
+(uε, Φε) satisfies (2.9) in strong form. Furthermore, under assumption (2.11) , there exists ε◦ ∈ I∗ for which the uniform bound 
+
+sup 
+
+> ε∈(0 ,ε ◦)
+
+ ∥∇ uε∥L2(Ω ε) + ∥Φε∥L2(Ω ε)
+
+ ≤ C∗ ,
+
+holds for some constant C∗ > 0 that depends on Ω, f , p±, S∗ and {δi}2
+
+> i=0
+
+.
+
+Proof. In what follows, C > 0 will always denote a generic constant that depends on Ω, p±, S∗ and 
+
+{δi}2 
+
+> i=0
+
+(independently of ε ∈ I∗), but that may change from line to line. Given any p± ∈ R, f ∈ L2(Ω; R3), με
+
+> 1
+
+, ..., μεN (ε) ∈ R3 and ε ∈ I∗, a direct extension of [44, The-orem 3.2] ensures the existence of at least one weak solution uε ∈ V (Ω ε) of problem (2.9). Then, the same argument of [60, Theorem 3.2] can be applied to deduce uε ∈ W 2,2(Ω ε; R3) and the existence of an associated pressure Φ ε ∈ W 1,2(Ω ε; R) ∩ L20(Ω ε; R) satisfying 
+
+
+
+− ∆uε + ( ∇ × uε) × uε + ∇Φε = f , ∇ · uε = 0 in Ωε ;
+
+uε = 0 on ΓW ; uε = μεn on ∂K εn ∀n ∈ { 1, ..., N (ε)} ;
+
+uε × ν = 0 , − ∂∂ν (uε · ν) + Φ ε = p− on ΓI ;
+
+uε × ν = 0 , − ∂∂ν (uε · ν) + Φ ε = p+ on ΓO ,
+
+(4.39) 28 in strong form, see also [44, Section 2]. Let Aε ∈ C ∞(Ω; R3) be the vector field arising from Lemma 3.2 and define vε .
+
+= uε − Aε in Ω ε, so that vε ∈ W (Ω ε). In view of (3.5) 1, it suffices to prove the following uniform bound: sup 
+
+> ε∈I∗
+
+ ∥∇ vε∥L2(Ω ε) + ∥Φε∥L2(Ω ε)
+
+ < +∞ . (4.40) As a consequence of (4.2), we notice that vε satisfies the following weak formulation: 
+
+Z
+
+> Ωε
+
+∇vε : ∇φ +
+
+Z
+
+> Ωε
+
+∇Aε : ∇φ +
+
+Z
+
+> Ωε
+
+(( ∇ × vε) × vε) · φ +
+
+Z
+
+> Ωε
+
+(( ∇ × vε) × Aε) · φ
+
++
+
+Z
+
+> Ωε
+
+(( ∇ × Aε) × vε) · φ +
+
+Z
+
+> Ωε
+
+(( ∇ × Aε) × Aε) · φ + ( p+ − p−)
+
+Z
+
+> ΓO
+
+φ · ν =
+
+Z
+
+> Ωε
+
+f · φ ,
+
+(4.41) for every φ ∈ W (Ω ε). As in the proof of Theorem 4.3, we put 
+
+evε .
+
+=
+
+(vε in Ωε ,
+
+0 in Kε , and eΦε .
+
+=
+
+(Φε in Ωε ,
+
+0 in Kε ,
+
+and notice that eΦε ∈ L20(Ω; R) and evε ∈ V (Ω), see (4.6). By taking φ = vε in the weak formulation (4.41) we obtain 
+
+∥∇ vε∥2 
+
+> L2(Ω ε)
+
++
+
+Z
+
+> Ωε
+
+∇Aε : ∇vε +
+
+Z
+
+> Ω
+
+(( ∇ × evε) × Aε) · evε
+
++
+
+Z
+
+> Ω
+
+(( ∇ × Aε) × Aε) · evε + ( p+ − p−)
+
+Z
+
+> ΓO
+
+vε · ν =
+
+Z
+
+> Ω
+
+f · evε .
+
+(4.42) Applying the H¨ older, Sobolev and Poincar´ e inequalities (in Ω), as well as (3.5), we can estimate: 
+
+Z
+
+> Ωε
+
+∇Aε : ∇vε ≤ C∥∇ vε∥L2(Ω ε) ,
+
+Z
+
+> Ω
+
+f · evε ≤ C∥f ∥L2(Ω) ∥∇ vε∥L2(Ω ε) ,
+
+Z
+
+> Ω
+
+(( ∇ × evε) × Aε) · evε ≤ ∥∇ × evε∥L2(Ω) ∥evε∥L4(Ω) ∥Aε∥L4(Ω) ≤ Cε 3/4∥∇ vε∥2 
+
+> L2(Ω ε)
+
+,
+
+Z
+
+> Ω
+
+(( ∇ × Aε) × Aε) · evε ≤ ∥∇ × Aε∥L2(Ω) ∥Aε∥L4(Ω) ∥evε∥L4(Ω) ≤ C∥∇ vε∥L2(Ω ε) .
+
+(4.43) On the other hand, the trace inequality (applied in Ω) gives us 
+
+Z
+
+> ΓO
+
+vε · ν ≤ ∥ evε∥L1(Γ O ) ≤ C∥evε∥L2(Γ O ) ≤ C∥∇ evε∥L2(Ω ε) . (4.44) Then, select a sufficiently small ε◦ ∈ I∗ such that 
+
+ε3/4 < 1
+
+C ∀ε ∈ (0 , ε ◦) , (4.45) with C > 0 being the constant entering the right-hand side of (4.43) 2. After plugging (4.43)-(4.44)-(4.45) into (4.42) we obtain 
+
+∥∇ vε∥L2(Ω ε) ≤ C  ∥f ∥L2(Ω) + 1  ∀ε ∈ (0 , ε ◦) . (4.46) Concerning the pressure, since Φ ε ∈ L20(Ω ε; R), there exists a vector field Xε ∈ W 1,20 (Ω ε; R3) satisfying 
+
+∇ · Xε = Φ ε in Ωε and ∥∇ Xε∥L2(Ω ε) ≤ C∥Φε∥L2(Ω ε) ,
+
+see [19, Theorem 2.3] again. If we multiply the first identity in (4.39) 1 by Xε and integrate by parts in Ωε, arguing exactly as in (4.14)-(4.15)-(4.16) we derive the bound 
+
+∥Φε∥L2(Ω ε) ≤ C
+
+
+
+∥∇ uε∥2 
+
+> L2(Ω ε)
+
++ ∥∇ uε∥L2(Ω ε) + ∥f ∥L2(Ω) 
+
+
+
+. (4.47) A combination of (4.40)-(4.46)-(4.47) finishes the proof. 2
+
+29 4.2 Proof of Theorem 2.4 
+
+We conclude this section with the proof of Theorem 2.4 (the corresponding proof of Theorem 2.5 is omitted for the sake of brevity, since it resembles the proof of Theorem 2.4 with minor modifications). 
+
+Proof. 
+
+U∗(Ω ε) .
+
+=
+
+(
+
+v ∈ W 1,2(Ω ε; R3) v × ν = 0 on ΓI ∪ ΓO ; v = 0 on ΓW ∪ ∂K ε ;
+
+Z
+
+> ΓO
+
+v · ν = 0 
+
+)
+
+,
+
+U∗(Ω) .
+
+=
+
+(
+
+v ∈ W 1,2(Ω; R3) v × ν = 0 on ΓI ∪ ΓO ; v = 0 on ΓW ;
+
+Z
+
+> ΓO
+
+v · ν = 0 
+
+)
+
+,
+
+and, as in (4.6), 
+
+V(Ω) .
+
+= v ∈ W 1,2(Ω; R3) | ∇ · v = 0 in Ω ; v × ν = 0 on ΓI ∪ ΓO ; v = 0 on ΓW ,
+
+Thus, U(Ω) and V(Ω) are closed subspaces of W 1,2(Ω; R3), with ( euε)ε∈I∗ ⊂ V (Ω). If u ∈ W 1,2(Ω; R3) is a weak accumulation point of ( euε)ε∈I∗ in W 1,2(Ω; R3), then necessarily u ∈ V (Ω); the boundary conditions for u in (2.15) 2-(2.15) 3-(2.15) 4 are thus verified. Furthermore, by the compactness of the embeddings 
+
+W 1,2(Ω; R3) ⊂ L4(Ω; R3) and W 1,2(Ω; R3) ⊂ L1(∂Ω; R3), we may assume that the following convergences hold as ε → 0+:
+
+euε → u strongly in L4(Ω; R3) ; euε → u strongly in L1(∂Ω; R3) . (4.48) Recall, from (2.8) 5, that Z
+
+> ΓO
+
+euε · ν = F ∀ε ∈ I∗ ,
+
+so that (4.48) 2 gives us 
+
+Z
+
+> ΓO
+
+u · ν − F =
+
+Z
+
+> ΓO
+
+(u − euε) · ν ≤ ∥ euε − u∥L1(Γ I ) ≤ ∥ euε − u∥L1(∂Ω) → 0 as ε → 0+ .
+
+Therefore, u verifies the flux condition (2.15) 5.Now, take any vector field φ ∈ U ∗(Ω) ∩ C ∞(Ω; R3); owing to Theorem 3.6, Rε(φ) ∈ U ∗(Ω ε), since 
+
+Rε(φ) = φ on ∂Ω. Consequently, the weak formulation of (2.8) including the Bernoulli pressure (see [44, Section 4]) reads, 
+
+Z
+
+> Ω
+
+∇euε : ∇R ε(φ) + 
+
+Z
+
+> Ω
+
+(( ∇ × euε) × euε) · R ε(φ) −
+
+Z
+
+> Ω
+
+eΦε(∇ · R ε(φ)) = 
+
+Z
+
+> Ω
+
+f · R ε(φ) , (4.49) for every ε ∈ I∗. It follows from (3.40) that lim 
+
+> ε→0+
+
+Z 
+
+> Ω
+
+∇euε : ∇R ε(φ) −
+
+Z
+
+> Ω
+
+eΦε(∇ · R ε(φ)) 
+
+
+
+=
+
+Z
+
+> Ω
+
+∇u : ∇φ +
+
+Z
+
+> Ω
+
+(Gu − J ) · φ −
+
+Z
+
+> Ω
+
+Φ( ∇ · φ) , (4.50) while (3.38) 4 entails that Rε(φ) → φ strongly in L2(Ω; R3) as ε → 0+, so that lim 
+
+> ε→0+
+
+Z
+
+> Ω
+
+f · R ε(φ) = 
+
+Z
+
+> Ω
+
+f · φ . (4.51) Additionally, arguing as in (4.28), we can invoke the strong convergences in (3.38) 4-(4.48) 1 to deduce lim 
+
+> ε→0+
+
+Z
+
+> Ω
+
+(( ∇ × euε) × euε) · R ε(φ) = 
+
+Z
+
+> Ω
+
+(( ∇ × u) × u) · φ. (4.52) Therefore, appealing to (4.50)-(4.51)-(4.52), we can take the limit as ε → 0+ on both sides of identity (4.49) to deduce, for every φ ∈ U ∗(Ω) ∩ C ∞(Ω; R3), 
+
+Z
+
+> Ω
+
+∇u : ∇φ +
+
+Z
+
+> Ω
+
+(( ∇ × u) × u) · φ +
+
+Z
+
+> Ω
+
+(Gu − J ) · φ −
+
+Z
+
+> Ω
+
+Φ( ∇ · φ) = 
+
+Z
+
+> Ω
+
+f · φ .
+
+By density, this shows that ( u, Φ) is a weak solution to the prescribed net flux problem (2.15) in Ω. 2
+
+30 A Appendix 
+
+A.1 The Stokes problem in the exterior of a single particle 
+
+Let Ω ⊂ R3 be an admissible domain. Given ε ∈ I∗, n ∈ { 1, . . . , N (ε)} and φ ∈ W 1,2(Ω; R3), consider the unique generalized solution ( ψεn, p εn) ∈ D1,2(R3 \ Kεn; R3) × L2(R3 \ Kεn; R) (in the sense of [24, Definition V.1.1], and where D1,2(R3 \ Kεn; R3) is defined in (3.35)) to the following Stokes problem in the exterior of Kεn: 
+
+− ∆ψεn + ∇pεn = 0 , ∇ · ψεn = 0 in R3 \ Kεn ,
+
+ψεn = φ on ∂K εn ,
+
+ψεn → 0 as |ξ| → +∞ ,
+
+(A.1) whose existence can be guaranteed by standard methods such as [24, Theorem V.2.1] or [49, Theorem 7.1]. Moreover, the velocity component of this generalized solution can be characterized by the property 
+
+Z
+
+> R3\Kεn
+
+|∇ ψεn|2 = inf 
+
+> v∈D1,2(R3\Kεn;R3)
+
+Z
+
+> R3\Kεn
+
+|∇ v|2 ∇ · v = 0 in R3 \ Kεn ; v = φ on ∂K εn
+
+ , (A.2) see, for example, [32, Theorem 2]. In the next result we provide energy bounds and decay estimates for the velocity field ψεn which are independent of the shape of the particle Kεn (that is, independent of 
+
+n ∈ { 1, . . . , N (ε)}). 
+
+Lemma A.1. Let Ω ⊂ R3 be an admissible domain. Given ε ∈ I∗, n ∈ { 1, . . . , N (ε)} and a vector field 
+
+φ ∈ W 1,2(Ω; R3), let (ψεn, p εn) ∈ D1,2(R3 \ Kεn; R3) × L2(R3 \ Kεn; R) be the unique weak solution to the exterior problem (A.1) . There holds the energy bound 
+
+∥∇ ψεn∥L2(R3\Kεn) ≤ C∗
+
+ 1
+
+ε3 ∥φ∥L2(B(ξεn,δ 0ε3)) + ∥∇ φ∥L2(B(ξεn,δ 0ε3)) 
+
+
+
+, (A.3) 
+
+as well as the decay estimate 
+
+|ψεn(ξ)| + |ξ − ξεn| (|∇ ψεn(ξ)| + |pεn(ξ)|) ≤ C∗ ε3/2
+
+|ξ − ξεn|
+
+ 1
+
+ε3 ∥φ∥L2(B(ξεn,δ 0ε3)) + ∥∇ φ∥L2(B(ξεn,δ 0ε3)) 
+
+
+
+, (A.4) 
+
+for every ξ ∈ R3 \ B(ξεn, 2δ0ε3), for some constant C∗ > 0 that depends exclusively on δ0 (independently of ε ∈ I∗ and n ∈ { 1, . . . , N (ε)}). 
+
+Proof. Let ε ∈ I∗ and n ∈ { 1, . . . , N (ε)}. Recalling (2.2) and setting 
+
+ψn(ξ) .
+
+= ψεn(ξεn + ε3ξ) and pn(ξ) .
+
+= ε3pεn(ξεn + ε3ξ) ∀ξ ∈ R3 \ Kn ,
+
+it can be easily seen that ( ψn, p n) ∈ D1,2(R3 \ Kn; R3) × L2(R3 \ Kn; R) is the unique weak solution to the following Stokes problem in the exterior of Kn:
+
+
+
+− ∆ψn + ∇pn = 0 , ∇ · ψn = 0 in R3 \ Kn ,
+
+ψn = φn on ∂K n ,
+
+ψn → 0 as |ξ| → +∞ ,
+
+where φn ∈ W 1,2(B(0, δ 2); R3) is given by 
+
+φn(ξ) .
+
+= φ(ξεn + ε3ξ) ∀ξ ∈ B(0, δ 2) .
+
+31 In particular, by density, there holds 
+
+Z
+
+> R3\Kn
+
+∇ψn : ∇ϕ −
+
+Z
+
+> R3\Kn
+
+pn(∇ · ϕ) = 0 ∀ϕ ∈ D1,20 (R3 \ Kn; R3) . (A.5) Accordingly, the characterization (A.2) reads 
+
+Z
+
+> R3\Kn
+
+|∇ ψn|2 = inf 
+
+> v∈D1,2(R3\Kn;R3)
+
+Z
+
+> R3\Kn
+
+|∇ v|2 ∇ · v = 0 in R3 \ Kn ; v = φn on ∂K n
+
+ . (A.6) In what follows, C > 0 will always denote a generic constant that depends exclusively on δ0 (inde-pendently of ε ∈ I∗ and n ∈ { 1, . . . , N (ε)}), but that may change from line to line. Define the vector field T n ∈ C ∞(R3 \ { 0}; R3) ∩ W 1,2(R3 \ B(0, δ 0); R3) by 
+
+T n(ξ) .
+
+= − 14π
+
+Z
+
+> B(0,δ 0)\Kn
+
+∇ · φn
+
+!
+
+ξ
+
+|ξ|3 ∀ξ ∈ R3 \ { 0} .
+
+Since T n is divergence-free in R3 \ { 0}, a direct computation shows that 
+
+Z
+
+> ∂B (0,δ 0)
+
+T n · bν = −
+
+Z
+
+> B(0,δ 0)\Kn
+
+∇ · φn ; ∥T n∥W 1,2(R3\B(0,δ 0)) ≤ C∥∇ φn∥L2(B(0,δ 0)) , (A.7) with bν ∈ R3 being the outward unit normal to B(0, δ 0). Consequently, owing to [24, Exercise III.3.5], consider a vector field wn ∈ W 1,2(B(0, δ 0) \ Kn; R3) satisfying 
+
+
+
+∇ · wn = −∇ · φn in B(0, δ 0) \ Kn ; wn = 0 on ∂K n ; wn = T n on ∂B (0, δ 0) ; 
+
+∥∇ wn∥L2(B(0,δ 0)\Kn) ≤ C∥T n∥W 1/2,2(∂B (0,δ 0)) . (A.8) We emphasize that our assumption on the uniform John character of the sets ( Kn)n∈N ensures that the constant entering the right-hand side of (A.8) 2 can be bounded independently of n ∈ { 1, . . . , N (ε)}. In view of [24, Exercise III.3.8], take now a vector field vn ∈ D1,2(R3 \ B(0, δ 0); R3) verifying 
+
+
+
+∇ · vn = 0 in R3 \ B(0, δ 0) ; vn = wn + φn on ∂B (0, δ 0) ; 
+
+∥∇ vn∥L2(R3\B(0,δ 0)) ≤ C∥wn + φn∥W 1/2,2(∂B (0,δ 0)) . (A.9) Extending vn = wn + φn inside B(0, δ 0) \ Kn (keeping the same notation), we obtain a divergence-free vector field vn ∈ D1,2(R3 \ Kn; R3) such that vn = φn on ∂K n. Moreover, owing to (A.7) 2-(A.9) 2 and the trace inequality (applied in B(0, δ 0)), there holds the estimate 
+
+∥∇ vn∥2 
+
+> L2(R3\Kn)
+
+= ∥∇ vn∥2 
+
+> L2(R3\B(0,δ 0))
+
++ ∥∇ vn∥2
+
+> L2(B(0,δ 0)\Kn)
+
+≤ C
+
+
+
+∥φn∥2  
+
+> W1/2,2(∂B (0,δ 0))
+
++ ∥wn∥2  
+
+> W1/2,2(∂B (0,δ 0))
+
++ ∥∇ φn∥2
+
+> L2(B(0,δ 0))
+
+
+
+≤ C
+
+
+
+∥φn∥2 
+
+> L2(B(0,δ 0))
+
++ ∥∇ φn∥2
+
+> L2(B(0,δ 0))
+
+
+
+.
+
+(A.10) Observing that vn is an admissible candidate in the characterization (A.6), from (A.10) we infer 
+
+∥∇ ψn∥2 
+
+> L2(R3\Kn)
+
+≤ ∥∇ vn∥2 
+
+> L2(R3\Kn)
+
+≤ C
+
+
+
+∥φn∥2 
+
+> L2(B(0,δ 0))
+
++ ∥∇ φn∥2
+
+> L2(B(0,δ 0))
+
+
+
+. (A.11) 32 Applying the changes of variables 
+
+ξ ∈ R3 \ Kn ←→ ξεn + ε3ξ ∈ R3 \ Kεn ; ξ ∈ B(0, δ 0) ←→ ξεn + ε3ξ ∈ B(ξεn, δ 0ε3) , (A.12) we easily deduce 
+
+∥∇ ψn∥2 
+
+> L2(R3\Kn)
+
+= 1
+
+ε3 ∥∇ ψεn∥2 
+
+> L2(R3\Kεn)
+
+,
+
+∥φn∥2 
+
+> L2(B(0,δ 0))
+
+= 1
+
+ε9 ∥φ∥2 
+
+> L2(B(ξεn,δ 0ε3))
+
+, ∥∇ φn∥2 
+
+> L2(B(0,δ 0))
+
+= 1
+
+ε3 ∥∇ φ∥2 
+
+> L2(B(ξεn,δ 0ε3))
+
+.
+
+(A.13) Upon insertion of (A.13) into (A.11), the energy bound (A.3) is obtained. We then turn to the proof of (A.4) which, even though is analogous to the one of [32, Lemma 5], is provided here for the sake of completeness. By interior elliptic regularity (see [24, Theorem IV.4.3]) we deduce ( ψn, p n) ∈ C ∞(R3 \ B(0, δ 0); R3) × C ∞(R3 \ B(0, δ 0); R). Moreover, [26, Lemma 1.1] ensures the existence of a constant vector ψ0 ∈ R3 such that ψn − ψ0 ∈ L6(R3 \ Kn; R3) and 
+
+∥ψn − ψ0∥L6(R3\Kn) ≤ C∥∇ ψn∥L2(R3\Kn) ; lim 
+
+> r→+∞
+
+Z
+
+> ∂B (0,1)
+
+|ψn(rξ) − ψ0|2 = 0 . (A.14) Nevertheless, recalling, from [24, Definition V.1.1] that lim 
+
+> r→+∞
+
+Z
+
+> ∂B (0,1)
+
+|ψn(rξ)| = 0 , (A.15) we can combine (A.14)-(A.15) with the H¨ older inequality to deduce that ψ0 = 0.In view of assumption (2.3) 1, we can choose ϱ ∈ (0 , δ 0) (depending exclusively on δ0) such that 
+
+Kn ⊂ B(0, ϱ ) ⊂ B(0, δ 0) ∀n ∈ { 1, ..., N (ε)} .
+
+Consider, then, the annular regions 
+
+A(δ0) .
+
+= B
+
+
+
+0, 32 δ0
+
+
+
+\ B(0, δ 0) and E(δ0) .
+
+= B(0, 2δ0) \ B(0, ϱ ) ,
+
+so that A(δ0) ⊂ E(δ0) and E(δ0) ⊂ R3 \ Kn. We may invoke the usual interior regularity estimates for the Stokes equations (see [24, Theorem IV.4.1]) to derive the bound 
+
+∥ψn∥W 4,2(A(δ0)) + ∥pn∥W 3,2(A(δ0)) ≤ C  ∥ψn∥W 1,2(E(δ0)) + ∥pn∥L2(E(δ0)) 
+
+ . (A.16) A trivial application of the H¨ older inequality, as well as (A.14) 1 (recall that ψ0 = 0), entails 
+
+∥ψn∥2  
+
+> W1,2(E(δ0))
+
+= ∥ψn∥2 
+
+> L2(E(δ0))
+
++ ∥∇ ψn∥2
+
+> L2(E(δ0))
+
+≤ C
+
+
+
+∥ψn∥2 
+
+> L6(E(δ0))
+
++ ∥∇ ψn∥2
+
+> L2(E(δ0))
+
+
+
+≤ C
+
+
+
+∥ψn∥2 
+
+> L6(R3\Kn)
+
++ ∥∇ ψn∥2
+
+> L2(R3\Kn)
+
+
+
+≤ C∥∇ ψn∥2 
+
+> L2(R3\Kn)
+
+.
+
+(A.17) On the other hand, [24, Theorem III.3.6] ensures the existence of Xn ∈ D1,20 (R3 \ B(0, ϱ ); R3) such that 
+
+∇ · Xn = pn in R3 \ B(0, ϱ ) ; ∥∇ Xn∥L2(R3\B(0,ϱ )) ≤ C∥pn∥L2(R3\B(0,ϱ )) . (A.18) 33 After a trivial extension (by zero) to the interior of B(0, ϱ ), we can take ϕ = Xn in (A.5); this furnishes, as a consequence of the H¨ older inequality and (A.18) 2,
+
+∥pn∥L2(R3\B(0,ϱ )) ≤ C∥∇ ψn∥L2(R3\B(0,ϱ )) ,
+
+and thus, 
+
+∥pn∥L2(E(δ0)) ≤ ∥ pn∥L2(R3\B(0,ϱ )) ≤ C∥∇ ψn∥L2(R3\B(0,ϱ )) ≤ C∥∇ ψn∥L2(R3\Kn) . (A.19) From (A.16)-(A.17)-(A.19) and by Sobolev embedding, we have ( ψn, p n) ∈ C 2(A(δ0); R3) × C 1(A(δ0); R)together with 
+
+∥ψn∥C2(A(δ0)) + ∥pn∥C1(A(δ0)) ≤ C∥∇ ψn∥L2(R3\Kn) . (A.20) Consider now a cutoff function χ0 ∈ C ∞(R3, [0 , 1]) such that 
+
+χ0 ≡ 0 in B(0, δ 0) and χ0 ≡ 1 in R3 \ B
+
+
+
+0, 32 δ0
+
+
+
+. (A.21) Introducing the functions ( bψn, bpn, f n, g n) ∈ C ∞(R3; R3) × C ∞(R3; R) × C ∞ 
+
+> 0
+
+(R3; R3) × C ∞ 
+
+> 0
+
+(R3; R) by 
+
+bψn
+
+.
+
+= χ0ψn , bpn .
+
+= χ0pn , fn
+
+.
+
+= −(∆ χ0)ψn − 2( ∇χ0 · ∇ )ψn + pn∇χ0 , gn = ∇χ0 · ψn in R3 ,
+
+we notice that supp( fn) ⊂ A(δ0), supp( gn) ⊂ A(δ0) and, due to (A.20), 
+
+∥fn∥C2(A(δ0)) + ∥gn∥C1(A(δ0)) ≤ C
+
+
+
+∥ψn∥C2(A(δ0)) + ∥pn∥C1(A(δ0)) 
+
+
+
+≤ C∥∇ ψn∥L2(R3\Kn) . (A.22) Moreover, a straightforward computation shows that the following non-homogeneous Stokes system, in the whole space R3, is satisfied in the classical sense: 
+
+−∆ bψn + ∇bpn = fn , ∇ · bψn = gn in R3 .
+
+The uniqueness statement of [24, Theorem IV.2.2] implies the representation 
+
+bψn(ξ) = ∇(FL ∗ gn)( ξ) + 
+
+Z
+
+> R3
+
+FS (ξ − y) · [fn(y) − ∆( ∇(FL ∗ gn))( y)] dy ∀ξ ∈ R3 ,
+
+bpn(ξ) = −
+
+Z
+
+> R3
+
+qS (ξ − y) · [fn(y) − ∆( ∇(FL ∗ gn))( y)] dy ∀ξ ∈ R3 ,
+
+where FL ∈ C ∞(R3 \ { 0}; R) and ( FS , qS ) ∈ C ∞(R3 \ { 0}; R3) × C ∞(R3 \ { 0}; R3) denote, respectively, the fundamental solutions to the Laplace and Stokes equations in R3, see [24, Formula (IV.2.4)]. Since 
+
+|ξ − y| ≥ |ξ|
+
+8 ∀ξ ∈ R3 \ B(0, 2δ0) , ∀y ∈ A(δ0) ,
+
+we may replicate the calculations carried out in [24, Section IV.2] to derive the decay estimate 
+
+| bψn(ξ)| + |ξ|
+
+
+
+|∇ bψn(ξ)| + |bpn(ξ)|
+
+
+
+≤ C
+
+|ξ|
+
+
+
+∥fn∥C2(A(δ0)) + ∥gn∥C1(A(δ0)) 
+
+
+
+∀ξ ∈ R3 \ B(0, 2δ0) . (A.23) In the light of (A.21)-(A.22)-(A.23), we may then write 
+
+|ψn(ξ)| + |ξ| (|∇ ψn(ξ)| + |pn(ξ)|) ≤ C
+
+|ξ| ∥∇ ψn∥L2(R3\Kn) ∀ξ ∈ R3 \ B(0, 2δ0) . (A.24) The decay estimate (A.4) then follows from (A.3)-(A.11)-(A.13)-(A.24). This concludes the proof. 2
+
+34 Particular attention is devoted to the case when the boundary datum in (A.1) 2 is a constant vector. Accordingly, given V ∈ R3, denote by ( ψn[V ], p n[V ]) ∈ D1,2(R3 \ Kn; R3) × L2(R3 \ Kn; R) the unique generalized solution to the following Stokes problem in the exterior of Kn:
+
+
+
+− ∆ψn[V ] + ∇pn[V ] = 0 , ∇ · ψn[V ] = 0 in R3 \ Kn ,
+
+ψn[V ] = V on ∂K n ,
+
+ψn[V ] → 0 as |ξ| → +∞ .
+
+(A.25) By elliptic regularity (up to the boundary ∂K n), as in expressed in [24, Theorem IV.5.2], we know that (ψn[V ], p n[V ]) ∈ C 2(R3 \ Kn; R3) × C 1(R3 \ Kn; R) ,
+
+so that the drag force exerted by the Stokes flow ( ψn[V ], p n[V ]) over Kn can be computed as 
+
+Fn[V ] .
+
+=
+
+Z
+
+> ∂K n
+
+ ∂ψεn[V ]
+
+∂ν − pn[V ]ν
+
+
+
+.
+
+In accordance with previous notation, ν ∈ R3 is the outward unit normal to R3 \ Kn, which is directed towards the interior of Kn. Due to the linearity of the Stokes system (A.25), the drag force Fn[V ] is linearly dependent on V ∈ R3. This enables us to define the Stokes resistance matrix associated to (A.25) as the representative matrix Gn ∈ R3×3 of the linear transformation Fn : R3 −→ R3:
+
+Fn[V ] = GnV ∀V ∈ R3 . (A.26) In the case of spherical particles, the explicit form of the Stokes resistance matrix is known since the work of Stokes [61] (see also the contribution by Boggio [8]). In our framework, since Kn ⊂ B(0, δ 0) for any n ∈ N, we are able to provide bounds which are independent of the shape of Kn.
+
+Lemma A.2. Let (Kn)n∈N be the sequence of domains defined in Section 2.2. For every n ∈ N we have 
+
+Fn[V ] · W = GnV · W =
+
+Z
+
+> R3\Kn
+
+∇ψn[V ] : ∇ψn[W ] ∀V , W ∈ R3 , (A.27) 
+
+so that the Stokes resistance matrix Gn ∈ R3×3 is symmetric and positive-definite. Moreover, there holds the bound 
+
+|G n| ≤ C∗ , (A.28) 
+
+for some constant C∗ > 0 that depends exclusively on δ0 (independent of n ∈ N). 
+
+Proof. Let n ∈ N. We set 
+
+ϕn[V ] .
+
+= V − ψn[V ] and πn[V ] .
+
+= −pn[V ] ∀ξ ∈ R3 \ Kn ,
+
+so that ( ϕn[V ], π n[V ]) ∈ D1,20 (R3 \ Kn; R3) × L2(R3 \ Kn; R) is the unique weak solution to the following Stokes problem in the exterior of Kn:
+
+
+
+− ∆ϕn[V ] + ∇πn[V ] = 0 , ∇ · ϕn[V ] = 0 in R3 \ Kn ,
+
+ϕn[V ] = 0 on ∂K n ,
+
+ϕn[V ] → V as |ξ| → +∞ .
+
+35 Denote by bν ∈ R3 the outward unit normal to ∂K n. Given any pair of indexes i, j ∈ { 1, 2, 3}, the following formula was proved in [2, Lemma 2.3.5]: 
+
+Z
+
+> ∂K n
+
+ ∂ϕn[bei]
+
+∂bν − πn[bei]bν
+
+
+
+· bej =
+
+Z
+
+> R3\Kn
+
+∇ϕn[bei] : ∇ϕn[bej ] .
+
+Hence, Z
+
+> ∂K n
+
+ ∂ψn[bei]
+
+∂ν − pn[bei]ν
+
+
+
+· bej =
+
+Z
+
+> R3\Kn
+
+∇ψεn[bei] : ∇ψn[bej ] . (A.29) Identity (A.27) is directly obtained from (A.29), recalling (A.26). In particular, in view of (A.26)-(A.27), this implies that the matrix Gn is symmetric and positive-definite, since 
+
+
+
+Gnbei · bej =
+
+Z
+
+> R3\Kn
+
+∇ψn[bei] : ∇ψn[bej ] = 
+
+Z
+
+> R3\Kn
+
+∇ψn[bej ] : ∇ψn[bei] = Gnbej · bei ∀i, j ∈ { 1, 2, 3} ,
+
+GnV · V = Fn[V ] · V =
+
+Z
+
+> R3\Kn
+
+|∇ ψn[V ]|2 > 0 ∀V ∈ R3 \ { 0} .
+
+Finally, from (A.27) and the H¨ older inequality we deduce, for every i, j ∈ { 1, 2, 3},
+
+|G nbei · bej | =
+
+Z
+
+> R3\Kn
+
+∇ψn[bei] : ∇ψn[bej ] ≤ ∥∇ ψn[bei]∥L2(R3\Kn)∥∇ ψn[bej ]∥L2(R3\Kn) ,
+
+which, in turn, furnishes (A.28) as a consequence of the energy estimate (A.3). 2
+
+Remark A.3. For V ∈ R3, let (ϕεn[V ], π εn[V ]) ∈ D1,2(R3 \ Kεn; R3) × L2(R3 \ Kεn; R) be the unique generalized solution to the following Stokes problem in the exterior of Kεn:
+
+
+
+− ∆ψεn[V ] + ∇pεn[V ] = 0 , ∇ · ψεn[V ] = 0 in R3 \ Kεn ,
+
+ψεn[V ] = V on ∂K εn ,
+
+ψεn[V ] → 0 as |ξ| → +∞ .
+
+Employing the change of variables (A.12) from the proof of Lemma A.1, the drag force is given by 
+
+F εn[V ] .
+
+=
+
+Z
+
+> ∂K εn
+
+ ∂ψεn[V ]
+
+∂ν − pn[V ]ν
+
+
+
+= ε3GnV ∀n ∈ { 1, . . . , N (ε)} .
+
+A.2 Limits of capacity densities 
+
+The purpose of this section is to give further insight into the capacity densities defined in (2.12), as well as their limits (in a suitable sense, described below), providing a proper justification to the assumption (2.13). In order to do so, let us introduce the operators eGε ∈ L (L2(Ω; R3×3), R3×3) and eJε ∈ (L2(Ω; R3)) ∗
+
+according to the formulas 
+
+eGε(M ) .
+
+= ε3 
+
+> N(ε)
+
+X
+
+> n=1
+
+Gn
+
+ 1
+
+|B(ξεn, δ 1ε)|
+
+Z
+
+> B(ξεn,δ 1ε)
+
+M
+
+ ∀M ∈ L2(Ω; R3×3) ; 
+
+eJε(φ) .
+
+= ε3 
+
+> N(ε)
+
+X
+
+> n=1
+
+Gnμεn ·
+
+ 1
+
+|B(ξεn, δ 1ε)|
+
+Z
+
+> B(ξεn,δ 1ε)
+
+φ
+
+ ∀φ ∈ L2(Ω; R3) .
+
+36 In the following result we show that, under hypothesis (2.11), all the sequences of capacity densities presented so far are uniformly bounded with respect to ε ∈ I∗.
+
+Proposition A.4. Let Ω ⊂ R3 be an admissible domain and με
+
+> 1
+
+, ..., μεN (ε) ∈ R3 satisfying (2.11) . There hold the uniform bounds 
+
+
+
+sup 
+
+> ε∈I∗
+
+
+
+∥G ε∥L(W 1,∞(Ω; R3×3),R3×3) + ∥ eGε∥L(L2(Ω; R3×3),R3×3)
+
+
+
+≤ C∗ ,
+
+sup 
+
+> ε∈I∗
+
+
+
+∥J ε∥(W 1,∞(Ω; R3)) ∗ + ∥ eJε∥(L2(Ω; R3)) ∗
+
+
+
+≤ C∗ S∗ ,
+
+for some constant C∗ > 0 that depends on Ω and {δi}2
+
+> i=0
+
+, but is independent of ε ∈ I∗.
+
+Proof. In what follows, C > 0 will always denote a generic constant that depends on Ω and {δi}2
+
+> i=0
+
+(independently of ε ∈ I∗), but that may change from line to line. Given any φ ∈ W 1,∞(Ω; R3), due to the Cauchy-Schwartz inequality and (2.4)-(2.11)-(A.28), we have 
+
+|J ε(φ)| ≤ Cε 3∥φ∥L∞(Ω)  
+
+> N(ε)
+
+X
+
+> n=1
+
+|μεn| ≤ Cε 3∥φ∥L∞(Ω) 
+
+vuutN (ε) 
+
+> N(ε)
+
+X
+
+> n=1
+
+|μεn|2 ≤ CS∗∥φ∥L∞(Ω) .
+
+Similarly, invoking the Jensen inequality, for every φ ∈ L2(Ω; R3) we may write 
+
+eJε(φ) ≤ C 
+
+> N(ε)
+
+X
+
+> n=1
+
+|μεn|∥ φ∥L1(B(ξεn,δ 1ε)) ≤ C
+
+vuutN (ε)
+
+X
+
+> n=1
+
+|μεn|2
+
+vuutε3 
+
+> N(ε)
+
+X
+
+> n=1
+
+∥φ∥2 
+
+> L2(B(ξεn,δ 1ε))
+
+≤ CS∗∥φ∥L2(Ω) .
+
+In a completely analogous fashion we obtain the estimates 
+
+|G ε(M )| ≤ C∥M ∥L∞(Ω) ∀M ∈ W 1,∞(Ω; R3×3) ; eGε(M ) ≤ C∥M ∥L2(Ω) ∀M ∈ L2(Ω; R3×3) ,
+
+and the proof is concluded. 2
+
+Combined with the Riesz Representation Theorem, the result of Proposition A.4 implies the existence of elements 
+
+G ∈ L (W 1,∞(Ω; R3×3), R3×3) , J ∈ (W 1,∞(Ω; R3)) ∗ , eG ∈ L2(Ω; R3×3) , eJ ∈ L2(Ω; R3) ,
+
+such that the following convergences hold as ε → 0+:
+
+
+
+Gε → G in the strong operator topology of L(W 1,∞(Ω; R3×3), R3×3) ; 
+
+Jε ⇀ J ∗ − weakly in ( W 1,∞(Ω; R3)) ∗ ;
+
+eGε ⇀ eG weakly in L2(Ω; R3×3) ; Jε ⇀ eJ weakly in L2(Ω; R3) ,
+
+(A.30) along sub-sequences that are not being relabeled, see (2.14). Now, for every ε ∈ I∗ we have 
+
+eGε(M ) − G ε(M ) = ε3 
+
+> N(ε)
+
+X
+
+> n=1
+
+Gn
+
+ 1
+
+|B(ξεn, δ 1ε)|
+
+Z
+
+> B(ξεn,δ 1ε)
+
+(M − M (ξεn)) 
+
+ ∀M ∈ W 1,∞(Ω; R3×3) ; 
+
+eJε(φ) − J ε(φ) = ε3 
+
+> N(ε)
+
+X
+
+> n=1
+
+Gnμεn
+
+ 1
+
+|B(ξεn, δ 1ε)|
+
+Z
+
+> B(ξεn,δ 1ε)
+
+(φ − φ(ξεn)) 
+
+ ∀φ ∈ W 1,∞(Ω; R3) .
+
+(A.31) 37 In what follows, C > 0 will always denote a generic constant that depends on Ω and {δi}2 
+
+> i=0
+
+(indepen-dently of ε ∈ I∗), but that may change from line to line. Given any φ ∈ W 1,∞(Ω; R3), there holds 
+
+Z
+
+> B(ξεn,δ 1ε)
+
+|φ − φ(ξεn)| ≤ Cε 4∥∇ φ∥L∞(Ω) ∀n ∈ { 1, . . . , N (ε)} . (A.32) Therefore, arguing as in the proof of Proposition A.4, the Cauchy-Schwartz inequality and (2.4)-(2.11)-(A.28)-(A.32) entail 
+
+ε3 
+
+> N(ε)
+
+X
+
+> n=1
+
+Gnμεn
+
+ 1
+
+|B(ξεn, δ 1ε)|
+
+Z
+
+> B(ξεn,δ 1ε)
+
+(φ − φ(ξεn)) 
+
+ ≤ CS∗ε∥∇ φ∥L∞(Ω) ∀ε ∈ I∗ . (A.33) Similarly one can derive, for every M ∈ W 1,∞(Ω; R3×3), 
+
+ε3 
+
+> N(ε)
+
+X
+
+> n=1
+
+Gn
+
+ 1
+
+|B(ξεn, δ 1ε)|
+
+Z
+
+> B(ξεn,δ 1ε)
+
+(M − M (ξεn)) 
+
+ ≤ Cε ∥∇ M ∥L∞(Ω) ∀ε ∈ I∗ . (A.34) In view of (A.31)-(A.33)-(A.34), we obtain that, along the sub-sequences in (A.30), there holds 
+
+
+
+G(M ) = 
+
+Z
+
+> Ω
+
+eGM ∀M ∈ W 1,∞(Ω; R3×3) ; 
+
+J (φ) = 
+
+Z
+
+> Ω
+
+eJ · φ ∀φ ∈ W 1,∞(Ω; R3) .
+
+(A.35) 
+
+Remark A.5. On the one hand, the result of Proposition A.4 ensures that the sequences of capacity densities defined in (2.12) always have convergent sub-sequences in the sense of (A.30) . Therefore, assumption (2.13) merely asserts that the whole sequences converge to such limits. On the other hand, 
+
+(A.35) guarantees that these limits belong to suitable Lebesgue spaces, thereby justifying (2.14) as well. We refer to [30, Assumptions (A2)-(A3)] and [32, Equations (17)-(18)] for related discussions. 
+
+We conclude this section by studying the asymptotic behavior of a particular capacity density that plays an important role in the proof of Theorem 3.6. 
+
+Lemma A.6. Let Ω ⊂ R3 be an admissible domain. Suppose that (vε)ε∈I∗ ⊂ W 1,2(Ω; R3) is a sequence that weakly converges to v ∈ W 1,2(Ω; R3), as ε → 0+, in W 1,2(Ω; R3). Setting 
+
+Aεn
+
+.
+
+= B(ξεn, δ 1ε) \ B
+
+
+
+ξεn, δ1ε
+
+2
+
+
+
+∀n ∈ { 1, . . . , N (ε)} ,
+
+there holds, under assumption (2.13) ,
+
+lim  
+
+> ε→0+
+
+ε3 
+
+> N(ε)
+
+X
+
+> n=1
+
+Gnφ(ξεn) · 1
+
+|Aεn|
+
+Z
+
+> Aεn
+
+vε
+
+!
+
+=
+
+Z
+
+> Ω
+
+Gv · φ ∀φ ∈ W 1,∞(Ω; R3) . (A.36) 
+
+Proof. In what follows, C > 0 will always denote a generic constant that depends on Ω and {δi}2
+
+> i=0
+
+(independently of ε ∈ I∗), but that may change from line to line. Define the bilinear application Fε : W 1,∞(Ω; R3) × W 1,2(Ω; R3) −→ R by the formula 
+
+Fε(φ, w) .
+
+= ε3 
+
+> N(ε)
+
+X
+
+> n=1
+
+Gnφ(ξεn) · 1
+
+|Aεn|
+
+Z
+
+> Aεn
+
+w
+
+!
+
+∀(φ, w) ∈ W 1,∞(Ω; R3) × W 1,2(Ω; R3) .
+
+38 An application of the Cauchy-Schwartz and Jensen inequalities, as well as (2.4)-(A.28), provide the following bound, for every ( φ, w) ∈ W 1,∞(Ω; R3) × W 1,2(Ω; R3): 
+
+|F ε(φ, w)| ≤ Cε 3∥φ∥L∞(Ω) 
+
+vuutN (ε) 
+
+> N(ε)
+
+X
+
+> n=1
+
+1
+
+|Aεn| ∥w∥2 
+
+> L2(B(ξεn,δ 1ε))
+
+≤ C∥φ∥L∞(Ω) ∥w∥L2(Ω) , (A.37) so that Fε is a continuous bilinear form on W 1,∞(Ω; R3) × W 1,2(Ω; R3). Now, fix any vector field φ ∈ W 1,∞(Ω; R3). By linearity, we have 
+
+Fε(φ, vε) = Fε(φ, vε − v) + Fε(φ, v) ∀ε ∈ I∗ . (A.38) By the Rellich-Kondrachov Theorem we then have vε → v strongly in L2(Ω; R3), as ε → 0+. In view of (A.37), this implies lim  
+
+> ε→0+
+
+Fε(φ, vε − v) = 0 ,
+
+so that, due to (A.38), it remains to prove the following limit: lim  
+
+> ε→0+
+
+Fε(φ, v) = 
+
+Z
+
+> Ω
+
+Gv · φ . (A.39) Since Fε is a continuous bilinear form on W 1,∞(Ω; R3) × W 1,2(Ω; R3) and G ∈ L2(Ω; R3 × R3), in order to show (A.39) we can suppose, by density, that v ∈ C ∞(Ω; R3). Denoting by ⟨· , ·⟩ ∞ the duality product between ( W 1,∞(Ω; R3)) ∗ and W 1,∞(Ω; R3), we have 
+
+Fε(φ, v) = ε3 
+
+> N(ε)
+
+X
+
+> n=1
+
+Gnφ(ξεn) · 1
+
+|Aεn|
+
+Z
+
+> Aεn
+
+(v − v(ξεn)) 
+
+!
+
++ ε3 
+
+> N(ε)
+
+X
+
+> n=1
+
+Gnv(ξεn) · φ(ξεn)= ε3 
+
+> N(ε)
+
+X
+
+> n=1
+
+Gnφ(ξεn) · 1
+
+|Aεn|
+
+Z
+
+> Aεn
+
+(v − v(ξεn)) 
+
+!
+
++
+
+*
+
+ε3 
+
+> N(ε)
+
+X
+
+> n=1
+
+δξεn Gnv, φ
+
++
+
+> ∞
+
+.
+
+(A.40) Firstly, from the Mean Value Theorem and (2.4)-(A.28) we readily deduce the bound 
+
+ε3 
+
+> N(ε)
+
+X
+
+> n=1
+
+Gnφ(ξεn) · 1
+
+|Aεn|
+
+Z
+
+> Aεn
+
+(v − v(ξεn)) 
+
+!
+
+≤ Cε ∥φ∥L∞(Ω) ∥∇ v∥L∞(Ω) . (A.41) Secondly, in the light of (2.13), we certainly have lim 
+
+> ε→0+
+
+*
+
+ε3 
+
+> N(ε)
+
+X
+
+> n=1
+
+δξεn Gnv, φ
+
++
+
+> ∞
+
+=
+
+Z
+
+> Ω
+
+Gv · φ . (A.42) The limit (A.39) is then obtained from (A.40)-(A.41)-(A.42). This concludes the proof. 2
+
+Acknowledgements. The work of Richard H¨ ofer and Amina Mecherbet is supported by the Project SUSPENSIONS, funded by the DFG ( German Research Foundation ) and ANR ( Agence Nationale de la Recherche , grants DFG-545373458 and ANR-24-CE92-0028, respectively. The research of Gianmarco Sperone is supported by the Chilean National Agency for Research and Development (ANID) through the Fondecyt Iniciaci´ on grant 11250322. 
+
+Data availability statement. Data sharing not applicable to this article as no datasets were generated or analyzed during the current study. 
+
+Conflict of interest statement . The Authors declare that they have no conflict of interest. 39 References 
+
+[1] G. Acosta and R. G. Dur´ an. Divergence Operator and Related Inequalities . Springer, 2017. [2] G. Allaire. Homogenization of the Navier-Stokes equations in open sets perforated with tiny holes I. Abstract framework, a volume distribution of holes. Archive for Rational Mechanics and Analysis ,113:209–259, 1991. [3] G. Allaire. Homogenization of the Navier-Stokes equations in open sets perforated with tiny holes II. Non-critical sizes of the holes for a volume distribution and a surface distribution of holes. Archive for Rational Mechanics and Analysis , 113:261–298, 1991. [4] G. Allaire. Homogenization of the Navier-Stokes equations with a slip boundary condition. Com-munications on Pure and Applied Mathematics , 44(6):605–641, 1991. [5] C. J. Amick. Steady solutions of the Navier-Stokes equations in unbounded channels and pipes. 
+
+Annali della Scuola Normale Superiore di Pisa - Classe di Scienze , 4(3):473–513, 1977. [6] C. J. Amick. Existence of solutions to the nonhomogeneous steady Navier-Stokes equations. Indiana University Mathematics Journal , 33(6):817–830, 1984. [7] J. Bear. Dynamics of Fluids in Porous Media . Courier Corporation, 2013. [8] T. Boggio. Sul moto stazionario lento di una sfera in un liquido viscoso. Rendiconti del Circolo Matematico di Palermo (1884-1940) , 30(1):65–81, 1910. [9] H. B. Bradley. Petroleum Engineering Handbook . Society of Petroleum Engineers, Richardson, Texas, 1987. [10] M. Bravin, E. Feireisl, A. Roy, and A. Zarnescu. On the collective effect of a large system of heavy particles immersed in a Newtonian fluid. ArXiv preprint arXiv:2407.08595 , 2024. [11] H. C. Brinkman. A calculation of the viscous force exerted by a flowing fluid on a dense swarm of particles. Flow, Turbulence and Combustion , 1(1):27–34, 1949. [12] K. Carrapatoso and M. Hillairet. On the derivation of a Stokes–Brinkman problem from Stokes equations around a random array of moving spheres. Communications in Mathematical Physics ,373(1):265–325, 2020. [13] L. Cattabriga. Su un problema al contorno relativo al sistema di equazioni di Stokes. Rendiconti del Seminario Matematico della Universit` a di Padova , 31:308–340, 1961. [14] D. Cioranescu and F. Murat. A strange term coming from nowhere. In Topics in the Mathematical Modelling of Composite Materials , chapter 4, pages 45–93. Springer, 1997. [15] C. Conca. On the application of the homogenization theory to a class of problems arising in fluid mechanics. Journal de Math´ ematiques Pures et Appliqu´ ees , 64(1):31–75, 1985. [16] C. Conca, F. Murat, and O. Pironneau. The Stokes and Navier - Stokes equations with boundary conditions involving the pressure. Japanese Journal of Mathematics , 20(2):279–318, 1994. [17] H. Darcy. Les Fontaines Publiques de la Ville de Dijon . Victor Dalmont, Paris, 1856. [18] L. Desvillettes, F. Golse, and V. Ricci. The mean-field limit for solid particles in a Navier-Stokes flow. Journal of Statistical Physics , 131(5):941–967, 2008. 40 [19] L. Diening, E. Feireisl, and Y. Lu. The inverse of the divergence operator on perforated domains with applications to homogenization problems for the compressible Navier–Stokes system. ESAIM: Control, Optimisation and Calculus of Variations , 23(3):851–868, 2017. [20] H. I. Ene and E. S´ anchez-Palencia. ´Equations et conditions aux limites pour un mod` ele de milieu poreux. Comptes Rendus de l’Acad´ emie des Sciences. S´ erie A. Sciences Math´ ematique , 277:A257– A259, 1973. [21] R. Farwig and H. Sohr. Generalized resolvent estimates for the Stokes system in bounded and unbounded domains. Journal of the Mathematical Society of Japan , 46(4):607–643, 1994. [22] E. Feireisl, Y. Lu, and Y. Sun. Homogenization of a non-homogeneous heat conducting fluid. 
+
+Asymptotic Analysis , 125(3-4):327–346, 2021. [23] E. Feireisl, Y. Namlyeyeva, and ˇS. Neˇ casov´ a. Homogenization of the evolutionary Navier–Stokes system. Manuscripta Mathematica , 149:251–274, 2016. [24] G. P. Galdi. An Introduction to the Mathematical Theory of the Navier-Stokes Equations: Steady-State Problems . Springer Science & Business Media, 2011. [25] G. P. Galdi, A. M. Robertson, R. Rannacher, and S. Turek. Hemodynamical Flows: Modeling, Analysis and Simulation (Oberwolfach Seminars) . Springer Science & Business Media, 2008. [26] G. P. Galdi and C. G. Simader. Existence, uniqueness and Lq-estimates for the Stokes problem in an exterior domain. Archive for Rational Mechanics and Analysis , 112(4):291–318, 1990. [27] A. Giunti. Derivation of Darcy’s law in randomly perforated domains. Calculus of Variations and Partial Differential Equations , 60(5):1–30, 2021. [28] A. Giunti and R. M. H¨ ofer. Homogenisation for the Stokes equations in randomly perforated domains under almost minimal assumptions on the size of the holes. Annales de l’Institut Henri Poincar´ e C. Analyse Non Lin´ eaire , 36(7):1829–1868, 2019. [29] J. G. Heywood, R. Rannacher, and S. Turek. Artificial boundaries and flux and pressure conditions for the incompressible Navier–Stokes equations. International Journal for Numerical Methods in Fluids , 22(5):325–352, 1996. [30] M. Hillairet. On the homogenization of the Stokes problem in a perforated domain. Archive for Rational Mechanics and Analysis , 230(3):1179–1228, 2018. [31] M. Hillairet and A. Mecherbet. Lp estimates for the homogenization of Stokes problem in a perfo-rated domain. Journal of the Institute of Mathematics of Jussieu , 19(1):231–258, 2020. [32] M. Hillairet, A. Moussa, and F. Sueur. On the effect of polydispersity and rotation on the Brinkman force induced by a cloud of particles on a viscous incompressible flow. Kinetic and Related Models ,12(4):681–701, 2019. [33] R. M. H¨ ofer. Homogenization of the Navier–Stokes equations in perforated domains in the inviscid limit. Nonlinearity , 36(11):6020–6047, 2023. [34] R. M. H¨ ofer and J. Jansen. Convergence rates and fluctuations for the Stokes–Brinkman equations as homogenization limit in perforated domains. Archive for Rational Mechanics and Analysis ,248(3):50, 2024. [35] R. M. H¨ ofer, A. Mecherbet, and R. Schubert. Derivation of the monokinetic vlasov-stokes equations. 
+
+ArXiv preprint: 2511.14612 , 2025. 41 [36] R. M. H¨ ofer, ˇS. Necasov´ a, and F. Oschmann. Quantitative homogenization of the compressible Navier–Stokes equations towards Darcy’s law. Annales de l’Institut Henri Poincar´ e C. Analyse Non Lin´ eaire , 43(3):669–709, 2026. [37] R. M. H¨ ofer and R. Schubert. Sedimentation of particles with very small inertia II: Deriva-tion, Cauchy problem and hydrodynamic limit of the Vlasov-Stokes equation. ArXiv preprint: 2311.01891 , 2023. [38] L. H¨ ormander. The Analysis of Linear Partial Differential Operators I: Distribution Theory and Fourier Analysis , volume 256. Springer-Verlag, 2003. [39] U. Hornung. Homogenization and Porous Media , volume 6 of Interdisciplinary Applied Mathematics .Springer Science & Business Media, 1996. [40] W. Jing, Y. Lu, and C. Prange. Unified quantitative analysis of the Stokes equations in dilute perforated domains via layer potentials. Multiscale Modeling & Simulation , 23(3):1145–1182, 2025. [41] L. V. Kapitanskii and K. Pileckas. Spaces of solenoidal vector fields in boundary value problems for the Navier-Stokes equations in regions with noncompact boundaries. Matematicheskii Institut imeni Steklova Trudy , 159:5–36, 1983. [42] M. V. Korobkov. Bernoulli law under minimal smoothness assumptions. Doklady Mathematics ,83(1):107–110, 2011. [43] M. V. Korobkov, K. Pileckas, and R. Russo. Solution of Leray’s problem for stationary Navier-Stokes equations in plane and axially symmetric spatial domains. Annals of Mathematics , 181(2):769–807, 2015. [44] M. V. Korobkov, K. Pileckas, and R. Russo. Solvability in a finite pipe of steady-state Navier– Stokes equations with boundary conditions involving Bernoulli pressure. Calculus of Variations and Partial Differential Equations , 59(1):1–22, 2020. [45] M. V. Korobkov, K. Pileckas, and R. Russo. The Steady Navier-Stokes System: Basics of the Theory and the Leray Problem . Springer, 2024. [46] O. A. Ladyzhenskaya. The Mathematical Theory of Viscous Incompressible Flow , volume 76. Gordon and Breach New York, 1969. [47] L. Landau and E. Lifshitz. Theoretical Physics: Fluid Mechanics , volume 6. Pergamon Press, 1987. [48] V. A. Marchenko and E. Y. Khruslov. Boundary Value Problems in Domains with Fine-Grained Boundaries . Naukova Dumka, Academy of Sciences of the Ukrainian SSR, Kiev, 1974. [49] P. Maremonti, R. Russo, and G. Starita. On the Stokes equations: the boundary value problem. In 
+
+Advances in Fluid Dynamics , volume 4, pages 69–140. Aracne Editrice, 1999. [50] N. Masmoudi. Homogenization of the compressible Navier–Stokes equations in a porous medium. 
+
+ESAIM: Control, Optimisation and Calculus of Variations , 8:885–906, 2002. [51] V. Maz’ya. Sobolev Spaces: with Applications to Elliptic Partial Differential Equations , volume 342. Springer Science & Business Media, 2011. [52] J. Neˇ cas. Direct Methods in the Theory of Elliptic Equations . Springer Science & Business Media, 2011. [53] G. Panasenko and K. Pileckas. Multiscale Analysis of Viscous Flows in Thin Tube Structures .Springer, 2024. 42 [54] C. Patriarca and G. Sperone. Homogenization of Leray’s flux problem for the steady-state Navier– Stokes equations in a multiply-connected planar domain. Journal of Nonlinear Science , 35(6):111, 2025. [55] K. Pileckas. Spaces of solenoidal vectors. Trudy Matematicheskogo Instituta imeni V. A. Steklova ,159:137–149, 1983. [56] K. Pileckas. Navier–Stokes system in domains with cylindrical outlets to infinity. Leray’s problem. In Handbook of Mathematical Fluid Dynamics , volume 4, pages 445–647. Elsevier Amsterdam, 2007. [57] E. S´ anchez-Palencia. Non-Homogeneous Media and Vibration Theory , volume 127 of Lecture Note in Physics . Springer-Verlag, 1980. [58] Z. Shen. Sharp convergence rates for Darcy’s law. Communications in Partial Differential Equations ,47(6):1098–1123, 2022. [59] G. Sperone. Homogenization of the steady-state Navier-Stokes equations with prescribed flux rate or pressure drop in a perforated pipe. Journal of Differential Equations , 375:653–681, 2023. [60] G. Sperone. Steady-state Navier–Stokes flow in an obstructed pipe under mixed boundary condi-tions and with a prescribed transversal flux rate. Calculus of Variations and Partial Differential Equations , 62(9):236, 2023. [61] G. G. Stokes. On the effect of the internal friction of fluids on the motion of pendulums. Transactions of the Cambridge Philosophical Society , 9:8, 1851. [62] L. Tartar. Homog´ en´ eisation en hydrodynamique. In Singular Perturbations and Boundary Layer Theory: Proceedings of the Conference held at the ´Ecole Centrale de Lyon, December 8–10, 1976 ,pages 474–481. Springer, 1976. [63] L. Tartar. The General Theory of Homogenization: A Personalized Introduction , volume 7 of Lecture Notes of the Unione Matematica Italiana . Springer Science & Business Media, 2009. [64] T. von K´ arm´ an. Aerodynamics: Selected Topics in the Light of their Historical Development . Courier Corporation, 2004. 43

@@ -1,0 +1,883 @@
+Title: A Numerical Investigation of the Rayleigh-Faber-Krahn Inequality for Polyhedral Domains
+
+URL Source: https://arxiv.org/pdf/2607.25419v1
+
+Published Time: Wed, 29 Jul 2026 00:40:10 GMT
+
+Number of Pages: 24
+
+Markdown Content:
+# A Numerical Investigation of the Rayleigh–Faber–Krahn Inequality for Polyhedral Domains 
+
+## Josué D. Díaz-Avalos ∗ Antoine Laurain †
+
+## Fakultät für Mathematik, Universität Duisburg-Essen, Germany 
+
+Abstract 
+
+We present numerical results for the problem of minimizing the first Dirichlet eigenvalue of the Laplacian among three-dimensional convex polyhedra with a prescribed number of facets. This problem can be viewed as a polyhedral version of the classical Rayleigh–Faber–Krahn inequality. Using a parameterization of polytopes by supporting hyperplanes, the problem is first reformulated as an equivalent finite-dimensional constrained minimization problem. ALagrangian framework is employed for the numerical solution. Under the assumption that each vertex is incident to exactly d facets, the sensitivity analysis of the Lagrangian combines finite-dimensional perturbations of the facets of d-dimensional polyhedra with infinite-dimensional shape derivatives of both the eigenvalue and the volume. Depending on the number of facets, the numerical results yield well-known polyhedra, such as Platonic solids, prisms, and the tetrakaidecahedron, or reveal nonregular optimal shapes exhibiting several symmetries. 
+
+Keywords: shape derivative, Rayleigh–Faber–Krahn Inequality, Dirichlet eigenvalue, convex polyhedra. 
+
+# 1 Introduction 
+
+Eigenvalue problems play a fundamental role in the analysis of partial differential equations. The spectrum of elliptic operators determines stability properties, long-time behavior of solutions to evolution equations, and natural vibration frequencies of physical systems. Understanding the dependence of eigenvalues on the geometry of the domain is therefore a classical problem in spectral theory. In 1877, Lord Rayleigh conjectured that, among planar domains of fixed area, the disk minimizes the first Dirichlet eigenvalue of the Laplacian. This conjecture was proved independently by Georg Faber (1923) and Edgar Krahn (1924) [10, 22]. Pólya and Szegö considered the analogous problem in the class of planar polygons with a fixed number of sides and fixed area, and conjectured that the regular polygon is the optimal shape. The conjecture has been proved for polygons with N = 3 , 4
+
+sides using Steiner Symmetrization, see [15, Thm. 3.3.3]. For the cases N ≥ 5, significant progress has been achieved recently by Bogosel and Bucur who showed that proving the conjecture can be reduced to a finite number of certified numerical computations [5]. Building on this result,  
+
+> ∗josue.diazavalos@uni-due.de ,(Corresponding author)
+> †antoine.laurain@uni-due.de ,
+
+1arXiv:2607.25419v1 [math.OC] 28 Jul 2026 they proved in [6], using certified finite element approximations, that regular polygons are local minimizers for N = 5 , 6.Other recent work related to spectral optimization in polygons include [3], where an asymptotic expansion with respect to N is derived for the first Dirichlet eigenvalue of a regular N -gon of area π.In [1], they numerically investigate new types of bounds for the first Dirichlet eigenvalue of polygons. In particular, they conjecture that the first Dirichlet eigenvalues are monotonically decreasing in N
+
+and confirm the monotonicity by numerical experiments. The author in [19] explicitly constructs a set of N -gons such that the first eigenvalue is minimized by the regular convex N -gon, in the collection of N -gons with the same area, for all sufficiently large N . Polygons are also solutions of maximization of the Dirichlet eigenvalue with a convexity constraint, as shown in [23]. We also refer to the survey [16] for various results on spectral problems in polygonal domains. Motivated by these recent advances, and by the fact that the Rayleigh–Faber–Krahn inequality holds in any dimension, it is natural to consider the analogous problem for polyhedral domains in three and higher dimensions. While a few references on spectral optimization provide numerical results in three dimensions, they usually focus on smooth sets. We also mention [13], where the eigenvalues and eigenfunctions of the Laplacian on the surfaces of regular polyhedra are investigated. In this work, we present numerical results for the Rayleigh–Faber–Krahn problem restricted to polyhedral domains in three dimensions. This study also continues the line of research in [9], where numerical results were obtained for the polyhedral version of the Saint–Venant inequality. Our aim is to stimulate interest in this question, provide evidence for possible optimal shapes, and offer a basis for new conjectures and further theoretical investigation. Let O be the set of open bounded subsets of Rd. Let λ : O → R be the shape functional 
+
+λ(Ω) := min  
+
+> u∈H10(Ω) \{ 0}
+
+Z
+
+> Ω
+
+|∇ u|2
+
+Z
+
+> Ω
+
+u2
+
+.
+
+It is well-known that λ(Ω) is the first Dirichlet eigenvalue of the Laplacian corresponding to Ω. If Ω
+
+is connected, then λ(Ω) is a simple eigenvalue and a positive number. Let B ⊂ Rd be the Euclidean ball. The classical Rayleigh–Faber–Krahn inequality states that 
+
+|B|2/d λ(B) ≤ | Ω|2/d λ(Ω) ∀ Ω ∈ O . (1) Let K be a finite set of indices with cardinality |K| > d . Let P ⊂ O be the class of (convex) polytopes in Rd, with |K| facets and dimension d. In this work, we provide numerical results for the following problem: 
+
+P ∗ ∈ P : |P ∗|2/d λ(P ∗) ≤ | P |2/d λ(P ) ∀ P ∈ P , for d = 3 . (2) To the best of our knowledge, there are no previous works showing numerical results for problem (2) in dimensions d ≥ 3.In Section 2 we recall the shape derivatives of the first Dirichlet eigenvalue of the Laplacian and the volume, with emphasis on convex domains. In Section 3, polytopes and their perturbation are treated. The optimization problem to be solved is stated in Section 4. In Section 5, we describe the numerical method and apply the results of the previous sections. Finally, the numerical results are provided in Section 6. We provide an appendix with GeoGebra commands for reproducing the optimal shapes. 22 Shape derivative 
+
+In this section, we recall the expressions of the shape derivatives of the volume and of the first Dirichlet eigenvalue of the Laplacian. We follow the shape calculus framework of Henrot and Pierre [17], which is based on domain perturbations induced by a smooth family of diffeomorphisms. 
+
+Theorem 2.1. Let Ω ∈ O be a convex domain. Let 
+
+{Φt}t∈[0 ,τ ) ⊂ W 1,∞(Rd; Rd),
+
+with τ > 0, be a family of maps such that t 7 → Φt is differentiable at t = 0 and Φ0 = Id , the identity mapping. Set 
+
+Ωt := Φ t(Ω) and θ := ddt Φt t=0 
+
+.
+
+The functions t 7 → | Ωt| and t 7 → λ(Ω t) are differentiable at t = 0 , with derivatives 
+
+ddt |Ωt| t=0 
+
+=
+
+Z
+
+> ∂Ω
+
+θ · ν (3) 
+
+and ddt λ(Ω t) t=0 
+
+= −
+
+Z
+
+> ∂Ω
+
+(∂ν u)2θ · ν, (4) 
+
+where ν denotes the outward unit normal vector to ∂Ω and u ∈ H10 (Ω) is the L2-normalized eigen-function associated to λ(Ω) , that is, 
+
+Z
+
+> Ω
+
+u2 = 1 and 
+
+Z
+
+> Ω
+
+∇u · ∇ v = λ(Ω) 
+
+Z
+
+> Ω
+
+uv ∀v ∈ H10 (Ω) . (5) 
+
+The derivatives (3) and (4) are called shape derivatives. 
+
+This result can be found in [15, Thm. 2.5.1 and 2.5.3]. The assumption that Ω is convex implies that Ωt is connected, and hence λ(Ω t) remains simple, for small values of t. Moreover, since Ω is convex, u ∈ H2(Ω) ; see for instance [14, Thm. 3.2.1.2]. Alternatively, one can also compute the shape derivative of the first Dirichlet eigenvalue in 
+
+distributed or weak form , as ddt λ(Ω t) t=0 
+
+=
+
+Z
+
+> Ω
+
+S1 : Dθ, (6) where S1 := ( |∇ u|2 − λ(Ω) u2)I − 2∇u ⊗ ∇ u is a matrix-valued function and I denotes the identity matrix; see the proof of [4, Thm. 4] or [5, Thm. 2.1], in which the second-order shape derivative in distributed form is also computed. Note that, under appropriate regularity assumptions on the set 
+
+Ω, the boundary expression (4) and the distributed expression (6) are equal and related through the divergence theorem, see [24, Prop. 1 and 2]. In this work, we only use the boundary expressions (3) and (4), but the distributed shape derivative can also be employed for numerical purposes in combination with the expression of Dθ given in (11). 33 Perturbation of polyhedral domains 
+
+We begin with the standard definitions for polytopes; see [7, Ch. 2] for more details. 
+
+Definition 3.1. A subset P ⊂ Rd is called polyhedral set if it is the intersection of finitely many closed half-spaces. A polyhedral set P is irreducible if the number of half-spaces that determine 
+
+P cannot be reduced. Given a polyhedral set P , a subset F of P is called a face of P if it is the intersection of P with a supporting hyperplane of P . The faces of dimension 1 0 and dim P − 1 are called vertices and facets , respectively. If P is an irreducible polyhedral set of dimension d, a subset 
+
+F of P is a facet if and only if it is the intersection of P with one of its half-spaces. 
+
+Definition 3.2. A polytope is a subset of Rd which is the convex hull of a non-empty finite set of points. A non-empty subset P ⊂ Rd is a polytope if and only if it is a bounded polyhedral set. A polytope P of dimension d is said to be simple if each vertex of P is contained in exclusively d
+
+facets of P .Note that polytopes are thus closed sets. For our purposes, it is more convenient to work with open sets, hence the relative interior of a polytope P , as defined in Definition 3.2, will also be called polytope. As defined in the introduction, P ⊂ O denotes the set of (open) polytopes of dimension 
+
+d in Rd (recall that O is the set of open bounded subsets of Rd). Without loss of generality, we assume that every polytope in P contains the origin and that any representation as a polyhedral set is irreducible. 
+
+Definition 3.3. Let P ∈ P . A family of polyhedral sets {Pt}t∈R is called a C1-perturbation of P
+
+if 
+
+Pt := \
+
+> k∈K
+
+x ∈ Rd | nk(t) · x < a k(t) ∀t ∈ R and P0 = P, 
+
+where nk : R → Sd−1 and ak : R → (0 , ∞) are C1-functions, for k ∈ K . Observe that the nk and 
+
+ak functions represent normal vectors and positive distances to the origin, respectively. Thus, a 
+
+C1-perturbation is determined by its function pairs {(nk, a k)}k∈K . Moreover, the |K| facets of P
+
+can be expressed as Fk ∩ P for k ∈ K , where Fk is the hyperplane 
+
+Fk = x ∈ Rd | nk(0) · x = ak(0) . (7) 
+
+Definition 3.4 (see [26, 27]) . Let P ∈ P be a simple polytope. Let V be the set of vertices of P .There exist continuous functions bv : P → R, for each v ∈ V , called barycentric coordinates of P ,which satisfy the following properties: given x ∈ P ,(i) bv (x) > 0 for all v ∈ V (positivity), (ii) X
+
+> v∈V
+
+bv (x) = 1 (partition of unity), and (iii) X
+
+> v∈V
+
+bv (x)v = x (linear precision). 
+
+> 1The dimension of a set is understood as the dimension of the smallest affine space containing it.
+
+4Let ind (v) denote the set of indices k ∈ K such that the facet Fk ∩ P contains the vertex v. Since 
+
+P is simple, we have |ind (v)| = d. Each barycentric coordinate bv is given by 
+
+bv (x) := ωv (x)
+
+X
+
+> v′∈V
+
+ωv′ (x) , with ωv (x) := | det([ n⊤ 
+
+> k
+
+]k∈ind (v))|
+
+Y
+
+> k∈ind (v)
+
+nk · (v − x) ,
+
+where nk is the unit normal vector to Fk, and [n⊤ 
+
+> k
+
+]k∈ind (v) is the square matrix with rows nk, for 
+
+k ∈ ind (v). It was proved in [11] that the barycentric coordinates have bounded gradient on P ,namely, there exists a constant CP,d > 0 such that 
+
+sup 
+
+> x∈P
+
+X
+
+> v∈V
+
+|∇ bv (x)| ≤ CP,d . (8) This, the mean value theorem, and the fact that P is convex imply that each bv is Lipschitz on P ,and therefore, it can be uniquely extended to a Lipschitz function on P . This extension preserves the partition of unity and linear precision properties, but it can vanish on some faces. The following result was proved in [9, Thm. 13]. Here, we write it for reference, but in terms of 
+
+C1-perturbations. 
+
+Theorem 3.5. Let P ∈ P be a simple polytope with a C1-perturbation {Pt}t∈R. Then there exist 
+
+τ > 0 and a map T : P × (−τ, τ ) → Rd such that T (P, t ) = Pt, T (∂P, t ) = ∂P t, and T (·, t ) : P → Pt
+
+is a bi-Lipschitz homeomorphism, for each t ∈ (−τ, τ ). Furthermore, 
+
+Z
+
+> ∂P
+
+ϕ θ · ν = X
+
+> k∈K
+
+
+
+a′
+
+> k
+
+(0) 
+
+Z 
+
+> Fk∩P
+
+ϕ −
+
+Z 
+
+> Fk∩P
+
+ϕ x 1
+
+...Z 
+
+> Fk∩P
+
+ϕ x d
+
+
+
+· n′
+
+> k
+
+(0) 
+
+
+
+∀ϕ ∈ L2(∂P ), (9) 
+
+where θ : P → Rd is defined by θ(x) := ∂tT (x, 0) , {(nk, a k)}k∈K are the function pairs that determine 
+
+{Pt}t∈R in Definition 3.3, and Fk ∩ P is the facet of P associated to {nk, a k}.Remark 3.6 . According to [9, Thm. 13], the map T : P × (−τ, τ ) → Rd has the form 
+
+T (x, t ) = X
+
+> v∈V
+
+bv (x)zv (t),
+
+where each zv : ( −τ, τ ) → Rd is a C1-function such that zv (0) = v and 
+
+X
+
+> v∈V
+
+|zv (t) − v| < 12CP,d 
+
+∀t ∈ (−τ, τ ). (10) It is shown in [9, Lem. 7] that the set of function pairs {(nk, a k)}k∈K uniquely determines the functions {zv }v∈V via the implicit function theorem. Moreover, T can be expressed as a perturbation of the identity, namely 
+
+T (x, t ) = x + X
+
+> v∈V
+
+bv (x)( zv (t) − v),
+
+5from which we obtain the expressions 
+
+θ(x) = ∂tT (x, 0) = X
+
+> v∈V
+
+bv (x)z′ 
+
+> v
+
+(0) 
+
+and 
+
+Dθ (x) = X
+
+> v∈V
+
+z′ 
+
+> v
+
+(0) ⊗ ∇ bv (x). (11) The proposition below will allow us to employ the domain perturbation induced by a C1-perturbation within the framework of Theorem 2.1. 
+
+Proposition 3.7. There exists an extension eT : Rd × (−τ, τ ) → Rd of T obtained in Theorem 3.5, that is, eT (x, t ) = T (x, t ) ∀(x, t ) ∈ P × (−τ, τ ),
+
+such that eT (·, 0) = Id , eT (·, t ) ∈ W 1,∞(Rd; Rd), and t 7 → eT (·, t ) is differentiable. Proof. Applying Kirszbraun’s theorem [21], we can extend the barycentric coordinates of P to Lipschitz functions ebv : Rd → R, for each v ∈ V . Using these extensions, we construct the map 
+
+eT : Rd × (−τ, τ ) → Rd defined by 
+
+eT (x, t ) := x + X
+
+> v∈V
+
+ebv (x)( zv (t) − v).
+
+Clearly, eT extends T . Since zv (0) = v for each v ∈ V , we have eT (·, 0) = Id . From (10) and 
+
+| eT (x, t ) − eT (y, t )| ≤ | x − y| + X
+
+> v∈V
+
+|ebv (x) − ebv (y)|| zv (t) − v|,
+
+it follows that eT (·, t ) is Lipschitz. The differentiability is a consequence of the fact that each zv is a C1-function. 
+
+Remark 3.8 . While the bi-Lipschitz property of T (·, t ) is needed to justify a change of variables (as required, for instance, in the computation of shape derivatives), the boundary expression (9) can be directly obtained from the requirement that T must preserve the facets of the polyhedral domain. Indeed, given a facet Fk ∩ P , if 
+
+T (x, t ) · nk(t) = ak(t) ∀x ∈ Fk ∩ P , ∀t ∈ (−τ, τ ),
+
+then, differentiating with respect to t and evaluating at t = 0 , we obtain 
+
+∂tT (x, 0) · nk(0) + T (x, 0) · n′
+
+> k
+
+(0) = a′
+
+> k
+
+(0) 
+
+θ(x) · nk(0) + x · n′
+
+> k
+
+(0) = a′
+
+> k
+
+(0) 
+
+θ(x) · ν = a′
+
+> k
+
+(0) − x · n′
+
+> k
+
+(0) ∀x ∈ Fk ∩ P
+
+since nk(0) = ν on Fk ∩ P . Integrating over all the facets yields (9). 64 Optimization problem 
+
+In this section, we present the optimization problem that we solve numerically. We also show that this problem is equivalent to the polyhedral Rayleigh–Faber–Krahn inequality. Consider the shape optimization problem 
+
+min   
+
+> P∈P
+
+λ(P ) subject to |P | = π, (12) and the Rayleigh–Faber–Krahn inequality for polyhedral domains 
+
+P ∗ ∈ P : |P ∗|2/d λ(P ∗) ≤ | P |2/d λ(P ) ∀P ∈ P . (13) Recall that P is the class of polytopes with |K| facets and dimension d. Moreover, we have assumed that each polytope in P is open, contains the origin, and that its representation as a polyhedral set is irreducible. 
+
+Lemma 4.1. Suppose that problems (12) and (13) admit solutions. Then the two problems are equivalent, in the sense that their solutions coincide up to a scaling. Proof. Let P min be a minimizer of (12). For P ∈ P , define the scaled copy 
+
+Pπ := ( π1/d |P |−1/d )P. 
+
+Then |Pπ | = ( π1/d |P |−1/d )d|P | = π. The minimality of P min yields 
+
+λ(P min ) ≤ λ(Pπ ) = ( π1/d |P |−1/d )−2λ(P ),
+
+and hence 
+
+|π|2/d λ(P min ) ≤ | P |2/d λ(P ),
+
+which proves that P min is a solution to (13). Conversely, let P ∗ be a solution to (13). For any P ∈ P with |P | = π it holds that 
+
+|P ∗|2/d λ(P ∗) ≤ π2/d λ(P ),
+
+which implies 
+
+λ(P ) ≥ (π1/d |P ∗|−1/d )−2λ(P ∗) = λ(( π1/d |P ∗|−1/d )P ∗).
+
+Therefore, P ∗ 
+
+> π
+
+is a minimizer of (12). We now reformulate (12) as a finite-dimensional optimization problem by using polyhedral sets. Let a : R → (0 , ∞) be a bijective C1-function. Let n : Rd−1 → Sd−1 be the hyperspherical coordinate map of Sd−1, that is, 
+
+n(γ) = 
+
+
+
+cos( γ1)sin( γ1) cos( γ2)sin( γ1) sin( γ2) cos( γ3)
+
+...
+
+sin( γ1) sin( γ2) · · · sin( γd−2) cos( γd−1)sin( γ1) sin( γ2) · · · sin( γd−2) sin( γd−1)
+
+
+
+(14) 7with γ = ( γ1, . . . , γ d−1). Define the parameter space 
+
+Γ := 
+
+n
+
+r ∈ Rd|K| | P (r) ∈ P 
+
+o
+
+, (15) where the elements of Γ have the form 
+
+r = ( γ1, μ 1, . . . , γ |K| , μ |K| )
+
+with γk = ( γ1 
+
+> k
+
+, . . . , γ d−1 
+
+> k
+
+) ∈ Rd−1 and μk ∈ R for each k ∈ K , and P (r) is the polyhedral set given by 
+
+P (r) := \
+
+> k∈K
+
+x ∈ Rd | n(γk) · x < a (μk) . (16) Here, we have assumed K = {1, 2, . . . , |K|} . Each γk is a vector of angles corresponding to the normal vector n(γk). Since a is bijective, the distances to the origin a(μk) are parametrized over 
+
+R. In this way, a polyhedral set can be represented by its coordinates in the parameter space Γ.With this construction, we write (12) as 
+
+min  
+
+> r∈Γ
+
+λ(P (r)) subject to |P (r)| = π, (17) which is the minimization problem that we solve numerically for d = 3 .
+
+# 5 Numerical method 
+
+We apply the Lagrangian method [20] to solve (17). Let L : Γ × R3 → R be the Lagrangian functional defined by 
+
+L (r, s, l, m ) := λ(P (r)) + ( l, m ) · (|P (r)| − π − s, s ) + p
+
+2 s2 − q
+
+2 (l − m)2,
+
+where P (r) is given by (16), l and m are Lagrange multipliers, s is a slack variable, and p, q > 0 are penalty parameters. The algorithm proposed in [20] applied to (17) takes the form of Algorithm 1. 
+
+Input: η > 0 sufficiently large, σ ∈ (0 , 1) , p ∈ (1 , ∞), q ∈ (0 , 1) .Set (r0, s 0, l 0, m 0) and g0 ∈ (0 , 1] .
+
+for i = 0 , 1, 2, . . . do 
+
+ri+1 = ri − 1
+
+η ∇r L (ri, s i, l i, m i)
+
+mi+1 = mi + gi li − mi
+
+(li − mi)2 + 1 (18) 
+
+li+1 = mi+1 + p
+
+1 + pq 
+
+ |P (ri+1 )| − π
+
+si+1 = 1
+
+p (li+1 − mi+1 )
+
+gi+1 = σg i
+
+Algorithm 1: Lagrangian method Algorithm 1 generates a sequence (ri, s i, l i, m i)i∈N which is expected to converge to a limit point 
+
+(¯ r, ¯s, ¯l, ¯m), in which (¯ r, ¯l) is a KKT point of problem (17), ¯s = 0 , and ¯l = ¯ m. Thus, a sequence 8of polyhedral domains  P (ri) 
+
+> i∈N
+
+is obtained, which is expected to converge, at least numerically, to a solution of (2). In this work, we restrict ourselves to a formal setting and do not address the verification of the assumptions in [20] required for the convergence analysis of Algorithm 1. 
+
+## 5.1 Gradient computation 
+
+In order to implement Algorithm 1, we compute the gradient of the Lagrangian functional L
+
+with respect to r. This is precisely where the shape derivatives of first Dirichlet eigenvalue of the Laplacian and the volume, together with the boundary expression (9), are used. Let 
+
+r =  γ1, μ 1, . . . , γ |K| , μ |K| 
+
+ ∈ Γ,δr =  δγ 1, δμ 1, . . . , δγ |K| , δμ |K| 
+
+ ∈ Rd|K| ,
+
+where Γ is the set of coordinates (15). The directional derivative of L at r in the direction δr is given by 
+
+∇r L (r, s, l, m ) · δr = ddt L (r + tδr, s, l, m )
+
+> t=0
+
+= ddt λ(P (r + tδr )) t=0 
+
++ l ddt |P (r + tδr )| t=0 
+
+.
+
+(19) For each k ∈ K , define the functions nk : R → Sd−1 and ak : R → (0 , ∞) by 
+
+nk(t) := n(γk + tδγ k) and ak(t) := a(μk + tδμ k),
+
+where n is the hyperspherical coordinate map (14) and a is the bijective C1-function used in the construction of Γ. Note that {(nk, a k)}k∈K determines a C1-perturbation {Pt}t∈R of P (r). It follows from Definition 3.3 and (16) that 
+
+Pt = P (r + tδr ) for t ∈ R,
+
+and then 
+
+∇r L (r, s, l, m ) · δr = ddt λ(Pt)
+
+> t=0
+
++ l ddt |Pt|
+
+> t=0
+
+. (20) In general, for t̸ = 0 , the set P (r + tδr ) may not belong to P: it may be unbounded or its representation as a polyhedral set may be reducible. However, it was proved in [9, Lem. 6] that for 
+
+t sufficiently small, C1-perturbations of irreducible bounded polyhedral sets remain irreducible and bounded. Thus, for t sufficiently small, P (r + tδr ) ∈ P .We now introduce an important assumption that allows us to carry out the subsequent analysis. 
+
+Assumption 5.1. P (r) is simple, i.e., each vertex of P (r) belongs to exactly d facets. Under Assumption 5.1, we can apply Theorem 3.5 to the polyhedral set P (r) and the C1-perturbation of P (r) defined above: there exist τ > 0 and a map T : P (r) × (−τ, τ ) → Rd such that 
+
+T (P (r), t ) = Pt for t ∈ (−τ, τ ).
+
+We now define Ψt := eT (·, t ) for t ∈ [0 , τ ), where eT is the extension of T obtained in Proposition 3.7. Thus, we have 
+
+P (r + tδr ) = Pt = T (P (r), t ) = Ψ t(P (r)) .
+
+9Since {Ψt}t∈[0 ,τ ) satisfies the assumptions of Theorem 2.1, it follows from (20), (3), and (4) that 
+
+∇r L (r, s, l, m ) · δr =
+
+Z 
+
+> ∂P (r)
+
+ l − (∂ν uP (r))2 θ · ν, 
+
+where uP (r) is the L2-normalized eigenfunction associated to λ(P (r)) , θ := ∂tT (·, 0) , and ν is the outward unit normal vector to ∂P (r). Finally, employing the boundary expression (9) with 
+
+ϕ = l − (∂ν uP (r))2 we obtain 
+
+∇r L (r, s, l, m ) · δr =
+
+
+
+G1
+
+M1
+
+...
+
+G|K| 
+
+M|K| 
+
+
+
+· δr, 
+
+where Gk ∈ Rd−1 and Mk ∈ R are given by 
+
+Gk = − (Dn (γk)) ⊤
+
+Z  
+
+> Fk∩P(r)
+
+ l − (∂ν uP (r))2 x1
+
+...Z  
+
+> Fk∩P(r)
+
+ l − (∂ν uP (r))2 xd
+
+
+
+and 
+
+Mk = a′(μk)
+
+Z  
+
+> Fk∩P(r)
+
+ l − (∂ν uP (r))2 .
+
+Here, Dn (γk) is the Jacobian matrix of the hyperspherical coordinate map n evaluated at γk and 
+
+{Fk}k∈K are the hyperplanes (7). Since δr was arbitrary, we have obtained the expression of the gradient of L with respect to r.In summary, prior to each iteration i of Algorithm 1, we (I) construct the domain P (ri) (with ri obtained in the previous iteration); (II) compute the eigenvalue λ(P (ri)) and the eigenfunction uP (ri) by solving (5) with Ω = P (ri);(III) obtain the gradient ∇r L (ri, s i, l i, m i) computing Gk and Mk for k ∈ K .In step (I), it is assumed that P (ri) ∈ P and that, according to Assumption 5.1, it is simple. 
+
+# 6 Numerical results 
+
+We perform numerical tests to solve the minimization problem (17) with Γ parametrizing polytopes with |K| facets, as shown in Section 5. We consider the cases |K| = 5 , . . . , 14 .The code was written in Python . The eigenvalue problem (5) was solved using FEniCSx 0.9 [2] and the SLEPc library via its Python interface slepc4py [18]. The polyhedral meshes were con-structed using Gmsh [12], employing tetrahedral finite elements. For simplicity, no stopping criterion 10 was implemented. Instead, each numerical experiment was run for a fixed number of 1500 itera-tions, which proved sufficient to obtain satisfactory results in all cases. This produced the sequence of polytopes 
+
+P i := P (ri), ri ∈ Γ, for i = 0 , . . . , 1500 .
+
+We denote the last iterate by P ∗ := P (r1500 ). The effectiveness of this strategy is illustrated by the monotone decrease of λ(P i)|P i|2/3 throughout the iterations in all cases. The parameter η in Algorithm 1 starts with η = 25 and is increased following the rule η =
+
+η + 25 at the iterations i = 500 , 900 , 1200 , and 1400 . For computational efficiency, we also adopt a mesh refinement strategy, where the number of finite elements is increased by reducing the mesh parameter in the Gmsh configuration at these same iterations i = 500 , 900 , 1200 , and 
+
+1400 . This results in jumps observed in the convergence history, see for instance Figure 2. The remaining parameters in Algorithm 1 take the following fixed values, which are the same as in [20]: (g0, σ ) = (0 .5, 0.999) , (p, q ) = (2000 , 0.5) , and s0 = l0 = m0 = 0 . The initial guesses P (r0)
+
+were truncated tetrahedra and cubes, from which r0 was obtained by inverting the hyperspherical coordinate map (14) and the distance to the origin function a : R → (0 , ∞), which is chosen as 
+
+a(μ) := amin + ( amax − amin )
+
+ exp μ
+
+1 + exp μ
+
+
+
+,
+
+with amin = 0 .1 and amax = 2 .0. This is a scaled sigmoid function that avoids very small or large values of the distances of the facets to the origin. Although it is not a bijective function from R
+
+onto (0 , ∞), it works very well in practice because, under the given volume constraint, the distances remain within the interval (amin , a max ) during the iterations. A summary of the numerical results is provided in Table 1. In Figures 3–12 are the three-dimensional polyhedra and the values of λ(P i)|P i|2/3 along the iterations, for each test. The norm of ∇r L (ri, s i, l i, m i) and the constraint error || P i| − π| achieved values smaller that 0.05 
+
+and 0.005 , respectively, in all cases; see Figure 13 for the results when |K| = 14 . The eigenvalues associated with the optimal shapes decrease as the number of facets increases, while remaining strictly greater than the eigenvalue of the ball, see Figure 1. This monotonicity is similar to the case of polygons in two dimensions. Indeed, in [1] it was observed that the first Dirichlet eigenvalues are monotonically decreasing with respect to the number of polygon edges in numerical experiments and the monotonicity was proved in [3] when the number of edges goes to infinity, using an asymptotic expansion. We now provide comments on the numerical solutions. The tests with |K| = 5 and |K| = 7 
+
+facets yield prisms, namely triangular and pentagonal prisms, respectively. Platonic solids arise in the tests with |K| = 4 , |K| = 6 , and |K| = 12 facets, visually resembling the tetrahedron, the cube, and the dodecahedron. The optimal polyhedra with |K| = 4 , 5, 6, 7, 8, 9, 10 , 12 facets coincide with those obtained for the polyhedral version of the Saint–Venant inequality in [9], where the maximization of the torsion rigidity on polyhedral domains is investigated. The test with |K| = 14 facets leads to a particularly remarkable result: the obtained polyhedron is isomorphic to the tetrakaidecahedron (also known as the truncated octahedron), which appears in many contexts such as space-filling tessellations and models of cellular structures [8, 25]. To the best of our knowledge, the optimal polyhedral domains produced by the tests with |K| = 8 , 9, 10 , 11 , 13 facets do not appear to correspond to any previously named polyhedra. We observe that edge collapses and vertex mergers occur during the iterations in most of the tests. This process consists of a transition from one edge to another, which does not correspond to 11 |K| Max. FEs λ(P ∗) |P ∗|2/3 P 0
+
+4 266581 36.40775 irregular tetrahedron 5 236770 32.69062 tetrahedron with one vertex truncated 6 288441 29.68291 tetrahedron with two vertices truncated 7 279845 28.85569 tetrahedron with three vertices truncated 8 280577 28.20829 cube with two vertices truncated 9 281825 27.67099 cube with three vertices truncated 10 266290 27.33698 cube with four vertices truncated 11 273031 27.12258 cube with five vertices truncated 12 276151 26.83699 cube with six vertices truncated 13 276047 26.74614 cube with seven vertices truncated 14 282844 26.66541 cube with all its vertices truncated Table 1: Numerical results for different polyhedral configurations. The first column lists the number of facets. The second column shows the maximum number of finite elements used. The values of λ(P ∗) |P ∗|2/3 were obtained at the last iteration; recall that λ(B) |B|2/3 = 25 .64635 , for the Euclidean ball B. The initial guesses P 0 are given in the fourth column. a continuous transformation of the vertices. Consequently, the polyhedra do not remain isomorphic throughout the iterations, although they preserve their simple property. This behavior was also reported in [9]. 
+
+# 7 Conclusion 
+
+In this work, we have presented numerical results for the polyhedral Rayleigh–Faber–Krahn in-equality in three dimensions. The shape optimization problem of minimizing the first Dirichlet eigenvalue of the Laplacian over polyhedral domains with a fixed number of facets was reformu-lated as a finite-dimensional optimization problem, and a first-order Lagrangian scheme was imple-mented to compute optimal solutions. Sensitivity analysis was carried out using shape derivatives on polyhedral domains. The results recover well-known polyhedra (isomorphic to prisms, Platonic solids, and the tetrakaidec-ahedron), as well as new non-regular polyhedra exhibiting symmetries that are not evident a priori. We conjecture that the minimizers of the Dirichlet eigenvalue among polyhedra belong to the class of simple polytopes. Possible directions for future research include the numerical investigation of other spectral in-equalities for polyhedra, such as the Bossel–Daners and Szegö–Weinberger inequalities, correspond-ing to the Robin and Neumann problems, respectively. 12 4 5 6 7 8 9 10 11 12 13 14 Number of facets |K| 
+
+26 
+
+28 
+
+30 
+
+32 
+
+34 
+
+36 Optimal Polyhedra Ball Figure 1: The values of λ(P ∗) |P ∗|2/3 decrease as the number of facets increases, while remaining greater than the corresponding value of λ(B) |B|2/3 for the Euclidean ball. 13 0 500 1000 1500  
+
+> i
+> 40
+> 45
+> 50
+> 55
+> 60
+
+λ(P i)|P i|2/3Figure 2: Case |K| = 4 . (Top) Polyhedra corresponding to iterations i = 0 , 5, 20 , 100 , and 1500 .(Bottom) Values of λ(P i) |P i|2/3 and the unfolding of the optimal polyhedron P ∗. The initial polyhedron P 0 was an irregular tetrahedron. 0 500 1000 1500 
+
+> i
+> 33
+> 34
+> 35
+> 36
+> 37
+> 38
+> 39
+> 40
+
+λ(P i)|P i|2/3
+
+Figure 3: Case |K| = 5 . (Top) Polyhedra corresponding to iterations i = 0 , 20 , 100 , 1000 , and 
+
+1500 . (Bottom) Values of λ(P i) |P i|2/3 and the unfolding of the optimal polyhedron P ∗. The initial polyhedron P 0 was a tetrahedron with one truncated vertex. All polyhedra P i were isomorphic to a triangular prism. 14 0 500 1000 1500 
+
+> i
+> 30
+> 31
+> 32
+> 33
+> 34
+> 35
+> 36
+> 37
+
+λ(P i)|P i|2/3Figure 4: Case |K| = 6 . (Top) Polyhedra corresponding to iterations i = 0 , 5, 10 , 100 , and 1500 .(Bottom) Values of λ(P i) |P i|2/3 and the unfolding of the optimal polyhedron P ∗. The initial polyhedron P 0 was a tetrahedron with two truncated vertices. All polyhedra P i for i ≥ 5 were isomorphic to a cube. The initial and final polyhedra are not isomorphic. 0 500 1000 1500 
+
+> i
+> 29
+> 30
+> 31
+> 32
+> 33
+> 34
+> 35
+> 36
+
+λ(P i)|P i|2/3
+
+Figure 5: Case |K| = 7 . (Top) Polyhedra corresponding to iterations i = 0 , 50 , 80 , 1000 , and 1500 .(Bottom) Values of λ(P i) |P i|2/3 and the unfolding of the optimal polyhedron P ∗. The initial polyhedron P 0 was a tetrahedron with three truncated vertices. The polyhedra P i for i ≥ 50 were isomorphic to a pentagonal prism. The initial and final polyhedra are not isomorphic. 15 0 500 1000 1500  
+
+> i
+> 28 .5
+> 29 .0
+> 29 .5
+> 30 .0
+> 30 .5
+> 31 .0
+
+λ(P i)|P i|2/3Figure 6: Case |K| = 8 . (Top) Polyhedra corresponding to iterations i = 0 , 50 , 100 , 1000 , and 
+
+1500 . (Bottom) Values of λ(P i) |P i|2/3 and the unfolding of the optimal polyhedron P ∗. The initial polyhedron P 0 was a cube with two truncated vertices. The polyhedra P i for i ≥ 50 were isomorphic to a one another. The initial and final polyhedra are not isomorphic. 0 500 1000 1500  
+
+> i
+> 27 .5
+> 28 .0
+> 28 .5
+> 29 .0
+> 29 .5
+> 30 .0
+> 30 .5
+> 31 .0
+
+λ(P i)|P i|2/3
+
+Figure 7: Case |K| = 9 . (Top) Polyhedra corresponding to iterations i = 0 , 100 , 200 , 1000 , and 
+
+1500 . (Bottom) Values of λ(P i) |P i|2/3 and the unfolding of the optimal polyhedron P ∗. The initial polyhedron P 0 was a cube with three truncated vertices. The polyhedra P i for i ≥ 200 were isomorphic to a one another. The initial and final polyhedra are not isomorphic. 16 0 500 1000 1500  
+
+> i
+> 28
+> 29
+> 30
+> 31
+> 32
+
+λ(P i)|P i|2/3Figure 8: Case |K| = 10 . (Top) Polyhedra corresponding to iterations i = 0 , 50 , 200 , 300 , and 
+
+1500 . (Bottom) Values of λ(P i) |P i|2/3 and the unfolding of the optimal polyhedron P ∗. The initial polyhedron P 0 was a cube with four truncated vertices. The polyhedra P i for i ≥ 300 were isomorphic to a one another. The initial and final domains are not isomorphic. 0 500 1000 1500  
+
+> i
+> 27
+> 28
+> 29
+> 30
+> 31
+> 32
+
+λ(P i)|P i|2/3
+
+Figure 9: Case |K| = 11 . (Top) Polyhedra corresponding to iterations i = 0 , 30 , 100 , 300 , and 
+
+1500 . (Bottom) Values of λ(P i) |P i|2/3 and the unfolding of the optimal polyhedron P ∗. The initial polyhedron P 0 was a cube with five truncated vertices. The polyhedra P i for i ≥ 30 were isomorphic to a one another. The initial and final domains are no isomorphic. 17 0 500 1000 1500  
+
+> i
+> 27 .0
+> 27 .5
+> 28 .0
+> 28 .5
+> 29 .0
+> 29 .5
+> 30 .0
+> 30 .5
+
+λ(P i)|P i|2/3Figure 10: Case |K| = 12 . (Top) Polyhedra corresponding to iterations i = 0 , 30 , 50 , 500 , and 
+
+1500 . (Bottom) Values of λ(P i) |P i|2/3 and the unfolding of the optimal polyhedron P ∗. The initial polyhedron P 0 was a cube with six truncated vertices. The polyhedra P i for i ≥ 30 were isomorphic to a dodecahedron. The initial and final domains are no isomorphic. 0 500 1000 1500 
+
+> i
+> 27
+> 28
+> 29
+> 30
+> 31
+> 32
+
+λ(P i)|P i|2/3
+
+Figure 11: Case |K| = 13 . (Top) Polyhedra corresponding to iterations i = 0 , 30 , 60 , 500 and 
+
+1500 . (Bottom) Values of λ(P i) |P i|2/3 and the unfolding of the optimal polyhedron P ∗. The initial polyhedron P 0 was a cube with seven truncated vertices. The polyhedra P i for i ≥ 100 were isomorphic to a one another. The initial and final domains are no isomorphic. 18 0 500 1000 1500 
+
+> i
+> 26 .5
+> 27 .0
+> 27 .5
+> 28 .0
+> 28 .5
+> 29 .0
+> 29 .5
+> 30 .0
+> 30 .5
+
+λ(P i)|P i|2/3Figure 12: Case |K| = 14 . (Top) Polyhedra corresponding to iterations i = 0 , 30 , 50 , 500 , and 
+
+1500 . (Bottom) Values of λ(P i) |P i|2/3 and the unfolding of the optimal polyhedron P ∗. The initial polyhedron P 0 was a cube with all its truncated vertices. The polyhedra P i for i ≥ 40 were isomorphic to a tetrakaidecahedron. The initial and final domains are no isomorphic. 19 12 .5
+
+> 13 .0
+> 13 .5
+> 14 .0
+
+Lagrangian functional 
+
+L (ri, s i, l i, m i)
+
+> 0
+> 2
+> 4
+> 6
+> 8
+
+Primal and dual variables 
+
+|ri||si||li||mi|        
+
+> 0200 400 600 800 1000 1200 1400
+> i
+> 10 −5
+> 10 −3
+> 10 −1
+> 10 1
+
+Optimality and feasibility gaps 
+
+|∇ rL (ri, s i, l i, m i)|
+
+ρ−1|li − mi|Figure 13: Values of |∇ r L (ri, s i, l i, m i)| (black) and || P i| − π| (gray) along the iterations for the test with |K| = 14 facets. These results show that algorithm (18) produces a decrease in the gradient norm and enforces the volume constraint. 20 A GeoGebra commands for reproducing the optimal polyhe-dra 
+
+The following links provide GeoGebra commands for reproducing and visualizing the optimal poly-hedra. For instance, in the case with |K| = 5 facets, see https://www.geogebra.org/3d/xet5kbgg 
+
+for the optimal polyhedron, together with its vertices and facets: 
+
+v1=Point({-1.11202959978901,0.702097019822660,-0.171572502895451}) v2=Point({-1.12456315042285,-0.762271965502623,-0.197040948792147}) v3=Point({-0.066183819257264,0.711108449634161,-1.196613428820373}) v4=Point({-0.078544744866793,-0.753254337976977,-1.222250944292790}) v5=Point({-0.099202288482267,-0.789603080025962,0.848108864198090}) v6=Point({-0.086338699585014,0.674747670706212,0.873913636147723}) v7=Point({0.959366251944387,0.683760623392674,-0.151144332933853}) v8=Point({0.946675295578225,-0.780583930144844,-0.177118205313624}) f1 = Polygon({v5, v6, v7, v8}) f2 = Polygon({v1, v2, v5, v6}) f3 = Polygon({v2, v4, v8, v5}) f4 = Polygon({v1, v3, v7, v6}) f5 = Polygon({v1, v2, v4, v3}) f6 = Polygon({v3, v4, v8, v7}) 
+
+The remaining cases are listed below: 
+
+• |K| = 4 facets, see https://www.geogebra.org/3d/acadmuzp ;
+
+• |K| = 6 facets, see https://www.geogebra.org/3d/mrwp6nqb ;
+
+• |K| = 7 facets, see https://www.geogebra.org/3d/nrnyvwbj ;
+
+• |K| = 8 facets, see https://www.geogebra.org/3d/xj2vem62 ;
+
+• |K| = 9 facets, see https://www.geogebra.org/3d/te7kjbbq ;
+
+• |K| = 10 facets, see https://www.geogebra.org/3d/q8skk9cn ;
+
+• |K| = 11 facets, see https://www.geogebra.org/3d/xayqz6te ;21 • |K| = 12 facets, see https://www.geogebra.org/3d/cwnvvrwa ;
+
+• |K| = 13 facets, see https://www.geogebra.org/3d/p36zg6fn ;
+
+• |K| = 14 facets, see https://www.geogebra.org/3d/haf2yauv .22 References 
+
+[1] Pedro Antunes and Pedro Freitas. New bounds for the principal Dirichlet eigenvalue of planar regions. Experiment. Math. , 15(3):333–342, 2006. [2] Igor A. Baratta, Joseph P. Dean, Jørgen S. Dokken, Michal Habera, Jack S. Hale, Chris N. Richardson, Marie E. Rognes, Matthew W. Scroggs, Nathan Sime, and Garth N. Wells. DOLFINx: the next generation FEniCS problem solving environment. preprint, 2023. [3] David Berghaus, Bogdan Georgiev, Hartmut Monien, and Danylo Radchenko. On Dirichlet eigenvalues of regular polygons. J. Math. Anal. Appl. , 538(2):Paper No. 128460, 17, 2024. [4] E. G. Birgin, L. Fernandez, G. Haeser, and A. Laurain. Optimization of the first Dirichlet Laplacian eigenvalue with respect to a union of balls. J. Geom. Anal. , 33(6):Paper No. 184, 28, 2023. [5] Beniamin Bogosel and Dorin Bucur. On the polygonal Faber-Krahn inequality. J. Éc. polytech. Math. , 11:19–105, 2024. [6] Beniamin Bogosel and Dorin Bucur. Polygonal faber–krahn inequality: Local minimality via validated computing, 2024. [7] Arne Brøndsted. An introduction to convex polytopes . Springer-Verlag, New York and Berlin, 1983. [8] W. Thomspon D’Arcy. On growth and form: the complete revised edition . Dover Publications, 1992. [9] Josué D. Díaz-Avalos and Antoine Laurain. Shape optimization of polytopes and application to the polyhedral Saint–Venant inequality. Comput. Optim. Appl. , 93(3):1305–1353, 2026. [10] Georg Faber. Beweis, daß unter allen homogenen Membranen von gleicher Fläche und gleicher Spannung die kreisförmige den tiefsten Grundton gibt. Sitz. Bayer. Akad. Wiss. , 8:169–172, 1923. [11] Michael Floater, Andrew Gillette, and N. Sukumar. Gradient bounds for Wachspress coordi-nates on polytopes. SIAM J. Numer. Anal. , 52(1):515–532, 2014. [12] Christophe Geuzaine and Jean-François Remacle. Gmsh: A three-dimensional finite element mesh generator with built-in pre- and post-processing facilities. International Journal for Numerical Methods in Engineering , 79(11):1309–1331, 2009. [13] Evan Greif, Daniel Kaplan, Robert S. Strichartz, and Samuel C. Wiese. Spectrum of the laplacian on regular polyhedra. Communications on Pure and Applied Analysis , 20(1):193– 214, 2021. [14] Pierre Grisvard. Elliptic problems in nonsmooth domains , volume 69 of Classics in Applied Mathematics . Society for Industrial and Applied Mathematics (SIAM), Philadelphia, PA, 2011. Reprint of the 1985 original [MR0775683], With a foreword by Susanne C. Brenner. [15] Antoine Henrot. Extremum problems for eigenvalues of elliptic operators . Frontiers in Mathe-matics. Birkhäuser Verlag, Basel, 2006. 23 [16] Antoine Henrot. Shape optimization and spectral theory . De Gruyter Open Poland, Warsaw, Poland, 2017. [17] Antoine Henrot and Michel Pierre. Shape variation and optimization , volume 28 of EMS Tracts in Mathematics . European Mathematical Society (EMS), Zürich, 2018. A geometrical analysis, English version of the French publication [MR2512810] with additions and updates. [18] Vicente Hernandez, Jose E. Roman, and Vicente Vidal. SLEPc: A scalable and flexible toolkit for the solution of eigenvalue problems. ACM Trans. Math. Software , 31(3):351–362, 2005. [19] Emanuel Indrei. On the first eigenvalue of the Laplacian for polygons. J. Math. Phys. , 65(4):Pa-per No. 041506, 40, 2024. [20] Jong Gwang Kim. A new Lagrangian-based first-order method for nonconvex constrained optimization. Oper. Res. Lett. , 51(3):357–363, 2023. [21] M. Kirszbraun. Über die zusammenziehende und lipschitzsche transformationen. Fundamenta Mathematicae , 22(1):77–108, 1934. [22] Edgar Krahn. Über eine von rayleigh formulierte minimal eigenschaft des kreises. Math. Ann. ,94:97–100, 1925. [23] Jimmy Lamboley, Arian Novruzi, and Michel Pierre. Polygons as maximizers of Dirichlet energy or first eigenvalue of Dirichlet-Laplacian among convex planar domains. Adv. Calc. Var. , 17(2):391–420, 2024. [24] Antoine Laurain. Distributed and boundary expressions of first and second order shape deriva-tives in nonsmooth domains. J. Math. Pures Appl. (9) , 134:328–368, 2020. [25] Peter S Stevens. Patterns in nature . Little, Brown and Company, 1974. [26] Joe Warren. On the uniqueness of barycentric coordinates. In Topics in algebraic geometry and geometric modeling , pages 93–99. Amer. Math. Soc., Providence, RI, 2003. [27] Joe Warren, Scott Schaefer, Anil N. Hirani, and Mathieu Desbrun. Barycentric coordinates for convex sets. Adv. Comput. Math. , 27(3):319–338, 2007. 24
