@@ -1,0 +1,2432 @@
+Title: Liouville-type theorems for coupled-drift Monge-Ampère equations
+
+URL Source: https://arxiv.org/pdf/2608.04478v1
+
+Published Time: Thu, 06 Aug 2026 00:32:40 GMT
+
+Number of Pages: 41
+
+Markdown Content:
+LIOUVILLE-TYPE THEOREMS FOR COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 
+
+LING WANG 
+
+Abstract. We study entire solutions and periodic correctors for the coupled-drift Monge–Ampère equation 
+
+det D2u = exp {− a · Du + b · x + V (x) − c0}, D2u > 0.
+
+For V ≡ 0, we obtain a sharp classification of the whole-space solvability regimes: all entire smooth strictly convex solutions are quadratic when a = b = 0 ; no such solution exists when a̸ = 0 and a · b ≤ 0; and non-quadratic entire solutions exist when a = 0 and b̸ = 0 , or when a · b > 0. The main new ingredient is a scalar maximum-principle argument valid in every dimension n ≥ 2, which proves that the null case a̸ = 0 , a · b = 0 admits no entire smooth strictly convex solution. For periodic V , we establish the existence and uniqueness for the drifted cell problem 
+
+det( A + D2ψ) = exp {− a · Dψ + V − cA}, A + D2ψ > 0 on Tn.
+
+We also prove that any asymptotically quadratic entire solution must satisfy b = Aa .If its remainder is bounded, then the solution is the corresponding quadratic-periodic corrector up to an additive constant. 
+
+1. Introduction 
+
+This paper studies global convex solutions of Monge–Ampère equations whose ex-ponential density contains two linear first-order drifts. The model equation is (1.1) det D2u = exp {− a · Du + b · x + V (x) − c0}, D2u > 0, x ∈ Rn,
+
+where a, b ∈ Rn, c0 ∈ R, and V is either zero or a smooth periodic function on 
+
+Tn. The term −a · Du is a linear drift in the gradient variable, which becomes the dual variable after the Legendre transform, while b · x is a linear drift in the physical variable. The central point is that these two drifts cannot be treated as independent lower-order perturbations. Under the Legendre transform y = Du (x), f = u∗, the constant-medium equation becomes, on the gradient image Du (Rn),
+
+det D2f = exp {a · y − b · Df + c0}.
+
+Thus the two drift directions exchange their roles. In the whole-space problem, the relevant invariant is the scalar coupling a · b, together with the distinction between a 
+
+2020 Mathematics Subject Classification. Primary 35J96, 35B65; Secondary 35B10, 35B45. 
+
+Key words and phrases. Monge–Ampère equation, Liouville theorem, periodic corrector, coupled drift, convex solutions.  
+
+> 1arXiv:2608.04478v1 [math.AP] 5 Aug 2026 2LING WANG
+
+genuine gradient drift a̸ = 0 and the pure spatial-drift case a = 0 . In the periodic-corrector problem, the scalar coupling is replaced by the matrix compatibility condi-tion b = Aa , where A is the quadratic part of the entire solution. The starting point is the classical rigidity theory for the real Monge–Ampère equa-tion. The classical Jörgens–Calabi–Pogorelov theorem asserts that every entire smooth strictly convex solution of 
+
+det D2u = constant in Rn
+
+is quadratic; see [Jör54, Cal58, Pog72]. Cheng and Yau [CY86] gave an analytic proof in their work on complete affine hypersurfaces, and Caffarelli and Li [CL03] extended the theory to viscosity solutions and exterior-domain problems. Existence and qualitative questions for entire equations with nonconstant prescribed densities were also studied by Chou and Wang [CW96]. For systematic treatments of the real Monge–Ampère equation and its linearized counterpart, see [Gut16, Fig17, Le24]. A different but closely related rigidity problem arises in affine Kähler–Ricci flat geometry. After a Legendre transform, the potential equation takes the form 
+
+det D2u = exp {− d · Du − d0}, x ∈ Rn,
+
+where d ∈ Rn and d0 ∈ R are constants. Li and Xu [LX09] proved that no en-tire smooth strictly convex solution exists when d̸ = 0 ; equivalently, the only entire smooth strictly convex solutions in this class occur in the constant-density case. Xu and Zhu [XZ16] later gave a shorter proof of this result. These results show that a linear gradient drift is not an innocuous perturbation of the constant-density equation. For the broader affine Bernstein problem and related Monge–Ampère equations, see [LJSX10, TW00, TW02, TW05, TW08]. Our first goal is to determine what happens when the gradient drift is coupled to a spatial drift. In the constant-medium case V ≡ 0, we study 
+
+det D2u = exp {− a · Du + b · x − c0}, D2u > 0, x ∈ Rn.
+
+This equation also appears as the potential equation for entire Lagrangian trans-lating solitons in the pseudo-Euclidean space R2nn , when written in null coordinates. Translating solitons are a central class of self-similar solutions in Lagrangian mean cur-vature flow; see Joyce–Lee–Tsui [JLT10] for foundational examples in the Euclidean setting. In the pseudo-Euclidean setting, Xu and Huang [XH13] derived the coupled-drift Monge–Ampère equation for spacelike Lagrangian translating gradient graphs and proved rigidity under a completeness assumption. Huang and Xu [HX15] subse-quently obtained further Bernstein-type results for the same equation. Xu and Zhu [XZ15] classified the one-dimensional entire solutions and proved higher-dimensional quadratic rigidity under an asymptotic decay condition on the Hessian. In the broader category of complete spacelike translating submanifolds, Chen and Qiu [CQ16] estab-lished nonexistence results by means of a generalized Omori–Yau maximum principle, while Xu and Liu [XL19] classified complete spacelike translators and showed that they are affine planes. These completeness results concern a geometrically stronger COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 3
+
+class and do not by themselves classify arbitrary entire gradient graphs without a completeness hypothesis. In the translating-soliton interpretation, (a, b ) is the translating vector, and the sign of a · b corresponds to its causal type, up to the normalization convention for the null metric. Wu and Xu [WX21] proved nonexistence in the negative-coupling, or timelike, case a · b < 0. The borderline lightlike case a · b = 0 is more delicate. In dimension two, Song–Wu–Xu [SWX26] proved nonexistence for lightlike translating vectors satisfying 
+
+(a1, a 2)̸ = 0 and (b1, b 2)̸ = 0 . The principal new contribution of the present paper is a scalar maximum-principle proof of the null obstruction in every dimension n ≥ 2,together with a direct ODE argument when n = 1 . The result applies to arbitrary entire smooth strictly convex gradient graphs, includes the pure gradient-drift case 
+
+b = 0 , and requires neither completeness nor Hessian decay. The resulting whole-space solvability alternatives are sharp. 
+
+Theorem 1.1 (Whole-space solvability alternatives) . Let n ≥ 1, a, b ∈ Rn, and 
+
+c0 ∈ R. Consider 
+
+(1.2) det D2u = exp {− a · Du + b · x − c0}, D2u > 0, x ∈ Rn.
+
+Then the following statements hold. 
+
+(i) If a = b = 0 , then every entire smooth strictly convex solution of (1.2) is a quadratic polynomial. 
+
+(ii) If a̸ = 0 and a · b ≤ 0, then (1.2) admits no entire smooth strictly convex solution. 
+
+(iii) If either a = 0 and b̸ = 0 , or a · b > 0, then (1.2) admits non-quadratic entire smooth strictly convex solutions. 
+
+The new rigidity regime in Theorem 1.1 is the null-coupling case 
+
+a̸ = 0 , a · b = 0 .
+
+Within the class of arbitrary entire smooth strictly convex solutions, Song–Wu–Xu [SWX26] proved the mixed-null nonexistence result in dimension two. Here we remove the dimension restriction and simultaneously include the pure gradient-drift case b = 0 .Our proof exploits a scalar structure specific to the coupled-drift equation. Asublevel-set maximum principle first gives a global oscillation bound for w = a · Du .Writing 
+
+P = a⊤D2u a, 
+
+we show that, in the null-coupling case, the full drifted linearized operator makes w
+
+harmonic and yields an exact nonnegative square identity for P . A maximum-principle argument applied to a negative power of P , together with a properness penalization, then gives the contradiction. This argument applies in every dimension n ≥ 2, while the case n = 1 follows from an elementary ODE calculation. Neither part requires completeness of the Hessian metric or uniform ellipticity. This scalar formulation is adapted to the present equation and differs from the affine-geometric approach used by Li–Xu [LX09] for the pure gradient-drift problem. 4 LING WANG 
+
+The relation between the two approaches is discussed in Remark 2.5. The solvable branches in Theorem 1.1 are obtained from explicit one-dimensional and rank-one constructions. We next turn to periodic media. Periodic Monge–Ampère equations also arise nat-urally on compact special affine and Hessian manifolds. The foundational solvability theory in this setting goes back to Cheng and Yau [CY82]. Li [Li90] developed exis-tence and uniqueness results for classes of fully nonlinear Monge–Ampère-type equa-tions on compact manifolds, including further results on flat tori, and Caffarelli and Viaclovsky [CV01] established regularity results on Hessian manifolds. For the classical undrifted equation, periodicity of the Monge–Ampère density leads to a quadratic-periodic decomposition. Caffarelli and Li [CL04] proved that, for a smooth positive periodic density, every entire smooth strictly convex solution has the form 
+
+u(x) = 12x⊤Ax + ℓ · x + ψ(x),
+
+where A = A⊤ > 0, ℓ ∈ Rn, and ψ is periodic. Li and Lu [LL22] extended this Liouville theorem to periodic densities satisfying log f ∈ L∞. More recently, Jin–Li– Tran–Tu [JLTT25] treated periodic Monge–Ampère measures which are allowed to be degenerate or singular. The pair consisting of a periodic corrector and an additive constant is also stan-dard in periodic homogenization. For the classical framework, see Bensoussan–Lions– Papanicolaou [BLP78]; for the perturbed-test-function method and periodic homoge-nization of fully nonlinear equations, see Evans [Eva89, Eva92]. For the coupled-drift equation (1.1), the natural cell problem contains the gradient drift at the periodic scale. Given a prescribed quadratic part A = A⊤ > 0, one is led to 
+
+det( A + D2ψ) = exp {− a · Dψ + V − c}, A + D2ψ > 0 on Tn.
+
+The scalar c is an unknown normalizing constant. To compare this problem with the Monge–Ampère theory on compact Hessian manifolds, set 
+
+ΦA(x) = 12x⊤Ax + ψ(x), p(x) = DΦA(x) = Ax + Dψ (x).
+
+Then the cell equation can be rewritten as the weighted Jacobian equation (1.3) ea·p(x) det Dp (x) = ea·Ax +V (x)−c.
+
+The gradient map is equivariant with respect to lattice translations: 
+
+p(x + k) = p(x) + Ak, k ∈ Zn.
+
+Equation (1.3) resembles the weighted Monge–Ampère equations 
+
+g(DΦ) det D2Φ = Cf 
+
+studied by Hultgren and Önnheim [HÖ19] on compact Hessian manifolds through optimal transport. Their formulation on the universal cover uses locally finite measures COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 5
+
+invariant under the relevant affine group actions. In the present setting, however, the natural weights 
+
+f (x) = ea·Ax +V (x), g(y) = ea·y
+
+are generally not invariant. Rather, they transform according to the same character: 
+
+f (x + k) = ea·Ak f (x), g(y + Ak ) = ea·Ak g(y).
+
+Thus the drifted cell equation does not fall directly under the invariant-measure for-mulation of [HÖ19]; it may instead be viewed as a character-twisted weighted Monge– Ampère problem. Our second main result gives existence and uniqueness for this nonlinear drifted cell problem. 
+
+Theorem 1.2 (Periodic cell problem) . For every A = A⊤ > 0, a ∈ Rn, and V ∈
+
+C∞(Tn), there exists a unique pair (ψA, c A), with 
+
+ψA ∈ C∞(Tn),
+
+Z
+
+> Tn
+
+ψA = 0 , cA ∈ R,
+
+such that 
+
+det( A + D2ψA) = exp {− a · Dψ A + V − cA}, A + D2ψA > 0 on Tn.
+
+The normalizing constant also records the dependence of the cell problem on the periodic data. It satisfies 
+
+min  
+
+> Tn
+
+V − log det A ≤ cA ≤ max  
+
+> Tn
+
+V − log det A. 
+
+Moreover, for fixed A and a, it is 1-Lipschitz with respect to V in the L∞ norm, while for fixed a and V , it is monotone decreasing with respect to A in the Loewner order. These properties follow directly from comparison at maximum and minimum points and give a quantitative description of the effective constant. The proof of Theorem 1.2 uses the continuity method. Periodic semiconvexity supplies uniform C0 and C1 bounds, while a maximum-eigenvalue estimate for the full drifted linearized operator controls A + D2ψ. Evans–Krylov and Schauder estimates complete the argument. The cell problem also identifies the compatibility condition for quadratic-periodic entire solutions. Substituting 
+
+u(x) = 12x⊤Ax + ℓ · x + ψ(x) + C
+
+into (1.1), the nonperiodic part of the exponent is (b − Aa ) · x. It follows that such a solution exists precisely when 
+
+b = Aa, c0 + a · ℓ = cA,
+
+in which case ψ agrees with ψA up to an additive constant. 6 LING WANG 
+
+For prescribed densities that converge to periodic data at infinity, Teixeira and Zhang [TZ16] proved quadratic-periodic asymptotic structure for global convex solu-tions in dimensions n ≥ 3. More recently, Qi and Bao [QB25] studied optimal as-ymptotic expansions for Hölder perturbations of periodic data. In contrast with these prescribed-density problems, the density in (1.1) depends on the unknown gradient, and this self-consistent dependence produces the compatibility condition b = Aa .Our final result shows that the compatibility condition remains necessary under a subquadratic asymptotic assumption and that a bounded remainder is necessarily the periodic corrector. 
+
+Theorem 1.3 (Asymptotically quadratic compatibility and bounded-corrector rigid-ity) . Let V ∈ C∞(Tn), and let u ∈ C∞(Rn) be a strictly convex solution of 
+
+det D2u = exp {− a · Du + b · x + V (x) − c0} in Rn.
+
+Suppose that, for some A = A⊤ > 0 and ℓ ∈ Rn,
+
+f (x) = u(x) − 12x⊤Ax − ℓ · x
+
+satisfies 
+
+sup 
+
+> BR
+
+|f | = o(R2) as R → ∞ .
+
+Then b = Aa .If, in addition, f ∈ L∞(Rn), then 
+
+c0 + a · ℓ = cA
+
+and 
+
+u(x) = 12x⊤Ax + ℓ · x + ψA(x) + C
+
+for some C ∈ R.
+
+The compatibility conclusion compares the exponential volume growth caused by b−
+
+Aa ̸ = 0 with the polynomial growth of Du (BR). For bounded remainders, compactness of integer translates and the strong comparison principle force periodicity, after which uniqueness of the cell problem gives the classification. The paper is organized as follows. Section 2 proves the whole-space alternatives. Section 3 treats the periodic cell problem, and Section 4 proves the compatibility and bounded-corrector rigidity results. 
+
+Acknowledgments. The author is deeply grateful to his postdoctoral mentor, Prof. Antonio De Rosa, for generous support and encouragement. This work was funded by the European Union through the European Research Coun-cil (ERC), under the Starting Grant “ANGEVA” (grant agreement No. 101076411). Views and opinions expressed are, however, those of the author only and do not neces-sarily reflect those of the European Union or the European Research Council. Neither the European Union nor the granting authority can be held responsible for them. COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 7
+
+Use of generative AI. During the development and preparation of this manuscript, the author used OpenAI’s ChatGPT as an interactive research and writing assistant. The tool was used to explore and refine proof strategies, check intermediate calcula-tions and logical consistency, identify possible gaps and edge cases, assist with liter-ature searches, and improve the organization and language of the manuscript. Some candidate arguments and formulations were developed through iterative exchanges with the tool. The author critically reviewed, revised where necessary, and verified all mathematical statements, proofs, calculations, and bibliographic references included in the final manuscript, and assumes full responsibility for its content. 2. Proof of the whole-space alternatives 
+
+We prove Theorem 1.1 for the constant-medium equation (2.1) det D2u = exp {− a · Du + b · x − c0}, D2u > 0, x ∈ Rn.
+
+Throughout this section, strict convexity is understood in the classical pointwise sense 
+
+D2u > 0, as required in (2.1). The proof is organized according to the three regimes identified in the statement of the theorem. We first treat the classical constant-density branch and recall the known obstruction in the negative-coupling case. We then establish the null-coupling obstruction by combining a global oscillation estimate for 
+
+a · Du with a scalar maximum-principle argument. Finally, we construct explicit non-quadratic entire solutions in the two remaining solvable regimes. This separates the rigidity mechanisms from the constructive part of the classification and makes the sharp transition at a · b = 0 transparent. We begin with the drift-free case. If a = b = 0 , then (2.1) reduces to the constant-density Monge–Ampère equation 
+
+det D2u = e−c0 in Rn.
+
+The Jörgens–Calabi–Pogorelov theorem therefore implies that every entire smooth strictly convex solution is a quadratic polynomial; see [Jör54, Cal58, Pog72]. Its constant Hessian matrix necessarily satisfies det D2u = e−c0 . This gives the rigid branch in Theorem 1.1 and serves as the natural baseline for the analysis of the two drift terms. Next, we recall the negative-coupling obstruction. Before doing so, we record an elementary consequence of strict convexity that will be used repeatedly. 
+
+Lemma 2.1 (Properness after affine normalization) . Let u ∈ C∞(Rn) be strictly convex and assume that Du (0) = 0 . Then 
+
+u(x) → +∞ as |x| → ∞ .
+
+In particular, every sublevel set of u is bounded. Proof. For e ∈ Sn−1, set 
+
+ge(t) = u(te ).
+
+Then 
+
+g′′  
+
+> e
+
+(t) = e⊤D2u(te )e > 0, g′
+
+> e
+
+(0) = 0 .8 LING WANG 
+
+Hence g′
+
+> e
+
+(1) > 0 for every e ∈ Sn−1. Since 
+
+e 7 −→ g′
+
+> e
+
+(1) = Du (e) · e
+
+is continuous on the compact unit sphere, 
+
+σ := min  
+
+> |e|=1
+
+g′
+
+> e
+
+(1) > 0.
+
+For r ≥ 1, convexity gives 
+
+u(re ) = ge(r) ≥ ge(1) + ( r − 1) g′
+
+> e
+
+(1) ≥ min  
+
+> |e|=1
+
+u(e) + σ(r − 1) .
+
+The right-hand side tends to +∞ uniformly in e. □
+
+Proposition 2.2 (Negative-coupling obstruction) . Assume that a̸ = 0 and a · b < 0.Then (2.1) admits no entire smooth strictly convex solution. Proof. This is the nonexistence theorem of Wu–Xu [WX21, Theorem 1.3]. For com-pleteness, we include an adaptation of their maximum-principle argument, since the same auxiliary function will also be used in the borderline case. Suppose that a solution exists. After translating the base point, subtracting a supporting affine function, and changing the constant c0, we may assume 
+
+u(0) = 3 , Du (0) = 0 , u > 0.
+
+For C > 3, set 
+
+ΩC = {u < C }, η = C − u, κ = 3 C. 
+
+By Lemma 2.1, the domain ΩC is bounded. Define 
+
+Q = exp 
+
+
+
+−κη
+
+
+
+e−b·x det D2u = exp 
+
+
+
+−κη − a · Du − c0
+
+
+
+in ΩC .
+
+The function Q extends continuously by zero to ∂ΩC . It therefore attains its maximum at an interior point xC ∈ ΩC .At xC ,(2.2) 0 = (log Q)i = −κu i
+
+η2 − aℓuℓi .
+
+Contracting (2.2) with ai and with uij uj , respectively, gives (2.3) a⊤D2u a = − κη2 a · Du, −a · Du = κη2 uij uiuj ≥ 0.
+
+At the same point, 
+
+0 ≥ uij (log Q)ij 
+
+= a⊤D2u a − a · b − κn η2 − 2κη3 uij uiuj .
+
+Using (2.3), we obtain (2.4) 0 ≥
+
+ κη2 − 2
+
+η
+
+
+
+(−a · Du ) − a · b − κn η2 .COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 9
+
+Since 0 < u < C and κ = 3 C,
+
+κη2 − 2
+
+η = κ − 2ηη2 = C + 2 u
+
+(C − u)2 > 0.
+
+The first term in (2.4) is therefore nonnegative. Since a · b < 0, it follows that 
+
+η(xC )2 ≤ κn 
+
+−a · b = 3Cn 
+
+−a · b.
+
+Consequently, κη(xC ) ≥ c1
+
+√C
+
+for some c1 > 0 depending only on n and −a · b.Set 
+
+X = −a · Du (xC ) ≥ 0.
+
+Equation (2.4) also gives 
+
+ κη(xC )2 − 2
+
+η(xC )
+
+
+
+X ≤ a · b + κn η(xC )2 < κn η(xC )2 .
+
+Thus 
+
+X < κn κ − 2η(xC ) < 3n. 
+
+It follows that 
+
+log Q(xC ) = − κη(xC ) − a · Du (xC ) − c0
+
+≤ − c1
+
+√C + 3 n − c0,
+
+and therefore 
+
+Q(xC ) → 0 as C → ∞ .
+
+On the other hand, 
+
+Q(0) = exp 
+
+
+
+− 3CC − 3 − c0
+
+
+
+→ e−3−c0 > 0.
+
+For sufficiently large C, this contradicts Q(0) ≤ Q(xC ). □
+
+We next turn to the null-coupling case. The proof has two ingredients. The first is a global oscillation estimate for the scalar drift a · Du .
+
+Lemma 2.3 (Borderline oscillation) . Let u solve (2.1) and suppose that a · b = 0 .Then 
+
+|a · Du (x) − a · Du (y)| ≤ 3n + 3 for all x, y ∈ Rn.
+
+Proof. Fix a base point and perform an affine normalization so that 
+
+u(0) = 3 , Du (0) = 0 , u > 0.
+
+For C > 3, use the same quantities 
+
+ΩC = {u < C }, η = C − u, κ = 3 C, 10 LING WANG 
+
+and the same auxiliary function Q as in the proof of Proposition 2.2. Let xC be its interior maximum point. Equations (2.3) and (2.4) remain valid. Since a · b = 0 , we obtain 
+
+0 ≥
+
+ κη2 − 2
+
+η
+
+
+
+(−a · Du ) − κn η2
+
+at xC . Therefore 
+
+−a · Du (xC ) ≤ κn κ − 2η(xC ) < 3n. 
+
+For any fixed x ∈ Rn, once C > u (x), the inequality Q(x) ≤ Q(xC ) gives 
+
+−a · Du (x) ≤ − a · Du (xC ) + κC − u(x) − κη(xC ).
+
+Discarding the final nonpositive term and letting C → ∞ , we find 
+
+−a · Du (x) ≤ 3n + 3 .
+
+To compare two arbitrary points, fix x0 ∈ Rn and consider 
+
+vx0 (y) = u(x0 + y) − u(x0) − Du (x0) · y + 3 .
+
+By convexity, 
+
+vx0 (0) = 3 , Dv x0 (0) = 0 , vx0 ≥ 3.
+
+Moreover, vx0 satisfies an equation of the form (2.1) with the same vectors a, b , the same coupling a · b = 0 , and a possibly different constant. Applying the preceding one-sided estimate to vx0 yields 
+
+a · Du (x0 + y) − a · Du (x0) ≥ − (3 n + 3) .
+
+Interchanging the two points gives the reverse inequality. □
+
+The second ingredient converts this oscillation control into rigidity. The quantity 
+
+P = a⊤D2u a measures the Hessian curvature in the drift direction. Differentiating the equation with the full drifted linearized operator cancels the third-order drift terms and leaves a nonnegative square, which is the source of coercivity. 
+
+Proposition 2.4 (Bounded null-drift rigidity) . Let n ≥ 2, a̸ = 0 , and a · b = 0 .Suppose that u ∈ C4(Rn) is strictly convex, solves (2.1) , and satisfies 
+
+osc Rn (a · Du ) < ∞.
+
+Then no such solution exists. Proof. Suppose, to the contrary, that such a solution exists. Fix a point x0 ∈ Rn and define 
+
+eu(x) = u(x + x0) − u(x0) − Du (x0) · x. 
+
+Then 
+
+eu(0) = 0 , Deu(0) = 0 , eu ≥ 0COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 11 
+
+by convexity. Moreover, eu satisfies an equation of the same form as (2.1), with the same vectors a and b, and with c0 replaced by 
+
+ec0 = c0 + a · Du (x0) − b · x0.
+
+Thus the condition a · b = 0 is unchanged. Since 
+
+a · Deu(x) = a · Du (x + x0) − a · Du (x0),
+
+the oscillation assumption is also unchanged. Renaming eu as u, we may assume 
+
+u(0) = 0 , Du (0) = 0 , u ≥ 0.
+
+By Lemma 2.1, 
+
+u(x) → +∞ as |x| → ∞ .
+
+Set 
+
+w = a · Du. 
+
+Since w(0) = 0 , the oscillation assumption implies 
+
+|w| ≤ W in Rn
+
+for some finite constant W .Write 
+
+gij = uij , (gij ) = ( gij )−1,
+
+and define the drifted linearized operator 
+
+Lf = gij fij + akfk.
+
+We use the summation convention and set 
+
+P = arasurs = a⊤D2u a > 0, Tij = akuijk .
+
+Here and below, 
+
+|T |2 
+
+> g
+
+= gip gjq Tij Tpq , |∇ P |2 
+
+> g
+
+= gij PiPj .
+
+It is useful first to record the relation between w and P . Since 
+
+wi = akuki = gik ak,
+
+we have 
+
+P = gij wiwj = |∇ w|2
+
+> g
+
+.
+
+Moreover, 
+
+wij = akukij = Tij .
+
+Taking the logarithm of (2.1) gives 
+
+log det( gij ) = −a · Du + b · x − c0.
+
+Differentiating in the xk-direction yields 
+
+gij uijk = bk − aℓuℓk .
+
+Contracting with ak and using a · b = 0 , we obtain (2.5) gij Tij = −P. 12 LING WANG 
+
+Since 
+
+a · Dw = P, 
+
+identity (2.5) also gives 
+
+Lw = gij wij + a · Dw = −P + P = 0 .
+
+Differentiating the logarithmic equation once more gives 
+
+gij uijrs − gip gjq uijr upqs = −akukrs .
+
+Multiplying by aras, we find 
+
+gij Pij − gip gjq Tij Tpq = −akPk.
+
+Therefore the first-order term in L cancels the right-hand side, and (2.6) LP = gip gjq Tij Tpq = |T |2
+
+> g
+
+.
+
+Differentiating the definition of P also gives (2.7) Pi = arasursi = Tij aj .
+
+We now derive a pointwise coercive inequality. Fix a point. With respect to the inner product g at that point, choose a g-orthonormal basis whose first vector is parallel to a. In this basis, 
+
+gij = δij , a = √P e 1.
+
+This is only a pointwise algebraic choice; no derivatives of the frame are taken. Equa-tions (2.6), (2.5), and (2.7) become 
+
+LP = |T |2, tr T = −P, 
+
+and (2.8) |∇ P |2 
+
+> g
+
+= P X
+
+> i
+
+T 21i, a · DP = P T 11 .
+
+Choose 
+
+θ = 14( n − 1) .
+
+In particular, 
+
+0 < θ < 1.
+
+The chain rule, (2.6), and (2.8) give 
+
+L(−P −θ) = θP −θ−1LP − θ(θ + 1) P −θ−2|∇ P |2
+
+> g
+
+= θP −θ−1 |T |2 − (θ + 1) X
+
+> i
+
+T 21i
+
+!
+
+.
+
+Write 
+
+T =
+
+τ v⊤
+
+v B
+
+
+
+, τ = T11 ,
+
+where 
+
+v = ( T12 , . . . , T 1n)COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 13 
+
+and 
+
+B = ( Tαβ )2≤α,β ≤n.
+
+Then 
+
+|T |2 = τ 2 + 2 |v|2 + |B|2
+
+and X
+
+> i
+
+T 21i = τ 2 + |v|2.
+
+Consequently, 
+
+|T |2 − (θ + 1) X
+
+> i
+
+T 21i = −θτ 2 + (1 − θ)|v|2 + |B|2
+
+≥ − θτ 2 + |B|2.
+
+By (2.5), 
+
+tr B = −P − τ. 
+
+Since B is an (n − 1) × (n − 1) symmetric matrix, the Cauchy–Schwarz inequality gives 
+
+|B|2 ≥ (tr B)2
+
+n − 1 = (P + τ )2
+
+n − 1 .
+
+We have therefore proved the pointwise estimate (2.9) L(−P −θ) ≥ θP −θ−1
+
+(P + τ )2
+
+n − 1 − θτ 2
+
+
+
+.
+
+For ε > 0, define 
+
+Fε = −P −θ − εu. 
+
+Since P > 0, one has −P −θ ≤ 0. Together with u(x) → +∞, this gives 
+
+Fε(x) → −∞ as |x| → ∞ .
+
+Thus Fε attains a global maximum at some point xε.At xε,
+
+DF ε = 0 ,
+
+and hence 
+
+θP −θ−1DP = εDu. 
+
+Choose at xε the adapted g-orthonormal basis used above. Contracting the preceding identity with a and using (2.8), we obtain 
+
+θP −θ−1(P τ ) = εw. 
+
+Thus (2.10) τ = εθ wP θ, |τ | ≤ εW θ P θ.
+
+All quantities in the rest of the argument are evaluated at xε.Suppose first that 
+
+|τ | ≥ P
+
+2 .14 LING WANG 
+
+Then (2.10) gives 
+
+P
+
+2 ≤ εW θ P θ,
+
+and hence (2.11) P 1−θ ≤ 2Wθ ε. 
+
+Suppose instead that 
+
+|τ | < P
+
+2 .
+
+Then 
+
+P + τ ≥ P
+
+2
+
+and 
+
+τ 2 < P 2
+
+4 .
+
+Therefore (P + τ )2
+
+n − 1 − θτ 2 ≥ P 2
+
+4( n − 1) − θP 2
+
+4= P 2
+
+4
+
+ 1
+
+n − 1 − θ
+
+
+
+.
+
+Since 
+
+θ = 14( n − 1) ,
+
+the right-hand side equals 
+
+3P 2
+
+16( n − 1) ≥ P 2
+
+8( n − 1) .
+
+Estimate (2.9) consequently gives 
+
+L(−P −θ) ≥ θ
+
+8( n − 1) P 1−θ.
+
+At the maximum point, 
+
+DF ε(xε) = 0 
+
+and 
+
+D2Fε(xε) ≤ 0.
+
+The first-order part of L therefore vanishes there, and 
+
+LFε(xε) = gij (Fε)ij (xε) ≤ 0.
+
+Furthermore, 
+
+Lu = gij uij + a · Du = n + w ≤ n + W. 
+
+It follows that 0 ≥ L Fε = L(−P −θ) − εLu
+
+≥ θ
+
+8( n − 1) P 1−θ − ε(n + W ).COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 15 
+
+Hence (2.12) P 1−θ ≤ 8( n − 1)( n + W )
+
+θ ε. 
+
+Combining (2.11) and (2.12), we obtain 
+
+P (xε)1−θ ≤ Cε, 
+
+where C is independent of ε. Since 1 − θ > 0, this implies (2.13) P (xε) → 0 as ε ↓ 0.
+
+On the other hand, maximality of Fε, together with u(0) = 0 and u ≥ 0, gives 
+
+−P (xε)−θ ≥ − P (xε)−θ − εu (xε) = Fε(xε) ≥ Fε(0) = −P (0) −θ.
+
+Thus 
+
+P (xε) ≥ P (0) > 0.
+
+This contradicts (2.13). □
+
+Remark 2.5 (Relation with the Li–Xu [LX09] argument) . The proof of Proposition 2.4 uses only the bounded oscillation of a · Du . In particular, when b = 0 , it gives an independent proof, in the smooth strictly convex setting, of the affine Kähler–Ricci flat rigidity theorem of Li–Xu [LX09, Main Theorem]. The scalar quantity used here is closely related to the affine invariant in the Li–Xu argument. To see this, consider the pure gradient-drift equation and let f = u∗ be the Legendre transform of u, defined on the gradient image Du (Rn). Then 
+
+det D2f = exp {a · y + c0}.
+
+If 
+
+ρ = (det D2f )−1/(n+2) 
+
+and 
+
+Φ = f ij ρiρj
+
+ρ2 ,
+
+as in [LX09], then ρi
+
+ρ = − ai
+
+n + 2 .
+
+At corresponding dual points y = Du (x), one has 
+
+D2f (y) = ( D2u(x)) −1,
+
+and hence 
+
+Φ( y) = 1(n + 2) 2 a⊤D2u(x) a = P (x)(n + 2) 2 .
+
+Thus the simplification in the present proof does not come from introducing an un-related scalar invariant. Rather, it comes from working in the original variables with the full linearized operator 
+
+L = uij ∂ij + a · D16 LING WANG 
+
+and retaining the distinguished direction selected by a. In the null-coupling case, the quantities 
+
+w = a · Du, P = a⊤D2u a, Tij = akuijk 
+
+satisfy the closed identities 
+
+Lw = 0 , P = |∇ w|2
+
+> D2u
+
+, LP = |T |2
+
+> D2u
+
+, tr D2u T = −P. 
+
+Together with the global oscillation bound for w, this structure leads to the direct maximum-principle argument above. 
+
+Remark 2.6 (Graph-preserving changes of variables) . The mixed null-coupling case with a̸ = 0 and b̸ = 0 is not reduced to the pure gradient-drift case by the natural changes of variables that preserve the class of entire convex gradient graphs. Indeed, let S ∈ GL (n, R) and set 
+
+v(z) = u(Sz ) + q · z + d. 
+
+Then v satisfies an equation of the same form, with transformed drift vectors 
+
+a′ = S−1a, b′ = S⊤b, a′ · b′ = a · b, 
+
+and with a modified additive constant. Thus an invertible linear change of the base variables cannot turn a nonzero spatial drift into zero. The Legendre transform ex-changes the two nonzero drift vectors and therefore does not remove either one. More-over, it is defined on the gradient image Du (Rn), which need not be all of Rn; hence it does not, in general, preserve the class of entire solutions on a fixed Euclidean base. Ambient pseudo-orthogonal transformations may identify nonzero lightlike transla-tion vectors, but they need not preserve the chosen graph polarization. In particular, the transformed Lagrangian submanifold need not remain an entire strictly convex gra-dient graph over the same Rn. The mixed null-coupling obstruction is therefore not an immediate consequence of the pure gradient-drift result through transformations that preserve the global graph class considered here. We now obtain the full null-coupling obstruction. 
+
+Proposition 2.7 (Null-coupling obstruction) . Assume that 
+
+a̸ = 0 , a · b = 0 .
+
+Then (2.1) admits no entire smooth strictly convex solution. Proof. Assume first that n ≥ 2. Lemma 2.3 gives 
+
+osc Rn (a · Du ) < ∞.
+
+The conclusion therefore follows from Proposition 2.4. If n = 1 , then a̸ = 0 and ab = 0 imply b = 0 . The equation is 
+
+u′′ = e−au ′−c0 .
+
+Consequently,  eau ′ ′ = ae −c0̸ = 0 .COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 17 
+
+Thus eau ′
+
+is a nonconstant affine function of x, which cannot remain positive on all of 
+
+R. This is a contradiction. □
+
+We now construct non-quadratic entire solutions in the remaining two regimes. Suppose first that a = 0 and b̸ = 0 . After an orthogonal change of coordinates, write 
+
+b = βe n, β = |b| > 0.
+
+Then 
+
+u(x′, x n) = 12|x′|2 + e−c0
+
+β2 eβx n
+
+is smooth and strictly convex, and 
+
+det D2u = eβx n−c0 = eb·x−c0 .
+
+It is plainly non-quadratic. Suppose next that 
+
+a · b > 0.
+
+We first choose a symmetric positive definite matrix A satisfying 
+
+Aa = b. 
+
+For n = 1 , simply take A = b/a > 0. For n ≥ 2, use an orthonormal basis whose first vector is e1 = a/ |a|, and write 
+
+b
+
+|a| =
+
+αβ
+
+
+
+, α = a · b
+
+|a|2 > 0, β ∈ Rn−1.
+
+For any 
+
+λ > |β|2
+
+α ,
+
+the matrix 
+
+A =
+
+α β⊤
+
+β λI n−1
+
+
+
+is positive definite by the Schur complement criterion and satisfies Aa = b.The same compatibility already produces quadratic solutions. Indeed, since a̸ = 0 ,one may choose ℓ0 ∈ Rn so that 
+
+a · ℓ0 = −c0 − log det A. 
+
+Then 
+
+u0(x) = 12x⊤Ax + ℓ0 · x
+
+solves (2.1). To show that the positive-coupling regime also contains non-quadratic solutions, choose ℓ ∈ Rn such that 
+
+γ = a · ℓ̸ = 0 ,
+
+and set 
+
+μ = ℓ⊤A−1ℓ > 0, K0 = e−c0
+
+det A.18 LING WANG 
+
+Fix C0 > 0, and define a smooth function H on R, up to an additive constant, by 
+
+eγH ′(t) = K0 + C0e−γt/μ .
+
+Differentiating gives 
+
+H′′ (t) = − 1
+
+μC0e−γt/μ 
+
+K0 + C0e−γt/μ ,
+
+and hence (2.14) 1 + μH ′′ (t) = K0
+
+K0 + C0e−γt/μ = K0e−γH ′(t) > 0.
+
+Define 
+
+u(x) = 12x⊤Ax + H(ℓ · x).
+
+Then 
+
+D2u = A + H′′ (ℓ · x) ℓ ⊗ ℓ. 
+
+Since A > 0, the rank-one update criterion and (2.14) imply that D2u > 0. The matrix determinant lemma gives 
+
+det D2u = det A  1 + μH ′′ (ℓ · x).
+
+Moreover, since A is symmetric and Aa = b,
+
+−a · Du + b · x = −a ·  Ax + H′(ℓ · x)ℓ + b · x
+
+= −γH ′(ℓ · x).
+
+Using (2.14) and the definition of K0, we conclude that 
+
+det D2u = det A K 0e−γH ′(ℓ·x)
+
+= exp {− a · Du + b · x − c0}.
+
+Because C0 > 0, the function H is not quadratic, and neither is u.
+
+Remark 2.8 (Degeneration at the null threshold) . The positive-coupling construction cannot remain uniformly convex as a · b ↓ 0 with a̸ = 0 . Indeed, every positive definite matrix A satisfying Aa = b obeys 
+
+a⊤Aa = a · b, λmin (A) ≤ a · b
+
+|a|2 .
+
+Thus the quadratic background necessarily degenerates at the null threshold, consis-tent with the nonexistence result there. In particular, the positive and null branches are not connected through a uniformly convex family of these explicit solutions. 
+
+Proof of Theorem 1.1. If a = b = 0 , the classical Jörgens–Calabi–Pogorelov theorem gives part (i). Suppose that a̸ = 0 and a · b ≤ 0. If a · b < 0, Proposition 2.2 gives nonexistence. If 
+
+a · b = 0 , Proposition 2.7 gives nonexistence. This proves part (ii). The two explicit constructions above prove part (iii) and complete the proof. □COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 19 
+
+3. The periodic cell problem 
+
+Throughout this section, Tn = Rn/Zn is normalized to have volume one. Let 
+
+A = A⊤ > 0, a ∈ Rn, V ∈ C∞(Tn).
+
+We prove existence and uniqueness of a constant cA ∈ R and a zero-average function 
+
+ψA ∈ C∞(Tn) satisfying (3.1) det( A + D2ψA) = exp {− a · Dψ A + V − cA}, A + D2ψA > 0 on Tn.
+
+We also record comparison and stability properties of the normalizing constant. The notation suppresses the remaining data: more explicitly, cA = c(A; a, V ).We use the continuity path (3.2) log det( A + D2ψ) + t a · Dψ − tV + c = 0 , t ∈ [0 , 1] .
+
+The main point is a uniform C2 bound: in the full linearized operator, the drift cancels the third-order drift contribution in the maximum-eigenvalue estimate. 
+
+Remark 3.1 (Relation with compact Hessian-manifold formulations) . The weighted Jacobian form in (1.3) has a natural equivariant interpretation. With 
+
+f (x) = ea·Ax +V (x), g(y) = ea·y, χ(k) = ea·Ak ,
+
+the source and target weights satisfy, for every k ∈ Zn,
+
+f (x + k) = χ(k)f (x), g(y + Ak ) = χ(k)g(y).
+
+Equivalently, they can be viewed as equivariant densities, or as sections of flat real line bundles determined by the same character. The optimal-transport theory of Hultgren–Önnheim [HÖ19], however, is formulated for ordinary invariant measures on the relevant affine quotients, so it does not directly provide the present cell solution. Guedj–Tô [GT24] developed comparison and existence theory for twisted Monge– Ampère operators on compact Hessian manifolds of the form 
+
+Mρ,g [φ] = ρ det( g + D2φ) d x, 
+
+where ρ is a fixed density and the right-hand side may depend on x and φ. In contrast, the weight in (3.1) depends on the unknown gradient through e−a·Dψ . Thus the existing invariant-measure and fixed-density twisted theories are closely related to, but do not directly subsume, the drifted cell problem considered here. 
+
+Comparison, uniqueness, and the normalizing constant. We begin with the comparison principle used both here and in the bounded-corrector classification. 
+
+Lemma 3.2 (Strong comparison principle) . Let Ω ⊂ Rn be connected, let N = N ⊤ be a smooth matrix field on Ω, and let u1, u 2 ∈ C2(Ω) satisfy 
+
+N + D2ui > 0, i = 1 , 2.
+
+Assume that 
+
+log det( N + D2u1) + a · Du 1 = log det( N + D2u2) + a · Du 2 in Ω.20 LING WANG 
+
+If 
+
+u1 ≤ u2 in Ω
+
+and equality holds at an interior point, then 
+
+u1 ≡ u2 in Ω.
+
+Proof. Set 
+
+w = u1 − u2.
+
+Subtracting the two equations and integrating the logarithmic determinant along the segment u2 + sw , s ∈ [0 , 1] , gives 
+
+Bij wij + a · Dw = 0 ,
+
+where 
+
+Bij (x) = 
+
+Z 10
+
+ N + D2u2 + sD 2w−1 
+
+> ij
+
+ds. 
+
+The positive definite cone is convex, so every matrix inside the integral is positive definite. Thus the resulting linear operator is uniformly elliptic on compact subsets of 
+
+Ω. Since w ≤ 0 and w attains an interior maximum, the strong maximum principle gives w ≡ 0. □
+
+Lemma 3.3 (Uniqueness for the cell problem) . Suppose that (ψ1, c 1) and (ψ2, c 2) are two smooth solutions of (3.1) . Then c1 = c2, and ψ1 − ψ2 is constant. In particular, if both functions have zero average, then ψ1 = ψ2.Proof. Let 
+
+w = ψ1 − ψ2.
+
+At a maximum point x+ of w,
+
+Dw (x+) = 0 , D2w(x+) ≤ 0.
+
+Consequently, 
+
+A + D2ψ1(x+) ≤ A + D2ψ2(x+).
+
+The determinant is monotone on the positive definite cone, and Dψ 1(x+) = Dψ 2(x+).Evaluating the equations at x+ therefore gives c1 ≥ c2. Applying the same argument at a minimum point of w gives c1 ≤ c2. Hence c1 = c2.Let 
+
+m = max  
+
+> Tn
+
+(ψ1 − ψ2).
+
+The equation is invariant under adding constants to ψ, so ψ2 + m satisfies the same equation as ψ2. Moreover, 
+
+ψ1 ≤ ψ2 + m
+
+and equality holds at an interior point of the periodic lift to Rn. Lemma 3.2 gives 
+
+ψ1 ≡ ψ2 + m. 
+
+If both functions have zero average, then m = 0 . □COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 21 
+
+The normalizing constant satisfies bounds and comparison properties that are in-dependent of the existence argument. 
+
+Lemma 3.4 (Bounds and comparison for the normalizing constant) . The following statements hold. 
+
+(i) Suppose that (ψ, c ) solves 
+
+det( A + D2ψ) = e−ta ·Dψ +tV −c, A + D2ψ > 0,
+
+for some t ∈ [0 , 1] . Then 
+
+(3.3) t min  
+
+> Tn
+
+V − log det A ≤ c ≤ t max  
+
+> Tn
+
+V − log det A. 
+
+(ii) For fixed A and a, suppose that (ψi, c i) solves the cell problem with potential 
+
+Vi, i = 1 , 2. Then 
+
+(3.4) min  
+
+> Tn
+
+(V1 − V2) ≤ c1 − c2 ≤ max  
+
+> Tn
+
+(V1 − V2).
+
+In particular, 
+
+(3.5) |c1 − c2| ≤ ∥ V1 − V2∥L∞(Tn).
+
+(iii) Fix a and V . Suppose that A1, A 2 > 0 are symmetric and 
+
+A1 ≤ A2
+
+in the sense of quadratic forms. If cAi denotes the corresponding normalizing constant, then 
+
+cA1 ≥ cA2 .
+
+If A2 − A1 > 0, then the inequality is strict. Proof. Let x+ be a maximum point of ψ. Then 
+
+Dψ (x+) = 0 , D2ψ(x+) ≤ 0.
+
+Thus 
+
+A + D2ψ(x+) ≤ A, 
+
+and hence 
+
+etV (x+)−c = det( A + D2ψ(x+)) ≤ det A. 
+
+Therefore 
+
+c ≥ tV (x+) − log det A ≥ t min  
+
+> Tn
+
+V − log det A. 
+
+The upper bound follows similarly by evaluating at a minimum point of ψ, where 
+
+D2ψ ≥ 0. This proves (3.3). For the second statement, let x+ be a maximum point of ψ1 − ψ2. At x+,
+
+Dψ 1 = Dψ 2, D2ψ1 ≤ D2ψ2.
+
+It follows that 
+
+V1(x+) − c1 ≤ V2(x+) − c2,
+
+and hence 
+
+c1 − c2 ≥ V1(x+) − V2(x+) ≥ min  
+
+> Tn
+
+(V1 − V2).22 LING WANG 
+
+Applying the same argument at a minimum point of ψ1 − ψ2 gives the opposite bound in (3.4). Estimate (3.5) follows immediately. Finally, let ψi be the solution corresponding to Ai, and let x+ be a maximum point of ψ1 − ψ2. Then 
+
+D2ψ1(x+) ≤ D2ψ2(x+),
+
+so 
+
+A1 + D2ψ1(x+) ≤ A2 + D2ψ2(x+).
+
+Comparing the two equations at x+ gives cA1 ≥ cA2 . If A2 − A1 > 0, the matrix inequality at x+ is strict, and the strict monotonicity of the determinant on the positive definite cone gives cA1 > c A2 . □
+
+For fixed A and a, we write cA[V ] for the normalizing constant associated with the potential V . As immediate consequences of Lemma 3.4, one has 
+
+V1 ≤ V2 =⇒ cA[V1] ≤ cA[V2],
+
+and 
+
+cA[V + λ] = cA[V ] + λ for every constant λ ∈ R.
+
+A priori estimates. For t ∈ [0 , 1] , suppose that (ψ, c ) is a smooth solution of (3.2), normalized by Z
+
+> Tn
+
+ψ = 0 .
+
+Set 
+
+M = A + D2ψ. 
+
+All estimates below are independent of t. We begin with the elementary periodic semiconvexity bounds. 
+
+Lemma 3.5 (Periodic semiconvexity estimate) . There exists a constant C = C(A, n )
+
+such that every solution along the continuity path satisfies 
+
+(3.6) ∥Dψ ∥L∞(Tn) ≤ C
+
+and 
+
+(3.7) ∥ψ∥L∞(Tn) ≤ C. 
+
+Proof. Since 
+
+A + D2ψ > 0,
+
+we have 
+
+D2ψ ≥ − A
+
+as quadratic forms. In particular, 
+
+ψii ≥ − Aii .
+
+Fix all variables except xi, and let 
+
+f (s) = ψ(x1, . . . , x i−1, s, x i+1 , . . . , x n).COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 23 
+
+Then f is 1-periodic and satisfies 
+
+f ′′ ≥ − Aii .
+
+We claim that 
+
+∥f ′∥L∞([0 ,1]) ≤ Aii .
+
+Indeed, for 0 ≤ s < t ≤ 1,
+
+f ′(t) − f ′(s) ≥ − Aii (t − s).
+
+Applying the same inequality to the periodically extended function on the interval 
+
+[t, s + 1] gives 
+
+f ′(s) − f ′(t) ≥ − Aii (s + 1 − t).
+
+Hence 
+
+osc [0 ,1] f ′ ≤ Aii .
+
+Since Z 10
+
+f ′(s) d s = 0 ,
+
+the asserted bound follows. Applying this argument in each coordinate direction gives the explicit bound 
+
+∥Dψ ∥L∞(Tn) ≤
+
+> n
+
+X
+
+> i=1
+
+A2
+
+> ii
+
+!1/2
+
+≤ √n λ max (A),
+
+and hence (3.6). Since ψ has zero average, its minimum is nonpositive and its maxi-mum is nonnegative. The gradient bound therefore implies 
+
+osc Tn ψ ≤ diam( Tn)∥Dψ ∥L∞(Tn),
+
+which gives (3.7). □
+
+We next record the determinant identity used to control the normalizing constant. 
+
+Lemma 3.6 (Periodic determinant identity) . For every smooth periodic ψ,
+
+Z
+
+> Tn
+
+det( A + D2ψ) d x = det A. 
+
+Proof. For s ∈ [0 , 1] , define 
+
+I(s) = 
+
+Z
+
+> Tn
+
+det( A + sD 2ψ) d x. 
+
+Since 
+
+A + sD 2ψ = D2
+
+12x⊤Ax + sψ 
+
+
+
+,
+
+its cofactor matrix is divergence-free: 
+
+∂i cof( A + sD 2ψ)ij = 0 .24 LING WANG 
+
+Therefore 
+
+I′(s) = 
+
+Z
+
+> Tn
+
+cof( A + sD 2ψ)ij ψij dx
+
+=
+
+Z
+
+> Tn
+
+∂i
+
+ cof( A + sD 2ψ)ij ψj
+
+ dx
+
+= 0 .
+
+Thus I(1) = I(0) = det A. □
+
+Combining (3.2) with Lemma 3.6, we obtain the exact identity 
+
+c = log 
+
+Z
+
+> Tn
+
+e−ta ·Dψ +tV dx
+
+det A
+
+ .
+
+For the a priori estimate, however, the sharper pointwise bounds (3.3) are more useful. Together with Lemma 3.5, they imply 
+
+|c| ≤ C(A, V ).
+
+The equation 
+
+det M = e−ta ·Dψ +tV −c
+
+then yields (3.8) 0 < λ ≤ det M ≤ Λ < ∞,
+
+where λ, Λ depend only on A, a, V , and n.We now establish the principal second-derivative estimate. 
+
+Proposition 3.7 (Uniform second-derivative estimate) . There exists a constant C =
+
+C(A, a, n, ∥V ∥C2(Tn)) such that every solution of (3.2) satisfies 
+
+(3.9) C−1I ≤ A + D2ψ ≤ CI on Tn.
+
+Proof. Define the full linearized operator 
+
+Lt = M ij ∂ij + t a · D. 
+
+Fix a constant B > 0, to be chosen below, and consider 
+
+G(x, ξ ) = log Mξξ (x) − Bψ (x), (x, ξ ) ∈ Tn × Sn−1.
+
+Let (x0, ξ 0) be a maximum point of G. After a constant orthogonal change of coordi-nates, we may assume that at x0,
+
+ξ0 = e1
+
+and 
+
+M (x0) = diag( M1, . . . , M n), M1 = M11 = λmax (M (x0)) .
+
+All computations below are performed at x0.Differentiating (3.2) twice in the x1-direction gives 
+
+M ij Mij, 11 − M ip M jq Mij, 1Mpq, 1 + ta kM11 ,k = tV 11 .COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 25 
+
+Since 
+
+Mij, 11 = M11 ,ij ,
+
+we obtain 
+
+M ij (log M11 )ij = M ip M jq Mij, 1Mpq, 1
+
+M11 
+
+− M ij M11 ,i M11 ,j 
+
+M 211 
+
+− ta kM11 ,k 
+
+M11 
+
++ tV 11 
+
+M11 
+
+.
+
+At the diagonal point, the difference of the two third-order quadratic expressions is nonnegative. The full symmetry of the third derivatives gives 
+
+M11 ,i = M1i, 1.
+
+Consequently, 
+
+M ip M jq Mij, 1Mpq, 1
+
+M11 
+
+− M ij M11 ,i M11 ,j 
+
+M 211 
+
+= X
+
+> i> 1
+
+M 21i, 1
+
+M 21 Mi
+
++ X
+
+> i,j> 1
+
+M 2
+
+> ij, 1
+
+MiMj M1
+
+≥ 0.
+
+Consequently, 
+
+M ij (log M11 )ij ≥ − ta kM11 ,k 
+
+M11 
+
++ tV 11 
+
+M11 
+
+.
+
+The drift part of Lt cancels the third-order drift term: 
+
+t a · D log M11 = ta kM11 ,k 
+
+M11 
+
+.
+
+Thus (3.10) Lt log M11 ≥ tV 11 
+
+M11 
+
+.
+
+On the other hand, 
+
+Lt(−Bψ ) = −BM ij ψij − Bt a · Dψ 
+
+= −Bn + B tr( M −1A) − Bt a · Dψ, 
+
+because 
+
+M ij ψij = M ij (Mij − Aij ) = n − tr( M −1A).
+
+Since G( · , e 1) has a maximum at x0,
+
+LtG(x0, e 1) ≤ 0.
+
+Combining this with (3.10), we obtain (3.11) 0 ≥ B tr( M −1A) − Bn − Bt a · Dψ + tV 11 
+
+M11 
+
+.
+
+Let 
+
+α = λmin (A) > 0, KV = sup 
+
+> x∈Tn
+
+∥D2V (x)∥op .26 LING WANG 
+
+Then 
+
+tr( M −1A) ≥ α tr( M −1) ≥ αM11 
+
+.
+
+It follows that tV 11 
+
+M11 
+
+≥ − KV
+
+α tr( M −1A).
+
+Using the C1 bound from Lemma 3.5, inequality (3.11) gives 
+
+0 ≥
+
+
+
+B − KV
+
+α
+
+
+
+tr( M −1A) − B (n + |a|∥ Dψ ∥L∞ ) .
+
+Choose 
+
+B = 1 + KV
+
+α .
+
+Then 
+
+tr( M (x0)−1A) ≤ C. 
+
+Equivalently, 
+
+A1/2M (x0)−1A1/2 ≤ CI, 
+
+and hence 
+
+M (x0) ≥ C−1A ≥ C−1I. 
+
+Combining this lower eigenvalue bound with the upper determinant bound in (3.8), we obtain 
+
+M11 (x0) ≤ C. 
+
+Since G attains its maximum at (x0, e 1), for every (x, ξ ) ∈ Tn × Sn−1,
+
+log Mξξ (x) − Bψ (x) ≤ log M11 (x0) − Bψ (x0).
+
+The C0 estimate for ψ therefore gives 
+
+Mξξ (x) ≤ C. 
+
+Thus 
+
+M ≤ CI on Tn.
+
+Finally, the lower determinant bound in (3.8) and the upper eigenvalue bound imply 
+
+M ≥ C−1I. 
+
+This proves (3.9). □
+
+Standard regularity theory now gives higher-order estimates. 
+
+Proposition 3.8 (Higher-order estimates) . For every integer k ≥ 0, there exists a constant 
+
+Ck = Ck
+
+ A, a, n, ∥V ∥Ck+2 (Tn)
+
+
+
+such that every zero-average solution of (3.2) satisfies 
+
+(3.12) ∥ψ∥Ck (Tn) + |c| ≤ Ck.COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 27 
+
+Proof. Proposition 3.7 gives uniform ellipticity: 
+
+C−1I ≤ A + D2ψ ≤ CI. 
+
+Moreover, D2ψ is uniformly bounded, so Dψ is uniformly Lipschitz. Hence the right-hand side of 
+
+log det( A + D2ψ) = −ta · Dψ + tV − c
+
+is uniformly bounded in Cα(Tn) for every fixed α ∈ (0 , 1) . The Evans–Krylov estimate for concave uniformly elliptic equations [Eva82, Kry83] therefore gives 
+
+∥ψ∥C2,α (Tn) ≤ C. 
+
+Differentiating the equation produces uniformly elliptic linear equations for the deriva-tives of ψ. Standard Schauder estimates and induction yield (3.12). □
+
+The continuity method. We complete the continuity argument. 
+
+Proof of Theorem 1.2. Let S ⊂ [0 , 1] be the set of parameters t for which there exists a smooth pair (ψ, c ) solving (3.2), with A + D2ψ > 0 and 
+
+Z
+
+> Tn
+
+ψ = 0 .
+
+At t = 0 , the pair 
+
+ψ = 0 , c = − log det A
+
+solves (3.2). Hence 
+
+0 ∈ S .
+
+We next prove openness. Fix t0 ∈ S , and let (ψ, c ) be the corresponding solution. Set 
+
+M = A + D2ψ. 
+
+The linearization of the left-hand side of (3.2) in the variables (ψ, c ) is (3.13) (η, κ ) 7 −→ Lη + κ, Lη = M ij ηij + t0a · Dη. 
+
+We view this as a map 
+
+C2,α  
+
+> 0
+
+(Tn) × R −→ Cα(Tn),
+
+where 
+
+C2,α  
+
+> 0
+
+(Tn) = 
+
+
+
+η ∈ C2,α (Tn) : 
+
+Z
+
+> Tn
+
+η = 0 
+
+
+
+.
+
+The strong maximum principle gives 
+
+ker L = {constants }.
+
+As an elliptic operator on the compact manifold Tn, L is Fredholm as a map 
+
+C2,α (Tn) −→ Cα(Tn).
+
+Its index is zero. Indeed, the lower-order drift can first be removed through the elliptic homotopy 
+
+Lsη = M ij ηij + s t 0a · Dη, 0 ≤ s ≤ 1,28 LING WANG 
+
+and the positive definite principal coefficients can then be deformed through elliptic operators to those of the flat Laplacian. The Fredholm index is constant along these homotopies, while the Laplacian on Tn has index zero. It follows that 
+
+codim Ran L = 1 .
+
+Furthermore, 
+
+1 /∈ Ran L. 
+
+Indeed, if Lη = 1 , then at a maximum point of η, Lη ≤ 0, which is impossible. Hence 
+
+Cα(Tn) = Ran L ⊕ span {1}.
+
+Adding a constant to η does not change Lη , so restricting the domain of L to the zero-average subspace does not change its range. Therefore the map in (3.13) is surjective. It is also injective. If 
+
+Lη + κ = 0 
+
+and η has zero average, then κ > 0 is impossible by evaluating at a minimum point of η, while κ < 0 is impossible by evaluating at a maximum point. Thus κ = 0 , and the strong maximum principle gives that η is constant. Its zero average then implies 
+
+η = 0 .Consequently, 
+
+(η, κ ) 7 −→ Lη + κ
+
+is an isomorphism. The implicit function theorem proves that S is open. The a priori estimates in Lemmas 3.5 and Proposition 3.8 imply that S is closed. Indeed, if 
+
+tj ∈ S , tj → t∞,
+
+then the corresponding solutions admit uniform Ck bounds for every k. A diagonal compactness argument yields a smooth limiting solution at t∞.Thus S = [0 , 1] . At t = 1 , we obtain a smooth pair (ψA, c A) satisfying (3.1). Lemma 3.3 gives uniqueness of cA, and uniqueness of the zero-average solution ψA. □
+
+4. Periodic correctors and bounded-corrector rigidity 
+
+Throughout this section, A = A⊤ > 0 is fixed, and (ψA, c A) denotes the unique zero-average solution of the cell problem (4.1) det( A + D2ψA) = exp {− a · Dψ A + V − cA}, A + D2ψA > 0 on Tn.
+
+We extend V and ψA periodically to Rn, and write 
+
+MA = A + D2ψA, ΦA(x) = 12x⊤Ax + ψA(x).
+
+Thus 
+
+D2ΦA = MA.
+
+We study entire solutions of (4.2) det D2u = exp {− a · Du + b · x + V (x) − c0} in Rn.COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 29 
+
+We first classify exactly quadratic-periodic solutions, then derive the compatibility condition b = Aa from weaker asymptotic assumptions, and finally prove the bounded-corrector Liouville theorem. 
+
+Theorem 4.1 (Classification of quadratic-periodic solutions) . Let A = A⊤ > 0,
+
+ℓ ∈ Rn, and ψ ∈ C∞(Tn). Suppose that 
+
+A + D2ψ > 0.
+
+Then 
+
+u(x) = 12x⊤Ax + ℓ · x + ψ(x)
+
+solves (4.2) if and only if 
+
+b = Aa, c0 + a · ℓ = cA, ψ = ψA + C
+
+for some constant C ∈ R.In particular, if b = Aa , then 
+
+u(x) = 12x⊤Ax + ℓ · x + ψA(x) + C
+
+is a solution precisely when c0 + a · ℓ = cA, with C ∈ R arbitrary. Proof. For 
+
+u(x) = 12x⊤Ax + ℓ · x + ψ(x),
+
+we have 
+
+Du = Ax + ℓ + Dψ, D2u = A + D2ψ. 
+
+Since A is symmetric, 
+
+−a · Du + b · x + V − c0 = ( b − Aa ) · x − a · ℓ − a · Dψ + V − c0.
+
+Hence the equation becomes (4.3) det( A + D2ψ) = exp {(b − Aa ) · x − a · Dψ + V − (c0 + a · ℓ)}.
+
+The left-hand side of (4.3) is Zn-periodic. The functions Dψ and V are also Zn-periodic. Set 
+
+m = b − Aa. 
+
+If m̸ = 0 , then some coordinate mi is nonzero. Taking k = ei ∈ Zn and comparing (4.3) at x and x + k gives 
+
+em·k = 1 .
+
+This is impossible because m · k = mi̸ = 0 . Therefore 
+
+b = Aa. 
+
+With this compatibility imposed, (4.3) reduces to 
+
+det( A + D2ψ) = exp {− a · Dψ + V − (c0 + a · ℓ)}.30 LING WANG 
+
+The uniqueness of the cell problem, without imposing the additive normalization on 
+
+ψ, gives 
+
+c0 + a · ℓ = cA
+
+and 
+
+ψ = ψA + C
+
+for some constant C. Conversely, these conditions reduce the full-space equation exactly to (4.1). The additive constant does not occur in the equation. □
+
+Remark 4.2 . If a̸ = 0 and b = Aa , then for every c0 ∈ R one can choose ℓ ∈ Rn so that 
+
+a · ℓ = cA − c0.
+
+If a = 0 , then b = Aa is equivalent to b = 0 , and the condition on the normalizing constant reduces to 
+
+c0 = cA.
+
+We next show that b = Aa is not merely a consequence of exact periodicity. It is forced whenever the perturbation of the quadratic polynomial has sublinear gradient growth. We begin with two elementary consequences of global semiconvexity. 
+
+Lemma 4.3 (Gradient bounds for globally semiconvex functions) . Let f ∈ C2(Rn)
+
+satisfy 
+
+D2f ≥ − ΛI in Rn
+
+for some Λ ≥ 0.
+
+(i) If f ∈ L∞(Rn), then 
+
+(4.4) ∥Df ∥L∞(Rn) ≤ p2Λ osc Rn f . 
+
+When Λ = 0 , the conclusion is understood as Df ≡ 0.
+
+(ii) If 
+
+(4.5) sup 
+
+> BR
+
+|f | = o(R2) as R → ∞ ,
+
+then 
+
+(4.6) sup 
+
+> BR
+
+|Df | = o(R) as R → ∞ .
+
+Proof. Fix x ∈ Rn and e ∈ Sn−1, and define 
+
+g(t) = f (x + te ).
+
+Then 
+
+g′′ (t) ≥ − Λ.
+
+Suppose first that f is bounded and 
+
+P = g′(0) > 0.
+
+For 0 ≤ t ≤ P/ Λ, when Λ > 0,
+
+g′(t) ≥ P − Λt. COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 31 
+
+Therefore osc Rn f ≥ g(P/ Λ) − g(0) 
+
+≥
+
+Z P/ Λ0
+
+(P − Λt) d t = P 2
+
+2Λ .
+
+Thus 
+
+P ≤ p2Λ osc Rn f . 
+
+Applying the same argument in the direction −e gives the corresponding lower bound for g′(0) . This proves (4.4). If Λ = 0 , then f is bounded and convex, hence constant. We now assume (4.5). Fix δ ∈ (0 , 1) . If x ∈ BR, e ∈ Sn−1, and t = δR , semiconvexity gives 
+
+f (x + te ) ≥ f (x) + tDf (x) · e − Λt2
+
+2
+
+and 
+
+f (x − te ) ≥ f (x) − tDf (x) · e − Λt2
+
+2 .
+
+Since 
+
+x ± te ∈ B(1+ δ)R,
+
+we obtain 
+
+|Df (x) · e| ≤ 2 sup B(1+ δ)R |f |
+
+δR + ΛδR 
+
+2 .
+
+Taking the supremum over x ∈ BR and e ∈ Sn−1, dividing by R, and letting R → ∞ ,we find 
+
+lim sup 
+
+> R→∞
+
+sup BR |Df |
+
+R ≤ Λδ
+
+2 .
+
+Since δ > 0 is arbitrary, this proves (4.6). □
+
+We now prove the compatibility statement under the natural gradient-growth con-dition. 
+
+Proposition 4.4 (Compatibility under sublinear gradient growth) . Let 
+
+u(x) = 12x⊤Ax + ℓ · x + f (x), A = A⊤ > 0,
+
+be a smooth strictly convex solution of (4.2) . Assume that 
+
+ω(R) := sup 
+
+> BR
+
+|Df | = o(R) as R → ∞ .
+
+Then 
+
+b = Aa. 
+
+Proof. Set 
+
+m = b − Aa. 
+
+Since 
+
+Du = Ax + ℓ + Df, 32 LING WANG 
+
+the equation becomes 
+
+det D2u = exp {m · x − a · ℓ − a · Df + V (x) − c0}.
+
+Suppose, for contradiction, that m̸ = 0 , and set 
+
+e = m
+
+|m|.
+
+For R > 1, define the spherical cap 
+
+ER =
+
+
+
+x ∈ BR : e · x ≥ R
+
+2
+
+
+
+.
+
+There exists cn > 0 such that 
+
+|ER| ≥ cnRn.
+
+Moreover, 
+
+m · x ≥ |m|R
+
+2 on ER.
+
+Since V is bounded and 
+
+|a · Df | ≤ | a|ω(R) = o(R),
+
+for all sufficiently large R we have, on ER,
+
+log det D2u ≥ |m|R
+
+4 − C. 
+
+It follows that (4.7) 
+
+Z
+
+> BR
+
+det D2u dx ≥ cR ne|m|R/ 4.
+
+Because D2u > 0, the gradient map Du is injective. Indeed, 
+
+(Du (x) − Du (y)) · (x − y) > 0 for x̸ = y. 
+
+Thus the multiplicity of Du on BR is one, and the area formula gives (4.8) 
+
+Z
+
+> BR
+
+det D2u dx = |Du (BR)|.
+
+On the other hand, 
+
+Du (BR) ⊂ AB R + ℓ + Bω(R).
+
+Since ω(R) = o(R), the set on the right is contained in a Euclidean ball of radius CR 
+
+for all sufficiently large R. Hence (4.9) |Du (BR)| ≤ CR n.
+
+Estimates (4.7), (4.8), and (4.9) are incompatible. Therefore m = 0 , which is precisely 
+
+b = Aa . □COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 33 
+
+Corollary 4.5 (Compatibility for subquadratic correctors) . Let 
+
+u(x) = 12x⊤Ax + ℓ · x + f (x), A = A⊤ > 0,
+
+be a smooth strictly convex solution of (4.2) .If 
+
+sup 
+
+> BR
+
+|f | = o(R2) as R → ∞ ,
+
+then 
+
+b = Aa. 
+
+Proof. The strict convexity condition gives 
+
+A + D2f > 0,
+
+and hence 
+
+D2f ≥ − λmax (A)I. 
+
+Lemma 4.3 gives 
+
+sup 
+
+> BR
+
+|Df | = o(R),
+
+so Proposition 4.4 applies. □
+
+We next establish the compactness needed in the bounded-corrector Liouville argu-ment. 
+
+Lemma 4.6 (Compactness of integer translates) . Let 
+
+h ∈ C∞(Rn) ∩ L∞(Rn)
+
+satisfy 
+
+MA + D2h > 0
+
+and 
+
+(4.10) log det( MA + D2h) − log det MA + a · Dh = δ in Rn
+
+for some constant δ ∈ R. Then the family 
+
+{h( · + m) : m ∈ Zn}
+
+is precompact in C∞
+
+> loc
+
+(Rn).Proof. Since MA is smooth, periodic, and positive definite, there are constants 
+
+0 < λ A ≤ ΛA < ∞
+
+such that (4.11) λAI ≤ MA ≤ ΛAI on Rn.
+
+The positivity of MA + D2h gives 
+
+D2h ≥ − ΛAI. 
+
+Lemma 4.3 and the boundedness of h then yield (4.12) ∥Dh ∥L∞(Rn) ≤ L34 LING WANG 
+
+for some finite constant L. Set also 
+
+H = ∥h∥L∞(Rn).
+
+Equation (4.10) is equivalent to 
+
+det( MA + D2h) = eδ−a·Dh det MA.
+
+Using (4.11) and (4.12), we obtain constants 
+
+0 < λ ≤ Λ < ∞
+
+such that (4.13) λ ≤ det( MA + D2h) ≤ Λ in Rn.
+
+For m ∈ Zn, set 
+
+hm(x) = h(x + m), Um(x) = Φ A(x) + hm(x).
+
+The periodicity of MA implies 
+
+D2Um = MA + D2hm > 0,
+
+and every hm satisfies (4.14) log det( MA + D2hm) − log det MA + a · Dh m = δ. 
+
+Equivalently, (4.15) det D2Um = eδ−a·Dh m det MA.
+
+The determinant bounds in (4.13) hold uniformly for all m.We next establish uniform geometry for fixed-height sections. Fix x0 ∈ Rn, and define qm,x 0 (z) := Um(x0 + z) − Um(x0) − DU m(x0) · z, Sm(x0, t ) := {x0 + z : qm,x 0 (z) < t } .
+
+By (4.11), 
+
+λA
+
+2 |z|2 ≤ ΦA(x0 + z) − ΦA(x0) − DΦA(x0) · z ≤ ΛA
+
+2 |z|2.
+
+Moreover, by the definitions of H and L,
+
+|hm(x0 + z) − hm(x0) − Dh m(x0) · z| ≤ 2H + L|z|.
+
+Consequently, (4.16) λA
+
+2 |z|2 − L|z| − 2H ≤ qm,x 0 (z) ≤ ΛA
+
+2 |z|2 + L|z| + 2 H. 
+
+All constants here are independent of m and x0.Choose 
+
+H0 = 4  2Λ A + 2 L + 2 H + 1 .
+
+The upper bound in (4.16) gives (4.17) B2(x0) ⊂ Sm
+
+
+
+x0, H0
+
+4
+
+
+
+.COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 35 
+
+Choose R0 > 2 so large that 
+
+λA
+
+2 r2 − Lr − 2H > H 0 for every r ≥ R0.
+
+The lower bound in (4.16) then gives (4.18) Sm(x0, H 0) ⊂ BR0 (x0).
+
+Thus all the sections Sm(x0, H 0) have uniform inner and outer ball control. We now make the normalization and the dependence of the constants explicit. Set 
+
+Ωm,x 0 = Sm(x0, H 0) − x0.
+
+By John’s lemma, there is an affine map 
+
+Am,x 0 (z) = Bm,x 0 z + ym,x 0
+
+such that 
+
+B1 ⊂ A m,x 0 (Ω m,x 0 ) ⊂ Bn.
+
+The ball inclusions (4.17) and (4.18) imply uniform bounds for Bm,x 0 , B−1 
+
+> m,x 0
+
+, and 
+
+| det Bm,x 0 |±1. Define on the normalized domain 
+
+eΩm,x 0 = Am,x 0 (Ω m,x 0 )
+
+the convex function 
+
+evm,x 0 (y) = 1
+
+H0
+
+qm,x 0
+
+ A−1 
+
+> m,x 0
+
+(y) − 1.
+
+Then evm,x 0 = 0 on ∂ eΩm,x 0 . Moreover, since qm,x 0 ≥ 0 and qm,x 0 (0) = 0 ,
+
+min 
+
+> eΩm,x 0
+
+evm,x 0 = evm,x 0
+
+ Am,x 0 (0)  = −1.
+
+Thus the normalized domains and potentials satisfy the standard normalization hy-potheses with constants independent of m and x0. Furthermore, 
+
+det D2evm,x 0 (y) = H−n 
+
+> 0
+
+| det Bm,x 0 |−2 det D2Um
+
+ x0 + A−1 
+
+> m,x 0
+
+(y).
+
+Consequently, the normalized Monge–Ampère densities are bounded above and below by positive constants independent of m and x0.Caffarelli’s interior C1,γ estimate on normalized sections [Caf90a, Caf91], in the formulation [Fig17, Theorem 4.20], now gives γ ∈ (0 , 1) and a uniform constant C
+
+such that 
+
+[DU m]Cγ (Sm(x0,3H0/4)) ≤ C. 
+
+Here and below the estimates are applied on fixed sublevel sets of the normalized potential; the constants therefore depend only on the fixed level ratios, the dimension, and the uniform determinant and normalization bounds. Since 
+
+Dh m = DU m − DΦA
+
+and ΦA is fixed and smooth, the right-hand side 
+
+fm(x) = eδ−a·Dh m(x) det MA(x)36 LING WANG 
+
+of (4.15) is uniformly bounded in Cγ (Sm(x0, 3H0/4)) and is uniformly bounded away from zero. Moreover, after pulling the equation back by Am,x 0 , the normalized right-hand sides have uniformly bounded Cγ norms. Indeed, the linear parts of Am,x 0 and their inverses are uniformly bounded. Caffarelli’s interior C2,α estimate for Hölder densities [Caf90b, Caf91], in the formu-lation [Fig17, Theorem 4.42], applied to the normalized equation and then transferred back to the original coordinates, yields some α ∈ (0 , γ ] such that 
+
+∥D2Um∥Cα(Sm(x0,H 0/2)) ≤ C. 
+
+The affine changes of variables above have uniformly bounded linear parts and inverses, so the constants remain independent of m and x0. Since 
+
+B2(x0) ⊂ Sm
+
+
+
+x0, H0
+
+4
+
+
+
+⊂ Sm
+
+
+
+x0, H0
+
+2
+
+
+
+,
+
+we obtain a uniform C2,α bound on B2(x0). Together with the determinant lower bound in (4.13), this makes 
+
+Gm := D2Um = MA + D2hm
+
+uniformly elliptic on B2(x0).For completeness, we spell out the first step of the Schauder bootstrap. Differenti-ating (4.14) in the xk-direction gives (4.19) Gij m∂ij (hm)k + a · D(hm)k =  (M −1 
+
+> A
+
+)ij − Gij m
+
+ ∂k(MA)ij .
+
+The coefficients Gij m are uniformly elliptic and uniformly Cα, and the right-hand side is uniformly Cα, because MA is fixed and smooth. Interior Schauder estimates applied to (4.19) give a uniform C3,α bound for hm on B3/2(x0). Repeated differentiation and induction then yield, for every integer r ≥ 0,
+
+∥hm∥Cr (B1(x0)) ≤ Cr,
+
+where Cr depends only on r, the fixed data, and finitely many norms of the fixed smooth matrix field MA, but not on m or x0. Hence the family {hm} is uniformly bounded in every Cr norm on compact subsets of Rn. The Arzelà–Ascoli theorem and a diagonal argument give precompactness in C∞
+
+> loc
+
+(Rn). □
+
+We can now prove that a bounded perturbation of the periodic cell solution is necessarily constant. 
+
+Theorem 4.7 (Bounded-corrector Liouville theorem) . Let h ∈ C∞(Rn) ∩ L∞(Rn)
+
+satisfy 
+
+MA + D2h > 0
+
+and 
+
+log det( MA + D2h) − log det MA + a · Dh = δ in Rn
+
+for some constant δ ∈ R. Then 
+
+δ = 0 and h = constant .COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 37 
+
+Proof. Fix k ∈ Zn, and define 
+
+Ck = sup 
+
+> x∈Rn
+
+ h(x + k) − h(x).
+
+Since h is bounded, Ck is finite. Choose a sequence xj ∈ Rn such that 
+
+h(xj + k) − h(xj ) → Ck.
+
+Write 
+
+xj = mj + yj , mj ∈ Zn, yj ∈ [0 , 1] n.
+
+After passing to a subsequence, 
+
+yj → y∞ ∈ [0 , 1] n.
+
+By Lemma 4.6, after passing to a further subsequence, 
+
+h( · + mj ) → H in C∞
+
+> loc
+
+(Rn),
+
+where H is bounded and satisfies the same equation 
+
+log det( MA + D2H) − log det MA + a · DH = δ. 
+
+For every x ∈ Rn,
+
+h(x + mj + k) − h(x + mj ) ≤ Ck.
+
+Passing to the limit gives (4.20) H(x + k) − H(x) ≤ Ck for all x ∈ Rn.
+
+The choice of the maximizing sequence gives equality at y∞:(4.21) H(y∞ + k) − H(y∞) = Ck.
+
+Define eH(x) = H(x + k) − Ck.
+
+By (4.20), 
+
+eH ≤ H, 
+
+and by (4.21), equality holds at y∞. Since k ∈ Zn and MA is periodic, the function 
+
+H( · + k) satisfies the same equation as H. Subtracting the constant Ck also leaves the equation unchanged. Thus both eH and H solve 
+
+log det( MA + D2v) + a · Dv = log det MA + δ. 
+
+The strong comparison principle, Lemma 3.2, yields 
+
+H(x + k) − Ck ≡ H(x).
+
+Iterating, 
+
+H(x + qk ) − H(x) = qC k for every q ∈ N.
+
+Since H is bounded, this is possible only if Ck = 0 . Therefore 
+
+h(x + k) − h(x) ≤ 0 for all x. 
+
+Applying the same argument to −k and then replacing x by x + k gives 
+
+h(x) − h(x + k) ≤ 0.38 LING WANG 
+
+Hence 
+
+h(x + k) = h(x) for all x ∈ Rn, k ∈ Zn.
+
+Thus h is Zn-periodic. At a maximum point x+ of h,
+
+Dh (x+) = 0 , D2h(x+) ≤ 0.
+
+Therefore 
+
+MA(x+) + D2h(x+) ≤ MA(x+),
+
+and the equation gives δ ≤ 0. At a minimum point x−,
+
+Dh (x−) = 0 , D2h(x−) ≥ 0,
+
+so the same equation gives δ ≥ 0. Consequently, δ = 0 . It follows that ψA + h and ψA
+
+solve the same periodic cell equation: 
+
+log det( A + D2v) + a · Dv = V − cA.
+
+The uniqueness statement from Section 3 implies that their difference h is constant. □
+
+We finish the proof of the theorem stated in the Introduction. 
+
+Proof of Theorem 1.3. Write 
+
+f (x) = u(x) − 12x⊤Ax − ℓ · x. 
+
+The compatibility conclusion under the subquadratic hypothesis follows from Corol-lary 4.5. Assume now that f ∈ L∞(Rn). Since a bounded function is subquadratic, we already know that b = Aa . Moreover, 
+
+f ∈ C∞(Rn) ∩ L∞(Rn),
+
+and 
+
+A + D2f = D2u > 0.
+
+Set 
+
+h = f − ψA.
+
+Since f is bounded and ψA is periodic, h ∈ C∞(Rn) ∩ L∞(Rn). Moreover, 
+
+MA + D2h = A + D2f = D2u > 0.
+
+Using b = Aa , the equation for u becomes 
+
+log det( A + D2f ) = −a · Df + V − (c0 + a · ℓ).
+
+The cell equation gives 
+
+log det MA = −a · Dψ A + V − cA.
+
+Subtracting these identities and using Dh = Df − Dψ A, we obtain 
+
+log det( MA + D2h) − log det MA + a · Dh = cA − (c0 + a · ℓ).
+
+Theorem 4.7 therefore implies 
+
+cA − (c0 + a · ℓ) = 0 and h = constant .COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 39 
+
+Consequently, 
+
+c0 + a · ℓ = cA and f = ψA + constant .
+
+Equivalently, 
+
+u(x) = 12x⊤Ax + ℓ · x + ψA(x) + C
+
+for some C ∈ R. □
+
+References 
+
+[BLP78] A. Bensoussan, J.-L. Lions, and G. Papanicolaou, Asymptotic Analysis for Periodic Struc-tures , North-Holland, Amsterdam, 1978. [Caf90a] L. A. Caffarelli, A localization property of viscosity solutions to the Monge–Ampère equation and their strict convexity, Ann. of Math. (2) 131 (1990), no. 1, 129–134, https://doi.org/ 10.2307/1971509 .[Caf90b] L. A. Caffarelli, Interior W 2,p estimates for solutions of the Monge–Ampère equation, Ann. of Math. (2) 131 (1990), no. 1, 135–150, https://doi.org/10.2307/1971510 .[Caf91] L. A. Caffarelli, Some regularity properties of solutions of the Monge–Ampère equation, 
+
+Comm. Pure Appl. Math. 44 (1991), no. 8–9, 965–969, https://doi.org/10.1002/cpa. 3160440809 .[CL03] L. A. Caffarelli and Y. Y. Li, An extension to a theorem of Jörgens, Calabi, and Pogorelov, 
+
+Comm. Pure Appl. Math. 56 (2003), no. 5, 549–583, https://doi.org/10.1002/cpa.10067 .[CL04] L. A. Caffarelli and Y. Y. Li, A Liouville theorem for solutions of the Monge–Ampère equation with periodic data, Ann. Inst. H. Poincaré C Anal. Non Linéaire 21 (2004), no. 1, 97–120, 
+
+https://doi.org/10.1016/j.anihpc.2003.01.005 .[CV01] L. A. Caffarelli and J. A. Viaclovsky, On the regularity of solutions to Monge–Ampère equa-tions on Hessian manifolds, Comm. Partial Differential Equations 26 (2001), no. 11–12, 2339– 2351, https://doi.org/10.1081/PDE-100107825 .[Cal58] E. Calabi, Improper affine hyperspheres of convex type and a generalization of a theo-rem by K. Jörgens, Michigan Math. J. 5 (1958), 105–126, https://doi.org/10.1307/mmj/ 1028998055 .[CQ16] Q. Chen and H. Qiu, Rigidity of self-shrinkers and translating solitons of mean curvature flows, Adv. Math. 294 (2016), 517–531, https://doi.org/10.1016/j.aim.2016.03.004 .[CY82] S. Y. Cheng and S. T. Yau, The real Monge–Ampère equation and affine flat structures, in 
+
+Proceedings of the 1980 Beijing Symposium on Differential Geometry and Differential Equa-tions , Vols. 1–3, Science Press, Beijing, 1982, pp. 339–370. [CY86] S. Y. Cheng and S. T. Yau, Complete affine hypersurfaces. Part I. The completeness of affine metrics, Comm. Pure Appl. Math. 39 (1986), no. 6, 839–866, https://doi.org/10.1002/ cpa.3160390606 .[CW96] K.-S. Chou and X.-J. Wang, Entire solutions of the Monge–Ampère equation, 
+
+Comm. Pure Appl. Math. 49 (1996), no. 5, 529–539, https://doi.org/10.1002/(SICI) 1097-0312(199605)49:5<529::AID-CPA2>3.0.CO;2-D .[Eva82] L. C. Evans, Classical solutions of fully nonlinear, convex, second-order elliptic equa-tions, Comm. Pure Appl. Math. 35 (1982), no. 3, 333–363, https://doi.org/10.1002/cpa. 3160350303 .[Eva89] L. C. Evans, The perturbed test function method for viscosity solutions of nonlinear PDE, 
+
+Proc. Roy. Soc. Edinburgh Sect. A 111 (1989), no. 3–4, 359–375, https://doi.org/10.1017/ S0308210500018631 .[Eva92] L. C. Evans, Periodic homogenisation of certain fully nonlinear partial differential equations, 
+
+Proc. Roy. Soc. Edinburgh Sect. A 120 (1992), no. 3–4, 245–265, https://doi.org/10.1017/ S0308210500032121 .40 LING WANG 
+
+[Fig17] A. Figalli, The Monge–Ampère Equation and Its Applications , Zurich Lectures in Advanced Mathematics, European Mathematical Society Publishing House, Zürich, 2017, https://doi. org/10.4171/170 .[GT24] V. Guedj and T. D. Tô, Monge–Ampère equations on compact Hessian manifolds, Ann. Sc. Norm. Super. Pisa Cl. Sci. (5) 25 (2024), no. 1, 291–310, https://doi.org/10.2422/ 2036-2145.202106_017 .[Gut16] C. E. Gutiérrez, The Monge–Ampère Equation , second ed., Progress in Nonlinear Differential Equations and Their Applications, vol. 89, Birkhäuser/Springer, Cham, 2016, https://doi. org/10.1007/978-3-319-43374-5 .[HX15] R. L. Huang and R. W. Xu, On the rigidity theorems for Lagrangian translating solitons in pseudo-Euclidean space II, Internat. J. Math. 26 (2015), no. 9, 1550072, 10 pp., https: //doi.org/10.1142/S0129167X1550072X .[HÖ19] J. Hultgren and M. Önnheim, An optimal transport approach to Monge–Ampère equations on compact Hessian manifolds, J. Geom. Anal. 29 (2019), no. 3, 1953–1990, https://doi. org/10.1007/s12220-018-0068-5 .[JLTT25] T. Jin, Y. Y. Li, H. V. Tran, and X. Tu, A Liouville theorem for convex functions with peri-odic Monge–Ampère measure, arXiv:2511.15021, 2025, https://doi.org/10.48550/arXiv. 2511.15021 .[JLT10] D. Joyce, Y.-I. Lee, and M.-P. Tsui, Self-similar solutions and translating solitons for La-grangian mean curvature flow, J. Differential Geom. 84 (2010), no. 1, 127–161, https: //doi.org/10.4310/jdg/1271271795 .[Jör54] K. Jörgens, Über die Lösungen der Differentialgleichung rt − s2 = 1 , Math. Ann. 127 (1954), 130–134, https://doi.org/10.1007/BF01361114 .[Kry83] N. V. Krylov, Boundedly nonhomogeneous elliptic and parabolic equations, Math. USSR-Izv. 
+
+20 (1983), no. 3, 459–492, https://doi.org/10.1070/IM1983v020n03ABEH001360 .[Le24] N. Q. Le, Analysis of Monge–Ampère Equations , Graduate Studies in Mathematics, vol. 240, American Mathematical Society, Providence, RI, 2024, https://doi.org/10.1090/gsm/240 .[Li90] Y. Y. Li, Some existence results for fully nonlinear elliptic equations of Monge–Ampère type, Comm. Pure Appl. Math. 43 (1990), no. 2, 233–271, https://doi.org/10.1002/cpa. 3160430204 .[LL22] Y. Y. Li and S. Lu, Monge–Ampère equation with bounded periodic data, Anal. Theory Appl. 
+
+38 (2022), no. 2, 128–147, https://doi.org/10.4208/ata.OA-0022 .[LX09] A.-M. Li and R. Xu, A rigidity theorem for an affine Kähler–Ricci flat graph, Results Math. 
+
+56 (2009), 141–164, https://doi.org/10.1007/s00025-009-0398-5 .[LJSX10] A.-M. Li, F. Jia, U. Simon, and R. Xu, Affine Bernstein Problems and Monge–Ampère Equations , World Scientific, Hackensack, NJ, 2010, https://doi.org/10.1142/6835 .[Pog72] A. V. Pogorelov, On the improper convex affine hyperspheres, Geom. Dedicata 1 (1972), 33–46, https://doi.org/10.1007/BF00147379 .[QB25] S. Qi and J. Bao, Optimal asymptotic expansion of entire solutions to Monge–Ampère equa-tion with Cα perturbed periodic data, arXiv:2512.07260, 2025, https://doi.org/10.48550/ arXiv.2512.07260 .[SWX26] H. Song, Y. Wu, and R. Xu, The entire solutions for two-dimensional Monge–Ampère equations of Lagrangian translating solitons, Results Math. 81 (2026), Article 104, https: //doi.org/10.1007/s00025-026-02658-9 .[TZ16] E. V. Teixeira and L. Zhang, Global Monge–Ampère equation with asymptotically periodic data, Indiana Univ. Math. J. 65 (2016), no. 2, 399–422. [TW00] N. S. Trudinger and X.-J. Wang, The Bernstein problem for affine maximal hypersurfaces, 
+
+Invent. Math. 140 (2000), 399–422, https://doi.org/10.1007/s002220000059 .[TW02] N. S. Trudinger and X.-J. Wang, Affine complete locally convex hypersurfaces, Invent. Math. 
+
+150 (2002), 45–60, https://doi.org/10.1007/s00222-002-0229-8 .COUPLED-DRIFT MONGE–AMPÈRE EQUATIONS 41 
+
+[TW05] N. S. Trudinger and X.-J. Wang, The affine Plateau problem, J. Amer. Math. Soc. 18 (2005), no. 2, 253–289, https://doi.org/10.1090/S0894-0347-05-00475-3 .[TW08] N. S. Trudinger and X.-J. Wang, The Monge–Ampère equation and its geometric applica-tions, in Handbook of Geometric Analysis. No. 1 , Adv. Lect. Math. (ALM), vol. 7, International Press, Somerville, MA, 2008, pp. 467–524. [WX21] Y. Wu and R. Xu, On the rigidity theorems for entire Lagrangian translating solitons in pseudo-Euclidean space IV, Results Math. 76 (2021), Article 59, https://doi.org/10.1007/ s00025-021-01370-0 .[XH13] R. Xu and R. Huang, On the rigidity theorems for Lagrangian translating solitons in pseudo-Euclidean space I, Acta Math. Sin. (Engl. Ser.) 29 (2013), no. 7, 1369–1380, https://doi. org/10.1007/s10114-013-1046-2 .[XL19] R. Xu and T. Liu, Rigidity of complete spacelike translating solitons in pseudo-Euclidean space, J. Math. Anal. Appl. 477 (2019), no. 1, 692–707, https://doi.org/10.1016/j.jmaa. 2019.04.057 .[XZ15] R. Xu and L. Zhu, On the rigidity theorems for Lagrangian translating solitons in pseudo-Euclidean space III, Calc. Var. Partial Differential Equations 54 (2015), no. 3, 3337–3351, 
+
+https://doi.org/10.1007/s00526-015-0905-3 .[XZ16] R. Xu and L. Zhu, A simple proof of a rigidity theorem for an affine Kähler–Ricci flat graph, 
+
+Results Math. 70 (2016), 249–256, https://doi.org/10.1007/s00025-015-0478-7 .
+
+Department of Decision Sciences and BIDSA, Bocconi University, Milano, Italy 
+
+Email address : ling.wang@unibocconi.it

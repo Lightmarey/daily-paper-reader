@@ -41,17 +41,17 @@
 <section class="dpr-home-dashboard-card dpr-home-report-card">
   <div class="dpr-home-dashboard-header">
     <div>
-      <span class="dpr-home-dashboard-kicker">2026-08-05</span>
+      <span class="dpr-home-dashboard-kicker">2026-08-07</span>
       <h3 class="dpr-home-dashboard-title">今日汇总</h3>
     </div>
-    <strong class="dpr-home-dashboard-count">共 9 篇</strong>
+    <strong class="dpr-home-dashboard-count">共 5 篇</strong>
   </div>
   <dl class="dpr-home-dashboard-stats">
     <div class="dpr-home-dashboard-stat"><dt>累计更新</dt><dd>1 次</dd></div>
     <div class="dpr-home-dashboard-stat"><dt>精读</dt><dd>3</dd></div>
-    <div class="dpr-home-dashboard-stat"><dt>速读</dt><dd>6</dd></div>
+    <div class="dpr-home-dashboard-stat"><dt>速读</dt><dd>2</dd></div>
   </dl>
-  <p class="dpr-home-dashboard-body">最近更新：2026-08-05 21:56:49 UTC<br>状态：成功</p>
+  <p class="dpr-home-dashboard-body">最近更新：2026-08-07 01:39:15 UTC<br>状态：成功</p>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-brief-card">
   <div class="dpr-home-dashboard-header">
@@ -62,7 +62,7 @@
     <strong class="dpr-home-dashboard-count">AI</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<p>今日聚焦9篇论文，精读3篇、速读6篇，重点在几何分析中的调和映照热流正则性与管道内Navier-Stokes方程稳态问题。最值得关注的是两项8.0分工作：RCD空间到CAT(0)空间的调和映照热流Lipschitz正则性，以及带指定流量或压降的多孔管道Brinkman项分析。建议普通读者优先浏览这两篇的引言与主要定理，可快速抓住当前分析几何与流体力学交叉前沿的核心进展。</p>
+<p>今日精读5篇中3篇，重点聚焦Navier-Stokes方程与k-Hessian方程。最值得关注的是半空间加权Lebesgue空间中Navier-Stokes初边值问题（9.0分），其次为Lane-Emden型k-Hessian方程的最优刚性分类（8.0分）。建议后续可扫读对流扩散方程系数反演与Helmholtz-Leray投影法两篇速读论文。</p>
   </div>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-deep-card">
@@ -74,7 +74,7 @@
     <strong class="dpr-home-dashboard-count">3 篇</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Lipschitz regularity of harmonic map heat flows from $\mathrm{RCD}$ spaces into $\mathrm{CAT}(0)$ spaces">Lipschitz regularity of harmonic map heat flows from $\mathrm{RCD}$ spaces into $\mathrm{CAT}(0)$ spaces</span></li><li><span class="dpr-home-dashboard-paper-title" title="Brinkman&#x27;s term for the steady-state Navier-Stokes equations with prescribed flux rate or pressure drop in perforated pipes">Brinkman&#x27;s term for the steady-state Navier-Stokes equations with prescribed flux rate or pressure drop in perforated pipes</span></li><li><span class="dpr-home-dashboard-paper-title" title="A numerical criterion for complex Hessian type equations on projective manifolds">A numerical criterion for complex Hessian type equations on projective manifolds</span></li></ul>
+<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces">The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces</span></li><li><span class="dpr-home-dashboard-paper-title" title="Optimal Rigidity and Classification Results for the $k$-Hessian Equation of Lane--Emden Type">Optimal Rigidity and Classification Results for the $k$-Hessian Equation of Lane--Emden Type</span></li><li><span class="dpr-home-dashboard-paper-title" title="Liouville-type theorems for coupled-drift Monge-Ampère equations">Liouville-type theorems for coupled-drift Monge-Ampère equations</span></li></ul>
   </div>
   <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>3</strong></span></div>
 </section>
@@ -84,12 +84,12 @@
       <span class="dpr-home-dashboard-kicker">今日累计</span>
       <h3 class="dpr-home-dashboard-title">速读推荐</h3>
     </div>
-    <strong class="dpr-home-dashboard-count">6 篇</strong>
+    <strong class="dpr-home-dashboard-count">2 篇</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Spectral theory of frame flows on closed hyperbolic manifolds">Spectral theory of frame flows on closed hyperbolic manifolds</span></li><li><span class="dpr-home-dashboard-paper-title" title="Regularity results for elliptic equations on cones">Regularity results for elliptic equations on cones</span></li><li><span class="dpr-home-dashboard-paper-title" title="Unified theory for regularity persistence of vortex patch boundaries">Unified theory for regularity persistence of vortex patch boundaries</span></li></ul>
+<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="A Helmholtz-Leray projection method with variational multiscale stabilization for the Navier-Stokes equations">A Helmholtz-Leray projection method with variational multiscale stabilization for the Navier-Stokes equations</span></li><li><span class="dpr-home-dashboard-paper-title" title="Recovery of time-dependent coefficients for the convection-diffusion equation on conformally transversally anisotropic manifolds from partial data">Recovery of time-dependent coefficients for the convection-diffusion equation on conformally transversally anisotropic manifolds from partial data</span></li></ul>
   </div>
-  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>6</strong></span></div>
+  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>2</strong></span></div>
 </section>
 </div>
 

@@ -1,0 +1,4866 @@
+Title: The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces
+
+URL Source: https://arxiv.org/pdf/2608.04621v1
+
+Published Time: Thu, 06 Aug 2026 00:42:55 GMT
+
+Number of Pages: 31
+
+Markdown Content:
+# The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces 
+
+Angelica Pia Di Feola and Vittorio Pane ∗
+
+August 6, 2026 
+
+# 1 Introduction 
+
+In the present work, we investigate the initial-boundary value problem (IBVP) for the Navier–Stokes equations in the half-space with initial data belonging to a suitable weighted Lebesgue space. More precisely, denoting by Rn 
+
+> +
+
+the n-dimensional upper half-space, with n ≥ 3, our aim is to study the following problem: 
+
+ut − ∆u = −u · ∇ u − ∇ π , in (0 , T ) × Rn 
+
+> +
+
+,
+
+∇ · u = 0 , in (0 , T ) × Rn 
+
+> +
+
+,u = 0 , in (0 , T ) × { xn = 0 },u(0 , x ) = u0(x) , on {0} × Rn 
+
+> +
+
+,
+
+(1) under the assumptions that u0 ∈ Lp
+
+> w
+
+(Rn
+
+> +
+
+), and ∇ · u0 = 0 in weak sense. The weight function w and the corresponding weighted Lebesgue space Lp
+
+> w
+
+(Rn
+
+> +
+
+) are defined as follows. Let p > n , and α = 1 − np . Moreover, for m ∈ N, let {αj }j=1 ,...,m be such that αj ≥ 0 for all 
+
+j ∈ { 1, . . . , m } and 
+
+> m
+
+X
+
+> j=1
+
+αj = α. By w(x) we denote the following weight function 
+
+w(x) = 
+
+> m
+
+Y
+
+> j=1
+
+|x − ¯xj |αj , (2) where ¯ xj , for j = 1 , . . . , m , are fixed (not necessarily distinct) points in Rn
+
+> +
+
+. We consider the following weighted Lebesgue space: 
+
+Lp
+
+> w
+
+(Rn
+
+> +
+
+) := {u : w(x) u ∈ Lp(Rn
+
+> +
+
+)} , (3) 
+
+> ∗
+
+Dipartimento di Matematica e Fisica, Universit` a degli Studi della Campania “L. Vanvitelli”, via Vivaldi 43, 81100 Caserta, Italy. vittorio.pane2@unicampania.it angelicapia.difeola@unicampania.it 
+
+1arXiv:2608.04621v1 [math.AP] 5 Aug 2026 2 A. P. Di Feola, V. Pane 
+
+endowed with the natural norm 
+
+|| u|| Lp  
+
+> w(Rn
+> +)
+
+:= || u w|| Lp(Rn 
+
+> +)
+
+.
+
+Where there is no ambiguity, we will indicate || · || Lp  
+
+> w(Rn
+> +)
+
+:= || · || w,p and || · || Lp(Rn 
+
+> +)
+
+:= || · || p.The choice of this class of weight functions is motivated by the fact that the corresponding metric is a particular case of a scale-invariant metric. The significance of this scale-invariant structure is reflected in the properties established on the solution and its derivatives, as will become clear below. In the literature, several studies have been devoted to the Navier–Stokes equations in weighted functional spaces. We briefly mention some examples, without attempting to provide an exhaustive list. In [13], after establishing several weighted Lp-Lq estimates for the Stokes semigroup in exterior domains and perturbed half-spaces, for 1 < p ≤ q < ∞, the authors apply these results to derive temporal asymptotic estimates for solutions to the Navier–Stokes equations. The weight considered therein is of the form w(x) = ⟨x⟩sp = (1 + |x|2) sp  
+
+> 2
+
+, with 1 < p < ∞ and 0 ≤ s < (n − 1) 
+
+
+
+1 − 1
+
+> p
+
+
+
+.In the same spirit, in [12], the authors deal with the half-space setting and establish analogous asymptotic-in-time estimates for solutions to the Navier–Stokes equations in weighted spaces associ-ated with a different class of weights. More precisely, the authors consider the space Lpω(Rn
+
+> +
+
+), where 
+
+ω(x) = ⟨x′⟩s1 ⟨xn⟩sn for x = ( x′, x n) ∈ Rn
+
+> +
+
+, with suitable exponents s1 and sn. In this framework, they derive weighted large-time asymptotic estimates for solutions to the Navier–Stokes equations. The use of weighted functions and weighted integrability assumptions is not restricted to the framework considered here and appears in several other problems. For instance, in [5], the authors introduce a new approach based on a radially symmetric weight function to study the time-periodic Navier-Stokes problem. Moreover, in [21], concerning the interaction problem between a rigid body and a viscous Newtonian fluid, weighted integrability assumption on the gradient of the initial data are imposed in order to establish uniqueness of regular solutions. The present investigation is part of a broader study started in [9] and later developed in [20]. In the first work, the authors study perturbations of a stationary state and prove an asymptotic stability result, showing in particular that the pointwise space-time behavior of the perturbations is fully controlled by the size of the initial data. In the second one, the authors consider the Navier–Stokes Cauchy problem and, for perturbations of the rest state, extend the results of [9] to the n-dimensional setting. We note that both of the aforementioned papers deal with the scale-invariant weighted Lebesgue space Lpα corresponding to the radial weight |x|α, where α = 1 − np ,
+
+p > n ≥ 3. The aim of the present work is to generalize the results of [20] to the half-space setting within a new functional framework, by considering problem (1). Our analysis relies on the results in [3], where the IBVP for the Stokes system 1 in the half-space is studied with initial data in Lp
+
+> w
+
+(Rn
+
+> +
+
+), where, with w(x) we indicate the weight function defined in (2). The authors prove existence and uniqueness, establish Lq–Lp 
+
+> w
+
+semigroup estimates for q > n , and derive space-time asymptotic  
+
+> 1For further details on this problem in weighted space setting, we refer the reader to [4],[8],[13], [12] and the references therein. The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces
+
+3behavior of the solutions (see Theorem 5 and Corollary 1). Here, relying on the theory developed in [14], [25], [26] and [27] we looking for a mild solution (u, π ) to problem (1) in the form (8) and (9). This is achieved via a successive approximation method and by introducing a suitable metric defined in (7). Consequently, Lq-estimates for q ∈ (n, ∞] and pointwise space-time estimates for the solution thus constructed are obtained. Since the initial data are allowed to have arbitrary size, the corresponding existence interval is local in time. Nevertheless, by adapting the method introduced by Crispo and Maremonti in [1], and later exploited in [20], we establish a qualitative relation between the interval of existence and the properties of the initial data. More precisely, this relation is obtained through the absolute continuity property of the integral. As a consequence, the argument provides only a qualitative description of the dependence of the existence time on the initial data, and does not yield a quantitative estimate of the instant T in terms of their size. In order to state our main result, we recall some definitions. Indicated by p′ the conjugate exponent of p and setting α′ 
+
+> j
+
+:= −αj , α′ = −α, we define 
+
+w′(x) = 
+
+> m
+
+Y
+
+> j=1
+
+|x − ¯xj |α′ 
+
+> j
+
+. (4) The corresponding weighted space to the weight function (4), say Lp′ 
+
+> w′
+
+(Ω), is the dual space 2 of 
+
+Lp
+
+> w
+
+(Ω). Now, we recall the definition of Lorentz spaces 3. Let Θ ⊆ Rn measurable, and g(x) be a (Lebesgue) measurable function, we denote by μg the distribution function of g, that is: 
+
+μg(λ) := meas ({x ∈ Θ : |g(x)| > λ }) , for all λ > 0,
+
+and we define the non-increasing rearrangement of g as: 
+
+g∗(t) := inf {λ : μg(λ) ≤ t} , for t ∈ [0 , ∞).
+
+Now, assume that 0 < p ≤ q ≤ ∞ . The Lorentz space Lp,q (Θ) is the collection of all measurable functions g(x) such that || g|| Lp,q (Ω) < ∞, where: 
+
+|| g|| Lp,q (Θ) =
+
+R ∞ 
+
+> 0
+
+[t 1 
+
+> p
+
+g∗(t)] q dt t
+
+ 1
+
+> q
+
+if 0 < q < ∞,
+
+sup 
+
+> t∈(0 ,∞)
+
+t 1 
+
+> p
+
+g∗(t) if q = ∞.
+
+In particular, as it is well known, for p ∈ [1 , ∞], Lp,p (Θ) = Lp(Θ). Moreover, if p ∈ [1 , ∞] and 0 < q 1 ≤ q2 ≤ ∞ , Lp,q 1 (Θ) ⊂ Lp,q 2 (Θ). In what follows, we will indicate || · || Lp,q (Θ) := || · || (p,q ) .   
+
+> 2The reader is referred to [15] for further details.
+> 3For a wider background, we refer the reader e.g. to [11], [24] .
+
+4 A. P. Di Feola, V. Pane 
+
+In the following, with the symbol X(p) we denote the following spaces: 
+
+X(p) := 
+
+
+
+Lp′ 
+
+> w′
+
+(Rn
+
+> +
+
+) ∩ Lq′
+
+(Rn
+
+> +
+
+) , q ∈ (p, 2n) , for p ∈ (n, 2n) ,Lp′ 
+
+> w′
+
+(Rn
+
+> +
+
+) ∩ L nn−1 ,1(Rn
+
+> +
+
+) , for p = 2 n , Lp′ 
+
+> w′
+
+(Rn
+
+> +
+
+) ∩ L np p(n−2)+2 n ,1(Rn
+
+> +
+
+) , for p > 2n . 
+
+Let a ∈ Lp
+
+> w
+
+(Rn
+
+> +
+
+). For t > 0 and ρ > 0, we set 
+
+Ka(t, ρ ) := c0|| a|| w,p,ρ + c1e− ρ28t || a|| w,p , (5) where 
+
+|| a|| w,p,ρ := sup 
+
+> x∈Rn
+> +
+
+"Z
+
+> Bρ(x)
+
+|a(y)|pwp(y) dy 
+
+# 1
+
+> p
+
+, (6) and Bρ(x) is the semisphere of radius ρ > 0 centered in x.We make use of the following metric: for q > n , we set 
+
+||| u(t)||| := t n 
+
+> 2p
+
+|| u(t)|x|α|| ∞ + t 12 || u(t)|| ∞ + t n   
+
+> 2
+> 1
+> n−1
+> q
+> 
+
+|| u(t)|| q + t n     
+
+> 2
+> 1
+> n−1
+> q
+> 
+> +12
+
+||∇ u(t)|| q . (7) In literature, for an initial datum in belongs to usual Lp-spaces, it has been proved the existence of a solution for system (1) in the form 
+
+u(t, x ) = 
+
+Z
+
+> Rn
+> +
+
+G(t − τ, x, y ) u0(y) dy −
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+G(t − τ, x, y ) P [u · ∇ u(τ, y )] dy dτ, (8) 
+
+π(t, x ) = 
+
+Z
+
+> Rn
+> +
+
+Q(t−τ, x, y )·u0(y) dy −
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+Q(t−τ, x, y )·P [u·∇ u(τ, y )] dy dτ +
+
+Z
+
+> Rn
+> +
+
+∇y N (x, y )·(u·∇ u)( t, y ) dy, (9) where G, Q, N are defined in (36), (37) and (47), respectively. The goal of this paper is to establish the following results. 
+
+Theorem 1. Let u0 ∈ Lp 
+
+> w
+
+(Rn
+
+> +
+
+) and divergence free in weak sense. There exists an instant T := T (u0) such that problem (1) admits a solution (u, π ), given by (8) and (9) , with u smooth for all t ∈ (0 , T ), such that for all q > n ,
+
+t n 
+
+> 2p
+
+|| u(t)|x|α|| ∞ + t 12 || u(t)|| ∞ + t n     
+
+> 2(1
+> n−1
+> q)
+
+|| u(t)|| q + t n       
+
+> 2(1
+> n−1
+> q)+ 12
+
+||∇ u(t)|| q ≤ K(t, ρ ) + c|| u0|| 1−γ 
+
+> w,p
+
+K(t, ρ )γ , (10) 
+
+for all t ∈ (0 , T ), where γ = 1 − nq . The following limit properties hold: 
+
+lim  
+
+> t→0+
+
+||| u(t)||| = 0 , (11) lim  
+
+> t→0+
+
+(u(t), φ ) = ( u0, φ ) , for all φ ∈ X(p) . (12) 
+
+Moreover, concerning the pressure term, for any fixed time ε > 0 and for all r > 1, we obtain 
+
+||∇ πu|| Lr (η,T ;Lq (Rn 
+
+> +))
+
+≤ c(r, ε, η, T )  K(ε, ρ ) + c|| u0|| 1−γ 
+
+> w,p
+
+K(ε, ρ )γ    1 + K(ε, ρ ) + c|| u0|| 1−γ 
+
+> w,p
+
+K(ε, ρ )γ  , (13) 
+
+for all η > ε , where c is a constant independent of u. Finally, if the norm || u0|| w,p is suitably small, then above results hold for all t > 0.The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces 5
+
+Remark 1. It is well known that, by standard arguments based on the representation formulas (8)–(9) (see, e.g., [2, 22]), the solution ( u, π ) given by Theorem 1 enjoys pointwise regularity for all ( t, x ) ∈ (η, T ) × Rn,for every η > 0. 
+
+Remark 2. We do not address here a detailed analysis of the pressure term. Nevertheless, we would like to emphasize that, for p > 2n, our solution belongs to the class of solutions considered in [2]. Therefore, for such exponents, the theory developed in the aforementioned work applies to our setting as well. 
+
+Theorem 2 (Uniqueness) . Let (u, π ) be a solution to problem (1) whose existence is ensured by Theorem 1. Then (u, π ) is unique in the class of existence detected in Theorem 1. 
+
+Uniqueness is proved as in [20]. The argument relies the decomposition of the solution into a linear part and a remainder containing the convective term which allows the uniqueness issue to be reduced to the latter component. The conclusion then follows from a duality argument and a generalized Gronwall inequality (see Lemma 3). The paper is organized as follows. In Sect. 2, we introduce the notation and collect the preliminary results that will be used throughout the paper. In Sect. 3, we recall the results concerning the Cauchy problem for the Stokes system in the weighted Lp 
+
+> w
+
+setting. In Sect. 4, we introduce the IBVP problem for the Stokes equations in the half space; here, we introduce the Green function related to this problem and present several estimates that are instrumental for our analysis. We then recall the results for the homogeneous Stokes system and subsequently establish pointwise and Lq -estimates, with q ∈ (n, ∞], for the solution to the Stokes initial-boundary value problem with a suitable body force. Finally, in Section 5, we prove our main results, that is Theorems 1 and 2. 
+
+# 2 Preliminary results 
+
+In this section, we introduce some notations, and further we recall some useful preliminary results. At first, we remark that the weight function (2) is a Muckenhoupt weight, and the space Lp 
+
+> w
+
+(Ω), with the relative norm, can be defined for each measurable set Ω ⊆ Rn.Hereafter, we use the notation Dk 
+
+> x
+
+for partial derivatives with respect to x, where k is a multi-index with 
+
+|k| = k > 1. For first-order derivatives, i.e., |k| = 1, we use the standard notation ∇. In addition, with the symbol Dht , we denote the h-th partial derivative with respect to the real variable t.For the sake of exposition, all the definitions and results presented in this section, are given for the half-space Rn
+
+> +
+
+. The corresponding statements remain valid for the whole space, as well as for bounded and exterior domains, provided suitable regularity assumptions are satisfied. We start by recalling the Helmholtz decomposition in the Lp 
+
+> w
+
+(Rn
+
+> +
+
+) space. We restrict our attention to the weighted spaces; for a comprehensive overview of the Helmholtz decomposition in the classical Lebesgue spaces and related topics, we refer the reader to [10]. We define the following spaces 4
+
+Jq 
+
+> w
+
+(Rn
+
+> +
+
+) = {v ∈ Lq
+
+> w
+
+(Rn
+
+> +
+
+) | (v, ∇h) = 0 for all h ∈ W 1,q ′ 
+
+> loc
+
+(Rn
+
+> +
+
+, w ′), ∇h ∈ Lq′ 
+
+> w′
+
+(Rn
+
+> +
+
+)} ,Gq
+
+> w
+
+(Rn
+
+> +
+
+) = {u ∈ Lq
+
+> w
+
+(Rn
+
+> +
+
+) | ∃ π : u = ∇π, with π ∈ W 1,q loc (Rn
+
+> +
+
+, w ), ∇π ∈ Lq
+
+> w
+
+(Rn
+
+> +
+
+)} ,
+
+where w and w′ are the weight function and its dual, as defined in (2) and (4), respectively. 
+
+> 4For more details and proof, we refer to [3].
+
+6 A. P. Di Feola, V. Pane 
+
+Theorem 3. Let q ∈ (1 , +∞). Then, there holds 
+
+Lq 
+
+> w
+
+(Rn
+
+> +
+
+) = Jq 
+
+> w
+
+(Rn
+
+> +
+
+) ⊕ Gq 
+
+> w
+
+(Rn
+
+> +
+
+) , (14) 
+
+that is for all u ∈ Lq 
+
+> w
+
+(Rn
+
+> +
+
+), u = v + ∇πu, with the following integral identities: 
+
+(u, ∇π) = ( ∇πu, ∇π) for all ∇π ∈ Gq′ 
+
+> w′
+
+(Rn
+
+> +
+
+) , (15) (v, ∇π) = 0 for all ∇π ∈ Gq′ 
+
+> w′
+
+(Rn
+
+> +
+
+) , (16) 
+
+and 
+
+|| v|| Lq  
+
+> w(Rn
+> +)
+
++ ||∇ π|| Lq  
+
+> w(Rn
+> +)
+
+≤ C|| u|| Lq  
+
+> w(Rn
+> +)
+
+(17) 
+
+with C independent of u.
+
+Setting 
+
+C0(Rn
+
+> +
+
+) := {ϕ ∈ C ∞ 
+
+> 0
+
+(Rn
+
+> +
+
+) : ∇ · ϕ = 0 } ,
+
+it’s no difficult to prove that Jp 
+
+> w
+
+(Rn
+
+> +
+
+) coincide with the completion of C0(Rn
+
+> +
+
+) in the Lp 
+
+> w
+
+(Rn
+
+> +
+
+)-norm 5.In [29], the author showed that the Helmholtz decomposition also holds for Lorentz spaces. In particular, by extending the projection operator P to the space Lp,q (Rn
+
+> +
+
+), for p ∈ (1 , +∞), q ∈ [1 , +∞), he proved that the direct sum decomposition Lp,q (Rn
+
+> +
+
+) = Jp,q (Rn
+
+> +
+
+) ⊕ Gp,q (Rn
+
+> +
+
+) holds. Moreover, for p and q as above, the space C0(Rn
+
+> +
+
+) is dense in Jp,q (Rn
+
+> +
+
+) and estimates (15), (16) and (17) still hold with natural adaptations. For the sake of completeness, we recall the following lemma contained, e.g. , in [18]. 
+
+Lemma 1. Let w ∈ Jq (Rn
+
+> +
+
+) ∩ Lr, ∞(Rn
+
+> +
+
+), for some q, r ∈ (1 , ∞). Assume that 
+
+|(w, φ )| ≤ A|| φ|| (r′,1) , for all φ ∈ C0(Rn
+
+> +
+
+) . (18) 
+
+Then, there exists a constant c > 0 such that 
+
+|(w, ψ )| ≤ cA || ψ|| (r′,1) , for all ψ ∈ Lr′,1(Rn
+
+> +
+
+) . (19) 
+
+In particular, we get 
+
+|| w|| (r, ∞) ≤ c A . 
+
+Proof. We claim that the estimate (18) initially defined on C0(Rn
+
+> +
+
+) can be extended to all φ ∈ Jr′,1(Rn
+
+> +
+
+). Actually, if {φm} ⊂ C0(Rn
+
+> +
+
+) is convergent to φ in Jr′,1, then we easily get 
+
+|(w, φ )| ≤ A|| φ|| (r′,1) + A|| φm − φ|| (r′,1) + |(w, φ m − φ)|≤ A|| φ|| (r′,1) + A|| φm − φ|| (r′,1) + || w|| (r, ∞)|| φm − φ|| (r′,1) .
+
+Letting m → ∞ , we realize the goal. Now, we look for (18) with ψ ∈ L(r′,1) (Rn
+
+> +
+
+). Assume ψ ∈ L(r′,1) (Rn
+
+> +
+
+) as limit of {ψm} ⊂ C10 (Rn
+
+> +
+
+) in Lr′,1(Rn
+
+> +
+
+)-norm. For all m ∈ N, we consider the Helmholtz decomposition of ψm in Jr′,1. The decomposition detects two sequences {φm} ⊂ Jr′,1 ∩ Jq′
+
+(Rn
+
+> +
+
+)and {∇ hm} ⊂ Lr′,1(Rn
+
+> +
+
+) ∩ Lq′
+
+(Rn
+
+> +
+
+), the former, letting m → ∞ , furnishes φ ∈ Jr′,1(Rn
+
+> +
+
+) of the Helmholtz decomposition of ψ. Both the sequences are in Lq′
+
+(Rn
+
+> +
+
+) as consequence of the compact support of ψm.
+
+> 5
+
+For more details, see [3] and references therein. The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces 7
+
+By virtue of the orthogonality between w and ∇hm, recalling that φm = ψm − ∇ hm via the Helmholtz decomposition, we get 
+
+|(w, ψ )| = |(w, ψ − ψm) + ( w, ψ m)| = |(w, ψ m − ∇ hm)| = |(w, (ψ − ψm) + ( w, φ m)| .
+
+Applying H¨ older’s inequality, via (18) we arrive at 
+
+|(w, ψ )| ≤ | (w, ψ − ψm)| + |(w, −φ + φm)| + |(w, φ )|≤ || w|| (r, ∞)
+
+h
+
+|| ψ − ψm|| (r′,1) + || φ − φm|| (r′,1) 
+
+i
+
++ |(w, φ )|≤ || w|| (r, ∞)
+
+h
+
+|| ψ − ψm|| (r′,1) + || φ − φm|| (r′,1) 
+
+i
+
++ A|| φ|| (r′,1) 
+
+≤ || w|| (r, ∞)
+
+h
+
+|| ψ − ψm|| (r′,1) + || φ − φm|| (r′,1) 
+
+i
+
++ cA || ψ|| (r′,1) ,
+
+where in the last estimate we also employ the estimate || φ|| J(r′,1) ≤ c|| ψ|| (r′,1) .Letting m → ∞ in the last relation, we complete the proof. In the following, we denote by E(x) the fundamental solution of the Laplace equation, i.e. for n ≥ 3
+
+E(x) = 1
+
+n(n − 2) V (n)|x|2−n (20) where V (n) denotes the volume of the unit sphere in Rn, and we denote by H(t, x ) the fundamental solution of the heat equation 
+
+H(t, x ) = 
+
+  
+
+> 1(4 πt )n
+> 2
+
+e− |x|24t if t > 00 if t = 0 .
+
+(21) We recall an interpolation inequality for our specific weighted space 
+
+Lemma 2. Let g ∈ L∞(Rn) ∩ Lp 
+
+> w
+
+(Rn).There exists a positive constant c, independent of g, such that 
+
+|| g|| q ≤ c|| g|| 1−γ 
+
+> w,p
+
+|| g|| γ 
+
+> ∞
+
+, with γ = 1 − nq , (22) 
+
+for all q > n .
+
+Proof. For the proof, see [3]. In what follows, we will also need to recall a Gronwall-type inequality established in [20]. For the sake of brevity, we state only the result relevant to our purposes. A more extensive treatment of the topic can be found in the quoted work and in the references cited therein. Let 
+
+μ ∈ [0 , 1) , h (t) ≤ ψ(t) + 
+
+> t
+
+Z
+
+> 0
+
+g(τ,h (τ )) (t−τ )μ dτ , h (t) ≥ 0 , a.e. in t ∈ (0 , T ) . (23) where ψ(t) ∈ L( 1 
+
+> μ
+
+, ∞)(0 , T ) and g is a function such that, a.e. in τ ∈ (0 , T ), 
+
+g(τ, h (τ )) ≤ A h (τ ) |τ − t0|−ν (24) with A ≥ 0, independent of τ , t0 ∈ [0 , T ) and for suitable exponents ν ∈ [0 , 1). We have the following 8 A. P. Di Feola, V. Pane 
+
+Lemma 3. Suppose that μ + ν < 1 and |t − t0|−ν h(t) ∈ L1(0 , T ). Then: 
+
+h tZ
+
+> 0
+
+hs(τ )dτ 
+
+i 1
+
+> s
+
+≤ t 1 
+
+> s−μ
+
+|| h|| ( 1  
+
+> μ,∞)
+
+≤ C|| ψ|| ( 1  
+
+> μ,∞)
+
+for all s ∈ [1 , 1 
+
+> μ
+
+) and t ∈ [0 , T ) , (25) 
+
+where C := C(A, T ) is a constant. 
+
+Proof. For the proof of this lemma, see Lemma 3 in [20]. 
+
+# 3 Stokes Cauchy problem in Lp
+
+w(Rn)-setting 
+
+We first recall the existence and uniqueness theorem for the Stokes Cauchy problem, together with an auxiliary result suited to our approach. We consider the Stokes Cauchy problem 
+
+ut − ∆u = −∇ π , in (0 , ∞) × Rn ,
+
+∇ · u = 0 , in (0 , ∞) × Rn,u(0 , x ) = u0(x) ,
+
+(26) under the assumptions that u0 ∈ Lp 
+
+> w
+
+(Rn) and ∇ · u0 = 0 in the weak sense. In [20], the authors consider this problem with initial data in Lpα(Rn) = {u : u|x|α ∈ Lp(Rn)} and, among other things, establish results on the existence and uniqueness of a regular solution. In [3], for the Stokes problem, we extend the results considering the more general weight function (2). 
+
+Theorem 4. Let consider p > n ≥ 3. For all u0 ∈ Jp 
+
+> w
+
+(Rn) there exists a unique smooth solution u(t, x ) to the Cauchy problem (26) such that the following representation holds 
+
+u(t, x ) = 
+
+Z
+
+> Rn
+
+H(t, x − y)u0(y) dy , (27) 
+
+and 
+
+|| u(t)|| Lp  
+
+> w(Rn)
+
+≤ || u(s)|| Lp  
+
+> w(Rn)
+
+, for all t > s ≥ 0 . (28) 
+
+Moreover, there exists a constant c independent of u0 and of s ≥ 0, such that for all l, k ∈ N0 and for 
+
+q ∈ (n, ∞] the following estimate holds 
+
+|| Dlt∇ku(t)|| Lq (Rn) ≤ c(t − s)− k       
+
+> 2−l−n
+> 2(1
+> n−1
+> q)
+
+|| u(s)|| Lp  
+
+> w(Rn)
+
+, for all t > 0 . (29) 
+
+Furthermore, the following limit property holds 
+
+lim 
+
+> t→0+
+
+|| u(t) − u0|| Lp  
+
+> w(Rn)
+
+= 0 . (30) 
+
+Finally, for all T > 0 and q ∈ (n, +∞], we get 
+
+u ∈ C([0 , T ); Jp 
+
+> w
+
+(Rn)) ∩ C(( ε, T ); Lq (Rn)) , for all ε > 0 . (31) The following result follows the same argument as Lemma 8 and 9 in [20]. We give the analogous of these lemmas in our framework. The proof proceeds along the same lines, once the results established in [3] are taken into account. Therefore, for the sake of brevity, we omit the details of the proof. The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces 9
+
+Lemma 4. Let g ∈ Lp 
+
+> w
+
+(Rn). Then, for the convolution product H ∗ g the following estimates hold 
+
+t 12 || H ∗ g(t)|| ∞ ≤ Kg (t, ρ ), for all t > 0 and ρ > 0 . (32) 
+
+In particular, for all (t, x ) ∈ (0 , +∞) × Rn,
+
+t n 
+
+> 2p
+
+|x|α|H ∗ g(t, x )| ≤ Kg (t, ρ ) , (33) 
+
+where Kg (t, ρ ) is defined in (5) .
+
+# 4 IBVP of the Stokes system in the half-space 
+
+Let us consider the following Stokes initial boundary value problem: 
+
+vt − ∆v = −∇ π + f , in (0 , ∞) × Rn 
+
+> +
+
+,
+
+∇ · v = 0 , in (0 , ∞) × Rn
+
+> +
+
+,v|xn=0 = 0 ,v(0 , x ) = v0(x) ,
+
+(34) Assuming suitable hypothesis on the datum f , it can be represented via the Helmholtz decomposition as 
+
+f = P f + ∇Ψ with Ψ( x, t ) = −
+
+Z
+
+> Rn
+> +
+
+∇y
+
+E(x − y) + E(x − y∗) · f (t, y ) dy, 
+
+where E(z) is the fundamental solution of the Laplace equation defined in (20). Moreover, 
+
+∇ · P f = 0 , P f · n xn=0 = 0 .
+
+In [2, 25, 26], it has been shown that a solution of problem (34) is formally given by 
+
+v(x, t ) = 
+
+Z
+
+> Rn
+> +
+
+G(t, x, y ) v0(y) dy +
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+G(t − τ, x, y ) P f (τ, y ) dy dτ, (35) 
+
+π(x, t ) = 
+
+Z
+
+> Rn
+> +
+
+Q(t, x, y ) · u0(y) dy +
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+Q(t − τ, x, y ) · P f (τ, y ) dy dτ + Ψ( t, x ),
+
+where G = ( Gij )i,j =1 ,...,n and Q = ( Qj )j=1 ,...,n are the following functions 
+
+Gij (t, x, y ) = δij 
+
+ H(t, x − y) − H(t, x − y∗) + 4 δjn ∂xi
+
+Z
+
+> Rn
+> +
+
+∂zn E(x − z) H(t, x − z∗) dz 
+
+= δij 
+
+ H(t, x − y) − H(t, x − y∗) + G∗ 
+
+> ij
+
+(t, x, y ) ,
+
+(36) 
+
+Qj (t, x, y ) = 4 ˆδrj Dxr
+
+Z 
+
+> Rn−1
+
+Dxn E(x − z′)H(t, z ′ − y′, y n)dz ′ +
+
+Z
+
+> Rn−1
+
+E(x − z′)Dyn H(t, z ′ − y′, y n)dz ′
+
+
+
+, (37) where ˆδrj = 1 − δrj .The functions G∗ 
+
+> ij
+
+and Qj satisfy the following pointwise estimate 
+
+|Dh,l,k x,y,t G∗ 
+
+> ij
+
+(t, x, y )| ≤ c t − ln  
+
+> 2−k
+
+(x2 
+
+> n
+
++ t) hn  
+
+> 2
+
+(|x − y∗|2 + t)− n+|h′|+|l′| 
+
+> 2
+
+e−ˆa y2 
+
+> nt
+
+,
+
+|Dh,l,k x,y,t Qj (t, x, y )| ≤ c t 1− ln  
+
+> 2−k
+
+(|x − y∗|2 + t)− n−1+ |h|+|l′| 
+
+> 2
+
+e−ˆa y2 
+
+> nt
+
+,
+
+(38) 10 A. P. Di Feola, V. Pane 
+
+for any |h|, |l|, k ∈ N ∪ { 0} with h = ( h′, h n), l = ( l′, l n), and ˆ a > 0. Therefore, taking into account the following property of the heat kernel 
+
+|Dh,l,k x,y,t H(t, x − y)| ≤ c t − n     
+
+> 2−|l|
+> 2−|h|
+> 2
+
+ea |x−y|2 
+
+> t
+
+≤ c (|x − y|2 + t)− n+|h|+|l|+2 k 
+
+> 2
+
+, (39) we have that 
+
+|Dh,l,k x,y,t Gij (t, x, y )| ≤ c (|x − y|2 + t)− n+|h|+|l|+2 k 
+
+> 2
+
++ c t − ln  
+
+> 2−k
+
+(x2 
+
+> n
+
++ t) hn  
+
+> 2
+
+(|x − y∗|2 + t)− n+|h′|+|l′| 
+
+> 2
+
+e−ˆa y2 
+
+> nt
+
+(40) since H(t, x − y) satisfies (38) as well. 
+
+Lemma 5. Let G = ( Gij )i,j =1 ,...,n be the kernel appearing in (35) , where Gi,j is defined in (36) . Then, for 
+
+r ≥ 1, the following estimate holds 
+
+sup 
+
+> x∈Rn
+> +
+
+|| Dh,l,k x,y,t Gi,j (t, x )|| r ≤ c t − n+|h|+|l|+2 k   
+
+> 2+n
+> 2r
+
+, (41) 
+
+and, similarly, 
+
+sup 
+
+> y∈Rn
+> +
+
+|| Dh,l,k x,y,t Gi,j (t, y )|| r ≤ c t − n+|h|+|l|+2 k   
+
+> 2+n
+> 2r
+
+, (42) 
+
+for each fixed t > 0.
+
+Proof. We only prove the estimate in the case |h| = 1 and |l| = k = 0, since the general case can be treated in the same way. Considering the zero extension of ∇ G to Rn and taking into account the pointwise estimate (40), we have 
+
+||∇ G(t, x )|| rr ≤
+
+Z
+
+> Rn
+
+1(|x − y|2 + t) n+1 2 r dy +
+
+Z
+
+> Rn
+
+e− ˆay 2 
+
+> ntr
+
+(|x − y∗|2 + t) n  
+
+> 2r
+
+t r
+
+> 2
+
+dy =: I1 + I2. (43) About the first term, by simple computations, we have 
+
+I1 = 1
+
+t n+1 2 r
+
+Z
+
+> Rn
+
+1
+
+ |x−y|2 
+
+> t
+
++ 1 
+
+ n+1 2 r dy = 1
+
+t (n+1) r−n
+
+> 2
+
+Z
+
+> Rn
+
+1(|z|2 + 1) n+1 2 r dy ≤ ct (n+1) r−n
+
+> 2
+
+, (44) with c independent of x.Concerning the second term, recalling that x′ := ( x1, ..., x n−1), we have 
+
+I2 = 1
+
+t r
+
+> 2
+
+Z +∞−∞ 
+
+e−ˆa y2 
+
+> ntr
+
+Z
+
+> Rn−1
+
+1(|x′ − y′|2 + x2 
+
+> n
+
++ y2 
+
+> n
+
++ t) n  
+
+> 2r
+
+dy = 1
+
+t r
+
+> 2
+
+Z +∞−∞ 
+
+e−ˆa y2 
+
+> ntq′
+
+(x2 
+
+> n
+
++ y2 
+
+> n
+
++ t) n(r−1)+1 2
+
+dy n,
+
+where the last integral has been computed by the change of variables z′ = x′−y′ 
+
+> t12
+
+.Now, 
+
+I2 ≤ 1
+
+t r    
+
+> 2−12+n(r−1)+1 2
+
+Z +∞−∞ 
+
+e−ˆa y2 
+
+> ntr
+
+t 12
+
+dy n ≤ ct (n+1) r  
+
+> 2−n
+> 2
+
+. (45) with c independent of x.So, using (44) and (45) in (43), we have 
+
+||∇ G(t, x )|| r ≤ ct n+1 2 − n
+
+> 2r
+
+, (46) from which the claim follows. Equivalently, one obtains (42). The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces 11 
+
+In [27], it has been shown that if there exists a tensor F such that 
+
+fj = ∇ · Fj and Fnj xn=0 = 0 , j = 1 , . . . , n, 
+
+where by Fj we denote the jth-column of F , then P f can be written as 
+
+fj = ( P f )j = ∇ · F j ,
+
+with 
+
+Fnj (x, t ) = Fnj (x, t ) − δnj Fnn (x, t ), j = 1 , . . . , n, 
+
+Fms (x, t ) = Fms (x, t ) − δms Fnn (x, t )+ Dxs
+
+"Z
+
+> Rn
+> +
+
+
+
+Dyq N (x, y )Fmq (y, t ) + Dyn N (x, y )Fnm (y, t ) − Dym N (x, y )Fnn (y, t )
+
+
+
+dy 
+
+#
+
+,
+
+Fmn (x, t ) = −ˆδrs 
+
+Z
+
+> Rn
+> +
+
+Dxn N (x, y )Fms (y, t ) dy + Dxm
+
+Z
+
+> Rn
+> +
+
+Dxn N (x, y )Fnn (y, t ) dy 
+
+− Fnm (x, t ) − ˆδrs Dxr
+
+Z
+
+> Rn
+> +
+
+Dys N −(x, y ) Fmn (y, t ) + Fnm (y, t ) dy, 
+
+where 
+
+N (x, y ) = N +(x, y ) = E(x − y) + E(x − y∗), N −(x, y ) = E(x − y) − E (x − y∗). (47) Thus, 
+
+fj = Dxi Fij − Dxj Fnn − ˆδrm ˆδnj Dxr (Fmn + Fnm ) + hj ,
+
+where hj is a linear combination of terms of the kind 
+
+Dxmxs
+
+Z
+
+> Rn
+> +
+
+Dyq N ±(x, y )Fpr (y, t ) dy, m, s ̸ = n. (48) Therefore, if we also assume that Fij |xn=0 = 0, then after integration by parts, we can write the last term on the right-hand side of (35) 1 in the form 
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+Gij (t − τ, x, y )fj (y, τ ) dy dτ =
+
+−
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+Dyp Gij (t − τ, x, y )Fpj (y, τ ) dy dτ +
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+Dyj Gij (t − τ, x, y )Fnn (y, τ ) dy dτ 
+
++ ˆδrm 
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+Dyr Gin (t − τ, x, y )( Fmn + Fnm )( y, τ ) dy dτ +
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+Gij (t − τ, x, y )hj (y, τ ) dy dτ. 
+
+(49) Now, integrating by parts twice and taking in account that Dx′ G(s, x, y ) = −Dy′ G(s, x, y ), the last term can be written as a linear combination of the expressions 
+
+Dxsxm
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+Gij (t−τ, x, y )
+
+Z 
+
+> Rn
+> +
+
+Dyq N ±(y, z )Fpr (z, τ ) dz 
+
+
+
+dy dτ =
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+Dxsxm Kijq (t−τ, x, z )Fpr (τ, z ) dz , (50) 12 A. P. Di Feola, V. Pane 
+
+where 
+
+Kijq (s, x, z ) = 
+
+Z
+
+> Rn
+> +
+
+Gij (s, x, y )Dyq N ±(y, z ) dy . (51) In order to derive suitable estimates for the solution to the problem, we recall below some useful properties of this kernel. 
+
+Lemma 6. Let l, h ∈ Nn be multi-indices with |l|, |h| ≥ 0. Write h = ( h′, h n) and l = ( l′, l n) , where 
+
+l′, h ′ ∈ Nn−1. Then, the kernel Kijq satisfies the estimate 
+
+|Dk,h,l ′ 
+
+> s,x,z ′
+
+Kijq (s, x, z )| ≤ c 
+
+> (|x−z|2+s)n−1+ |h|+|l′|+2 k
+> 2
+
++ cs −k (x2  
+
+> n+s)−hn
+> 2
+> (|x−z|2+s)n−1+ |h′|+|l′|
+> 2
+
++ c [( xn−zn)2+s]− hn +2 k 
+
+> 2
+> (|x−z|2+s)n−1+ |h′|+|l′|
+> 2
+
+. (52) 
+
+uniformly in x and z ∈ Rn
+
+> +
+
+, where s > 0, provided that |l′| = 0 , 1. In particular, for |l′| = k = 0 , we have 
+
+|Dh′ 
+
+> x′
+
+Kijq (s, x, z )| ≤ c
+
+(|x − z|2 + s) n−1+ |h′|
+
+> 2
+
+. (53) 
+
+Proof. We refer to [2] for the proof of estimate (52). The second one is due to Solonnikov and was proved in [27], Proposition 3.1. 
+
+Lemma 7. Let K be the kernel defined in (51) , and let l and k be multi-indices as in the previous lemma. Then, for r ≥ 1, the following estimate holds 
+
+sup 
+
+> x∈Rn
+> +
+
+|| Dk,h,l ′ 
+
+> s,x,z ′
+
+K(s, x )|| r ≤ c s − n+|h|+|l|+|l′|− 12 + n 
+
+> 2r
+
+, (54) 
+
+and, similarly, 
+
+sup 
+
+> z∈Rn
+> +
+
+|| Dk,h,l ′ 
+
+> s,x,z ′
+
+K(s, z )|| r ≤ c s − n+|h|+|l|+|l′|− 12 + n 
+
+> 2r
+
+, (55) 
+
+for all fixed s > 0.
+
+Proof. The pointwise estimate (52) allows one to repeat the proof of the previous lemma; hence, the details are omitted. 
+
+4.1 The case f = 0 
+
+The previous paper [3] is devoted to the study of IBVP for the Stokes system in the half-space in the same Lebesgue weighted functional spaces. In this section, we summarize the results obtained and refine them to suit the purposes of the present work. We start to recall a classical result regarding the problem (34) with f ≡ 0. 
+
+Lemma 8. Let φ0 ∈ C0(Rn
+
+> +
+
+). Then we get a unique solution to problem (34) , with f ≡ 0, such that 
+
+φ(t, x ) ∈ Ck(0 , T ; ∩
+
+> q> 1
+
+Jq (Rn
+
+> +
+
+)) ∩ ( ∩
+
+> q> 1
+
+Lq (0 , T ; W 2,q (Rn
+
+> +
+
+)) , for k ∈ N0, and for all T > 0 . (56) 
+
+Moreover, the following representation formula holds: 
+
+φ(t, x ) = 
+
+Z
+
+> Rn
+> +
+
+G(t, x, y )φ0(y) dy . (57) The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces 13 
+
+In particular, for all r ≥ q > 1, there exists a constant c such that 
+
+|| φ(t)|| r + ( t − s) 12 ||∇ φ(t)|| r ≤ c(t − s)− n 
+
+> 2
+
+( 1   
+
+> q−1
+> r
+
+)|| φ(s)|| q , for all t > s ≥ 0 . (58) 
+
+Finally, for q ∈ (1 , ∞) and r ∈ [1 , ∞), we get 
+
+φ ∈ C([0 , T ); Lq,r (Rn
+
+> +
+
+)) ,
+
+|| φ(t)|| (q,r ) + ( t − s) 12 ||∇ φ(t)|| (q,r ) ≤ c|| φ(s)|| (q,r ) for all t > s ≥ 0 .
+
+(59) 
+
+Proof. The existence, the uniqueness and properties (56)-(58) are classical results and we refer to monograph [27]. Property (59) follows from (56) and (58) via real interpolation. In [3], we considered the problem (34) with f ≡ 0, under the assumptions that v0 ∈ Lp 
+
+> w
+
+(Rn
+
+> +
+
+), and 
+
+∇ · v0 = 0 in weak sense. The main results obtained in the quoted work, useful in the present investigation, are the following: 
+
+Theorem 5. Let consider p > n ≥ 3. Let w be the weight function defined in (2) . Then, for all v0 ∈ Jp 
+
+> w
+
+(Rn
+
+> +
+
+)
+
+there exists a unique smooth solution to the problem (1) and admits the represention 
+
+v(t, x ) = 
+
+Z
+
+> R+
+> n
+
+G(t, x, y )v0(y) dy . (60) 
+
+Moreover, there exists a constant c independent of v0 and of s ≥ 0, such that 
+
+|| v(t)|| w,p ≤ c || v(s)|| w,p , for all t > s ≥ 0, (61) 
+
+for any l, k ∈ N0, q ∈ (n, +∞] and for all t > 0, the following estimate holds 
+
+|| Dlt∇kv(t)|| q ≤ c (t − s)− n       
+
+> 2(1
+> n−1
+> q)−k
+> 2−l
+
+|| v(s)|| w,p , for t > s ≥ 0 , (62) 
+
+and the pressure term fulfills the following estimate 
+
+||∇ πv (t)|| q ≤ c (t − s)− n     
+
+> 2(1
+> n−1
+> q)−1
+
+|| v(s)|| w,p , for t > s ≥ 0 . (63) 
+
+Additionally, the solution satisfies the following initial condition 
+
+lim 
+
+> t→0+
+
+|| v(t) − v0|| Lp  
+
+> w(Rn
+> +)
+
+= 0 . (64) 
+
+Finally, for any q ∈ (n, ∞], ε > 0, and T > 0 we have 
+
+v ∈ C([0 , T ); Jp 
+
+> w
+
+(Rn
+
+> +
+
+)) ∩ C(( ε, T ); Lq (Rn
+
+> +
+
+)) . (65) 
+
+Corollary 1. Let v(t, x ) be the solution given in the Theorem 5 and let α = 1 − np , with p > n ≥ 3. Then, there exists a suitable R > 0 such that 
+
+|v(t, x )| ≤ c |x|−α t− n 
+
+> 2p
+
+|| v0|| Lp  
+
+> w(Rn
+> +)
+
+, for all t > 0 , and |x| > 4R . (66) We now proceed to the statement and proof of the following results: the former is equivalent to Lemma 3 in the half-space setting, while the latter will allow us to handle the linear part in the next section. For g ∈ Lp 
+
+> w
+
+(Rn
+
+> +
+
+), let us define the following function 
+
+φ(t, x ) = 
+
+Z
+
+> Rn
+> +
+
+G(t, x, y )g(y) dy . (67) The following results hold 14 A. P. Di Feola, V. Pane 
+
+Lemma 9. Let Kg (t, ρ ) be the quantity defined in (5) and g ∈ Lp 
+
+> w
+
+(Rn
+
+> +
+
+). For φ defined as in (67) , the following estimates hold 
+
+t 12 || φ(t, x )|| ∞ ≤ Kg (t, ρ ) for all t > 0, ρ > 0, (68) 
+
+and, for all (t, x ) ∈ (0 , +∞) × Rn
+
+> +
+
+,
+
+t n 
+
+> 2p
+
+|x|α|φ(t, x )| ≤ Kg (t, ρ ) (69) 
+
+with α = 1 − np .
+
+Proof. Proceeding as in [3], we write 
+
+φ(t, x ) = 
+
+Z
+
+> Rn
+> +
+
+[H(t, x − y) − H(t, x − y∗)] g(y) dy +
+
+Z
+
+> Rn
+> +
+
+G∗(t, x, y )g(y) dy 
+
+=
+
+Z
+
+> Rn
+> +
+
+[H(t, x − y) − H(t, x − y∗)] g(y) dy 
+
++ 4 
+
+> n−1
+
+X
+
+> i=1
+
+∂xi
+
+Z xn
+
+> 0
+
+Z
+
+> Rn−1
+
+∇E (x − y)
+
+Z
+
+> Rn
+> +
+
+H(t, y − z∗)g(z) dz dy . 
+
+Denoting by g∗(y) the odd extension of g in the whole space, we can rewrite the first term as follow 
+
+Z
+
+> Rn
+> +
+
+[H(t, x − y) − H(t, x − y∗)] g(y) dy =
+
+Z
+
+> Rn
+
+H(t, x − y)g∗(y) dy . 
+
+For the second term, we consider ˆ g the extension of g defined by ˆg(x) = 
+
+(0 if xn > 0 ,g(x∗) if xn ≤ 0 .
+
+Using the well known semigroup property for the solution of the heat equation, we have 
+
+Z
+
+> Rn
+> +
+
+G∗(t, x, y )g(y) dy = 4 
+
+> n−1
+
+X
+
+> i=1
+
+∂xi
+
+Z xn
+
+> 0
+
+Z
+
+> Rn−1
+
+∇E (x − y)
+
+Z
+
+> Rn
+
+H(t, y − z)ˆ g(z) dz dy 
+
+= 4 
+
+> n−1
+
+X
+
+> i=1
+
+∂xi
+
+Z xn
+
+> 0
+
+Z
+
+> Rn−1
+
+∇E (x − y)
+
+Z 
+
+> Rn
+
+H
+
+ t
+
+2 , y, ξ 
+
+
+
+ˆψ
+
+ t
+
+2 , ξ 
+
+
+
+dξ 
+
+
+
+dy =
+
+Z
+
+> Rn
+> +
+
+G∗
+
+ t
+
+2 x, y 
+
+
+
+ˆψ
+
+ t
+
+2 , y 
+
+
+
+dy, 
+
+where ˆψ   t 
+
+> 2
+
+, y  is the solution of Stokes system in the whole space with initial datum ˆ g(z). Using (32), we get 
+
+|φ(t, x )| ≤ 
+
+Z
+
+> Rn
+
+H(t, x − y)|g∗(y)| dy +
+
+Z
+
+> Rn
+> +
+
+G∗
+
+
+
+x, y, t
+
+2
+
+
+
+ˆψ
+
+ t
+
+2 , y 
+
+
+
+dy 
+
+≤ t− 12 Kg (t, ρ ) + t− 12 Kg (t, ρ )
+
+Z
+
+> Rn
+> +
+
+e− ˆay 2
+
+> nt
+
+|x − y∗|2 + t
+
+> 2
+
+ n
+
+> 2
+
+dy ≤ t− 12 Kg (t, ρ ) ,
+
+from which we deduce (68). To obtain (69), we use (33) and, proceeding as before, we get 
+
+|φ(t, x )| ≤ 
+
+Z
+
+> Rn
+
+H(t, x − y)|g∗(y)| dy +
+
+Z
+
+> Rn
+> +
+
+G∗
+
+
+
+x, y, t
+
+2
+
+
+
+ˆψ
+
+ t
+
+2 , y 
+
+ t n 
+
+> 2p
+
+|y|α
+
+t n 
+
+> 2p
+
+|y|α dy 
+
+≤ Kg (t, ρ )
+
+Z
+
+> Rn
+> +
+
+e− ˆay 2
+
+> nt
+
+|x − y∗|2 + t
+
+> 2
+
+ n
+
+> 2
+
+1
+
+t n 
+
+> 2p
+
+|y|α dy ≤ t− n 
+
+> 2p
+
+|x|−αKg (t, ρ ) ,The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces 15 
+
+which completes the proof. 
+
+Lemma 10. Let q > n and let Kg (t, ρ ) as in (5) . For all g ∈ Lp 
+
+> w
+
+(Rn
+
+> +
+
+) and divergence free in a weak sense, 
+
+φ defined in (67) satisfies 
+
+t n     
+
+> 2(1
+> n−1
+> q)
+
+|| φ(t)|| q ≤ || g|| 1−γ 
+
+> w,p
+
+Kg (t, ρ )γ , (70) 
+
+and 
+
+t n       
+
+> 2(1
+> n−1
+> q)+ 12
+
+||∇ φ(t)|| q ≤ || g|| 1−γ 
+
+> w,p
+
+Kg (t, ρ )γ , (71) 
+
+for all t > 0, and ρ > 0, with γ = 1 − nq .
+
+Proof. We can consider the solution v(t, x ) to problem (34) with f ≡ 0 and g as the initial datum. By uniqueness established in Theorem 5, φ ≡ v. Then, by estimate (62) with |l| = |k| = 0, estimate (61), by Lemma 2 and by Lemma 9, for all t > 0, we have 
+
+t n     
+
+> 2(1
+> n−1
+> q)
+
+|| φ(t)|| q ≤ || g|| 1−γ 
+
+> w,p
+
+Kg (t, ρ )γ
+
+which is the estimate (70). In order to obtain estimate (71), it is enough to observe that, for all t > s ≥ 0, we have 
+
+||∇ φ(t)|| q ≤ c (t − s)− 12 || φ(s)|| q .
+
+Again, by estimate (62), choosing s = t 
+
+> 2
+
+and arguing as before, we complete the proof. 
+
+4.2 The case f = ∇ · (a ⊗ b)
+
+Let a and b be divergence free vector fields such that 6 a ⊗ b ∈ Lq ((0 , T ) × Rn
+
+> +
+
+), for q > n , and assume that 
+
+a ⊗ b|xn =0 = 0 . In the following, we consider the system (34) for f in the form f = ∇ · (a ⊗ b), and v0(x) ≡ 0, i.e. ¯ut − ∆¯ u = + ∇ · (a ⊗ b) − ∇ π , in (0 , ∞) × Rn 
+
+> +
+
+,
+
+∇ · ¯u = 0 , in (0 , ∞) × Rn
+
+> +
+
+,
+
+¯u|xn=0 = 0 ,
+
+¯u(0 , x ) = 0 , in {0} × Rn
+
+> +
+
+.
+
+(72) In [25], Solonnikov proved the existence and uniqueness of a solution to such problem, say u(t, x ), and furnished the representation formula ¯u(x, t ) = 
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+G(t − τ, x, y )P f (τ, y ) dydτ, (73) where, we recall that P f is the projection of f . As recalled above, for f as in our assumptions the formula (49) becomes ¯u(x, t ) = 
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+Gij (t − τ, x, y )[ P ∇ · (a ⊗ b)] j (y, τ ) dy dτ 
+
+= −
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+Dyp Gij (t − τ, x, y )apbj (y, τ ) dy dτ +
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+Dyj Gij (t − τ, x, y )anbn(y, τ ) dy dτ 
+
++ ˆδrm 
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+Dyr Gin (t − τ, x, y )( ambn + anbm)( y, τ ) dy dτ +
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+Gij (t − τ, x, y )hj (y, τ ) dy dτ , 
+
+(74) 
+
+> 6
+
+This restriction on q is due to our purposes. In general, the theory developed in [14] and [27] is valid for all q > 116 A. P. Di Feola, V. Pane 
+
+where hj is defined as linear combination of terms in the form (48). 
+
+Lemma 11. Let consider ¯u(t, x ) as in (74) and assume that 
+
+sup  
+
+> (0 ,T )
+
+t n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| a(t)|| Lq (Rn 
+
+> +)
+
++ sup  
+
+> (0 ,T )
+
+t n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| b(t)|| Lq (Rn 
+
+> +)
+
+< ∞.
+
+Then, there exists a constant c > 0 such that 
+
+t n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| ¯u(t)|| Lq (Rn 
+
+> +)
+
+≤ c sup  
+
+> (0 ,T )
+
+t n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| a(t)|| Lq (Rn
+
+> +)
+
+|| b(t)|| Lq (Rn
+
+> +)
+
+, (75) 
+
+for all t ∈ (0 , T ).
+
+Proof. We limit ourselves to estimate the first term on the right-hand side of (74). The others follow in the same way. Taking r = q′ in estimate (41), with |h| = 1 and |l| = k = 0 and applying Young’s inequality, we obtain 
+
+|| u(t)|| q ≤ c
+
+Z t
+
+> 0
+
+(t − τ )− 12 − n 
+
+> 2q
+
+||| a(τ )|| b(τ )||| q 
+
+> 2
+
+dτ ≤ sup 
+
+> (0 ,t )
+
+τ n( 1   
+
+> n−1
+> q)
+
+||| a(τ )|| b(τ )||| q
+
+> 2
+
+Z t
+
+> 0
+
+τ −n( 1   
+
+> n+1
+> q)
+
+(t − τ )− 12 − n 
+
+> 2q
+
+dτ 
+
+≤ c t − n      
+
+> 2(1
+> n−1
+> q)
+
+sup 
+
+> (0 ,t )
+
+τ n( 1   
+
+> n−1
+> q)
+
+|| a(τ )|| q || b(τ )|| q .
+
+which implies the thesis. 
+
+Lemma 12. Let consider (74) and assume that 
+
+sup  
+
+> (0 ,T )
+
+τ n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| a(τ )|| q + sup  
+
+> (0 ,T )
+
+τ n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| b(τ )|| q + sup  
+
+> (0 ,T )
+
+τ n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)+ 12 ||∇ b(τ )|| q < ∞.
+
+Then, there exists a constant c > 0 such that 
+
+t n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)+ 12 ||∇ ¯u(t)|| Lq (Rn 
+
+> +)
+
+≤ c sup  
+
+> (0 ,T )
+
+τ n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| a(τ )|| q sup  
+
+> (0 ,T )
+
+τ n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| b(τ )|| q
+
++ c sup  
+
+> (0 ,T )
+
+τ n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| a(τ )|| q sup  
+
+> (0 ,T )
+
+τ 12 + n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)||∇ b(τ )|| q ,
+
+(76) 
+
+for all t ∈ (0 , T ).
+
+Proof. First, as done at beginning of this section, integrating twice and taking in account that Dx′ G(s, x, y ) = 
+
+−Dy′ G(s, x, y ), we can rewrite the last term in (74) as a linear combination of terms of the form (50) with 
+
+Fpr = apbr . Denoting by T (t, x ) the linear combination thus obtained, we can rewrite (74) as follows ¯u(x, t ) = −
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+Dyp Gij (t − τ, x, y )apbj (y, τ ) dy dτ +
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+Dyj Gij (t − τ, x, y )anbn(y, τ ) dy dτ 
+
++ ˆδrm 
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+Dyr Gin (t − τ, x, y )( ambn + anbm)( y, τ ) dy dτ + T (t, x ) .
+
+(77) Differentiating the last formula, we obtain 
+
+∇xu(t, x ) = −
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+∇xGij (t − τ, x, y )Dyp apbj (y, τ ) dy dτ +
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+∇xGij (t − τ, x, y )Dyj anbn(y, τ ) dy dτ 
+
++ ˆδrm 
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+∇xGin (t − τ, x, y )Dyr (ambn + anbm)( y, τ ) dy dτ + ∇xT (t, x ) .
+
+(78) The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces 17 
+
+It suffices to estimate the first and the last terms, as the remaining ones follow by similar arguments. Integrating by parts, we can rewrite the first integral as follows 
+
+−
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+∇xGij (t − τ, x, y )Dyp apbj (y, τ ) dy dτ =
+
+Z t
+
+> 2
+> 0
+
+Z
+
+> Rn
+> +
+
+∇xDyp Gij (t − τ, x, y )apbj (y, τ ) dy dτ 
+
+−
+
+Z t
+
+> t
+> 2
+
+Z
+
+> Rn
+> +
+
+∇xGij (t − τ, x, y )apDyp bj (y, τ ) dy dτ =: I1 + I2.
+
+Considering the Lq -norm of I1, taking r = q′ in estimate (41), with |h| = |l| = 1 and k = 0, applying the Young inequality and using hypothesis on a and b, we obtain 
+
+|| I1|| q ≤ c
+
+Z t
+
+> 2
+> 0
+
+|| a(τ )|| q || b(τ )|| q
+
+(t − τ )1+ n
+
+> 2q
+
+dτ ≤ c sup  
+
+> (0 ,T )
+
+τ n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| a(τ )|| q sup  
+
+> (0 ,T )
+
+τ n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| b(τ )|| q
+
+Z t
+
+> 2
+> 0
+
+1
+
+τ 1− nq (t − τ )1+ n
+
+> 2q
+
+dτ 
+
+≤ c t − 12 − n      
+
+> 2(1
+> n−1
+> q)
+
+sup  
+
+> (0 ,T )
+
+τ n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| a(τ )|| q sup  
+
+> (0 ,T )
+
+τ n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| b(τ )|| q .
+
+(79) Similarly, for I2 thanks to estimate (41), with |h| = 1 and |l| = k = 0, we obtain 
+
+|| I2|| q ≤ c
+
+Z t
+
+> t
+> 2
+
+|| a(τ )|| q ||∇ b(τ )|| q
+
+(t − τ )1+ n
+
+> 2q
+
+dτ 
+
+≤ c sup  
+
+> (0 ,T )
+
+τ n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| a(τ )|| q sup  
+
+> (0 ,T )
+
+τ 12 + n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)||∇ b(τ )|| q
+
+Z t
+
+> t
+> 2
+
+1
+
+τ 32 − nq (t − τ )1+ n
+
+> 2q
+
+dτ 
+
+≤ c t − 12 − n      
+
+> 2(1
+> n−1
+> q)
+
+sup  
+
+> (0 ,T )
+
+τ n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| a(τ )|| q sup  
+
+> (0 ,T )
+
+τ 12 + n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)||∇ b(τ )|| q .
+
+(80) Concerning the last term in (78), considering, by estimate (54) with |h| = 3 and |l| = 0, for a general term of the linear combination, we obtain 
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+Dxnxsxm Kijq (t−τ, x, z )ap(τ, z )br (τ, z ) dz 
+
+> q
+
+≤ c sup  
+
+> (0 ,T )
+
+τ n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| a(τ )|| q sup  
+
+> (0 ,T )
+
+τ n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| b(τ )|| q
+
+Z t
+
+> 0
+
+1
+
+τ 1− nq (t−τ )1+ n 
+
+> 2q
+
+dτ 
+
+≤ c t − 12 − n      
+
+> 2(1
+> n−1
+> q)
+
+sup  
+
+> (0 ,T )
+
+τ n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| a(τ )|| q sup  
+
+> (0 ,T )
+
+τ n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| b(τ )|| q .
+
+Finally, summing the relations just obtained and estimate (79), (80), we deduce the thesis. 
+
+Lemma 13. Assume that 
+
+sup 
+
+> (0 ,t )
+
+τ 12 || a(τ )|| ∞ + sup  
+
+> (0 ,T )
+
+τ n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| b(τ )|| Lq (Rn 
+
+> +)
+
+.
+
+Then, there exists a c independent of a(t, x ) and b(t, x ) such that 
+
+t 12 || u(t)|| ∞ ≤ c sup 
+
+> (0 ,t )
+
+τ 12 || a(τ )|| ∞ sup  
+
+> (0 ,T )
+
+τ n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)|| b(τ )|| Lq (Rn 
+
+> +)
+
+, (81) 
+
+for all t ∈ (0 , T ).
+
+Proof. For the sake of brevity, we omit the proof, as it is analogous to that of the following lemma, with a trivial adaptation. 18 A. P. Di Feola, V. Pane 
+
+Lemma 14. Assume that 
+
+sup 
+
+> (0 ,t )
+
+τ 12 || a(τ )|| ∞ + sup 
+
+> (0 ,t )
+
+τ n 
+
+> 2p
+
+sup 
+
+> Rn
+> +
+
+|y|α|b(τ, y )| < ∞.
+
+Then, there exists a constant c, independent of a and b, such that 
+
+|x|α t n 
+
+> 2p
+
+|u(t, x )| ≤ c sup 
+
+> (0 ,t )
+
+τ 12 || a(τ )|| ∞ sup 
+
+> (0 ,t )
+
+τ n 
+
+> 2p
+
+sup 
+
+> Rn
+> +
+
+|y|α|b(τ, y )| ,
+
+|x|2α t 12 − np |u(t, x )| ≤ c  sup 
+
+> (0 ,t )
+
+τ n 
+
+> 2p
+
+sup 
+
+> Rn
+> +
+
+|y|α|b(τ, y )|2 . (82) 
+
+Moreover, assume that a ≡ b and 
+
+sup 
+
+> (0 ,t )
+
+τ n 
+
+> 2p
+
+sup 
+
+> Rn
+> +
+
+|y|α|b(τ, y )| = o(1) in t = 0 ,
+
+then one also gets 
+
+|x|2α t 12 − np |u(t, x )| = o(1) in t = 0 , for all x ∈ Rn 
+
+> +
+
+. (83) 
+
+Proof. Let us consider the representation (74). From pointwise estimates (40) and (53) on the integral kernels, we have 
+
+|¯u(x, t )| ≤ c
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+|a(τ, y )|| b(τ, y )|
+
+(|x − y|2 + ( t − τ )) n+1 2
+
+dydτ + c
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+|a(τ, y )|| b(τ, y )|e− ˆay 2 
+
+> n
+> (t−τ)
+
+(|x − y∗|2 + ( t − τ )) n 
+
+> 2
+
+(t − τ ) 12
+
+dydτ 
+
+:= J1 + J2, (84) and we set 
+
+D := sup 
+
+> (0 ,t )
+
+τ 12 || a(τ )|| ∞ sup 
+
+> (0 ,t )
+
+τ n 
+
+> 2p
+
+sup 
+
+> Rn
+> +
+
+|y|α|b(τ, y )| .
+
+Concerning J1, we have 
+
+J1 ≤
+
+Z t
+
+> 0
+
+Z 
+
+> |y|<|x|
+> 2
+
+|a(τ,y )|| b(τ,y )|
+
+(|x−y|2+( t−τ )) n+1 2
+
+dy dτ +
+
+Z t
+
+> 0
+
+Z 
+
+> |y|>|x|
+> 2
+
+|a(τ,y )|| b(τ,y )|
+
+(|x−y|2+( t−τ )) n+1 2
+
+dy dτ 
+
+=: J11 + J21 .
+
+Since |x − y| ≥ | x| − | y| ≥ |x| 
+
+> 2
+
+for |y| < |x| 
+
+> 2
+
+, then for J11 we get 
+
+J11 ≤ D|x|−n
+
+Z t
+
+> 0
+
+τ − 12 − n 
+
+> 2p
+
+(t − τ )− 12
+
+Z 
+
+> |y|<|x|
+> 2
+
+|y|−α dy dτ ≤ c D |x|−α t− n 
+
+> 2p
+
+.
+
+For J21 we have 
+
+J21 ≤ c D |x|−α
+
+Z t
+
+> 0
+
+τ − 12 − n
+
+> 2p
+
+ Z  
+
+> |y|>|x|
+> 2
+
+(|x − y| + ( t − τ ) 12 )−n−1 dy 
+
+
+
+dτ 
+
+≤ c D |x|−α
+
+Z t
+
+> 0
+
+τ − 12 − n 
+
+> 2p
+
+(t − τ )− 12 dτ ≤ c D 
+
+|x|α t n
+
+> 2p
+
+.
+
+So we arrive at 
+
+J1 ≤ cD 
+
+|x|αt n
+
+> 2p
+
+. (85) The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces 19 
+
+Analogously, for J2 we get 
+
+J2 ≤ cD 
+
+Z t
+
+> 0
+
+1
+
+τ 12 + n
+
+> 2p
+
+Z
+
+> Rn
+> +
+
+e− ˆay 2 
+
+> n
+> (t−τ)
+
+(|x − y∗|2 + ( t − τ )) n 
+
+> 2
+
+(t − τ ) 12
+
+1
+
+|y|α dydτ 
+
+≤ cD 
+
+Z t
+
+> 0
+
+1
+
+τ 12 + n
+
+> 2p
+
+Z 
+
+> |y|<|x|
+> 2
+
+e− ˆay 2 
+
+> n
+> (t−τ)
+
+(|x − y∗|2 + ( t − τ )) n 
+
+> 2
+
+(t − τ ) 12
+
+1
+
+|y|α dydτ 
+
++ cD 
+
+Z t
+
+> 0
+
+1
+
+τ 12 + n
+
+> 2p
+
+Z 
+
+> |y|>|x|
+> 2
+
+e− ˆay 2 
+
+> n
+> (t−τ)
+
+(|x − y∗|2 + ( t − τ )) n 
+
+> 2
+
+(t − τ ) 12
+
+1
+
+|y|α dydτ 
+
+=: 
+
+Z t
+
+> 0
+
+1
+
+τ 12 + n
+
+> 2p
+
+ J12 + J22
+
+ dτ. (86) For J12 , since |y| = |y∗|, we have |x − y∗| > |x| 
+
+> 2
+
+, we observe 
+
+J12 ≤ 1
+
+|x|n
+
+Z 
+
+> |y|<|x|
+> 2
+
+1(t − τ ) 12
+
+1
+
+|y|α dy ≤ c
+
+|x|α(t − τ ) 12
+
+. (87) Moreover for J22 by simple computations, we have 
+
+J22 ≤ 1
+
+|x|α
+
+Z +∞
+
+> 0
+
+e− ˆay 2 
+
+> n
+> (t−τ)
+
+Z
+
+> Rn−1
+
+1(|x′ − y′|2 + x2 
+
+> n
+
++ y2 
+
+> n
+
++ ( t − τ )) n 
+
+> 2
+
+(t − τ ) 12
+
+dy ′dy n
+
+≤ c
+
+|x|α(t − τ ) 12
+
+Z +∞
+
+> 0
+
+e− ˆay 2 
+
+> n
+> (t−τ)
+
+(x2 
+
+> n
+
++ y2 
+
+> n
+
++ ( t − τ )) 12
+
+dy n ≤ c
+
+|x|α(t − τ ) 12
+
+.. (88) Now, using (87) and (88) in (86), we get 
+
+J2 ≤ cD 
+
+|x|α
+
+Z t
+
+> 0
+
+1
+
+τ 12 + n 
+
+> 2p
+
+(t − τ ) 12
+
+dτ ≤ cD t n 
+
+> 2p
+
+|x|α .. (89) Estimates (85) and (89) used in (84), recalling the definition of D, ensure the estimate (82) 1. Following the same arguments line, one easly get (82) 2. Then, we limit ourselves to prove (83). Assume that a ≡ b. As before, we have 
+
+|¯u(x, t )| ≤ c
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+|b(τ,y )|2
+
+(|x−y|2+( t−τ )) n+1 2
+
+dydτ + c
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+|b(τ,y )|2 e− ˆay 2 
+
+> n
+> (t−τ)
+
+(|x−y∗|2+( t−τ )) n 
+
+> 2
+
+(t−τ ) 12
+
+dydτ := I1 + I2 .
+
+By hypothesis, for all ε > 0, there exists an instant t such that, for all t ∈ (0 , t )
+
+I1 ≤
+
+Z t
+
+> 0
+
+Z 
+
+> |y|<|x|
+> 2
+
+|b(τ,y )|2
+
+(|x−y|2+( t−τ )) n+1 2
+
+dy dτ +
+
+Z t
+
+> 0
+
+Z 
+
+> |y|>|x|
+> 2
+
+|b(τ,y )|2
+
+(|x−y|2+( t−τ )) n+1 2
+
+dy dτ 
+
+≤ c ε 2
+
+
+
+|x|−n
+
+Z t
+
+> 0
+
+τ np (t − τ )− 12
+
+Z 
+
+> |y|<|x|
+> 2
+
+|y|−2α dy dτ + |x|−2α
+
+Z t
+
+> 0
+
+τ np (t − τ )− 12 dτ 
+
+
+
+≤ c ε 2|x|−2α t 12 − np .
+
+To estimate I2, it is enough to argue as above and proceed as for J2. Thus, the estimate (83) follows. 20 A. P. Di Feola, V. Pane 
+
+# 5 Proof of the main results 
+
+We are in a position to establish the main results of our work, namely the existence and uniqueness theorems for the problem under consideration. As in [20], the strategy relies on the construction of approximate solutions through an iterative scheme based on the integral formulation of the equation. We set 
+
+G[h] := 
+
+Z
+
+> Rn
+> +
+
+G(t, x, y )h(y) dy ; (90) 
+
+S[g · ∇ g] := 
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+G(t − τ, x, y ) P [g(τ, y ) · ∇ g(τ, y )] dy dτ. (91) For m ∈ N, we consider the following approximation scheme: 
+
+um(t, x ) = G[u0] − S [um−1 · ∇ um−1] . (92) where um−1 ≡ 0 for m = 0, and u0 = G[u0] is the solution given in Theorem 5. We set 
+
+e||| u(t)||| := sup 
+
+> (0 ,t )
+
+τ 12 || u(τ )|| ∞ + sup 
+
+> (0 ,t )
+
+τ n     
+
+> 2(1
+> n−1
+> q)
+
+|| u(τ )|| q + sup 
+
+> (0 ,t )
+
+sup 
+
+> Rn
+
+τ n 
+
+> 2p
+
+|y|α|u(τ, y )|+ sup 
+
+> (0 ,t )
+
+τ n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)+ 12 ||∇ u(τ )|| q , (93) and in the following, for the sake of readability, we just write K(t, ρ ) in place of Ku0 (t, ρ ) defined in (5). 
+
+Lemma 15. Assume that u0 ∈ Lp 
+
+> w
+
+(Rn
+
+> +
+
+). Then there exist constants c, c 2 > 0, independent of u0, such that for any element of the sequence {um}m∈N defined as in (92) , the following estimate holds for every T > 0:
+
+e||| um(t)||| ≤ K(t, ρ ) + c || u0|| 1−γ 
+
+> w,p
+
+K(t, ρ )γ + c2 e||| um−1(t)||| 2 , for all t ∈ (0 , T ) and m ∈ N , (94) 
+
+where γ = 1 − nq .
+
+Proof. Let m = 1. From definition (92), by virtue of Lemma 9 and Lemma 13, for all s > 0 and ρ > 0, we get 
+
+s 12 || u1(s)|| ∞ ≤ s 12 ||G [u0]( s)|| ∞ + s 12 ||S [u0 · ∇ u0]( s)|| ∞
+
+≤ s 12 || u0(s)|| ∞ + c
+
+
+
+sup 
+
+> (0 ,s )
+
+τ 12 || u0(τ )|| ∞ + sup 
+
+> (0 ,s )
+
+τ n     
+
+> 2(1
+> n−1
+> q)
+
+|| u0(τ )|| q + sup 
+
+> (0 ,s )
+
+τ 12 + n     
+
+> 2(1
+> n−1
+> q)
+
+||∇ u0(τ )|| q
+
+2
+
+≤ K(s, ρ ) + ce||| u0(s)||| 2 .
+
+Hence, being the right-hand side an increasing function of s, on any interval (0 , t ), we get sup 
+
+> (0 ,t )
+
+s 12 || u1(s)|| ∞ ≤ K(t, ρ ) + ce||| u0(t)||| 2 . (95) We claim that the following estimate hold 
+
+s n     
+
+> 2(1
+> n−1
+> q)
+
+|| u1(s)|| q ≤ s n     
+
+> 2(1
+> n−1
+> q)
+
+||G [u0]( s)|| q + s n     
+
+> 2(1
+> n−1
+> q)
+
+||S [u0 · ∇ u0]( s)|| q .
+
+Actually, applying Lemma 2, together with Lemma 9, we have 
+
+s n     
+
+> 2(1
+> n−1
+> q)
+
+||G [u0]|| q ≤ cs n     
+
+> 2(1
+> n−1
+> q)
+
+||G [u0]|| 1−γ 
+
+> w,p
+
+||G [u0]|| γ 
+
+> ∞
+
+≤ c || u0|| 1−γ 
+
+> w,p
+
+K(s, ρ )γ . (96) The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces 21 
+
+Now, Lemma 11 ensures 
+
+s n     
+
+> 2(1
+> n−1
+> q)
+
+||S [u0 · ∇ u0]|| q ≤ ce||| u0(s)||| 2 , (97) and summing this estimate to (96), we obtain 
+
+s n     
+
+> 2(1
+> n−1
+> q)
+
+|| u1(s)|| q ≤ c|| u0|| 1−γ 
+
+> w,p
+
+K(s, ρ )γ + c e||| u0(s)||| 2 .
+
+The same argument lines employed for L∞-estimate lead to the following: sup 
+
+> (0 ,t )
+
+s n     
+
+> 2(1
+> n−1
+> q)
+
+|| u1(s)|| q ≤ c|| u0|| 1−γ 
+
+> w,p
+
+K(t, ρ )γ + c e||| u0(t)||| 2 . (98) Moreover, taking in account Corollary 1 for the linear part and the estimate (82) 1 for the non linear term, we get 
+
+s n 
+
+> 2p
+
+|x|α|u1(s, x )| ≤ s n 
+
+> 2p
+
+|x|α|u0(s, x )| + c sup 
+
+> (0 ,s )
+
+τ 12 || u0(τ )|| ∞ sup 
+
+> (0 ,s )
+
+τ n 
+
+> 2p
+
+||| y|αu0(τ )|| ∞ ≤ K(s, ρ ) + c e||| u0(s)||| 2 .
+
+Hence, we get sup 
+
+> (0 ,t )
+
+s n 
+
+> 2p
+
+|x|α|u1(s, x )| ≤ K(t, ρ ) + c e||| u0(t)||| 2 . (99) Finally, for all s ∈ (0 , t ), we have 
+
+s n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)+ 12 ||∇ u1(s)|| Lq (Rn 
+
+> +)
+
+≤ s n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)+ 12 ||∇G [u0]( s)|| Lq (Rn 
+
+> +)
+
++ s n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)+ 12 ||∇S [u0]( s)|| Lq (Rn 
+
+> +)
+
+.
+
+Now, Lemma 10 implies 
+
+s n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)+ 12 ||∇G [u0]( s)|| Lq (Rn 
+
+> +)
+
+≤ || u0|| 1−γ 
+
+> w,p
+
+K(s, ρ )γ , (100) and Lemma 12 
+
+s n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)+ 12 ||∇S [u0 · ∇ u0]( s)|| Lq (Rn 
+
+> +)
+
+≤ || u0|| 1−γ 
+
+> w,p
+
+K(s, ρ )γ + c||| u0||| 2. (101) Thus, we have sup 
+
+> (0 ,t )
+
+s n 
+
+> 2
+
+( 1   
+
+> n−1
+> q
+
+)+ 12 ||∇ u1(s)|| Lq (Rn 
+
+> +)
+
+≤ c|| u0|| 1−γ 
+
+> w,p
+
+K(s, ρ )γ + c||| u0||| 2. (102) Summing (95), (98), (99), (102) we obtain 
+
+e||| u1(s)||| ≤ K(s, ρ ) + c || u0|| 1−γ 
+
+> w,p
+
+K(s, ρ )γ + 3 c e||| u0(s)||| 2, (103) with constant c independent of the datum u0.Now, let m > 1 and let assume that um satisfies the property (94). Following the same line as above, since 
+
+um satisfies the hypothesis of Lemma 9 - 14, property (94) holds for all m ∈ N.
+
+Lemma 16. Let ξ0 > 0 and c > 0. Let {ξm} be a nonnegative sequence of real numbers such that: 
+
+ξm ≤ ξ0 + c ξ 2
+
+> m−1
+
+.
+
+Assume 1 − 4ξ0 > 0 and ξ0 ≤ ξ, where ξ is the minimum solution of algebraic equation cξ 2 − ξ + ξ0 = 0 .Then ξm−1 ≤ ξ for all m ∈ N.
+
+Proof. For the proof we remind to [25], Lemma 10.2. 22 A. P. Di Feola, V. Pane 
+
+Lemma 17. Let {um} be the sequence defined in (92) corrisponding to u0 ∈ Lp 
+
+> w
+
+(Rn
+
+> +
+
+). Then, there exists 
+
+T (u0) > 0 such that, for all η > 0, the sequence strongly converges in C(( η, T (u0)) × Rn
+
+> +
+
+) to a solution u of 
+
+(8) . In particular, for a suitable ρ and for all t ∈ [0 , T (u0)) , we get 
+
+e||| u(t)||| ≤ 2[K(t,ρ )+ c|| u0|| 1−γ 
+
+> w,p
+
+K(t,ρ )γ ]
+
+1+ [1−4c2 (K(t,ρ )+ c|| u0|| 1−γ 
+
+> w,p
+
+K(t,ρ )γ )] 12
+
+≤ 14c (104) 
+
+and, in particular 
+
+t n 
+
+> 2p
+
+|| u(t)|x|α|| ∞ + t 12 || u(t)|| ∞ + t n     
+
+> 2(1
+> n−1
+> q)
+
+|| u(t)|| q + t n       
+
+> 2(1
+> n−1
+> q)+ 12
+
+||∇ u(t)|| q ≤ K(t, ρ ) + c|| u0|| 1−γα,p K(t, ρ )γ , (105) 
+
+where γ = 1 − nq .Moreover, the following limit property holds 
+
+lim 
+
+> t→0+
+
+||| u(t)||| = 0 . (106) 
+
+Proof. Let u0 ∈ Lp 
+
+> w
+
+(Rn) and fix ε ∈  0, 14c2c0
+
+. By definition of || · || w,p,ρ in (6), there exists ρ = ρ(u0, ε ) such that || u0|| w,p,ρ < ε .For such a choice of ρ, we consider 
+
+t(ρ) := sup 
+
+n
+
+t > 0 : 1 − 4c2
+
+
+
+K(t, ρ ) + c || u0|| 1−γ 
+
+> w,p
+
+K(t, ρ )γ 
+
+> 0
+
+o
+
+, (107) We define T (u0) := sup 
+
+> ρ> 0
+
+t(ρ). We first derive uniform bounds for the approximating sequence. Combining (94) with Lemma 16, it follows that for any fixed ρ and all t ∈ [0 , T (u0)), 
+
+e||| um(t)||| ≤ 2[K(t,ρ )+ c|| u0|| 1−γ 
+
+> w,p
+
+K(t,ρ )γ ]
+
+1+ [1−4c2 (K(t,ρ )+ c|| u0|| 1−γ 
+
+> w,p
+
+K(t,ρ )γ )] 12
+
+=: A(ρ, t ). (108) In particular, {||| um|||} is uniformly bounded on [0 , T (u0)). To prove convergence, it is convenient to work with the sequence wm := um −um−1. A direct computation based on (92) shows that 
+
+wm+1 =
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+G(t − τ, x, y ) P [wm · ∇ um(( y, τ )] dy dτ −
+
+Z t
+
+> 0
+
+Z
+
+> Rn
+> +
+
+G(t − τ, x, y ) P [um−1 · ∇ wm(( y, τ )] dy dτ. 
+
+Using Lemmas 11–14 together with the bound (108), we obtain 
+
+e||| wm(t)||| ≤ C  cA (ρ, t )mA(ρ, t ), (109) for a suitable constant C > 0. By definition of T (u0), we have A(ρ, t ) < 12c for t ∈ (0 , T (u0)), hence the series is convergent. Therefore, writing 
+
+um = u0 +
+
+> m
+
+X
+
+> i=1
+
+wi, (110) we deduce that {um} is a Cauchy sequence with respect to e||| · ||| and thus converges to some limit function 
+
+u that, in particular, enjoys of estimates (104) and (105). In particular, these estimates ensure that the The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces 23 
+
+nonlinear term R t
+
+> 0
+
+R
+
+> Rn
+> +
+
+G(t − τ, x, y ) P [u · ∇ u(( y, τ )] dy dτ is well defined. Passing to the limit in the integral formulation (using dominated convergence, justified by the uniform bound (108)), we obtain 
+
+u(t, x ) = G[u0]( t, x ) − S [( u · ∇ u)]( t, x ). (111) Moreover, since the convergence is uniform on compact subsets of ( η, T ) × Rn and each um is continuous, the limit u is continuous as well. We now analyze the property (106). From [1], the following property holds: (P) for every sequence tp → 0+, one can find ρp → 0+ such that 1 − 4c2
+
+
+
+K(tp, ρ p) + c || u0|| w,p 
+
+
+
+> 0, and A(ρp, t p) → 0.
+
+Applying Lemma 16 along these sequences, we deduce 
+
+e||| um(tp)||| ≤ A(ρp, t p). (112) Passing to the limit and recalling the definition of the functional ||| · ||| , we obtain (106). 
+
+Lemma 18. Let u a vector field enjoying (10) and u defined by formula (73) .
+
+• If p ∈ (n, 2n), then, for all q ∈ (n, 2n), we get 
+
+|| u(t)|| q 
+
+> 2
+
+≤ c(u0) t− 12 + nq for all t ∈ (0 , T ) ; (113) 
+
+• If p = 2 n, then we get 
+
+|| u(t)|| (n, ∞) < ∞ , t ∈ (0 , T ), and lim  
+
+> t→0+
+
+|| u(t)|| (n, ∞) = 0 ; (114) 
+
+• Finally, if p > 2n, then we get 
+
+|| u(t)|| ( np   
+
+> 2( p−n),∞)
+
+≤ c(u0) t 12 − np for all t ∈ (0 , T ). (115) 
+
+Proof. Let p ∈ (n, 2n) and fix q ∈ (n, 2n). By estimate (10), the solution satisfies 
+
+|| u(t)|| q ≤ c t − 12 + n 
+
+> 2q
+
+|| u0|| w,p .
+
+We now turn to the nonlinear contribution. By combining Minkowski’s inequality with Young inequality, we have 
+
+|| u(t)|| q 
+
+> 2
+
+≤ c
+
+Z t
+
+> 0
+
+||∇ G(t − τ )|| 1 || u(τ )|| 2 
+
+> q
+
+dτ. 
+
+Substituting the previous bound on || u(τ )|| q into the integral, we obtain 
+
+|| u(t)|| q 
+
+> 2
+
+≤ c || u0|| 2
+
+> w,p
+
+Z t
+
+> 0
+
+τ −1+ nq (t − τ )− 12 dτ. 
+
+A direct evaluation of the time integral yields 
+
+|| u(t)|| q 
+
+> 2
+
+≤ c(u0) t− 12 + nq .
+
+Consider now the case p = 2 n. Exploiting the pointwise bound given by (10), we estimate the nonlinear term as follows: 
+
+|u(t, x )| ≤ c(|| u0|| w,p )
+
+|x|
+
+Z t
+
+> 0
+
+τ − 12 (t − τ )− 12 dτ ≤ c(u0) |x|−1,24 A. P. Di Feola, V. Pane 
+
+for all t ∈ (0 , T ). This immediately yields the uniform bound 
+
+|| u(t)|| (n, ∞) ≤ c(u0), t ∈ (0 , T ).
+
+We next investigate the behavior as t → 0+. Fix ε > 0 and let {tm} be a sequence with tm → 0+. By (11), there exists m such that for all m > m ,
+
+|u(tm, x )| ≤ c(|| u0|| w,p )εt 14
+
+> m
+
+|x| 12
+
+.
+
+Inserting this estimate into the representation of u and arguing as above, we obtain 
+
+|u(tm, x )| ≤ c(|| u0|| w,p )εt 14
+
+> m
+
+|x| 12
+
+Z tm
+
+> 0
+
+τ − 12 (tm − τ )− 12 dτ ≤ c(u0) ε |x|−1,
+
+for all m > m . Consequently, 
+
+|| u(tm)|| (n, ∞) ≤ c(u0) ε, m > m. 
+
+Passing to the limit as m → ∞ , we conclude (114). Finally, if p > 2n, employing again the pointwise estimate, we arrive at 
+
+|u(t, x )| ≤ c(|| u0|| w,p )
+
+|x|2− 2np
+
+Z t
+
+> 0
+
+τ − np (t − τ )− 12 dτ ≤ c(u0)|x|−2+ 2np t 12 − np
+
+that leads to estimate (115). 
+
+Proof of Theorem 1. In the hypotheses of Theorem 1, by virtue of Lemma 15 and Lemma 17, we establish a divergence free solution u(t, x ) to the integral equation (8) such that (10) and (11) hold. To the solution 
+
+u, one can associate a pressure term πu given by the representation formula (9). In order to prove the estimate (13) for the pressure term, we argue as follows. Let us fix ε > 0 and consider the following system: 
+
+vt − ∆v = −∇ πv , in ( ε, ∞) × Rn
+
+> +
+
+,
+
+∇ · v = 0 , in ( ε, ∞) × Rn
+
+> +
+
+,v|xn=0 = 0 ,v(ε, x ) = u(ε, x ) , in {ε} × Rn
+
+> +
+
+,
+
+(116) where u is the solution constructed in Lemma 17. Since u(ε) ∈ Lq (Rn
+
+> +
+
+) for all q > n , the well known Lq -theory for system (116) ensures the existence of a unique regular solution ( v, π v ). In particular, the following estimate hold 
+
+||∇ π(t)|| q ≤ (t − ε)−1|| u(ε)|| q . (117) Using (10) and (117), for all η > ε and r > 1, we have 
+
+Z Tη
+
+||∇ πv (τ )|| rq dτ ≤
+
+Z Tη
+
+(τ − ε)−r || u(ε)|| rq dτ ≤ c1(r, ε, η, T )  K(ε, ρ ) + c|| u0|| 1−γ 
+
+> w,p
+
+K(ε, ρ )γ r . (118) where K is defined in (5). The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces 25 
+
+Moreover, since, in particular, for all ε > 0, r > 1 and q > n , we have u · ∇ u ∈ Lr (ε, T ; Lq (Rn
+
+> +
+
+)), by the theory developed in [23], there exists a unique smooth solution ( ¯ w, π ¯w) to the problem 
+
+wt + ∇πw = ∆ w − u · ∇ u , in ( ε, ∞) × Rn
+
+> +
+
+,
+
+∇ · w = 0 , in ( ε, ∞) × Rn
+
+> +
+
+,w|xn=0 = 0 ,w(ε, x ) = 0 , in {ε} × Rn
+
+> +
+
+,
+
+(119) such that Z Tη
+
+||∇ π ¯w(τ )|| rq dτ ≤
+
+Z Tη
+
+|| u · ∇ u(τ )|| rq dτ , 
+
+for all η > 0. Applying Holder inequality and using (10), from the last relation we deduce that 
+
+Z Tη
+
+||∇ π ¯w(τ )|| rq dτ ≤ c2(r, η, T )  K(ε, ρ ) + c|| u0|| 1−γ 
+
+> w,p
+
+K(ε, ρ )γ 2r , (120) for all η > 0. Now, setting w := v + w, and πw := πv + πw, the couple ( w, π w) solves the system 
+
+wt − ∆w = −∇ πw − u · ∇ u , in ( ε, ∞) × Rn
+
+> +
+
+,
+
+∇ · w = 0 , in ( ε, ∞) × Rn
+
+> +
+
+,w|xn=0 = 0 ,w(ε, x ) = u(ε, x ) , in {ε} × Rn 
+
+> +
+
+.
+
+Multiplying the first equation of the last system by φ ∈ C([0 , T ); Jq′
+
+(Rn
+
+> +
+
+)) ∩ Lq′
+
+(0 , T ; W 2,q ′
+
+(Rn
+
+> +
+
+)) with 
+
+φt ∈ Lq′
+
+(0 , T ; Lq′
+
+(Rn
+
+> +
+
+)), since lim 
+
+> s→ε+
+
+(w(s) − u(ε), φ (s)) = 0, after an integration by parts, we have (w(t), φ (t)) − (u(ε), φ (ε)) + 
+
+Z tε
+
+(u · ∇ u(τ ), φ (τ )) dτ = 0 (121) By same arguments, since the solution u to the integral equation (8) is also a classical solution (see Remark 1), we have (u(t), φ (t)) − (u(ε), φ (ε)) + 
+
+Z tε
+
+(u · ∇ u(τ ), φ (τ )) dτ = 0 . (122) Subtracting (122) from (121), we obtain (w(t) − u(t), φ (t)) = 0 , (123) Now, for τ ∈ (ε, t ), let φ(τ, x ) ≡ Φ( t − τ + ε, x ) be solution backward in time to the Stokes problem (34) with f = 0 corrisponding to the initial datum Φ( ε) ∈ C0(Rn
+
+> +
+
+). Considering this function and substituting it into formula (123), we have (w(t) − u(t), Φ( ε)) = 0 ,
+
+from which, one deduces that u ≡ w. In particular πu ≡ πw. Then, by adding estimates (118) and (120), we obtain estimate (13). The result is completely proved. In the following Lemma we prove that any solution, say v(t, x ), in our class of existence admits the decomposition v(t, x ) = G[v0] + S[v · ∇ v]. This result allows us to establish uniqueness by focusing only on the coincidence of the nonlinear part, since the linear components already coincide. 26 A. P. Di Feola, V. Pane 
+
+Lemma 19. Let v(t, x ) a solution to (1) corresponding to v0. Suppose that v(t, x ) satisfies estimate (10) 
+
+and property (12) , then v admits the decomposition: 
+
+v = v0 + v , (124) 
+
+where v0 = G[v0] and v = S[v · ∇ v].Proof. Let v0 := G[v0] and set w := v − v0. We also introduce v as the solution to 
+
+
+
+vt − ∆v + ∇πv = −v · ∇ v in (0 , ∞) × Rn
+
+> +
+
+,
+
+∇ · v = 0 in (0 , ∞) × Rn
+
+> +
+
+,v(0 , x ) = 0 on {0} × Rn
+
+> +
+
+.
+
+(125) It is well known that v admits the representation 
+
+v(t, x ) = 
+
+Z t
+
+> 0
+
+∇G(t − τ, x − y) v ⊗ v(τ, y ) dτ. 
+
+A direct verification shows that w solves (125) as well. Hence, defining w := w − v, we obtain 
+
+wt − ∆w + ∇πw = 0 ,
+
+with πw = πv − πv .Let ψ be the solution to (72) with initial datum ψ0 ∈ C0(Rn
+
+> +
+
+) and vanishing coefficients. For fixed t > 0, define bψ(τ, x ) := ψ(t − τ, x ) for ( τ, x ) ∈ (0 , t ) × Rn
+
+> +
+
+. Then bψ is a backward solution enjoying properties (56)–(58). In particular, for all 0 < s < t , we have (w(t), ψ 0) = ( w(s), ψ (t − s)) . (126) We now estimate the right-hand side of (126). Writing (w(s), ψ (t − s)) = ( w(s), ψ (t − s) − ψ(t)) + ( w(s), ψ (t)) ,
+
+we treat the two terms separately. 
+
+Case p ∈ (n, 2n). Using H¨ older inequality together with the bounds on w and v, we obtain 
+
+|(w(t), ψ 0)| ≤ || w(s)|| q || ψ(t − s) − ψ(t)|| q′ + || v(s)|| q 
+
+> 2
+
+|| ψ(t − s) − ψ(t)|| qq−2
+
++ |(w(s), ψ (t)) |≤ c(v0)c(ψ0) s 12 + n 
+
+> 2q
+
++ c(ψ0) || v(s)|| q 
+
+> 2
+
++ |(w(s), ψ (t)) |.
+
+Passing to the limit as s → 0 and using (10) for w together with Lemma 18 for v, we deduce (w(t), ψ 0) = 0 for all ψ0 ∈ C0(Rn
+
+> +
+
+).
+
+Case p = 2 n. Proceeding analogously, but using weak Lebesgue norms, we obtain 
+
+|(w(t), ψ 0)| ≤ || w(s)|| q || ψ(t − s) − ψ(t)|| q′ + || v(s)|| (n, ∞)|| ψ(t − s) − ψ(t)|| (n′,1) 
+
++ |(w(s), ψ (t)) |≤ c(v0)c(ψ0) s 12 + n 
+
+> 2q
+
++ || ψ0|| (n′,1) || v(s)|| (n, ∞) + |(w(s), ψ (t)) |.The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces 27 
+
+Letting s → 0 and using again the convergence properties of w and v, we conclude as before. 
+
+Case p > 2n. In this case, we employ the corresponding weak estimates and obtain 
+
+|(w(t), ψ 0)| ≤ || w(s)|| q || ψ(t − s) − ψ(t)|| q′ + || v(s)|| ( np  
+
+> 2( p−n),∞)
+
+|| ψ(t − s) − ψ(t)|| ( np p(n−2)+2 n ,1) 
+
++ |(w(s), ψ (t)) |≤ c(v0)c(ψ0) s 12 + n 
+
+> 2q
+
++ c || v(s)|| ( np  
+
+> 2( p−n),∞)
+
+|| ψ0|| ( np p(n−2)+2 n ,1) + |(w(s), ψ (t)) |.
+
+Passing to the limit as s → 0 yields again ( w(t), ψ 0) = 0. Since ψ0 is arbitrary, we conclude that w ≡ 0, hence w = v and therefore 
+
+v = v0 + v. 
+
+Proof of Theorem 2. The proof of uniqueness relies on a comparison between two solutions u(t, x ) and v(t, x ). Here, u denotes the solution provided by Theorem 1, while v is assumed to enjoy the same regularity properties. According to Lemma 19, the function v admits the decomposition v = u0 + v. Depending on the value of p, the remainder term v fulfills the properties stated in (113), (114), and (115). The uniqueness argument is then carried out via a duality approach, inspired by [6], with adjustments to fit the present framework. Define w(t, x ) := v(t, x ) − u(t, x ), which can also be expressed as w(t, x ) = v(t, x ) − u(t, x ), and set 
+
+πw := πv − πu. Taking into account the regularity properties of w for t > 0, it follows that for any t > s > 0, the pair ( w, π w) satisfies the following integral formulation: (w(t), ϕ (t)) = ( w(s), ϕ (s)) + 
+
+Z ts
+
+(w, ϕ τ + ∆ ϕ)+( w · ∇ ϕ, v ) + ( u · ∇ ϕ, w ) + ( u0 · ∇ ϕ, w ) + w · ∇ ϕ, u 0dτ , 
+
+(127) for all ϕ ∈ C([0 , T ); Jq′
+
+(Rn
+
+> +
+
+)) ∩ Lq′
+
+(0 , T ; W 2,q ′
+
+(Rn
+
+> +
+
+)) with ϕt ∈ Lq′
+
+(0 , T ; Lq′
+
+(Rn
+
+> +
+
+)), and t > s > 0 . Let ψ
+
+denote the solution to problem (34) corresponding to the initial datum ψ0 ∈ C0(Rn
+
+> +
+
+) and vanishing forcing term f ≡ 0. For any fixed t > 0, define the function 
+
+bψ(τ, x ) := ψ(t − τ, x ), (τ, x ) ∈ (0 , t ) × Rn
+
+> +
+
+.
+
+With this definition, bψ solves the associated problem backward in time over (0 , t ) × Rn
+
+> +
+
+, and satisfies the condition bψ(t, x ) = ψ0(x). Moreover, it fulfills properties (56)–(58). As a consequence, for every t > s > 0, the function w verifies the following relation: (w(t), ψ 0) = ( w(s), bψ(s)) + 
+
+Z ts
+
+[( w · ∇ bψ, v ) + ( w · ∇ bψ, u 0) + ( u · ∇ bψ, w ) + ( u0 · ∇ bψ, w )] dτ. (128) In order to apply Lemma 18, we proceed by considering three distinct cases: 1) Let u0 ∈ Lp 
+
+> w
+
+(Rn
+
+> +
+
+) with p ∈ (n, 2n). We select an exponent q ∈ (n, 2n) so as to apply (113) with exponent q 
+
+> 2
+
+to both solutions. As a consequence, we obtain in particular lim  
+
+> s→0
+
+|| w(s)|| q
+
+> 2
+
+= 0 .28 A. P. Di Feola, V. Pane 
+
+Combining this fact with (128) and the estimate for ||∇ bψ|| qq−2
+
+, we deduce that 
+
+|(w(t), ψ 0)| ≤ | (w(s), ψ (t − s)| + c sup 
+
+> (s,t )
+
+[τ 12 (|| u(τ )|| ∞ + || v(τ )|| ∞ + || u0(τ )|| ∞)] 
+
+× sup 
+
+> (s,t )
+
+|| w(τ )|| q
+
+> 2
+
+Z ts
+
+τ − 12 ||∇ bψ|| qq−2
+
+dτ 
+
+≤ || w(s)|| q
+
+> 2
+
+|| ψ0|| qq−2
+
++ c sup 
+
+> (s,t )
+
+[τ 12 (|| u(τ )|| ∞ + || v(τ )|| ∞ + || u0(τ )|| ∞)] 
+
+×|| ψ0|| qq−2
+
+sup 
+
+> (s,t )
+
+|| w(τ )|| q
+
+> 2
+
+Z ts
+
+τ − 12 (t − τ )− 12 dτ , 
+
+for all t ∈ [0 , T (u)) ∩ [0 , T (v)). Since ψ0 is arbitrary, letting s → 0, we obtain 
+
+|| w(t)|| q
+
+> 2
+
+≤ c sup 
+
+> (0 ,t )
+
+[τ 12 (|| u(τ )|| ∞ + || v(τ )|| ∞ + || u0(τ )|| ∞)] sup 
+
+> (0 ,t )
+
+|| w(τ )|| q
+
+> 2
+
+The first limit condition in (11) immediately implies uniqueness on a time interval of the form (0 , δ ]. It remains to address the extension of uniqueness to the range t ≥ δ.Since for t > 0 we have w regular, we are going to consider formula (128) with s = δ. Since ψ enjoys (56), and || w(δ)|| q
+
+> 2
+
+= 0, for all r ∈ [ q 
+
+> 2
+
+, ∞), we deduce 
+
+|| w(t)|| r ≤ c δ − 12 sup 
+
+> (δ,t )
+
+[τ 12 (|| u(τ )|| ∞ + || v(τ )|| ∞ + || u0(τ )|| ∞)] 
+
+Z tδ
+
+|| w(τ )|| r (t − τ )− 12 dτ . (129) Applying Lemma 3 with h(τ ) = || w(τ )|| r , we obtain || w(t)|| r = 0 for all t ∈ [δ, T ). 2) Let u0 ∈ L2n 
+
+> w
+
+(Rn
+
+> +
+
+). By (114), we study uniqueness with respect to the quasi-norm ||·|| (n, ∞). Combining (128) with the estimate for ||∇ bψ|| (n′,1) given in (59), we obtain: 
+
+|(w(t), ψ 0)| ≤ | (w(s), ψ (t − s)| + c sup 
+
+> (s,t )
+
+[τ 12 (|| u(τ )|| ∞ + || v(τ )|| ∞ + || u0(τ )|| ∞)] 
+
+× sup 
+
+> (s,t )
+
+|| w(τ )|| (n, ∞)
+
+Z ts
+
+τ − 12 ||∇ bψ|| (n′,1) dτ 
+
+≤ || w(s)|| (n, ∞)|| ψ0|| (n′,1) + c sup 
+
+> (s,t )
+
+[τ 12 (|| u(τ )|| ∞ + || v(τ )|| ∞ + || u0(τ )|| ∞)] 
+
+×|| ψ0|| (n′,1) sup 
+
+> (s,t )
+
+|| w(τ )|| (n, ∞)
+
+Z ts
+
+τ − 12 (t − τ )− 12 dτ , 
+
+for all t ∈ [0 , T (u)) ∩ [0 , T (v)). The arbitrariness of ψ0 and Lemma 1 allow us to conclude that 
+
+|| w(t)|| (n, ∞) ≤ c sup 
+
+> (0 ,t )
+
+[τ 12 (|| u(τ )|| ∞ + || v(τ )|| ∞ + || u0(τ )|| ∞)] sup 
+
+> (0 ,t )
+
+|| w(τ )|| (n, ∞).
+
+The validity of the limit condition in (11) guarantees uniqueness on an interval of the form (0 , δ ]. Furthermore, for t > δ we proceed as in the argument already used in (129). In this situation, we observe that at time s = δ, and without loss of generality, one has || w(δ)|| r = 0. Consequently, for any 
+
+r ∈ (p, ∞), we define 
+
+|| w(t)|| r ≤ c δ − 12 sup 
+
+> (δ,t )
+
+[τ 12 (|| u(τ )|| ∞ + || v(τ )|| ∞ + || u0(τ )|| ∞)] 
+
+Z tδ
+
+|| w(τ )|| r (t − τ )− 12 dτ. (130) Applying Lemma 3 with h(τ ) = || w(τ )|| r , we obtain || w(t)|| r = 0 for all t ∈ [δ, T ). The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces 29 
+
+3) Let u0 ∈ Lp 
+
+> w
+
+(Rn
+
+> +
+
+) with p > 2n. We consider the norm || · || ( np  
+
+> 2( p−n),∞)
+
+. From (128), we get: 
+
+|(w(t), ψ 0)| ≤ | (w(s), ψ (t − s)| + c sup 
+
+> (s,t )
+
+[τ 12 (|| u(τ )|| ∞ + || v(τ )|| ∞ + || u0(τ )|| ∞)] ×× sup 
+
+> (s,t )
+
+|| w(τ )|| ( np  
+
+> 2( p−n),∞)
+
+Z ts
+
+τ − 12 ||∇ bψ|| ( np np −2( p−n) ,1) dτ 
+
+≤ || w(s)|| ( np  
+
+> 2( p−n),∞)
+
+|| bψ(s)|| ( np np −2( p−n) ,1) + c sup 
+
+> (s,t )
+
+[τ 12 (|| u(τ )|| ∞ + || v(τ )|| ∞ + || u0(τ )|| ∞)] ×× || ψ0|| ( np np −2( p−n) ,1) sup 
+
+> (s,t )
+
+|| w(τ )|| ( np  
+
+> 2( p−n),∞)
+
+Z ts
+
+τ − 12 (t − τ )− 12 dτ . 
+
+Taking into account property (115) and repeating the same line of reasoning as in cases 1)–2), we conclude that 
+
+|| w(t)|| ( np  
+
+> 2( p−n),∞
+
+) = 0 for all t ∈ (0 , T ).
+
+This completes the proof. 
+
+Acknowledgment - We would like to thank Professor P. Maremonti for his valuable supervision. The paper is performed under the auspices of GNFM-INdAM. 
+
+Declarations Conflict of interest - The authors have no conflicts of interest to declare that are relevant to the content of this article. 
+
+References 
+
+[1] F. Crispo and P. Maremonti, A new proof of existence in the L3-setting of solutions to the Navier-Stokes Cauchy problem. , Interactions between elasticity and fluid mechanics, EMS Ser. Ind. Appl. Math., Vol. 3, Pag. 115-134, EMS Press, Berlin (2022) [2] F. Crispo and P. Maremonti, On the (x, t ) asymptotic properties of solutions of the Navier-Stokes equations in the half-space , Journal of Mathematical Sciences, Vol. 136, No. 2, (2006). J., 41 , pp. 1027-1076 (1992). [3] A. P. Di Feola and V. Pane, Weighted estimates for the Stokes semigroup in the half-space , J. Math. Anal. Appl. 558 (2026), no. 2, Paper No. 130390; MR5018361. [4] R. Farwig, H. Sohr, Weighted Lq -theory for the Stokes resolvent in exterior domains , J. Math. Soc. Japan 49 (1997), no. 2, 251–288. [5] R. Farwig, K. Tsuda, The time periodic problem for the Navier-Stokes equations on half spaces with moving boundary: Linear theory , Journal of Differential Equations, 411, 531–603 (2024) https://doi.org/10.1016/j.jde.2024.07.046. [6] C. Foias, Une remarque sur l’unicit´ e des solutions des ´ equations de Navier-Stokes en dimension n. Bull. Soc. Math. France 89, 1-8 (1961) [7] A. Fr¨ ohlich, The Stokes Operator in Weighted Lq -Spaces I: Weighted Estimates for the Stokes Resolvent Problem in a Half Space , J. Math. Fluid Mech., Volume 5, 166–199 (2003), https://doi.org/10.1007/s00021-003-0080-8 30 A. P. Di Feola, V. Pane 
+
+[8] A. Fr¨ ohlich, The Stokes operator in weighted Lq -spaces II: weighted resolvent estimates and maximal L p-regularity , Math. Ann. 339, 287—316 (2007). https://doi.org/10.1007/s00208-007-0114-2 [9] G. P. Galdi, P. Maremonti, On the stability of steady-state solutions to the Navier-Stokes equations in the whole space , Journal of Mathematical Fluid Mechanics, Volume 25, 7 (2023). https://doi.org/10.1007/s00021-022-00748-6 [10] G. P. Galdi, An introduction to the Mathematical Theory of the Navier-Stokes equations ,Springer, New York, Volume 38 (1994). [11] R.A. Hunt, On L(p, q ) spaces , L’Enseignement Math´ ematique, Vol.12 (1966). [12] T. Kobayashi, T. Kubo, Weighted Lp-Lq estimates of the Stokes semigroup in some unbounded domains ,Tsukuba J. Math.3 7, no. 2, 179–205.(2013). [13] T. Kobayashi, T. Kubo, Weighted Lp-Lq Estimates of the Stokes semigroup in Half-Space and its application to the Navier-Stokes equation , Recent Developments of Mathematical Fluid Mechanics., 337-349.(2016). [14] H. Koch, V.A. Solonnikov, Lp-Estimates for a Solution to the Nonstationary Stokes Equations , Journal of Mathematical Sciences, 106 , 3042-3072 (2001). [15] A. Kufner, Weighted Sobolev spaces , Teubner-Texte zur Mathematik, Teubner (1980). [16] O. A. Ladyˇ zenskaja, V.A. Solonnikov and N.N. Ural’ceva, Linear and quasilinear equations of parabolic type . Vol. 23. American Mathematical Society, Providence, RI (1968). [17] P. Maremonti, A remark on the Stokes problem in Lorentz space , Discrete and Continuous Dynamical Systems Series S, volume 6, N. 5, 1323-1342 (2013). 10.3934/dcdss.2013.6.1323 [18] P. Maremonti, Lecture Notes on Navier-Stokes equations. , Department of Mathematics and Physics, Universit‘a degli Studi della Campania “Luigi Vanvitelli” (2012). [19] P. Maremonti, On the Lp Helmholtz decomposition: a review of a result due to Solonnikov , Lithuanian Mathematical Journal, 58 (2018) 268-283, DOI 10.1007/s10986-018-9403-6. [20] P. Maremonti, V. Pane, The Navier–Stokes Cauchy Problem in a Class of Weighted Function Spaces ,Journal of Mathematical Fluid Mechanics, Volume 27, (2025). 10.1007/s00021-025-00923-5. [21] P. Maremonti, F. Palma, On the interaction between a rigid-body and a viscous-fluid: existence of a weak solution and a suitable Th´ eor` eme de Structure , https://doi.org/10.48550/arXiv.2602.11787. [22] P. Maremonti, G. Starita, Nonstationary Stokes equations in a half-space with continuous initial data .J Math Sci 127 , 1886–1914 (2005), doi.org/10.1007/s10958-005-0149-4. [23] P. Maremonti, V. A. Solonnikov, Estimates for solutions of the nonstationary stokes problem in anisotropic Sobolev spaces with mixed norm . Journal of Mathematical Sciences, 87 , 3859-3877 (1997), https://doi.org/10.1007/BF02355828. [24] L. Pick, A. Kufner, O. John and S. Fucik, Function Spaces , VOL. 1, 2nd Ed., De Gruyter (2012). [25] V.A. Solonnikov, Estimates of the solutions of the nonstationary Navier-Stokes system , Zap. Naucn. Sem. Leningrad. Otdel. Mat. Inst. Steklov. (LOMI) 38 (1973), 153-231 The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces 31 
+
+[26] V.A. Solonnikov, On estimates of solutions of the non-stationary Stokes problem in anisotropic Sobolev spaces and on estimates for the resolvent of the Stokes operator. , Russian Math. Surveys, vol. 58, 331-365 (2003). https://doi.org/10.1070/RM2003v058n02ABEH000613 [27] V.A. Solonnikov, On Nonstationary Stokes Problem and Navier–Stokes Problem in a Half-Space with Initial Data Nondecreasing at Infinity , Journal of Mathematical Sciences 114 , 1726—1740 (2003). https://doi.org/10.1023/A:1022317029111 [28] E. M. Stein, G. Weiss, Introductionto Fourier Analysis on Euclidean Spaces , Princeton University Press, Princeton, NJ, 1990. [29] M. Yamazaki, The Navier-Stokes equations in the weak-Ln space with time dependent external force. ,Math. Ann., 317 , 635-675 (2000).
