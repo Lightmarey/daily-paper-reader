@@ -1,0 +1,2446 @@
+Title: New decay estimates and Liouville type theorems for the 3D axisymmetric stationary Navier-Stokes equations
+
+URL Source: https://arxiv.org/pdf/2608.06040v1
+
+Published Time: Fri, 07 Aug 2026 01:01:41 GMT
+
+Number of Pages: 26
+
+Markdown Content:
+NEW DECAY ESTIMATES AND LIOUVILLE TYPE THEOREMS FOR THE 3D AXISYMMETRIC STATIONARY NAVIER–STOKES EQUATIONS 
+
+WENDONG WANG 1 AND GUOXU YANG 1,∗
+
+Abstract. The Liouville problem for the three-dimensional stationary Navier–Stokes equations remains open, even for axisymmetric D-solutions. In this paper, we obtain two results based on decay in the cylindrical radial variable r = |x′|.(i). Using a new pointwise Calder´ on–Zygmund estimate adapted to cylindrical geometry, we improve the decay estimates of Carrillo–Pan–Zhang (2020, JFA) and prove 
+
+|∇ ur | + |∇ uz | ≲ r−5/4[log(e + r)] 5/4, |ωr | + |ωz | ≲ r−9/8[log(e + r)] 9/8, r ≫ 1.
+
+(ii). We develop a new approach to Liouville theorems that improves the axisymmetric criteria of Wang (2019, JDE) and Zhao (2019, Nonlinear Anal.). Without any symmetry assumption, we show that a D-solution is trivial if one of the following holds: (a) . sup 
+
+> |x′|=r, z ∈R
+
+|u(x′, z )| ≤ Cr −2/3[log(e + r)] −γ ; (b) . sup 
+
+> |x′|=r, z ∈R
+
+|ω(x′, z )| ≤ Cr −5/3[log(e + r)] −γ ,
+
+for r ≥ 1, where γ > 1/3. 
+
+1. Introduction 
+
+1.1. Background and previous results. We consider the steady incompressible Navier–Stokes equations in R3: 
+
+−∆u + ( u · ∇ )u + ∇p = 0 ,
+
+div u = 0 ,
+
+lim  
+
+> |x|→∞
+
+u(x) = 0 .
+
+(1.1) A smooth solution of (1.1) satisfying 
+
+∫
+
+> R3
+
+|∇ u|2 dx < ∞ (1.2) 
+
+2020 Mathematics Subject Classification. Primary 35Q30; Secondary 35B40, 35B53, 76D05; 
+
+Key words and phrases. stationary Navier–Stokes equations; axisymmetric flows; D-solutions; decay estimates; Liouville theorem. 
+
+> 1
+
+School of Mathematical Sciences, Dalian University of Technology, Dalian 116024, China. E-mail addresses: wendong@dlut.edu.cn (Wendong Wang), guoxu dlut@outlook.com (Guoxu Yang). 
+
+> ∗
+
+Author to whom correspondence should be addressed. 
+
+1arXiv:2608.06040v1 [math.AP] 6 Aug 2026 2 WENDONG WANG 1 AND GUOXU YANG 1,∗
+
+is called a D-solution. The finite Dirichlet integral (1.2) is natural in the study of stationary viscous flows and goes back to Leray [Ler33]. By the Sobolev inequality, every D-solution satisfies 
+
+u ∈ L6(R3). (1.3) Liouville theorems relate the behavior of a stationary flow at infinity to its global rigidity. Afundamental open problem asks whether every three-dimensional D-solution of (1.1) must be iden-tically zero. A classical sufficient condition is u ∈ L9/2(R3); see [Gal11]. Chae established a distinct scale-invariant criterion ∆ u ∈ L6/5(R3), whereas Chae–Wolf obtained a logarithmic refinement of Galdi’s L9/2-criterion. Seregin [Ser16] introduced a criterion in BM O −1(R3), Kozono–Terasawa– Wakasugi [KTW17] considered vorticity-decay and Lorentz-space conditions, and Seregin–Wang [SW20] developed corresponding annular criteria; see also [Tsa21] and the references therein. Fur-ther criteria based on the head pressure Q = 12 |u|2 + p were obtained by Chae [Cha21], who proved triviality under relative-decay assumptions comparing u or p with Q at infinity. Bang–Yang [BY25] employed Saint–Venant estimates to derive Liouville theorems from the growth of the Ls-mean oscillation of a potential function of the velocity and from the relative decay of Q and |u|2. Chae [Cha25] subsequently established further head-pressure criteria through Osgood-type conditions, level-set arguments, and the coarea formula. Coiculescu–Yang [CY26] introduced a capsule-based approach and obtained improved conditional Liouville theorems under sufficiently slow sublinear growth assumptions on antiderivatives of the velocity, including vector potentials and line integrals. More recently, Chae [Cha26] considered D-solutions whose head pressure Q, normalized to vanish at infinity, satisfies the lower power-law bound |Q(x)| ≥ C∥Q∥L∞ |x|−α for all sufficiently large 
+
+|x|. He proved that u ≡ 0 if |u(x)| = O(|x|−β ) for some β ≥ α 
+
+> 2
+
+, whereas u must be constant if 
+
+|∇ Q(x)| = O(|x|−β ) for some β ≥ 2α.Symmetry-restricted flows form a natural intermediate setting in which genuinely three-dimensional structures remain accessible to sharper analysis. For helically symmetric flows, Han–Wang–Xie [HWX26] proved that every bounded smooth solution of the steady Navier–Stokes equations in R3
+
+is a constant vector, using the helical identity and axial periodicity to establish a Saint–Venant-type estimate. Axisymmetric flows retain genuinely three-dimensional phenomena, including swirl, while their cylindrical structure permits refined pointwise estimates. In the no-swirl case uθ ≡ 0, Liouville theorems were established by Koch–Nadirashvili–Seregin– ˇSver´ ak [KNS ˇS09] and Korobkov–Pileckas– Russo [KPR15]. For axisymmetric flows with swirl, Chae–Weng [CW16a] obtained several sufficient conditions for triviality. A complementary line of research concerns the asymptotic behavior of ax-isymmetric D-solutions. Pointwise decay estimates were developed by Choe–Jin [CJ09], Weng [Wen18], and Carrillo–Pan–Zhang [CPZ20]; in particular, Carrillo–Pan–Zhang derived logarithmic decay bounds for the velocity and the vorticity components. Within the framework of pointwise cylindrical decay, Seregin [Ser18] proved that a bounded smooth axisymmetric solution must vanish NEW DECAY ESTIMATES AND LIOUVILLE TYPE THEOREMS 3
+
+if, uniformly in the axial variable, the velocity satisfies O(r−α) for some α > 15 −√33 12 . Subsequently, Wang [Wan19] and Zhao [Zha19] independently improved this velocity-decay criterion by showing that an axisymmetric D-solution must vanish if the velocity satisfies O(r−α) for some α > 23 , or if the full vorticity satisfies O(r−β ) for some β > 53 , uniformly in the axial variable. Motivated by these studies, we study Liouville-type theorems for the axisymmetric Navier–Stokes equations in this paper. 1.2. Main results and ideas. Fix a direction in R3 and write 
+
+x = ( x′, z ) ∈ R2 × R, r = |x′|. (1.4) Let L(s) := log(e + s) with s ≥ 0. We use the standard cylindrical components ur, u θ, u z of an axisymmetric velocity field and ωr, ω θ, ω z of its vorticity ω = curl u. When ∇ acts on one of these scalar components, it means the meridional gradient ∇r,z ; the precise convention is given in Subsection 1.3. For R > 0, define the cylindrical annulus 
+
+AR := {(x′, z ) ∈ R2 × R : R ≤ | x′| ≤ 2R}. (1.5) Our first main result is the following. 
+
+Theorem 1.1. Let u be a smooth axisymmetric solution of (1.1) . Assume that there exists M > 0
+
+such that 
+
+sup 
+
+> R≥1
+> ∫
+> AR
+> (
+
+|∇ u(x)|2 + |u(x)|6)
+
+dx ≤ M. (1.6) 
+
+Then there exist R0 = R0(M, u ) ≥ 2 and C = C(M ) > 0 such that, for every r ≥ R0 and every 
+
+z ∈ R,
+
+|u(r, z )| ≤ Cr −1/2[log(e + r)] 1/2, (1.7) 
+
+|ωθ(r, z )| + |∇ ωθ(r, z )| ≤ Cr −5/4[log(e + r)] 3/4, (1.8) 
+
+|∇ ur(r, z )| + |∇ uz (r, z )| ≤ Cr −5/4[log(e + r)] 5/4, (1.9) 
+
+and 
+
+|ωr(r, z )| + |ωz (r, z )| ≤ Cr −9/8[log(e + r)] 9/8. (1.10) 
+
+Remark 1.2 . The velocity estimate (1.7) is due to Choe–Jin [CJ09] and Weng [Wen18], while the bound for ωθ in (1.8) is due to Carrillo–Pan–Zhang [CPZ20]. Choe–Jin [CJ09] first proved 
+
+|ur| + |uz | ≲ r− 12 (log r)12 , |uθ| ≲ r− 38 (log r)18 , |ωθ| ≲ r− 78 ,
+
+which was improved by Weng [Wen18]: 
+
+|u| ≲ r− 12 (log r)12 , |ωθ| ≲ r−(19 16 )−
+
+, |∇ ur| + |∇ uz | ≲ r−(98 )−
+
+, |ωr| + |ωz | ≲ r−(67 64 )−
+
+.4 WENDONG WANG 1 AND GUOXU YANG 1,∗
+
+Later, Carrillo–Pan–Zhang [CPZ20] further improved the decay rates of the vorticity and the gra-dients of the meridional velocity components to 
+
+|ωθ| ≲ r− 54 (log r)34 , |∇ ur| + |∇ uz | ≲ r− 54 (log r)74 , |ωr| + |ωz | ≲ r− 98 (log r)11 8 .
+
+In this paper, the new estimates are (1.9) and (1.10). Thus the logarithmic exponents are improved according to 74 −→ 54, 11 8 −→ 98.
+
+The main new ingredient is a new Calder´ on–Zygmund estimate for an axisymmetric azimuthal field. Rotational packing improves a local L2 norm, while the cancellation of the Calder´ on–Zygmund kernel and the Poincar´ e inequality are used on each intermediate shell. In the notation of Lemma 3.2, the resulting estimate is 
+
+|T F (x0)| ≲ AR −a[log(e + R)] β + B∗R2
+
+> ∗
+
+R−2 + R−1/2 log(e + R) ∥∇ r,z f ∥L2(Q′
+
+> R(z0))
+
+.
+
+A localized vorticity energy estimate gives 
+
+∥∇ ωθ∥L2(r∼R, |z−z0|≲R) ≲ R−3/4[log(e + R)] 1/4.
+
+These two estimates yield the logarithmic power 5 /4 in (1.9). The estimate (1.10) then follows from a scaled Brezis–Gallouet inequality [BG80] for ( ωr, ω z ). 
+
+Corollary 1.3. The conclusions of Theorem 1.1 hold for every smooth axisymmetric D-solution of 
+
+(1.1) .
+
+We next consider general D-solutions without any symmetry assumption. Using the fixed splitting in (1.4), define the radial envelope 
+
+H(r) := sup 
+
+> |x′|=r, z ∈R
+
+|u(x′, z )|. (1.11) The first step is the following Liouville criterion. 
+
+Proposition 1.4. Let u be a smooth solution of (1.1) satisfying (1.2) . If  
+
+> ∫∞
+> 1
+
+rH (r)3 dr < ∞, (1.12) 
+
+then u ≡ 0.
+
+Proposition 1.4 immediately gives the following. 
+
+Theorem 1.5. Let u be a smooth solution of (1.1) satisfying (1.2) . Suppose that, for some γ > 13 ,
+
+sup 
+
+> |x′|=r, z ∈R
+
+|u(x′, z )| ≤ Cr2/3[log(e + r)] γ , r ≥ 1. (1.13) 
+
+Then u ≡ 0.NEW DECAY ESTIMATES AND LIOUVILLE TYPE THEOREMS 5
+
+The corresponding vorticity criterion is our second main result. 
+
+Theorem 1.6. Let u be a smooth solution of (1.1) satisfying (1.2) , and let ω = curl u. Suppose that, for some γ > 13 ,
+
+sup 
+
+> |x′|=r, z ∈R
+
+|ω(x′, z )| ≤ Cr5/3[log(e + r)] γ , r ≥ 1. (1.14) 
+
+Then u ≡ 0.Remark 1.7 . Theorem 1.6 should be compared with the cylindrical criteria of Seregin [Ser18, Corol-lary 1.9], Wang [Wan19, Theorem 1.3] and Zhao [Zha19, Theorem 1.2]. Relative to these results, the strict algebraic condition β > 53 is replaced by the critical exponent β = 53 together with a logarithmic gain, and no axisymmetry assumption is imposed. The hypothesis is a pointwise bound on the full vorticity, uniform on the cylinders {(x′, z ) ∈ R2 × R : |x′| = r}. In particular, it requires no additional decay as |z| → ∞ with r fixed. This differs both from isotropic vorticity conditions formulated in terms of the full distance |x|, such as those in [KTW17], and from the anisotropic velocity-integrability criteria in [Cha23, ZZ25]. It is also distinct from the head-pressure criteria in [Cha26]. 
+
+Remark 1.8 . The logarithmic factor in (1.14) can be relaxed to a finite hierarchy of iterated loga-rithms. The proof of Theorem 1.6 has two steps. First, after integrating the three-dimensional Biot–Savart kernel in the axial variable, a two-dimensional logarithmically weighted Riesz-potential estimate transfers the decay of ω to 
+
+H(r) ≲ r−2/3[log(e + r)] −γ .
+
+Second, a Bogovskii correction gives a pressure-free Caccioppoli inequality. The condition γ > 13 is exactly what makes the cubic radial flux integrable:  
+
+> ∫∞
+> 1
+
+rH (r)3 dr < ∞.
+
+1.3. Notation and organization. For R > 0 and x0 ∈ R3, denote 
+
+BR(x0) := {x ∈ R3 : |x − x0| < R }, BR := BR(0) , AR := B2R \ BR. (1.15) Thus AR is a spherical annulus, while AR in (1.5) is a cylindrical annulus about the fixed axis in (1.4). For the axisymmetric solutions, we use cylindrical coordinates 
+
+x1 = r cos θ, x2 = r sin θ, z = x3,6 WENDONG WANG 1 AND GUOXU YANG 1,∗
+
+with er = (cos θ, sin θ, 0), eθ = ( − sin θ, cos θ, 0) and ez = (0 , 0, 1). An axisymmetric velocity field and its vorticity are written as 
+
+u = ur(r, z )er + uθ(r, z )eθ + uz (r, z )ez , ω = ωrer + ωθeθ + ωz ez ,
+
+where ωr = −∂z uθ, ωθ = ∂z ur − ∂ruz and ωz = r−1∂r(ru θ). For a scalar cylindrical component f ,we write 
+
+∇r,z f = ( ∂rf, ∂ z f ), ∆r,z f = ∂2 
+
+> r
+
+f + ∂2 
+
+> z
+
+f. 
+
+For notational simplicity, |∇ f | denotes |∇ r,z f | whenever f is a cylindrical scalar component. At the axis, the smoothness of an azimuthal component f is understood through the associated vector field f e θ.For R > 0 and z0 ∈ R, define the nested cylinders 
+
+QR(z0) := 
+
+> {
+
+x = ( x′, z ) : R
+
+2 < |x′| < 3R
+
+2 , |z − z0| < R 
+
+> }
+
+,
+
+Q′
+
+> R
+
+(z0) := 
+
+> {
+
+x = ( x′, z ) : 3R
+
+4 < |x′| < 5R
+
+4 , |z − z0| < R
+
+2
+
+> }
+
+, (1.16) 
+
+Q′′ 
+
+> R
+
+(z0) := 
+
+> {
+
+x = ( x′, z ) : 7R
+
+8 < |x′| < 9R
+
+8 , |z − z0| < R
+
+4
+
+> }
+
+.
+
+Thus Q′′ 
+
+> R
+
+(z0) ⊂ Q ′
+
+> R
+
+(z0) and Q′
+
+> R
+
+(z0) ⊂ Q R(z0), with separation distances comparable with R. Under the centered scaling ˜x′ = x′/R and ˜z = ( z − z0)/R , these cylinders become fixed cylinders ˜Q1, ˜Q2,and ˜Q3. Their meridional sections are 
+
+> ˜
+
+D1 :=  
+
+> (
+
+12, 32
+
+> )
+
+× (−1, 1) , ˜D2 :=  
+
+> (
+
+34, 54
+
+> )
+
+×
+
+> (
+
+−12, 12
+
+> )
+
+, ˜D3 :=  
+
+> (
+
+78, 98
+
+> )
+
+×
+
+> (
+
+−14, 14
+
+> )
+
+, (1.17) and ˜Qj := {(˜x′, ˜z) : ( |˜x′|, ˜z) ∈ ˜Dj } for j = 1 , 2, 3. In particular, ˜D3 ⋐ ˜D2 ⋐ ˜D1.Throughout the paper, C denotes a positive constant whose value may change from line to line. Any relevant dependence will be indicated by subscripts or arguments, e.g., Cα or C(α, β ). We write X ≲ Y if X ≤ CY , and X ∼ Y if both X ≲ Y and Y ≲ X.The paper is organized as follows. Section 2 collects the main tools used in the paper. Section 3 proves the new Calder´ on–Zygmund and annular vorticity estimates, and then proves Theorem 1.1. Section 4 establishes the pressure-free Caccioppoli inequality and the logarithmic vorticity-to-velocity decay transfer, and then proves Theorem 1.6. Some auxiliary estimates are placed in Appendix A. NEW DECAY ESTIMATES AND LIOUVILLE TYPE THEOREMS 7
+
+2. Preliminaries and key estimates 
+
+2.1. Known axisymmetric decay estimates. From (1.1), the axisymmetric steady equations are 
+
+(ur∂r + uz ∂z )ur − u2
+
+> θ
+
+r + ∂rp =
+
+(
+
+∂2 
+
+> r
+
++ 1
+
+r ∂r + ∂2 
+
+> z
+
+− 1
+
+r2
+
+)
+
+ur,
+
+(ur∂r + uz ∂z )uθ + uruθ
+
+r =
+
+(
+
+∂2 
+
+> r
+
++ 1
+
+r ∂r + ∂2 
+
+> z
+
+− 1
+
+r2
+
+)
+
+uθ,
+
+(ur∂r + uz ∂z )uz + ∂z p =
+
+(
+
+∂2 
+
+> r
+
++ 1
+
+r ∂r + ∂2
+
+> z
+
+)
+
+uz ,∂rur + ur
+
+r + ∂z uz = 0 .
+
+The corresponding vorticity equations are 
+
+
+
+(ur∂r + uz ∂z )ωr − (ωr∂r + ωz ∂z )ur =
+
+(
+
+∂2 
+
+> r
+
++ 1
+
+r ∂r + ∂2 
+
+> z
+
+− 1
+
+r2
+
+)
+
+ωr,
+
+(ur∂r + uz ∂z )ωθ − ur
+
+r ωθ − 1
+
+r ∂z (u2
+
+> θ
+
+) = 
+
+(
+
+∂2 
+
+> r
+
++ 1
+
+r ∂r + ∂2 
+
+> z
+
+− 1
+
+r2
+
+)
+
+ωθ,
+
+(ur∂r + uz ∂z )ωz − (ωr∂r + ωz ∂z )uz =
+
+(
+
+∂2 
+
+> r
+
++ 1
+
+r ∂r + ∂2
+
+> z
+
+)
+
+ωz .
+
+(2.1) We will use the following uniform estimate. Fix once and for all an exponent q∗ > 3. 
+
+Lemma 2.1. Let (u, p ) be a smooth solution of (1.1) , and set U := ∥u∥L∞(R3). Then U < ∞.Moreover, there exists a constant Creg = C(q∗, U ) < ∞, such that 
+
+sup 
+
+> x0∈R3
+
+(
+
+∥u∥W 4,q ∗ (B1(x0)) + ∥∇ p∥W 2,q ∗ (B1(x0)) 
+
+)
+
+≤ Creg ,
+
+and 
+
+sup 
+
+> x∈R3
+
+
+
+> 3
+
+∑
+
+> j=0
+
+|∇ j u(x)| +
+
+> 2
+
+∑
+
+> j=1
+
+|∇ j p(x)| +
+
+> 2
+
+∑
+
+> j=0
+
+|∇ j ω(x)|
+
+ ≤ Creg .
+
+The proof of this lemma relies only on standard interior estimates for the stationary Stokes system; see [Gal11, Chapter IV]. We will also use the following estimates from Carrillo–Pan–Zhang [CPZ20]. 
+
+Proposition 2.2 (see Theorem 1.1 and formula (3.18) in [CPZ20]) . Under the assumptions of Theorem 1.1, there exist R∗ = R∗(M ) ≥ 2 and A∗ = A∗(M ) > 0 such that, uniformly in z ∈ R and for r ≥ R∗,
+
+|u(r, z )| ≤ A∗r−1/2[log(e + r)] 1/2, (2.2) 
+
+|ωθ(r, z )| + |∇ ωθ(r, z )| ≤ A∗r−5/4[log(e + r)] 3/4,
+
+and 
+
+|ωr(r, z )| + |ωz (r, z )| ≤ A∗r−1 log(e + r).8 WENDONG WANG 1 AND GUOXU YANG 1,∗
+
+Moreover, 
+
+B∗ := sup 
+
+> 0≤r≤R∗, z ∈R
+
+|ωθ(r, z )| < ∞, (2.3) We next turn to the representation formulas that connect vorticity to velocity. 2.2. Representation formulas and singular-integral tools. In the following, we will use matrix-valued kernels K ∈ C1(R3 \ { 0}) satisfying 
+
+|K(x)| ≤ CK |x|−3, x̸ = 0 , (2.4) and ∫
+
+> ρ1<|x|<ρ 2
+
+K(x) dx = 0 (2.5) for every 0 < ρ 1 < ρ 2 < ∞. Every homogeneous Calder´ on–Zygmund kernel of degree −3 with zero spherical average has these properties. The arguments below use only (2.4) and (2.5). 
+
+Lemma 2.3. The following two forms of the Biot–Savart representation hold. 
+
+(i) Let u be a smooth D-solution of (1.1) , and let ω = curl u. Then, in the sense of distributions, 
+
+u(x) = 14π
+
+> ∫
+> R3
+
+ω(y) × (x − y)
+
+|x − y|3 dy. (2.6) 
+
+Whenever the integral is absolutely convergent, it agrees with the smooth representative of u and satisfies 
+
+|u(x)| ≤ C
+
+> ∫
+> R3
+
+|ω(y)||x − y|2 dy. (2.7) (ii) Assume that b ∈ C2(R3; R3) is bounded, b(x) → 0 as |x| → ∞ , div b = 0 , and F = curl b ∈
+
+C1(R3; R3) is bounded. Suppose that, for some 1 < a < 2, β ≥ 0, R∗ ≥ 2, and A > 0,
+
+|F (x′, z )| ≤ A|x′|−a[log(e + |x′|)] β , |x′| ≥ R∗, z ∈ R. (2.8) 
+
+Set 
+
+BF := sup 
+
+> |x′|≤ R∗, z ∈R
+
+|F (x′, z )| < ∞.
+
+Then 
+
+b(x) = 14π
+
+> ∫
+> R3
+
+F (y) × (x − y)
+
+|x − y|3 dy, (2.9) 
+
+the integral is absolutely convergent, and 
+
+|b(x′, z )| ≤ CA (1 + |x′|)1−a[log(e + |x′|)] β + CB F
+
+R2
+
+> ∗
+
+R∗ + |x′|. (2.10) NEW DECAY ESTIMATES AND LIOUVILLE TYPE THEOREMS 9
+
+Proof. For part (i), since ω ∈ L2(R3), the vector field v := curl( −∆) −1ω, initially defined in the distributional sense, belongs to L6(R3) by the Sobolev inequality. Moreover, div v = 0 and curl v = ω. Since u ∈ L6(R3) by (1.3), the difference h = u − v belongs to L6(R3) and satisfies div h = 0 and curl h = 0. Hence, 
+
+−∆h = curl(curl h) − ∇ (div h) = 0 .
+
+Since an L6 harmonic vector field on R3 is zero, we have u = v. This gives (2.6) in distribu-tions. Under absolute convergence, the distributional formula agrees pointwise with the smooth representative, and (2.7) follows immediately. For part (ii), write y = ( y′, s ) and integrate first in s. The local singularity is integrable in three dimensions, and ∣∣∣∣∣
+
+14π
+
+> ∫
+> R3
+
+F (y) × (x − y)
+
+|x − y|3 dy  
+
+> ∣∣∣∣∣
+
+≤ C
+
+> ∫
+> R2
+
+sup s∈R |F (y′, s )||x′ − y′| dy ′.
+
+The contribution of |y′| ≤ R∗ is bounded by CB F R2
+
+> ∗
+
+/(R∗ + |x′|), while (2.8) and Lemma A.1 control the exterior contribution by CA (1 + |x′|)1−a[log(e + |x′|)] β . This proves absolute convergence and (2.10). Denote the resulting vector field by BF . Since F = curl b, one has div F = 0, and the standard distributional identities give div BF = 0 and curl BF = F . Hence b − B F is a bounded harmonic vector field and therefore a constant. Hence (2.9) holds. □
+
+Part (ii) isolates the absolutely convergent representation needed in the axisymmetric argument. Differentiating that formula yields the derivative representation used below. 
+
+Lemma 2.4. Under the assumptions of Lemma 2.3 (ii) , for every i, k ∈ { 1, 2, 3} there exist con-stants Aijk and homogeneous Calder´ on–Zygmund kernels Kijk of degree −3 such that, 
+
+∂kbi(x) = Aijk Fj (x) + p . v.
+
+> ∫
+> R3
+
+Kijk (x − y)Fj (y) dy. (2.11) 
+
+Moreover, each Kijk satisfies (2.4) and (2.5) .
+
+This standard argument may be found, for example, in [BV22, Section 1.4] and [Ste93, Chapter II]. 2.3. Local analytic estimates. We first recall the scale-invariant Bogovskii estimate on AR.
+
+Lemma 2.5 (see [Bog80] or Chapter III, Theorem III.3.1 in [Gal11]) . For every R > 0, there exists a linear operator BR, whose choice is independent of q, such that, for every 1 < q < ∞,
+
+BR : Lq
+
+> 0
+
+(AR) −→ W 1,q  
+
+> 0
+
+(AR; R3), Lq
+
+> 0
+
+(AR) := 
+
+> {
+
+g ∈ Lq(AR) : 
+
+> ∫
+> AR
+
+g dx = 0 
+
+> }
+
+.
+
+Moreover, for every g ∈ Lq
+
+> 0
+
+(AR),
+
+div BRg = g in AR,10 WENDONG WANG 1 AND GUOXU YANG 1,∗
+
+and 
+
+∥∇B Rg∥Lq (AR) ≤ Cq∥g∥Lq (AR).
+
+The second tool is the localized Brezis–Gallouet inequality on the fixed nested domains in (1.17); see [BG80] and [CPZ20, Section 3]. 
+
+Lemma 2.6. Let V = ( V1, V 2) ∈ H2(˜D2). Then 
+
+∥V ∥L∞( ˜D3) ≤ C (
+
+1 + ∥V ∥H1( ˜D2)
+
+> ) [
+
+log (
+
+e + ∥ ˜∆V ∥L2( ˜D2)
+
+> )] 1/2
+
+,
+
+where ˜∆ = ∂2 
+
+> ˜r
+
++ ∂2 
+
+> ˜z
+
+, and C depends only on the fixed pair ˜D3 ⋐ ˜D2.
+
+The displayed form follows from the usual ratio form of the two-dimensional Brezis–Gallouet inequality after localization by a cut-off supported in ˜D2 and equal to one on ˜D3.3. New Calder´ on–Zygmund estimates for axisymmetric solutions 
+
+This section contains the two estimates responsible for the improved logarithmic powers in Theo-rem 1.1. We first combine rotational localization with shellwise kernel cancellation, and then derive the annular L2 control of ∇ωθ needed in the new Calder´ on–Zygmund estimate. 3.1. A new Calder´ on–Zygmund estimate. We begin with the geometric localization conse-quence of axisymmetry. 
+
+Lemma 3.1. Let g = g(r, z ) be an axisymmetric scalar function. Fix x0 = ( R, 0, z 0) and let 
+
+0 < s ≤ R/ 8. Then ∫
+
+> B2s(x0)
+
+|g(x)|2 dx ≤ C sR
+
+> ∫
+> Q′
+> R(z0)
+
+|g(x)|2 dx, (3.1) 
+
+where C is an absolute constant. Proof. Choose a sufficiently small absolute constant c0 > 0 and denote 
+
+N := max 
+
+> {
+
+1,
+
+> ⌊
+
+c0
+
+Rs
+
+> ⌋}
+
+.
+
+If N ≥ 2, choose xk = ( R cos θk, R sin θk, z 0) with θk = 2 πk/N , k = 1 , . . . , N . For j̸ = k,
+
+|xj − xk| = 2 R
+
+> ∣∣∣∣∣
+
+sin θj − θk
+
+2 
+
+> ∣∣∣∣∣
+
+.
+
+For adjacent centers, |xk+1 − xk| = 2 R sin( π/N ) ≥ 4R/N when N ≥ 2. Since N ≤ c0R/s , choosing 
+
+c0 ≤ 1/2 we have |xk+1 −xk| ≥ 8s. Hence, the balls B2s(xk), k = 1 , . . . , N are pairwise disjoint. Due to 2 s ≤ R/ 4, all of these balls lie in Q′
+
+> R
+
+(z0). Axisymmetry and rotational invariance of Lebesgue measure imply ∫ 
+
+> B2s(xk)
+
+|g|2 dx =
+
+> ∫
+> B2s(x0)
+
+|g|2 dx, NEW DECAY ESTIMATES AND LIOUVILLE TYPE THEOREMS 11 
+
+which implies 
+
+N
+
+> ∫
+> B2s(x0)
+
+|g|2 dx ≤
+
+> ∫
+> Q′
+> R(z0)
+
+|g|2 dx. 
+
+When c0R/s ≥ 2, one has N ≥ c0R/s − 1 ≥ c0R/ (2 s) and (3.1) follows. When c0R/s < 2, the ratio 
+
+s/R is bounded by c0/2, and B2s(x0) ⊂ Q ′
+
+> R
+
+(z0) gives (3.1) after enlarging C. □
+
+The packing estimate is now combined with the kernel assumptions introduced in (2.4)–(2.5). Let 
+
+K be a matrix-valued convolution kernel satisfying those assumptions. For an axisymmetric scalar function f = f (r, z ), define F (x) = f (r, z )eθ(x). The following estimate is the main singular-integral input for the meridional velocity-gradient bound. 
+
+Lemma 3.2. Let 0 < a < 2, β ≥ 0, and R∗ ≥ 2. Suppose that f = f (r, z ) belongs to C1([0 , ∞) × R)
+
+and that the azimuthal vector field F = f e θ, initially defined for r > 0, extends to a C1 vector field on R3. Assume that 
+
+|f (r, z )| + |∇ f (r, z )| ≤ Ar −a[log(e + r)] β , r ≥ R∗, z ∈ R, (3.2) 
+
+and 
+
+B∗ := sup 
+
+> 0≤r≤R∗, z ∈R
+
+|f (r, z )| < ∞. (3.3) 
+
+Fix x0 = ( R, 0, z 0) with R ≥ max {32 , 2R∗} and define 
+
+GR(z0) := ∥∇ f ∥L2(Q′
+
+> R(z0))
+
+. (3.4) 
+
+Then, 
+
+> ∣∣∣∣
+
+p. v.
+
+> ∫
+> R3
+
+K(x0 − y)F (y) dy  
+
+> ∣∣∣∣
+
+≤ CAR −a[log(e + R)] β + CB ∗R2
+
+> ∗
+
+R−2 + CR −1/2 log(e + R) GR(z0),
+
+where C depends only on a, β and the kernel constants CK .Proof. Write the integral as I = Inear + Imid + Ifar , corresponding respectively to |x0 − y| ≤ 1, 1 < |x0 − y| < R/ 8, and |x0 − y| ≥ R/ 8. 
+
+Estimate of Inear . Note R ≥ R∗ + 1. For |x0 − y| ≤ 1, one has R − 1 ≤ r(y) ≤ R + 1, and hence 
+
+r(y) ≥ R∗ and r(y) ∼ R. By (2.5), we have 
+
+Inear = lim 
+
+> ε→0+
+> ∫
+> ε< |x0−y|≤ 1
+
+K(x0 − y)F (y) dy = lim 
+
+> ε→0+
+> ∫
+> ε< |x0−y|≤ 1
+
+K(x0 − y)(
+
+F (y) − F (x0))
+
+dy. 
+
+For t ∈ [0 , 1], let ξt = x0 + t(y − x0). Then |ξt − x0| ≤ 1, and therefore R − 1 ≤ r(ξt) ≤ R + 1 for 
+
+r(ξt) ≥ R∗. Using (3.2) and 
+
+|∇ F (ξt)| ≤ C
+
+> (
+
+|∇ r,z f (ξt)| + |f (ξt)|
+
+r(ξt)
+
+> )
+
+,
+
+we obtain 
+
+|∇ F (ξt)| ≤ CAR −a[log(e + R)] β12 WENDONG WANG 1 AND GUOXU YANG 1,∗
+
+uniformly for t ∈ [0 , 1]. Hence, we obtain 
+
+|F (y) − F (x0)| ≤ | y − x0|
+
+∫ 10
+
+|∇ F (ξt)| dt ≤ CAR −a[log(e + R)] β |x0 − y|,
+
+which implies 
+
+|Inear | ≤ CAR −a[log(e + R)] β
+
+∫
+
+> |h|≤ 1
+
+|h|−2 dh ≤ CAR −a[log(e + R)] β . (3.5) 
+
+Estimate of Imid . Choose J ≥ 0 such that 2 J < R/ 8 ≤ 2J+1 . For 0 ≤ j ≤ J − 1, let sj = 2 j
+
+and Ej = {sj < |x0 − y| ≤ 2sj }; let sJ = 2 J and EJ = {sJ < |x0 − y| < R/ 8}. Then Ej ⊂
+
+B2sj (x0) \ Bsj (x0) and sj ≤ R/ 8. Denote mj := |B2sj |−1 ∫  
+
+> B2sj(x0)
+
+f (y) dy . By (2.5), we have 
+
+∫
+
+> Ej
+
+K(x0 − y)mj eθ(x0) dy = 0 ,
+
+which implies ∫
+
+> Ej
+
+K(x0 − y)F (y) dy =
+
+∫
+
+> Ej
+
+K(x0 − y)( f (y) − mj )eθ(x0) dy 
+
++
+
+∫
+
+> Ej
+
+K(x0 − y)f (y)( eθ(y) − eθ(x0)) dy 
+
+=: I(1)  
+
+> j
+
++ I(2)  
+
+> j
+
+.
+
+For I(1)  
+
+> j
+
+, by H¨ older’s inequality we have 
+
+|I(1)  
+
+> j
+
+| ≤ ∥ K(x0 − · )∥L2(Ej )∥f − mj ∥L2(Ej ) ≤ CR −1/2GR(z0),
+
+where we used that the kernel estimate gives 
+
+∥K(x0 − · )∥L2(Ej ) ≤ Cs −3/2 
+
+> j
+
+,
+
+and that the Poincar´ e inequality and Lemma 3.1 give 
+
+∥f − mj ∥L2(Ej ) ≤ ∥ f − mj ∥L2(B2sj (x0)) ≤ Cs j ∥∇ r,z f ∥L2(B2sj (x0)) ≤ Cs j
+
+( sj
+
+R
+
+)1/2
+
+GR(z0).
+
+Therefore, from J + 1 ≤ C log(e + R) we infer that 
+
+> J
+
+∑
+
+> j=0
+
+|I(1)  
+
+> j
+
+| ≤ CR −1/2 log(e + R) GR(z0). (3.6) For y ∈ Ej , j = 0 , · · · J, one has R∗ ≤ 7R/ 8 ≤ r ≤ 9R/ 8. Thus, writing y′ = ( r cos φ, r sin φ) and 
+
+x′ 
+
+> 0
+
+= ( R, 0), we have 
+
+|eθ(y) − eθ(x0)| = |(− sin φ, cos φ) − (0 , 1) | = 2 | sin φ
+
+2 | ≤ |x′ 
+
+> 0
+
+− y′|√rR ≤ C |x0 − y|
+
+R ≤ C sj
+
+R , (3.7) NEW DECAY ESTIMATES AND LIOUVILLE TYPE THEOREMS 13 
+
+where we used that 
+
+|x′ 
+
+> 0
+
+− y′|2 = R2 + r2 − 2rR cos φ = ( R − r)2 + 4 Rr sin 2 φ
+
+2 ≥ 4Rr sin 2 φ
+
+2 .
+
+It follows from (2.4), (3.2) and (3.7) that 
+
+|I(2)  
+
+> j
+
+| ≤ CAR −a[log(e + R)] β sj
+
+R
+
+∫
+
+> Ej
+
+|x0 − y|−3 dy ≤ CAR −a[log(e + R)] β sj
+
+R .
+
+Hence, by ∑Jj=0 sj = 2 J+1 − 1 ≤ CR we have 
+
+> J
+
+∑
+
+> j=0
+
+|I(2)  
+
+> j
+
+| ≤ CAR −a[log(e + R)] β . (3.8) Combining (3.6) and (3.8), we have 
+
+|Imid | ≤ CAR −a[log(e + R)] β + CR −1/2 log(e + R) GR(z0). (3.9) 
+
+Estimate of Ifar . For the far field, write y = ( y′, k ) and ρ = |y′|, and split it into Ω1 = {ρ ≥ 2R}, Ω2 = {ρ ≤ R/ 2}, Ω3 = {R/ 2 < ρ < 2R, |x0 − y| ≥ R/ 8}.
+
+On Ω 1, we have |x′ 
+
+> 0
+
+− y′| ≥ ρ − R ≥ ρ/ 2. By (2.4), (3.2), and cylindrical coordinates, we obtain 
+
+∫
+
+> Ω1
+
+|K(x0 − y)|| F (y)|dy ≤ CA 
+
+∫ ∞
+
+> 2R
+
+∫ 2π
+
+> 0
+
+ρ−a[log(e + ρ)] β ρρ2 dφdρ 
+
+≤ CA 
+
+∫ ∞
+
+> 2R
+
+ρ−a−1[log(e + ρ)] β dρ 
+
+≤ CAR −a[log(e + R)] β , (3.10) where we used that ∫
+
+> R
+
+dk 
+
+(|x′ 
+
+> 0
+
+− y′|2 + ( z0 − k)2)3/2 = 2
+
+|x′ 
+
+> 0
+
+− y′|2 . (3.11) On Ω 2, |x′ 
+
+> 0
+
+− y′| ≥ R/ 2. Splitting the radial integral at R∗ and using (3.3) on the inner part and (3.2) on the outer part, we obtain 
+
+∫
+
+> Ω2
+
+|K(x0 − y)|| F (y)| dy ≤ CB ∗R−2
+
+∫ R∗
+
+> 0
+
+ρ dρ + CAR −2
+
+∫ R/ 2
+
+> R∗
+
+ρ1−a[log(e + ρ)] β dρ 
+
+≤ CB ∗R2
+
+> ∗
+
+R−2 + CAR −a[log(e + R)] β , (3.12) where (3.11) and a < 2 are used. Finally, on Ω 3, one scales y = x0 + R˜y and has 
+
+∫
+
+> Ω3
+
+|x0 − y|−3 dy =
+
+∫
+
+> 1/2<|e1+
+
+˜y′|<2, |˜y|≥ 1/8
+
+|˜y|−3 d˜y ≤
+
+∫
+
+> |
+
+˜y′|<3, |˜y|≥ 1/8
+
+|˜y|−3 d˜y. 14 WENDONG WANG 1 AND GUOXU YANG 1,∗
+
+We split the last integral into the regions |˜y3| ≤ 1 and |˜y3| > 1. On the first region, the condition 
+
+|˜y| ≥ 1/8 removes the singularity at the origin, and therefore 
+
+∫
+
+> |
+
+˜y′|<3, |˜y3|≤ 1, |˜y|≥ 1/8
+
+|˜y|−3 d˜y ≤ C. 
+
+On the second region, by |˜y| ≥ | ˜y3| we have 
+
+∫
+
+> |
+
+˜y′|<3, |˜y3|>1
+
+|˜y|−3 d˜y ≤ C
+
+∫
+
+> |t|>1
+
+|t|−3 dt ≤ C. 
+
+Thus, we have ∫
+
+> Ω3
+
+|x0 − y|−3 dy ≤ C, 
+
+which, together with (3.2), implies 
+
+∫
+
+> Ω3
+
+|K(x0 − y)|| F (y)| dy ≤ CAR −a[log(e + R)] β . (3.13) Combining (3.10), (3.12), and (3.13), we obtain 
+
+|Ifar | ≤ CAR −a[log(e + R)] β + CB ∗R2
+
+> ∗
+
+R−2. (3.14) Adding (3.5), (3.9), and (3.14) together, we complete the proof. □
+
+3.2. Annular estimates for the azimuthal vorticity. We next estimate the quantity GR(z0)appearing in Lemma 3.2. Recall that QR(z0) and Q′
+
+> R
+
+(z0) are the nested cylinders defined in (1.16). 
+
+Lemma 3.3. Let R ≥ 2, z0 ∈ R, and UR(z0) := ∥u∥L∞(QR(z0)) . Then 
+
+∥∇ ωθ∥2 
+
+> L2(Q′
+> R(z0))
+
+≤ CR −2(
+
+1 + RU R(z0))
+
+∥(ωr, ω θ)∥2
+
+> L2(QR(z0))
+
+. (3.15) 
+
+Proof. Translate z0 to zero and use the scaling 
+
+˜x = xR , ˜u(˜x) = Ru (R˜x), ˜ω(˜x) = R2ω(R˜x).
+
+The cylinders QR(z0) and Q′
+
+> R
+
+(z0) then become the fixed cylinders ˜Q1 and ˜Q2 defined after (1.17). Choose an axisymmetric cut-off ψ ∈ C∞ 
+
+> c
+
+( ˜Q1) such that ψ = 1 on ˜Q2 and |∇ ψ| ≤ C.For simplicity, we drop tildes during the following fixed-scale calculation. Multiplying the ωθ
+
+equation in (2.1) by −ωθψ2 and integrating in ˜Q1 give 
+
+∫
+
+|∇ (ωθψ)|2 dx +
+
+∫ ω2 
+
+> θ
+
+ψ2
+
+r2 dx =
+
+∫
+
+ω2 
+
+> θ
+
+|∇ ψ|2 dx + 12
+
+∫
+
+ω2 
+
+> θ
+
+(ur∂r + uz ∂z )( ψ2) dx 
+
++
+
+∫ ur
+
+r ω2 
+
+> θ
+
+ψ2 dx − 2
+
+∫ uθωrωθ
+
+r ψ2 dx. (3.16) NEW DECAY ESTIMATES AND LIOUVILLE TYPE THEOREMS 15 
+
+Here, the transport term has been integrated by parts using div b = 0 and we have used r−1∂z (u2
+
+> θ
+
+) = 
+
+−2r−1uθωr. Since 1 /2 < r < 3/2 on the support of ψ and |∇ ψ| ≤ C, the four terms on the right-hand side of (3.16) satisfy ∫
+
+ω2 
+
+> θ
+
+|∇ ψ|2 dx ≤ C∥ωθ∥2 
+
+> L2(
+
+˜Q1),
+
+∣∣∣∣
+
+12
+
+∫
+
+ω2 
+
+> θ
+
+b · ∇ (ψ2) dx 
+
+∣∣∣∣ ≤ C∥u∥L∞( ˜Q1)∥ωθ∥2 
+
+> L2(
+
+˜Q1),
+
+∣∣∣∣∫ ur
+
+r ω2 
+
+> θ
+
+ψ2 dx 
+
+∣∣∣∣ ≤ C∥u∥L∞( ˜Q1)∥ωθ∥2 
+
+> L2(
+
+˜Q1),
+
+and ∣∣∣∣2
+
+∫ uθωrωθ
+
+r ψ2 dx 
+
+∣∣∣∣ ≤ C∥u∥L∞( ˜Q1)
+
+(
+
+∥ωr∥2 
+
+> L2(
+
+˜Q1) + ∥ωθ∥2 
+
+> L2(
+
+˜Q1)
+
+)
+
+.
+
+Consequently, the left-hand side of (3.16) is bounded by C(1 + ∥u∥L∞( ˜Q1))∥(ωr, ω θ)∥2 
+
+> L2(
+
+˜Q1). This implies 
+
+∥∇ ˜ωθ∥2 
+
+> L2(
+
+˜Q2) ≤ C(
+
+1 + ∥˜u∥L∞( ˜Q1)
+
+)
+
+∥(˜ωr, ˜ωθ)∥2 
+
+> L2(
+
+˜Q1). (3.17) The scaling relations are 
+
+∥∇ ˜ωθ∥2 
+
+> L2(
+
+˜Q2) = R3∥∇ ωθ∥2
+
+> L2(Q′
+> R(z0))
+
+,
+
+∥(˜ωr, ˜ωθ)∥2 
+
+> L2(
+
+˜Q1) = R∥(ωr, ω θ)∥2
+
+> L2(QR(z0))
+
+, ∥˜u∥L∞( ˜Q1) = RU R(z0).
+
+Substituting these identities into (3.17) gives (3.15). □
+
+Combining this localized energy inequality with the annular hypothesis and the known velocity decay gives the quantitative bound required in Lemma 3.2. 
+
+Corollary 3.4. Under the assumptions of Theorem 1.1, we have 
+
+∥∇ ωθ∥L2(Q′ 
+
+> R(z0))
+
+≤ C(M )R−3/4[log(e + R)] 1/4
+
+for all R ≥ 2R∗, uniformly in z0 ∈ R.Proof. Since QR(z0) ⊂ A R/ 2 ∪ A R and |ω| ≤ C|∇ u|, the annular assumption (1.6) implies that for 
+
+R ≥ 2, 
+
+∥(ωr, ω θ)∥2 
+
+> L2(QR(z0))
+
+≤ CM. 
+
+By (2.2), we have for R ≥ 2R∗,
+
+UR(z0) ≤ C(M )R−1/2[log(e + R)] 1/2.
+
+Lemma 3.3 therefore yields that for R ≥ 2R∗,
+
+∥∇ ωθ∥2 
+
+> L2(Q′
+> R(z0))
+
+≤ C(M )R−2 (
+
+1 + R1/2[log(e + R)] 1/2)
+
+≤ C(M )R−3/2[log(e + R)] 1/2.
+
+□16 WENDONG WANG 1 AND GUOXU YANG 1,∗
+
+3.3. Proof of Theorem 1.1. 
+
+Proof of Theorem 1.1. Let 
+
+b = urer + uz ez , F = ωθeθ.
+
+Then div b = 0, curl b = F , and div F = 0. 
+
+Improved decay of the meridional velocity gradient. We first prove (1.9). Note x0 = ( R, 0, z 0). By Proposition 2.2, Lemma 3.2 applies to f = ωθ with 
+
+a = 54, β = 34, A = A∗(M ),
+
+and with the fixed core radius R∗ and core bound B∗ from (2.3). Moreover, Corollary 3.4 shows that the quantity GR(z0) defined in (3.4) satisfies 
+
+GR(z0) ≤ C(M )R−3/4[log(e + R)] 1/4, R ≥ 2R∗. (3.18) Since b is bounded and vanishes at infinity, while F = curl b is smooth, bounded, and satisfies (2.8) by Proposition 2.2, all the hypotheses of Lemma 2.4 are satisfied. Hence, by (2.11), 
+
+∂kbi(x0) = Aijk Fj (x0) + p . v.
+
+> ∫
+> R3
+
+Kijk (x0 − y)Fj (y) dy. (3.19) Since |F (x0)| = |ωθ(x0)|, we infer from Proposition 2.2 that for R ≥ R∗,
+
+|Aijk Fj (x0)| ≤ C(M )R−5/4[log(e + R)] 3/4. (3.20) Applying Lemma 3.2, for R ≥ max {32 , 2R∗} we have 
+
+> ∣∣∣∣
+
+p. v.
+
+> ∫
+> R3
+
+Kijk (x0 − y)Fj (y) dy  
+
+> ∣∣∣∣
+
+≤ C(M )R−5/4[log(e + R)] 3/4 + CB ∗R2
+
+> ∗
+
+R−2
+
++ CR −1/2[log(e + R)] GR(z0). (3.21) The last term is precisely where the improved logarithmic power enters. Indeed, by (3.18), we have 
+
+R−1/2[log(e + R)] GR(z0) ≤ C(M )R−1/2[log(e + R)] R−3/4[log(e + R)] 1/4
+
+= C(M )R−5/4[log(e + R)] 5/4. (3.22) Combining (3.19)–(3.22), we obtain 
+
+|∇ b(x0)| ≤ C(M )R−5/4[log(e + R)] 5/4 + CB ∗R2
+
+> ∗
+
+R−2, R ≥ max {32 , 2R∗}. (3.23) Since 
+
+R−2 = o(
+
+R−5/4[log(e + R)] 5/4)
+
+, as R → ∞ ,
+
+we may choose R3 = R3(M, u ) ≥ max {32 , 2R∗} sufficiently large so that the core term in (3.23) is absorbed for every R ≥ R3. Consequently, 
+
+|∇ b(x0)| ≤ C(M )R−5/4[log(e + R)] 5/4, R ≥ R3. (3.24) NEW DECAY ESTIMATES AND LIOUVILLE TYPE THEOREMS 17 
+
+Note that 
+
+|∂rur| + |∂z ur| + |∂ruz | + |∂z uz | ≤ C(
+
+|∂rb| + |∂z b|)
+
+≤ C|∇ b|,
+
+which, along with (3.24), gives 
+
+|∂rur(R, z 0)| + |∂z ur(R, z 0)| + |∂ruz (R, z 0)| + |∂z uz (R, z 0)| ≤ C(M )R−5/4[log(e + R)] 5/4.
+
+This is (1.9). 
+
+Improved decay of the meridional vorticity. We next prove (1.10). Fix R > 0 and z0 ∈ R,and introduce the scaling 
+
+˜x′ = x′
+
+R , ˜z = z − z0
+
+R , ˜u(˜x) = Ru (x′, z ), ˜ω(˜x) = R2ω(x′, z ).
+
+Under this, QR(z0), Q′
+
+> R
+
+(z0), and Q′′ 
+
+> R
+
+(z0) become the fixed cylinders ˜Q1, ˜Q2, and ˜Q3 introduced after (1.17). Their meridional sections satisfy ˜D3 ⋐ ˜D2 ⋐ ˜D1 with fixed positive separation distances. For an axisymmetric scalar function h = h(˜r, ˜z), we have 
+
+∥h∥2 
+
+> L2(
+
+˜Qj ) = 2 π
+
+∫˜Dj
+
+|h(˜r, ˜z)|2 ˜r d ˜r d ˜z, j = 1 , 2, 3. (3.25) The same identity holds for meridional derivatives. Let ˜W := ( ˜ωr, ˜ωz ) and ˜Um := ( ˜ur, ˜uz ). Repeating the fixed-scale localized energy argument of [CPZ20, formula (3.10)], with a cut-off ψ ∈ C∞ 
+
+> c
+
+( ˜Q1) satisfying ψ = 1 on ˜Q2, gives 
+
+∥˜∇ ˜W ∥2 
+
+> L2(
+
+˜D2) ≤ C (
+
+1 + ∥ ˜Um∥L∞( ˜Q1) + ∥˜∇ ˜Um∥L∞( ˜Q1)
+
+)
+
+∥ ˜W ∥2 
+
+> L2(
+
+˜Q1). (3.26) The constant depends only on the fixed separation of ˜Q2 from ∂ ˜Q1. The proof follows by testing the scaled ωr and ωz equations against ωrψ2 and ωz ψ2, integrating the transport terms by parts, and estimating the stretching and cut-off terms as in [CPZ20, (3.5), (3.8), and (3.10)]. Since ˜D2 ⊂ ˜D1,(3.25) gives ∥ ˜W ∥L2( ˜D2) ≤ C∥ ˜W ∥L2( ˜Q1). Together with (3.26), this implies 
+
+∥ ˜W ∥H1( ˜D2) ≤ C
+
+(
+
+1 + ∥ ˜Um∥1/2 
+
+> L∞(
+
+˜Q1) + ∥˜∇ ˜Um∥1/2 
+
+> L∞(
+
+˜Q1)
+
+)
+
+∥ ˜W ∥L2( ˜Q1). (3.27) Combining Lemma 2.6 with (3.27), we obtain 
+
+∥ ˜W ∥L∞( ˜Q3) ≤ C ˜Hm
+
+[
+
+log (
+
+e + ∥ ˜∆ ˜W ∥L2( ˜Q2)
+
+)] 1/2
+
+, (3.28) where 
+
+˜Hm := 1 + 
+
+(
+
+1 + ∥ ˜Um∥1/2 
+
+> L∞(
+
+˜Q1) + ∥˜∇ ˜Um∥1/2 
+
+> L∞(
+
+˜Q1)
+
+)
+
+∥ ˜W ∥L2( ˜Q1).
+
+For simplicity, define 
+
+Wm(R, z 0) := ∥(ωr, ω z )∥L∞(Q′′ 
+
+> R(z0))
+
+,Um(R, z 0) := ∥(ur, u z )∥L∞(QR(z0)) , Gm(R, z 0) := ∥(∇r,z ur, ∇r,z uz )∥L∞(QR(z0)) ,Em(R, z 0) := ∥(ωr, ω z )∥L2(QR(z0)) , Dm(R, z 0) := ∥(∆ r,z ωr, ∆r,z ωz )∥L2(Q′
+
+> R(z0))
+
+.18 WENDONG WANG 1 AND GUOXU YANG 1,∗
+
+The scaling relations are 
+
+∥ ˜W ∥L∞( ˜Q3) = R2Wm, ∥ ˜W ∥L2( ˜Q1) = R1/2Em,
+
+∥ ˜Um∥L∞( ˜Q1) = RU m, ∥˜∇ ˜Um∥L∞( ˜Q1) = R2Gm,
+
+and 
+
+∥ ˜∆ ˜W ∥L2( ˜Q2) = R5/2Dm.
+
+Consequently, we infer from (3.28) that 
+
+R2Wm(R, z 0) ≤ CH m(R, z 0) [
+
+log (
+
+e + R5/2Dm(R, z 0))] 1/2
+
+, (3.29) where 
+
+Hm(R, z 0) := 1 + R1/2 (
+
+1 + R1/2Um(R, z 0)1/2 + RG m(R, z 0)1/2)
+
+Em(R, z 0). (3.30) Since QR(z0) ⊂ A R/ 2 ∪ A R and |ω| ≤ C|∇ u|, (1.6) gives for R ≥ 2, 
+
+Em(R, z 0) ≤ C(M ). (3.31) For Dm, note 
+
+|∆r,z ωr| + |∆r,z ωz | ≤ C
+
+> 2
+
+∑
+
+> j=0
+
+|∇ j ω|
+
+on Q′
+
+> R
+
+(z0). Lemma 2.1 and |Q ′
+
+> R
+
+(z0)| ≤ CR 3 then imply 
+
+Dm(R, z 0) ≤ CC reg R3/2. (3.32) If R ≥ 2R3, then every point of QR(z0) has radial coordinate comparable with R and at least max {R∗, R 3}. Hence (2.2) and (1.9) give 
+
+Um(R, z 0) ≤ C(M )R−1/2[log(e + R)] 1/2, Gm(R, z 0) ≤ C(M )R−5/4[log(e + R)] 5/4. (3.33) Combining (3.30), (3.31), and (3.33), we obtain 
+
+Hm(R, z 0) ≤ C(M ) (
+
+1 + R1/2 + R3/4[log(e + R)] 1/4 + R7/8[log(e + R)] 5/8)
+
+≤ C(M )R. 
+
+Set RD := max {2, CC reg }. For R ≥ RD, (3.32) gives R5/2Dm(R, z 0) ≤ R5. Consequently, for 
+
+R ≥ max {2R3, R D}, we have 
+
+[
+
+log (
+
+e + R5/2Dm(R, z 0))] 1/2
+
+≤ C[log(e + R)] 1/2. (3.34) Substituting (3.31) and (3.34) into (3.29), and using (3.30), we have 
+
+Wm(R, z 0) ≤ C(M )R−2[log(e + R)] 1/2
+
++ C(M )R−3/2[log(e + R)] 1/2 (
+
+1 + R1/2Um(R, z 0)1/2 + RG m(R, z 0)1/2)
+
+.
+
+The velocity contribution satisfies 
+
+R−3/2[log(e + R)] 1/2R1/2Um(R, z 0)1/2 ≤ C(M )R−5/4[log(e + R)] 3/4,NEW DECAY ESTIMATES AND LIOUVILLE TYPE THEOREMS 19 
+
+whereas the gradient contribution, using (1.9), satisfies 
+
+R−3/2[log(e + R)] 1/2RG m(R, z 0)1/2 ≤ C(M )R−9/8[log(e + R)] 9/8.
+
+Therefore, 
+
+Wm(R, z 0) ≤ C(M )R−9/8[log(e + R)] 9/8.
+
+Finally, choose R0 ≥ max {2R3, R D}. Given any point ( r, θ, z ) with r ≥ R0, take R = r and 
+
+z0 = z. Then ( r, θ, z ) ∈ Q ′′ 
+
+> R
+
+(z0), and therefore 
+
+|ωr(r, z )| + |ωz (r, z )| ≤ C(M )r−9/8[log(e + r)] 9/8.
+
+This completes the proof. □
+
+4. Logarithmic endpoint Liouville criteria 
+
+In this section, we first obtain a radial-envelope criterion, and then transfer the assumed cylin-drical vorticity decay to the critical velocity decay. 4.1. A radial-envelope criterion. Recall the spherical balls BR and annuli AR from (1.15). The Bogovskii operator from Lemma 2.5 permits a divergence-free cutoff and removes the pressure term. 
+
+Lemma 4.1. Let u be a smooth solution of (1.1) . Then 
+
+> ∫
+> BR
+
+|∇ u|2 dx ≤ C
+
+> ∫
+> AR
+
+|∇ u|2 dx + CR2
+
+> ∫
+> AR
+
+|u|2 dx + CR
+
+> ∫
+> AR
+
+|u|3 dx. (4.1) 
+
+Proof. Choose ηR ∈ C∞ 
+
+> c
+
+(B2R) such that 0 ≤ ηR ≤ 1, ηR = 1 on BR, and |∇ ηR| ≤ C/R . Set 
+
+gR := u · ∇ ηR. Since div u = 0 and ηRu is compactly supported, we have 
+
+> ∫
+> AR
+
+gR dx =
+
+> ∫
+> R3
+
+div( ηRu) dx = 0 .
+
+Let wR be the Bogovskii correction associated with gR. Since gR ∈ L2(AR) ∩ L3(AR), we infer from Lemma 2.5 that div wR = gR, ∥∇ wR∥Lq (AR) ≤ Cq
+
+R ∥u∥Lq (AR), q = 2 , 3. (4.2) Extend wR by zero outside AR (still denoted by wR) and define φR := ηRu − wR. Then φR is compactly supported and divergence free. By density, it is an admissible test function for (1.1); hence the pressure term vanishes and 
+
+> ∫
+> R3
+
+∇u : ∇φR dx +
+
+> ∫
+> R3
+
+(u · ∇ )u · φR dx = 0 . (4.3) The diffusion term in (4.3) expands as 
+
+> ∫
+> R3
+
+∇u : ∇φR dx =
+
+> ∫
+> R3
+
+ηR|∇ u|2 dx +
+
+> ∫
+> AR
+
+∇u : ( u ⊗ ∇ ηR) dx −
+
+> ∫
+> AR
+
+∇u : ∇wR dx. (4.4) 20 WENDONG WANG 1 AND GUOXU YANG 1,∗
+
+Using (4.2) with q = 2, we obtain 
+
+∣∣∣∣∫
+
+> AR
+
+∇u : ( u ⊗ ∇ ηR) dx 
+
+∣∣∣∣ +
+
+∣∣∣∣∫
+
+> AR
+
+∇u : ∇wR dx 
+
+∣∣∣∣ ≤ CR ∥∇ u∥L2(AR)∥u∥L2(AR)
+
+≤ C∥∇ u∥2 
+
+> L2(AR)
+
++ CR2 ∥u∥2
+
+> L2(AR)
+
+. (4.5) For the convection term containing ηRu, incompressibility and integration by parts give 
+
+∫
+
+> R3
+
+(u · ∇ )u · (ηRu) dx = −12
+
+∫
+
+> AR
+
+|u|2u · ∇ ηR dx, 
+
+and therefore ∣∣∣∣∫
+
+> R3
+
+(u · ∇ )u · (ηRu) dx 
+
+∣∣∣∣ ≤ CR
+
+∫
+
+> AR
+
+|u|3 dx. (4.6) Finally, using div u = 0, the zero trace of wR, and (4.2) with q = 3, we integrate by parts to obtain 
+
+∣∣∣∣∫
+
+> AR
+
+(u · ∇ )u · wR dx 
+
+∣∣∣∣ =
+
+∣∣∣∣∫
+
+> AR
+
+u ⊗ u : ∇wR dx 
+
+∣∣∣∣
+
+≤ ∥ u∥2
+
+> L3(AR)
+
+∥∇ wR∥L3(AR) ≤ CR ∥u∥3
+
+> L3(AR)
+
+. (4.7) Substituting (4.4), (4.5), (4.6), and (4.7) into (4.3), and using ηR = 1 on BR, proves (4.1). □
+
+With the pressure-free estimate established, we next prove Proposition 1.4 and its logarithmic endpoint consequence, Theorem 1.5. 
+
+Proof of Proposition 1.4. Fix r∗ > 1 and split the annulus into 
+
+Ain  
+
+> R
+
+(r∗) := AR ∩ { r ≤ r∗}, Aout  
+
+> R
+
+(r∗) := AR ∩ { r > r ∗}.
+
+For R > 2r∗, every point in Ain  
+
+> R
+
+(r∗) satisfies |z| ≥ √
+
+R2 − r2 
+
+> ∗
+
+. Consequently, by the uniform vanishing of u at spatial infinity, we have 
+
+εR(r∗) := sup  
+
+> Ain
+> R(r∗)
+
+|u| −→ 0, as R → ∞ , (4.8) for every fixed r∗. Moreover, |Ain  
+
+> R
+
+(r∗)| ≤ Cr 2 
+
+> ∗
+
+R. Hence, it follows from (4.8) that 1
+
+R
+
+∫ 
+
+> Ain
+> R(r∗)
+
+|u|3 dx ≤ Cr 2 
+
+> ∗
+
+εR(r∗)3 −→ 0 (4.9) and 1
+
+R2
+
+∫ 
+
+> Ain
+> R(r∗)
+
+|u|2 dx ≤ Cr 2
+
+> ∗
+
+R εR(r∗)2 −→ 0. (4.10) For the outer part, |z| ≤ √
+
+4R2 − r2 
+
+> ∗
+
+≤ 2R. Recalling the definition of H in (1.11), we have 1
+
+R
+
+∫ 
+
+> Aout
+> R(r∗)
+
+|u|3 dx ≤ C
+
+∫ 2Rr∗
+
+rH (r)3 dr ≤ C
+
+∫ ∞
+
+> r∗
+
+rH (r)3 dr. (4.11) NEW DECAY ESTIMATES AND LIOUVILLE TYPE THEOREMS 21 
+
+Similarly, H¨ older’s inequality yields 1
+
+R2
+
+∫ 
+
+> Aout
+> R(r∗)
+
+|u|2 dx ≤ CR
+
+∫ 2Rr∗
+
+rH (r)2 dr ≤ CR
+
+(∫ 2Rr∗
+
+rH (r)3 dr 
+
+)2/3 (∫ 2Rr∗
+
+r dr 
+
+)1/3
+
+≤ CR −1/3
+
+(∫ ∞
+
+> r∗
+
+rH (r)3 dr 
+
+)2/3
+
+−→ 0 (4.12) as R → ∞ . Applying Lemma 4.1, using ∇u ∈ L2(R3) and (4.9)–(4.12), and letting R → ∞ , we obtain 
+
+∫
+
+> R3
+
+|∇ u|2 dx ≤ C lim 
+
+> R→∞
+
+∫
+
+> AR
+
+|∇ u|2 dx + lim 
+
+> R→∞
+
+CR2
+
+∫
+
+> AR
+
+|u|2 dx + lim 
+
+> R→∞
+
+CR
+
+∫
+
+> AR
+
+|u|3 dx ≤ C
+
+∫ ∞
+
+> r∗
+
+rH (r)3 dr. 
+
+Hence, by letting r∗ → ∞ in the above inequality and using (1.12), we conclude that ∫ 
+
+> R3
+
+|∇ u|2 dx = 0. Thus u is constant, and the condition u(x) → 0 as |x| → ∞ implies u ≡ 0. □
+
+Proof of Theorem 1.5. By (1.13), one has 
+
+∫ ∞
+
+> 1
+
+rH (r)3 dr ≤ C
+
+∫ ∞
+
+> 1
+
+dr r[log(e + r)] 3γ .
+
+The last integral is finite when 3 γ > 1. The conclusion then follows from Proposition 1.4. □
+
+4.2. Logarithmic decay transfer from vorticity to velocity and proof of Theorem 1.6. 
+
+We now prove that the logarithmic factor in a cylindrical vorticity assumption is preserved when one passes from ω to u.
+
+Proposition 4.2. Let u be a smooth D-solution of (1.1) , let ω = curl u, and suppose that, for some 
+
+1 < β < 2 and γ ≥ 0,
+
+sup 
+
+> |x′|=rz∈R
+
+|ω(x′, z )| ≤ Cr −β L(r)−γ , r ≥ 1. (4.13) 
+
+Then 
+
+sup 
+
+> |x′|=rz∈R
+
+|u(x′, z )| ≤ Cr 1−β L(r)−γ , r ≥ 4. (4.14) 
+
+Proof. Let x = ( x′, z ) with r = |x′| ≥ 4 and write y = ( y′, k ). Since |ω| ≤ C|∇ u|, the D-condition gives ω ∈ L2(R3). By Lemma 2.3(i), we have 
+
+|u(x)| ≤ C
+
+∫
+
+> |y′|≤ 1
+
+|ω(y′, k )||x′ − y′|2 + ( z − k)2 dy ′dk + C
+
+∫
+
+> |y′|>1
+
+|ω(y′, k )||x′ − y′|2 + ( z − k)2 dy ′dk 
+
+=: C(I0 + I1).
+
+For I0, by ∫
+
+> R
+
+ds 
+
+(a2 + s2)2 = π
+
+2a3 , a > 0,22 WENDONG WANG 1 AND GUOXU YANG 1,∗
+
+we have 
+
+I0 ≤ ∥ ω∥L2(R3)
+
+> (∫
+> |y′|≤ 1
+> ∫
+> R
+
+dk dy ′
+
+(|x′ − y′|2 + ( z − k)2)2
+
+> )1/2
+
+≤ Cr −3/2 ≤ Cr 1−β L(r)−γ , (4.15) where we used |x′ − y′| ≥ r − 1 ≥ r/ 2 on |y′| ≤ 1. For I1, by (4.13), Lemma A.2, and 
+
+> ∫
+> R
+
+dk a2 + ( z − k)2 = πa , a > 0,
+
+we have 
+
+I1 ≤ C
+
+> ∫
+> R2
+> ∫
+> R
+
+Φβ,γ (|y′|)
+
+|x′ − y′|2 + ( z − k)2 dk dy ′ = C
+
+> ∫
+> R2
+
+Φβ,γ (|y′|)
+
+|x′ − y′| dy ′ ≤ Cr 1−β L(r)−γ (4.16) Combining (4.15) and (4.16) proves (4.14). □
+
+Proof of Theorem 1.6. Apply Proposition 4.2 with β = 53 . The vorticity assumption (1.14) gives sup 
+
+> |x′|=rz∈R
+
+|u(x′, z )| ≤ Cr2/3[log(e + r)] γ , r ≥ 4.
+
+Since u is bounded, enlarging the constant extends the same estimate to 1 ≤ r < 4. Theorem 1.5 therefore applies, and γ > 13 yields u ≡ 0. □
+
+Appendix A. Auxiliary estimates 
+
+The absolute-convergence argument in Lemma 2.3(ii) uses the next elementary estimate. 
+
+Lemma A.1. Let 1 < a < 2 and β ≥ 0. Then for every x′ ∈ R2 with r = |x′|,
+
+> ∫
+> R2
+
+(1 + |y′|)−a[log(e + |y′|)] β
+
+|x′ − y′| dy ′ ≤ Ca,β (1 + r)1−a[log(e + r)] β . (A.1) 
+
+Proof. For 0 ≤ r ≤ 2, the integral is uniformly bounded. Indeed, the singularity |x′ − y′|−1 is locally integrable in two dimensions, while for large |y′| one has |x′ − y′| ≳ |y′|, so the tail is controlled by  
+
+> ∫∞
+> 1
+
+ρ−a[log(e + ρ)] β dρ < ∞, a > 1.
+
+Since (1 + r)1−a[log(e + r)] β ≥ ca,β > 0, 0 ≤ r ≤ 2,
+
+the desired estimate follows in this range. Assume now that r > 2 and split 
+
+D1 = {| y′| ≤ r/ 2}, D2 = {r/ 2 < |y′| < 2r}, D3 = {| y′| ≥ 2r}.
+
+On D1, |x′ − y′| ≥ r/ 2, and therefore 
+
+> ∫
+> D1
+
+(1 + |y′|)−a[log(e + |y′|)] β
+
+|x′ − y′| dy ′ ≤ Cr −1 
+
+> ∫r/ 20
+
+(1 + ρ)−a[log(e + ρ)] β ρ dρ ≤ Cr 1−a[log(e + r)] β ,NEW DECAY ESTIMATES AND LIOUVILLE TYPE THEOREMS 23 
+
+where a < 2 is used. On D2, one has (1 + |y′|)−a[log(e + |y′|)] β ≤ Cr −a[log(e + r)] β , and D2 − x′ is contained in the disk B3r(0). Hence 
+
+∫
+
+> D2
+
+(1 + |y′|)−a[log(e + |y′|)] β
+
+|x′ − y′| dy ′ ≤ Cr −a[log(e + r)] β
+
+∫
+
+> |h|<3r
+
+dh 
+
+|h| ≤ Cr 1−a[log(e + r)] β .
+
+Finally, on D3 one has |x′ − y′| ≥ | y′|/2, and therefore 
+
+∫
+
+> D3
+
+(1 + |y′|)−a[log(e + |y′|)] β
+
+|x′ − y′| dy ′ ≤ C
+
+∫ ∞
+
+> 2r
+
+ρ−a[log(e + ρ)] β dρ ≤ Cr 1−a[log(e + r)] β .
+
+Combining the three regions, we get (A.1). □
+
+The following Riesz-potential bound can be inserted into the three-dimensional Biot–Savart rep-resentation. 
+
+Lemma A.2. Let 1 < β < 2, γ ≥ 0, and Φβ,γ (ρ) := 1{ρ≥1}ρ−β L(ρ)−γ . Then there exists a constant 
+
+C = C(β, γ ) > 0 such that, for every x′ ∈ R2 with r = |x′| ≥ 4,
+
+∫
+
+> R2
+
+Φβ,γ (|y′|)
+
+|x′ − y′| dy ′ ≤ Cr 1−β L(r)−γ .
+
+Proof. Let F (s) := s2−β L(s)−γ . A direct computation gives 
+
+F ′(s) = s1−β L(s)−γ
+
+(
+
+2 − β − γs 
+
+(e + s)L(s)
+
+)
+
+.
+
+Then, there exists s0 = s0(β, γ ) ≥ 2 such that 
+
+F ′(s) ≥ 2 − β
+
+2 s1−β L(s)−γ , s ≥ s0.
+
+Integrating this inequality and enlarging the constant to absorb the fixed interval [1 , s 0], we obtain 
+
+∫ R
+
+> 1
+
+s1−β L(s)−γ ds ≤ CR 2−β L(R)−γ , R ≥ 2. (A.2) Similarly, setting G(s) := s1−β L(s)−γ , we have 
+
+−G′(s) = s−β L(s)−γ
+
+(
+
+β − 1 + γs 
+
+(e + s)L(s)
+
+)
+
+≥ (β − 1) s−β L(s)−γ .
+
+Hence, integrating over [ R, ∞) yields 
+
+∫ ∞
+
+> R
+
+s−β L(s)−γ ds ≤ CR 1−β L(R)−γ , R ≥ 2. (A.3) Note that 
+
+L(λr ) ∼ L(r), uniformly for λ ∈ [1 /2, 2] and r ≥ 4. (A.4) 24 WENDONG WANG 1 AND GUOXU YANG 1,∗
+
+Decompose R2 into the four regions 
+
+E1 := {| y′| ≤ r/ 2}, E2 := {| x′ − y′| ≤ r/ 2},E3 := {r/ 2 < |y′| < 2r, |x′ − y′| > r/ 2}, E4 := {| y′| ≥ 2r}.
+
+These regions cover R2, and their overlaps are harmless because the integrand is nonnegative. For 
+
+E1, one has |x′ − y′| ≥ r − | y′| ≥ r/ 2. Using polar coordinates, (A.2), and (A.4), we obtain 
+
+∫
+
+> E1
+
+Φβ,γ (|y′|)
+
+|x′ − y′| dy ′ ≤ Cr
+
+∫ r/ 21
+
+ρ1−β L(ρ)−γ dρ ≤ Cr −1
+
+( r
+
+2
+
+)2−β
+
+L
+
+( r
+
+2
+
+)−γ
+
+≤ Cr 1−β L(r)−γ . (A.5) On E2, r ∼ | y′|. Therefore, changing variables h = x′ − y′, we obtain 
+
+∫
+
+> E2
+
+Φβ,γ (|y′|)
+
+|x′ − y′| dy ′ ≤ Cr −β L(r)−γ
+
+∫
+
+> |h|≤ r/ 2
+
+dh 
+
+|h| ≤ Cr 1−β L(r)−γ . (A.6) On E3, |x′ − y′|−1 ≤ 2r−1 and r ∼ | y′|. It follows that 
+
+∫
+
+> E3
+
+Φβ,γ (|y′|)
+
+|x′ − y′| dy ′ ≤ Cr r−β L(r)−γ |E3| ≤ Cr 1−β L(r)−γ . (A.7) Finally, on E4, |x′ − y′| ≥ | y′|/2. Using polar coordinates, (A.3), and (A.4), we obtain 
+
+∫
+
+> E4
+
+Φβ,γ (|y′|)
+
+|x′ − y′| dy ′ ≤ C
+
+∫ ∞
+
+> 2r
+
+ρ−β L(ρ)−γ dρ ≤ C(2 r)1−β L(2 r)−γ ≤ Cr 1−β L(r)−γ . (A.8) Combining (A.5)–(A.8) completes the proof. □
+
+Declarations 
+
+• Acknowledgments W. Wang was supported by National Key R&D Program of China (No.2023YFA1009200) and NSFC under grant 12471219. 
+
+• Conflict of interest The authors declare that they have no conflict of interest. 
+
+• Data Availability Data sharing is not applicable to this article as no datasets were gener-ated or analyzed during the current study. 
+
+References 
+
+[BG80] H. Br´ ezis and T. Gallouet, Nonlinear Schr¨ odinger evolution equations , Nonlinear Analysis 4 (1980), no. 4, 677–681. [Bog80] M. E. Bogovskii, Solutions of some problems of vector analysis associated with the operators div and grad, Theory of Cubature Formulas and the Application of Functional Analysis to Problems of Mathematical Physics, Trudy Seminara S. L. Soboleva, no. 1, Akad. Nauk SSSR, Sibirsk. Otdel., Inst. Mat., Novosibirsk, 1980, In Russian, pp. 5–40. [BV22] J. Bedrossian and V. Vicol, The mathematical analysis of the incompressible Euler and Navier–Stokes equations: An introduction , Graduate Studies in Mathematics, vol. 225, American Mathematical Society, Providence, RI, 2022. NEW DECAY ESTIMATES AND LIOUVILLE TYPE THEOREMS 25 
+
+[BY25] J. Bang and Z. Yang, Saint–Venant estimates and Liouville-type theorems for the stationary Navier–Stokes equation in R3, J. Math. Fluid Mech. 27 (2025), no. 3, Paper No. 35, 13 pp. [Cha14] D. Chae, Liouville-type theorems for the forced Euler equations and the Navier–Stokes equations , Commu-nications in Mathematical Physics 326 (2014), no. 1, 37–48. [Cha21] , Relative decay conditions on Liouville type theorem for the steady Navier–Stokes system , J. Math. Fluid Mech. 23 (2021), no. 1, Paper No. 21, 6 pp. [Cha23] , Anisotropic Liouville type theorem for the stationary Navier–Stokes equations in R3, Applied Mathematics Letters 142 (2023), 108655, Paper No. 108655, 5 pp. [Cha25] , On the Liouville type theorems for the stationary Navier–Stokes equations in R3, J. Differential Equations 445 (2025), Paper No. 113597, 17 pp. [Cha26] , Liouville type theorems for the stationary Navier–Stokes equations in R3, Communications in Mathematical Physics 407 (2026), no. 3, 53, Paper No. 53, 11 pp. [CJ09] H. J. Choe and B. J. Jin, Asymptotic properties of axis-symmetric D-solutions of the Navier–Stokes equations , Journal of Mathematical Fluid Mechanics 11 (2009), no. 2, 208–232. [CPZ20] B. Carrillo, X. Pan, and Q. S. Zhang, Decay and vanishing of some axially symmetric D-solutions of the Navier–Stokes equations , Journal of Functional Analysis 279 (2020), no. 1, 108504. [CW16a] D. Chae and S. Weng, Liouville type theorems for the steady axially symmetric Navier–Stokes and mag-netohydrodynamic equations , Discrete and Continuous Dynamical Systems 36 (2016), no. 10, 5267–5285. [CW16b] D. Chae and J. Wolf, On Liouville type theorems for the steady Navier–Stokes equations in R3, Journal of Differential Equations 261 (2016), no. 10, 5541–5560. [CY26] M. P. Coiculescu and J. Yang, Conditional Liouville theorems for the Navier–Stokes equations , Calc. Var. Partial Differential Equations 65 (2026), no. 1, Paper No. 22, 28 pp. [Gal11] G. P. Galdi, An introduction to the mathematical theory of the Navier–Stokes equations: Steady-state problems , second ed., Springer Monographs in Mathematics, Springer, New York, 2011. [HWX26] J. Han, Y. Wang, and C. Xie, A Liouville theorem for the helically symmetric steady Navier–Stokes system in R3, Sci. China Math. 69 (2026), no. 3, 737–746. [KNS ˇS09] G. Koch, N. Nadirashvili, G. Seregin, and V. ˇSver´ ak, Liouville theorems for the Navier–Stokes equations and applications , Acta Mathematica 203 (2009), no. 1, 83–105. [KPR15] M. V. Korobkov, K. Pileckas, and R. Russo, The Liouville theorem for the steady-state Navier–Stokes problem for axially symmetric 3D solutions in absence of swirl , Journal of Mathematical Fluid Mechanics 
+
+17 (2015), no. 2, 287–293. [KTW17] H. Kozono, Y. Terasawa, and Y. Wakasugi, A remark on Liouville-type theorems for the stationary Navier– Stokes equations in three space dimensions , Journal of Functional Analysis 272 (2017), no. 2, 804–818. [Ler33] J. Leray, ´Etude de diverses ´equations int´ egrales non lin´ eaires et de quelques probl` emes que pose l’hydrodynamique , Journal de Math´ ematiques Pures et Appliqu´ ees (9) 12 (1933), 1–82. [Ser16] G. Seregin, Liouville type theorem for stationary Navier–Stokes equations , Nonlinearity 29 (2016), no. 8, 2191–2195. [Ser18] G. Seregin, Remarks on Liouville type theorems for steady-state Navier–Stokes equations , Algebra i Analiz 
+
+30 (2018), no. 2, 238–248. [Ste93] E. M. Stein, Harmonic analysis: Real-variable methods, orthogonality, and oscillatory integrals , Princeton Mathematical Series, vol. 43, Princeton University Press, Princeton, NJ, 1993, With the assistance of Timothy S. Murphy. 26 WENDONG WANG 1 AND GUOXU YANG 1,∗
+
+[SW20] G. Seregin and W. Wang, Sufficient conditions on Liouville type theorems for the 3D steady Navier–Stokes equations , St. Petersburg Mathematical Journal 31 (2020), no. 2, 387–393. [Tsa21] T.-P. Tsai, Liouville type theorems for stationary Navier–Stokes equations , Partial Differential Equations and Applications 2 (2021), no. 1, 10, Paper No. 10, 20 pp. [Wan19] W. Wang, Remarks on Liouville type theorems for the 3D steady axially symmetric Navier–Stokes equa-tions , Journal of Differential Equations 266 (2019), no. 10, 6507–6524. [Wen18] S. Weng, Decay properties of smooth axially symmetric D-solutions to the steady Navier–Stokes equations ,Journal of Mathematical Fluid Mechanics 20 (2018), no. 1, 7–25. [Zha19] N. Zhao, A Liouville type theorem for axially symmetric D-solutions to steady Navier–Stokes equations ,Nonlinear Analysis 187 (2019), 247–258. [ZZ25] Z. Zhang and Q. Zu, Two improved anisotropic Liouville type theorems for the stationary 3D Navier–Stokes equations , Archiv der Mathematik 124 (2025), 571–582.

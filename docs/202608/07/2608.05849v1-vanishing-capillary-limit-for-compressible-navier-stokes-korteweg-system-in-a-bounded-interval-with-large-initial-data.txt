@@ -1,0 +1,9993 @@
+Title: Vanishing capillary limit for compressible Navier-Stokes-Korteweg system in a bounded interval with large initial data
+
+URL Source: https://arxiv.org/pdf/2608.05849v1
+
+Published Time: Fri, 07 Aug 2026 00:48:42 GMT
+
+Number of Pages: 38
+
+Markdown Content:
+# Vanishing capillary limit for compressible Navier-Stokes-Korteweg system in a bounded interval with large initial data 
+
+Jiaxin Ling a, Huanyao Wen ∗a, Xinhua Zhao baSchool of Mathematics, South China University of Technology, Guangzhou 510641, China 
+
+> b
+
+School of Mathematics and Systems Science, Guangdong Polytechnic Normal University, Guangzhou 510665, China 
+
+Abstract 
+
+In this paper, we study vanishing capillary limit for isentropic compressible Navier-Stokes-Korteweg system in a bounded interval. The main challenges focus on the capillary term and the boundary effect. A new uniform dissipative estimate in terms of the third-order derivative of density and some correctors are derived to handle such difficulties. It leads to the optimal convergence rate of the solutions in L∞ norm globally in time with arbitrarily large initial data. This work provides a rigorous derivation of the isentropic compressible Navier-Stokes system in a bounded interval from the isentropic compressible Navier-Stokes-Korteweg system via vanishing capillary limit. 
+
+Keywords: compressible Navier-Stokes-Korteweg system, compressible Navier-Stokes system, initial-boundary value problem, vanishing capillary limit. 
+
+AMS Subject Classification (2020): 35Q35, 35B40, 76N10. 
+
+# 1 Introduction 
+
+In 1894, Van der Waals [30] (translated in [31]) discovered the diffuse interface between fluid mixtures, which replaces the sharp interface between two fluids in a physical perspective. Later in 1958, Cahn and Hilliard [4] described the diffuse interface phenomenon in a more standard way, which was translated to a mathematical model by Gurtin, Warne and Vi˜ nals[11]. In 1901, Korteweg [19] derived a mathematical model for the diffuse interface phenomenon by giving the Cauchy stress tensor that included density gradients which was called Korteweg stress tensor. Then, Dunn and Serrin [8] provided a crucial correction to the Korteweg stress in [19]. Later, Heida and M´ alek [13] developed a thermodynamic framework for Korteweg-type fluids based on an entropy formulation, which compared to [8, 19, 31] avoids the new concepts as interstitial working to form the mathematical model. Recently, Elbar, Gwiazda, Skrzeczkowski and Gwiazda [9] established a theoretical connection between Cahn-Hilliard type fluids and Korteweg type fluids. Within these theoretical frameworks, the Korteweg fluid model is capable of describing diffuse interface phenomena. For more information 
+
+> ∗
+
+Corresponding author. E-mail: scut jxling@163.com(Ling); mahywen@scut.edu.cn(Wen); xhzhao@gpnu.edu.cn(Zhao). 
+
+1arXiv:2608.05849v1 [math.AP] 6 Aug 2026 about diffuse interface model, we can refer to [1]. Mathematically, the isentropic compressible Navier-Stokes-Korteweg (NSK) system in d dimensions can be stated as follows: 
+
+(ρt + div (ρu) = 0 ,ρut + ρu · ∇ u + ∇P (ρ) = μ1∆u + ( λ + μ1)∇div u + div K, (1.1) where ρ, u = ( u1, ..., u d) and P (ρ) = Aρ γ represent density, velocity field of the fluid and pressure with adiabatic index γ > 1, respectively. Here μ1 and λ are viscosity coefficients that satisfy μ1 > 0and μ1 + dλ  
+
+> 2
+
+≥ 0, and K is the capillary tensor satisfying 
+
+K = [ ρc (ρ)∆ ρ + 12 (c(ρ) + ρc ′(ρ)) |∇ ρ|2]I − c(ρ)∇ρ ⊗ ∇ ρ, 
+
+where c is called capillary coefficient. When c is a constant, we get div K = cρ ∇∆ρ.In this paper, we consider the case that μ := 2 μ1 + λ = 1, d = 1, A = 1, c = ϵ and ( ρ, u) = ( ρϵ, u ϵ). Then the system (1.1) is translated into the following one: 
+
+
+
+ρϵt + ( ρϵuϵ)x = 0 , (x, t ) ∈ [0 , 1] × [0 , T ],ρϵuϵt + ρϵuϵuϵx + [( ρϵ)γ ]x = uϵxx + ϵρ ϵρϵxxx , (x, t ) ∈ [0 , 1] × [0 , T ],
+
+(ρϵ, u ϵ)|t=0 = ( ρϵ
+
+> 0
+
+, u ϵ
+
+> 0
+
+), x ∈ [0 , 1] ,
+
+(ρϵx, u ϵ)|x=0 ,1 = (0 , 0) , t ∈ [0 , T ].
+
+(1.2) In this paper, we aim to investigate the convergence of the system (1.2) as the capillary coefficient ϵ
+
+tends to zero. There are a number of literatures on the vanishing parameters limits of the compressible NSK system such as vanishing Mach number limit, vanishing viscous-capillary limit and vanishing capillary limit. For the vanishing Mach number limit, Li and Yong[25] established the convergence rate for the isentropic compressible NSK system in R3. In addition, it was proved that the existence time of solutions extends to infinity as the Mach number tends to zero, if the incompressible NS system admits a global smooth solution. Later, Ju and Xu [16] improved the results of [25] by relaxing the restrictions on the initial data and obtaining more precise convergence rates. Recently, Li and Yin [24] studied the low Mach number limit of the full compressible NSK system in R. With well-prepared initial data and with the difference between the states at ∞ being suitably small, they showed that the solutions of the full compressible NSK system converge to a nonlinear diffusion wave solution globally in time. For ill-prepared initial data with arbitrarily large far-field difference, they proved weak convergence on a finite time interval. See [17] for the vanishing limit of Mach number and capillarity. For isentropic compressible NSK system, vanishing viscous-capillary limit leads to compressible Euler system. The one-dimensional analyses in [5, 10] proceeded under the condition that μ and c
+
+are functions of density, with the domains being R in [5] and either R or T in [10]. More specifically, under the condition μ = ϵρ ϵ, c = ϵ2 
+
+> ρϵ
+
+and γ > 53 , Charve and Haspot [5] established almost everywhere convergence as ϵ → 0. Similar convergence was established in [10] with μ = ϵμ (ρϵ), c = δ(ϵ)c(ρϵ) and 1 < γ ≤ 53 , where δ(ϵ) tends to 0 with ϵ → 0. For vanishing viscous-capillary limit in the wave regime of the compressible NSK system, refer for instance to [22, 26, 36]. The Navier-Stokes-Korteweg system can be viewed as a dispersive correction for Navier-Stokes system ([12, 29]). It is interesting to investigate the vanishing capillary limit. Bian, Yao and Zhu [2] considered the Cauchy problem for the isentropic compressible NSK system in three dimensions and established the H1-norm convergence as the capillary coefficient c = ϵ tends to zero at a rate of order ϵ. See [35] for further investigation. In [28], Pu and Guo considered the Cauchy problem for a compressible Korteweg-type fluid system that describes quantum hydrodynamics. By investigating its vanishing capillary limit which reduces the system to the classical hydrodynamic system, [28] derived the semiclassical limit and obtained the convergence rate in H1 norm. Hou, Yao and Zhu in [15] obtained the zero-capillary limit convergence in H2 norm for the non-isentropic compressible NSK system in R3. Lai, Wen and Yao [21] got the zero-capillary limit convergence in H1 norm for the two fluid compressible NSK system in R3. In space R, Burtea and Haspot [3] considered the isentropic 
+
+2compressible NSK system with weaker condition of μ and c, where the typical example is μ = μα(ρϵ)with α ∈ (0 , 12 ) and c = ϵ μ2(ρϵ)(ρϵ)3 .In summary, the convergence rate of vanishing capillary limit of the initial-boundary value problem for the compressible NSK system is still open. This is the main aim in this paper. Formally, vanishing of capillary leads to the following compressible Navier-Stokes system: 
+
+
+
+ρI, 0 
+
+> t
+
++ ( ρI, 0uI, 0)x = 0 ,ρI, 0uI, 0 
+
+> t
+
++ ρI, 0uI, 0uI, 0 
+
+> x
+
++ [( ρI, 0)γ ]x = uI, 0 
+
+> xx
+
+,
+
+(ρI, 0, u I, 0)|t=0 = ( ρ0, u 0),uI, 0|x=0 ,1 = 0 ,
+
+(1.3) for ( x, t ) ∈ [0 , 1] × [0 , T ]. Our analysis is built upon the foundational framework of Prandtl’s boundary layer theory in 1904 [27]. There are some literatures on the well-posedness of compressible Korteweg-type fluids, see for instance [6, 7, 14, 18, 20, 23] and references therein. More precisely, for Cauchy problem, Chen and Zhao[7] obtained global stability of stationary solutions to the full compressible NSK system in three dimensions. Later, Chen, He and Zhao[6] derived the global existence and uniqueness of smooth solutions for one-dimensional nonisothermal compressible fluid models of Korteweg type with large initial data. Kawashima, Shibata and Xu[18] obtained time-decay estimates for the compressible NSK system with small data in Besov space. Li, Peng and Wang[23] obtained the global existence and uniqueness of strong solution to the Cauchy problem for three-dimensional compressible Navier-Stokes-Poisson-Korteweg system in three dimensions. In addition, they investigated the vanishing capillary limit. For the initial-boundary value problem, Kotschote[20] proved the local existence and uniqueness of strong solution in multi-dimensions, see also [14]. This paper is organized as follows. In Section 1.1, we derive the boundary layer equations, where the details will be given in Appendix A. In Section 1.2, well-posedness result of boundary layer equations, system (1.2) and system (1.3) are obtained. In Section 1.3, we present the main result. Following in Section 1.4 we define the error function. In Section 1.5, we state the main difficulties and innovations of this paper. Based on some known results stated in Section 2, we will prove the main result in Section 3. 
+
+Notation 
+
+(1) f (t) := f (0 , t ), ef (t) := f (1 , t ), ⟨y⟩ := p1 + y2.(2) For x ∈ [0 , 1], we define y = x√ϵ ∈ [0 , 1√ϵ ], z = x−1√ϵ ∈ [ −1√ϵ , 0] for some ϵ > 0. Moreover, if ϵ → 0, then we have y ∈ [0 , +∞), z ∈ (−∞ , 0]. (3) For any 1 ≤ p, q ≤ ∞ and m ∈ N, we denote 
+
+• Lpt Lq := Lp(0 , t ; Lq (I)), Lpt W 1,q := Lp(0 , t ; W 1,q (I)) , where I := (0 , 1); 
+
+• Lpt Lqy := Lp(0 , t ; Lqy (0 , +∞)), Lpt Lqz := Lp(0 , t ; Lqz (−∞ , 0)); 
+
+• Lpt Hmy := Lp(0 , t ; Hmy (0 , +∞)), Lpt Hmz := Lp(0 , t ; Hmz (−∞ , 0)); 
+
+• H0 
+
+> T
+
+:= L2(0 , T ), W 0,∞ 
+
+> T
+
+:= L∞(0 , T ); 
+
+• H0 
+
+> y
+
+:= L2 
+
+> y
+
+(0 , +∞), W 0,∞ 
+
+> y
+
+:= L∞(0 , +∞); 
+
+• LpT := Lp(0 , T ), HmT := Hm(0 , T ). (4) Let C ≥ 1 be a general positive constant that may positively correlated with time T , and depend on initial data and some other known constants, but independent of ϵ.
+
+31.1 Derivation of boundary layer equations 
+
+In Section 1.1, the boundary-layer equations will be presented, whose details of derivation will be given in Appendix A. Namely, we assume that the solution of (1.2) formally satisfies 
+
+
+
+ρϵ =
+
+> ∞
+
+X
+
+> j=0
+
+ϵ j 
+
+> 2
+
+[ρI,j (x, t ) + ρB,j (y, t ) + ρb,j (z, t )] ,uϵ =
+
+> ∞
+
+X
+
+> j=0
+
+u j 
+
+> 2
+
+[uI,j (x, t ) + uB,j (y, t ) + ub,j (z, t )] ,
+
+(1.4) where ρB,i , u B,i and their derivatives decay fastly to 0 as y → +∞, and ρb,i , u b,i and their derivatives decay fastly to 0 as z → −∞ for any i ∈ N.Firstly, it holds that 
+
+uB, 0 = uB, 1 = ρB, 0 = 0 , u b, 0 = ub, 1 = ρb, 0 = 0 , u I, 1 = ρI, 1 = 0 . (1.5) The profiles ( ρB, 1, ρ b, 1, u B, 2, u b, 2) satisfy the following equations: 
+
+
+
+ρB, 1 
+
+> t
+
++ yu I, 0 
+
+> x
+
+ρB, 1 
+
+> y
+
++ [ γ(ρI, 0)γ + uI, 0 
+
+> x
+
+]ρB, 1 = ( ρI, 0)2ρB, 1 
+
+> yy
+
+,ρB, 1(y, 0) = 0 ,ρB, 1 
+
+> y
+
+(0 , t ) = −ρI, 0 
+
+> x
+
+(0 , t ) = −ρI, 0 
+
+> x
+
+,
+
+(1.6) 
+
+
+
+ρb, 1 
+
+> t
+
++ z g
+
+uI, 0 
+
+> x
+
+ρb, 1 
+
+> z
+
++ [ γ(gρI, 0)γ + g
+
+uI, 0 
+
+> x
+
+]ρb, 1 = ( gρI, 0)2ρb, 1 
+
+> zz
+
+,ρb, 1(z, 0) = 0 ,ρb, 1 
+
+> z
+
+(0 , t ) = −ρI, 0 
+
+> x
+
+(1 , t ) = −g
+
+ρI, 0 
+
+> x
+
+,
+
+(1.7) and 
+
+uB, 2 = −ρI, 0ρB, 1 
+
+> y
+
+− γ(ρI, 0)γ−1
+
+Z +∞
+
+> y
+
+ρB, 1(ξ, t )d ξ, ub, 2 = −gρI, 0ρb, 1 
+
+> z
+
++ γ(gρI, 0)γ−1
+
+Z z
+
+> −∞
+
+ρb, 1(ξ, t )d ξ. 
+
+(1.8) The profiles ( ρB, 2, ρ b, 2, u B, 3, u b, 3) satisfy the following equations: 
+
+
+
+ρB, 2 
+
+> t
+
++ ρI, 0 
+
+> x
+
+uB, 2 + ρB, 1uB, 2 
+
+> y
+
++ ρB, 1 
+
+> y
+
+(uI, 2 + uB, 2) + ρB, 2uI, 0 
+
+> x
+
++ yu I, 0 
+
+> xx
+
+ρB, 1
+
++ yρ I, 0 
+
+> x
+
+uB, 2 
+
+> y
+
++ yu I, 0 
+
+> x
+
+ρB, 2 
+
+> y
+
++ y2
+
+2 uI, 0 
+
+> xx
+
+ρB, 1
+
+> y
+
+= −γ(ρI, 0)γ ρB, 2 − 12 γ(γ − 1)( ρI, 0)γ−1(ρB, 1)2 − γ(γ − 1) y(ρI, 0)γ−1ρI, 0 
+
+> x
+
+ρB, 1
+
++ ( ρI, 0)2ρB, 2 
+
+> yy
+
++ ρI, 0ρB, 1ρB, 1 
+
+> yy
+
+− 12 ρI, 0(ρB, 1 
+
+> y
+
+)2 + yρ I, 0ρI, 0 
+
+> x
+
+ρB, 1 
+
+> yy
+
+− ρI, 0ρI, 0 
+
+> x
+
+ρB, 1 
+
+> y
+
+,ρB, 2(y, 0) = 0 ,ρB, 2 
+
+> y
+
+|y=0 = −ρI, 1 
+
+> x
+
+= 0 ,
+
+(1.9) 
+
+
+
+ρb, 2 
+
+> t
+
++ g
+
+ρI, 0 
+
+> x
+
+ub, 2 + ρb, 1ub, 2 
+
+> z
+
++ ρb, 1 
+
+> z
+
+( guI, 2 + ub, 2) + ρb, 2 g
+
+uI, 0 
+
+> x
+
++ z g
+
+uI, 0 
+
+> xx
+
+ρb, 1
+
++ z g
+
+ρI, 0 
+
+> x
+
+ub, 2 
+
+> z
+
++ z g
+
+uI, 0 
+
+> x
+
+ρb, 2 
+
+> z
+
++ z2
+
+2
+
+g
+
+uI, 0 
+
+> xx
+
+ρb, 1
+
+> z
+
+= −γ(gρI, 0)γ ρb, 2 − 12 γ(γ − 1)( gρI, 0)γ−1(ρb, 1)2 − γ(γ − 1) z(gρI, 0)γ−1 g
+
+ρI, 0 
+
+> x
+
+ρb, 1
+
++ ( gρI, 0)2ρb, 2 
+
+> zz
+
++ gρI, 0ρb, 1ρb, 1 
+
+> zz
+
+− 12
+
+gρI, 0(ρb, 1 
+
+> z
+
+)2 + z gρI, 0 g
+
+ρI, 0 
+
+> x
+
+ρb, 1 
+
+> zz
+
+− gρI, 0 g
+
+ρI, 0 
+
+> x
+
+ρb, 1 
+
+> z
+
+,ρb, 2(z, 0) = 0 ,ρb, 2 
+
+> z
+
+|z=0 = −g
+
+ρI, 1 
+
+> x
+
+= 0 ,
+
+(1.10) 
+
+4and 
+
+uB, 3 = − γ(ρI, 0)γ−1Q2 − 12 γ(γ − 1)( ρI, 0)γ−2
+
+Z +∞
+
+> y
+
+(ρB, 1)2(ξ, t )d ξ
+
+− γ(γ − 1)( ρI, 0)γ−2ρI, 0 
+
+> x
+
+(yQ 1,1 + Q1,2) − ρI, 0ρB, 2 
+
+> y
+
+− ρB, 1ρB, 1
+
+> y
+
+− 32
+
+Z +∞
+
+> y
+
+(ρB, 1 
+
+> ξ
+
+)2(ξ, t )d ξ − yρ I, 0 
+
+> x
+
+ρB, 1 
+
+> y
+
++ 2 ρI, 0 
+
+> x
+
+ρB, 1,ub, 3 =γ(gρI, 0)γ−1q2 + 12 γ(γ − 1)( gρI, 0)γ−2
+
+Z z
+
+> −∞
+
+(ρb, 1)2(ζ, t )d ζ
+
++ γ(γ − 1)( gρI, 0)γ−2 g
+
+ρI, 0 
+
+> x
+
+(zq 1,1 − q1,2) − gρI, 0ρb, 2 
+
+> z
+
+− ρb, 1ρb, 1
+
+> z
+
++ 32
+
+Z z
+
+> −∞
+
+(ρb, 1 
+
+> ζ
+
+)2(ζ, t )d ζ − z g
+
+ρI, 0 
+
+> x
+
+ρb, 1 
+
+> z
+
++ 2 g
+
+ρI, 0 
+
+> x
+
+ρb, 1,
+
+(1.11) where 
+
+Q1,1(y, t ) = 
+
+Z +∞
+
+> y
+
+ρB, 1(ξ, t )d ξ, Q 1,2(y, t ) = 
+
+Z +∞
+
+> y
+
+Z +∞
+
+> s
+
+ρB, 1(ξ, t )d ξds, Q 2 =
+
+Z +∞
+
+> y
+
+ρB, 2(ξ, t )d ξ, q1,1(y, t ) = 
+
+Z z
+
+> −∞
+
+ρb, 1(ζ, t )d ζ, q 1,2(y, t ) = 
+
+Z z
+
+> −∞
+
+Z s
+
+> −∞
+
+ρb, 1(ζ, t )d ζds, q 2 =
+
+Z z
+
+> −∞
+
+ρb, 2(ζ, t )d ζ, uI, 2 =uI, 2(0 , t ) = −uB, 2(0 , t ) = ρI, 0ρI, 0 
+
+> x
+
++
+
+Z +∞
+
+> 0
+
+γ(ρI, 0)γ−1ρB, 1(ξ, t )d ξ, 
+
+guI, 2 =uI, 2(1 , t ) = −ub, 2(0 , t ) = gρI, 0 g
+
+ρI, 0 
+
+> x
+
+−
+
+Z 0
+
+> −∞
+
+γ(gρI, 0)γ−1ρb, 1(ζ, t )d ζ. 
+
+1.2 Well-posedness 
+
+Existence and uniqueness of global smooth solution to compressible Navier-Stokes equations and existence and uniqueness of local strong solution to the compressible Navier-Stokes-Korteweg equations are stated as follows. 
+
+Proposition 1.1. Suppose that (ρ0, u 0) ∈ H6(I)×(H10 (I)∩H6(I)) , inf  
+
+> I
+
+ρ0 ≥ c0 > 0 for some constant 
+
+c0 > 0 and that the compatibility condition 
+
+(uI, 0 
+
+> t
+
+, u I, 0 
+
+> tt
+
+)( x, 0) |x=0 ,1 = (0 , 0) ,
+
+holds, then system (1.3) admits a unique global strong solution (ρI, 0, u I, 0) satisfying 
+
+∂it ρI, 0 ∈ C([0 , T ]; H6−i(I)) , f or any i = 0 , 1, ..., 6,∂jt uI, 0 ∈ C([0 , T ]; H10 (I) ∩ H6−2j (I)) ∩ L2 
+
+> T
+
+(H10 ∩ H7−2j ), f or any j = 0 , 1, 2, 3,
+
+1
+
+M ≤ ρI, 0(x, t ) ≤ M, 
+
+where M > 1 depends on the initial data only, and 
+
+> 6
+
+X
+
+> i=0
+
+sup  
+
+> t∈[0 ,T ]
+
+∥∂it ρI, 0∥H6−i(I) +
+
+> 3
+
+X
+
+> i=0
+
+( sup  
+
+> t∈[0 ,T ]
+
+∥∂it uI, 0∥H2(3 −i)(I) +∥∂it uI, 0∥L2  
+
+> TH2(3 −i)+1
+
+)
+
+≤C(∥ρ0∥H6(I), ∥(ρ0)−1∥L∞(I), ∥u0∥H6(I), T, c 0)
+
+for any T > 0 and (x, t ) ∈ I × [0 , T ].
+
+Remark 1.1. The proof of Proposition 1.1 is similar to that in Remark 1.3 of [32]. 
+
+5Proposition 1.2. Suppose that (ρϵ
+
+> 0
+
+, u ϵ
+
+> 0
+
+) ∈ H2(I) × H10 (I) satisfies ∂xρϵ
+
+> 0
+
+|x=0 ,1 = 0 and inf  
+
+> I
+
+ρϵ 
+
+> 0
+
+≥ c0 > 0
+
+for some constant c0 > 0, then there exists a positive constant Tϵ such that system (1.2) admits a unique local strong solution (ρϵ, u ϵ) satisfying 
+
+ρϵ ∈ C([0 , T ϵ]; H2(I)) ∩ L2 
+
+> Tϵ
+
+H3, (ρϵ)−1 ∈ C([0 , T ϵ]; L∞(I)) , u ϵ ∈ C([0 , T ϵ]; H10 (I)) ∩ L2 
+
+> Tϵ
+
+(H10 ∩ H2)
+
+and ∥√ϵρ ϵx∥2 
+
+> C([0 ,T ϵ]; L2(I))
+
++ ∥ρϵ∥C([0 ,T ϵ]; Lγ (I)) + ∥√ρϵuϵ∥2 
+
+> C([0 ,T ϵ]; L2(I))
+
++ ∥uϵx∥2 
+
+> L2
+> Tϵ L2(I)
+
+≤ C(∥ρϵ
+
+> 0
+
+∥H1(I), ∥uϵ
+
+> 0
+
+∥L2(I)).
+
+Remark 1.2. The proof of local existence and uniqueness of the compressible NSK equations stated in Proposition 1.2 is similar to that in [14], where the corresponding result with bounded domain in three dimensions was obtained. 
+
+Proposition 1.3. Under the assumption of Proposition 1.1, if 
+
+∂xρ0(x)|x=0 ,1 = 0 
+
+holds for system (1.3), then, for any T > 0, systems (1.6)-(1.11) have unique global solution re-spectively, where for any l ∈ N and k = 0 , 1, 2, regularities of boundary layer profiles are stated as follows: 
+
+⟨y⟩lρB, 1 ∈ W k, ∞ 
+
+> T
+
+H5−2ky ∩ HkT H6−2ky , ⟨z⟩lρb, 1 ∈ W k, ∞ 
+
+> T
+
+H5−2kz ∩ HkT H6−2kz ,
+
+⟨y⟩lρB, 2 ∈ W k, ∞ 
+
+> T
+
+H5−2ky ∩ HkT H6−2ky , ⟨z⟩lρb, 2 ∈ W k, ∞ 
+
+> T
+
+H5−2kz ∩ HkT H6−2kz ,
+
+⟨y⟩luB, 2 ∈ W k, ∞ 
+
+> T
+
+H4−2ky ∩ HkT H5−2ky , ⟨z⟩lub, 2 ∈ W k, ∞ 
+
+> T
+
+H4−2kz ∩ HkT H5−2kz ,
+
+⟨y⟩luB, 3 ∈ W k, ∞ 
+
+> T
+
+H4−2ky ∩ HkT H5−2ky , ⟨z⟩lub, 3 ∈ W k, ∞ 
+
+> T
+
+H4−2kz ∩ HkT H5−2kz .
+
+Remark 1.3. The proof of Proposition 1.3 is similar to that in [32–34]. We omit it for brevity. 
+
+1.3 Main result 
+
+Theorem 1.1. In addition to the conditions of Propositions 1.1-1.3, we assume that 
+
+∥ρϵ 
+
+> 0
+
+− ρI, 00 ∥2 
+
+> H2(I)
+
++ ∥uϵ 
+
+> 0
+
+− uI, 00 ∥2 
+
+> H1(I)
+
+≤ C0ϵm (1.12) 
+
+holds for m > 2 and C0 > 0.For any time T ∈ (0 , +∞), there exists a positive constant ϵ1 determined by (3.51) such that if 
+
+ϵ ∈ (0 , ϵ 1), then the following estimates 
+
+
+
+sup  
+
+> t∈[0 ,T ]
+
+∥uϵ − uI, 0∥L∞(I) ≤ Cϵ 78 ,
+
+sup  
+
+> t∈[0 ,T ]
+
+∥ρϵ − ρI, 0∥L∞(I) ≤ C√ϵ, 
+
+sup  
+
+> t∈[0 ,T ]
+
+∥ρϵx − ρI, 0 
+
+> x
+
+− √ϵ(ρB, 1 + ρb, 1)x∥L∞(I) ≤ C√ϵ, 
+
+(1.13) 
+
+hold on [0 , T ], where (ρϵ, u ϵ), (ρI, 0, u I, 0), and ρB, 1, ρb, 1 are the solutions to (1.2), (1.3), (1.6), and (1.7), respectively. 
+
+Remark 1.4. Theorem 1.1 provides a rigorous derivation of the isentropic compressible Navier-Stokes system from the isentropic compressible NSK system in a bounded interval. Since time T is arbitrary, the convergence holds globally in time. 
+
+Remark 1.5. We have derived optimal convergence rates for the density and its derivative in the presence of the boundary layer. The convergence rate for velocity can be improved to O(ϵ) by including the higher-order profiles (ρI, 2, u I, 2, ρ B, 3, ρ b, 3) with more suitable initial assumptions on the initial and boundary conditions. 
+
+61.4 Error system 
+
+Decompose the solution ( ρϵ, u ϵ) as follows: 
+
+
+
+ρϵ = ρI, 0 + √ϵ(ρB, 1 + ρb, 1) + ϵ(ρB, 2 + ρb, 2) + Lϵ + √ϵΦϵ,uϵ = uI, 0 + ϵ(uB, 2 + ub, 2) + ϵ√ϵ(uB, 3 + ub, 3) + M ϵ + √ϵU ϵ,
+
+(1.14) where 
+
+Lϵ = − x2
+
+2 [ρB, 1 
+
+> y
+
+( 1
+
+√ϵ , t ) + √ϵρ B, 2 
+
+> y
+
+( 1
+
+√ϵ , t )] − (x − x2
+
+2 )[ ρb, 1 
+
+> z
+
+(− 1
+
+√ϵ , t ) + √ϵρ b, 2 
+
+> z
+
+(− 1
+
+√ϵ , t )] ,M ϵ = − ϵ(1 − x)uB, 2(0 , t ) − ϵ(1 − x)ub, 2(− 1
+
+√ϵ , t ) − ϵxu B, 2( 1
+
+√ϵ , t ) − ϵxu b, 2(0 , t )
+
+− ϵ√ϵ(1 − x)uB, 3(0 , t ) − ϵ√ϵ(1 − x)ub, 3(− 1
+
+√ϵ , t ) − ϵ√ϵxu B, 3( 1
+
+√ϵ , t ) − ϵ√ϵxu b, 3(0 , t ).
+
+Thus, we get 
+
+Lϵxxx = 0 , M ϵxx = 0 and (Φ ϵx, U ϵ)|x=0 ,1 = (0 , 0) . (1.15) Putting (1.14) into (1.2), and using (1.3), (1.6), (1.8), (1.9) and (1.10), we get the error system of error functions (Φ ϵ, U ϵ) as follows: 
+
+
+
+Φϵt + ( ρϵU ϵ)x = −h1 − h2 − h3 − h4 − h5,ρϵU ϵt + ρϵuϵU ϵx − U ϵxx − ϵρ ϵΦϵxxx = W, 
+
+(Φ ϵ, U ϵ)|t=0 = ( ρϵ 
+
+> 0
+
+− ρ0
+
+√ϵ , uϵ 
+
+> 0
+
+− u0
+
+√ϵ ),
+
+(Φ ϵx, U ϵ)|x=0 ,1 = (0 , 0) ,
+
+(1.16) where h1 = h1,1 + h1,2 and W = −Θ − P (ρϵ, ρ I, 0) + Ω + α with 
+
+h1,1 = 1
+
+√ϵ (uI, 0 − uI, 0)ρB, 1 
+
+> y
+
+− yu I, 0 
+
+> x
+
+ρB, 1 
+
+> y
+
++ ( ρI, 0 − ρI, 0)uB, 2 
+
+> y
+
++ ρB, 1(uI, 0 
+
+> x
+
+− uI, 0 
+
+> x
+
+) + ρB, 2 
+
+> y
+
+(uI, 0 − uI, 0),h1,2 = 1
+
+√ϵ (uI, 0 − guI, 0)ρb, 1 
+
+> z
+
+− z g
+
+uI, 0 
+
+> x
+
+ρb, 1 
+
+> z
+
++ ( ρI, 0 − gρI, 0)ub, 2 
+
+> z
+
++ ρb, 1(uI, 0 
+
+> x
+
+− g
+
+uI, 0 
+
+> x
+
+) + ρb, 2 
+
+> z
+
+(uI, 0 − guI, 0); 
+
+h2 = 1
+
+√ϵ Lϵt + uI, 0 
+
+> x
+
+( 1
+
+√ϵ Lϵ + Φ ϵ) + uI, 0( 1
+
+√ϵ Lϵx + Φ ϵx) + 1
+
+√ϵ (M ϵρϵ)x
+
++ [( uB, 2 
+
+> y
+
++ ub, 2 
+
+> z
+
+) + √ϵ(uB, 3 
+
+> y
+
++ ub, 3 
+
+> z
+
+)] √ϵΦϵ + [ √ϵ(uB, 2 + ub, 2) + ϵ(uB, 3 + ub, 3)] √ϵΦϵx;
+
+h3 =√ϵρ B, 2 
+
+> t
+
++ uI, 0
+
+> x
+
+√ϵρ B, 2 + √ϵu B, 3 
+
+> y
+
+ρI, 0 + √ϵu B, 2ρI, 0 
+
+> x
+
++ ϵu B, 3ρI, 0 
+
+> x
+
+;
+
+h4 =√ϵρ b, 2 
+
+> t
+
++ uI, 0
+
+> x
+
+√ϵρ b, 2 + √ϵu b, 3 
+
+> z
+
+ρI, 0 + √ϵu b, 2ρI, 0 
+
+> x
+
++ ϵu b, 3ρI, 0 
+
+> x
+
+;
+
+h5 =[( uB, 2 
+
+> y
+
++ ub, 2 
+
+> z
+
+) + √ϵ(uB, 3 
+
+> y
+
++ ub, 3 
+
+> z
+
+)][ √ϵ(ρB, 1 + ρb, 1) + ϵ(ρB, 2 + ρb, 2) + Lϵ]+ [ √ϵ(uB, 2 + ub, 2) + ϵ(uB, 3 + ub, 3)][( ρB, 1 
+
+> y
+
++ ρb, 1 
+
+> z
+
+) + √ϵ(ρB, 2 
+
+> y
+
++ ρb, 2 
+
+> z
+
+) + Lϵx]; 
+
+7Θ := P5 
+
+> i=1
+
+Θi with Θ1 =( 1
+
+√ϵ Lϵ + Φ ϵ)uI, 0 
+
+> t
+
++ ρϵ 1
+
+√ϵ M ϵt + ρI, 0uI, 0 1
+
+√ϵ M ϵx + ρI, 0( 1
+
+√ϵ M ϵ + U ϵ)uI, 0 
+
+> x
+
++ ( 1
+
+√ϵ Lϵ + Φ ϵ)uI, 0uI, 0 
+
+> x
+
+,
+
+Θ2 =√ϵρ B, 2uI, 0 
+
+> t
+
++ ρϵ(√ϵu B, 2 
+
+> t
+
++ ϵu B, 3 
+
+> t
+
+) + ρI, 0uI, 0√ϵu B, 3 
+
+> y
+
++ ρI, 0(√ϵu B, 2 + ϵu B, 3)uI, 0 
+
+> x
+
++ √ϵρ B, 2uI, 0uI, 0 
+
+> x
+
+,
+
+Θ3 =√ϵρ b, 2uI, 0 
+
+> t
+
++ ρϵ(√ϵu b, 2 
+
+> t
+
++ ϵu b, 3 
+
+> t
+
+) + ρI, 0uI, 0√ϵu b, 3 
+
+> z
+
++ ρI, 0(√ϵu b, 2 + ϵu b, 3)uI, 0 
+
+> x
+
++ √ϵρ b, 2uI, 0uI, 0 
+
+> x
+
+,
+
+Θ4 =ρI, 0[√ϵ(uB, 2 + ub, 2) + ϵ(uB, 3 + ub, 3) + 1
+
+√ϵ M ϵ + U ϵ][ M ϵ + ϵ(uB, 2 + ub, 2) + ϵ√ϵ(uB, 3 + ub, 3)] x
+
++ [( ρB, 1 + ρb, 1) + √ϵ(ρB, 2 + ρb, 2) + 1
+
+√ϵ Lϵ + Φ ϵ]uI, 0[M ϵ + ϵ(uB, 2 + ub, 2) + ϵ√ϵ(uB, 3 + ub, 3)] x,
+
+Θ5 =[( ρB, 1 + ρb, 1) + √ϵ(ρB, 2 + ρb, 2) + 1
+
+√ϵ Lϵ + Φ ϵ][ ϵ(uB, 2 + ub, 2) + ϵ√ϵ(uB, 3 + ub, 3)+ M ϵ + √ϵU ϵ][ uI, 0 + M ϵ + ϵ(uB, 2 + ub, 2) + ϵ√ϵ(uB, 3 + ub, 3)] x;
+
+P (ρϵ, ρ I, 0) := 1
+
+√ϵ [γ(ρϵ)γ−1ρϵx − γ(ρI, 0)γ−1ρI, 0 
+
+> x
+
+− γ(ρI, 0)γ−1(ρB, 1 
+
+> y
+
++ ρb, 1 
+
+> z
+
+)
+
+− γ(ρI, 0)γ−1√ϵ(ρB, 2 
+
+> y
+
++ ρb, 2 
+
+> z
+
+) − γ(γ − 1)( ρI, 0)γ−2√ϵ(ρB, 1 + ρb, 1)ρI, 0
+
+> x
+
+− γ(γ − 1)( ρI, 0)γ−2√ϵρ B, 1ρB, 1 
+
+> y
+
+− γ(γ − 1)( ρI, 0)γ−2√ϵρ b, 1ρb, 1 
+
+> z
+
+]; Ω := P4 
+
+> i=1
+
+Ωi with Ω1 =√ϵρ I, 0ρI, 0
+
+> xxx
+
+,
+
+Ω2 =ϵ(ρB, 1 + ρb, 1)[ ρI, 0 + ϵ(ρB, 2 + ρb, 2)] xxx ,
+
+Ω3 =√ϵ[ϵ(ρB, 2 + ρb, 2) + Lϵ + √ϵΦϵ][ ρI, 0 + √ϵ(ρB, 1 + ρb, 1) + ϵ(ρB, 2 + ρb, 2)] xxx ,
+
+Ω4 =( ρb, 1ρB, 1 
+
+> yyy
+
++ ρB, 1ρb, 1 
+
+> zzz
+
+); and α := 1√ϵ (α1 + α2) with 
+
+α1 = − { √ϵρ B, 1(uI, 0 
+
+> t
+
+− uI, 0 
+
+> t
+
+) + √ϵu B, 2 
+
+> y
+
+(ρI, 0uI, 0 − ρI, 0uI, 0) + √ϵρ B, 1(uI, 0uI, 0 
+
+> x
+
+− uI, 0uI, 0 
+
+> x
+
+)+ γ[( ρI, 0)γ−1 − (ρI, 0)γ−1]√ϵρ B, 2 
+
+> y
+
++ γ(γ − 1)[( ρI, 0)γ−2ρI, 0 
+
+> x
+
+− (ρI, 0)γ−2ρI, 0 
+
+> x
+
+]√ϵρ B, 1
+
++ γ(γ − 1)[( ρI, 0)γ−2 − (ρI, 0)γ−2]√ϵρ B, 1ρB, 1 
+
+> y
+
+− γ(γ − 1) y(ρI, 0)γ−2ρI, 0
+
+> x
+
+√ϵρ B, 1
+
+> y
+
++ γ[( ρI, 0)γ−1 − (ρI, 0)γ−1]ρB, 1 
+
+> y
+
+} + √ϵ(ρI, 0 − ρI, 0)ρB, 2 
+
+> yyy
+
+− y√ϵρ I, 0 
+
+> x
+
+ρB, 1 
+
+> yyy
+
++ ( ρI, 0 − ρI, 0)ρB, 1 
+
+> yyy
+
+,α2 = − { √ϵρ b, 1(uI, 0 
+
+> t
+
+− g
+
+uI, 0 
+
+> t
+
+) + √ϵu b, 2 
+
+> z
+
+(ρI, 0uI, 0 − gρI, 0 guI, 0) + √ϵρ b, 1(uI, 0uI, 0 
+
+> x
+
+− guI, 0 g
+
+uI, 0 
+
+> x
+
+)+ γ[( ρI, 0)γ−1 − (gρI, 0)γ−1]√ϵρ b, 2 
+
+> z
+
++ γ(γ − 1)[( ρI, 0)γ−2ρI, 0 
+
+> x
+
+− (gρI, 0)γ−2 g
+
+ρI, 0 
+
+> x
+
+]√ϵρ b, 1
+
++ γ(γ − 1)[( ρI, 0)γ−2 − (gρI, 0)γ−2]√ϵρ b, 1ρb, 1 
+
+> z
+
+− γ(γ − 1) z(gρI, 0)γ−2 g
+
+ρI, 0
+
+> x
+
+√ϵρ b, 1
+
+> z
+
++ γ[( ρI, 0)γ−1 − (gρI, 0)γ−1]ρb, 1 
+
+> z
+
+} + √ϵ(ρI, 0 − gρI, 0)ρb, 2 
+
+> zzz
+
+− √ϵz g
+
+ρI, 0 
+
+> x
+
+ρb, 1 
+
+> zzz
+
++ ( ρI, 0 − gρI, 0)ρb, 1 
+
+> zzz
+
+.
+
+1.5 Difficulties and innovations 
+
+In this work, we aim to investigate vanishing capillary limit of system (1.2) in a bounded interval. The main challenge focuses on the boundary effect that occurs in the limit of the density gradient, which prevents the convergence between the derivative of solution of the original system and that of the target system. Our main strategy is to derive some new correctors handling difficulties due to boundary layer. More precisely, our goal is to derive convergence rates of density, spatial derivative of density and velocity in L∞ norm. The key step is to derive L∞ estimates of the error functions (Φ ϵ, Φϵx, U ϵ). By interpolation inequalities, it suffices to establish L2 estimates of (Φ ϵ, Φϵx, U ϵ) and its derivative. 
+
+8One of the main difficulties lies in the L2 estimate of (Φ ϵx, √ϵ Φϵxx ). Indeed, when deriving the energy differential inequality ddt
+
+
+
+∥Φϵx∥2 
+
+> L2
+
++ ∥√ρϵ U ϵx∥2 
+
+> L2
+
++ ∥√ϵ Φϵxx ∥2
+
+> L2
+
+
+
++ ∥U ϵxx ∥2 
+
+> L2
+
+≤ CR,
+
+the right-hand side CR contains the terms R 
+
+> I
+
+ϵρ ϵxU ϵxΦϵxxx dx + R 
+
+> I
+
+ϵρ ϵxx U ϵΦϵxxx dx (see G2 and G3 in Lemma 3.9) that cannot be absorbed by the dissipation on the left-hand side. Motivated by [14], we derive a dissipative estimate of ϵρ ϵΦϵxxx in L2 
+
+> xt
+
+to handle such a difficulty. In contrast, the estimate of 
+
+∥(Φ ϵ, U ϵ, √ϵ Φϵx)∥L∞  
+
+> TL2(I)
+
+can be closed without requiring extra dissipative estimate of Φ ϵxx .
+
+# 2 Preliminaries 
+
+Lemma 2.1. (1) For any m ∈ N, it holds that 
+
+Z 10
+
+|f b,m ( x − 1
+
+√ϵ )|2dx ≤ √ϵ∥f b,m ∥2 
+
+> L2
+> z
+
+,
+
+Z 10
+
+|f B,m ( x
+
+√ϵ )|2dx ≤ √ϵ∥f B,m ∥2 
+
+> L2
+> y
+
+,
+
+∥hb,m ( · − 1
+
+√ϵ )∥2 
+
+> L∞(I)
+
+≤ C∥hb,m ∥2 
+
+> L∞
+> z
+
+, ∥hB,m ( ·√ϵ )∥2 
+
+> L∞(I)
+
+≤ C∥hB,m ∥2 
+
+> L∞
+> y
+
+,
+
+Z 10
+
+|gb,m x ( x − 1
+
+√ϵ , t )|2dx ≤ 1
+
+√ϵ ∥gb,m z ∥2 
+
+> L2
+> z
+
+,
+
+Z 10
+
+|gB,m x ( x
+
+√ϵ , t )|2dx ≤ 1
+
+√ϵ ∥gB,m y ∥2 
+
+> L2
+> y
+
+,
+
+(2.1) 
+
+for f b,m , f B,m ∈ L2(I), hb,m , h B,m ∈ L∞(I) and gb,m , g B,m ∈ H1(I).(2) Under the conditions of Propositions 1.1, 1.2, and 1.3, there holds 
+
+∥ρϵx(·, t ) − √ϵΦϵx∥2 
+
+> L2(I)
+
+≤ C (2.2) 
+
+for any t ∈ [0 , T ϵ] ∩ [0 , T ].Proof. Since f b,m , f B,m ∈ L2(I), hb,m , h B,m ∈ L∞(I) and gb,m , g B,m ∈ H1(I), it is easy to obtain the estimates in (1). We will prove (2) as follows. Using (2.1), (1.14) and Propositions 1.1, 1.2, 1.3, we get 
+
+∥ρϵx(·, t ) − √ϵΦϵx∥2
+
+> L2(I)
+
+=∥ρI, 0 
+
+> x
+
++ √ϵ(ρB, 1 + ρb, 1)x + ϵ(ρB, 2 + ρb, 2)x + Lϵx∥2
+
+> L2(I)
+
+≤C(∥ρI, 0 
+
+> x
+
+∥2 
+
+> L2(I)
+
++ √ϵ∥ρB, 1 
+
+> y
+
+∥2 
+
+> L2
+> y
+
++ √ϵ∥ρb, 1 
+
+> z
+
+∥2 
+
+> L2
+> z
+
++ ϵ√ϵ∥ρB, 2 
+
+> y
+
+∥2 
+
+> L2
+> y
+
++ ϵ√ϵ∥ρb, 2 
+
+> z
+
+∥2 
+
+> L2
+> z
+
++ ∥Lϵx∥2
+
+> L2(I)
+
+)
+
+≤C
+
+(2.3) for any t ∈ [0 , T ϵ] ∩ [0 , T ]. 
+
+Lemma 2.2. Under the conditions of Propositions 1.3, there holds that 
+
+(∥Lϵ∥L∞  
+
+> TH2
+
++ ∥Lϵt ∥L∞  
+
+> TH1
+
++ ∥Lϵtt ∥L2  
+
+> TL2
+
+≤ Cϵ l 
+
+> 2
+
+, for any l ∈ Z+,
+
+∥M ϵ∥L∞  
+
+> TH1
+
++ ∥M ϵt ∥L∞  
+
+> TH1(I)
+
+≤ Cϵ. (2.4) 
+
+Proof. Firstly, from 
+
+∥ρB,i y ( 1
+
+√ϵ , t )∥L∞ 
+
+> T
+
+= ϵ l 
+
+> 2
+
+∥ϵ− l 
+
+> 2
+
+ρB,i y ( 1
+
+√ϵ , t )∥L∞
+
+> T
+
+≤ϵ l 
+
+> 2
+
+∥⟨ y⟩lρB,i y (y, t )∥L∞  
+
+> TL∞
+> y
+
+≤ ϵ l 
+
+> 2
+
+∥⟨ y⟩lρB,i y (y, t )∥L∞  
+
+> TH1
+> y
+
+≤ Cϵ l 
+
+> 2
+
+,
+
+∥ρB,i yt ( 1
+
+√ϵ , t )∥L∞ 
+
+> T
+
+≤ ϵ l 
+
+> 2
+
+∥⟨ y⟩lρB,i yt (y, t )∥L∞  
+
+> TH1
+> y
+
+≤ Cϵ l 
+
+> 2
+
+,
+
+∥ρB,i ytt ( 1
+
+√ϵ , t )∥L2 
+
+> T
+
+≤ ϵ l 
+
+> 2
+
+∥⟨ y⟩lρB,i ytt (y, t )∥L2  
+
+> TL∞
+> y
+
+≤ ϵ l 
+
+> 2
+
+∥⟨ y⟩lρB,i ytt (y, t )∥L2  
+
+> TH1
+> y
+
+≤ Cϵ l 
+
+> 2
+
+,
+
+9and 
+
+∥ρb,i z (− 1
+
+√ϵ , t )∥L∞ 
+
+> T
+
++ ∥ρb,i zt (− 1
+
+√ϵ , t )∥L∞ 
+
+> T
+
++ ∥ρb,i ztt (− 1
+
+√ϵ , t )∥L2 
+
+> T
+
+≤ Cϵ l 
+
+> 2
+
+,
+
+for any i = 0 , 1, 2, (2.4) 1 holds. Next, from 
+
+∥(ϵ(1 − x)uB, 2(0 , t ), ϵxu b, 2(0 , t )) ∥L∞ 
+
+> T
+
+≤ Cϵ, 
+
+(2.4) 2 holds. 
+
+# 3 Proof of Theorem 1.1 
+
+Propositions 1.1 and 1.3 imply that systems (1.3), (1.6)-(1.11) have unique global solution (ρI, 0, u I, 0, ρ B, 1, ρ b, 1, ρ B, 2, ρ b, 2, u B, 2, u b, 2, u B, 3, u b, 3).
+
+Proposition 1.2 implies that for any fixed ϵ, there exists a unique local solution ( ρϵ, u ϵ) to system (1.2). Thus, system (1.16) admits a local solution (Φ ϵ, U ϵ). For any fixed ϵ, suppose that T ϵ > 0 is the maximum existence time of the system (1.16) with solution (Φ ϵ, U ϵ). To prove Theorem 1.1, it is necessary to prove the following result. 
+
+Theorem 3.1. Under the conditions of Theorem 1.1, there exists a positive constant ϵ0 depending only on T and the initial data, such that if 
+
+sup 
+
+> t∈[0 ,T 1]
+
+∥Φϵ(·, t )∥L∞(I) ≤ 1 (3.1) 
+
+holds for T1 ∈ (0 , T ] ∩ (0 , T ϵ) and ϵ ∈ (0 , ϵ 0) where T is given in Theorem 1.1, there hold 
+
+
+
+sup 
+
+> t∈[0 ,T 1]
+
+(∥U ϵ∥2 
+
+> L2(I)
+
++ ∥Φϵ∥2 
+
+> L2(I)
+
++ ϵ∥Φϵx∥2
+
+> L2(I)
+
+) + ∥U ϵx∥2  
+
+> L2
+> T1L2
+
+≤ B1ϵ, 
+
+sup 
+
+> t∈[0 ,T 1]
+
+(∥U ϵx∥2 
+
+> L2(I)
+
++ ∥Φϵx∥2 
+
+> L2(I)
+
++ ϵ∥Φϵxx ∥2
+
+> L2(I)
+
+) + ϵ2∥Φϵxxx ∥2  
+
+> L2
+> T1L2
+
++ ∥U ϵxx ∥2  
+
+> L2
+> T1L2
+
+≤ B2
+
+√ϵ, 
+
+sup 
+
+> t∈[0 ,T 1]
+
+∥Φϵ(·, t )∥L∞(I) ≤ 12 ,
+
+(3.2) 
+
+where B1, B 2 are positive constants positively correlated with T and depend on (ρϵ
+
+> 0
+
+, u ϵ
+
+> 0
+
+, ρ I, 00 , u I, 00 ).
+
+Corollary 3.1. Under the conditions of Theorem 1.1, there exists a positive constant ϵ1 ≤ ϵ0 depend-ing only on T and the initial data, such that if ϵ ≤ ϵ1, then 
+
+
+
+∥U ϵ∥2  
+
+> L∞
+> TL2
+
++ ∥Φϵ∥2  
+
+> L∞
+> TL2
+
++ ϵ∥Φϵx∥2  
+
+> L∞
+> TL2
+
++ ∥U ϵx∥2  
+
+> L2
+> TL2
+
+≤ B1ϵ, 
+
+∥U ϵx∥2  
+
+> L∞
+> TL2
+
++ ∥Φϵx∥2  
+
+> L∞
+> TL2
+
++ ϵ∥Φϵxx ∥2  
+
+> L∞
+> TL2
+
++ ϵ2∥Φϵxxx ∥2  
+
+> L2
+> TL2
+
++ ∥U ϵxx ∥2  
+
+> L2
+> TL2
+
+≤ B2
+
+√ϵ, 
+
+∥Φϵ∥L∞  
+
+> TL∞
+
+≤ 12(3.3) 
+
+hold. 
+
+Remark 3.1. ϵ0 and ϵ1 are determined by (3.50) and (3.51), respectively. 
+
+3.1 Uniform estimates for error system 
+
+In the following estimates we only apply the case l = 4 in (2.4), i.e., 
+
+∥Lϵ∥L∞  
+
+> TH2
+
++ ∥Lϵt ∥L∞  
+
+> TH1
+
++ ∥Lϵtt ∥L2  
+
+> TL2
+
+≤ Cϵ 2,
+
+which suffices for our purpose. 
+
+10 Lemma 3.1. Under the conditions of Theorem 3.1, there holds that 
+
+12M ≤ ρϵ ≤ 2M, (x, t ) ∈ I × [0 , T 1],
+
+where M > 1 is defined in Proposition 1.1. Proof. Using (1.14) and 1 
+
+> M
+
+≤ ρI, 0 ≤ M in Proposition 1.1, it holds that 1
+
+M + √ϵ(ρB, 1 + ρb, 1) + ϵ(ρB, 2 + ρb, 2) + Lϵ + √ϵΦϵ
+
+≤ρϵ ≤ M + √ϵ(ρB, 1 + ρb, 1) + ϵ(ρB, 2 + ρb, 2) + Lϵ + √ϵΦϵ.
+
+Using Proposition 1.3 and (3.1), we have 1
+
+M + √ϵ(ρB, 1 + ρb, 1) + ϵ(ρB, 2 + ρb, 2) + Lϵ + √ϵΦϵ
+
+≥ 1
+
+M − √ϵ(∥ρB, 1∥L∞ 
+
+> y
+
++ ∥ρb, 1∥L∞ 
+
+> z
+
+) − ϵ(∥ρB, 2∥L∞ 
+
+> y
+
++ ∥ρb, 2∥L∞ 
+
+> z
+
+) − ∥ Lϵ∥L∞(I) − √ϵ∥Φϵ∥L∞(I)
+
+≥ 1
+
+M − √ϵC − √ϵ, 
+
+for any t ∈ [0 , T 1]. Choosing 
+
+ϵ0 ≤ 122M 2(C + 1) 2 , (3.4) and letting ϵ ≤ ϵ0, we have 0 < √ϵ ≤ √ϵ0 ≤ 12M (C + 1) .
+
+Hence, we obtain 
+
+ρϵ ≥ 12M > 0,
+
+and 
+
+ρϵ ≤M + √ϵ(ρB, 1 + ρb, 1) + ϵ(ρB, 2 + ρb, 2) + Lϵ + √ϵΦϵ
+
+≤M + √ϵ(∥ρB, 1∥L∞ 
+
+> y
+
++ ∥ρb, 1∥L∞ 
+
+> z
+
+) + ϵ(∥ρB, 2∥L∞ 
+
+> y
+
++ ∥ρb, 2∥L∞ 
+
+> z
+
+) + ∥Lϵ∥L∞(I) + √ϵ∥Φϵ∥L∞(I)
+
+≤M + √ϵC (T1) + √ϵ ≤ M + 12M ≤ 2M. 
+
+Thus, the proof of Lemma 3.1 is complete. To prove Theorem 3.1, we need to estimate some terms in (1.16). 
+
+Lemma 3.2. Under the conditions of Theorem 3.1, there holds that 
+
+
+
+∥h1∥2 
+
+> L2(I)
+
+≤ Cϵ √ϵ, ∥(h1)x∥2 
+
+> L2(I)
+
+≤ C√ϵ, ∥(h1)t∥2 
+
+> L2(I)
+
+≤ Cϵ √ϵ, ∥α∥2 
+
+> L2(I)
+
+≤ Cϵ √ϵ, 
+
+|U ϵ(x, t )| ≤ ∥ U ϵx∥L2(I)|√ϵy | 12 , |U ϵ(x, t )| ≤ ∥ U ϵx∥L2(I)|√ϵz | 12 .
+
+(3.5) 
+
+Proof. Firstly, we define ξ = ξ(x, t ) as the gengral function when we use Taylor expansion to solve the problem, which will be different from line to line. Using (2.1), Propositions 1.1 and 1.3, and Taylor expansion 
+
+uI, 0(x, t ) − uI, 0 − √ϵyu I, 0 
+
+> x
+
+= ϵy 2
+
+2 uI, 0 
+
+> ξξ
+
+(ξ, t ),
+
+11 we have 
+
+∥h1,1∥2
+
+L2(I)
+
+=∥[ 1
+
+√ϵ (uI, 0 − uI, 0) − yu I, 0
+
+x ]ρB, 1
+
+y + ( ρI, 0 − ρI, 0)uB, 2
+
+y + ρB, 1(uI, 0
+
+x − uI, 0
+
+x ) + ρB, 2
+
+y (uI, 0 − uI, 0)∥2
+
+L2(I)
+
+=∥√ϵy 2
+
+2 uI, 0
+
+xx (ξ, t )ρB, 1
+
+y + yρ I, 0
+
+x (ξ, t )√ϵu B, 2
+
+y + yu I, 0
+
+xx (ξ, t )√ϵρ B, 1 + yu I, 0
+
+x (ξ, t )√ϵρ B, 2
+
+y ∥2
+
+L2(I)
+
+≤C∥uI, 0
+
+xx ∥2
+
+L∞(I)ϵ√ϵ∥⟨ y⟩2ρB, 1
+
+y ∥2
+
+L2 
+
+> y
+
++ C∥ρI, 0
+
+x ∥2
+
+L∞(I)ϵ√ϵ∥⟨ y⟩uB, 2
+
+y ∥2
+
+L2 
+
+> y
+
++ C∥uI, 0
+
+xx ∥2
+
+L∞(I)ϵ√ϵ∥⟨ y⟩ρB, 1∥2
+
+L2
+
+> y
+
++ C∥uI, 0
+
+x ∥2
+
+L∞(I)ϵ√ϵ∥⟨ y⟩ρB, 2
+
+y ∥2
+
+L2
+
+> y
+
+≤Cϵ √ϵ. 
+
+Similarly, it holds that 
+
+∥h1,2∥2
+
+L2(I) ≤ Cϵ √ϵ. 
+
+Secondly, we use (2.1), Propositions 1.1 and 1.3, and Taylor expansion to get 
+
+∥∂xh1,1∥2
+
+L2(I)
+
+=∥ 1
+
+√ϵ [ 1
+
+√ϵ (uI, 0 − uI, 0) − yu I, 0
+
+x ]ρB, 1
+
+yy + 1
+
+√ϵ (uI, 0
+
+x − uI, 0
+
+x )ρB, 1
+
+y + 1
+
+√ϵ (ρI, 0 − ρI, 0)uB, 2
+
+yy + ρI, 0
+
+x uB, 2
+
+y
+
++ 1
+
+√ϵ ρB, 1
+
+y (uI, 0
+
+x − uI, 0
+
+x ) + ρB, 1uI, 0
+
+xx + 1
+
+√ϵ ρB, 2
+
+yy (uI, 0 − uI, 0) + ρB, 2
+
+y uI, 0
+
+x ∥2
+
+L2(I)
+
+≤C∥uI, 0
+
+xx ∥2
+
+L∞(I)
+
+√ϵ(∥⟨ y⟩2ρB, 1
+
+yy ∥2
+
+L2 
+
+> y
+
++ ∥⟨ y⟩ρB, 1
+
+y ∥2
+
+L2 
+
+> y
+
+) + C∥uI, 0
+
+xx ∥2
+
+L∞(I)
+
+√ϵ∥ρB, 1∥2
+
+L2
+
+> y
+
++ C∥ρI, 0
+
+x ∥2
+
+L∞(I)
+
+√ϵ(∥⟨ y⟩uB, 2
+
+yy ∥2
+
+L2 
+
+> y
+
++ ∥uB, 2
+
+y ∥2
+
+L2 
+
+> y
+
+) + C∥uI, 0
+
+x ∥2
+
+L∞(I)
+
+√ϵ∥⟨ y⟩ρB, 2
+
+yy ∥2
+
+L2
+
+> y
+
++ C∥uI, 0
+
+x ∥2
+
+L∞(I)
+
+√ϵ∥ρB, 2
+
+y ∥2
+
+L2
+
+> y
+
+≤C√ϵ. 
+
+Similarly, there holds 
+
+∥∂xh1,2∥2
+
+L2(I) ≤ C√ϵ. 
+
+Thirdly, using (2.1), Propositions 1.1 and 1.3, and Taylor expansion, we get 
+
+∥∂th1,1∥2
+
+L2(I)
+
+=∥[ 1
+
+√ϵ (uI, 0 − uI, 0) − yu I, 0
+
+x ]ρB, 1
+
+yt + [ 1
+
+√ϵ (uI, 0
+
+t − uI, 0
+
+t ) − yu I, 0
+
+xt ]ρB, 1
+
+y + ( ρI, 0 − ρI, 0)uB, 2
+
+yt 
+
++ ( ρI, 0
+
+t − ρI, 0
+
+t )uB, 2
+
+y + ρB, 1
+
+t (uI, 0
+
+x − uI, 0
+
+x ) + ρB, 1(uI, 0
+
+xt − uI, 0
+
+xt ) + ρB, 2
+
+yt (uI, 0 − uI, 0)+ ρB, 2
+
+y (uI, 0
+
+t − uI, 0
+
+t )∥2
+
+L2(I)
+
+≤C∥uI, 0
+
+xx ∥2
+
+L∞(I)ϵ√ϵ∥⟨ y⟩2ρB, 1
+
+yt ∥2
+
+L2 
+
+> y
+
++ C∥uI, 0
+
+xxt ∥2
+
+L∞(I)ϵ√ϵ∥⟨ y⟩2ρB, 1
+
+y ∥2
+
+L2
+
+> y
+
++ C∥ρI, 0
+
+x ∥2
+
+L∞(I)ϵ√ϵ∥⟨ y⟩uB, 2
+
+yt ∥2
+
+L2 
+
+> y
+
++ C∥ρI, 0
+
+xt ∥2
+
+L∞(I)ϵ√ϵ∥⟨ y⟩uB, 2
+
+y ∥2
+
+L2
+
+> y
+
++ C∥uI, 0
+
+xx ∥2
+
+L∞(I)ϵ√ϵ∥⟨ y⟩ρB, 1
+
+t ∥2
+
+L2 
+
+> y
+
++ C∥uI, 0
+
+xxt ∥2
+
+L∞(I)ϵ√ϵ∥⟨ y⟩ρB, 1∥2
+
+L2
+
+> y
+
++ C∥uI, 0
+
+x ∥2
+
+L∞(I)ϵ√ϵ∥⟨ y⟩ρB, 2
+
+yt ∥2
+
+L2 
+
+> y
+
++ C∥uI, 0
+
+xt ∥2
+
+L∞(I)ϵ√ϵ∥⟨ y⟩ρB, 2
+
+y ∥2
+
+L2
+
+> y
+
+≤Cϵ √ϵ. 
+
+Similarly, we have 
+
+∥∂th1,2∥2
+
+L2(I) ≤ Cϵ √ϵ. 
+
+Because of h1 = h1,1 + h1,2, above estimates imply (3.5) 1,2,3.
+
+12 Moreover, (2.1), Propositions 1.1 and 1.3, and Tayolr expansion also imply that 1
+
+ϵ ∥α1∥2
+
+> L2(I)
+
+≤C∥uI, 0 
+
+> xt
+
+∥2
+
+> L∞(I)
+
+ϵ√ϵ∥⟨ y⟩ρB, 1∥2 
+
+> L2
+> y
+
++ C(∥ρI, 0 
+
+> x
+
+uI, 0∥2 
+
+> L∞(I)
+
++ ∥ρI, 0uI, 0 
+
+> x
+
+∥2
+
+> L∞(I)
+
+)ϵ√ϵ∥⟨ y⟩uB, 2 
+
+> y
+
+∥2
+
+> L2
+> y
+
++ C(∥uI, 0 
+
+> xx
+
+uI, 0∥2 
+
+> L∞(I)
+
++ ∥uI, 0 
+
+> x
+
+∥4
+
+> L∞(I)
+
+)ϵ√ϵ∥⟨ y⟩ρB, 1∥2 
+
+> L2
+> y
+
++ C∥(ρI, 0)γ−2ρI, 0 
+
+> x
+
+∥2
+
+> L∞(I)
+
+ϵ√ϵ∥⟨ y⟩ρB, 2 
+
+> y
+
+∥2
+
+> L2
+> y
+
++ C∥∂2
+
+> x
+
+[( ρI, 0)γ−1]∥2
+
+> L∞(I)
+
+ϵ√ϵ∥⟨ y⟩ρB, 1∥2 
+
+> L2
+> y
+
++ C∥(ρI, 0)γ−3ρI, 0 
+
+> x
+
+∥2
+
+> L∞(I)
+
+ϵ√ϵ∥ρB, 1∥2 
+
+> L∞
+> y
+
+∥⟨ y⟩ρB, 1 
+
+> y
+
+∥2
+
+> L2
+> y
+
++ C∥∂2
+
+> x
+
+[( ρI, 0)γ−1]∥2
+
+> L∞(I)
+
+ϵ√ϵ∥⟨ y⟩2ρB, 1 
+
+> y
+
+∥2
+
+> L2
+> y
+
++ C∥ρI, 0 
+
+> x
+
+∥2
+
+> L∞(I)
+
+ϵ√ϵ∥⟨ y⟩ρB, 2 
+
+> yyy
+
+∥2 
+
+> L2
+> y
+
++ C∥ρI, 0 
+
+> xx
+
+∥2
+
+> L∞(I)
+
+ϵ√ϵ∥⟨ y⟩2ρB, 1 
+
+> yyy
+
+∥2
+
+> L2
+> y
+
+≤Cϵ √ϵ, 
+
+Similarly, we have 1
+
+ϵ ∥α2∥2 
+
+> L2(I)
+
+≤ Cϵ √ϵ. 
+
+Because of α = 1√ϵ (α1 + α2), we get (3.5) 4.Finally, from U ϵ|x=0 ,1 = 0, using H¨ older’s inequality, it holds that 
+
+|U ϵ(x, t )| = |
+
+Z x
+
+> 0
+
+U ϵa(a, t )d a| ≤ ∥ U ϵx∥L2(I)|√ϵy | 12 ,
+
+|U ϵ(x, t )| = |
+
+Z 1
+
+> x
+
+U ϵa(a, t )d a| ≤ ∥ U ϵx∥L2(I)|√ϵz | 12 .
+
+Lemma 3.3. Under the conditions of Theorem 3.1, there holds that 
+
+(∥h3∥2 
+
+> L2(I)
+
++ ∥h4∥2 
+
+> L2(I)
+
++ ∥h5∥2 
+
+> L2(I)
+
+≤ Cϵ √ϵ, 
+
+∥(h3)x∥2 
+
+> L2(I)
+
++ ∥(h4)x∥2 
+
+> L2(I)
+
++ ∥(h5)x∥2 
+
+> L2(I)
+
+≤ C√ϵ. (3.6) 
+
+Proof. Firstly, using H¨ older’s inequality, Propositions 1.1 and 1.3, and (2.1) in Lemma 2.1, it holds that 
+
+∥h3∥2 
+
+> L2(I)
+
+=∥√ϵρ B, 2 
+
+> t
+
++ uI, 0
+
+> x
+
+√ϵρ B, 2 + √ϵu B, 3 
+
+> y
+
+ρI, 0 + √ϵu B, 2ρI, 0 
+
+> x
+
++ ϵu B, 3ρI, 0 
+
+> x
+
+∥2
+
+> L2(I)
+
+≤C∥√ϵρ B, 2 
+
+> t
+
+∥2 
+
+> L2(I)
+
++ Cϵ ∥uI, 0 
+
+> x
+
+∥2
+
+> L∞(I)
+
+∥ρB, 2∥2 
+
+> L2(I)
+
++ Cϵ ∥uB, 3 
+
+> y
+
+∥2
+
+> L2(I)
+
+∥ρI, 0∥2
+
+> L∞(I)
+
++ Cϵ ∥uB, 2∥2
+
+> L2(I)
+
+∥ρI, 0 
+
+> x
+
+∥2 
+
+> L∞(I)
+
++ Cϵ 2∥uB, 3∥2
+
+> L2(I)
+
+∥ρI, 0 
+
+> x
+
+∥2
+
+> L∞(I)
+
+≤Cϵ √ϵ + Cϵ √ϵ + Cϵ √ϵ + Cϵ √ϵ + Cϵ 2√ϵ ≤ Cϵ √ϵ. 
+
+Similarly, we have ∥h4∥2 
+
+> L2(I)
+
+≤ Cϵ √ϵ.Define h5 := h5,1 + h5,2 as 
+
+h5,1 =[( uB, 2 
+
+> y
+
++ ub, 2 
+
+> z
+
+) + √ϵ(uB, 3 
+
+> y
+
++ ub, 3 
+
+> z
+
+)][ √ϵ(ρB, 1 + ρb, 1) + ϵ(ρB, 2 + ρb, 2) + Lϵ],h5,2 =[ √ϵ(uB, 2 + ub, 2) + ϵ(uB, 3 + ub, 3)][( ρB, 1 
+
+> y
+
++ ρb, 1 
+
+> z
+
+) + √ϵ(ρB, 2 
+
+> y
+
++ ρb, 2 
+
+> z
+
+) + Lϵx].
+
+Then, using H¨ older’s inequality, Propositions 1.1 and 1.3, and (2.1) in Lemma 2.1, we get 
+
+∥h5,1∥2 
+
+> L2(I)
+
+≤∥ [( uB, 2 
+
+> y
+
++ ub, 2 
+
+> z
+
+) + √ϵ(uB, 3 
+
+> y
+
++ ub, 3 
+
+> z
+
+)] ∥2
+
+> L2(I)
+
+∥[√ϵ(ρB, 1 + ρb, 1) + ϵ(ρB, 2 + ρb, 2) + Lϵ]∥2
+
+> L∞(I)
+
+≤Cϵ √ϵ, 
+
+and 
+
+∥h5,2∥2 
+
+> L2(I)
+
+≤C∥[√ϵ(uB, 2 + ub, 2) + ϵ(uB, 3 + ub, 3)] ∥2
+
+> L2(I)
+
+∥[( ρB, 1 
+
+> y
+
++ ρb, 1 
+
+> z
+
+) + √ϵ(ρB, 2 
+
+> y
+
++ ρb, 2 
+
+> z
+
+) + Lϵx]∥2
+
+> L∞(I)
+
+≤Cϵ √ϵ. 
+
+13 In conclusion, we have 
+
+∥h3∥2 
+
+> L2(I)
+
++ ∥h4∥2 
+
+> L2(I)
+
++ ∥h5∥2 
+
+> L2(I)
+
+≤ Cϵ √ϵ. 
+
+Secondly, using H¨ older’s inequality, Propositions 1.1 and 1.3, and (2.1) in Lemma 2.1, it holds that 
+
+∥(h3)x∥2 
+
+> L2(I)
+
+=∥√ϵρ B, 2 
+
+> xt
+
++ uI, 0
+
+> xx
+
+√ϵρ B, 2 + uB, 3 
+
+> yy
+
+ρI, 0 + uB, 2 
+
+> y
+
+ρI, 0 
+
+> x
+
++ √ϵu B, 3 
+
+> y
+
+ρI, 0 
+
+> x
+
++ uI, 0 
+
+> x
+
+ρB, 2 
+
+> y
+
++ √ϵu B, 3 
+
+> y
+
+ρI, 0
+
+> x
+
++ √ϵu B, 2ρI, 0 
+
+> xx
+
++ ϵu B, 3ρI, 0 
+
+> xx
+
+∥2
+
+> L2(I)
+
+≤C∥√ϵρ B, 2 
+
+> xt
+
+∥2 
+
+> L2(I)
+
++ C∥uI, 0 
+
+> xx
+
+∥2
+
+> L∞(I)
+
+∥√ϵρ B, 2∥2 
+
+> L2(I)
+
++ C∥uB, 3 
+
+> yy
+
+∥2
+
+> L2(I)
+
+∥ρI, 0∥2
+
+> L∞(I)
+
++ C∥uB, 2 
+
+> y
+
+∥2
+
+> L2(I)
+
+∥ρI, 0 
+
+> x
+
+∥2 
+
+> L∞(I)
+
++ C∥√ϵu B, 3 
+
+> y
+
+∥2
+
+> L2(I)
+
+∥ρI, 0 
+
+> x
+
+∥2 
+
+> L∞(I)
+
++ C∥uI, 0 
+
+> x
+
+∥2
+
+> L∞(I)
+
+∥ρB, 2 
+
+> y
+
+∥2
+
+> L2(I)
+
++ C∥√ϵu B, 3 
+
+> y
+
+∥2
+
+> L2(I)
+
+∥ρI, 0 
+
+> x
+
+∥2 
+
+> L∞(I)
+
++C∥√ϵu B, 2∥2
+
+> L∞(I)
+
+∥ρI, 0 
+
+> xx
+
+∥2 
+
+> L2(I)
+
++C∥ϵu B, 3∥2
+
+> L∞(I)
+
+∥ρI, 0 
+
+> xx
+
+∥2
+
+> L2(I)
+
+≤Cϵ √ϵ + Cϵ √ϵ + C√ϵ + C√ϵ + Cϵ √ϵ + C√ϵ + Cϵ √ϵ + Cϵ + Cϵ 2 ≤ C√ϵ. 
+
+Similarly, we have 
+
+∥(h4)x∥2 
+
+> L2(I)
+
+≤ C√ϵ. 
+
+We define ( h5)x := P3 
+
+> i=1
+
+hx 
+
+> 5,i
+
+as 
+
+hx 
+
+> 5,1
+
+=[( uB, 2 
+
+> yy
+
++ ub, 2 
+
+> zz
+
+) + √ϵ(uB, 3 
+
+> yy
+
++ ub, 3 
+
+> zz
+
+)][( ρB, 1 + ρb, 1) + √ϵ(ρB, 2 + ρb, 2) + 1
+
+√ϵ Lϵ],hx 
+
+> 5,2
+
+=2[( uB, 2 
+
+> y
+
++ ub, 2 
+
+> z
+
+) + √ϵ(uB, 3 
+
+> y
+
++ ub, 3 
+
+> z
+
+)][( ρB, 1 
+
+> y
+
++ ρb, 1 
+
+> z
+
+) + √ϵ(ρB, 2 
+
+> y
+
++ ρb, 2 
+
+> z
+
+) + Lϵx],hx 
+
+> 5,3
+
+=[( uB, 2 + ub, 2) + √ϵ(uB, 3 + ub, 3)][( ρB, 1 
+
+> yy
+
++ ρb, 1 
+
+> zz
+
+) + √ϵ(ρB, 2 
+
+> yy
+
++ ρb, 2 
+
+> zz
+
+) + √ϵL ϵxx ],
+
+then using H¨ older’s inequality, Propositions 1.1 and 1.3, and (2.1) in Lemma 2.1, we get 
+
+∥(h5)x∥2 
+
+> L2(I)
+
+≤ C
+
+> 3
+
+X
+
+> i=1
+
+∥hx
+
+> 5,i
+
+∥2
+
+> L2(I)
+
+≤C∥(uB, 2 
+
+> yy
+
++ ub, 2 
+
+> zz
+
+) + √ϵ(uB, 3 
+
+> yy
+
++ ub, 3 
+
+> zz
+
+)∥2
+
+> L2(I)
+
+∥(ρB, 1 + ρb, 1) + √ϵ(ρB, 2 + ρb, 2) + 1
+
+√ϵ Lϵ∥2
+
+> L∞(I)
+
++ C∥(uB, 2 
+
+> y
+
++ ub, 2 
+
+> z
+
+) + √ϵ(uB, 3 
+
+> y
+
++ ub, 3 
+
+> z
+
+)∥2
+
+> L2(I)
+
+∥(ρB, 1 
+
+> y
+
++ ρb, 1 
+
+> z
+
+) + √ϵ(ρB, 2 
+
+> y
+
++ ρb, 2 
+
+> z
+
+) + Lϵx∥2
+
+> L∞(I)
+
++ C∥(uB, 2 + ub, 2) + √ϵ(uB, 3 + ub, 3)∥2
+
+> L∞(I)
+
+∥(ρB, 1 
+
+> yy
+
++ ρb, 1 
+
+> zz
+
+) + √ϵ(ρB, 2 
+
+> yy
+
++ ρb, 2 
+
+> zz
+
+) + √ϵL ϵxx ∥2
+
+> L2(I)
+
+≤C√ϵ + C√ϵ + C√ϵ ≤ C√ϵ. 
+
+In conclusion, there holds 
+
+∥(h3)x∥2 
+
+> L2(I)
+
++ ∥(h4)x∥2 
+
+> L2(I)
+
++ ∥(h5)x∥2 
+
+> L2(I)
+
+≤ C√ϵ. 
+
+Lemma 3.4. Under the conditions of Theorem 3.1, there holds that 
+
+∥W ∥2 
+
+> L2(I)
+
+≤C∥U ϵ∥2 
+
+> L2(I)
+
++ C∥Φϵ∥2 
+
+> L2(I)
+
++ C(√ϵ + ∥Φϵ∥2
+
+> L2(I)
+
+)(1 + ϵ∥Φϵxx ∥2
+
+> L2(I)
+
+)+ C√ϵ + C∥Φϵx∥2
+
+> L2(I)
+
+, (3.7) 
+
+and that 
+
+∥W1∥2 
+
+> L2(I)
+
+≤ Cϵ + C∥U ϵ∥2 
+
+> L2(I)
+
++ C∥Φϵ∥2
+
+> L2(I)
+
+, (3.8) 
+
+where W is given by (1.16) 2 and 
+
+W1 := W + P (ρϵ, ρ I, 0) − Ω4. (3.9) 
+
+14 Proof. From Propositions 1.1 and 1.3, Lemmas 2.2 and 3.1, (2.1), and H¨ older’s inequality, we get estimates of ∥Θ1∥2 
+
+> L2(I)
+
+and ∥Θ2∥2 
+
+> L2(I)
+
+as follows: 
+
+∥Θ1∥2 
+
+> L2(I)
+
+=∥( 1
+
+√ϵ Lϵ + Φ ϵ)uI, 0 
+
+> t
+
++ ρϵ 1
+
+√ϵ M ϵt + ρI, 0uI, 0 1
+
+√ϵ M ϵx + ρI, 0( 1
+
+√ϵ M ϵ + U ϵ)uI, 0
+
+> x
+
++ ( 1
+
+√ϵ Lϵ + Φ ϵ)uI, 0uI, 0 
+
+> x
+
+∥2
+
+> L2(I)
+
+≤C∥ 1
+
+√ϵ Lϵ + Φ ϵ∥2
+
+> L2(I)
+
+∥uI, 0 
+
+> t
+
+∥2 
+
+> L∞(I)
+
++ C∥ρϵ∥2
+
+> L∞(I)
+
+∥ 1
+
+√ϵ M ϵt ∥2
+
+> L2(I)
+
++ C∥ρI, 0uI, 0∥2
+
+> L∞(I)
+
+∥ 1
+
+√ϵ M ϵx∥2 
+
+> L2(I)
+
++ C∥ρI, 0∥2
+
+> L∞(I)
+
+∥ 1
+
+√ϵ M ϵ + U ϵ∥2
+
+> L2(I)
+
+∥uI, 0 
+
+> x
+
+∥2
+
+> L∞(I)
+
++ C∥ 1
+
+√ϵ Lϵ + Φ ϵ∥2
+
+> L2(I)
+
+∥uI, 0uI, 0 
+
+> x
+
+∥2
+
+> L∞(I)
+
+≤C(ϵ2 + ∥Φϵ∥2
+
+> L2(I)
+
+) + Cϵ + Cϵ + C(ϵ + ∥U ϵ∥2
+
+> L2(I)
+
+) + C(ϵ2 + ∥Φϵ∥2
+
+> L2(I)
+
+)
+
+≤C∥Φϵ∥2 
+
+> L2(I)
+
++ Cϵ + C∥U ϵ∥2
+
+> L2(I)
+
+,
+
+∥Θ2∥2 
+
+> L2(I)
+
+=∥√ϵρ B, 2uI, 0 
+
+> t
+
++ ρϵ(√ϵu B, 2 
+
+> t
+
++ ϵu B, 3 
+
+> t
+
+) + ρI, 0uI, 0√ϵu B, 3 
+
+> y
+
++ ρI, 0(√ϵu B, 2 + ϵu B, 3)uI, 0
+
+> x
+
++ √ϵρ B, 2uI, 0uI, 0 
+
+> x
+
+∥2
+
+> L2(I)
+
+≤C∥√ϵρ B, 2∥2
+
+> L2(I)
+
+∥uI, 0 
+
+> t
+
+∥2 
+
+> L∞(I)
+
++ C∥ρϵ∥2
+
+> L∞(I)
+
+∥√ϵu B, 2 
+
+> t
+
++ ϵu B, 3 
+
+> t
+
+∥2
+
+> L2(I)
+
++ C∥ρI, 0uI, 0∥2
+
+> L∞(I)
+
+∥√ϵu B, 3 
+
+> y
+
+∥2 
+
+> L2(I)
+
++ C∥ρI, 0∥2
+
+> L∞(I)
+
+∥√ϵu B, 2 + ϵu B, 3∥2
+
+> L2(I)
+
+∥uI, 0 
+
+> x
+
+∥2
+
+> L∞(I)
+
++ C∥√ϵρ B, 2∥2
+
+> L2(I)
+
+∥uI, 0uI, 0 
+
+> x
+
+∥2
+
+> L∞(I)
+
+≤Cϵ √ϵ + Cϵ √ϵ + Cϵ √ϵ + Cϵ √ϵ + Cϵ √ϵ ≤ Cϵ √ϵ. 
+
+Similar to the estimate of ∥Θ2∥2
+
+> L2(I)
+
+, we have 
+
+∥Θ3∥2 
+
+> L2(I)
+
+≤ Cϵ √ϵ. 
+
+Moreover, using Propositions 1.1 and 1.3, Lemma 2.2, (2.1), and H¨ older’s inequality, we have 
+
+∥Θ4∥2 
+
+> L2(I)
+
+=∥ρI, 0[√ϵ(uB, 2 + ub, 2) + ϵ(uB, 3 + ub, 3) + 1
+
+√ϵ M ϵ + U ϵ][ M ϵ + ϵ(uB, 2 + ub, 2)+ ϵ√ϵ(uB, 3 + ub, 3)] x + [( ρB, 1 + ρb, 1) + √ϵ(ρB, 2 + ρb, 2) + 1
+
+√ϵ Lϵ + Φ ϵ]uI, 0[M ϵ
+
++ ϵ(uB, 2 + ub, 2) + ϵ√ϵ(uB, 3 + ub, 3)] x∥2
+
+> L2(I)
+
+≤C∥ρI, 0∥2
+
+> L∞(I)
+
+∥√ϵ(uB, 2 + ub, 2) + ϵ(uB, 3 + ub, 3) + 1
+
+√ϵ M ϵ + U ϵ∥2
+
+> L2(I)
+
+∥[M ϵ
+
++ ϵ(uB, 2 + ub, 2) + ϵ√ϵ(uB, 3 + ub, 3)] x∥2
+
+> L∞(I)
+
++ C∥(ρB, 1 + ρb, 1) + √ϵ(ρB, 2 + ρb, 2) + 1
+
+√ϵ Lϵ + Φ ϵ∥2
+
+> L2(I)
+
+∥uI, 0∥2
+
+> L∞(I)
+
+∥[M ϵ
+
++ ϵ(uB, 2 + ub, 2) + ϵ√ϵ(uB, 3 + ub, 3)] x∥2
+
+> L∞(I)
+
+≤C(ϵ + ∥U ϵ∥2
+
+> L2(I)
+
+)ϵ + C(√ϵ + ∥Φϵ∥2
+
+> L2(I)
+
+)ϵ ≤ Cϵ (∥Φϵ∥2 
+
+> L2(I)
+
++ ∥U ϵ∥2 
+
+> L2(I)
+
++ √ϵ).
+
+Using (3.1), Propositions 1.1 and 1.3, Lemma 2.2, (2.1), and H¨ older’s inequality, we get 
+
+∥Θ5∥2 
+
+> L2(I)
+
+=∥[( ρB, 1 + ρb, 1) + √ϵ(ρB, 2 + ρb, 2) + 1
+
+√ϵ Lϵ + Φ ϵ][ ϵ(uB, 2 + ub, 2) + ϵ√ϵ(uB, 3 + ub, 3)+ M ϵ + √ϵU ϵ][ uI, 0 + M ϵ + ϵ(uB, 2 + ub, 2) + ϵ√ϵ(uB, 3 + ub, 3)] x∥2
+
+> L2(I)
+
+≤C∥(ρB, 1 + ρb, 1) + √ϵ(ρB, 2 + ρb, 2) + 1
+
+√ϵ Lϵ + Φ ϵ∥2
+
+> L∞(I)
+
+∥ϵ(uB, 2 + ub, 2)+ ϵ√ϵ(uB, 3 + ub, 3) + M ϵ + √ϵU ϵ∥2
+
+> L2(I)
+
+∥[uI, 0 + M ϵ + ϵ(uB, 2 + ub, 2)+ ϵ√ϵ(uB, 3 + ub, 3)] x∥2
+
+> L∞(I)
+
+≤C(ϵ2 + ϵ∥U ϵ∥2
+
+> L2(I)
+
+).
+
+15 Using (1.14) 1, mean value Theorem, and Lemma 3.1, it holds that 
+
+P (ρϵ, ρ I, 0) = 1
+
+√ϵ {[γ(ρϵ)γ−1 − γ(ρI, 0)γ−1]ρϵx + γ(ρI, 0)γ−1[√ϵ(ρB, 2 
+
+> y
+
++ ρb, 2 
+
+> z
+
+) + Lϵx + √ϵΦϵx]
+
+− γ(ρI, 0)γ−1√ϵ(ρB, 2 
+
+> y
+
++ ρb, 2 
+
+> z
+
+) − γ(γ − 1)( ρI, 0)γ−2√ϵ(ρB, 1 + ρb, 1)ρI, 0
+
+> x
+
+− γ(γ − 1)( ρI, 0)γ−2√ϵρ B, 1ρB, 1 
+
+> y
+
+− γ(γ − 1)( ρI, 0)γ−2√ϵρ b, 1ρb, 1 
+
+> z
+
+}
+
+=γ(γ − 1)[ θρ ϵ + (1 − θ)ρI, 0]γ−2[( ρB, 1 + ρb, 1) + √ϵ(ρB, 2 + ρb, 2) + 1
+
+√ϵ Lϵ + Φ ϵ]ρϵx
+
++ γ(ρI, 0)γ−1[( ρB, 2 
+
+> y
+
++ ρb, 2 
+
+> z
+
+) + 1
+
+√ϵ Lϵx + Φ ϵx]
+
+− γ(ρI, 0)γ−1(ρB, 2 
+
+> y
+
++ ρb, 2 
+
+> z
+
+) − γ(γ − 1)( ρI, 0)γ−2(ρB, 1 + ρb, 1)ρI, 0
+
+> x
+
+− γ(γ − 1)( ρI, 0)γ−2ρB, 1ρB, 1 
+
+> y
+
+− γ(γ − 1)( ρI, 0)γ−2ρb, 1ρb, 1 
+
+> z
+
+.
+
+Thus, using Lemmas 2.2 and 3.2, Propositions 1.1 and 1.3, (2.1), and Poincar´ e’s inequality ∥Φϵx∥L∞(I) ≤
+
+C∥Φϵxx ∥L2(I), we get 
+
+∥P (ρϵ, ρ I, 0)∥2 
+
+> L2(I)
+
++ ∥α∥2
+
+> L2(I)
+
+≤C(∥ρϵx − √ϵΦϵx∥2 
+
+> L∞(I)
+
++ ϵ∥Φϵxx ∥2
+
+> L2(I)
+
+)( √ϵ + ∥Φϵ∥2
+
+> L2(I)
+
+) + C(√ϵ + ∥Φϵx∥2
+
+> L2(I)
+
+) + Cϵ √ϵ
+
+≤C√ϵ + C(1 + ϵ∥Φϵxx ∥2
+
+> L2(I)
+
+)( √ϵ + ∥Φϵ∥2
+
+> L2(I)
+
+) + C∥Φϵx∥2
+
+> L2(I)
+
+.
+
+Finally, using Propositions 1.1 and 1.3, Lemma 2.2, (2.1), and H¨ older’s inequality, we have the following estimates: 
+
+∥Ω1∥2 
+
+> L2(I)
+
+≤C∥√ϵρ I, 0∥2
+
+> L∞(I)
+
+∥ρI, 0
+
+> xxx
+
+∥2 
+
+> L2(I)
+
+≤ Cϵ, 
+
+∥Ω2∥2 
+
+> L2(I)
+
+≤C∥ϵ(ρB, 1 + ρb, 1)∥2
+
+> L∞(I)
+
+∥[ρI, 0 + ϵ(ρB, 2 + ρb, 2)] xxx ∥2 
+
+> L2(I)
+
+≤ Cϵ 2(1 + 1
+
+√ϵ ) ≤ Cϵ √ϵ, 
+
+∥Ω3∥2 
+
+> L2(I)
+
+≤C∥√ϵ[ϵ(ρB, 2 + ρb, 2) + Lϵ + √ϵΦϵ]∥2
+
+> L2(I)
+
+∥[ρI, 0 + √ϵ(ρB, 1 + ρb, 1) + ϵ(ρB, 2 + ρb, 2)] xxx ∥2
+
+> L∞(I)
+
+≤Cϵ (ϵ2√ϵ + ϵ∥Φϵ∥2
+
+> L2(I)
+
+)(1 + 1
+
+ϵ2 ) ≤ C(ϵ√ϵ + ∥Φϵ∥2
+
+> L2(I)
+
+),
+
+and 
+
+∥Ω4∥2 
+
+> L2(I)
+
+≤ C∥ρb, 1∥2
+
+> L∞(I)
+
+∥ρB, 1 
+
+> yyy
+
+∥2 
+
+> L2(I)
+
++ C∥ρB, 1∥2
+
+> L∞(I)
+
+∥ρb, 1 
+
+> zzz
+
+∥2 
+
+> L2(I)
+
+≤ C√ϵ. 
+
+Then, above estimates imply (3.7) and (3.8). 
+
+3.2 Proof of Theorem 3.1 
+
+Proof of Theorem 3.1 will be obtained by Corollaries 3.2, 3.4 and 3.5. 
+
+Lemma 3.5. Under the conditions of Theorem 3.1, there holds that 
+
+12ddt
+
+Z
+
+> I
+
+(Φ ϵ)2dx ≤ 14
+
+Z
+
+> I
+
+(U ϵx)2dx + C∥Φϵ∥2 
+
+> L2(I)
+
++ Cϵ. (3.10) 
+
+Proof. Firstly, multiplying (1.16) 1 by Φ ϵ and integrating the result over I, we have 12ddt
+
+Z
+
+> I
+
+(Φ ϵ)2dx = −
+
+Z
+
+> I
+
+(ρϵU ϵ)xΦϵdx −
+
+Z
+
+> I
+
+Φϵ
+
+> 5
+
+X
+
+> i=1
+
+hidx. (3.11) Using integration by parts, Lemma 3.1, (2.3), (3.1), and Poincar´ e’s inequality ∥U ϵ∥L∞(I) ≤ C∥U ϵx∥L2(I),
+
+16 we have 
+
+−
+
+Z
+
+> I
+
+(ρϵxU ϵ + ρϵU ϵx)Φ ϵdx = −
+
+Z
+
+> I
+
+[( ρϵx − √ϵΦϵx)U ϵ + √ϵΦϵxU ϵ + ρϵU ϵx]Φ ϵdx
+
+=
+
+Z
+
+> I
+
+[−(ρϵx − √ϵΦϵx)U ϵ + 12
+
+√ϵΦϵU ϵx − ρϵU ϵx]Φ ϵdx
+
+≤∥ ρϵx − √ϵΦϵx∥L2(I)∥U ϵ∥L∞(I)∥Φϵ∥L2(I) + C√ϵ∥Φϵ∥L∞(I)∥U ϵx∥L2(I)∥Φϵ∥L2(I)
+
++ C∥ρϵ∥L∞(I)∥U ϵx∥L2(I)∥Φϵ∥L2(I)
+
+≤ 14
+
+Z
+
+> I
+
+(U ϵx)2dx + C∥Φϵ∥2
+
+> L2(I)
+
+.
+
+(3.12) Recalling that [uI, 0 + ϵ(uB, 2 + ub, 2) + ϵ√ϵ(uB, 3 + ub, 3) + M ϵ]|x=0 ,1 = 0 ,
+
+we have 
+
+−
+
+Z
+
+> I
+
+Φϵ{uI, 0 + M ϵ + [ √ϵ(uB, 2 + ub, 2) + ϵ(uB, 3 + ub, 3)] √ϵ}Φϵxdx
+
+=
+
+Z
+
+> I
+
+12 (Φ ϵ)2{uI, 0 
+
+> x
+
++ M ϵx + √ϵ[( uB, 2 
+
+> y
+
++ ub, 2 
+
+> z
+
+) + ϵ(uB, 3 
+
+> y
+
++ ub, 3 
+
+> z
+
+)] }dx, 
+
+which yields 
+
+−
+
+Z
+
+> I
+
+Φϵh2dx
+
+= −
+
+Z
+
+> I
+
+Φϵ[ 1
+
+√ϵ Lϵt + uI, 0
+
+> x
+
+1
+
+√ϵ Lϵ + uI, 0 1
+
+√ϵ Lϵx + 1
+
+√ϵ M ϵxρϵ + 1
+
+√ϵ M ϵ(ρϵx − √ϵΦϵx)]d x
+
++ 12
+
+Z
+
+> I
+
+(Φ ϵ)2{M ϵx − [uI, 0 
+
+> x
+
++ √ϵ(uB, 2 
+
+> y
+
++ ub, 2 
+
+> z
+
+) + ϵ(uB, 3 
+
+> y
+
++ ub, 3 
+
+> z
+
+)] }dx
+
+:= −
+
+Z
+
+> I
+
+Φϵh2,1dx + 12
+
+Z
+
+> I
+
+(Φ ϵ)2h2,2dx. 
+
+Using Propositions 1.1, 1.2 and 1.3, (2.3), H¨ older’s inequality, Young’s inequality, and Lemmas 2.1 and 2.2, we get 
+
+−
+
+Z
+
+> I
+
+Φϵh2dx = −
+
+Z
+
+> I
+
+Φϵh2,1dx + 12
+
+Z
+
+> I
+
+(Φ ϵ)2h2,2dx
+
+≤C∥h2,1∥2 
+
+> L2(I)
+
++ C(1 + ∥h2,2∥L∞(I))∥Φϵ∥2 
+
+> L2(I)
+
+≤ Cϵ + C∥Φϵ∥2
+
+> L2(I)
+
+.
+
+(3.13) Using Lemmas 3.2 and 3.3, H¨ older’s inequality, and Young’s inequality, we have 
+
+Z
+
+> I
+
+Φϵ(h1 + h3 + h4 + h5)d x ≤ C∥Φϵ∥2 
+
+> L2(I)
+
++ C( X
+
+> i=1 ,3,4,5
+
+∥hi∥2
+
+> L2(I)
+
+) ≤ C∥Φϵ∥2 
+
+> L2(I)
+
++ Cϵ √ϵ. (3.14) In conclusion, putting (3.12)-(3.14) into (3.11), we get (3.10). 
+
+Lemma 3.6. Under the conditions of Theorem 3.1, there holds that 
+
+12ddt
+
+Z
+
+> I
+
+ρϵ(U ϵ)2dx +
+
+Z
+
+> I
+
+(U ϵx)2dx −
+
+Z
+
+> I
+
+ϵρ ϵΦϵxxx U ϵdx
+
+≤Cϵ + C∥√ρϵU ϵ∥2 
+
+> L2(I)
+
++ C∥Φϵ∥2 
+
+> L2(I)
+
++ 14 ∥U ϵx∥2
+
+> L2(I)
+
+.
+
+(3.15) 
+
+Proof. Multiplying (1.16) 2 by U ϵ and integrating the result over I, using (3.9), we get 12ddt
+
+Z
+
+> I
+
+ρϵ(U ϵ)2dx +
+
+Z
+
+> I
+
+(U ϵx)2dx −
+
+Z
+
+> I
+
+ϵρ ϵΦϵxxx U ϵdx
+
+=
+
+Z
+
+> I
+
+W1U ϵdx −
+
+Z
+
+> I
+
+P (ρϵ, ρ I, 0)U ϵdx +
+
+Z
+
+> I
+
+Ω4U ϵdx := 
+
+> 3
+
+X
+
+> k=1
+
+Jk.
+
+(3.16) 
+
+17 Fristly, using Lemma 3.1, the inequality 
+
+∥U ϵ∥L2(I) ≤ C∥(√ρϵ)−1∥L2(I)∥√ρϵU ϵ∥L2(I) ≤ C∥√ρϵU ϵ∥L2(I)
+
+holds. Then, from Lemma 3.4, we get 
+
+J1 =
+
+Z
+
+> I
+
+W1U ϵdx ≤ C∥W1∥2 
+
+> L2(I)
+
++ C∥√ρϵU ϵ∥2 
+
+> L2(I)
+
+≤ Cϵ + C∥√ρϵU ϵ∥2 
+
+> L2(I)
+
++ C∥Φϵ∥2
+
+> L2(I)
+
+.
+
+Here, we use mean value Theorem to deal with J2. Similar to the proof of Lemma 3.2, we define 
+
+ξ(x, t ), θ (x, t ) ∈ (0 , 1) when we use mean value Theorem. Now, using integration by parts on J2, we get 
+
+J2 = −
+
+Z
+
+> I
+
+P (ρϵ, ρ I, 0)U ϵdx
+
+= −
+
+Z
+
+> I
+
+1
+
+√ϵ [γ(ρϵ)γ−1ρϵx − γ(ρI, 0)γ−1ρI, 0 
+
+> x
+
+− γ(ρI, 0)γ−1(ρB, 1 
+
+> y
+
++ ρb, 1 
+
+> z
+
+)
+
+− γ(ρI, 0)γ−1√ϵ(ρB, 2 
+
+> y
+
++ ρb, 2 
+
+> z
+
+) − γ(γ − 1)( ρI, 0)γ−2√ϵ(ρB, 1 + ρb, 1)ρI, 0
+
+> x
+
+− γ(γ − 1)( ρI, 0)γ−2√ϵρ B, 1ρB, 1 
+
+> y
+
+− γ(γ − 1)( ρI, 0)γ−2√ϵρ b, 1ρb, 1 
+
+> z
+
+]U ϵdx
+
+=J2,1 + J2,2 + J2,3,
+
+where 
+
+J2,1 := 
+
+Z
+
+> I
+
+1
+
+√ϵ [( ρϵ)γ − (ρI, 0)γ − γ(ρI, 0)γ−1√ϵ(ρB, 1 + ρb, 1) − γ(ρI, 0)γ−1ϵ(ρB, 2 + ρb, 2)] U ϵxdx, J2,2 := −
+
+Z
+
+> I
+
+1
+
+√ϵ γ(γ − 1)( ρI, 0)γ−2 ϵ
+
+2 [( ρB, 1)2 + ( ρb, 1)2]U ϵxdx
+
+−
+
+Z
+
+> I
+
+1
+
+√ϵ γ(γ − 1)( γ − 2)( ρI, 0)γ−3ρI, 0
+
+> x
+
+ϵ
+
+2 [( ρB, 1)2 + ( ρb, 1)2]U ϵdx, J2,3 := −
+
+Z
+
+> I
+
+1
+
+√ϵ γ(γ − 1)( ρI, 0)γ−2ρI, 0 
+
+> x
+
+ϵ(ρB, 2 + ρb, 2)U ϵdx. 
+
+For J2,1, we use mean value Theorem twice, the boundness of ρϵ(see Lemma 3.1) and ρI, 0(see Proposition 1.1), Propositions 1.1 and 1.3, Lemma 2.2, (2.1), and 
+
+∥ρϵ − ρI, 0∥2 
+
+> L2(I)
+
+=∥√ϵ(ρB, 1 + ρb, 1) + ϵ(ρB, 2 + ρb, 2) + Lϵ + √ϵΦϵ∥2
+
+> L2(I)
+
+≤Cϵ √ϵ + Cϵ ∥Φϵ∥2
+
+> L2(I)
+
+to get the estimate as follows: 
+
+J2,1 =
+
+Z
+
+> I
+
+1
+
+√ϵ γ[θρ ϵ + (1 − θ)ρI, 0]γ−1[√ϵ(ρB, 1 + ρb, 1) + ϵ(ρB, 2 + ρb, 2) + Lϵ + √ϵΦϵ]U ϵxdx
+
+−
+
+Z
+
+> I
+
+1
+
+√ϵ γ(ρI, 0)γ−1√ϵ(ρB, 1 + ρb, 1)U ϵxdx −
+
+Z
+
+> I
+
+1
+
+√ϵ [γ(ρI, 0)γ−1ϵ(ρB, 2 + ρb, 2)] U ϵxdx
+
+=
+
+Z
+
+> I
+
+1
+
+√ϵ γ(γ − 1)[ ξθρ ϵ + (1 − ξθ )ρI, 0]γ−2(θρ ϵ − θρ I, 0)[ √ϵ(ρB, 1 + ρb, 1) + ϵ(ρB, 2 + ρb, 2)] U ϵxdx
+
++
+
+Z
+
+> I
+
+1
+
+√ϵ γ[θρ ϵ + (1 − θ)ρI, 0]γ−1(Lϵ + √ϵΦϵ)U ϵxdx
+
+≤ 112 
+
+Z
+
+> I
+
+(U ϵx)2dx + C[( ∥ρB, 1∥2 
+
+> L∞
+> y
+
++ ∥ρb, 1∥2 
+
+> L∞
+> z
+
+) + ϵ(∥ρB, 2∥2 
+
+> L∞
+> y
+
++ ∥ρb, 2∥2 
+
+> L∞
+> z
+
+)] ∥ρϵ − ρI, 0∥2
+
+> L2(I)
+
++ C∥Φϵ∥2 
+
+> L2(I)
+
++ Cϵ ∥Lϵ∥2
+
+> L2(I)
+
+≤ 112 
+
+Z
+
+> I
+
+(U ϵx)2dx + C∥Φϵ∥2 
+
+> L2(I)
+
++ Cϵ √ϵ. 
+
+18 Now we estimate J2,2 and J2,3. Using Propositions 1.1 and 1.3, (2.1), H¨ older’s inequality, and Young’s inequality, we get 
+
+J2,2 ≤C 1
+
+√ϵ ∥(ρI, 0)γ−2∥L∞(I)∥ ϵ
+
+2 [( ρB, 1)2 + ( ρb, 1)2]∥L2(I)∥U ϵx∥L2(I)
+
++ C 1
+
+√ϵ ∥(ρI, 0)γ−3ρI, 0 
+
+> x
+
+∥L∞(I)∥ ϵ
+
+2 [( ρB, 1)2 + ( ρb, 1)2]∥L2(I)∥U ϵ∥L2(I)
+
+≤( 112 ∥U ϵx∥2 
+
+> L2(I)
+
++ Cϵ √ϵ) + ( Cϵ √ϵ + C∥√ρϵU ϵ∥2
+
+> L2(I)
+
+) ≤ 112 ∥U ϵx∥2 
+
+> L2(I)
+
++ Cϵ √ϵ + C∥√ρϵU ϵ∥2
+
+> L2(I)
+
+and 
+
+J2,3 ≤C 1
+
+√ϵ ∥(ρI, 0)γ−2ρI, 0 
+
+> x
+
+∥L∞(I)∥ϵ(ρB, 2 + ρb, 2)∥L2(I)∥U ϵ∥L2(I) ≤ Cϵ √ϵ + C∥√ρϵU ϵ∥2
+
+> L2(I)
+
+.
+
+Thus, we have 
+
+J2 =J2,1 + J2,2 + J2,3 ≤ 16 ∥U ϵx∥2 
+
+> L2(I)
+
++ C∥Φϵ∥2 
+
+> L2(I)
+
++ Cϵ √ϵ + C∥√ρϵU ϵ∥2
+
+> L2(I)
+
+.
+
+From Proposition 1.3 and Lemma 3.2, we get 
+
+J3 =
+
+Z
+
+> I
+
+Ω4U ϵdx =
+
+Z
+
+> I
+
+(ρb, 1ρB, 1 
+
+> yyy
+
++ ρB, 1ρb, 1 
+
+> zzz
+
+)U ϵdx
+
+≤
+
+Z
+
+> I
+
+|ρb, 1ρB, 1 
+
+> yyy
+
+|
+
+Z x
+
+> 0
+
+U ϵa(a, t )d a dx +
+
+Z
+
+> I
+
+|ρB, 1ρb, 1 
+
+> zzz
+
+|
+
+Z 1
+
+> x
+
+U ϵa(a, t )d a dx
+
+≤ 112 
+
+Z
+
+> I
+
+(U ϵx)2 + Cϵ ∥ρb, 1∥2 
+
+> L2
+> y
+
+∥⟨ y⟩ρB, 1 
+
+> yyy
+
+∥2 
+
+> L2
+> y
+
++ Cϵ ∥ρB, 1∥2 
+
+> L2
+> z
+
+∥⟨ z⟩ρb, 1 
+
+> zzz
+
+∥2
+
+> L2
+> z
+
+≤ 112 
+
+Z
+
+> I
+
+(U ϵx)2 + Cϵ. 
+
+Thus, substituting the estimates of J1, J 2 and J3 into (3.16), we get the result (3.15). 
+
+Lemma 3.7. Under the conditions of Theorem 3.1, there holds that 
+
+12ddt
+
+Z
+
+> I
+
+ϵ(Φ ϵx)2dx +
+
+Z
+
+> I
+
+ϵρ ϵΦϵxxx U ϵdx ≤ Cϵ ∥Φϵx∥2 
+
+> L2(I)
+
++ Cϵ + Cϵ ∥Φϵ∥2
+
+> L2(I)
+
+. (3.17) 
+
+Proof. Using (1.16) 1 and (1.16) 4, we get 
+
+Z
+
+> I
+
+ϵρ ϵΦϵxxx U ϵdx = −
+
+Z
+
+> I
+
+ϵ(ρϵU ϵ)xΦϵxx dx =
+
+Z
+
+> I
+
+ϵ(Φ ϵt + h1 + h2 + h3 + h4 + h5)Φ ϵxx dx
+
+= − 12ddt
+
+Z
+
+> I
+
+ϵ(Φ ϵx)2dx +
+
+Z
+
+> I
+
+ϵh 2Φϵxx dx −
+
+Z
+
+> I
+
+ϵ(h1 + h3 + h4 + h5)xΦϵxdx. 
+
+(3.18) Using Z
+
+> I
+
+ϵ[uI, 0 + √ϵM + ϵ(uB, 2 + ub, 2) + ϵ√ϵ(uB, 3 + ub, 3)]Φ ϵxx Φϵxdx
+
+= −
+
+Z
+
+> I
+
+ϵ[uI, 0 
+
+> x
+
++ √ϵM x + √ϵ(uB, 2 
+
+> y
+
++ ub, 2 
+
+> z
+
+) + ϵ(uB, 3 
+
+> y
+
++ ub, 3 
+
+> z
+
+)] 12 (Φ ϵx)2dx
+
+19 and integration by parts on R 
+
+> I
+
+ϵh 2Φϵxx dx, we get 
+
+−
+
+Z
+
+> I
+
+ϵ(h2)xΦϵxdx
+
+= −
+
+Z
+
+> I
+
+ϵ{ 1
+
+√ϵ Lϵxt + uI, 0 
+
+> xx
+
+( 1
+
+√ϵ Lϵ + Φ ϵ) + 32 uI, 0 
+
+> x
+
+Φϵx + 2 uI, 0
+
+> x
+
+1
+
+√ϵ Lϵx + uI, 0 1
+
+√ϵ Lϵxx 
+
++ 1
+
+√ϵ [M ϵ(ρϵ − √ϵΦϵ)xx + 32 M ϵx
+
+√ϵΦϵx + 2 M ϵx(ρϵx − √ϵΦϵx)] + [ 1
+
+√ϵ (uB, 2 
+
+> yy
+
++ ub, 2 
+
+> zz
+
+) + ( uB, 3 
+
+> yy
+
++ ub, 3 
+
+> zz
+
+)] √ϵΦϵ + 32 [( uB, 2 
+
+> y
+
++ ub, 2 
+
+> z
+
+) + √ϵ(uB, 3 
+
+> y
+
++ ub, 3 
+
+> z
+
+)] √ϵΦϵx}Φϵxdx
+
+:= hx 
+
+> 2,1
+
+−
+
+Z
+
+> I
+
+ϵ 32 [uI, 0 
+
+> x
+
++ M ϵx + √ϵ(uB, 2 
+
+> y
+
++ ub, 2 
+
+> z
+
+) + ϵ(uB, 3 
+
+> y
+
++ ub, 3 
+
+> z
+
+)](Φ ϵx)2dx. 
+
+≤hx 
+
+> 2,1
+
++ C∥uI, 0 
+
+> x
+
++ M ϵx + √ϵ(uB, 2 
+
+> y
+
++ ub, 2 
+
+> z
+
+) + ϵ(uB, 3 
+
+> y
+
++ ub, 3 
+
+> z
+
+)∥L∞(I)ϵ∥Φϵx∥2
+
+> L2(I)
+
+≤hx 
+
+> 2,1
+
++ Cϵ ∥Φϵx∥2
+
+> L2(I)
+
+.
+
+(3.19) Using ∥(ρϵ − √ϵΦϵ)xx ∥2 
+
+> L2(I)
+
+≤ C(1 + 1√ϵ ), Propositions 1.1 and 1.3, Lemma 2.2, (2.1), (2.3), H¨ older’s inequality, and Young’s inequality, it holds that 
+
+hx 
+
+> 2,1
+
+= −
+
+Z
+
+> I
+
+{Lϵxt + uI, 0 
+
+> xx
+
+(Lϵ + √ϵΦϵ) + 2 uI, 0 
+
+> x
+
+Lϵx + uI, 0Lϵxx + M ϵ(ρϵ − √ϵΦϵ)xx 
+
++ 2 M ϵx(ρϵx − √ϵΦϵx) + [( uB, 2 
+
+> yy
+
++ ub, 2 
+
+> zz
+
+) + √ϵ(uB, 3 
+
+> yy
+
++ ub, 3 
+
+> zz
+
+)] √ϵΦϵ}√ϵΦϵxdx
+
+≤Cϵ ∥Φϵx∥2 
+
+> L2(I)
+
++ C∥Lϵxt ∥2 
+
+> L2(I)
+
++ C∥uI, 0 
+
+> xx
+
+∥2
+
+> L∞(I)
+
+∥Lϵ + √ϵΦϵ∥2
+
+> L2(I)
+
++ C∥uI, 0 
+
+> x
+
+∥2
+
+> L∞(I)
+
+∥Lϵx∥2 
+
+> L2(I)
+
++ C∥uI, 0∥2
+
+> L∞(I)
+
+∥Lϵxx ∥2
+
+> L2(I)
+
++ C∥M ϵ∥2
+
+> L∞(I)
+
+∥(ρϵ − √ϵΦϵ)xx ∥2 
+
+> L2(I)
+
++ C∥M ϵx∥2
+
+> L∞(I)
+
+∥ρϵx − √ϵΦϵx∥2
+
+> L2(I)
+
++ C∥(uB, 2 
+
+> yy
+
++ ub, 2 
+
+> zz
+
+) + √ϵ(uB, 3 
+
+> yy
+
++ ub, 3 
+
+> zz
+
+)] |2
+
+> L∞(I)
+
+∥√ϵΦϵ∥2
+
+> L2(I)
+
+≤C(ϵ + ϵ∥Φϵ∥2 
+
+> L2(I)
+
++ ϵ∥Φϵx∥2
+
+> L2(I)
+
+) + Cϵ ∥Φϵx∥2 
+
+> L2(I)
+
+≤ C(ϵ + ϵ∥Φϵ∥2 
+
+> L2(I)
+
++ ϵ∥Φϵx∥2
+
+> L2(I)
+
+).
+
+(3.20) Using Lemmas 3.2 and 3.3, we get 
+
+−
+
+Z
+
+> I
+
+ϵ(h1 + h3 + h4 + h5)xΦϵxdx ≤ Cϵ ∥Φϵx∥2 
+
+> L2(I)
+
++ Cϵ X
+
+> i̸=2
+
+∥(hi)x∥2 
+
+> L2(I)
+
+≤ Cϵ ∥Φϵx∥2 
+
+> L2(I)
+
++ Cϵ √ϵ. (3.21) Hence, putting (3.19)-(3.21) into (3.18), we get (3.17). 
+
+Corollary 3.2. Under the conditions of Theorem 3.1, there holds that 
+
+sup 
+
+> t∈[0 ,T 1]
+
+(∥U ϵ∥2 
+
+> L2(I)
+
++ ∥Φϵ∥2 
+
+> L2(I)
+
++ ϵ∥Φϵx∥2
+
+> L2(I)
+
+) + ∥U ϵx∥2  
+
+> L2
+> T1L2
+
+≤ B1(T1)ϵ ≤ B1(T )ϵ, (3.22) 
+
+where B1(s) = C(1 + s) + Cs (1 + s)[1 + s exp {Cs }] for any s ∈ [0 , T ].Proof. In conclusion, together with Lemmas 3.5, 3.6 and 3.7, we obtain 12ddt
+
+Z
+
+> I
+
+[ρϵ(U ϵ)2 + (Φ ϵ)2 + ϵ(Φ ϵx)2]d x +
+
+Z
+
+> I
+
+(U ϵx)2dx
+
+≤ 12
+
+Z
+
+> I
+
+(U ϵx)2dx + C∥√ρϵU ϵ∥2 
+
+> L2(I)
+
++ C∥Φϵ∥2 
+
+> L2(I)
+
++ Cϵ ∥Φϵx∥2 
+
+> L2(I)
+
++ Cϵ. 
+
+(3.23) Using (1.2), (1.3) (1.6)-(1.12), and definition of Lϵ, M ϵ, we get the estimates of initial value of system (1.16) as follows: 
+
+∥Φϵ(·, 0) ∥2 
+
+> L2(I)
+
++ ∥U ϵ(·, 0) ∥2 
+
+> L2(I)
+
++ ϵ∥Φϵx(·, 0) ∥2
+
+> L2(I)
+
+= 1
+
+ϵ ∥ρϵ 
+
+> 0
+
+− ρI, 00 ∥2 
+
+> L2(I)
+
++ 1
+
+ϵ ∥uϵ 
+
+> 0
+
+− uI, 00 ∥2 
+
+> L2(I)
+
++ ∥(ρϵ 
+
+> 0
+
+− ρI, 00 )x∥2 
+
+> L2(I)
+
+≤ Cϵ m−1, (3.24) 
+
+20 for any m > 2. Thus, using Gronwall’s inequality, it holds that sup 
+
+> t∈[0 ,T 1]
+
+Z
+
+> I
+
+[ρϵ(U ϵ)2 + (Φ ϵ)2 + ϵ(Φ ϵx)2]d x
+
+≤(∥Φϵ(·, 0) ∥2 
+
+> L2(I)
+
++ ϵ∥Φϵx(·, 0) ∥2 
+
+> L2(I)
+
++ ∥ρI, 00 ∥L∞(I)∥U ϵ(·, 0) ∥2 
+
+> L2(I)
+
++ CT 1ϵ)+ CT 1(∥Φϵ(·, 0) ∥2 
+
+> L2(I)
+
++ ϵ∥Φϵx(·, 0) ∥2 
+
+> L2(I)
+
++ ∥ρI, 00 ∥L∞(I)∥U ϵ(·, 0) ∥2 
+
+> L2(I)
+
++ CT 1ϵ) exp {CT 1}≤Cϵ (1 + T1)[1 + T1 exp {CT 1}],
+
+which implies that sup 
+
+> t∈[0 ,T 1]
+
+Z
+
+> I
+
+[ρϵ(U ϵ)2 + (Φ ϵ)2 + ϵ(Φ ϵx)2]d x +
+
+Z T1
+
+> 0
+
+Z
+
+> I
+
+(U ϵx)2dxdt
+
+≤(∥Φϵ(·, 0) ∥2 
+
+> L2(I)
+
++ ϵ∥Φϵx(·, 0) ∥2 
+
+> L2(I)
+
++ ∥ρI, 00 ∥L∞(I)∥U ϵ(·, 0) ∥2 
+
+> L2(I)
+
++ CT 1ϵ)+ CϵT 1(1 + T1)[1 + T1 exp {CT 1}]
+
+≤C(1 + T1)ϵ + CϵT 1(1 + T1)[1 + T1 exp {CT 1}] := B1(T1)ϵ
+
+≤B1(T )ϵ. 
+
+(3.25) Thus, we get (3.22). Corollary 3.2 immediately yields the following result. 
+
+Corollary 3.3. Under the conditions of Corollary 3.2, there holds that 
+
+
+
+∥ρϵx∥2 
+
+> L2(I)
+
+≤ C, ∥(ρϵ − √ϵΦϵ)xx ∥2 
+
+> L2(I)
+
+≤ C
+
+√ϵ ,
+
+∥ρϵxx ∥2 
+
+> L2(I)
+
+≤ C
+
+√ϵ + Cϵ ∥Φϵxx ∥2
+
+> L2(I)
+
+,
+
+∥Φϵ∥2 
+
+> L∞(I)
+
+≤ C∥Φϵ∥2 
+
+> L2(I)
+
++ C∥Φϵ∥L2(I)∥Φϵx∥L2(I) ≤ C√ϵ, 
+
+∥ρϵt ∥2 
+
+> L2(I)
+
+≤ C + Cϵ ∥Φϵt ∥2
+
+> L2(I)
+
+,
+
+∥ρϵxt ∥2 
+
+> L2(I)
+
+≤ C + Cϵ ∥Φϵxt ∥2
+
+> L2(I)
+
+,
+
+(3.26) 
+
+and that 
+
+
+
+∥(h2)x − uI, 0Φϵxx − 2uI, 0 
+
+> x
+
+Φϵx∥2 
+
+> L2(I)
+
+≤ C√ϵ + Cϵ 2∥Φϵxx ∥2
+
+> L2(I)
+
+,
+
+∥Φϵt ∥2 
+
+> L2(I)
+
+≤ C + C∥√ρϵU ϵx∥2
+
+> L2(I)
+
+,
+
+∥Φϵxt ∥2 
+
+> L2(I)
+
+≤ C√ϵ + C(1 + ϵ∥U ϵx∥2
+
+> L2(I)
+
+)∥Φϵxx ∥2 
+
+> L2(I)
+
++ C
+
+√ϵ ∥U ϵx∥2 
+
+> L2(I)
+
++ C∥U ϵxx ∥2
+
+> L2(I)
+
+,
+
+∥(h2)t∥2 
+
+> L2(I)
+
+≤ Cϵ ∥Lϵtt ∥2 
+
+> L2(I)
+
++ C + C∥Φϵt ∥2 
+
+> L2(I)
+
++ C∥Φϵxt ∥2 
+
+> L2(I)
+
++ Cϵ 2√ϵ∥Φϵxx ∥2
+
+> L2(I)
+
+,
+
+∥(h3)t∥2 
+
+> L2(I)
+
+≤ Cϵ √ϵ∥ρB, 2 
+
+> tt
+
+∥2 
+
+> L2
+> y
+
++ Cϵ, 
+
+∥(h4)t∥2 
+
+> L2(I)
+
+≤ Cϵ √ϵ∥ρb, 2 
+
+> tt
+
+∥2 
+
+> L2
+> z
+
++ Cϵ, 
+
+∥(h5)t∥2 
+
+> L2(I)
+
+≤ Cϵ √ϵ. 
+
+(3.27) 
+
+Proof. Firstly, using Propositions 1.1 and 1.3, Lemma 2.2, (2.1), Corollary 3.2, and Sobolev’s inequal-ity, we get (3.26) after the direct estimates. Secondly, we estimate (3.27) 1.
+
+21 Redefine ( h2)x − uI, 0Φϵxx − 2uI, 0 
+
+> x
+
+Φϵx := h′ 
+
+> 2,1
+
++ h′ 
+
+> 2,2
+
++ h′ 
+
+> 2,3
+
+as 
+
+h′ 
+
+> 2,1
+
+= 1
+
+√ϵ Lϵxt + uI, 0 
+
+> xx
+
+( 1
+
+√ϵ Lϵ + Φ ϵ) + 2 uI, 0
+
+> x
+
+1
+
+√ϵ Lϵx + uI, 0 1
+
+√ϵ Lϵxx ,h′ 
+
+> 2,2
+
+= 2
+
+√ϵ M ϵxρϵx + 1
+
+√ϵ M ϵ(ρϵ − √ϵΦϵ)xx + 1
+
+√ϵ M ϵ√ϵΦϵxx ,h′ 
+
+> 2,3
+
+=[( uB, 2 
+
+> yy
+
++ ub, 2 
+
+> zz
+
+) + √ϵ(uB, 3 
+
+> yy
+
++ ub, 3 
+
+> zz
+
+)]Φ ϵ + [2( uB, 2 
+
+> y
+
++ ub, 2 
+
+> z
+
+) + 2 √ϵ(uB, 3 
+
+> y
+
++ ub, 3 
+
+> z
+
+)] √ϵΦϵx
+
++ [ √ϵ(uB, 2 + ub, 2) + ϵ(uB, 3 + ub, 3)] √ϵΦϵxx .
+
+Then, using Propositions 1.1 and 1.3, Lemma 2.2, Corollary 3.2, (2.1), (3.26), and H¨ older’s inequality, we get 
+
+∥h′
+
+> 2,1
+
+∥2 
+
+> L2(I)
+
+≤C∥ 1
+
+√ϵ Lϵxt ∥2 
+
+> L2(I)
+
++ C∥uI, 0 
+
+> xx
+
+∥2
+
+> L∞(I)
+
+∥ 1
+
+√ϵ Lϵ + Φ ϵ∥2 
+
+> L2(I)
+
++ C∥uI, 0 
+
+> x
+
+∥2
+
+> L∞(I)
+
+∥ 1
+
+√ϵ Lϵx∥2
+
+> L2(I)
+
++ C∥uI, 0∥2
+
+> L∞(I)
+
+∥ 1
+
+√ϵ Lϵxx ∥2
+
+> L2(I)
+
+≤Cϵ + Cϵ + Cϵ + Cϵ ≤ Cϵ, 
+
+∥h′
+
+> 2,2
+
+∥2 
+
+> L2(I)
+
+≤C∥ 2
+
+√ϵ M ϵx∥2
+
+> L∞(I)
+
+∥ρϵx∥2 
+
+> L2(I)
+
++ C∥ 1
+
+√ϵ M ϵ∥2
+
+> L∞(I)
+
+∥(ρϵ − √ϵΦϵ)xx ∥2
+
+> L2(I)
+
++ C∥ 1
+
+√ϵ M ϵ∥2
+
+> L∞(I)
+
+∥√ϵΦϵxx ∥2
+
+> L2(I)
+
+≤Cϵ + C√ϵ + Cϵ 2∥Φϵxx ∥2 
+
+> L2(I)
+
+≤ C√ϵ + Cϵ 2∥Φϵxx ∥2
+
+> L2(I)
+
+,
+
+and ∥h′
+
+> 2,3
+
+∥2 
+
+> L2(I)
+
+≤C∥(uB, 2 
+
+> yy
+
++ ub, 2 
+
+> zz
+
+) + √ϵ(uB, 3 
+
+> yy
+
++ ub, 3 
+
+> zz
+
+)∥2
+
+> L2(I)
+
+∥Φϵ∥2
+
+> L∞(I)
+
++ C∥2( uB, 2 
+
+> y
+
++ ub, 2 
+
+> z
+
+) + 2 √ϵ(uB, 3 
+
+> y
+
++ ub, 3 
+
+> z
+
+)∥2
+
+> L∞(I)
+
+∥√ϵΦϵx∥2
+
+> L2(I)
+
++ C∥[√ϵ(uB, 2 + ub, 2) + ϵ(uB, 3 + ub, 3)] ∥2
+
+> L∞(I)
+
+∥√ϵΦϵxx ∥2
+
+> L2(I)
+
+≤Cϵ + Cϵ + Cϵ 2∥Φϵxx ∥2 
+
+> L2(I)
+
+≤ Cϵ + Cϵ 2∥Φϵxx ∥2
+
+> L2(I)
+
+,
+
+which imply that 
+
+∥(h2)x − uI, 0Φϵxx − 2uI, 0 
+
+> x
+
+Φϵx∥2 
+
+> L2(I)
+
+≤ C
+
+> 3
+
+X
+
+> i=1
+
+∥h′
+
+> 2,i
+
+∥2 
+
+> L2(I)
+
+≤ C√ϵ + Cϵ 2∥Φϵxx ∥2
+
+> L2(I)
+
+.
+
+Thirdly, we estimate (3.27) 5,6.Using Propositions 1.1 and 1.3, Corollary 3.2, Lemmas 2.2 and 3.1, (2.1), (3.26), and H¨ older’s inequality, it holds that 
+
+∥h2∥2 
+
+> L2(I)
+
+=∥ 1
+
+√ϵ Lϵt + uI, 0 
+
+> x
+
+( 1
+
+√ϵ Lϵ + Φ ϵ) + uI, 0( 1
+
+√ϵ Lϵx + Φ ϵx) + 1
+
+√ϵ M ϵxρϵ + 1
+
+√ϵ M ϵρϵx
+
++ [( uB, 2 
+
+> y
+
++ ub, 2 
+
+> z
+
+) + √ϵ(uB, 3 
+
+> y
+
++ ub, 3 
+
+> z
+
+)] √ϵΦϵ + [ √ϵ(uB, 2 + ub, 2) + ϵ(uB, 3 + ub, 3)] √ϵΦϵx∥2
+
+> L2(I)
+
+≤C∥ 1
+
+√ϵ Lϵt ∥2 
+
+> L2(I)
+
++ C∥uI, 0 
+
+> x
+
+∥2
+
+> L∞(I)
+
+∥ 1
+
+√ϵ Lϵ + Φ ϵ∥2 
+
+> L2(I)
+
++ C∥uI, 0∥2
+
+> L∞(I)
+
+∥ 1
+
+√ϵ Lϵx + Φ ϵx∥2
+
+> L2(I)
+
++ C∥ 1
+
+√ϵ M ϵx∥2
+
+> L2(I)
+
+∥ρϵ∥2 
+
+> L∞(I)
+
++ C∥ 1
+
+√ϵ M ϵ∥2
+
+> L∞(I)
+
+∥ρϵx∥2
+
+> L2(I)
+
++ C∥(uB, 2 
+
+> y
+
++ ub, 2 
+
+> z
+
+) + √ϵ(uB, 3 
+
+> y
+
++ ub, 3 
+
+> z
+
+)∥2
+
+> L∞(I)
+
+∥√ϵΦϵ∥2
+
+> L2(I)
+
++ C∥√ϵ(uB, 2 + ub, 2) + ϵ(uB, 3 + ub, 3)∥2
+
+> L∞(I)
+
+∥√ϵΦϵx∥2
+
+> L2(I)
+
+≤Cϵ + Cϵ + C(ϵ + ∥Φϵx∥2
+
+> L2(I)
+
+) + Cϵ + Cϵ + Cϵ 2 + Cϵ 2 ≤ C(ϵ + ∥Φϵx∥2
+
+> L2(I)
+
+).
+
+Thus, using (1.16) 1, Poincar´ e’s inequality, (3.26) 1,2, (3.27) 1, Lemmas 3.1, 3.2 and 3.3, and above 
+
+22 estimate, we get 
+
+∥Φϵt ∥2
+
+L2(I) ≤C
+
+5X
+
+i=1 
+
+∥hi∥2
+
+L2(I) + C∥ρϵxU ϵ + ρϵU ϵx∥2
+
+L2(I)
+
+≤Cϵ + C∥Φϵx∥2
+
+L2(I) + C(∥ρϵx∥2
+
+L2(I) + ∥ρϵ∥2
+
+L∞(I))∥√ρϵU ϵx∥2
+
+L2(I)
+
+≤C + C∥√ρϵU ϵx∥2
+
+L2(I),
+
+and 
+
+∥Φϵxt ∥2
+
+L2(I) ≤C
+
+5X
+
+i=1 
+
+∥(hi)x∥2
+
+L2(I) + C∥(ρϵ − √ϵΦϵ)xx U ϵ + √ϵΦϵxx U ϵ + 2 ρϵxU ϵx + ρϵU ϵxx ∥2
+
+L2(I)
+
+≤C√ϵ + C∥Φϵxx ∥2
+
+L2(I) + C
+
+√ϵ ∥U ϵx∥2
+
+L2(I) + Cϵ ∥Φϵxx ∥2
+
+L2(I)∥U ϵx∥2
+
+L2(I)
+
++ ( C
+
+√ϵ + Cϵ ∥Φϵxx ∥2
+
+L2(I))∥U ϵx∥2
+
+L2(I) + C∥ρϵ∥2
+
+L∞(I)∥U ϵxx ∥2
+
+L2(I)
+
+≤C√ϵ + C(1 + ϵ∥U ϵx∥2
+
+L2(I))∥Φϵxx ∥2
+
+L2(I) + C
+
+√ϵ ∥U ϵx∥2
+
+L2(I) + C∥U ϵxx ∥2
+
+L2(I).
+
+Fourthly, we estimate (3.27) 2,3,4,7 by using Propositions 1.1 and 1.3, Lemma 2.2, and (2.1). Redefine ( h2)t := ht
+
+2,1 + ht
+
+2,2 + ht
+
+2,3 + ht
+
+2,4 as 
+
+ht
+
+2,1 = 1
+
+√ϵ Lϵtt + uI, 0
+
+xt ( 1
+
+√ϵ Lϵ + Φ ϵ) + uI, 0
+
+x ( 1
+
+√ϵ Lϵt + Φ ϵt ) + uI, 0
+
+t ( 1
+
+√ϵ Lϵx + Φ ϵx) + uI, 0( 1
+
+√ϵ Lϵxt + Φ ϵxt ),ht
+
+2,2 = 1
+
+√ϵ (M ϵt ρϵx + M ϵρϵxt + M ϵxt ρϵ + M ϵxρϵt ),ht
+
+2,3 =[( uB, 2
+
+yt + ub, 2
+
+zt ) + √ϵ(uB, 3
+
+yt + ub, 3
+
+zt )] √ϵΦϵ + [( uB, 2
+
+y + ub, 2
+
+z ) + √ϵ(uB, 3
+
+y + ub, 3
+
+z )] √ϵΦϵt ,ht
+
+2,4 =[ √ϵ(uB, 2
+
+t + ub, 2
+
+t ) + ϵ(uB, 3
+
+t + ub, 3
+
+t )] √ϵΦϵx + [ √ϵ(uB, 2 + ub, 2) + ϵ(uB, 3 + ub, 3)] √ϵΦϵxt .
+
+Then, using Poincar´ e’s inequality, H¨ older’s inequality, and (3.26), we get 
+
+∥ht
+
+2,1∥2
+
+L2(I) ≤C∥ 1
+
+√ϵ Lϵtt ∥2
+
+L2(I) + C∥uI, 0
+
+xt ∥2
+
+L2(I)∥ 1
+
+√ϵ Lϵ + Φ ϵ∥2
+
+L∞(I) + C∥uI, 0
+
+x ∥2
+
+L∞(I)∥( 1
+
+√ϵ Lϵt + Φ ϵt )∥2
+
+L2(I)
+
++ C∥uI, 0
+
+t ∥2
+
+L∞(I)∥ 1
+
+√ϵ Lϵx + Φ ϵx∥2
+
+L2(I) + C∥uI, 0∥2
+
+L∞(I)∥ 1
+
+√ϵ Lϵxt + Φ ϵxt ∥2
+
+L2(I)
+
+≤ Cϵ ∥Lϵtt ∥2
+
+L2(I) + C√ϵ + C(ϵ + ∥Φϵt ∥2
+
+L2(I)) + C + C(ϵ + ∥Φϵxt ∥2
+
+L2(I))
+
+≤ Cϵ ∥Lϵtt ∥2
+
+L2(I) + C + C∥Φϵt ∥2
+
+L2(I) + C∥Φϵxt ∥2
+
+L2(I),
+
+∥ht
+
+2,2∥2
+
+L2(I) ≤ Cϵ ∥M ϵt ∥2
+
+L∞(I)∥ρϵx∥2
+
+L2(I) + Cϵ ∥M ϵ∥2
+
+L∞(I)∥ρϵxt ∥2
+
+L2(I) + Cϵ ∥M ϵxt ∥2
+
+L2(I)∥ρϵ∥2
+
+L∞(I)
+
++ Cϵ ∥M ϵx∥2
+
+L∞(I)∥ρϵt ∥2
+
+L2(I)
+
+≤Cϵ + C(ϵ + ϵ2∥Φϵxt ∥2
+
+L2(I)) + Cϵ + Cϵ (1 + ϵ∥Φϵt ∥2
+
+L2(I))
+
+≤Cϵ + Cϵ 2(∥Φϵxt ∥2
+
+L2(I) + ∥Φϵt ∥2
+
+L2(I)),
+
+∥ht
+
+2,3∥2
+
+L2(I) ≤C∥(uB, 2
+
+yt + ub, 2
+
+zt ) + √ϵ(uB, 3
+
+yt + ub, 3
+
+zt )∥2
+
+L2(I)∥√ϵΦϵ∥2
+
+L∞(I)
+
++ C∥(uB, 2
+
+y + ub, 2
+
+z ) + √ϵ(uB, 3
+
+y + ub, 3
+
+z )∥2
+
+L∞(I)∥√ϵΦϵt ∥2
+
+L2(I)
+
+≤Cϵ 2 + Cϵ ∥Φϵt ∥2
+
+L2(I),
+
+and 
+
+∥ht
+
+2,4∥2
+
+L2(I) ≤C∥√ϵ(uB, 2
+
+t + ub, 2
+
+t ) + ϵ(uB, 3
+
+t + ub, 3
+
+t )∥2
+
+L2(I)∥√ϵΦϵx∥2
+
+L∞(I)
+
++ C∥√ϵ(uB, 2 + ub, 2) + ϵ(uB, 3 + ub, 3)∥2
+
+L∞(I)∥√ϵΦϵxt ∥2
+
+L2(I)
+
+≤Cϵ 2√ϵ∥Φϵxx ∥2
+
+L2(I) + Cϵ 2∥Φϵxt ∥2
+
+L2(I).
+
+23 Thus, we get 
+
+∥(h2)t∥2
+
+L2(I) ≤ C
+
+4X
+
+i=1 
+
+∥ht
+
+2,i ∥2
+
+L2(I) ≤ Cϵ ∥Lϵtt ∥2
+
+L2(I) + C + C∥Φϵt ∥2
+
+L2(I) + C∥Φϵxt ∥2
+
+L2(I) + Cϵ 2√ϵ∥Φϵxx ∥2
+
+L2(I).
+
+Moreover, using H¨ older’s inequality, we have 
+
+∥(h3)t∥2
+
+L2(I) =∥√ϵρ B, 2
+
+tt + uI, 0
+
+xt 
+
+√ϵρ B, 2 + uI, 0
+
+x
+
+√ϵρ B, 2
+
+t + √ϵu B, 3
+
+yt ρI, 0 + √ϵu B, 3
+
+y ρI, 0
+
+t
+
++ √ϵu B, 2
+
+t ρI, 0
+
+x + √ϵu B, 2ρI, 0
+
+xt + ϵu B, 3
+
+t ρI, 0
+
+x + ϵu B, 3ρI, 0
+
+xt ∥2
+
+L2(I)
+
+≤C∥√ϵρ B, 2
+
+tt ∥2
+
+L2(I) + C∥uI, 0
+
+xt ∥2
+
+L2(I)∥√ϵρ B, 2∥2
+
+L∞(I) + C∥uI, 0
+
+x ∥2
+
+L∞(I)∥√ϵρ B, 2
+
+t ∥2
+
+L2(I)
+
++ C∥√ϵu B, 3
+
+yt ∥2
+
+L2(I)∥ρI, 0∥2
+
+L∞(I) + C∥√ϵu B, 3
+
+y ∥2
+
+L∞(I)∥ρI, 0
+
+t ∥2
+
+L2(I)
+
++ C∥√ϵu B, 2
+
+t ∥2
+
+L2(I)∥ρI, 0
+
+x ∥2
+
+L∞(I) + C∥√ϵu B, 2∥2
+
+L∞(I)∥ρI, 0
+
+xt ∥2
+
+L2(I)
+
++ C∥ϵu B, 3
+
+t ∥2
+
+L2(I)∥ρI, 0
+
+x ∥2
+
+L∞(I) + C∥ϵu B, 3∥2
+
+L∞(I)∥ρI, 0
+
+xt ∥2
+
+L2(I)
+
+≤Cϵ √ϵ∥ρB, 2
+
+tt ∥2
+
+L2 
+
+> y
+
+(I) + Cϵ + Cϵ √ϵ + Cϵ √ϵ + Cϵ + Cϵ √ϵ + Cϵ + Cϵ 2√ϵ + Cϵ 2.
+
+Hence, we get 
+
+∥(h3)t∥2
+
+L2(I) ≤ Cϵ √ϵ∥ρB, 2
+
+tt ∥2
+
+L2 
+
+> y
+
++ Cϵ. 
+
+Similarly, we have 
+
+∥(h4)t∥2
+
+L2(I) ≤ Cϵ √ϵ∥ρb, 2
+
+tt ∥2
+
+L2 
+
+> z
+
++ Cϵ. 
+
+Redefine ( h5)t = ht
+
+5,1 + ht
+
+5,2 + ht
+
+5,3 + ht
+
+5,4 as 
+
+ht
+
+5,1 =[( uB, 2
+
+yt + ub, 2
+
+zt ) + √ϵ(uB, 3
+
+yt + ub, 3
+
+zt )][ √ϵ(ρB, 1 + ρb, 1) + ϵ(ρB, 2 + ρb, 2) + Lϵ],ht
+
+5,2 =[ √ϵ(uB, 2
+
+t + ub, 2
+
+t ) + ϵ(uB, 3
+
+t + ub, 3
+
+t )][( ρB, 1
+
+y + ρb, 1
+
+z ) + √ϵ(ρB, 2
+
+y + ρb, 2
+
+z ) + Lϵx],ht
+
+5,3 =[( uB, 2
+
+y + ub, 2
+
+z ) + √ϵ(uB, 3
+
+y + ub, 3
+
+z )][ √ϵ(ρB, 1
+
+t + ρb, 1
+
+t ) + ϵ(ρB, 2
+
+t + ρb, 2
+
+t ) + Lϵt ],ht
+
+5,4 =[ √ϵ(uB, 2 + ub, 2) + ϵ(uB, 3 + ub, 3)][( ρB, 1
+
+yt + ρb, 1
+
+zt ) + √ϵ(ρB, 2
+
+yt + ρb, 2
+
+zt ) + Lϵxt ].
+
+Then, using H¨ older’s inequality, it holds that 
+
+∥(h5)t∥2
+
+L2(I) ≤ C
+
+4X
+
+i=1 
+
+∥ht
+
+5,i ∥2
+
+L2(I)
+
+≤C∥(uB, 2
+
+yt + ub, 2
+
+zt ) + √ϵ(uB, 3
+
+yt + ub, 3
+
+zt )∥2
+
+L2(I)∥√ϵ(ρB, 1 + ρb, 1) + ϵ(ρB, 2 + ρb, 2) + Lϵ∥2
+
+L∞(I)
+
++ C∥√ϵ(uB, 2
+
+t + ub, 2
+
+t ) + ϵ(uB, 3
+
+t + ub, 3
+
+t )∥2
+
+L2(I)∥(ρB, 1
+
+y + ρb, 1
+
+z ) + √ϵ(ρB, 2
+
+y + ρb, 2
+
+z ) + Lϵx∥2
+
+L∞(I)
+
++ C∥(uB, 2
+
+y + ub, 2
+
+z ) + √ϵ(uB, 3
+
+y + ub, 3
+
+z )∥2
+
+L∞(I)∥√ϵ(ρB, 1
+
+t + ρb, 1
+
+t ) + ϵ(ρB, 2
+
+t + ρb, 2
+
+t ) + Lϵt ∥2
+
+L2(I)
+
++ C∥√ϵ(uB, 2 + ub, 2) + ϵ(uB, 3 + ub, 3)∥2
+
+L∞(I)∥(ρB, 1
+
+yt + ρb, 1
+
+zt ) + √ϵ(ρB, 2
+
+yt + ρb, 2
+
+zt ) + Lϵxt ∥2
+
+L2(I)
+
+≤Cϵ √ϵ + Cϵ √ϵ + Cϵ √ϵ + Cϵ √ϵ ≤ Cϵ √ϵ. 
+
+Lemma 3.8. Under the conditions of Theorem 3.1, there holds that 
+
+12ddt
+
+Z
+
+I
+
+ρϵ(U ϵx)2dx +
+
+Z
+
+I
+
+(U ϵxx )2dx +
+
+Z
+
+I
+
+ϵρ ϵΦϵxxx U ϵxx dx +
+
+Z
+
+I
+
+ρϵxU ϵxϵΦϵxxx dx
+
+≤ 32(12 M + 4) 
+
+Z
+
+I
+
+(U ϵxx )2dx + C∥W ∥2
+
+L2(I) + C(1 + ∥uϵx∥2
+
+L2(I))∥U ϵx∥2
+
+L2(I)
+
++ C∥U ϵx∥2
+
+L2(I)[ 1
+
+√ϵ + ϵ∥Φϵxx ∥2
+
+L2(I)],
+
+(3.28) 
+
+where M is defined in Proposition 1.1. 
+
+24 Proof. Firstly, multiplying (1.16) 2 by U ϵxx and integrating the result over I, there holds 
+
+Z
+
+> I
+
+(−ρϵU ϵt − ρϵuϵU ϵx)U ϵxx dx +
+
+Z
+
+> I
+
+(U ϵxx )2dx +
+
+Z
+
+> I
+
+ϵρ ϵΦϵxxx U ϵxx dx = −
+
+Z
+
+> I
+
+W U ϵxx dx. 
+
+From 
+
+Z
+
+> I
+
+(−ρϵU ϵt − ρϵuϵU ϵx)U ϵxx dx =
+
+Z
+
+> I
+
+(ρϵxU ϵt + ρϵU ϵxt )U ϵxdx − 12
+
+Z
+
+> I
+
+ρϵuϵ∂x(U ϵx)2dx
+
+=
+
+Z
+
+> I
+
+ρϵxU ϵt U ϵxdx + 12ddt
+
+Z
+
+> I
+
+ρϵ(U ϵx)2 − 12
+
+Z
+
+> I
+
+ρϵt (U ϵx)2dx + 12
+
+Z
+
+> I
+
+(ρϵuϵ)x(U ϵx)2dx
+
+=
+
+Z
+
+> I
+
+ρϵxU ϵt U ϵxdx + 12ddt
+
+Z
+
+> I
+
+ρϵ(U ϵx)2 +
+
+Z
+
+> I
+
+(ρϵuϵ)x(U ϵx)2dx
+
+= 12ddt
+
+Z
+
+> I
+
+ρϵ(U ϵx)2 +
+
+Z
+
+> I
+
+(ρϵuϵ)x(U ϵx)2dx +
+
+Z
+
+> I
+
+ρϵxU ϵx(−uϵU ϵx + U ϵxx 
+
+ρϵ + Wρϵ + ϵΦϵxxx )d x, 
+
+we get 12ddt
+
+Z
+
+> I
+
+ρϵ(U ϵx)2dx +
+
+Z
+
+> I
+
+(U ϵxx )2dx +
+
+Z
+
+> I
+
+ϵρ ϵΦϵxxx U ϵxx dx +
+
+Z
+
+> I
+
+ρϵxU ϵxϵΦϵxxx dx
+
+= −
+
+Z
+
+> I
+
+W U ϵxx dx −
+
+Z
+
+> I
+
+(ρϵuϵ)x(U ϵx)2dx −
+
+Z
+
+> I
+
+ρϵxU ϵx(−uϵU ϵx + U ϵxx 
+
+ρϵ + Wρϵ )d x
+
+= −
+
+Z
+
+> I
+
+W U ϵxx dx −
+
+Z
+
+> I
+
+ρϵuϵxU ϵxU ϵxdx −
+
+Z
+
+> I
+
+ρϵxU ϵx
+
+U ϵxx 
+
+ρϵ dx −
+
+Z
+
+> I
+
+ρϵxU ϵx
+
+Wρϵ dx
+
+:= H1 + H2 + H3 + H4.
+
+Now we estimate H1, H2, H3 and H4. Using Lemma 3.1, (3.26), H¨ older’s inequlity, Young’s inequality, Sobolev’s inequality ∥U ϵx∥L∞(I) ≤ C∥U ϵx∥H1(I), and Poincar´ e’s inequality ∥ρϵx∥L∞(I) ≤
+
+C∥ρϵxx ∥L2(I), there holds 
+
+H1 ≤ 12(12 M + 4) ∥U ϵxx ∥2 
+
+> L2(I)
+
++ C∥W ∥2
+
+> L2(I)
+
+,H2 ≤C∥uϵx∥2
+
+> L2(I)
+
+∥U ϵx∥2 
+
+> L2(I)
+
++ ( C∥U ϵx∥2 
+
+> L2(I)
+
++ 12(12 M + 4) ∥U ϵxx ∥2
+
+> L2(I)
+
+),H3 ≤( C
+
+√ϵ + Cϵ ∥Φϵxx ∥2
+
+> L2(I)
+
+)∥U ϵx∥2 
+
+> L2(I)
+
++ 12(12 M + 4) ∥U ϵxx ∥2
+
+> L2(I)
+
+,H4 ≤C( 1
+
+√ϵ + ϵ∥Φϵxx ∥2
+
+> L2(I)
+
+)∥U ϵx∥2 
+
+> L2(I)
+
++ C∥W ∥2
+
+> L2(I)
+
+.
+
+Then, we get (3.28). 
+
+Lemma 3.9. Under the conditions of Theorem 3.1, there holds that 
+
+12ddt
+
+Z
+
+> I
+
+ϵ(Φ ϵxx )2dx −
+
+Z
+
+> I
+
+ϵρ ϵΦϵxxx U ϵxx dx −
+
+Z
+
+> I
+
+ϵρ ϵxU ϵxΦϵxxx dx
+
+≤ 32(12 M + 4) ϵ2∥√ρϵΦϵxxx ∥2 
+
+> L2(I)
+
++ C( 1
+
+√ϵ + ϵ∥Φϵxx ∥2
+
+> L2(I)
+
+)∥U ϵx∥2 
+
+> L2(I)
+
++ C√ϵ
+
++ C∥Φϵx∥2 
+
+> L2(I)
+
++ Cϵ ∥Φϵxx ∥2
+
+> L2(I)
+
+,
+
+(3.29) 
+
+where M is defined in Proposition 1.1. Proof. Differentiating (1.16) 1 with respect to x, we have Φϵxt + ρϵxx U ϵ + 2 ρϵxU ϵx + ρϵU ϵxx = −
+
+> 5
+
+X
+
+> i=1
+
+(hi)x. (3.30) 
+
+25 Then, multiplying (3.30) by ϵΦϵxxx and integrating the result over I, we get 
+
+−
+
+Z
+
+> I
+
+ϵρ ϵΦϵxxx U ϵxx dx −
+
+Z
+
+> I
+
+ϵρ ϵxU ϵxΦϵxxx dx
+
+:= 
+
+Z
+
+> I
+
+ϵΦϵxt Φϵxxx dx +
+
+Z
+
+> I
+
+ϵρ ϵxU ϵxΦϵxxx dx +
+
+Z
+
+> I
+
+ϵρ ϵxx U ϵΦϵxxx dx
+
++
+
+Z
+
+> I
+
+ϵ(
+
+> 5
+
+X
+
+> i=1
+
+(hi)x − uI, 0Φϵxx − 2uI, 0 
+
+> x
+
+Φϵx)Φ ϵxxx dx
+
++
+
+Z
+
+> I
+
+ϵ(uI, 0Φϵxx + 2 uI, 0 
+
+> x
+
+Φϵx)Φ ϵxxx dx := 
+
+> 5
+
+X
+
+> i=1
+
+Gi.
+
+(3.31) We estimate P5 
+
+> i=1
+
+Gi terms by terms. 
+
+G1 =
+
+Z
+
+> I
+
+ϵΦϵxt Φϵxxx dx = −
+
+Z
+
+> I
+
+ϵΦϵxxt Φϵxx dx = − ϵ
+
+2ddt
+
+Z
+
+> I
+
+(Φ ϵxx )2dx. 
+
+The estimate of G2, G 3, G 4 and G5 will use H¨ older’s inequality and Young’s inequality. Using Poincar´ e’s inequality and (3.26) 2, we get 
+
+G2 + G3 =
+
+Z
+
+> I
+
+ϵρ ϵxU ϵxΦϵxxx dx +
+
+Z
+
+> I
+
+ϵρ ϵxx U ϵΦϵxxx dx
+
+≤Cϵ ∥ρϵx∥L∞(I)∥U ϵx∥L2(I)∥Φϵxxx ∥L2(I) + Cϵ ∥ρϵxx ∥L2(I)∥U ϵ∥L∞(I)∥Φϵxxx ∥L2(I)
+
+≤Cϵ ∥ρϵxx ∥L2(I)∥U ϵx∥L2(I)∥Φϵxxx ∥L2(I)
+
+≤ 12(12 M + 4) ϵ2∥√ρϵΦϵxxx ∥2 
+
+> L2(I)
+
++ ( C
+
+√ϵ + Cϵ ∥Φϵxx ∥2
+
+> L2(I)
+
+)∥U ϵx∥2
+
+> L2(I)
+
+.
+
+Using Lemmas 3.2 and 3.3, and Corollary 3.3, we get 
+
+G4 =
+
+Z
+
+> I
+
+ϵ(
+
+> 5
+
+X
+
+> i=1
+
+(hi)x − uI, 0Φϵxx − 2uI, 0 
+
+> x
+
+Φϵx)Φ ϵxxx dx
+
+≤ 12(12 M + 4) ϵ2∥√ρϵΦϵxxx ∥2 
+
+> L2(I)
+
++ C
+
+> 5
+
+X
+
+> i=1 ,i ̸=2
+
+∥(hi)x∥2 
+
+> L2(I)
+
++ C∥(h2)x − uI, 0Φϵxx − 2uI, 0 
+
+> x
+
+Φϵx∥2
+
+> L2(I)
+
+≤ 12(12 M + 4) ϵ2∥√ρϵΦϵxxx ∥2 
+
+> L2(I)
+
++ C√ϵ + Cϵ 2∥Φϵxx ∥2
+
+> L2(I)
+
+.
+
+Integrating G5 by parts, we get 
+
+G5 =
+
+Z
+
+> I
+
+ϵ(uI, 0Φϵxx + 2 uI, 0 
+
+> x
+
+Φϵx)Φ ϵxxx dx = 2 
+
+Z
+
+> I
+
+ϵu I, 0 
+
+> x
+
+ΦϵxΦϵxxx dx − 12
+
+Z
+
+> I
+
+ϵu I, 0 
+
+> x
+
+(Φ ϵxx )2dx
+
+≤ 12(12 M + 4) ϵ2∥√ρϵΦϵxxx ∥2 
+
+> L2(I)
+
++ C∥uI, 0 
+
+> x
+
+∥2
+
+> L∞(I)
+
+∥Φϵx∥2 
+
+> L2(I)
+
++ Cϵ ∥uI, 0 
+
+> x
+
+∥L∞(I)∥Φϵxx ∥2
+
+> L2(I)
+
+≤ 12(12 M + 4) ϵ2∥√ρϵΦϵxxx ∥2 
+
+> L2(I)
+
++ C∥Φϵx∥2 
+
+> L2(I)
+
++ Cϵ ∥Φϵxx ∥2
+
+> L2(I)
+
+.
+
+In conclusion, substituting the estimates of Gi for i = 1 , 2, 3, 4, 5 into (3.31), we have (3.29). It is necessary to estimate ϵ2∥√ρϵΦϵxxx ∥2 
+
+> L2(I)
+
+because of G2 and G3.
+
+Lemma 3.10. Under the conditions of Theorem 3.1, there holds that 
+
+Z
+
+> I
+
+ϵU ϵxx Φϵxxx dx +
+
+Z
+
+> I
+
+ϵ2ρϵ(Φ ϵxxx )2dx−ϵ ddt
+
+Z
+
+> I
+
+Φϵxx Φϵt dx
+
+≤ 112 M + 4 
+
+Z
+
+> I
+
+ϵ2ρϵ(Φ ϵxxx )2dx + Cϵ ∥U ϵxx ∥2 
+
+> L2(I)
+
++ Cϵ + C∥W ∥2
+
+> L2(I)
+
++ C(1 + ϵ∥U ϵx∥2
+
+> L2(I)
+
+)ϵ∥Φϵxx ∥2 
+
+> L2(I)
+
++ C(∥uϵx∥2 
+
+> L2(I)
+
++ 1 + ∥U ϵx∥2
+
+> L2(I)
+
+)∥U ϵx∥2 
+
+> L2(I)
+
++ C∥Lϵtt ∥2
+
+> L2(I)
+
++ Cϵ 2√ϵ(∥ρB, 2 
+
+> tt
+
+∥2 
+
+> L2
+> y
+
++ ∥ρb, 2 
+
+> tt
+
+∥2 
+
+> L2
+> z
+
+),
+
+(3.32) 
+
+26 where M is defined in Proposition 1.1. Proof. Multiplying (1.16) 2 by ϵΦϵxxx and integrating the result over I with respect to x, we get 
+
+Z
+
+> I
+
+ϵU ϵxx Φϵxxx dx +
+
+Z
+
+> I
+
+ϵ2ρϵ(Φ ϵxxx )2dx
+
+=
+
+Z
+
+> I
+
+ϵ(ρϵU ϵ)tΦϵxxx dx +
+
+Z
+
+> I
+
+ϵ(ρϵuϵU ϵ)xΦϵxxx dx −
+
+Z
+
+> I
+
+ϵW Φϵxxx dx := K1 + K2 + K3.
+
+(3.33) Now we estimate K1, K2 and K3. Differentiating (1.16) 1 with respect to t, it holds that Φϵtt + ( ρϵU ϵ)xt +
+
+> 5
+
+X
+
+> i=1
+
+(hi)t = 0 . (3.34) From (3.34), integrating K1 by parts, we get 
+
+K1 =
+
+Z
+
+> I
+
+ϵ(ρϵU ϵ)tΦϵxxx dx = −
+
+Z
+
+> I
+
+ϵ(ρϵU ϵ)xt Φϵxx dx =
+
+Z
+
+> I
+
+ϵΦϵtt Φϵxx dx +
+
+Z
+
+> I
+
+ϵ[
+
+> 5
+
+X
+
+> i=1
+
+(hi)t]Φ ϵxx dx
+
+=ϵ ddt
+
+Z
+
+> I
+
+Φϵxx Φϵt dx + ϵ
+
+Z
+
+> I
+
+(Φ ϵxt )2dx +
+
+Z
+
+> I
+
+ϵ[
+
+> 5
+
+X
+
+> i=1
+
+(hi)t]Φ ϵxx dx. 
+
+Using (3.5), (3.27), and Young’s inequality, we have 
+
+ϵ
+
+Z
+
+> I
+
+(Φ ϵxt )2dx +
+
+Z
+
+> I
+
+ϵ[
+
+> 5
+
+X
+
+> i=1
+
+(hi)t]Φ ϵxx dx
+
+≤ϵ∥Φϵxt ∥2 
+
+> L2(I)
+
++ Cϵ 
+
+> 5
+
+X
+
+> i=1
+
+∥(hi)t∥2 
+
+> L2(I)
+
++ Cϵ ∥Φϵxx ∥2
+
+> L2(I)
+
+≤(C + 1) ϵ∥Φϵxt ∥2 
+
+> L2(I)
+
++ Cϵ ∥Φϵxx ∥2 
+
+> L2(I)
+
++ C∥Lϵtt ∥2 
+
+> L2(I)
+
++ Cϵ + Cϵ ∥Φϵt ∥2
+
+> L2(I)
+
++ Cϵ 2√ϵ(∥ρB, 2 
+
+> tt
+
+∥2 
+
+> L2
+> y
+
++ ∥ρb, 2 
+
+> tt
+
+∥2 
+
+> L2
+> z
+
+)
+
+≤Cϵ ∥U ϵxx ∥2 
+
+> L2(I)
+
++ Cϵ + C(1 + ϵ∥U ϵx∥2
+
+> L2(I)
+
+)ϵ∥Φϵxx ∥2
+
+> L2(I)
+
++ C√ϵ∥√ρϵU ϵx∥2 
+
+> L2(I)
+
++ C∥Lϵtt ∥2 
+
+> L2(I)
+
++ Cϵ 2√ϵ(∥ρB, 2 
+
+> tt
+
+∥2  
+
+> L2
+> y(I)
+
++ ∥ρb, 2 
+
+> tt
+
+∥2 
+
+> L2
+> z(I)
+
+).
+
+For K2, using (1.2) 1, (3.27), and Young’s inequality, we have 
+
+K2 =
+
+Z
+
+> I
+
+ϵ(ρϵuϵU ϵ)xΦϵxxx dx
+
+≤ 12(12 M + 4) 
+
+Z
+
+> I
+
+ϵ2ρϵ(Φ ϵxxx )2dx + C∥(ρϵ)−1∥L∞(I)∥ρϵuϵU ϵx − ρϵt U ϵ∥2
+
+> L2(I)
+
+≤ 12(12 M + 4) 
+
+Z
+
+> I
+
+ϵ2ρϵ(Φ ϵxxx )2dx + C(∥uϵx∥2 
+
+> L2(I)
+
++ ∥ρϵt − √ϵΦϵt ∥2 
+
+> L2(I)
+
++ ϵ∥Φϵt ∥2
+
+> L2(I)
+
+)∥U ϵx∥2
+
+> L2(I)
+
+≤ 12(12 M + 4) 
+
+Z
+
+> I
+
+ϵ2ρϵ(Φ ϵxxx )2dx + C(∥uϵx∥2 
+
+> L2(I)
+
++ 1 + ∥U ϵx∥2
+
+> L2(I)
+
+)∥U ϵx∥2
+
+> L2(I)
+
+,
+
+and 
+
+K3 = −
+
+Z
+
+> I
+
+ϵW Φϵxxx dx ≤ 12(12 M + 4) 
+
+Z
+
+> I
+
+ϵ2ρϵ(Φ ϵxxx )2dx + C∥W ∥2
+
+> L2(I)
+
+.
+
+Hence, putting estimates of K1, K 2 and K3 into (3.33), we get (3.32). 
+
+Lemma 3.11. Under the conditions of Theorem 3.1, there holds that 
+
+12ddt
+
+Z
+
+> I
+
+(Φ ϵx)2dx
+
+≤ 12(12 M + 4) 
+
+Z
+
+> I
+
+(U ϵxx )2dx + C∥Φϵx∥2 
+
+> L2(I)
+
++ ( C
+
+√ϵ + Cϵ ∥Φϵxx ∥2
+
+> L2(I)
+
+)∥U ϵx∥2
+
+> L2(I)
+
++ C√ϵ + Cϵ 2∥Φϵxx ∥2
+
+> L2(I)
+
+,
+
+(3.35) 
+
+27 where M is defined in Proposition 1.1. Proof. Multipying (3.30) by Φ ϵx and integrating the result over I, it holds that 12ddt
+
+Z
+
+> I
+
+(Φ ϵx)2dx
+
+= −
+
+Z
+
+> I
+
+(ρϵU ϵ)xx Φϵxdx −
+
+Z
+
+> I
+
+(
+
+> 5
+
+X
+
+> i=1
+
+(hi)x − uI, 0Φϵxx − 2uI, 0 
+
+> x
+
+Φϵx)Φ ϵxdx
+
+−
+
+Z
+
+> I
+
+(uI, 0Φϵxx + 2 uI, 0 
+
+> x
+
+Φϵx)Φ ϵxdx
+
+:=Γ 1 + Γ 2 + Γ 3.
+
+(3.36) Similar to the estimates of G2 + G3 and G4 in the proof of Lemma 3.9, we have Γ1 = −
+
+Z
+
+> I
+
+(2 ρϵxU ϵx + ρϵxx U ϵ)Φ ϵxdx −
+
+Z
+
+> I
+
+ρϵU ϵxx Φϵxdx
+
+≤ 12(12 M + 4) 
+
+Z
+
+> I
+
+(U ϵxx )2dx + C∥Φϵx∥2 
+
+> L2(I)
+
++ ( C
+
+√ϵ + Cϵ ∥Φϵxx ∥2
+
+> L2(I)
+
+)∥U ϵx∥2
+
+> L2(I)
+
+,
+
+and Γ2 = −
+
+Z
+
+> I
+
+(
+
+> 5
+
+X
+
+> i=1
+
+(hi)x − uI, 0Φϵxx − 2uI, 0 
+
+> x
+
+Φϵx)Φ ϵxdx ≤ C∥Φϵx∥2 
+
+> L2(I)
+
++ C√ϵ + Cϵ 2∥Φϵxx ∥2
+
+> L2(I)
+
+.
+
+Integrating Γ 3 by parts, we have Γ3 = −
+
+Z
+
+> I
+
+(uI, 0Φϵxx + 2 uI, 0 
+
+> x
+
+Φϵx)Φ ϵxdx = − 32
+
+Z
+
+> I
+
+uI, 0 
+
+> x
+
+(Φ ϵx)2dx ≤ C∥Φϵx∥2
+
+> L2(I)
+
+.
+
+In conclusion, putting the estimates of Γ 1, Γ 2 and Γ 3 into (3.36), we get (3.35). 
+
+Corollary 3.4. Under the conditions of Theorem 3.1, there exists a positive constant ϵ0 satisfying 
+
+ϵ0 ≤ min {( 12 − 13M + 1 ) MC , 2M − 1
+
+C , 14M 2(C + 1) 2 }, (3.37) 
+
+such that if ϵ ≤ ϵ0, there holds that 
+
+sup 
+
+> t∈[0 ,T 1]
+
+(∥U ϵx∥2 
+
+> L2(I)
+
++ ∥Φϵx∥2 
+
+> L2(I)
+
++ ϵ∥Φϵxx ∥2
+
+> L2(I)
+
+) + ∥U ϵxx ∥2  
+
+> L2
+> T1L2
+
++ ϵ2∥Φϵxxx ∥2  
+
+> L2
+> T1L2
+
+≤ B2(T )√ϵ, (3.38) 
+
+where B2(s) = C(1 + s) + Cs (1 + s) + Cs (1 + s)( B1(s) + 1) exp {C(B1(s) + 1) } for any s ∈ [0 , T ].Proof. We will prove Corollary 3.4 by using Propositions 1.1, 1.2 and 1.3. Using (1.2), (1.3), (1.6)-(1.12), and definition of Lϵ and M ϵ, we get the estimate of initial value of system (1.16) as follows: 
+
+∥Φϵx(·, 0) ∥2 
+
+> L2(I)
+
++ ∥U ϵx(·, 0) ∥2 
+
+> L2(I)
+
++ ϵ∥Φϵxx (·, 0) ∥2
+
+> L2(I)
+
+= 1
+
+ϵ ∥∂x(ρϵ 
+
+> 0
+
+− ρI, 00 )∥2 
+
+> L2(I)
+
++ 1
+
+ϵ ∥∂x(uϵ 
+
+> 0
+
+− uI, 00 )∥2 
+
+> L2(I)
+
++ ∥∂2
+
+> x
+
+(ρϵ 
+
+> 0
+
+− ρI, 00 )∥2 
+
+> L2(I)
+
+≤ Cϵ m−1, (3.39) for any m > 2. In addition, we have 
+
+∥Φϵt (·, 0) ∥2 
+
+> L2(I)
+
+= ∥[−(ρϵU ϵ)x −
+
+> 5
+
+X
+
+> i=1
+
+hi]( ·, 0) ∥2 
+
+> L2(I)
+
+≤ C√ϵ. (3.40) (3.39) and (3.40) yields 
+
+− ϵ
+
+Z
+
+> I
+
+Φϵxx (x, 0)Φ ϵt (x, 0)d x ≤ ϵ∥Φϵxx (·, 0) ∥L2(I)∥Φϵt (·, 0) ∥L2(I) ≤ Cϵ. (3.41) 
+
+28 From Lemma 3.1, it holds that 
+
+∥ρϵ, (ρϵ)−1∥C([0 ,T 1;L∞(I)]) ≤ 2M. 
+
+We firstly add (3.28), (3.29) and (3.35) together, multiplying the result by 2 M , then add the resulting inequality to inequality (3.32), and finally integrating this combined result with respect to t
+
+over the interval [0 , t ] for any 0 < t ≤ T1, we get 2M
+
+2
+
+Z
+
+> I
+
+[ρϵ(U ϵx)2 + ϵ(Φ ϵxx )2]d x + 2 M
+
+Z t
+
+> 0
+
+∥U ϵxx ∥2
+
+> L2(I)
+
+dt + 2M
+
+2
+
+Z
+
+> I
+
+(Φ ϵx)2dx
+
++
+
+Z t
+
+> 0
+
+Z
+
+> I
+
+ϵU ϵxx Φϵxxx dxd + 
+
+Z t
+
+> 0
+
+ϵ2∥√ρϵΦϵxxx ∥2
+
+> L2(I)
+
+dt−ϵ
+
+Z
+
+> I
+
+Φϵxx Φϵt dx
+
+≤[ 2M
+
+6M + 2 + Cϵ ]
+
+Z t
+
+> 0
+
+∥U ϵxx ∥2
+
+> L2(I)
+
+dt + 14
+
+Z t
+
+> 0
+
+ϵ2∥√ρϵΦϵxxx ∥2
+
+> L2(I)
+
+dt
+
++ C(1 + T1)√ϵ + C
+
+Z t
+
+> 0
+
+(∥Φϵx∥2 
+
+> L2(I)
+
++ ϵ∥Φϵxx ∥2
+
+> L2(I)
+
+)d t
+
++ C
+
+Z t
+
+> 0
+
+(∥uϵx∥2 
+
+> L2(I)
+
++ 1 + ∥U ϵx∥2 
+
+> L2(I)
+
++ ϵ∥Φϵxx ∥2
+
+> L2(I)
+
+)∥U ϵx∥2
+
+> L2(I)
+
+dt. 
+
+Choosing ϵ0 small enough such that ϵ ≤ ϵ0 and that 2M
+
+6M + 2 + Cϵ ≤ 2M
+
+6M + 2 + Cϵ 0 ≤ 2M
+
+4 ,
+
+i.e., 
+
+ϵ0 ≤ ( 12 − 13M + 1 ) MC , (3.42) and using 
+
+− ϵ
+
+Z
+
+> I
+
+Φϵxx Φϵt dx ≥ − 12
+
+Z
+
+> I
+
+ϵ(Φ ϵxx )2dx − ϵ
+
+2 ∥Φϵt ∥2 
+
+> L∞
+> T1L2(I)
+
+≥ − 12
+
+Z
+
+> I
+
+ϵ(Φ ϵxx )2dx − ϵ
+
+2 (C + C∥√ρϵU ϵx∥2
+
+> L2(I)
+
+)and (3.27) 5, we have 
+
+Z
+
+> I
+
+[ 2M − Cϵ 
+
+2 ρϵ(U ϵx)2 + 2M − 12 ϵ(Φ ϵxx )2]d x + 34
+
+Z t
+
+> 0
+
+Z
+
+> I
+
+2M (U ϵxx )2dxdt + 2M
+
+2
+
+Z
+
+> I
+
+(Φ ϵx)2dx
+
++
+
+Z t
+
+> 0
+
+Z
+
+> I
+
+ϵU ϵxx Φϵxxx dxd + 34
+
+Z t
+
+> 0
+
+ϵ2∥√ρϵΦϵxxx ∥2
+
+> L2(I)
+
+dt
+
+≤C(1 + T1)√ϵ + C
+
+Z t
+
+> 0
+
+(∥Φϵx∥2 
+
+> L2(I)
+
++ ϵ∥Φϵxx ∥2
+
+> L2(I)
+
+)d t
+
++ C
+
+Z t
+
+> 0
+
+(∥uϵx∥2 
+
+> L2(I)
+
++ 1 + ∥U ϵx∥2 
+
+> L2(I)
+
++ ϵ∥Φϵxx ∥2
+
+> L2(I)
+
+)∥U ϵx∥2
+
+> L2(I)
+
+dt. 
+
+(3.43) In view of (3.4) and (3.42), we let 0 < ϵ ≤ ϵ0 ≤ min { 122M 2(C + 1) 2 , ( 12 − 13M + 1 ) MC , 2M − 1
+
+C }. (3.44) (3.43) together with the known inequalities: 
+
+Z
+
+> I
+
+ϵU ϵxx Φϵxxx dx + 12
+
+Z
+
+> I
+
+(U ϵxx )2
+
+ρϵ dx + 12
+
+Z
+
+> I
+
+ϵ2ρϵ(Φ ϵxxx )2dx ≥ 0
+
+29 and 6M 
+
+> 4
+
+≥ 34ρϵ yields 
+
+Z
+
+> I
+
+[ 12 ρϵ(U ϵx)2 + ( 2M − 12 )ϵ(Φ ϵxx )2]d x + 14
+
+Z t
+
+> 0
+
+Z
+
+> I
+
+(U ϵxx )2
+
+ρϵ dxdt
+
++ 2M
+
+2
+
+Z
+
+> I
+
+(Φ ϵx)2dx + 14
+
+Z t
+
+> 0
+
+ϵ2∥√ρϵΦϵxxx ∥2
+
+> L2(I)
+
+dt
+
+≤C(1 + T1)√ϵ + C
+
+Z t
+
+> 0
+
+(∥Φϵx∥2 
+
+> L2(I)
+
++ ϵ∥Φϵxx ∥2
+
+> L2(I)
+
+)d t
+
++ C
+
+Z t
+
+> 0
+
+(∥uϵx∥2 
+
+> L2(I)
+
++ 1 + ∥U ϵx∥2 
+
+> L2(I)
+
++ ϵ∥Φϵxx ∥2
+
+> L2(I)
+
+)∥U ϵx∥2
+
+> L2(I)
+
+dt. 
+
+(3.45) Using Gronwall’s inequality, we have 
+
+Z
+
+> I
+
+[( U ϵx)2 + ϵ(Φ ϵxx )2]d x +
+
+Z
+
+> I
+
+(Φ ϵx)2dx
+
+≤C(1 + T1)√ϵ + C(1 + T1)√ϵ(B1(T1) + 1) exp {C(B1(T1) + 1) } := B2(T1)√ϵ
+
+≤B2(T )√ϵ. 
+
+(3.46) Then, putting (3.47) into (3.45), we have sup 
+
+> t∈[0 ,T 1]
+
+(∥U ϵx∥2 
+
+> L2(I)
+
++ ∥Φϵx∥2 
+
+> L2(I)
+
++ ϵ∥Φϵxx ∥2
+
+> L2(I)
+
+) + ∥U ϵxx ∥2  
+
+> L2
+> T1L2
+
++ ϵ2∥Φϵxxx ∥2 
+
+> L2
+> T1L2
+
+≤C(1 + T1)√ϵ + T1C(1 + T1)√ϵ
+
++ CT 1(1 + T1)√ϵ(B1(T1) + 1) exp {C(B1(T1) + 1) } := B2(T1)√ϵ
+
+≤B2(T )√ϵ. 
+
+(3.47) Hence, we get (3.38). 
+
+Corollary 3.5. Under the conditions of Theorem 3.1, there holds that 
+
+sup 
+
+> t∈[0 ,T 1]
+
+∥Φϵ∥L∞(I) ≤ 12 . (3.48) 
+
+Proof. Using Sobolev’s inequality and Corollary 3.2, we have sup 
+
+> t∈[0 ,T 1]
+
+∥Φϵ∥L∞(I) ≤ sup 
+
+> t∈[0 ,T 1]
+
+(C∥Φϵ∥L2(I) + C∥Φϵ∥ 12
+
+> L2(I)
+
+∥Φϵx∥ 12
+
+> L2(I)
+
+)
+
+≤CpB1(T )( √ϵ + ϵ 14 ) ≤ 2CpB1(T )ϵ 14 .
+
+(3.49) Choosing 
+
+ϵ ≤ ϵ0 ≤ min { 122M 2(C + 1) 2 , ( 12 − 13M + 1 ) MC , 2M − 1
+
+C , 144C4B21 (T ) }, (3.50) we get (3.48). With Corollaries 3.2, 3.4 and 3.5, the proof of Theorem 3.1 is completed. 
+
+3.3 Proof of Corollary 3.1 
+
+For any fixed ϵ, system (1.16) has a local solution (Φ ϵ, U ϵ). From the initial conditions (3.24) and (3.39), using Sobolev’s inequality, it holds that 
+
+∥Φϵ(·, 0) ∥L∞(I) ≤C∥Φϵ(·, 0) ∥L2(I) + C∥Φϵ(·, 0) ∥ 12
+
+> L2(I)
+
+∥Φϵx(·, 0) ∥ 12
+
+> L2(I)
+
+≤C√ϵ + Cϵ 14 ≤ Cϵ 14 .
+
+30 Choosing 
+
+ϵ1 ≤ min {ϵ0, 116 C4 } (3.51) where ϵ0 is determined by (3.50), and letting ϵ ≤ ϵ1, we have 
+
+∥Φϵ(·, 0) ∥L∞(I) ≤ Cϵ 14 ≤ 12 < 1.
+
+Using the continuity of the solution with respect to time, there exists a time T1(ϵ) ∈ (0 , T ] ∩ (0 , T ϵ)such that the a priori assumption (3.1) in Theorem 3.1 holds. Then, from Theorem 3.1, suppose that T1 = T1(ϵ), it holds that 
+
+∥Φϵ(·, T 1(ϵ)) ∥2 
+
+> L2(I)
+
++ ∥U ϵ(·, T 1(ϵ)) ∥2 
+
+> L2(I)
+
++ ∥Φϵx(·, T 1(ϵ)) ∥2 
+
+> L2(I)
+
+≤ B1ϵ, 
+
+∥Φϵx(·, T 1(ϵ)) ∥2 
+
+> L2(I)
+
++ ∥U ϵ(·, T 1(ϵ)) ∥2 
+
+> L2(I)
+
++ ∥Φϵxx (·, T 1(ϵ)) ∥2 
+
+> L2(I)
+
+≤ B2
+
+√ϵ, 
+
+∥Φϵ(·, T 1(ϵ)) ∥L∞(I) ≤ 12 ,
+
+(3.52) which satisfies the initial condition in Theorem 3.1. Using the continuity of the solution with respect to time, there exists a positive constant δ > 0 such that T1(ϵ) + δ ∈ (0 , T ] ∩ (0 , T ϵ), and the system (1.16) has a solution in time [ T1(ϵ), T 1(ϵ) + δ] satisfying 
+
+∥Φϵ∥C([ T1(ϵ),T 1(ϵ)+ δ]; L∞(I)) ≤ 1.
+
+Thus, we choose T1 = T1(ϵ) + δ in Theorem 3.1, we get (3.2) in time interval [0 , T 1(ϵ) + δ]. 
+
+• If T < T ϵ, the above steps can be extended to time interval [0 , T ]. 
+
+• If T ≥ T ϵ, we end our proof by contradiction. Assume that the maximun existence time T ϵ < T .Then from Theorem 3.1, we can extend the result of (3.2) in time interval [0 , T ϵ]. Using the continuity of the solution again, we conclude that the solution of system (1.16) can be extend to [0 , T ϵ + δ′] for a small δ′ > 0 satisfying T ϵ + δ′ ≤ T , which is a contradiction with the definition of maximun existence time T ϵ. Thus, we end our proof. 
+
+3.4 Proof of Theorem 1.1 
+
+Under the result of Corollary 3.1, we get 
+
+∥uϵ − uI, 0∥2  
+
+> L∞
+> TL∞
+
+≤ C∥ϵ(uB, 2 + ub, 2) + ϵ√ϵ(uB, 3 + ub, 3) + M ϵ + √ϵU ϵ∥2 
+
+> L∞
+> TL∞
+
+≤Cϵ 2 + Cϵ ∥U ϵ∥2  
+
+> L∞
+> TL2
+
++ Cϵ ∥U ϵ∥L∞  
+
+> TL2
+
+∥U ϵx∥L∞  
+
+> TL2
+
+≤ Cϵ 74 ,
+
+∥ρϵ − ρI, 0∥2  
+
+> L∞
+> TL∞
+
+≤ C∥√ϵ(ρB, 1 + ρb, 1) + ϵ(ρB, 2 + ρb, 2) + Lϵ + √ϵΦϵ∥2 
+
+> L∞
+> TL∞
+
+≤Cϵ + Cϵ ∥Φϵ∥2  
+
+> L∞
+> TL2
+
++ Cϵ ∥Φϵ∥L∞  
+
+> TL2
+
+∥Φϵx∥L∞  
+
+> TL2
+
+≤ Cϵ, 
+
+∥ρϵx − ρI, 0 
+
+> x
+
+− √ϵ(ρB, 1 + ρb, 1)x∥2  
+
+> L∞
+> TL∞
+
+≤ C∥ϵ(ρB, 2 + ρb, 2)x + Lϵx + √ϵΦϵx∥2 
+
+> L∞
+> TL∞
+
+≤Cϵ + Cϵ ∥Φϵx∥2  
+
+> L∞
+> TL2
+
++ Cϵ ∥Φϵx∥L∞  
+
+> TL2
+
+∥Φϵxx ∥L∞  
+
+> TL2
+
+≤ Cϵ. 
+
+Hence, the proof of Theorem 1.1 is completed. 
+
+# Appendix A Formal derivation of the boundary layer equa-tions 
+
+For any ( ρI,i , u I,i ), ( ρB,j , u B,j ), ( ρb,k , u b,k ), i, j, k ∈ N, firstly, putting (1.3) and (1.4) into (1.2), and using Taylor expansion (ρϵ)γ−2 =[ ρI, 0 + ρB, 0 + ρb, 0 + ρϵ − (ρI, 0 + ρB, 0 + ρb, 0)] γ−2
+
+=( ρI, 0 + ρB, 0 + ρb, 0)γ−2 + ( γ − 2)( ρI, 0 + ρB, 0 + ρb, 0)γ−3
+
+> ∞
+
+X
+
+> i=1
+
+ϵ i 
+
+> 2
+
+(ρI,i + ρB,i + ρb,i )+ O [
+
+> ∞
+
+X
+
+> i=1
+
+ϵ i 
+
+> 2
+
+(ρI,i + ρB,i + ρb,i )] 2
+
+!
+
+,
+
+31 we have 
+
+∞X
+
+i=0 
+
+ϵ i 
+
+> 2
+
+(ρI,i t + ρB,i t + ρb,i t ) + 
+
+∞X
+
+i,j =0 
+
+ϵ i+j 
+
+> 2
+
+(ρI,i + ρB,i + ρb,i )( uI,j x + ϵ− 12 uB,j y + ϵ− 12 ub,j z )
+
+∞X
+
+i,j =0 
+
+ϵ i+j 
+
+> 2
+
+(ρI,i x + ϵ− 12 ρB,i y + ϵ− 12 ρb,i z )( uI,j + uB,j + ub,j ) = 0 ,
+
+(A.1) 
+
+∞X
+
+i,j =0 
+
+ϵ i+j 
+
+> 2
+
+(ρI,i + ρB,i + ρb,i )( uI,j t + uB,j t + ub,j t )+
+
+∞X
+
+i,j,k =0 
+
+ϵ i+j+k 
+
+> 2
+
+(ρI,i + ρB,i + ρb,i )( uI,j + uB,j + ub,j )( uI,k x + ϵ− 12 uB,k y + ϵ− 12 ub,k z )+ γ{(ρI, 0 + ρB, 0 + ρb, 0)γ−2 + ( γ − 2)( ρI, 0 + ρB, 0 + ρb, 0)γ−3
+
+∞X
+
+i=1 
+
+ϵ i 
+
+> 2
+
+(ρI,i + ρB,i + ρb,i )+ O [
+
+∞X
+
+i=1 
+
+ϵ i 
+
+> 2
+
+(ρI,i + ρB,i + ρb,i )] 2
+
+!
+
+}
+
+∞X
+
+j,k =0 
+
+ϵ j+k 
+
+> 2
+
+(ρI,j + ρB,j + ρb,j )( ρI,k x + ϵ− 12 ρB,k y + ϵ− 12 ρb,k z )
+
+−
+
+∞X
+
+i=0 
+
+ϵ i 
+
+> 2
+
+(uI,j xx + ϵ−1uB,j yy + ϵ−1ub,j zz )
+
+− ϵ
+
+∞X
+
+i,j =0 
+
+ϵ i+j 
+
+> 2
+
+(ρI,i + ρB,i + ρb,i )( ρI,j xxx + ϵ− 32 ρB,j yyy + ϵ− 32 ρb,j zzz ) = 0 .
+
+(A.2) From (1.4) and (1.12), we formally have the initial value (ρI, 1, u I, 1)|t=0 = (0 , 0) , (ρB,j , u B,j )|t=0 = (0 , 0) , (ρb,j , u b,j )|t=0 = (0 , 0) , f or j = 0 , 1, 2. (A.3) From Taylor expansion near x = 0 and x = 1 as follows: 
+
+uI, 0(x, t ) = uI, 0(√ϵy, t ) = uI, 0 + √ϵyu I, 0
+
+x + ϵy 2
+
+2 uI, 0
+
+xx + ϵ√ϵy 3
+
+6 uI, 0
+
+xxx + O(ϵ2),uI, 0(x, t ) = uI, 0(√ϵz + 1 , t ) = guI, 0 + √ϵz g
+
+uI, 0
+
+x + ϵz 2
+
+2
+
+g
+
+uI, 0
+
+xx + ϵ√ϵz 3
+
+6
+
+g
+
+uI, 0
+
+xxx + O(ϵ2),ρI, 0(x, t ) = ρI, 0(√ϵy, t ) = ρI, 0 + √ϵyρ I, 0
+
+x + ϵy 2
+
+2 ρI, 0
+
+xx + ϵ√ϵy 3
+
+6 ρI, 0
+
+xxx + O(ϵ2),ρI, 0(x, t ) = ρI, 0(√ϵz + 1 , t ) = gρI, 0 + √ϵz g
+
+ρI, 0
+
+x + ϵz 2
+
+2
+
+g
+
+ρI, 0
+
+xx + ϵ√ϵz 3
+
+6
+
+g
+
+ρI, 0
+
+xxx + O(ϵ2),
+
+(ρI, 0)s(x, t ) =( ρI, 0)s(√ϵy, t ) = ( ρI, 0)s + √ϵys (ρI, 0)s−1ρI, 0
+
+x + ϵy 2
+
+2 s(ρI, 0)s−1ρI, 0
+
+xx 
+
++ ϵy 2
+
+2 s(s − 1)( ρI, 0)s−2(ρI, 0
+
+x )2 + O(ϵ√ϵ),
+
+(ρI, 0)s(x, t ) = ρI, 0(√ϵz + 1 , t ) = ^(ρI, 0)s + √ϵzs (gρI, 0)s−1 g
+
+ρI, 0
+
+x + ϵz 2
+
+2 s(gρI, 0)s−1 g
+
+ρI, 0
+
+xx 
+
++ ϵz 2
+
+2 s(s − 1)( gρI, 0)s−2(g
+
+ρI, 0
+
+x )2 + O(ϵ√ϵ),
+
+we have 
+
+32 Table A.1: ρϵ
+
+ρϵt ρϵx ρϵ
+
+Order ϵ− 12 − ρB, 0 
+
+> y
+
+−
+
+Order ϵ0 ρI, 0 
+
+> t
+
++ ρB, 0 
+
+> t
+
+, ρI, 0 
+
+> x
+
++ ρB, 1 
+
+> y
+
+, ρI, 0 + ρB, 0,Order ϵ 12 ρI, 1 
+
+> t
+
++ yρ I, 0 
+
+> xt
+
++ ρB, 1 
+
+> t
+
+, ρI, 1 
+
+> x
+
++ yρ I, 0 
+
+> xx
+
++ ρB, 2 
+
+> y
+
+, ρI, 1 + yρ I, 0 
+
+> x
+
++ ρB, 1,Order ϵ1 ρI, 2 
+
+> t
+
++ yρ I, 1 
+
+> xt
+
++ 
+
+> y2
+> 2
+
+ρI, 0 
+
+> xxt
+
++ ρB, 1 
+
+> t
+
+,ρI, 2 
+
+> x
+
++ yρ I, 1 
+
+> xx
+
++ 
+
+> y2
+> 2
+
+ρI, 0 
+
+> xxx
+
++ ρB, 3 
+
+> y
+
+,
+
+ρI, 2 + yρ I, 1 
+
+> x
+
++ 
+
+> y2
+> 2
+
+ρI, 0 
+
+> xx
+
++ ρB, 2.
+
+Table A.2: uϵ
+
+uϵt uϵx uϵ
+
+Order ϵ− 12 − uB, 0 
+
+> y
+
+−
+
+Order ϵ0 uI, 0 
+
+> t
+
++ uB, 0 
+
+> t
+
+, uI, 0 
+
+> x
+
++ uB, 1 
+
+> y
+
+, uI, 0 + uB, 0,Order ϵ 12 uI, 1 
+
+> t
+
++ yu I, 0 
+
+> xt
+
++ uB, 1 
+
+> t
+
+, uI, 1 
+
+> x
+
++ yu I, 0 
+
+> xx
+
++ uB, 2 
+
+> y
+
+, uI, 1 + yu I, 0 
+
+> x
+
++ uB, 1,Order ϵ1 uI, 2 
+
+> t
+
++ yu I, 1 
+
+> xt
+
++ 
+
+> y2
+> 2
+
+uI, 0 
+
+> xxt
+
++ uB, 1 
+
+> t
+
+,uI, 2 
+
+> x
+
++ yu I, 1 
+
+> xx
+
++ 
+
+> y2
+> 2
+
+uI, 0 
+
+> xxx
+
++ uB, 3 
+
+> y
+
+,
+
+uI, 2 + yu I, 1 
+
+> x
+
++ 
+
+> y2
+> 2
+
+uI, 0 
+
+> xx
+
++ uB, 2.
+
+Table A.3: ρϵxxx , uϵxx and γ(ρϵ)γ−2
+
+ρϵxxx uϵxx γ(ρϵ)γ−2
+
+Order ϵ− 32 ρB, 0 
+
+> yyy
+
+, − −
+
+Order ϵ−1 ρB, 1 
+
+> yyy
+
+, uB, 0 
+
+> yy
+
+, −
+
+Order ϵ− 12 ρB, 2 
+
+> yyy
+
+, uB, 1 
+
+> yy
+
+, −
+
+Order ϵ0 ρI, 0 
+
+> xxx
+
++ ρB, 3 
+
+> yyy
+
+, uI, 0 
+
+> xx
+
++ uB, 2 
+
+> yy
+
+, γ(ρI, 0 + ρB, 0)γ−2,Order ϵ 12 ...... , uI, 1 
+
+> xx
+
++ yu I, 0 
+
+> xxx
+
++ uB, 3 
+
+> yy
+
+, ....... 
+
+where the expansion near x = 1 is similar. Order ϵ−1 of (A.2): 
+
+uB, 0 
+
+> yy
+
++ ub, 0 
+
+> zz
+
+= 0 ,
+
+i.e. 
+
+uB, 0 = 0 , u b, 0 = 0 . (A.4) Order ϵ0 of (A.1): Taking z → −∞ and y → +∞ respectively, we get 
+
+ρB, 0 
+
+> t
+
++ ρB, 0uI, 0 
+
+> x
+
++ ρB, 0 
+
+> y
+
+(uI, 1 + yu I, 0 
+
+> x
+
++ uB, 1) + ( ρI, 0 + ρB, 0)uB, 1 
+
+> y
+
+= 0 , (A.5) 
+
+ρb, 0 
+
+> t
+
++ ρb, 0 g
+
+uI, 0 
+
+> x
+
++ ρb, 0 
+
+> z
+
+( guI, 1 + y g
+
+uI, 0 
+
+> x
+
++ ub, 1) + ( gρI, 0 + ρb, 0)ub, 1 
+
+> z
+
+= 0 . (A.6) From ρϵx|x=0 ,1 = 0 and (1.4) 1, it holds that 
+
+ρB, 0 
+
+> y
+
+|y=0 = 0 , ρ b, 0 
+
+> z
+
+|z=0 = 0 . (A.7) 
+
+33 Order ϵ− 12 of (A.2): Taking z → −∞ and y → +∞ respectively, we get 
+
+uB, 1 
+
+> yy
+
++ ( ρI, 0 + ρB, 0)ρB, 0 
+
+> yyy
+
+− γ(ρI, 0 + ρB, 0)γ−1ρB, 0 
+
+> y
+
+= 0 , (A.8) 
+
+ub, 1 
+
+> zz
+
++ ( gρI, 0 + ρb, 0)ρb, 0 
+
+> zzz
+
+− γ(gρI, 0 + ρb, 0)γ−1ρb, 0 
+
+> z
+
+= 0 . (A.9) It is easy to see that system (A.3) 3 (A.5), (A.7) 1 and (A.8) has a unique soultion (ρB, 0, u B, 1) = (0 , 0) . (A.10) Similarly, we have (ρb, 0, u b, 1) = (0 , 0) . (A.11) System of ( ρI, 1, u I, 1): 
+
+
+
+ρI, 1 
+
+> t
+
++ ( ρI, 0uI, 1 + ρI, 1uI, 0)x = 0 ,ρI, 0uI, 1 
+
+> t
+
++ ρI, 1uI, 0 
+
+> t
+
++ ρI, 1uI, 0uI, 0 
+
+> x
+
++ ρI, 0uI, 1uI, 0 
+
+> x
+
++ ρI, 0uI, 0uI, 1
+
+> x
+
++ γ(ρI, 0)γ−1ρI, 1 
+
+> x
+
++ γ(γ − 1)( ρI, 0)γ−2ρI, 1ρI, 0 
+
+> x
+
+= uI, 1 
+
+> xx
+
+,
+
+(ρI, 1, u I, 1)|t=0 = (0 , 0) ,uI, 1|x=0 ,1 = 0 ,
+
+(A.12) where we get the boundary condition from (1.2) 4, (A.10) and (A.11). Obviously, ( ρI, 1, u I, 1) = (0 , 0) is the solution of system (A.12). Morevoer, estimate directly, the soultion is unique. Order ϵ 12 of (A.1) and order ϵ0 of (A.2): Taking z → −∞ and y → +∞ respectively, we get 
+
+(ρB, 1 
+
+> t
+
++ yu I, 0 
+
+> x
+
+ρB, 1 
+
+> y
+
++ ρI, 0uB, 2 
+
+> y
+
++ ρB, 1uI, 0 
+
+> x
+
+= 0 ,γ(ρI, 0)γ−1ρB, 1 
+
+> y
+
+= uB, 2 
+
+> yy
+
++ ρI, 0ρB, 1 
+
+> yyy
+
+,
+
+
+
+ρb, 1 
+
+> t
+
++ z g
+
+uI, 0 
+
+> x
+
+ρb, 1 
+
+> z
+
++ gρI, 0ub, 2 
+
+> z
+
++ ρb, 1 g
+
+uI, 0 
+
+> x
+
+= 0 ,γ(gρI, 0)γ−1ρb, 1 
+
+> z
+
+= ub, 2 
+
+> zz
+
++ gρI, 0ρb, 1 
+
+> zzz
+
+.
+
+Estimate them directly, we have 
+
+
+
+ρB, 1 
+
+> t
+
++ yu I, 0 
+
+> x
+
+ρB, 1 
+
+> y
+
++ [ γ(ρI, 0)γ + uI, 0 
+
+> x
+
+]ρB, 1 = ( ρI, 0)2ρB, 1 
+
+> yy
+
+,uB, 2 = −ρI, 0ρB, 1 
+
+> y
+
+−
+
+Z +∞
+
+> y
+
+γ(ρI, 0)γ−1ρB, 1(ξ, t )d ξ, (A.13) 
+
+
+
+ρb, 1 
+
+> t
+
++ z g
+
+uI, 0 
+
+> x
+
+ρb, 1 
+
+> z
+
++ [ γ(gρI, 0)γ + g
+
+uI, 0 
+
+> x
+
+]ρb, 1 = ( gρI, 0)2ρb, 1 
+
+> zz
+
+,ub, 2 = −gρI, 0ρb, 1 
+
+> z
+
++
+
+Z z
+
+> −∞
+
+γ(gρI, 0)γ−1ρb, 1(ζ, t )d ζ. (A.14) From ρϵx|x=0 ,1 = 0 and (1.4) 1, it holds that 
+
+ρB, 1 
+
+> y
+
+|y=0 = −ρI, 0 
+
+> x
+
+, ρ b, 1 
+
+> z
+
+|z=0 = −g
+
+ρI, 0 
+
+> x
+
+. (A.15) Order ϵ of (A.1) and order ϵ 12 of (A.2): Taking z → −∞ and y → +∞ respectively, using 
+
+ρI, 2 
+
+> t
+
++ ρI, 2 
+
+> x
+
+uI, 0 + ρI, 2uI, 0 
+
+> x
+
++ ρI, 0 
+
+> x
+
+uI, 2 + ρI, 0uI, 2 
+
+> x
+
+= 0 ,
+
+it holds that 
+
+
+
+ρB, 2 
+
+> t
+
++ ρI, 0 
+
+> x
+
+uB, 2 + ρI, 0uB, 3 
+
+> y
+
++ ρB, 1uB, 2 
+
+> y
+
++ ρB, 1 
+
+> y
+
+(uI, 2 + uB, 2) + ρB, 2uI, 0 
+
+> x
+
++ yu I, 0 
+
+> xx
+
+ρB, 1
+
++ yρ I, 0 
+
+> x
+
+uB, 2 
+
+> y
+
++ yu I, 0 
+
+> x
+
+ρB, 2 
+
+> y
+
++ y2
+
+2 uI, 0 
+
+> xx
+
+ρB, 1 
+
+> y
+
+= 0 ,γ(ρI, 0)γ−1ρB, 2 
+
+> y
+
++ γ(γ − 1)( ρI, 0)γ−2ρB, 1(ρI, 0 
+
+> x
+
++ ρB, 1 
+
+> y
+
+) + γ(γ − 1) y(ρI, 0)γ−2ρI, 0 
+
+> x
+
+ρB, 1
+
+> y
+
+= uB, 3 
+
+> yy
+
++ ρI, 0ρB, 2 
+
+> yyy
+
++ ρB, 1ρB, 1 
+
+> yyy
+
++ yρ I, 0 
+
+> x
+
+ρB, 1 
+
+> yyy
+
+,
+
+34 
+
+ρb, 2 
+
+> t
+
++ g
+
+ρI, 0 
+
+> x
+
+ub, 2 + gρI, 0ub, 3 
+
+> z
+
++ ρb, 1ub, 2 
+
+> z
+
++ ρb, 1 
+
+> z
+
+( guI, 2 + ub, 2) + ρb, 2 g
+
+uI, 0 
+
+> x
+
++ z g
+
+uI, 0 
+
+> xx
+
+ρb, 1
+
++ z g
+
+ρI, 0 
+
+> x
+
+ub, 2 
+
+> z
+
++ z g
+
+uI, 0 
+
+> x
+
+ρb, 2 
+
+> z
+
++ z2
+
+2
+
+g
+
+uI, 0 
+
+> xx
+
+ρb, 1 
+
+> z
+
+= 0 ,γ(gρI, 0)γ−1ρb, 2 
+
+> z
+
++ γ(γ − 1)( gρI, 0)γ−2ρb, 1(g
+
+ρI, 0 
+
+> x
+
++ ρb, 1 
+
+> z
+
+) + γ(γ − 1) z(gρI, 0)γ−2 g
+
+ρI, 0 
+
+> x
+
+ρb, 1
+
+> z
+
+= ub, 3 
+
+> zz
+
++ gρI, 0ρb, 2 
+
+> zzz
+
++ ρb, 1ρb, 1 
+
+> zzz
+
++ z g
+
+ρI, 0 
+
+> x
+
+ρb, 1 
+
+> zzz
+
+.
+
+Thus, we get 
+
+
+
+ρB, 2 
+
+> t
+
++ ρI, 0 
+
+> x
+
+uB, 2 + ρB, 1uB, 2 
+
+> y
+
++ ρB, 1 
+
+> y
+
+(uI, 2 + uB, 2) + ρB, 2uI, 0 
+
+> x
+
++ yu I, 0 
+
+> xx
+
+ρB, 1
+
++ yρ I, 0 
+
+> x
+
+uB, 2 
+
+> y
+
++ yu I, 0 
+
+> x
+
+ρB, 2 
+
+> y
+
++ y2
+
+2 uI, 0 
+
+> xx
+
+ρB, 1
+
+> y
+
+= −γ(ρI, 0)γ ρB, 2 − 12 γ(γ − 1)( ρI, 0)γ−1(ρB, 1)2 − γ(γ − 1) y(ρI, 0)γ−1ρI, 0 
+
+> x
+
+ρB, 1
+
++ ( ρI, 0)2ρB, 2 
+
+> yy
+
++ ρI, 0ρB, 1ρB, 1 
+
+> yy
+
+− 12 ρI, 0(ρB, 1 
+
+> y
+
+)2 + yρ I, 0ρI, 0 
+
+> x
+
+ρB, 1 
+
+> yy
+
+− ρI, 0ρI, 0 
+
+> x
+
+ρB, 1 
+
+> y
+
+,uB, 3 = −γ(ρI, 0)γ−1Q2 − 12 γ(γ − 1)( ρI, 0)γ−2
+
+Z +∞
+
+> y
+
+(ρB, 1)2(ξ, t )d ξ
+
+− γ(γ − 1)( ρI, 0)γ−2ρI, 0 
+
+> x
+
+(yQ 1,1 + Q1,2) − ρI, 0ρB, 2 
+
+> y
+
+− ρB, 1ρB, 1
+
+> y
+
+− 32
+
+Z +∞
+
+> y
+
+(ρB, 1 
+
+> ξ
+
+)2(ξ, t )d ξ − yρ I, 0 
+
+> x
+
+ρB, 1 
+
+> y
+
++ 2 ρI, 0 
+
+> x
+
+ρB, 1,
+
+(A.16) 
+
+
+
+ρb, 2 
+
+> t
+
++ g
+
+ρI, 0 
+
+> x
+
+ub, 2 + ρb, 1ub, 2 
+
+> z
+
++ ρb, 1 
+
+> z
+
+( guI, 2 + ub, 2) + ρb, 2 g
+
+uI, 0 
+
+> x
+
++ z g
+
+uI, 0 
+
+> xx
+
+ρb, 1
+
++ z g
+
+ρI, 0 
+
+> x
+
+ub, 2 
+
+> z
+
++ z g
+
+uI, 0 
+
+> x
+
+ρb, 2 
+
+> z
+
++ z2
+
+2
+
+g
+
+uI, 0 
+
+> xx
+
+ρb, 1
+
+> z
+
+= −γ(gρI, 0)γ ρb, 2 − 12 γ(γ − 1)( gρI, 0)γ−1(ρb, 1)2 − γ(γ − 1) z(gρI, 0)γ−1 g
+
+ρI, 0 
+
+> x
+
+ρb, 1
+
++ ( gρI, 0)2ρb, 2 
+
+> zz
+
++ gρI, 0ρb, 1ρb, 1 
+
+> zz
+
+− 12
+
+gρI, 0(ρb, 1 
+
+> z
+
+)2 + z gρI, 0 g
+
+ρI, 0 
+
+> x
+
+ρb, 1 
+
+> zz
+
+− gρI, 0 g
+
+ρI, 0 
+
+> x
+
+ρb, 1 
+
+> z
+
+,ub, 3 = γ(gρI, 0)γ−1q2 + 12 γ(γ − 1)( gρI, 0)γ−2
+
+Z z
+
+> −∞
+
+(ρb, 1)2(ζ, t )d ζ
+
++ γ(γ − 1)( gρI, 0)γ−2 g
+
+ρI, 0 
+
+> x
+
+(zq 1,1 − q1,2) − gρI, 0ρb, 2 
+
+> z
+
+− ρb, 1ρb, 1
+
+> z
+
++ 32
+
+Z z
+
+> −∞
+
+(ρb, 1 
+
+> ζ
+
+)2(ζ, t )d ζ − z g
+
+ρI, 0 
+
+> x
+
+ρb, 1 
+
+> z
+
++ 2 g
+
+ρI, 0 
+
+> x
+
+ρb, 1,
+
+where we define 
+
+Q1,1(y, t ) = 
+
+Z +∞
+
+> y
+
+ρB, 1(ξ, t )d ξ, Q 1,2(y, t ) = 
+
+Z +∞
+
+> y
+
+Z +∞
+
+> s
+
+ρB, 1(ξ, t )d ξds, Q 2 =
+
+Z +∞
+
+> y
+
+ρB, 2(ξ, t )d ξ, q1,1(y, t ) = 
+
+Z z
+
+> −∞
+
+ρb, 1(ζ, t )d ζ, q 1,2(y, t ) = 
+
+Z z
+
+> −∞
+
+Z s
+
+> −∞
+
+ρb, 1(ζ, t )d ζds, q 2 =
+
+Z z
+
+> −∞
+
+ρb, 2(ζ, t )d ζ. 
+
+From ρϵx|x=0 ,1 = 0 and (1.4) 1, it holds that 
+
+ρB, 2 
+
+> y
+
+|y=0 = −ρI, 1 
+
+> x
+
+= 0 , ρ b, 2 
+
+> z
+
+|z=0 = −g
+
+ρI, 1 
+
+> x
+
+= 0 . (A.17) From the boundary condition (1.2) 3 and (1.3) 3, there holds 
+
+uI, 2 =uI, 2(0 , t ) = −uB, 2(0 , t ) = ρI, 0ρI, 0 
+
+> x
+
++
+
+Z +∞
+
+> 0
+
+γ(ρI, 0)γ−1ρB, 1(ξ, t )d ξ, (A.18) 
+
+guI, 2 =uI, 2(1 , t ) = −ub, 2(1 , t ) = gρI, 0 g
+
+ρI, 0 
+
+> x
+
+−
+
+Z 0
+
+> −∞
+
+γ(gρI, 0)γ−1ρb, 1(ζ, t )d ζ. 
+
+35 Acknowledgments 
+
+This work is supported by the National Natural Science Foundation of China #12471209 and #12101140, and by the Guangzhou Basic and Applied Research Projects # SL 2024 A04 J01206. 
+
+# References 
+
+[1] D. M. Anderson, G. B. McFadden, and A. A. Wheeler, Diffuse-interface methods in fluid me-chanics , Annu. Rev. Fluid Mech., 30 , 139–165, Annual Reviews, Palo Alto, CA, 1998. [2] D. F. Bian, L. Yao and C. J. Zhu, Vanishing capillarity limit of the compressible fluid models of Korteweg type to the Navier-Stokes equations, SIAM J. Math. Anal. 46 (2014), no. 2, 1633–1650. [3] C. Burtea and B. Haspot, Vanishing capillarity limit of the Navier-Stokes-Korteweg system in one dimension with degenerate viscosity coefficient and discontinuous initial density, SIAM J. Math. Anal. 54 (2022), no. 2, 1428–1469. [4] J.W. Cahn, J.E. Hilliard, Free energy of a nonuniform system, I. Interfacial free energy, J. Chem. Phys. 28 (1958), no. 2, 258–267. [5] F. Charve and B. Haspot, Existence of a global strong solution and vanishing capillarity-viscosity limit in one dimension for the Korteweg system, SIAM J. Math. Anal. 45 (2013), no. 2, 469–494. [6] Z. Z. Chen, L. He and H. J. Zhao, Global smooth solutions to the nonisothermal compressible fluid models of Korteweg type with large initial data, Z. Angew. Math. Phys. 68 (2017), no. 4, Paper No. 79, 37 pp. [7] Z. Z. Chen and H. J. Zhao, Existence and nonlinear stability of stationary solutions to the full compressible Navier-Stokes-Korteweg system, J. Math. Pures Appl. (9) 101 (2014), no. 3, 330–371. [8] J. E. Dunn and J. Serrin, On the thermomechanics of interstitial working, Arch. Rational Mech. Anal. 88 (1985), no. 2, 95–133. [9] C. Elbar, P. Gwiazda, J. Skrzeczkowski and A. ´Swierczewska-Gwiazda, From nonlocal Euler-Korteweg to local Cahn-Hilliard via the high-friction limit, J. Differential Equations 422 (2025), 264–305. [10] P. Germain and P. LeFloch, Finite energy method for compressible fluids: the Navier-Stokes-Korteweg model, Comm. Pure Appl. Math. 69 (2016), no. 1, 3–61. [11] M. E. Gurtin, D. Polignone Warne and J. Vi˜ nals, Two-phase binary fluids and immiscible fluids described by an order parameter, Math. Models Methods Appl. Sci. 6 (1996), no. 6, 815–831. [12] R. Hagan and M. Slemrod, The viscosity-capillarity criterion for shocks and phase transitions, Arch. Rational Mech. Anal. 83 (1983), no. 4, 333–361. [13] M. Heida and J. M´ alek, On compressible Korteweg fluid-like materials, Internat. J. Engrg. Sci. 
+
+48 (2010), no. 11, 1313–1324. [14] H. Hong, Strong solutions for the compressible barotropic fluid model of Korteweg type in the bounded domain, Z. Angew. Math. Phys. 71 (2020), no. 3, Paper No. 85, 25 pp. [15] X. F. Hou, L. Yao and C. J. Zhu, Vanishing capillarity limit of the compressible non-isentropic Navier-Stokes-Korteweg system to Navier-Stokes system, J. Math. Anal. Appl. 448 (2017), no. 1, 421–446. [16] Q. C. Ju and J. J. Xu, Zero-Mach limit of the compressible Navier-Stokes-Korteweg equations, J. Math. Phys. 63 (2022), no. 11, Paper No. 111503, 21 pp. 
+
+36 [17] A. J¨ ungel, C. K. Lin and K. C. Wu, An asymptotic limit of a Navier-Stokes system with capillary effects, Comm. Math. Phys. 329 (2014), no. 2, 725–744. [18] S. Kawashima, Y. Shibata and J. Xu, The Lp energy methods and decay for the compressible Navier-Stokes equations with capillarity, J. Math. Pures Appl. (9) 154 (2021), 146–184. [19] D. J. Korteweg, Sur la forme que prennent les ´ equations du mouvement des fluides si l’on tient compte des forces capillaires caus´ ees par des variations de densit´ e consid´ erables mais continues et sur la th´ eorie de la capillarit´ e dans l’hypoth` ese d’une variation continue de la densit´ e, Arch. N´ eerl. Sci. Exactes Nat. 6 (1901), 1–24. [20] M. Kotschote, Strong solutions for a compressible fluid model of Korteweg type, Ann. Inst. H. Poincar´ e C Anal. Non Lin´ eaire 25 (2008), no. 4, 679–696. [21] J. Lai, H. Y. Wen and L. Yao, Vanishing capillarity limit of the non-conservative compressible two-fluid model, Discrete Contin. Dyn. Syst. Ser. B 22 (2017), no. 4, 1361–1392. [22] Y. P. Li and Z. Luo, Zero-viscosity-capillarity limit to rarefaction waves for the 1D compressible Navier-Stokes-Korteweg equations, Math. Methods Appl. Sci. 39 (2016), no. 18, 5513–5528. [23] Y. P. Li, S. H. Peng and S. Wang, Some limit analysis of a three dimensional viscous compressible capillary model for plasma, Math. Methods Appl. Sci. 41 (2018), no. 14, 5535–5551. [24] Y. P. Li and R. Yin, Low mach number limit of the one-dimensional full compressible Navier– Stokes–Korteweg equations, Math. Ann. 394 (2026), no. 2, 32. [25] Y. P. Li and W. A. Yong, Zero Mach number limit of the compressible Navier-Stokes-Korteweg equations, Commun. Math. Sci. 14 (2016), no. 1, 233–247; [26] Y. P. Li and P. C. Zhu, Zero-viscosity-capillarity limit toward rarefaction wave with vacuum for the Navier-Stokes-Korteweg equations of compressible fluids, J. Math. Phys. 61 (2020), no. 11, Paper No. 111501, 20 pp. [27] L. Prandtl, ¨Uber Fl¨ ussigkeitsbewegungen bei sehr kleiner Reibung , in: Verh. Int. Math. Kongr., Heidelberg, Germany, 1904, 484–494. [28] X. K. Pu and B. L. Guo, Global existence and semiclassical limit for quantum hydrodynamic equations with viscosity and heat conduction, Kinet. Relat. Models 9 (2016), no. 1, 165–191. [29] I. Segal, Quantization and dispersion for nonlinear relativistic equations , Mathematical Theory of Elementary Particles (Proc. Conf., Dedham, Mass., 1965), 79–108, MIT Press, Cambridge, Mass.-London, 1966 [30] J. D. van der Waals, Thermodynamische Theorie der Kapillaritat unter Voraussetzung stetiger Dichteanderung, Z. Phys. Chem. 13 (1894), 657–725. [31] J. D. van der Waals, The thermodynamic theory of capillarity under the hypothesis of a contin-uous variation of density (transl. by J. S. Rowlinson), J. Stat. Phys. 20 (1979), 197–244. [32] Y. H. Wang, H. Y. Wen, W. H. Zhang, Vanishing shear viscosity limit for the Navier-Stokes equations with cylindrical symmetry: boundary layer and optimal convergence rate, SIAM J. Math. Anal. 55 (2023), no. 3, 1631–1675. [33] H. Y. Wen, T. Yang, X. H. Zhao and C. J. Zhu, Optimal convergence rate of the vanishing shear viscosity limit for compressible Navier-Stokes equations with cylindrical symmetry, J. Math. Pures Appl. (9) 146 (2021), 99–126. [34] H. Y. Wen and X. H. Zhao, Vanishing shear viscosity limit for the compressible planar MHD system with boundary layer, J. Differential Equations 411 (2024), 739–793. 
+
+37 [35] Z. A. Yao and X. Yin, Convergence rate of the three-dimensional compressible fluid models of Korteweg type to the Navier-Stokes system, J. Math. Phys. 66 (2025), no. 2, Paper No. 021509, 20 pp. [36] R. Yin and Y. P. Li, Zero-viscosity-capillarity limit to the planar rarefaction wave for the 2D compressible Navier-Stokes-Korteweg equations, Nonlinear Anal. Real World Appl. 68 (2022), Paper No. 103685, 31 pp. 
+
+38

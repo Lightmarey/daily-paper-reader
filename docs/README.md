@@ -44,14 +44,14 @@
       <span class="dpr-home-dashboard-kicker">2026-08-07</span>
       <h3 class="dpr-home-dashboard-title">今日汇总</h3>
     </div>
-    <strong class="dpr-home-dashboard-count">共 5 篇</strong>
+    <strong class="dpr-home-dashboard-count">共 13 篇</strong>
   </div>
   <dl class="dpr-home-dashboard-stats">
-    <div class="dpr-home-dashboard-stat"><dt>累计更新</dt><dd>1 次</dd></div>
-    <div class="dpr-home-dashboard-stat"><dt>精读</dt><dd>3</dd></div>
-    <div class="dpr-home-dashboard-stat"><dt>速读</dt><dd>2</dd></div>
+    <div class="dpr-home-dashboard-stat"><dt>累计更新</dt><dd>2 次</dd></div>
+    <div class="dpr-home-dashboard-stat"><dt>精读</dt><dd>5</dd></div>
+    <div class="dpr-home-dashboard-stat"><dt>速读</dt><dd>8</dd></div>
   </dl>
-  <p class="dpr-home-dashboard-body">最近更新：2026-08-07 01:39:15 UTC<br>状态：成功</p>
+  <p class="dpr-home-dashboard-body">最近更新：2026-08-07 21:12:45 UTC<br>状态：成功</p>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-brief-card">
   <div class="dpr-home-dashboard-header">
@@ -62,7 +62,9 @@
     <strong class="dpr-home-dashboard-count">AI</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<p>今日精读5篇中3篇，重点聚焦Navier-Stokes方程与k-Hessian方程。最值得关注的是半空间加权Lebesgue空间中Navier-Stokes初边值问题（9.0分），其次为Lane-Emden型k-Hessian方程的最优刚性分类（8.0分）。建议后续可扫读对流扩散方程系数反演与Helmholtz-Leray投影法两篇速读论文。</p>
+<p>今日精读5篇、速读8篇，共处理13篇论文，聚焦流体力学与偏微分方程。</p>
+<p>最值得关注的是Navier-Stokes方程在加权Lebesgue空间中的初边值问题，以及可压缩Navier-Stokes-Korteweg系统的大初值毛细极限。</p>
+<p>建议优先研读这两篇高分论文，可深入理解流体方程在特殊空间与大初值下的核心结论。</p>
   </div>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-deep-card">
@@ -71,12 +73,12 @@
       <span class="dpr-home-dashboard-kicker">今日累计</span>
       <h3 class="dpr-home-dashboard-title">精读推荐</h3>
     </div>
-    <strong class="dpr-home-dashboard-count">3 篇</strong>
+    <strong class="dpr-home-dashboard-count">5 篇</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces">The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces</span></li><li><span class="dpr-home-dashboard-paper-title" title="Optimal Rigidity and Classification Results for the $k$-Hessian Equation of Lane--Emden Type">Optimal Rigidity and Classification Results for the $k$-Hessian Equation of Lane--Emden Type</span></li><li><span class="dpr-home-dashboard-paper-title" title="Liouville-type theorems for coupled-drift Monge-Ampère equations">Liouville-type theorems for coupled-drift Monge-Ampère equations</span></li></ul>
+<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces">The IBVP for the Navier-Stokes equations in the half-space in a class of weighted Lebesgue spaces</span></li><li><span class="dpr-home-dashboard-paper-title" title="Vanishing capillary limit for compressible Navier-Stokes-Korteweg system in a bounded interval with large initial data">Vanishing capillary limit for compressible Navier-Stokes-Korteweg system in a bounded interval with large initial data</span></li><li><span class="dpr-home-dashboard-paper-title" title="Liouville-type theorems for coupled-drift Monge-Ampère equations">Liouville-type theorems for coupled-drift Monge-Ampère equations</span></li></ul>
   </div>
-  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>3</strong></span></div>
+  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>5</strong></span></div>
 </section>
 <section class="dpr-home-dashboard-card dpr-home-skim-card">
   <div class="dpr-home-dashboard-header">
@@ -84,12 +86,12 @@
       <span class="dpr-home-dashboard-kicker">今日累计</span>
       <h3 class="dpr-home-dashboard-title">速读推荐</h3>
     </div>
-    <strong class="dpr-home-dashboard-count">2 篇</strong>
+    <strong class="dpr-home-dashboard-count">8 篇</strong>
   </div>
   <div class="dpr-home-dashboard-body">
-<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="A Helmholtz-Leray projection method with variational multiscale stabilization for the Navier-Stokes equations">A Helmholtz-Leray projection method with variational multiscale stabilization for the Navier-Stokes equations</span></li><li><span class="dpr-home-dashboard-paper-title" title="Recovery of time-dependent coefficients for the convection-diffusion equation on conformally transversally anisotropic manifolds from partial data">Recovery of time-dependent coefficients for the convection-diffusion equation on conformally transversally anisotropic manifolds from partial data</span></li></ul>
+<ul class="dpr-home-dashboard-paper-list"><li><span class="dpr-home-dashboard-paper-title" title="Smooth Failure of Boundary Unique Continuation for Harmonic Functions">Smooth Failure of Boundary Unique Continuation for Harmonic Functions</span></li><li><span class="dpr-home-dashboard-paper-title" title="Recovery of time-dependent coefficients for the convection-diffusion equation on conformally transversally anisotropic manifolds from partial data">Recovery of time-dependent coefficients for the convection-diffusion equation on conformally transversally anisotropic manifolds from partial data</span></li><li><span class="dpr-home-dashboard-paper-title" title="New decay estimates and Liouville type theorems for the 3D axisymmetric stationary Navier-Stokes equations">New decay estimates and Liouville type theorems for the 3D axisymmetric stationary Navier-Stokes equations</span></li></ul>
   </div>
-  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>2</strong></span></div>
+  <div class="dpr-home-dashboard-tags"><span class="dpr-home-dashboard-tag">geom-pde <strong>8</strong></span></div>
 </section>
 </div>
 

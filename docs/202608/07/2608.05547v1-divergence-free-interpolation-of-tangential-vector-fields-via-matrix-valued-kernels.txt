@@ -1,0 +1,3191 @@
+Title: Divergence-free interpolation of tangential vector fields via matrix-valued kernels
+
+URL Source: https://arxiv.org/pdf/2608.05547v1
+
+Published Time: Fri, 07 Aug 2026 00:29:39 GMT
+
+Number of Pages: 30
+
+Markdown Content:
+DIVERGENCE-FREE INTERPOLATION OF TANGENTIAL VECTOR FIELDS VIA MATRIX-VALUED KERNELS 
+
+ZHENGJIE SUN, LISHUO DONG, AND BIAO HUANG 
+
+Abstract. We develop and analyze a family of divergence-free kernel interpolation methods for tangential vector fields on the unit sphere. Starting from scalar radial kernels in Eu-clidean space, we construct tangent-valued, surface divergence-free matrix kernels without repeatedly applying surface differential operators. The construction separates the geometric enforcement of the divergence-free constraint from the choice of scalar generator and admits lower-order variants with reduced regularity requirements compared with classical potential-based methods. Using vector spherical harmonics, we derive explicit kernel representations and characterize their Fourier multipliers. We also introduce an inverse Laplace–Beltrami construction that preserves the multipliers of the underlying scalar zonal kernel. For inter-polation at scattered nodes, we establish a lower bound for the smallest eigenvalue of the interpolation matrix and derive pointwise and Sobolev error estimates, including supercon-vergence for targets smoother than the native space. Numerical experiments corroborate the theoretical convergence and stability results, while additional examples on nonspherical surfaces illustrate the applicability of the kernel formula beyond the sphere. 
+
+1. Introduction 
+
+Tangential vector fields on surfaces arise in fluid flow on curved interfaces, geophysical mod-eling, and transport on manifolds [9, 22, 37, 41, 46]. In many applications, these fields sat-isfy intrinsic differential constraints, most notably vanishing surface divergence or surface curl [12, 20, 45]. Approximation methods that preserve both tangency and the relevant differential constraint are therefore important for the analysis and simulation of such fields. In Euclidean domains, divergence-free and curl-free matrix-valued radial basis functions (RBFs) are well-established tools for approximating constrained vector fields [14, 15, 23, 24, 30]. Applications include incompressible fluid flow and solenoidal magnetic fields [18, 19, 32, 35, 36, 47]. A standard potential-based construction applies differential operators to a sufficiently smooth scalar positive-definite radial kernel [6, 10, 24, 30, 44]. Specifically, let ϕ : [0 , ∞) → R
+
+be a univariate function. The associated divergence-free and curl-free matrix-valued kernels are given by Φdiv (x, y) := ( −∆I + ∇∇ ⊤)ϕ(‖x − y‖),(1.1a) Φcurl (x, y) := −∇∇ ⊤ϕ(‖x − y‖),(1.1b) where x, y ∈ R3 and I is the identity matrix. These kernels generate divergence-free and curl-free interpolants in R3, respectively. Writing r = ‖x − y‖, the curl-free kernel has the explicit representation (1.2) Φcurl (x, y) = − ϕ′(r)
+
+r I −
+
+( ϕ′′ (r)
+
+r2 − ϕ′(r)
+
+r3
+
+)
+
+(x − y)( x − y)⊤.
+
+2020 Mathematics Subject Classification. 41A05, 41A25, 43A90, 65D12. 
+
+Key words and phrases. Vector fields; divergence-free; multiplier; zonal kernels; superconvergence. The first author was supported in part by National Natural Science Foundation of China (No. 12571407), Basic Research Program of Jiangsu (No. BK20252037), and a Jiangsu Shuangchuang Team program (No. JSSCTD202449). arXiv:2608.05547v1 [math.NA] 6 Aug 2026 DIVERGENCE-FREE INTERPOLATION 2
+
+Motivated by this representation, Sun et al. [38] considered the more general isotropic form (1.3) Φcurl (x, y) = α(r)I − β(r)( x − y)( x − y)⊤.
+
+The columns of (1.3) are curl-free when the scalar coefficients satisfy Dα = β. A useful family is obtained by setting 
+
+α(r) = Iβ(r), β(r) = Dmϕ(r), m ∈ N0,
+
+where D and I are classical differential and integral operators [34, 43], (Df )( r) = − 1
+
+r f ′(r), (If )( r) = 
+
+∫ ∞
+
+> r
+
+sf (s) d s. 
+
+Extending these constructions to surfaces is not immediate. Restricting an ambient kernel to a surface S ⊂ R3 generally preserves neither tangency nor the corresponding intrinsic differential constraint. In particular, the restriction of an ambient divergence-free field need not be surface divergence-free. Existing operator-based constructions overcome this difficulty by combining an ambient curl-free kernel with surface-curl or tangent-projection operators [31, 16]. Let S be a smooth oriented surface with unit normal field n, and let ∇∗ and L∗ denote the surface gradient and surface curl, respectively. The identity L∗ = n × ∇ ∗ shows that the surface curl maps scalar potentials to tangential vector fields. To express this operation algebraically, let Xu be the skew-symmetric matrix satisfying Xuv = u × v for every v ∈ R3.For u = [ u1, u 2, u 3]⊤,(1.4) Xu =
+
+ 0 −u3 u2
+
+u3 0 −u1
+
+−u2 u1 0
+
+ .
+
+Let Pn := I−nn ⊤ denote the orthogonal projection onto the tangent plane. The corresponding surface kernels are 
+
+Kdiv (x, y) := Xnx Φcurl (x, y)X⊤ 
+
+> ny
+
+,(1.5a) 
+
+Kcurl (x, y) := Pnx Φcurl (x, y)P ⊤ 
+
+> ny
+
+.(1.5b) If the ambient kernel has curl-free columns, each translate of Kdiv is tangential and surface divergence-free, whereas each translate of Kcurl is tangential and surface curl-free [31, Theo-rem 1]. If the ambient matrix-valued kernel is positive definite, these transformations inherit positive definiteness on tangent data under the corresponding nondegeneracy conditions. The purpose of this paper is to extend the Euclidean isotropic representation of matrix-valued RBF kernels to tangential vector fields on embedded surfaces. Rather than beginning with repeated derivatives of a scalar potential in (1.1), we start from the isotropic matrix form (1.3) and incorporate the surface geometry through the cross-product and tangent-projection operators Xn and Pn. This separates geometric constraint enforcement from the choice of scalar coefficient functions α and β and yields a unified construction of surface divergence-free and curl-free kernels. On the unit sphere, we derive vector spherical harmonic expansions of the divergence-free kernels and characterize their Fourier multipliers. Positive multipliers yield positive definite-ness on tangent data, while appropriate two-sided decay bounds identify the associated native spaces, up to norm equivalence, with Sobolev spaces of divergence-free tangential fields. Under appropriate assumptions on the scalar multipliers, the m = 1 construction preserves the scalar Sobolev order, whereas the classical m = 2 potential-based construction incurs a loss of one order. We also introduce an inverse Laplace–Beltrami construction for which the vector multi-pliers agree with those of the underlying scalar zonal kernel. For scattered data interpolation, we formulate the linear system in local orthonormal tangent frames and use Fourier localiza-tion to establish a lower bound for the smallest eigenvalue of the interpolation matrix. We then derive pointwise and Sobolev error estimates, including a Hilbert-scale superconvergence result for targets smoother than functions in the native space. Numerical experiments on S2 examine DIVERGENCE-FREE INTERPOLATION 3
+
+the theoretical convergence and stability behavior. Additional experiments on a torus, a red blood cell surface, and a bumpy sphere serve as illustrations beyond the scope of the spherical theory. The remainder of the paper is organized as follows. Section 2 reviews scalar and vector spherical harmonics, matrix-valued kernels, and native spaces. Section 3 develops the surface construction, specializes it to S2, and analyzes the resulting Fourier multipliers. Sections 4 and 5 formulate and analyze divergence-free interpolation on S2, including stability and error estimates. Section 6 presents the numerical experiments, and Section 7 concludes the paper. 2. Preliminaries 
+
+2.1. Spherical harmonics. Let ∆ ∗ denote the Laplace–Beltrami operator on the unit sphere 
+
+S2. For each ℓ ≥ 0 and 1 ≤ k ≤ 2ℓ + 1, let Yℓ,k be a spherical harmonic of degree ℓ, that is, an eigenfunction of −∆∗ with eigenvalue 
+
+λℓ = ℓ(ℓ + 1) .
+
+The family {Yℓ,k } is an orthonormal basis of L2(S2); see, for example, [5, 11, 28]. Accordingly, every f ∈ L2(S2) has the Fourier expansion 
+
+f =
+
+> ∞
+
+∑
+
+> ℓ=0 2ℓ+1
+
+∑
+
+> k=1
+
+̂
+
+fℓ,k Yℓ,k ,̂ fℓ,k := 〈f, Y ℓ,k 〉.
+
+For σ ≥ 0, we define the Sobolev space Hσ (S2) by the norm (2.1) ‖f ‖2  
+
+> Hσ(S2)
+
+:= 
+
+> ∞
+
+∑
+
+> ℓ=0 2ℓ+1
+
+∑
+
+> k=1
+
+(1 + λℓ)σ |̂ fℓ,k |2.
+
+We next recall the corresponding L2-theory for tangential vector fields on S2; see [11, 16]. A vector field f : S2 → R3 is said to be tangential if 
+
+x⊤f (x) = 0 , x ∈ S2.
+
+Throughout, we identify each point x ∈ S2 with the outward unit normal at x. We denote the space of square-integrable tangential vector fields by L2(S2) and equip it with the inner product 
+
+〈f , g〉 := 
+
+∫
+
+> S2
+
+f (x)⊤g(x) dμ (x).
+
+For every scalar function g on S2, both ∇∗g and L∗g are tangential; moreover, ∇∗g is curl-free, whereas L∗g is divergence-free. For ℓ ≥ 1 and 1 ≤ k ≤ 2ℓ + 1, define the vector spherical harmonics by (2.2) yℓ,k := L∗Yℓ,k 
+
+√ℓ(ℓ + 1) , zℓ,k := ∇∗Yℓ,k 
+
+√ℓ(ℓ + 1) .
+
+With the normalization in (2.2), the family {yℓ,k } forms an orthonormal basis of the divergence-free subspace of L2(S2), whereas {zℓ,k } is an orthonormal basis of the curl-free subspace. Be-cause S2 has no nontrivial harmonic tangential vector fields, the union of these two families is a complete orthonormal basis of L2(S2). Thus, every f ∈ L2(S2) has the orthogonal expansion 
+
+f =
+
+> ∞
+
+∑
+
+> ℓ=1 2ℓ+1
+
+∑
+
+> k=1
+
+(̂ 
+
+f div  
+
+> ℓ,k
+
+yℓ,k +̂ f curl  
+
+> ℓ,k
+
+zℓ,k 
+
+)
+
+,
+
+where ̂
+
+f div  
+
+> ℓ,k
+
+:= 〈f , yℓ,k 〉,̂ f curl  
+
+> ℓ,k
+
+:= 〈f , zℓ,k 〉.DIVERGENCE-FREE INTERPOLATION 4
+
+For σ ≥ 0, define the Sobolev space Hσ(S2) of tangential vector fields by the norm 
+
+‖f ‖2   
+
+> Hσ(S2)
+
+:= 
+
+> ∞
+
+∑
+
+> ℓ=1 2ℓ+1
+
+∑
+
+> k=1
+
+(1 + λℓ)σ (
+
+|̂ f div  
+
+> ℓ,k
+
+|2 + |̂ f curl  
+
+> ℓ,k
+
+|2)
+
+.
+
+We write Hσ
+
+> div
+
+(S2) for the closed subspace of divergence-free tangential vector fields in Hσ(S2)and Hσ
+
+> curl
+
+(S2) for the corresponding curl-free subspace. The scalar spherical harmonics satisfy the classical addition formula [28], (2.3) 
+
+> 2ℓ+1
+
+∑
+
+> k=1
+
+Yℓ,k (x)Yℓ,k (y) = 2ℓ + 1 
+
+4π Pℓ(x · y), x, y ∈ S2,
+
+where Pℓ denotes the Legendre polynomial of degree ℓ, normalized by Pℓ(1) = 1. The corresponding addition formulas for vector spherical harmonics were established in [39]. We record them here because they are central to the Fourier analysis and error estimates below. 
+
+Lemma 2.1. Let {yℓ,k } and {zℓ,k } be the orthonormal bases of divergence-free and curl-free vector spherical harmonics of degree ℓ ≥ 1, respectively, defined in (2.2) . For x, y ∈ S2, define the matrix-valued kernels 
+
+Sℓ(x, y) := 
+
+> 2ℓ+1
+
+∑
+
+> k=1
+
+yℓ,k (x)yℓ,k (y)⊤, Tℓ(x, y) := 
+
+> 2ℓ+1
+
+∑
+
+> k=1
+
+zℓ,k (x)zℓ,k (y)⊤.
+
+Then the following addition formulas hold: 
+
+Sℓ(x, y) = 2ℓ + 1 
+
+4πλ ℓ
+
+[P ′′  
+
+> ℓ
+
+(t)Q(x, y) + P ′ 
+
+> ℓ
+
+(t)R(x, y)] ,
+
+Tℓ(x, y) = 2ℓ + 1 
+
+4πλ ℓ
+
+[P ′′  
+
+> ℓ
+
+(t)V(x, y) + P ′ 
+
+> ℓ
+
+(t)W(x, y)] ,
+
+where t := x · y, and the matrix-valued functions Q, R, V, W are defined by 
+
+Q(x, y) := −(x × y)( x × y)⊤, R(x, y) := tI − yx ⊤,
+
+V(x, y) := ( y − tx)( x − ty)⊤, W(x, y) := ( I − xx ⊤)( I − yy ⊤).
+
+2.2. Kernels and native spaces. We next introduce the scalar and matrix-valued kernels used throughout the paper. These kernels determine both the approximation spaces and the associated native-space norms. On the sphere, the natural counterpart of a Euclidean radial kernel is a zonal kernel, whose value depends only on the inner product of its arguments. A kernel Ψ : S2 × S2 → R is called zonal if there exists a function ψ : [ −1, 1] → R such that Ψ( x, y) = ψ(x · y), x, y ∈ S2.
+
+When no ambiguity can arise, we identify Ψ with its scalar kernel ψ. The Fourier–Legendre expansion of ψ is (2.4) ψ(x · y) = 
+
+> ∞
+
+∑
+
+> ℓ=0
+
+2ℓ + 1 
+
+4π̂ ψ(ℓ)Pℓ(x · y),̂ ψ(ℓ) := 2 π
+
+∫ 1
+
+> −1
+
+ψ(t)Pℓ(t) d t. 
+
+By the addition formula (2.3), this expansion can be rewritten equivalently as (2.5) ψ(x · y) = 
+
+> ∞
+
+∑
+
+> ℓ=0
+
+̂
+
+ψ(ℓ)
+
+> 2ℓ+1
+
+∑
+
+> k=1
+
+Yℓ,k (x)Yℓ,k (y).
+
+These identities hold in the appropriate L2-sense, and pointwise whenever the smoothness of 
+
+ψ permits. If ̂ ψ(ℓ) > 0 for all ℓ ≥ 0, then ψ defines a positive definite kernel on S2. Its native space is the reproducing kernel Hilbert space 
+
+Nψ := {f ∈ L2(S2) : ‖f ‖Nψ < ∞} with ‖f ‖2 
+
+> Nψ
+
+=
+
+> ∞
+
+∑
+
+> ℓ=0 2ℓ+1
+
+∑
+
+> k=1
+
+|̂ fℓ,k |2̂
+
+ψ(ℓ) .DIVERGENCE-FREE INTERPOLATION 5
+
+We next consider matrix-valued kernels. Let K : S2 × S2 → R3×3 be symmetric. We say that K is positive semidefinite if, for all finite set X = {xj }Nj=1 ⊂ S2 and all choice of vectors 
+
+αj ∈ Txj S2,
+
+> N
+
+∑
+
+> j,k =1
+
+α⊤ 
+
+> j
+
+K(xj , xk)αk ≥ 0.
+
+It is positive definite if equality can hold only when αj = 0 for j = 1 , . . . , N .We focus on matrix-valued kernels associated with tangential, divergence-free fields. Suppose that a divergence-free kernel Kdiv has the Fourier expansion (2.6) Kdiv (x, y) = 
+
+> ∞
+
+∑
+
+> ℓ=1
+
+κℓ
+
+> 2ℓ+1
+
+∑
+
+> k=1
+
+yℓ,k (x)yℓ,k (y)⊤,
+
+with coefficients κℓ > 0. Then the associated native space can be characterized as 
+
+NKdiv =
+
+{
+
+f ∈ H0div (S2) : 
+
+> ∞
+
+∑
+
+> ℓ=1 2ℓ+1
+
+∑
+
+> k=1
+
+|̂ f div  
+
+> ℓ,k
+
+|2
+
+κℓ
+
+< ∞
+
+}
+
+.
+
+Analogous descriptions hold for the native spaces generated by a curl-free kernel Kcurl , and by the full kernel K = Kdiv + Kcurl . The corresponding native-space formulas have formal curl-free and combined-field analogues. The spectral and approximation results proved in this paper, however, concern only the divergence-free space. Moreover, if there exist positive constants c1 and c2, independent of ℓ, such that (2.7) c1(1 + λℓ)−σ ≤ κℓ ≤ c2(1 + λℓ)−σ , ℓ ≥ 1.
+
+then NKdiv is norm-equivalent to Hσ
+
+> div
+
+(S2). Here and throughout, the notation κℓ ≍ (1 + λℓ)−σ
+
+denotes this two-sided bound. 3. General surface divergence-free kernels 
+
+The main objective of this section is to develop a general framework for constructing surface divergence-free kernels. We begin with a general curl-free RBF construction in R3, and then ap-ply the surface divergence-free operator to obtain matrix-valued kernels on embedded surfaces. We next specialize the resulting formula to the unit sphere, where the geometry allows a par-ticularly simple representation. Finally, we analyze the associated spherical Fourier multipliers and use them to characterize positive definiteness and the corresponding native spaces. 3.1. Construction of divergence-free kernels. Assume that the coefficient functions in (1.3) are chosen so that the columns of the ambient kernel Φ curl are curl-free. Substituting (1.3) into (1.5a) and using 
+
+XuX⊤ 
+
+> v
+
+= ( u · v)I − vu ⊤, Xnx (x − y) = nx × (x − y),
+
+we arrive at the explicit surface divergence-free kernel (3.1) Kdiv (x, y) = α(r)((nx · ny )I − ny n⊤
+
+> x
+
+) − β(r)(nx × (x − y))( ny × (x − y))⊤,
+
+where r = ‖x − y‖2. This construction applies to any smooth oriented embedded surface. For the unit sphere S = S2, the outward normal is nx = x. In this case, 
+
+(nx × (x − y))( ny × (x − y))⊤ = ( x × y)( x × y)⊤.
+
+Using the matrices Q and R from Lemma 2.1, we obtain (3.2) Kdiv (x, y) = α(r) R(x, y) + β(r) Q(x, y),
+
+where the scalar radial functions are given by 
+
+β(r) = Dmϕ(r), α(r) = Iβ(r).DIVERGENCE-FREE INTERPOLATION 6
+
+On the unit sphere, we set t := x · y, r2 = 2 − 2t and let φ(t) := ϕ(√2 − 2t). Derivatives of ϕ are taken with respect to r, whereas derivatives of φ are taken with respect to t. Since dt/ dr = −r, the chain rule gives 
+
+Dϕ(r) = − 1
+
+r
+
+d
+
+dr ϕ(r) = φ′(t).
+
+This identity is understood for r > 0 and extended to r = 0 by continuity whenever the required radial derivatives exist. Consequently, for every integer m ≥ 1, 
+
+β(r) = φ(m)(t), α(r) = φ(m−1) (t),
+
+and (3.2) becomes (3.3) Kdiv (x, y) = φ(m−1) (t) R(x, y) + φ(m)(t) Q(x, y).
+
+A central feature of this construction is the integer parameter m, which determines the order of differentiation applied to the underlying scalar zonal kernel. For m = 2, (3.3) recovers the standard spherical surface divergence-free kernel; see, for example, (1.2) and [16, 17]. The present framework, however, also admits the lower-order cases m = 1 and m = 0. For m = 0, we set β = ϕ(r) and α = Iβ(r). As we show below, these cases still produce positive definite divergence-free kernels while requiring fewer derivatives of the original scalar zonal kernel. 3.2. Fourier characterization of divergence-free kernels. For an isotropic divergence-free kernel on S2, positivity is determined by its vector spherical harmonic multipliers, while their asymptotic decay determines the associated native space. The following theorem computes these multipliers from the zonal generator. 
+
+Theorem 3.1. Let φ ∈ Cm[−1, 1] , where m ≥ 1 is an integer, and define 
+
+(3.4) a(m−1)  
+
+> ℓ
+
+= 2 π
+
+∫ 1
+
+> −1
+
+φ(m−1) (t)Pℓ(t) d t. 
+
+Suppose that ∑∞ 
+
+> ℓ=1
+
+ℓ2∣∣a(m−1)  
+
+> ℓ−1
+
+− a(m−1) 
+
+> ℓ+1
+
+∣∣ < ∞. Let Kdiv be the divergence-free matrix-valued kernel defined by (3.3) . Then Kdiv admits the vector spherical harmonic expansion (2.6) , with multipliers 
+
+(3.5) κℓ = λℓ
+
+2ℓ + 1 
+
+(
+
+a(m−1)  
+
+> ℓ−1
+
+− a(m−1) 
+
+> ℓ+1
+
+)
+
+, ℓ ≥ 1.
+
+If κℓ > 0 for ℓ ≥ 1, then Kdiv is positive definite on tangent data at pairwise distinct nodes. Proof. First, we recall the standard identities for Legendre polynomials: 
+
+P0(t) = P ′
+
+> 1
+
+(t), (2 ℓ + 1) Pℓ(t) = P ′
+
+> ℓ+1
+
+(t) − P ′
+
+> ℓ−1
+
+(t), ℓ ≥ 1.
+
+Applying these identities to the Legendre expansion of φ(m−1) gives 
+
+φ(m−1) (t) = 
+
+> ∞
+
+∑
+
+> ℓ=0
+
+2ℓ + 1 
+
+4π a(m−1)  
+
+> ℓ
+
+Pℓ(t)= 1
+
+4π a(m−1) 0 P ′
+
+> 1
+
+(t) + 
+
+> ∞
+
+∑
+
+> ℓ=1
+
+a(m−1) 
+
+> ℓ
+
+4π
+
+(P ′
+
+> ℓ+1
+
+(t) − P ′
+
+> ℓ−1
+
+(t))
+
+=
+
+> ∞
+
+∑
+
+> ℓ=1
+
+1
+
+4π
+
+(
+
+a(m−1)  
+
+> ℓ−1
+
+− a(m−1) 
+
+> ℓ+1
+
+)
+
+P ′ 
+
+> ℓ
+
+(t).
+
+Since ‖P ′ 
+
+> ℓ
+
+(t)‖L∞ ≤ Cℓ 2, the Legendre series for φ(m−1) (t) converge absolutely and uniformly. Differentiating (3.6) in the distributional sense on ( −1, 1) yields 
+
+φ(m)(t) = 
+
+> ∞
+
+∑
+
+> ℓ=1
+
+b(m−1)  
+
+> ℓ
+
+P ′′  
+
+> ℓ
+
+(t), b(m−1)  
+
+> ℓ
+
+= 1
+
+4π
+
+(
+
+a(m−1)  
+
+> ℓ−1
+
+− a(m−1) 
+
+> ℓ+1
+
+)
+
+.DIVERGENCE-FREE INTERPOLATION 7
+
+Although this series need not converge uniformly by itself, the matrix combination does. Indeed, Lemma 2.1 and the vector spherical harmonic addition formula imply 
+
+‖P ′ 
+
+> ℓ
+
+(t)R(x, y) + P ′′  
+
+> ℓ
+
+(t)Q(x, y)‖ ≤ Cλ ℓ ≤ Cℓ 2.
+
+The assumed summability therefore gives absolute and uniform convergence of the matrix series. Its uniform limit agrees distributionally, and hence pointwise, with φ(m−1) (t)R + φ(m)(t)Q.Consequently, we have (3.6) 
+
+Kdiv (x, y) = 
+
+> ∞
+
+∑
+
+> ℓ=1
+
+b(m−1) 
+
+> ℓ
+
+(P ′ 
+
+> ℓ
+
+(t)R + P ′′  
+
+> ℓ
+
+(t)Q)
+
+=
+
+> ∞
+
+∑
+
+> ℓ=1
+
+4πλ ℓ
+
+2ℓ + 1 b(m−1) 
+
+> ℓ
+> 2ℓ+1
+
+∑
+
+> k=1
+
+yℓ,k (x)yℓ,k (y)⊤.
+
+Equation (3.5) follows immediately. It remains to verify positive definiteness. Let x1, . . . , xJ be pairwise distinct nodes and let 
+
+ηj ∈ Txj S2. The quadratic form associated with Kdiv is 
+
+> J
+
+∑
+
+> i,j =1
+
+η⊤ 
+
+> i
+
+Kdiv (xi, xj )ηj =
+
+> ∞
+
+∑
+
+> ℓ=1
+
+κℓ
+
+> 2ℓ+1
+
+∑
+
+> k=1
+
+∣∣∣
+
+> J
+
+∑
+
+> j=1
+
+η⊤ 
+
+> j
+
+yℓ,k (xj )
+
+∣∣∣2
+
+.
+
+If this expression vanishes, the positivity of the multipliers implies 
+
+> J
+
+∑
+
+> j=1
+
+η⊤ 
+
+> j
+
+yℓ,k (xj ) = 0 for all ℓ, k. 
+
+This gives ηj = 0 for all j. Hence Kdiv is positive definite. 
+
+The classical potential-based construction [7, 8, 16, 17] corresponds to m = 2. In this case, termwise differentiation of the scalar zonal expansion yields φ′(t) = ∑∞
+
+> ℓ=1 2ℓ+1
+> 4π
+
+̂ φ(ℓ)P ′ 
+
+> ℓ
+
+(t) and 
+
+φ′′ (t) = ∑∞
+
+> ℓ=1 2ℓ+1
+> 4π
+
+̂ φ(ℓ)P ′′  
+
+> ℓ
+
+(t). Hence, the associated divergence-free kernel is 
+
+Kdiv (x, y) = 
+
+> ∞
+
+∑
+
+> ℓ=1
+
+2ℓ + 1 
+
+4π̂ φ(ℓ)(P ′ 
+
+> ℓ
+
+(t)R + P ′′  
+
+> ℓ
+
+(t)Q).
+
+Applying the vector addition formula in Lemma 2.1, we find that the corresponding Fourier coefficients satisfy κℓ = λℓ̂ φ(ℓ). Thus, for a scalar zonal kernel with coefficients ̂ φ(ℓ) ≍ (1 + 
+
+λℓ)−σ , one obtains κℓ ≍ ℓ−2σ+2 .By contrast, Corollary 3.2 below shows that the lower-order construction corresponding to 
+
+m = 1 yields κℓ ≍ ℓ−2σ. Thus, the choice m = 1 improves the decay of the divergence-free Fourier coefficients by a factor of order ℓ−2. Equivalently, for the same underlying scalar Fourier decay, the resulting native space is smoother by one Sobolev order; see, for example, [17]. 
+
+Corollary 3.2. Under the assumptions of Theorem 3.1 with m = 1 , one has 
+
+(3.7) κℓ = λℓ
+
+2ℓ + 1 
+
+(̂ φ(ℓ − 1) −̂ φ(ℓ + 1) ), ℓ ≥ 1.
+
+Hence the resulting spectral kernel is positive definite if ̂ φ(ℓ − 1) >̂ φ(ℓ + 1) for ℓ ≥ 1.Moreover, suppose that ̂ φ(ℓ) = cσ (1 + λℓ)−σ for ℓ ≥ 0 with σ > 1 and cσ > 0. Then the coefficients in (3.7) define, through (2.6) , a continuous positive definite divergence-free kernel. Moreover, 
+
+κℓ ≍ (1 + λℓ)−σ, NKdiv ≃ Hσ
+
+> div
+
+(S2).
+
+Proof. For m = 1, (3.4) gives a(0)  
+
+> ℓ
+
+=̂ φ(ℓ), so (3.7) follows from (3.5). To prove positivity and determine the decay, define 
+
+h(x) := cσ(1 + x(x + 1)) −σ , x ≥ 0.DIVERGENCE-FREE INTERPOLATION 8
+
+By the mean value theorem, for each ℓ ≥ 1 there exists ξℓ ∈ (ℓ − 1, ℓ + 1) such that ̂
+
+φ(ℓ − 1) −̂ φ(ℓ + 1) = h(ℓ − 1) − h(ℓ + 1) = −2h′(ξℓ).
+
+Since 
+
+h′(x) = −cσ · σ(2 x + 1)(1 + x(x + 1)) −σ−1 < 0,
+
+we have κℓ > 0 for all ℓ ≥ 1, which implies that Kdiv is positive definite on tangent data at pairwise distinct nodes. For ℓ ≥ 2, the relation ξℓ ∈ (ℓ − 1, ℓ + 1) gives 2 ξℓ + 1 ≍ ℓ and 1 + ξℓ(ξℓ + 1) ≍ ℓ2. Hence 
+
+h(ℓ − 1) − h(ℓ + 1) ≍ ℓ−2σ−1,
+
+and (3.7) yields 
+
+κℓ ≍ ℓ2
+
+ℓ ℓ−2σ−1 ≍ ℓ−2σ ≍ (1 + λℓ)−σ .
+
+The degree ℓ = 1 is absorbed into the constants. Furthermore, ‖S ℓ(x, y)‖ ≤ C(2 ℓ + 1), so the series (2.6) converges absolutely and uniformly because σ > 1. The native-space equivalence follows from the multiplier decay and the characterization in Section 2.2. 
+
+Remark 3.3. Corollary 3.2 establishes the one-order gain for the case m = 1 . It also motivates the formal m = 0 antiderivative construction, but the present paper does not establish a gen-eral positive-definiteness or native-space theorem for that case. Such results require additional conditions on the underlying radial kernel; see [38] . Nevertheless, the numerical experiments reported below provide evidence for the effectiveness of these lower-order constructions. 
+
+3.3. A multiplier-preserving construction. The preceding m = 2 relation contains a factor of λℓ. On the sphere, this factor can be cancelled by first applying the inverse Laplace–Beltrami operator to the mean-zero component of the scalar zonal kernel. Let 
+
+cφ := ̂ φ(0) 
+
+4π , u := ( −∆∗)−1(φ − cφ),̂ u(0) = 0 .
+
+Then, we have ̂ u(ℓ) = ̂ φ(ℓ) 
+
+> λℓ
+
+. Writing ψ := u′, the divergence-free kernel generated by u is 
+
+Kdiv (x, y) = ψ(t)R(x, y) + ψ′(t)Q(x, y).
+
+For a zonal function, ∆ ∗u = ((1 − t2)u′)′. Hence −∆∗u = φ − cφ gives 
+
+ψ(t) = 1
+
+1 − t2
+
+∫ t
+
+> −1
+
+(cφ − φ(s)) ds, −1 < t < 1.
+
+The vector multipliers of this construction satisfy 
+
+κℓ = λℓ̂ u(ℓ) = ̂ φ(ℓ), ℓ ≥ 1.
+
+This sphere-specific multiplier-preserving kernel is distinct from the m = 1 case. Explicit inverse potentials for the Poisson, Gaussian, and selected Wendland kernels are given in [39, Table 1]. 
+
+Theorem 3.4. Let φ ∈ C([ −1, 1]) be a zonal kernel satisfying ∑∞ 
+
+> ℓ=1
+
+ℓ |̂ φ(ℓ)| < ∞. Let u be the mean-zero solution of −∆∗u = φ −̂ φ(0) /(4 π), and set ψ = u′. Define 
+
+Kdiv (x, y) := 
+
+> ∞
+
+∑
+
+> ℓ=1
+
+̂
+
+φ(ℓ)
+
+> 2ℓ+1
+
+∑
+
+> k=1
+
+yℓ,k (x)yℓ,k (y)⊤.
+
+This series converges absolutely and uniformly. For −1 < t < 1, it agrees with 
+
+Kdiv (x, y) = ψ(t)R(x, y) + ψ′(t)Q(x, y),
+
+where the expression at t = ±1 is defined by its continuous spectral extension. Consequently, if ̂
+
+φ(ℓ) > 0 for all ℓ ≥ 1, then Kdiv is positive definite on tangent data at pairwise distinct nodes. If, in addition, 
+
+(3.8) ̂ φ(ℓ) ≍ (1 + λℓ)−σ , ℓ ≥ 1, σ > 1,DIVERGENCE-FREE INTERPOLATION 9
+
+then the native space NKdiv is norm-equivalent to Hσ
+
+> div
+
+(S2).Proof. The inverse Laplace–Beltrami relation gives 
+
+ψ(t) = 
+
+> ∞
+
+∑
+
+> ℓ=1
+
+2ℓ + 1 
+
+4πλ ℓ̂ φ(ℓ)P ′ 
+
+> ℓ
+
+(t)in the distributional sense and pointwise wherever the corresponding scalar series converges. The integral formula above shows that ψ ∈ C1(( −1, 1)). Applying the vector addition formula to ψR + ψ′Q in the interior gives the stated spectral expansion. Conversely, the bound 
+
+∥∥∥
+
+> 2ℓ+1
+
+∑
+
+> k=1
+
+yℓ,k (x)yℓ,k (y)⊤
+
+∥∥∥ ≤ C(2 ℓ + 1) and the summability assumption show that this matrix-valued series converges absolutely and uniformly. Its continuous limit provides the extension at t = ±1. If ̂ φ(ℓ) is positive, positive definiteness follows from the argument used in Theorem 3.1. Finally, (3.8) and the multiplier characterization of the native space give NKdiv ≃ Hσ
+
+> div
+
+(S2). 
+
+4. Divergence-free interpolation 
+
+Let X = {xj }Nj=1 ⊂ S2 be a set of distinct nodes. For each j, choose a matrix Pj = [ dj , ej ] ∈
+
+R3×2 whose columns form an orthonormal basis of Txj S2. Thus, 
+
+P⊤ 
+
+> j
+
+Pj = I2, Pj P⊤ 
+
+> j
+
+= I3 − xj x⊤ 
+
+> j
+
+.
+
+The obvious choices for the tangent vectors dj and ej are the standard meridional and zonal vectors, respectively: 
+
+dj = 1
+
+√
+
+1 − x2
+
+> j, 3
+
+[−xj, 3xj, 1, −xj, 3xj, 2, 1 − x2
+
+> j, 3
+
+]⊤ , ej = 1
+
+√
+
+1 − x2
+
+> j, 3
+
+[−xj, 2, x j, 1, 0]⊤ .
+
+Let f be a tangential vector field and define its local data coordinates by 
+
+gj := P⊤ 
+
+> j
+
+f (xj ) ∈ R2.
+
+We seek an interpolant of the form (4.1) IX f (x) = 
+
+> N
+
+∑
+
+> j=1
+
+Kdiv (x, xj )Pj cj , cj ∈ R2.
+
+Imposing IX f (xi) = f (xi) and expressing the equations in the local tangent frames gives (4.2) 
+
+> N
+
+∑
+
+> j=1
+
+P⊤ 
+
+> i
+
+Kdiv (xi, xj )Pj
+
+︸ ︷︷ ︸
+
+Aij 
+
+cj = gi, 1 ≤ i ≤ N. 
+
+Accordingly, the interpolation matrix AKdiv ,X ∈ R2N ×2N consists of the 2 × 2 blocks Aij . If 
+
+Kdiv is positive definite on tangential vectors, then AKdiv ,X is symmetric positive definite. 
+
+Proposition 4.1. Let X = {x1, . . . , xN } ⊂ S2 consist of pairwise distinct nodes, and let 
+
+Pj ∈ R3×2 be an orthonormal frame for Txj S2. Suppose that Kdiv is a continuous, symmetric, tangent-valued kernel that is strictly positive definite on tangent data and is the reproducing kernel of the vector-valued RKHS NKdiv . Then (4.2) has a unique solution for arbitrary tangent data. If f ∈ N Kdiv and 
+
+(4.3) VX, Kdiv := span {Kdiv (·, xj )η : η ∈ Txj S2, 1 ≤ j ≤ N } ,
+
+then IX f is the NKdiv -orthogonal projection of f onto VX, Kdiv , and 
+
+(4.4) ‖f − IX f ‖NKdiv = inf 
+
+> v∈V X, Kdiv
+
+‖f − v‖NKdiv .DIVERGENCE-FREE INTERPOLATION 10 
+
+Moreover, if ˜Pj = Pj Wj , where Wj ∈ O(2) , and W = diag( W1, . . . , WN ), then 
+
+˜AKdiv ,X = W⊤AKdiv ,X W.
+
+Consequently, the eigenvalues, the spectral condition number, and the interpolated field are independent of the chosen orthonormal tangent frames. Proof. For a coefficient vector c = ( c⊤ 
+
+> 1
+
+, . . . , c⊤ 
+
+> N
+
+)⊤ 6 = 0, set ηj = Pj cj ∈ Txj S2. Since the columns of Pj are orthonormal, the vectors ηj are not all zero. Positive definiteness gives 
+
+c⊤AKdiv ,X c =
+
+> N
+
+∑
+
+> i,j =1
+
+η⊤ 
+
+> i
+
+Kdiv (xi, xj )ηj > 0.
+
+Thus, AKdiv ,X is symmetric positive definite, and (4.2) has a unique solution. The reproducing property and the interpolation conditions imply 
+
+〈f − IX f , Kdiv (·, xj )η〉NKdiv 
+
+= η⊤(f − IX f )(xj ) = 0 .
+
+Hence f − IX f is orthogonal to VX, Kdiv , proving both the projection property and (4.4). Finally, the transformed matrix blocks satisfy 
+
+˜Aij = W⊤ 
+
+> i
+
+Aij Wj ,
+
+which yields ˜AKdiv ,X = W⊤AKdiv ,X W. The corresponding coefficient vectors satisfy ˜c = W⊤c,
+
+Pj Wj ˜cj = Pj cj .
+
+Therefore, changing the tangent frames leaves the interpolated field unchanged. Since W is orthogonal, the two interpolation matrices are orthogonally similar and consequently have the same eigenvalues and spectral condition number. 
+
+5. Stability and error estimates 
+
+In this section, we establish stability and error estimates for divergence-free interpolation with matrix-valued kernels on S2. We state the assumptions directly in terms of the Fourier multipliers and conduct the analysis in spherical Fourier space. The kernels need not possess ambient radial extensions; instead, stability is derived directly from their multipliers, making the argument technically distinct from existing approaches. Adapting ideas from [21], we also establish a superconvergence result in the Hilbert scale generated by the kernel. 
+
+Assumption 5.1. Assume that κℓ satisfies the decay condition (2.7) with σ > 1. Suppose that the divergence-free kernel Kdiv has the expansion 
+
+(5.1) Kdiv (x, y) = 
+
+> ∞
+
+∑
+
+> ℓ=1
+
+κℓ
+
+> 2ℓ+1
+
+∑
+
+> k=1
+
+yℓ,k (x)yℓ,k (y)⊤, κℓ > 0.
+
+5.1. Stability. For a node set X = {x1, . . . , xN } ⊂ S2, define the mesh norm (or fill distance )and the separation distance , respectively, by 
+
+hX := sup 
+
+> x∈S2
+
+min   
+
+> xj∈X
+
+dist( x, xj ), qX := 1
+
+2 min  
+
+> i6=j
+
+dist( xi, xj ),
+
+where dist( x, y) := arccos( x·y) denotes the geodesic distance. Let Kdiv satisfy Assumption 5.1. The associated approximation space is defined as in (4.3). The following theorem provides a lower bound for the smallest eigenvalue of AKdiv ,X .
+
+Theorem 5.2. Let X ⊂ S2 be a finite set of distinct nodes with separation distance qX , and let Kdiv be the divergence-free matrix-valued kernel satisfying Assumption 5.1. Then there exist constants C > 0 and ζ0 > 0, independent of qX and N , such that 
+
+(5.2) λmin (AKdiv ,X ) ≥ CL 2 min  
+
+> 1≤ℓ≤L
+
+κℓ, L := 
+
+⌈ ζ0
+
+qX
+
+⌉
+
+.DIVERGENCE-FREE INTERPOLATION 11 
+
+The proof uses two auxiliary results. The first is a localization estimate for smooth spectral filters on the sphere. Such estimates are standard for scalar spherical harmonics; see, for example, [4, Lemma 3.3], [5, Theorem 2.6.7], [26, Theorem 4.1] and [25]. We require the corresponding vector spherical harmonic estimate. The second result is a packing bound for separated points on S2. The proofs are provided in the Appendix. 
+
+Lemma 5.3. Let w ∈ C∞([0 , ∞)) be supported in (1 /4, 7/8) , satisfy 0 ≤ w ≤ 1, and w(x) = 1 
+
+on [1 /2, 3/4] . For an integer L ≥ 1, define the filtered matrix-valued kernel 
+
+KL, w(x, y) := 
+
+> ∞
+
+∑
+
+> ℓ=1
+
+w
+
+( ℓ
+
+L
+
+) 2ℓ+1 ∑
+
+> k=1
+
+yℓ,k (x)yℓ,k (y)⊤, x, y ∈ S2.
+
+Also define 
+
+BL, w(t) := 
+
+> ∞
+
+∑
+
+> ℓ=1
+
+w
+
+( ℓ
+
+L
+
+) 2ℓ + 1 
+
+4πλ ℓ
+
+Pℓ(t).
+
+Then, for any ν > 0, there exists a constant Cν, w > 0 such that, with θ = dist( x, y),
+
+|B (j)
+
+> L, w
+
+(cos θ)| ≤ Cν, wL2j (1 + Lθ )−ν−2, j = 1 , 2,
+
+and 
+
+‖KL, w(x, y)‖2 ≤ Cν, wL2(1 + Lθ )−ν ,
+
+where ‖KL, w‖2 := max c6 =0 ‖KL, w c‖2 
+
+> ‖c‖2
+
+denotes the induced 2-norm of the matrix KL, w.
+
+Lemma 5.4. Let X = {x1, . . . , xN } ⊂ S2 have pairwise distances of at least 2qX . There exists a constant C > 0 such that, for any i and integer k ≥ 1,
+
+#{j : kq X ≤ dist( xi, xj ) < (k + 1) qX
+
+} ≤ C(k + 1) .
+
+Consequently, for any ν > 2, there exists a constant C > 0, independent of L, N , and qX , such that, whenever Lq X ≥ 1,
+
+sup 
+
+> 1≤i≤N
+
+∑ 
+
+> j6=i
+
+(1 + L dist( xi, xj )) −ν ≤ C(Lq X )−ν .
+
+Proof of Theorem 5.2 . Let c = ( c1, . . . , cN )⊤ ∈ R2N be arbitrary, and set ηj = Pj cj ∈
+
+Txj S2. Then, ∑ 
+
+> j
+
+‖ηj ‖22 = ∑ 
+
+> j
+
+‖cj ‖22. The vector spherical harmonic expansion of Kdiv yields (5.3) c⊤AKdiv ,X c =
+
+> ∞
+
+∑
+
+> ℓ=1
+
+κℓ
+
+> 2ℓ+1
+
+∑
+
+> k=1
+
+∣∣∣
+
+> N
+
+∑
+
+> j=1
+
+η⊤ 
+
+> j
+
+yℓ,k (xj )
+
+∣∣∣2
+
+.
+
+Since κℓ > 0, truncation at any degree L ≥ 1 gives 
+
+c⊤AKdiv ,X c ≥
+
+(
+
+min  
+
+> 1≤ℓ≤L
+
+κℓ
+
+) L∑
+
+> ℓ=1 2ℓ+1
+
+∑
+
+> k=1
+
+∣∣∣
+
+> N
+
+∑
+
+> j=1
+
+η⊤ 
+
+> j
+
+yℓ,k (xj )
+
+∣∣∣2
+
+.
+
+Let w be a smooth filter satisfying the assumptions in Lemma 5.3. Since w(ℓ/L ) ≤ 1 for all 
+
+ℓ, it follows that (5.4) 
+
+> L
+
+∑
+
+> ℓ=1 2ℓ+1
+
+∑
+
+> k=1
+
+∣∣∣
+
+> N
+
+∑
+
+> j=1
+
+η⊤ 
+
+> j
+
+yℓ,k (xj )
+
+∣∣∣2
+
+≥
+
+> ∞
+
+∑
+
+> ℓ=1
+
+w
+
+( ℓ
+
+L
+
+) 2ℓ+1 ∑
+
+> k=1
+
+∣∣∣
+
+> N
+
+∑
+
+> j=1
+
+η⊤ 
+
+> j
+
+yℓ,k (xj )
+
+∣∣∣2
+
+=
+
+> N
+
+∑
+
+> i,j =1
+
+η⊤ 
+
+> i
+
+KL, w(xi, xj )ηj .
+
+It remains to bound the resulting localized quadratic form from below. We separate this form into its diagonal and off-diagonal parts. Setting y = x in (A.1) gives 
+
+KL, w(x, x) = dLR(x, x), dL := 1
+
+8π
+
+> ∞
+
+∑
+
+> ℓ=1
+
+w
+
+( ℓ
+
+L
+
+)
+
+(2 ℓ + 1) ,DIVERGENCE-FREE INTERPOLATION 12 
+
+where we used P ′ 
+
+> ℓ
+
+(1) = λℓ/2 and Q(x, x) = 0. Since w(x) ≡ 1 on [1 /2, 3/4], there exist constants aw > 0 and Lw ≥ 1, depending only on w, such that 
+
+dL ≥ 1
+
+8π
+
+> ⌊3L/ 4⌋
+
+∑
+
+> ℓ=⌈L/ 2⌉
+
+(2 ℓ + 1) ≥ awL2, for all L ≥ Lw.
+
+Moreover, R(x, x) = I − xx ⊤ is the orthogonal projection onto TxS2. Hence R(xj , xj )ηj = ηj ,and the diagonal summation satisfies 
+
+> N
+
+∑
+
+> j=1
+
+η⊤ 
+
+> j
+
+KL, w(xj , xj )ηj = dLN∑
+
+> j=1
+
+‖ηj ‖22 ≥ awL2‖η‖22.
+
+We next estimate the off-diagonal part. Fix ν > 2. Lemmas 5.3 and 5.4 imply that, for some 
+
+Cν, w > 0 and whenever Lq X ≥ 1, sup 
+
+> 1≤i≤N
+
+∑ 
+
+> j6=i
+
+‖KL, w(xi, xj )‖2 ≤ Cν, wL2(Lq X )−ν .
+
+Choose ζ0 ≥ πL w/2 sufficiently large so that Cν, wζ−ν 
+
+> 0
+
+≤ aw/2. If Lq X ≥ ζ0, then L ≥ ζ0/q X ≥
+
+Lw and sup 
+
+> 1≤i≤NN
+
+∑ 
+
+> j=1
+> j6=i
+
+‖KL, w(xi, xj )‖2 ≤ 1
+
+2 awL2.
+
+The symmetry KL, w(x, y) = KL, w(y, x)⊤ and the inequality 2 ab ≤ a2 + b2 therefore give 
+
+∣∣∣ ∑
+
+> i6=j
+
+η⊤ 
+
+> i
+
+KL, w(xi, xj )ηj
+
+∣∣∣ ≤ ∑
+
+> i6=j
+
+‖KL, w(xi, xj )‖2 ‖ηi‖2‖ηj ‖2
+
+≤
+
+> N
+
+∑
+
+> i=1
+
+‖ηi‖22
+
+∑ 
+
+> j6=i
+
+‖KL, w(xi, xj )‖2 ≤ 1
+
+2 awL2‖η‖22.
+
+Combining the diagonal and off-diagonal estimates yields 
+
+> N
+
+∑
+
+> i,j =1
+
+η⊤ 
+
+> i
+
+KL, w(xi, xj )ηj ≥ awL2‖η‖22 − aw
+
+2 L2‖η‖22 = 1
+
+2 awL2‖η‖22.
+
+Substituting this lower bound into (5.4) gives 
+
+c⊤AKdiv ,X c ≥ 1
+
+2 awL2
+
+(
+
+min  
+
+> 1≤ℓ≤L
+
+κℓ
+
+)
+
+‖c‖22.
+
+Taking the infimum of the corresponding Rayleigh quotient over all nonzero coordinate vectors 
+
+c yields 
+
+λmin 
+
+(AKdiv ,X 
+
+) ≥ 1
+
+2 awL2 min  
+
+> 1≤ℓ≤L
+
+κℓ,
+
+with L = ⌈ζ0/q X ⌉. This completes the proof. 
+
+Corollary 5.5. Under Assumption 5.1, there exists a constant C > 0, independent of qX , such that 
+
+λmin (AKdiv ,X ) ≥ Cq 2σ−2 
+
+> X
+
+.
+
+Proof. Since λℓ = ℓ(ℓ + 1) ≍ ℓ2, the decay condition implies min  
+
+> 1≤ℓ≤L
+
+κℓ ≥ cL −2σ.
+
+Choose L = ⌈ζ0/q X ⌉ as in Theorem 5.2. Because qX ≤ π/ 2, there exists a constant C, inde-pendent of X, such that L ≤ Cq −1 
+
+> X
+
+. Since 2 − 2σ < 0, Theorem 5.2 yields 
+
+λmin (AKdiv ,X ) ≥ cL 2−2σ ≥ Cq 2σ−2 
+
+> X
+
+.DIVERGENCE-FREE INTERPOLATION 13 
+
+This completes the proof. 
+
+Corollary 5.6. Under Assumption 5.1, we have 
+
+λmax (AKdiv ,X ) ≤ 2N γ K ≤ Cq −2 
+
+> X
+
+,
+
+where γK := 1
+
+> 8π
+
+∑∞
+
+> ℓ=1
+
+(2 ℓ + 1) κℓ. Moreover, the following estimate holds 
+
+(5.5) cond 2(AKdiv ,X ) ≤ Cq −2σX .
+
+Let g = ( g⊤ 
+
+> 1
+
+, . . . , g⊤ 
+
+> N
+
+)⊤, where gj = P⊤ 
+
+> j
+
+f (xj ). For the linear system AKdiv ,X c = g, one also has 
+
+(5.6) ‖c‖2 ≤ Cq 2−2σX ‖g‖2, ‖IX f ‖NKdiv ≤ Cq 1−σX ‖g‖2.
+
+Proof. Since Kdiv (x, x) = γK(I − xx ⊤), we have P⊤ 
+
+> i
+
+Kdiv (xi, xi)Pi = γKI2. Because the interpolation matrix is positive definite, 
+
+λmax (AKdiv ,X ) ≤ trace( AKdiv ,X ) = 2 N γ K.
+
+The geodesic caps B(xj , q X ) are pairwise disjoint, and comparison with the area of S2 yields 
+
+N ≤ Cq −2 
+
+> X
+
+. Combining this estimate with Corollary 5.5 proves (5.5). The first bound in (5.6) follows from the inverse-matrix norm estimate. Finally, 
+
+‖IX f ‖2
+
+> NKdiv
+
+= c⊤AKdiv ,X c = c⊤g ≤ ‖ c‖2‖g‖2,
+
+which proves the second bound. 
+
+5.2. Pointwise error estimates. Interpolation error estimates are naturally derived first in the native space, where the appropriate tool is the power function . For ξ ∈ TxS2, the repro-ducing property and native-space orthogonality yield (5.7) ∣∣ξT (f (x) − IX f (x))∣ ∣ ≤ PKdiv ,X, ξ(x) ‖f ‖NKdiv ,
+
+where the power function is defined by 
+
+PKdiv ,X, ξ(x) := inf 
+
+> χ∈V X, Kdiv
+
+‖Kdiv (·, x)ξ − χ‖NKdiv .
+
+Thus, it suffices to estimate the power function. For L ≥ 1, define the polynomial space Πdiv  
+
+> L
+
+:= span {yℓ,k : 1 ≤ ℓ ≤ L, 1 ≤ k ≤ 2ℓ + 1 }.
+
+Lemma 5.7. Let X ⊂ S2 be a finite set. Let ξ ∈ TxS2 with ‖ξ‖2 = 1 , x ∈ S2. Then, there exist constants ζ0, C > 0, depending only on the sphere, such that for hX ≤ ζ0/L ,
+
+(5.8) PKdiv ,X, ξ(x)2 ≤ C ∑
+
+> ℓ>L
+
+(2 ℓ + 1) κℓ.
+
+Proof. For a vector field p = ( p1, p 2, p 3)⊤, let D∗p(z) : TzS2 → R3 denote its componentwise surface differential, and define 
+
+‖p‖L∞ := sup 
+
+> z∈S2
+
+‖p(z)‖2, ‖D∗p‖L∞ := sup 
+
+> z∈S2
+
+‖D∗p(z)‖op .
+
+For every p ∈ Πdiv  
+
+> L
+
+and every fixed a ∈ R3, the scalar function qa := a⊤p is a spherical polynomial of degree at most L. Indeed, for a vector spherical harmonic yℓ,k = λ−1/2 
+
+> ℓ
+
+L∗Yℓ,k ,
+
+a⊤L∗Yℓ,k = ( a × x) · ∇ ∗Yℓ,k ,
+
+and the differential operator on the right is an infinitesimal rotation. It commutes with the scalar Laplace–Beltrami operator and therefore preserves the degree-ℓ eigenspace. Applying the scalar Bernstein inequality [5, 26] to qa gives, for every unit vector a,
+
+‖∇ ∗qa‖L∞ ≤ CB L‖qa‖L∞ ≤ CB L‖p‖L∞ .DIVERGENCE-FREE INTERPOLATION 14 
+
+Taking the supremum over the output direction a and over unit tangent directions yields (5.9) ‖D∗p‖L∞ ≤ CB L‖p‖L∞ , p ∈ Πdiv  
+
+> L
+
+,
+
+where CB depends only on the sphere. Choose ζ0 > 0 such that CB ζ0 ≤ 1/2. Let x∗ ∈ S2 satisfy ‖p(x∗)‖2 = ‖p‖L∞ . By the definition of the fill distance, there exists xj ∈ X such that dist( x∗, xj ) ≤ hX . Consequently, 
+
+‖p‖L∞ ≤ ‖ p(xj )‖2 + ‖p(x∗) − p(xj )‖2
+
+≤ max  
+
+> 1≤i≤N
+
+‖p(xi)‖2 + CB Lh X ‖p‖L∞ .
+
+If hX ≤ ζ0/L , it follows that (5.10) ‖p‖L∞ ≤ 2 max  
+
+> 1≤j≤N
+
+‖p(xj )‖2, p ∈ Πdiv  
+
+> L
+
+.
+
+Equip YX := ⊕Nj=1 Txj S2 with the block maximum norm ‖(v1, . . . , vN )‖∞,2 := max 1≤j≤N ‖vj ‖2.The sampling operator 
+
+EX : Π div  
+
+> L
+
+−→ Y X , EX p := (p(x1), . . . , p(xN )),
+
+is injective by (5.10). The functional F (EX p) := ξ⊤p(x) is therefore well defined on ran( EX )and satisfies 
+
+|F (EX p)| ≤ ‖ p‖L∞ ≤ 2‖EX p‖∞,2.
+
+The Hahn–Banach theorem extends F to YX without increasing its norm. The dual of the block maximum norm is the block ℓ1-norm, so the blockwise Riesz representation theorem gives vectors ηj ∈ Txj S2 such that for every p ∈ Πdiv  
+
+> L
+
+,(5.11) ξ⊤p(x) = 
+
+> N
+
+∑
+
+> j=1
+
+η⊤ 
+
+> j
+
+p(xj ),
+
+> N
+
+∑
+
+> j=1
+
+‖ηj ‖2 ≤ 2.
+
+Lemma 2.1 gives Sℓ(z, z) = 2ℓ+1 
+
+> 8π
+
+(I − zz ⊤). Hence, by homogeneity, every η ∈ Tz S2 satisfies (5.12) 
+
+> 2ℓ+1
+
+∑
+
+> k=1
+
+∣∣η⊤yℓ,k (z)∣∣2 = 2ℓ + 1 
+
+8π ‖η‖22.
+
+Set χ := ∑Nj=1 Kdiv (·, xj )ηj ∈ V X, Kdiv . Since yℓ,k ∈ Πdiv  
+
+> L
+
+whenever ℓ ≤ L, (5.11) cancels every mode of degree at most L. By the characterization of the power function as the distance from Kdiv (·, x)ξ to VX, Kdiv ,
+
+PKdiv ,X, ξ(x)2 ≤ ‖ Kdiv (·, x)ξ − χ‖2
+
+> NKdiv
+
+= ∑
+
+> ℓ>L
+
+κℓ
+
+> 2ℓ+1
+
+∑
+
+> k=1
+
+∣∣ξ⊤yℓ,k (x) −
+
+> N
+
+∑
+
+> j=1
+
+η⊤ 
+
+> j
+
+yℓ,k (xj )∣∣2.
+
+For each fixed ℓ, Minkowski’s inequality, (5.11), and (5.12) yield 
+
+( 2ℓ+1 ∑
+
+> k=1
+
+∣∣∣ξ⊤yℓ,k (x) −
+
+> N
+
+∑
+
+> j=1
+
+η⊤ 
+
+> j
+
+yℓ,k (xj )
+
+∣∣∣2)1/2
+
+≤
+
+( 2ℓ+1 ∑
+
+> k=1
+
+|ξ⊤yℓ,k (x)|2)1/2
+
++
+
+> N
+
+∑
+
+> j=1
+
+( 2ℓ+1 ∑
+
+> k=1
+
+|η⊤ 
+
+> j
+
+yℓ,k (xj )|2)1/2
+
+=
+
+(
+
+1 + 
+
+> N
+
+∑
+
+> j=1
+
+‖ηj ‖2
+
+)( 2ℓ + 1 
+
+8π
+
+)1/2
+
+≤ 3
+
+( 2ℓ + 1 
+
+8π
+
+)1/2
+
+.
+
+Combining the above two estimates yields 
+
+PKdiv ,X, ξ(x)2 ≤ 9
+
+8π
+
+∑
+
+> ℓ>L
+
+(2 ℓ + 1) κℓ.
+
+This completes the proof. DIVERGENCE-FREE INTERPOLATION 15 
+
+Theorem 5.8. Under Assumption 5.1, there exist h0, C > 0 such that, whenever hX ≤ h0
+
+and f ∈ N Kdiv ,
+
+‖f − IX f ‖L∞(S2 ) ≤ Ch σ−1 
+
+> X
+
+‖f ‖NKdiv .
+
+Proof. Choose h0 so that L ≥ 1 and L ≍ h−1 
+
+> X
+
+. Applying Lemma 5.7 and the spectral decay assumption (2.7), we can obtain 
+
+PKdiv ,X, ξ(x)2 ≤ C ∑
+
+> ℓ>L
+
+ℓ1−2σ ≤ CL 2−2σ.
+
+Combining this estimate with (5.7) and taking the supremum over x and all unit tangent vectors proves the result. 
+
+5.3. Sobolev error estimates. Classical Sobolev estimates for the m = 2 surface kernel were established in [16, 17]. Those estimates, however, were stated only for integer-order Sobolev spaces. The fractional-order sampling inequality in [2, Theorem 3.2] allows us to extend the corresponding estimates to noninteger orders. 
+
+Lemma 5.9. Let β > 1 and 0 ≤ α ≤ β. There exist constants h0, C > 0 such that, whenever 
+
+hX ≤ h0 and f ∈ Hβ (S2) satisfying f |X = 0, one has 
+
+‖f ‖Hα(S2 ) ≤ Ch β−αX ‖f ‖Hβ (S2).
+
+Proof. Let k = ⌊β⌋. Since β > 1, point evaluation is well defined on Hβ (S2). By mapping of bounded domains to R3 via charts [1, 16], we can obtain the analogous scalar zeros estimate [2, Theorem 3.2] on the sphere, for every f ∈ Hβ (S2) satisfying f |X = 0, (5.13) ‖f ‖Hs(S2 ) ≤ Ch β−sX ‖f ‖Hβ (S2 ), 0 ≤ s ≤ k. 
+
+If β is an integer, then k = β, and the above inequality includes whole range 0 ≤ α ≤ β.Suppose now that β is not an integer, so that k < β , and let k < α ≤ β. Define 
+
+α = (1 − ϑ)k + ϑβ, ϑ = α − k
+
+β − k ∈ (0 , 1] .
+
+Applying the Gagliardo-Nirenberg interpolation inequality [3, Theorem 1], we have 
+
+‖f ‖Hα(S2) ≤ C‖f ‖1−ϑHk (S2 )‖f ‖ϑHβ (S2 ).
+
+Using (5.13) with s = k, we obtain 
+
+‖f ‖Hα(S2 ) ≤ C
+
+(
+
+hβ−kX ‖f ‖Hβ (S2 )
+
+)1−ϑ
+
+‖f ‖ϑHβ (S2 )
+
+= Ch (β−k)(1 −ϑ) 
+
+> X
+
+‖f ‖Hβ (S2 )
+
+= Ch β−αX ‖f ‖Hβ (S2 ),
+
+since ( β − k)(1 − ϑ) = β − α.Finally, applying this estimate to the Cartesian components of f and using the equivalence between the componentwise Sobolev norm and the Sobolev norm for tangential vector fields completes the proof. 
+
+Lemma 5.10. Let 1 < τ ≤ σ, and let X = {xj }Nj=1 consist of N ≥ 2 distinct nodes with separation distance qX . For any f ∈ Hτ
+
+> div
+
+(S2), there exists L ≤ Cq −1 
+
+> X
+
+and p ∈ Πdiv  
+
+> L
+
+such that 
+
+(5.14) p|X = f |X , ‖f − p‖Hτ (S2 ) ≤ C‖f ‖Hτ (S2 ), ‖p‖Hσ (S2 ) ≤ Cq τ −σX ‖f ‖Hτ (S2 ).
+
+Proof. Choose L = ⌈ζτ /q X ⌉, where ζτ is the constant in [16, Theorem 4.1]. That theorem, which is stated for any real τ > 1, provides p ∈ Πdiv  
+
+> L
+
+with p|X = f |X and 
+
+‖f − p‖Hτ ≤ C dist Hτ (f , Πdiv  
+
+> L
+
+) ≤ C‖f ‖Hτ .DIVERGENCE-FREE INTERPOLATION 16 
+
+The triangle inequality therefore gives ‖p‖Hτ ≤ C‖f ‖Hτ . Since p ∈ Πdiv  
+
+> L
+
+and σ ≥ τ , the spectral definition gives directly 
+
+‖p‖2 
+
+> Hσ
+
+= ∑
+
+> ℓ≤L
+> 2ℓ+1
+
+∑
+
+> k=1
+
+(1 + λℓ)σ |̂ pℓ,k |2
+
+≤ (1 + λL)σ−τ ∑
+
+> ℓ≤L
+> 2ℓ+1
+
+∑
+
+> k=1
+
+(1 + λℓ)τ |̂ pℓ,k |2
+
+= (1 + λL)σ−τ ‖p‖2 
+
+> Hτ
+
+.
+
+Because 1 + λL ≍ (1 + L)2, taking square roots yields 
+
+‖p‖Hσ ≤ C(1 + L)σ−τ ‖p‖Hτ ≤ Cq τ −σX ‖f ‖Hτ .
+
+This completes the proof. 
+
+Theorem 5.11. Let f ∈ Hτ
+
+> div
+
+(S2) and Kdiv satisfy Assumption 5.1 with 1 < τ ≤ σ. Let 
+
+X = {xj }Nj=1 ⊂ S2 be a set of N distinct points with hX ≤ h0, separation distance qX , and mesh ratio ρX = hX /q X . Then, for any real 0 ≤ s ≤ τ , we have 
+
+‖f − IX f ‖Hs (S2) ≤ Cρ σ−τX hτ −sX ‖f ‖Hτ (S2 ).
+
+Proof. Lemma 5.10 provides a divergence-free spherical polynomial p of degree L . q−1 
+
+> X
+
+satis-fying (5.14). Because p and f have the same values on X, IX p = IX f . Since ( f − IX f )|X = 0, Lemma 5.9 gives (5.15) ‖f − IX f ‖Hs ≤ Ch τ −sX ‖f − IX f ‖Hτ .
+
+Moreover, by the triangle inequality, we have 
+
+‖f − IX f ‖Hτ ≤ ‖ f − p‖Hτ + ‖p − IX p‖Hτ .
+
+Applying the zeros estimate to the second term, using NKdiv ≃ Hσ
+
+> div
+
+, and using the native-space best-approximation property, we obtain 
+
+‖p − IX p‖Hτ ≤ Ch σ−τX ‖p − IX p‖Hσ
+
+≤ Ch σ−τX ‖p − IX p‖NKdiv 
+
+≤ Ch σ−τX ‖p‖NKdiv 
+
+≤ Ch σ−τX qτ −σX ‖f ‖Hτ = Cρ σ−τX ‖f ‖Hτ .
+
+Combining this with (5.14) implies ‖f − IX f ‖Hτ ≤ Cρ σ−τX ‖f ‖Hτ . Substituting it into (5.15) completes the proof. 
+
+5.4. Superconvergence. We next derive a Sobolev-scale error estimate from the preceding estimate. The proof is based on a standard interpolation argument for Hilbert scales. We include the details to show that the divergence-free constraint causes no additional difficulty. For ϑ ≥ 0, we define (5.16) Fϑ
+
+> div
+
+(S2) := 
+
+{
+
+f ∈ H0div (S2) : 
+
+> ∞
+
+∑
+
+> ℓ=1 2ℓ+1
+
+∑
+
+> k=1
+
+κ−ϑℓ |̂ fℓ,k |2 < ∞
+
+}
+
+.
+
+Then, F0div (S2) = H0div (S2) and F1div (S2) = NKdiv with the exact native inner product. More-over, κℓ ≍ (1 + λℓ)−σ implies Fϑ
+
+> div
+
+(S2) ≃ Hϑσ 
+
+> div
+
+(S2). The following lemma turns an L2-error estimate into an estimate in the stronger norm 
+
+F1div (S2), provided the target function has additional smoothness [21, Corollary 15]. DIVERGENCE-FREE INTERPOLATION 17 
+
+Lemma 5.12. Let ε > 0, and let Q : F1div (S2) → F 1div (S2) be an F1div (S2)-orthogonal projection. Suppose that 
+
+(5.17) ‖f − Q f ‖F 0div (S2 ) ≤ ε‖f ‖F 1div (S2), f ∈ F 1div (S2).
+
+Then, for any 0 ≤ ϑ ≤ 1 and g ∈ F 1+ ϑ 
+
+> div
+
+(S2), we have 
+
+(5.18) ‖g − Q g‖F 1div (S2 ) ≤ εϑ‖g‖F 1+ ϑ  
+
+> div (S2)
+
+.
+
+Proof. Let E = I − Q . The case ϑ = 0 follows from the contractivity of this orthogonal projection. To prove the case ϑ = 1, define the positive self-adjoint operator 
+
+Ayℓ,k = κ−1 
+
+> ℓ
+
+yℓ,k .
+
+Then ‖g‖2 
+
+> F1div
+
+= ( Ag, g)F 0div and ‖A g‖F 0div = ‖g‖F 2div . For g ∈ F 2div , orthogonality gives 
+
+‖E g‖2 
+
+> F1div
+
+= 〈E g, g〉F 1div = 〈E g, Ag〉F 0div ≤ ‖E g‖F 0div ‖g‖F 2div .
+
+Since E2 = E, the assumed estimate (5.17) applied to Eg yields ‖E g‖F 0div ≤ ε‖E g‖F 1div . Conse-quently, we have 
+
+‖E g‖F 1div ≤ ε‖g‖F 2div .
+
+We then obtain the intermediate cases by interpolation. Let [ ·, ·]ϑ denote complex interpola-tion. The vector spherical harmonic coefficient map is an isometry from Fϑ 
+
+> div
+
+onto the weighted sequence space ℓ2
+
+({κ−ϑℓ }ℓ,k 
+
+). Hence, the interpolation formula for weighted Hilbert spaces gives [F a
+
+> div
+
+, F b
+
+> div
+
+]ϑ = F (1 −ϑ)a+ϑb  
+
+> div
+
+.
+
+This is an equality of spaces with equivalent norms; for the canonical weighted-sequence norms used here, the interpolation norm equals the F (1 −ϑ)a+ϑb  
+
+> div
+
+norm. The endpoint bounds are 
+
+‖E g‖F 1div ≤ ‖ g‖F 1div and ‖E g‖F 1div ≤ ε‖g‖F 2div . The complex interpolation theorem for linear operators therefore yields 
+
+‖E g‖F 1div ≤ εϑ‖g‖F 1+ ϑ
+
+> div
+
+,
+
+which proves (5.18). This is precisely the projection principle used in [21, Corollary 15]. 
+
+Theorem 5.13. Assume that Assumption 5.1 holds with σ > 1 and that the hypotheses of Theorem 5.11 are satisfied. For 0 ≤ ϑ ≤ 1, let F1+ ϑ 
+
+> div
+
+(S2) denote the space defined in (5.16) .Then, for any g ∈ F 1+ ϑ 
+
+> div
+
+(S2), we have 
+
+(5.19) ‖g − IX g‖NKdiv ≤ Ch ϑσ X ‖g‖F 1+ ϑ 
+
+> div (S2)
+
+.
+
+Moreover, there exists a constant C > 0 independent of hX such that 
+
+(5.20) ‖g − IX g‖Hs(S2 ) ≤ Ch (1+ ϑ)σ−sX ‖g‖F 1+ ϑ  
+
+> div (S2)
+
+, 0 ≤ s ≤ σ. 
+
+Proof. By the estimate from Theorem 5.11, there exists a constant C > 0 such that (5.21) ‖f − IX f ‖L2(S2 ) ≤ Ch σX ‖f ‖F 1div (S2 ), f ∈ F 1div (S2).
+
+The interpolation operator IX is the F1div (S2)-orthogonal projection onto the kernel-based trial space. Therefore Lemma 5.12, applied with ε = Ch σX , gives 
+
+‖g − IX g‖F 1div (S2 ) ≤ (Ch σX )ϑ‖g‖F 1+ ϑ  
+
+> div (S2)
+
+.
+
+Absorbing Cϑ into the generic constant C proves (5.19). The Sobolev zeros lemma 5.9 gives 
+
+‖g − IX g‖Hs(S2 ) ≤ Ch σ−sX ‖g − IX g‖Hσ (S2 )
+
+≤ Ch σ−sX hϑσ X ‖g‖F 1+ ϑ  
+
+> div (S2)
+
+= Ch (1+ ϑ)σ−sX ‖g‖F 1+ ϑ  
+
+> div (S2)
+
+.
+
+This completes the proof of (5.20). DIVERGENCE-FREE INTERPOLATION 18 
+
+The theorem shows that additional smoothness of the target field beyond the native space regularity improves convergence in the native norm. The parameter ϑ measures this extra smoothness. When ϑ = 0, the estimate gives the basic bound in F1div ; when ϑ = 1, it gives the full improvement provided by the Hilbert-scale argument. In many applications, the target function is smoother than the functions in the native space. In this setting, one can obtain a standard doubling argument [13, 27, 29, 33, 40, 44]. 
+
+Corollary 5.14. Under the assumptions of Theorem 5.11, if f ∈ H2σ−s 
+
+> div
+
+(S2) with 0 ≤ s ≤ σ,then 
+
+‖f − IX f ‖Hs (S2) ≤ Ch 2( σ−s) 
+
+> X
+
+‖f ‖H2σ−s(S2 ).
+
+Proof. In Theorem 5.13, set ϑ = 1 − s/σ . Then (1 + ϑ)σ = 2 σ − s and (1 + ϑ)σ − s = 2( σ − s), which gives the stated estimate. 
+
+6. Numerical examples 
+
+In this section, we present several numerical experiments to verify the theoretical results for the convergence rates and stability of interpolation with matrix-valued kernels on surfaces. We compare the classical potential-based construction with two alternative constructions derived from the more general isotropic ansatz 
+
+Kdiv (x, y) = α(r)((nx · ny )I − ny n⊤
+
+> x
+
+) − β(r)(nx × (x − y))( ny × (x − y))⊤.
+
+For conciseness, we characterize each kernel by its choice of β(r). Once β is specified, the divergence-free constraint uniquely determines α and hence the corresponding kernel. We con-sider the following three cases: 
+
+K0div : α0(r) = Iϕ(r), β0(r) = ϕ(r),
+
+K1div : α1(r) = ϕ(r), β1(r) = Dϕ(r),
+
+K2div : α2(r) = Dϕ(r), β2(r) = D2ϕ(r).
+
+We use two standard families of scalar kernels obtained by restricting radial basis functions to the surface: the Mat´ ern (MA) and Wendland (WE) families. A Mat´ ern kernel is defined by 
+
+ϕν (r) = 21−ν
+
+Γ( ν) (εr )ν Kν (εr ),
+
+where Kν denotes the modified Bessel function of the second kind of order ν, and ε > 0 is the shape parameter. Mat´ ern kernels are strictly positive definite on Rd, and the parameter 
+
+ν determines their smoothness. For example, the associated radial kernel belongs to C2(Rd)when ν = ( d + 3) /2, whereas it belongs to C4(Rd) when ν = ( d + 5) /2. For ν = 7 /2, the Mat´ ern profile has the explicit form 
+
+ϕ7/2(r) = e−εr 
+
+(
+
+1 + εr + 2
+
+5 (εr )2 + 1
+
+15 (εr )3
+
+)
+
+.
+
+As a compactly supported alternative, we use the Wendland functions ϕd,ℓ : [0 , ∞) → R
+
+introduced in [42, 43]. The corresponding radial kernels are strictly positive definite on Rd and belong to C2ℓ(Rd). In most of our numerical experiments, we use 
+
+ϕ3,3(r) = (1 − εr )8+
+
+(32( εr )3 + 25( εr )2 + 8 εr + 1 ) .
+
+The stability analysis additionally includes ϕ5,3 and ϕ7,3.DIVERGENCE-FREE INTERPOLATION 19 
+
+6.1. Convergence test. We investigate the convergence and stability of the three kernel con-structions using two vector fields on S2 with different levels of regularity [17]: a smooth field in 
+
+C∞(S2) (Field 1) and a field of limited regularity belonging to Hβ (S2) with β < 2 (Field 2). Both fields are generated from scalar stream functions. Given a stream function s, the corre-sponding vector field is defined by f = L∗s, where L∗ is the surface curl operator. 
+
+Field 1. The stream function is defined by 
+
+s1(x) = − 1
+
+√3 Y1,0(x) + 8√2
+
+3√385 Y5,4(x).
+
+Since s1 is a finite linear combination of spherical harmonics, the resulting field f1 = L∗s1
+
+belongs to C∞(S2). Figure 2(a) shows the stream function s1.
+
+Field 2. For xc ∈ S2 with spherical coordinates ( θc, λ c), set t = x · xc and a = 1 − t. Define 
+
+g(x; θc, λ c) = − 1
+
+2
+
+(
+
+(3 t + 3 √2a3/2 − 4) + (3 t2 − 4t + 1) log a + (3 t − 1) a log (√2a + a))
+
+.
+
+The stream function is 
+
+s2(x) = 
+
+∫ θ
+
+> −π/ 2
+
+sin 14 (2 ζ) d ζ − 3g(x; π/ 4, −π/ 12) ,
+
+where θ is the latitudinal coordinate of x. The corresponding divergence-free field f2 = L∗s2
+
+belongs to Hβ
+
+> div
+
+(S2) with β < 2 [16]. Figure 2(d) shows the stream function s2.We first consider minimum-energy (ME) node sets on the sphere. The interpolation sets contain N ∈ { 529 , 1025 , 1849 , 3137 , 5041 } nodes, while a fixed maximum-determinant (MD) node set Y ⊂ S2 with M = 20164 nodes is used for error evaluation. We measure the accuracy using the discrete relative ℓ2-error (6.1) E(X) := ‖u − IX u‖ℓ2(Y )
+
+‖u‖ℓ2(Y )
+
+, ‖u‖2  
+
+> ℓ2(Y)
+
+:=  
+
+> |Y|
+
+∑
+
+> j=1
+
+wj ‖u(yj )‖22,
+
+where IX u denotes the interpolant constructed from the node set X, and {wj } are the quad-rature weights associated with the MD nodes. The experiments use the Mat´ ern kernel MA 7/2 and the compactly supported Wendland kernel WE 3,3. For each kernel, the shape parameter is held fixed as the number of interpolation nodes increases. For Field 1, the shape parameters for the Mat´ ern kernel are ε1 = 9, ε2 = 7, and ε3 = 4, while the corresponding Wendland shape parameters are ε1 = 11 /10, ε2 = 4 /3, and ε3 = 5 /3. The same parameter choices are used for Field 2. Table 1 and Table 2 report the errors and convergence rates for the smooth Field 1 obtained using the Mat´ ern and Wendland kernels, respectively. The errors decay approximately as 
+
+O(h11  
+
+> X
+
+), O(h9 
+
+> X
+
+), and O(h7 
+
+> X
+
+) for K0div , K1div , and K2div , respectively. These rates are consistent with the Hilbert-scale superconvergence estimate established in Theorem 5.13. In particular, the proposed constructions K0div and K1div attain higher convergence orders than the classical construction K2div . These results support the predicted accuracy gains for sufficiently smooth target fields. For Field 2, the limited regularity of the target field restricts the attainable convergence order. Nevertheless, Figure 1 shows that the errors decrease consistently as the nodes are refined. For the classical construction K2div , the kernels and corresponding shape parameters coincide with those used in [17], and the resulting numerical values reproduce those reported therein. Figure 2 compares the two target vector fields with their divergence-free interpolants. The top and bottom rows show Field 1 and Field 2, respectively, together with their reconstructions obtained using K0div . Both interpolants use N = 1849 ME nodes. The close agreement between the target and reconstructed fields indicates that K0div accurately approximates both fields. Figure 3 further shows the pointwise interpolation errors for Field 1 obtained using the three DIVERGENCE-FREE INTERPOLATION 20 
+
+Table 1. Convergence results for the approximation of Field 1 using the re-stricted MA 7/2 kernel. The three methods use the shape parameters ε1 = 9, 
+
+ε2 = 7 and ε3 = 4, respectively. Errors are evaluated on N = 20164 MD nodes. 
+
+N K0div rate K1div rate K2div rate 
+
+529 5.833e-06 8.887e-06 1.013e-05 1025 1.435e-07 11.20 4.164e-07 9.25 8.605e-07 7.46 1849 6.316e-09 10.59 2.926e-08 9.00 1.034e-07 7.18 3137 3.405e-10 11.05 2.511e-09 9.29 1.524e-08 7.24 5041 2.457e-11 11.09 3.059e-10 8.88 2.890e-09 7.01 
+
+Table 2. Convergence results for the approximation of Field 1 using the re-stricted WE 3,3 kernel. The three methods use the shape parameters ε1 =11 /10, ε2 = 4 /3, and ε3 = 5 /3, respectively. Errors are evaluated at N = 20164 MD nodes. 
+
+N K0div rate K1div rate K2div rate 
+
+529 1.222e-05 7.695e-06 1.527e-05 1025 2.419e-07 11.86 3.546e-07 9.31 1.475e-06 7.07 1849 9.649e-09 10.92 2.418e-08 9.10 1.799e-07 7.13 3137 5.280e-10 10.99 2.069e-09 9.30 2.621e-08 7.29 5041 3.617e-11 11.30 2.514e-10 8.89 5.263e-09 6.77 
+
+10 −2 10 −1
+
+10 −3
+
+10 −2
+
+10 −1
+
+h2
+
+> X
+
+hX
+
+> Relative  ℓ2 error
+
+K0div 
+
+> MA 7/2
+> WE 3,3
+
+10 −2 10 −1
+
+h2
+
+> X
+
+hX
+
+K1div 
+
+> MA 7/2
+> WE 3,3
+
+10 −2 10 −1
+
+h2
+
+> X
+
+hX
+
+K2div 
+
+> MA 7/2
+> WE 3,3
+
+Figure 1. Relative ℓ2 errors for Field 2 obtained via matrix-valued kernel interpolation with MA 7/2 and WE 3,3 kernels on ME node sets. kernels K0div , K1div , and K2div . Among them, K0div yields the smallest errors across the sphere, whereas K2div produces the largest. 6.2. Spectral stability of the interpolation matrices. We assess the spectral stability of the interpolation matrices by examining their smallest eigenvalues. The ME and Fibonacci node sets considered here are quasi-uniform, so hX ≍ qX . Consequently, the asymptotic rates can be expressed in terms of either quantity. For each node set, we assemble the 2 N × 2N
+
+interpolation matrix in local orthonormal tangent frames and compute its smallest eigenvalue. DIVERGENCE-FREE INTERPOLATION 21 
+
+(a) Stream function s1 (b) vector field L∗s1 (c) Reconstructed vector field 
+
+(d) Stream function s2 (e) vector field L∗s2 (f) Reconstructed vector field 
+
+Figure 2. Comparison of the target and reconstructed fields. Top row :Field 1. (a) Stream function s1; (b) divergence-free vector field L∗s1; and (c) reconstructed field using K0div with N = 1849 ME nodes. Bottom row :Field 2. (d) Stream function s2; (e) divergence-free vector field L∗s2; and (f) reconstructed field using K0div with N = 1849 ME nodes. 
+
+(a) K0div (b) K1div (c) K2div 
+
+Figure 3. Pointwise errors for approximating Field 1 using the three matrix-valued kernels. All experiments use N = 1849 ME interpolation nodes and 
+
+M = 20164 evaluation nodes. The top row of Figure 4 shows the results for the divergence-free kernels K0div , K1div , and 
+
+K2div generated from the Mat´ ern kernel MA 7/2 on the ME and Fibonacci node sets. The computed smallest eigenvalues decay approximately as O(h9 
+
+> X
+
+), O(h7 
+
+> X
+
+), and O(h5 
+
+> X
+
+), respectively. These exponents are consistent with the theoretical lower bound λmin & q2σ−2 
+
+> X
+
+established in Corollary 5.5, where σ = 11 /2, 9 /2, and 7 /2 for K0div , K1div , and K2div , respectively. For Wendland kernels, the positive definiteness of the resulting matrix-valued kernel depends on the dimension for which the underlying scalar kernel is positive definite. As established in [38], the construction of K0div requires positive definiteness of the underlying Wendland kernel in a higher dimension than the constructions of K1div and K2div . To examine this requirement numerically, we construct K0div from the Wendland kernels ϕ3,3, ϕ5,3, and ϕ7,3 using the common DIVERGENCE-FREE INTERPOLATION 22 
+
+Table 3. Zonal kernels φ and corresponding auxiliary functions ψ used in the multiplier-preserving construction. Here r := ρ−1√2 − 2t denotes the scaled chordal distance.                                                                              
+
+> Kernel Definitions of φand ψ
+> WE 3,3
+> φ(t) = 78
+> 7πρ 2(1 −r)8+
+> (32 r3+ 25 r2+ 8 r+ 1 ),ψ(t) = 1 + t
+> 4π(1 −t2)−(1 −r)9+
+> 2π(1 −t2)
+> (384
+> 7r4+ 453
+> 7r3+ 237
+> 7r2+ 9 r+ 1
+> )
+> .
+> WE 5,3
+> φ(t) = 13
+> 15 πρ 2(1 −r)9+
+> (693 r3+ 477 r2+ 135 r+ 15 ),ψ(t) = 1 + t
+> 4π(1 −t2)−(1 −r)10 +
+> 2π(1 −t2)
+> (429
+> 5r4+ 90 r3+ 42 r2+ 10 r+ 1
+> )
+> .
+> WE 7,3
+> φ(t) = 1
+> πρ 2(1 −r)10 +
+> (960 r3+ 591 r2+ 150 r+ 15 ),ψ(t) = 1 + t
+> 4π(1 −t2)−(1 −r)11 +
+> 2π(1 −t2)
+> (128 r4+ 121 r3+ 51 r2+ 11 r+ 1 ).
+
+shape parameter ε = 4 /3. The bottom row of Figure 4 shows the smallest eigenvalues of the resulting interpolation matrices. At N = 5041, the smallest eigenvalues associated with ϕ3,3
+
+and ϕ5,3 are negative for both the ME and Fibonacci node sets and are therefore omitted from the logarithmic plots. These results are consistent with the stronger dimensional positive-definiteness requirement for K0div .Finally, we examine the multiplier-preserving construction established in Theorem 3.4. We consider the three Wendland kernels ϕ3,3, ϕ5,3, and ϕ7,3, which correspond to increasing values of the dimension parameter d. Table 3 lists explicit formulas for the scalar zonal kernels φ(t)and the corresponding auxiliary functions ψ(t) used to define the divergence-free matrix-valued kernel 
+
+Kdiv (x, y) = ψ′(t)Q(x, y) + ψ(t)R(x, y).
+
+As shown in Figure 5, the computed smallest eigenvalues remain positive for all tested node-set sizes and for all three kernels on both the ME and Fibonacci node sets. This behavior is consis-tent with the positive-definiteness property guaranteed by Theorem 3.4. Moreover, the smallest eigenvalues decay approximately as O(q7 
+
+> X
+
+), consistent with the rate given in Corollary 5.5. 6.3. Simulations on various surfaces. To illustrate the geometric flexibility of the proposed divergence-free interpolation framework on surfaces other than the sphere, we consider three embedded surfaces with different geometric and topological characteristics: a torus, a red blood cell (RBC) surface, and a bumpy sphere. Detailed definitions of these surfaces and their asso-ciated divergence-free target fields are provided in Appendix C. For the torus, the interpolation set comprises N = 1600 Fibonacci-type nodes generated using a modified golden-section construction. The error is evaluated on an independent set of 
+
+M = 5000 nodes. We construct the matrix-valued kernels from the Mat´ ern kernel MA 7/2 with shape parameter ε = 7 /3. Figure 6(a) shows the stream function s3, while Figure 6(b) shows the divergence-free interpolant obtained using K0div . The interpolated vectors remain tangent to the torus and capture the oscillatory structure induced by the stream function. For the RBC surface, the interpolation centers are generated by radially projecting ME nodes onto the surface. We use N = 1600 interpolation centers and an evaluation set of M = 8100 projected ME nodes. Figure 6(c) shows the stream function s4, while Figure 6(d) shows the divergence-free interpolant constructed using the proposed multiplier-preserving kernel K0div .DIVERGENCE-FREE INTERPOLATION 23  
+
+> 10 −210 −1
+> 10 −11
+> 10 −9
+> 10 −7
+> 10 −5
+> 10 −3
+> q9
+> X
+> q5
+> X
+
+qX
+
+> Minimum eigenvalue
+
+MA 7/2, ME Nodes  
+
+> K0div
+> K1div
+> K2div
+> 10 −210 −1
+> 10 −11
+> 10 −9
+> 10 −7
+> 10 −5
+> 10 −3
+> q9
+> X
+> q5
+> X
+
+qX
+
+MA 7/2, Fibonacci Nodes  
+
+> K0div
+> K1div
+> K2div
+> 10 −210 −1
+> 10 −11
+> 10 −9
+> 10 −7
+> 10 −5
+> q9
+> X
+
+qX
+
+> Minimum eigenvalue
+
+K0div , ME Nodes  
+
+> ϕ3,3
+> ϕ5,3
+> ϕ7,3
+> 10 −210 −1
+> 10 −11
+> 10 −9
+> 10 −7
+> 10 −5
+> q9
+> X
+
+qX
+
+K0div , Fibonacci Nodes 
+
+> ϕ3,3
+> ϕ5,3
+> ϕ7,3
+
+Figure 4. Minimum eigenvalues of the divergence-free interpolation matrices. 
+
+Top : K0div , K1div , K2div with MA 7/2 on ME (left) and Fibonacci (right) nodes. 
+
+Bottom : K0div with Wendland kernels ϕ3,3, ϕ5,3, ϕ7,3 on ME (left) and Fi-bonacci (right) nodes. For the bumpy sphere, we map Fibonacci nodes onto Γ B using the radial perturbation defined in Appendix C. We use N = 3200 interpolation centers and an evaluation set of M = 8100 nodes. The matrix-valued kernels are constructed from the Mat´ ern kernel MA 7/2 with shape parameter 
+
+ε = 5. Figure 6(e) shows the stream function s5(x, y, z ) = xy + yz + zx , while Figure 6(f) shows the divergence-free interpolant obtained using K0div . The interpolated vectors remain tangent to the bumpy surface and capture the complex variations induced by the triaxial sinusoidal perturbations. These results illustrate the applicability of the proposed kernel construction to surfaces with rapidly varying curvature. Figure 7 shows the convergence behavior of the divergence-free interpolants on the torus, the RBC surface, and the bumpy sphere. On the torus and the RBC surface, the errors demonstrate superconvergent decay. In contrast, convergence is slower on the bumpy sphere. This difference may reflect the greater complexity of the associated native space arising from the surface’s spatially varying curvature. A detailed analysis of the relationship between curvature, native-space structure, and convergence is left for future work. DIVERGENCE-FREE INTERPOLATION 24  
+
+> 10 −210 −1
+> 10 −8
+> 10 −6
+> 10 −4
+> q7
+> X
+
+qX
+
+> Minimum eigenvalue
+
+ME Nodes  
+
+> ϕ3,3
+> ϕ5,3
+> ϕ7,3
+> 10 −210 −1
+> 10 −8
+> 10 −6
+> 10 −4
+> q7
+> X
+
+qX
+
+Fibonacci Nodes 
+
+> ϕ3,3
+> ϕ5,3
+> ϕ7,3
+
+Figure 5. Minimum eigenvalues of the multiplier-preserving divergence-free interpolation matrices Kdiv (x, y) = ψ′(t)Q(x, y) + ψ(t)R(x, y) constructed from the Wendland kernels ϕ3,3, ϕ5,3, and ϕ7,3 with the common shape pa-rameter ε = 2. Results are shown for ME nodes (left) and Fibonacci nodes (right). 7. Conclusion 
+
+We have developed a general framework for constructing divergence-free kernels on embed-ded surfaces. The proposed construction incorporates the surface geometry through normal-dependent cross-product operators while retaining flexibility in the choice of the underlying scalar kernel. In particular, it avoids the repeated application of surface differential operators required by classical potential-based constructions. On the unit sphere, the vector spherical harmonic representation provides an explicit characterization of the kernel multipliers, positive definiteness, and associated native spaces. We have also established a multiplier-preserving construction for which positive definiteness and native space equivalence follow directly from the Fourier coefficients of the underlying zonal kernel. Under an appropriate multiplier decay condition, we derived a stability estimate for the inter-polation matrix together with a corresponding condition number bound. We further established pointwise and fractional-order Sobolev error estimates for target fields with both native space and lower regularity. For targets smoother than the native space, a Hilbert-scale argument yields superconvergence estimates that quantify the additional accuracy achieved by the pro-posed constructions. The stability and convergence analysis developed in this work relies on the spherical harmonic structure of S2, whereas the experiments on more general surfaces pro-vide numerical evidence of the broader applicability of the framework. Natural directions for future research include extending the multiplier analysis and error theory to general compact surfaces, establishing complete positive-definiteness criteria for lower-order constructions, and developing scalable preconditioners and localized implementations. 
+
+References      
+
+> [1] R.A. Adams and J.J.F. Fournier. Sobolev Spaces, 2nd edition. Vol. 140. of Pure and Applied Mathematics, Elsevier/Academic Press, Amsterdam, 2003. [2] R. Arcang´ eli, M.C. L´ opez de Silanes, and J.J. Torrens. Extension of sampling inequalities to Sobolev semi-norms of fractional order and derivative data. Numer. Math. , 121(3):587–608, 2012. [3] H. Brezis and P. Mironescu. Gagliardo-Nirenberg inequalities and non-inequalities: the full story. Ann. Inst. Henri Poincar´ e, Anal. Non lin´ eaire , 35(5):1355–1376, 2018. DIVERGENCE-FREE INTERPOLATION 25
+
+(a) Stream function s3 (b) Reconstructed vector field 
+
+(c) Stream function s4 (d) Reconstructed vector field 
+
+(e) Stream function s5 (f) Reconstructed vector field 
+
+Figure 6. Stream functions and reconstructed divergence-free vector fields on three embedded surfaces: torus, red blood cell and bumpy sphere. All reconstructions are obtained via K0div .
+
+[4] G. Brown and F. Dai. Approximation of smooth functions on compact two-point homogeneous spaces. J. Func. Anal. , 220(2):401–423, 2005. [5] F. Dai and Y. Xu. Approximation theory and harmonic analysis on spheres and balls , volume 23. Springer, 2013. [6] F. Dodu and C. Rabut. Irrotational or divergence-free interpolation. Numer. Math. , 98(3):477–498, 2004. [7] K.P. Drake, E.J. Fuselier, and G.B. Wright. A partition of unity method for divergence-free or curl-free radial basis function approximation. SIAM J. Sci. Comput. , 43(3):A1950–A1974, 2021. [8] K.P. Drake, E.J. Fuselier, and G.B. Wright. Implicit surface reconstruction with a curl-free radial basis function partition of unity method. SIAM J. Sci. Comput. , 44(5):A3018–A3040, 2022. [9] F. Dubois. Discrete vector potential representation of a divergence-free vector field in three-dimensional domains: numerical analysis of a model problem. SIAM J. Numer. Anal. , 27(5):1103–1141, 1990. DIVERGENCE-FREE INTERPOLATION 26  
+
+> 10 −210 −1
+> 10 −9
+> 10 −7
+> 10 −5
+> 10 −3
+> 10 −1
+> h11
+> X
+> h7
+> X
+
+hX
+
+> Relative  ℓ2 error
+
+Torus  
+
+> K0div
+> K1div
+> K2div
+> 10 −210 −1
+> 10 −9
+> 10 −7
+> 10 −5
+> 10 −3
+> 10 −1
+> h11
+> X
+> h7
+> X
+
+hX
+
+> Relative  ℓ2 error
+
+Red blood cell  
+
+> K0div
+> K1div
+> K2div
+> 10 −210 −1
+> 10 −5
+> 10 −3
+> 10 −1
+> h3.5
+> X
+> h5.5
+> X
+
+hX
+
+> Relative  ℓ2 error
+
+Bumpy sphere 
+
+> K0div
+> K1div
+> K2div
+
+Figure 7. Relative ℓ2 errors of the divergence-free approximation on three different surfaces using the restricted MA 7/2 kernel. 
+
+[10] P. Farrell, K. Gillow, and H. Wendland. Multilevel interpolation of divergence-free vector fields. IMA J. Numer. Anal. , 37(1):332–353, 2017. [11] W. Freeden and M. Schreiner. Spherical functions of mathematical geosciences . Springer, 2008. [12] M.H. Freedman and Z.-X. He. Divergence-free fields: energy and asymptotic crossing number. Ann. Math. ,134(1):189–229, 1991. [13] E. Fuselier and G.B. Wright. Scattered data interpolation on embedded submanifolds with restricted positive definite kernels: Sobolev error estimates. SIAM J. Numer. Anal. , 50(3):1753–1776, 2012. [14] E.J. Fuselier. Improved stability estimates and a characterization of the native space for matrix-valued RBFs. Adv. Comput. Math. , 29(3):269–290, 2008. [15] E.J. Fuselier. Sobolev-type approximation rates for divergence-free and curl-free RBF interpolants. Math. Comput. , 77(263):1407–1423, 2008. [16] E.J. Fuselier, F.J. Narcowich, J.D. Ward, and G.B. Wright. Error and stability estimates for surface-divergence free RBF interpolants on the sphere. Math. Comput. , 78(268):2157–2186, 2009. [17] E.J. Fuselier and G.B. Wright. Stability and error estimates for vector field interpolation and decomposition on the sphere with RBFs. SIAM J. Numer. Anal. , 47(5):3213–3239, 2009. [18] J. Guzm´ an and M. Neilan. Conforming and divergence-free Stokes elements in three dimensions. IMA J. Numer. Anal. , 34(4):1489–1508, 2014. [19] J. Guzm´ an and M. Neilan. Conforming and divergence-free Stokes elements on general triangular meshes. 
+
+Math. Comput. , 83(285):15–36, 2014. [20] H. Hermes. Nilpotent and high-order approximations of vector field systems. SIAM Rev. , 33(2):238–264, 1991. [21] T. Karvonen, G. Santin, and T. Wenzel. General superconvergence for kernel-based approximation. 
+
+arXiv:2505.11435 , 2025. [22] P.L. Lederer, C. Lehrenfeld, and J. Sch¨ oberl. Divergence-free tangential finite element methods for incom-pressible flows on surfaces. Int. J. Numer. Methods Eng. , 121(11):2503–2533, 2020. [23] S. Lowitzsch. Error estimates for matrix-valued radial basis function interpolation. J. Approx. Theory ,137(2):238–249, 2005. [24] S. Lowitzsch. Matrix-valued radial basis functions: stability estimates and applications. Adv. Comput. Math. , 23(3):299–315, 2005. [25] H.N. Mhaskar. On the representation of smooth functions on the sphere using finitely many bits. Appl. Comput. Harmon. Anal. , 18(3):215–233, 2005. [26] H.N. Mhaskar, F.J. Narcowich, J. Prestin, and J.D. Ward. Lp Bernstein estimates and approximation by spherical basis functions. Math. Comput. , 79(271):1647–1679, 2010. [27] T.M. Morton and M. Neamtu. Error bounds for solving pseudodifferential equations on spheres by colloca-tion with zonal kernels. J. Approx. Theory , 114(2):242–268, 2002. [28] C. M¨ uller. Spherical Harmonics . Lecture Notes in Mathematics, Vol. 17, Springer-Verlag, Berlin, 1966. [29] F.J. Narcowich, X.P. Sun, J.D. Ward, and H. Wendland. Direct and inverse Sobolev error estimates for scattered data interpolation via spherical basis functions. Found. Comput. Math. , 7(3):369–390, 2007. [30] F.J. Narcowich and J.D. Ward. Generalized Hermite interpolation via matrix-valued conditionally positive definite functions. Math. Comput. , 63(208):661–687, 1994. [31] F.J. Narcowich, J.D. Ward, and G.B. Wright. Divergence-free RBFs on surfaces. J. Fourier Anal. Appl. ,13(6):643–663, 2007. DIVERGENCE-FREE INTERPOLATION 27 
+
+[32] M. Neilan and B. Otus. Divergence-free Scott-Vogelius elements on curved domains. SIAM J. Numer. Anal. , 59(2):1090–1116, 2021. [33] R. Schaback. Improved error bounds for scattered data interpolation by radial basis functions. Math. Com-put. , 68(255):201–216, 1999. [34] R. Schaback and Z.M. Wu. Operators on radial functions. J. Comput. Appl. Math. , 73(1-2):257–270, 1996. [35] S. Schwarzacher, B.W. She, and K. T˚ uma. Stability and error estimates of a linear numerical scheme approximating nonlinear fluid-structure interactions. Numer. Math. , 157(3):1023–1077, 2025. [36] K. Soga. Mathematical analysis of a finite difference method for inhomogeneous incompressible Navier– Stokes equations. Numer. Math. , 156(5):1809–1853, 2024. [37] H.A. Stone. Interfaces: in fluid mechanics and across disciplines. J. Fluid Mech. , 645:1–25, 2010. [38] Z.J. Sun, L.S. Dong, and L. Ling. Error estimates for vector field interpolation based on generalized matrix-valued kernels. arXiv:2608.04313 , 2026. [39] Z.J. Sun, B. Huang, and X.P. Sun. Vector field multiplier operators and matrix-valued kernel quasi-interpolation. arXiv:2605.05610 , 2026. [40] Z.J. Sun and L. Ling. A kernel-based meshless conservative Galerkin method for solving Hamiltonian wave equations. SIAM J. Sci. Comput. , 44(4):A2789–2807, 2022. [41] P.N. Swarztrauber. The approximation of vector functions and their derivatives on the sphere. SIAM J. Numer. Anal. , 18(2):191–210, 1981. [42] H. Wendland. Piecewise polynomial, positive definite and compactly supported radial functions of minimal degree. Adv. Comput. Math. , 4(1):389–396, 1995. [43] H. Wendland. Scattered data approximation , volume 17. Cambridge University Press, 2004. [44] H. Wendland. Divergence-free kernel methods for approximating the Stokes problem. SIAM J. Numer. Anal. , 47(4):3158–3179, 2009. [45] K.L. Wu and C.-W. Shu. Provably physical-constraint-preserving discontinuous Galerkin methods for mul-tidimensional relativistic MHD equations. Numer. Math. , 148(3):699–741, 2021. [46] E. Zhang, K. Mischaikow, and G. Turk. Vector field design on surfaces. ACM Trans. Graph. (ToG) ,25(4):1294–1326, 2006. [47] J.K. Zhao, B. Zhang, S.P. Mao, and S.C. Chen. The divergence-free nonconforming virtual element for the Stokes problem. SIAM J. Numer. Anal. , 57(6):2730–2759, 2019. 
+
+Appendix A. Proof of Lemma 5.3 
+
+To prove Lemma 5.3, we first recall a result about uniform filtered Jacobi localization. 
+
+Lemma A.1. Let k ∈ N0, 0 < c 3 < c 4 < ∞, and M > 0. For the standard Jacobi polynomials 
+
+P (k,k ) 
+
+> ℓ
+
+, define 
+
+h(k) 
+
+> ℓ
+
+:= 
+
+∫ 1
+
+> −1
+
+|P (k,k ) 
+
+> ℓ
+
+(t)|2(1 − t)k (1 + t)k dt. 
+
+Let J = 3 ⌈M ⌉ − 1. Suppose that {χL}L≥1 ⊂ C∞ 
+
+> c
+
+([0 , ∞)) satisfies 
+
+supp χL ⊂ [c3, c 4], sup 
+
+> L≥1
+
+max  
+
+> 0≤i≤J
+
+‖χ(i) 
+
+> L
+
+‖L∞ < ∞.
+
+Then there exists a constant C > 0 such that 
+
+∣∣∣∣∣
+
+> ∞
+
+∑
+
+> ℓ=0
+
+χL
+
+( ℓ
+
+L
+
+) P (k,k ) 
+
+> ℓ
+
+(1) 
+
+h(k)
+
+> ℓ
+
+P (k,k ) 
+
+> ℓ
+
+(cos θ)
+
+∣∣∣∣∣ ≤ CL 2k+2 (1 + Lθ )−M
+
+for 0 ≤ θ ≤ π and L ≥ 1.Proof. Let ̺ = ⌈M ⌉ and b = max {1, c 4}. We set 
+
+NL := ⌈bL ⌉, bL := NL
+
+L , ϕL(u) := χL(bLu).
+
+Then, we obtain 
+
+ϕL
+
+( ℓ
+
+NL
+
+)
+
+= χL
+
+( ℓ
+
+L
+
+)
+
+, supp ϕL ⊂ [0 , 1] .
+
+Because ϕL vanishes in a neighborhood of zero, all its derivatives vanish at zero. Moreover, 
+
+b ≤ bL ≤ b + 1, and hence sup 
+
+> L
+
+‖ϕ(i) 
+
+> L
+
+‖L∞ ≤ (b + 1) i sup 
+
+> L
+
+‖χ(i) 
+
+> L
+
+‖L∞ .DIVERGENCE-FREE INTERPOLATION 28 
+
+The Jacobi normalization gives 
+
+P (k,k ) 
+
+> ℓ
+
+(1) 
+
+h(k)
+
+> ℓ
+
+= 1
+
+22k+1 Γ( k + 1) (2 ℓ + 2 k + 1) Γ( ℓ + 2 k + 1) 
+
+Γ( ℓ + k + 1) .
+
+Thus, up to a multiplicative constant, the sum in the statement is the kernel G(k,k ) 
+
+> NL
+
+defined in [5, (2.6.7)], with cutoff ϕL. Applying [5, Theorem 2.6.7] with α = β = k, n = NL, Jacobi derivative order zero, and decay parameter ̺ , yields 
+
+|G(k,k ) 
+
+> NL
+
+(cos θ)| ≤ Ck,̺ ‖ϕ(3 ̺ −1)  
+
+> L
+
+‖L∞ N 2k+2  
+
+> L
+
+(1 + NLθ)−̺ .
+
+Since NL ≍ L and ̺ ≥ M , the right-hand side is bounded by 
+
+CL 2k+2 (1 + Lθ )−M .
+
+This completes the proof. 
+
+Proof of Lemma 5.3 . The vector addition formula gives (A.1) KL,w (x, y) = B′′ 
+
+> L, w
+
+(t)Q(x, y) + B′
+
+> L, w
+
+(t)R(x, y), t = x · y.
+
+We then establish uniform bounds for the first two derivatives of BL, w.For j = 1 , 2, the Jacobi differentiation identity is 
+
+dj
+
+dt j Pℓ(t) = 2 −j (ℓ + 1) j P (j,j ) 
+
+> ℓ−j
+
+(t), (z)j = Γ( z + j)
+
+Γ( z) , ℓ ≥ j, 
+
+Put n = ℓ − j. The standard Jacobi normalization gives 
+
+P (j,j ) 
+
+> n
+
+(1) = Γ( n + j + 1) 
+
+Γ( j + 1)Γ( n + 1) and 
+
+h(j) 
+
+> n
+
+= 22j+1 
+
+2n + 2 j + 1 Γ( n + j + 1) 2
+
+Γ( n + 1)Γ( n + 2 j + 1) .
+
+Consequently, 
+
+P (j,j ) 
+
+> n
+
+(1) 
+
+h(j)
+
+> n
+
+= 2n + 2 j + 1 
+
+22j+1 Γ( j + 1) Γ( n + 2 j + 1) 
+
+Γ( n + j + 1) .
+
+Substituting it into the differentiated series yields the following identity (A.2) B(j)
+
+> L, w
+
+(t) = cj L−2
+
+> ∞
+
+∑
+
+> n=0
+
+χL,j 
+
+( n
+
+L
+
+) P (j,j ) 
+
+> n
+
+(1) 
+
+h(j)
+
+> n
+
+P (j,j ) 
+
+> n
+
+(t),
+
+where 
+
+cj = 2j−1Γ( j + 1) 
+
+π , χL,j (u) := w(u + j/L )
+
+(u + j/L )( u + ( j + 1) /L ) .
+
+We next verify that the constants supplied by Lemma A.1 are uniform in L. Fix L0 ≥ 8( j+1). If L ≥ L0, then supp χL,j ⊂ [1 /8, 1]. On this support, both denominator factors are bounded below by 1 /4. Differentiating χL,j therefore shows that, for any integer i ≥ 0, sup 
+
+> L≥L0
+
+‖χ(i) 
+
+> L,j
+
+‖L∞ ≤ Ci,j max  
+
+> 0≤s≤i
+
+‖w(s)‖L∞ .
+
+Thus, the support condition and the required finite collection of smoothness seminorms in Lemma A.1 are uniform in L.Applying Lemma A.1 to (A.2) with k = j, M = ν + 2 , c 3 = 1 
+
+> 8
+
+, c 4 = 1 yields (A.3) |B (j)
+
+> L, w
+
+(cos θ)| ≤ Cν, w,j L2j (1 + Lθ )−ν−2, j = 1 , 2.DIVERGENCE-FREE INTERPOLATION 29 
+
+Finally, because ‖Q(x, y)‖2 = sin 2 θ ≤ θ2, ‖R(x, y)‖2 ≤ 2, combining these bounds with (A.1) and (A.3) gives 
+
+‖KL, w(x, y)‖2 ≤ Cν, w
+
+(L4θ2 + L2) (1 + Lθ )−ν−2
+
+≤ Cν, wL2(1 + Lθ )−ν ,
+
+which completes the proof. 
+
+Appendix B. Proof of Lemma 5.4 
+
+Proof of Lemma 5.4 . By definition of qX , the nodes satisfy dist( xi, xj ) ≥ 2qX for i 6 = j;hence, the spherical caps B(xj , q X ) are pairwise disjoint. Fix i and k ≥ 1. If kq X ≤
+
+dist( xi, xj ) < (k + 1) qX , then the cap B(xj , q X ) is contained in the annulus 
+
+{z ∈ S2 : ( k − 1) qX ≤ dist( xi, z) < (k + 2) qX
+
+} .
+
+Comparing the total area of these disjoint caps with that of the annulus yields #{j : kq X ≤ dist( xi, xj ) < (k + 1) qX
+
+} ≤ C(k + 1) .
+
+This proves the first assertion. If Lq X ≥ 1, the packing estimate gives 
+
+∑ 
+
+> j6=i
+
+(1 + L dist( xi, xj )) −ν ≤ C
+
+> ∞
+
+∑
+
+> k=1
+
+(k + 1)(1 + kLq X )−ν
+
+≤ C(Lq X )−ν
+
+> ∞
+
+∑
+
+> k=1
+
+(k + 1) k−ν .
+
+The final series converges because ν > 2. The estimate is therefore uniform in i, which proves the second assertion. 
+
+Appendix C. Surfaces in numerical experiments 
+
+We define the torus, red blood cell surface, and bumpy sphere, together with their associated divergence-free target vector fields. 
+
+1. Torus. Let Γ T ⊂ R3 be the torus parameterized by 
+
+xT(θ, λ ) = ((R + r cos λ) cos θ, (R + r cos λ) sin θ, r sin λ)⊤, θ, λ ∈ [0 , 2π),
+
+where R and r denote the major and minor radii, respectively. We generate a tangential divergence-free vector field from the stream function s3(θ, λ ) = sin( mθ − nλ ), where m, n ∈ N.Here, we set R = 1, r = 1 
+
+> 2
+
+, m = 2 and n = 3. 
+
+2. Red blood cell. The RBC surface Γ R ⊂ R3 is parameterized by ΓR = {(x, y, z ) ∈ R3 |x = r0 cos λ cos θ, y = r0 sin λ cos θ, z = 1 
+
+> 2
+
+sin θ(c0 + c2 cos 2 θ + c4 cos 4 θ)} ,
+
+where −π/ 2 ≤ θ ≤ π/ 2, −π ≤ λ < π , r0 = 3 .91 /3.39, c0 = 0 .81 /3.39, c2 = 7 .83 /3.39, and 
+
+c4 = −4.39 /3.39. This biconcave surface differs substantially from both the sphere and the torus and therefore provides a geometrically more heterogeneous test case. We define the scalar stream function 
+
+s4(θ, λ ) = cos(5 θ) cos( λ)and the target field fR = LRs4, where LR denotes the surface curl operator on Γ R.DIVERGENCE-FREE INTERPOLATION 30 
+
+3. Bumpy sphere. The bumpy sphere Γ B ⊂ R3 is defined as a radial perturbation of the unit sphere: 
+
+xB(θ, λ ) = ρ(θ, λ )
+
+sin λ cos θ
+
+sin λ sin θ
+
+cos λ
+
+ , θ ∈ [0 , 2π), λ ∈ [0 , π ],
+
+where the radial function is given by 
+
+ρ(θ, λ ) = Rbase + a [sin( ωx ) + sin( ωy ) + sin( ωz )] ,
+
+with ( x, y, z ) = (sin λ cos θ, sin λ sin θ, cos λ). We take Rbase = 1 , a = 0 .05 and ω = 20. The stream function is chosen as 
+
+s5(x, y, z ) = xy + yz + zx, 
+
+and the target divergence-free vector field is given by fB = LBs5.
+
+School of Mathematics and Statistics, Nanjing University of Science and Technology 
+
+Email address : zhengjiesun2020@gmail.com 
+
+School of Mathematics and Statistics, Nanjing University of Science and Technology 
+
+Email address : dlishuo@163.com 
+
+School of Mathematics and Statistics, Nanjing University of Science and Technology 
+
+Email address : biaohuangbest@163.com

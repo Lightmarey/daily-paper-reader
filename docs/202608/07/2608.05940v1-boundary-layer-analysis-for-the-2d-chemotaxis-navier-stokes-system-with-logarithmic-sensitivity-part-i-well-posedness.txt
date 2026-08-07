@@ -1,0 +1,13005 @@
+Title: Boundary layer analysis for the 2D chemotaxis-Navier-Stokes system with logarithmic sensitivity, Part I: Well-posedness
+
+URL Source: https://arxiv.org/pdf/2608.05940v1
+
+Published Time: Fri, 07 Aug 2026 00:54:13 GMT
+
+Number of Pages: 65
+
+Markdown Content:
+BOUNDARY LAYER ANALYSIS FOR THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM WITH LOGARITHMIC SENSITIVITY, PART I: WELL-POSEDNESS 
+
+HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+Abstract. This is the first part of a two-part work concerning the boundary layer convergence for chemotaxis-Navier-Stokes system in a two-dimensional half-space. In this paper, we investigate the chemotacxis-Navier-Stokes system with the logarithmic singularity under Navier-slip boundary conditions. More precisely, we perform an exact asymptotic expansion for the chemotaxis Navier-Stokes system with viscous coefficient ε > 0, and obtain partial boundary layer profiles, establishing the well-posedness of the corresponding boundary layer profiles. Specially, we also establish the local well-posedness of solutions to the supercritical chemotaxis Euler equation (with ε = 0 ) by overcoming the difficulty from the disappearance of diffusion terms. 
+
+Keywords: Chemotaxis-Navier-Stokes system; Navier-slip boundary conditions; Well-posedness; Asymptotic expansion. 
+
+2020 Mathematics Subject Classification. Primary 35Q92; Secondary 76N05, 35B44, 35Q30, 35Q35 
+
+1. Introduction 
+
+In this paper, we consider the following chemotaxis-Navier-Stokes system with logarithmic sen-sitivity: 
+
+∂tn − D∆n + u · ∇ n + χ∇ · (nc ∇c) = 0 , Ω × (0 , T ),∂tc − ε∆c + u · ∇ c + nc = 0 , Ω × (0 , T ),∂tu − ε∆u + ( u · ∇ )u + ∇p = n∇ϕ, Ω × (0 , T ),
+
+∇ · u = 0 , Ω × (0 , T ),
+
+(1.1) where n, c, u and p denote cell density, oxygen concentration, the fluid velocity and the associated pressure respectively, Ω = R2+ = {(x, y ) ∈ R2|y > 0}. D > 0 and ε ≥ 0 are cell and oxygen diffusion coefficients respectively, and χ > 0 is referred to as the chemotactic coefficient measuring the strength of the chemotactic sensitivity, ϕ(x, y ) is a sufficiently smooth function and independent of t. The system (1.1) is a deduced model derived from the chemotaxis system proposed by Tuval 
+
+Date : August 7, 2026.  
+
+> 1arXiv:2608.05940v1 [math.AP] 6 Aug 2026 2HUI WANG, WENDONG WANG, AND LINGLING ZHAO
+
+et al.[32], which describes the mathematical mechanism for the oxygen-tactic behavior of aerobic bacteria in fluids. As seen in the experiments from [32], aerobic bacteria accumulate from the bulk aqueous region toward the water-air interface. These bacteria impose no directional perturbation on the fluid flow or the oxygen rates into water, which results in the stratification of the adjacent flow field and oxygen transport velocity. Accordingly, the system is equipped with rigorous biological and physical background. For relevant investigations on bacterial dynamics, one may refer to [7, 34]. Moreover, the case when c = 0 means full depletion of the chemical attractant or dissolved oxygen. In this case, the ”relative concentration variation rate” cannot be well defined, and model (1.1) breaks down at c = 0 . Some previous work without the singular term can be refered to [2, 6, 14, 25, 35–37, 39–41, 43] and their references, in which the diffusion coefficient ε was supposed to be negligible (or small). A natural question is whether the dynamics of the system (1.1) change significantly when we consider both the singularity and the case ε ≥ 0
+
+simultaneously. This motivates us to investigate the boundary layer problem for the system (1.1) with logarithmic sensitivity. However, most existing studies on singular equations focus on the case u takes constant. Then the system (1.1) reduces to the Keller-Segel system with logarithmic sensitivity proposed in [15, 16], which is widely adopted to simulate chemotactic motion of bacteria or cells [20, 29]. A challenge in the corresponding investigations is how to handle the singularity at c = 0 . Fortunately, this singularity can be eliminated via a Cole-Hopf-type transformation (see [19, 22]), from which one deduce that 
+
+vε = −∇ ln c = −∇cc . (1.2) The system becomes the singular Keller-Segel system in the absence of fluid as follows: 
+
+{∂tnε − ∆nε − ∇ · (nεvε) = 0 ,∂tvε − ε∆vε + ∇(ε|vε|2 − nε) = 0 . (1.3) One may refer to [17, 18, 31, 38, 42] for well-posedness results of this system. The existence of boundary layer solutions to the system (1.3) was established in [13, 26]. Subsequently, the convergence of solutions with ε > 0 to solutions with ε = 0 for the system (1.3) on a one-dimensional bounded domain was established in [9, 30]. In 2019, Hou-Wang [12] carried out a detailed derivation of the boundary layer profile equations for the system (1.3) on the two-dimensional half-plane and established the convergence result from ε > 0 to ε = 0 . Further research results can be found in [3–5, 23, 27, 28]. Up to now, investigations on boundary layers of Keller-Segel systems with logarithmic sensitivity have been well developed. Compared with the Keller-Segel system, the singular chemotaxis-Navier-Stokes System (1.1) has been few investigated over the past decades. Regarding the existence of solutions, Liu [24] considered BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 3
+
+the initial-boundary value problem for the full chemotaxis-Navier-Stokes system (1.1) with constant viscosity. Boundary layer analysis on the system (1.1) is extremely limited. The only comparable results are established for the general chemotactic model with the term −∇ · (n∇c), whose boundary layer investigations were provided in [10, 11, 21]. Therefore, in the present work, we investigate the well-posedness and boundary layer behaviors of the system (1.1). To this end, we first perform the Cole-Hopf transformation given in (1.2) and set D = χ = 1 and ∇ϕ = e2 = (0 , 1) . Then (1.1) is transferred into the following system 
+
+
+
+∂tnε − ∆nε + uε · ∇ nε − ∇ · (nεvε) = 0 ,∂tvε − ε∆vε + ∇(uε · vε) + ∇(ε|vε|2 − nε) = 0 ,∂tuε − ε∆uε + ( uε · ∇ )uε + ∇pε = nεe2,
+
+∇ · uε = 0 ,nε|t=0 = nin , v ε|t=0 = vin , u ε|t=0 = uin ,
+
+(1.4) where ε ≥ 0. With the Cole-Hopf transformation (1.2), the curl for vε must be intrinsically free: 
+
+∇ × vε = ∂xvε 
+
+> 2
+
+− ∂yvε 
+
+> 1
+
+= 0 . (1.5) By taking the curl on both sides of the second equation of (1.4), we can obtain ∂t(∇ × vε) = 
+
+ε∆( ∇ × vε). Therefore one can impose that ∇ × vin = 0 and ∇ × vin |∂Ω = 0 for ε > 0 to preserve the curl-free condition. Hence the slip boundary condition for (1.4) is defined as 
+
+{(∂ynε + nεvε
+
+> 2
+
+)|y=0 = 0 , (vε
+
+> 2
+
+, u ε
+
+> 2
+
+)|y=0 = 0 , (∂yvε
+
+> 1
+
+, ∂ yuε
+
+> 1
+
+)|y=0 = 0 , ε > 0,
+
+(∂yn0 + n0v02 )|y=0 = 0 , u02|y=0 = 0 , ε = 0 . (1.6) There are few results with respect to the system (1.4) regarding boundary layer analysis. While the well-posed and the boundary layer results of the system (1 .4) remains unresolved, we will answer this question in the second part of the two-part work. In this article, we employ the matched asymptotic expansion method. Firstly, we introduce the boundary-layer coordinate z = y√ε and decompose the solution into an outer-layer solution characterizing the flow far from the boundary and an inner-layer solution capturing the viscous stratification near the boundary. Performing asymptotic expansions on the original equations, we derive the respective equations that the outer and inner solutions satisfy. Then we study the well-posedness of these equations. Accordingly, this paper establishes the boundary-layer asymptotic structure for the chemotaxis-fluid system with small viscosity and the well-posedness of approximate solution. We further demonstrate that the viscous fluid dynamics coupled with bacterial oxygen-taxis both determine the near-wall distributions of fluid velocity, bacterial density and oxygen concentration. 4 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+The rest of the paper is organized as follows. In Sect.2, we state some notations, the chemotaxis Euler equation and the main well-posedness results. In Sect.3, we derive the detailed process of asymptotic expansion of the boundary layers. In Sect.4, the uniformly higher-order regularity of the Chemotaxis Euler equation equation is estimated. In Sect.5, the desired well-posedness of the solutions to the inner layer equations is presented. 2. Preliminaries and main results 
+
+2.1. Notations. N represents the set of positive integers. In the following sections, we use Lpxy 
+
+to denote the Lebegue spaces Lp(R × R+) with respect to (x, y ), and the corresponding norms are denoted by ∥·∥ Lpxy , 1 ≤ p ≤ ∞ . Moreover, we use Hqxy to represent the Sobolev spaces W q, 2(R×R+)
+
+with respect to (x, y ) for q ∈ N , and the corresponding norms be denoted by ∥ · ∥ Hqxy . For simplicity, denote ∥ · ∥ Lq (0 ,T ); Z by ∥ · ∥ LqT Z for the Space Z.Let (Hk,m,l , ∥ · ∥ k,m,l ) be the anisotropic Sobolev spaces defined as follows: for k, m, l ∈ N ,
+
+Hk,m,l := {g(x, z ) ∈ L2(R × R+) : (1 + z2k)12 ∂αx ∂γz g(x, z ) ∈ L2(R × R+), |α| ≤ m, γ ∈ N, |γ| ≤ l}
+
+(2.1) with the norm 
+
+∥g∥2 
+
+> k,m,l
+
+= ∑
+
+> |α|≤ m, |γ|≤ l
+
+∫ +∞
+
+> 0
+
+∫ +∞−∞ 
+
+(1 + z2k)|∂αx ∂γz g(x, z )|2dxdz. (2.2) In the rest of paper, C is a constant, which may change from line to line, but is independent on the viscosity. 2.2. Boundary layer equations. This subsection is dedicated to deriving the outer and inner profile equations via formal asymptotic analysis of the solutions (nε, v ε, u ε) to the systems (1.4) and (1.6) for small positive ε > 0. Accordingly, the solution (nε, v ε, u ε) admits the following asymptotic expansion in powers of ε over the domain Ω, where j ∈ N :
+
+
+
+nε(t, x, y ) = ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+(nI,j (t, x, y ) + nB,j (t, x, y
+
+√ε)) 
+
+vε(t, x, y ) = ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+(vI,j (t, x, y ) + vB,j (t, x, y
+
+√ε)) 
+
+uε(t, x, y ) = ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+(uI,j (t, x, y ) + uB,j (t, x, y
+
+√ε)) 
+
+pε(t, x, y ) = ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+(pI,j (t, x, y ) + pB,j (t, x, y
+
+√ε)) 
+
+(2.3) where z = y√ε , (nB,j , v B,j , u B,j , p B,j ) is the boundary layer that is smooth and rapidly decreasing in the last variable. BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 5
+
+To derive the equations for the outer and inner profiles defined in (2.3), we divide into three main steps. Firstly, substituting expansion (2.3) into (1 .4) 5 and (1 .6) yields the corresponding initial and boundary conditions. Secondly, inserting (2.3) into (1 .4) 4 and (1.5) gives the expressions for the divergence and curl operators. Finally, successively substitution of (2.3) into the first three equations of (1 .4) allows us to derive explicit formulas for each layer profile. Combining the above arguments with the asymptotic matching method(see Section 3 for details), we derive the leading-order equations that the outer profiles (nI, 0, v I, 0, u I, 0, p I, 0)( t, x, y ) satisfy 
+
+
+
+∂tnI, 0 − ∆nI, 0 + uI, 0 · ∇ nI, 0 − ∇ · (nI, 0vI, 0) = 0 ,∂tvI, 0 + ∇(uI, 0 · vI, 0) − ∇ nI, 0 = 0 ,
+
+∇ × vI, 0 = 0 ,∂tuI, 0 + uI, 0 · ∇ uI, 0 + ∇pI, 0 = nI, 0e2,
+
+∇ · uI, 0 = 0 ,∂ynI, 0 + nI, 0vI, 02 = 0 , u I, 02 = 0 , on y = 0 ,
+
+(nI, 0, v I, 0, u I, 0)|t=0 = ( n0, v 0, u 0).
+
+(2.4) Note that (2 .4) is the system (1 .4) -(1 .6) with ε = 0 , whose solution is represented by (n0, v 0, u 0, p 0)( t, x, y ).Therefore, it can be inferred that 
+
+(n0, v 0, u 0, p 0)( t, x, y ) = ( nI, 0, u I, 0, v I, 0, p I, 0)( t, x, y ).
+
+We infer that the boundary layer (nB, 0, v B, 01 , u B, 0, u B, 12 , p B, 0, p B, 1)( t, x, z ) with (t, x, z ) ∈ (0 , T ) × R ×
+
+R+ and (nI, 1, v I, 1, u I, 1)( t, x, y ) with (t, x, y ) ∈ (0 , T ) × R × R+ satisfies 
+
+nB, 0(t, x, z ) = 0 , vB, 01 (t, x, z ) = 0 , uB, 0(t, x, z ) = 0 ,uB, 12 (t, x, z ) = 0 , pB, 0(t, x, z ) = 0 , pB, 1(t, x, z ) = 0 ,nI, 1(t, x, y ) = 0 , vI, 1(t, x, y ) = 0 , uI, 1(t, x, y ) = 0 .
+
+For vB, 0(t, x, z ) with (t, x, z ) ∈ [0 , T ] × R × R+, vB, 01 = 0 and its second component satisfies 
+
+
+
+∂tvB, 02 + ∂yuI, 02 vB, 02 + ∂z uB, 11 vI, 01 + ∂z vB, 11 uI, 01 + ∂z vB, 02 z∂ yuI, 02 − ∂z nB, 1 = ∂2 
+
+> z
+
+vB, 02
+
+∂xvB, 02 − ∂z vB, 11 = 0 ,vB, 02 |z=0 = −vI, 02 ,vB, 02 (0 , x, z ) = 0 .
+
+(2.5) 
+
+nB, 1(t, x, z ) is determined by vB, 02 (t, x, z ) via 
+
+nB, 1(t, x, z ) = 
+
+∫ ∞
+
+> z
+
+nI, 0vB, 02 (t, x, η )dη, (2.6) 6 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+where we use f to represent f (t, x, 0) , which applies to the entire article. For the first-order inner layer vB, 1(t, x, z ), its first component vB, 11 (t, x, z ) with (t, x, z ) ∈ [0 , T ] ×
+
+R × R+ satisfies 
+
+
+
+∂tvB, 11 + ∂x(z∂ yuI, 02 )vB, 02 + ∂xuI, 01 vB, 11 + ∂xuB, 11 vI, 01
+
++∂xvI, 01 uB, 11 + ∂xvB, 02 z∂ yuI, 02 + ∂xvB, 11 uI, 01 − ∂xnB, 1 = ∂2 
+
+> z
+
+vB, 11 ,∂xvB, 02 − ∂z vB, 11 = 0 
+
+∂z vB, 11 |z=0 = −∂yvI, 01 ,vB, 11 (0 , x, z ) = 0 ,
+
+(2.7) and its second component vB, 12 (t, x, z ) with (t, x, z ) ∈ [0 , T ] × R × R+ satisfies 
+
+
+
+∂tvB, 12 + z∂ 2 
+
+> y
+
+uI, 02 vB, 02 + ∂yuI, 01 vB, 11 + ∂yuI, 02 vB, 12 + ∂z uB, 11 (z∂ yvI, 01 + vB, 11 ) + ∂z uB, 21 vI, 01
+
++∂z uB, 22 (vI, 02 + vB, 02 ) + ∂yvI, 01 uB, 11 + ∂z vB, 02 (12 z2∂2 
+
+> y
+
+uI, 02 + uI, 22 + uB, 22 ) + ∂z vB, 11 (z∂ yuI, 01 + uB, 11 )+∂z vB, 12 z∂ yuI, 02 + ∂z vB, 21 uI, 01 + 2 ∂z vB, 02 (vI, 02 + vB, 02 ) − ∂z nB, 2 = ∂2 
+
+> z
+
+vB, 12 ,∂xvB, 12 − ∂z vB, 21 = 0 ,vB, 12 |z=0 = −vI, 12 ,vB, 12 (0 , x, z ) = 0 .
+
+(2.8) For the first-order inner layer uB, 1(t, x, z ) with (t, x, z ) ∈ [0 , T ] × R × R+, uB, 11 (t, x, z ) satisfies 
+
+
+
+∂tuB, 11 + uB, 11 ∂xuI, 01 + uI, 01 ∂xuB, 11 + z∂ yuI, 02 ∂z uB, 11 = ∂2 
+
+> z
+
+uB, 11
+
+∂xuB, 11 + ∂z uB, 22 = 0 ,∂z uB, 11 |z=0 = −∂yuI, 01 ,uB, 11 (0 , x, z ) = 0 .
+
+(2.9) The second-order inner layer nB, 2(t, x, z ) satisfies 
+
+nB, 2(t, x, z ) = nI, 0
+
+∫ ∞
+
+> z
+
+vB, 12 (t, x, η )dη + vI, 02
+
+∫ ∞
+
+> z
+
+nB, 1(t, x, η )dη +
+
+∫ ∞
+
+> z
+
+vB, 02 (t, x, η )nB, 1(t, x, η )dη 
+
+− ∂ynI, 0
+
+∫ ∞
+
+> z
+
+∫ ∞
+
+> η
+
+(ξ∂ ξvB, 02 (t, x, ξ ) + vB, 02 (t, x, ξ ))dξdη. (2.10) BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 7
+
+Taking the first component of vB, 2(t, x, z ) with (t, x, z ) ∈ [0 , T ] × R × R+, vB, 21 (t, x, z ) satisfies 
+
+
+
+∂tvB, 21 + ∂xuI, 01 vB, 21 + z∂ x∂yuI, 01 vB, 11 + z∂ x∂yuI, 02 vB, 12 + ∂x(12z2∂2 
+
+> y
+
+uI, 02 + uI, 22 )vB, 02
+
++ ∂xuB, 11 (z∂ yvI, 01 + vB, 11 ) + ∂xuB, 21 vI, 01 + ∂xuB, 22 (vI, 02 + vB, 02 ) + ∂xvI, 01 uB, 21 + ∂xvI, 02 uB, 22
+
++ z∂ x∂yvI, 01 uB, 11 + ∂xvB, 02 (12z2∂2 
+
+> y
+
+uI, 02 + uI, 22 + uB, 22 ) + ∂xvB, 11 (z∂ yuI, 01 + uB, 11 )+ ∂xvB, 12 z∂ yuI, 02 + ∂xvB, 21 uI, 01 + ∂xvI, 02 vB, 02 + 2 ∂xvB, 02 (vI, 02 + vB, 02 ) − ∂xnB, 2 = ∂2 
+
+> z
+
+vB, 21
+
+∂z vB, 21 |z=0 = 0 ,vB, 21 (0 , x, z ) = 0 .
+
+(2.11) The first component of uB, 2(t, x, z ) with (t, x, z ) ∈ [0 , T ] × R × R+ satisfies 
+
+
+
+∂tuB, 21 + uB, 11 z∂ x∂yuI, 01 + uB, 21 ∂xuI, 01 + uB, 22 ∂yuI, 01 + uI, 01 ∂xuB, 21 + z∂ yuI, 01 ∂xuB, 11
+
++ uB, 11 ∂xuB, 11 + z∂ yuI, 02 ∂z uB, 21 + ( 12z2∂2 
+
+> y
+
+uI, 02 + uI, 22 )∂z uB, 11 + uB, 22 ∂z uB, 11 + ∂xpB, 2 = ∂2 
+
+> z
+
+uB, 21 ,∂xuB, 21 + ∂z uB, 32 = 0 ,∂z uB, 21 |z=0 = 0 ,uB, 21 (0 , x, z ) = 0 .
+
+(2.12) From the curl and divergence conditions, we can deduce 
+
+uB, 22 (t, x, z ) = 
+
+∫ ∞
+
+> z
+
+∂xuB, 11 (t, x, η )dη, (2.13) and 
+
+uB, 32 (t, x, z ) = 
+
+∫ ∞
+
+> z
+
+∂xuB, 21 (t, x, η )dη. (2.14) The pressure boundary layer pB, 2 can be defined as 
+
+pB, 2(t, x, z ) = −
+
+∫ ∞
+
+> z
+
+nB, 1(t, x, η )dη. (2.15) The detailed derivation of (2 .4) -(2 .15) will be presented in Section 3. Similarly, we can fur-ther derive the initial boundary value problems for high-order profiles (nI,j , v I,j , u I,j , p I,j ) and 
+
+(nB,j +1 , v B,j +1 1 , v B,j  
+
+> 2
+
+, u B,j +1 1 , u B,j +2 2 , p B,j +1 ) with j ≥ 2.2.3. Main results. Our main results are stated in the following Theorems. Theorem 2.1 give the local well-posedness of the classical solution of (2 .4) .8 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+To analyze the regularity of solutions to the system (2.4), we impose the following compatibility conditions on the initial data for all θ ∈ N
+
+(M1)
+
+{∂ynin (x, 0) = 0 ,∂y∂θt nin (x, 0) = [∆ ∂y∂θ−1 
+
+> t
+
+nin − ∂y∂θ−1 
+
+> t
+
+(uin · ∇ nin ) + ∂y∂θ−1 
+
+> t
+
+(∇ · (nin vin ))]( x, 0) ,
+
+(M2)
+
+
+
+vin 2(x, 0) = 0 , ∂yvin 1(x, 0) = 0 ,∂y∂θt vin 1(x, 0) = [ −∂x∂y∂θ−1 
+
+> t
+
+(uin · vin ) + ∂x∂y∂θ−1 
+
+> t
+
+nin ]( x, 0) ,∂θt vin 2(x, 0) = [ −∂y∂θ−1 
+
+> t
+
+(uin · vin ) + ∂y∂θ−1 
+
+> t
+
+nin ]( x, 0) ,
+
+and 
+
+(M3)
+
+
+
+uin 2(x, 0) = 0 , ∂yuin 1(x, 0) = 0 ,∂θt uin 2(x, 0) = [ −∂θ−1 
+
+> t
+
+(uin · ∇ u02 ) − ∂y∂θ−1 
+
+> t
+
+pin + ∂θ−1 
+
+> t
+
+nin ]( x, 0) ,∂y∂θt uin 1(x, 0) = [ −∂y∂θ−1 
+
+> t
+
+(uin · ∇ uin 1) − ∂x∂y∂θ−1 
+
+> t
+
+pin ]( x, 0) .
+
+Where pin be imposed as follows 
+
+(M4)
+
+
+
+∆pin (x, y ) = −∇ · (uin · ∇ uin − nin e2)( x, y ),∂ypin (x, 0) = nin (x, 0) ,
+
+∆∂θt pin (x, y ) = −∇ · (∂θt (uin · ∇ uin ) − ∂θt nin e2)( x, y ),∂y∂θt pin (x, 0) = ∂θt nin (x, 0) .
+
+Theorem 2.1. Assume that the initial data (nin , v in , u in ) satisfy 
+
+(nin , v in , u in ) ∈ Hmxy × Hmxy × Hm+1  
+
+> xy
+
+, nin ≥ 0, ∇ × vin = 0 , m ≥ 2,
+
+with the compatibility conditions (M1)-(M4), then there exists the time T > 0 such that the system 
+
+(1.4) -(1.6) with ε = 0 (i.e. (2.4)) has a unique solution (n0, v 0, u 0) on [0 , T ] satisfying 
+
+∥n0∥2   
+
+> L∞(0 ,T ;Hmxy )
+
++ ∥v0∥2   
+
+> L∞(0 ,T ;Hmxy )
+
++ ∥u0∥2   
+
+> L∞(0 ,T ;Hm+1
+> xy )
+
++ ∥n0∥2   
+
+> L2(0 ,T ;Hm+1
+> xy )
+
+≤ C, 
+
+and 
+
+∥∂jt n0∥2   
+
+> L∞(0 ,T ;Hm−2jxy )
+
++ ∥∂jt v0∥2   
+
+> L∞(0 ,T ;Hm−2jxy )
+
+≤ C, 0 < 2j ≤ m, 
+
+∥∂jt u0∥2   
+
+> L∞(0 ,T ;Hm+1 −2jxy )
+
+≤ C, 0 < 2j ≤ m + 1 .
+
+We will provide a detailed proof process for this conclusion in Section 4. 
+
+Remark 2.1. Compared to the results in [12, 21], we study the system (1.1), which is a coupled Chemotaxis-Navier-Stokes system with logarithmic singularity. By the Cole-Hopf transformation 
+
+v0 = −∇ ln c0 = −∇c0 
+
+> c0
+
+, the system becomes (1.4)-(1.6) with ε = 0 , whose well-posedness results are established in Theorem 2.1. During the proof, the mainly difficulty comes from the supercritical BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 9
+
+nonlinear terms. To overcome the difficult terms ∫ ∞
+
+> 0
+
+∫ ∞−∞ ∂jt v0 · (∇∂jt v0) · u0dxdy (j = 1 , 2) , we apply the curl-free structure of v0. By the elliptic regularity theory and the mathematical induction method, each order regularity of the solutions is established, which will be adapted to the subsequent boundary-layer regularity estimates in Theorem 2.2. 
+
+Theorem 2.2. Let (nin , v in , u in ) satisfies the assumptions in Theorem 2.1 and m ≥ 11 . Then there exists the time T > 0 and for every integer m1 satisfying 7 ≤ m1 ≤ m − 4 such that for any k > 1
+
+(i) (2.5) admits a unique solution vB, 02 satisfying 
+
+∂jt vB, 02 ∈ L∞(0 , T ; Hk,m 1−j, 0) ∩ L2(0 , T ; Hk,m 1−j, 1),∂tvB, 02 ∈ L∞(0 , T ; Hk,m 1−l,l −1), v B, 02 ∈ L∞(0 , T ; Hk,m 1−i,i ),
+
+then for (2.6) we obtain that 
+
+∂jt nB, 1 ∈ L∞(0 , T ; Hk,m 1−j, 1) ∩ L2(0 , T ; Hk,m 1−j, 2),∂tnB, 1 ∈ L∞(0 , T ; Hk,m 1−l,l ), n B, 1 ∈ L∞(0 , T ; Hk,m 1−i,i +1 ),
+
+further, for (2.15) 
+
+∂jt pB, 2 ∈ L∞(0 , T ; Hk,m 1−j, 2) ∩ L2(0 , T ; Hk,m 1−j, 3),∂tpB, 2 ∈ L∞(0 , T ; Hk,m 1−l,l +1 ), p B, 2 ∈ L∞(0 , T ; Hk,m 1−i,i +2 ),
+
+(ii) (2.7) admits a unique solution vB, 11 satisfying 
+
+∂jt vB, 11 ∈ L∞(0 , T ; Hk,m 1−1−j, 0) ∩ L2(0 , T ; Hk,m 1−1−j, 1),∂tvB, 11 ∈ L∞(0 , T ; Hk,m 1−1−l,l −1), v B, 11 ∈ L∞(0 , T ; Hk,m 1−1−i,i ),
+
+(iii) (2.8) admits a unique solution vB, 12 satisfying 
+
+∂jt vB, 12 ∈ L∞(0 , T ; Hk,m 1−2−j, 0) ∩ L2(0 , T ; Hk,m 1−2−j, 1),∂tvB, 12 ∈ L∞(0 , T ; Hk,m 1−2−l,l −1), v B, 12 ∈ L∞(0 , T ; Hk,m 1−2−i,i ),
+
+then for (2.10) we have 
+
+∂jt nB, 2 ∈ L∞(0 , T ; Hk,m 1−2−j, 1) ∩ L2(0 , T ; Hk,m 1−2−j, 2),∂tnB, 2 ∈ L∞(0 , T ; Hk,m 1−2−l,l ), n B, 2 ∈ L∞(0 , T ; Hk,m 1−2−i,i +1 ),
+
+(iv) (2.9) admits a unique solution uB, 11 satisfying 
+
+∂jt uB, 11 ∈ L∞(0 , T ; Hk,m 1−j, 0) ∩ L2(0 , T ; Hk,m 1−j, 1),∂tuB, 11 ∈ L∞(0 , T ; Hk,m 1−l,l −1), u B, 11 ∈ L∞(0 , T ; Hk,m 1−i,i ),10 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+then for (2.13) we obtain that 
+
+∂jt uB, 22 ∈ L∞(0 , T ; Hk,m 1−1−j, 1) ∩ L2(0 , T ; Hk,m 1−1−j, 2),∂tuB, 22 ∈ L∞(0 , T ; Hk,m 1−1−l,l ), u B, 22 ∈ L∞(0 , T ; Hk,m 1−1−i,i +1 ),
+
+(v) (2.11) admits a unique solution vB, 21 satisfying 
+
+∂jt vB, 21 ∈ L∞(0 , T ; Hk,m 1−3−j, 0) ∩ L2(0 , T ; Hk,m 1−3−j, 1),∂tvB, 21 ∈ L∞(0 , T ; Hk,m 1−3−l,l −1), v B, 21 ∈ L∞(0 , T ; Hk,m 1−3−i,i ),
+
+(vi) (2.12) admits a unique solution uB, 21 satisfying 
+
+∂jt uB, 21 ∈ L∞(0 , T ; Hk,m 1−2−j, 0) ∩ L2(0 , T ; Hk,m 1−2−j, 1),∂tuB, 21 ∈ L∞(0 , T ; Hk,m 1−2−l,l −1), u B, 21 ∈ L∞(0 , T ; Hk,m 1−2−i,i ),
+
+then for (2.14) we obtain that 
+
+∂jt uB, 32 ∈ L∞(0 , T ; Hk,m 1−3−j, 1) ∩ L2(0 , T ; Hk,m 1−3−j, 2),∂tuB, 32 ∈ L∞(0 , T ; Hk,m 1−3−l,l ), u B, 32 ∈ L∞(0 , T ; Hk,m 1−3−i,i +1 ),
+
+where j = 0 , 1, 2, l = 2 , 3 and i = 1 , 2, 3, 4.The detailed derivation is presented in Section 5. 
+
+Remark 2.2. Theorem 2.2 establishes the regularity for some inner profiles required in the asymp-totic expansion up to the order considered in this paper. 
+
+• Difficulty. The principal difficulty in the proof is that the boundary-layer equations contain unbounded normal transport term just like z a (t, x )∂z f and nonhomogeneous boundary data. To overcome these difficulties, we apply the weighted polynomial anisotropic Sobolev estimates and the boundary homogenization by constructing an auxiliary function. 
+
+• Layered structure. Since these profiles are interrelated and provide the source terms needed at the next level, for example the equation of vB, 11 involves uB, 11 and vB, 02 , the estimates of these profiles should be constructed in a certain order, beginning with the estimates of uB, 11
+
+and vB, 02 , which indicate ones of uB, 22 , nB, 1 and pB, 2, and then following them successively are vB, 11 , uB, 21 , vB, 12 and vB, 21 , which indicate the regularity estimates for uB, 32 and nB, 2.
+
+• Dependency on the leading outer solutions. The restriction 7 ≤ m1 ≤ m−4 quantifies the finite regularity transferring from the leading outer solutions to the inner profiles. In particular, the theorem shows that sufficiently high tangential regularity supplies the normal regularity needed for the boundary-layer expansion. These weighted estimates provide the analytical foundation for the rigorous control of the approximate solution and the subsequent boundary-layer convergence analysis. BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 11 
+
+In the subsequent section, we perform an asymptotic expansion for system (1 .4) and derive the leading-order outer-layer system (2.4), which provides the basis for the ensuing regularity estimates. 3. Asymptotic Expansion of Equations 
+
+In this part, we employ the method of the matched asymptotic expansions (2.3) to derive the partial boundary layer profiles in detail with j ≤ 2 for the System (1 .4) .
+
+Step 1. Initial and boundary conditions. Substituting (2 .3) into the initial conditions in 
+
+(1 .4) , we can obtain 
+
+
+
+nε(0 , x, y ) = ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+(nI,j (0 , x, y ) + nB,j (0 , x, y
+
+√ε)) ,vε(0 , x, y ) = ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+(vI,j (0 , x, y ) + vB,j (0 , x, y
+
+√ε)) ,uε(0 , x, y ) = ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+(uI,j (0 , x, y ) + uB,j (0 , x, y
+
+√ε)) .
+
+(3.1) Since nB,j , vB,j and uB,j decay to zero exponentially with z = y√ε → +∞, we can get 
+
+nI, 0(0 , x, y ) = nin (x, y ), nB, 0(0 , x, z ) = 0 ,vI, 0(0 , x, y ) = vin (x, y ), vB, 0(0 , x, z ) = 0 ,uI, 0(0 , x, y ) = uin (x, y ), uB, 0(0 , x, z ) = 0 ,
+
+(3.2) and for j ≥ 1
+
+nI,j (0 , x, y ) = nB,j (0 , x, z ) = 0 ,vI,j (0 , x, y ) = vB,j (0 , x, z ) = 0 ,uI,j (0 , x, y ) = uB,j (0 , x, z ) = 0 .
+
+(3.3) 12 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+In order to obtain the boundary conditions of each order for j ≥ 0, we substituted (2 .3) into (1 .6) 
+
+to obtain 
+
+∂ynε(t, x, 0) = ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+(∂ynI,j (t, x, 0) + ε− 12 ∂z nB,j (t, x, 0) = 0 ,vε
+
+> 2
+
+(t, x, 0) = ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+(vI,j  
+
+> 2
+
+(t, x, 0) + vB,j  
+
+> 2
+
+(t, x, 0) = 0 ,uε
+
+> 2
+
+(t, x, 0) = ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+(uI,j  
+
+> 2
+
+(t, x, 0) + uB,j  
+
+> 2
+
+(t, x, 0) = 0 ,∂yvε
+
+> 1
+
+(t, x, 0) = ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+(∂yvI,j  
+
+> 1
+
+(t, x, 0) + ε− 12 ∂z vB,j  
+
+> 1
+
+(t, x, 0) = 0 ,∂yuε
+
+> 1
+
+(t, x, 0) = ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+(∂yuI,j  
+
+> 1
+
+(t, x, 0) + ε− 12 ∂z uB,j  
+
+> 1
+
+(t, x, 0) = 0 ,
+
+and note that 
+
+∂z nB, 0(t, x, 0) = 0 , ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+∂ynI,j (t, x, 0) + ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+∂z nB,j +1 (t, x, 0) = 0 ,
+
+∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+vI,j  
+
+> 2
+
+(t, x, 0) + ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+vB,j  
+
+> 2
+
+(t, x, 0) = 0 ,
+
+∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+uI,j  
+
+> 2
+
+(t, x, 0) + ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+uB,j  
+
+> 2
+
+(t, x, 0) = 0 , (3.4) 
+
+∂z vB, 01 (t, x, 0) = 0 , ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+∂yvI,j  
+
+> 1
+
+(t, x, 0) + ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+∂z vB,j +1 1 (t, x, 0) = 0 ,∂z uB, 01 (t, x, 0) = 0 , ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+∂yuI,j  
+
+> 1
+
+(t, x, 0) + ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+∂z uB,j +1 1 (t, x, 0) = 0 .
+
+Step 2. Equations for (nI,j , v I,j , u I,j ) and (nB,j , v B,j , u B,j ). Substituting (2 .3) into (1 .6) and 
+
+(1 .4) 4, due to vB,j and uB,j are fast decay when z → +∞, then the outflow vI,j and uI,j satisfy 
+
+∇ × vI,j = 0 , ∇ · uI,j = 0 , (3.5) thus the internal flow vB,j and uB,j satisfy 
+
+∂z vB, 01 = 0 , ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+∂xvB,j  
+
+> 2
+
+− ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+∂z vB,j +1 1 = 0 ,∂z uB, 02 = 0 , ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+∂xuB,j  
+
+> 1
+
++ ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+∂z uB,j +1 2 = 0 .
+
+(3.6) Due to vB, 01 and uB, 02 is decay exponentially fast as z → +∞, it then follows that 
+
+vB, 01 ≡ 0, u B, 02 ≡ 0. (3.7) BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 13 
+
+Then we can deduce the boundary condition uI, 02 (t, x, 0) = 0 .Substituting (2 .3) into equation (1 .4) 1, we can obtain the expansion equation of nε
+
+∑
+
+j≥0
+
+ε j 
+
+> 2
+
+∂t(nI,j + nB,j ) + ∑
+
+j≥0
+
+ε j
+
+> 2
+
+j
+
+∑
+
+k=0 
+
+(uI,k + uB,k ) · ∇ nI,j −k
+
++ ∑
+
+j≥0
+
+ε j
+
+> 2
+
+j
+
+∑
+
+k=0 
+
+(uI,k 
+
+1 + uB,k 
+
+1 )∂xnB,j −k + ∑
+
+j≥0
+
+εj−12
+
+j
+
+∑
+
+k=0 
+
+(uI,k 
+
+2 + uB,k 
+
+2 )∂z nB,j −k
+
+− ∑
+
+j≥0
+
+ε j
+
+> 2
+
+j
+
+∑
+
+k=0 
+
+(nI,k + nB,k )∇ · vI,j −k − ∑
+
+j≥0
+
+ε j
+
+> 2
+
+j
+
+∑
+
+k=0 
+
+(nI,k + nB,k )∂xvB,j −k
+
+1 (3.8) 
+
+− ∑
+
+j≥0
+
+εj−12
+
+j
+
+∑
+
+k=0 
+
+(nI,k + nB,k )∂z vB,j −k
+
+2 − ∑
+
+j≥0
+
+ε j
+
+> 2
+
+j
+
+∑
+
+k=0 
+
+(vI,k + vB,k ) · ∇ nI,j −k
+
+− ∑
+
+j≥0
+
+ε j
+
+> 2
+
+j
+
+∑
+
+k=0 
+
+(vI,k 
+
+1 + vB,k 
+
+1 )∂xnB,j −k − ∑
+
+j≥0
+
+εj−12
+
+j
+
+∑
+
+k=0 
+
+(vI,k 
+
+2 + vB,k 
+
+2 )∂z nB,j −k
+
+= ∑
+
+j≥0
+
+ε j 
+
+> 2
+
+∆nI,j + ∑
+
+j≥0
+
+ε j 
+
+> 2
+
+∂2
+
+xnB,j + ∑
+
+j≥0
+
+εj−22 ∂2
+
+z nB,j .
+
+Substituting (2 .3) into equation (1 .4) 2, it follows 
+
+∑
+
+j≥0
+
+ε j 
+
+> 2
+
+∂t(vI,j + vB,j ) + ∑
+
+j≥0
+
+ε j
+
+> 2
+
+j
+
+∑
+
+k=0 
+
+∇uI,k · (vI,j −k + vB,j −k)+
+
+∑
+
+j≥0
+
+ε j
+
+> 2
+
+j∑
+
+k=0 
+
+∂xuB,k · (vI,j −k + vB,j −k)
+
+∑
+
+j≥0
+
+εj−12
+
+j∑
+
+k=0 
+
+∂z uB,k · (vI,j −k + vB,j −k)
+
+ + ∑
+
+j≥0
+
+ε j
+
+> 2
+
+j
+
+∑
+
+k=0 
+
+∇vI,k · (uI,j −k + uB,j −k)+
+
+∑
+
+j≥0
+
+ε j
+
+> 2
+
+j∑
+
+k=0 
+
+∂xvB,k · (uI,j −k + uB,j −k)
+
+∑
+
+j≥0
+
+εj−12
+
+j∑
+
+k=0 
+
+∂z vB,k · (uI,j −k + uB,j −k)
+
+ + 2 ∑
+
+j≥0
+
+εj+2 2
+
+j
+
+∑
+
+k=0 
+
+∇vI,k · (vI,j −k + vB,j −k)+ 2 
+
+∑
+
+j≥0
+
+εj+2 2
+
+j∑
+
+k=0 
+
+∂xvB,k · (vI,j −k + vB,j −k)
+
+∑
+
+j≥0
+
+εj+1 2
+
+j∑
+
+k=0 
+
+∂z vB,k · (vI,j −k + vB,j −k)
+
+ − ∑
+
+j≥0
+
+ε j 
+
+> 2
+
+∇nI,j −
+
+∑
+
+j≥0
+
+ε j 
+
+> 2
+
+∂xnB,j 
+
+∑
+
+j≥0
+
+εj−12 ∂z nB,j 
+
+14 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+= ∑
+
+> j≥0
+
+εj+2 2 ∆vI,j + ∑
+
+> j≥0
+
+εj+2 2 ∂2
+
+> x
+
+vB,j + ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+∂2 
+
+> z
+
+vB,j . (3.9) Similarly, plugging (2 .3) into the equations given in (1 .4) 3, it follows 
+
+∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+∂t(uI,j + uB,j ) + ∑
+
+> j≥0
+
+ε j
+
+> 2
+> j
+
+∑
+
+> k=0
+
+(uI,k + uB,k ) · ∇ uI,j −k
+
++ ∑
+
+> j≥0
+
+ε j
+
+> 2
+> j
+
+∑
+
+> k=0
+
+(uI,k  
+
+> 1
+
++ uB,k  
+
+> 1
+
+)∂xuB,j −k + ∑
+
+> j≥0
+
+εj−12
+
+> j
+
+∑
+
+> k=0
+
+(uI,k  
+
+> 2
+
++ uB,k  
+
+> 2
+
+)∂z uB,j −k
+
++ ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+∇pI,j + ∑
+
+> j≥0
+
+(ε j 
+
+> 2
+
+∂xpB,j , ε j−12 ∂z pB,j )= ∑
+
+> j≥0
+
+εj+2 2 ∆uI,j + ∑
+
+> j≥0
+
+εj+2 2 ∂2
+
+> x
+
+uB,j + ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+∂2 
+
+> z
+
+uB,j + ∑
+
+> j≥0
+
+ε j 
+
+> 2
+
+(nI,j + nB,j )e2.
+
+(3.10) For (3 .8) -(3 .10) , let z to +∞, then (nB,j , v B,j , u B,j , p B,j ) → 0. Furthermore for all j ≥ 0, this implies that 
+
+∂tnI,j +
+
+> j
+
+∑
+
+> k=0
+
+uI,k · ∇ nI,j −k −
+
+> j
+
+∑
+
+> k=0
+
+nI,k ∇ · vI,j −k −
+
+> j
+
+∑
+
+> k=0
+
+vI,k · ∇ nI,j −k = ∆ nI,j ,∂tvI,j +
+
+> j
+
+∑
+
+> k=0
+
+∇vI,k · uI,j −k +
+
+> j
+
+∑
+
+> k=0
+
+∇uI,k · vI,j −k + 2 
+
+> j−2
+
+∑
+
+> k=0
+
+∇vI,k · vI,j −2−k (3.11) 
+
+− ∇ nI,j = ∆ vI,j −2,∂tuI,j +
+
+> j
+
+∑
+
+> k=0
+
+uI,k · ∇ uI,j −k + ∇pI,j = ∆ uI,j −2 + nI,j e2,
+
+where we denote by vI, −1 = 0 , vI, −2 = 0 and uI, −1 = 0 , uI, −2 = 0 .Next, we estimate the internal profile. Before that, we introduce the Taylor expansion 
+
+f I,j (t, x, y ) = 
+
+> j
+
+∑
+
+> k=0
+
+zk
+
+k! ∂ky f I,j −k(t, x ),
+
+which expands at y = 0 for the outer layer of j ≥ 0, and denoted by f (t, x ) = f (t, x, 0) .Applying the Taylor expansion, we begin to summarize the equations containing εγ for γ ≥ − 1.First, combining the terms containing O(ε−1), and using ∂z nB, 0(t, x, 0) = 0 in (3 .4) 1, we obtain 
+
+∂2 
+
+> z
+
+nB, 0 = 0 , ⇒ nB, 0 ≡ 0. (3.12) BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 15 
+
+Combining terms containing O(ε− 12 ), we can obtain 
+
+(uI, 02 + uB, 02 )∂z nB, 0 − (nI, 0 + nB, 0)∂z vB, 02 − (vI, 02 + vB, 02 )∂z nB, 0 = ∂2 
+
+> z
+
+nB, 1,
+
+(
+
+0
+
+∂z uB, 0 · (vI, 0 + vB, 0)
+
+)
+
++
+
+(
+
+0
+
+∂z vB, 0 · (uI, 0 + uB, 0)
+
+)
+
++
+
+(
+
+0
+
+∂z nB, 0
+
+)
+
+= 0 (uI, 02 + uB, 02 )∂z uB, 0 +
+
+( 0
+
+∂z pB, 0
+
+)
+
+= 0 .
+
+Using (3 .7) , (3 .12) and uI, 02 = 0 , we derive 
+
+− nI, 0∂z vB, 02 = ∂2 
+
+> z
+
+nB, 1,∂z uB, 01 vI, 01 = 0 ,pB, 0 = 0 .
+
+(3.13) For the term containing O(ε0) in (3 .8) -(3 .10) , we obtain the following equations 
+
+∂t(nI, 0 + nB, 0) + ( uI, 0 + uB, 0) · ∇ nI, 0 + ( uI, 01 + uB, 01 )∂xnB, 0 + ( uI, 02 + uB, 02 )∂z nB, 1
+
++ ( z∂ yuI, 02 + uI, 12 + uB, 12 )∂z nB, 0 − (nI, 0 + nB, 0)∇ · vI, 0 − (nI, 0 + nB, 0)∂xvB, 01
+
+− (nI, 0 + nB, 0)∂z vB, 12 − (z∂ ynI, 0 + nI, 1 + nB, 1)∂z vB, 02 − (vI, 0 + vB, 0) · ∇ nI, 0
+
+− (vI, 01 + vB, 01 )∂xnB, 0 − (vI, 02 + vB, 02 )∂z nB, 1 − (z∂ yvI, 02 + vI, 12 + vB, 12 )∂z nB, 0
+
+= ∆ nI, 0 + ∂2
+
+> x
+
+nB, 0 + ∂2 
+
+> z
+
+nB, 2,∂t(vI, 0 + vB, 0) + ∇uI, 0 · (vI, 0 + vB, 0)+
+
+(
+
+∂xuB, 0 · (vI, 0 + vB, 0)
+
+∂z uB, 0 · (z∂ yvI, 0 + vI, 1 + vB, 1) + ∂z uB, 1 · (vI, 0 + vB, 0)
+
+)
+
++ ∇vI, 0 · (uI, 0 + uB, 0)+
+
+(
+
+∂xvB, 0 · (uI, 0 + uB, 0)
+
+∂z vB, 0 · (z∂ yuI, 0 + uI, 1 + uB, 1) + ∂z vB, 1 · (uI, 0 + uB, 0)
+
+)
+
+− ∇ nI, 0 −
+
+(
+
+∂xnB, 0
+
+0
+
+)
+
+−
+
+(
+
+0
+
+∂z nB, 1
+
+)
+
+= ∂2 
+
+> z
+
+vB, 0, (3.14) 
+
+∂t(uI, 0 + uB, 0) + ( uI, 0 + uB, 0) · ∇ uI, 0 + ( uI, 01 + uB, 01 )∂xuB, 0 + z∂ yuI, 02 ∂z uB, 0
+
++ ( uI, 12 + uB, 12 )∂z uB, 0 + ( uI, 02 + uB, 02 )∂z uB, 1 + ∇pI, 0 +
+
+(∂xpB, 0
+
+0
+
+)
+
++
+
+( 0
+
+∂z pB, 1
+
+)16 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+= ∂2 
+
+> z
+
+uB, 0 + ( nI, 0 + nB, 0)e2.
+
+By substituting the outflow layer equation (2 .4) 1 into (3 .14) 1, using (3 .7) , (3 .12) and uI, 02 = 0 , we can obtain 
+
+uB, 01 ∂xnI, 0 − nI, 0∂z vB, 12 − (z∂ ynI, 0 + nI, 1 + nB, 1)∂z vB, 02 − ∂ynI, 0vB, 02 − (vI, 02 + vB, 02 )∂z nB, 1 = ∂2 
+
+> z
+
+nB, 2.
+
+(3.15) Since vB, 01 ≡ 0 is obtained in (3 .7) , we only need to take the second component of the equation 
+
+(3 .14) 2, and at the same time substitute the second component ∂tvI, 02 + ∂y(uI, 0 · vI, 0) − ∂ynI, 0 = 0 
+
+of the outflow layer equation (3 .11) 2 for j = 0 into (3 .14) 2 to obtain 
+
+∂tvB, 02 + ∂yuI, 02 vB, 02 + ∂z uB, 11 vI, 01 + ∂z uB, 12 (vI, 02 + vB, 02 ) + ∂z uB, 01 (z∂ yvI, 01 + vI, 11 + vB, 11 )+ ∂yvI, 01 uB, 01 + ∂z vB, 11 (uI, 01 + uB, 01 ) + ∂z vB, 02 (z∂ yuI, 02 + uI, 12 + uB, 12 ) − ∂z nB, 1
+
+= ∂2 
+
+> z
+
+vB, 02 .
+
+(3.16) We take the first component of equation (3 .14) 3, by the outflow layer equation (2 .4) 4, (3 .7) , uI, 02 = 0 
+
+and (3 .13) 3, then we obtain 
+
+∂tuB, 01 + uI, 01 ∂xuB, 01 + uB, 01 ∂xuI, 01 + uB, 01 ∂xuB, 01 + z∂ yuI, 02 ∂z uB, 01
+
++ ( uI, 12 + uB, 12 )∂z uB, 01 = ∂2 
+
+> z
+
+uB, 01 .
+
+(3.17) For the second component of (3 .14) 3, this implies that 
+
+∂ypI, 0 + ∂z pB, 1 = nI, 0.
+
+Since the outflow layer equation (3 .11) 3 can deduce ∂ypI, 0 = nI, 0, then 
+
+pB, 1 ≡ 0. (3.18) Combining (3 .4) 5 and uB, 01 (0 , x, z ) = 0 in (3 .2) , we can obtain that uB, 01 satisfies the following system 
+
+
+
+∂tuB, 01 + uI, 01 ∂xuB, 01 + uB, 01 ∂xuI, 01 + uB, 01 ∂xuB, 01 + ( uI, 12 + uB, 12 + z∂ yuI, 02 )∂z uB, 01 = ∂2 
+
+> z
+
+uB, 01 ,∂z uB, 01 |z=0 = 0 ,uB, 01 |t=0 = 0 .
+
+(3.19) Next, we will prove that this system has the unique solution uB, 01 = 0 . Therefore, we define energy functional 
+
+E(t) =: 12
+
+∫ ∞−∞ 
+
+∫ ∞
+
+> 0
+
+(uB, 01 )2dzdx. (3.20) BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 17 
+
+It has a time derivative 
+
+ddt E(t) = 
+
+∫ ∞−∞ 
+
+∫ ∞
+
+> 0
+
+uB, 01 ∂tuB, 01 dzdx 
+
+=
+
+∫ ∞−∞ 
+
+∫ ∞
+
+> 0
+
+uB, 01 [−uI, 01 ∂xuB, 01 − uB, 01 ∂xuI, 01 − uB, 01 ∂xuB, 01
+
+− (uI, 12 + uB, 12 + z∂ yuI, 02 )∂z uB, 01 + ∂2 
+
+> z
+
+uB, 01 ]dzdx. 
+
+(3.21) Using integration by parts, (3 .5) and (3 .6) 2, we derive 
+
+ddt E(t) = −
+
+∫ ∞−∞ 
+
+∫ ∞
+
+> 0
+
+∂xuI, 01 (uB, 01 )2dzdx +
+
+∫ ∞−∞ 
+
+∫ ∞
+
+> 0
+
+uB, 01 ∂2 
+
+> z
+
+uB, 01 dzdx 
+
+= −
+
+∫ ∞−∞ 
+
+∫ ∞
+
+> 0
+
+∂xuI, 01 (uB, 01 )2dzdx −
+
+∫ ∞−∞ 
+
+∫ ∞
+
+> 0
+
+(∂z uB, 01 )2dzdx, 
+
+by the regularity of uI, 0 and the Gronwall’s inequality, then we have E(t) = 0 . Therefore, uB, 01 = 0 
+
+is the unique solution of equation (3 .19) , and we can get 
+
+uB, 01 ≡ 0 ⇒ uB, 12 ≡ 0. (3.22) Substituting (3 .22) into (3 .4) 3, we can obtain uI, 12 = 0 . Thus, the equations (3 .15) and (3 .16) can be reduced to 
+
+− nI, 0∂z vB, 12 − (z∂ ynI, 0 + nI, 1 + nB, 1)∂z vB, 02 − ∂ynI, 0vB, 02 − (vI, 02 + vB, 02 )∂z nB, 1 = ∂2 
+
+> z
+
+nB, 2, (3.23) and 
+
+∂tvB, 02 + ∂yuI, 02 vB, 02 + ∂z uB, 11 vI, 01 + ∂z vB, 11 uI, 01 + ∂z vB, 02 z∂ yuI, 02 − ∂z nB, 1 = ∂2 
+
+> z
+
+vB, 02 . (3.24) Moreover, we can obtain the first-order outer layer (nI, 1, v I, 1, u I, 1)( t, x, y ) is the solution of 
+
+
+
+∂tnI, 1 + uI, 0 · ∇ nI, 1 + uI, 1 · ∇ nI, 0 − ∇ · (nI, 0vI, 1) − ∇ · (nI, 1vI, 0) = ∆ nI, 1
+
+∂tvI, 1 + ∇(vI, 0 · uI, 1) + ∇(vI, 1 · uI, 0) − ∇ nI, 1 = 0 
+
+∇ × vI, 1 = 0 ,∂tuI, 1 + uI, 0 · ∇ uI, 1 + uI, 1 · ∇ uI, 0 + ∇pI, 1 = nI, 1e2
+
+∇ · uI, 1 = 0 ,∂ynI, 1|y=0 = nI, 0vI, 12 + nI, 1vI, 02 + ∂ynI, 0 ∫ +∞
+
+> 0
+
+(
+
+z∂ z vB, 02 + vB, 02
+
+)
+
+dz, u I, 12 |y=0 = 0 ,
+
+(nI, 1, v I, 1, u I, 1)(0 , x, y ) = 0 .
+
+(3.25) Expanding the no-flux boundary condition (3 .4) at order ε1/2, we have 
+
+∂ynI, 1∣∣y=0 = − ∂z nB, 2∣∣z=0 .18 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+We integrate the equation (3 .23) with respect to z and use vI,j  
+
+> 2
+
++ vB,j  
+
+> 2
+
+= 0 on z = 0 for j = 0 , 1 to get 
+
+vB, 02 |z=0 = −vI, 02 , vB, 12 |z=0 = −vI, 12 .
+
+Then we obtain the boundary condition for nI, 1 in (3 .25) . Furthermore, owing to the rapid decay of vB, 02 as z → +∞, we have 
+
+∫ +∞
+
+> 0
+
+(
+
+z∂ z vB, 02 + vB, 02
+
+)
+
+dz =
+
+(
+
+zv B, 02
+
+) ∣ ∣∣+∞
+
+> 0
+
+= 0 .
+
+Then, the boundary condition reduces to 
+
+∂ynI, 1 + nI, 0vI, 12 + nI, 1vI, 02 = 0 on y = 0 .
+
+Therefore, by the well-posedness theory for solutions of linear systems, we conclude that the trivial solution 
+
+nI, 1 = vI, 1 = uI, 1 = 0 , (3.26) is the unique solution to the system (3.25). Then equation (3.23) reduces to 
+
+− nI, 0∂z vB, 12 − (z∂ ynI, 0 + nB, 1)∂z vB, 02 − ∂ynI, 0vB, 02 − (vI, 02 + vB, 02 )∂z nB, 1 = ∂2 
+
+> z
+
+nB, 2. (3.27) For the inner profile nB,j , we have obtained (3 .13) 1 and (3 .23) , so we will not do any its higher-order decomposition later. Similar to (3 .14) 2,3, for the term containing O(ε12 ) in (3 .9) -(3 .10) , we can obtain the following equations 
+
+∂t(z∂ yvI, 0 + vI, 1 + vB, 1)+
+
+(
+
+∂xuI, 0 · (z∂ yvI, 0 + vI, 1 + vB, 1) + ∂x(z∂ yuI, 0 + uI, 1) · (vI, 0 + vB, 0)
+
+∂yuI, 0 · (z∂ yvI, 0 + vI, 1 + vB, 1) + ( z∂ 2 
+
+> y
+
+uI, 0 + ∂yuI, 1) · (vI, 0 + vB, 0)
+
+)
+
++
+
+(
+
+∂xuB, 0 · (z∂ yvI, 0 + vI, 1 + vB, 1) + ∂xuB, 1 · (vI, 0 + vB, 0)
+
+∂z uB, 0 · (12 z2∂2 
+
+> y
+
+vI, 0 + z∂ yvI, 1 + vI, 2 + vB, 2)
+
+)
+
++
+
+(
+
+0
+
+∂z uB, 1 · (z∂ yvI, 0 + vI, 1 + vB, 1) + ∂z uB, 2 · (vI, 0 + vB, 0)
+
+)
+
+(3.28) 
+
++
+
+(
+
+∂xvI, 0 · (z∂ yuI, 0 + uI, 1 + uB, 1) + ∂x(z∂ yvI, 0 + vI, 1) · (uI, 0 + uB, 0)
+
+∂yvI, 0 · (z∂ yuI, 0 + uI, 1 + uB, 1) + ( z∂ 2 
+
+> y
+
+vI, 0 + ∂yvI, 1) · (uI, 0 + uB, 0)
+
+)
+
++
+
+(
+
+∂xvB, 0 · (z∂ yuI, 0 + uI, 1 + uB, 1) + ∂xvB, 1 · (uI, 0 + uB, 0)
+
+∂z vB, 0 · (12 z2∂2 
+
+> y
+
+uI, 0 + z∂ yuI, 1 + uI, 2 + uB, 2)
+
+)BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 19 
+
++
+
+(
+
+0
+
+∂z vB, 1 · (z∂ yuI, 0 + uI, 1 + uB, 1) + ∂z vB, 2 · (uI, 0 + uB, 0)
+
+)
+
++ 2 
+
+(
+
+0
+
+∂z vB, 0 · (vI, 0 + vB, 0)
+
+)
+
+− ∇ nI, 1 − z∇∂ynI, 0 −
+
+(
+
+∂xnB, 1
+
+∂z nB, 2
+
+)
+
+= ∂2 
+
+> z
+
+vB, 1,
+
+and 
+
+∂t(z∂ yuI, 0 + uI, 1 + uB, 1) + uI, 01 ∂x(z∂ yuI, 0 + uI, 1) + ( z∂ yuI, 01 + uI, 11 + uB, 11 )∂xuI, 0
+
++ z∂ yuI, 02 ∂yuI, 0 + uI, 01 ∂xuB, 1 + z∂ yuI, 02 ∂z uB, 1 + ∇pI, 1 + z∇∂ypI, 0 +
+
+( 0
+
+∂z pB, 2
+
+)
+
+(3.29) 
+
+= ∂2 
+
+> z
+
+uB, 1 + ( z∂ ynI, 0 + nI, 1 + nB, 1)e2.
+
+Taking the first component of (3 .28) , by substituting the outflow equation (3 .11) 2 with j = 1 into 
+
+(3 .28) , and using (3 .7) , uI, 02 = 0 , it can be concluded that 
+
+∂tvB, 11 + ∂xuI, 01 vB, 11 + ∂x(z∂ yuI, 02 )vB, 02 + ∂xuB, 11 vI, 01
+
++ ∂xvI, 01 uB, 11 + ∂xvB, 02 z∂ yuI, 02 + ∂xvB, 11 uI, 01 − ∂xnB, 1 = ∂2 
+
+> z
+
+vB, 11 . (3.30) Similar to (3 .30) , taking the second component of (3 .28) and using (3.26), we get 
+
+∂tvB, 12 + ∂yuI, 01 vB, 11 + ∂yuI, 02 vB, 12 + z∂ 2 
+
+> y
+
+uI, 02 vB, 02 + ∂z uB, 11 (z∂ yvI, 01 + vB, 11 )+ ∂z uB, 21 vI, 01 + ∂z uB, 22 (vI, 02 + vB, 02 ) + ∂yvI, 01 uB, 11 + ∂z vB, 02 (12z2∂2 
+
+> y
+
+uI, 02 + uI, 22 + uB, 22 ) (3.31) 
+
++ ∂z vB, 11 (z∂ yuI, 01 + uB, 11 ) + ∂z vB, 12 z∂ yuI, 02 + ∂z vB, 21 uI, 01 + 2 ∂z vB, 02 (vI, 02 + vB, 02 ) − ∂z nB, 2 = ∂2 
+
+> z
+
+vB, 12 .
+
+By substituting the first component of (3 .11) 3 into (3 .29) , and using (3 .18) , then the first component of (3 .29) is reduced to 
+
+∂tuB, 11 + uB, 11 ∂xuI, 01 + uI, 01 ∂xuB, 11 + z∂ yuI, 02 ∂z uB, 11 = ∂2 
+
+> z
+
+uB, 11 . (3.32) Substituting the second component of (3 .11) 3 into (3 .29) , and owing to uB, 12 = 0 in (3 .22) , we obtain 
+
+∂z pB, 2 = nB, 1. (3.33) Combining the term in (3 .9) containing O(ε), and taking the first component, by substituting the outflow equation (3 .11) 2 with j = 2 , using (3 .7) (3 .22) and (3.26), we can get 
+
+∂tvB, 21 + ∂xuI, 01 vB, 21 + z∂ x∂yuI, 01 vB, 11 + z∂ x∂yuI, 02 vB, 12 + ∂x(12z2∂2 
+
+> y
+
+uI, 02 + uI, 22 )vB, 02
+
++ ∂xuB, 11 (z∂ yvI, 01 + vB, 11 ) + ∂xuB, 21 vI, 01 + ∂xuB, 22 (vI, 02 + vB, 02 ) + ∂xvI, 01 uB, 2120 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
++ ∂xvI, 02 uB, 22 + z∂ x∂yvI, 01 uB, 11 + ∂xvB, 02 (12z2∂2 
+
+> y
+
+uI, 02 + uI, 22 + uB, 22 ) (3.34) 
+
++ ∂xvB, 11 (z∂ yuI, 01 + uB, 11 ) + ∂xvB, 12 z∂ yuI, 02 + ∂xvB, 21 uI, 01 + ∂xvI, 02 vB, 02
+
++ 2 ∂xvB, 02 (vI, 02 + vB, 02 ) − ∂xnB, 2 = ∂2 
+
+> z
+
+vB, 21 .
+
+Similarly, combining the term in (3 .10) containing O(ε), and taking the first component, by substi-tuting the outflow equation (3 .11) 3 with j = 2 , (3 .7) , (3 .22) and (3.26), we obtain 
+
+∂tuB, 21 + uB, 11 z∂ x∂yuI, 01 + uB, 21 ∂xuI, 01 + uB, 22 ∂yuI, 01 + uI, 01 ∂xuB, 21 + z∂ yuI, 01 ∂xuB, 11
+
++ uB, 11 ∂xuB, 11 + z∂ yuI, 02 ∂z uB, 21 + ( 12z2∂2 
+
+> y
+
+uI, 02 + uI, 22 )∂z uB, 11 + uB, 22 ∂z uB, 11 + ∂xpB, 2 = ∂2 
+
+> z
+
+uB, 21 .
+
+(3.35) By the divergence conditions, we can obtain the expressions for uB, 22 and uB, 32 as follows 
+
+uB, 22 (t, x, z ) = 
+
+∫ ∞
+
+> z
+
+∂xuB, 11 (t, x, η )dη, uB, 32 (t, x, z ) = 
+
+∫ ∞
+
+> z
+
+∂xuB, 21 (t, x, η )dη. (3.36) Similar to the previous derivation process, we can further derive the initial boundary value problems for high-order profiles (nI,j , v I,j , u I,j , p I,j ) and (nB,j +1 , v B,j +1 1 , v B,j  
+
+> 2
+
+, u B,j +1 1 , u B,j +2 2 , p B,j +1 ) with j ≥ 2,but they are not related to our results, hence these derivations are omitted. 4. leading-order outer layer estimate 
+
+In this section, we prove that the chemotaxis Euler system (2.4) subject to the boundary condition 
+
+(1 .6) 2 possesses the regularity result stated in Theorem 2.1 in the general Sobolev spaces. First, we introduce the following useful Lemmas, which are frequently used in the proof of The-orem 2.1. 
+
+Lemma 4.1 (See [8, 33]) . Let u = ( u1, u 2) be a vector field in the half plane R2+ = {(x, y ) ∈ R2 : y > 
+
+0}, satisfying div u = 0 with the boundary condition u2|y=0 = 0 . Denote ω = ∇ × u = ∂xu2 − ∂yu1,then for the integer k ≥ 0, there exists a constant C depending only on k, such that 
+
+∥∥∇k+1 u∥∥L2(R2+) ≤ C ∥∥∇kω∥∥L2(R2+) .
+
+Lemma 4.2 (See [1]) . In the half plane R2+, the following inequality holds true: 
+
+∥f (x, y )∥L2 
+
+> xL∞
+> y
+
+≤ C∥f ∥12 
+
+> L2
+> xy
+
+∥∂yf ∥12 
+
+> L2
+> xy
+
+, ∀f ∈ W 1,2 
+
+> xy
+
+.
+
+Lemma 4.3. For any f, g ∈ Hs(R2+) ∩ L∞(R2+) with s > 0, it holds that 
+
+∥f g ∥Hsxy ≤ C(∥f ∥L∞ 
+
+> xy
+
+∥g∥Hsxy + ∥f ∥Hsxy ∥g∥L∞ 
+
+> xy
+
+).BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 21 
+
+To prove the local well-posedness of the system (2.4), it suffices to obtain some necessary prior estimates. We assume that the initial data (nin , v in , u in ) in R2+ and the solution (n0, v 0, u 0) in 
+
+R2+ × [0 , T ∗) are suitably smooth without loss of generality. 
+
+Lemma 4.4. Assume that the initial data (nin , v in , u in ) satisfy the assumptions of Theorem 2.1 and 
+
+(n0, v 0, u 0) is smooth in R2+ × [0 , T ∗). Then there exists 0 < T < T ∗ such that the uniform energy estimates hold: 
+
+∥(n0, v 0, u 0, ∇u0)∥2  
+
+> L∞
+> TH2
+> xy
+
++ ∥(∂tn0, ∂ tv0, ∂ tu0, ∂ t∇u0)∥2  
+
+> L∞
+> TL2
+> xy
+
++ ∥(∇∂tn0, ∇∂2
+
+> x
+
+n0)∥2 
+
+> L2
+> TL2
+> xy
+
+≤ C(∥nin ∥H2 
+
+> xy
+
+, ∥vin ∥H2 
+
+> xy
+
+, ∥uin ∥H3 
+
+> xy
+
+, ∥∂tnin ∥L2 
+
+> xy
+
+, ∥∂tvin ∥L2 
+
+> xy
+
+, ∥∂tuin ∥H1 
+
+> xy
+
+), (4.1) 
+
+and 
+
+∥(∇∂tv0, ∇2∂tu0)∥2  
+
+> L∞
+> TL2
+> xy
+
++ ∥∇ 3n0∥L2  
+
+> TL2
+> xy
+
+≤ C(∥nin ∥H2 
+
+> xy
+
+, ∥vin ∥H2 
+
+> xy
+
+, ∥uin ∥H3 
+
+> xy
+
+). (4.2) 
+
+Proof. Consider the evolution of the following energy functional: 
+
+E(t) := ∥(n0, v 0, ω 0)∥2 
+
+> H2
+> xy
+
++ ∥(u0, ∂ tω0)∥2 
+
+> L2
+> xy
+
++ ∥(∂tn0, ∂ tv0, ∂ tu0)∥2 
+
+> L2
+> xy
+
+, (4.3) where ω0 = ∂xu02 − ∂yu01, which is divided into four main steps. 
+
+Step 1. The L2 
+
+> xy
+
+energy estimate. Taking the L2 inner product of (2 .4) 1 with n0 and applying integration by parts, the divergence condition (2 .4) 5 and the boundary condition (2 .4) 6, we deduce that 
+
+12
+
+ddt 
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+|n0|2dxdy =
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇ · (∇n0 + n0v0)n0dxdy −
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+u0 · ∇ n0n0dxdy 
+
+= −
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+|∇ n0|2dxdy −
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇n0 · (n0v0)dxdy, 
+
+which implies 
+
+12
+
+ddt ∥n0∥2 
+
+> L2
+> xy
+
++ ∥∇ n0∥2 
+
+> L2
+> xy
+
+≤ ∥∇ n0∥L2 
+
+> xy
+
+∥n0∥L4 
+
+> xy
+
+∥v0∥L4
+
+> xy
+
+≤ C∥∇ n0∥2 
+
+> L2
+> xy
+
+∥n0∥2 
+
+> H1
+> xy
+
++ C∥v0∥2 
+
+> H1
+> xy
+
+,
+
+(4.4) due to the Gagliardo¨CNirenberg interpolation inequality. Similarly, multiplying (2 .4) 2 by v0, we obtain 
+
+12
+
+ddt ∥v0∥2 
+
+> L2
+> xy
+
+= −
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇(u0 · v0) · v0dxdy +
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇n0 · v0dxdy 
+
+≤ C
+
+(
+
+∥∇ u0∥L2 
+
+> xy
+
+∥v0∥2 
+
+> H1
+> xy
+
++ ∥∇ v0∥L2 
+
+> xy
+
+∥v0∥H1 
+
+> xy
+
+∥u0∥H1 
+
+> xy
+
++ ∥∇ n0∥L2 
+
+> xy
+
+∥v0∥L2
+
+> xy
+
+)
+
+.
+
+(4.5) 22 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+Furthermore, we take the L2 inner product of (2 .4) 4 with u0. Using the boundary condition u02|y=0 =0 and the divergence-free ∇ · u0 = 0 , we get 
+
+12
+
+ddt ∥u0∥2 
+
+> L2
+> xy
+
+= −
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+u0 · ∇ u0 · u0dxdy −
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇p0 · u0dxdy +
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+n0e2 · u0dxdy 
+
+=
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+n0u02dxdy ≤ ∥ n0∥L2 
+
+> xy
+
+∥u0∥L2 
+
+> xy
+
+. (4.6) Combining the estimates (4.4)-(4.6), (4.3) and Lemma 4.1, we conclude 
+
+ddt (∥n0∥2 
+
+> L2
+> xy
+
++ ∥v0∥2 
+
+> L2
+> xy
+
++ ∥u0∥2 
+
+> L2
+> xy
+
+) ≤ C(E(t) + 1) 2. (4.7) 
+
+Step 2. The gradient estimates. In this step, we estimate ∇n0, ∇v0, ∇u0 and ∇ω0. Multiplying 
+
+(2 .4) 1 by ∂tn0, by (2 .4) 6 it can be shown that 
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+|∂tn0|2dxdy =
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇ · (∇n0 + n0v0)∂tn0dxdy −
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+u0 · ∇ n0∂tn0dxdy 
+
+≤ − 
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇∂tn0 · ∇ n0dxdy −
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇∂tn0 · (n0v0)dxdy 
+
++
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+|u0||∇ n0|| ∂tn0|dxdy, 
+
+which implies that 
+
+12
+
+ddt ∥∇ n0∥2 
+
+> L2
+> xy
+
++ ∥∂tn0∥2
+
+> L2
+> xy
+
+≤ ∥∇ ∂tn0∥L2 
+
+> xy
+
+∥n0∥L4 
+
+> xy
+
+∥v0∥L4 
+
+> xy
+
++ ∥u0∥L∞ 
+
+> xy
+
+∥∇ n0∥L2 
+
+> xy
+
+∥∂tn0∥L2
+
+> xy
+
+≤ 116 ∥∇ ∂tn0∥2 
+
+> L2
+> xy
+
++ 18∥∂tn0∥2 
+
+> L2
+> xy
+
++ C(∥n0∥2 
+
+> H1
+> xy
+
+∥v0∥2 
+
+> H1
+> xy
+
++ ∥u0∥2 
+
+> H2
+> xy
+
+∥∇ n0∥2 
+
+> L2
+> xy
+
+).
+
+(4.8) Taking ∇ on (2 .4) 2, multiplying by ∇v0, and applying Lemma 4.3, we obtain 
+
+12
+
+ddt ∥∇ v0∥2 
+
+> L2
+> xy
+
+= −
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇2(u0 · v0) : ∇v0 +
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇2n0 : ∇v0
+
+≤ C
+
+(
+
+∥u0∥H2 
+
+> xy
+
+∥v0∥H2 
+
+> xy
+
+∥∇ v0∥L2 
+
+> xy
+
++ ∥∇ 2n0∥L2 
+
+> xy
+
+∥∇ v0∥L2
+
+> xy
+
+)
+
+. (4.9) In order to estimate ∇u0, taking ∇× on the equation (2 .4) 4, we get 
+
+∂tω0 + u0 · ∇ ω0 = ∂xn0, (4.10) and it follows that 
+
+12
+
+ddt ∥ω0∥2 
+
+> L2
+> xy
+
+= −
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+u0 · ∇ ω0ω0dxdy +
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∂xn0ω0dxdy 
+
+≤ ∥ ∂xn0∥L2 
+
+> xy
+
+∥ω0∥L2 
+
+> xy
+
+.
+
+(4.11) BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 23 
+
+Applying ∇ to (4.10), we conclude that 
+
+12
+
+ddt ∥∇ ω0∥2 
+
+> L2
+> xy
+
+≤ C∥∇ u0∥H2 
+
+> xy
+
+∥∇ ω0∥2 
+
+> L2
+> xy
+
++ C∥∇ ∂xn0∥L2 
+
+> xy
+
+∥∇ ω0∥L2 
+
+> xy
+
+. (4.12) Combining (4 .8) -(4 .9) and (4 .11) -(4 .12) , by Lemma 4.1 we have 
+
+ddt 
+
+(
+
+∥∇ n0∥2 
+
+> L2
+> xy
+
++ ∥∇ v0∥2 
+
+> L2
+> xy
+
++ ∥ω0∥2 
+
+> L2
+> xy
+
++ ∥∇ ω0∥2
+
+> L2
+> xy
+
+)
+
+≤ C(E(t) + 1) 2 + 18∥∇ ∂tn0∥2 
+
+> L2
+> xy
+
+. (4.13) 
+
+Step 3. The derivative estimates with respect to t. Recall that we also need to estimate 
+
+∥∇ ∂tn0∥2 
+
+> L2
+> xy
+
+in Step 2. Taking ∂t on (2 .4) 1, we get 
+
+∂tt n0 + ∂tu0 · ∇ n0 + u0 · ∇ ∂tn0 = ∇ · (∂t∇n0 + ∂t(n0v0)) . (4.14) Then, multiplying (4 .14) by ∂tn0 and using the conditions (2 .4) 6, we show that 
+
+12
+
+ddt 
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+|∂tn0|2dxdy 
+
+=
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇ · (∇∂tn0 + ∂t(n0v0)) ∂tn0dxdy −
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+(∂tu0 · ∇ n0 + u0 · ∇ ∂tn0)∂tn0dxdy 
+
+≤ − 
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+|∇ ∂tn0|2dxdy + C
+
+(
+
+∥∂tn0∥2 
+
+> L2
+> xy
+
+∥v0∥2 
+
+> H2
+> xy
+
++ ∥n0∥2 
+
+> H2
+> xy
+
+∥∂tv0∥2
+
+> L2
+> xy
+
+)
+
+(4.15) 
+
++ C
+
+(
+
+∥∂tu0∥2 
+
+> H1
+> xy
+
+∥∇ n0∥2 
+
+> H1
+> xy
+
++ ∥∂tn0∥2
+
+> L2
+> xy
+
+)
+
++ 12∥∇ ∂tn0∥2 
+
+> L2
+> xy
+
+.
+
+Further, differentiating (2 .4) 2 with respect to t and multiplying by ∂tv0, we find that 
+
+12
+
+ddt ∥∂tv0∥2
+
+> L2
+> xy
+
+= −
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇∂t(u0 · v0) · ∂tv0dxdy +
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇∂tn0 · ∂tv0dxdy 
+
+= −
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+[( ∇∂tu0 · v0 + ∇u0 · ∂tv0) · ∂tv0 + ∂tv0 · (∇v0) · ∂tu0 + ∂tv0 · (∇∂tv0) · u0] dxdy 
+
++
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇∂tn0 · ∂tv0dxdy (4.16) 
+
+≤ C∥∇ ∂tu0∥2 
+
+> L2
+> xy
+
+∥v0∥2 
+
+> H2
+> xy
+
++ C∥∇ u0∥H2 
+
+> xy
+
+∥∂tv0∥2 
+
+> L2
+> xy
+
++ C∥∂tu0∥2 
+
+> H1
+> xy
+
+∥∇ v0∥2
+
+> H1
+> xy
+
++ C∥∂tv0∥2 
+
+> L2
+> xy
+
++ 12∥∇ ∂tn0∥2 
+
+> L2
+> xy
+
+,
+
+where we used that 
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∂tv0 · (∇∂tv0) · u0dxdy 
+
+=
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+(∂tv01 ∂x∂tv01 u01 + ∂tv01 ∂x∂tv02 u02 + ∂tv02 ∂y∂tv01 u01 + ∂tv02 ∂y∂tv02 u02
+
+) dxdy 24 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+= 12
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+(u01∂x|∂tv01 |2 + u02∂y|∂tv01 |2 + u01∂x|∂tv02 |2 + u02∂y|∂tv02 |2) dxdy (4.17) 
+
+= 12
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+u0 · ∇| ∂tv0|2dxdy 
+
+= 0 ,
+
+since ∇ · u0 = 0 and ∇ × v0 = ∂xv02 − ∂yv01 = 0 in (2 .4) . Next we estimate ∥∂tu0∥L2 
+
+> xy
+
+and ∥∇ ∂tu0∥L2
+
+> xy
+
+as follows 
+
+12
+
+ddt ∥∂tu0∥2 
+
+> L2
+> xy
+
+≤ ∥ ∂tu0∥2 
+
+> L4
+> xy
+
+∥∇ u0∥L2 
+
+> xy
+
++ ∥∂tn0∥L2 
+
+> xy
+
+∥∂tu0∥L2
+
+> xy
+
+≤ C
+
+(
+
+∥∂tu0∥2 
+
+> H1
+> xy
+
+∥∇ u0∥L2 
+
+> xy
+
++ ∥∂tu0∥2 
+
+> L2
+> xy
+
++ ∥∂tn0∥2
+
+> L2
+> xy
+
+)
+
+,
+
+12
+
+ddt ∥∂tω0∥2 
+
+> L2
+> xy
+
+≤ C∥∂tu0∥2 
+
+> H1
+> xy
+
+∥∇ ω0∥2 
+
+> H1
+> xy
+
++ 12∥∂x∂tn0∥2 
+
+> L2
+> xy
+
++ C∥∂tω0∥2 
+
+> L2
+> xy
+
+.
+
+(4.18) Combining (4 .15) -(4 .18) , we obtain 
+
+ddt (18 ∥∂tn0∥2 
+
+> L2
+> xy
+
++ ∥∂tv0∥2 
+
+> L2
+> xy
+
++ ∥∂tu0∥2 
+
+> L2
+> xy
+
++ ∥∂tω0∥2 
+
+> L2
+> xy
+
+) + 16 ∥∇ ∂tn0∥2 
+
+> L2
+> xy
+
+≤ C(E(t) + 1) 2. (4.19) 
+
+Step 4. The higher order derivative estimates of ∥∇ 2n0∥2 
+
+> L2
+> xy
+
+, ∥∇ 2v0∥2 
+
+> L2
+> xy
+
+and ∥∇ 2ω0∥2 
+
+> L2
+> xy
+
+.
+
+First, taking ∂y on (2 .4) 1, multiplying by ∂y∂tn0 and applying integration by parts, we find that 
+
+12
+
+ddt ∥∇ ∂yn0∥2 
+
+> L2
+> xy
+
++ ∥∂t∂yn0∥2
+
+> L2
+> xy
+
+= −
+
+∫ ∞−∞ 
+
+∂2 
+
+> y
+
+n0(t, x, 0) ∂t∂yn0(t, x, 0) dx −
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+(∂yu0 · ∇ n0 + u0 · ∇ ∂yn0)∂t∂yn0dxdy 
+
++
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇ · (∂yn0v0 + n0∂yv0)∂t∂yn0dxdy 
+
+=: I1 + I2 + I3.
+
+Substituting the boundary conditions (∂yn0 + n0v02 )|y=0 = 0 into I1, and applying Lemma 4.2 together with Young¡¯s inequality, we have 
+
+I1 =
+
+∫ ∞−∞ 
+
+∂2 
+
+> y
+
+n0(t, x, 0) ∂t(n0(t, x, 0) v02 (t, x, 0)) dx 
+
+≤ C∥∂2 
+
+> y
+
+n0∥12 
+
+> L2
+> xy
+
+∥∂3 
+
+> y
+
+n0∥12 
+
+> L2
+> xy
+
+∥∂t(n0v02 )∥12 
+
+> L2
+> xy
+
+∥∂t∂y(n0v02 )∥12
+
+> L2
+> xy
+
+≤ C∥∂2 
+
+> y
+
+n0∥2 
+
+> L2
+> xy
+
++ 116 ∥∂3 
+
+> y
+
+n0∥2 
+
+> L2
+> xy
+
++ ( ∥∂tn0∥L2 
+
+> xy
+
+∥v02 ∥L∞ 
+
+> xy
+
++ ∥n0∥L∞ 
+
+> xy
+
+∥∂tv02 ∥L2 
+
+> xy
+
+)( ∥∂t∂yn0∥L2 
+
+> xy
+
+∥v02 ∥L∞
+
+> xy
+
++ ∥∂yn0∥L4 
+
+> xy
+
+∥∂tv02 ∥L4 
+
+> xy
+
++ ∥∂tn0∥L4 
+
+> xy
+
+∥∂yv02 ∥L4 
+
+> xy
+
++ ∥n0∥L∞ 
+
+> xy
+
+∥∂t∂yv02 ∥L2 
+
+> xy
+
+)
+
+≤ C∥∇ 2n0∥2 
+
+> L2
+> xy
+
++ 116 ∥∇ 3n0∥2 
+
+> L2
+> xy
+
++ 116 ∥∇ ∂tn0∥2 
+
+> L2
+> xy
+
++ C(E(t) + 1) 3BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 25 
+
++ C(E(t) + 1) 32 + ∥∇ ∂tv0∥L2 
+
+> xy
+
+)
+
+≤ C∥∇ 2n0∥2 
+
+> L2
+> xy
+
++ 116 ∥∇ 3n0∥2 
+
+> L2
+> xy
+
++ 116 ∥∇ ∂tn0∥2 
+
+> L2
+> xy
+
++ C(E(t) + 1) 3,
+
+where we estimate ∥∇ ∂tv0∥L2  
+
+> TL2
+> xy
+
+using (2 .4) 2 and 
+
+∥∇ ∂tv0∥L2 
+
+> xy
+
+≤ C∥u0∥H2 
+
+> xy
+
+∥v0∥H2 
+
+> xy
+
++ ∥∇ 2n0∥L2 
+
+> xy
+
+.
+
+By Young’s inequality and the Sobolev embedding inequality, we obtain 
+
+I2 ≤
+
+(
+
+∥∂yu0∥L∞ 
+
+> xy
+
+∥∇ n0∥L2 
+
+> xy
+
++ ∥u0∥L∞ 
+
+> xy
+
+∥∇ ∂yn0∥L2
+
+> xy
+
+)
+
+∥∂t∂yn0∥L2
+
+> xy
+
+≤ C(E(t) + 1) 2 + 12∥∂t∂yn0∥2 
+
+> L2
+> xy
+
+.
+
+Similarly, we estimate I3 as follows 
+
+I3 ≤
+
+(
+
+∥∇ ∂yn0∥L2 
+
+> xy
+
+∥v0∥L∞ 
+
+> xy
+
++ ∥∂yn0∥L4 
+
+> xy
+
+∥∇ v0∥L4 
+
+> xy
+
++ ∥∇ n0∥L4 
+
+> xy
+
+∥∂yv0∥L4 
+
+> xy
+
++ ∥n0∥L∞ 
+
+> xy
+
+∥∇ ∂yv0∥L2
+
+> xy
+
+)
+
+× ∥ ∂t∂yn0∥L2 
+
+> xy
+
+,
+
+≤ C(E(t) + 1) 2 + 12∥∂t∂yn0∥2 
+
+> L2
+> xy
+
+.
+
+Combining the terms I1-I3 gives 
+
+12
+
+ddt ∥∇ ∂yn0∥2 
+
+> L2
+> xy
+
+≤ 116 ∥∇ 3n0∥2 
+
+> L2
+> xy
+
++ 116 ∥∇ ∂tn0∥2 
+
+> L2
+> xy
+
++ C(E(t) + 1) 3. (4.20) For ∇2n0, we also need to estimate ∂2
+
+> x
+
+n0. Applying ∂2 
+
+> x
+
+to (2 .4) 1 and multiplying by ∂2
+
+> x
+
+n0, we deduce that 
+
+12
+
+ddt ∥∂2
+
+> x
+
+n0∥2 
+
+> L2
+> xy
+
++ ∥∇ ∂2
+
+> x
+
+n0∥2
+
+> L2
+> xy
+
+= −
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∂2
+
+> x
+
+(n0v0)∇∂2
+
+> x
+
+n0dxdy −
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∂2
+
+> x
+
+(u0 · ∇ n0)∂2
+
+> x
+
+n0dxdy 
+
+≤ 18∥∇ ∂2
+
+> x
+
+n0∥2 
+
+> L2
+> xy
+
++ C∥n0∥2 
+
+> H2
+> xy
+
+∥v0∥2 
+
+> H2
+> xy
+
++ C∥u0∥2 
+
+> H3
+> xy
+
+∥n0∥2 
+
+> H2
+> xy
+
++ C∥∂2
+
+> x
+
+n0∥2
+
+> L2
+> xy
+
+≤ C(E(t) + 1) 2 + 18∥∇ ∂2
+
+> x
+
+n0∥2 
+
+> L2
+> xy
+
+.
+
+(4.21) Combining the estimates for (4 .20) -(4 .21) , we arrive at 
+
+12
+
+ddt ∥∇ 2n0∥2 
+
+> L2
+> xy
+
++ ∥∇ ∂2
+
+> x
+
+n0∥2
+
+> L2
+> xy
+
+≤ 14∥∇ ∂2
+
+> x
+
+n0∥2 
+
+> L2
+> xy
+
++ 116 ∥∇ 3n0∥2 
+
+> L2
+> xy
+
++ 116 ∥∇ ∂tn0∥2 
+
+> L2
+> xy
+
++ C(E(t) + 1) 3, (4.22) where we need estimate ∥∇ 3n0∥2 
+
+> L2
+> TL2
+> xy
+
+. It follows from (2 .4) 1 that 
+
+∂2 
+
+> y
+
+n0 = ∂tn0 + u0 · ∇ n0 − ∇ · (n0v0) − ∂2
+
+> x
+
+n0,26 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+and hence 
+
+∥∇ 3n0∥L2 
+
+> xy
+
+≤ ∥ ∂3
+
+xn0∥L2 
+
+> xy
+
++ ∥∂2
+
+x∂yn0∥L2 
+
+> xy
+
++ ∥∂x∂2
+
+y n0∥L2 
+
+> xy
+
++ ∥∂3
+
+y n0∥L2
+
+> xy
+
+≤ ∥ ∂3
+
+xn0∥L2 
+
+> xy
+
++ ∥∂2
+
+x∂yn0∥L2 
+
+> xy
+
++ ∥∂x(∂tn0 + u0 · ∇ n0 − ∇ · (n0v0) − ∂2
+
+xn0)∥L2
+
+> xy
+
++ ∥∂y(∂tn0 + u0 · ∇ n0 − ∇ · (n0v0) − ∂2
+
+xn0)∥L2
+
+> xy
+
+≤ 2∥∂3
+
+xn0∥L2 
+
+> xy
+
++ 2 ∥∂2
+
+x∂yn0∥L2 
+
+> xy
+
++ ∥∂x∂tn0∥L2 
+
+> xy
+
++ ∥∂y∂tn0∥L2 
+
+> xy
+
++ C∥u0∥H3 
+
+> xy
+
+∥n0∥H2
+
+> xy
+
++ C∥n0∥H2 
+
+> xy
+
+∥v0∥H2 
+
+> xy
+
+(4.23) 
+
+≤ 4∥∇ ∂2
+
+xn0∥L2 
+
+> xy
+
++ 2 ∥∇ ∂tn0∥L2 
+
+> xy
+
++ C∥u0∥H3 
+
+> xy
+
+∥n0∥H2 
+
+> xy
+
++ C∥n0∥H2 
+
+> xy
+
+∥v0∥H2 
+
+> xy
+
+.
+
+Next, we estimate ∥∇ 2v0∥2
+
+L2 
+
+> xy
+
+and ∥∇ 2ω0∥2
+
+L2 
+
+> xy
+
+. Applying ∇2 to (2 .4) 2 and multiplying by ∇2v0, we deduce that 
+
+12
+
+ddt ∥∇ 2v0∥2
+
+L2 
+
+> xy
+
+≤ ∥∇ 3u0∥2
+
+L2 
+
+> xy
+
+∥v0∥2
+
+L∞ 
+
+> xy
+
++ ∥∇ 2u0∥2
+
+L4 
+
+> xy
+
+∥∇ v0∥2
+
+L4 
+
+> xy
+
++ ∥∇ u0∥2
+
+L∞ 
+
+> xy
+
+∥∇ 2v0∥2
+
+L2
+
+> xy
+
++ ∥∇ 2v0∥2
+
+L2 
+
+> xy
+
++ ∥∇ 3n0∥2
+
+L2
+
+> xy
+
+≤ 4∥∇ ∂2
+
+xn0∥2
+
+L2 
+
+> xy
+
++ 2 ∥∇ ∂tn0∥2
+
+L2 
+
+> xy
+
++ C(E(t) + 1) 2.
+
+(4.24) Similarly, applying ∇2 to (4 .10) and multiplying by ∇2ω0, one can show that 
+
+12
+
+ddt ∥∇ 2ω0∥2
+
+L2 
+
+> xy
+
+≤ ∥∇ 2u0∥2
+
+L4 
+
+> xy
+
+∥∇ ω0∥2
+
+L4 
+
+> xy
+
++ ∥∇ u0∥2
+
+L∞ 
+
+> xy
+
+∥∇ 2ω0∥2
+
+L2 
+
+> xy
+
++ ∥∇ 2ω0∥2
+
+L2 
+
+> xy
+
++ ∥∇ 3n0∥2
+
+L2
+
+> xy
+
+≤ 4∥∇ ∂2
+
+xn0∥2
+
+L2 
+
+> xy
+
++ 2 ∥∇ ∂tn0∥2
+
+L2 
+
+> xy
+
++ C(E(t) + 1) 2.
+
+(4.25) Combining (4 .22) , (4 .24) and (4 .25) , we have 
+
+ddt (18 ∥∇ 2n0∥2
+
+L2 
+
+> xy
+
++ ∥∇ 2v0∥2
+
+L2 
+
+> xy
+
++ ∥∇ 2ω0∥2
+
+L2 
+
+> xy
+
+) + 2 ∥∇ ∂2
+
+xn0∥2
+
+L2 
+
+> xy
+
+≤ C(E(t) + 1) 3 + 15 ∥∇ ∂tn0∥2
+
+L2 
+
+> xy
+
+.
+
+(4.26) Therefore, combining (4 .7) , (4 .13) , (4 .19) , (4 .26) and (4.3), we have 
+
+ddt E(t) + ∥∇ ∂tn0∥2
+
+L2 
+
+> xy
+
++ ∥∇ ∂2
+
+xn0∥2
+
+L2 
+
+> xy
+
+≤ C(E(t) + 1) 3,
+
+for any t ∈ [0 , T ], where 
+
+T < 
+
+[
+
+2C
+
+(
+
+∥(nin , v in )∥2
+
+H2 
+
+> xy
+
++ ∥uin ∥2
+
+H3 
+
+> xy
+
++ ∥(∂tnin , ∂ tvin )∥2
+
+L2 
+
+> xy
+
++ ∥∂tuin ∥2
+
+H1 
+
+> xy
+
++ 1 
+
+)2]−1
+
+.
+
+Using Gronwall¡¯s inequality together with Lemma 4.1, we show that (4 .1) holds. Using (2.4), (4.10) and (4 .1) , we obtain 
+
+∥∇ ∂tv0∥L∞ 
+
+> T
+
+L2 
+
+> xy
+
+≤ ∥ u0∥L∞ 
+
+> T
+
+H2 
+
+> xy
+
+∥v0∥L∞ 
+
+> T
+
+H2 
+
+> xy
+
++ ∥∇ 2n0∥L∞ 
+
+> T
+
+L2 
+
+> xy
+
+≤ C, 
+
+∥∇ ∂tω0∥L∞ 
+
+> T
+
+L2 
+
+> xy
+
+≤ ∥ u0∥L∞ 
+
+> T
+
+H3 
+
+> xy
+
+∥∇ ω0∥L∞ 
+
+> T
+
+L2 
+
+> xy
+
++ ∥u0∥L∞ 
+
+> T
+
+H2 
+
+> xy
+
+∥∇ 2ω0∥L∞ 
+
+> T
+
+L2 
+
+> xy
+
++ ∥∇ 2n0∥L∞ 
+
+> T
+
+L2 
+
+> xy
+
+≤ C. (4.27) BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 27 
+
+Furthermore, integrating both sides of (4.23) over the time, then it yields 
+
+∥∇ 3n0∥L2  
+
+> TL2
+> xy
+
+≤ C. 
+
+Clearly, this yields (4.2). The proof is complete. Next we aim to obtain estimates for higher-order derivatives in Lemma 4.4. 
+
+Lemma 4.5. Suppose the initial data (nin , v in , u in ) and the solution (n0, v 0, u 0) satisfy the assump-tions of Lemma 4.4. Then the following properties holds: 
+
+∥∇ ∂tn0∥2  
+
+> L∞
+> TL2
+> xy
+
++ ∥(∂2 
+
+> t
+
+n0, ∂ 2 
+
+> t
+
+v0, ∂ 2 
+
+> t
+
+u0, ∇∂2 
+
+> t
+
+u0)∥2 
+
+> L∞
+> TL2
+> xy
+
++ ∥(∇∂2
+
+> x
+
+n0, ∂ 2
+
+> x
+
+∂tn0, ∇3v0, ∇4u0)∥2  
+
+> L∞
+> TL2
+> xy
+
++ ∥∇ ∂3
+
+> x
+
+n0∥2  
+
+> L2
+> TL2
+> xy
+
+≤ C, (4.28) 
+
+and 
+
+∥(∇2∂tv0, ∇3∂tu0, ∇3n0, ∇2∂tn0)∥L∞  
+
+> TL2
+> xy
+
++ ∥∇ 4n0∥L2  
+
+> TL2
+> xy
+
+≤ C, (4.29) 
+
+where C > 0 is a constant depending only on the initial data 
+
+(∥nin ∥H3 
+
+> xy
+
+, ∥vin ∥H3 
+
+> xy
+
+, ∥uin ∥H4 
+
+> xy
+
+, ∥∂tnin ∥H2 
+
+> xy
+
+, ∥∂2
+
+> x
+
+∂tnin ∥L2 
+
+> xy
+
+, ∥(∂2 
+
+> t
+
+nin , ∂ 2 
+
+> t
+
+vin , ∂ 2 
+
+> t
+
+uin )∥L2 
+
+> xy
+
+, ∥∂2 
+
+> t
+
+uin ∥H1 
+
+> xy
+
+).
+
+Proof. Deriving the estimates in (4.28)-(4.29) requires us to decompose the proof into three steps. Next, we will eatimate each term step by step. 
+
+Step 1. I. The estimates of ∥∇ ∂tn0∥L∞  
+
+> TL2
+> xy
+
+. We write the two equations for n0 as follows: 
+
+∂2 
+
+> t
+
+n0 + ∂t(u0 · ∇ n0) = ∇ · (∂t∇n0 + ∂t(n0v0)) . (4.30) 
+
+∂3 
+
+> t
+
+n0 + ∂2 
+
+> t
+
+(u0 · ∇ n0) = ∇ · (∂2 
+
+> t
+
+∇n0 + ∂2 
+
+> t
+
+(n0v0)) . (4.31) Taking the inner product of (4 .30) with ∂2 
+
+> t
+
+n0,
+
+∥∂2 
+
+> t
+
+n0∥2 
+
+> L2
+> xy
+
+=
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇ · ∂t(∇n0 + n0v0)∂2 
+
+> t
+
+n0dxdy −
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∂t(u0 · ∇ n0)∂2 
+
+> t
+
+n0dxdy, 
+
+integrating by parts and by (4 .1) , we obtain 
+
+12
+
+ddt ∥∇ ∂tn0∥2 
+
+> L2
+> xy
+
++ ∥∂2 
+
+> t
+
+n0∥2
+
+> L2
+> xy
+
+≤ (∥∂tn0∥L2 
+
+> xy
+
+∥v0∥L∞ 
+
+> xy
+
++ ∥n0∥L∞ 
+
+> xy
+
+∥∂tv0∥L2 
+
+> xy
+
+)∥∇ ∂2 
+
+> t
+
+n0∥L2 
+
+> xy
+
++ ∥∂tu0∥L4 
+
+> xy
+
+∥∇ n0∥L4 
+
+> xy
+
+∥∂2 
+
+> t
+
+n0∥L2 
+
+> xy
+
+(4.32) 
+
++ ∥u0∥L∞ 
+
+> xy
+
+∥∇ ∂tn0∥L2 
+
+> xy
+
+∥∂2 
+
+> t
+
+n0∥L2
+
+> xy
+
+≤ 18∥∇ ∂2 
+
+> t
+
+n0∥2 
+
+> L2
+> xy
+
++ 12∥∂2 
+
+> t
+
+n0∥2 
+
+> L2
+> xy
+
++ C∥∇ ∂tn0∥2 
+
+> L2
+> xy
+
++ C, 28 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+where we need to estimate ∥∇ ∂2
+
+t n0∥L2 
+
+> T
+
+L2 
+
+> xy
+
+.
+
+II. The second temporal derivatives of n0, v0 and u0. We take the inner product of (4 .31) 
+
+with ∂2
+
+t n0 and apply the Sobolev embedding inequality to derive 
+
+12
+
+ddt ∥∂2
+
+t n0∥2
+
+L2 
+
+> xy
+
++ ∥∇ ∂2
+
+t n0∥2
+
+L2
+
+> xy
+
+≤
+
+(
+
+∥∂2
+
+t n0∥L2 
+
+> xy
+
+∥v0∥L∞ 
+
+> xy
+
++ 2 ∥∂tn0∥L4 
+
+> xy
+
+∥∂tv0∥L4 
+
+> xy
+
++ ∥n0∥L∞ 
+
+> xy
+
+∥∂2
+
+t v0∥L2
+
+> xy
+
+)
+
+∥∇ ∂2
+
+t n0∥L2
+
+> xy
+
++ ∥∂2
+
+t u0∥L4 
+
+> xy
+
+∥∇ n0∥L4 
+
+> xy
+
+∥∂2
+
+t n0∥L2 
+
+> xy
+
++ 2 ∥∂tu0∥L∞ 
+
+> xy
+
+∥∇ ∂tn0∥L2 
+
+> xy
+
+∥∂2
+
+t n0∥L2
+
+> xy
+
+≤
+
+(
+
+∥∂2
+
+t n0∥L2 
+
+> xy
+
+∥v0∥H2 
+
+> xy
+
++ 2 ∥∂tn0∥12
+
+L2 
+
+> xy
+
+∥∇ ∂tn0∥12
+
+L2 
+
+> xy
+
+∥∂tv0∥H1 
+
+> xy
+
++ ∥n0∥H2 
+
+> xy
+
+∥∂2
+
+t v0∥L2
+
+> xy
+
+)
+
+∥∇ ∂2
+
+t n0∥L2
+
+> xy
+
++ ∥∂2
+
+t u0∥H1 
+
+> xy
+
+∥n0∥H2 
+
+> xy
+
+∥∂2
+
+t n0∥L2 
+
+> xy
+
++ 2 ∥∂tu0∥H2 
+
+> xy
+
+∥∇ ∂tn0∥L2 
+
+> xy
+
+∥∂2
+
+t n0∥L2
+
+> xy
+
+≤ 18∥∇ ∂2
+
+t n0∥2
+
+L2 
+
+> xy
+
++ C(∥∂2
+
+t n0∥2
+
+L2 
+
+> xy
+
++ ∥∇ ∂tn0∥2
+
+L2 
+
+> xy
+
++ ∥∂2
+
+t v0∥2
+
+L2 
+
+> xy
+
++ ∥∂2
+
+t u0∥2
+
+H1 
+
+> xy
+
+).
+
+which implies 
+
+12
+
+ddt ∥∂2
+
+t n0∥2
+
+L2 
+
+> xy
+
++ 38∥∇ ∂2
+
+t n0∥2
+
+L2
+
+> xy
+
+≤ C(∥∇ ∂tn0∥2
+
+L2 
+
+> xy
+
++ ∥∂2
+
+t n0∥2
+
+L2 
+
+> xy
+
++ ∥∂2
+
+t v0∥2
+
+L2 
+
+> xy
+
++ ∥∂2
+
+t u0∥2
+
+H1 
+
+> xy
+
++ 1) . (4.33) Moreover, for the term ∂2
+
+t v0, applying ∂2
+
+t to (2 .4) 2, we get 
+
+∂3
+
+t v0 + ∂2
+
+t ∇(u0 · v0) = ∂2
+
+t ∇n0, (4.34) and multiplying (4 .34) by ∂2
+
+t v0, we find that 
+
+12
+
+ddt ∥∂2
+
+t v0∥2
+
+L2 
+
+> xy
+
+≤ ∥∇ ∂2
+
+t u0∥2
+
+L2 
+
+> xy
+
+∥v0∥2
+
+L∞ 
+
+> xy
+
++ ∥∂2
+
+t u0∥2
+
+L4 
+
+> xy
+
+∥∇ v0∥2
+
+L4 
+
+> xy
+
++ 2 ∥∇ ∂tu0∥2
+
+L4 
+
+> xy
+
+∥∂tv0∥2
+
+L4
+
+> xy
+
++ 2 ∥∂tu0∥2
+
+L∞ 
+
+> xy
+
+∥∇ ∂tv0∥2
+
+L2 
+
+> xy
+
++ ∥∇ u0∥2
+
+L∞ 
+
+> xy
+
+∥∂2
+
+t v0∥2
+
+L2 
+
+> xy
+
++ 18∥∇ ∂2
+
+t n0∥2
+
+L2 
+
+> xy
+
++ C∥∂2
+
+t v0∥2
+
+L2
+
+> xy
+
+(4.35) 
+
+≤ 18∥∇ ∂2
+
+t n0∥2
+
+L2 
+
+> xy
+
++ C
+
+(
+
+∥∂2
+
+t v0∥2
+
+L2 
+
+> xy
+
++ ∥∂2
+
+t u0∥2
+
+H1 
+
+> xy
+
++ 1 
+
+)
+
+,
+
+where we perform a derivation similar to (4.17), which gives 
+
+∫ ∞
+
+0
+
+∫ ∞−∞ 
+
+∂2
+
+t v0 · (∇∂2
+
+t v0) · u0dxdy = 12
+
+∫ ∞
+
+0
+
+∫ ∞−∞ 
+
+u0 · ∇| ∂2
+
+t v0|2dxdy = 0 .
+
+Similarly, the estimate for ∂2
+
+t u0 yields 
+
+12
+
+ddt ∥∂2
+
+t u0∥2
+
+L2
+
+> xy
+
+≤ ∥ ∂2
+
+t u0∥2
+
+L2 
+
+> xy
+
+∥∇ u0∥L∞ 
+
+> xy
+
++ 2 ∥∂tu0∥L4 
+
+> xy
+
+∥∇ ∂tu0∥L2 
+
+> xy
+
+∥∂2
+
+t u0∥L4 
+
+> xy
+
++ ∥∂2
+
+t n0∥L2 
+
+> xy
+
+∥∂2
+
+t u0∥L2
+
+> xy
+
+≤ C
+
+(
+
+∥∂2
+
+t n0∥2
+
+L2 
+
+> xy
+
++ ∥∂2
+
+t u0∥2
+
+H1
+
+> xy
+
+)
+
+.
+
+(4.36) BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 29 
+
+For the estimates of ∇∂2
+
+t u0, we begin with the equation of ω0
+
+∂3
+
+t ω0 + ∂2
+
+t (u0 · ∇ ω0) = ∂2
+
+t ∂xn0. (4.37) Multiplying (4 .37) by ∂2
+
+t ω0, we obtain 
+
+12
+
+ddt ∥∂2
+
+t ω0∥2
+
+L2
+
+> xy
+
+≤ ∥ ∂2
+
+t u0∥2
+
+L4 
+
+> xy
+
+∥∇ ω0∥2
+
+L4 
+
+> xy
+
++ 2 ∥∂tu0∥2
+
+L∞ 
+
+> xy
+
+∥∇ ∂tω0∥2
+
+L2 
+
+> xy
+
++ C∥∂2
+
+t ω0∥2
+
+L2 
+
+> xy
+
++ 18∥∇ ∂2
+
+t n0∥2
+
+L2
+
+> xy
+
+≤ 18∥∇ ∂2
+
+t n0∥2
+
+L2 
+
+> xy
+
++ C
+
+(
+
+∥∂2
+
+t u0∥2
+
+H1 
+
+> xy
+
++ ∥∂2
+
+t ω0∥2
+
+L2 
+
+> xy
+
++ 1 
+
+)
+
+.
+
+(4.38) Combining (4 .32) -(4 .33) , (4 .35) -(4 .36) and (4 .38) , we have 
+
+ddt (∥∇ ∂tn0∥2
+
+L2 
+
+> xy
+
++ ∥∂2
+
+t n0∥2
+
+L2 
+
+> xy
+
++ ∥∂2
+
+t v0∥2
+
+L2 
+
+> xy
+
++ ∥∂2
+
+t u0∥2
+
+L2 
+
+> xy
+
++ ∥∂2
+
+t ω0∥2
+
+L2 
+
+> xy
+
+) + ∥∇ ∂2
+
+t n0∥2
+
+L2
+
+> xy
+
+≤ C(∥∇ ∂tn0∥2
+
+L2 
+
+> xy
+
++ ∥∂2
+
+t n0∥2
+
+L2 
+
+> xy
+
++ ∥∂2
+
+t v0∥2
+
+L2 
+
+> xy
+
++ ∥∂2
+
+t u0∥2
+
+L2 
+
+> xy
+
++ ∥∂2
+
+t ω0∥2
+
+L2 
+
+> xy
+
+) + C. 
+
+Thus, by Gronwall’s inequality and Lemma 4.1, we obtain the estimate for t ∈ [0 , T ].
+
+∥∇ ∂tn0∥2
+
+L2 
+
+> xy
+
++ ∥∂2
+
+t n0∥2
+
+L2 
+
+> xy
+
++ ∥∂2
+
+t v0∥2
+
+L2 
+
+> xy
+
++ ∥∂2
+
+t u0∥2
+
+L∞ 
+
+> T
+
+L2 
+
+> xy
+
++ ∥∂2
+
+t ∇u0∥2
+
+L∞ 
+
+> T
+
+L2 
+
+> xy
+
++
+
+∫ t
+
+0
+
+∥∇ ∂2
+
+t n0∥2
+
+L2
+
+> xy
+
+≤ C(∥nin ∥H2 
+
+> xy
+
+, ∥vin ∥H2 
+
+> xy
+
+, ∥uin ∥H2 
+
+> xy
+
+, ∥∂tnin ∥2
+
+H1 
+
+> xy
+
+, ∥∂tuin ∥2
+
+H1 
+
+> xy
+
+, ∥∂2
+
+t nin ∥2
+
+L2 
+
+> xy
+
+, ∥∂2
+
+t vin ∥2
+
+L2 
+
+> xy
+
+, ∥∂2
+
+t uin ∥2
+
+H1 
+
+> xy
+
+).
+
+This completes the estimates of Step 1. 
+
+Step 2. I. The estimates of ∥∇ ∂2
+
+xn0∥L∞ 
+
+> T
+
+L2 
+
+> xy
+
+and ∥∂2
+
+x∂tn0∥L∞ 
+
+> T
+
+L2 
+
+> xy
+
+. Applying ∂2
+
+x to (2 .4) 1 and multiplying by ∂2
+
+x∂tn0, we deduce that 
+
+12
+
+ddt ∥∇ ∂2
+
+xn0∥2
+
+L2 
+
+> xy
+
++ ∥∂t∂2
+
+xn0∥2
+
+L2
+
+> xy
+
+= −
+
+∫ ∞
+
+0
+
+∫ ∞−∞ 
+
+∂2
+
+x(n0v0) · ∇ ∂2
+
+x∂tn0dxdy −
+
+∫ ∞
+
+0
+
+∫ ∞−∞ 
+
+∂2
+
+x(u0 · ∇ n0)∂t∂2
+
+xn0dxdy 
+
+≤ 12∥∇ ∂2
+
+x∂tn0∥2
+
+L2 
+
+> xy
+
++ C∥n0∥2
+
+H2 
+
+> xy
+
+∥v0∥2
+
+H2 
+
+> xy
+
++ 12∥∂t∂2
+
+xn0∥2
+
+L2 
+
+> xy
+
++ C∥u0∥2
+
+H3 
+
+> xy
+
+∥n0∥2
+
+H2 
+
+> xy
+
++ C∥u0∥2
+
+H2 
+
+> xy
+
+∥∇ ∂2
+
+xn0∥2
+
+L2
+
+> xy
+
+≤ 12∥∇ ∂2
+
+x∂tn0∥2
+
+L2 
+
+> xy
+
++ 12∥∂t∂2
+
+xn0∥2
+
+L2 
+
+> xy
+
++ C∥∇ ∂2
+
+xn0∥2
+
+L2 
+
+> xy
+
++ C. (4.39) where the key estimate is ∥∇ ∂2
+
+x∂tn0∥L2 
+
+> T
+
+L2 
+
+> xy
+
+. Differentiating (4 .30) twice in x and multiplying the resulting equation by ∂2
+
+x∂tn0, we obtain 
+
+12
+
+ddt ∥∂2
+
+x∂tn0∥2
+
+L2 
+
+> xy
+
++ ∥∇ ∂2
+
+x∂tn0∥2
+
+L2
+
+> xy
+
+= −
+
+∫ ∞
+
+0
+
+∫ ∞−∞ 
+
+∂2
+
+x∂t(n0v0) · ∇ ∂2
+
+x∂tn0dxdy −
+
+∫ ∞
+
+0
+
+∫ ∞−∞ 
+
+∂2
+
+x∂t(u0 · ∇ n0)∂2
+
+x∂tn0dxdy (4.40) 
+
+≤ 12∥∇ ∂2
+
+x∂tn0∥2
+
+L2 
+
+> xy
+
++ C∥∂2
+
+x∂tn0∥2
+
+L2 
+
+> xy
+
++ C∥∇ ∂2
+
+xn0∥2
+
+L2 
+
+> xy
+
++ C∥∇ 2∂tv0∥2
+
+L2 
+
+> xy
+
++ C∥∇ 3v0∥2
+
+L2 
+
+> xy
+
++ C30 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+≤ 12∥∇ ∂2
+
+x∂tn0∥2
+
+L2 
+
+> xy
+
++ C∥∂2
+
+x∂tn0∥2
+
+L2 
+
+> xy
+
++ C∥∇ ∂2
+
+xn0∥2
+
+L2 
+
+> xy
+
++ C∥∇ 3v0∥2
+
+L2 
+
+> xy
+
++ C, 
+
+due to 
+
+∥∇ 2∂tv0∥L2 
+
+> xy
+
+≤ ∥ u0∥H3 
+
+> xy
+
+∥v0∥H3 
+
+> xy
+
++ ∥∇ 3n0∥L2 
+
+> xy
+
+≤ C(∥∇ 3v0∥L2 
+
+> xy
+
++ ∥∇ ∂2
+
+xn0∥L2 
+
+> xy
+
++ 1) . (4.41) 
+
+II. The estimates of ∥∇ 3v0∥L∞ 
+
+> T
+
+L2 
+
+> xy
+
+and ∥∇ 3ω0∥L∞ 
+
+> T
+
+L2 
+
+> xy
+
+. We now proceed to bound ∥∇ 3v0∥L2 
+
+> xy
+
+. For the v0 equation (2 .4) 2, we apply ∇3 and take the inner product with ∇3v.
+
+12
+
+ddt ∥∇ 3v0∥2
+
+L2 
+
+> xy
+
+≤ ∥ u0∥2
+
+H4 
+
+> xy
+
+∥v0∥2
+
+H2 
+
+> xy
+
++ C∥∇ 3u0∥2
+
+H1 
+
+> xy
+
+∥∇ v0∥2
+
+H1 
+
+> xy
+
++ C∥∇ 2u0∥2
+
+H2 
+
+> xy
+
+∥∇ 2v0∥2
+
+L2
+
+> xy
+
++ C∥∇ u0∥2
+
+H2 
+
+> xy
+
+∥∇ 3v0∥2
+
+L2 
+
+> xy
+
++ C∥∇ 3v0∥2
+
+L2 
+
+> xy
+
++ ∥∇ 4n0∥2
+
+L2 
+
+> xy
+
+(4.42) 
+
+≤ C(∥∇ 4u0∥2
+
+L2 
+
+> xy
+
++ ∥∇ 3v0∥2
+
+L2 
+
+> xy
+
++ 1) + ∥∇ 4n0∥2
+
+L2 
+
+> xy
+
+,
+
+where we need estimate ∥∇ 4u0∥2
+
+L2 
+
+> xy
+
+and ∥∇ 4n0∥2
+
+L2 
+
+> xy
+
+. To estimate ∥∇ 4u0∥2
+
+L2 
+
+> xy
+
+, we apply ∇3 to (4 .10) 
+
+and multiply by ∇3ω0, which yields 
+
+12
+
+ddt ∥∇ 3ω0∥2
+
+L2
+
+> xy
+
+≤ ∥∇ 3u0∥2
+
+L2 
+
+> xy
+
+∥∇ ω0∥2
+
+L∞ 
+
+> xy
+
++ C∥∇ 2u0∥2
+
+L4 
+
+> xy
+
+∥∇ 2ω0∥2
+
+L4 
+
+> xy
+
++ C∥∇ u0∥2
+
+L∞ 
+
+> xy
+
+∥∇ 3ω0∥2
+
+L2 
+
+> xy
+
+(4.43) 
+
++ C∥∇ 3ω0∥2
+
+L2 
+
+> xy
+
++ ∥∇ 4n0∥2
+
+L2
+
+> xy
+
+≤ C∥∇ 3ω0∥2
+
+L2 
+
+> xy
+
++ ∥∇ 4n0∥2
+
+L2 
+
+> xy
+
+.
+
+We now proceed to estimate ∥∇ 4n0∥2
+
+L2 
+
+> xy
+
+.
+
+∥∇ 4n0∥L2 
+
+> xy
+
+≤ ∥ ∂4
+
+xn0∥L2 
+
+> xy
+
++ ∥∂3
+
+x∂yn0∥L2 
+
+> xy
+
++ ∥∂2
+
+x∂2
+
+y n0∥L2 
+
+> xy
+
++ ∥∂x∂3
+
+y n0∥L2 
+
+> xy
+
++ ∥∂4
+
+y n0∥L2
+
+> xy
+
+≤ ∥∇ ∂3
+
+xn0∥L2 
+
+> xy
+
++ ∥∂2
+
+x(∂tn0 + u0 · ∇ n0 − ∇ · (n0v0) − ∂2
+
+xn0)∥L2
+
+> xy
+
++ ∥∂x∂y(∂tn0 + u0 · ∇ n0 − ∇ · (n0v0) − ∂2
+
+xn0)∥L2
+
+> xy
+
++ ∥∂2
+
+y (∂tn0 + u0 · ∇ n0 − ∇ · (n0v0) − ∂2
+
+xn0)∥L2
+
+> xy
+
+≤ ∥∇ ∂3
+
+xn0∥L2 
+
+> xy
+
++ ∥∂2
+
+x∂tn0 + ∂2
+
+x(u0 · ∇ n0) − ∇ · ∂2
+
+x(n0v0) − ∂4
+
+xn0∥L2 
+
+> xy
+
+(4.44) 
+
++ ∥∂x∂y∂tn0 + ∂x∂y(u0 · ∇ n0) − ∇ · ∂x∂y(n0v0) − ∂3
+
+x∂yn0)∥L2
+
+> xy
+
++ ∥∂t(∂tn0 + u0 · ∇ n0 − ∇ · (n0v0) − ∂2
+
+xn0) + ∂2
+
+y (u0 · ∇ n0) − ∇ · ∂2
+
+y (n0v0)
+
+− ∂2
+
+x(∂tn0 + u0 · ∇ n0 − ∇ · (n0v0) − ∂2
+
+xn0)∥L2
+
+> xy
+
+≤ 4∥∇ ∂3
+
+xn0∥L2 
+
+> xy
+
++ C∥∇ ∂2
+
+xn0∥L2 
+
+> xy
+
++ C∥∂2
+
+x∂tn0∥L2 
+
+> xy
+
++ C∥∂x∂y∂tn0∥L2 
+
+> xy
+
++ C∥∇ 3v0∥L2 
+
+> xy
+
++ C).
+
+In order to bound ∥∇ 4n0∥2
+
+L2 
+
+> xy
+
+, we shall estimate ∥∂x∂y∂tn0∥L2 
+
+> T
+
+L2 
+
+> xy
+
+and ∥∇ ∂3
+
+xn0∥L2 
+
+> T
+
+L2 
+
+> xy
+
+. By applying 
+
+∂x to (4.30) and multiplying by ∂x∂2
+
+t n0, we deduce the estimate for ∥∂x∂y∂tn0∥L2 
+
+> T
+
+L2 
+
+> xy
+
+is given as BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 31 
+
+follows 
+
+12
+
+ddt ∥∇ ∂x∂tn0∥2
+
+L2 
+
+> xy
+
++ ∥∂x∂2
+
+t n0∥2
+
+L2
+
+> xy
+
+= −
+
+∫ ∞
+
+0
+
+∫ ∞−∞ 
+
+∂x∂t(n0v0) · ∇ ∂x∂2
+
+t n0dxdy −
+
+∫ ∞
+
+0
+
+∫ ∞−∞ 
+
+∂x∂t(u0 · ∇ n0)∂x∂2
+
+t n0dxdy (4.45) 
+
+≤ 12∥∇ ∂x∂2
+
+t n0∥2
+
+L2 
+
+> xy
+
++ 12∥∂x∂2
+
+t n0∥2
+
+L2 
+
+> xy
+
++ C(∥∇ ∂x∂tn0∥2
+
+L2 
+
+> xy
+
++ 1) .
+
+Next, we employ (4.31) to bound ∥∇ ∂x∂2
+
+t n0∥2
+
+L2 
+
+> xy
+
+, which is just as the following 
+
+12
+
+ddt ∥∂x∂2
+
+t n0∥2
+
+L2 
+
+> xy
+
++ ∥∇ ∂x∂2
+
+t n0∥2
+
+L2
+
+> xy
+
+= −
+
+∫ ∞
+
+0
+
+∫ ∞−∞ 
+
+∂x∂2
+
+t (n0v0) · ∇ ∂x∂2
+
+t n0dxdy −
+
+∫ ∞
+
+0
+
+∫ ∞−∞ 
+
+∂x∂2
+
+t (u0 · ∇ n0)∂x∂2
+
+t n0dxdy 
+
+≤
+
+(
+
+∥∂x∂2
+
+t n0∥L2 
+
+> xy
+
+∥v0∥L∞ 
+
+> xy
+
++ ∥∂2
+
+t n0∥L2 
+
+> xy
+
+∥∂xv0∥L∞
+
+> xy
+
+)
+
+∥∇ ∂x∂2
+
+t n0∥L2
+
+> xy
+
++ 2 
+
+(
+
+∥∂x∂tn0∥L4 
+
+> xy
+
+∥∂tv0∥L4 
+
+> xy
+
++ ∥∂tn0∥L4 
+
+> xy
+
+∥∂x∂tv0∥L4
+
+> xy
+
+)
+
+∥∇ ∂x∂2
+
+t n0∥L2
+
+> xy
+
++
+
+(
+
+∥∂xn0∥L∞ 
+
+> xy
+
+∥∂2
+
+t v0∥L2 
+
+> xy
+
++ ∥n0∥L∞ 
+
+> xy
+
+∥∂x∂2
+
+t v0∥L2
+
+> xy
+
+)
+
+∥∇ ∂x∂2
+
+t n0∥L2 
+
+> xy
+
+(4.46) 
+
++
+
+(
+
+∥∂x∂2
+
+t u0∥L2 
+
+> xy
+
+∥∇ n0∥L∞ 
+
+> xy
+
++ ∥∂2
+
+t u0∥L4 
+
+> xy
+
+∥∇ ∂xn0∥L4
+
+> xy
+
+)
+
+∥∂x∂2
+
+t n0∥L2
+
+> xy
+
++ 2 ∥∂x∂tu0∥L4 
+
+> xy
+
+∥∇ ∂tn0∥L2 
+
+> xy
+
+∥∂x∂2
+
+t n0∥L4
+
+> xy
+
++
+
+(
+
+2∥∂tu0∥L∞ 
+
+> xy
+
+∥∇ ∂x∂tn0∥L2 
+
+> xy
+
++ ∥∂xu0∥L∞ 
+
+> xy
+
+∥∇ ∂2
+
+t n0∥L2
+
+> xy
+
+)
+
+∥∂x∂2
+
+t n0∥L2
+
+> xy
+
+≤ 12∥∇ ∂x∂2
+
+t n0∥2
+
+L2 
+
+> xy
+
++ C
+
+(
+
+∥∇ 3n0∥2
+
+L2 
+
+> xy
+
++ ∥∇ 3v0∥2
+
+L2 
+
+> xy
+
++ ∥∇ ∂2
+
+xn0∥L2
+
+> xy
+
+)
+
++ C
+
+(
+
+∥∇ ∂2
+
+t n0∥2
+
+L2 
+
+> xy
+
++ ∥∂x∂2
+
+t n0∥2
+
+L2 
+
+> xy
+
++ ∥∇ ∂x∂tn0∥2
+
+L2 
+
+> xy
+
++ 1 
+
+)
+
+,
+
+due to 
+
+∥∂x∂2
+
+t v0∥L2 
+
+> xy
+
+≤ ∥ ∂tu0∥H2 
+
+> xy
+
+∥v0∥H2 
+
+> xy
+
++ ∥u0∥H3 
+
+> xy
+
+∥∂tv0∥H1 
+
+> xy
+
++ ∥u0∥H2 
+
+> xy
+
+∥∇ ∂x∂tv0∥L2
+
+> xy
+
+≤ C(∥∇ 2∂tv0∥L2 
+
+> xy
+
++ 1) 
+
+≤ C(∥∇ 3v0∥L2 
+
+> xy
+
++ ∥∇ ∂2
+
+xn0∥L2 
+
+> xy
+
++ 1) ,
+
+and (4.41). Next, we estimate ∥∇ ∂3
+
+xn0∥2
+
+L2 
+
+> T
+
+L2
+
+> xy
+
+. Applying ∂3
+
+x to (2 .4) 1 and multiplying by ∂3
+
+xn0, we then deduce 
+
+12
+
+ddt ∥∂3
+
+xn0∥2
+
+L2 
+
+> xy
+
++ ∥∇ ∂3
+
+xn0∥2
+
+L2
+
+> xy
+
+= −
+
+∫ ∞
+
+0
+
+∫ ∞−∞ 
+
+∂3
+
+x(n0v0)∇∂3
+
+xn0dxdy −
+
+∫ ∞
+
+0
+
+∫ ∞−∞ 
+
+∂3
+
+x(u0 · ∇ n0)∂3
+
+xn0dxdy (4.47) 32 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+≤ 12∥∇ ∂3
+
+> x
+
+n0∥2 
+
+> L2
+> xy
+
++ C∥∂3
+
+> x
+
+n0∥2 
+
+> L2
+> xy
+
++ C∥∇ 3v0∥2 
+
+> L2
+> xy
+
++ C∥∇ ∂2
+
+> x
+
+n0∥2 
+
+> L2
+> xy
+
++ C∥∇ 4u0∥2 
+
+> L2
+> xy
+
+.
+
+Combining (4 .39) -(4 .40) , (4 .42) -(4 .43) , (4 .45) -(4 .46) and substituting (4 .44) , by Gronwall’s inequal-ity and Lemma 4.1, we arrive at 
+
+∥(∇∂2
+
+> x
+
+n0, ∂ 2
+
+> x
+
+∂tn0, ∇3v0, ∇4u0, ∇∂x∂tn0, ∂ x∂2 
+
+> t
+
+n0)∥2 
+
+> L2
+> xy
+
++
+
+∫ t
+
+> 0
+
+∥∇ ∂3
+
+> x
+
+n0∥2 
+
+> L2
+> xy
+
+dτ 
+
+≤ C(∥nin ∥H3 
+
+> xy
+
+, ∥vin ∥H3 
+
+> xy
+
+, ∥uin ∥H4 
+
+> xy
+
+, ∥∂2
+
+> x
+
+∂tnin ∥L2 
+
+> xy
+
+, ∥∇ ∂x∂tnin ∥L2 
+
+> xy
+
+, ∥∂x∂2 
+
+> t
+
+nin ∥L2 
+
+> xy
+
+).
+
+(4.48) With these two steps, we verify that estimate (4.28) holds. 
+
+Step 3. The estimates of ∥∇ 3n0∥L∞  
+
+> TL2
+> xy
+
+, ∥∇ 2∂tv0∥L∞  
+
+> TL2
+> xy
+
+and ∥∇ 2∂tω0∥L∞  
+
+> TL2
+> xy
+
+. Using the result in (4 .28) , (4 .23) and the results of Lemma 4.4, we derive the estimate for ∥∇ 3n0∥L∞  
+
+> TL2
+> xy
+
+as follows, 
+
+∥∇ 3n0∥L∞  
+
+> TL2
+> xy
+
+≤ C(∥∇ ∂tn0∥L∞  
+
+> TL2
+> xy
+
++ ∥∇ ∂2
+
+> x
+
+n0∥L∞  
+
+> TL2
+> xy
+
++ 1) ≤ C. (4.49) By a similar argument (4.27), we deduce that 
+
+∥∇ 2∂tv0∥L∞  
+
+> TL2
+> xy
+
+≤ C∥u0∥L∞  
+
+> TH3
+> xy
+
+∥v0∥L∞  
+
+> TH3
+> xy
+
++ ∥∇ 3n0∥L∞  
+
+> TL2
+> xy
+
+≤ C, 
+
+∥∇ 2∂tω0∥L∞  
+
+> TL2
+> xy
+
+≤ C∥u0∥L∞  
+
+> TH3
+> xy
+
+∥∇ ω0∥L∞  
+
+> TH1
+> xy
+
++ C∥u0∥L∞  
+
+> TH2
+> xy
+
+∥∇ 3ω0∥L∞  
+
+> TL2
+> xy
+
++ ∥∇ 3n0∥L∞ 
+
+> TL2
+> xy
+
+≤ C. 
+
+(4.50) Further, using Lemma 4.4, (4.48), (4.50) and ∂2 
+
+> y
+
+n0 = ∂tn0 + u0 · ∇ n0 − ∇ · (n0v0) − ∂2
+
+> x
+
+n0, we derive the estimate for ∥∇ 2∂tn0∥L∞  
+
+> TL2
+> xy
+
+as follows: 
+
+∥∇ 2∂tn0∥L∞  
+
+> TL2
+> xy
+
+≤ ∥ ∂2
+
+> x
+
+∂tn0∥L∞  
+
+> TL2
+> xy
+
++ ∥∂x∂y∂tn0∥L∞  
+
+> TL2
+> xy
+
++ ∥∂2 
+
+> y
+
+∂tn0∥L∞ 
+
+> TL2
+> xy
+
+≤ C + ∥∂t(∂tn0 + u0 · ∇ n0 − ∇ · (n0v0) − ∂2
+
+> x
+
+n0)∥L∞ 
+
+> TL2
+> xy
+
+≤ C + ∥∂2 
+
+> t
+
+n0∥L∞  
+
+> TL2
+> xy
+
++ ∥∂tu0∥L∞  
+
+> TH1
+> xy
+
+∥n0∥L∞  
+
+> TH2
+> xy
+
++ ∥u0∥L∞  
+
+> TH2
+> xy
+
+∥∇ ∂tn0∥L∞  
+
+> TL2
+> xy
+
+(4.51) 
+
++ ∥∂tn0∥L∞  
+
+> TH1
+> xy
+
+∥v0∥L∞  
+
+> TH2
+> xy
+
++ ∥n0∥L∞  
+
+> TH2
+> xy
+
+∥∂tv0∥L∞  
+
+> TH1
+> xy
+
++ ∥∂2
+
+> x
+
+∂tn0∥L∞ 
+
+> TL2
+> xy
+
+≤ C. 
+
+Moreover, integrating both sides of (4 .44) over the time, we have 
+
+∫ t
+
+> 0
+
+∥∇ 4n0∥2 
+
+> L2
+> xy
+
+dτ ≤ C(∥nin ∥H3 
+
+> xy
+
+, ∥vin ∥H3 
+
+> xy
+
+, ∥uin ∥H4 
+
+> xy
+
+, ∥∂2
+
+> x
+
+∂tnin ∥L2 
+
+> xy
+
+, ∥∂x∂tnin ∥L2 
+
+> xy
+
+).
+
+The proof is complete. Since the argument of Lemma 4.5 can be extended by induction to arbitrary higher-order deriva-tives, we arrive at the following regularity results. 
+
+Corollary 4.1. Suppose the initial data (nin , v in , u in ) satisfies the hypotheses of Theorem 2.1 and 
+
+(n0, v 0, u 0) satisfies the properties from Lemma 4.4 and Lemma 4.5. This yields the following BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 33 
+
+estimates: 
+
+n0 ∈ L∞(0 , T ; Hmxy ) ∩ L2(0 , T ; Hm+1  
+
+> xy
+
+), v 0 ∈ L∞(0 , T ; Hmxy ), u 0 ∈ L∞(0 , T ; Hm+1  
+
+> xy
+
+), m ≥ 4, (4.52) 
+
+and 
+
+∂jt n0, ∂ jt v0 ∈ L∞(0 , T ; Hm−2jxy ), 0 < 2j ≤ m, (4.53) 
+
+∂jt u0 ∈ L∞(0 , T ; Hm+1 −2jxy ), 0 < 2j ≤ m + 1 ,
+
+where C > 0 is a constant depending only on m and the initial data (nin , v in , u in ), and m, j be integer. 
+
+Proof. For any integer m ≥ 4, we may suppose the inductive statement Pm be defined as: 
+
+
+
+sup 
+
+> 0≤t≤T
+
+(
+
+∥n0∥2 
+
+> Hm
+
++ ∥v0∥2 
+
+> Hmxy
+
++ ∥u0∥2
+
+> Hm+1
+> xy
+
+)
+
++
+
+∫ T
+
+> 0
+
+∥n0∥2 
+
+> Hm+1
+> xy
+
+dt ≤ Cm,
+
+sup 
+
+> 0≤t≤T
+
+∑
+
+> 0<2j≤m
+
+(
+
+∥∂jt n0∥2
+
+> Hm−2jxy
+
++ ∥∂jt v0∥2
+
+> Hm−2jxy
+
+)
+
+≤ Cm,
+
+sup 
+
+> 0≤t≤T
+
+∑
+
+> 0<2j≤m+1
+
+∥∂jt u0∥2
+
+> Hm+1 −2jxy
+
+≤ Cm.
+
+(4.54) By Lemma 4.4 and Lemma 4.5, the case m ≤ 3 satisfies that 
+
+sup 
+
+> 0≤t≤T
+
+(
+
+∥n0∥2 
+
+> Hmxy
+
++ ∥v0∥2 
+
+> Hmxy
+
++ ∥u0∥2
+
+> Hm+1
+> xy
+
+)
+
++
+
+∫ T
+
+> 0
+
+∥n0∥2 
+
+> Hm+1
+> xy
+
+dt ≤ C. 
+
+We proceed to prove 
+
+Pm =⇒ P m+1 .
+
+For this purpose, we define the energy functional 
+
+E(t) := ∥∇ ∂mx n0∥2 
+
+> L2
+> xy
+
++ ∥∂mx ∂tn0∥2 
+
+> L2
+> xy
+
++ ∥v0∥2 
+
+> Hm+1
+> xy
+
++ ∥ω0∥2 
+
+> Hm+1
+> xy
+
+, (4.55) and we divide the argument into several steps as below. 
+
+Step 1. Estimate n0. Applying the operator ∂αx to the equation for n0 in (2 .4) 1, we rewrite the resulting equation in two equivalent forms: 
+
+∂αx ∂tn0 + ∂αx (u0 · ∇ n0) = ∇ · (∂αx ∇n0 + ∂αx (n0v0)) , (4.56) 
+
+∂αx ∂2 
+
+> t
+
+n0 + ∂αx ∂t(u0 · ∇ n0) = ∇ · (∂αx ∂t∇n0 + ∂αx ∂t(n0v0)) . (4.57) We take α = m for the equation (4.56) and multiply by ∂mx ∂tn0, then from (4.54), which yields 
+
+12
+
+ddt ∥∇ ∂mx n0∥2 
+
+> L2
+> xy
+
++ ∥∂mx ∂tn0∥2
+
+> L2
+> xy
+
+= −
+
+(∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∂mx (u0 · ∇ n0)∂mx ∂tn0dxdy +
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∂mx (n0v0) · ∇ ∂mx ∂tn0dxdy 
+
+)
+
+(4.58) 34 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+≤ C
+
+(
+
+∥u0∥Hm+1  
+
+> xy
+
+∥n0∥Hmxy + ∥u0∥Hm+1  
+
+> xy
+
+∥∇ ∂mx n0∥L2
+
+> xy
+
+)
+
+∥∂mx ∂tn0∥L2 
+
+> xy
+
++ ∥n0∥Hmxy ∥v0∥Hmxy ∥∇ ∂mx ∂tn0∥L2
+
+> xy
+
+≤ 12∥∂mx ∂tn0∥2 
+
+> L2
+> xy
+
++ 14∥∇ ∂mx ∂tn0∥2 
+
+> L2
+> xy
+
++ Cm
+
+(
+
+∥∇ ∂mx n0∥2 
+
+> L2
+> xy
+
++ 1 
+
+)
+
+,
+
+where we have used the boundary condition (∂yn0 + n0v02 )|y=0 = 0 such that 
+
+∫ ∞−∞ 
+
+(∂mx ∂yn0(t, x, 0) + ∂mx (n0(t, x, 0) v02 (t, x, 0)) ) ∂mx ∂tn0(t, x, 0) dx = 0 .
+
+Furthermore, multiplying the equation (4.57) by ∂mx ∂tn0 when α = m , substituting the equation of 
+
+∂tv0 = −∇ (u0 · v0) + ∇n0, using the Sobolev embedding inequality and ∇ · u0 = 0 , we deduce that 
+
+12
+
+ddt ∥∂mx ∂tn0∥2 
+
+> L2
+> xy
+
++ ∥∇ ∂mx ∂tn0∥2
+
+> L2
+> xy
+
+= −
+
+(∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+(∂mx
+
+(∂tu0 · ∇ n0) + ∂mx (u0 · ∇ ∂tn0)) ∂mx ∂tn0dxdy 
+
+)
+
+−
+
+(∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+(∂mx
+
+(∂tn0v0) + ∂mx (n0(−∇ (u0 · v0) + ∇n0)) · ∇ ∂mx ∂tn0dxdy 
+
+)
+
+(4.59) 
+
+≤ C ∑
+
+> α≤m
+
+(
+
+∥∂tu0∥Hmxy ∥n0∥Hm+1  
+
+> xy
+
++ ∥∂tu0∥Hmxy ∥∇ ∂mx n0∥L2 
+
+> xy
+
++ ∥u0∥Hm+1  
+
+> xy
+
+∥∇ ∂α−1 
+
+> x
+
+∂tn0∥L2
+
+> xy
+
+)
+
+∥∂mx ∂tn0∥L2
+
+> xy
+
++ C ∑
+
+> α≤m
+
+(
+
+∥∂mx ∂tn0∥L2 
+
+> xy
+
+∥v0∥H2 
+
+> xy
+
++ ∥∇ ∂α−1 
+
+> x
+
+∂tn0∥L2 
+
+> xy
+
+∥v0∥Hm+1  
+
+> xy
+
++ ∥∂tn0∥H2 
+
+> xy
+
+∥v0∥Hmxy 
+
+)
+
+∥∇ ∂mx ∂tn0∥L2
+
+> xy
+
++ C
+
+(
+
+∥n0∥Hmxy ∥u0∥Hm+1  
+
+> xy
+
+∥v0∥Hm+1  
+
+> xy
+
++ ∥n0∥Hmxy ∥n0∥Hm+1 
+
+> xy
+
+)
+
+∥∇ ∂mx ∂tn0∥L2
+
+> xy
+
+≤ 14∥∇ ∂mx ∂tn0∥2 
+
+> L2
+> xy
+
++ Cm
+
+(
+
+∥∇ ∂mx n0∥2 
+
+> L2
+> xy
+
++ ∥∂mx ∂tn0∥2 
+
+> L2
+> xy
+
++ ∥n0∥2 
+
+> Hm+1
+> xy
+
++ ∥v0∥2 
+
+> Hm+1
+> xy
+
++ 1 
+
+)
+
+,
+
+for the norm ∥∂tu0∥Hmxy , we obtain the following bound via identity (4.10): 
+
+∥∂tu0∥Hmxy = ∥∂tu0∥L2 
+
+> xy
+
++ ∥∂tω0∥Hm−1
+
+> xy
+
+≤ ∥ ∂tu0∥L2 
+
+> xy
+
++ ∥u0∥Hm+1  
+
+> xy
+
+∥ω0∥Hmxy + ∥n0∥Hmxy 
+
+≤ Cm.
+
+Combining (4.58) and (4.59), we deduce that 
+
+ddt 
+
+(
+
+∥∇ ∂mx n0∥2 
+
+> L2
+> xy
+
++ ∥∂mx ∂tn0∥2
+
+> L2
+> xy
+
+)
+
++ ∥∇ ∂mx ∂tn0∥2 
+
+> L2
+> xy
+
+≤ Cm
+
+(
+
+1 + ∥n0∥2 
+
+> Hm+1
+> xy
+
++ E(t)
+
+)
+
+. (4.60) To derive the full norm of ∥n0∥Hm+2  
+
+> xy
+
+, we simplify the governing equation into an elliptic equation in the y-direction for analysis: 
+
+∂2 
+
+> y
+
+n0 = ∂tn0 + u0 · ∇ n0 − ∇ · (n0v0) − ∂2
+
+> x
+
+n0. (4.61) BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 35 
+
+To estimate ∂lyn0, it suffices to bound the terms on the right-hand side. We observe the following facts: 
+
+∥n0∥Hm+2  
+
+> xy
+
+≤ ∑
+
+> a+l≤m+2
+
+∥∂ax ∂lyn0∥L2 
+
+> xy
+
+. (4.62) Applying operator ∂ax ∂l−2 
+
+> y
+
+to the equation (4 .61) , for all integers l ≥ 2 and a + l ≤ m + 2 , we have 
+
+∂ax ∂lyn0 = ∂ax ∂l−2 
+
+> y
+
+∂tn0 + ∂ax ∂l−2 
+
+> y
+
+(u0 · ∇ n0) − ∂ax ∂l−2 
+
+> y
+
+∇ · (n0v0) − ∂a+2  
+
+> x
+
+∂l−2 
+
+> y
+
+n0, (4.63) we notice that a + l ≤ m + 2 ⇒ a + l − 2 ≤ m and a + 2 + l − 2 = a + l ≤ m + 2 , then we obtain 
+
+∥∂ax ∂lyn0∥L2 
+
+> xy
+
+≤ ∥ ∂ax ∂l−2 
+
+> y
+
+∂tn0∥L2 
+
+> xy
+
++ ∥∂ax ∂l−2 
+
+> y
+
+(u0 · ∇ n0)∥L2
+
+> xy
+
++ ∥∂ax ∂l−2 
+
+> y
+
+∇ · (n0v0)∥L2 
+
+> xy
+
++ ∥∂a+2  
+
+> x
+
+∂l−2 
+
+> y
+
+n0∥L2 
+
+> xy
+
+(4.64) 
+
+≤ ∥ ∂tn0∥Hmxy + ∥u0 · ∇ n0∥Hmxy + ∥n0v0∥Hm+1  
+
+> xy
+
++ C
+
+(
+
+∥n0∥Hm+1 + ∥∇ ∂m+1  
+
+> x
+
+n0∥L2
+
+> xy
+
+)
+
+≤ C
+
+(
+
+∥∂tn0∥Hmxy + ∥∇ ∂m+1  
+
+> x
+
+n0∥L2
+
+> xy
+
+)
+
++ C
+
+(
+
+∥u0∥Hmxy + ∥v0∥Hm+1  
+
+> xy
+
++ 1 
+
+)
+
+∥n0∥Hm+1  
+
+> xy
+
+.
+
+Step 2. Estimate v0 and u0. Applying ∇m+1 to (2 .4) 2 and multiplying ∇m+1 v0, we deduce from the curl condition ∇ × v0 = 0 that 
+
+12
+
+ddt ∥∇ m+1 v0∥2
+
+> L2
+> xy
+
+= −
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇m+2 u0 · v0 + ∑
+
+> 1≤| α|≤ m
+
+∇m+2 −αu0 · ∇ αv0 + ∇u0 · ∇ m+1 v0
+
+ · ∇ m+1 v0dxdy 
+
+−
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇m+1 u0 · (∇v0) + ∑
+
+> 1≤| α|≤ m
+
+∇m+1 −αu0 · (∇α+1 v0)
+
+ · ∇ m+1 v0dxdy (4.65) 
+
+−
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇m+1 v0 · (∇∇ m+1 v0) · u0dxdy +
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇m+1 ∇n0 · ∇ m+1 v0dxdy 
+
+≤ C
+
+(
+
+∥u0∥Hm+2  
+
+> xy
+
+∥v0∥H2 
+
+> xy
+
++ ∥u0∥Hm+2  
+
+> xy
+
+∥v0∥Hm+1  
+
+> xy
+
++ ∥u0∥H3 
+
+> xy
+
+∥v0∥Hm+1  
+
+> xy
+
++ ∥n0∥Hm+2 
+
+> xy
+
+)
+
+∥v0∥Hm+1 
+
+> xy
+
+≤ ϵ∥n0∥2 
+
+> Hm+2
+> xy
+
++ Cϵ(1 + ∥u0∥2 
+
+> Hm+2
+> xy
+
+)∥v0∥2
+
+> Hm+1
+> xy
+
+≤ ϵ∥n0∥2 
+
+> Hm+2
+> xy
+
++ Cϵ(1 + E(t)) 2,
+
+where we use curl ∇ × v0 = 0 and ∇ · u0 = 0 to obtain 
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+∇m+1 v0 · (∇∇ m+1 v0) · u0dxdy =
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+u0 · ∇|∇ m+1 v0|2dxdy = 0 .
+
+Similarly, applying ∇m+1 to (4.10) and multiplying ∇m+1 ω0, we arrive at 
+
+12
+
+ddt ∥∇ m+1 ω0∥2
+
+> L2
+> xy
+
+36 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+= −
+
+∫ ∞
+
+0
+
+∫ ∞−∞ 
+
+∇m+1 u0 · ∇ ω0 + ∑
+
+1≤| α|≤ m
+
+∇m+1 −αu0 · ∇ α+1 ω0 + u0 · ∇∇ m+1 ω0
+
+ · ∇ m+1 ω0dxdy 
+
++
+
+∫ ∞
+
+0
+
+∫ ∞−∞ 
+
+∇m+1 ∂xn0 · ∇ m+1 ω0dxdy (4.66) 
+
+≤ C∥u0∥Hm+2  
+
+> xy
+
+∥ω0∥2
+
+Hm+1  
+
+> xy
+
++ ϵ∥n0∥2
+
+Hm+2  
+
+> xy
+
++ C∥ω0∥2
+
+Hm+1  
+
+> xy
+
+,
+
+≤ ϵ∥n0∥2
+
+Hm+2  
+
+> xy
+
++ Cϵ(1 + E(t)) 2.
+
+Step 3. Combining the above estimates yields energy closure for E(t). Summing up (4 .60) ,
+
+(4 .62) , (4 .64) , (4 .65) and (4 .66) yields 
+
+ddt E(t) + C(1 − 4ϵ)∥n0∥2
+
+Hm+2  
+
+> xy
+
+≤ (E(t) + 1) 2 + C∥n0∥2
+
+Hm+1  
+
+> xy
+
++ C
+
+(
+
+∥∂tn0∥Hmxy + ∥∇ ∂m+1 
+
+x n0∥L2
+
+> xy
+
+)
+
+.
+
+(4.67) We now obtain the corresponding bounds for ∥∂tn0∥Hmxy and ∥∇ ∂m+1 
+
+x n0∥L2 
+
+> xy
+
+. It remains to recover the normal derivatives of ∂tn0. From the equation, 
+
+∂2
+
+y ∂tn0 = ∂2
+
+t n0 + ∂t(u0 · ∇ n0) − ∇ · ∂t(n0v0) − ∂2
+
+x∂tn0,
+
+for l ≥ 2, a + l ≤ m and a + l − 2 ≤ m − 2, we have 
+
+∥∂ax ∂ly∂tn0∥L2 
+
+> xy
+
+= ∥∂ax ∂l−2
+
+y ∂2
+
+t n0∥L2 
+
+> xy
+
++ ∥∂ax ∂l−2
+
+y (∂tu0 · ∇ n0)∥L2 
+
+> xy
+
++ ∥∂ax ∂l−2
+
+y (u0 · ∇ ∂tn0)∥L2
+
+> xy
+
++ ∥∇ · ∂ax ∂l−2
+
+y (∂tn0v0 + n0∂tv0)∥L2 
+
+> xy
+
++ ∥∂a+2 
+
+x ∂l−2
+
+y ∂tn0∥L2
+
+> xy
+
+≤ ∥ ∂2
+
+t n0∥Hm−2 
+
+> xy
+
++ ∥∂tu0∥Hm−2 
+
+> xy
+
+∥n0∥Hm−1 
+
+> xy
+
++ ∥u0∥Hm−2 
+
+> xy
+
+∥∂tn0∥Hm−1 
+
+> xy
+
+(4.68) 
+
++ ∥∂tn0∥Hm−1 
+
+> xy
+
+∥v0∥Hm−1 
+
+> xy
+
++ ∥n0∥Hm−1 
+
+> xy
+
+∥∂tv0∥Hm−1 
+
+> xy
+
++ ∥∂tn0∥Hm−1 
+
+> xy
+
++ ∥∇ ∂m−1
+
+x ∂tn0∥L2
+
+> xy
+
+≤ Cm(1 + E(t)) 2 + C∥n0∥2
+
+Hm+1  
+
+> xy
+
+.
+
+Applying ∂m+1 
+
+x to the n0 equation and taking the L2
+
+xy inner product with ∂m+1 
+
+x n0
+
+12
+
+ddt ∥∂m+1 
+
+x n0∥2
+
+L2 
+
+> xy
+
++ ∥∇ ∂m+1 
+
+x n0∥2
+
+L2
+
+> xy
+
+= −
+
+∫ ∞
+
+0
+
+∫ ∞−∞ 
+
+∂m+1 
+
+x (u0 · ∇ n0)∂m+1 
+
+x n0dxdy −
+
+∫ ∞
+
+0
+
+∫ ∞−∞ 
+
+∂m+1 
+
+x (n0v0) · ∇ ∂m+1 
+
+x n0dxdy 
+
+≤ C∥u0∥Hm+1  
+
+> xy
+
+∥n0∥Hm+1  
+
+> xy
+
+∥∂m+1 
+
+x n0∥L2 
+
+> xy
+
++ ∥n0∥Hm+1  
+
+> xy
+
+∥v0∥Hm+1  
+
+> xy
+
+∥∇ ∂m+1 
+
+x n0∥L2
+
+> xy
+
+≤ 12∥∇ ∂m+1 
+
+x n0∥2
+
+L2 
+
+> xy
+
++ C∥v0∥2
+
+Hm+1  
+
+> xy
+
+∥n0∥2
+
+Hm+1  
+
+> xy
+
++ Cm∥n0∥Hm+1  
+
+> xy
+
+∥∂m+1 
+
+x n0∥L2
+
+> xy
+
+which implies that 
+
+ddt ∥∂m+1 
+
+x n0∥2
+
+L2 
+
+> xy
+
++ ∥∇ ∂m+1 
+
+x n0∥2
+
+L2 
+
+> xy
+
+≤ Cm(1 + E(t)) 2∥n0∥2
+
+Hm+1  
+
+> xy
+
+(4.69) BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 37 
+
+Substituting (4.68) and (4.69) into (4.67), by Gronwall’s inequality, for sufficiently small ϵ, we have 
+
+sup 
+
+0≤t≤T
+
+E(t) + 
+
+∫ T
+
+0
+
+∥n0∥2
+
+Hm+2  
+
+> xy
+
+≤ Cm+1 . (4.70) By arguments analogous to those for (4 .64) , we derive the following estimate for ∥n0∥L∞ 
+
+> T
+
+Hm+1  
+
+> xy
+
+:
+
+∥n0∥Hm+1  
+
+> xy
+
+≤ ∥ ∂tn0∥Hm−1 
+
+> xy
+
++ ∥∇ ∂m+1 
+
+x n0∥L2 
+
+> xy
+
++ Cm ≤ Cm+1 .
+
+Collecting all previous estimates, we obtain the following result: 
+
+n0 ∈ L∞
+
+T Hm+1 
+
+xy ∩ L2
+
+T Hm+2 
+
+xy ,v0 ∈ L∞
+
+T Hm+1 
+
+xy , (4.71) 
+
+u0 ∈ L∞
+
+T Hm+2 
+
+xy .
+
+Step 4. Induction on time derivatives. At this step, we arrive at the following conclusion: 
+
+∂jt n0 ∈ L∞
+
+T Hm+1 −2jxy , ∂ jt v0 ∈ L∞
+
+T Hm+1 −2jxy , ∂ jt u0 ∈ L∞
+
+T Hm+2 −2jxy . (4.72) From equation (2 .4) 1, for all 0 ≤ 2j ≤ m + 1 , we have 
+
+∥∂j+1 
+
+t n0∥Hm+1 −2( j+1) 
+
+> xy
+
+≤ ∥ ∂jt (u0 · ∇ n0)∥Hm+1 −2( j+1)  
+
+> xy
+
++ ∥∂jt ∇ · (n0v0)∥Hm+1 −2( j+1)  
+
+> xy
+
++ ∥∂jt ∆n0∥Hm+1 −2( j+1) 
+
+> xy
+
+≤ ∑
+
+0≤s≤j
+
+∥∂st u0∥Hm+1 −2sxy ∥∂j−st n0∥Hm−2( j−s) 
+
+> xy
+
++ ∑
+
+0≤s≤j
+
+∥∂st n0∥Hm−2sxy ∥∂j−st v0∥Hm−2( j−s) 
+
+> xy
+
++ ∥∂jt n0∥Hm+1 −2jxy .
+
+Via mathematical induction, we arrive at 
+
+∥∂j+1 
+
+t n0∥Hm−2j−1 
+
+> xy
+
+≤ Cm+1 . (4.73) Similarly, from equation (2 .4) 2, the estimate of ∂jt v is derived as follows: 
+
+∥∂j+1 
+
+t v0∥Hm+1 −2( j+1)  
+
+> xy
+
+≤ ∥ ∂jt ∇(u0 · v0)∥Hm+1 −2( j+1)  
+
+> xy
+
++ ∥∂jt ∇n0∥Hm+1 −2( j+1) 
+
+> xy
+
+≤ ∑
+
+0≤s≤j
+
+∥∂st u0∥Hm+1 −2sxy ∥∂j−st v0∥Hm−2( j−s) 
+
+> xy
+
++ ∥∂jt n0∥Hm−2jxy (4.74) 
+
+≤ Cm+1 .
+
+Moreover, the div?curl estimate yields that 
+
+∥∂j+1 
+
+t u0∥Hm+2 −2( j+1)  
+
+> xy
+
+= ∥∂j+1 
+
+t u0∥Hm−2jxy = ∥∂j+1 
+
+t u0∥L2 
+
+> xy
+
++ ∥∂j+1 
+
+t ω0∥Hm−2j−1 
+
+> xy
+
+.
+
+We estimate the two terms on the?right?hand?side separately as follows. Taking the time derivative of equation (2 .4) 4, we assert that ∥∂j+1 
+
+t u0∥L2 
+
+> xy
+
+holds as the following 
+
+12
+
+ddt ∥∂j+1 
+
+t u0∥2
+
+L2
+
+> xy
+
+38 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+=
+
+∫ ∞
+
+> 0
+
+∫ ∞−∞ 
+
+(−∂j+1  
+
+> t
+
+(u0 · ∇ u0) + ∂j+1  
+
+> t
+
+n0e2
+
+) · ∂j+1  
+
+> t
+
+u0dxdy (4.75) 
+
+≤ C ∑
+
+> 0≤s≤j+1
+
+∥∂st u0∥2 
+
+> Hm+2 −2sxy
+
+∥∂j+1 −st ω0∥2
+
+> Hm+1 −2( j+1 −s)
+> xy
+
++ ∥∂j+1  
+
+> t
+
+n0∥2 
+
+> L2
+> xy
+
++ ∥∂j+1  
+
+> t
+
+u0∥2 
+
+> L2
+> xy
+
+.
+
+The estimate for the vorticity term is given as follows: 
+
+∥∂j+1  
+
+> t
+
+ω0∥Hm+1 −2( j+1) 
+
+> xy
+
+≤ ∥ ∂jt (u0 · ∇ ω0)∥Hm+1 −2( j+1)  
+
+> xy
+
++ ∥∂jt ∂xn0∥Hm+1 −2( j+1) 
+
+> xy
+
+≤ ∑
+
+> 0≤s≤j
+
+∥∂st u0∥Hm+1 −2sxy ∥∂j−st ω0∥Hm−2( j−s) 
+
+> xy
+
++ ∥∂jt n0∥Hm−2jxy (4.76) 
+
+≤ Cm+1 .
+
+Therefore, for all integers j satisfying 0 ≤ 2j ≤ m + 2 , combine (4.75) and (4.76), we shows that 
+
+∥∂j+1  
+
+> t
+
+u0∥2
+
+> Hm+2 −2( j+1)
+> xy
+
+≤ Cm+1 . (4.77) Then the conclusion for (4.72) is verified. 
+
+Step 5. Inductive conclusion. Combining Step 3 and Step 4, we deduce that if Pm holds, then 
+
+sup 
+
+> 0≤t≤T
+
+(
+
+∥n0∥2 
+
+> Hm+1
+
++ ∥v0∥2 
+
+> Hm+1
+> xy
+
++ ∥u0∥2
+
+> Hm+2
+> xy
+
+)
+
++
+
+∫ T
+
+> 0
+
+∥n0∥2 
+
+> Hm+2
+> xy
+
+dt ≤ Cm+1 ,
+
+sup 
+
+> 0≤t≤T
+
+∑
+
+> 0<2j≤m+1
+
+∥∂jt n0∥2
+
+> Hm+1 −2jxy
+
++ ∥∂jt v0∥2
+
+> Hm+1 −2jxy
+
+≤ Cm+1 ,
+
+sup 
+
+> 0≤t≤T
+
+∑
+
+> 0<2j≤m+2
+
+∥∂jt u0∥2
+
+> Hm+2 −2jxy
+
+≤ Cm+1 .
+
+Consequently, Pm+1 holds true. As Lemma 4.5 confirms the case P3, it follows from the induction method that (4.52) and (4.53) are valid on [0 , T ] for every integer m ≥ 4.Finally, we give the proof of Theorem 2.1. 
+
+Proof of Theorem 2.1. Using the foregoing conclusions from Lemma 4.4, Lemma 4.5 and Corol-lary 4.1, together with the contraction mapping argument and difference energy estimates, we establish Theorem 2.1. BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 39 
+
+5. inner layer estimation 
+
+In this part, we mainly explain the well-posedness of the solution of (2 .5) -(2 .15) . For the regularity of (2 .5) and (2 .8) , we introduce the following auxiliary functions related to f B (t, x, z )
+
+
+
+∂tf B + ∂yu02f B + u01∂xf B + z∂ yu02∂z f B + n0f B = ∂2 
+
+> z
+
+f B + ρf B |z=0 = 0 ,f B |t=0 = 0 .
+
+(5.1) Then the regularity result of the solution to the equations (5.1) below holds. (Hk,m,l , ∥ · ∥ k,m,l ) be the anisotropic Sobolev spaces defined as (2.1). 
+
+Proposition 5.1. Suppose (n0, v 0, u 0) be the solutions that satisfy the conditions in Theorem 2.1 on [0 , T ], such that for m0 ≥ 4
+
+∂jt u01, ∂ jt u02 ∈ L∞(0 , T ; Hm0−j+3  
+
+> xy
+
+), ∂ jt n0 ∈ L∞(0 , T ; Hm0−j+2  
+
+> xy
+
+), (5.2) 
+
+and 
+
+∂jt ρ ∈ L2(0 , T ; Hk+m0−j,m 0−j, 0), ∂ tρ ∈ L∞(0 , T ; Hk,m 0−3,0), ρ ∈ L∞(0 , T ; Hk,m 0−l,l −2), l = 2 , 3, 4
+
+(5.3) 
+
+for any k ∈ N and j = 0 , 1, 2. Then the solution f B to the equations (5 .1) satisfies the following properties: 
+
+∂jt f B ∈ L∞(0 , T ; Hk,m 0−j, 0) ∩ L2(0 , T ; Hk,m 0−j, 1), j = 0 , 1, 2,∂tf B ∈ L∞(0 , T ; Hk,m 0−2,1), ∂ tf B ∈ L∞(0 , T ; Hk,m 0−3,2), (5.4) 
+
+and 
+
+f B ∈ L∞(0 , T ; Hk,m 0−i,i ), i = 1 , 2, 3, 4. (5.5) 
+
+Proof. Before proceeding with the weighted estimates, we clarify how the factor z in the normal transport term is treated. A direct rough estimate would apparently increase the polynomial weight and lead to an unclosed estimate involving a higher weighted norm of the same unknown. To avoid this difficulty, we adopt appropriate weight by retaining the distribution of the tangential derivatives in the Leibniz expansion. More precisely, for j = 0 , 1, 2, we set 
+
+κα,j := k + m0 − j − α, 0 ≤ α ≤ m0 − j, (5.6) and use the stronger weighted quantity 
+
+Ek,j (f B ) := 
+
+> m0−j
+
+∑
+
+> α=0
+
+∫ +∞
+
+> 0
+
+∫ ∞−∞ 
+
+(1 + z2κα,j ) ∣ ∣∂αx ∂jt f B ∣∣2 dx dz. (5.7) 40 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+Since κα,j ≥ k, an estimate of Ek,j (f B ) immediately implies the corresponding Hk,m 0−j, 0-estimate stated in the Proposition. Note that 
+
+κα−β,j = κα,j + β, 1 ≤ β ≤ α, (5.8) and hence 
+
+z2 (1 + z2κα,j ) ≤ C (1 + z2κα−β,j 
+
+) . (5.9) Thus, the factor z is controlled by the larger polynomial weight assigned to the lower-order tangential derivative, since this only produces finite classes of weights. 
+
+Step 1. For 0 ≤ α ≤ m0.
+
+Applying ∂αx to the equations of (5 .1) 1, multiplying (5 .1) 1 by (1 + z2κα, 0 ) ∂αx f B , we obtain 
+
+12
+
+ddt Ek, 0(f B ) + 
+
+> m0
+
+∑
+
+> α=0
+
+∥ (1 + z2κα, 0 )12 ∂αx ∂z f B ∥2
+
+> L2
+> xz
+
+= −
+
+> m0
+
+∑
+
+> α=0
+
+∫ +∞
+
+> 0
+
+∫ +∞−∞ 
+
+2κα, 0z2κα, 0−1∂αx ∂z f B ∂αx f B dxdz 
+
+−
+
+> m0
+
+∑
+
+> α=0
+
+∫ +∞
+
+> 0
+
+∫ +∞−∞ 
+
+(1 + z2κα, 0 ) ∂αx (∂yu02f B )∂αx f B dxdz 
+
+−
+
+> m0
+
+∑
+
+> α=0
+
+∫ +∞
+
+> 0
+
+∫ +∞−∞ 
+
+(1 + z2κα, 0 ) ∂αx (u01∂xf B )∂αx f B dxdz 
+
+−
+
+> m0
+
+∑
+
+> α=0
+
+∫ +∞
+
+> 0
+
+∫ +∞−∞ 
+
+(1 + z2κα, 0 ) ∂αx (z∂ yu02∂z f B )∂αx f B dxdz 
+
+−
+
+> m0
+
+∑
+
+> α=0
+
+∫ +∞
+
+> 0
+
+∫ +∞−∞ 
+
+(1 + z2κα, 0 ) ∂αx (n0f B )∂αx f B dxdz +
+
+> m0
+
+∑
+
+> α=0
+
+∫ +∞
+
+> 0
+
+∫ +∞−∞ 
+
+(1 + z2κα, 0 ) ∂αx ρ∂ αx f B dxdz 
+
+=: J1 + ... + J5 +
+
+> m0
+
+∑
+
+> α=0
+
+∫ +∞
+
+> 0
+
+∫ +∞−∞ 
+
+(1 + z2κα, 0 ) ∂αx ρ∂ αx f B dxdz. 
+
+Using (5.2), we assemble all estimates of J1 through J5 in the following form: 
+
+J1 ≤ C
+
+> m0
+
+∑
+
+> α=0
+
+∥ (1 + z2κα, 0 )12 ∂αx ∂z f B ∥L2 
+
+> xz
+
+∥ (1 + z2κα, 0 )12 ∂αx f B ∥L2
+
+> xz
+
+≤ δ1
+
+> m0
+
+∑
+
+> α=0
+
+∥ (1 + z2κα, 0 )12 ∂αx ∂z f B ∥2 
+
+> L2
+> xz
+
++ CEk, 0(f B ).J2 + J5 ≤
+
+> m0
+
+∑
+
+> α=0
+
+∑
+
+> 0≤β≤α
+
+Cβα ∥∂βx ∂yu02∥L∞ 
+
+> x
+
+∥ (1 + z2κα, 0 )12 ∂α−βx f B ∥L2 
+
+> xz
+
+∥ (1 + z2κα, 0 )12 ∂αx f B ∥L2
+
+> xz
+
+BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 41 
+
++
+
+m0∑
+
+α=0 
+
+∑
+
+0≤β≤α
+
+Cβα ∥∂βx n0∥L∞ 
+
+> x
+
+∥ (1 + z2κα, 0 )12 ∂α−βx f B ∥L2 
+
+> xz
+
+∥ (1 + z2κα, 0 )12 ∂αx f B ∥L2
+
+> xz
+
+≤ CEk, 0(f B ).J3 ≤
+
+m0∑
+
+α=0 
+
+∥∂xu01∥L∞ 
+
+> x
+
+∥ (1 + z2κα, 0 )12 ∂αx f B ∥2
+
+L2
+
+> xz
+
++
+
+m0∑
+
+α=0 
+
+∑
+
+0<β ≤α
+
+Cβα ∥∂βx u01∥L∞ 
+
+> x
+
+∥ (1 + z2κα, 0 )12 ∂α−β+1 
+
+x f B ∥L2 
+
+> xz
+
+∥ (1 + z2κα, 0 )12 ∂αx f B ∥L2
+
+> xz
+
+≤ CEk, 0(f B ).J4 ≤ 12
+
+m0∑
+
+α=0 
+
+∫ +∞
+
+0
+
+∫ ∞−∞ 
+
+∂yu02 ∂z
+
+[z (1 + z2κα, 0 )] ∣ ∣∂αx f B ∣∣2 dx dz 
+
++
+
+m0∑
+
+α=0 
+
+∑
+
+0<β ≤α
+
+Cβα
+
+∣∣∣∣∫ +∞
+
+0
+
+∫ ∞−∞ 
+
+(1 + z2κα, 0 ) z∂ βx ∂yu02 ∂z ∂α−βx f B ∂αx f B dx dz 
+
+∣∣∣∣
+
+≤ C
+
+m0∑
+
+α=0 
+
+∥∂yu02∥L∞ 
+
+> x
+
+∥ (1 + z2κα, 0 ) ∂αx f B ∥2
+
+L2
+
+> xz
+
++
+
+m0∑
+
+α=0 
+
+∑
+
+0<β ≤α
+
+Cβα ∥∂βx ∂yu02∥L∞ 
+
+> x
+
+∥((1 + z2κα−β, 0 )) 12 ∂α−βx ∂z f B ∥L2 
+
+> xz
+
+∥ (1 + z2κα, 0 )12 ∂αx f B ∥L2
+
+> xz
+
+≤ δ1
+
+m0∑
+
+α=0 
+
+∑
+
+0<β ≤α
+
+∥ (1 + z2κα−β, 0 ))12 ∂α−βx ∂z f B ∥2
+
+L2 
+
+> xz
+
++ CEk, 0(f B ).
+
+It then follows immediately that 
+
+ddt Ek, 0(f B ) + 2(1 − Cδ 1)
+
+m0∑
+
+α=0 
+
+∥ (1 + z2κα, 0 )12 ∂αx ∂z f B ∥2
+
+L2 
+
+> xz
+
+≤ CEk, 0(f B ) + C
+
+m0∑
+
+α=0 
+
+∥ (1 + z2κα, 0 )12 ∂αx ρ∥2
+
+L2 
+
+> xz
+
+.
+
+Since the assumptions on ρ hold for every polynomial weight, for sufficiently small δ, Gronwall’s inequality yields 
+
+sup 
+
+0≤t≤T
+
+Ek, 0(f B ) + 
+
+m0∑
+
+α=0 
+
+∫ t
+
+0
+
+∥ (1 + z2κα, 0 )12 ∂αx ∂z f B ∥2
+
+L2 
+
+> xz
+
+≤ C. (5.10) Next we will also consider the derivative estimate of f with respect to z.
+
+Step 2. For 0 ≤ α ≤ m0 − 1.
+
+Similar to the above procedure in deriving J1 − J3, J 5, we apply ∂αx to the equation (5 .1) 1 and 42 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+multiply by (1 + z2κα, 1 ) ∂αx ∂tf B to have 
+
+12
+
+ddt 
+
+m0−1∑
+
+α=0 
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z f B ∥2
+
+L2 
+
+> xz
+
++ Ek, 1(f B )= −
+
+m0−1∑
+
+α=0 
+
+∫ +∞
+
+0
+
+∫ +∞−∞ 
+
+2κα, 1z2κα, 1−1∂αx ∂z f B ∂αx ∂tf B dxdz 
+
+−
+
+m0−1∑
+
+α=0 
+
+∫ +∞
+
+0
+
+∫ +∞−∞ 
+
+(1 + z2κα, 1 ) ∂αx (∂yu02f B )∂αx ∂tf B dxdz 
+
+−
+
+m0−1∑
+
+α=0 
+
+∫ +∞
+
+0
+
+∫ +∞−∞ 
+
+(1 + z2κα, 1 ) ∂αx (u01∂xf B )∂αx ∂tf B dxdz 
+
+−
+
+m0−1∑
+
+α=0 
+
+∫ +∞
+
+0
+
+∫ +∞−∞ 
+
+(1 + z2κα, 1 ) ∂αx (z∂ yu02∂z f B )∂αx ∂tf B dxdz 
+
+−
+
+m0−1∑
+
+α=0 
+
+∫ +∞
+
+0
+
+∫ +∞−∞ 
+
+(1 + z2κα, 1 ) ∂αx (n0f B )∂αx ∂tf B dxdz +
+
+m0−1∑
+
+α=0 
+
+∫ +∞
+
+0
+
+∫ +∞−∞ 
+
+(1 + z2κα, 1 ) ∂αx ρ∂ αx ∂tf B dxdz 
+
+≤ 34Ek, 1(f B ) + C
+
+m0−1∑
+
+α=0 
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z f B ∥2
+
+L2 
+
+> xz
+
++ CEk, 0(f B ) + C
+
+m0−1∑
+
+α=0 
+
+∥ (1 + z2κα, 1 )12 ∂αx ρ∥2
+
+L2
+
+> xz
+
++
+
+∣∣∣∣∣
+
+m0−1∑
+
+α=0 
+
+∫ +∞
+
+0
+
+∫ +∞−∞ 
+
+(1 + z2κα, 1 ) ∂αx (z∂ yu02∂z f B )∂αx ∂tf B dxdz 
+
+∣∣∣∣∣ .
+
+Indeed, since κα, 1 + 1 = κα, 0, we have 
+
+∣∣∣∣∣
+
+m0−1∑
+
+α=0 
+
+∫ +∞
+
+0
+
+∫ +∞−∞ 
+
+(1 + z2κα, 1 ) z∂ αx (∂yu02∂z f B )∂αx ∂tf B dx dz 
+
+∣∣∣∣∣ ≤ 14Ek, 1(f B ) + C
+
+m0−1∑
+
+α=0 
+
+∥∥∥(1 + z2κα, 0 )12 ∂z ∂αx f B
+
+∥∥∥2
+
+L2
+
+> xz
+
+.
+
+Combining the above estimates and using (5.10), an application of Gronwall¡¯s inequality yields that 
+
+sup 
+
+0≤t≤Tm0−1∑
+
+α=0 
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z f B ∥2
+
+L2 
+
+> xz
+
+≤ C, (5.11) For the estimates of ∥∂tf B ∥k,m 0−1,0, applying ∂αx ∂t to the equation (5 .1) 1
+
+∂αx ∂2
+
+t f B + ∂αx ∂t(∂yu02f B ) + ∂αx ∂t(u01∂xf B ) + ∂αx ∂t(z∂ yu02∂z f B ) + ∂αx ∂t(n0f B )= ∂αx ∂t∂2
+
+z f B + ∂αx ∂tρ, (5.12) BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 43 
+
+and multiplying by (1 + z2κα, 1 ) ∂αx ∂tf B , by substituting (5.9), Hölder¡¯s inequality and Young¡¯s inequality, we deduce that 
+
+12
+
+ddt Ek, 1(f B ) + 
+
+> m0−1
+
+∑
+
+> α=0
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z ∂tf B ∥2
+
+> L2
+> xz
+
+≤ δ2
+
+> m0−1
+
+∑
+
+> α=0
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z ∂tf B ∥2 
+
+> L2
+> xz
+
++ C (Ek, 1(f B ) + Ek, 0(f B ))
+
++ δ2
+
+> m0−1
+
+∑
+
+> α=0
+
+∑
+
+> 0<β ≤α
+
+∥ (1 + z2κα−β, 1
+
+)12 ∂α−βx ∂z ∂tf B ∥2
+
+> L2
+> xz
+
++ C
+
+(m0−1∑
+
+> α=0
+
+∥ (1 + z2κα, 0 )12 ∂αx ∂z f B ∥2 
+
+> L2
+> xz
+
++
+
+> m0−1
+
+∑
+
+> α=0
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂tρ∥2
+
+> L2
+> xz
+
+)
+
+.
+
+Substituting (5.2)-(5.3) and (5.10), for sufficiently small δ2, we apply Gronwall¡¯s inequality to obtain 
+
+sup 
+
+> 0≤t≤T
+
+Ek, 1(f B ) + 
+
+∫ T
+
+> 0
+> m0−1
+
+∑
+
+> α=0
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z ∂tf B ∥2 
+
+> L2
+> xz
+
+≤ C. (5.13) 
+
+Step 3. For 0 ≤ α ≤ m0 − 2.
+
+We skip the Leibniz expansion and embedding procedures at this step, as they are essentially the same as in Step 1 and Step 2, and present the estimates directly. Taking the inner product of equation (5.12) with (1 + z2κα, 2 ) ∂αx ∂2 
+
+> t
+
+f B and integrating by parts, we obtain 
+
+12
+
+ddt 
+
+> m0−2
+
+∑
+
+> α=0
+
+∥ (1 + z2κα, 2 )12 ∂αx ∂z ∂tf B ∥2 
+
+> L2
+> xz
+
++ Ek, 2(f B )
+
+≤ 12Ek, 2(f B ) + C
+
+(m0−2∑
+
+> α=0
+
+∥ (1 + z2κα, 2 )12 ∂αx ∂z ∂tf B ∥2 
+
+> L2
+> xz
+
++
+
+> m0−2
+
+∑
+
+> α=0
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z ∂tf B ∥2
+
+> L2
+> xz
+
+)
+
++ C
+
+(m0−1∑
+
+> α=0
+
+∥ (1 + z2κα, 2 )12 ∂αx f B ∥2 
+
+> L2
+> xz
+
++
+
+> m0−2
+
+∑
+
+> α=0
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z f B ∥2
+
+> L2
+> xz
+
+)
+
++ C
+
+(
+
+Ek, 1(f B ) + 
+
+> m0−2
+
+∑
+
+> α=0
+
+∥ (1 + z2κα, 2 )12 ∂αx ∂tρ∥2
+
+> L2
+> xz
+
+)
+
+,
+
+due to κα, 2 + 1 = κα, 1. Combining (5.10), (5.11) and (5.13), an application of Gronwall¡¯s inequality yields that 
+
+sup 
+
+> 0≤t≤Tm0−2
+
+∑
+
+> α=0
+
+∥ (1 + z2κα, 2 )12 ∂αx ∂z ∂tf B ∥2 
+
+> L2
+> xz
+
++
+
+∫ T
+
+> 0
+
+Ek, 2(f B ) ≤ C, (5.14) 44 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+To estimate ∥∂2
+
+t f B ∥k,m 0−2,0, making further derivation by ∂αx ∂2
+
+t for the equation (5 .1) 1, which then can be expressed as follows 
+
+∂αx ∂3
+
+t f B + ∂αx ∂2
+
+t (∂yu02f B ) + ∂αx ∂2
+
+t (u01∂xf B ) + ∂αx ∂2
+
+t (z∂ yu02∂z f B ) + ∂αx ∂2
+
+t (n0f B ) (5.15) 
+
+= ∂αx ∂2
+
+t ∂2
+
+z f B + ∂αx ∂2
+
+t ρ, 
+
+multiply (5.15) by (1 + z2κα, 2 ) ∂αx ∂2
+
+t f B , it then yields 
+
+12
+
+ddt Ek, 2(f B ) + 
+
+m0−2∑
+
+α=0 
+
+∥ (1 + z2κα, 2 )12 ∂αx ∂z ∂2
+
+t f B ∥2
+
+L2
+
+> xz
+
+≤ δ3
+
+m0−2∑
+
+α=0 
+
+∥ (1 + z2κα, 2 )12 ∂αx ∂z ∂2
+
+t f B ∥2
+
+L2 
+
+> xz
+
++ C
+
+(
+
+Ek, 2(f B ) + Ek, 1(f B ) + 
+
+m0−1∑
+
+α=0 
+
+∥ (1 + z2κα, 2 )12 ∂αx f B ∥2
+
+L2
+
+> xz
+
+)
+
++ δ3
+
+m0−2∑
+
+α=0 
+
+∑
+
+0<β ≤α
+
+∥ (1 + z2κα−β, 2
+
+)12 ∂α−βx ∂z ∂2
+
+t f B ∥2
+
+L2
+
+> xz
+
++ C
+
+m0−2∑
+
+α=0 
+
+(
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z ∂tf B ∥2
+
+L2 
+
+> xz
+
++ ∥ (1 + z2κα, 1 )12 ∂αx ∂z f B ∥2
+
+L2
+
+> xz
+
+)
+
++ C
+
+m0−2∑
+
+α=0 
+
+∥ (1 + z2κα, 2 )12 ∂αx ∂2
+
+t ρ∥2
+
+L2 
+
+> xz
+
+.
+
+Substituting (5 .10) , (5 .11) , (5 .13) and (5 .14) , for sufficiently small δ3, we apply Gronwall¡¯s inequal-ity to deduce that 
+
+sup 
+
+0≤t≤T
+
+Ek, 2(f B ) + 
+
+∫ T
+
+0
+
+m0−2∑
+
+α=0 
+
+∥ (1 + z2κα, 2 )12 ∂αx ∂z ∂2
+
+t f B ∥2
+
+L2 
+
+> xz
+
+≤ C. (5.16) Combining the previous high-order weighted estimates (5 .10) , (5 .11) , (5 .13) , (5 .14) and (5 .16) , we obtain the following results for κα,j ≥ k, j = 0 , 1, 2.
+
+∥f B ∥2
+
+L∞(0 ,T ;Hk,m 0,0) + ∥∂z f B ∥2
+
+L2(0 ,T ;Hk,m 0,0) ≤ C, 
+
+∥∂z f B ∥2
+
+L∞(0 ,T ;Hk,m 0−1,0) ≤ C, 
+
+∥∂tf B ∥2
+
+L∞(0 ,T ;Hk,m 0−1,0) + ∥∂t∂z f B ∥2
+
+L2(0 ,T ;Hk,m 0−1,0) ≤ C, (5.17) 
+
+∥∂t∂z f B ∥2
+
+L∞(0 ,T ;Hk,m 0−2,0) + ∥∂2
+
+t f B ∥2
+
+L2(0 ,T ;Hk,m 0−2,0) ≤ C, 
+
+∥∂2
+
+t f B ∥2
+
+L∞(0 ,T ;Hk,m 0−2,0) + ∥∂z ∂2
+
+t f B ∥2
+
+L2(0 ,T ;Hk,m 0−2,0) ≤ C. 
+
+By (5 .11) , (5 .14) and (5.17), further application for the equation (5 .1) and (2 .2) shows that 
+
+∥∂tf B ∥k,m 0−3,2 ≤ C (∥∂2
+
+t f B ∥k,m 0−3,0 + ∥∂tf B ∥k,m 0−2,0 + ∥∂tf B ∥k+1 ,m 0−3,1
+
+)
+
++ C (∥f B ∥k,m 0−2,0 + ∥f B ∥k+1 ,m 0−3,1 + ∥∂tρ∥k,m 0−3,0
+
+) (5.18) BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 45 
+
+≤ C. 
+
+From the equation (5 .1) , together with (5 .10) , (5 .11) , (5 .13) , (5 .14) , (5 .16) and the assumption on 
+
+ρ in (5 .3) , we further derive for k ∈ N that 
+
+∥f B ∥k,m 0−i,i ≤ C (∥∂tf B ∥k,m 0−i,i −2 + ∥f B ∥k,m 0−i+1 ,i −2 + ∥f B ∥k+1 ,m 0−i,i −1 + ∥ρ∥k,m 0−i,i −2
+
+) ≤ C, 
+
+(5.19) where i = 2 , 3, 4. Combining (5 .17) -(5 .18) , we get the desired estimates and complete the proof. For the regularity of (2 .7) , (2 .9) , (2 .11) and (2 .12) , we introduce the following system related to 
+
+gB (t, x, z )
+
+
+
+∂tgB + ∂x(u01gB ) + z∂ yu02∂z gB = ∂2 
+
+> z
+
+gB + ϱ∂z gB |z=0 = μ(t, x ),gB |t=0 = 0 .
+
+(5.20) Then the regularity result of the solution to the equations (5.20) below holds. 
+
+Proposition 5.2. Suppose (n0, v 0, u 0) be the solutions that satisfy the conditions in Theorem 2.1 on [0 , T ] such that for m0 ≥ 4
+
+∂jt u01, ∂ jt u02 ∈ L∞(0 , T ; Hm0−j+3  
+
+> xy
+
+), ∂ jt μ ∈ L2(0 , T ; Hm0−jx ), (5.21) 
+
+for any k ∈ N and ϱ satisfies 
+
+∂jt ϱ ∈ L2(0 , T ; Hk+m0−j,m 0−j, 0), ∂ tϱ ∈ L∞(0 , T ; Hk,m 0−3,0), ϱ ∈ L∞(0 , T ; Hk,m 0−l,l −2), l = 2 , 3, 4
+
+(5.22) 
+
+for j = 0 , 1, 2. Then the solution gB to the equations (5 .20) satisfies the following properties: 
+
+∂jt gB ∈ L∞(0 , T ; Hk,m 0−j, 0) ∩ L2(0 , T ; Hk,m 0−j, 1), j = 0 , 1, 2,∂tgB ∈ L∞(0 , T ; Hk,m 0−2,1), ∂ tgB ∈ L∞(0 , T ; Hk,m 0−3,2), (5.23) 
+
+and 
+
+gB ∈ L∞(0 , T ; Hk,m 0−i,i ), i = 1 , 2, 3, 4. (5.24) 
+
+Proof. In the present proof, we employ the same weighted convention as in the proof of Proposition 5.1. In particular, the terms containing a factor z are controlled by assigning a larger polynomial weight to a lower-order tangential derivative. Therefore, no uncontrolled higher weighted norm of 
+
+gB appears. 
+
+Step 1. For 0 ≤ α ≤ m0.46 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+Applying ∂αx to the equations (5 .20) 1, multiplying by (1+ z2κα, 0 )∂αx gB and using the Leibniz formula, we obtain 
+
+12
+
+ddt Ek, 0(gB ) + 
+
+m0∑
+
+α=0 
+
+∥ (1 + z2κα, 0 )12 ∂αx ∂z gB ∥2
+
+L2
+
+> xz
+
+= −
+
+m0∑
+
+α=0 
+
+∫ +∞
+
+0
+
+∫ +∞−∞ 
+
+2κα, 0z2κα, 0−1∂αx ∂z gB ∂αx gB dxdz −
+
+m0∑
+
+α=0 
+
+∫ +∞
+
+0
+
+∫ +∞−∞ 
+
+(1 + z2κα, 0 )∂αx (∂xu01gB )∂αx gB dxdz 
+
+−
+
+m0∑
+
+α=0 
+
+∫ +∞
+
+0
+
+∫ +∞−∞ 
+
+(1 + z2κα, 0 )∂αx (u01∂xgB )∂αx gB dxdz 
+
+−
+
+m0∑
+
+α=0 
+
+∫ +∞
+
+0
+
+∫ +∞−∞ 
+
+(1 + z2κα, 0 )∂αx (z∂ yu02∂z gB )∂αx gB dxdz 
+
++
+
+m0∑
+
+α=0 
+
+∫ +∞
+
+0
+
+∫ +∞−∞ 
+
+(1 + z2κα, 0 )∂αx ϱ∂ αx gB dxdz +
+
+m0∑
+
+α=0 
+
+∫ +∞−∞ 
+
+∂αx ∂z gB (t, x, 0) ∂αx gB (t, x, 0) dx 
+
+= K1 + ... + K5 +
+
+m0∑
+
+α=0 
+
+∫ +∞−∞ 
+
+∂αx ∂z gB (t, x, 0) ∂αx gB (t, x, 0) dx. 
+
+We collect the estimates for K1-K4 as follows: 
+
+K1 ≤ ϵ1
+
+m0∑
+
+α=0 
+
+∥ (1 + z2κα, 0 )12 ∂αx ∂z gB ∥2
+
+L2 
+
+> xz
+
++ CEk, 0(gB ),K2 ≤
+
+m0∑
+
+α=0 
+
+∑
+
+0≤β≤α
+
+Cβα ∥∂β+1 
+
+x u01∥L∞ 
+
+> x
+
+∥ (1 + z2κα, 0 )12 ∂α−βx gB ∥L2 
+
+> xz
+
+∥ (1 + z2κα, 0 )12 ∂αx gB ∥L2 
+
+> xz
+
+≤ CEk, 0(gB ),K3 ≤
+
+m0∑
+
+α=0 
+
+∥∂xu01∥L∞ 
+
+> x
+
+∥ (1 + z2κα, 0 )12 ∂αx gB ∥2
+
+L2
+
+> xz
+
++
+
+m0∑
+
+α=0 
+
+∑
+
+0<β ≤α
+
+Cβα ∥∂βx u01∥L∞ 
+
+> x
+
+∥ (1 + z2κα, 0 )12 ∂α−β+1 
+
+x gB ∥L2 
+
+> xz
+
+∥ (1 + z2κα, 0 )12 ∂αx gB ∥L2
+
+> xz
+
+≤ CEk, 0(gB ),K4 ≤ 12
+
+m0∑
+
+α=0 
+
+∫ +∞
+
+0
+
+∫ ∞−∞ 
+
+∂yu02 ∂z
+
+[z (1 + z2κα, 0 )] ∣ ∣∂αx gB ∣∣2 dx dz 
+
++
+
+m0∑
+
+α=0 
+
+∑
+
+0<β ≤α
+
+Cβα
+
+∣∣∣∣∫ +∞
+
+0
+
+∫ ∞−∞ 
+
+(1 + z2κα, 0 ) z∂ βx ∂yu02 ∂z ∂α−βx gB ∂αx gB dx dz 
+
+∣∣∣∣
+
+≤ C
+
+m0∑
+
+α=0 
+
+∥∂yu02∥L∞ 
+
+> x
+
+∥ (1 + z2κα, 0 ) ∂αx gB ∥2
+
+L2
+
+> xz
+
+BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 47 
+
++
+
+> m0
+
+∑
+
+> α=0
+
+∑
+
+> 0<β ≤α
+
+Cβα ∥∂βx ∂yu02∥L∞ 
+
+> x
+
+∥((1 + z2κα−β, 0 )) 12 ∂α−βx ∂z gB ∥L2 
+
+> xz
+
+∥ (1 + z2κα, 0 )12 ∂αx gB ∥L2
+
+> xz
+
+≤ ϵ1
+
+> m0
+
+∑
+
+> α=0
+
+∑
+
+> 0<β ≤α
+
+∥ (1 + z2κα−β, 0 ))12 ∂α−βx ∂z gB ∥2 
+
+> L2
+> xz
+
++ CEk, 0(gB ).
+
+Since the assumptions on ϱ hold for every polynomial weight, we have 
+
+K5 ≤ C
+
+> m0
+
+∑
+
+> α=0
+
+∥ (1 + z2κα, 0 )12 ∂αx ϱ∥2 
+
+> L2
+> xz
+
++ CEk, 0(gB ).
+
+Applying the boundary condition ∂αx ∂z gB (t, x, 0) = ∂αx μ and the trace theorem, we obtain the following estimate: 
+
+> m0
+
+∑
+
+> α=0
+
+∫ +∞−∞ 
+
+∂αx ∂z gB (t, x, 0) ∂αx gB (t, x, 0) dx 
+
+≤
+
+> m0
+
+∑
+
+> α=0
+
+∫ +∞
+
+> 0
+
+∫ +∞−∞ 
+
+|∂αx μ|∥ (1 + z2κα, 0 )12 ∂αx gB (t, x, z )∥12 
+
+> L2
+> xz
+
+∥ (1 + z2κα, 0 )12 ∂αx ∂z gB (t, x, z )∥12 
+
+> L2
+> xz
+
+dxdz 
+
+≤ ϵ1
+
+> m0
+
+∑
+
+> α=0
+
+∥ (1 + z2κα, 0 )12 ∂αx ∂z gB ∥2 
+
+> L2
+> xz
+
++ CEk, 0(gB ) + C∥μ∥2 
+
+> Hm0
+> x
+
+.
+
+(5.25) Combining K1-K5 and (5 .25) , for sufficiently small ϵ1 and applying Gronwall’s inequality, we deduce that 
+
+sup 
+
+> 0≤t≤T
+
+Ek, 0(gB ) + 
+
+∫ T
+
+> 0
+> m0
+
+∑
+
+> α=0
+
+∥ (1 + z2κα, 0 )12 ∂αx ∂z gB ∥2 
+
+> L2
+> xz
+
+≤ C. (5.26) 
+
+Step 2. For 0 ≤ α ≤ m0 − 1.Similar to the above procedure, apply ∂αx to the equation (5 .20) 1 and multiply by (1 + z2κα, 1 ) ∂αx ∂tgB ,we have 
+
+12
+
+ddt 
+
+> m0−1
+
+∑
+
+> α=0
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z gB ∥2 
+
+> L2
+> xz
+
++ Ek, 1(gB )
+
+≤ 12Ek, 1(gB ) + C
+
+> m0−1
+
+∑
+
+> α=0
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z gB ∥2 
+
+> L2
+> xz
+
++ CEk, 0(gB )+ C
+
+(m0−1∑
+
+> α=0
+
+∥ (1 + z2κα, 0 )12 ∂αx ∂z gB ∥2 
+
+> L2
+> xz
+
++
+
+> m0−1
+
+∑
+
+> α=0
+
+∥ (1 + z2κα, 1 )12 ∂αx ϱ∥2
+
+> L2
+> xz
+
+)
+
+(5.27) 
+
++
+
+> m0−1
+
+∑
+
+> α=0
+
+∫ +∞−∞ 
+
+∂αx ∂z gB (t, x, 0) ∂αx ∂tgB (t, x, 0) dx, 48 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+with 
+
+m0−1∑
+
+α=0 
+
+∫ +∞−∞ 
+
+∂αx ∂z gB (t, x, 0) ∂αx ∂tgB (t, x, 0) dx 
+
+≤ ϵ2
+
+m0−1∑
+
+α=0 
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z ∂tgB ∥2
+
+L2 
+
+> xz
+
++ C
+
+(
+
+Ek, 1(gB ) + ∥μ∥2
+
+Hm0−1
+
+> x
+
+)
+
+.
+
+On the other hand, applying ∂αx ∂t to the equation (5 .20) 1, we obtain 
+
+∂αx ∂2
+
+t gB + ∂αx ∂t(∂xu01gB + u01∂xgB ) + ∂αx ∂t(z∂ yu02∂z gB ) = ∂αx ∂t∂2
+
+z gB + ∂αx ∂tρ, (5.28) and multiplying by (1 + z2κα, 1 ) ∂αx ∂tgB , we get 
+
+12
+
+ddt Ek, 1(gB ) + 
+
+m0−1∑
+
+α=0 
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z ∂tgB ∥2
+
+L2
+
+> xz
+
+≤ ϵ2
+
+m0−1∑
+
+α=0 
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z ∂tgB ∥2
+
+L2 
+
+> xz
+
++ C (Ek, 1(gB ) + Ek, 0(gB )) (5.29) 
+
++ ϵ2
+
+m0−1∑
+
+α=0 
+
+∑
+
+0<β ≤α
+
+∥ (1 + z2κα−β, 1
+
+)12 ∂α−βx ∂z ∂tgB ∥2
+
+L2 
+
+> xz
+
++ C
+
+m0−1∑
+
+α=0 
+
+∥ (1 + z2κα, 0 )12 ∂αx ∂z gB ∥2
+
+L2
+
+> xz
+
++ C
+
+(m0−1∑
+
+α=0 
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂tϱ∥2
+
+L2 
+
+> xz
+
++ ∥∂tμ∥2
+
+Hm0−1
+
+> x
+
+)
+
+,
+
+due to κα, 1 +1 = κα, 0. Combining (5 .27) and (5 .29) , substituting the conclusion of (5 .26) , employing the assumption on (5.21) and Gronwall’s inequality, for sufficiently small ϵ2, we deduce that 
+
+sup 
+
+0≤t≤T
+
+(m0−1∑
+
+α=0 
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z gB ∥2
+
+L2 
+
+> xz
+
++ Ek, 1(gB )
+
+)
+
++
+
+∫ T
+
+0
+
+m0−1∑
+
+α=0 
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z ∂tgB ∥2
+
+L2 
+
+> xz
+
+≤ C. 
+
+(5.30) 
+
+Step 3. For 0 ≤ α ≤ m0 − 2.Multiplying equation (5.28) by (1 + z2κα, 2 )∂αx ∂2
+
+t gB and integrating by parts, we obtain that 
+
+12
+
+ddt 
+
+m0−2∑
+
+α=0 
+
+∥ (1 + z2κα, 2 )12 ∂αx ∂z ∂tgB ∥2
+
+L2 
+
+> xz
+
++ Ek, 2(gB )
+
+≤ 12Ek, 2(gB ) + ϵ3
+
+m0−2∑
+
+α=0 
+
+∥ (1 + z2κα, 2 )12 ∂αx ∂z ∂2
+
+t gB ∥2
+
+L2 
+
+> xz
+
++ CEk, 1(gB ) (5.31) 
+
++ C
+
+(m0−1∑
+
+α=0 
+
+∥ (1 + z2κα, 2 )12 ∂αx gB ∥2
+
+L2 
+
+> xz
+
++
+
+m0−2∑
+
+α=0 
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z ∂tgB ∥2
+
+L2
+
+> xz
+
+)BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 49 
+
++ C
+
+(m0−2∑
+
+α=0 
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z gB ∥2
+
+L2 
+
+> xz
+
++
+
+m0−2∑
+
+α=0 
+
+∥ (1 + z2κα, 2 )12 ∂αx ∂tϱ∥2
+
+L2 
+
+> xz
+
++ ∥∂tμ∥2
+
+Hm0−2
+
+> x
+
+)
+
+.
+
+On the other hand, applying ∂αx ∂2
+
+t to the equation (5 .20) 1
+
+∂αx ∂3
+
+t gB + ∂αx ∂2
+
+t (∂xu01gB + u01∂xgB ) + ∂αx ∂2
+
+t (z∂ yu02∂z gB ) = ∂αx ∂2
+
+t ∂2
+
+z gB + ∂αx ∂2
+
+t ρ, 
+
+and multiplying by (1 + z2κα, 2 )∂αx ∂2
+
+t gB , we get 
+
+12
+
+ddt Ek, 2(gB ) + 
+
+m0−2∑
+
+α=0 
+
+∥ (1 + z2κα, 2 )12 ∂αx ∂z ∂2
+
+t gB ∥2
+
+L2
+
+> xz
+
+≤ ϵ3
+
+m0−2∑
+
+α=0 
+
+∥ (1 + z2κα, 2 )12 ∂αx ∂z ∂2
+
+t gB ∥2
+
+L2 
+
+> xz
+
++ C
+
+(
+
+Ek, 2(gB ) + Ek, 1(gB ) + 
+
+m0−1∑
+
+α=0 
+
+∥ (1 + z2κα, 2 )12 ∂αx gB ∥2
+
+L2
+
+> xz
+
+)
+
++ ϵ3
+
+m0−2∑
+
+α=0 
+
+∑
+
+0<β ≤α
+
+∥ (1 + z2κα−β, 2
+
+)12 ∂α−βx ∂z ∂2
+
+t gB ∥2
+
+L2 
+
+> xz
+
+(5.32) 
+
++ C
+
+m0−2∑
+
+α=0 
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z ∂tgB ∥2
+
+L2 
+
+> xz
+
++ C
+
+m0−2∑
+
+α=0 
+
+∥ (1 + z2κα, 1 )12 ∂αx ∂z gB ∥2
+
+L2
+
+> xz
+
++
+
+m0−2∑
+
+α=0 
+
+∥ (1 + z2κα, 2 )12 ∂αx ∂2
+
+t ϱ∥2
+
+L2 
+
+> xz
+
++ C∥∂2
+
+t μ∥2
+
+Hm0−2
+
+> x
+
+.
+
+Combining (5 .31) and (5 .32) , substituting the conclusion of (5 .26) and (5.30), employing the as-sumption on (5.21)-(5.22) and Gronwall’s inequality, for sufficiently small ϵ3, we have 
+
+sup 
+
+0≤t≤T
+
+(m0−2∑
+
+α=0 
+
+∥ (1 + z2κα, 2 )12 ∂αx ∂z ∂tgB ∥2
+
+L2 
+
+> xz
+
++ Ek, 2(gB )
+
+)
+
++
+
+∫ T
+
+0
+
+m0−2∑
+
+α=0 
+
+∥ (1 + z2κα, 2 )12 ∂αx ∂z ∂2
+
+t gB ∥2
+
+L2 
+
+> xz
+
+≤ C. 
+
+(5.33) Combining the high-order weighted estimates (5 .26) , (5 .30) and (5 .33) , we obtain that for any 
+
+κα,j ≥ k, j = 0 , 1, 2,
+
+∥gB ∥2
+
+L∞(0 ,T ;Hk,m 0,0) + ∥∂z gB ∥2
+
+L2(0 ,T ;Hk,m 0,0) ≤ C, 
+
+∥∂z gB ∥2
+
+L∞(0 ,T ;Hk,m 0−1,0) + ∥∂tgB ∥2
+
+L∞(0 ,T ;Hk,m 0−1,0) + ∥∂t∂z gB ∥2
+
+L2(0 ,T ;Hk,m 0−1,0) ≤ C, (5.34) 
+
+∥∂z ∂tgB ∥2
+
+L∞(0 ,T ;Hk,m 0−2,0) + ∥∂2
+
+t gB ∥2
+
+L∞(0 ,T ;Hk,m 0−2,0) + ∥∂z ∂2
+
+t gB ∥2
+
+L2(0 ,T ;Hk,m 0−2,0) ≤ C. 
+
+Further application of equation (5 .20) 1, (5 .30) , (5 .33) and (5 .34) shows that 
+
+∥∂tgB ∥k,m 0−3,2
+
+≤ C (∥∂2
+
+t gB ∥k,m 0−3,0 + ∥∂tgB ∥k,m 0−3,0 + ∥∂tgB ∥k,m 0−2,0 + ∥∂tgB ∥k+1 ,m 0−3,1
+
+)
+
++ C (∥gB ∥k,m 0−2,0 + ∥gB ∥k+1 ,m 0−3,1 + ∥∂tϱ∥k,m 0−3,0
+
+)50 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+≤ C. 
+
+From equation (5 .20) , together with (5 .30) , (5 .33) , (5 .34) and the assumption on ϱ in (5 .22) , we further derive for k ∈ N that 
+
+∥gB ∥k,m 0−i,i ≤ C (∥∂tgB ∥k,m 0−i,i −2 + ∥gB ∥k,m 0−i+1 ,i −2 + ∥gB ∥k+1 ,m 0−i,i −1 + ∥ϱ∥k,m 0−i,i −2
+
+) ≤ C, 
+
+(5.35) where i = 2 , 3, 4. Therefore, we get the desired estimates and complete the proof. Clearly, among the systems (2 .5) -(2 .15) , the function uB, 11 defined in (2.9) appears repeatedly in the other equations. To simplify the well-posedness analysis for solutions of the system, we rearrange the order of derivation and first establish the well-posedness of uB, 11 .
+
+Lemma 5.1. Let (n0, v 0, u 0) denote the solution on [0 , T ] constructed in Theorem 2.1. Then equation 
+
+(2 .9) possesses a unique solution uB, 11 , and for any 7 ≤ m1 ≤ m − 4, the following holds: 
+
+∂jt uB, 11 ∈ L∞(0 , T ; Hk,m 1−j, 0) ∩ L2(0 , T ; Hk,m 1−j, 1), j = 0 , 1, 2, (5.36) 
+
+and 
+
+∂tuB, 11 ∈ L∞(0 , T ; Hk,m 1−2,1), ∂ tuB, 11 ∈ L∞(0 , T ; Hk,m 1−3,2). (5.37) 
+
+for k ∈ N . Furthermore, we have the following results 
+
+uB, 11 ∈ L∞(0 , T ; Hk,m 1−i,i ), i = 1 , 2, 3, 4 (5.38) 
+
+and that 
+
+∂jt uB, 22 ∈ L∞(0 , T ; Hk,m 1−1−j, 1) ∩ L2(0 , T ; Hk,m 1−1−j, 2), j = 0 , 1, 2,∂tuB, 22 ∈ L∞(0 , T ; Hk,m 1−3,2), ∂ tuB, 22 ∈ L∞(0 , T ; Hk,m 1−4,3),uB, 22 ∈ L∞(0 , T ; Hk,m 1−1−i,i +1 ), i = 1 , 2, 3, 4.
+
+(5.39) 
+
+Proof. Let ϱ = 0 and μ = −∂yu01. Applying Proposition 5.2 to (2 .9) , we need prove μ satisfy the assumption of Proposition 5.2 with m0 = m1. By Theorem 2.1, we have 
+
+∥μ∥L2  
+
+> THm1
+> x
+
++ ∥∂tμ∥L2  
+
+> THm1−1
+> x
+
++ ∥∂2 
+
+> t
+
+μ∥L2  
+
+> THm1−2
+> x
+
+≤ C
+
+(
+
+∥u01∥L2  
+
+> THm1+2
+> xy
+
++ ∥∂tu01∥L2  
+
+> THm1+1
+> xy
+
++ ∥∂2 
+
+> t
+
+u01∥L2 
+
+> THm1
+> xy
+
+)
+
+≤ C, 
+
+where we have used the Sobolev embedding inequality and the trace theorem for any f (t, x, y ), for 
+
+ι ∈ N that is 
+
+∥f (t, x, 0) ∥L2  
+
+> THιx
+
+≤ C∥f ∥L2  
+
+> THι+1
+> xy
+
+, (5.40) which implies 
+
+∥∂jt ∂yu01∥L2  
+
+> THm1−jx
+
+≤ C∥∂jt u01∥L2  
+
+> THm1+2 −jxy
+
+, j = 0 , 1, 2.BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 51 
+
+By (5 .23) , we get the desired estimates for (5 .36) and (5 .37) . And (5.38) is valid by (5.24). Then 
+
+(5 .39) follows directly from (2 .13) , (5 .36) -(5 .38) . The proof is finished. 
+
+Lemma 5.2. Suppose (n0, v 0, u 0) and uB, 11 be as obtained in Theorem 2.1 and Lemma 5.1 respec-tively. Then there exists a unique solution vB, 02 to the equations (2 .5) such that 
+
+∂jt vB, 02 ∈ L∞(0 , T ; Hk,m 1−j, 0) ∩ L2(0 , T ; Hk,m 1−j, 1), j = 0 , 1, 2, (5.41) 
+
+and 
+
+∂tvB, 02 ∈ L∞(0 , T ; Hk,m 1−2,1), ∂ tvB, 02 ∈ L∞(0 , T ; Hk,m 1−3,2). (5.42) 
+
+Furthermore, we have the following results 
+
+vB, 02 ∈ L∞(0 , T ; Hk,m 1−i,i ), i = 1 , 2, 3, 4, (5.43) 
+
+and that for (2 .6) and (2 .15) , we have the following 
+
+∂jt nB, 1 ∈ L∞(0 , T ; Hk,m 1−j, 1) ∩ L2(0 , T ; Hk,m 1−j, 2), j = 0 , 1, 2,∂tnB, 1 ∈ L∞(0 , T ; Hk,m 1−2,2), ∂ tnB, 1 ∈ L∞(0 , T ; Hk,m 1−3,3), n B, 1 ∈ L∞(0 , T ; Hk,m 1−i,i +1 ),∂jt pB, 2 ∈ L∞(0 , T ; Hk,m 1−j, 2) ∩ L2(0 , T ; Hk,m 1−j, 3), j = 0 , 1, 2,∂tpB, 2 ∈ L∞(0 , T ; Hk,m 1−2,3), ∂ tpB, 2 ∈ L∞(0 , T ; Hk,m 1−3,4), p B, 2 ∈ L∞(0 , T ; Hk,m 1−i,i +2 ), i = 1 , 2, 3, 4.
+
+Proof. We proceed to prove (5 .41) . Let φ(z) be a smooth function defined on [0 , ∞) satisfying 
+
+φ(0) = 1 , φ(z) = 0 f or z > 1. (5.44) Denote ˜vB, 02 (t, x, z ) = vB, 02 (t, x, z ) + φ(z)v02 and use the curl condition ∂z vB, 11 = ∂xvB, 02 , then one deduces from the equations (2 .5) that 
+
+
+
+∂t˜vB, 02 + ∂yu02˜vB, 02 + ∂x˜vB, 02 u01 + ∂z ˜vB, 02 z∂ yu02 + n0˜vB, 02 = ∂2 
+
+> z
+
+˜vB, 02 + ρ
+
+˜vB, 02 |z=0 = 0 ,
+
+˜vB, 02 (0 , x, z ) = 0 .
+
+(5.45) where 
+
+ρ(t, x, z ) = ∂tv02 φ(z) + ∂yu02v02 φ(z) + ∂xv02 u01φ(z) + v02 ∂z φ(z)z∂ yu02 + n0v02 φ(z) + v02 ∂2 
+
+> z
+
+φ(z) − v01 ∂z uB, 11 .
+
+The compatibility condition v02 (x, 0) = 0 from conditions (M2) has been used to determine the initial data of ˜vB, 02 in (5 .45) . Next, we prove that ρ satisfies the assumption in Proposition 5.1 with 
+
+m0 = m1. Applying Theorem 2.1 and Lemma 5.1, for j = 0 , 1, 2, we deduce that 
+
+∥(1 + z2( k+m1−j))12 ∂jt ρ∥L2  
+
+> THm1−jxL2
+> z
+
+52 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+≤ C∥∂j+1 
+
+t v02 ∥2
+
+L2 
+
+> T
+
+Hm1−jxy 
+
+∥(1 + z2( k+m1−j))12 φ(z)∥L2
+
+> z
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+(
+
+∥∂τt u02∥L∞ 
+
+> T
+
+Hm1+3 −τxy ∥∂j−τt v02 ∥L2 
+
+> T
+
+Hm1+1 −(j−τ )
+
+> xy
+
+)
+
+∥(1 + z2( k+m1−j))12 φ(z)∥L2
+
+> z
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+(
+
+∥∂τt u01∥L∞ 
+
+> T
+
+Hm1+2 −τxy ∥∂j−τt v02 ∥L2 
+
+> T
+
+Hm1+2 −(j−τ )
+
+> xy
+
+)
+
+∥(1 + z2( k+m1−j))12 φ(z)∥L2
+
+> z
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+(
+
+∥∂τt u02∥L∞ 
+
+> T
+
+Hm1+3 −τxy ∥∂j−τt v02 ∥L2 
+
+> T
+
+Hm1+1 −(j−τ )
+
+> xy
+
+)
+
+∥(z2 + z2( k+m1−j+1) )12 ∂z φ(z)∥L2
+
+> z
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+(
+
+∥∂τt n0∥L∞ 
+
+> T
+
+Hm1+2 −τxy ∥∂j−τt v02 ∥L2 
+
+> T
+
+Hm1+1 −(j−τ )
+
+> xy
+
+)
+
+∥(1 + z2( k+m1−j))12 φ(z)∥L2
+
+> z
+
++ C∥∂jt v02 ∥L2 
+
+> T
+
+Hm1+1 −jxy ∥(1 + z2( k+m1−j))12 ∂2
+
+z φ(z)∥L2
+
+> z
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+(
+
+∥∂τt v01 ∥L∞ 
+
+> T
+
+Hm1+2 −τxy ∥∂j−τt uB, 11 ∥L2 
+
+> T
+
+H(k+m1−(j−τ )) ,m 1−(j−τ ),1
+
+)
+
+≤ C. 
+
+By (5.4), it then allows us to deduce that 
+
+∂jt ˜vB, 02 ∈ L∞(0 , T ; Hk,m 1−j, 0) ∩ L2(0 , T ; Hk,m 1−j, 1), j = 0 , 1, 2,
+
+which implies (5.41) is valid by the definition of ˜vB, 02 and Theorem 2.1. Moreover, we have the following estimates for ∥(1 + z2k)12 ∂tρ∥L∞ 
+
+> T
+
+Hm1−3 
+
+> x
+
+L2
+
+> z
+
+,
+
+∥(1 + z2k)12 ∂tρ∥L∞ 
+
+> T
+
+Hm1−3 
+
+> x
+
+L2
+
+> z
+
+≤ C∥∂2
+
+t v02 ∥L∞ 
+
+> T
+
+Hm1−2 
+
+> xy
+
+∥(1 + z2k)12 φ(z)∥L2
+
+> z
+
++ C
+
+(
+
+∥∂tu02∥L∞ 
+
+> T
+
+Hm1−1 
+
+> xy
+
+∥v02 ∥L∞ 
+
+> T
+
+Hm1−1 
+
+> xy
+
++ ∥u02∥L∞ 
+
+> T
+
+Hm1 
+
+> xy
+
+∥∂tv02 ∥L∞ 
+
+> T
+
+Hm1−2
+
+> xy
+
+)
+
+∥(1 + z2k)12 φ(z)∥L2
+
+> z
+
++ C
+
+(
+
+∥∂tu01∥L∞ 
+
+> T
+
+Hm1−2 
+
+> xy
+
+∥v02 ∥L∞ 
+
+> T
+
+Hm1 
+
+> xy
+
++ ∥u01∥L∞ 
+
+> T
+
+Hm1−1 
+
+> xy
+
+∥∂tv02 ∥L∞ 
+
+> T
+
+Hm1−1
+
+> xy
+
+)
+
+∥(1 + z2k)12 φ(z)∥L2
+
+> z
+
++ C
+
+(
+
+∥∂tu02∥L∞ 
+
+> T
+
+Hm1−1 
+
+> xy
+
+∥v02 ∥L∞ 
+
+> T
+
+Hm1−1 
+
+> xy
+
++ ∥u02∥L∞ 
+
+> T
+
+Hm1 
+
+> xy
+
+∥∂tv02 ∥L∞ 
+
+> T
+
+Hm1−2
+
+> xy
+
+)
+
+∥(z2 + z2( k+1) )12 ∂z φ(z)∥L2
+
+> z
+
++ C
+
+(
+
+∥∂tn0∥L∞ 
+
+> T
+
+Hm1−2 
+
+> xy
+
+∥v02 ∥L∞ 
+
+> T
+
+Hm1−1 
+
+> xy
+
++ ∥n0∥L∞ 
+
+> T
+
+Hm1−1 
+
+> xy
+
+∥∂tv02 ∥L∞ 
+
+> T
+
+Hm1−2
+
+> xy
+
+)
+
+∥(1 + z2k)12 φ(z)∥L2
+
+> z
+
++ C∥∂tv02 ∥L∞ 
+
+> T
+
+Hm1−2 
+
+> xy
+
+∥(1 + z2k)12 ∂2
+
+z φ(z)∥L2 
+
+> z
+
++ C∥∂tv01 ∥L∞ 
+
+> T
+
+Hm1−1 
+
+> xy
+
+∥uB, 11 ∥L∞ 
+
+> T
+
+Hk,m 1−3,1
+
++ C∥v01 ∥L∞ 
+
+> T
+
+Hm1−1 
+
+> xy
+
+∥∂tuB, 11 ∥L∞ 
+
+> T
+
+Hk,m 1−3,1
+
+≤ C. BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 53 
+
+due to (5 .40) . Then similar to (5.18), we can get 
+
+∥∂t˜vB, 02 ∥k,m 1−3,2 ≤ C, (5.46) which implies (5.42) is valid. Moreover, from (5.42), we have 
+
+∥ρ∥L∞ 
+
+> THk,m 1−2,0
+
+≤ C
+
+(
+
+∥∂tv02 ∥L∞  
+
+> THm1−1
+> xy
+
++ ∥u02∥L∞  
+
+> THm1+1
+> xy
+
+∥v02 ∥L∞  
+
+> THm1−1
+> xy
+
++ ∥v02 ∥L∞  
+
+> THm1+1
+> xy
+
+∥u01∥L∞ 
+
+> THm1−1
+> xy
+
+)
+
+∥(1 + z2k)12 φ(z)∥L2
+
+> z
+
++ C∥v02 ∥L∞  
+
+> THm1−1
+> xy
+
+∥u02∥L∞  
+
+> THm1+1
+> xy
+
+∥(z2 + z2( k+1) )12 ∂z φ(z)∥L2 
+
+> z
+
+(5.47) 
+
++ C∥n0∥L∞  
+
+> THm1
+> xy
+
+∥v02 ∥L∞  
+
+> THm1−1
+> xy
+
+∥(1 + z2k)12 φ(z)∥L2
+
+> z
+
++ C∥v02 ∥L∞  
+
+> THm1−1
+> xy
+
+∥(1 + z2k)12 ∂2 
+
+> z
+
+φ(z)∥L2 
+
+> z
+
++ C∥v01 ∥L∞  
+
+> THm1+1
+> xy
+
+∥uB, 11 ∥L∞ 
+
+> THk,m 1−2,1
+
+≤ C. 
+
+A similar argument gives ∥ρ∥L∞  
+
+> THk,m 1−3,1
+
+≤ C and ∥ρ∥L∞  
+
+> THk,m 1−4,2
+
+≤ C. Therefore, according to (5.5), for the equation (2 .5) 1, we deduce for any k ∈ N that (5.43) is proved. The estimates for nB, 1
+
+and pB, 2 follows directly from (2 .6) , (2 .15) and the conclusion on n0 in Theorem 2.1. The proof of Lemma 5.2 is complete. 
+
+Lemma 5.3. Let (v0, u 0), uB, 11 and vB, 02 be as obtained in Theorem 2.1, Lemma 5.1 and Lemma 5.2
+
+respectively. Then the system (2 .7) admits a unique solution vB, 11 satisfying the following regularity properties for 
+
+∂jt vB, 11 ∈ L∞(0 , T ; Hk,m 1−1−j, 0) ∩ L2(0 , T ; Hk,m 1−1−j, 1), j = 0 , 1, 2. (5.48) 
+
+Furthermore, it follows from (2 .7) that 
+
+∂tvB, 11 ∈ L∞(0 , T ; Hk,m 1−3,1), ∂ tvB, 11 ∈ L∞(0 , T ; Hk,m 1−4,2), (5.49) 
+
+and 
+
+vB, 11 ∈ L∞(0 , T ; Hk,m 1−1−i,i ), i = 1 , 2, 3, 4. (5.50) 
+
+Proof. For the system (2.7), we suppose 
+
+ϱ = −z∂ x∂yu02vB, 02 − ∂xuB, 11 v01 − ∂xv01 uB, 11 + ∂xnB, 1,
+
+and μ = −∂yv01 . Using Theorem 2.1, Lemma 5.1-Lemma 5.2 and Sobolev embedding inequality, we prove that ϱ and μ satisfy assumptions in Proposition 5.2 with m0 = m1 − 1. One deduces as follows 
+
+∥∂jt ϱ∥2 
+
+> L2
+> THk+m1−1−j,m 1−1−j, 0
+
+54 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+≤ C
+
+j
+
+∑
+
+τ =0 
+
+(
+
+∥∂j−τt u02∥2
+
+L∞ 
+
+> T
+
+Hm1+3 −(j−τ )
+
+> xy
+
+∥∂τt vB, 02 ∥2
+
+L2 
+
+> T
+
+Hk+m1−τ,m 1−1−τ, 0
+
+)
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+(
+
+∥∂j−τt v01 ∥2
+
+L∞ 
+
+> T
+
+Hm1+1 −(j−τ )
+
+> xy
+
+∥∂τt uB, 11 ∥2
+
+L2 
+
+> T
+
+Hk+m1−1−τ,m 1−τ, 0
+
+)
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+(
+
+∥∂j−τt v01 ∥2
+
+L∞ 
+
+> T
+
+Hm1+2 −(j−τ )
+
+> xy
+
+∥∂τt uB, 11 ∥2
+
+L2 
+
+> T
+
+Hk+m1−1−τ,m 1−1−τ, 0 + ∥∂jt nB, 1∥2
+
+L2 
+
+> T
+
+Hk+m1−1−j,m 1−j, 0
+
+)
+
+≤ C
+
+and 
+
+∥μ∥L2 
+
+> T
+
+Hm1−1 
+
+> x
+
++ ∥∂tμ∥L2 
+
+> T
+
+Hm1−2 
+
+> x
+
++ ∥∂2
+
+t μ∥L2 
+
+> T
+
+Hm1−3 
+
+> x
+
+≤ C
+
+(
+
+∥v01 ∥2
+
+L2 
+
+> T
+
+Hm1+1 
+
+> xy
+
++ ∥∂tv01 ∥2
+
+L2 
+
+> T
+
+Hm1 
+
+> xy
+
++ ∥∂2
+
+t v01 ∥2
+
+L2 
+
+> T
+
+Hm1−1
+
+> xy
+
+)
+
+≤ C. 
+
+due to (5 .40) . Therefore (5 .48) is immediately available. Moreover, we estimate ∥(1+ z2k)12 ∂tϱ∥2
+
+L∞ 
+
+> T
+
+Hm1−4L2
+
+> z
+
+as follows 
+
+∥∂tϱ∥2
+
+L∞ 
+
+> T
+
+Hk,m 1−4,0
+
+≤ C
+
+(
+
+∥∂tu02∥2
+
+L∞ 
+
+> T
+
+Hm1 
+
+> xy
+
+∥vB, 02 ∥2
+
+L∞ 
+
+> T
+
+Hk+m1−1,m 1−4,0 + ∥u02∥2
+
+L∞ 
+
+> T
+
+Hm1 
+
+> xy
+
+∥∂tvB, 02 ∥2
+
+L∞ 
+
+> T
+
+Hk+1 ,m 1−4,0
+
+)
+
++ C
+
+(
+
+∥∂tv01 ∥2
+
+L∞ 
+
+> T
+
+Hm1−1
+
+> xy
+
+∥uB, 11 ∥2
+
+L∞ 
+
+> T
+
+Hk,m 1−3,0 + ∥v01 ∥2
+
+L∞ 
+
+> T
+
+Hm1−1
+
+> xy
+
+∥∂tuB, 11 ∥2
+
+L∞ 
+
+> T
+
+Hk,m 1−4,0
+
+)
+
++ C
+
+(
+
+∥∂tv01 ∥2
+
+L∞ 
+
+> T
+
+Hm1−1
+
+> xy
+
+∥uB, 11 ∥2
+
+L∞ 
+
+> T
+
+Hk,m 1−4,0 + ∥v01 ∥2
+
+L∞ 
+
+> T
+
+Hm1 
+
+> xy
+
+∥∂tuB, 11 ∥2
+
+L∞ 
+
+> T
+
+Hk,m 1−4,0 + ∥∂tnB, 1∥2
+
+L∞ 
+
+> T
+
+Hk,m 1−3,0
+
+)
+
+≤ C. 
+
+Then by (5 .23) , we obtain 
+
+∥∂tvB, 11 ∥k,m 1−4,2 ≤ C. 
+
+From the argument similar to the derivation (5 .47) , we obtain ∥ϱ∥L∞Hk,m 1−1−l,l −2 ≤ C for l = 2 , 3, 4.Combining (5 .24) , it can be seen that (5 .50) holds. The proof of Lemma 5.3 is complete. By Lemma 5.1-Lemma 5.3, next we can estimate the well-posedness of the solutions vB, 12 , vB, 21
+
+and uB, 21 for equations (2 .8) , (2 .11) and (2 .12) , respectively. Before calculating the well-posedness of vB, 12 and vB, 21 , we first need the regularity estimates of uB, 21 .
+
+Lemma 5.4. Let (n0, v 0, u 0) be the solution obtained in Theorem 2.1, nB, 1, v B, 02 and uB, 11 be as derived in Lemma 5.1. Then there exists a unique solution uB, 21 to the equations (2 .12) on [0 , T ]
+
+such that 
+
+∂jt uB, 21 ∈ L∞(0 , T ; Hk,m 1−2−j, 0) ∩ L2(0 , T ; Hk,m 1−2−j, 1), j = 0 , 1, 2. (5.51) BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 55 
+
+Furthermore, we also have that 
+
+∂tuB, 21 ∈ L∞(0 , T ; Hk,m 1−4,1), ∂ tuB, 21 ∈ L∞(0 , T ; Hk,m 1−5,2), (5.52) 
+
+and that 
+
+uB, 21 ∈ L∞(0 , T ; Hk,m 1−2−i,i ), i = 1 , 2, 3, 4, (5.53) 
+
+as well as 
+
+∂jt uB, 32 ∈ L∞(0 , T ; Hk,m 1−3−j, 1) ∩ L2(0 , T ; Hk,m 1−3−j, 2), j = 0 , 1, 2,∂tuB, 32 ∈ L∞(0 , T ; Hk,m 1−5,2), ∂ tuB, 32 ∈ L∞(0 , T ; Hk,m 1−6,3),uB, 32 ∈ L∞(0 , T ; Hk,m 1−3−i,i +1 ), i = 1 , 2, 3, 4.
+
+(5.54) 
+
+Proof. Let 
+
+ϱ =
+
+(
+
+uB, 11 z∂ x∂yu01 + uB, 22 ∂yu01 + z∂ yu01∂xuB, 11 + 12z2∂2 
+
+> y
+
+u02∂z uB, 11
+
++
+
+(
+
+uB, 11 ∂xuB, 11 + uI, 22 ∂z uB, 11 + uB, 22 ∂z uB, 11
+
+)
+
+= ϱ1 + ϱ2
+
+and μ = 0 . To apply Proposition 5.2 to the equations (2 .12) , we prove that ϱ satisfies the assump-tions of Proposition 5.2 at m0 = m1 − 2. Before obtaining the estimate of ϱ, we first need the following conclusion of uI, 22 . By the boundary expansion (3 .4) in Section 3, it is evident that 
+
+uI, 22 = −uB, 22 (t, x, 0) .
+
+First note that for f (t, x, z ) ∈ Hι+1  
+
+> x
+
+H1 
+
+> z
+
+with fixed t > 0 the following holds 
+
+∥∂ιxf (t, x, 0) ∥L4 
+
+> x
+
+≤ C∥f (t, x, z )∥Hι+1   
+
+> xH1
+> z
+
+, (5.55) and if f (t, x, z ) ∈ Hι+2  
+
+> x
+
+H2 
+
+> z
+
+, we have 
+
+∥∂ιxf (t, x, 0) ∥L∞ 
+
+> x
+
+≤ C∥f (t, x, z )∥Hι+2   
+
+> xH2
+> z
+
+. (5.56) Then by Lemma 5.1 and the Cauchy-Schwarz inequality, for j = 0 , 1, 2 we can obtain 
+
+∥∂m1−2 
+
+> x
+
+uI, 22 ∥L4 
+
+> x
+
+≤ ∥ ∂m1−2 
+
+> x
+
+uB, 22 (t, x, 0) ∥H1 
+
+> x
+
+≤ C∥uB, 22 ∥Hm1−1 
+
+> xH1
+> z
+
+,
+
+∥∂m1−3 
+
+> x
+
+∂tuI, 22 ∥L4 
+
+> x
+
+≤ ∥ ∂m1−3 
+
+> x
+
+∂tuB, 22 (t, x, 0) ∥H1 
+
+> x
+
+≤ C∥∂tuB, 22 ∥Hm1−2 
+
+> xH1
+> z
+
+,
+
+∥∂m1−4 
+
+> x
+
+∂tuI, 22 ∥L∞ 
+
+> x
+
+≤ C∥∂tuB, 22 ∥Hm1−2 
+
+> xH2
+> z
+
+, ∥∂m1−4 
+
+> x
+
+∂2 
+
+> t
+
+uI, 22 ∥L2 
+
+> x
+
+≤ C∥∂2 
+
+> t
+
+uB, 22 ∥Hm1−4 
+
+> xH1
+> z
+
+.
+
+(5.57) Next, we can infer that the estimate of ∂jt ϱ1 is as follows 
+
+∥∂jt ϱ1∥L2 
+
+> THk+m1−2−j,m 1−2−j, 0
+
+56 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+≤ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt u01∥L∞
+
+T Hm1+2 −τxy ∥∂j−τt uB, 11 ∥L2
+
+T Hk+m1−1−(j−τ ),m 1−2−(j−τ ),0
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt u01∥L∞
+
+T Hm1+1 −τxy ∥∂j−τt uB, 22 ∥L2
+
+T Hk+m1−2−(j−τ ),m 1−2−(j−τ ),0
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt u01∥L∞
+
+T Hm1+1 −τxy ∥∂j−τt uB, 11 ∥L2
+
+T Hk+m1−1−(j−τ ),m 1−1−(j−τ ),0
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+(12∥∂τt u02∥L∞
+
+T Hm1+2 −τxy ∥∂j−τt uB, 11 ∥L2
+
+T Hk+m1−(j−τ ),m 1−2−(j−τ ),1 + ∥∂jt pB, 2∥k+m1−2−j,m 1−1−j, 0
+
+)
+
+≤ C, 
+
+due to (5 .40) . Moreover, ∂jt ϱ2 is estimated as follows 
+
+∥ϱ2∥L2
+
+T Hk+m1−2,m 1−2,0
+
+≤ C
+
+(
+
+∥uB, 11 ∥L∞
+
+T Hm1−1
+
+x H1
+
+z
+
+∥uB, 11 ∥L2
+
+T Hk+m1−2,m 1,1 + 2 ∥uB, 22 ∥L∞
+
+T Hm1−1
+
+x H1
+
+z
+
+∥uB, 11 ∥L2
+
+T Hk+m1−2,m 1−1,2
+
+)
+
+≤ C, 
+
+∥∂tϱ2∥L2
+
+T Hk+m1−3,m 1−3,0
+
+≤ C
+
+(
+
+∥∂tuB, 11 ∥L∞
+
+T Hm1−2
+
+x H1
+
+z
+
+∥uB, 11 ∥L2
+
+T Hk+m1−3,m 1−1,1 + ∥uB, 11 ∥L∞
+
+T Hm1−2
+
+x H1
+
+z
+
+∥∂tuB, 11 ∥L2
+
+T Hk+m1−3,m 1−1,1
+
+)
+
++ C
+
+(
+
+∥∂tuB, 22 ∥L∞
+
+T Hm1−2
+
+x H1
+
+z
+
+∥uB, 11 ∥L2
+
+T Hk+m1−3,m 1−2,2 + 2 ∥uB, 22 ∥L∞
+
+T Hm1−2
+
+x H1
+
+z
+
+∥∂tuB, 11 ∥L2
+
+T Hk+m1−3,m 1−2,2
+
+)
+
+≤ C, 
+
+∥∂2
+
+t ϱ2∥L2
+
+T Hk+m1−4,m 1−4,0
+
+≤ C
+
+(
+
+∥∂2
+
+t uB, 11 ∥L∞
+
+T Hm1−4
+
+x L2
+
+z
+
+∥uB, 11 ∥L2
+
+T Hk+m1−4,m 1−1,2 + 2 ∥∂tuB, 11 ∥L∞
+
+T Hm1−3
+
+x H1
+
+z
+
+∥∂tuB, 11 ∥L2
+
+T Hk+m1−4,m 1−2,1
+
+)
+
++ C
+
+(
+
+∥uB, 11 ∥L∞
+
+T Hm1−2
+
+x H2
+
+z
+
+∥∂2
+
+t uB, 11 ∥L2
+
+T Hk+m1−4,m 1−3,0 + ∥∂2
+
+t uB, 22 ∥L∞
+
+T Hm1−4
+
+x H1
+
+z
+
+∥uB, 11 ∥L2
+
+T Hk+m1−4,m 1−2,3
+
+)
+
++ C
+
+(
+
+∥∂tuB, 22 ∥L2
+
+T Hm1−2
+
+x H2
+
+z
+
+∥∂tuB, 11 ∥L∞
+
+T Hk+m1−4,m 1−4,1 + ∥uB, 22 ∥L∞
+
+T Hm1−2
+
+x H2
+
+z
+
+∥∂2
+
+t uB, 11 ∥L2
+
+T Hk+m1−4,m 1−4,1
+
+)
+
++ C∥∂2
+
+t uB, 22 ∥L∞
+
+T Hm1−3
+
+x H1
+
+z
+
+∥uB, 11 ∥L2
+
+T Hk+m1−4,m 1−3,2
+
++ C
+
+(
+
+∥∂tuB, 22 ∥L∞
+
+T Hm1−3
+
+x H1
+
+z
+
+∥∂tuB, 11 ∥L2
+
+T Hk+m1−4,m 1−3,2 + ∥uB, 22 ∥L∞
+
+T Hm1−2
+
+x H2
+
+z
+
+∥∂2
+
+t uB, 11 ∥L2
+
+T Hk+m1−4,m 1−4,1
+
+)
+
+≤ C, 
+
+where we have used (5.57) and the following embedding inequalities 
+
+∥f (t, x, z )g(t, x, z )∥HιxL2
+
+zBOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 57 
+
+≤ ∑
+
+> α≤ι
+
+(
+
+∥∂αx f (t, x, z )∥L4 
+
+> xz
+
+∥g(t, x, z )∥L4 
+
+> xz
+
++ ∑
+
+> β≤α
+
+Cβα ∥∂βx f (t, x, z )∥L4 
+
+> xz
+
+∥∂α−βx g(t, x, z )∥L4
+
+> xz
+
++ ∥f (t, x, z )∥L4 
+
+> xz
+
+∥∂αx g(t, x, z )∥L4
+
+> xz
+
+)
+
+(5.58) 
+
+≤ C∥f (t, x, z )∥Hι+1   
+
+> xH1
+> z
+
+∥g(t, x, z )∥Hι+1   
+
+> xH1
+> z
+
+,
+
+and 
+
+∥f (t, x, z )g(t, x, z )∥HιxL2
+
+> z
+
+≤ ∑
+
+> α≤ι
+
+(
+
+∥∂αx f (t, x, z )∥L2 
+
+> xz
+
+∥g(t, x, z )∥L∞ 
+
+> xz
+
++ ∑
+
+> β≤α
+
+Cβα ∥∂βx f (t, x, z )∥L2 
+
+> xz
+
+∥∂α−βx g(t, x, z )∥L∞
+
+> xz
+
++ ∥f (t, x, z )∥L2 
+
+> xz
+
+∥∂αx g(t, x, z )∥L∞
+
+> xz
+
+)
+
+(5.59) 
+
+≤ C∥f (t, x, z )∥HιxL2 
+
+> z
+
+∥g(t, x, z )∥Hι+2   
+
+> xH2
+> z
+
+.
+
+Collecting the above estimates for ϱ1 and ϱ2, we deduce that ∥∂jt ϱ∥L2  
+
+> THk+m1−2−j,m 1−2−j, 0
+
+≤ C is valid for j = 0 , 1, 2. By Theorem 2.1, Lemma 5.1 and (5.57), we obtain 
+
+∥∂tϱ∥L2  
+
+> THk,m 1−5,0
+
+≤ C
+
+(
+
+∥∂tϱ1∥L2  
+
+> THk,m 1−5,0
+
++ ∥∂tϱ2∥L2 
+
+> THk,m 1−5,0
+
+)
+
+≤ C. 
+
+By a similar argument as deriving (5 .23) -(5 .24) , we deduce for all k ∈ N that (5 .51) valid. From the argument similar to the derivation (5 .47) , we obtain ∥ϱ∥L∞Hk,m 1−2−l,l −2 ≤ C for l = 2 , 3, 4.Combining (5 .24) , we know that (5 .53) holds. Moreover, (5 .54) follows directly from (2 .14) , (5 .51) 
+
+and (5 .53) . Thus, the proof of Lemma 5.4 is complete. 
+
+Lemma 5.5. Let (n0, v 0, u 0) be the solution obtained in Theorem 2.1, (uB, 11 , u B, 22 ), (vB, 02 , n B, 1), vB, 11
+
+and (uB, 21 , u B, 32 ) be as obtained in Lemma 5.1-Lemma 5.4, respectively. Then there exists a unique solution vB, 12 to the equations (2 .8) , such that 
+
+∂jt vB, 12 ∈ L∞(0 , T ; Hk,m 1−2−j, 0) ∩ L2(0 , T ; Hk,m 1−2−j, 1), j = 0 , 1, 2. (5.60) 
+
+Furthermore, it follows from the equations (2 .8) 
+
+∂tvB, 12 ∈ L∞(0 , T ; Hk,m 1−4,1), ∂ tvB, 12 ∈ L∞(0 , T ; Hk,m 1−5,2), (5.61) 
+
+and that 
+
+vB, 12 ∈ L∞(0 , T ; Hk,m 1−2−i,i ), i = 1 , 2, 3, 4, (5.62) 
+
+For the equations (2 .10) , we have the following 
+
+∂jt nB, 2 ∈ L∞(0 , T ; Hk,m 1−2−j, 1) ∩ L2(0 , T ; Hk,m 1−2−j, 2), j = 0 , 1, 2,∂tnB, 2 ∈ L∞(0 , T ; Hk,m 1−4,2), ∂ tnB, 2 ∈ L∞(0 , T ; Hk,m 1−5,3), (5.63) 58 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+nB, 2 ∈ L∞(0 , T ; Hk,m 1−2−i,i +1 ), i = 1 , 2, 3, 4.
+
+Proof. Let 
+
+ρ =
+
+(
+
+− z∂ 2
+
+y uI, 02 vB, 02 − ∂yu01vB, 11 − ∂z uB, 11 z∂ yv01 − ∂z uB, 21 v01 − ∂z uB, 22 v02 − ∂yv01 uB, 11
+
+− 12∂z vB, 02 z2∂yu02 − ∂z vB, 11 z∂ yu01 − 2∂z vB, 02 v02 − v02 nB, 1
+
+)
+
+−
+
+(
+
+∂z uB, 11 vB, 11 + ∂z uB, 22 vB, 02 + ∂z vB, 02 uI, 22 + ∂z vB, 02 uB, 22 + ∂z vB, 11 uB, 11 + 2 ∂z vB, 02 vB, 02 + vB, 02 nB, 1
+
+)
+
++
+
+( ∫ ∞
+
+z
+
+∂yn0(η∂ ηvB, 02 + vB, 02 )dη 
+
+)
+
+= ρ1 + ρ2 + ρ3.
+
+Applying Lemma 5.1-Lemma 5.4 and Proposition 5.1 for m0 = m1 − 2, ∥∂jt ρ∥2
+
+L2 
+
+> T
+
+Hk+m1−2−j,m 1−2−j, 0
+
+was estimated as follows 
+
+∥∂jt ρ1∥2
+
+L2 
+
+> T
+
+Hk+m1−2−j,m 1−2−j, 0
+
+≤ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt u02∥L∞ 
+
+> T
+
+Hm1+2 −τxy ∥∂j−τt vB, 02 ∥2
+
+L2 
+
+> T
+
+Hk+m1−1−(j−τ ),m 1−2−(j−τ ),0
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt u01∥L∞ 
+
+> T
+
+Hm1+1 −τxy ∥∂j−τt vB, 11 ∥L2 
+
+> T
+
+Hk+m1−2−(j−τ ),m 1−2−(j−τ ),0
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt v01 ∥L∞ 
+
+> T
+
+Hm1+1 −τxy ∥∂j−τt uB, 11 ∥L2 
+
+> T
+
+Hk+m1−1−(j−τ ),m 1−2−(j−τ ),1
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt v01 ∥L∞ 
+
+> T
+
+Hm1−τxy ∥∂j−τt uB, 21 ∥2
+
+L2 
+
+> T
+
+Hk+m1−2−(j−τ ),m 1−2−(j−τ ),1
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt v02 ∥L∞ 
+
+> T
+
+Hm1−τxy ∥∂j−τt uB, 22 ∥L2 
+
+> T
+
+Hk+m1−2−(j−τ ),m 1−2−(j−τ ),1
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt v01 ∥L∞ 
+
+> T
+
+Hm1+1 −τxy ∥∂j−τt uB, 11 ∥L2 
+
+> T
+
+Hk+m1−2−(j−τ ),m 1−2−(j−τ ),0
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt u02∥L∞ 
+
+> T
+
+Hm1+2 −τxy ∥∂j−τt vB, 02 ∥L2 
+
+> T
+
+Hk+m1−(j−τ ),m 1−2−(j−τ ),1
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt u01∥L∞ 
+
+> T
+
+Hm1+1 −τxy ∥∂j−τt vB, 11 ∥L2 
+
+> T
+
+Hk+m1−1−(j−τ ),m 1−2−(j−τ ),1BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 59 
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt v02 ∥L∞ 
+
+> T
+
+Hm1−τxy ∥∂j−τt vB, 02 ∥L2 
+
+> T
+
+Hk+m1−2−(j−τ ),m 1−2−(j−τ ),1
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt v02 ∥L∞ 
+
+> T
+
+Hm1−τxy ∥∂j−τt nB, 1∥L2 
+
+> T
+
+Hk+m1−2−(j−τ ),m 1−2−(j−τ ),0
+
+≤ C. 
+
+due to (5 .40) . Moreover, for ∂jt ρ2, we first estimate ∂tρ2 as follows 
+
+∥∂tρ2∥L2 
+
+> T
+
+Hk+m1−3,m 1−3,0
+
+≤ C
+
+(
+
+∥∂tuB, 11 ∥L∞ 
+
+> T
+
+Hm1−2 
+
+> x
+
+H2
+
+> z
+
+∥vB, 11 ∥L2 
+
+> T
+
+Hk+m1−3,m 1−2,1 + ∥uB, 11 ∥L∞ 
+
+> T
+
+Hm1−2 
+
+> x
+
+H2
+
+> z
+
+∥∂tvB, 11 ∥L2 
+
+> T
+
+Hk+m1−3,m 1−2,1
+
+)
+
++ C
+
+(
+
+∥∂tuB, 22 ∥L2 
+
+> T
+
+Hm1−2 
+
+> x
+
+H2
+
+> z
+
+∥vB, 02 ∥L∞ 
+
+> T
+
+Hk+m1−3,m 1−2,1 + ∥uB, 22 ∥L∞ 
+
+> T
+
+Hm1−2 
+
+> x
+
+H2
+
+> z
+
+∥∂tvB, 02 ∥L2 
+
+> T
+
+Hk+m1−3,m 1−2,1
+
+)
+
++ C
+
+(
+
+∥∂tuB, 22 ∥L∞ 
+
+> T
+
+Hm1−2 
+
+> x
+
+H1
+
+> z
+
+∥vB, 02 ∥L2 
+
+> T
+
+Hk+m1−3,m 1−2,2 + ∥uB, 22 ∥L∞ 
+
+> T
+
+Hm1−2 
+
+> x
+
+H1
+
+> z
+
+∥∂tvB, 02 ∥L2 
+
+> T
+
+Hk+m1−3,m 1−2,2
+
+)
+
++ C
+
+(
+
+∥∂tvB, 02 ∥L2 
+
+> T
+
+Hk+m1−3,m 1−2,2 ∥uB, 22 ∥L∞ 
+
+> T
+
+Hm1−2 
+
+> x
+
+H1
+
+> z
+
++ ∥vB, 02 ∥L∞ 
+
+> T
+
+Hk+m1−3,m 1−2,2 ∥∂tuB, 22 ∥L2 
+
+> T
+
+Hm1−2 
+
+> x
+
+H1
+
+> z
+
+)
+
++ C
+
+(
+
+∥∂tvB, 11 ∥L2 
+
+> T
+
+Hk+m1−3,m 1−3,1 ∥uB, 11 ∥L∞ 
+
+> T
+
+Hm1−1 
+
+> x
+
+H2
+
+> z
+
++ ∥vB, 11 ∥L∞ 
+
+> T
+
+Hk+m1−3,m 1−2,2 ∥∂tuB, 11 ∥L2 
+
+> T
+
+Hm1−2 
+
+> x
+
+H1
+
+> z
+
+)
+
++ C
+
+(
+
+∥∂tvB, 02 ∥L2 
+
+> T
+
+Hm1−2 
+
+> x
+
+H2
+
+> z
+
+∥vB, 02 ∥L∞ 
+
+> T
+
+Hk+m1−3,m 1−2,1 + 2 ∥vB, 02 ∥L∞ 
+
+> T
+
+Hm1−2 
+
+> x
+
+H2
+
+> z
+
+∥∂tvB, 02 ∥L2 
+
+> T
+
+Hk+m1−3,m 1−2,1
+
+)
+
++ C
+
+(
+
+∥∂tnB, 1∥L2 
+
+> T
+
+Hm1−2 
+
+> x
+
+H1
+
+> z
+
+∥vB, 02 ∥L∞ 
+
+> T
+
+Hk+m1−3,m 1−2,1 + ∥nB, 1∥L∞ 
+
+> T
+
+Hm1−2 
+
+> x
+
+H1
+
+> z
+
+∥∂tvB, 02 ∥L2 
+
+> T
+
+Hk+m1−3,m 1−2,1
+
+)
+
+≤ C
+
+due to (5.57), the inequalities (5.58) and (5.59). Similarly, one derives 
+
+∥ρ2∥L2 
+
+> T
+
+Hk+m1−2,m 1−2,0 + ∥∂2
+
+t ρ2∥L2 
+
+> T
+
+Hk+m1−4,m 1−4,0 ≤ C. 
+
+Further, it is obvious that using the Cauchy-Schwarz inequality 
+
+∥∂jt ρ3∥L2 
+
+> T
+
+Hk+m1−2−j,m 1−2−j, 0 = ∥(1 + z2( k+m1−2−j))12 ∂jt
+
+(
+
+∂yn0
+
+∫ ∞
+
+z
+
+∂z (zv B, 02 )dη 
+
+)
+
+∥L2 
+
+> T
+
+Hm1−2−jx L2
+
+> z
+
+= ∥(1 + z2( k+m1−2−j))12 ∂jt (−∂yn0zv B, 02 )∥L2 
+
+> T
+
+Hm1−2−jx L2
+
+> z
+
+≤ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt n0∥2
+
+L∞ 
+
+> T
+
+Hm1+1 −τxy 
+
+∥(1 + z2( k+m1−1−(j−τ )) )∂j−τt vB, 02 ∥2
+
+L2 
+
+> T
+
+Hm1−2−(j−τ ) 
+
+> x
+
+L2
+
+> z
+
+≤ C. 
+
+Collecting the above estimates for ρ1, ρ2, ρ3, we deduce that ∥∂jt ρ∥L2 
+
+> T
+
+Hk+m1−2−j,m 1−2−j, 0 ≤ C for 
+
+j = 0 , 1, 2. Then by (5.4), we conclude that 
+
+∂jt vB, 12 ∈ L∞(0 , T ; Hk,m 1−2−j, 0) ∩ L2(0 , T ; Hk,m 1−2−j, 1), j = 0 , 1, 2.60 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+Similar estimates can be ∥∂tρ∥L∞  
+
+> THk,m 1−5,0
+
+≤ C, it follows from (2 .8) that ∥∂tvB, 12 ∥L∞  
+
+> THk,m 1−5,2
+
+≤ C.Combining the above estimates of ρ, it implies (5 .60) . From the argument similar to the derivation 
+
+(5 .47) , we obtain ∥ρ∥L∞Hk,m 1−2−l,l −2 ≤ C for l = 2 , 3, 4. By (5 .5) , we get (5 .62) from (2 .8) and (5 .60) .Finally, (5 .63) follows directly from (2 .10) , (5 .60) and (5 .62) . The proof of Lemma 5.5 is complete. 
+
+Lemma 5.6. Let (n0, v 0, u 0), (uB, 11 , u B, 22 ), (vB, 02 , n B, 1), vB, 11 , (uB, 21 , u B, 32 ) and (vB, 12 , n B, 2) be as ob-tained in Theorem 2.1, Lemma 5.1-Lemma 5.5, respectively. Then there exists a unique solution 
+
+vB, 21 of (2 .11) on [0 , T ] such that 
+
+∂jt vB, 21 ∈ L∞(0 , T ; Hk,m 1−3−j, 0) ∩ L2(0 , T ; Hk,m 1−3−j, 1), j = 0 , 1, 2. (5.64) 
+
+Furthermore,it follows from (2 .11) that 
+
+∂tvB, 21 ∈ L∞(0 , T ; Hk,m 1−5,1), ∂ tvB, 21 ∈ L∞(0 , T ; Hk,m 1−6,2), (5.65) 
+
+and 
+
+vB, 21 ∈ L∞(0 , T ; Hk,m 1−3−i,i ), i = 1 , 2, 3, 4. (5.66) 
+
+Proof. Let 
+
+ϱ =
+
+(
+
+z∂ x∂yuI, 01 vB, 11 + z∂ x∂yuI, 02 vB, 12 + ∂x(12z2∂2 
+
+> y
+
+uI, 02 + uI, 22 )vB, 02 + ∂xuB, 11 z∂ yvI, 01 + ∂xuB, 21 vI, 01
+
++ ∂xuB, 22 vI, 02 + ∂xvI, 01 uB, 21 + ∂xvI, 02 uB, 22 + z∂ x∂yvI, 01 uB, 11 + ∂xvB, 02 (12z2∂2 
+
+> y
+
+uI, 02 + uI, 22 )+ ∂xvB, 11 z∂ yuI, 01 + ∂xvI, 02 vB, 02 + 2 ∂xvB, 02 vI, 02 − ∂xnB, 2
+
+)
+
++
+
+(
+
+∂xuB, 11 vB, 11 + ∂xuB, 22 vB, 02 + ∂xvB, 02 uB, 22 + ∂xvB, 11 uB, 11 + 2 ∂xvB, 02 vB, 02
+
+)
+
+= ϱ1 + ϱ2,
+
+and μ = 0 . We will prove that ϱ satisfy the assumptions of Proposition 5.2 to (2.11) with m0 =
+
+m1 − 3. First we divide ϱ into ϱ1 and ϱ2, and each of them be estimated as follows 
+
+∥∂jt ϱ1∥2 
+
+> L2
+> THk+m1−3−j,m 1−3−j, 0
+
+≤ C
+
+> j
+
+∑ 
+
+> τ=0
+
+∥∂τt u01∥L∞  
+
+> THm1+1 −τxy
+
+∥∂j−τt vB, 11 ∥2   
+
+> L2
+> THk+m1−2−(j−τ),m 1−3−(j−τ),0
+
++ C
+
+> j
+
+∑ 
+
+> τ=0
+
+∥∂τt u02∥L∞  
+
+> THm1+1 −τxy
+
+∥∂j−τt vB, 12 ∥L2   
+
+> THk+m1−2−(j−τ),m 1−3−(j−τ),0
+
++ C
+
+> j
+
+∑ 
+
+> τ=0
+
+∥∂τt u02∥L∞  
+
+> THm1+2 −τxy
+
+∥∂j−τt vB, 02 ∥L2   
+
+> THk+m1−1−(j−τ),m 1−3−(j−τ),0
+
+BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 61 
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt uB, 22 ∥L∞
+
+T Hm1−1−τx H1
+
+z
+
+∥∂j−τt vB, 02 ∥L2
+
+T Hk+m1−3−(j−τ ),m 1−2−(j−τ ),1
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt v01 ∥L∞
+
+T Hm1−τxy ∥∂j−τt uB, 11 ∥2
+
+L2
+
+T Hk+m1−2−(j−τ ),m 1−2−(j−τ ),0
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt v01 ∥L∞
+
+T Hm1−1−τxy ∥∂j−τt uB, 21 ∥2
+
+L2
+
+T Hk+m1−3−(j−τ ),m 1−2−(j−τ ),0
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt v02 ∥L∞
+
+T Hm1−1−τxy ∥∂j−τt uB, 22 ∥L2
+
+T Hk+m1−3−(j−τ ),m 1−2−(j−τ ),0
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt v01 ∥L∞
+
+T Hm1−τxy ∥∂j−τt uB, 21 ∥L2
+
+T Hk+m1−3−(j−τ ),m 1−3−(j−τ ),0
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt v02 ∥L∞
+
+T Hm1−τxy ∥∂j−τt uB, 22 ∥L2
+
+T Hk+m1−3−(j−τ ),m 1−3−(j−τ ),0
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt v01 ∥L∞
+
+T Hm1+1 −τxy ∥∂j−τt uB, 11 ∥L2
+
+T Hk+m1−2−(j−τ ),m 1−3−(j−τ ),0
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt u02∥L∞
+
+T Hm1+1 −τxy ∥∂j−τt vB, 02 ∥L2
+
+T Hk+m1−1−(j−τ ),m 1−2−(j−τ ),0
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt uB, 22 ∥L∞
+
+T Hm1−2−τx H1
+
+z
+
+∥∂j−τt vB, 02 ∥L2
+
+T Hk+m1−3−(j−τ ),m 1−1−(j−τ ),1
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+∥∂τt u01∥L∞
+
+T Hm1−τxy ∥∂j−τt vB, 11 ∥L2
+
+T Hk+m1−2−(j−τ ),m 1−2−(j−τ ),0
+
++ C
+
+j
+
+∑
+
+τ =0 
+
+(
+
+∥∂τt v02 ∥L∞
+
+T Hm1−τxy ∥∂j−τt vB, 02 ∥L2
+
+T Hk+m1−3−(j−τ ),m 1−2−(j−τ ),0 + ∥∂jt nB, 2∥L∞
+
+T Hk+m1−3−j,m 1−2−j, 0
+
+)
+
+.
+
+≤ C, 
+
+due to (5 .40) and (5.57). For ∂jt ϱ2(j = 0 , 1, 2) , we estimate ∂tϱ2 as follows 
+
+∥∂tϱ2∥2
+
+L2
+
+T Hk+m1−4,m 1−4,0
+
+≤ C
+
+(
+
+∥∂tuB, 11 ∥L2
+
+T Hm1−2
+
+x H1
+
+z
+
+∥vB, 11 ∥L∞
+
+T Hk+m1−4,m 1−3,1 + ∥uB, 11 ∥L∞
+
+T Hm1−2
+
+x H1
+
+z
+
+∥∂tvB, 11 ∥L2
+
+T Hk+m1−4,m 1−3,1
+
+)
+
++ C
+
+(
+
+∥∂tuB, 22 ∥L2
+
+T Hm1−3
+
+x L2
+
+z
+
+∥vB, 02 ∥L∞
+
+T Hk+m1−4,m 1−2,2 + ∥uB, 22 ∥L∞
+
+T Hm1−2
+
+x H1
+
+z
+
+∥∂tvB, 02 ∥L2
+
+T Hk+m1−4,m 1−3,1
+
+)
+
++ C
+
+(
+
+∥∂tvB, 02 ∥L∞
+
+T Hk+m1−4,m 1−3,0 ∥uB, 22 ∥L2
+
+T Hm1−2
+
+x H2
+
+z
+
++ ∥vB, 02 ∥L∞
+
+T Hk+m1−4,m 1−2,1 ∥∂tuB, 22 ∥L2
+
+T Hm1−3
+
+x H1
+
+z
+
+)62 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
++ C
+
+(
+
+∥∂tvB, 11 ∥L2  
+
+> THk+m1−4,m 1−3,0
+
+∥uB, 11 ∥L∞  
+
+> THm1−2
+> xH2
+> z
+
++ ∥vB, 11 ∥L2  
+
+> THk+m1−4,m 1−2,1
+
+∥∂tuB, 11 ∥L∞  
+
+> THm1−3
+> xH1
+> z
+
+)
+
++ C
+
+(
+
+∥∂tvB, 02 ∥L∞  
+
+> THm1−3
+> xL2
+> z
+
+∥vB, 02 ∥L2  
+
+> THk+m1−4,m 1−2,2
+
++ 2 ∥vB, 02 ∥L∞  
+
+> THm1−2
+> xH1
+> z
+
+∥∂tvB, 02 ∥L2 
+
+> THk+m1−4,m 1−3,1
+
+)
+
+≤ C, 
+
+due to (5 .58) and (5 .59) , a similar argument can be deduced from 
+
+∥ϱ2∥L2  
+
+> THk+m1−3,m 1−3,0
+
++ ∥∂2 
+
+> t
+
+ϱ2∥L2  
+
+> THk+m1−5,m 1−5,0
+
+≤ C. 
+
+Similarly, one derives ∥∂tϱ∥L∞  
+
+> THk,m 1−6,0
+
+≤ C, it follows from (2 .11) that ∥∂tvB, 21 ∥L∞  
+
+> THk,m 1−6,2
+
+≤ C.Moreover, from the argument similar to the derivation (5 .47) , we obtain ∥ϱ∥L∞Hk,m 1−3−l,l −2 ≤ C for 
+
+l = 2 , 3, 4. Therefore, by a similar argument as deriving (5 .23) -(5 .24) , we deduce for all k ∈ N that 
+
+(5 .64) -(5 .66) are valid via (2 .11) . Thus, the proof of Lemma 5.6 is complete. Up to now, we have proved the well-posedness of the boundary layer systems given in (2.5)-(2.15). This provides the basis for the proof of Theorem 2.2. 
+
+Proof of Theorem 2.2. Combining with the estimates derived in Lemma 5.1-Lemma 5.6, we immediately obtain Theorem 2.2. 2
+
+Acknowledgements 
+
+W. Wang was supported by National Key R&D Program of China (No. 2023YFA1009200) and NSFC under grant 12471219. L. Zhao was supported by the National Natural Science Foundation of China(NSFC)[grant number 12501305]. 
+
+Data Availability Statement: Data sharing is not applicable to this article as no data sets were generated or analyzed during the current study. 
+
+Conflict of Interest: The authors declare that they have no conflict of interest. 
+
+References 
+
+[1] A. Adams, J.J.F. Fournier, Sobolev Space, 2nd edn. Pure Appl. Math. 140 (2009). [2] M. Braukhoff, B.Q. Tang. Global solutions for chemotaxis-Navier-Stokes system with Robin boundary conditions. J. Differ. Equ. 269 (12) (2020) 10630-10669. [3] J.A. Carrillo, G. Hong, Z. Wang, Convergence of boundary layers of chemotaxis models with physical boundary conditions I: degenerate initial data. SIAM J. Math. Anal. 56 (6) (2024) 7576-7643. BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 63 
+
+[4] J.A. Carrillo, J.Y. Li, and Z.A. Wang, Boundary spike-layer solutions of the singular Keller-Segel system: existence and stability. Proc. Lond. Math. Soc. 122 (3) (2021) 42-68. [5] H. Chen, J.M. Li, K. Wang, On the vanishing viscosity limit of a chemotaxis model. Discrete Contin. Dyn. Syst. Ser. A. 40 (3) (2020) 1963-1987. [6] M. Chae, K. Kang, J. Lee, Global existence and temporal decay in Keller-Segel models coupled to fluid equations. Commun. Partial Differ. Equations. 39 (7) (2014) 1205-1235. [7] C. Dombrowski, L. Cisneros, S. Chatkaew, R. Goldstein, and J. Kessler, Selfconcentration and large-scale coherence in bacterial dynamics. Phys. Rev. Lett. 93 (2004) 098103. [8] D. Gilbarg, N.S. Trudinger, Elliptic partial differential equations of second order. Reprint of the 1998 edition, Classics in Mathematics: SpringerVerlag; 2001. [9] Q. Hou, C.J. Liu, Y.G. Wang, Z. Wang, Stability of boundary layers for a viscous hyperbolic system arising from chemotaxis: one dimensional case. SIAM J. Math. Anal. 50 (3) (2018) 3058-3091. [10] Q. Hou, Boundary layer problem on chemotaxis-Navier-Stokes system with Robin boundary conditions. arXiv preprint arXiv:2205.08049, 2022. [11] Q. Hou, Boundary layer effects induced by the fluid in a chemotaxis-Navier-Stokes system. arXiv preprint arXiv:2509.03028, 2025. [12] Q. Hou, Z. Wang, Convergence of boundary layers for the Keller-Segel system with singular sensitivity in the half-plane. J. Math. Pures Appl. 130 (2019) 251-287. [13] Q. Hou, Z. Wang, K. Zhao, Boundary layer problem on a hyperbolic system arising from chemotaxis. J. Differ. Equ. 261 (2016) 5035-5070. [14] C.H. Jin, Global classical solution to the chemotaxis-Navier-Stokes system with some realistic boundary conditions. P. Roy. Soc. Edinb. A. 154 (2) (2024) 445-482. [15] E.F. Keller, L.A. Segel, Initiation of slime mold aggregation viewed as an instability, J. Theor. Biol. 26 (3) (1970) 399-415. [16] E.F. Keller, L.A. Segel, Traveling bands of chemotactic bacteria: a theoretical analysis, J. Theor. Biol. 30 (1971) 377-380. [17] D. Li, T. Li, K. Zhao, On a hyperbolic-parabolic system modeling chemotaxis. Math. Models Methods Appl. Sci. 21 (2011) 1631-1650. [18] T. Li, R. Pan, K. Zhao, Global dynamics of a hyperbolic-parabolic model arising from chemo-taxis. SIAM J. Appl. Math. 72 (1) (2012) 417-443. [19] H.A. Levine, B.D. Sleeman, A system of reaction diffusion equations arising in the theory of reinforced random walks. SIAM J. Appl. Math. 57 (1997) 683-730. [20] H.A. Levine, B.D. Sleeman, M. Nilsen-Hamilton, A mathematical model for the roles of per-icytes and macrophages in the initiation of angiogenesis. I. The role of protease inhibitors in preventing angiogenesis, Math. Biosci. 168 (2000) 71-115. 64 HUI WANG, WENDONG WANG, AND LINGLING ZHAO 
+
+[21] B. Li, F. Shi, W. Wang, Zero-viscosity limit of the chemotaxis-Navier-Stokes equations with the Navier-slip boundary condition. arXiv preprint arXiv:2605.02394, 2026. [22] T. Li, Z. Wang, Asymptotic nonlinear stability of traveling waves to conservation laws arising from chemotaxis. J. Differ. Equ. 250 (3) (2011) 1310-1333. [23] C.C. Lee, Z.A. Wang, W. Yang, Boundary-layer profile of a singularly perturbed nonlocal semi-linear problem arising in chemotaxis. Nonlinearity, 33 (2020) 5111-5141. [24] J. Liu, Large-time behavior in a two-dimensional logarithmic chemotaxis-Navier-Stokes system with signal absorption. J. Evol. Equations. 21 (2021) 5135-5170. [25] J. Liu, Boundedness and asymptotic stabilization in a two-dimensional chemotaxis-Navier¨CStokes system with sub-logarithmic sensitivity. NoDEA. 32 (3) (2025) 42. [26] H. Li, K. Zhao, Initial-boundary value problems for a system of hyperbolic balance laws arising from chemotaxis. J. Differ. Equ. 258 (2) (2015) 302-338. [27] L. Meng, W.Q. Xu, S. Wang, On the vanishing viscosity limit for a 3-D system arising from the Keller-Segel model. Math. Methods Appl. Sci. 43 (2) (2020) 920-938. [28] L. Meng, W.Q. Xu, S. Wang, Boundary layer analysis for a 2-D Keller-Segel model. Open Math. 18 (1) (2020) 1895-1914. [29] R. Nossal, Boundary movement of chemotactic bacterial populations, Math. Biosci. 13 (1972) 397-406. [30] H. Peng, Z.A. Wang, K. Zhao, et al., Boundary layers and stabilization of the singular Keller-Segel system. Kinet. Rel. Models. 11 (5) (2018) 1085-1123. [31] L.G Rebholz, D. Wang, Z. Wang, et al., Initial boundary value problems for a system of parabolic conservation laws arising from chemotaxis in multi-dimensions. Discrete Contin. Dyn. Syst. Ser. A. 39 (7) (2019) 3789¨C3838. [32] I. Tuval, L. Cisneros, C. Dombrowski, et al., Bacterial swimming and oxygen transport near contact lines. P Natl Acad Sci Usa. 102 (7) (2005) 2277-2282. [33] Z. Tan, S. Xu, Global regularity for 2D Boussinesq equations with partial viscosity in the half plane. Math. Methods Appl. Sci. 46 (6) (2023) 6484-6505. [34] C. Weibull, Movement. In: The Bacteria. Academic Press, New York. 1 (1960) 153-205. [35] M. Winkler, Stabilization in a two-dimensional chemotaxis-Navier-Stokes system. Arch. Ration. Mech. Anal. 211 (2) (2014) 455-487. [36] M. Winkler, Global large-data solutions in a chemotaxis-(Navier-) Stokes system modeling cellular swimming in fluid drops. Comm. Partial Differential Equations. 37 (2) (2012) 319-351. [37] Y.L. Wang„ M. Winkler, Z.Y. Xiang, Global classical solutions in a two-dimensional chemotaxis-Navier-Stokes system with subcritical sensitivity. Ann Scuola Norm-Sci. (2018) 421-466. BOUNDARY LAYER OF THE 2D CHEMOTAXIS-NAVIER-STOKES SYSTEM 65 
+
+[38] Z. Wang, Z. Xiang, P. Yu, Asymptotic dynamics on a singular chemotaxis system modeling onset of tumor angiogenesis. J. Differ. Equ. 260 (2016) 2225-2258. [39] Q. Zhang, Blowup criterion of smooth solutions for the incompressible chemotaxis-Euler equa-tions. ZAMM-Z. Angew. Math. Me. 96 (4) (2016) 466-476. [40] J. Zheng, Global existence and boundedness in a three-dimensional chemotaxis-Stokes system with nonlinear diffusion and general sensitivity. Ann. Mat. Pura Appl. 201 (1) (2022) 243-288. [41] Q. Zhang, Y. Zhang, On the global well-posedness for the 2D incompressible Keller-Segel-Navier-Stokes equations. ZAMM-Z. Angew. Math. Me. 99 (11) (2019). [42] Y. Zeng, K. Zhao, Recent results for the logarithmic Keller-Segel-Fisher/KPP system. Bol. Soc. Parana. Mat. 38 (3) (2020) 37-48. [43] Q. Zhang, X.X. Zheng, Global well-posedness of axisymmetric solution to the 3D axisymmetric chemotaxis-Navier-Stokes equations with logistic source. J. Differ. Equ. 274 (2021) 576-612.
